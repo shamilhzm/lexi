@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Karteikasten — Bloomberg-terminal theme tokens.
+   @theme color tokens auto-generate Tailwind utilities
+   (bg-bg, text-amber, border-line, …). Dark by default.
+   ============================================================ */
+@theme {
+  --color-bg:      #0a0d12;   /* page */
+  --color-panel:   #11161e;   /* raised surface */
+  --color-panel2:  #0d1219;   /* sunken surface */
+  --color-line:    #1f2733;   /* hairline borders */
+  --color-txt:     #e9eff6;   /* primary text */
+  --color-dim:     #97a4b4;   /* secondary text (AA on panels) */
+  --color-amber:   #ffb000;   /* brand / accent / focus */
+  --color-amber2:  #ffcf66;
+  --color-green:   #16c784;   /* gains / mastered */
+  --color-green-d: #0b3b2c;
+  --color-red:     #ea3943;   /* losses / weak */
+  --color-red-d:   #3d1216;
+  --color-blue:    #3b82f6;
+
+  /* CEFR ink */
+  --color-a1: #3b82f6;
+  --color-a2: #0ea5e9;
+  --color-b1: #16c784;
+
+  --font-mono: "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+html, body { overflow-x: hidden; }
+body {
+  color: var(--color-txt);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  /* Trading-floor field: soft top glow + a faint dotted grid for depth. */
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(130% 80% at 50% -12%, #131a24 0%, rgba(10,13,18,0) 55%),
+    radial-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: auto, 24px 24px;
+  background-attachment: fixed;
+}
+
+/* Panel material — subtle top highlight + elevation, applied wherever the
+   bg-panel token is used (header, cards, KPIs). Low-churn global polish. */
+.bg-panel {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0) 38%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+}
+
+/* Live status dot */
+.live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); }
+.live-dot::after {
+  content: ''; position: absolute; inset: -3px; border-radius: 50%;
+  border: 1.5px solid var(--color-green); opacity: .6; animation: livepulse 1.8s ease-out infinite;
+}
+@keyframes livepulse { 0% { transform: scale(.7); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
+
+/* Treemap tile entrance */
+@keyframes tilein { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
+.tile-in { animation: tilein .42s cubic-bezier(.32,.72,0,1) both; }
+
+/* iOS safe areas (notch / Dynamic Island / home indicator) */
+.safe-top { padding-top: max(0.625rem, env(safe-area-inset-top)); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* thin terminal scrollbars */
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: #20293600; }
+*:hover::-webkit-scrollbar-thumb { background: #243042; border-radius: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* ticker marquee */
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-track { animation: ticker 42s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .tile-in, .live-dot::after { animation: none; }
+  .tile-in { opacity: 1; transform: none; }
+  * { scroll-behavior: auto; }
+}
+
+/* flashcard 3D flip */
+.flip { perspective: 1600px; }
+.flip-inner { position: relative; width: 100%; height: 100%; transition: transform .5s cubic-bezier(.32,.72,0,1); transform-style: preserve-3d; }
+.flip-inner.is-flipped { transform: rotateY(180deg); }
+.flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
+
+/* focus ring */
+:focus-visible { outline: 2px solid var(--color-amber); outline-offset: 2px; }

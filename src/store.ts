@@ -1,0 +1,282 @@
+// Local-first store: FSRS card state per word, persisted to localStorage.
+// Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
+// Adds a CEFR level filter and group/sector/all scoped stats + sessions.
+import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
+import { emptyCard, schedule, reviveCard, isDue, State, type Card, type Grade } from './srs.ts';
+import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
+import { ALL_LEVELS } from './types.ts';
+
+const CARDS_KEY = 'lexi.cards.v1';
+const VISITS_KEY = 'lexi.visits.v1';
+const LEVELS_KEY = 'lexi.levels.v1';
+const EXAM_KEY = 'lexi.exam.v1';
+const APIKEY_KEY = 'lexi.apikey.v1';
+const NEW_PER_DAY = 24;
+const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
+
+// ---- persistence ---------------------------------------------------------
+function loadRaw(): Record<string, any> {
+  try { return JSON.parse(localStorage.getItem(CARDS_KEY) || '{}'); } catch { return {}; }
+}
+const raw = loadRaw();
+const live = new Map<string, Card>();
+for (const id of Object.keys(raw)) {
+  try { live.set(id, reviveCard(raw[id])); } catch { /* skip corrupt */ }
+}
+
+let version = 0;
+const listeners = new Set<() => void>();
+function emit() { version++; listeners.forEach((l) => l()); }
+function persist() {
+  const obj: Record<string, Card> = {};
+  live.forEach((c, id) => (obj[id] = c));
+  try { localStorage.setItem(CARDS_KEY, JSON.stringify(obj)); } catch { /* quota */ }
+}
+export function subscribe(fn: () => void) { listeners.add(fn); return () => listeners.delete(fn); }
+export function getVersion() { return version; }
+
+// ---- CEFR level filter ---------------------------------------------------
+function loadLevels(): Set<CEFR> {
+  try {
+    const a = JSON.parse(localStorage.getItem(LEVELS_KEY) || 'null');
+    if (Array.isArray(a) && a.length) return new Set(a as CEFR[]);
+  } catch { /* */ }
+  return new Set(ALL_LEVELS);
+}
+let levelFilter = loadLevels();
+export function levels(): Set<CEFR> { return levelFilter; }
+export function toggleLevel(l: CEFR) {
+  const next = new Set(levelFilter);
+  if (next.has(l)) next.delete(l); else next.add(l);
+  if (next.size === 0) return; // never empty
+  setLevels(next);
+}
+/** Replace the whole CEFR filter (ignored if empty). */
+export function setLevels(next: Set<CEFR>) {
+  if (next.size === 0) return;
+  levelFilter = next;
+  try { localStorage.setItem(LEVELS_KEY, JSON.stringify([...next])); } catch { /* */ }
+  emit();
+}
+const inLevels = (w: Word) => levelFilter.has(w.level);
+
+// ---- card status ---------------------------------------------------------
+export type Status = 'new' | 'learning' | 'known';
+export function statusOf(id: string): Status {
+  const c = live.get(id);
+  if (!c || c.state === State.New) return 'new';
+  if (c.state === State.Review) return 'known';
+  return 'learning';
+}
+export function cardOf(id: string): Card | undefined { return live.get(id); }
+
+export function review(id: string, grade: Grade) {
+  const cur = live.get(id) ?? emptyCard();
+  live.set(id, schedule(cur, grade));
+  recordVisit();
+  persist();
+  emit();
+}
+
+// ---- pools & sessions ----------------------------------------------------
+function poolFor(target: Target): Word[] {
+  let pool: Word[];
+  if (target.kind === 'custom') {
+    // Explicit id list (briefing / mining). Preserve given order; honour levels.
+    pool = target.ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w);
+    return pool.filter(inLevels);
+  }
+  if (target.kind === 'sector') pool = WORDS_BY_SECTOR.get(target.name) ?? [];
+  else if (target.kind === 'group') pool = WORDS.filter((w) => SECTOR_GROUP.get(w.field) === target.name);
+  else pool = WORDS;
+  return pool.filter(inLevels);
+}
+
+/** Build a study queue: due reviews first (oldest due), then fresh cards. */
+export function buildSession(target: Target, maxNew = NEW_PER_DAY): Word[] {
+  const pool = poolFor(target);
+  const now = Date.now();
+  const dueReview: { w: Word; due: number }[] = [];
+  const fresh: Word[] = [];
+  for (const w of pool) {
+    const c = live.get(w.id);
+    if (!c || c.state === State.New) { fresh.push(w); continue; }
+    if (isDue(c, now)) dueReview.push({ w, due: new Date(c.due).getTime() });
+  }
+  dueReview.sort((a, b) => a.due - b.due);
+  // Custom sessions are pre-curated — play them whole, in order.
+  if (target.kind === 'custom') return pool;
+  const cap = target.kind === 'all' ? maxNew : maxNew * 2;
+  return [...dueReview.map((d) => d.w), ...fresh.slice(0, cap)];
+}
+
+// ---- daily briefing ------------------------------------------------------
+export interface Briefing {
+  ids: string[];        // the assembled queue (due first, then fresh)
+  due: number;          // count of due reviews included
+  fresh: number;        // count of new cards included
+  weakSectors: string[];// sectors the fresh cards were drawn from
+}
+
+/** Sectors with the most room to grow: lowest coverage first, then most due. */
+export function weakestSectors(n = 4): SectorStat[] {
+  return sectorStats()
+    .filter((s) => s.newCount > 0 || s.due > 0)
+    .sort((a, b) => (a.coverage - b.coverage) || (b.due - a.due))
+    .slice(0, n);
+}
+
+/**
+ * Assemble the "markets open" session: every due review, topped up with fresh
+ * cards from the weakest sectors to a streak-safe minimum (capped per day).
+ */
+export function buildBriefing(): Briefing {
+  const now = Date.now();
+  const inScope = WORDS.filter(inLevels);
+  const dueReview: { id: string; due: number }[] = [];
+  for (const w of inScope) {
+    const c = live.get(w.id);
+    if (!c || c.state === State.New) continue;
+    if (isDue(c, now)) dueReview.push({ id: w.id, due: new Date(c.due).getTime() });
+  }
+  dueReview.sort((a, b) => a.due - b.due);
+
+  const want = Math.min(NEW_PER_DAY, Math.max(0, MIN_DAILY - dueReview.length));
+  const freshIds: string[] = [];
+  const weak: string[] = [];
+  for (const s of weakestSectors(6)) {
+    if (freshIds.length >= want) break;
+    const newCards = (WORDS_BY_SECTOR.get(s.name) ?? [])
+      .filter((w) => inLevels(w) && statusOf(w.id) === 'new');
+    if (newCards.length === 0) continue;
+    weak.push(s.name);
+    for (const w of newCards) {
+      if (freshIds.length >= want) break;
+      freshIds.push(w.id);
+    }
+  }
+  return {
+    ids: [...dueReview.map((d) => d.id), ...freshIds],
+    due: dueReview.length,
+    fresh: freshIds.length,
+    weakSectors: weak,
+  };
+}
+
+// ---- user words (mined / enriched) ---------------------------------------
+function persistUserWords() {
+  const mine = WORDS.filter((w) => w.id.startsWith('usr:'));
+  try { localStorage.setItem(USER_WORDS_KEY, JSON.stringify(mine)); } catch { /* quota */ }
+}
+
+/** Add learner-supplied words to the lexicon, persist them, and notify. */
+export function addUserWords(words: Word[]): Word[] {
+  const added = registerWords(words);
+  if (added.length) { persistUserWords(); emit(); }
+  return added;
+}
+
+// ---- settings: exam date & enrichment API key ----------------------------
+export function examDate(): string | null { return localStorage.getItem(EXAM_KEY); }
+export function setExamDate(iso: string | null) {
+  if (iso) localStorage.setItem(EXAM_KEY, iso); else localStorage.removeItem(EXAM_KEY);
+  emit();
+}
+/** Whole days from today until the exam (negative if past). null if unset. */
+export function daysToExam(): number | null {
+  const d = examDate();
+  if (!d) return null;
+  const ms = new Date(d + 'T00:00:00').getTime() - new Date(todayKey() + 'T00:00:00').getTime();
+  return Math.round(ms / 86_400_000);
+}
+export function apiKey(): string { return localStorage.getItem(APIKEY_KEY) || ''; }
+export function setApiKey(k: string) {
+  if (k) localStorage.setItem(APIKEY_KEY, k); else localStorage.removeItem(APIKEY_KEY);
+  emit();
+}
+
+// ---- stats ---------------------------------------------------------------
+interface Counts { count: number; learned: number; known: number; due: number; newCount: number; }
+function countsFor(words: Word[]): Counts {
+  const now = Date.now();
+  let learned = 0, known = 0, due = 0, newCount = 0;
+  for (const w of words) {
+    const c = live.get(w.id);
+    if (!c || c.state === State.New) { newCount++; continue; }
+    learned++;
+    if (c.state === State.Review) known++;
+    if (isDue(c, now)) due++;
+  }
+  return { count: words.length, learned, known, due, newCount };
+}
+
+export function groupStats(): GroupStat[] {
+  const out: GroupStat[] = [];
+  for (const group of GROUP_SECTORS.keys()) {
+    const words = WORDS.filter((w) => SECTOR_GROUP.get(w.field) === group && inLevels(w));
+    if (words.length === 0) continue;
+    const c = countsFor(words);
+    const sectors = new Set(words.map((w) => w.field)).size;
+    out.push({ name: group, ...c, coverage: c.count ? c.learned / c.count : 0, sectors });
+  }
+  return out.sort((a, b) => b.count - a.count);
+}
+
+export function sectorStats(group?: string): SectorStat[] {
+  return SECTORS
+    .filter((s) => !group || s.group === group)
+    .map((s) => {
+      const words = (WORDS_BY_SECTOR.get(s.name) ?? []).filter(inLevels);
+      const c = countsFor(words);
+      return { name: s.name, group: s.group, levels: s.levels, ...c,
+        coverage: c.count ? c.learned / c.count : 0 };
+    })
+    .filter((s) => s.count > 0)
+    .sort((a, b) => b.count - a.count);
+}
+
+export function totals(): Counts & { coverage: number } {
+  const c = countsFor(WORDS.filter(inLevels));
+  return { ...c, coverage: c.count ? c.learned / c.count : 0 };
+}
+
+/** Per-CEFR-level progress across the WHOLE lexicon (ignores the active filter). */
+export interface LevelStat extends Counts { level: CEFR; coverage: number; }
+export function levelStats(): LevelStat[] {
+  return ALL_LEVELS.map((level) => {
+    const c = countsFor(WORDS.filter((w) => w.level === level));
+    return { level, ...c, coverage: c.count ? c.learned / c.count : 0 };
+  });
+}
+
+// ---- placement -----------------------------------------------------------
+const PLACEMENT_KEY = 'lexi.placement.v1';
+export function placementLevel(): CEFR | null {
+  const v = localStorage.getItem(PLACEMENT_KEY);
+  return (v && (ALL_LEVELS as string[]).includes(v)) ? (v as CEFR) : null;
+}
+export function setPlacementLevel(l: CEFR | null) {
+  if (l) localStorage.setItem(PLACEMENT_KEY, l); else localStorage.removeItem(PLACEMENT_KEY);
+  emit();
+}
+
+// ---- visits / streak -----------------------------------------------------
+function loadVisits(): string[] {
+  try { return JSON.parse(localStorage.getItem(VISITS_KEY) || '[]'); } catch { return []; }
+}
+function todayKey(d = new Date()) { return d.toISOString().slice(0, 10); }
+
+export function recordVisit() {
+  const v = loadVisits();
+  const t = todayKey();
+  if (!v.includes(t)) { v.push(t); try { localStorage.setItem(VISITS_KEY, JSON.stringify(v)); } catch { /* */ } }
+}
+
+export function streak(): number {
+  const set = new Set(loadVisits());
+  let n = 0;
+  const d = new Date();
+  if (!set.has(todayKey(d))) d.setDate(d.getDate() - 1);
+  while (set.has(todayKey(d))) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
