@@ -6,7 +6,7 @@ import { Volume2, ArrowLeft, Check } from 'lucide-react';
 import { buildSession, review, cardOf, levels } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { emptyCard, previewInterval, Rating, type Grade } from '../srs.ts';
-import { speakDe } from '../lib/ui.ts';
+import { speak } from '../lib/tts.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
 import type { Word, Target } from '../types.ts';
 
@@ -81,7 +81,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
                 </span>
                 {card.ipa && <span className="font-mono text-[13px] text-dim">/{card.ipa}/</span>}
                 {!grammar && (
-                  <button onClick={(e) => { e.stopPropagation(); speakDe(card.term); }}
+                  <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-amber hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
                   </button>

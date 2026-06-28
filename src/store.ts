@@ -195,6 +195,36 @@ export function setApiKey(k: string) {
   emit();
 }
 
+// ---- AI provider (OpenAI-compatible: base URL + model + key) --------------
+const AI_BASE_KEY = 'lexi.ai.base.v1';
+const AI_MODEL_KEY = 'lexi.ai.model.v1';
+// Default to OpenRouter's free, non-Chinese Llama model.
+const DEFAULT_BASE = 'https://openrouter.ai/api/v1';
+const DEFAULT_MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
+
+export interface AiConfig { baseUrl: string; model: string; key: string; }
+export function aiConfig(): AiConfig {
+  return {
+    baseUrl: localStorage.getItem(AI_BASE_KEY) || DEFAULT_BASE,
+    model: localStorage.getItem(AI_MODEL_KEY) || DEFAULT_MODEL,
+    key: apiKey(),
+  };
+}
+export function setAiConfig(c: Partial<AiConfig>) {
+  if (c.baseUrl !== undefined) localStorage.setItem(AI_BASE_KEY, c.baseUrl || DEFAULT_BASE);
+  if (c.model !== undefined) localStorage.setItem(AI_MODEL_KEY, c.model || DEFAULT_MODEL);
+  if (c.key !== undefined) setApiKey(c.key);
+  else emit();
+}
+
+// ---- HD voice (Piper Thorsten, in-browser) -------------------------------
+const HDVOICE_KEY = 'lexi.hdvoice.v1';
+export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }
+export function setHdVoice(on: boolean) {
+  if (on) localStorage.setItem(HDVOICE_KEY, '1'); else localStorage.removeItem(HDVOICE_KEY);
+  emit();
+}
+
 // ---- stats ---------------------------------------------------------------
 interface Counts { count: number; learned: number; known: number; due: number; newCount: number; }
 function countsFor(words: Word[]): Counts {

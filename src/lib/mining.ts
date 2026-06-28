@@ -61,27 +61,28 @@ export interface Enriched {
   ipa: string | null; example_de: string; example_en: string;
 }
 
-const ENDPOINT = 'https://api.openai.com/v1/chat/completions';
-const MODEL = 'gpt-4o-mini';
+export interface AiConfig { baseUrl: string; model: string; key: string; }
 
-/** Enrich out-of-lexicon words into Word cards via an OpenAI-compatible API. */
-export async function enrich(tokens: string[], apiKey: string): Promise<Word[]> {
-  const prompt = `For each German word below, return a JSON array. Each item: {"input": the word as given, "term": dictionary form (nouns include article der/die/das), "en": short English gloss, "pos": one of noun|verb|adjective|adverb|other, "level": CEFR A1-C2 estimate, "gender": der|die|das or null, "plural": plural form with article or null, "ipa": IPA without slashes or null, "example_de": one short example sentence, "example_en": its English translation}. Return ONLY the JSON array.\n\nWords:\n${tokens.join('\n')}`;
+/** Enrich out-of-lexicon words into Word cards via any OpenAI-compatible API. */
+export async function enrich(tokens: string[], cfg: AiConfig): Promise<Word[]> {
+  const prompt = `For each German word below, return ONLY a JSON array (no prose, no code fences). Each item: {"input": the word as given, "term": dictionary form (nouns include article der/die/das), "en": short English gloss, "pos": one of noun|verb|adjective|adverb|other, "level": CEFR A1-C2 estimate, "gender": der|die|das or null, "plural": plural form with article or null, "ipa": IPA without slashes or null, "example_de": one short example sentence, "example_en": its English translation}.\n\nWords:\n${tokens.join('\n')}`;
 
-  const res = await fetch(ENDPOINT, {
+  const url = cfg.baseUrl.replace(/\/$/, '') + '/chat/completions';
+  const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${cfg.key}` },
     body: JSON.stringify({
-      model: MODEL,
+      model: cfg.model,
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.2,
-      response_format: { type: 'json_object' },
     }),
   });
   if (!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0, 200)}`);
   const data = await res.json();
-  const content: string = data.choices?.[0]?.message?.content ?? '[]';
-  const parsed = JSON.parse(content);
+  let content: string = data.choices?.[0]?.message?.content ?? '[]';
+  content = content.replace(/```json\s*|\s*```/g, '').trim();           // strip code fences
+  const slice = content.slice(content.indexOf('['), content.lastIndexOf(']') + 1) || content;
+  const parsed = JSON.parse(slice);
   const arr: any[] = Array.isArray(parsed) ? parsed : (parsed.words ?? parsed.items ?? parsed.result ?? []);
 
   return arr.map((e): Word => ({

@@ -4,7 +4,7 @@
 import { useState, useRef } from 'react';
 import { Sparkles, Play, KeyRound, Loader2, Check, ScanText } from 'lucide-react';
 import { analyze, enrich, resetMiningIndex, type Analysis } from '../lib/mining.ts';
-import { statusOf, addUserWords, apiKey, setApiKey } from '../store.ts';
+import { statusOf, addUserWords, apiKey, setApiKey, aiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 import type { Target, Word } from '../types.ts';
@@ -64,7 +64,7 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
   const doEnrich = async () => {
     setEnriching(true); setErr('');
     try {
-      const words: Word[] = await enrich(a.unknown.slice(0, 40), apiKey());
+      const words: Word[] = await enrich(a.unknown.slice(0, 40), aiConfig());
       const added = addUserWords(words);
       resetMiningIndex();
       setAddedCount(added.length);
@@ -137,7 +137,7 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
 
           {showKey && (
             <div className="mt-3 bg-panel2 border border-line rounded-lg p-3">
-              <label className="text-[12px] text-dim block mb-1.5">OpenAI API key — stored only on this device, used only for enrichment.</label>
+              <label className="text-[12px] text-dim block mb-1.5">API key (OpenRouter by default) — stored only on this device. Change provider/model in Settings.</label>
               <div className="flex items-center gap-2">
                 <input type="password" value={keyDraft} onChange={(e) => setKeyDraft(e.target.value)} placeholder="sk-…"
                   className="flex-1 bg-panel border border-line rounded-md px-2.5 py-1.5 text-[13px] font-mono outline-none focus:border-amber" />

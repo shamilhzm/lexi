@@ -6,7 +6,7 @@ import { Volume2 } from 'lucide-react';
 import { WORDS_BY_SECTOR, SECTORS } from '../data/index.ts';
 import { statusOf } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { speakDe } from '../lib/ui.ts';
+import { speak } from '../lib/tts.ts';
 import type { Target } from '../types.ts';
 
 const STATUS_COLOR: Record<string, string> = { new: '#5b6573', learning: '#ffb000', known: '#16c784' };
@@ -70,7 +70,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
           const st = statusOf(n.w.id);
           const on = active === n.w.id;
           return (
-            <g key={n.w.id} style={{ cursor: 'pointer' }} onClick={() => { setActive(n.w.id); speakDe(n.w.term); }}>
+            <g key={n.w.id} style={{ cursor: 'pointer' }} onClick={() => { setActive(n.w.id); speak(n.w.term); }}>
               <circle cx={n.x} cy={n.y} r={n.r} fill="#0d1219" stroke={STATUS_COLOR[st]} strokeWidth={on ? 2.5 : 1.4} />
               <text x={n.x} y={n.y - 1} textAnchor="middle" fill="#e6edf3" fontSize={9.5}>{short(n.w.term)}</text>
               <text x={n.x} y={n.y + 10} textAnchor="middle" fill="#8b97a7" fontSize={8}>{n.w.en.split(/[,;]/)[0].slice(0, 12)}</text>

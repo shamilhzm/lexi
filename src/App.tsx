@@ -3,7 +3,7 @@
 // review), Decks (sectors), Wortkarte (semantic map). Dark Bloomberg aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog } from 'lucide-react';
+import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog, Settings as SettingsIcon } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Markt from './views/Markt.tsx';
 import Review from './views/Review.tsx';
@@ -14,12 +14,13 @@ import Mining from './views/Mining.tsx';
 import Gym from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
 import Galaxy from './views/Galaxy.tsx';
+import Settings from './views/Settings.tsx';
 import { recordVisit, totals } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'markt' | 'review' | 'decks' | 'karte' | 'mining' | 'gym' | 'placement' | 'galaxy';
+export type View = 'today' | 'markt' | 'review' | 'decks' | 'karte' | 'mining' | 'gym' | 'placement' | 'galaxy' | 'settings';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
@@ -81,6 +82,10 @@ export default function App() {
           })}
         </nav>
         <div className="flex-1" />
+        <button onClick={() => setView('settings')}
+          className={`grid place-items-center w-8 h-8 rounded-md transition-colors ${view === 'settings' ? 'text-amber bg-panel2' : 'text-dim hover:text-txt hover:bg-panel2'}`} title="Settings">
+          <SettingsIcon size={15} />
+        </button>
         <a href="https://opencollective.com" target="_blank" rel="noreferrer"
           className="hidden sm:flex items-center gap-1.5 text-[11px] text-dim hover:text-amber border border-line rounded-full px-2.5 py-1 transition-colors" title="Lexi is free & open-source — support it">
           <Heart size={12} /> Donate
@@ -98,6 +103,7 @@ export default function App() {
             className="max-w-[1280px] mx-auto px-3 sm:px-4 py-4 safe-bottom">
             {view === 'today' && <Today onStart={study} onStudySector={(s) => study({ kind: 'sector', name: s })} onPlacement={() => setView('placement')} />}
             {view === 'placement' && <Placement onDone={() => setView('today')} />}
+            {view === 'settings' && <Settings />}
             {view === 'mining' && <Mining onStudy={study} />}
             {view === 'gym' && <Gym />}
             {view === 'markt' && <Markt onOpenGroup={openGroup} onStudyGroup={(g) => study({ kind: 'group', name: g })} onStudyAll={() => study(ALL)} />}
