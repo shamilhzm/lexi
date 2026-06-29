@@ -38,13 +38,13 @@ function Logo() {
   );
 }
 
-type NavItem = { id: View; label: string; icon: any };
+type NavItem = { id: View; label: string; icon: any; short?: string };
 const PRIMARY: NavItem[] = [
   { id: 'today', label: 'Today', icon: Sunrise },
   { id: 'markt', label: 'Market', icon: LayoutGrid },
   { id: 'review', label: 'Study', icon: GraduationCap },
   { id: 'gym', label: 'Gym', icon: Cog },
-  { id: 'galaxy', label: 'Word Map', icon: Network },
+  { id: 'galaxy', label: 'Word Map', icon: Network, short: 'Map' },
 ];
 const MORE: NavItem[] = [
   { id: 'mining', label: 'Mine', icon: ScanText },
@@ -79,7 +79,7 @@ export default function App() {
     <div className="flex flex-col h-[100dvh] w-screen overflow-hidden">
       <header className="safe-top flex items-center gap-2 sm:gap-3.5 px-3 sm:px-4 pb-2.5 bg-panel border-b border-line flex-shrink-0">
         <Logo />
-        <nav className="flex gap-1 ml-2">
+        <nav className="hidden sm:flex gap-1 ml-2">
           {PRIMARY.map((n) => {
             const active = view === n.id;
             return (
@@ -148,6 +148,39 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+
+      {/* Mobile bottom tab bar */}
+      <nav className="sm:hidden flex items-stretch border-t border-line bg-panel safe-bottom flex-shrink-0">
+        {PRIMARY.map((n) => {
+          const active = view === n.id;
+          return (
+            <button key={n.id} onClick={() => go(n.id)}
+              className={`flex-1 flex flex-col items-center gap-0.5 py-2 text-[10px] transition-colors ${active ? 'text-amber' : 'text-dim'}`}>
+              <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} />
+              {n.short ?? n.label}
+            </button>
+          );
+        })}
+        <div className="relative flex-1">
+          <button onClick={() => setMoreOpen((o) => !o)}
+            className={`w-full flex flex-col items-center gap-0.5 py-2 text-[10px] transition-colors ${MORE.some((m) => m.id === view) || moreOpen ? 'text-amber' : 'text-dim'}`}>
+            <MoreHorizontal size={19} /> More
+          </button>
+          {moreOpen && (
+            <>
+              <div className="fixed inset-0 z-30" onClick={() => setMoreOpen(false)} />
+              <div className="absolute bottom-full right-1 mb-1.5 z-40 bg-panel border border-line rounded-lg shadow-2xl py-1 w-44">
+                {MORE.map((m) => (
+                  <button key={m.id} onClick={() => go(m.id)}
+                    className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-[13px] text-left transition-colors ${view === m.id ? 'text-amber' : 'text-txt hover:bg-panel2'}`}>
+                    <m.icon size={15} /> {m.label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </nav>
     </div>
   );
 }
