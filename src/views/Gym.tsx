@@ -203,7 +203,7 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
           return (
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
-              className={`rounded-[10px] py-3 px-4 border text-[16px] text-center transition-colors ${
+              className={`rounded-[10px] py-3.5 px-4 border text-[17px] text-center transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
                 : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
@@ -267,7 +267,7 @@ function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => vo
 }
 
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="bg-panel border border-line rounded-[14px] p-5 sm:p-7">{children}</div>;
+  return <div className="bg-card border border-line rounded-[16px] p-6 sm:p-8">{children}</div>;
 }
 function Prompt({ children, small, big = true }: { children: React.ReactNode; small?: string; big?: boolean }) {
   return (

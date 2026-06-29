@@ -70,32 +70,32 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
         </div>
 
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
-          <div className="flip w-full max-w-[560px] h-[280px] sm:h-[300px] cursor-pointer" onClick={flip}>
+          <div className="flip w-full max-w-[580px] h-[300px] sm:h-[340px] cursor-pointer" onClick={flip}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT */}
-              <div className="flip-face border border-line rounded-2xl bg-panel2 flex flex-col items-center justify-center gap-3 p-5 sm:p-6 text-center">
+              <div className="flip-face border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center">
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}</span>
-                <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[26px]' : 'text-[30px] sm:text-[40px]'}`}>
+                <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[22px] sm:text-[28px]' : 'text-[34px] sm:text-[46px]'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
-                {card.ipa && <span className="font-mono text-[13px] text-dim">/{card.ipa}/</span>}
+                {card.ipa && <span className="font-mono text-[14px] text-dim">/{card.ipa}/</span>}
                 {!grammar && (
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-amber hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span className="text-dim italic text-[13px] sm:text-[14px] max-w-[88%]">{card.ex[0].de}</span>}
+                {card.ex[0] && <span className="text-dim italic text-[15px] sm:text-[16px] leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
               </div>
               {/* BACK */}
-              <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-2.5 p-5 sm:p-6 text-center"
+              <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center"
                    style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Rule' : 'Translation'}</span>
-                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[18px] sm:text-[20px]' : 'text-[26px] sm:text-[34px]'}`}>{card.en}</span>
-                {card.def && <span className="text-dim text-[13px] max-w-[88%]">{card.def}</span>}
-                {!grammar && card.ex[0] && <span className="text-dim italic text-[13px] max-w-[85%]">„{card.ex[0].en || card.ex[0].de}“</span>}
-                {card.syn.length > 0 && <span className="text-[12px] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
+                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[22px]' : 'text-[28px] sm:text-[38px]'}`}>{card.en}</span>
+                {card.def && <span className="text-txt text-[15px] leading-relaxed max-w-[90%]">{card.def}</span>}
+                {!grammar && card.ex[0] && <span className="text-dim italic text-[14px] leading-relaxed max-w-[88%]">„{card.ex[0].en || card.ex[0].de}“</span>}
+                {card.syn.length > 0 && <span className="text-[13px] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
               </div>
             </div>
           </div>
@@ -136,9 +136,9 @@ function Sidebar({ word, done, left }: { word: Word; done: number; left: number 
       <Stat k="Remaining" v={`${left}`} />
       <Stat k="Sector" v={word.field} />
       {word.ex.length > 0 && <div className="px-4 py-3 border-y border-line"><h2 className="text-[14px] font-semibold">Examples</h2></div>}
-      <div className="px-4 py-3 space-y-2.5">
+      <div className="px-4 py-3 space-y-3">
         {word.ex.slice(0, 3).map((e, k) => (
-          <div key={k} className="text-[12.5px]">
+          <div key={k} className="text-[13.5px] leading-relaxed">
             <div className="text-txt">{e.de}</div>
             {e.en && <div className="text-dim italic">{e.en}</div>}
           </div>

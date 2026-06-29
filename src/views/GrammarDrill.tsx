@@ -63,7 +63,7 @@ function Item({ item, onGrade }: { item: GItem; onGrade: (ok: boolean) => void }
 }
 
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="bg-panel border border-line rounded-[14px] p-5 sm:p-7">{children}</div>;
+  return <div className="bg-card border border-line rounded-[16px] p-6 sm:p-8">{children}</div>;
 }
 function Explain({ text, ok, answer }: { text?: string; ok: boolean; answer?: string }) {
   return (
@@ -90,7 +90,7 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
           const state = picked === null ? 'idle' : idx === correct ? 'right' : idx === picked ? 'wrong' : 'idle';
           return (
             <button key={idx} onClick={() => choose(idx)} disabled={picked !== null}
-              className={`rounded-[10px] py-3 px-4 border text-[15px] text-left transition-colors ${
+              className={`rounded-[10px] py-3.5 px-4 border text-[16px] text-left transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
                 : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
