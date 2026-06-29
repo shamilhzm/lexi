@@ -3,6 +3,7 @@
 // lexicon you haven't learned yet, and words not in the lexicon at all. The last
 // group can be auto-enriched into user cards via an optional LLM API key.
 import { WORDS } from '../data/index.ts';
+import { chat, parseLooseJSON, type AiConfig } from './ai.ts';
 import type { Word, CEFR } from '../types.ts';
 
 const stripArticle = (term: string) => term.replace(/^(der|die|das)\s+/i, '');
@@ -61,28 +62,14 @@ export interface Enriched {
   ipa: string | null; example_de: string; example_en: string;
 }
 
-export interface AiConfig { baseUrl: string; model: string; key: string; }
+export type { AiConfig } from './ai.ts';
 
 /** Enrich out-of-lexicon words into Word cards via any OpenAI-compatible API. */
 export async function enrich(tokens: string[], cfg: AiConfig): Promise<Word[]> {
   const prompt = `For each German word below, return ONLY a JSON array (no prose, no code fences). Each item: {"input": the word as given, "term": dictionary form (nouns include article der/die/das), "en": short English gloss, "pos": one of noun|verb|adjective|adverb|other, "level": CEFR A1-C2 estimate, "gender": der|die|das or null, "plural": plural form with article or null, "ipa": IPA without slashes or null, "example_de": one short example sentence, "example_en": its English translation}.\n\nWords:\n${tokens.join('\n')}`;
 
-  const url = cfg.baseUrl.replace(/\/$/, '') + '/chat/completions';
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${cfg.key}` },
-    body: JSON.stringify({
-      model: cfg.model,
-      messages: [{ role: 'user', content: prompt }],
-      temperature: 0.2,
-    }),
-  });
-  if (!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0, 200)}`);
-  const data = await res.json();
-  let content: string = data.choices?.[0]?.message?.content ?? '[]';
-  content = content.replace(/```json\s*|\s*```/g, '').trim();           // strip code fences
-  const slice = content.slice(content.indexOf('['), content.lastIndexOf(']') + 1) || content;
-  const parsed = JSON.parse(slice);
+  const content = await chat([{ role: 'user', content: prompt }], cfg, { temperature: 0.2 });
+  const parsed = parseLooseJSON(content);
   const arr: any[] = Array.isArray(parsed) ? parsed : (parsed.words ?? parsed.items ?? parsed.result ?? []);
 
   return arr.map((e): Word => ({

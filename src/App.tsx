@@ -3,7 +3,7 @@
 // review), Decks (sectors), Wortkarte (semantic map). Dark Bloomberg aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog, Settings as SettingsIcon, TrendingDown, MoreHorizontal } from 'lucide-react';
+import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Markt from './views/Markt.tsx';
 import Review from './views/Review.tsx';
@@ -16,13 +16,14 @@ import Placement from './views/Placement.tsx';
 import Galaxy from './views/Galaxy.tsx';
 import Settings from './views/Settings.tsx';
 import BlindSpots from './views/BlindSpots.tsx';
+import Tutor from './views/Tutor.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, totals } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'markt' | 'review' | 'decks' | 'karte' | 'mining' | 'gym' | 'placement' | 'galaxy' | 'settings' | 'blindspots';
+export type View = 'today' | 'markt' | 'review' | 'decks' | 'karte' | 'mining' | 'gym' | 'placement' | 'galaxy' | 'settings' | 'blindspots' | 'tutor';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
@@ -47,6 +48,7 @@ const PRIMARY: NavItem[] = [
   { id: 'galaxy', label: 'Word Map', icon: Network, short: 'Map' },
 ];
 const MORE: NavItem[] = [
+  { id: 'tutor', label: 'AI Tutor', icon: MessagesSquare },
   { id: 'mining', label: 'Mine', icon: ScanText },
   { id: 'decks', label: 'Decks', icon: Layers },
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
@@ -137,6 +139,7 @@ export default function App() {
             {view === 'placement' && <Placement onDone={() => setView('today')} />}
             {view === 'settings' && <Settings />}
             {view === 'blindspots' && <BlindSpots onDrill={() => setView('gym')} />}
+            {view === 'tutor' && <Tutor onOpenSettings={() => setView('settings')} />}
             {view === 'mining' && <Mining onStudy={study} />}
             {view === 'gym' && <Gym />}
             {view === 'markt' && <Markt onOpenGroup={openGroup} onStudyGroup={(g) => study({ kind: 'group', name: g })} onStudyAll={() => study(ALL)} />}
