@@ -37,9 +37,11 @@ export async function ensureHdVoice(onProgress?: (fraction: number) => void): Pr
 }
 
 let current: HTMLAudioElement | null = null;
-async function speakHd(text: string): Promise<void> {
+/** Synthesize and play with Piper. Throws (with a useful message) on failure. */
+export async function speakHd(text: string): Promise<void> {
   const tts = await load();
   const wav: Blob = await tts.predict({ text, voiceId: HD_VOICE_ID });
+  if (!(wav instanceof Blob) || wav.size === 0) throw new Error('Voice engine returned no audio.');
   const url = URL.createObjectURL(wav);
   current?.pause();
   const audio = new Audio(url);

@@ -217,6 +217,34 @@ export function setAiConfig(c: Partial<AiConfig>) {
   else emit();
 }
 
+// ---- blind spots (structural error log) ----------------------------------
+const MISS_KEY = 'lexi.miss.v1';
+export interface MissEvent { tag: string; at: number; }
+function loadMisses(): MissEvent[] {
+  try { const a = JSON.parse(localStorage.getItem(MISS_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; }
+}
+let misses = loadMisses();
+/** Record a wrong answer under a structural tag (grammar point, drill type…). */
+export function logMiss(tag: string) {
+  misses.push({ tag, at: Date.now() });
+  if (misses.length > 800) misses = misses.slice(-800);
+  try { localStorage.setItem(MISS_KEY, JSON.stringify(misses)); } catch { /* */ }
+  emit();
+}
+/** Top recurring weaknesses within the last `days`, most frequent first. */
+export function missStats(days = 30): { tag: string; count: number; last: number }[] {
+  const since = Date.now() - days * 86_400_000;
+  const m = new Map<string, { count: number; last: number }>();
+  for (const e of misses) {
+    if (e.at < since) continue;
+    const cur = m.get(e.tag) ?? { count: 0, last: 0 };
+    cur.count++; cur.last = Math.max(cur.last, e.at);
+    m.set(e.tag, cur);
+  }
+  return [...m.entries()].map(([tag, v]) => ({ tag, ...v })).sort((a, b) => b.count - a.count);
+}
+export function missTotal(days = 30): number { return missStats(days).reduce((a, s) => a + s.count, 0); }
+
 // ---- HD voice (Piper Thorsten, in-browser) -------------------------------
 const HDVOICE_KEY = 'lexi.hdvoice.v1';
 export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }

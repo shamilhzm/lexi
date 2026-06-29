@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Volume2, Cpu, Check, Loader2, Download } from 'lucide-react';
 import { hdVoice, setHdVoice, aiConfig, setAiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { ensureHdVoice, speak } from '../lib/tts.ts';
+import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
 
 const PRESETS: Record<string, { baseUrl: string; model: string; note: string }> = {
   'OpenRouter (free)': { baseUrl: 'https://openrouter.ai/api/v1', model: 'meta-llama/llama-3.3-70b-instruct:free', note: 'Free Llama 3.3 70B · one key, no card. Recommended start.' },
@@ -36,10 +36,11 @@ export default function Settings() {
     setHdErr(''); setDl(0);
     try {
       await ensureHdVoice((f) => setDl(Math.round(f * 100)));
+      // Only turn it on if synthesis actually works on this device.
+      await speakHd('Hallo! Das ist die neue deutsche Stimme.');
       setHdVoice(true); setDl(null);
-      speak('Hallo! Das ist die neue deutsche Stimme.');
     } catch (e: any) {
-      setHdErr(e?.message || 'Could not load the voice. Check your connection.'); setDl(null);
+      setHdErr(e?.message || 'Could not start the voice on this device.'); setDl(null);
     }
   };
 

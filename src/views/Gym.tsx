@@ -5,13 +5,14 @@
 // gym schedules itself without touching the vocabulary stats.
 import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, Check, X, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft } from 'lucide-react';
+import { ArrowLeft, Check, X, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, review, levels } from '../store.ts';
+import { cardOf, review, levels, logMiss } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
+import GrammarDrill from './GrammarDrill.tsx';
 import type { Word } from '../types.ts';
 
 type Mode = 'gender' | 'plural' | 'conj' | 'cloze';
@@ -32,6 +33,9 @@ const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && 
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 const id = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
+const MODE_TAG: Record<Mode, string> = {
+  gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
+};
 
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
@@ -55,12 +59,13 @@ const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
 ];
 
 export default function Gym() {
-  const [mode, setMode] = useState<Mode | null>(null);
+  const [mode, setMode] = useState<Mode | 'grammar' | null>(null);
+  if (mode === 'grammar') return <GrammarDrill onExit={() => setMode(null)} />;
   if (mode) return <Drill mode={mode} onExit={() => setMode(null)} />;
   return <Landing onPick={setMode} />;
 }
 
-function Landing({ onPick }: { onPick: (m: Mode) => void }) {
+function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
   useStore();
   const counts = useMemo(() => ({
     gender: genderPool().length, plural: pluralPool().length, conj: conjPool().length, cloze: clozePool().length,
@@ -84,6 +89,14 @@ function Landing({ onPick }: { onPick: (m: Mode) => void }) {
             <p className="text-[11px] text-dim mt-2 font-mono">{counts[m].toLocaleString('de-DE')} items</p>
           </button>
         ))}
+        <button onClick={() => onPick('grammar')}
+          className="bg-panel border border-line rounded-[12px] p-4 text-left hover:border-amber transition-colors sm:col-span-2">
+          <div className="flex items-center gap-2.5 mb-1.5">
+            <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber"><BookOpen size={18} /></span>
+            <span className="font-semibold text-[15px]">Grammar exercises</span>
+          </div>
+          <p className="text-dim text-[12.5px]">74 points · 444 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
+        </button>
       </div>
     </div>
   );
@@ -101,6 +114,7 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
   const advance = useCallback((ok: boolean) => {
     if (!word) return;
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
+    if (!ok) logMiss(MODE_TAG[mode]);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);
 
