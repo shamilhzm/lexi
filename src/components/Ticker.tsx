@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { groupStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 
-export default function Ticker() {
+export default function Ticker({ onPick }: { onPick: (group: string) => void }) {
   const v = useStore();
   const items = useMemo(() => {
     return groupStats().map((s) => {
@@ -13,14 +13,15 @@ export default function Ticker() {
       const cls = chg > 4 ? 'text-green' : chg < -4 ? 'text-red' : 'text-amber';
       const arr = chg >= 0 ? '▲' : '▼';
       const sym = s.name.replace(/[^A-Za-zÄÖÜäöü ]/g, '').split(' ')[0].toUpperCase().slice(0, 6);
-      return { key: s.name, sym, pctVal, cls, arr, mag: Math.abs(chg) };
+      return { key: s.name, name: s.name, sym, pctVal, cls, arr, mag: Math.abs(chg) };
     });
   }, [v]);
 
   const row = (dupe: boolean) => items.map((it) => (
-    <span key={(dupe ? 'b' : 'a') + it.key} className="text-dim">
+    <button key={(dupe ? 'b' : 'a') + it.key} onClick={() => onPick(it.name)}
+      title={`Study ${it.name}`} className="text-dim hover:text-amber transition-colors cursor-pointer">
       <b className="text-txt">{it.sym}</b> {it.pctVal}% <span className={it.cls}>{it.arr}{it.mag}</span>
-    </span>
+    </button>
   ));
 
   return (

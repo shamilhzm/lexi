@@ -10,8 +10,8 @@
   --color-panel:   #11161e;   /* raised surface */
   --color-panel2:  #0d1219;   /* sunken surface */
   --color-line:    #1f2733;   /* hairline borders */
-  --color-txt:     #e9eff6;   /* primary text */
-  --color-dim:     #97a4b4;   /* secondary text (AA on panels) */
+  --color-txt:     #eef3f9;   /* primary text */
+  --color-dim:     #aab6c6;   /* secondary text — brightened for stronger contrast */
   --color-amber:   #ffb000;   /* brand / accent / focus */
   --color-amber2:  #ffcf66;
   --color-green:   #16c784;   /* gains / mastered */

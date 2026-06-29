@@ -3,15 +3,13 @@
 // Präteritum / Partizip II via the conjugation engine), and cloze from example
 // sentences. Each drilled unit gets an FSRS card under a namespaced id, so the
 // gym schedules itself without touching the vocabulary stats.
-import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
-import { motion } from 'motion/react';
-import { ArrowLeft, Check, X, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
+import { useMemo, useState, useCallback } from 'react';
+import { ArrowLeft, Check, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
-import UmlautBar from '../components/UmlautBar.tsx';
 import GrammarDrill from './GrammarDrill.tsx';
 import type { Word } from '../types.ts';
 
@@ -53,9 +51,9 @@ function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; 
 
 const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'gender', label: 'der / die / das', icon: CircleDot, desc: 'Nail the gender of every noun.' },
-  { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Type the plural form.' },
+  { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Pick the right plural.' },
   { m: 'conj', label: 'Conjugation', icon: Cog, desc: 'Präsens · Präteritum · Partizip II.' },
-  { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Fill the gap in a real sentence.' },
+  { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Pick the missing word in a real sentence.' },
 ];
 
 export default function Gym() {
@@ -124,7 +122,7 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
   return (
     <Shell onExit={onExit} progress={`${done}/${q.length}`} score={done ? Math.round((correct / done) * 100) : null}>
       {mode === 'gender' && <GenderItem key={word.id} word={word} onGrade={advance} />}
-      {mode === 'plural' && <TypeItem key={word.id} prompt={`Plural von „${stripArticle(word.term)}“`} hint={word.en} answer={word.plural!} accept={[stripArticle(word.plural!)]} onGrade={advance} />}
+      {mode === 'plural' && <PluralItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'conj' && <ConjItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'cloze' && <ClozeItem key={word.id} word={word} onGrade={advance} />}
     </Shell>
@@ -180,23 +178,76 @@ function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => v
   );
 }
 
+// ---- multiple-choice item + distractor helpers ---------------------------
+/** Pick up to n distinct strings from pool, excluding (by normalised key). */
+function pickN(pool: string[], n: number, exclude: Set<string>): string[] {
+  const out: string[] = []; const seen = new Set(exclude);
+  for (const s of shuffle(pool)) { const k = norm(s); if (!s || seen.has(k)) continue; seen.add(k); out.push(s); if (out.length >= n) break; }
+  return out;
+}
+/** Shuffle correct + distractors into options; return options and correct index. */
+function buildMC(correct: string, distractors: string[]): { options: string[]; correct: number } {
+  const opts = shuffle([correct, ...distractors.slice(0, 3)]);
+  return { options: opts, correct: opts.indexOf(correct) };
+}
+
+function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, onGrade }:
+  { prompt: string; sub?: string; hint?: string; options: string[]; correct: number; extra?: string; bigPrompt?: boolean; onGrade: (ok: boolean) => void }) {
+  const [picked, setPicked] = useState<number | null>(null);
+  return (
+    <Card>
+      <Prompt small={sub} big={bigPrompt}>{prompt}</Prompt>
+      {hint && <p className="text-dim text-[13px] mb-4 text-center">{hint}</p>}
+      <div className="grid gap-2.5">
+        {options.map((o, i) => {
+          const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
+          return (
+            <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
+              className={`rounded-[10px] py-3 px-4 border text-[16px] text-center transition-colors ${
+                state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
+                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
+                : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
+          );
+        })}
+      </div>
+      {picked !== null && extra && <p className="text-dim text-[12px] mt-3 text-center font-mono">{extra}</p>}
+      {picked !== null && <div className="mt-5 flex justify-center"><button onClick={() => onGrade(picked === correct)} className="bg-panel2 border border-line rounded-[10px] px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>}
+    </Card>
+  );
+}
+
+function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const correct = word.plural!;
+  const mc = useMemo(() => {
+    const distract = pickN(pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!), 3, new Set([norm(correct)]));
+    return buildMC(correct, distract);
+  }, [word.id]);
+  return <MCItem prompt={`Plural von „${stripArticle(word.term)}“`} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
 const TENSES: { key: 'praesens' | 'praeteritum' | 'pp'; label: string }[] = [
   { key: 'praesens', label: 'Präsens' }, { key: 'praeteritum', label: 'Präteritum' }, { key: 'pp', label: 'Partizip II' },
 ];
 const PERSONS_I: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
 function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const conj = useMemo(() => conjugate(word.term), [word.id]);
-  const pick = useMemo(() => {
+  const data = useMemo(() => {
     const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
     const pIdx = Math.floor(Math.random() * 6);
-    if (tense.key === 'pp') return { tense, answer: conj.partizip, prompt: 'Partizip II', sub: '' };
-    const person = PERSONS_I[pIdx];
-    return { tense, answer: conj[tense.key][pIdx], prompt: `${PRONOUN[person]} …`, sub: tense.label };
+    const answer = tense.key === 'pp' ? conj.partizip : conj[tense.key][pIdx];
+    const prompt = tense.key === 'pp' ? 'Partizip II' : `${PRONOUN[PERSONS_I[pIdx]]} …`;
+    // Strongest distractors: the verb's *other* forms; pad from other verbs if needed.
+    const sameVerb = [...conj.praesens, ...conj.praeteritum, conj.partizip];
+    let distract = pickN(sameVerb, 3, new Set([norm(answer)]));
+    if (distract.length < 3) {
+      const others = conjPool().filter((w) => w.id !== word.id).slice(0, 14)
+        .map((w) => { const c = conjugate(w.term); return tense.key === 'pp' ? c.partizip : c[tense.key][pIdx]; });
+      distract = distract.concat(pickN(others, 3 - distract.length, new Set([norm(answer), ...distract.map(norm)])));
+    }
+    return { ...buildMC(answer, distract), prompt, sub: `${stripArticle(word.term)} · ${tense.label}` };
   }, [word.id]);
-  return (
-    <TypeItem prompt={pick.prompt} sub={`${stripArticle(word.term)} · ${pick.sub || 'Partizip II'}`} hint={word.en}
-      answer={pick.answer} extra={`Perfekt: ${conj.perfekt[0]} · aux ${conj.aux}`} onGrade={onGrade} />
-  );
+  return <MCItem prompt={data.prompt} sub={data.sub} hint={word.en} options={data.options} correct={data.correct}
+    extra={`Perfekt: ${conj.perfekt[0]} · aux ${conj.aux}`} onGrade={onGrade} />;
 }
 
 function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
@@ -206,54 +257,13 @@ function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => vo
   const m = re.exec(ex.de);
   const target = m ? m[1] : surface;
   const blanked = ex.de.replace(re, '_____');
-  return (
-    <TypeItem prompt={blanked} sub="Fill the gap" hint={ex.en || word.en} answer={target} bigPrompt={false} onGrade={onGrade} />
-  );
-}
-
-/** Type-in item with exact (normalised) grading and reveal-on-wrong. */
-function TypeItem({ prompt, sub, hint, answer, accept = [], extra, bigPrompt = true, onGrade }:
-  { prompt: string; sub?: string; hint?: string; answer: string; accept?: string[]; extra?: string; bigPrompt?: boolean; onGrade: (ok: boolean) => void }) {
-  const [val, setVal] = useState('');
-  const [result, setResult] = useState<null | boolean>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => { inputRef.current?.focus(); }, []);
-
-  const accepts = useMemo(() => new Set([answer, ...accept].map(norm)), [answer, accept]);
-  const submit = () => {
-    if (result !== null) return;
-    setResult(accepts.has(norm(val)));
-  };
-  const onKey = (e: React.KeyboardEvent) => {
-    if (e.key !== 'Enter') return;
-    if (result === null) submit(); else onGrade(result);
-  };
-  return (
-    <Card>
-      <Prompt small={sub} big={bigPrompt}>{prompt}</Prompt>
-      {hint && <p className="text-dim text-[13px] mb-4">{hint}</p>}
-      <input ref={inputRef} value={val} onChange={(e) => setVal(e.target.value)} onKeyDown={onKey}
-        disabled={result !== null} placeholder="Type your answer…"
-        className={`w-full bg-panel2 border rounded-[10px] px-4 py-3 text-[18px] outline-none text-center ${
-          result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
-      {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={inputRef} value={val} onChange={setVal} /></div>}
-
-      {result !== null && (
-        <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center">
-          {result
-            ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
-            : <p className="text-[15px]"><X size={15} className="inline text-red -mt-0.5 mr-1" /> Answer: <span className="text-green font-bold">{answer}</span></p>}
-          {extra && <p className="text-dim text-[12px] mt-1.5 font-mono">{extra}</p>}
-        </motion.div>
-      )}
-
-      <div className="mt-5 flex justify-center">
-        {result === null
-          ? <button onClick={submit} disabled={!val.trim()} className="bg-amber text-bg font-bold rounded-[10px] px-6 py-2.5 disabled:opacity-40">Check</button>
-          : <button onClick={() => onGrade(result)} className="bg-panel2 border border-line rounded-[10px] px-6 py-2.5 hover:border-amber font-semibold">Next →</button>}
-      </div>
-    </Card>
-  );
+  const mc = useMemo(() => {
+    const samePos = WORDS.filter((w) => w.pos === word.pos && w.id !== word.id && inLevels(w));
+    const base = samePos.length >= 6 ? samePos : WORDS.filter((w) => w.id !== word.id && inLevels(w));
+    const distract = pickN(base.map((w) => stripArticle(w.term)), 3, new Set([norm(target)]));
+    return buildMC(target, distract);
+  }, [word.id]);
+  return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
 
 function Card({ children }: { children: React.ReactNode }) {

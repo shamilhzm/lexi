@@ -52,9 +52,10 @@ const MORE: NavItem[] = [
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
   { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ];
-// "Light for learning, dark for exploring": text-dense views use the warm paper
-// surface; the market/galaxy/map stay on the dark terminal.
-const PAPER_VIEWS = new Set<View>(['today', 'review', 'gym', 'mining', 'placement', 'blindspots', 'settings']);
+// Paper ("Kartenwerk") surface is available but OFF — the warm look clashed with
+// the terminal identity. Everything stays on the cohesive dark terminal. To try
+// the hybrid again, add view ids here (the `.paper` styles still live in index.css).
+const PAPER_VIEWS = new Set<View>([]);
 
 export default function App() {
   useStore();
@@ -123,7 +124,7 @@ export default function App() {
         <div className="text-[11px] text-dim hidden md:block">{fmt(t.count)} cards · A1–C2 · Open Source</div>
       </header>
 
-      <Ticker />
+      <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
 
       <main className={`flex-1 overflow-y-auto bg-bg ${PAPER_VIEWS.has(view) ? 'paper' : ''}`}>
         <AnimatePresence mode="wait">
