@@ -52,6 +52,9 @@ const MORE: NavItem[] = [
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
   { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ];
+// "Light for learning, dark for exploring": text-dense views use the warm paper
+// surface; the market/galaxy/map stay on the dark terminal.
+const PAPER_VIEWS = new Set<View>(['today', 'review', 'gym', 'mining', 'placement', 'blindspots', 'settings']);
 
 export default function App() {
   useStore();
@@ -122,7 +125,7 @@ export default function App() {
 
       <Ticker />
 
-      <main className="flex-1 overflow-y-auto">
+      <main className={`flex-1 overflow-y-auto bg-bg ${PAPER_VIEWS.has(view) ? 'paper' : ''}`}>
         <AnimatePresence mode="wait">
           <motion.div key={key}
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}

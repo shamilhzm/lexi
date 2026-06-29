@@ -75,7 +75,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
               {/* FRONT */}
               <div className="flip-face border border-line rounded-2xl bg-panel2 flex flex-col items-center justify-center gap-3 p-5 sm:p-6 text-center">
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}</span>
-                <span className={`font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[26px]' : 'text-[30px] sm:text-[40px]'}`}>
+                <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[26px]' : 'text-[30px] sm:text-[40px]'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
@@ -90,9 +90,9 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
               </div>
               {/* BACK */}
               <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-2.5 p-5 sm:p-6 text-center"
-                   style={{ background: '#0c1410', borderColor: 'var(--color-green-d)' }}>
+                   style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Rule' : 'Translation'}</span>
-                <span className={`font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[18px] sm:text-[20px]' : 'text-[26px] sm:text-[34px]'}`}>{card.en}</span>
+                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[18px] sm:text-[20px]' : 'text-[26px] sm:text-[34px]'}`}>{card.en}</span>
                 {card.def && <span className="text-dim text-[13px] max-w-[88%]">{card.def}</span>}
                 {!grammar && card.ex[0] && <span className="text-dim italic text-[13px] max-w-[85%]">„{card.ex[0].en || card.ex[0].de}“</span>}
                 {card.syn.length > 0 && <span className="text-[12px] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
