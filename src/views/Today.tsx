@@ -31,7 +31,7 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
     <div className="max-w-[920px] mx-auto">
       <div className="flex items-baseline justify-between flex-wrap gap-2 mb-4">
         <div>
-          <h1 className="text-[22px] sm:text-[26px] font-bold leading-none">Guten Tag 👋</h1>
+          <h1 className="text-[22px] sm:text-[26px] font-bold leading-none">Guten Tag</h1>
           <p className="text-dim text-[13px] mt-1.5 capitalize">{today}</p>
         </div>
         <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[15px]">
@@ -65,7 +65,7 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
 
           {total === 0 ? (
             <div className="py-4">
-              <h2 className="text-[20px] font-bold mb-1">All clear 🎉</h2>
+              <h2 className="text-[20px] font-bold mb-1">All clear</h2>
               <p className="text-dim text-[14px]">Nothing due and the new-card budget is used up. Come back tomorrow, or open a deck to push ahead.</p>
             </div>
           ) : (

@@ -12,10 +12,7 @@ initData()
     console.error('Failed to load lexicon', err);
     root.render(
       <div style={{ display: 'grid', placeItems: 'center', height: '100dvh', padding: 24, textAlign: 'center', color: '#e6edf3', fontFamily: 'sans-serif' }}>
-        <div>
-          <div style={{ fontSize: 32, marginBottom: 8 }}>⚠️</div>
-          <p style={{ color: '#8b97a7' }}>Couldn’t load the lexicon. Check your connection and reload.</p>
-        </div>
+        <p style={{ color: '#8b97a7' }}>Couldn’t load the lexicon. Check your connection and reload.</p>
       </div>,
     );
   });

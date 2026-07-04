@@ -1,27 +1,25 @@
-// Üben — the FSRS review loop. Flip a card, grade it (1–4 / keys), watch the
-// interval preview update live. Handles vocabulary and grammar cards.
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { motion } from 'motion/react';
-import { Volume2, ArrowLeft, Check } from 'lucide-react';
-import { buildSession, review, cardOf, levels, statusOf, streak } from '../store.ts';
+// Üben — the unified session player. Interleaves FSRS flip cards (swipe right
+// = knew it, swipe left = didn't know) with grammar drills (gender / plural /
+// conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { motion, useMotionValue, useTransform } from 'motion/react';
+import { Volume2, ArrowLeft, Check, X, Flame } from 'lucide-react';
+import { review, levels, statusOf, streak, logMiss } from '../store.ts';
+import { buildMixedSession } from '../session.ts';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Gym.tsx';
 import { useStore } from '../useStore.ts';
-import { emptyCard, previewInterval, Rating, type Grade } from '../srs.ts';
+import { Rating, type Grade } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
 import type { Word, Target } from '../types.ts';
 
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
-const GRADES: { g: Grade; key: string; label: string; cls: string }[] = [
-  { g: Rating.Again, key: '1', label: 'Again', cls: 'hover:border-red' },
-  { g: Rating.Hard, key: '2', label: 'Hard', cls: 'hover:border-amber' },
-  { g: Rating.Good, key: '3', label: 'Good', cls: 'hover:border-green' },
-  { g: Rating.Easy, key: '4', label: 'Easy', cls: 'hover:border-green' },
-];
+const SWIPE_PX = 90; // horizontal travel that commits a grade
 
 export default function Review({ target, onExit, onPick }: { target: Target; onExit: () => void; onPick: () => void }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
-  const queue = useMemo(() => buildSession(target), [target, lvKey]);
+  const queue = useMemo(() => buildMixedSession(target), [target, lvKey]);
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -31,34 +29,44 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
   // restart the session when scope (target) or level filter changes
   useEffect(() => { setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); }, [target, lvKey]);
 
-  const card = queue[i];
+  const item = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
 
   const grade = useCallback((g: Grade) => {
-    if (!flipped || !card) return;
-    const wasNew = statusOf(card.id) === 'new';
-    review(card.id, g);
+    if (!flipped || !item || item.type !== 'flip') return;
+    const wasNew = statusOf(item.srsId) === 'new';
+    review(item.srsId, g);
     setDone((d) => d + 1);
     if (g === Rating.Again) setAgain((a) => a + 1);
     else if (wasNew) setNewLearned((n) => n + 1);
     setFlipped(false);
     setI((n) => n + 1);
-  }, [flipped, card]);
+  }, [flipped, item]);
+
+  const gradeDrill = useCallback((ok: boolean) => {
+    if (!item || item.type === 'flip') return;
+    review(item.srsId, ok ? Rating.Good : Rating.Again);
+    if (!ok) { logMiss(MODE_TAG[item.type]); setAgain((a) => a + 1); }
+    setDone((d) => d + 1);
+    setFlipped(false);
+    setI((n) => n + 1);
+  }, [item]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.code === 'Space') { e.preventDefault(); flip(); }
-      const hit = GRADES.find((x) => x.key === e.key);
-      if (hit) grade(hit.g);
+      if (e.key === 'ArrowLeft') grade(Rating.Again);
+      if (e.key === 'ArrowRight') grade(Rating.Good);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [flip, grade]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} />;
-  if (!card) return <DoneState target={target} done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
+  if (!item) return <DoneState target={target} done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
 
-  const fsrs = cardOf(card.id) ?? emptyCard();
+  const card = item.word;
+  const drill = item.type !== 'flip';
   const grammar = card.kind === 'grammar';
 
   return (
@@ -68,14 +76,23 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
           <button onClick={onExit} className="text-dim hover:text-amber" title="Back to market"><ArrowLeft size={16} /></button>
           <h2 className="text-[14px] font-semibold">{target.name}</h2>
           <span className="text-[10px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{queue.length - done} OPEN</span>
+          {drill && <span className="text-[10px] text-green border border-green px-1.5 py-0.5 rounded-full tracking-[1px]">DRILL</span>}
           <div className="ml-auto flex items-center gap-2.5">
             <LevelFilter compact />
-            <span className="text-[11px] text-dim hidden lg:block">Space = flip · 1–4 = grade</span>
+            <span className="text-[11px] text-dim hidden lg:block">Space = flip · ← didn’t know · → knew it</span>
           </div>
         </div>
 
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
-          <div className="flip w-full max-w-[580px] h-[300px] sm:h-[340px] cursor-pointer" onClick={flip}>
+          {drill ? (
+            <div className="w-full max-w-[580px]">
+              {item.type === 'gender' && <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              {item.type === 'plural' && <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              {item.type === 'conj' && <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              {item.type === 'cloze' && <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+            </div>
+          ) : (<>
+          <SwipeCard key={item.srsId} flipped={flipped} onFlip={flip} onGrade={grade}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT */}
               <div className="flip-face border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center">
@@ -103,28 +120,71 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
                 {card.syn.length > 0 && <span className="text-[13px] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
               </div>
             </div>
-          </div>
+          </SwipeCard>
 
           <div className="min-h-[64px] mt-6 flex items-center">
             {flipped ? (
-              <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="flex gap-2 sm:gap-2.5 flex-wrap justify-center">
-                {GRADES.map((gr) => (
-                  <button key={gr.key} onClick={() => grade(gr.g)}
-                    className={`border border-line bg-panel rounded-[9px] px-3.5 sm:px-4 py-2.5 min-w-[78px] sm:min-w-[96px] font-semibold transition-colors active:scale-95 ${gr.cls}`}>
-                    {gr.label}
-                    <small className="block font-normal text-dim text-[10px] mt-0.5">{previewInterval(fsrs, gr.g)}</small>
-                  </button>
-                ))}
+              <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="flex gap-2.5 sm:gap-3 justify-center">
+                <button onClick={() => grade(Rating.Again)}
+                  className="flex items-center gap-2 border border-line bg-panel rounded-[9px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
+                  <X size={16} /> Didn’t know
+                </button>
+                <button onClick={() => grade(Rating.Good)}
+                  className="flex items-center gap-2 border border-line bg-panel rounded-[9px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
+                  <Check size={16} /> Knew it
+                </button>
               </motion.div>
             ) : (
               <span className="text-dim text-[12px]">Tap the card to see the {grammar ? 'rule' : 'translation'}</span>
             )}
           </div>
+          </>)}
         </div>
       </div>
 
-      <Sidebar word={card} done={done} left={queue.length - done} />
+      <Sidebar word={drill ? null : card} done={done} left={queue.length - done} />
     </div>
+  );
+}
+
+/** Draggable flip-card. Tap flips; once flipped, swipe right = knew it (Good),
+ *  swipe left = didn't know (Again). Snaps back below the threshold. */
+function SwipeCard({ children, flipped, onFlip, onGrade }:
+  { children: React.ReactNode; flipped: boolean; onFlip: () => void; onGrade: (g: Grade) => void }) {
+  const x = useMotionValue(0);
+  const rotate = useTransform(x, [-200, 200], [-8, 8]);
+  const yes = useTransform(x, [20, SWIPE_PX], [0, 1]);
+  const no = useTransform(x, [-20, -SWIPE_PX], [0, 1]);
+  const dragged = useRef(false);
+  return (
+    <motion.div
+      className="relative w-full max-w-[580px] h-[300px] sm:h-[340px] cursor-pointer touch-pan-y"
+      style={{ x, rotate }}
+      drag={flipped ? 'x' : false}
+      dragSnapToOrigin
+      dragElastic={0.6}
+      onDragStart={() => { dragged.current = true; }}
+      onDragEnd={(_, info) => {
+        if (info.offset.x > SWIPE_PX) onGrade(Rating.Good);
+        else if (info.offset.x < -SWIPE_PX) onGrade(Rating.Again);
+        setTimeout(() => { dragged.current = false; }, 0);
+      }}
+      onClick={() => { if (!dragged.current) onFlip(); }}
+    >
+      <div className="flip w-full h-full">{children}</div>
+      {flipped && (
+        <>
+          <motion.span style={{ opacity: yes }}
+            className="absolute top-3 right-3 flex items-center gap-1.5 text-green font-bold text-[13px] border border-green rounded-full px-3 py-1 bg-[var(--color-green-d)] pointer-events-none">
+            <Check size={14} /> Knew it
+          </motion.span>
+          <motion.span style={{ opacity: no }}
+            className="absolute top-3 left-3 flex items-center gap-1.5 text-red font-bold text-[13px] border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
+            <X size={14} /> Didn’t know
+          </motion.span>
+        </>
+      )}
+    </motion.div>
   );
 }
 
@@ -133,7 +193,17 @@ function stripArticle(term: string, gender: string | null) {
   return term.replace(/^(der|die|das)\s+/i, '');
 }
 
-function Sidebar({ word, done, left }: { word: Word; done: number; left: number }) {
+/** Word details are hidden for drill items — they would reveal the answer. */
+function Sidebar({ word, done, left }: { word: Word | null; done: number; left: number }) {
+  if (!word) {
+    return (
+      <div className="bg-panel border border-line rounded-[10px] self-start">
+        <div className="px-4 py-3 border-b border-line"><h2 className="text-[14px] font-semibold">Session</h2></div>
+        <Stat k="Reviewed" v={`${done}`} />
+        <Stat k="Remaining" v={`${left}`} />
+      </div>
+    );
+  }
   return (
     <div className="bg-panel border border-line rounded-[10px] self-start">
       <div className="px-4 py-3 border-b border-line"><h2 className="text-[14px] font-semibold">Session</h2></div>
@@ -165,7 +235,7 @@ function DoneState({ target, done, again, newLearned, onExit, onPick }:
       <div className="text-center bg-panel border border-line rounded-2xl px-8 sm:px-10 py-12 max-w-md w-full">
         <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
         <h2 className="text-2xl font-bold mb-1">Session complete</h2>
-        <p className="text-dim mb-5">{target.name} · streak secured 🔥 {streak()}</p>
+        <p className="text-dim mb-5 flex items-center justify-center gap-1.5">{target.name} · streak secured <Flame size={14} className="text-amber" /> {streak()}</p>
         <div className="grid grid-cols-3 divide-x divide-[var(--color-line)] border border-line rounded-[10px] mb-6">
           <RecapStat label="Reviewed" value={`${done}`} tone="text-txt" />
           <RecapStat label="Recall" value={`${recall}%`} tone={recall >= 80 ? 'text-green' : 'text-amber'} />
@@ -191,7 +261,7 @@ function EmptyState({ target, onExit, onPick }: { target: Target; onExit: () => 
   return (
     <div className="grid place-items-center min-h-[440px]">
       <div className="text-center bg-panel border border-line rounded-2xl px-10 py-12 max-w-md">
-        <h2 className="text-xl font-bold mb-1">Nothing due in {target.name} 🎉</h2>
+        <h2 className="text-xl font-bold mb-1">Nothing due in {target.name}</h2>
         <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try another deck or a different CEFR level.</p>
         <div className="flex gap-2.5 justify-center">
           <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Open decks</button>

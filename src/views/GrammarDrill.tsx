@@ -200,7 +200,7 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
   );
 }
 function Empty() {
-  return <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center"><h2 className="text-xl font-bold mb-1">Nothing due 🎉</h2><p className="text-dim">No grammar exercises are due for your selected levels.</p></div>;
+  return <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center"><h2 className="text-xl font-bold mb-1">Nothing due</h2><p className="text-dim">No grammar exercises are due for your selected levels.</p></div>;
 }
 function Summary({ done, correct }: { done: number; correct: number }) {
   return <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center">

@@ -163,6 +163,19 @@ export function buildBriefing(): Briefing {
   };
 }
 
+/** Words in a target's scope (level-filtered). */
+export function wordsFor(target: Target): Word[] { return poolFor(target); }
+
+/** Ids of due word-drill cards (gym:<mode>:<wordId>). */
+export function dueGymIds(): string[] {
+  const now = Date.now();
+  const out: string[] = [];
+  live.forEach((c, id) => {
+    if (id.startsWith('gym:') && c.state !== State.New && isDue(c, now)) out.push(id);
+  });
+  return out;
+}
+
 /** Due drill cards across the Gym's own SRS tracks (gym:* word drills, gex:* grammar exercises). */
 export function gymDue(): number {
   const now = Date.now();

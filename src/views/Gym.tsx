@@ -31,6 +31,17 @@ const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && 
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 const id = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
+/** FSRS card id for a word's drill in a given mode (shared with mixed sessions). */
+export const gymId = id;
+/** Drill modes a single word qualifies for (mirrors the pool predicates). */
+export function eligibleModes(w: Word): Mode[] {
+  const out: Mode[] = [];
+  if (w.kind === 'word' && w.gender) out.push('gender');
+  if (w.kind === 'word' && w.plural) out.push('plural');
+  if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
+  if (w.kind === 'word' && w.ex[0]?.de && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de)) out.push('cloze');
+  return out;
+}
 export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
 };
@@ -148,7 +159,7 @@ const GENDER = [
   { g: 'die' as const, color: '#f472b6', icon: Venus },
   { g: 'das' as const, color: 'var(--color-b1)', icon: CircleDot },
 ];
-function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const [picked, setPicked] = useState<string | null>(null);
   const choose = (g: string) => {
     if (picked) return;
@@ -216,7 +227,7 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
   );
 }
 
-function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const correct = word.plural!;
   const mc = useMemo(() => {
     const distract = pickN(pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!), 3, new Set([norm(correct)]));
@@ -229,7 +240,7 @@ const TENSES: { key: 'praesens' | 'praeteritum' | 'pp'; label: string }[] = [
   { key: 'praesens', label: 'Präsens' }, { key: 'praeteritum', label: 'Präteritum' }, { key: 'pp', label: 'Partizip II' },
 ];
 const PERSONS_I: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
-function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const conj = useMemo(() => conjugate(word.term), [word.id]);
   const data = useMemo(() => {
     const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
@@ -250,7 +261,7 @@ function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => voi
     extra={`Perfekt: ${conj.perfekt[0]} · aux ${conj.aux}`} onGrade={onGrade} />;
 }
 
-function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const surface = stripArticle(word.term);
   const ex = word.ex[0];
   const re = new RegExp(`\\b(${escapeReg(surface)})\\b`, 'i');
@@ -280,7 +291,7 @@ function Prompt({ children, small, big = true }: { children: React.ReactNode; sm
 function Empty() {
   return (
     <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center">
-      <h2 className="text-xl font-bold mb-1">Nothing queued 🎉</h2>
+      <h2 className="text-xl font-bold mb-1">Nothing queued</h2>
       <p className="text-dim">No items due in this drill for the selected levels. Try another mode or widen your CEFR filter.</p>
     </div>
   );

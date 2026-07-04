@@ -88,7 +88,7 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
 
       {/* New, in-lexicon words */}
       <Section title={`New words in your text (${fresh.length})`}
-        sub={fresh.length ? 'Tap to include/exclude, then study them as a set.' : 'Every word in your text is already in your deck. 🎉'}>
+        sub={fresh.length ? 'Tap to include/exclude, then study them as a set.' : 'Every word in your text is already in your deck.'}>
         {fresh.length > 0 && (
           <>
             <div className="flex flex-wrap gap-2 mb-3">

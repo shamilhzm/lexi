@@ -23,7 +23,7 @@ export default function Kpis() {
       <Kpi label="Due today" value={<CountUp value={t.due} />} sub="▲ ready to study" subClass="text-green" />
       <Kpi label="Words learned" value={<CountUp value={t.learned} />} sub={`of ${fmt(t.count)} in lexicon`} subClass="text-amber" />
       <Kpi label="Coverage" value={<CountUp value={cov} suffix="%" />} sub={`${fmt(t.known)} consolidated`} subClass="text-green" />
-      <Kpi label="Streak" value={<CountUp value={streak()} suffix=" 🔥" />} sub="days in a row" subClass="text-green" />
+      <Kpi label="Streak" value={<CountUp value={streak()} />} sub="days in a row" subClass="text-green" />
     </div>
   );
 }
