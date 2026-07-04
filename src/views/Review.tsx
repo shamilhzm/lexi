@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import { Volume2, ArrowLeft, Check } from 'lucide-react';
-import { buildSession, review, cardOf, levels } from '../store.ts';
+import { buildSession, review, cardOf, levels, statusOf, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { emptyCard, previewInterval, Rating, type Grade } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
@@ -25,17 +25,22 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
+  const [again, setAgain] = useState(0);       // lapses this session
+  const [newLearned, setNewLearned] = useState(0); // cards that left the New state
 
   // restart the session when scope (target) or level filter changes
-  useEffect(() => { setI(0); setDone(0); setFlipped(false); }, [target, lvKey]);
+  useEffect(() => { setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); }, [target, lvKey]);
 
   const card = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
 
   const grade = useCallback((g: Grade) => {
     if (!flipped || !card) return;
+    const wasNew = statusOf(card.id) === 'new';
     review(card.id, g);
     setDone((d) => d + 1);
+    if (g === Rating.Again) setAgain((a) => a + 1);
+    else if (wasNew) setNewLearned((n) => n + 1);
     setFlipped(false);
     setI((n) => n + 1);
   }, [flipped, card]);
@@ -51,7 +56,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
   }, [flip, grade]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} />;
-  if (!card) return <DoneState target={target} done={done} onExit={onExit} />;
+  if (!card) return <DoneState target={target} done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
 
   const fsrs = cardOf(card.id) ?? emptyCard();
   const grammar = card.kind === 'grammar';
@@ -152,15 +157,33 @@ function Stat({ k, v }: { k: string; v: string }) {
   return <div className="flex justify-between px-4 py-2.5 border-b border-line text-[13px]"><span className="text-dim">{k}</span><span className="font-mono text-amber">{v}</span></div>;
 }
 
-function DoneState({ target, done, onExit }: { target: Target; done: number; onExit: () => void }) {
+function DoneState({ target, done, again, newLearned, onExit, onPick }:
+  { target: Target; done: number; again: number; newLearned: number; onExit: () => void; onPick: () => void }) {
+  const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <div className="text-center bg-panel border border-line rounded-2xl px-10 py-12 max-w-md">
+      <div className="text-center bg-panel border border-line rounded-2xl px-8 sm:px-10 py-12 max-w-md w-full">
         <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
         <h2 className="text-2xl font-bold mb-1">Session complete</h2>
-        <p className="text-dim mb-6">Reviewed {done} cards in {target.name}. Nice work.</p>
-        <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">Back to market</button>
+        <p className="text-dim mb-5">{target.name} · streak secured 🔥 {streak()}</p>
+        <div className="grid grid-cols-3 divide-x divide-[var(--color-line)] border border-line rounded-[10px] mb-6">
+          <RecapStat label="Reviewed" value={`${done}`} tone="text-txt" />
+          <RecapStat label="Recall" value={`${recall}%`} tone={recall >= 80 ? 'text-green' : 'text-amber'} />
+          <RecapStat label="New learned" value={`${newLearned}`} tone="text-amber" />
+        </div>
+        <div className="flex gap-2.5 justify-center">
+          <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Another deck</button>
+          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">Back to Today</button>
+        </div>
       </div>
+    </div>
+  );
+}
+function RecapStat({ label, value, tone }: { label: string; value: string; tone: string }) {
+  return (
+    <div className="px-2 py-3">
+      <div className="text-[10px] text-dim uppercase tracking-[1px]">{label}</div>
+      <div className={`font-mono font-bold text-[20px] mt-0.5 tabular-nums ${tone}`}>{value}</div>
     </div>
   );
 }

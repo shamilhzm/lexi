@@ -13,7 +13,7 @@ import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.
 import GrammarDrill from './GrammarDrill.tsx';
 import type { Word } from '../types.ts';
 
-type Mode = 'gender' | 'plural' | 'conj' | 'cloze';
+export type Mode = 'gender' | 'plural' | 'conj' | 'cloze';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -31,7 +31,7 @@ const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && 
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 const id = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
-const MODE_TAG: Record<Mode, string> = {
+export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
 };
 
@@ -56,8 +56,8 @@ const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Pick the missing word in a real sentence.' },
 ];
 
-export default function Gym() {
-  const [mode, setMode] = useState<Mode | 'grammar' | null>(null);
+export default function Gym({ initial = null }: { initial?: Mode | 'grammar' | null }) {
+  const [mode, setMode] = useState<Mode | 'grammar' | null>(initial);
   if (mode === 'grammar') return <GrammarDrill onExit={() => setMode(null)} />;
   if (mode) return <Drill mode={mode} onExit={() => setMode(null)} />;
   return <Landing onPick={setMode} />;

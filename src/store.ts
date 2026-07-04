@@ -163,6 +163,58 @@ export function buildBriefing(): Briefing {
   };
 }
 
+/** Due drill cards across the Gym's own SRS tracks (gym:* word drills, gex:* grammar exercises). */
+export function gymDue(): number {
+  const now = Date.now();
+  let n = 0;
+  live.forEach((c, id) => {
+    if ((id.startsWith('gym:') || id.startsWith('gex:')) && c.state !== State.New && isDue(c, now)) n++;
+  });
+  return n;
+}
+
+// ---- daily snapshots (market deltas) --------------------------------------
+const SNAP_KEY = 'lexi.snap.v1';
+interface Snapshot { date: string; groups: Record<string, number>; }
+function loadSnaps(): Snapshot[] {
+  try { const a = JSON.parse(localStorage.getItem(SNAP_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; }
+}
+/** Record today's learned count per theme group (unfiltered), once per day. */
+export function recordSnapshot() {
+  const snaps = loadSnaps();
+  const t = todayKey();
+  if (snaps.some((s) => s.date === t)) return;
+  const groups: Record<string, number> = {};
+  for (const w of WORDS) {
+    if (statusOf(w.id) === 'new') continue;
+    const g = SECTOR_GROUP.get(w.field);
+    if (g) groups[g] = (groups[g] ?? 0) + 1;
+  }
+  snaps.push({ date: t, groups });
+  while (snaps.length > 60) snaps.shift();
+  try { localStorage.setItem(SNAP_KEY, JSON.stringify(snaps)); } catch { /* quota */ }
+}
+/** Words learned per group since the snapshot closest to `days` ago. null = no history yet. */
+export function groupDeltas(days = 7): Map<string, number> | null {
+  const snaps = loadSnaps();
+  const t = todayKey();
+  const past = snaps.filter((s) => s.date < t);
+  if (past.length === 0) return null;
+  const cutoff = todayKey(new Date(Date.now() - days * 86_400_000));
+  const base = past.find((s) => s.date >= cutoff) ?? past[past.length - 1];
+  const cur: Record<string, number> = {};
+  for (const w of WORDS) {
+    if (statusOf(w.id) === 'new') continue;
+    const g = SECTOR_GROUP.get(w.field);
+    if (g) cur[g] = (cur[g] ?? 0) + 1;
+  }
+  const out = new Map<string, number>();
+  for (const g of new Set([...Object.keys(cur), ...Object.keys(base.groups)])) {
+    out.set(g, (cur[g] ?? 0) - (base.groups[g] ?? 0));
+  }
+  return out;
+}
+
 // ---- user words (mined / enriched) ---------------------------------------
 function persistUserWords() {
   const mine = WORDS.filter((w) => w.id.startsWith('usr:'));

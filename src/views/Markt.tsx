@@ -4,7 +4,7 @@
 // study the whole group. A CEFR filter rescopes the entire terminal.
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Play } from 'lucide-react';
-import { groupStats } from '../store.ts';
+import { groupStats, groupDeltas } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { squarify, type Tile } from '../lib/treemap.ts';
 import { heat, tileInk, fmt } from '../lib/ui.ts';
@@ -32,6 +32,8 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
     const stats = groupStats();
     return squarify(stats.map((s) => ({ value: s.count, data: s })), 0, 0, size.w, size.h);
   }, [size.w, size.h, v]);
+  // 7-day movement per group (whole lexicon, independent of the level filter)
+  const deltas = useMemo(() => groupDeltas(7), [v]);
 
   return (
     <div>
@@ -55,6 +57,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
           {tiles.map((t, idx) => {
             const s = t.data, p = s.coverage, big = t.w > 120 && t.h > 64, mid = t.w > 78 && t.h > 44;
             const ink = tileInk(p);
+            const d = deltas?.get(s.name) ?? 0;
             return (
               <button key={s.name}
                 onClick={() => onOpenGroup(s.name)}
@@ -70,6 +73,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
                   <span>
                     {big && <span className="block font-mono opacity-90" style={{ fontSize: 11 }}>{fmt(s.learned)}/{fmt(s.count)} · {s.sectors} sectors</span>}
                     <span className="font-mono font-bold" style={{ fontSize: big ? 19 : 12, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>{Math.round(p * 100)}%</span>
+                    {mid && d > 0 && <span className="font-mono font-semibold ml-1.5" style={{ fontSize: big ? 12 : 10, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>▲{d}</span>}
                   </span>
                 </span>
               </button>
@@ -85,6 +89,8 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
               <Row k="Consolidated" val={`${fmt(hover.s.known)}`} />
               <Row k="Coverage" val={`${Math.round(hover.s.coverage * 100)}%`} valColor={heat(hover.s.coverage)} />
               <Row k="Due today" val={`${fmt(hover.s.due)}`} />
+              {deltas && <Row k="7d change" val={`${(deltas.get(hover.s.name) ?? 0) >= 0 ? '+' : ''}${deltas.get(hover.s.name) ?? 0} learned`}
+                valColor={(deltas.get(hover.s.name) ?? 0) > 0 ? 'var(--color-green)' : undefined} />}
               <div className="mt-1.5 text-amber">▸ click = sectors · right-click = study</div>
             </div>
           )}

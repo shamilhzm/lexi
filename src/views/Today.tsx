@@ -4,18 +4,19 @@
 // back-plans a daily target.
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
-import { Play, Flame, CalendarClock, TrendingDown, Check, X, GraduationCap } from 'lucide-react';
-import { buildBriefing, weakestSectors, totals, streak, examDate, setExamDate, daysToExam, placementLevel } from '../store.ts';
+import { Play, Flame, CalendarClock, TrendingDown, Check, X, GraduationCap, Cog } from 'lucide-react';
+import { buildBriefing, weakestSectors, totals, streak, examDate, setExamDate, daysToExam, placementLevel, gymDue } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heat } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
 import type { Target } from '../types.ts';
 
-export default function Today({ onStart, onStudySector, onPlacement }:
-  { onStart: (t: Target) => void; onStudySector: (name: string) => void; onPlacement: () => void }) {
+export default function Today({ onStart, onStudySector, onPlacement, onGym }:
+  { onStart: (t: Target) => void; onStudySector: (name: string) => void; onPlacement: () => void; onGym: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const weak = useMemo(() => weakestSectors(5), [v]);
+  const drillsDue = useMemo(() => gymDue(), [v]);
   const t = totals();
   const placed = placementLevel();
   const dleft = daysToExam();
@@ -92,6 +93,19 @@ export default function Today({ onStart, onStudySector, onPlacement }:
           <Mini label="Coverage" value={`${Math.round(t.coverage * 100)}%`} tone="text-green" />
         </div>
       </div>
+
+      {/* Gym drills are on their own SRS track — surface them here so the daily loop covers both */}
+      {drillsDue > 0 && (
+        <button onClick={onGym}
+          className="w-full flex items-center gap-3 bg-panel border border-line rounded-[12px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
+          <span className="flex-1">
+            <span className="block text-[14px] font-semibold">{briefingDrillLabel(drillsDue)}</span>
+            <span className="block text-[12px] text-dim">Gender, plurals, conjugation & grammar — due on their own schedule.</span>
+          </span>
+          <Play size={14} className="text-amber flex-shrink-0" />
+        </button>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <ExamCard dleft={dleft} dailyTarget={dailyTarget} current={examDate()} />
@@ -172,6 +186,10 @@ function ExamCard({ dleft, dailyTarget, current }:
       </div>
     </div>
   );
+}
+
+function briefingDrillLabel(n: number) {
+  return `${n} Gym drill${n === 1 ? '' : 's'} due today`;
 }
 
 function Pill({ label, tone }: { label: string; tone: 'green' | 'amber' | 'dim' }) {

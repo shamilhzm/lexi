@@ -6,7 +6,7 @@ import { TrendingDown, Target, Sparkles } from 'lucide-react';
 import { missStats, missTotal } from '../store.ts';
 import { useStore } from '../useStore.ts';
 
-export default function BlindSpots({ onDrill }: { onDrill: () => void }) {
+export default function BlindSpots({ onDrill }: { onDrill: (tag?: string) => void }) {
   useStore();
   const stats = useMemo(() => missStats(30), []);
   const total = missTotal(30);
@@ -35,7 +35,8 @@ export default function BlindSpots({ onDrill }: { onDrill: () => void }) {
             </div>
             <div className="space-y-2.5">
               {stats.map((s) => (
-                <div key={s.tag}>
+                <button key={s.tag} onClick={() => onDrill(s.tag)}
+                  className="block w-full text-left rounded-md px-1.5 py-1 -mx-1.5 hover:bg-panel2 transition-colors" title="Drill this weakness">
                   <div className="flex justify-between text-[12.5px] mb-1">
                     <span className="truncate pr-2">{s.tag}</span>
                     <span className="font-mono text-dim flex-shrink-0">{s.count}×</span>
@@ -43,11 +44,11 @@ export default function BlindSpots({ onDrill }: { onDrill: () => void }) {
                   <div className="h-2 rounded-full bg-panel2 overflow-hidden">
                     <div className="h-full bg-red" style={{ width: `${Math.max(8, (s.count / max) * 100)}%` }} />
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
-          <button onClick={onDrill} className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[14px] hover:brightness-105">
+          <button onClick={() => onDrill()} className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[14px] hover:brightness-105">
             <Sparkles size={15} /> Drill grammar
           </button>
         </>

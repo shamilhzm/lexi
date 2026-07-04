@@ -3,7 +3,7 @@
 // review), Decks (sectors), Wortkarte (semantic map). Dark Bloomberg aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare } from 'lucide-react';
+import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare, Swords } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Markt from './views/Markt.tsx';
 import Review from './views/Review.tsx';
@@ -11,14 +11,14 @@ import Decks from './views/Decks.tsx';
 import Wortkarte from './views/Wortkarte.tsx';
 import Today from './views/Today.tsx';
 import Mining from './views/Mining.tsx';
-import Gym from './views/Gym.tsx';
+import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
 import Galaxy from './views/Galaxy.tsx';
 import Settings from './views/Settings.tsx';
 import BlindSpots from './views/BlindSpots.tsx';
 import Tutor from './views/Tutor.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
-import { recordVisit, totals } from './store.ts';
+import { recordVisit, recordSnapshot, totals } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
@@ -65,14 +65,20 @@ export default function App() {
   const [target, setTarget] = useState<Target>(ALL);
   const [decksGroup, setDecksGroup] = useState<string | null>(null);
   const [mapSector, setMapSector] = useState<string | null>(null);
+  const [gymInit, setGymInit] = useState<GymMode | 'grammar' | null>(null);
   const [moreOpen, setMoreOpen] = useState(false);
 
-  useEffect(() => { recordVisit(); primeVoices(); }, []);
+  useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
 
   const study = (t: Target) => { setTarget(t); setView('review'); };
   const openGroup = (g: string) => { setDecksGroup(g); setView('decks'); };
   const openMap = (sector: string) => { setMapSector(sector); setView('karte'); };
-  const go = (v: View) => { if (v === 'review') setTarget(ALL); setView(v); setMoreOpen(false); };
+  const go = (v: View) => { if (v === 'review') setTarget(ALL); if (v === 'gym') setGymInit(null); setView(v); setMoreOpen(false); };
+  /** Blind Spots → the matching Gym drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
+  const drillFor = (tag?: string) => {
+    const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as GymMode | undefined) ?? 'grammar';
+    setGymInit(mode); setView('gym');
+  };
 
   const t = totals();
   const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '') + (view === 'karte' ? `:${mapSector}` : '') + (view === 'decks' ? `:${decksGroup}` : '');
@@ -113,6 +119,11 @@ export default function App() {
                       <m.icon size={15} /> {m.label}
                     </button>
                   ))}
+                  <a href="/lexi-duel.html" target="_blank" rel="noreferrer"
+                    className="w-full flex items-center gap-2.5 px-3 py-2 text-[13px] text-left text-txt hover:bg-panel2 transition-colors border-t border-line mt-1 pt-2"
+                    title="Pass-and-play word duel — challenge friends, family or classmates">
+                    <Swords size={15} /> Lexi Duel
+                  </a>
                 </div>
               </>
             )}
@@ -135,13 +146,13 @@ export default function App() {
             transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
             className="max-w-[1280px] mx-auto px-3 sm:px-4 py-4 safe-bottom">
             <ErrorBoundary resetKey={view}>
-            {view === 'today' && <Today onStart={study} onStudySector={(s) => study({ kind: 'sector', name: s })} onPlacement={() => setView('placement')} />}
+            {view === 'today' && <Today onStart={study} onStudySector={(s) => study({ kind: 'sector', name: s })} onPlacement={() => setView('placement')} onGym={() => { setGymInit(null); setView('gym'); }} />}
             {view === 'placement' && <Placement onDone={() => setView('today')} />}
             {view === 'settings' && <Settings />}
-            {view === 'blindspots' && <BlindSpots onDrill={() => setView('gym')} />}
+            {view === 'blindspots' && <BlindSpots onDrill={drillFor} />}
             {view === 'tutor' && <Tutor onOpenSettings={() => setView('settings')} />}
             {view === 'mining' && <Mining onStudy={study} />}
-            {view === 'gym' && <Gym />}
+            {view === 'gym' && <Gym initial={gymInit} />}
             {view === 'markt' && <Markt onOpenGroup={openGroup} onStudyGroup={(g) => study({ kind: 'group', name: g })} onStudyAll={() => study(ALL)} />}
             {view === 'review' && <Review target={target} onExit={() => setView('today')} onPick={() => { setDecksGroup(null); setView('decks'); }} />}
             {view === 'galaxy' && <Galaxy onOpenSector={openMap} onStudySector={study} />}
@@ -179,6 +190,11 @@ export default function App() {
                     <m.icon size={15} /> {m.label}
                   </button>
                 ))}
+                <a href="/lexi-duel.html" target="_blank" rel="noreferrer"
+                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-[13px] text-left text-txt hover:bg-panel2 transition-colors border-t border-line mt-1"
+                  title="Pass-and-play word duel — challenge friends, family or classmates">
+                  <Swords size={15} /> Lexi Duel
+                </a>
               </div>
             </>
           )}
