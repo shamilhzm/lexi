@@ -2,7 +2,7 @@
 // = knew it, swipe left = didn't know) with grammar drills (gender / plural /
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
 import { Volume2, ArrowLeft, Check, X } from 'lucide-react';
 import { review, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
@@ -16,6 +16,7 @@ import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word, Target } from '../types.ts';
 
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
+const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
 export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
@@ -23,6 +24,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const lvKey = [...levels()].sort().join('');
   const queue = useMemo(() => buildMixedSession(target), [target, lvKey]);
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
+  const reduce = useReducedMotion();
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -81,7 +83,6 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={16} /></button>
           <h2 className="text-[15px] font-semibold">{target.name}</h2>
           <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{queue.length - done} left</span>
-          {drill && <span className="text-[11px] text-green border border-green px-1.5 py-0.5 rounded-full tracking-[1px]">DRILL</span>}
           <div className="ml-auto flex items-center gap-2.5">
             <button onClick={onDrills} className="text-[11px] text-dim hover:text-amber whitespace-nowrap">Targeted drills</button>
             <LevelFilter compact />
@@ -90,8 +91,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         </div>
 
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
+          <AnimatePresence mode="wait">
+          <motion.div key={item.srsId} className="w-full flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: reduce ? 0 : 0.2, ease: 'easeOut' }}>
           {drill ? (
-            <div className="w-full max-w-[580px]">
+            <div className="relative w-full max-w-[580px]">
+              <span className="absolute -top-2.5 right-3 z-10 text-[11px] text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 uppercase tracking-[1px]">{DRILL_TAG[item.type] ?? 'Drill'}</span>
               {item.type === 'gender' && <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />}
               {item.type === 'plural' && <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />}
               {item.type === 'conj' && <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />}
@@ -146,6 +152,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
             )}
           </div>
           </>)}
+          </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
