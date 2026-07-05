@@ -1,19 +1,17 @@
 // Lexi — an open-source German vocabulary terminal (A1–C2), donation-supported.
-// Four surfaces: Markt (the dictionary market, by theme group), Üben (FSRS
-// review), Decks (sectors), Wortkarte (semantic map). Dark Bloomberg aesthetic.
+// Primary surfaces: Today (daily briefing), Study (the FSRS session + drills),
+// and Explore (the Markt treemap → Decks → Wortkarte, plus the Galaxie map).
+// Dark Bloomberg aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LayoutGrid, GraduationCap, Layers, Network, Heart, Sunrise, ScanText, Cog, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare, Swords } from 'lucide-react';
+import { GraduationCap, Compass, Heart, Sunrise, ScanText, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare, Swords } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
-import Markt from './views/Markt.tsx';
 import Review from './views/Review.tsx';
-import Decks from './views/Decks.tsx';
-import Wortkarte from './views/Wortkarte.tsx';
+import Explore from './views/Explore.tsx';
 import Today from './views/Today.tsx';
 import Mining from './views/Mining.tsx';
 import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
-import Galaxy from './views/Galaxy.tsx';
 import Settings from './views/Settings.tsx';
 import BlindSpots from './views/BlindSpots.tsx';
 import Tutor from './views/Tutor.tsx';
@@ -23,7 +21,7 @@ import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'markt' | 'review' | 'decks' | 'karte' | 'mining' | 'gym' | 'placement' | 'galaxy' | 'settings' | 'blindspots' | 'tutor';
+export type View = 'today' | 'review' | 'explore' | 'mining' | 'gym' | 'placement' | 'settings' | 'blindspots' | 'tutor';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
@@ -42,15 +40,12 @@ function Logo() {
 type NavItem = { id: View; label: string; icon: any; short?: string };
 const PRIMARY: NavItem[] = [
   { id: 'today', label: 'Today', icon: Sunrise },
-  { id: 'markt', label: 'Markt', icon: LayoutGrid },
-  { id: 'review', label: 'Üben', icon: GraduationCap },
-  { id: 'gym', label: 'Gym', icon: Cog },
-  { id: 'galaxy', label: 'Wortkarte', icon: Network, short: 'Karte' },
+  { id: 'review', label: 'Study', icon: GraduationCap },
+  { id: 'explore', label: 'Explore', icon: Compass },
 ];
 const MORE: NavItem[] = [
   { id: 'tutor', label: 'AI Tutor', icon: MessagesSquare },
   { id: 'mining', label: 'Mine', icon: ScanText },
-  { id: 'decks', label: 'Decks', icon: Layers },
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
   { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ];
@@ -63,17 +58,19 @@ export default function App() {
   useStore();
   const [view, setView] = useState<View>('today');
   const [target, setTarget] = useState<Target>(ALL);
-  const [decksGroup, setDecksGroup] = useState<string | null>(null);
-  const [mapSector, setMapSector] = useState<string | null>(null);
+  const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>('markt');
   const [gymInit, setGymInit] = useState<GymMode | 'grammar' | null>(null);
   const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
 
   const study = (t: Target) => { setTarget(t); setView('review'); };
-  const openGroup = (g: string) => { setDecksGroup(g); setView('decks'); };
-  const openMap = (sector: string) => { setMapSector(sector); setView('karte'); };
-  const go = (v: View) => { if (v === 'review') setTarget(ALL); if (v === 'gym') setGymInit(null); setView(v); setMoreOpen(false); };
+  const go = (v: View) => {
+    if (v === 'review') setTarget(ALL);
+    if (v === 'gym') setGymInit(null);
+    if (v === 'explore') setExploreInit('markt');
+    setView(v); setMoreOpen(false);
+  };
   /** Blind Spots → the matching Gym drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
   const drillFor = (tag?: string) => {
     const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as GymMode | undefined) ?? 'grammar';
@@ -81,7 +78,7 @@ export default function App() {
   };
 
   const t = totals();
-  const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '') + (view === 'karte' ? `:${mapSector}` : '') + (view === 'decks' ? `:${decksGroup}` : '');
+  const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '');
 
   return (
     <div className="flex flex-col h-[100dvh] w-screen overflow-hidden">
@@ -153,11 +150,8 @@ export default function App() {
             {view === 'tutor' && <Tutor onOpenSettings={() => setView('settings')} />}
             {view === 'mining' && <Mining onStudy={study} />}
             {view === 'gym' && <Gym initial={gymInit} />}
-            {view === 'markt' && <Markt onOpenGroup={openGroup} onStudyGroup={(g) => study({ kind: 'group', name: g })} onStudyAll={() => study(ALL)} />}
-            {view === 'review' && <Review target={target} onExit={() => setView('today')} onPick={() => { setDecksGroup(null); setView('decks'); }} />}
-            {view === 'galaxy' && <Galaxy onOpenSector={openMap} onStudySector={study} />}
-            {view === 'decks' && <Decks initialGroup={decksGroup} onStudy={study} onMap={openMap} />}
-            {view === 'karte' && <Wortkarte initialSector={mapSector} onStudy={study} />}
+            {view === 'explore' && <Explore onStudy={study} onStudyAll={() => study(ALL)} initial={exploreInit} />}
+            {view === 'review' && <Review target={target} onExit={() => setView('today')} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
             </ErrorBoundary>
           </motion.div>
         </AnimatePresence>

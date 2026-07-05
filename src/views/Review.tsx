@@ -18,7 +18,7 @@ import type { Word, Target } from '../types.ts';
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
-export default function Review({ target, onExit, onPick }: { target: Target; onExit: () => void; onPick: () => void }) {
+export default function Review({ target, onExit, onPick, onDrills }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
   const queue = useMemo(() => buildMixedSession(target), [target, lvKey]);
@@ -66,7 +66,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
     return () => window.removeEventListener('keydown', onKey);
   }, [flip, grade]);
 
-  if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} />;
+  if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
   if (!item) return <DoneState done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
 
   const card = item.word;
@@ -82,6 +82,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
           <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{queue.length - done} left</span>
           {drill && <span className="text-[11px] text-green border border-green px-1.5 py-0.5 rounded-full tracking-[1px]">DRILL</span>}
           <div className="ml-auto flex items-center gap-2.5">
+            <button onClick={onDrills} className="text-[11px] text-dim hover:text-amber whitespace-nowrap">Targeted drills</button>
             <LevelFilter compact />
             <span className="text-[11px] text-dim hidden lg:block">Space = flip · ← didn’t know · → knew it</span>
           </div>
@@ -255,13 +256,14 @@ function DoneState({ done, again, newLearned, onExit, onPick }:
     </div>
   );
 }
-function EmptyState({ target, onExit, onPick }: { target: Target; onExit: () => void; onPick: () => void }) {
+function EmptyState({ target, onExit, onPick, onDrills }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void }) {
   return (
     <div className="grid place-items-center min-h-[440px]">
       <div className="text-center bg-panel border border-line rounded-2xl px-10 py-12 max-w-md">
         <h2 className="text-xl font-bold mb-1">Nothing due in {target.name}</h2>
-        <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try another deck or a different CEFR level.</p>
-        <div className="flex gap-2.5 justify-center">
+        <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try targeted drills, another deck, or a different CEFR level.</p>
+        <div className="flex gap-2.5 justify-center flex-wrap">
+          <button onClick={onDrills} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Targeted drills</button>
           <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Open decks</button>
           <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5">Done</button>
         </div>
