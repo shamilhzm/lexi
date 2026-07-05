@@ -21,8 +21,8 @@ export default function Kpis() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 mb-4">
       <Kpi label="Due today" value={<CountUp value={t.due} />} sub="▲ ready to study" subClass="text-green" />
+      <Kpi label="Words known" value={<CountUp value={t.known} />} sub={`${cov}% coverage · ${fmt(t.learned)} seen`} subClass="text-green" />
       <Kpi label="Words learned" value={<CountUp value={t.learned} />} sub={`of ${fmt(t.count)} in lexicon`} subClass="text-amber" />
-      <Kpi label="Coverage" value={<CountUp value={cov} suffix="%" />} sub={`${fmt(t.known)} consolidated`} subClass="text-green" />
       <Kpi label="Streak" value={<CountUp value={streak()} />} sub="days in a row" subClass="text-green" />
     </div>
   );

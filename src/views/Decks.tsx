@@ -12,6 +12,9 @@ import type { Target } from '../types.ts';
 
 type Sort = 'attention' | 'size' | 'coverage';
 
+/** Known ratio = consolidated (FSRS Review) / total — the headline for a deck. */
+const kpct = (d: { known: number; count: number }) => (d.count ? d.known / d.count : 0);
+
 export default function Decks({ initialGroup, onStudy, onMap }:
   { initialGroup: string | null; onStudy: (t: Target) => void; onMap: (sector: string) => void }) {
   const v = useStore();
@@ -69,15 +72,17 @@ export default function Decks({ initialGroup, onStudy, onMap }:
               </div>
             </div>
             <div className="font-mono text-[11px] text-dim mt-0.5">{fmt(d.count)} cards · {d.levels.join('/')} · {d.group}</div>
-            <div className="h-1.5 bg-[#05070b] rounded mt-2.5 overflow-hidden">
-              <div className="h-full rounded" style={{ width: `${Math.max(2, d.coverage * 100)}%`, background: heat(d.coverage) }} />
+            {/* Known (heat) is the headline; coverage sits behind it as a faint "seen" underlay. */}
+            <div className="relative h-1.5 bg-[#05070b] rounded mt-2.5 overflow-hidden">
+              <div className="absolute inset-y-0 left-0 rounded bg-[#2a3340]" style={{ width: `${Math.max(2, d.coverage * 100)}%` }} />
+              <div className="absolute inset-y-0 left-0 rounded" style={{ width: `${Math.max(2, kpct(d) * 100)}%`, background: heat(kpct(d)) }} />
             </div>
             <div className="flex items-center gap-2 mt-2">
               <button onClick={() => onStudy({ kind: 'sector', name: d.name })}
                 className={`font-mono text-[10px] px-2 py-0.5 rounded-full ${d.due > 0 ? 'bg-[#3d1216] text-[#ff8a90]' : 'bg-[#0b3b2c] text-[#7ff0c4]'}`}>
                 {d.due > 0 ? `${d.due} due` : `${d.newCount} new`}
               </button>
-              <span className="font-mono text-[11px] text-dim ml-auto">{Math.round(d.coverage * 100)}%</span>
+              <span className="font-mono text-[11px] text-dim ml-auto">{Math.round(kpct(d) * 100)}% known</span>
             </div>
           </div>
         ))}

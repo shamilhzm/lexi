@@ -74,11 +74,16 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
                 <span className="font-mono font-bold text-[44px] sm:text-[56px] leading-none tabular-nums">{total}</span>
                 <span className="text-dim text-[14px] mb-1.5">cards queued</span>
               </div>
-              <div className="flex flex-wrap gap-2 mb-5">
+              <div className="flex flex-wrap gap-2 mb-3">
                 <Pill label={`${briefing.due} due review${briefing.due === 1 ? '' : 's'}`} tone="green" />
                 <Pill label={`${briefing.fresh} new`} tone="amber" />
                 {briefing.weakSectors.length > 0 && <Pill label={`from ${briefing.weakSectors.slice(0, 3).join(', ')}${briefing.weakSectors.length > 3 ? '…' : ''}`} tone="dim" />}
               </div>
+              {briefing.fresh > 0 && (
+                <p className="text-dim text-[13px] mb-5">
+                  <span className="text-txt font-semibold">{briefing.fresh}</span> {briefing.fresh === 1 ? 'word' : 'words'} in today’s session {briefing.fresh === 1 ? 'is' : 'are'} new.
+                </p>
+              )}
               <motion.button whileTap={{ scale: 0.98 }}
                 onClick={() => onStart({ kind: 'custom', name: "Today's session", ids: briefing.ids })}
                 className="flex items-center justify-center gap-2 w-full sm:w-auto bg-amber text-bg font-bold rounded-[10px] px-6 py-3 text-[15px] hover:brightness-105">
@@ -88,9 +93,9 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
           )}
         </div>
         <div className="grid grid-cols-3 border-t border-line divide-x divide-[var(--color-line)]">
-          <Mini label="Due today" value={fmt(t.due)} tone="text-green" />
-          <Mini label="Learned" value={fmt(t.learned)} tone="text-amber" />
-          <Mini label="Coverage" value={`${Math.round(t.coverage * 100)}%`} tone="text-green" />
+          <Mini label="Known" value={fmt(t.known)} tone="text-green" />
+          <Mini label="Due today" value={fmt(t.due)} tone="text-amber" />
+          <Mini label="Coverage" value={`${Math.round(t.coverage * 100)}%`} tone="text-dim" />
         </div>
       </div>
 

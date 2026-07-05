@@ -3,7 +3,7 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Volume2, ArrowLeft, Check, X, Flame } from 'lucide-react';
+import { Volume2, ArrowLeft, Check, X } from 'lucide-react';
 import { review, levels, statusOf, streak, logMiss } from '../store.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Gym.tsx';
@@ -11,6 +11,7 @@ import { useStore } from '../useStore.ts';
 import { Rating, type Grade } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
+import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word, Target } from '../types.ts';
 
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
@@ -63,7 +64,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
   }, [flip, grade]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} />;
-  if (!item) return <DoneState target={target} done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
 
   const card = item.word;
   const drill = item.type !== 'flip';
@@ -95,7 +96,8 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
           <SwipeCard key={item.srsId} flipped={flipped} onFlip={flip} onGrade={grade}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT */}
-              <div className="flip-face border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center">
+              <div className="flip-face relative border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center">
+                <StatusPip id={item.srsId} />
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}</span>
                 <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[22px] sm:text-[28px]' : 'text-[34px] sm:text-[46px]'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
@@ -193,6 +195,14 @@ function stripArticle(term: string, gender: string | null) {
   return term.replace(/^(der|die|das)\s+/i, '');
 }
 
+/** Unobtrusive mastery dot on the card front: dim = new, amber = learning, green = known. */
+function StatusPip({ id }: { id: string }) {
+  const st = statusOf(id);
+  const color = st === 'known' ? 'var(--color-green)' : st === 'learning' ? 'var(--color-amber)' : 'var(--color-dim)';
+  const label = st === 'known' ? 'Known' : st === 'learning' ? 'Learning' : 'New';
+  return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
+}
+
 /** Word details are hidden for drill items — they would reveal the answer. */
 function Sidebar({ word, done, left }: { word: Word | null; done: number; left: number }) {
   if (!word) {
@@ -227,33 +237,17 @@ function Stat({ k, v }: { k: string; v: string }) {
   return <div className="flex justify-between px-4 py-2.5 border-b border-line text-[13px]"><span className="text-dim">{k}</span><span className="font-mono text-amber">{v}</span></div>;
 }
 
-function DoneState({ target, done, again, newLearned, onExit, onPick }:
-  { target: Target; done: number; again: number; newLearned: number; onExit: () => void; onPick: () => void }) {
+function DoneState({ done, again, newLearned, onExit, onPick }:
+  { done: number; again: number; newLearned: number; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <div className="text-center bg-panel border border-line rounded-2xl px-8 sm:px-10 py-12 max-w-md w-full">
-        <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
-        <h2 className="text-2xl font-bold mb-1">Session complete</h2>
-        <p className="text-dim mb-5 flex items-center justify-center gap-1.5">{target.name} · streak secured <Flame size={14} className="text-amber" /> {streak()}</p>
-        <div className="grid grid-cols-3 divide-x divide-[var(--color-line)] border border-line rounded-[10px] mb-6">
-          <RecapStat label="Reviewed" value={`${done}`} tone="text-txt" />
-          <RecapStat label="Recall" value={`${recall}%`} tone={recall >= 80 ? 'text-green' : 'text-amber'} />
-          <RecapStat label="New learned" value={`${newLearned}`} tone="text-amber" />
-        </div>
+      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, streak: streak() }}>
         <div className="flex gap-2.5 justify-center">
           <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Another deck</button>
           <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">Back to Today</button>
         </div>
-      </div>
-    </div>
-  );
-}
-function RecapStat({ label, value, tone }: { label: string; value: string; tone: string }) {
-  return (
-    <div className="px-2 py-3">
-      <div className="text-[10px] text-dim uppercase tracking-[1px]">{label}</div>
-      <div className={`font-mono font-bold text-[20px] mt-0.5 tabular-nums ${tone}`}>{value}</div>
+      </SessionRecap>
     </div>
   );
 }

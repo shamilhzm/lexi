@@ -4,13 +4,14 @@
 // sentences. Each drilled unit gets an FSRS card under a namespaced id, so the
 // gym schedules itself without touching the vocabulary stats.
 import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Check, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, review, levels, logMiss } from '../store.ts';
+import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
 import GrammarDrill from './GrammarDrill.tsx';
+import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word } from '../types.ts';
 
 export type Mode = 'gender' | 'plural' | 'conj' | 'cloze';
@@ -297,12 +298,9 @@ function Empty() {
   );
 }
 function Summary({ done, correct }: { done: number; correct: number }) {
-  const pct = done ? Math.round((correct / done) * 100) : 0;
   return (
-    <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center">
-      <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
-      <h2 className="text-2xl font-bold mb-1">Drill complete</h2>
-      <p className="text-dim">{correct}/{done} correct · {pct}%. Scheduled for review.</p>
+    <div className="grid place-items-center pt-4">
+      <SessionRecap title="Drill complete" data={{ drills: done, drillsCorrect: correct, streak: streak() }} />
     </div>
   );
 }

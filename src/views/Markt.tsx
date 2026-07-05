@@ -55,7 +55,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
           {/* soft glow behind the floor */}
           <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 50% 0%, rgba(255,176,0,.06), transparent 70%)' }} />
           {tiles.map((t, idx) => {
-            const s = t.data, p = s.coverage, big = t.w > 120 && t.h > 64, mid = t.w > 78 && t.h > 44;
+            const s = t.data, p = s.count ? s.known / s.count : 0, big = t.w > 120 && t.h > 64, mid = t.w > 78 && t.h > 44;
             const ink = tileInk(p);
             const d = deltas?.get(s.name) ?? 0;
             return (
@@ -71,7 +71,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
                     {mid ? s.name : s.name.split(/[ ,&]/)[0]}
                   </span>
                   <span>
-                    {big && <span className="block font-mono opacity-90" style={{ fontSize: 11 }}>{fmt(s.learned)}/{fmt(s.count)} · {s.sectors} sectors</span>}
+                    {big && <span className="block font-mono opacity-90" style={{ fontSize: 11 }}>{fmt(s.known)}/{fmt(s.count)} known · {s.sectors} sectors</span>}
                     <span className="font-mono font-bold" style={{ fontSize: big ? 19 : 12, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>{Math.round(p * 100)}%</span>
                     {mid && d > 0 && <span className="font-mono font-semibold ml-1.5" style={{ fontSize: big ? 12 : 10, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>▲{d}</span>}
                   </span>
@@ -99,7 +99,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
         <div className="flex items-center gap-2 px-4 py-2.5 border-t border-line text-[11px] text-dim flex-wrap">
           <span>0%</span>
           <span className="h-2.5 w-40 rounded" style={{ background: 'linear-gradient(90deg,#ea3943,#ffb000,#16c784)' }} />
-          <span>100% learned</span>
+          <span>100% known</span>
           <span className="ml-auto hidden md:inline">Click opens a group's sectors · right-click starts a study session</span>
         </div>
       </div>
