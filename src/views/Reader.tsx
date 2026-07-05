@@ -5,7 +5,7 @@
 // on the page can be studied as a set — so reading feeds the review loop.
 import { useMemo, useState } from 'react';
 import { BookOpen, Play, Sparkles, Loader2, Volume2, KeyRound, X } from 'lucide-react';
-import { annotate, enrich, resetMiningIndex, isFunctionWord, type Segment } from '../lib/mining.ts';
+import { annotate, enrich, resetMiningIndex, isNeutralWord, type Segment } from '../lib/mining.ts';
 import { statusOf, addUserWords, apiKey, aiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
@@ -42,7 +42,7 @@ export default function Reader({ onStudy }: { onStudy: (t: Target) => void }) {
       if (s.word) {
         const st = statusOf(s.word.id);
         (st === 'known' ? known : st === 'learning' ? learning : fresh).add(s.word.id);
-      } else if (!isFunctionWord(s.text)) unknown.set(s.text.toLowerCase(), s.text);
+      } else if (!isNeutralWord(s.text)) unknown.set(s.text.toLowerCase(), s.text);
     }
     const total = known.size + learning.size + fresh.size + unknown.size;
     return { known: known.size, learning: learning.size, fresh: fresh.size, unknown: unknown.size,
@@ -104,7 +104,7 @@ export default function Reader({ onStudy }: { onStudy: (t: Target) => void }) {
         <p className="whitespace-pre-wrap leading-[2.05] text-[17px]">
           {segs.map((s, i) => {
             if (!s.isWord) return <span key={i}>{s.text}</span>;
-            if (!s.word && isFunctionWord(s.text)) return <span key={i}>{s.text}</span>; // function word: plain
+            if (!s.word && isNeutralWord(s.text)) return <span key={i}>{s.text}</span>; // function word / ordinal: plain
             return <span key={i} role="button" tabIndex={0} onClick={() => setSel(i)}
               onKeyDown={(e) => { if (e.key === 'Enter') setSel(i); }}
               className={wordClass(s, i === sel)}>{s.text}</span>;
