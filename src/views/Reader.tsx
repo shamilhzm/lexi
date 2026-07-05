@@ -5,7 +5,7 @@
 // on the page can be studied as a set — so reading feeds the review loop.
 import { useMemo, useState } from 'react';
 import { BookOpen, Play, Sparkles, Loader2, Volume2, KeyRound, X } from 'lucide-react';
-import { annotate, enrich, resetMiningIndex, type Segment } from '../lib/mining.ts';
+import { annotate, enrich, resetMiningIndex, isFunctionWord, type Segment } from '../lib/mining.ts';
 import { statusOf, addUserWords, apiKey, aiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
@@ -35,34 +35,38 @@ export default function Reader({ onStudy }: { onStudy: (t: Target) => void }) {
   const [err, setErr] = useState('');
 
   const stats = useMemo(() => {
-    const known = new Set<string>(), learning = new Set<string>(), fresh = new Set<string>(), unknown = new Set<string>();
+    const known = new Set<string>(), learning = new Set<string>(), fresh = new Set<string>();
+    const unknown = new Map<string, string>(); // lowercased -> display form
     for (const s of segs ?? []) {
       if (!s.isWord) continue;
       if (s.word) {
         const st = statusOf(s.word.id);
         (st === 'known' ? known : st === 'learning' ? learning : fresh).add(s.word.id);
-      } else unknown.add(s.text.toLowerCase());
+      } else if (!isFunctionWord(s.text)) unknown.set(s.text.toLowerCase(), s.text);
     }
     const total = known.size + learning.size + fresh.size + unknown.size;
     return { known: known.size, learning: learning.size, fresh: fresh.size, unknown: unknown.size,
-      freshIds: [...fresh], pct: total ? Math.round(((known.size + learning.size) / total) * 100) : 0 };
+      unknownList: [...unknown.values()], freshIds: [...fresh],
+      pct: total ? Math.round(((known.size + learning.size) / total) * 100) : 0 };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [segs, v]);
 
   const read = () => { setSegs(annotate(text)); setSel(null); setErr(''); };
   const selected = sel !== null ? segs?.[sel] ?? null : null;
 
-  const addWord = async (token: string) => {
+  const enrichTokens = async (tokens: string[], noneMsg: string) => {
     setEnriching(true); setErr('');
     try {
-      const added = addUserWords(await enrich([token], aiConfig()));
+      const added = addUserWords(await enrich(tokens, aiConfig()));
       resetMiningIndex();
-      setSegs(annotate(text)); // the token now matches its new card
-      if (!added.length) setErr('Could not add that word — try another.');
+      setSegs(annotate(text)); // the tokens now match their new cards
+      if (!added.length) setErr(noneMsg);
     } catch (e: any) {
-      setErr(e?.message || 'Enrichment failed. Check your API key in Mine.');
+      setErr(e?.message || 'Enrichment failed. Check your API key in Settings.');
     } finally { setEnriching(false); }
   };
+  const addWord = (token: string) => enrichTokens([token], 'Could not add that word — try another.');
+  const addAll = () => enrichTokens(stats.unknownList.slice(0, 40), 'Nothing could be added.');
 
   // ---- input screen -------------------------------------------------------
   if (!segs) return (
@@ -98,16 +102,40 @@ export default function Reader({ onStudy }: { onStudy: (t: Target) => void }) {
 
       <div className="bg-card border border-line rounded-[16px] p-5 sm:p-7 mb-3">
         <p className="whitespace-pre-wrap leading-[2.05] text-[17px]">
-          {segs.map((s, i) => s.isWord
-            ? <span key={i} role="button" tabIndex={0} onClick={() => setSel(i)}
-                onKeyDown={(e) => { if (e.key === 'Enter') setSel(i); }}
-                className={wordClass(s, i === sel)}>{s.text}</span>
-            : <span key={i}>{s.text}</span>)}
+          {segs.map((s, i) => {
+            if (!s.isWord) return <span key={i}>{s.text}</span>;
+            if (!s.word && isFunctionWord(s.text)) return <span key={i}>{s.text}</span>; // function word: plain
+            return <span key={i} role="button" tabIndex={0} onClick={() => setSel(i)}
+              onKeyDown={(e) => { if (e.key === 'Enter') setSel(i); }}
+              className={wordClass(s, i === sel)}>{s.text}</span>;
+          })}
         </p>
       </div>
 
       {selected && <WordPanel seg={selected} onClose={() => setSel(null)} onStudy={onStudy}
         onAdd={addWord} enriching={enriching} hasKey={!!apiKey()} err={err} />}
+
+      {stats.unknownList.length > 0 && (
+        <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mt-3">
+          <h2 className="text-[15px] font-semibold">Not in the lexicon yet ({stats.unknownList.length})</h2>
+          <p className="text-dim text-[13px] mt-1 mb-3">Words Lexi doesn’t carry — proper nouns, or vocab you can add as your own cards.</p>
+          <div className="flex flex-wrap gap-2 mb-3">
+            {stats.unknownList.slice(0, 60).map((tok) => (
+              <span key={tok} className="text-[13px] rounded-full px-3 py-1 border border-line text-dim">{tok}</span>
+            ))}
+          </div>
+          {apiKey() ? (
+            <button onClick={addAll} disabled={enriching}
+              className="flex items-center gap-2 bg-panel2 border border-line rounded-[10px] px-5 py-2.5 text-[13px] hover:border-amber disabled:opacity-50">
+              {enriching ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} className="text-amber" />}
+              {enriching ? 'Adding…' : `Add ${Math.min(stats.unknownList.length, 40)} to my lexicon`}
+            </button>
+          ) : (
+            <p className="flex items-center gap-1.5 text-[13px] text-dim"><KeyRound size={13} /> Add an API key in Settings to save your own words.</p>
+          )}
+          {err && !selected && <p className="text-red-txt text-[13px] mt-2">{err}</p>}
+        </div>
+      )}
 
       <div className="flex items-center gap-3 mt-4 flex-wrap">
         <button onClick={() => { setSegs(null); setSel(null); }} className="text-[13px] text-dim hover:text-amber">← Read another text</button>
@@ -159,7 +187,7 @@ function WordPanel({ seg, onClose, onStudy, onAdd, enriching, hasKey, err }:
                   {enriching ? 'Adding…' : 'Add to my lexicon'}
                 </button>
               ) : (
-                <p className="mt-2 flex items-center gap-1.5 text-[13px] text-dim"><KeyRound size={13} /> Add an API key in Mine to save your own words.</p>
+                <p className="mt-2 flex items-center gap-1.5 text-[13px] text-dim"><KeyRound size={13} /> Add an API key in Settings to save your own words.</p>
               )}
               {err && <p className="text-red-txt text-[13px] mt-2">{err}</p>}
             </>

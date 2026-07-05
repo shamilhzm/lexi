@@ -4,12 +4,11 @@
 // Dark Bloomberg aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { GraduationCap, Compass, Heart, Sunrise, ScanText, BookOpen, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare, Swords } from 'lucide-react';
+import { GraduationCap, Compass, Heart, Sunrise, BookOpen, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare, Swords } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Review from './views/Review.tsx';
 import Explore from './views/Explore.tsx';
 import Today from './views/Today.tsx';
-import Mining from './views/Mining.tsx';
 import Reader from './views/Reader.tsx';
 import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
@@ -22,7 +21,7 @@ import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'review' | 'explore' | 'mining' | 'reader' | 'gym' | 'placement' | 'settings' | 'blindspots' | 'tutor';
+export type View = 'today' | 'review' | 'explore' | 'reader' | 'gym' | 'placement' | 'settings' | 'blindspots' | 'tutor';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
@@ -47,7 +46,6 @@ const PRIMARY: NavItem[] = [
 const MORE: NavItem[] = [
   { id: 'tutor', label: 'AI Tutor', icon: MessagesSquare },
   { id: 'reader', label: 'Lesen', icon: BookOpen },
-  { id: 'mining', label: 'Mine', icon: ScanText },
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
   { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ];
@@ -155,7 +153,6 @@ export default function App() {
             {view === 'settings' && <Settings />}
             {view === 'blindspots' && <BlindSpots onDrill={drillFor} />}
             {view === 'tutor' && <Tutor onOpenSettings={() => setView('settings')} />}
-            {view === 'mining' && <Mining onStudy={study} />}
             {view === 'reader' && <Reader onStudy={study} />}
             {view === 'gym' && <Gym initial={gymInit} />}
             {view === 'explore' && <Explore onStudy={study} onStudyAll={() => study(ALL)} initial={exploreInit} />}

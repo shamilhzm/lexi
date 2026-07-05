@@ -3,20 +3,49 @@
 // lexicon you haven't learned yet, and words not in the lexicon at all. The last
 // group can be auto-enriched into user cards via an optional LLM API key.
 import { WORDS } from '../data/index.ts';
+import { conjugate, canConjugate } from './conjugate.ts';
 import { chat, parseLooseJSON, type AiConfig } from './ai.ts';
 import type { Word, CEFR } from '../types.ts';
 
 const stripArticle = (term: string) => term.replace(/^(der|die|das)\s+/i, '');
 
+/** Closed-class words (articles, pronouns, prepositions, conjunctions,
+ *  contractions) that aren't learnable vocab. The reader treats them as plain
+ *  text rather than "new to you", so the count reflects real content words. */
+export const FUNCTION_WORDS = new Set<string>([
+  'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'einen', 'einem', 'einer', 'eines',
+  'kein', 'keine', 'keinen', 'keinem', 'keiner', 'keines',
+  'ich', 'du', 'er', 'es', 'wir', 'ihr', 'mich', 'dich', 'sich', 'uns', 'euch',
+  'mir', 'dir', 'ihm', 'ihn', 'ihnen', 'mein', 'meine', 'dein', 'deine', 'seine', 'ihre', 'unser', 'euer',
+  'in', 'an', 'auf', 'mit', 'von', 'bei', 'nach', 'aus', 'über', 'unter', 'vor', 'hinter', 'neben',
+  'zwischen', 'um', 'durch', 'gegen', 'ohne', 'bis', 'seit', 'während', 'wegen', 'trotz', 'gegenüber',
+  'und', 'oder', 'aber', 'denn', 'sondern', 'weil', 'dass', 'ob', 'als', 'wenn', 'damit', 'obwohl',
+  'am', 'im', 'beim', 'zum', 'zur', 'ans', 'ins', 'vom', 'aufs',
+]);
+export const isFunctionWord = (tok: string) => FUNCTION_WORDS.has(tok.toLowerCase());
+
 let index: Map<string, Word> | null = null;
-/** lowercased form (full term, article-stripped, first token) -> Word. */
+/** lowercased surface form -> Word: dictionary term, article-stripped term,
+ *  plural, and (for verbs) every conjugated form, so inflections match too. */
 function lexIndex(): Map<string, Word> {
   if (index) return index;
   const m = new Map<string, Word>();
+  const add = (k: string, w: Word) => { if (k && !m.has(k)) m.set(k, w); };
+  // Base forms first, so a lemma always wins over another word's inflection.
   for (const w of WORDS) {
-    const keys = [w.term.toLowerCase(), stripArticle(w.term).toLowerCase()];
-    if (w.plural) keys.push(stripArticle(w.plural).toLowerCase()); // exact plural form → its word
-    for (const k of keys) if (k && !m.has(k)) m.set(k, w);
+    add(w.term.toLowerCase(), w);
+    add(stripArticle(w.term).toLowerCase(), w);
+    if (w.plural) add(stripArticle(w.plural).toLowerCase(), w);
+  }
+  // Then verb inflections (präsens, präteritum, Partizip II) → their infinitive.
+  for (const w of WORDS) {
+    if (w.pos !== 'verb') continue;
+    const inf = stripArticle(w.term);
+    if (!canConjugate(inf)) continue;
+    try {
+      const c = conjugate(inf);
+      for (const f of [...c.praesens, ...c.praeteritum, c.partizip]) add(f.toLowerCase(), w);
+    } catch { /* skip unconjugable */ }
   }
   index = m;
   return m;

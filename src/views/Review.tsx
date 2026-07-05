@@ -8,6 +8,8 @@ import { review, levels, statusOf, streak, logMiss, checkMilestones } from '../s
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Gym.tsx';
+import { GrammarExercise } from './GrammarDrill.tsx';
+import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
 import { Rating, type Grade } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
@@ -18,6 +20,13 @@ import type { Word, Target } from '../types.ts';
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
+
+/** Stable per-card pick from a grammar point's exercises (same card → same drill). */
+function pickExercise(point: GPoint, seed: string) {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
+  return point.exercises[Math.abs(h) % point.exercises.length];
+}
 
 export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
@@ -30,9 +39,19 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const [done, setDone] = useState(0);
   const [again, setAgain] = useState(0);       // lapses this session
   const [newLearned, setNewLearned] = useState(0); // cards that left the New state
+  const [gmap, setGmap] = useState<Map<string, GPoint> | null>(null); // grammar point → exercises
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => { setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); }, [target, lvKey]);
+
+  // Load the exercise bank once, so grammar cards can render as drills.
+  useEffect(() => {
+    loadGrammar().then((g) => {
+      const m = new Map<string, GPoint>();
+      Object.entries(g).forEach(([lv, pts]) => (pts as GPoint[]).forEach((p) => m.set(`${lv}::${p.title}`, p)));
+      setGmap(m);
+    }).catch(() => { /* fall back to rule cards */ });
+  }, []);
 
   const item = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
@@ -59,6 +78,19 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     setI((n) => n + 1);
   }, [item]);
 
+  // Grammar cards are graded like drills (answer, not flip).
+  const gradeGrammar = useCallback((ok: boolean) => {
+    if (!item) return;
+    const wasNew = statusOf(item.srsId) === 'new';
+    review(item.srsId, ok ? Rating.Good : Rating.Again);
+    haptic();
+    if (!ok) { logMiss(item.word.term); setAgain((a) => a + 1); }
+    else if (wasNew) setNewLearned((n) => n + 1);
+    setDone((d) => d + 1);
+    setFlipped(false);
+    setI((n) => n + 1);
+  }, [item]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.code === 'Space') { e.preventDefault(); flip(); }
@@ -75,6 +107,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const card = item.word;
   const drill = item.type !== 'flip';
   const grammar = card.kind === 'grammar';
+  // A grammar card renders as a practical exercise when its point is in the bank.
+  const gpoint = grammar && gmap ? gmap.get(`${card.level}::${card.term}`) : undefined;
+  const grammarEx = gpoint && gpoint.exercises.length ? pickExercise(gpoint, item.srsId) : null;
+  const asExercise = drill || !!grammarEx;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
@@ -95,13 +131,15 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           <motion.div key={item.srsId} className="w-full flex flex-col items-center"
             initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: reduce ? 0 : 0.2, ease: 'easeOut' }}>
-          {drill ? (
+          {asExercise ? (
             <div className="relative w-full max-w-[580px]">
-              <span className="absolute -top-2.5 right-3 z-10 text-[11px] text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 uppercase tracking-[1px]">{DRILL_TAG[item.type] ?? 'Drill'}</span>
-              {item.type === 'gender' && <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />}
-              {item.type === 'plural' && <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />}
-              {item.type === 'conj' && <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />}
-              {item.type === 'cloze' && <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              <span className="absolute -top-2.5 right-3 z-10 text-[11px] text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 uppercase tracking-[1px]">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              {grammarEx
+                ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} />
+                : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'plural' ? <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'conj' ? <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
           <SwipeCard key={item.srsId} flipped={flipped} onFlip={flip} onGrade={grade}>

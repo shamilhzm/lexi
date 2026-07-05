@@ -57,7 +57,12 @@ export default function GrammarDrill({ onExit }: { onExit: () => void }) {
 }
 
 function Item({ item, onGrade }: { item: GItem; onGrade: (ok: boolean) => void }) {
-  const { ex } = item;
+  return <GrammarExercise ex={item.ex} onGrade={onGrade} />;
+}
+
+/** Render one grammar exercise (any of the five widget kinds). Reused by the
+ *  unified session so grammar points show up as drills, not rule explanations. */
+export function GrammarExercise({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
   if (ex.kind === 'choose' || ex.kind === 'mc') return <ChooseItem ex={ex} onGrade={onGrade} />;
   if (ex.kind === 'type') return <TypeItem ex={ex} onGrade={onGrade} />;
   if (ex.kind === 'order') return <OrderItem ex={ex} onGrade={onGrade} />;
