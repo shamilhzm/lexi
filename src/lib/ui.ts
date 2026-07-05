@@ -41,3 +41,7 @@ export function speakDe(text: string) {
 }
 
 export const fmt = (n: number) => n.toLocaleString('de-DE');
+
+/** A tiny vibration on grade commit. No-op on iOS Safari (navigator.vibrate is
+ *  unsupported there); a real win on Android/Chrome and installed PWAs. */
+export const haptic = () => { navigator.vibrate?.(10); };

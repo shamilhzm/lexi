@@ -29,7 +29,7 @@ const ALL: Target = { kind: 'all', name: 'All sectors' };
 function Logo() {
   return (
     <div className="flex items-center gap-2.5 select-none">
-      <span className="grid place-items-center w-7 h-7 rounded-[7px] font-serif font-bold text-bg text-[18px]"
+      <span className="grid place-items-center w-7 h-7 rounded-[10px] font-serif font-bold text-bg text-[20px]"
             style={{ background: 'linear-gradient(135deg,#ffb000,#ff7b00)' }}>L</span>
       <span className="leading-none">
         <span className="font-bold tracking-wide text-[15px]">Lexi</span><br />
@@ -42,10 +42,10 @@ function Logo() {
 type NavItem = { id: View; label: string; icon: any; short?: string };
 const PRIMARY: NavItem[] = [
   { id: 'today', label: 'Today', icon: Sunrise },
-  { id: 'markt', label: 'Market', icon: LayoutGrid },
-  { id: 'review', label: 'Study', icon: GraduationCap },
+  { id: 'markt', label: 'Markt', icon: LayoutGrid },
+  { id: 'review', label: 'Üben', icon: GraduationCap },
   { id: 'gym', label: 'Gym', icon: Cog },
-  { id: 'galaxy', label: 'Word Map', icon: Network, short: 'Map' },
+  { id: 'galaxy', label: 'Wortkarte', icon: Network, short: 'Karte' },
 ];
 const MORE: NavItem[] = [
   { id: 'tutor', label: 'AI Tutor', icon: MessagesSquare },
@@ -169,7 +169,7 @@ export default function App() {
           const active = view === n.id;
           return (
             <button key={n.id} onClick={() => go(n.id)}
-              className={`flex-1 flex flex-col items-center gap-0.5 py-2 text-[10px] transition-colors ${active ? 'text-amber' : 'text-dim'}`}>
+              className={`flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] transition-colors ${active ? 'text-amber' : 'text-dim'}`}>
               <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} />
               {n.short ?? n.label}
             </button>
@@ -177,7 +177,7 @@ export default function App() {
         })}
         <div className="relative flex-1">
           <button onClick={() => setMoreOpen((o) => !o)}
-            className={`w-full flex flex-col items-center gap-0.5 py-2 text-[10px] transition-colors ${MORE.some((m) => m.id === view) || moreOpen ? 'text-amber' : 'text-dim'}`}>
+            className={`w-full flex flex-col items-center gap-0.5 py-2 text-[11px] transition-colors ${MORE.some((m) => m.id === view) || moreOpen ? 'text-amber' : 'text-dim'}`}>
             <MoreHorizontal size={19} /> More
           </button>
           {moreOpen && (

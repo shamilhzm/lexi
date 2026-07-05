@@ -35,14 +35,14 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
   if (!a) return (
     <div className="max-w-[820px] mx-auto">
       <Header />
-      <div className="bg-panel border border-line rounded-[12px] p-4 sm:p-5">
+      <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5">
         <textarea ref={textRef} value={text} onChange={(e) => setText(e.target.value)} rows={9}
           placeholder="Paste a German article, song lyric, subtitle, email — anything you want to learn from…"
-          className="w-full bg-panel2 border border-line rounded-lg p-3.5 text-[14px] leading-relaxed text-txt outline-none focus:border-amber resize-y" />
+          className="w-full bg-panel2 border border-line rounded-lg p-3.5 text-[15px] leading-relaxed text-txt outline-none focus:border-amber resize-y" />
         <div className="mt-2"><UmlautBar targetRef={textRef} value={text} onChange={setText} /></div>
         <div className="flex items-center gap-2.5 mt-3 flex-wrap">
           <button onClick={run} disabled={text.trim().length < 3}
-            className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[14px] hover:brightness-105 disabled:opacity-40">
+            className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[15px] hover:brightness-105 disabled:opacity-40">
             <Sparkles size={15} /> Mine words
           </button>
           <button onClick={() => setText(SAMPLE)} className="text-[13px] text-dim hover:text-amber">Try a sample</button>
@@ -99,13 +99,13 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
                     className={`text-[13px] rounded-full px-3 py-1.5 border transition-colors ${on ? 'bg-amber text-bg border-amber font-semibold' : 'border-line text-dim hover:border-amber'}`}
                     title={word.en}>
                     {on && <Check size={12} className="inline mr-1 -mt-0.5" />}{token}
-                    <span className={`ml-1.5 text-[10px] ${on ? 'text-bg/70' : 'text-dim'}`}>{word.level}</span>
+                    <span className={`ml-1.5 text-[11px] ${on ? 'text-bg/70' : 'text-dim'}`}>{word.level}</span>
                   </button>
                 );
               })}
             </div>
             <button onClick={studyPicked} disabled={picked.size === 0}
-              className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[14px] hover:brightness-105 disabled:opacity-40">
+              className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[15px] hover:brightness-105 disabled:opacity-40">
               <Play size={15} /> Study {picked.size} word{picked.size === 1 ? '' : 's'}
             </button>
           </>
@@ -124,7 +124,7 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
           {addedCount > 0 && <p className="text-green text-[13px] mb-3"><Check size={13} className="inline -mt-0.5" /> Added {addedCount} card{addedCount === 1 ? '' : 's'} to your lexicon.</p>}
           {apiKey() ? (
             <button onClick={doEnrich} disabled={enriching}
-              className="flex items-center gap-2 bg-panel2 border border-line rounded-[10px] px-5 py-2.5 text-[14px] hover:border-amber disabled:opacity-50">
+              className="flex items-center gap-2 bg-panel2 border border-line rounded-[10px] px-5 py-2.5 text-[15px] hover:border-amber disabled:opacity-50">
               {enriching ? <Loader2 size={15} className="animate-spin" /> : <Sparkles size={15} className="text-amber" />}
               {enriching ? 'Enriching…' : `Enrich & add ${Math.min(a.unknown.length, 40)}`}
             </button>
@@ -133,11 +133,11 @@ export default function Mining({ onStudy }: { onStudy: (t: Target) => void }) {
               <KeyRound size={14} /> Add an API key to enable auto-enrichment
             </button>
           )}
-          {err && <p className="text-red text-[12.5px] mt-2">{err}</p>}
+          {err && <p className="text-red-txt text-[13px] mt-2">{err}</p>}
 
           {showKey && (
             <div className="mt-3 bg-panel2 border border-line rounded-lg p-3">
-              <label className="text-[12px] text-dim block mb-1.5">API key (OpenRouter by default) — stored only on this device. Change provider/model in Settings.</label>
+              <label className="text-[13px] text-dim block mb-1.5">API key (OpenRouter by default) — stored only on this device. Change provider/model in Settings.</label>
               <div className="flex items-center gap-2">
                 <input type="password" value={keyDraft} onChange={(e) => setKeyDraft(e.target.value)} placeholder="sk-…"
                   className="flex-1 bg-panel border border-line rounded-md px-2.5 py-1.5 text-[13px] font-mono outline-none focus:border-amber" />
@@ -163,16 +163,16 @@ function Header() {
       <ScanText size={20} className="text-amber" />
       <div>
         <h1 className="text-[20px] sm:text-[22px] font-bold leading-none">Sentence mining</h1>
-        <p className="text-dim text-[12.5px] mt-1">Build your lexicon from the German you actually read.</p>
+        <p className="text-dim text-[13px] mt-1">Build your lexicon from the German you actually read.</p>
       </div>
     </div>
   );
 }
 function Section({ title, sub, children }: { title: string; sub?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-panel border border-line rounded-[12px] p-4 sm:p-5 mb-4">
+    <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-4">
       <h2 className="text-[15px] font-semibold">{title}</h2>
-      {sub && <p className="text-dim text-[12.5px] mt-1 mb-3">{sub}</p>}
+      {sub && <p className="text-dim text-[13px] mt-1 mb-3">{sub}</p>}
       {children}
     </div>
   );

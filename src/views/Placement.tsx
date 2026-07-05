@@ -69,13 +69,13 @@ export default function Placement({ onDone }: { onDone: () => void }) {
   if (result) {
     return (
       <div className="max-w-[520px] mx-auto">
-        <div className="bg-panel border border-line rounded-[14px] px-6 py-10 text-center">
+        <div className="bg-panel border border-line rounded-[16px] px-6 py-10 text-center">
           <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
             <GraduationCap className="text-green" />
           </div>
           <div className="text-[11px] text-amber uppercase tracking-[2px] mb-1">Your level</div>
           <div className="font-mono font-bold text-[52px] leading-none text-amber mb-3">{result}</div>
-          <p className="text-dim text-[14px] mb-6">
+          <p className="text-dim text-[15px] mb-6">
             Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on A1–{result}.
             You can change the level filter anytime.
           </p>
@@ -93,8 +93,8 @@ export default function Placement({ onDone }: { onDone: () => void }) {
   return (
     <div className="max-w-[520px] mx-auto">
       <div className="flex items-center justify-between mb-3">
-        <h1 className="text-[18px] font-bold">Placement test</h1>
-        <button onClick={onDone} className="text-[12px] text-dim hover:text-amber">skip</button>
+        <h1 className="text-[20px] font-bold">Placement test</h1>
+        <button onClick={onDone} className="text-[13px] text-dim hover:text-amber">skip</button>
       </div>
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">
         <div className="h-full bg-amber transition-all" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
@@ -102,9 +102,9 @@ export default function Placement({ onDone }: { onDone: () => void }) {
       <p className="text-[11px] text-dim mb-4">Testing level {ALL_LEVELS[li]} · do you know this word?</p>
 
       <motion.div key={word.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-        className="bg-panel border border-line rounded-[14px] px-6 py-12 text-center mb-4">
+        className="bg-panel border border-line rounded-[16px] px-6 py-12 text-center mb-4">
         <div className="font-bold text-[34px] sm:text-[40px] leading-tight">{stripArticle(word.term)}</div>
-        {word.gender && <div className="text-dim text-[14px] mt-1.5">{word.gender}</div>}
+        {word.gender && <div className="text-dim text-[15px] mt-1.5">{word.gender}</div>}
       </motion.div>
 
       <div className="grid grid-cols-2 gap-3">

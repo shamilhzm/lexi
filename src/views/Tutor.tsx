@@ -84,36 +84,36 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
       <p className="text-dim text-[13px] mb-4">Answer in German — by typing or speaking. Get instant, exam-style feedback.</p>
 
       {!hasKey && (
-        <button onClick={onOpenSettings} className="w-full flex items-center gap-3 bg-panel border border-line rounded-[12px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
+        <button onClick={onOpenSettings} className="w-full flex items-center gap-3 bg-panel border border-line rounded-[16px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
           <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0"><KeyRound size={17} /></span>
-          <span className="flex-1"><span className="block text-[14px] font-semibold">Connect an AI provider</span>
-            <span className="block text-[12px] text-dim">The tutor needs an API key (free OpenRouter works). Set it in Settings.</span></span>
+          <span className="flex-1"><span className="block text-[15px] font-semibold">Connect an AI provider</span>
+            <span className="block text-[13px] text-dim">The tutor needs an API key (free OpenRouter works). Set it in Settings.</span></span>
           <ArrowRight size={15} className="text-amber" />
         </button>
       )}
 
       {/* The prompt */}
-      <div className="bg-card border border-line rounded-[14px] p-5 mb-3">
+      <div className="bg-card border border-line rounded-[16px] p-5 mb-3">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-[11px] text-amber uppercase tracking-[2px] font-semibold">Your prompt</span>
           <div className="ml-auto flex items-center gap-1">
-            <button onClick={() => speak(task)} title="Hear it" className="grid place-items-center w-8 h-8 rounded-md text-dim hover:text-amber hover:bg-panel2"><Volume2 size={15} /></button>
-            <button onClick={newTask} title="New prompt" className="grid place-items-center w-8 h-8 rounded-md text-dim hover:text-amber hover:bg-panel2"><Shuffle size={15} /></button>
+            <button onClick={() => speak(task)} title="Hear it" className="grid place-items-center w-11 h-11 rounded-md text-dim hover:text-amber hover:bg-panel2"><Volume2 size={15} /></button>
+            <button onClick={newTask} title="New prompt" className="grid place-items-center w-11 h-11 rounded-md text-dim hover:text-amber hover:bg-panel2"><Shuffle size={15} /></button>
           </div>
         </div>
-        <p className="text-[18px] sm:text-[20px] font-semibold leading-snug">{task}</p>
+        <p className="text-[20px] sm:text-[24px] font-semibold leading-snug">{task}</p>
       </div>
 
       {/* Input */}
-      <div className="bg-panel border border-line rounded-[14px] p-4 mb-3">
+      <div className="bg-panel border border-line rounded-[16px] p-4 mb-3">
         <div className="flex items-center gap-2 mb-2">
-          <div className="flex rounded-lg bg-panel2 border border-line p-0.5 text-[12px]">
+          <div className="flex rounded-lg bg-panel2 border border-line p-0.5 text-[13px]">
             <button onClick={() => setMode('write')} className={`px-3 py-1 rounded-md ${mode === 'write' ? 'bg-amber text-bg font-semibold' : 'text-dim'}`}>Write</button>
             <button onClick={() => setMode('speak')} className={`px-3 py-1 rounded-md ${mode === 'speak' ? 'bg-amber text-bg font-semibold' : 'text-dim'}`}>Speak</button>
           </div>
           {mode === 'speak' && (
             <button onClick={toggleMic}
-              className={`flex items-center gap-1.5 text-[12px] rounded-full px-3 py-1.5 border transition-colors ${listening ? 'border-red text-red' : 'border-line text-dim hover:border-amber'}`}>
+              className={`flex items-center gap-1.5 text-[13px] rounded-full px-3 py-1.5 border transition-colors ${listening ? 'border-red text-red-txt' : 'border-line text-dim hover:border-amber'}`}>
               {listening ? <><MicOff size={14} /> Stop</> : <><Mic size={14} /> Record (de-DE)</>}
               {listening && <span className="live-dot ml-1" />}
             </button>
@@ -125,16 +125,16 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
         <div className="flex items-center gap-2 mt-2 flex-wrap">
           <UmlautBar targetRef={taRef} value={answer} onChange={setAnswer} />
           <button onClick={submit} disabled={!answer.trim() || loading}
-            className="ml-auto flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[14px] hover:brightness-105 disabled:opacity-40">
+            className="ml-auto flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[15px] hover:brightness-105 disabled:opacity-40">
             {loading ? <Loader2 size={15} className="animate-spin" /> : <Sparkles size={15} />} {loading ? 'Checking…' : 'Get feedback'}
           </button>
         </div>
-        {err && <p className="text-red text-[12.5px] mt-2">{err}</p>}
+        {err && <p className="text-red-txt text-[13px] mt-2">{err}</p>}
       </div>
 
       {/* Feedback */}
       {fb && (
-        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="bg-card border border-line rounded-[14px] p-5 mb-3">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="bg-card border border-line rounded-[16px] p-5 mb-3">
           <div className="flex items-center gap-2 mb-3">
             <span className="font-mono font-bold text-[15px] text-amber border border-line rounded-md px-2 py-0.5">{fb.cefr || '—'}</span>
             <span className="text-[13px] text-txt">{fb.feedback}</span>
@@ -143,9 +143,9 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
           {fb.corrections.length > 0 ? (
             <div className="space-y-2.5 mb-4">
               {fb.corrections.map((c, i) => (
-                <div key={i} className="bg-panel2 border border-line rounded-lg p-3 text-[13.5px]">
+                <div key={i} className="bg-panel2 border border-line rounded-lg p-3 text-[15px]">
                   <div><span className="text-red line-through">{c.original}</span> <ArrowRight size={12} className="inline text-dim mx-1" /> <span className="text-green font-semibold">{c.fixed}</span></div>
-                  <div className="text-dim text-[12.5px] mt-1">{c.why}{c.tag && <span className="ml-1.5 text-[11px] border border-line rounded-full px-1.5 py-0.5">{c.tag}</span>}</div>
+                  <div className="text-dim text-[13px] mt-1">{c.why}{c.tag && <span className="ml-1.5 text-[11px] border border-line rounded-full px-1.5 py-0.5">{c.tag}</span>}</div>
                 </div>
               ))}
             </div>
@@ -154,7 +154,7 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
           {fb.natural && (
             <div className="mb-4">
               <div className="text-[11px] text-dim uppercase tracking-[1px] mb-1">More natural</div>
-              <p className="text-[14.5px] leading-relaxed italic">„{fb.natural}"
+              <p className="text-[15px] leading-relaxed italic">„{fb.natural}"
                 <button onClick={() => speak(fb.natural)} className="ml-2 align-middle text-dim hover:text-amber"><Volume2 size={14} /></button>
               </p>
             </div>

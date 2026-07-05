@@ -41,11 +41,11 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
       <div className="bg-panel border border-line rounded-[10px]">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
           <span className="live-dot" title="Live — reflects your FSRS progress" />
-          <h2 className="text-[13px] sm:text-[14px] font-semibold">The Word Exchange · German Dictionary Market</h2>
-          <span className="text-[10px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] hidden sm:inline">THEME HEATMAP</span>
+          <h2 className="text-[13px] sm:text-[15px] font-semibold">The Word Exchange · German Dictionary Market</h2>
+          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] hidden sm:inline">THEME HEATMAP</span>
           <div className="flex items-center gap-2 ml-auto flex-wrap">
             <LevelFilter />
-            <button onClick={onStudyAll} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[12px] hover:brightness-105">
+            <button onClick={onStudyAll} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[13px] hover:brightness-105">
               <Play size={13} /> Study all
             </button>
           </div>
@@ -81,7 +81,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
           })}
 
           {hover && (
-            <div className="fixed z-50 pointer-events-none bg-[#06080c] border border-amber rounded-lg px-3 py-2.5 text-[12px] shadow-2xl"
+            <div className="fixed z-50 pointer-events-none bg-[#06080c] border border-amber rounded-lg px-3 py-2.5 text-[13px] shadow-2xl"
               style={{ left: Math.min(hover.x + 14, (typeof window !== 'undefined' ? window.innerWidth : 1280) - 250), top: hover.y + 14, width: 230 }}>
               <h4 className="text-[13px] font-semibold mb-1.5">{hover.s.name}</h4>
               <Row k="Cards" val={`${fmt(hover.s.count)} · ${hover.s.sectors} sectors`} />

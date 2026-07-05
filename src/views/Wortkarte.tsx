@@ -45,7 +45,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
   return (
     <div className="bg-panel border border-line rounded-[10px]">
       <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
-        <h2 className="text-[14px] font-semibold">Word Map</h2>
+        <h2 className="text-[15px] font-semibold">Word Map</h2>
         <select value={sel} onChange={(e) => setSel(e.target.value)}
           className="bg-panel2 border border-line rounded-md text-[13px] px-2 py-1 text-txt outline-none focus:border-amber max-w-[200px] sm:max-w-[260px]">
           {sorted.map((s) => <option key={s.name} value={s.name}>{s.name} ({s.count})</option>)}

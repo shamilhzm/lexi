@@ -7,6 +7,7 @@ import { ArrowLeft, Check, X, Loader2 } from 'lucide-react';
 import { cardOf, review, levels, logMiss } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
+import { haptic } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 
@@ -36,6 +37,7 @@ export default function GrammarDrill({ onExit }: { onExit: () => void }) {
   const grade = useCallback((ok: boolean) => {
     if (!item) return;
     review(item.id, ok ? Rating.Good : Rating.Again);
+    haptic();
     if (!ok) logMiss(item.point.title);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [item]);
@@ -70,7 +72,7 @@ function Explain({ text, ok, answer }: { text?: string; ok: boolean; answer?: st
     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
           : <p className="text-[15px]"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
-      {text && <p className="text-dim text-[12.5px] mt-1.5">{text}</p>}
+      {text && <p className="text-dim text-[13px] mt-1.5">{text}</p>}
     </motion.div>
   );
 }
@@ -90,7 +92,7 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
           const state = picked === null ? 'idle' : idx === correct ? 'right' : idx === picked ? 'wrong' : 'idle';
           return (
             <button key={idx} onClick={() => choose(idx)} disabled={picked !== null}
-              className={`rounded-[10px] py-3.5 px-4 border text-[16px] text-left transition-colors ${
+              className={`rounded-[10px] py-3.5 px-4 border text-[15px] text-left transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
                 : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
@@ -116,7 +118,7 @@ function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => 
       <input ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
         onKeyDown={(e) => { if (e.key === 'Enter') { result === null ? submit() : onGrade(result); } }}
         placeholder="Type your answer…"
-        className={`w-full bg-panel2 border rounded-[10px] px-4 py-3 text-[18px] outline-none text-center ${
+        className={`w-full bg-panel2 border rounded-[10px] px-4 py-3 text-[20px] outline-none text-center ${
           result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
       {result !== null && <Explain text={ex.explain} ok={result} answer={ex.accept?.[0]} />}
@@ -137,16 +139,16 @@ function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =>
   const check = () => setResult(built.map((i) => target[i]).join(' ') === target.join(' '));
   return (
     <Card>
-      <p className="text-[16px] sm:text-[18px] font-semibold text-center mb-4">{ex.prompt}</p>
+      <p className="text-[20px] sm:text-[24px] font-semibold text-center mb-4">{ex.prompt}</p>
       <div className="min-h-[52px] border border-dashed border-line rounded-[10px] p-2 flex flex-wrap gap-2 mb-3">
         {built.map((idx, pos) => (
-          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-[14px]">{target[idx]}</button>
+          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-[15px]">{target[idx]}</button>
         ))}
         {built.length === 0 && <span className="text-dim text-[13px] self-center px-1">Tap tiles to build the sentence…</span>}
       </div>
       <div className="flex flex-wrap gap-2 mb-2">
         {pool.map((idx) => (
-          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-[14px] hover:border-amber">{target[idx]}</button>
+          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-[15px] hover:border-amber">{target[idx]}</button>
         ))}
       </div>
       {result !== null && <Explain text={ex.explain} ok={result} answer={target.join(' ')} />}
@@ -164,7 +166,7 @@ function ErrorItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =>
   return (
     <Card>
       <p className="text-[13px] text-dim text-center mb-3">Tap the wrong word.</p>
-      <div className="flex flex-wrap gap-1.5 justify-center mb-2 text-[18px]">
+      <div className="flex flex-wrap gap-1.5 justify-center mb-2 text-[20px]">
         {tokens.map((t, idx) => {
           const state = picked === null ? 'idle' : idx === correct ? 'right' : idx === picked ? 'wrong' : 'idle';
           return (
@@ -178,7 +180,7 @@ function ErrorItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =>
       </div>
       {picked !== null && (
         <>
-          <p className="text-center text-[14px] mt-2">→ <span className="text-green font-semibold">{ex.fix}</span></p>
+          <p className="text-center text-[15px] mt-2">→ <span className="text-green font-semibold">{ex.fix}</span></p>
           <Explain text={ex.explain} ok={picked === correct} />
           <NextBtn onClick={() => onGrade(picked === correct)} />
         </>
@@ -191,9 +193,9 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
   return (
     <div className="max-w-[640px] mx-auto">
       <div className="flex items-center gap-2.5 mb-4">
-        <button onClick={onExit} className="text-dim hover:text-amber"><ArrowLeft size={18} /></button>
-        {progress && <span className="text-[12px] text-dim font-mono">{progress}</span>}
-        {score !== null && score !== undefined && <span className="ml-auto text-[12px] font-mono text-green">{score}% correct</span>}
+        <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={18} /></button>
+        {progress && <span className="text-[13px] text-dim font-mono">{progress}</span>}
+        {score !== null && score !== undefined && <span className="ml-auto text-[13px] font-mono text-green">{score}% correct</span>}
       </div>
       {children}
     </div>

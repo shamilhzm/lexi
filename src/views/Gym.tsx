@@ -9,6 +9,7 @@ import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
+import { haptic } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
 import GrammarDrill from './GrammarDrill.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
@@ -90,22 +91,22 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {MODES.map(({ m, label, icon: Icon, desc }) => (
           <button key={m} onClick={() => onPick(m)}
-            className="bg-panel border border-line rounded-[12px] p-4 text-left hover:border-amber transition-colors group">
+            className="bg-panel border border-line rounded-[16px] p-4 text-left hover:border-amber transition-colors group">
             <div className="flex items-center gap-2.5 mb-1.5">
               <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber"><Icon size={18} /></span>
               <span className="font-semibold text-[15px]">{label}</span>
             </div>
-            <p className="text-dim text-[12.5px]">{desc}</p>
+            <p className="text-dim text-[13px]">{desc}</p>
             <p className="text-[11px] text-dim mt-2 font-mono">{counts[m].toLocaleString('de-DE')} items</p>
           </button>
         ))}
         <button onClick={() => onPick('grammar')}
-          className="bg-panel border border-line rounded-[12px] p-4 text-left hover:border-amber transition-colors sm:col-span-2">
+          className="bg-panel border border-line rounded-[16px] p-4 text-left hover:border-amber transition-colors sm:col-span-2">
           <div className="flex items-center gap-2.5 mb-1.5">
             <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber"><BookOpen size={18} /></span>
             <span className="font-semibold text-[15px]">Grammar exercises</span>
           </div>
-          <p className="text-dim text-[12.5px]">74 points · 444 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
+          <p className="text-dim text-[13px]">74 points · 444 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
         </button>
       </div>
     </div>
@@ -124,6 +125,7 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
   const advance = useCallback((ok: boolean) => {
     if (!word) return;
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
+    haptic();
     if (!ok) logMiss(MODE_TAG[mode]);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);
@@ -146,9 +148,9 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
   return (
     <div className="max-w-[640px] mx-auto">
       <div className="flex items-center gap-2.5 mb-4">
-        <button onClick={onExit} className="text-dim hover:text-amber"><ArrowLeft size={18} /></button>
-        {progress && <span className="text-[12px] text-dim font-mono">{progress}</span>}
-        {score !== null && score !== undefined && <span className="ml-auto text-[12px] font-mono text-green">{score}% correct</span>}
+        <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={18} /></button>
+        {progress && <span className="text-[13px] text-dim font-mono">{progress}</span>}
+        {score !== null && score !== undefined && <span className="ml-auto text-[13px] font-mono text-green">{score}% correct</span>}
       </div>
       {children}
     </div>
@@ -176,7 +178,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
           return (
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
-              className={`rounded-[10px] py-4 font-bold text-[18px] border transition-colors ${
+              className={`rounded-[10px] py-4 font-bold text-[20px] border transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
                 : 'bg-panel2 border-line hover:border-amber'}`}
@@ -215,14 +217,14 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
           return (
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
-              className={`rounded-[10px] py-3.5 px-4 border text-[17px] text-center transition-colors ${
+              className={`rounded-[10px] py-3.5 px-4 border text-[15px] text-center transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
                 : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
           );
         })}
       </div>
-      {picked !== null && extra && <p className="text-dim text-[12px] mt-3 text-center font-mono">{extra}</p>}
+      {picked !== null && extra && <p className="text-dim text-[13px] mt-3 text-center font-mono">{extra}</p>}
       {picked !== null && <div className="mt-5 flex justify-center"><button onClick={() => onGrade(picked === correct)} className="bg-panel2 border border-line rounded-[10px] px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>}
     </Card>
   );
@@ -285,7 +287,7 @@ function Prompt({ children, small, big = true }: { children: React.ReactNode; sm
   return (
     <div className="text-center mb-2">
       {small && <div className="text-[11px] text-amber uppercase tracking-[2px] mb-2 font-semibold">{small}</div>}
-      <div className={`font-bold leading-snug ${big ? 'text-[26px] sm:text-[32px]' : 'text-[18px] sm:text-[20px]'}`}>{children}</div>
+      <div className={`font-bold leading-snug ${big ? 'text-[26px] sm:text-[32px]' : 'text-[20px] sm:text-[24px]'}`}>{children}</div>
     </div>
   );
 }

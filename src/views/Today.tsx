@@ -35,19 +35,19 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
           <p className="text-dim text-[13px] mt-1.5 capitalize">{today}</p>
         </div>
         <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[15px]">
-          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[12px]">day streak</span>
+          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[13px]">day streak</span>
         </div>
       </div>
 
       {/* Placement nudge for learners who haven't calibrated yet */}
       {!placed && (
         <button onClick={onPlacement}
-          className="w-full flex items-center gap-3 bg-panel border border-amber/40 rounded-[12px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors"
+          className="w-full flex items-center gap-3 bg-panel border border-amber/40 rounded-[16px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors"
           style={{ borderColor: 'rgba(255,176,0,0.4)' }}>
           <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0"><GraduationCap size={18} /></span>
           <span className="flex-1">
-            <span className="block text-[14px] font-semibold">New here? Take the 2-minute placement test</span>
-            <span className="block text-[12px] text-dim">Find your level and skip the words you already know.</span>
+            <span className="block text-[15px] font-semibold">New here? Take the 2-minute placement test</span>
+            <span className="block text-[13px] text-dim">Find your level and skip the words you already know.</span>
           </span>
           <Play size={14} className="text-amber flex-shrink-0" />
         </button>
@@ -56,23 +56,23 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
       <LevelProgress />
 
       {/* The session card */}
-      <div className="bg-panel border border-line rounded-[12px] overflow-hidden mb-4">
+      <div className="bg-panel border border-line rounded-[16px] overflow-hidden mb-4">
         <div className="px-4 sm:px-6 py-5 sm:py-6">
           <div className="flex items-center gap-2 mb-3">
             <span className="live-dot" />
-            <span className="text-[11px] text-amber uppercase tracking-[2px] font-semibold">Markets open · today's session</span>
+            <span className="text-[11px] text-amber uppercase tracking-[2px] font-semibold">Today's session</span>
           </div>
 
           {total === 0 ? (
             <div className="py-4">
               <h2 className="text-[20px] font-bold mb-1">All clear</h2>
-              <p className="text-dim text-[14px]">Nothing due and the new-card budget is used up. Come back tomorrow, or open a deck to push ahead.</p>
+              <p className="text-dim text-[15px]">Nothing due and the new-card budget is used up. Come back tomorrow, or open a deck to push ahead.</p>
             </div>
           ) : (
             <>
               <div className="flex items-end gap-3 mb-4">
                 <span className="font-mono font-bold text-[44px] sm:text-[56px] leading-none tabular-nums">{total}</span>
-                <span className="text-dim text-[14px] mb-1.5">cards queued</span>
+                <span className="text-dim text-[15px] mb-1.5">cards queued</span>
               </div>
               <div className="flex flex-wrap gap-2 mb-3">
                 <Pill label={`${briefing.due} due review${briefing.due === 1 ? '' : 's'}`} tone="green" />
@@ -102,11 +102,11 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
       {/* Gym drills are on their own SRS track — surface them here so the daily loop covers both */}
       {drillsDue > 0 && (
         <button onClick={onGym}
-          className="w-full flex items-center gap-3 bg-panel border border-line rounded-[12px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
+          className="w-full flex items-center gap-3 bg-panel border border-line rounded-[16px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
           <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
           <span className="flex-1">
-            <span className="block text-[14px] font-semibold">{briefingDrillLabel(drillsDue)}</span>
-            <span className="block text-[12px] text-dim">Gender, plurals, conjugation & grammar — due on their own schedule.</span>
+            <span className="block text-[15px] font-semibold">{briefingDrillLabel(drillsDue)}</span>
+            <span className="block text-[13px] text-dim">Gender, plurals, conjugation & grammar — due on their own schedule.</span>
           </span>
           <Play size={14} className="text-amber flex-shrink-0" />
         </button>
@@ -116,10 +116,10 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
         <ExamCard dleft={dleft} dailyTarget={dailyTarget} current={examDate()} />
 
         {/* Weakest sectors */}
-        <div className="bg-panel border border-line rounded-[12px]">
+        <div className="bg-panel border border-line rounded-[16px]">
           <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
             <TrendingDown size={15} className="text-red" />
-            <h2 className="text-[14px] font-semibold">Weakest sectors</h2>
+            <h2 className="text-[15px] font-semibold">Weakest sectors</h2>
           </div>
           <div className="p-2">
             {weak.length === 0 && <p className="text-dim text-[13px] p-3">No weak spots — great coverage.</p>}
@@ -146,10 +146,10 @@ function ExamCard({ dleft, dailyTarget, current }:
   const [editing, setEditing] = useState(false);
   const [val, setVal] = useState(current ?? '');
   return (
-    <div className="bg-panel border border-line rounded-[12px]">
+    <div className="bg-panel border border-line rounded-[16px]">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
         <CalendarClock size={15} className="text-amber" />
-        <h2 className="text-[14px] font-semibold">Exam countdown</h2>
+        <h2 className="text-[15px] font-semibold">Exam countdown</h2>
         {current && !editing && (
           <button onClick={() => { setVal(current); setEditing(true); }} className="ml-auto text-[11px] text-dim hover:text-amber">edit</button>
         )}
@@ -168,7 +168,7 @@ function ExamCard({ dleft, dailyTarget, current }:
                   <span className="font-mono font-bold text-[40px] leading-none text-amber tabular-nums">{dleft}</span>
                   <span className="text-dim text-[13px] mb-1">days to go</span>
                 </div>
-                <p className="text-[12.5px] text-dim mt-2">
+                <p className="text-[13px] text-dim mt-2">
                   Target date {new Date(current + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}.
                   {dailyTarget !== null && <> To finish the lexicon in time: <span className="text-txt font-semibold">~{dailyTarget} new/day</span> plus your due reviews.</>}
                 </p>
@@ -183,9 +183,9 @@ function ExamCard({ dleft, dailyTarget, current }:
             <input type="date" value={val} onChange={(e) => setVal(e.target.value)}
               className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-[13px] text-txt outline-none focus:border-amber" />
             <button onClick={() => { setExamDate(val || null); setEditing(false); }}
-              className="grid place-items-center w-8 h-8 rounded-md bg-amber text-bg" title="Save"><Check size={15} /></button>
+              className="grid place-items-center w-11 h-11 rounded-md bg-amber text-bg" title="Save"><Check size={15} /></button>
             {current && <button onClick={() => { setExamDate(null); setEditing(false); }}
-              className="grid place-items-center w-8 h-8 rounded-md bg-panel2 border border-line text-red" title="Clear"><X size={15} /></button>}
+              className="grid place-items-center w-11 h-11 rounded-md bg-panel2 border border-line text-red" title="Clear"><X size={15} /></button>}
           </div>
         )}
       </div>
@@ -199,13 +199,13 @@ function briefingDrillLabel(n: number) {
 
 function Pill({ label, tone }: { label: string; tone: 'green' | 'amber' | 'dim' }) {
   const c = tone === 'green' ? 'text-green border-[var(--color-green-d)]' : tone === 'amber' ? 'text-amber border-line' : 'text-dim border-line';
-  return <span className={`text-[11.5px] border rounded-full px-2.5 py-1 ${c}`}>{label}</span>;
+  return <span className={`text-[11px] border rounded-full px-2.5 py-1 ${c}`}>{label}</span>;
 }
 function Mini({ label, value, tone }: { label: string; value: string; tone: string }) {
   return (
     <div className="px-3 py-3 text-center">
-      <div className="text-[10px] text-dim uppercase tracking-[1px]">{label}</div>
-      <div className={`font-mono font-bold text-[18px] mt-0.5 tabular-nums ${tone}`}>{value}</div>
+      <div className="text-[11px] text-dim uppercase tracking-[1px]">{label}</div>
+      <div className={`font-mono font-bold text-[20px] mt-0.5 tabular-nums ${tone}`}>{value}</div>
     </div>
   );
 }

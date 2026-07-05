@@ -12,8 +12,10 @@ import { ALL_LEVELS, type CEFR, type Word, type Target } from '../types.ts';
 
 const STATUS_COLOR = { new: '#39424f', learning: '#ffb000', known: '#16c784' } as const;
 const HILITE = '#3b82f6';
+// Mirrors the CSS CEFR ramp (index.css :root). Canvas needs literal hex, so the
+// values are kept in sync here; none collide with the green/red/amber statuses.
 const CEFR_COLOR: Record<CEFR, string> = {
-  A1: '#3b82f6', A2: '#0ea5e9', B1: '#16c784', B2: '#a78bfa', C1: '#f472b6', C2: '#f59e0b',
+  A1: '#3b82f6', A2: '#0ea5e9', B1: '#14b8a6', B2: '#8b5cf6', C1: '#d946ef', C2: '#fb7185',
 };
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 
@@ -192,25 +194,25 @@ export default function Galaxy({ onOpenSector, onStudySector }:
     <div>
       <div className="flex items-center gap-2.5 px-1 mb-3 flex-wrap">
         <Network size={18} className="text-amber" />
-        <h1 className="text-[18px] sm:text-[20px] font-bold">The lexicon galaxy</h1>
-        <span className="text-[12px] text-dim hidden sm:inline">{WORDS.length.toLocaleString('de-DE')} words · A1→C2 rings</span>
+        <h1 className="text-[20px] sm:text-[24px] font-bold">The lexicon galaxy</h1>
+        <span className="text-[13px] text-dim hidden sm:inline">{WORDS.length.toLocaleString('de-DE')} words · A1→C2 rings</span>
         <div className="ml-auto flex items-center gap-2.5">
           <div className="flex items-center gap-1.5 bg-panel2 border border-line rounded-full px-2.5 py-1">
             <Search size={13} className="text-dim" />
             <input value={query} onChange={(e) => runSearch(e.target.value)} placeholder="Search word…"
-              className="bg-transparent outline-none text-[12.5px] w-28 sm:w-40" />
+              className="bg-transparent outline-none text-[13px] w-28 sm:w-40" />
           </div>
           <button onClick={reset} className="flex items-center gap-1 text-[11px] text-dim hover:text-amber"><Maximize2 size={12} /> Fit</button>
         </div>
       </div>
-      <div ref={wrapRef} className="relative w-full bg-panel2 border border-line rounded-[12px] overflow-hidden" style={{ height: 'min(72vh, 680px)' }}>
+      <div ref={wrapRef} className="relative w-full bg-panel2 border border-line rounded-[16px] overflow-hidden" style={{ height: 'min(72vh, 680px)' }}>
         <canvas ref={canvasRef}
           onWheel={onWheel} onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp}
           onMouseLeave={() => { drag.current = null; setHover(null); }}
           onContextMenu={(e) => { if (hover) { e.preventDefault(); onStudySector({ kind: 'sector', name: hover.p.w.field }); } }}
           className="block cursor-grab active:cursor-grabbing" />
         {hover && (
-          <div className="absolute z-20 pointer-events-none bg-[#06080c] border border-amber rounded-lg px-3 py-2 text-[12px] shadow-2xl"
+          <div className="absolute z-20 pointer-events-none bg-[#06080c] border border-amber rounded-lg px-3 py-2 text-[13px] shadow-2xl"
             style={{ left: Math.min(hover.sx + 14, size.current.w - 210), top: hover.sy + 14, width: 196 }}>
             <div className="font-semibold text-[13px]">{hover.p.w.term}</div>
             <div className="text-dim">{hover.p.w.en}</div>

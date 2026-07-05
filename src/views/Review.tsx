@@ -2,9 +2,10 @@
 // = knew it, swipe left = didn't know) with grammar drills (gender / plural /
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'motion/react';
+import { motion, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
 import { Volume2, ArrowLeft, Check, X } from 'lucide-react';
 import { review, levels, statusOf, streak, logMiss } from '../store.ts';
+import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Gym.tsx';
 import { useStore } from '../useStore.ts';
@@ -37,6 +38,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
     if (!flipped || !item || item.type !== 'flip') return;
     const wasNew = statusOf(item.srsId) === 'new';
     review(item.srsId, g);
+    haptic();
     setDone((d) => d + 1);
     if (g === Rating.Again) setAgain((a) => a + 1);
     else if (wasNew) setNewLearned((n) => n + 1);
@@ -47,6 +49,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
   const gradeDrill = useCallback((ok: boolean) => {
     if (!item || item.type === 'flip') return;
     review(item.srsId, ok ? Rating.Good : Rating.Again);
+    haptic();
     if (!ok) { logMiss(MODE_TAG[item.type]); setAgain((a) => a + 1); }
     setDone((d) => d + 1);
     setFlipped(false);
@@ -74,10 +77,10 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
       <div className="bg-panel border border-line rounded-[10px]">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
-          <button onClick={onExit} className="text-dim hover:text-amber" title="Back to market"><ArrowLeft size={16} /></button>
-          <h2 className="text-[14px] font-semibold">{target.name}</h2>
-          <span className="text-[10px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{queue.length - done} OPEN</span>
-          {drill && <span className="text-[10px] text-green border border-green px-1.5 py-0.5 rounded-full tracking-[1px]">DRILL</span>}
+          <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={16} /></button>
+          <h2 className="text-[15px] font-semibold">{target.name}</h2>
+          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{queue.length - done} left</span>
+          {drill && <span className="text-[11px] text-green border border-green px-1.5 py-0.5 rounded-full tracking-[1px]">DRILL</span>}
           <div className="ml-auto flex items-center gap-2.5">
             <LevelFilter compact />
             <span className="text-[11px] text-dim hidden lg:block">Space = flip · ← didn’t know · → knew it</span>
@@ -103,14 +106,14 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
-                {card.ipa && <span className="font-mono text-[14px] text-dim">/{card.ipa}/</span>}
+                {card.ipa && <span className="font-mono text-[15px] text-dim">/{card.ipa}/</span>}
                 {!grammar && (
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-amber hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span className="text-dim italic text-[15px] sm:text-[16px] leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {card.ex[0] && <span className="text-dim italic text-[15px] leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
               </div>
               {/* BACK */}
               <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center"
@@ -118,7 +121,7 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Rule' : 'Translation'}</span>
                 <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[22px]' : 'text-[28px] sm:text-[38px]'}`}>{card.en}</span>
                 {card.def && <span className="text-txt text-[15px] leading-relaxed max-w-[90%]">{card.def}</span>}
-                {!grammar && card.ex[0] && <span className="text-dim italic text-[14px] leading-relaxed max-w-[88%]">„{card.ex[0].en || card.ex[0].de}“</span>}
+                {!grammar && card.ex[0] && <span className="text-dim italic text-[15px] leading-relaxed max-w-[88%]">„{card.ex[0].en || card.ex[0].de}“</span>}
                 {card.syn.length > 0 && <span className="text-[13px] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
               </div>
             </div>
@@ -128,16 +131,16 @@ export default function Review({ target, onExit, onPick }: { target: Target; onE
             {flipped ? (
               <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="flex gap-2.5 sm:gap-3 justify-center">
                 <button onClick={() => grade(Rating.Again)}
-                  className="flex items-center gap-2 border border-line bg-panel rounded-[9px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
+                  className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
                   <X size={16} /> Didn’t know
                 </button>
                 <button onClick={() => grade(Rating.Good)}
-                  className="flex items-center gap-2 border border-line bg-panel rounded-[9px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
+                  className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
                   <Check size={16} /> Knew it
                 </button>
               </motion.div>
             ) : (
-              <span className="text-dim text-[12px]">Tap the card to see the {grammar ? 'rule' : 'translation'}</span>
+              <span className="text-dim text-[13px]">Tap the card to see the {grammar ? 'rule' : 'translation'}</span>
             )}
           </div>
           </>)}
@@ -157,11 +160,12 @@ function SwipeCard({ children, flipped, onFlip, onGrade }:
   const rotate = useTransform(x, [-200, 200], [-8, 8]);
   const yes = useTransform(x, [20, SWIPE_PX], [0, 1]);
   const no = useTransform(x, [-20, -SWIPE_PX], [0, 1]);
+  const reduce = useReducedMotion();
   const dragged = useRef(false);
   return (
     <motion.div
       className="relative w-full max-w-[580px] h-[300px] sm:h-[340px] cursor-pointer touch-pan-y"
-      style={{ x, rotate }}
+      style={{ x, rotate: reduce ? 0 : rotate }}
       drag={flipped ? 'x' : false}
       dragSnapToOrigin
       dragElastic={0.6}
@@ -181,7 +185,7 @@ function SwipeCard({ children, flipped, onFlip, onGrade }:
             <Check size={14} /> Knew it
           </motion.span>
           <motion.span style={{ opacity: no }}
-            className="absolute top-3 left-3 flex items-center gap-1.5 text-red font-bold text-[13px] border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
+            className="absolute top-3 left-3 flex items-center gap-1.5 text-red-txt font-bold text-[13px] border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
             <X size={14} /> Didn’t know
           </motion.span>
         </>
@@ -208,7 +212,7 @@ function Sidebar({ word, done, left }: { word: Word | null; done: number; left: 
   if (!word) {
     return (
       <div className="bg-panel border border-line rounded-[10px] self-start">
-        <div className="px-4 py-3 border-b border-line"><h2 className="text-[14px] font-semibold">Session</h2></div>
+        <div className="px-4 py-3 border-b border-line"><h2 className="text-[15px] font-semibold">Session</h2></div>
         <Stat k="Reviewed" v={`${done}`} />
         <Stat k="Remaining" v={`${left}`} />
       </div>
@@ -216,19 +220,19 @@ function Sidebar({ word, done, left }: { word: Word | null; done: number; left: 
   }
   return (
     <div className="bg-panel border border-line rounded-[10px] self-start">
-      <div className="px-4 py-3 border-b border-line"><h2 className="text-[14px] font-semibold">Session</h2></div>
+      <div className="px-4 py-3 border-b border-line"><h2 className="text-[15px] font-semibold">Session</h2></div>
       <Stat k="Reviewed" v={`${done}`} />
       <Stat k="Remaining" v={`${left}`} />
-      <Stat k="Sector" v={word.field} />
-      {word.ex.length > 0 && <div className="px-4 py-3 border-y border-line"><h2 className="text-[14px] font-semibold">Examples</h2></div>}
+      <Stat k="Topic" v={word.field} />
+      {word.ex.length > 0 && <div className="px-4 py-3 border-y border-line"><h2 className="text-[15px] font-semibold">Examples</h2></div>}
       <div className="px-4 py-3 space-y-3">
         {word.ex.slice(0, 3).map((e, k) => (
-          <div key={k} className="text-[13.5px] leading-relaxed">
+          <div key={k} className="text-[15px] leading-relaxed">
             <div className="text-txt">{e.de}</div>
             {e.en && <div className="text-dim italic">{e.en}</div>}
           </div>
         ))}
-        {word.ant.length > 0 && <div className="text-[12px] text-dim pt-1">Opposite: <span className="text-red">{word.ant.join(', ')}</span></div>}
+        {word.ant.length > 0 && <div className="text-[13px] text-dim pt-1">Opposite: <span className="text-red-txt">{word.ant.join(', ')}</span></div>}
       </div>
     </div>
   );
@@ -259,7 +263,7 @@ function EmptyState({ target, onExit, onPick }: { target: Target; onExit: () => 
         <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try another deck or a different CEFR level.</p>
         <div className="flex gap-2.5 justify-center">
           <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Open decks</button>
-          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5">To market</button>
+          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5">Done</button>
         </div>
       </div>
     </div>

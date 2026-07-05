@@ -34,17 +34,17 @@ export default function Decks({ initialGroup, onStudy, onMap }:
   return (
     <div className="bg-panel border border-line rounded-[10px]">
       <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
-        <h2 className="text-[14px] font-semibold">Vocabulary Decks</h2>
-        <span className="text-[10px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{decks.length} SECTORS</span>
+        <h2 className="text-[15px] font-semibold">Vocabulary Decks</h2>
+        <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{decks.length} SECTORS</span>
         {group && (
           <button onClick={() => onStudy({ kind: 'group', name: group })}
-            className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[12px] hover:brightness-105">
+            className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[13px] hover:brightness-105">
             <Play size={13} /> Study {group}
           </button>
         )}
         <div className="ml-auto flex items-center gap-2.5 flex-wrap">
           <LevelFilter />
-          <div className="flex gap-1 text-[12px]">
+          <div className="flex gap-1 text-[13px]">
             {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
               <button key={s} onClick={() => setSort(s)}
                 className={`px-2.5 py-1 rounded-md ${sort === s ? 'text-amber bg-panel2' : 'text-dim hover:text-txt'}`}>
@@ -79,7 +79,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
             </div>
             <div className="flex items-center gap-2 mt-2">
               <button onClick={() => onStudy({ kind: 'sector', name: d.name })}
-                className={`font-mono text-[10px] px-2 py-0.5 rounded-full ${d.due > 0 ? 'bg-[#3d1216] text-[#ff8a90]' : 'bg-[#0b3b2c] text-[#7ff0c4]'}`}>
+                className={`font-mono text-[11px] px-2 py-0.5 rounded-full ${d.due > 0 ? 'bg-[#3d1216] text-[#ff8a90]' : 'bg-[#0b3b2c] text-[#7ff0c4]'}`}>
                 {d.due > 0 ? `${d.due} due` : `${d.newCount} new`}
               </button>
               <span className="font-mono text-[11px] text-dim ml-auto">{Math.round(kpct(d) * 100)}% known</span>
@@ -94,7 +94,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
 function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
   return (
     <button onClick={onClick}
-      className={`whitespace-nowrap text-[12px] px-2.5 py-1 rounded-full border transition-colors ${
+      className={`whitespace-nowrap text-[13px] px-2.5 py-1 rounded-full border transition-colors ${
         on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{children}</button>
   );
 }
