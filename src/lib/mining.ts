@@ -15,6 +15,7 @@ function lexIndex(): Map<string, Word> {
   const m = new Map<string, Word>();
   for (const w of WORDS) {
     const keys = [w.term.toLowerCase(), stripArticle(w.term).toLowerCase()];
+    if (w.plural) keys.push(stripArticle(w.plural).toLowerCase()); // exact plural form → its word
     for (const k of keys) if (k && !m.has(k)) m.set(k, w);
   }
   index = m;
@@ -41,6 +42,29 @@ export function tokenize(text: string): string[] {
 export interface Analysis {
   inLexicon: { token: string; word: Word }[]; // token matched a lexicon entry
   unknown: string[];                          // not in lexicon (display form)
+}
+
+const WORD_RE = /[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß-]*/g;
+
+/** A run of text: either a word token (with its lexicon match, if any) or the
+ *  separator between words. Order and whitespace are preserved so the reader can
+ *  render the original text verbatim with per-word tinting. */
+export interface Segment { text: string; word: Word | null; isWord: boolean }
+
+/** Positional annotation of `text` for the reader: every word token in reading
+ *  order, matched to a Word where possible, with separators kept between them. */
+export function annotate(text: string): Segment[] {
+  const idx = lexIndex();
+  const out: Segment[] = [];
+  let last = 0;
+  for (let m = WORD_RE.exec(text); m; m = WORD_RE.exec(text)) {
+    if (m.index > last) out.push({ text: text.slice(last, m.index), word: null, isWord: false });
+    const tok = m[0];
+    out.push({ text: tok, word: tok.length >= 2 ? (idx.get(tok.toLowerCase()) ?? null) : null, isWord: true });
+    last = m.index + tok.length;
+  }
+  if (last < text.length) out.push({ text: text.slice(last), word: null, isWord: false });
+  return out;
 }
 
 export function analyze(text: string): Analysis {
