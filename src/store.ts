@@ -383,6 +383,55 @@ export function setPlacementLevel(l: CEFR | null) {
   emit();
 }
 
+// ---- onboarding ----------------------------------------------------------
+const ONBOARDED_KEY = 'lexi.onboarded.v1';
+export function onboarded(): boolean { return localStorage.getItem(ONBOARDED_KEY) === '1'; }
+export function setOnboarded(v = true) {
+  if (v) localStorage.setItem(ONBOARDED_KEY, '1'); else localStorage.removeItem(ONBOARDED_KEY);
+  emit();
+}
+
+/** A gentle first session: the n lowest-level unseen words in the current scope. */
+export function firstRunIds(n = 10): string[] {
+  return WORDS
+    .filter((w) => w.kind === 'word' && inLevels(w) && statusOf(w.id) === 'new')
+    .sort((a, b) => ALL_LEVELS.indexOf(a.level) - ALL_LEVELS.indexOf(b.level))
+    .slice(0, n)
+    .map((w) => w.id);
+}
+
+// ---- level milestones ----------------------------------------------------
+const MILESTONE_KEY = 'lexi.milestones.v1';
+const THRESHOLDS = [25, 50, 75, 100];
+type MilestoneMap = Partial<Record<CEFR, number>>;
+
+/**
+ * At most one level-milestone line per recap. Per-band high-water marks ratchet
+ * up: seeded silently on first sight (so returning users aren't dumped 25/50/75
+ * at once) and never re-fired when an FSRS lapse drops a band back below a
+ * threshold. Mutates the stored map — call exactly once per recap.
+ */
+export function checkMilestones(): string | undefined {
+  let map: MilestoneMap = {};
+  try { map = JSON.parse(localStorage.getItem(MILESTONE_KEY) || '{}') || {}; } catch { map = {}; }
+  let bestLevel: CEFR | null = null;
+  let bestThr = 0;
+  let changed = false;
+  for (const s of levelStats()) {
+    if (s.count === 0) continue;
+    const pct = Math.round((s.known / s.count) * 100);
+    const thr = THRESHOLDS.filter((t) => t <= pct).pop() ?? 0;
+    const prev = map[s.level];
+    if (prev === undefined) { map[s.level] = thr; changed = true; continue; } // seed silently
+    if (thr > prev) {
+      map[s.level] = thr; changed = true;
+      if (thr > bestThr) { bestThr = thr; bestLevel = s.level; }
+    }
+  }
+  if (changed) { try { localStorage.setItem(MILESTONE_KEY, JSON.stringify(map)); } catch { /* quota */ } }
+  return bestLevel && bestThr > 0 ? `${bestLevel} is ${bestThr}% Known` : undefined;
+}
+
 // ---- visits / streak -----------------------------------------------------
 function loadVisits(): string[] {
   try { return JSON.parse(localStorage.getItem(VISITS_KEY) || '[]'); } catch { return []; }

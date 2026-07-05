@@ -16,7 +16,7 @@ import Settings from './views/Settings.tsx';
 import BlindSpots from './views/BlindSpots.tsx';
 import Tutor from './views/Tutor.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
-import { recordVisit, recordSnapshot, totals } from './store.ts';
+import { recordVisit, recordSnapshot, totals, setOnboarded, firstRunIds } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
@@ -60,6 +60,7 @@ export default function App() {
   const [target, setTarget] = useState<Target>(ALL);
   const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>('markt');
   const [gymInit, setGymInit] = useState<GymMode | 'grammar' | null>(null);
+  const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
@@ -69,8 +70,12 @@ export default function App() {
     if (v === 'review') setTarget(ALL);
     if (v === 'gym') setGymInit(null);
     if (v === 'explore') setExploreInit('markt');
-    setView(v); setMoreOpen(false);
+    setGuided(false); setView(v); setMoreOpen(false);
   };
+  // First-run chain: hero → placement → an auto-built 10-card session → recap.
+  const startFirstRun = () => { setGuided(true); setView('placement'); };
+  const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
+  const endGuided = () => { setOnboarded(); setGuided(false); setView('today'); };
   /** Blind Spots → the matching Gym drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
   const drillFor = (tag?: string) => {
     const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as GymMode | undefined) ?? 'grammar';
@@ -143,15 +148,15 @@ export default function App() {
             transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
             className="max-w-[1280px] mx-auto px-3 sm:px-4 py-4 safe-bottom">
             <ErrorBoundary resetKey={view}>
-            {view === 'today' && <Today onStart={study} onStudySector={(s) => study({ kind: 'sector', name: s })} onPlacement={() => setView('placement')} onGym={() => { setGymInit(null); setView('gym'); }} />}
-            {view === 'placement' && <Placement onDone={() => setView('today')} />}
+            {view === 'today' && <Today onStart={study} onStudySector={(s) => study({ kind: 'sector', name: s })} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onGym={() => { setGymInit(null); setView('gym'); }} />}
+            {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('today'); }} />}
             {view === 'settings' && <Settings />}
             {view === 'blindspots' && <BlindSpots onDrill={drillFor} />}
             {view === 'tutor' && <Tutor onOpenSettings={() => setView('settings')} />}
             {view === 'mining' && <Mining onStudy={study} />}
             {view === 'gym' && <Gym initial={gymInit} />}
             {view === 'explore' && <Explore onStudy={study} onStudyAll={() => study(ALL)} initial={exploreInit} />}
-            {view === 'review' && <Review target={target} onExit={() => setView('today')} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
+            {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('today'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
             </ErrorBoundary>
           </motion.div>
         </AnimatePresence>

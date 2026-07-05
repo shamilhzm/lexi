@@ -5,14 +5,14 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import { Play, Flame, CalendarClock, TrendingDown, Check, X, GraduationCap, Cog } from 'lucide-react';
-import { buildBriefing, weakestSectors, totals, streak, examDate, setExamDate, daysToExam, placementLevel, gymDue } from '../store.ts';
+import { buildBriefing, weakestSectors, totals, streak, examDate, setExamDate, daysToExam, placementLevel, gymDue, onboarded } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heat } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
 import type { Target } from '../types.ts';
 
-export default function Today({ onStart, onStudySector, onPlacement, onGym }:
-  { onStart: (t: Target) => void; onStudySector: (name: string) => void; onPlacement: () => void; onGym: () => void }) {
+export default function Today({ onStart, onStudySector, onPlacement, onGuidedStart, onGym }:
+  { onStart: (t: Target) => void; onStudySector: (name: string) => void; onPlacement: () => void; onGuidedStart: () => void; onGym: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const weak = useMemo(() => weakestSectors(5), [v]);
@@ -26,18 +26,40 @@ export default function Today({ onStart, onStudySector, onPlacement, onGym }:
   // exam back-plan: spread remaining unlearned in-scope cards over the days left.
   const remaining = t.count - t.learned;
   const dailyTarget = dleft && dleft > 0 ? Math.ceil(remaining / dleft) : null;
+  const firstRun = !onboarded() && !placed && t.learned === 0;
+
+  const greeting = (
+    <div className="flex items-baseline justify-between flex-wrap gap-2 mb-4">
+      <div>
+        <h1 className="text-[22px] sm:text-[26px] font-bold leading-none">Guten Tag</h1>
+        <p className="text-dim text-[13px] mt-1.5 capitalize">{today}</p>
+      </div>
+      <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[15px]">
+        <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[13px]">day streak</span>
+      </div>
+    </div>
+  );
+
+  // First-run: one guided hero that chains placement → first session → recap.
+  if (firstRun) {
+    return (
+      <div className="max-w-[920px] mx-auto">
+        {greeting}
+        <button onClick={onGuidedStart}
+          className="w-full text-left bg-panel border rounded-[16px] px-5 py-6 sm:py-8 hover:brightness-105 transition-colors"
+          style={{ borderColor: 'rgba(255,176,0,0.4)' }}>
+          <div className="flex items-center gap-1.5 text-amber text-[11px] uppercase tracking-[2px] font-semibold mb-2"><GraduationCap size={14} /> Start here · 2 minutes</div>
+          <h2 className="text-[20px] sm:text-[22px] font-bold mb-1.5">Find your level, then learn your first words</h2>
+          <p className="text-dim text-[15px] mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
+          <span className="inline-flex items-center gap-1.5 bg-amber text-bg font-bold rounded-[10px] px-4 py-2.5 text-[13px]"><Play size={13} /> Start</span>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-[920px] mx-auto">
-      <div className="flex items-baseline justify-between flex-wrap gap-2 mb-4">
-        <div>
-          <h1 className="text-[22px] sm:text-[26px] font-bold leading-none">Guten Tag</h1>
-          <p className="text-dim text-[13px] mt-1.5 capitalize">{today}</p>
-        </div>
-        <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[15px]">
-          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[13px]">day streak</span>
-        </div>
-      </div>
+      {greeting}
 
       {/* Placement nudge for learners who haven't calibrated yet */}
       {!placed && (

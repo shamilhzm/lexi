@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
 import { Volume2, ArrowLeft, Check, X } from 'lucide-react';
-import { review, levels, statusOf, streak, logMiss } from '../store.ts';
+import { review, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Gym.tsx';
@@ -18,10 +18,11 @@ import type { Word, Target } from '../types.ts';
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
-export default function Review({ target, onExit, onPick, onDrills }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void }) {
+export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
   const queue = useMemo(() => buildMixedSession(target), [target, lvKey]);
+  const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -67,7 +68,7 @@ export default function Review({ target, onExit, onPick, onDrills }: { target: T
   }, [flip, grade]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} onExit={onExit} onPick={onPick} />;
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} firstRun={firstRun} onExit={onExit} onPick={onPick} />;
 
   const card = item.word;
   const drill = item.type !== 'flip';
@@ -242,15 +243,20 @@ function Stat({ k, v }: { k: string; v: string }) {
   return <div className="flex justify-between px-4 py-2.5 border-b border-line text-[13px]"><span className="text-dim">{k}</span><span className="font-mono text-amber">{v}</span></div>;
 }
 
-function DoneState({ done, again, newLearned, onExit, onPick }:
-  { done: number; again: number; newLearned: number; onExit: () => void; onPick: () => void }) {
+function DoneState({ done, again, newLearned, minedCount, firstRun, onExit, onPick }:
+  { done: number; again: number; newLearned: number; minedCount: number; firstRun: boolean; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
+  // Fire milestones once, from this session's final state.
+  const [milestone] = useState(() => checkMilestones());
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, streak: streak() }}>
+      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, streak: streak() }}>
+        {firstRun && newLearned > 0 && (
+          <p className="text-[15px] mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
+        )}
         <div className="flex gap-2.5 justify-center">
-          <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Another deck</button>
-          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">Back to Today</button>
+          {!firstRun && <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Another deck</button>}
+          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">{firstRun ? 'Got it' : 'Back to Today'}</button>
         </div>
       </SessionRecap>
     </div>

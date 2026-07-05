@@ -4,7 +4,8 @@
 // present tiles render. Phases 3 (copy) and 5 (streak/milestone/mining) extend
 // this by populating already-declared fields — never by changing the shape.
 import type { ReactNode } from 'react';
-import { Check, Flame } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Check, Flame, Trophy } from 'lucide-react';
 
 export interface RecapData {
   reviewed?: number;       // flip cards graded
@@ -34,7 +35,22 @@ export default function SessionRecap({ data, title = 'Session complete', childre
     <div className="text-center bg-panel border border-line rounded-2xl px-8 sm:px-10 py-12 max-w-md w-full">
       <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
       <h2 className="text-2xl font-bold mb-1">{title}</h2>
-      <p className="text-dim mb-5 flex items-center justify-center gap-1.5">streak secured <Flame size={14} className="text-amber" /> {data.streak}</p>
+      <p className="text-dim mb-5 flex items-center justify-center gap-1.5">
+        streak secured
+        <motion.span initial={{ scale: 0.5, rotate: -14 }} animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', stiffness: 500, damping: 13 }} className="inline-flex">
+          <Flame size={14} className="text-amber" />
+        </motion.span>
+        <motion.span initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 480, damping: 16, delay: 0.05 }}
+          className="font-mono font-bold text-amber tabular-nums">{data.streak}</motion.span>
+      </p>
+      {data.milestone && (
+        <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+          className="flex items-center justify-center gap-1.5 mb-5 text-amber">
+          <Trophy size={15} /> <span className="font-semibold text-[13px]">New milestone · {data.milestone}</span>
+        </motion.div>
+      )}
       {tiles.length > 0 && (
         <div className="grid divide-x divide-[var(--color-line)] border border-line rounded-[10px] mb-6"
           style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
