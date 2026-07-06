@@ -13,7 +13,7 @@
 
 const { parseLooseJSON } = await import('../src/lib/ai.ts');
 const { parseFeedback, streamingFeedbackText } = await import('../src/lib/tutor.ts');
-const { cardsFromEnrichment } = await import('../src/lib/mining.ts');
+const { cardsFromEnrichment, isLikelyEntity } = await import('../src/lib/mining.ts');
 
 let pass = 0, fail = 0;
 const eq = (name: string, got: unknown, want: unknown) => {
@@ -68,6 +68,11 @@ eq('malformed (no term) dropped', cardsFromEnrichment([{ en: 'nothing' }]).lengt
 eq('within-batch dedupe', cardsFromEnrichment([{ term: 'laufen', pos: 'verb' }, { term: 'laufen', pos: 'verb' }]).length, 1);
 eq('unwraps {words:[…]}', cardsFromEnrichment({ words: [{ term: 'gehen', pos: 'verb' }] }).length, 1);
 eq('non-array/garbage → []', cardsFromEnrichment('not json'), []);
+eq('proper noun dropped', cardsFromEnrichment([{ term: 'Weidel', proper: true, pos: 'noun', gender: 'die' }]).length, 0);
+
+console.log('\nisLikelyEntity');
+ok('acronyms & places → true', ['ARD-Hauptstadtstudio', 'AfD-Abgeordneten', 'Sachsen-Anhalt'].every(isLikelyEntity));
+ok('common nouns & bare names → false', !['Bundessprecher', 'Ehepartner', 'Weidel', 'laufen'].some(isLikelyEntity));
 
 console.log(`\n${fail === 0 ? 'ALL PASS' : 'FAILURES'} — ${pass} passed, ${fail} failed\n`);
 process.exit(fail === 0 ? 0 : 1);

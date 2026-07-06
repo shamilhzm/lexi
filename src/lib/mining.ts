@@ -37,9 +37,30 @@ export const isOrdinal = (tok: string) =>
 /** True for words the reader shouldn't count as "new to you": function words and ordinals. */
 export const isNeutralWord = (tok: string) => isFunctionWord(tok) || isOrdinal(tok);
 
+/** Structurally obvious proper nouns/acronyms: two or more capital letters
+ *  (ARD-Hauptstadtstudio, AfD-Abgeordneten, Sachsen-Anhalt). German common nouns
+ *  carry a single leading capital, so this rarely misfires on real vocabulary.
+ *  Bare person names (Alice, Weidel) can't be told apart locally — the enrichment
+ *  model tags those and they're dropped rather than turned into cards. */
+export const isLikelyEntity = (tok: string) => (tok.match(/[A-ZÄÖÜ]/g) ?? []).length >= 2;
+
 const deUmlaut = (s: string) => s.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
 // Adjective endings, longest first, so "schärfere" strips "ere" before "e".
 const ADJ_SUFFIXES = ['eren', 'erem', 'erer', 'eres', 'sten', 'ere', 'ste', 'en', 'em', 'er', 'es', 'e'];
+
+// High-frequency finite forms the conjugation generator doesn't produce: the
+// Konjunktiv II of the modals + haben/werden, and the Konjunktiv I/II of sein.
+// They're everywhere in real news/opinion text, so map them to their infinitive
+// (keyed by infinitive) and index them alongside the generated verb forms.
+const EXTRA_VERB_FORMS: Record<string, string[]> = {
+  dürfen: ['dürfte', 'dürftest', 'dürften', 'dürftet'],
+  können: ['könnte', 'könntest', 'könnten', 'könntet'],
+  müssen: ['müsste', 'müsstest', 'müssten', 'müsstet'],
+  mögen: ['möchte', 'möchtest', 'möchten', 'möchtet'],
+  werden: ['würde', 'würdest', 'würden', 'würdet'],
+  haben: ['hätte', 'hättest', 'hätten', 'hättet'],
+  sein: ['wäre', 'wärest', 'wärst', 'wären', 'wäret', 'sei', 'seist', 'seiest', 'seien', 'seiet'],
+};
 
 let index: Map<string, Word> | null = null;
 let adjIndex: Map<string, Word> | null = null; // adjective lemma -> Word, for de-inflection
@@ -57,10 +78,13 @@ function lexIndex(): Map<string, Word> {
     if (w.plural) add(stripArticle(w.plural).toLowerCase(), w);
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adj.has(k)) adj.set(k, w); }
   }
-  // Then verb inflections (präsens, präteritum, Partizip II) → their infinitive.
+  // Then verb inflections (präsens, präteritum, Partizip II) → their infinitive,
+  // plus the high-frequency subjunctive forms the generator doesn't produce.
   for (const w of WORDS) {
     if (w.pos !== 'verb') continue;
     const inf = stripArticle(w.term);
+    const extra = EXTRA_VERB_FORMS[inf.toLowerCase()];
+    if (extra) for (const f of extra) add(f, w);
     if (!canConjugate(inf)) continue;
     try {
       const c = conjugate(inf);
@@ -81,6 +105,12 @@ function matchWord(tok: string): Word | null {
   const lc = tok.toLowerCase();
   const direct = idx.get(lc);
   if (direct) return direct;
+  // Dative plural adds -n (Wählern → Wähler, Kindern → Kinder). Accept only a
+  // noun match, so it can't misfire on verbs/adverbs that also end in -n.
+  if (lc.length >= 5 && lc.endsWith('n')) {
+    const w = idx.get(lc.slice(0, -1));
+    if (w && w.pos === 'noun') return w;
+  }
   if (lc.length >= 4 && adjIndex) {
     for (const suf of ADJ_SUFFIXES) {
       if (lc.length - suf.length < 3 || !lc.endsWith(suf)) continue;
@@ -164,6 +194,7 @@ const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 /** Validate + normalise one raw enrichment item into a Word, or null if malformed. */
 function toCard(e: any): Word | null {
+  if (e?.proper === true) return null; // person/place/org name — not vocabulary
   const term = String(e?.term || e?.input || '').trim();
   if (!term) return null; // no headword → unusable
 
@@ -222,7 +253,7 @@ export function cardsFromEnrichment(parsed: any): Word[] {
 
 /** Enrich out-of-lexicon words into Word cards via any OpenAI-compatible API. */
 export async function enrich(tokens: string[], cfg: AiConfig): Promise<Word[]> {
-  const prompt = `For each German word below, return ONLY a JSON array (no prose, no code fences). Each item: {"input": the word as given, "term": dictionary form (nouns include article der/die/das), "en": short English gloss, "pos": one of noun|verb|adjective|adverb|other, "level": CEFR A1-C2 estimate, "gender": der|die|das or null, "plural": plural form with article or null, "ipa": IPA without slashes or null, "example_de": one short example sentence, "example_en": its English translation}.\n\nWords:\n${tokens.join('\n')}`;
+  const prompt = `For each German word below, return ONLY a JSON array (no prose, no code fences). Each item: {"input": the word as given, "proper": true if this is a person/place/organisation name rather than common vocabulary (else false), "term": dictionary form (nouns include article der/die/das), "en": short English gloss, "pos": one of noun|verb|adjective|adverb|other, "level": CEFR A1-C2 estimate, "gender": der|die|das or null, "plural": plural form with article or null, "ipa": IPA without slashes or null, "example_de": one short example sentence, "example_en": its English translation}.\n\nWords:\n${tokens.join('\n')}`;
 
   // Low temperature for consistent structure; cap tokens generously by batch size.
   const maxTokens = Math.min(4000, 400 + tokens.length * 90);

@@ -5,7 +5,7 @@
 // on the page can be studied as a set — so reading feeds the review loop.
 import { useMemo, useState } from 'react';
 import { BookOpen, Play, Sparkles, Loader2, Volume2, KeyRound, X } from 'lucide-react';
-import { annotate, enrich, resetMiningIndex, isNeutralWord, type Segment } from '../lib/mining.ts';
+import { annotate, enrich, resetMiningIndex, isNeutralWord, isLikelyEntity, type Segment } from '../lib/mining.ts';
 import { statusOf, addUserWords, apiKey, aiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
@@ -36,17 +36,20 @@ export default function Reader({ onStudy }: { onStudy: (t: Target) => void }) {
 
   const stats = useMemo(() => {
     const known = new Set<string>(), learning = new Set<string>(), fresh = new Set<string>();
-    const unknown = new Map<string, string>(); // lowercased -> display form
+    const unknown = new Map<string, string>(); // vocab candidates: lowercased -> display form
+    const entities = new Map<string, string>(); // names/acronyms, skipped from enrichment
     for (const s of segs ?? []) {
       if (!s.isWord) continue;
       if (s.word) {
         const st = statusOf(s.word.id);
         (st === 'known' ? known : st === 'learning' ? learning : fresh).add(s.word.id);
-      } else if (!isNeutralWord(s.text)) unknown.set(s.text.toLowerCase(), s.text);
+      } else if (!isNeutralWord(s.text)) {
+        (isLikelyEntity(s.text) ? entities : unknown).set(s.text.toLowerCase(), s.text);
+      }
     }
     const total = known.size + learning.size + fresh.size + unknown.size;
     return { known: known.size, learning: learning.size, fresh: fresh.size, unknown: unknown.size,
-      unknownList: [...unknown.values()], freshIds: [...fresh],
+      unknownList: [...unknown.values()], entityList: [...entities.values()], freshIds: [...fresh],
       pct: total ? Math.round(((known.size + learning.size) / total) * 100) : 0 };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [segs, v]);
@@ -135,6 +138,13 @@ export default function Reader({ onStudy }: { onStudy: (t: Target) => void }) {
           )}
           {err && !selected && <p className="text-red-txt text-[13px] mt-2">{err}</p>}
         </div>
+      )}
+
+      {stats.entityList.length > 0 && (
+        <p className="text-dim text-[13px] mt-3">
+          Skipped {stats.entityList.length} name{stats.entityList.length === 1 ? '' : 's'} &amp; acronym{stats.entityList.length === 1 ? '' : 's'}
+          {' — '}<span className="opacity-70">{stats.entityList.slice(0, 40).join(' · ')}</span>
+        </p>
       )}
 
       <div className="flex items-center gap-3 mt-4 flex-wrap">

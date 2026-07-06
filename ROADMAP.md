@@ -108,6 +108,33 @@ make Lexi better the more people use it, and give supporters a way to contribute
 
 ---
 
+## Backlog — engineering (multilingual foundation)
+
+Infrastructure that unlocks the "other languages" ambition (French, Spanish from an English
+base) rather than a user-facing feature. Logged here so it isn't lost.
+
+- **Per-language module interface.** Today the sentence-mining pipeline hard-codes German: the
+  function-word list, ordinal stems, umlaut folding, the conjugation engine, adjective
+  de-inflection, and the proper-noun heuristic (which only works because German capitalises every
+  noun) are all German-specific. Refactor the language-specific logic behind a small interface —
+  `tokenize`, `isFunctionWord`, `lemmatize`, `classifyEntity`, plus a per-pair enrichment/tutor
+  prompt template — so German, French and Spanish each supply an implementation while the reader,
+  SRS, tutor and enrichment stay language-agnostic. This is the refactor that turns "German app"
+  into "language-learning system." It also reshapes entity detection per language: French/Spanish
+  capitalise only proper nouns, so the casing heuristic that fails for German works there. Stays
+  model-agnostic, and captures the learner-error → correction → CEFR dataset that could one day
+  justify a small, on-device fine-tune.
+- **Tokenizer: split fused paste artifacts.** Pasted headlines/HTML sometimes concatenate two
+  words with no separator ("TriumphBei"). Add a camelCase-boundary split (lower→Upper) in the
+  reader's tokenizer — near-zero risk in German, which has no intra-word case transitions.
+- **Grow the lexicon to a 10,000-card A1–C2 corpus.** Coverage analysis found the base lexicon has
+  real holes (missing core high-frequency lemmas like `meinen`, `also`, `Beispiel`, `Rolle`) and a
+  backwards distribution (B1-heavy, thin A1/A2). Close the gap via a reproducible, permissively-
+  licensed ingestion pipeline (Leipzig frequency lists CC BY 4.0, Wiktextract CC BY-SA, Tatoeba
+  CC BY 2.0). Full brief: [`LEXICON-EXPANSION-TASK.md`](./LEXICON-EXPANSION-TASK.md).
+
+---
+
 ## How free and Pro split
 
 | | **Free (forever)** | **Lexi Pro — €5/mo, PWYW, free if you need it** |
