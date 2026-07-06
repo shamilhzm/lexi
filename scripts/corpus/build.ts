@@ -15,7 +15,7 @@ import {
   loadCorpus, loadSectors, primeApp, sortCards, existingTerms, termFor, lemmaKey,
   ProvenanceLog, writeJSON, writeText, fileExists, LEVELS, type Word,
 } from './lib.ts';
-import { loadFrequency } from './sources/frequency.ts';
+import { loadFrequency, loadFrequencies } from './sources/frequency.ts';
 import { loadWiktextract, type LexEntry } from './sources/wiktextract.ts';
 import { attachTatoebaExamples, type Candidate, type TatEx } from './sources/tatoeba.ts';
 import { loadReference, assignLevel, type LevelAssignment } from './level.ts';
@@ -28,6 +28,7 @@ export interface BuildOpts {
   sectorsPath: string;
   provenancePath: string;
   freqPath: string;
+  freqPaths?: string[];      // blend several frequency lists (e.g. subtitle + news)
   wiktPath: string;
   tatoeba?: { de: string; en: string; links: string };
   refPath?: string;
@@ -62,7 +63,7 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
 
   // 1) Discover gaps with the app's own matcher.
   const mining = await primeApp(full);
-  const freq = loadFrequency(opts.freqPath, opts.scanN ?? 40000);
+  const freq = loadFrequencies(opts.freqPaths ?? [opts.freqPath], opts.scanN ?? 40000);
   const uncovered: { word: string; rank: number }[] = [];
   for (const e of freq) {
     if (mining.annotate(e.word)[0]?.word) continue;      // already lights up
@@ -211,6 +212,8 @@ function opt(name: string): string | undefined {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const freqPath = join(PATHS.raw, SOURCES.frequency.file);
+  const spokenPath = join(PATHS.raw, SOURCES.frequencySpoken.file);
+  const freqPaths = [spokenPath, freqPath].filter(fileExists); // subtitle first, then news
   const wiktPath = join(PATHS.raw, SOURCES.wiktextract.file);
   if (!fileExists(freqPath) || !fileExists(wiktPath)) {
     console.error(`Missing raw sources under ${PATHS.raw}. Run \`npm run corpus:fetch\` first (or set the LEXI_*_URL env vars / download manually — see ATTRIBUTIONS.md).`);
@@ -221,6 +224,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     sectorsPath: PATHS.sectors,
     provenancePath: PATHS.provenance,
     freqPath,
+    freqPaths,
     wiktPath,
     tatoeba: {
       de: join(PATHS.raw, SOURCES.tatoebaDe.file),

@@ -17,7 +17,7 @@
   },
   {
     "name": "Arts and culture",
-    "count": 51,
+    "count": 52,
     "levels": [
       "A2",
       "B1",
@@ -67,7 +67,7 @@
   },
   {
     "name": "Free time",
-    "count": 61,
+    "count": 62,
     "levels": [
       "A1",
       "A2",
@@ -191,7 +191,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 516,
+    "count": 527,
     "levels": [
       "A1",
       "A2",
@@ -244,7 +244,7 @@
   },
   {
     "name": "Communication",
-    "count": 113,
+    "count": 114,
     "levels": [
       "A1",
       "A2",
@@ -524,11 +524,12 @@
   },
   {
     "name": "Useful Phrases",
-    "count": 27,
+    "count": 34,
     "levels": [
       "A1",
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Education & Language"
   },
@@ -550,7 +551,7 @@
   },
   {
     "name": "Emotions",
-    "count": 52,
+    "count": 53,
     "levels": [
       "A1",
       "A2",
@@ -602,7 +603,7 @@
   },
   {
     "name": "Relationships",
-    "count": 51,
+    "count": 53,
     "levels": [
       "A2",
       "B1",
@@ -916,7 +917,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 301,
+    "count": 321,
     "levels": [
       "A1",
       "A2",
@@ -927,7 +928,7 @@
   },
   {
     "name": "Adverbs",
-    "count": 198,
+    "count": 218,
     "levels": [
       "A1",
       "A2",
@@ -986,7 +987,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 265,
+    "count": 287,
     "levels": [
       "A1",
       "A2",
@@ -1867,7 +1868,7 @@
   },
   {
     "name": "Society",
-    "count": 116,
+    "count": 119,
     "levels": [
       "A1",
       "A2",

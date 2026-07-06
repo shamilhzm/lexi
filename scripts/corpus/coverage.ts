@@ -6,7 +6,7 @@
 import './shim.ts';
 import { PATHS, SOURCES, FREQ_BANDS, COVERAGE_TOP_N } from './config.ts';
 import { loadCorpus, loadSectors, primeApp, fileExists, writeJSON, writeText, LEVELS } from './lib.ts';
-import { loadFrequency, type FreqEntry } from './sources/frequency.ts';
+import { loadFrequencies, type FreqEntry } from './sources/frequency.ts';
 import { join } from 'node:path';
 import type { Word } from '../../src/types.ts';
 
@@ -20,7 +20,9 @@ function bandForRank(rank: number): string {
 
 async function main() {
   const freqPath = join(PATHS.raw, SOURCES.frequency.file);
-  if (!fileExists(freqPath)) {
+  const spokenPath = join(PATHS.raw, SOURCES.frequencySpoken.file);
+  const freqPaths = [spokenPath, freqPath].filter(fileExists); // subtitle + news
+  if (!freqPaths.length) {
     console.error(`No frequency list at ${freqPath}. Run \`npm run corpus:fetch\` first (or set LEXI_FREQ_URL).`);
     process.exit(1);
   }
@@ -28,7 +30,7 @@ async function main() {
   const sectors = loadSectors(PATHS.sectors);
   const mining = await primeApp(loadCorpus(PATHS.vocab));
 
-  const freq: FreqEntry[] = loadFrequency(freqPath, COVERAGE_TOP_N);
+  const freq: FreqEntry[] = loadFrequencies(freqPaths, COVERAGE_TOP_N);
 
   // Classify every top-N surface form.
   let matched = 0, neutral = 0, entity = 0;

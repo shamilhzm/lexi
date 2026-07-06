@@ -209,6 +209,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:A1:okay",
+    "lemma": "okay",
+    "level": "A1",
+    "levelSource": "reference",
+    "freqRank": 163,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:13204576",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A1:sehr",
     "lemma": "sehr",
     "level": "A1",
@@ -231,6 +242,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:A2:Verzeihung",
+    "lemma": "Verzeihung",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1286,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:7769449",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:abends",
     "lemma": "abends",
     "level": "A2",
@@ -239,6 +261,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:11972163",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:aha",
+    "lemma": "aha",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2324,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:5622431",
     "fieldSource": "llm"
   },
   {
@@ -297,6 +330,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:A2:ansehen",
+    "lemma": "ansehen",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1542,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:8827807",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:anstatt",
     "lemma": "anstatt",
     "level": "A2",
@@ -305,6 +349,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:841452",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:aufwachen",
+    "lemma": "aufwachen",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 4407,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9199357",
     "fieldSource": "llm"
   },
   {
@@ -429,6 +484,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:A2:blöd",
+    "lemma": "blöd",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2431,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12206233",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:brechen",
     "lemma": "brechen",
     "level": "A2",
@@ -437,6 +503,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:1851617",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:böse",
+    "lemma": "böse",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1158,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11983298",
     "fieldSource": "llm"
   },
   {
@@ -451,6 +528,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:cool",
+    "lemma": "cool",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1112,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:10084012",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:dadurch",
     "lemma": "dadurch",
     "level": "A2",
@@ -460,6 +548,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:12294247",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:A2:danken",
+    "lemma": "danken",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2212,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:13738864",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:A2:darin",
@@ -558,6 +657,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:11939541",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:das Monster",
+    "lemma": "Monster",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2149,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:5097578",
     "fieldSource": "llm"
   },
   {
@@ -715,6 +825,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:der Engel",
+    "lemma": "Engel",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2442,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11138291",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:der Fokus",
     "lemma": "Fokus",
     "level": "A2",
@@ -812,6 +933,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2204309",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:A2:der Liebling",
+    "lemma": "Liebling",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1337,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1250505",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:A2:der Manager",
@@ -1034,6 +1166,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:die Ahnung",
+    "lemma": "Ahnung",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 565,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1561520",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:die Aktion",
     "lemma": "Aktion",
     "level": "A2",
@@ -1054,6 +1197,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2201680",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:A2:die Bombe",
+    "lemma": "Bombe",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2519,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11932763",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:A2:die Box",
@@ -1815,6 +1969,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:dumm",
+    "lemma": "dumm",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1400,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:726058",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:durchaus",
     "lemma": "durchaus",
     "level": "A2",
@@ -1936,6 +2101,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:A2:furchtbar",
+    "lemma": "furchtbar",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2111,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9998602",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:fällen",
     "lemma": "fällen",
     "level": "A2",
@@ -2010,6 +2186,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:3896209",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:hassen",
+    "lemma": "hassen",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 3003,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:5547493",
     "fieldSource": "llm"
   },
   {
@@ -2145,6 +2332,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:lieb",
+    "lemma": "lieb",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1814,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:8172881",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:link",
     "lemma": "link",
     "level": "A2",
@@ -2165,6 +2363,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:13903173",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:A2:lügen",
+    "lemma": "lügen",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1683,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:917192",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:A2:meinen",
@@ -2189,6 +2398,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:A2:mitkommen",
+    "lemma": "mitkommen",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2509,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:13759596",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:morgens",
     "lemma": "morgens",
     "level": "A2",
@@ -2197,6 +2417,39 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:1995522",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:na",
+    "lemma": "na",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 222,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1500308",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:nachdenken",
+    "lemma": "nachdenken",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2617,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2748471",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:nachher",
+    "lemma": "nachher",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2854,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2619200",
     "fieldSource": "llm"
   },
   {
@@ -2288,6 +2541,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:prima",
+    "lemma": "prima",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2608,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1341913",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:privat",
     "lemma": "privat",
     "level": "A2",
@@ -2332,6 +2596,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:rauf",
+    "lemma": "rauf",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2712,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:10344368",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:raus",
     "lemma": "raus",
     "level": "A2",
@@ -2373,6 +2648,28 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:4942918",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:runter",
+    "lemma": "runter",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 586,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:6643143",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:rüber",
+    "lemma": "rüber",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1570,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:7548574",
     "fieldSource": "llm"
   },
   {
@@ -2439,6 +2736,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:470",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:schreien",
+    "lemma": "schreien",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2378,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11940663",
     "fieldSource": "llm"
   },
   {
@@ -2552,6 +2860,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:stören",
+    "lemma": "stören",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 2649,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12116353",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:teilweise",
     "lemma": "teilweise",
     "level": "A2",
@@ -2640,6 +2959,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:verrückt",
+    "lemma": "verrückt",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 599,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:5965322",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:veröffentlicht",
     "lemma": "veröffentlicht",
     "level": "A2",
@@ -2684,6 +3014,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:A2:wach",
+    "lemma": "wach",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1523,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:7060132",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:A2:wachsen",
     "lemma": "wachsen",
     "level": "A2",
@@ -2703,6 +3044,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2078553",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:weh",
+    "lemma": "weh",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 1177,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12459896",
     "fieldSource": "llm"
   },
   {
@@ -2736,6 +3088,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:10278017",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:A2:wieso",
+    "lemma": "wieso",
+    "level": "A2",
+    "levelSource": "reference",
+    "freqRank": 288,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2116262",
     "fieldSource": "llm"
   },
   {
@@ -2915,6 +3278,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:anscheinend",
+    "lemma": "anscheinend",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2585,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1932053",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:ansonsten",
     "lemma": "ansonsten",
     "level": "B1",
@@ -2946,6 +3320,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:1825114",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:B1:aufhalten",
+    "lemma": "aufhalten",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1953,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9998830",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:B1:aufnehmen",
@@ -3124,6 +3509,39 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:beschützen",
+    "lemma": "beschützen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1754,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12003052",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:besorgen",
+    "lemma": "besorgen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2216,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9985578",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:besprechen",
+    "lemma": "besprechen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2822,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:4881781",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:bestimmen",
     "lemma": "bestimmen",
     "level": "B1",
@@ -3176,6 +3594,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:944705",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:betrunken",
+    "lemma": "betrunken",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2361,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11982714",
     "fieldSource": "llm"
   },
   {
@@ -3542,6 +3971,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:das Schätzchen",
+    "lemma": "Schätzchen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2247,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12408080",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:das Ufer",
     "lemma": "Ufer",
     "level": "B1",
@@ -3561,6 +4001,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2905119",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:das Vergnügen",
+    "lemma": "Vergnügen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2001,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:3776617",
     "fieldSource": "llm"
   },
   {
@@ -3762,6 +4213,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:der Haufen",
+    "lemma": "Haufen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2470,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2262708",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:der Hubschrauber",
     "lemma": "Hubschrauber",
     "level": "B1",
@@ -3861,6 +4323,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:der Mörder",
+    "lemma": "Mörder",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1278,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:7489552",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:der Premierminister",
     "lemma": "Premierminister",
     "level": "B1",
@@ -3902,6 +4375,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:928685",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:der Scherz",
+    "lemma": "Scherz",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2838,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9998848",
     "fieldSource": "llm"
   },
   {
@@ -3993,6 +4477,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:der Teufel",
+    "lemma": "Teufel",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 659,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12891048",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:der Trailer",
     "lemma": "Trailer",
     "level": "B1",
@@ -4034,6 +4529,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:355926",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:der Untertitel",
+    "lemma": "Untertitel",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1970,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:7132606",
     "fieldSource": "llm"
   },
   {
@@ -4133,6 +4639,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:933045",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:die Akte",
+    "lemma": "Akte",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2922,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:6619629",
     "fieldSource": "llm"
   },
   {
@@ -4675,6 +5192,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:B1:die Hölle",
+    "lemma": "Hölle",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 959,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:790694",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:die Innovation",
     "lemma": "Innovation",
     "level": "B1",
@@ -4738,6 +5266,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:12472511",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:die Klappe",
+    "lemma": "Klappe",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1503,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1345444",
     "fieldSource": "llm"
   },
   {
@@ -5544,6 +6083,28 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:die Weile",
+    "lemma": "Weile",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1586,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:432569",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:die Wette",
+    "lemma": "Wette",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1773,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:5552242",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:die Wirklichkeit",
     "lemma": "Wirklichkeit",
     "level": "B1",
@@ -5643,6 +6204,28 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:drüben",
+    "lemma": "drüben",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1120,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:8647409",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:drüber",
+    "lemma": "drüber",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2700,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2745054",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:durchführen",
     "lemma": "durchführen",
     "level": "B1",
@@ -5720,6 +6303,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:einverstanden",
+    "lemma": "einverstanden",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2288,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1808892",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:empfangen",
     "lemma": "empfangen",
     "level": "B1",
@@ -5750,6 +6344,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:1902243",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:entkommen",
+    "lemma": "entkommen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2476,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9984874",
     "fieldSource": "llm"
   },
   {
@@ -5797,6 +6402,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:ernsthaft",
+    "lemma": "ernsthaft",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2516,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:13449931",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:erscheinen",
     "lemma": "erscheinen",
     "level": "B1",
@@ -5805,6 +6421,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:9985766",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:erschießen",
+    "lemma": "erschießen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2766,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:143",
     "fieldSource": "llm"
   },
   {
@@ -5827,6 +6454,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:6589161",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:erwischen",
+    "lemma": "erwischen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 4715,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:353072",
     "fieldSource": "llm"
   },
   {
@@ -5871,6 +6509,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2999925",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:ewig",
+    "lemma": "ewig",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1827,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11570331",
     "fieldSource": "llm"
   },
   {
@@ -5971,6 +6620,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:13591525",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:B1:gebrauchen",
+    "lemma": "gebrauchen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 3007,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1386656",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:B1:geeignet",
@@ -6083,6 +6743,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:herein",
+    "lemma": "herein",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2079,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:440148",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:hierbei",
     "lemma": "hierbei",
     "level": "B1",
@@ -6102,6 +6773,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2223598",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:hierher",
+    "lemma": "hierher",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 918,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1430527",
     "fieldSource": "llm"
   },
   {
@@ -6212,6 +6894,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:10031852",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:jagen",
+    "lemma": "jagen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2621,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:4009949",
     "fieldSource": "llm"
   },
   {
@@ -6490,6 +7183,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:naja",
+    "lemma": "naja",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1838,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:822619",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:national",
     "lemma": "national",
     "level": "B1",
@@ -6509,6 +7213,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:2167121",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:nirgendwo",
+    "lemma": "nirgendwo",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 3050,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:655411",
     "fieldSource": "llm"
   },
   {
@@ -6754,6 +7469,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:schrecklich",
+    "lemma": "schrecklich",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1708,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2940050",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:senken",
     "lemma": "senken",
     "level": "B1",
@@ -6930,6 +7656,17 @@
     "fieldSource": "default"
   },
   {
+    "id": "voc:B1:stehlen",
+    "lemma": "stehlen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2874,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:9468266",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:steigern",
     "lemma": "steigern",
     "level": "B1",
@@ -7007,6 +7744,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:tja",
+    "lemma": "tja",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 964,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:10451414",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:traditionell",
     "lemma": "traditionell",
     "level": "B1",
@@ -7051,6 +7799,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:umbringen",
+    "lemma": "umbringen",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1257,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:4682996",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:umso",
     "lemma": "umso",
     "level": "B1",
@@ -7059,6 +7818,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:3844823",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:umsonst",
+    "lemma": "umsonst",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 3045,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1568344",
     "fieldSource": "llm"
   },
   {
@@ -7084,6 +7854,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:unschuldig",
+    "lemma": "unschuldig",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2977,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:8841480",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:unterhalb",
     "lemma": "unterhalb",
     "level": "B1",
@@ -7092,6 +7873,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:3760521",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:unterhalten",
+    "lemma": "unterhalten",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2326,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:12329045",
     "fieldSource": "llm"
   },
   {
@@ -7282,6 +8074,28 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:vorhin",
+    "lemma": "vorhin",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2511,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:8743247",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:vorwärts",
+    "lemma": "vorwärts",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2577,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1204610",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:völlig",
     "lemma": "völlig",
     "level": "B1",
@@ -7291,6 +8105,17 @@
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:4716065",
     "fieldSource": "default"
+  },
+  {
+    "id": "voc:B1:wahnsinnig",
+    "lemma": "wahnsinnig",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2803,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11825918",
+    "fieldSource": "llm"
   },
   {
     "id": "voc:B1:warnen",
@@ -7370,6 +8195,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:witzig",
+    "lemma": "witzig",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1880,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:4422586",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:wobei",
     "lemma": "wobei",
     "level": "B1",
@@ -7436,6 +8272,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B1:woran",
+    "lemma": "woran",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2904,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1561804",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B1:worauf",
     "lemma": "worauf",
     "level": "B1",
@@ -7444,6 +8291,61 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:12275613",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:worum",
+    "lemma": "worum",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2358,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:4020255",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:worüber",
+    "lemma": "worüber",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 2218,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:951518",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:wovon",
+    "lemma": "wovon",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1165,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:340727",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:wozu",
+    "lemma": "wozu",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1525,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:784579",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:wunderschön",
+    "lemma": "wunderschön",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1878,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2999917",
     "fieldSource": "llm"
   },
   {
@@ -7532,6 +8434,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:1846504",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B1:überleben",
+    "lemma": "überleben",
+    "level": "B1",
+    "levelSource": "reference",
+    "freqRank": 1987,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:6618897",
     "fieldSource": "llm"
   },
   {
@@ -7788,6 +8701,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B2:das Durcheinander",
+    "lemma": "Durcheinander",
+    "level": "B2",
+    "levelSource": "reference",
+    "freqRank": 2905,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:6619293",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B2:das Geschehen",
     "lemma": "Geschehen",
     "level": "B2",
@@ -7906,6 +8830,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:10354629",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B2:das Wesen",
+    "lemma": "Wesen",
+    "level": "B2",
+    "levelSource": "reference",
+    "freqRank": 2896,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:11234616",
     "fieldSource": "llm"
   },
   {
@@ -9119,6 +10054,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B2:die Majestät",
+    "lemma": "Majestät",
+    "level": "B2",
+    "levelSource": "reference",
+    "freqRank": 1744,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:1556031",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B2:die Mobilität",
     "lemma": "Mobilität",
     "level": "B2",
@@ -9955,6 +10901,17 @@
     "fieldSource": "llm"
   },
   {
+    "id": "voc:B2:jawohl",
+    "lemma": "jawohl",
+    "level": "B2",
+    "levelSource": "reference",
+    "freqRank": 2084,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:3124825",
+    "fieldSource": "llm"
+  },
+  {
     "id": "voc:B2:jenseits",
     "lemma": "jenseits",
     "level": "B2",
@@ -10073,6 +11030,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:13745769",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B2:lächerlich",
+    "lemma": "lächerlich",
+    "level": "B2",
+    "levelSource": "reference",
+    "freqRank": 2339,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:2922858",
     "fieldSource": "llm"
   },
   {
@@ -10304,6 +11272,17 @@
     "glossSource": "wiktextract:kaikki-de.jsonl",
     "factsSource": "wiktextract:kaikki-de.jsonl",
     "exampleSource": "tatoeba:810875",
+    "fieldSource": "llm"
+  },
+  {
+    "id": "voc:B2:stur",
+    "lemma": "stur",
+    "level": "B2",
+    "levelSource": "reference",
+    "freqRank": 10076,
+    "glossSource": "wiktextract:kaikki-de.jsonl",
+    "factsSource": "wiktextract:kaikki-de.jsonl",
+    "exampleSource": "tatoeba:10084036",
     "fieldSource": "llm"
   },
   {

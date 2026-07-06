@@ -50,6 +50,7 @@ interface Job { name: string; url: string; out: string; kind: 'raw' | 'tar' | 'b
 
 const JOBS: Job[] = [
   { name: 'frequency', url: SOURCES.frequency.url, out: SOURCES.frequency.file, kind: 'tar', member: /-words\.txt$/ },
+  { name: 'frequency-spoken', url: SOURCES.frequencySpoken.url, out: SOURCES.frequencySpoken.file, kind: 'raw' },
   { name: 'wiktextract', url: SOURCES.wiktextract.url, out: SOURCES.wiktextract.file, kind: 'raw' },
   { name: 'tatoeba-de', url: SOURCES.tatoebaDe.url, out: SOURCES.tatoebaDe.file, kind: 'bz2' },
   { name: 'tatoeba-en', url: SOURCES.tatoebaEn.url, out: SOURCES.tatoebaEn.file, kind: 'bz2' },

@@ -38,6 +38,15 @@ export const SOURCES = {
     file: 'leipzig-words.txt',
     license: 'CC BY 4.0',
   },
+  // OpenSubtitles-derived spoken/subtitle frequency (Hermit Dave's FrequencyWords,
+  // MIT). Surfaces everyday spoken vocabulary that a news corpus under-represents —
+  // the key to growing A1/A2. Format: `word<space>count`. Counts are bare facts.
+  frequencySpoken: {
+    url: process.env.LEXI_FREQ_SPOKEN_URL ??
+      'https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/de/de_50k.txt',
+    file: 'opensubtitles-de.txt',
+    license: 'MIT (Hermit Dave) — counts derived from OpenSubtitles/OPUS',
+  },
   // Wiktextract / kaikki machine-readable English Wiktionary, German entries
   // (CC BY-SA 4.0 + GFDL). One JSON object per line: word, pos, senses[].glosses
   // (English), sounds[].ipa, forms[] (plural), tags/head_templates (gender).

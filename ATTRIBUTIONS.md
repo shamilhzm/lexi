@@ -22,6 +22,17 @@ license, how it's used, and the obligations that attach to the data we ship.
   *Building Large Monolingual Dictionaries at the Leipzig Corpora Collection:
   From 100 to 200 Languages.* Proceedings of LREC 2012.
 
+### 1b. OpenSubtitles spoken-frequency list (Hermit Dave, FrequencyWords)
+- **URL:** https://github.com/hermitdave/FrequencyWords (content/2018/de)
+- **License:** MIT (Hermit Dave). Underlying counts are derived from the
+  OpenSubtitles corpus via OPUS; word-frequency counts are bare facts and are not
+  copyrightable.
+- **Used for:** surfacing everyday/spoken vocabulary that a news corpus
+  under-represents (blended with the Leipzig list to rank gap candidates,
+  especially for A1/A2). Only the ranking is used — no list text is shipped.
+- **Attribution:** "Spoken-frequency ranking from Hermit Dave's FrequencyWords
+  (MIT), derived from OpenSubtitles/OPUS."
+
 ### 2. Wiktextract / kaikki.org — machine-readable Wiktionary
 - **URL:** https://kaikki.org/dictionary/German/ (English Wiktionary, German
   entries) · https://kaikki.org/dewiktionary/ (German Wiktionary)

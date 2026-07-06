@@ -21,8 +21,10 @@ export function loadFrequency(path: string, limit = Infinity): FreqEntry[] {
   const seen = new Set<string>();
   let line = 0;
   for (const raw of text.split('\n')) {
-    if (!raw) continue;
-    const cols = raw.split('\t');
+    if (!raw.trim()) continue;
+    // Whitespace-tolerant: Leipzig uses tabs (`rank word freq` / `word freq`),
+    // OpenSubtitles uses spaces (`word count`).
+    const cols = raw.trim().split(/\s+/);
     // Layouts seen in the wild: [rank, word, freq] or [word, freq]. Detect by
     // whether col0 is an integer.
     let word: string, freq: number, rank: number;
@@ -44,4 +46,26 @@ export function loadFrequency(path: string, limit = Infinity): FreqEntry[] {
   out.sort((a, b) => b.freq - a.freq || a.word.localeCompare(b.word));
   out.forEach((e, i) => { e.rank = i + 1; });
   return out;
+}
+
+/**
+ * Merge several frequency lists into one ranking. A word's priority is its best
+ * (lowest) rank across the lists, so a word common in ANY source (e.g. everyday
+ * words that rank high in subtitles but low in news) surfaces near the top.
+ * Missing files are skipped; the result is re-ranked densely.
+ */
+export function loadFrequencies(paths: string[], limit = Infinity, perList = 60000): FreqEntry[] {
+  const best = new Map<string, FreqEntry>();
+  for (const p of paths) {
+    let list: FreqEntry[];
+    try { list = loadFrequency(p, perList); } catch { continue; }
+    for (const e of list) {
+      const k = e.word.toLowerCase();
+      const prev = best.get(k);
+      if (!prev || e.rank < prev.rank) best.set(k, { ...e });
+    }
+  }
+  const out = [...best.values()].sort((a, b) => a.rank - b.rank || b.freq - a.freq);
+  out.forEach((e, i) => { e.rank = i + 1; });
+  return limit === Infinity ? out : out.slice(0, limit);
 }

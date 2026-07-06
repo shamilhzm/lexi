@@ -44,6 +44,7 @@ export function posDefaultSector(pos: string): string | undefined {
     case 'adverb': return 'Adverbs';
     case 'adjective': return 'Adjectives';
     case 'conjunction': case 'preposition': case 'particle': return 'Connectors';
+    case 'interjection': return 'Useful Phrases';
     case 'number': return 'Numbers';
     default: return undefined;
   }
