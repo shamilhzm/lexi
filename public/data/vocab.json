@@ -166323,5 +166323,2376 @@
     ],
     "field": "Core Vocabulary",
     "kind": "word"
+  },
+  {
+    "id": "voc:A1:aufmachen",
+    "term": "aufmachen",
+    "en": "to open",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌmaxən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kannst du es aufmachen?",
+        "en": "Can you open it?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Lass uns den Wein aufmachen.",
+        "en": "Let's open the wine.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Brille",
+    "term": "die Brille",
+    "en": "glasses, spectacles",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Brillen",
+    "ipa": "ˈbʁɪlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nimm deine Brille ab.",
+        "en": "Take off your glasses.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Er will rote Brillen.",
+        "en": "He wants red glasses.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:dick",
+    "term": "dick",
+    "en": "thick",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "dɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist dick.",
+        "en": "Tom's fat.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Bin ich dick?",
+        "en": "Am I fat?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:anfassen",
+    "term": "anfassen",
+    "en": "to touch",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌfasən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nicht anfassen!",
+        "en": "Don't touch that.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Nicht anfassen, Tom!",
+        "en": "Don't touch that, Tom.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:beten",
+    "term": "beten",
+    "en": "to pray",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbeːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Betet.",
+        "en": "Pray.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bete.",
+        "en": "I am praying.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:blind",
+    "term": "blind",
+    "en": "blind",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "blɪnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er war blind.",
+        "en": "He was blind.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Bist du blind?",
+        "en": "Are you blind?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:brav",
+    "term": "brav",
+    "en": "good, well-behaved or reliable, obedient",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bʁaːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Braver Hund!",
+        "en": "Good dog!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist brav.",
+        "en": "Tom is good.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:erwachsen",
+    "term": "erwachsen",
+    "en": "adult, grown-up, grown, full-grown",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Werd erwachsen!",
+        "en": "Grow up!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Werde erwachsen!",
+        "en": "You need to grow up.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:fein",
+    "term": "fein",
+    "en": "fine",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "faɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Fein!",
+        "en": "Fine!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich muss mich fein machen.",
+        "en": "I have to dress up.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:fressen",
+    "term": "fressen",
+    "en": "to eat",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfʁɛsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kühe fressen Gras.",
+        "en": "Cows eat grass.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Was fressen Tiger?",
+        "en": "What do tigers eat?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:geheim",
+    "term": "geheim",
+    "en": "secret, clandestine",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈhaɪ̯m",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist geheim.",
+        "en": "It's secret.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das ist geheim.",
+        "en": "It's secret.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:gemein",
+    "term": "gemein",
+    "en": "mean, nasty, wicked",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈmaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er war gemein.",
+        "en": "He was mean.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das war gemein.",
+        "en": "That was mean.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:gucken",
+    "term": "gucken",
+    "en": "to look, to direct one's gaze at something",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʊkən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Guckst du?",
+        "en": "Are you looking?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Was guckst du?",
+        "en": "What are you watching?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:herkommen",
+    "term": "herkommen",
+    "en": "to come over, come here",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈheːɐ̯ˌkɔmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kannst du herkommen?",
+        "en": "Can you come here?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Chris wird herkommen.",
+        "en": "Chris will come here.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:hingehen",
+    "term": "hingehen",
+    "en": "to go",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich soll hingehen.",
+        "en": "I'm supposed to go.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du darfst hingehen.",
+        "en": "You may go there.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:hä",
+    "term": "hä",
+    "en": "huh? what?",
+    "pos": "interjection",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "hɛː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hä? Oder vielleicht haben wie viele von was was wie getan? Was denkst du?",
+        "en": "Huh? Or maybe did how many of what do what how? What do you think?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Hütte",
+    "term": "die Hütte",
+    "en": "hut, cabin, shack, cottage",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Hütten",
+    "ipa": "ˈhʏtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom war in der Hütte.",
+        "en": "Tom was in the cabin.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die wohnen in einer Hütte.",
+        "en": "They live in a cottage.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:jo",
+    "term": "jo",
+    "en": "yes, yeah, well",
+    "pos": "interjection",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "jɔː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Jo, mach halt, was du willst.",
+        "en": "Yeah, do whatever.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich möchte dir João vorstellen.",
+        "en": "I'd like you to meet João.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Kiste",
+    "term": "die Kiste",
+    "en": "chest, box",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Kisten",
+    "ipa": "ˈkɪstə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Öffne die Kiste.",
+        "en": "Open the box.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Kiste ist voll.",
+        "en": "The box is full.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:klopfen",
+    "term": "klopfen",
+    "en": "to knock, to rap",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈklɔpfən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer klopft?",
+        "en": "Who is knocking?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom klopft.",
+        "en": "Tom is knocking.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:nackt",
+    "term": "nackt",
+    "en": "naked",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "nakt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er war nackt.",
+        "en": "He was naked.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist nackt.",
+        "en": "Tom is naked.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:reinkommen",
+    "term": "reinkommen",
+    "en": "to come in",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihr könnt reinkommen.",
+        "en": "You may enter.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Können wir reinkommen?",
+        "en": "Can we come in?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:riechen",
+    "term": "riechen",
+    "en": "to smell",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁiːçn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Riechen Sie das?",
+        "en": "Do you smell that?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie riechen übel.",
+        "en": "They smell bad.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:satt",
+    "term": "satt",
+    "en": "not hungry, satiated, full, done",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "zat",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist satt.",
+        "en": "Tom is full.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich hab's satt.",
+        "en": "I am fed up with it.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:schlau",
+    "term": "schlau",
+    "en": "clever in a way that enables one to achieve one's goals",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃlaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie schlau!",
+        "en": "How clever!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom war schlau.",
+        "en": "Tom was crafty.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:schwul",
+    "term": "schwul",
+    "en": "gay",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃvuːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist schwul.",
+        "en": "He is gay.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du bist schwul.",
+        "en": "You're gay.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:sexy",
+    "term": "sexy",
+    "en": "sexy",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɛksi",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist sexy.",
+        "en": "He's sexy.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er ist sehr sexy.",
+        "en": "He's very sexy.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:spazieren",
+    "term": "spazieren",
+    "en": "to take a walk, to stroll, to walk leisurely",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃpaˈtsiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Geht spazieren!",
+        "en": "Take a walk.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er ging spazieren.",
+        "en": "He went for a walk.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:verdammt",
+    "term": "verdammt",
+    "en": "damned",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯.ˈdamt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Verdammt!",
+        "en": "Damn.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Verdammter Dieb.",
+        "en": "Damn thief.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:wiederholen",
+    "term": "wiederholen",
+    "en": "to bring back, take back",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈviːdɐˌhoːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wiederholt es!",
+        "en": "Repeat it.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wiederholen Sie es!",
+        "en": "Repeat it.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:zurückkommen",
+    "term": "zurückkommen",
+    "en": "to return",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suˈʁʏkˌkɔmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du musst zurückkommen.",
+        "en": "We need you back.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Soll ich zurückkommen?",
+        "en": "Do you want me to come back?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:zusehen",
+    "term": "zusehen",
+    "en": "to watch",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtsuːˌzeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wirst du zusehen?",
+        "en": "Are you going to watch?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom wird zusehen.",
+        "en": "Tom is going to watch.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Übersetzung",
+    "term": "die Übersetzung",
+    "en": "translation",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Übersetzungen",
+    "ipa": "ˌyːbɐˈzɛtsʊŋ(k)",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hier ist die Übersetzung.",
+        "en": "Here's the translation.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Übersetzung ist genau.",
+        "en": "The translation is precise.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:abhauen",
+    "term": "abhauen",
+    "en": "to cut off",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌhaʊ̯ən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich muss abhauen.",
+        "en": "I have to take off.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich werde abhauen.",
+        "en": "I'm going to take off.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:albern",
+    "term": "albern",
+    "en": "goofy, silly, childish",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈalbərn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin albern.",
+        "en": "I'm silly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom ist albern.",
+        "en": "Tom is silly.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Anführer",
+    "term": "der Anführer",
+    "en": "leader, head, chief, commander",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Anführer",
+    "ipa": "ˈan.fyːrɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist der Anführer.",
+        "en": "Tom is the leader.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom ist ihr Anführer.",
+        "en": "Tom is their leader.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Angel",
+    "term": "die Angel",
+    "en": "tackle, fishing rod, line, and rod)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Angeln",
+    "ipa": "ˈaŋəl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich angel gern.",
+        "en": "I like to fish.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ging angeln.",
+        "en": "He went out fishing.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:antun",
+    "term": "antun",
+    "en": "to put on, to dress",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔanˌtuːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was werden sie uns antun?",
+        "en": "What will they do to us?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Was werden sie Tom antun?",
+        "en": "What'll they do to Tom?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:aufregend",
+    "term": "aufregend",
+    "en": "exciting, captivating",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌʁeːɡn̩t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie aufregend!",
+        "en": "How thrilling!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es ist aufregend.",
+        "en": "It's exciting.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Beerdigung",
+    "term": "die Beerdigung",
+    "en": "burial",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Beerdigungen",
+    "ipa": "bəˈʔeːɐ̯dɪɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich hasse Beerdigungen.",
+        "en": "I hate funerals.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wann ist die Beerdigung?",
+        "en": "When's the funeral?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:begraben",
+    "term": "begraben",
+    "en": "to bury",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈɡʁaːbm̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wo ist Tom begraben?",
+        "en": "Where is Tom buried?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir werden dich begraben.",
+        "en": "We will bury you.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:benehmen",
+    "term": "benehmen",
+    "en": "to behave, to act, to conduct oneself",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈneːmn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Benehmt euch.",
+        "en": "Behave yourself.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er benahm sich.",
+        "en": "He behaved himself.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Champagner",
+    "term": "der Champagner",
+    "en": "champagne",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Champagner",
+    "ipa": "ʃamˈpanjər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Champagner, bitte.",
+        "en": "Champagne, please.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom trinkt Champagner.",
+        "en": "Tom is drinking champagne.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Deckung",
+    "term": "die Deckung",
+    "en": "cover",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Deckungen",
+    "ipa": "ˈdɛkʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In Deckung!",
+        "en": "Get down!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Geh in Deckung!",
+        "en": "Take cover!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Dunkelheit",
+    "term": "die Dunkelheit",
+    "en": "darkness",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Dunkelheiten",
+    "ipa": "ˈdʊŋkl̩haɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich mag die Dunkelheit nicht.",
+        "en": "I don't like the dark.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Vampire lieben die Dunkelheit.",
+        "en": "Vampires like darkness.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:eilig",
+    "term": "eilig",
+    "en": "speedy, hasty",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔaɪ̯lɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wohin so eilig?",
+        "en": "Where are you going in such a hurry?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ist es so eilig?",
+        "en": "Is it that urgent?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:erschaffen",
+    "term": "erschaffen",
+    "en": "to create",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛʁˈʃafən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom hat das erschaffen.",
+        "en": "Tom created this.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wer hat das Universum erschaffen?",
+        "en": "Who created the universe?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:ertragen",
+    "term": "ertragen",
+    "en": "to bear, to stand, to endure, to take, to suffer, to tolerate, to handle",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛʁˈtʁaːɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ertrug den Schmerz.",
+        "en": "Tom endured the pain.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich ertrage keine Kälte.",
+        "en": "I can't stand the cold.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Feigling",
+    "term": "der Feigling",
+    "en": "coward, chicken",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Feiglinge",
+    "ipa": "ˈfaɪ̯klɪŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du Feigling!",
+        "en": "You coward!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sei kein Feigling!",
+        "en": "Don't be a coward.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:fähig",
+    "term": "fähig",
+    "en": "capable",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfɛːɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bist du dazu fähig?",
+        "en": "Are you capable of that?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist zu allem fähig.",
+        "en": "He's capable of anything.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:geil",
+    "term": "geil",
+    "en": "salacious",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡaɪ̯l",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist geil.",
+        "en": "That's cool.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie geil ist das denn?",
+        "en": "How cool is that?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:hauen",
+    "term": "hauen",
+    "en": "to thrust, slash",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhaʊ̯ən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Haut ab, Kinder!",
+        "en": "Beat it, kids!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Haut ist sanft.",
+        "en": "The skin is soft.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:heil",
+    "term": "heil",
+    "en": "whole",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "haɪ̯l",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Wunden heilen.",
+        "en": "The wounds are healing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Arzt, heile dich selbst!",
+        "en": "Physician, heal thyself.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:heutzutage",
+    "term": "heutzutage",
+    "en": "nowadays, these days",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɔʏ̯.tsuˌtaːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Heutzutage tut das jeder.",
+        "en": "Nowadays, everybody does that.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Heutzutage machen das alle.",
+        "en": "Nowadays, everybody does that.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Killer",
+    "term": "der Killer",
+    "en": "killer, murderer",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Killer",
+    "ipa": "ˈkɪlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was hat Tom zu einem Killer gemacht?",
+        "en": "What turned Tom into a killer?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Was hat Sami zu einem Killer gemacht?",
+        "en": "What turned Sami into a killer?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Krieger",
+    "term": "der Krieger",
+    "en": "warrior",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Krieger",
+    "ipa": "ˈkʁiːɡɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir stellten den Krieger.",
+        "en": "We confronted the warrior.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du bist ein wahrer Krieger.",
+        "en": "You are a true warrior.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:loslassen",
+    "term": "loslassen",
+    "en": "to let loose, let go",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈloːsˌlasən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du musst loslassen.",
+        "en": "You need to let go.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe Toms Hand losgelassen.",
+        "en": "I let go of Tom's hand.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:loswerden",
+    "term": "loswerden",
+    "en": "to get rid of",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈloːsˌveːɐ̯dn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich will es loswerden.",
+        "en": "I want to get rid of it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich werde es loswerden.",
+        "en": "I'll get rid of it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Lügner",
+    "term": "der Lügner",
+    "en": "liar",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Lügner",
+    "ipa": "ˈlyːɡnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lügner!",
+        "en": "Liar!",
+        "lvl": "B1"
+      },
+      {
+        "de": "So ein Lügner!",
+        "en": "What a liar!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Magie",
+    "term": "die Magie",
+    "en": "magic",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Magien",
+    "ipa": "maˈɡiː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich glaube an Magie.",
+        "en": "I believe in magic.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Glaubt Tom an Magie?",
+        "en": "Does Tom believe in magic?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:merkwürdig",
+    "term": "merkwürdig",
+    "en": "strange, odd",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmɛʁkˌvʏʁdɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie merkwürdig!",
+        "en": "How curious!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du bist merkwürdig.",
+        "en": "You're so weird.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Pistole",
+    "term": "die Pistole",
+    "en": "pistol, gun",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Pistolen",
+    "ipa": "pɪsˈtoːlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Pistole klemmt.",
+        "en": "The gun is jammed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom kennt Pistolen.",
+        "en": "Tom knows guns.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Priester",
+    "term": "der Priester",
+    "en": "priest",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Priester",
+    "ipa": "ˈpriːstər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist Priester.",
+        "en": "Tom is a priest.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom ist kein Priester.",
+        "en": "Tom isn't a priest.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:prost",
+    "term": "prost",
+    "en": "cheers",
+    "pos": "interjection",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pʁoːst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auf dein Wohl! Prost!",
+        "en": "Here's to you! Cheers!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Alles klar, lasst uns heute nicht förmlich sein. Prost!",
+        "en": "All right, everyone, let's not stand on ceremony tonight. Cheers!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:riskieren",
+    "term": "riskieren",
+    "en": "to risk",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌʁɪsˈkiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir riskieren's.",
+        "en": "We'll risk it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir riskieren es.",
+        "en": "We'll chance it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schick",
+    "term": "schick",
+    "en": "elegant, dressy",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schick es mir!",
+        "en": "Send it to me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schick mir Bilder!",
+        "en": "Send me some pictures.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schief",
+    "term": "schief",
+    "en": "skew, oblique, askew, leaning, slanting, aslant, inclined",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom sang schief.",
+        "en": "Tom sang out of tune.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom singt schief.",
+        "en": "Tom sings off key.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Schlacht",
+    "term": "die Schlacht",
+    "en": "battle",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Schlachten",
+    "ipa": "ʃlaxt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Schlacht geht weiter!",
+        "en": "The battle goes on!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom fiel in der Schlacht.",
+        "en": "Tom was killed in the battle.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schnappen",
+    "term": "schnappen",
+    "en": "to snap",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃnapən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom schnappte über.",
+        "en": "Tom went bonkers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er wurde geschnappt.",
+        "en": "He was caught.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Schnauze",
+    "term": "die Schnauze",
+    "en": "snout",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Schnauzen",
+    "ipa": "ˈʃnaʊ̯tsə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe die Schnauze voll!",
+        "en": "I'm fed up!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hunde haben lange Schnauzen.",
+        "en": "Dogs have long snouts.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schweigen",
+    "term": "schweigen",
+    "en": "to be silent",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃvaɪ̯ɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schweigen Sie!",
+        "en": "Shut up!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schweigen wir davon!",
+        "en": "Let's not talk about it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Schädel",
+    "term": "der Schädel",
+    "en": "skull",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Schädel",
+    "ipa": "ˈʃɛːdəl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist ein Schädel.",
+        "en": "That's a skull.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Schädel bringt mich um!",
+        "en": "My head is killing me.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body parts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:trauen",
+    "term": "trauen",
+    "en": "to trust",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtʁaʊ̯ən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Traue keinem!",
+        "en": "Trust no one.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie traut dir.",
+        "en": "She trusts you.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Trottel",
+    "term": "der Trottel",
+    "en": "idiot, fool, boob, etc.",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Trottel",
+    "ipa": "ˈtʁɔtəl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sei kein Trottel!",
+        "en": "Don't be a jackass!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist ein Trottel.",
+        "en": "He's a dumb-ass.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Verbrecher",
+    "term": "der Verbrecher",
+    "en": "criminal",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Verbrecher",
+    "ipa": "fɛɐ̯ˈbʁɛçɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sind das Verbrecher?",
+        "en": "Are they criminals?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich war ein Verbrecher.",
+        "en": "I was a criminal.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:verflucht",
+    "term": "verflucht",
+    "en": "cursed",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈfluːxt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ring ist verflucht.",
+        "en": "The ring is cursed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Dieses Grab ist verflucht.",
+        "en": "This tomb is cursed.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:verhaften",
+    "term": "verhaften",
+    "en": "to stop moving and instead stick, or make or become bound",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈhaftn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du bist verhaftet.",
+        "en": "You are under arrest.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ist Tom verhaftet?",
+        "en": "Is Tom under arrest?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:vernünftig",
+    "term": "vernünftig",
+    "en": "reasonable, sensible",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈnʏnftɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sei vernünftig!",
+        "en": "Be reasonable.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Seid vernünftig.",
+        "en": "Be sensible.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Verräter",
+    "term": "der Verräter",
+    "en": "traitor",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Verräter",
+    "ipa": "fɛɐ̯ˈʁɛːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du Verräter!",
+        "en": "You traitor!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie sind Verräter.",
+        "en": "They're traitors.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:wundervoll",
+    "term": "wundervoll",
+    "en": "wonderful",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvʊndɐfɔl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es war wundervoll.",
+        "en": "It has been wonderful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie sind wundervoll.",
+        "en": "They're wonderful.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zugeben",
+    "term": "zugeben",
+    "en": "to admit, confess",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡suː.ɡeːbən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hat er es zugegeben?",
+        "en": "Did he admit it?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat es zugegeben.",
+        "en": "He admitted it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zwingen",
+    "term": "zwingen",
+    "en": "to force",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtsvɪŋən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zwingen Sie uns nicht dazu!",
+        "en": "Don't make us do that.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich lasse mich nicht zwingen.",
+        "en": "I won't be coerced.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Gnade",
+    "term": "die Gnade",
+    "en": "grace, mercy, graciousness",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Gnaden",
+    "ipa": "ˈɡnaːdə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gnade!",
+        "en": "Have mercy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Erwarte keine Gnade.",
+        "en": "Expect no mercy.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:hiermit",
+    "term": "hiermit",
+    "en": "hereby",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhiːɐ̯mɪt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich fange hiermit an.",
+        "en": "I'm going to start with this one.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tom hat hiermit recht.",
+        "en": "Tom is right about this.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Hoheit",
+    "term": "die Hoheit",
+    "en": "Highness",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Hoheiten",
+    "ipa": "ˈhoːhaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wo ist Ihre Königliche Hoheit?",
+        "en": "Where is her royal highness?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Dieses neue Schwert steht Euch, Eure Hoheit.",
+        "en": "This new sword becomes you, Your Grace.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:matt",
+    "term": "matt",
+    "en": "dull",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "mat",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Katze liegt auf der Matte.",
+        "en": "The cat is on the mat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Hund schlief auf der Matte.",
+        "en": "The dog was sleeping on the mat.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:vernichten",
+    "term": "vernichten",
+    "en": "to destroy",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈnɪçtən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Vernichtet sie!",
+        "en": "Obliterate them!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Vladimir vernichtete die Mappe.",
+        "en": "Vladimir destroyed the folder.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Verstärkung",
+    "term": "die Verstärkung",
+    "en": "reinforcement",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Verstärkungen",
+    "ipa": "fɛɐ̯ˈʃtɛʁkʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hol Verstärkung.",
+        "en": "Bring backup.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Unsere Verstärkung wird bald eintreffen.",
+        "en": "Our reinforcements will soon arrive.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
   }
 ]
