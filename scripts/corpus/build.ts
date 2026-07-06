@@ -37,6 +37,7 @@ export interface BuildOpts {
   onlyLevel?: string;        // restrict this batch to one CEFR level
   useLlm?: boolean;          // enable the offline LLM leveling/sector layer
   llmCap?: number;           // max (most-frequent) candidates to send to the LLM
+  referenceOnly?: boolean;   // only add lemmas with a curated reference level (no freq fallback)
   dumpOnly?: boolean;        // write candidates.tsv and stop (for external/manual leveling)
   requireExample?: boolean;  // drop cards with no translated example (default true)
   write?: boolean;           // write into vocabPath/sectorsPath (else dry run)
@@ -139,6 +140,7 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     let level = c.lvl.level, levelSource = c.lvl.source;
     const sug = llm.get(c.key);
     if (c.lvl.source !== 'reference' && sug?.level) { level = sug.level; levelSource = 'llm'; }
+    if (opts.referenceOnly && levelSource !== 'reference') { bump('not-in-reference'); continue; }
     if (opts.onlyLevel && level !== opts.onlyLevel) { bump('other-level'); continue; }
     if (remaining[level] <= 0) { bump('level-full'); continue; }
 
@@ -231,6 +233,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     onlyLevel: opt('level'),
     useLlm: flag('llm'),
     llmCap: opt('llm-cap') ? parseInt(opt('llm-cap')!, 10) : undefined,
+    referenceOnly: flag('reference-only'),
     dumpOnly: flag('dump-candidates'),
     requireExample: !flag('examples-optional'),
     write: flag('write'),
