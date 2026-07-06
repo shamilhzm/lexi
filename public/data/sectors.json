@@ -17,7 +17,7 @@
   },
   {
     "name": "Arts and culture",
-    "count": 38,
+    "count": 40,
     "levels": [
       "A2",
       "B1"
@@ -66,17 +66,18 @@
   },
   {
     "name": "Free time",
-    "count": 60,
+    "count": 61,
     "levels": [
       "A1",
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Arts, Media & Leisure"
   },
   {
     "name": "Games",
-    "count": 47,
+    "count": 54,
     "levels": [
       "A2",
       "B1",
@@ -189,7 +190,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 401,
+    "count": 428,
     "levels": [
       "A1",
       "A2",
@@ -242,7 +243,7 @@
   },
   {
     "name": "Communication",
-    "count": 104,
+    "count": 106,
     "levels": [
       "A1",
       "A2",
@@ -618,7 +619,7 @@
   },
   {
     "name": "Food & drink",
-    "count": 72,
+    "count": 73,
     "levels": [
       "A1",
       "A2"
@@ -844,11 +845,12 @@
   },
   {
     "name": "Home",
-    "count": 166,
+    "count": 168,
     "levels": [
       "A1",
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Home & Daily Life"
   },
@@ -894,7 +896,7 @@
   },
   {
     "name": "Urban life",
-    "count": 42,
+    "count": 43,
     "levels": [
       "A2",
       "B1",
@@ -912,7 +914,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 189,
+    "count": 213,
     "levels": [
       "A1",
       "A2",
@@ -923,7 +925,7 @@
   },
   {
     "name": "Adverbs",
-    "count": 118,
+    "count": 139,
     "levels": [
       "A1",
       "A2",
@@ -969,7 +971,7 @@
   },
   {
     "name": "Connectors",
-    "count": 28,
+    "count": 33,
     "levels": [
       "A1",
       "A2",
@@ -981,7 +983,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 161,
+    "count": 184,
     "levels": [
       "A1",
       "A2",
@@ -1041,7 +1043,7 @@
   },
   {
     "name": "Numbers",
-    "count": 18,
+    "count": 19,
     "levels": [
       "A1",
       "A2"
@@ -1582,7 +1584,7 @@
   },
   {
     "name": "Administration",
-    "count": 31,
+    "count": 32,
     "levels": [
       "A2",
       "B1",
@@ -1624,9 +1626,10 @@
   },
   {
     "name": "Cultural Identity",
-    "count": 17,
+    "count": 19,
     "levels": [
       "A2",
+      "B1",
       "C1"
     ],
     "group": "Society & Politics"
@@ -1754,7 +1757,7 @@
   },
   {
     "name": "News Media",
-    "count": 19,
+    "count": 21,
     "levels": [
       "A2",
       "B1",
@@ -1780,7 +1783,7 @@
   },
   {
     "name": "Politics",
-    "count": 51,
+    "count": 58,
     "levels": [
       "A2",
       "B1",
@@ -1856,7 +1859,7 @@
   },
   {
     "name": "Society",
-    "count": 71,
+    "count": 78,
     "levels": [
       "A1",
       "A2",
@@ -1916,7 +1919,7 @@
   },
   {
     "name": "Science concepts",
-    "count": 36,
+    "count": 37,
     "levels": [
       "B1",
       "B2"
@@ -1933,7 +1936,7 @@
   },
   {
     "name": "Technology",
-    "count": 23,
+    "count": 25,
     "levels": [
       "A2",
       "B1"
@@ -2118,7 +2121,7 @@
   },
   {
     "name": "Transport & Mobility",
-    "count": 13,
+    "count": 15,
     "levels": [
       "A2",
       "B1",
@@ -2169,7 +2172,7 @@
   },
   {
     "name": "Business & Workplace",
-    "count": 14,
+    "count": 17,
     "levels": [
       "B2"
     ],
@@ -2292,7 +2295,7 @@
   },
   {
     "name": "Money & shopping",
-    "count": 48,
+    "count": 49,
     "levels": [
       "A1",
       "A2",
@@ -2329,7 +2332,7 @@
   },
   {
     "name": "Work",
-    "count": 95,
+    "count": 101,
     "levels": [
       "A1",
       "A2",
