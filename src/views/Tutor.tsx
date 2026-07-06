@@ -5,8 +5,8 @@
 import { useMemo, useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mic, MicOff, Volume2, Sparkles, Loader2, Check, Shuffle, MessagesSquare, KeyRound, ArrowRight } from 'lucide-react';
-import { chat } from '../lib/ai.ts';
-import { buildMessages, parseFeedback, tasksForLevel, learnerProfile, type Feedback } from '../lib/tutor.ts';
+import { chat, isSettingsError } from '../lib/ai.ts';
+import { buildMessages, parseFeedback, streamingFeedbackText, tasksForLevel, learnerProfile, type Feedback } from '../lib/tutor.ts';
 import { aiConfig, logMiss } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
@@ -23,7 +23,9 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
   const [mode, setMode] = useState<'write' | 'speak'>('write');
   const [loading, setLoading] = useState(false);
   const [fb, setFb] = useState<Feedback | null>(null);
+  const [stream, setStream] = useState('');
   const [err, setErr] = useState('');
+  const [errSettings, setErrSettings] = useState(false);
   const [turns, setTurns] = useState(0);
   const taRef = useRef<HTMLTextAreaElement>(null);
   const hasKey = !!aiConfig().key;
@@ -50,22 +52,30 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
 
   const newTask = () => {
     const next = tasks[Math.floor(Math.random() * tasks.length)].de;
-    setTask(next); setAnswer(''); setFb(null); setErr('');
+    setTask(next); setAnswer(''); setFb(null); setErr(''); setErrSettings(false);
   };
 
   const submit = async () => {
     if (!answer.trim() || loading) return;
-    if (!hasKey) { setErr('Add an API key in Settings to use the tutor.'); return; }
+    if (!hasKey) { setErr('Add an API key in Settings to use the tutor.'); setErrSettings(true); return; }
     if (listening) { recog.current?.stop(); setListening(false); }
-    setLoading(true); setErr(''); setFb(null);
+    setLoading(true); setErr(''); setErrSettings(false); setFb(null); setStream('');
     try {
-      const content = await chat(buildMessages(task, answer), aiConfig());
+      // Stream the reply so the tutor's headline comment types out live; the full
+      // JSON is still parsed once complete.
+      let buf = '';
+      const content = await chat(buildMessages(task, answer), aiConfig(), {
+        temperature: 0.4,
+        maxTokens: 1024,
+        onToken: (d) => { buf += d; setStream(streamingFeedbackText(buf)); },
+      });
       const parsed = parseFeedback(content);
       parsed.corrections.forEach((c) => c.tag && logMiss(c.tag));
       setFb(parsed); setTurns((t) => t + 1);
     } catch (e: any) {
       setErr(e?.message || 'The tutor could not respond. Check your provider in Settings.');
-    } finally { setLoading(false); }
+      setErrSettings(isSettingsError(e));
+    } finally { setLoading(false); setStream(''); }
   };
 
   const continueConversation = () => {
@@ -129,11 +139,26 @@ export default function Tutor({ onOpenSettings }: { onOpenSettings: () => void }
             {loading ? <Loader2 size={15} className="animate-spin" /> : <Sparkles size={15} />} {loading ? 'Checking…' : 'Get feedback'}
           </button>
         </div>
-        {err && <p className="text-red-txt text-[13px] mt-2">{err}</p>}
+        {err && (
+          <p className="text-red-txt text-[13px] mt-2">
+            {err}
+            {errSettings && <button onClick={onOpenSettings} className="ml-2 underline hover:text-amber">Open Settings</button>}
+          </p>
+        )}
       </div>
 
+      {/* Live reply (streaming) */}
+      {loading && (
+        <div className="bg-card border border-line rounded-[16px] p-5 mb-3">
+          <div className="flex items-center gap-2 text-[13px] text-dim">
+            <Loader2 size={14} className="animate-spin" />
+            {stream ? <span className="text-txt">{stream}</span> : 'Reading your German…'}
+          </div>
+        </div>
+      )}
+
       {/* Feedback */}
-      {fb && (
+      {!loading && fb && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="bg-card border border-line rounded-[16px] p-5 mb-3">
           <div className="flex items-center gap-2 mb-3">
             <span className="font-mono font-bold text-[15px] text-amber border border-line rounded-md px-2 py-0.5">{fb.cefr || '—'}</span>

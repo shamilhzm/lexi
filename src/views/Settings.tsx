@@ -3,10 +3,11 @@
 // mining enrichment (and, later, the tutor). Everything here lives in
 // localStorage / the browser; nothing is sent anywhere except your chosen API.
 import { useState } from 'react';
-import { Volume2, Cpu, Check, Loader2, Download } from 'lucide-react';
+import { Volume2, Cpu, Check, Loader2, Download, Plug, X } from 'lucide-react';
 import { hdVoice, setHdVoice, aiConfig, setAiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
+import { chat } from '../lib/ai.ts';
 
 const PRESETS: Record<string, { baseUrl: string; model: string; note: string }> = {
   'OpenRouter (free)': { baseUrl: 'https://openrouter.ai/api/v1', model: 'meta-llama/llama-3.3-70b-instruct:free', note: 'Free Llama 3.3 70B · one key, no card. Recommended start.' },
@@ -26,11 +27,27 @@ export default function Settings() {
   const [dl, setDl] = useState<number | null>(null);
   const [hdErr, setHdErr] = useState('');
 
+  type TestState = { s: 'idle' | 'testing' | 'ok' | 'err'; ms?: number; model?: string; msg?: string };
+  const [test, setTest] = useState<TestState>({ s: 'idle' });
+
   const applyPreset = (name: string) => {
     const p = PRESETS[name]; if (!p) return;
-    setBase(p.baseUrl); setModel(p.model);
+    setBase(p.baseUrl); setModel(p.model); setTest({ s: 'idle' });
   };
   const saveAi = () => { setAiConfig({ baseUrl: base, model, key }); setSavedMsg(true); setTimeout(() => setSavedMsg(false), 1800); };
+
+  // Ping the current (unsaved) settings with a 1-token request to confirm the
+  // key + model work before relying on them mid-session.
+  const testConnection = async () => {
+    setTest({ s: 'testing' });
+    const t0 = performance.now();
+    try {
+      await chat([{ role: 'user', content: 'ping' }], { baseUrl: base, model, key }, { maxTokens: 1, temperature: 0 });
+      setTest({ s: 'ok', ms: Math.round(performance.now() - t0), model });
+    } catch (e: any) {
+      setTest({ s: 'err', msg: e?.message || 'Connection failed.' });
+    }
+  };
 
   const enableHd = async () => {
     setHdErr(''); setDl(0);
@@ -91,12 +108,29 @@ export default function Settings() {
 
         <Field label="Base URL" value={base} onChange={setBase} placeholder="https://openrouter.ai/api/v1" mono />
         <Field label="Model" value={model} onChange={setModel} placeholder="meta-llama/llama-3.3-70b-instruct:free" mono />
+        <p className="text-dim text-[12px] -mt-2 mb-3">
+          Free on OpenRouter (capped per day). If it’s busy or gone, try <code className="text-amber">openrouter/free</code> (auto-routes
+          to any available free model), or browse <span className="text-amber">openrouter.ai/models</span>.
+        </p>
         <Field label="API key" value={key} onChange={setKey} placeholder="sk-… / or leave blank for local Ollama" mono password />
 
-        <div className="flex items-center gap-3 mt-1">
+        <div className="flex items-center gap-3 mt-1 flex-wrap">
           <button onClick={saveAi} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 text-[15px] hover:brightness-105">Save</button>
+          <button onClick={testConnection} disabled={test.s === 'testing'}
+            className="flex items-center gap-2 bg-panel2 border border-line rounded-[10px] px-4 py-2.5 text-[13px] hover:border-amber disabled:opacity-50">
+            {test.s === 'testing' ? <Loader2 size={14} className="animate-spin" /> : <Plug size={14} className="text-amber" />}
+            {test.s === 'testing' ? 'Testing…' : 'Test connection'}
+          </button>
           {savedMsg && <span className="text-green text-[13px] flex items-center gap-1"><Check size={14} /> Saved</span>}
         </div>
+        {test.s === 'ok' && (
+          <p className="text-green text-[13px] mt-2 flex items-center gap-1.5">
+            <Check size={14} /> Connected to <span className="font-mono">{test.model}</span> · {test.ms} ms
+          </p>
+        )}
+        {test.s === 'err' && (
+          <p className="text-red-txt text-[13px] mt-2 flex items-center gap-1.5"><X size={14} /> {test.msg}</p>
+        )}
       </section>
     </div>
   );

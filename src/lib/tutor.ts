@@ -33,14 +33,45 @@ export function buildMessages(task: string, answer: string): { role: string; con
 }
 
 export function parseFeedback(content: string): Feedback {
-  const j = parseLooseJSON(content);
+  const j = parseLooseJSON(content) ?? {};
+  const corrections: Correction[] = Array.isArray(j.corrections)
+    ? j.corrections
+        .filter((c: any) => c && typeof c.original === 'string' && typeof c.fixed === 'string')
+        .map((c: any): Correction => ({
+          original: c.original,
+          fixed: c.fixed,
+          why: typeof c.why === 'string' ? c.why : '',
+          tag: typeof c.tag === 'string' && c.tag.trim() ? c.tag.trim() : undefined,
+        }))
+    : [];
   return {
     cefr: typeof j.cefr === 'string' ? j.cefr : '',
     feedback: typeof j.feedback === 'string' ? j.feedback : '',
-    corrections: Array.isArray(j.corrections) ? j.corrections.filter((c: any) => c && c.original && c.fixed) : [],
+    corrections,
     natural: typeof j.natural === 'string' ? j.natural : '',
     followup: typeof j.followup === 'string' ? j.followup : '',
   };
+}
+
+/** Pull the (possibly still-incomplete) "feedback" string out of a partial JSON
+ *  reply, so the tutor's headline comment can type out live while streaming. */
+export function streamingFeedbackText(partial: string): string {
+  const m = partial.match(/"feedback"\s*:\s*"/);
+  if (!m) return '';
+  let out = '';
+  for (let i = m.index! + m[0].length; i < partial.length; i++) {
+    const ch = partial[i];
+    if (ch === '\\') { // decode the common escapes; stop cleanly at a dangling backslash
+      const next = partial[i + 1];
+      if (next === undefined) break;
+      out += next === 'n' || next === 't' ? ' ' : next;
+      i++;
+      continue;
+    }
+    if (ch === '"') break; // end of the string value
+    out += ch;
+  }
+  return out;
 }
 
 // ---- task seeds (writing/speaking prompts by level) ----------------------

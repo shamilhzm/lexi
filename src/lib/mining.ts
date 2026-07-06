@@ -2,7 +2,7 @@
 // against the lexicon, and split into words you already know, words in the
 // lexicon you haven't learned yet, and words not in the lexicon at all. The last
 // group can be auto-enriched into user cards via an optional LLM API key.
-import { WORDS } from '../data/index.ts';
+import { WORDS, BY_ID, USER_GROUP } from '../data/index.ts';
 import { conjugate, canConjugate } from './conjugate.ts';
 import { chat, parseLooseJSON, type AiConfig } from './ai.ts';
 import type { Word, CEFR } from '../types.ts';
@@ -158,27 +158,74 @@ export interface Enriched {
 
 export type { AiConfig } from './ai.ts';
 
+const POS_SET = new Set(['noun', 'verb', 'adjective', 'adverb', 'other']);
+const GENDERS = ['der', 'die', 'das'] as const;
+const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+/** Validate + normalise one raw enrichment item into a Word, or null if malformed. */
+function toCard(e: any): Word | null {
+  const term = String(e?.term || e?.input || '').trim();
+  if (!term) return null; // no headword → unusable
+
+  let pos = String(e?.pos || '').toLowerCase().trim();
+  if (!POS_SET.has(pos)) pos = 'other';
+
+  const level: CEFR = (CEFR_LEVELS.includes(e?.level) ? e.level : 'B1') as CEFR;
+
+  // Gender: trust the field, else recover it from a leading article on the term.
+  const art = term.match(/^(der|die|das)\s+/i);
+  let gender: 'der' | 'die' | 'das' | null =
+    (GENDERS as readonly string[]).includes(e?.gender) ? e.gender : (art ? art[1].toLowerCase() as any : null);
+
+  const isNoun = pos === 'noun' || !!gender;
+  if (isNoun && !gender) return null; // a noun without a gender is malformed — drop it
+  if (isNoun) pos = 'noun';
+
+  // Nouns carry their article on the headword ("der Tisch").
+  const finalTerm = isNoun && gender && !art ? `${gender} ${term}` : term;
+  const plural = e?.plural ? String(e.plural).trim() || null : null;
+  const ipa = e?.ipa ? String(e.ipa).replace(/\//g, '').trim() || null : null;
+  const exDe = e?.example_de ? String(e.example_de).trim() : '';
+  const exEn = e?.example_en ? String(e.example_en).trim() : '';
+
+  return {
+    id: `usr:${finalTerm.toLowerCase()}`,
+    term: finalTerm,
+    en: String(e?.en || '').trim(),
+    pos,
+    level,
+    gender: isNoun ? gender : null,
+    plural: isNoun ? plural : null,
+    ipa,
+    def: null,
+    syn: [], ant: [],
+    ex: exDe ? [{ de: exDe, en: exEn, lvl: level }] : [],
+    field: USER_GROUP,
+    kind: 'word',
+  };
+}
+
+/** Turn a parsed enrichment reply into clean Word cards: validate each item,
+ *  drop malformed ones, and dedupe both within the batch and against the lexicon. */
+export function cardsFromEnrichment(parsed: any): Word[] {
+  const arr: any[] = Array.isArray(parsed) ? parsed : (parsed?.words ?? parsed?.items ?? parsed?.result ?? []);
+  const out: Word[] = [];
+  const seen = new Set<string>();
+  for (const e of Array.isArray(arr) ? arr : []) {
+    const card = toCard(e);
+    if (!card || seen.has(card.id) || BY_ID.has(card.id)) continue;
+    seen.add(card.id);
+    out.push(card);
+  }
+  return out;
+}
+
 /** Enrich out-of-lexicon words into Word cards via any OpenAI-compatible API. */
 export async function enrich(tokens: string[], cfg: AiConfig): Promise<Word[]> {
   const prompt = `For each German word below, return ONLY a JSON array (no prose, no code fences). Each item: {"input": the word as given, "term": dictionary form (nouns include article der/die/das), "en": short English gloss, "pos": one of noun|verb|adjective|adverb|other, "level": CEFR A1-C2 estimate, "gender": der|die|das or null, "plural": plural form with article or null, "ipa": IPA without slashes or null, "example_de": one short example sentence, "example_en": its English translation}.\n\nWords:\n${tokens.join('\n')}`;
 
-  const content = await chat([{ role: 'user', content: prompt }], cfg, { temperature: 0.2 });
-  const parsed = parseLooseJSON(content);
-  const arr: any[] = Array.isArray(parsed) ? parsed : (parsed.words ?? parsed.items ?? parsed.result ?? []);
-
-  return arr.map((e): Word => ({
-    id: `usr:${(e.term || e.input || '').toLowerCase()}`,
-    term: e.term || e.input,
-    en: e.en || '',
-    pos: e.pos || '',
-    level: (['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(e.level) ? e.level : 'B1') as CEFR,
-    gender: ['der', 'die', 'das'].includes(e.gender) ? e.gender : null,
-    plural: e.plural || null,
-    ipa: e.ipa || null,
-    def: null,
-    syn: [], ant: [],
-    ex: e.example_de ? [{ de: e.example_de, en: e.example_en || '', lvl: e.level || 'B1' }] : [],
-    field: 'Mein Wortschatz',
-    kind: 'word',
-  })).filter((w) => w.term);
+  // Low temperature for consistent structure; cap tokens generously by batch size.
+  const maxTokens = Math.min(4000, 400 + tokens.length * 90);
+  const content = await chat([{ role: 'user', content: prompt }], cfg, { temperature: 0.2, maxTokens });
+  return cardsFromEnrichment(parseLooseJSON(content));
 }
