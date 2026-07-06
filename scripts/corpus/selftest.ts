@@ -26,7 +26,7 @@ const ok = (name: string, cond: boolean, detail?: unknown) => {
 async function main() {
   // --- parsers -------------------------------------------------------------
   const freq = loadFrequency(join(F, 'leipzig-words.txt'));
-  ok('frequency: parses rows', freq.length === 8);
+  ok('frequency: parses rows', freq.length === 10);
   ok('frequency: re-ranked by descending freq', freq[0].word === 'der' && freq[0].rank === 1);
 
   const wikt = await loadWiktextract(join(F, 'kaikki-de.jsonl'));
@@ -96,6 +96,9 @@ async function main() {
   ok('build: das Beispiel present', !!byTerm.get('das Beispiel'));
   ok('build: meinen present as verb', byTerm.get('meinen')?.pos === 'verb');
   ok('build: skips inflected form "worden" (form-of, not a lemma)', !added.some((c) => c.term.toLowerCase() === 'worden'));
+  ok('build: skips pronoun "denen" (closed-class → grammar)', !added.some((c) => c.term.toLowerCase() === 'denen'));
+  ok('build: skips abbreviation "EU"', !added.some((c) => c.term === 'die EU' || c.term === 'EU'));
+  ok('normalize: gloss cleaned of parenthetical aside', byTerm.get('die Rolle')?.en === 'role, part', byTerm.get('die Rolle')?.en);
   ok('build: Rolle example came from Tatoeba', (byTerm.get('die Rolle')?.ex?.[0]?.de ?? '').includes('Rolle'));
   ok('build: every added card has ≥1 example + gloss', added.every((c) => c.ex.length >= 1 && !!c.en));
   ok('build: no card collides with usr:/existing ids', added.every((c) => c.id.startsWith('voc:')));

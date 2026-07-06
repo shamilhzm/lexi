@@ -137786,5 +137786,4045 @@
     "ex": [],
     "field": "Grammar",
     "kind": "grammar"
+  },
+  {
+    "id": "voc:A1:ab",
+    "term": "ab",
+    "en": "beginning at that time or location",
+    "pos": "preposition",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ap",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Warte ab!",
+        "en": "Give it time.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Zisch ab!",
+        "en": "Beat it.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:alle",
+    "term": "alle",
+    "en": "finished",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈalə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alle lügen.",
+        "en": "Everybody lies.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Alle reden.",
+        "en": "Everybody's talking.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Bahn",
+    "term": "die Bahn",
+    "en": "route, trail",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Bahnen",
+    "ipa": "baːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich reise oft mit der Bahn.",
+        "en": "I often travel by train.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Warum ist die Bahn verspätet?",
+        "en": "Why is the train late?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Ende",
+    "term": "das Ende",
+    "en": "end, finish",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Enden",
+    "ipa": "ˈɛndə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Ende naht!",
+        "en": "The end is nigh!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Er ist Ende 50.",
+        "en": "He's in his late fifties.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:ganz",
+    "term": "ganz",
+    "en": "entire, whole, complete",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡan(t)s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ganz toll!",
+        "en": "Fantastic!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ganz genau!",
+        "en": "You said it!",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:genau",
+    "term": "genau",
+    "en": "exact",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈnaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ganz genau!",
+        "en": "You said it!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ja, ja, genau!",
+        "en": "Yes, yes, exactly!",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:gerne",
+    "term": "gerne",
+    "en": "don't mention it, not at all, you're welcome",
+    "pos": "interjection",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɡɛrnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gerne.",
+        "en": "Gladly.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Gerne!",
+        "en": "You're welcome.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Geschichte",
+    "term": "die Geschichte",
+    "en": "history",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Geschichten",
+    "ipa": "ɡəˈʃɪçtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er mag Geschichte.",
+        "en": "He likes history.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der ist Geschichte.",
+        "en": "He's history.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:letzte",
+    "term": "letzte",
+    "en": "last",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈlɛt͡stə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Letzte Runde!",
+        "en": "Last call!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie wurde Letzte.",
+        "en": "She came last.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:mal",
+    "term": "mal",
+    "en": "times",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "maːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Guck mal.",
+        "en": "Have a look.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Fühl mal.",
+        "en": "Feel this.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:nur",
+    "term": "nur",
+    "en": "only, just, merely, simply",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "nuːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nur zu!",
+        "en": "Go ahead!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Nur Mut.",
+        "en": "Have courage.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Person",
+    "term": "die Person",
+    "en": "person, individual",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Personen",
+    "ipa": "pɛrˈzoːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin eine Person.",
+        "en": "I'm a person.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Für wie viel Personen?",
+        "en": "For how many people?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:sehr",
+    "term": "sehr",
+    "en": "very",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zeːr",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sehr gut!",
+        "en": "Really good!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sehr gern.",
+        "en": "I'll be glad to.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:so",
+    "term": "so",
+    "en": "so, such, that",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zoː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ach so!",
+        "en": "Ah, okay!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Es war so.",
+        "en": "It was like that.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Welt",
+    "term": "die Welt",
+    "en": "world",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Welten",
+    "ipa": "vɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hallo Welt!",
+        "en": "Hello world!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hallo, Welt!",
+        "en": "Hello, world!",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Aktion",
+    "term": "die Aktion",
+    "en": "operation, campaign, measure, organized course of action",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Aktionen",
+    "ipa": "akˈtsi̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist sehr wahrscheinlich, dass ich für diese Aktion gefeuert werde.",
+        "en": "I'm likely going to be fired for doing that.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Geschlossene Spiele, bei denen jeder Spieler vor allem versucht, die Aktionen des Gegners einzuschränken, enden oft mit einem Remis.",
+        "en": "A draw is the most frequent result of closed matches, in which each player seeks, above all, to restrict the opponent's actions.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:also",
+    "term": "also",
+    "en": "so, therefore",
+    "pos": "conjunction",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔalzoː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Also, frag!",
+        "en": "Well, ask!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Also nimm es.",
+        "en": "So take it.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:anderer",
+    "term": "anderer",
+    "en": "other, different",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈandərər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kein anderer weiß es.",
+        "en": "No one else knows it.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Bist du anderer Meinung?",
+        "en": "Do you disagree?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:anders",
+    "term": "anders",
+    "en": "different, differently",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈandɐs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er war anders.",
+        "en": "He was different.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er ist anders.",
+        "en": "He's different.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:angekündigt",
+    "term": "angekündigt",
+    "en": "announced",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Eine Erhöhung der Studiengebühren wurde angekündigt.",
+        "en": "They announced an increase in tuition fees.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Es gelang Tom nicht zu tun, was er angekündigt hatte.",
+        "en": "Tom failed to do what he said he'd do.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Art",
+    "term": "die Art",
+    "en": "kind, sort, type",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Arten",
+    "ipa": "aːrt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist eine Art Orange.",
+        "en": "It is a kind of orange.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das ist eine Art Katze.",
+        "en": "It is a kind of cat.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:bereit",
+    "term": "bereit",
+    "en": "ready",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈʁaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist bereit.",
+        "en": "It's ready.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie sind bereit.",
+        "en": "They're ready.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Berliner",
+    "term": "der Berliner",
+    "en": "Berliner",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Berliner",
+    "ipa": "bɛʁˈliːnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin Berliner.",
+        "en": "I am a Berliner.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bin ein Berliner.",
+        "en": "I am a Berliner.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:bisschen",
+    "term": "bisschen",
+    "en": "bit",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbɪsçən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Noch ein bisschen.",
+        "en": "A little more.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wartet ein bisschen.",
+        "en": "Wait a bit.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:dadurch",
+    "term": "dadurch",
+    "en": "through it, through that",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bin ich dadurch absonderlich?",
+        "en": "Does that make me weird?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich wollte sie dadurch ehren.",
+        "en": "I meant to pay homage to her with that.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:darin",
+    "term": "darin",
+    "en": "in it, in that, therein",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈʁɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was war darin?",
+        "en": "What was inside?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist gut darin.",
+        "en": "Tom is good at this.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:direkt",
+    "term": "direkt",
+    "en": "direct, straight, without deviation or interruption",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "diˈʁɛkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin direkt.",
+        "en": "I'm direct.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bin sehr direkt.",
+        "en": "I'm very outspoken.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:durchaus",
+    "term": "durchaus",
+    "en": "absolutely, fully, entirely",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "dʊrçˈaʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom küsst durchaus gut.",
+        "en": "Tom isn't a bad kisser.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Es ist durchaus richtig.",
+        "en": "It's totally true.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:einmal",
+    "term": "einmal",
+    "en": "once, one time",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nmaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Noch einmal?",
+        "en": "One more time?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Noch einmal.",
+        "en": "Once again.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:fast",
+    "term": "fast",
+    "en": "almost",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fast",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist fast neu!",
+        "en": "It's almost new!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Fast alle kamen.",
+        "en": "Almost everyone came.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Feuer",
+    "term": "das Feuer",
+    "en": "fire",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Feuer",
+    "ipa": "ˈfɔʏ̯ər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Feuer frei!",
+        "en": "Fire at will.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Feuer! Lauf!",
+        "en": "Fire! Run!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Fokus",
+    "term": "der Fokus",
+    "en": "focus",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Fokusse",
+    "ipa": "ˈfoːkʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Bild ist nicht im Fokus.",
+        "en": "The image is not in focus.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Form",
+    "term": "die Form",
+    "en": "shape",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Formen",
+    "ipa": "fɔʁm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bist du in Form?",
+        "en": "Are you fit?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sind Sie in Form?",
+        "en": "Are you in shape?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:fällen",
+    "term": "fällen",
+    "en": "to cut down, to chop down, to fell",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfɛlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er fällt.",
+        "en": "He is falling.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom fällt.",
+        "en": "Tom is falling.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:geführt",
+    "term": "geführt",
+    "en": "guided, conducted",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine gut geführte Firma.",
+        "en": "That is a well-managed company.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Natürlich werden auch geführte Wanderungen und Radtouren angeboten.",
+        "en": "Guided walks and cycling tours are offered as well, of course.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Gewalt",
+    "term": "die Gewalt",
+    "en": "strong or violent force",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Gewalten",
+    "ipa": "ɡəˈvalt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was bedeutet Gewalt?",
+        "en": "What does violence mean?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er verabscheut Gewalt.",
+        "en": "He abhors violence.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Gruppe",
+    "term": "die Gruppe",
+    "en": "group",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Gruppen",
+    "ipa": "ˈɡʁʊpə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist Toms Gruppe.",
+        "en": "It's Tom's group.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir sind keine Gruppe!",
+        "en": "We are not a party!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:halten",
+    "term": "halten",
+    "en": "to hold",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhaltn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Haltet das!",
+        "en": "Hold this.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Halte hier.",
+        "en": "Stop here.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:her",
+    "term": "her",
+    "en": "hither, to this place, to here, to me/us",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "heːr",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Geld her!",
+        "en": "Give me your money.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zeig her.",
+        "en": "Show me.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:heraus",
+    "term": "heraus",
+    "en": "out of",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "hɛˈʁaus",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Rage heraus!",
+        "en": "Stand proud.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Lass uns heraus!",
+        "en": "Let us out.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:hin",
+    "term": "hin",
+    "en": "there, thither",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "hɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mach hin!",
+        "en": "Hurry up.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Geh da hin!",
+        "en": "Go there.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:häufig",
+    "term": "häufig",
+    "en": "frequent",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɔɪ̯.fɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist häufig.",
+        "en": "It is frequent.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Es kommt häufig vor.",
+        "en": "It happens frequently.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:klar",
+    "term": "klar",
+    "en": "clear",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "kläː(ɐ̯)",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ja, klar!",
+        "en": "As if!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ja, klar.",
+        "en": "Yes, of course.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Kreis",
+    "term": "der Kreis",
+    "en": "circle",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Kreise",
+    "ipa": "kʁaɪ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kreis ist rot.",
+        "en": "The circle is red.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie saßen im Kreis.",
+        "en": "They sat in a circle.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:lassen",
+    "term": "lassen",
+    "en": "to allow",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈlasn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lasst es dort!",
+        "en": "Leave it there.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Lasst Tom los!",
+        "en": "Let Tom go.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:lediglich",
+    "term": "lediglich",
+    "en": "merely",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈleːdɪklɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin lediglich ehrlich.",
+        "en": "I'm just being honest.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du must lediglich zuhören.",
+        "en": "All you have to do is listen.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Leisten",
+    "term": "der Leisten",
+    "en": "last",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Leisten",
+    "ipa": "ˈlaɪ̯stən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir leisten Beiträge.",
+        "en": "We're contributing.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie leisten Beiträge.",
+        "en": "You're contributing.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:längst",
+    "term": "längst",
+    "en": "long ago, long",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "lɛŋst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das war längst überfällig.",
+        "en": "It was long overdue.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du müsstest längst schlafen.",
+        "en": "You should be asleep by now.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:meist",
+    "term": "meist",
+    "en": "mostly, most often, usually",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "maɪ̯st",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom surft meist.",
+        "en": "Tom spends most of his time surfing.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er blieb meist für sich.",
+        "en": "He mostly kept to himself.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:nun",
+    "term": "nun",
+    "en": "now, at this moment",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "nuːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nun mach schon!",
+        "en": "Come on, hurry up!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Nun lach schon!",
+        "en": "Go ahead and laugh.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:pro",
+    "term": "pro",
+    "en": "per, each",
+    "pos": "preposition",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er liest ein Buch pro Woche.",
+        "en": "He reads one book a week.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom joggt dreimal pro Woche.",
+        "en": "Tom jogs three times a week.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:rechnen",
+    "term": "rechnen",
+    "en": "to count, reckon, calculate, compute",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁɛçnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Rechne es aus.",
+        "en": "Do the math.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom mag Rechnen.",
+        "en": "Tom likes arithmetic.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Rede",
+    "term": "die Rede",
+    "en": "speech, address",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Reden",
+    "ipa": "ˈreːdə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Rede!",
+        "en": "That's what I've always said.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Alle reden.",
+        "en": "Everybody's talking.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Reihe",
+    "term": "die Reihe",
+    "en": "row",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Reihen",
+    "ipa": "ˈʁaɪ̯ə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bildet zwei Reihen.",
+        "en": "Form two lines.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich war an der Reihe.",
+        "en": "It was my turn.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Rennen",
+    "term": "das Rennen",
+    "en": "race",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Rennen",
+    "ipa": "ˈʁɛnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Pferde rennen.",
+        "en": "Horses run.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er kann rennen.",
+        "en": "He can run.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Rolle",
+    "term": "die Rolle",
+    "en": "roll, reel, spool",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Rollen",
+    "ipa": "ˈʁɔlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es spielt keine Rolle.",
+        "en": "It doesn't matter.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das spielt keine Rolle.",
+        "en": "It's not important.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Schweizer",
+    "term": "der Schweizer",
+    "en": "Swiss person, Swiss",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Schweizer",
+    "ipa": "ˈʃvaɪ̯t͡sɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist Schweizer.",
+        "en": "He's Swiss.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom isst gern Schweizer Käse.",
+        "en": "Tom likes Swiss cheese.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:selbst",
+    "term": "selbst",
+    "en": "personally, by oneself",
+    "pos": "particle",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "zɛlpst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tu es selbst!",
+        "en": "Do it yourself.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sei du selbst!",
+        "en": "Be yourself!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Serie",
+    "term": "die Serie",
+    "en": "series",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Serien",
+    "ipa": "ˈzeːri̯ə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Serie geht gleich los.",
+        "en": "The show is about to start.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich sehe diese Serie gern.",
+        "en": "I like to watch this series.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:setzen",
+    "term": "setzen",
+    "en": "causative of sitzen: to set",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɛtsən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Setzen wir uns!",
+        "en": "Let's sit down.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er setzte sich.",
+        "en": "He took his seat.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Somit",
+    "term": "der Somit",
+    "en": "somite",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Somite",
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er war neu im Dorf und somit niemandem bekannt.",
+        "en": "He was new in the village, and therefore unknown to everyone.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Somit hat der Ausdruck zwei verschiedene Bedeutungen.",
+        "en": "Thus the term has two distinct usages.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:sonst",
+    "term": "sonst",
+    "en": "otherwise",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "zɔnst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sonst noch was?",
+        "en": "Anything else?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sonst kam keiner.",
+        "en": "Nobody else showed up.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:steigen",
+    "term": "steigen",
+    "en": "to ascend, to climb, to rise",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtaɪ̯ɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich steige aus.",
+        "en": "I fold.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Steigst du aus?",
+        "en": "Are you getting off?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Tat",
+    "term": "die Tat",
+    "en": "deed",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Taten",
+    "ipa": "taːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "ein Mann der Tat",
+        "en": "a man of action",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:teilweise",
+    "term": "teilweise",
+    "en": "partially, to some extent",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtaɪ̯lˌvaɪ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom hat teilweise recht.",
+        "en": "Tom is partially right.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das ist teilweise korrekt.",
+        "en": "That's partially correct.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Titel",
+    "term": "der Titel",
+    "en": "title",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Titel",
+    "ipa": "ˈtiːtl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lies den Titel.",
+        "en": "Read the title.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Titel ist irreführend.",
+        "en": "The title is misleading.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Trainer",
+    "term": "der Trainer",
+    "en": "trainer, coach",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Trainer",
+    "ipa": "ˈtʁɛːnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin der Trainer.",
+        "en": "I'm the coach.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist ein Trainer.",
+        "en": "Tom is a coach.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:tun",
+    "term": "tun",
+    "en": "To do.",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "tuːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tue es.",
+        "en": "Go for it.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tut’s weh?",
+        "en": "Does it hurt?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:unklar",
+    "term": "unklar",
+    "en": "unclear",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Grund war unklar.",
+        "en": "The reason was unclear.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Toms Absichten waren unklar.",
+        "en": "Tom's intentions were unclear.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:veröffentlicht",
+    "term": "veröffentlicht",
+    "en": "published",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈʔœfn̩tlɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wo wurde es veröffentlicht?",
+        "en": "Where was it published?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wo wurde er veröffentlicht?",
+        "en": "Where was it published?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:vorbei",
+    "term": "vorbei",
+    "en": "over, past, up",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "foːɐ̯ˈbaɪ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist vorbei.",
+        "en": "It's over.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ist es vorbei?",
+        "en": "Is it over?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Weise",
+    "term": "die Weise",
+    "en": "way, manner",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Weisen",
+    "ipa": "ˈvaɪ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Weise Worte!",
+        "en": "Wise words!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist weise.",
+        "en": "Tom is wise.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:weniger",
+    "term": "weniger",
+    "en": "less",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈveːniɡɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Weniger ist mehr.",
+        "en": "Less is more.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er hat weniger Brot.",
+        "en": "He has less bread.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Wiener",
+    "term": "der Wiener",
+    "en": "an inhabitant of Vienna",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Wiener",
+    "ipa": "ˈviːnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Jeden Donnerstag gibt es in der Kantine Wiener Schnitzel.",
+        "en": "There's Wiener Schnitzel in the canteen every Thursday.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Gestern war ich bei einem Konzert der Wiener Philharmoniker.",
+        "en": "Yesterday I was at a concert of the Vienna Philharmonic.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:zeugen",
+    "term": "zeugen",
+    "en": "to beget, father, procreate",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡sɔʏ̯ɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin Zeuge.",
+        "en": "I'm a witness.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Es gab Zeugen.",
+        "en": "There were witnesses.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:aktuell",
+    "term": "aktuell",
+    "en": "current, currently in action, live",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "akˈtu̯ɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hast du die aktuelle Version?",
+        "en": "Do you have the latest version?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist meine aktuelle Adresse.",
+        "en": "This is my current address.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:aufgrund",
+    "term": "aufgrund",
+    "en": "due to, because of, as a result of, by reason of, on account of",
+    "pos": "preposition",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "a͡ʊfˈɡrʊnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er erblindete aufgrund des Unfalls.",
+        "en": "He went blind from the accident.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Toms Bier gefror aufgrund der Kälte.",
+        "en": "Tom's beer froze because of the cold.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:beispielsweise",
+    "term": "beispielsweise",
+    "en": "for example",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbaɪ̯ʃpiːlsˌvaɪ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was würden Sie tun, wenn Sie beispielsweise zehntausend Dollar hätten?",
+        "en": "What would you do if you had, say, ten thousand dollars?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Zapfen der Banks-Kiefer beispielsweise öffnen sich nicht leicht, um ihre Samen freizugeben, bis sie starker Hitze ausgesetzt werden.",
+        "en": "The cones of the jack pine, for example, do not readily open to release their seeds until they have been subjected to great heat.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:bereits",
+    "term": "bereits",
+    "en": "already",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈʁaɪ̯ts",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom geht bereits.",
+        "en": "Tom is walking already.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom steht bereits.",
+        "en": "Tom is already standing.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:bieten",
+    "term": "bieten",
+    "en": "to offer",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbiːtən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist ein Bot.",
+        "en": "It's a bot.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich bin kein Bot.",
+        "en": "I'm not a bot.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:bisher",
+    "term": "bisher",
+    "en": "so far, until now, as yet",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bɪsˈheːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was ist bisher passiert?",
+        "en": "What's happened so far?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hat bisher jemand Fragen?",
+        "en": "Does anyone have any questions so far?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Bundesregierung",
+    "term": "die Bundesregierung",
+    "en": "federal government",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Bundesregierungen",
+    "ipa": "ˈbʊndəsʀeˌɡiːʀʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sind Sie sich bewusst, dass Sie in einer Klage gegen die Bundesregierung benannt wurden?",
+        "en": "Are you aware you're being named in a lawsuit against the federal government?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Am 5. Dezember 2013 unterzeichnete Präsident Obama ein präsidiales Memorandum, welches die Bundesregierung anwies, bis zum Jahre 2020 mindestens 20 % des eigenen Stroms aus erneuerbaren Quellen zu beziehen.",
+        "en": "On December 5 2013, President Obama signed a Presidential Memorandum directing the federal government to buy at least 20% of its electricity from renewable sources by 2020.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:dabei",
+    "term": "dabei",
+    "en": "pronominal adverb of bei",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˑˈbaɪ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bleib dabei!",
+        "en": "Stick to it!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bleibt dabei!",
+        "en": "Stick to it!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:dafür",
+    "term": "dafür",
+    "en": "for that, for it",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈfyːʁ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Danke dafür!",
+        "en": "Thanks for that.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Danke dafür.",
+        "en": "Thanks for this.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:dagegen",
+    "term": "dagegen",
+    "en": "against it, against that",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈɡeːɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin dagegen.",
+        "en": "I oppose it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tritt mal dagegen!",
+        "en": "Give it a kick.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:daher",
+    "term": "daher",
+    "en": "from there, thence",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdaːheːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Genieße daher jeden Tag!",
+        "en": "Therefore, enjoy every day!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom redete völlig wild daher.",
+        "en": "Tom wasn't making sense.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:damals",
+    "term": "damals",
+    "en": "at that time",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdaːmaːls",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "So war es damals.",
+        "en": "That's the way things were back then.",
+        "lvl": "B1"
+      },
+      {
+        "de": "So war das damals.",
+        "en": "That's how it was back then.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:daran",
+    "term": "daran",
+    "en": "on it, on that",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈʁan",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom denkt daran.",
+        "en": "Tom is thinking about it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Denk nicht daran.",
+        "en": "Don't think of it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:darauf",
+    "term": "darauf",
+    "en": "after",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈʁaʊ̯f",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Darauf zähle ich.",
+        "en": "I'm counting on it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er bestand darauf.",
+        "en": "He insisted.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:darum",
+    "term": "darum",
+    "en": "around it, around that",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdaːʁʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Darum fragte ich.",
+        "en": "That's why I asked.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom bittet darum.",
+        "en": "Tom is asking for it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:davon",
+    "term": "davon",
+    "en": "from it, from that, therefrom, off it, off that",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈfɔn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alles davon?",
+        "en": "All of this?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Davon rede ich.",
+        "en": "That's what I'm talking about.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:dazu",
+    "term": "dazu",
+    "en": "in addition to it, in addition, besides",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daˈtsuː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zähl mich dazu.",
+        "en": "Count me in.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Was sagt ihr dazu?",
+        "en": "What do you think about that?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:eben",
+    "term": "eben",
+    "en": "just, simply, indicating that something is generally known or cannot be changed, and is therefore to be accepted",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "eːbən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "So ist es eben.",
+        "en": "That's how it is.",
+        "lvl": "B1"
+      },
+      {
+        "de": "So ist er eben.",
+        "en": "That's the way he is.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:ebenfalls",
+    "term": "ebenfalls",
+    "en": "also, likewise, as well",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈeːbn̩fals",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er wird ebenfalls gehen.",
+        "en": "He will also go.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir stimmen ebenfalls zu.",
+        "en": "We agree as well.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:eher",
+    "term": "eher",
+    "en": "comparative degree of bald / früh: sooner, earlier",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈeːər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wem trauen Sie eher?",
+        "en": "Who do you trust more?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Je eher, desto besser.",
+        "en": "The sooner, the better.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:erhalten",
+    "term": "erhalten",
+    "en": "to receive",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛʁˈhaltən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer hat es erhalten?",
+        "en": "Who received it?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich erhielt Drohungen.",
+        "en": "I received threats.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:etwa",
+    "term": "etwa",
+    "en": "approximately",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɛtva",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lauschst du etwa?",
+        "en": "Are you eavesdropping?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Lauscht ihr etwa?",
+        "en": "Are you eavesdropping?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:führen",
+    "term": "führen",
+    "en": "to lead",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfyːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Führt ihn ab!",
+        "en": "Take him away.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Führe uns herum!",
+        "en": "Show us around.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:gar",
+    "term": "gar",
+    "en": "at all",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡaːr",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gar nicht!",
+        "en": "Not at all!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sag gar nichts.",
+        "en": "Don't say shit.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Gemeinde",
+    "term": "die Gemeinde",
+    "en": "municipality",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Gemeinden",
+    "ipa": "ɡəˈmaɪ̯ndə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das wird der Gemeinde nützen.",
+        "en": "That will benefit the community.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Priester segnete die Gemeinde.",
+        "en": "The priest blessed the congregation.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Generation",
+    "term": "die Generation",
+    "en": "generation",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Generationen",
+    "ipa": "ˌɡeːnəʁaˈt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auch ältere Generationen feiern.",
+        "en": "Older generations also celebrate the holiday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du gehörst zur nächsten Generation.",
+        "en": "You belong to the next generation.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Hilfe",
+    "term": "die Hilfe",
+    "en": "help, aid",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Hilfen",
+    "ipa": "ˈhɪlfə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hol Hilfe!",
+        "en": "Go for help.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hol Hilfe.",
+        "en": "Bring help.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:hinaus",
+    "term": "hinaus",
+    "en": "out",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "hɪˈnaʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ging hinaus.",
+        "en": "Tom went outside.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Layla ging hinaus.",
+        "en": "Layla went outside.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Höhe",
+    "term": "die Höhe",
+    "en": "height, altitude",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Höhen",
+    "ipa": "ˈhøːə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Welche Höhe hat es?",
+        "en": "How high is it?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich bin nicht ganz auf Höhe.",
+        "en": "I'm a little under the weather.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:innerhalb",
+    "term": "innerhalb",
+    "en": "within, inside",
+    "pos": "preposition",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɪnɐhalp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Innerhalb des Kinos gilt Rauchverbot.",
+        "en": "Smoking is not permitted in the cinema.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Innerhalb des Hauses ist es sehr kühl.",
+        "en": "The inside of the house is very cool.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:insbesondere",
+    "term": "insbesondere",
+    "en": "in particular, particularly",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪnsbəˈzɔndəʁə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Insbesondere für Jüngere birgt eine Sonnenbank Gefahren.",
+        "en": "Indoor tanning is particularly dangerous for younger users.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Insbesondere ist der Endomorphismenring von M ein kommutativer lokaler Ring.",
+        "en": "In particular, the endomorphism ring of M is a commutative local ring.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:insgesamt",
+    "term": "insgesamt",
+    "en": "overall, altogether, in total, all in all, by and large, on the whole",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɪnsɡəˌzamt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich hatte insgesamt drei.",
+        "en": "I had three in all.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie viel ist das insgesamt?",
+        "en": "What is the total amount?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:je",
+    "term": "je",
+    "en": "ever",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "jeː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Oh je. Wie schade.",
+        "en": "Oh dear. What a shame.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schneit es hier je?",
+        "en": "Does it ever snow here?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:jedoch",
+    "term": "jedoch",
+    "en": "however, yet, nevertheless",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "jeːˈdɔx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es gibt jedoch Ausnahmen.",
+        "en": "There are exceptions, however.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom war jedoch noch nie dort.",
+        "en": "Tom, however, has never been there.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:kaum",
+    "term": "kaum",
+    "en": "barely, hardly",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kaʊ̯m",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es regnet kaum.",
+        "en": "It is hardly raining.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom lernt kaum.",
+        "en": "Tom doesn't study a lot.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:knapp",
+    "term": "knapp",
+    "en": "scarce",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "knap",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das war knapp!",
+        "en": "That was a close call.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war knapp.",
+        "en": "I had a close shave.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:komplett",
+    "term": "komplett",
+    "en": "complete, entire",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kɔmˈplɛt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er lag komplett falsch.",
+        "en": "He was completely wrong.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es ist komplett sichtbar.",
+        "en": "It's completely visible.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Kritik",
+    "term": "die Kritik",
+    "en": "criticism",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Kritiken",
+    "ipa": "kʁiˈtiːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was sagte die Kritik?",
+        "en": "What did the critics say?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich nehme gerne Kritik an.",
+        "en": "I am happy to accept criticism.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:mittlerweile",
+    "term": "mittlerweile",
+    "en": "meanwhile, in the meantime",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "mɪtlɐˈvaɪ̯lə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom müsste mittlerweile schlafen.",
+        "en": "Tom should be asleep by now.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mittlerweile müßtest du das wissen.",
+        "en": "You ought to know that by now.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:passiert",
+    "term": "passiert",
+    "en": "sieved",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "paˈsiːɐ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Passiert es?",
+        "en": "Is it happening?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das passiert!",
+        "en": "It happens.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:per",
+    "term": "per",
+    "en": "by, by means of, through, via",
+    "pos": "preposition",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pɛr",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir sind per du.",
+        "en": "I know him by his first name.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Per Luftpost bitte!",
+        "en": "Airmail, please.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Rahmen",
+    "term": "der Rahmen",
+    "en": "frame, scope",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Rahmen",
+    "ipa": "ˈʁaːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie das Bild rahmen?",
+        "en": "Can you frame this picture?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ließ sich ihr Bild rahmen.",
+        "en": "She got her painting framed.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Region",
+    "term": "die Region",
+    "en": "region",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Regionen",
+    "ipa": "ʁeˈɡi̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Region hat viele Flüsse.",
+        "en": "The region has many rivers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Alles Gemüse kommt aus der Region.",
+        "en": "All the vegetables are locally grown.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:rund",
+    "term": "rund",
+    "en": "around",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "rʊnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bälle sind rund.",
+        "en": "Balls are round.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Ball ist rund.",
+        "en": "The ball is round.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schaffen",
+    "term": "schaffen",
+    "en": "to create, to call into being",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃafən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir schaffen es.",
+        "en": "We can do that.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir schaffen das!",
+        "en": "We can do it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Sicht",
+    "term": "die Sicht",
+    "en": "view",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Sichten",
+    "ipa": "zɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist außer Sicht.",
+        "en": "Tom is out of sight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Keiner ist in Sicht.",
+        "en": "No one's in sight.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:sowie",
+    "term": "sowie",
+    "en": "as well as",
+    "pos": "conjunction",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zoˈviː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er lehrt Mathematik sowie Englisch.",
+        "en": "He teaches mathematics as well as English.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er spricht Englisch sowie Französisch.",
+        "en": "He speaks English, and French as well.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:sowohl",
+    "term": "sowohl",
+    "en": "both",
+    "pos": "conjunction",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zoˈvoːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist sowohl groß wie dick.",
+        "en": "He's both tall and fat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es ist sowohl gut als auch billig.",
+        "en": "It is both good and cheap.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Sprecher",
+    "term": "der Sprecher",
+    "en": "a speaker",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Sprecher",
+    "ipa": "ˈʃprɛçər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Sprecher ist jung.",
+        "en": "The speaker is young.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom ist ein guter Sprecher.",
+        "en": "Tom is an excellent speaker.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:statt",
+    "term": "statt",
+    "en": "instead of",
+    "pos": "conjunction",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃtat",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Taten statt Worte.",
+        "en": "Actions, not words.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er geht an deiner statt.",
+        "en": "He will go in your place.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Studie",
+    "term": "die Studie",
+    "en": "study",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Studien",
+    "ipa": "ˈʃtuːdi̯ə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Methodik der Studie war solide.",
+        "en": "The study's methodology was sound.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schwierige Studien stärken den Intellekt.",
+        "en": "Hard studies make strong brains.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Täter",
+    "term": "der Täter",
+    "en": "perpetrator, delinquent",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Täter",
+    "ipa": "ˈtɛːtər",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Stimmt es, dass Tom der Täter war?",
+        "en": "Is it true that Tom was the one who did that?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Polizei hält Tom für den Täter.",
+        "en": "The police think that Tom did it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:völlig",
+    "term": "völlig",
+    "en": "complete, total, utter",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfœlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das reicht völlig.",
+        "en": "It's sufficient.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist völlig nackt.",
+        "en": "He's stark naked.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:wohl",
+    "term": "wohl",
+    "en": "possibly, probably",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "voːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lebe wohl.",
+        "en": "Fare thee well.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Leb wohl, Kuba.",
+        "en": "Farewell, Cuba.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:ziehen",
+    "term": "ziehen",
+    "en": "to pull",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡siːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es zog.",
+        "en": "A breeze of cold air was pouring in.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ziehen!",
+        "en": "Pull!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zuletzt",
+    "term": "zuletzt",
+    "en": "finally",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suˈlɛt͡st",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er lachte zuletzt.",
+        "en": "He had the last laugh.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom lachte zuletzt.",
+        "en": "Tom had the last laugh.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zumindest",
+    "term": "zumindest",
+    "en": "at least",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suˈmɪndəst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zumindest hat er das gesagt.",
+        "en": "At least, that's what he said.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das hat sie zumindest gesagt.",
+        "en": "At least, that's what she said.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zunächst",
+    "term": "zunächst",
+    "en": "first, first of all, in the first place, to begin with, initially",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "tsuˈnɛːçst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er antwortete zunächst nicht.",
+        "en": "He didn't answer at first.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Boris weigerte sich zunächst.",
+        "en": "Boris refused at first.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Zusammenarbeit",
+    "term": "die Zusammenarbeit",
+    "en": "collaboration, cooperation, teamwork",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Zusammenarbeiten",
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lass uns zusammenarbeiten.",
+        "en": "Let's work together.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihr müsst zusammenarbeiten.",
+        "en": "You need to work together.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:betont",
+    "term": "betont",
+    "en": "emphasized",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie wird das Wort betont?",
+        "en": "How is the word accented?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie betonten den Umweltschutz.",
+        "en": "They stressed protection of the environment.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:bislang",
+    "term": "bislang",
+    "en": "so far, hitherto, until now",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bɪsˈlaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was ist bislang geschehen?",
+        "en": "What's happened so far?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bislang ist nichts passiert.",
+        "en": "So far nothing has happened.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:demnach",
+    "term": "demnach",
+    "en": "therefore, consequently",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌdeːmˈnaːx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gewohnheit ist demnach die große Richtschnur im menschlichen Leben.",
+        "en": "Custom, then, is the great guide of human life.",
+        "lvl": "B2"
+      },
+      {
+        "de": "\"Demnach ist es aus Stein gebaut?\" \"Es ist gewöhnlicher Stahlbeton.\"",
+        "en": "\"So it's built from stone?\" \"It's ordinary reinforced concrete.\"",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:derzeit",
+    "term": "derzeit",
+    "en": "currently, at present",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdeːɐ̯t͡saɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wo arbeitest du derzeit?",
+        "en": "Where do you work now?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tom ist derzeit Student.",
+        "en": "Tom is now a college student.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:einigen",
+    "term": "einigen",
+    "en": "to unite or unify",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔaɪ̯nɪɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Einigen gefällt’s.",
+        "en": "Some people like it.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es erfordert einigen Mut.",
+        "en": "It takes some courage.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:erneut",
+    "term": "erneut",
+    "en": "again, anew",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛʁˈnɔɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hustete erneut.",
+        "en": "He coughed again.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er seufzte erneut.",
+        "en": "He sighed again.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:erstmals",
+    "term": "erstmals",
+    "en": "for the first time",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie stand erstmals 1969 auf der Bühne.",
+        "en": "Her first appearance on the stage was in 1969.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Gestern hat Tom erstmals vor Publikum gespielt.",
+        "en": "Yesterday was the first time Tom had ever played in front of an audience.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Gerade",
+    "term": "die Gerade",
+    "en": "line",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Gerade",
+    "ipa": "ɡəˈʁaːdə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sitz gerade!",
+        "en": "Sit up straight.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tom aß gerade.",
+        "en": "Tom was eating.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:jeweils",
+    "term": "jeweils",
+    "en": "in each case",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈjeːvaɪ̯ls",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Tickets kosten jeweils 20 Yen.",
+        "en": "The tickets are 20 yen each.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie gab den Kindern jeweils zwei Äpfel.",
+        "en": "She gave the children two apples each.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:künftig",
+    "term": "künftig",
+    "en": "henceforth, in the future",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʏnftɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich komme künftig öfter zu Besuch.",
+        "en": "I'll visit more often from now on.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Was willst du künftig einmal werden?",
+        "en": "What are you going to be in the future?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Landkreis",
+    "term": "der Landkreis",
+    "en": "county",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Landkreise",
+    "ipa": "ˈlantˌkʁaɪ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist die beste Schule im Landkreis.",
+        "en": "This is the best school in the county.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wie viele Landkreise gibt es in Florida?",
+        "en": "How many counties are there in Florida?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:offenbar",
+    "term": "offenbar",
+    "en": "apparent",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɔfn̩baːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er lügt offenbar!",
+        "en": "He's obviously lying!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tom lügt offenbar.",
+        "en": "Tom is obviously lying.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Union",
+    "term": "die Union",
+    "en": "union",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Unionen",
+    "ipa": "ʔuˈn̪joːn̪",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Europäische Union hat 23 Amtssprachen.",
+        "en": "The European Union has 23 official languages.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Litauen ist Mitglied der Europäischen Union.",
+        "en": "Lithuania is a member of the European Union.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Verfügung",
+    "term": "die Verfügung",
+    "en": "disposal, disposition",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Verfügungen",
+    "ipa": "fɛɐ̯ˈfyːɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie stehen noch zu Verfügung.",
+        "en": "They're still available.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er steht jetzt zur Verfügung.",
+        "en": "He is available now.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:weiterhin",
+    "term": "weiterhin",
+    "en": "still",
+    "pos": "adverb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯tɐhɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er tat es weiterhin.",
+        "en": "He kept doing it.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tom tat das weiterhin.",
+        "en": "Tom kept doing that.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zufolge",
+    "term": "zufolge",
+    "en": "according to",
+    "pos": "preposition",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "tsuˈfɔlɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihr zufolge kommt er nicht.",
+        "en": "According to her, he isn't coming.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihr zufolge, kommt er nicht.",
+        "en": "He is not coming, according to her.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
   }
 ]

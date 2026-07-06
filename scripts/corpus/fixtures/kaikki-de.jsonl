@@ -3,3 +3,5 @@
 {"word":"meinen","lang_code":"de","pos":"verb","sounds":[{"ipa":"/ˈmaɪ̯nən/"}],"senses":[{"glosses":["to think, to be of the opinion"],"examples":[{"text":"Was meinst du?","english":"What do you think?"}]}]}
 {"word":"Rolle","lang_code":"de","pos":"verb","senses":[{"glosses":["first-person singular present of rollen"],"tags":["form-of"]}]}
 {"word":"worden","lang_code":"de","pos":"verb","senses":[{"glosses":["past participle of werden (auxiliary, passive)"],"form_of":[{"word":"werden"}]}]}
+{"word":"denen","lang_code":"de","pos":"pron","senses":[{"glosses":["relative and demonstrative pronoun: to those, to whom (dative plural)"]}]}
+{"word":"EU","lang_code":"de","pos":"noun","tags":["feminine"],"senses":[{"glosses":["European Union"]}]}

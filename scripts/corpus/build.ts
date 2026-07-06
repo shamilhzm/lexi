@@ -35,6 +35,8 @@ export interface BuildOpts {
   limit?: number;            // cap total cards added this run
   onlyLevel?: string;        // restrict this batch to one CEFR level
   useLlm?: boolean;          // enable the offline LLM leveling/sector layer
+  llmCap?: number;           // max (most-frequent) candidates to send to the LLM
+  dumpOnly?: boolean;        // write candidates.tsv and stop (for external/manual leveling)
   requireExample?: boolean;  // drop cards with no translated example (default true)
   write?: boolean;           // write into vocabPath/sectorsPath (else dry run)
   outDir?: string;           // where review artefacts go
@@ -51,7 +53,6 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
   const outDir = opts.outDir ?? PATHS.out;
   const full = loadCorpus(opts.vocabPath);
   const words = full.filter((w) => w.kind === 'word');
-  const grammar = full.filter((w) => w.kind !== 'word');
   const sectors = loadSectors(opts.sectorsPath);
   const sIndex = indexSectors(sectors);
   const knownTerms = existingTerms(words);
@@ -78,6 +79,8 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     const le = wikt.best(u.word);
     if (!le) continue;                                    // not a headword → skip
     if (le.form) continue;                                // inflected form ("diese"), not a lemma
+    if (le.pos === 'pronoun') continue;                   // closed-class → grammar cards, not vocab
+    if (/^[A-ZÄÖÜ]{1,4}$/.test(le.word)) continue;        // all-caps abbreviation/acronym (AB, EU, CDU)
     if (le.pos === 'noun' && !le.gender) continue;        // unusable noun (no gender)
     const term = termFor(le.word, le.pos, le.gender).toLowerCase(); // real identity
     if (knownTerms.has(term) || queued.has(term)) continue;
@@ -85,12 +88,29 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     cands.push({ key: term, lemma: le.word, le, rank: u.rank, lvl: assignLevel(le.word, u.rank, ref) });
   }
 
+  // Always emit the candidate pool (rank, lemma, pos, frequency-guess level, gloss)
+  // so it can be reviewed or leveled externally (e.g. hand-authored reference).
+  const candLines = ['rank\tlemma\tpos\tfreq_level\tgloss',
+    ...cands.slice(0, 3000).map((c) => `${c.rank}\t${c.lemma}\t${c.le.pos}\t${c.lvl.level}\t${(c.le.gloss ?? '').replace(/\s+/g, ' ').trim()}`)];
+  writeText(join(outDir, 'candidates.tsv'), candLines.join('\n') + '\n');
+  if (opts.dumpOnly) {
+    console.log(`Dumped ${Math.min(cands.length, 3000)} candidates → ${join(outDir, 'candidates.tsv')}`);
+    return { scanned: freq.length, uncovered: uncovered.length, candidates: cands.length, added: 0,
+      addedByLevel: Object.fromEntries(LEVELS.map((l) => [l, 0])), skips: {}, targetsRemaining: {} };
+  }
+
   // 3) Optional offline LLM layer for level + sector.
   let llm = new Map<string, LlmSuggestion>();
   if (opts.useLlm) {
     const cfg = loadAiConfig();
     if (!cfg) console.warn('  --llm set but no key found (openrouter.key.local / OPENROUTER_KEY); skipping LLM layer');
-    else llm = await llmEnrich(cands.map((c) => ({ key: c.key, lemma: c.lemma, pos: c.le.pos, gloss: c.le.gloss })), cfg, [...sIndex.fields]);
+    else {
+      // Candidates are frequency-ordered, so the most-frequent slice is where the
+      // fillable A1/A2 words are — cap the LLM there to bound cost/rate limits.
+      const pool = cands.slice(0, opts.llmCap ?? 1500);
+      console.log(`  llm leveling ${pool.length} of ${cands.length} candidates…`);
+      llm = await llmEnrich(pool.map((c) => ({ key: c.key, lemma: c.lemma, pos: c.le.pos, gloss: c.le.gloss })), cfg, [...sIndex.fields]);
+    }
   }
 
   // 4) Attach Tatoeba examples in one pass (falls back to Wiktextract examples).
@@ -140,10 +160,9 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     remaining[level]--;
   }
 
-  // 6) Merge, sort deterministically, rebuild sectors.
-  const mergedWords = sortCards(words.concat(added));
-  const mergedGrammar = [...grammar].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  const merged = mergedWords.concat(mergedGrammar);
+  // 6) Append the new cards (in deterministic order) to the existing corpus,
+  // preserving prior order so the diff is just the additions, then rebuild sectors.
+  const merged = full.concat(sortCards(added));
   const newSectors = rebuildSectors(merged, sectors);
 
   const addedByLevel: Record<string, number> = Object.fromEntries(LEVELS.map((l) => [l, 0]));
@@ -204,10 +223,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       en: join(PATHS.raw, SOURCES.tatoebaEn.file),
       links: join(PATHS.raw, SOURCES.tatoebaLinks.file),
     },
-    refPath: join(PATHS.raw, SOURCES.cefrReference.file),
+    refPath: PATHS.cefrReference,
     limit: opt('limit') ? parseInt(opt('limit')!, 10) : undefined,
     onlyLevel: opt('level'),
     useLlm: flag('llm'),
+    llmCap: opt('llm-cap') ? parseInt(opt('llm-cap')!, 10) : undefined,
+    dumpOnly: flag('dump-candidates'),
     requireExample: !flag('examples-optional'),
     write: flag('write'),
   });

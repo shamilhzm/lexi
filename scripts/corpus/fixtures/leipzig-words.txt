@@ -5,4 +5,6 @@
 5	Beispiel	25000
 6	meinen	20000
 7	worden	18000
-8	Xytzzq	10000
+8	denen	16000
+9	EU	14000
+10	Xytzzq	10000

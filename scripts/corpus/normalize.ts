@@ -27,6 +27,17 @@ export type BuildResult = { ok: true; card: Word; prov: Provenance } | { ok: fal
 
 const TERM_RE = /^[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß .'-]*$/;
 
+/** Tidy a raw Wiktionary gloss into a short card headline: drop parenthetical
+ *  asides ("(see derived terms)", "(only in combination…)") and keep the first
+ *  clause. Keeps cards readable without inventing meaning. */
+function cleanGloss(raw: string): string {
+  return raw
+    .replace(/\s*\([^)]*\)/g, '')   // parenthetical notes
+    .split(/\s*[;]\s*/)[0]          // first clause only
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 export function buildCard(input: CardInput, opts: { requireExample?: boolean } = {}): BuildResult {
   const requireExample = opts.requireExample ?? true;
   const lemma = input.lemma.trim();
@@ -36,7 +47,7 @@ export function buildCard(input: CardInput, opts: { requireExample?: boolean } =
   const isNoun = input.pos === 'noun';
   if (isNoun && !input.gender) return { ok: false, reason: 'noun-no-gender' };
 
-  const gloss = (input.gloss ?? '').trim();
+  const gloss = cleanGloss(input.gloss ?? '');
   if (!gloss) return { ok: false, reason: 'no-gloss' };
 
   const examples = input.examples.filter((e) => e.de.trim() && e.en.trim());

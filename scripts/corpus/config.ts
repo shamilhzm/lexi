@@ -14,6 +14,7 @@ export const PATHS = {
   raw: join(HERE, 'data', 'raw'),        // git-ignored cache of downloaded sources
   out: join(HERE, 'data', 'out'),        // git-ignored reports/intermediate artefacts
   fixtures: join(HERE, 'fixtures'),      // committed tiny samples for the self-test
+  cefrReference: join(HERE, 'cefr-reference.tsv'), // committed curated leveling (original)
   vocab: join(REPO_ROOT, 'public', 'data', 'vocab.json'),
   sectors: join(REPO_ROOT, 'public', 'data', 'sectors.json'),
   provenance: join(REPO_ROOT, 'public', 'data', 'provenance.json'),

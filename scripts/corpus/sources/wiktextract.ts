@@ -18,7 +18,7 @@ export interface LexEntry {
   form: boolean;                          // true = a non-lemma inflection ("diese"), not a headword
 }
 
-const FORM_GLOSS_RE = /\b(inflection|plural|singular|genitive|dative|accusative|nominative|participle|comparative|superlative)\s+of\b/i;
+const FORM_GLOSS_RE = /\b(inflection|inflected\s+form|forms?|spelling|misspelling|abbreviation|plural|singular|genitive|dative|accusative|nominative|participle|comparative|superlative)\s+of\b/i;
 
 /** True when EVERY sense is a form-of/inflection — i.e. the entry is an inflected
  *  form ("diese", "worden", "seiner"), not a lemma we should turn into a card. */
