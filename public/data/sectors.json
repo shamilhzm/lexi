@@ -17,10 +17,11 @@
   },
   {
     "name": "Arts and culture",
-    "count": 40,
+    "count": 46,
     "levels": [
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Arts, Media & Leisure"
   },
@@ -77,7 +78,7 @@
   },
   {
     "name": "Games",
-    "count": 54,
+    "count": 57,
     "levels": [
       "A2",
       "B1",
@@ -190,7 +191,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 428,
+    "count": 473,
     "levels": [
       "A1",
       "A2",
@@ -243,7 +244,7 @@
   },
   {
     "name": "Communication",
-    "count": 106,
+    "count": 111,
     "levels": [
       "A1",
       "A2",
@@ -278,7 +279,7 @@
   },
   {
     "name": "Education",
-    "count": 40,
+    "count": 42,
     "levels": [
       "A1",
       "A2",
@@ -549,7 +550,7 @@
   },
   {
     "name": "Emotions",
-    "count": 45,
+    "count": 51,
     "levels": [
       "A1",
       "A2",
@@ -601,7 +602,7 @@
   },
   {
     "name": "Relationships",
-    "count": 47,
+    "count": 49,
     "levels": [
       "A2",
       "B1",
@@ -718,7 +719,7 @@
   },
   {
     "name": "Health",
-    "count": 33,
+    "count": 38,
     "levels": [
       "A1",
       "A2",
@@ -845,7 +846,7 @@
   },
   {
     "name": "Home",
-    "count": 168,
+    "count": 170,
     "levels": [
       "A1",
       "A2",
@@ -914,7 +915,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 213,
+    "count": 258,
     "levels": [
       "A1",
       "A2",
@@ -925,7 +926,7 @@
   },
   {
     "name": "Adverbs",
-    "count": 139,
+    "count": 181,
     "levels": [
       "A1",
       "A2",
@@ -971,7 +972,7 @@
   },
   {
     "name": "Connectors",
-    "count": 33,
+    "count": 43,
     "levels": [
       "A1",
       "A2",
@@ -983,12 +984,13 @@
   },
   {
     "name": "Core verbs",
-    "count": 184,
+    "count": 240,
     "levels": [
       "A1",
       "A2",
       "B1",
-      "B2"
+      "B2",
+      "C1"
     ],
     "group": "Language Building Blocks"
   },
@@ -1043,10 +1045,11 @@
   },
   {
     "name": "Numbers",
-    "count": 19,
+    "count": 21,
     "levels": [
       "A1",
-      "A2"
+      "A2",
+      "B1"
     ],
     "group": "Language Building Blocks"
   },
@@ -1430,15 +1433,16 @@
   },
   {
     "name": "Climate Change",
-    "count": 12,
+    "count": 13,
     "levels": [
+      "B1",
       "B2"
     ],
     "group": "Nature & Environment"
   },
   {
     "name": "Environment",
-    "count": 15,
+    "count": 18,
     "levels": [
       "A2",
       "B1"
@@ -1565,7 +1569,7 @@
   },
   {
     "name": "Clothing",
-    "count": 71,
+    "count": 72,
     "levels": [
       "A1",
       "A2",
@@ -1584,7 +1588,7 @@
   },
   {
     "name": "Administration",
-    "count": 32,
+    "count": 36,
     "levels": [
       "A2",
       "B1",
@@ -1626,7 +1630,7 @@
   },
   {
     "name": "Cultural Identity",
-    "count": 19,
+    "count": 22,
     "levels": [
       "A2",
       "B1",
@@ -1757,7 +1761,7 @@
   },
   {
     "name": "News Media",
-    "count": 21,
+    "count": 23,
     "levels": [
       "A2",
       "B1",
@@ -1783,11 +1787,12 @@
   },
   {
     "name": "Politics",
-    "count": 58,
+    "count": 70,
     "levels": [
       "A2",
       "B1",
-      "B2"
+      "B2",
+      "C1"
     ],
     "group": "Society & Politics"
   },
@@ -1859,7 +1864,7 @@
   },
   {
     "name": "Society",
-    "count": 78,
+    "count": 98,
     "levels": [
       "A1",
       "A2",
@@ -1919,7 +1924,7 @@
   },
   {
     "name": "Science concepts",
-    "count": 37,
+    "count": 39,
     "levels": [
       "B1",
       "B2"
@@ -1936,10 +1941,11 @@
   },
   {
     "name": "Technology",
-    "count": 25,
+    "count": 30,
     "levels": [
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Tech & Science"
   },
@@ -2121,7 +2127,7 @@
   },
   {
     "name": "Transport & Mobility",
-    "count": 15,
+    "count": 22,
     "levels": [
       "A2",
       "B1",
@@ -2131,7 +2137,7 @@
   },
   {
     "name": "Travel",
-    "count": 9,
+    "count": 13,
     "levels": [
       "A2"
     ],
@@ -2172,7 +2178,7 @@
   },
   {
     "name": "Business & Workplace",
-    "count": 17,
+    "count": 18,
     "levels": [
       "B2"
     ],
@@ -2295,7 +2301,7 @@
   },
   {
     "name": "Money & shopping",
-    "count": 49,
+    "count": 50,
     "levels": [
       "A1",
       "A2",
@@ -2332,7 +2338,7 @@
   },
   {
     "name": "Work",
-    "count": 101,
+    "count": 104,
     "levels": [
       "A1",
       "A2",

@@ -35,6 +35,20 @@ export function indexSectors(sectors: SectorMeta[]): SectorIndex {
   return { fields, fieldGroup, groups };
 }
 
+/** Part-of-speech → default fine sector for non-nouns (these are fully determined
+ *  by POS, so they need no manual tagging). Nouns return undefined (need a topical
+ *  sector from the curated map). */
+export function posDefaultSector(pos: string): string | undefined {
+  switch (pos) {
+    case 'verb': return 'Core verbs';
+    case 'adverb': return 'Adverbs';
+    case 'adjective': return 'Adjectives';
+    case 'conjunction': case 'preposition': case 'particle': return 'Connectors';
+    case 'number': return 'Numbers';
+    default: return undefined;
+  }
+}
+
 /** Resolve a proposed (field, group) against what exists. An unknown field falls
  *  back to Miscellaneous; a known field always uses its real group. */
 export function resolveField(idx: SectorIndex, proposedField?: string | null, proposedGroup?: string | null): { field: string; group: string; source: 'llm' | 'default' } {

@@ -19,7 +19,7 @@ import { loadFrequency } from './sources/frequency.ts';
 import { loadWiktextract, type LexEntry } from './sources/wiktextract.ts';
 import { attachTatoebaExamples, type Candidate, type TatEx } from './sources/tatoeba.ts';
 import { loadReference, assignLevel, type LevelAssignment } from './level.ts';
-import { indexSectors, resolveField, rebuildSectors, loadSectorReference } from './sectors.ts';
+import { indexSectors, resolveField, rebuildSectors, loadSectorReference, posDefaultSector } from './sectors.ts';
 import { buildCard, type CardInput } from './normalize.ts';
 import { loadAiConfig, llmEnrich, type LlmSuggestion } from './enrich-llm.ts';
 
@@ -144,7 +144,7 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     if (opts.onlyLevel && level !== opts.onlyLevel) { bump('other-level'); continue; }
     if (remaining[level] <= 0) { bump('level-full'); continue; }
 
-    const field = resolveField(sIndex, sectorRef.get(lemmaKey(c.lemma)) ?? sug?.field);
+    const field = resolveField(sIndex, sectorRef.get(lemmaKey(c.lemma)) ?? sug?.field ?? posDefaultSector(c.le.pos));
     const tatExs = tat.get(c.key) ?? [];
     const examples = tatExs.length
       ? tatExs.map((e) => ({ de: e.de, en: e.en, source: `tatoeba:${e.id}` }))
