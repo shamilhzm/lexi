@@ -4,9 +4,22 @@
 // LLM's suggestion when it names a real field; otherwise cards fall back to the
 // "Miscellaneous" sector. sectors.json is then recomputed from the merged corpus
 // so counts/levels stay accurate.
+import { readFileSync } from 'node:fs';
 import { DEFAULT_FIELD, DEFAULT_GROUP } from './config.ts';
-import { LEVELS } from './lib.ts';
+import { LEVELS, lemmaKey, fileExists } from './lib.ts';
 import type { Word, SectorMeta } from '../../src/types.ts';
+
+/** lemma → curated sector name, from an optional `lemma<TAB>field` file. */
+export function loadSectorReference(path: string): Map<string, string> {
+  const m = new Map<string, string>();
+  if (!fileExists(path)) return m;
+  for (const line of readFileSync(path, 'utf8').split('\n')) {
+    if (!line.trim() || line.startsWith('#')) continue;
+    const [lemma, field] = line.split('\t');
+    if (lemma && field?.trim()) m.set(lemmaKey(lemma), field.trim());
+  }
+  return m;
+}
 
 export interface SectorIndex {
   fields: Set<string>;

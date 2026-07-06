@@ -1,0 +1,157 @@
+# Curated sector map (lemma<TAB>field). Assigns pipeline-added lemmas to an
+# EXISTING fine sector (validated against sectors.json; unknown → Miscellaneous).
+# Same idea as the CEFR reference: original curation, overrides the default.
+# --- adverbs ---
+anders	Adverbs
+beispielsweise	Adverbs
+bereits	Adverbs
+bisher	Adverbs
+bislang	Adverbs
+bisschen	Adverbs
+dabei	Adverbs
+dadurch	Adverbs
+dafür	Adverbs
+dagegen	Adverbs
+daher	Adverbs
+damals	Adverbs
+daran	Adverbs
+darauf	Adverbs
+darin	Adverbs
+darum	Adverbs
+davon	Adverbs
+dazu	Adverbs
+demnach	Adverbs
+derzeit	Adverbs
+durchaus	Adverbs
+eben	Adverbs
+ebenfalls	Adverbs
+eher	Adverbs
+einmal	Adverbs
+erneut	Adverbs
+erstmals	Adverbs
+etwa	Adverbs
+fast	Adverbs
+gar	Adverbs
+her	Adverbs
+heraus	Adverbs
+hin	Adverbs
+hinaus	Adverbs
+insbesondere	Adverbs
+insgesamt	Adverbs
+je	Adverbs
+jedoch	Adverbs
+jeweils	Adverbs
+kaum	Adverbs
+künftig	Adverbs
+lediglich	Adverbs
+längst	Adverbs
+mal	Adverbs
+meist	Adverbs
+mittlerweile	Adverbs
+nun	Adverbs
+nur	Adverbs
+rund	Adverbs
+sehr	Adverbs
+so	Adverbs
+sonst	Adverbs
+teilweise	Adverbs
+weiterhin	Adverbs
+weniger	Adverbs
+wohl	Adverbs
+zuletzt	Adverbs
+zumindest	Adverbs
+zunächst	Adverbs
+selbst	Adverbs
+somit	Adverbs
+# --- connectors / prepositions ---
+also	Connectors
+sowie	Connectors
+sowohl	Connectors
+statt	Connectors
+ab	Connectors
+aufgrund	Connectors
+innerhalb	Connectors
+per	Connectors
+pro	Connectors
+zufolge	Connectors
+# --- verbs ---
+bieten	Core verbs
+einigen	Core verbs
+erhalten	Core verbs
+fällen	Core verbs
+führen	Core verbs
+halten	Core verbs
+lassen	Core verbs
+rechnen	Core verbs
+schaffen	Core verbs
+setzen	Core verbs
+steigen	Core verbs
+tun	Core verbs
+zeugen	Core verbs
+ziehen	Core verbs
+# --- adjectives ---
+aktuell	Adjectives
+alle	Adjectives
+anderer	Adjectives
+angekündigt	Adjectives
+bereit	Adjectives
+betont	Adjectives
+direkt	Adjectives
+ganz	Adjectives
+geführt	Adjectives
+genau	Adjectives
+häufig	Adjectives
+klar	Adjectives
+knapp	Adjectives
+komplett	Adjectives
+letzte	Adjectives
+offenbar	Adjectives
+passiert	Adjectives
+unklar	Adjectives
+veröffentlicht	Adjectives
+vorbei	Adjectives
+völlig	Adjectives
+# --- nouns (topical) ---
+Gemeinde	Administration
+Landkreis	Administration
+Kreis	Administration
+Region	Administration
+Verfügung	Administration
+Bundesregierung	Politics
+Union	Politics
+Rede	Politics
+Person	Society
+Gruppe	Society
+Generation	Society
+Gewalt	Society
+Tat	Society
+Täter	Society
+Welt	Society
+Sprecher	News Media
+Serie	News Media
+Aktion	News Media
+Studie	Academic Work
+Trainer	Games
+Rennen	Games
+Berliner	Cultural Identity
+Wiener	Cultural Identity
+Schweizer	Cultural Identity
+Kritik	Opinion
+Art	Core Vocabulary
+Form	Core Vocabulary
+Weise	Core Vocabulary
+Sicht	Core Vocabulary
+Rahmen	Core Vocabulary
+Höhe	Core Vocabulary
+Reihe	Core Vocabulary
+Fokus	Core Vocabulary
+Rolle	Core Vocabulary
+Ende	Core Vocabulary
+Titel	Core Vocabulary
+Bahn	Core Vocabulary
+Feuer	Core Vocabulary
+Hilfe	Core Vocabulary
+Geschichte	Core Vocabulary
+Zusammenarbeit	Core Vocabulary
+Leisten	Core Vocabulary
+Gerade	Core Vocabulary

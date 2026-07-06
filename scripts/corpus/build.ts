@@ -12,14 +12,14 @@ import './shim.ts';
 import { join } from 'node:path';
 import { PATHS, SOURCES, LEVEL_TARGETS } from './config.ts';
 import {
-  loadCorpus, loadSectors, primeApp, sortCards, existingTerms, termFor,
+  loadCorpus, loadSectors, primeApp, sortCards, existingTerms, termFor, lemmaKey,
   ProvenanceLog, writeJSON, writeText, fileExists, LEVELS, type Word,
 } from './lib.ts';
 import { loadFrequency } from './sources/frequency.ts';
 import { loadWiktextract, type LexEntry } from './sources/wiktextract.ts';
 import { attachTatoebaExamples, type Candidate, type TatEx } from './sources/tatoeba.ts';
 import { loadReference, assignLevel, type LevelAssignment } from './level.ts';
-import { indexSectors, resolveField, rebuildSectors } from './sectors.ts';
+import { indexSectors, resolveField, rebuildSectors, loadSectorReference } from './sectors.ts';
 import { buildCard, type CardInput } from './normalize.ts';
 import { loadAiConfig, llmEnrich, type LlmSuggestion } from './enrich-llm.ts';
 
@@ -31,6 +31,7 @@ export interface BuildOpts {
   wiktPath: string;
   tatoeba?: { de: string; en: string; links: string };
   refPath?: string;
+  sectorRefPath?: string;    // curated lemma → sector map (overrides LLM/default)
   scanN?: number;            // how many top frequency forms to scan for gaps
   limit?: number;            // cap total cards added this run
   onlyLevel?: string;        // restrict this batch to one CEFR level
@@ -55,6 +56,7 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
   const words = full.filter((w) => w.kind === 'word');
   const sectors = loadSectors(opts.sectorsPath);
   const sIndex = indexSectors(sectors);
+  const sectorRef = loadSectorReference(opts.sectorRefPath ?? '');
   const knownTerms = existingTerms(words);
 
   // 1) Discover gaps with the app's own matcher.
@@ -140,7 +142,7 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     if (opts.onlyLevel && level !== opts.onlyLevel) { bump('other-level'); continue; }
     if (remaining[level] <= 0) { bump('level-full'); continue; }
 
-    const field = resolveField(sIndex, sug?.field);
+    const field = resolveField(sIndex, sectorRef.get(lemmaKey(c.lemma)) ?? sug?.field);
     const tatExs = tat.get(c.key) ?? [];
     const examples = tatExs.length
       ? tatExs.map((e) => ({ de: e.de, en: e.en, source: `tatoeba:${e.id}` }))
@@ -224,6 +226,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       links: join(PATHS.raw, SOURCES.tatoebaLinks.file),
     },
     refPath: PATHS.cefrReference,
+    sectorRefPath: PATHS.sectorReference,
     limit: opt('limit') ? parseInt(opt('limit')!, 10) : undefined,
     onlyLevel: opt('level'),
     useLlm: flag('llm'),
