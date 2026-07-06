@@ -1,0 +1,34 @@
+[
+  {
+    "id": "voc:A1:der Name",
+    "term": "der Name",
+    "en": "name",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Namen",
+    "ipa": "ˈnaːmə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [{ "de": "Mein Name ist Anna.", "en": "My name is Anna.", "lvl": "A1" }],
+    "field": "Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:gehen",
+    "term": "gehen",
+    "en": "to go",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɡeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [{ "de": "Ich gehe nach Hause.", "en": "I go home.", "lvl": "A1" }],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  }
+]

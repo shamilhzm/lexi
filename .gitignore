@@ -3,3 +3,7 @@ dist
 *.local
 .DS_Store
 .vercel
+
+# Corpus pipeline: raw third-party dumps and intermediate reports are cached
+# locally and never redistributed (only derived facts + attributed content ship).
+scripts/corpus/data/

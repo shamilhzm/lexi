@@ -62,6 +62,20 @@ const EXTRA_VERB_FORMS: Record<string, string[]> = {
   sein: ['wäre', 'wärest', 'wärst', 'wären', 'wäret', 'sei', 'seist', 'seiest', 'seien', 'seiet'],
 };
 
+// Closed-class inflections neither the conjugator nor the adjective de-inflector
+// produce: declined demonstratives, the non-neutral possessive endings, and the
+// passive "worden". Keyed by lemma so each declined form resolves to its existing
+// lemma card (der/die/das and the -e possessives are already handled as function
+// words, so they're intentionally omitted). Only paradigms whose lemma card
+// exists are listed — a form binds to the FIRST card with that key, so keys are
+// chosen to avoid mapping onto an unrelated homograph (e.g. possessive "sein" is
+// omitted because the "sein" card is the verb). Extend as lemma cards are added.
+const EXTRA_CLOSED_FORMS: Record<string, string[]> = {
+  dieser: ['diese', 'dieses', 'diesem', 'diesen'], // demonstrative dieser-words → "Dieser"
+  mein: ['meiner', 'meinem', 'meines'],            // possessive endings → "Mein"
+  werden: ['worden'],                              // passive perfect "ist … worden" → "werden"
+};
+
 let index: Map<string, Word> | null = null;
 let adjIndex: Map<string, Word> | null = null; // adjective lemma -> Word, for de-inflection
 /** lowercased surface form -> Word: dictionary term, article-stripped term,
@@ -77,6 +91,13 @@ function lexIndex(): Map<string, Word> {
     add(stripArticle(w.term).toLowerCase(), w);
     if (w.plural) add(stripArticle(w.plural).toLowerCase(), w);
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adj.has(k)) adj.set(k, w); }
+  }
+  // Closed-class inflections (declined demonstratives, possessive endings, passive
+  // "worden") → their lemma card, so they light up when reading. Base forms were
+  // added above, so a real card for any of these surfaces still wins.
+  for (const w of WORDS) {
+    const forms = EXTRA_CLOSED_FORMS[stripArticle(w.term).toLowerCase()];
+    if (forms) for (const f of forms) add(f, w);
   }
   // Then verb inflections (präsens, präteritum, Partizip II) → their infinitive,
   // plus the high-frequency subjunctive forms the generator doesn't produce.

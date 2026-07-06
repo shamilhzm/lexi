@@ -9,7 +9,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --host --port 4318",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "corpus:fetch": "node scripts/corpus/fetch.ts",
+    "corpus:coverage": "node scripts/corpus/coverage.ts",
+    "corpus:build": "node scripts/corpus/build.ts",
+    "corpus:grammar": "node scripts/corpus/grammar-supplement.ts",
+    "corpus:validate": "node scripts/corpus/validate.ts",
+    "corpus:selftest": "node scripts/corpus/selftest.ts"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.14",

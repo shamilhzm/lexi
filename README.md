@@ -62,7 +62,10 @@ index). They're served as static files and fetched at runtime (see
 `src/data/index.ts → initData`) so the ~2 MB corpus isn't parsed inside the JS
 bundle — the app shell paints immediately and the service worker caches the data
 for instant offline reloads. To extend coverage toward the whole German dictionary,
-append records of the same shape (see `src/types.ts → Word`) and regroup by `field`.
+don't hand-edit the JSON — use the reproducible ingestion pipeline in
+[`scripts/corpus/`](scripts/corpus/) (`npm run corpus:coverage` to see the gap,
+`corpus:build` to grow it from open sources). Sources and licenses are recorded in
+[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md).
 
 ## Install as an app (PWA)
 
@@ -72,8 +75,11 @@ first load. The lexicon and assets are cached on first visit.
 
 ## Contributing & support
 
-Lexi is MIT-licensed and community-driven. Vocabulary corrections, new sectors,
-UI improvements, and translations are all welcome. If Lexi helps you learn, please
+Lexi's **code** is MIT-licensed and community-driven. The **corpus data**
+(`public/data/*.json`) is built from Wiktionary/Wiktextract, Tatoeba, and the
+Leipzig Corpora Collection, so it carries **CC BY-SA 4.0** with attribution — see
+[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md). Vocabulary corrections, new sectors, UI
+improvements, and translations are all welcome. If Lexi helps you learn, please
 consider a donation to keep it free for everyone.
 
 ## Notes

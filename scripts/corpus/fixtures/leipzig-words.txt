@@ -1,0 +1,8 @@
+1	der	1000000
+2	Name	50000
+3	gehe	40000
+4	Rolle	30000
+5	Beispiel	25000
+6	meinen	20000
+7	worden	18000
+8	Xytzzq	10000

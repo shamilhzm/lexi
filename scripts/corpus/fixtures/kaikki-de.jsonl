@@ -1,0 +1,5 @@
+{"word":"Rolle","lang_code":"de","pos":"noun","tags":["feminine"],"forms":[{"form":"Rollen","tags":["plural"]},{"form":"Rolle","tags":["genitive","singular"]}],"sounds":[{"ipa":"/ˈʁɔlə/"}],"senses":[{"glosses":["role, part (in a play, film, or situation)"]}]}
+{"word":"Beispiel","lang_code":"de","pos":"noun","head_templates":[{"name":"de-noun","args":{"g":"n"}}],"forms":[{"form":"Beispiele","tags":["plural"]}],"sounds":[{"ipa":"[ˈbaɪ̯ʃpiːl]"}],"senses":[{"glosses":["example"]}]}
+{"word":"meinen","lang_code":"de","pos":"verb","sounds":[{"ipa":"/ˈmaɪ̯nən/"}],"senses":[{"glosses":["to think, to be of the opinion"],"examples":[{"text":"Was meinst du?","english":"What do you think?"}]}]}
+{"word":"Rolle","lang_code":"de","pos":"verb","senses":[{"glosses":["first-person singular present of rollen"],"tags":["form-of"]}]}
+{"word":"worden","lang_code":"de","pos":"verb","senses":[{"glosses":["past participle of werden (auxiliary, passive)"],"form_of":[{"word":"werden"}]}]}

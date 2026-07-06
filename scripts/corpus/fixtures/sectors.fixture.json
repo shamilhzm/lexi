@@ -1,0 +1,5 @@
+[
+  { "name": "Identity", "count": 1, "levels": ["A1"], "group": "Core Vocabulary" },
+  { "name": "Core Vocabulary", "count": 1, "levels": ["A1"], "group": "Core Vocabulary" },
+  { "name": "Miscellaneous", "count": 0, "levels": [], "group": "Miscellaneous" }
+]
