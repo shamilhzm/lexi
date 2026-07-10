@@ -1,34 +1,36 @@
 // Lexi — an open-source German vocabulary terminal (A1–C2), donation-supported.
 // Primary surfaces: Today (daily briefing), Study (the FSRS session + drills),
-// and Explore (the Markt treemap → Decks → Wortkarte, plus the Galaxie map).
+// and Explore (the Markt treemap → Decks → Wortkarte).
 // Dark Bloomberg aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { GraduationCap, Compass, Heart, Sunrise, BookOpen, Settings as SettingsIcon, TrendingDown, MoreHorizontal, MessagesSquare, Swords } from 'lucide-react';
+import { GraduationCap, Compass, Heart, Sunrise, Settings as SettingsIcon, TrendingDown, MoreHorizontal } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Review from './views/Review.tsx';
 import Explore from './views/Explore.tsx';
 import Today from './views/Today.tsx';
-import Reader from './views/Reader.tsx';
 import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
 import Settings from './views/Settings.tsx';
 import BlindSpots from './views/BlindSpots.tsx';
-import Tutor from './views/Tutor.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, totals, setOnboarded, firstRunIds } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'review' | 'explore' | 'reader' | 'gym' | 'placement' | 'settings' | 'blindspots' | 'tutor';
+export type View = 'today' | 'review' | 'explore' | 'gym' | 'placement' | 'settings' | 'blindspots';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
   return (
     <div className="flex items-center gap-2.5 select-none">
-      <span className="grid place-items-center w-7 h-7 rounded-[10px] font-serif font-bold text-bg text-[20px]"
-            style={{ background: 'linear-gradient(135deg,#ffb000,#ff7b00)' }}>L</span>
+      <svg viewBox="0 0 150 150" className="w-7 h-7" role="img" aria-label="Lexi">
+        <rect width="150" height="150" rx="34" fill="#0e131b" />
+        <rect x="52" y="40" width="20" height="72" rx="3" fill="#ffb000" />
+        <rect x="52" y="92" width="60" height="20" rx="3" fill="#ffb000" />
+        <rect x="88" y="40" width="20" height="22" rx="3" fill="#ffb000" />
+      </svg>
       <span className="leading-none">
         <span className="font-bold tracking-wide text-[15px]">Lexi</span><br />
         <span className="text-amber font-semibold tracking-[2px]" style={{ fontSize: 9 }}>GERMAN VOCAB TERMINAL</span>
@@ -44,8 +46,6 @@ const PRIMARY: NavItem[] = [
   { id: 'explore', label: 'Explore', icon: Compass },
 ];
 const MORE: NavItem[] = [
-  { id: 'tutor', label: 'AI Tutor', icon: MessagesSquare },
-  { id: 'reader', label: 'Lesen', icon: BookOpen },
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
   { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ];
@@ -121,11 +121,6 @@ export default function App() {
                       <m.icon size={15} /> {m.label}
                     </button>
                   ))}
-                  <a href="/lexi-duel.html" target="_blank" rel="noreferrer"
-                    className="w-full flex items-center gap-2.5 px-3 py-2 text-[13px] text-left text-txt hover:bg-panel2 transition-colors border-t border-line mt-1 pt-2"
-                    title="Pass-and-play word duel — challenge friends, family or classmates">
-                    <Swords size={15} /> Lexi Duel
-                  </a>
                 </div>
               </>
             )}
@@ -139,7 +134,8 @@ export default function App() {
         <div className="text-[11px] text-dim hidden md:block">{fmt(t.count)} cards · A1–C2 · Open Source</div>
       </header>
 
-      <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
+      {/* The live ticker is peripheral motion — hide it during a session so the card stays the focus. */}
+      {view !== 'review' && <Ticker onPick={(g) => study({ kind: 'group', name: g })} />}
 
       <main className={`flex-1 overflow-y-auto bg-bg ${PAPER_VIEWS.has(view) ? 'paper' : ''}`}>
         <AnimatePresence mode="wait">
@@ -148,12 +144,10 @@ export default function App() {
             transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
             className="max-w-[1280px] mx-auto px-3 sm:px-4 py-4 safe-bottom">
             <ErrorBoundary resetKey={view}>
-            {view === 'today' && <Today onStart={study} onStudySector={(s) => study({ kind: 'sector', name: s })} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onGym={() => { setGymInit(null); setView('gym'); }} />}
+            {view === 'today' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onGym={() => { setGymInit(null); setView('gym'); }} />}
             {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('today'); }} />}
             {view === 'settings' && <Settings />}
             {view === 'blindspots' && <BlindSpots onDrill={drillFor} />}
-            {view === 'tutor' && <Tutor onOpenSettings={() => setView('settings')} />}
-            {view === 'reader' && <Reader onStudy={study} />}
             {view === 'gym' && <Gym initial={gymInit} />}
             {view === 'explore' && <Explore onStudy={study} onStudyAll={() => study(ALL)} initial={exploreInit} />}
             {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('today'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
@@ -189,11 +183,6 @@ export default function App() {
                     <m.icon size={15} /> {m.label}
                   </button>
                 ))}
-                <a href="/lexi-duel.html" target="_blank" rel="noreferrer"
-                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-[13px] text-left text-txt hover:bg-panel2 transition-colors border-t border-line mt-1"
-                  title="Pass-and-play word duel — challenge friends, family or classmates">
-                  <Swords size={15} /> Lexi Duel
-                </a>
               </div>
             </>
           )}

@@ -117,15 +117,20 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
       <div className="bg-panel border border-line rounded-[10px]">
-        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
+        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
           <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={16} /></button>
           <h2 className="text-[15px] font-semibold">{target.name}</h2>
-          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px]">{queue.length - done} left</span>
-          <div className="ml-auto flex items-center gap-2.5">
+          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] tabular-nums">{queue.length - done} left</span>
+          {/* Secondary controls are desktop-only — the phone view stays focused on the card. */}
+          <div className="ml-auto hidden lg:flex items-center gap-2.5">
             <button onClick={onDrills} className="text-[11px] text-dim hover:text-amber whitespace-nowrap">Targeted drills</button>
             <LevelFilter compact />
-            <span className="text-[11px] text-dim hidden lg:block">Space = flip · ← didn’t know · → knew it</span>
+            <span className="text-[11px] text-dim">Space = flip · ← didn’t know · → knew it</span>
           </div>
+        </div>
+        {/* Slim session progress — stands in for the stats panel on mobile. */}
+        <div className="h-0.5 bg-panel2" role="progressbar" aria-valuenow={done} aria-valuemin={0} aria-valuemax={queue.length}>
+          <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (done / queue.length) * 100 : 0}%` }} />
         </div>
 
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
@@ -197,7 +202,9 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         </div>
       </div>
 
-      <Sidebar word={drill ? null : card} done={done} left={queue.length - done} />
+      <div className="hidden lg:block">
+        <Sidebar word={drill ? null : card} done={done} left={queue.length - done} />
+      </div>
     </div>
   );
 }

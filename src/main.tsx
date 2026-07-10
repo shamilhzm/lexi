@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 import { initData } from './data/index.ts';
+import { applyTheme, watchSystemTheme } from './theme.ts';
+
+applyTheme();
+watchSystemTheme();
 
 const root = createRoot(document.getElementById('root')!);
 

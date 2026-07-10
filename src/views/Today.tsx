@@ -1,31 +1,25 @@
 // Heute — the daily briefing ("markets open"). One tap assembles today's
 // session from what's due (FSRS) plus fresh cards from your weakest sectors,
-// to a streak-safe minimum. Shows streak and an optional exam countdown that
-// back-plans a daily target.
-import { useMemo, useState } from 'react';
+// to a streak-safe minimum. Shows streak and level progress.
+import { useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Play, Flame, CalendarClock, TrendingDown, Check, X, GraduationCap, Cog } from 'lucide-react';
-import { buildBriefing, weakestSectors, totals, streak, examDate, setExamDate, daysToExam, placementLevel, gymDue, onboarded } from '../store.ts';
+import { Play, Flame, GraduationCap, Cog } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { fmt, heat } from '../lib/ui.ts';
+import { fmt } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
 import type { Target } from '../types.ts';
 
-export default function Today({ onStart, onStudySector, onPlacement, onGuidedStart, onGym }:
-  { onStart: (t: Target) => void; onStudySector: (name: string) => void; onPlacement: () => void; onGuidedStart: () => void; onGym: () => void }) {
+export default function Today({ onStart, onPlacement, onGuidedStart, onGym }:
+  { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void; onGym: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
-  const weak = useMemo(() => weakestSectors(5), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
   const t = totals();
   const placed = placementLevel();
-  const dleft = daysToExam();
   const today = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
 
   const total = briefing.ids.length;
-  // exam back-plan: spread remaining unlearned in-scope cards over the days left.
-  const remaining = t.count - t.learned;
-  const dailyTarget = dleft && dleft > 0 ? Math.ceil(remaining / dleft) : null;
   const firstRun = !onboarded() && !placed && t.learned === 0;
 
   const greeting = (
@@ -134,83 +128,6 @@ export default function Today({ onStart, onStudySector, onPlacement, onGuidedSta
         </button>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <ExamCard dleft={dleft} dailyTarget={dailyTarget} current={examDate()} />
-
-        {/* Weakest sectors */}
-        <div className="bg-panel border border-line rounded-[16px]">
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
-            <TrendingDown size={15} className="text-red" />
-            <h2 className="text-[15px] font-semibold">Weakest sectors</h2>
-          </div>
-          <div className="p-2">
-            {weak.length === 0 && <p className="text-dim text-[13px] p-3">No weak spots — great coverage.</p>}
-            {weak.map((s) => (
-              <button key={s.name} onClick={() => onStudySector(s.name)}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-panel2 text-left transition-colors">
-                <span className="w-1.5 h-8 rounded-full flex-shrink-0" style={{ background: heat(s.coverage) }} />
-                <span className="flex-1 min-w-0">
-                  <span className="block text-[13px] truncate">{s.name}</span>
-                  <span className="block text-[11px] text-dim font-mono">{Math.round(s.coverage * 100)}% · {s.due} due · {s.newCount} new</span>
-                </span>
-                <Play size={13} className="text-dim flex-shrink-0" />
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ExamCard({ dleft, dailyTarget, current }:
-  { dleft: number | null; dailyTarget: number | null; current: string | null }) {
-  const [editing, setEditing] = useState(false);
-  const [val, setVal] = useState(current ?? '');
-  return (
-    <div className="bg-panel border border-line rounded-[16px]">
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
-        <CalendarClock size={15} className="text-amber" />
-        <h2 className="text-[15px] font-semibold">Exam countdown</h2>
-        {current && !editing && (
-          <button onClick={() => { setVal(current); setEditing(true); }} className="ml-auto text-[11px] text-dim hover:text-amber">edit</button>
-        )}
-      </div>
-      <div className="p-4">
-        {!current && !editing && (
-          <button onClick={() => setEditing(true)} className="text-[13px] text-dim hover:text-amber">
-            + Set your Goethe / telc / TestDaF date to back-plan your workload
-          </button>
-        )}
-        {current && !editing && dleft !== null && (
-          <div>
-            {dleft >= 0 ? (
-              <>
-                <div className="flex items-end gap-2">
-                  <span className="font-mono font-bold text-[40px] leading-none text-amber tabular-nums">{dleft}</span>
-                  <span className="text-dim text-[13px] mb-1">days to go</span>
-                </div>
-                <p className="text-[13px] text-dim mt-2">
-                  Target date {new Date(current + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}.
-                  {dailyTarget !== null && <> To finish the lexicon in time: <span className="text-txt font-semibold">~{dailyTarget} new/day</span> plus your due reviews.</>}
-                </p>
-              </>
-            ) : (
-              <p className="text-[13px] text-dim">That date has passed. <button onClick={() => setEditing(true)} className="text-amber">Set a new one</button>.</p>
-            )}
-          </div>
-        )}
-        {editing && (
-          <div className="flex items-center gap-2">
-            <input type="date" value={val} onChange={(e) => setVal(e.target.value)}
-              className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-[13px] text-txt outline-none focus:border-amber" />
-            <button onClick={() => { setExamDate(val || null); setEditing(false); }}
-              className="grid place-items-center w-11 h-11 rounded-md bg-amber text-bg" title="Save"><Check size={15} /></button>
-            {current && <button onClick={() => { setExamDate(null); setEditing(false); }}
-              className="grid place-items-center w-11 h-11 rounded-md bg-panel2 border border-line text-red" title="Clear"><X size={15} /></button>}
-          </div>
-        )}
-      </div>
     </div>
   );
 }

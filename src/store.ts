@@ -9,7 +9,6 @@ import { ALL_LEVELS } from './types.ts';
 const CARDS_KEY = 'lexi.cards.v1';
 const VISITS_KEY = 'lexi.visits.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
-const EXAM_KEY = 'lexi.exam.v1';
 const APIKEY_KEY = 'lexi.apikey.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
@@ -241,19 +240,7 @@ export function addUserWords(words: Word[]): Word[] {
   return added;
 }
 
-// ---- settings: exam date & enrichment API key ----------------------------
-export function examDate(): string | null { return localStorage.getItem(EXAM_KEY); }
-export function setExamDate(iso: string | null) {
-  if (iso) localStorage.setItem(EXAM_KEY, iso); else localStorage.removeItem(EXAM_KEY);
-  emit();
-}
-/** Whole days from today until the exam (negative if past). null if unset. */
-export function daysToExam(): number | null {
-  const d = examDate();
-  if (!d) return null;
-  const ms = new Date(d + 'T00:00:00').getTime() - new Date(todayKey() + 'T00:00:00').getTime();
-  return Math.round(ms / 86_400_000);
-}
+// ---- settings: enrichment API key ----------------------------------------
 export function apiKey(): string { return localStorage.getItem(APIKEY_KEY) || ''; }
 export function setApiKey(k: string) {
   if (k) localStorage.setItem(APIKEY_KEY, k); else localStorage.removeItem(APIKEY_KEY);

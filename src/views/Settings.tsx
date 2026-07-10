@@ -1,13 +1,20 @@
 // Einstellungen — device-local settings: the HD German voice (Piper Thorsten,
 // downloaded once and run in-browser) and the AI provider used for sentence-
-// mining enrichment (and, later, the tutor). Everything here lives in
+// mining enrichment. Everything here lives in
 // localStorage / the browser; nothing is sent anywhere except your chosen API.
 import { useState } from 'react';
-import { Volume2, Cpu, Check, Loader2, Download, Plug, X } from 'lucide-react';
+import { Volume2, Cpu, Check, Loader2, Download, Plug, X, Palette, Sun, Moon, Monitor } from 'lucide-react';
 import { hdVoice, setHdVoice, aiConfig, setAiConfig } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
 import { chat } from '../lib/ai.ts';
+import { themePref, setThemePref, type ThemePref } from '../theme.ts';
+
+const THEMES: { id: ThemePref; label: string; icon: any }[] = [
+  { id: 'system', label: 'System', icon: Monitor },
+  { id: 'light', label: 'Light', icon: Sun },
+  { id: 'dark', label: 'Dark', icon: Moon },
+];
 
 const PRESETS: Record<string, { baseUrl: string; model: string; note: string }> = {
   'OpenRouter (free)': { baseUrl: 'https://openrouter.ai/api/v1', model: 'meta-llama/llama-3.3-70b-instruct:free', note: 'Free Llama 3.3 70B · one key, no card. Recommended start.' },
@@ -26,6 +33,9 @@ export default function Settings() {
 
   const [dl, setDl] = useState<number | null>(null);
   const [hdErr, setHdErr] = useState('');
+
+  const [theme, setTheme] = useState<ThemePref>(themePref());
+  const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
 
   type TestState = { s: 'idle' | 'testing' | 'ok' | 'err'; ms?: number; model?: string; msg?: string };
   const [test, setTest] = useState<TestState>({ s: 'idle' });
@@ -65,6 +75,20 @@ export default function Settings() {
     <div className="max-w-[640px] mx-auto">
       <h1 className="text-[20px] font-bold mb-4">Settings</h1>
 
+      {/* Appearance */}
+      <section className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-4">
+        <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-amber" /><h2 className="text-[15px] font-semibold">Appearance</h2></div>
+        <p className="text-dim text-[13px] mb-3">The terminal runs dark by default. Pick a fixed theme or follow your system.</p>
+        <div className="flex flex-wrap gap-2">
+          {THEMES.map(({ id, label, icon: Icon }) => (
+            <button key={id} onClick={() => pickTheme(id)}
+              className={`flex items-center gap-2 text-[13px] rounded-[10px] px-3.5 py-2 border transition-colors ${theme === id ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:border-amber'}`}>
+              <Icon size={15} /> {label}
+            </button>
+          ))}
+        </div>
+      </section>
+
       {/* HD voice */}
       <section className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-4">
         <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-amber" /><h2 className="text-[15px] font-semibold">German voice</h2></div>
@@ -92,7 +116,7 @@ export default function Settings() {
       <section className="bg-panel border border-line rounded-[16px] p-4 sm:p-5">
         <div className="flex items-center gap-2 mb-1"><Cpu size={16} className="text-amber" /><h2 className="text-[15px] font-semibold">AI provider</h2></div>
         <p className="text-dim text-[13px] mb-3">
-          Used to enrich words you mine that aren’t in the lexicon (and, soon, the speaking/writing tutor).
+          Used to enrich words you mine that aren’t in the lexicon.
           Any OpenAI-compatible API works. Your key is stored only on this device.
         </p>
 

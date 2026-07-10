@@ -1,9 +1,25 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
     <meta name="theme-color" content="#0a0d12" />
+    <!-- Apply the saved light/dark preference before first paint (avoids a flash). -->
+    <script>
+      (function () {
+        var t;
+        try {
+          var v = localStorage.getItem('lexi.theme.v1');
+          t = (v === 'light' || v === 'dark') ? v
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) { t = 'dark'; }
+        document.documentElement.classList.add(t);
+        if (t === 'light') {
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#faf6e8');
+        }
+      })();
+    </script>
     <meta name="description" content="Lexi — a free, open-source German vocabulary terminal (A1–C2). Spaced repetition over a live dictionary market." />
     <!-- PWA -->
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -26,12 +42,11 @@
         color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
       #boot .mark {
-        width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center;
-        font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 34px; color: #0a0d12;
-        background: linear-gradient(135deg, #ffb000, #ff7b00);
-        box-shadow: 0 12px 40px rgba(255, 176, 0, .25);
+        width: 56px; height: 56px; display: grid; place-items: center;
+        filter: drop-shadow(0 12px 40px rgba(255, 176, 0, .22));
         animation: bootpulse 1.6s ease-in-out infinite;
       }
+      #boot .mark svg { width: 56px; height: 56px; display: block; }
       #boot .wm { margin-top: 18px; font-weight: 700; letter-spacing: .5px; font-size: 18px; }
       #boot .tag { margin-top: 4px; color: #8b97a7; font-size: 11px; letter-spacing: 3px; }
       #boot .bar { margin-top: 18px; width: 132px; height: 3px; border-radius: 3px; background: #1f2733; overflow: hidden; }
@@ -40,13 +55,24 @@
       @keyframes bootpulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
       @keyframes bootbar { 0% { transform: translateX(-120%);} 100% { transform: translateX(330%);} }
       @media (prefers-reduced-motion: reduce) { #boot .mark, #boot .bar i { animation: none; } }
+      /* Light-theme boot splash (the amber mark works on both). */
+      html.light #boot { background: radial-gradient(120% 90% at 50% 0%, #fffdf5 0%, #faf6e8 60%); color: #1c1b17; }
+      html.light #boot .tag { color: #6e685a; }
+      html.light #boot .bar { background: #eae3cf; }
     </style>
   </head>
   <body>
     <div id="root">
       <div id="boot">
         <div style="text-align:center">
-          <div class="mark">L</div>
+          <div class="mark">
+            <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+              <rect width="150" height="150" rx="34" fill="#0e131b"/>
+              <rect x="52" y="40" width="20" height="72" rx="3" fill="#ffb000"/>
+              <rect x="52" y="92" width="60" height="20" rx="3" fill="#ffb000"/>
+              <rect x="88" y="40" width="20" height="22" rx="3" fill="#ffb000"/>
+            </svg>
+          </div>
           <div class="wm">Lexi</div>
           <div class="tag">GERMAN VOCAB TERMINAL</div>
           <div class="bar"><i></i></div>
