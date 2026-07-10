@@ -171,8 +171,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
   };
   return (
     <Card>
-      <Prompt small="Which article?">{stripArticle(word.term)}</Prompt>
-      <p className="text-dim text-[13px] mb-5">{word.en}</p>
+      <Prompt small="Which article?" gloss={word.en}>{stripArticle(word.term)}</Prompt>
       <div className="grid grid-cols-3 gap-2.5">
         {GENDER.map(({ g, color }) => {
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
@@ -205,13 +204,37 @@ function buildMC(correct: string, distractors: string[]): { options: string[]; c
   return { options: opts, correct: opts.indexOf(correct) };
 }
 
+// Umlaut the first stem vowel (a/o/u/au), preserving case and skipping the 'eu'
+// diphthong — used to fabricate believable-but-wrong plural forms.
+function umlaut(s: string): string {
+  const low = s.toLowerCase();
+  const au = low.indexOf('au');
+  if (au >= 0) return s.slice(0, au) + (s[au] === s[au].toUpperCase() ? 'Äu' : 'äu') + s.slice(au + 2);
+  for (let i = 0; i < s.length; i++) {
+    const c = low[i];
+    if (c === 'u' && low[i - 1] === 'e') continue; // don't split 'eu'
+    const up = s[i] !== low[i];
+    const u = c === 'a' ? (up ? 'Ä' : 'ä') : c === 'o' ? (up ? 'Ö' : 'ö') : c === 'u' ? (up ? 'Ü' : 'ü') : '';
+    if (u) return s.slice(0, i) + u + s.slice(i + 1);
+  }
+  return s;
+}
+/** Plausible wrong plural forms of one noun: apply the common German plural
+ *  patterns (-e, -en, -er, -s, umlaut±e/er, no-change) to the singular. The
+ *  caller excludes the correct form; de-duping happens in pickN. */
+function pluralVariants(singular: string): string[] {
+  const endsE = /e$/i.test(singular);
+  const stem = endsE ? singular.slice(0, -1) : singular;
+  const us = umlaut(stem);
+  return [endsE ? singular + 'n' : singular + 'e', stem + 'en', stem + 'er', stem + 's', us + 'e', us + 'er', umlaut(singular), singular];
+}
+
 function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, onGrade }:
   { prompt: string; sub?: string; hint?: string; options: string[]; correct: number; extra?: string; bigPrompt?: boolean; onGrade: (ok: boolean) => void }) {
   const [picked, setPicked] = useState<number | null>(null);
   return (
     <Card>
-      <Prompt small={sub} big={bigPrompt}>{prompt}</Prompt>
-      {hint && <p className="text-dim text-[13px] mb-4 text-center">{hint}</p>}
+      <Prompt small={sub} gloss={hint} big={bigPrompt}>{prompt}</Prompt>
       <div className="grid gap-2.5">
         {options.map((o, i) => {
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
@@ -232,11 +255,25 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
 
 export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const correct = word.plural!;
+  const singular = stripArticle(word.term);
   const mc = useMemo(() => {
-    const distract = pickN(pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!), 3, new Set([norm(correct)]));
+    // For a full "die …" plural, fabricate near-miss plurals of the *same* noun.
+    // Shorthand/marker plurals ("-en", "nur Singular", "—") fall back to other
+    // nouns' plurals (unchanged behaviour), since there's no stem to inflect.
+    const isFull = /^(der|die|das)\s+[A-Za-zÄÖÜäöüß]/.test(correct);
+    let distract: string[];
+    if (isFull) {
+      distract = pickN(pluralVariants(singular), 3, new Set([norm(stripArticle(correct))])).map((n) => `die ${n}`);
+      if (distract.length < 3) {
+        const pad = pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!);
+        distract = distract.concat(pickN(pad, 3 - distract.length, new Set([norm(correct), ...distract.map(norm)])));
+      }
+    } else {
+      distract = pickN(pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!), 3, new Set([norm(correct)]));
+    }
     return buildMC(correct, distract);
   }, [word.id]);
-  return <MCItem prompt={`Plural von „${stripArticle(word.term)}“`} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+  return <MCItem prompt={singular} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
 
 const TENSES: { key: 'praesens' | 'praeteritum' | 'pp'; label: string }[] = [
@@ -249,8 +286,10 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
     const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
     const pIdx = Math.floor(Math.random() * 6);
     const answer = tense.key === 'pp' ? conj.partizip : conj[tense.key][pIdx];
-    const prompt = tense.key === 'pp' ? 'Partizip II' : `${PRONOUN[PERSONS_I[pIdx]]} …`;
-    // Strongest distractors: the verb's *other* forms; pad from other verbs if needed.
+    // Kicker states the grammatical target; the verb itself is the hero text.
+    const kicker = tense.key === 'pp' ? 'Partizip II' : `${tense.label} · ${PRONOUN[PERSONS_I[pIdx]]}`;
+    // Strongest distractors: the verb's *other* forms; pad from other verbs'
+    // matching tense/person so pads aren't obviously off.
     const sameVerb = [...conj.praesens, ...conj.praeteritum, conj.partizip];
     let distract = pickN(sameVerb, 3, new Set([norm(answer)]));
     if (distract.length < 3) {
@@ -258,9 +297,9 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
         .map((w) => { const c = conjugate(w.term); return tense.key === 'pp' ? c.partizip : c[tense.key][pIdx]; });
       distract = distract.concat(pickN(others, 3 - distract.length, new Set([norm(answer), ...distract.map(norm)])));
     }
-    return { ...buildMC(answer, distract), prompt, sub: `${stripArticle(word.term)} · ${tense.label}` };
+    return { ...buildMC(answer, distract), verb: stripArticle(word.term), kicker };
   }, [word.id]);
-  return <MCItem prompt={data.prompt} sub={data.sub} hint={word.en} options={data.options} correct={data.correct}
+  return <MCItem prompt={data.verb} sub={data.kicker} hint={word.en} options={data.options} correct={data.correct}
     extra={`Perfekt: ${conj.perfekt[0]} · aux ${conj.aux}`} onGrade={onGrade} />;
 }
 
@@ -272,8 +311,16 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
   const target = m ? m[1] : surface;
   const blanked = ex.de.replace(re, '_____');
   const mc = useMemo(() => {
+    // Prefer same-part-of-speech words closest in length to the answer, so the
+    // options read as genuine candidates rather than the one word that fits.
     const samePos = WORDS.filter((w) => w.pos === word.pos && w.id !== word.id && inLevels(w));
-    const base = samePos.length >= 6 ? samePos : WORDS.filter((w) => w.id !== word.id && inLevels(w));
+    let base: Word[];
+    if (samePos.length >= 6) {
+      const tl = target.length;
+      base = [...samePos].sort((a, b) => Math.abs(stripArticle(a.term).length - tl) - Math.abs(stripArticle(b.term).length - tl)).slice(0, 24);
+    } else {
+      base = WORDS.filter((w) => w.id !== word.id && inLevels(w));
+    }
     const distract = pickN(base.map((w) => stripArticle(w.term)), 3, new Set([norm(target)]));
     return buildMC(target, distract);
   }, [word.id]);
@@ -283,11 +330,12 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
 function Card({ children }: { children: React.ReactNode }) {
   return <div className="bg-card border border-line rounded-[16px] p-6 sm:p-8">{children}</div>;
 }
-function Prompt({ children, small, big = true }: { children: React.ReactNode; small?: string; big?: boolean }) {
+function Prompt({ children, small, gloss, big = true }: { children: React.ReactNode; small?: string; gloss?: string; big?: boolean }) {
   return (
-    <div className="text-center mb-2">
+    <div className="text-center mb-5">
       {small && <div className="text-[11px] text-amber uppercase tracking-[2px] mb-2 font-semibold">{small}</div>}
       <div className={`font-bold leading-snug ${big ? 'text-[26px] sm:text-[32px]' : 'text-[20px] sm:text-[24px]'}`}>{children}</div>
+      {gloss && <p className="text-dim text-[13px] mt-2">{gloss}</p>}
     </div>
   );
 }

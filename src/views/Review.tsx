@@ -56,8 +56,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const item = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
 
+  // Grade a flip card directly — no reveal required. Flipping stays optional
+  // (Space) for when you want to check the translation first.
   const grade = useCallback((g: Grade) => {
-    if (!flipped || !item || item.type !== 'flip') return;
+    if (!item || item.type !== 'flip') return;
     const wasNew = statusOf(item.srsId) === 'new';
     review(item.srsId, g);
     haptic();
@@ -66,7 +68,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     else if (wasNew) setNewLearned((n) => n + 1);
     setFlipped(false);
     setI((n) => n + 1);
-  }, [flipped, item]);
+  }, [item]);
 
   const gradeDrill = useCallback((ok: boolean) => {
     if (!item || item.type === 'flip') return;
@@ -142,7 +144,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
-          <SwipeCard key={item.srsId} flipped={flipped} onFlip={flip} onGrade={grade}>
+          <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT */}
               <div className="flip-face relative border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center">
@@ -173,21 +175,21 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
             </div>
           </SwipeCard>
 
-          <div className="min-h-[64px] mt-6 flex items-center">
-            {flipped ? (
-              <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="flex gap-2.5 sm:gap-3 justify-center">
-                <button onClick={() => grade(Rating.Again)}
-                  className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
-                  <X size={16} /> Didn’t know
-                </button>
-                <button onClick={() => grade(Rating.Good)}
-                  className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
-                  <Check size={16} /> Knew it
-                </button>
-              </motion.div>
-            ) : (
-              <span className="text-dim text-[13px]">Tap the card to see the {grammar ? 'rule' : 'translation'}</span>
-            )}
+          {/* Grade from either face — flipping is optional. */}
+          <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
+            <div className="flex gap-2.5 sm:gap-3 justify-center">
+              <button onClick={() => grade(Rating.Again)}
+                className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
+                <X size={16} /> Didn’t know
+              </button>
+              <button onClick={() => grade(Rating.Good)}
+                className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
+                <Check size={16} /> Knew it
+              </button>
+            </div>
+            <span className={`text-dim text-[12px] h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
+              Space to flip and check the {grammar ? 'rule' : 'translation'}
+            </span>
           </div>
           </>)}
           </motion.div>
@@ -202,8 +204,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 
 /** Draggable flip-card. Tap flips; once flipped, swipe right = knew it (Good),
  *  swipe left = didn't know (Again). Snaps back below the threshold. */
-function SwipeCard({ children, flipped, onFlip, onGrade }:
-  { children: React.ReactNode; flipped: boolean; onFlip: () => void; onGrade: (g: Grade) => void }) {
+function SwipeCard({ children, onFlip, onGrade }:
+  { children: React.ReactNode; onFlip: () => void; onGrade: (g: Grade) => void }) {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-8, 8]);
   const yes = useTransform(x, [20, SWIPE_PX], [0, 1]);
@@ -214,7 +216,7 @@ function SwipeCard({ children, flipped, onFlip, onGrade }:
     <motion.div
       className="relative w-full max-w-[580px] h-[300px] sm:h-[340px] cursor-pointer touch-pan-y"
       style={{ x, rotate: reduce ? 0 : rotate }}
-      drag={flipped ? 'x' : false}
+      drag="x"
       dragSnapToOrigin
       dragElastic={0.6}
       onDragStart={() => { dragged.current = true; }}
@@ -226,18 +228,14 @@ function SwipeCard({ children, flipped, onFlip, onGrade }:
       onClick={() => { if (!dragged.current) onFlip(); }}
     >
       <div className="flip w-full h-full">{children}</div>
-      {flipped && (
-        <>
-          <motion.span style={{ opacity: yes }}
-            className="absolute top-3 right-3 flex items-center gap-1.5 text-green font-bold text-[13px] border border-green rounded-full px-3 py-1 bg-[var(--color-green-d)] pointer-events-none">
-            <Check size={14} /> Knew it
-          </motion.span>
-          <motion.span style={{ opacity: no }}
-            className="absolute top-3 left-3 flex items-center gap-1.5 text-red-txt font-bold text-[13px] border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
-            <X size={14} /> Didn’t know
-          </motion.span>
-        </>
-      )}
+      <motion.span style={{ opacity: yes }}
+        className="absolute top-3 right-3 flex items-center gap-1.5 text-green font-bold text-[13px] border border-green rounded-full px-3 py-1 bg-[var(--color-green-d)] pointer-events-none">
+        <Check size={14} /> Knew it
+      </motion.span>
+      <motion.span style={{ opacity: no }}
+        className="absolute top-3 left-3 flex items-center gap-1.5 text-red-txt font-bold text-[13px] border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
+        <X size={14} /> Didn’t know
+      </motion.span>
     </motion.div>
   );
 }
