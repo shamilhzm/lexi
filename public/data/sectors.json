@@ -17,7 +17,7 @@
   },
   {
     "name": "Arts and culture",
-    "count": 52,
+    "count": 53,
     "levels": [
       "A2",
       "B1",
@@ -191,7 +191,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 533,
+    "count": 548,
     "levels": [
       "A1",
       "A2",
@@ -244,7 +244,7 @@
   },
   {
     "name": "Communication",
-    "count": 114,
+    "count": 115,
     "levels": [
       "A1",
       "A2",
@@ -279,7 +279,7 @@
   },
   {
     "name": "Education",
-    "count": 44,
+    "count": 45,
     "levels": [
       "A1",
       "A2",
@@ -603,7 +603,7 @@
   },
   {
     "name": "Relationships",
-    "count": 53,
+    "count": 55,
     "levels": [
       "A2",
       "B1",
@@ -703,7 +703,7 @@
   },
   {
     "name": "Body parts",
-    "count": 45,
+    "count": 46,
     "levels": [
       "A2",
       "B1",
@@ -721,7 +721,7 @@
   },
   {
     "name": "Health",
-    "count": 41,
+    "count": 46,
     "levels": [
       "A1",
       "A2",
@@ -917,7 +917,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 347,
+    "count": 353,
     "levels": [
       "A1",
       "A2",
@@ -928,7 +928,7 @@
   },
   {
     "name": "Adverbs",
-    "count": 220,
+    "count": 229,
     "levels": [
       "A1",
       "A2",
@@ -987,7 +987,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 318,
+    "count": 339,
     "levels": [
       "A1",
       "A2",
@@ -1426,7 +1426,7 @@
   },
   {
     "name": "Animals",
-    "count": 58,
+    "count": 60,
     "levels": [
       "A2",
       "B1",
@@ -1445,7 +1445,7 @@
   },
   {
     "name": "Environment",
-    "count": 23,
+    "count": 27,
     "levels": [
       "A2",
       "B1",
@@ -1463,8 +1463,9 @@
   },
   {
     "name": "Farm",
-    "count": 19,
+    "count": 20,
     "levels": [
+      "A2",
       "B1"
     ],
     "group": "Nature & Environment"
@@ -1634,7 +1635,7 @@
   },
   {
     "name": "Cultural Identity",
-    "count": 23,
+    "count": 25,
     "levels": [
       "A2",
       "B1",
@@ -1868,7 +1869,7 @@
   },
   {
     "name": "Society",
-    "count": 133,
+    "count": 147,
     "levels": [
       "A1",
       "A2",
@@ -2131,7 +2132,7 @@
   },
   {
     "name": "Transport & Mobility",
-    "count": 25,
+    "count": 27,
     "levels": [
       "A2",
       "B1",
@@ -2343,7 +2344,7 @@
   },
   {
     "name": "Work",
-    "count": 112,
+    "count": 113,
     "levels": [
       "A1",
       "A2",
