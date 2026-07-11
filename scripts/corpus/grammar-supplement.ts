@@ -64,6 +64,21 @@ const POINTS: NewPoint[] = [
     ],
   },
   {
+    // Contraction inventory curated from the categorized wordlist's
+    // preposition-with-article.txt / contraction.txt — standard written forms only;
+    // spoken elisions in that list (gehts, wennste, biste …) are excluded.
+    level: 'A2', title: 'Verschmelzung: Präposition + Artikel (im, am, zum …)',
+    summary: 'in dem→im, an das→ans, zu der→zur.',
+    rule: 'German fuses many prepositions with a following definite article: an/in + dem → am/im; an/in + das → ans/ins; bei/von/zu + dem → beim/vom/zum; zu + der → zur; and auf/für/um/durch + das → aufs/fürs/ums/durchs. These are the everyday, unmarked forms. With two-way prepositions (Wechselpräpositionen) the case still follows the meaning: position (wo?) takes the dative (im, am), direction (wohin?) takes the accusative (ins, ans). Keep the full "in dem/das" only to stress the article: „in dem Haus, das ich meine".',
+    exercises: [
+      { kind: 'choose', prompt: 'Ich gehe ___ Kino.', options: ['ins', 'im', 'in dem'], answer: 0, explain: 'Direction (wohin?) → accusative in das → ins.' },
+      { kind: 'choose', prompt: 'Wir treffen uns ___ Bahnhof.', options: ['am', 'ans', 'an das'], answer: 0, explain: 'Position (wo?) → dative an dem → am.' },
+      { kind: 'type', prompt: 'Ich fahre ___ Arbeit. (zu der)', accept: ['zur'], explain: 'zu der → zur.' },
+      { kind: 'mc', prompt: 'Combine „von dem":', options: ['vom', 'von’s', 'vondem'], answer: 0, explain: 'von dem → vom.' },
+      { kind: 'error', prompt: 'Ich gehe im Kino.', answer: 2, fix: 'Ich gehe ins Kino.', explain: 'gehen = direction (wohin?) → in das = ins, not in dem (im).' },
+    ],
+  },
+  {
     level: 'B1', title: 'Relativpronomen (der, die, das)',
     summary: 'Relative clauses use der/die/das; case from the clause.',
     rule: 'A relative pronoun agrees with its noun in gender/number but takes its case from its role in the relative clause: der Mann, der dort steht (nom.); den ich kenne (acc.); dem ich helfe (dat.); dessen Auto … (gen.). Plural dative/genitive: denen, deren. The conjugated verb moves to the end.',

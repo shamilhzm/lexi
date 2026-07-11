@@ -15,6 +15,7 @@
     "corpus:build": "node scripts/corpus/build.ts",
     "corpus:grammar": "node scripts/corpus/grammar-supplement.ts",
     "corpus:resector": "node scripts/corpus/resector.ts",
+    "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts"
   },

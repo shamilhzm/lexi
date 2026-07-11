@@ -171065,5 +171065,21 @@
     ],
     "field": "Core Vocabulary",
     "kind": "word"
+  },
+  {
+    "id": "gram:A2:Verschmelzung: Präposition + Artikel (im, am, zum …)",
+    "term": "Verschmelzung: Präposition + Artikel (im, am, zum …)",
+    "en": "in dem→im, an das→ans, zu der→zur.",
+    "pos": "grammar",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "German fuses many prepositions with a following definite article: an/in + dem → am/im; an/in + das → ans/ins; bei/von/zu + dem → beim/vom/zum; zu + der → zur; and auf/für/um/durch + das → aufs/fürs/ums/durchs. These are the everyday, unmarked forms. With two-way prepositions (Wechselpräpositionen) the case still follows the meaning: position (wo?) takes the dative (im, am), direction (wohin?) takes the accusative (ins, ans). Keep the full \"in dem/das\" only to stress the article: „in dem Haus, das ich meine\".",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
   }
 ]

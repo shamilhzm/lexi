@@ -17,6 +17,7 @@ import {
 } from './lib.ts';
 import { loadFrequency, loadFrequencies } from './sources/frequency.ts';
 import { loadWiktextract, type LexEntry } from './sources/wiktextract.ts';
+import { loadWordlist } from './sources/wordlist.ts';
 import { attachTatoebaExamples, type Candidate, type TatEx } from './sources/tatoeba.ts';
 import { loadReference, assignLevel, type LevelAssignment } from './level.ts';
 import { indexSectors, resolveField, rebuildSectors, loadSectorReference, posDefaultSector } from './sectors.ts';
@@ -30,6 +31,7 @@ export interface BuildOpts {
   freqPath: string;
   freqPaths?: string[];      // blend several frequency lists (e.g. subtitle + news)
   wiktPath: string;
+  wordlistDir?: string;      // categorized wordlist cache — gender fallback for ungenderable nouns
   tatoeba?: { de: string; en: string; links: string };
   refPath?: string;
   sectorRefPath?: string;    // curated lemma → sector map (overrides LLM/default)
@@ -75,8 +77,11 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
   const wanted = new Set(uncovered.map((u) => u.word.toLowerCase()));
   const wikt = await loadWiktextract(opts.wiktPath, wanted);
   const ref = loadReference(opts.refPath ?? '');
+  // Independent gender source (CC BY 4.0): recovers nouns Wiktextract can't gender
+  // so they become usable cards instead of being dropped. Empty (no-op) if unfetched.
+  const wl = loadWordlist(opts.wordlistDir ?? '');
 
-  interface Cand { key: string; lemma: string; le: LexEntry; rank: number; lvl: LevelAssignment; }
+  interface Cand { key: string; lemma: string; le: LexEntry; rank: number; lvl: LevelAssignment; genderFromWordlist: boolean; }
   const cands: Cand[] = [];
   const queued = new Set<string>();
   for (const u of uncovered) {
@@ -85,11 +90,17 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     if (le.form) continue;                                // inflected form ("diese"), not a lemma
     if (le.pos === 'pronoun') continue;                   // closed-class → grammar cards, not vocab
     if (/^[A-ZÄÖÜ]{1,4}$/.test(le.word)) continue;        // all-caps abbreviation/acronym (AB, EU, CDU)
-    if (le.pos === 'noun' && !le.gender) continue;        // unusable noun (no gender)
+    let genderFromWordlist = false;
+    if (le.pos === 'noun' && !le.gender) {                // Wiktextract couldn't gender it…
+      const k = le.word.toLowerCase();
+      const g = wl.gender.get(k);
+      if (!g || wl.genderAmbig.has(k)) continue;          // …and neither can the wordlist → drop
+      le.gender = g; genderFromWordlist = true;
+    }
     const term = termFor(le.word, le.pos, le.gender).toLowerCase(); // real identity
     if (knownTerms.has(term) || queued.has(term)) continue;
     queued.add(term);
-    cands.push({ key: term, lemma: le.word, le, rank: u.rank, lvl: assignLevel(le.word, u.rank, ref) });
+    cands.push({ key: term, lemma: le.word, le, rank: u.rank, lvl: assignLevel(le.word, u.rank, ref), genderFromWordlist });
   }
 
   // Always emit the candidate pool (rank, lemma, pos, frequency-guess level, gloss)
@@ -155,7 +166,9 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
       lemma: c.lemma, pos: c.le.pos, gender: c.le.gender, plural: c.le.plural, ipa: c.le.ipa,
       gloss: c.le.gloss, level, levelSource, freqRank: c.rank, field: field.field, fieldSource: field.source,
       glossSource: `wiktextract:${SOURCES.wiktextract.file}`,
-      factsSource: `wiktextract:${SOURCES.wiktextract.file}`,
+      factsSource: c.genderFromWordlist
+        ? `wiktextract:${SOURCES.wiktextract.file}+wordlist(gender)`
+        : `wiktextract:${SOURCES.wiktextract.file}`,
       examples,
     };
     const res = buildCard(input, { requireExample: opts.requireExample ?? true });
@@ -226,6 +239,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     freqPath,
     freqPaths,
     wiktPath,
+    wordlistDir: PATHS.wordlistDir,
     tatoeba: {
       de: join(PATHS.raw, SOURCES.tatoebaDe.file),
       en: join(PATHS.raw, SOURCES.tatoebaEn.file),

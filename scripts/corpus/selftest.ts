@@ -10,6 +10,8 @@ import { tmpdir } from 'node:os';
 import { PATHS } from './config.ts';
 import { loadFrequency } from './sources/frequency.ts';
 import { loadWiktextract } from './sources/wiktextract.ts';
+import { loadWordlist } from './sources/wordlist.ts';
+import { crossCheck } from './crosscheck.ts';
 import { attachTatoebaExamples } from './sources/tatoeba.ts';
 import { assignLevel, loadReference, freqBandLevel, levelingAgreement } from './level.ts';
 import { buildCard } from './normalize.ts';
@@ -50,6 +52,24 @@ async function main() {
   );
   ok('tatoeba: attaches example to Rolle', (tat.get('die rolle')?.[0]?.de ?? '').includes('Rolle'), tat.get('die rolle'));
   ok('tatoeba: matches conjugated verb form (meinst → meinen)', (tat.get('meinen')?.[0]?.de ?? '').includes('meinst'), tat.get('meinen'));
+
+  // --- categorized wordlist (cross-source) ---------------------------------
+  const wl = loadWordlist(join(F, 'wordlist'));
+  ok('wordlist: Name → der, Rolle → die, Beispiel → das',
+    wl.gender.get('name') === 'der' && wl.gender.get('rolle') === 'die' && wl.gender.get('beispiel') === 'das');
+  ok('wordlist: two-gendered "See" is ambiguous, not a single gender',
+    wl.genderAmbig.has('see') && !wl.gender.has('see'));
+  ok('wordlist: plural set carries Rollen', wl.plural.has('rollen'));
+  ok('wordlist: pos map tags meinen as verb', wl.pos.get('meinen') === 'verb');
+
+  const cc = crossCheck([
+    { term: 'die Rolle', pos: 'noun', gender: 'die', plural: 'die Rollen', kind: 'word' },
+    { term: 'der Name', pos: 'noun', gender: 'der', plural: null, kind: 'word' },
+    { term: 'das Beispiel', pos: 'noun', gender: 'die', plural: null, kind: 'word' }, // wrong on purpose
+  ] as Word[], wl);
+  ok('crosscheck: 2/3 agree, 1 conflict flagged (Beispiel die vs das)',
+    cc.checked === 3 && cc.agree === 2 && cc.conflicts.length === 1 && cc.conflicts[0].wordlist === 'das', cc);
+  ok('crosscheck: plural attested (die Rollen)', cc.plChecked === 1 && cc.plAttested === 1, cc);
 
   // --- leveling ------------------------------------------------------------
   ok('level: freq band A1 for rank 100', freqBandLevel(100) === 'A1');

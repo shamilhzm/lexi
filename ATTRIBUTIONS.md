@@ -65,6 +65,23 @@ license, how it's used, and the obligations that attach to the data we ship.
   wordlists' **text is never copied into the corpus**. If you don't supply a
   reference file, the pipeline levels from frequency + the LLM layer alone.
 
+### 5. German Categorized Wordlist (ynsrc/german-categorized-wordlist)
+- **URL:** https://github.com/ynsrc/german-categorized-wordlist
+- **License:** CC BY 4.0.
+- **Used for:** an *independent* cross-source — (a) gender/plural validation of
+  the corpus (`npm run corpus:crosscheck`), (b) a gender **fallback** that recovers
+  nouns Wiktextract can't gender so they become usable cards, and (c) curated
+  closed-class vocab (contractions, connectors) behind hand-authored grammar
+  tracks. It is never authoritative on its own — the upstream README warns entries
+  may be miscategorized — so its lists are treated as candidates/checks, run
+  through the same `normalize`/`validate` gates as everything else.
+- **What ships:** only derived facts (a noun's der/die/das). No list text is
+  copied into the corpus. Cards whose gender came from this source record
+  `wordlist(gender)` in their `factsSource` provenance.
+- **Attribution:** "Noun gender cross-checked/supplemented from the German
+  Categorized Wordlist (https://github.com/ynsrc/german-categorized-wordlist),
+  licensed CC BY 4.0." CC BY content folds cleanly into the corpus's CC BY-SA 4.0.
+
 ## License of the shipped corpus
 
 Because of the CC BY-SA obligation from Wiktionary (source 2), the **data files**

@@ -28,6 +28,7 @@ npm run corpus:build       # dry run: writes review artefacts to data/out/
 npm run corpus:build -- --write                       # apply to public/data/*
 npm run corpus:build -- --level=A1 --limit=300 --write # one reviewable batch
 npm run corpus:build -- --llm --write                 # enable the offline LLM layer
+npm run corpus:crosscheck  # cross-check corpus gender/plural vs the categorized wordlist
 npm run corpus:validate    # Goal 6: schema/dupe/distribution/probe + gzip size
 npm run corpus:validate -- --strict --sample=15       # gate on warnings, larger spot-check
 ```
@@ -45,12 +46,14 @@ review the git diff → commit.
 | Frequency | `sources/frequency.ts` | Leipzig `*-words.txt` → rank-ordered surface forms. |
 | Lexical facts | `sources/wiktextract.ts` | kaikki JSONL → pos/gender/plural/IPA/gloss/examples; streamed, filtered to a candidate set. |
 | Examples | `sources/tatoeba.ts` | Joins de/en/links → translated pairs; matches sentences via the app's conjugation engine. |
+| Cross-source | `sources/wordlist.ts` | Categorized wordlist (CC BY 4.0): der/die/das + plural + POS lists. Gender fallback in `build.ts`; validation in `crosscheck.ts`. Graceful if unfetched. |
 | Leveling | `level.ts` | reference wordlist → frequency band → LLM, with per-card provenance and held-out agreement. |
 | Sectors | `sectors.ts` | Assigns an existing `field`/group; rebuilds `sectors.json`. |
 | Normalize | `normalize.ts` | Assembles schema-valid `Word`s; drops malformed items. |
 | Orchestrate | `build.ts` | `runBuild()` ties it together; deterministic ordering; `--write` gated. |
 | Coverage | `coverage.ts` | Goal 1 report. |
 | Validate | `validate.ts` | Goal 6 CI harness + reader-matching probe. |
+| Cross-check | `crosscheck.ts` | Gender/plural agreement vs. the categorized wordlist; lists conflicts for review. |
 | Self-test | `selftest.ts` | Offline regression guard over `fixtures/`. |
 
 ## CEFR leveling (the defensible bit)

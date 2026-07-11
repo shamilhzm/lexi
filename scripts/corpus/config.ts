@@ -12,6 +12,7 @@ export const PATHS = {
   repoRoot: REPO_ROOT,
   corpusDir: HERE,
   raw: join(HERE, 'data', 'raw'),        // git-ignored cache of downloaded sources
+  wordlistDir: join(HERE, 'data', 'raw', 'wordlist'), // cached categorized wordlist files
   out: join(HERE, 'data', 'out'),        // git-ignored reports/intermediate artefacts
   fixtures: join(HERE, 'fixtures'),      // committed tiny samples for the self-test
   cefrReference: join(HERE, 'cefr-reference.tsv'),     // committed curated leveling (original)
@@ -71,6 +72,23 @@ export const SOURCES = {
     url: process.env.LEXI_TATOEBA_LINKS_URL ?? 'https://downloads.tatoeba.org/exports/links.tar.bz2',
     file: 'tatoeba-links.csv',
     license: 'CC BY 2.0 FR',
+  },
+  // German Categorized Wordlist (CC BY 4.0, ynsrc/german-categorized-wordlist).
+  // Per-POS plain-text files (one bare entry per line); nouns split into
+  // der/die/das files. An independent cross-source for gender/plural validation,
+  // a gender fallback, and curated closed-class vocab — NOT authoritative on its
+  // own (upstream warns entries may be miscategorized). Cached under
+  // PATHS.wordlistDir; only derived facts (a noun's gender) ever reach vocab.json.
+  wordlist: {
+    baseUrl: process.env.LEXI_WORDLIST_URL ??
+      'https://raw.githubusercontent.com/ynsrc/german-categorized-wordlist/main/v1',
+    files: [
+      'noun-der.txt', 'noun-die.txt', 'noun-das.txt', 'noun-plural.txt',
+      'verb.txt', 'adjective.txt', 'adverb.txt', 'preposition.txt',
+      'conjunction.txt', 'particle.txt', 'interjection.txt',
+      'preposition-with-article.txt', 'contraction.txt', 'subjunction.txt',
+    ],
+    license: 'CC BY 4.0',
   },
   // Optional local CEFR ground-truth reference: `lemma<TAB>level` (one per line).
   // NOT shipped or redistributed — used only to assign/verify levels (a bare

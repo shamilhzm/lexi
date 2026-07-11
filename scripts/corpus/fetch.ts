@@ -46,7 +46,7 @@ function bunzip(src: string, dest: string): void {
   execFileSync('bash', ['-c', `bzip2 -dc ${JSON.stringify(src)} > ${JSON.stringify(dest)}`]);
 }
 
-interface Job { name: string; url: string; out: string; kind: 'raw' | 'tar' | 'bz2'; member?: RegExp; }
+interface Job { name: string; url: string; out: string; kind: 'raw' | 'tar' | 'bz2'; member?: RegExp; dir?: string; }
 
 const JOBS: Job[] = [
   { name: 'frequency', url: SOURCES.frequency.url, out: SOURCES.frequency.file, kind: 'tar', member: /-words\.txt$/ },
@@ -55,14 +55,20 @@ const JOBS: Job[] = [
   { name: 'tatoeba-de', url: SOURCES.tatoebaDe.url, out: SOURCES.tatoebaDe.file, kind: 'bz2' },
   { name: 'tatoeba-en', url: SOURCES.tatoebaEn.url, out: SOURCES.tatoebaEn.file, kind: 'bz2' },
   { name: 'tatoeba-links', url: SOURCES.tatoebaLinks.url, out: SOURCES.tatoebaLinks.file, kind: 'tar', member: /links\.csv$/ },
+  // Categorized wordlist: one small raw file per POS/gender, cached side-by-side.
+  ...SOURCES.wordlist.files.map((f): Job => ({
+    name: `wordlist/${f}`, url: `${SOURCES.wordlist.baseUrl}/${f}`, out: f, kind: 'raw', dir: PATHS.wordlistDir,
+  })),
 ];
 
 async function main() {
   mkdirSync(PATHS.raw, { recursive: true });
+  mkdirSync(PATHS.wordlistDir, { recursive: true });
   for (const j of JOBS) {
-    const dest = join(PATHS.raw, j.out);
+    const dir = j.dir ?? PATHS.raw;
+    const dest = join(dir, j.out);
     if (existsSync(dest)) { console.log(`  ✓ ${j.name} cached (${MB(statSync(dest).size)})`); continue; }
-    const tmp = join(PATHS.raw, `.${j.out}.download`);
+    const tmp = join(dir, `.${j.out}.download`);
     try {
       console.log(`  ↓ ${j.name} ${j.url}`);
       await download(j.url, tmp);
