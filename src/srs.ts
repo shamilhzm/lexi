@@ -5,7 +5,13 @@ import { fsrs, createEmptyCard, Rating, State, type Card, type Grade } from 'ts-
 export { Rating, State };
 export type { Card, Grade };
 
-const engine = fsrs();
+let engine = fsrs();
+
+/** Set the FSRS desired-retention target (0..1). Higher = more reviews, higher
+ *  recall. Rebuilds the engine so all subsequent scheduling uses the new target. */
+export function setRetention(request_retention: number) {
+  engine = fsrs({ request_retention });
+}
 
 export function emptyCard(now: Date = new Date()): Card {
   return createEmptyCard(now);

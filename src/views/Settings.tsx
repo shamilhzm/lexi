@@ -2,9 +2,9 @@
 // downloaded once and run in-browser) and the AI provider used for sentence-
 // mining enrichment. Everything here lives in
 // localStorage / the browser; nothing is sent anywhere except your chosen API.
-import { useState } from 'react';
-import { Volume2, Cpu, Check, Loader2, Download, Plug, X, Palette, Sun, Moon, Monitor } from 'lucide-react';
-import { hdVoice, setHdVoice, aiConfig, setAiConfig } from '../store.ts';
+import { useState, useRef, type ChangeEvent } from 'react';
+import { Volume2, Cpu, Check, Loader2, Download, Upload, Archive, Plug, X, Palette, Sun, Moon, Monitor, Gauge } from 'lucide-react';
+import { hdVoice, setHdVoice, aiConfig, setAiConfig, retention, setRetentionTarget, exportData, importData } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
 import { chat } from '../lib/ai.ts';
@@ -14,6 +14,12 @@ const THEMES: { id: ThemePref; label: string; icon: any }[] = [
   { id: 'system', label: 'System', icon: Monitor },
   { id: 'light', label: 'Light', icon: Sun },
   { id: 'dark', label: 'Dark', icon: Moon },
+];
+
+const RETENTIONS: { v: number; label: string; hint: string }[] = [
+  { v: 0.85, label: '85% · Relaxed', hint: 'Fewer reviews, a little more forgetting.' },
+  { v: 0.9, label: '90% · Balanced', hint: 'The recommended sweet spot.' },
+  { v: 0.95, label: '95% · Intensive', hint: 'More reviews, minimal forgetting.' },
 ];
 
 const PRESETS: Record<string, { baseUrl: string; model: string; note: string }> = {
@@ -36,6 +42,33 @@ export default function Settings() {
 
   const [theme, setTheme] = useState<ThemePref>(themePref());
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
+
+  const [ret, setRet] = useState(retention());
+  const pickRet = (r: number) => { setRetentionTarget(r); setRet(r); };
+
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [restoreErr, setRestoreErr] = useState('');
+  const doExport = () => {
+    const blob = new Blob([exportData()], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `lexi-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  };
+  const onRestoreFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = ''; // let the same file be picked again later
+    if (!file) return;
+    if (!confirm('Restore this backup? It replaces the cards, streak, and progress on this device.')) return;
+    setRestoreErr('');
+    try {
+      await importData(await file.text());
+      location.reload(); // re-hydrate cleanly from the restored data
+    } catch (err: any) {
+      setRestoreErr(err?.message || 'Could not read that backup file.');
+    }
+  };
 
   type TestState = { s: 'idle' | 'testing' | 'ok' | 'err'; ms?: number; model?: string; msg?: string };
   const [test, setTest] = useState<TestState>({ s: 'idle' });
@@ -84,6 +117,24 @@ export default function Settings() {
             <button key={id} onClick={() => pickTheme(id)}
               className={`flex items-center gap-2 text-[13px] rounded-[10px] px-3.5 py-2 border transition-colors ${theme === id ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:border-amber'}`}>
               <Icon size={15} /> {label}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Review intensity (FSRS desired retention) */}
+      <section className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-4">
+        <div className="flex items-center gap-2 mb-1"><Gauge size={16} className="text-amber" /><h2 className="text-[15px] font-semibold">Review intensity</h2></div>
+        <p className="text-dim text-[13px] mb-3">
+          How hard the scheduler pushes. Higher retention means shorter intervals and
+          more reviews per day, but you forget less. 90% is the recommended balance.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {RETENTIONS.map(({ v, label, hint }) => (
+            <button key={v} onClick={() => pickRet(v)}
+              className={`flex flex-col items-start gap-0.5 text-left rounded-[10px] px-3.5 py-2.5 border transition-colors min-w-[132px] ${ret === v ? 'border-amber bg-panel2' : 'border-line hover:border-amber'}`}>
+              <span className={`text-[15px] font-semibold ${ret === v ? 'text-amber' : ''}`}>{label}</span>
+              <span className="text-[11px] text-dim leading-tight">{hint}</span>
             </button>
           ))}
         </div>
@@ -155,6 +206,26 @@ export default function Settings() {
         {test.s === 'err' && (
           <p className="text-red-txt text-[13px] mt-2 flex items-center gap-1.5"><X size={14} /> {test.msg}</p>
         )}
+      </section>
+
+      {/* Your data — backup & restore (local-first insurance) */}
+      <section className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mt-4">
+        <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-amber" /><h2 className="text-[15px] font-semibold">Your data</h2></div>
+        <p className="text-dim text-[13px] mb-3">
+          Everything lives on this device. Export a backup to keep your cards, streak,
+          and progress safe — or to move to another device. Importing replaces what's
+          on this device, so export first if unsure.
+        </p>
+        <div className="flex flex-wrap gap-2 items-center">
+          <button onClick={doExport} className="flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-4 py-2.5 text-[15px] hover:brightness-105">
+            <Download size={15} /> Export backup
+          </button>
+          <button onClick={() => fileRef.current?.click()} className="flex items-center gap-2 bg-panel2 border border-line rounded-[10px] px-4 py-2.5 text-[13px] hover:border-amber">
+            <Upload size={14} className="text-amber" /> Import backup
+          </button>
+          <input ref={fileRef} type="file" accept="application/json,.json" onChange={onRestoreFile} className="hidden" />
+        </div>
+        {restoreErr && <p className="text-red-txt text-[13px] mt-2 flex items-center gap-1.5"><X size={14} /> {restoreErr}</p>}
       </section>
     </div>
   );

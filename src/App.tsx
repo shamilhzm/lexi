@@ -4,21 +4,20 @@
 // Cool "Glacier" terminal aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { GraduationCap, Heart, Sunrise, Settings as SettingsIcon, TrendingDown, MoreHorizontal } from 'lucide-react';
+import { GraduationCap, Heart, Sunrise, Settings as SettingsIcon, MoreHorizontal } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Review from './views/Review.tsx';
 import Home from './views/Home.tsx';
 import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
 import Settings from './views/Settings.tsx';
-import BlindSpots from './views/BlindSpots.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, totals, setOnboarded, firstRunIds } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'home' | 'review' | 'gym' | 'placement' | 'settings' | 'blindspots';
+export type View = 'home' | 'review' | 'gym' | 'placement' | 'settings';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
@@ -44,7 +43,6 @@ const PRIMARY: NavItem[] = [
   { id: 'review', label: 'Study', icon: GraduationCap },
 ];
 const MORE: NavItem[] = [
-  { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
   { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ];
 // Paper ("Kartenwerk") surface is available but OFF — the warm look clashed with
@@ -144,10 +142,9 @@ export default function App() {
             transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
             className="max-w-[1280px] mx-auto px-3 sm:px-4 py-4 safe-bottom">
             <ErrorBoundary resetKey={view}>
-            {view === 'home' && <Home onStudy={study} onStudyAll={() => study(ALL)} onDrill={openDrill} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindSpots={() => setView('blindspots')} initial={homeInit} />}
+            {view === 'home' && <Home onStudy={study} onStudyAll={() => study(ALL)} onDrill={openDrill} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} initial={homeInit} />}
             {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('home'); }} />}
             {view === 'settings' && <Settings />}
-            {view === 'blindspots' && <BlindSpots onDrill={drillFor} />}
             {view === 'gym' && <Gym initial={gymInit} />}
             {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setHomeInit('decks'); setView('home'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
             </ErrorBoundary>

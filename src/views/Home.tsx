@@ -14,9 +14,9 @@ import type { Target } from '../types.ts';
 
 type Level = 'home' | 'decks' | 'karte';
 
-export default function Home({ onStudy, onStudyAll, onDrill, onPlacement, onGuidedStart, onBlindSpots, initial = 'home' }:
+export default function Home({ onStudy, onStudyAll, onDrill, onPlacement, onGuidedStart, onBlindDrill, initial = 'home' }:
   { onStudy: (t: Target) => void; onStudyAll: () => void; onDrill: (m: Mode | 'grammar') => void;
-    onPlacement: () => void; onGuidedStart: () => void; onBlindSpots: () => void; initial?: 'home' | 'decks' }) {
+    onPlacement: () => void; onGuidedStart: () => void; onBlindDrill: (tag?: string) => void; initial?: 'home' | 'decks' }) {
   const [stack, setStack] = useState<Level[]>(initial === 'decks' ? ['home', 'decks'] : ['home']);
   const [group, setGroup] = useState<string | null>(null);
   const [sector, setSector] = useState<string | null>(null);
@@ -30,7 +30,7 @@ export default function Home({ onStudy, onStudyAll, onDrill, onPlacement, onGuid
 
   if (level === 'home') {
     return (
-      <Today onStart={onStudy} onPlacement={onPlacement} onGuidedStart={onGuidedStart} onDrill={onDrill} onBlindSpots={onBlindSpots}>
+      <Today onStart={onStudy} onPlacement={onPlacement} onGuidedStart={onGuidedStart} onDrill={onDrill} onBlindDrill={onBlindDrill}>
         <div className="mt-5">
           <Markt onOpenGroup={openGroup} onStudyGroup={(g) => onStudy({ kind: 'group', name: g })} onStudyAll={onStudyAll} />
         </div>

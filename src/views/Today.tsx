@@ -9,17 +9,25 @@ import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboa
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
+import BlindSpotList from '../components/BlindSpotList.tsx';
+import { blindSpotDrills } from '../session.ts';
+import { BY_ID } from '../data/index.ts';
 import { MODES, type Mode } from './Gym.tsx';
-import type { Target } from '../types.ts';
+import type { Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindSpots, children }:
+export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, children }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
-    onDrill: (m: Mode | 'grammar') => void; onBlindSpots: () => void; children?: React.ReactNode }) {
+    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void; children?: React.ReactNode }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
   const blind = useMemo(() => missTotal(30), [v]);
+  const blindDrills = useMemo(() => {
+    const ws = briefing.ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w);
+    return blindSpotDrills(ws).length;
+  }, [briefing, v]);
   const [drillsOpen, setDrillsOpen] = useState(false);
+  const [blindOpen, setBlindOpen] = useState(false);
   const t = totals();
   const placed = placementLevel();
   const today = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -102,6 +110,9 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                 {briefing.due} due · {briefing.fresh} new
                 {briefing.weakSectors.length > 0 && ` · from ${briefing.weakSectors.slice(0, 2).join(', ')}${briefing.weakSectors.length > 2 ? '…' : ''}`}
               </p>
+              {blindDrills > 0 && (
+                <p className="text-red text-[13px] mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
+              )}
             </div>
             <motion.button whileTap={{ scale: 0.98 }}
               onClick={() => onStart({ kind: 'custom', name: "Today's session", ids: briefing.ids })}
@@ -112,15 +123,27 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
         )}
       </div>
 
-      {/* Blind spots — your recurring misses, one tap to target them. */}
+      {/* Blind spots — your recurring misses. Expands in place (like Grammar
+          Fundamentals below) to the ranked list, so you target weaknesses without
+          leaving Today. */}
       {blind > 0 && (
-        <button onClick={onBlindSpots}
-          className="w-full flex items-center gap-3 bg-panel border border-line rounded-[16px] px-4 py-3 mb-4 text-left hover:border-red transition-colors">
-          <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-red flex-shrink-0"><TrendingDown size={18} /></span>
-          <span className="flex-1 text-[15px] font-semibold">Blind spots</span>
-          <span className="text-[11px] font-mono text-red border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(blind)}</span>
-          <Play size={14} className="text-red flex-shrink-0" />
-        </button>
+        <div className="mb-4">
+          <button onClick={() => setBlindOpen((o) => !o)} aria-expanded={blindOpen}
+            className="w-full flex items-center gap-3 bg-panel border border-line rounded-[16px] px-4 py-3 text-left hover:border-red transition-colors">
+            <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-red flex-shrink-0"><TrendingDown size={18} /></span>
+            <span className="flex-1 text-[15px] font-semibold">Blind spots</span>
+            <span className="text-[11px] font-mono text-red border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(blind)}</span>
+            <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${blindOpen ? 'rotate-180' : ''}`} />
+          </button>
+          <AnimatePresence initial={false}>
+            {blindOpen && (
+              <motion.div key="blind" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
+                <div className="pt-2.5"><BlindSpotList onDrill={onBlindDrill} /></div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
 
       {/* Grammar drills — their own SRS track. Expands in place to the modes so

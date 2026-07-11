@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 import { initData } from './data/index.ts';
+import { hydrate } from './store.ts';
 import { applyTheme, watchSystemTheme } from './theme.ts';
 
 applyTheme();
@@ -10,7 +11,9 @@ watchSystemTheme();
 
 const root = createRoot(document.getElementById('root')!);
 
-initData()
+// Load the lexicon and hydrate the learner's progress (IndexedDB) before first
+// paint, so the app renders with real data in one shot.
+Promise.all([initData(), hydrate()])
   .then(() => root.render(<StrictMode><App /></StrictMode>))
   .catch((err) => {
     console.error('Failed to load lexicon', err);

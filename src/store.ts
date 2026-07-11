@@ -2,37 +2,79 @@
 // Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
 // Adds a CEFR level filter and group/sector/all scoped stats + sessions.
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
-import { emptyCard, schedule, reviveCard, isDue, State, type Card, type Grade } from './srs.ts';
+import { emptyCard, schedule, reviveCard, isDue, setRetention, State, type Card, type Grade } from './srs.ts';
+import { idbGet, idbSet } from './lib/idb.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
 
 const CARDS_KEY = 'lexi.cards.v1';
 const VISITS_KEY = 'lexi.visits.v1';
+const MISS_KEY = 'lexi.miss.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
 const APIKEY_KEY = 'lexi.apikey.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
 
 // ---- persistence ---------------------------------------------------------
-function loadRaw(): Record<string, any> {
-  try { return JSON.parse(localStorage.getItem(CARDS_KEY) || '{}'); } catch { return {}; }
-}
-const raw = loadRaw();
+// Progress state — FSRS cards, blind-spot misses, and visit days — lives in
+// IndexedDB (src/lib/idb.ts), held in memory here as the synchronous source of
+// truth and written through on change. hydrate() loads it once before first
+// render, migrating any pre-existing localStorage data on first run. Settings
+// (levels, theme, retention, …) stay in localStorage: they're tiny and some are
+// read pre-paint by the theme bootstrap in index.html.
 const live = new Map<string, Card>();
-for (const id of Object.keys(raw)) {
-  try { live.set(id, reviveCard(raw[id])); } catch { /* skip corrupt */ }
-}
+let misses: MissEvent[] = [];
+let visits: string[] = [];
 
 let version = 0;
 const listeners = new Set<() => void>();
 function emit() { version++; listeners.forEach((l) => l()); }
-function persist() {
+
+function cardsObject(): Record<string, Card> {
   const obj: Record<string, Card> = {};
   live.forEach((c, id) => (obj[id] = c));
-  try { localStorage.setItem(CARDS_KEY, JSON.stringify(obj)); } catch { /* quota */ }
+  return obj;
 }
+function persistCards() { idbSet(CARDS_KEY, cardsObject()); }
+function persistMisses() { idbSet(MISS_KEY, misses); }
+function persistVisits() { idbSet(VISITS_KEY, visits); }
+
 export function subscribe(fn: () => void) { listeners.add(fn); return () => listeners.delete(fn); }
 export function getVersion() { return version; }
+
+/** Load one key from IndexedDB, migrating a legacy localStorage value on first
+ *  run (then dropping the localStorage copy so IDB becomes the single source). */
+async function loadKV<T>(key: string, fallback: T): Promise<T> {
+  const fromIdb = await idbGet<T>(key);
+  if (fromIdb !== undefined) return fromIdb;
+  try {
+    const legacy = localStorage.getItem(key);
+    if (legacy != null) {
+      const parsed = JSON.parse(legacy) as T;
+      await idbSet(key, parsed);
+      localStorage.removeItem(key);
+      return parsed;
+    }
+  } catch { /* corrupt legacy — ignore */ }
+  return fallback;
+}
+
+let hydrated = false;
+/** Hydrate progress state from IndexedDB (with one-time localStorage migration).
+ *  Call once, awaited, before the app first renders. Idempotent. */
+export async function hydrate(): Promise<void> {
+  if (hydrated) return;
+  const [cards, m, vis] = await Promise.all([
+    loadKV<Record<string, any>>(CARDS_KEY, {}),
+    loadKV<MissEvent[]>(MISS_KEY, []),
+    loadKV<string[]>(VISITS_KEY, []),
+  ]);
+  live.clear();
+  for (const id of Object.keys(cards)) { try { live.set(id, reviveCard(cards[id])); } catch { /* skip corrupt */ } }
+  misses = Array.isArray(m) ? m : [];
+  visits = Array.isArray(vis) ? vis : [];
+  hydrated = true;
+}
 
 // ---- CEFR level filter ---------------------------------------------------
 function loadLevels(): Set<CEFR> {
@@ -73,7 +115,7 @@ export function review(id: string, grade: Grade) {
   const cur = live.get(id) ?? emptyCard();
   live.set(id, schedule(cur, grade));
   recordVisit();
-  persist();
+  persistCards();
   emit();
 }
 
@@ -117,7 +159,13 @@ export interface Briefing {
   weakSectors: string[];// sectors the fresh cards were drawn from
 }
 
-/** Sectors with the most room to grow: lowest coverage first, then most due. */
+/**
+ * Sectors with the most room to grow: lowest coverage first, then most due.
+ * This is the source of fresh *vocabulary* for the daily briefing. It is
+ * deliberately kept distinct from blind spots: weakest-sectors chooses which new
+ * words enter the day; blind spots (session.ts) choose which *drills* ride along.
+ * The two don't overlap, so both stay.
+ */
 export function weakestSectors(n = 4): SectorStat[] {
   return sectorStats()
     .filter((s) => s.newCount > 0 || s.due > 0)
@@ -270,17 +318,14 @@ export function setAiConfig(c: Partial<AiConfig>) {
 }
 
 // ---- blind spots (structural error log) ----------------------------------
-const MISS_KEY = 'lexi.miss.v1';
+// The `misses` array + its persistence live in the persistence section above
+// (hydrated from IndexedDB); MISS_KEY sits with the other storage keys up top.
 export interface MissEvent { tag: string; at: number; }
-function loadMisses(): MissEvent[] {
-  try { const a = JSON.parse(localStorage.getItem(MISS_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; }
-}
-let misses = loadMisses();
 /** Record a wrong answer under a structural tag (grammar point, drill type…). */
 export function logMiss(tag: string) {
   misses.push({ tag, at: Date.now() });
   if (misses.length > 800) misses = misses.slice(-800);
-  try { localStorage.setItem(MISS_KEY, JSON.stringify(misses)); } catch { /* */ }
+  persistMisses();
   emit();
 }
 /** Top recurring weaknesses within the last `days`, most frequent first. */
@@ -304,6 +349,24 @@ export function setHdVoice(on: boolean) {
   if (on) localStorage.setItem(HDVOICE_KEY, '1'); else localStorage.removeItem(HDVOICE_KEY);
   emit();
 }
+
+// ---- FSRS desired retention ----------------------------------------------
+// The target probability of recall FSRS schedules for. Higher = shorter
+// intervals, more reviews, higher recall; lower = fewer reviews. 0.90 is the
+// accepted sweet spot. Persisted here; applied to the scheduler engine.
+const RETENTION_KEY = 'lexi.retention.v1';
+export const DEFAULT_RETENTION = 0.9;
+export function retention(): number {
+  const v = parseFloat(localStorage.getItem(RETENTION_KEY) || '');
+  return v >= 0.7 && v <= 0.97 ? v : DEFAULT_RETENTION;
+}
+export function setRetentionTarget(r: number) {
+  localStorage.setItem(RETENTION_KEY, String(r));
+  setRetention(r);
+  emit();
+}
+// Apply the stored target to the engine at startup.
+setRetention(retention());
 
 // ---- stats ---------------------------------------------------------------
 interface Counts { count: number; learned: number; known: number; due: number; newCount: number; }
@@ -420,22 +483,56 @@ export function checkMilestones(): string | undefined {
 }
 
 // ---- visits / streak -----------------------------------------------------
-function loadVisits(): string[] {
-  try { return JSON.parse(localStorage.getItem(VISITS_KEY) || '[]'); } catch { return []; }
-}
+// The `visits` array + its persistence live in the persistence section above
+// (hydrated from IndexedDB).
 function todayKey(d = new Date()) { return d.toISOString().slice(0, 10); }
 
 export function recordVisit() {
-  const v = loadVisits();
   const t = todayKey();
-  if (!v.includes(t)) { v.push(t); try { localStorage.setItem(VISITS_KEY, JSON.stringify(v)); } catch { /* */ } }
+  if (!visits.includes(t)) { visits.push(t); persistVisits(); }
 }
 
 export function streak(): number {
-  const set = new Set(loadVisits());
+  const set = new Set(visits);
   let n = 0;
   const d = new Date();
   if (!set.has(todayKey(d))) d.setDate(d.getDate() - 1);
   while (set.has(todayKey(d))) { n++; d.setDate(d.getDate() - 1); }
   return n;
+}
+
+// ---- backup: export / import ---------------------------------------------
+// A portable snapshot the learner controls, so a cleared cache (or a new device)
+// isn't fatal. Carries progress (cards / misses / visits) plus non-secret
+// settings; the API key is deliberately excluded.
+const SETTING_KEYS = [
+  'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
+  'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
+];
+
+/** Serialize all progress + non-secret settings to a JSON backup string. */
+export function exportData(): string {
+  const settings: Record<string, string> = {};
+  for (const k of SETTING_KEYS) { const v = localStorage.getItem(k); if (v != null) settings[k] = v; }
+  return JSON.stringify({ app: 'lexi', v: 1, exportedAt: new Date().toISOString(), cards: cardsObject(), misses, visits, settings });
+}
+
+/** Restore a backup produced by exportData. Writes straight to storage; the
+ *  caller should reload the app so it re-hydrates cleanly. Throws on a bad file. */
+export async function importData(json: string): Promise<void> {
+  const d = JSON.parse(json);
+  if (!d || typeof d !== 'object' || typeof d.cards !== 'object' || d.cards === null) {
+    throw new Error('That doesn’t look like a Lexi backup file.');
+  }
+  await Promise.all([
+    idbSet(CARDS_KEY, d.cards),
+    idbSet(MISS_KEY, Array.isArray(d.misses) ? d.misses : []),
+    idbSet(VISITS_KEY, Array.isArray(d.visits) ? d.visits : []),
+  ]);
+  if (d.settings && typeof d.settings === 'object') {
+    for (const k of SETTING_KEYS) {
+      const val = d.settings[k];
+      if (typeof val === 'string') localStorage.setItem(k, val);
+    }
+  }
 }

@@ -5,7 +5,7 @@
 // Gym's namespaced FSRS cards (gym:<mode>:<wordId>) — both surfaces share
 // one schedule and past Gym progress carries over.
 import type { Word, Target } from './types.ts';
-import { buildSession, cardOf, wordsFor, dueGymIds } from './store.ts';
+import { buildSession, cardOf, wordsFor, dueGymIds, missStats } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/Gym.tsx';
@@ -18,6 +18,39 @@ export interface SessionItem {
 
 const GAP = 3;               // a word's drill surfaces ~3 items after its flip
 const MAX_FRESH_DRILLS = 10; // cap first-time drills so sessions stay bounded
+const MAX_BLIND_SPOTS = 4;   // cap blind-spot drills woven into a session
+
+/** Gym drill modes ranked by how often you miss them (last 30 days), worst first. */
+function weakModes(): Mode[] {
+  const byTag = new Map<string, Mode>();
+  (Object.entries(MODE_TAG) as [Mode, string][]).forEach(([m, tag]) => byTag.set(tag, m));
+  const out: Mode[] = [];
+  for (const s of missStats(30)) { const m = byTag.get(s.tag); if (m && !out.includes(m)) out.push(m); }
+  return out;
+}
+
+/** Blind-spot drills to weave into a session: for the modes you miss most, the
+ *  words (from this session's queue) whose drill card is due or not yet seen.
+ *  Capped, so the session actively rehearses your weak structures without
+ *  ballooning. Exported so Today can preview the count. */
+export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionItem[] {
+  const modes = weakModes();
+  if (modes.length === 0) return [];
+  const now = Date.now();
+  const out: SessionItem[] = [];
+  for (const m of modes) {
+    for (const w of words) {
+      if (out.length >= cap) return out;
+      if (!eligibleModes(w).includes(m)) continue;
+      const srsId = gymId(m, w);
+      const c = cardOf(srsId);
+      if (c && !isDue(c, now)) continue;          // already comfortably scheduled
+      if (out.some((it) => it.srsId === srsId)) continue;
+      out.push({ type: m, word: w, srsId });
+    }
+  }
+  return out;
+}
 
 /** Flip queue from the store, woven with at most one drill per word:
  *  due drills always ride along; unseen drills fill up to the cap. */
@@ -64,6 +97,17 @@ export function buildMixedSession(target: Target): SessionItem[] {
     const w = BY_ID.get(wordId);
     if (!w) continue;
     out.splice(Math.floor(Math.random() * (out.length + 1)), 0, { type: mode, word: w, srsId: rawId });
+  }
+
+  // Blind-spot injection — a capped set of drills in the modes you miss most,
+  // drawn from this session's own words, spread through the queue. This is the
+  // agreed split between weakest-sectors and blind-spots: weakestSectors() (in
+  // store.buildBriefing) picks which fresh *vocabulary* enters the day, while
+  // blind spots decide which *drills* ride along — so you rehearse weak
+  // structures right where you already are.
+  for (const d of blindSpotDrills(words)) {
+    if (out.some((it) => it.srsId === d.srsId)) continue;
+    out.splice(Math.floor(Math.random() * (out.length + 1)), 0, d);
   }
   return out;
 }
