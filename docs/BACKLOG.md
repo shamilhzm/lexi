@@ -87,7 +87,9 @@ nobody re-implements them:
   localStorage shim (`src/test-setup.ts`) + per-test mocked IndexedDB and a fresh
   module graph — covering `buildBriefing`, `weakestSectors`, and `blindSpotDrills`
   (exercising the private `weakModes` ranking). `vitest.config.ts`,
-  `src/store-session.test.ts`. Suite now 31/31.
+  `src/store-session.test.ts`. Then extended to `buildMixedSession` (flip/drill
+  interleaving, flip-order preservation, `MAX_FRESH_DRILLS` cap) and the streak/visit
+  math (fake-timer consecutive-day + gap cases). Suite now 37/37.
 
 ---
 
@@ -108,12 +110,9 @@ load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json
 
 ## Next
 
-_Clear — the two staged items (README refresh, store/session tests) shipped
-2026-07-11. Promote the next candidate from Later or the parked decisions._
-
-Follow-on now that the harness exists: extend the Node-env store/session tests to
-`buildMixedSession` (interleaving + orphan-due absorption) and the streak/visit
-math. **Touches.** `src/store-session.test.ts`.
+_Clear — README refresh + store/session tests (incl. the `buildMixedSession` and
+streak follow-on) shipped 2026-07-11. The remaining open work is corpus growth
+(Now, human-gated) and the parked decisions._
 
 ---
 

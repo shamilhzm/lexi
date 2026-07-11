@@ -122,3 +122,89 @@ describe('blindSpotDrills (weakModes)', () => {
     expect(session.blindSpotDrills([w])).toEqual([]);
   });
 });
+
+describe('buildMixedSession', () => {
+  const flips = (items: { type: string; word: { id: string } }[]) =>
+    items.filter((it) => it.type === 'flip').map((it) => it.word.id);
+  const custom = (ids: string[]) => ({ kind: 'custom' as const, name: 'test', ids });
+
+  it('is pure flips, in order, when no word qualifies for a drill', async () => {
+    const { data, session } = await fresh();
+    // Plain words: no gender/plural/verb/example -> no eligible modes.
+    const words = ['p0', 'p1', 'p2'].map((id) => word(id, 'Plain'));
+    data.registerWords(words);
+
+    const out = session.buildMixedSession(custom(['p0', 'p1', 'p2']));
+
+    expect(out).toHaveLength(3);
+    expect(out.every((it) => it.type === 'flip')).toBe(true);
+    expect(flips(out)).toEqual(['p0', 'p1', 'p2']); // order preserved
+  });
+
+  it('weaves one fresh drill per eligible word, keeping flip order', async () => {
+    const { data, session } = await fresh();
+    // gender-only eligibility -> the fresh-mode pick is deterministic.
+    const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die' }));
+    data.registerWords(words);
+
+    const out = session.buildMixedSession(custom(['g0', 'g1', 'g2']));
+
+    expect(flips(out)).toEqual(['g0', 'g1', 'g2']);
+    const drills = out.filter((it) => it.type !== 'flip');
+    expect(drills).toHaveLength(3); // one per word
+    expect(drills.every((d) => d.type === 'gender')).toBe(true);
+    expect(drills.every((d) => d.srsId.startsWith('gym:gender:'))).toBe(true);
+  });
+
+  it('caps fresh drills at MAX_FRESH_DRILLS (10)', async () => {
+    const { data, session } = await fresh();
+    const ids = Array.from({ length: 12 }, (_, i) => `m${i}`);
+    data.registerWords(ids.map((id) => word(id, 'Many', { gender: 'die' })));
+
+    const out = session.buildMixedSession(custom(ids));
+
+    expect(flips(out)).toEqual(ids);                       // all 12 flips, in order
+    expect(out.filter((it) => it.type !== 'flip')).toHaveLength(10); // fresh cap
+  });
+});
+
+describe('streak / visits', () => {
+  it('is 0 with no visits and 1 after visiting today', async () => {
+    const { store } = await fresh();
+    expect(store.streak()).toBe(0);
+    store.recordVisit();
+    expect(store.streak()).toBe(1);
+    store.recordVisit(); // same day -> idempotent
+    expect(store.streak()).toBe(1);
+  });
+
+  it('counts consecutive days', async () => {
+    const { store } = await fresh();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
+      store.recordVisit();
+      vi.setSystemTime(new Date('2026-07-10T12:00:00Z'));
+      store.recordVisit();
+      vi.setSystemTime(new Date('2026-07-11T12:00:00Z'));
+      store.recordVisit();
+      expect(store.streak()).toBe(3);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('breaks the streak on a skipped day', async () => {
+    const { store } = await fresh();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
+      store.recordVisit();
+      vi.setSystemTime(new Date('2026-07-11T12:00:00Z')); // skipped the 10th
+      store.recordVisit();
+      expect(store.streak()).toBe(1); // only today counts
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
