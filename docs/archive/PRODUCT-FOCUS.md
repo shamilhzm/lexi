@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED (July 2026) — decisions shipped.** The prune calls here (cut Tutor, Reader/Lesen, Galaxy, Duel, Exam countdown, Weakest-Sectors widget; new cyan logo; “Grammar Fundamentals” naming) have landed. Still-open items (Blind Spots as the session engine, mobile drill-down treemap, IndexedDB migration) live in [`../BACKLOG.md`](../BACKLOG.md). Kept for provenance — not current.
+
 # Lexi — Focus & Prune Plan
 
 _Reconciling the July 2026 feedback into a shippable direction. Written after a pass over `src/`._

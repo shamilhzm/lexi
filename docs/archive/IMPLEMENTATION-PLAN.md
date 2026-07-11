@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED — delivered.** Phases 1–5 (Known as the headline number, card status pips, the unified `SessionRecap`, the type/color/radius cleanup, haptics, level milestones, the first-run guided session, and the IA collapse) are in the shipped code. Superseded by the codebase and [`../BACKLOG.md`](../BACKLOG.md). Kept for provenance — not current.
+
 # Lexi — Implementation Plan (from DESIGN-REVIEW.md)
 
 *Instructions for the implementing agent (Claude Opus 4.8). Scope: every design and

@@ -9,6 +9,12 @@ terminal for working through German vocabulary with spaced repetition.
 Lexi is built for everyone learning German and runs entirely on your device — no
 accounts, no tracking.
 
+## Docs
+
+Planning and strategy live in [`docs/`](docs/). Start with
+[`docs/BACKLOG.md`](docs/BACKLOG.md) for what's next; see
+[`docs/README.md`](docs/README.md) for the full index.
+
 ## What's inside
 
 - **5,213 cards across all six CEFR levels** (A1 887 · A2 1,239 · B1 1,828 · B2 559

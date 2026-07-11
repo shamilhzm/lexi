@@ -1,3 +1,5 @@
+> **Status — living vision, pre-prune.** This roadmap predates the July 2026 focus pass ([`archive/PRODUCT-FOCUS.md`](archive/PRODUCT-FOCUS.md)). Two headline features below — the **AI tutor (#1)** and the sentence-mining **Reader/Mine** flow — were subsequently **cut from the core loop**; treat them as optional/future, not committed. For what is actually queued, [`BACKLOG.md`](BACKLOG.md) is authoritative.
+
 # Lexi — Product Roadmap & Freemium Strategy
 
 *Written from the seat of the product owner: what turns a clever demo into something a
@@ -131,7 +133,7 @@ base) rather than a user-facing feature. Logged here so it isn't lost.
   real holes (missing core high-frequency lemmas like `meinen`, `also`, `Beispiel`, `Rolle`) and a
   backwards distribution (B1-heavy, thin A1/A2). Close the gap via a reproducible, permissively-
   licensed ingestion pipeline (Leipzig frequency lists CC BY 4.0, Wiktextract CC BY-SA, Tatoeba
-  CC BY 2.0). Full brief: [`LEXICON-EXPANSION-TASK.md`](./LEXICON-EXPANSION-TASK.md).
+  CC BY 2.0). Full brief: [`LEXICON-EXPANSION-TASK.md`](./archive/LEXICON-EXPANSION-TASK.md).
 
 ---
 

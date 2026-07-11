@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED — delivered.** The reproducible, correctly-licensed corpus pipeline this brief specifies now exists under [`../../scripts/corpus/`](../../scripts/corpus/README.md). Residual work (grow toward ~10k cards, rebalance the A1/A2 foundation, close the frequency gaps) is tracked in [`../BACKLOG.md`](../BACKLOG.md). Kept for provenance — not current.
+
 # Lexi — Task: close the coverage gap & grow the lexicon to a 10,000-card A1–C2 corpus
 
 Paste this into a new coding session on the Lexi repo. The goal is to turn Lexi's lexicon from
