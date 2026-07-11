@@ -1,13 +1,13 @@
 # Lexi
 
-**A free, open-source German vocabulary terminal (A1–C2).** The home screen is a
-live *dictionary market*: a squarified treemap where every tile is a theme group —
-**area = cards in the group, colour = % you've learned** (red → amber → green).
+**A German vocabulary terminal (A1–C2).** The home screen is a live *knowledge
+heatmap*: a squarified treemap where every tile is a theme group —
+**area = cards in the group, colour = % you've learned** (slate → green).
 Click a tile to drill into its sectors; right-click to study it. A Bloomberg-style
 terminal for working through German vocabulary with spaced repetition.
 
-Lexi is built for everyone learning German, runs entirely on your device, and is
-sustained by donations — no accounts, no tracking, no paywall.
+Lexi is built for everyone learning German and runs entirely on your device — no
+accounts, no tracking.
 
 ## What's inside
 
@@ -26,9 +26,9 @@ sustained by donations — no accounts, no tracking, no paywall.
 - **Today** — the daily briefing ("markets open"): a one-tap session auto-assembled
   from what's due (FSRS) plus fresh cards from your weakest sectors, with a streak
   counter and an optional exam countdown that back-plans a daily target.
-- **Markt** — the dictionary-market treemap (by theme group), a KPI strip, a live
+- **Knowledge Heatmap** — the coverage treemap (by theme group), a KPI strip, a live
   group ticker, and a **CEFR level filter** that rescopes the whole terminal.
-- **Gym** — interactive grammar drills, each on its own spaced-repetition track:
+- **Grammar Fundamentals** — interactive grammar drills, each on its own spaced-repetition track:
   der/die/das gender, noun plurals, verb conjugation (Präsens · Präteritum ·
   Partizip II, via a rule-based engine), and cloze from example sentences.
 - **Mine** — sentence mining: paste any German text and Lexi finds the words you
@@ -73,14 +73,12 @@ Lexi ships a web app manifest and a service worker, so it's installable on phone
 desktop (Add to Home Screen / Install), runs full-screen, and works offline after the
 first load. The lexicon and assets are cached on first visit.
 
-## Contributing & support
+## Data & licences
 
-Lexi's **code** is MIT-licensed and community-driven. The **corpus data**
+Lexi is built on open tools and open data. The **corpus data**
 (`public/data/*.json`) is built from Wiktionary/Wiktextract, Tatoeba, and the
 Leipzig Corpora Collection, so it carries **CC BY-SA 4.0** with attribution — see
-[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md). Vocabulary corrections, new sectors, UI
-improvements, and translations are all welcome. If Lexi helps you learn, please
-consider a donation to keep it free for everyone.
+[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md). The application code itself is proprietary.
 
 ## Notes
 

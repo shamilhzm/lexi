@@ -62,7 +62,7 @@ function queue(mode: Mode): Word[] {
 }
 function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 
-const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
+export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'gender', label: 'der / die / das', icon: CircleDot, desc: 'Nail the gender of every noun.' },
   { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Pick the right plural.' },
   { m: 'conj', label: 'Conjugation', icon: Cog, desc: 'Präsens · Präteritum · Partizip II.' },
@@ -85,7 +85,7 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
     <div className="max-w-[820px] mx-auto">
       <div className="flex items-center gap-2.5 mb-1">
         <Cog size={20} className="text-amber" />
-        <h1 className="text-[20px] sm:text-[22px] font-bold">Grammar gym</h1>
+        <h1 className="text-[20px] sm:text-[22px] font-bold">Grammar Fundamentals</h1>
       </div>
       <p className="text-dim text-[13px] mb-4">Targeted drills with their own spaced-repetition schedule.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -179,7 +179,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
               className={`rounded-[10px] py-4 font-bold text-[20px] border transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
-                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
+                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}
               style={state === 'idle' ? { color } : undefined}>
               {g}
@@ -242,7 +242,7 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
               className={`rounded-[10px] py-3.5 px-4 border text-[15px] text-center transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
-                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
+                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
           );
         })}

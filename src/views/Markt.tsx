@@ -41,8 +41,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
       <div className="bg-panel border border-line rounded-[10px]">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
           <span className="live-dot" title="Live — reflects your FSRS progress" />
-          <h2 className="text-[13px] sm:text-[15px] font-semibold">The Word Exchange · German Dictionary Market</h2>
-          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] hidden sm:inline">THEME HEATMAP</span>
+          <h2 className="text-[13px] sm:text-[15px] font-semibold">Knowledge Heatmap</h2>
           <div className="flex items-center gap-2 ml-auto flex-wrap">
             <LevelFilter />
             <button onClick={onStudyAll} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[13px] hover:brightness-105">
@@ -53,7 +52,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
 
         <div ref={boxRef} className="relative w-full" style={{ height: 'min(60vh, 580px)' }}>
           {/* soft glow behind the floor */}
-          <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 50% 0%, rgba(255,176,0,.06), transparent 70%)' }} />
+          <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 50% 0%, rgba(56,205,232,.06), transparent 70%)' }} />
           {tiles.map((t, idx) => {
             const s = t.data, p = s.count ? s.known / s.count : 0, big = t.w > 120 && t.h > 64, mid = t.w > 78 && t.h > 44;
             const ink = tileInk(p);
@@ -81,7 +80,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
           })}
 
           {hover && (
-            <div className="fixed z-50 pointer-events-none bg-[#06080c] border border-amber rounded-lg px-3 py-2.5 text-[13px] shadow-2xl"
+            <div className="fixed z-50 pointer-events-none bg-card border border-amber rounded-lg px-3 py-2.5 text-[13px] shadow-2xl"
               style={{ left: Math.min(hover.x + 14, (typeof window !== 'undefined' ? window.innerWidth : 1280) - 250), top: hover.y + 14, width: 230 }}>
               <h4 className="text-[13px] font-semibold mb-1.5">{hover.s.name}</h4>
               <Row k="Cards" val={`${fmt(hover.s.count)} · ${hover.s.sectors} sectors`} />
@@ -98,7 +97,7 @@ export default function Markt({ onOpenGroup, onStudyGroup, onStudyAll }:
 
         <div className="flex items-center gap-2 px-4 py-2.5 border-t border-line text-[11px] text-dim flex-wrap">
           <span>0%</span>
-          <span className="h-2.5 w-40 rounded" style={{ background: 'linear-gradient(90deg,#ea3943,#ffb000,#16c784)' }} />
+          <span className="h-2.5 w-40 rounded" style={{ background: 'linear-gradient(90deg,#465061,#3f8f74,#16c784)' }} />
           <span>100% known</span>
           <span className="ml-auto hidden md:inline">Click opens a group's sectors · right-click starts a study session</span>
         </div>

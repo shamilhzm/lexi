@@ -128,4 +128,4 @@ I can generate a few concepts as a follow-up (dark + light, favicon + app icon) 
 
 ## Explicitly NOT changing
 
-The terminal identity, the market metaphor, FSRS, and the no-account / local-first stance. For a donation-supported open-source app those are the moat. This plan sharpens the identity by removing everything that dilutes it — it doesn't touch the core.
+The terminal identity, the market metaphor, FSRS, and the no-account / local-first stance. For a lean, local-first paid app those are the moat. This plan sharpens the identity by removing everything that dilutes it — it doesn't touch the core.

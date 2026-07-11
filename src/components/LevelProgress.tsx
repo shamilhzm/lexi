@@ -25,15 +25,16 @@ export default function LevelProgress() {
 
   return (
     <div className="bg-panel border border-line rounded-[16px] p-3 sm:p-4 mb-4">
-      <div className="flex items-center justify-between mb-2.5">
-        <h2 className="text-[13px] font-semibold text-dim">Your path · A1 → C2</h2>
-        {canAdvance && (
+      {/* The A1→C2 chips below are self-describing, so no header label. The
+          advance nudge stays — it teaches the affordance by acting on it. */}
+      {canAdvance && (
+        <div className="flex justify-end mb-2.5">
           <button onClick={() => focusUpTo(edgeIdx + 1)}
             className="flex items-center gap-1 text-[11px] text-amber hover:underline">
             {edge} is {Math.round(edgeKr * 100)}% known — add {ALL_LEVELS[edgeIdx + 1]} <ChevronRight size={12} />
           </button>
-        )}
-      </div>
+        </div>
+      )}
       <div className="flex gap-1.5">
         {stats.map((s, i) => {
           const active = focus.has(s.level);

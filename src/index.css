@@ -6,20 +6,23 @@
    (bg-bg, text-amber, border-line, …). Dark by default.
    ============================================================ */
 @theme {
-  --color-bg:      #0a0d12;   /* page */
-  --color-panel:   #141b26;   /* raised surface (lifted for separation) */
-  --color-panel2:  #0e131b;   /* sunken surface */
-  --color-card:    #1b2431;   /* lifted card surface — study cards / exercises */
-  --color-line:    #283341;   /* hairline borders (a touch lighter for definition) */
-  --color-txt:     #eef3f9;   /* primary text */
-  --color-dim:     #aab6c6;   /* secondary text — brightened for stronger contrast */
-  --color-amber:   #ffb000;   /* brand / accent / focus */
-  --color-amber2:  #ffcf66;
+  /* Glacier — a cool cyan terminal. "amber" is the legacy token NAME for the
+     accent; its value is now Glacier cyan (kept named to avoid churning every
+     text-amber/bg-amber/border-amber utility). Green stays the reward colour. */
+  --color-bg:      #080b11;   /* page */
+  --color-panel:   #111a25;   /* raised surface (lifted for separation) */
+  --color-panel2:  #0b1017;   /* sunken surface */
+  --color-card:    #16202e;   /* lifted card surface — study cards / exercises */
+  --color-line:    #223041;   /* hairline borders (a touch lighter for definition) */
+  --color-txt:     #eaf1f8;   /* primary text */
+  --color-dim:     #9fb0c2;   /* secondary text — cool grey, AA on every surface */
+  --color-amber:   #38cde8;   /* brand / accent / focus (Glacier cyan) */
+  --color-amber2:  #7fe0f2;
   --color-green:   #16c784;   /* gains / mastered */
   --color-green-d: #0b3b2c;
   --color-red:     #ea3943;   /* losses / weak */
-  --color-red-d:   #3d1216;
-  --color-red-txt: #f0545e;   /* AA-legible red for small (<15px) text on dark */
+  --color-red-d:   #3d1216;   /* deep red surface (fill behind red-txt) */
+  --color-red-txt: #f0545e;   /* AA-legible red for small text on dark (drill "wrong") */
   --color-blue:    #3b82f6;
 
   /* CEFR ink — its own ramp, decoupled from the green/red/amber status colors
@@ -51,11 +54,11 @@
   --color-line:    #e7dec8;   /* hairline borders */
   --color-txt:     #1c1b17;   /* ink */
   --color-dim:     #6e685a;   /* muted ink (AA on cream) */
-  --color-amber:   #b06a00;   /* warm accent, readable on cream */
-  --color-amber2:  #8a5300;
-  --color-green:   #1e7a49;   /* success / mastered */
+  --color-amber:   #8a5300;   /* warm accent — AA on cream + AA for cream text on the amber button */
+  --color-amber2:  #6f4200;
+  --color-green:   #17663b;   /* success / mastered — AA on the light success surface */
   --color-green-d: #dcefe2;   /* light success surface */
-  --color-red:     #c0392b;
+  --color-red:     #b0311f;   /* AA on the light error surface */
   --color-red-d:   #f6e1dc;
   --color-red-txt: #a52714;   /* AA-legible red for small text on cream */
   --color-blue:    #2d5be3;   /* translations */
@@ -81,18 +84,19 @@
    "paper" token values; dark stays the @theme default.
    ============================================================ */
 html.light {
-  --color-bg:      #faf6e8;
+  /* Glacier light — cool white, not cream (the cream was part of the "Claude" look). */
+  --color-bg:      #eef3f8;
   --color-panel:   #ffffff;
-  --color-panel2:  #f4efe0;
+  --color-panel2:  #e2e9f1;
   --color-card:    #ffffff;
-  --color-line:    #e7dec8;
-  --color-txt:     #1c1b17;
-  --color-dim:     #6e685a;
-  --color-amber:   #b06a00;
-  --color-amber2:  #8a5300;
-  --color-green:   #1e7a49;
+  --color-line:    #d2dce7;
+  --color-txt:     #16202e;
+  --color-dim:     #55657a;   /* AA on cool white */
+  --color-amber:   #0a6f88;   /* Glacier cyan (dark) — AA on white + AA for bg-text on the button */
+  --color-amber2:  #0a5566;
+  --color-green:   #17663b;   /* AA on the green drill-feedback surface */
   --color-green-d: #dcefe2;
-  --color-red:     #c0392b;
+  --color-red:     #b0311f;   /* AA on the red drill-feedback surface */
   --color-red-d:   #f6e1dc;
   --color-red-txt: #a52714;
   --color-blue:    #2d5be3;
@@ -103,10 +107,10 @@ html.light {
   --color-c1: #a21caf;
   --color-c2: #be185d;
 }
-/* Light-surface field: warm top wash + faint dark grid (mirrors the dark body). */
+/* Light-surface field: cool top wash + faint dark grid (mirrors the dark body). */
 html.light body {
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #fffdf5 0%, rgba(250,246,232,0) 55%),
+    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(238,243,248,0) 55%),
     radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
 }
 /* On light, the panel/card material highlight inverts to a soft dark wash. */
@@ -132,7 +136,7 @@ body {
   /* Trading-floor field: soft top glow + a faint dotted grid for depth. */
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #131a24 0%, rgba(10,13,18,0) 55%),
+    radial-gradient(130% 80% at 50% -12%, #0f2230 0%, rgba(8,11,17,0) 55%),
     radial-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px);
   background-size: auto, 24px 24px;
   background-attachment: fixed;

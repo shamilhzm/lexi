@@ -1,8 +1,9 @@
 // Shared UI helpers: the market heat scale + speech synthesis + small utils.
 
-/** Coverage 0..1 → red→amber→green, the market heat scale. */
+/** Coverage 0..1 → slate→green, the market heat scale. Neutral (not red) at the
+ *  low end so an unlearned lexicon reads as "not yet", not as failure. */
 export function heat(p: number): string {
-  const stops = [[234, 57, 67], [255, 176, 0], [22, 199, 132]];
+  const stops = [[70, 80, 97], [63, 143, 116], [22, 199, 132]]; // slate → teal → green
   const seg = p < 0.5 ? 0 : 1;
   const t = p < 0.5 ? p / 0.5 : (p - 0.5) / 0.5;
   const a = stops[seg], b = stops[seg + 1];
@@ -10,9 +11,9 @@ export function heat(p: number): string {
   return `rgb(${c[0]},${c[1]},${c[2]})`;
 }
 
-/** Readable ink on a heat tile (dark text only in the bright amber band). */
+/** Readable ink on a heat tile: dark ink only on the bright green high end. */
 export function tileInk(p: number): string {
-  return p > 0.42 && p < 0.72 ? '#1a1205' : '#06120c';
+  return p > 0.6 ? '#04120c' : '#eaf1f8';
 }
 
 export const CEFR_COLOR: Record<string, string> = {

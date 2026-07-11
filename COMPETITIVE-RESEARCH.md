@@ -3,7 +3,7 @@
 Lexi already has a strong, unusual core: FSRS scheduling (`ts-fsrs`), a unified session that
 interleaves flip cards with gender/plural/conjugation/cloze drills, word **mining** from pasted
 German, an AI tutor (speaking + writing with CEFR feedback), semantic maps, a market/treemap
-"Explore" metaphor, a placement test that seeds known words, and a local-first, open-source,
+"Explore" metaphor, a placement test that seeds known words, and a local-first
 terminal aesthetic. This note surveys the apps closest to what Lexi does and pulls out the ideas
 worth borrowing — filtered through Lexi's identity, not copied wholesale.
 
@@ -76,7 +76,7 @@ current model is "Learn → Immerse → Communicate."
 
 7. **Example-sentence audio (from Seedlang/Memrise).** Lexi has TTS (incl. Piper HD). A "listen to
    the sentence" affordance on the card back adds listening practice at near-zero content cost
-   (native video is the premium version, but out of scope for an open-source tool).
+   (native video is the premium version, but out of scope for a lean solo product).
 
 ---
 
@@ -87,7 +87,7 @@ professional terminal identity. Lexi's own metaphors already cover motivation mo
 the **market/treemap** as a progress portfolio, the **Known** headline number, and the new
 **milestone moments** in the recap. Keep motivation intrinsic and personal (goals, the exam
 countdown, "Known added this week") rather than competitive. Native-speaker *video* is where the
-paid apps out-spend an open-source project — lean on TTS + interactivity instead of trying to match
+big-budget apps out-spend a lean product — lean on TTS + interactivity instead of trying to match
 their content libraries.
 
 **Suggested next build:** #1 (desired-retention control) as a quick win, then #2 (the reader) as the

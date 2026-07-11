@@ -9,7 +9,7 @@ import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
 import type { Target } from '../types.ts';
 
-const STATUS_COLOR: Record<string, string> = { new: '#5b6573', learning: '#ffb000', known: '#16c784' };
+const STATUS_COLOR: Record<string, string> = { new: '#5b6573', learning: '#38cde8', known: '#16c784' };
 const POS_RING = ['noun', 'verb', 'adjective', 'adverb'];
 
 export default function Wortkarte({ initialSector, onStudy }: { initialSector: string | null; onStudy: (t: Target) => void }) {
@@ -51,7 +51,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
           {sorted.map((s) => <option key={s.name} value={s.name}>{s.name} ({s.count})</option>)}
         </select>
         <span className="ml-auto text-[11px] text-dim flex items-center gap-2 sm:gap-3 flex-wrap">
-          <span className="hidden sm:inline"><Dot c="#5b6573" /> new <Dot c="#ffb000" /> learning <Dot c="#16c784" /> known</span>
+          <span className="hidden sm:inline"><Dot c="#5b6573" /> new <Dot c="#38cde8" /> learning <Dot c="#16c784" /> known</span>
           <button onClick={() => onStudy({ kind: 'sector', name: sel })} className="text-amber hover:underline">Study sector →</button>
         </span>
       </div>
@@ -61,8 +61,8 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
         {nodes.map((n) => <line key={'h' + n.w.id} x1={hub.x} y1={hub.y} x2={n.x} y2={n.y} stroke="#161d27" strokeWidth={1} />)}
 
         <g>
-          <circle cx={hub.x} cy={hub.y} r={44} fill="#11161e" stroke="#ffb000" strokeWidth={1.5} />
-          <text x={hub.x} y={hub.y - 2} textAnchor="middle" fill="#ffb000" fontSize={12} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
+          <circle cx={hub.x} cy={hub.y} r={44} fill="#0f2230" stroke="#38cde8" strokeWidth={1.5} />
+          <text x={hub.x} y={hub.y - 2} textAnchor="middle" fill="#38cde8" fontSize={12} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
           <text x={hub.x} y={hub.y + 14} textAnchor="middle" fill="#8b97a7" fontSize={10} fontFamily="monospace">{nodes.length} words</text>
         </g>
 

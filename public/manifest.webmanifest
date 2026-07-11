@@ -1,13 +1,13 @@
 {
   "name": "Lexi — German Vocab Terminal",
   "short_name": "Lexi",
-  "description": "A free, open-source German vocabulary terminal (A1–C2). Spaced repetition over a live dictionary market.",
+  "description": "A German vocabulary terminal (A1–C2). Spaced repetition over a live knowledge heatmap.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0a0d12",
-  "theme_color": "#0a0d12",
+  "background_color": "#080b11",
+  "theme_color": "#080b11",
   "categories": ["education", "productivity"],
   "lang": "en",
   "icons": [

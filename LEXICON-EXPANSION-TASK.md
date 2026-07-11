@@ -6,9 +6,9 @@ built by a **reproducible, permissively-licensed pipeline**, not by hand-editing
 
 ## ⚠️ Licensing & provenance first — read before doing anything
 
-Lexi is a public, open-source (MIT) repo. Every word, gloss, example, and frequency figure that
-ships in `vocab.json` must come from a source we're allowed to redistribute, and each source must
-be recorded. Rules:
+Lexi's application code is proprietary, but every word, gloss, example, and frequency figure that
+ships in `vocab.json` must come from a source we're allowed to redistribute **and use commercially**,
+and each source must be recorded. Rules:
 
 * **Use only permissive/attributable sources**: CC0, CC BY, CC BY-SA, or public domain. **No
   NC (non-commercial) or ND (no-derivatives) data**, and **do not redistribute copyrighted graded
@@ -93,12 +93,12 @@ be recorded. Rules:
    adjective de-inflection) still holds. Measure `vocab.json` size + first-load impact; if it grows
    materially, consider gzip/splitting while preserving the "separate cached fetch" design.
 7. **Ship in reviewable batches** (by level or sector), each verified — not one 5k-card dump — and
-   document the pipeline so open-source contributors can extend it.
+   document the pipeline so the team can extend it.
 
 ## Constraints
 
-* Open-source repo → permissive/attributable sources only; `ATTRIBUTIONS.md` complete; no NC/ND;
-  no verbatim copyrighted graded lists.
+* Commercial product → permissive/attributable, commercial-use-OK sources only; `ATTRIBUTIONS.md`
+  complete; no NC/ND; no verbatim copyrighted graded lists.
 * Local-first, no server → corpus stays static JSON fetched at runtime; respect the size/perf
   budget; no new runtime dependencies in the app itself (pipeline deps are dev-only).
 * Any LLM use is offline/build-time; key git-ignored, never committed, never `VITE_`-embedded.

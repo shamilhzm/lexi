@@ -1,14 +1,13 @@
-// Lexi — an open-source German vocabulary terminal (A1–C2), donation-supported.
-// Primary surfaces: Today (daily briefing), Study (the FSRS session + drills),
-// and Explore (the Markt treemap → Decks → Wortkarte).
-// Dark Bloomberg aesthetic.
+// Lexi — a German vocabulary terminal (A1–C2).
+// Primary surfaces: Home (the daily briefing + the Knowledge Heatmap on one
+// scroll) and Study (the FSRS session + drills).
+// Cool "Glacier" terminal aesthetic.
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { GraduationCap, Compass, Heart, Sunrise, Settings as SettingsIcon, TrendingDown, MoreHorizontal } from 'lucide-react';
+import { GraduationCap, Heart, Sunrise, Settings as SettingsIcon, TrendingDown, MoreHorizontal } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Review from './views/Review.tsx';
-import Explore from './views/Explore.tsx';
-import Today from './views/Today.tsx';
+import Home from './views/Home.tsx';
 import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
 import Placement from './views/Placement.tsx';
 import Settings from './views/Settings.tsx';
@@ -19,17 +18,17 @@ import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'review' | 'explore' | 'gym' | 'placement' | 'settings' | 'blindspots';
+export type View = 'home' | 'review' | 'gym' | 'placement' | 'settings' | 'blindspots';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
   return (
     <div className="flex items-center gap-2.5 select-none">
       <svg viewBox="0 0 150 150" className="w-7 h-7" role="img" aria-label="Lexi">
-        <rect width="150" height="150" rx="34" fill="#0e131b" />
-        <rect x="52" y="40" width="20" height="72" rx="3" fill="#ffb000" />
-        <rect x="52" y="92" width="60" height="20" rx="3" fill="#ffb000" />
-        <rect x="88" y="40" width="20" height="22" rx="3" fill="#ffb000" />
+        <rect width="150" height="150" rx="34" fill="#0e1722" />
+        <rect x="52" y="40" width="20" height="72" rx="3" fill="#38cde8" />
+        <rect x="52" y="92" width="60" height="20" rx="3" fill="#38cde8" />
+        <rect x="88" y="40" width="20" height="22" rx="3" fill="#38cde8" />
       </svg>
       <span className="leading-none">
         <span className="font-bold tracking-wide text-[15px]">Lexi</span><br />
@@ -41,9 +40,8 @@ function Logo() {
 
 type NavItem = { id: View; label: string; icon: any; short?: string };
 const PRIMARY: NavItem[] = [
-  { id: 'today', label: 'Today', icon: Sunrise },
+  { id: 'home', label: 'Today', icon: Sunrise },
   { id: 'review', label: 'Study', icon: GraduationCap },
-  { id: 'explore', label: 'Explore', icon: Compass },
 ];
 const MORE: NavItem[] = [
   { id: 'blindspots', label: 'Blind Spots', icon: TrendingDown },
@@ -56,9 +54,9 @@ const PAPER_VIEWS = new Set<View>([]);
 
 export default function App() {
   useStore();
-  const [view, setView] = useState<View>('today');
+  const [view, setView] = useState<View>('home');
   const [target, setTarget] = useState<Target>(ALL);
-  const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>('markt');
+  const [homeInit, setHomeInit] = useState<'home' | 'decks'>('home');
   const [gymInit, setGymInit] = useState<GymMode | 'grammar' | null>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [moreOpen, setMoreOpen] = useState(false);
@@ -69,13 +67,15 @@ export default function App() {
   const go = (v: View) => {
     if (v === 'review') setTarget(ALL);
     if (v === 'gym') setGymInit(null);
-    if (v === 'explore') setExploreInit('markt');
+    if (v === 'home') setHomeInit('home');
     setGuided(false); setView(v); setMoreOpen(false);
   };
   // First-run chain: hero → placement → an auto-built 10-card session → recap.
   const startFirstRun = () => { setGuided(true); setView('placement'); };
   const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
-  const endGuided = () => { setOnboarded(); setGuided(false); setView('today'); };
+  const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
+  /** Today's grammar-drills widget → straight into a specific drill (or the exercise bank). */
+  const openDrill = (m: GymMode | 'grammar') => { setGymInit(m); setView('gym'); };
   /** Blind Spots → the matching Gym drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
   const drillFor = (tag?: string) => {
     const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as GymMode | undefined) ?? 'grammar';
@@ -86,7 +86,7 @@ export default function App() {
   const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '');
 
   return (
-    <div className="flex flex-col h-[100dvh] w-screen overflow-hidden">
+    <div className="flex flex-col h-[100dvh] w-full overflow-hidden">
       <header className="safe-top flex items-center gap-2 sm:gap-3.5 px-3 sm:px-4 pb-2.5 bg-panel border-b border-line flex-shrink-0">
         <Logo />
         <nav className="hidden sm:flex gap-1 ml-2">
@@ -127,11 +127,11 @@ export default function App() {
           </div>
         </nav>
         <div className="flex-1" />
-        <a href="https://opencollective.com" target="_blank" rel="noreferrer"
-          className="hidden sm:flex items-center gap-1.5 text-[11px] text-dim hover:text-amber border border-line rounded-full px-2.5 py-1 transition-colors" title="Lexi is free & open-source — support it">
-          <Heart size={12} /> Donate
+        {/* TODO: point at the real pricing/support page once billing is set up. */}
+        <a href="#" className="hidden sm:flex items-center gap-1.5 text-[11px] text-dim hover:text-amber border border-line rounded-full px-2.5 py-1 transition-colors" title="Support Lexi's development">
+          <Heart size={12} /> Support
         </a>
-        <div className="text-[11px] text-dim hidden md:block">{fmt(t.count)} cards · A1–C2 · Open Source</div>
+        <div className="text-[11px] text-dim hidden md:block">{fmt(t.count)} cards · A1–C2</div>
       </header>
 
       {/* The live ticker is peripheral motion — hide it during a session so the card stays the focus. */}
@@ -144,13 +144,12 @@ export default function App() {
             transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
             className="max-w-[1280px] mx-auto px-3 sm:px-4 py-4 safe-bottom">
             <ErrorBoundary resetKey={view}>
-            {view === 'today' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onGym={() => { setGymInit(null); setView('gym'); }} />}
-            {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('today'); }} />}
+            {view === 'home' && <Home onStudy={study} onStudyAll={() => study(ALL)} onDrill={openDrill} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindSpots={() => setView('blindspots')} initial={homeInit} />}
+            {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('home'); }} />}
             {view === 'settings' && <Settings />}
             {view === 'blindspots' && <BlindSpots onDrill={drillFor} />}
             {view === 'gym' && <Gym initial={gymInit} />}
-            {view === 'explore' && <Explore onStudy={study} onStudyAll={() => study(ALL)} initial={exploreInit} />}
-            {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('today'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
+            {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setHomeInit('decks'); setView('home'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
             </ErrorBoundary>
           </motion.div>
         </AnimatePresence>
