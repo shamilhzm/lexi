@@ -433,6 +433,17 @@ export function setPlacementLevel(l: CEFR | null) {
   emit();
 }
 
+// ---- profile -------------------------------------------------------------
+// A light local profile: an editable display name (the CEFR level + streak come
+// from placement/visits). Built implicitly at onboarding; editable in Profile.
+const PROFILE_NAME_KEY = 'lexi.profile.name.v1';
+export function profileName(): string { return localStorage.getItem(PROFILE_NAME_KEY) || ''; }
+export function setProfileName(name: string) {
+  const v = name.trim();
+  if (v) localStorage.setItem(PROFILE_NAME_KEY, v); else localStorage.removeItem(PROFILE_NAME_KEY);
+  emit();
+}
+
 // ---- onboarding ----------------------------------------------------------
 const ONBOARDED_KEY = 'lexi.onboarded.v1';
 export function onboarded(): boolean { return localStorage.getItem(ONBOARDED_KEY) === '1'; }
@@ -508,6 +519,7 @@ export function streak(): number {
 const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
+  'lexi.profile.name.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

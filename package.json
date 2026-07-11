@@ -10,6 +10,8 @@
     "build": "vite build",
     "preview": "vite preview --host --port 4318",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "corpus:fetch": "node scripts/corpus/fetch.ts",
     "corpus:coverage": "node scripts/corpus/coverage.ts",
     "corpus:build": "node scripts/corpus/build.ts",
@@ -25,7 +27,8 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.0.4",
     "typescript": "^5.7.2",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "vitest": "^2.1.9"
   },
   "dependencies": {
     "lucide-react": "^0.546.0",

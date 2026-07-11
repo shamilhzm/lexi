@@ -15,9 +15,9 @@ import { BY_ID } from '../data/index.ts';
 import { MODES, type Mode } from './Fundamentals.tsx';
 import type { Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, children }:
+export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
-    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void; children?: React.ReactNode }) {
+    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
@@ -179,9 +179,6 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
           )}
         </AnimatePresence>
       </div>
-
-      {/* The market (Word Exchange) mounts here on the merged home. */}
-      {children}
     </div>
   );
 }

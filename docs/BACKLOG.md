@@ -63,6 +63,17 @@ nobody re-implements them:
   `conjugate`/`types`) and repointed `primeApp`. Deleted two obsolete diagnostics
   (`or-smoke.ts`, `ai-selftest.ts`) that also imported the removed `tutor.ts`.
   `corpus:selftest` passes 39/39 and `corpus:validate` passes on the real corpus.
+- **Test harness.** Added Vitest (`npm test`) with 24 unit tests over the pure,
+  high-risk logic: `conjugate.ts` (irregular/regular/separable/reflexive + the
+  reliability gate), `treemap.ts` (proportional areas, full coverage, no overlap,
+  bounds), and `scripts/corpus/matcher.ts` (inflection matching + heuristics).
+- **Navigation redesign (user-requested).** Replaced the top header with a modern
+  collapsible left **Sidebar** (desktop rail; mobile hamburger drawer). IA collapsed
+  to one home screen (Today); **Study launches from "Start session"**; the market is
+  its own **Explore** destination (split out of Home); **Fundamentals** is a
+  destination; **Settings moved into a Profile** with an editable name + level +
+  streak (built implicitly at onboarding). Logo enlarged; the "German Vocab
+  Terminal" subtitle removed.
 
 ---
 
@@ -83,14 +94,19 @@ load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json
 
 ## Next
 
-### 3. Automated tests for the pure logic  ·  M
-**Why.** `package.json` has only `typecheck`. The riskiest logic is deterministic
-and highly testable — `conjugate.ts` (verified forms), `srs.ts`, `treemap.ts`, and
-the miss/briefing/blind-spot math in `store.ts` + `session.ts` (now more logic-heavy).
-**Do.** Add Vitest; unit-test conjugation against the known table, treemap invariants
-(no overlap/gaps), briefing assembly, and blind-spot mode selection. Add `npm test`.
-**Done-when.** `npm test` runs green in CI-style; conjugation/blind-spot regressions
-caught. **Touches.** `package.json`, new `src/**/*.test.ts`.
+### 3. Refresh the README for the new IA  ·  XS
+**Why.** The root `README.md` "Surfaces" section predates the sidebar redesign — it
+still frames the app around the old top-tab navigation and the Today+market merge.
+**Do.** Update it to the sidebar model (Home · Explore · Fundamentals · Profile;
+Study via "Start session").
+**Done-when.** README matches the shipped IA. **Touches.** `README.md`.
+
+### 4. Extend tests to store/session logic  ·  M
+**Why.** The new Vitest harness covers the pure modules; the miss/briefing/
+blind-spot math in `store.ts` + `session.ts` is still untested (it needs a
+localStorage/IndexedDB + data-load harness).
+**Do.** Add a jsdom/fake-storage setup and test `buildBriefing`, `weakModes`, and
+`blindSpotDrills`. **Touches.** `vitest.config`, `src/**/*.test.ts`.
 
 ---
 
