@@ -28,7 +28,7 @@ async function main() {
   }
   const corpus = loadCorpus(PATHS.vocab).filter((w) => w.kind === 'word');
   const sectors = loadSectors(PATHS.sectors);
-  const mining = await primeApp(loadCorpus(PATHS.vocab));
+  const matcher = await primeApp(loadCorpus(PATHS.vocab));
 
   const freq: FreqEntry[] = loadFrequencies(freqPaths, COVERAGE_TOP_N);
 
@@ -39,10 +39,10 @@ async function main() {
   const missing: FreqEntry[] = [];
 
   for (const e of freq) {
-    const seg = mining.annotate(e.word)[0];
+    const seg = matcher.annotate(e.word)[0];
     const isMatch = !!(seg && seg.word);
-    const isNeutral = mining.isNeutralWord(e.word);
-    const isEntity = !isMatch && mining.isLikelyEntity(e.word);
+    const isNeutral = matcher.isNeutralWord(e.word);
+    const isEntity = !isMatch && matcher.isLikelyEntity(e.word);
     const covered = isMatch || isNeutral; // reader isn't blocked by function words
     if (isMatch) matched++; else if (isNeutral) neutral++; else if (isEntity) entity++;
 
@@ -78,7 +78,7 @@ async function main() {
   }
 
   const top2000 = freq.filter((e) => e.rank <= 2000);
-  const cov2000 = top2000.filter((e) => mining.annotate(e.word)[0]?.word || mining.isNeutralWord(e.word)).length;
+  const cov2000 = top2000.filter((e) => matcher.annotate(e.word)[0]?.word || matcher.isNeutralWord(e.word)).length;
 
   // Distributions from the shipped corpus.
   const byLevel: Record<string, number> = {};

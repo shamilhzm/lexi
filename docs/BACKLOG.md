@@ -57,30 +57,25 @@ nobody re-implements them:
   card namespace stays **`gym:`** (documented in `Fundamentals.tsx`) so existing
   drill schedules survive; `gymId`/`dueGymIds`/`gymDue` keep their names as they
   operate on that namespace.
+- **Corpus pipeline unblocked.** Dropped its dependency on the deleted
+  `src/lib/mining.ts`: ported the match half into a self-contained build-time
+  `scripts/corpus/matcher.ts` (takes the corpus explicitly; imports only
+  `conjugate`/`types`) and repointed `primeApp`. Deleted two obsolete diagnostics
+  (`or-smoke.ts`, `ai-selftest.ts`) that also imported the removed `tutor.ts`.
+  `corpus:selftest` passes 39/39 and `corpus:validate` passes on the real corpus.
 
 ---
 
 ## Now
 
-### 1. Fix the corpus pipeline (broken since the prune)  ·  S–M  ⛔ blocks corpus growth
-**Why.** `corpus:selftest` / `corpus:build` crash: `scripts/corpus/lib.ts`
-(`primeApp`), `scripts/ai-selftest.ts`, and `scripts/or-smoke.ts` all import
-`src/lib/mining.ts`, which was **deleted in the July prune**. The reader/mining module
-the pipeline reused for match-testing and enrichment is gone, so no batch can run.
-**Do.** Either restore a minimal build-time `mining.ts` with only the pieces the
-pipeline uses (`enrich`, `cardsFromEnrichment`, `isLikelyEntity`, and whatever
-`primeApp` needs), or refactor those steps to drop the dependency.
-**Done-when.** `npm run corpus:selftest` passes and a dry `corpus:build` runs.
-**Touches.** `src/lib/mining.ts` (restore/replace), `scripts/corpus/lib.ts`,
-`scripts/ai-selftest.ts`, `scripts/or-smoke.ts`.
-
-### 2. Grow the corpus toward ~10k + rebalance A1/A2  ·  M (ongoing) — blocked by #1
+### 1. Grow the corpus toward ~10k + rebalance A1/A2  ·  M (ongoing)
 **Why.** Distribution is B1-heavy with thin A1/A2 — backwards for early reading; core
-high-frequency lemmas are still missing. **Needs a network- and LLM-enabled maintainer
-machine plus human spot-checks of gender/plural/level per the pipeline's own rules —
-not an autonomous bulk commit.**
-**Do.** Once #1 is fixed: `corpus:coverage` → build A1/A2 batches →
-`corpus:validate --strict` → review diff → commit, in reviewable batches.
+high-frequency lemmas are still missing. The pipeline is fixed and green
+(`corpus:selftest` 39/39, `corpus:validate` passes), but growth still **needs a
+network- and LLM-enabled maintainer machine plus human spot-checks of
+gender/plural/level per the pipeline's own rules — not an autonomous bulk commit.**
+**Do.** `corpus:coverage` → build A1/A2 batches → `corpus:validate --strict` → review
+diff → commit, in reviewable batches. Close the top-frequency gaps first.
 **Done-when.** ≥95% of the top ~2,000 lemmas per level; A1/A2 filled; validate green;
 load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json`.
 

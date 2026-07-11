@@ -3,6 +3,7 @@
 // and validation measure exactly what the reader would light up.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { buildMatcher, type Matcher } from './matcher.ts';
 import type { Word, SectorMeta, CEFR } from '../../src/types.ts';
 
 export const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -94,17 +95,13 @@ export class ProvenanceLog {
   }
 }
 
-// ---- prime the real app matcher ------------------------------------------
-// Populates the app's live WORDS binding and the conjugation engine so the
-// genuine mining `annotate()` runs against a given corpus (Goal 6 fidelity).
-export async function primeApp(corpus: Word[]): Promise<typeof import('../../src/lib/mining.ts')> {
-  const data = await import('../../src/data/index.ts');
-  const conj = await import('../../src/lib/conjugate.ts');
-  const mining = await import('../../src/lib/mining.ts');
-  data.registerWords(corpus);
-  conj.setKnownVerbs(corpus.filter((w) => w.pos === 'verb').map((w) => w.term));
-  mining.resetMiningIndex();
-  return mining;
+// ---- prime the corpus matcher --------------------------------------------
+// Builds the pipeline's own matcher (./matcher.ts) over a given corpus, so
+// coverage/build/validate measure exactly what would "light up". Replaces a
+// former dependency on the app's since-removed src/lib/mining.ts; the matcher is
+// self-contained and imports only still-present app modules (conjugate, types).
+export function primeApp(corpus: Word[]): Matcher {
+  return buildMatcher(corpus);
 }
 
 export type { Word, SectorMeta, CEFR };

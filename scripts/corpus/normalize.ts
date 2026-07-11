@@ -1,6 +1,6 @@
 // Normalize enriched inputs into schema-valid Word cards (Goal 5). Mirrors the
-// app's own card shape and the toCard() rules in mining.ts: nouns carry their
-// article on the term and require a gender; every card needs a gloss and (unless
+// app's own Word card shape: nouns carry their article on the term and require a
+// gender; every card needs a gloss and (unless
 // examples are made optional) at least one translated example. Malformed inputs
 // are dropped with a reason rather than shipped.
 import { ALLOWED_POS } from './config.ts';

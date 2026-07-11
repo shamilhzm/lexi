@@ -73,7 +73,7 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
 }
 
 async function probe(full: Word[]) {
-  const mining = await primeApp(full);
+  const matcher = await primeApp(full);
   const rng = mulberry32(99);
   const words = full.filter((w) => w.kind === 'word');
 
@@ -83,7 +83,7 @@ async function probe(full: Word[]) {
       const f = form(w);
       if (!f) continue;
       n++;
-      const seg = mining.annotate(f)[0];
+      const seg = matcher.annotate(f)[0];
       if (seg?.word?.id === w.id) hit++;
     }
     return { n, hit, rate: n ? +(hit / n).toFixed(3) : 1 };
@@ -112,7 +112,7 @@ async function probe(full: Word[]) {
   for (const [form, lemmaTerm] of closedCases) {
     if (!byTerm.has(lemmaTerm)) continue; // only check paradigms whose lemma card exists
     cN++;
-    if (mining.annotate(form)[0]?.word?.term === lemmaTerm) cHit++;
+    if (matcher.annotate(form)[0]?.word?.term === lemmaTerm) cHit++;
   }
   const closedRes = { n: cN, hit: cHit, rate: cN ? +(cHit / cN).toFixed(3) : 1 };
 

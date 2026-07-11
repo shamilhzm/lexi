@@ -64,12 +64,12 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
   const knownTerms = existingTerms(words);
 
   // 1) Discover gaps with the app's own matcher.
-  const mining = await primeApp(full);
+  const matcher = await primeApp(full);
   const freq = loadFrequencies(opts.freqPaths ?? [opts.freqPath], opts.scanN ?? 40000);
   const uncovered: { word: string; rank: number }[] = [];
   for (const e of freq) {
-    if (mining.annotate(e.word)[0]?.word) continue;      // already lights up
-    if (mining.isNeutralWord(e.word) || mining.isLikelyEntity(e.word)) continue;
+    if (matcher.annotate(e.word)[0]?.word) continue;      // already lights up
+    if (matcher.isNeutralWord(e.word) || matcher.isLikelyEntity(e.word)) continue;
     uncovered.push({ word: e.word, rank: e.rank });
   }
 
