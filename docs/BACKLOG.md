@@ -91,6 +91,22 @@ nobody re-implements them:
   interleaving, flip-order preservation, `MAX_FRESH_DRILLS` cap) and the streak/visit
   math (fake-timer consecutive-day + gap cases). Suite now 37/37.
 
+### Shipped 2026-07-12
+
+- **High-frequency function words → exercises, not flashcards.** The coverage gap's
+  top "missing" lemmas are dominated by function words that make poor translation
+  cards (a bare "nur = only" teaches nothing about placement/nuance). Added **5
+  curated grammar points / 25 exercises** via `grammar-supplement.ts` — Gradpartikeln
+  (sehr/ganz/ziemlich/gar), Fokuspartikeln (nur/auch/sogar/selbst), Konjunktionen
+  (sondern vs. aber, sowie), Textadverbien (bereits/nun/zunächst/schließlich),
+  Modalpartikeln II (eigentlich/eben/halt/wohl). Chosen to *complement* not duplicate
+  the existing connector/correlative points; pronouns, entities and filler
+  interjections excluded. Grammar cards 84 → 89; `corpus:validate` green.
+- **Fixed a broken C2 exercise.** The `Modalpartikeln` "error" drill had an
+  out-of-range answer index (8 for an 8-token sentence), so it could never be graded
+  correct; repointed to `sofort` (7), matching its own explanation. A schema sweep
+  over all 509 exercises now passes clean.
+
 ---
 
 ## Now

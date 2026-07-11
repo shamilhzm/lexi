@@ -2238,6 +2238,61 @@
           "explain": "gehen = direction (wohin?) → in das = ins, not in dem (im)."
         }
       ]
+    },
+    {
+      "title": "Gradpartikeln: sehr, ganz, ziemlich, gar",
+      "summary": "sehr / ziemlich / ganz scale an adjective; gar nicht = not at all.",
+      "rule": "Degree particles stand directly before the adjective or adverb they scale and never take an ending: sehr gut (very good), ziemlich groß (quite big), ganz neu (completely new, before an article-less adjective). To strengthen a negation, gar or überhaupt reinforce it: gar nicht = not at all, gar kein = none whatsoever.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Der Film war ___ gut.",
+          "options": [
+            "sehr",
+            "viel",
+            "gut"
+          ],
+          "answer": 0,
+          "explain": "Intensify an adjective → sehr gut."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin ___ müde und gehe ins Bett.",
+          "options": [
+            "ziemlich",
+            "ziemliche",
+            "viele"
+          ],
+          "answer": 0,
+          "explain": "Degree particles take no ending → ziemlich müde."
+        },
+        {
+          "kind": "type",
+          "prompt": "Das Zimmer ist ___ neu. (completely)",
+          "accept": [
+            "ganz"
+          ],
+          "explain": "ganz + article-less adjective = completely → ganz neu."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Say \"not at all tired\":",
+          "options": [
+            "gar nicht müde",
+            "nicht gar müde",
+            "gar keine müde"
+          ],
+          "answer": 0,
+          "explain": "gar nicht = not at all."
+        },
+        {
+          "kind": "error",
+          "prompt": "Der Kaffee ist sehre heiß.",
+          "answer": 3,
+          "fix": "Der Kaffee ist sehr heiß.",
+          "explain": "sehr never takes an ending → sehr."
+        }
+      ]
     }
   ],
   "B1": [
@@ -3308,6 +3363,121 @@
           "explain": "Plural drops ein → was für."
         }
       ]
+    },
+    {
+      "title": "Fokuspartikeln: nur, auch, sogar, selbst",
+      "summary": "Focus particles highlight the element right after them.",
+      "rule": "Focus particles pick out one part of the sentence and stand directly before it: nur = only (restricts), auch = also/too (adds), sogar = even (a surprising addition). selbst before the focused noun also means even (Selbst der Chef kam), but after a noun it means -self (Der Chef selbst kam). Moving the particle shifts the meaning: Nur ich habe ihn gesehen (only I) vs. Ich habe nur ihn gesehen (only him).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ Anna hat bestanden, sonst niemand.",
+          "options": [
+            "Nur",
+            "Auch",
+            "Sogar"
+          ],
+          "answer": 0,
+          "explain": "\"sonst niemand\" marks a restriction → Nur Anna."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Say \"Even the children helped.\":",
+          "options": [
+            "Sogar die Kinder haben geholfen.",
+            "Die Kinder sogar haben geholfen.",
+            "Die Kinder haben geholfen sogar."
+          ],
+          "answer": 0,
+          "explain": "sogar = even, directly before the focused noun."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ ich weiß die Antwort nicht. (Even I)",
+          "accept": [
+            "Sogar",
+            "Selbst"
+          ],
+          "explain": "sogar / selbst before the subject = even I."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich trinke ___ Wasser, keinen Kaffee.",
+          "options": [
+            "nur",
+            "auch",
+            "sogar"
+          ],
+          "answer": 0,
+          "explain": "Restriction \"only water\" → nur."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Chef ___ hat angerufen. (the boss himself)",
+          "options": [
+            "selbst",
+            "sogar",
+            "nur"
+          ],
+          "answer": 0,
+          "explain": "selbst AFTER the noun = himself."
+        }
+      ]
+    },
+    {
+      "title": "Konjunktionen: sondern vs. aber, sowie",
+      "summary": "sondern corrects a negation; aber contrasts; sowie links like und.",
+      "rule": "sondern corrects a negated statement and means \"but rather\": Das ist nicht rot, sondern blau. Use aber for a plain contrast that does not replace a negated element: Es ist klein, aber gemütlich. sowie links items like und, mostly in writing: Getränke sowie Snacks. All three are coordinating — the verb does not move.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Das ist nicht mein Buch, ___ deins.",
+          "options": [
+            "sondern",
+            "aber",
+            "oder"
+          ],
+          "answer": 0,
+          "explain": "Correcting a negation → sondern."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin müde, ___ ich mache weiter.",
+          "options": [
+            "aber",
+            "sondern",
+            "sowie"
+          ],
+          "answer": 0,
+          "explain": "Plain contrast, nothing negated → aber."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wir verkaufen Kaffee ___ Tee. (as well as)",
+          "accept": [
+            "sowie"
+          ],
+          "explain": "sowie = as well as, links a list."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which is correct?",
+          "options": [
+            "Er ist nicht groß, sondern klein.",
+            "Er ist nicht groß, aber klein.",
+            "Er ist groß, sondern klein."
+          ],
+          "answer": 0,
+          "explain": "After a negation, the replacement uses sondern."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich trinke keinen Tee, aber Kaffee.",
+          "answer": 4,
+          "fix": "Ich trinke keinen Tee, sondern Kaffee.",
+          "explain": "After a negation the correction uses sondern, not aber."
+        }
+      ]
     }
   ],
   "B2": [
@@ -4265,6 +4435,122 @@
           "explain": "Passive perfect → worden, not geworden."
         }
       ]
+    },
+    {
+      "title": "Textadverbien: bereits, nun, zunächst, schließlich",
+      "summary": "Adverbs that order and structure time and argument.",
+      "rule": "These adverbs guide the reader through steps and time: bereits = already (formal schon); nun = now / well (also opens a point); zunächst = at first; schließlich = finally / after all; inzwischen and mittlerweile = meanwhile, by now; derzeit = currently. In position 1 they trigger verb-second inversion: Zunächst müssen wir planen.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ klären wir das Ziel, dann den Plan. (at first)",
+          "options": [
+            "Zunächst",
+            "Schließlich",
+            "Inzwischen"
+          ],
+          "answer": 0,
+          "explain": "The first step → zunächst."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat die Arbeit ___ beendet. (already, formal)",
+          "options": [
+            "bereits",
+            "nun",
+            "damals"
+          ],
+          "answer": 0,
+          "explain": "bereits = already (formal schon)."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ ist es zu spät, wir müssen warten. (by now)",
+          "accept": [
+            "Inzwischen",
+            "Mittlerweile"
+          ],
+          "explain": "inzwischen / mittlerweile = by now, meanwhile."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Correct inversion?",
+          "options": [
+            "Zunächst gehen wir einkaufen.",
+            "Zunächst wir gehen einkaufen.",
+            "Wir zunächst gehen einkaufen."
+          ],
+          "answer": 0,
+          "explain": "A position-1 adverb keeps the verb second (gehen)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ hat sie doch noch gewonnen. (finally / after all)",
+          "options": [
+            "Schließlich",
+            "Bereits",
+            "Zunächst"
+          ],
+          "answer": 0,
+          "explain": "schließlich = finally / after all."
+        }
+      ]
+    },
+    {
+      "title": "Modalpartikeln II: eigentlich, eben, halt, wohl",
+      "summary": "Unstressed flavouring particles that add attitude.",
+      "rule": "Modal particles colour a statement without changing its facts and are never stressed. eigentlich softens or adds \"actually / by the way\" (Was machst du eigentlich?); eben and halt express resignation, \"just the way it is\" (eben more neutral/northern, halt southern: Das ist halt so); wohl marks a guess, \"probably\" (Er ist wohl krank). They sit in the middle field, after the finite verb and any pronouns.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Wie spät ist es ___? (by the way)",
+          "options": [
+            "eigentlich",
+            "eben",
+            "wohl"
+          ],
+          "answer": 0,
+          "explain": "eigentlich softens a question = actually / by the way."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er antwortet nicht; er ist ___ beschäftigt. (probably)",
+          "options": [
+            "wohl",
+            "halt",
+            "eigentlich"
+          ],
+          "answer": 0,
+          "explain": "wohl = probably, marks a guess."
+        },
+        {
+          "kind": "type",
+          "prompt": "Das kann man nicht ändern, das ist ___ so. (just, resigned)",
+          "accept": [
+            "eben",
+            "halt"
+          ],
+          "explain": "eben / halt = just the way it is."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Where does the particle go?",
+          "options": [
+            "Das war eigentlich eine gute Idee.",
+            "Das eigentlich war eine gute Idee.",
+            "Eigentlich das war eine gute Idee."
+          ],
+          "answer": 0,
+          "explain": "A modal particle sits in the middle field; the finite verb stays second."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wohl er ist krank.",
+          "answer": 0,
+          "fix": "Er ist wohl krank.",
+          "explain": "Modal particles sit in the middle field, not in position 1."
+        }
+      ]
     }
   ],
   "C1": [
@@ -5153,7 +5439,7 @@
         {
           "kind": "error",
           "prompt": "Setz dich eben doch mal bitte hin sofort.",
-          "answer": 8,
+          "answer": 7,
           "fix": "Setz dich doch mal bitte hin.",
           "explain": "Particles cluster before the verb complement; sofort over-stuffs the imperative."
         }
