@@ -48,31 +48,36 @@ nobody re-implements them:
 - **Housekeeping.** Filled the project `CLAUDE.md` context block; removed the stale
   **Mine** surface from the README; pointed the header **Support** link at the
   GitHub repo (was `href="#"`).
+- **Market coarsened to 10 categories.** The 16 fine corpus groups roll up to 10
+  balanced top-level categories at load (`GROUP_SUPER` in `src/data/index.ts`), so
+  the treemap's first level reads on a phone. App-side only; the corpus JSON and the
+  284 study sectors are untouched.
 
 ---
 
 ## Now
 
-### 1. Grow the corpus toward ~10k + rebalance A1/A2  ·  M (ongoing)
-**Why.** Distribution is B1-heavy with thin A1/A2 — backwards for early reading;
-core high-frequency lemmas are still missing. The pipeline exists; this is running
-it in reviewable batches.
-**Do.** `corpus:coverage` → build A1/A2 batches → `corpus:validate --strict` →
-review diff → commit. Close the top-frequency gaps first.
-**Done-when.** Coverage report shows ≥95% of the top ~2,000 lemmas per level; A1/A2
-filled out; validate green; load size still acceptable. **Touches.**
-`scripts/corpus/*`, `public/data/*.json`.
+### 1. Fix the corpus pipeline (broken since the prune)  ·  S–M  ⛔ blocks corpus growth
+**Why.** `corpus:selftest` / `corpus:build` crash: `scripts/corpus/lib.ts`
+(`primeApp`), `scripts/ai-selftest.ts`, and `scripts/or-smoke.ts` all import
+`src/lib/mining.ts`, which was **deleted in the July prune**. The reader/mining module
+the pipeline reused for match-testing and enrichment is gone, so no batch can run.
+**Do.** Either restore a minimal build-time `mining.ts` with only the pieces the
+pipeline uses (`enrich`, `cardsFromEnrichment`, `isLikelyEntity`, and whatever
+`primeApp` needs), or refactor those steps to drop the dependency.
+**Done-when.** `npm run corpus:selftest` passes and a dry `corpus:build` runs.
+**Touches.** `src/lib/mining.ts` (restore/replace), `scripts/corpus/lib.ts`,
+`scripts/ai-selftest.ts`, `scripts/or-smoke.ts`.
 
-### 2. Coarsen the market's top level to ~8–10 categories  ·  S–M
-**Why.** The drill-down treemap shipped, but level 1 still renders all 16 theme
-groups — denser than the "~8–10 large tiles" the mobile design calls for. This is a
-data/taxonomy change, not UI.
-**Do.** Add a coarse super-group layer above the 16 groups (map each group → one of
-~8 categories) in `sectors.json` or a grouping map, and render super-groups at level
-1 (groups become the middle drill level). Keep FSRS ids and sector names unchanged.
-**Done-when.** Level 1 shows ~8–10 tiles, readable at 380px; the drill path stays
-coherent. **Touches.** `public/data/sectors.json` (or a grouping map),
-`src/views/Markt.tsx`, `src/views/Home.tsx`.
+### 2. Grow the corpus toward ~10k + rebalance A1/A2  ·  M (ongoing) — blocked by #1
+**Why.** Distribution is B1-heavy with thin A1/A2 — backwards for early reading; core
+high-frequency lemmas are still missing. **Needs a network- and LLM-enabled maintainer
+machine plus human spot-checks of gender/plural/level per the pipeline's own rules —
+not an autonomous bulk commit.**
+**Do.** Once #1 is fixed: `corpus:coverage` → build A1/A2 batches →
+`corpus:validate --strict` → review diff → commit, in reviewable batches.
+**Done-when.** ≥95% of the top ~2,000 lemmas per level; A1/A2 filled; validate green;
+load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json`.
 
 ---
 

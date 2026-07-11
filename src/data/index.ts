@@ -22,6 +22,30 @@ export const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 export const USER_WORDS_KEY = 'lexi.userwords.v1';
 export const USER_GROUP = 'Mein Wortschatz';
 
+// Coarsen the 16 fine theme groups from the corpus into ~10 balanced top-level
+// categories, so the market's first level is readable (especially on a phone).
+// This is an app-side presentation choice applied at load — the corpus JSON stays
+// canonical; the 284 sectors remain the study granularity. Any group not listed
+// (e.g. the user's "Mein Wortschatz") passes through unchanged.
+const GROUP_SUPER: Record<string, string> = {
+  'Language Building Blocks': 'Building Blocks',
+  'Grammar': 'Building Blocks',
+  'Core Vocabulary': 'Core Vocabulary',
+  'Society & Politics': 'Society & Politics',
+  'Work & Economy': 'Work & Economy',
+  'Tech & Science': 'Work & Economy',
+  'Education & Language': 'Education & Language',
+  'Arts, Media & Leisure': 'Arts & Leisure',
+  'Travel & Transport': 'Travel & Nature',
+  'Nature & Environment': 'Travel & Nature',
+  'Home & Daily Life': 'Daily Life',
+  'Food & Drink': 'Daily Life',
+  'Shopping & Clothing': 'Daily Life',
+  'Health & Body': 'People & Health',
+  'Feelings & Relationships': 'People & Health',
+  'Miscellaneous': 'Miscellaneous',
+};
+
 function loadUserWords(): Word[] {
   try {
     const a = JSON.parse(localStorage.getItem(USER_WORDS_KEY) || '[]');
@@ -87,6 +111,9 @@ export async function initData(): Promise<void> {
 
   WORDS = words;
   SECTORS = sectors;
+
+  // Roll the fine corpus groups up to the coarse market categories (see GROUP_SUPER).
+  for (const s of SECTORS) s.group = GROUP_SUPER[s.group] ?? s.group;
 
   // Fold in the learner's own words before the first index build.
   const user = loadUserWords();
