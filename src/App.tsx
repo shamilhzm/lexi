@@ -8,7 +8,7 @@ import { GraduationCap, Heart, Sunrise, Settings as SettingsIcon, MoreHorizontal
 import Ticker from './components/Ticker.tsx';
 import Review from './views/Review.tsx';
 import Home from './views/Home.tsx';
-import Gym, { MODE_TAG, type Mode as GymMode } from './views/Gym.tsx';
+import Fundamentals, { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
 import Settings from './views/Settings.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
@@ -17,7 +17,7 @@ import { useStore } from './useStore.ts';
 import { primeVoices, fmt } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'home' | 'review' | 'gym' | 'placement' | 'settings';
+export type View = 'home' | 'review' | 'fundamentals' | 'placement' | 'settings';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 function Logo() {
@@ -55,7 +55,7 @@ export default function App() {
   const [view, setView] = useState<View>('home');
   const [target, setTarget] = useState<Target>(ALL);
   const [homeInit, setHomeInit] = useState<'home' | 'decks'>('home');
-  const [gymInit, setGymInit] = useState<GymMode | 'grammar' | null>(null);
+  const [drillInit, setDrillInit] = useState<DrillMode | 'grammar' | null>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [moreOpen, setMoreOpen] = useState(false);
 
@@ -64,7 +64,7 @@ export default function App() {
   const study = (t: Target) => { setTarget(t); setView('review'); };
   const go = (v: View) => {
     if (v === 'review') setTarget(ALL);
-    if (v === 'gym') setGymInit(null);
+    if (v === 'fundamentals') setDrillInit(null);
     if (v === 'home') setHomeInit('home');
     setGuided(false); setView(v); setMoreOpen(false);
   };
@@ -72,12 +72,12 @@ export default function App() {
   const startFirstRun = () => { setGuided(true); setView('placement'); };
   const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
   const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
-  /** Today's grammar-drills widget → straight into a specific drill (or the exercise bank). */
-  const openDrill = (m: GymMode | 'grammar') => { setGymInit(m); setView('gym'); };
-  /** Blind Spots → the matching Gym drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
+  /** Today's Fundamentals widget → straight into a specific drill (or the exercise bank). */
+  const openDrill = (m: DrillMode | 'grammar') => { setDrillInit(m); setView('fundamentals'); };
+  /** Blind Spots → the matching Fundamentals drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
   const drillFor = (tag?: string) => {
-    const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as GymMode | undefined) ?? 'grammar';
-    setGymInit(mode); setView('gym');
+    const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as DrillMode | undefined) ?? 'grammar';
+    setDrillInit(mode); setView('fundamentals');
   };
 
   const t = totals();
@@ -146,8 +146,8 @@ export default function App() {
             {view === 'home' && <Home onStudy={study} onStudyAll={() => study(ALL)} onDrill={openDrill} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} initial={homeInit} />}
             {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('home'); }} />}
             {view === 'settings' && <Settings />}
-            {view === 'gym' && <Gym initial={gymInit} />}
-            {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setHomeInit('decks'); setView('home'); }} onDrills={() => { setGymInit(null); setView('gym'); }} />}
+            {view === 'fundamentals' && <Fundamentals initial={drillInit} />}
+            {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setHomeInit('decks'); setView('home'); }} onDrills={() => { setDrillInit(null); setView('fundamentals'); }} />}
             </ErrorBoundary>
           </motion.div>
         </AnimatePresence>

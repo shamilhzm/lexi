@@ -12,7 +12,7 @@ import LevelProgress from '../components/LevelProgress.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import { blindSpotDrills } from '../session.ts';
 import { BY_ID } from '../data/index.ts';
-import { MODES, type Mode } from './Gym.tsx';
+import { MODES, type Mode } from './Fundamentals.tsx';
 import type { Target, Word } from '../types.ts';
 
 export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, children }:

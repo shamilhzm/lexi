@@ -1,8 +1,10 @@
-// Grammatik-Studio — interactive drills with their own spaced-repetition track.
-// Four modes: der/die/das gender, noun plurals, verb conjugation (Präsens /
+// Grammar Fundamentals — interactive drills with their own spaced-repetition
+// track. Four modes: der/die/das gender, noun plurals, verb conjugation (Präsens /
 // Präteritum / Partizip II via the conjugation engine), and cloze from example
 // sentences. Each drilled unit gets an FSRS card under a namespaced id, so the
-// gym schedules itself without touching the vocabulary stats.
+// drills schedule themselves without touching the vocabulary stats.
+// NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
+// storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
 import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
@@ -32,6 +34,8 @@ const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && 
   && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+// Legacy storage namespace: kept as `gym:` so learners' existing drill schedules
+// carry through the "Gym → Fundamentals" rename. Do not change this prefix.
 const id = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
 /** FSRS card id for a word's drill in a given mode (shared with mixed sessions). */
 export const gymId = id;
@@ -69,7 +73,7 @@ export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Pick the missing word in a real sentence.' },
 ];
 
-export default function Gym({ initial = null }: { initial?: Mode | 'grammar' | null }) {
+export default function Fundamentals({ initial = null }: { initial?: Mode | 'grammar' | null }) {
   const [mode, setMode] = useState<Mode | 'grammar' | null>(initial);
   if (mode === 'grammar') return <GrammarDrill onExit={() => setMode(null)} />;
   if (mode) return <Drill mode={mode} onExit={() => setMode(null)} />;

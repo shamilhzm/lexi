@@ -7,7 +7,7 @@ import { Volume2, ArrowLeft, Check, X } from 'lucide-react';
 import { review, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Gym.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';

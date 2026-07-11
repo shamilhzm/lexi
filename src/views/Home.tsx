@@ -9,7 +9,7 @@ import Today from './Today.tsx';
 import Markt from './Markt.tsx';
 import Decks from './Decks.tsx';
 import Wortkarte from './Wortkarte.tsx';
-import type { Mode } from './Gym.tsx';
+import type { Mode } from './Fundamentals.tsx';
 import type { Target } from '../types.ts';
 
 type Level = 'home' | 'decks' | 'karte';

@@ -1,6 +1,6 @@
 // Grammatik-Übungen — the 444 authored exercises on FSRS tracks. Renders the
 // five widget kinds (choose, mc, type, order, error); wrong answers log a
-// blind-spot tag (the grammar point's title). Reached from the Gym.
+// blind-spot tag (the grammar point's title). Reached from Grammar Fundamentals.
 import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Check, X, Loader2 } from 'lucide-react';

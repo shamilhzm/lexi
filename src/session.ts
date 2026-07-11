@@ -8,7 +8,7 @@ import type { Word, Target } from './types.ts';
 import { buildSession, cardOf, wordsFor, dueGymIds, missStats } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue } from './srs.ts';
-import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/Gym.tsx';
+import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/Fundamentals.tsx';
 
 export interface SessionItem {
   type: 'flip' | Mode;
@@ -20,7 +20,7 @@ const GAP = 3;               // a word's drill surfaces ~3 items after its flip
 const MAX_FRESH_DRILLS = 10; // cap first-time drills so sessions stay bounded
 const MAX_BLIND_SPOTS = 4;   // cap blind-spot drills woven into a session
 
-/** Gym drill modes ranked by how often you miss them (last 30 days), worst first. */
+/** Drill modes ranked by how often you miss them (last 30 days), worst first. */
 function weakModes(): Mode[] {
   const byTag = new Map<string, Mode>();
   (Object.entries(MODE_TAG) as [Mode, string][]).forEach(([m, tag]) => byTag.set(tag, m));

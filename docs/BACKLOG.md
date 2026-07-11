@@ -52,6 +52,11 @@ nobody re-implements them:
   balanced top-level categories at load (`GROUP_SUPER` in `src/data/index.ts`), so
   the treemap's first level reads on a phone. App-side only; the corpus JSON and the
   284 study sectors are untouched.
+- **Gym → Fundamentals rename.** View id `gym`→`fundamentals`, `Gym.tsx`→
+  `Fundamentals.tsx` (git-renamed), component + App state renamed. The persisted FSRS
+  card namespace stays **`gym:`** (documented in `Fundamentals.tsx`) so existing
+  drill schedules survive; `gymId`/`dueGymIds`/`gymDue` keep their names as they
+  operate on that namespace.
 
 ---
 
@@ -83,19 +88,7 @@ load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json
 
 ## Next
 
-### 3. Finish the "Grammar Fundamentals" rename internally  ·  S
-**Why.** UI says "Grammar Fundamentals" but the view id, file, and props are still
-`gym`/`Gym.tsx`. Cosmetic, but the internal/external mismatch trips up new readers.
-**Do.** Rename the `gym` view id → `fundamentals` (and optionally the file), keeping
-`MODE_TAG`/`gymId` FSRS ids **unchanged** so existing schedules survive.
-**Done-when.** No user-facing "Gym"; FSRS card ids untouched; tsc/build clean.
-**Touches.** `src/App.tsx`, `src/views/Gym.tsx`, callers.
-
----
-
-## Later
-
-### 4. Automated tests for the pure logic  ·  M
+### 3. Automated tests for the pure logic  ·  M
 **Why.** `package.json` has only `typecheck`. The riskiest logic is deterministic
 and highly testable — `conjugate.ts` (verified forms), `srs.ts`, `treemap.ts`, and
 the miss/briefing/blind-spot math in `store.ts` + `session.ts` (now more logic-heavy).
