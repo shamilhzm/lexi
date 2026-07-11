@@ -125,8 +125,9 @@ export default function App() {
           </div>
         </nav>
         <div className="flex-1" />
-        {/* TODO: point at the real pricing/support page once billing is set up. */}
-        <a href="#" className="hidden sm:flex items-center gap-1.5 text-[11px] text-dim hover:text-amber border border-line rounded-full px-2.5 py-1 transition-colors" title="Support Lexi's development">
+        {/* Points at the repo for now (star / contribute); swap for a pricing/support page once billing exists. */}
+        <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
+          className="hidden sm:flex items-center gap-1.5 text-[11px] text-dim hover:text-amber border border-line rounded-full px-2.5 py-1 transition-colors" title="Support Lexi's development on GitHub">
           <Heart size={12} /> Support
         </a>
         <div className="text-[11px] text-dim hidden md:block">{fmt(t.count)} cards · A1–C2</div>

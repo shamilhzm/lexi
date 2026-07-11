@@ -32,7 +32,7 @@ export default function Home({ onStudy, onStudyAll, onDrill, onPlacement, onGuid
     return (
       <Today onStart={onStudy} onPlacement={onPlacement} onGuidedStart={onGuidedStart} onDrill={onDrill} onBlindDrill={onBlindDrill}>
         <div className="mt-5">
-          <Markt onOpenGroup={openGroup} onStudyGroup={(g) => onStudy({ kind: 'group', name: g })} onStudyAll={onStudyAll} />
+          <Markt onStudy={onStudy} onStudyGroup={(g) => onStudy({ kind: 'group', name: g })} onStudyAll={onStudyAll} onOpenGroup={openGroup} />
         </div>
       </Today>
     );

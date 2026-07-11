@@ -37,9 +37,6 @@ Planning and strategy live in [`docs/`](docs/). Start with
 - **Grammar Fundamentals** — interactive grammar drills, each on its own spaced-repetition track:
   der/die/das gender, noun plurals, verb conjugation (Präsens · Präteritum ·
   Partizip II, via a rule-based engine), and cloze from example sentences.
-- **Mine** — sentence mining: paste any German text and Lexi finds the words you
-  haven't learned yet, dropping them into a focused session. Words outside the
-  lexicon can be auto-enriched into your own cards with an optional API key.
 - **Üben** — the flip-card review loop: Space to flip, 1–4 to grade, live FSRS
   interval previews, and German text-to-speech pronunciation. Handles grammar cards.
 - **Decks** — every sector as a card, filterable by theme group and sortable by
