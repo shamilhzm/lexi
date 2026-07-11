@@ -4,6 +4,9 @@ dist
 .DS_Store
 .vercel
 
+# Vite/Vitest write a transient timestamp module next to the config on each run.
+*.timestamp-*.mjs
+
 # Corpus pipeline: raw third-party dumps and intermediate reports are cached
 # locally and never redistributed (only derived facts + attributed content ship).
 scripts/corpus/data/

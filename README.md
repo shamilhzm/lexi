@@ -1,10 +1,12 @@
 # Lexi
 
-**A German vocabulary terminal (A1–C2).** The home screen is a live *knowledge
-heatmap*: a squarified treemap where every tile is a theme group —
-**area = cards in the group, colour = % you've learned** (slate → green).
-Click a tile to drill into its sectors; right-click to study it. A Bloomberg-style
-terminal for working through German vocabulary with spaced repetition.
+**A German vocabulary terminal (A1–C2).** Lexi opens on **Today** — a daily
+briefing that assembles your session from what's due (FSRS) plus fresh cards from
+your weakest sectors; a single **Start session** launches it. **Explore** holds the
+live *knowledge heatmap*: a squarified treemap where every tile is a theme group —
+**area = cards in the group, colour = % you've learned** (slate → green). Click a
+tile to drill into its sectors; right-click to study it. A Bloomberg-style terminal
+for working through German vocabulary with spaced repetition.
 
 Lexi is built for everyone learning German and runs entirely on your device — no
 accounts, no tracking.
@@ -29,20 +31,30 @@ Planning and strategy live in [`docs/`](docs/). Start with
 
 ## Surfaces
 
-- **Today** — the daily briefing ("markets open"): a one-tap session auto-assembled
-  from what's due (FSRS) plus fresh cards from your weakest sectors, with a streak
-  counter and an optional exam countdown that back-plans a daily target.
-- **Knowledge Heatmap** — the coverage treemap (by theme group), a KPI strip, a live
-  group ticker, and a **CEFR level filter** that rescopes the whole terminal.
-- **Grammar Fundamentals** — interactive grammar drills, each on its own spaced-repetition track:
-  der/die/das gender, noun plurals, verb conjugation (Präsens · Präteritum ·
+The app is a collapsible left **Sidebar** (a hamburger drawer on phones) over one
+content area — four destinations plus the session:
+
+- **Home (Today)** — the daily briefing ("markets open"): **Start session**
+  auto-assembles a queue from what's due (FSRS) plus fresh cards from your weakest
+  sectors. **Blind Spots** expand inline into one-tap drills, and a Fundamentals
+  widget previews today's grammar. Streak counter; the first run routes through a
+  placement test.
+- **Explore** — the coverage **Knowledge Heatmap** (treemap by theme group) with a
+  KPI strip and live ticker, a **Markt / Liste** toggle, and **Decks**: every sector
+  as a card, filterable by group and sortable by urgency / size / progress. A CEFR
+  **level filter** rescopes the whole terminal. Opening a sector shows its
+  **Wortkarte** — a semantic map (hub + word rings, synonym links, node colour =
+  learning status).
+- **Fundamentals** — interactive grammar drills, each on its own spaced-repetition
+  track: der/die/das gender, noun plurals, verb conjugation (Präsens · Präteritum ·
   Partizip II, via a rule-based engine), and cloze from example sentences.
-- **Üben** — the flip-card review loop: Space to flip, 1–4 to grade, live FSRS
-  interval previews, and German text-to-speech pronunciation. Handles grammar cards.
-- **Decks** — every sector as a card, filterable by theme group and sortable by
-  urgency / size / progress; study a sector or a whole group.
-- **Wortkarte** — a semantic map of a sector (hub + word rings, synonym links,
-  node colour = learning status).
+- **Profile** — your display name, CEFR level, and streak. **Settings** live here:
+  theme, review intensity (FSRS desired retention), the HD German voice, and
+  backup / restore.
+
+**Start session (Üben)** — the flip-card review loop launched from the sidebar:
+Space to flip, 1–4 to grade, live FSRS interval previews, and German text-to-speech,
+with grammar drills interleaved for the words you're seeing.
 
 ## Stack
 

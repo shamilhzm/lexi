@@ -74,6 +74,20 @@ nobody re-implements them:
   destination; **Settings moved into a Profile** with an editable name + level +
   streak (built implicitly at onboarding). Logo enlarged; the "German Vocab
   Terminal" subtitle removed.
+- **README refreshed for the sidebar IA** (was Next #3). Rewrote the intro + the
+  "Surfaces" section around Home · Explore · Fundamentals · Profile, with Study via
+  "Start session"; dropped the cut exam countdown and the old top-tab framing.
+  `README.md`.
+- **Settings AI-provider widget removed** (resolves the parked fold-in). The
+  vestigial in-app provider form is gone from `Settings.tsx` along with its local
+  orphans; `lib/ai.ts` stays for the build-time corpus enrichment. *Left in place,
+  flagged:* the now-unused `aiConfig`/`setAiConfig`/`apiKey`/`setApiKey` in
+  `store.ts` (remove when re-adding a tutor is truly off the table).
+- **Store/session tests** (was Next #4). Added a Node-env Vitest harness — a
+  localStorage shim (`src/test-setup.ts`) + per-test mocked IndexedDB and a fresh
+  module graph — covering `buildBriefing`, `weakestSectors`, and `blindSpotDrills`
+  (exercising the private `weakModes` ranking). `vitest.config.ts`,
+  `src/store-session.test.ts`. Suite now 31/31.
 
 ---
 
@@ -94,19 +108,12 @@ load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json
 
 ## Next
 
-### 3. Refresh the README for the new IA  ·  XS
-**Why.** The root `README.md` "Surfaces" section predates the sidebar redesign — it
-still frames the app around the old top-tab navigation and the Today+market merge.
-**Do.** Update it to the sidebar model (Home · Explore · Fundamentals · Profile;
-Study via "Start session").
-**Done-when.** README matches the shipped IA. **Touches.** `README.md`.
+_Clear — the two staged items (README refresh, store/session tests) shipped
+2026-07-11. Promote the next candidate from Later or the parked decisions._
 
-### 4. Extend tests to store/session logic  ·  M
-**Why.** The new Vitest harness covers the pure modules; the miss/briefing/
-blind-spot math in `store.ts` + `session.ts` is still untested (it needs a
-localStorage/IndexedDB + data-load harness).
-**Do.** Add a jsdom/fake-storage setup and test `buildBriefing`, `weakModes`, and
-`blindSpotDrills`. **Touches.** `vitest.config`, `src/**/*.test.ts`.
+Follow-on now that the harness exists: extend the Node-env store/session tests to
+`buildMixedSession` (interleaving + orphan-due absorption) and the streak/visit
+math. **Touches.** `src/store-session.test.ts`.
 
 ---
 
@@ -117,10 +124,11 @@ localStorage/IndexedDB + data-load harness).
   DESIGN-REVIEW still recommends paper-for-the-card-in-hand. A *decision*, not a bug.
 - **AI tutor & the Reader/Mine flow.** ROADMAP's two flagship paid features; **cut
   from the core loop** in the July prune. `lib/ai.ts` and the OpenAI-compatible
-  client still exist (corpus enrichment + the Settings AI provider), so re-adding a
-  tutor or a known-word-coloured reader is feasible later — but it's roadmap-gated.
-  *Note:* the Settings "AI provider" section now only serves that vestigial path; fold
-  it in or hide it if the tutor/reader stay cut.
+  client still exist for **build-time corpus enrichment** (`scripts/corpus/enrich-llm.ts`),
+  so re-adding a tutor or a known-word-coloured reader is feasible later — but it's
+  roadmap-gated. The in-app Settings "AI provider" widget has now been **removed**;
+  its `store.ts` config accessors (`aiConfig`/`setAiConfig`/`apiKey`/`setApiKey`)
+  linger unused and can be deleted if a tutor is definitively off the table.
 - **Billing / €5 supporter tier.** The whole freemium split in `ROADMAP.md` depends
   on it. No infra yet; the "Support" link (now → GitHub) and any Pro gating wait on this.
 
