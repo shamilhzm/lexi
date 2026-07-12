@@ -2,10 +2,11 @@
 // from placement, streak from visits) with an editable display name. Settings and
 // data backup live inside it (reached from the sidebar's profile button).
 import { useState } from 'react';
-import { Flame, Pencil, Check, Heart } from 'lucide-react';
+import { Flame, Pencil, Check, Heart, Compass } from 'lucide-react';
 import { profileName, setProfileName, placementLevel, streak, totals } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
+import TopicPicker from '../components/TopicPicker.tsx';
 import Settings from './Settings.tsx';
 
 export default function Profile() {
@@ -50,6 +51,16 @@ export default function Profile() {
         <Stat label="Known" value={t.known} />
         <Stat label="Learned" value={t.learned} />
         <Stat label="Due" value={t.due} />
+      </div>
+
+      {/* Interest topics — bias the daily fresh-vocabulary pick. */}
+      <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-3">
+        <div className="flex items-center gap-2 mb-1">
+          <Compass size={16} className="text-amber" />
+          <h2 className="text-[15px] font-semibold">Topics you care about</h2>
+        </div>
+        <p className="text-[13px] text-dim mb-3">Lexi pulls your new words from these first.</p>
+        <TopicPicker />
       </div>
 
       {/* Settings + data backup live inside the profile. */}

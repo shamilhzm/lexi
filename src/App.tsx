@@ -13,6 +13,7 @@ import Today from './views/Today.tsx';
 import Explore from './views/Explore.tsx';
 import Fundamentals, { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
+import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
@@ -20,7 +21,7 @@ import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'home' | 'explore' | 'fundamentals' | 'review' | 'placement' | 'profile';
+export type View = 'home' | 'explore' | 'fundamentals' | 'review' | 'placement' | 'interests' | 'profile';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
@@ -52,7 +53,7 @@ export default function App() {
   /** The primary CTA — assemble and launch today's session. */
   const startSession = () => { setGuided(false); setMobileOpen(false); study({ kind: 'custom', name: "Today's session", ids: buildBriefing().ids }); };
 
-  // First-run chain: hero → placement → an auto-built 10-card session → recap.
+  // First-run chain: hero → placement → pick topics → an auto-built 10-card session → recap.
   const startFirstRun = () => { setGuided(true); setView('placement'); };
   const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
   const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
@@ -97,7 +98,8 @@ export default function App() {
                 {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onDrill={openDrill} onBlindDrill={drillFor} />}
                 {view === 'explore' && <Explore onStudy={study} initial={exploreInit} />}
                 {view === 'fundamentals' && <Fundamentals initial={drillInit} />}
-                {view === 'placement' && <Placement onDone={() => { if (guided) firstRunSession(); else setView('home'); }} />}
+                {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('home'); }} />}
+                {view === 'interests' && <Interests onDone={firstRunSession} />}
                 {view === 'profile' && <Profile />}
                 {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setDrillInit(null); setView('fundamentals'); }} />}
               </ErrorBoundary>

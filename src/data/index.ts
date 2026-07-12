@@ -1,4 +1,4 @@
-// Lexi lexicon — 5,213 A1–C2 cards (vocabulary + grammar). Loaded at runtime
+// Lexi lexicon — 6,468 A1–C2 cards (vocabulary + grammar). Loaded at runtime
 // from /public/data so the ~2 MB corpus is a separately-cached fetch rather than
 // parsed inside the JS bundle (keeps first paint fast; the service worker caches
 // it for instant offline reloads). Exports are live `let` bindings, populated by
@@ -13,6 +13,10 @@ export let WORDS_BY_SECTOR = new Map<string, Word[]>();
 export let SECTOR_GROUP = new Map<string, string>();
 export let GROUP_SECTORS = new Map<string, string[]>();
 export let GROUPS: string[] = [];
+// Each sector's ORIGINAL fine group (the 16 corpus groups), captured before
+// s.group is coarsened to the 10 market categories. Interest targeting keys off
+// this so learners pick from the finer, more meaningful topic set.
+export let SECTOR_FINEGROUP = new Map<string, string>();
 
 export const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
@@ -112,6 +116,8 @@ export async function initData(): Promise<void> {
   WORDS = words;
   SECTORS = sectors;
 
+  // Snapshot the fine (16-group) taxonomy before coarsening — interest topics use it.
+  SECTOR_FINEGROUP = new Map(SECTORS.map((s) => [s.name, s.group]));
   // Roll the fine corpus groups up to the coarse market categories (see GROUP_SUPER).
   for (const s of SECTORS) s.group = GROUP_SUPER[s.group] ?? s.group;
 

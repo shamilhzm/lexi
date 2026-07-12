@@ -1,7 +1,7 @@
 // Local-first store: FSRS card state per word, persisted to localStorage.
 // Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
 // Adds a CEFR level filter and group/sector/all scoped stats + sessions.
-import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
+import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
@@ -167,10 +167,19 @@ export interface Briefing {
  * The two don't overlap, so both stay.
  */
 export function weakestSectors(n = 4): SectorStat[] {
-  return sectorStats()
+  const ranked = sectorStats()
     .filter((s) => s.newCount > 0 || s.due > 0)
-    .sort((a, b) => (a.coverage - b.coverage) || (b.due - a.due))
-    .slice(0, n);
+    .sort((a, b) => (a.coverage - b.coverage) || (b.due - a.due));
+  // Personalization: if the learner picked interest topics at onboarding, float
+  // sectors in those fine groups to the front. The sort is stable, so coverage
+  // order is preserved within each band, and non-interest sectors still follow —
+  // the queue never starves once a topic runs dry. No-op when nothing is picked.
+  const picks = interests();
+  if (picks.size) {
+    const wanted = (s: SectorStat) => picks.has(SECTOR_FINEGROUP.get(s.name) ?? '');
+    ranked.sort((a, b) => Number(wanted(b)) - Number(wanted(a)));
+  }
+  return ranked.slice(0, n);
 }
 
 /**
@@ -461,6 +470,40 @@ export function firstRunIds(n = 10): string[] {
     .map((w) => w.id);
 }
 
+// ---- interests / topics --------------------------------------------------
+// Fine-group topics the learner chose at onboarding (and can edit in Profile).
+// weakestSectors() floats sectors in these groups to the front, so fresh
+// vocabulary is drawn from what they care about first. Empty = no preference.
+const INTERESTS_KEY = 'lexi.interests.v1';
+export function interests(): Set<string> {
+  try {
+    const a = JSON.parse(localStorage.getItem(INTERESTS_KEY) || '[]');
+    return new Set(Array.isArray(a) ? (a as string[]) : []);
+  } catch { return new Set(); }
+}
+export function setInterests(next: Set<string>) {
+  try { localStorage.setItem(INTERESTS_KEY, JSON.stringify([...next])); } catch { /* quota */ }
+  emit();
+}
+export function toggleInterest(name: string) {
+  const next = interests();
+  if (next.has(name)) next.delete(name); else next.add(name);
+  setInterests(next);
+}
+/** Selectable interest topics — the 16 fine corpus groups with live card counts,
+ *  largest first. User-mined sectors carry no fine group, so they're excluded. */
+export function topicOptions(): { name: string; cards: number }[] {
+  const counts = new Map<string, number>();
+  for (const w of WORDS) {
+    const fg = SECTOR_FINEGROUP.get(w.field);
+    if (!fg) continue;
+    counts.set(fg, (counts.get(fg) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([name, cards]) => ({ name, cards }))
+    .sort((a, b) => b.cards - a.cards);
+}
+
 // ---- level milestones ----------------------------------------------------
 const MILESTONE_KEY = 'lexi.milestones.v1';
 const THRESHOLDS = [25, 50, 75, 100];
@@ -519,7 +562,7 @@ export function streak(): number {
 const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
-  'lexi.profile.name.v1',
+  'lexi.profile.name.v1', 'lexi.interests.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

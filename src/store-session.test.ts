@@ -87,6 +87,24 @@ describe('weakestSectors', () => {
 
     expect(store.weakestSectors(10).map((s) => s.name)).not.toContain('Done');
   });
+
+  it('floats interest-group sectors to the front', async () => {
+    const { data, store } = await fresh();
+    // "Big" has more cards (so it leads by default); "Small" is in a chosen topic.
+    data.registerWords([
+      word('big0', 'Big'), word('big1', 'Big'),
+      word('sm0', 'Small'),
+    ]);
+    data.SECTOR_FINEGROUP.set('Big', 'Work & Economy');
+    data.SECTOR_FINEGROUP.set('Small', 'Food & Drink');
+
+    const before = store.weakestSectors(10).map((s) => s.name);
+    expect(before.indexOf('Big')).toBeLessThan(before.indexOf('Small')); // default: by size
+
+    store.setInterests(new Set(['Food & Drink']));
+    const after = store.weakestSectors(10).map((s) => s.name);
+    expect(after.indexOf('Small')).toBeLessThan(after.indexOf('Big'));   // interest wins
+  });
 });
 
 describe('blindSpotDrills (weakModes)', () => {
