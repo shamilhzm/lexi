@@ -106,6 +106,24 @@ nobody re-implements them:
   out-of-range answer index (8 for an 8-token sentence), so it could never be graded
   correct; repointed to `sofort` (7), matching its own explanation. A schema sweep
   over all 509 exercises now passes clean.
+- **Corrected stale headline counts.** The lexicon grew but three surfaces still
+  read the old numbers. Root `README.md`: **5,213 → 6,468 cards** (real per-level
+  A1 916 · A2 1,564 · B1 2,411 · B2 872 · C1 483 · C2 222) and **76 → 89 grammar
+  points**. Also fixed the user-visible **Fundamentals landing** and the
+  `lib/grammar.ts` header (`74 points · 444 exercises` → **87 · 509**) and the
+  `data/index.ts` count comment. Note: "89 grammar points" counts `vocab.json`
+  grammar *cards*; "87 points" counts `grammar.json` *exercise* points — two cards
+  (`Der Verbstamm`, `Hilfsverben & Partizip II ohne ge-`) are flip-only with no
+  exercise, hence the gap. Both numbers are correct for their meaning.
+- **Onboarding interest selection (P1).** New guided step after placement: pick
+  from the **16 fine corpus topics** (chips w/ live counts); `weakestSectors()`
+  now floats sectors in chosen groups to the front of the daily fresh-vocabulary
+  pick (stable sort → coverage order preserved within each band; no-op when none
+  chosen, so the queue never starves). Persisted at `lexi.interests.v1` (added to
+  backup keys) and **editable in Profile**. Fine group preserved pre-coarsening as
+  `SECTOR_FINEGROUP` in `data/index.ts`. New `views/Interests.tsx` +
+  `components/TopicPicker.tsx`; wired into `App.tsx` (`hero → placement → topics →
+  first session → recap`). One new store/session test (38/38 green).
 
 ---
 
@@ -121,6 +139,33 @@ gender/plural/level per the pipeline's own rules — not an autonomous bulk comm
 diff → commit, in reviewable batches. Close the top-frequency gaps first.
 **Done-when.** ≥95% of the top ~2,000 lemmas per level; A1/A2 filled; validate green;
 load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json`.
+
+### 2. Grammar mastery pass — close the coverage gaps  ·  M (human-gated, ongoing)
+**Why.** The 87-point / 509-exercise taxonomy is a real A1–C2 spine, but an audit
+found genuine, mastery-required gaps and one under-weighted topic. Authoring
+exercises is content work needing human spot-checks (see the just-fixed broken C2
+drill) — draft in `grammar-supplement.ts`, review, then `--write`, like the corpus.
+**Gap list (priority order):**
+- **Case-governed prepositions** — dedicated accusative-only (durch/für/gegen/ohne/um)
+  and dative-only (aus/bei/mit/nach/seit/von/zu) points. *Batch 1 drafted* — 2
+  points / 10 exercises in `grammar-supplement.ts`, spot-checked, **awaiting review +
+  `npm run corpus:grammar -- --write`** (will take grammar 89→91 cards, 87→89 exercise
+  points, 509→519 exercises — bump the README/Fundamentals/`lib/grammar.ts` counts then).
+- **Konzessivsätze (obwohl)** — the concessive subordinator; only adverbial
+  trotzdem/deshalb exists today (B1/B2).
+- **da-/wo-compounds** (darauf, worauf, damit, womit) — only partial at C1; needed
+  for verbs-with-prepositions and relative clauses (B1).
+- **Adjektivdeklination** is one B2 point for one of German's hardest systems —
+  split it (after der-words / ein-words / no article) and introduce earlier (A2/B1).
+- **Ordinals & dates** (der erste, am dritten Mai) — no point today (A1/A2).
+- **Article use / Nullartikel** — when German drops the article (A2/B1).
+- **C2 is thin (6 points)** — room for register/Stil, extended participle
+  constructions, ellipsis.
+**Do.** Append `NewPoint`s to `scripts/corpus/grammar-supplement.ts` in reviewable
+batches → dry-run → human-verify German + answer indices → `--write` → bump the
+three count strings. **Done-when.** Each gap above has a point with ≥5 exercises;
+schema sweep clean. **Touches.** `scripts/corpus/grammar-supplement.ts`,
+`public/data/{grammar,vocab,sectors}.json`, count strings.
 
 ---
 

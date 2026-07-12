@@ -184,6 +184,36 @@ const POINTS: NewPoint[] = [
       { kind: 'error', prompt: 'Wohl er ist krank.', answer: 0, fix: 'Er ist wohl krank.', explain: 'Modal particles sit in the middle field, not in position 1.' },
     ],
   },
+
+  // ── Grammar mastery pass · batch 1 (2026-07-12) ───────────────────────────
+  // Case-governed prepositions: the two closed lists every learner must fix
+  // early. Complements the existing Wechselpräpositionen (A2), Verschmelzung
+  // (A2) and Genitivpräpositionen (C1) points without overlapping them. German
+  // and answer indices spot-checked; still to be human-reviewed before --write.
+  {
+    level: 'A1', title: 'Präpositionen mit Akkusativ (durch, für, gegen, ohne, um)',
+    summary: 'durch, für, gegen, ohne, um always take the accusative.',
+    rule: 'A fixed set of prepositions always governs the accusative, whatever their meaning: durch (through), für (for), gegen (against), ohne (without), um (around / at). Memorize them as one group — "durch, für, gegen, ohne, um" — plus bis and entlang. The following article and pronouns go into the accusative: für den Mann, ohne mich, um die Ecke, gegen den Wind. Masculine der becomes den; die/das/plural die keep their form.',
+    exercises: [
+      { kind: 'choose', prompt: 'Ich mache das nur ___ dich.', options: ['für', 'mit', 'bei'], answer: 0, explain: 'für always takes the accusative → für dich.' },
+      { kind: 'choose', prompt: 'Wir gehen ___ den Park.', options: ['durch', 'durch dem', 'aus'], answer: 0, explain: 'durch + accusative → durch den Park (masc. acc. = den).' },
+      { kind: 'type', prompt: 'Sie kämpfen gegen ___ Regierung. (die, fem.)', accept: ['die'], explain: 'gegen + accusative; feminine die stays die in the accusative.' },
+      { kind: 'mc', prompt: 'Which is correct?', options: ['Ich habe ein Geschenk für meinen Vater.', 'Ich habe ein Geschenk für meinem Vater.', 'Ich habe ein Geschenk für mein Vater.'], answer: 0, explain: 'für + accusative → meinen Vater (masc. acc.).' },
+      { kind: 'error', prompt: 'Wir gehen um dem See.', answer: 3, fix: 'Wir gehen um den See.', explain: 'um takes the accusative → den See (masc.), not dem.' },
+    ],
+  },
+  {
+    level: 'A2', title: 'Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)',
+    summary: 'aus, bei, mit, nach, seit, von, zu always take the dative.',
+    rule: 'A fixed set of prepositions always governs the dative: aus (from / out of), bei (at / near), mit (with), nach (after / to), seit (since / for), von (from / of), zu (to). Memorize the group "aus, bei, mit, nach, seit, von, zu" (gegenüber belongs here too). Articles take dative endings — masculine/neuter dem, feminine der, plural den(+n): mit dem Auto, bei der Arbeit, zu den Kindern. Several fuse: bei dem → beim, von dem → vom, zu dem → zum, zu der → zur.',
+    exercises: [
+      { kind: 'choose', prompt: 'Ich fahre ___ dem Auto zur Arbeit.', options: ['mit', 'für', 'ohne'], answer: 0, explain: 'mit + dative → mit dem Auto.' },
+      { kind: 'choose', prompt: 'Sie kommt ___ der Schweiz.', options: ['aus', 'nach', 'durch'], answer: 0, explain: 'aus + dative → aus der Schweiz.' },
+      { kind: 'type', prompt: 'Wir fahren mit ___ Bus. (der, masc. dat.)', accept: ['dem'], explain: 'mit + dative; masculine der → dem.' },
+      { kind: 'mc', prompt: 'Which is correct?', options: ['Ich gehe zu meinem Arzt.', 'Ich gehe zu meinen Arzt.', 'Ich gehe zu mein Arzt.'], answer: 0, explain: 'zu + dative → meinem Arzt (masc. dat.).' },
+      { kind: 'error', prompt: 'Nach der Film gehen wir essen.', answer: 1, fix: 'Nach dem Film gehen wir essen.', explain: 'nach + dative → dem Film (masc.), not der.' },
+    ],
+  },
 ];
 
 function toCard(p: NewPoint): Word {
