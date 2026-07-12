@@ -191,7 +191,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 548,
+    "count": 549,
     "levels": [
       "A1",
       "A2",
@@ -244,7 +244,7 @@
   },
   {
     "name": "Communication",
-    "count": 115,
+    "count": 117,
     "levels": [
       "A1",
       "A2",
@@ -603,7 +603,7 @@
   },
   {
     "name": "Relationships",
-    "count": 55,
+    "count": 56,
     "levels": [
       "A2",
       "B1",
@@ -917,24 +917,26 @@
   },
   {
     "name": "Adjectives",
-    "count": 383,
-    "levels": [
-      "A1",
-      "A2",
-      "B1",
-      "B2"
-    ],
-    "group": "Language Building Blocks"
-  },
-  {
-    "name": "Adverbs",
-    "count": 229,
+    "count": 414,
     "levels": [
       "A1",
       "A2",
       "B1",
       "B2",
       "C1"
+    ],
+    "group": "Language Building Blocks"
+  },
+  {
+    "name": "Adverbs",
+    "count": 250,
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
     ],
     "group": "Language Building Blocks"
   },
@@ -987,7 +989,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 384,
+    "count": 439,
     "levels": [
       "A1",
       "A2",
@@ -1288,12 +1290,14 @@
   },
   {
     "name": "Miscellaneous",
-    "count": 413,
+    "count": 515,
     "levels": [
       "A1",
       "A2",
       "B1",
-      "B2"
+      "B2",
+      "C1",
+      "C2"
     ],
     "group": "Miscellaneous"
   },
@@ -1870,7 +1874,7 @@
   },
   {
     "name": "Society",
-    "count": 147,
+    "count": 149,
     "levels": [
       "A1",
       "A2",

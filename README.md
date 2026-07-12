@@ -19,8 +19,8 @@ Planning and strategy live in [`docs/`](docs/). Start with
 
 ## What's inside
 
-- **6,479 cards across all six CEFR levels** (A1 918 · A2 1,567 · B1 2,415 · B2 872
-  · C1 483 · C2 224), including **100 grammar points**, merged from open German word
+- **6,792 cards across all six CEFR levels** (A1 918 · A2 1,609 · B1 2,522 · B2 980
+  · C1 535 · C2 228), including **100 grammar points**, merged from open German word
   lists and a dictionary-enrichment cache, deduped by level + term.
 - Cards carry IPA, gloss, gender + plural, synonyms/antonyms, and example sentences
   where available.
