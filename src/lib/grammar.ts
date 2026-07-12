@@ -1,4 +1,4 @@
-// Authored grammar exercises (74 points · 444 exercises, A1–C2), loaded at
+// Authored grammar exercises (87 points · 509 exercises, A1–C2), loaded at
 // runtime from /public/data/grammar.json. Five widget kinds: choose, mc, type,
 // order, error. Ported from the prior Atlas build.
 import type { CEFR } from '../types.ts';
