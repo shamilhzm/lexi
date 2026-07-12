@@ -115,7 +115,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const asExercise = drill || !!grammarEx;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4 lg:min-h-[calc(100dvh_-_2rem)] lg:content-center">
       <div className="bg-panel border border-line rounded-[10px]">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
           <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={16} /></button>

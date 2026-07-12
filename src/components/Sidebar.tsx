@@ -5,7 +5,7 @@
 //
 // Collapse is a *desktop* concern: the collapsed state hides labels via `sm:hidden`
 // so the mobile drawer (always full width) always shows them.
-import { Play, Sunrise, LayoutGrid, GraduationCap, PanelLeftClose, PanelLeft, Flame, X } from 'lucide-react';
+import { Play, Sunrise, LayoutGrid, GraduationCap, ChevronLeft, ChevronRight, Flame, X } from 'lucide-react';
 import type { View } from '../App.tsx';
 
 export function LexiMark({ size = 28, className = '' }: { size?: number; className?: string }) {
@@ -42,21 +42,23 @@ export default function Sidebar({
       {mobileOpen && <div className="fixed inset-0 z-40 bg-black/50 sm:hidden" onClick={onMobileClose} aria-hidden />}
       <aside
         className={`flex flex-col bg-panel border-r border-line flex-shrink-0 z-50 w-[240px]
-          fixed inset-y-0 left-0 sm:static
+          fixed inset-y-0 left-0 sm:relative
           transition-transform duration-200 sm:transition-[width]
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0
           ${collapsed ? 'sm:w-[64px]' : 'sm:w-[240px]'}`}>
 
-        {/* Brand + collapse control */}
-        <div className="flex items-center gap-2.5 px-3.5 h-[56px] flex-shrink-0 safe-top border-b border-line">
-          <LexiMark size={28} className={hideLabel} />
+        {/* Brand — the mark stays visible even when collapsed; only the wordmark hides */}
+        <div className={`flex items-center gap-2.5 px-3.5 h-[56px] flex-shrink-0 safe-top border-b border-line ${collapsed ? 'sm:px-0 sm:justify-center' : ''}`}>
+          <LexiMark size={28} />
           <span className={`font-bold text-[20px] tracking-wide leading-none ${hideLabel}`}>Lexi</span>
           <button onClick={onMobileClose} className="ml-auto grid place-items-center w-9 h-9 -mr-1 text-dim hover:text-amber sm:hidden" title="Close"><X size={18} /></button>
-          <button onClick={onToggleCollapse} title={collapsed ? 'Expand' : 'Collapse'}
-            className={`hidden sm:grid place-items-center w-8 h-8 text-dim hover:text-amber ${collapsed ? 'sm:mx-auto' : 'ml-auto'}`}>
-            {collapsed ? <PanelLeft size={17} /> : <PanelLeftClose size={17} />}
-          </button>
         </div>
+
+        {/* Desktop collapse toggle — a chevron that straddles the rail's right edge */}
+        <button onClick={onToggleCollapse} title={collapsed ? 'Expand' : 'Collapse'} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          className="hidden sm:grid place-items-center absolute top-1/2 -translate-y-1/2 -right-3 z-50 w-6 h-6 rounded-full bg-panel border border-line text-dim hover:text-amber hover:border-amber transition-colors">
+          {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+        </button>
 
         {/* Start session — the primary action (launches Study) */}
         <div className="px-2.5 pt-3 pb-1">
