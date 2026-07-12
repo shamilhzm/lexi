@@ -214,6 +214,36 @@ const POINTS: NewPoint[] = [
       { kind: 'error', prompt: 'Nach der Film gehen wir essen.', answer: 1, fix: 'Nach dem Film gehen wir essen.', explain: 'nach + dative → dem Film (masc.), not der.' },
     ],
   },
+
+  // ── Grammar mastery pass · batch 2 (2026-07-12) ───────────────────────────
+  // The two B1 gaps: the concessive subordinator obwohl (vs. the adverb trotzdem
+  // / the genitive preposition trotz), and the da-/wo- pronominal adverbs that
+  // stand in for "preposition + it/that". German + answer indices spot-checked;
+  // still human-review before --write.
+  {
+    level: 'B1', title: 'Konzessivsätze: obwohl',
+    summary: 'obwohl introduces a concession; its verb goes to the end.',
+    rule: 'A concessive clause names something you would expect to prevent the main event, but doesn\'t. The subordinating conjunction obwohl (formally also obgleich, obschon) sends the finite verb to the end: Obwohl es regnet, gehen wir spazieren. / Wir gehen spazieren, obwohl es regnet. Don\'t confuse it with the adverb trotzdem (nevertheless), which keeps the verb in second position — Es regnet; trotzdem gehen wir — or the preposition trotz, which takes the genitive: trotz des Regens.',
+    exercises: [
+      { kind: 'choose', prompt: '___ es regnet, gehen wir spazieren.', options: ['Obwohl', 'Trotzdem', 'Trotz'], answer: 0, explain: 'A subordinate clause with the verb at the end → obwohl.' },
+      { kind: 'mc', prompt: 'Which uses trotzdem correctly?', options: ['Es ist spät; trotzdem arbeiten wir weiter.', 'Trotzdem es spät ist, arbeiten wir weiter.', 'Wir arbeiten, trotzdem es spät ist.'], answer: 0, explain: 'trotzdem is an adverb (verb second), not a subordinator.' },
+      { kind: 'type', prompt: '___ er krank war, ist er zur Arbeit gegangen. (although)', accept: ['Obwohl'], explain: 'obwohl = although; the verb (war) goes to the end.' },
+      { kind: 'order', prompt: 'Build the clause: „…, obwohl sie müde war.“', tiles: ['obwohl', 'sie', 'müde', 'war'], explain: 'Subordinator first, finite verb (war) last.' },
+      { kind: 'error', prompt: 'Obwohl es ist kalt, schwimmen wir.', answer: 2, fix: 'Obwohl es kalt ist, schwimmen wir.', explain: 'In an obwohl-clause the finite verb goes to the end: … es kalt ist.' },
+    ],
+  },
+  {
+    level: 'B1', title: 'Präpositionaladverbien: da(r)- & wo(r)-',
+    summary: 'For things use darauf/dafür… (statement) and worauf/wofür… (question).',
+    rule: 'When a preposition points to a thing (not a person), German fuses it into a pronominal adverb rather than "preposition + it/that": Ich warte darauf (not "auf es"), Ich freue mich darüber. Insert -r- when the preposition starts with a vowel: da + auf → darauf, da + über → darüber, wo + an → woran. Questions and relative links use the wo(r)- form: Worauf wartest du? For people, keep preposition + pronoun: Auf wen wartest du? — auf ihn.',
+    exercises: [
+      { kind: 'choose', prompt: 'Ich warte auf den Bus. → Ich warte ___.', options: ['darauf', 'auf es', 'darüber'], answer: 0, explain: 'A thing → da + auf (vowel) → darauf.' },
+      { kind: 'choose', prompt: '___ freust du dich? (about what)', options: ['Worüber', 'Worauf', 'Wofür'], answer: 0, explain: 'sich freuen über → wo + über → worüber.' },
+      { kind: 'type', prompt: 'Wir sprechen über das Problem. → Wir sprechen ___. (about it)', accept: ['darüber'], explain: 'über + a thing → darüber.' },
+      { kind: 'mc', prompt: 'Ask about a thing: "What are you waiting for?"', options: ['Worauf wartest du?', 'Auf was wartest du?', 'Für was wartest du?'], answer: 0, explain: 'warten auf + thing → worauf (standard question form).' },
+      { kind: 'error', prompt: 'Ich denke an es.', answer: 3, fix: 'Ich denke daran.', explain: 'denken an + a thing → daran, not "an es".' },
+    ],
+  },
 ];
 
 function toCard(p: NewPoint): Word {

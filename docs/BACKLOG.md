@@ -147,14 +147,12 @@ exercises is content work needing human spot-checks (see the just-fixed broken C
 drill) — draft in `grammar-supplement.ts`, review, then `--write`, like the corpus.
 **Gap list (priority order):**
 - **Case-governed prepositions** — dedicated accusative-only (durch/für/gegen/ohne/um)
-  and dative-only (aus/bei/mit/nach/seit/von/zu) points. *Batch 1 drafted* — 2
-  points / 10 exercises in `grammar-supplement.ts`, spot-checked, **awaiting review +
-  `npm run corpus:grammar -- --write`** (will take grammar 89→91 cards, 87→89 exercise
-  points, 509→519 exercises — bump the README/Fundamentals/`lib/grammar.ts` counts then).
-- **Konzessivsätze (obwohl)** — the concessive subordinator; only adverbial
-  trotzdem/deshalb exists today (B1/B2).
+  and dative-only (aus/bei/mit/nach/seit/von/zu) points. *Batch 1 drafted.*
+- **Konzessivsätze (obwohl)** — the concessive subordinator (vs. adverb trotzdem /
+  genitive preposition trotz); only adverbial trotzdem/deshalb exists today. *Batch 2
+  drafted (B1).*
 - **da-/wo-compounds** (darauf, worauf, damit, womit) — only partial at C1; needed
-  for verbs-with-prepositions and relative clauses (B1).
+  for verbs-with-prepositions and relative clauses. *Batch 2 drafted (B1).*
 - **Adjektivdeklination** is one B2 point for one of German's hardest systems —
   split it (after der-words / ein-words / no article) and introduce earlier (A2/B1).
 - **Ordinals & dates** (der erste, am dritten Mai) — no point today (A1/A2).
@@ -163,8 +161,12 @@ drill) — draft in `grammar-supplement.ts`, review, then `--write`, like the co
   constructions, ellipsis.
 **Do.** Append `NewPoint`s to `scripts/corpus/grammar-supplement.ts` in reviewable
 batches → dry-run → human-verify German + answer indices → `--write` → bump the
-three count strings. **Done-when.** Each gap above has a point with ≥5 exercises;
-schema sweep clean. **Touches.** `scripts/corpus/grammar-supplement.ts`,
+three count strings. **Pending write (batches 1–2):** 4 points / 20 exercises drafted,
+**awaiting review + `npm run corpus:grammar -- --write`** — applies to `grammar.json`
++ `vocab.json` and takes grammar **89→93 cards, 87→91 exercise points, 509→529
+exercises**; bump the README / Fundamentals / `lib/grammar.ts` counts then.
+**Done-when.** Each gap above has a point with ≥5 exercises; schema sweep clean.
+**Touches.** `scripts/corpus/grammar-supplement.ts`,
 `public/data/{grammar,vocab,sectors}.json`, count strings.
 
 ---
