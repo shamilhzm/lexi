@@ -119,6 +119,14 @@ export function review(id: string, grade: Grade) {
   emit();
 }
 
+/** Undo a review: restore the card's prior FSRS state, or remove it if it was
+ *  never seen before (returns to 'new'). Powers the session's prev/undo control. */
+export function restoreCard(id: string, snap: Card | undefined) {
+  if (snap) live.set(id, snap); else live.delete(id);
+  persistCards();
+  emit();
+}
+
 // ---- pools & sessions ----------------------------------------------------
 function poolFor(target: Target): Word[] {
   let pool: Word[];

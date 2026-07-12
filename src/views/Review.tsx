@@ -3,19 +3,18 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
-import { Volume2, ArrowLeft, Check, X } from 'lucide-react';
-import { review, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
+import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward } from 'lucide-react';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
-import { Rating, type Grade } from '../srs.ts';
+import { Rating, type Grade, type Card } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
-import LevelFilter from '../components/LevelFilter.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
-import type { Word, Target } from '../types.ts';
+import type { Target } from '../types.ts';
 
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze' };
@@ -40,9 +39,12 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const [again, setAgain] = useState(0);       // lapses this session
   const [newLearned, setNewLearned] = useState(0); // cards that left the New state
   const [gmap, setGmap] = useState<Map<string, GPoint> | null>(null); // grammar point → exercises
+  // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
+  // or a skip, and rewind counters + position exactly.
+  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: Card; dAgain?: number; dNew?: number }[]>([]);
 
   // restart the session when scope (target) or level filter changes
-  useEffect(() => { setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); }, [target, lvKey]);
+  useEffect(() => { setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = []; }, [target, lvKey]);
 
   // Load the exercise bank once, so grammar cards can render as drills.
   useEffect(() => {
@@ -56,42 +58,83 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const item = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
 
+  // Record the pre-review FSRS state + the exact counter deltas this grade
+  // applied, so prev/undo can reverse it precisely.
+  const pushGrade = (dAgain: number, dNew: number) => {
+    if (!item) return;
+    const snap = cardOf(item.srsId);
+    history.current.push({ i, kind: 'grade', srsId: item.srsId, prevCard: snap ? { ...snap } : undefined, dAgain, dNew });
+  };
+
   // Grade a flip card directly — no reveal required. Flipping stays optional
   // (Space) for when you want to check the translation first.
   const grade = useCallback((g: Grade) => {
     if (!item || item.type !== 'flip') return;
     const wasNew = statusOf(item.srsId) === 'new';
+    const dAgain = g === Rating.Again ? 1 : 0;
+    const dNew = g !== Rating.Again && wasNew ? 1 : 0;
+    pushGrade(dAgain, dNew);
     review(item.srsId, g);
     haptic();
     setDone((d) => d + 1);
-    if (g === Rating.Again) setAgain((a) => a + 1);
-    else if (wasNew) setNewLearned((n) => n + 1);
+    setAgain((a) => a + dAgain);
+    setNewLearned((n) => n + dNew);
     setFlipped(false);
     setI((n) => n + 1);
-  }, [item]);
+  }, [item, i]);
 
   const gradeDrill = useCallback((ok: boolean) => {
     if (!item || item.type === 'flip') return;
+    const dAgain = ok ? 0 : 1;
+    pushGrade(dAgain, 0);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic();
-    if (!ok) { logMiss(MODE_TAG[item.type]); setAgain((a) => a + 1); }
+    if (!ok) logMiss(MODE_TAG[item.type]);
+    setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
     setFlipped(false);
     setI((n) => n + 1);
-  }, [item]);
+  }, [item, i]);
 
   // Grammar cards are graded like drills (answer, not flip).
   const gradeGrammar = useCallback((ok: boolean) => {
     if (!item) return;
     const wasNew = statusOf(item.srsId) === 'new';
+    const dAgain = ok ? 0 : 1;
+    const dNew = ok && wasNew ? 1 : 0;
+    pushGrade(dAgain, dNew);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic();
-    if (!ok) { logMiss(item.word.term); setAgain((a) => a + 1); }
-    else if (wasNew) setNewLearned((n) => n + 1);
+    if (!ok) logMiss(item.word.term);
+    setAgain((a) => a + dAgain);
+    setNewLearned((n) => n + dNew);
     setDone((d) => d + 1);
     setFlipped(false);
     setI((n) => n + 1);
-  }, [item]);
+  }, [item, i]);
+
+  // Skip: advance without grading — the card stays due for a later session.
+  const skip = useCallback(() => {
+    if (!item) return;
+    history.current.push({ i, kind: 'skip' });
+    setFlipped(false);
+    setI((n) => n + 1);
+  }, [item, i]);
+
+  // Prev: undo the last action. On a grade, restore the FSRS state and rewind
+  // counters; on a skip, just step back. Position returns to that card.
+  const prev = useCallback(() => {
+    const e = history.current.pop();
+    if (!e) return;
+    if (e.kind === 'grade' && e.srsId) {
+      restoreCard(e.srsId, e.prevCard);
+      setDone((d) => Math.max(0, d - 1));
+      setAgain((a) => Math.max(0, a - (e.dAgain ?? 0)));
+      setNewLearned((n) => Math.max(0, n - (e.dNew ?? 0)));
+    }
+    setFlipped(false);
+    setI(e.i);
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -115,22 +158,23 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const asExercise = drill || !!grammarEx;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4 lg:min-h-[calc(100dvh_-_2rem)] lg:content-center">
+    <div className="mx-auto w-full max-w-[640px] lg:min-h-[calc(100dvh_-_2rem)] lg:flex lg:flex-col lg:justify-center">
       <div className="bg-panel border border-line rounded-[10px]">
-        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
-          <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={16} /></button>
-          <h2 className="text-[15px] font-semibold">{target.name}</h2>
-          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] tabular-nums">{queue.length - done} left</span>
-          {/* Secondary controls are desktop-only — the phone view stays focused on the card. */}
-          <div className="ml-auto hidden lg:flex items-center gap-2.5">
-            <button onClick={onDrills} className="text-[11px] text-dim hover:text-amber whitespace-nowrap">Targeted drills</button>
-            <LevelFilter compact />
-            <span className="text-[11px] text-dim">Space = flip · ← didn’t know · → knew it</span>
+        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3">
+          <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back to Today"><ArrowLeft size={16} /></button>
+          <h2 className="text-[15px] font-semibold truncate">{target.name}</h2>
+          <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] tabular-nums flex-shrink-0">{queue.length - i} left</span>
+          {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
+          <div className="ml-auto flex items-center gap-1 flex-shrink-0">
+            <button onClick={prev} disabled={i === 0} title="Previous card"
+              className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber disabled:opacity-30 disabled:hover:text-dim transition-colors"><RotateCcw size={16} /></button>
+            <button onClick={skip} title="Skip for now"
+              className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber transition-colors"><SkipForward size={16} /></button>
           </div>
         </div>
-        {/* Slim session progress — stands in for the stats panel on mobile. */}
-        <div className="h-0.5 bg-panel2" role="progressbar" aria-valuenow={done} aria-valuemin={0} aria-valuemax={queue.length}>
-          <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (done / queue.length) * 100 : 0}%` }} />
+        {/* Slim session progress — tracks position through the queue. */}
+        <div className="h-0.5 bg-panel2" role="progressbar" aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}>
+          <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }} />
         </div>
 
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
@@ -151,10 +195,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           ) : (<>
           <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
-              {/* FRONT */}
-              <div className="flip-face relative border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center">
+              {/* FRONT — the prompt: word + German context, no translation to spoil the test */}
+              <div className="flip-face relative border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
-                <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}</span>
+                <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}</span>
                 <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[22px] sm:text-[28px]' : 'text-[34px] sm:text-[46px]'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
@@ -168,14 +212,24 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 )}
                 {card.ex[0] && <span className="text-dim italic text-[15px] leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
               </div>
-              {/* BACK */}
-              <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center"
+              {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
+              <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
                    style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
                 <span className="text-[11px] text-dim uppercase tracking-[2px]">{grammar ? 'Rule' : 'Translation'}</span>
-                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[22px]' : 'text-[28px] sm:text-[38px]'}`}>{card.en}</span>
-                {card.def && <span className="text-txt text-[15px] leading-relaxed max-w-[90%]">{card.def}</span>}
-                {!grammar && card.ex[0] && <span className="text-dim italic text-[15px] leading-relaxed max-w-[88%]">„{card.ex[0].en || card.ex[0].de}“</span>}
+                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[20px] sm:text-[22px]' : 'text-[26px] sm:text-[34px]'}`}>{card.en}</span>
+                {card.def && <span className="text-txt text-[14px] leading-relaxed max-w-[92%]">{card.def}</span>}
+                {!grammar && card.ex.length > 0 && (
+                  <div className="w-full max-w-[94%] text-left mt-1 space-y-2">
+                    {card.ex.slice(0, 2).map((e, k) => (
+                      <div key={k} className="text-[14px] leading-relaxed">
+                        <div className="text-txt">{e.de}</div>
+                        {e.en && <div className="text-dim italic">{e.en}</div>}
+                      </div>
+                    ))}
+                  </div>
+                )}
                 {card.syn.length > 0 && <span className="text-[13px] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
+                {card.ant.length > 0 && <span className="text-[13px] text-dim">Opposite: <span className="text-red-txt">{card.ant.join(', ')}</span></span>}
               </div>
             </div>
           </SwipeCard>
@@ -201,10 +255,6 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           </AnimatePresence>
         </div>
       </div>
-
-      <div className="hidden lg:block">
-        <Sidebar word={drill ? null : card} done={done} left={queue.length - done} />
-      </div>
     </div>
   );
 }
@@ -221,7 +271,7 @@ function SwipeCard({ children, onFlip, onGrade }:
   const dragged = useRef(false);
   return (
     <motion.div
-      className="relative w-full max-w-[580px] h-[300px] sm:h-[340px] cursor-pointer touch-pan-y"
+      className="relative w-full max-w-[580px] h-[360px] sm:h-[420px] cursor-pointer touch-pan-y"
       style={{ x, rotate: reduce ? 0 : rotate }}
       drag="x"
       dragSnapToOrigin
@@ -258,40 +308,6 @@ function StatusPip({ id }: { id: string }) {
   const color = st === 'known' ? 'var(--color-green)' : st === 'learning' ? 'var(--color-amber)' : 'var(--color-dim)';
   const label = st === 'known' ? 'Known' : st === 'learning' ? 'Learning' : 'New';
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
-}
-
-/** Word details are hidden for drill items — they would reveal the answer. */
-function Sidebar({ word, done, left }: { word: Word | null; done: number; left: number }) {
-  if (!word) {
-    return (
-      <div className="bg-panel border border-line rounded-[10px] self-start">
-        <div className="px-4 py-3 border-b border-line"><h2 className="text-[15px] font-semibold">Session</h2></div>
-        <Stat k="Reviewed" v={`${done}`} />
-        <Stat k="Remaining" v={`${left}`} />
-      </div>
-    );
-  }
-  return (
-    <div className="bg-panel border border-line rounded-[10px] self-start">
-      <div className="px-4 py-3 border-b border-line"><h2 className="text-[15px] font-semibold">Session</h2></div>
-      <Stat k="Reviewed" v={`${done}`} />
-      <Stat k="Remaining" v={`${left}`} />
-      <Stat k="Topic" v={word.field} />
-      {word.ex.length > 0 && <div className="px-4 py-3 border-y border-line"><h2 className="text-[15px] font-semibold">Examples</h2></div>}
-      <div className="px-4 py-3 space-y-3">
-        {word.ex.slice(0, 3).map((e, k) => (
-          <div key={k} className="text-[15px] leading-relaxed">
-            <div className="text-txt">{e.de}</div>
-            {e.en && <div className="text-dim italic">{e.en}</div>}
-          </div>
-        ))}
-        {word.ant.length > 0 && <div className="text-[13px] text-dim pt-1">Opposite: <span className="text-red-txt">{word.ant.join(', ')}</span></div>}
-      </div>
-    </div>
-  );
-}
-function Stat({ k, v }: { k: string; v: string }) {
-  return <div className="flex justify-between px-4 py-2.5 border-b border-line text-[13px]"><span className="text-dim">{k}</span><span className="font-mono text-amber">{v}</span></div>;
 }
 
 function DoneState({ done, again, newLearned, minedCount, firstRun, onExit, onPick }:
