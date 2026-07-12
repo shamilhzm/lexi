@@ -84,6 +84,7 @@ export const SOURCES = {
       'https://raw.githubusercontent.com/ynsrc/german-categorized-wordlist/main/v1',
     files: [
       'noun-der.txt', 'noun-die.txt', 'noun-das.txt', 'noun-plural.txt',
+      'noun-proper.txt', 'noun-proper-first-name.txt', 'noun-proper-surname.txt',
       'verb.txt', 'adjective.txt', 'adverb.txt', 'preposition.txt',
       'conjunction.txt', 'particle.txt', 'interjection.txt',
       'preposition-with-article.txt', 'contraction.txt', 'subjunction.txt',

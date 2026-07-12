@@ -74,3 +74,16 @@ export function loadWordlist(dir: string): Wordlist {
 export function readWordlistFile(dir: string, file: string): string[] {
   return readLines(join(dir, file));
 }
+
+// Proper-noun files → an exclusion set. News frequency surfaces surnames, given
+// names and place names as common-noun headwords (Müller "miller", Wagner
+// "cartwright", Jürgen, Klaus); Wiktextract lists them, so build.ts drops any
+// candidate whose lemma is attested here. Empty (no-op) when the files aren't fetched.
+const PROPER_NOUN_FILES = ['noun-proper.txt', 'noun-proper-first-name.txt', 'noun-proper-surname.txt'];
+
+/** Lowercased set of attested proper nouns from the categorized wordlist. */
+export function loadProperNouns(dir: string): Set<string> {
+  const s = new Set<string>();
+  for (const file of PROPER_NOUN_FILES) for (const w of readWordlistFile(dir, file)) { const k = norm(w); if (k) s.add(k); }
+  return s;
+}

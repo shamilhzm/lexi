@@ -917,7 +917,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 353,
+    "count": 383,
     "levels": [
       "A1",
       "A2",
@@ -987,7 +987,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 339,
+    "count": 384,
     "levels": [
       "A1",
       "A2",
@@ -1288,11 +1288,12 @@
   },
   {
     "name": "Miscellaneous",
-    "count": 390,
+    "count": 413,
     "levels": [
       "A1",
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Miscellaneous"
   },

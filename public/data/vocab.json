@@ -171337,5 +171337,2651 @@
     "ex": [],
     "field": "Grammar",
     "kind": "grammar"
+  },
+  {
+    "id": "voc:A2:anhören",
+    "term": "anhören",
+    "en": "to listen to the end, to hear out",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔanˌhøːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du musst es dir anhören.",
+        "en": "You must listen to it.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wie hat es sich angehört?",
+        "en": "What did it sound like?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:ausmachen",
+    "term": "ausmachen",
+    "en": "to turn off, switch off",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔaʊ̯smaxn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat ihn ausgemacht.",
+        "en": "She's located him.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Soll ich das Licht ausmachen?",
+        "en": "Do you want me to turn off the light?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:ausreden",
+    "term": "ausreden",
+    "en": "to finish speaking",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sʁeːdn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lass ihn ausreden.",
+        "en": "Let him finish.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Laß mich ausreden!",
+        "en": "Let me finish what I'm saying.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:bedanken",
+    "term": "bedanken",
+    "en": "to thank, to express thanks",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bedanke mich.",
+        "en": "I thank you.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bedankte mich.",
+        "en": "I said thanks.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:brennen",
+    "term": "brennen",
+    "en": "to burn",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbʁɛnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Häuser brennen.",
+        "en": "The houses are burning.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mir brennen die Ohren.",
+        "en": "My ears are burning.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:dünn",
+    "term": "dünn",
+    "en": "thin, slender, slim",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "dʏn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bleib dünn.",
+        "en": "Stay thin.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du bist dünn.",
+        "en": "You're thin.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:einsteigen",
+    "term": "einsteigen",
+    "en": "to get in or on",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔaɪ̯nʃtaɪ̯ɡŋ̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich werde einsteigen.",
+        "en": "I'll get in.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich werde zuerst einsteigen.",
+        "en": "I'll get in first.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Gitarre",
+    "term": "die Gitarre",
+    "en": "guitar",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Gitarren",
+    "ipa": "ɡiˈtaʁə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er spielt Gitarre.",
+        "en": "He plays the guitar.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er mag die Gitarre.",
+        "en": "He likes that guitar.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:grüßen",
+    "term": "grüßen",
+    "en": "to greet",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɡʁyːsən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Grüße von Tom.",
+        "en": "Tom says hello.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie grüßt nie.",
+        "en": "She never says hello.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:hinlegen",
+    "term": "hinlegen",
+    "en": "to put down, lay down",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɪnleːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hinlegen!",
+        "en": "Get down!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wo wird sie es hinlegen?",
+        "en": "Where will she put it?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:hinsetzen",
+    "term": "hinsetzen",
+    "en": "to sit down",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɪnˌzɛtsən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich muss mich hinsetzen.",
+        "en": "I need to sit down.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Willst du dich hinsetzen?",
+        "en": "Do you want to sit down?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Nadel",
+    "term": "die Nadel",
+    "en": "needle",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Nadeln",
+    "ipa": "ˈnaːdəl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir nähen mit einer Nadel.",
+        "en": "We sew with a needle.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Könntest du mir die Nadel einfädeln?",
+        "en": "Could you thread the needle for me?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:romantisch",
+    "term": "romantisch",
+    "en": "romantic",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bin ich romantisch?",
+        "en": "Am I romantic?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist romantisch.",
+        "en": "Tom is romantic.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:tauschen",
+    "term": "tauschen",
+    "en": "to trade, to exchange, to swap, to barter",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtaʊ̯ʃən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tausche es aus.",
+        "en": "Replace it.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tauscht es aus.",
+        "en": "Replace it.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:typisch",
+    "term": "typisch",
+    "en": "typical",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtyːpɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist typisch.",
+        "en": "That's typical.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das ist typisch Tom.",
+        "en": "That is so Tom.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:vorbeikommen",
+    "term": "vorbeikommen",
+    "en": "to come over",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ist Tom vorbeigekommen?",
+        "en": "Did Tom come by?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich werde vorbeikommen.",
+        "en": "I'll come by.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:weglaufen",
+    "term": "weglaufen",
+    "en": "to run away",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɛklaʊ̯fən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nicht weglaufen!",
+        "en": "Don't wander off.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom ist weggelaufen.",
+        "en": "Tom ran off.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:wegnehmen",
+    "term": "wegnehmen",
+    "en": "to take away from, to remove from",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɛkˌneːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer hat es weggenommen?",
+        "en": "Who removed it?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wer hat ihn weggenommen?",
+        "en": "Who removed it?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:weich",
+    "term": "weich",
+    "en": "soft",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "vaɪ̯ç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "So weiche Ohren!",
+        "en": "Such soft ears.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Butter ist weich.",
+        "en": "Butter is soft.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Zettel",
+    "term": "der Zettel",
+    "en": "a small or loose piece of paper, slip",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Zettel",
+    "ipa": "ˈt͡sɛtəl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zettel raus!",
+        "en": "Grab a piece of paper.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Gib mir einen Zettel!",
+        "en": "Give me a piece of paper.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:zurückgeben",
+    "term": "zurückgeben",
+    "en": "to give back, return",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "tsuˈʁʏkˌɡeːbm̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich werde es zurückgeben.",
+        "en": "I'll give it back.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich muß diese Jacke zurückgeben.",
+        "en": "I need to return this jacket.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:zurückrufen",
+    "term": "zurückrufen",
+    "en": "to call back, to ring back",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom wird zurückrufen.",
+        "en": "Tom will call back.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat zurückgerufen.",
+        "en": "She called back.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:absichtlich",
+    "term": "absichtlich",
+    "en": "intentional",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapzɪçtlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es war absichtlich.",
+        "en": "It was intentional.",
+        "lvl": "B1"
+      },
+      {
+        "de": "War das absichtlich?",
+        "en": "Was that intentional?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:absurd",
+    "term": "absurd",
+    "en": "absurd",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "apˈzʊʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie absurd!",
+        "en": "How absurd!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war absurd.",
+        "en": "That was absurd.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:abwarten",
+    "term": "abwarten",
+    "en": "to await",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌvaʁtən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lasst uns abwarten.",
+        "en": "Let's sit tight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom wollte abwarten.",
+        "en": "Tom's plan was to wait and see.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:ahnen",
+    "term": "ahnen",
+    "en": "to suspect, guess",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔaːnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich ahnte es.",
+        "en": "I saw it coming.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ahnte nichts.",
+        "en": "She didn't suspect anything.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:angehen",
+    "term": "angehen",
+    "en": "to concern, regard",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌɡeː(ə)n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ebenso werden wir es angehen.",
+        "en": "That's exactly how we'll approach it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir müssen das vorsichtig angehen.",
+        "en": "We'll have to go about it with care.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Ausrede",
+    "term": "die Ausrede",
+    "en": "excuse",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Ausreden",
+    "ipa": "ˈaʊ̯sˌʁeːdə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich brauche eine Ausrede.",
+        "en": "I need an excuse.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich brauche keine Ausrede.",
+        "en": "I don't need an excuse.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:bedienen",
+    "term": "bedienen",
+    "en": "to serve",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈdiːnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist bedient.",
+        "en": "Tom has had it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich bin bedient.",
+        "en": "I have had it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:begreifen",
+    "term": "begreifen",
+    "en": "to grasp fully",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈɡʁaɪ̯fən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Begreifen Sie jetzt?",
+        "en": "Now do you see?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie werden das begreifen.",
+        "en": "They'll understand that.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:beißen",
+    "term": "beißen",
+    "en": "to bite",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbaɪ̯sən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Beißen.",
+        "en": "Bite.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir beißen nicht.",
+        "en": "We won't bite.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:bestrafen",
+    "term": "bestrafen",
+    "en": "to punish",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈʃtʁaːfən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bestrafte Tom.",
+        "en": "I punished Tom.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du wirst bestraft.",
+        "en": "You will be punished.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:betrügen",
+    "term": "betrügen",
+    "en": "to deceive",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈtryːɡən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie betrügen.",
+        "en": "They cheat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich würde sie nie betrügen.",
+        "en": "I'd never betray her.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:durchgehen",
+    "term": "durchgehen",
+    "en": "to go through",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʊrçˌɡeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er kann als Weißer durchgehen.",
+        "en": "He can pass for white.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie kann als Weiße durchgehen.",
+        "en": "She can pass for white.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:eigenartig",
+    "term": "eigenartig",
+    "en": "peculiar, characteristic",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯ɡn̩ˌʔaːɐ̯tɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist eigenartig.",
+        "en": "Tom is odd.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Japan ist eigenartig.",
+        "en": "Japan is weird.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:empfinden",
+    "term": "empfinden",
+    "en": "to feel",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛmˈpfɪndn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "So empfinde ich.",
+        "en": "This is how I feel.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Alle empfinden so.",
+        "en": "Everybody feels that way.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:entführen",
+    "term": "entführen",
+    "en": "to abduct, kidnap, seize",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛntˈfyːrən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom wurde entführt.",
+        "en": "Tom was kidnapped.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom entführte Maria.",
+        "en": "Tom kidnapped Mary.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Episode",
+    "term": "die Episode",
+    "en": "episode",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Episoden",
+    "ipa": "epiˈzoːdə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich mag diese Episode nicht.",
+        "en": "I don't like this episode.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Habe ich eine Episode verpasst?",
+        "en": "Did I miss an episode?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:erschrecken",
+    "term": "erschrecken",
+    "en": "to be frightened",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛʁˈʃʁɛkən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie erschreckte ihn.",
+        "en": "She startled him.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das erschreckte mich.",
+        "en": "It scared me.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:existieren",
+    "term": "existieren",
+    "en": "to exist",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌɛksɪsˈtiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Existiere ich?",
+        "en": "Do I exist?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Existiert sie?",
+        "en": "Does she exist?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:friedlich",
+    "term": "friedlich",
+    "en": "peaceful, placid, tranquil",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfʁiːtlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "So friedlich.",
+        "en": "So peaceful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie friedlich!",
+        "en": "How peaceful!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Frisur",
+    "term": "die Frisur",
+    "en": "haircut",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Frisuren",
+    "ipa": "friˈzuːr",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich mag Toms Frisur.",
+        "en": "I like Tom's haircut.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom wagte eine neue Frisur.",
+        "en": "Tom tried a new hairstyle.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Geisel",
+    "term": "die Geisel",
+    "en": "hostage",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Geiseln",
+    "ipa": "ˈɡaɪ̯zəl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Den Geiseln droht der Tod.",
+        "en": "The hostages are facing death.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du bist jetzt unsere Geisel.",
+        "en": "You're our hostage now.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:gestehen",
+    "term": "gestehen",
+    "en": "to confess, to admit",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈʃteːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom gestand.",
+        "en": "Tom confessed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat gestanden.",
+        "en": "He confessed.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:glatt",
+    "term": "glatt",
+    "en": "without roughness or unevenness: smooth",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡlat",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alles ging glatt.",
+        "en": "Everything went smoothly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist nicht glatt.",
+        "en": "That's not fair.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Glocke",
+    "term": "die Glocke",
+    "en": "bell",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Glocken",
+    "ipa": "ˈɡlɔkə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Glocke läutet.",
+        "en": "The bell is ringing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich hörte die Glocke.",
+        "en": "I heard the bell.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:harmlos",
+    "term": "harmlos",
+    "en": "harmless",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhaʁmloːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist harmlos.",
+        "en": "Tom's harmless.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie sind harmlos.",
+        "en": "They're harmless.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:heimlich",
+    "term": "heimlich",
+    "en": "secret, clandestine",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhaɪ̯mlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie trafen sich heimlich.",
+        "en": "They met in secret.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie treffen sich heimlich.",
+        "en": "They're seeing each other secretly.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Heirat",
+    "term": "die Heirat",
+    "en": "marrying",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Heiraten",
+    "ipa": "ˈhaɪ̯ˌʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir heiraten.",
+        "en": "We're getting married.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du wirst heiraten.",
+        "en": "You're getting married.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:intelligent",
+    "term": "intelligent",
+    "en": "intelligent",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʔɪntɛliˈɡɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist intelligent.",
+        "en": "Tom is intelligent.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist intelligent.",
+        "en": "She is intelligent.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Kanone",
+    "term": "die Kanone",
+    "en": "cannon",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "kaˈnoːnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Resultat war unter aller Kanone.",
+        "en": "The result was bloody awful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es scheint ein Schrubber für die Kanone zu sein.",
+        "en": "It seems to be a swab for the cannon.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Kleinigkeit",
+    "term": "die Kleinigkeit",
+    "en": "bagatelle, trifle, little something, minor thing",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Kleinigkeiten",
+    "ipa": "ˈklaɪ̯nɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine Kleinigkeit.",
+        "en": "That's a trifle.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Stör ihn nicht mit Kleinigkeiten.",
+        "en": "Don't trouble him with trifles.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Klinge",
+    "term": "die Klinge",
+    "en": "blade",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Klingen",
+    "ipa": "ˈklɪŋə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Klinge ich verliebt?",
+        "en": "Do I sound in love?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie klingen sehr müde.",
+        "en": "You sound very tired.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:kontaktieren",
+    "term": "kontaktieren",
+    "en": "to contact",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kɔntakˈtiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir kontaktierten Tom.",
+        "en": "We contacted Tom.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hast du Tom kontaktiert?",
+        "en": "Did you get in touch with Tom?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Kutsche",
+    "term": "die Kutsche",
+    "en": "carriage, coach",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Kutschen",
+    "ipa": "ˈkʊtʃə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Da fährt eine wunderbare Kutsche vorüber.",
+        "en": "There goes a wonderful coach over there.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Prinzessin fuhr in einer goldenen Kutsche.",
+        "en": "The princess rode in a golden carriage.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:legal",
+    "term": "legal",
+    "en": "legal",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "leːˈɡaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ist das legal?",
+        "en": "Is this legal?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist nicht legal.",
+        "en": "This isn't legal.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:logisch",
+    "term": "logisch",
+    "en": "logical",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈloːɡɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das wäre logisch.",
+        "en": "That would be logical.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom denkt logisch.",
+        "en": "Tom is logical.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Melodie",
+    "term": "die Melodie",
+    "en": "melody, tune",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Melodien",
+    "ipa": "meloˈdiː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Spiel uns eine Melodie.",
+        "en": "Play us a tune.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich liebe diese Melodie.",
+        "en": "I love this melody.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:menschlich",
+    "term": "menschlich",
+    "en": "human, manlike",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "mɛnʃlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin menschlich.",
+        "en": "I am human.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wissen ist menschlich.",
+        "en": "Knowledge is human.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Moral",
+    "term": "die Moral",
+    "en": "moral, morality",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Moralen",
+    "ipa": "moˈʁaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es widerspricht der Moral.",
+        "en": "It is contrary to the morals.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist eine Frage der Moral.",
+        "en": "It is a moral question.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:niedlich",
+    "term": "niedlich",
+    "en": "cute, pretty, charming, adorable",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈniːtlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie niedlich!",
+        "en": "How cute!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist niedlich.",
+        "en": "She's cute.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:nutzlos",
+    "term": "nutzlos",
+    "en": "useless",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈnʊtsloːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist nutzlos.",
+        "en": "He's useless.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es ist nutzlos.",
+        "en": "It's useless.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:riskant",
+    "term": "riskant",
+    "en": "risky",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʁɪsˈkant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das war riskant.",
+        "en": "That was risky.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist zu riskant.",
+        "en": "It's too risky.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:sanft",
+    "term": "sanft",
+    "en": "gentle",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zanft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom war sanft.",
+        "en": "Tom was gentle.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom sprach sanft.",
+        "en": "Tom spoke gently.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schalten",
+    "term": "schalten",
+    "en": "to switch",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃaltən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schalte es an.",
+        "en": "Turn it on.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schalte es ein.",
+        "en": "Turn it on.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Scheune",
+    "term": "die Scheune",
+    "en": "barn",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Scheunen",
+    "ipa": "ˈʃɔʏ̯nə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Scheune brennt.",
+        "en": "The barn's on fire.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Scheune ist leer.",
+        "en": "The barn is empty.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schieben",
+    "term": "schieben",
+    "en": "to push",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃiːbən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schieben Sie den Tisch bitte hierher!",
+        "en": "Please push the table over this way.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich mußte mein Fahrrad nach Hause schieben.",
+        "en": "I had to push my bicycle home.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:schwören",
+    "term": "schwören",
+    "en": "to swear",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃvøːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du solltest auf die Bibel schwören.",
+        "en": "You should swear on the Bible.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich musste schwören, nichts zu sagen.",
+        "en": "They made me swear not to say anything.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:sinnlos",
+    "term": "sinnlos",
+    "en": "meaningless, pointless, senseless",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɪnloːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist sinnlos.",
+        "en": "It's pointless.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist völlig sinnlos.",
+        "en": "That's quite meaningless.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Sorte",
+    "term": "die Sorte",
+    "en": "a sort, variety, grade of a good produced for sale or consumption",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Sorten",
+    "ipa": "ˈzɔrtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie viele Sorten gibt es?",
+        "en": "How many kinds are there?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben fünf Sorten Kebab.",
+        "en": "We have five kinds of kebab.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:taub",
+    "term": "taub",
+    "en": "deaf",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "taʊ̯p",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist taub.",
+        "en": "He's deaf.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bist du taub?",
+        "en": "Are you deaf?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:täuschen",
+    "term": "täuschen",
+    "en": "to deceive",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtɔɪ̯ʃən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Täusche Tom nicht.",
+        "en": "Don't deceive Tom.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Täusche mich nicht.",
+        "en": "Don't deceive me.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unfair",
+    "term": "unfair",
+    "en": "unfair",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnˌfɛːr",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du bist unfair.",
+        "en": "You're unfair.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom war unfair.",
+        "en": "Tom was unfair.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unhöflich",
+    "term": "unhöflich",
+    "en": "rude",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʔʊnhøːflɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie unhöflich!",
+        "en": "How rude!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er war unhöflich.",
+        "en": "He was rude.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unnötig",
+    "term": "unnötig",
+    "en": "unnecessary",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnøːtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist unnötig.",
+        "en": "It's unnecessary.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war unnötig.",
+        "en": "That was unnecessary.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unsichtbar",
+    "term": "unsichtbar",
+    "en": "invisible",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Dunkle Materie ist unsichtbar.",
+        "en": "Dark matter is invisible.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du den Unsichtbaren sehen?",
+        "en": "Can you see the invisible man?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unterbrechen",
+    "term": "unterbrechen",
+    "en": "to interrupt",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊntərˈbrɛçən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Darf ich unterbrechen?",
+        "en": "May I cut in?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Darf ich Sie unterbrechen?",
+        "en": "May I interrupt you?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unwichtig",
+    "term": "unwichtig",
+    "en": "unimportant",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnvɪçtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es war unwichtig.",
+        "en": "It wasn't important.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er war unwichtig.",
+        "en": "It wasn't important.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:verdächtig",
+    "term": "verdächtig",
+    "en": "suspicious, suspect",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈdɛçtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wen verdächtigen Sie?",
+        "en": "Who do you suspect?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jeder ist verdächtig.",
+        "en": "Everybody's suspicious.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:verschieben",
+    "term": "verschieben",
+    "en": "to move, to shift",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛrˈʃiːbən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können wir das verschieben?",
+        "en": "Can we reschedule?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Lass uns das Bett verschieben.",
+        "en": "Let's move the bed.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:verwandeln",
+    "term": "verwandeln",
+    "en": "to turn, to change, to transform",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fərˈvandəln",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat den Elfmeter verwandelt.",
+        "en": "He converted the penalty.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wasser verwandelt sich zu Dampf.",
+        "en": "Water changes into steam.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Weisheit",
+    "term": "die Weisheit",
+    "en": "wisdom",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Weisheiten",
+    "ipa": "ˈvaɪ̯shaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Weisheit gibt uns Macht.",
+        "en": "Wisdom gives us power.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Intelligenz ist keine Weisheit.",
+        "en": "Intellect is not wisdom.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:widerstehen",
+    "term": "widerstehen",
+    "en": "to withstand, to resist",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "viːdəʁˈʃteːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Widerstand ist zwecklos.",
+        "en": "It's useless to try and resist.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er konnte nicht widerstehen.",
+        "en": "He couldn't resist.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:überreden",
+    "term": "überreden",
+    "en": "to talk over, to talk into, to persuade",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "yːbərˈreːdən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe ihn überredet.",
+        "en": "I talked him into it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Tom überredete Mary dazu.",
+        "en": "Tom persuaded Mary to do it.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:überwachen",
+    "term": "überwachen",
+    "en": "to control, to monitor, to supervise",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌyːbəʁˈvaχən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Überwachst du mich?",
+        "en": "Are you watching me?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Überwachen Sie Ihr Gewicht?",
+        "en": "Are you watching your weight?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:aktivieren",
+    "term": "aktivieren",
+    "en": "to activate, to enable",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "aktiˈviːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lesen aktiviert das Gehirn.",
+        "en": "Reading activates the brain.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Vielen Dank. Danke, dass Sie meinen Würgereflex aktiviert haben.",
+        "en": "Thank you very much. Thank you for activating my gag reflex.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:begehen",
+    "term": "begehen",
+    "en": "to commit, perpetrate",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈɡeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom beging Selbstmord.",
+        "en": "Tom committed suicide.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie beging Selbstmord.",
+        "en": "She committed suicide.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Bewährung",
+    "term": "die Bewährung",
+    "en": "parole",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Bewährungen",
+    "ipa": "bəˈvɛːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom bleibt auf Bewährung.",
+        "en": "Tom remains on probation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bist du noch auf Bewährung?",
+        "en": "Are you still on probation?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:brutal",
+    "term": "brutal",
+    "en": "brutal",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bʁuˈtaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tom ist brutal.",
+        "en": "Tom is cruel.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Aufstand wurde brutal niedergeschlagen.",
+        "en": "The uprising was brutally suppressed.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Ermittlung",
+    "term": "die Ermittlung",
+    "en": "investigation, inquiry",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Ermittlungen",
+    "ipa": "ɛɐ̯ˈmɪtlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es gab keine Ermittlungen.",
+        "en": "There was no investigation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wie verläuft die Ermittlung?",
+        "en": "How is the investigation going?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:fabelhaft",
+    "term": "fabelhaft",
+    "en": "fabulous",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfaːbəlˌhaft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das war fabelhaft.",
+        "en": "That was fabulous.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Du siehst fabelhaft aus!",
+        "en": "You look fabulous.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:faszinierend",
+    "term": "faszinierend",
+    "en": "fascinating",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es war faszinierend.",
+        "en": "It was mesmerising.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Du bist faszinierend.",
+        "en": "You're fascinating.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:gestatten",
+    "term": "gestatten",
+    "en": "to allow",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈʃtatn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich gestatte dir zu gehen.",
+        "en": "I'm allowing you to go.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Parken ist hier gestattet.",
+        "en": "They allow parking here.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:operieren",
+    "term": "operieren",
+    "en": "to operate",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "opəˈʁiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist operiert worden.",
+        "en": "He had surgery.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er muss operiert werden.",
+        "en": "He must undergo surgery.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Tragödie",
+    "term": "die Tragödie",
+    "en": "tragedy",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Tragödien",
+    "ipa": "tʁaˈɡøːdi̯ə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine furchtbare Tragödie.",
+        "en": "This is a terrible tragedy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Geschichte hat Züge einer Tragödie.",
+        "en": "The story has in it something of the element of tragedy.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Vergebung",
+    "term": "die Vergebung",
+    "en": "pardon, forgiveness",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Vergebungen",
+    "ipa": "fɛʁˈɡeːbʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er bat um Vergebung.",
+        "en": "He asked for forgiveness.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tom betete um Vergebung.",
+        "en": "Tom prayed for forgiveness.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:verschaffen",
+    "term": "verschaffen",
+    "en": "to provide, supply, procure",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛʁˈʃafn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das könnte uns etwas Zeit verschaffen.",
+        "en": "This could buy us some time.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das sollte uns etwas Zeit verschaffen.",
+        "en": "That should buy us some time.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Verschwörung",
+    "term": "die Verschwörung",
+    "en": "conspiracy",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Verschwörungen",
+    "ipa": "fɛɐ̯ˈʃvøː.ʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist eine Verschwörung.",
+        "en": "It's a conspiracy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er wurde der Verschwörung angeklagt.",
+        "en": "He was charged with conspiracy.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Miscellaneous",
+    "kind": "word"
   }
 ]

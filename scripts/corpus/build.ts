@@ -17,7 +17,7 @@ import {
 } from './lib.ts';
 import { loadFrequency, loadFrequencies } from './sources/frequency.ts';
 import { loadWiktextract, type LexEntry } from './sources/wiktextract.ts';
-import { loadWordlist } from './sources/wordlist.ts';
+import { loadWordlist, loadProperNouns } from './sources/wordlist.ts';
 import { attachTatoebaExamples, type Candidate, type TatEx } from './sources/tatoeba.ts';
 import { loadReference, assignLevel, type LevelAssignment } from './level.ts';
 import { indexSectors, resolveField, rebuildSectors, loadSectorReference, posDefaultSector } from './sectors.ts';
@@ -80,6 +80,9 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
   // Independent gender source (CC BY 4.0): recovers nouns Wiktextract can't gender
   // so they become usable cards instead of being dropped. Empty (no-op) if unfetched.
   const wl = loadWordlist(opts.wordlistDir ?? '');
+  // Independent proper-noun exclusion (CC BY 4.0): drop surname/given/place-name
+  // headwords that news frequency surfaces as common nouns. No-op if unfetched.
+  const proper = loadProperNouns(opts.wordlistDir ?? '');
 
   interface Cand { key: string; lemma: string; le: LexEntry; rank: number; lvl: LevelAssignment; genderFromWordlist: boolean; }
   const cands: Cand[] = [];
@@ -90,6 +93,7 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
     if (le.form) continue;                                // inflected form ("diese"), not a lemma
     if (le.pos === 'pronoun') continue;                   // closed-class → grammar cards, not vocab
     if (/^[A-ZÄÖÜ]{1,4}$/.test(le.word)) continue;        // all-caps abbreviation/acronym (AB, EU, CDU)
+    if (proper.has(le.word.toLowerCase())) continue;      // surname/given/place name (categorized wordlist)
     let genderFromWordlist = false;
     if (le.pos === 'noun' && !le.gender) {                // Wiktextract couldn't gender it…
       const k = le.word.toLowerCase();
