@@ -244,6 +244,105 @@ const POINTS: NewPoint[] = [
       { kind: 'error', prompt: 'Ich denke an es.', answer: 3, fix: 'Ich denke daran.', explain: 'denken an + a thing → daran, not "an es".' },
     ],
   },
+
+  // ── Grammar mastery pass · batch 3 (2026-07-12) ───────────────────────────
+  // Adjektivdeklination, split the standard three ways (weak / mixed / strong)
+  // and introduced early (A2/B1) — the single B2 point under-served one of
+  // German's hardest systems. Tables spot-checked against the standard paradigm;
+  // human-review before --write.
+  {
+    level: 'A2', title: 'Adjektivdeklination: nach bestimmtem Artikel (schwach)',
+    summary: 'After der/die/das the adjective is -e or -en.',
+    rule: 'After a definite article (der, die, das, dieser, jeder, alle) the adjective takes only two endings. It is -e in the nominative singular of every gender and in the accusative singular of feminine and neuter: der gute Mann, die gute Frau, das gute Kind. It is -en everywhere else — all other cases and the entire plural: den guten Mann, dem guten Kind, die guten Kinder.',
+    exercises: [
+      { kind: 'choose', prompt: 'Der ___ Mann wartet.', options: ['alte', 'alter', 'alten'], answer: 0, explain: 'Masc. nom. after der → -e: der alte Mann.' },
+      { kind: 'choose', prompt: 'Ich sehe den ___ Hund.', options: ['großen', 'große', 'großer'], answer: 0, explain: 'Masc. acc. after den → -en: den großen Hund.' },
+      { kind: 'type', prompt: 'Das ___ Auto ist teuer. (neu)', accept: ['neue'], explain: 'Neut. nom. after das → -e: das neue Auto.' },
+      { kind: 'choose', prompt: 'Wir helfen der ___ Frau.', options: ['netten', 'nette', 'netter'], answer: 0, explain: 'Fem. dat. after der → -en: der netten Frau.' },
+      { kind: 'choose', prompt: 'Die ___ Kinder spielen.', options: ['kleinen', 'kleine', 'kleiner'], answer: 0, explain: 'Plural after die → -en: die kleinen Kinder.' },
+    ],
+  },
+  {
+    level: 'B1', title: 'Adjektivdeklination: nach unbestimmtem Artikel (gemischt)',
+    summary: 'After ein/kein/mein the adjective shows the gender where ein can’t.',
+    rule: 'After ein, kein and the possessives (mein, dein …) the adjective takes weak endings (-e / -en) EXCEPT in the three slots where ein itself has no ending — there the adjective must show the gender: masculine nominative → -er (ein guter Wein) and neuter nominative/accusative → -es (ein gutes Buch). Everywhere else it is -e (fem. nom./acc.: eine gute Idee) or -en (all other cases and the plural: einen guten Wein, meinem guten Freund, keine guten Ideen).',
+    exercises: [
+      { kind: 'choose', prompt: 'Das ist ein ___ Wein.', options: ['guter', 'gute', 'gutes'], answer: 0, explain: 'Masc. nom.; ein has no ending, so the adjective shows it → guter.' },
+      { kind: 'choose', prompt: 'Sie hat ein ___ Kind.', options: ['kleines', 'kleine', 'kleiner'], answer: 0, explain: 'Neut. nom./acc.; ein has no ending → -es: ein kleines Kind.' },
+      { kind: 'type', prompt: 'Ich sehe einen ___ Mann. (alt)', accept: ['alten'], explain: 'Masc. acc.; einen carries the ending, so the adjective is weak → alten.' },
+      { kind: 'choose', prompt: 'Ich spreche mit meinem ___ Freund.', options: ['besten', 'beste', 'bester'], answer: 0, explain: 'Masc. dat. after mein- → -en: meinem besten Freund.' },
+      { kind: 'error', prompt: 'Er trinkt ein kaltes Bier mit einem gutem Freund.', answer: 7, fix: 'Er trinkt ein kaltes Bier mit einem guten Freund.', explain: 'Masc. dat. after ein- is weak → guten, not gutem.' },
+    ],
+  },
+  {
+    level: 'B1', title: 'Adjektivdeklination: ohne Artikel (stark)',
+    summary: 'With no article the adjective takes the der/die/das endings.',
+    rule: 'With no article (common in plurals, mass nouns, after numbers) the adjective must carry the case signal itself, taking the endings the definite article would show: guter Wein (masc. nom., like der), gutes Bier (neut., like das), gute Milch (fem., like die), guten Wein (masc. acc.), gutem Wein / guter Milch (dat.), gute Weine (pl. nom./acc.), guten Weinen (pl. dat.). The one exception: masculine/neuter genitive is -en (guten Weines), because the noun already carries -s.',
+    exercises: [
+      { kind: 'choose', prompt: 'Ich trinke gern ___ Kaffee.', options: ['schwarzen', 'schwarzer', 'schwarzes'], answer: 0, explain: 'Masc. acc., no article → like den: schwarzen Kaffee.' },
+      { kind: 'choose', prompt: '___ Wein ist teuer.', options: ['Guter', 'Gutes', 'Guten'], answer: 0, explain: 'Masc. nom., no article → like der: guter Wein.' },
+      { kind: 'type', prompt: 'Sie trinkt ___ Milch. (frisch, fem. acc.)', accept: ['frische'], explain: 'Fem. acc., no article → like die: frische Milch.' },
+      { kind: 'choose', prompt: 'Wir essen mit ___ Freunden.', options: ['guten', 'gute', 'guter'], answer: 0, explain: 'Plural dat., no article → -en: guten Freunden.' },
+      { kind: 'mc', prompt: 'Choose the phrase for "with cold water":', options: ['mit kaltem Wasser', 'mit kaltes Wasser', 'mit kalter Wasser'], answer: 0, explain: 'Neut. dat., no article → like dem: kaltem Wasser.' },
+    ],
+  },
+
+  // ── Grammar mastery pass · batch 4 (2026-07-12) ───────────────────────────
+  // The two everyday gaps: ordinals & dates, and the Nullartikel (when German
+  // omits the article). Human-review before --write.
+  {
+    level: 'A1', title: 'Ordinalzahlen & Datum',
+    summary: 'der erste, der zweite …; „am …ten" for dates.',
+    rule: 'Ordinals add -t up to 19 (der vierte, der siebte) and -st from 20 on (der zwanzigste); erste, dritte, siebte and achte are irregular. They decline like adjectives: der erste Tag, am ersten Tag. Dates use the ordinal: Heute ist der erste Mai (nom.); "on" a date is am + ordinal in -ten: am ersten Mai, am dritten Juni. Written as a figure, the ordinal takes a period: der 1. Mai, am 3. Juni.',
+    exercises: [
+      { kind: 'choose', prompt: 'Heute ist der ___ Mai.', options: ['erste', 'ersten', 'einte'], answer: 0, explain: 'Nominative ordinal → der erste.' },
+      { kind: 'choose', prompt: 'Ich habe am ___ Juni Geburtstag.', options: ['dritten', 'dritte', 'drei'], answer: 0, explain: 'am + ordinal in -ten → am dritten.' },
+      { kind: 'type', prompt: 'Der ___ Tag der Woche ist Montag. (1st)', accept: ['erste'], explain: 'der erste Tag (nom.).' },
+      { kind: 'mc', prompt: 'Say "on the 20th of July":', options: ['am zwanzigsten Juli', 'am zwanzigste Juli', 'an zwanzig Juli'], answer: 0, explain: 'From 20 on: -st, dative -en → am zwanzigsten.' },
+      { kind: 'error', prompt: 'Wir treffen uns am zweite April.', answer: 4, fix: 'Wir treffen uns am zweiten April.', explain: 'am + ordinal takes -ten → am zweiten April.' },
+    ],
+  },
+  {
+    level: 'A2', title: 'Nullartikel: wann kein Artikel steht',
+    summary: 'No article with professions, nationalities and general mass nouns.',
+    rule: 'German drops the article where English often keeps one: after sein/werden/bleiben with a profession, nationality or religion — Sie ist Ärztin, Er wird Lehrer; with uncountable or abstract nouns used generally — Ich trinke Wasser, Zeit ist Geld, Sie hat Geduld; with most countries, cities and languages — Ich lerne Deutsch, Er wohnt in Deutschland; and in set phrases — zu Fuß, nach Hause, mit Freunden. Keep the article when the noun is specific: Der Kaffee hier ist gut.',
+    exercises: [
+      { kind: 'choose', prompt: 'Meine Schwester ist ___ Ärztin.', options: ['—', 'eine', 'die'], answer: 0, explain: 'Profession after sein → no article: Sie ist Ärztin.' },
+      { kind: 'mc', prompt: 'Which is correct?', options: ['Ich lerne Deutsch.', 'Ich lerne das Deutsch.', 'Ich lerne ein Deutsch.'], answer: 0, explain: 'Languages take no article.' },
+      { kind: 'choose', prompt: '___ Kaffee hier schmeckt gut.', options: ['Der', '—', 'Ein'], answer: 0, explain: 'A specific, present coffee → keep the article: Der Kaffee hier.' },
+      { kind: 'choose', prompt: 'Er wohnt in ___ Deutschland.', options: ['—', 'dem', 'das'], answer: 0, explain: 'Most country names take no article.' },
+      { kind: 'error', prompt: 'Sie ist eine Lehrerin.', answer: 2, fix: 'Sie ist Lehrerin.', explain: 'A bare profession after sein → no article: Sie ist Lehrerin.' },
+    ],
+  },
+
+  // ── Grammar mastery pass · batch 5 (2026-07-12) ───────────────────────────
+  // Thickens the thin C2 tier with two genuinely-C2, clearly-gradable structures:
+  // universal ("irrelevance") concession and the formal genitive-object verbs.
+  // The rest of C2's thinness is stylistic/register and better hand-authored.
+  {
+    level: 'C2', title: 'Irrelevanzkonzessivsätze: „wer/was/wie … auch (immer)"',
+    summary: 'No matter who/what/how …; the verb still closes the clause.',
+    rule: 'To express "no matter who / what / how …", German combines a w-word with auch (immer): Wer auch immer anruft, ich bin nicht da; Was auch (immer) geschieht, wir bleiben ruhig; Wie schwer es auch sein mag, wir schaffen es. The finite verb still stands at the end of the concessive clause, and the following main clause keeps verb-second. A paired variant uses ob … oder: Ob reich oder arm, alle sind willkommen. These belong to formal, argumentative register.',
+    exercises: [
+      { kind: 'choose', prompt: '___ auch immer anruft, ich bin nicht da.', options: ['Wer', 'Wen', 'Wem'], answer: 0, explain: 'Subject of the clause → Wer auch immer.' },
+      { kind: 'mc', prompt: 'Which is correct?', options: ['Was auch immer passiert, wir bleiben ruhig.', 'Was passiert auch immer, wir bleiben ruhig.', 'Was auch immer passiert wir ruhig bleiben.'], answer: 0, explain: 'w-word + auch immer, verb last; main clause verb-second.' },
+      { kind: 'type', prompt: '___ schwer es auch ist, wir geben nicht auf. (however)', accept: ['Wie'], explain: 'Wie … auch = however.' },
+      { kind: 'choose', prompt: '___ reich oder arm, alle sind willkommen.', options: ['Ob', 'Wenn', 'Als'], answer: 0, explain: 'Ob … oder = whether … or, a paired concession.' },
+      { kind: 'order', prompt: 'Build: „Wen du auch fragst, …" (whomever you ask)', tiles: ['Wen', 'du', 'auch', 'fragst'], explain: 'w-word + auch, finite verb (fragst) last.' },
+    ],
+  },
+  {
+    level: 'C2', title: 'Verben mit Genitivobjekt',
+    summary: 'Formal verbs that govern the genitive: gedenken, bedürfen, anklagen …',
+    rule: 'A small, formal set of verbs takes a genitive object: gedenken (commemorate) — wir gedenken der Opfer; bedürfen (require) — es bedarf großer Geduld; sich rühmen, sich schämen, sich bemächtigen, sich entledigen; and jn. + gen. anklagen / beschuldigen / verdächtigen — man klagte ihn des Betrugs an. They belong to written, elevated register; everyday German often substitutes (brauchen for bedürfen, denken an for gedenken).',
+    exercises: [
+      { kind: 'choose', prompt: 'Wir gedenken ___ Opfer.', options: ['der', 'die', 'den'], answer: 0, explain: 'gedenken + genitive → der Opfer (pl. gen.).' },
+      { kind: 'choose', prompt: 'Es bedarf ___ Geduld.', options: ['großer', 'große', 'großen'], answer: 0, explain: 'bedürfen + genitive → großer Geduld (fem. gen.).' },
+      { kind: 'type', prompt: 'Man klagte ihn ___ Diebstahls an. (masc. gen. article)', accept: ['des'], explain: 'jn. + gen. anklagen → des Diebstahls.' },
+      { kind: 'mc', prompt: 'Which is correct?', options: ['Der Kranke bedarf der Ruhe.', 'Der Kranke bedarf die Ruhe.', 'Der Kranke bedarf an Ruhe.'], answer: 0, explain: 'bedürfen + genitive → der Ruhe.' },
+      { kind: 'error', prompt: 'Wir gedenken die Verstorbenen.', answer: 2, fix: 'Wir gedenken der Verstorbenen.', explain: 'gedenken governs the genitive → der Verstorbenen.' },
+    ],
+  },
 ];
 
 function toCard(p: NewPoint): Word {

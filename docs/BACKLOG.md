@@ -153,18 +153,20 @@ drill) — draft in `grammar-supplement.ts`, review, then `--write`, like the co
   drafted (B1).*
 - **da-/wo-compounds** (darauf, worauf, damit, womit) — only partial at C1; needed
   for verbs-with-prepositions and relative clauses. *Batch 2 drafted (B1).*
-- **Adjektivdeklination** is one B2 point for one of German's hardest systems —
-  split it (after der-words / ein-words / no article) and introduce earlier (A2/B1).
-- **Ordinals & dates** (der erste, am dritten Mai) — no point today (A1/A2).
-- **Article use / Nullartikel** — when German drops the article (A2/B1).
-- **C2 is thin (6 points)** — room for register/Stil, extended participle
-  constructions, ellipsis.
+- **Adjektivdeklination** — one B2 point for one of German's hardest systems.
+  *Batch 3 drafted — split weak / mixed / strong, introduced early (A2, B1, B1).*
+- **Ordinals & dates** (der erste, am dritten Mai). *Batch 4 drafted (A1).*
+- **Article use / Nullartikel** — when German drops the article. *Batch 4 drafted (A2).*
+- **C2 is thin (6 points).** *Batch 5 drafted — Irrelevanzkonzessiv (wer … auch immer)
+  + genitive-object verbs (C2 ×2).* Remaining C2 gaps (register/Stil, ellipsis,
+  Ausklammerung) are judgment-heavy and better hand-authored than auto-drilled.
 **Do.** Append `NewPoint`s to `scripts/corpus/grammar-supplement.ts` in reviewable
 batches → dry-run → human-verify German + answer indices → `--write` → bump the
-three count strings. **Pending write (batches 1–2):** 4 points / 20 exercises drafted,
-**awaiting review + `npm run corpus:grammar -- --write`** — applies to `grammar.json`
-+ `vocab.json` and takes grammar **89→93 cards, 87→91 exercise points, 509→529
-exercises**; bump the README / Fundamentals / `lib/grammar.ts` counts then.
+three count strings. **Pending write (batches 1–5):** 11 points / 55 exercises drafted and schema-swept
+(all 24 supplement points / 120 exercises clean), **awaiting review +
+`npm run corpus:grammar -- --write`** — applies to `grammar.json` + `vocab.json` and
+takes grammar **89→100 cards, 87→98 exercise points, 509→564 exercises**; bump the
+README / Fundamentals / `lib/grammar.ts` counts then.
 **Done-when.** Each gap above has a point with ≥5 exercises; schema sweep clean.
 **Touches.** `scripts/corpus/grammar-supplement.ts`,
 `public/data/{grammar,vocab,sectors}.json`, count strings.
