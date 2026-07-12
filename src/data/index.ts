@@ -1,4 +1,4 @@
-// Lexi lexicon — 6,468 A1–C2 cards (vocabulary + grammar). Loaded at runtime
+// Lexi lexicon — 6,479 A1–C2 cards (vocabulary + grammar). Loaded at runtime
 // from /public/data so the ~2 MB corpus is a separately-cached fetch rather than
 // parsed inside the JS bundle (keeps first paint fast; the service worker caches
 // it for instant offline reloads). Exports are live `let` bindings, populated by

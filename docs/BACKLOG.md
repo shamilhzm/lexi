@@ -162,12 +162,13 @@ drill) — draft in `grammar-supplement.ts`, review, then `--write`, like the co
   Ausklammerung) are judgment-heavy and better hand-authored than auto-drilled.
 **Do.** Append `NewPoint`s to `scripts/corpus/grammar-supplement.ts` in reviewable
 batches → dry-run → human-verify German + answer indices → `--write` → bump the
-three count strings. **Pending write (batches 1–5):** 11 points / 55 exercises drafted and schema-swept
-(all 24 supplement points / 120 exercises clean), **awaiting review +
-`npm run corpus:grammar -- --write`** — applies to `grammar.json` + `vocab.json` and
-takes grammar **89→100 cards, 87→98 exercise points, 509→564 exercises**; bump the
-README / Fundamentals / `lib/grammar.ts` counts then.
-**Done-when.** Each gap above has a point with ≥5 exercises; schema sweep clean.
+three count strings. **Applied 2026-07-12 (batches 1–5):** 11 points / 55 exercises written via
+`corpus:grammar --write` (schema sweep clean: 24 supplement points / 120 exercises).
+Grammar now **100 cards, 98 exercise points, 564 exercises**; README / Fundamentals /
+`lib/grammar.ts` / `data/index.ts` counts bumped (6,468→6,479 cards). Every listed gap
+now has a point with ≥5 exercises — only the deliberately-deferred stylistic C2 work
+(register, ellipsis, Ausklammerung) remains, flagged above as hand-authoring.
+**Done-when.** Each gap above has a point with ≥5 exercises; schema sweep clean. ✅
 **Touches.** `scripts/corpus/grammar-supplement.ts`,
 `public/data/{grammar,vocab,sectors}.json`, count strings.
 

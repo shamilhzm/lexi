@@ -110,7 +110,7 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
             <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber"><BookOpen size={18} /></span>
             <span className="font-semibold text-[15px]">Grammar exercises</span>
           </div>
-          <p className="text-dim text-[13px]">87 points · 509 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
+          <p className="text-dim text-[13px]">98 points · 564 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
         </button>
       </div>
     </div>
