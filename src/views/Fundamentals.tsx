@@ -1,8 +1,9 @@
 // Grammar Fundamentals — interactive drills with their own spaced-repetition
 // track. Four modes: der/die/das gender, noun plurals, verb conjugation (Präsens /
-// Präteritum / Partizip II via the conjugation engine), and cloze from example
-// sentences. Each drilled unit gets an FSRS card under a namespaced id, so the
-// drills schedule themselves without touching the vocabulary stats.
+// Präteritum / Perfekt / Futur I / Konjunktiv II / Partizip II via the conjugation
+// engine), and cloze from example sentences. Each drilled unit gets an FSRS card
+// under a namespaced id, so the drills schedule themselves without touching the
+// vocabulary stats.
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
@@ -69,7 +70,7 @@ function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; 
 export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'gender', label: 'der / die / das', icon: CircleDot, desc: 'Nail the gender of every noun.' },
   { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Pick the right plural.' },
-  { m: 'conj', label: 'Conjugation', icon: Cog, desc: 'Präsens · Präteritum · Partizip II.' },
+  { m: 'conj', label: 'Conjugation', icon: Cog, desc: 'Präsens · Präteritum · Perfekt · Futur I · Konjunktiv II.' },
   { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Pick the missing word in a real sentence.' },
 ];
 
@@ -280,8 +281,13 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
   return <MCItem prompt={singular} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
 
-const TENSES: { key: 'praesens' | 'praeteritum' | 'pp'; label: string }[] = [
-  { key: 'praesens', label: 'Präsens' }, { key: 'praeteritum', label: 'Präteritum' }, { key: 'pp', label: 'Partizip II' },
+const TENSES: { key: 'praesens' | 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2' | 'pp'; label: string }[] = [
+  { key: 'praesens', label: 'Präsens' },
+  { key: 'praeteritum', label: 'Präteritum' },
+  { key: 'perfekt', label: 'Perfekt' },
+  { key: 'futur1', label: 'Futur I' },
+  { key: 'konjunktiv2', label: 'Konjunktiv II' },
+  { key: 'pp', label: 'Partizip II' },
 ];
 const PERSONS_I: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
 export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
@@ -289,22 +295,24 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
   const data = useMemo(() => {
     const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
     const pIdx = Math.floor(Math.random() * 6);
-    const answer = tense.key === 'pp' ? conj.partizip : conj[tense.key][pIdx];
+    const formOf = (c: typeof conj, idx: number) => tense.key === 'pp' ? c.partizip : c[tense.key][idx];
+    const answer = formOf(conj, pIdx);
     // Kicker states the grammatical target; the verb itself is the hero text.
     const kicker = tense.key === 'pp' ? 'Partizip II' : `${tense.label} · ${PRONOUN[PERSONS_I[pIdx]]}`;
-    // Strongest distractors: the verb's *other* forms; pad from other verbs'
-    // matching tense/person so pads aren't obviously off.
-    const sameVerb = [...conj.praesens, ...conj.praeteritum, conj.partizip];
-    let distract = pickN(sameVerb, 3, new Set([norm(answer)]));
+    // Distractors stay in the SAME tense — the verb's other persons first, then
+    // other verbs' same tense/person — so a phrasal answer (Perfekt / Futur I /
+    // Konjunktiv II) isn't given away by being the only multi-word option.
+    const otherPersons = tense.key === 'pp' ? [] : conj[tense.key].filter((_, idx) => idx !== pIdx);
+    let distract = pickN(otherPersons, 3, new Set([norm(answer)]));
     if (distract.length < 3) {
-      const others = conjPool().filter((w) => w.id !== word.id).slice(0, 14)
-        .map((w) => { const c = conjugate(w.term); return tense.key === 'pp' ? c.partizip : c[tense.key][pIdx]; });
+      const others = conjPool().filter((w) => w.id !== word.id).slice(0, 16)
+        .map((w) => formOf(conjugate(w.term), pIdx));
       distract = distract.concat(pickN(others, 3 - distract.length, new Set([norm(answer), ...distract.map(norm)])));
     }
     return { ...buildMC(answer, distract), verb: stripArticle(word.term), kicker };
   }, [word.id]);
   return <MCItem prompt={data.verb} sub={data.kicker} hint={word.en} options={data.options} correct={data.correct}
-    extra={`Perfekt: ${conj.perfekt[0]} · aux ${conj.aux}`} onGrade={onGrade} />;
+    extra={`Hilfsverb: ${conj.aux}${conj.separable ? ` · trennbar (${conj.separable}-)` : ''}`} onGrade={onGrade} />;
 }
 
 export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {

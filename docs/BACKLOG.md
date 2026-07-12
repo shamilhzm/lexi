@@ -176,9 +176,22 @@ now has a point with ≥5 exercises — only the deliberately-deferred stylistic
 
 ## Next
 
-_Clear — README refresh + store/session tests (incl. the `buildMixedSession` and
-streak follow-on) shipped 2026-07-11. The remaining open work is corpus growth
-(Now, human-gated) and the parked decisions._
+- **Example coverage backfill** (M). *Why:* the consolidated study card folds
+  examples onto the back, which exposed that ~46% of word cards ship a single
+  example and 79 (all A1/A2) ship none — a thin connection between word and real
+  use. *Do:* treat examples like leveling — measure, source, gate. Add a
+  `corpus:examples` audit (sibling of `coverage.ts`) reporting `<2` and `=0` cards
+  by level; in `build.ts` merge sources to a target of ≥2 per card (Tatoeba, cap
+  raised to 3 → Wiktextract usage examples → for verbs a conjugation-derived
+  sentence, deduped, bilingual preferred); add a `validate` warning at `<2` and a
+  `--strict` failure at `0`; author the residue no open corpus covers via the
+  build-time `--llm` layer (human-reviewed, never hand-edited JSON). *Done-when:*
+  0 cards with 0 examples, `<2` count reported and trending down, validate clean.
+  *Touches:* `scripts/corpus/{build,coverage,validate}.ts`, new
+  `scripts/corpus/examples.ts`, `public/data/vocab.json`.
+
+_README refresh + store/session tests (incl. the `buildMixedSession` and streak
+follow-on) shipped 2026-07-11._
 
 ---
 

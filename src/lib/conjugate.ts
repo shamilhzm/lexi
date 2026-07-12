@@ -1,5 +1,6 @@
-// German verb conjugation — present (Präsens), simple past (Präteritum) and
-// present perfect (Perfekt). Three sources, in priority order:
+// German verb conjugation — present (Präsens), simple past (Präteritum),
+// present perfect (Perfekt), future (Futur I) and Konjunktiv II. Three sources
+// for the synthetic forms, in priority order:
 //   1. An explicit table of high-frequency strong/irregular verbs (verified
 //      forms — the source of truth; see conjugate.test data).
 //   2. Prefix reconstruction: a prefixed verb (ankommen, verstehen, aufstehen)
@@ -13,7 +14,7 @@ export const PERSONS: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
 export const PRONOUN: Record<Person, string> = {
   ich: 'ich', du: 'du', er: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie: 'sie/Sie',
 };
-export type Tense = 'praesens' | 'praeteritum' | 'perfekt';
+export type Tense = 'praesens' | 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2';
 export type Aux = 'haben' | 'sein';
 type Six = [string, string, string, string, string, string];
 
@@ -25,6 +26,8 @@ export interface Conjugation {
   praeteritum: Six;
   partizip: string;         // Partizip II, e.g. "gegangen", "gemacht"
   perfekt: Six;             // full: "ich habe gemacht" / "ich bin gegangen"
+  futur1: Six;              // full: "ich werde machen"
+  konjunktiv2: Six;         // "ich würde machen"; synthetic for sein/haben/modals ("wäre", "hätte", "könnte")
   separable: string | null; // detached prefix in present/past, e.g. "an"
   source: 'irregular' | 'regular';
   reliable: boolean;
@@ -261,6 +264,38 @@ function buildPerfekt(partizip: string, aux: Aux, reflexive: boolean): Six {
   return auxForms.map((a, i) => reflexive ? `${a} ${refl[i]} ${partizip}` : `${a} ${partizip}`) as Six;
 }
 
+const WERDEN_PRES: Six = six('werde', 'wirst', 'wird', 'werden', 'werdet', 'werden');
+const WUERDE: Six = six('würde', 'würdest', 'würde', 'würden', 'würdet', 'würden');
+const K2_REFL: Six = six('mich', 'dich', 'sich', 'uns', 'euch', 'sich');
+// Konjunktiv II is analytic (würde + infinitive) for virtually all verbs in
+// modern usage; the high-frequency verbs below keep their synthetic forms, which
+// are the ones actually spoken ("ich wäre", not "ich würde sein").
+const K2_SYNTH: Record<string, Six> = {
+  sein:   six('wäre', 'wärst', 'wäre', 'wären', 'wärt', 'wären'),
+  haben:  six('hätte', 'hättest', 'hätte', 'hätten', 'hättet', 'hätten'),
+  werden: six('würde', 'würdest', 'würde', 'würden', 'würdet', 'würden'),
+  können: six('könnte', 'könntest', 'könnte', 'könnten', 'könntet', 'könnten'),
+  müssen: six('müsste', 'müsstest', 'müsste', 'müssten', 'müsstet', 'müssten'),
+  dürfen: six('dürfte', 'dürftest', 'dürfte', 'dürften', 'dürftet', 'dürften'),
+  sollen: six('sollte', 'solltest', 'sollte', 'sollten', 'solltet', 'sollten'),
+  wollen: six('wollte', 'wolltest', 'wollte', 'wollten', 'wolltet', 'wollten'),
+  mögen:  six('möchte', 'möchtest', 'möchte', 'möchten', 'möchtet', 'möchten'),
+  wissen: six('wüsste', 'wüsstest', 'wüsste', 'wüssten', 'wüsstet', 'wüssten'),
+};
+
+/** Futur I: werden (present) + infinitive. Correct once the infinitive is known,
+ *  independent of strong/weak, and keeps a separable prefix attached (werde ankommen). */
+function buildFutur(infinitive: string, reflexive: boolean): Six {
+  return WERDEN_PRES.map((w, i) => reflexive ? `${w} ${K2_REFL[i]} ${infinitive}` : `${w} ${infinitive}`) as Six;
+}
+/** Konjunktiv II (Gegenwart): synthetic for sein/haben/werden/modals/wissen,
+ *  else the analytic würde-form (würde + infinitive) — the standard taught form. */
+function buildKonjunktiv2(inf: string, infinitive: string, reflexive: boolean): Six {
+  const synth = K2_SYNTH[inf];
+  if (synth) return (reflexive ? synth.map((f, i) => `${f} ${K2_REFL[i]}`) : synth) as Six;
+  return WUERDE.map((w, i) => reflexive ? `${w} ${K2_REFL[i]} ${infinitive}` : `${w} ${infinitive}`) as Six;
+}
+
 /** Conjugate any German verb. Never throws. */
 export function conjugate(rawVerb: string): Conjugation {
   const { base, reflexive } = deReflex(rawVerb);
@@ -276,6 +311,8 @@ export function conjugate(rawVerb: string): Conjugation {
     return {
       infinitive: base, reflexive, aux, praesens, praeteritum, partizip,
       perfekt: buildPerfekt(partizip, aux, reflexive),
+      futur1: buildFutur(base, reflexive),
+      konjunktiv2: buildKonjunktiv2(inf, base, reflexive),
       separable: sep ? prefix : null, source: 'irregular', reliable: true,
     };
   }
@@ -317,6 +354,8 @@ export function conjugate(rawVerb: string): Conjugation {
   return {
     infinitive: base, reflexive, aux, praesens, praeteritum, partizip,
     perfekt: buildPerfekt(partizip, aux, reflexive),
+    futur1: buildFutur(base, reflexive),
+    konjunktiv2: buildKonjunktiv2(inf, base, reflexive),
     separable: sep, source: 'regular', reliable,
   };
 }

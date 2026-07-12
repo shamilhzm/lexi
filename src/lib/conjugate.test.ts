@@ -67,6 +67,42 @@ describe('conjugate — separable & reflexive', () => {
   });
 });
 
+describe('conjugate — Futur I (werden + infinitive)', () => {
+  it('regular: ich werde machen / du wirst machen', () => {
+    const c = conjugate('machen');
+    expect(c.futur1[0]).toBe('werde machen');
+    expect(c.futur1[1]).toBe('wirst machen');
+    expect(c.futur1[2]).toBe('wird machen');
+  });
+
+  it('separable verb keeps its prefix attached (werde aufstehen)', () => {
+    expect(conjugate('aufstehen').futur1[0]).toBe('werde aufstehen');
+  });
+
+  it('reflexive carries the pronoun (werde mich freuen)', () => {
+    expect(conjugate('sich freuen').futur1[0]).toBe('werde mich freuen');
+  });
+});
+
+describe('conjugate — Konjunktiv II', () => {
+  it('regular verb uses the analytic würde-form', () => {
+    const c = conjugate('machen');
+    expect(c.konjunktiv2[0]).toBe('würde machen');
+    expect(c.konjunktiv2[1]).toBe('würdest machen');
+  });
+
+  it('sein / haben / modals keep their synthetic forms', () => {
+    expect(conjugate('sein').konjunktiv2[0]).toBe('wäre');
+    expect(conjugate('haben').konjunktiv2[0]).toBe('hätte');
+    expect(conjugate('können').konjunktiv2[0]).toBe('könnte');
+    expect(conjugate('werden').konjunktiv2[2]).toBe('würde');
+  });
+
+  it('reflexive analytic carries the pronoun (würde mich freuen)', () => {
+    expect(conjugate('sich freuen').konjunktiv2[0]).toBe('würde mich freuen');
+  });
+});
+
 describe('canConjugate — reliability gate', () => {
   it('accepts known regulars and table verbs', () => {
     expect(canConjugate('machen')).toBe(true);
