@@ -286,6 +286,26 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
+### The Next 10 (from eleven simulated sessions — see [SIMULATED-SESSIONS-2.md](SIMULATED-SESSIONS-2.md))
+
+Priority order; each traces to a persona finding. The diagnosis: the app is
+correct and kind, but not yet *legible* (can't see the machine think), *fitted*
+(sessions don't match real minutes), or *narrative* (progress has no arc).
+
+1. **Interval preview on grade buttons** (S) — "Got it · 3d"; the cheapest trust feature in SRS.
+2. **Quick 5 + same-day resume** (M) — sessions that fit real minutes; absorbs UX-PATHS F5.
+3. **Comeback mode** (S) — longest-streak memory + comeback framing instead of a zeroed streak; backlog burn-down bar.
+4. **The goal line** (M) — target level + date → one pace sentence on Today from existing store data.
+5. **The share card** (M) — canvas-rendered treemap + Known headline; pride is the only growth channel.
+6. **Stats surface** (M) — reviews/day, recall trend, 7-day due forecast, Known growth.
+7. **Type ramp on rem + text-size setting, one-time coach marks** (S/M) — OS font scaling must work.
+8. **The feel layer** (S) — optional sound tick, count-up recap with a named best moment; includes the F3 miss-streak circuit breaker.
+9. **`corpus:flags` maintainer loop** (S) — ingest backup files, list flagged cards; closes the flag-a-card loop.
+10. **Content depth arc** (L, human-gated) — DaF-fed A1/A2 fill + hand-authored C1/C2 register; the promise everything else polishes.
+
+**Decision required, not a build item:** commit out loud to "English-base
+learners" or scope gloss-language layers (persona S10). Silence drifts.
+
 - **Friend-readiness leftovers** (S each — from the sharing analysis +
   [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
   in Profile; edit-distance-1 typo tolerance on typed answers (measure
