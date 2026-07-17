@@ -125,6 +125,34 @@ nobody re-implements them:
   `components/TopicPicker.tsx`; wired into `App.tsx` (`hero → placement → topics →
   first session → recap`). One new store/session test (38/38 green).
 
+### Shipped 2026-07-18
+
+- **The vocabulary→grammar loop** (P0, user-approved direction). Vocabulary is
+  the trigger, grammar the remediation. Two new edges in `session.ts`:
+  `linkedGrammar()` — learning a function word pulls its grammar point into the
+  session (learn *obwohl* → the Konzessivsätze exercise lands a few items later;
+  12-entry `WORD_POINT` map, deliberately ignores the CEFR filter since the word
+  in your queue licenses its structure) — and `remedyGrammar()` — ≥3 misses in a
+  drill mode within 30 days pulls in the point that teaches the underlying system
+  (gender misses → *Artikel & Genus*), candidates ordered easiest-first per
+  Processability. Both capped (2 linked / 1 remedy per session), both self-limiting
+  (once the point is reviewed, FSRS schedules it out). 4 new tests incl. a guard
+  that every mapped `gram:` id exists in the shipped `vocab.json`. **Found gap:**
+  no plural-formation grammar point exists — `MODE_REMEDY.plural` is empty (see
+  grammar pass, Now #2).
+- **Skip is now a signal** (from the archived COHESION-PLAN's "zu steil"). Skipping
+  a drill or grammar exercise logs the mode's miss tag — you couldn't attempt it,
+  which is blind-spot information — so skips feed weak-mode ranking and
+  remediation. FSRS untouched (a skip is never a lapse); plain word-flip skips log
+  nothing. `views/Review.tsx`.
+- **Archive triage.** `to_be_deleted_or_archived/reference/` (DaF scans, karteto +
+  design screenshots, study-method pages, ~260 MB) rescued to top-level
+  `reference/` and gitignored — it's the source material for the A1/A2 corpus
+  rebalance (Now #1). Orbita briefs + COHESION-PLAN moved to `docs/archive/`.
+  Vitest now excludes `to_be_deleted_or_archived/**` (the parked atlas-app carried
+  stale test files). Added `@types/node` (dev) for the map-validation test.
+  What's left in the folder is deletable at will.
+
 ---
 
 ## Now
@@ -137,6 +165,12 @@ network- and LLM-enabled maintainer machine plus human spot-checks of
 gender/plural/level per the pipeline's own rules — not an autonomous bulk commit.**
 **Do.** `corpus:coverage` → build A1/A2 batches → `corpus:validate --strict` → review
 diff → commit, in reviewable batches. Close the top-frequency gaps first.
+**Source material:** `reference/DaF Wortschatz/` — 69 page-mapped scans of a complete
+A1–B1 Lektionswortschatz (Lektion → Feld → Wortart; see its MANIFEST.md and
+`docs/archive/COHESION-PLAN.md` Phase 3 for the extraction rules: entries are
+*selected and authored* in the book's style, never wholesale transcription).
+IMG_4850 is the irregular-verbs appendix — feed it to the conjugation engine's
+known-verb checks.
 **Done-when.** ≥95% of the top ~2,000 lemmas per level; A1/A2 filled; validate green;
 load size still acceptable. **Touches.** `scripts/corpus/*`, `public/data/*.json`.
 
@@ -176,6 +210,37 @@ now has a point with ≥5 exercises — only the deliberately-deferred stylistic
 
 ## Next
 
+_The July 2026 direction (user-approved): the shippable core is **session-quality
+work, not new surfaces** — production widgets, supportive grading, and the
+vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus work
+above. "Grounded, supportive German lexicon expander with embedded grammar
+training."_
+
+- **Sentence builder + transformation widgets** (M). *Why:* the app is almost
+  entirely recognition (flips + multiple choice); Swain's output hypothesis says
+  production is where grammar restructures — and **word order (V2, verb-final)
+  is the one core German skill the current widget set cannot drill at all.**
+  *Do:* two new self-contained exercise widgets per the archived catalog
+  (`docs/archive/orbita-product-brief.md` §Exercise types): **sentence builder**
+  (drag/tap word tiles into order; tokens derived from the card's own example
+  sentence, so no new content is needed; must handle V2 and subordinate-clause
+  verb-final) and **transformation** (statement→question, present→Perfekt,
+  active→passive — start with the conjugation engine's tenses). Wire both into
+  `eligibleModes`/`MODE_TAG` so sessions, blind spots, and the miss log pick them
+  up for free. *Done-when:* both render in Fundamentals and mixed sessions, graded
+  into FSRS, with unit tests over tokenization/grading. *Touches:*
+  `views/Fundamentals.tsx`, `session.ts`, tests.
+- **Near-miss grading + progressive hints** (S). *Why:* "supportive" is texture,
+  not a slogan — binary wrong punishes close attempts. *Do:* port the archived
+  Orbita v7 details: typed answers graded diacritic-tolerantly (the `norm()`
+  fold already exists — surface "right, just spelling" as a near-miss instead of
+  wrong), and a progressive hint ladder on cloze/typed items (length → first
+  letter → first half), where taking a hint caps the grade at Good rather than
+  failing. *Touches:* `views/Fundamentals.tsx`, `views/GrammarDrill.tsx`.
+- **Plural-formation grammar point** (S, content). *Why:* found by the loop —
+  `MODE_REMEDY.plural` has no point to remediate to; plural misses currently dead-end.
+  *Do:* author one point (die Pluralbildung: -e/-en/-er/-s/umlaut patterns) with
+  ≥5 exercises via `grammar-supplement.ts`, then point `MODE_REMEDY.plural` at it.
 - **Example coverage backfill** (M). *Why:* the consolidated study card folds
   examples onto the back, which exposed that ~46% of word cards ship a single
   example and 79 (all A1/A2) ship none — a thin connection between word and real

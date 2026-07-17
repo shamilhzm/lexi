@@ -114,9 +114,16 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   }, [item, i]);
 
   // Skip: advance without grading — the card stays due for a later session.
+  // A skipped exercise is a "zu steil" (too steep) signal: you couldn't attempt
+  // it, which is blind-spot information — so it feeds the miss log that ranks
+  // weak modes and triggers remediation, while FSRS stays untouched (a skip is
+  // never a lapse). Plain word flips log nothing: skipping a word isn't
+  // structural.
   const skip = useCallback(() => {
     if (!item) return;
     history.current.push({ i, kind: 'skip' });
+    if (item.type !== 'flip') logMiss(MODE_TAG[item.type]);
+    else if (item.word.kind === 'grammar') logMiss(item.word.term);
     setFlipped(false);
     setI((n) => n + 1);
   }, [item, i]);
@@ -158,7 +165,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const asExercise = drill || !!grammarEx;
 
   return (
-    <div className="mx-auto w-full max-w-[640px] lg:min-h-[calc(100dvh_-_2rem)] lg:flex lg:flex-col lg:justify-center">
+    <div className="mx-auto w-full max-w-[640px] flex-1 flex flex-col justify-center">
       <div className="bg-panel border border-line rounded-[10px]">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3">
           <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back to Today"><ArrowLeft size={16} /></button>

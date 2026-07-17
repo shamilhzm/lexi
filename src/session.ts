@@ -19,6 +19,88 @@ export interface SessionItem {
 const GAP = 3;               // a word's drill surfaces ~3 items after its flip
 const MAX_FRESH_DRILLS = 10; // cap first-time drills so sessions stay bounded
 const MAX_BLIND_SPOTS = 4;   // cap blind-spot drills woven into a session
+const MAX_LINKED = 2;        // cap word-linked grammar points per session
+const MAX_REMEDY = 1;        // cap miss-triggered remediation points per session
+const REMEDY_MIN_MISSES = 3; // misses (30d) in a mode before remediation fires
+
+// ---- the vocabulary→grammar loop -----------------------------------------
+// Vocabulary is the trigger, grammar the remediation. Two edges:
+//  1. WORD_POINT — learning a function word pulls its grammar point into the
+//     session (learn "obwohl" → the Konzessivsätze exercise rides along).
+//     Deliberately ignores the CEFR filter: the word in your queue is the
+//     license for its structure, whatever the point's nominal level.
+//  2. MODE_REMEDY — repeated misses in a word-drill mode pull in the point
+//     that teaches the underlying system (keep missing genders → Artikel &
+//     Genus). Candidates are ordered easiest-first (Processability: canonical
+//     forms before complex ones); the first not-comfortably-scheduled one wins.
+// Both stop firing on their own: once the point card is reviewed, FSRS
+// schedules it out and it is no longer "due or unseen".
+// Ids are `gram:<level>:<title>` from vocab.json; a test validates them.
+const WORD_POINT: Record<string, string> = {
+  obwohl: 'gram:B1:Konzessivsätze: obwohl',
+  weil: 'gram:B1:Nebensätze (weil/dass)',
+  dass: 'gram:B1:Nebensätze (weil/dass)',
+  damit: 'gram:B1:Finalsätze: damit & um … zu',
+  sodass: 'gram:B1:Konsekutivsätze: sodass',
+  nachdem: 'gram:B1:Plusquamperfekt & nachdem/bevor',
+  bevor: 'gram:B1:Plusquamperfekt & nachdem/bevor',
+  sondern: 'gram:B1:Konjunktionen: sondern vs. aber, sowie',
+  sogar: 'gram:B1:Fokuspartikeln: nur, auch, sogar, selbst',
+  trotzdem: 'gram:B2:Konnektoren (deshalb/trotzdem)',
+  deshalb: 'gram:B2:Konnektoren (deshalb/trotzdem)',
+  lassen: 'gram:B1:Lassen & Modalverben im Perfekt',
+};
+const MODE_REMEDY: Record<Mode, string[]> = {
+  gender: ['gram:A1:Artikel & Genus', 'gram:A1:Artikelwörter & kein'],
+  plural: [], // no plural-formation point exists yet — content gap, see BACKLOG
+  conj: ['gram:A1:Präsens (regelmäßig)', 'gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Konjunktiv II (würde)'],
+  cloze: [], // vocabulary-in-context, not a structural system
+};
+
+/** A grammar point card that should (re-)enter study: unseen or due. */
+function pointNeedsStudy(id: string): boolean {
+  const c = cardOf(id);
+  return !c || isDue(c);
+}
+
+/** Grammar points linked to function words in this queue (learn the word →
+ *  its structure rides along). Capped; exported for Today's preview + tests. */
+export function linkedGrammar(words: Word[], cap = MAX_LINKED): SessionItem[] {
+  const out: SessionItem[] = [];
+  for (const w of words) {
+    if (out.length >= cap) break;
+    if (w.kind !== 'word') continue;
+    const pid = WORD_POINT[w.term.toLowerCase()];
+    if (!pid || !pointNeedsStudy(pid)) continue;
+    const point = BY_ID.get(pid);
+    if (!point || out.some((it) => it.srsId === pid)) continue;
+    out.push({ type: 'flip', word: point, srsId: pid });
+  }
+  return out;
+}
+
+/** Miss-triggered remediation: for the mode you miss most (≥ threshold in 30
+ *  days), the first candidate point that is unseen or due. Capped at one per
+ *  session so remediation never crowds out the day's vocabulary. */
+export function remedyGrammar(cap = MAX_REMEDY): SessionItem[] {
+  const byTag = new Map<string, Mode>();
+  (Object.entries(MODE_TAG) as [Mode, string][]).forEach(([m, tag]) => byTag.set(tag, m));
+  const out: SessionItem[] = [];
+  for (const s of missStats(30)) {
+    if (out.length >= cap) break;
+    if (s.count < REMEDY_MIN_MISSES) continue;
+    const mode = byTag.get(s.tag);
+    if (!mode) continue;
+    for (const pid of MODE_REMEDY[mode]) {
+      if (!pointNeedsStudy(pid)) continue;
+      const point = BY_ID.get(pid);
+      if (!point || out.some((it) => it.srsId === pid)) continue;
+      out.push({ type: 'flip', word: point, srsId: pid });
+      break;
+    }
+  }
+  return out;
+}
 
 /** Drill modes ranked by how often you miss them (last 30 days), worst first. */
 function weakModes(): Mode[] {
@@ -108,6 +190,20 @@ export function buildMixedSession(target: Target): SessionItem[] {
   for (const d of blindSpotDrills(words)) {
     if (out.some((it) => it.srsId === d.srsId)) continue;
     out.splice(Math.floor(Math.random() * (out.length + 1)), 0, d);
+  }
+
+  // The vocabulary→grammar loop. Linked points land GAP items after the word
+  // that triggered them (structure right after its word); remediation points
+  // are spread randomly like blind spots. Both de-duped against the queue.
+  for (const g of linkedGrammar(words)) {
+    if (out.some((it) => it.srsId === g.srsId)) continue;
+    const trigger = words.find((w) => WORD_POINT[w.term.toLowerCase()] === g.srsId);
+    const at = trigger ? out.findIndex((it) => it.type === 'flip' && it.srsId === trigger.id) : -1;
+    out.splice(at >= 0 ? Math.min(at + 1 + GAP, out.length) : out.length, 0, g);
+  }
+  for (const g of remedyGrammar()) {
+    if (out.some((it) => it.srsId === g.srsId)) continue;
+    out.splice(Math.floor(Math.random() * (out.length + 1)), 0, g);
   }
   return out;
 }

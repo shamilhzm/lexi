@@ -186,6 +186,62 @@ describe('buildMixedSession', () => {
   });
 });
 
+describe('vocabulary→grammar loop', () => {
+  const custom = (ids: string[]) => ({ kind: 'custom' as const, name: 'test', ids });
+  const gpoint = (id: string, term: string, level: Word['level'] = 'B1'): Word =>
+    word(id, 'Grammar', { kind: 'grammar', term, level, pos: 'grammar' });
+
+  it('weaves a linked grammar point in after its trigger word', async () => {
+    const { data, session } = await fresh();
+    const trigger = word('w0', 'Connectors', { term: 'obwohl' });
+    const point = gpoint('gram:B1:Konzessivsätze: obwohl', 'Konzessivsätze: obwohl');
+    data.registerWords([trigger, point]);
+
+    const out = session.buildMixedSession(custom(['w0']));
+
+    const at = out.findIndex((it) => it.srsId === point.id);
+    expect(at).toBeGreaterThan(out.findIndex((it) => it.srsId === 'w0')); // after the word
+    expect(out.filter((it) => it.srsId === point.id)).toHaveLength(1);    // no duplicate
+  });
+
+  it('stops linking once the point is comfortably scheduled', async () => {
+    const { data, store, session, srs } = await fresh();
+    const trigger = word('w0', 'Connectors', { term: 'obwohl' });
+    const point = gpoint('gram:B1:Konzessivsätze: obwohl', 'Konzessivsätze: obwohl');
+    data.registerWords([trigger, point]);
+
+    store.review(point.id, srs.Rating.Easy); // scheduled into the future
+
+    expect(session.linkedGrammar([trigger])).toEqual([]);
+  });
+
+  it('injects a remediation point after repeated misses in a mode', async () => {
+    const { data, store, session, fundamentals } = await fresh();
+    const point = gpoint('gram:A1:Artikel & Genus', 'Artikel & Genus', 'A1');
+    data.registerWords([point]);
+
+    store.logMiss(fundamentals.MODE_TAG.gender);
+    store.logMiss(fundamentals.MODE_TAG.gender);
+    expect(session.remedyGrammar()).toEqual([]); // below threshold (3)
+
+    store.logMiss(fundamentals.MODE_TAG.gender);
+    const out = session.remedyGrammar();
+    expect(out).toHaveLength(1);
+    expect(out[0].srsId).toBe(point.id);
+  });
+
+  it('maps only to grammar-point ids that exist in the shipped lexicon', async () => {
+    // Guards the WORD_POINT / MODE_REMEDY maps against title drift in vocab.json.
+    const fs = await import('node:fs');
+    const vocab = JSON.parse(fs.readFileSync('public/data/vocab.json', 'utf8')) as Word[];
+    const ids = new Set(vocab.filter((w) => w.kind === 'grammar').map((w) => w.id));
+    const src = fs.readFileSync('src/session.ts', 'utf8');
+    const referenced = [...src.matchAll(/'(gram:[^']+)'/g)].map((m) => m[1]);
+    expect(referenced.length).toBeGreaterThan(0);
+    for (const id of referenced) expect(ids, `missing grammar card: ${id}`).toContain(id);
+  });
+});
+
 describe('streak / visits', () => {
   it('is 0 with no visits and 1 after visiting today', async () => {
     const { store } = await fresh();
