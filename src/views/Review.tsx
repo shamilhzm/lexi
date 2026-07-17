@@ -7,7 +7,7 @@ import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward } from 'lucide-rea
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, MODE_TAG } from './Fundamentals.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
@@ -17,7 +17,7 @@ import SessionRecap from '../components/SessionRecap.tsx';
 import type { Target } from '../types.ts';
 
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
-const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform' };
+const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
 /** Stable per-card pick from a grammar point's exercises (same card → same drill). */
@@ -145,6 +145,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // Never hijack keys while the learner is typing an answer — Space must
+      // insert a space in "habe gemacht", not flip the card.
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
       if (e.code === 'Space') { e.preventDefault(); flip(); }
       if (e.key === 'ArrowLeft') grade(Rating.Again);
       if (e.key === 'ArrowRight') grade(Rating.Good);
@@ -199,6 +203,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 : item.type === 'conj' ? <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'order' ? <OrderWordItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'transform' ? <TransformItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'case' ? <CaseItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>

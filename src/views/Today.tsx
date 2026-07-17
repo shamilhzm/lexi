@@ -15,9 +15,9 @@ import { BY_ID } from '../data/index.ts';
 import { MODES, type Mode } from './Fundamentals.tsx';
 import type { Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill }:
+export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, onDecks }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
-    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void }) {
+    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void; onDecks: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
@@ -97,7 +97,8 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
         {total === 0 ? (
           <div>
             <h2 className="text-[20px] font-bold mb-1">All clear</h2>
-            <p className="text-dim text-[15px]">Nothing due and the new-card budget is used up. Come back tomorrow, or open a deck to push ahead.</p>
+            <p className="text-dim text-[15px] mb-4">Nothing due and the new-card budget is used up. Come back tomorrow, or open a deck to push ahead.</p>
+            <button onClick={onDecks} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber font-semibold text-[14px]">Open decks</button>
           </div>
         ) : (
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -172,7 +173,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                   className="col-span-2 flex items-center gap-2.5 bg-panel border border-line rounded-[12px] px-3 py-3 text-left hover:border-amber transition-colors">
                   <span className="grid place-items-center w-8 h-8 rounded-lg bg-panel2 text-amber flex-shrink-0"><BookOpen size={16} /></span>
                   <span className="text-[14px] font-semibold">Grammar exercises</span>
-                  <span className="text-[11px] text-dim ml-auto hidden sm:inline">A1–C2 · 444 exercises</span>
+                  <span className="text-[11px] text-dim ml-auto hidden sm:inline">A1–C2 · 571 exercises</span>
                 </button>
               </div>
             </motion.div>

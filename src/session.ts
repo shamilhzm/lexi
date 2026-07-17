@@ -57,6 +57,7 @@ const MODE_REMEDY: Record<Mode, string[]> = {
   cloze: [], // vocabulary-in-context, not a structural system
   order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],
   transform: ['gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
+  case: ['gram:A2:Akkusativ', 'gram:A2:Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)', 'gram:A2:Adjektivdeklination: nach bestimmtem Artikel (schwach)', 'gram:B1:Genitiv'],
 };
 
 /** A grammar point card that should (re-)enter study: unseen or due. */

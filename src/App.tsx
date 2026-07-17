@@ -78,8 +78,9 @@ export default function App() {
       />
 
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Mobile top bar — the sidebar is a drawer on phones. */}
-        <header className="sm:hidden safe-top flex items-center gap-2.5 px-3 h-[52px] bg-panel border-b border-line flex-shrink-0">
+        {/* Mobile top bar — the sidebar is a drawer on phones. min-height adds the
+            safe-area inset on top of a 52px bar so the notch never eats the logo. */}
+        <header className="sm:hidden safe-top pb-2 flex items-center gap-2.5 px-3 min-h-[calc(52px_+_env(safe-area-inset-top))] bg-panel border-b border-line flex-shrink-0">
           <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-9 h-9 -ml-1 text-dim hover:text-amber" title="Menu"><Menu size={20} /></button>
           <LexiMark size={24} />
           <span className="font-bold text-[17px] tracking-wide">Lexi</span>
@@ -93,9 +94,9 @@ export default function App() {
             <motion.div key={key}
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
-              className="max-w-[1280px] mx-auto px-3 sm:px-5 py-4 safe-bottom">
+              className="max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onDrill={openDrill} onBlindDrill={drillFor} />}
+                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onDrill={openDrill} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} />}
                 {view === 'explore' && <Explore onStudy={study} initial={exploreInit} />}
                 {view === 'fundamentals' && <Fundamentals initial={drillInit} />}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('home'); }} />}

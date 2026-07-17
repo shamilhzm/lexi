@@ -162,7 +162,8 @@ describe('buildMixedSession', () => {
   it('weaves one fresh drill per eligible word, keeping flip order', async () => {
     const { data, session } = await fresh();
     // gender-only eligibility -> the fresh-mode pick is deterministic.
-    const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die' }));
+    // (pos 'x' keeps the words out of the case drill, which needs pos 'noun'.)
+    const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die', pos: 'x' }));
     data.registerWords(words);
 
     const out = session.buildMixedSession(custom(['g0', 'g1', 'g2']));
@@ -279,6 +280,52 @@ describe('production drills (order / transform)', () => {
     const verb = word('w1', 'F', { term: 'machen', pos: 'verb' });
     expect(fundamentals.eligibleModes(verb)).toContain('transform');
     expect(fundamentals.eligibleModes(word('w2', 'F'))).toEqual([]); // plain word: nothing
+  });
+});
+
+describe('Kasus drill (case & endings)', () => {
+  const noun = (term: string, gender: 'der' | 'die' | 'das') =>
+    word(term, 'F', { term: `${gender} ${term}`, gender, pos: 'noun' });
+
+  it('caseSafe: plain nouns yes; n-Deklination, multiword, non-nouns no', async () => {
+    const { fundamentals } = await fresh();
+    expect(fundamentals.caseSafe(noun('Tisch', 'der'))).toBe(true);
+    expect(fundamentals.caseSafe(noun('Lampe', 'die'))).toBe(true);
+    expect(fundamentals.caseSafe(noun('Junge', 'der'))).toBe(false);   // -e masculine
+    expect(fundamentals.caseSafe(noun('Student', 'der'))).toBe(false); // -ent
+    expect(fundamentals.caseSafe(noun('Herr', 'der'))).toBe(false);    // listed
+    expect(fundamentals.caseSafe(noun('Herz', 'das'))).toBe(false);    // listed neuter
+    expect(fundamentals.caseSafe(word('w', 'F', { term: 'der gute Rat', gender: 'der', pos: 'noun' }))).toBe(false); // multiword
+    expect(fundamentals.caseSafe(word('w2', 'F', { gender: 'die', pos: 'adjective' }))).toBe(false);
+  });
+
+  it('builds correct article items (rnd pinned: Nominativ, article flavor)', async () => {
+    const { fundamentals } = await fresh();
+    const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0);
+    expect(d.prompt).toBe('Hier ist ___ Tisch');
+    expect(d.options[d.correct]).toBe('der');
+  });
+
+  it('builds correct adjective-ending items (rnd pinned high: Dativ, adjective)', async () => {
+    const { fundamentals } = await fresh();
+    // rnd=0.99 → masc cases[2]=dat, prep 'bei', flavor adjective, adj 'jung'
+    const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0.99);
+    expect(d.prompt).toBe('bei dem ___ Tisch');
+    expect(d.options[d.correct]).toBe('jungen');
+  });
+
+  it('genitive only for feminines, and the noun is never inflected', async () => {
+    const { fundamentals } = await fresh();
+    // fem, rnd=0.99 → cases[3]=gen, prep 'während', adjective 'jung' → jungen
+    const fem = fundamentals.buildCaseItem(noun('Lampe', 'die'), () => 0.99);
+    expect(fem.prompt).toBe('während der ___ Lampe');
+    expect(fem.options[fem.correct]).toBe('jungen');
+    // masc/neut never see genitive (would need noun +-(e)s); spot-check many rolls
+    for (let i = 0; i < 50; i++) {
+      const d = fundamentals.buildCaseItem(noun('Tisch', 'der'));
+      expect(d.sub).not.toContain('Genitiv');
+      expect(d.correct).toBeGreaterThanOrEqual(0); // options always include the answer
+    }
   });
 });
 

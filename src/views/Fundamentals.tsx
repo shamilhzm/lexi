@@ -7,7 +7,7 @@
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen, Shuffle, Repeat } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen, Shuffle, Repeat, Braces } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -18,7 +18,7 @@ import GrammarDrill, { OrderItem, TypeItem } from './GrammarDrill.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform';
+export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -35,6 +35,7 @@ const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && 
   && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de));
 const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderTokens(w.ex[0]?.de).length > 0);
 const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
+const casePool = () => WORDS.filter((w) => inLevels(w) && caseSafe(w));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
@@ -55,6 +56,89 @@ export function orderTokens(sentence?: string): string[] {
 export function canTransform(verb: string): boolean {
   const c = conjugate(verb);
   return c.reliable && !c.separable && !c.reflexive;
+}
+
+// ---- Kasus drill: declined articles + weak adjective endings ---------------
+// Grounded by construction: every rendered fragment is correct German.
+//  - The case is forced by an unambiguous frame (accusative-only / dative-only /
+//    genitive prepositions, or "Hier ist …" for nominative) — never a verb
+//    whose government the learner can't see.
+//  - Genitive only for feminines: masculine/neuter nouns inflect (+-(e)s) and we
+//    won't render a form we can't derive reliably.
+//  - n-Deklination masculines (der Junge → den Jungen, der Herr → dem Herrn)
+//    inflect in every oblique case, so they're excluded wholesale. The suffix
+//    test over-excludes a few safe nouns (Monat) — over-exclusion is the safe
+//    direction.
+type Kase = 'nom' | 'akk' | 'dat' | 'gen';
+type Gender = 'der' | 'die' | 'das';
+const CASE_LABEL: Record<Kase, string> = { nom: 'Nominativ', akk: 'Akkusativ', dat: 'Dativ', gen: 'Genitiv' };
+const CASE_PREPS: Record<Exclude<Kase, 'nom'>, string[]> = {
+  akk: ['für', 'ohne', 'gegen', 'durch'],
+  dat: ['mit', 'von', 'bei'],
+  gen: ['wegen', 'trotz', 'während'],
+};
+const ARTICLE: Record<Kase, Record<Gender, string>> = {
+  nom: { der: 'der', die: 'die', das: 'das' },
+  akk: { der: 'den', die: 'die', das: 'das' },
+  dat: { der: 'dem', die: 'der', das: 'dem' },
+  gen: { der: 'des', die: 'der', das: 'des' },
+};
+// Weak declension (after the definite article): -e or -en, fully deterministic.
+const WEAK_END: Record<Kase, Record<Gender, string>> = {
+  nom: { der: 'e', die: 'e', das: 'e' },
+  akk: { der: 'en', die: 'e', das: 'e' },
+  dat: { der: 'en', die: 'en', das: 'en' },
+  gen: { der: 'en', die: 'en', das: 'en' },
+};
+// Regularly-declining adjectives only (no -el/-er contraction, no "hoch").
+const CASE_ADJ = ['alt', 'neu', 'klein', 'gut', 'lang', 'jung'];
+const ARTICLE_OPTIONS: Record<Gender, string[]> = {
+  der: ['der', 'den', 'dem', 'des'],
+  die: ['die', 'der', 'den', 'dem'], // den/dem: the classic learner errors
+  das: ['das', 'dem', 'des', 'den'],
+};
+const N_DEKLINATION = new Set(['Herr', 'Mensch', 'Nachbar', 'Bauer', 'Held', 'Prinz', 'Fürst', 'Graf', 'Bär', 'Herz', 'Name', 'Gedanke', 'Buchstabe', 'Friede', 'Wille', 'Glaube']);
+/** A noun this drill may render uninflected in any allowed case. */
+export function caseSafe(w: Word): boolean {
+  if (w.kind !== 'word' || !w.gender || w.pos !== 'noun') return false;
+  const s = stripArticle(w.term);
+  if (/[\s-]/.test(s)) return false; // single plain nouns only
+  if (N_DEKLINATION.has(s)) return false;
+  if (w.gender === 'der' && /(e|ent|ist|at|oge|and|ant|ad|it)$/.test(s)) return false;
+  return true;
+}
+
+export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; extra: string; }
+/** Build one Kasus item: article choice or weak adjective ending, in a frame
+ *  that forces the case. `rnd` injectable for tests. */
+export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseItemData {
+  const g = w.gender as Gender;
+  const noun = stripArticle(w.term);
+  const cases: Kase[] = g === 'die' ? ['nom', 'akk', 'dat', 'gen'] : ['nom', 'akk', 'dat'];
+  const kase = cases[Math.floor(rnd() * cases.length)];
+  const frame = kase === 'nom' ? 'Hier ist' : CASE_PREPS[kase][Math.floor(rnd() * CASE_PREPS[kase].length)];
+  const why = kase === 'nom' ? 'subject position → Nominativ' : `${frame} + ${CASE_LABEL[kase]}`;
+  if (rnd() < 0.5) {
+    // Which article?
+    const correct = ARTICLE[kase][g];
+    const options = shuffle(ARTICLE_OPTIONS[g]);
+    return {
+      prompt: `${frame} ___ ${noun}`,
+      sub: `Which article? · ${CASE_LABEL[kase]}`,
+      options, correct: options.indexOf(correct),
+      extra: `${w.term} · ${why} → ${correct}`,
+    };
+  }
+  // Which adjective ending? (weak, after the definite article)
+  const adj = CASE_ADJ[Math.floor(rnd() * CASE_ADJ.length)];
+  const correct = adj + WEAK_END[kase][g];
+  const options = shuffle([`${adj}e`, `${adj}en`, `${adj}er`, `${adj}es`]);
+  return {
+    prompt: `${frame} ${ARTICLE[kase][g]} ___ ${noun}`,
+    sub: `Adjective ending · ${CASE_LABEL[kase]}`,
+    options, correct: options.indexOf(correct),
+    extra: `${w.term} · ${why} · after the definite article → ${correct}`,
+  };
 }
 
 const TRANSFORM_TARGETS: { key: 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2'; label: string }[] = [
@@ -90,17 +174,18 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.kind === 'word' && w.ex[0]?.de && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de)) out.push('cloze');
   if (w.kind === 'word' && orderTokens(w.ex[0]?.de).length > 0) out.push('order');
   if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');
+  if (caseSafe(w)) out.push('case');
   return out;
 }
 export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
-  order: 'Word order (sentence builder)', transform: 'Tense transformation',
+  order: 'Word order (sentence builder)', transform: 'Tense transformation', case: 'Cases & endings (Kasus)',
 };
 
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
   const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool()
-    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : clozePool();
+    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : mode === 'case' ? casePool() : clozePool();
   const now = Date.now();
   const due: Word[] = [], fresh: Word[] = [];
   for (const w of pool) {
@@ -119,6 +204,7 @@ export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Pick the missing word in a real sentence.' },
   { m: 'order', label: 'Sentence builder', icon: Shuffle, desc: 'Rebuild a real sentence from tiles — V2 and verb-final word order.' },
   { m: 'transform', label: 'Transformation', icon: Repeat, desc: 'Type a verb form in another tense. Production, not recognition.' },
+  { m: 'case', label: 'Kasus', icon: Braces, desc: 'Declined articles & adjective endings — Nominativ · Akkusativ · Dativ · Genitiv.' },
 ];
 
 export default function Fundamentals({ initial = null }: { initial?: Mode | 'grammar' | null }) {
@@ -132,7 +218,7 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
   useStore();
   const counts = useMemo(() => ({
     gender: genderPool().length, plural: pluralPool().length, conj: conjPool().length, cloze: clozePool().length,
-    order: orderPool().length, transform: transformPool().length,
+    order: orderPool().length, transform: transformPool().length, case: casePool().length,
   }), [levels()]);
   return (
     <div className="max-w-[820px] mx-auto">
@@ -194,6 +280,7 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
       {mode === 'cloze' && <ClozeItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'order' && <OrderWordItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'transform' && <TransformItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'case' && <CaseItem key={word.id} word={word} onGrade={advance} />}
     </Shell>
   );
 }
@@ -402,6 +489,13 @@ export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
     };
   }, [word.id]);
   return <OrderItem ex={ex} onGrade={onGrade} />;
+}
+
+/** Kasus: declined articles & weak adjective endings in case-forcing frames. */
+export function CaseItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const d = useMemo(() => buildCaseItem(word), [word.id]);
+  return <MCItem prompt={d.prompt} sub={d.sub} hint={word.en} bigPrompt={false}
+    options={d.options} correct={d.correct} extra={d.extra} onGrade={onGrade} />;
 }
 
 /** Tense transformation, typed: „ich mache“ → Perfekt. Production, not

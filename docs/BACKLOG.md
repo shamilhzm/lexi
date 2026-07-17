@@ -184,6 +184,25 @@ nobody re-implements them:
   A1 919, Fundamentals landing, `lib/grammar.ts`, `data/index.ts`). ⚠️ *Content
   pass rule: German + answer indices human-spot-checked in review — see the
   commit for the 7 exercises.*
+- **Kasus drill — declined articles + adjective endings** (user-requested). New
+  word-drill mode `case`: unambiguous case-forcing frames (für/ohne/gegen/durch →
+  Akkusativ, mit/von/bei → Dativ, wegen/trotz/während → Genitiv, "Hier ist" →
+  Nominativ), two flavors — pick the declined article ("mit ___ Tisch" → dem) or
+  the weak adjective ending ("mit dem ___ Tisch (alt)" → alten; the weak table
+  after definite articles is fully deterministic). Grounded by construction:
+  genitive only for feminines (masc/neut nouns inflect +-(e)s), n-Deklination
+  masculines excluded wholesale (`caseSafe`, over-exclusion is the safe
+  direction). Wired through `eligibleModes`; `MODE_REMEDY.case` → Akkusativ →
+  Dativ-Präpositionen → Adjektivdeklination (schwach) → Genitiv. Seven drill
+  tiles now. 4 new tests (gate + pinned-rnd generator checks); 57/57.
+- **UX path analysis + three fixes** (user-requested "final pass"). New
+  [`docs/UX-PATHS.md`](UX-PATHS.md): happy / sad / frustrated walkthroughs traced
+  against the code, findings tables, priorities. Fixed in the pass: **F1** —
+  Review's global Space handler made spaces untypeable in typed exercises
+  (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
+  dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
+  exercises" → 571. Remaining findings graduated to Now/Next above (F2 due-cap is
+  P0).
 
 ---
 
@@ -248,6 +267,18 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
+- **Cap the post-gap due mountain** (S–M, **P0** — UX-PATHS F2). *Why:* `buildBriefing`
+  includes every due review uncapped; after two weeks away the learner faces "312
+  cards queued" — the single most common reason people quit SRS apps, and the only
+  remaining finding that can end the relationship in one moment. *Do:* cap due
+  reviews per daily briefing (oldest-first, ~60), with honest framing in the session
+  card ("312 waiting — here are today's 60"); FSRS tolerates the delay by design.
+  *Touches:* `store.ts` (`buildBriefing`), `views/Today.tsx` copy, tests.
+- **Frustrated-path softeners** (S each — UX-PATHS F3/F4/F5). Miss-streak
+  circuit-breaker ("Rough patch — these come back easier tomorrow" + natural break);
+  offer HD voice in context at first pronunciation tap instead of hiding it in
+  Settings; same-day session resume (persist queue ids + position). And S3: a
+  one-time backup nudge after the first week.
 - **Example coverage backfill** (M). *Why:* the consolidated study card folds
   examples onto the back, which exposed that ~46% of word cards ship a single
   example and 79 (all A1/A2) ship none — a thin connection between word and real
