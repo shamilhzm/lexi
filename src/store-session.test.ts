@@ -335,11 +335,20 @@ describe('Kasus drill (case & endings)', () => {
     expect(d.options[d.correct]).toBe('jungen');
   });
 
+  it('bare-noun dative article items always use "mit" (von/bei would contract)', async () => {
+    const { fundamentals } = await fresh();
+    // rnd sequence: 0.7 → cases[2]=dat, 0.3 → article flavor, frame forced 'mit'
+    const seq = [0.7, 0.3];
+    const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => seq.shift() ?? 0);
+    expect(d.prompt).toBe('mit ___ Tisch');
+    expect(d.options[d.correct]).toBe('dem');
+  });
+
   it('genitive only for feminines, and the noun is never inflected', async () => {
     const { fundamentals } = await fresh();
-    // fem, rnd=0.99 → cases[3]=gen, prep 'während', adjective 'jung' → jungen
+    // fem, rnd=0.99 → cases[3]=gen, adjective flavor, prep 'trotz', adj 'jung'
     const fem = fundamentals.buildCaseItem(noun('Lampe', 'die'), () => 0.99);
-    expect(fem.prompt).toBe('während der ___ Lampe');
+    expect(fem.prompt).toBe('trotz der ___ Lampe');
     expect(fem.options[fem.correct]).toBe('jungen');
     // masc/neut never see genitive (would need noun +-(e)s); spot-check many rolls
     for (let i = 0; i < 50; i++) {

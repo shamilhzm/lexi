@@ -7,7 +7,7 @@
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen, Shuffle, Repeat, Braces } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -75,7 +75,9 @@ const CASE_LABEL: Record<Kase, string> = { nom: 'Nominativ', akk: 'Akkusativ', d
 const CASE_PREPS: Record<Exclude<Kase, 'nom'>, string[]> = {
   akk: ['für', 'ohne', 'gegen', 'durch'],
   dat: ['mit', 'von', 'bei'],
-  gen: ['wegen', 'trotz', 'während'],
+  // no "während": it only takes temporal nouns ("während der Lampe" is nonsense);
+  // wegen/trotz read plausibly with almost any noun.
+  gen: ['wegen', 'trotz'],
 };
 const ARTICLE: Record<Kase, Record<Gender, string>> = {
   nom: { der: 'der', die: 'die', das: 'das' },
@@ -116,9 +118,16 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
   const noun = stripArticle(w.term);
   const cases: Kase[] = g === 'die' ? ['nom', 'akk', 'dat', 'gen'] : ['nom', 'akk', 'dat'];
   const kase = cases[Math.floor(rnd() * cases.length)];
-  const frame = kase === 'nom' ? 'Hier ist' : CASE_PREPS[kase][Math.floor(rnd() * CASE_PREPS[kase].length)];
+  const article = rnd() < 0.5;
+  // Naturalness: with a bare noun, von/bei + dem contract in normal German
+  // (vom/beim Tisch) — only "mit dem" is the unmarked full form. With an
+  // adjective the full article is natural again (bei dem alten Tisch), so the
+  // adjective flavor keeps all three dative preps.
+  const frame = kase === 'nom' ? 'Hier ist'
+    : kase === 'dat' && article ? 'mit'
+    : CASE_PREPS[kase][Math.floor(rnd() * CASE_PREPS[kase].length)];
   const why = kase === 'nom' ? 'subject position → Nominativ' : `${frame} + ${CASE_LABEL[kase]}`;
-  if (rnd() < 0.5) {
+  if (article) {
     // Which article?
     const correct = ARTICLE[kase][g];
     const options = shuffle(ARTICLE_OPTIONS[g]);
@@ -385,7 +394,12 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
               className={`rounded-[10px] py-3.5 px-4 border text-[15px] text-center transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
+                : 'bg-panel2 border-line hover:border-amber'}`}>
+              {/* icon + colour: right/wrong never rides on colour alone */}
+              {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
+              {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
+              {o}
+            </button>
           );
         })}
       </div>

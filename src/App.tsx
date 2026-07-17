@@ -96,7 +96,7 @@ export default function App() {
               transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
               className="max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onDrill={openDrill} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} />}
+                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onDrill={openDrill} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} onBackup={() => go('profile')} />}
                 {view === 'explore' && <Explore onStudy={study} initial={exploreInit} />}
                 {view === 'fundamentals' && <Fundamentals initial={drillInit} />}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('home'); }} />}

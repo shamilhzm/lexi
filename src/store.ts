@@ -368,6 +368,25 @@ export function missStats(days = 30): { tag: string; count: number; last: number
 }
 export function missTotal(days = 30): number { return missStats(days).reduce((a, s) => a + s.count, 0); }
 
+// ---- flagged cards (learner feedback loop) --------------------------------
+// A solo-maintained corpus lives or dies by error reports. Flagging is local,
+// deduped, capped, and rides the backup export (FLAGS_KEY is in SETTING_KEYS),
+// so a friend's flags reach the maintainer with their backup file.
+const FLAGS_KEY = 'lexi.flags.v1';
+export interface FlagEvent { id: string; term: string; at: number; }
+export function flags(): FlagEvent[] {
+  try { const a = JSON.parse(localStorage.getItem(FLAGS_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; }
+}
+export function isFlagged(id: string): boolean { return flags().some((f) => f.id === id); }
+/** Flag a card as suspect (wrong gloss/gender/plural/example…). Idempotent. */
+export function flagCard(id: string, term: string) {
+  const cur = flags();
+  if (cur.some((f) => f.id === id)) return;
+  cur.push({ id, term, at: Date.now() });
+  try { localStorage.setItem(FLAGS_KEY, JSON.stringify(cur.slice(-200))); } catch { /* quota */ }
+  emit();
+}
+
 // ---- HD voice (Piper Thorsten, in-browser) -------------------------------
 const HDVOICE_KEY = 'lexi.hdvoice.v1';
 export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }
@@ -579,7 +598,7 @@ export function streak(): number {
 const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
-  'lexi.profile.name.v1', 'lexi.interests.v1',
+  'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

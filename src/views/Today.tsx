@@ -10,14 +10,16 @@ import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
+import InstallNudge from '../components/InstallNudge.tsx';
 import { blindSpotDrills } from '../session.ts';
 import { BY_ID } from '../data/index.ts';
 import { MODES, type Mode } from './Fundamentals.tsx';
 import type { Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, onDecks }:
+export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, onDecks, onBackup }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
-    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void; onDecks: () => void }) {
+    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void; onDecks: () => void;
+    onBackup: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
@@ -129,6 +131,10 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
           </div>
         )}
       </div>
+
+      {/* Local-first means device-bound: nudge install (durable storage +
+          offline) until installed or dismissed. */}
+      <InstallNudge onBackup={onBackup} />
 
       {/* Blind spots — your recurring misses. Expands in place (like Grammar
           Fundamentals below) to the ranked list, so you target weaknesses without

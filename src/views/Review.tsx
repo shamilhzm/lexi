@@ -3,8 +3,8 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
-import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward } from 'lucide-react';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
+import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag } from 'lucide-react';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
@@ -177,6 +177,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           <span className="text-[11px] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] tabular-nums flex-shrink-0">{queue.length - i} left</span>
           {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
+            {/* Flag: "something's wrong with this card" — the feedback loop for a
+                solo-maintained corpus. Local, deduped, exports with the backup. */}
+            <button onClick={() => item && flagCard(item.word.id, item.word.term)}
+              title={item && isFlagged(item.word.id) ? 'Flagged — thanks, it exports with your backup' : 'Something wrong with this card? Flag it'}
+              className={`grid place-items-center w-9 h-9 rounded-md transition-colors ${item && isFlagged(item.word.id) ? 'text-amber' : 'text-dim hover:text-amber'}`}>
+              <Flag size={15} fill={item && isFlagged(item.word.id) ? 'currentColor' : 'none'} />
+            </button>
             <button onClick={prev} disabled={i === 0} title="Previous card"
               className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber disabled:opacity-30 disabled:hover:text-dim transition-colors"><RotateCcw size={16} /></button>
             <button onClick={skip} title="Skip for now"
@@ -248,16 +255,18 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
             </div>
           </SwipeCard>
 
-          {/* Grade from either face — flipping is optional. */}
+          {/* Grade from either face — flipping is optional. First-sight cards
+              can't be "known", so new cards ask "keep it or got it" instead of
+              framing an inevitable miss as failure. */}
           <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
             <div className="flex gap-2.5 sm:gap-3 justify-center">
               <button onClick={() => grade(Rating.Again)}
                 className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
-                <X size={16} /> Didn’t know
+                <X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}
               </button>
               <button onClick={() => grade(Rating.Good)}
                 className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
-                <Check size={16} /> Knew it
+                <Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}
               </button>
             </div>
             <span className={`text-dim text-[12px] h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>

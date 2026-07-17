@@ -202,6 +202,21 @@ nobody re-implements them:
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
   dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
   exercises" → 571. Remaining findings graduated to Now/Next above.
+- **Friend-readiness pass** (sharing analysis + simulated sessions). (1) **Storage
+  durability:** `navigator.storage.persist()` at boot + an **install nudge** on
+  Today (iOS Add-to-Home-Screen instructions / Chromium install prompt, backup
+  escape hatch, dismissible) — Safari's 7-day ITP eviction of IndexedDB was
+  silent total data loss for a casual friend. (2) **Flag-a-card:** one-tap flag in
+  the session chrome (`lexi.flags.v1`, deduped, capped, rides the backup export) —
+  the error-report loop a solo-maintained corpus needs. (3) **Simulated user
+  sessions** ([`SIMULATED-SESSION.md`](SIMULATED-SESSION.md), stand-in until a
+  real friend is picked) drove five fixes: zero-seed placement copy ("Starting
+  fresh at A1" instead of "Seeded 0 words"), **"Still learning / Got it"** labels
+  on first-sight cards (new cards can't be "known"), ✓/✗ icons on all MC
+  right/wrong states (colour never carries alone), bare-noun dative article items
+  restricted to *mit* (von/bei contract in natural German), and *während* dropped
+  from genitive frames (temporal nouns only — "während der Lampe" was nonsense).
+  59/59 tests.
 - **Due-cap shipped (UX-PATHS F2, was P0).** `buildBriefing` now serves the
   oldest-first `DAILY_DUE_CAP` (60) due reviews and reports the full backlog as
   `dueTotal`; Today frames it honestly when they differ ("312 reviews waiting in
@@ -271,6 +286,12 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
+- **Friend-readiness leftovers** (S each — from the sharing analysis +
+  [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
+  in Profile; edit-distance-1 typo tolerance on typed answers (measure
+  over-forgiveness first); decide the day-2 return mechanism deliberately (habit
+  anchor vs. Web Push for installed PWAs vs. nothing); run the *real* friend
+  session and update SIMULATED-SESSION.md with what the simulation missed.
 - **Frustrated-path softeners** (S each — UX-PATHS F3/F4/F5). Miss-streak
   circuit-breaker ("Rough patch — these come back easier tomorrow" + natural break);
   offer HD voice in context at first pronunciation tap instead of hiding it in

@@ -76,8 +76,9 @@ export default function Placement({ onDone }: { onDone: () => void }) {
           <div className="text-[11px] text-amber uppercase tracking-[2px] mb-1">Your level</div>
           <div className="font-mono font-bold text-[52px] leading-none text-amber mb-3">{result}</div>
           <p className="text-dim text-[15px] mb-6">
-            Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on A1–{result}.
-            You can change the level filter anytime.
+            {seeded > 0
+              ? <>Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on A1–{result}. You can change the level filter anytime.</>
+              : <>Starting fresh at {result} — the best place to start. Every word from here on counts.</>}
           </p>
           <button onClick={onDone} className="flex items-center gap-2 mx-auto bg-amber text-bg font-bold rounded-[10px] px-6 py-3 hover:brightness-105">
             <Sparkles size={16} /> Start learning

@@ -117,7 +117,11 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
               className={`rounded-[10px] py-3.5 px-4 border text-[15px] text-left transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
-                : 'bg-panel2 border-line hover:border-amber'}`}>{o}</button>
+                : 'bg-panel2 border-line hover:border-amber'}`}>
+              {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
+              {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
+              {o}
+            </button>
           );
         })}
       </div>
