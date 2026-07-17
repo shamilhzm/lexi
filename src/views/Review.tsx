@@ -7,7 +7,7 @@ import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward } from 'lucide-rea
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, MODE_TAG } from './Fundamentals.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
@@ -17,7 +17,7 @@ import SessionRecap from '../components/SessionRecap.tsx';
 import type { Target } from '../types.ts';
 
 const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
-const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze' };
+const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
 /** Stable per-card pick from a grammar point's exercises (same card → same drill). */
@@ -197,6 +197,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'plural' ? <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'conj' ? <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'order' ? <OrderWordItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'transform' ? <TransformItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>

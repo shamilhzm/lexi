@@ -110,7 +110,9 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
   );
 }
 
-function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
+/** Typed-answer widget. Exported so word-level drills (tense transformation)
+ *  can reuse it with a fabricated exercise object. */
+export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
   const [val, setVal] = useState('');
   const [result, setResult] = useState<boolean | null>(null);
   const ref = useRef<HTMLInputElement>(null);
@@ -134,7 +136,9 @@ function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => 
   );
 }
 
-function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
+/** Tap-tile sentence builder. Exported so word-level drills (rebuild the card's
+ *  own example sentence) can reuse it with a fabricated exercise object. */
+export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
   const target = ex.tiles ?? [];
   const [pool, setPool] = useState<number[]>(() => shuffle(target.map((_, i) => i)));
   const [built, setBuilt] = useState<number[]>([]);

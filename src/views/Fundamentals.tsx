@@ -7,18 +7,18 @@
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen, Shuffle, Repeat } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
-import GrammarDrill from './GrammarDrill.tsx';
+import GrammarDrill, { OrderItem, TypeItem } from './GrammarDrill.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'conj' | 'cloze';
+export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -33,8 +33,49 @@ const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && w.plural && in
 const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canConjugate(w.term));
 const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && inLevels(w)
   && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de));
+const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderTokens(w.ex[0]?.de).length > 0);
+const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// ---- production drills: shared pure helpers (exported for tests) ----------
+/** Tiles for the sentence builder from an example sentence: terminal punctuation
+ *  stripped, whitespace-split. Empty when the sentence is missing or its length
+ *  is outside 4–10 tokens (too short = trivial, too long = unwieldy on a phone). */
+export function orderTokens(sentence?: string): string[] {
+  if (!sentence) return [];
+  const t = sentence.trim().replace(/[.!?…]+$/, '').split(/\s+/).filter(Boolean);
+  return t.length >= 4 && t.length <= 10 ? t : [];
+}
+
+/** Transform drills only render forms we can print verbatim: reliable, and
+ *  neither separable (the prefix detaches in Präsens: "ich komme … an") nor
+ *  reflexive (the finite form alone drops the pronoun's "mich"). Grounded
+ *  means never showing a sentence fragment that is actually wrong. */
+export function canTransform(verb: string): boolean {
+  const c = conjugate(verb);
+  return c.reliable && !c.separable && !c.reflexive;
+}
+
+const TRANSFORM_TARGETS: { key: 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2'; label: string }[] = [
+  { key: 'praeteritum', label: 'Präteritum' },
+  { key: 'perfekt', label: 'Perfekt' },
+  { key: 'futur1', label: 'Futur I' },
+  { key: 'konjunktiv2', label: 'Konjunktiv II' },
+];
+/** Build one transformation exercise: a Präsens form → a target tense, typed.
+ *  Accepts the form with or without its pronoun ("hat gemacht" / "er hat
+ *  gemacht" / "sie hat gemacht" / "es hat gemacht"). Exported for tests. */
+export function buildTransform(verb: string, pIdx: number, targetKey: 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2', label: string) {
+  const c = conjugate(verb);
+  const pronouns = PRONOUN[PERSONS_I[pIdx]].split('/'); // "er/sie/es" → variants
+  const source = `${pronouns[0]} ${c.praesens[pIdx]}`;
+  const form = c[targetKey][pIdx];
+  return {
+    prompt: `„${source}“ → ${label}`,
+    accept: [`${pronouns[0]} ${form}`, form, ...pronouns.slice(1).map((p) => `${p} ${form}`)],
+  };
+}
 // Legacy storage namespace: kept as `gym:` so learners' existing drill schedules
 // carry through the "Gym → Fundamentals" rename. Do not change this prefix.
 const id = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
@@ -47,15 +88,19 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.kind === 'word' && w.plural) out.push('plural');
   if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
   if (w.kind === 'word' && w.ex[0]?.de && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de)) out.push('cloze');
+  if (w.kind === 'word' && orderTokens(w.ex[0]?.de).length > 0) out.push('order');
+  if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');
   return out;
 }
 export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
+  order: 'Word order (sentence builder)', transform: 'Tense transformation',
 };
 
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
-  const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool() : clozePool();
+  const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool()
+    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : clozePool();
   const now = Date.now();
   const due: Word[] = [], fresh: Word[] = [];
   for (const w of pool) {
@@ -72,6 +117,8 @@ export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Pick the right plural.' },
   { m: 'conj', label: 'Conjugation', icon: Cog, desc: 'Präsens · Präteritum · Perfekt · Futur I · Konjunktiv II.' },
   { m: 'cloze', label: 'Cloze', icon: AlignLeft, desc: 'Pick the missing word in a real sentence.' },
+  { m: 'order', label: 'Sentence builder', icon: Shuffle, desc: 'Rebuild a real sentence from tiles — V2 and verb-final word order.' },
+  { m: 'transform', label: 'Transformation', icon: Repeat, desc: 'Type a verb form in another tense. Production, not recognition.' },
 ];
 
 export default function Fundamentals({ initial = null }: { initial?: Mode | 'grammar' | null }) {
@@ -85,6 +132,7 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
   useStore();
   const counts = useMemo(() => ({
     gender: genderPool().length, plural: pluralPool().length, conj: conjPool().length, cloze: clozePool().length,
+    order: orderPool().length, transform: transformPool().length,
   }), [levels()]);
   return (
     <div className="max-w-[820px] mx-auto">
@@ -144,6 +192,8 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
       {mode === 'plural' && <PluralItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'conj' && <ConjItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'cloze' && <ClozeItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'order' && <OrderWordItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'transform' && <TransformItem key={word.id} word={word} onGrade={advance} />}
     </Shell>
   );
 }
@@ -337,6 +387,33 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
     return buildMC(target, distract);
   }, [word.id]);
   return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+// ---- production drills (reuse the authored-exercise widgets) --------------
+/** Sentence builder over the card's own example sentence — no new content
+ *  needed, and real sentences carry real V2 / verb-final word order. */
+export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const ex = useMemo(() => {
+    const tiles = orderTokens(word.ex[0]?.de);
+    return {
+      kind: 'order' as const,
+      prompt: word.ex[0]?.en || `A sentence with „${stripArticle(word.term)}“`,
+      tiles,
+    };
+  }, [word.id]);
+  return <OrderItem ex={ex} onGrade={onGrade} />;
+}
+
+/** Tense transformation, typed: „ich mache“ → Perfekt. Production, not
+ *  recognition — the other half of the conjugation drill. */
+export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const ex = useMemo(() => {
+    const t = TRANSFORM_TARGETS[Math.floor(Math.random() * TRANSFORM_TARGETS.length)];
+    const pIdx = Math.floor(Math.random() * 6);
+    const { prompt, accept } = buildTransform(word.term, pIdx, t.key, t.label);
+    return { kind: 'type' as const, prompt, accept, explain: word.en };
+  }, [word.id]);
+  return <TypeItem ex={ex} onGrade={onGrade} />;
 }
 
 function Card({ children }: { children: React.ReactNode }) {

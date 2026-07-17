@@ -152,6 +152,23 @@ nobody re-implements them:
   Vitest now excludes `to_be_deleted_or_archived/**` (the parked atlas-app carried
   stale test files). Added `@types/node` (dev) for the map-validation test.
   What's left in the folder is deletable at will.
+- **Sentence builder + transformation — the production drills** (was Next #1).
+  The app was almost entirely recognition; these are the output half (Swain:
+  production is where grammar restructures). Two new word-drill modes, built by
+  *reusing* the authored-exercise widgets (`OrderItem`/`TypeItem` exported from
+  `GrammarDrill.tsx` and fed fabricated exercise objects — zero new widget code):
+  **order** rebuilds the card's own example sentence from tap-tiles (4–10 tokens,
+  terminal punctuation stripped; real sentences carry real V2/verb-final order),
+  and **transform** types a Präsens form into Präteritum / Perfekt / Futur I /
+  Konjunktiv II (accepts the answer with or without any pronoun variant;
+  umlaut-tolerant via the existing `norm`). Grounded gate: `canTransform`
+  excludes separable and reflexive verbs, whose bare finite form would render a
+  wrong sentence fragment. Wired through `eligibleModes`/`MODE_TAG`, so mixed
+  sessions, blind spots, skips, and remediation picked them up for free —
+  `MODE_REMEDY` now maps order-misses → *Wortstellung & Fragen* → *TeKaMoLo &
+  Satzklammer* and transform-misses → the tense points. Fundamentals shows six
+  drill tiles. 4 new tests (tokenization, transform gating, accept variants,
+  eligibility); suite 52/52, build clean.
 
 ---
 
@@ -216,20 +233,6 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
-- **Sentence builder + transformation widgets** (M). *Why:* the app is almost
-  entirely recognition (flips + multiple choice); Swain's output hypothesis says
-  production is where grammar restructures — and **word order (V2, verb-final)
-  is the one core German skill the current widget set cannot drill at all.**
-  *Do:* two new self-contained exercise widgets per the archived catalog
-  (`docs/archive/orbita-product-brief.md` §Exercise types): **sentence builder**
-  (drag/tap word tiles into order; tokens derived from the card's own example
-  sentence, so no new content is needed; must handle V2 and subordinate-clause
-  verb-final) and **transformation** (statement→question, present→Perfekt,
-  active→passive — start with the conjugation engine's tenses). Wire both into
-  `eligibleModes`/`MODE_TAG` so sessions, blind spots, and the miss log pick them
-  up for free. *Done-when:* both render in Fundamentals and mixed sessions, graded
-  into FSRS, with unit tests over tokenization/grading. *Touches:*
-  `views/Fundamentals.tsx`, `session.ts`, tests.
 - **Near-miss grading + progressive hints** (S). *Why:* "supportive" is texture,
   not a slogan — binary wrong punishes close attempts. *Do:* port the archived
   Orbita v7 details: typed answers graded diacritic-tolerantly (the `norm()`

@@ -55,6 +55,8 @@ const MODE_REMEDY: Record<Mode, string[]> = {
   plural: [], // no plural-formation point exists yet — content gap, see BACKLOG
   conj: ['gram:A1:Präsens (regelmäßig)', 'gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Konjunktiv II (würde)'],
   cloze: [], // vocabulary-in-context, not a structural system
+  order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],
+  transform: ['gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
 };
 
 /** A grammar point card that should (re-)enter study: unseen or due. */

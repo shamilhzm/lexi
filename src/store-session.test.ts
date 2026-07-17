@@ -242,6 +242,46 @@ describe('vocabulary→grammar loop', () => {
   });
 });
 
+describe('production drills (order / transform)', () => {
+  it('orderTokens: strips terminal punctuation, splits, gates 4–10 tokens', async () => {
+    const { fundamentals } = await fresh();
+    expect(fundamentals.orderTokens('Ich gehe heute ins Kino.')).toEqual(['Ich', 'gehe', 'heute', 'ins', 'Kino']);
+    expect(fundamentals.orderTokens('Wo ist das?')).toEqual([]);          // 3 tokens: too short
+    expect(fundamentals.orderTokens(undefined)).toEqual([]);
+    expect(fundamentals.orderTokens('a b c d e f g h i j k')).toEqual([]); // 11 tokens: too long
+  });
+
+  it('canTransform: excludes separable and reflexive verbs, keeps plain ones', async () => {
+    const { fundamentals } = await fresh();
+    expect(fundamentals.canTransform('machen')).toBe(true);
+    expect(fundamentals.canTransform('ankommen')).toBe(false);    // separable: prefix detaches
+    expect(fundamentals.canTransform('sich freuen')).toBe(false); // reflexive: finite form drops "mich"
+  });
+
+  it('buildTransform: accepts the form with or without every pronoun variant', async () => {
+    const { fundamentals } = await fresh();
+    const ich = fundamentals.buildTransform('machen', 0, 'perfekt', 'Perfekt');
+    expect(ich.prompt).toBe('„ich mache“ → Perfekt');
+    expect(ich.accept).toContain('ich habe gemacht');
+    expect(ich.accept).toContain('habe gemacht');
+
+    const er = fundamentals.buildTransform('gehen', 2, 'perfekt', 'Perfekt');
+    expect(er.prompt).toBe('„er geht“ → Perfekt');
+    for (const a of ['er ist gegangen', 'sie ist gegangen', 'es ist gegangen', 'ist gegangen']) {
+      expect(er.accept).toContain(a);
+    }
+  });
+
+  it('eligibleModes: examples license order, conjugable verbs license transform', async () => {
+    const { fundamentals } = await fresh();
+    const noun = word('w0', 'F', { ex: [{ de: 'Das Haus ist sehr groß.', en: '', lvl: 'A1' }] });
+    expect(fundamentals.eligibleModes(noun)).toContain('order');
+    const verb = word('w1', 'F', { term: 'machen', pos: 'verb' });
+    expect(fundamentals.eligibleModes(verb)).toContain('transform');
+    expect(fundamentals.eligibleModes(word('w2', 'F'))).toEqual([]); // plain word: nothing
+  });
+});
+
 describe('streak / visits', () => {
   it('is 0 with no visits and 1 after visiting today', async () => {
     const { store } = await fresh();
