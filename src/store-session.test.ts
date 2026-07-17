@@ -61,6 +61,27 @@ describe('buildBriefing', () => {
     expect(b.ids).not.toContain('c0');     // not fresh (touched) and not due
     expect(b.ids).toContain('c1');         // still-new siblings remain eligible
   });
+
+  it('caps the post-gap due mountain at 60 and reports the honest backlog', async () => {
+    const { data, store, srs } = await fresh();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-01T12:00:00Z'));
+      const ids = Array.from({ length: 70 }, (_, i) => `d${i}`);
+      data.registerWords(ids.map((id) => word(id, 'Sector D')));
+      for (const id of ids) store.review(id, srs.Rating.Good);
+
+      vi.setSystemTime(new Date('2026-07-15T12:00:00Z')); // two weeks away — all 70 overdue
+      const b = store.buildBriefing();
+
+      expect(b.dueTotal).toBe(70);   // the truth
+      expect(b.due).toBe(60);        // the day's bounded serving
+      expect(b.ids).toHaveLength(60);
+      expect(b.fresh).toBe(0);       // due already exceeds the daily minimum
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });
 
 describe('weakestSectors', () => {

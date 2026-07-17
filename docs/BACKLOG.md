@@ -201,8 +201,12 @@ nobody re-implements them:
   Review's global Space handler made spaces untypeable in typed exercises
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
   dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
-  exercises" → 571. Remaining findings graduated to Now/Next above (F2 due-cap is
-  P0).
+  exercises" → 571. Remaining findings graduated to Now/Next above.
+- **Due-cap shipped (UX-PATHS F2, was P0).** `buildBriefing` now serves the
+  oldest-first `DAILY_DUE_CAP` (60) due reviews and reports the full backlog as
+  `dueTotal`; Today frames it honestly when they differ ("312 reviews waiting in
+  total — today serves the oldest 60. The rest keep."). FSRS tolerates the delay
+  by design. New fake-timer test (70 overdue → 60 served / 70 reported); 58/58.
 
 ---
 
@@ -267,13 +271,6 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
-- **Cap the post-gap due mountain** (S–M, **P0** — UX-PATHS F2). *Why:* `buildBriefing`
-  includes every due review uncapped; after two weeks away the learner faces "312
-  cards queued" — the single most common reason people quit SRS apps, and the only
-  remaining finding that can end the relationship in one moment. *Do:* cap due
-  reviews per daily briefing (oldest-first, ~60), with honest framing in the session
-  card ("312 waiting — here are today's 60"); FSRS tolerates the delay by design.
-  *Touches:* `store.ts` (`buildBriefing`), `views/Today.tsx` copy, tests.
 - **Frustrated-path softeners** (S each — UX-PATHS F3/F4/F5). Miss-streak
   circuit-breaker ("Rough patch — these come back easier tomorrow" + natural break);
   offer HD voice in context at first pronunciation tap instead of hiding it in

@@ -111,6 +111,12 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                 {briefing.due} due · {briefing.fresh} new
                 {briefing.weakSectors.length > 0 && ` · from ${briefing.weakSectors.slice(0, 2).join(', ')}${briefing.weakSectors.length > 2 ? '…' : ''}`}
               </p>
+              {briefing.dueTotal > briefing.due && (
+                // Post-gap honesty: the backlog exists, but today is bounded.
+                <p className="text-dim text-[13px] mt-1">
+                  {fmt(briefing.dueTotal)} reviews waiting in total — today serves the oldest {briefing.due}. The rest keep.
+                </p>
+              )}
               {blindDrills > 0 && (
                 <p className="text-red text-[13px] mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
               )}

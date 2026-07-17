@@ -76,7 +76,7 @@ correct material.
 | # | Finding | Status |
 |---|---|---|
 | F1 | **Space couldn't be typed in typed exercises during a session.** Review's global key handler `preventDefault`ed Space to flip the card — so "habe gemacht" was untypeable in the transform drill; the space bar silently did nothing (worse: flipped state under the card). Classic frustrated path: the app looks broken and blames your fingers. | ✅ fixed — key handler ignores input/textarea/contentEditable |
-| F2 | **The post-gap mountain.** `buildBriefing` includes *every* due review, uncapped. After two weeks away a learner opens the app to "312 cards queued" — the single most common reason people quit SRS apps. Needs a daily due cap (e.g. oldest-first 60) with honest framing: "312 waiting — here are today's 60." FSRS tolerates the delay by design. | → backlog **P0** |
+| F2 | **The post-gap mountain.** `buildBriefing` included *every* due review, uncapped. After two weeks away a learner opened the app to "312 cards queued" — the single most common reason people quit SRS apps. | ✅ fixed — `DAILY_DUE_CAP` 60 oldest-first, `dueTotal` reported, Today frames it honestly ("… waiting in total — today serves the oldest 60. The rest keep.") |
 | F3 | Wrong-answer feedback tone is uniform. After the 5th consecutive miss the app behaves identically to the 1st. A tiny circuit-breaker ("Rough patch — these will come back easier tomorrow" + offer to end the session at a natural break) would read as care, not failure. | → backlog |
 | F4 | HD voice (Piper Thorsten) hides behind a Settings toggle; frustrated ears meet robo-TTS and never learn better exists. Offer once, in context, at first pronunciation tap. | → backlog |
 | F5 | No session resume: an interruption rebuilds tomorrow's queue from scratch. Damage is small (grades persist) but the *feeling* is loss. Persist queue ids + position for same-day resume. | → backlog |
@@ -89,10 +89,9 @@ The happy path is the strongest of the three: the loop from "open app" to
 "felt progress" is short, explained, and honest. The sad path is mostly
 covered by architecture (local-first, backups, error boundaries) and now has no
 dead ends. The frustrated path is where the July work landed — skip signals,
-near-misses, hints, remediation — and where the one remaining structural risk
-lives: **F2, the uncapped due mountain**. It is the only finding that can end a
-learner's relationship with the app in a single moment, and it should be the
-next thing built.
+near-misses, hints, remediation, and now the **due cap (F2)**, which removed the
+last finding that could end a learner's relationship with the app in a single
+moment. What remains (F3–F5, S3) is texture, not structure.
 
 The through-line of all three paths matches the product's one-liner: *grounded*
 (never render wrong German, never show a stale number) and *supportive* (never

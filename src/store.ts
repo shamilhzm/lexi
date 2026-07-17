@@ -14,6 +14,11 @@ const LEVELS_KEY = 'lexi.levels.v1';
 const APIKEY_KEY = 'lexi.apikey.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
+// After a gap, FSRS marks *everything* overdue at once; serving it all in one
+// briefing ("312 cards queued") is the classic SRS rage-quit moment. Cap the
+// day at the oldest-due slice — FSRS tolerates the extra delay by design — and
+// report the true backlog so Today can frame it honestly (UX-PATHS F2).
+const DAILY_DUE_CAP = 60;
 
 // ---- persistence ---------------------------------------------------------
 // Progress state — FSRS cards, blind-spot misses, and visit days — lives in
@@ -162,7 +167,8 @@ export function buildSession(target: Target, maxNew = NEW_PER_DAY): Word[] {
 // ---- daily briefing ------------------------------------------------------
 export interface Briefing {
   ids: string[];        // the assembled queue (due first, then fresh)
-  due: number;          // count of due reviews included
+  due: number;          // count of due reviews included (≤ DAILY_DUE_CAP)
+  dueTotal: number;     // all due reviews in scope — the honest backlog number
   fresh: number;        // count of new cards included
   weakSectors: string[];// sectors the fresh cards were drawn from
 }
@@ -204,8 +210,10 @@ export function buildBriefing(): Briefing {
     if (isDue(c, now)) dueReview.push({ id: w.id, due: new Date(c.due).getTime() });
   }
   dueReview.sort((a, b) => a.due - b.due);
+  // Oldest-first slice of the backlog; the rest waits for tomorrow's briefing.
+  const served = dueReview.slice(0, DAILY_DUE_CAP);
 
-  const want = Math.min(NEW_PER_DAY, Math.max(0, MIN_DAILY - dueReview.length));
+  const want = Math.min(NEW_PER_DAY, Math.max(0, MIN_DAILY - served.length));
   const freshIds: string[] = [];
   const weak: string[] = [];
   for (const s of weakestSectors(6)) {
@@ -220,8 +228,9 @@ export function buildBriefing(): Briefing {
     }
   }
   return {
-    ids: [...dueReview.map((d) => d.id), ...freshIds],
-    due: dueReview.length,
+    ids: [...served.map((d) => d.id), ...freshIds],
+    due: served.length,
+    dueTotal: dueReview.length,
     fresh: freshIds.length,
     weakSectors: weak,
   };
