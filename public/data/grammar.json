@@ -1216,6 +1216,83 @@
           "explain": "am + ordinal takes -ten → am zweiten April."
         }
       ]
+    },
+    {
+      "title": "Pluralbildung (die Nomen im Plural)",
+      "summary": "The five plural patterns: -e, -(e)n, -er, -s, no ending — often with umlaut; the article is always die.",
+      "rule": "German nouns form the plural in five main patterns. -e, often with umlaut: der Tisch → die Tische, der Stuhl → die Stühle. -(e)n, the rule for most feminines: die Frau → die Frauen, die Lampe → die Lampen. -er, always with umlaut where possible, mostly neuters: das Kind → die Kinder, das Buch → die Bücher. -s for loanwords and words ending in a vowel: das Auto → die Autos. No ending for masculines/neuters in -er/-el/-en, often with umlaut: der Lehrer → die Lehrer, der Vater → die Väter. Whatever the pattern, the plural article is always die.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "der Tisch → die ___",
+          "options": [
+            "Tische",
+            "Tischen",
+            "Tischer"
+          ],
+          "answer": 0,
+          "explain": "Many masculines take -e: die Tische."
+        },
+        {
+          "kind": "choose",
+          "prompt": "das Kind → die ___",
+          "options": [
+            "Kinder",
+            "Kinde",
+            "Kinds"
+          ],
+          "answer": 0,
+          "explain": "Many neuters take -er: die Kinder."
+        },
+        {
+          "kind": "type",
+          "prompt": "die Frau → die ___",
+          "accept": [
+            "Frauen"
+          ],
+          "explain": "Most feminines take -(e)n: die Frauen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "das Auto → die ___",
+          "options": [
+            "Autos",
+            "Auten",
+            "Autoer"
+          ],
+          "answer": 0,
+          "explain": "Loanwords and vowel-final nouns take -s: die Autos."
+        },
+        {
+          "kind": "choose",
+          "prompt": "der Vater → die ___",
+          "options": [
+            "Väter",
+            "Vaters",
+            "Vateren"
+          ],
+          "answer": 0,
+          "explain": "Nouns in -er/-el/-en add no ending, often umlaut: die Väter."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which plural is correct?",
+          "options": [
+            "die Stühle",
+            "die Stuhle",
+            "die Stuhlen"
+          ],
+          "answer": 0,
+          "explain": "-e plus umlaut: der Stuhl → die Stühle."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich habe zwei Buch gelesen.",
+          "answer": 3,
+          "fix": "Ich habe zwei Bücher gelesen.",
+          "explain": "After a number the noun is plural: das Buch → die Bücher (-er + umlaut)."
+        }
+      ]
     }
   ],
   "A2": [

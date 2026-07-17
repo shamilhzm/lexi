@@ -11,8 +11,24 @@ import { haptic } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 
-const norm = (s: string) => s.trim().toLowerCase()
-  .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').replace(/\s+/g, ' ');
+// canon: case/whitespace-insensitive. norm: additionally folds umlauts/ß, so
+// "schoen" matches "schön" — a norm-only match is a *near-miss* (right word,
+// spelling drifted), surfaced supportively instead of graded wrong.
+const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+const norm = (s: string) => canon(s)
+  .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+
+/** Progressive hint ladder for typed answers: shape → first letter → first
+ *  half. A graceful path between blind guess and giving up; taking a hint
+ *  never changes the grade. Exported for tests. */
+export function hintText(answer: string, level: number): string {
+  const words = answer.split(/\s+/).filter(Boolean);
+  if (level <= 1) return words.length > 1
+    ? `${words.length} words · ${answer.replace(/\s+/g, '').length} letters`
+    : `${answer.length} letters`;
+  if (level === 2) return `starts with “${answer[0]}”`;
+  return `“${answer.slice(0, Math.ceil(answer.length / 2))}…”`;
+}
 function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 
 export default function GrammarDrill({ onExit }: { onExit: () => void }) {
@@ -72,11 +88,12 @@ export function GrammarExercise({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok
 function Card({ children }: { children: React.ReactNode }) {
   return <div className="bg-card border border-line rounded-[16px] p-6 sm:p-8">{children}</div>;
 }
-function Explain({ text, ok, answer }: { text?: string; ok: boolean; answer?: string }) {
+function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
   return (
     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
           : <p className="text-[15px]"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
+      {note && <p className="text-amber text-[13px] mt-1">{note}</p>}
       {text && <p className="text-dim text-[13px] mt-1.5">{text}</p>}
     </motion.div>
   );
@@ -115,10 +132,20 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
 export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
   const [val, setVal] = useState('');
   const [result, setResult] = useState<boolean | null>(null);
+  const [near, setNear] = useState(false); // right word, spelling drifted (umlauts/ß)
+  const [hint, setHint] = useState(0);     // 0 = none, 1..3 = ladder
   const ref = useRef<HTMLInputElement>(null);
   useEffect(() => { ref.current?.focus(); }, []);
   const accepts = useMemo(() => new Set((ex.accept ?? []).map(norm)), [ex]);
-  const submit = () => { if (result === null) setResult(accepts.has(norm(val))); };
+  const canonical = ex.accept?.[0] ?? '';
+  const submit = () => {
+    if (result !== null) return;
+    const ok = accepts.has(norm(val));
+    // Near-miss: matched only through the umlaut/ß fold — correct, supportively
+    // shown with the proper spelling rather than punished as wrong.
+    setNear(ok && !(ex.accept ?? []).some((a) => canon(a) === canon(val)));
+    setResult(ok);
+  };
   return (
     <Card>
       <p className="text-[20px] sm:text-[24px] font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
@@ -128,9 +155,18 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
         className={`w-full bg-panel2 border rounded-[10px] px-4 py-3 text-[20px] outline-none text-center ${
           result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
-      {result !== null && <Explain text={ex.explain} ok={result} answer={ex.accept?.[0]} />}
+      {result === null && hint > 0 && <p className="text-amber text-[13px] mt-2 text-center">Hint: {hintText(canonical, hint)}</p>}
+      {result !== null && <Explain text={ex.explain} ok={result} answer={canonical}
+        note={near ? `Right — just the spelling: ${canonical}` : undefined} />}
       {result === null
-        ? <div className="mt-5 flex justify-center"><button onClick={submit} disabled={!val.trim()} className="bg-amber text-bg font-bold rounded-[10px] px-6 py-2.5 disabled:opacity-40">Check</button></div>
+        ? <div className="mt-5 flex items-center justify-center gap-3">
+            <button onClick={submit} disabled={!val.trim()} className="bg-amber text-bg font-bold rounded-[10px] px-6 py-2.5 disabled:opacity-40">Check</button>
+            {canonical && hint < 3 && (
+              <button onClick={() => setHint((h) => h + 1)} className="text-dim text-[13px] underline underline-offset-2 hover:text-amber">
+                {hint === 0 ? 'Hint' : 'More'}
+              </button>
+            )}
+          </div>
         : <NextBtn onClick={() => onGrade(result)} />}
     </Card>
   );

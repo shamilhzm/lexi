@@ -282,6 +282,17 @@ describe('production drills (order / transform)', () => {
   });
 });
 
+describe('typed-answer support (hints)', () => {
+  it('hintText ladder: shape → first letter → first half', async () => {
+    vi.resetModules();
+    const { hintText } = await import('./views/GrammarDrill.tsx');
+    expect(hintText('Bücher', 1)).toBe('6 letters');
+    expect(hintText('habe gemacht', 1)).toBe('2 words · 11 letters');
+    expect(hintText('Bücher', 2)).toBe('starts with “B”');
+    expect(hintText('Bücher', 3)).toBe('“Büc…”');
+  });
+});
+
 describe('streak / visits', () => {
   it('is 0 with no visits and 1 after visiting today', async () => {
     const { store } = await fresh();

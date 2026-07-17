@@ -52,7 +52,7 @@ const WORD_POINT: Record<string, string> = {
 };
 const MODE_REMEDY: Record<Mode, string[]> = {
   gender: ['gram:A1:Artikel & Genus', 'gram:A1:Artikelwörter & kein'],
-  plural: [], // no plural-formation point exists yet — content gap, see BACKLOG
+  plural: ['gram:A1:Pluralbildung (die Nomen im Plural)'],
   conj: ['gram:A1:Präsens (regelmäßig)', 'gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Konjunktiv II (würde)'],
   cloze: [], // vocabulary-in-context, not a structural system
   order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],

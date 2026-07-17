@@ -169,6 +169,21 @@ nobody re-implements them:
   Satzklammer* and transform-misses → the tense points. Fundamentals shows six
   drill tiles. 4 new tests (tokenization, transform gating, accept variants,
   eligibility); suite 52/52, build clean.
+- **Near-miss grading + progressive hints** (was Next). Typed answers that match
+  only through the umlaut/ß fold ("schoen" for *schön*) now read **"Right — just
+  the spelling: …"** instead of a bare Correct; and `TypeItem` grew a
+  three-step hint ladder (shape → first letter → first half) — a graceful path
+  between blind guess and giving up. Hints never change the grade. Applies to
+  every typed exercise incl. the new transform drill. `views/GrammarDrill.tsx`.
+- **Pluralbildung grammar point** (was Next; found by the remediation loop).
+  Authored A1 point *Pluralbildung (die Nomen im Plural)* — the five patterns
+  (-e/-(e)n/-er/-s/no ending, umlaut, article always *die*) with 7 exercises —
+  via `corpus:grammar --write`; `corpus:validate` PASS. `MODE_REMEDY.plural` now
+  points at it, so plural misses no longer dead-end. Grammar: **101 cards, 99
+  exercise points, 571 exercises**; count strings bumped (README 6,952 cards /
+  A1 919, Fundamentals landing, `lib/grammar.ts`, `data/index.ts`). ⚠️ *Content
+  pass rule: German + answer indices human-spot-checked in review — see the
+  commit for the 7 exercises.*
 
 ---
 
@@ -233,17 +248,6 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
-- **Near-miss grading + progressive hints** (S). *Why:* "supportive" is texture,
-  not a slogan — binary wrong punishes close attempts. *Do:* port the archived
-  Orbita v7 details: typed answers graded diacritic-tolerantly (the `norm()`
-  fold already exists — surface "right, just spelling" as a near-miss instead of
-  wrong), and a progressive hint ladder on cloze/typed items (length → first
-  letter → first half), where taking a hint caps the grade at Good rather than
-  failing. *Touches:* `views/Fundamentals.tsx`, `views/GrammarDrill.tsx`.
-- **Plural-formation grammar point** (S, content). *Why:* found by the loop —
-  `MODE_REMEDY.plural` has no point to remediate to; plural misses currently dead-end.
-  *Do:* author one point (die Pluralbildung: -e/-en/-er/-s/umlaut patterns) with
-  ≥5 exercises via `grammar-supplement.ts`, then point `MODE_REMEDY.plural` at it.
 - **Example coverage backfill** (M). *Why:* the consolidated study card folds
   examples onto the back, which exposed that ~46% of word cards ship a single
   example and 79 (all A1/A2) ship none — a thin connection between word and real
