@@ -84,7 +84,7 @@ export default function App() {
         <header className="sm:hidden safe-top pb-2 flex items-center gap-2.5 px-3 min-h-[calc(52px_+_env(safe-area-inset-top))] bg-panel border-b border-line flex-shrink-0">
           <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-9 h-9 -ml-1 text-dim hover:text-amber" title="Menu"><Menu size={20} /></button>
           <LexiMark size={24} />
-          <span className="font-bold text-[1.0625rem] tracking-wide">Lexi</span>
+          <span className="font-bold text-lg tracking-wide">Lexi</span>
         </header>
 
         {/* The live ticker is peripheral motion — hide it during a session. */}

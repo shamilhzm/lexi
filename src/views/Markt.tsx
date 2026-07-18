@@ -52,25 +52,25 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
   return (
     <div>
       <Kpis />
-      <div className="bg-panel border border-line rounded-[10px]">
+      <div className="bg-panel border border-line rounded-md">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
           {zoom ? (
             <>
               <button onClick={() => { setZoom(null); setHover(null); }} title="Back to groups" className="grid place-items-center w-8 h-8 -ml-1 text-dim hover:text-amber"><ArrowLeft size={18} /></button>
-              <h2 className="text-[0.8125rem] sm:text-[0.9375rem] font-semibold truncate max-w-[38vw] sm:max-w-none">{zoom}</h2>
+              <h2 className="text-xs sm:text-base font-semibold truncate max-w-[38vw] sm:max-w-none">{zoom}</h2>
             </>
           ) : (
             <>
               <span className="live-dot" title="Live — reflects your FSRS progress" />
-              <h2 className="text-[0.8125rem] sm:text-[0.9375rem] font-semibold">Knowledge Heatmap</h2>
+              <h2 className="text-xs sm:text-base font-semibold">Knowledge Heatmap</h2>
             </>
           )}
           <div className="flex items-center gap-2 ml-auto flex-wrap">
             <Toggle list={list} onChange={setList} />
             <LevelFilter />
             {zoom
-              ? <button onClick={() => onStudyGroup(zoom)} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[0.8125rem] hover:brightness-105"><Play size={13} /> Study {shortName(zoom)}</button>
-              : <button onClick={onStudyAll} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-[0.8125rem] hover:brightness-105"><Play size={13} /> Study all</button>}
+              ? <button onClick={() => onStudyGroup(zoom)} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-xs hover:brightness-105"><Play size={13} /> Study {shortName(zoom)}</button>
+              : <button onClick={onStudyAll} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-xs hover:brightness-105"><Play size={13} /> Study all</button>}
           </div>
         </div>
 
@@ -80,7 +80,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
           <div ref={boxRef} className="relative w-full" style={{ height: 'min(60vh, 580px)' }}>
             <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 50% 0%, rgba(56,205,232,.06), transparent 70%)' }} />
             {tiles.length === 0 && (
-              <div className="absolute inset-0 grid place-items-center text-dim text-[0.8125rem] px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
+              <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
             )}
             {tiles.map((t, idx) => {
               const c = t.data, p = c.count ? c.known / c.count : 0, big = t.w > 118 && t.h > 62, mid = t.w > 76 && t.h > 42;
@@ -92,7 +92,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                   onContextMenu={(e) => { e.preventDefault(); study(c); }}
                   onMouseMove={(e) => setHover({ c, x: e.clientX, y: e.clientY })}
                   onMouseLeave={() => setHover(null)}
-                  className="tile-in absolute overflow-hidden border border-[#05070b] transition-[filter,transform] duration-100 hover:brightness-115 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left"
+                  className="tile-in absolute overflow-hidden border border-bg transition-[filter,transform] duration-100 hover:brightness-115 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left"
                   style={{ left: t.x, top: t.y, width: t.w, height: t.h, background: heat(p), animationDelay: `${Math.min(idx * 14, 240)}ms` }}>
                   <span className="absolute inset-0 p-2 flex flex-col justify-between pointer-events-none" style={{ color: ink }}>
                     <span className="font-semibold leading-tight" style={{ fontSize: big ? 12 : 11, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>
@@ -111,9 +111,9 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             })}
 
             {hover && (
-              <div className="fixed z-50 pointer-events-none bg-card border border-amber rounded-lg px-3 py-2.5 text-[0.8125rem] shadow-2xl"
+              <div className="fixed z-50 pointer-events-none bg-card border border-amber rounded-md px-3 py-2.5 text-xs shadow-2xl"
                 style={{ left: Math.min(hover.x + 14, (typeof window !== 'undefined' ? window.innerWidth : 1280) - 250), top: hover.y + 14, width: 230 }}>
-                <h4 className="text-[0.8125rem] font-semibold mb-1.5">{hover.c.name}</h4>
+                <h4 className="text-xs font-semibold mb-1.5">{hover.c.name}</h4>
                 <Row k="Cards" val={`${fmt(hover.c.count)} · ${hover.c.sub}`} />
                 <Row k="Known" val={`${fmt(hover.c.known)}`} />
                 <Row k="Coverage" val={`${Math.round(hover.c.coverage * 100)}%`} valColor={heat(hover.c.coverage)} />
@@ -124,9 +124,9 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
           </div>
         )}
 
-        <div className="flex items-center gap-2 px-4 py-2.5 border-t border-line text-[0.6875rem] text-dim flex-wrap">
+        <div className="flex items-center gap-2 px-4 py-2.5 border-t border-line text-2xs text-dim flex-wrap">
           <span>0%</span>
-          <span className="h-2.5 w-40 rounded" style={{ background: 'linear-gradient(90deg,#465061,#3f8f74,#16c784)' }} />
+          <span className="h-2.5 w-40 rounded-sm" style={{ background: 'linear-gradient(90deg,#465061,#3f8f74,#16c784)' }} />
           <span>100% known</span>
           <span className="ml-auto hidden sm:inline">{zoom ? 'Tap a sector to study it · right-click to study' : 'Tap a group to drill into its sectors · right-click to study'}</span>
           {zoom && <button onClick={() => onOpenGroup(zoom)} className="text-amber hover:underline sm:ml-3">All decks →</button>}
@@ -140,16 +140,16 @@ function Toggle({ list, onChange }: { list: boolean; onChange: (v: boolean) => v
   return (
     <div className="flex rounded-md border border-line overflow-hidden">
       <button onClick={() => onChange(false)} title="Treemap" aria-pressed={!list}
-        className={`flex items-center gap-1 px-2 py-1.5 text-[0.75rem] ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> <span className="hidden sm:inline">Markt</span></button>
+        className={`flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> <span className="hidden sm:inline">Markt</span></button>
       <button onClick={() => onChange(true)} title="List" aria-pressed={list}
-        className={`flex items-center gap-1 px-2 py-1.5 text-[0.75rem] border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> <span className="hidden sm:inline">Liste</span></button>
+        className={`flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> <span className="hidden sm:inline">Liste</span></button>
     </div>
   );
 }
 
 function ListView({ cells, zoom, onTap, onStudy }: { cells: Cell[]; zoom: boolean; onTap: (c: Cell) => void; onStudy: (c: Cell) => void }) {
   if (cells.length === 0) {
-    return <div className="grid place-items-center py-16 text-dim text-[0.8125rem] px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>;
+    return <div className="grid place-items-center py-16 text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>;
   }
   return (
     <div className="divide-y divide-[var(--color-line)] max-h-[min(60vh,580px)] overflow-y-auto">
@@ -159,14 +159,14 @@ function ListView({ cells, zoom, onTap, onStudy }: { cells: Cell[]; zoom: boolea
           <div key={c.name} className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-panel2">
             <button onClick={() => onTap(c)} className="flex-1 min-w-0 text-left" title={zoom ? 'Study sector' : 'Open sectors'}>
               <div className="flex items-baseline gap-2">
-                <span className="text-[0.875rem] font-semibold truncate">{c.name}</span>
-                <span className="text-[0.6875rem] text-dim font-mono flex-shrink-0">{c.sub}</span>
+                <span className="text-sm font-semibold truncate">{c.name}</span>
+                <span className="text-2xs text-dim font-mono flex-shrink-0">{c.sub}</span>
               </div>
-              <div className="relative h-1.5 bg-[#05070b] rounded mt-1.5 overflow-hidden">
-                <div className="absolute inset-y-0 left-0 rounded" style={{ width: `${Math.max(2, p * 100)}%`, background: heat(p) }} />
+              <div className="relative h-1.5 bg-panel2 rounded-sm mt-1.5 overflow-hidden">
+                <div className="absolute inset-y-0 left-0 rounded-sm" style={{ width: `${Math.max(2, p * 100)}%`, background: heat(p) }} />
               </div>
             </button>
-            <span className="font-mono font-bold text-[0.9375rem] tabular-nums w-12 text-right" style={{ color: heat(p) }}>{Math.round(p * 100)}%</span>
+            <span className="font-mono font-bold text-base tabular-nums w-12 text-right" style={{ color: heat(p) }}>{Math.round(p * 100)}%</span>
             <button onClick={() => onStudy(c)} title={zoom ? 'Study sector' : 'Study group'} className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-green flex-shrink-0"><Play size={16} /></button>
           </div>
         );

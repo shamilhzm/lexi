@@ -38,26 +38,26 @@ export default function InstallNudge({ onBackup }: { onBackup: () => void }) {
   };
 
   return (
-    <div className="bg-panel border border-line rounded-[16px] px-4 py-3.5 mb-4 flex items-start gap-3">
-      <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
+    <div className="bg-panel border border-line rounded-md px-4 py-3.5 mb-4 flex items-start gap-3">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
       <div className="flex-1 min-w-0">
-        <p className="text-[0.9375rem] font-semibold">Install Lexi to protect your progress</p>
-        <p className="text-[0.8125rem] text-dim mt-0.5">
+        <p className="text-base font-semibold">Install Lexi to protect your progress</p>
+        <p className="text-xs text-dim mt-0.5">
           Your words live on this device only. Installing keeps the browser from ever
           clearing them, and works offline.
         </p>
         <div className="flex items-center gap-3 mt-2.5 flex-wrap">
           {ios ? (
-            <span className="inline-flex items-center gap-1.5 text-[0.8125rem] text-txt">
+            <span className="inline-flex items-center gap-1.5 text-xs text-txt">
               <Share size={14} className="text-amber" /> Share&nbsp;→&nbsp;<b>Add to Home Screen</b>
             </span>
           ) : (
             <button onClick={() => deferredPrompt?.prompt()}
-              className="bg-amber text-bg font-bold rounded-[10px] px-4 py-2 text-[0.8125rem] hover:brightness-105">
+              className="bg-amber text-bg font-bold rounded-md px-4 py-2 text-xs hover:brightness-105">
               Install
             </button>
           )}
-          <button onClick={onBackup} className="text-[0.8125rem] text-dim underline underline-offset-2 hover:text-amber">
+          <button onClick={onBackup} className="text-xs text-dim underline underline-offset-2 hover:text-amber">
             or export a backup
           </button>
         </div>

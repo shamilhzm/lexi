@@ -6,10 +6,10 @@ import CountUp from './CountUp.tsx';
 
 function Kpi({ label, value, sub, subClass }: { label: string; value: ReactNode; sub: string; subClass?: string }) {
   return (
-    <div className="bg-panel border border-line rounded-[10px] px-3 py-3 sm:px-4 sm:py-3.5">
-      <div className="text-[0.6875rem] text-dim uppercase tracking-[1px]">{label}</div>
-      <div className="font-mono text-[1.375rem] sm:text-[1.625rem] font-bold mt-1 leading-none tabular-nums">{value}</div>
-      <div className={`text-[0.6875rem] mt-1.5 ${subClass ?? 'text-dim'}`}>{sub}</div>
+    <div className="bg-panel border border-line rounded-md px-3 py-3 sm:px-4 sm:py-3.5">
+      <div className="text-2xs text-dim font-mono uppercase tracking-widest">{label}</div>
+      <div className="font-mono text-2xl sm:text-3xl font-bold mt-1 leading-none tabular-nums">{value}</div>
+      <div className={`text-2xs mt-1.5 ${subClass ?? 'text-dim'}`}>{sub}</div>
     </div>
   );
 }

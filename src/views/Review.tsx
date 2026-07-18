@@ -2,7 +2,7 @@
 // = knew it, swipe left = didn't know) with grammar drills (gender / plural /
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged } from '../store.ts';
@@ -43,6 +43,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
   // or a skip, and rewind counters + position exactly.
   const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: Card; dAgain?: number; dNew?: number }[]>([]);
+  // Which way the outgoing card flies: +1 knew it, -1 didn't, 0 neutral (skip/
+  // prev). Set by every grade path, so swipes, buttons and arrow keys all share
+  // one physical vocabulary: right = knew, left = missed.
+  const exitDir = useRef(0);
 
   // Feel layer: the comeback of the day (a word you'd missed ≥2 times before
   // and got right today), and the miss-streak circuit breaker (F3): after 4
@@ -105,6 +109,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     const dAgain = g === Rating.Again ? 1 : 0;
     const dNew = g !== Rating.Again && wasNew ? 1 : 0;
     pushGrade(dAgain, dNew);
+    exitDir.current = g === Rating.Again ? -1 : 1;
     noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term);
     review(item.srsId, g);
     haptic();
@@ -119,6 +124,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     if (!item || item.type === 'flip') return;
     const dAgain = ok ? 0 : 1;
     pushGrade(dAgain, 0);
+    exitDir.current = ok ? 1 : -1;
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic();
@@ -136,6 +142,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     const dAgain = ok ? 0 : 1;
     const dNew = ok && wasNew ? 1 : 0;
     pushGrade(dAgain, dNew);
+    exitDir.current = ok ? 1 : -1;
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic();
@@ -155,6 +162,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // structural.
   const skip = useCallback(() => {
     if (!item) return;
+    exitDir.current = 0;
     history.current.push({ i, kind: 'skip' });
     if (item.type !== 'flip') logMiss(MODE_TAG[item.type]);
     else if (item.word.kind === 'grammar') logMiss(item.word.term);
@@ -167,6 +175,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const prev = useCallback(() => {
     const e = history.current.pop();
     if (!e) return;
+    exitDir.current = 0;
     if (e.kind === 'grade' && e.srsId) {
       restoreCard(e.srsId, e.prevCard);
       setDone((d) => Math.max(0, d - 1));
@@ -208,23 +217,23 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
       {/* Circuit breaker (F3): four straight misses isn't failure, it's a hard
           patch. Offer a graceful stop at a natural break — once, then quiet. */}
       {breather && (
-        <div className="bg-panel border border-amber/40 rounded-[10px] px-4 py-3 mb-2.5 flex items-center gap-3 flex-wrap">
-          <p className="text-[0.8125rem] flex-1 min-w-[200px]">
+        <div className="bg-panel border border-amber/40 rounded-md px-4 py-3 mb-2.5 flex items-center gap-3 flex-wrap">
+          <p className="text-xs flex-1 min-w-[200px]">
             Rough patch — that's the system finding your edge. These come back easier tomorrow.
           </p>
           <div className="flex gap-2">
             <button onClick={() => { setBreather(false); setI(queue.length); tick('done'); }}
-              className="text-[0.8125rem] border border-line rounded-[8px] px-3 py-1.5 hover:border-amber">Stop here</button>
+              className="text-xs border border-line rounded-sm px-3 py-1.5 hover:border-amber">Stop here</button>
             <button onClick={() => setBreather(false)}
-              className="text-[0.8125rem] bg-amber text-bg font-bold rounded-[8px] px-3 py-1.5 hover:brightness-105">Keep going</button>
+              className="text-xs bg-amber text-bg font-bold rounded-sm px-3 py-1.5 hover:brightness-105">Keep going</button>
           </div>
         </div>
       )}
-      <div className="bg-panel border border-line rounded-[10px]">
+      <div className="bg-panel border border-line rounded-md">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3">
           <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back to Today"><ArrowLeft size={16} /></button>
-          <h2 className="text-[0.9375rem] font-semibold truncate">{target.name}</h2>
-          <span className="text-[0.6875rem] text-amber border border-line px-1.5 py-0.5 rounded-full tracking-[1px] tabular-nums flex-shrink-0">{queue.length - i} left</span>
+          <h2 className="text-base font-semibold truncate">{target.name}</h2>
+          <span className="text-2xs text-amber border border-line px-1.5 py-0.5 rounded-full tracking-wider tabular-nums flex-shrink-0">{queue.length - i} left</span>
           {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
             {/* Flag: "something's wrong with this card" — the feedback loop for a
@@ -242,17 +251,30 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         </div>
         {/* Slim session progress — tracks position through the queue. */}
         <div className="h-0.5 bg-panel2" role="progressbar" aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}>
-          <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }} />
+          <div className="relative h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
+            {/* The cursor rides the tip of the bar — the terminal writes your session. */}
+            {i > 0 && <span aria-hidden className="absolute -right-px top-1/2 -translate-y-1/2 w-[3px] h-[3px] rounded-full bg-amber" style={{ boxShadow: '0 0 8px 2px var(--color-amber)' }} />}
+          </div>
         </div>
 
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
-          <AnimatePresence mode="wait">
-          <motion.div key={item.srsId} className="w-full flex flex-col items-center"
-            initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: reduce ? 0 : 0.2, ease: 'easeOut' }}>
+          <AnimatePresence mode="wait" custom={exitDir.current}>
+          <motion.div key={item.srsId} custom={exitDir.current} className="w-full flex flex-col items-center"
+            variants={{
+              initial: { opacity: 0, scale: 0.97, y: 12 },
+              enter: { opacity: 1, scale: 1, y: 0 },
+              // A graded card leaves the way it was judged — continuing the
+              // swipe's motion (or lending buttons/keys the same physics).
+              // Neutral exits (skip, prev, drills swapping in) just dissolve.
+              exit: (dir: number) => (reduce || !dir)
+                ? { opacity: 0, scale: 0.98, transition: { duration: reduce ? 0 : 0.15, ease: 'easeOut' } }
+                : { opacity: 0, x: dir * 340, rotate: dir * 5, transition: { duration: 0.22, ease: [0.32, 0.72, 0, 1] } },
+            }}
+            initial="initial" animate="enter" exit="exit"
+            transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 460, damping: 34, mass: 0.8 }}>
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">
-              <span className="absolute -top-2.5 right-3 z-10 text-[0.6875rem] text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 uppercase tracking-[1px]">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
               {grammarEx
                 ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} />
                 : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
@@ -267,40 +289,40 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT — the prompt: word + German context, no translation to spoil the test */}
-              <div className="flip-face relative border border-line rounded-2xl bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
+              <div className="flip-face relative border border-line rounded-md bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
-                <span className="text-[0.6875rem] text-dim uppercase tracking-[2px]">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}</span>
-                <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-[1.375rem] sm:text-[1.75rem]' : 'text-[2.125rem] sm:text-[2.875rem]'}`}>
+                <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}</span>
+                <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
-                {card.ipa && <span className="font-mono text-[0.9375rem] text-dim">/{card.ipa}/</span>}
+                {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
                 {!grammar && (
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-amber hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span className="text-dim italic text-[0.9375rem] leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {card.ex[0] && <span className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
               </div>
               {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
-              <div className="flip-face flip-back border rounded-2xl flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
+              <div className="flip-face flip-back border rounded-md flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
                    style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
-                <span className="text-[0.6875rem] text-dim uppercase tracking-[2px]">{grammar ? 'Rule' : 'Translation'}</span>
-                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-[1.25rem] sm:text-[1.375rem]' : 'text-[1.625rem] sm:text-[2.125rem]'}`}>{card.en}</span>
-                {card.def && <span className="text-txt text-[0.875rem] leading-relaxed max-w-[92%]">{card.def}</span>}
+                <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Rule' : 'Translation'}</span>
+                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
+                {card.def && <span className="text-txt text-sm leading-relaxed max-w-[92%]">{card.def}</span>}
                 {!grammar && card.ex.length > 0 && (
                   <div className="w-full max-w-[94%] text-left mt-1 space-y-2">
                     {card.ex.slice(0, 2).map((e, k) => (
-                      <div key={k} className="text-[0.875rem] leading-relaxed">
+                      <div key={k} className="text-sm leading-relaxed">
                         <div className="text-txt">{e.de}</div>
                         {e.en && <div className="text-dim italic">{e.en}</div>}
                       </div>
                     ))}
                   </div>
                 )}
-                {card.syn.length > 0 && <span className="text-[0.8125rem] text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
-                {card.ant.length > 0 && <span className="text-[0.8125rem] text-dim">Opposite: <span className="text-red-txt">{card.ant.join(', ')}</span></span>}
+                {card.syn.length > 0 && <span className="text-xs text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
+                {card.ant.length > 0 && <span className="text-xs text-dim">Opposite: <span className="text-red-txt">{card.ant.join(', ')}</span></span>}
               </div>
             </div>
           </SwipeCard>
@@ -311,17 +333,17 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
             <div className="flex gap-2.5 sm:gap-3 justify-center">
               <button onClick={() => grade(Rating.Again)}
-                className="flex flex-col items-center border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
+                className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
                 <span className="flex items-center gap-2"><X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}</span>
-                {preview && <span className="text-[0.6875rem] text-dim font-mono font-normal mt-0.5">{preview.again}</span>}
+                {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.again}</span>}
               </button>
               <button onClick={() => grade(Rating.Good)}
-                className="flex flex-col items-center border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
+                className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
                 <span className="flex items-center gap-2"><Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}</span>
-                {preview && <span className="text-[0.6875rem] text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
+                {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
               </button>
             </div>
-            <span className={`text-dim text-[0.75rem] h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
+            <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
               Space to flip and check the {grammar ? 'rule' : 'translation'}
             </span>
           </div>
@@ -334,8 +356,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   );
 }
 
-/** Draggable flip-card. Tap flips; once flipped, swipe right = knew it (Good),
- *  swipe left = didn't know (Again). Snaps back below the threshold. */
+/** Draggable flip-card. Tap flips; swipe right = knew it (Good), swipe left =
+ *  didn't know (Again). Commits on travel OR a confident flick (velocity with
+ *  real distance behind it); below threshold the card is handed back with the
+ *  release velocity, so the return reads as the gesture settling — not a reset. */
 function SwipeCard({ children, onFlip, onGrade }:
   { children: React.ReactNode; onFlip: () => void; onGrade: (g: Grade) => void }) {
   const x = useMotionValue(0);
@@ -349,23 +373,25 @@ function SwipeCard({ children, onFlip, onGrade }:
       className="relative w-full max-w-[580px] h-[360px] sm:h-[420px] cursor-pointer touch-pan-y"
       style={{ x, rotate: reduce ? 0 : rotate }}
       drag="x"
-      dragSnapToOrigin
       dragElastic={0.6}
       onDragStart={() => { dragged.current = true; }}
       onDragEnd={(_, info) => {
-        if (info.offset.x > SWIPE_PX) onGrade(Rating.Good);
-        else if (info.offset.x < -SWIPE_PX) onGrade(Rating.Again);
+        const { offset, velocity } = info;
+        const flick = Math.abs(velocity.x) > 480 && Math.abs(offset.x) > 36;
+        if (offset.x > SWIPE_PX || (flick && velocity.x > 0)) onGrade(Rating.Good);
+        else if (offset.x < -SWIPE_PX || (flick && velocity.x < 0)) onGrade(Rating.Again);
+        else animate(x, 0, { type: 'spring', stiffness: 420, damping: 30, velocity: velocity.x });
         setTimeout(() => { dragged.current = false; }, 0);
       }}
       onClick={() => { if (!dragged.current) onFlip(); }}
     >
       <div className="flip w-full h-full">{children}</div>
       <motion.span style={{ opacity: yes }}
-        className="absolute top-3 right-3 flex items-center gap-1.5 text-green font-bold text-[0.8125rem] border border-green rounded-full px-3 py-1 bg-[var(--color-green-d)] pointer-events-none">
+        className="absolute top-3 right-3 flex items-center gap-1.5 text-green font-bold text-xs border border-green rounded-full px-3 py-1 bg-[var(--color-green-d)] pointer-events-none">
         <Check size={14} /> Knew it
       </motion.span>
       <motion.span style={{ opacity: no }}
-        className="absolute top-3 left-3 flex items-center gap-1.5 text-red-txt font-bold text-[0.8125rem] border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
+        className="absolute top-3 left-3 flex items-center gap-1.5 text-red-txt font-bold text-xs border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
         <X size={14} /> Didn’t know
       </motion.span>
     </motion.div>
@@ -383,7 +409,7 @@ function CoachMarks() {
     setShow(false);
   };
   return (
-    <div className="bg-panel border border-line rounded-[10px] px-4 py-3 mb-2.5 flex items-center gap-x-3 gap-y-1 flex-wrap text-[0.8125rem] text-dim">
+    <div className="bg-panel border border-line rounded-md px-4 py-3 mb-2.5 flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-dim">
       <span><b className="text-txt font-semibold">Tap</b> the card to flip it</span>
       <span aria-hidden>·</span>
       <span><b className="text-txt font-semibold">Swipe</b> or use the buttons to grade</span>
@@ -416,22 +442,22 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, on
     <div className="grid place-items-center min-h-[440px]">
       <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, streak: streak() }}>
         {comeback && (
-          <p className="text-[0.8125rem] text-dim mb-5">
+          <p className="text-xs text-dim mb-5">
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
           </p>
         )}
         {firstRun && newLearned > 0 && (
-          <p className="text-[0.9375rem] mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
+          <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
         )}
         <div className="flex gap-2.5 justify-center flex-wrap">
-          {!firstRun && <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Another deck</button>}
-          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">{firstRun ? 'Got it' : 'Back to Today'}</button>
+          {!firstRun && <button onClick={onPick} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber">Another deck</button>}
+          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-md px-5 py-2.5 hover:brightness-105">{firstRun ? 'Got it' : 'Back to Today'}</button>
         </div>
         {/* The pride moment — the market as a designed image, not a cropped
             screenshot. Word-of-mouth is a local-first app's only channel. */}
         {!firstRun && (
           <button onClick={() => shareProgress()}
-            className="mt-3 mx-auto flex items-center gap-1.5 text-[0.8125rem] text-dim hover:text-amber underline underline-offset-2">
+            className="mt-3 mx-auto flex items-center gap-1.5 text-xs text-dim hover:text-amber underline underline-offset-2">
             <Share2 size={13} /> Share your progress
           </button>
         )}
@@ -442,13 +468,13 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, on
 function EmptyState({ target, onExit, onPick, onDrills }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void }) {
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <div className="text-center bg-panel border border-line rounded-2xl px-10 py-12 max-w-md">
+      <div className="text-center bg-panel border border-line rounded-md px-10 py-12 max-w-md">
         <h2 className="text-xl font-bold mb-1">Nothing due in {target.name}</h2>
         <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try targeted drills, another deck, or a different CEFR level.</p>
         <div className="flex gap-2.5 justify-center flex-wrap">
-          <button onClick={onDrills} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Targeted drills</button>
-          <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Open decks</button>
-          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5">Done</button>
+          <button onClick={onDrills} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber">Targeted drills</button>
+          <button onClick={onPick} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber">Open decks</button>
+          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-md px-5 py-2.5">Done</button>
         </div>
       </div>
     </div>

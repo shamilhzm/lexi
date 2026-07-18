@@ -1,6 +1,6 @@
 // Lexi service worker — offline-first. Precaches the shell; caches hashed assets
 // and the lexicon JSON on first fetch (cache-first). Bump CACHE to invalidate.
-const CACHE = 'lexi-v4';
+const CACHE = 'lexi-v5';
 const CORE = [
   './', './index.html', './manifest.webmanifest',
   './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png',

@@ -22,26 +22,26 @@ export default function Profile() {
 
   return (
     <div className="max-w-[640px] mx-auto">
-      <h1 className="text-[1.25rem] font-bold mb-4">Profile</h1>
+      <h1 className="text-xl font-bold mb-4">Profile</h1>
 
-      <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-3 flex items-center gap-4">
-        <div className="grid place-items-center w-14 h-14 rounded-full bg-panel2 text-amber text-[1.375rem] font-bold flex-shrink-0">{initial}</div>
+      <div className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-3 flex items-center gap-4">
+        <div className="grid place-items-center w-14 h-14 rounded-full bg-panel2 text-amber text-2xl font-bold flex-shrink-0">{initial}</div>
         <div className="flex-1 min-w-0">
           {editing ? (
             <div className="flex items-center gap-2">
               <input autoFocus value={draft} onChange={(e) => setDraft(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') save(); if (e.key === 'Escape') setEditing(false); }}
                 placeholder="Your name" maxLength={40}
-                className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-[0.9375rem] outline-none focus:border-amber w-full max-w-[240px]" />
+                className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-base outline-none focus:border-amber w-full max-w-[240px]" />
               <button onClick={save} className="grid place-items-center w-9 h-9 rounded-md bg-amber text-bg flex-shrink-0" title="Save"><Check size={16} /></button>
             </div>
           ) : (
             <button onClick={() => { setDraft(name); setEditing(true); }} className="group flex items-center gap-2 text-left">
-              <span className={`text-[1.125rem] font-bold ${name ? '' : 'text-dim'}`}>{name || 'Add your name'}</span>
+              <span className={`text-lg font-bold ${name ? '' : 'text-dim'}`}>{name || 'Add your name'}</span>
               <Pencil size={14} className="text-dim group-hover:text-amber" />
             </button>
           )}
-          <div className="text-[0.8125rem] text-dim mt-1.5 flex items-center gap-3 flex-wrap">
+          <div className="text-xs text-dim mt-1.5 flex items-center gap-3 flex-wrap">
             <span>{level ? `Level ${level}` : 'No placement yet'}</span>
             <span className="flex items-center gap-1 text-amber"><Flame size={13} /> {streak()} day streak</span>
           </div>
@@ -58,12 +58,12 @@ export default function Profile() {
       <GoalCard />
 
       {/* Interest topics — bias the daily fresh-vocabulary pick. */}
-      <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-3">
+      <div className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-3">
         <div className="flex items-center gap-2 mb-1">
           <Compass size={16} className="text-amber" />
-          <h2 className="text-[0.9375rem] font-semibold">Topics you care about</h2>
+          <h2 className="text-base font-semibold">Topics you care about</h2>
         </div>
-        <p className="text-[0.8125rem] text-dim mb-3">Lexi pulls your new words from these first.</p>
+        <p className="text-xs text-dim mb-3">Lexi pulls your new words from these first.</p>
         <TopicPicker />
       </div>
 
@@ -71,7 +71,7 @@ export default function Profile() {
       <Settings />
 
       <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
-        className="mt-4 flex items-center justify-center gap-1.5 text-[0.8125rem] text-dim hover:text-amber">
+        className="mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-amber">
         <Heart size={13} /> Support Lexi's development
       </a>
     </div>
@@ -86,27 +86,27 @@ function GoalCard() {
   const valid = date > today;
   const dirty = !g || g.level !== level || g.date !== date;
   return (
-    <div className="bg-panel border border-line rounded-[16px] p-4 sm:p-5 mb-3">
+    <div className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-3">
       <div className="flex items-center gap-2 mb-1">
         <Target size={16} className="text-amber" />
-        <h2 className="text-[0.9375rem] font-semibold">Your goal</h2>
+        <h2 className="text-base font-semibold">Your goal</h2>
       </div>
-      <p className="text-[0.8125rem] text-dim mb-3">A level and a date — Today shows whether your pace gets you there.</p>
+      <p className="text-xs text-dim mb-3">A level and a date — Today shows whether your pace gets you there.</p>
       <div className="flex items-center gap-2.5 flex-wrap">
         <select value={level} onChange={(e) => setLevel(e.target.value as CEFR)}
-          className="bg-panel2 border border-line rounded-md px-2.5 py-2 text-[0.875rem] outline-none focus:border-amber">
+          className="bg-panel2 border border-line rounded-md px-2.5 py-2 text-sm outline-none focus:border-amber">
           {ALL_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
         </select>
-        <span className="text-dim text-[0.8125rem]">by</span>
+        <span className="text-dim text-xs">by</span>
         <input type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)}
-          className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-[0.875rem] outline-none focus:border-amber" />
+          className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
         {dirty && valid && (
           <button onClick={() => setGoal({ level, date })}
-            className="bg-amber text-bg font-bold rounded-md px-3.5 py-2 text-[0.8125rem] hover:brightness-105">Set</button>
+            className="bg-amber text-bg font-bold rounded-md px-3.5 py-2 text-xs hover:brightness-105">Set</button>
         )}
         {g && (
           <button onClick={() => { setGoal(null); setDate(''); }}
-            className="text-[0.8125rem] text-dim underline underline-offset-2 hover:text-amber">Clear</button>
+            className="text-xs text-dim underline underline-offset-2 hover:text-amber">Clear</button>
         )}
       </div>
     </div>
@@ -115,9 +115,9 @@ function GoalCard() {
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="bg-panel border border-line rounded-[12px] px-3 py-3 text-center">
-      <div className="text-[0.6875rem] text-dim uppercase tracking-[1px]">{label}</div>
-      <div className="font-mono font-bold text-[1.375rem] mt-0.5 tabular-nums">{fmt(value)}</div>
+    <div className="bg-panel border border-line rounded-md px-3 py-3 text-center">
+      <div className="text-2xs text-dim font-mono uppercase tracking-widest">{label}</div>
+      <div className="font-mono font-bold text-2xl mt-0.5 tabular-nums">{fmt(value)}</div>
     </div>
   );
 }

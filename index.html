@@ -52,9 +52,11 @@
       #boot .bar { margin-top: 18px; width: 132px; height: 3px; border-radius: 3px; background: #1f2733; overflow: hidden; }
       #boot .bar i { display: block; height: 100%; width: 40%; border-radius: 3px; background: #38cde8;
         animation: bootbar 1.1s ease-in-out infinite; }
+      #boot .wm i { font-style: normal; color: #38cde8; margin-left: 2px; animation: bootcursor 1.1s step-end infinite; }
       @keyframes bootpulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
       @keyframes bootbar { 0% { transform: translateX(-120%);} 100% { transform: translateX(330%);} }
-      @media (prefers-reduced-motion: reduce) { #boot .mark, #boot .bar i { animation: none; } }
+      @keyframes bootcursor { 50% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { #boot .mark, #boot .bar i, #boot .wm i { animation: none; } }
       /* Light-theme boot splash (the cyan mark works on both). */
       html.light #boot { background: radial-gradient(120% 90% at 50% 0%, #ffffff 0%, #eef3f8 60%); color: #16202e; }
       html.light #boot .tag { color: #55657a; }
@@ -73,7 +75,7 @@
               <rect x="88" y="40" width="20" height="22" rx="3" fill="#38cde8"/>
             </svg>
           </div>
-          <div class="wm">Lexi</div>
+          <div class="wm">Lexi<i>▍</i></div>
           <div class="tag">GERMAN VOCAB TERMINAL</div>
           <div class="bar"><i></i></div>
         </div>

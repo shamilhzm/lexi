@@ -66,7 +66,7 @@ export default function GrammarDrill({ onExit }: { onExit: () => void }) {
   return (
     <Shell onExit={onExit} progress={`${done}/${queue.length}`} score={done ? Math.round((correct / done) * 100) : null}>
       <div className="text-center mb-3">
-        <span className="text-[0.6875rem] text-amber uppercase tracking-[2px] font-semibold">{item.level} · {item.point.title}</span>
+        <span className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">{item.level} · {item.point.title}</span>
       </div>
       <Item key={item.id} item={item} onGrade={grade} />
     </Shell>
@@ -87,20 +87,20 @@ export function GrammarExercise({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok
 }
 
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="bg-card border border-line rounded-[16px] p-6 sm:p-8">{children}</div>;
+  return <div className="bg-card border border-line rounded-md p-6 sm:p-8">{children}</div>;
 }
 function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
   return (
     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
-          : <p className="text-[0.9375rem]"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
-      {note && <p className="text-amber text-[0.8125rem] mt-1">{note}</p>}
-      {text && <p className="text-dim text-[0.8125rem] mt-1.5">{text}</p>}
+          : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
+      {note && <p className="text-amber text-xs mt-1">{note}</p>}
+      {text && <p className="text-dim text-xs mt-1.5">{text}</p>}
     </motion.div>
   );
 }
 function NextBtn({ onClick }: { onClick: () => void }) {
-  return <div className="mt-5 flex justify-center"><button onClick={onClick} className="bg-panel2 border border-line rounded-[10px] px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>;
+  return <div className="mt-5 flex justify-center"><button onClick={onClick} className="bg-panel2 border border-line rounded-md px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>;
 }
 
 function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
@@ -109,13 +109,13 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
   const choose = (idx: number) => { if (picked !== null) return; setPicked(idx); };
   return (
     <Card>
-      <p className="text-[1.25rem] sm:text-[1.5rem] font-bold text-center mb-5 leading-snug">{ex.prompt}</p>
+      <p className="text-xl sm:text-2xl font-bold text-center mb-5 leading-snug">{ex.prompt}</p>
       <div className="grid gap-2.5">
         {(ex.options ?? []).map((o, idx) => {
           const state = picked === null ? 'idle' : idx === correct ? 'right' : idx === picked ? 'wrong' : 'idle';
           return (
             <button key={idx} onClick={() => choose(idx)} disabled={picked !== null}
-              className={`rounded-[10px] py-3.5 px-4 border text-[0.9375rem] text-left transition-colors ${
+              className={`rounded-md py-3.5 px-4 border text-base text-left transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
@@ -153,21 +153,21 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
   };
   return (
     <Card>
-      <p className="text-[1.25rem] sm:text-[1.5rem] font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
+      <p className="text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
       <input ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
         onKeyDown={(e) => { if (e.key === 'Enter') { result === null ? submit() : onGrade(result); } }}
         placeholder="Type your answer…"
-        className={`w-full bg-panel2 border rounded-[10px] px-4 py-3 text-[1.25rem] outline-none text-center ${
+        className={`w-full bg-panel2 border rounded-md px-4 py-3 text-xl outline-none text-center ${
           result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
-      {result === null && hint > 0 && <p className="text-amber text-[0.8125rem] mt-2 text-center">Hint: {hintText(canonical, hint)}</p>}
+      {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center">Hint: {hintText(canonical, hint)}</p>}
       {result !== null && <Explain text={ex.explain} ok={result} answer={canonical}
         note={near ? `Right — just the spelling: ${canonical}` : undefined} />}
       {result === null
         ? <div className="mt-5 flex items-center justify-center gap-3">
-            <button onClick={submit} disabled={!val.trim()} className="bg-amber text-bg font-bold rounded-[10px] px-6 py-2.5 disabled:opacity-40">Check</button>
+            <button onClick={submit} disabled={!val.trim()} className="bg-amber text-bg font-bold rounded-md px-6 py-2.5 disabled:opacity-40">Check</button>
             {canonical && hint < 3 && (
-              <button onClick={() => setHint((h) => h + 1)} className="text-dim text-[0.8125rem] underline underline-offset-2 hover:text-amber">
+              <button onClick={() => setHint((h) => h + 1)} className="text-dim text-xs underline underline-offset-2 hover:text-amber">
                 {hint === 0 ? 'Hint' : 'More'}
               </button>
             )}
@@ -189,21 +189,21 @@ export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: bool
   const check = () => setResult(built.map((i) => target[i]).join(' ') === target.join(' '));
   return (
     <Card>
-      <p className="text-[1.25rem] sm:text-[1.5rem] font-semibold text-center mb-4">{ex.prompt}</p>
-      <div className="min-h-[52px] border border-dashed border-line rounded-[10px] p-2 flex flex-wrap gap-2 mb-3">
+      <p className="text-xl sm:text-2xl font-semibold text-center mb-4">{ex.prompt}</p>
+      <div className="min-h-[52px] border border-dashed border-line rounded-md p-2 flex flex-wrap gap-2 mb-3">
         {built.map((idx, pos) => (
-          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-[0.9375rem]">{target[idx]}</button>
+          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-base">{target[idx]}</button>
         ))}
-        {built.length === 0 && <span className="text-dim text-[0.8125rem] self-center px-1">Tap tiles to build the sentence…</span>}
+        {built.length === 0 && <span className="text-dim text-xs self-center px-1">Tap tiles to build the sentence…</span>}
       </div>
       <div className="flex flex-wrap gap-2 mb-2">
         {pool.map((idx) => (
-          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-[0.9375rem] hover:border-amber">{target[idx]}</button>
+          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-base hover:border-amber">{target[idx]}</button>
         ))}
       </div>
       {result !== null && <Explain text={ex.explain} ok={result} answer={target.join(' ')} />}
       {result === null
-        ? <div className="mt-5 flex justify-center"><button onClick={check} disabled={built.length !== target.length} className="bg-amber text-bg font-bold rounded-[10px] px-6 py-2.5 disabled:opacity-40">Check</button></div>
+        ? <div className="mt-5 flex justify-center"><button onClick={check} disabled={built.length !== target.length} className="bg-amber text-bg font-bold rounded-md px-6 py-2.5 disabled:opacity-40">Check</button></div>
         : <NextBtn onClick={() => onGrade(result)} />}
     </Card>
   );
@@ -215,13 +215,13 @@ function ErrorItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =>
   const [picked, setPicked] = useState<number | null>(null);
   return (
     <Card>
-      <p className="text-[0.8125rem] text-dim text-center mb-3">Tap the wrong word.</p>
-      <div className="flex flex-wrap gap-1.5 justify-center mb-2 text-[1.25rem]">
+      <p className="text-xs text-dim text-center mb-3">Tap the wrong word.</p>
+      <div className="flex flex-wrap gap-1.5 justify-center mb-2 text-xl">
         {tokens.map((t, idx) => {
           const state = picked === null ? 'idle' : idx === correct ? 'right' : idx === picked ? 'wrong' : 'idle';
           return (
             <button key={idx} onClick={() => picked === null && setPicked(idx)} disabled={picked !== null}
-              className={`px-1.5 py-0.5 rounded transition-colors ${
+              className={`px-1.5 py-0.5 rounded-sm transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] text-red line-through'
                 : 'hover:bg-panel2'}`}>{t}</button>
@@ -230,7 +230,7 @@ function ErrorItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =>
       </div>
       {picked !== null && (
         <>
-          <p className="text-center text-[0.9375rem] mt-2">→ <span className="text-green font-semibold">{ex.fix}</span></p>
+          <p className="text-center text-base mt-2">→ <span className="text-green font-semibold">{ex.fix}</span></p>
           <Explain text={ex.explain} ok={picked === correct} />
           <NextBtn onClick={() => onGrade(picked === correct)} />
         </>
@@ -244,18 +244,18 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
     <div className="max-w-[640px] mx-auto">
       <div className="flex items-center gap-2.5 mb-4">
         <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={18} /></button>
-        {progress && <span className="text-[0.8125rem] text-dim font-mono">{progress}</span>}
-        {score !== null && score !== undefined && <span className="ml-auto text-[0.8125rem] font-mono text-green">{score}% correct</span>}
+        {progress && <span className="text-xs text-dim font-mono">{progress}</span>}
+        {score !== null && score !== undefined && <span className="ml-auto text-xs font-mono text-green">{score}% correct</span>}
       </div>
       {children}
     </div>
   );
 }
 function Empty() {
-  return <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center"><h2 className="text-xl font-bold mb-1">Nothing due</h2><p className="text-dim">No grammar exercises are due for your selected levels.</p></div>;
+  return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center"><h2 className="text-xl font-bold mb-1">Nothing due</h2><p className="text-dim">No grammar exercises are due for your selected levels.</p></div>;
 }
 function Summary({ done, correct }: { done: number; correct: number }) {
-  return <div className="bg-panel border border-line rounded-2xl px-8 py-12 text-center">
+  return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center">
     <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
     <h2 className="text-2xl font-bold mb-1">Drill complete</h2><p className="text-dim">{correct}/{done} correct. Misses logged to Blind Spots.</p>
   </div>;

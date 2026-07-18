@@ -27,7 +27,7 @@ export default function UmlautBar({ targetRef, value, onChange }: {
     <div className="flex flex-wrap gap-1.5">
       {CHARS.map((ch) => (
         <button key={ch} type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => insert(ch)}
-          className="w-9 h-8 rounded-md bg-panel2 border border-line text-[0.9375rem] text-dim hover:text-amber hover:border-amber transition-colors">
+          className="w-9 h-8 rounded-md bg-panel2 border border-line text-base text-dim hover:text-amber hover:border-amber transition-colors">
           {ch}
         </button>
       ))}

@@ -4,7 +4,7 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Zap, Target as TargetIcon } from 'lucide-react';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Zap, Target as TargetIcon, Check } from 'lucide-react';
 import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
@@ -52,15 +52,15 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
     <div className="mb-4">
       <div className="flex items-baseline justify-between flex-wrap gap-2">
         <div>
-          <h1 className="text-[1.375rem] sm:text-[1.625rem] font-bold leading-none">{comeback ? 'Willkommen zurück' : 'Guten Tag'}</h1>
-          <p className="text-dim text-[0.8125rem] mt-1.5 capitalize">{today}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold leading-none">{comeback ? 'Willkommen zurück' : 'Guten Tag'}</h1>
+          <p className="text-dim text-xs mt-1.5 capitalize">{today}</p>
         </div>
-        <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[0.9375rem]">
-          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[0.8125rem]">day streak</span>
+        <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-base">
+          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-xs">day streak</span>
         </div>
       </div>
       {comeback && (
-        <p className="text-amber text-[0.8125rem] mt-2">
+        <p className="text-amber text-xs mt-2">
           {gap} days away — nothing lost. Your best streak ({best} days) still stands; today starts the next one.
         </p>
       )}
@@ -74,12 +74,12 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
       <div className="max-w-[920px] mx-auto">
         {greeting}
         <button onClick={onGuidedStart}
-          className="w-full text-left bg-panel border rounded-[16px] px-5 py-6 sm:py-8 hover:brightness-105 transition-colors"
+          className="w-full text-left bg-panel border rounded-md px-5 py-6 sm:py-8 hover:brightness-105 transition-colors"
           style={{ borderColor: 'rgba(56,205,232,0.4)' }}>
-          <div className="flex items-center gap-1.5 text-amber text-[0.6875rem] uppercase tracking-[2px] font-semibold mb-2"><GraduationCap size={14} /> Start here · 2 minutes</div>
-          <h2 className="text-[1.25rem] sm:text-[1.375rem] font-bold mb-1.5">Find your level, then learn your first words</h2>
-          <p className="text-dim text-[0.9375rem] mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
-          <span className="inline-flex items-center gap-1.5 bg-amber text-bg font-bold rounded-[10px] px-4 py-2.5 text-[0.8125rem]"><Play size={13} /> Start</span>
+          <div className="flex items-center gap-1.5 text-amber text-2xs font-mono uppercase tracking-widest font-semibold mb-2"><GraduationCap size={14} /> Start here · 2 minutes</div>
+          <h2 className="text-xl sm:text-2xl font-bold mb-1.5">Find your level, then learn your first words</h2>
+          <p className="text-dim text-base mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
+          <span className="inline-flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-4 py-2.5 text-xs"><Play size={13} /> Start</span>
         </button>
       </div>
     );
@@ -92,12 +92,12 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
       {/* Placement nudge for learners who haven't calibrated yet */}
       {!placed && (
         <button onClick={onPlacement}
-          className="w-full flex items-center gap-3 bg-panel border border-amber/40 rounded-[16px] px-4 py-3 mb-4 text-left hover:border-amber transition-colors"
+          className="w-full flex items-center gap-3 bg-panel border border-amber/40 rounded-md px-4 py-3 mb-4 text-left hover:border-amber transition-colors"
           style={{ borderColor: 'rgba(56,205,232,0.4)' }}>
-          <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0"><GraduationCap size={18} /></span>
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><GraduationCap size={18} /></span>
           <span className="flex-1">
-            <span className="block text-[0.9375rem] font-semibold">New here? Take the 2-minute placement test</span>
-            <span className="block text-[0.8125rem] text-dim">Find your level and skip the words you already know.</span>
+            <span className="block text-base font-semibold">New here? Take the 2-minute placement test</span>
+            <span className="block text-xs text-dim">Find your level and skip the words you already know.</span>
           </span>
           <Play size={14} className="text-amber flex-shrink-0" />
         </button>
@@ -112,9 +112,9 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
         const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
         const onTrack = gp.projectedPct !== null && gp.projectedPct >= 90;
         return (
-          <div className="flex items-center gap-2.5 bg-panel border border-line rounded-[16px] px-4 py-3 mb-4">
+          <div className="flex items-center gap-2.5 bg-panel border border-line rounded-md px-4 py-3 mb-4">
             <TargetIcon size={16} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
-            <p className="text-[0.8125rem] text-dim">
+            <p className="text-xs text-dim">
               <span className="text-txt font-semibold">{gp.goal.level} by {when}</span>
               {' · '}{gp.pct}% known
               {gp.projectedPct !== null && (
@@ -129,26 +129,31 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
       {/* The session card — one clear call to action. The Known/Due/Coverage
           stats live in the KPI strip below the heatmap, so they're not repeated
           here; the number + a one-line breakdown carry the whole signal. */}
-      <div className="bg-panel border border-line rounded-[16px] px-4 sm:px-6 py-5 sm:py-6 mb-4">
+      <div className="bg-panel border border-line rounded-md px-4 sm:px-6 py-5 sm:py-6 mb-4">
         <div className="flex items-center gap-2 mb-3">
           <span className="live-dot" />
-          <span className="text-[0.6875rem] text-amber uppercase tracking-[2px] font-semibold">Today's session</span>
+          <span className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">Today's session</span>
         </div>
 
         {total === 0 ? (
-          <div>
-            <h2 className="text-[1.25rem] font-bold mb-1">All clear</h2>
-            <p className="text-dim text-[0.9375rem] mb-4">Nothing due and the new-card budget is used up. Come back tomorrow, or open a deck to push ahead.</p>
-            <button onClick={onDecks} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber font-semibold text-[0.875rem]">Open decks</button>
+          <div className="flex items-start gap-3.5">
+            {/* Done-for-today is an achievement state, not an empty one. */}
+            <span className="grid place-items-center w-11 h-11 rounded-full flex-shrink-0 mt-0.5" style={{ background: 'var(--color-green-d)' }}><Check size={20} className="text-green" /></span>
+            <div>
+              <h2 className="text-xl font-bold mb-1 cursor-blink">All clear</h2>
+              <p className="text-dim text-base mb-1.5">Every review served, the new-card budget spent. The system holds until tomorrow.</p>
+              <p className="text-2xs text-dim font-mono uppercase tracking-widest mb-4">streak safe · next reviews tomorrow</p>
+              <button onClick={onDecks} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber font-semibold text-sm">Open decks</button>
+            </div>
           </div>
         ) : (
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <div className="flex items-end gap-3">
-                <span className="font-mono font-bold text-[2.75rem] sm:text-[3.5rem] leading-none tabular-nums">{total}</span>
-                <span className="text-dim text-[0.9375rem] mb-1.5">cards queued</span>
+                <span className="font-mono font-bold text-5xl sm:text-6xl leading-none tabular-nums">{total}</span>
+                <span className="text-dim text-base mb-1.5">cards queued</span>
               </div>
-              <p className="text-dim text-[0.8125rem] mt-2.5">
+              <p className="text-dim text-xs mt-2.5">
                 {briefing.due} due · {briefing.fresh} new
                 {briefing.weakSectors.length > 0 && ` · from ${briefing.weakSectors.slice(0, 2).join(', ')}${briefing.weakSectors.length > 2 ? '…' : ''}`}
               </p>
@@ -156,7 +161,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                 // Post-gap honesty: the backlog exists, but today is bounded —
                 // and clearing it is progress through something finite.
                 <div className="mt-1">
-                  <p className="text-dim text-[0.8125rem]">
+                  <p className="text-dim text-xs">
                     {fmt(briefing.dueTotal)} reviews waiting in total — today serves the oldest {briefing.due}. The rest keep.
                   </p>
                   {peak > briefing.dueTotal && (
@@ -165,26 +170,26 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                         <div className="h-full bg-green rounded-full transition-[width] duration-500"
                           style={{ width: `${Math.round(((peak - briefing.dueTotal) / peak) * 100)}%` }} />
                       </div>
-                      <p className="text-[0.6875rem] text-dim mt-1 font-mono">{fmt(peak - briefing.dueTotal)} of {fmt(peak)} backlog cleared</p>
+                      <p className="text-2xs text-dim mt-1 font-mono">{fmt(peak - briefing.dueTotal)} of {fmt(peak)} backlog cleared</p>
                     </div>
                   )}
                 </div>
               )}
               {blindDrills > 0 && (
-                <p className="text-red text-[0.8125rem] mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
+                <p className="text-red text-xs mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
               )}
             </div>
             <div className="flex flex-col sm:items-end gap-2 w-full sm:w-auto sm:flex-shrink-0">
               <motion.button whileTap={{ scale: 0.98 }}
                 onClick={() => onStart({ kind: 'custom', name: "Today's session", ids: briefing.ids })}
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-amber text-bg font-bold rounded-[10px] px-6 py-3 text-[0.9375rem] hover:brightness-105">
+                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-amber text-bg font-bold rounded-md px-6 py-3 text-base hover:brightness-105">
                 <Play size={16} /> Start session
               </motion.button>
               {/* The session that fits four real minutes. Same queue, first five;
                   grades persist immediately, so the rest simply remains. */}
               {total > 5 && (
                 <button onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}
-                  className="flex items-center justify-center gap-1.5 w-full sm:w-auto text-[0.8125rem] text-dim border border-line rounded-[10px] px-4 py-2 hover:border-amber hover:text-amber transition-colors">
+                  className="flex items-center justify-center gap-1.5 w-full sm:w-auto text-xs text-dim border border-line rounded-md px-4 py-2 hover:border-amber hover:text-amber transition-colors">
                   <Zap size={13} /> Quick 5
                 </button>
               )}
@@ -203,10 +208,10 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
       {blind > 0 && (
         <div className="mb-4">
           <button onClick={() => setBlindOpen((o) => !o)} aria-expanded={blindOpen}
-            className="w-full flex items-center gap-3 bg-panel border border-line rounded-[16px] px-4 py-3 text-left hover:border-red transition-colors">
-            <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-red flex-shrink-0"><TrendingDown size={18} /></span>
-            <span className="flex-1 text-[0.9375rem] font-semibold">Blind spots</span>
-            <span className="text-[0.6875rem] font-mono text-red border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(blind)}</span>
+            className="w-full flex items-center gap-3 bg-panel border border-line rounded-md px-4 py-3 text-left hover:border-red transition-colors">
+            <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-red flex-shrink-0"><TrendingDown size={18} /></span>
+            <span className="flex-1 text-base font-semibold">Blind spots</span>
+            <span className="text-2xs font-mono text-red border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(blind)}</span>
             <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${blindOpen ? 'rotate-180' : ''}`} />
           </button>
           <AnimatePresence initial={false}>
@@ -224,10 +229,10 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
           the daily loop covers grammar without a page jump. */}
       <div className="mb-4">
         <button onClick={() => setDrillsOpen((o) => !o)} aria-expanded={drillsOpen}
-          className="w-full flex items-center gap-3 bg-panel border border-line rounded-[16px] px-4 py-3 text-left hover:border-amber transition-colors">
-          <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
-          <span className="flex-1 text-[0.9375rem] font-semibold">Grammar Fundamentals</span>
-          {drillsDue > 0 && <span className="text-[0.6875rem] font-mono text-amber border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(drillsDue)} due</span>}
+          className="w-full flex items-center gap-3 bg-panel border border-line rounded-md px-4 py-3 text-left hover:border-amber transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
+          <span className="flex-1 text-base font-semibold">Grammar Fundamentals</span>
+          {drillsDue > 0 && <span className="text-2xs font-mono text-amber border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(drillsDue)} due</span>}
           <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${drillsOpen ? 'rotate-180' : ''}`} />
         </button>
         <AnimatePresence initial={false}>
@@ -237,16 +242,16 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
               <div className="grid grid-cols-2 gap-2.5 pt-2.5">
                 {MODES.map(({ m, label, icon: Icon }) => (
                   <button key={m} onClick={() => onDrill(m)}
-                    className="flex items-center gap-2.5 bg-panel border border-line rounded-[12px] px-3 py-3 text-left hover:border-amber transition-colors">
-                    <span className="grid place-items-center w-8 h-8 rounded-lg bg-panel2 text-amber flex-shrink-0"><Icon size={16} /></span>
-                    <span className="text-[0.875rem] font-semibold">{label}</span>
+                    className="flex items-center gap-2.5 bg-panel border border-line rounded-md px-3 py-3 text-left hover:border-amber transition-colors">
+                    <span className="grid place-items-center w-8 h-8 rounded-md bg-panel2 text-amber flex-shrink-0"><Icon size={16} /></span>
+                    <span className="text-sm font-semibold">{label}</span>
                   </button>
                 ))}
                 <button onClick={() => onDrill('grammar')}
-                  className="col-span-2 flex items-center gap-2.5 bg-panel border border-line rounded-[12px] px-3 py-3 text-left hover:border-amber transition-colors">
-                  <span className="grid place-items-center w-8 h-8 rounded-lg bg-panel2 text-amber flex-shrink-0"><BookOpen size={16} /></span>
-                  <span className="text-[0.875rem] font-semibold">Grammar exercises</span>
-                  <span className="text-[0.6875rem] text-dim ml-auto hidden sm:inline">A1–C2 · 571 exercises</span>
+                  className="col-span-2 flex items-center gap-2.5 bg-panel border border-line rounded-md px-3 py-3 text-left hover:border-amber transition-colors">
+                  <span className="grid place-items-center w-8 h-8 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpen size={16} /></span>
+                  <span className="text-sm font-semibold">Grammar exercises</span>
+                  <span className="text-2xs text-dim ml-auto hidden sm:inline">A1–C2 · 571 exercises</span>
                 </button>
               </div>
             </motion.div>

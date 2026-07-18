@@ -16,27 +16,27 @@ export default function BlindSpotList({ onDrill, days = 30 }:
 
   if (stats.length === 0) {
     return (
-      <div className="bg-panel border border-line rounded-[12px] px-6 py-8 text-center">
+      <div className="bg-panel border border-line rounded-md px-6 py-8 text-center">
         <div className="grid place-items-center w-11 h-11 rounded-full mx-auto mb-3" style={{ background: 'var(--color-green-d)' }}>
           <Target className="text-green" size={18} />
         </div>
-        <h3 className="text-[0.9375rem] font-bold mb-1">No blind spots yet</h3>
-        <p className="text-dim text-[0.8125rem]">Do some drills — every miss is tracked here so you can target your weak points.</p>
+        <h3 className="text-base font-bold mb-1">No blind spots yet</h3>
+        <p className="text-dim text-xs">Do some drills — every miss is tracked here so you can target your weak points.</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-panel border border-line rounded-[12px] p-4">
+    <div className="bg-panel border border-line rounded-md p-4">
       <div className="flex items-baseline gap-2 mb-3">
-        <span className="font-mono font-bold text-[1.25rem] tabular-nums">{total}</span>
-        <span className="text-dim text-[0.8125rem]">misses across {stats.length} area{stats.length === 1 ? '' : 's'} · last {days} days</span>
+        <span className="font-mono font-bold text-xl tabular-nums">{total}</span>
+        <span className="text-dim text-xs">misses across {stats.length} area{stats.length === 1 ? '' : 's'} · last {days} days</span>
       </div>
       <div className="space-y-2.5">
         {stats.map((s) => (
           <button key={s.tag} onClick={() => onDrill(s.tag)}
             className="block w-full text-left rounded-md px-1.5 py-1 -mx-1.5 hover:bg-panel2 transition-colors" title="Drill this weakness">
-            <div className="flex justify-between text-[0.8125rem] mb-1">
+            <div className="flex justify-between text-xs mb-1">
               <span className="truncate pr-2">{s.tag}</span>
               <span className="font-mono text-dim flex-shrink-0">{s.count}×</span>
             </div>
@@ -47,7 +47,7 @@ export default function BlindSpotList({ onDrill, days = 30 }:
         ))}
       </div>
       <button onClick={() => onDrill()}
-        className="mt-4 flex items-center gap-2 bg-amber text-bg font-bold rounded-[10px] px-4 py-2 text-[0.8125rem] hover:brightness-105">
+        className="mt-4 flex items-center gap-2 bg-amber text-bg font-bold rounded-md px-4 py-2 text-xs hover:brightness-105">
         <Sparkles size={14} /> Drill grammar
       </button>
     </div>

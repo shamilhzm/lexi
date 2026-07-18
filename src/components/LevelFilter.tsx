@@ -13,7 +13,7 @@ export default function LevelFilter({ compact = false }: { compact?: boolean }) 
         const on = lv.has(l);
         return (
           <button key={l} onClick={() => toggleLevel(l)} aria-pressed={on}
-            className={`font-mono px-2 py-1 rounded-md border transition-colors ${compact ? 'text-[0.6875rem]' : 'text-[0.6875rem]'} ${
+            className={`font-mono px-2 py-1 rounded-md border transition-colors ${compact ? 'text-2xs' : 'text-2xs'} ${
               on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{l}</button>
         );
       })}

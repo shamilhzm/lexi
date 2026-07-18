@@ -32,9 +32,9 @@ export default function Stats() {
     <div className="max-w-[820px] mx-auto">
       <div className="flex items-center gap-2.5 mb-1">
         <BarChart3 size={20} className="text-amber" />
-        <h1 className="text-[1.25rem] sm:text-[1.375rem] font-bold">Stats</h1>
+        <h1 className="text-xl sm:text-2xl font-bold">Stats</h1>
       </div>
-      <p className="text-dim text-[0.8125rem] mb-4">
+      <p className="text-dim text-xs mb-4">
         {fmt(t.known)} known · {fmt(t.learned)} learning · {fmt(t.due)} due now
       </p>
 
@@ -70,16 +70,16 @@ export default function Stats() {
 
 function Panel({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
-    <div className="bg-panel border border-line rounded-[16px] p-4">
-      <h2 className="text-[0.9375rem] font-semibold">{title}</h2>
-      <p className="text-[0.6875rem] text-dim uppercase tracking-[1px] mb-3">{sub}</p>
+    <div className="bg-panel border border-line rounded-md p-4">
+      <h2 className="text-base font-semibold">{title}</h2>
+      <p className="text-2xs text-dim font-mono uppercase tracking-widest mb-3">{sub}</p>
       {children}
     </div>
   );
 }
 
 function Empty({ text }: { text: string }) {
-  return <div className="grid place-items-center h-[120px] text-dim text-[0.8125rem] text-center px-4">{text}</div>;
+  return <div className="grid place-items-center h-[120px] text-dim text-xs text-center px-4">{text}</div>;
 }
 
 /** Minimal SVG bar chart: proportional heights, hover titles, last-value label. */
@@ -102,7 +102,7 @@ function Bars({ values, labels, color, max, muted, suffix = '' }:
           );
         })}
       </svg>
-      <div className="flex justify-between text-[0.625rem] text-dim font-mono mt-1">
+      <div className="flex justify-between text-2xs text-dim font-mono mt-1">
         <span>{labels[0]}</span>
         <span className="text-txt font-bold">{last}{suffix}</span>
         <span>{labels[n - 1]}</span>
