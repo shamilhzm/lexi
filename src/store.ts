@@ -261,7 +261,7 @@ export function gymDue(): number {
 
 // ---- daily snapshots (market deltas) --------------------------------------
 const SNAP_KEY = 'lexi.snap.v1';
-interface Snapshot { date: string; groups: Record<string, number>; }
+interface Snapshot { date: string; groups: Record<string, number>; known?: number; }
 function loadSnaps(): Snapshot[] {
   try { const a = JSON.parse(localStorage.getItem(SNAP_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; }
 }
@@ -271,12 +271,15 @@ export function recordSnapshot() {
   const t = todayKey();
   if (snaps.some((s) => s.date === t)) return;
   const groups: Record<string, number> = {};
+  let known = 0; // daily Known total — the goal line's pace source
   for (const w of WORDS) {
-    if (statusOf(w.id) === 'new') continue;
+    const st = statusOf(w.id);
+    if (st === 'known') known++;
+    if (st === 'new') continue;
     const g = SECTOR_GROUP.get(w.field);
     if (g) groups[g] = (groups[g] ?? 0) + 1;
   }
-  snaps.push({ date: t, groups });
+  snaps.push({ date: t, groups, known });
   while (snaps.length > 60) snaps.shift();
   try { localStorage.setItem(SNAP_KEY, JSON.stringify(snaps)); } catch { /* quota */ }
 }
@@ -299,6 +302,61 @@ export function groupDeltas(days = 7): Map<string, number> | null {
     out.set(g, (cur[g] ?? 0) - (base.groups[g] ?? 0));
   }
   return out;
+}
+
+// ---- goal line ------------------------------------------------------------
+// One clear target (level + date). Today renders it as a single pace sentence:
+// "B1 by Oct 4 — 61% known · on pace for ~87%". The projection is arithmetic
+// on data the store already has: the daily Known snapshots above provide the
+// rate; no new tracking, no gamification, just the honest trajectory.
+const GOAL_KEY = 'lexi.goal.v1';
+export interface Goal { level: CEFR; date: string; } // date = YYYY-MM-DD
+export function goal(): Goal | null {
+  try {
+    const g = JSON.parse(localStorage.getItem(GOAL_KEY) || 'null');
+    if (g && (ALL_LEVELS as string[]).includes(g.level) && /^\d{4}-\d{2}-\d{2}$/.test(g.date)) return g as Goal;
+  } catch { /* */ }
+  return null;
+}
+export function setGoal(g: Goal | null) {
+  try {
+    if (g) localStorage.setItem(GOAL_KEY, JSON.stringify(g)); else localStorage.removeItem(GOAL_KEY);
+  } catch { /* quota */ }
+  emit();
+}
+
+export interface GoalProgress {
+  goal: Goal;
+  known: number; count: number; pct: number; // scope = every card A1..target level
+  daysLeft: number;
+  projectedPct: number | null; // null until ≥1 day of snapshot history exists
+}
+export function goalProgress(): GoalProgress | null {
+  const g = goal();
+  if (!g) return null;
+  const upto = new Set(ALL_LEVELS.slice(0, ALL_LEVELS.indexOf(g.level) + 1));
+  let known = 0, count = 0;
+  for (const w of WORDS) {
+    if (!upto.has(w.level)) continue;
+    count++;
+    if (statusOf(w.id) === 'known') known++;
+  }
+  const pct = count ? Math.round((known / count) * 100) : 0;
+  const day = 86_400_000;
+  const daysLeft = Math.max(0, Math.round((new Date(g.date + 'T00:00:00Z').getTime() - new Date(todayKey() + 'T00:00:00Z').getTime()) / day));
+  // Pace: Known growth per day since the oldest snapshot in the last 14 days
+  // that recorded a Known total (older history is a stale predictor).
+  let projectedPct: number | null = null;
+  const cutoff = todayKey(new Date(Date.now() - 14 * day));
+  const base = loadSnaps().find((s) => typeof s.known === 'number' && s.date >= cutoff && s.date < todayKey());
+  if (base && count) {
+    const span = Math.round((new Date(todayKey() + 'T00:00:00Z').getTime() - new Date(base.date + 'T00:00:00Z').getTime()) / day);
+    if (span > 0) {
+      const rate = (known - (base.known as number)) / span; // may be negative — honest
+      projectedPct = Math.max(0, Math.min(100, Math.round(((known + rate * daysLeft) / count) * 100)));
+    }
+  }
+  return { goal: g, known, count, pct, daysLeft, projectedPct };
 }
 
 // ---- user words (mined / enriched) ---------------------------------------
@@ -642,7 +700,7 @@ export function noteBacklog(dueTotal: number) {
 const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
-  'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1',
+  'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

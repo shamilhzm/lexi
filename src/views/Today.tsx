@@ -4,8 +4,8 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Zap } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog } from '../store.ts';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Zap, Target as TargetIcon } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
@@ -104,6 +104,27 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
       )}
 
       <LevelProgress />
+
+      {/* The goal line — one pace sentence for learners with a date. */}
+      {(() => {
+        const gp = goalProgress();
+        if (!gp) return null;
+        const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
+        const onTrack = gp.projectedPct !== null && gp.projectedPct >= 90;
+        return (
+          <div className="flex items-center gap-2.5 bg-panel border border-line rounded-[16px] px-4 py-3 mb-4">
+            <TargetIcon size={16} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
+            <p className="text-[13px] text-dim">
+              <span className="text-txt font-semibold">{gp.goal.level} by {when}</span>
+              {' · '}{gp.pct}% known
+              {gp.projectedPct !== null && (
+                <> · at your pace: <span className={onTrack ? 'text-green font-semibold' : 'text-txt font-semibold'}>~{gp.projectedPct}%</span> by then</>
+              )}
+              {gp.projectedPct === null && ' · pace appears after a day or two of study'}
+            </p>
+          </div>
+        );
+      })()}
 
       {/* The session card — one clear call to action. The Known/Due/Coverage
           stats live in the KPI strip below the heatmap, so they're not repeated

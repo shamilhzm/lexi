@@ -202,6 +202,17 @@ nobody re-implements them:
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
   dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
   exercises" → 571. Remaining findings graduated to Now/Next above.
+- **Next-10 items 4 + 9.** (4) **The goal line**: `goal()`/`setGoal()` (level +
+  date, `lexi.goal.v1`, rides the backup) with an editor card in Profile; daily
+  snapshots now also record the **Known total**, and `goalProgress()` projects
+  from the oldest ≤14-day snapshot ("B1 by 4. Okt — 61% known · at your pace:
+  ~87% by then", green target icon when ≥90%; honest about negative pace; shows
+  "pace appears after a day or two" until history exists). One-line render on
+  Today above the session card. (9) **`corpus:flags`**: maintainer script
+  ingesting backup files (`settings['lexi.flags.v1']`), deduping across
+  learners, and printing each flagged card against its live corpus data
+  (gender/plural/IPA/example) plus a not-in-corpus list — closes the loop
+  flag-a-card opened; smoke-tested against a real backup fixture. 63/63.
 - **Next-10 items 1–3** (from SIMULATED-SESSIONS-2). (1) **Interval previews** on
   the flip grade buttons ("Got it · 3 days") via the existing-but-unwired
   `previewInterval` (its sub-hour bucket fixed: "8 min", not "<1 min") — the
@@ -308,12 +319,12 @@ correct and kind, but not yet *legible* (can't see the machine think), *fitted*
 1. ~~Interval preview on grade buttons~~ ✅ 2026-07-18
 2. ~~Quick 5 + same-day resume~~ ✅ 2026-07-18 (resume proved *emergent* — see shipped note)
 3. ~~Comeback mode~~ ✅ 2026-07-18
-4. **The goal line** (M) — target level + date → one pace sentence on Today from existing store data.
+4. ~~The goal line~~ ✅ 2026-07-18
 5. **The share card** (M) — canvas-rendered treemap + Known headline; pride is the only growth channel.
 6. **Stats surface** (M) — reviews/day, recall trend, 7-day due forecast, Known growth.
 7. **Type ramp on rem + text-size setting, one-time coach marks** (S/M) — OS font scaling must work.
 8. **The feel layer** (S) — optional sound tick, count-up recap with a named best moment; includes the F3 miss-streak circuit breaker.
-9. **`corpus:flags` maintainer loop** (S) — ingest backup files, list flagged cards; closes the flag-a-card loop.
+9. ~~`corpus:flags` maintainer loop~~ ✅ 2026-07-18
 10. **Content depth arc** (L, human-gated) — DaF-fed A1/A2 fill + hand-authored C1/C2 register; the promise everything else polishes.
 
 **Decision required, not a build item:** commit out loud to "English-base

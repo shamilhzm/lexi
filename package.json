@@ -19,6 +19,7 @@
     "corpus:resector": "node scripts/corpus/resector.ts",
     "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
+    "corpus:flags": "node scripts/corpus/flags.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts"
   },
   "devDependencies": {

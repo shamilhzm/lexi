@@ -370,6 +370,37 @@ describe('typed-answer support (hints)', () => {
   });
 });
 
+describe('goal line', () => {
+  it('is null without a goal; scopes counts to A1..target and projects from snapshots', async () => {
+    const { data, store, srs } = await fresh();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-18T12:00:00Z'));
+      data.registerWords([
+        ...['a0', 'a1', 'a2'].map((id) => word(id, 'S')),                    // A1
+        word('b0', 'S', { level: 'B1' }),                                    // outside an A1 goal
+      ]);
+      expect(store.goalProgress()).toBe(null);
+
+      store.review('a0', srs.Rating.Easy); // Easy graduates straight to known
+      store.setGoal({ level: 'A1', date: '2026-07-28' }); // 10 days out
+      let gp = store.goalProgress()!;
+      expect(gp.count).toBe(3);            // B1 word excluded from an A1 goal
+      expect(gp.known).toBe(1);
+      expect(gp.pct).toBe(33);
+      expect(gp.daysLeft).toBe(10);
+      expect(gp.projectedPct).toBe(null);  // no snapshot history yet
+
+      // 5 days ago the snapshot recorded 0 known → rate 0.2/day → 1+2 of 3 → 100%
+      localStorage.setItem('lexi.snap.v1', JSON.stringify([{ date: '2026-07-13', groups: {}, known: 0 }]));
+      gp = store.goalProgress()!;
+      expect(gp.projectedPct).toBe(100);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
+
 describe('interval preview', () => {
   it('renders human intervals for both grades on a new card', async () => {
     const { srs } = await fresh();
