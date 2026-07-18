@@ -127,6 +127,31 @@ nobody re-implements them:
 
 ### Shipped 2026-07-18
 
+- **DaF A2 batch** (Next-10 #10 / Now #1, same pass). Read the 10 A2 scans
+  (L9–L18, IMG_4808–4826), extracted 1,281 lemmas (904 already covered), curated
+  the 376 uncovered into the reference TSVs, built **179 more cards** (A1 8 ·
+  A2 109 · B1 59 · B2 3) via the same reference-gated pipeline. Corpus now
+  **7,123 words / 7,224 cards** (A2 1,587 → 1,771); validate PASS, 65/65,
+  coverage 80.2% → 80.7%. Review artefact preserved as
+  `data/out/new-cards-a2-batch.json`. *Still open:* L19–L30 (B1 scans), ~197 A2
+  book lemmas below the frequency scan or example-less (30 skipped no-example —
+  the examples-backfill item would recover them), C1/C2 register.
+- **DaF A1 batch — first cut of the content depth arc** (Next-10 #10 / Now #1).
+  Read the 8 A1 Lektionswortschatz scans (L1–L8, IMG_4792–4806), extracted 961
+  lemmas, filtered against the live corpus (771 already covered) and curated the
+  190 uncovered ones into `cefr-reference.tsv` (levels: book placement,
+  honesty-bumped where DaF runs ahead of CEFR) + `sector-reference.tsv` (nouns
+  mapped to existing sectors; verbs/adj fall to POS defaults). Standard
+  `corpus:build` (reference-gated, scanN 250k) then authored **93 new cards**
+  (A1 16 · A2 53 · B1 21 · B2 3) from Wiktextract/Tatoeba facts — zero
+  hand-edited JSON, all with gender + ≥1 translated example. Corpus 6,851 →
+  6,944 words; validate PASS; 65/65 tests; count strings bumped (README,
+  `data/index.ts`). New maintainer helpers `scripts/corpus/daf-filter.ts`
+  (lemma-list → covered/TODO split) and `daf-build.ts` (build against
+  pre-filtered raw sources) for the coming A2/B1 passes. *Not done:* L9–L18 (A2)
+  + L19–L30 (B1) scans; ~87 book lemmas below the frequency scan or without
+  kaikki entries (incl. Familienname, Fahrkartenautomat — need the
+  examples-backfill or LLM route); hand-authored C1/C2 register.
 - **The vocabulary→grammar loop** (P0, user-approved direction). Vocabulary is
   the trigger, grammar the remediation. Two new edges in `session.ts`:
   `linkedGrammar()` — learning a function word pulls its grammar point into the

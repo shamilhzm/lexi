@@ -901,3 +901,430 @@ Loyalität	Core Vocabulary
 Gelächter	Core Vocabulary
 Zwischenzeit	Core Vocabulary
 Indianer	Cultural Identity
+# --- DaF kompakt A1 batch (2026-07-18): noun sector map; verbs/adj/adv fall to POS defaults.
+Familienname	Core Vocabulary
+Nationalität	Core Vocabulary
+Vorwahl	Communication
+Handynummer	Communication
+Sprachenzentrum	Education
+Kursteilnehmer	Education
+Kursteilnehmerin	Education
+Zielsprache	Education
+Tandempartner	Education
+Tandempartnerin	Education
+Sommerkurs	Education
+Studentin	University & Studies
+Professorin	University & Studies
+Elektrotechnik	University & Studies
+Germanistik	University & Studies
+Informatik	University & Studies
+Jura	University & Studies
+Mathematik	Education
+Philosophie	Education
+Lehrerin	Work & Profession
+Sprachlehrer	Work & Profession
+Deutschlehrer	Work & Profession
+Ingenieurin	Work & Profession
+Schülerin	Education
+Schriftstellerin	Work & Profession
+Genie	Society
+Nobelpreis	Society
+Plattenspieler	Technology & Devices
+Schallplatte	Technology & Devices
+Tablet	Technology & Devices
+Rechenmaschine	Technology & Devices
+Navigationsgerät	Technology & Devices
+Diskette	Technology & Devices
+Kassette	Technology & Devices
+USB-Stick	Technology & Devices
+Fotoapparat	Technology & Devices
+Single	Family
+Schwiegereltern	Family
+Urgroßvater	Family
+Urgroßmutter	Family
+Enkelin	Family
+Schwägerin	Family
+Schwager	Family
+Menü	Food & drink
+Kohlensäure	Food & drink
+Cola	Food & drink
+Weißwein	Food & drink
+Rotwein	Food & drink
+Schnitzel	Food & drink
+Dessert	Food & drink
+Apfelstrudel	Food & drink
+Sonnabend	Core Vocabulary
+Ruhetag	Core Vocabulary
+Kellnerin	Work & Profession
+Telefonkarte	Communication
+Champignon	Food & drink
+Hackfleisch	Food & drink
+Steak	Food & drink
+Milchprodukt	Food & drink
+Vollkornbrot	Food & drink
+Schwarzbrot	Food & drink
+Teigwaren	Food & drink
+Keks	Food & drink
+Praline	Food & drink
+Konserve	Food & drink
+Tiefkühlkost	Food & drink
+Mayonnaise	Food & drink
+Senf	Food & drink
+Beutel	Money & shopping
+Tube	Money & shopping
+Schale	Food & drink
+Produkt	Money & shopping
+Theke	Money & shopping
+Prospekt	Money & shopping
+Einkaufsliste	Money & shopping
+Kundin	Money & shopping
+Hafen	Travel
+Landkarte	Travel
+Klausur	University & Studies
+Tutorium	University & Studies
+Referat	University & Studies
+Semester	University & Studies
+Kommilitone	University & Studies
+Kommilitonin	University & Studies
+Verkäuferin	Work & Profession
+Kassiererin	Work & Profession
+Bürokraft	Work & Profession
+Programmiererin	Work & Profession
+Grippe	Health
+Pech	Core Vocabulary
+Webentwicklerin	Work & Profession
+Juristin	Work & Profession
+Betriebswirt	Work & Profession
+Informatikerin	Work & Profession
+Architektin	Work & Profession
+Zahnärztin	Work & Profession
+Mediziner	Work & Profession
+Chemikerin	Work & Profession
+Maschinenbauer	Work & Profession
+Werbefachmann	Work & Profession
+Köchin	Work & Profession
+Wirtin	Work & Profession
+Automechaniker	Work & Profession
+Bäuerin	Work & Profession
+Logo	Business & Workplace
+Band	Arts and culture
+Spielerin	Sport
+Triathlon	Sport
+Start	Sport
+Siegerin	Sport
+Flyer	Communication
+Sporthalle	Sport
+Kilometer	Core Vocabulary
+Organisator	Work & Profession
+Hausmeisterin	Work & Profession
+Apartment	Housing & Room Search
+Wohngemeinschaft	Housing & Room Search
+Bewohnerin	Housing & Room Search
+Mitbewohner	Housing & Room Search
+Mieterin	Housing & Room Search
+Interessent	Housing & Room Search
+Küchenzeile	Home
+Küchentisch	Home
+Herdplatte	Home
+Studentenwohnheim	Housing & Room Search
+Studentenwerk	University & Studies
+Berufstätige	Work & Profession
+Grafikdesigner	Work & Profession
+Grafikdesignerin	Work & Profession
+Restmüll	Home
+Mülltüte	Home
+Altglas	Home
+Unterhose	Clothing
+Schlafanzug	Clothing
+Badehose	Clothing
+Nachthemd	Clothing
+Unterhemd	Clothing
+Seide	Clothing
+Wäscherei	Home
+Waschprogramm	Home
+Automat	Technology & Devices
+Lyrik	Arts and culture
+Anthologie	Arts and culture
+Aufforderung	Communication
+Copyshop	Money & shopping
+Espresso	Food & drink
+Milchkaffee	Food & drink
+Schokoladenkuchen	Food & drink
+Inhaberin	Work & Profession
+Wegbeschreibung	City & Directions
+Fahrkartenautomat	Transport
+Ort	Core Vocabulary
+Attraktion	Travel
+Glockenspiel	City sightseeing
+Kuppel	City sightseeing
+Münster	City sightseeing
+Tor	City sightseeing
+Kunstschule	Arts and culture
+Appetit	Food & drink
+Grillparty	Food & drink
+Ideologie	Society
+etwas	Core Vocabulary
+nichts	Core Vocabulary
+mancher	Core Vocabulary
+# --- DaF kompakt A2 batch (2026-07-18): noun sector map; verbs/adj/adv fall to POS defaults.
+Ball	Festivals & Customs
+Weihnachtsbaum	Festivals & Customs
+Bescherung	Festivals & Customs
+Christkind	Festivals & Customs
+Erntedankfest	Festivals & Customs
+Abschlussfeier	Festivals & Customs
+Karfreitag	Festivals & Customs
+Osterhase	Festivals & Customs
+Ostermontag	Festivals & Customs
+Ostersonntag	Festivals & Customs
+Weihnachtsfest	Festivals & Customs
+Büffet	Food & drink
+Fondue	Food & drink
+Frucht	Food & drink
+Bachelor	University & Studies
+Barett	University & Studies
+Examen	University & Studies
+Master	University & Studies
+Talar	University & Studies
+Besteck	Home
+Dorf	Core Vocabulary
+Festhalle	Festivals & Customs
+Geschirr	Home
+Schüssel	Home
+Topf	Home
+Kochbuch	Food & drink
+Konfetti	Festivals & Customs
+Luftschlange	Festivals & Customs
+Vollmond	Weather & nature
+Parfum	Money & shopping
+Rest	Core Vocabulary
+Schulfreundin	Relationships
+Sprung	Sport
+Teil	Core Vocabulary
+Zelt	Travel
+Zusage	Communication
+Einkaufsmöglichkeit	Housing & Room Search
+Spielplatz	Urban life
+Vermieterin	Housing & Room Search
+Einzugstermin	Housing & Room Search
+Familienstand	Administration
+Hauseingang	Housing & Room Search
+Hausflur	Housing & Room Search
+Nachmieter	Housing & Room Search
+Vormieter	Housing & Room Search
+Tiefgarage	Housing & Room Search
+Neubau	Housing & Room Search
+Geschäftshaus	Urban life
+Hochhaus	Urban life
+Mehrfamilienhaus	Housing & Room Search
+Reihenhaus	Housing & Room Search
+Mülltonne	Home
+Treppenhaus	Housing & Room Search
+Waschküche	Home
+Besichtigungstermin	Housing & Room Search
+Dachwohnung	Housing & Room Search
+Geschoss	Housing & Room Search
+Dachgeschoss	Housing & Room Search
+Kamin	Home
+Laminat	Home
+Parkett	Home
+WC	Home
+Schrankwand	Home
+Schreibtischstuhl	Home
+Kaffeemaschine	Home
+Äquator	Weather & nature
+Haustier	Home
+Instrument	Arts and culture
+Kaufhaus	Money & shopping
+Lebensstandard	Society
+Mittagsruhe	Society
+Objekt	Core Vocabulary
+Quiz	Games
+Rauchverbot	Society
+Sauberkeit	Home
+Bau	Urban life
+Aschermittwoch	Festivals & Customs
+Kommunikationsmittel	Communication
+Konsonant	Education
+Sommersemester	University & Studies
+Ausland	Travel
+Porträt	Arts and culture
+Besucherin	Travel
+Bürgerin	Society
+Archiv	Arts and culture
+Höhepunkt	Core Vocabulary
+Klang	Arts and culture
+Klub	Free time
+Ruf	Society
+Tourist	Travel
+Touristin	Travel
+Girokonto	At the Bank
+Kreditinstitut	At the Bank
+Kundennummer	At the Bank
+Online-Banking	At the Bank
+Personalausweis	Administration
+PIN	At the Bank
+Sparbuch	At the Bank
+Transaktion	At the Bank
+Zins	At the Bank
+Hauptmenü	Media & technology
+Besitzer	Society
+Finder	Society
+Finderlohn	Society
+Fundsache	Administration
+Polizist	Work & Profession
+Wertsache	Money & shopping
+Buchhandlung	Money & shopping
+Ehrlichkeit	Emotions
+Gasthaus	Food & drink
+Gedränge	Society
+Karton	Home
+Kern	Core Vocabulary
+Krimi	Arts and culture
+Pfeife	Core Vocabulary
+Pfütze	Weather & nature
+Portemonnaie	Money & shopping
+Projekt	Work
+Richter	Work & Profession
+Versteigerung	Money & shopping
+Zuordnung	Education
+Mandel	Body & health
+Organ	Body & health
+Po	Body & health
+Schenkel	Body & health
+Unterschenkel	Body & health
+Skelett	Body & health
+Körperteil	Body & health
+Zeh	Body & health
+Alptraum	Body & health
+Rheuma	Health
+Kassenpatient	Healthcare System
+Hausarzt	Health
+Allgemeinmediziner	Healthcare System
+Arzthelferin	Work & Profession
+Spezialist	Health
+Internist	Healthcare System
+Orthopäde	Healthcare System
+Raucher	Health
+Nichtraucher	Health
+Akupunktur	Health
+Beipackzettel	Health
+Dosierung	Health
+Gebiet	Core Vocabulary
+Hausmittel	Health
+Homöopathie	Health
+Hörgerät	Health
+Hustensaft	Health
+Penicillin	Health
+Röntgenstrahlung	Health
+Virus	Health
+Wissenschaftlerin	Science
+Forscher	Science
+Forscherin	Science
+Genetik	Science
+Flüssigkeit	Science concepts
+Gemeinsamkeit	Core Vocabulary
+Licht	Core Vocabulary
+Pickel	Body & health
+Säugling	Family
+Schild	Urban life
+Wanderung	Travel
+Stöckelschuh	Clothing
+Strickjacke	Clothing
+Umtausch	Money & shopping
+Wanderschuh	Clothing
+Bekleidungsgeschäft	Clothing
+Ausschnitt	Clothing
+Blazer	Clothing
+Daunenmantel	Clothing
+Etikett	Clothing
+Kapuzenjacke	Clothing
+Kassenbon	Money & shopping
+Kleidergröße	Clothing
+Kleidungsstil	Clothing
+Leinen	Clothing
+Loch	Core Vocabulary
+Poloshirt	Clothing
+Regenjacke	Clothing
+Rollkragen	Clothing
+Aktenkoffer	Business & Workplace
+Ökonomie	Society
+Regisseurin	Arts and culture
+Eintrag	Communication
+Feierlichkeit	Festivals & Customs
+Katalog	Money & shopping
+Kindermädchen	Work & Profession
+Klischee	Society
+Monatsende	Core Vocabulary
+Motto	Core Vocabulary
+Perle	Clothing
+Pferdeschwanz	Body & health
+Tausch	Money & shopping
+Oktoberfest	Oktoberfest
+Bierzelt	Oktoberfest
+Bude	Oktoberfest
+Gastwirt	Oktoberfest
+Pferderennen	Oktoberfest
+Riesenrad	Oktoberfest
+Schausteller	Oktoberfest
+Übernachtung	Travel
+Saal	Urban life
+Liebesfilm	Films & festivals
+Spielfilm	Films & festivals
+Thriller	Films & festivals
+Western	Films & festivals
+Filmstar	Films & festivals
+Nachbarland	Travel
+Reisende	Travel
+Politikerin	Politics
+Profil	Communication
+Auszubildende	Education
+Lehrling	Education
+Astronaut	Work & Profession
+Bäcker	Work & Profession
+Bankkauffrau	Work & Profession
+Berufsberater	Work & Profession
+Einzelhandel	Business & Workplace
+Elektroniker	Work & Profession
+Eventmanager	Work & Profession
+Florist	Work & Profession
+Mechatroniker	Work & Profession
+Sozialpädagoge	Work & Profession
+Kraftfahrzeug	Transport
+Verkauf	Business & Workplace
+Bearbeitung	Administration
+Folie	Business & Workplace
+Grafik	Media & technology
+Konsumgüter	Business & Workplace
+Lagerung	Business & Workplace
+Reklamation	Money & shopping
+Steckbrief	Education
+Stichpunkt	Education
+Überwachung	Society
+Marketing	Business & Workplace
+Personalchef	Business & Workplace
+Frühschicht	Work
+Spätschicht	Work
+Nachtschicht	Work
+Fachkenntnisse	Work
+Sprachkenntnisse	Work
+Leistungskurs	Education
+Absatz	Business & Workplace
+Betonung	Education
+Ergänzung	Education
+Gelände	Urban life
+Rundgang	Travel
+Slogan	Business & Workplace
+Weltkrieg	Society
+Zuschuss	Administration
+Berggipfel	Weather & nature
+Parkanlage	Urban life
+Schifffahrt	Travel
+Wellness	Health
+Aufbau	Core Vocabulary
+Abbau	Core Vocabulary
+Leine	Core Vocabulary
+Stange	Core Vocabulary
+Paragliding	Sport
+Sportlerin	Sport
+Wassersport	Water sports
