@@ -36,7 +36,7 @@ export function isDue(card: Card, now: number = Date.now()): boolean {
 export function previewInterval(card: Card, rating: Grade): string {
   const next = engine.next(card, new Date(), rating).card;
   const days = (new Date(next.due).getTime() - Date.now()) / 86_400_000;
-  if (days < 1 / 24) return '<1 min';
+  if (days < 1 / 24) return `${Math.max(1, Math.round(days * 1440))} min`;
   if (days < 1) return `${Math.round(days * 24)} hr`;
   if (days < 30) return `${Math.round(days)} ${Math.round(days) === 1 ? 'day' : 'days'}`;
   if (days < 365) return `${Math.round(days / 30)} mo`;

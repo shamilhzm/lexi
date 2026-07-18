@@ -79,7 +79,7 @@ correct material.
 | F2 | **The post-gap mountain.** `buildBriefing` included *every* due review, uncapped. After two weeks away a learner opened the app to "312 cards queued" — the single most common reason people quit SRS apps. | ✅ fixed — `DAILY_DUE_CAP` 60 oldest-first, `dueTotal` reported, Today frames it honestly ("… waiting in total — today serves the oldest 60. The rest keep.") |
 | F3 | Wrong-answer feedback tone is uniform. After the 5th consecutive miss the app behaves identically to the 1st. A tiny circuit-breaker ("Rough patch — these will come back easier tomorrow" + offer to end the session at a natural break) would read as care, not failure. | → backlog |
 | F4 | HD voice (Piper Thorsten) hides behind a Settings toggle; frustrated ears meet robo-TTS and never learn better exists. Offer once, in context, at first pronunciation tap. | → backlog |
-| F5 | No session resume: an interruption rebuilds tomorrow's queue from scratch. Damage is small (grades persist) but the *feeling* is loss. Persist queue ids + position for same-day resume. | → backlog |
+| F5 | No session resume: an interruption rebuilds the queue from scratch. | ✅ resolved by design — grades persist at grade time and graded cards leave their pools, so reopening rebuilds exactly the remainder; only cosmetic position is lost. "Quick 5" now serves the short-moment case directly. |
 
 ---
 

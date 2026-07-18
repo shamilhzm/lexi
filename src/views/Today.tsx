@@ -2,10 +2,10 @@
 // session from what's due (FSRS) plus fresh cards from your weakest sectors,
 // to a streak-safe minimum. Shows streak, level progress, grammar drills, and
 // blind spots. The market (children) mounts below it on the merged home.
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded } from '../store.ts';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Zap } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
@@ -37,15 +37,33 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
   const total = briefing.ids.length;
   const firstRun = !onboarded() && !placed && t.learned === 0;
 
+  // Backlog burn-down: remember the mountain's peak so clearing it reads as
+  // finite progress. Recorded as an effect (it writes storage).
+  useEffect(() => { noteBacklog(briefing.dueTotal); }, [briefing.dueTotal]);
+  const peak = backlogPeak();
+
+  // Comeback: a real gap with real history behind it. The streak zeroed — the
+  // record didn't. Say so before anything else does.
+  const gap = lastGapDays();
+  const best = longestStreak();
+  const comeback = gap !== null && gap >= 7 && best >= 7;
+
   const greeting = (
-    <div className="flex items-baseline justify-between flex-wrap gap-2 mb-4">
-      <div>
-        <h1 className="text-[22px] sm:text-[26px] font-bold leading-none">Guten Tag</h1>
-        <p className="text-dim text-[13px] mt-1.5 capitalize">{today}</p>
+    <div className="mb-4">
+      <div className="flex items-baseline justify-between flex-wrap gap-2">
+        <div>
+          <h1 className="text-[22px] sm:text-[26px] font-bold leading-none">{comeback ? 'Willkommen zurück' : 'Guten Tag'}</h1>
+          <p className="text-dim text-[13px] mt-1.5 capitalize">{today}</p>
+        </div>
+        <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[15px]">
+          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[13px]">day streak</span>
+        </div>
       </div>
-      <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-[15px]">
-        <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-[13px]">day streak</span>
-      </div>
+      {comeback && (
+        <p className="text-amber text-[13px] mt-2">
+          {gap} days away — nothing lost. Your best streak ({best} days) still stands; today starts the next one.
+        </p>
+      )}
     </div>
   );
 
@@ -114,20 +132,42 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                 {briefing.weakSectors.length > 0 && ` · from ${briefing.weakSectors.slice(0, 2).join(', ')}${briefing.weakSectors.length > 2 ? '…' : ''}`}
               </p>
               {briefing.dueTotal > briefing.due && (
-                // Post-gap honesty: the backlog exists, but today is bounded.
-                <p className="text-dim text-[13px] mt-1">
-                  {fmt(briefing.dueTotal)} reviews waiting in total — today serves the oldest {briefing.due}. The rest keep.
-                </p>
+                // Post-gap honesty: the backlog exists, but today is bounded —
+                // and clearing it is progress through something finite.
+                <div className="mt-1">
+                  <p className="text-dim text-[13px]">
+                    {fmt(briefing.dueTotal)} reviews waiting in total — today serves the oldest {briefing.due}. The rest keep.
+                  </p>
+                  {peak > briefing.dueTotal && (
+                    <div className="mt-1.5 max-w-[280px]">
+                      <div className="h-1 bg-panel2 rounded-full overflow-hidden">
+                        <div className="h-full bg-green rounded-full transition-[width] duration-500"
+                          style={{ width: `${Math.round(((peak - briefing.dueTotal) / peak) * 100)}%` }} />
+                      </div>
+                      <p className="text-[11px] text-dim mt-1 font-mono">{fmt(peak - briefing.dueTotal)} of {fmt(peak)} backlog cleared</p>
+                    </div>
+                  )}
+                </div>
               )}
               {blindDrills > 0 && (
                 <p className="text-red text-[13px] mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
               )}
             </div>
-            <motion.button whileTap={{ scale: 0.98 }}
-              onClick={() => onStart({ kind: 'custom', name: "Today's session", ids: briefing.ids })}
-              className="flex items-center justify-center gap-2 w-full sm:w-auto sm:flex-shrink-0 bg-amber text-bg font-bold rounded-[10px] px-6 py-3 text-[15px] hover:brightness-105">
-              <Play size={16} /> Start session
-            </motion.button>
+            <div className="flex flex-col sm:items-end gap-2 w-full sm:w-auto sm:flex-shrink-0">
+              <motion.button whileTap={{ scale: 0.98 }}
+                onClick={() => onStart({ kind: 'custom', name: "Today's session", ids: briefing.ids })}
+                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-amber text-bg font-bold rounded-[10px] px-6 py-3 text-[15px] hover:brightness-105">
+                <Play size={16} /> Start session
+              </motion.button>
+              {/* The session that fits four real minutes. Same queue, first five;
+                  grades persist immediately, so the rest simply remains. */}
+              {total > 5 && (
+                <button onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}
+                  className="flex items-center justify-center gap-1.5 w-full sm:w-auto text-[13px] text-dim border border-line rounded-[10px] px-4 py-2 hover:border-amber hover:text-amber transition-colors">
+                  <Zap size={13} /> Quick 5
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>

@@ -202,6 +202,19 @@ nobody re-implements them:
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
   dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
   exercises" → 571. Remaining findings graduated to Now/Next above.
+- **Next-10 items 1–3** (from SIMULATED-SESSIONS-2). (1) **Interval previews** on
+  the flip grade buttons ("Got it · 3 days") via the existing-but-unwired
+  `previewInterval` (its sub-hour bucket fixed: "8 min", not "<1 min") — the
+  scheduler is now machinery, not magic. (2) **Quick 5**: a second, quiet button
+  on the session card serving the first five of today's queue — the session that
+  fits a commute. *Finding:* same-day **resume is emergent** — grades persist at
+  grade time and both due and fresh cards leave their pools once graded, so
+  reopening Today's session naturally rebuilds the remainder; only cosmetic
+  position is lost. UX-PATHS F5 downgraded accordingly. (3) **Comeback mode**:
+  `longestStreak()` + `lastGapDays()`; after a ≥7-day gap with a ≥7-day record,
+  Today greets "Willkommen zurück — N days away, nothing lost. Your best streak
+  (M days) still stands"; plus a **backlog burn-down bar** ("190 of 312 backlog
+  cleared", peak ratchets via `noteBacklog`, resets at zero). 4 new tests; 62/62.
 - **Friend-readiness pass** (sharing analysis + simulated sessions). (1) **Storage
   durability:** `navigator.storage.persist()` at boot + an **install nudge** on
   Today (iOS Add-to-Home-Screen instructions / Chromium install prompt, backup
@@ -292,9 +305,9 @@ Priority order; each traces to a persona finding. The diagnosis: the app is
 correct and kind, but not yet *legible* (can't see the machine think), *fitted*
 (sessions don't match real minutes), or *narrative* (progress has no arc).
 
-1. **Interval preview on grade buttons** (S) — "Got it · 3d"; the cheapest trust feature in SRS.
-2. **Quick 5 + same-day resume** (M) — sessions that fit real minutes; absorbs UX-PATHS F5.
-3. **Comeback mode** (S) — longest-streak memory + comeback framing instead of a zeroed streak; backlog burn-down bar.
+1. ~~Interval preview on grade buttons~~ ✅ 2026-07-18
+2. ~~Quick 5 + same-day resume~~ ✅ 2026-07-18 (resume proved *emergent* — see shipped note)
+3. ~~Comeback mode~~ ✅ 2026-07-18
 4. **The goal line** (M) — target level + date → one pace sentence on Today from existing store data.
 5. **The share card** (M) — canvas-rendered treemap + Known headline; pride is the only growth channel.
 6. **Stats surface** (M) — reviews/day, recall trend, 7-day due forecast, Known growth.

@@ -370,6 +370,15 @@ describe('typed-answer support (hints)', () => {
   });
 });
 
+describe('interval preview', () => {
+  it('renders human intervals for both grades on a new card', async () => {
+    const { srs } = await fresh();
+    const c = srs.emptyCard();
+    expect(srs.previewInterval(c, srs.Rating.Again)).toMatch(/^\d+ (min|hr)$/);
+    expect(srs.previewInterval(c, srs.Rating.Good)).toMatch(/^\d+ (min|hr|day|days)$/);
+  });
+});
+
 describe('streak / visits', () => {
   it('is 0 with no visits and 1 after visiting today', async () => {
     const { store } = await fresh();
@@ -394,6 +403,32 @@ describe('streak / visits', () => {
     } finally {
       vi.useRealTimers();
     }
+  });
+
+  it('longestStreak survives a broken current streak; lastGapDays measures the gap', async () => {
+    const { store } = await fresh();
+    vi.useFakeTimers();
+    try {
+      // a 3-day run…
+      for (const d of ['2026-06-01', '2026-06-02', '2026-06-03']) {
+        vi.setSystemTime(new Date(`${d}T12:00:00Z`));
+        store.recordVisit();
+      }
+      // …then six weeks away
+      vi.setSystemTime(new Date('2026-07-15T12:00:00Z'));
+      store.recordVisit();
+      expect(store.streak()).toBe(1);         // current: reset
+      expect(store.longestStreak()).toBe(3);  // the record: safe
+      expect(store.lastGapDays()).toBe(42);   // the gap, measured honestly
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('lastGapDays is null on the first day ever', async () => {
+    const { store } = await fresh();
+    store.recordVisit();
+    expect(store.lastGapDays()).toBe(null);
   });
 
   it('breaks the streak on a skipped day', async () => {

@@ -11,7 +11,7 @@ import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformIt
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
-import { Rating, type Grade, type Card } from '../srs.ts';
+import { Rating, emptyCard, previewInterval, type Grade, type Card } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
 import SessionRecap from '../components/SessionRecap.tsx';
 import type { Target } from '../types.ts';
@@ -57,6 +57,14 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 
   const item = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
+
+  // Interval preview: show when each grade brings the card back. This is how
+  // the scheduler earns trust — machinery, not magic (Anki's oldest lesson).
+  const preview = useMemo(() => {
+    if (!item || item.type !== 'flip') return null;
+    const c = cardOf(item.srsId) ?? emptyCard();
+    return { again: previewInterval(c, Rating.Again), good: previewInterval(c, Rating.Good) };
+  }, [item?.srsId]);
 
   // Record the pre-review FSRS state + the exact counter deltas this grade
   // applied, so prev/undo can reverse it precisely.
@@ -261,12 +269,14 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
             <div className="flex gap-2.5 sm:gap-3 justify-center">
               <button onClick={() => grade(Rating.Again)}
-                className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
-                <X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}
+                className="flex flex-col items-center border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
+                <span className="flex items-center gap-2"><X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}</span>
+                {preview && <span className="text-[11px] text-dim font-mono font-normal mt-0.5">{preview.again}</span>}
               </button>
               <button onClick={() => grade(Rating.Good)}
-                className="flex items-center gap-2 border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2.5 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
-                <Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}
+                className="flex flex-col items-center border border-line bg-panel rounded-[10px] px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
+                <span className="flex items-center gap-2"><Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}</span>
+                {preview && <span className="text-[11px] text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
               </button>
             </div>
             <span className={`text-dim text-[12px] h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>

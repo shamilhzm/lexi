@@ -591,6 +591,50 @@ export function streak(): number {
   return n;
 }
 
+// ---- comeback (streaks are memories, not debts) ---------------------------
+/** Longest run of consecutive visit days, ever. A zeroed current streak after a
+ *  life event shouldn't erase the record — this is what "your 41-day streak is
+ *  safe" reads from. */
+export function longestStreak(): number {
+  const days = [...new Set(visits)].sort();
+  let best = 0, run = 0;
+  let prev = 0;
+  for (const d of days) {
+    const t = new Date(d + 'T00:00:00Z').getTime();
+    run = prev && t - prev === 86_400_000 ? run + 1 : 1;
+    best = Math.max(best, run);
+    prev = t;
+  }
+  return best;
+}
+
+/** Days since the most recent visit before today (null = first day ever). */
+export function lastGapDays(): number | null {
+  const t = todayKey();
+  const prior = [...new Set(visits)].filter((d) => d < t).sort();
+  if (prior.length === 0) return null;
+  const last = new Date(prior[prior.length - 1] + 'T00:00:00Z').getTime();
+  const today = new Date(t + 'T00:00:00Z').getTime();
+  return Math.round((today - last) / 86_400_000);
+}
+
+// ---- backlog burn-down ----------------------------------------------------
+// Track the peak of the due backlog so a week of clearing reads as progress
+// through something finite ("190 of 312 cleared"), not an endless grind.
+// The peak resets once the backlog is fully cleared.
+const BACKLOG_PEAK_KEY = 'lexi.backlogpeak.v1';
+export function backlogPeak(): number {
+  const v = parseInt(localStorage.getItem(BACKLOG_PEAK_KEY) || '0', 10);
+  return Number.isFinite(v) && v > 0 ? v : 0;
+}
+/** Record today's observed backlog; ratchets the peak up, clears it at zero. */
+export function noteBacklog(dueTotal: number) {
+  try {
+    if (dueTotal <= 0) { localStorage.removeItem(BACKLOG_PEAK_KEY); return; }
+    if (dueTotal > backlogPeak()) localStorage.setItem(BACKLOG_PEAK_KEY, String(dueTotal));
+  } catch { /* quota */ }
+}
+
 // ---- backup: export / import ---------------------------------------------
 // A portable snapshot the learner controls, so a cleared cache (or a new device)
 // isn't fatal. Carries progress (cards / misses / visits) plus non-secret
