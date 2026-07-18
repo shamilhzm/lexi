@@ -15,13 +15,14 @@ import Fundamentals, { MODE_TAG, type Mode as DrillMode } from './views/Fundamen
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
+import Stats from './views/Stats.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'home' | 'explore' | 'fundamentals' | 'review' | 'placement' | 'interests' | 'profile';
+export type View = 'home' | 'explore' | 'fundamentals' | 'stats' | 'review' | 'placement' | 'interests' | 'profile';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
@@ -102,6 +103,7 @@ export default function App() {
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('home'); }} />}
                 {view === 'interests' && <Interests onDone={firstRunSession} />}
                 {view === 'profile' && <Profile />}
+                {view === 'stats' && <Stats />}
                 {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setDrillInit(null); setView('fundamentals'); }} />}
               </ErrorBoundary>
             </motion.div>

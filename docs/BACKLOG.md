@@ -202,6 +202,17 @@ nobody re-implements them:
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
   dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
   exercises" → 571. Remaining findings graduated to Now/Next above.
+- **Next-10 items 5 + 6.** (5) **Share card**: `lib/sharecard.ts` renders a
+  1200×630 PNG on canvas — the learner's market laid out by the tested
+  `squarify`, tiles' cyan alpha tracking each territory's Known %, headline
+  Known number, level, streak, wordmark; `navigator.share` (files) on mobile,
+  PNG download elsewhere. Offered as a quiet "Share your progress" link on the
+  session recap — the pride moment. (6) **Stats**: new sidebar destination with
+  four SVG panels — reviews/day and recall (new per-day review log
+  `lexi.reviewlog.v1`, bumped in `review()`, capped 60 days, rides the backup),
+  the 7-day **due forecast** (`dueForecast`, overdue folds into today), and the
+  **Known growth** curve (snapshots + live today). Empty panels say "starts
+  counting from today" instead of pretending history exists. 2 new tests; 65/65.
 - **Next-10 items 4 + 9.** (4) **The goal line**: `goal()`/`setGoal()` (level +
   date, `lexi.goal.v1`, rides the backup) with an editor card in Profile; daily
   snapshots now also record the **Known total**, and `goalProgress()` projects
@@ -320,8 +331,8 @@ correct and kind, but not yet *legible* (can't see the machine think), *fitted*
 2. ~~Quick 5 + same-day resume~~ ✅ 2026-07-18 (resume proved *emergent* — see shipped note)
 3. ~~Comeback mode~~ ✅ 2026-07-18
 4. ~~The goal line~~ ✅ 2026-07-18
-5. **The share card** (M) — canvas-rendered treemap + Known headline; pride is the only growth channel.
-6. **Stats surface** (M) — reviews/day, recall trend, 7-day due forecast, Known growth.
+5. ~~The share card~~ ✅ 2026-07-18
+6. ~~Stats surface~~ ✅ 2026-07-18
 7. **Type ramp on rem + text-size setting, one-time coach marks** (S/M) — OS font scaling must work.
 8. **The feel layer** (S) — optional sound tick, count-up recap with a named best moment; includes the F3 miss-streak circuit breaker.
 9. ~~`corpus:flags` maintainer loop~~ ✅ 2026-07-18

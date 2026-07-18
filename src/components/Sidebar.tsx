@@ -5,7 +5,7 @@
 //
 // Collapse is a *desktop* concern: the collapsed state hides labels via `sm:hidden`
 // so the mobile drawer (always full width) always shows them.
-import { Play, Sunrise, LayoutGrid, GraduationCap, ChevronLeft, ChevronRight, Flame, X } from 'lucide-react';
+import { Play, Sunrise, LayoutGrid, GraduationCap, BarChart3, ChevronLeft, ChevronRight, Flame, X } from 'lucide-react';
 import type { View } from '../App.tsx';
 
 export function LexiMark({ size = 28, className = '' }: { size?: number; className?: string }) {
@@ -23,6 +23,7 @@ const NAV: { id: View; label: string; icon: any }[] = [
   { id: 'home', label: 'Home', icon: Sunrise },
   { id: 'explore', label: 'Explore', icon: LayoutGrid },
   { id: 'fundamentals', label: 'Fundamentals', icon: GraduationCap },
+  { id: 'stats', label: 'Stats', icon: BarChart3 },
 ];
 
 export default function Sidebar({
@@ -47,8 +48,9 @@ export default function Sidebar({
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0
           ${collapsed ? 'sm:w-[64px]' : 'sm:w-[240px]'}`}>
 
-        {/* Brand — the mark stays visible even when collapsed; only the wordmark hides */}
-        <div className={`flex items-center gap-2.5 px-3.5 h-[56px] flex-shrink-0 safe-top border-b border-line ${collapsed ? 'sm:px-0 sm:justify-center' : ''}`}>
+        {/* Brand — the mark stays visible even when collapsed; only the wordmark hides.
+            min-height adds the safe-area inset so the notch never clips the logo. */}
+        <div className={`flex items-center gap-2.5 px-3.5 pb-2 min-h-[calc(56px_+_env(safe-area-inset-top))] flex-shrink-0 safe-top border-b border-line ${collapsed ? 'sm:px-0 sm:justify-center' : ''}`}>
           <LexiMark size={28} />
           <span className={`font-bold text-[20px] tracking-wide leading-none ${hideLabel}`}>Lexi</span>
           <button onClick={onMobileClose} className="ml-auto grid place-items-center w-9 h-9 -mr-1 text-dim hover:text-amber sm:hidden" title="Close"><X size={18} /></button>

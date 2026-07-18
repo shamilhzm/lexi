@@ -370,6 +370,35 @@ describe('typed-answer support (hints)', () => {
   });
 });
 
+describe('stats (review log / due forecast)', () => {
+  it('review log counts grades per day, Again separately', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('r0', 'S'), word('r1', 'S'), word('r2', 'S')]);
+    store.review('r0', srs.Rating.Good);
+    store.review('r1', srs.Rating.Again);
+    store.review('r2', srs.Rating.Good);
+    const today = new Date().toISOString().slice(0, 10);
+    expect(store.reviewLog()[today]).toEqual({ n: 3, again: 1 });
+  });
+
+  it('due forecast buckets scheduled cards by day, overdue into today', async () => {
+    const { data, store, srs } = await fresh();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-01T12:00:00Z'));
+      data.registerWords([word('f0', 'S'), word('f1', 'S')]);
+      store.review('f0', srs.Rating.Easy); // due days out
+      store.review('f1', srs.Rating.Good);
+      vi.setSystemTime(new Date('2026-08-01T12:00:00Z')); // both long overdue
+      const fc = store.dueForecast(7);
+      expect(fc[0]).toBe(2);
+      expect(fc.slice(1).every((n) => n === 0)).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
+
 describe('goal line', () => {
   it('is null without a goal; scopes counts to A1..target and projects from snapshots', async () => {
     const { data, store, srs } = await fresh();

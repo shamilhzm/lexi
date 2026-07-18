@@ -3,7 +3,8 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion } from 'motion/react';
-import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag } from 'lucide-react';
+import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
+import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
@@ -354,10 +355,18 @@ function DoneState({ done, again, newLearned, minedCount, firstRun, onExit, onPi
         {firstRun && newLearned > 0 && (
           <p className="text-[15px] mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
         )}
-        <div className="flex gap-2.5 justify-center">
+        <div className="flex gap-2.5 justify-center flex-wrap">
           {!firstRun && <button onClick={onPick} className="bg-panel2 border border-line rounded-[10px] px-5 py-2.5 hover:border-amber">Another deck</button>}
           <button onClick={onExit} className="bg-amber text-bg font-bold rounded-[10px] px-5 py-2.5 hover:brightness-105">{firstRun ? 'Got it' : 'Back to Today'}</button>
         </div>
+        {/* The pride moment — the market as a designed image, not a cropped
+            screenshot. Word-of-mouth is a local-first app's only channel. */}
+        {!firstRun && (
+          <button onClick={() => shareProgress()}
+            className="mt-3 mx-auto flex items-center gap-1.5 text-[13px] text-dim hover:text-amber underline underline-offset-2">
+            <Share2 size={13} /> Share your progress
+          </button>
+        )}
       </SessionRecap>
     </div>
   );

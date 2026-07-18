@@ -2,7 +2,7 @@
 // Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
 // Adds a CEFR level filter and group/sector/all scoped stats + sessions.
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
-import { emptyCard, schedule, reviveCard, isDue, setRetention, State, type Card, type Grade } from './srs.ts';
+import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
@@ -120,6 +120,7 @@ export function review(id: string, grade: Grade) {
   const cur = live.get(id) ?? emptyCard();
   live.set(id, schedule(cur, grade));
   recordVisit();
+  bumpReviewLog(grade);
   persistCards();
   emit();
 }
@@ -302,6 +303,52 @@ export function groupDeltas(days = 7): Map<string, number> | null {
     out.set(g, (cur[g] ?? 0) - (base.groups[g] ?? 0));
   }
   return out;
+}
+
+// ---- stats: review log, due forecast, Known history ------------------------
+// The terminal earns its terminal screen. All three are cheap reads over data
+// the store already owns; the review log is the one new write (per grade).
+const REVIEWLOG_KEY = 'lexi.reviewlog.v1';
+export type ReviewLog = Record<string, { n: number; again: number }>; // date → counts
+export function reviewLog(): ReviewLog {
+  try {
+    const v = JSON.parse(localStorage.getItem(REVIEWLOG_KEY) || '{}');
+    return v && typeof v === 'object' ? (v as ReviewLog) : {};
+  } catch { return {}; }
+}
+function bumpReviewLog(grade: Grade) {
+  const log = reviewLog();
+  const t = todayKey();
+  const d = log[t] ?? { n: 0, again: 0 };
+  d.n++;
+  if (grade === Rating.Again) d.again++;
+  log[t] = d;
+  const keys = Object.keys(log).sort();
+  while (keys.length > 60) delete log[keys.shift()!]; // keep ~2 months
+  try { localStorage.setItem(REVIEWLOG_KEY, JSON.stringify(log)); } catch { /* quota */ }
+}
+
+/** Scheduled cards due per day for the next `days` days; index 0 = overdue + today. */
+export function dueForecast(days = 7): number[] {
+  const out = new Array<number>(days).fill(0);
+  const start = new Date(todayKey() + 'T00:00:00Z').getTime();
+  live.forEach((c) => {
+    if (c.state === State.New) return;
+    const idx = Math.floor((new Date(c.due).getTime() - start) / 86_400_000);
+    if (idx < 0) out[0]++; else if (idx < days) out[idx]++;
+  });
+  return out;
+}
+
+/** Daily Known totals from the snapshots (sparse until history accrues),
+ *  with today's live value appended so the curve always ends at now. */
+export function knownHistory(): { date: string; known: number }[] {
+  const hist = loadSnaps()
+    .filter((s): s is Snapshot & { known: number } => typeof s.known === 'number' && s.date < todayKey())
+    .map((s) => ({ date: s.date, known: s.known }));
+  let today = 0;
+  for (const w of WORDS) if (statusOf(w.id) === 'known') today++;
+  return [...hist, { date: todayKey(), known: today }];
 }
 
 // ---- goal line ------------------------------------------------------------
@@ -701,6 +748,7 @@ const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
+  'lexi.reviewlog.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */
