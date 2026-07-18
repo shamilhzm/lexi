@@ -1,9 +1,9 @@
 // Lexi service worker — offline-first. Precaches the shell; caches hashed assets
 // and the lexicon JSON on first fetch (cache-first). Bump CACHE to invalidate.
-const CACHE = 'lexi-v3';
+const CACHE = 'lexi-v4';
 const CORE = [
-  '/', '/index.html', '/manifest.webmanifest',
-  '/icon.svg', '/icon-192.png', '/icon-512.png', '/icon-180.png',
+  './', './index.html', './manifest.webmanifest',
+  './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png',
 ];
 
 self.addEventListener('install', (e) => {
@@ -24,7 +24,7 @@ self.addEventListener('fetch', (e) => {
 
   // SPA navigations: network-first, fall back to cached shell when offline.
   if (req.mode === 'navigate') {
-    e.respondWith(fetch(req).catch(() => caches.match('/index.html').then((r) => r || caches.match('/'))));
+    e.respondWith(fetch(req).catch(() => caches.match('./index.html').then((r) => r || caches.match('./'))));
     return;
   }
 
