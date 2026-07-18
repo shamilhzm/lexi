@@ -12,7 +12,7 @@ import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
-import { haptic } from '../lib/ui.ts';
+import { haptic, tick } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
 import GrammarDrill, { OrderItem, TypeItem } from './GrammarDrill.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
@@ -233,28 +233,28 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
     <div className="max-w-[820px] mx-auto">
       <div className="flex items-center gap-2.5 mb-1">
         <Cog size={20} className="text-amber" />
-        <h1 className="text-[20px] sm:text-[22px] font-bold">Grammar Fundamentals</h1>
+        <h1 className="text-[1.25rem] sm:text-[1.375rem] font-bold">Grammar Fundamentals</h1>
       </div>
-      <p className="text-dim text-[13px] mb-4">Targeted drills with their own spaced-repetition schedule.</p>
+      <p className="text-dim text-[0.8125rem] mb-4">Targeted drills with their own spaced-repetition schedule.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {MODES.map(({ m, label, icon: Icon, desc }) => (
           <button key={m} onClick={() => onPick(m)}
             className="bg-panel border border-line rounded-[16px] p-4 text-left hover:border-amber transition-colors group">
             <div className="flex items-center gap-2.5 mb-1.5">
               <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber"><Icon size={18} /></span>
-              <span className="font-semibold text-[15px]">{label}</span>
+              <span className="font-semibold text-[0.9375rem]">{label}</span>
             </div>
-            <p className="text-dim text-[13px]">{desc}</p>
-            <p className="text-[11px] text-dim mt-2 font-mono">{counts[m].toLocaleString('de-DE')} items</p>
+            <p className="text-dim text-[0.8125rem]">{desc}</p>
+            <p className="text-[0.6875rem] text-dim mt-2 font-mono">{counts[m].toLocaleString('de-DE')} items</p>
           </button>
         ))}
         <button onClick={() => onPick('grammar')}
           className="bg-panel border border-line rounded-[16px] p-4 text-left hover:border-amber transition-colors sm:col-span-2">
           <div className="flex items-center gap-2.5 mb-1.5">
             <span className="grid place-items-center w-9 h-9 rounded-lg bg-panel2 text-amber"><BookOpen size={18} /></span>
-            <span className="font-semibold text-[15px]">Grammar exercises</span>
+            <span className="font-semibold text-[0.9375rem]">Grammar exercises</span>
           </div>
-          <p className="text-dim text-[13px]">99 points · 571 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
+          <p className="text-dim text-[0.8125rem]">99 points · 571 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
         </button>
       </div>
     </div>
@@ -274,6 +274,7 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
     if (!word) return;
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
     haptic();
+    if (ok) tick('good');
     if (!ok) logMiss(MODE_TAG[mode]);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);
@@ -300,8 +301,8 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
     <div className="max-w-[640px] mx-auto">
       <div className="flex items-center gap-2.5 mb-4">
         <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={18} /></button>
-        {progress && <span className="text-[13px] text-dim font-mono">{progress}</span>}
-        {score !== null && score !== undefined && <span className="ml-auto text-[13px] font-mono text-green">{score}% correct</span>}
+        {progress && <span className="text-[0.8125rem] text-dim font-mono">{progress}</span>}
+        {score !== null && score !== undefined && <span className="ml-auto text-[0.8125rem] font-mono text-green">{score}% correct</span>}
       </div>
       {children}
     </div>
@@ -328,7 +329,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
           return (
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
-              className={`rounded-[10px] py-4 font-bold text-[20px] border transition-colors ${
+              className={`rounded-[10px] py-4 font-bold text-[1.25rem] border transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}
@@ -391,7 +392,7 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
           return (
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
-              className={`rounded-[10px] py-3.5 px-4 border text-[15px] text-center transition-colors ${
+              className={`rounded-[10px] py-3.5 px-4 border text-[0.9375rem] text-center transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
@@ -403,7 +404,7 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
           );
         })}
       </div>
-      {picked !== null && extra && <p className="text-dim text-[13px] mt-3 text-center font-mono">{extra}</p>}
+      {picked !== null && extra && <p className="text-dim text-[0.8125rem] mt-3 text-center font-mono">{extra}</p>}
       {picked !== null && <div className="mt-5 flex justify-center"><button onClick={() => onGrade(picked === correct)} className="bg-panel2 border border-line rounded-[10px] px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>}
     </Card>
   );
@@ -530,9 +531,9 @@ function Card({ children }: { children: React.ReactNode }) {
 function Prompt({ children, small, gloss, big = true }: { children: React.ReactNode; small?: string; gloss?: string; big?: boolean }) {
   return (
     <div className="text-center mb-5">
-      {small && <div className="text-[11px] text-amber uppercase tracking-[2px] mb-2 font-semibold">{small}</div>}
-      <div className={`font-bold leading-snug ${big ? 'text-[26px] sm:text-[32px]' : 'text-[20px] sm:text-[24px]'}`}>{children}</div>
-      {gloss && <p className="text-dim text-[13px] mt-2">{gloss}</p>}
+      {small && <div className="text-[0.6875rem] text-amber uppercase tracking-[2px] mb-2 font-semibold">{small}</div>}
+      <div className={`font-bold leading-snug ${big ? 'text-[1.625rem] sm:text-[2rem]' : 'text-[1.25rem] sm:text-[1.5rem]'}`}>{children}</div>
+      {gloss && <p className="text-dim text-[0.8125rem] mt-2">{gloss}</p>}
     </div>
   );
 }

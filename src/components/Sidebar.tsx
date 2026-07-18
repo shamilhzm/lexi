@@ -52,7 +52,7 @@ export default function Sidebar({
             min-height adds the safe-area inset so the notch never clips the logo. */}
         <div className={`flex items-center gap-2.5 px-3.5 pb-2 min-h-[calc(56px_+_env(safe-area-inset-top))] flex-shrink-0 safe-top border-b border-line ${collapsed ? 'sm:px-0 sm:justify-center' : ''}`}>
           <LexiMark size={28} />
-          <span className={`font-bold text-[20px] tracking-wide leading-none ${hideLabel}`}>Lexi</span>
+          <span className={`font-bold text-[1.25rem] tracking-wide leading-none ${hideLabel}`}>Lexi</span>
           <button onClick={onMobileClose} className="ml-auto grid place-items-center w-9 h-9 -mr-1 text-dim hover:text-amber sm:hidden" title="Close"><X size={18} /></button>
         </div>
 
@@ -66,7 +66,7 @@ export default function Sidebar({
         <div className="px-2.5 pt-3 pb-1">
           <button onClick={onStartSession} title="Start today's session"
             className="w-full flex items-center justify-center gap-2 bg-amber text-bg font-bold rounded-[10px] py-2.5 px-3 hover:brightness-105 transition">
-            <Play size={16} /> <span className={`text-[14px] ${hideLabel}`}>Start session</span>
+            <Play size={16} /> <span className={`text-[0.875rem] ${hideLabel}`}>Start session</span>
           </button>
         </div>
 
@@ -76,7 +76,7 @@ export default function Sidebar({
             const active = view === n.id;
             return (
               <button key={n.id} onClick={() => onGo(n.id)} title={n.label}
-                className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-md text-[14px] transition-colors ${
+                className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-md text-[0.875rem] transition-colors ${
                   active ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt hover:bg-panel2'} ${centre}`}>
                 <n.icon size={18} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
                 <span className={hideLabel}>{n.label}</span>
@@ -90,10 +90,10 @@ export default function Sidebar({
           <button onClick={onProfile} title="Profile"
             className={`w-full flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-panel2 transition-colors ${
               view === 'profile' ? 'bg-panel2' : ''} ${centre}`}>
-            <span className="grid place-items-center w-8 h-8 rounded-full bg-panel2 text-amber text-[13px] font-bold flex-shrink-0">{initial}</span>
+            <span className="grid place-items-center w-8 h-8 rounded-full bg-panel2 text-amber text-[0.8125rem] font-bold flex-shrink-0">{initial}</span>
             <span className={`flex-1 min-w-0 text-left ${hideLabel}`}>
-              <span className="block text-[13px] font-semibold truncate">{name || 'Your profile'}</span>
-              <span className="flex items-center gap-1 text-[11px] text-dim">
+              <span className="block text-[0.8125rem] font-semibold truncate">{name || 'Your profile'}</span>
+              <span className="flex items-center gap-1 text-[0.6875rem] text-dim">
                 {level && <span>{level} ·</span>}
                 <Flame size={11} className="text-amber" /> {streak}
               </span>

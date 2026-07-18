@@ -45,12 +45,12 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
   return (
     <div className="bg-panel border border-line rounded-[10px]">
       <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
-        <h2 className="text-[15px] font-semibold">Word Map</h2>
+        <h2 className="text-[0.9375rem] font-semibold">Word Map</h2>
         <select value={sel} onChange={(e) => setSel(e.target.value)}
-          className="bg-panel2 border border-line rounded-md text-[13px] px-2 py-1 text-txt outline-none focus:border-amber max-w-[200px] sm:max-w-[260px]">
+          className="bg-panel2 border border-line rounded-md text-[0.8125rem] px-2 py-1 text-txt outline-none focus:border-amber max-w-[200px] sm:max-w-[260px]">
           {sorted.map((s) => <option key={s.name} value={s.name}>{s.name} ({s.count})</option>)}
         </select>
-        <span className="ml-auto text-[11px] text-dim flex items-center gap-2 sm:gap-3 flex-wrap">
+        <span className="ml-auto text-[0.6875rem] text-dim flex items-center gap-2 sm:gap-3 flex-wrap">
           <span className="hidden sm:inline"><Dot c="#5b6573" /> new <Dot c="#38cde8" /> learning <Dot c="#16c784" /> known</span>
           <button onClick={() => onStudy({ kind: 'sector', name: sel })} className="text-amber hover:underline">Study sector →</button>
         </span>
@@ -79,7 +79,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
         })}
       </svg>
 
-      <div className="px-4 py-2.5 border-t border-line text-[11px] text-dim flex items-center gap-2">
+      <div className="px-4 py-2.5 border-t border-line text-[0.6875rem] text-dim flex items-center gap-2">
         {active ? <ActiveInfo id={active} /> : <span>Node = word · line to centre = sector · line between nodes = synonym. Tap a node to hear it.</span>}
         <Volume2 size={13} className="ml-auto text-amber" />
       </div>

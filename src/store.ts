@@ -492,6 +492,35 @@ export function flagCard(id: string, term: string) {
   emit();
 }
 
+// ---- text size -------------------------------------------------------------
+// The whole type ramp is rem-based, so scaling the root scales everything.
+// Default (1) leaves <html> untouched so the browser/OS preference (incl. iOS
+// Dynamic Type via -apple-system-body) governs; an explicit choice overrides.
+const TEXTSCALE_KEY = 'lexi.textscale.v1';
+export function textScale(): number {
+  const v = parseFloat(localStorage.getItem(TEXTSCALE_KEY) || '1');
+  return v >= 0.85 && v <= 1.3 ? v : 1;
+}
+export function applyTextScale(scale = textScale()) {
+  document.documentElement.style.fontSize = scale === 1 ? '' : `${scale * 100}%`;
+}
+export function setTextScale(scale: number) {
+  try {
+    if (scale === 1) localStorage.removeItem(TEXTSCALE_KEY);
+    else localStorage.setItem(TEXTSCALE_KEY, String(scale));
+  } catch { /* quota */ }
+  applyTextScale(scale);
+  emit();
+}
+
+// ---- sound (the feel layer; off by default) --------------------------------
+const SOUND_KEY = 'lexi.sound.v1';
+export function sound(): boolean { return localStorage.getItem(SOUND_KEY) === '1'; }
+export function setSound(on: boolean) {
+  if (on) localStorage.setItem(SOUND_KEY, '1'); else localStorage.removeItem(SOUND_KEY);
+  emit();
+}
+
 // ---- HD voice (Piper Thorsten, in-browser) -------------------------------
 const HDVOICE_KEY = 'lexi.hdvoice.v1';
 export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }
@@ -748,7 +777,7 @@ const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
-  'lexi.reviewlog.v1',
+  'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

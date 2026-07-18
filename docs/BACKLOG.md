@@ -202,6 +202,22 @@ nobody re-implements them:
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
   dead end got an "Open decks" button (new `onDecks` prop). **H1** — stale "444
   exercises" → 571. Remaining findings graduated to Now/Next above.
+- **Next-10 items 7 + 8** (closes the list — only the perpetual #10 content arc
+  remains). (7) **Type scales with the reader**: codemod converted all 228
+  hard-coded `text-[Npx]` classes to rem across 24 files, so the ramp keys off
+  the root; `-apple-system-body` on `<html>` adopts iOS Dynamic Type (family
+  re-asserted on body); Settings gained a **Text size** control
+  (Compact/Standard/Large/Larger — Standard defers to the OS, an explicit
+  choice overrides via `applyTextScale`, applied pre-paint, rides the backup).
+  Plus one-time **coach marks** on the first session (tap to flip · swipe or
+  buttons · skip is free). (8) **The feel layer**: opt-in sound (WebAudio blips,
+  no assets — soft tick on correct, two-note chime at session end; Settings
+  toggle, off by default); recap tiles now **count up** from zero (CountUp grew
+  a `from` prop; honors reduced motion); **"Comeback of the day"** on the recap
+  (a word missed ≥2 times before, graded right today); and the **F3 circuit
+  breaker** — after 4 straight misses, one gentle banner ("Rough patch — that's
+  the system finding your edge") offering *Stop here* at a natural break or
+  *Keep going*, shown once per session. 65/65, build clean.
 - **Next-10 items 5 + 6.** (5) **Share card**: `lib/sharecard.ts` renders a
   1200×630 PNG on canvas — the learner's market laid out by the tested
   `squarify`, tiles' cyan alpha tracking each territory's Known %, headline
@@ -333,8 +349,8 @@ correct and kind, but not yet *legible* (can't see the machine think), *fitted*
 4. ~~The goal line~~ ✅ 2026-07-18
 5. ~~The share card~~ ✅ 2026-07-18
 6. ~~Stats surface~~ ✅ 2026-07-18
-7. **Type ramp on rem + text-size setting, one-time coach marks** (S/M) — OS font scaling must work.
-8. **The feel layer** (S) — optional sound tick, count-up recap with a named best moment; includes the F3 miss-streak circuit breaker.
+7. ~~Type ramp on rem + text-size setting, coach marks~~ ✅ 2026-07-18
+8. ~~The feel layer + F3 circuit breaker~~ ✅ 2026-07-18
 9. ~~`corpus:flags` maintainer loop~~ ✅ 2026-07-18
 10. **Content depth arc** (L, human-gated) — DaF-fed A1/A2 fill + hand-authored C1/C2 register; the promise everything else polishes.
 

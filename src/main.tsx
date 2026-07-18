@@ -3,11 +3,12 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 import { initData } from './data/index.ts';
-import { hydrate } from './store.ts';
+import { hydrate, applyTextScale } from './store.ts';
 import { applyTheme, watchSystemTheme } from './theme.ts';
 
 applyTheme();
 watchSystemTheme();
+applyTextScale(); // rem ramp: apply the learner's text-size choice before paint
 
 const root = createRoot(document.getElementById('root')!);
 

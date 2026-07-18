@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-/** Animates a number toward `value` with an ease-out ramp. Honors reduced motion. */
-export default function CountUp({ value, format, suffix = '', duration = 650 }:
-  { value: number; format?: (n: number) => string; suffix?: string; duration?: number }) {
-  const [n, setN] = useState(value);
-  const from = useRef(value);
+/** Animates a number toward `value` with an ease-out ramp. Honors reduced
+ *  motion. Pass `from` to also animate the initial mount (recap tiles count up
+ *  from 0); omitted, only subsequent value changes animate (live KPIs). */
+export default function CountUp({ value, format, suffix = '', duration = 650, from: fromProp }:
+  { value: number; format?: (n: number) => string; suffix?: string; duration?: number; from?: number }) {
+  const [n, setN] = useState(fromProp ?? value);
+  const from = useRef(fromProp ?? value);
   const raf = useRef(0);
 
   useEffect(() => {

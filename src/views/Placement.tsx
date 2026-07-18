@@ -73,9 +73,9 @@ export default function Placement({ onDone }: { onDone: () => void }) {
           <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
             <GraduationCap className="text-green" />
           </div>
-          <div className="text-[11px] text-amber uppercase tracking-[2px] mb-1">Your level</div>
-          <div className="font-mono font-bold text-[52px] leading-none text-amber mb-3">{result}</div>
-          <p className="text-dim text-[15px] mb-6">
+          <div className="text-[0.6875rem] text-amber uppercase tracking-[2px] mb-1">Your level</div>
+          <div className="font-mono font-bold text-[3.25rem] leading-none text-amber mb-3">{result}</div>
+          <p className="text-dim text-[0.9375rem] mb-6">
             {seeded > 0
               ? <>Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on A1–{result}. You can change the level filter anytime.</>
               : <>Starting fresh at {result} — the best place to start. Every word from here on counts.</>}
@@ -94,31 +94,31 @@ export default function Placement({ onDone }: { onDone: () => void }) {
   return (
     <div className="max-w-[520px] mx-auto">
       <div className="flex items-center justify-between mb-3">
-        <h1 className="text-[20px] font-bold">Placement test</h1>
-        <button onClick={onDone} className="text-[13px] text-dim hover:text-amber">skip</button>
+        <h1 className="text-[1.25rem] font-bold">Placement test</h1>
+        <button onClick={onDone} className="text-[0.8125rem] text-dim hover:text-amber">skip</button>
       </div>
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">
         <div className="h-full bg-amber transition-all" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
       </div>
-      <p className="text-[11px] text-dim mb-4">Testing level {ALL_LEVELS[li]} · do you know this word?</p>
+      <p className="text-[0.6875rem] text-dim mb-4">Testing level {ALL_LEVELS[li]} · do you know this word?</p>
 
       <motion.div key={word.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
         className="bg-panel border border-line rounded-[16px] px-6 py-12 text-center mb-4">
-        <div className="font-bold text-[34px] sm:text-[40px] leading-tight">{stripArticle(word.term)}</div>
-        {word.gender && <div className="text-dim text-[15px] mt-1.5">{word.gender}</div>}
+        <div className="font-bold text-[2.125rem] sm:text-[2.5rem] leading-tight">{stripArticle(word.term)}</div>
+        {word.gender && <div className="text-dim text-[0.9375rem] mt-1.5">{word.gender}</div>}
       </motion.div>
 
       <div className="grid grid-cols-2 gap-3">
         <button onClick={() => answer(false)}
-          className="flex items-center justify-center gap-2 rounded-[10px] py-3.5 bg-panel2 border border-line hover:border-red text-[15px] font-semibold">
+          className="flex items-center justify-center gap-2 rounded-[10px] py-3.5 bg-panel2 border border-line hover:border-red text-[0.9375rem] font-semibold">
           <X size={16} className="text-red" /> New to me
         </button>
         <button onClick={() => answer(true)}
-          className="flex items-center justify-center gap-2 rounded-[10px] py-3.5 bg-panel2 border border-line hover:border-green text-[15px] font-semibold">
+          className="flex items-center justify-center gap-2 rounded-[10px] py-3.5 bg-panel2 border border-line hover:border-green text-[0.9375rem] font-semibold">
           <Check size={16} className="text-green" /> I know it
         </button>
       </div>
-      <p className="text-center text-[11px] text-dim mt-3">Answer honestly — this just calibrates where you start.</p>
+      <p className="text-center text-[0.6875rem] text-dim mt-3">Answer honestly — this just calibrates where you start.</p>
     </div>
   );
 }

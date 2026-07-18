@@ -46,3 +46,29 @@ export const fmt = (n: number) => n.toLocaleString('de-DE');
 /** A tiny vibration on grade commit. No-op on iOS Safari (navigator.vibrate is
  *  unsupported there); a real win on Android/Chrome and installed PWAs. */
 export const haptic = () => { navigator.vibrate?.(10); };
+
+// ---- sound ticks (the feel layer) -----------------------------------------
+// Tiny synthesized blips — no assets, no library. Gated on the sound setting
+// (off by default) and created lazily on first use (autoplay policies require
+// a user gesture, and grading is one).
+import { sound } from '../store.ts';
+let audioCtx: AudioContext | null = null;
+export function tick(kind: 'good' | 'done') {
+  if (!sound() || typeof AudioContext === 'undefined') return;
+  try {
+    audioCtx ??= new AudioContext();
+    const notes = kind === 'good' ? [880] : [660, 990]; // done = a little two-note rise
+    notes.forEach((freq, i) => {
+      const t0 = audioCtx!.currentTime + i * 0.09;
+      const osc = audioCtx!.createOscillator();
+      const gain = audioCtx!.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.06, t0);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.12);
+      osc.connect(gain).connect(audioCtx!.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.13);
+    });
+  } catch { /* audio unavailable — silence is fine */ }
+}

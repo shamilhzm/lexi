@@ -125,6 +125,14 @@ html.light .flip-face {
 }
 
 * { box-sizing: border-box; }
+/* The type ramp is rem-based, so it keys off the root size. On Apple
+   platforms, -apple-system-body adopts the user's Dynamic Type setting (the
+   shorthand also resets the family — body re-asserts var(--font-sans)). The
+   in-app text-size setting (store.applyTextScale) overrides by writing an
+   explicit font-size on <html>; explicit choice wins over Dynamic Type. */
+@supports (font: -apple-system-body) {
+  html { font: -apple-system-body; }
+}
 html, body, #root { height: 100%; margin: 0; }
 html, body { overflow-x: hidden; }
 body {

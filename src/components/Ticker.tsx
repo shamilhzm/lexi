@@ -27,7 +27,7 @@ export default function Ticker({ onPick }: { onPick: (group: string) => void }) 
 
   return (
     <div className="bg-panel2 border-b border-line overflow-hidden flex-shrink-0">
-      <div className="ticker-track flex items-center gap-8 py-2 px-4 whitespace-nowrap font-mono text-[13px] leading-normal w-max">
+      <div className="ticker-track flex items-center gap-8 py-2 px-4 whitespace-nowrap font-mono text-[0.8125rem] leading-normal w-max">
         {row(false)}{row(true)}
       </div>
     </div>
