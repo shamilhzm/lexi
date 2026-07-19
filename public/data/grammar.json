@@ -1828,6 +1828,36 @@
           "answer": 4,
           "fix": "Der Film war besser als das Buch.",
           "explain": "Komparativ + als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Dorina mag Rockmusik ___ als Jazz.",
+          "options": [
+            "lieber",
+            "gern",
+            "als"
+          ],
+          "answer": 0,
+          "explain": "prefer → lieber als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie geht genauso gern ins Kino ___ ins Theater.",
+          "options": [
+            "wie",
+            "als",
+            "so"
+          ],
+          "answer": 0,
+          "explain": "genauso gern … wie."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich trinke Tee ___ als Kaffee. (prefer)",
+          "accept": [
+            "lieber"
+          ],
+          "explain": "lieber als = prefer to."
         }
       ]
     },
@@ -1898,6 +1928,28 @@
             "den"
           ],
           "explain": "wohin? → Akkusativ den."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir fahren ___ die Berge. (Wohin?)",
+          "options": [
+            "in",
+            "an",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "Wohin? in die Berge (Akkusativ)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir sind ___ Meer. (Wo?)",
+          "options": [
+            "am",
+            "ans",
+            "ins"
+          ],
+          "answer": 0,
+          "explain": "Wo? am Meer (Dativ)."
         }
       ]
     },
@@ -2234,6 +2286,28 @@
             "diese"
           ],
           "explain": "plural → diese."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ für ein Formular ist das?",
+          "options": [
+            "Was",
+            "Wie",
+            "Wo"
+          ],
+          "answer": 0,
+          "explain": "Was für ein …? asks about type."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Was für ___ Verpackung ist das?",
+          "options": [
+            "eine",
+            "einen",
+            "ein"
+          ],
+          "answer": 0,
+          "explain": "Verpackung is feminine → eine."
         }
       ]
     },
@@ -2309,6 +2383,36 @@
             "wohnt"
           ],
           "explain": "verb to the end of the indirect question."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Können Sie mir sagen, ___ ich tun muss?",
+          "options": [
+            "was",
+            "dass",
+            "ob"
+          ],
+          "answer": 0,
+          "explain": "Indirect W-question → was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Weißt du, ___ man hier in Raten zahlen kann?",
+          "options": [
+            "ob",
+            "was",
+            "wo"
+          ],
+          "answer": 0,
+          "explain": "Indirect yes/no question → ob."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wissen Sie noch, ___ ich gesagt habe? (indirect: what)",
+          "accept": [
+            "was"
+          ],
+          "explain": "Indirect question with was."
         }
       ]
     },
@@ -2650,6 +2754,723 @@
           "answer": 2,
           "fix": "Sie ist Lehrerin.",
           "explain": "A bare profession after sein → no article: Sie ist Lehrerin."
+        }
+      ]
+    },
+    {
+      "title": "Konjunktiv II: Wünsche & Vorschläge",
+      "summary": "wäre/hätte gern for wishes; würde/könnte for polite ideas.",
+      "rule": "Use hätte/wäre (gern) for wishes: Ich hätte gern ein bisschen Ruhe. Use würde or könnte + Infinitiv for polite suggestions: Wir könnten ins Kino gehen. Forms: wäre, hätte, würde, könnte.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ gern ein bisschen Ruhe. (haben)",
+          "options": [
+            "hätte",
+            "habe",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "Wish for a thing → hätte gern."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ ins Kino gehen. (suggestion)",
+          "options": [
+            "könnten",
+            "können",
+            "konnten"
+          ],
+          "answer": 0,
+          "explain": "Polite suggestion → könnten + Infinitiv."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ gern am Meer. (sein)",
+          "options": [
+            "wäre",
+            "bin",
+            "war"
+          ],
+          "answer": 0,
+          "explain": "Wish → wäre gern."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ du das für mich machen? (polite)",
+          "options": [
+            "Würdest",
+            "Wirst",
+            "Wurdest"
+          ],
+          "answer": 0,
+          "explain": "Polite request → würdest + Infinitiv."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich ___ gern ein neues Handy. (haben, Konjunktiv II)",
+          "accept": [
+            "hätte"
+          ],
+          "explain": "Wish for a thing → hätte gern."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich wäre gern ein Auto.",
+          "answer": 1,
+          "fix": "hätte",
+          "explain": "A wish for a thing (to have) uses hätte gern, not wäre."
+        }
+      ]
+    },
+    {
+      "title": "Verbindungsadverbien: trotzdem & deshalb",
+      "summary": "trotzdem = but still; deshalb = that's why. Verb stays position 2.",
+      "rule": "These adverbs join two main clauses. trotzdem expresses concession (but still), deshalb a consequence (that's why). In position 1 they push the verb to position 2: Tommy mag Tiger. Deshalb möchte er in den Zoo gehen.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Morgen habe ich eine Prüfung. ___ lerne ich nicht.",
+          "options": [
+            "Trotzdem",
+            "Deshalb",
+            "Weil"
+          ],
+          "answer": 0,
+          "explain": "Contrary to expectation → trotzdem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Tommy mag Tiger. ___ möchte er in den Zoo gehen.",
+          "options": [
+            "Deshalb",
+            "Trotzdem",
+            "Obwohl"
+          ],
+          "answer": 0,
+          "explain": "Consequence → deshalb."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Eva hat keine Zeit. Trotzdem ___ sie reinkommen.",
+          "options": [
+            "soll",
+            "sollen",
+            "zu"
+          ],
+          "answer": 0,
+          "explain": "After trotzdem the verb stays in position 2 → soll."
+        },
+        {
+          "kind": "type",
+          "prompt": "Es regnet. ___ gehen wir spazieren. (concession)",
+          "accept": [
+            "Trotzdem",
+            "trotzdem"
+          ],
+          "explain": "Despite the rain → Trotzdem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin müde. ___ gehe ich früh ins Bett.",
+          "options": [
+            "Deshalb",
+            "Trotzdem",
+            "Dass"
+          ],
+          "answer": 0,
+          "explain": "Consequence → deshalb."
+        },
+        {
+          "kind": "error",
+          "prompt": "Es regnet. Deshalb gehen wir spazieren.",
+          "answer": 2,
+          "fix": "Trotzdem",
+          "explain": "Going for a walk despite the rain is a concession → Trotzdem."
+        }
+      ]
+    },
+    {
+      "title": "Adjektivdeklination: indefiniter Artikel",
+      "summary": "Endings after ein/eine/kein/mein: ein neuer Laden …",
+      "rule": "After ein-words the adjective shows the gender: ein neuer Laden (Nom. m.), ein schönes Licht (Nom./Akk. n.), eine schöne Wohnung (f.), einen neuen Laden (Akk. m.), in einem neuen Laden (Dat. m.).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Das ist ein ___ Laden. (neu, Nom. masc.)",
+          "options": [
+            "neuer",
+            "neue",
+            "neuen"
+          ],
+          "answer": 0,
+          "explain": "ein + masc. Nom. → neuer."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe einen ___ Laden. (neu, Akk. masc.)",
+          "options": [
+            "neuen",
+            "neuer",
+            "neue"
+          ],
+          "answer": 0,
+          "explain": "einen + masc. Akk. → neuen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ein ___ Licht. (schön, Nom. neut.)",
+          "options": [
+            "schönes",
+            "schöne",
+            "schönen"
+          ],
+          "answer": 0,
+          "explain": "ein + neut. → schönes."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist eine ___ Wohnung. (schön, fem.)",
+          "options": [
+            "schöne",
+            "schöner",
+            "schönen"
+          ],
+          "answer": 0,
+          "explain": "eine + fem. → schöne."
+        },
+        {
+          "kind": "type",
+          "prompt": "in einem ___ Laden (neu, Dativ masc.)",
+          "accept": [
+            "neuen"
+          ],
+          "explain": "einem + Dativ → neuen."
+        },
+        {
+          "kind": "error",
+          "prompt": "Das ist ein schöne Licht.",
+          "answer": 3,
+          "fix": "schönes",
+          "explain": "ein + neuter Nom. → ein schönes Licht."
+        }
+      ]
+    },
+    {
+      "title": "Komparativ & Superlativ",
+      "summary": "schön – schöner – am schönsten; gut – besser – am besten.",
+      "rule": "Comparative adds -er, superlative uses am …-sten. Many short words take an umlaut: groß → größer → am größten, lang → länger, hoch → höher. Irregular: gut → besser → am besten, gern → lieber → am liebsten.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Anna ist ___ als Ben. (groß)",
+          "options": [
+            "größer",
+            "großer",
+            "am größten"
+          ],
+          "answer": 0,
+          "explain": "Comparative of groß → größer."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist der ___ Berg. (hoch, Superlativ)",
+          "options": [
+            "höchste",
+            "höhere",
+            "hohe"
+          ],
+          "answer": 0,
+          "explain": "Superlative of hoch → der höchste."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich mag Tee, aber Kaffee mag ich ___. (gern)",
+          "options": [
+            "lieber",
+            "gerner",
+            "mehr"
+          ],
+          "answer": 0,
+          "explain": "gern → lieber (irregular)."
+        },
+        {
+          "kind": "type",
+          "prompt": "Dieses Buch ist ___ als das andere. (interessant, Komparativ)",
+          "accept": [
+            "interessanter"
+          ],
+          "explain": "Comparative → interessanter."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Am ___ finde ich den Teppich. (schön, Superlativ)",
+          "options": [
+            "schönsten",
+            "schöner",
+            "schönste"
+          ],
+          "answer": 0,
+          "explain": "am + …-sten → am schönsten."
+        },
+        {
+          "kind": "error",
+          "prompt": "Er ist gröser als ich.",
+          "answer": 2,
+          "fix": "größer",
+          "explain": "groß → größer (with ß and umlaut)."
+        }
+      ]
+    },
+    {
+      "title": "Passiv Präsens",
+      "summary": "werden + Partizip II — focus on the action.",
+      "rule": "The passive present is werden + Partizip II. It focuses on the action, not who does it: Das wird reingeschrieben. (= Man schreibt das rein.) Hier wird Deutsch gesprochen.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Das ___ hier reingeschrieben.",
+          "options": [
+            "wird",
+            "ist",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Passiv Präsens → wird + Partizip II."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Formulare ___ ausgefüllt.",
+          "options": [
+            "werden",
+            "sind",
+            "haben"
+          ],
+          "answer": 0,
+          "explain": "Plural subject → werden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hier ___ Deutsch gesprochen.",
+          "options": [
+            "wird",
+            "ist",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Passiv Präsens → wird gesprochen."
+        },
+        {
+          "kind": "type",
+          "prompt": "Das Paket ___ heute geliefert. (Passiv Präsens)",
+          "accept": [
+            "wird"
+          ],
+          "explain": "werden + Partizip II."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Das Formular wird ausgefüllt.“",
+          "tiles": [
+            "Das",
+            "Formular",
+            "wird",
+            "ausgefüllt."
+          ],
+          "explain": "Subject + wird + Partizip II."
+        },
+        {
+          "kind": "error",
+          "prompt": "Der Brief ist hier geschrieben.",
+          "answer": 2,
+          "fix": "wird",
+          "explain": "Passiv Präsens uses werden → wird geschrieben."
+        }
+      ]
+    },
+    {
+      "title": "Lokale Präpositionen: Wegbeschreibung",
+      "summary": "durch, über, … entlang, an … vorbei, gegenüber, aus/von.",
+      "rule": "Directions: durch + Akk (durch den Park), über + Akk (über die Straße), … entlang (die Straße entlang), an … vorbei + Dat (am See vorbei), gegenüber + Dat, bis zu + Dat; Woher? aus/von + Dat (aus dem Hotel, vom Arzt).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Gehen Sie ___ den Park.",
+          "options": [
+            "durch",
+            "aus",
+            "bei"
+          ],
+          "answer": 0,
+          "explain": "Through an area → durch + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gehen Sie am See ___.",
+          "options": [
+            "vorbei",
+            "entlang",
+            "herum"
+          ],
+          "answer": 0,
+          "explain": "an … vorbei = past."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Bank ist ___ der S-Bahn-Station.",
+          "options": [
+            "gegenüber",
+            "durch",
+            "über"
+          ],
+          "answer": 0,
+          "explain": "opposite → gegenüber + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich komme ___ dem Hotel. (Woher?)",
+          "options": [
+            "aus",
+            "an",
+            "um"
+          ],
+          "answer": 0,
+          "explain": "out of a building → aus + Dativ."
+        },
+        {
+          "kind": "type",
+          "prompt": "Gehen Sie die Straße ___. (along)",
+          "accept": [
+            "entlang"
+          ],
+          "explain": "die Straße entlang = along the street."
+        },
+        {
+          "kind": "error",
+          "prompt": "Fahren Sie über den Park.",
+          "answer": 2,
+          "fix": "durch",
+          "explain": "Through an area → durch den Park (über = across/over)."
+        }
+      ]
+    },
+    {
+      "title": "Adjektivdeklination: ohne Artikel",
+      "summary": "No article → adjective takes the strong endings.",
+      "rule": "Without an article the adjective carries the ending the article would have: schöner Blick (Nom. m.), leckeres Frühstück (n.), schöne Lage (f.), regionale Produkte (pl.); Dativ: mit günstigen Zimmern.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Das Hotel hat ___ Zimmer. (günstig, Akk. pl.)",
+          "options": [
+            "günstige",
+            "günstigen",
+            "günstiges"
+          ],
+          "answer": 0,
+          "explain": "Plural without article → günstige."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir suchen ein Hotel mit ___ Zimmern. (günstig, Dativ pl.)",
+          "options": [
+            "günstigen",
+            "günstige",
+            "günstiger"
+          ],
+          "answer": 0,
+          "explain": "Dativ Plural → günstigen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Frühstück ist inklusive. (lecker, Nom. neut.)",
+          "options": [
+            "Leckeres",
+            "Leckere",
+            "Leckerem"
+          ],
+          "answer": 0,
+          "explain": "Neuter, no article → leckeres."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Zimmer hat ___ Blick. (schön, Nom. masc.)",
+          "options": [
+            "schöner",
+            "schönen",
+            "schönes"
+          ],
+          "answer": 0,
+          "explain": "Masc. Nom., no article → schöner."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wir mögen ___ Produkte. (regional, Akk. pl., no article)",
+          "accept": [
+            "regionale"
+          ],
+          "explain": "Plural without article → regionale."
+        },
+        {
+          "kind": "error",
+          "prompt": "Das ist ein Hotel mit schöne Lage.",
+          "answer": 5,
+          "fix": "schöner",
+          "explain": "mit + Dativ, fem., no article → schöner Lage."
+        }
+      ]
+    },
+    {
+      "title": "Verb: lassen",
+      "summary": "lassen + Infinitiv = have something done / let.",
+      "rule": "lassen + Infinitiv means to have something done or to let someone do something: Sie lässt ihr Konto prüfen. Sie sollten die Reifen wechseln lassen. Note du lässt, er/sie lässt (with umlaut).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ ihr Konto prüfen.",
+          "options": [
+            "lässt",
+            "lasst",
+            "lasse"
+          ],
+          "answer": 0,
+          "explain": "er/sie → lässt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ mein Auto reparieren.",
+          "options": [
+            "lasse",
+            "lässt",
+            "last"
+          ],
+          "answer": 0,
+          "explain": "ich → lasse."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir sollten die Reifen wechseln ___.",
+          "options": [
+            "lassen",
+            "lässt",
+            "gelassen"
+          ],
+          "answer": 0,
+          "explain": "Infinitive at the end → wechseln lassen."
+        },
+        {
+          "kind": "type",
+          "prompt": "Du ___ dein Konto prüfen. (lassen, du-form)",
+          "accept": [
+            "lässt"
+          ],
+          "explain": "du → lässt (umlaut)."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Sie lässt ihr Konto prüfen.“",
+          "tiles": [
+            "Sie",
+            "lässt",
+            "ihr",
+            "Konto",
+            "prüfen."
+          ],
+          "explain": "lässt in position 2, Infinitiv (prüfen) at the end."
+        },
+        {
+          "kind": "error",
+          "prompt": "Er lasst sein Auto reparieren.",
+          "answer": 1,
+          "fix": "lässt",
+          "explain": "er-form of lassen → lässt (umlaut)."
+        }
+      ]
+    },
+    {
+      "title": "Wortbildung: Adjektive",
+      "summary": "-los, -bar, -ig, -isch and the prefix un-.",
+      "rule": "Adjectives can be built with suffixes: -los = without (arbeitslos), -bar = able to (benutzbar), -ig (eisig), -isch (stürmisch). The prefix un- means not: interessant → uninteressant, angenehm → unangenehm.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "ohne Arbeit = ___",
+          "options": [
+            "arbeitslos",
+            "arbeitsbar",
+            "arbeitsig"
+          ],
+          "answer": 0,
+          "explain": "-los = without."
+        },
+        {
+          "kind": "choose",
+          "prompt": "der Sturm → ___",
+          "options": [
+            "stürmisch",
+            "stürmlos",
+            "stürmbar"
+          ],
+          "answer": 0,
+          "explain": "Sturm → stürmisch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "nicht interessant = ___",
+          "options": [
+            "uninteressant",
+            "interessantlos",
+            "interessantbar"
+          ],
+          "answer": 0,
+          "explain": "un- = not."
+        },
+        {
+          "kind": "type",
+          "prompt": "das Eis → ___ (adjective with -ig)",
+          "accept": [
+            "eisig"
+          ],
+          "explain": "Eis → eisig."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which prefix means „nicht“?",
+          "options": [
+            "un-",
+            "-los",
+            "-bar"
+          ],
+          "answer": 0,
+          "explain": "un- = not."
+        },
+        {
+          "kind": "error",
+          "prompt": "Das Wetter ist heute sturmisch.",
+          "answer": 4,
+          "fix": "stürmisch",
+          "explain": "Sturm → stürmisch (umlaut + -isch)."
+        }
+      ]
+    },
+    {
+      "title": "Wortbildung: Nomen & Diminutiv",
+      "summary": "-ung, -er/-in, compounds, and the diminutive -chen.",
+      "rule": "Verbs become nouns with -ung (senden → die Sendung; all -ung nouns are die). Persons: -er/-in (der Partner/die Partnerin). Compounds: die Arbeit + der Kollege → der Arbeitskollege (gender from the last noun). Diminutive -chen makes things small and neuter: der Bär → das Bärchen.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "senden → die ___",
+          "options": [
+            "Sendung",
+            "Sender",
+            "Sendchen"
+          ],
+          "answer": 0,
+          "explain": "Verb + -ung → die Sendung."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Welchen Artikel haben Nomen auf -ung?",
+          "options": [
+            "die",
+            "der",
+            "das"
+          ],
+          "answer": 0,
+          "explain": "All -ung nouns are die."
+        },
+        {
+          "kind": "choose",
+          "prompt": "der Bär → das ___ (Diminutiv)",
+          "options": [
+            "Bärchen",
+            "Bärung",
+            "Bärer"
+          ],
+          "answer": 0,
+          "explain": "-chen → das Bärchen."
+        },
+        {
+          "kind": "type",
+          "prompt": "der Partner → die ___ (female form)",
+          "accept": [
+            "Partnerin"
+          ],
+          "explain": "Female form → -in."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die Arbeit + der Kollege = der ___",
+          "options": [
+            "Arbeitskollege",
+            "Arbeitkollege",
+            "Kollegearbeit"
+          ],
+          "answer": 0,
+          "explain": "Compound; gender from the last noun."
+        },
+        {
+          "kind": "error",
+          "prompt": "Nomen auf -chen sind immer der.",
+          "answer": 5,
+          "fix": "das",
+          "explain": "Diminutives with -chen are always neuter → das."
+        }
+      ]
+    },
+    {
+      "title": "Präpositionen: von … an, über, ohne",
+      "summary": "von … an + Dativ, über + Akk (duration), ohne + Akk.",
+      "rule": "von … an + Dativ = from … on (Von Oktober an …). über + Akkusativ for duration (über eine Stunde Aufenthalt). ohne + Akkusativ (ohne lauten Verkehr).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ Oktober an gibt es freie Plätze.",
+          "options": [
+            "Von",
+            "Ab dem",
+            "Seit dem"
+          ],
+          "answer": 0,
+          "explain": "von … an = from … on."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat ___ eine Stunde Aufenthalt.",
+          "options": [
+            "über",
+            "von",
+            "aus"
+          ],
+          "answer": 0,
+          "explain": "Duration → über + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich möchte ein Zimmer ___ lauten Verkehr.",
+          "options": [
+            "ohne",
+            "von",
+            "über"
+          ],
+          "answer": 0,
+          "explain": "ohne + Akkusativ."
+        },
+        {
+          "kind": "type",
+          "prompt": "Von morgen ___ habe ich frei. (von … ___)",
+          "accept": [
+            "an"
+          ],
+          "explain": "von … an."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wir haben über einer Stunde gewartet.",
+          "answer": 3,
+          "fix": "eine",
+          "explain": "über + Akkusativ → über eine Stunde."
         }
       ]
     }

@@ -2517,5 +2517,53 @@
       "B1"
     ],
     "group": "Society & Politics"
+  },
+  {
+    "name": "Wochenende & Veranstaltungen",
+    "count": 8,
+    "levels": [
+      "A2"
+    ],
+    "group": "Arts, Media & Leisure"
+  },
+  {
+    "name": "Gegenstände & Materialien",
+    "count": 7,
+    "levels": [
+      "A2"
+    ],
+    "group": "Shopping & Clothing"
+  },
+  {
+    "name": "Post & Kommunikation",
+    "count": 9,
+    "levels": [
+      "A2"
+    ],
+    "group": "Society & Politics"
+  },
+  {
+    "name": "Unterwegs & Wetter",
+    "count": 7,
+    "levels": [
+      "A2"
+    ],
+    "group": "Travel & Transport"
+  },
+  {
+    "name": "Bank & Geld",
+    "count": 3,
+    "levels": [
+      "A2"
+    ],
+    "group": "Work & Economy"
+  },
+  {
+    "name": "Lebensstationen",
+    "count": 7,
+    "levels": [
+      "A2"
+    ],
+    "group": "Feelings & Relationships"
   }
 ]
