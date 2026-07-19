@@ -2565,5 +2565,21 @@
       "A2"
     ],
     "group": "Feelings & Relationships"
+  },
+  {
+    "name": "Prüfungswortschatz A1",
+    "count": 22,
+    "levels": [
+      "A1"
+    ],
+    "group": "Language Building Blocks"
+  },
+  {
+    "name": "Prüfungswortschatz A2",
+    "count": 35,
+    "levels": [
+      "A2"
+    ],
+    "group": "Language Building Blocks"
   }
 ]
