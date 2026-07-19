@@ -2405,5 +2405,61 @@
       "A2"
     ],
     "group": "Work & Economy"
+  },
+  {
+    "name": "Alltagsglück & Unfall",
+    "count": 7,
+    "levels": [
+      "B1"
+    ],
+    "group": "Feelings & Relationships"
+  },
+  {
+    "name": "Unterhaltung & Medien",
+    "count": 7,
+    "levels": [
+      "B1"
+    ],
+    "group": "Arts, Media & Leisure"
+  },
+  {
+    "name": "Gesundheitsvorsorge",
+    "count": 9,
+    "levels": [
+      "B1"
+    ],
+    "group": "Health & Body"
+  },
+  {
+    "name": "Sprachen & Mehrsprachigkeit",
+    "count": 6,
+    "levels": [
+      "B1"
+    ],
+    "group": "Education & Language"
+  },
+  {
+    "name": "Bewerbung & Jobsuche",
+    "count": 6,
+    "levels": [
+      "B1"
+    ],
+    "group": "Work & Economy"
+  },
+  {
+    "name": "Dienstleistung & Reklamation",
+    "count": 9,
+    "levels": [
+      "B1"
+    ],
+    "group": "Work & Economy"
+  },
+  {
+    "name": "Zusammenleben & Wohnen",
+    "count": 10,
+    "levels": [
+      "B1"
+    ],
+    "group": "Home & Daily Life"
   }
 ]

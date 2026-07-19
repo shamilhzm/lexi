@@ -3112,6 +3112,38 @@
           "answer": 5,
           "fix": "Ich hoffe, dich bald zu sehen.",
           "explain": "zu + Infinitiv (sehen)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ist toll, Kunden ___ beraten.",
+          "options": [
+            "zu",
+            "—",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "Infinitive clause needs zu + Infinitiv."
+        },
+        {
+          "kind": "type",
+          "prompt": "Hast du Lust, als Verkäufer ___ arbeiten? (particle before the infinitive)",
+          "accept": [
+            "zu"
+          ],
+          "explain": "Lust haben, etwas zu tun → zu + Infinitiv."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Es ist wichtig, pünktlich zu sein.“",
+          "tiles": [
+            "Es",
+            "ist",
+            "wichtig,",
+            "pünktlich",
+            "zu",
+            "sein."
+          ],
+          "explain": "zu + Infinitiv stands at the end of the clause."
         }
       ]
     },
@@ -3255,6 +3287,36 @@
           "answer": 3,
           "fix": "Sie spart, um ein Auto zu kaufen.",
           "explain": "um…zu has no second subject."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Leon will bei dem Laden sein, ___ dort Schuhe zu kaufen.",
+          "options": [
+            "um",
+            "damit",
+            "statt"
+          ],
+          "answer": 0,
+          "explain": "Same subject → um … zu."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich spreche laut, ___ alle mich hören.",
+          "options": [
+            "damit",
+            "um",
+            "ohne"
+          ],
+          "answer": 0,
+          "explain": "Different subject → damit."
+        },
+        {
+          "kind": "type",
+          "prompt": "Er lernt viel, ___ die Prüfung zu bestehen. (same subject, final clause)",
+          "accept": [
+            "um"
+          ],
+          "explain": "Same subject → um … zu."
         }
       ]
     },
@@ -3600,6 +3662,39 @@
           "answer": 4,
           "fix": "Entweder bleiben wir hier, oder wir fahren weg.",
           "explain": "entweder pairs with oder."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nicht nur Lärm, ___ auch Schmutz stört mich.",
+          "options": [
+            "sondern",
+            "aber",
+            "oder"
+          ],
+          "answer": 0,
+          "explain": "nicht nur …, sondern auch …"
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich habe wenig Zeit, aber ich helfe dir.",
+          "options": [
+            "Zwar",
+            "Weder",
+            "Sowohl"
+          ],
+          "answer": 0,
+          "explain": "zwar …, aber …"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir fahren ___ mit dem Bus oder mit dem Zug.",
+          "options": [
+            "entweder",
+            "weder",
+            "sowohl"
+          ],
+          "answer": 0,
+          "explain": "entweder … oder …"
         }
       ]
     },
@@ -3660,6 +3755,36 @@
             "habe"
           ],
           "explain": "Relative pronoun first, verb last."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Mann, ___ dort steht, ist mein Chef.",
+          "options": [
+            "der",
+            "den",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "Subject of the relative clause, masculine → der (Nominativ)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist der Job, ___ er seinen Lebensunterhalt verdient.",
+          "options": [
+            "mit dem",
+            "mit der",
+            "mit das"
+          ],
+          "answer": 0,
+          "explain": "mit + Dativ, masculine → mit dem."
+        },
+        {
+          "kind": "type",
+          "prompt": "Eine Köchin, ___ unglaublich gut kochen kann. (relative pronoun, Nom. fem.)",
+          "accept": [
+            "die"
+          ],
+          "explain": "Feminine subject → die."
         }
       ]
     },
@@ -3890,6 +4015,41 @@
           "answer": 2,
           "fix": "Obwohl es kalt ist, schwimmen wir.",
           "explain": "In an obwohl-clause the finite verb goes to the end: … es kalt ist."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Max sieht die Serie, ___ er sie schon dreimal gesehen hat.",
+          "options": [
+            "obwohl",
+            "weil",
+            "dass"
+          ],
+          "answer": 0,
+          "explain": "Concession → obwohl."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ es regnet, gehen wir spazieren. (concessive conjunction)",
+          "accept": [
+            "Obwohl",
+            "obwohl"
+          ],
+          "explain": "obwohl introduces a concessive clause."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Obwohl er krank ist, geht er zur Arbeit.“",
+          "tiles": [
+            "Obwohl",
+            "er",
+            "krank",
+            "ist,",
+            "geht",
+            "er",
+            "zur",
+            "Arbeit."
+          ],
+          "explain": "obwohl-clause (verb last), then main clause with the verb in position 2."
         }
       ]
     },
@@ -4059,6 +4219,412 @@
           ],
           "answer": 0,
           "explain": "Neut. dat., no article → like dem: kaltem Wasser."
+        }
+      ]
+    },
+    {
+      "title": "Präteritum",
+      "summary": "Written past tense: regular -te, irregular vowel change.",
+      "rule": "The Präteritum is the past tense of written narration and of sein/haben/modals. Regular verbs add -te (tanken → tankte). Irregular verbs change the stem vowel (lassen → ließ, kommen → kam) and mixed verbs do both (bringen → brachte).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Er ___ das Auto vor der Tür. (lassen)",
+          "options": [
+            "ließ",
+            "lasste",
+            "liesste"
+          ],
+          "answer": 0,
+          "explain": "lassen is irregular → ließ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ mir ein Geschenk zum Geburtstag. (bringen)",
+          "options": [
+            "brachte",
+            "bringte",
+            "brang"
+          ],
+          "answer": 0,
+          "explain": "bringen is mixed → brachte."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich ___ das Auto und fuhr los. (tanken, Präteritum)",
+          "accept": [
+            "tankte"
+          ],
+          "explain": "Regular verb: tank + -te → tankte."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wir ___ gestern spät nach Hause. (kommen, Präteritum)",
+          "accept": [
+            "kamen"
+          ],
+          "explain": "kommen → kam; plural wir kamen."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Letztes Jahr spielte er oft Fußball.“",
+          "tiles": [
+            "Letztes",
+            "Jahr",
+            "spielte",
+            "er",
+            "oft",
+            "Fußball."
+          ],
+          "explain": "Time phrase – verb (spielte) in position 2 – subject."
+        },
+        {
+          "kind": "error",
+          "prompt": "Er gehte gestern ins Kino.",
+          "answer": 1,
+          "fix": "ging",
+          "explain": "gehen is irregular in the Präteritum → ging."
+        }
+      ]
+    },
+    {
+      "title": "Temporale Konjunktion: als",
+      "summary": "„als“ for a single past event; „wenn“ for repeated ones.",
+      "rule": "Use als for one completed event in the past (Als ich klein war, …). Use wenn for repeated or habitual actions (Immer wenn …) and for the present/future. Both are subordinating: the verb goes to the end.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ ich klein war, wohnten wir in Berlin.",
+          "options": [
+            "Als",
+            "Wenn",
+            "Wann"
+          ],
+          "answer": 0,
+          "explain": "One completed past event → als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Immer ___ ich ihn sah, lachte er.",
+          "options": [
+            "wenn",
+            "als",
+            "ob"
+          ],
+          "answer": 0,
+          "explain": "Repeated action → wenn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ist vor einem Jahr passiert, ___ ich noch Lotto spielte.",
+          "options": [
+            "als",
+            "wenn",
+            "wann"
+          ],
+          "answer": 0,
+          "explain": "Single past event → als."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ mein Mann die Party organisierte, freute ich mich sehr. (single past event)",
+          "accept": [
+            "Als",
+            "als"
+          ],
+          "explain": "One-time past event → als."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Als ich jung war, hatte ich mehr Zeit.“",
+          "tiles": [
+            "Als",
+            "ich",
+            "jung",
+            "war,",
+            "hatte",
+            "ich",
+            "mehr",
+            "Zeit."
+          ],
+          "explain": "als-clause first (verb last), then main clause with verb in position 2."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wenn ich gestern nach Hause kam, war niemand da.",
+          "answer": 0,
+          "fix": "Als",
+          "explain": "A single completed past event needs als, not wenn."
+        }
+      ]
+    },
+    {
+      "title": "Genitiv-Präpositionen (wegen, während, trotz, außerhalb, innerhalb)",
+      "summary": "These prepositions take the Genitiv case.",
+      "rule": "wegen, während, trotz, außerhalb and innerhalb are followed by the Genitiv: der/das → des (+s on the noun), die → der, plural → der. e.g. wegen des Wetters, während der Woche, trotz des Regens.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ meines Berufs habe ich wenig Zeit.",
+          "options": [
+            "Wegen",
+            "Weil",
+            "Denn"
+          ],
+          "answer": 0,
+          "explain": "wegen + Genitiv (a preposition, unlike weil/denn)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Während ___ Kurses lernen wir viel.",
+          "options": [
+            "des",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "Kurs is masculine → Genitiv des Kurses."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Trotz ___ schlechten Wetters gehen wir spazieren.",
+          "options": [
+            "des",
+            "dem",
+            "das"
+          ],
+          "answer": 0,
+          "explain": "Wetter is neuter → Genitiv des Wetters."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Außerhalb ___ Öffnungszeiten rufen viele Kunden an.",
+          "options": [
+            "der",
+            "den",
+            "die"
+          ],
+          "answer": 0,
+          "explain": "Öffnungszeiten is plural → Genitiv der."
+        },
+        {
+          "kind": "type",
+          "prompt": "Innerhalb ___ Woche melde ich mich. (indefinite article, feminine Genitiv)",
+          "accept": [
+            "einer"
+          ],
+          "explain": "Woche is feminine → Genitiv einer Woche."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wegen dem Regen bleiben wir zu Hause.",
+          "answer": 1,
+          "fix": "des",
+          "explain": "wegen takes the Genitiv → wegen des Regens."
+        }
+      ]
+    },
+    {
+      "title": "Verben & Ausdrücke mit „es“",
+      "summary": "Fixed expressions where „es“ is the subject.",
+      "rule": "Many expressions keep es as a fixed subject: es gibt (+ Akkusativ), es geht um, weather verbs (es regnet, es ist kalt), and evaluations es ist wichtig/leicht/schwierig …, zu + Infinitiv. Also idioms like es lohnt sich.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ gibt hier ein gutes Restaurant.",
+          "options": [
+            "Es",
+            "Das",
+            "Er"
+          ],
+          "answer": 0,
+          "explain": "Fixed expression: es gibt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "In dem Text ___ es um Mehrsprachigkeit.",
+          "options": [
+            "geht",
+            "ist",
+            "gibt"
+          ],
+          "answer": 0,
+          "explain": "es geht um = to be about."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ist nicht leicht, aber es ___ sich.",
+          "options": [
+            "lohnt",
+            "geht",
+            "gibt"
+          ],
+          "answer": 0,
+          "explain": "Idiom: es lohnt sich = it's worth it."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ regnet heute den ganzen Tag. (subject pronoun)",
+          "accept": [
+            "Es",
+            "es"
+          ],
+          "explain": "Weather verbs take es as subject."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which is correct?",
+          "options": [
+            "Es ist wichtig, gesund zu essen.",
+            "Ist wichtig, gesund zu essen.",
+            "Gibt ein Problem."
+          ],
+          "answer": 0,
+          "explain": "The es-subject cannot be dropped."
+        },
+        {
+          "kind": "error",
+          "prompt": "Es gibt einen Problem mit der Rechnung.",
+          "answer": 2,
+          "fix": "ein",
+          "explain": "es gibt + Akkusativ; Problem is neuter → ein Problem."
+        }
+      ]
+    },
+    {
+      "title": "statt / ohne … zu + Infinitiv",
+      "summary": "„ohne … zu“ = without doing; „(an)statt … zu“ = instead of doing.",
+      "rule": "With the same subject, use ohne … zu + Infinitiv (without doing) and (an)statt … zu + Infinitiv (instead of doing). The zu + Infinitiv stands at the end of the clause. e.g. Er ging weg, ohne sich zu verabschieden.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Er ging weg, ___ sich zu verabschieden.",
+          "options": [
+            "ohne",
+            "statt",
+            "um"
+          ],
+          "answer": 0,
+          "explain": "without doing → ohne … zu."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ zu arbeiten, träumt er nur.",
+          "options": [
+            "Statt",
+            "Ohne",
+            "Um"
+          ],
+          "answer": 0,
+          "explain": "instead of doing → statt … zu."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Man sollte etwas tun, ___ nur zu träumen.",
+          "options": [
+            "statt",
+            "ohne",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "instead of only dreaming → statt … zu."
+        },
+        {
+          "kind": "type",
+          "prompt": "Sie ging, ___ ein Wort zu sagen. (without)",
+          "accept": [
+            "ohne"
+          ],
+          "explain": "without doing → ohne … zu."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Er kaufte das Auto, ohne es zu testen.“",
+          "tiles": [
+            "Er",
+            "kaufte",
+            "das",
+            "Auto,",
+            "ohne",
+            "es",
+            "zu",
+            "testen."
+          ],
+          "explain": "Main clause, then ohne … zu + Infinitiv at the end."
+        },
+        {
+          "kind": "error",
+          "prompt": "Er ging weg, ohne sich zu verabschiedet.",
+          "answer": 6,
+          "fix": "verabschieden",
+          "explain": "After zu you need the Infinitiv, not the participle."
+        }
+      ]
+    },
+    {
+      "title": "Konjunktiv II der Vergangenheit (irreale Wünsche)",
+      "summary": "hätte/wäre + Partizip II for the unreal past.",
+      "rule": "Form the past Konjunktiv II with hätte or wäre + Partizip II. Use it for unreal past conditions (Wenn ich Zeit gehabt hätte, wäre ich gekommen) and for regrets/wishes (Hätte ich bloß nichts gesagt!). Motion/change verbs take wäre.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ ich das bloß gewusst!",
+          "options": [
+            "Hätte",
+            "Habe",
+            "Würde"
+          ],
+          "answer": 0,
+          "explain": "Regret about the past → hätte + Partizip II."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wäre ich früher ___, hätte ich den Zug bekommen.",
+          "options": [
+            "gegangen",
+            "gehen",
+            "ging"
+          ],
+          "answer": 0,
+          "explain": "gehen is a motion verb → wäre gegangen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hätte ich mehr Zeit ___, wäre ich gekommen.",
+          "options": [
+            "gehabt",
+            "haben",
+            "hätte"
+          ],
+          "answer": 0,
+          "explain": "haben → hätte + gehabt."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich wäre gern früher nach Hause ___. (gehen, Partizip II)",
+          "accept": [
+            "gegangen"
+          ],
+          "explain": "Motion verb → wäre gegangen."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Hätte ich bloß nichts gesagt!“",
+          "tiles": [
+            "Hätte",
+            "ich",
+            "bloß",
+            "nichts",
+            "gesagt!"
+          ],
+          "explain": "Irrealer Wunsch: hätte in position 1, Partizip II at the end."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wenn ich Zeit gehabt hätte, würde ich gekommen.",
+          "answer": 5,
+          "fix": "wäre",
+          "explain": "Past unreal with a motion verb → wäre ich gekommen (not würde)."
         }
       ]
     }
