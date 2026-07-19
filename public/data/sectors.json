@@ -2461,5 +2461,61 @@
       "B1"
     ],
     "group": "Home & Daily Life"
+  },
+  {
+    "name": "Arbeit & Kollegen",
+    "count": 5,
+    "levels": [
+      "B1"
+    ],
+    "group": "Work & Economy"
+  },
+  {
+    "name": "Digitale Welt & Technik",
+    "count": 9,
+    "levels": [
+      "B1"
+    ],
+    "group": "Tech & Science"
+  },
+  {
+    "name": "Werbung & Konsum",
+    "count": 8,
+    "levels": [
+      "B1"
+    ],
+    "group": "Work & Economy"
+  },
+  {
+    "name": "Regeln & Umgangsformen",
+    "count": 6,
+    "levels": [
+      "B1"
+    ],
+    "group": "Society & Politics"
+  },
+  {
+    "name": "Soziales Engagement",
+    "count": 9,
+    "levels": [
+      "B1"
+    ],
+    "group": "Society & Politics"
+  },
+  {
+    "name": "Politik & Geschichte",
+    "count": 4,
+    "levels": [
+      "B1"
+    ],
+    "group": "Society & Politics"
+  },
+  {
+    "name": "Heimat & Europa",
+    "count": 10,
+    "levels": [
+      "B1"
+    ],
+    "group": "Society & Politics"
   }
 ]

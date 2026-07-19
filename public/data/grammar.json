@@ -3695,6 +3695,36 @@
           ],
           "answer": 0,
           "explain": "entweder … oder …"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Tee soll ___ lecker als auch gesund sein.",
+          "options": [
+            "sowohl",
+            "weder",
+            "entweder"
+          ],
+          "answer": 0,
+          "explain": "sowohl … als auch = both … and."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Tee ist ___ lecker noch gesund.",
+          "options": [
+            "weder",
+            "sowohl",
+            "zwar"
+          ],
+          "answer": 0,
+          "explain": "weder … noch = neither … nor."
+        },
+        {
+          "kind": "type",
+          "prompt": "Er spricht sowohl Deutsch ___ auch Englisch. (sowohl … ___ auch)",
+          "accept": [
+            "als"
+          ],
+          "explain": "sowohl … als auch."
         }
       ]
     },
@@ -4558,6 +4588,36 @@
           "answer": 6,
           "fix": "verabschieden",
           "explain": "After zu you need the Infinitiv, not the participle."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie können mitmachen, ___ Sie Mitglied sind.",
+          "options": [
+            "ohne dass",
+            "ohne",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "Different subject inside → ohne dass + finite verb."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ging weg, ohne ___ er etwas sagte.",
+          "options": [
+            "dass",
+            "zu",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "ohne dass introduces a full clause."
+        },
+        {
+          "kind": "type",
+          "prompt": "Man kann helfen, ohne ___ man Mitglied ist. (subordinator after ohne)",
+          "accept": [
+            "dass"
+          ],
+          "explain": "ohne dass + clause when the subject differs."
         }
       ]
     },
@@ -4625,6 +4685,802 @@
           "answer": 5,
           "fix": "wäre",
           "explain": "Past unreal with a motion verb → wäre ich gekommen (not würde)."
+        }
+      ]
+    },
+    {
+      "title": "Konjunktion: falls",
+      "summary": "„falls“ = wenn, introduces a possible condition.",
+      "rule": "falls means if / in case and introduces a condition (like wenn). It is subordinating, so the verb goes to the end: Wir sind jetzt per Du, falls dich das interessiert.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ich helfe dir, ___ du Zeit hast.",
+          "options": [
+            "falls",
+            "dass",
+            "als"
+          ],
+          "answer": 0,
+          "explain": "Condition → falls (= wenn)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ es regnet, bleiben wir zu Hause.",
+          "options": [
+            "Falls",
+            "Ob",
+            "Als"
+          ],
+          "answer": 0,
+          "explain": "Condition at the front → Falls."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir sind jetzt per Du, ___ dich das interessiert.",
+          "options": [
+            "falls",
+            "weil",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "Condition → falls."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ du Hilfe brauchst, ruf mich an. (condition = wenn)",
+          "accept": [
+            "Falls",
+            "falls"
+          ],
+          "explain": "falls = wenn."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Ich komme später, falls ich Zeit habe.“",
+          "tiles": [
+            "Ich",
+            "komme",
+            "später,",
+            "falls",
+            "ich",
+            "Zeit",
+            "habe."
+          ],
+          "explain": "Main clause, then falls-clause with the verb at the end."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wir duzen uns, dass du das möchtest.",
+          "answer": 3,
+          "fix": "falls",
+          "explain": "A condition needs falls (or wenn), not dass."
+        }
+      ]
+    },
+    {
+      "title": "Zweiteilige Konjunktion: je … desto/umso",
+      "summary": "Two comparatives: je + Komparativ …, desto/umso + Komparativ.",
+      "rule": "je + comparative (verb at the end), then desto or umso + comparative + verb + subject: Je länger man wartet, desto/umso schlechter wird die Stimmung.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Je länger man wartet, ___ schlechter wird die Stimmung.",
+          "options": [
+            "desto",
+            "als",
+            "so"
+          ],
+          "answer": 0,
+          "explain": "je …, desto + comparative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ mehr Berufserfahrung man hat, desto höher wird das Gehalt.",
+          "options": [
+            "Je",
+            "Desto",
+            "Wie"
+          ],
+          "answer": 0,
+          "explain": "The first clause starts with je."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Je besser ein Team zusammenarbeitet, ___ erfolgreicher ist es.",
+          "options": [
+            "umso",
+            "als",
+            "wie"
+          ],
+          "answer": 0,
+          "explain": "desto = umso."
+        },
+        {
+          "kind": "type",
+          "prompt": "Je länger du am Computer sitzt, ___ müder werden deine Augen. (desto or umso)",
+          "accept": [
+            "desto",
+            "umso"
+          ],
+          "explain": "desto/umso + comparative."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Je mehr ich lerne, desto besser verstehe ich.“",
+          "tiles": [
+            "Je",
+            "mehr",
+            "ich",
+            "lerne,",
+            "desto",
+            "besser",
+            "verstehe",
+            "ich."
+          ],
+          "explain": "je-clause (verb last), then desto + comparative + verb + subject."
+        },
+        {
+          "kind": "error",
+          "prompt": "Je mehr man übt, desto gut wird man.",
+          "answer": 5,
+          "fix": "besser",
+          "explain": "After desto you need a comparative → besser."
+        }
+      ]
+    },
+    {
+      "title": "Adjektive als Nomen (der/die Bekannte)",
+      "summary": "Adjectives used as nouns: der/die Bekannte, ein Bekannter.",
+      "rule": "Adjectives can become nouns (capitalised) and still take adjective endings: der Bekannte / ein Bekannter, die Bekannte, die Bekannten. Also der/die Deutsche, Jugendliche, Erwachsene, Angestellte.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Das ist ein ___ von mir. (male acquaintance)",
+          "options": [
+            "Bekannter",
+            "Bekannte",
+            "Bekannten"
+          ],
+          "answer": 0,
+          "explain": "ein + masc → ein Bekannter."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe die ___ gestern getroffen. (female acquaintance)",
+          "options": [
+            "Bekannte",
+            "Bekannten",
+            "Bekannter"
+          ],
+          "answer": 0,
+          "explain": "die + fem (Akk) → die Bekannte."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hilft dem ___. (male, Dativ)",
+          "options": [
+            "Bekannten",
+            "Bekannte",
+            "Bekannter"
+          ],
+          "answer": 0,
+          "explain": "dem + masc Dativ → dem Bekannten."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ein Jugendlicher und ein ___ sprechen. (erwachsen → nominalised, ein-word, masc.)",
+          "accept": [
+            "Erwachsener"
+          ],
+          "explain": "ein + adjective-noun, masc → Erwachsener."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which is correct?",
+          "options": [
+            "die/der Deutsche",
+            "die/der Deutscher",
+            "die/der Deutschen"
+          ],
+          "answer": 0,
+          "explain": "deutsch → die/der Deutsche."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich kenne die Bekannter von dir.",
+          "answer": 3,
+          "fix": "Bekannte",
+          "explain": "die + fem (Akk) → die Bekannte."
+        }
+      ]
+    },
+    {
+      "title": "n-Deklination",
+      "summary": "Some masculine nouns add -(e)n in all cases but the nominative.",
+      "rule": "Weak masculine nouns take -(e)n in accusative, dative and genitive: der Kollege → den/dem Kollegen. Also der Mensch, Nachbar, Praktikant, Herr (den Herrn), Junge, Kunde, Student, Name.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe den ___. (Kollege)",
+          "options": [
+            "Kollegen",
+            "Kollege",
+            "Kolleg"
+          ],
+          "answer": 0,
+          "explain": "Accusative → den Kollegen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich helfe dem ___. (Nachbar)",
+          "options": [
+            "Nachbarn",
+            "Nachbar",
+            "Nachbars"
+          ],
+          "answer": 0,
+          "explain": "Dative → dem Nachbarn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Kennst du den ___? (Student)",
+          "options": [
+            "Studenten",
+            "Student",
+            "Studente"
+          ],
+          "answer": 0,
+          "explain": "Accusative → den Studenten."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich spreche mit dem ___. (Praktikant, Dativ)",
+          "accept": [
+            "Praktikanten"
+          ],
+          "explain": "n-Deklination → dem Praktikanten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der ___ ist nett. (Kollege, Nominativ)",
+          "options": [
+            "Kollege",
+            "Kollegen",
+            "Kollegs"
+          ],
+          "answer": 0,
+          "explain": "Nominative singular keeps the base form: der Kollege."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich frage den Herr.",
+          "answer": 2,
+          "fix": "Herrn",
+          "explain": "n-Deklination: den Herrn (Herr adds -n)."
+        }
+      ]
+    },
+    {
+      "title": "Relativsätze mit Präpositionen, wo & was",
+      "summary": "Preposition + relative pronoun; wo for places, was after das/etwas.",
+      "rule": "The relative pronoun takes the case of its preposition: von dem/der/denen. Use wo for places (die Stadt, wo …) and was after das, nichts, etwas, alles or a whole clause (Das, was du suchst …).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ist das der Kollege, von ___ du erzählt hast?",
+          "options": [
+            "dem",
+            "den",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "von + Dativ, masc → von dem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ist das die Bekannte, von ___ du erzählt hast?",
+          "options": [
+            "der",
+            "dem",
+            "denen"
+          ],
+          "answer": 0,
+          "explain": "von + Dativ, fem → von der."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sind das die Kollegen, von ___ du erzählt hast?",
+          "options": [
+            "denen",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "von + Dativ, plural → von denen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist die Stadt, ___ ich geboren bin.",
+          "options": [
+            "wo",
+            "die",
+            "wohin"
+          ],
+          "answer": 0,
+          "explain": "Place → wo."
+        },
+        {
+          "kind": "type",
+          "prompt": "Das, ___ du suchst, findest du hier. (relative pronoun after „das“)",
+          "accept": [
+            "was"
+          ],
+          "explain": "After das/etwas/nichts → was."
+        },
+        {
+          "kind": "error",
+          "prompt": "Das ist der Mann, von den ich erzählt habe.",
+          "answer": 5,
+          "fix": "dem",
+          "explain": "von + Dativ, masc → von dem."
+        }
+      ]
+    },
+    {
+      "title": "Konjunktion: als ob (irreal)",
+      "summary": "„als ob“ + Konjunktiv II = as if.",
+      "rule": "als ob expresses something unreal (as if). The verb is Konjunktiv II and goes to the end: Du tust so, als ob ich keine Ahnung hätte. / Er sieht aus, als ob er krank wäre.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Du tust so, als ob du alles ___.",
+          "options": [
+            "wüsstest",
+            "weißt",
+            "wusstest"
+          ],
+          "answer": 0,
+          "explain": "als ob + Konjunktiv II → wüsstest."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er sieht aus, als ob er krank ___.",
+          "options": [
+            "wäre",
+            "ist",
+            "war"
+          ],
+          "answer": 0,
+          "explain": "als ob + Konjunktiv II → wäre."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie tut so, ___ ob sie keine Zeit hätte.",
+          "options": [
+            "als",
+            "wenn",
+            "dass"
+          ],
+          "answer": 0,
+          "explain": "The conjunction is als ob."
+        },
+        {
+          "kind": "type",
+          "prompt": "Du tust so, als ob ich keine Ahnung ___. (haben, Konjunktiv II)",
+          "accept": [
+            "hätte"
+          ],
+          "explain": "als ob + Konjunktiv II → hätte."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Er tut so, als ob er reich wäre.“",
+          "tiles": [
+            "Er",
+            "tut",
+            "so,",
+            "als",
+            "ob",
+            "er",
+            "reich",
+            "wäre."
+          ],
+          "explain": "Main clause, then als ob + Konjunktiv II at the end."
+        },
+        {
+          "kind": "error",
+          "prompt": "Sie tut so, als ob sie alles weiß.",
+          "answer": 7,
+          "fix": "wüsste",
+          "explain": "als ob needs Konjunktiv II → wüsste."
+        }
+      ]
+    },
+    {
+      "title": "Temporale Konjunktionen: während, bis, seit/seitdem",
+      "summary": "while / until / since — subordinating, verb to the end.",
+      "rule": "während = while (at the same time), bis = until, seit/seitdem = since (a point in the past that still holds). All send the verb to the end: Ich bin Mitglied, seit ich 16 bin.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "___ ich das Programm herunterlade, suchst du die Datei.",
+          "options": [
+            "Während",
+            "Bis",
+            "Seit"
+          ],
+          "answer": 0,
+          "explain": "Simultaneous → während."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich warte, ___ die Schule wieder anfängt.",
+          "options": [
+            "bis",
+            "während",
+            "seit"
+          ],
+          "answer": 0,
+          "explain": "Up to a point → bis."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin Mitglied, ___ ich 16 bin.",
+          "options": [
+            "seit",
+            "bis",
+            "während"
+          ],
+          "answer": 0,
+          "explain": "Point in the past until now → seit."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich in Berlin wohne, geht es mir gut.",
+          "options": [
+            "Seitdem",
+            "Bis",
+            "Während"
+          ],
+          "answer": 0,
+          "explain": "Since then → seitdem."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wir bleiben hier, ___ es aufhört zu regnen. (until)",
+          "accept": [
+            "bis"
+          ],
+          "explain": "Up to a point → bis."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich bin Mitglied, während ich 16 bin.",
+          "answer": 3,
+          "fix": "seit",
+          "explain": "„since I was 16“ = a point in the past onward → seit."
+        }
+      ]
+    },
+    {
+      "title": "Konjunktionen: da (kausal) & indem",
+      "summary": "da = weil (reason); indem = by doing (method).",
+      "rule": "da gives a reason (like weil), often a known one and often at the front: Da ich spät dran bin, … . indem says by which means: Sie können helfen, indem Sie Geld spenden. Both send the verb to the end.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ich wollte schnell los, ___ ich spät dran bin.",
+          "options": [
+            "da",
+            "indem",
+            "bis"
+          ],
+          "answer": 0,
+          "explain": "Reason → da (= weil)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ es schon spät war, bin ich gegangen.",
+          "options": [
+            "Da",
+            "Indem",
+            "Bis"
+          ],
+          "answer": 0,
+          "explain": "Reason at the front → Da."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie können helfen, ___ Sie Geld spenden.",
+          "options": [
+            "indem",
+            "da",
+            "seit"
+          ],
+          "answer": 0,
+          "explain": "By which means → indem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Man lernt eine Sprache, ___ man jeden Tag übt.",
+          "options": [
+            "indem",
+            "da",
+            "falls"
+          ],
+          "answer": 0,
+          "explain": "Method → indem."
+        },
+        {
+          "kind": "type",
+          "prompt": "___ ich krank bin, bleibe ich zu Hause. (reason = weil)",
+          "accept": [
+            "Da",
+            "da"
+          ],
+          "explain": "Reason → da."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich bleibe zu Hause, indem ich krank bin.",
+          "answer": 4,
+          "fix": "da",
+          "explain": "This is a reason, so use da (weil), not indem."
+        }
+      ]
+    },
+    {
+      "title": "Partizip Präsens als Adjektiv",
+      "summary": "Infinitiv + d, then decline: wohltun → der wohltuende Tee.",
+      "rule": "Form the present participle with Infinitiv + d (wohltun → wohltuend, hupen → hupend). Used before a noun it takes normal adjective endings: der wohltuende Tee, ein hupendes Auto, die leuchtenden Schuhe.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Der ___ Tee schmeckt gut. (wohltun)",
+          "options": [
+            "wohltuende",
+            "wohltuend",
+            "wohlgetan"
+          ],
+          "answer": 0,
+          "explain": "der + participle-adjective → wohltuende."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ein ___ Auto fuhr vorbei. (hupen)",
+          "options": [
+            "hupendes",
+            "hupende",
+            "gehupt"
+          ],
+          "answer": 0,
+          "explain": "ein + neuter → hupendes."
+        },
+        {
+          "kind": "type",
+          "prompt": "Das ___ Kind ist süß. (schlafen → present participle, das + adjective)",
+          "accept": [
+            "schlafende"
+          ],
+          "explain": "schlafen + d → schlafend, + ending → schlafende."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat ___ Schuhe. (leuchten)",
+          "options": [
+            "leuchtende",
+            "leuchtend",
+            "geleuchtet"
+          ],
+          "answer": 0,
+          "explain": "plural → leuchtende Schuhe."
+        },
+        {
+          "kind": "mc",
+          "prompt": "How do you form the present participle of „sprechen“?",
+          "options": [
+            "sprechend",
+            "gesprochen",
+            "sprechen"
+          ],
+          "answer": 0,
+          "explain": "Infinitiv + d → sprechend."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich mag den wohltuend Tee.",
+          "answer": 3,
+          "fix": "wohltuenden",
+          "explain": "After den (Akk. masc.) the adjective needs -en → wohltuenden."
+        }
+      ]
+    },
+    {
+      "title": "Passiv Perfekt & Präteritum",
+      "summary": "wurde + Partizip II; ist + Partizip II + worden.",
+      "rule": "Passiv Präteritum: wurde + Partizip II (Sie wurde gewählt). Passiv Perfekt: sein + Partizip II + worden (1975 ist ein Verein gegründet worden) — note worden, not geworden.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ zur Bürgermeisterin gewählt.",
+          "options": [
+            "wurde",
+            "wird",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "Passiv Präteritum → wurde gewählt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "1975 ist ein Verein gegründet ___.",
+          "options": [
+            "worden",
+            "geworden",
+            "gewesen"
+          ],
+          "answer": 0,
+          "explain": "Passiv Perfekt → … gegründet worden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Haus ___ 1990 gebaut. (Passiv Präteritum)",
+          "options": [
+            "wurde",
+            "hat",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "wurde + Partizip II."
+        },
+        {
+          "kind": "type",
+          "prompt": "Der Brief ist gestern geschrieben ___. (Passiv Perfekt)",
+          "accept": [
+            "worden"
+          ],
+          "explain": "Passiv Perfekt ends in worden."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Die Mauer wurde 1989 geöffnet.“",
+          "tiles": [
+            "Die",
+            "Mauer",
+            "wurde",
+            "1989",
+            "geöffnet."
+          ],
+          "explain": "Passiv Präteritum: wurde + Partizip II."
+        },
+        {
+          "kind": "error",
+          "prompt": "Der Verein ist 1975 gegründet geworden.",
+          "answer": 5,
+          "fix": "worden",
+          "explain": "Passiv Perfekt uses worden, not geworden."
+        }
+      ]
+    },
+    {
+      "title": "Präposition: außer + Dativ",
+      "summary": "„außer“ (except) takes the Dativ.",
+      "rule": "außer means except and is followed by the Dativ: alle außer meiner Schwester (= everyone but my sister); außer dem Kollegen war niemand da.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Alle ___ meiner Schwester kommen.",
+          "options": [
+            "außer",
+            "ohne",
+            "statt"
+          ],
+          "answer": 0,
+          "explain": "except → außer + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Außer ___ Kollegen war niemand da.",
+          "options": [
+            "dem",
+            "den",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "außer + Dativ, masc → dem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich mag alle außer ___ Nachbarn.",
+          "options": [
+            "dem",
+            "den",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "außer + Dativ, masc → dem."
+        },
+        {
+          "kind": "type",
+          "prompt": "Außer ___ Mutter weiß es niemand. (meine → Dativ, feminine)",
+          "accept": [
+            "meiner"
+          ],
+          "explain": "außer + Dativ, fem → meiner."
+        },
+        {
+          "kind": "error",
+          "prompt": "Außer meinen Bruder komme ich allein.",
+          "answer": 1,
+          "fix": "meinem",
+          "explain": "außer + Dativ, masc → meinem Bruder."
+        }
+      ]
+    },
+    {
+      "title": "Wortbildung: Komposita (Nomen)",
+      "summary": "Compound nouns take the gender of the last noun.",
+      "rule": "Compounds combine words; the last noun decides the gender: das Volk + das Fest → das Volksfest (sometimes with a linking -s). Types: Nomen+Nomen, Adjektiv+Nomen (Weißwurst), Verb+Nomen (Bratwurst).",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "das Volk + das Fest = ___",
+          "options": [
+            "das Volksfest",
+            "der Volksfest",
+            "die Volksfest"
+          ],
+          "answer": 0,
+          "explain": "Gender from the last noun (Fest = das)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "der Garten + die Tür = ___",
+          "options": [
+            "die Gartentür",
+            "der Gartentür",
+            "das Gartentür"
+          ],
+          "answer": 0,
+          "explain": "Gender from Tür (die)."
+        },
+        {
+          "kind": "type",
+          "prompt": "weiß + die Wurst = die ___ (compound noun)",
+          "accept": [
+            "Weißwurst"
+          ],
+          "explain": "Adjective + noun → die Weißwurst."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Where does „das Betriebsklima“ get its gender?",
+          "options": [
+            "Klima (das)",
+            "Betrieb (der)",
+            "neither"
+          ],
+          "answer": 0,
+          "explain": "The last noun decides: Klima → das."
+        },
+        {
+          "kind": "choose",
+          "prompt": "braten + die Wurst = ___",
+          "options": [
+            "die Bratwurst",
+            "der Bratwurst",
+            "das Bratwurst"
+          ],
+          "answer": 0,
+          "explain": "Gender from Wurst (die)."
+        },
+        {
+          "kind": "error",
+          "prompt": "der Oktober + das Fest = der Oktoberfest",
+          "answer": 6,
+          "fix": "das",
+          "explain": "Gender comes from the last noun Fest → das Oktoberfest."
         }
       ]
     }
