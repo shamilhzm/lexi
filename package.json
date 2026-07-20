@@ -20,7 +20,9 @@
     "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
     "corpus:flags": "node scripts/corpus/flags.ts",
-    "corpus:selftest": "node scripts/corpus/selftest.ts"
+    "corpus:selftest": "node scripts/corpus/selftest.ts",
+    "corpus:enrich": "node scripts/corpus/enrich-fields.ts",
+    "corpus:polish": "node scripts/corpus/polish-llm.ts"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.14",
