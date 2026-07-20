@@ -1,6 +1,8 @@
 // Lexi service worker — offline-first. Precaches the shell; caches hashed assets
-// and the lexicon JSON on first fetch (cache-first). Bump CACHE to invalidate.
-const CACHE = 'lexi-v5';
+// (cache-first, safe because filenames are content-hashed) and the lexicon JSON
+// (network-first, so data updates are picked up without a cache bump). Bump
+// CACHE to invalidate everything.
+const CACHE = 'lexi-v6';
 const CORE = [
   './', './index.html', './manifest.webmanifest',
   './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png',
@@ -28,7 +30,22 @@ self.addEventListener('fetch', (e) => {
     return;
   }
 
-  // Assets + data: cache-first, then network (and cache the result).
+  // Lexicon data: network-first so content updates apply immediately; fall back
+  // to cache when offline. (Prevents a stale cached lexicon from sticking.)
+  if (new URL(req.url).pathname.includes('/data/')) {
+    e.respondWith(
+      fetch(req).then((res) => {
+        if (res.ok && res.type === 'basic') {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+        }
+        return res;
+      }).catch(() => caches.match(req)),
+    );
+    return;
+  }
+
+  // Hashed assets + shell: cache-first, then network (and cache the result).
   e.respondWith(
     caches.match(req).then((hit) =>
       hit || fetch(req).then((res) => {

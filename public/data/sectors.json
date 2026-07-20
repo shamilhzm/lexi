@@ -51,16 +51,8 @@
     "group": "Arts, Media & Leisure"
   },
   {
-    "name": "Filme & Festivals",
-    "count": 1,
-    "levels": [
-      "A2"
-    ],
-    "group": "Arts, Media & Leisure"
-  },
-  {
     "name": "Films & festivals",
-    "count": 13,
+    "count": 14,
     "levels": [
       "A2",
       "B1"
@@ -134,7 +126,7 @@
     "group": "Arts, Media & Leisure"
   },
   {
-    "name": "Literatur & Film",
+    "name": "Literature & Film",
     "count": 10,
     "levels": [
       "B2"
@@ -175,7 +167,7 @@
     "group": "Arts, Media & Leisure"
   },
   {
-    "name": "Musik & Theater",
+    "name": "Music & Theatre",
     "count": 11,
     "levels": [
       "B2"
@@ -291,7 +283,7 @@
     "group": "Education & Language"
   },
   {
-    "name": "Energie & Ressourcen",
+    "name": "Energy & Resources",
     "count": 9,
     "levels": [
       "B2"
@@ -331,7 +323,7 @@
     "group": "Education & Language"
   },
   {
-    "name": "Konnotation & Register",
+    "name": "Connotation & Register",
     "count": 3,
     "levels": [
       "C2"
@@ -468,7 +460,7 @@
   },
   {
     "name": "School",
-    "count": 8,
+    "count": 9,
     "levels": [
       "A2"
     ],
@@ -565,7 +557,7 @@
   },
   {
     "name": "Family",
-    "count": 17,
+    "count": 20,
     "levels": [
       "A1",
       "A2",
@@ -626,7 +618,7 @@
   },
   {
     "name": "Food & drink",
-    "count": 92,
+    "count": 93,
     "levels": [
       "A1",
       "A2",
@@ -654,7 +646,7 @@
     "group": "Food & Drink"
   },
   {
-    "name": "Restaurant & Essen",
+    "name": "Restaurant & Dining",
     "count": 6,
     "levels": [
       "A1"
@@ -721,7 +713,7 @@
   },
   {
     "name": "Doctor & patient",
-    "count": 3,
+    "count": 4,
     "levels": [
       "A2"
     ],
@@ -813,16 +805,8 @@
     "group": "Health & Body"
   },
   {
-    "name": "Wassersport",
-    "count": 1,
-    "levels": [
-      "A2"
-    ],
-    "group": "Health & Body"
-  },
-  {
     "name": "Water sports",
-    "count": 2,
+    "count": 3,
     "levels": [
       "A2"
     ],
@@ -1106,15 +1090,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Arzt & Apotheke",
-    "count": 1,
-    "levels": [
-      "A2"
-    ],
-    "group": "Miscellaneous"
-  },
-  {
-    "name": "Arzt & Patient",
+    "name": "Doctor & Pharmacy",
     "count": 1,
     "levels": [
       "A2"
@@ -1139,15 +1115,15 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Aus- & Einwandern",
-    "count": 2,
+    "name": "Emigration & immigration",
+    "count": 11,
     "levels": [
       "B1"
     ],
     "group": "Miscellaneous"
   },
   {
-    "name": "Bankautomat",
+    "name": "Cash Machine",
     "count": 2,
     "levels": [
       "A2"
@@ -1155,7 +1131,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Berufsalltag",
+    "name": "Working Life",
     "count": 15,
     "levels": [
       "B2"
@@ -1171,7 +1147,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Bildende Kunst",
+    "name": "Visual Arts",
     "count": 13,
     "levels": [
       "B2"
@@ -1179,24 +1155,8 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Einkaufen & Mengen",
+    "name": "Shopping & Quantities",
     "count": 2,
-    "levels": [
-      "A1"
-    ],
-    "group": "Miscellaneous"
-  },
-  {
-    "name": "Essen & Trinken",
-    "count": 1,
-    "levels": [
-      "A1"
-    ],
-    "group": "Miscellaneous"
-  },
-  {
-    "name": "Familie",
-    "count": 3,
     "levels": [
       "A1"
     ],
@@ -1211,15 +1171,15 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Geschichte Berlins",
-    "count": 1,
+    "name": "History of Berlin",
+    "count": 16,
     "levels": [
       "B1"
     ],
     "group": "Miscellaneous"
   },
   {
-    "name": "Geschmack & Urteil",
+    "name": "Taste & Judgement",
     "count": 4,
     "levels": [
       "C2"
@@ -1235,7 +1195,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Grenze & Pendeln",
+    "name": "Border & Commuting",
     "count": 1,
     "levels": [
       "B1"
@@ -1243,7 +1203,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Grenzen des Wissens",
+    "name": "Limits of Knowledge",
     "count": 3,
     "levels": [
       "C2"
@@ -1251,7 +1211,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Hochschule & Studium",
+    "name": "Higher Education",
     "count": 1,
     "levels": [
       "B1"
@@ -1259,7 +1219,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Immobilien & Umzug",
+    "name": "Real Estate & Moving",
     "count": 20,
     "levels": [
       "B1",
@@ -1277,7 +1237,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Kontakt & Kommunikation",
+    "name": "Contact & Communication",
     "count": 2,
     "levels": [
       "B1"
@@ -1293,7 +1253,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Materialien",
+    "name": "Materials",
     "count": 1,
     "levels": [
       "A1"
@@ -1314,7 +1274,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Monate & Jahreszeiten",
+    "name": "Months & Seasons",
     "count": 1,
     "levels": [
       "A1"
@@ -1322,7 +1282,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Moralische Urteile",
+    "name": "Moral Judgements",
     "count": 2,
     "levels": [
       "C2"
@@ -1330,8 +1290,8 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Pflege & Arzt",
-    "count": 1,
+    "name": "Care & doctor",
+    "count": 3,
     "levels": [
       "A2"
     ],
@@ -1346,15 +1306,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Schule",
-    "count": 1,
-    "levels": [
-      "A2"
-    ],
-    "group": "Miscellaneous"
-  },
-  {
-    "name": "Soziale Netzwerke",
+    "name": "Social Networks",
     "count": 11,
     "levels": [
       "B2"
@@ -1362,7 +1314,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Studium",
+    "name": "Studies",
     "count": 1,
     "levels": [
       "A2"
@@ -1386,7 +1338,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Uni & Termine",
+    "name": "University & Appointments",
     "count": 2,
     "levels": [
       "A1"
@@ -1394,7 +1346,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Unterwegs & Kommunikation",
+    "name": "Getting Around & Communication",
     "count": 8,
     "levels": [
       "B2"
@@ -1410,7 +1362,7 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Vertrag & Stelle",
+    "name": "Contract & Position",
     "count": 1,
     "levels": [
       "B1"
@@ -1426,15 +1378,15 @@
     "group": "Miscellaneous"
   },
   {
-    "name": "Wahlen",
-    "count": 1,
+    "name": "Elections",
+    "count": 17,
     "levels": [
       "B1"
     ],
     "group": "Miscellaneous"
   },
   {
-    "name": "Waschen",
+    "name": "Laundry",
     "count": 2,
     "levels": [
       "A1"
@@ -1685,22 +1637,6 @@
     "group": "Society & Politics"
   },
   {
-    "name": "Elections",
-    "count": 16,
-    "levels": [
-      "B1"
-    ],
-    "group": "Society & Politics"
-  },
-  {
-    "name": "Emigration & immigration",
-    "count": 9,
-    "levels": [
-      "B1"
-    ],
-    "group": "Society & Politics"
-  },
-  {
     "name": "Ethical Concepts",
     "count": 2,
     "levels": [
@@ -1721,14 +1657,6 @@
     "count": 8,
     "levels": [
       "C1"
-    ],
-    "group": "Society & Politics"
-  },
-  {
-    "name": "History of Berlin",
-    "count": 15,
-    "levels": [
-      "B1"
     ],
     "group": "Society & Politics"
   },
@@ -1912,7 +1840,7 @@
     "group": "Tech & Science"
   },
   {
-    "name": "Digitale Transformation",
+    "name": "Digital Transformation",
     "count": 10,
     "levels": [
       "C1"
@@ -1920,7 +1848,7 @@
     "group": "Tech & Science"
   },
   {
-    "name": "KI & Technik",
+    "name": "AI & Technology",
     "count": 12,
     "levels": [
       "B2",
@@ -1955,16 +1883,8 @@
     "group": "Tech & Science"
   },
   {
-    "name": "Technik",
-    "count": 2,
-    "levels": [
-      "B1"
-    ],
-    "group": "Tech & Science"
-  },
-  {
     "name": "Technology",
-    "count": 33,
+    "count": 35,
     "levels": [
       "A2",
       "B1",
@@ -1994,14 +1914,6 @@
   {
     "name": "Around Town",
     "count": 3,
-    "levels": [
-      "A2"
-    ],
-    "group": "Travel & Transport"
-  },
-  {
-    "name": "Care & doctor",
-    "count": 2,
     "levels": [
       "A2"
     ],
@@ -2407,7 +2319,7 @@
     "group": "Work & Economy"
   },
   {
-    "name": "Alltagsglück & Unfall",
+    "name": "Everyday Luck & Accidents",
     "count": 7,
     "levels": [
       "B1"
@@ -2415,7 +2327,7 @@
     "group": "Feelings & Relationships"
   },
   {
-    "name": "Unterhaltung & Medien",
+    "name": "Entertainment & Media",
     "count": 7,
     "levels": [
       "B1"
@@ -2423,7 +2335,7 @@
     "group": "Arts, Media & Leisure"
   },
   {
-    "name": "Gesundheitsvorsorge",
+    "name": "Health & Prevention",
     "count": 9,
     "levels": [
       "B1"
@@ -2431,7 +2343,7 @@
     "group": "Health & Body"
   },
   {
-    "name": "Sprachen & Mehrsprachigkeit",
+    "name": "Languages & Multilingualism",
     "count": 6,
     "levels": [
       "B1"
@@ -2439,7 +2351,7 @@
     "group": "Education & Language"
   },
   {
-    "name": "Bewerbung & Jobsuche",
+    "name": "Applying for Jobs",
     "count": 6,
     "levels": [
       "B1"
@@ -2447,7 +2359,7 @@
     "group": "Work & Economy"
   },
   {
-    "name": "Dienstleistung & Reklamation",
+    "name": "Services & Complaints",
     "count": 9,
     "levels": [
       "B1"
@@ -2455,7 +2367,7 @@
     "group": "Work & Economy"
   },
   {
-    "name": "Zusammenleben & Wohnen",
+    "name": "Living Together & Housing",
     "count": 10,
     "levels": [
       "B1"
@@ -2463,7 +2375,7 @@
     "group": "Home & Daily Life"
   },
   {
-    "name": "Arbeit & Kollegen",
+    "name": "Work & Colleagues",
     "count": 5,
     "levels": [
       "B1"
@@ -2471,7 +2383,7 @@
     "group": "Work & Economy"
   },
   {
-    "name": "Digitale Welt & Technik",
+    "name": "Digital World & Technology",
     "count": 9,
     "levels": [
       "B1"
@@ -2479,7 +2391,7 @@
     "group": "Tech & Science"
   },
   {
-    "name": "Werbung & Konsum",
+    "name": "Advertising & Consumption",
     "count": 8,
     "levels": [
       "B1"
@@ -2487,7 +2399,7 @@
     "group": "Work & Economy"
   },
   {
-    "name": "Regeln & Umgangsformen",
+    "name": "Rules & Etiquette",
     "count": 6,
     "levels": [
       "B1"
@@ -2495,7 +2407,7 @@
     "group": "Society & Politics"
   },
   {
-    "name": "Soziales Engagement",
+    "name": "Social Engagement",
     "count": 9,
     "levels": [
       "B1"
@@ -2503,7 +2415,7 @@
     "group": "Society & Politics"
   },
   {
-    "name": "Politik & Geschichte",
+    "name": "Politics & History",
     "count": 4,
     "levels": [
       "B1"
@@ -2511,7 +2423,7 @@
     "group": "Society & Politics"
   },
   {
-    "name": "Heimat & Europa",
+    "name": "Home & Europe",
     "count": 10,
     "levels": [
       "B1"
@@ -2519,7 +2431,7 @@
     "group": "Society & Politics"
   },
   {
-    "name": "Wochenende & Veranstaltungen",
+    "name": "Weekend & Events",
     "count": 8,
     "levels": [
       "A2"
@@ -2527,7 +2439,7 @@
     "group": "Arts, Media & Leisure"
   },
   {
-    "name": "Gegenstände & Materialien",
+    "name": "Objects & Materials",
     "count": 7,
     "levels": [
       "A2"
@@ -2535,7 +2447,7 @@
     "group": "Shopping & Clothing"
   },
   {
-    "name": "Post & Kommunikation",
+    "name": "Post & Communication",
     "count": 9,
     "levels": [
       "A2"
@@ -2543,7 +2455,7 @@
     "group": "Society & Politics"
   },
   {
-    "name": "Unterwegs & Wetter",
+    "name": "Getting Around & Weather",
     "count": 7,
     "levels": [
       "A2"
@@ -2551,7 +2463,7 @@
     "group": "Travel & Transport"
   },
   {
-    "name": "Bank & Geld",
+    "name": "Bank & Money",
     "count": 3,
     "levels": [
       "A2"
@@ -2559,7 +2471,7 @@
     "group": "Work & Economy"
   },
   {
-    "name": "Lebensstationen",
+    "name": "Life Stages",
     "count": 7,
     "levels": [
       "A2"
@@ -2567,7 +2479,7 @@
     "group": "Feelings & Relationships"
   },
   {
-    "name": "Prüfungswortschatz A1",
+    "name": "Exam Vocabulary A1",
     "count": 22,
     "levels": [
       "A1"
@@ -2575,10 +2487,18 @@
     "group": "Language Building Blocks"
   },
   {
-    "name": "Prüfungswortschatz A2",
+    "name": "Exam Vocabulary A2",
     "count": 35,
     "levels": [
       "A2"
+    ],
+    "group": "Language Building Blocks"
+  },
+  {
+    "name": "Exam Vocabulary B1",
+    "count": 37,
+    "levels": [
+      "B1"
     ],
     "group": "Language Building Blocks"
   }

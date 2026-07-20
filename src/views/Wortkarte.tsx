@@ -7,6 +7,7 @@ import { WORDS_BY_SECTOR, SECTORS } from '../data/index.ts';
 import { statusOf } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
+import { iconForSector } from '../lib/icons.ts';
 import type { Target } from '../types.ts';
 
 const STATUS_COLOR: Record<string, string> = { new: '#5b6573', learning: '#38cde8', known: '#16c784' };
@@ -62,8 +63,9 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
 
         <g>
           <circle cx={hub.x} cy={hub.y} r={44} fill="#0f2230" stroke="#38cde8" strokeWidth={1.5} />
-          <text x={hub.x} y={hub.y - 2} textAnchor="middle" fill="#38cde8" fontSize={12} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
-          <text x={hub.x} y={hub.y + 14} textAnchor="middle" fill="#8b97a7" fontSize={10} fontFamily="monospace">{nodes.length} words</text>
+          <text x={hub.x} y={hub.y - 14} textAnchor="middle" fontSize={20}>{iconForSector(sel)}</text>
+          <text x={hub.x} y={hub.y + 6} textAnchor="middle" fill="#38cde8" fontSize={12} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
+          <text x={hub.x} y={hub.y + 20} textAnchor="middle" fill="#8b97a7" fontSize={10} fontFamily="monospace">{nodes.length} words</text>
         </g>
 
         {nodes.map((n) => {
