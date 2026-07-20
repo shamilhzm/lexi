@@ -1,0 +1,1238 @@
+[
+{
+"id": "voc:A1:die Toilette",
+"term": "die Toilette",
+"en": "toilet",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Toiletten",
+"ex_de": [
+"Wo ist die Toilette?"
+]
+}
+},
+{
+"id": "voc:A1:die Miete",
+"term": "die Miete",
+"en": "rent",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Mieten",
+"ex_de": [
+"Die Miete ist hoch."
+]
+}
+},
+{
+"id": "voc:A1:liegen",
+"term": "liegen",
+"en": "to lie, to be located",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Buch liegt auf dem Tisch."
+]
+}
+},
+{
+"id": "voc:A1:laufen",
+"term": "laufen",
+"en": "to run, to walk",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Kind läuft schnell."
+]
+}
+},
+{
+"id": "voc:A1:fliegen",
+"term": "fliegen",
+"en": "to fly",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Vogel fliegt."
+]
+}
+},
+{
+"id": "voc:A1:fragen",
+"term": "fragen",
+"en": "to ask",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich frage den Lehrer."
+]
+}
+},
+{
+"id": "voc:A1:antworten",
+"term": "antworten",
+"en": "to answer, to reply",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Bitte antworte mir."
+]
+}
+},
+{
+"id": "voc:A1:kennen",
+"term": "kennen",
+"en": "to know (be familiar with)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Kennst du diesen Mann?"
+]
+}
+},
+{
+"id": "voc:A1:sollen",
+"term": "sollen",
+"en": "should, to be supposed to",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Was soll ich machen?"
+]
+}
+},
+{
+"id": "voc:A1:müssen",
+"term": "müssen",
+"en": "must, to have to",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich muss jetzt gehen."
+]
+}
+},
+{
+"id": "voc:A1:treffen",
+"term": "treffen",
+"en": "to meet",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich treffe einen Freund."
+]
+}
+},
+{
+"id": "voc:A1:waschen",
+"term": "waschen",
+"en": "to wash",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich wasche meine Hände."
+]
+}
+},
+{
+"id": "voc:A1:tragen",
+"term": "tragen",
+"en": "to carry; to wear",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich trage eine Jacke."
+]
+}
+},
+{
+"id": "voc:A1:warten",
+"term": "warten",
+"en": "to wait",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich warte auf den Bus."
+]
+}
+},
+{
+"id": "voc:A1:vergessen",
+"term": "vergessen",
+"en": "to forget",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich habe den Schlüssel vergessen."
+]
+}
+},
+{
+"id": "voc:A1:leer",
+"term": "leer",
+"en": "empty",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Die Flasche ist leer."
+]
+}
+},
+{
+"id": "voc:A1:sauber",
+"term": "sauber",
+"en": "clean",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Zimmer ist sauber."
+]
+}
+},
+{
+"id": "voc:A1:dunkel",
+"term": "dunkel",
+"en": "dark",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es ist dunkel."
+]
+}
+},
+{
+"id": "voc:A1:hell",
+"term": "hell",
+"en": "bright, light",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Zimmer ist hell."
+]
+}
+},
+{
+"id": "voc:A1:ruhig",
+"term": "ruhig",
+"en": "calm, quiet",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Straße ist ruhig."
+]
+}
+},
+{
+"id": "voc:A1:offen",
+"term": "offen",
+"en": "open",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das Fenster ist offen."
+]
+}
+},
+{
+"id": "voc:A1:traurig",
+"term": "traurig",
+"en": "sad",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin traurig."
+]
+}
+},
+{
+"id": "voc:A1:hungrig",
+"term": "hungrig",
+"en": "hungry",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin hungrig."
+]
+}
+},
+{
+"id": "voc:A1:interessant",
+"term": "interessant",
+"en": "interesting",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Buch ist interessant."
+]
+}
+},
+{
+"id": "voc:A1:die Kirche",
+"term": "die Kirche",
+"en": "church",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kirchen",
+"ex_de": [
+"Die Kirche ist alt."
+]
+}
+},
+{
+"id": "voc:A1:das Theater",
+"term": "das Theater",
+"en": "theatre",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Theater",
+"ex_de": [
+"Das Theater ist groß."
+]
+}
+},
+{
+"id": "voc:A1:die Bibliothek",
+"term": "die Bibliothek",
+"en": "library",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Bibliotheken",
+"ex_de": [
+"Die Bibliothek ist ruhig."
+]
+}
+},
+{
+"id": "voc:A1:das Schwimmbad",
+"term": "das Schwimmbad",
+"en": "swimming pool",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Schwimmbäder",
+"ex_de": [
+"Das Schwimmbad ist offen."
+]
+}
+},
+{
+"id": "voc:A1:die Apotheke",
+"term": "die Apotheke",
+"en": "pharmacy",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Apotheken",
+"ex_de": [
+"Wo ist die Apotheke?"
+]
+}
+},
+{
+"id": "voc:A1:der Urlaub",
+"term": "der Urlaub",
+"en": "holiday, vacation",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Urlaube",
+"ex_de": [
+"Ich fahre in Urlaub."
+]
+}
+},
+{
+"id": "voc:A1:das Schiff",
+"term": "das Schiff",
+"en": "ship",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Schiffe",
+"ex_de": [
+"Das Schiff ist groß."
+]
+}
+},
+{
+"id": "voc:A1:die Firma",
+"term": "die Firma",
+"en": "company, firm",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Firmen",
+"ex_de": [
+"Die Firma ist groß."
+]
+}
+},
+{
+"id": "voc:A1:die Pause",
+"term": "die Pause",
+"en": "break, pause",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Pausen",
+"ex_de": [
+"Wir machen eine Pause."
+]
+}
+},
+{
+"id": "voc:A1:der Unterricht",
+"term": "der Unterricht",
+"en": "lessons, instruction",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Der Unterricht beginnt um acht."
+]
+}
+},
+{
+"id": "voc:A1:der Satz",
+"term": "der Satz",
+"en": "sentence",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Sätze",
+"ex_de": [
+"Der Satz ist kurz."
+]
+}
+},
+{
+"id": "voc:A1:der Stift",
+"term": "der Stift",
+"en": "pen, pencil",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Stifte",
+"ex_de": [
+"Der Stift ist blau."
+]
+}
+},
+{
+"id": "voc:A1:das Telefon",
+"term": "das Telefon",
+"en": "telephone",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Telefone",
+"ex_de": [
+"Das Telefon klingelt."
+]
+}
+},
+{
+"id": "voc:A1:der Brief",
+"term": "der Brief",
+"en": "letter",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Briefe",
+"ex_de": [
+"Ich schreibe einen Brief."
+]
+}
+},
+{
+"id": "voc:A1:die Zeitung",
+"term": "die Zeitung",
+"en": "newspaper",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Zeitungen",
+"ex_de": [
+"Ich lese die Zeitung."
+]
+}
+},
+{
+"id": "voc:A1:das Internet",
+"term": "das Internet",
+"en": "internet",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "nur Singular",
+"ex_de": [
+"Ich suche im Internet."
+]
+}
+},
+{
+"id": "voc:A1:der Film",
+"term": "der Film",
+"en": "film, movie",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Filme",
+"ex_de": [
+"Der Film ist gut."
+]
+}
+},
+{
+"id": "voc:A1:die Idee",
+"term": "die Idee",
+"en": "idea",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Ideen",
+"ex_de": [
+"Das ist eine gute Idee!"
+]
+}
+},
+{
+"id": "voc:A1:der Vogel",
+"term": "der Vogel",
+"en": "bird",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Vögel",
+"ex_de": [
+"Der Vogel singt."
+]
+}
+},
+{
+"id": "voc:A1:der Wald",
+"term": "der Wald",
+"en": "forest, wood",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Wälder",
+"ex_de": [
+"Der Wald ist groß."
+]
+}
+},
+{
+"id": "voc:A1:der Fluss",
+"term": "der Fluss",
+"en": "river",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Flüsse",
+"ex_de": [
+"Der Fluss ist lang."
+]
+}
+},
+{
+"id": "voc:A1:der Himmel",
+"term": "der Himmel",
+"en": "sky",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Himmel",
+"ex_de": [
+"Der Himmel ist blau."
+]
+}
+},
+{
+"id": "voc:A1:dann",
+"term": "dann",
+"en": "then",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Erst esse ich, dann gehe ich."
+]
+}
+},
+{
+"id": "voc:A1:leider",
+"term": "leider",
+"en": "unfortunately",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich habe leider keine Zeit."
+]
+}
+},
+{
+"id": "voc:A1:links",
+"term": "links",
+"en": "left, on the left",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Haus ist links."
+]
+}
+},
+{
+"id": "voc:A1:rechts",
+"term": "rechts",
+"en": "right, on the right",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Apotheke ist rechts."
+]
+}
+},
+{
+"id": "voc:A1:die Erdbeere",
+"term": "die Erdbeere",
+"en": "strawberry",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Erdbeeren",
+"ex_de": [
+"Erdbeeren sind rot."
+]
+}
+},
+{
+"id": "voc:A1:die Karotte",
+"term": "die Karotte",
+"en": "carrot",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Karotten",
+"ex_de": [
+"Das Kaninchen frisst eine Karotte."
+]
+}
+},
+{
+"id": "voc:A1:die Wurst",
+"term": "die Wurst",
+"en": "sausage",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Würste",
+"ex_de": [
+"Ich esse Brot mit Wurst."
+]
+}
+},
+{
+"id": "voc:A1:der Thunfisch",
+"term": "der Thunfisch",
+"en": "tuna",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Ich mag Pizza mit Thunfisch."
+]
+}
+},
+{
+"id": "voc:A1:der Joghurt",
+"term": "der Joghurt",
+"en": "yoghurt",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Joghurts",
+"ex_de": [
+"Zum Frühstück esse ich Joghurt."
+]
+}
+},
+{
+"id": "voc:A1:die Marmelade",
+"term": "die Marmelade",
+"en": "jam",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Marmeladen",
+"ex_de": [
+"Ich mag Brot mit Marmelade."
+]
+}
+},
+{
+"id": "voc:A1:der Orangensaft",
+"term": "der Orangensaft",
+"en": "orange juice",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Orangensäfte",
+"ex_de": [
+"Ich trinke ein Glas Orangensaft."
+]
+}
+},
+{
+"id": "voc:A1:der Becher",
+"term": "der Becher",
+"en": "cup, tub",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Becher",
+"ex_de": [
+"Ein Becher Joghurt, bitte."
+]
+}
+},
+{
+"id": "voc:A1:das Gramm",
+"term": "das Gramm",
+"en": "gram",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "nur Singular",
+"ex_de": [
+"Hundert Gramm Käse, bitte."
+]
+}
+},
+{
+"id": "voc:A1:die Lebensmittel",
+"term": "die Lebensmittel",
+"en": "groceries, food",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Plural",
+"ex_de": [
+"Ich kaufe Lebensmittel im Supermarkt."
+]
+}
+},
+{
+"id": "voc:A1:der Einkaufszettel",
+"term": "der Einkaufszettel",
+"en": "shopping list",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Einkaufszettel",
+"ex_de": [
+"Ich schreibe einen Einkaufszettel."
+]
+}
+},
+{
+"id": "voc:A1:vegetarisch",
+"term": "vegetarisch",
+"en": "vegetarian",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich esse vegetarisch."
+]
+}
+},
+{
+"id": "voc:A1:das Kleidungsstück",
+"term": "das Kleidungsstück",
+"en": "item of clothing",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Kleidungsstücke",
+"ex_de": [
+"Welches Kleidungsstück suchst du?"
+]
+}
+},
+{
+"id": "voc:A1:das Sweatshirt",
+"term": "das Sweatshirt",
+"en": "sweatshirt",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Sweatshirts",
+"ex_de": [
+"Ich ziehe ein Sweatshirt an."
+]
+}
+},
+{
+"id": "voc:A1:die Weste",
+"term": "die Weste",
+"en": "vest, waistcoat",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Westen",
+"ex_de": [
+"Er trägt eine schwarze Weste."
+]
+}
+},
+{
+"id": "voc:A1:der Badeanzug",
+"term": "der Badeanzug",
+"en": "swimsuit",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Badeanzüge",
+"ex_de": [
+"Ich packe meinen Badeanzug ein."
+]
+}
+},
+{
+"id": "voc:A1:die Bluse",
+"term": "die Bluse",
+"en": "blouse",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Blusen",
+"ex_de": [
+"Sie trägt eine weiße Bluse."
+]
+}
+},
+{
+"id": "voc:A1:die Socke",
+"term": "die Socke",
+"en": "sock",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Socken",
+"ex_de": [
+"Ich brauche warme Socken."
+]
+}
+},
+{
+"id": "voc:A1:der Gürtel",
+"term": "der Gürtel",
+"en": "belt",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Gürtel",
+"ex_de": [
+"Der Gürtel ist aus Leder."
+]
+}
+},
+{
+"id": "voc:A1:der Hut",
+"term": "der Hut",
+"en": "hat",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Hüte",
+"ex_de": [
+"Er trägt einen schwarzen Hut."
+]
+}
+},
+{
+"id": "voc:A1:beige",
+"term": "beige",
+"en": "beige",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Hose ist beige."
+]
+}
+},
+{
+"id": "voc:A1:rosa",
+"term": "rosa",
+"en": "pink",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Baby trägt etwas Rosa."
+]
+}
+},
+{
+"id": "voc:A1:das Leder",
+"term": "das Leder",
+"en": "leather",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "nur Singular",
+"ex_de": [
+"Die Schuhe sind aus Leder."
+]
+}
+},
+{
+"id": "voc:A1:die Wolle",
+"term": "die Wolle",
+"en": "wool",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Singular",
+"ex_de": [
+"Der Pullover ist aus Wolle."
+]
+}
+},
+{
+"id": "voc:A1:die Baumwolle",
+"term": "die Baumwolle",
+"en": "cotton",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Singular",
+"ex_de": [
+"Das T-Shirt ist aus Baumwolle."
+]
+}
+}
+]

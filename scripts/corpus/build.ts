@@ -7,7 +7,6 @@
 //   npm run corpus:build                 # dry run → writes review artefacts to data/out/
 //   npm run corpus:build -- --write      # actually update public/data/*
 //   npm run corpus:build -- --level=A1 --limit=300 --write   # one reviewable batch
-//   npm run corpus:build -- --llm --write                    # use the offline LLM layer
 import './shim.ts';
 import { join } from 'node:path';
 import { PATHS, SOURCES, LEVEL_TARGETS } from './config.ts';
@@ -22,7 +21,6 @@ import { attachTatoebaExamples, type Candidate, type TatEx } from './sources/tat
 import { loadReference, assignLevel, type LevelAssignment } from './level.ts';
 import { indexSectors, resolveField, rebuildSectors, loadSectorReference, posDefaultSector } from './sectors.ts';
 import { buildCard, type CardInput } from './normalize.ts';
-import { loadAiConfig, llmEnrich, type LlmSuggestion } from './enrich-llm.ts';
 
 export interface BuildOpts {
   vocabPath: string;
@@ -38,8 +36,6 @@ export interface BuildOpts {
   scanN?: number;            // how many top frequency forms to scan for gaps
   limit?: number;            // cap total cards added this run
   onlyLevel?: string;        // restrict this batch to one CEFR level
-  useLlm?: boolean;          // enable the offline LLM leveling/sector layer
-  llmCap?: number;           // max (most-frequent) candidates to send to the LLM
   referenceOnly?: boolean;   // only add lemmas with a curated reference level (no freq fallback)
   dumpOnly?: boolean;        // write candidates.tsv and stop (for external/manual leveling)
   requireExample?: boolean;  // drop cards with no translated example (default true)
@@ -118,20 +114,6 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
       addedByLevel: Object.fromEntries(LEVELS.map((l) => [l, 0])), skips: {}, targetsRemaining: {} };
   }
 
-  // 3) Optional offline LLM layer for level + sector.
-  let llm = new Map<string, LlmSuggestion>();
-  if (opts.useLlm) {
-    const cfg = loadAiConfig();
-    if (!cfg) console.warn('  --llm set but no key found (openrouter.key.local / OPENROUTER_KEY); skipping LLM layer');
-    else {
-      // Candidates are frequency-ordered, so the most-frequent slice is where the
-      // fillable A1/A2 words are — cap the LLM there to bound cost/rate limits.
-      const pool = cands.slice(0, opts.llmCap ?? 1500);
-      console.log(`  llm leveling ${pool.length} of ${cands.length} candidates…`);
-      llm = await llmEnrich(pool.map((c) => ({ key: c.key, lemma: c.lemma, pos: c.le.pos, gloss: c.le.gloss })), cfg, [...sIndex.fields]);
-    }
-  }
-
   // 4) Attach Tatoeba examples in one pass (falls back to Wiktextract examples).
   let tat = new Map<string, TatEx[]>();
   if (opts.tatoeba && fileExists(opts.tatoeba.de) && fileExists(opts.tatoeba.en) && fileExists(opts.tatoeba.links)) {
@@ -152,15 +134,13 @@ export async function runBuild(opts: BuildOpts): Promise<BuildSummary> {
 
   for (const c of cands) {
     if (opts.limit && added.length >= opts.limit) break;
-    // Merge level layers: reference > llm > frequency.
-    let level = c.lvl.level, levelSource = c.lvl.source;
-    const sug = llm.get(c.key);
-    if (c.lvl.source !== 'reference' && sug?.level) { level = sug.level; levelSource = 'llm'; }
+    // Merge level layers: reference > frequency.
+    const level = c.lvl.level, levelSource = c.lvl.source;
     if (opts.referenceOnly && levelSource !== 'reference') { bump('not-in-reference'); continue; }
     if (opts.onlyLevel && level !== opts.onlyLevel) { bump('other-level'); continue; }
     if (remaining[level] <= 0) { bump('level-full'); continue; }
 
-    const field = resolveField(sIndex, sectorRef.get(lemmaKey(c.lemma)) ?? sug?.field ?? posDefaultSector(c.le.pos));
+    const field = resolveField(sIndex, sectorRef.get(lemmaKey(c.lemma)) ?? posDefaultSector(c.le.pos));
     const tatExs = tat.get(c.key) ?? [];
     const examples = tatExs.length
       ? tatExs.map((e) => ({ de: e.de, en: e.en, source: `tatoeba:${e.id}` }))
@@ -253,8 +233,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     sectorRefPath: PATHS.sectorReference,
     limit: opt('limit') ? parseInt(opt('limit')!, 10) : undefined,
     onlyLevel: opt('level'),
-    useLlm: flag('llm'),
-    llmCap: opt('llm-cap') ? parseInt(opt('llm-cap')!, 10) : undefined,
     referenceOnly: flag('reference-only'),
     dumpOnly: flag('dump-candidates'),
     requireExample: !flag('examples-optional'),

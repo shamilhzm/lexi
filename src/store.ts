@@ -11,7 +11,6 @@ const CARDS_KEY = 'lexi.cards.v1';
 const VISITS_KEY = 'lexi.visits.v1';
 const MISS_KEY = 'lexi.miss.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
-const APIKEY_KEY = 'lexi.apikey.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
 // After a gap, FSRS marks *everything* overdue at once; serving it all in one
@@ -417,35 +416,6 @@ export function addUserWords(words: Word[]): Word[] {
   const added = registerWords(words);
   if (added.length) { persistUserWords(); emit(); }
   return added;
-}
-
-// ---- settings: enrichment API key ----------------------------------------
-export function apiKey(): string { return localStorage.getItem(APIKEY_KEY) || ''; }
-export function setApiKey(k: string) {
-  if (k) localStorage.setItem(APIKEY_KEY, k); else localStorage.removeItem(APIKEY_KEY);
-  emit();
-}
-
-// ---- AI provider (OpenAI-compatible: base URL + model + key) --------------
-const AI_BASE_KEY = 'lexi.ai.base.v1';
-const AI_MODEL_KEY = 'lexi.ai.model.v1';
-// Default to OpenRouter's free, non-Chinese Llama model.
-const DEFAULT_BASE = 'https://openrouter.ai/api/v1';
-const DEFAULT_MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
-
-export interface AiConfig { baseUrl: string; model: string; key: string; }
-export function aiConfig(): AiConfig {
-  return {
-    baseUrl: localStorage.getItem(AI_BASE_KEY) || DEFAULT_BASE,
-    model: localStorage.getItem(AI_MODEL_KEY) || DEFAULT_MODEL,
-    key: apiKey(),
-  };
-}
-export function setAiConfig(c: Partial<AiConfig>) {
-  if (c.baseUrl !== undefined) localStorage.setItem(AI_BASE_KEY, c.baseUrl || DEFAULT_BASE);
-  if (c.model !== undefined) localStorage.setItem(AI_MODEL_KEY, c.model || DEFAULT_MODEL);
-  if (c.key !== undefined) setApiKey(c.key);
-  else emit();
 }
 
 // ---- blind spots (structural error log) ----------------------------------

@@ -1,0 +1,615 @@
+[
+{
+"id": "voc:A1:der Espresso",
+"term": "der Espresso",
+"en": "espresso",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Espressos",
+"ex_de": [
+"Tom trinkt gern Espresso."
+]
+}
+},
+{
+"id": "voc:A1:die Handynummer",
+"term": "die Handynummer",
+"en": "mobile number",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Handynummern",
+"ex_de": [
+"Wie ist deine Handynummer?"
+]
+}
+},
+{
+"id": "voc:A1:die Ingenieurin",
+"term": "die Ingenieurin",
+"en": "engineer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Ingenieurinnen",
+"ex_de": [
+"Die Frau, die ins Freie ging, ist Ingenieurin."
+]
+}
+},
+{
+"id": "voc:A1:kopieren",
+"term": "kopieren",
+"en": "to copy",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Kopieren ist kein Diebstahl."
+]
+}
+},
+{
+"id": "voc:A1:das Menü",
+"term": "das Menü",
+"en": "a set of dishes with few choices to be made, usually consisting of two or more courses",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Menüs",
+"ex_de": [
+"Bitte zeigen Sie mir das Menü."
+]
+}
+},
+{
+"id": "voc:A1:die Nationalität",
+"term": "die Nationalität",
+"en": "nationality",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Nationalitäten",
+"ex_de": [
+"Welche Nationalität hast du?"
+]
+}
+},
+{
+"id": "voc:A1:normal",
+"term": "normal",
+"en": "ordinarily, normally, in a normal fashion",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Atme normal."
+]
+}
+},
+{
+"id": "voc:A1:das Produkt",
+"term": "das Produkt",
+"en": "product",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Produkte",
+"ex_de": [
+"Das Produkt ist gut."
+]
+}
+},
+{
+"id": "voc:A1:die Professorin",
+"term": "die Professorin",
+"en": "female professor",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Professorinnen",
+"ex_de": [
+"Sie ist Professorin."
+]
+}
+},
+{
+"id": "voc:A1:die Schülerin",
+"term": "die Schülerin",
+"en": "schoolgirl, pupil, student",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Schülerinnen",
+"ex_de": [
+"Ich bin Schülerin."
+]
+}
+},
+{
+"id": "voc:A1:das Tablet",
+"term": "das Tablet",
+"en": "tablet",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Tablets",
+"ex_de": [
+"Meine Mutter hat einen Laptop und ein Tablet."
+]
+}
+},
+{
+"id": "voc:A1:die Verkäuferin",
+"term": "die Verkäuferin",
+"en": "seller, vendor",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Verkäuferinnen",
+"ex_de": [
+"Ich bin Verkäuferin."
+]
+}
+},
+{
+"id": "voc:A1:das Ausland",
+"term": "das Ausland",
+"en": "foreign countries",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Er war im Ausland."
+]
+}
+},
+{
+"id": "voc:A1:der Bäcker",
+"term": "der Bäcker",
+"en": "agent noun of backen",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Bäcker",
+"ex_de": [
+"Er ist Bäcker."
+]
+}
+},
+{
+"id": "voc:A1:das Dorf",
+"term": "das Dorf",
+"en": "village",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Dörfer",
+"ex_de": [
+"Ist Riki ein Dorf?"
+]
+}
+},
+{
+"id": "voc:A1:die Kaffeemaschine",
+"term": "die Kaffeemaschine",
+"en": "coffeemaker",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kaffeemaschinen",
+"ex_de": [
+"Die Kaffeemaschine läuft."
+]
+}
+},
+{
+"id": "voc:A1:pink",
+"term": "pink",
+"en": "coloured in a strong shade of pink",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom trägt nie Pink."
+]
+}
+},
+{
+"id": "voc:A1:der Tourist",
+"term": "der Tourist",
+"en": "tourist",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Touristen",
+"ex_de": [
+"Ich bin Tourist."
+]
+}
+},
+{
+"id": "voc:A1:der Hauptbahnhof",
+"term": "der Hauptbahnhof",
+"en": "main railway station",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Hauptbahnhöfe",
+"ex_de": [
+"Der Zug fährt vom Hauptbahnhof ab."
+]
+}
+},
+{
+"id": "voc:A1:das Zugrestaurant",
+"term": "das Zugrestaurant",
+"en": "dining car",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Zugrestaurants",
+"ex_de": [
+"Im Zugrestaurant kann man essen."
+]
+}
+},
+{
+"id": "voc:A1:der Rathausplatz",
+"term": "der Rathausplatz",
+"en": "town hall square",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Rathausplätze",
+"ex_de": [
+"Die Straßenbahn fährt zum Rathausplatz."
+]
+}
+},
+{
+"id": "voc:A1:die Gruppenkarte",
+"term": "die Gruppenkarte",
+"en": "group ticket",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Gruppenkarten",
+"ex_de": [
+"Wir kaufen eine Gruppenkarte."
+]
+}
+},
+{
+"id": "voc:A1:die Probefahrt",
+"term": "die Probefahrt",
+"en": "test drive",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Probefahrten",
+"ex_de": [
+"Machen Sie eine Probefahrt!"
+]
+}
+},
+{
+"id": "voc:A1:der Babysitter",
+"term": "der Babysitter",
+"en": "babysitter",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Babysitter",
+"ex_de": [
+"Wir suchen einen Babysitter."
+]
+}
+},
+{
+"id": "voc:A1:die Kinderbetreuung",
+"term": "die Kinderbetreuung",
+"en": "childcare",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kinderbetreuungen",
+"ex_de": [
+"Die Kinderbetreuung ist am Nachmittag."
+]
+}
+},
+{
+"id": "voc:A1:das Bügeln",
+"term": "das Bügeln",
+"en": "ironing",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich suche Hilfe beim Bügeln."
+]
+}
+},
+{
+"id": "voc:A1:die Aushilfe",
+"term": "die Aushilfe",
+"en": "temporary helper, part-timer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Aushilfen",
+"ex_de": [
+"Wir suchen eine Aushilfe."
+]
+}
+},
+{
+"id": "voc:A1:das Anmeldeformular",
+"term": "das Anmeldeformular",
+"en": "registration form",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Anmeldeformulare",
+"ex_de": [
+"Füllen Sie das Anmeldeformular aus."
+]
+}
+},
+{
+"id": "voc:A1:der Schwimmkurs",
+"term": "der Schwimmkurs",
+"en": "swimming course",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Schwimmkurse",
+"ex_de": [
+"Mein Kind macht einen Schwimmkurs."
+]
+}
+},
+{
+"id": "voc:A1:die Kinokarte",
+"term": "die Kinokarte",
+"en": "cinema ticket",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kinokarten",
+"ex_de": [
+"Wie viel kostet eine Kinokarte?"
+]
+}
+},
+{
+"id": "voc:A1:das Mittagsmenü",
+"term": "das Mittagsmenü",
+"en": "lunch menu, set lunch",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Mittagsmenüs",
+"ex_de": [
+"Das Mittagsmenü kostet 7,50 Euro."
+]
+}
+},
+{
+"id": "voc:A1:die Zimmernummer",
+"term": "die Zimmernummer",
+"en": "room number",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Zimmernummern",
+"ex_de": [
+"Welche Zimmernummer haben Sie?"
+]
+}
+},
+{
+"id": "voc:A1:die Herrenhose",
+"term": "die Herrenhose",
+"en": "men's trousers",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Herrenhosen",
+"ex_de": [
+"Hier kann man Herrenhosen kaufen."
+]
+}
+},
+{
+"id": "voc:A1:die Sommermode",
+"term": "die Sommermode",
+"en": "summer fashion",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die neue Sommermode ist da."
+]
+}
+},
+{
+"id": "voc:A1:die Gartenmöbel",
+"term": "die Gartenmöbel",
+"en": "garden furniture",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die neuen Gartenmöbel sind da."
+]
+}
+},
+{
+"id": "voc:A1:der Gartentisch",
+"term": "der Gartentisch",
+"en": "garden table",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Gartentische",
+"ex_de": [
+"Der Gartentisch ist aus Holz."
+]
+}
+}
+]

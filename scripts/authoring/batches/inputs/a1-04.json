@@ -1,0 +1,1268 @@
+[
+{
+"id": "voc:A1:der Vorname",
+"term": "der Vorname",
+"en": "first name",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Vornamen",
+"ex_de": [
+"Mein Vorname ist Anna."
+]
+}
+},
+{
+"id": "voc:A1:das Studienfach",
+"term": "das Studienfach",
+"en": "subject of study",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Studienfächer",
+"ex_de": [
+"Mein Studienfach ist Biologie."
+]
+}
+},
+{
+"id": "voc:A1:die Hausnummer",
+"term": "die Hausnummer",
+"en": "house number",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Hausnummern",
+"ex_de": [
+"Meine Hausnummer ist zwölf."
+]
+}
+},
+{
+"id": "voc:A1:der Wohnort",
+"term": "der Wohnort",
+"en": "place of residence",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Wohnorte",
+"ex_de": [
+"Mein Wohnort ist Berlin."
+]
+}
+},
+{
+"id": "voc:A1:die E-Mail-Adresse",
+"term": "die E-Mail-Adresse",
+"en": "email address",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die E-Mail-Adressen",
+"ex_de": [
+"Wie ist deine E-Mail-Adresse?"
+]
+}
+},
+{
+"id": "voc:A1:die Uhrzeit",
+"term": "die Uhrzeit",
+"en": "time (of day)",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Uhrzeiten",
+"ex_de": [
+"Welche Uhrzeit haben wir?"
+]
+}
+},
+{
+"id": "voc:A1:der Wochentag",
+"term": "der Wochentag",
+"en": "day of the week",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Wochentage",
+"ex_de": [
+"Welcher Wochentag ist heute?"
+]
+}
+},
+{
+"id": "voc:A1:der Feierabend",
+"term": "der Feierabend",
+"en": "end of the workday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Feierabende",
+"ex_de": [
+"Um fünf Uhr ist Feierabend."
+]
+}
+},
+{
+"id": "voc:A1:das Smartphone",
+"term": "das Smartphone",
+"en": "smartphone",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Smartphones",
+"ex_de": [
+"Mein Smartphone ist neu."
+]
+}
+},
+{
+"id": "voc:A1:die Kamera",
+"term": "die Kamera",
+"en": "camera",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kameras",
+"ex_de": [
+"Ich mache Fotos mit der Kamera."
+]
+}
+},
+{
+"id": "voc:A1:der Akku",
+"term": "der Akku",
+"en": "rechargeable battery",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Akkus",
+"ex_de": [
+"Mein Akku ist leer."
+]
+}
+},
+{
+"id": "voc:A1:der Gast",
+"term": "der Gast",
+"en": "guest",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Gäste",
+"ex_de": [
+"Heute kommen Gäste zu uns."
+]
+}
+},
+{
+"id": "voc:A1:das Mitglied",
+"term": "das Mitglied",
+"en": "member",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Mitglieder",
+"ex_de": [
+"Ich bin Mitglied im Sportverein."
+]
+}
+},
+{
+"id": "voc:A1:der Neffe",
+"term": "der Neffe",
+"en": "nephew",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Neffen",
+"ex_de": [
+"Mein Neffe ist fünf Jahre alt."
+]
+}
+},
+{
+"id": "voc:A1:die Geschwister",
+"term": "die Geschwister",
+"en": "siblings",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Plural",
+"ex_de": [
+"Hast du Geschwister?"
+]
+}
+},
+{
+"id": "voc:A1:die Universität",
+"term": "die Universität",
+"en": "university",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Universitäten",
+"ex_de": [
+"Ich studiere an der Universität."
+]
+}
+},
+{
+"id": "voc:A1:die Großeltern",
+"term": "die Großeltern",
+"en": "grandparents",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Plural",
+"ex_de": [
+"Meine Großeltern wohnen auf dem Land."
+]
+}
+},
+{
+"id": "voc:A1:die Anzeige",
+"term": "die Anzeige",
+"en": "ad; report",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Anzeigen",
+"ex_de": [
+"Ich lese die Anzeigen in der Zeitung."
+]
+}
+},
+{
+"id": "voc:A1:das Wohnheim",
+"term": "das Wohnheim",
+"en": "dormitory, hall of residence",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Wohnheime",
+"ex_de": [
+"Ich wohne im Wohnheim."
+]
+}
+},
+{
+"id": "voc:A1:der Schreibtisch",
+"term": "der Schreibtisch",
+"en": "desk",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Schreibtische",
+"ex_de": [
+"Mein Laptop steht auf dem Schreibtisch."
+]
+}
+},
+{
+"id": "voc:A1:das Museum",
+"term": "das Museum",
+"en": "museum",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Museen",
+"ex_de": [
+"Wir gehen ins Museum."
+]
+}
+},
+{
+"id": "voc:A1:die Richtung",
+"term": "die Richtung",
+"en": "direction",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Richtungen",
+"ex_de": [
+"In welche Richtung muss ich gehen?"
+]
+}
+},
+{
+"id": "voc:A1:buchstabieren",
+"term": "buchstabieren",
+"en": "to spell",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Können Sie das buchstabieren?"
+]
+}
+},
+{
+"id": "voc:A1:schwimmen",
+"term": "schwimmen",
+"en": "to swim",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Im Sommer gehe ich schwimmen."
+]
+}
+},
+{
+"id": "voc:A1:mitmachen",
+"term": "mitmachen",
+"en": "to take part, join in",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Machst du mit?"
+]
+}
+},
+{
+"id": "voc:A1:sich vorstellen",
+"term": "sich vorstellen",
+"en": "to introduce oneself; to imagine",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Darf ich mich vorstellen?"
+]
+}
+},
+{
+"id": "voc:A1:eng",
+"term": "eng",
+"en": "tight, narrow",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Hose ist zu eng."
+]
+}
+},
+{
+"id": "voc:A1:sympathisch",
+"term": "sympathisch",
+"en": "likeable",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Mein neuer Kollege ist sympathisch."
+]
+}
+},
+{
+"id": "voc:A1:der Verkäufer",
+"term": "der Verkäufer",
+"en": "salesperson",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Verkäufer",
+"ex_de": [
+"Der Verkäufer ist freundlich."
+]
+}
+},
+{
+"id": "voc:A1:der Programmierer",
+"term": "der Programmierer",
+"en": "programmer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Programmierer",
+"ex_de": [
+"Er ist Programmierer."
+]
+}
+},
+{
+"id": "voc:A1:der Webentwickler",
+"term": "der Webentwickler",
+"en": "web developer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Webentwickler",
+"ex_de": [
+"Sie arbeitet als Webentwickler."
+]
+}
+},
+{
+"id": "voc:A1:der Informatiker",
+"term": "der Informatiker",
+"en": "computer scientist",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Informatiker",
+"ex_de": [
+"Er ist Informatiker."
+]
+}
+},
+{
+"id": "voc:A1:der Architekt",
+"term": "der Architekt",
+"en": "architect",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Architekten",
+"ex_de": [
+"Der Architekt plant ein Haus."
+]
+}
+},
+{
+"id": "voc:A1:der Zahnarzt",
+"term": "der Zahnarzt",
+"en": "dentist",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Zahnärzte",
+"ex_de": [
+"Ich gehe zum Zahnarzt."
+]
+}
+},
+{
+"id": "voc:A1:der Chemiker",
+"term": "der Chemiker",
+"en": "chemist (scientist)",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Chemiker",
+"ex_de": [
+"Der Chemiker arbeitet im Labor."
+]
+}
+},
+{
+"id": "voc:A1:der Koch",
+"term": "der Koch",
+"en": "cook, chef",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Köche",
+"ex_de": [
+"Der Koch macht das Essen."
+]
+}
+},
+{
+"id": "voc:A1:die WG",
+"term": "die WG",
+"en": "shared flat (Wohngemeinschaft)",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die WGs",
+"ex_de": [
+"Ich wohne in einer WG."
+]
+}
+},
+{
+"id": "voc:A1:die Sprachschule",
+"term": "die Sprachschule",
+"en": "language school",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Sprachschulen",
+"ex_de": [
+"Ich lerne Deutsch an einer Sprachschule."
+]
+}
+},
+{
+"id": "voc:A1:der Intensivkurs",
+"term": "der Intensivkurs",
+"en": "intensive course",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Intensivkurse",
+"ex_de": [
+"Ich mache einen Intensivkurs."
+]
+}
+},
+{
+"id": "voc:A1:die Mensa",
+"term": "die Mensa",
+"en": "university canteen",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Mensen",
+"ex_de": [
+"Mittags esse ich in der Mensa."
+]
+}
+},
+{
+"id": "voc:A1:das Stipendium",
+"term": "das Stipendium",
+"en": "scholarship",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Stipendien",
+"ex_de": [
+"Sie bekommt ein Stipendium."
+]
+}
+},
+{
+"id": "voc:A1:der Stundenplan",
+"term": "der Stundenplan",
+"en": "timetable",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Stundenpläne",
+"ex_de": [
+"Mein Stundenplan ist voll."
+]
+}
+},
+{
+"id": "voc:A1:das Zeitmanagement",
+"term": "das Zeitmanagement",
+"en": "time management",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "nur Singular",
+"ex_de": [
+"Mein Zeitmanagement ist nicht so gut."
+]
+}
+},
+{
+"id": "voc:A1:das Team",
+"term": "das Team",
+"en": "team",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Teams",
+"ex_de": [
+"Ich arbeite in einem Team."
+]
+}
+},
+{
+"id": "voc:A1:jobben",
+"term": "jobben",
+"en": "to work a side job",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich jobbe am Wochenende."
+]
+}
+},
+{
+"id": "voc:A1:telefonieren",
+"term": "telefonieren",
+"en": "to make a phone call",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich telefoniere mit meiner Mutter."
+]
+}
+},
+{
+"id": "voc:A1:frühstücken",
+"term": "frühstücken",
+"en": "to have breakfast",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich frühstücke um acht."
+]
+}
+},
+{
+"id": "voc:A1:planen",
+"term": "planen",
+"en": "to plan",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir planen eine Reise."
+]
+}
+},
+{
+"id": "voc:A1:stressig",
+"term": "stressig",
+"en": "stressful",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Heute war ein stressiger Tag."
+]
+}
+},
+{
+"id": "voc:A1:das Einzelkind",
+"term": "das Einzelkind",
+"en": "only child",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Einzelkinder",
+"ex_de": [
+"Ich bin ein Einzelkind."
+]
+}
+},
+{
+"id": "voc:A1:der Stammbaum",
+"term": "der Stammbaum",
+"en": "family tree",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Stammbäume",
+"ex_de": [
+"Wir machen einen Stammbaum."
+]
+}
+},
+{
+"id": "voc:A1:geschieden",
+"term": "geschieden",
+"en": "divorced",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Meine Eltern sind geschieden."
+]
+}
+},
+{
+"id": "voc:A1:der/die Verwandte",
+"term": "der/die Verwandte",
+"en": "relative",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Verwandten",
+"ex_de": [
+"Wir besuchen unsere Verwandten."
+]
+}
+},
+{
+"id": "voc:A1:das Interesse",
+"term": "das Interesse",
+"en": "interest",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Interessen",
+"ex_de": [
+"Hast du Interesse an Musik?"
+]
+}
+},
+{
+"id": "voc:A1:der Kontakt",
+"term": "der Kontakt",
+"en": "contact",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Kontakte",
+"ex_de": [
+"Wir haben noch Kontakt."
+]
+}
+},
+{
+"id": "voc:A1:das Fitness-Studio",
+"term": "das Fitness-Studio",
+"en": "gym",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Fitness-Studios",
+"ex_de": [
+"Ich gehe ins Fitness-Studio."
+]
+}
+},
+{
+"id": "voc:A1:trainieren",
+"term": "trainieren",
+"en": "to train",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich trainiere dreimal pro Woche."
+]
+}
+},
+{
+"id": "voc:A1:der Muskelkater",
+"term": "der Muskelkater",
+"en": "sore muscles",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Ich habe Muskelkater."
+]
+}
+},
+{
+"id": "voc:A1:der Sieg",
+"term": "der Sieg",
+"en": "victory",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Siege",
+"ex_de": [
+"Wir freuen uns über den Sieg."
+]
+}
+},
+{
+"id": "voc:A1:der Sieger",
+"term": "der Sieger",
+"en": "winner",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Sieger",
+"ex_de": [
+"Der Sieger bekommt einen Pokal."
+]
+}
+},
+{
+"id": "voc:A1:joggen",
+"term": "joggen",
+"en": "to jog",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich jogge im Park."
+]
+}
+},
+{
+"id": "voc:A1:reiten",
+"term": "reiten",
+"en": "to ride (a horse)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie kann gut reiten."
+]
+}
+},
+{
+"id": "voc:A1:tauchen",
+"term": "tauchen",
+"en": "to dive",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Im Urlaub gehe ich tauchen."
+]
+}
+},
+{
+"id": "voc:A1:tanzen",
+"term": "tanzen",
+"en": "to dance",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir tanzen die ganze Nacht."
+]
+}
+},
+{
+"id": "voc:A1:der Bewohner",
+"term": "der Bewohner",
+"en": "resident",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Bewohner",
+"ex_de": [
+"Die Bewohner kennen sich gut."
+]
+}
+},
+{
+"id": "voc:A1:die Untermiete",
+"term": "die Untermiete",
+"en": "subletting",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Singular",
+"ex_de": [
+"Ich wohne zur Untermiete."
+]
+}
+},
+{
+"id": "voc:A1:das Einzelzimmer",
+"term": "das Einzelzimmer",
+"en": "single room",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Einzelzimmer",
+"ex_de": [
+"Ich möchte ein Einzelzimmer."
+]
+}
+},
+{
+"id": "voc:A1:der Quadratmeter",
+"term": "der Quadratmeter",
+"en": "square metre",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Quadratmeter",
+"ex_de": [
+"Die Wohnung hat 60 Quadratmeter."
+]
+}
+},
+{
+"id": "voc:A1:die Kommode",
+"term": "die Kommode",
+"en": "chest of drawers",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kommoden",
+"ex_de": [
+"Die Socken sind in der Kommode."
+]
+}
+},
+{
+"id": "voc:A1:der Geschirrspüler",
+"term": "der Geschirrspüler",
+"en": "dishwasher",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Geschirrspüler",
+"ex_de": [
+"Das Geschirr ist im Geschirrspüler."
+]
+}
+},
+{
+"id": "voc:A1:die Pinnwand",
+"term": "die Pinnwand",
+"en": "pinboard",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Pinnwände",
+"ex_de": [
+"An der Pinnwand hängen Fotos."
+]
+}
+},
+{
+"id": "voc:A1:das Metall",
+"term": "das Metall",
+"en": "metal",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Metalle",
+"ex_de": [
+"Der Löffel ist aus Metall."
+]
+}
+},
+{
+"id": "voc:A1:das Studierendenwohnheim",
+"term": "das Studierendenwohnheim",
+"en": "student hall of residence",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Studierendenwohnheime",
+"ex_de": [
+"Ich wohne im Studierendenwohnheim."
+]
+}
+},
+{
+"id": "voc:A1:der Einkauf",
+"term": "der Einkauf",
+"en": "purchase, shopping",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Einkäufe",
+"ex_de": [
+"Der Einkauf war teuer."
+]
+}
+},
+{
+"id": "voc:A1:die Tasche",
+"term": "die Tasche",
+"en": "bag; pocket",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Taschen",
+"ex_de": [
+"Meine Tasche ist schwer."
+]
+}
+}
+]

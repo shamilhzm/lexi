@@ -1,0 +1,1245 @@
+[
+{
+"id": "voc:A1:schlecht",
+"term": "schlecht",
+"en": "bad",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Wetter ist schlecht."
+]
+}
+},
+{
+"id": "voc:A1:jung",
+"term": "jung",
+"en": "young",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie ist noch jung."
+]
+}
+},
+{
+"id": "voc:A1:kalt",
+"term": "kalt",
+"en": "cold",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Es ist kalt."
+]
+}
+},
+{
+"id": "voc:A1:schnell",
+"term": "schnell",
+"en": "fast, quick",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Auto ist schnell."
+]
+}
+},
+{
+"id": "voc:A1:langsam",
+"term": "langsam",
+"en": "slow",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Bus ist langsam."
+]
+}
+},
+{
+"id": "voc:A1:richtig",
+"term": "richtig",
+"en": "right, correct",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Antwort ist richtig."
+]
+}
+},
+{
+"id": "voc:A1:wichtig",
+"term": "wichtig",
+"en": "important",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das ist wichtig."
+]
+}
+},
+{
+"id": "voc:A1:müde",
+"term": "müde",
+"en": "tired",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin müde."
+]
+}
+},
+{
+"id": "voc:A1:immer",
+"term": "immer",
+"en": "always",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich trinke immer Kaffee."
+]
+}
+},
+{
+"id": "voc:A1:oft",
+"term": "oft",
+"en": "often",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich gehe oft spazieren."
+]
+}
+},
+{
+"id": "voc:A1:gern",
+"term": "gern",
+"en": "gladly, with pleasure",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich trinke gern Tee."
+]
+}
+},
+{
+"id": "voc:A1:wer",
+"term": "wer",
+"en": "who",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wer ist das?"
+]
+}
+},
+{
+"id": "voc:A1:wann",
+"term": "wann",
+"en": "when",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wann kommst du?"
+]
+}
+},
+{
+"id": "voc:A1:wie",
+"term": "wie",
+"en": "how",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Wie geht es dir?"
+]
+}
+},
+{
+"id": "voc:A1:woher",
+"term": "woher",
+"en": "from where",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Woher kommst du?"
+]
+}
+},
+{
+"id": "voc:A1:wohin",
+"term": "wohin",
+"en": "to where, whither",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wohin gehst du?"
+]
+}
+},
+{
+"id": "voc:A1:tschüss",
+"term": "tschüss",
+"en": "bye",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Tschüss, bis morgen!"
+]
+}
+},
+{
+"id": "voc:A1:danke",
+"term": "danke",
+"en": "thank you",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Danke!"
+]
+}
+},
+{
+"id": "voc:A1:fünf",
+"term": "fünf",
+"en": "five",
+"pos": "number",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Eine Hand hat fünf Finger."
+]
+}
+},
+{
+"id": "voc:A1:sechs",
+"term": "sechs",
+"en": "six",
+"pos": "number",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich stehe um sechs Uhr auf."
+]
+}
+},
+{
+"id": "voc:A1:sieben",
+"term": "sieben",
+"en": "seven",
+"pos": "number",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Die Woche hat sieben Tage."
+]
+}
+},
+{
+"id": "voc:A1:neun",
+"term": "neun",
+"en": "nine",
+"pos": "number",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das Geschäft öffnet um neun."
+]
+}
+},
+{
+"id": "voc:A1:der Montag",
+"term": "der Montag",
+"en": "Monday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Montage",
+"ex_de": [
+"Heute ist Montag."
+]
+}
+},
+{
+"id": "voc:A1:der Dienstag",
+"term": "der Dienstag",
+"en": "Tuesday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Dienstage",
+"ex_de": [
+"Morgen ist Dienstag."
+]
+}
+},
+{
+"id": "voc:A1:der Mittwoch",
+"term": "der Mittwoch",
+"en": "Wednesday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Mittwoche",
+"ex_de": [
+"Am Mittwoch habe ich frei."
+]
+}
+},
+{
+"id": "voc:A1:der Donnerstag",
+"term": "der Donnerstag",
+"en": "Thursday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Donnerstage",
+"ex_de": [
+"Donnerstag ist mein Lieblingstag."
+]
+}
+},
+{
+"id": "voc:A1:der Freitag",
+"term": "der Freitag",
+"en": "Friday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Freitage",
+"ex_de": [
+"Am Freitag gehe ich aus."
+]
+}
+},
+{
+"id": "voc:A1:der Samstag",
+"term": "der Samstag",
+"en": "Saturday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Samstage",
+"ex_de": [
+"Am Samstag kaufe ich ein."
+]
+}
+},
+{
+"id": "voc:A1:der Sonntag",
+"term": "der Sonntag",
+"en": "Sunday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Sonntage",
+"ex_de": [
+"Am Sonntag bleibe ich zu Hause."
+]
+}
+},
+{
+"id": "voc:A1:der Februar",
+"term": "der Februar",
+"en": "February",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Der Februar ist kurz."
+]
+}
+},
+{
+"id": "voc:A1:der März",
+"term": "der März",
+"en": "March",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im März beginnt der Frühling."
+]
+}
+},
+{
+"id": "voc:A1:der April",
+"term": "der April",
+"en": "April",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im April regnet es viel."
+]
+}
+},
+{
+"id": "voc:A1:der Mai",
+"term": "der Mai",
+"en": "May",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im Mai blühen die Blumen."
+]
+}
+},
+{
+"id": "voc:A1:der Juni",
+"term": "der Juni",
+"en": "June",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im Juni wird es warm."
+]
+}
+},
+{
+"id": "voc:A1:der Juli",
+"term": "der Juli",
+"en": "July",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im Juli fahren wir in den Urlaub."
+]
+}
+},
+{
+"id": "voc:A1:der September",
+"term": "der September",
+"en": "September",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im September beginnt der Herbst."
+]
+}
+},
+{
+"id": "voc:A1:der Oktober",
+"term": "der Oktober",
+"en": "October",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im Oktober wird es kälter."
+]
+}
+},
+{
+"id": "voc:A1:der November",
+"term": "der November",
+"en": "November",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Der November ist grau."
+]
+}
+},
+{
+"id": "voc:A1:der Dezember",
+"term": "der Dezember",
+"en": "December",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Im Dezember ist Weihnachten."
+]
+}
+},
+{
+"id": "voc:A1:der Sommer",
+"term": "der Sommer",
+"en": "summer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Sommer",
+"ex_de": [
+"Im Sommer ist es heiß."
+]
+}
+},
+{
+"id": "voc:A1:der Herbst",
+"term": "der Herbst",
+"en": "autumn, fall",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Herbste",
+"ex_de": [
+"Im Herbst ist es windig."
+]
+}
+},
+{
+"id": "voc:A1:der Winter",
+"term": "der Winter",
+"en": "winter",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Winter",
+"ex_de": [
+"Im Winter schneit es."
+]
+}
+},
+{
+"id": "voc:A1:grün",
+"term": "grün",
+"en": "green",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Gras ist grün."
+]
+}
+},
+{
+"id": "voc:A1:gelb",
+"term": "gelb",
+"en": "yellow",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Die Sonne ist gelb."
+]
+}
+},
+{
+"id": "voc:A1:schwarz",
+"term": "schwarz",
+"en": "black",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Katze ist schwarz."
+]
+}
+},
+{
+"id": "voc:A1:weiß",
+"term": "weiß",
+"en": "white",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Schnee ist weiß."
+]
+}
+},
+{
+"id": "voc:A1:braun",
+"term": "braun",
+"en": "brown",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Brot ist braun."
+]
+}
+},
+{
+"id": "voc:A1:die Tochter",
+"term": "die Tochter",
+"en": "daughter",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Töchter",
+"ex_de": [
+"Das ist meine Tochter."
+]
+}
+},
+{
+"id": "voc:A1:der Sohn",
+"term": "der Sohn",
+"en": "son",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Söhne",
+"ex_de": [
+"Das ist mein Sohn."
+]
+}
+},
+{
+"id": "voc:A1:die Großmutter",
+"term": "die Großmutter",
+"en": "grandmother",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Großmütter",
+"ex_de": [
+"Meine Großmutter ist achtzig."
+]
+}
+},
+{
+"id": "voc:A1:der Großvater",
+"term": "der Großvater",
+"en": "grandfather",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Großväter",
+"ex_de": [
+"Mein Großvater ist alt."
+]
+}
+},
+{
+"id": "voc:A1:die Tante",
+"term": "die Tante",
+"en": "aunt",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Tanten",
+"ex_de": [
+"Meine Tante wohnt in Köln."
+]
+}
+},
+{
+"id": "voc:A1:der Onkel",
+"term": "der Onkel",
+"en": "uncle",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Onkel",
+"ex_de": [
+"Mein Onkel ist Lehrer."
+]
+}
+},
+{
+"id": "voc:A1:die Leute",
+"term": "die Leute",
+"en": "people",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Plural",
+"ex_de": [
+"Hier sind viele Leute."
+]
+}
+},
+{
+"id": "voc:A1:der Zahn",
+"term": "der Zahn",
+"en": "tooth",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Zähne",
+"ex_de": [
+"Mein Zahn tut weh."
+]
+}
+},
+{
+"id": "voc:A1:das Haar",
+"term": "das Haar",
+"en": "hair",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Haare",
+"ex_de": [
+"Sie hat lange Haare."
+]
+}
+},
+{
+"id": "voc:A1:der Bauch",
+"term": "der Bauch",
+"en": "belly, stomach",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Bäuche",
+"ex_de": [
+"Mein Bauch tut weh."
+]
+}
+},
+{
+"id": "voc:A1:der Rücken",
+"term": "der Rücken",
+"en": "back",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Rücken",
+"ex_de": [
+"Mein Rücken tut weh."
+]
+}
+},
+{
+"id": "voc:A1:der Hals",
+"term": "der Hals",
+"en": "neck, throat",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Hälse",
+"ex_de": [
+"Mein Hals tut weh."
+]
+}
+},
+{
+"id": "voc:A1:die Butter",
+"term": "die Butter",
+"en": "butter",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "nur Singular",
+"ex_de": [
+"Ich nehme Brot mit Butter."
+]
+}
+},
+{
+"id": "voc:A1:der Zucker",
+"term": "der Zucker",
+"en": "sugar",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Nimmst du Zucker?"
+]
+}
+},
+{
+"id": "voc:A1:der Wein",
+"term": "der Wein",
+"en": "wine",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Weine",
+"ex_de": [
+"Möchten Sie ein Glas Wein?"
+]
+}
+},
+{
+"id": "voc:A1:die Banane",
+"term": "die Banane",
+"en": "banana",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Bananen",
+"ex_de": [
+"Die Banane ist gelb."
+]
+}
+},
+{
+"id": "voc:A1:die Zwiebel",
+"term": "die Zwiebel",
+"en": "onion",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Zwiebeln",
+"ex_de": [
+"Die Zwiebel ist scharf."
+]
+}
+},
+{
+"id": "voc:A1:die Nudel",
+"term": "die Nudel",
+"en": "noodle, pasta",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Nudeln",
+"ex_de": [
+"Ich esse gern Nudeln."
+]
+}
+},
+{
+"id": "voc:A1:der Hunger",
+"term": "der Hunger",
+"en": "hunger",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Ich habe Hunger."
+]
+}
+},
+{
+"id": "voc:A1:der Durst",
+"term": "der Durst",
+"en": "thirst",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "nur Singular",
+"ex_de": [
+"Ich habe Durst."
+]
+}
+},
+{
+"id": "voc:A1:das Glas",
+"term": "das Glas",
+"en": "glass",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Gläser",
+"ex_de": [
+"Ich möchte ein Glas Wasser."
+]
+}
+},
+{
+"id": "voc:A1:die Tasse",
+"term": "die Tasse",
+"en": "cup",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Tassen",
+"ex_de": [
+"Eine Tasse Kaffee, bitte."
+]
+}
+},
+{
+"id": "voc:A1:der Teller",
+"term": "der Teller",
+"en": "plate",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Teller",
+"ex_de": [
+"Der Teller ist leer."
+]
+}
+},
+{
+"id": "voc:A1:das Messer",
+"term": "das Messer",
+"en": "knife",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Messer",
+"ex_de": [
+"Das Messer ist scharf."
+]
+}
+},
+{
+"id": "voc:A1:die Gabel",
+"term": "die Gabel",
+"en": "fork",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Gabeln",
+"ex_de": [
+"Ich brauche eine Gabel."
+]
+}
+},
+{
+"id": "voc:A1:der Löffel",
+"term": "der Löffel",
+"en": "spoon",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Löffel",
+"ex_de": [
+"Die Suppe esse ich mit dem Löffel."
+]
+}
+},
+{
+"id": "voc:A1:die Lampe",
+"term": "die Lampe",
+"en": "lamp",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Lampen",
+"ex_de": [
+"Die Lampe ist hell."
+]
+}
+},
+{
+"id": "voc:A1:die Wand",
+"term": "die Wand",
+"en": "wall",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Wände",
+"ex_de": [
+"Die Wand ist weiß."
+]
+}
+}
+]

@@ -1,0 +1,1151 @@
+[
+{
+"id": "voc:A1:die Freundin",
+"term": "die Freundin",
+"en": "friend / girlfriend",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Freundinnen",
+"ex_de": [
+"Sie ist meine beste Freundin."
+]
+}
+},
+{
+"id": "voc:A1:sie",
+"term": "sie",
+"en": "she / they",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Sie heißt Anna."
+]
+}
+},
+{
+"id": "voc:A1:und",
+"term": "und",
+"en": "and",
+"pos": "conjunction",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich spreche Deutsch und Englisch."
+]
+}
+},
+{
+"id": "voc:A1:oder",
+"term": "oder",
+"en": "or",
+"pos": "conjunction",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Möchtest du Tee oder Kaffee?"
+]
+}
+},
+{
+"id": "voc:A1:nicht",
+"term": "nicht",
+"en": "not",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich verstehe das nicht."
+]
+}
+},
+{
+"id": "voc:A1:die Sekunde",
+"term": "die Sekunde",
+"en": "second",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Sekunden",
+"ex_de": [
+"Warte bitte eine Sekunde."
+]
+}
+},
+{
+"id": "voc:A1:der Nachmittag",
+"term": "der Nachmittag",
+"en": "afternoon",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Nachmittage",
+"ex_de": [
+"Am Nachmittag trinken wir Kaffee."
+]
+}
+},
+{
+"id": "voc:A1:die Hälfte",
+"term": "die Hälfte",
+"en": "half",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Hälften",
+"ex_de": [
+"Ich esse nur die Hälfte vom Kuchen."
+]
+}
+},
+{
+"id": "voc:A1:die Mitternacht",
+"term": "die Mitternacht",
+"en": "midnight",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Mitternächte",
+"ex_de": [
+"Um Mitternacht gehen wir nach Hause."
+]
+}
+},
+{
+"id": "voc:A1:der Mittag",
+"term": "der Mittag",
+"en": "midday, noon",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Mittage",
+"ex_de": [
+"Um Mittag machen wir eine Pause."
+]
+}
+},
+{
+"id": "voc:A1:der Werktag",
+"term": "der Werktag",
+"en": "weekday, workday",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Werktage",
+"ex_de": [
+"An Werktagen fährt der Bus alle zehn Minuten."
+]
+}
+},
+{
+"id": "voc:A1:übermorgen",
+"term": "übermorgen",
+"en": "the day after tomorrow",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Übermorgen kommt mein Freund."
+]
+}
+},
+{
+"id": "voc:A1:noch",
+"term": "noch",
+"en": "still, yet",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich schlafe noch."
+]
+}
+},
+{
+"id": "voc:A1:täglich",
+"term": "täglich",
+"en": "daily, every day",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich lerne täglich Deutsch."
+]
+}
+},
+{
+"id": "voc:A1:früh",
+"term": "früh",
+"en": "early",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich stehe früh auf."
+]
+}
+},
+{
+"id": "voc:A1:spät",
+"term": "spät",
+"en": "late",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es ist schon spät."
+]
+}
+},
+{
+"id": "voc:A1:Ihr",
+"term": "Ihr",
+"en": "you (plural)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Kommt ihr heute Abend?"
+]
+}
+},
+{
+"id": "voc:A1:Mein",
+"term": "Mein",
+"en": "my",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das ist mein Buch."
+]
+}
+},
+{
+"id": "voc:A1:Dein",
+"term": "Dein",
+"en": "your (informal)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ist das dein Auto?"
+]
+}
+},
+{
+"id": "voc:A1:Unser",
+"term": "Unser",
+"en": "our",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Unser Haus ist ganz neu."
+]
+}
+},
+{
+"id": "voc:A1:Euer",
+"term": "Euer",
+"en": "your (plural)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wo ist euer Auto?"
+]
+}
+},
+{
+"id": "voc:A1:Dieser",
+"term": "Dieser",
+"en": "this",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Dieser Mann ist mein Lehrer."
+]
+}
+},
+{
+"id": "voc:A1:Jener",
+"term": "Jener",
+"en": "that",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Jener Tag bleibt unvergessen."
+]
+}
+},
+{
+"id": "voc:A1:Sich",
+"term": "Sich",
+"en": "himself / herself / itself / themselves",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das Kind wäscht sich die Hände."
+]
+}
+},
+{
+"id": "voc:A1:Dich",
+"term": "Dich",
+"en": "you (accusative)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich sehe dich morgen."
+]
+}
+},
+{
+"id": "voc:A1:Mich",
+"term": "Mich",
+"en": "me",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Kannst du mich verstehen?"
+]
+}
+},
+{
+"id": "voc:A1:Ihn",
+"term": "Ihn",
+"en": "him (accusative)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich sehe ihn jeden Tag."
+]
+}
+},
+{
+"id": "voc:A1:Ihm",
+"term": "Ihm",
+"en": "him (dative)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich gebe ihm das Buch."
+]
+}
+},
+{
+"id": "voc:A1:Ihnen",
+"term": "Ihnen",
+"en": "them / you (formal, dative)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich helfe Ihnen gerne."
+]
+}
+},
+{
+"id": "voc:A1:Uns",
+"term": "Uns",
+"en": "us",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er sieht uns nicht."
+]
+}
+},
+{
+"id": "voc:A1:Euch",
+"term": "Euch",
+"en": "you all (accusative/dative)",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich besuche euch am Wochenende."
+]
+}
+},
+{
+"id": "voc:A1:Deren",
+"term": "Deren",
+"en": "whose / their",
+"pos": "pronoun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das ist die Frau, deren Hund bellt."
+]
+}
+},
+{
+"id": "voc:A1:Gute Nacht",
+"term": "Gute Nacht",
+"en": "good night",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Gute Nacht, schlaf gut!"
+]
+}
+},
+{
+"id": "voc:A1:Bis bald",
+"term": "Bis bald",
+"en": "see you soon",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Tschüss, bis bald!"
+]
+}
+},
+{
+"id": "voc:A1:Wie geht's?",
+"term": "Wie geht's?",
+"en": "how's it going?",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Hallo, wie geht's?"
+]
+}
+},
+{
+"id": "voc:A1:Mir geht es gut",
+"term": "Mir geht es gut",
+"en": "I'm doing well",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Danke, mir geht es gut."
+]
+}
+},
+{
+"id": "voc:A1:Willkommen",
+"term": "Willkommen",
+"en": "welcome",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Willkommen in Deutschland!"
+]
+}
+},
+{
+"id": "voc:A1:Schön, Sie kennenzulernen",
+"term": "Schön, Sie kennenzulernen",
+"en": "nice to meet you",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Schön, Sie kennenzulernen, Frau Meyer."
+]
+}
+},
+{
+"id": "voc:A1:Bitte schön",
+"term": "Bitte schön",
+"en": "Here you are / You're welcome",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Bitte schön, hier ist Ihr Kaffee."
+]
+}
+},
+{
+"id": "voc:A1:Herzlich willkommen",
+"term": "Herzlich willkommen",
+"en": "Warm welcome",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Herzlich willkommen zu unserem Fest!"
+]
+}
+},
+{
+"id": "voc:A1:Bis morgen",
+"term": "Bis morgen",
+"en": "See you tomorrow",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Tschüss, bis morgen!"
+]
+}
+},
+{
+"id": "voc:A1:Guten Appetit",
+"term": "Guten Appetit",
+"en": "Enjoy your meal",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das Essen ist fertig, guten Appetit!"
+]
+}
+},
+{
+"id": "voc:A1:die Farbe",
+"term": "die Farbe",
+"en": "color",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Farben",
+"ex_de": [
+"Was ist deine Lieblingsfarbe?"
+]
+}
+},
+{
+"id": "voc:A1:regnen",
+"term": "regnen",
+"en": "to rain",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es regnet seit dem Morgen."
+]
+}
+},
+{
+"id": "voc:A1:schneien",
+"term": "schneien",
+"en": "to snow",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Im Winter schneit es oft in den Bergen."
+]
+}
+},
+{
+"id": "voc:A1:das Fahrrad",
+"term": "das Fahrrad",
+"en": "bicycle",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Fahrräder"
+}
+},
+{
+"id": "voc:A1:weil",
+"term": "weil",
+"en": "because",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A1:ohne",
+"term": "ohne",
+"en": "without",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich mag Fußball, aber ich kann auch ohne leben."
+]
+}
+},
+{
+"id": "voc:A1:für",
+"term": "für",
+"en": "for",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A1:gegen",
+"term": "gegen",
+"en": "against",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A1:nach",
+"term": "nach",
+"en": "after / to",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A1:vor",
+"term": "vor",
+"en": "before / in front of",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A1:bei",
+"term": "bei",
+"en": "at / near",
+"pos": "",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A1:die Bahn",
+"term": "die Bahn",
+"en": "route, trail",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Bahnen",
+"ex_de": [
+"Ich reise oft mit der Bahn."
+]
+}
+},
+{
+"id": "voc:A1:das Ende",
+"term": "das Ende",
+"en": "end, finish",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Enden",
+"ex_de": [
+"Das Ende naht!"
+]
+}
+},
+{
+"id": "voc:A1:genau",
+"term": "genau",
+"en": "exact",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ganz genau!"
+]
+}
+},
+{
+"id": "voc:A1:gerne",
+"term": "gerne",
+"en": "don't mention it, not at all, you're welcome",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Gerne."
+]
+}
+},
+{
+"id": "voc:A1:die Geschichte",
+"term": "die Geschichte",
+"en": "history",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Geschichten",
+"ex_de": [
+"Er mag Geschichte."
+]
+}
+},
+{
+"id": "voc:A1:letzte",
+"term": "letzte",
+"en": "last",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Letzte Runde!"
+]
+}
+},
+{
+"id": "voc:A1:mal",
+"term": "mal",
+"en": "times",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Guck mal."
+]
+}
+},
+{
+"id": "voc:A1:nur",
+"term": "nur",
+"en": "only, just, merely, simply",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Nur zu!"
+]
+}
+},
+{
+"id": "voc:A1:die Person",
+"term": "die Person",
+"en": "person, individual",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Personen",
+"ex_de": [
+"Ich bin eine Person."
+]
+}
+},
+{
+"id": "voc:A1:sehr",
+"term": "sehr",
+"en": "very",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Sehr gut!"
+]
+}
+},
+{
+"id": "voc:A1:die Welt",
+"term": "die Welt",
+"en": "world",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Welten",
+"ex_de": [
+"Hallo Welt!"
+]
+}
+},
+{
+"id": "voc:A1:deutsch",
+"term": "deutsch",
+"en": "German",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ist er Deutscher?"
+]
+}
+},
+{
+"id": "voc:A1:englisch",
+"term": "englisch",
+"en": "English",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Lernt Englisch."
+]
+}
+},
+{
+"id": "voc:A1:die Information",
+"term": "die Information",
+"en": "a piece of information",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Informationen",
+"ex_de": [
+"Zu Ihrer Information."
+]
+}
+},
+{
+"id": "voc:A1:halb",
+"term": "halb",
+"en": "half, halfway",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bis halb sieben!"
+]
+}
+},
+{
+"id": "voc:A1:die Tausend",
+"term": "die Tausend",
+"en": "thousand",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Tausenden",
+"ex_de": [
+"Reichen tausend Yen?"
+]
+}
+},
+{
+"id": "voc:A1:okay",
+"term": "okay",
+"en": "OK",
+"pos": "interjection",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Okay?"
+]
+}
+},
+{
+"id": "voc:A1:die Brille",
+"term": "die Brille",
+"en": "glasses, spectacles",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Brillen",
+"ex_de": [
+"Nimm deine Brille ab."
+]
+}
+},
+{
+"id": "voc:A1:dick",
+"term": "dick",
+"en": "thick",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom ist dick."
+]
+}
+},
+{
+"id": "voc:A1:die Ärztin",
+"term": "die Ärztin",
+"en": "doctor, physician",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Ärztinnen",
+"ex_de": [
+"Du bist Ärztin."
+]
+}
+},
+{
+"id": "voc:A1:die Architektin",
+"term": "die Architektin",
+"en": "architect",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Architektinnen",
+"ex_de": [
+"Bist du Architektin?"
+]
+}
+},
+{
+"id": "voc:A1:die Einkaufsliste",
+"term": "die Einkaufsliste",
+"en": "shopping list, list of things to buy",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Einkaufslisten",
+"ex_de": [
+"Hier ist eine Einkaufsliste."
+]
+}
+}
+]

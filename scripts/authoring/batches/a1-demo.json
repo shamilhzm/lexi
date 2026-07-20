@@ -1,0 +1,14 @@
+[
+  { "id": "voc:A1:das Haus", "def": "A building where people live; a home.", "syn": ["das Gebäude"] },
+  { "id": "voc:A1:neu", "def": "Recently made, bought, or begun; not old or used before.", "ant": ["alt"] },
+  { "id": "voc:A1:alt", "def": "Having existed for a long time; also used for a person's age.", "ant": ["neu", "jung"] },
+  { "id": "voc:A1:heute", "def": "On the present day — the day that is happening now." },
+  { "id": "voc:A1:morgen", "def": "On the day after today." },
+  { "id": "voc:A1:der Junge", "def": "A male child or a young man.", "syn": ["der Bub"] },
+  { "id": "voc:A1:die Familie", "def": "A group of people related by blood, marriage, or living together as relatives." },
+  { "id": "voc:A1:das Mittagessen", "def": "The main meal eaten in the middle of the day." },
+  { "id": "voc:A1:der Käse", "def": "A solid food made from milk, often eaten on bread." },
+  { "id": "voc:A1:die Kartoffel", "def": "A round, starchy vegetable that grows underground and is eaten cooked." },
+  { "id": "voc:A1:die Suppe", "def": "A warm liquid dish made by cooking vegetables, meat, or beans in water or broth." },
+  { "id": "voc:A1:der Supermarkt", "def": "A large self-service shop that sells food and everyday household goods." }
+]

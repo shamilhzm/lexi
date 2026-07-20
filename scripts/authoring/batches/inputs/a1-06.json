@@ -1,0 +1,1201 @@
+[
+{
+"id": "voc:A1:abbiegen",
+"term": "abbiegen",
+"en": "to turn (off)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"An der Kreuzung biegst du links ab."
+]
+}
+},
+{
+"id": "voc:A1:die Kreuzung",
+"term": "die Kreuzung",
+"en": "crossroads",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-en",
+"ex_de": [
+"An der nächsten Kreuzung gehen Sie rechts."
+]
+}
+},
+{
+"id": "voc:A1:die Sehenswürdigkeit",
+"term": "die Sehenswürdigkeit",
+"en": "sight / attraction",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-en",
+"ex_de": [
+"Der Dom ist die bekannteste Sehenswürdigkeit der Stadt."
+]
+}
+},
+{
+"id": "voc:A1:die Muttersprache (L1)",
+"term": "die Muttersprache (L1)",
+"en": "native language",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-n",
+"ex_de": [
+"Meine Muttersprache ist Spanisch."
+]
+}
+},
+{
+"id": "voc:A1:beliebt",
+"term": "beliebt",
+"en": "popular",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Dieses Café ist bei Studenten sehr beliebt."
+]
+}
+},
+{
+"id": "voc:A1:Herzlich willkommen!",
+"term": "Herzlich willkommen!",
+"en": "Welcome!",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Herzlich willkommen in unserer Stadt!"
+]
+}
+},
+{
+"id": "voc:A1:Freut mich!",
+"term": "Freut mich!",
+"en": "Pleased to meet you!",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Freut mich, Sie kennenzulernen."
+]
+}
+},
+{
+"id": "voc:A1:Viel Spaß!",
+"term": "Viel Spaß!",
+"en": "Have fun!",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Viel Spaß auf der Party!"
+]
+}
+},
+{
+"id": "voc:A1:der Partner",
+"term": "der Partner",
+"en": "partner",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "-",
+"ex_de": [
+"Mein Partner kocht heute Abend."
+]
+}
+},
+{
+"id": "voc:A1:das Gericht (Essen)",
+"term": "das Gericht (Essen)",
+"en": "dish (food)",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "-e",
+"ex_de": [
+"Das ist mein Lieblingsgericht."
+]
+}
+},
+{
+"id": "voc:A1:das Trinkgeld",
+"term": "das Trinkgeld",
+"en": "tip",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "-er",
+"ex_de": [
+"In Deutschland gibt man etwa zehn Prozent Trinkgeld."
+]
+}
+},
+{
+"id": "voc:A1:die Kreditkarte",
+"term": "die Kreditkarte",
+"en": "credit card",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-n",
+"ex_de": [
+"Kann ich mit Kreditkarte bezahlen?"
+]
+}
+},
+{
+"id": "voc:A1:es gibt + A",
+"term": "es gibt + A",
+"en": "there is/are",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es gibt hier ein gutes Restaurant."
+]
+}
+},
+{
+"id": "voc:A1:modern",
+"term": "modern",
+"en": "modern",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Wohnung ist hell und modern."
+]
+}
+},
+{
+"id": "voc:A1:das Öl",
+"term": "das Öl",
+"en": "oil",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "-e",
+"ex_de": [
+"Gib bitte etwas Öl in die Pfanne."
+]
+}
+},
+{
+"id": "voc:A1:das Angebot (Laden)",
+"term": "das Angebot (Laden)",
+"en": "special offer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "-e",
+"ex_de": [
+"Die Erdbeeren sind heute im Angebot."
+]
+}
+},
+{
+"id": "voc:A1:Die Sonne scheint.",
+"term": "Die Sonne scheint.",
+"en": "The sun is shining.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Heute ist es warm, die Sonne scheint."
+]
+}
+},
+{
+"id": "voc:A1:Es regnet.",
+"term": "Es regnet.",
+"en": "It is raining.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Nimm einen Schirm mit, es regnet."
+]
+}
+},
+{
+"id": "voc:A1:Es schneit.",
+"term": "Es schneit.",
+"en": "It is snowing.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Draußen ist es weiß, es schneit."
+]
+}
+},
+{
+"id": "voc:A1:Es ist kalt.",
+"term": "Es ist kalt.",
+"en": "It is cold.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Zieh dich warm an, es ist kalt."
+]
+}
+},
+{
+"id": "voc:A1:die Vorlesung (Uni)",
+"term": "die Vorlesung (Uni)",
+"en": "lecture",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-en",
+"ex_de": [
+"Die Vorlesung beginnt um acht Uhr."
+]
+}
+},
+{
+"id": "voc:A1:dauern",
+"term": "dauern",
+"en": "to last, take (time)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Kurs dauert zwei Stunden."
+]
+}
+},
+{
+"id": "voc:A1:der Stress",
+"term": "der Stress",
+"en": "stress",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Stresse",
+"ex_de": [
+"Vor der Prüfung habe ich viel Stress."
+]
+}
+},
+{
+"id": "voc:A1:hoffentlich",
+"term": "hoffentlich",
+"en": "hopefully",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Hoffentlich kommst du morgen mit."
+]
+}
+},
+{
+"id": "voc:A1:Das ist schade.",
+"term": "Das ist schade.",
+"en": "That's a pity.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Du kannst nicht kommen? Das ist schade."
+]
+}
+},
+{
+"id": "voc:A1:Tut mir leid.",
+"term": "Tut mir leid.",
+"en": "I'm sorry.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Tut mir leid, ich habe keine Zeit."
+]
+}
+},
+{
+"id": "voc:A1:der Schauspieler (Beruf)",
+"term": "der Schauspieler (Beruf)",
+"en": "actor",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "-",
+"ex_de": [
+"Er ist ein bekannter Schauspieler."
+]
+}
+},
+{
+"id": "voc:A1:wandern (Freizeit)",
+"term": "wandern (Freizeit)",
+"en": "to hike",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Am Wochenende wandern wir in den Bergen."
+]
+}
+},
+{
+"id": "voc:A1:der Patient",
+"term": "der Patient",
+"en": "patient",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "-en",
+"ex_de": [
+"Der Arzt untersucht den Patienten."
+]
+}
+},
+{
+"id": "voc:A1:reparieren",
+"term": "reparieren",
+"en": "to repair",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Kannst du mein Fahrrad reparieren?"
+]
+}
+},
+{
+"id": "voc:A1:behandeln (Arzt)",
+"term": "behandeln (Arzt)",
+"en": "to treat (medically)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Arzt behandelt die Wunde."
+]
+}
+},
+{
+"id": "voc:A1:Worüber sprechen wir?",
+"term": "Worüber sprechen wir?",
+"en": "What are we talking about?",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Worüber sprechen wir in der nächsten Stunde?"
+]
+}
+},
+{
+"id": "voc:A1:Ich kann lange schlafen.",
+"term": "Ich kann lange schlafen.",
+"en": "I can sleep in.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Am Sonntag kann ich lange schlafen."
+]
+}
+},
+{
+"id": "voc:A1:fit sein",
+"term": "fit sein",
+"en": "to be fit",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich gehe joggen, um fit zu sein."
+]
+}
+},
+{
+"id": "voc:A1:ins Theater gehen",
+"term": "ins Theater gehen",
+"en": "to go to the theatre",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Heute Abend gehen wir ins Theater."
+]
+}
+},
+{
+"id": "voc:A1:Musik hören",
+"term": "Musik hören",
+"en": "to listen to music",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Beim Autofahren höre ich gern Musik."
+]
+}
+},
+{
+"id": "voc:A1:im Internet surfen",
+"term": "im Internet surfen",
+"en": "to surf the internet",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Abends surfe ich oft im Internet."
+]
+}
+},
+{
+"id": "voc:A1:Klavier spielen",
+"term": "Klavier spielen",
+"en": "to play the piano",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Meine Tochter lernt Klavier spielen."
+]
+}
+},
+{
+"id": "voc:A1:Schach spielen",
+"term": "Schach spielen",
+"en": "to play chess",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Mein Großvater spielt jeden Tag Schach."
+]
+}
+},
+{
+"id": "voc:A1:das Schwarze Brett",
+"term": "das Schwarze Brett",
+"en": "notice board",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Am Schwarzen Brett hängt ein Zettel für ein Zimmer."
+]
+}
+},
+{
+"id": "voc:A1:das Publikum",
+"term": "das Publikum",
+"en": "audience",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Publika",
+"ex_de": [
+"Das Publikum klatschte laut."
+]
+}
+},
+{
+"id": "voc:A1:die Anmeldung",
+"term": "die Anmeldung",
+"en": "registration",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-en",
+"ex_de": [
+"Die Anmeldung für den Kurs ist kostenlos."
+]
+}
+},
+{
+"id": "voc:A1:das Gefühl",
+"term": "das Gefühl",
+"en": "feeling",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "-e",
+"ex_de": [
+"Ich habe ein gutes Gefühl dabei."
+]
+}
+},
+{
+"id": "voc:A1:der Vorteil",
+"term": "der Vorteil",
+"en": "advantage",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "-e",
+"ex_de": [
+"Ein großer Vorteil ist der günstige Preis."
+]
+}
+},
+{
+"id": "voc:A1:stattfinden",
+"term": "stattfinden",
+"en": "to take place",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Training findet heute statt."
+]
+}
+},
+{
+"id": "voc:A1:zufrieden",
+"term": "zufrieden",
+"en": "satisfied",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin mit meiner Arbeit zufrieden."
+]
+}
+},
+{
+"id": "voc:A1:gern — lieber",
+"term": "gern — lieber",
+"en": "gladly — preferably",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich trinke gern Tee, aber lieber Kaffee."
+]
+}
+},
+{
+"id": "voc:A1:abholen",
+"term": "abholen",
+"en": "to pick up",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich hole dich um acht Uhr ab."
+]
+}
+},
+{
+"id": "voc:A1:beantragen",
+"term": "beantragen",
+"en": "to apply for",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich muss einen neuen Pass beantragen."
+]
+}
+},
+{
+"id": "voc:A1:endlich",
+"term": "endlich",
+"en": "finally",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Endlich ist das Wochenende da!"
+]
+}
+},
+{
+"id": "voc:A1:Die Miete beträgt 300 €.",
+"term": "Die Miete beträgt 300 €.",
+"en": "The rent is €300.",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Miete beträgt 300 Euro im Monat."
+]
+}
+},
+{
+"id": "voc:A1:Auf Wiederhören!",
+"term": "Auf Wiederhören!",
+"en": "Goodbye! (on the phone)",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Vielen Dank für den Anruf, auf Wiederhören!"
+]
+}
+},
+{
+"id": "voc:A1:der Mantel",
+"term": "der Mantel",
+"en": "coat",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "¨-",
+"ex_de": [
+"Im Winter trage ich einen warmen Mantel."
+]
+}
+},
+{
+"id": "voc:A1:der Rock",
+"term": "der Rock",
+"en": "skirt",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "¨-e",
+"ex_de": [
+"Sie trägt einen roten Rock."
+]
+}
+},
+{
+"id": "voc:A1:der Schal",
+"term": "der Schal",
+"en": "scarf",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "-s",
+"ex_de": [
+"Zieh einen Schal an, es ist kalt."
+]
+}
+},
+{
+"id": "voc:A1:sortieren (Wäsche)",
+"term": "sortieren (Wäsche)",
+"en": "to sort (laundry)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Vor dem Waschen sortiere ich die Wäsche."
+]
+}
+},
+{
+"id": "voc:A1:füllen in + A",
+"term": "füllen in + A",
+"en": "to fill into",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Füll das Wasser bitte in die Flasche."
+]
+}
+},
+{
+"id": "voc:A1:die Lösung",
+"term": "die Lösung",
+"en": "solution",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-en",
+"ex_de": [
+"Wir suchen eine einfache Lösung."
+]
+}
+},
+{
+"id": "voc:A1:bedeuten",
+"term": "bedeuten",
+"en": "to mean",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Was bedeutet das Wort?"
+]
+}
+},
+{
+"id": "voc:A1:einladen",
+"term": "einladen",
+"en": "to invite",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich lade dich zum Essen ein."
+]
+}
+},
+{
+"id": "voc:A1:höflich",
+"term": "höflich",
+"en": "polite",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sei bitte höflich zu den Gästen."
+]
+}
+},
+{
+"id": "voc:A1:vorsichtig",
+"term": "vorsichtig",
+"en": "careful",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sei vorsichtig auf der Straße!"
+]
+}
+},
+{
+"id": "voc:A1:die Entschuldigung",
+"term": "die Entschuldigung",
+"en": "sorry",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Entschuldigungen",
+"ex_de": [
+"Entschuldigung, wo ist der Bahnhof?"
+]
+}
+},
+{
+"id": "voc:A1:der Schüler",
+"term": "der Schüler",
+"en": "student",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Schüler",
+"ex_de": [
+"Der Schüler macht seine Hausaufgaben."
+]
+}
+},
+{
+"id": "voc:A1:die Krankenschwester",
+"term": "die Krankenschwester",
+"en": "nurse",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Krankenschwestern",
+"ex_de": [
+"Die Krankenschwester ist sehr freundlich."
+]
+}
+},
+{
+"id": "voc:A1:der Ingenieur",
+"term": "der Ingenieur",
+"en": "engineer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"plural": "die Ingenieure",
+"ex_de": [
+"Mein Bruder ist Ingenieur bei einer Autofirma."
+]
+}
+},
+{
+"id": "voc:A1:der Künstler",
+"term": "der Künstler",
+"en": "artist",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Künstler",
+"ex_de": [
+"Der Künstler malt gern große Bilder."
+]
+}
+},
+{
+"id": "voc:A1:das Essen",
+"term": "das Essen",
+"en": "food",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Essen",
+"ex_de": [
+"Das Essen im Restaurant war lecker."
+]
+}
+},
+{
+"id": "voc:A1:Nah",
+"term": "Nah",
+"en": "near",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Supermarkt ist ganz nah."
+]
+}
+},
+{
+"id": "voc:A1:Fern",
+"term": "Fern",
+"en": "distant",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Seine Heimat ist weit und fern."
+]
+}
+},
+{
+"id": "voc:A1:Einfach",
+"term": "Einfach",
+"en": "easy",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Die Aufgabe ist ganz einfach."
+]
+}
+},
+{
+"id": "voc:A1:Guten Morgen",
+"term": "Guten Morgen",
+"en": "good morning",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Guten Morgen! Wie geht es Ihnen?"
+]
+}
+},
+{
+"id": "voc:A1:Guten Tag",
+"term": "Guten Tag",
+"en": "good day / hello",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Guten Tag, ich hätte gern ein Brot."
+]
+}
+},
+{
+"id": "voc:A1:Guten Abend",
+"term": "Guten Abend",
+"en": "good evening",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Guten Abend, schön Sie zu sehen."
+]
+}
+},
+{
+"id": "voc:A1:Auf Wiedersehen",
+"term": "Auf Wiedersehen",
+"en": "goodbye",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Auf Wiedersehen und bis morgen!"
+]
+}
+}
+]

@@ -1,0 +1,1210 @@
+[
+{
+"id": "voc:A1:die Wäsche",
+"term": "die Wäsche",
+"en": "laundry, washing",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "nur Singular",
+"ex_de": [
+"Ich wasche heute Wäsche."
+]
+}
+},
+{
+"id": "voc:A1:der Waschkorb",
+"term": "der Waschkorb",
+"en": "laundry basket",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Waschkörbe",
+"ex_de": [
+"Die Wäsche ist im Waschkorb."
+]
+}
+},
+{
+"id": "voc:A1:die Waschmaschine",
+"term": "die Waschmaschine",
+"en": "washing machine",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Waschmaschinen",
+"ex_de": [
+"Die Waschmaschine ist kaputt."
+]
+}
+},
+{
+"id": "voc:A1:das Waschpulver",
+"term": "das Waschpulver",
+"en": "washing powder",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"plural": "die Waschpulver",
+"ex_de": [
+"Das Waschpulver ist alle."
+]
+}
+},
+{
+"id": "voc:A1:der Trockner",
+"term": "der Trockner",
+"en": "dryer",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Trockner",
+"ex_de": [
+"Die Hose ist im Trockner."
+]
+}
+},
+{
+"id": "voc:A1:die Anleitung",
+"term": "die Anleitung",
+"en": "instructions, manual",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Anleitungen",
+"ex_de": [
+"Lies bitte die Anleitung."
+]
+}
+},
+{
+"id": "voc:A1:umdrehen",
+"term": "umdrehen",
+"en": "to turn over, turn inside out",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Dreh die Hose vor dem Waschen um."
+]
+}
+},
+{
+"id": "voc:A1:einlaufen",
+"term": "einlaufen",
+"en": "to shrink (clothes)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Pullover ist eingelaufen."
+]
+}
+},
+{
+"id": "voc:A1:aufräumen",
+"term": "aufräumen",
+"en": "to tidy up",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich räume mein Zimmer auf."
+]
+}
+},
+{
+"id": "voc:A1:einräumen",
+"term": "einräumen",
+"en": "to put away (into)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich räume die Teller in den Schrank ein."
+]
+}
+},
+{
+"id": "voc:A1:beschreiben",
+"term": "beschreiben",
+"en": "to describe",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Beschreib bitte den Weg."
+]
+}
+},
+{
+"id": "voc:A1:gebraucht",
+"term": "gebraucht",
+"en": "used, second-hand",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich kaufe ein gebrauchtes Fahrrad."
+]
+}
+},
+{
+"id": "voc:A1:hellblau",
+"term": "hellblau",
+"en": "light blue",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Himmel ist hellblau."
+]
+}
+},
+{
+"id": "voc:A1:das Polyester",
+"term": "das Polyester",
+"en": "polyester",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "nur Singular",
+"ex_de": [
+"Die Jacke ist aus Polyester."
+]
+}
+},
+{
+"id": "voc:A1:der Zeitungsartikel",
+"term": "der Zeitungsartikel",
+"en": "newspaper article",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Zeitungsartikel",
+"ex_de": [
+"Ich lese einen Zeitungsartikel."
+]
+}
+},
+{
+"id": "voc:A1:das Hörspiel",
+"term": "das Hörspiel",
+"en": "radio play",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Hörspiele",
+"ex_de": [
+"Abends höre ich ein Hörspiel."
+]
+}
+},
+{
+"id": "voc:A1:der Roman",
+"term": "der Roman",
+"en": "novel",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Romane",
+"ex_de": [
+"Ich lese gern Romane."
+]
+}
+},
+{
+"id": "voc:A1:das Gedicht",
+"term": "das Gedicht",
+"en": "poem",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Gedichte",
+"ex_de": [
+"Sie liest ein Gedicht vor."
+]
+}
+},
+{
+"id": "voc:A1:die Anweisung",
+"term": "die Anweisung",
+"en": "instruction, directive",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Anweisungen",
+"ex_de": [
+"Befolge bitte die Anweisung."
+]
+}
+},
+{
+"id": "voc:A1:der/die Bekannte",
+"term": "der/die Bekannte",
+"en": "acquaintance",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Bekannten",
+"ex_de": [
+"Er ist ein Bekannter von mir."
+]
+}
+},
+{
+"id": "voc:A1:die Beschreibung",
+"term": "die Beschreibung",
+"en": "description",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Beschreibungen",
+"ex_de": [
+"Die Beschreibung ist sehr genau."
+]
+}
+},
+{
+"id": "voc:A1:der Inhaber",
+"term": "der Inhaber",
+"en": "owner, proprietor",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Inhaber",
+"ex_de": [
+"Der Inhaber steht hinter der Theke."
+]
+}
+},
+{
+"id": "voc:A1:die Kopie",
+"term": "die Kopie",
+"en": "copy",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Kopien",
+"ex_de": [
+"Ich brauche eine Kopie."
+]
+}
+},
+{
+"id": "voc:A1:die Notiz",
+"term": "die Notiz",
+"en": "note",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Notizen",
+"ex_de": [
+"Ich mache mir eine Notiz."
+]
+}
+},
+{
+"id": "voc:A1:die Website",
+"term": "die Website",
+"en": "website",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Websites",
+"ex_de": [
+"Besuchen Sie unsere Website."
+]
+}
+},
+{
+"id": "voc:A1:der Wunsch",
+"term": "der Wunsch",
+"en": "wish",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Wünsche",
+"ex_de": [
+"Hast du einen Wunsch?"
+]
+}
+},
+{
+"id": "voc:A1:der König",
+"term": "der König",
+"en": "king",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "die Könige",
+"ex_de": [
+"Der König wohnt im Schloss."
+]
+}
+},
+{
+"id": "voc:A1:die Postkarte",
+"term": "die Postkarte",
+"en": "postcard",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Postkarten",
+"ex_de": [
+"Ich schreibe dir eine Postkarte."
+]
+}
+},
+{
+"id": "voc:A1:die Regel",
+"term": "die Regel",
+"en": "rule",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Regeln",
+"ex_de": [
+"Das ist eine wichtige Regel."
+]
+}
+},
+{
+"id": "voc:A1:die Spezialität",
+"term": "die Spezialität",
+"en": "speciality",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Spezialitäten",
+"ex_de": [
+"Das ist eine Spezialität aus der Region."
+]
+}
+},
+{
+"id": "voc:A1:die Fahrradtour",
+"term": "die Fahrradtour",
+"en": "bike tour",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Fahrradtouren",
+"ex_de": [
+"Wir machen eine Fahrradtour."
+]
+}
+},
+{
+"id": "voc:A1:das Picknick",
+"term": "das Picknick",
+"en": "picnic",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "die Picknicks",
+"ex_de": [
+"Wir machen ein Picknick im Park."
+]
+}
+},
+{
+"id": "voc:A1:die Premiere",
+"term": "die Premiere",
+"en": "premiere",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"plural": "die Premieren",
+"ex_de": [
+"Heute ist die Premiere des Films."
+]
+}
+},
+{
+"id": "voc:A1:rudern",
+"term": "rudern",
+"en": "to row",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir rudern über den See."
+]
+}
+},
+{
+"id": "voc:A1:turnen",
+"term": "turnen",
+"en": "to do gymnastics",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Kinder turnen in der Halle."
+]
+}
+},
+{
+"id": "voc:A1:die Strecke",
+"term": "die Strecke",
+"en": "route, distance",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "die Strecken",
+"ex_de": [
+"Die Strecke ist zehn Kilometer lang."
+]
+}
+},
+{
+"id": "voc:A1:erzählen",
+"term": "erzählen",
+"en": "to tell, narrate",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Erzähl mir von deinem Tag."
+]
+}
+},
+{
+"id": "voc:A1:mitnehmen",
+"term": "mitnehmen",
+"en": "to take along",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Nimm bitte einen Schirm mit."
+]
+}
+},
+{
+"id": "voc:A1:entspannen",
+"term": "entspannen",
+"en": "to relax",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Am Abend entspanne ich."
+]
+}
+},
+{
+"id": "voc:A1:rauchen",
+"term": "rauchen",
+"en": "to smoke",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Hier darf man nicht rauchen."
+]
+}
+},
+{
+"id": "voc:A1:unterrichten",
+"term": "unterrichten",
+"en": "to teach",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie unterrichtet Deutsch."
+]
+}
+},
+{
+"id": "voc:A1:anstoßen",
+"term": "anstoßen",
+"en": "to toast, clink glasses",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir stoßen auf dich an!"
+]
+}
+},
+{
+"id": "voc:A1:aufpassen",
+"term": "aufpassen",
+"en": "to pay attention, watch out",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Pass bitte auf!"
+]
+}
+},
+{
+"id": "voc:A1:bringen",
+"term": "bringen",
+"en": "to bring",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Bring mir bitte ein Glas Wasser."
+]
+}
+},
+{
+"id": "voc:A1:klicken",
+"term": "klicken",
+"en": "to click",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Klick bitte auf den Link."
+]
+}
+},
+{
+"id": "voc:A1:eingeben",
+"term": "eingeben",
+"en": "to enter, type in",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Gib bitte dein Passwort ein."
+]
+}
+},
+{
+"id": "voc:A1:festhalten",
+"term": "festhalten",
+"en": "to hold on; to record",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Halt dich gut fest!"
+]
+}
+},
+{
+"id": "voc:A1:holen",
+"term": "holen",
+"en": "to fetch, get",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich hole schnell Brot."
+]
+}
+},
+{
+"id": "voc:A1:lächeln",
+"term": "lächeln",
+"en": "to smile",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie lächelt freundlich."
+]
+}
+},
+{
+"id": "voc:A1:träumen",
+"term": "träumen",
+"en": "to dream",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich träume von einer Reise."
+]
+}
+},
+{
+"id": "voc:A1:ausprobieren",
+"term": "ausprobieren",
+"en": "to try out",
+"pos": "verb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich möchte das neue Rezept ausprobieren."
+]
+}
+},
+{
+"id": "voc:A1:motivieren",
+"term": "motivieren",
+"en": "to motivate",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Musik motiviert mich beim Sport."
+]
+}
+},
+{
+"id": "voc:A1:organisieren",
+"term": "organisieren",
+"en": "to organise",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir organisieren eine Party."
+]
+}
+},
+{
+"id": "voc:A1:wünschen",
+"term": "wünschen",
+"en": "to wish",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich wünsche dir alles Gute."
+]
+}
+},
+{
+"id": "voc:A1:inszenieren",
+"term": "inszenieren",
+"en": "to stage, direct",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie inszeniert ein neues Stück."
+]
+}
+},
+{
+"id": "voc:A1:geöffnet",
+"term": "geöffnet",
+"en": "open",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Der Laden ist geöffnet."
+]
+}
+},
+{
+"id": "voc:A1:korrekt",
+"term": "korrekt",
+"en": "correct",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Antwort ist korrekt."
+]
+}
+},
+{
+"id": "voc:A1:erlaubt",
+"term": "erlaubt",
+"en": "allowed, permitted",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Hier ist Parken erlaubt."
+]
+}
+},
+{
+"id": "voc:A1:anstrengend",
+"term": "anstrengend",
+"en": "strenuous, exhausting",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Tag war anstrengend."
+]
+}
+},
+{
+"id": "voc:A1:optimal",
+"term": "optimal",
+"en": "optimal, ideal",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Wetter ist heute optimal."
+]
+}
+},
+{
+"id": "voc:A1:wunderbar",
+"term": "wunderbar",
+"en": "wonderful",
+"pos": "adjective",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das war ein wunderbarer Tag."
+]
+}
+},
+{
+"id": "voc:A1:geradeaus",
+"term": "geradeaus",
+"en": "straight ahead",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Gehen Sie geradeaus."
+]
+}
+},
+{
+"id": "voc:A1:manchmal",
+"term": "manchmal",
+"en": "sometimes",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Manchmal koche ich selbst."
+]
+}
+},
+{
+"id": "voc:A1:später",
+"term": "später",
+"en": "later",
+"pos": "adverb",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bis später!"
+]
+}
+},
+{
+"id": "voc:A1:kommen aus",
+"term": "kommen aus",
+"en": "to come from",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich komme aus den USA."
+]
+}
+},
+{
+"id": "voc:A1:das Gerät",
+"term": "das Gerät",
+"en": "device",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"plural": "-e",
+"ex_de": [
+"Das Gerät ist einfach zu bedienen."
+]
+}
+},
+{
+"id": "voc:A1:die Speisekarte",
+"term": "die Speisekarte",
+"en": "menu",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-n",
+"ex_de": [
+"Können Sie mir bitte die Speisekarte bringen?"
+]
+}
+},
+{
+"id": "voc:A1:schmecken",
+"term": "schmecken",
+"en": "to taste (good)",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Suppe schmeckt sehr gut."
+]
+}
+},
+{
+"id": "voc:A1:absagen",
+"term": "absagen",
+"en": "to cancel",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die angekündigte Party wurde abgesagt."
+]
+}
+},
+{
+"id": "voc:A1:verdienen",
+"term": "verdienen",
+"en": "to earn",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie verdient 2.000 Euro im Monat."
+]
+}
+},
+{
+"id": "voc:A1:aus Holz",
+"term": "aus Holz",
+"en": "made of wood",
+"pos": "phrase",
+"level": "A1",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Der Tisch ist aus Holz."
+]
+}
+},
+{
+"id": "voc:A1:die Jacke",
+"term": "die Jacke",
+"en": "jacket",
+"pos": "noun",
+"level": "A1",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"plural": "-n",
+"ex_de": [
+"Zieh bitte eine warme Jacke an."
+]
+}
+},
+{
+"id": "voc:A1:der Pullover",
+"term": "der Pullover",
+"en": "sweater",
+"pos": "noun",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"plural": "-",
+"ex_de": [
+"Der blaue Pullover gefällt mir gut."
+]
+}
+},
+{
+"id": "voc:A1:anprobieren",
+"term": "anprobieren",
+"en": "to try on",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Kann ich die Jacke anprobieren?"
+]
+}
+},
+{
+"id": "voc:A1:passen",
+"term": "passen",
+"en": "to fit",
+"pos": "verb",
+"level": "A1",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Hose passt mir gut."
+]
+}
+}
+]
