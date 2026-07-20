@@ -14,7 +14,7 @@ import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
 import { Rating, emptyCard, previewInterval, type Grade, type Card } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
-import { iconForWord } from '../lib/icons.ts';
+import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import type { Target } from '../types.ts';
 
@@ -293,7 +293,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
               <div className="flip-face relative border border-line rounded-md bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}</span>
-                {!grammar && <span className="text-5xl sm:text-6xl leading-none select-none" aria-hidden="true">{iconForWord(card)}</span>}
+                {!grammar && <Illustration word={card} size={68} className="text-amber select-none" />}
                 <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}

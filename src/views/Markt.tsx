@@ -10,7 +10,7 @@ import { groupStats, sectorStats, groupDeltas } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { squarify, type Tile } from '../lib/treemap.ts';
 import { heat, tileInk, fmt } from '../lib/ui.ts';
-import { iconForSector } from '../lib/icons.ts';
+import { Illustration } from '../lib/illustration.tsx';
 import type { Target } from '../types.ts';
 import Kpis from '../components/Kpis.tsx';
 import LevelFilter from '../components/LevelFilter.tsx';
@@ -114,7 +114,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             {hover && (
               <div className="fixed z-50 pointer-events-none bg-card border border-amber rounded-md px-3 py-2.5 text-xs shadow-2xl"
                 style={{ left: Math.min(hover.x + 14, (typeof window !== 'undefined' ? window.innerWidth : 1280) - 250), top: hover.y + 14, width: 230 }}>
-                <h4 className="text-xs font-semibold mb-1.5"><span aria-hidden="true">{iconForSector(hover.c.name)}</span> {hover.c.name}</h4>
+                <h4 className="text-xs font-semibold mb-1.5 flex items-center gap-1.5"><Illustration sector={hover.c.name} size={15} className="text-amber flex-shrink-0" /> {hover.c.name}</h4>
                 <Row k="Cards" val={`${fmt(hover.c.count)} · ${hover.c.sub}`} />
                 <Row k="Known" val={`${fmt(hover.c.known)}`} />
                 <Row k="Coverage" val={`${Math.round(hover.c.coverage * 100)}%`} valColor={heat(hover.c.coverage)} />
@@ -160,7 +160,7 @@ function ListView({ cells, zoom, onTap, onStudy }: { cells: Cell[]; zoom: boolea
           <div key={c.name} className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-panel2">
             <button onClick={() => onTap(c)} className="flex-1 min-w-0 text-left" title={zoom ? 'Study sector' : 'Open sectors'}>
               <div className="flex items-baseline gap-2">
-                <span className="text-base leading-none not-italic" aria-hidden="true">{iconForSector(c.name)}</span>
+                <Illustration sector={c.name} size={16} className="text-amber flex-shrink-0" />
                 <span className="text-sm font-semibold truncate">{c.name}</span>
                 <span className="text-2xs text-dim font-mono flex-shrink-0">{c.sub}</span>
               </div>
