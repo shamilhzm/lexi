@@ -382,6 +382,17 @@ correct and kind, but not yet *legible* (can't see the machine think), *fitted*
 **Decision required, not a build item:** commit out loud to "English-base
 learners" or scope gloss-language layers (persona S10). Silence drifts.
 
+- **Illustration artwork — match the reference style** (M). *Why:* the curated
+  line-art layer that replaced emojis (`src/lib/illustration.tsx`, 54 concepts +
+  group-emblem fallback) is a solid first pass but doesn't yet match the intended
+  reference look (see `design/inspiration`); it's currently **disabled** behind
+  `SHOW_ILLUSTRATIONS = false`. *Do:* redraw the concept set to the reference style
+  (weight, corners, detail, duotone?), widen concept coverage, refine the weak ones
+  (carrot, flower, dog), then flip the flag on. *Done-when:* the deck/market/word-map
+  show art matching the reference and every A1–B2 card resolves to a fitting icon.
+  *Touches:* `src/lib/illustration.tsx`, `views/Review.tsx`, `views/Markt.tsx`,
+  `views/Wortkarte.tsx`.
+
 - **Friend-readiness leftovers** (S each — from the sharing analysis +
   [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
   in Profile; edit-distance-1 typo tolerance on typed answers (measure

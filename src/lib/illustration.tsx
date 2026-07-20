@@ -5,6 +5,11 @@
 // emblem, so every card shows an illustration (no emoji, ever).
 import { SECTOR_GROUP } from '../data/index.ts';
 
+// Master switch. Off for now — the current line-art is a first pass and doesn't yet
+// match the target reference style (see docs/BACKLOG.md). Flip to true to re-enable
+// everywhere at once. While off, cards/markets/word-map show no icon (never emoji).
+export const SHOW_ILLUSTRATIONS = false;
+
 export type Concept = keyof typeof ICON;
 
 // Inner SVG markup per concept. fill:none / round caps are applied by the wrapper.
@@ -148,6 +153,7 @@ interface Props {
 
 /** Themeable line-art. Colour follows `currentColor` (set it via text-* class). */
 export function Illustration({ concept, word, sector, size = 40, className, title }: Props) {
+  if (!SHOW_ILLUSTRATIONS) return null;
   const c: Concept = concept ?? (word ? conceptForWord(word) : sector ? conceptForSector(sector) : 'star');
   return (
     <svg
