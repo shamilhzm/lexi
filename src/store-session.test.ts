@@ -547,3 +547,30 @@ describe('pointStats (grammar syllabus mastery)', () => {
     expect(store.pointStats('C2', 0, 0).mastery).toBe(0);
   });
 });
+
+describe('teach-only first session', () => {
+  it('strips every drill and grammar point, leaving pure vocabulary', async () => {
+    const { data, store, session, srs } = await fresh();
+    // Words that qualify for several drill modes (gender + plural + cloze).
+    data.registerWords(Array.from({ length: 8 }, (_, i) =>
+      word(`w${i}`, 'Sector A', {
+        gender: 'der', plural: 'die Ws', pos: 'noun',
+        ex: [{ de: `Der w${i} ist gut.`, en: 'x', lvl: 'A1' }],
+      })));
+
+    const target = { kind: 'all' as const, name: 'All' };
+    const mixed = session.buildMixedSession(target);
+    const taught = session.buildMixedSession(target, true);
+
+    // The normal session interleaves drills; the teaching one must not.
+    expect(mixed.some((it) => it.type !== 'flip')).toBe(true);
+    expect(taught.every((it) => it.type === 'flip')).toBe(true);
+    expect(taught.every((it) => it.word.kind === 'word')).toBe(true);
+    expect(taught.length).toBeGreaterThan(0);
+
+    // And it must not quietly drop vocabulary to achieve that.
+    const flips = mixed.filter((it) => it.type === 'flip' && it.word.kind === 'word');
+    expect(taught.length).toBe(flips.length);
+    void store; void srs;
+  });
+});

@@ -14,8 +14,23 @@ const PER_LEVEL = 5;        // words shown per level
 const PASS = 0.6;           // recognition rate needed to climb to the next level
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 
+/** A word whose German form gives its English meaning away — "das Meeting"
+ *  glossed as "meeting", "das Hotel" as "hotel". They tell us nothing about
+ *  recognition: an English speaker "knows" them without knowing any German, so
+ *  they inflate the placement and waste one of only five probes per level.
+ *  (Deliberately narrow: only an exact match after stripping the article, so
+ *  genuine cognates like "Haus"/"house" still count.) */
+export function isTransparent(term: string, en: string): boolean {
+  const de = stripArticle(term).trim().toLowerCase();
+  return en.split(/[,;/]/).some((g) => g.trim().toLowerCase() === de);
+}
+
 function sample(level: CEFR, n: number): Word[] {
-  const pool = WORDS.filter((w) => w.kind === 'word' && w.level === level && w.en);
+  const all = WORDS.filter((w) => w.kind === 'word' && w.level === level && w.en);
+  // Fall back to the unfiltered pool if a level is too thin to be choosy — a
+  // shorter probe list would distort the test more than a loanword does.
+  const probes = all.filter((w) => !isTransparent(w.term, w.en));
+  const pool = probes.length >= n ? probes : all;
   for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
   return pool.slice(0, n);
 }
@@ -100,7 +115,15 @@ export default function Placement({ onDone }: { onDone: () => void }) {
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">
         <div className="h-full bg-amber transition-all" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
       </div>
-      <p className="text-2xs text-dim mb-4">Testing level {ALL_LEVELS[li]} · do you know this word?</p>
+      {/* The bar alone reads as empty on the first word, which makes a test with
+          no stated length feel open-ended. The count is the reassurance: the test
+          stops early when recognition drops, so this is a ceiling, not a quota. */}
+      <div className="flex items-baseline justify-between gap-2 mb-4">
+        <p className="text-2xs text-dim">Testing level {ALL_LEVELS[li]} · do you know this word?</p>
+        <p className="text-2xs text-dim font-mono tabular-nums flex-shrink-0">
+          {qi + 1}/{PER_LEVEL} · {totalAsked + 1} of {totalMax} max
+        </p>
+      </div>
 
       {/* The word swaps in place, so a heading alone would never be re-announced —
           the live region is what makes each new prompt reach a screen reader. */}

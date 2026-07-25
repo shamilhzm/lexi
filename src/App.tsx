@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Sidebar, { LexiMark } from './components/Sidebar.tsx';
+import BottomNav from './components/BottomNav.tsx';
 import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
 import Explore from './views/Explore.tsx';
@@ -50,6 +51,10 @@ export default function App() {
     if (v === 'review') setTarget(ALL);
     if (v === 'grammar') setDrillInit(null);
     if (v === 'explore') setExploreInit('markt');
+    // Leaving the guided chain by the sidebar is still leaving it. Without this
+    // the first-run hero came back on the next visit, as though placement and
+    // the first session had never happened.
+    if (guided) setOnboarded();
     setGuided(false); setView(v); setMobileOpen(false);
   };
   /** The primary CTA — assemble and launch today's session. */
@@ -57,7 +62,9 @@ export default function App() {
 
   // First-run chain: hero → placement → pick topics → an auto-built 10-card session → recap.
   const startFirstRun = () => { setGuided(true); setView('placement'); };
-  const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
+  // Onboarded the moment the first session begins: placement and topics are
+  // behind them, so the hero has done its job whether or not they finish.
+  const firstRunSession = () => { setOnboarded(); setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
   const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
   /** Blind Spots → the matching practice. Word-drill misses log a mode tag;
    *  grammar misses log the point's own title, which now opens that concept
@@ -92,7 +99,7 @@ export default function App() {
         {/* The live ticker is peripheral motion — hide it during a session. */}
         {view !== 'review' && <Ticker onPick={(g) => study({ kind: 'group', name: g })} />}
 
-        <main className="flex-1 overflow-y-auto bg-bg">
+        <main className="flex-1 overflow-y-auto bg-bg min-h-0">
           <AnimatePresence mode="wait">
             <motion.div key={key}
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
@@ -111,6 +118,9 @@ export default function App() {
             </motion.div>
           </AnimatePresence>
         </main>
+
+        {/* Same rule as the Ticker: a session owns the screen. */}
+        {view !== 'review' && <BottomNav view={view} onGo={go} onStartSession={startSession} />}
       </div>
     </div>
   );

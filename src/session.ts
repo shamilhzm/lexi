@@ -128,9 +128,18 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
 }
 
 /** Flip queue from the store, woven with at most one drill per word:
- *  due drills always ride along; unseen drills fill up to the cap. */
-export function buildMixedSession(target: Target): SessionItem[] {
+ *  due drills always ride along; unseen drills fill up to the cap.
+ *
+ *  `teachOnly` strips every drill and grammar point out, leaving pure
+ *  vocabulary. The very first session is the one place where a learner has been
+ *  taught nothing yet, and interleaving put a Kasus item ("Hier ist ___ Beruf",
+ *  den/dem/der/des) six cards in — a case they had never seen named, let alone
+ *  explained. Drills start from session two, once there is something to
+ *  interleave *with*. */
+export function buildMixedSession(target: Target, teachOnly = false): SessionItem[] {
   const words = buildSession(target);
+  if (teachOnly) return words.map((w) => ({ type: 'flip' as const, word: w, srsId: w.id }));
+
   const drills = new Map<number, SessionItem>(); // flip index → its drill
   let freshBudget = MAX_FRESH_DRILLS;
 

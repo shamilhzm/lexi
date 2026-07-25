@@ -33,7 +33,7 @@ function pickExercise(point: GPoint, seed: string) {
 export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
-  const queue = useMemo(() => buildMixedSession(target), [target, lvKey]);
+  const queue = useMemo(() => buildMixedSession(target, firstRun), [target, lvKey, firstRun]);
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
   const reduce = useReducedMotion();
   const [i, setI] = useState(0);
@@ -211,6 +211,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const card = item.word;
   const drill = item.type !== 'flip';
   const grammar = card.kind === 'grammar';
+  const isNew = statusOf(item.srsId) === 'new';
   // A grammar card renders as a practical exercise when its point is in the bank.
   const gpoint = grammar && gmap ? gmap.get(`${card.level}::${card.term}`) : undefined;
   const grammarEx = gpoint && gpoint.exercises.length ? pickExercise(gpoint, item.srsId) : null;
@@ -309,16 +310,28 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           ) : (<>
           <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
-              {/* FRONT — the prompt: word + German context, no translation to spoil the test */}
+              {/* FRONT — the prompt: word + German context, no translation to spoil
+                  the test. Except on first sight: a card the learner has never met
+                  is an introduction, not a test. Hiding the meaning there just asks
+                  them to fail at recalling something nobody taught them, so a new
+                  card shows its gloss and the grade becomes "did that land?".
+                  Retrieval starts at the next review, which FSRS schedules minutes
+                  later. */}
               <div className="flip-face relative border border-line rounded-md bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
-                <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}</span>
+                <span className="text-2xs text-dim font-mono uppercase tracking-widest">
+                  {isNew && <span className="text-amber">New · </span>}
+                  {grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
+                </span>
                 {!grammar && <Illustration word={card} size={68} className="text-amber select-none" />}
                 <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
                 {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
+                {isNew && !grammar && (
+                  <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
+                )}
                 {!grammar && (
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-amber hover:bg-panel2 active:scale-95" title="Pronunciation">
@@ -326,6 +339,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   </button>
                 )}
                 {card.ex[0] && <span className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>
               {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
               <div className="flip-face flip-back border rounded-md flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
@@ -370,7 +384,9 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
               </button>
             </div>
             <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
-              Space to flip and check the {grammar ? 'rule' : 'translation'}
+              {isNew && !grammar
+                ? 'First time seeing this — take it in, then say how it landed'
+                : `Space to flip and check the ${grammar ? 'rule' : 'translation'}`}
             </span>
           </div>
           </>)}
