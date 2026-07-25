@@ -393,6 +393,17 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
   *Touches:* `src/lib/illustration.tsx`, `views/Review.tsx`, `views/Markt.tsx`,
   `views/Wortkarte.tsx`.
 
+- **C1/C2 example + synonym pass** (M, Claude-authored owned data). *Why:* A1–B2
+  now carry two hand-authored examples each (and synonyms where genuine); C1/C2
+  definitions are done but most cards still have <2 examples (C1 466/606, C2
+  214/220 at last count). *Do:* author a clean second example (`lvl` matching the
+  card level) for every C1/C2 card under two, plus synonyms only where they truly
+  exist — never force loose pairs, which mislead in a learning tool. Batch as
+  `scripts/authoring/batches/c1-ex-*.json` / `c2-ex-*.json`, apply fill-only via
+  `apply-authored.ts`. *Done-when:* C1 and C2 both reach 0 cards under two
+  examples; integrity check shows 0 existing-example overwrites and unchanged ids.
+  *Touches:* `scripts/authoring/batches/`, `public/data/vocab.json`.
+
 - **Friend-readiness leftovers** (S each — from the sharing analysis +
   [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
   in Profile; edit-distance-1 typo tolerance on typed answers (measure
