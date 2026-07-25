@@ -1,7 +1,7 @@
 // Grammatik-Übungen — the authored exercise bank on FSRS tracks. Renders the
 // five widget kinds (choose, mc, type, order, error); wrong answers log a
 // blind-spot tag (the grammar point's title). Reached from Grammar Fundamentals.
-import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { createContext, useContext, useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Check, X, Loader2 } from 'lucide-react';
 import { cardOf, review, levels, logMiss } from '../store.ts';
@@ -10,6 +10,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
+import WhyLink, { RuleToggle } from '../components/RulePanel.tsx';
 import type { CEFR } from '../types.ts';
 
 // canon: case/whitespace-insensitive. norm: additionally folds umlauts/ß, so
@@ -83,7 +84,7 @@ export default function GrammarDrill({ onExit, scope }: { onExit: () => void; sc
   return (
     <Shell onExit={onExit} progress={`${done}/${queue.length}`} score={done ? Math.round((correct / done) * 100) : null}>
       <div className="text-center mb-3">
-        <h2 className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">{item.level} · {item.point.title}</h2>
+        <RuleToggle pointRef={{ level: item.level, title: item.point.title }} />
       </div>
       <Item key={item.id} item={item} onGrade={grade} />
     </Shell>
@@ -91,28 +92,41 @@ export default function GrammarDrill({ onExit, scope }: { onExit: () => void; sc
 }
 
 function Item({ item, onGrade }: { item: GItem; onGrade: (ok: boolean) => void }) {
-  return <GrammarExercise ex={item.ex} onGrade={onGrade} />;
+  return <GrammarExercise ex={item.ex} onGrade={onGrade} point={{ level: item.level, title: item.point.title }} />;
 }
 
+/** Which concept the exercise on screen belongs to. Ambient rather than threaded
+ *  through every widget: all five kinds render the shared <Explain>, and only
+ *  Explain needs it (to offer the rule after a wrong answer). */
+const PointCtx = createContext<{ level: CEFR; title: string } | null>(null);
+
 /** Render one grammar exercise (any of the five widget kinds). Reused by the
- *  unified session so grammar points show up as drills, not rule explanations. */
-export function GrammarExercise({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
-  if (ex.kind === 'choose' || ex.kind === 'mc') return <ChooseItem ex={ex} onGrade={onGrade} />;
-  if (ex.kind === 'type') return <TypeItem ex={ex} onGrade={onGrade} />;
-  if (ex.kind === 'order') return <OrderItem ex={ex} onGrade={onGrade} />;
-  return <ErrorItem ex={ex} onGrade={onGrade} />;
+ *  unified session, where `point` is what makes the rule reachable from a drill
+ *  the learner met mid-session rather than by choosing it. */
+export function GrammarExercise({ ex, onGrade, point }: {
+  ex: GItem['ex']; onGrade: (ok: boolean) => void; point?: { level: CEFR; title: string };
+}) {
+  const body = ex.kind === 'choose' || ex.kind === 'mc' ? <ChooseItem ex={ex} onGrade={onGrade} />
+    : ex.kind === 'type' ? <TypeItem ex={ex} onGrade={onGrade} />
+    : ex.kind === 'order' ? <OrderItem ex={ex} onGrade={onGrade} />
+    : <ErrorItem ex={ex} onGrade={onGrade} />;
+  return <PointCtx.Provider value={point ?? null}>{body}</PointCtx.Provider>;
 }
 
 function Card({ children }: { children: React.ReactNode }) {
   return <div className="bg-card border border-line rounded-md p-6 sm:p-8">{children}</div>;
 }
 function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
+  const point = useContext(PointCtx);
   return (
     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center" role="status" aria-live="polite">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
           : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
       {note && <p className="text-amber text-xs mt-1">{note}</p>}
       {text && <p className="text-dim text-xs mt-1.5">{text}</p>}
+      {/* The per-exercise `explain` justifies this answer; the rule explains the
+          system. Offer it only on a miss, so a run of correct answers stays clean. */}
+      {!ok && point && <div className="flex justify-center"><WhyLink pointRef={point} /></div>}
     </motion.div>
   );
 }

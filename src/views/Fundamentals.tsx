@@ -20,6 +20,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
 import { OrderItem, TypeItem } from './GrammarDrill.tsx';
+import WhyLink, { RuleToggle } from '../components/RulePanel.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word } from '../types.ts';
 
@@ -196,6 +197,27 @@ export const MODE_TAG: Record<Mode, string> = {
   order: 'Word order (sentence builder)', transform: 'Tense transformation', case: 'Cases & endings (Kasus)',
 };
 
+/** The authored grammar point that teaches the system each generated drill
+ *  tests, as `gram:<level>:<title>` ids. Ordered easiest-first (Processability:
+ *  canonical forms before complex ones).
+ *
+ *  Two consumers, one map: session.ts picks the first candidate that is unseen
+ *  or due for miss-triggered remediation, and the drills show `[0]` as the rule
+ *  behind a wrong answer. It lives here because `Mode` does — session.ts already
+ *  imports from this file, so keeping it here avoids a circular import. */
+export const MODE_REMEDY: Record<Mode, string[]> = {
+  gender: ['gram:A1:Artikel & Genus', 'gram:A1:Artikelwörter & kein'],
+  plural: ['gram:A1:Pluralbildung (die Nomen im Plural)'],
+  conj: ['gram:A1:Präsens (regelmäßig)', 'gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Konjunktiv II (würde)'],
+  cloze: [], // vocabulary-in-context, not a structural system
+  order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],
+  transform: ['gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
+  case: ['gram:A2:Akkusativ', 'gram:A2:Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)', 'gram:A2:Adjektivdeklination: nach bestimmtem Artikel (schwach)', 'gram:B1:Genitiv'],
+};
+
+/** The point whose rule explains a drill mode, for the "Why?" link. */
+export const modeRulePoint = (m: Mode): string | null => MODE_REMEDY[m][0] ?? null;
+
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
   const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool()
@@ -247,6 +269,10 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
 
   return (
     <Shell onExit={onExit} progress={`${done}/${q.length}`} score={done ? Math.round((correct / done) * 100) : null}>
+      {/* The rule for the system this mode tests, always one tap away. Some
+          modes (gender) auto-advance and never pause on a miss, so the header
+          is the only place a learner can reliably reach an explanation. */}
+      <div className="text-center mb-3"><RuleToggle pointRef={modeRulePoint(mode)} label={MODE_TAG[mode]} /></div>
       {mode === 'gender' && <GenderItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'plural' && <PluralItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'conj' && <ConjItem key={word.id} word={word} onGrade={advance} />}
@@ -344,8 +370,8 @@ function pluralVariants(singular: string): string[] {
   return [endsE ? singular + 'n' : singular + 'e', stem + 'en', stem + 'er', stem + 's', us + 'e', us + 'er', umlaut(singular), singular];
 }
 
-function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, onGrade }:
-  { prompt: string; sub?: string; hint?: string; options: string[]; correct: number; extra?: string; bigPrompt?: boolean; onGrade: (ok: boolean) => void }) {
+function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, mode, onGrade }:
+  { prompt: string; sub?: string; hint?: string; options: string[]; correct: number; extra?: string; bigPrompt?: boolean; mode?: Mode; onGrade: (ok: boolean) => void }) {
   const [picked, setPicked] = useState<number | null>(null);
   return (
     <Card>
@@ -368,6 +394,11 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
         })}
       </div>
       {picked !== null && extra && <p className="text-dim text-xs mt-3 text-center font-mono">{extra}</p>}
+      {/* `extra` states the verdict as a formula ("subject position → Nominativ
+          → der"). On a miss that isn't an explanation, so offer the rule. */}
+      {picked !== null && picked !== correct && mode && (
+        <div className="mt-1 flex justify-center"><WhyLink pointRef={modeRulePoint(mode)} /></div>
+      )}
       {picked !== null && <div className="mt-5 flex justify-center"><button onClick={() => onGrade(picked === correct)} className="bg-panel2 border border-line rounded-md px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>}
     </Card>
   );
@@ -393,7 +424,7 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
     }
     return buildMC(correct, distract);
   }, [word.id]);
-  return <MCItem prompt={singular} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+  return <MCItem prompt={singular} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} mode="plural" onGrade={onGrade} />;
 }
 
 const TENSES: { key: 'praesens' | 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2' | 'pp'; label: string }[] = [
@@ -427,7 +458,7 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
     return { ...buildMC(answer, distract), verb: stripArticle(word.term), kicker };
   }, [word.id]);
   return <MCItem prompt={data.verb} sub={data.kicker} hint={word.en} options={data.options} correct={data.correct}
-    extra={`Hilfsverb: ${conj.aux}${conj.separable ? ` · trennbar (${conj.separable}-)` : ''}`} onGrade={onGrade} />;
+    extra={`Hilfsverb: ${conj.aux}${conj.separable ? ` · trennbar (${conj.separable}-)` : ''}`} mode="conj" onGrade={onGrade} />;
 }
 
 export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
@@ -451,7 +482,7 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
     const distract = pickN(base.map((w) => stripArticle(w.term)), 3, new Set([norm(target)]));
     return buildMC(target, distract);
   }, [word.id]);
-  return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+  return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false} options={mc.options} correct={mc.correct} mode="cloze" onGrade={onGrade} />;
 }
 
 // ---- production drills (reuse the authored-exercise widgets) --------------
@@ -473,7 +504,7 @@ export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
 export function CaseItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const d = useMemo(() => buildCaseItem(word), [word.id]);
   return <MCItem prompt={d.prompt} sub={d.sub} hint={word.en} bigPrompt={false}
-    options={d.options} correct={d.correct} extra={d.extra} onGrade={onGrade} />;
+    options={d.options} correct={d.correct} extra={d.extra} mode="case" onGrade={onGrade} />;
 }
 
 /** Tense transformation, typed: „ich mache“ → Perfekt. Production, not

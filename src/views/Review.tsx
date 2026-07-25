@@ -8,7 +8,8 @@ import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG, modeRulePoint } from './Fundamentals.tsx';
+import { RuleToggle } from '../components/RulePanel.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
@@ -289,8 +290,14 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">
               <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              {/* A drill can arrive mid-session without the learner ever having
+                  chosen the concept — this is the screen where a beginner meets
+                  "Nominativ" cold. Name it, and make the name open the rule. */}
+              {!grammarEx && item.type !== 'flip' && (
+                <div className="text-center mb-2.5"><RuleToggle pointRef={modeRulePoint(item.type)} label={MODE_TAG[item.type]} /></div>
+              )}
               {grammarEx
-                ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} />
+                ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} point={{ level: card.level, title: card.term }} />
                 : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'plural' ? <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'conj' ? <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />
