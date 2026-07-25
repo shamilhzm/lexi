@@ -149,6 +149,10 @@ describe('blindSpotDrills (weakModes)', () => {
     expect(drills.every((d) => d.type === 'gender')).toBe(true);
     expect(drills.every((d) => d.srsId.startsWith('gym:gender:'))).toBe(true);
     expect(new Set(drills.map((d) => d.srsId)).size).toBe(4); // distinct words
+    // Each one can say which weakness it is rehearsing, and how bad it is.
+    expect(drills[0].reason).toMatchObject({
+      kind: 'blindspot', mode: 'gender', tag: fundamentals.MODE_TAG.gender, misses: 1,
+    });
   });
 
   it('only drills modes the word is eligible for', async () => {
@@ -206,6 +210,48 @@ describe('buildMixedSession', () => {
     expect(flips(out)).toEqual(ids);                       // all 12 flips, in order
     expect(out.filter((it) => it.type !== 'flip')).toHaveLength(10); // fresh cap
   });
+
+  it('gives every item a reason — nothing enters a session unexplained', async () => {
+    const { data, session } = await fresh();
+    const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die', pos: 'x' }));
+    data.registerWords(words);
+
+    const out = session.buildMixedSession(custom(['g0', 'g1', 'g2']));
+
+    expect(out.every((it) => !!it.reason?.kind)).toBe(true);
+  });
+
+  it('marks unseen flips fresh and scheduled flips due, with how long they waited', async () => {
+    const { data, store, session, srs } = await fresh();
+    data.registerWords([word('f0', 'Plain'), word('f1', 'Plain')]);
+
+    expect(session.buildMixedSession(custom(['f0']))[0].reason).toEqual({ kind: 'fresh' });
+
+    // Review it, then wind the clock past the interval so it comes due.
+    store.review('f1', srs.Rating.Again);
+    const card = store.cardOf('f1')!;
+    vi.setSystemTime(new Date(new Date(card.due).getTime() + 3 * 86_400_000));
+    try {
+      const [flip] = session.buildMixedSession(custom(['f1']));
+      expect(flip.reason.kind).toBe('due');
+      expect(flip.reason).toMatchObject({ overdueDays: 3 });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('names the parent word on an interleaved drill', async () => {
+    const { data, session } = await fresh();
+    const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die', pos: 'x' }));
+    data.registerWords(words);
+
+    const out = session.buildMixedSession(custom(['g0', 'g1', 'g2']));
+    const drill = out.find((it) => it.type !== 'flip')!;
+
+    expect(drill.reason).toMatchObject({ kind: 'drill', mode: 'gender' });
+    // The drill belongs to the word it was generated from.
+    expect((drill.reason as { parent: { id: string } }).parent.id).toBe(drill.word.id);
+  });
 });
 
 describe('vocabulary→grammar loop', () => {
@@ -250,6 +296,32 @@ describe('vocabulary→grammar loop', () => {
     const out = session.remedyGrammar();
     expect(out).toHaveLength(1);
     expect(out[0].srsId).toBe(point.id);
+  });
+
+  it('names the trigger word on a linked grammar point', async () => {
+    const { data, session } = await fresh();
+    const trigger = word('w0', 'Connectors', { term: 'obwohl' });
+    const point = gpoint('gram:B1:Konzessivsätze: obwohl', 'Konzessivsätze: obwohl');
+    data.registerWords([trigger, point]);
+
+    const [linked] = session.linkedGrammar([trigger]);
+
+    expect(linked.reason.kind).toBe('linked');
+    // The whole point: the learner can be told *why* this appeared.
+    expect(linked.reason).toMatchObject({ kind: 'linked', trigger: { term: 'obwohl' } });
+  });
+
+  it('cites the miss count on a remediation point', async () => {
+    const { data, store, session, fundamentals } = await fresh();
+    const point = gpoint('gram:A1:Artikel & Genus', 'Artikel & Genus', 'A1');
+    data.registerWords([point]);
+
+    for (let i = 0; i < 4; i++) store.logMiss(fundamentals.MODE_TAG.gender);
+    const [remedy] = session.remedyGrammar();
+
+    expect(remedy.reason).toMatchObject({
+      kind: 'remedy', mode: 'gender', tag: fundamentals.MODE_TAG.gender, misses: 4,
+    });
   });
 
   it('maps only to grammar-point ids that exist in the shipped lexicon', async () => {

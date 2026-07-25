@@ -7,13 +7,58 @@
 import type { Word, Target } from './types.ts';
 import { buildSession, cardOf, wordsFor, dueGymIds, missStats } from './store.ts';
 import { BY_ID } from './data/index.ts';
-import { isDue } from './srs.ts';
+import { isDue, State } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, MODE_REMEDY, type Mode } from './views/Fundamentals.tsx';
+
+/** Why an item is in this session.
+ *
+ *  This builder makes five distinct pedagogical decisions per session and used
+ *  to splice every one of them in silently. Learning "obwohl" pulls its
+ *  Konzessivsätze exercise into the queue a few cards later — genuinely ahead of
+ *  what the big consumer apps do, and the learner had no way to know it happened.
+ *  The scheduling *is* the product; an honest scheduler that can show its work is
+ *  the only durable edge over apps with far bigger content budgets.
+ *
+ *  Note that none of this needs new data. The causal links already existed —
+ *  `WORD_POINT`, `MODE_REMEDY`, the `missStats` rows — they were just discarded
+ *  once they had done their job of positioning an item. This carries them. */
+export type SessionReason =
+  /** A scheduled review that has come due. `overdueDays` is how long it waited. */
+  | { kind: 'due'; overdueDays: number }
+  /** A card the learner has never seen. */
+  | { kind: 'fresh' }
+  /** A drill for a word whose flip is in this same queue, ~GAP items earlier. */
+  | { kind: 'drill'; mode: Mode; parent: Word }
+  /** A grammar point pulled in by a function word the learner just met. */
+  | { kind: 'linked'; trigger: Word }
+  /** The rule for a system the learner keeps getting wrong. */
+  | { kind: 'remedy'; mode: Mode; tag: string; misses: number }
+  /** A drill in one of the modes the learner misses most. */
+  | { kind: 'blindspot'; mode: Mode; tag: string; misses: number }
+  /** A due drill for an in-scope word whose flip is *not* in today's queue. */
+  | { kind: 'orphan'; mode: Mode; overdueDays: number };
 
 export interface SessionItem {
   type: 'flip' | Mode;
   word: Word;
   srsId: string; // FSRS card id (word.id for flips, gym:<mode>:<id> for drills)
+  /** Required on purpose: nothing may enter a session without saying why. */
+  reason: SessionReason;
+}
+
+const DAY = 86_400_000;
+/** Whole days a card is past its due date (0 if not yet due). */
+function overdueDays(srsId: string, now = Date.now()): number {
+  const c = cardOf(srsId);
+  if (!c) return 0;
+  return Math.max(0, Math.floor((now - new Date(c.due).getTime()) / DAY));
+}
+
+/** How a plain vocabulary flip got here: never seen, or scheduled and due. */
+function flipReason(w: Word, now = Date.now()): SessionReason {
+  const c = cardOf(w.id);
+  if (!c || c.state === State.New) return { kind: 'fresh' };
+  return { kind: 'due', overdueDays: overdueDays(w.id, now) };
 }
 
 const GAP = 3;               // a word's drill surfaces ~3 items after its flip
@@ -67,7 +112,9 @@ export function linkedGrammar(words: Word[], cap = MAX_LINKED): SessionItem[] {
     if (!pid || !pointNeedsStudy(pid)) continue;
     const point = BY_ID.get(pid);
     if (!point || out.some((it) => it.srsId === pid)) continue;
-    out.push({ type: 'flip', word: point, srsId: pid });
+    // The trigger rides along. buildMixedSession used to re-derive it with a
+    // second `words.find(…)` purely to position the item, then drop it.
+    out.push({ type: 'flip', word: point, srsId: pid, reason: { kind: 'linked', trigger: w } });
   }
   return out;
 }
@@ -88,19 +135,26 @@ export function remedyGrammar(cap = MAX_REMEDY): SessionItem[] {
       if (!pointNeedsStudy(pid)) continue;
       const point = BY_ID.get(pid);
       if (!point || out.some((it) => it.srsId === pid)) continue;
-      out.push({ type: 'flip', word: point, srsId: pid });
+      out.push({
+        type: 'flip', word: point, srsId: pid,
+        reason: { kind: 'remedy', mode, tag: s.tag, misses: s.count },
+      });
       break;
     }
   }
   return out;
 }
 
-/** Drill modes ranked by how often you miss them (last 30 days), worst first. */
-function weakModes(): Mode[] {
+/** Drill modes ranked by how often you miss them (last 30 days), worst first.
+ *  Carries the count, so a drill woven in on this basis can say what it's for. */
+function weakModes(): { mode: Mode; tag: string; misses: number }[] {
   const byTag = new Map<string, Mode>();
   (Object.entries(MODE_TAG) as [Mode, string][]).forEach(([m, tag]) => byTag.set(tag, m));
-  const out: Mode[] = [];
-  for (const s of missStats(30)) { const m = byTag.get(s.tag); if (m && !out.includes(m)) out.push(m); }
+  const out: { mode: Mode; tag: string; misses: number }[] = [];
+  for (const s of missStats(30)) {
+    const m = byTag.get(s.tag);
+    if (m && !out.some((r) => r.mode === m)) out.push({ mode: m, tag: s.tag, misses: s.count });
+  }
   return out;
 }
 
@@ -113,15 +167,15 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
   if (modes.length === 0) return [];
   const now = Date.now();
   const out: SessionItem[] = [];
-  for (const m of modes) {
+  for (const { mode, tag, misses } of modes) {
     for (const w of words) {
       if (out.length >= cap) return out;
-      if (!eligibleModes(w).includes(m)) continue;
-      const srsId = gymId(m, w);
+      if (!eligibleModes(w).includes(mode)) continue;
+      const srsId = gymId(mode, w);
       const c = cardOf(srsId);
       if (c && !isDue(c, now)) continue;          // already comfortably scheduled
       if (out.some((it) => it.srsId === srsId)) continue;
-      out.push({ type: m, word: w, srsId });
+      out.push({ type: mode, word: w, srsId, reason: { kind: 'blindspot', mode, tag, misses } });
     }
   }
   return out;
@@ -138,7 +192,10 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
  *  interleave *with*. */
 export function buildMixedSession(target: Target, teachOnly = false): SessionItem[] {
   const words = buildSession(target);
-  if (teachOnly) return words.map((w) => ({ type: 'flip' as const, word: w, srsId: w.id }));
+  const now = Date.now();
+  if (teachOnly) {
+    return words.map((w) => ({ type: 'flip' as const, word: w, srsId: w.id, reason: flipReason(w, now) }));
+  }
 
   const drills = new Map<number, SessionItem>(); // flip index → its drill
   let freshBudget = MAX_FRESH_DRILLS;
@@ -154,12 +211,17 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
       const fresh = modes.filter((m) => !cardOf(gymId(m, w)));
       if (fresh.length) { pick = fresh[Math.floor(Math.random() * fresh.length)]; freshBudget--; }
     }
-    if (pick) drills.set(idx, { type: pick, word: w, srsId: gymId(pick, w) });
+    if (pick) {
+      drills.set(idx, {
+        type: pick, word: w, srsId: gymId(pick, w),
+        reason: { kind: 'drill', mode: pick, parent: w },
+      });
+    }
   });
 
   const out: SessionItem[] = [];
   words.forEach((w, idx) => {
-    out.push({ type: 'flip', word: w, srsId: w.id });
+    out.push({ type: 'flip', word: w, srsId: w.id, reason: flipReason(w, now) });
     const d = drills.get(idx - GAP);
     if (d) out.push(d);
   });
@@ -180,7 +242,10 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
     if (!(mode in MODE_TAG) || inQueue.has(wordId) || !scope.has(wordId)) continue;
     const w = BY_ID.get(wordId);
     if (!w) continue;
-    out.splice(Math.floor(Math.random() * (out.length + 1)), 0, { type: mode, word: w, srsId: rawId });
+    out.splice(Math.floor(Math.random() * (out.length + 1)), 0, {
+      type: mode, word: w, srsId: rawId,
+      reason: { kind: 'orphan', mode, overdueDays: overdueDays(rawId, now) },
+    });
   }
 
   // Blind-spot injection — a capped set of drills in the modes you miss most,
@@ -199,7 +264,8 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   // are spread randomly like blind spots. Both de-duped against the queue.
   for (const g of linkedGrammar(words)) {
     if (out.some((it) => it.srsId === g.srsId)) continue;
-    const trigger = words.find((w) => WORD_POINT[w.term.toLowerCase()] === g.srsId);
+    // The trigger now comes with the item rather than being searched for again.
+    const trigger = g.reason.kind === 'linked' ? g.reason.trigger : undefined;
     const at = trigger ? out.findIndex((it) => it.type === 'flip' && it.srsId === trigger.id) : -1;
     out.splice(at >= 0 ? Math.min(at + 1 + GAP, out.length) : out.length, 0, g);
   }
