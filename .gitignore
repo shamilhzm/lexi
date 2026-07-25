@@ -18,3 +18,6 @@ reference/
 
 # Transient storage write-probe.
 .writetest
+
+# Local editor/preview config (launch.json for the dev-server preview).
+.claude/

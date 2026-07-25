@@ -14,7 +14,8 @@ and the root [`README.md`](../README.md); this folder is the *why* and the *next
 |---|---|---|
 | [BACKLOG.md](BACKLOG.md) | Prioritized, actionable tasks with acceptance criteria + effort. The source of truth for open work. | Picking up work. |
 | [ROADMAP.md](ROADMAP.md) | Product vision & freemium strategy (the 10 Pro features). **Pre-prune** — see banner. | Thinking about direction / monetization. |
-| [DESIGN-REVIEW.md](DESIGN-REVIEW.md) | Design/product critique + the B2B "Sprachschule" pitch and ROI arithmetic. Most usability findings shipped; the school-kit section is still forward-looking. | Design decisions, or a school/B2B pitch. |
+| [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost us time. Living — argue with it. | Touching anything visual. |
+| [SCHOOL-PITCH.md](SCHOOL-PITCH.md) | The B2B "Sprachschule" strategy: ROI arithmetic, the gap list, and a signable guarantee. Forward-looking; most of the gap list isn't built. | A school / B2B conversation. |
 | [COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md) | Survey of Anki, LingQ, Clozemaster, Lingvist, Seedlang, etc., with borrowable ideas. | Sizing a feature against the market. |
 
 ## Archived (`archive/`)
@@ -24,6 +25,7 @@ banner explaining what replaced it.
 
 | Doc | Status |
 |---|---|
+| [archive/DESIGN-REVIEW-2026-07.md](archive/DESIGN-REVIEW-2026-07.md) | The original design critique. Split into `DESIGN.md` + `SCHOOL-PITCH.md`. Most findings shipped; its paper-card recommendation was wrong and the banner explains why. |
 | [archive/PRODUCT-FOCUS.md](archive/PRODUCT-FOCUS.md) | July 2026 prune. Decisions shipped; open items moved to the backlog. |
 | [archive/IMPLEMENTATION-PLAN.md](archive/IMPLEMENTATION-PLAN.md) | Phased build order for the design review. Phases 1–5 delivered. |
 | [archive/LEXICON-EXPANSION-TASK.md](archive/LEXICON-EXPANSION-TASK.md) | Corpus-pipeline brief. Delivered; the pipeline lives in [`../scripts/corpus/`](../scripts/corpus/README.md). |

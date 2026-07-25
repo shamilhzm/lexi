@@ -345,12 +345,12 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   card shows its gloss and the grade becomes "did that land?".
                   Retrieval starts at the next review, which FSRS schedules minutes
                   later. */}
-              {/* The terminal is the room; the card is the thing in your hand.
-                  `paper` re-skins this subtree via the token override in
-                  index.css — warm ground, serif headword — so the object the
-                  learner actually studies is a different material from the
-                  chrome around it, instead of sharing its radius and border. */}
-              <div className="paper flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
+              {/* The terminal is the room; the card is the thing in your hand —
+                  but it's the same *palette* as the room, distinguished by
+                  material: grain, the larger radius, a deeper lift, and the
+                  serif headword. The earlier warm-cream version changed the
+                  brand hue by 153° on entry, which is why it read as foreign. */}
+              <div className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">
                   {isNew && <span className="text-amber">New · </span>}
@@ -378,7 +378,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>
               {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
-              <div className="paper flip-face flip-back border rounded-lg flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
+              <div className="flip-face flip-back border rounded-lg flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
                    style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Rule' : 'Translation'}</span>
                 <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>

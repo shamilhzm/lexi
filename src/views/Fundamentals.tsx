@@ -524,10 +524,10 @@ export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
 }
 
 /** The drill surface. Same material as the flip card — an exercise is the same
- *  kind of object as a card, so it gets the paper ground and the card radius
- *  rather than looking like another panel in the chrome. */
+ *  kind of object as a card, so it gets the card ground, grain and radius rather
+ *  than looking like another panel in the chrome. */
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="paper bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
+  return <div className="bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
 }
 function Prompt({ children, small, gloss, big = true }: { children: React.ReactNode; small?: string; gloss?: string; big?: boolean }) {
   return (

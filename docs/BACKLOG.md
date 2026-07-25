@@ -436,15 +436,19 @@ follow-on) shipped 2026-07-11._
 
 ## Parked decisions (revisit deliberately, don't drift into)
 
-- ~~**Paper card faces.**~~ **Decided 2026-07-25: shipped, scoped to the card in
-  hand.** `.paper` is applied to the flip-card faces (`Review.tsx`) and the two
-  exercise surfaces (`Fundamentals.tsx`, `GrammarDrill.tsx`) — nothing else. The
-  terminal is the room; the card is the object you study. Two things had to be
-  fixed for it to work: `.paper` never re-asserted `color`, so the headword
-  inherited the dark theme's near-white ink onto cream, and it had no
-  `--color-card`, so the faces inherited the dark card token. It also carries its
-  own warm off-white (`#fbf7ee`) rather than pure white, so the card still reads
-  as a separate material inside the *light* theme's white chrome.
+- ~~**Paper card faces.**~~ **Closed 2026-07-26: tried, and reverted.** Shipped on
+  2026-07-25 scoped to the flip faces and the two exercise surfaces; removed a day
+  later. It was the wrong idea for two measurable reasons. `.paper` was authored as
+  a *standalone whole-app theme*, so nesting it also nested its accent — the brand
+  hue swung 189° → 36° (near-complementary) and every accented element inside a
+  card inverted cyan→brown on entry. And it only worked in one theme: the cream
+  card scored 18.4 contrast against the dark room and **1.07** against the light
+  one, where it read as a stain rather than an object.
+  The card is now distinguished by **material** inside one unchanging palette —
+  fractal grain, `rounded-lg`, a deeper lift, and the Fraunces headword (which is
+  no longer coupled to the colour scope). The rule this produced — *a nested scope
+  may change ground and ink, never the brand hue* — is written down in
+  [DESIGN.md](DESIGN.md).
 - **AI tutor & the Reader/Mine flow.** ROADMAP's two flagship paid features; **cut
   from the core loop** in the July prune. `lib/ai.ts` and the OpenAI-compatible
   client still exist for **build-time corpus enrichment** (`scripts/corpus/enrich-llm.ts`),

@@ -1,3 +1,32 @@
+> ## ⚠️ Archived — July 2026 snapshot
+>
+> **Superseded by [`../DESIGN.md`](../DESIGN.md)** (the living design system) and
+> [`../SCHOOL-PITCH.md`](../SCHOOL-PITCH.md) (the B2B strategy, moved out verbatim).
+> Kept for provenance. **Do not treat this as current.**
+>
+> Most of its usability findings shipped: the type scale, the three-step radius
+> scale, haptics, the red-contrast fix, 44pt targets, reduced-motion coverage,
+> the unified recap, and the first-run guided session.
+>
+> Two things it argued are still open and still right — collapsing the four
+> browse surfaces into one, and making **Known** the app's headline number rather
+> than "cards queued."
+>
+> **One thing it got wrong.** Section 1 recommends *"paper for the card faces
+> only… that contrast strengthens the identity."* It doesn't. `.paper` was
+> authored as a standalone whole-app theme, so nesting it inside the terminal also
+> nested its accent: the brand hue swung 189° → 36°, near-complementary, and every
+> accented element in the card inverted cyan→brown. It also only worked in one
+> theme — 18.4 contrast against the dark room, 1.07 against the light one. The card
+> is now distinguished by *material* (grain, radius, elevation, the serif headword)
+> inside one unchanging palette. See "Hue discipline" in `DESIGN.md`.
+>
+> The framing below — *"as if from inside Apple's design & product org"* — is worth
+> noting as a lesson in itself. It invited deference rather than argument, which is
+> a large part of why that recommendation went unchallenged for as long as it did.
+
+---
+
 # Lexi — Design Review & Path to Pitch-Readiness
 
 *Written as if from inside Apple's design & product org: what's genuinely good, what's in the

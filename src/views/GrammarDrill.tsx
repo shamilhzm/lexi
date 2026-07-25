@@ -116,9 +116,9 @@ export function GrammarExercise({ ex, onGrade, point }: {
   return <PointCtx.Provider value={point ?? null}>{body}</PointCtx.Provider>;
 }
 
-/** The exercise surface — paper, like the flip card it interleaves with. */
+/** The exercise surface — the same card material as the flip it interleaves with. */
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="paper bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
+  return <div className="bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
 }
 function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
   const point = useContext(PointCtx);

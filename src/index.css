@@ -120,67 +120,23 @@
   --tracking-widest: 0.17em;
 }
 
-/* ============================================================
-   "Paper" theme — warm Kartenwerk surface for learning views
-   (cards, drills, reading). Light for learning, dark for
-   exploring. Because the app styles with token utilities
-   (bg-panel, text-txt, border-line…), overriding the tokens in
-   this scope re-skins everything inside it. Reversible: remove
-   the `.paper` class to revert a view to the dark terminal.
-   ============================================================ */
-.paper {
-  /* Re-assert the ink. Overriding --color-txt in this scope does NOT change the
-     `color` already inherited from <body>, which was resolved against the dark
-     theme's value — so without this the headword renders near-white on cream. */
-  color: var(--color-txt);
-
-  --color-bg:      #faf6e8;   /* warm cream page */
-  --color-panel:   #ffffff;   /* cards */
-  /* The study surface itself. Without this the flip faces inherited the dark
-     @theme value and rendered a dark card inside a cream one — and at pure
-     #ffffff the card vanished into the light theme's white chrome, which is the
-     one thing paper is here to prevent. Warm off-white reads as a different
-     material against both the dark terminal and the cool-white light theme. */
-  --color-card:    #fbf7ee;
-  --color-panel2:  #f4efe0;   /* subtle fills, sunken */
-  --color-line:    #e7dec8;   /* hairline borders */
-  --color-txt:     #1c1b17;   /* ink */
-  --color-dim:     #6e685a;   /* muted ink (AA on cream) */
-  --color-amber:   #8a5300;   /* warm accent — AA on cream + AA for cream text on the amber button */
-  --color-green:   #17663b;   /* success / mastered — AA on the light success surface */
-  --color-green-d: #dcefe2;   /* light success surface */
-  --color-red:     #b0311f;   /* AA on the light error surface */
-  --color-red-d:   #f6e1dc;
-  --color-red-txt: #a52714;   /* AA-legible red for small text on cream */
-  --color-der: #2d5be3;
-  --color-die: #be185d;       /* the dark-theme pink is illegible on cream */
-  --color-das: #0f766e;
-  /* CEFR ink for the cream surface — decoupled from paper green/red/amber */
-  --color-a1: #2d5be3;
-  --color-a2: #0e7490;
-  --color-b1: #0f766e;
-  --color-b2: #6d28d9;
-  --color-c1: #a21caf;
-  --color-c2: #be185d;
-}
-/* On paper, the panel material highlight should be near-invisible. */
-.paper .bg-panel {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.012), rgba(0,0,0,0) 40%);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.02) inset, 0 10px 30px -24px rgba(60,50,20,0.5);
-}
-/* The card faces are the object in the learner's hand: a warm, slightly deeper
-   drop than a panel, so the card sits *on* the terminal rather than in it.
-   Without this they inherited the dark theme's near-black shadow. */
-.paper .bg-card,
-.paper.flip-face,
-.paper .flip-face {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.015), rgba(0,0,0,0) 46%);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px -20px rgba(60,50,20,0.55);
-}
-/* Serif display for headings + headwords in the paper surface (Karteto taste).
-   font-optical-sizing lets Fraunces' opsz axis follow the rendered size, which
-   is the whole reason for a variable display face on a word set this large. */
-.paper h1, .paper .headword {
+/* The German headword — the one place the display serif is used.
+ *
+ * This used to live inside a `.paper` scope that also re-skinned the card in
+ * warm cream. That scope is gone: it was authored as a *standalone whole-app
+ * theme*, and nesting a whole theme nests its accent too — the brand hue swung
+ * 189° → 36° (cyan to brown) the moment you entered a card, so the speaker
+ * button, kicker and status pip all inverted. For a few seconds it wasn't the
+ * same product. It also only worked in one theme: the cream card scored 18.4
+ * contrast against the dark room and 1.07 against the light one, where it read
+ * as a stain rather than an object.
+ *
+ * The card is now distinguished by *material* instead — grain, radius,
+ * elevation and this serif — inside one unchanging palette. See docs/DESIGN.md.
+ *
+ * font-optical-sizing lets Fraunces' opsz axis follow the rendered size, which
+ * is the whole reason for a variable display face on a word set this large. */
+.headword {
   font-family: var(--font-display);
   font-optical-sizing: auto;
   letter-spacing: -0.01em;
@@ -188,16 +144,22 @@
 
 /* ============================================================
    Light theme — a full light surface for the whole terminal,
-   toggled via `html.light` (see theme.ts). Reuses the tested
-   "paper" token values; dark stays the @theme default.
+   toggled via `html.light` (see theme.ts). Dark stays the
+   @theme default. Same hues, same elevation ramp, same
+   semantics — only the luminance inverts.
    ============================================================ */
 html.light {
-  /* Glacier light — cool white, not cream (the cream was part of the "Claude" look). */
-  --color-bg:      #eef3f8;
-  --color-panel:   #ffffff;
-  --color-panel2:  #e2e9f1;
+  /* Glacier light — cool white, not cream (the cream was part of the "Claude" look).
+     Three-step elevation ramp, mirroring dark: bg (recessed) → panel (chrome) →
+     card (the study surface). Panel and card were both #ffffff, so the card had
+     literally 1.00 contrast against the chrome it sat on — no figure/ground at
+     all. Pure white is now reserved for the one surface you read from.
+     Measured: bg→panel 1.12 (dark: 1.12), panel→card 1.05 (dark: 1.07). */
+  --color-bg:      #e8eef5;
+  --color-panel:   #f8fafc;
+  --color-panel2:  #dde5ee;
   --color-card:    #ffffff;
-  --color-line:    #d2dce7;
+  --color-line:    #cfd9e4;
   --color-txt:     #16202e;
   --color-dim:     #55657a;   /* AA on cool white */
   --color-amber:   #0a6f88;   /* Glacier cyan (dark) — AA on white + AA for bg-text on the button */
@@ -219,18 +181,30 @@ html.light {
 /* Light-surface field: cool top wash + faint dark grid (mirrors the dark body). */
 html.light body {
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(238,243,248,0) 55%),
+    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(232,238,245,0) 55%),
     radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
 }
-/* On light, the panel/card material highlight inverts to a soft dark wash. */
+/* On light, the panel/card material highlight inverts to a soft dark wash.
+   The shadows are cool-neutral, not the warm brown they used to be — that was a
+   leftover from the cream card and it tinted the whole light theme. */
 html.light .bg-panel {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.012), rgba(0,0,0,0) 40%);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.02) inset, 0 10px 30px -24px rgba(60,50,20,0.5);
+  background-image: linear-gradient(180deg, rgba(16,32,48,0.014), rgba(0,0,0,0) 40%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 8px 24px -20px rgba(22,32,46,0.45);
+}
+/* The card carries a visibly deeper lift than a panel: at 1.05 luminance apart,
+   elevation and grain are what actually separate them, not colour. The noise
+   layer is re-declared (not inherited) because the light gradient differs, and
+   dialled back — soft-light bites harder against high luminance. */
+html.light .bg-card {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(16,32,48,0.02), rgba(0,0,0,0) 46%);
+  background-size: 140px 140px, auto;
+  background-blend-mode: soft-light, normal;
 }
 html.light .bg-card,
 html.light .flip-face {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0) 46%);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset, 0 12px 30px -22px rgba(60,50,20,0.55);
+  box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6);
 }
 
 * { box-sizing: border-box; }
@@ -288,10 +262,26 @@ body {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 44px -26px rgba(0, 0, 0, 0.85);
 }
 
-/* Lifted card surface (study cards, exercise cards): a clear top highlight and
-   a deeper drop so the card reads as raised off the terminal floor. */
+/* ── The card is a different *material*, not a different colour ──────────────
+   The study surface sits only ~1.05–1.07 luminance steps above the panel it
+   rests on, in both themes. Luminance alone can't carry that — which is exactly
+   why the previous attempt reached for a warm cream, and inverted the brand hue
+   by 153° in the process.
+   Grain carries it instead. One neutral fractal noise, soft-light blended, so
+   the same texture reads correctly over a near-black card and a white one: it
+   lightens where the ground is light, darkens where it's dark, and has no hue of
+   its own. Felt, not seen.
+   It is a *background layer*, not a pseudo-element overlay: `background-blend-mode`
+   composites it into the card's own surface, beneath everything. An overlay with
+   mix-blend-mode would sit on top of the text and quietly modulate the headword.
+   feTurbulence as a data URI — a few hundred bytes, no request, no asset, and
+   resolution-independent, so it stays crisp on a 3× phone. */
 .bg-card {
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 46%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 46%);
+  background-size: 140px 140px, auto;
+  background-blend-mode: soft-light, normal;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 24px 50px -24px rgba(0, 0, 0, 0.9);
 }
 /* Raise the flip-card faces too. */
