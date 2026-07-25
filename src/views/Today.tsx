@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, TrendingDown, Zap, Target as TargetIcon, Check } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats } from '../store.ts';
+import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
@@ -88,6 +88,21 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
   return (
     <div className="max-w-[920px] mx-auto">
       {greeting}
+
+      {/* Streak at risk. Only once there's a streak worth protecting and the
+          day is genuinely unstudied — a banner that fires when you've already
+          done your reviews is just noise, and one that fires on day one is a
+          threat before there's anything to lose. */}
+      {streak() > 0 && !reviewedToday() && total > 0 && (
+        <div className="flex items-center gap-3 bg-panel border border-amber/40 rounded-md px-4 py-3 mb-4"
+          style={{ borderColor: 'rgba(56,205,232,0.4)' }}>
+          <Flame size={18} className="text-amber flex-shrink-0" />
+          <p className="text-xs text-dim flex-1">
+            <span className="text-txt font-semibold">{streak()}-day streak, nothing reviewed yet today.</span>
+            {reminderTime() ? ` Your study time is ${reminderTime()}.` : ' Quick 5 keeps it alive.'}
+          </p>
+        </div>
+      )}
 
       {/* Placement nudge for learners who haven't calibrated yet */}
       {!placed && (

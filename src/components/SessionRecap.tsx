@@ -3,10 +3,16 @@
 // flip-only or drill-only session omits what it didn't produce and only the
 // present tiles render. Phases 3 (copy) and 5 (streak/milestone/mining) extend
 // this by populating already-declared fields — never by changing the shape.
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Check, Flame, Trophy } from 'lucide-react';
+import { Bell, CalendarClock, Check, Flame, TrendingDown, Trophy } from 'lucide-react';
+import { dueForecast, reminderTime, setReminderTime } from '../store.ts';
+import { useStore } from '../useStore.ts';
 import CountUp from './CountUp.tsx';
+
+/** The evening slot most people can actually keep. Offered, never imposed —
+ *  the profile picker owns the real choice. */
+const DEFAULT_TIME = '19:00';
 
 export interface RecapData {
   reviewed?: number;       // flip cards graded
@@ -17,6 +23,7 @@ export interface RecapData {
   streak: number;          // always present
   minedCount?: number;     // Phase 5.5
   milestone?: string;      // Phase 5.3
+  weakest?: string;        // the tag missed most in this session
 }
 
 interface Tile { label: string; num: number; suffix?: string; tone: string }
@@ -71,7 +78,52 @@ export default function SessionRecap({ data, title = 'Session complete', childre
       {data.minedCount !== undefined && data.minedCount > 0 && (
         <p className="text-xs text-dim mb-5">{data.minedCount} of today’s words came from your own texts.</p>
       )}
+      <Tomorrow weakest={data.weakest} />
       {children}
+    </div>
+  );
+}
+
+/** The recap used to end the loop cold — a score, and nothing about coming
+ *  back. This is the cheapest retention surface in the app: say what tomorrow
+ *  holds, name the one thing to watch, and offer the anchor while the learner
+ *  is still feeling good about the session they just finished. */
+function Tomorrow({ weakest }: { weakest?: string }) {
+  useStore();
+  const [asked, setAsked] = useState(false);
+  const back = dueForecast(2)[1] ?? 0;
+  const time = reminderTime();
+
+  return (
+    <div className="border-t border-line pt-4 mb-5 text-left space-y-2">
+      <p className="text-xs text-dim flex items-start gap-2">
+        <CalendarClock size={14} className="text-amber flex-shrink-0 mt-0.5" />
+        <span>
+          {back > 0
+            ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} come back tomorrow.</span> That’s the system working — showing up is the whole trick.</>
+            : <>Nothing is due tomorrow. Come back anyway and Lexi will start something new.</>}
+        </span>
+      </p>
+
+      {weakest && (
+        <p className="text-xs text-dim flex items-start gap-2">
+          <TrendingDown size={14} className="text-red flex-shrink-0 mt-0.5" />
+          <span>Worth a look: <span className="text-txt font-semibold">{weakest}</span> tripped you up most this session.</span>
+        </p>
+      )}
+
+      {/* Only offered to learners who haven't set an anchor yet. */}
+      {!time && !asked && (
+        <button onClick={() => { setReminderTime(DEFAULT_TIME); setAsked(true); }}
+          className="flex items-center gap-1.5 text-xs text-amber hover:underline">
+          <Bell size={13} /> Remind me daily at {DEFAULT_TIME}
+        </button>
+      )}
+      {!time && asked && (
+        <p className="text-xs text-green flex items-center gap-1.5">
+          <Check size={13} /> Set for {DEFAULT_TIME} — change it or add a calendar event in your profile.
+        </p>
+      )}
     </div>
   );
 }

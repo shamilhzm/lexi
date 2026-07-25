@@ -495,6 +495,23 @@ export function setSound(on: boolean) {
   emit();
 }
 
+// ---- daily reminder (the habit anchor) -----------------------------------
+// A time of day, not a notification schedule. Local-first means there is no
+// server to push from, so this drives three things that don't need one: the
+// streak-risk banner on Home, a local notification while the app is open or
+// installed, and a downloadable .ics the learner's real calendar owns — the
+// only one of the three that reaches them on iOS with the app closed.
+const REMINDER_KEY = 'lexi.reminder.v1';
+/** "HH:MM" (24h, local) or null when the learner hasn't set one. */
+export function reminderTime(): string | null {
+  const v = localStorage.getItem(REMINDER_KEY);
+  return v && /^\d{2}:\d{2}$/.test(v) ? v : null;
+}
+export function setReminderTime(t: string | null) {
+  if (t) localStorage.setItem(REMINDER_KEY, t); else localStorage.removeItem(REMINDER_KEY);
+  emit();
+}
+
 // ---- HD voice (Piper Thorsten, in-browser) -------------------------------
 const HDVOICE_KEY = 'lexi.hdvoice.v1';
 export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }
@@ -721,6 +738,14 @@ export function recordVisit() {
   if (!visits.includes(t)) { visits.push(t); persistVisits(); }
 }
 
+/** Whether any card was actually graded today. Distinct from a visit: opening
+ *  the app records a visit, so streak() alone can't tell "studied" from "looked
+ *  at the home screen" — and a reminder that fires after you've already done
+ *  your reviews is the fastest way to get notifications switched off. */
+export function reviewedToday(): boolean {
+  return (reviewLog()[todayKey()]?.n ?? 0) > 0;
+}
+
 export function streak(): number {
   const set = new Set(visits);
   let n = 0;
@@ -782,7 +807,7 @@ const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
-  'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1',
+  'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

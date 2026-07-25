@@ -22,6 +22,7 @@ import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
+import { startReminderWatch } from './lib/reminder.ts';
 import type { Target } from './types.ts';
 
 export type View = 'home' | 'explore' | 'grammar' | 'stats' | 'review' | 'placement' | 'interests' | 'profile';
@@ -39,6 +40,9 @@ export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
+  // Only does anything once a study time is set and permission granted; the
+  // watch itself is three localStorage reads a minute.
+  useEffect(() => startReminderWatch(), []);
 
   const toggleCollapse = () => setCollapsed((c) => {
     const n = !c;
