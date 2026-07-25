@@ -1,0 +1,31 @@
+# Vercel does NOT read .gitignore — without this file the CLI uploads the whole
+# working directory, including the 1.6 GB of raw corpus dumps under
+# scripts/corpus/data/ (three of which are individually over Vercel's 100 MB
+# per-file limit, so the deploy fails outright).
+#
+# The build only needs: index.html, src/, public/, and the config files.
+# Everything below is either build-time-only tooling, local reference material,
+# or regenerated on the Vercel builder.
+
+node_modules
+dist
+.git
+.vercel
+
+# Build-time corpus + authoring pipeline. Runs on a maintainer's machine only;
+# the app fetches the finished JSON from public/data at runtime.
+scripts
+
+# Local-only material, all gitignored too: DaF textbook scans and design
+# screenshots (~444 MB), and the parked legacy apps.
+reference
+to_be_deleted_or_archived
+
+# Docs, print assets and design sources aren't part of the app bundle.
+docs
+design
+print-and-play
+
+*.local
+.DS_Store
+*.timestamp-*.mjs
