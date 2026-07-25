@@ -1,21 +1,25 @@
-// Grammar Fundamentals — interactive drills with their own spaced-repetition
-// track. Four modes: der/die/das gender, noun plurals, verb conjugation (Präsens /
-// Präteritum / Perfekt / Futur I / Konjunktiv II / Partizip II via the conjugation
-// engine), and cloze from example sentences. Each drilled unit gets an FSRS card
-// under a namespaced id, so the drills schedule themselves without touching the
-// vocabulary stats.
+// The generated word-drill engine — seven modes (der/die/das gender, noun
+// plurals, verb conjugation via the conjugation engine, cloze from example
+// sentences, sentence builder, tense transformation, Kasus), each generated on
+// the fly from lexicon fields rather than authored. Every drilled unit gets its
+// own FSRS card under a namespaced id, so drills schedule themselves without
+// touching the vocabulary stats.
+//
+// This file is a library, not a destination: Grammar.tsx owns the page and
+// routes here for its "Quick drills" strip, and Review.tsx imports the item
+// components to interleave drills into mixed sessions.
+//
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, BookOpen, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
-import { fmt, haptic, tick } from '../lib/ui.ts';
-import { GRAMMAR_COUNTS } from '../lib/grammar.ts';
+import { haptic, tick } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
-import GrammarDrill, { OrderItem, TypeItem } from './GrammarDrill.tsx';
+import { OrderItem, TypeItem } from './GrammarDrill.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import type { Word } from '../types.ts';
 
@@ -217,52 +221,10 @@ export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
   { m: 'case', label: 'Kasus', icon: Braces, desc: 'Declined articles & adjective endings — Nominativ · Akkusativ · Dativ · Genitiv.' },
 ];
 
-export default function Fundamentals({ initial = null }: { initial?: Mode | 'grammar' | null }) {
-  const [mode, setMode] = useState<Mode | 'grammar' | null>(initial);
-  if (mode === 'grammar') return <GrammarDrill onExit={() => setMode(null)} />;
-  if (mode) return <Drill mode={mode} onExit={() => setMode(null)} />;
-  return <Landing onPick={setMode} />;
-}
-
-function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
-  useStore();
-  const counts = useMemo(() => ({
-    gender: genderPool().length, plural: pluralPool().length, conj: conjPool().length, cloze: clozePool().length,
-    order: orderPool().length, transform: transformPool().length, case: casePool().length,
-  }), [levels()]);
-  return (
-    <div className="max-w-[820px] mx-auto">
-      <div className="flex items-center gap-2.5 mb-1">
-        <Cog size={20} className="text-amber" />
-        <h1 className="text-xl sm:text-2xl font-bold">Grammar Fundamentals</h1>
-      </div>
-      <p className="text-dim text-xs mb-4">Targeted drills with their own spaced-repetition schedule.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {MODES.map(({ m, label, icon: Icon, desc }) => (
-          <button key={m} onClick={() => onPick(m)}
-            className="bg-panel border border-line rounded-md p-4 text-left hover:border-amber transition-colors group">
-            <div className="flex items-center gap-2.5 mb-1.5">
-              <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber"><Icon size={18} /></span>
-              <span className="font-semibold text-base">{label}</span>
-            </div>
-            <p className="text-dim text-xs">{desc}</p>
-            <p className="text-2xs text-dim mt-2 font-mono">{counts[m].toLocaleString('de-DE')} items</p>
-          </button>
-        ))}
-        <button onClick={() => onPick('grammar')}
-          className="bg-panel border border-line rounded-md p-4 text-left hover:border-amber transition-colors sm:col-span-2">
-          <div className="flex items-center gap-2.5 mb-1.5">
-            <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber"><BookOpen size={18} /></span>
-            <span className="font-semibold text-base">Grammar exercises</span>
-          </div>
-          <p className="text-dim text-xs">{GRAMMAR_COUNTS.points} points · {fmt(GRAMMAR_COUNTS.exercises)} authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
+/** One generated word-drill, played to completion. The landing that used to sit
+ *  above this now lives in Grammar.tsx, which owns the syllabus and routes here
+ *  for the "Quick drills" strip. */
+export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
   useStore();
   const lvKey = [...levels()].sort().join('');
   const q = useMemo(() => queue(mode), [mode, lvKey]);

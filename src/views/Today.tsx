@@ -4,23 +4,22 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Zap, Target as TargetIcon, Check } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress } from '../store.ts';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, TrendingDown, Zap, Target as TargetIcon, Check } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
-import { GRAMMAR_COUNTS } from '../lib/grammar.ts';
+import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import { blindSpotDrills } from '../session.ts';
 import { BY_ID } from '../data/index.ts';
-import { MODES, type Mode } from './Fundamentals.tsx';
-import type { Target, Word } from '../types.ts';
+import type { CEFR, Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, onBlindDrill, onDecks, onBackup }:
+export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
-    onDrill: (m: Mode | 'grammar') => void; onBlindDrill: (tag?: string) => void; onDecks: () => void;
-    onBackup: () => void }) {
+    onBlindDrill: (tag?: string) => void; onDecks: () => void;
+    onBackup: () => void; onGrammar: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
@@ -226,13 +225,13 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
         </div>
       )}
 
-      {/* Grammar drills — their own SRS track. Expands in place to the modes so
-          the daily loop covers grammar without a page jump. */}
+      {/* Grammar — the concepts at your level, not a menu of exercise types.
+          The bank is fetched only when this opens, so Home stays cheap. */}
       <div className="mb-4">
         <button onClick={() => setDrillsOpen((o) => !o)} aria-expanded={drillsOpen}
           className="w-full flex items-center gap-3 bg-panel border border-line rounded-md px-4 py-3 text-left hover:border-amber transition-colors">
           <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
-          <span className="flex-1 text-base font-semibold">Grammar Fundamentals</span>
+          <span className="flex-1 text-base font-semibold">Grammar</span>
           {drillsDue > 0 && <span className="text-2xs font-mono text-amber border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(drillsDue)} due</span>}
           <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${drillsOpen ? 'rotate-180' : ''}`} />
         </button>
@@ -240,25 +239,48 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
           {drillsOpen && (
             <motion.div key="drills" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
-              <div className="grid grid-cols-2 gap-2.5 pt-2.5">
-                {MODES.map(({ m, label, icon: Icon }) => (
-                  <button key={m} onClick={() => onDrill(m)}
-                    className="flex items-center gap-2.5 bg-panel border border-line rounded-md px-3 py-3 text-left hover:border-amber transition-colors">
-                    <span className="grid place-items-center w-8 h-8 rounded-md bg-panel2 text-amber flex-shrink-0"><Icon size={16} /></span>
-                    <span className="text-sm font-semibold">{label}</span>
-                  </button>
-                ))}
-                <button onClick={() => onDrill('grammar')}
-                  className="col-span-2 flex items-center gap-2.5 bg-panel border border-line rounded-md px-3 py-3 text-left hover:border-amber transition-colors">
-                  <span className="grid place-items-center w-8 h-8 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpen size={16} /></span>
-                  <span className="text-sm font-semibold">Grammar exercises</span>
-                  <span className="text-2xs text-dim ml-auto hidden sm:inline">A1–C2 · {fmt(GRAMMAR_COUNTS.exercises)} exercises</span>
-                </button>
-              </div>
+              <div className="pt-2.5"><LevelGrammar level={placed ?? 'A1'} onOpen={onGrammar} /></div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+    </div>
+  );
+}
+
+/** The learner's own level, as concepts with English summaries — the short
+ *  version of the Grammar syllabus, so the daily loop can reach a rule without
+ *  a page jump. Loads the bank lazily (only when the accordion opens). */
+function LevelGrammar({ level, onOpen }: { level: CEFR; onOpen: () => void }) {
+  useStore();
+  const [bank, setBank] = useState<GPoint[] | null>(null);
+  useEffect(() => { loadGrammar().then((g) => setBank(g[level] ?? [])); }, [level]);
+  if (!bank) return <p className="text-2xs text-dim font-mono px-1 py-2">Loading…</p>;
+
+  const rows = bank.map((p, pi) => ({ p, pi, s: pointStats(level, pi, p.exercises.length) }));
+  // Unstarted first, then whatever has reviews waiting: "what should I look at
+  // next" rather than an alphabetical index.
+  const next = [...rows].sort((a, b) =>
+    Number(a.s.started) - Number(b.s.started) || b.s.due - a.s.due).slice(0, 4);
+  const started = rows.filter((r) => r.s.started).length;
+
+  return (
+    <div className="space-y-1.5">
+      {next.map(({ p, pi, s }) => (
+        <div key={p.title + pi} className="flex items-center gap-3 bg-panel border border-line rounded-md px-3.5 py-2.5">
+          <span className="flex-1 min-w-0">
+            <span className="block text-sm font-semibold truncate">{p.title}</span>
+            <span className="block text-xs text-dim truncate">{p.summary}</span>
+          </span>
+          <span className="text-2xs font-mono text-dim tabular-nums flex-shrink-0">
+            {s.started ? `${s.known}/${s.count}` : 'new'}
+          </span>
+        </div>
+      ))}
+      <button onClick={onOpen}
+        className="w-full flex items-center justify-center gap-1.5 text-xs text-dim border border-line rounded-md px-4 py-2.5 hover:border-amber hover:text-amber transition-colors">
+        All {bank.length} {level} concepts · {started} started <ChevronRight size={13} />
+      </button>
     </div>
   );
 }

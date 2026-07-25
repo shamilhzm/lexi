@@ -10,6 +10,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
+import type { CEFR } from '../types.ts';
 
 // canon: case/whitespace-insensitive. norm: additionally folds umlauts/ß, so
 // "schoen" matches "schön" — a norm-only match is a *near-miss* (right word,
@@ -31,19 +32,35 @@ export function hintText(answer: string, level: number): string {
 }
 function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 
-export default function GrammarDrill({ onExit }: { onExit: () => void }) {
+/** One grammar point, addressed the way flatten() ids it. */
+export interface PointScope { level: CEFR; pi: number; title: string }
+
+export default function GrammarDrill({ onExit, scope }: { onExit: () => void; scope?: PointScope }) {
   useStore();
   const lvKey = [...levels()].sort().join('');
   const [all, setAll] = useState<GItem[] | null>(null);
-  useEffect(() => { loadGrammar().then((g) => setAll(flatten(g, levels()))); }, [lvKey]);
+  // A scoped drill answers "practise *this* concept", so it deliberately ignores
+  // the CEFR filter — tapping Practice on a point is itself the license for it,
+  // the same reasoning session.ts uses for its WORD_POINT links.
+  const scopeKey = scope ? `${scope.level}:${scope.pi}` : '';
+  useEffect(() => {
+    loadGrammar().then((g) => setAll(
+      scope ? flatten(g, new Set([scope.level])).filter((it) => it.pi === scope.pi)
+            : flatten(g, levels())
+    ));
+  }, [lvKey, scopeKey]);
 
   const queue = useMemo(() => {
     if (!all) return [];
     const now = Date.now();
     const due: GItem[] = [], fresh: GItem[] = [];
     for (const it of all) { const c = cardOf(it.id); if (!c) fresh.push(it); else if (isDue(c, now)) due.push(it); }
+    // Scoped: play the whole point (a handful of exercises) rather than a slice
+    // of the day's mixed queue, and replay it even when nothing is due — the
+    // learner asked for this concept.
+    if (scope) return all.length <= 25 ? shuffle(all) : shuffle(all).slice(0, 25);
     return [...shuffle(due), ...shuffle(fresh)].slice(0, 25);
-  }, [all]);
+  }, [all, scopeKey]);
 
   const [i, setI] = useState(0);
   const [done, setDone] = useState(0);
@@ -60,7 +77,7 @@ export default function GrammarDrill({ onExit }: { onExit: () => void }) {
   }, [item]);
 
   if (!all) return <Shell onExit={onExit}><div className="grid place-items-center min-h-[300px] text-dim"><Loader2 className="animate-spin" /></div></Shell>;
-  if (queue.length === 0) return <Shell onExit={onExit}><Empty /></Shell>;
+  if (queue.length === 0) return <Shell onExit={onExit}><Empty scope={scope} /></Shell>;
   if (!item) return <Shell onExit={onExit}><Summary done={done} correct={correct} /></Shell>;
 
   return (
@@ -251,8 +268,13 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
     </div>
   );
 }
-function Empty() {
-  return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center"><h2 className="text-xl font-bold mb-1">Nothing due</h2><p className="text-dim">No grammar exercises are due for your selected levels.</p></div>;
+function Empty({ scope }: { scope?: PointScope }) {
+  return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center">
+    <h2 className="text-xl font-bold mb-1">{scope ? 'No exercises yet' : 'Nothing due'}</h2>
+    <p className="text-dim">{scope
+      ? <>“{scope.title}” has no exercises in the bank yet — the rule above is all there is for now.</>
+      : 'No grammar exercises are due for your selected levels.'}</p>
+  </div>;
 }
 function Summary({ done, correct }: { done: number; correct: number }) {
   return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center">
