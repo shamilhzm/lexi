@@ -11,7 +11,7 @@ import Sidebar, { LexiMark } from './components/Sidebar.tsx';
 import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
 import Explore from './views/Explore.tsx';
-import Grammar from './views/Grammar.tsx';
+import Grammar, { type GrammarInit } from './views/Grammar.tsx';
 import { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
@@ -32,7 +32,7 @@ export default function App() {
   const [view, setView] = useState<View>('home');
   const [target, setTarget] = useState<Target>(ALL);
   const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>('markt');
-  const [drillInit, setDrillInit] = useState<DrillMode | 'grammar' | null>(null);
+  const [drillInit, setDrillInit] = useState<GrammarInit>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [collapsed, setCollapsed] = useState(() => { try { return localStorage.getItem(COLLAPSE_KEY) === '1'; } catch { return false; } });
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -59,10 +59,13 @@ export default function App() {
   const startFirstRun = () => { setGuided(true); setView('placement'); };
   const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
   const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
-  /** Blind Spots → the matching drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
+  /** Blind Spots → the matching practice. Word-drill misses log a mode tag;
+   *  grammar misses log the point's own title, which now opens that concept
+   *  rather than dumping the learner into the whole mixed bank. */
   const drillFor = (tag?: string) => {
-    const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as DrillMode | undefined) ?? 'grammar';
-    setDrillInit(mode); setView('grammar');
+    const mode = Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as DrillMode | undefined;
+    setDrillInit(mode ?? (tag ? { point: tag } : 'grammar'));
+    setView('grammar');
   };
 
   const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '');

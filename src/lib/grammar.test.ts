@@ -8,7 +8,8 @@
 // render as a blank explanation rather than throw.
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { grammarCounts, GRAMMAR_COUNTS, flatten, type GrammarByLevel } from './grammar.ts';
+import { grammarCounts, GRAMMAR_COUNTS, flatten, findPoint, parsePointId, type GrammarByLevel } from './grammar.ts';
+import { MODE_REMEDY, MODE_TAG, modeRulePoint, type Mode } from '../views/Fundamentals.tsx';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 
 const g: GrammarByLevel = JSON.parse(readFileSync('public/data/grammar.json', 'utf8'));
@@ -47,5 +48,52 @@ describe('grammar bank', () => {
     const items = flatten(g, new Set(ALL_LEVELS));
     expect(items.length).toBe(GRAMMAR_COUNTS.exercises);
     expect(new Set(items.map((i) => i.id)).size).toBe(items.length);
+  });
+});
+
+describe('point ids', () => {
+  it('parses gram: ids whose titles contain colons', () => {
+    expect(parsePointId('gram:B1:Konzessivsätze: obwohl'))
+      .toEqual({ level: 'B1', title: 'Konzessivsätze: obwohl' });
+    expect(parsePointId('gram:A1:Artikel & Genus'))
+      .toEqual({ level: 'A1', title: 'Artikel & Genus' });
+  });
+
+  it('rejects ids that are not grammar points', () => {
+    expect(parsePointId('voc:A1:der Name')).toBeNull();
+    expect(parsePointId('gex:A1:0:0')).toBeNull();
+    expect(parsePointId('gram:A1')).toBeNull();
+  });
+});
+
+describe('MODE_REMEDY', () => {
+  // Two consumers depend on these ids resolving: session.ts picks the first
+  // unseen/due candidate for remediation, and the drills show [0] as the rule
+  // behind a wrong answer. A typo here fails silently — the rule link just
+  // never renders — so pin it.
+  const modes = Object.keys(MODE_TAG) as Mode[];
+
+  it('covers every drill mode', () => {
+    for (const m of modes) expect(MODE_REMEDY[m], `no entry for ${m}`).toBeDefined();
+  });
+
+  it('points at grammar points that actually exist in the bank', () => {
+    for (const m of modes) {
+      for (const id of MODE_REMEDY[m]) {
+        const parsed = parsePointId(id);
+        expect(parsed, `${m}: unparseable id ${id}`).not.toBeNull();
+        const hit = findPoint(g, parsed!.level, parsed!.title);
+        expect(hit, `${m}: ${id} has no authored point`).not.toBeNull();
+        expect(hit!.point.rule?.trim(), `${m}: ${id} has an empty rule`).toBeTruthy();
+      }
+    }
+  });
+
+  it('gives every mode but cloze a rule to show on a miss', () => {
+    for (const m of modes) {
+      const id = modeRulePoint(m);
+      if (m === 'cloze') { expect(id).toBeNull(); continue; }
+      expect(id, `${m} has no rule point`).toBeTruthy();
+    }
   });
 });

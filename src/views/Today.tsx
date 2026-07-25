@@ -9,7 +9,7 @@ import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboa
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
-import LevelProgress from '../components/LevelProgress.tsx';
+import PathCard from '../components/PathCard.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import { blindSpotDrills } from '../session.ts';
@@ -103,7 +103,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
         </button>
       )}
 
-      <LevelProgress />
+      <PathCard onGrammar={onGrammar} onStudy={onStart} onBlind={onBlindDrill} />
 
       {/* The goal line — one pace sentence for learners with a date. */}
       {(() => {

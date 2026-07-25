@@ -19,17 +19,44 @@ import { BookOpen, ChevronDown, ChevronRight, GraduationCap, Loader2, Play } fro
 import { levels, placementLevel, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { heat } from '../lib/ui.ts';
-import { loadGrammar, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
+import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
 import GrammarDrill, { type PointScope } from './GrammarDrill.tsx';
 import { Drill, MODES, type Mode } from './Fundamentals.tsx';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 
 type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope } | { kind: 'bank' } | null;
 
-export default function Grammar({ initial = null }: { initial?: Mode | 'grammar' | null }) {
+/** How the page can be entered: a word-drill mode, the mixed bank, or a named
+ *  concept (a grammar blind spot, which is logged by point title alone). */
+export type GrammarInit = Mode | 'grammar' | { point: string } | null;
+
+export default function Grammar({ initial = null }: { initial?: GrammarInit }) {
   const [route, setRoute] = useState<Route>(
-    initial === 'grammar' ? { kind: 'bank' } : initial ? { kind: 'mode', mode: initial } : null,
+    initial === 'grammar' ? { kind: 'bank' }
+      : typeof initial === 'string' ? { kind: 'mode', mode: initial }
+      : null,
   );
+
+  // A blind-spot tag is a bare title ("Perfekt") — misses record the point, not
+  // its level — so resolving it needs the bank. Search the learner's own level
+  // first, since a handful of titles recur across levels (Präteritum, Genitiv).
+  const wanted = typeof initial === 'object' && initial ? initial.point : null;
+  useEffect(() => {
+    if (!wanted) return;
+    let live = true;
+    loadGrammar().then((g) => {
+      if (!live) return;
+      const home = placementLevel();
+      const order = home ? [home, ...ALL_LEVELS.filter((l) => l !== home)] : ALL_LEVELS;
+      for (const level of order) {
+        const hit = findPoint(g, level, wanted);
+        if (hit) { setRoute({ kind: 'point', scope: { level, pi: hit.pi, title: wanted } }); return; }
+      }
+      setRoute({ kind: 'bank' }); // tag has no authored point — fall back
+    });
+    return () => { live = false; };
+  }, [wanted]);
+
   const back = () => setRoute(null);
 
   if (route?.kind === 'mode') return <Drill mode={route.mode} onExit={back} />;

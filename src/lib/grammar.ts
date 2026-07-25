@@ -46,6 +46,22 @@ export function grammarCounts(g: GrammarByLevel): { points: number; exercises: n
  *  file, so the numbers cannot drift out of sync again. */
 export const GRAMMAR_COUNTS = { points: 128, exercises: 774 } as const;
 
+/** Split a `gram:<level>:<title>` vocab-card id into its parts. Titles contain
+ *  colons ("Konzessivsätze: obwohl"), so only the first two segments are fixed. */
+export function parsePointId(id: string): { level: CEFR; title: string } | null {
+  const [prefix, level, ...rest] = id.split(':');
+  if (prefix !== 'gram' || !level || rest.length === 0) return null;
+  return { level: level as CEFR, title: rest.join(':') };
+}
+
+/** Locate an authored point by level + title, returning its index so callers can
+ *  address its exercises (`gex:<level>:<pi>:<xi>`) and its mastery. Returns null
+ *  for the ~27 vocab grammar cards that have no exercise set behind them. */
+export function findPoint(g: GrammarByLevel, level: CEFR, title: string): { point: GPoint; pi: number } | null {
+  const pi = (g[level] ?? []).findIndex((p) => p.title === title);
+  return pi < 0 ? null : { point: g[level][pi], pi };
+}
+
 /** Flatten to individually-schedulable exercise items, optionally level-filtered. */
 export function flatten(g: GrammarByLevel, levels: Set<CEFR>): GItem[] {
   const out: GItem[] = [];
