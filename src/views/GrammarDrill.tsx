@@ -1,4 +1,4 @@
-// Grammatik-Übungen — the 444 authored exercises on FSRS tracks. Renders the
+// Grammatik-Übungen — the authored exercise bank on FSRS tracks. Renders the
 // five widget kinds (choose, mc, type, order, error); wrong answers log a
 // blind-spot tag (the grammar point's title). Reached from Grammar Fundamentals.
 import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
@@ -53,8 +53,8 @@ export default function GrammarDrill({ onExit }: { onExit: () => void }) {
   const grade = useCallback((ok: boolean) => {
     if (!item) return;
     review(item.id, ok ? Rating.Good : Rating.Again);
-    haptic();
-    if (ok) tick('good');
+    haptic(ok ? 'grade' : 'wrong');
+    tick(ok ? 'good' : 'wrong');
     if (!ok) logMiss(item.point.title);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [item]);
@@ -66,7 +66,7 @@ export default function GrammarDrill({ onExit }: { onExit: () => void }) {
   return (
     <Shell onExit={onExit} progress={`${done}/${queue.length}`} score={done ? Math.round((correct / done) * 100) : null}>
       <div className="text-center mb-3">
-        <span className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">{item.level} · {item.point.title}</span>
+        <h2 className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">{item.level} · {item.point.title}</h2>
       </div>
       <Item key={item.id} item={item} onGrade={grade} />
     </Shell>
@@ -91,7 +91,7 @@ function Card({ children }: { children: React.ReactNode }) {
 }
 function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
   return (
-    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center">
+    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center" role="status" aria-live="polite">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
           : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
       {note && <p className="text-amber text-xs mt-1">{note}</p>}

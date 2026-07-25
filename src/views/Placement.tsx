@@ -77,7 +77,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
           <div className="font-mono font-bold text-6xl leading-none text-amber mb-3">{result}</div>
           <p className="text-dim text-base mb-6">
             {seeded > 0
-              ? <>Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on A1–{result}. You can change the level filter anytime.</>
+              ? <>Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on {result === 'A1' ? 'A1' : <>A1–{result}</>}. You can change the level filter anytime.</>
               : <>Starting fresh at {result} — the best place to start. Every word from here on counts.</>}
           </p>
           <button onClick={onDone} className="flex items-center gap-2 mx-auto bg-amber text-bg font-bold rounded-md px-6 py-3 hover:brightness-105">
@@ -102,7 +102,10 @@ export default function Placement({ onDone }: { onDone: () => void }) {
       </div>
       <p className="text-2xs text-dim mb-4">Testing level {ALL_LEVELS[li]} · do you know this word?</p>
 
+      {/* The word swaps in place, so a heading alone would never be re-announced —
+          the live region is what makes each new prompt reach a screen reader. */}
       <motion.div key={word.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+        role="status" aria-live="polite"
         className="bg-panel border border-line rounded-md px-6 py-12 text-center mb-4">
         <div className="font-bold text-4xl sm:text-5xl leading-tight">{stripArticle(word.term)}</div>
         {word.gender && <div className="text-dim text-base mt-1.5">{word.gender}</div>}

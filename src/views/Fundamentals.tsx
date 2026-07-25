@@ -12,7 +12,8 @@ import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
-import { haptic, tick } from '../lib/ui.ts';
+import { fmt, haptic, tick } from '../lib/ui.ts';
+import { GRAMMAR_COUNTS } from '../lib/grammar.ts';
 import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
 import GrammarDrill, { OrderItem, TypeItem } from './GrammarDrill.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
@@ -254,7 +255,7 @@ function Landing({ onPick }: { onPick: (m: Mode | 'grammar') => void }) {
             <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber"><BookOpen size={18} /></span>
             <span className="font-semibold text-base">Grammar exercises</span>
           </div>
-          <p className="text-dim text-xs">99 points · 571 authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
+          <p className="text-dim text-xs">{GRAMMAR_COUNTS.points} points · {fmt(GRAMMAR_COUNTS.exercises)} authored exercises (cloze, case &amp; article, sentence builder, transformation, error-spotting). A1–C2.</p>
         </button>
       </div>
     </div>
@@ -273,8 +274,8 @@ function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
   const advance = useCallback((ok: boolean) => {
     if (!word) return;
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
-    haptic();
-    if (ok) tick('good');
+    haptic(ok ? 'grade' : 'wrong');
+    tick(ok ? 'good' : 'wrong');
     if (!ok) logMiss(MODE_TAG[mode]);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);

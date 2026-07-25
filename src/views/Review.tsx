@@ -3,9 +3,9 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Volume2, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
+import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
@@ -62,7 +62,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
       tick('good');
       const lapses = srsIdBefore?.lapses ?? 0;
       if (term && lapses >= 2) setComeback((c) => (!c || lapses > c.lapses ? { term, lapses } : c));
-    } else if (++missRun.current >= 4 && !breatherShown.current) {
+      return;
+    }
+    tick('wrong');
+    if (++missRun.current >= 4 && !breatherShown.current) {
       breatherShown.current = true;
       setBreather(true);
     }
@@ -113,7 +116,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     exitDir.current = g === Rating.Again ? -1 : 1;
     noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term);
     review(item.srsId, g);
-    haptic();
+    haptic(g === Rating.Again ? 'wrong' : 'grade');
     setDone((d) => d + 1);
     setAgain((a) => a + dAgain);
     setNewLearned((n) => n + dNew);
@@ -128,7 +131,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     exitDir.current = ok ? 1 : -1;
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
-    haptic();
+    haptic(ok ? 'grade' : 'wrong');
     if (!ok) logMiss(MODE_TAG[item.type]);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
@@ -146,7 +149,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     exitDir.current = ok ? 1 : -1;
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
-    haptic();
+    haptic(ok ? 'grade' : 'wrong');
     if (!ok) logMiss(item.word.term);
     setAgain((a) => a + dAgain);
     setNewLearned((n) => n + dNew);
@@ -232,7 +235,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
       )}
       <div className="bg-panel border border-line rounded-md">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3">
-          <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back to Today"><ArrowLeft size={16} /></button>
+          <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back to Today" aria-label="Back to Today"><ArrowLeft size={16} /></button>
           <h2 className="text-base font-semibold truncate">{target.name}</h2>
           <span className="text-2xs text-amber border border-line px-1.5 py-0.5 rounded-full tracking-wider tabular-nums flex-shrink-0">{queue.length - i} left</span>
           {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
@@ -241,12 +244,22 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 solo-maintained corpus. Local, deduped, exports with the backup. */}
             <button onClick={() => item && flagCard(item.word.id, item.word.term)}
               title={item && isFlagged(item.word.id) ? 'Flagged — thanks, it exports with your backup' : 'Something wrong with this card? Flag it'}
+              aria-label={item && isFlagged(item.word.id) ? 'Card flagged' : 'Flag a problem with this card'}
+              aria-pressed={!!(item && isFlagged(item.word.id))}
               className={`grid place-items-center w-9 h-9 rounded-md transition-colors ${item && isFlagged(item.word.id) ? 'text-amber' : 'text-dim hover:text-amber'}`}>
               <Flag size={15} fill={item && isFlagged(item.word.id) ? 'currentColor' : 'none'} />
             </button>
-            <button onClick={prev} disabled={i === 0} title="Previous card"
+            {/* Sound is on by default now, so muting has to be reachable from
+                inside the session — not three taps away in Settings. */}
+            <button onClick={() => setSound(!sound())}
+              title={sound() ? 'Mute sound' : 'Unmute sound'} aria-label={sound() ? 'Mute sound' : 'Unmute sound'}
+              aria-pressed={!sound()}
+              className={`grid place-items-center w-9 h-9 rounded-md transition-colors ${sound() ? 'text-dim hover:text-amber' : 'text-amber'}`}>
+              {sound() ? <Volume2 size={15} /> : <VolumeX size={15} />}
+            </button>
+            <button onClick={prev} disabled={i === 0} title="Previous card" aria-label="Previous card"
               className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber disabled:opacity-30 disabled:hover:text-dim transition-colors"><RotateCcw size={16} /></button>
-            <button onClick={skip} title="Skip for now"
+            <button onClick={skip} title="Skip for now" aria-label="Skip this card"
               className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber transition-colors"><SkipForward size={16} /></button>
           </div>
         </div>
@@ -334,12 +347,16 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
               framing an inevitable miss as failure. */}
           <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
             <div className="flex gap-2.5 sm:gap-3 justify-center">
+              {/* Explicit labels: without them the accessible name runs the
+                  interval preview straight onto the verdict ("Knew it 2 mo"). */}
               <button onClick={() => grade(Rating.Again)}
+                aria-label={`${statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}${preview ? ` — back in ${preview.again}` : ''}`}
                 className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
                 <span className="flex items-center gap-2"><X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}</span>
                 {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.again}</span>}
               </button>
               <button onClick={() => grade(Rating.Good)}
+                aria-label={`${statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}${preview ? ` — back in ${preview.good}` : ''}`}
                 className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
                 <span className="flex items-center gap-2"><Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}</span>
                 {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
@@ -438,8 +455,14 @@ function StatusPip({ id }: { id: string }) {
 function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, onExit, onPick }:
   { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
-  // Fire milestones + the session-complete chime once, from the final state.
-  const [milestone] = useState(() => { tick('done'); return checkMilestones(); });
+  // Fire milestones + the closing cue once, from the final state. Crossing a
+  // milestone earns the triad; an ordinary finish gets the plain two-note rise,
+  // so the bigger sound stays rare enough to still mean something.
+  const [milestone] = useState(() => {
+    const m = checkMilestones();
+    tick(m ? 'milestone' : 'done');
+    return m;
+  });
   return (
     <div className="grid place-items-center min-h-[440px]">
       <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, streak: streak() }}>

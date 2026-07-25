@@ -82,7 +82,7 @@ export default function App() {
         {/* Mobile top bar — the sidebar is a drawer on phones. min-height adds the
             safe-area inset on top of a 52px bar so the notch never eats the logo. */}
         <header className="sm:hidden safe-top pb-2 flex items-center gap-2.5 px-3 min-h-[calc(52px_+_env(safe-area-inset-top))] bg-panel border-b border-line flex-shrink-0">
-          <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-9 h-9 -ml-1 text-dim hover:text-amber" title="Menu"><Menu size={20} /></button>
+          <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-9 h-9 -ml-1 text-dim hover:text-amber" title="Menu" aria-label="Open menu" aria-expanded={mobileOpen}><Menu size={20} /></button>
           <LexiMark size={24} />
           <span className="font-bold text-lg tracking-wide">Lexi</span>
         </header>
