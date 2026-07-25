@@ -102,10 +102,10 @@ export default function Settings() {
         </div>
       </section>
 
-      {/* Sound — feedback ticks, off by default. */}
+      {/* Sound — feedback cues, on by default; also mutable from the session header. */}
       <section className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-4">
         <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-amber" /><h2 className="text-base font-semibold">Sound</h2></div>
-        <p className="text-dim text-xs mb-3">A soft tick on correct answers and a two-note chime at session end.</p>
+        <p className="text-dim text-xs mb-3">Soft cues as you answer — a tick when you're right, a quieter falling note when you're not, and a chime at the end of a session. You can also mute mid-session from the header.</p>
         <button onClick={() => setSound(!sound())}
           className={`text-xs rounded-md px-3.5 py-2 border transition-colors ${sound() ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:border-amber'}`}>
           {sound() ? 'Sound on' : 'Sound off'}

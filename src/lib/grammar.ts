@@ -1,6 +1,10 @@
-// Authored grammar exercises (99 points · 571 exercises, A1–C2), loaded at
-// runtime from /public/data/grammar.json. Five widget kinds: choose, mc, type,
-// order, error. Ported from the prior Atlas build.
+// Authored grammar exercises (A1–C2), loaded at runtime from
+// /public/data/grammar.json. Five widget kinds: choose, mc, type, order, error.
+// Ported from the prior Atlas build.
+//
+// Every point carries a plain-English `summary` and a `rule` — the teaching text
+// the Grammar surface renders. Every exercise carries an `explain` shown after
+// answering. Coverage is asserted in grammar.test.ts.
 import type { CEFR } from '../types.ts';
 
 export interface GExercise {
@@ -26,6 +30,21 @@ export async function loadGrammar(): Promise<GrammarByLevel> {
   cache = g;
   return g;
 }
+
+/** Points + exercises in the bank, for copy that has the file loaded. */
+export function grammarCounts(g: GrammarByLevel): { points: number; exercises: number } {
+  let points = 0, exercises = 0;
+  for (const level of Object.keys(g) as CEFR[]) {
+    points += g[level].length;
+    for (const p of g[level]) exercises += p.exercises.length;
+  }
+  return { points, exercises };
+}
+
+/** The same counts for copy that must render before (or without) the fetch —
+ *  Today's drills accordion. grammar.test.ts asserts these against the shipped
+ *  file, so the numbers cannot drift out of sync again. */
+export const GRAMMAR_COUNTS = { points: 128, exercises: 774 } as const;
 
 /** Flatten to individually-schedulable exercise items, optionally level-filtered. */
 export function flatten(g: GrammarByLevel, levels: Set<CEFR>): GItem[] {

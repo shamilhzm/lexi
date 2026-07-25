@@ -8,6 +8,7 @@ import { Play, Flame, GraduationCap, Cog, ChevronDown, TrendingDown, BookOpen, Z
 import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
+import { GRAMMAR_COUNTS } from '../lib/grammar.ts';
 import LevelProgress from '../components/LevelProgress.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
@@ -251,7 +252,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onDrill, on
                   className="col-span-2 flex items-center gap-2.5 bg-panel border border-line rounded-md px-3 py-3 text-left hover:border-amber transition-colors">
                   <span className="grid place-items-center w-8 h-8 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpen size={16} /></span>
                   <span className="text-sm font-semibold">Grammar exercises</span>
-                  <span className="text-2xs text-dim ml-auto hidden sm:inline">A1–C2 · 571 exercises</span>
+                  <span className="text-2xs text-dim ml-auto hidden sm:inline">A1–C2 · {fmt(GRAMMAR_COUNTS.exercises)} exercises</span>
                 </button>
               </div>
             </motion.div>

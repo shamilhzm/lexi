@@ -483,11 +483,15 @@ export function setTextScale(scale: number) {
   emit();
 }
 
-// ---- sound (the feel layer; off by default) --------------------------------
+// ---- sound (the feel layer; on by default) ---------------------------------
+// Tri-state on purpose. The key used to mean "1 = the learner opted in", with
+// absent = off; now absent means "hasn't chosen", which defaults to on. Opting
+// out therefore has to be stored explicitly as '0' rather than by deleting the
+// key — deleting it would silently re-enable sound on the next visit.
 const SOUND_KEY = 'lexi.sound.v1';
-export function sound(): boolean { return localStorage.getItem(SOUND_KEY) === '1'; }
+export function sound(): boolean { return localStorage.getItem(SOUND_KEY) !== '0'; }
 export function setSound(on: boolean) {
-  if (on) localStorage.setItem(SOUND_KEY, '1'); else localStorage.removeItem(SOUND_KEY);
+  localStorage.setItem(SOUND_KEY, on ? '1' : '0');
   emit();
 }
 

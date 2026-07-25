@@ -18,15 +18,20 @@ export default function Ticker({ onPick }: { onPick: (group: string) => void }) 
     });
   }, [v]);
 
+  // The ticker is peripheral motion, not navigation: it scrolls away under the
+  // pointer and duplicates itself to loop seamlessly. Taking its 18 buttons out
+  // of the tab order keeps keyboard focus landing on real content instead of
+  // wading through a decorative marquee on every screen — every group here is
+  // reachable properly via Explore → Decks. Mouse users keep the shortcut.
   const row = (dupe: boolean) => items.map((it) => (
-    <button key={(dupe ? 'b' : 'a') + it.key} onClick={() => onPick(it.name)}
+    <button key={(dupe ? 'b' : 'a') + it.key} onClick={() => onPick(it.name)} tabIndex={-1}
       title={`Study ${it.name}`} className="text-dim hover:text-amber transition-colors cursor-pointer">
       <b className="text-txt">{it.sym}</b> <span className={it.cls}>{it.pctVal}%</span>
     </button>
   ));
 
   return (
-    <div className="bg-panel2 border-b border-line overflow-hidden flex-shrink-0">
+    <div className="bg-panel2 border-b border-line overflow-hidden flex-shrink-0" aria-hidden>
       <div className="ticker-track flex items-center gap-8 py-2 px-4 whitespace-nowrap font-mono text-xs leading-normal w-max">
         {row(false)}{row(true)}
       </div>

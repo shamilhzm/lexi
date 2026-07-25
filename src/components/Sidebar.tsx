@@ -53,7 +53,7 @@ export default function Sidebar({
         <div className={`flex items-center gap-2.5 px-3.5 pb-2 min-h-[calc(56px_+_env(safe-area-inset-top))] flex-shrink-0 safe-top border-b border-line ${collapsed ? 'sm:px-0 sm:justify-center' : ''}`}>
           <LexiMark size={28} />
           <span className={`font-bold text-xl tracking-wide leading-none ${hideLabel}`}>Lexi</span>
-          <button onClick={onMobileClose} className="ml-auto grid place-items-center w-9 h-9 -mr-1 text-dim hover:text-amber sm:hidden" title="Close"><X size={18} /></button>
+          <button onClick={onMobileClose} className="ml-auto grid place-items-center w-9 h-9 -mr-1 text-dim hover:text-amber sm:hidden" title="Close" aria-label="Close menu"><X size={18} /></button>
         </div>
 
         {/* Desktop collapse toggle — a chevron that straddles the rail's right edge */}
