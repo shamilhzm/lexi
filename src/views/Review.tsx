@@ -55,6 +55,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // straight misses, offer a graceful out — once per session, never nagging.
   const [comeback, setComeback] = useState<{ term: string; lapses: number } | null>(null);
   const missRun = useRef(0);
+  // Misses tagged in *this* session, so the recap can name the one concept that
+  // tripped the learner up most today rather than their 30-day average.
+  const sessionMisses = useRef(new Map<string, number>());
+  const noteMiss = (tag: string) => {
+    logMiss(tag);
+    sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
+  };
   const [breather, setBreather] = useState(false);
   const breatherShown = useRef(false);
   const noteResult = (ok: boolean, srsIdBefore?: Card, term?: string) => {
@@ -76,6 +83,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   useEffect(() => {
     setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
     setComeback(null); missRun.current = 0; setBreather(false); breatherShown.current = false;
+    sessionMisses.current.clear();
   }, [target, lvKey]);
 
   // Load the exercise bank once, so grammar cards can render as drills.
@@ -133,7 +141,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
-    if (!ok) logMiss(MODE_TAG[item.type]);
+    if (!ok) noteMiss(MODE_TAG[item.type]);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
     setFlipped(false);
@@ -151,7 +159,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
-    if (!ok) logMiss(item.word.term);
+    if (!ok) noteMiss(item.word.term);
     setAgain((a) => a + dAgain);
     setNewLearned((n) => n + dNew);
     setDone((d) => d + 1);
@@ -169,8 +177,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     if (!item) return;
     exitDir.current = 0;
     history.current.push({ i, kind: 'skip' });
-    if (item.type !== 'flip') logMiss(MODE_TAG[item.type]);
-    else if (item.word.kind === 'grammar') logMiss(item.word.term);
+    if (item.type !== 'flip') noteMiss(MODE_TAG[item.type]);
+    else if (item.word.kind === 'grammar') noteMiss(item.word.term);
     setFlipped(false);
     setI((n) => n + 1);
   }, [item, i]);
@@ -206,7 +214,9 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   }, [flip, grade]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} onExit={onExit} onPick={onPick} />;
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun}
+    weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
+    onExit={onExit} onPick={onPick} />;
 
   const card = item.word;
   const drill = item.type !== 'flip';
@@ -475,8 +485,8 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, onExit, onPick }:
-  { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; onExit: () => void; onPick: () => void }) {
+function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, onExit, onPick }:
+  { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
@@ -488,7 +498,7 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, on
   });
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, streak: streak() }}>
+      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, weakest, streak: streak() }}>
         {comeback && (
           <p className="text-xs text-dim mb-5">
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.

@@ -8,6 +8,7 @@ import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
+import ReminderCard from '../components/ReminderCard.tsx';
 import Settings from './Settings.tsx';
 
 export default function Profile() {
@@ -66,6 +67,8 @@ export default function Profile() {
         <p className="text-xs text-dim mb-3">Lexi pulls your new words from these first.</p>
         <TopicPicker />
       </div>
+
+      <ReminderCard />
 
       {/* Settings + data backup live inside the profile. */}
       <Settings />
