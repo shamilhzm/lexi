@@ -19,7 +19,9 @@ export function LexiMark({ size = 28, className = '' }: { size?: number; classNa
   );
 }
 
-const NAV: { id: View; label: string; icon: any }[] = [
+/** The primary destinations, shared with the mobile bottom bar so the two
+ *  navigations can't drift apart. */
+export const NAV: { id: View; label: string; icon: any }[] = [
   { id: 'home', label: 'Home', icon: Sunrise },
   { id: 'explore', label: 'Explore', icon: LayoutGrid },
   { id: 'grammar', label: 'Grammar', icon: GraduationCap },

@@ -7,8 +7,9 @@ import { useStore } from '../useStore.ts';
 
 export default function Ticker({ onPick }: { onPick: (group: string) => void }) {
   const v = useStore();
+  const stats = useMemo(() => groupStats(), [v]);
   const items = useMemo(() => {
-    return groupStats().map((s) => {
+    return stats.map((s) => {
       const pctVal = Math.round(s.coverage * 100);
       const sym = s.name.replace(/[^A-Za-zÄÖÜäöü ]/g, '').split(' ')[0].toUpperCase().slice(0, 6);
       // Neutral until you're doing well, then green. Theme tokens (not raw heat)
@@ -16,7 +17,12 @@ export default function Ticker({ onPick }: { onPick: (group: string) => void }) 
       const cls = s.coverage >= 0.6 ? 'text-green' : '';
       return { key: s.name, name: s.name, sym, pctVal, cls };
     });
-  }, [v]);
+  }, [stats]);
+
+  // A market with nothing traded in it is noise. Until something is learned every
+  // figure here reads 0%, and it's the first thing a new learner sees — a strip
+  // of zeroes above the one card that's meant to be teaching them German.
+  if (!stats.some((s) => s.learned > 0)) return null;
 
   // The ticker is peripheral motion, not navigation: it scrolls away under the
   // pointer and duplicates itself to loop seamlessly. Taking its 18 buttons out
