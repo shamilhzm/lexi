@@ -11,7 +11,8 @@ import Sidebar, { LexiMark } from './components/Sidebar.tsx';
 import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
 import Explore from './views/Explore.tsx';
-import Fundamentals, { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
+import Grammar from './views/Grammar.tsx';
+import { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
@@ -22,7 +23,7 @@ import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import type { Target } from './types.ts';
 
-export type View = 'home' | 'explore' | 'fundamentals' | 'stats' | 'review' | 'placement' | 'interests' | 'profile';
+export type View = 'home' | 'explore' | 'grammar' | 'stats' | 'review' | 'placement' | 'interests' | 'profile';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
@@ -47,7 +48,7 @@ export default function App() {
   const study = (t: Target) => { setTarget(t); setView('review'); };
   const go = (v: View) => {
     if (v === 'review') setTarget(ALL);
-    if (v === 'fundamentals') setDrillInit(null);
+    if (v === 'grammar') setDrillInit(null);
     if (v === 'explore') setExploreInit('markt');
     setGuided(false); setView(v); setMobileOpen(false);
   };
@@ -58,12 +59,10 @@ export default function App() {
   const startFirstRun = () => { setGuided(true); setView('placement'); };
   const firstRunSession = () => { setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
   const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
-  /** Today's Fundamentals widget → straight into a specific drill (or the exercise bank). */
-  const openDrill = (m: DrillMode | 'grammar') => { setDrillInit(m); setView('fundamentals'); };
-  /** Blind Spots → the matching Fundamentals drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
+  /** Blind Spots → the matching drill (word-drill tags map to a mode; grammar tags open the exercise bank). */
   const drillFor = (tag?: string) => {
     const mode = (Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as DrillMode | undefined) ?? 'grammar';
-    setDrillInit(mode); setView('fundamentals');
+    setDrillInit(mode); setView('grammar');
   };
 
   const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '');
@@ -97,14 +96,14 @@ export default function App() {
               transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
               className="max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onDrill={openDrill} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} onBackup={() => go('profile')} />}
+                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} onBackup={() => go('profile')} onGrammar={() => go('grammar')} />}
                 {view === 'explore' && <Explore onStudy={study} initial={exploreInit} />}
-                {view === 'fundamentals' && <Fundamentals initial={drillInit} />}
+                {view === 'grammar' && <Grammar initial={drillInit} />}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('home'); }} />}
                 {view === 'interests' && <Interests onDone={firstRunSession} />}
                 {view === 'profile' && <Profile />}
                 {view === 'stats' && <Stats />}
-                {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setDrillInit(null); setView('fundamentals'); }} />}
+                {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setDrillInit(null); setView('grammar'); }} />}
               </ErrorBoundary>
             </motion.div>
           </AnimatePresence>

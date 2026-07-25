@@ -575,6 +575,37 @@ export function levelStats(): LevelStat[] {
   });
 }
 
+// ---- grammar points ------------------------------------------------------
+// Progress through one authored grammar point, over the FSRS cards its
+// exercises are scheduled under (`gex:<level>:<pointIndex>:<exerciseIndex>` —
+// the ids flatten() mints in lib/grammar.ts). Deliberately takes the exercise
+// *count* rather than the point object, so the store stays independent of the
+// grammar bank's shape and doesn't have to wait on its fetch.
+export interface PointStat {
+  count: number;      // exercises in the point
+  seen: number;       // exercises answered at least once
+  known: number;      // exercises in FSRS Review state
+  due: number;        // exercises due right now
+  mastery: number;    // known / count, 0..1
+  started: boolean;
+}
+export function pointStats(level: CEFR, pointIndex: number, exerciseCount: number): PointStat {
+  const now = Date.now();
+  let seen = 0, known = 0, due = 0;
+  for (let xi = 0; xi < exerciseCount; xi++) {
+    const c = live.get(`gex:${level}:${pointIndex}:${xi}`);
+    if (!c) continue;
+    seen++;
+    if (c.state === State.Review) known++;
+    if (isDue(c, now)) due++;
+  }
+  return {
+    count: exerciseCount, seen, known, due,
+    mastery: exerciseCount ? known / exerciseCount : 0,
+    started: seen > 0,
+  };
+}
+
 // ---- placement -----------------------------------------------------------
 const PLACEMENT_KEY = 'lexi.placement.v1';
 export function placementLevel(): CEFR | null {

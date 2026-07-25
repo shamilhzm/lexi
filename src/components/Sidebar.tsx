@@ -1,7 +1,7 @@
 // Left navigation — a modern collapsible sidebar. On desktop it's a persistent
 // rail that collapses to icons; on a phone it slides in as an overlay drawer
 // (opened by the hamburger in the main top bar). Holds the "Start session" CTA,
-// the primary destinations (Home / Explore / Fundamentals), and the profile.
+// the primary destinations (Home / Explore / Grammar / Stats), and the profile.
 //
 // Collapse is a *desktop* concern: the collapsed state hides labels via `sm:hidden`
 // so the mobile drawer (always full width) always shows them.
@@ -22,7 +22,7 @@ export function LexiMark({ size = 28, className = '' }: { size?: number; classNa
 const NAV: { id: View; label: string; icon: any }[] = [
   { id: 'home', label: 'Home', icon: Sunrise },
   { id: 'explore', label: 'Explore', icon: LayoutGrid },
-  { id: 'fundamentals', label: 'Fundamentals', icon: GraduationCap },
+  { id: 'grammar', label: 'Grammar', icon: GraduationCap },
   { id: 'stats', label: 'Stats', icon: BarChart3 },
 ];
 
