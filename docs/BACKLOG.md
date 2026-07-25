@@ -436,9 +436,15 @@ follow-on) shipped 2026-07-11._
 
 ## Parked decisions (revisit deliberately, don't drift into)
 
-- **Paper card faces.** The `.paper` scope is fully built but intentionally **off**
-  (`PAPER_VIEWS` is empty; App.tsx notes the warm look clashed with the terminal).
-  DESIGN-REVIEW still recommends paper-for-the-card-in-hand. A *decision*, not a bug.
+- ~~**Paper card faces.**~~ **Decided 2026-07-25: shipped, scoped to the card in
+  hand.** `.paper` is applied to the flip-card faces (`Review.tsx`) and the two
+  exercise surfaces (`Fundamentals.tsx`, `GrammarDrill.tsx`) — nothing else. The
+  terminal is the room; the card is the object you study. Two things had to be
+  fixed for it to work: `.paper` never re-asserted `color`, so the headword
+  inherited the dark theme's near-white ink onto cream, and it had no
+  `--color-card`, so the faces inherited the dark card token. It also carries its
+  own warm off-white (`#fbf7ee`) rather than pure white, so the card still reads
+  as a separate material inside the *light* theme's white chrome.
 - **AI tutor & the Reader/Mine flow.** ROADMAP's two flagship paid features; **cut
   from the core loop** in the July prune. `lib/ai.ts` and the OpenAI-compatible
   client still exist for **build-time corpus enrichment** (`scripts/corpus/enrich-llm.ts`),

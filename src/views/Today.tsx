@@ -1,5 +1,5 @@
-// Heute — the daily briefing ("markets open"). One tap assembles today's
-// session from what's due (FSRS) plus fresh cards from your weakest sectors,
+// Heute — the daily briefing ("markets open"). One tap assembles today’s
+// session from what’s due (FSRS) plus fresh cards from your weakest sectors,
 // to a streak-safe minimum. Shows streak, level progress, grammar drills, and
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
@@ -12,6 +12,10 @@ import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import PathCard from '../components/PathCard.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
+import Card from '../components/ui/Card.tsx';
+import Button, { buttonClass } from '../components/ui/Button.tsx';
+import Chip from '../components/ui/Chip.tsx';
+import Kicker from '../components/ui/Kicker.tsx';
 import { blindSpotDrills } from '../session.ts';
 import { BY_ID } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
@@ -37,13 +41,13 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
   const total = briefing.ids.length;
   const firstRun = !onboarded() && !placed && t.learned === 0;
 
-  // Backlog burn-down: remember the mountain's peak so clearing it reads as
+  // Backlog burn-down: remember the mountain’s peak so clearing it reads as
   // finite progress. Recorded as an effect (it writes storage).
   useEffect(() => { noteBacklog(briefing.dueTotal); }, [briefing.dueTotal]);
   const peak = backlogPeak();
 
   // Comeback: a real gap with real history behind it. The streak zeroed — the
-  // record didn't. Say so before anything else does.
+  // record didn’t. Say so before anything else does.
   const gap = lastGapDays();
   const best = longestStreak();
   const comeback = gap !== null && gap >= 7 && best >= 7;
@@ -71,51 +75,50 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
   // Nothing else (no market, no drills) competes for attention.
   if (firstRun) {
     return (
-      <div className="max-w-[920px] mx-auto">
+      <div className="w-full max-w-[920px] mx-auto">
         {greeting}
-        <button onClick={onGuidedStart}
-          className="w-full text-left bg-panel border rounded-md px-5 py-6 sm:py-8 hover:brightness-105 transition-colors"
-          style={{ borderColor: 'rgba(56,205,232,0.4)' }}>
-          <div className="flex items-center gap-1.5 text-amber text-2xs font-mono uppercase tracking-widest font-semibold mb-2"><GraduationCap size={14} /> Start here · 2 minutes</div>
-          <h2 className="text-xl sm:text-2xl font-bold mb-1.5">Find your level, then learn your first words</h2>
+        <Card as="button" accent onClick={onGuidedStart} pad="none"
+          className="w-full text-left px-5 py-6 sm:py-8 hover:brightness-105 transition-[filter]">
+          <Kicker tone="accent" className="flex items-center gap-1.5 mb-2"><GraduationCap size={14} /> Start here · 2 minutes</Kicker>
+          <h2 className="text-xl sm:text-2xl font-bold mb-1.5 mt-2">Find your level, then learn your first words</h2>
           <p className="text-dim text-base mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
-          <span className="inline-flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-4 py-2.5 text-xs"><Play size={13} /> Start</span>
-        </button>
+          <span className={buttonClass('primary', 'sm')}><Play size={13} /> Start</span>
+        </Card>
       </div>
     );
   }
 
   return (
-    <div className="max-w-[920px] mx-auto">
+    // Wider on large desktops so the daily briefing doesn’t sit in a narrow
+    // column with a field of empty terminal either side of it.
+    <div className="w-full max-w-[920px] xl:max-w-[1040px] mx-auto">
       {greeting}
 
-      {/* Streak at risk. Only once there's a streak worth protecting and the
-          day is genuinely unstudied — a banner that fires when you've already
+      {/* Streak at risk. Only once there’s a streak worth protecting and the
+          day is genuinely unstudied — a banner that fires when you’ve already
           done your reviews is just noise, and one that fires on day one is a
-          threat before there's anything to lose. */}
+          threat before there’s anything to lose. */}
       {streak() > 0 && !reviewedToday() && total > 0 && (
-        <div className="flex items-center gap-3 bg-panel border border-amber/40 rounded-md px-4 py-3 mb-4"
-          style={{ borderColor: 'rgba(56,205,232,0.4)' }}>
+        <Card accent pad="none" className="flex items-center gap-3 px-4 py-3 mb-4">
           <Flame size={18} className="text-amber flex-shrink-0" />
           <p className="text-xs text-dim flex-1">
             <span className="text-txt font-semibold">{streak()}-day streak, nothing reviewed yet today.</span>
             {reminderTime() ? ` Your study time is ${reminderTime()}.` : ' Quick 5 keeps it alive.'}
           </p>
-        </div>
+        </Card>
       )}
 
-      {/* Placement nudge for learners who haven't calibrated yet */}
+      {/* Placement nudge for learners who haven’t calibrated yet */}
       {!placed && (
-        <button onClick={onPlacement}
-          className="w-full flex items-center gap-3 bg-panel border border-amber/40 rounded-md px-4 py-3 mb-4 text-left hover:border-amber transition-colors"
-          style={{ borderColor: 'rgba(56,205,232,0.4)' }}>
+        <Card as="button" accent pad="none" onClick={onPlacement}
+          className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:brightness-110 transition-[filter]">
           <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><GraduationCap size={18} /></span>
           <span className="flex-1">
             <span className="block text-base font-semibold">New here? Take the 2-minute placement test</span>
             <span className="block text-xs text-dim">Find your level and skip the words you already know.</span>
           </span>
           <Play size={14} className="text-amber flex-shrink-0" />
-        </button>
+        </Card>
       )}
 
       <PathCard onGrammar={onGrammar} onStudy={onStart} onBlind={onBlindDrill} />
@@ -127,7 +130,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
         const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
         const onTrack = gp.projectedPct !== null && gp.projectedPct >= 90;
         return (
-          <div className="flex items-center gap-2.5 bg-panel border border-line rounded-md px-4 py-3 mb-4">
+          <Card pad="none" className="flex items-center gap-2.5 px-4 py-3 mb-4">
             <TargetIcon size={16} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
             <p className="text-xs text-dim">
               <span className="text-txt font-semibold">{gp.goal.level} by {when}</span>
@@ -137,17 +140,17 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
               )}
               {gp.projectedPct === null && ' · pace appears after a day or two of study'}
             </p>
-          </div>
+          </Card>
         );
       })()}
 
       {/* The session card — one clear call to action. The Known/Due/Coverage
-          stats live in the KPI strip below the heatmap, so they're not repeated
+          stats live in the KPI strip below the heatmap, so they’re not repeated
           here; the number + a one-line breakdown carry the whole signal. */}
-      <div className="bg-panel border border-line rounded-md px-4 sm:px-6 py-5 sm:py-6 mb-4">
+      <Card pad="none" className="px-4 sm:px-6 py-5 sm:py-6 mb-4">
         <div className="flex items-center gap-2 mb-3">
           <span className="live-dot" />
-          <span className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">Today's session</span>
+          <Kicker tone="accent">Today’s session</Kicker>
         </div>
 
         {total === 0 ? (
@@ -157,8 +160,8 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
             <div>
               <h2 className="text-xl font-bold mb-1 cursor-blink">All clear</h2>
               <p className="text-dim text-base mb-1.5">Every review served, the new-card budget spent. The system holds until tomorrow.</p>
-              <p className="text-2xs text-dim font-mono uppercase tracking-widest mb-4">streak safe · next reviews tomorrow</p>
-              <button onClick={onDecks} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber font-semibold text-sm">Open decks</button>
+              <Kicker className="block mb-4">streak safe · next reviews tomorrow</Kicker>
+              <Button variant="secondary" onClick={onDecks}>Open decks</Button>
             </div>
           </div>
         ) : (
@@ -195,23 +198,22 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
               )}
             </div>
             <div className="flex flex-col sm:items-end gap-2 w-full sm:w-auto sm:flex-shrink-0">
-              <motion.button whileTap={{ scale: 0.98 }}
-                onClick={() => onStart({ kind: 'custom', name: "Today's session", ids: briefing.ids })}
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-amber text-bg font-bold rounded-md px-6 py-3 text-base hover:brightness-105">
+              <Button size="lg" block className="sm:w-auto"
+                onClick={() => onStart({ kind: 'custom', name: 'Today’s session', ids: briefing.ids })}>
                 <Play size={16} /> Start session
-              </motion.button>
+              </Button>
               {/* The session that fits four real minutes. Same queue, first five;
                   grades persist immediately, so the rest simply remains. */}
               {total > 5 && (
-                <button onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}
-                  className="flex items-center justify-center gap-1.5 w-full sm:w-auto text-xs text-dim border border-line rounded-md px-4 py-2 hover:border-amber hover:text-amber transition-colors">
+                <Button variant="quiet" size="sm" block className="sm:w-auto"
+                  onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}>
                   <Zap size={13} /> Quick 5
-                </button>
+                </Button>
               )}
             </div>
           </div>
         )}
-      </div>
+      </Card>
 
       {/* Local-first means device-bound: nudge install (durable storage +
           offline) until installed or dismissed. */}
@@ -222,13 +224,13 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           leaving Today. */}
       {blind > 0 && (
         <div className="mb-4">
-          <button onClick={() => setBlindOpen((o) => !o)} aria-expanded={blindOpen}
-            className="w-full flex items-center gap-3 bg-panel border border-line rounded-md px-4 py-3 text-left hover:border-red transition-colors">
+          <Card as="button" pad="none" onClick={() => setBlindOpen((o) => !o)} aria-expanded={blindOpen}
+            className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-red transition-colors">
             <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-red flex-shrink-0"><TrendingDown size={18} /></span>
             <span className="flex-1 text-base font-semibold">Blind spots</span>
-            <span className="text-2xs font-mono text-red border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(blind)}</span>
+            <Chip tone="bad">{fmt(blind)}</Chip>
             <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${blindOpen ? 'rotate-180' : ''}`} />
-          </button>
+          </Card>
           <AnimatePresence initial={false}>
             {blindOpen && (
               <motion.div key="blind" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
@@ -243,13 +245,13 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
       {/* Grammar — the concepts at your level, not a menu of exercise types.
           The bank is fetched only when this opens, so Home stays cheap. */}
       <div className="mb-4">
-        <button onClick={() => setDrillsOpen((o) => !o)} aria-expanded={drillsOpen}
-          className="w-full flex items-center gap-3 bg-panel border border-line rounded-md px-4 py-3 text-left hover:border-amber transition-colors">
+        <Card as="button" pad="none" onClick={() => setDrillsOpen((o) => !o)} aria-expanded={drillsOpen}
+          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
           <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
           <span className="flex-1 text-base font-semibold">Grammar</span>
-          {drillsDue > 0 && <span className="text-2xs font-mono text-amber border border-line rounded-full px-2 py-0.5 tabular-nums">{fmt(drillsDue)} due</span>}
+          {drillsDue > 0 && <Chip>{fmt(drillsDue)} due</Chip>}
           <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${drillsOpen ? 'rotate-180' : ''}`} />
-        </button>
+        </Card>
         <AnimatePresence initial={false}>
           {drillsOpen && (
             <motion.div key="drills" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
@@ -263,7 +265,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
   );
 }
 
-/** The learner's own level, as concepts with English summaries — the short
+/** The learner’s own level, as concepts with English summaries — the short
  *  version of the Grammar syllabus, so the daily loop can reach a rule without
  *  a page jump. Loads the bank lazily (only when the accordion opens). */
 function LevelGrammar({ level, onOpen }: { level: CEFR; onOpen: () => void }) {
@@ -282,7 +284,7 @@ function LevelGrammar({ level, onOpen }: { level: CEFR; onOpen: () => void }) {
   return (
     <div className="space-y-1.5">
       {next.map(({ p, pi, s }) => (
-        <div key={p.title + pi} className="flex items-center gap-3 bg-panel border border-line rounded-md px-3.5 py-2.5">
+        <Card key={p.title + pi} nested pad="none" className="flex items-center gap-3 px-3.5 py-2.5">
           <span className="flex-1 min-w-0">
             <span className="block text-sm font-semibold truncate">{p.title}</span>
             <span className="block text-xs text-dim truncate">{p.summary}</span>
@@ -290,12 +292,11 @@ function LevelGrammar({ level, onOpen }: { level: CEFR; onOpen: () => void }) {
           <span className="text-2xs font-mono text-dim tabular-nums flex-shrink-0">
             {s.started ? `${s.known}/${s.count}` : 'new'}
           </span>
-        </div>
+        </Card>
       ))}
-      <button onClick={onOpen}
-        className="w-full flex items-center justify-center gap-1.5 text-xs text-dim border border-line rounded-md px-4 py-2.5 hover:border-amber hover:text-amber transition-colors">
+      <Button variant="quiet" size="sm" block onClick={onOpen}>
         All {bank.length} {level} concepts · {started} started <ChevronRight size={13} />
-      </button>
+      </Button>
     </div>
   );
 }

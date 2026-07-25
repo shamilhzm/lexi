@@ -11,14 +11,22 @@ export function heat(p: number): string {
   return `rgb(${c[0]},${c[1]},${c[2]})`;
 }
 
-/** Readable ink on a heat tile: dark ink only on the bright green high end. */
+/** Readable ink on a heat tile: dark ink only on the bright green high end.
+ *  These are literals on purpose — the tile paints its own `heat()` background,
+ *  so the ink has to answer to that fill, not to the page theme. */
 export function tileInk(p: number): string {
   return p > 0.6 ? '#04120c' : '#eaf1f8';
 }
 
-export const CEFR_COLOR: Record<string, string> = {
-  A1: 'var(--color-a1)', A2: 'var(--color-a2)', B1: 'var(--color-b1)',
-};
+/** Heat as *text* colour, on a normal page surface.
+ *
+ *  `heat()` is built to sit on its own tile; used as type on a panel its green
+ *  end (#16c784) only reaches ~2.2:1 on a white card, so it failed AA the moment
+ *  a learner switched to light mode. Tokens instead: they already carry an
+ *  AA-legible value per theme. Same call the ticker was already making. */
+export function heatText(p: number): string {
+  return p >= 0.5 ? 'var(--color-green)' : 'var(--color-dim)';
+}
 
 let voicesReady = false;
 export function primeVoices() {

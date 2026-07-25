@@ -27,7 +27,10 @@ export function renderShareCard(): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   canvas.width = W; canvas.height = H;
   const ctx = canvas.getContext('2d')!;
-  const mono = '"SF Mono", "Cascadia Code", ui-monospace, Menlo, monospace';
+  // The one artefact strangers see, so it uses the app's own shipped mono
+  // rather than whatever the OS happens to have. The fallbacks only matter if
+  // the card is drawn before the face has loaded.
+  const mono = '"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace';
   const sans = '-apple-system, "Segoe UI", Roboto, sans-serif';
 
   ctx.fillStyle = BG;

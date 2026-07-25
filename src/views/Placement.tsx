@@ -1,13 +1,16 @@
 // Einstufungstest — a quick adaptive placement test. Climbs the CEFR levels,
-// showing a handful of words per level; you tap know / don't know. It stops at
+// showing a handful of words per level; you tap know / don’t know. It stops at
 // the level where your recognition drops off, seeds the words you know into FSRS
 // (so the market reflects reality), and focuses the level filter on your range.
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
-import { Check, X, GraduationCap, Sparkles } from 'lucide-react';
+import { Check, X, GraduationCap, Play } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { review, setLevels, setPlacementLevel } from '../store.ts';
 import { Rating } from '../srs.ts';
+import Card from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import Kicker from '../components/ui/Kicker.tsx';
 import { ALL_LEVELS, type CEFR, type Word } from '../types.ts';
 
 const PER_LEVEL = 5;        // words shown per level
@@ -82,23 +85,29 @@ export default function Placement({ onDone }: { onDone: () => void }) {
   };
 
   if (result) {
+    // The reveal is the emotional peak of onboarding — the first moment the app
+    // tells the learner something about themselves. It used to render flat while
+    // the session recap had five separate entrances.
     return (
-      <div className="max-w-[520px] mx-auto">
-        <div className="bg-panel border border-line rounded-md px-6 py-10 text-center">
-          <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
+      <div className="w-full max-w-[520px] mx-auto">
+        <Card pad="none" className="px-6 py-10 text-center">
+          <motion.div initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 420, damping: 18 }}
+            className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
             <GraduationCap className="text-green" />
-          </div>
-          <div className="text-2xs text-amber font-mono uppercase tracking-widest mb-1">Your level</div>
-          <div className="font-mono font-bold text-6xl leading-none text-amber mb-3">{result}</div>
-          <p className="text-dim text-base mb-6">
+          </motion.div>
+          <Kicker tone="accent" className="block mb-1">Your level</Kicker>
+          <motion.div initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 480, damping: 16, delay: 0.08 }}
+            className="font-mono font-bold text-6xl leading-none text-amber mb-3">{result}</motion.div>
+          <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+            className="text-dim text-base mb-6">
             {seeded > 0
               ? <>Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on {result === 'A1' ? 'A1' : <>A1–{result}</>}. You can change the level filter anytime.</>
               : <>Starting fresh at {result} — the best place to start. Every word from here on counts.</>}
-          </p>
-          <button onClick={onDone} className="flex items-center gap-2 mx-auto bg-amber text-bg font-bold rounded-md px-6 py-3 hover:brightness-105">
-            <Sparkles size={16} /> Start learning
-          </button>
-        </div>
+          </motion.p>
+          <Button size="lg" className="mx-auto" onClick={onDone}><Play size={15} /> Start learning</Button>
+        </Card>
       </div>
     );
   }
@@ -107,13 +116,13 @@ export default function Placement({ onDone }: { onDone: () => void }) {
   const totalMax = ALL_LEVELS.length * PER_LEVEL;
 
   return (
-    <div className="max-w-[520px] mx-auto">
+    <div className="w-full max-w-[520px] mx-auto">
       <div className="flex items-center justify-between mb-3">
         <h1 className="text-xl font-bold">Placement test</h1>
         <button onClick={onDone} className="text-xs text-dim hover:text-amber">skip</button>
       </div>
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">
-        <div className="h-full bg-amber transition-all" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
+        <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
       </div>
       {/* The bar alone reads as empty on the first word, which makes a test with
           no stated length feel open-ended. The count is the reassurance: the test
@@ -127,20 +136,22 @@ export default function Placement({ onDone }: { onDone: () => void }) {
 
       {/* The word swaps in place, so a heading alone would never be re-announced —
           the live region is what makes each new prompt reach a screen reader. */}
-      <motion.div key={word.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+      {/* The word is German — say so, or a screen reader reads it in English. */}
+      <Card as={motion.div} pad="none" key={word.id}
+        initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
         role="status" aria-live="polite"
-        className="bg-panel border border-line rounded-md px-6 py-12 text-center mb-4">
-        <div className="font-bold text-4xl sm:text-5xl leading-tight">{stripArticle(word.term)}</div>
-        {word.gender && <div className="text-dim text-base mt-1.5">{word.gender}</div>}
-      </motion.div>
+        className="px-6 py-12 text-center mb-4">
+        <div lang="de" className="font-bold text-4xl sm:text-5xl leading-tight">{stripArticle(word.term)}</div>
+        {word.gender && <div lang="de" className="text-dim text-base mt-1.5">{word.gender}</div>}
+      </Card>
 
       <div className="grid grid-cols-2 gap-3">
         <button onClick={() => answer(false)}
-          className="flex items-center justify-center gap-2 rounded-md py-3.5 bg-panel2 border border-line hover:border-red text-base font-semibold">
+          className="flex items-center justify-center gap-2 rounded-md py-3.5 bg-panel2 border border-line hover:border-red text-base font-semibold transition-colors active:scale-[0.98]">
           <X size={16} className="text-red" /> New to me
         </button>
         <button onClick={() => answer(true)}
-          className="flex items-center justify-center gap-2 rounded-md py-3.5 bg-panel2 border border-line hover:border-green text-base font-semibold">
+          className="flex items-center justify-center gap-2 rounded-md py-3.5 bg-panel2 border border-line hover:border-green text-base font-semibold transition-colors active:scale-[0.98]">
           <Check size={16} className="text-green" /> I know it
         </button>
       </div>

@@ -2,10 +2,13 @@
 // Safari evicts script-writable storage (incl. IndexedDB) for sites unused for
 // ~7 days; installing to the home screen makes storage durable and enables
 // offline. Shown once on Today (dismissible), only when not already installed
-// and there's a real action to offer: the captured Chromium install prompt, or
+// and there’s a real action to offer: the captured Chromium install prompt, or
 // Add-to-Home-Screen instructions on iOS. A backup link is the escape hatch.
 import { useState } from 'react';
 import { X, ArrowDownToLine, Share } from 'lucide-react';
+import Card from './ui/Card.tsx';
+import Button from './ui/Button.tsx';
+import IconButton from './ui/IconButton.tsx';
 
 const DISMISS_KEY = 'lexi.installnudge.v1';
 
@@ -38,7 +41,7 @@ export default function InstallNudge({ onBackup }: { onBackup: () => void }) {
   };
 
   return (
-    <div className="bg-panel border border-line rounded-md px-4 py-3.5 mb-4 flex items-start gap-3">
+    <Card pad="none" className="px-4 py-3.5 mb-4 flex items-start gap-3">
       <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
       <div className="flex-1 min-w-0">
         <p className="text-base font-semibold">Install Lexi to protect your progress</p>
@@ -52,18 +55,14 @@ export default function InstallNudge({ onBackup }: { onBackup: () => void }) {
               <Share size={14} className="text-amber" /> Share&nbsp;→&nbsp;<b>Add to Home Screen</b>
             </span>
           ) : (
-            <button onClick={() => deferredPrompt?.prompt()}
-              className="bg-amber text-bg font-bold rounded-md px-4 py-2 text-xs hover:brightness-105">
-              Install
-            </button>
+            <Button size="sm" onClick={() => deferredPrompt?.prompt()}>Install</Button>
           )}
           <button onClick={onBackup} className="text-xs text-dim underline underline-offset-2 hover:text-amber">
             or export a backup
           </button>
         </div>
       </div>
-      <button onClick={dismiss} title="Dismiss"
-        className="grid place-items-center w-8 h-8 -m-1 text-dim hover:text-amber flex-shrink-0"><X size={15} /></button>
-    </div>
+      <IconButton label="Dismiss" pull onClick={dismiss}><X size={15} /></IconButton>
+    </Card>
   );
 }

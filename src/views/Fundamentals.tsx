@@ -9,10 +9,11 @@
 // routes here for its "Quick drills" strip, and Review.tsx imports the item
 // components to interleave drills into mixed sessions.
 //
-// NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it's a stable
+// NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it’s a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
 import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -22,6 +23,9 @@ import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.
 import { OrderItem, TypeItem } from './GrammarDrill.tsx';
 import WhyLink, { RuleToggle } from '../components/RulePanel.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
+import Surface from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 import type { Word } from '../types.ts';
 
 export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case';
@@ -57,7 +61,7 @@ export function orderTokens(sentence?: string): string[] {
 
 /** Transform drills only render forms we can print verbatim: reliable, and
  *  neither separable (the prefix detaches in Präsens: "ich komme … an") nor
- *  reflexive (the finite form alone drops the pronoun's "mich"). Grounded
+ *  reflexive (the finite form alone drops the pronoun’s "mich"). Grounded
  *  means never showing a sentence fragment that is actually wrong. */
 export function canTransform(verb: string): boolean {
   const c = conjugate(verb);
@@ -68,11 +72,11 @@ export function canTransform(verb: string): boolean {
 // Grounded by construction: every rendered fragment is correct German.
 //  - The case is forced by an unambiguous frame (accusative-only / dative-only /
 //    genitive prepositions, or "Hier ist …" for nominative) — never a verb
-//    whose government the learner can't see.
+//    whose government the learner can’t see.
 //  - Genitive only for feminines: masculine/neuter nouns inflect (+-(e)s) and we
-//    won't render a form we can't derive reliably.
+//    won’t render a form we can’t derive reliably.
 //  - n-Deklination masculines (der Junge → den Jungen, der Herr → dem Herrn)
-//    inflect in every oblique case, so they're excluded wholesale. The suffix
+//    inflect in every oblique case, so they’re excluded wholesale. The suffix
 //    test over-excludes a few safe nouns (Monat) — over-exclusion is the safe
 //    direction.
 type Kase = 'nom' | 'akk' | 'dat' | 'gen';
@@ -178,7 +182,7 @@ export function buildTransform(verb: string, pIdx: number, targetKey: 'praeterit
 // Legacy storage namespace: kept as `gym:` so learners' existing drill schedules
 // carry through the "Gym → Fundamentals" rename. Do not change this prefix.
 const id = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
-/** FSRS card id for a word's drill in a given mode (shared with mixed sessions). */
+/** FSRS card id for a word’s drill in a given mode (shared with mixed sessions). */
 export const gymId = id;
 /** Drill modes a single word qualifies for (mirrors the pool predicates). */
 export function eligibleModes(w: Word): Mode[] {
@@ -233,7 +237,7 @@ function queue(mode: Mode): Word[] {
 }
 function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 
-export const MODES: { m: Mode; label: string; icon: any; desc: string }[] = [
+export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[] = [
   { m: 'gender', label: 'der / die / das', icon: CircleDot, desc: 'Nail the gender of every noun.' },
   { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Pick the right plural.' },
   { m: 'conj', label: 'Conjugation', icon: Cog, desc: 'Präsens · Präteritum · Perfekt · Futur I · Konjunktiv II.' },
@@ -287,10 +291,10 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
 // ---- shells & shared bits ------------------------------------------------
 function Shell({ children, onExit, progress, score }: { children: React.ReactNode; onExit: () => void; progress?: string; score?: number | null }) {
   return (
-    <div className="max-w-[640px] mx-auto">
+    <div className="w-full max-w-[640px] mx-auto">
       <div className="flex items-center gap-2.5 mb-4">
-        <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={18} /></button>
-        {progress && <span className="text-xs text-dim font-mono">{progress}</span>}
+        <IconButton label="Back" pull onClick={onExit}><ArrowLeft size={18} /></IconButton>
+        {progress && <span className="text-xs text-dim font-mono ml-1.5">{progress}</span>}
         {score !== null && score !== undefined && <span className="ml-auto text-xs font-mono text-green">{score}% correct</span>}
       </div>
       {children}
@@ -299,9 +303,9 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
 }
 
 const GENDER = [
-  { g: 'der' as const, color: 'var(--color-a1)', icon: Mars },
-  { g: 'die' as const, color: '#f472b6', icon: Venus },
-  { g: 'das' as const, color: 'var(--color-b1)', icon: CircleDot },
+  { g: 'der' as const, color: 'var(--color-der)', icon: Mars },
+  { g: 'die' as const, color: 'var(--color-die)', icon: Venus },
+  { g: 'das' as const, color: 'var(--color-das)', icon: CircleDot },
 ];
 export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const [picked, setPicked] = useState<string | null>(null);
@@ -353,7 +357,7 @@ function umlaut(s: string): string {
   if (au >= 0) return s.slice(0, au) + (s[au] === s[au].toUpperCase() ? 'Äu' : 'äu') + s.slice(au + 2);
   for (let i = 0; i < s.length; i++) {
     const c = low[i];
-    if (c === 'u' && low[i - 1] === 'e') continue; // don't split 'eu'
+    if (c === 'u' && low[i - 1] === 'e') continue; // don’t split 'eu'
     const up = s[i] !== low[i];
     const u = c === 'a' ? (up ? 'Ä' : 'ä') : c === 'o' ? (up ? 'Ö' : 'ö') : c === 'u' ? (up ? 'Ü' : 'ü') : '';
     if (u) return s.slice(0, i) + u + s.slice(i + 1);
@@ -395,11 +399,11 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
       </div>
       {picked !== null && extra && <p className="text-dim text-xs mt-3 text-center font-mono">{extra}</p>}
       {/* `extra` states the verdict as a formula ("subject position → Nominativ
-          → der"). On a miss that isn't an explanation, so offer the rule. */}
+          → der"). On a miss that isn’t an explanation, so offer the rule. */}
       {picked !== null && picked !== correct && mode && (
         <div className="mt-1 flex justify-center"><WhyLink pointRef={modeRulePoint(mode)} /></div>
       )}
-      {picked !== null && <div className="mt-5 flex justify-center"><button onClick={() => onGrade(picked === correct)} className="bg-panel2 border border-line rounded-md px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>}
+      {picked !== null && <div className="mt-5 flex justify-center"><Button variant="secondary" onClick={() => onGrade(picked === correct)}>Next →</Button></div>}
     </Card>
   );
 }
@@ -410,7 +414,7 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
   const mc = useMemo(() => {
     // For a full "die …" plural, fabricate near-miss plurals of the *same* noun.
     // Shorthand/marker plurals ("-en", "nur Singular", "—") fall back to other
-    // nouns' plurals (unchanged behaviour), since there's no stem to inflect.
+    // nouns' plurals (unchanged behaviour), since there’s no stem to inflect.
     const isFull = /^(der|die|das)\s+[A-Za-zÄÖÜäöüß]/.test(correct);
     let distract: string[];
     if (isFull) {
@@ -445,9 +449,9 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
     const answer = formOf(conj, pIdx);
     // Kicker states the grammatical target; the verb itself is the hero text.
     const kicker = tense.key === 'pp' ? 'Partizip II' : `${tense.label} · ${PRONOUN[PERSONS_I[pIdx]]}`;
-    // Distractors stay in the SAME tense — the verb's other persons first, then
+    // Distractors stay in the SAME tense — the verb’s other persons first, then
     // other verbs' same tense/person — so a phrasal answer (Perfekt / Futur I /
-    // Konjunktiv II) isn't given away by being the only multi-word option.
+    // Konjunktiv II) isn’t given away by being the only multi-word option.
     const otherPersons = tense.key === 'pp' ? [] : conj[tense.key].filter((_, idx) => idx !== pIdx);
     let distract = pickN(otherPersons, 3, new Set([norm(answer)]));
     if (distract.length < 3) {
@@ -486,7 +490,7 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
 }
 
 // ---- production drills (reuse the authored-exercise widgets) --------------
-/** Sentence builder over the card's own example sentence — no new content
+/** Sentence builder over the card’s own example sentence — no new content
  *  needed, and real sentences carry real V2 / verb-final word order. */
 export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const ex = useMemo(() => {
@@ -519,8 +523,11 @@ export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
   return <TypeItem ex={ex} onGrade={onGrade} />;
 }
 
+/** The drill surface. Same material as the flip card — an exercise is the same
+ *  kind of object as a card, so it gets the paper ground and the card radius
+ *  rather than looking like another panel in the chrome. */
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="bg-card border border-line rounded-md p-6 sm:p-8">{children}</div>;
+  return <div className="paper bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
 }
 function Prompt({ children, small, gloss, big = true }: { children: React.ReactNode; small?: string; gloss?: string; big?: boolean }) {
   return (
@@ -533,10 +540,10 @@ function Prompt({ children, small, gloss, big = true }: { children: React.ReactN
 }
 function Empty() {
   return (
-    <div className="bg-panel border border-line rounded-md px-8 py-12 text-center">
+    <Surface pad="none" className="px-8 py-12 text-center">
       <h2 className="text-xl font-bold mb-1">Nothing queued</h2>
       <p className="text-dim">No items due in this drill for the selected levels. Try another mode or widen your CEFR filter.</p>
-    </div>
+    </Surface>
   );
 }
 function Summary({ done, correct }: { done: number; correct: number }) {

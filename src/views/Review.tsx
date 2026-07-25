@@ -1,5 +1,5 @@
 // Üben — the unified session player. Interleaves FSRS flip cards (swipe right
-// = knew it, swipe left = didn't know) with grammar drills (gender / plural /
+// = knew it, swipe left = didn’t know) with grammar drills (gender / plural /
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
@@ -13,17 +13,23 @@ import { RuleToggle } from '../components/RulePanel.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
-import { Rating, emptyCard, previewInterval, type Grade, type Card } from '../srs.ts';
+// `Card` here is the UI surface; the FSRS card type is aliased so the two
+// can coexist in this file.
+import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
+import Card from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import Chip from '../components/ui/Chip.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 import type { Target } from '../types.ts';
 
-const GENDER_COLOR: Record<string, string> = { der: 'var(--color-a1)', die: '#f472b6', das: 'var(--color-b1)' };
+const GENDER_COLOR: Record<string, string> = { der: 'var(--color-der)', die: 'var(--color-die)', das: 'var(--color-das)' };
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
-/** Stable per-card pick from a grammar point's exercises (same card → same drill). */
+/** Stable per-card pick from a grammar point’s exercises (same card → same drill). */
 function pickExercise(point: GPoint, seed: string) {
   let h = 0;
   for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
@@ -44,13 +50,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const [gmap, setGmap] = useState<Map<string, GPoint> | null>(null); // grammar point → exercises
   // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
   // or a skip, and rewind counters + position exactly.
-  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: Card; dAgain?: number; dNew?: number }[]>([]);
-  // Which way the outgoing card flies: +1 knew it, -1 didn't, 0 neutral (skip/
+  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number }[]>([]);
+  // Which way the outgoing card flies: +1 knew it, -1 didn’t, 0 neutral (skip/
   // prev). Set by every grade path, so swipes, buttons and arrow keys all share
   // one physical vocabulary: right = knew, left = missed.
   const exitDir = useRef(0);
 
-  // Feel layer: the comeback of the day (a word you'd missed ≥2 times before
+  // Feel layer: the comeback of the day (a word you’d missed ≥2 times before
   // and got right today), and the miss-streak circuit breaker (F3): after 4
   // straight misses, offer a graceful out — once per session, never nagging.
   const [comeback, setComeback] = useState<{ term: string; lapses: number } | null>(null);
@@ -64,7 +70,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   };
   const [breather, setBreather] = useState(false);
   const breatherShown = useRef(false);
-  const noteResult = (ok: boolean, srsIdBefore?: Card, term?: string) => {
+  const noteResult = (ok: boolean, srsIdBefore?: SrsCard, term?: string) => {
     if (ok) {
       missRun.current = 0;
       tick('good');
@@ -99,7 +105,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const flip = useCallback(() => setFlipped((f) => !f), []);
 
   // Interval preview: show when each grade brings the card back. This is how
-  // the scheduler earns trust — machinery, not magic (Anki's oldest lesson).
+  // the scheduler earns trust — machinery, not magic (Anki’s oldest lesson).
   const preview = useMemo(() => {
     if (!item || item.type !== 'flip') return null;
     const c = cardOf(item.srsId) ?? emptyCard();
@@ -168,10 +174,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   }, [item, i]);
 
   // Skip: advance without grading — the card stays due for a later session.
-  // A skipped exercise is a "zu steil" (too steep) signal: you couldn't attempt
+  // A skipped exercise is a "zu steil" (too steep) signal: you couldn’t attempt
   // it, which is blind-spot information — so it feeds the miss log that ranks
   // weak modes and triggers remediation, while FSRS stays untouched (a skip is
-  // never a lapse). Plain word flips log nothing: skipping a word isn't
+  // never a lapse). Plain word flips log nothing: skipping a word isn’t
   // structural.
   const skip = useCallback(() => {
     if (!item) return;
@@ -201,10 +207,16 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
       // Never hijack keys while the learner is typing an answer — Space must
       // insert a space in "habe gemacht", not flip the card.
-      const t = e.target as HTMLElement | null;
       if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      // Nor while a control has focus: Space is that control’s own activation
+      // key, and this listener used to fire *as well*, so pressing Space on
+      // "Didn’t know" both graded the card and flipped the next one.
+      if (t && (t.tagName === 'BUTTON' || t.closest?.('button, a, select'))) {
+        if (e.code === 'Space' || e.key === 'Enter') return;
+      }
       if (e.code === 'Space') { e.preventDefault(); flip(); }
       if (e.key === 'ArrowLeft') grade(Rating.Again);
       if (e.key === 'ArrowRight') grade(Rating.Good);
@@ -230,67 +242,73 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   return (
     <div className="mx-auto w-full max-w-[640px] flex-1 flex flex-col justify-center">
       <CoachMarks />
-      {/* Circuit breaker (F3): four straight misses isn't failure, it's a hard
+      {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
           patch. Offer a graceful stop at a natural break — once, then quiet. */}
       {breather && (
-        <div className="bg-panel border border-amber/40 rounded-md px-4 py-3 mb-2.5 flex items-center gap-3 flex-wrap">
+        <Card accent pad="none" role="status"
+          className="px-4 py-3 mb-2.5 flex items-center gap-3 flex-wrap">
           <p className="text-xs flex-1 min-w-[200px]">
-            Rough patch — that's the system finding your edge. These come back easier tomorrow.
+            Rough patch — that’s the system finding your edge. These come back easier tomorrow.
           </p>
           <div className="flex gap-2">
-            <button onClick={() => { setBreather(false); setI(queue.length); tick('done'); }}
-              className="text-xs border border-line rounded-sm px-3 py-1.5 hover:border-amber">Stop here</button>
-            <button onClick={() => setBreather(false)}
-              className="text-xs bg-amber text-bg font-bold rounded-sm px-3 py-1.5 hover:brightness-105">Keep going</button>
+            <Button variant="quiet" size="sm"
+              onClick={() => { setBreather(false); setI(queue.length); tick('done'); }}>Stop here</Button>
+            <Button size="sm" onClick={() => setBreather(false)}>Keep going</Button>
           </div>
-        </div>
+        </Card>
       )}
-      <div className="bg-panel border border-line rounded-md">
-        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3">
-          <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back to Today" aria-label="Back to Today"><ArrowLeft size={16} /></button>
-          <h2 className="text-base font-semibold truncate">{target.name}</h2>
-          <span className="text-2xs text-amber border border-line px-1.5 py-0.5 rounded-full tracking-wider tabular-nums flex-shrink-0">{queue.length - i} left</span>
+      <Card pad="none">
+        {/* min-w on the title stops it from being crushed to nothing: when the
+            four controls no longer fit beside it, the cluster wraps to its own
+            line instead of truncating the deck name to two characters. */}
+        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
+          <IconButton label="Back to Today" pull onClick={onExit}><ArrowLeft size={16} /></IconButton>
+          <h1 className="text-base font-semibold truncate flex-1 min-w-[7rem]">{target.name}</h1>
+          <Chip aria-label={`${queue.length - i} cards left in this session`}>{queue.length - i} left</Chip>
           {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
-            {/* Flag: "something's wrong with this card" — the feedback loop for a
+            {/* Flag: "something’s wrong with this card" — the feedback loop for a
                 solo-maintained corpus. Local, deduped, exports with the backup. */}
-            <button onClick={() => item && flagCard(item.word.id, item.word.term)}
-              title={item && isFlagged(item.word.id) ? 'Flagged — thanks, it exports with your backup' : 'Something wrong with this card? Flag it'}
-              aria-label={item && isFlagged(item.word.id) ? 'Card flagged' : 'Flag a problem with this card'}
+            <IconButton
+              onClick={() => item && flagCard(item.word.id, item.word.term)}
+              label={item && isFlagged(item.word.id) ? 'Card flagged — it exports with your backup' : 'Flag a problem with this card'}
               aria-pressed={!!(item && isFlagged(item.word.id))}
-              className={`grid place-items-center w-9 h-9 rounded-md transition-colors ${item && isFlagged(item.word.id) ? 'text-amber' : 'text-dim hover:text-amber'}`}>
+              active={!!(item && isFlagged(item.word.id))}>
               <Flag size={15} fill={item && isFlagged(item.word.id) ? 'currentColor' : 'none'} />
-            </button>
+            </IconButton>
             {/* Sound is on by default now, so muting has to be reachable from
                 inside the session — not three taps away in Settings. */}
-            <button onClick={() => setSound(!sound())}
-              title={sound() ? 'Mute sound' : 'Unmute sound'} aria-label={sound() ? 'Mute sound' : 'Unmute sound'}
-              aria-pressed={!sound()}
-              className={`grid place-items-center w-9 h-9 rounded-md transition-colors ${sound() ? 'text-dim hover:text-amber' : 'text-amber'}`}>
+            <IconButton onClick={() => setSound(!sound())}
+              label={sound() ? 'Mute sound' : 'Unmute sound'}
+              aria-pressed={!sound()} active={!sound()}>
               {sound() ? <Volume2 size={15} /> : <VolumeX size={15} />}
-            </button>
-            <button onClick={prev} disabled={i === 0} title="Previous card" aria-label="Previous card"
-              className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber disabled:opacity-30 disabled:hover:text-dim transition-colors"><RotateCcw size={16} /></button>
-            <button onClick={skip} title="Skip for now" aria-label="Skip this card"
-              className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-amber transition-colors"><SkipForward size={16} /></button>
+            </IconButton>
+            <IconButton label="Previous card" onClick={prev} disabled={i === 0}><RotateCcw size={16} /></IconButton>
+            <IconButton label="Skip this card" onClick={skip}><SkipForward size={16} /></IconButton>
           </div>
         </div>
         {/* Slim session progress — tracks position through the queue. */}
-        <div className="h-0.5 bg-panel2" role="progressbar" aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}>
+        <div className="h-0.5 bg-panel2" role="progressbar" aria-label="Session progress"
+          aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}
+          aria-valuetext={`${i} of ${queue.length} done`}>
           <div className="relative h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
             {/* The cursor rides the tip of the bar — the terminal writes your session. */}
             {i > 0 && <span aria-hidden className="absolute -right-px top-1/2 -translate-y-1/2 w-[3px] h-[3px] rounded-full bg-amber" style={{ boxShadow: '0 0 8px 2px var(--color-amber)' }} />}
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]">
+        {/* The card swaps in place, so nothing here is ever re-announced without
+            a live region — Placement and the drills each got one, and the
+            primary loop was the surface that didn’t. */}
+        <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]"
+          role="region" aria-live="polite" aria-label="Current card">
           <AnimatePresence mode="wait" custom={exitDir.current}>
           <motion.div key={item.srsId} custom={exitDir.current} className="w-full flex flex-col items-center"
             variants={{
               initial: { opacity: 0, scale: 0.97, y: 12 },
               enter: { opacity: 1, scale: 1, y: 0 },
               // A graded card leaves the way it was judged — continuing the
-              // swipe's motion (or lending buttons/keys the same physics).
+              // swipe’s motion (or lending buttons/keys the same physics).
               // Neutral exits (skip, prev, drills swapping in) just dissolve.
               exit: (dir: number) => (reduce || !dir)
                 ? { opacity: 0, scale: 0.98, transition: { duration: reduce ? 0 : 0.15, ease: 'easeOut' } }
@@ -327,14 +345,22 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   card shows its gloss and the grade becomes "did that land?".
                   Retrieval starts at the next review, which FSRS schedules minutes
                   later. */}
-              <div className="flip-face relative border border-line rounded-md bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
+              {/* The terminal is the room; the card is the thing in your hand.
+                  `paper` re-skins this subtree via the token override in
+                  index.css — warm ground, serif headword — so the object the
+                  learner actually studies is a different material from the
+                  chrome around it, instead of sharing its radius and border. */}
+              <div className="paper flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">
                   {isNew && <span className="text-amber">New · </span>}
                   {grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
                 </span>
                 {!grammar && <Illustration word={card} size={68} className="text-amber select-none" />}
-                <span className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
+                {/* lang="de" on every German string: without it a screen reader
+                    pronounces the entire lexicon of a German app in an English
+                    voice, which is the one thing this surface must not do. */}
+                <span lang="de" className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
                   {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
@@ -348,11 +374,11 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {card.ex[0] && <span lang="de" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>
               {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
-              <div className="flip-face flip-back border rounded-md flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
+              <div className="paper flip-face flip-back border rounded-lg flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
                    style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Rule' : 'Translation'}</span>
                 <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
@@ -361,20 +387,20 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   <div className="w-full max-w-[94%] text-left mt-1 space-y-2">
                     {card.ex.slice(0, 2).map((e, k) => (
                       <div key={k} className="text-sm leading-relaxed">
-                        <div className="text-txt">{e.de}</div>
+                        <div lang="de" className="text-txt">{e.de}</div>
                         {e.en && <div className="text-dim italic">{e.en}</div>}
                       </div>
                     ))}
                   </div>
                 )}
-                {card.syn.length > 0 && <span className="text-xs text-dim">Synonyms: <span className="text-txt">{card.syn.join(', ')}</span></span>}
-                {card.ant.length > 0 && <span className="text-xs text-dim">Opposite: <span className="text-red-txt">{card.ant.join(', ')}</span></span>}
+                {card.syn.length > 0 && <span className="text-xs text-dim">Synonyms: <span lang="de" className="text-txt">{card.syn.join(', ')}</span></span>}
+                {card.ant.length > 0 && <span className="text-xs text-dim">Opposite: <span lang="de" className="text-red-txt">{card.ant.join(', ')}</span></span>}
               </div>
             </div>
           </SwipeCard>
 
           {/* Grade from either face — flipping is optional. First-sight cards
-              can't be "known", so new cards ask "keep it or got it" instead of
+              can’t be "known", so new cards ask "keep it or got it" instead of
               framing an inevitable miss as failure. */}
           <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
             <div className="flex gap-2.5 sm:gap-3 justify-center">
@@ -403,13 +429,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           </motion.div>
           </AnimatePresence>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }
 
 /** Draggable flip-card. Tap flips; swipe right = knew it (Good), swipe left =
- *  didn't know (Again). Commits on travel OR a confident flick (velocity with
+ *  didn’t know (Again). Commits on travel OR a confident flick (velocity with
  *  real distance behind it); below threshold the card is handed back with the
  *  release velocity, so the return reads as the gesture settling — not a reset. */
 function SwipeCard({ children, onFlip, onGrade }:
@@ -422,7 +448,18 @@ function SwipeCard({ children, onFlip, onGrade }:
   const dragged = useRef(false);
   return (
     <motion.div
-      className="relative w-full max-w-[580px] h-[360px] sm:h-[420px] cursor-pointer touch-pan-y"
+      // The card is a control, not a div with a click handler: it was never
+      // focusable, so its only keyboard path was a global window listener.
+      role="button"
+      tabIndex={0}
+      aria-label="Flashcard — activate to flip, or use the grade buttons below"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onFlip(); }
+      }}
+      // Fluid height: this was a fixed 360/420px with overflow-y-auto faces, so
+      // a C1 card (definition + two bilingual examples + synonyms + antonyms) at
+      // the "Larger" text scale silently scrolled inside a drag surface.
+      className="relative w-full max-w-[580px] h-[clamp(340px,52vh,460px)] cursor-pointer touch-pan-y rounded-lg"
       style={{ x, rotate: reduce ? 0 : rotate }}
       drag="x"
       dragElastic={0.6}
@@ -461,14 +498,17 @@ function CoachMarks() {
     setShow(false);
   };
   return (
-    <div className="bg-panel border border-line rounded-md px-4 py-3 mb-2.5 flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-dim">
+    <Card pad="none" className="px-4 py-3 mb-2.5 flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-dim">
       <span><b className="text-txt font-semibold">Tap</b> the card to flip it</span>
       <span aria-hidden>·</span>
       <span><b className="text-txt font-semibold">Swipe</b> or use the buttons to grade</span>
       <span aria-hidden>·</span>
+      {/* The keyboard path existed but was never stated anywhere in the UI. */}
+      <span className="hidden sm:inline"><kbd className="text-txt font-semibold">Space</kbd> flips, <kbd className="text-txt font-semibold">←</kbd>/<kbd className="text-txt font-semibold">→</kbd> grade</span>
+      <span aria-hidden className="hidden sm:inline">·</span>
       <span><b className="text-txt font-semibold">Skip</b> is always free</span>
       <button onClick={dismiss} className="ml-auto text-amber font-semibold hover:brightness-110">Got it</button>
-    </div>
+    </Card>
   );
 }
 
@@ -508,11 +548,11 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
           <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
         )}
         <div className="flex gap-2.5 justify-center flex-wrap">
-          {!firstRun && <button onClick={onPick} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber">Another deck</button>}
-          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-md px-5 py-2.5 hover:brightness-105">{firstRun ? 'Got it' : 'Back to Today'}</button>
+          {!firstRun && <Button variant="secondary" onClick={onPick}>Another deck</Button>}
+          <Button onClick={onExit}>{firstRun ? 'Got it' : 'Back to Today'}</Button>
         </div>
         {/* The pride moment — the market as a designed image, not a cropped
-            screenshot. Word-of-mouth is a local-first app's only channel. */}
+            screenshot. Word-of-mouth is a local-first app’s only channel. */}
         {!firstRun && (
           <button onClick={() => shareProgress()}
             className="mt-3 mx-auto flex items-center gap-1.5 text-xs text-dim hover:text-amber underline underline-offset-2">
@@ -526,15 +566,15 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
 function EmptyState({ target, onExit, onPick, onDrills }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void }) {
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <div className="text-center bg-panel border border-line rounded-md px-10 py-12 max-w-md">
+      <Card pad="none" className="text-center px-10 py-12 max-w-md">
         <h2 className="text-xl font-bold mb-1">Nothing due in {target.name}</h2>
         <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try targeted drills, another deck, or a different CEFR level.</p>
         <div className="flex gap-2.5 justify-center flex-wrap">
-          <button onClick={onDrills} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber">Targeted drills</button>
-          <button onClick={onPick} className="bg-panel2 border border-line rounded-md px-5 py-2.5 hover:border-amber">Open decks</button>
-          <button onClick={onExit} className="bg-amber text-bg font-bold rounded-md px-5 py-2.5">Done</button>
+          <Button variant="secondary" onClick={onDrills}>Targeted drills</Button>
+          <Button variant="secondary" onClick={onPick}>Open decks</Button>
+          <Button onClick={onExit}>Done</Button>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // Profile — the local learner profile, built implicitly at onboarding (CEFR level
 // from placement, streak from visits) with an editable display name. Settings and
-// data backup live inside it (reached from the sidebar's profile button).
+// data backup live inside it (reached from the sidebar’s profile button).
 import { useState } from 'react';
 import { Flame, Pencil, Check, Heart, Compass, Target } from 'lucide-react';
 import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal } from '../store.ts';
@@ -10,6 +10,10 @@ import { ALL_LEVELS, type CEFR } from '../types.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
 import ReminderCard from '../components/ReminderCard.tsx';
 import Settings from './Settings.tsx';
+import Card from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
+import Kicker from '../components/ui/Kicker.tsx';
 
 export default function Profile() {
   useStore();
@@ -22,19 +26,24 @@ export default function Profile() {
   const initial = (name || 'L').trim().charAt(0).toUpperCase();
 
   return (
-    <div className="max-w-[640px] mx-auto">
+    <div className="w-full max-w-[640px] mx-auto">
       <h1 className="text-xl font-bold mb-4">Profile</h1>
 
-      <div className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-3 flex items-center gap-4">
+      <Card className="mb-3 flex items-center gap-4">
         <div className="grid place-items-center w-14 h-14 rounded-full bg-panel2 text-amber text-2xl font-bold flex-shrink-0">{initial}</div>
         <div className="flex-1 min-w-0">
           {editing ? (
             <div className="flex items-center gap-2">
-              <input autoFocus value={draft} onChange={(e) => setDraft(e.target.value)}
+              <label className="sr-only" htmlFor="profile-name">Your name</label>
+              {/* eslint-disable-next-line jsx-a11y/no-autofocus --
+                  this input only exists because the learner just pressed
+                  "edit name"; moving focus into it is following the action they
+                  took, not stealing focus on page load. */}
+              <input id="profile-name" autoFocus value={draft} onChange={(e) => setDraft(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') save(); if (e.key === 'Escape') setEditing(false); }}
                 placeholder="Your name" maxLength={40}
                 className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-base outline-none focus:border-amber w-full max-w-[240px]" />
-              <button onClick={save} className="grid place-items-center w-9 h-9 rounded-md bg-amber text-bg flex-shrink-0" title="Save"><Check size={16} /></button>
+              <IconButton label="Save name" onClick={save} className="bg-amber text-bg hover:text-bg"><Check size={16} /></IconButton>
             </div>
           ) : (
             <button onClick={() => { setDraft(name); setEditing(true); }} className="group flex items-center gap-2 text-left">
@@ -47,7 +56,7 @@ export default function Profile() {
             <span className="flex items-center gap-1 text-amber"><Flame size={13} /> {streak()} day streak</span>
           </div>
         </div>
-      </div>
+      </Card>
 
       <div className="grid grid-cols-3 gap-2.5 mb-5">
         <Stat label="Known" value={t.known} />
@@ -59,14 +68,14 @@ export default function Profile() {
       <GoalCard />
 
       {/* Interest topics — bias the daily fresh-vocabulary pick. */}
-      <div className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-3">
+      <Card className="mb-3">
         <div className="flex items-center gap-2 mb-1">
           <Compass size={16} className="text-amber" />
           <h2 className="text-base font-semibold">Topics you care about</h2>
         </div>
         <p className="text-xs text-dim mb-3">Lexi pulls your new words from these first.</p>
         <TopicPicker />
-      </div>
+      </Card>
 
       <ReminderCard />
 
@@ -75,7 +84,7 @@ export default function Profile() {
 
       <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
         className="mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-amber">
-        <Heart size={13} /> Support Lexi's development
+        <Heart size={13} /> Support Lexi’s development
       </a>
     </div>
   );
@@ -89,38 +98,37 @@ function GoalCard() {
   const valid = date > today;
   const dirty = !g || g.level !== level || g.date !== date;
   return (
-    <div className="bg-panel border border-line rounded-md p-4 sm:p-5 mb-3">
+    <Card className="mb-3">
       <div className="flex items-center gap-2 mb-1">
         <Target size={16} className="text-amber" />
         <h2 className="text-base font-semibold">Your goal</h2>
       </div>
       <p className="text-xs text-dim mb-3">A level and a date — Today shows whether your pace gets you there.</p>
       <div className="flex items-center gap-2.5 flex-wrap">
-        <select value={level} onChange={(e) => setLevel(e.target.value as CEFR)}
+        <label className="sr-only" htmlFor="goal-level">Target level</label>
+        <select id="goal-level" value={level} onChange={(e) => setLevel(e.target.value as CEFR)}
           className="bg-panel2 border border-line rounded-md px-2.5 py-2 text-sm outline-none focus:border-amber">
           {ALL_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
         </select>
-        <span className="text-dim text-xs">by</span>
-        <input type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)}
+        <span className="text-dim text-xs" aria-hidden>by</span>
+        <label className="sr-only" htmlFor="goal-date">Target date</label>
+        <input id="goal-date" type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)}
           className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
-        {dirty && valid && (
-          <button onClick={() => setGoal({ level, date })}
-            className="bg-amber text-bg font-bold rounded-md px-3.5 py-2 text-xs hover:brightness-105">Set</button>
-        )}
+        {dirty && valid && <Button size="sm" onClick={() => setGoal({ level, date })}>Set</Button>}
         {g && (
           <button onClick={() => { setGoal(null); setDate(''); }}
             className="text-xs text-dim underline underline-offset-2 hover:text-amber">Clear</button>
         )}
       </div>
-    </div>
+    </Card>
   );
 }
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="bg-panel border border-line rounded-md px-3 py-3 text-center">
-      <div className="text-2xs text-dim font-mono uppercase tracking-widest">{label}</div>
+    <Card pad="none" className="px-3 py-3 text-center">
+      <Kicker className="block">{label}</Kicker>
       <div className="font-mono font-bold text-2xl mt-0.5 tabular-nums">{fmt(value)}</div>
-    </div>
+    </Card>
   );
 }

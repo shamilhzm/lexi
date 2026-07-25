@@ -1,6 +1,53 @@
 @import "tailwindcss";
 
 /* ============================================================
+   Typefaces — self-hosted, so the identity is the same on every
+   OS and survives offline. Previously --font-mono resolved to
+   SF Mono on macOS, Consolas on Windows and Roboto Mono on
+   Android: the terminal look only actually existed on a Mac.
+   Both faces are OFL; the licences ship beside the woff2 in
+   src/fonts/ and the packages stay in devDependencies so the
+   files can be re-derived.
+
+   Referenced relatively (not from public/) so Vite hashes them,
+   rewrites the path for the /lexi/ base, and the service worker
+   picks them up with the rest of the hashed assets.
+   ============================================================ */
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./fonts/ibm-plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./fonts/ibm-plex-mono-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Fraunces variable (opsz 9–144 + wght 100–900). The optical-size axis is the
+   reason to pick Fraunces at all: the headword renders at 34–44px and gets a
+   genuinely different, higher-contrast drawing there than at caption size. */
+@font-face {
+  font-family: "Fraunces";
+  src: url("./fonts/fraunces-var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ============================================================
    Karteikasten — Bloomberg-terminal theme tokens.
    @theme color tokens auto-generate Tailwind utilities
    (bg-bg, text-amber, border-line, …). Dark by default.
@@ -17,13 +64,18 @@
   --color-txt:     #eaf1f8;   /* primary text */
   --color-dim:     #9fb0c2;   /* secondary text — cool grey, AA on every surface */
   --color-amber:   #38cde8;   /* brand / accent / focus (Glacier cyan) */
-  --color-amber2:  #7fe0f2;
   --color-green:   #16c784;   /* gains / mastered */
   --color-green-d: #0b3b2c;
   --color-red:     #ea3943;   /* losses / weak */
   --color-red-d:   #3d1216;   /* deep red surface (fill behind red-txt) */
   --color-red-txt: #f0545e;   /* AA-legible red for small text on dark (drill "wrong") */
-  --color-blue:    #3b82f6;
+
+  /* Grammatical gender ink. der/die/das were previously two tokens and one raw
+     hex (#f472b6), so `die` was the only one that didn't follow the theme — and
+     on a light surface that pink fell below AA. Three tokens, three themes. */
+  --color-der: #3b82f6;
+  --color-die: #f472b6;
+  --color-das: #14b8a6;
 
   /* CEFR ink — its own ramp, decoupled from the green/red/amber status colors
      (blue → teal → violet → fuchsia → coral). No value equals a status color. */
@@ -34,7 +86,11 @@
   --color-c1: #d946ef;
   --color-c2: #fb7185;
 
-  --font-mono: "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  /* Mono is the brand voice: every stat, kicker, CEFR badge and numeral. It is
+     shipped, not borrowed — the system stack only covers the swap window. */
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  /* UI text stays native: fast, familiar, zero bytes. The identity is carried
+     by the two faces that actually mean something. */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
 
@@ -73,20 +129,32 @@
    the `.paper` class to revert a view to the dark terminal.
    ============================================================ */
 .paper {
+  /* Re-assert the ink. Overriding --color-txt in this scope does NOT change the
+     `color` already inherited from <body>, which was resolved against the dark
+     theme's value — so without this the headword renders near-white on cream. */
+  color: var(--color-txt);
+
   --color-bg:      #faf6e8;   /* warm cream page */
   --color-panel:   #ffffff;   /* cards */
+  /* The study surface itself. Without this the flip faces inherited the dark
+     @theme value and rendered a dark card inside a cream one — and at pure
+     #ffffff the card vanished into the light theme's white chrome, which is the
+     one thing paper is here to prevent. Warm off-white reads as a different
+     material against both the dark terminal and the cool-white light theme. */
+  --color-card:    #fbf7ee;
   --color-panel2:  #f4efe0;   /* subtle fills, sunken */
   --color-line:    #e7dec8;   /* hairline borders */
   --color-txt:     #1c1b17;   /* ink */
   --color-dim:     #6e685a;   /* muted ink (AA on cream) */
   --color-amber:   #8a5300;   /* warm accent — AA on cream + AA for cream text on the amber button */
-  --color-amber2:  #6f4200;
   --color-green:   #17663b;   /* success / mastered — AA on the light success surface */
   --color-green-d: #dcefe2;   /* light success surface */
   --color-red:     #b0311f;   /* AA on the light error surface */
   --color-red-d:   #f6e1dc;
   --color-red-txt: #a52714;   /* AA-legible red for small text on cream */
-  --color-blue:    #2d5be3;   /* translations */
+  --color-der: #2d5be3;
+  --color-die: #be185d;       /* the dark-theme pink is illegible on cream */
+  --color-das: #0f766e;
   /* CEFR ink for the cream surface — decoupled from paper green/red/amber */
   --color-a1: #2d5be3;
   --color-a2: #0e7490;
@@ -100,8 +168,23 @@
   background-image: linear-gradient(180deg, rgba(0,0,0,0.012), rgba(0,0,0,0) 40%);
   box-shadow: 0 1px 0 rgba(0,0,0,0.02) inset, 0 10px 30px -24px rgba(60,50,20,0.5);
 }
-/* Serif display for headings + headwords in the paper surface (Karteto taste). */
-.paper h1, .paper .headword { font-family: var(--font-display); letter-spacing: -0.01em; }
+/* The card faces are the object in the learner's hand: a warm, slightly deeper
+   drop than a panel, so the card sits *on* the terminal rather than in it.
+   Without this they inherited the dark theme's near-black shadow. */
+.paper .bg-card,
+.paper.flip-face,
+.paper .flip-face {
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.015), rgba(0,0,0,0) 46%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px -20px rgba(60,50,20,0.55);
+}
+/* Serif display for headings + headwords in the paper surface (Karteto taste).
+   font-optical-sizing lets Fraunces' opsz axis follow the rendered size, which
+   is the whole reason for a variable display face on a word set this large. */
+.paper h1, .paper .headword {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
 
 /* ============================================================
    Light theme — a full light surface for the whole terminal,
@@ -118,13 +201,14 @@ html.light {
   --color-txt:     #16202e;
   --color-dim:     #55657a;   /* AA on cool white */
   --color-amber:   #0a6f88;   /* Glacier cyan (dark) — AA on white + AA for bg-text on the button */
-  --color-amber2:  #0a5566;
   --color-green:   #17663b;   /* AA on the green drill-feedback surface */
   --color-green-d: #dcefe2;
   --color-red:     #b0311f;   /* AA on the red drill-feedback surface */
   --color-red-d:   #f6e1dc;
   --color-red-txt: #a52714;
-  --color-blue:    #2d5be3;
+  --color-der: #2d5be3;
+  --color-die: #be185d;
+  --color-das: #0f766e;
   --color-a1: #2d5be3;
   --color-a2: #0e7490;
   --color-b1: #0f766e;
@@ -225,6 +309,19 @@ body {
 @keyframes tilein { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
 .tile-in { animation: tilein .42s cubic-bezier(.32,.72,0,1) both; }
 
+/* Stats bars grow from the baseline on mount.
+   Deliberately CSS with no fill-mode and no per-bar delay: the resting state is
+   the *correct* one, so if the animation never runs — reduced motion, a tab
+   that mounted in the background, anything — the chart still shows its data.
+   An entrance that can leave real numbers invisible is not worth the stagger. */
+@keyframes bargrow { from { transform: scaleY(0); } }
+.bar-grow { transform-origin: bottom; transform-box: fill-box; animation: bargrow .5s cubic-bezier(.32,.72,0,1); }
+
+/* Word-map nodes settle in on mount. Same rule as the bars: no fill-mode, so a
+   node that never animates is simply a node that is already there. */
+@keyframes nodein { from { opacity: 0; transform: scale(.86); } }
+.node-in { transform-origin: center; transform-box: fill-box; animation: nodein .45s cubic-bezier(.32,.72,0,1); }
+
 /* iOS safe areas (notch / Dynamic Island / home indicator) */
 .safe-top { padding-top: max(0.625rem, env(safe-area-inset-top)); }
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
@@ -241,7 +338,7 @@ body {
 .ticker-track:hover { animation-play-state: paused; }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track, .tile-in, .live-dot::after, .cursor-blink::after { animation: none; }
+  .ticker-track, .tile-in, .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
   .tile-in { opacity: 1; transform: none; }
   * { scroll-behavior: auto; }
 }

@@ -4,7 +4,7 @@ import { levels, toggleLevel } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { ALL_LEVELS } from '../types.ts';
 
-export default function LevelFilter({ compact = false }: { compact?: boolean }) {
+export default function LevelFilter() {
   useStore();
   const lv = levels();
   return (
@@ -13,7 +13,7 @@ export default function LevelFilter({ compact = false }: { compact?: boolean }) 
         const on = lv.has(l);
         return (
           <button key={l} onClick={() => toggleLevel(l)} aria-pressed={on}
-            className={`font-mono px-2 py-1 rounded-md border transition-colors ${compact ? 'text-2xs' : 'text-2xs'} ${
+            className={`font-mono text-2xs px-2 py-1 rounded-md border transition-colors ${
               on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{l}</button>
         );
       })}

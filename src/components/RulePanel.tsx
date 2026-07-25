@@ -1,6 +1,6 @@
 // The rule, on demand, wherever a concept is being tested.
 //
-// Lexi's drills used to state a verdict and stop: miss a Kasus item and you got
+// Lexi’s drills used to state a verdict and stop: miss a Kasus item and you got
 // `der Beruf · subject position → Nominativ → der` — a formula, with no route to
 // the thing that would explain it. The teaching text existed the whole time in
 // grammar.json; it just had nowhere to appear mid-drill.
@@ -13,6 +13,9 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, HelpCircle, X } from 'lucide-react';
 import { loadGrammar, findPoint, parsePointId, type GPoint } from '../lib/grammar.ts';
+import Card from './ui/Card.tsx';
+import IconButton from './ui/IconButton.tsx';
+import Kicker from './ui/Kicker.tsx';
 import type { CEFR } from '../types.ts';
 
 /** Resolve a point by `gram:<level>:<title>` id, or by level+title directly.
@@ -36,38 +39,38 @@ export function usePoint(ref: { level: CEFR; title: string } | string | null) {
 }
 
 /** The rule card itself. `level` heads it so the learner can see whether this is
- *  something they're meant to know yet. */
+ *  something they’re meant to know yet. */
 export function RuleCard({ point, level, onClose }: { point: GPoint; level: CEFR; onClose?: () => void }) {
   return (
-    <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
+    <Card as={motion.div} tone="sunken" nested pad="none"
+      initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
-      className="bg-panel2 border border-line rounded-md p-4 text-left">
+      className="p-4 text-left">
       <div className="flex items-start gap-2 mb-1.5">
         <BookOpen size={15} className="text-amber flex-shrink-0 mt-0.5" />
         <span className="flex-1 min-w-0">
           <span className="block text-sm font-semibold">{point.title}</span>
-          <span className="block text-2xs text-amber font-mono uppercase tracking-widest">{level}</span>
+          <Kicker tone="accent" className="block">{level}</Kicker>
         </span>
         {onClose && (
-          <button onClick={onClose} aria-label="Close rule"
-            className="grid place-items-center w-7 h-7 -m-1 text-dim hover:text-amber flex-shrink-0"><X size={15} /></button>
+          <IconButton label="Close rule" pull onClick={onClose}><X size={15} /></IconButton>
         )}
       </div>
       <p className="text-xs text-dim mb-2">{point.summary}</p>
       {/* whitespace-pre-line: several rules are multi-line conjugation tables. */}
       <p className="text-sm text-txt whitespace-pre-line leading-relaxed">{point.rule}</p>
-    </motion.div>
+    </Card>
   );
 }
 
 /** A concept label that opens its own rule. Used as the drill header, so the
- *  thing naming what you're practising is also the way to go read about it. */
+ *  thing naming what you’re practising is also the way to go read about it. */
 export function RuleToggle({ pointRef, label }: {
   pointRef: { level: CEFR; title: string } | string | null; label?: string;
 }) {
   const [open, setOpen] = useState(false);
   const found = usePoint(pointRef);
-  if (!found) return label ? <span className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">{label}</span> : null;
+  if (!found) return label ? <Kicker tone="accent">{label}</Kicker> : null;
 
   return (
     <div className="w-full">
@@ -83,8 +86,8 @@ export function RuleToggle({ pointRef, label }: {
   );
 }
 
-/** The "Why?" affordance shown beside a wrong answer's explanation. Collapsed by
- *  default: a learner who already knows why shouldn't have to scroll past it. */
+/** The "Why?" affordance shown beside a wrong answer’s explanation. Collapsed by
+ *  default: a learner who already knows why shouldn’t have to scroll past it. */
 export default function WhyLink({ pointRef }: { pointRef: { level: CEFR; title: string } | string | null }) {
   const [open, setOpen] = useState(false);
   const found = usePoint(pointRef);

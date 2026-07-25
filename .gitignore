@@ -15,3 +15,6 @@ scripts/corpus/data/
 # Source for the A1/A2 corpus rebalance — see reference/DaF Wortschatz/MANIFEST.md
 # and docs/archive/COHESION-PLAN.md Phase 3. Never committed, never redistributed.
 reference/
+
+# Transient storage write-probe.
+.writetest

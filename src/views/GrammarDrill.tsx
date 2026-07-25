@@ -1,6 +1,6 @@
 // Grammatik-Übungen — the authored exercise bank on FSRS tracks. Renders the
 // five widget kinds (choose, mc, type, order, error); wrong answers log a
-// blind-spot tag (the grammar point's title). Reached from Grammar Fundamentals.
+// blind-spot tag (the grammar point’s title). Reached from Grammar Fundamentals.
 import { createContext, useContext, useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Check, X, Loader2 } from 'lucide-react';
@@ -11,6 +11,9 @@ import { haptic, tick } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 import WhyLink, { RuleToggle } from '../components/RulePanel.tsx';
+import Surface from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 import type { CEFR } from '../types.ts';
 
 // canon: case/whitespace-insensitive. norm: additionally folds umlauts/ß, so
@@ -57,7 +60,7 @@ export default function GrammarDrill({ onExit, scope }: { onExit: () => void; sc
     const due: GItem[] = [], fresh: GItem[] = [];
     for (const it of all) { const c = cardOf(it.id); if (!c) fresh.push(it); else if (isDue(c, now)) due.push(it); }
     // Scoped: play the whole point (a handful of exercises) rather than a slice
-    // of the day's mixed queue, and replay it even when nothing is due — the
+    // of the day’s mixed queue, and replay it even when nothing is due — the
     // learner asked for this concept.
     if (scope) return all.length <= 25 ? shuffle(all) : shuffle(all).slice(0, 25);
     return [...shuffle(due), ...shuffle(fresh)].slice(0, 25);
@@ -113,8 +116,9 @@ export function GrammarExercise({ ex, onGrade, point }: {
   return <PointCtx.Provider value={point ?? null}>{body}</PointCtx.Provider>;
 }
 
+/** The exercise surface — paper, like the flip card it interleaves with. */
 function Card({ children }: { children: React.ReactNode }) {
-  return <div className="bg-card border border-line rounded-md p-6 sm:p-8">{children}</div>;
+  return <div className="paper bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
 }
 function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
   const point = useContext(PointCtx);
@@ -131,7 +135,7 @@ function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answe
   );
 }
 function NextBtn({ onClick }: { onClick: () => void }) {
-  return <div className="mt-5 flex justify-center"><button onClick={onClick} className="bg-panel2 border border-line rounded-md px-6 py-2.5 hover:border-amber font-semibold">Next →</button></div>;
+  return <div className="mt-5 flex justify-center"><Button variant="secondary" onClick={onClick}>Next →</Button></div>;
 }
 
 function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
@@ -148,7 +152,7 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
             <button key={idx} onClick={() => choose(idx)} disabled={picked !== null}
               className={`rounded-md py-3.5 px-4 border text-base text-left transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
-                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red'
+                : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
@@ -184,9 +188,10 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
   };
   return (
     <Card>
-      <p className="text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
-      <input ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
-        onKeyDown={(e) => { if (e.key === 'Enter') { result === null ? submit() : onGrade(result); } }}
+      <p lang="de" className="text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
+      <label className="sr-only" htmlFor="drill-answer">Your answer</label>
+      <input id="drill-answer" lang="de" ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter') { if (result === null) submit(); else onGrade(result); } }}
         placeholder="Type your answer…"
         className={`w-full bg-panel2 border rounded-md px-4 py-3 text-xl outline-none text-center ${
           result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
@@ -196,7 +201,7 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
         note={near ? `Right — just the spelling: ${canonical}` : undefined} />}
       {result === null
         ? <div className="mt-5 flex items-center justify-center gap-3">
-            <button onClick={submit} disabled={!val.trim()} className="bg-amber text-bg font-bold rounded-md px-6 py-2.5 disabled:opacity-40">Check</button>
+            <Button onClick={submit} disabled={!val.trim()}>Check</Button>
             {canonical && hint < 3 && (
               <button onClick={() => setHint((h) => h + 1)} className="text-dim text-xs underline underline-offset-2 hover:text-amber">
                 {hint === 0 ? 'Hint' : 'More'}
@@ -208,7 +213,7 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
   );
 }
 
-/** Tap-tile sentence builder. Exported so word-level drills (rebuild the card's
+/** Tap-tile sentence builder. Exported so word-level drills (rebuild the card’s
  *  own example sentence) can reuse it with a fabricated exercise object. */
 export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
   const target = ex.tiles ?? [];
@@ -234,7 +239,7 @@ export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: bool
       </div>
       {result !== null && <Explain text={ex.explain} ok={result} answer={target.join(' ')} />}
       {result === null
-        ? <div className="mt-5 flex justify-center"><button onClick={check} disabled={built.length !== target.length} className="bg-amber text-bg font-bold rounded-md px-6 py-2.5 disabled:opacity-40">Check</button></div>
+        ? <div className="mt-5 flex justify-center"><Button onClick={check} disabled={built.length !== target.length}>Check</Button></div>
         : <NextBtn onClick={() => onGrade(result)} />}
     </Card>
   );
@@ -272,10 +277,10 @@ function ErrorItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =>
 
 function Shell({ children, onExit, progress, score }: { children: React.ReactNode; onExit: () => void; progress?: string; score?: number | null }) {
   return (
-    <div className="max-w-[640px] mx-auto">
+    <div className="w-full max-w-[640px] mx-auto">
       <div className="flex items-center gap-2.5 mb-4">
-        <button onClick={onExit} className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber" title="Back"><ArrowLeft size={18} /></button>
-        {progress && <span className="text-xs text-dim font-mono">{progress}</span>}
+        <IconButton label="Back" pull onClick={onExit}><ArrowLeft size={18} /></IconButton>
+        {progress && <span className="text-xs text-dim font-mono ml-1.5">{progress}</span>}
         {score !== null && score !== undefined && <span className="ml-auto text-xs font-mono text-green">{score}% correct</span>}
       </div>
       {children}
@@ -283,16 +288,16 @@ function Shell({ children, onExit, progress, score }: { children: React.ReactNod
   );
 }
 function Empty({ scope }: { scope?: PointScope }) {
-  return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center">
+  return <Surface pad="none" className="px-8 py-12 text-center">
     <h2 className="text-xl font-bold mb-1">{scope ? 'No exercises yet' : 'Nothing due'}</h2>
     <p className="text-dim">{scope
       ? <>“{scope.title}” has no exercises in the bank yet — the rule above is all there is for now.</>
       : 'No grammar exercises are due for your selected levels.'}</p>
-  </div>;
+  </Surface>;
 }
 function Summary({ done, correct }: { done: number; correct: number }) {
-  return <div className="bg-panel border border-line rounded-md px-8 py-12 text-center">
+  return <Surface pad="none" className="px-8 py-12 text-center">
     <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></div>
     <h2 className="text-2xl font-bold mb-1">Drill complete</h2><p className="text-dim">{correct}/{done} correct. Misses logged to Blind Spots.</p>
-  </div>;
+  </Surface>;
 }

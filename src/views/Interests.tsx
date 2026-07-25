@@ -1,32 +1,34 @@
 // Onboarding step (after placement, before the first session): pick a few topics
 // you care about. weakestSectors() then draws fresh vocabulary from those groups
 // first. Fully optional — you can continue with none and change them in Profile.
-import { Compass, Sparkles } from 'lucide-react';
+import { Compass, ArrowRight } from 'lucide-react';
 import { interests } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
+import Card from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import Kicker from '../components/ui/Kicker.tsx';
 
 export default function Interests({ onDone }: { onDone: () => void }) {
   useStore();
   const count = interests().size;
   return (
-    <div className="max-w-[560px] mx-auto">
-      <div className="bg-panel border border-line rounded-md px-6 py-8">
-        <div className="flex items-center gap-1.5 text-amber text-2xs font-mono uppercase tracking-widest font-semibold mb-2">
-          <Compass size={14} /> Personalize
-        </div>
-        <h1 className="text-xl sm:text-2xl font-bold mb-1.5">What do you want to talk about?</h1>
+    <div className="w-full max-w-[560px] mx-auto">
+      <Card pad="none" className="px-6 py-8">
+        <Kicker tone="accent" className="flex items-center gap-1.5 mb-2">
+          <Compass size={14} /> Personalise
+        </Kicker>
+        <h1 className="text-xl sm:text-2xl font-bold mb-1.5 mt-2">What do you want to talk about?</h1>
         <p className="text-dim text-base mb-5 max-w-[48ch]">
           Pick a few topics you care about and Lexi will pull your new words from them first.
           Optional — you can change these anytime in your profile.
         </p>
         <TopicPicker />
-        <button onClick={onDone}
-          className="mt-7 flex items-center gap-2 bg-amber text-bg font-bold rounded-md px-6 py-3 hover:brightness-105">
-          <Sparkles size={16} />
+        <Button size="lg" className="mt-7" onClick={onDone}>
           {count ? `Continue with ${count} topic${count === 1 ? '' : 's'}` : 'Skip for now'}
-        </button>
-      </div>
+          <ArrowRight size={15} />
+        </Button>
+      </Card>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-// Stats — the terminal's terminal screen. Four honest panels over data the
+// Stats — the terminal’s terminal screen. Four honest panels over data the
 // store already owns: reviews/day, recall trend, the 7-day due forecast, and
 // the Known growth curve. Inline SVG bars, no chart library. The review log
 // starts accruing the day this ships; empty panels say so instead of lying.
@@ -7,6 +7,8 @@ import { BarChart3 } from 'lucide-react';
 import { reviewLog, dueForecast, knownHistory, totals } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
+import Card from '../components/ui/Card.tsx';
+import Kicker from '../components/ui/Kicker.tsx';
 
 const DAY = 86_400_000;
 const dayKey = (offset: number) => new Date(Date.now() - offset * DAY).toISOString().slice(0, 10);
@@ -29,7 +31,7 @@ export default function Stats() {
   const anyReviews = perDay.some((n) => n > 0);
 
   return (
-    <div className="max-w-[820px] mx-auto">
+    <div className="w-full max-w-[820px] mx-auto">
       <div className="flex items-center gap-2.5 mb-1">
         <BarChart3 size={20} className="text-amber" />
         <h1 className="text-xl sm:text-2xl font-bold">Stats</h1>
@@ -38,7 +40,9 @@ export default function Stats() {
         {fmt(t.known)} known · {fmt(t.learned)} learning · {fmt(t.due)} due now
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {/* Two-up from sm, but the panels get roomy on a wide desktop, so let the
+          grid stay at two and widen instead of stretching four thin. */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
         <Panel title="Reviews per day" sub="last 14 days">
           {anyReviews
             ? <Bars values={perDay} labels={days.map(dayLabel)} color="var(--color-amber)" />
@@ -70,11 +74,11 @@ export default function Stats() {
 
 function Panel({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
-    <div className="bg-panel border border-line rounded-md p-4">
+    <Card pad="none" className="p-4">
       <h2 className="text-base font-semibold">{title}</h2>
-      <p className="text-2xs text-dim font-mono uppercase tracking-widest mb-3">{sub}</p>
+      <Kicker className="block mb-3">{sub}</Kicker>
       {children}
-    </div>
+    </Card>
   );
 }
 
@@ -82,7 +86,10 @@ function Empty({ text }: { text: string }) {
   return <div className="grid place-items-center h-[120px] text-dim text-xs text-center px-4">{text}</div>;
 }
 
-/** Minimal SVG bar chart: proportional heights, hover titles, last-value label. */
+/** Minimal SVG bar chart: proportional heights, hover titles, last-value label.
+ *  Bars grow from the baseline on mount (see `.bar-grow` in index.css) — the one
+ *  chart-shaped surface in the app had no entrance at all while the recap had
+ *  five. */
 function Bars({ values, labels, color, max, muted, suffix = '' }:
   { values: number[]; labels: string[]; color: string; max?: number; muted?: boolean[]; suffix?: string }) {
   const top = max ?? Math.max(1, ...values);
@@ -91,11 +98,12 @@ function Bars({ values, labels, color, max, muted, suffix = '' }:
   const last = values[n - 1];
   return (
     <div>
-      <svg viewBox="0 0 100 44" preserveAspectRatio="none" className="w-full h-[120px] block">
+      <svg viewBox="0 0 100 44" preserveAspectRatio="none" className="w-full h-[120px] block" role="img"
+        aria-label={`${n} bars, latest ${last}${suffix}`}>
         {values.map((val, i) => {
           const h = Math.max(val > 0 ? 1.5 : 0.75, (val / top) * 40);
           return (
-            <rect key={i} x={i * bw + bw * 0.15} y={44 - h} width={bw * 0.7} height={h} rx={0.8}
+            <rect key={i} className="bar-grow" x={i * bw + bw * 0.15} y={44 - h} width={bw * 0.7} height={h} rx={0.8}
               fill={muted?.[i] ? 'var(--color-line)' : color} opacity={i === n - 1 ? 1 : 0.55}>
               <title>{`${labels[i]}: ${val}${suffix}`}</title>
             </rect>

@@ -1,6 +1,6 @@
 // One recap for every session path (flip player + gym drills). The single
 // structured prop is RecapData: every field optional except `streak`, so a
-// flip-only or drill-only session omits what it didn't produce and only the
+// flip-only or drill-only session omits what it didn’t produce and only the
 // present tiles render. Phases 3 (copy) and 5 (streak/milestone/mining) extend
 // this by populating already-declared fields — never by changing the shape.
 import { useState, type ReactNode } from 'react';
@@ -9,6 +9,8 @@ import { Bell, CalendarClock, Check, Flame, TrendingDown, Trophy } from 'lucide-
 import { dueForecast, reminderTime, setReminderTime } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import CountUp from './CountUp.tsx';
+import Card from './ui/Card.tsx';
+import Kicker from './ui/Kicker.tsx';
 
 /** The evening slot most people can actually keep. Offered, never imposed —
  *  the profile picker owns the real choice. */
@@ -40,7 +42,7 @@ export default function SessionRecap({ data, title = 'Session complete', childre
   const cols = Math.min(tiles.length, 4) || 1;
 
   return (
-    <div className="text-center bg-panel border border-line rounded-md px-8 sm:px-10 py-12 max-w-md w-full">
+    <Card pad="none" className="text-center px-8 sm:px-10 py-12 max-w-md w-full">
       <motion.div initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 420, damping: 18 }}
         className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></motion.div>
@@ -68,7 +70,7 @@ export default function SessionRecap({ data, title = 'Session complete', childre
             <motion.div key={s.label} className="px-2 py-3"
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
               transition={{ type: 'spring', stiffness: 480, damping: 30, delay: 0.1 + k * 0.06 }}>
-              <div className="text-2xs text-dim font-mono uppercase tracking-widest">{s.label}</div>
+              <Kicker className="block">{s.label}</Kicker>
               {/* Count-up: feedback density, honors reduced motion via CountUp. */}
               <div className={`font-mono font-bold text-xl mt-0.5 tabular-nums ${s.tone}`}><CountUp value={s.num} from={0} suffix={s.suffix ?? ''} /></div>
             </motion.div>
@@ -80,7 +82,7 @@ export default function SessionRecap({ data, title = 'Session complete', childre
       )}
       <Tomorrow weakest={data.weakest} />
       {children}
-    </div>
+    </Card>
   );
 }
 
@@ -112,7 +114,7 @@ function Tomorrow({ weakest }: { weakest?: string }) {
         </p>
       )}
 
-      {/* Only offered to learners who haven't set an anchor yet. */}
+      {/* Only offered to learners who haven’t set an anchor yet. */}
       {!time && !asked && (
         <button onClick={() => { setReminderTime(DEFAULT_TIME); setAsked(true); }}
           className="flex items-center gap-1.5 text-xs text-amber hover:underline">

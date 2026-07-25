@@ -24,7 +24,9 @@ export default function LevelProgress() {
   const focusUpTo = (i: number) => setLevels(new Set(ALL_LEVELS.slice(0, i + 1)));
 
   return (
-    <div className="bg-panel border border-line rounded-md p-3 sm:p-4 mb-4">
+    // Not a card: this only ever renders inside PathCard, and a panel-on-panel
+    // with the same tone and border read as a stray box around the chips.
+    <div className="mb-3">
       {/* The A1→C2 chips below are self-describing, so no header label. The
           advance nudge stays — it teaches the affordance by acting on it. */}
       {canAdvance && (
@@ -43,9 +45,9 @@ export default function LevelProgress() {
           return (
             <button key={s.level} onClick={() => focusUpTo(i)} title={`${s.known}/${s.count} known · ${s.learned} seen`}
               className={`flex-1 rounded-md px-1 py-2 border transition-colors ${active ? 'border-amber bg-panel2' : 'border-line hover:border-dim'}`}>
-              <div className={`text-xs font-bold text-center ${active ? 'text-amber' : 'text-dim'}`}>{s.level}</div>
+              <div className={`font-mono text-xs font-bold text-center ${active ? 'text-amber' : 'text-dim'}`}>{s.level}</div>
               <div className="h-1.5 rounded-full bg-bg mt-1.5 overflow-hidden">
-                <div className="h-full" style={{ width: `${Math.max(pct, 2)}%`, background: heat(kr) }} />
+                <div className="h-full transition-[width] duration-500" style={{ width: `${Math.max(pct, 2)}%`, background: heat(kr) }} />
               </div>
               <div className="text-2xs text-dim text-center mt-1 font-mono">{pct}%</div>
             </button>

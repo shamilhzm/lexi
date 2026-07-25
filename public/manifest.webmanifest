@@ -10,6 +10,22 @@
   "theme_color": "#080b11",
   "categories": ["education", "productivity"],
   "lang": "en",
+  "shortcuts": [
+    {
+      "name": "Start today's session",
+      "short_name": "Study",
+      "description": "Jump straight into the reviews due today.",
+      "url": "./#/review",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Explore the heatmap",
+      "short_name": "Explore",
+      "description": "See how much of each topic you know.",
+      "url": "./#/explore",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
   "icons": [
     { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png" },

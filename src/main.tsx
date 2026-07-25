@@ -8,18 +8,18 @@ import { applyTheme, watchSystemTheme } from './theme.ts';
 
 applyTheme();
 watchSystemTheme();
-applyTextScale(); // rem ramp: apply the learner's text-size choice before paint
+applyTextScale(); // rem ramp: apply the learner’s text-size choice before paint
 
 const root = createRoot(document.getElementById('root')!);
 
 // Ask the browser to mark our storage durable. Progress is local-first, so
-// eviction (notably Safari's 7-day ITP cleanup for non-installed sites) is
+// eviction (notably Safari’s 7-day ITP cleanup for non-installed sites) is
 // total data loss. Chrome grants silently on engagement; installed PWAs get
 // durability anyway; a refusal is harmless — the install nudge + backups are
 // the fallback.
 navigator.storage?.persist?.().catch(() => {});
 
-// Load the lexicon and hydrate the learner's progress (IndexedDB) before first
+// Load the lexicon and hydrate the learner’s progress (IndexedDB) before first
 // paint, so the app renders with real data in one shot.
 Promise.all([initData(), hydrate()])
   .then(() => root.render(<StrictMode><App /></StrictMode>))

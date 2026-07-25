@@ -1,6 +1,6 @@
 // "Your path" — where you are, and the three things to do next.
 //
-// Home used to answer "what's due today?" and nothing else. The A1→C2 strip
+// Home used to answer "what’s due today?" and nothing else. The A1→C2 strip
 // showed six percentages with no sense of a route through them, so a learner
 // could study for a week without ever being told what they were working toward
 // or what to pick up next. The engine already knew — weakestSectors ranks the
@@ -13,9 +13,11 @@ import { useEffect, useState } from 'react';
 import { BookOpen, ChevronRight, Layers, TrendingDown } from 'lucide-react';
 import { levelStats, placementLevel, levels, weakestSectors, missStats, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { heat } from '../lib/ui.ts';
+import { heatText } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import LevelProgress from './LevelProgress.tsx';
+import Card from './ui/Card.tsx';
+import Kicker from './ui/Kicker.tsx';
 import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
 
 interface NextItem {
@@ -80,9 +82,9 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
   }
 
   return (
-    <div className="bg-panel border border-line rounded-md p-3 sm:p-4 mb-4">
+    <Card pad="sm" className="mb-4">
       <div className="flex items-baseline justify-between gap-3 mb-2.5 px-1">
-        <span className="text-2xs text-amber font-mono uppercase tracking-widest font-semibold">Your path</span>
+        <Kicker tone="accent">Your path</Kicker>
         <span className="text-2xs text-dim font-mono tabular-nums">
           {level} · {Math.round(known * 100)}% of words
           {gstats && ` · ${started}/${gstats.length} grammar`}
@@ -95,31 +97,31 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
 
       {next.length > 0 && (
         <>
-          <p className="text-2xs text-dim font-mono uppercase tracking-widest px-1 mt-1 mb-1.5">Next up</p>
+          <Kicker className="block px-1 mt-1 mb-1.5">Next up</Kicker>
           <div className="space-y-1.5">
             {next.map((n) => (
-              <button key={n.label} onClick={n.onGo}
-                className="w-full flex items-center gap-3 bg-panel2 border border-line rounded-md px-3 py-2.5 text-left hover:border-amber transition-colors">
+              <Card as="button" key={n.label} tone="sunken" nested pad="none" onClick={n.onGo}
+                className="w-full flex items-center gap-3 px-3 py-2.5 text-left hover:border-amber transition-colors">
                 <n.icon size={15} className="text-amber flex-shrink-0" />
                 <span className="flex-1 min-w-0">
                   <span className="block text-sm font-semibold truncate">{n.label}</span>
                   <span className="block text-2xs text-dim truncate">{n.detail}</span>
                 </span>
                 <ChevronRight size={14} className="text-dim flex-shrink-0" />
-              </button>
+              </Card>
             ))}
           </div>
         </>
       )}
 
-      {/* A learner who has genuinely finished the level's suggestions should be
+      {/* A learner who has genuinely finished the level’s suggestions should be
           told so, not shown an empty region. */}
       {next.length === 0 && points && (
         <p className="text-2xs text-dim px-1 mt-1">
           Everything at {level} is under way — the level bar above moves as reviews land.
-          <span className="ml-1" style={{ color: heat(known) }}>{Math.round(known * 100)}% known</span>
+          <span className="ml-1 font-semibold" style={{ color: heatText(known) }}>{Math.round(known * 100)}% known</span>
         </p>
       )}
-    </div>
+    </Card>
   );
 }

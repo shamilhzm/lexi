@@ -8,6 +8,10 @@ import { GROUPS } from '../data/index.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
+import Card from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import Chip from '../components/ui/Chip.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 import type { Target } from '../types.ts';
 
 type Sort = 'attention' | 'size' | 'coverage';
@@ -32,15 +36,14 @@ export default function Decks({ initialGroup, onStudy, onMap }:
   }, [group, sort, v]);
 
   return (
-    <div className="bg-panel border border-line rounded-md">
+    <Card pad="none">
       <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
         <h2 className="text-base font-semibold">Vocabulary Decks</h2>
-        <span className="text-2xs text-amber border border-line px-1.5 py-0.5 rounded-full tracking-wider">{decks.length} SECTORS</span>
+        <Chip>{decks.length} sectors</Chip>
         {group && (
-          <button onClick={() => onStudy({ kind: 'group', name: group })}
-            className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-xs hover:brightness-105">
+          <Button size="sm" onClick={() => onStudy({ kind: 'group', name: group })}>
             <Play size={13} /> Study {group}
-          </button>
+          </Button>
         )}
         <div className="ml-auto flex items-center gap-2.5 flex-wrap">
           <LevelFilter />
@@ -57,25 +60,32 @@ export default function Decks({ initialGroup, onStudy, onMap }:
 
       {/* group filter row */}
       <div className="flex gap-1.5 px-4 py-2.5 border-b border-line overflow-x-auto">
-        <Chip on={group === null} onClick={() => setGroup(null)}>All groups</Chip>
-        {GROUPS.map((g) => <Chip key={g} on={group === g} onClick={() => setGroup(g)}>{g}</Chip>)}
+        <FilterChip on={group === null} onClick={() => setGroup(null)}>All groups</FilterChip>
+        {GROUPS.map((g) => <FilterChip key={g} on={group === g} onClick={() => setGroup(g)}>{g}</FilterChip>)}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4">
+      {/* The 640–1024px band (every tablet) used to sit at two columns with a
+          lot of dead width. md fills it, xl uses a genuinely wide desktop. */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 p-4">
         {decks.map((d) => (
-          <div key={d.name} className="group bg-panel2 border border-line rounded-md p-3.5 hover:border-amber transition-colors">
+          <Card key={d.name} tone="sunken" nested pad="none" className="group p-3.5 hover:border-amber transition-colors">
             <div className="flex items-start justify-between gap-2">
               <h3 className="text-base font-semibold leading-tight">{d.name}</h3>
-              <div className="flex gap-1.5 flex-shrink-0">
-                <button onClick={() => onMap(d.name)} title="Wortkarte" className="text-dim hover:text-amber"><Network size={15} /></button>
-                <button onClick={() => onStudy({ kind: 'sector', name: d.name })} title="Üben" className="text-dim hover:text-green"><Play size={15} /></button>
+              {/* These two had no sizing class at all — a 15px icon with no
+                  padding, the smallest touch targets in the app. */}
+              <div className="flex gap-0.5 flex-shrink-0 -mt-2 -mr-2">
+                <IconButton label={`Word map for ${d.name}`} onClick={() => onMap(d.name)}><Network size={15} /></IconButton>
+                <IconButton label={`Study ${d.name}`} onClick={() => onStudy({ kind: 'sector', name: d.name })}
+                  className="hover:text-green"><Play size={15} /></IconButton>
               </div>
             </div>
             <div className="font-mono text-2xs text-dim mt-0.5">{fmt(d.count)} cards · {d.levels.join('/')} · {d.group}</div>
-            {/* Known (heat) is the headline; coverage sits behind it as a faint "seen" underlay. */}
-            <div className="relative h-1.5 bg-panel2 rounded-sm mt-2.5 overflow-hidden">
-              <div className="absolute inset-y-0 left-0 rounded-sm bg-line" style={{ width: `${Math.max(2, d.coverage * 100)}%` }} />
-              <div className="absolute inset-y-0 left-0 rounded-sm" style={{ width: `${Math.max(2, kpct(d) * 100)}%`, background: heat(kpct(d)) }} />
+            {/* Known (heat) is the headline; coverage sits behind it as a faint "seen" underlay.
+                The track is bg-bg, not bg-panel2: the card itself is panel2, so a panel2 track
+                was invisible — a deck at 0% known showed no bar at all. */}
+            <div className="relative h-1.5 bg-bg rounded-sm mt-2.5 overflow-hidden">
+              <div className="absolute inset-y-0 left-0 rounded-sm bg-line transition-[width] duration-500" style={{ width: `${Math.max(2, d.coverage * 100)}%` }} />
+              <div className="absolute inset-y-0 left-0 rounded-sm transition-[width] duration-500" style={{ width: `${Math.max(2, kpct(d) * 100)}%`, background: heat(kpct(d)) }} />
             </div>
             <div className="flex items-center gap-2 mt-2">
               <button onClick={() => onStudy({ kind: 'sector', name: d.name })}
@@ -84,16 +94,17 @@ export default function Decks({ initialGroup, onStudy, onMap }:
               </button>
               <span className="font-mono text-2xs text-dim ml-auto">{Math.round(kpct(d) * 100)}% known</span>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
-    </div>
+    </Card>
   );
 }
 
-function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
+/** The group filter pill — interactive, unlike the read-only <Chip> badge. */
+function FilterChip({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
   return (
-    <button onClick={onClick}
+    <button onClick={onClick} aria-pressed={on}
       className={`whitespace-nowrap text-xs px-2.5 py-1 rounded-full border transition-colors ${
         on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{children}</button>
   );

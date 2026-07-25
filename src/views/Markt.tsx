@@ -1,5 +1,5 @@
 // Die Wörterbörse — the dictionary market as a drill-down treemap. Level 1 is the
-// theme GROUPS; tap a tile to zoom into that group's SECTORS (level 2), with an
+// theme GROUPS; tap a tile to zoom into that group’s SECTORS (level 2), with an
 // in-place back. Every tile: AREA = cards in it, COLOUR = % known (slate→green),
 // and the % is the primary glyph so it reads on a phone. A Markt/Liste toggle
 // swaps the treemap for a plain ranked list on the smallest screens; the CEFR
@@ -9,11 +9,14 @@ import { Play, ArrowLeft, LayoutGrid, List } from 'lucide-react';
 import { groupStats, sectorStats, groupDeltas } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { squarify, type Tile } from '../lib/treemap.ts';
-import { heat, tileInk, fmt } from '../lib/ui.ts';
+import { heat, heatText, tileInk, fmt } from '../lib/ui.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import type { Target } from '../types.ts';
 import Kpis from '../components/Kpis.tsx';
 import LevelFilter from '../components/LevelFilter.tsx';
+import Card from '../components/ui/Card.tsx';
+import Button from '../components/ui/Button.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 
 interface Cell { name: string; count: number; known: number; due: number; coverage: number; sub: string; }
 
@@ -28,7 +31,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
 
   useLayoutEffect(() => {
     const el = boxRef.current;
-    if (!el) return;                       // list mode: the treemap box isn't mounted
+    if (!el) return;                       // list mode: the treemap box isn’t mounted
     const ro = new ResizeObserver(() => setSize({ w: el.clientWidth, h: el.clientHeight }));
     ro.observe(el);
     setSize({ w: el.clientWidth, h: el.clientHeight });
@@ -50,14 +53,26 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
   const tap = (c: Cell) => { if (zoom) onStudy({ kind: 'sector', name: c.name }); else { setZoom(c.name); setHover(null); } };
   const study = (c: Cell) => (zoom ? onStudy({ kind: 'sector', name: c.name }) : onStudyGroup(c.name));
 
+  // "Study this group directly" used to be right-click only — an affordance
+  // that does not exist on a phone, described in a hint that was itself hidden
+  // on phones. Long-press is the touch equivalent; one timer is enough because
+  // only one tile can be under a finger at a time.
+  const pressTimer = useRef<number | null>(null);
+  const longFired = useRef(false);
+  const pressStart = (c: Cell) => {
+    longFired.current = false;
+    pressTimer.current = window.setTimeout(() => { longFired.current = true; study(c); }, 500);
+  };
+  const pressEnd = () => { if (pressTimer.current) { clearTimeout(pressTimer.current); pressTimer.current = null; } };
+
   return (
     <div>
       <Kpis />
-      <div className="bg-panel border border-line rounded-md">
+      <Card pad="none">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
           {zoom ? (
             <>
-              <button onClick={() => { setZoom(null); setHover(null); }} title="Back to groups" className="grid place-items-center w-8 h-8 -ml-1 text-dim hover:text-amber"><ArrowLeft size={18} /></button>
+              <IconButton label="Back to groups" pull onClick={() => { setZoom(null); setHover(null); }}><ArrowLeft size={18} /></IconButton>
               <h2 className="text-xs sm:text-base font-semibold truncate max-w-[38vw] sm:max-w-none">{zoom}</h2>
             </>
           ) : (
@@ -70,8 +85,8 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             <Toggle list={list} onChange={setList} />
             <LevelFilter />
             {zoom
-              ? <button onClick={() => onStudyGroup(zoom)} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-xs hover:brightness-105"><Play size={13} /> Study {shortName(zoom)}</button>
-              : <button onClick={onStudyAll} className="flex items-center gap-1.5 bg-amber text-bg font-bold rounded-md px-3 py-1.5 text-xs hover:brightness-105"><Play size={13} /> Study all</button>}
+              ? <Button size="sm" onClick={() => onStudyGroup(zoom)}><Play size={13} /> Study {shortName(zoom)}</Button>
+              : <Button size="sm" onClick={onStudyAll}><Play size={13} /> Study all</Button>}
           </div>
         </div>
 
@@ -79,7 +94,10 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
           <ListView cells={[...cells].sort((a, b) => (b.due - a.due) || (a.coverage - b.coverage))} zoom={!!zoom} onTap={tap} onStudy={study} />
         ) : (
           <div ref={boxRef} className="relative w-full" style={{ height: 'min(60vh, 580px)' }}>
-            <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 50% 0%, rgba(56,205,232,.06), transparent 70%)' }} />
+            {/* color-mix keeps the glow on the accent token, so it follows the
+                theme instead of re-encoding Glacier cyan as a literal. */}
+            <div className="pointer-events-none absolute inset-0"
+              style={{ background: 'radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--color-amber) 6%, transparent), transparent 70%)' }} />
             {tiles.length === 0 && (
               <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
             )}
@@ -89,10 +107,13 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               const d = !zoom ? (deltas?.get(c.name) ?? 0) : 0;
               return (
                 <button key={c.name}
-                  onClick={() => tap(c)}
+                  onClick={() => { if (longFired.current) { longFired.current = false; return; } tap(c); }}
                   onContextMenu={(e) => { e.preventDefault(); study(c); }}
+                  onPointerDown={() => pressStart(c)}
+                  onPointerUp={pressEnd}
+                  onPointerLeave={() => { pressEnd(); setHover(null); }}
+                  onPointerCancel={pressEnd}
                   onMouseMove={(e) => setHover({ c, x: e.clientX, y: e.clientY })}
-                  onMouseLeave={() => setHover(null)}
                   className="tile-in absolute overflow-hidden border border-bg transition-[filter,transform] duration-100 hover:brightness-115 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left"
                   style={{ left: t.x, top: t.y, width: t.w, height: t.h, background: heat(p), animationDelay: `${Math.min(idx * 14, 240)}ms` }}>
                   <span className="absolute inset-0 p-2 flex flex-col justify-between pointer-events-none" style={{ color: ink }}>
@@ -104,7 +125,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                         <span className="font-mono font-bold block leading-none" style={{ fontSize: big ? 26 : mid ? 18 : 13, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>{Math.round(p * 100)}%</span>
                         {big && <span className="block font-mono opacity-90 mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)} · {c.sub}</span>}
                       </span>
-                      {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0" style={{ fontSize: 10, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>▲{d}</span>}
+                      {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0" style={{ fontSize: 11, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>▲{d}</span>}
                     </span>
                   </span>
                 </button>
@@ -112,7 +133,8 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             })}
 
             {hover && (
-              <div className="fixed z-50 pointer-events-none bg-card border border-amber rounded-md px-3 py-2.5 text-xs shadow-2xl"
+              <Card tone="card" nested pad="none" accent
+                className="fixed z-50 pointer-events-none px-3 py-2.5 text-xs shadow-2xl"
                 style={{ left: Math.min(hover.x + 14, (typeof window !== 'undefined' ? window.innerWidth : 1280) - 250), top: hover.y + 14, width: 230 }}>
                 <h4 className="text-xs font-semibold mb-1.5 flex items-center gap-1.5"><Illustration sector={hover.c.name} size={15} className="text-amber flex-shrink-0" /> {hover.c.name}</h4>
                 <Row k="Cards" val={`${fmt(hover.c.count)} · ${hover.c.sub}`} />
@@ -120,19 +142,24 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                 <Row k="Coverage" val={`${Math.round(hover.c.coverage * 100)}%`} valColor={heat(hover.c.coverage)} />
                 <Row k="Due today" val={`${fmt(hover.c.due)}`} />
                 <div className="mt-1.5 text-amber">{zoom ? '▸ click = study · right-click = study' : '▸ click = open sectors · right-click = study'}</div>
-              </div>
+              </Card>
             )}
           </div>
         )}
 
         <div className="flex items-center gap-2 px-4 py-2.5 border-t border-line text-2xs text-dim flex-wrap">
           <span>0%</span>
-          <span className="h-2.5 w-40 rounded-sm" style={{ background: 'linear-gradient(90deg,#465061,#3f8f74,#16c784)' }} />
+          {/* Built from heat() itself, so the key can never drift from the scale
+              it documents (it used to be three hand-copied hex stops). */}
+          <span className="h-2.5 w-40 rounded-sm"
+            style={{ background: `linear-gradient(90deg, ${heat(0)}, ${heat(0.5)}, ${heat(1)})` }} />
           <span>100% known</span>
-          <span className="ml-auto hidden sm:inline">{zoom ? 'Tap a sector to study it · right-click to study' : 'Tap a group to drill into its sectors · right-click to study'}</span>
+          {/* Was hidden below sm — which removed the only explanation of the
+              interaction from the screens that have no right-click at all. */}
+          <span className="ml-auto">{zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · long-press to study it directly'}</span>
           {zoom && <button onClick={() => onOpenGroup(zoom)} className="text-amber hover:underline sm:ml-3">All decks →</button>}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }
@@ -140,10 +167,12 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
 function Toggle({ list, onChange }: { list: boolean; onChange: (v: boolean) => void }) {
   return (
     <div className="flex rounded-md border border-line overflow-hidden">
-      <button onClick={() => onChange(false)} title="Treemap" aria-pressed={!list}
-        className={`flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> <span className="hidden sm:inline">Markt</span></button>
-      <button onClick={() => onChange(true)} title="List" aria-pressed={list}
-        className={`flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> <span className="hidden sm:inline">Liste</span></button>
+      {/* The labels used to be hidden below sm, leaving two unlabelled icons on
+          exactly the screens where the list view matters most. */}
+      <button onClick={() => onChange(false)} aria-label="Treemap view" aria-pressed={!list}
+        className={`flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Markt</button>
+      <button onClick={() => onChange(true)} aria-label="List view" aria-pressed={list}
+        className={`flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> Liste</button>
     </div>
   );
 }
@@ -168,8 +197,8 @@ function ListView({ cells, zoom, onTap, onStudy }: { cells: Cell[]; zoom: boolea
                 <div className="absolute inset-y-0 left-0 rounded-sm" style={{ width: `${Math.max(2, p * 100)}%`, background: heat(p) }} />
               </div>
             </button>
-            <span className="font-mono font-bold text-base tabular-nums w-12 text-right" style={{ color: heat(p) }}>{Math.round(p * 100)}%</span>
-            <button onClick={() => onStudy(c)} title={zoom ? 'Study sector' : 'Study group'} className="grid place-items-center w-9 h-9 rounded-md text-dim hover:text-green flex-shrink-0"><Play size={16} /></button>
+            <span className="font-mono font-bold text-base tabular-nums w-12 text-right" style={{ color: heatText(p) }}>{Math.round(p * 100)}%</span>
+            <IconButton label={`Study ${c.name}`} onClick={() => onStudy(c)} className="hover:text-green"><Play size={16} /></IconButton>
           </div>
         );
       })}

@@ -1,4 +1,4 @@
-// Scrolling group ticker — each theme group's coverage as a %, coloured on the
+// Scrolling group ticker — each theme group’s coverage as a %, coloured on the
 // slate→green heat scale (no red down-marks), the way a market terminal streams
 // symbols. Pauses on hover. Theme-aware surface so it stays legible in light mode.
 import { useMemo } from 'react';
@@ -12,7 +12,7 @@ export default function Ticker({ onPick }: { onPick: (group: string) => void }) 
     return stats.map((s) => {
       const pctVal = Math.round(s.coverage * 100);
       const sym = s.name.replace(/[^A-Za-zÄÖÜäöü ]/g, '').split(' ')[0].toUpperCase().slice(0, 6);
-      // Neutral until you're doing well, then green. Theme tokens (not raw heat)
+      // Neutral until you’re doing well, then green. Theme tokens (not raw heat)
       // so the % stays AA-legible on the bar in both light and dark. No red.
       const cls = s.coverage >= 0.6 ? 'text-green' : '';
       return { key: s.name, name: s.name, sym, pctVal, cls };
@@ -20,8 +20,8 @@ export default function Ticker({ onPick }: { onPick: (group: string) => void }) 
   }, [stats]);
 
   // A market with nothing traded in it is noise. Until something is learned every
-  // figure here reads 0%, and it's the first thing a new learner sees — a strip
-  // of zeroes above the one card that's meant to be teaching them German.
+  // figure here reads 0%, and it’s the first thing a new learner sees — a strip
+  // of zeroes above the one card that’s meant to be teaching them German.
   if (!stats.some((s) => s.learned > 0)) return null;
 
   // The ticker is peripheral motion, not navigation: it scrolls away under the

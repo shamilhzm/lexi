@@ -3,8 +3,8 @@
 // main content area. One home screen (Today); Study launches from "Start session";
 // Explore holds the market; Fundamentals holds the grammar drills; Settings live
 // inside the Profile. Cool "Glacier" terminal aesthetic.
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Menu } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Sidebar, { LexiMark } from './components/Sidebar.tsx';
@@ -23,6 +23,7 @@ import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, 
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import { startReminderWatch } from './lib/reminder.ts';
+import { parseHash, toHash } from './route.ts';
 import type { Target } from './types.ts';
 
 export type View = 'home' | 'explore' | 'grammar' | 'stats' | 'review' | 'placement' | 'interests' | 'profile';
@@ -31,9 +32,11 @@ const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
 export default function App() {
   useStore(); // keep the sidebar profile (name / level / streak) live
-  const [view, setView] = useState<View>('home');
-  const [target, setTarget] = useState<Target>(ALL);
-  const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>('markt');
+  const reduce = useReducedMotion();
+  const boot = parseHash();
+  const [view, setView] = useState<View>(boot.view);
+  const [target, setTarget] = useState<Target>(boot.target ?? ALL);
+  const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>(boot.explore);
   const [drillInit, setDrillInit] = useState<GrammarInit>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [collapsed, setCollapsed] = useState(() => { try { return localStorage.getItem(COLLAPSE_KEY) === '1'; } catch { return false; } });
@@ -43,6 +46,33 @@ export default function App() {
   // Only does anything once a study time is set and permission granted; the
   // watch itself is three localStorage reads a minute.
   useEffect(() => startReminderWatch(), []);
+
+  // ---- URL <-> state -------------------------------------------------------
+  // `fromHash` guards the loop: a hashchange we caused ourselves must not be
+  // re-applied as if the user had pressed Back.
+  const fromHash = useRef(false);
+  useEffect(() => {
+    const onHash = () => {
+      fromHash.current = true;
+      const r = parseHash();
+      setView(r.view);
+      setExploreInit(r.explore);
+      if (r.target) setTarget(r.target);
+      setMobileOpen(false);
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  useEffect(() => {
+    const next = toHash(view, target, exploreInit);
+    if (fromHash.current) { fromHash.current = false; return; }
+    if (location.hash === next) return;
+    // Home replaces rather than pushes, so Back from Home leaves the app once
+    // instead of walking a trail of identical Home entries.
+    if (view === 'home') location.replace(next);
+    else location.hash = next;
+  }, [view, target, exploreInit]);
 
   const toggleCollapse = () => setCollapsed((c) => {
     const n = !c;
@@ -62,7 +92,7 @@ export default function App() {
     setGuided(false); setView(v); setMobileOpen(false);
   };
   /** The primary CTA — assemble and launch today's session. */
-  const startSession = () => { setGuided(false); setMobileOpen(false); study({ kind: 'custom', name: "Today's session", ids: buildBriefing().ids }); };
+  const startSession = () => { setGuided(false); setMobileOpen(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
 
   // First-run chain: hero → placement → pick topics → an auto-built 10-card session → recap.
   const startFirstRun = () => { setGuided(true); setView('placement'); };
@@ -83,6 +113,13 @@ export default function App() {
 
   return (
     <div className="flex h-[100dvh] w-full overflow-hidden">
+      {/* Without this a keyboard user re-tabs the sidebar's seven controls on
+          every single view change before reaching any content. */}
+      <a href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100]
+          focus:bg-amber focus:text-bg focus:font-bold focus:rounded-md focus:px-4 focus:py-2.5">
+        Skip to content
+      </a>
       <Sidebar
         view={view} onGo={go} onStartSession={startSession}
         collapsed={collapsed} onToggleCollapse={toggleCollapse}
@@ -103,11 +140,15 @@ export default function App() {
         {/* The live ticker is peripheral motion — hide it during a session. */}
         {view !== 'review' && <Ticker onPick={(g) => study({ kind: 'group', name: g })} />}
 
-        <main className="flex-1 overflow-y-auto bg-bg min-h-0">
+        <main id="main" tabIndex={-1} className="flex-1 overflow-y-auto bg-bg min-h-0">
           <AnimatePresence mode="wait">
+            {/* The route transition ignored prefers-reduced-motion, unlike the
+                rest of the app. A cross-fade is still motion. */}
             <motion.div key={key}
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+              transition={{ duration: reduce ? 0 : 0.18, ease: [0.32, 0.72, 0, 1] }}
               className="max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
                 {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} onBackup={() => go('profile')} onGrammar={() => go('grammar')} />}

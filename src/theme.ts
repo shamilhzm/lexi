@@ -25,8 +25,11 @@ export function applyTheme() {
   const el = document.documentElement;
   el.classList.toggle('light', t === 'light');
   el.classList.toggle('dark', t === 'dark');
+  // These must match --color-bg in index.css for each theme, the pre-paint script
+  // in index.html, and theme_color in the manifest — otherwise the mobile status
+  // bar sits at a slightly different shade than the page under it.
   document.querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', t === 'light' ? '#faf6e8' : '#0a0d12');
+    ?.setAttribute('content', t === 'light' ? '#eef3f8' : '#080b11');
 }
 
 export function setThemePref(p: ThemePref) {
