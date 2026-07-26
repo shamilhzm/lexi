@@ -225,7 +225,11 @@ function regularPartizip(inf: string, sep: string | null, inseparable: boolean):
   const root = sep ? inf.slice(sep.length) : inf;
   const stem = stemOf(root);
   const end = needsE(stem) ? 'et' : 't';
-  if (root.endsWith('ieren')) return stem + end;         // studieren -> studiert (no ge-)
+  // -ieren verbs take no ge- — but a separable prefix still attaches, and this
+  // branch used to return the bare root's participle and drop it: ausprobieren
+  // became "probiert" rather than "ausprobiert". Wrong German, and reachable from
+  // the conjugation drill, which asks for Partizip II on any reliable verb.
+  if (root.endsWith('ieren')) return (sep ?? '') + stem + end;  // studieren -> studiert, ausprobieren -> ausprobiert
   if (inseparable) return stemOf(inf) + end;             // verkaufen -> verkauft (keep prefix)
   if (sep) return sep + 'ge' + stem + end;               // aufmachen -> aufgemacht
   return 'ge' + stem + end;                              // machen -> gemacht

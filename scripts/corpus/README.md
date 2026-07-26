@@ -29,7 +29,7 @@ npm run corpus:build -- --write                       # apply to public/data/*
 npm run corpus:build -- --level=A1 --limit=300 --write # one reviewable batch
 npm run corpus:build -- --llm --write                 # enable the offline LLM layer
 npm run corpus:crosscheck  # cross-check corpus gender/plural vs the categorized wordlist
-npm run corpus:examples    # example coverage per level (--list for the thin cards)
+npm run corpus:examples    # example quality + coverage (--write emits fix batches)
 npm run corpus:casefix     # dry run: lowercase miscased headwords, merge the duplicates
 npm run corpus:casefix -- --write                     # apply + regenerate src/data/idmap.ts
 npm run corpus:validate    # Goal 6: schema/dupe/distribution/probe + gzip size

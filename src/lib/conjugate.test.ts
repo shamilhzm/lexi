@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { conjugate, canConjugate } from './conjugate.ts';
+import { conjugate, canConjugate, setKnownVerbs } from './conjugate.ts';
 
 describe('conjugate — irregular table', () => {
   it('sein', () => {
@@ -116,5 +116,33 @@ describe('canConjugate — reliability gate', () => {
 
   it('rejects a non-verb-shaped token', () => {
     expect(canConjugate('xyz')).toBe(false);
+  });
+});
+
+// A separable verb built on an -ieren root: the -ieren rule suppresses the ge-,
+// but the prefix still attaches. The branch that handled -ieren returned the bare
+// root's participle and dropped the prefix, so `ausprobieren` yielded "probiert".
+// Reachable from the conjugation drill, which asks for Partizip II on any reliable
+// verb — i.e. it was teaching a wrong form. Found by testing the whole corpus
+// rather than a handful of verbs.
+describe('separable + -ieren participles', () => {
+  it('keeps the prefix where -ieren suppresses the ge-', () => {
+    setKnownVerbs(['probieren', 'packen', 'stellen', 'ordnen']);
+    expect(conjugate('ausprobieren').partizip).toBe('ausprobiert');
+  });
+
+  it('still suppresses ge- on a plain -ieren verb', () => {
+    expect(conjugate('studieren').partizip).toBe('studiert');
+    expect(conjugate('probieren').partizip).toBe('probiert');
+  });
+
+  it('leaves the ordinary separable participle alone', () => {
+    setKnownVerbs(['machen', 'packen']);
+    expect(conjugate('aufmachen').partizip).toBe('aufgemacht');
+    expect(conjugate('einpacken').partizip).toBe('eingepackt');
+  });
+
+  it('leaves inseparable prefixes alone', () => {
+    expect(conjugate('verkaufen').partizip).toBe('verkauft');
   });
 });

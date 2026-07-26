@@ -1,0 +1,532 @@
+{
+  "_README": [
+    "40 example(s) classified \"too-long\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:übrigens",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der westliche Lotus oder Zürbelbaum wächst in der Provinz Neuyork zu einem Baum von 40–50 Fuß hoch und 2 Fuß im Durchschnitte dik. Er steht in flachliegenden Gegenden auf kleinen Hügeln, oder an den Ufern der frischen Bäche und Flüsse, doch jederzeit in einer geschützten Lage. Der Boden für ihn muß trocken und leicht, aus viel Sand mit etwas Leimen, fetter Erde oder andern Erdarten gemischt sein. Celtis occidentalis. The American Nettle-Tree. Micocoulier de Virginie. Die eine Hälfte der Blätter ist länger als die andere; sie sind übrigens eirund, scharf zugespitzt und mit Ausschluß der Spitze und des untern Theils nur an den Seiten gezahnt.",
+        "en": "The western lotus or hackberry grows in the State of New York to a tree 40–50 feet high and 2 feet in diameter thick. He stands in flat-lying areas on small mounds, or on shores of the fresh becks and rivers, but always in a protected site. The ground must be dry and light, of much sand with a bit of loam, fat earth or other types of earths mixed together. Celtis occidentalis. The American Nettle-Tree. Micocoulier de Virginie. One half of the leaves is longer than the other; apart from that they are ovate, sharply pointed and bar the point and the lower part jagged at the sides."
+      },
+      "de": "Übrigens, ich habe morgen frei.",
+      "en": "By the way, I've got tomorrow off."
+    },
+    {
+      "id": "voc:A2:außerdem",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Lohnstückkosten steigen ausserdem seit 2011 deutlich schneller als im Rest des Euro-Raums, worunter die preisliche Wettbewerbsfähigkeit deutscher Produkte leidet.",
+        "en": "In addition, unit labor costs have risen significantly faster than in the rest of the eurozone since 2011, which adversely affects the price competitiveness of German products."
+      },
+      "de": "Es ist teuer, und außerdem gefällt es mir nicht.",
+      "en": "It's expensive, and besides, I don't like it."
+    },
+    {
+      "id": "voc:A2:zudem",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "51,6% der Betriebe sind kleiner als 2 Hektaren, und ein Drittel macht einen Umsatz von weniger als 2000 € pro Jahr. Zudem sind 400 000 der 700 000 griechischen Bauern nur während eines Teils des Jahres landwirtschaftlich tätig.",
+        "en": "51.6% of the farms cover less than 2 hectares, and one third make under €2000 per year. Moreover, 400,000 of the 700,000 Greek farmers are engaged in agricultural activities only during part of the year."
+      },
+      "de": "Die Wohnung ist klein, zudem ist sie teuer.",
+      "en": "The flat is small, and expensive on top of that."
+    },
+    {
+      "id": "voc:B2:vernetzt",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Der Konnektionismus ist ein Problemlösungsansatz in der Kybernetik und beschäftigt sich mit dem Verhalten vernetzter Systeme basierend auf Zusammenschlüssen von künstlichen Informationsverarbeitungseinheiten.“",
+        "en": "„Connectionism is a problem-solving approach in cybernetics and deals with the behaviour of networked systems based on assemblies of artificial information-processing units.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:vernetzt",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Durch die Orientierung an ökologischen Wechselwirkungen kann Ökosystemforschung zu vernetzem Denken beitragen und interdisziplinäre Betrachtungsweisen fördern.“",
+        "en": "„By focusing on ecological interactions, ecosystem research can contribute to networked thinking and promote interdisciplinary perspectives.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Flüchtling",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Es leben etwa 300 000 Bürger des ehemaligen Jugoslawien in der Schweiz, kaum ein Staat hat damals im Verhältnis zu seiner Einwohnerzahl so viele Flüchtlinge aufgenommen.",
+        "en": "There are about 300,000 citizens of the former Yugoslavia living in Switzerland, hardly any state took in so many refugees in relation to its population at that time."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Gleichberechtigung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "entschlossen, in Übereinstimmung mit ihren Verpflichtungen aus der Charta der Vereinten Nationen freundschaftliche, auf der Achtung vor dem Grundsatz der Gleichberechtigung und Selbstbestimmung der Völker beruhende Beziehungen zwischen den Nationen zu entwickeln und andere geeignete Maßnahmen zur Festigung des Weltfriedens zu treffen, [...]",
+        "en": "Resolved, in accordance with their obligations under the Charter of the United Nations to develop friendly relations among nations based on respect for the principle of equal rights and self-determination of peoples, and to take other appropriate measures to strengthen universal peace; …"
+      },
+      "de": "Die Gleichberechtigung von Frauen und Männern steht im Grundgesetz.",
+      "en": "Equal rights for women and men are enshrined in the constitution."
+    },
+    {
+      "id": "voc:B2:die Überweisung",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Hamburger Staatsanwaltschaft hat gegen den Chef der […]bank […] und weitere Topmanager Ermittlungsverfahren wegen des Verdachts der Untreue eingeleitet. Hintergrund ist eine Überweisung der Bank von 45 Millionen Dollar an die amerikanische Investmentbank […], obwohl Zweifel am Anspruch der Amerikaner bestanden.",
+        "en": "The Hamburg public prosecutor's office has opened investigations against the head of the bank and other top managers on suspicion of breach of trust. The background is a transfer by the bank of 45 million dollars to the American investment bank, although there were doubts about the Americans' claim."
+      },
+      "de": "Für den Facharzt brauchst du eine Überweisung.",
+      "en": "You need a referral to see the specialist."
+    },
+    {
+      "id": "voc:B2:die Ernährung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Ernährung ist ein wichtiger Faktor für die Gestaltung der Darmmikrobiota und kann dazu genutzt werden, die abweichende Zusammensetzung des Darmmikrobioms zu verändern.",
+        "en": "Diet is an important factor shaping the gut microbiota and can be used to alter aberrant gut microbial composition."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:fremd",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Fast alle Amerikaner können ihre Wurzeln in fremde Länder zurückverfolgen, und deshalb ist Einwanderung ein Thema, das die Identität der USA auf besondere Weise berührt.",
+        "en": "Nearly all Americans can trace back their roots into foreign countries, and therefore immigration is an issue that touches the identity of the US in a special way."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Vorstellung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Was die Erfahrung des Bergsteigens zu einer Metapher des Lebens überhaupt werden lässt und sogar noch zum Sinnbild für die Suche nach dem ewigen Seelenheil, ist die Verbindung der kulturell positiv besetzten Vorstellung der Höhe mit der Abforderung einer körperlichen Leistung.“",
+        "en": "„What the experience of the... [context-dependent quotation]“"
+      },
+      "de": "Die Vorstellung beginnt um acht Uhr.",
+      "en": "The performance starts at eight."
+    },
+    {
+      "id": "voc:B2:die Handlung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Nach der Verfassung des vereinten Deutschland sind Handlungen, die geeignet sind und in der Absicht vorgenommen werden, das friedliche Zusammenleben der Völker zu stören, insbesondere die Führung eines Angriffskrieges vorzubereiten, verfassungswidrig und strafbar.",
+        "en": "According to the constitution of the united Germany, acts tending to and undertaken with the intent to disturb the peaceful relations between nations, especially to prepare for aggressive war, are unconstitutional and a punishable offence."
+      },
+      "de": "Die Handlung des Romans spielt in Berlin.",
+      "en": "The novel's plot is set in Berlin."
+    },
+    {
+      "id": "voc:B2:konkurrenzfähig",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Aus Sicht der Hafenbetreiber ist die Elbvertiefung unverzichtbar, um weiter konkurrenzfähig zu bleiben und noch größeren Containerschiffen mit einem Tiefgang von 14,5 Metern die Nutzung des Hafens zu ermöglichen.“",
+        "en": "„From the port operators' point of view, the deepening of the Elbe is indispensable in order to remain competitive.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Gentrifizierung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Mit der Gentrifizierung ist es so richtig erst nach dem Fall der Mauer losgegangen. Die Studis—Achtung Klischee—aus Schwaben sind damals in Prenzlauer Berg und Friedrichshain in ziemlich runtergekommene, aber billige Wohnungen gezogen.",
+        "en": "Gentrification really got started after the fall of the Berlin Wall. At that time college students—pardon the cliché—from Swabia moved into rather run down but inexpensive apartments in Prenzlauer Berg and Friedrichshain."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Begrünung",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Graue Klötze in Wohn- und Gewerbegebieten bestimmen das Bild unserer Umgebung. Dabei kann die Begrünung der Wände Klima, Artenvielfalt und Häuser schützen und zudem noch unser Auge erfreuen.“",
+        "en": "„Grey blocks in residential and commercial areas dominate the appearance of our surroundings. Yet the greening of walls can protect the climate, biodiversity and buildings, and delight the eye as well.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:das Ehrenamt",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[1, engerer Sinn] „Ein Ehrenamt ist in den Niederlanden mindestens so wichtig wie eine bezahlte Arbeit und ebenso ordentlich organisiert, einschließlich einer strengen Bewerbungsprozedur.“",
+        "en": "[1, narrower sense] „In the Netherlands a voluntary position is at least as important as paid work and just as properly organised, including a strict application procedure.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:das Ehrenamt",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[1, zur Unterscheidung des engeren Sinns vom weiteren] Manche Haftpflichtversicherung für Vereine deckt nur die Arbeit derjenigen Ehrenämter, die in der Satzung genannt sind.",
+        "en": "[1, distinguishing the narrower sense from the broader] Some liability insurance for associations only covers the work of those voluntary offices named in the statutes."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C2:die Legitimität",
+      "at": 0,
+      "level": "C2",
+      "siblings": 0,
+      "source": null,
+      "expect": {
+        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
+        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C2:einflussreich",
+      "at": 0,
+      "level": "C2",
+      "siblings": 0,
+      "source": null,
+      "expect": {
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C2:die Suggestion",
+      "at": 0,
+      "level": "C2",
+      "siblings": 0,
+      "source": null,
+      "expect": {
+        "de": "Die wirkliche und letzte Macht ist die Bejahung. Negative Suggestionen, Flüche, Verwünschungen etc. verfügen über keinerlei Macht, sofern sie nicht akzeptiert und damit zur eigenen Denkbewegung werden.",
+        "en": "The real and ultimate power is affirmation. Negative suggestions, curses, imprecations etc. have no power whatsoever unless they are accepted and thus become part of one's own thinking."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Gesellschaft",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„In solchen Fällen wird »Gemeinschaft« gegen »Gesellschaft« ausgespielt - Gemeinschaft als eine ursprüngliche, nicht durch Organisation und Zwecksetzungen entstehende Verbindung.“",
+        "en": "„In such cases, 'community' is played off against 'society' - community as an original bond that does not arise through organisation and set purposes.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Fachkräftemangel",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der Fachkräftemangel droht sich laut einer Studie des arbeitgebernahen IW Köln bis 2040 drastisch zu verschärfen. Der Staat müsse schon jetzt gegensteuern, verlangen die Ökonomen.",
+        "en": "The shortage of skilled workers threatens to drastically exacerbate by 2040, according to a study by IW Köln, the business-friendly German Economic Institute in Cologne. The economists insist that the government must take measures to address this now."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Klimawandel",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Kohlendioxid trägt durch seine Menge mehr als jedes andere Treibhausgas zum Klimawandel bei, doch seine Konzentration in der Luft beträgt weniger als 0,04 Prozent.",
+        "en": "Carbon dioxide contributes by its amount more than any other greenhouse gas to climate change, but its concentration in the air is less than 0.04 percent."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Ressourcenverbrauch",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Nach verschiedenen Berechnungen hat sich der Ressourcenverbrauch in den vergangenen 50 Jahren versiebenfacht, […] während sich die Weltbevölkerung ‚nur‘ verdoppelt hat.“",
+        "en": "„According to various calculations, resource consumption has increased sevenfold over the past 50 years, while the world population has 'only' doubled.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Aufführung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Sie liebte diese Aufführungen mehr als alles andere, und nichts anderes konnte sie sich vorstellen, als eines Tages selbst die Puppe zu führen und die alten Geschichten ihres Landes lebendig werden zu lassen.“",
+        "en": "„She loved these performances more than anything, and she could imagine nothing other than one day operating the puppet herself and bringing the old stories of her country to life.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:ästhetisch",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Sie inszenieren die Resultate der Forschung als ästhetisches Objekt und erwecken damit den Anschein, die Hervorbringungen der Wissenschaften seien sei so schön wie die Natur selbst.",
+        "en": "They stage the results of research as an aesthetic object and thereby give the impression that the creations of science are as beautiful as nature itself."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:beeindruckend",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Rund 10 000 Spinnenarten wurden in Australien bereits wissenschaftlich beschrieben, doch das ist wohl nur ein Teil der beeindruckenden Achtbeinervielfalt auf dem Kontinent.“",
+        "en": "„Around 10,000 species of spider have already been scientifically described in Australia, but that is probably only a fraction of the impressive diversity of eight-legged creatures on the continent.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:wirtschaftlich",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„In Kontinentaleuropa und besonders in Frankreich betrachtet man die ersten Nachkriegsjahrzehnte, die von starken staatlichen Eingriffen geprägt waren, als eine segensreiche Zeit des Wachstums und macht häufig die um 1980 eingeleitete wirtschaftliche Liberalisierung für seinen Rückgang verantwortlich.“",
+        "en": "„In continental Europe, and especially in France, the first postwar decades, marked by strong state intervention, are seen as a beneficial period of growth, and the economic liberalisation initiated around 1980 is often blamed for its decline.“"
+      },
+      "de": "Das Land steckt in einer schweren wirtschaftlichen Krise.",
+      "en": "The country is in a severe economic crisis."
+    },
+    {
+      "id": "voc:C1:der Befund",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Jetzt erweiterten die Entwickler OpenEyes um [ein Modul], mit dem Chirurgen ihre Befunde und Behandlungen inklusive Diagrammen und Bildern elektronisch erfassen können.“",
+        "en": "„The developers have now extended OpenEyes with a module that lets surgeons record their findings and treatments electronically, including diagrams and images.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:kontextuell",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die unmittelbare und die mittelbare Referenz basieren gleichermaßen auf internen kognitiven Prozessen. Sie unterscheiden sich nur darin, daß Sprecher-Hörer bei der unmittelbaren Referenz sowohl sprachlich als auch kontextuell mit der Handlungsumgebung interagiert.",
+        "en": "Immediate and mediated reference are equally based on internal cognitive processes. They differ only in that, in immediate reference, speaker-hearer interacts with the situational environment both linguistically and contextually."
+      },
+      "de": "Die Bedeutung des Wortes ist rein kontextuell.",
+      "en": "The meaning of the word is purely contextual."
+    },
+    {
+      "id": "voc:C1:kontextuell",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der Tatsache, dass Wörter in verschiedenen Kontexten verschiedene Bedeutungen, also kontextuell bestimmte Äußerungsbedeutungen haben, trägt der Einebenenansatz dadurch Rechnung, dass er die jeweiligen Interpretationsvarianten als im mentalen Lexikon abgespeicherte Repräsentationen auflistet.{{Literatur|Autor=D. A. Cruse, Franz Hundsnurscher, Michael Job|Titel=Lexikologie: ein internationales Handbuch zur Natur und Struktur von Wörtern und Wortschätzen, Band 1",
+        "en": "The fact that words have different meanings in different contexts - that is, contextually determined utterance meanings - is accounted for by the single-level approach by listing the respective interpretive variants as representations stored in the mental lexicon."
+      },
+      "de": "Kontextuelle Faktoren spielen bei der Auswertung eine große Rolle.",
+      "en": "Contextual factors play a major role in the analysis."
+    },
+    {
+      "id": "voc:C1:kognitiv",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Kognitive Lernziele beschreiben alles, was mit dem Verstand erfasst wird, sowohl Faktenwissen als auch kreative Anwendung von Wissen und das Lösen von Problemen.",
+        "en": "Cognitive learning objectives describe everything grasped by the intellect, both factual knowledge and the creative application of knowledge and problem-solving."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:befördern",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Große Schließkörbe, Koffer und Pakete wurden zur Bahn befördert, zwei Taxen fuhren vor, und, die Kolonne im ersten Taxi anführend, fuhr die Großmutter zum Bahnhof: im Sommer und im Winter je einen ganzen Monat.“",
+        "en": "„Large hampers, suitcases and parcels were taken to the train, two taxis pulled up, and, leading the convoy in the first taxi, grandmother rode to the station: a whole month each in summer and winter.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:die Minderheit",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Dazu kommen der manipulative Zuschnitt von Wahlkreisen, das sogenannte Gerrymandering, und Maßnahmen zur Wählerunterdrückung. Diese halten insbesondere Minderheiten und arme Menschen von der Wahlurne fern.“",
+        "en": "„Added to this is the manipulative drawing of constituencies, so-called gerrymandering, and measures to suppress voters. These in particular keep minorities and poor people away from the ballot box.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:einflussreich",
+      "at": 0,
+      "level": "C1",
+      "siblings": 0,
+      "source": null,
+      "expect": {
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A1:das Getränk",
+      "at": 1,
+      "level": "A1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Man gebraucht in den Mittaͤgigen Laͤndern / und vornemlich in der Gegend Ormus / viel Gewuͤrz in den Speiſen / und ſo hiꜩiges Getraͤnk / als Brandwein und dergleichen / wie auch das Getraͤnk Larkin / welches in der Inſel Java / und allen andern Mittaͤgigen Inſeln / an den aͤuſſerſten Grenzen des Orients / ſehe gebraͤuchlich ſeyn ſolle.",
+        "en": "In the southern countries, and especially in the Ormus region, people use a lot of spices in their food and drink hot beverages such as brandy and the like, as well as the drink Larkin, which is said to be common on the island of Java and all other southern islands at the outer edges of the Orient."
+      },
+      "de": "Möchtest du ein kaltes Getränk?",
+      "en": "Would you like a cold drink?"
+    },
+    {
+      "id": "voc:A2:kennen",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Beseitigung des Schlendrians werde ich wohl nicht mehr erleben, auch dann nicht, wenn Plato selber aus der Asche auferstünde und die deutschen Schulmänner die richtige Aussprache lehrte. Sie würden ihm beweisen, daß er sich irre: er habe in den mehr als zwei Jahrtausenden seit seinem Tode gewiß die richtige Aussprache vergessen; sie aber, die deutschen Oberlehrer und Direktoren, kennten sie ganz genau: sie wäre buchstäblich so wie das Neuhochdeutsche des 20. Jahrhunderts gewesen.",
+        "en": "The abolition of this sloppy [pronunciation of Ancient Greek] I will probably never witness, not even should Plato himself rise from the ashes to teach to the German pedagogues the correct pronunciation. They would show him that he was mistaken: that he must have forgotten the correct pronunciation in the more than two millennia following his death, but that they, the German head teachers and principals, knew exactly what it was like: precisely the same as the New High German of the 20th century."
+      },
+      "de": "Kennst du diese Frau?",
+      "en": "Do you know this woman?"
+    },
+    {
+      "id": "voc:B1:erinnern",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er erinnerte sich nur seines Gesichtes, wie er sich aller Gesichter erinnerte, die er jemals gesehen hatte; aber er erinnerte sich auch, daß er dieses Gesicht in seinem Gedächtnis in die gewaltig große Abteilung der Gesichter gelegt hatte, die eine gewisse Bedeutung vortäuschen, in Wahrheit aber ausdrucksleer sind.",
+        "en": "He only remembered his face as he remembered all the faces he had ever seen; but he remembered, too, that it was one of the faces laid by in his memory in the immense class of the falsely consequential and poor in expression."
+      },
+      "de": "Ich erinnere mich gut an unseren Urlaub.",
+      "en": "I remember our holiday well."
+    },
+    {
+      "id": "voc:B1:die Luftfeuchtigkeit",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Die Steuer- und Regelgeräte können nur dann über längere Zeiträume störungsfrei arbeiten, wenn sie vor Staub und anderen Verschmutzungen sowie vor überhöhter Umgebungstemperatur und Luftfeuchtigkeit geschützt werden.“",
+        "en": "„The control units can only operate reliably over long periods if they are protected from dust and other contamination as well as from excessive ambient temperature and humidity.“"
+      },
+      "de": "Im Sommer ist die Luftfeuchtigkeit hier sehr hoch.",
+      "en": "In summer the humidity here is very high."
+    },
+    {
+      "id": "voc:B1:die Überschwemmung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Noch nie dagewesene Überschwemmungen durch zwei Tage Regen, wie er sonst in zwei Monaten fällt, haben in Deutschland und Belgien mindestens 209 Menschenleben gekostet.“",
+        "en": "„Unprecedented flooding from two days of rain, as much as normally falls in two months, has cost at least 209 lives in Germany and Belgium.“"
+      },
+      "de": "Nach dem Starkregen kam es zu einer Überschwemmung.",
+      "en": "The heavy rain led to a flood."
+    }
+  ]
+}

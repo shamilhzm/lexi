@@ -32,8 +32,6 @@ const isArr = (v: unknown) => Array.isArray(v);
 
 interface Issue { id: string; msg: string; }
 
-const CASED_POS = new Set(['adjective', 'verb', 'adverb']);
-
 function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   const errors: Issue[] = [], warnings: Issue[] = [];
   for (const w of cards) {
@@ -45,6 +43,40 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     if (!isStr(w.field) || !w.field) errors.push({ id, msg: 'missing field' });
     if (!isArr(w.syn) || !isArr(w.ant) || !isArr(w.ex)) errors.push({ id, msg: 'syn/ant/ex not arrays' });
     for (const e of w.ex ?? []) if (!isStr(e?.de) || !isStr(e?.en)) errors.push({ id, msg: 'malformed example' });
+    // Example hygiene. These are the classes that actually shipped — see
+    // scripts/corpus/examples.ts for the audit and src/lib/examples.ts for the
+    // runtime guard that absorbs them until the JSON is repaired. Hard errors are
+    // the ones that render visibly wrong; the rest are warnings so --strict gates
+    // new batches without failing the whole corpus today.
+    (w.ex ?? []).forEach((e, at) => {
+      const de = isStr(e?.de) ? e.de : '', en = isStr(e?.en) ? e.en : '';
+      const where = `ex[${at}]`;
+      if (de.includes('\n') || en.includes('\n')) {
+        // "Unser täglich Brot gib uns heute\nGive us today our daily bread"
+        errors.push({ id, msg: `${where} splices German and English with a newline` });
+      }
+      if (en && de.trim().toLowerCase().endsWith(en.trim().toLowerCase()) && de.trim().length > en.trim().length) {
+        errors.push({ id, msg: `${where} German field ends with its own translation` });
+      }
+      if (/please add an English translation/i.test(de) || /please add an English translation/i.test(en)) {
+        errors.push({ id, msg: `${where} carries Wiktionary's untranslated-quotation placeholder` });
+      }
+      if (/^\s*(c\.\s*)?\d{3,4}\s*[,;]/.test(de)) {
+        // "1812, the Brothers Grimm, Kinder- und Haus-Märchen, …, page VIII"
+        errors.push({ id, msg: `${where} German field is a bibliography line` });
+      }
+      // Length is a judgement call, not corruption: a 300-char B2 sentence is poor
+      // for a flashcard but it is still correct German. Warning, so --strict gates
+      // new batches while the existing long rows are worked through.
+      if (de.length > 160) warnings.push({ id, msg: `${where} is ${de.length} chars (long for a card)` });
+      if (!en.trim() && de.trim()) warnings.push({ id, msg: `${where} has no translation` });
+      // Unicode boundary, not \b: ß is not an ASCII word char, so /\bmuß\b/ can
+      // never match. See wholeWordRe in views/Fundamentals.tsx.
+      if (/(?<![\p{L}\p{N}])(muß|müß|daß|wuß|Kuß|Weiber|itzt|beyder|seyn|thun)/iu.test(de)) {
+        warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
+      }
+      if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });
+    });
     if (w.gender != null && !['der', 'die', 'das'].includes(w.gender)) errors.push({ id, msg: `bad gender ${w.gender}` });
     if (w.kind === 'word' && w.pos === 'noun' && !w.gender) warnings.push({ id, msg: 'noun without gender' });
     if (w.kind === 'word' && w.pos === 'noun' && !w.plural) warnings.push({ id, msg: 'noun without plural' });
@@ -53,12 +85,8 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     // a thin connection between word and use, so it only warns.
     if (w.kind === 'word' && (!w.ex || !w.ex.length)) errors.push({ id, msg: 'no example' });
     else if (w.kind === 'word' && w.ex.length < 2) warnings.push({ id, msg: 'fewer than two examples' });
-    // German writes adjectives, verbs and adverbs lowercase, and the card face is
-    // where the learner reads the spelling. Multi-word headwords are exempt:
-    // "Rad fahren" opens with a noun.
-    if (CASED_POS.has(w.pos) && !w.term.includes(' ') && /^[A-ZÄÖÜ]/.test(w.term)) {
-      errors.push({ id, msg: 'capitalised adjective/verb/adverb headword' });
-    }
+    // Miscapitalised headwords are caught in dupeCheck, where the lowercase-twin
+    // set already exists to tell a duplicate from a lone miscapitalisation.
     if (w.kind === 'word' && w.pos && !ALLOWED_POS.has(w.pos)) warnings.push({ id, msg: `pos "${w.pos}" outside new-card set` });
   }
   return { errors, warnings };
@@ -80,6 +108,34 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     else byLevelLemma.set(kl, w.id);
   }
   for (const [id, n] of byId) if (n > 1) errors.push({ id, msg: `duplicate id ×${n}` });
+
+  // German capitalises nouns and nothing else, so a single-word headword that is
+  // capitalised and *isn't* a noun is a miscapitalisation — and where a lowercase
+  // twin exists it is a duplicate card too, splitting FSRS progress for one word
+  // across two ids. Found by the reading index, which resolved "Haben Sie …?" to a
+  // capitalised copy of `haben`. Multi-word phrases are exempt: "Wie bitte?" and
+  // "Rad fahren" are correctly capitalised as citation forms.
+  // Severity splits on whether the fix is mechanical. For adjectives, verbs and
+  // adverbs it is: scripts/corpus/casefix.ts cleared all 91 of them, so a new one
+  // is a regression and fails the build. The rest — pronouns, particles,
+  // determiners — need a human, because capitalisation there can be *correct*
+  // (polite "Ihr", nominalised "das Ja"), so they stay warnings until someone
+  // rules on them one by one.
+  const MECHANICAL = new Set(['adjective', 'verb', 'adverb']);
+  const lowercaseTwin = new Set(
+    cards.filter((w) => w.kind === 'word').map((w) => w.term));
+  for (const w of cards) {
+    if (w.kind !== 'word' || w.pos === 'noun' || w.pos === 'phrase') continue;
+    if (w.term.includes(' ') || !/^\p{Lu}/u.test(w.term)) continue;
+    const twin = w.term.toLowerCase();
+    const msg = lowercaseTwin.has(twin)
+      ? `capitalised duplicate of "${twin}" — German capitalises only nouns`
+      : `capitalised non-noun headword (${w.pos || 'no pos'})`;
+    (MECHANICAL.has(w.pos) ? errors : warnings).push({
+      id: w.id,
+      msg: MECHANICAL.has(w.pos) ? `${msg} — run corpus:casefix` : msg,
+    });
+  }
   return { errors, warnings };
 }
 

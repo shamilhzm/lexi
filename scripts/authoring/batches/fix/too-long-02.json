@@ -1,0 +1,532 @@
+{
+  "_README": [
+    "40 example(s) classified \"too-long\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:die Klimazone",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Atemzug für Atemzug realisierten meine Bronchien, dass sie nicht zu Hause und selbstverschuldet in eine Klimazone geraten waren, die ihrem angestammten Platz im Norden diametral entgegengesetzt war.“",
+        "en": "„Breath by breath, my bronchi realised that they had, through no fault of my own, ended up in a climate zone diametrically opposed to their ancestral place in the north.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:gelassen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "»Aus dem Brief geht allerdings hervor,« sagte der Vorsitzende mit gelassener Würde, »daß Sie mit Ihrer geschiedenen Frau seit Ihrer Scheidung in keiner Verbindung standen, daß Sie also damals von der Erbschaft nichts wußten.«",
+        "en": "The Deruga Case"
+      },
+      "de": "Sie blieb auch in der Prüfung völlig gelassen.",
+      "en": "She stayed completely calm even during the exam."
+    },
+    {
+      "id": "voc:B1:der Hund",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ein Hund bellt, wenn er mit den Sinnen etwas wahrgenommen hat; daraufhin, weil ihn sein Bellen erschreckt und aufregt, und des weiteren, weil sich das wahrgenommene Objekt um ihn kümmert, nicht um ihn kümmert oder davonläuft.",
+        "en": "A dog barks when he has perceived something with the senses; thereupon, because his barking scares and upsets him, and furthermore, because the perceived object looks after him, does not look after him, or runs away."
+      },
+      "de": "Der Hund wartet geduldig vor der Tür.",
+      "en": "The dog waits patiently outside the door."
+    },
+    {
+      "id": "voc:B1:der Affe",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Da war er auf dem Weinfest und hat sich am Stand der lokalen Winzergenossenschaft, da gab es für Mitglieder alles umsonst, einen granatenmäßigen Affen angesoffen.",
+        "en": "There he was at the wine fair and got totally plastered at the stall of the local vintner association, where everything was free for members."
+      },
+      "de": "Im Zoo haben wir die Affen lange beobachtet.",
+      "en": "At the zoo we watched the monkeys for a long time."
+    },
+    {
+      "id": "voc:B1:das Hähnchen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Wenn ich zum Markt geh, dann kauf ich dir ein Hähnchen / Und das soll dich jeden Morgen wecken / Und das Hähnchen macht kikerikiki / Jeden Morgen schon ganz früh",
+        "en": "When I go to the market I’ll buy you a little rooster / And it shall wake you up every morning / And the little rooster goes cock-a-doodle-doo / Very early every morning"
+      },
+      "de": "Zum Mittagessen gab es Hähnchen mit Reis.",
+      "en": "There was chicken with rice for lunch."
+    },
+    {
+      "id": "voc:B1:das Kind",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ein Mann kann nicht wieder zum Kinde werden oder er wird kindisch. Aber freut ihn die Naivetät des Kindes nicht, und muß er nicht selbst wieder auf einer höhren Stufe streben, seine [des Kindes] Wahrheit zu reproduzieren?",
+        "en": "An adult cannot become a child again, or he becomes childish. But does not the naïveté of the child give him pleasure, and must he not himself endeavour to reproduce the child’s veracity on a higher level?"
+      },
+      "de": "Jedes Kind hat ein Recht auf Bildung.",
+      "en": "Every child has a right to education."
+    },
+    {
+      "id": "voc:B1:erziehen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Das Gefängnis, das heute in Deutschland nicht mehr strafen sondern bessern und erziehen soll, ist damit sozusagen zum Lazarett der bürgerlichen Ordnung avanciert.",
+        "en": "The prison, which today in Germany is not supposed to punish anymore but to better and educate, has thereby advanced to the military hospital of the bourgeois order, so to speak."
+      },
+      "de": "Sie erzieht ihre Kinder sehr streng.",
+      "en": "She raises her children very strictly."
+    },
+    {
+      "id": "voc:B1:die Beziehung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "entschlossen, in Übereinstimmung mit ihren Verpflichtungen aus der Charta der Vereinten Nationen freundschaftliche, auf der Achtung vor dem Grundsatz der Gleichberechtigung und Selbstbestimmung der Völker beruhende Beziehungen zwischen den Nationen zu entwickeln und andere geeignete Maßnahmen zur Festigung des Weltfriedens zu treffen, [...]",
+        "en": "Resolved, in accordance with their obligations under the Charter of the United Nations to develop friendly relations among nations based on respect for the principle of equal rights and self-determination of peoples, and to take other appropriate measures to strengthen universal peace; …"
+      },
+      "de": "Die beiden haben eine enge Beziehung.",
+      "en": "The two of them have a close relationship."
+    },
+    {
+      "id": "voc:B1:die Depression",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er war schwermütig geworden, konnte nicht, oder nicht recht arbeiten und hatte Sorge um die Erhaltung seiner Existenz, also melancholische Depression mit Arbeitshemmung und (berechtigter) Lebenssorge.",
+        "en": "He had become melancholic, could not or not well work and had worries about the sustainment of his existence, thus a melancholic depression with work block and (justified) worries about life."
+      },
+      "de": "Er leidet seit Jahren an einer Depression.",
+      "en": "He has suffered from depression for years."
+    },
+    {
+      "id": "voc:B1:das Trauma",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Das Trauma kann psychisch auch deshalb nicht verarbeitet werden, weil die dabei erlebten Gefühle und Sinneseindrücke auf einer ‚primitiven‘ Ebene, nämlich in der Mandelkernregion (Amygdala) des Gehirns abgespeichert werden.“",
+        "en": "„The trauma cannot be psychologically processed, partly because the feelings and sensory impressions experienced are stored on a 'primitive' level, namely in the amygdala region of the brain.“"
+      },
+      "de": "Der Unfall war für ihn ein schweres Trauma.",
+      "en": "The accident was a severe trauma for him."
+    },
+    {
+      "id": "voc:B1:die Resilienz",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Hierdurch können&lsqb;sic&rsqb; die Resilienz der […] entworfenden Carbonbetonstrukturen gegenüber verschiedenen kombinierten äußeren Lasten zuverlässig bewertet werden.“",
+        "en": "„This allows the resilience of the designed carbon-concrete structures against various combined external loads to be reliably assessed.“"
+      },
+      "de": "Sport stärkt die Resilienz gegen Stress.",
+      "en": "Exercise strengthens resilience against stress."
+    },
+    {
+      "id": "voc:B1:der Schlaf",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ihm nun sandte die Lanz', um den Seinigen zürnend, Odysseus / Durch den Schlaf, und hindurch aus dem anderen Schlafe gestürmet / Kam die eherne Spitz'; und Nacht umhüllt' ihm die Augen; / Dumpf hinkracht' er im Fall, und es rasselten um ihn die Waffen.",
+        "en": "Iliad"
+      },
+      "de": "Guter Schlaf ist wichtig für die Gesundheit.",
+      "en": "Good sleep is important for your health."
+    },
+    {
+      "id": "voc:B1:die Zelle",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Eine neue Generation hochauflösender Lichtmikroskope revolutioniert die Biologie: Erstmals können die Forscher auch molekulare Strukturen in lebenden Zellen beobachten.",
+        "en": "A new generation of high-resolution optical microscopes is revolutionizing biology: for the first time researchers are able to also watch molecular structures in living cells."
+      },
+      "de": "Jede Zelle enthält einen Zellkern.",
+      "en": "Every cell contains a nucleus."
+    },
+    {
+      "id": "voc:B1:das Modell",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Während die Airlines gegen Verluste kämpfen, boomt die Abwrackbranche. Der wirtschaftliche Druck lässt die Fluglinien immer früher Modelle ausmustern, die nicht mehr effizient genug sind.",
+        "en": "While the airlines fight against losses, the demolition industry booms. The economic pressure makes airlines sort out models, which are not efficient enough anymore, earlier and earlier."
+      },
+      "de": "Dieses Modell ist besonders sparsam.",
+      "en": "This model is especially economical."
+    },
+    {
+      "id": "voc:B1:leihen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ein Verbot sollte es nach Ansicht vieler Ökonomen auch für die sogenannten Leerverkäufe geben. Banken verkaufen dabei Aktien oder Währungen, die sie noch gar nicht besitzen oder allenfalls geliehen haben.",
+        "en": "In the opinion of many economists there should also exist a prohibition for the so-called short sales. In these banks sell shares or currencies that they do not own at all yet or have borrowed at best."
+      },
+      "de": "Kannst du mir zehn Euro leihen?",
+      "en": "Can you lend me ten euros?"
+    },
+    {
+      "id": "voc:B1:die Verfassung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Darauf, dass es nicht in Biscaya eigentlich volksmässig ist, dass Dinge, die anderwärts (wie Tanz und Vergnügungen) der Privatneigung eines jeden überlassen bleiben, dort gewissermassen Theile der Verfassung werden, unter öffentlicher Aufsicht stehen, und eine feste durch das Herkommen überlieferte, ächt vaterländische, und noch dazu nach dem Geburtsort eines jeden verschiedene Form haben, beruhet offenbar grossentheils das, was man am Charakter des Biscayers, vorzugsweise vor andern Nationen, rühmt.",
+        "en": "On that, that it is not actually according to the manner of the people in Biscaya that things which elsewhere (like dance and delectations) are left to the private wont of everyone become in a certain extent parts of the constitution, are under public supervision, and have a determinate, tradited, genuinely fatherlandly form differing by birthplace of everyone, rests, it is manifest, to a great part that which one calls and praises as the character of the Biscayan, especially before other nations."
+      },
+      "de": "Die Verfassung garantiert die Meinungsfreiheit.",
+      "en": "The constitution guarantees freedom of speech."
+    },
+    {
+      "id": "voc:B1:der Nationalismus",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Eine größere politische und kulturelle Eigenständigkeit der Kurden in ihren Herkunftsländern, vor allem in der Türkei, ist nunmehr die offzielle Forderung der inzwischen stärker durch kurdischen Nationalismus geprägten PKK.",
+        "en": "Greater political and cultural autonomy for the Kurds in their countries of origin, especially in Turkey, is now the official demand of the PKK, which is now more strongly influenced by Kurdish nationalism."
+      },
+      "de": "Der Nationalismus nimmt in Europa wieder zu.",
+      "en": "Nationalism is on the rise again in Europe."
+    },
+    {
+      "id": "voc:B1:das Volk",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ebenso gibt es ein palästinensisches Volk. Aus Sicht des Selbstbestimmungsrechts reicht es aus, dass eine ausreichende Anzahl von Menschen sich zusammengehörig fühlt und historisch ein bestimmtes Gebiet für sich beansprucht. Allfällige Exkurse zur geschichtlichen Genese der Palästinenser oder gar Versuche, sie letztlich als Jordanier oder schlichtweg Araber „wie alle anderen“ darzustellen, sind dabei irrelevant.",
+        "en": "Likewise, there is a Palestinian people. From the viewpoint of the right to self-determination, it suffices that a sufficient number of persons feel themselves belonging together and claim for themselves a certain territory historically. Potential excursuses into the historical genesis of the Palestinians or even attempts, to depict them ultimately as Jordanians or simply Arabs “like all others”, are thereby irrelevant."
+      },
+      "de": "Alle Macht geht vom Volke aus.",
+      "en": "All power emanates from the people."
+    },
+    {
+      "id": "voc:B1:der Vertrag",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Seine Außengrenzen werden die Grenzen der Bundesrepublik Deutschland und der Deutschen Demokratischen Republik sein und werden am Tage des Inkrafttretens dieses Vertrags endgültig sein.",
+        "en": "Its external borders shall be the borders of the Federal Republic of Germany and the German Democratic Republic and shall be definitive from the date on which the present Treaty comes into force."
+      },
+      "de": "Wir haben den Vertrag gestern unterschrieben.",
+      "en": "We signed the contract yesterday."
+    },
+    {
+      "id": "voc:B1:die Bindung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Unter „Bindung“ versteht man das Aussprechen des sonst stummen Endkonsonanten eines Wortes und die Verbindung desselben mit dem Anfangsvokal des folgenden Wortes, derart, daß beide Wörter wie ein Wort lauten.",
+        "en": "“Liaison” [here in the strictest sense] is defined as the pronouncing of a word’s otherwise silent final consonant and the linking of this consonant to the initial vowel of the following word, such that both words sound as one word."
+      },
+      "de": "Zwischen Mutter und Kind entsteht eine enge Bindung.",
+      "en": "A close bond forms between mother and child."
+    },
+    {
+      "id": "voc:A2:das Feld",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Das Feld der Ehre war nicht sichtbar, nicht vorstellbar, war Robert nicht begreifbar. Das war kein Feld, kein Acker, war keine Fläche, war nicht Nebel und nicht Luft. Es war das absolute Nichts.",
+        "en": "Man is Good"
+      },
+      "de": "Der Bauer arbeitet auf dem Feld.",
+      "en": "The farmer is working in the field."
+    },
+    {
+      "id": "voc:B1:der Joker",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der vierte Ergänzungsspieler weist zu große taktische Defizite auf, der fünfte, Zoran, gilt als Joker, der immer dann eine gute Leistung zeige, wenn er eingewechselt wird[…]",
+        "en": "The fourth additional player shows too large tactical deficiencies, the fifth, Zoran, counts as a \"Joker\", who always gives a good performance he is substituted on […]"
+      },
+      "de": "Mit dem Joker kann man jede Karte ersetzen.",
+      "en": "The joker can replace any card."
+    },
+    {
+      "id": "voc:B1:der Helm",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Pickelhaube war ein historischer Helm, der von den Preußen und später, nach der Vereinigung Deutschlands unter Reichskanzler Otto von Bismarck im Jahre 1871, von den Deutschen benutzt wurde.",
+        "en": "The pickelhaube was a historical helmet, that was used by the Prussians and later, after the unification of Germany under chancellor Otto von Bismarck in 1871, by the Germans."
+      },
+      "de": "Beim Radfahren trage ich immer einen Helm.",
+      "en": "I always wear a helmet when cycling."
+    },
+    {
+      "id": "voc:A2:der Hund",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ein Hund bellt, wenn er mit den Sinnen etwas wahrgenommen hat; daraufhin, weil ihn sein Bellen erschreckt und aufregt, und des weiteren, weil sich das wahrgenommene Objekt um ihn kümmert, nicht um ihn kümmert oder davonläuft.",
+        "en": "A dog barks when he has perceived something with the senses; thereupon, because his barking scares and upsets him, and furthermore, because the perceived object looks after him, does not look after him, or runs away."
+      },
+      "de": "Mein Hund heißt Bello.",
+      "en": "My dog is called Bello."
+    },
+    {
+      "id": "voc:A2:das Geschäft",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Unternehmen und Manager, die bei ihren Geschäften im Ausland Menschenrechte verletzen, sollen künftig auch nach deutschem Zivil- und Wirtschaftsrecht haftbar gemacht werden.",
+        "en": "Entrepreneurs and managers that violate human rights during their foreign business activities are to be held liable according to German civil and commercial law in the future."
+      },
+      "de": "Das Geschäft öffnet um neun Uhr.",
+      "en": "The shop opens at nine."
+    },
+    {
+      "id": "voc:B1:verzichten",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "In der Tat behaupten viele Unternehmen, keine andere Wahl zu haben. Sie sagen: Wenn wir nicht bestechen, kommen wir gar nicht in den Markt, dann bekommen wir, vor allem im Ausland, keine Aufträge. Diese Behauptung ist nicht falsch, aber auch nicht ganz richtig. Viele Geschäfte mit afrikanischen und asiatischen Ländern, in denen Korruption an der Tagesordnung ist, lohnen sich gar nicht, weil die Summen, die an Schmiergeld gezahlt werden müssen, exorbitant sind. Auf diese Geschäfte könnte man verzichten. Leider tut das so gut wie kein Unternehmen.",
+        "en": "Indeed, many companies claim they have no other choice. They say: If we don't bribe, we won't get into the market at all, and then, especially abroad, we won't get any orders. This claim is not wrong, but not entirely true either. Many dealings with African and Asian countries, where corruption is the order of the day, are not worth it, because the amounts that must go into pay-offs are exorbitant. You could do without these dealings. Unfortunately, virtually no company does this."
+      },
+      "de": "Ich verzichte abends auf Kaffee.",
+      "en": "I go without coffee in the evening."
+    },
+    {
+      "id": "voc:B1:außerdem",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Lohnstückkosten steigen ausserdem seit 2011 deutlich schneller als im Rest des Euro-Raums, worunter die preisliche Wettbewerbsfähigkeit deutscher Produkte leidet.",
+        "en": "In addition, unit labor costs have risen significantly faster than in the rest of the eurozone since 2011, which adversely affects the price competitiveness of German products."
+      },
+      "de": "Der Kurs ist teuer. Außerdem habe ich keine Zeit.",
+      "en": "The course is expensive. Besides, I don't have time."
+    },
+    {
+      "id": "voc:B2:die Maßnahme",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "entschlossen, in Übereinstimmung mit ihren Verpflichtungen aus der Charta der Vereinten Nationen freundschaftliche, auf der Achtung vor dem Grundsatz der Gleichberechtigung und Selbstbestimmung der Völker beruhende Beziehungen zwischen den Nationen zu entwickeln und andere geeignete Maßnahmen zur Festigung des Weltfriedens zu treffen, [...]",
+        "en": "Resolved, in accordance with their obligations under the Charter of the United Nations to develop friendly relations among nations based on respect for the principle of equal rights and self-determination of peoples, and to take other appropriate measures to strengthen universal peace; …"
+      },
+      "de": "Die Regierung hat neue Maßnahmen beschlossen.",
+      "en": "The government has adopted new measures."
+    },
+    {
+      "id": "voc:B2:die Minderheit",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Dazu kommen der manipulative Zuschnitt von Wahlkreisen, das sogenannte Gerrymandering, und Maßnahmen zur Wählerunterdrückung. Diese halten insbesondere Minderheiten und arme Menschen von der Wahlurne fern.“",
+        "en": "„Added to this is the manipulative drawing of constituencies, so-called gerrymandering, and measures to suppress voters. These in particular keep minorities and poor people away from the ballot box.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Vertrag",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Seine Außengrenzen werden die Grenzen der Bundesrepublik Deutschland und der Deutschen Demokratischen Republik sein und werden am Tage des Inkrafttretens dieses Vertrags endgültig sein.",
+        "en": "Its external borders shall be the borders of the Federal Republic of Germany and the German Democratic Republic and shall be definitive from the date on which the present Treaty comes into force."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:umsetzen",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Schlimmer noch als diese Unterlassungs- sind die Begehungssünden vorwitziger Fälscher, die da, wo ihnen das Verständnis ausgeht, sich auf’s Geratewohl einen Sinn zurechtlegen und ein eigenes Gemächt in den Text einschmuggeln, oder mindestens Alterthümliches und Schweres in Neueres und Leichteres umsetzen.",
+        "en": "Worse yet than these omission sins are the commission sins of impertinent shammers who, there where their understanding is depleteted, arrange on the offchance some sense and smuggle an own fabrication into the text, or at the least convert the archaic and difficult into something newer and easier."
+      },
+      "de": "Wir wollen den Plan bis Ende des Jahres umsetzen.",
+      "en": "We want to implement the plan by the end of the year."
+    },
+    {
+      "id": "voc:B2:endgültig",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Seine Außengrenzen werden die Grenzen der Bundesrepublik Deutschland und der Deutschen Demokratischen Republik sein und werden am Tage des Inkrafttretens dieses Vertrags endgültig sein.",
+        "en": "Its external borders shall be the borders of the Federal Republic of Germany and the German Democratic Republic and shall be definitive from the date on which the present Treaty comes into force."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:aufwendig",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "In einem aufwendigen Verfahren haben Fachleute zahlreiche Statistiken und Studien zusammengeführt, um ein umfassendes Bild des lebenslangen Lernens in den europäischen Ländern zu zeichnen.",
+        "en": "In a laborious procedure, experts have combined numerous statistics and studies to draw a comprehensive picture of lifelong learning in the European countries."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:einflussreich",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:die Legitimität",
+      "at": 0,
+      "level": "C1",
+      "siblings": 0,
+      "source": null,
+      "expect": {
+        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
+        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C2:die Resilienz",
+      "at": 1,
+      "level": "C2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Hierdurch können&lsqb;sic&rsqb; die Resilienz der […] entworfenden Carbonbetonstrukturen gegenüber verschiedenen kombinierten äußeren Lasten zuverlässig bewertet werden.“",
+        "en": "„This allows the resilience of the designed carbon-concrete structures against various combined external loads to be reliably assessed.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Bundesregierung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:11750241",
+      "expect": {
+        "de": "Am 5. Dezember 2013 unterzeichnete Präsident Obama ein präsidiales Memorandum, welches die Bundesregierung anwies, bis zum Jahre 2020 mindestens 20 % des eigenen Stroms aus erneuerbaren Quellen zu beziehen.",
+        "en": "On December 5 2013, President Obama signed a Presidential Memorandum directing the federal government to buy at least 20% of its electricity from renewable sources by 2020."
+      },
+      "de": "Die Bundesregierung hat den Haushalt vorgestellt.",
+      "en": "The federal government presented the budget."
+    },
+    {
+      "id": "voc:B1:die Plattform",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:705928",
+      "expect": {
+        "de": "Wir wollen Sprachwerkzeuge auf ein neues Niveau bringen. Wir wollen Neuerungen in der Landschaft des Sprachenlernens sehen. Und das kann nicht ohne offene Sprachquellen stattfinden, die nicht ohne eine Gemeinschaft aufgebaut werden können, die ohne gute Plattformen nichts beitragen kann.",
+        "en": "We want to bring language tools to the next level. We want to see innovation in the language learning landscape. And this cannot happen without open language resources which cannot be built without a community which cannot contribute without efficient platforms."
+      },
+      "de": "Die Plattform verbindet Käufer und Verkäufer.",
+      "en": "The platform connects buyers and sellers."
+    },
+    {
+      "id": "voc:B2:der Anbieter",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:8099854",
+      "expect": {
+        "de": "Maria wollte ihren Geburtstagsgutschein, den ihr die Telefongesellschaft hatte zukommen lassen, einlösen, aber der Artikel war nicht mehr vorrätig, so dass sie ohne Geschenk traurig wieder abziehen musste. Unendlich enttäuscht, wechselte sie den Anbieter.",
+        "en": "Mary wanted to use the gift token the telephone company had given her, but the item she wanted was out of stock; she had to leave, heavy-hearted and empty-handed. Disappointed beyond measure, she changed her provider."
+      },
+      "de": "Ich habe zu einem günstigeren Anbieter gewechselt.",
+      "en": "I switched to a cheaper provider."
+    },
+    {
+      "id": "voc:B2:die Sanierung",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2768365",
+      "expect": {
+        "de": "Wenn diese Organisation so belassen wird, wie sie ist, wird sie bald bankrott sein. Ihre Sanierung ist genauso schwierig, wie wenn man die Pferde wechseln wollte, während man dabei ist, einen Fluss zu durchqueren.",
+        "en": "If this organization is left as it is, it will soon go bankrupt; its recovery is as difficult as swapping horses while crossing a stream."
+      },
+      "de": "",
+      "en": ""
+    }
+  ]
+}

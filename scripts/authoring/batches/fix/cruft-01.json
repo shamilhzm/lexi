@@ -1,0 +1,278 @@
+{
+  "_README": [
+    "19 example(s) classified \"cruft\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:überhaupt",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1812, the Brothers Grimm, Kinder- und Haus-Märchen, Berlin, die Realschulbuchhandlung, page VIII",
+        "en": "One will easily notice besides, that it has only held on, where overall there has been an active receptiveness for poetry or a phantasy still not extinguished by the vicissitudes of life."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:anfangs",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1912, Franz Kafka, Das Urteil, in: Arkadia. Ein Jahrbuch für Dichtkunst, Kurt Wolff Verlag (1913), page 53",
+        "en": "Now he ran a business in Petersburg, which had promised very well initially but seemed to have been stangnating already for a long time, as the friend complained during his visits, which became more and more rare."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:das Zimmer",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 19",
+        "en": "The grandchildren had furnished their own rooms according to their personal taste."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:hell",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 9",
+        "en": "Just as dark and eerie the crypt looked like, if one looked in it through the cloudy, dusted little panes of the small windows, as bright and friendly was the church above."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:die Nudeln",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "In diesem Zustande nudelt man sie täglich drenmal^([sic]) mit Gerstenschrote, und setzet ihnen ein beständiges mit Wasser und Sand angefülltes Gefäß zur Seite.",
+        "en": "In this state they are force-fed with barley meal three times a day and a permanent container filled with water and sand is placed next to them."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:sauer",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[...] diese Butter ist einfach ein Product der gewöhnlichen Kuhmilch, unterscheidet sich aber hauptsächlich von der gewöhnlich producirten saueren Butter durch größere Haltbarkeit und feineren Geschmack.",
+        "en": "(please add an English translation of this quotation)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:die Haut",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1924, Thomas Mann, Der Zauberberg (Berlin: S. Fischer, 1929), p. 346",
+        "en": "About the skin? You're interested in physiology?"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:der Mann",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1925, Milwaukee America Kalender, volume 45, Geo. Brumder, Milwaukee, page 20",
+        "en": "Man and woman get married, so both possess certain property, even when this is only clothes."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:das Pflaster",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 34–35",
+        "en": "Through the still empty dark streets echoed the hoofbeat of approaching horses on the wet pavement, long before something could be seen of them."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:das Zimmer",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 19",
+        "en": "The grandchildren had furnished their own rooms according to their personal taste."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:einrichten",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 19",
+        "en": "The grandchildren had furnished their own rooms according to their personal taste."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:der Kommunismus",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1932, Erich Mühsam, Die Befreiung der Gesellschaft vom Staat, in: Erich Mühsam: Prosaschriften II, Verlag europäische ideen Berlin (1978), page 255",
+        "en": "We understand by communism the relationship of society that is based on public ownership, that allows everyone to work according to his capabilities, everyone to consume according to his needs."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:der Staat",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1932, Erich Mühsam, Die Befreiung der Gesellschaft vom Staat, in: Erich Mühsam: Prosaschriften II, Verlag europäische ideen Berlin (1978), page 253",
+        "en": "Again and again we hear the question from people who are not familiar with the world of ideas of anarchism: What do you actually want? How do you imagine a society without state and authorities?"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:Jauchzen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Des Teutschen Volkes feuriger Dank- und Ehrentempel oder Beschreibung wie das aus zwanzigjähriger französischer Sklaverei durch Fürsten-Eintracht und Volkskraft gerettete Teutsche Volk die Tage der entscheidenden Völker- und Rettungsschlacht bei Leipzig am 18. und 19. Oktober 1814 zum erstenmale gefeiert hat, Offenbach, p. 355",
+        "en": "(please add an English translation of this quotation)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:zusammen",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1903, Fanny zu Reventlow, Ellen Olestjerne, in Franziska Gräfin zu Reventlow: Gesammelte Werke, Albert Langen, page 526",
+        "en": "Despite all these bitter feelings, it was yet a wonderfully beautiful summer, which the three friends spent together."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:der Grund",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1932, Erich Mühsam, Die Befreiung der Gesellschaft vom Staat, in: Erich Mühsam: Prosaschriften II, Verlag europäische ideen Berlin (1978), page 276",
+        "en": "Only the farmer still has this intimate contact with the land, which makes the land a piece of him, as he feels himself as an integral part of the ground that is ploughed by him."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:die Veränderung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1910, Paweł Ciompa, Grundriss einer Oekonometrie und die auf der Nationaloekonomie aufgebaute natürliche Theorie der Buchhaltung, Lviv, [which page(s)?]",
+        "en": "(please add an English translation of this quotation)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:persönlich",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 19",
+        "en": "The grandchildren had furnished their own rooms according to their personal taste."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:je nachdem",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1918, Elisabeth von Heyking, Die Orgelpfeifen, in: Zwei Erzählungen, Phillipp Reclam jun. Verlag, page 14",
+        "en": "But it was really a region that one could learn a lot about, and it contained world-famous places, at the mention of which one could become proud or sad, as the case may be."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    }
+  ]
+}

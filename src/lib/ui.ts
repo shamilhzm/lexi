@@ -51,6 +51,20 @@ export function speakDe(text: string) {
 
 export const fmt = (n: number) => n.toLocaleString('de-DE');
 
+/** Grammatical gender as ink.
+ *
+ *  Colour-coding der/die/das is the single most useful thing on a German card —
+ *  and it only existed on the flip *front*, as a local map in Review.tsx. Turning
+ *  the card over lost it, and so did every other surface. One helper, so any
+ *  surface showing an article can use the same three colours. Never the only
+ *  signal: the article itself is always spelled out beside it. */
+export function genderColor(gender: string | null | undefined): string | undefined {
+  if (gender === 'der') return 'var(--color-der)';
+  if (gender === 'die') return 'var(--color-die)';
+  if (gender === 'das') return 'var(--color-das)';
+  return undefined;
+}
+
 /** A tiny vibration on grade commit. No-op on iOS Safari (navigator.vibrate is
  *  unsupported there); a real win on Android/Chrome and installed PWAs.
  *  `kind` shapes the pattern: a miss should feel different from a hit without

@@ -342,31 +342,120 @@ nobody re-implements them:
   splits them into reviewable batches) and a `.tsv` patch format in
   `apply-authored.ts` (`term ⇥ de ⇥ en ⇥ syn|syn`), which reads better in review
   than nested JSON. Batches kept as `scripts/authoring/batches/c{1,2}-ex-*.tsv`.
-- **`corpus:examples` audit** (the measurement half of *Example coverage
-  backfill*). Per-level table of `ex=0` / `ex=1` / mean / thin %, `--list` for the
-  authoring queue, non-zero exit at any zero-example card. `corpus:validate` now
-  **fails** at zero examples and **warns** under two — the standard can't quietly
-  slip again. *Not built:* the build-time source merging that item also proposed
-  (Tatoeba cap raise → Wiktextract usage examples → conjugation-derived
-  sentences). It was aimed at the same outcome, which authoring reached directly;
-  reach for it only if a future batch is too large to author.
-- **Capitalisation defect found and fixed** (not previously on this list). A legacy
+- **`corpus:examples`** (the *Example coverage backfill* item, closed from both
+  ends). Two branches wrote this script independently and the merge kept the
+  better one: the **quality** audit from the app-improvements branch (defect
+  classes measured against the app's own sanitizer, `--write` emitting
+  expect-guarded fix batches) now also carries the **coverage** report. Coverage is
+  at zero under-two on every level; quality is down to 52 too-long and 2 elided.
+  `corpus:validate` **fails** at zero examples and **warns** under two, so the
+  standard can't quietly slip again. *Not built:* the build-time source merging
+  that item also proposed (Tatoeba cap raise → Wiktextract usage examples →
+  conjugation-derived sentences); it aimed at the same outcome, which authoring
+  reached directly. Reach for it only if a future batch is too large to author.
+- **Capitalisation defect: found on one branch, fixed on the other.** A legacy
   import batch had entered **91 adjectives/verbs/adverbs with capitalised
   headwords** ("Rot", "Wütend", "Packen") under its own sector names ("Colors" vs
   "Colours") — and **62 of them duplicated a correct lowercase card**, so the
   learner was shown *Rot* and *rot* as two cards to schedule separately. German
   writes these lowercase and the card face is where the spelling is read, so this
-  taught the error. `corpus:casefix` deletes the duplicates, lowercases the 29
-  unique ones, and keeps the **earlier** CEFR claim where a pair disagreed (5
-  cards, e.g. *nah* back to A1). Corpus **7,464 → 7,402** cards; sector counts
-  rebuilt in place; `corpus:validate` **PASS** (was 1 hard error). Multi-word
-  headwords are exempt — "Rad fahren" opens with a noun — and validate now errors
-  on a capitalised single-word adj/verb/adverb so the batch can't return.
+  taught the error. The reading index surfaced it (it resolved "Haben Sie …?" to
+  `voc:A2:Haben` and offered it as a new word) and the app-improvements branch
+  **flagged rather than deleted** it, correctly: "removing a card changes its FSRS
+  id … that is a migration and a decision for the maintainer". This branch built
+  that migration, so `corpus:casefix` could finish the job — delete the
+  duplicates, lowercase the 29 unique ones, and keep the **earlier** CEFR claim
+  where a pair disagreed (5 cards, e.g. *nah* back to A1). Corpus **7,464 →
+  7,402**; sector counts rebuilt in place; `corpus:validate` **PASS** (was 1 hard
+  error). Multi-word headwords are exempt — "Rad fahren" opens with a noun.
+  Validate's severity now splits on whether the fix is mechanical: adj/verb/adverb
+  is a hard **error** (casefix clears it), while pronouns/particles/determiners
+  stay **warnings** — see *Capitalised function words* under Next.
 - **Card ids survive corpus corrections.** Renaming or merging a card id used to
   reset that card's FSRS schedule to *new*, silently. `casefix` emits
   `src/data/idmap.ts`; `hydrate()` folds stored schedules onto the new ids (the
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
+
+### Shipped 2026-07-26 — the persona pass (merged from `lexi-app-improvements`)
+
+Sixteen commits working the A1/A2/B1 persona findings. None of it was recorded
+here at the time; written up on merge.
+
+- **Lesen — input, not only retrieval.** The app was entirely retrieval; nothing
+  ever handed the learner a sentence to simply *read*. No new content: the corpus
+  already ships 16,201 examples and `statusOf` knows which words have been met —
+  what was missing was the join. Targets **i+1** deliberately (every word familiar
+  but one: zero is a victory lap, four is a word list in disguise). Needs the
+  opposite lookup from the rest of the app, so it builds a surface index from
+  forms derivable with certainty — headwords, stored plurals, full verb paradigms;
+  adjective declension deliberately absent, since a guessed form would attach the
+  wrong card. 14,592 forms, 17 ms to build.
+- **Teach the concept the first time it is tested, not the fifth.** Lexi tested
+  and never taught: a beginner could be asked `der Vater → die ___` before
+  anything said what a plural is. The teaching text was always in `grammar.json`
+  behind a link nobody taps — because a learner who doesn't know the word has no
+  reason to think it will help. Now the first time a drill mode appears for
+  someone who has never *graded* one, the rule opens itself and the card says
+  plainly that this one doesn't count. One introduction per mode per session.
+- **Production drills completed.** Separable verbs (224 verbs — the system English
+  has no equivalent of, drilling the part that confuses: the prefix *moves*) and
+  reflexives (92 verbs — drilling omission, since English has no pronoun there to
+  leave out). The corpus-wide test found a real engine bug: `regularPartizip`
+  returned the *root's* participle for `-ieren` verbs and dropped the separable
+  prefix, so *ausprobieren* yielded "probiert" — wrong German the conjugation
+  drill had been teaching. It only surfaced when the test ran over every eligible
+  verb in the shipped corpus, not the hand-picked ones.
+- **Diktat — the first writing anywhere in Lexi.** Hear a sentence, type it: the
+  form of written production whose target is known to the character, so it can be
+  graded honestly. 6,748 sentences qualify, gated on what someone can spell from
+  hearing once. Umlaut-tolerant like every typed answer.
+- **Exam conditions (B1).** Lexi can't author a Goethe or telc paper, and inventing
+  one would be worse than none — but it *can* remove the scaffolding, which is what
+  an exam actually takes away: no hint ladder, no rule a tap away, no "why?" after
+  a miss. Scored against the 60% both boards use, quoted as theirs. Not offered in
+  week one or under 40 known words; a sitting is not resumable.
+- **Session resume, properly.** Same-day resume was recorded as "emergent" — true
+  of the cards, false of the session: the builder makes five randomised decisions,
+  so a rebuild is a *different* queue. The queue is now stored and rehydrated
+  (identities only, Words looked up again, refused across scopes/days or when any
+  word no longer resolves).
+- **Honesty fixes.** Interval previews state the precision they have ("~3 weeks"
+  after one review, exact once the card has earned it) rather than claiming false
+  precision; CEFR descriptors replace a coverage number as the answer to "am I B1
+  yet", with a test pinning the copy so it never drifts into claiming competence
+  from a word count; Settings admits the HD voice needs the network.
+- **Per-learner control.** Three paces (gentle/steady/intense) over the daily caps,
+  which were good defaults and also a ceiling; a weekly tense focus weighted 0.6 —
+  a lean, not a filter, or the tenses you weren't thinking about quietly rot; the
+  person index draws from the three singular persons until a card is consolidated,
+  so it stops opening with "ihr werdet müssen".
+- **The learner's own material.** Paste a class list (matched through the reader's
+  surface index, unmatched words *named* rather than quietly dropped); export a
+  word list as TSV for the tools Lexi is not; class packs — export a deck, import
+  it elsewhere, carrying whole cards rather than ids, no progress, every field
+  validated at the boundary because it is untrusted input from someone else's
+  device.
+- **Week one is quiet.** The guided chain used to end by dropping the learner onto
+  eight sections that mean nothing without history. For the first week (by distinct
+  visits, not streak) Today shows the session and their own list, nothing else.
+- **False friends** (35 entries naming the trap on the reveal, with the German for
+  the word they had in mind — a warning without a replacement leaves a hole);
+  **gender ink everywhere** via one `GenderTerm` (the article always spelled out,
+  so nothing rides on hue alone); **grammar terms glossed** in plain English for the
+  sixteen a beginner meets cold; **near-miss grading names the substitution**
+  ("oe → ö"), because an error forgiven silently is how it becomes permanent;
+  **blind spots by word** rather than only by system ("verb conjugation 15×" is
+  true and unactionable; the fix is to drill *nehmen*); **card sources** — the
+  609 KB `provenance.json` that had shipped since the pipeline was built and the
+  app had never loaded, now lazily fetched behind a disclosure, honest that it
+  covers only 1,986 of 7,402 cards.
+- **Example-quality audit + runtime guard.** `voc:A1:täglich` shipped with German
+  and English spliced by a newline. `src/lib/examples.ts` sanitises at load (the
+  net), `corpus:examples` measures the classes that actually exist against that
+  same sanitizer (so the two can't drift), and `fix-authored.ts` applies
+  expect-guarded repair batches. 31 corrupt rows repaired, 45 translations and 78
+  replacements authored.
 
 ---
 
@@ -464,7 +553,7 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
 
 _C1/C2 example + synonym pass shipped 2026-07-26 — every level now carries ≥2
 examples per card. The remaining example work is **quality, not coverage**: see
-"Example first-impressions sweep" below._
+"Example first impressions" below._
 
 - **Friend-readiness leftovers** (S each — from the sharing analysis +
   [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
@@ -477,20 +566,29 @@ examples per card. The remaining example work is **quality, not coverage**: see
   offer HD voice in context at first pronunciation tap instead of hiding it in
   Settings; same-day session resume (persist queue ids + position). And S3: a
   one-time backup nudge after the first week.
-- **Example first-impressions sweep** (M, human-gated — successor to *Example
-  coverage backfill*, whose coverage half shipped 2026-07-26). *Why:* coverage is
-  solved (≥2 everywhere), but the *first* example is the one the card face shows,
-  and a scan of the shipped set finds **361 cards whose first example reads like a
-  scrape rather than a teaching sentence**: 243 with no sentence-final punctuation
-  ("geltende Vorschriften."), 163 over 140 characters (a full news paragraph on
-  *einflussreich*), 86 opening mid-quotation, and 3 in 19th-century orthography
-  (*augenſcheinlich*). These are mostly A1–B2 — exactly where a learner is least
-  able to absorb a citation. *Do:* extend `corpus:examples` with a
-  first-impression lint on those four signals; where a card's *second* example is
-  the better teaching sentence, reorder rather than rewrite (free, no authoring);
-  author replacements only for what reordering can't fix; add the lint to
-  `validate --strict`. *Done-when:* 0 cards whose first example trips the lint;
-  spot-check confirms the reordering didn't bury a better sentence.
+- **Example first impressions — order, don't author** (S). *Why:* the flip face
+  shows `ex[0]`, so the *first* example is the card. Between the quality repairs
+  and the second-example pass this is now down to **76 cards** whose first example
+  reads like a scrape: 50 without sentence-final punctuation ("geltende
+  Vorschriften."), 45 opening mid-quotation, 32 over 140 characters. *Do:* **53 of
+  the 76 need no authoring at all** — a later example on the same card is already
+  clean, so promote it and the defect disappears for free. Add the lint to
+  `corpus:examples` (it owns the defect classes already), do the reorder as a
+  scripted pass, then author replacements for the ~23 residue. *Done-when:* no
+  card's `ex[0]` trips the lint; a spot-check confirms the reorder didn't bury a
+  better sentence. *Touches:* `scripts/corpus/examples.ts`, `public/data/vocab.json`.
+- **Capitalised function words** (S, human-gated — the residue of the casefix
+  pass). *Why:* `corpus:casefix` handled the mechanical set (adjectives, verbs,
+  adverbs). **64 cards remain** where capitalisation needs a ruling, not a script:
+  31 with no `pos` at all, 19 pronouns (*Es*, *Mein*, *Dein*), 6 prepositions,
+  plus particles (*Ja*, *Nein*). Some are simply wrong; some may be *right* —
+  polite *Ihr*, nominalised *das Ja* — and a blanket lowercase would introduce
+  errors while removing them. *Do:* rule on them in one sitting from the
+  `corpus:validate` warning list, extend `casefix`'s pos set with whatever the
+  ruling makes mechanical, and lowercase the rest by hand through the same
+  id-map path so schedules survive. *Done-when:* 0 capitalisation warnings; each
+  card kept capitalised carries a one-line reason. *Touches:*
+  `scripts/corpus/casefix.ts`, `public/data/vocab.json`, `src/data/idmap.ts`.
   *Touches:* `scripts/corpus/{examples,validate}.ts`, `public/data/vocab.json`.
 
 _README refresh + store/session tests (incl. the `buildMixedSession` and streak

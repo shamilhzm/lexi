@@ -45,6 +45,21 @@ export default function BlindSpotList({ onDrill, days = 30 }:
             <div className="h-2 rounded-full bg-panel2 overflow-hidden">
               <div className="h-full bg-red" style={{ width: `${Math.max(8, (s.count / max) * 100)}%` }} />
             </div>
+            {/* "Verb conjugation 15×" is true and unactionable. The words it
+                actually happened on are what you'd go and drill — and the log
+                knew them all along. Only worth showing when one stands out. */}
+            {s.terms.length > 0 && s.terms[0].count > 1 && (
+              <p className="text-2xs text-dim mt-1 truncate">
+                most often{' '}
+                {s.terms.slice(0, 3).map((t, k) => (
+                  <span key={t.term}>
+                    {k > 0 && ', '}
+                    <span lang="de" className="text-txt">{t.term}</span>
+                    <span className="font-mono"> {t.count}×</span>
+                  </span>
+                ))}
+              </p>
+            )}
           </button>
         ))}
       </div>

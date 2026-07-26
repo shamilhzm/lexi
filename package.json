@@ -26,6 +26,7 @@
     "corpus:enrich": "node scripts/corpus/enrich-fields.ts",
     "authoring:input": "node scripts/authoring/make-input.ts",
     "authoring:apply": "node scripts/authoring/apply-authored.ts",
+    "authoring:fix": "node scripts/authoring/fix-authored.ts",
     "lint": "eslint src"
   },
   "devDependencies": {

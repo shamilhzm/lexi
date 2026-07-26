@@ -2,9 +2,10 @@
 // theme group (or browse all), sort by urgency / size / progress, and study a
 // single sector or a whole group.
 import { useMemo, useState, type ReactNode } from 'react';
-import { Network, Play, Check } from 'lucide-react';
-import { sectorStats, completions } from '../store.ts';
-import { GROUPS } from '../data/index.ts';
+import { Network, Play, Check, Share2 } from 'lucide-react';
+import { sectorStats, completions, profileName } from '../store.ts';
+import { GROUPS, WORDS_BY_SECTOR } from '../data/index.ts';
+import { buildPack, packFilename } from '../lib/classpack.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
@@ -18,6 +19,21 @@ type Sort = 'attention' | 'size' | 'coverage';
 
 /** Known ratio = consolidated (FSRS Review) / total — the headline for a deck. */
 const kpct = (d: { known: number; count: number }) => (d.count ? d.known / d.count : 0);
+
+/** Download one sector as a shareable pack. Self-contained cards, no progress —
+ *  see lib/classpack.ts. Nothing leaves the device except through this click. */
+function exportDeck(sector: string) {
+  const cards = WORDS_BY_SECTOR.get(sector) ?? [];
+  if (!cards.length) return;
+  const pack = buildPack(sector, cards, profileName());
+  const blob = new Blob([JSON.stringify(pack, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = packFilename(sector);
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 export default function Decks({ initialGroup, onStudy, onMap }:
   { initialGroup: string | null; onStudy: (t: Target) => void; onMap: (sector: string) => void }) {
@@ -80,6 +96,10 @@ export default function Decks({ initialGroup, onStudy, onMap }:
               {/* These two had no sizing class at all — a 15px icon with no
                   padding, the smallest touch targets in the app. */}
               <div className="flex gap-0.5 flex-shrink-0 -mt-2 -mr-2">
+                {/* The one thing local-first can't do is hand a deck to the person
+                    next to you. A pack is the bridge: a file, no account. */}
+                <IconButton label={`Export ${d.name} as a word pack to share`}
+                  onClick={() => exportDeck(d.name)}><Share2 size={15} /></IconButton>
                 <IconButton label={`Word map for ${d.name}`} onClick={() => onMap(d.name)}><Network size={15} /></IconButton>
                 <IconButton label={`Study ${d.name}`} onClick={() => onStudy({ kind: 'sector', name: d.name })}
                   className="hover:text-green"><Play size={15} /></IconButton>

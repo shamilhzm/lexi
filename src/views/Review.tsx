@@ -3,14 +3,14 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
+import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
-import { buildMixedSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG, modeRulePoint } from './Fundamentals.tsx';
-import { RuleToggle } from '../components/RulePanel.tsx';
+import { buildMixedSession, loadSession, saveSession } from '../session.ts';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
+import { usePoint, RuleCard, RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
@@ -20,15 +20,36 @@ import { speak } from '../lib/tts.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
+import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
-import type { Target } from '../types.ts';
+import Kicker from '../components/ui/Kicker.tsx';
+import type { Target, Word } from '../types.ts';
 
-const GENDER_COLOR: Record<string, string> = { der: 'var(--color-der)', die: 'var(--color-die)', das: 'var(--color-das)' };
-const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus' };
+const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus', separable: 'Trennbar', reflexive: 'Reflexiv', dictation: 'Diktat' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
+
+/** The grade scale.
+ *
+ *  FSRS takes four ratings and Lexi only ever sent two — `Rating.Hard` and
+ *  `Rating.Easy` appeared nowhere outside the tests. That throws away exactly the
+ *  signal the scheduler exists to act on: the difference between recalling
+ *  something after a struggle and recalling it instantly. Two ratings make every
+ *  success identical, so intervals grow at one rate for a word you nearly lost and
+ *  a word you will never forget.
+ *
+ *  `firstSight` is the label for a card the learner has never met, and its absence
+ *  is meaningful: a first-sight card is an introduction, not a test, so there was
+ *  no retrieval to rate on a difficulty scale and only those two grades are shown.
+ *  The button count follows whether recall actually happened. */
+const SCALE: { rating: Grade; label: string; firstSight?: string; hover: string }[] = [
+  { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning', hover: 'hover:border-red hover:text-red' },
+  { rating: Rating.Hard, label: 'Hard', hover: 'hover:border-amber hover:text-amber' },
+  { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it', hover: 'hover:border-green hover:text-green' },
+  { rating: Rating.Easy, label: 'Easy', hover: 'hover:border-green hover:text-green' },
+];
 
 /** Stable per-card pick from a grammar point’s exercises (same card → same drill). */
 function pickExercise(point: GPoint, seed: string) {
@@ -37,10 +58,19 @@ function pickExercise(point: GPoint, seed: string) {
   return point.exercises[Math.abs(h) % point.exercises.length];
 }
 
-export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
+export default function Review({ target, onExit, onPick, onDrills, firstRun = false, exam = false }:
+  { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean;
+    /** Exam conditions: no hints, no rules, no "why?" — see NoHelpCtx. */
+    exam?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
-  const queue = useMemo(() => buildMixedSession(target, firstRun), [target, lvKey, firstRun]);
+  // An interrupted session is resumed rather than rebuilt: the builder is
+  // randomised, so a rebuild is a *different* queue and the learner's place in it
+  // is gone. See session.ts.
+  const restored = useMemo(() => (firstRun || exam ? null : loadSession(target)), [target, lvKey, firstRun, exam]);
+  const queue = useMemo(
+    () => restored?.items ?? buildMixedSession(target, firstRun),
+    [restored, target, lvKey, firstRun]);
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
   // Counted from the queue's own provenance, so the recap can describe what the
   // scheduler did rather than only how the learner scored.
@@ -55,7 +85,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     { blindspot: 0, linked: 0, remedy: 0, overdue: 0 },
   ), [queue]);
   const reduce = useReducedMotion();
-  const [i, setI] = useState(0);
+  const [i, setI] = useState(restored?.position ?? 0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
   const [again, setAgain] = useState(0);       // lapses this session
@@ -77,8 +107,14 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // Misses tagged in *this* session, so the recap can name the one concept that
   // tripped the learner up most today rather than their 30-day average.
   const sessionMisses = useRef(new Map<string, number>());
-  const noteMiss = (tag: string) => {
-    logMiss(tag);
+  // The words this session actually put in front of the learner, in order. A
+  // language-school student's day does not end when the app closes — see PocketList.
+  const metWords = useRef<Word[]>([]);
+  const noteMet = (w: Word) => {
+    if (w.kind === 'word' && !metWords.current.some((x) => x.id === w.id)) metWords.current.push(w);
+  };
+  const noteMiss = (tag: string, term?: string) => {
+    logMiss(tag, term);
     sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
   };
   const [breather, setBreather] = useState(false);
@@ -100,10 +136,17 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
-    setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
+    setI(restored?.position ?? 0);
+    setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
     setComeback(null); missRun.current = 0; setBreather(false); breatherShown.current = false;
     sessionMisses.current.clear();
-  }, [target, lvKey]);
+    metWords.current = [];
+  }, [target, lvKey, restored]);
+
+  // Remember the place. Writes only while a session is genuinely in progress —
+  // saveSession clears the slot at 0 and at the end, so finishing leaves nothing
+  // behind to resume into.
+  useEffect(() => { if (!exam) saveSession(target, queue, i); }, [target, queue, i, exam]);
 
   // Load the exercise bank once, so grammar cards can render as drills.
   useEffect(() => {
@@ -122,7 +165,9 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const preview = useMemo(() => {
     if (!item || item.type !== 'flip') return null;
     const c = cardOf(item.srsId) ?? emptyCard();
-    return { again: previewInterval(c, Rating.Again), good: previewInterval(c, Rating.Good) };
+    // One entry per rating, so every button can state its own consequence rather
+    // than only the two extremes being honest about theirs.
+    return new Map(SCALE.map((s) => [s.rating, previewInterval(c, s.rating)]));
   }, [item?.srsId]);
 
   // Record the pre-review FSRS state + the exact counter deltas this grade
@@ -143,6 +188,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     pushGrade(dAgain, dNew);
     exitDir.current = g === Rating.Again ? -1 : 1;
     noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term);
+    noteMet(item.word);
     review(item.srsId, g);
     haptic(g === Rating.Again ? 'wrong' : 'grade');
     setDone((d) => d + 1);
@@ -158,9 +204,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     pushGrade(dAgain, 0);
     exitDir.current = ok ? 1 : -1;
     noteResult(ok);
+    noteMet(item.word);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
-    if (!ok) noteMiss(MODE_TAG[item.type]);
+    if (!ok) noteMiss(MODE_TAG[item.type], item.word.term);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
     setFlipped(false);
@@ -196,7 +243,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     if (!item) return;
     exitDir.current = 0;
     history.current.push({ i, kind: 'skip' });
-    if (item.type !== 'flip') noteMiss(MODE_TAG[item.type]);
+    if (item.type !== 'flip') noteMiss(MODE_TAG[item.type], item.word.term);
     else if (item.word.kind === 'grammar') noteMiss(item.word.term);
     setFlipped(false);
     setI((n) => n + 1);
@@ -231,15 +278,22 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         if (e.code === 'Space' || e.key === 'Enter') return;
       }
       if (e.code === 'Space') { e.preventDefault(); flip(); }
+      // ←/→ stay as the two-way shortcut the swipe mirrors; 1–4 reach the full
+      // scale, which is otherwise mouse-only. A new card has no 2 or 4 to press.
       if (e.key === 'ArrowLeft') grade(Rating.Again);
       if (e.key === 'ArrowRight') grade(Rating.Good);
+      if (e.key >= '1' && e.key <= '4') {
+        const s = SCALE[Number(e.key) - 1];
+        const firstSight = !!item && statusOf(item.srsId) === 'new';
+        if (s && (!firstSight || s.firstSight)) grade(s.rating);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [flip, grade]);
+  }, [flip, grade, item]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun}
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
     onExit={onExit} onPick={onPick} />;
@@ -278,7 +332,14 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
           <IconButton label="Back to Today" pull onClick={onExit}><ArrowLeft size={16} /></IconButton>
           <h1 className="text-base font-semibold truncate flex-1 min-w-[7rem]">{target.name}</h1>
-          <Chip aria-label={`${queue.length - i} cards left in this session`}>{queue.length - i} left</Chip>
+          {exam && <Kicker tone="reward" className="flex-shrink-0">Exam conditions</Kicker>}
+          {/* Position out of a total, not a raw countdown. "92 left" on a first
+              session reads as a backlog with no floor; "7 / 92" is the same fact
+              as somewhere you are inside something finite, and it moves forward
+              rather than only shrinking. */}
+          <Chip aria-label={`Card ${Math.min(i + 1, queue.length)} of ${queue.length} in this session`}>
+            {Math.min(i + 1, queue.length)} / {queue.length}
+          </Chip>
           {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
             {/* Flag: "something’s wrong with this card" — the feedback loop for a
@@ -314,6 +375,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         {/* The card swaps in place, so nothing here is ever re-announced without
             a live region — Placement and the drills each got one, and the
             primary loop was the surface that didn’t. */}
+        <NoHelpCtx.Provider value={exam}>
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]"
           role="region" aria-live="polite" aria-label="Current card">
           <AnimatePresence mode="wait" custom={exitDir.current}>
@@ -336,12 +398,21 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">
               <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              {/* First encounter with this kind of exercise: teach, then test.
+                  The rule has always been one tap away, behind a link nobody taps
+                  because they don't yet know they need it — so here it opens
+                  itself, and the item says plainly that it isn't a test yet. */}
+              {item.teach && item.type !== 'flip' && !exam && (
+                <IntroCard mode={item.type} />
+              )}
               {/* A drill can arrive mid-session without the learner ever having
                   chosen the concept — this is the screen where a beginner meets
-                  "Nominativ" cold. Name it, and make the name open the rule. */}
-              {!grammarEx && item.type !== 'flip' && (
-                <div className="text-center mb-2.5"><RuleToggle pointRef={modeRulePoint(item.type)} label={MODE_TAG[item.type]} /></div>
-              )}
+                  "Nominativ" cold. Name it, and make the name open the rule.
+                  That header is now the *item's* (see DrillHeader): deriving it
+                  here from `item.type` could only ever name the mode, and three
+                  of the seven modes pick a different grammatical target on every
+                  card — so a Futur I prompt offered the Perfekt rule. */}
+              <RuleShownCtx.Provider value={!!item.teach}>
               {grammarEx
                 ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} point={{ level: card.level, title: card.term }} />
                 : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
@@ -350,7 +421,11 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 : item.type === 'order' ? <OrderWordItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'transform' ? <TransformItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'case' ? <CaseItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'separable' ? <SeparableItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'reflexive' ? <ReflexiveItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'dictation' ? <DictationItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              </RuleShownCtx.Provider>
             </div>
           ) : (<>
           <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade} behind={Math.min(2, queue.length - i - 1)}>
@@ -377,10 +452,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 {/* lang="de" on every German string: without it a screen reader
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
-                <span lang="de" className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
-                  {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
-                  {stripArticle(card.term, card.gender)}
-                </span>
+                <GenderTerm term={card.term} gender={card.gender}
+                  className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`} />
                 {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
                 {isNew && !grammar && (
                   <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
@@ -391,27 +464,83 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span lang="de" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {card.ex[0] && (
+                  <span className="max-w-[90%] flex items-baseline justify-center gap-1.5">
+                    <span lang="de" className="text-dim italic text-base leading-relaxed">{card.ex[0].de}</span>
+                    {/* Hearing the word *in a sentence* is how pronunciation is
+                        actually learned; the only speaker used to be on the bare
+                        headword. */}
+                    <SpeakButton text={card.ex[0].de} label={`Hear the example “${card.ex[0].de}”`} />
+                  </span>
+                )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>
-              {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
-              <div className="flip-face flip-back border rounded-lg flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
-                   style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
-                <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Rule' : 'Translation'}</span>
-                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
-                {card.def && <span className="text-txt text-sm leading-relaxed max-w-[92%]">{card.def}</span>}
-                {!grammar && card.ex.length > 0 && (
-                  <div className="w-full max-w-[94%] text-left mt-1 space-y-2">
-                    {card.ex.slice(0, 2).map((e, k) => (
-                      <div key={k} className="text-sm leading-relaxed">
-                        <div lang="de" className="text-txt">{e.de}</div>
-                        {e.en && <div className="text-dim italic">{e.en}</div>}
-                      </div>
-                    ))}
-                  </div>
+              {/* BACK — the reveal.
+                  Four things were wrong with the previous face, and all four came
+                  from the same idea: that the back is a different *thing*.
+
+                  1. It set `background: var(--color-green-d)` inline and so never
+                     applied `.bg-card` — no grain, no top-light gradient, only the
+                     `.flip-face` shadow. Turning the card over changed what it was
+                     made of, which is DESIGN.md §3 broken by the app's own hero
+                     object, and the `.paper` mistake in a different costume.
+                  2. Green is documented as the *status* colour ("gains / mastered").
+                     Painting the whole answer face in it delivers a verdict before
+                     any grading has happened — on a card you may be about to fail —
+                     and it collides with the drills' own green "correct" surface.
+                     Green now survives as an edge rule, the kicker and the ink.
+                  3. Three alignments in one 400px face: the face was `items-center
+                     text-center`, the examples block `text-left`, and the synonyms
+                     centred again. Nothing shared an edge.
+                  4. `justify-center` with `overflow-y-auto` scrolls from the middle,
+                     so a C1 card (definition + two bilingual examples + synonyms +
+                     antonyms) silently clipped at the top.
+
+                  The front is centred because it presents one object; the back is
+                  flush-left because it is an entry you read. That asymmetry is
+                  deliberate, and it replaces an accidental one. */}
+              <div className="flip-face flip-back bg-card border border-line border-l-4 rounded-lg
+                              flex flex-col items-stretch text-left p-5 sm:p-7 overflow-y-auto"
+                   style={{ borderLeftColor: 'var(--color-green)' }}>
+                <div className="flex items-center gap-2 mb-2.5">
+                  <Kicker tone="reward">{grammar ? 'Rule' : 'Answer'}</Kicker>
+                  {!grammar && (
+                    <>
+                      {/* The German stays in view at the reveal: seeing the pair
+                          together is the encoding, and the front's term vanished
+                          the instant you learned what it meant. */}
+                      <span aria-hidden className="text-dim text-2xs">·</span>
+                      {/* Gender ink survives the flip now. It used to live only on
+                          the front, so the article's colour — the most useful mark
+                          on a German card — vanished the moment you turned it. */}
+                      <GenderTerm term={card.term} gender={card.gender}
+                        className="font-mono text-2xs text-dim truncate" />
+                    </>
+                  )}
+                  <span className="ml-auto flex items-center flex-shrink-0">
+                    <SpeakButton text={card.term} label={`Hear “${card.term}” in German`} />
+                  </span>
+                </div>
+                <span className={`headword font-bold text-green leading-tight break-words ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
+                <Kicker className="block mt-1.5">
+                  {grammar ? 'Grammar' : card.pos} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
+                </Kicker>
+                {card.def && (
+                  <RevealBlock label={grammar ? 'How it works' : 'Definition'}>
+                    <p className="text-txt text-sm leading-relaxed whitespace-pre-line">{card.def}</p>
+                  </RevealBlock>
                 )}
-                {card.syn.length > 0 && <span className="text-xs text-dim">Synonyms: <span lang="de" className="text-txt">{card.syn.join(', ')}</span></span>}
-                {card.ant.length > 0 && <span className="text-xs text-dim">Opposite: <span lang="de" className="text-red-txt">{card.ant.join(', ')}</span></span>}
+                {!grammar && <FalseFriendNote term={card.term} />}
+                {!grammar && card.ex.length > 0 && (
+                  <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
+                )}
+                {(card.syn.length > 0 || card.ant.length > 0) && (
+                  <RevealBlock className="space-y-1.5">
+                    <TermList label="Syn" terms={card.syn} />
+                    <TermList label="Opp" terms={card.ant} tone="red" />
+                  </RevealBlock>
+                )}
+                {!grammar && <CardSource id={card.id} />}
               </div>
             </div>
           </SwipeCard>
@@ -419,33 +548,43 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           {/* Grade from either face — flipping is optional. First-sight cards
               can’t be "known", so new cards ask "keep it or got it" instead of
               framing an inevitable miss as failure. */}
-          <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
-            <div className="flex gap-2.5 sm:gap-3 justify-center">
-              {/* Explicit labels: without them the accessible name runs the
-                  interval preview straight onto the verdict ("Knew it 2 mo"). */}
-              <button onClick={() => grade(Rating.Again)}
-                aria-label={`${statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}${preview ? ` — back in ${preview.again}` : ''}`}
-                className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
-                <span className="flex items-center gap-2"><X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}</span>
-                {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.again}</span>}
-              </button>
-              <button onClick={() => grade(Rating.Good)}
-                aria-label={`${statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}${preview ? ` — back in ${preview.good}` : ''}`}
-                className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
-                <span className="flex items-center gap-2"><Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}</span>
-                {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
-              </button>
+          <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2 w-full">
+            {/* Two grades on a first-sight card, four once there was something to
+                recall. Four columns don't fit a phone, so they wrap 2×2 — which
+                also puts the two familiar verdicts on the first row. */}
+            <div className={`grid gap-2 sm:gap-2.5 w-full max-w-[580px] ${
+              isNew ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`}>
+              {SCALE.filter((s) => !isNew || s.firstSight).map((s) => {
+                const label = (isNew && s.firstSight) ? s.firstSight : s.label;
+                const when = preview?.get(s.rating);
+                return (
+                  // Explicit label: without it the accessible name runs the
+                  // interval preview straight onto the verdict ("Knew it 2 mo").
+                  <button key={s.rating} onClick={() => grade(s.rating)}
+                    aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
+                    className={`flex flex-col items-center border border-line bg-panel rounded-md px-3 py-2
+                      justify-center font-semibold transition-colors active:scale-95 ${s.hover}`}>
+                    <span className="flex items-center gap-1.5 text-sm sm:text-base">
+                      {s.rating === Rating.Again && <X size={15} className="flex-shrink-0" />}
+                      {s.rating === Rating.Good && <Check size={15} className="flex-shrink-0" />}
+                      {label}
+                    </span>
+                    {when && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{when}</span>}
+                  </button>
+                );
+              })}
             </div>
             <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
               {isNew && !grammar
                 ? 'First time seeing this — take it in, then say how it landed'
-                : `Space to flip and check the ${grammar ? 'rule' : 'translation'}`}
+                : `Space to flip · 1–4 to grade`}
             </span>
           </div>
           </>)}
           </motion.div>
           </AnimatePresence>
         </div>
+        </NoHelpCtx.Provider>
       </Card>
     </div>
   );
@@ -538,8 +677,14 @@ function CoachMarks() {
       <span aria-hidden>·</span>
       <span><b className="text-txt font-semibold">Swipe</b> or use the buttons to grade</span>
       <span aria-hidden>·</span>
-      {/* The keyboard path existed but was never stated anywhere in the UI. */}
-      <span className="hidden sm:inline"><kbd className="text-txt font-semibold">Space</kbd> flips, <kbd className="text-txt font-semibold">←</kbd>/<kbd className="text-txt font-semibold">→</kbd> grade</span>
+      {/* The keyboard path existed but was never stated anywhere in the UI — and
+          what it stated only ever worked on the flip card. The drills now take
+          1–4 and Enter too, so one line covers every card type. */}
+      <span className="hidden sm:inline">
+        <kbd className="text-txt font-semibold">Space</kbd> flips,{' '}
+        <kbd className="text-txt font-semibold">1</kbd>–<kbd className="text-txt font-semibold">4</kbd> grade or answer,{' '}
+        <kbd className="text-txt font-semibold">Enter</kbd> continues
+      </span>
       <span aria-hidden className="hidden sm:inline">·</span>
       <span><b className="text-txt font-semibold">Skip</b> is always free</span>
       <button onClick={dismiss} className="ml-auto text-amber font-semibold hover:brightness-110">Got it</button>
@@ -547,9 +692,79 @@ function CoachMarks() {
   );
 }
 
-function stripArticle(term: string, gender: string | null) {
-  if (!gender) return term;
-  return term.replace(/^(der|die|das)\s+/i, '');
+
+/** The words you met today, in a shape you can take away.
+ *
+ *  "My class sets homework; Lexi sets a streak." A session ends and leaves nothing
+ *  behind — the learning is real but it lives inside an app you have closed, and a
+ *  language-school student's day is full of moments (a bus, a queue, a lecture
+ *  running long) that are too small to open it again.
+ *
+ *  So the recap hands over a plain list: German, English, one per line, sized to
+ *  screenshot. Deliberately not a feature with state — no "homework" to complete,
+ *  nothing to sync, nothing to feel guilty about. Just the day's words, in a form
+ *  that survives leaving. */
+function PocketList({ words }: { words: Word[] }) {
+  const [open, setOpen] = useState(false);
+  if (words.length === 0) return null;
+  return (
+    <div className="mt-4">
+      {!open ? (
+        <button onClick={() => setOpen(true)}
+          className="inline-flex items-center gap-1.5 text-xs text-dim hover:text-amber underline underline-offset-2">
+          <ClipboardList size={13} /> Today’s words, to take with you
+        </button>
+      ) : (
+        <Card tone="sunken" nested pad="none" className="p-4 text-left">
+          <div className="flex items-center gap-2 mb-2">
+            <Kicker tone="accent">{words.length} words today</Kicker>
+            <button onClick={() => setOpen(false)} className="ml-auto text-2xs text-dim hover:text-amber">Hide</button>
+          </div>
+          {/* One line per word, no controls inside: this is meant to be a picture. */}
+          <ul className="space-y-1">
+            {words.map((w) => (
+              <li key={w.id} className="flex gap-2 text-sm leading-relaxed">
+                <GenderTerm term={w.term} gender={w.gender} className="text-txt font-medium min-w-[9rem]" />
+                <span className="text-dim flex-1">{w.en}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-2xs text-dim mt-3">Screenshot this — it’s just a list, nothing to finish.</p>
+        </Card>
+      )}
+    </div>
+  );
+}
+
+/** The first time a drill mode appears, introduce it.
+ *
+ *  Lexi is a testing app that never taught: a beginner three weeks in was asked
+ *  `der Vater → die ___` before anything had said what a plural is. The teaching
+ *  text existed in grammar.json the whole time, reachable only through a small link
+ *  — and a learner who does not yet know what a Kasus *is* has no reason to tap a
+ *  word they cannot read.
+ *
+ *  So on a first encounter the rule is simply open, and the card says out loud that
+ *  this one doesn't count. That the rule often contains a worked example of the very
+ *  answer is the point rather than a leak: first sight is an introduction, and FSRS
+ *  brings the real retrieval back minutes later.
+ *
+ *  Renders nothing if the mode has no authored point behind it (cloze), which is
+ *  the right silence — there is no system to explain. */
+function IntroCard({ mode }: { mode: Mode }) {
+  const found = usePoint(modeRulePoint(mode));
+  if (!found) return null;
+  return (
+    <div className="mb-3">
+      <p className="text-2xs text-amber font-mono uppercase tracking-widest text-center mb-2 font-semibold">
+        New here — have a read first
+      </p>
+      <RuleCard point={found.point} level={found.level} worked />
+      <p className="text-2xs text-dim text-center mt-2">
+        This one doesn’t count. You’ll get it again later, for real.
+      </p>
+    </div>
+  );
 }
 
 /** Unobtrusive mastery dot on the card front: dim = new, amber = learning, green = known. */
@@ -560,9 +775,9 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, onExit, onPick }:
+function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick }:
   { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
-    composition?: RecapData['composition']; onExit: () => void; onPick: () => void }) {
+    composition?: RecapData['composition']; met: Word[]; exam?: boolean; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
@@ -588,6 +803,21 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
           </p>
         )}
+        {/* An exam's number is its point, so it is said plainly. 60% is the usual
+            Goethe/telc pass mark — quoted as the standard's, not as Lexi's verdict,
+            because this is a vocabulary drill under exam conditions and not the
+            exam. */}
+        {exam && done > 0 && (
+          <p className="text-sm mb-4">
+            You scored <span className={`font-mono font-bold ${recall >= 60 ? 'text-green' : 'text-amber'}`}>{recall}%</span>{' '}
+            with no hints and no rules.
+            <span className="block text-dim text-xs mt-1">
+              Goethe and telc set their pass mark at 60%. This isn’t their exam — it’s your vocabulary
+              and grammar without the scaffolding.
+            </span>
+          </p>
+        )}
+        <PocketList words={met} />
         {firstRun && newLearned > 0 && (
           <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
         )}

@@ -1,0 +1,90 @@
+{
+  "_README": [
+    "6 example(s) classified \"archaic\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:ausgerechnet",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2282854",
+      "expect": {
+        "de": "Daß ausgerechnet du das sagen mußt!",
+        "en": "That's rich, coming from you of all people!"
+      },
+      "de": "Dass ausgerechnet du das sagen musst!",
+      "en": "That's rich, coming from you of all people!"
+    },
+    {
+      "id": "voc:A2:mitkommen",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": "tatoeba:13759596",
+      "expect": {
+        "de": "Du mußt mitkommen.",
+        "en": "You must come with us."
+      },
+      "de": "Du musst mitkommen.",
+      "en": "You must come with us."
+    },
+    {
+      "id": "voc:B1:schieben",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:2293978",
+      "expect": {
+        "de": "Ich mußte mein Fahrrad nach Hause schieben.",
+        "en": "I had to push my bicycle home."
+      },
+      "de": "Ich musste mein Fahrrad nach Hause schieben.",
+      "en": "I had to push my bicycle home."
+    },
+    {
+      "id": "voc:B1:der Direktor",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:12537141",
+      "expect": {
+        "de": "Ich mußte heute zum Direktor.",
+        "en": "I was sent to the principal's office today."
+      },
+      "de": "Ich musste heute zum Direktor.",
+      "en": "I was sent to the principal's office today."
+    },
+    {
+      "id": "voc:C1:verwechseln",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:12627277",
+      "expect": {
+        "de": "Du mußt mich verwechseln.",
+        "en": "You must've confused me with someone else."
+      },
+      "de": "Du musst mich verwechseln.",
+      "en": "You must've confused me with someone else."
+    },
+    {
+      "id": "voc:A2:anstrengen",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": "tatoeba:4613127",
+      "expect": {
+        "de": "Du mußt dich mehr anstrengen.",
+        "en": "You have to try harder."
+      },
+      "de": "Du musst dich mehr anstrengen.",
+      "en": "You have to try harder."
+    }
+  ]
+}

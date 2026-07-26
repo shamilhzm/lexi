@@ -16,7 +16,7 @@ survived a year longer than it should have (see *Hue discipline*, below).
 ## 1. The identity
 
 Lexi looks like a **market terminal** because the app's real job is to show you a
-territory — 7,464 cards across 284 sectors — and where you are thin in it. Cool
+territory — 7,402 cards across 284 sectors — and where you are thin in it. Cool
 Glacier cyan, mono numerals, dense data, hairline separation.
 
 That identity belongs to the **instrument** (Progress, the heatmap, the
@@ -89,6 +89,34 @@ carry it instead, none of them hue:
 3. **Elevation.** A deeper drop than a panel, plus a top-light inset.
 4. **The serif headword** — Fraunces, `font-optical-sizing: auto`.
 
+### Rule: a status colour is a mark, never a ground
+
+> **Green means "you got this right." It may ink a word, rule an edge, or label a
+> block. It may not fill a surface the learner hasn't been graded on yet.**
+
+The flip card's back face used to set `background: var(--color-green-d)` inline —
+which also meant it never applied `.bg-card`, so it had no grain and no top-light
+gradient. Turning the card over changed what it was made of, and painted a verdict
+across a card you might be about to fail. It also collided with the drills, where
+the same fill means "correct answer" two seconds later.
+
+The back is now the same material as the front, marked with a 4px green edge rule,
+a green `ANSWER` kicker, and the translation in green ink. Verify by sampling
+`background-color` and `background-image` on both `.flip-face` elements: they must
+match.
+
+### The front presents; the back is read
+
+The front is centred — it shows one object. The back is flush-left on a single
+gutter, because it is a dictionary entry you read: hairline-separated blocks, mono
+labels (`SYN` / `OPP`), the English indented under its German. That asymmetry is
+deliberate and replaces an accidental one — the old face was `items-center` with a
+`text-left` examples block and centred synonyms, three alignments in 400px.
+
+Reading faces start at the top. `justify-center` with `overflow-y-auto` scrolls
+from the middle and clips silently, which is what a C1 card (definition + two
+bilingual examples + synonyms + antonyms) did.
+
 ## 4. Typography
 
 Self-hosted, so the identity survives offline and is identical on every OS.
@@ -99,7 +127,12 @@ Roboto Mono on Android — the terminal look only actually existed on a Mac.
 |---|---|---|
 | Data | **IBM Plex Mono** (400/700) | every stat, kicker, CEFR badge, numeral, interval |
 | UI | system sans | everything else — fast, familiar, zero bytes |
-| The German | **Fraunces** variable | `.headword` only |
+| The German | **Fraunces** variable | `.headword` — the flip faces **and the exercise prompt** |
+
+`.headword` was scoped to the flip faces alone: two lines per screen, on the app's
+only warm typeface, while the German being *tested* was set in system sans. The
+prompt is a headword too. Fraunces is what makes German read as the subject of the
+app rather than as data inside it, so it goes wherever the German is the point.
 
 **Mono means data.** If it isn't a measurement, it isn't mono.
 

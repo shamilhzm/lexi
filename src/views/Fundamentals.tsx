@@ -11,24 +11,27 @@
 //
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it’s a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
-import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
+import { useEffect, useMemo, useState, useCallback } from 'react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Split, RefreshCw, Ear, Volume2, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, review, levels, logMiss, streak } from '../store.ts';
+import { cardOf, review, levels, logMiss, streak, statusOf, focusTense, type Status } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
-import { conjugate, canConjugate, PRONOUN, type Person } from '../lib/conjugate.ts';
-import { OrderItem, TypeItem } from './GrammarDrill.tsx';
-import WhyLink, { RuleToggle } from '../components/RulePanel.tsx';
+import { speak } from '../lib/tts.ts';
+import { conjugate, canConjugate, PRONOUN, type Person, type Conjugation } from '../lib/conjugate.ts';
+import { OrderItem, TypeItem, hintText } from './GrammarDrill.tsx';
+import { RevealBlock, Paradigm, useChoiceKeys, GenderTerm } from '../components/Reveal.tsx';
+import type { RevealData } from '../lib/grammar.ts';
+import WhyLink, { DrillHeader } from '../components/RulePanel.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import Surface from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
-import type { Word } from '../types.ts';
+import type { Word, Example } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case';
+export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case' | 'separable' | 'reflexive' | 'dictation';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -41,13 +44,52 @@ function inLevels(w: Word) { return levels().has(w.level); }
 const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && inLevels(w));
 const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && w.plural && inLevels(w));
 const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canConjugate(w.term));
-const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && inLevels(w)
-  && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de));
-const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderTokens(w.ex[0]?.de).length > 0);
+const clozePool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && clozeExample(w));
+const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderExample(w));
 const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
 const casePool = () => WORDS.filter((w) => inLevels(w) && caseSafe(w));
+const separablePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isSeparable(w.term));
+const reflexivePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isReflexive(w.term));
+const dictationPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && drillExample(w, dictatable));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+/** Match a German surface form as a whole word, with a boundary that understands
+ *  German letters. Capture group 1 is the match, so callers can blank it.
+ *
+ *  JavaScript's `\b` is ASCII-only — `\w` is `[A-Za-z0-9_]`, so `ß`, `ä`, `ö`, `ü`
+ *  and their capitals are *non-word* characters. `/\bgroß\b/` therefore cannot
+ *  match "groß" at all: between `ß` and the following space there is no
+ *  word→non-word transition, because neither side is a word character. The same
+ *  failure hits any headword that *starts* with an umlaut (Übung, Öl).
+ *
+ *  Measured against the shipped corpus: 135 cards — including groß, Fuß, weiß,
+ *  süß, Übung and Öl, i.e. some of the most common words an A1 learner meets —
+ *  were silently ineligible for the cloze and sentence-builder drills, and the
+ *  blanking regex could never have fired for them either. Unicode property escapes
+ *  under the `u` flag give a boundary that actually holds. */
+export function wholeWordRe(surface: string): RegExp {
+  return new RegExp(`(?<![\\p{L}\\p{N}])(${escapeReg(surface)})(?![\\p{L}\\p{N}])`, 'iu');
+}
+
+/** Which of a card's examples a drill should use.
+ *
+ *  The flip face always shows `ex[0]`, and an interleaved drill lands about three
+ *  items after its word's flip — so a cloze or sentence-builder built on `ex[0]`
+ *  was asking the learner to reconstruct a sentence they had just finished
+ *  reading. That is a memory test wearing a syntax test's clothes.
+ *
+ *  So: prefer any later example that satisfies the drill's own constraint, and fall
+ *  back to `ex[0]` only when there is nothing else. 91% of cards carry a second
+ *  example, so most drills now show a sentence the learner has not just seen.
+ *
+ *  Used by both the eligibility check and the item itself, deliberately — if they
+ *  chose differently a word could be declared drillable and then render nothing. */
+export function drillExample(w: Word, ok: (de: string) => boolean): Example | null {
+  const ex = w.ex ?? [];
+  for (let i = 1; i < ex.length; i++) if (ex[i]?.de && ok(ex[i].de)) return ex[i];
+  return ex[0]?.de && ok(ex[0].de) ? ex[0] : null;
+}
 
 // ---- production drills: shared pure helpers (exported for tests) ----------
 /** Tiles for the sentence builder from an example sentence: terminal punctuation
@@ -68,6 +110,57 @@ export function canTransform(verb: string): boolean {
   return c.reliable && !c.separable && !c.reflexive;
 }
 
+/** A verb whose prefix detaches, and which the engine can render confidently.
+ *  The exact complement of what `canTransform` refuses on those grounds. */
+export function isSeparable(verb: string): boolean {
+  const c = conjugate(verb);
+  return c.reliable && !!c.separable && !c.reflexive;
+}
+
+/** A reflexive verb — the other class `canTransform` refuses, and for the same
+ *  reason: its bare finite form drops the pronoun the verb cannot do without. */
+export function isReflexive(verb: string): boolean {
+  const c = conjugate(verb);
+  return c.reliable && c.reflexive && !c.separable;
+}
+
+// The reflexive pronouns, in PERSONS_I order. `conjugate` strips "sich" before
+// conjugating, so the present tense comes back as a bare finite verb and the
+// pronoun has to be put back — which is the whole point of the drill: an English
+// speaker's error is leaving it out, not conjugating it wrong.
+const REFLEX = ['mich', 'dich', 'sich', 'uns', 'euch', 'sich'];
+
+/** Build one reflexive exercise. Präsens puts the pronoun back after the verb;
+ *  Perfekt comes from the engine, which already places it. */
+export function buildReflexive(verb: string, shape: 'praesens' | 'perfekt', pIdx: number) {
+  const c = conjugate(verb);
+  const pronoun = PRONOUN[PERSONS_I[pIdx]].split('/')[0];
+  const refl = REFLEX[pIdx];
+  const form = shape === 'perfekt' ? c.perfekt[pIdx] : `${c.praesens[pIdx]} ${refl}`;
+  const label = shape === 'perfekt' ? 'Perfekt' : 'Präsens';
+  return {
+    prompt: `„sich ${c.infinitive}“ → ${label} · ${pronoun}`,
+    accept: [`${pronoun} ${form}`, form],
+    hints: shape === 'perfekt'
+      ? [`${c.aux} + „${refl}“ + the Partizip II`, `${pronoun} ${c.perfekt[pIdx].split(' ')[0]} ${refl} …`, hintText(`${pronoun} ${form}`, 3)]
+      : [`The verb, then „${refl}“ — the pronoun changes with the person`,
+         REFLEX.map((r, i) => `${PRONOUN[PERSONS_I[i]].split('/')[0]} ${r}`).join(' · '),
+         hintText(`${pronoun} ${form}`, 3)],
+    reveal: {
+      derivation: form.split(' '),
+      note: `„${refl}“ is not optional — the verb means nothing without it.`,
+      paradigm: {
+        label: `${label} · all persons`,
+        rows: PERSONS_I.map((p, i) => [
+          PRONOUN[p].split('/')[0],
+          shape === 'perfekt' ? c.perfekt[i] : `${c.praesens[i]} ${REFLEX[i]}`,
+        ]) as [string, string][],
+      },
+    },
+    label,
+  };
+}
+
 // ---- Kasus drill: declined articles + weak adjective endings ---------------
 // Grounded by construction: every rendered fragment is correct German.
 //  - The case is forced by an unambiguous frame (accusative-only / dative-only /
@@ -82,6 +175,17 @@ export function canTransform(verb: string): boolean {
 type Kase = 'nom' | 'akk' | 'dat' | 'gen';
 type Gender = 'der' | 'die' | 'das';
 const CASE_LABEL: Record<Kase, string> = { nom: 'Nominativ', akk: 'Akkusativ', dat: 'Dativ', gen: 'Genitiv' };
+/** The point that teaches the case an item actually asks about.
+ *
+ *  `MODE_REMEDY.case[0]` is Akkusativ, and a Kasus item picks its case at random
+ *  from three or four — so a Genitiv question used to open the Akkusativ rule.
+ *  See TENSE_POINT for the same bug in the tense drills. */
+export const CASE_POINT: Record<Kase, string> = {
+  nom: 'gram:A1:Personalpronomen (Nominativ)',
+  akk: 'gram:A2:Akkusativ',
+  dat: 'gram:A2:Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)',
+  gen: 'gram:B1:Genitiv',
+};
 const CASE_PREPS: Record<Exclude<Kase, 'nom'>, string[]> = {
   akk: ['für', 'ohne', 'gegen', 'durch'],
   dat: ['mit', 'von', 'bei'],
@@ -120,7 +224,9 @@ export function caseSafe(w: Word): boolean {
   return true;
 }
 
-export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; extra: string; }
+/** `kase` rides along so the item can open the rule for the case it actually
+ *  asked about rather than the mode's default. */
+export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; why: string; answer: string; kase: Kase; }
 /** Build one Kasus item: article choice or weak adjective ending, in a frame
  *  that forces the case. `rnd` injectable for tests. */
 export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseItemData {
@@ -145,7 +251,8 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
       prompt: `${frame} ___ ${noun}`,
       sub: `Which article? · ${CASE_LABEL[kase]}`,
       options, correct: options.indexOf(correct),
-      extra: `${w.term} · ${why} → ${correct}`,
+      why, answer: correct,
+      kase,
     };
   }
   // Which adjective ending? (weak, after the definite article)
@@ -156,27 +263,259 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
     prompt: `${frame} ${ARTICLE[kase][g]} ___ ${noun}`,
     sub: `Adjective ending · ${CASE_LABEL[kase]}`,
     options, correct: options.indexOf(correct),
-    extra: `${w.term} · ${why} · after the definite article → ${correct}`,
+    why: `${why} · after the definite article`, answer: correct,
+    kase,
   };
 }
 
-const TRANSFORM_TARGETS: { key: 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2'; label: string }[] = [
+/** Every tense the conjugation and transformation drills can ask for. */
+export type TenseKey = 'praesens' | 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2' | 'pp';
+/** The four a transformation drill can target (Präsens is the *source*, and
+ *  Partizip II is a form rather than a tense). */
+export type TransformKey = Exclude<TenseKey, 'praesens' | 'pp'>;
+
+/** The point that teaches the tense an item actually asks about.
+ *
+ *  This is the fix for a bug that made the rule link actively misleading. Both
+ *  tense drills pick their target at random — `TransformItem` from four tenses,
+ *  `ConjItem` from six — and the rule shown came from `modeRulePoint(mode)`, i.e.
+ *  `MODE_REMEDY[mode][0]`: a single static entry per *mode*. So a card asking for
+ *  Futur I opened the Perfekt rule, and a Konjunktiv II conjugation opened
+ *  Präsens. The right rule was in the bank the whole time; nothing looked it up.
+ *
+ *  Partizip II maps to Perfekt: it is only ever drilled as that tense's second
+ *  half, and no separate point teaches it. `grammar.test.ts` pins every id here
+ *  to an authored point with a non-empty rule. */
+export const TENSE_POINT: Record<TenseKey, string> = {
+  praesens:    'gram:A1:Präsens (regelmäßig)',
+  praeteritum: 'gram:A2:Präteritum',
+  perfekt:     'gram:A2:Perfekt',
+  pp:          'gram:A2:Perfekt',
+  futur1:      'gram:B1:Futur I',
+  konjunktiv2: 'gram:B1:Konjunktiv II (würde)',
+};
+
+/** Pick a drill's grammatical target, biased toward what the learner said they are
+ *  working on this week.
+ *
+ *  0.6 rather than 1.0 on purpose: a focus is a lean, not a filter. Serving only
+ *  the focused tense would stop rehearsing everything else, and the learner would
+ *  quietly lose the three tenses they weren't thinking about. Exported for tests. */
+export function pickFocused<T extends { key: string }>(
+  options: T[], focus: string | null, rnd: () => number = Math.random,
+): T {
+  const wanted = focus ? options.find((o) => o.key === focus) : undefined;
+  if (wanted && rnd() < 0.6) return wanted;
+  return options[Math.floor(rnd() * options.length)];
+}
+
+const TRANSFORM_TARGETS: { key: TransformKey; label: string }[] = [
   { key: 'praeteritum', label: 'Präteritum' },
   { key: 'perfekt', label: 'Perfekt' },
   { key: 'futur1', label: 'Futur I' },
   { key: 'konjunktiv2', label: 'Konjunktiv II' },
 ];
+
+/** A helper verb's six present-tense forms as one readable row:
+ *  "ich werde · du wirst · er wird · wir werden · ihr werdet · sie werden". */
+function paradigmRow(forms: readonly string[]): string {
+  return PERSONS_I.map((p, i) => `${PRONOUN[p].split('/')[0]} ${forms[i]}`).join(' · ');
+}
+
+/** Structure-first hints for a tense transformation.
+ *
+ *  The generic ladder in `hintText` counts letters, then reveals the first
+ *  character. But a transform prompt already prints the pronoun — „du musst“ →
+ *  Futur I — so for "du wirst müssen" rung 1 read "3 words · 13 letters" and rung
+ *  2 read 'starts with „d“'. Two of three rungs told the learner nothing they
+ *  could not already see, on the one drill in the app that asks them to *produce*
+ *  a form rather than recognise it.
+ *
+ *  These name the construction first; then, rather than leaking one character,
+ *  show the *helper verb's whole paradigm* — which is the gap a learner stuck on
+ *  "→ Futur I" actually has, and which makes locating their own person the
+ *  retrieval. The shape fallback stays as the last resort. Taking a hint still
+ *  never changes the grade. */
+export function transformHints(c: Conjugation, pIdx: number, targetKey: TransformKey): string[] {
+  const inf = c.infinitive;
+  const shape = hintText(`${PRONOUN[PERSONS_I[pIdx]].split('/')[0]} ${c[targetKey][pIdx]}`, 3);
+  switch (targetKey) {
+    case 'futur1':
+      return [
+        `werden (conjugated) + „${inf}“ — the infinitive goes last`,
+        paradigmRow(conjugate('werden').praesens),
+        shape,
+      ];
+    case 'perfekt':
+      return [
+        `${c.aux} (conjugated) + the Partizip II of „${inf}“, which goes last`,
+        paradigmRow(conjugate(c.aux).praesens),
+        shape,
+      ];
+    case 'praeteritum':
+      return [
+        'One word — the Präteritum takes no helper verb',
+        c.source === 'irregular'
+          ? 'A strong verb: the stem vowel changes, and ich / er take no ending'
+          : 'A weak verb: -te- sits between the stem and the ending',
+        shape,
+      ];
+    case 'konjunktiv2':
+      // sein / haben / werden / the modals / wissen keep the synthetic one-word
+      // forms that are the ones actually spoken; everything else is analytic.
+      return c.konjunktiv2[pIdx].includes(' ')
+        ? [
+            `würde (conjugated) + „${inf}“ — the infinitive goes last`,
+            paradigmRow(conjugate('werden').konjunktiv2),
+            shape,
+          ]
+        : [
+            `One word — „${inf}“ has its own Konjunktiv II form, like „wäre“ and „hätte“`,
+            'Built on the Präteritum stem: umlaut where possible, then -e endings',
+            shape,
+          ];
+  }
+}
+
+// ---- dictation --------------------------------------------------------------
+// Everything in Lexi is recognition or a single produced form. There is no writing
+// anywhere, and writing is where spelling, word order and the umlauts a learner
+// keeps fudging all become unavoidable at once.
+//
+// Full free writing can't be graded honestly without a model, and a drill that
+// marks correct German wrong is worse than no drill. Dictation is the one form of
+// written production that *can* be graded exactly: the learner hears a sentence and
+// types it, and the target is known to the character. It reuses the corpus's own
+// sentences and the speech engine that already ships.
+//
+// Bounded deliberately: long enough to require holding a clause in your head, short
+// enough to type on a phone without the audio going stale.
+/** Whether a sentence is worth dictating. */
+/** The example a cloze should blank: one that actually contains the headword. */
+export function clozeExample(w: Word): Example | null {
+  return drillExample(w, (de) => wholeWordRe(stripArticle(w.term)).test(de));
+}
+/** The example the sentence builder should scramble. */
+export function orderExample(w: Word): Example | null {
+  return drillExample(w, (de) => orderTokens(de).length > 0);
+}
+
+export function dictatable(de?: string): boolean {
+  if (!de) return false;
+  const t = de.trim();
+  if (t.length < 12 || t.length > 70) return false;
+  const words = t.split(/\s+/).length;
+  if (words < 3 || words > 9) return false;
+  // Nothing a learner can't be expected to spell from hearing it once.
+  return !/[0-9(){}[\]<>«»„"]|\b[A-ZÄÖÜ]{2,}\b/.test(t);
+}
+
+// ---- separable verbs -------------------------------------------------------
+// `canTransform` excludes separable verbs on purpose: the bare finite form of
+// "ankommen" is "komme", and printing that as the answer would be teaching wrong
+// German. Correct — and it meant the app never drilled the single system English
+// speakers get wrong most, because their language has nothing like it.
+//
+// A dedicated drill can render them correctly, and more usefully can test the part
+// that actually confuses: the prefix *moves*. It detaches to the end of a main
+// clause in the present, wraps around -ge- in the participle, and stays attached in
+// the infinitive. Three shapes, one system.
+export type SepShape = 'praesens' | 'partizip' | 'perfekt';
+const SEP_LABEL: Record<SepShape, string> = {
+  praesens: 'Präsens', partizip: 'Partizip II', perfekt: 'Perfekt',
+};
+
+/** Build one separable-verb exercise. `rnd` injectable for tests. */
+export function buildSeparable(verb: string, shape: SepShape, pIdx: number) {
+  const c = conjugate(verb);
+  const prefix = c.separable ?? '';
+  const pronoun = PRONOUN[PERSONS_I[pIdx]].split('/')[0];
+  const bare = c.infinitive;
+
+  if (shape === 'partizip') {
+    return {
+      prompt: `„${bare}“ → Partizip II`,
+      accept: [c.partizip],
+      hints: [
+        `The prefix stays in front and -ge- goes between it and the verb`,
+        `${prefix}ge…`,
+        hintText(c.partizip, 3),
+      ],
+      reveal: {
+        derivation: [prefix, 'ge', c.partizip.slice(prefix.length + 2)],
+        note: 'A separable prefix wraps around the -ge-, rather than losing it.',
+      },
+      label: SEP_LABEL.partizip,
+    };
+  }
+  if (shape === 'perfekt') {
+    const form = c.perfekt[pIdx];               // "habe angerufen"
+    return {
+      prompt: `„${bare}“ → Perfekt · ${pronoun}`,
+      accept: [`${pronoun} ${form}`, form],
+      hints: [
+        `${c.aux} (conjugated) + the Partizip II`,
+        paradigmRow(conjugate(c.aux).praesens),
+        hintText(`${pronoun} ${form}`, 3),
+      ],
+      reveal: {
+        derivation: form.split(' '),
+        note: 'The participle stays whole here — nothing detaches in the Perfekt.',
+        paradigm: { label: 'Perfekt · all persons', rows: paradigmRows(c.perfekt) },
+      },
+      label: SEP_LABEL.perfekt,
+    };
+  }
+  const form = c.praesens[pIdx];                // "rufe an"
+  return {
+    prompt: `„${bare}“ → Präsens · ${pronoun}`,
+    accept: [`${pronoun} ${form}`, form],
+    hints: [
+      `The prefix „${prefix}“ detaches and goes to the end`,
+      paradigmRow(c.praesens),
+      hintText(`${pronoun} ${form}`, 3),
+    ],
+    reveal: {
+      derivation: form.split(' '),
+      note: `„${prefix}“ leaves the verb and closes the clause.`,
+      paradigm: { label: 'Präsens · all persons', rows: paradigmRows(c.praesens) },
+    },
+    label: SEP_LABEL.praesens,
+  };
+}
+
+/** The six [pronoun, form] pairs of one tense, for the reveal's paradigm table. */
+export function paradigmRows(forms: readonly string[]): [string, string][] {
+  return PERSONS_I.map((p, i) => [PRONOUN[p].split('/')[0], forms[i]] as [string, string]);
+}
+
 /** Build one transformation exercise: a Präsens form → a target tense, typed.
  *  Accepts the form with or without its pronoun ("hat gemacht" / "er hat
- *  gemacht" / "sie hat gemacht" / "es hat gemacht"). Exported for tests. */
-export function buildTransform(verb: string, pIdx: number, targetKey: 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2', label: string) {
+ *  gemacht" / "sie hat gemacht" / "es hat gemacht").
+ *
+ *  Returns `targetKey` alongside the copy so the caller can open the rule for the
+ *  tense it actually asked for, and a `reveal` so a miss teaches the construction
+ *  instead of only naming the form. Exported for tests. */
+export function buildTransform(verb: string, pIdx: number, targetKey: TransformKey, label: string) {
   const c = conjugate(verb);
   const pronouns = PRONOUN[PERSONS_I[pIdx]].split('/'); // "er/sie/es" → variants
   const source = `${pronouns[0]} ${c.praesens[pIdx]}`;
   const form = c[targetKey][pIdx];
+  // A compound tense splits into helper + non-finite part; the Präteritum and the
+  // synthetic Konjunktiv II are one word, so there is no formula to show.
+  const words = form.split(' ');
   return {
     prompt: `„${source}“ → ${label}`,
     accept: [`${pronouns[0]} ${form}`, form, ...pronouns.slice(1).map((p) => `${p} ${form}`)],
+    targetKey,
+    hints: transformHints(c, pIdx, targetKey),
+    reveal: {
+      derivation: words.length > 1 ? words : undefined,
+      note: words.length > 1
+        ? (targetKey === 'perfekt' ? 'The Partizip II goes to the end.' : 'The infinitive goes to the end.')
+        : undefined,
+      paradigm: { label: `${label} · all persons`, rows: paradigmRows(c[targetKey]) },
+    },
   };
 }
 // Legacy storage namespace: kept as `gym:` so learners' existing drill schedules
@@ -190,15 +529,21 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.kind === 'word' && w.gender) out.push('gender');
   if (w.kind === 'word' && w.plural) out.push('plural');
   if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
-  if (w.kind === 'word' && w.ex[0]?.de && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de)) out.push('cloze');
-  if (w.kind === 'word' && orderTokens(w.ex[0]?.de).length > 0) out.push('order');
+  if (w.kind === 'word' && clozeExample(w)) out.push('cloze');
+  if (w.kind === 'word' && orderExample(w)) out.push('order');
   if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');
+  if (w.pos === 'verb' && isSeparable(w.term)) out.push('separable');
+  if (w.pos === 'verb' && isReflexive(w.term)) out.push('reflexive');
+  if (w.kind === 'word' && drillExample(w, dictatable)) out.push('dictation');
   if (caseSafe(w)) out.push('case');
   return out;
 }
 export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
   order: 'Word order (sentence builder)', transform: 'Tense transformation', case: 'Cases & endings (Kasus)',
+  separable: 'Separable verbs (trennbare Verben)',
+  reflexive: 'Reflexive verbs (sich …)',
+  dictation: 'Dictation (hearing to spelling)',
 };
 
 /** The authored grammar point that teaches the system each generated drill
@@ -217,6 +562,10 @@ export const MODE_REMEDY: Record<Mode, string[]> = {
   order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],
   transform: ['gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
   case: ['gram:A2:Akkusativ', 'gram:A2:Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)', 'gram:A2:Adjektivdeklination: nach bestimmtem Artikel (schwach)', 'gram:B1:Genitiv'],
+  separable: ['gram:A2:Trennbare Verben'],
+  reflexive: ['gram:A2:Reflexive Verben'],
+  // Spelling from sound isn't one grammatical system, so there is no rule to open.
+  dictation: [],
 };
 
 /** The point whose rule explains a drill mode, for the "Why?" link. */
@@ -225,7 +574,9 @@ export const modeRulePoint = (m: Mode): string | null => MODE_REMEDY[m][0] ?? nu
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
   const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool()
-    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : mode === 'case' ? casePool() : clozePool();
+    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : mode === 'case' ? casePool()
+    : mode === 'separable' ? separablePool() : mode === 'reflexive' ? reflexivePool()
+    : mode === 'dictation' ? dictationPool() : clozePool();
   const now = Date.now();
   const due: Word[] = [], fresh: Word[] = [];
   for (const w of pool) {
@@ -245,6 +596,9 @@ export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[]
   { m: 'order', label: 'Sentence builder', icon: Shuffle, desc: 'Rebuild a real sentence from tiles — V2 and verb-final word order.' },
   { m: 'transform', label: 'Transformation', icon: Repeat, desc: 'Type a verb form in another tense. Production, not recognition.' },
   { m: 'case', label: 'Kasus', icon: Braces, desc: 'Declined articles & adjective endings — Nominativ · Akkusativ · Dativ · Genitiv.' },
+  { m: 'separable', label: 'Trennbare Verben', icon: Split, desc: 'Where the prefix goes — anrufen → ich rufe an, angerufen.' },
+  { m: 'reflexive', label: 'Reflexive Verben', icon: RefreshCw, desc: 'The pronoun that isn’t optional — sich freuen → ich freue mich.' },
+  { m: 'dictation', label: 'Diktat', icon: Ear, desc: 'Hear a sentence, write it. The only drill that makes you spell.' },
 ];
 
 /** One generated word-drill, played to completion. The landing that used to sit
@@ -264,7 +618,7 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
     tick(ok ? 'good' : 'wrong');
-    if (!ok) logMiss(MODE_TAG[mode]);
+    if (!ok) logMiss(MODE_TAG[mode], word.term);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);
 
@@ -273,10 +627,9 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
 
   return (
     <Shell onExit={onExit} progress={`${done}/${q.length}`} score={done ? Math.round((correct / done) * 100) : null}>
-      {/* The rule for the system this mode tests, always one tap away. Some
-          modes (gender) auto-advance and never pause on a miss, so the header
-          is the only place a learner can reliably reach an explanation. */}
-      <div className="text-center mb-3"><RuleToggle pointRef={modeRulePoint(mode)} label={MODE_TAG[mode]} /></div>
+      {/* The rule header is the item's own now (see DrillHeader): a mode-level
+          header could only ever name the mode, and three of these seven modes
+          pick a different grammatical target on every card. */}
       {mode === 'gender' && <GenderItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'plural' && <PluralItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'conj' && <ConjItem key={word.id} word={word} onGrade={advance} />}
@@ -284,6 +637,9 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
       {mode === 'order' && <OrderWordItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'transform' && <TransformItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'case' && <CaseItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'separable' && <SeparableItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'reflexive' && <ReflexiveItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'dictation' && <DictationItem key={word.id} word={word} onGrade={advance} />}
     </Shell>
   );
 }
@@ -315,6 +671,8 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
     setTimeout(() => onGrade(g === word.gender), 750);
   };
   return (
+    <>
+      <DrillHeader pointRef={modeRulePoint('gender')} label={MODE_TAG.gender} />
     <Card>
       <Prompt small="Which article?" gloss={word.en}>{stripArticle(word.term)}</Prompt>
       <div className="grid grid-cols-3 gap-2.5">
@@ -333,6 +691,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
         })}
       </div>
     </Card>
+    </>
   );
 }
 
@@ -374,10 +733,23 @@ function pluralVariants(singular: string): string[] {
   return [endsE ? singular + 'n' : singular + 'e', stem + 'en', stem + 'er', stem + 's', us + 'e', us + 'er', umlaut(singular), singular];
 }
 
-function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, mode, onGrade }:
-  { prompt: string; sub?: string; hint?: string; options: string[]; correct: number; extra?: string; bigPrompt?: boolean; mode?: Mode; onGrade: (ok: boolean) => void }) {
+function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, mode, rulePoint, ruleLabel, reveal, onGrade }:
+  { prompt: React.ReactNode; sub?: string; hint?: string; options: string[]; correct: number; extra?: React.ReactNode; bigPrompt?: boolean;
+    mode?: Mode; rulePoint?: string | null; ruleLabel?: string; reveal?: RevealData; onGrade: (ok: boolean) => void }) {
   const [picked, setPicked] = useState<number | null>(null);
+  // The rule for what this item actually tests. `rulePoint` is the item's own
+  // target (the Genitiv of *this* Kasus item, the Präteritum of *this* conjugation);
+  // the mode default is the fallback for modes whose items are all one system.
+  const point = rulePoint !== undefined ? rulePoint : mode ? modeRulePoint(mode) : null;
+  useChoiceKeys({
+    count: options.length,
+    answered: picked !== null,
+    onPick: setPicked,
+    onNext: () => picked !== null && onGrade(picked === correct),
+  });
   return (
+    <>
+      {ruleLabel && <DrillHeader pointRef={point} label={ruleLabel} />}
     <Card>
       <Prompt small={sub} gloss={hint} big={bigPrompt}>{prompt}</Prompt>
       <div className="grid gap-2.5">
@@ -389,6 +761,10 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
+              {/* The key that picks this option, shown so the shortcut is
+                  discoverable rather than folklore. Hidden on touch, where there
+                  is no keyboard to hint at. */}
+              <kbd aria-hidden className="hidden sm:inline-block font-mono text-2xs text-dim mr-2 tabular-nums">{i + 1}</kbd>
               {/* icon + colour: right/wrong never rides on colour alone */}
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
@@ -398,13 +774,21 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
         })}
       </div>
       {picked !== null && extra && <p className="text-dim text-xs mt-3 text-center font-mono">{extra}</p>}
+      {/* On a miss, teach: the paradigm this form belongs to. `conjugate()` had all
+          six persons the whole time and the drill showed one, then discarded them. */}
+      {picked !== null && picked !== correct && reveal?.paradigm && (
+        <div className="mt-3 mx-auto max-w-[19rem] text-left">
+          <RevealBlock label={reveal.paradigm.label}><Paradigm rows={reveal.paradigm.rows} /></RevealBlock>
+        </div>
+      )}
       {/* `extra` states the verdict as a formula ("subject position → Nominativ
           → der"). On a miss that isn’t an explanation, so offer the rule. */}
-      {picked !== null && picked !== correct && mode && (
-        <div className="mt-1 flex justify-center"><WhyLink pointRef={modeRulePoint(mode)} /></div>
+      {picked !== null && picked !== correct && point && (
+        <div className="mt-1 flex justify-center"><WhyLink pointRef={point} /></div>
       )}
       {picked !== null && <div className="mt-5 flex justify-center"><Button variant="secondary" onClick={() => onGrade(picked === correct)}>Next →</Button></div>}
     </Card>
+    </>
   );
 }
 
@@ -428,10 +812,12 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
     }
     return buildMC(correct, distract);
   }, [word.id]);
-  return <MCItem prompt={singular} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct} mode="plural" onGrade={onGrade} />;
+  return <MCItem prompt={<GenderTerm term={word.term} gender={word.gender} />}
+    sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct}
+    ruleLabel={MODE_TAG.plural} mode="plural" onGrade={onGrade} />;
 }
 
-const TENSES: { key: 'praesens' | 'praeteritum' | 'perfekt' | 'futur1' | 'konjunktiv2' | 'pp'; label: string }[] = [
+const TENSES: { key: TenseKey; label: string }[] = [
   { key: 'praesens', label: 'Präsens' },
   { key: 'praeteritum', label: 'Präteritum' },
   { key: 'perfekt', label: 'Perfekt' },
@@ -440,15 +826,30 @@ const TENSES: { key: 'praesens' | 'praeteritum' | 'perfekt' | 'futur1' | 'konjun
   { key: 'pp', label: 'Partizip II' },
 ];
 const PERSONS_I: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
+
+/** Which grammatical person to ask about.
+ *
+ *  This was a uniform `Math.random() * 6`, so a learner meeting a verb for the
+ *  first time could be asked for „ihr werdet müssen“ before they had ever produced
+ *  „ich werde“. 2nd person plural is both the rarest form in speech and the last
+ *  one any textbook introduces — a coin flip is not a curriculum.
+ *
+ *  PERSONS_I is already in teaching order, so an unconsolidated card draws from
+ *  the three singular persons and a known one draws from all six. The card earns
+ *  the harder forms rather than being handed them. */
+export function pickPersonIndex(status: Status, rnd: () => number = Math.random): number {
+  return Math.floor(rnd() * (status === 'known' ? 6 : 3));
+}
 export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const conj = useMemo(() => conjugate(word.term), [word.id]);
   const data = useMemo(() => {
-    const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
-    const pIdx = Math.floor(Math.random() * 6);
+    const tense = pickFocused(TENSES, focusTense());
+    const pIdx = pickPersonIndex(statusOf(id('conj', word)));
     const formOf = (c: typeof conj, idx: number) => tense.key === 'pp' ? c.partizip : c[tense.key][idx];
     const answer = formOf(conj, pIdx);
-    // Kicker states the grammatical target; the verb itself is the hero text.
-    const kicker = tense.key === 'pp' ? 'Partizip II' : `${tense.label} · ${PRONOUN[PERSONS_I[pIdx]]}`;
+    // The header names the tense (and opens its rule), so the kicker carries only
+    // the person — it used to repeat the tense the header had just stated.
+    const kicker = tense.key === 'pp' ? 'Partizip II' : PRONOUN[PERSONS_I[pIdx]];
     // Distractors stay in the SAME tense — the verb’s other persons first, then
     // other verbs' same tense/person — so a phrasal answer (Perfekt / Futur I /
     // Konjunktiv II) isn’t given away by being the only multi-word option.
@@ -459,16 +860,23 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
         .map((w) => formOf(conjugate(w.term), pIdx));
       distract = distract.concat(pickN(others, 3 - distract.length, new Set([norm(answer), ...distract.map(norm)])));
     }
-    return { ...buildMC(answer, distract), verb: stripArticle(word.term), kicker };
+    // The paradigm for the reveal. Partizip II is a single form, so there is no
+    // six-person table behind it — the Perfekt one is what teaches it.
+    const paradigm = tense.key === 'pp'
+      ? { label: 'Perfekt · all persons', rows: paradigmRows(conj.perfekt) }
+      : { label: `${tense.label} · all persons`, rows: paradigmRows(conj[tense.key]) };
+    return { ...buildMC(answer, distract), verb: stripArticle(word.term), kicker, tense, paradigm };
   }, [word.id]);
   return <MCItem prompt={data.verb} sub={data.kicker} hint={word.en} options={data.options} correct={data.correct}
-    extra={`Hilfsverb: ${conj.aux}${conj.separable ? ` · trennbar (${conj.separable}-)` : ''}`} mode="conj" onGrade={onGrade} />;
+    extra={`Hilfsverb: ${conj.aux}${conj.separable ? ` · trennbar (${conj.separable}-)` : ''}`}
+    rulePoint={TENSE_POINT[data.tense.key]} ruleLabel={data.tense.label}
+    reveal={{ paradigm: data.paradigm }} mode="conj" onGrade={onGrade} />;
 }
 
 export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const surface = stripArticle(word.term);
-  const ex = word.ex[0];
-  const re = new RegExp(`\\b(${escapeReg(surface)})\\b`, 'i');
+  const ex = clozeExample(word)!;
+  const re = wholeWordRe(surface);
   const m = re.exec(ex.de);
   const target = m ? m[1] : surface;
   const blanked = ex.de.replace(re, '_____');
@@ -486,7 +894,8 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
     const distract = pickN(base.map((w) => stripArticle(w.term)), 3, new Set([norm(target)]));
     return buildMC(target, distract);
   }, [word.id]);
-  return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false} options={mc.options} correct={mc.correct} mode="cloze" onGrade={onGrade} />;
+  return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false}
+    options={mc.options} correct={mc.correct} ruleLabel={MODE_TAG.cloze} mode="cloze" onGrade={onGrade} />;
 }
 
 // ---- production drills (reuse the authored-exercise widgets) --------------
@@ -494,33 +903,124 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
  *  needed, and real sentences carry real V2 / verb-final word order. */
 export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const ex = useMemo(() => {
-    const tiles = orderTokens(word.ex[0]?.de);
+    const src = orderExample(word);
     return {
       kind: 'order' as const,
-      prompt: word.ex[0]?.en || `A sentence with „${stripArticle(word.term)}“`,
-      tiles,
+      prompt: src?.en || `A sentence with „${stripArticle(word.term)}“`,
+      tiles: orderTokens(src?.de),
     };
   }, [word.id]);
-  return <OrderItem ex={ex} onGrade={onGrade} />;
+  return <OrderItem ex={ex} onGrade={onGrade} rulePoint={modeRulePoint('order')} ruleLabel={MODE_TAG.order} />;
 }
 
 /** Kasus: declined articles & weak adjective endings in case-forcing frames. */
 export function CaseItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const d = useMemo(() => buildCaseItem(word), [word.id]);
   return <MCItem prompt={d.prompt} sub={d.sub} hint={word.en} bigPrompt={false}
-    options={d.options} correct={d.correct} extra={d.extra} mode="case" onGrade={onGrade} />;
+    options={d.options} correct={d.correct}
+    extra={<><GenderTerm term={word.term} gender={word.gender} /> · {d.why} → {d.answer}</>}
+    rulePoint={CASE_POINT[d.kase]} ruleLabel={CASE_LABEL[d.kase]} mode="case" onGrade={onGrade} />;
 }
 
 /** Tense transformation, typed: „ich mache“ → Perfekt. Production, not
  *  recognition — the other half of the conjugation drill. */
 export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
-  const ex = useMemo(() => {
-    const t = TRANSFORM_TARGETS[Math.floor(Math.random() * TRANSFORM_TARGETS.length)];
-    const pIdx = Math.floor(Math.random() * 6);
-    const { prompt, accept } = buildTransform(word.term, pIdx, t.key, t.label);
-    return { kind: 'type' as const, prompt, accept, explain: word.en };
+  const built = useMemo(() => {
+    const t = pickFocused(TRANSFORM_TARGETS, focusTense());
+    const pIdx = pickPersonIndex(statusOf(id('transform', word)));
+    const { prompt, accept, hints } = buildTransform(word.term, pIdx, t.key, t.label);
+    return { ex: { kind: 'type' as const, prompt, accept, hints, explain: word.en }, target: t };
   }, [word.id]);
-  return <TypeItem ex={ex} onGrade={onGrade} />;
+  // The header names the tense this card asks for and opens *that* rule — the
+  // whole point of TENSE_POINT. It used to read "Tense transformation" and open
+  // Perfekt whatever the prompt said.
+  return <TypeItem ex={built.ex} onGrade={onGrade}
+    rulePoint={TENSE_POINT[built.target.key]} ruleLabel={built.target.label} />;
+}
+
+/** Separable verbs, typed. Three shapes drawn per card, because the system is that
+ *  the prefix *moves*: off to the end in the present, around -ge- in the participle,
+ *  and nowhere at all in the Perfekt's auxiliary construction. */
+export function SeparableItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const built = useMemo(() => {
+    const shapes: SepShape[] = ['praesens', 'praesens', 'partizip', 'perfekt'];
+    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+    const pIdx = pickPersonIndex(statusOf(id('separable', word)));
+    const { prompt, accept, hints, reveal, label } = buildSeparable(word.term, shape, pIdx);
+    return { ex: { kind: 'type' as const, prompt, accept, hints, reveal, explain: word.en }, label };
+  }, [word.id]);
+  return <TypeItem ex={built.ex} onGrade={onGrade}
+    rulePoint={modeRulePoint('separable')} ruleLabel={built.label} />;
+}
+
+/** Reflexive verbs, typed. The error this catches is omission: an English speaker
+ *  says "I remember" and writes „ich erinnere“, because English has no pronoun
+ *  there to forget. */
+export function ReflexiveItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const built = useMemo(() => {
+    const shape = Math.random() < 0.65 ? 'praesens' as const : 'perfekt' as const;
+    const pIdx = pickPersonIndex(statusOf(id('reflexive', word)));
+    const { prompt, accept, hints, reveal, label } = buildReflexive(word.term, shape, pIdx);
+    return { ex: { kind: 'type' as const, prompt, accept, hints, reveal, explain: word.en }, label };
+  }, [word.id]);
+  return <TypeItem ex={built.ex} onGrade={onGrade}
+    rulePoint={modeRulePoint('reflexive')} ruleLabel={built.label} />;
+}
+
+/** Diktat — hear a sentence, write it.
+ *
+ *  The only writing in the app, and the only drill where spelling is unavoidable:
+ *  umlauts, capitalisation, and where the words break. Graded exactly, because the
+ *  target is known to the character — and umlaut-tolerantly, like every other typed
+ *  answer, so „schoen“ is a near miss that gets named rather than a failure.
+ *
+ *  The sentence is never shown before answering. It is spoken on mount and can be
+ *  replayed as often as the learner likes — replaying is not cheating, it is the
+ *  exercise — and there is an escape for a device whose speech doesn't work, which
+ *  reveals the text and grades the attempt as unknown rather than stranding them. */
+export function DictationItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const src = drillExample(word, dictatable);
+  const sentence = src?.de ?? '';
+  const gloss = src?.en ?? '';
+  const [gaveUp, setGaveUp] = useState(false);
+
+  // Speak on arrival: the prompt *is* the audio, so waiting for a tap would leave
+  // the learner staring at an empty box wondering what the exercise is.
+  useEffect(() => { if (sentence) speak(sentence); }, [sentence]);
+
+  const ex = useMemo(() => ({
+    kind: 'type' as const,
+    prompt: '',                       // the audio is the prompt
+    accept: [sentence],
+    hints: [
+      `${sentence.split(/\s+/).length} words`,
+      `Starts with „${sentence.split(/\s+/)[0]}“`,
+      hintText(sentence, 3),
+    ],
+    explain: gloss,
+  }), [sentence, gloss]);
+
+  if (!sentence) return null;
+  return (
+    <>
+      <DrillHeader pointRef={null} label={MODE_TAG.dictation} />
+      <div className="flex flex-col items-center gap-2 mb-3">
+        <button onClick={() => speak(sentence)}
+          className="grid place-items-center w-16 h-16 rounded-full bg-panel border border-line text-amber
+            hover:bg-panel2 active:scale-95 transition-transform"
+          aria-label="Play the sentence again">
+          <Volume2 size={26} />
+        </button>
+        <p className="text-2xs text-dim">Play as often as you like — that’s the exercise</p>
+        {gaveUp
+          ? <p lang="de" className="text-sm text-txt mt-1">{sentence}</p>
+          : <button onClick={() => setGaveUp(true)} className="text-2xs text-dim hover:text-amber underline underline-offset-2">
+              Can’t hear it? Show the sentence
+            </button>}
+      </div>
+      <TypeItem key={word.id} ex={ex} onGrade={(ok) => onGrade(ok && !gaveUp)} />
+    </>
+  );
 }
 
 /** The drill surface. Same material as the flip card — an exercise is the same
@@ -533,7 +1033,11 @@ function Prompt({ children, small, gloss, big = true }: { children: React.ReactN
   return (
     <div className="text-center mb-5">
       {small && <div className="text-2xs text-amber font-mono uppercase tracking-widest mb-2 font-semibold">{small}</div>}
-      <div className={`font-bold leading-snug ${big ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl'}`}>{children}</div>
+      {/* `.headword` (Fraunces) was scoped to the flip faces — two lines per screen,
+          on the app's only warm typeface. The German being *tested* is a headword
+          too, so an exercise prompt now reads as the subject of the app rather than
+          as data inside it. `lang="de"` for the same reason it's on the flip. */}
+      <div lang="de" className={`headword font-bold leading-snug ${big ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl'}`}>{children}</div>
       {gloss && <p className="text-dim text-xs mt-2">{gloss}</p>}
     </div>
   );

@@ -754,3 +754,290 @@ describe('teach-only first session', () => {
     void store; void srs;
   });
 });
+
+// "Quick 5" was a queue length standing in for a duration, and a queue length is a
+// bad proxy: this builder expands words into flips *plus* drills, and a typed
+// transformation costs several times what a flip does. These pin the estimate's
+// shape — that it never lies in the reassuring direction, and that trimming to a
+// budget and estimating that budget are actually inverses.
+describe('session length estimates', () => {
+  it('round-trips a budget through the estimate', async () => {
+    const { session } = await fresh();
+    for (const minutes of [3, 5, 10, 20]) {
+      const words = session.wordsForMinutes(minutes);
+      // The words that fit must not be estimated as *over* the budget the learner
+      // asked for — a "3 min" button that serves 4 minutes of work is a lie.
+      expect(session.estimateSeconds(words), `${minutes} min`).toBeLessThanOrEqual(minutes * 60);
+      // And it must fill the budget rather than under-serving it: one more word
+      // would exceed it.
+      expect(session.estimateSeconds(words + 1), `${minutes} min`).toBeGreaterThan(minutes * 60);
+    }
+  });
+
+  it('never reports zero minutes for real work', async () => {
+    const { session } = await fresh();
+    expect(session.estimateMinutes(0)).toBe(0);
+    expect(session.estimateMinutes(1)).toBeGreaterThanOrEqual(1);
+    expect(session.estimateMinutes(2)).toBeGreaterThanOrEqual(1);
+  });
+
+  it('serves at least one word for any budget', async () => {
+    const { session } = await fresh();
+    expect(session.wordsForMinutes(0)).toBeGreaterThanOrEqual(1);
+    expect(session.wordsForMinutes(0.1)).toBeGreaterThanOrEqual(1);
+  });
+
+  it('grows monotonically with the budget', async () => {
+    const { session } = await fresh();
+    const sizes = [1, 3, 5, 10, 20, 60].map((m) => session.wordsForMinutes(m));
+    for (let i = 1; i < sizes.length; i++) expect(sizes[i]).toBeGreaterThan(sizes[i - 1]);
+  });
+
+  it('counts a drill as costing more than a flip', async () => {
+    const { session } = await fresh();
+    // If these ever invert, the estimate is modelling the wrong thing.
+    expect(session.SECONDS_PER_DRILL).toBeGreaterThan(session.SECONDS_PER_FLIP);
+    expect(session.estimateSeconds(10)).toBeGreaterThan(10 * session.SECONDS_PER_FLIP);
+  });
+});
+
+// Same-day resume was called "emergent" — grades persist, so reopening rebuilds
+// the remainder and nothing is lost. True of the cards, false of the session: this
+// builder makes five randomised decisions per session, so a rebuild is a
+// *different* queue and the learner's place in it is gone.
+describe('session resume', () => {
+  const target = { kind: 'all' as const, name: 'All' };
+
+  async function seeded() {
+    const { data, store, session, srs } = await fresh();
+    data.registerWords(Array.from({ length: 12 }, (_, i) =>
+      word(`r${i}`, 'Core', { level: 'A1', en: 'x', gender: 'der', plural: 'die Rs', pos: 'noun',
+        ex: [{ de: `Der r${i} ist gut.`, en: 'x', lvl: 'A1' }] })));
+    return { store, session, srs };
+  }
+
+  it('brings back the exact queue and position', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 4);
+    const back = session.loadSession(target);
+    expect(back!.position).toBe(4);
+    expect(back!.items.map((it: any) => it.srsId)).toEqual(built.map((it: any) => it.srsId));
+    expect(back!.items.map((it: any) => it.type)).toEqual(built.map((it: any) => it.type));
+    // The reason is what WhyThisCard renders; losing it on resume would silently
+    // strip the one feature that explains the queue.
+    expect(back!.items.map((it: any) => it.reason.kind)).toEqual(built.map((it: any) => it.reason.kind));
+  });
+
+  it('rehydrates Word references rather than restoring stale copies', async () => {
+    const { session } = await seeded();
+    const { BY_ID } = await import('./data/index.ts');
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 2);
+    const back = session.loadSession(target)!;
+
+    // Identity, not a structural copy. Only ids are stored, so every Word on the
+    // way back is the live lexicon's object — a resumed session can never revive
+    // a card the corpus has since changed.
+    for (const it of back.items) expect(it.word).toBe(BY_ID.get(it.word.id));
+
+    const drill: any = back.items.find((it: any) => it.reason.kind === 'drill');
+    if (drill) expect(drill.reason.parent).toBe(BY_ID.get(drill.reason.parent.id));
+  });
+
+  it('stores nothing at the start or the end of a session', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 3);
+    expect(session.loadSession(target)).not.toBeNull();
+    session.saveSession(target, built, 0);            // not started
+    expect(session.loadSession(target)).toBeNull();
+    session.saveSession(target, built, 3);
+    session.saveSession(target, built, built.length); // finished
+    expect(session.loadSession(target)).toBeNull();
+  });
+
+  it('refuses a session saved for a different scope', async () => {
+    const { session } = await seeded();
+    session.saveSession(target, session.buildMixedSession(target), 3);
+    expect(session.loadSession({ kind: 'sector', name: 'Core' })).toBeNull();
+  });
+
+  it('refuses yesterday’s queue — FSRS has moved on since', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 3);
+    const raw = JSON.parse(localStorage.getItem('lexi.session.v1')!);
+    raw.at = Date.now() - 26 * 3600e3;
+    localStorage.setItem('lexi.session.v1', JSON.stringify(raw));
+    expect(session.loadSession(target)).toBeNull();
+  });
+
+  it('refuses a queue whose words have gone, rather than resuming with holes', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 3);
+    const raw = JSON.parse(localStorage.getItem('lexi.session.v1')!);
+    raw.items[1].w = 'voc:A1:this-card-no-longer-exists';
+    localStorage.setItem('lexi.session.v1', JSON.stringify(raw));
+    // A partial restore would renumber every position after the hole.
+    expect(session.loadSession(target)).toBeNull();
+  });
+
+  it('survives a corrupt or empty slot', async () => {
+    const { session } = await seeded();
+    localStorage.setItem('lexi.session.v1', 'not json');
+    expect(session.loadSession(target)).toBeNull();
+    localStorage.removeItem('lexi.session.v1');
+    expect(session.loadSession(target)).toBeNull();
+  });
+});
+
+// Lesen. Everything else in the app is retrieval; this is the only thing that
+// hands the learner German to *understand*. The band is the whole design: zero
+// unknown words teaches nothing, four is a vocabulary list in disguise.
+describe('reader', () => {
+  async function withCorpus() {
+    vi.resetModules();
+    const data = await import('./data/index.ts');
+    const store = await import('./store.ts');
+    const reader = await import('./lib/reader.ts');
+    reader.resetSurfaceIndex();
+    data.registerWords([
+      word('voc:A1:der Hund', 'Animals', { term: 'der Hund', en: 'dog', gender: 'der', plural: 'die Hunde',
+        ex: [{ de: 'Der Hund schläft im Garten.', en: 'The dog sleeps in the garden.', lvl: 'A1' }] }),
+      word('voc:A1:der Garten', 'Home', { term: 'der Garten', en: 'garden', gender: 'der', plural: 'die Gärten', ex: [] }),
+      word('voc:A1:schlafen', 'Core', { term: 'schlafen', en: 'to sleep', pos: 'verb', ex: [] }),
+      word('voc:A1:im', 'Grammar', { term: 'im', en: 'in the', pos: 'preposition', ex: [] }),
+    ]);
+    return { data, store, reader };
+  }
+
+  it('resolves inflected forms back to their card', async () => {
+    const { reader } = await withCorpus();
+    const idx = reader.surfaceIndex();
+    // A plural and a conjugated form — a bare term index would miss both, and most
+    // of any real sentence with them.
+    expect(idx.get('hunde')?.id).toBe('voc:A1:der Hund');
+    expect(idx.get('schläft')?.id).toBe('voc:A1:schlafen');
+    expect(idx.get('geschlafen')?.id).toBe('voc:A1:schlafen');
+  });
+
+  it('marks only the words the learner has never met', async () => {
+    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
+    store.review('voc:A1:der Hund', srs.Rating.Good);   // met
+    const toks = reader.annotate('Der Hund schläft im Garten.',
+      (w: any) => store.statusOf(w.id) !== 'new');
+    const unknown = toks.filter((t: any) => t.unknown).map((t: any) => t.text);
+    expect(unknown).not.toContain('Hund');
+    expect(unknown).toContain('Garten');
+  });
+
+  it('reassembles the sentence exactly, punctuation and all', async () => {
+    const { reader } = await withCorpus();
+    const de = 'Der Hund schläft im Garten.';
+    expect(reader.annotate(de, () => true).map((t: any) => t.text).join('')).toBe(de);
+  });
+
+  it('offers nothing when every word is already known — that teaches nothing', async () => {
+    const { reader } = await withCorpus();
+    const out = reader.pickReadable({ familiar: () => true, inScope: () => true });
+    expect(out).toEqual([]);
+  });
+
+  it('offers nothing when the sentence is too far out of reach', async () => {
+    const { reader } = await withCorpus();
+    // Nothing familiar at all: 3+ unknown words is a vocabulary list, not reading.
+    const out = reader.pickReadable({ familiar: () => false, inScope: () => true, maxUnknown: 1 });
+    expect(out).toEqual([]);
+  });
+
+  it('finds the i+1 sentence and names what is new in it', async () => {
+    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
+    for (const id of ['voc:A1:der Hund', 'voc:A1:schlafen', 'voc:A1:im']) store.review(id, srs.Rating.Good);
+    const out = reader.pickReadable({
+      familiar: (w: any) => store.statusOf(w.id) !== 'new',
+      inScope: () => true, minTokens: 3,
+    });
+    expect(out).toHaveLength(1);
+    expect(out[0].unknownWords.map((w: any) => w.id)).toEqual(['voc:A1:der Garten']);
+    expect(out[0].en).toBe('The dog sleeps in the garden.');
+  });
+
+  it('respects the level filter', async () => {
+    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
+    for (const id of ['voc:A1:der Hund', 'voc:A1:schlafen', 'voc:A1:im']) store.review(id, srs.Rating.Good);
+    const out = reader.pickReadable({
+      familiar: (w: any) => store.statusOf(w.id) !== 'new',
+      inScope: () => false, minTokens: 3,
+    });
+    expect(out).toEqual([]);
+  });
+
+  it('puts the most readable sentence first', async () => {
+    const { reader } = await withCorpus();
+    const out = reader.pickReadable({
+      familiar: () => false, inScope: () => true, minTokens: 3, maxUnknown: 4,
+    });
+    for (let i = 1; i < out.length; i++) {
+      expect(out[i].unknownWords.length).toBeGreaterThanOrEqual(out[i - 1].unknownWords.length);
+    }
+  });
+});
+
+// Lexi was a testing app that never taught: a beginner could be asked
+// `der Vater → die ___` before anything had said what a plural is. The rule was one
+// tap away the whole time, behind a link a learner has no reason to tap when they
+// don't yet know what the word on it means.
+describe('teach before test', () => {
+  const target = { kind: 'all' as const, name: 'All' };
+
+  async function withNouns() {
+    const { data, store, session, srs, fundamentals } = await fresh();
+    data.registerWords(Array.from({ length: 8 }, (_, i) =>
+      word(`t${i}`, 'Nouns', { gender: 'der', plural: 'die Ts', pos: 'noun' })));
+    return { store, session, srs, fundamentals };
+  }
+
+  it('marks the first drill of a mode the learner has never answered', async () => {
+    const { session } = await withNouns();
+    const drills = session.buildMixedSession(target).filter((it: any) => it.type !== 'flip');
+    expect(drills.length).toBeGreaterThan(0);
+    for (const mode of new Set(drills.map((d: any) => d.type))) {
+      const inMode = drills.filter((d: any) => d.type === mode);
+      // Exactly one introduction per mode per session, on whichever card reaches
+      // it first — an intro on every card would be a lecture, not a lesson.
+      expect(inMode.filter((d: any) => d.teach), `mode ${mode}`).toHaveLength(1);
+      expect(inMode[0].teach, `mode ${mode} — the first one`).toBe(true);
+    }
+  });
+
+  it('stops introducing a mode once it has actually been answered', async () => {
+    const { session, store, srs, fundamentals } = await withNouns();
+    // Grading any drill in the mode is what counts as having met it.
+    const first = session.buildMixedSession(target).find((it: any) => it.type !== 'flip')!;
+    store.review(first.srsId, srs.Rating.Good);
+
+    const again = session.buildMixedSession(target)
+      .filter((it: any) => it.type === first.type);
+    expect(again.every((d: any) => !d.teach), `${first.type} was re-introduced`).toBe(true);
+    void fundamentals;
+  });
+
+  it('never marks a plain vocabulary flip', async () => {
+    const { session } = await withNouns();
+    const flips = session.buildMixedSession(target).filter((it: any) => it.type === 'flip');
+    expect(flips.every((f: any) => !f.teach)).toBe(true);
+  });
+
+  it('carries the introduction across a resume', async () => {
+    const { session } = await withNouns();
+    const built = session.buildMixedSession(target);
+    const teachAt = built.findIndex((it: any) => it.teach);
+    expect(teachAt).toBeGreaterThanOrEqual(0);
+    session.saveSession(target, built, 1);
+    const back = session.loadSession(target)!;
+    // Losing this on resume would silently drop the one card that teaches.
+    expect(back.items.map((it: any) => !!it.teach)).toEqual(built.map((it: any) => !!it.teach));
+  });
+});
