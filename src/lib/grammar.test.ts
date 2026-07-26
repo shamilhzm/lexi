@@ -14,11 +14,11 @@ import {
 } from './grammar.ts';
 import {
   MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, buildTransform, transformHints,
-  wholeWordRe, pickPersonIndex, type Mode,
+  wholeWordRe, pickPersonIndex, buildSeparable, isSeparable, canTransform, type Mode,
 } from '../views/Fundamentals.tsx';
 import { spellingDiff } from '../views/GrammarDrill.tsx';
 import { termGloss } from '../components/RulePanel.tsx';
-import { conjugate } from './conjugate.ts';
+import { conjugate, setKnownVerbs } from './conjugate.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 
 const g: GrammarByLevel = JSON.parse(readFileSync('public/data/grammar.json', 'utf8'));
@@ -362,5 +362,118 @@ describe('termGloss', () => {
   it('leaves ordinary labels alone', () => {
     expect(termGloss('Noun plurals')).toBeUndefined();
     expect(termGloss('Gender (der/die/das)')).toBeUndefined();
+  });
+});
+
+// canTransform excludes separable verbs on purpose — the bare finite form of
+// "ankommen" is "komme", and printing that would teach wrong German. The cost was
+// that the app never drilled the one system English has no equivalent of. These
+// pin that the dedicated drill renders each shape correctly, because a drill that
+// teaches the wrong form is worse than no drill.
+describe('separable verbs', () => {
+  it('detaches the prefix in the present and closes the clause with it', () => {
+    const p = buildSeparable('anrufen', 'praesens', 0);
+    expect(p.prompt).toBe('„anrufen“ → Präsens · ich');
+    expect(p.accept).toContain('ich rufe an');
+    expect(p.accept).toContain('rufe an');
+    expect(p.reveal.derivation).toEqual(['rufe', 'an']);
+  });
+
+  it('wraps the prefix around -ge- in the participle', () => {
+    const p = buildSeparable('anrufen', 'partizip', 0);
+    expect(p.accept).toEqual(['angerufen']);
+    // an + ge + rufen — the shape that makes the rule visible.
+    expect(p.reveal.derivation).toEqual(['an', 'ge', 'rufen']);
+  });
+
+  it('keeps the participle whole in the Perfekt, with the right auxiliary', () => {
+    expect(buildSeparable('anrufen', 'perfekt', 0).accept).toContain('ich habe angerufen');
+    // Verbs of motion take sein — getting this wrong would teach a real error.
+    expect(buildSeparable('ankommen', 'perfekt', 0).accept).toContain('ich bin angekommen');
+    expect(buildSeparable('aufstehen', 'perfekt', 2).accept).toContain('er ist aufgestanden');
+  });
+
+  it('names the prefix in its first hint rather than counting letters', () => {
+    expect(buildSeparable('mitkommen', 'praesens', 1).hints[0]).toContain('„mit“');
+    expect(buildSeparable('mitkommen', 'praesens', 1).hints[1])
+      .toBe('ich komme mit · du kommst mit · er kommt mit · wir kommen mit · ihr kommt mit · sie kommen mit');
+  });
+
+  it('accepts only separable verbs the engine is confident about', () => {
+    expect(isSeparable('anrufen')).toBe(true);
+    expect(isSeparable('aufstehen')).toBe(true);
+    expect(isSeparable('machen')).toBe(false);       // no prefix
+    expect(isSeparable('verstehen')).toBe(false);    // inseparable prefix
+    // The two gates are complements on the separable axis: a verb is never
+    // offered to both drills, so neither can print the other's wrong form.
+    for (const v of ['anrufen', 'aufstehen', 'mitkommen', 'einkaufen']) {
+      expect(canTransform(v), `${v} must not reach the transform drill`).toBe(false);
+    }
+  });
+
+  it('never renders a form that loses its prefix', () => {
+    // The exact failure canTransform was written to avoid: "ich komme" for
+    // ankommen. Asserted over every verb the drill would actually offer, and only
+    // those — the engine needs setKnownVerbs (which the app calls at load) before
+    // it can split a *regular* separable verb like einkaufen, and a verb it can't
+    // split is one isSeparable already refuses.
+    const offered = ['anrufen', 'aufstehen', 'mitkommen', 'einkaufen', 'fernsehen', 'ankommen']
+      .filter(isSeparable);
+    expect(offered.length, 'no separable verb was recognised at all').toBeGreaterThan(2);
+    for (const v of offered) {
+      const prefix = conjugate(v).separable!;
+      for (const shape of ['praesens', 'partizip', 'perfekt'] as const) {
+        for (const p of [0, 2, 4]) {
+          expect(buildSeparable(v, shape, p).accept[0], `${v}/${shape}/p${p} dropped „${prefix}“`)
+            .toContain(prefix);
+        }
+      }
+    }
+  });
+});
+
+// The unit tests above run on the engine's built-in irregular table. This one runs
+// it the way the app does — with setKnownVerbs primed from the shipped corpus,
+// which is what lets it split a *regular* separable verb — and checks the whole
+// eligible set rather than a handful of hand-picked verbs.
+describe('separable verbs, against the shipped corpus', () => {
+  const corpus: { term: string; pos: string; kind: string }[] =
+    JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
+
+  // Same call data/index.ts makes after loading the lexicon.
+  setKnownVerbs(corpus.filter((w) => w.pos === 'verb').map((w) => w.term));
+  const eligible = corpus.filter((w) => w.pos === 'verb' && isSeparable(w.term));
+
+  it('finds a real pool, not a handful', () => {
+    expect(eligible.length).toBeGreaterThan(100);
+  });
+
+  it('shares no verb with the transform drill', () => {
+    // The two gates partition the verbs on separability. An overlap would mean one
+    // drill printing the form the other exists to avoid.
+    expect(eligible.filter((w) => canTransform(w.term)).map((w) => w.term)).toEqual([]);
+  });
+
+  it('keeps the prefix in every shape of every eligible verb', () => {
+    const broken: string[] = [];
+    for (const w of eligible) {
+      const prefix = conjugate(w.term).separable!;
+      for (const shape of ['praesens', 'partizip', 'perfekt'] as const) {
+        for (const p of [0, 1, 2, 3, 4, 5]) {
+          const answer = buildSeparable(w.term, shape, p).accept[0];
+          if (!answer.includes(prefix)) broken.push(`${w.term}/${shape}/p${p} → ${answer}`);
+        }
+      }
+    }
+    expect(broken.slice(0, 10)).toEqual([]);
+  });
+
+  it('never offers an empty or single-character answer', () => {
+    for (const w of eligible.slice(0, 200)) {
+      for (const shape of ['praesens', 'partizip', 'perfekt'] as const) {
+        const a = buildSeparable(w.term, shape, 0).accept[0];
+        expect(a.trim().length, `${w.term}/${shape}`).toBeGreaterThan(2);
+      }
+    }
   });
 });

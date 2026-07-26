@@ -12,7 +12,7 @@
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it’s a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Split, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak, statusOf, type Status } from '../store.ts';
@@ -30,7 +30,7 @@ import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { Word } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case';
+export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case' | 'separable';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -48,6 +48,7 @@ const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && 
 const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderTokens(w.ex[0]?.de).length > 0);
 const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
 const casePool = () => WORDS.filter((w) => inLevels(w) && caseSafe(w));
+const separablePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isSeparable(w.term));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
@@ -86,6 +87,13 @@ export function orderTokens(sentence?: string): string[] {
 export function canTransform(verb: string): boolean {
   const c = conjugate(verb);
   return c.reliable && !c.separable && !c.reflexive;
+}
+
+/** A verb whose prefix detaches, and which the engine can render confidently.
+ *  The exact complement of what `canTransform` refuses on those grounds. */
+export function isSeparable(verb: string): boolean {
+  const c = conjugate(verb);
+  return c.reliable && !!c.separable && !c.reflexive;
 }
 
 // ---- Kasus drill: declined articles + weak adjective endings ---------------
@@ -290,6 +298,80 @@ export function transformHints(c: Conjugation, pIdx: number, targetKey: Transfor
   }
 }
 
+// ---- separable verbs -------------------------------------------------------
+// `canTransform` excludes separable verbs on purpose: the bare finite form of
+// "ankommen" is "komme", and printing that as the answer would be teaching wrong
+// German. Correct — and it meant the app never drilled the single system English
+// speakers get wrong most, because their language has nothing like it.
+//
+// A dedicated drill can render them correctly, and more usefully can test the part
+// that actually confuses: the prefix *moves*. It detaches to the end of a main
+// clause in the present, wraps around -ge- in the participle, and stays attached in
+// the infinitive. Three shapes, one system.
+export type SepShape = 'praesens' | 'partizip' | 'perfekt';
+const SEP_LABEL: Record<SepShape, string> = {
+  praesens: 'Präsens', partizip: 'Partizip II', perfekt: 'Perfekt',
+};
+
+/** Build one separable-verb exercise. `rnd` injectable for tests. */
+export function buildSeparable(verb: string, shape: SepShape, pIdx: number) {
+  const c = conjugate(verb);
+  const prefix = c.separable ?? '';
+  const pronoun = PRONOUN[PERSONS_I[pIdx]].split('/')[0];
+  const bare = c.infinitive;
+
+  if (shape === 'partizip') {
+    return {
+      prompt: `„${bare}“ → Partizip II`,
+      accept: [c.partizip],
+      hints: [
+        `The prefix stays in front and -ge- goes between it and the verb`,
+        `${prefix}ge…`,
+        hintText(c.partizip, 3),
+      ],
+      reveal: {
+        derivation: [prefix, 'ge', c.partizip.slice(prefix.length + 2)],
+        note: 'A separable prefix wraps around the -ge-, rather than losing it.',
+      },
+      label: SEP_LABEL.partizip,
+    };
+  }
+  if (shape === 'perfekt') {
+    const form = c.perfekt[pIdx];               // "habe angerufen"
+    return {
+      prompt: `„${bare}“ → Perfekt · ${pronoun}`,
+      accept: [`${pronoun} ${form}`, form],
+      hints: [
+        `${c.aux} (conjugated) + the Partizip II`,
+        paradigmRow(conjugate(c.aux).praesens),
+        hintText(`${pronoun} ${form}`, 3),
+      ],
+      reveal: {
+        derivation: form.split(' '),
+        note: 'The participle stays whole here — nothing detaches in the Perfekt.',
+        paradigm: { label: 'Perfekt · all persons', rows: paradigmRows(c.perfekt) },
+      },
+      label: SEP_LABEL.perfekt,
+    };
+  }
+  const form = c.praesens[pIdx];                // "rufe an"
+  return {
+    prompt: `„${bare}“ → Präsens · ${pronoun}`,
+    accept: [`${pronoun} ${form}`, form],
+    hints: [
+      `The prefix „${prefix}“ detaches and goes to the end`,
+      paradigmRow(c.praesens),
+      hintText(`${pronoun} ${form}`, 3),
+    ],
+    reveal: {
+      derivation: form.split(' '),
+      note: `„${prefix}“ leaves the verb and closes the clause.`,
+      paradigm: { label: 'Präsens · all persons', rows: paradigmRows(c.praesens) },
+    },
+    label: SEP_LABEL.praesens,
+  };
+}
+
 /** The six [pronoun, form] pairs of one tense, for the reveal's paradigm table. */
 export function paradigmRows(forms: readonly string[]): [string, string][] {
   return PERSONS_I.map((p, i) => [PRONOUN[p].split('/')[0], forms[i]] as [string, string]);
@@ -338,12 +420,14 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.kind === 'word' && w.ex[0]?.de && wholeWordRe(stripArticle(w.term)).test(w.ex[0].de)) out.push('cloze');
   if (w.kind === 'word' && orderTokens(w.ex[0]?.de).length > 0) out.push('order');
   if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');
+  if (w.pos === 'verb' && isSeparable(w.term)) out.push('separable');
   if (caseSafe(w)) out.push('case');
   return out;
 }
 export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)', plural: 'Noun plurals', conj: 'Verb conjugation', cloze: 'Cloze (word in context)',
   order: 'Word order (sentence builder)', transform: 'Tense transformation', case: 'Cases & endings (Kasus)',
+  separable: 'Separable verbs (trennbare Verben)',
 };
 
 /** The authored grammar point that teaches the system each generated drill
@@ -362,6 +446,7 @@ export const MODE_REMEDY: Record<Mode, string[]> = {
   order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],
   transform: ['gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
   case: ['gram:A2:Akkusativ', 'gram:A2:Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)', 'gram:A2:Adjektivdeklination: nach bestimmtem Artikel (schwach)', 'gram:B1:Genitiv'],
+  separable: ['gram:A2:Trennbare Verben'],
 };
 
 /** The point whose rule explains a drill mode, for the "Why?" link. */
@@ -370,7 +455,8 @@ export const modeRulePoint = (m: Mode): string | null => MODE_REMEDY[m][0] ?? nu
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
   const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool()
-    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : mode === 'case' ? casePool() : clozePool();
+    : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : mode === 'case' ? casePool()
+    : mode === 'separable' ? separablePool() : clozePool();
   const now = Date.now();
   const due: Word[] = [], fresh: Word[] = [];
   for (const w of pool) {
@@ -390,6 +476,7 @@ export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[]
   { m: 'order', label: 'Sentence builder', icon: Shuffle, desc: 'Rebuild a real sentence from tiles — V2 and verb-final word order.' },
   { m: 'transform', label: 'Transformation', icon: Repeat, desc: 'Type a verb form in another tense. Production, not recognition.' },
   { m: 'case', label: 'Kasus', icon: Braces, desc: 'Declined articles & adjective endings — Nominativ · Akkusativ · Dativ · Genitiv.' },
+  { m: 'separable', label: 'Trennbare Verben', icon: Split, desc: 'Where the prefix goes — anrufen → ich rufe an, angerufen.' },
 ];
 
 /** One generated word-drill, played to completion. The landing that used to sit
@@ -428,6 +515,7 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
       {mode === 'order' && <OrderWordItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'transform' && <TransformItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'case' && <CaseItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'separable' && <SeparableItem key={word.id} word={word} onGrade={advance} />}
     </Shell>
   );
 }
@@ -724,6 +812,21 @@ export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
   // Perfekt whatever the prompt said.
   return <TypeItem ex={built.ex} onGrade={onGrade}
     rulePoint={TENSE_POINT[built.target.key]} ruleLabel={built.target.label} />;
+}
+
+/** Separable verbs, typed. Three shapes drawn per card, because the system is that
+ *  the prefix *moves*: off to the end in the present, around -ge- in the participle,
+ *  and nowhere at all in the Perfekt's auxiliary construction. */
+export function SeparableItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const built = useMemo(() => {
+    const shapes: SepShape[] = ['praesens', 'praesens', 'partizip', 'perfekt'];
+    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+    const pIdx = pickPersonIndex(statusOf(id('separable', word)));
+    const { prompt, accept, hints, reveal, label } = buildSeparable(word.term, shape, pIdx);
+    return { ex: { kind: 'type' as const, prompt, accept, hints, reveal, explain: word.en }, label };
+  }, [word.id]);
+  return <TypeItem ex={built.ex} onGrade={onGrade}
+    rulePoint={modeRulePoint('separable')} ruleLabel={built.label} />;
 }
 
 /** The drill surface. Same material as the flip card — an exercise is the same
