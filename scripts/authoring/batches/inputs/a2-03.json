@@ -1,0 +1,1209 @@
+[
+{
+"id": "voc:A2:der Unterschied",
+"term": "der Unterschied",
+"en": "difference",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wo ist der Unterschied?"
+]
+}
+},
+{
+"id": "voc:A2:der Vorteil",
+"term": "der Vorteil",
+"en": "advantage",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Das hat einen großen Vorteil."
+]
+}
+},
+{
+"id": "voc:A2:die Auskunft",
+"term": "die Auskunft",
+"en": "information",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich frage am Schalter nach einer Auskunft."
+]
+}
+},
+{
+"id": "voc:A2:die Reise",
+"term": "die Reise",
+"en": "journey, trip",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir machen eine Reise nach Italien."
+]
+}
+},
+{
+"id": "voc:A2:die Miete",
+"term": "die Miete",
+"en": "rent",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Miete für die Wohnung ist sehr hoch."
+]
+}
+},
+{
+"id": "voc:A2:das Werkzeug",
+"term": "das Werkzeug",
+"en": "tool",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Für die Reparatur brauche ich das richtige Werkzeug."
+]
+}
+},
+{
+"id": "voc:A2:die Ordnung",
+"term": "die Ordnung",
+"en": "order, tidiness",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Alles ist in Ordnung."
+]
+}
+},
+{
+"id": "voc:A2:der Regenschirm",
+"term": "der Regenschirm",
+"en": "umbrella",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Nimm einen Regenschirm mit, es regnet."
+]
+}
+},
+{
+"id": "voc:A2:das Gegenteil",
+"term": "das Gegenteil",
+"en": "opposite",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"„Groß“ ist das Gegenteil von „klein“."
+]
+}
+},
+{
+"id": "voc:A2:die Apotheke",
+"term": "die Apotheke",
+"en": "pharmacy",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Dieses Medikament bekommt man nur in der Apotheke."
+]
+}
+},
+{
+"id": "voc:A2:wandern",
+"term": "wandern",
+"en": "to hike",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Am Wochenende wandern wir in den Bergen."
+]
+}
+},
+{
+"id": "voc:A2:sammeln",
+"term": "sammeln",
+"en": "to collect",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Mein Sohn sammelt Briefmarken."
+]
+}
+},
+{
+"id": "voc:A2:verbieten",
+"term": "verbieten",
+"en": "to forbid",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Arzt hat mir Kaffee verboten."
+]
+}
+},
+{
+"id": "voc:A2:aufgeregt",
+"term": "aufgeregt",
+"en": "excited, nervous",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Vor der Prüfung bin ich immer aufgeregt."
+]
+}
+},
+{
+"id": "voc:A2:die Überraschung",
+"term": "die Überraschung",
+"en": "surprise",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Was für eine schöne Überraschung!"
+]
+}
+},
+{
+"id": "voc:A2:der Gastgeber",
+"term": "der Gastgeber",
+"en": "host",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Gastgeber begrüßte alle Gäste an der Tür."
+]
+}
+},
+{
+"id": "voc:A2:die Lage",
+"term": "die Lage",
+"en": "location; situation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Wohnung hat eine ruhige Lage."
+]
+}
+},
+{
+"id": "voc:A2:zentral",
+"term": "zentral",
+"en": "central",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Wohnung liegt sehr zentral."
+]
+}
+},
+{
+"id": "voc:A2:der Dom",
+"term": "der Dom",
+"en": "cathedral",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Kölner Dom ist sehr berühmt."
+]
+}
+},
+{
+"id": "voc:A2:die Ausstellung",
+"term": "die Ausstellung",
+"en": "exhibition",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Ausstellung im Museum ist sehr interessant."
+]
+}
+},
+{
+"id": "voc:A2:das Konzert",
+"term": "das Konzert",
+"en": "concert",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Wir gehen heute Abend auf ein Konzert."
+]
+}
+},
+{
+"id": "voc:A2:das Märchen",
+"term": "das Märchen",
+"en": "fairy tale",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Meine Oma hat mir früher Märchen vorgelesen."
+]
+}
+},
+{
+"id": "voc:A2:der Dialekt",
+"term": "der Dialekt",
+"en": "dialect",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"In Bayern spricht man einen starken Dialekt."
+]
+}
+},
+{
+"id": "voc:A2:besichtigen",
+"term": "besichtigen",
+"en": "to view, visit (a place)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir möchten morgen das Schloss besichtigen."
+]
+}
+},
+{
+"id": "voc:A2:ausgehen",
+"term": "ausgehen",
+"en": "to go out; to run out",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Am Wochenende gehen wir oft aus."
+]
+}
+},
+{
+"id": "voc:A2:eröffnen",
+"term": "eröffnen",
+"en": "to open (an account, a business)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich möchte ein Konto eröffnen."
+]
+}
+},
+{
+"id": "voc:A2:die Geldbörse",
+"term": "die Geldbörse",
+"en": "wallet, purse",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Meine Geldbörse ist leider leer."
+]
+}
+},
+{
+"id": "voc:A2:der Kopfschmerz",
+"term": "der Kopfschmerz",
+"en": "headache",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich habe seit heute Morgen Kopfschmerzen."
+]
+}
+},
+{
+"id": "voc:A2:reduziert",
+"term": "reduziert",
+"en": "reduced (in price)",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Jacke ist stark reduziert."
+]
+}
+},
+{
+"id": "voc:A2:die Jugendherberge",
+"term": "die Jugendherberge",
+"en": "youth hostel",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Auf der Klassenfahrt schliefen wir in einer Jugendherberge."
+]
+}
+},
+{
+"id": "voc:A2:die Besichtigung",
+"term": "die Besichtigung",
+"en": "viewing, tour",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Besichtigung der Wohnung ist morgen."
+]
+}
+},
+{
+"id": "voc:A2:die Einbauküche",
+"term": "die Einbauküche",
+"en": "fitted kitchen",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Wohnung hat eine moderne Einbauküche."
+]
+}
+},
+{
+"id": "voc:A2:umstellen",
+"term": "umstellen",
+"en": "to rearrange; to adjust to",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir haben die Möbel im Wohnzimmer umgestellt."
+]
+}
+},
+{
+"id": "voc:A2:das Auslandssemester",
+"term": "das Auslandssemester",
+"en": "semester abroad",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich mache ein Auslandssemester in Spanien."
+]
+}
+},
+{
+"id": "voc:A2:der Kleiderbügel",
+"term": "der Kleiderbügel",
+"en": "clothes hanger",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Häng die Jacke auf einen Kleiderbügel."
+]
+}
+},
+{
+"id": "voc:A2:das Volksfest",
+"term": "das Volksfest",
+"en": "folk festival",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Im Sommer gibt es ein großes Volksfest."
+]
+}
+},
+{
+"id": "voc:A2:die Brezel",
+"term": "die Brezel",
+"en": "pretzel",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich esse gern eine Brezel zum Frühstück."
+]
+}
+},
+{
+"id": "voc:A2:die Eintrittskarte",
+"term": "die Eintrittskarte",
+"en": "admission ticket",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Eintrittskarte kostet zehn Euro."
+]
+}
+},
+{
+"id": "voc:A2:die Innenstadt",
+"term": "die Innenstadt",
+"en": "city centre",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"In der Innenstadt gibt es viele Geschäfte."
+]
+}
+},
+{
+"id": "voc:A2:die Berufsschule",
+"term": "die Berufsschule",
+"en": "vocational school",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Zweimal pro Woche geht er in die Berufsschule."
+]
+}
+},
+{
+"id": "voc:A2:der Handwerker",
+"term": "der Handwerker",
+"en": "craftsman, tradesman",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Handwerker repariert die Heizung."
+]
+}
+},
+{
+"id": "voc:A2:das Anschreiben",
+"term": "das Anschreiben",
+"en": "cover letter",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Zur Bewerbung gehört ein Anschreiben."
+]
+}
+},
+{
+"id": "voc:A2:die Ferienwohnung",
+"term": "die Ferienwohnung",
+"en": "holiday flat",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir haben eine Ferienwohnung am See gemietet."
+]
+}
+},
+{
+"id": "voc:A2:die Halbpension",
+"term": "die Halbpension",
+"en": "half board",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir haben das Hotel mit Halbpension gebucht."
+]
+}
+},
+{
+"id": "voc:A2:klettern",
+"term": "klettern",
+"en": "to climb",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Kinder klettern gern auf Bäume."
+]
+}
+},
+{
+"id": "voc:A2:der Wanderweg",
+"term": "der Wanderweg",
+"en": "hiking trail",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Wanderweg führt durch den Wald."
+]
+}
+},
+{
+"id": "voc:A2:der Gipfel",
+"term": "der Gipfel",
+"en": "summit, peak",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Vom Gipfel hat man eine tolle Aussicht."
+]
+}
+},
+{
+"id": "voc:A2:das Tal",
+"term": "das Tal",
+"en": "valley",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Das Dorf liegt in einem schönen Tal."
+]
+}
+},
+{
+"id": "voc:A2:sich erholen",
+"term": "sich erholen",
+"en": "to recover, relax",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Im Urlaub erhole ich mich gut."
+]
+}
+},
+{
+"id": "voc:A2:aussteigen",
+"term": "aussteigen",
+"en": "to get off, get out",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"An der nächsten Station steige ich aus."
+]
+}
+},
+{
+"id": "voc:A2:die Tageskarte",
+"term": "die Tageskarte",
+"en": "day ticket",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Mit der Tageskarte kann man den ganzen Tag fahren."
+]
+}
+},
+{
+"id": "voc:A2:die Touristeninformation",
+"term": "die Touristeninformation",
+"en": "tourist information",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Touristeninformation ist am Hauptbahnhof."
+]
+}
+},
+{
+"id": "voc:A2:die Führung",
+"term": "die Führung",
+"en": "guided tour; leadership",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir machen eine Führung durch das Schloss."
+]
+}
+},
+{
+"id": "voc:A2:der Stadtplan",
+"term": "der Stadtplan",
+"en": "city map",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Hast du einen Stadtplan von Köln?"
+]
+}
+},
+{
+"id": "voc:A2:die Gasse",
+"term": "die Gasse",
+"en": "alley, lane",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die kleine Gasse führt zum Markt."
+]
+}
+},
+{
+"id": "voc:A2:der Weg",
+"term": "der Weg",
+"en": "way, path",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Weg zum Bahnhof ist nicht weit."
+]
+}
+},
+{
+"id": "voc:A2:einzeichnen",
+"term": "einzeichnen",
+"en": "to mark in (on a map)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Können Sie mir den Weg auf der Karte einzeichnen?"
+]
+}
+},
+{
+"id": "voc:A2:die Kunstakademie",
+"term": "die Kunstakademie",
+"en": "art academy",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie studiert an der Kunstakademie."
+]
+}
+},
+{
+"id": "voc:A2:die Malerei",
+"term": "die Malerei",
+"en": "painting (art form)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich interessiere mich für Malerei."
+]
+}
+},
+{
+"id": "voc:A2:das Einkaufszentrum",
+"term": "das Einkaufszentrum",
+"en": "shopping centre, mall",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Im Einkaufszentrum gibt es viele Geschäfte."
+]
+}
+},
+{
+"id": "voc:A2:die Reihenfolge",
+"term": "die Reihenfolge",
+"en": "order, sequence",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Bitte in der richtigen Reihenfolge ordnen."
+]
+}
+},
+{
+"id": "voc:A2:die Dekoration",
+"term": "die Dekoration",
+"en": "decoration",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Dekoration für die Party ist fertig."
+]
+}
+},
+{
+"id": "voc:A2:die Feier",
+"term": "die Feier",
+"en": "party, celebration",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Feier beginnt um sieben Uhr."
+]
+}
+},
+{
+"id": "voc:A2:der Heiligabend",
+"term": "der Heiligabend",
+"en": "Christmas Eve",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Am Heiligabend gibt es bei uns Geschenke."
+]
+}
+},
+{
+"id": "voc:A2:die Kerze",
+"term": "die Kerze",
+"en": "candle",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie zündet eine Kerze an."
+]
+}
+},
+{
+"id": "voc:A2:das Neujahrsfest",
+"term": "das Neujahrsfest",
+"en": "New Year celebration",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Das Neujahrsfest feiern wir mit Freunden."
+]
+}
+},
+{
+"id": "voc:A2:die Tradition",
+"term": "die Tradition",
+"en": "tradition",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Das ist bei uns eine alte Tradition."
+]
+}
+},
+{
+"id": "voc:A2:der Weihnachtsmann",
+"term": "der Weihnachtsmann",
+"en": "Santa Claus",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Die Kinder warten auf den Weihnachtsmann."
+]
+}
+},
+{
+"id": "voc:A2:dekorieren",
+"term": "dekorieren",
+"en": "to decorate",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wir dekorieren das Zimmer für die Party."
+]
+}
+},
+{
+"id": "voc:A2:der Studienabschluss",
+"term": "der Studienabschluss",
+"en": "degree (completion of studies)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Nach dem Studienabschluss sucht sie einen Job."
+]
+}
+},
+{
+"id": "voc:A2:die Absage",
+"term": "die Absage",
+"en": "cancellation, refusal",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Leider habe ich eine Absage bekommen."
+]
+}
+},
+{
+"id": "voc:A2:die Hoffnung",
+"term": "die Hoffnung",
+"en": "hope",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich habe die Hoffnung, dass alles gut wird."
+]
+}
+},
+{
+"id": "voc:A2:das Jahrhundert",
+"term": "das Jahrhundert",
+"en": "century",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Die Kirche ist über ein Jahrhundert alt."
+]
+}
+},
+{
+"id": "voc:A2:der Schulfreund",
+"term": "der Schulfreund",
+"en": "school friend",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er trifft sich mit einem alten Schulfreund."
+]
+}
+},
+{
+"id": "voc:A2:absagen",
+"term": "absagen",
+"en": "to cancel, call off",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich muss den Termin leider absagen."
+]
+}
+}
+]

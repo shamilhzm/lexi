@@ -1,0 +1,606 @@
+[
+{
+"id": "voc:A2:geradeaus",
+"term": "geradeaus",
+"en": "straight ahead",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Gehen Sie geradeaus."
+]
+}
+},
+{
+"id": "voc:A2:die Baustelle",
+"term": "die Baustelle",
+"en": "construction site, roadworks",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Vorsicht, eine Baustelle!"
+]
+}
+},
+{
+"id": "voc:A2:die Ampel",
+"term": "die Ampel",
+"en": "traffic light",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Ampel ist rot."
+]
+}
+},
+{
+"id": "voc:A2:die Kontoeröffnung",
+"term": "die Kontoeröffnung",
+"en": "opening of an account",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich komme wegen einer Kontoeröffnung."
+]
+}
+},
+{
+"id": "voc:A2:die Rate",
+"term": "die Rate",
+"en": "instalment",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich zahle in Raten."
+]
+}
+},
+{
+"id": "voc:A2:die Dienstleistung",
+"term": "die Dienstleistung",
+"en": "service",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Bank bietet viele Dienstleistungen."
+]
+}
+},
+{
+"id": "voc:A2:die Lebensstation",
+"term": "die Lebensstation",
+"en": "stage of life",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Hochzeit ist eine Lebensstation."
+]
+}
+},
+{
+"id": "voc:A2:der Kosename",
+"term": "der Kosename",
+"en": "term of endearment, pet name",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"„Schatz“ ist ein Kosename."
+]
+}
+},
+{
+"id": "voc:A2:der Traum",
+"term": "der Traum",
+"en": "dream",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich hatte einen schönen Traum."
+]
+}
+},
+{
+"id": "voc:A2:der Lieblingsort",
+"term": "der Lieblingsort",
+"en": "favourite place",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Park ist mein Lieblingsort."
+]
+}
+},
+{
+"id": "voc:A2:der Spitzname",
+"term": "der Spitzname",
+"en": "nickname",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Sein Spitzname ist „Bär“."
+]
+}
+},
+{
+"id": "voc:A2:der Wunschtraum",
+"term": "der Wunschtraum",
+"en": "cherished dream",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ein eigenes Haus ist ihr Wunschtraum."
+]
+}
+},
+{
+"id": "voc:A2:das Küchengerät",
+"term": "das Küchengerät",
+"en": "kitchen appliance",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ein Mixer ist ein Küchengerät."
+]
+}
+},
+{
+"id": "voc:A2:die Sparkasse",
+"term": "die Sparkasse",
+"en": "savings bank",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich habe ein Konto bei der Sparkasse."
+]
+}
+},
+{
+"id": "voc:A2:der/die Angestellte",
+"term": "der/die Angestellte",
+"en": "employee",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie ist Angestellte bei einer Bank."
+]
+}
+},
+{
+"id": "voc:A2:der Gymnastikkurs",
+"term": "der Gymnastikkurs",
+"en": "exercise class",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Sie geht zum Gymnastikkurs."
+]
+}
+},
+{
+"id": "voc:A2:der Festsaal",
+"term": "der Festsaal",
+"en": "function hall, ballroom",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Die Feier ist im Festsaal."
+]
+}
+},
+{
+"id": "voc:A2:das Sekretariat",
+"term": "das Sekretariat",
+"en": "office, secretariat",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Die Anmeldung ist im Sekretariat."
+]
+}
+},
+{
+"id": "voc:A2:der Getränkeautomat",
+"term": "der Getränkeautomat",
+"en": "drinks vending machine",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Am Getränkeautomat gibt es Wasser."
+]
+}
+},
+{
+"id": "voc:A2:die Spielecke",
+"term": "die Spielecke",
+"en": "play corner",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Kinder spielen in der Spielecke."
+]
+}
+},
+{
+"id": "voc:A2:die Barzahlung",
+"term": "die Barzahlung",
+"en": "cash payment",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Bei Barzahlung gibt es Rabatt."
+]
+}
+},
+{
+"id": "voc:A2:der Nebenjob",
+"term": "der Nebenjob",
+"en": "side job",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich suche einen Nebenjob."
+]
+}
+},
+{
+"id": "voc:A2:der Teilzeitjob",
+"term": "der Teilzeitjob",
+"en": "part-time job",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Sie sucht einen Teilzeitjob."
+]
+}
+},
+{
+"id": "voc:A2:die Übersetzerin",
+"term": "die Übersetzerin",
+"en": "translator (female)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie arbeitet als Übersetzerin."
+]
+}
+},
+{
+"id": "voc:A2:der Biergarten",
+"term": "der Biergarten",
+"en": "beer garden",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Im Sommer sitzen wir im Biergarten."
+]
+}
+},
+{
+"id": "voc:A2:die Hilfskraft",
+"term": "die Hilfskraft",
+"en": "assistant, helper",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir suchen eine Hilfskraft für die Küche."
+]
+}
+},
+{
+"id": "voc:A2:die Gastronomie",
+"term": "die Gastronomie",
+"en": "catering, food service",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie arbeitet in der Gastronomie."
+]
+}
+},
+{
+"id": "voc:A2:der Lieferdienst",
+"term": "der Lieferdienst",
+"en": "delivery service",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Lieferdienst sucht Kuriere."
+]
+}
+},
+{
+"id": "voc:A2:beladen",
+"term": "beladen",
+"en": "to load",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir beladen den Container."
+]
+}
+},
+{
+"id": "voc:A2:entladen",
+"term": "entladen",
+"en": "to unload",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir entladen die Pakete."
+]
+}
+},
+{
+"id": "voc:A2:der Werkstudent",
+"term": "der Werkstudent",
+"en": "working student",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er arbeitet als Werkstudent im Labor."
+]
+}
+},
+{
+"id": "voc:A2:das Honorar",
+"term": "das Honorar",
+"en": "fee (for a service)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Für jeden Text zahlen wir ein Honorar."
+]
+}
+},
+{
+"id": "voc:A2:der Kurzurlaub",
+"term": "der Kurzurlaub",
+"en": "short break, mini-holiday",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir machen einen Kurzurlaub in München."
+]
+}
+},
+{
+"id": "voc:A2:der Leberkäse",
+"term": "der Leberkäse",
+"en": "meatloaf (Bavarian)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"In Bayern isst man Leberkäse."
+]
+}
+},
+{
+"id": "voc:A2:die Tiefgarage",
+"term": "die Tiefgarage",
+"en": "underground car park",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich parke in der Tiefgarage."
+]
+}
+},
+{
+"id": "voc:A2:der Elektriker",
+"term": "der Elektriker",
+"en": "electrician",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Elektriker repariert die Lampe."
+]
+}
+},
+{
+"id": "voc:A2:der Nachmieter",
+"term": "der Nachmieter",
+"en": "next/successor tenant",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir suchen einen Nachmieter für die Wohnung."
+]
+}
+},
+{
+"id": "voc:A2:das Dienstjubiläum",
+"term": "das Dienstjubiläum",
+"en": "work anniversary",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Sie feiert bald ihr Dienstjubiläum."
+]
+}
+}
+]

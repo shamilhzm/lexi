@@ -1,0 +1,1170 @@
+[
+{
+"id": "voc:A2:das Paar",
+"term": "das Paar",
+"en": "couple",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Das Paar tanzt sehr elegant."
+]
+}
+},
+{
+"id": "voc:A2:verlieben (sich)",
+"term": "verlieben (sich)",
+"en": "to fall in love",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er hat sich sofort in sie verliebt."
+]
+}
+},
+{
+"id": "voc:A2:kennenlernen",
+"term": "kennenlernen",
+"en": "to get to know",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wo habt ihr euch kennengelernt?"
+]
+}
+},
+{
+"id": "voc:A2:die Regel",
+"term": "die Regel",
+"en": "rule",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Jedes Spiel hat seine eigenen Regeln."
+]
+}
+},
+{
+"id": "voc:A2:der Ski",
+"term": "der Ski",
+"en": "ski",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er hat seine Ski in der Hütte gelassen."
+]
+}
+},
+{
+"id": "voc:A2:die Skischule",
+"term": "die Skischule",
+"en": "ski school",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Kinder lernen das Skifahren oft in der Skischule."
+]
+}
+},
+{
+"id": "voc:A2:der Skischuh",
+"term": "der Skischuh",
+"en": "ski boot",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der"
+}
+},
+{
+"id": "voc:A2:der Snowboarder",
+"term": "der Snowboarder",
+"en": "snowboarder",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der"
+}
+},
+{
+"id": "voc:A2:die Skijacke",
+"term": "die Skijacke",
+"en": "ski jacket",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie trug eine warme Skijacke auf der Piste."
+]
+}
+},
+{
+"id": "voc:A2:die Handschuhe",
+"term": "die Handschuhe",
+"en": "gloves",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die"
+}
+},
+{
+"id": "voc:A2:das Snowboardfahren",
+"term": "das Snowboardfahren",
+"en": "snowboarding",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das"
+}
+},
+{
+"id": "voc:A2:das Wetter",
+"term": "das Wetter",
+"en": "weather",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Heute ist schönes Wetter."
+]
+}
+},
+{
+"id": "voc:A2:der Regen",
+"term": "der Regen",
+"en": "rain",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der"
+}
+},
+{
+"id": "voc:A2:der Himmel",
+"term": "der Himmel",
+"en": "sky",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Auf der breiten Waldstraße, im kühlen Herbstschatten der Tannen, durch die ein mattblauer Himmel schimmerte, begegneten sich die Freunde."
+]
+}
+},
+{
+"id": "voc:A2:der Baum",
+"term": "der Baum",
+"en": "tree",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Vögel nisten gern in Bäumen."
+]
+}
+},
+{
+"id": "voc:A2:hoffen",
+"term": "hoffen",
+"en": "to hope",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich hoffe auf eine vollständige Heilung."
+]
+}
+},
+{
+"id": "voc:A2:nötig",
+"term": "nötig",
+"en": "necessary",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A2:besetzt",
+"term": "besetzt",
+"en": "occupied",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A2:allein",
+"term": "allein",
+"en": "alone",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er schrieb das Buch allein."
+]
+}
+},
+{
+"id": "voc:A2:höchstens",
+"term": "höchstens",
+"en": "at most",
+"pos": "",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {}
+},
+{
+"id": "voc:A2:anderer",
+"term": "anderer",
+"en": "other, different",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Kein anderer weiß es."
+]
+}
+},
+{
+"id": "voc:A2:anders",
+"term": "anders",
+"en": "different, differently",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er war anders."
+]
+}
+},
+{
+"id": "voc:A2:angekündigt",
+"term": "angekündigt",
+"en": "announced",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Eine Erhöhung der Studiengebühren wurde angekündigt."
+]
+}
+},
+{
+"id": "voc:A2:die Art",
+"term": "die Art",
+"en": "kind, sort, type",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Es ist eine Art Orange."
+]
+}
+},
+{
+"id": "voc:A2:bereit",
+"term": "bereit",
+"en": "ready",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es ist bereit."
+]
+}
+},
+{
+"id": "voc:A2:bisschen",
+"term": "bisschen",
+"en": "bit",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Noch ein bisschen."
+]
+}
+},
+{
+"id": "voc:A2:dadurch",
+"term": "dadurch",
+"en": "through it, through that",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bin ich dadurch absonderlich?"
+]
+}
+},
+{
+"id": "voc:A2:darin",
+"term": "darin",
+"en": "in it, in that, therein",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Was war darin?"
+]
+}
+},
+{
+"id": "voc:A2:einmal",
+"term": "einmal",
+"en": "once, one time",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Noch einmal?"
+]
+}
+},
+{
+"id": "voc:A2:der Fokus",
+"term": "der Fokus",
+"en": "focus",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Das Bild ist nicht im Fokus."
+]
+}
+},
+{
+"id": "voc:A2:die Form",
+"term": "die Form",
+"en": "shape",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Bist du in Form?"
+]
+}
+},
+{
+"id": "voc:A2:geführt",
+"term": "geführt",
+"en": "guided, conducted",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das ist eine gut geführte Firma."
+]
+}
+},
+{
+"id": "voc:A2:die Gewalt",
+"term": "die Gewalt",
+"en": "strong or violent force",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Was bedeutet Gewalt?"
+]
+}
+},
+{
+"id": "voc:A2:die Gruppe",
+"term": "die Gruppe",
+"en": "group",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Es ist Toms Gruppe."
+]
+}
+},
+{
+"id": "voc:A2:halten",
+"term": "halten",
+"en": "to hold",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Haltet das!"
+]
+}
+},
+{
+"id": "voc:A2:heraus",
+"term": "heraus",
+"en": "out of",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Rage heraus!"
+]
+}
+},
+{
+"id": "voc:A2:hin",
+"term": "hin",
+"en": "there, thither",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Mach hin!"
+]
+}
+},
+{
+"id": "voc:A2:häufig",
+"term": "häufig",
+"en": "frequent",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es ist häufig."
+]
+}
+},
+{
+"id": "voc:A2:der Kreis",
+"term": "der Kreis",
+"en": "circle",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Kreis ist rot."
+]
+}
+},
+{
+"id": "voc:A2:lassen",
+"term": "lassen",
+"en": "to allow",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Lasst es dort!"
+]
+}
+},
+{
+"id": "voc:A2:lediglich",
+"term": "lediglich",
+"en": "merely",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin lediglich ehrlich."
+]
+}
+},
+{
+"id": "voc:A2:der Leisten",
+"term": "der Leisten",
+"en": "last",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir leisten Beiträge."
+]
+}
+},
+{
+"id": "voc:A2:längst",
+"term": "längst",
+"en": "long ago, long",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das war längst überfällig."
+]
+}
+},
+{
+"id": "voc:A2:meist",
+"term": "meist",
+"en": "mostly, most often, usually",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Tom surft meist."
+]
+}
+},
+{
+"id": "voc:A2:nun",
+"term": "nun",
+"en": "now, at this moment",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Nun mach schon!"
+]
+}
+},
+{
+"id": "voc:A2:pro",
+"term": "pro",
+"en": "per, each",
+"pos": "preposition",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er liest ein Buch pro Woche."
+]
+}
+},
+{
+"id": "voc:A2:die Rede",
+"term": "die Rede",
+"en": "speech, address",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Meine Rede!"
+]
+}
+},
+{
+"id": "voc:A2:die Reihe",
+"term": "die Reihe",
+"en": "row",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Bildet zwei Reihen."
+]
+}
+},
+{
+"id": "voc:A2:das Rennen",
+"term": "das Rennen",
+"en": "race",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Pferde rennen."
+]
+}
+},
+{
+"id": "voc:A2:die Serie",
+"term": "die Serie",
+"en": "series",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Serie geht gleich los."
+]
+}
+},
+{
+"id": "voc:A2:setzen",
+"term": "setzen",
+"en": "causative of sitzen: to set",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Setzen wir uns!"
+]
+}
+},
+{
+"id": "voc:A2:der Somit",
+"term": "der Somit",
+"en": "somite",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er war neu im Dorf und somit niemandem bekannt."
+]
+}
+},
+{
+"id": "voc:A2:steigen",
+"term": "steigen",
+"en": "to ascend, to climb, to rise",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich steige aus."
+]
+}
+},
+{
+"id": "voc:A2:die Tat",
+"term": "die Tat",
+"en": "deed",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"ein Mann der Tat"
+]
+}
+},
+{
+"id": "voc:A2:der Titel",
+"term": "der Titel",
+"en": "title",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Lies den Titel."
+]
+}
+},
+{
+"id": "voc:A2:der Trainer",
+"term": "der Trainer",
+"en": "trainer, coach",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich bin der Trainer."
+]
+}
+},
+{
+"id": "voc:A2:unklar",
+"term": "unklar",
+"en": "unclear",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Grund war unklar."
+]
+}
+},
+{
+"id": "voc:A2:veröffentlicht",
+"term": "veröffentlicht",
+"en": "published",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Wo wurde es veröffentlicht?"
+]
+}
+},
+{
+"id": "voc:A2:die Weise",
+"term": "die Weise",
+"en": "way, manner",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Weise Worte!"
+]
+}
+},
+{
+"id": "voc:A2:weniger",
+"term": "weniger",
+"en": "less",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Weniger ist mehr."
+]
+}
+},
+{
+"id": "voc:A2:der Wiener",
+"term": "der Wiener",
+"en": "an inhabitant of Vienna",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Jeden Donnerstag gibt es in der Kantine Wiener Schnitzel."
+]
+}
+},
+{
+"id": "voc:A2:zeugen",
+"term": "zeugen",
+"en": "to beget, father, procreate",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin Zeuge."
+]
+}
+},
+{
+"id": "voc:A2:außer",
+"term": "außer",
+"en": "except",
+"pos": "preposition",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er ist außer Atem."
+]
+}
+},
+{
+"id": "voc:A2:besondere",
+"term": "besondere",
+"en": "special, particular, extraordinary",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Sie hat besondere Kräfte."
+]
+}
+},
+{
+"id": "voc:A2:bestimmt",
+"term": "bestimmt",
+"en": "certain",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Tom war bestimmt."
+]
+}
+},
+{
+"id": "voc:A2:diesmal",
+"term": "diesmal",
+"en": "this time",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Diesmal zahle ich."
+]
+}
+},
+{
+"id": "voc:A2:die Erde",
+"term": "die Erde",
+"en": "earth",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Erde ist schön."
+]
+}
+},
+{
+"id": "voc:A2:die Erklärung",
+"term": "die Erklärung",
+"en": "explanation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Hast du eine Erklärung?"
+]
+}
+},
+{
+"id": "voc:A2:der Frankfurter",
+"term": "der Frankfurter",
+"en": "Frankfurter",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"In seinem Herkunftsland Deutschland hieß der Hot Dog „Frankfurter“."
+]
+}
+},
+{
+"id": "voc:A2:das Frühjahr",
+"term": "das Frühjahr",
+"en": "spring",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Diese Blumen blühen im Frühjahr."
+]
+}
+},
+{
+"id": "voc:A2:das Gas",
+"term": "das Gas",
+"en": "gas",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Gib mal Gas!"
+]
+}
+},
+{
+"id": "voc:A2:der Hamburger",
+"term": "der Hamburger",
+"en": "Hamburger",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich liebe Hamburger."
+]
+}
+},
+{
+"id": "voc:A2:hart",
+"term": "hart",
+"en": "hard",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ist es so hart?"
+]
+}
+},
+{
+"id": "voc:A2:die Insel",
+"term": "die Insel",
+"en": "an island, an isle",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"China baut Inseln."
+]
+}
+},
+{
+"id": "voc:A2:die Klinik",
+"term": "die Klinik",
+"en": "clinic",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Existiert diese Klinik noch?"
+]
+}
+}
+]

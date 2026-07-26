@@ -1,0 +1,1209 @@
+[
+{
+"id": "voc:A2:das Kochbuch",
+"term": "das Kochbuch",
+"en": "cookbook",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Tom schreibt ein Kochbuch."
+]
+}
+},
+{
+"id": "voc:A2:kostenfrei",
+"term": "kostenfrei",
+"en": "free of cost",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Die Freiheit ist nicht kostenfrei."
+]
+}
+},
+{
+"id": "voc:A2:der Krimi",
+"term": "der Krimi",
+"en": "crime story, crime thriller",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich bin mit diesem Krimi halb durch."
+]
+}
+},
+{
+"id": "voc:A2:die Leine",
+"term": "die Leine",
+"en": "line, cord, especially",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Zieh Leine!"
+]
+}
+},
+{
+"id": "voc:A2:lenken",
+"term": "lenken",
+"en": "to steer, drive",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Erst denken, dann lenken."
+]
+}
+},
+{
+"id": "voc:A2:der Master",
+"term": "der Master",
+"en": "master's degree",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er hat einen Master in Jura."
+]
+}
+},
+{
+"id": "voc:A2:medizinisch",
+"term": "medizinisch",
+"en": "medicinal, medicated",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er besucht medizinische Konferenzen."
+]
+}
+},
+{
+"id": "voc:A2:das Monatsende",
+"term": "das Monatsende",
+"en": "end of month, end of the month",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Er hat am Monatsende immer kein Geld."
+]
+}
+},
+{
+"id": "voc:A2:das Motto",
+"term": "das Motto",
+"en": "motto, slogan",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Hast du ein Motto?"
+]
+}
+},
+{
+"id": "voc:A2:das Nachbarland",
+"term": "das Nachbarland",
+"en": "neighbouring country",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Kanada ist ein Nachbarland der USA."
+]
+}
+},
+{
+"id": "voc:A2:die Nachtschicht",
+"term": "die Nachtschicht",
+"en": "night shift",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Er hat Nachtschicht."
+]
+}
+},
+{
+"id": "voc:A2:negativ",
+"term": "negativ",
+"en": "negative",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Du warst negativ."
+]
+}
+},
+{
+"id": "voc:A2:der Nichtraucher",
+"term": "der Nichtraucher",
+"en": "non-smoker",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Tom ist Nichtraucher."
+]
+}
+},
+{
+"id": "voc:A2:nördlich",
+"term": "nördlich",
+"en": "north, northern",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Mein Haus liegt nördlich der Stadt."
+]
+}
+},
+{
+"id": "voc:A2:das Objekt",
+"term": "das Objekt",
+"en": "object",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Kannst du das Objekt beschreiben?"
+]
+}
+},
+{
+"id": "voc:A2:orientieren",
+"term": "orientieren",
+"en": "to orient oneself",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Du brauchst eine Karte, um dich zu orientieren."
+]
+}
+},
+{
+"id": "voc:A2:der Personalausweis",
+"term": "der Personalausweis",
+"en": "identity card, ID card",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Dies ist mein Personalausweis."
+]
+}
+},
+{
+"id": "voc:A2:der Po",
+"term": "der Po",
+"en": "buttocks",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Mein Po tut weh."
+]
+}
+},
+{
+"id": "voc:A2:das Quiz",
+"term": "das Quiz",
+"en": "quiz, trivia",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Das Quiz umfasst zehn Runden."
+]
+}
+},
+{
+"id": "voc:A2:das Rauchverbot",
+"term": "das Rauchverbot",
+"en": "smoking ban",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Innerhalb des Kinos gilt Rauchverbot."
+]
+}
+},
+{
+"id": "voc:A2:die Regenjacke",
+"term": "die Regenjacke",
+"en": "rain jacket, raincoat",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Hat Tom eine Regenjacke?"
+]
+}
+},
+{
+"id": "voc:A2:regional",
+"term": "regional",
+"en": "regional",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das kommt alles aus regionalem Anbau."
+]
+}
+},
+{
+"id": "voc:A2:das Reihenhaus",
+"term": "das Reihenhaus",
+"en": "terraced house, townhouse, row house",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Tom wohnt in einem Reihenhaus."
+]
+}
+},
+{
+"id": "voc:A2:der Richter",
+"term": "der Richter",
+"en": "judge",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wo ist der Richter?"
+]
+}
+},
+{
+"id": "voc:A2:das Riesenrad",
+"term": "das Riesenrad",
+"en": "Ferris wheel, big wheel",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Fahren wir mit dem Riesenrad!"
+]
+}
+},
+{
+"id": "voc:A2:schlank",
+"term": "schlank",
+"en": "slim, svelte",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom ist schlank."
+]
+}
+},
+{
+"id": "voc:A2:die Schüssel",
+"term": "die Schüssel",
+"en": "bowl, platter",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wo ist die Schüssel?"
+]
+}
+},
+{
+"id": "voc:A2:sozial",
+"term": "sozial",
+"en": "social",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bienen sind soziale Tiere."
+]
+}
+},
+{
+"id": "voc:A2:der Spezialist",
+"term": "der Spezialist",
+"en": "specialist",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich bin kein Spezialist."
+]
+}
+},
+{
+"id": "voc:A2:der Spielfilm",
+"term": "der Spielfilm",
+"en": "narrative film, fictional film, fiction film",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Werner Herzog macht herausragende Dokumentar- und Spielfilme."
+]
+}
+},
+{
+"id": "voc:A2:der Sprung",
+"term": "der Sprung",
+"en": "jump, leap",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Die Tasse hat einen Sprung."
+]
+}
+},
+{
+"id": "voc:A2:tagsüber",
+"term": "tagsüber",
+"en": "by day, during the day, in the day, in the daytime",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Sie arbeiten nur tagsüber."
+]
+}
+},
+{
+"id": "voc:A2:der Tausch",
+"term": "der Tausch",
+"en": "exchange, barter",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Tausche es aus."
+]
+}
+},
+{
+"id": "voc:A2:telefonisch",
+"term": "telefonisch",
+"en": "telephonic, by using a telephone",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Kontaktieren Sie sie telefonisch."
+]
+}
+},
+{
+"id": "voc:A2:theoretisch",
+"term": "theoretisch",
+"en": "theoretically",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Theoretisch ist es möglich."
+]
+}
+},
+{
+"id": "voc:A2:der Tod",
+"term": "der Tod",
+"en": "death",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Sieg oder Tod!"
+]
+}
+},
+{
+"id": "voc:A2:das Treppenhaus",
+"term": "das Treppenhaus",
+"en": "stairwell",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Tom und Maria küssten sich im Treppenhaus."
+]
+}
+},
+{
+"id": "voc:A2:umschauen",
+"term": "umschauen",
+"en": "to look around",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Darf ich mich umschauen?"
+]
+}
+},
+{
+"id": "voc:A2:unbequem",
+"term": "unbequem",
+"en": "uncomfortable, inconvenient",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es ist sehr unbequem."
+]
+}
+},
+{
+"id": "voc:A2:unpraktisch",
+"term": "unpraktisch",
+"en": "impractical",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Züge sind unpraktisch und unbequem; zudem sind sie nie pünktlich."
+]
+}
+},
+{
+"id": "voc:A2:der Verkauf",
+"term": "der Verkauf",
+"en": "sale",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Es stand zum Verkauf an."
+]
+}
+},
+{
+"id": "voc:A2:die Vermieterin",
+"term": "die Vermieterin",
+"en": "company that rents something",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Bist du Vermieterin?"
+]
+}
+},
+{
+"id": "voc:A2:verreisen",
+"term": "verreisen",
+"en": "to take a trip, travel, go out of town",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Verreisen Sie oft?"
+]
+}
+},
+{
+"id": "voc:A2:verwitwet",
+"term": "verwitwet",
+"en": "widowed",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bist du verwitwet?"
+]
+}
+},
+{
+"id": "voc:A2:vorbeigehen",
+"term": "vorbeigehen",
+"en": "to go past, to go by",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Er nickte mir im Vorbeigehen zu."
+]
+}
+},
+{
+"id": "voc:A2:die Wanderung",
+"term": "die Wanderung",
+"en": "walk, hike",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir sollten die Wanderung streichen."
+]
+}
+},
+{
+"id": "voc:A2:wecken",
+"term": "wecken",
+"en": "to wake, to wake up",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich muss Tom wecken."
+]
+}
+},
+{
+"id": "voc:A2:der Weihnachtsbaum",
+"term": "der Weihnachtsbaum",
+"en": "Christmas tree",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Hast du einen Weihnachtsbaum?"
+]
+}
+},
+{
+"id": "voc:A2:das Weihnachtsfest",
+"term": "das Weihnachtsfest",
+"en": "Christmas",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Die sind unser erstes Weihnachtsfest hier in Australien."
+]
+}
+},
+{
+"id": "voc:A2:der Weltkrieg",
+"term": "der Weltkrieg",
+"en": "world war",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Zweite Weltkrieg endete 1945."
+]
+}
+},
+{
+"id": "voc:A2:westlich",
+"term": "westlich",
+"en": "west, western",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er lebt im westlichen Stadtteil."
+]
+}
+},
+{
+"id": "voc:A2:wiegen",
+"term": "wiegen",
+"en": "to weigh",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Was wiegen Sie?"
+]
+}
+},
+{
+"id": "voc:A2:der Zeh",
+"term": "der Zeh",
+"en": "toe",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ihr Zeh blutet."
+]
+}
+},
+{
+"id": "voc:A2:zurücknehmen",
+"term": "zurücknehmen",
+"en": "to withdraw, retract",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie werden Tom nicht zurücknehmen."
+]
+}
+},
+{
+"id": "voc:A2:östlich",
+"term": "östlich",
+"en": "east, eastern",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Der östliche Himmel wurde hell."
+]
+}
+},
+{
+"id": "voc:A2:die Übernachtung",
+"term": "die Übernachtung",
+"en": "overnight stay",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Schule trennt Jungen und Mädchen während der Übernachtungen voneinander."
+]
+}
+},
+{
+"id": "voc:A2:die Veranstaltung",
+"term": "die Veranstaltung",
+"en": "event",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Veranstaltung ist am Samstag."
+]
+}
+},
+{
+"id": "voc:A2:der Veranstaltungskalender",
+"term": "der Veranstaltungskalender",
+"en": "events calendar",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich lese den Veranstaltungskalender."
+]
+}
+},
+{
+"id": "voc:A2:die Freizeitaktivität",
+"term": "die Freizeitaktivität",
+"en": "leisure activity",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Schwimmen ist meine Freizeitaktivität."
+]
+}
+},
+{
+"id": "voc:A2:der Wunsch",
+"term": "der Wunsch",
+"en": "wish",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich habe einen Wunsch."
+]
+}
+},
+{
+"id": "voc:A2:veranstalten",
+"term": "veranstalten",
+"en": "to organize (an event)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir veranstalten ein Fest."
+]
+}
+},
+{
+"id": "voc:A2:das Kabarett",
+"term": "das Kabarett",
+"en": "cabaret",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Wir gehen ins Kabarett."
+]
+}
+},
+{
+"id": "voc:A2:der Gegensatz",
+"term": "der Gegensatz",
+"en": "contrast, opposite",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Das ist ein Gegensatz."
+]
+}
+},
+{
+"id": "voc:A2:das Leder",
+"term": "das Leder",
+"en": "leather",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Die Schuhe sind aus Leder."
+]
+}
+},
+{
+"id": "voc:A2:die Vorliebe",
+"term": "die Vorliebe",
+"en": "preference, liking",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Jeder hat seine Vorlieben."
+]
+}
+},
+{
+"id": "voc:A2:die Verpackung",
+"term": "die Verpackung",
+"en": "packaging",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Verpackung ist aus Papier."
+]
+}
+},
+{
+"id": "voc:A2:die Sprachnachricht",
+"term": "die Sprachnachricht",
+"en": "voice message",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich schicke dir eine Sprachnachricht."
+]
+}
+},
+{
+"id": "voc:A2:reinschreiben",
+"term": "reinschreiben",
+"en": "to write in",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Schreib deinen Namen rein."
+]
+}
+},
+{
+"id": "voc:A2:der Absender",
+"term": "der Absender",
+"en": "sender",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wer ist der Absender?"
+]
+}
+},
+{
+"id": "voc:A2:abschicken",
+"term": "abschicken",
+"en": "to send off",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich schicke den Brief ab."
+]
+}
+},
+{
+"id": "voc:A2:das Gewicht",
+"term": "das Gewicht",
+"en": "weight",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Was ist das Gewicht des Pakets?"
+]
+}
+},
+{
+"id": "voc:A2:unpersönlich",
+"term": "unpersönlich",
+"en": "impersonal",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Text ist sehr unpersönlich."
+]
+}
+},
+{
+"id": "voc:A2:die Verkehrsnachricht",
+"term": "die Verkehrsnachricht",
+"en": "traffic report",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich höre die Verkehrsnachrichten."
+]
+}
+},
+{
+"id": "voc:A2:die Kreuzung",
+"term": "die Kreuzung",
+"en": "crossroads, junction",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"An der Kreuzung links."
+]
+}
+},
+{
+"id": "voc:A2:abbiegen",
+"term": "abbiegen",
+"en": "to turn (off)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Biegen Sie rechts ab."
+]
+}
+}
+]

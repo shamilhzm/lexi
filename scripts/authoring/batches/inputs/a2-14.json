@@ -1,0 +1,1197 @@
+[
+{
+"id": "voc:A2:hä",
+"term": "hä",
+"en": "huh? what?",
+"pos": "interjection",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Hä? Oder vielleicht haben wie viele von was was wie getan? Was denkst du?"
+]
+}
+},
+{
+"id": "voc:A2:jo",
+"term": "jo",
+"en": "yes, yeah, well",
+"pos": "interjection",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Jo, mach halt, was du willst."
+]
+}
+},
+{
+"id": "voc:A2:die Kiste",
+"term": "die Kiste",
+"en": "chest, box",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Öffne die Kiste."
+]
+}
+},
+{
+"id": "voc:A2:klopfen",
+"term": "klopfen",
+"en": "to knock, to rap",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wer klopft?"
+]
+}
+},
+{
+"id": "voc:A2:nackt",
+"term": "nackt",
+"en": "naked",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er war nackt."
+]
+}
+},
+{
+"id": "voc:A2:reinkommen",
+"term": "reinkommen",
+"en": "to come in",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ihr könnt reinkommen."
+]
+}
+},
+{
+"id": "voc:A2:riechen",
+"term": "riechen",
+"en": "to smell",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Riechen Sie das?"
+]
+}
+},
+{
+"id": "voc:A2:satt",
+"term": "satt",
+"en": "not hungry, satiated, full, done",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom ist satt."
+]
+}
+},
+{
+"id": "voc:A2:schwul",
+"term": "schwul",
+"en": "gay",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er ist schwul."
+]
+}
+},
+{
+"id": "voc:A2:sexy",
+"term": "sexy",
+"en": "sexy",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er ist sexy."
+]
+}
+},
+{
+"id": "voc:A2:spazieren",
+"term": "spazieren",
+"en": "to take a walk, to stroll, to walk leisurely",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Geht spazieren!"
+]
+}
+},
+{
+"id": "voc:A2:verdammt",
+"term": "verdammt",
+"en": "damned",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Verdammt!"
+]
+}
+},
+{
+"id": "voc:A2:wiederholen",
+"term": "wiederholen",
+"en": "to bring back, take back",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wiederholt es!"
+]
+}
+},
+{
+"id": "voc:A2:zurückkommen",
+"term": "zurückkommen",
+"en": "to return",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Du musst zurückkommen."
+]
+}
+},
+{
+"id": "voc:A2:die Übersetzung",
+"term": "die Übersetzung",
+"en": "translation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Hier ist die Übersetzung."
+]
+}
+},
+{
+"id": "voc:A2:ausruhen",
+"term": "ausruhen",
+"en": "to rest, to recover",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich kann ausruhen."
+]
+}
+},
+{
+"id": "voc:A2:das Benzin",
+"term": "das Benzin",
+"en": "petrol, gasoline",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich habe Benzin."
+]
+}
+},
+{
+"id": "voc:A2:clever",
+"term": "clever",
+"en": "clever",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom war clever."
+]
+}
+},
+{
+"id": "voc:A2:einzig",
+"term": "einzig",
+"en": "only",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Einzig Tom wollte nicht gehen."
+]
+}
+},
+{
+"id": "voc:A2:der Esel",
+"term": "der Esel",
+"en": "ass, donkey",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Was für ein Esel!"
+]
+}
+},
+{
+"id": "voc:A2:französisch",
+"term": "französisch",
+"en": "French",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Lerne Französisch!"
+]
+}
+},
+{
+"id": "voc:A2:die Hauptsache",
+"term": "die Hauptsache",
+"en": "main thing, most important thing",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Das ist die Hauptsache."
+]
+}
+},
+{
+"id": "voc:A2:hierbleiben",
+"term": "hierbleiben",
+"en": "to stay here",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom muß hierbleiben."
+]
+}
+},
+{
+"id": "voc:A2:der Hügel",
+"term": "der Hügel",
+"en": "hill",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Tom lief auf den Hügel."
+]
+}
+},
+{
+"id": "voc:A2:klauen",
+"term": "klauen",
+"en": "to steal",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich klaue nicht."
+]
+}
+},
+{
+"id": "voc:A2:nebenan",
+"term": "nebenan",
+"en": "next door",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er wohnt nebenan."
+]
+}
+},
+{
+"id": "voc:A2:die Patientin",
+"term": "die Patientin",
+"en": "patient",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich bin eine Patientin."
+]
+}
+},
+{
+"id": "voc:A2:die Puppe",
+"term": "die Puppe",
+"en": "doll",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie machen Puppen."
+]
+}
+},
+{
+"id": "voc:A2:die Ratte",
+"term": "die Ratte",
+"en": "rat",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Niemand mag Ratten."
+]
+}
+},
+{
+"id": "voc:A2:rausfinden",
+"term": "rausfinden",
+"en": "clipping of herausfinden",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom erschießt Mary, wenn er das rausfindet!"
+]
+}
+},
+{
+"id": "voc:A2:rauskommen",
+"term": "rauskommen",
+"en": "to come out",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Du musst da rauskommen."
+]
+}
+},
+{
+"id": "voc:A2:reingehen",
+"term": "reingehen",
+"en": "to go in, to get inside, to go inside",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Lass uns reingehen."
+]
+}
+},
+{
+"id": "voc:A2:die Religion",
+"term": "die Religion",
+"en": "religion",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Haben Sie eine Religion?"
+]
+}
+},
+{
+"id": "voc:A2:die Sekretärin",
+"term": "die Sekretärin",
+"en": "female secretary",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich war Toms Sekretärin."
+]
+}
+},
+{
+"id": "voc:A2:weggehen",
+"term": "weggehen",
+"en": "to go away, leave, scram",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er würde weggehen."
+]
+}
+},
+{
+"id": "voc:A2:die Zigarette",
+"term": "die Zigarette",
+"en": "cigarette",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Er kauft Zigaretten."
+]
+}
+},
+{
+"id": "voc:A2:anhören",
+"term": "anhören",
+"en": "to listen to the end, to hear out",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Du musst es dir anhören."
+]
+}
+},
+{
+"id": "voc:A2:dünn",
+"term": "dünn",
+"en": "thin, slender, slim",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Bleib dünn."
+]
+}
+},
+{
+"id": "voc:A2:einsteigen",
+"term": "einsteigen",
+"en": "to get in or on",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich werde einsteigen."
+]
+}
+},
+{
+"id": "voc:A2:die Gitarre",
+"term": "die Gitarre",
+"en": "guitar",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Er spielt Gitarre."
+]
+}
+},
+{
+"id": "voc:A2:grüßen",
+"term": "grüßen",
+"en": "to greet",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Grüße von Tom."
+]
+}
+},
+{
+"id": "voc:A2:hinlegen",
+"term": "hinlegen",
+"en": "to put down, lay down",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Hinlegen!"
+]
+}
+},
+{
+"id": "voc:A2:hinsetzen",
+"term": "hinsetzen",
+"en": "to sit down",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich muss mich hinsetzen."
+]
+}
+},
+{
+"id": "voc:A2:romantisch",
+"term": "romantisch",
+"en": "romantic",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bin ich romantisch?"
+]
+}
+},
+{
+"id": "voc:A2:tauschen",
+"term": "tauschen",
+"en": "to trade, to exchange, to swap, to barter",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Tausche es aus."
+]
+}
+},
+{
+"id": "voc:A2:typisch",
+"term": "typisch",
+"en": "typical",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das ist typisch."
+]
+}
+},
+{
+"id": "voc:A2:weglaufen",
+"term": "weglaufen",
+"en": "to run away",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Nicht weglaufen!"
+]
+}
+},
+{
+"id": "voc:A2:wegnehmen",
+"term": "wegnehmen",
+"en": "to take away from, to remove from",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Wer hat es weggenommen?"
+]
+}
+},
+{
+"id": "voc:A2:weich",
+"term": "weich",
+"en": "soft",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"So weiche Ohren!"
+]
+}
+},
+{
+"id": "voc:A2:der Zettel",
+"term": "der Zettel",
+"en": "a small or loose piece of paper, slip",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Zettel raus!"
+]
+}
+},
+{
+"id": "voc:A2:zurückgeben",
+"term": "zurückgeben",
+"en": "to give back, return",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich werde es zurückgeben."
+]
+}
+},
+{
+"id": "voc:A2:zurückrufen",
+"term": "zurückrufen",
+"en": "to call back, to ring back",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Tom wird zurückrufen."
+]
+}
+},
+{
+"id": "voc:A2:der Anwalt",
+"term": "der Anwalt",
+"en": "attorney, lawyer",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er war Anwalt."
+]
+}
+},
+{
+"id": "voc:A2:der Bescheid",
+"term": "der Bescheid",
+"en": "notification, information",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Gib mir Bescheid!"
+]
+}
+},
+{
+"id": "voc:A2:der Besuch",
+"term": "der Besuch",
+"en": "visit, call",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Besuche uns."
+]
+}
+},
+{
+"id": "voc:A2:das Boot",
+"term": "das Boot",
+"en": "boat",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Toms Boot sank."
+]
+}
+},
+{
+"id": "voc:A2:der Doktor",
+"term": "der Doktor",
+"en": "doctor",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Jim mag den Doktor."
+]
+}
+},
+{
+"id": "voc:A2:das Drittel",
+"term": "das Drittel",
+"en": "third",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ein Drittel der Erdoberfläche ist Wüste."
+]
+}
+},
+{
+"id": "voc:A2:das Finale",
+"term": "das Finale",
+"en": "final",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Wir haben Tickets für das Finale!"
+]
+}
+},
+{
+"id": "voc:A2:der Schluss",
+"term": "der Schluss",
+"en": "end, ending, conclusion, finish",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Schluss! Das reicht!"
+]
+}
+},
+{
+"id": "voc:A2:der Schritt",
+"term": "der Schritt",
+"en": "step, footstep",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wer schritt ein?"
+]
+}
+},
+{
+"id": "voc:A2:der Schutz",
+"term": "der Schutz",
+"en": "protection",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Du brauchst Schutz."
+]
+}
+},
+{
+"id": "voc:A2:das System",
+"term": "das System",
+"en": "system",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich habe kein System."
+]
+}
+},
+{
+"id": "voc:A2:der Süden",
+"term": "der Süden",
+"en": "south",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Nach Süden."
+]
+}
+},
+{
+"id": "voc:A2:der Typ",
+"term": "der Typ",
+"en": "type",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Tom ist ein Typ."
+]
+}
+},
+{
+"id": "voc:A2:das Video",
+"term": "das Video",
+"en": "video",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Er sah ihr Video."
+]
+}
+},
+{
+"id": "voc:A2:die Vorsicht",
+"term": "die Vorsicht",
+"en": "caution, cautiousness",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Vorsicht! Heiß!"
+]
+}
+},
+{
+"id": "voc:A2:altmodisch",
+"term": "altmodisch",
+"en": "outdated, old-fashioned, antiquated, outmoded, old-timey",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich bin altmodisch."
+]
+}
+},
+{
+"id": "voc:A2:anklopfen",
+"term": "anklopfen",
+"en": "to knock",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Von Anklopfen haben Sie wohl noch nie was gehört?"
+]
+}
+},
+{
+"id": "voc:A2:das Apartment",
+"term": "das Apartment",
+"en": "apartment",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich bin in meinem Apartment."
+]
+}
+},
+{
+"id": "voc:A2:der Automechaniker",
+"term": "der Automechaniker",
+"en": "auto mechanic",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Tom ist Automechaniker."
+]
+}
+},
+{
+"id": "voc:A2:die Badehose",
+"term": "die Badehose",
+"en": "A pair of swimming trunks",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ist das eine neue Badehose?"
+]
+}
+},
+{
+"id": "voc:A2:der Beutel",
+"term": "der Beutel",
+"en": "a small to medium-sized bag, usually of fabric",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Zucker ist im Beutel."
+]
+}
+},
+{
+"id": "voc:A2:die Enkelin",
+"term": "die Enkelin",
+"en": "granddaughter",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Das ist Nina, deine Enkelin."
+]
+}
+},
+{
+"id": "voc:A2:grillen",
+"term": "grillen",
+"en": "to grill",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wir grillen Würste."
+]
+}
+}
+]

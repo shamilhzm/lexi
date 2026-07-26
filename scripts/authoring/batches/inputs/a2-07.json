@@ -1,0 +1,1188 @@
+[
+{
+"id": "voc:A2:die Hansestadt",
+"term": "die Hansestadt",
+"en": "Hanseatic city",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Hamburg ist eine Hansestadt."
+]
+}
+},
+{
+"id": "voc:A2:der Nationalpark",
+"term": "der Nationalpark",
+"en": "national park",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir besuchen einen Nationalpark."
+]
+}
+},
+{
+"id": "voc:A2:die Pflanze",
+"term": "die Pflanze",
+"en": "plant",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Pflanze braucht Wasser."
+]
+}
+},
+{
+"id": "voc:A2:die Fernreise",
+"term": "die Fernreise",
+"en": "long-distance journey",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir planen eine Fernreise nach Asien."
+]
+}
+},
+{
+"id": "voc:A2:der Reisepartner",
+"term": "der Reisepartner",
+"en": "travel companion",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich suche einen Reisepartner."
+]
+}
+},
+{
+"id": "voc:A2:die Städtereise",
+"term": "die Städtereise",
+"en": "city trip",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir machen eine Städtereise nach Wien."
+]
+}
+},
+{
+"id": "voc:A2:der Strandkorb",
+"term": "der Strandkorb",
+"en": "roofed beach chair",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir sitzen im Strandkorb."
+]
+}
+},
+{
+"id": "voc:A2:der Aktivurlaub",
+"term": "der Aktivurlaub",
+"en": "activity holiday",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir mögen Aktivurlaub in den Bergen."
+]
+}
+},
+{
+"id": "voc:A2:der Badeurlaub",
+"term": "der Badeurlaub",
+"en": "beach holiday",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Im Sommer machen wir Badeurlaub."
+]
+}
+},
+{
+"id": "voc:A2:das Doppelzimmer",
+"term": "das Doppelzimmer",
+"en": "double room",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Wir buchen ein Doppelzimmer."
+]
+}
+},
+{
+"id": "voc:A2:das Frühstücksbüfett",
+"term": "das Frühstücksbüfett",
+"en": "breakfast buffet",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Das Hotel hat ein großes Frühstücksbüfett."
+]
+}
+},
+{
+"id": "voc:A2:die Liegewiese",
+"term": "die Liegewiese",
+"en": "sunbathing lawn",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Im Freibad gibt es eine große Liegewiese."
+]
+}
+},
+{
+"id": "voc:A2:die Vollpension",
+"term": "die Vollpension",
+"en": "full board",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir buchen das Hotel mit Vollpension."
+]
+}
+},
+{
+"id": "voc:A2:der Aufenthaltsraum",
+"term": "der Aufenthaltsraum",
+"en": "common room, lounge",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Im Aufenthaltsraum gibt es einen Fernseher."
+]
+}
+},
+{
+"id": "voc:A2:der Stellplatz",
+"term": "der Stellplatz",
+"en": "pitch (camping), parking spot",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir haben einen Stellplatz reserviert."
+]
+}
+},
+{
+"id": "voc:A2:die Entspannung",
+"term": "die Entspannung",
+"en": "relaxation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Musik bringt mir Entspannung."
+]
+}
+},
+{
+"id": "voc:A2:das Mountainbike",
+"term": "das Mountainbike",
+"en": "mountain bike",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich fahre gern Mountainbike."
+]
+}
+},
+{
+"id": "voc:A2:die Sauna",
+"term": "die Sauna",
+"en": "sauna",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Nach dem Sport gehe ich in die Sauna."
+]
+}
+},
+{
+"id": "voc:A2:der Stadtbummel",
+"term": "der Stadtbummel",
+"en": "stroll through town",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir machen einen Stadtbummel."
+]
+}
+},
+{
+"id": "voc:A2:chillen",
+"term": "chillen",
+"en": "to chill (colloquial)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Am Wochenende chille ich zu Hause."
+]
+}
+},
+{
+"id": "voc:A2:faulenzen",
+"term": "faulenzen",
+"en": "to laze around",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Im Urlaub will ich nur faulenzen."
+]
+}
+},
+{
+"id": "voc:A2:entspannt",
+"term": "entspannt",
+"en": "relaxed",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Im Urlaub bin ich ganz entspannt."
+]
+}
+},
+{
+"id": "voc:A2:der Ausgangspunkt",
+"term": "der Ausgangspunkt",
+"en": "starting point",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Bahnhof ist unser Ausgangspunkt."
+]
+}
+},
+{
+"id": "voc:A2:der Luftballon",
+"term": "der Luftballon",
+"en": "balloon",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Die Kinder spielen mit einem Luftballon."
+]
+}
+},
+{
+"id": "voc:A2:der Pkw",
+"term": "der Pkw",
+"en": "car (passenger vehicle)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Pkw steht in der Garage."
+]
+}
+},
+{
+"id": "voc:A2:aufbauen",
+"term": "aufbauen",
+"en": "to set up, build up",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir bauen das Zelt auf."
+]
+}
+},
+{
+"id": "voc:A2:berichten",
+"term": "berichten",
+"en": "to report",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie berichtet von ihrer Reise."
+]
+}
+},
+{
+"id": "voc:A2:sortieren",
+"term": "sortieren",
+"en": "to sort",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich sortiere die Fotos nach Datum."
+]
+}
+},
+{
+"id": "voc:A2:sich verstehen",
+"term": "sich verstehen",
+"en": "to get along",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir verstehen uns gut."
+]
+}
+},
+{
+"id": "voc:A2:verwöhnen",
+"term": "verwöhnen",
+"en": "to spoil, pamper",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Oma verwöhnt die Enkel."
+]
+}
+},
+{
+"id": "voc:A2:absolut",
+"term": "absolut",
+"en": "absolute(ly)",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Da hast du absolut recht."
+]
+}
+},
+{
+"id": "voc:A2:elegant",
+"term": "elegant",
+"en": "elegant",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie trägt ein elegantes Kleid."
+]
+}
+},
+{
+"id": "voc:A2:familiär",
+"term": "familiär",
+"en": "family-like, informal",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Stimmung war sehr familiär."
+]
+}
+},
+{
+"id": "voc:A2:fantastisch",
+"term": "fantastisch",
+"en": "fantastic",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Essen war fantastisch."
+]
+}
+},
+{
+"id": "voc:A2:herrlich",
+"term": "herrlich",
+"en": "glorious, marvellous",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Heute ist herrliches Wetter."
+]
+}
+},
+{
+"id": "voc:A2:kühl",
+"term": "kühl",
+"en": "cool",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Am Abend wird es kühl."
+]
+}
+},
+{
+"id": "voc:A2:traumhaft",
+"term": "traumhaft",
+"en": "dreamlike, wonderful",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Strand ist traumhaft."
+]
+}
+},
+{
+"id": "voc:A2:vielfältig",
+"term": "vielfältig",
+"en": "diverse, varied",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Angebot ist sehr vielfältig."
+]
+}
+},
+{
+"id": "voc:A2:Herzlichen Glückwunsch!",
+"term": "Herzlichen Glückwunsch!",
+"en": "Congratulations!",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Herzlichen Glückwunsch zum Geburtstag!"
+]
+}
+},
+{
+"id": "voc:A2:ruhig",
+"term": "ruhig",
+"en": "quiet",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich hätte gern ein ruhiges Zimmer zur Innenseite."
+]
+}
+},
+{
+"id": "voc:A2:sich gewöhnen an",
+"term": "sich gewöhnen an",
+"en": "to get used to",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich gewöhne mich langsam an den Dialekt."
+]
+}
+},
+{
+"id": "voc:A2:Es war einmal …",
+"term": "Es war einmal …",
+"en": "Once upon a time …",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es war einmal eine schöne Prinzessin."
+]
+}
+},
+{
+"id": "voc:A2:der Bauch",
+"term": "der Bauch",
+"en": "belly",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Mir tut der Bauch weh."
+]
+}
+},
+{
+"id": "voc:A2:der Rücken",
+"term": "der Rücken",
+"en": "back",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Nach der Gartenarbeit tut mir der Rücken weh."
+]
+}
+},
+{
+"id": "voc:A2:der Hals",
+"term": "der Hals",
+"en": "throat / neck",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich bin erkältet und mein Hals tut weh."
+]
+}
+},
+{
+"id": "voc:A2:Gute Besserung!",
+"term": "Gute Besserung!",
+"en": "Get well soon!",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich hoffe, es geht dir bald besser. Gute Besserung!"
+]
+}
+},
+{
+"id": "voc:A2:entlang",
+"term": "entlang",
+"en": "along",
+"pos": "preposition",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Gehen Sie die Straße entlang."
+]
+}
+},
+{
+"id": "voc:A2:das duale Studium",
+"term": "das duale Studium",
+"en": "work-study programme",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Beim dualen Studium arbeitet man und studiert gleichzeitig."
+]
+}
+},
+{
+"id": "voc:A2:sich bewerben",
+"term": "sich bewerben",
+"en": "to apply (for a job)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bewerbe mich um ein Praktikum."
+]
+}
+},
+{
+"id": "voc:A2:die Abteilung",
+"term": "die Abteilung",
+"en": "department",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie arbeitet in der Abteilung für Marketing."
+]
+}
+},
+{
+"id": "voc:A2:das Verkehrsmittel (Stadt)",
+"term": "das Verkehrsmittel (Stadt)",
+"en": "means of transport",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"In der Stadt sind Bus und Bahn die wichtigsten Verkehrsmittel."
+]
+}
+},
+{
+"id": "voc:A2:zu Fuß gehen",
+"term": "zu Fuß gehen",
+"en": "to go on foot",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Zur Arbeit gehe ich meistens zu Fuß."
+]
+}
+},
+{
+"id": "voc:A2:bis zur Kreuzung",
+"term": "bis zur Kreuzung",
+"en": "up to the intersection",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Gehen Sie geradeaus bis zur Kreuzung."
+]
+}
+},
+{
+"id": "voc:A2:über die Kreuzung",
+"term": "über die Kreuzung",
+"en": "across the intersection",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Fahren Sie über die Kreuzung und dann rechts."
+]
+}
+},
+{
+"id": "voc:A2:peinlich (Situation)",
+"term": "peinlich (Situation)",
+"en": "embarrassing",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es war mir sehr peinlich, seinen Namen zu vergessen."
+]
+}
+},
+{
+"id": "voc:A2:typisch sein für + A",
+"term": "typisch sein für + A",
+"en": "to be typical of",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"So ein Regen ist typisch für den April."
+]
+}
+},
+{
+"id": "voc:A2:die Prüfung (Uni)",
+"term": "die Prüfung (Uni)",
+"en": "exam",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Prüfung war schwerer als erwartet."
+]
+}
+},
+{
+"id": "voc:A2:bestehen (Prüfung)",
+"term": "bestehen (Prüfung)",
+"en": "to pass (an exam)",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie hat das Examen bestanden."
+]
+}
+},
+{
+"id": "voc:A2:einverstanden sein mit + D",
+"term": "einverstanden sein mit + D",
+"en": "to agree with",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Bist du mit dem Plan einverstanden?"
+]
+}
+},
+{
+"id": "voc:A2:sich erinnern an + A",
+"term": "sich erinnern an + A",
+"en": "to remember",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich erinnere mich an das Fest."
+]
+}
+},
+{
+"id": "voc:A2:Ich wünsche Ihnen frohe Weihnachten!",
+"term": "Ich wünsche Ihnen frohe Weihnachten!",
+"en": "I wish you a merry Christmas!",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Ich wünsche Ihnen frohe Weihnachten und ein gutes neues Jahr!"
+]
+}
+},
+{
+"id": "voc:A2:einen guten Rutsch ins neue Jahr",
+"term": "einen guten Rutsch ins neue Jahr",
+"en": "a good start into the new year",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Einen guten Rutsch ins neue Jahr!"
+]
+}
+},
+{
+"id": "voc:A2:der Flughafen",
+"term": "der Flughafen",
+"en": "airport",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Flughafen ist weit weg."
+]
+}
+},
+{
+"id": "voc:A2:in der Nähe von",
+"term": "in der Nähe von",
+"en": "near, close to",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wir wohnen in der Nähe vom Bahnhof."
+]
+}
+},
+{
+"id": "voc:A2:die Wand",
+"term": "die Wand",
+"en": "wall",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Das Bild hängt an der Wand."
+]
+}
+},
+{
+"id": "voc:A2:liegen",
+"term": "liegen",
+"en": "to lie, be located",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das Buch liegt auf dem Tisch."
+]
+}
+},
+{
+"id": "voc:A2:die Heimat (Region)",
+"term": "die Heimat (Region)",
+"en": "home region",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Bayern ist seine Heimat."
+]
+}
+},
+{
+"id": "voc:A2:sich freuen auf + A",
+"term": "sich freuen auf + A",
+"en": "to look forward to",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich freue mich auf den Karneval."
+]
+}
+},
+{
+"id": "voc:A2:sich interessieren für + A",
+"term": "sich interessieren für + A",
+"en": "to be interested in",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie interessiert sich sehr für Musik."
+]
+}
+},
+{
+"id": "voc:A2:verbessern",
+"term": "verbessern",
+"en": "to improve",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich möchte mein Deutsch verbessern."
+]
+}
+},
+{
+"id": "voc:A2:am Ende",
+"term": "am Ende",
+"en": "in the end",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Am Ende waren alle zufrieden."
+]
+}
+},
+{
+"id": "voc:A2:die Karte sperren",
+"term": "die Karte sperren",
+"en": "to block a card",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Nach dem Diebstahl ließ er seine Karte sperren."
+]
+}
+},
+{
+"id": "voc:A2:bar bezahlen",
+"term": "bar bezahlen",
+"en": "to pay cash",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Kann ich hier bar bezahlen?"
+]
+}
+},
+{
+"id": "voc:A2:die Karte einführen",
+"term": "die Karte einführen",
+"en": "to insert the card",
+"pos": "phrase",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Führen Sie die Karte in den Automaten ein."
+]
+}
+},
+{
+"id": "voc:A2:die Anzeige",
+"term": "die Anzeige",
+"en": "report (to police); ad",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Nach dem Diebstahl machte er eine Anzeige bei der Polizei."
+]
+}
+}
+]

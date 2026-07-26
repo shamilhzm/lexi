@@ -1,0 +1,22 @@
+{
+  "name": "atlas",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Orbita — open-source, space-exploration language learning. Web reconcile of the Orbita prototype against the Orbita briefs.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview --host --port 4317",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "ts-fsrs": "^5.4.1"
+  }
+}

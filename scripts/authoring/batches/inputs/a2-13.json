@@ -1,0 +1,1188 @@
+[
+{
+"id": "voc:A2:die Unterhaltung",
+"term": "die Unterhaltung",
+"en": "conversation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Das ist Unterhaltung!"
+]
+}
+},
+{
+"id": "voc:A2:der Urlauber",
+"term": "der Urlauber",
+"en": "holidaymaker, vacationer",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich habe am Strand viele Urlauber gesehen."
+]
+}
+},
+{
+"id": "voc:A2:die Verbesserung",
+"term": "die Verbesserung",
+"en": "improvement",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Das ist eine Verbesserung."
+]
+}
+},
+{
+"id": "voc:A2:weitergehen",
+"term": "weitergehen",
+"en": "to proceed, progress, continue",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Bitte weitergehen."
+]
+}
+},
+{
+"id": "voc:A2:die Weltmeisterschaft",
+"term": "die Weltmeisterschaft",
+"en": "World Cup",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Verfolgst du die Weltmeisterschaft?"
+]
+}
+},
+{
+"id": "voc:A2:der Österreicher",
+"term": "der Österreicher",
+"en": "Austrian",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ist er Österreicher oder Deutscher?"
+]
+}
+},
+{
+"id": "voc:A2:übrig",
+"term": "übrig",
+"en": "rest of, remaining",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Was blieb übrig?"
+]
+}
+},
+{
+"id": "voc:A2:baden",
+"term": "baden",
+"en": "to bathe, to give a bath to or have a bath.",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bade!"
+]
+}
+},
+{
+"id": "voc:A2:beides",
+"term": "beides",
+"en": "both",
+"pos": "conjunction",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Beides geht."
+]
+}
+},
+{
+"id": "voc:A2:der Burger",
+"term": "der Burger",
+"en": "A burger",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir essen Burger zu Mittag."
+]
+}
+},
+{
+"id": "voc:A2:die Chefin",
+"term": "die Chefin",
+"en": "female boss",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich bin die Chefin."
+]
+}
+},
+{
+"id": "voc:A2:der Container",
+"term": "der Container",
+"en": "a big container made of metal",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Container ist leer."
+]
+}
+},
+{
+"id": "voc:A2:die Dame",
+"term": "die Dame",
+"en": "lady",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Tag, die Damen!"
+]
+}
+},
+{
+"id": "voc:A2:digital",
+"term": "digital",
+"en": "digital",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Deine Uhr ist digital."
+]
+}
+},
+{
+"id": "voc:A2:eineinhalb",
+"term": "eineinhalb",
+"en": "one and a half, sesqui-",
+"pos": "number",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Er lernte jeden Tag eineinhalb Stunden lang."
+]
+}
+},
+{
+"id": "voc:A2:die Flagge",
+"term": "die Flagge",
+"en": "flag",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Hiß die Flagge!"
+]
+}
+},
+{
+"id": "voc:A2:füllen",
+"term": "füllen",
+"en": "to fill",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Füllt die Lücken aus."
+]
+}
+},
+{
+"id": "voc:A2:getrennt",
+"term": "getrennt",
+"en": "separate, apart",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir sind getrennt."
+]
+}
+},
+{
+"id": "voc:A2:die Internetseite",
+"term": "die Internetseite",
+"en": "website",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Hat Tom eine Internetseite?"
+]
+}
+},
+{
+"id": "voc:A2:kompliziert",
+"term": "kompliziert",
+"en": "complicated, complex",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es ist kompliziert."
+]
+}
+},
+{
+"id": "voc:A2:leid",
+"term": "leid",
+"en": "distressing, uncomfortable",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Leider nicht."
+]
+}
+},
+{
+"id": "voc:A2:link",
+"term": "link",
+"en": "left",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin Linker."
+]
+}
+},
+{
+"id": "voc:A2:die Maske",
+"term": "die Maske",
+"en": "mask",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Maske auf!"
+]
+}
+},
+{
+"id": "voc:A2:die Mitarbeiterin",
+"term": "die Mitarbeiterin",
+"en": "associate, employee, colleague",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Sie hat eine Mitarbeiterin verletzt."
+]
+}
+},
+{
+"id": "voc:A2:niedrig",
+"term": "niedrig",
+"en": "low",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Es ist zu niedrig."
+]
+}
+},
+{
+"id": "voc:A2:das Original",
+"term": "das Original",
+"en": "original",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Wo ist das Original?"
+]
+}
+},
+{
+"id": "voc:A2:ran",
+"term": "ran",
+"en": "near, close to, over to",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Geh ran!"
+]
+}
+},
+{
+"id": "voc:A2:der Rapper",
+"term": "der Rapper",
+"en": "rapper",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Tom ist ein Rapper."
+]
+}
+},
+{
+"id": "voc:A2:reich",
+"term": "reich",
+"en": "rich, wealthy",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Er war reich."
+]
+}
+},
+{
+"id": "voc:A2:die Reparatur",
+"term": "die Reparatur",
+"en": "repair, mending",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Lohnt sich eine Reparatur?"
+]
+}
+},
+{
+"id": "voc:A2:der Roboter",
+"term": "der Roboter",
+"en": "robot",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Magst du Roboter?"
+]
+}
+},
+{
+"id": "voc:A2:die Route",
+"term": "die Route",
+"en": "route",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Kann ich die Route ändern?"
+]
+}
+},
+{
+"id": "voc:A2:das Rätsel",
+"term": "das Rätsel",
+"en": "riddle, puzzle, mystery, enigma",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Tom mag Rätsel."
+]
+}
+},
+{
+"id": "voc:A2:schade",
+"term": "schade",
+"en": "a pity, a shame",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Schade."
+]
+}
+},
+{
+"id": "voc:A2:die Schau",
+"term": "die Schau",
+"en": "show",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Schau her."
+]
+}
+},
+{
+"id": "voc:A2:die Scheibe",
+"term": "die Scheibe",
+"en": "flat piece or surface",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Scheiben sind beschlagen."
+]
+}
+},
+{
+"id": "voc:A2:schießen",
+"term": "schießen",
+"en": "to shoot",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir schießen."
+]
+}
+},
+{
+"id": "voc:A2:schwach",
+"term": "schwach",
+"en": "weak, lacking in strength",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Er ist schwach."
+]
+}
+},
+{
+"id": "voc:A2:unbekannt",
+"term": "unbekannt",
+"en": "unknown, unbeknownst",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Das ist nicht unbekannt."
+]
+}
+},
+{
+"id": "voc:A2:die Ware",
+"term": "die Ware",
+"en": "goods, merchandise, ware, commodity",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wo waren Sie?"
+]
+}
+},
+{
+"id": "voc:A2:das Wiedersehen",
+"term": "das Wiedersehen",
+"en": "reunion",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Sag „Auf Wiedersehen!“!"
+]
+}
+},
+{
+"id": "voc:A2:die Zahlung",
+"term": "die Zahlung",
+"en": "payment",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Smith forderte die Zahlung."
+]
+}
+},
+{
+"id": "voc:A2:zweieinhalb",
+"term": "zweieinhalb",
+"en": "two and a half",
+"pos": "number",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Das Stück dauert zweieinhalb Stunden."
+]
+}
+},
+{
+"id": "voc:A2:aha",
+"term": "aha",
+"en": "aha",
+"pos": "interjection",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Aha!"
+]
+}
+},
+{
+"id": "voc:A2:die Ahnung",
+"term": "die Ahnung",
+"en": "anticipation, inkling",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Tom hat keine Ahnung."
+]
+}
+},
+{
+"id": "voc:A2:ansehen",
+"term": "ansehen",
+"en": "to look at, to have a look at",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Hast du ihn angesehen?"
+]
+}
+},
+{
+"id": "voc:A2:aufwachen",
+"term": "aufwachen",
+"en": "to awake, to wake up",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Aufwachen, Liebes!"
+]
+}
+},
+{
+"id": "voc:A2:die Bombe",
+"term": "die Bombe",
+"en": "bomb",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Tom hat eine Bombe."
+]
+}
+},
+{
+"id": "voc:A2:danken",
+"term": "danken",
+"en": "to thank",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ja. Danke!"
+]
+}
+},
+{
+"id": "voc:A2:dumm",
+"term": "dumm",
+"en": "dumb, stupid",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wie dumm!"
+]
+}
+},
+{
+"id": "voc:A2:der Engel",
+"term": "der Engel",
+"en": "angel",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich bin ein Engel."
+]
+}
+},
+{
+"id": "voc:A2:furchtbar",
+"term": "furchtbar",
+"en": "terribly, awfully",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es ist furchtbar."
+]
+}
+},
+{
+"id": "voc:A2:hassen",
+"term": "hassen",
+"en": "to hate",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Was hasst du?"
+]
+}
+},
+{
+"id": "voc:A2:lügen",
+"term": "lügen",
+"en": "to tell a lie",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Er lügt."
+]
+}
+},
+{
+"id": "voc:A2:das Monster",
+"term": "das Monster",
+"en": "monster",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Ich bin ein Monster."
+]
+}
+},
+{
+"id": "voc:A2:na",
+"term": "na",
+"en": "well!, so!",
+"pos": "interjection",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Na gut!"
+]
+}
+},
+{
+"id": "voc:A2:nachdenken",
+"term": "nachdenken",
+"en": "to think, to reflect, to ponder",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich muss nachdenken."
+]
+}
+},
+{
+"id": "voc:A2:prima",
+"term": "prima",
+"en": "great, super",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es läuft prima!"
+]
+}
+},
+{
+"id": "voc:A2:schreien",
+"term": "schreien",
+"en": "to shout",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Schreien Sie."
+]
+}
+},
+{
+"id": "voc:A2:stören",
+"term": "stören",
+"en": "to disturb, to interfere, to bother",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Du störst!"
+]
+}
+},
+{
+"id": "voc:A2:verrückt",
+"term": "verrückt",
+"en": "crazy, mad",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Verrückt!"
+]
+}
+},
+{
+"id": "voc:A2:wach",
+"term": "wach",
+"en": "awake",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Bleib wach."
+]
+}
+},
+{
+"id": "voc:A2:weh",
+"term": "weh",
+"en": "sore, painful",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"O weh mir!"
+]
+}
+},
+{
+"id": "voc:A2:wieso",
+"term": "wieso",
+"en": "why",
+"pos": "adverb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wieso?"
+]
+}
+},
+{
+"id": "voc:A2:anfassen",
+"term": "anfassen",
+"en": "to touch",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Nicht anfassen!"
+]
+}
+},
+{
+"id": "voc:A2:beten",
+"term": "beten",
+"en": "to pray",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Betet."
+]
+}
+},
+{
+"id": "voc:A2:blind",
+"term": "blind",
+"en": "blind",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er war blind."
+]
+}
+},
+{
+"id": "voc:A2:brav",
+"term": "brav",
+"en": "good, well-behaved or reliable, obedient",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Braver Hund!"
+]
+}
+},
+{
+"id": "voc:A2:erwachsen",
+"term": "erwachsen",
+"en": "adult, grown-up, grown, full-grown",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Werd erwachsen!"
+]
+}
+},
+{
+"id": "voc:A2:fein",
+"term": "fein",
+"en": "fine",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Fein!"
+]
+}
+},
+{
+"id": "voc:A2:fressen",
+"term": "fressen",
+"en": "to eat",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Kühe fressen Gras."
+]
+}
+},
+{
+"id": "voc:A2:geheim",
+"term": "geheim",
+"en": "secret, clandestine",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Es ist geheim."
+]
+}
+},
+{
+"id": "voc:A2:gemein",
+"term": "gemein",
+"en": "mean, nasty, wicked",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Er war gemein."
+]
+}
+},
+{
+"id": "voc:A2:herkommen",
+"term": "herkommen",
+"en": "to come over, come here",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Kannst du herkommen?"
+]
+}
+},
+{
+"id": "voc:A2:hingehen",
+"term": "hingehen",
+"en": "to go",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich soll hingehen."
+]
+}
+}
+]

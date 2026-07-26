@@ -1,0 +1,1200 @@
+[
+{
+"id": "voc:A2:die Grundschule",
+"term": "die Grundschule",
+"en": "primary school",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Mein Sohn geht in die Grundschule."
+]
+}
+},
+{
+"id": "voc:A2:die Hauptschule",
+"term": "die Hauptschule",
+"en": "secondary general school",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Nach der Grundschule kam er auf die Hauptschule."
+]
+}
+},
+{
+"id": "voc:A2:die Klasse",
+"term": "die Klasse",
+"en": "class, grade",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich bin in der zehnten Klasse."
+]
+}
+},
+{
+"id": "voc:A2:das Schuljahr",
+"term": "das Schuljahr",
+"en": "school year",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Das Schuljahr beginnt im September."
+]
+}
+},
+{
+"id": "voc:A2:die Schulpflicht",
+"term": "die Schulpflicht",
+"en": "compulsory schooling",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"In Deutschland gibt es die Schulpflicht."
+]
+}
+},
+{
+"id": "voc:A2:der Test",
+"term": "der Test",
+"en": "test",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Morgen schreiben wir einen Test."
+]
+}
+},
+{
+"id": "voc:A2:der Augenoptiker",
+"term": "der Augenoptiker",
+"en": "optician",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Augenoptiker prüft meine Augen."
+]
+}
+},
+{
+"id": "voc:A2:der Bankkaufmann",
+"term": "der Bankkaufmann",
+"en": "bank clerk",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Er ist Bankkaufmann von Beruf."
+]
+}
+},
+{
+"id": "voc:A2:der Erzieher",
+"term": "der Erzieher",
+"en": "educator, nursery teacher",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Erzieher spielt mit den Kindern."
+]
+}
+},
+{
+"id": "voc:A2:der Kraftfahrer",
+"term": "der Kraftfahrer",
+"en": "driver (professional)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Kraftfahrer fährt einen Lastwagen."
+]
+}
+},
+{
+"id": "voc:A2:der Mechaniker",
+"term": "der Mechaniker",
+"en": "mechanic",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Mechaniker repariert mein Auto."
+]
+}
+},
+{
+"id": "voc:A2:der Rechtsanwalt",
+"term": "der Rechtsanwalt",
+"en": "lawyer",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich gehe zum Rechtsanwalt."
+]
+}
+},
+{
+"id": "voc:A2:der Ingenieur",
+"term": "der Ingenieur",
+"en": "engineer",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Mein Bruder ist Ingenieur."
+]
+}
+},
+{
+"id": "voc:A2:die Beratung",
+"term": "die Beratung",
+"en": "consultation, advice",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Beratung ist kostenlos."
+]
+}
+},
+{
+"id": "voc:A2:die Berufserfahrung",
+"term": "die Berufserfahrung",
+"en": "professional experience",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Für diese Stelle braucht man Berufserfahrung."
+]
+}
+},
+{
+"id": "voc:A2:die Qualifikation",
+"term": "die Qualifikation",
+"en": "qualification",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Welche Qualifikation haben Sie?"
+]
+}
+},
+{
+"id": "voc:A2:sich weiterbilden",
+"term": "sich weiterbilden",
+"en": "to continue one’s education",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich möchte mich weiterbilden."
+]
+}
+},
+{
+"id": "voc:A2:wechseln",
+"term": "wechseln",
+"en": "to change, switch",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich möchte die Bank wechseln."
+]
+}
+},
+{
+"id": "voc:A2:der Krankenpfleger",
+"term": "der Krankenpfleger",
+"en": "nurse (male)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Der Krankenpfleger hilft den Patienten."
+]
+}
+},
+{
+"id": "voc:A2:die Krankenschwester",
+"term": "die Krankenschwester",
+"en": "nurse (female)",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Krankenschwester misst das Fieber."
+]
+}
+},
+{
+"id": "voc:A2:die Beachtung",
+"term": "die Beachtung",
+"en": "attention, consideration",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Der Hinweis fand wenig Beachtung."
+]
+}
+},
+{
+"id": "voc:A2:die Betreuung",
+"term": "die Betreuung",
+"en": "care, supervision",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Betreuung der Kinder ist gut."
+]
+}
+},
+{
+"id": "voc:A2:die Lebensqualität",
+"term": "die Lebensqualität",
+"en": "quality of life",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Stadt bietet eine hohe Lebensqualität."
+]
+}
+},
+{
+"id": "voc:A2:die Planung",
+"term": "die Planung",
+"en": "planning",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Planung dauert noch."
+]
+}
+},
+{
+"id": "voc:A2:die Theorie",
+"term": "die Theorie",
+"en": "theory",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"In der Theorie ist alles einfach."
+]
+}
+},
+{
+"id": "voc:A2:das Wissen",
+"term": "das Wissen",
+"en": "knowledge",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Sein Wissen ist beeindruckend."
+]
+}
+},
+{
+"id": "voc:A2:analysieren",
+"term": "analysieren",
+"en": "to analyse",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir analysieren die Daten."
+]
+}
+},
+{
+"id": "voc:A2:beachten",
+"term": "beachten",
+"en": "to observe, heed",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Bitte beachten Sie die Regeln."
+]
+}
+},
+{
+"id": "voc:A2:formulieren",
+"term": "formulieren",
+"en": "to formulate",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Können Sie die Frage anders formulieren?"
+]
+}
+},
+{
+"id": "voc:A2:gestalten",
+"term": "gestalten",
+"en": "to design, shape",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wir gestalten die Einladung selbst."
+]
+}
+},
+{
+"id": "voc:A2:zuhören",
+"term": "zuhören",
+"en": "to listen",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Bitte hör mir zu!"
+]
+}
+},
+{
+"id": "voc:A2:gestresst",
+"term": "gestresst",
+"en": "stressed",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich bin heute sehr gestresst."
+]
+}
+},
+{
+"id": "voc:A2:gleichzeitig",
+"term": "gleichzeitig",
+"en": "simultaneous(ly)",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Ich kann nicht alles gleichzeitig machen."
+]
+}
+},
+{
+"id": "voc:A2:die Bewerbungsunterlagen",
+"term": "die Bewerbungsunterlagen",
+"en": "application documents",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Schicken Sie bitte Ihre Bewerbungsunterlagen."
+]
+}
+},
+{
+"id": "voc:A2:die Unterschrift",
+"term": "die Unterschrift",
+"en": "signature",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich brauche hier Ihre Unterschrift."
+]
+}
+},
+{
+"id": "voc:A2:die Arbeitswelt",
+"term": "die Arbeitswelt",
+"en": "world of work",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Arbeitswelt verändert sich schnell."
+]
+}
+},
+{
+"id": "voc:A2:die Arbeitszeit",
+"term": "die Arbeitszeit",
+"en": "working hours",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Meine Arbeitszeit ist von acht bis vier."
+]
+}
+},
+{
+"id": "voc:A2:die Fabrik",
+"term": "die Fabrik",
+"en": "factory",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Er arbeitet in einer Fabrik."
+]
+}
+},
+{
+"id": "voc:A2:die Gleitzeit",
+"term": "die Gleitzeit",
+"en": "flexitime",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Wir haben Gleitzeit in der Firma."
+]
+}
+},
+{
+"id": "voc:A2:die Industrie",
+"term": "die Industrie",
+"en": "industry",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Industrie braucht viele Arbeiter."
+]
+}
+},
+{
+"id": "voc:A2:die Kantine",
+"term": "die Kantine",
+"en": "canteen",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"In der Kantine gibt es heute Suppe."
+]
+}
+},
+{
+"id": "voc:A2:die Personalabteilung",
+"term": "die Personalabteilung",
+"en": "HR department",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Fragen Sie die Personalabteilung."
+]
+}
+},
+{
+"id": "voc:A2:der Rohstoff",
+"term": "der Rohstoff",
+"en": "raw material",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Holz ist ein wichtiger Rohstoff."
+]
+}
+},
+{
+"id": "voc:A2:die Schicht",
+"term": "die Schicht",
+"en": "shift",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich arbeite heute in der Spätschicht."
+]
+}
+},
+{
+"id": "voc:A2:exportieren",
+"term": "exportieren",
+"en": "to export",
+"pos": "verb",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Die Firma exportiert Autos."
+]
+}
+},
+{
+"id": "voc:A2:werben",
+"term": "werben",
+"en": "to advertise",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Firma wirbt im Internet."
+]
+}
+},
+{
+"id": "voc:A2:der Fortbildungskurs",
+"term": "der Fortbildungskurs",
+"en": "further-training course",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Ich mache einen Fortbildungskurs."
+]
+}
+},
+{
+"id": "voc:A2:die Kenntnisse",
+"term": "die Kenntnisse",
+"en": "knowledge, skills",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Ich habe gute Englischkenntnisse."
+]
+}
+},
+{
+"id": "voc:A2:die Weiterbildung",
+"term": "die Weiterbildung",
+"en": "further education",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Weiterbildung hilft mir im Beruf."
+]
+}
+},
+{
+"id": "voc:A2:der Anteil",
+"term": "der Anteil",
+"en": "share, proportion",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Mein Anteil an der Rechnung ist zehn Euro."
+]
+}
+},
+{
+"id": "voc:A2:der Betreff",
+"term": "der Betreff",
+"en": "subject line",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Schreib bitte einen Betreff in die E-Mail."
+]
+}
+},
+{
+"id": "voc:A2:die EDV",
+"term": "die EDV",
+"en": "electronic data processing, IT",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Er kennt sich gut mit EDV aus."
+]
+}
+},
+{
+"id": "voc:A2:die Einführung",
+"term": "die Einführung",
+"en": "introduction",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Einführung war kurz und klar."
+]
+}
+},
+{
+"id": "voc:A2:die Fahrtkosten",
+"term": "die Fahrtkosten",
+"en": "travel costs",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Fahrtkosten sind hoch."
+]
+}
+},
+{
+"id": "voc:A2:die Gründung",
+"term": "die Gründung",
+"en": "founding",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Die Gründung der Firma war 2010."
+]
+}
+},
+{
+"id": "voc:A2:die Marke",
+"term": "die Marke",
+"en": "brand",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Welche Marke ist das?"
+]
+}
+},
+{
+"id": "voc:A2:die Pflicht",
+"term": "die Pflicht",
+"en": "duty, obligation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Jeder hat Rechte und Pflichten."
+]
+}
+},
+{
+"id": "voc:A2:die Regelung",
+"term": "die Regelung",
+"en": "regulation, arrangement",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Es gibt eine neue Regelung."
+]
+}
+},
+{
+"id": "voc:A2:das Schlüsselwort",
+"term": "das Schlüsselwort",
+"en": "keyword",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"gender": "das",
+"ex_de": [
+"Such nach dem Schlüsselwort."
+]
+}
+},
+{
+"id": "voc:A2:die Tätigkeit",
+"term": "die Tätigkeit",
+"en": "activity, occupation",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Welche Tätigkeit üben Sie aus?"
+]
+}
+},
+{
+"id": "voc:A2:die Umgangssprache",
+"term": "die Umgangssprache",
+"en": "colloquial language",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"„Kohle“ ist Umgangssprache für Geld."
+]
+}
+},
+{
+"id": "voc:A2:betreuen",
+"term": "betreuen",
+"en": "to look after, supervise",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Sie betreut die Kinder am Nachmittag."
+]
+}
+},
+{
+"id": "voc:A2:einreichen",
+"term": "einreichen",
+"en": "to submit",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Reichen Sie den Antrag bis Freitag ein."
+]
+}
+},
+{
+"id": "voc:A2:erfahren",
+"term": "erfahren",
+"en": "to learn, find out",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Wo hast du das erfahren?"
+]
+}
+},
+{
+"id": "voc:A2:kontrollieren",
+"term": "kontrollieren",
+"en": "to check, monitor",
+"pos": "verb",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Schaffner kontrolliert die Tickets."
+]
+}
+},
+{
+"id": "voc:A2:informativ",
+"term": "informativ",
+"en": "informative",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"ex_de": [
+"Der Vortrag war sehr informativ."
+]
+}
+},
+{
+"id": "voc:A2:originell",
+"term": "originell",
+"en": "original, inventive",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das ist eine originelle Idee."
+]
+}
+},
+{
+"id": "voc:A2:übersichtlich",
+"term": "übersichtlich",
+"en": "clear, well-organised",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Tabelle ist sehr übersichtlich."
+]
+}
+},
+{
+"id": "voc:A2:üblich",
+"term": "üblich",
+"en": "usual, customary",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Das ist hier so üblich."
+]
+}
+},
+{
+"id": "voc:A2:vertraut",
+"term": "vertraut",
+"en": "familiar",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Die Stimme kam mir vertraut vor."
+]
+}
+},
+{
+"id": "voc:A2:wöchentlich",
+"term": "wöchentlich",
+"en": "weekly",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"def"
+],
+"have": {
+"ex_de": [
+"Wir treffen uns wöchentlich."
+]
+}
+},
+{
+"id": "voc:A2:zusätzlich",
+"term": "zusätzlich",
+"en": "additional(ly)",
+"pos": "adjective",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"ex_de": [
+"Brauchst du noch zusätzliche Hilfe?"
+]
+}
+},
+{
+"id": "voc:A2:die Alpen",
+"term": "die Alpen",
+"en": "the Alps",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Im Sommer fahren wir in die Alpen."
+]
+}
+},
+{
+"id": "voc:A2:der Berg",
+"term": "der Berg",
+"en": "mountain",
+"pos": "noun",
+"level": "A2",
+"need": [
+"syn"
+],
+"have": {
+"gender": "der",
+"ex_de": [
+"Wir steigen auf den Berg."
+]
+}
+},
+{
+"id": "voc:A2:die Düne",
+"term": "die Düne",
+"en": "dune",
+"pos": "noun",
+"level": "A2",
+"need": [
+"def",
+"syn"
+],
+"have": {
+"gender": "die",
+"ex_de": [
+"Am Strand gibt es hohe Dünen."
+]
+}
+}
+]

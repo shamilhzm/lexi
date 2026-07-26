@@ -1,0 +1,185 @@
+/* Orbita design system — "Feinpapier".
+   One surface: plain warm paper, ink typography, and a refined editorial
+   accent palette (no crude highlighter colors). The old Void/Deck split is
+   gone; both data-surface values map to paper during the transition. */
+:root {
+  /* paper */
+  --paper:        #F6F1E7;   /* the app surface */
+  --paper-raised: #FCF9F1;   /* cards, sheets */
+  --paper-deep:   #EFE8D8;   /* wells, pressed states */
+  --ink:          #2A2520;   /* warm near-black */
+  --ink-muted:    #8B8170;
+  --ink-faint:    #C9BFA9;   /* contour lines, stippling, disabled */
+  --hairline:     #E4DCC9;
+  --sidebar-w:    224px;   /* left nav width — study/placement overlays offset by this */
+
+  /* aspirational accents */
+  --accent:       #31567B;   /* Tinte — primary actions, links */
+  --accent-soft:  #DCE5EE;   /* Tinte wash for fills */
+  --gilt:         #A98A3B;   /* seals, mastery */
+  --amber:        #C2752B;   /* gap warnings */
+  --sage:         #5F7E52;   /* correct */
+  --sage-fill:    #E2EADC;
+  --rust:         #B05238;   /* wrong */
+  --rust-fill:    #F2E0DA;
+
+  /* refined level palette (cool → warm became editorial, bookish) */
+  --level-A1: #6E7F3C;   /* Olive */
+  --level-A2: #B96A3B;   /* Terracotta */
+  --level-B1: #2F7280;   /* Petrol */
+  --level-B2: #5C5480;   /* Veilchen */
+  --level-C1: #93404F;   /* Bordeaux */
+  --level-C2: #8A6D2F;   /* Messing */
+  /* legacy aliases (old token names still referenced in code/styles) */
+  --galaxy-A1: var(--level-A1);
+  --galaxy-A2: var(--level-A2);
+  --galaxy-B1: var(--level-B1);
+  --galaxy-B2: var(--level-B2);
+  --galaxy-C1: var(--level-C1);
+  --galaxy-C2: var(--level-C2);
+  --warp: var(--accent);
+  --warp-alt: var(--accent);
+  --stable: var(--sage);
+  --stable-fill: var(--sage-fill);
+  --decay: var(--rust);
+  --decay-fill: var(--rust-fill);
+  --stardust: var(--gilt);
+  /* legacy surface tokens — everything maps onto paper now */
+  --deck-bg: var(--paper);
+  --deck-surface: var(--paper-raised);
+  --deck-surface-alt: var(--paper-deep);
+  --deck-ink: var(--ink);
+  --deck-ink-muted: var(--ink-muted);
+  --deck-hairline: var(--hairline);
+  --void-bg: var(--paper);
+  --void-bg-deep: var(--paper);
+  --void-surface: var(--paper-raised);
+  --void-text: var(--ink);
+  --void-text-muted: var(--ink-muted);
+  --void-hairline: var(--hairline);
+
+  /* type */
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* spacing / radius */
+  --r-card: 18px; --r-media: 12px; --r-btn: 14px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; height: 100%; }
+body { font-family: var(--body); line-height: 1.5; overscroll-behavior-y: none; background: var(--paper); }
+button { font-family: inherit; cursor: pointer; }
+
+#app { min-height: 100%; }
+/* Desktop web app: fixed left sidebar + scrolling content column. */
+.app { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: row; align-items: stretch; }
+
+/* One surface: warm paper. Both legacy data-surface values map here —
+   component CSS keeps reading --surface/--bg as before. */
+.app[data-surface="void"], .app[data-surface="deck"] {
+  color: var(--ink);
+  background: var(--paper);
+  --surface: var(--paper-raised);
+  --bg: var(--paper);
+}
+
+.screen { flex: 1; min-width: 0; min-height: 100dvh; position: relative; overflow-y: auto; }
+.screen-pad { max-width: 880px; margin: 0 auto; padding: 44px 48px 72px; }
+
+/* headings — serif display on paper */
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; letter-spacing: 0; }
+.display-l { font-size: 31px; line-height: 1.14; }
+.h1 { font-size: 26px; line-height: 1.2; }
+.h2 { font-family: var(--display); font-weight: 550; font-size: 21px; line-height: 1.33; }
+.muted { color: var(--ink-muted); }
+.label-caps { font-family: var(--body); font-weight: 600; font-size: 11.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); }
+.mono { font-family: var(--mono); }
+
+/* icons */
+.ic { width: 1em; height: 1em; display: inline-block; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; vertical-align: -0.13em; }
+
+/* buttons */
+.btn { font-family: var(--body); font-weight: 600; font-size: 15px; border: 0; border-radius: 999px; padding: 13px 22px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-primary { background: var(--accent); color: var(--paper-raised); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-secondary { background: var(--paper-raised); color: var(--ink); border: 1px solid var(--hairline); }
+.btn-ghost { background: none; color: var(--accent); padding: 10px 8px; }
+
+/* left sidebar — wordmark + vertical nav, paper chrome */
+.sidebar { position: sticky; top: 0; align-self: flex-start; height: 100dvh; width: var(--sidebar-w); flex-shrink: 0; box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--paper-raised); border-right: 1px solid var(--hairline); padding: 26px 16px; z-index: 40; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 4px 10px 22px; }
+.brand-mark { display: inline-flex; color: var(--accent); }
+.brand-mark .ic { width: 22px; height: 22px; }
+.brand-name { font-family: var(--display); font-weight: 700; font-size: 21px; color: var(--ink); letter-spacing: 0.01em; }
+.nav-items { display: flex; flex-direction: column; gap: 2px; }
+.tab { display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: flex-start; text-align: left;
+  background: none; border: 0; border-radius: 10px; color: var(--ink-muted); font-family: var(--body); font-size: 14.5px; font-weight: 600; padding: 11px 13px; cursor: pointer; transition: background 0.12s, color 0.12s; }
+.tab .ic { width: 20px; height: 20px; flex-shrink: 0; }
+.tab:hover { color: var(--ink); background: var(--paper-deep); }
+.tab.active { color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
+.tab-badge { margin-left: auto; font-size: 11px; color: var(--accent); background: var(--accent-soft); border-radius: 9px; padding: 1px 7px; }
+
+/* collapsible rail (DESIGN-SYSTEM §5): 224px ↔ 56px icon rail. Panels are
+   paper — they slide, nothing springs. */
+.sidebar { transition: width 0.14s ease-out, padding 0.14s ease-out; }
+.rail-toggle { margin-top: auto; align-self: flex-start; display: inline-flex; background: none; border: 0; border-radius: 10px;
+  color: var(--ink-faint); padding: 9px 13px; transition: color 0.12s, background 0.12s; }
+.rail-toggle:hover { color: var(--ink); background: var(--paper-deep); }
+.rail-toggle .ic { width: 18px; height: 18px; }
+.app.rail-min { --sidebar-w: 56px; }
+.app.rail-min .sidebar { padding: 26px 8px; align-items: center; }
+.app.rail-min .brand { padding: 4px 0 22px; }
+.app.rail-min .brand-name, .app.rail-min .tab span, .app.rail-min .tab-badge { display: none; }
+.app.rail-min .tab { padding: 11px; justify-content: center; }
+.app.rail-min .rail-toggle { align-self: center; padding: 9px; }
+
+/* das Marginal — collapsible right context panel: the term dossier in the
+   map margin. Closed by default; slides like paper. */
+.marginal { position: sticky; top: 0; align-self: flex-start; height: 100dvh; width: 0; flex-shrink: 0; overflow: hidden; box-sizing: border-box;
+  background: var(--paper-raised); border-left: 1px solid var(--hairline); transition: width 0.14s ease-out; z-index: 40; }
+.app.mg-open .marginal { width: 300px; overflow-y: auto; }
+.marginal .mg-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 20px 8px; }
+.mg-title { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.mg-close { background: none; border: 0; color: var(--ink-muted); display: inline-flex; padding: 4px; border-radius: 8px; }
+.mg-close:hover { color: var(--ink); background: var(--paper-deep); }
+.mg-close .ic { width: 16px; height: 16px; }
+.mg-body { padding: 4px 20px 32px; min-width: 260px; }
+.mg-empty { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; padding-top: 10px; }
+.mg-level { font-size: 12px; letter-spacing: 0.06em; }
+.mg-image { font-size: 40px; line-height: 1; margin: 12px 0 2px; }
+.mg-headword { font-family: var(--display); font-size: 24px; font-weight: 600; color: var(--ink); margin: 10px 0 2px; line-height: 1.2; }
+.mg-translation { color: var(--ink-muted); font-size: 14.5px; }
+.mg-antonym { margin-top: 8px; font-size: 13.5px; color: var(--ink); }
+.mg-summary, .mg-rule { font-size: 13.5px; line-height: 1.55; color: var(--ink); margin: 12px 0 0; white-space: pre-line; }
+.mg-example { margin: 12px 0 0; padding: 8px 12px; border-left: 2px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0;
+  font-size: 13.5px; font-style: italic; color: var(--ink); }
+.mg-meta { margin: 16px 0 0; border-top: 1px solid var(--hairline); }
+.mg-row { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--hairline); font-size: 13px; }
+.mg-row dt { color: var(--ink-muted); }
+.mg-row dd { margin: 0; color: var(--ink); text-align: right; }
+.mg-study { margin-top: 18px; width: 100%; }
+
+/* narrow fallback: sidebar becomes a top bar; the Marginal overlays */
+@media (max-width: 680px) {
+  .app { flex-direction: column; }
+  .sidebar { position: sticky; top: 0; height: auto; width: 100%; flex-direction: row; align-items: center; gap: 2px; overflow-x: auto;
+    border-right: 0; border-bottom: 1px solid var(--hairline); padding: 8px 10px; }
+  .brand { padding: 4px 12px 4px 6px; }
+  .brand-name { font-size: 18px; }
+  .nav-items { flex-direction: row; flex: 1; gap: 2px; }
+  .tab { flex-direction: column; gap: 3px; font-size: 10.5px; padding: 6px 10px; }
+  .tab .ic { width: 21px; height: 21px; }
+  .tab-badge { display: none; }
+  .rail-toggle { display: none; }
+  .screen { min-height: 0; }
+  .screen-pad { padding: 22px 20px 48px; }
+  .app.mg-open .marginal { position: fixed; right: 0; top: 0; height: 100dvh; box-shadow: -8px 0 24px rgba(42, 37, 32, 0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
