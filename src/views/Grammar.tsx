@@ -87,9 +87,14 @@ function Syllabus({ onRoute }: { onRoute: (r: Route) => void }) {
 
   return (
     <div className="w-full max-w-[820px] mx-auto">
+      {/* Library is the destination — the place you go to look something up
+          rather than to be tested. Grammar is what's in it today; word-level
+          reference is not built, so this doesn't promise it. */}
+      <h1 className="text-xl sm:text-2xl font-bold mb-4">Library</h1>
+
       <div className="flex items-center gap-2.5 mb-1">
         <GraduationCap size={20} className="text-amber" />
-        <h1 className="text-xl sm:text-2xl font-bold">Grammar</h1>
+        <h2 className="text-lg font-bold">Grammar</h2>
       </div>
       <p className="text-dim text-xs mb-4">
         Every concept from A1 to C2 — what it is, the rule, and how far you are through it.

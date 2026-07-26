@@ -26,6 +26,10 @@ export interface RecapData {
   minedCount?: number;     // Phase 5.5
   milestone?: string;      // Phase 5.3
   weakest?: string;        // the tag missed most in this session
+  /** What the scheduler actually did, counted from each item's `reason`.
+   *  A recap that only reports a score describes the learner; this describes
+   *  the machine working on their behalf, which is the thing they can't see. */
+  composition?: { blindspot: number; linked: number; remedy: number; overdue: number };
 }
 
 interface Tile { label: string; num: number; suffix?: string; tone: string }
@@ -80,9 +84,32 @@ export default function SessionRecap({ data, title = 'Session complete', childre
       {data.minedCount !== undefined && data.minedCount > 0 && (
         <p className="text-xs text-dim mb-5">{data.minedCount} of today’s words came from your own texts.</p>
       )}
+      <Composition c={data.composition} />
       <Tomorrow weakest={data.weakest} />
       {children}
     </Card>
+  );
+}
+
+/** What the scheduler did, in the learner's words.
+ *
+ *  Nothing is invented here: every clause is a count of items that carried that
+ *  `reason` through the session. Silent when the session was plain reviews,
+ *  which is most days — the line has to mean something when it appears. */
+function Composition({ c }: { c?: RecapData['composition'] }) {
+  if (!c) return null;
+  const parts: string[] = [];
+  if (c.blindspot) parts.push(`${c.blindspot} rehearsed a weak spot`);
+  if (c.linked) parts.push(`${c.linked} grammar ${c.linked === 1 ? 'point' : 'points'} rode along with a word you learned`);
+  if (c.remedy) parts.push(`${c.remedy} explained something you keep missing`);
+  if (c.overdue) parts.push(`${c.overdue} had been waiting over a week`);
+  if (parts.length === 0) return null;
+
+  return (
+    <p className="text-xs text-dim mb-5 leading-relaxed">
+      <span className="text-txt font-semibold">What Lexi picked for you:</span>{' '}
+      {parts.join(' · ')}.
+    </p>
   );
 }
 

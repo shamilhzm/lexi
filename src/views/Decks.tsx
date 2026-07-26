@@ -2,8 +2,8 @@
 // theme group (or browse all), sort by urgency / size / progress, and study a
 // single sector or a whole group.
 import { useMemo, useState, type ReactNode } from 'react';
-import { Network, Play } from 'lucide-react';
-import { sectorStats } from '../store.ts';
+import { Network, Play, Check } from 'lucide-react';
+import { sectorStats, completions } from '../store.ts';
 import { GROUPS } from '../data/index.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
@@ -24,6 +24,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
   const v = useStore();
   const [group, setGroup] = useState<string | null>(initialGroup);
   const [sort, setSort] = useState<Sort>('attention');
+  const done = useMemo(() => new Set(completions().map((c) => c.id)), [v]);
 
   const decks = useMemo(() => {
     const s = sectorStats(group ?? undefined);
@@ -68,9 +69,14 @@ export default function Decks({ initialGroup, onStudy, onMap }:
           lot of dead width. md fills it, xl uses a genuinely wide desktop. */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 p-4">
         {decks.map((d) => (
-          <Card key={d.name} tone="sunken" nested pad="none" className="group p-3.5 hover:border-amber transition-colors">
+          <Card key={d.name} tone="sunken" nested pad="none"
+            className={`group p-3.5 transition-colors ${done.has(d.name) ? 'border-green/40 hover:border-green' : 'hover:border-amber'}`}>
             <div className="flex items-start justify-between gap-2">
-              <h3 className="text-base font-semibold leading-tight">{d.name}</h3>
+              <h3 className="text-base font-semibold leading-tight flex items-center gap-1.5 min-w-0">
+                {/* Somewhere you've been all the way through, marked as such. */}
+                {done.has(d.name) && <Check size={15} className="text-green flex-shrink-0" aria-label="Finished" />}
+                <span className="truncate">{d.name}</span>
+              </h3>
               {/* These two had no sizing class at all — a 15px icon with no
                   padding, the smallest touch targets in the app. */}
               <div className="flex gap-0.5 flex-shrink-0 -mt-2 -mr-2">

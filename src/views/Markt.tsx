@@ -12,7 +12,6 @@ import { squarify, type Tile } from '../lib/treemap.ts';
 import { heat, heatText, tileInk, fmt } from '../lib/ui.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import type { Target } from '../types.ts';
-import Kpis from '../components/Kpis.tsx';
 import LevelFilter from '../components/LevelFilter.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -67,7 +66,6 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
 
   return (
     <div>
-      <Kpis />
       <Card pad="none">
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
           {zoom ? (

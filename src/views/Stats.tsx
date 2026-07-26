@@ -31,12 +31,15 @@ export default function Stats() {
   const anyReviews = perDay.some((n) => n > 0);
 
   return (
-    <div className="w-full max-w-[820px] mx-auto">
+    // A section of Progress, not a page: Progress owns the h1 and the width.
+    // These four panels answer "how am I trending", which is the same question
+    // the heatmap above them answers spatially.
+    <section aria-labelledby="trend-heading">
       <div className="flex items-center gap-2.5 mb-1">
-        <BarChart3 size={20} className="text-amber" />
-        <h1 className="text-xl sm:text-2xl font-bold">Stats</h1>
+        <BarChart3 size={18} className="text-amber" />
+        <h2 id="trend-heading" className="text-lg font-bold">Trend</h2>
       </div>
-      <p className="text-dim text-xs mb-4">
+      <p className="text-dim text-xs mb-3">
         {fmt(t.known)} known · {fmt(t.learned)} learning · {fmt(t.due)} due now
       </p>
 
@@ -68,14 +71,14 @@ export default function Stats() {
             color="var(--color-green)" />
         </Panel>
       </div>
-    </div>
+    </section>
   );
 }
 
 function Panel({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
     <Card pad="none" className="p-4">
-      <h2 className="text-base font-semibold">{title}</h2>
+      <h3 className="text-base font-semibold">{title}</h3>
       <Kicker className="block mb-3">{sub}</Kicker>
       {children}
     </Card>

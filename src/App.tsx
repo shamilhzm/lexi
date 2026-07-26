@@ -1,8 +1,17 @@
 // Lexi — a German vocabulary terminal (A1–C2).
-// Layout: a collapsible left Sidebar (desktop) / hamburger drawer (mobile) + a
-// main content area. One home screen (Today); Study launches from "Start session";
-// Explore holds the market; Fundamentals holds the grammar drills; Settings live
-// inside the Profile. Cool "Glacier" terminal aesthetic.
+//
+// Two rooms, not one app with a modal in it.
+//
+//   The instrument — Today, Progress, Library. Nav rail or bottom bar, the live
+//   ticker, a bounded content column. Dense, cool, scannable: this is where the
+//   terminal metaphor is earned.
+//
+//   The desk — a session. Full-bleed, no navigation, no ticker, no streak
+//   counter competing with the word. You go there; you don't render it inside
+//   the chrome.
+//
+// One aesthetic cannot serve both — scanning a heatmap and studying a single
+// word want opposite things. See docs/DESIGN.md.
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Menu } from 'lucide-react';
@@ -11,22 +20,21 @@ import Sidebar, { LexiMark } from './components/Sidebar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
-import Explore from './views/Explore.tsx';
+import Progress from './views/Progress.tsx';
 import Grammar, { type GrammarInit } from './views/Grammar.tsx';
 import { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
-import Stats from './views/Stats.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import { startReminderWatch } from './lib/reminder.ts';
-import { parseHash, toHash } from './route.ts';
+import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'home' | 'explore' | 'grammar' | 'stats' | 'review' | 'placement' | 'interests' | 'profile';
+export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
@@ -36,7 +44,7 @@ export default function App() {
   const boot = parseHash();
   const [view, setView] = useState<View>(boot.view);
   const [target, setTarget] = useState<Target>(boot.target ?? ALL);
-  const [exploreInit, setExploreInit] = useState<'markt' | 'decks'>(boot.explore);
+  const [progress, setProgress] = useState<ProgressRoute>(boot.progress);
   const [drillInit, setDrillInit] = useState<GrammarInit>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [collapsed, setCollapsed] = useState(() => { try { return localStorage.getItem(COLLAPSE_KEY) === '1'; } catch { return false; } });
@@ -56,7 +64,7 @@ export default function App() {
       fromHash.current = true;
       const r = parseHash();
       setView(r.view);
-      setExploreInit(r.explore);
+      setProgress(r.progress);
       if (r.target) setTarget(r.target);
       setMobileOpen(false);
     };
@@ -65,14 +73,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const next = toHash(view, target, exploreInit);
+    const next = toHash(view, target, progress);
     if (fromHash.current) { fromHash.current = false; return; }
     if (location.hash === next) return;
-    // Home replaces rather than pushes, so Back from Home leaves the app once
-    // instead of walking a trail of identical Home entries.
-    if (view === 'home') location.replace(next);
+    // Today replaces rather than pushes, so Back from Today leaves the app once
+    // instead of walking a trail of identical entries.
+    if (view === 'today') location.replace(next);
     else location.hash = next;
-  }, [view, target, exploreInit]);
+  }, [view, target, progress]);
 
   const toggleCollapse = () => setCollapsed((c) => {
     const n = !c;
@@ -80,11 +88,11 @@ export default function App() {
     return n;
   });
 
-  const study = (t: Target) => { setTarget(t); setView('review'); };
+  const study = (t: Target) => { setTarget(t); setView('session'); };
   const go = (v: View) => {
-    if (v === 'review') setTarget(ALL);
-    if (v === 'grammar') setDrillInit(null);
-    if (v === 'explore') setExploreInit('markt');
+    if (v === 'session') setTarget(ALL);
+    if (v === 'library') setDrillInit(null);
+    if (v === 'progress') setProgress({ level: 'overview' });
     // Leaving the guided chain by the sidebar is still leaving it. Without this
     // the first-run hero came back on the next visit, as though placement and
     // the first session had never happened.
@@ -98,23 +106,48 @@ export default function App() {
   const startFirstRun = () => { setGuided(true); setView('placement'); };
   // Onboarded the moment the first session begins: placement and topics are
   // behind them, so the hero has done its job whether or not they finish.
-  const firstRunSession = () => { setOnboarded(); setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('review'); };
-  const endGuided = () => { setOnboarded(); setGuided(false); setView('home'); };
+  const firstRunSession = () => { setOnboarded(); setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('session'); };
+  const endGuided = () => { setOnboarded(); setGuided(false); setView('today'); };
   /** Blind Spots → the matching practice. Word-drill misses log a mode tag;
    *  grammar misses log the point's own title, which now opens that concept
    *  rather than dumping the learner into the whole mixed bank. */
   const drillFor = (tag?: string) => {
     const mode = Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as DrillMode | undefined;
     setDrillInit(mode ?? (tag ? { point: tag } : 'grammar'));
-    setView('grammar');
+    setView('library');
   };
+  const exitSession = () => { if (guided) endGuided(); else setView('today'); };
 
-  const key = view + (view === 'review' ? `:${target.kind}:${target.name}` : '');
+  // ---- the desk -------------------------------------------------------------
+  // Deliberately an early return. A session is not a view inside the shell; it
+  // is the other room, and nothing from the instrument follows you into it.
+  if (view === 'session') {
+    return (
+      <div className="h-[100dvh] w-full overflow-y-auto bg-bg">
+        <motion.main
+          id="main" tabIndex={-1}
+          initial={reduce ? false : { opacity: 0, scale: 0.985 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: reduce ? 0 : 0.24, ease: [0.32, 0.72, 0, 1] }}
+          className="min-h-[100dvh] w-full flex flex-col px-3 sm:px-5 py-4 safe-top safe-bottom">
+          <ErrorBoundary resetKey={`session:${target.kind}:${target.name}`}>
+            <Review
+              target={target} firstRun={guided}
+              onExit={exitSession}
+              onPick={() => { setProgress({ level: 'decks' }); setView('progress'); }}
+              onDrills={() => { setDrillInit(null); setView('library'); }}
+            />
+          </ErrorBoundary>
+        </motion.main>
+      </div>
+    );
+  }
 
+  // ---- the instrument -------------------------------------------------------
   return (
     <div className="flex h-[100dvh] w-full overflow-hidden">
-      {/* Without this a keyboard user re-tabs the sidebar's seven controls on
-          every single view change before reaching any content. */}
+      {/* Without this a keyboard user re-tabs the sidebar's controls on every
+          single view change before reaching any content. */}
       <a href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100]
           focus:bg-amber focus:text-bg focus:font-bold focus:rounded-md focus:px-4 focus:py-2.5">
@@ -137,35 +170,31 @@ export default function App() {
           <span className="font-bold text-lg tracking-wide">Lexi</span>
         </header>
 
-        {/* The live ticker is peripheral motion — hide it during a session. */}
-        {view !== 'review' && <Ticker onPick={(g) => study({ kind: 'group', name: g })} />}
+        <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
 
         <main id="main" tabIndex={-1} className="flex-1 overflow-y-auto bg-bg min-h-0">
           <AnimatePresence mode="wait">
             {/* The route transition ignored prefers-reduced-motion, unlike the
                 rest of the app. A cross-fade is still motion. */}
-            <motion.div key={key}
+            <motion.div key={view}
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
               transition={{ duration: reduce ? 0 : 0.18, ease: [0.32, 0.72, 0, 1] }}
               className="max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'home' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setExploreInit('decks'); setView('explore'); }} onBackup={() => go('profile')} onGrammar={() => go('grammar')} />}
-                {view === 'explore' && <Explore onStudy={study} initial={exploreInit} />}
-                {view === 'grammar' && <Grammar initial={drillInit} />}
-                {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('home'); }} />}
+                {view === 'today' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} />}
+                {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
+                {view === 'library' && <Grammar initial={drillInit} />}
+                {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}
                 {view === 'interests' && <Interests onDone={firstRunSession} />}
                 {view === 'profile' && <Profile />}
-                {view === 'stats' && <Stats />}
-                {view === 'review' && <Review target={target} firstRun={guided} onExit={() => { if (guided) endGuided(); else setView('home'); }} onPick={() => { setExploreInit('decks'); setView('explore'); }} onDrills={() => { setDrillInit(null); setView('grammar'); }} />}
               </ErrorBoundary>
             </motion.div>
           </AnimatePresence>
         </main>
 
-        {/* Same rule as the Ticker: a session owns the screen. */}
-        {view !== 'review' && <BottomNav view={view} onGo={go} onStartSession={startSession} />}
+        <BottomNav view={view} onGo={go} onStartSession={startSession} />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, flagCard, isFlagged, sound, setSound } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG, modeRulePoint } from './Fundamentals.tsx';
@@ -18,7 +18,8 @@ import { useStore } from '../useStore.ts';
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
 import { Illustration } from '../lib/illustration.tsx';
-import SessionRecap from '../components/SessionRecap.tsx';
+import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
+import WhyThisCard from '../components/WhyThisCard.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
@@ -41,6 +42,18 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const lvKey = [...levels()].sort().join('');
   const queue = useMemo(() => buildMixedSession(target, firstRun), [target, lvKey, firstRun]);
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
+  // Counted from the queue's own provenance, so the recap can describe what the
+  // scheduler did rather than only how the learner scored.
+  const composition = useMemo(() => queue.reduce(
+    (acc, it) => {
+      if (it.reason.kind === 'blindspot') acc.blindspot++;
+      else if (it.reason.kind === 'linked') acc.linked++;
+      else if (it.reason.kind === 'remedy') acc.remedy++;
+      else if ((it.reason.kind === 'due' || it.reason.kind === 'orphan') && it.reason.overdueDays >= 7) acc.overdue++;
+      return acc;
+    },
+    { blindspot: 0, linked: 0, remedy: 0, overdue: 0 },
+  ), [queue]);
   const reduce = useReducedMotion();
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -228,6 +241,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
   if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
+    composition={composition}
     onExit={onExit} onPick={onPick} />;
 
   const card = item.word;
@@ -316,6 +330,9 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
             }}
             initial="initial" animate="enter" exit="exit"
             transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 460, damping: 34, mass: 0.8 }}>
+          {/* The payoff of carrying provenance: the scheduler shows its work. */}
+          <WhyThisCard reason={item.reason} />
+
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">
               <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
@@ -336,7 +353,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
-          <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade}>
+          <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade} behind={Math.min(2, queue.length - i - 1)}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT — the prompt: word + German context, no translation to spoil
                   the test. Except on first sight: a card the learner has never met
@@ -437,9 +454,14 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 /** Draggable flip-card. Tap flips; swipe right = knew it (Good), swipe left =
  *  didn’t know (Again). Commits on travel OR a confident flick (velocity with
  *  real distance behind it); below threshold the card is handed back with the
- *  release velocity, so the return reads as the gesture settling — not a reset. */
-function SwipeCard({ children, onFlip, onGrade }:
-  { children: React.ReactNode; onFlip: () => void; onGrade: (g: Grade) => void }) {
+ *  release velocity, so the return reads as the gesture settling — not a reset.
+ *
+ *  `behind` draws the rest of the queue as a physical stack. "35 left" is a
+ *  number standing in for something that should be *seen*: the pile thins as you
+ *  work, and the last card has nothing behind it, so finishing is visible before
+ *  it is announced. */
+function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
+  { children: React.ReactNode; onFlip: () => void; onGrade: (g: Grade) => void; behind?: number }) {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-8, 8]);
   const yes = useTransform(x, [20, SWIPE_PX], [0, 1]);
@@ -447,6 +469,17 @@ function SwipeCard({ children, onFlip, onGrade }:
   const reduce = useReducedMotion();
   const dragged = useRef(false);
   return (
+    <div className="relative w-full max-w-[580px] h-[clamp(340px,52vh,460px)]">
+      {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
+          content. Rendered outermost-first so the nearest sits on top. */}
+      {Array.from({ length: behind }, (_, k) => behind - 1 - k).map((depth) => (
+        <div key={depth} aria-hidden
+          className="absolute inset-x-0 top-0 h-full rounded-lg border border-line bg-card"
+          style={{
+            transform: `translateY(${(depth + 1) * 7}px) scale(${1 - (depth + 1) * 0.025})`,
+            opacity: 1 - (depth + 1) * 0.28,
+          }} />
+      ))}
     <motion.div
       // The card is a control, not a div with a click handler: it was never
       // focusable, so its only keyboard path was a global window listener.
@@ -459,7 +492,8 @@ function SwipeCard({ children, onFlip, onGrade }:
       // Fluid height: this was a fixed 360/420px with overflow-y-auto faces, so
       // a C1 card (definition + two bilingual examples + synonyms + antonyms) at
       // the "Larger" text scale silently scrolled inside a drag surface.
-      className="relative w-full max-w-[580px] h-[clamp(340px,52vh,460px)] cursor-pointer touch-pan-y rounded-lg"
+      // Absolute so it sits exactly on top of the stack behind it.
+      className="absolute inset-0 cursor-pointer touch-pan-y rounded-lg"
       style={{ x, rotate: reduce ? 0 : rotate }}
       drag="x"
       dragElastic={0.6}
@@ -484,6 +518,7 @@ function SwipeCard({ children, onFlip, onGrade }:
         <X size={14} /> Didn’t know
       </motion.span>
     </motion.div>
+    </div>
   );
 }
 
@@ -525,8 +560,9 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, onExit, onPick }:
-  { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string; onExit: () => void; onPick: () => void }) {
+function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, onExit, onPick }:
+  { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
+    composition?: RecapData['composition']; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
@@ -536,9 +572,17 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
     tick(m ? 'milestone' : 'done');
     return m;
   });
+  // Finishing a sector is the one thing in this app you can actually complete.
+  // Checked once, from the final state, like the milestone above it.
+  const [finished] = useState(() => checkCompletions());
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, weakest, streak: streak() }}>
+      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
+        {finished.length > 0 && (
+          <p className="text-sm mb-5">
+            You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span> — every card in it is yours.
+          </p>
+        )}
         {comeback && (
           <p className="text-xs text-dim mb-5">
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.

@@ -1,67 +1,87 @@
 // URL state, in the hash.
 //
-// Lexi had no routing at all: the view was a useState, Explore reimplemented its
-// own back-stack because of it, and three things followed from that —
-//
-//   1. A refresh always dropped you back on Home, mid-session included.
-//   2. Nothing was linkable, so "look at this deck" was not a thing you could send.
-//   3. Worst: installed as a PWA, the Android system back gesture had no history
-//      entry to pop, so it closed the app instead of going back a screen.
+// Lexi had no routing at all until recently: the view was a useState, Explore
+// reimplemented its own back-stack because of it, and installed as a PWA the
+// Android system back gesture had no history entry to pop, so it closed the app
+// instead of going back a screen.
 //
 // The hash (rather than the History API) keeps this working on the project's
 // `/lexi/` GitHub-Pages base with no server rewrites.
 //
 // Sessions assembled from an explicit id list (today's briefing, Quick 5) are
 // deliberately NOT encoded — the ids are a snapshot of one moment's scheduling,
-// and a stale list restored tomorrow would be a lie. `#/review` re-derives the
+// and a stale list restored tomorrow would be a lie. `#/session` re-derives the
 // day's session instead, which is the honest reading of "back to my session".
 import type { Target } from './types.ts';
 import type { View } from './App.tsx';
 
-export type ExploreLevel = 'markt' | 'decks';
+/** Where you are inside Progress. These were three sibling *destinations*
+ *  (Markt / Decks / Wortkarte) reached through a hand-rolled stack; they are
+ *  three depths of one place. */
+export type ProgressLevel = 'overview' | 'decks' | 'map';
+
+export interface ProgressRoute {
+  level: ProgressLevel;
+  /** Theme group the deck list is filtered to. */
+  group?: string;
+  /** Sector the word map is showing. */
+  sector?: string;
+}
 
 export interface Route {
   view: View;
-  explore: ExploreLevel;
+  progress: ProgressRoute;
   /** Present only for scoped sessions (all / group / sector). */
   target?: Target;
 }
 
-const VIEWS: View[] = ['home', 'explore', 'grammar', 'stats', 'review', 'placement', 'interests', 'profile'];
+const VIEWS: View[] = ['today', 'progress', 'library', 'session', 'placement', 'interests', 'profile'];
 
-export const DEFAULT_ROUTE: Route = { view: 'home', explore: 'markt' };
+export const DEFAULT_ROUTE: Route = { view: 'today', progress: { level: 'overview' } };
 
-/** Read the current hash into a route. Unknown hashes fall back to Home. */
+/** Read the current hash into a route. Unknown hashes fall back to Today. */
 export function parseHash(hash = location.hash): Route {
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
   const view = parts[0] as View;
   if (!VIEWS.includes(view)) return DEFAULT_ROUTE;
 
-  if (view === 'explore') {
-    return { view, explore: parts[1] === 'decks' ? 'decks' : 'markt' };
+  if (view === 'progress') {
+    // Names can contain slashes ("Arts, Media & Leisure" won't, but sectors are
+    // authored text) — rejoin everything after the level.
+    const rest = parts.slice(2).join('/');
+    if (parts[1] === 'decks') return { view, progress: { level: 'decks', group: rest || undefined } };
+    if (parts[1] === 'map' && rest) return { view, progress: { level: 'map', sector: rest } };
+    return { view, progress: { level: 'overview' } };
   }
 
-  if (view === 'review') {
+  if (view === 'session') {
     const kind = parts[1];
-    const name = parts.slice(2).join('/'); // sector names can contain slashes
-    if (kind === 'all') return { view, explore: 'markt', target: { kind: 'all', name: 'All sectors' } };
+    const name = parts.slice(2).join('/');
+    if (kind === 'all') return { view, progress: { level: 'overview' }, target: { kind: 'all', name: 'All sectors' } };
     if ((kind === 'group' || kind === 'sector') && name) {
-      return { view, explore: 'markt', target: { kind, name } };
+      return { view, progress: { level: 'overview' }, target: { kind, name } };
     }
-    return { view, explore: 'markt' }; // bare #/review → today's session
+    return { view, progress: { level: 'overview' } }; // bare #/session → today's session
   }
 
-  return { view, explore: 'markt' };
+  return { view, progress: { level: 'overview' } };
 }
 
-/** Serialise a route to a hash. Returns '' for the default so Home stays clean. */
-export function toHash(view: View, target: Target | undefined, explore: ExploreLevel): string {
-  if (view === 'home') return '#/home';
-  if (view === 'explore') return explore === 'decks' ? '#/explore/decks' : '#/explore';
-  if (view === 'review') {
-    if (!target || target.kind === 'custom') return '#/review';
-    if (target.kind === 'all') return '#/review/all';
-    return `#/review/${target.kind}/${encodeURIComponent(target.name)}`;
+/** Serialise a route to a hash. */
+export function toHash(view: View, target: Target | undefined, progress: ProgressRoute): string {
+  if (view === 'progress') {
+    if (progress.level === 'decks') {
+      return progress.group ? `#/progress/decks/${encodeURIComponent(progress.group)}` : '#/progress/decks';
+    }
+    if (progress.level === 'map' && progress.sector) {
+      return `#/progress/map/${encodeURIComponent(progress.sector)}`;
+    }
+    return '#/progress';
+  }
+  if (view === 'session') {
+    if (!target || target.kind === 'custom') return '#/session';
+    if (target.kind === 'all') return '#/session/all';
+    return `#/session/${target.kind}/${encodeURIComponent(target.name)}`;
   }
   return `#/${view}`;
 }

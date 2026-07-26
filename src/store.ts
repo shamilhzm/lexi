@@ -728,6 +728,61 @@ export function checkMilestones(): string | undefined {
   return bestLevel && bestThr > 0 ? `${bestLevel} is ${bestThr}% Known` : undefined;
 }
 
+// ---- completion ------------------------------------------------------------
+// FSRS never finishes. Coverage climbs asymptotically, `statusOf` has three
+// states and none of them is *done*, and the only closure in the app is
+// "session complete" — which recurs daily and therefore means nothing over a
+// month. Spaced repetition's honest promise ("this never ends, that's the
+// point") is pedagogically right and motivationally brutal.
+//
+// A sector every card of which has reached FSRS Review is a real, finite thing
+// to have finished. It is **ratcheted**, exactly like the level milestones
+// above: a later lapse can take a card back out of Review, but it cannot take
+// back something you earned. Unlike `checkMilestones` this does *not* seed
+// silently — a completion is a durable collection, not a notification, so a
+// learner who has genuinely finished a sector should see it the first time we
+// look, not never.
+//
+// Sectors are measured across every level, not the active CEFR filter, so
+// narrowing the filter can't manufacture a completion.
+const COMPLETIONS_KEY = 'lexi.completions.v1';
+export interface Completion { id: string; name: string; at: number }
+
+export function completions(): Completion[] {
+  try {
+    const a = JSON.parse(localStorage.getItem(COMPLETIONS_KEY) || '[]');
+    return Array.isArray(a) ? (a as Completion[]) : [];
+  } catch { return []; }
+}
+
+/** Record any sector that is now fully known. Returns only what was newly
+ *  earned by this call, so the recap can name it once. */
+export function checkCompletions(): Completion[] {
+  const existing = completions();
+  const have = new Set(existing.map((c) => c.id));
+  const added: Completion[] = [];
+
+  for (const s of SECTORS) {
+    if (have.has(s.name)) continue;
+    const words = WORDS_BY_SECTOR.get(s.name) ?? [];
+    if (words.length === 0) continue;
+    if (words.every((w) => statusOf(w.id) === 'known')) {
+      added.push({ id: s.name, name: s.name, at: Date.now() });
+    }
+  }
+
+  if (added.length) {
+    try { localStorage.setItem(COMPLETIONS_KEY, JSON.stringify([...existing, ...added])); } catch { /* quota */ }
+    emit();
+  }
+  return added;
+}
+
+/** Has this sector been earned? Cheap enough to call per deck card. */
+export function isComplete(sector: string): boolean {
+  return completions().some((c) => c.id === sector);
+}
+
 // ---- visits / streak -----------------------------------------------------
 // The `visits` array + its persistence live in the persistence section above
 // (hydrated from IndexedDB).
@@ -808,6 +863,7 @@ const SETTING_KEYS = [
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
+  'lexi.completions.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

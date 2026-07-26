@@ -145,12 +145,67 @@ One aesthetic cannot serve two opposite activities.
 
 | | The instrument | The desk |
 |---|---|---|
-| Where | Progress, the heatmap, the forecast | the session |
+| Where | Today, Progress, Library | a session |
 | Wants | density, comparison, scanning | calm, focus, one object |
-| Gets | the terminal: mono, cool, hairlines | full-bleed, no chrome, the card |
+| Gets | the terminal: mono, cool, hairlines, nav, ticker | full-bleed, no chrome at all |
+
+The desk is an **early return** in `App.tsx`, not a view rendered inside the
+shell. Nothing from the instrument follows you in: no sidebar, no bottom bar, no
+ticker, no streak counter competing with the word.
 
 The terminal metaphor is *earned* in the instrument. It is not a licence to talk
 about markets while someone is trying to remember a word.
+
+## 8a. Three destinations
+
+The IA used to mirror `store.ts`: Home / Explore / Grammar / Stats, plus Decks
+and Wortkarte underneath Explore and a KPI strip riding on one of them. Nine
+places answering four questions, and `Explore.tsx` had to hand-roll a back-stack
+because the router didn't model the depth.
+
+| Destination | The question | Absorbs |
+|---|---|---|
+| **Today** | what do I do now? | the daily briefing, the one Start button |
+| **Progress** | how am I doing? | the heatmap, decks, the word map, trend charts, blind spots |
+| **Library** | what does this mean / how does this work? | the grammar syllabus |
+
+Depth inside Progress is real routing — `#/progress/decks/<group>`,
+`#/progress/map/<sector>` — so Back works and a deck is a linkable thing.
+
+Two decisions this forced, both worth knowing:
+
+- **The KPI strip is gone.** Putting the heatmap and the stats page on one
+  surface made it obvious they were showing the same four numbers twice. The
+  Known headline says it once.
+- **The bottom bar has no embedded FAB.** With three destinations the old
+  split-around-a-raised-button layout stops working, and embedding an *action*
+  among *places* was always a category error. Start is a floating button above
+  the bar, and it hides on Today, where the surface already leads with one.
+
+## 8b. The scheduler shows its work
+
+`session.ts` makes five pedagogical decisions per session — an interleaved drill,
+grammar linked to a function word you just met, the rule for a system you keep
+missing, drills in your worst modes, orphaned due drills — and every item carries
+a `reason` recording which. `WhyThisCard` renders one line for it.
+
+Two rules for that line:
+
+- **Silence is a valid answer.** A new card already says "New ·"; a review that
+  arrived on time needs no explanation. A caption on every card becomes wallpaper
+  within one session.
+- **Where the reason names a weakness, the line is also the way into the rule.**
+
+The copy lives in one pure function (`whyLine`) rather than in JSX, so it is
+unit-tested and there is exactly one source of truth for it.
+
+## 8c. Something you can finish
+
+FSRS never ends, and "session complete" recurs daily until it means nothing. A
+fully-known sector is finite and earned. Completion is **ratcheted** — a later
+lapse takes the card out of Review but cannot take back what you finished — using
+the same high-water-mark pattern as `checkMilestones`, and measured across all
+levels so narrowing the CEFR filter can't manufacture one.
 
 ## 9. Voice
 

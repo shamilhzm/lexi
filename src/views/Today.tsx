@@ -4,13 +4,12 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, TrendingDown, Zap, Target as TargetIcon, Check } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, missTotal, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime } from '../store.ts';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import PathCard from '../components/PathCard.tsx';
-import BlindSpotList from '../components/BlindSpotList.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
@@ -20,20 +19,18 @@ import { blindSpotDrills } from '../session.ts';
 import { BY_ID } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar }:
+export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
     onBlindDrill: (tag?: string) => void; onDecks: () => void;
-    onBackup: () => void; onGrammar: () => void }) {
+    onBackup: () => void; onGrammar: () => void; onProgress: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
-  const blind = useMemo(() => missTotal(30), [v]);
   const blindDrills = useMemo(() => {
     const ws = briefing.ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w);
     return blindSpotDrills(ws).length;
   }, [briefing, v]);
   const [drillsOpen, setDrillsOpen] = useState(false);
-  const [blindOpen, setBlindOpen] = useState(false);
   const t = totals();
   const placed = placementLevel();
   const today = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -59,9 +56,17 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           <h1 className="text-2xl sm:text-3xl font-bold leading-none">{comeback ? 'Willkommen zurück' : 'Guten Tag'}</h1>
           <p className="text-dim text-xs mt-1.5 capitalize">{today}</p>
         </div>
-        <div className="flex items-center gap-1.5 text-amber font-mono font-bold text-base">
-          <Flame size={16} /> {streak()} <span className="text-dim font-sans font-normal text-xs">day streak</span>
-        </div>
+        {/* Known is the app's currency, so it belongs in the identity line even
+            on the surface whose hero number is the size of today's task. It
+            links to the place that explains it rather than restating it here. */}
+        <button onClick={onProgress}
+          className="flex items-baseline gap-2 text-left rounded-md px-2 py-1 -mx-2 hover:bg-panel2 transition-colors">
+          <span className="font-mono font-bold text-green text-xl tabular-nums">{fmt(t.known)}</span>
+          <span className="text-dim text-xs">known</span>
+          <span className="flex items-center gap-1 text-amber font-mono font-bold text-base ml-1">
+            <Flame size={15} /> {streak()}
+          </span>
+        </button>
       </div>
       {comeback && (
         <p className="text-amber text-xs mt-2">
@@ -219,28 +224,10 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           offline) until installed or dismissed. */}
       <InstallNudge onBackup={onBackup} />
 
-      {/* Blind spots — your recurring misses. Expands in place (like Grammar
-          Fundamentals below) to the ranked list, so you target weaknesses without
-          leaving Today. */}
-      {blind > 0 && (
-        <div className="mb-4">
-          <Card as="button" pad="none" onClick={() => setBlindOpen((o) => !o)} aria-expanded={blindOpen}
-            className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-red transition-colors">
-            <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-red flex-shrink-0"><TrendingDown size={18} /></span>
-            <span className="flex-1 text-base font-semibold">Blind spots</span>
-            <Chip tone="bad">{fmt(blind)}</Chip>
-            <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${blindOpen ? 'rotate-180' : ''}`} />
-          </Card>
-          <AnimatePresence initial={false}>
-            {blindOpen && (
-              <motion.div key="blind" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
-                <div className="pt-2.5"><BlindSpotList onDrill={onBlindDrill} /></div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      )}
+      {/* Blind spots used to live here behind an accordion. They've moved to
+          Progress: Today is for doing, and auditing your own weaknesses is a
+          different mood from starting a session. The session still rehearses
+          them either way — that's the "+ N drills" line above. */}
 
       {/* Grammar — the concepts at your level, not a menu of exercise types.
           The bank is fetched only when this opens, so Home stays cheap. */}

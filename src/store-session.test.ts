@@ -30,6 +30,15 @@ function word(id: string, field: string, extra: Partial<Word> = {}): Word {
   };
 }
 
+/** The provenance copy is pure, so it only needs the copy module + the mode
+ *  labels it looks up — not the whole store/lexicon graph. */
+async function freshWhy() {
+  vi.resetModules();
+  const why = await import('./components/WhyThisCard.tsx');
+  const fundamentals = await import('./views/Fundamentals.tsx');
+  return { why, fundamentals };
+}
+
 beforeEach(() => { localStorage.clear(); });
 
 describe('buildBriefing', () => {
@@ -333,6 +342,105 @@ describe('vocabulary→grammar loop', () => {
     const referenced = [...src.matchAll(/'(gram:[^']+)'/g)].map((m) => m[1]);
     expect(referenced.length).toBeGreaterThan(0);
     for (const id of referenced) expect(ids, `missing grammar card: ${id}`).toContain(id);
+  });
+});
+
+describe('completion (ratcheted)', () => {
+  it('is empty until every card in a sector is known', async () => {
+    const { data, store, srs } = await fresh();
+    const words = ['k0', 'k1'].map((id) => word(id, 'Kitchen'));
+    data.registerWords(words);
+
+    expect(store.checkCompletions()).toEqual([]);
+
+    store.review('k0', srs.Rating.Easy);            // one of two
+    expect(store.checkCompletions()).toEqual([]);
+
+    store.review('k1', srs.Rating.Easy);
+    const earned = store.checkCompletions();
+    expect(earned.map((c) => c.name)).toEqual(['Kitchen']);
+  });
+
+  it('reports a completion once, not on every check', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('k0', 'Kitchen')]);
+    store.review('k0', srs.Rating.Easy);
+
+    expect(store.checkCompletions()).toHaveLength(1);
+    expect(store.checkCompletions()).toEqual([]);   // already banked
+    expect(store.completions()).toHaveLength(1);
+  });
+
+  it('does not take a completion back when a card lapses', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('k0', 'Kitchen')]);
+    store.review('k0', srs.Rating.Easy);
+    store.checkCompletions();
+
+    // Forgetting it drops the card out of FSRS Review...
+    store.review('k0', srs.Rating.Again);
+    expect(store.statusOf('k0')).not.toBe('known');
+
+    // ...but the thing you finished stays finished. That's the whole point of
+    // having something you can complete in a system that never ends.
+    expect(store.isComplete('Kitchen')).toBe(true);
+    expect(store.completions()).toHaveLength(1);
+  });
+
+  it('cannot be manufactured by narrowing the CEFR filter', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([
+      word('k0', 'Kitchen', { level: 'A1' }),
+      word('k1', 'Kitchen', { level: 'B2' }),
+    ]);
+    store.review('k0', srs.Rating.Easy);
+    store.setLevels(new Set(['A1']));   // B2 card now out of scope everywhere else
+
+    expect(store.checkCompletions()).toEqual([]);
+  });
+});
+
+describe('why-this-card copy', () => {
+  const w = (term: string): Word => word(term, 'X', { term });
+
+  it('stays silent when there is nothing non-obvious to say', async () => {
+    const { why } = await freshWhy();
+    // A new card already says "New ·" on its face.
+    expect(why.whyLine({ kind: 'fresh' })).toBeNull();
+    // A review that arrived roughly on time needs no explanation.
+    expect(why.whyLine({ kind: 'due', overdueDays: 2 })).toBeNull();
+    expect(why.whyLine({ kind: 'orphan', mode: 'gender', overdueDays: 1 })).toBeNull();
+  });
+
+  it('speaks up once a review has genuinely been waiting', async () => {
+    const { why } = await freshWhy();
+    const line = why.whyLine({ kind: 'due', overdueDays: why.STALE_DAYS });
+    expect(line?.lead).toContain(`${why.STALE_DAYS} days`);
+  });
+
+  it('names the trigger word, in German', async () => {
+    const { why } = await freshWhy();
+    const line = why.whyLine({ kind: 'linked', trigger: w('obwohl') });
+    expect(line?.lead).toBe('Because you just learned ');
+    expect(line?.em).toBe('„obwohl“');
+    expect(line?.emLang).toBe('de'); // or a screen reader says it in English
+  });
+
+  it('explains the interleave rather than letting it look random', async () => {
+    const { why } = await freshWhy();
+    const line = why.whyLine({ kind: 'drill', mode: 'gender', parent: w('Tisch') });
+    expect(line?.em).toBe('Tisch');
+    expect(`${line?.lead}${line?.em}${line?.tail}`).toBe('You flipped Tisch a few cards ago — now produce it');
+  });
+
+  it('cites the miss count and offers the rule for a weakness', async () => {
+    const { why, fundamentals } = await freshWhy();
+    const line = why.whyLine({
+      kind: 'remedy', mode: 'gender', tag: fundamentals.MODE_TAG.gender, misses: 4,
+    });
+    expect(`${line?.lead}${line?.em}${line?.tail}`).toBe(`You’ve missed ${fundamentals.MODE_TAG.gender} 4× this month`);
+    // The line that names a weakness is also the way into the rule.
+    expect(line?.rulePoint).toBe(fundamentals.MODE_REMEDY.gender[0]);
   });
 });
 

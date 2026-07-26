@@ -6,7 +6,7 @@
 // Collapse is a *desktop* concern: the collapsed state hides labels via `sm:hidden`
 // so the mobile drawer (always full width) always shows them.
 import { useEffect, useRef } from 'react';
-import { Play, Sunrise, LayoutGrid, GraduationCap, BarChart3, ChevronLeft, ChevronRight, Flame, X } from 'lucide-react';
+import { Play, Sunrise, TrendingUp, Library, ChevronLeft, ChevronRight, Flame, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import IconButton from './ui/IconButton.tsx';
 import { useIsNarrow } from '../lib/useMedia.ts';
@@ -24,12 +24,19 @@ export function LexiMark({ size = 28, className = '' }: { size?: number; classNa
 }
 
 /** The primary destinations, shared with the mobile bottom bar so the two
- *  navigations can’t drift apart. */
+ *  navigations can’t drift apart.
+ *
+ *  Three, not five. The old set — Home / Explore / Grammar / Stats — plus the
+ *  Decks and Wortkarte surfaces underneath Explore was nine places answering
+ *  four questions, and mirrored `store.ts` rather than a learner’s day. These
+ *  are the questions:
+ *    Today    — what do I do now?
+ *    Progress — how am I doing? (absorbs Explore, Stats, KPIs, Blind Spots)
+ *    Library  — what does this mean / how does this work? */
 export const NAV: { id: View; label: string; icon: LucideIcon }[] = [
-  { id: 'home', label: 'Home', icon: Sunrise },
-  { id: 'explore', label: 'Explore', icon: LayoutGrid },
-  { id: 'grammar', label: 'Grammar', icon: GraduationCap },
-  { id: 'stats', label: 'Stats', icon: BarChart3 },
+  { id: 'today', label: 'Today', icon: Sunrise },
+  { id: 'progress', label: 'Progress', icon: TrendingUp },
+  { id: 'library', label: 'Library', icon: Library },
 ];
 
 export default function Sidebar({
