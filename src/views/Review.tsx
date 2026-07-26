@@ -8,8 +8,9 @@ import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
+import { usePoint, RuleCard, RuleShownCtx } from '../components/RulePanel.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
@@ -383,6 +384,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">
               <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              {/* First encounter with this kind of exercise: teach, then test.
+                  The rule has always been one tap away, behind a link nobody taps
+                  because they don't yet know they need it — so here it opens
+                  itself, and the item says plainly that it isn't a test yet. */}
+              {item.teach && item.type !== 'flip' && (
+                <IntroCard mode={item.type} />
+              )}
               {/* A drill can arrive mid-session without the learner ever having
                   chosen the concept — this is the screen where a beginner meets
                   "Nominativ" cold. Name it, and make the name open the rule.
@@ -390,6 +398,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   here from `item.type` could only ever name the mode, and three
                   of the seven modes pick a different grammatical target on every
                   card — so a Futur I prompt offered the Perfekt rule. */}
+              <RuleShownCtx.Provider value={!!item.teach}>
               {grammarEx
                 ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} point={{ level: card.level, title: card.term }} />
                 : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
@@ -399,6 +408,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 : item.type === 'transform' ? <TransformItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'case' ? <CaseItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              </RuleShownCtx.Provider>
             </div>
           ) : (<>
           <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade} behind={Math.min(2, queue.length - i - 1)}>
@@ -664,6 +674,37 @@ function CoachMarks() {
   );
 }
 
+
+/** The first time a drill mode appears, introduce it.
+ *
+ *  Lexi is a testing app that never taught: a beginner three weeks in was asked
+ *  `der Vater → die ___` before anything had said what a plural is. The teaching
+ *  text existed in grammar.json the whole time, reachable only through a small link
+ *  — and a learner who does not yet know what a Kasus *is* has no reason to tap a
+ *  word they cannot read.
+ *
+ *  So on a first encounter the rule is simply open, and the card says out loud that
+ *  this one doesn't count. That the rule often contains a worked example of the very
+ *  answer is the point rather than a leak: first sight is an introduction, and FSRS
+ *  brings the real retrieval back minutes later.
+ *
+ *  Renders nothing if the mode has no authored point behind it (cloze), which is
+ *  the right silence — there is no system to explain. */
+function IntroCard({ mode }: { mode: Mode }) {
+  const found = usePoint(modeRulePoint(mode));
+  if (!found) return null;
+  return (
+    <div className="mb-3">
+      <p className="text-2xs text-amber font-mono uppercase tracking-widest text-center mb-2 font-semibold">
+        New here — have a read first
+      </p>
+      <RuleCard point={found.point} level={found.level} />
+      <p className="text-2xs text-dim text-center mt-2">
+        This one doesn’t count. You’ll get it again later, for real.
+      </p>
+    </div>
+  );
+}
 
 /** Unobtrusive mastery dot on the card front: dim = new, amber = learning, green = known. */
 function StatusPip({ id }: { id: string }) {

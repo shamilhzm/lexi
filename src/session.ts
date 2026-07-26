@@ -5,7 +5,7 @@
 // Gym's namespaced FSRS cards (gym:<mode>:<wordId>) — both surfaces share
 // one schedule and past Gym progress carries over.
 import type { Word, Target } from './types.ts';
-import { buildSession, cardOf, wordsFor, dueGymIds, missStats } from './store.ts';
+import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue, State } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, MODE_REMEDY, type Mode } from './views/Fundamentals.tsx';
@@ -44,6 +44,18 @@ export interface SessionItem {
   srsId: string; // FSRS card id (word.id for flips, gym:<mode>:<id> for drills)
   /** Required on purpose: nothing may enter a session without saying why. */
   reason: SessionReason;
+  /** The learner's first ever encounter with this drill mode: teach it before
+   *  testing it.
+   *
+   *  A drill can arrive mid-session having never been introduced — the A1 report
+   *  was being asked `der Vater → die ___` before anything had said what a plural
+   *  is. The rule was one tap away the whole time, behind a small link nobody taps
+   *  because they don't yet know they need it. On a first encounter the rule opens
+   *  itself instead, and the item is framed as an introduction rather than a test.
+   *
+   *  That the rule may contain the answer is the point, not a leak: a first sight
+   *  is a worked example, and FSRS schedules the actual retrieval minutes later. */
+  teach?: boolean;
 }
 
 const DAY = 86_400_000;
@@ -95,7 +107,7 @@ type PackedReason =
   | { k: 'remedy'; m: Mode; g: string; n: number }
   | { k: 'blindspot'; m: Mode; g: string; n: number };
 
-interface PackedItem { t: SessionItem['type']; s: string; w: string; r: PackedReason }
+interface PackedItem { t: SessionItem['type']; s: string; w: string; r: PackedReason; e?: 1 }
 interface StoredSession { target: string; at: number; i: number; items: PackedItem[] }
 
 /** What counts as "the same session" to come back to. */
@@ -142,7 +154,10 @@ export function saveSession(target: Target, items: SessionItem[], i: number): vo
     if (i <= 0 || i >= items.length) { localStorage.removeItem(RESUME_KEY); return; }
     const stored: StoredSession = {
       target: targetKey(target), at: Date.now(), i,
-      items: items.map((it) => ({ t: it.type, s: it.srsId, w: it.word.id, r: packReason(it.reason) })),
+      items: items.map((it) => ({
+        t: it.type, s: it.srsId, w: it.word.id, r: packReason(it.reason),
+        ...(it.teach ? { e: 1 as const } : {}),
+      })),
     };
     localStorage.setItem(RESUME_KEY, JSON.stringify(stored));
   } catch { /* quota or private mode — resume is a convenience, never a requirement */ }
@@ -175,7 +190,7 @@ export function loadSession(target: Target): { items: SessionItem[]; position: n
     const word = BY_ID.get(p.w);
     const reason = word ? unpackReason(p.r) : null;
     if (!word || !reason) return null;
-    items.push({ type: p.t, word, srsId: p.s, reason });
+    items.push({ type: p.t, word, srsId: p.s, reason, ...(p.e ? { teach: true } : {}) });
   }
   return { items, position: stored.i };
 }
@@ -346,6 +361,10 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
 
   const drills = new Map<number, SessionItem>(); // flip index → its drill
   let freshBudget = MAX_FRESH_DRILLS;
+  // Which drill modes this learner has ever answered. Computed once: a mode is
+  // introduced at most once per session, on whichever card reaches it first.
+  const practised = practisedModes();
+  const taught = new Set<string>();
 
   words.forEach((w, idx) => {
     if (w.kind === 'grammar') return; // rule cards have no word drills
@@ -359,9 +378,12 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
       if (fresh.length) { pick = fresh[Math.floor(Math.random() * fresh.length)]; freshBudget--; }
     }
     if (pick) {
+      const first = !practised.has(pick) && !taught.has(pick);
+      if (first) taught.add(pick);
       drills.set(idx, {
         type: pick, word: w, srsId: gymId(pick, w),
         reason: { kind: 'drill', mode: pick, parent: w },
+        ...(first ? { teach: true } : {}),
       });
     }
   });

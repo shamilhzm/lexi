@@ -9,7 +9,7 @@
 // header ("what am I even practising?"), and a "Why?" link on a wrong answer
 // ("I got that wrong, explain it"). Neither interrupts the session — the panel
 // opens in place and the queue is untouched.
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, createContext, useContext, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, HelpCircle, X } from 'lucide-react';
 import { loadGrammar, findPoint, parsePointId, type GPoint, type RuleSection } from '../lib/grammar.ts';
@@ -160,6 +160,11 @@ export function termGloss(label: string): string | undefined {
   return TERM_GLOSS[label.trim()];
 }
 
+/** True while a first-encounter introduction is already showing this rule, open,
+ *  above the exercise. The item's own header then names the concept without
+ *  offering a second, collapsed copy of the same text. */
+export const RuleShownCtx = createContext(false);
+
 /** What an exercise is testing, and the way into its rule.
  *
  *  Rendered by the item rather than by whatever is hosting it, because only the
@@ -174,9 +179,12 @@ export function DrillHeader({ pointRef, label }: {
   pointRef: { level: CEFR; title: string } | string | null; label: string;
 }) {
   const gloss = termGloss(label);
+  const ruleAlreadyOpen = useContext(RuleShownCtx);
   return (
     <div className="text-center mb-2.5">
-      <RuleToggle pointRef={pointRef} label={label} />
+      {ruleAlreadyOpen
+        ? <Kicker tone="accent">{label}</Kicker>
+        : <RuleToggle pointRef={pointRef} label={label} />}
       {/* Lowercase and unemphasised on purpose: the German is the thing being
           learned, and this only has to stop the label reading as noise. */}
       {gloss && <span className="block text-2xs text-dim mt-0.5 normal-case">{gloss}</span>}

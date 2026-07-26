@@ -263,6 +263,22 @@ export function buildBriefing(): Briefing {
 export function wordsFor(target: Target): Word[] { return poolFor(target); }
 
 /** Ids of due word-drill cards (gym:<mode>:<wordId>). */
+/** Drill modes the learner has ever actually attempted.
+ *
+ *  Not "has a card scheduled" but "has answered one": a drill mode is met the first
+ *  time it is graded, and until then the learner has never been told what it tests.
+ *  The session builder uses this to teach before it tests — see `teach` in
+ *  session.ts. One pass over the card map, called once per session build. */
+export function practisedModes(): Set<string> {
+  const out = new Set<string>();
+  live.forEach((_c, id) => {
+    if (!id.startsWith('gym:')) return;
+    const mode = id.split(':')[1];
+    if (mode) out.add(mode);
+  });
+  return out;
+}
+
 export function dueGymIds(): string[] {
   const now = Date.now();
   const out: string[] = [];

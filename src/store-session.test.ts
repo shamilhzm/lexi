@@ -984,3 +984,60 @@ describe('reader', () => {
     }
   });
 });
+
+// Lexi was a testing app that never taught: a beginner could be asked
+// `der Vater → die ___` before anything had said what a plural is. The rule was one
+// tap away the whole time, behind a link a learner has no reason to tap when they
+// don't yet know what the word on it means.
+describe('teach before test', () => {
+  const target = { kind: 'all' as const, name: 'All' };
+
+  async function withNouns() {
+    const { data, store, session, srs, fundamentals } = await fresh();
+    data.registerWords(Array.from({ length: 8 }, (_, i) =>
+      word(`t${i}`, 'Nouns', { gender: 'der', plural: 'die Ts', pos: 'noun' })));
+    return { store, session, srs, fundamentals };
+  }
+
+  it('marks the first drill of a mode the learner has never answered', async () => {
+    const { session } = await withNouns();
+    const drills = session.buildMixedSession(target).filter((it: any) => it.type !== 'flip');
+    expect(drills.length).toBeGreaterThan(0);
+    for (const mode of new Set(drills.map((d: any) => d.type))) {
+      const inMode = drills.filter((d: any) => d.type === mode);
+      // Exactly one introduction per mode per session, on whichever card reaches
+      // it first — an intro on every card would be a lecture, not a lesson.
+      expect(inMode.filter((d: any) => d.teach), `mode ${mode}`).toHaveLength(1);
+      expect(inMode[0].teach, `mode ${mode} — the first one`).toBe(true);
+    }
+  });
+
+  it('stops introducing a mode once it has actually been answered', async () => {
+    const { session, store, srs, fundamentals } = await withNouns();
+    // Grading any drill in the mode is what counts as having met it.
+    const first = session.buildMixedSession(target).find((it: any) => it.type !== 'flip')!;
+    store.review(first.srsId, srs.Rating.Good);
+
+    const again = session.buildMixedSession(target)
+      .filter((it: any) => it.type === first.type);
+    expect(again.every((d: any) => !d.teach), `${first.type} was re-introduced`).toBe(true);
+    void fundamentals;
+  });
+
+  it('never marks a plain vocabulary flip', async () => {
+    const { session } = await withNouns();
+    const flips = session.buildMixedSession(target).filter((it: any) => it.type === 'flip');
+    expect(flips.every((f: any) => !f.teach)).toBe(true);
+  });
+
+  it('carries the introduction across a resume', async () => {
+    const { session } = await withNouns();
+    const built = session.buildMixedSession(target);
+    const teachAt = built.findIndex((it: any) => it.teach);
+    expect(teachAt).toBeGreaterThanOrEqual(0);
+    session.saveSession(target, built, 1);
+    const back = session.loadSession(target)!;
+    // Losing this on resume would silently drop the one card that teaches.
+    expect(back.items.map((it: any) => !!it.teach)).toEqual(built.map((it: any) => !!it.teach));
+  });
+});
