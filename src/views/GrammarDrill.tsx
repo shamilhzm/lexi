@@ -11,7 +11,7 @@ import { haptic, tick } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem, type RevealData } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 import { RevealBlock, Derivation, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
-import WhyLink, { RuleToggle, DrillHeader } from '../components/RulePanel.tsx';
+import WhyLink, { RuleToggle, DrillHeader, NoHelpCtx } from '../components/RulePanel.tsx';
 import Surface from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
@@ -238,6 +238,8 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
   // the pronoun — see `transformHints`.
   const rung = (n: number) => ex.hints?.[n - 1] ?? hintText(canonical, n);
   const rungs = ex.hints?.length ?? 3;
+  // Exam conditions: the hint ladder is exactly the scaffolding an exam removes.
+  const noHelp = useContext(NoHelpCtx);
   const submit = () => {
     if (result !== null) return;
     const ok = accepts.has(norm(val));
@@ -267,7 +269,7 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
       {result === null
         ? <div className="mt-5 flex items-center justify-center gap-3">
             <Button onClick={submit} disabled={!val.trim()}>Check</Button>
-            {canonical && hint < rungs && (
+            {canonical && hint < rungs && !noHelp && (
               <button onClick={() => setHint((h) => h + 1)} className="text-dim text-xs underline underline-offset-2 hover:text-amber">
                 {hint === 0 ? 'Hint' : 'More'}
               </button>

@@ -93,7 +93,7 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
 
       {/* The A1→C2 strip keeps its job (jump the level filter) but sits inside
           the narrative now, rather than floating above it as its own panel. */}
-      <LevelProgress />
+      <LevelProgress onStudy={onStudy} />
 
       {next.length > 0 && (
         <>

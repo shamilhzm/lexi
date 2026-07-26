@@ -25,8 +25,8 @@ import type { CEFR, Target, Word } from '../types.ts';
  *  gap between classes — the three shapes a real day actually has. */
 const SHORT_MINUTES = [3, 5, 10];
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
-  { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
+export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
+  { onStart: (t: Target) => void; onExam: () => void; onPlacement: () => void; onGuidedStart: () => void;
     onBlindDrill: (tag?: string) => void; onDecks: () => void;
     onBackup: () => void; onGrammar: () => void; onProgress: () => void }) {
   const v = useStore();
@@ -252,6 +252,16 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
                     </button>
                   ))}
                 </div>
+              )}
+              {/* The same material with the scaffolding removed. Offered only once
+                  there is something to be tested on — an exam on day two measures
+                  nothing. Hidden in week one for the same reason. */}
+              {!week1 && t.known >= 40 && (
+                <button onClick={onExam}
+                  className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
+                    hover:border-amber hover:text-amber transition-colors self-start sm:self-end">
+                  Exam conditions
+                </button>
               )}
             </div>
           </div>

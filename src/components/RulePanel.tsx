@@ -75,7 +75,13 @@ function Section({ s }: { s: RuleSection }) {
 
 /** The rule card itself. `level` heads it so the learner can see whether this is
  *  something they’re meant to know yet. */
-export function RuleCard({ point, level, onClose }: { point: GPoint; level: CEFR; onClose?: () => void }) {
+export function RuleCard({ point, level, onClose, worked = false }: {
+  point: GPoint; level: CEFR; onClose?: () => void;
+  /** Show one exercise solved. Only for *reading* contexts — an introduction, or
+   *  the syllabus. A rule opened in the middle of a drill must not, because the
+   *  exercise it works through may be the one on screen. */
+  worked?: boolean;
+}) {
   return (
     <Card as={motion.div} tone="sunken" nested pad="none"
       initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
@@ -98,7 +104,42 @@ export function RuleCard({ point, level, onClose }: { point: GPoint; level: CEFR
         ? <div>{point.sections.map((s, i) => <Section key={i} s={s} />)}</div>
         // whitespace-pre-line: a few rules are multi-line conjugation tables.
         : <p className="text-sm text-dim whitespace-pre-line leading-relaxed border-t border-line pt-2.5">{point.rule}</p>}
+      {worked && <Worked point={point} />}
     </Card>
+  );
+}
+
+/** One solved instance, between the rule and being asked to apply it.
+ *
+ *  A point went straight from a paragraph of explanation to six exercises, and the
+ *  step in between — seeing one done, with the reasoning attached — was missing.
+ *  That step is where a rule becomes a procedure.
+ *
+ *  It needs no new content: every exercise already carries an `explain` written to
+ *  be shown after answering, and the point's first exercise is by authoring
+ *  convention its most canonical. Showing it solved costs one of six items, and a
+ *  learner who has just read the rule was never going to get value from being
+ *  tested on it cold anyway. */
+function Worked({ point }: { point: GPoint }) {
+  const ex = point.exercises?.[0];
+  if (!ex?.explain) return null;
+
+  // The answer, in whatever shape this exercise kind stores it.
+  const answer = ex.kind === 'type' ? ex.accept?.[0]
+    : ex.kind === 'order' ? ex.tiles?.join(' ')
+    : ex.kind === 'error' ? ex.fix
+    : ex.options?.[ex.answer ?? 0];
+  if (!answer) return null;
+
+  return (
+    <div className="pt-2.5 mt-2.5 border-t border-line">
+      <Kicker tone="accent" className="block mb-1">One worked through</Kicker>
+      {/* The error kind's prompt is the *wrong* sentence, so labelling it as the
+          question and the fix as the answer is the only honest reading of it. */}
+      <p lang="de" className="text-sm text-dim">{ex.prompt}</p>
+      <p lang="de" className="text-sm text-txt font-semibold mt-0.5">{answer}</p>
+      <p className="text-xs text-dim mt-1 leading-relaxed">{ex.explain}</p>
+    </div>
   );
 }
 
@@ -165,6 +206,16 @@ export function termGloss(label: string): string | undefined {
  *  offering a second, collapsed copy of the same text. */
 export const RuleShownCtx = createContext(false);
 
+/** True while the learner has asked for exam conditions: no hints, no rules, no
+ *  "why?" — just the question.
+ *
+ *  Lexi cannot author a Goethe or telc paper, and inventing one would be worse
+ *  than having none. What it *can* remove is the scaffolding, which is the thing an
+ *  exam actually takes away and the thing ordinary study can never simulate: every
+ *  drill here normally offers a hint ladder and the rule behind it one tap away,
+ *  and on the day none of that exists. */
+export const NoHelpCtx = createContext(false);
+
 /** What an exercise is testing, and the way into its rule.
  *
  *  Rendered by the item rather than by whatever is hosting it, because only the
@@ -179,7 +230,7 @@ export function DrillHeader({ pointRef, label }: {
   pointRef: { level: CEFR; title: string } | string | null; label: string;
 }) {
   const gloss = termGloss(label);
-  const ruleAlreadyOpen = useContext(RuleShownCtx);
+  const ruleAlreadyOpen = useContext(RuleShownCtx) || useContext(NoHelpCtx);
   return (
     <div className="text-center mb-2.5">
       {ruleAlreadyOpen
@@ -196,8 +247,9 @@ export function DrillHeader({ pointRef, label }: {
  *  default: a learner who already knows why shouldn’t have to scroll past it. */
 export default function WhyLink({ pointRef }: { pointRef: { level: CEFR; title: string } | string | null }) {
   const [open, setOpen] = useState(false);
+  const noHelp = useContext(NoHelpCtx);
   const found = usePoint(pointRef);
-  if (!found) return null;
+  if (!found || noHelp) return null;
 
   return (
     <div className="mt-2">

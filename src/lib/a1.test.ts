@@ -2,6 +2,8 @@
 // weeks in, and each fix is small enough that it would be easy to undo by accident.
 import { describe, it, expect } from 'vitest';
 import { parseList, matchList } from '../components/ClassListPicker.tsx';
+import { clozeExample, drillExample, eligibleModes } from '../views/Fundamentals.tsx';
+import { CAN_DO, coverageNote } from './candos.ts';
 import { previewInterval, emptyCard, Rating, schedule } from '../srs.ts';
 import { registerWords } from '../data/index.ts';
 import { resetSurfaceIndex } from './reader.ts';
@@ -94,5 +96,74 @@ describe('interval preview precision', () => {
         expect(previewInterval(card, r)).toMatch(/min|hr|day|week|month|mo|yr/);
       }
     }
+  });
+});
+
+// B1. "Word order drills rebuild the card's own example sentence — once I've seen
+// it, it's memory, not syntax." The flip face always shows ex[0], and an
+// interleaved drill lands about three items later, so the sentence being
+// reconstructed was the one just read.
+describe('drill example selection', () => {
+  const card = (ex: { de: string; en: string; lvl: string }[]): Word =>
+    ({ ...w('voc:A1:x', 'der Tisch'), ex });
+
+  it('prefers a sentence the flip face did not just show', () => {
+    const c = card([
+      { de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' },
+      { de: 'Wir kaufen einen neuen Tisch.', en: 'b', lvl: 'A1' },
+    ]);
+    expect(clozeExample(c)?.de).toBe('Wir kaufen einen neuen Tisch.');
+  });
+
+  it('falls back to the first when it is the only usable one', () => {
+    const c = card([{ de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' }]);
+    expect(clozeExample(c)?.de).toBe('Der Tisch ist alt.');
+  });
+
+  it('skips a later example that does not satisfy the drill', () => {
+    // ex[1] never says "Tisch", so a cloze cannot be built from it.
+    const c = card([
+      { de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' },
+      { de: 'Das ist sehr schön.', en: 'b', lvl: 'A1' },
+    ]);
+    expect(clozeExample(c)?.de).toBe('Der Tisch ist alt.');
+  });
+
+  it('returns null when nothing qualifies, so eligibility and rendering agree', () => {
+    const c = card([{ de: 'Das ist sehr schön.', en: 'b', lvl: 'A1' }]);
+    expect(clozeExample(c)).toBeNull();
+    expect(drillExample(c, () => false)).toBeNull();
+  });
+
+  it('is the same choice eligibility makes', () => {
+    // If these could differ, a word could be declared drillable and render nothing.
+    const c = card([
+      { de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' },
+      { de: 'Wir kaufen einen neuen Tisch.', en: 'b', lvl: 'A1' },
+    ]);
+    expect(eligibleModes(c).includes('cloze')).toBe(clozeExample(c) !== null);
+  });
+});
+
+// "Progress shows what I know, never what I can do." The descriptors say what a
+// level *is*; the copy must never claim the learner has got there on a word count.
+describe('can-do descriptors', () => {
+  it('covers every level', () => {
+    for (const lv of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const) {
+      expect(CAN_DO[lv].length, lv).toBeGreaterThanOrEqual(3);
+    }
+  });
+
+  it('never claims the learner can do them', () => {
+    // The whole point: coverage measures words met, not competence.
+    for (const pct of [0, 10, 30, 70, 95, 100]) {
+      const note = coverageNote(pct);
+      expect(note.toLowerCase(), `${pct}%`).not.toMatch(/you can|you're able|you are able/);
+      expect(note.toLowerCase(), `${pct}%`).toContain('vocabulary');
+    }
+  });
+
+  it('says something for every coverage value', () => {
+    for (let p = 0; p <= 100; p += 5) expect(coverageNote(p).length).toBeGreaterThan(10);
   });
 });

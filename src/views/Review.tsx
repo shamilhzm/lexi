@@ -10,7 +10,7 @@ import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
-import { usePoint, RuleCard, RuleShownCtx } from '../components/RulePanel.tsx';
+import { usePoint, RuleCard, RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
@@ -58,13 +58,16 @@ function pickExercise(point: GPoint, seed: string) {
   return point.exercises[Math.abs(h) % point.exercises.length];
 }
 
-export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
+export default function Review({ target, onExit, onPick, onDrills, firstRun = false, exam = false }:
+  { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean;
+    /** Exam conditions: no hints, no rules, no "why?" — see NoHelpCtx. */
+    exam?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
   // An interrupted session is resumed rather than rebuilt: the builder is
   // randomised, so a rebuild is a *different* queue and the learner's place in it
   // is gone. See session.ts.
-  const restored = useMemo(() => (firstRun ? null : loadSession(target)), [target, lvKey, firstRun]);
+  const restored = useMemo(() => (firstRun || exam ? null : loadSession(target)), [target, lvKey, firstRun, exam]);
   const queue = useMemo(
     () => restored?.items ?? buildMixedSession(target, firstRun),
     [restored, target, lvKey, firstRun]);
@@ -143,7 +146,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // Remember the place. Writes only while a session is genuinely in progress —
   // saveSession clears the slot at 0 and at the end, so finishing leaves nothing
   // behind to resume into.
-  useEffect(() => { saveSession(target, queue, i); }, [target, queue, i]);
+  useEffect(() => { if (!exam) saveSession(target, queue, i); }, [target, queue, i, exam]);
 
   // Load the exercise bank once, so grammar cards can render as drills.
   useEffect(() => {
@@ -290,7 +293,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   }, [flip, grade, item]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current}
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
     onExit={onExit} onPick={onPick} />;
@@ -329,6 +332,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
           <IconButton label="Back to Today" pull onClick={onExit}><ArrowLeft size={16} /></IconButton>
           <h1 className="text-base font-semibold truncate flex-1 min-w-[7rem]">{target.name}</h1>
+          {exam && <Kicker tone="reward" className="flex-shrink-0">Exam conditions</Kicker>}
           {/* Position out of a total, not a raw countdown. "92 left" on a first
               session reads as a backlog with no floor; "7 / 92" is the same fact
               as somewhere you are inside something finite, and it moves forward
@@ -371,6 +375,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         {/* The card swaps in place, so nothing here is ever re-announced without
             a live region — Placement and the drills each got one, and the
             primary loop was the surface that didn’t. */}
+        <NoHelpCtx.Provider value={exam}>
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]"
           role="region" aria-live="polite" aria-label="Current card">
           <AnimatePresence mode="wait" custom={exitDir.current}>
@@ -397,7 +402,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   The rule has always been one tap away, behind a link nobody taps
                   because they don't yet know they need it — so here it opens
                   itself, and the item says plainly that it isn't a test yet. */}
-              {item.teach && item.type !== 'flip' && (
+              {item.teach && item.type !== 'flip' && !exam && (
                 <IntroCard mode={item.type} />
               )}
               {/* A drill can arrive mid-session without the learner ever having
@@ -579,6 +584,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           </motion.div>
           </AnimatePresence>
         </div>
+        </NoHelpCtx.Provider>
       </Card>
     </div>
   );
@@ -753,7 +759,7 @@ function IntroCard({ mode }: { mode: Mode }) {
       <p className="text-2xs text-amber font-mono uppercase tracking-widest text-center mb-2 font-semibold">
         New here — have a read first
       </p>
-      <RuleCard point={found.point} level={found.level} />
+      <RuleCard point={found.point} level={found.level} worked />
       <p className="text-2xs text-dim text-center mt-2">
         This one doesn’t count. You’ll get it again later, for real.
       </p>
@@ -769,9 +775,9 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, onExit, onPick }:
+function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick }:
   { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
-    composition?: RecapData['composition']; met: Word[]; onExit: () => void; onPick: () => void }) {
+    composition?: RecapData['composition']; met: Word[]; exam?: boolean; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
@@ -795,6 +801,20 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
         {comeback && (
           <p className="text-xs text-dim mb-5">
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
+          </p>
+        )}
+        {/* An exam's number is its point, so it is said plainly. 60% is the usual
+            Goethe/telc pass mark — quoted as the standard's, not as Lexi's verdict,
+            because this is a vocabulary drill under exam conditions and not the
+            exam. */}
+        {exam && done > 0 && (
+          <p className="text-sm mb-4">
+            You scored <span className={`font-mono font-bold ${recall >= 60 ? 'text-green' : 'text-amber'}`}>{recall}%</span>{' '}
+            with no hints and no rules.
+            <span className="block text-dim text-xs mt-1">
+              Goethe and telc set their pass mark at 60%. This isn’t their exam — it’s your vocabulary
+              and grammar without the scaffolding.
+            </span>
           </p>
         )}
         <PocketList words={met} />

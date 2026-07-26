@@ -29,7 +29,7 @@ import SessionRecap from '../components/SessionRecap.tsx';
 import Surface from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
-import type { Word } from '../types.ts';
+import type { Word, Example } from '../types.ts';
 
 export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case' | 'separable' | 'reflexive' | 'dictation';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
@@ -44,14 +44,13 @@ function inLevels(w: Word) { return levels().has(w.level); }
 const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && inLevels(w));
 const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && w.plural && inLevels(w));
 const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canConjugate(w.term));
-const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && inLevels(w)
-  && wholeWordRe(stripArticle(w.term)).test(w.ex[0].de));
-const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderTokens(w.ex[0]?.de).length > 0);
+const clozePool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && clozeExample(w));
+const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderExample(w));
 const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
 const casePool = () => WORDS.filter((w) => inLevels(w) && caseSafe(w));
 const separablePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isSeparable(w.term));
 const reflexivePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isReflexive(w.term));
-const dictationPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && dictatable(w.ex[0]?.de));
+const dictationPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && drillExample(w, dictatable));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
@@ -71,6 +70,25 @@ function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
  *  under the `u` flag give a boundary that actually holds. */
 export function wholeWordRe(surface: string): RegExp {
   return new RegExp(`(?<![\\p{L}\\p{N}])(${escapeReg(surface)})(?![\\p{L}\\p{N}])`, 'iu');
+}
+
+/** Which of a card's examples a drill should use.
+ *
+ *  The flip face always shows `ex[0]`, and an interleaved drill lands about three
+ *  items after its word's flip — so a cloze or sentence-builder built on `ex[0]`
+ *  was asking the learner to reconstruct a sentence they had just finished
+ *  reading. That is a memory test wearing a syntax test's clothes.
+ *
+ *  So: prefer any later example that satisfies the drill's own constraint, and fall
+ *  back to `ex[0]` only when there is nothing else. 91% of cards carry a second
+ *  example, so most drills now show a sentence the learner has not just seen.
+ *
+ *  Used by both the eligibility check and the item itself, deliberately — if they
+ *  chose differently a word could be declared drillable and then render nothing. */
+export function drillExample(w: Word, ok: (de: string) => boolean): Example | null {
+  const ex = w.ex ?? [];
+  for (let i = 1; i < ex.length; i++) if (ex[i]?.de && ok(ex[i].de)) return ex[i];
+  return ex[0]?.de && ok(ex[0].de) ? ex[0] : null;
 }
 
 // ---- production drills: shared pure helpers (exported for tests) ----------
@@ -373,6 +391,15 @@ export function transformHints(c: Conjugation, pIdx: number, targetKey: Transfor
 // Bounded deliberately: long enough to require holding a clause in your head, short
 // enough to type on a phone without the audio going stale.
 /** Whether a sentence is worth dictating. */
+/** The example a cloze should blank: one that actually contains the headword. */
+export function clozeExample(w: Word): Example | null {
+  return drillExample(w, (de) => wholeWordRe(stripArticle(w.term)).test(de));
+}
+/** The example the sentence builder should scramble. */
+export function orderExample(w: Word): Example | null {
+  return drillExample(w, (de) => orderTokens(de).length > 0);
+}
+
 export function dictatable(de?: string): boolean {
   if (!de) return false;
   const t = de.trim();
@@ -502,12 +529,12 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.kind === 'word' && w.gender) out.push('gender');
   if (w.kind === 'word' && w.plural) out.push('plural');
   if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
-  if (w.kind === 'word' && w.ex[0]?.de && wholeWordRe(stripArticle(w.term)).test(w.ex[0].de)) out.push('cloze');
-  if (w.kind === 'word' && orderTokens(w.ex[0]?.de).length > 0) out.push('order');
+  if (w.kind === 'word' && clozeExample(w)) out.push('cloze');
+  if (w.kind === 'word' && orderExample(w)) out.push('order');
   if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');
   if (w.pos === 'verb' && isSeparable(w.term)) out.push('separable');
   if (w.pos === 'verb' && isReflexive(w.term)) out.push('reflexive');
-  if (w.kind === 'word' && dictatable(w.ex[0]?.de)) out.push('dictation');
+  if (w.kind === 'word' && drillExample(w, dictatable)) out.push('dictation');
   if (caseSafe(w)) out.push('case');
   return out;
 }
@@ -848,7 +875,7 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
 
 export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const surface = stripArticle(word.term);
-  const ex = word.ex[0];
+  const ex = clozeExample(word)!;
   const re = wholeWordRe(surface);
   const m = re.exec(ex.de);
   const target = m ? m[1] : surface;
@@ -876,11 +903,11 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
  *  needed, and real sentences carry real V2 / verb-final word order. */
 export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const ex = useMemo(() => {
-    const tiles = orderTokens(word.ex[0]?.de);
+    const src = orderExample(word);
     return {
       kind: 'order' as const,
-      prompt: word.ex[0]?.en || `A sentence with „${stripArticle(word.term)}“`,
-      tiles,
+      prompt: src?.en || `A sentence with „${stripArticle(word.term)}“`,
+      tiles: orderTokens(src?.de),
     };
   }, [word.id]);
   return <OrderItem ex={ex} onGrade={onGrade} rulePoint={modeRulePoint('order')} ruleLabel={MODE_TAG.order} />;
@@ -952,8 +979,9 @@ export function ReflexiveItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
  *  exercise — and there is an escape for a device whose speech doesn't work, which
  *  reveals the text and grades the attempt as unknown rather than stranding them. */
 export function DictationItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
-  const sentence = word.ex[0]?.de ?? '';
-  const gloss = word.ex[0]?.en ?? '';
+  const src = drillExample(word, dictatable);
+  const sentence = src?.de ?? '';
+  const gloss = src?.en ?? '';
   const [gaveUp, setGaveUp] = useState(false);
 
   // Speak on arrival: the prompt *is* the audio, so waiting for a tap would leave
