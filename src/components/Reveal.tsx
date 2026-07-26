@@ -13,10 +13,42 @@
 // time it resolves, so there is nothing behind it to turn over, and a flip
 // affordance would invite flipping *before* answering, which destroys the
 // retrieval attempt the drill exists to create.
+import { useEffect } from 'react';
 import { Volume2 } from 'lucide-react';
 import { speak } from '../lib/tts.ts';
 import Kicker from './ui/Kicker.tsx';
 import type { Example } from '../types.ts';
+
+/** Keyboard for a multiple-choice item: 1–n picks an option, Enter advances.
+ *
+ *  The flip card has had documented shortcuts (Space, ←, →) since the coach marks
+ *  were written — and the seven drill types had none, so those marks advertised
+ *  keys that worked on one of eight card kinds. Every option was reachable by Tab,
+ *  but nothing let you answer without walking the list, and after answering the
+ *  Next button had to be tabbed to as well.
+ *
+ *  Deliberately ignores keys while a control or text field has focus, matching the
+ *  session player's own rule: Enter belongs to the focused button first. */
+export function useChoiceKeys({ count, answered, onPick, onNext }: {
+  count: number; answered: boolean; onPick: (i: number) => void; onNext: () => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      if (e.key === 'Enter') {
+        if (t && (t.tagName === 'BUTTON' || t.closest?.('button, a, select'))) return;
+        if (answered) { e.preventDefault(); onNext(); }
+        return;
+      }
+      if (answered) return;
+      const n = Number(e.key);
+      if (Number.isInteger(n) && n >= 1 && n <= count) { e.preventDefault(); onPick(n - 1); }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [count, answered, onPick, onNext]);
+}
 
 /** Speak one German string. Small by design: these sit inline beside text rather
  *  than acting as a primary control, so they take the 24px WCAG 2.5.8 floor

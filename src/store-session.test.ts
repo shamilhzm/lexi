@@ -754,3 +754,49 @@ describe('teach-only first session', () => {
     void store; void srs;
   });
 });
+
+// "Quick 5" was a queue length standing in for a duration, and a queue length is a
+// bad proxy: this builder expands words into flips *plus* drills, and a typed
+// transformation costs several times what a flip does. These pin the estimate's
+// shape — that it never lies in the reassuring direction, and that trimming to a
+// budget and estimating that budget are actually inverses.
+describe('session length estimates', () => {
+  it('round-trips a budget through the estimate', async () => {
+    const { session } = await fresh();
+    for (const minutes of [3, 5, 10, 20]) {
+      const words = session.wordsForMinutes(minutes);
+      // The words that fit must not be estimated as *over* the budget the learner
+      // asked for — a "3 min" button that serves 4 minutes of work is a lie.
+      expect(session.estimateSeconds(words), `${minutes} min`).toBeLessThanOrEqual(minutes * 60);
+      // And it must fill the budget rather than under-serving it: one more word
+      // would exceed it.
+      expect(session.estimateSeconds(words + 1), `${minutes} min`).toBeGreaterThan(minutes * 60);
+    }
+  });
+
+  it('never reports zero minutes for real work', async () => {
+    const { session } = await fresh();
+    expect(session.estimateMinutes(0)).toBe(0);
+    expect(session.estimateMinutes(1)).toBeGreaterThanOrEqual(1);
+    expect(session.estimateMinutes(2)).toBeGreaterThanOrEqual(1);
+  });
+
+  it('serves at least one word for any budget', async () => {
+    const { session } = await fresh();
+    expect(session.wordsForMinutes(0)).toBeGreaterThanOrEqual(1);
+    expect(session.wordsForMinutes(0.1)).toBeGreaterThanOrEqual(1);
+  });
+
+  it('grows monotonically with the budget', async () => {
+    const { session } = await fresh();
+    const sizes = [1, 3, 5, 10, 20, 60].map((m) => session.wordsForMinutes(m));
+    for (let i = 1; i < sizes.length; i++) expect(sizes[i]).toBeGreaterThan(sizes[i - 1]);
+  });
+
+  it('counts a drill as costing more than a flip', async () => {
+    const { session } = await fresh();
+    // If these ever invert, the estimate is modelling the wrong thing.
+    expect(session.SECONDS_PER_DRILL).toBeGreaterThan(session.SECONDS_PER_FLIP);
+    expect(session.estimateSeconds(10)).toBeGreaterThan(10 * session.SECONDS_PER_FLIP);
+  });
+});

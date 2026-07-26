@@ -68,6 +68,41 @@ const MAX_LINKED = 2;        // cap word-linked grammar points per session
 const MAX_REMEDY = 1;        // cap miss-triggered remediation points per session
 const REMEDY_MIN_MISSES = 3; // misses (30d) in a mode before remediation fires
 
+// ---- fitting a session to real minutes ------------------------------------
+// "Quick 5" was the right idea at the wrong unit: nobody has five cards spare,
+// they have four minutes. A queue length is only a proxy for a duration, and a bad
+// one — this builder expands a list of words into flips *plus* drills, and a typed
+// transformation costs several times what a flip does.
+//
+// These are estimates and the UI says so ("≈ 8 min"). They are derived from this
+// file's own behaviour rather than invented: at most one drill rides along per
+// word, and MAX_FRESH_DRILLS caps the unseen ones at 10, so a session of N words
+// carries somewhere under N/2 drills once the early cards are past.
+
+/** Seconds a plain vocabulary flip takes: read, decide, grade. */
+export const SECONDS_PER_FLIP = 7;
+/** Seconds an interleaved drill takes — picking an option, or typing a form. */
+export const SECONDS_PER_DRILL = 16;
+/** Drills per word this builder tends to weave in (see MAX_FRESH_DRILLS). */
+export const DRILLS_PER_WORD = 0.5;
+
+/** Estimated wall-clock seconds for a session built from `wordCount` words. */
+export function estimateSeconds(wordCount: number): number {
+  return Math.round(wordCount * (SECONDS_PER_FLIP + DRILLS_PER_WORD * SECONDS_PER_DRILL));
+}
+
+/** Estimated minutes, never rounded to a reassuring zero. */
+export function estimateMinutes(wordCount: number): number {
+  return wordCount === 0 ? 0 : Math.max(1, Math.round(estimateSeconds(wordCount) / 60));
+}
+
+/** How many words fit a time budget — the inverse of `estimateSeconds`.
+ *  At least one, so a budget can never produce an empty session. */
+export function wordsForMinutes(minutes: number): number {
+  const perWord = SECONDS_PER_FLIP + DRILLS_PER_WORD * SECONDS_PER_DRILL;
+  return Math.max(1, Math.floor((minutes * 60) / perWord));
+}
+
 // ---- the vocabulary→grammar loop -----------------------------------------
 // Vocabulary is the trigger, grammar the remediation. Two edges:
 //  1. WORD_POINT — learning a function word pulls its grammar point into the

@@ -21,7 +21,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person, type Conjugation } from '../lib/conjugate.ts';
 import { OrderItem, TypeItem, hintText } from './GrammarDrill.tsx';
-import { RevealBlock, Paradigm } from '../components/Reveal.tsx';
+import { RevealBlock, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
 import type { RevealData } from '../lib/grammar.ts';
 import WhyLink, { DrillHeader } from '../components/RulePanel.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
@@ -511,6 +511,12 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
   // target (the Genitiv of *this* Kasus item, the Präteritum of *this* conjugation);
   // the mode default is the fallback for modes whose items are all one system.
   const point = rulePoint !== undefined ? rulePoint : mode ? modeRulePoint(mode) : null;
+  useChoiceKeys({
+    count: options.length,
+    answered: picked !== null,
+    onPick: setPicked,
+    onNext: () => picked !== null && onGrade(picked === correct),
+  });
   return (
     <>
       {ruleLabel && <DrillHeader pointRef={point} label={ruleLabel} />}
@@ -525,6 +531,10 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
+              {/* The key that picks this option, shown so the shortcut is
+                  discoverable rather than folklore. Hidden on touch, where there
+                  is no keyboard to hint at. */}
+              <kbd aria-hidden className="hidden sm:inline-block font-mono text-2xs text-dim mr-2 tabular-nums">{i + 1}</kbd>
               {/* icon + colour: right/wrong never rides on colour alone */}
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}

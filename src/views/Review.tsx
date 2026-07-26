@@ -30,6 +30,26 @@ import type { Target } from '../types.ts';
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
+/** The grade scale.
+ *
+ *  FSRS takes four ratings and Lexi only ever sent two — `Rating.Hard` and
+ *  `Rating.Easy` appeared nowhere outside the tests. That throws away exactly the
+ *  signal the scheduler exists to act on: the difference between recalling
+ *  something after a struggle and recalling it instantly. Two ratings make every
+ *  success identical, so intervals grow at one rate for a word you nearly lost and
+ *  a word you will never forget.
+ *
+ *  `firstSight` is the label for a card the learner has never met, and its absence
+ *  is meaningful: a first-sight card is an introduction, not a test, so there was
+ *  no retrieval to rate on a difficulty scale and only those two grades are shown.
+ *  The button count follows whether recall actually happened. */
+const SCALE: { rating: Grade; label: string; firstSight?: string; hover: string }[] = [
+  { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning', hover: 'hover:border-red hover:text-red' },
+  { rating: Rating.Hard, label: 'Hard', hover: 'hover:border-amber hover:text-amber' },
+  { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it', hover: 'hover:border-green hover:text-green' },
+  { rating: Rating.Easy, label: 'Easy', hover: 'hover:border-green hover:text-green' },
+];
+
 /** Stable per-card pick from a grammar point’s exercises (same card → same drill). */
 function pickExercise(point: GPoint, seed: string) {
   let h = 0;
@@ -122,7 +142,9 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const preview = useMemo(() => {
     if (!item || item.type !== 'flip') return null;
     const c = cardOf(item.srsId) ?? emptyCard();
-    return { again: previewInterval(c, Rating.Again), good: previewInterval(c, Rating.Good) };
+    // One entry per rating, so every button can state its own consequence rather
+    // than only the two extremes being honest about theirs.
+    return new Map(SCALE.map((s) => [s.rating, previewInterval(c, s.rating)]));
   }, [item?.srsId]);
 
   // Record the pre-review FSRS state + the exact counter deltas this grade
@@ -231,12 +253,19 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         if (e.code === 'Space' || e.key === 'Enter') return;
       }
       if (e.code === 'Space') { e.preventDefault(); flip(); }
+      // ←/→ stay as the two-way shortcut the swipe mirrors; 1–4 reach the full
+      // scale, which is otherwise mouse-only. A new card has no 2 or 4 to press.
       if (e.key === 'ArrowLeft') grade(Rating.Again);
       if (e.key === 'ArrowRight') grade(Rating.Good);
+      if (e.key >= '1' && e.key <= '4') {
+        const s = SCALE[Number(e.key) - 1];
+        const firstSight = !!item && statusOf(item.srsId) === 'new';
+        if (s && (!firstSight || s.firstSight)) grade(s.rating);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [flip, grade]);
+  }, [flip, grade, item]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
   if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun}
@@ -476,27 +505,36 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           {/* Grade from either face — flipping is optional. First-sight cards
               can’t be "known", so new cards ask "keep it or got it" instead of
               framing an inevitable miss as failure. */}
-          <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2">
-            <div className="flex gap-2.5 sm:gap-3 justify-center">
-              {/* Explicit labels: without them the accessible name runs the
-                  interval preview straight onto the verdict ("Knew it 2 mo"). */}
-              <button onClick={() => grade(Rating.Again)}
-                aria-label={`${statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}${preview ? ` — back in ${preview.again}` : ''}`}
-                className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-red hover:text-red">
-                <span className="flex items-center gap-2"><X size={16} /> {statusOf(item.srsId) === 'new' ? 'Still learning' : 'Didn’t know'}</span>
-                {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.again}</span>}
-              </button>
-              <button onClick={() => grade(Rating.Good)}
-                aria-label={`${statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}${preview ? ` — back in ${preview.good}` : ''}`}
-                className="flex flex-col items-center border border-line bg-panel rounded-md px-4 sm:px-5 py-2 min-w-[130px] justify-center font-semibold transition-colors active:scale-95 hover:border-green hover:text-green">
-                <span className="flex items-center gap-2"><Check size={16} /> {statusOf(item.srsId) === 'new' ? 'Got it' : 'Knew it'}</span>
-                {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
-              </button>
+          <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2 w-full">
+            {/* Two grades on a first-sight card, four once there was something to
+                recall. Four columns don't fit a phone, so they wrap 2×2 — which
+                also puts the two familiar verdicts on the first row. */}
+            <div className={`grid gap-2 sm:gap-2.5 w-full max-w-[580px] ${
+              isNew ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`}>
+              {SCALE.filter((s) => !isNew || s.firstSight).map((s) => {
+                const label = (isNew && s.firstSight) ? s.firstSight : s.label;
+                const when = preview?.get(s.rating);
+                return (
+                  // Explicit label: without it the accessible name runs the
+                  // interval preview straight onto the verdict ("Knew it 2 mo").
+                  <button key={s.rating} onClick={() => grade(s.rating)}
+                    aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
+                    className={`flex flex-col items-center border border-line bg-panel rounded-md px-3 py-2
+                      justify-center font-semibold transition-colors active:scale-95 ${s.hover}`}>
+                    <span className="flex items-center gap-1.5 text-sm sm:text-base">
+                      {s.rating === Rating.Again && <X size={15} className="flex-shrink-0" />}
+                      {s.rating === Rating.Good && <Check size={15} className="flex-shrink-0" />}
+                      {label}
+                    </span>
+                    {when && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{when}</span>}
+                  </button>
+                );
+              })}
             </div>
             <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
               {isNew && !grammar
                 ? 'First time seeing this — take it in, then say how it landed'
-                : `Space to flip and check the ${grammar ? 'rule' : 'translation'}`}
+                : `Space to flip · 1–4 to grade`}
             </span>
           </div>
           </>)}
@@ -595,8 +633,14 @@ function CoachMarks() {
       <span aria-hidden>·</span>
       <span><b className="text-txt font-semibold">Swipe</b> or use the buttons to grade</span>
       <span aria-hidden>·</span>
-      {/* The keyboard path existed but was never stated anywhere in the UI. */}
-      <span className="hidden sm:inline"><kbd className="text-txt font-semibold">Space</kbd> flips, <kbd className="text-txt font-semibold">←</kbd>/<kbd className="text-txt font-semibold">→</kbd> grade</span>
+      {/* The keyboard path existed but was never stated anywhere in the UI — and
+          what it stated only ever worked on the flip card. The drills now take
+          1–4 and Enter too, so one line covers every card type. */}
+      <span className="hidden sm:inline">
+        <kbd className="text-txt font-semibold">Space</kbd> flips,{' '}
+        <kbd className="text-txt font-semibold">1</kbd>–<kbd className="text-txt font-semibold">4</kbd> grade or answer,{' '}
+        <kbd className="text-txt font-semibold">Enter</kbd> continues
+      </span>
       <span aria-hidden className="hidden sm:inline">·</span>
       <span><b className="text-txt font-semibold">Skip</b> is always free</span>
       <button onClick={dismiss} className="ml-auto text-amber font-semibold hover:brightness-110">Got it</button>

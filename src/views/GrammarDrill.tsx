@@ -10,7 +10,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { loadGrammar, flatten, type GItem, type RevealData } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
-import { RevealBlock, Derivation, Paradigm } from '../components/Reveal.tsx';
+import { RevealBlock, Derivation, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
 import WhyLink, { RuleToggle, DrillHeader } from '../components/RulePanel.tsx';
 import Surface from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -170,6 +170,12 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
   const [picked, setPicked] = useState<number | null>(null);
   const correct = ex.answer ?? 0;
   const choose = (idx: number) => { if (picked !== null) return; setPicked(idx); };
+  useChoiceKeys({
+    count: (ex.options ?? []).length,
+    answered: picked !== null,
+    onPick: choose,
+    onNext: () => picked !== null && onGrade(picked === correct),
+  });
   return (
     <Card>
       <p lang="de" className="headword text-xl sm:text-2xl font-bold text-center mb-5 leading-snug">{ex.prompt}</p>
@@ -182,6 +188,7 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
+              <kbd aria-hidden className="hidden sm:inline-block font-mono text-2xs text-dim mr-2 tabular-nums">{idx + 1}</kbd>
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
               {o}

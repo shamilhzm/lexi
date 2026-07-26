@@ -15,8 +15,12 @@ import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
-import { blindSpotDrills } from '../session.ts';
-import { BY_ID } from '../data/index.ts';
+import { blindSpotDrills, estimateMinutes, wordsForMinutes } from '../session.ts';
+
+/** The short-session budgets offered beside the full one. A commute, a queue, a
+ *  gap between classes — the three shapes a real day actually has. */
+const SHORT_MINUTES = [3, 5, 10];
+import { BY_ID, WORDS } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
 
 export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
@@ -89,6 +93,17 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           <p className="text-dim text-base mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
           <span className={buttonClass('primary', 'sm')}><Play size={13} /> Start</span>
         </Card>
+        {/* Someone arriving from a shared link has been told nothing about what
+            this is. The hero says what to *do*; these two lines say what it *is*
+            and where the data lives — the two questions a classmate actually asks
+            before they type anything into a stranger's app. */}
+        <p className="text-dim text-xs mt-3 max-w-[52ch] leading-relaxed">
+          Lexi is a free, open-source German trainer — {fmt(WORDS.length)} cards from A1 to C2 with
+          spaced repetition and grammar drills built in.
+          <span className="block mt-1">
+            No account, no sign-in. Your progress is stored on this device only and never leaves it.
+          </span>
+        </p>
       </div>
     );
   }
@@ -206,14 +221,27 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
               <Button size="lg" block className="sm:w-auto"
                 onClick={() => onStart({ kind: 'custom', name: 'Today’s session', ids: briefing.ids })}>
                 <Play size={16} /> Start session
+                <span className="font-mono text-2xs font-normal opacity-80">≈{estimateMinutes(total)} min</span>
               </Button>
-              {/* The session that fits four real minutes. Same queue, first five;
-                  grades persist immediately, so the rest simply remains. */}
-              {total > 5 && (
-                <Button variant="quiet" size="sm" block className="sm:w-auto"
-                  onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}>
-                  <Zap size={13} /> Quick 5
-                </Button>
+              {/* "Quick 5" was the right idea in the wrong unit — nobody has five
+                  cards spare, they have four minutes. Same queue, trimmed to a time
+                  budget; grades persist immediately, so the rest simply remains.
+                  Only offers budgets that would actually shorten today's session. */}
+              {SHORT_MINUTES.some((m) => wordsForMinutes(m) < total) && (
+                <div className="flex items-center gap-1.5 sm:justify-end flex-wrap">
+                  <Kicker className="mr-0.5"><Zap size={11} className="inline -mt-0.5" /> Got less time?</Kicker>
+                  {SHORT_MINUTES.filter((m) => wordsForMinutes(m) < total).map((m) => (
+                    <button key={m}
+                      onClick={() => onStart({
+                        kind: 'custom', name: `${m}-minute session`,
+                        ids: briefing.ids.slice(0, wordsForMinutes(m)),
+                      })}
+                      className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
+                        hover:border-amber hover:text-amber transition-colors">
+                      {m} min
+                    </button>
+                  ))}
+                </div>
               )}
             </div>
           </div>
