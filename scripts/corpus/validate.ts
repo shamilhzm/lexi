@@ -103,6 +103,26 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     else byLevelLemma.set(kl, w.id);
   }
   for (const [id, n] of byId) if (n > 1) errors.push({ id, msg: `duplicate id ×${n}` });
+
+  // German capitalises nouns and nothing else, so a single-word headword that is
+  // capitalised and *isn't* a noun is a miscapitalisation — and where a lowercase
+  // twin exists it is a duplicate card too, splitting FSRS progress for one word
+  // across two ids. Found by the reading index, which resolved "Haben Sie …?" to a
+  // capitalised copy of `haben`. Multi-word phrases are exempt: "Wie bitte?" and
+  // "Rad fahren" are correctly capitalised as citation forms.
+  const lowercaseTwin = new Set(
+    cards.filter((w) => w.kind === 'word').map((w) => w.term));
+  for (const w of cards) {
+    if (w.kind !== 'word' || w.pos === 'noun' || w.pos === 'phrase') continue;
+    if (w.term.includes(' ') || !/^\p{Lu}/u.test(w.term)) continue;
+    const twin = w.term.toLowerCase();
+    warnings.push({
+      id: w.id,
+      msg: lowercaseTwin.has(twin)
+        ? `capitalised duplicate of "${twin}" — German capitalises only nouns`
+        : `capitalised non-noun headword (${w.pos || 'no pos'})`,
+    });
+  }
   return { errors, warnings };
 }
 
