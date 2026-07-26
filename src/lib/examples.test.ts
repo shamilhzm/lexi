@@ -113,6 +113,23 @@ describe('against the shipped corpus', () => {
     }
   });
 
+  // The flip face shows ex[0], so the first example is the card. Cleared by
+  // scripts/corpus/frontfix.ts — promoting a clean sibling where one existed and
+  // authoring a lead for the 23 that had none. Pinned here because it is a
+  // property of the shipped file, and the next imported batch will not know it.
+  it('never leads a card with a fragment, a citation or a wall of text', () => {
+    const bad = corpus
+      .filter((w) => w.kind === 'word' && w.ex?.length)
+      .map((w) => ({ id: w.id, de: w.ex![0].de.trim() }))
+      .filter(({ de }) => {
+        const close = de.search(/[“"«]/);
+        const quoted = /^[„"»]/.test(de)
+          && (/[“"«]\s*[–—-]\s*[„"»]/.test(de) || close === -1 || close > 30 || close >= de.length - 2);
+        return !/[.!?…]$/.test(de) || de.length > 140 || quoted;
+      });
+    expect(bad.map((b) => b.id)).toEqual([]);
+  });
+
   it('never empties a card that had a usable example', () => {
     const emptied = corpus.filter((w) => (w.ex?.length ?? 0) > 0 && cleanExamples(w.ex).length === 0);
     expect(emptied.map((w) => w.id)).toEqual([]);

@@ -22765,14 +22765,14 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Du kommst nicht.“ – „Doch!“",
-        "en": "“You’re not coming.” – “Yes I am!”",
-        "lvl": "A1"
-      },
-      {
         "de": "Komm doch mit!",
         "en": "Come along, why don’t you!",
         "lvl": "A2"
+      },
+      {
+        "de": "„Du kommst nicht.“ – „Doch!“",
+        "en": "“You’re not coming.” – “Yes I am!”",
+        "lvl": "A1"
       },
       {
         "de": "Eigentlich wollte ich absagen, bin dann aber doch gegangen.",
@@ -71291,13 +71291,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "einen Antrag stellen",
-        "en": "to submit an application",
+        "de": "Der Antrag wurde von der Behörde abgelehnt.",
+        "en": "The application was rejected by the authority.",
         "lvl": "B1"
       },
       {
-        "de": "Der Antrag wurde von der Behörde abgelehnt.",
-        "en": "The application was rejected by the authority.",
+        "de": "einen Antrag stellen",
+        "en": "to submit an application",
         "lvl": "B1"
       }
     ],
@@ -78013,6 +78013,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Die Probezeit dauert bei uns sechs Monate.",
+        "en": "Here the probationary period lasts six months.",
+        "lvl": "B2"
+      },
+      {
         "de": "„Auch mit Verbesserungsvorschlägen halten sich neue Mitarbeiter während der Probezeit deswegen lieber zurück.“",
         "en": "„Even with suggestions for improvement, new employees therefore prefer to hold back during the probationary period.“",
         "lvl": "B2"
@@ -78942,6 +78947,11 @@
     "syn": [],
     "ant": [],
     "ex": [
+      {
+        "de": "Alle Filialen sind digital miteinander vernetzt.",
+        "en": "All branches are digitally networked with one another.",
+        "lvl": "B2"
+      },
       {
         "de": "„Der Konnektionismus ist ein Problemlösungsansatz in der Kybernetik und beschäftigt sich mit dem Verhalten vernetzter Systeme basierend auf Zusammenschlüssen von künstlichen Informationsverarbeitungseinheiten.“",
         "en": "„Connectionism is a problem-solving approach in cybernetics and deals with the behaviour of networked systems based on assemblies of artificial information-processing units.“",
@@ -80656,13 +80666,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Nun musste ich mich für ein Studienfach entscheiden.“",
-        "en": "„Now I had to decide on a field of study.“",
+        "de": "Er wechselte nach zwei Semestern das Studienfach.",
+        "en": "After two semesters he changed his field of study.",
         "lvl": "B2"
       },
       {
-        "de": "Er wechselte nach zwei Semestern das Studienfach.",
-        "en": "After two semesters he changed his field of study.",
+        "de": "„Nun musste ich mich für ein Studienfach entscheiden.“",
+        "en": "„Now I had to decide on a field of study.“",
         "lvl": "B2"
       }
     ],
@@ -82580,6 +82590,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Möchtest du noch ein Stück Kuchen?",
+        "en": "Would you like another piece of cake?",
+        "lvl": "B2"
+      },
+      {
         "de": "Ganz geschwinde, eins, zwei, drei",
         "en": "Very quickly, one, two, three",
         "lvl": "B2"
@@ -83524,13 +83539,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Aus Sicht der Hafenbetreiber ist die Elbvertiefung unverzichtbar, um weiter konkurrenzfähig zu bleiben und noch größeren Containerschiffen mit einem Tiefgang von 14,5 Metern die Nutzung des Hafens zu ermöglichen.“",
-        "en": "„From the port operators' point of view, the deepening of the Elbe is indispensable in order to remain competitive.“",
+        "de": "Um konkurrenzfähig zu bleiben, senkt die Firma die Preise.",
+        "en": "To stay competitive the company lowers its prices.",
         "lvl": "B2"
       },
       {
-        "de": "Um konkurrenzfähig zu bleiben, senkt die Firma die Preise.",
-        "en": "To stay competitive the company lowers its prices.",
+        "de": "„Aus Sicht der Hafenbetreiber ist die Elbvertiefung unverzichtbar, um weiter konkurrenzfähig zu bleiben und noch größeren Containerschiffen mit einem Tiefgang von 14,5 Metern die Nutzung des Hafens zu ermöglichen.“",
+        "en": "„From the port operators' point of view, the deepening of the Elbe is indispensable in order to remain competitive.“",
         "lvl": "B2"
       }
     ],
@@ -83609,13 +83624,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Ursprünglich war geplant, die Mietpreisbremse bei Neubauten nur bei Erstvermietung und nur auf einen Fünf-Jahres-Zeitraum auszusetzen.“",
-        "en": "„Originally it was planned to exempt new buildings from the rent cap.“",
+        "de": "Die Mietpreisbremse soll den Anstieg der Mieten begrenzen.",
+        "en": "The rent cap is meant to limit the rise in rents.",
         "lvl": "B2"
       },
       {
-        "de": "Die Mietpreisbremse soll den Anstieg der Mieten begrenzen.",
-        "en": "The rent cap is meant to limit the rise in rents.",
+        "de": "„Ursprünglich war geplant, die Mietpreisbremse bei Neubauten nur bei Erstvermietung und nur auf einen Fünf-Jahres-Zeitraum auszusetzen.“",
+        "en": "„Originally it was planned to exempt new buildings from the rent cap.“",
         "lvl": "B2"
       }
     ],
@@ -83812,13 +83827,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Die Regierung hat die Konzerne dabei gewähren lassen und sie nicht zum Einstieg in die Elektromobilität gedrängt.“",
-        "en": "„The government let the corporations have their way on electric mobility.“",
+        "de": "Die Elektromobilität soll den Verkehr sauberer machen.",
+        "en": "Electric mobility is meant to make traffic cleaner.",
         "lvl": "B2"
       },
       {
-        "de": "Die Elektromobilität soll den Verkehr sauberer machen.",
-        "en": "Electric mobility is meant to make traffic cleaner.",
+        "de": "„Die Regierung hat die Konzerne dabei gewähren lassen und sie nicht zum Einstieg in die Elektromobilität gedrängt.“",
+        "en": "„The government let the corporations have their way on electric mobility.“",
         "lvl": "B2"
       }
     ],
@@ -83952,13 +83967,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Im Boden entsteht eine Verdichtung z.B. durch zu hohen Druck bei feuchten Böden.“",
-        "en": "„Compaction occurs in the soil, e.g. due to excessive pressure.“",
+        "de": "Die bauliche Verdichtung spart Fläche, aber kostet Grün.",
+        "en": "Building densification saves space but costs greenery.",
         "lvl": "B2"
       },
       {
-        "de": "Die bauliche Verdichtung spart Fläche, aber kostet Grün.",
-        "en": "Building densification saves space but costs greenery.",
+        "de": "„Im Boden entsteht eine Verdichtung z.B. durch zu hohen Druck bei feuchten Böden.“",
+        "en": "„Compaction occurs in the soil, e.g. due to excessive pressure.“",
         "lvl": "B2"
       }
     ],
@@ -84007,6 +84022,11 @@
     ],
     "ant": [],
     "ex": [
+      {
+        "de": "Die Begrünung der Dächer senkt die Temperatur in der Stadt.",
+        "en": "Greening the roofs lowers the temperature in the city.",
+        "lvl": "B2"
+      },
       {
         "de": "„Graue Klötze in Wohn- und Gewerbegebieten bestimmen das Bild unserer Umgebung. Dabei kann die Begrünung der Wände Klima, Artenvielfalt und Häuser schützen und zudem noch unser Auge erfreuen.“",
         "en": "„Grey blocks in residential and commercial areas dominate the appearance of our surroundings. Yet the greening of walls can protect the climate, biodiversity and buildings, and delight the eye as well.“",
@@ -84062,13 +84082,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Die Zersiedelung der Weinberge nach der Reblausplage ist hier besonders deutlich zu erkennen.“",
-        "en": "„The sprawl of the vineyards after the phylloxera plague is particularly evident here.“",
+        "de": "Die Zersiedelung frisst wertvolles Ackerland.",
+        "en": "Urban sprawl eats up valuable farmland.",
         "lvl": "B2"
       },
       {
-        "de": "Die Zersiedelung frisst wertvolles Ackerland.",
-        "en": "Urban sprawl eats up valuable farmland.",
+        "de": "„Die Zersiedelung der Weinberge nach der Reblausplage ist hier besonders deutlich zu erkennen.“",
+        "en": "„The sprawl of the vineyards after the phylloxera plague is particularly evident here.“",
         "lvl": "B2"
       }
     ],
@@ -84121,13 +84141,13 @@
     ],
     "ex": [
       {
-        "de": "„Ist das Leben lebenswert?“",
-        "en": "„Is life worth living?“",
+        "de": "Das Leben ist lebenswert.",
+        "en": "Life is worth living.",
         "lvl": "B2"
       },
       {
-        "de": "Das Leben ist lebenswert.",
-        "en": "Life is worth living.",
+        "de": "„Ist das Leben lebenswert?“",
+        "en": "„Is life worth living?“",
         "lvl": "B2"
       }
     ],
@@ -86044,6 +86064,11 @@
     "syn": [],
     "ant": [],
     "ex": [
+      {
+        "de": "Sie übt ihr Ehrenamt seit zehn Jahren aus.",
+        "en": "She has held her voluntary position for ten years.",
+        "lvl": "C1"
+      },
       {
         "de": "[1, engerer Sinn] „Ein Ehrenamt ist in den Niederlanden mindestens so wichtig wie eine bezahlte Arbeit und ebenso ordentlich organisiert, einschließlich einer strengen Bewerbungsprozedur.“",
         "en": "[1, narrower sense] „In the Netherlands a voluntary position is at least as important as paid work and just as properly organised, including a strict application procedure.“",
@@ -91985,6 +92010,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Das Gesetz tritt am ersten Januar in Kraft.",
+        "en": "The law comes into force on the first of January.",
+        "lvl": "C2"
+      },
+      {
         "de": "„Alle Menschen sind vor dem Gesetz gleich.“",
         "en": "„All people are equal before the law.“",
         "lvl": "C2"
@@ -92315,13 +92345,13 @@
     ],
     "ex": [
       {
-        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
-        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“",
+        "de": "Der Verweis auf alte Traditionen verleiht noch keine Legitimität.",
+        "en": "An appeal to old traditions does not in itself confer legitimacy.",
         "lvl": "C2"
       },
       {
-        "de": "Der Verweis auf alte Traditionen verleiht noch keine Legitimität.",
-        "en": "An appeal to old traditions does not in itself confer legitimacy.",
+        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
+        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“",
         "lvl": "C2"
       }
     ],
@@ -92377,13 +92407,13 @@
     ],
     "ex": [
       {
-        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
-        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“",
+        "de": "Ein einflussreicher Kreis von Verlegern entschied damals, was gedruckt wurde.",
+        "en": "An influential circle of publishers decided back then what got printed.",
         "lvl": "C2"
       },
       {
-        "de": "Ein einflussreicher Kreis von Verlegern entschied damals, was gedruckt wurde.",
-        "en": "An influential circle of publishers decided back then what got printed.",
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“",
         "lvl": "C2"
       }
     ],
@@ -92442,13 +92472,13 @@
     ],
     "ex": [
       {
-        "de": "„Halt! Parole?“ „Nullacht“ „Fünfzehn! Passieren!“",
-        "en": "„Halt! Password?“ „Zero eight“ „Fifteen! Pass!“",
+        "de": "Auf den Transparenten standen dieselben Parolen wie vor zwanzig Jahren.",
+        "en": "The banners bore the same slogans as twenty years ago.",
         "lvl": "C2"
       },
       {
-        "de": "Auf den Transparenten standen dieselben Parolen wie vor zwanzig Jahren.",
-        "en": "The banners bore the same slogans as twenty years ago.",
+        "de": "„Halt! Parole?“ „Nullacht“ „Fünfzehn! Passieren!“",
+        "en": "„Halt! Password?“ „Zero eight“ „Fifteen! Pass!“",
         "lvl": "C2"
       }
     ],
@@ -92529,13 +92559,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Die wirkliche und letzte Macht ist die Bejahung. Negative Suggestionen, Flüche, Verwünschungen etc. verfügen über keinerlei Macht, sofern sie nicht akzeptiert und damit zur eigenen Denkbewegung werden.",
-        "en": "The real and ultimate power is affirmation. Negative suggestions, curses, imprecations etc. have no power whatsoever unless they are accepted and thus become part of one's own thinking.",
+        "de": "Die Frage enthält bereits eine Suggestion und ist deshalb unzulässig.",
+        "en": "The question already contains an insinuation and is therefore inadmissible.",
         "lvl": "C2"
       },
       {
-        "de": "Die Frage enthält bereits eine Suggestion und ist deshalb unzulässig.",
-        "en": "The question already contains an insinuation and is therefore inadmissible.",
+        "de": "Die wirkliche und letzte Macht ist die Bejahung. Negative Suggestionen, Flüche, Verwünschungen etc. verfügen über keinerlei Macht, sofern sie nicht akzeptiert und damit zur eigenen Denkbewegung werden.",
+        "en": "The real and ultimate power is affirmation. Negative suggestions, curses, imprecations etc. have no power whatsoever unless they are accepted and thus become part of one's own thinking.",
         "lvl": "C2"
       }
     ],
@@ -93998,6 +94028,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Die Überstunden werden am Monatsende ausgezahlt.",
+        "en": "The overtime is paid out at the end of the month.",
+        "lvl": "B2"
+      },
+      {
         "de": "„Tredup macht viele Überstunden.“",
         "en": "„Tredup works a lot of overtime.“",
         "lvl": "B2"
@@ -95239,13 +95274,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Vergleiche mit den Daten anderer Planeten und (relativ) einfache Berechnungen zeigen, dass es nicht nur hier auf der Erde einen Treibhauseffekt gibt.",
-        "en": "Comparisons with data from other planets and (relatively) simple calculations show that a greenhouse effect exists not only here on Earth.",
+        "de": "Das von Fahrzeugen und Industrien ausgestoßene Kohlendioxid hat über die vergangenen 100 Jahre den Treibhauseffekt verstärkt.",
+        "en": "The carbon dioxide emitted by vehicles and industry has intensified the greenhouse effect over the past 100 years.",
         "lvl": "B2"
       },
       {
-        "de": "Das von Fahrzeugen und Industrien ausgestoßene Kohlendioxid hat über die vergangenen 100 Jahre den Treibhauseffekt verstärkt.",
-        "en": "The carbon dioxide emitted by vehicles and industry has intensified the greenhouse effect over the past 100 years.",
+        "de": "Vergleiche mit den Daten anderer Planeten und (relativ) einfache Berechnungen zeigen, dass es nicht nur hier auf der Erde einen Treibhauseffekt gibt.",
+        "en": "Comparisons with data from other planets and (relatively) simple calculations show that a greenhouse effect exists not only here on Earth.",
         "lvl": "B2"
       }
     ],
@@ -95270,6 +95305,11 @@
       "fossile Energie"
     ],
     "ex": [
+      {
+        "de": "Erneuerbare Energien decken inzwischen die Hälfte des Strombedarfs.",
+        "en": "Renewable energy now covers half of electricity demand.",
+        "lvl": "B2"
+      },
       {
         "de": "„Die Umstellung auf erneuerbare Energien ist eine der wirksamsten Möglichkeiten zur Emissionsreduzierung.“",
         "en": "„Switching to renewable energies is one of the most effective ways to reduce emissions.“",
@@ -95327,13 +95367,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Nach verschiedenen Berechnungen hat sich der Ressourcenverbrauch in den vergangenen 50 Jahren versiebenfacht, […] während sich die Weltbevölkerung ‚nur‘ verdoppelt hat.“",
-        "en": "„According to various calculations, resource consumption has increased sevenfold over the past 50 years, while the world population has 'only' doubled.“",
+        "de": "Mehr Menschen bedeuten auch einen höheren Ressourcenverbrauch.",
+        "en": "More people also mean higher resource consumption.",
         "lvl": "B2"
       },
       {
-        "de": "Mehr Menschen bedeuten auch einen höheren Ressourcenverbrauch.",
-        "en": "More people also mean higher resource consumption.",
+        "de": "„Nach verschiedenen Berechnungen hat sich der Ressourcenverbrauch in den vergangenen 50 Jahren versiebenfacht, […] während sich die Weltbevölkerung ‚nur‘ verdoppelt hat.“",
+        "en": "„According to various calculations, resource consumption has increased sevenfold over the past 50 years, while the world population has 'only' doubled.“",
         "lvl": "B2"
       }
     ],
@@ -96757,13 +96797,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Auch hier war Hutchison - tief beeindruckt von dem hohen Niveau des Unterrichts und vor allem davon, dass …“",
-        "en": "„Here too, Hutchison was deeply impressed by the high standard of the teaching and above all by the fact that…“",
+        "de": "Der Vortrag hat mich schon beeindruckt, aber andererseits bekommt der Redner ja dafür bezahlt.",
+        "en": "The talk did impress me, but then again the speaker is paid for it.",
         "lvl": "B2"
       },
       {
-        "de": "Der Vortrag hat mich schon beeindruckt, aber andererseits bekommt der Redner ja dafür bezahlt.",
-        "en": "The talk did impress me, but then again the speaker is paid for it.",
+        "de": "„Auch hier war Hutchison - tief beeindruckt von dem hohen Niveau des Unterrichts und vor allem davon, dass …“",
+        "en": "„Here too, Hutchison was deeply impressed by the high standard of the teaching and above all by the fact that…“",
         "lvl": "B2"
       }
     ],
@@ -96858,6 +96898,11 @@
       "enttäuschend"
     ],
     "ex": [
+      {
+        "de": "Ihre Rede vor dem Ausschuss war wirklich beeindruckend.",
+        "en": "Her speech to the committee was truly impressive.",
+        "lvl": "B2"
+      },
       {
         "de": "„Rund 10 000 Spinnenarten wurden in Australien bereits wissenschaftlich beschrieben, doch das ist wohl nur ein Teil der beeindruckenden Achtbeinervielfalt auf dem Kontinent.“",
         "en": "„Around 10,000 species of spider have already been scientifically described in Australia, but that is probably only a fraction of the impressive diversity of eight-legged creatures on the continent.“",
@@ -98202,6 +98247,11 @@
       "gefühlsmäßig"
     ],
     "ex": [
+      {
+        "de": "Mit dem Alter lassen die kognitiven Fähigkeiten langsam nach.",
+        "en": "With age, cognitive abilities slowly decline.",
+        "lvl": "C1"
+      },
       {
         "de": "Kognitive Lernziele beschreiben alles, was mit dem Verstand erfasst wird, sowohl Faktenwissen als auch kreative Anwendung von Wissen und das Lösen von Problemen.",
         "en": "Cognitive learning objectives describe everything grasped by the intellect, both factual knowledge and the creative application of knowledge and problem-solving.",
@@ -103454,6 +103504,11 @@
     ],
     "ex": [
       {
+        "de": "Die Regierung stützt sich auf eine Minderheit im Parlament.",
+        "en": "The government relies on a minority in parliament.",
+        "lvl": "C1"
+      },
+      {
         "de": "„Erstmals zeigen Bilder, wie brutal China die Minderheit der Uiguren in der Region Xinjiang unterdrückt.“",
         "en": "„For the first time, images show how brutally China oppresses the Uyghur minority in the Xinjiang region.“",
         "lvl": "C1"
@@ -103607,13 +103662,13 @@
     ],
     "ex": [
       {
-        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
-        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“",
+        "de": "Sie gilt als die einflussreichste Stimme der Branche.",
+        "en": "She is regarded as the most influential voice in the industry.",
         "lvl": "C1"
       },
       {
-        "de": "Sie gilt als die einflussreichste Stimme der Branche.",
-        "en": "She is regarded as the most influential voice in the industry.",
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“",
         "lvl": "C1"
       }
     ],
@@ -111029,13 +111084,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Auch hier war Hutchison - tief beeindruckt von dem hohen Niveau des Unterrichts und vor allem davon, dass …“",
-        "en": "„Here too, Hutchison was deeply impressed by the high standard of the teaching and above all by the fact that…“",
+        "de": "Der Vortrag hat mich schon beeindruckt, aber andererseits bekommt der Redner ja dafür bezahlt.",
+        "en": "The talk did impress me, but then again the speaker is paid for it.",
         "lvl": "B1"
       },
       {
-        "de": "Der Vortrag hat mich schon beeindruckt, aber andererseits bekommt der Redner ja dafür bezahlt.",
-        "en": "The talk did impress me, but then again the speaker is paid for it.",
+        "de": "„Auch hier war Hutchison - tief beeindruckt von dem hohen Niveau des Unterrichts und vor allem davon, dass …“",
+        "en": "„Here too, Hutchison was deeply impressed by the high standard of the teaching and above all by the fact that…“",
         "lvl": "B1"
       }
     ],
@@ -120025,6 +120080,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Der Dachs ist nachtaktiv und lebt in einem weitverzweigten Bau.",
+        "en": "The badger is nocturnal and lives in a widely branching sett.",
+        "lvl": "B2"
+      },
+      {
         "de": "„Bevorzugtes Habitat sind Wälder, seltener trifft man den Dachs in städtischen Parks.“",
         "en": "„Their preferred habitat is woodland; more rarely one encounters the badger in urban parks.“",
         "lvl": "B2"
@@ -127443,13 +127503,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Ein anschauliches Beispiel für Resilienz im engeren Sinn ist die Fähigkeit von Stehaufmännchen, sich aus jeder beliebigen Lage wieder aufzurichten.“",
-        "en": "„A vivid example of resilience in the narrower sense is the ability of a tumbler toy to right itself from any position.“",
+        "de": "Sport stärkt die Resilienz gegen Stress.",
+        "en": "Exercise strengthens resilience against stress.",
         "lvl": "B1"
       },
       {
-        "de": "Sport stärkt die Resilienz gegen Stress.",
-        "en": "Exercise strengthens resilience against stress.",
+        "de": "„Ein anschauliches Beispiel für Resilienz im engeren Sinn ist die Fähigkeit von Stehaufmännchen, sich aus jeder beliebigen Lage wieder aufzurichten.“",
+        "en": "„A vivid example of resilience in the narrower sense is the ability of a tumbler toy to right itself from any position.“",
         "lvl": "B1"
       }
     ],
@@ -127552,6 +127612,11 @@
     ],
     "ant": [],
     "ex": [
+      {
+        "de": "Lob von Kollegen stärkt das Selbstwertgefühl.",
+        "en": "Praise from colleagues strengthens self-esteem.",
+        "lvl": "B1"
+      },
       {
         "de": "„Ich hatte keinen Funken Selbstwertgefühl in mir.“",
         "en": "„I had not a spark of self-esteem in me.“",
@@ -138406,6 +138471,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Meine Sporttasche liegt noch im Auto.",
+        "en": "My gym bag is still in the car.",
+        "lvl": "A2"
+      },
+      {
         "de": "„Bobby stopfte alles in eine leere Sporttasche und vergaß auch nicht, einen Dosenöffner mitzunehmen.“",
         "en": "Bobby stuffed everything into an empty sports bag, and didn't forget to bring a can opener.",
         "lvl": "A2"
@@ -142886,13 +142956,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "ins Feld schicken",
-        "en": "to send (a person) into the field",
+        "de": "Der Bauer arbeitet auf dem Feld.",
+        "en": "The farmer is working in the field.",
         "lvl": "A2"
       },
       {
-        "de": "Der Bauer arbeitet auf dem Feld.",
-        "en": "The farmer is working in the field.",
+        "de": "ins Feld schicken",
+        "en": "to send (a person) into the field",
         "lvl": "A2"
       }
     ],
@@ -143285,13 +143355,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "ein faires Spiel",
-        "en": "an honest game, a fairly played game",
+        "de": "Unsere einzige Möglichkeit, fair zu sein, besteht darin, alle gleich schlecht zu behandeln.",
+        "en": "The only way we can be fair is by treating everybody equally badly.",
         "lvl": "A2"
       },
       {
-        "de": "Unsere einzige Möglichkeit, fair zu sein, besteht darin, alle gleich schlecht zu behandeln.",
-        "en": "The only way we can be fair is by treating everybody equally badly.",
+        "de": "ein faires Spiel",
+        "en": "an honest game, a fairly played game",
         "lvl": "A2"
       }
     ],
@@ -145724,13 +145794,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "überbleiben",
-        "en": "to be left over, to remain",
+        "de": "Hier sind noch zwei Gurken über. Willst du die haben?",
+        "en": "There's two cucumbers left here. Do you want them?",
         "lvl": "A1"
       },
       {
-        "de": "Hier sind noch zwei Gurken über. Willst du die haben?",
-        "en": "There's two cucumbers left here. Do you want them?",
+        "de": "überbleiben",
+        "en": "to be left over, to remain",
         "lvl": "A1"
       }
     ],
@@ -146376,13 +146446,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Die Kunst des Lebens",
-        "en": "The art of living.",
+        "de": "Das Leben ist nicht an das geistige Bewusstsein gebunden.",
+        "en": "Life is not dependent on mental consciousness.",
         "lvl": "A2"
       },
       {
-        "de": "Das Leben ist nicht an das geistige Bewusstsein gebunden.",
-        "en": "Life is not dependent on mental consciousness.",
+        "de": "Die Kunst des Lebens",
+        "en": "The art of living.",
         "lvl": "A2"
       }
     ],
@@ -146568,6 +146638,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Deine Lösung ist richtig.",
+        "en": "Your solution is correct.",
+        "lvl": "A2"
+      },
+      {
         "de": "eine richtige Antwort",
         "en": "a correct answer",
         "lvl": "A2"
@@ -146594,6 +146669,11 @@
     "syn": [],
     "ant": [],
     "ex": [
+      {
+        "de": "Die Adresse auf dem Brief war falsch.",
+        "en": "The address on the letter was wrong.",
+        "lvl": "A2"
+      },
       {
         "de": "eine falsche Beschuldigung",
         "en": "a false accusation",
@@ -148897,6 +148977,11 @@
     ],
     "ex": [
       {
+        "de": "Nur eine kleine Minderheit stimmte dagegen.",
+        "en": "Only a small minority voted against it.",
+        "lvl": "B2"
+      },
+      {
         "de": "„Erstmals zeigen Bilder, wie brutal China die Minderheit der Uiguren in der Region Xinjiang unterdrückt.“",
         "en": "„For the first time, images show how brutally China oppresses the Uyghur minority in the Xinjiang region.“",
         "lvl": "B2"
@@ -150327,13 +150412,13 @@
     ],
     "ex": [
       {
-        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
-        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“",
+        "de": "Er zählt zu den einflussreichsten Personen der Stadt.",
+        "en": "He is one of the most influential people in the city.",
         "lvl": "B2"
       },
       {
-        "de": "Er zählt zu den einflussreichsten Personen der Stadt.",
-        "en": "He is one of the most influential people in the city.",
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“",
         "lvl": "B2"
       }
     ],
@@ -150864,13 +150949,13 @@
     ],
     "ex": [
       {
-        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
-        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“",
+        "de": "Ohne freie Wahlen fehlt einer Regierung jede Legitimität.",
+        "en": "Without free elections a government has no legitimacy at all.",
         "lvl": "C1"
       },
       {
-        "de": "Ohne freie Wahlen fehlt einer Regierung jede Legitimität.",
-        "en": "Without free elections a government has no legitimacy at all.",
+        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
+        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“",
         "lvl": "C1"
       }
     ],
@@ -152370,13 +152455,13 @@
     ],
     "ex": [
       {
-        "de": "„Pineiß ſah den Spiegel mißtrauiſch an und ſagte: »Wärſt Du wohl im Stande, Bürſchchen! mir den Schatz ein wenig nachzuweiſen und augenſcheinlich zu machen?«“",
-        "en": "„Pineiss looked at the mirror suspiciously and said: 'Would you be able, my lad, to point out the treasure to me a little and make it evident to the eye?'“",
+        "de": "Augenscheinlich hatte niemand die Anleitung gelesen.",
+        "en": "Apparently nobody had read the instructions.",
         "lvl": "C1"
       },
       {
-        "de": "Augenscheinlich hatte niemand die Anleitung gelesen.",
-        "en": "Apparently nobody had read the instructions.",
+        "de": "„Pineiß ſah den Spiegel mißtrauiſch an und ſagte: »Wärſt Du wohl im Stande, Bürſchchen! mir den Schatz ein wenig nachzuweiſen und augenſcheinlich zu machen?«“",
+        "en": "„Pineiss looked at the mirror suspiciously and said: 'Would you be able, my lad, to point out the treasure to me a little and make it evident to the eye?'“",
         "lvl": "C1"
       }
     ],
@@ -153562,6 +153647,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Die Resilienz des Systems zeigt sich erst unter Last.",
+        "en": "The system's resilience only shows under load.",
+        "lvl": "C2"
+      },
+      {
         "de": "„Ein anschauliches Beispiel für Resilienz im engeren Sinn ist die Fähigkeit von Stehaufmännchen, sich aus jeder beliebigen Lage wieder aufzurichten.“",
         "en": "„A vivid example of resilience in the narrower sense is the ability of a tumbler toy to right itself from any position.“",
         "lvl": "C2"
@@ -154122,13 +154212,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Im Boden entsteht eine Verdichtung z.B. durch zu hohen Druck bei feuchten Böden.“",
-        "en": "„Compaction occurs in the soil, e.g. due to excessive pressure on moist soils.“",
+        "de": "Das Gedicht lebt von der Verdichtung weniger Bilder.",
+        "en": "The poem lives off the condensation of a few images.",
         "lvl": "C2"
       },
       {
-        "de": "Das Gedicht lebt von der Verdichtung weniger Bilder.",
-        "en": "The poem lives off the condensation of a few images.",
+        "de": "„Im Boden entsteht eine Verdichtung z.B. durch zu hohen Druck bei feuchten Böden.“",
+        "en": "„Compaction occurs in the soil, e.g. due to excessive pressure on moist soils.“",
         "lvl": "C2"
       }
     ],
@@ -158974,14 +159064,14 @@
     "ant": [],
     "ex": [
       {
-        "de": "ein Mann der Tat",
-        "en": "a man of action",
-        "lvl": "A2"
-      },
-      {
         "de": "Er ist ein Mann der Tat, nicht der Worte.",
         "en": "He is a man of action, not words.",
         "lvl": "B1"
+      },
+      {
+        "de": "ein Mann der Tat",
+        "en": "a man of action",
+        "lvl": "A2"
       }
     ],
     "field": "Society",
@@ -169172,13 +169262,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "die amerikanische Bundespolizei",
-        "en": "American federal police [e.g. the FBI]",
+        "de": "Am Bahnhof kontrolliert die Bundespolizei die Ausweise.",
+        "en": "At the station the federal police check the IDs.",
         "lvl": "B2"
       },
       {
-        "de": "Am Bahnhof kontrolliert die Bundespolizei die Ausweise.",
-        "en": "At the station the federal police check the IDs.",
+        "de": "die amerikanische Bundespolizei",
+        "en": "American federal police [e.g. the FBI]",
         "lvl": "B2"
       }
     ],
@@ -169853,13 +169943,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Wenn diese Organisation so belassen wird, wie sie ist, wird sie bald bankrott sein. Ihre Sanierung ist genauso schwierig, wie wenn man die Pferde wechseln wollte, während man dabei ist, einen Fluss zu durchqueren.",
-        "en": "If this organization is left as it is, it will soon go bankrupt; its recovery is as difficult as swapping horses while crossing a stream.",
+        "de": "Die Sanierung der alten Schule kostet Millionen.",
+        "en": "The renovation of the old school costs millions.",
         "lvl": "B2"
       },
       {
-        "de": "Die Sanierung der alten Schule kostet Millionen.",
-        "en": "The renovation of the old school costs millions.",
+        "de": "Wenn diese Organisation so belassen wird, wie sie ist, wird sie bald bankrott sein. Ihre Sanierung ist genauso schwierig, wie wenn man die Pferde wechseln wollte, während man dabei ist, einen Fluss zu durchqueren.",
+        "en": "If this organization is left as it is, it will soon go bankrupt; its recovery is as difficult as swapping horses while crossing a stream.",
         "lvl": "B2"
       }
     ],
@@ -176616,13 +176706,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "in der Defensive",
-        "en": "on the defensive",
+        "de": "Nach dem Rückstand ging die Mannschaft in die Defensive.",
+        "en": "After falling behind the team went on the defensive.",
         "lvl": "B2"
       },
       {
-        "de": "Nach dem Rückstand ging die Mannschaft in die Defensive.",
-        "en": "After falling behind the team went on the defensive.",
+        "de": "in der Defensive",
+        "en": "on the defensive",
         "lvl": "B2"
       }
     ],
@@ -177481,13 +177571,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Bei der Kollision toter Sterne kommt es manchmal zu einem Ausbruch von Gammastrahlung; dies ist eine der energiereichsten Explosionen im Universum.",
-        "en": "When dead stars collide, they sometimes create a gamma ray burst, one of the most energetic explosions in the universe.",
+        "de": "Bei der Kollision zweier Autos wurde niemand verletzt.",
+        "en": "In the collision of two cars nobody was injured.",
         "lvl": "B2"
       },
       {
-        "de": "Bei der Kollision zweier Autos wurde niemand verletzt.",
-        "en": "In the collision of two cars nobody was injured.",
+        "de": "Bei der Kollision toter Sterne kommt es manchmal zu einem Ausbruch von Gammastrahlung; dies ist eine der energiereichsten Explosionen im Universum.",
+        "en": "When dead stars collide, they sometimes create a gamma ray burst, one of the most energetic explosions in the universe.",
         "lvl": "B2"
       }
     ],
@@ -177790,13 +177880,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Die Theorie der Evolution durch zufällige Mutation und natürliche Selektion übersieht die extrem offensichtliche Präsenz einer planenden Intelligenz im Universum.",
-        "en": "The theory of evolution by random mutation and natural selection fails to see the extremely obvious presence of a planning intelligence in the universe.",
+        "de": "Die Firma stärkt ihre Präsenz auf dem asiatischen Markt.",
+        "en": "The company is strengthening its presence in the Asian market.",
         "lvl": "B2"
       },
       {
-        "de": "Die Firma stärkt ihre Präsenz auf dem asiatischen Markt.",
-        "en": "The company is strengthening its presence in the Asian market.",
+        "de": "Die Theorie der Evolution durch zufällige Mutation und natürliche Selektion übersieht die extrem offensichtliche Präsenz einer planenden Intelligenz im Universum.",
+        "en": "The theory of evolution by random mutation and natural selection fails to see the extremely obvious presence of a planning intelligence in the universe.",
         "lvl": "B2"
       }
     ],
@@ -178306,13 +178396,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Knuffel den Bären zum Verteidigungsminister zu bestimmen, war einer der entscheidenden Fehler in Dollys kurzer Karriere als Präsidentin der Demokratischen Volksrepublik von Kaffeeklatsch.",
-        "en": "Appointing Cuddles the Bear to the position of Secretary of Defense was one of the defining mistakes of Dolly's brief career as president of the People's Democratic Republic of Tea Time.",
+        "de": "Der Verteidigungsminister besuchte die Truppen.",
+        "en": "The defence minister visited the troops.",
         "lvl": "B2"
       },
       {
-        "de": "Der Verteidigungsminister besuchte die Truppen.",
-        "en": "The defence minister visited the troops.",
+        "de": "Knuffel den Bären zum Verteidigungsminister zu bestimmen, war einer der entscheidenden Fehler in Dollys kurzer Karriere als Präsidentin der Demokratischen Volksrepublik von Kaffeeklatsch.",
+        "en": "Appointing Cuddles the Bear to the position of Secretary of Defense was one of the defining mistakes of Dolly's brief career as president of the People's Democratic Republic of Tea Time.",
         "lvl": "B2"
       }
     ],
@@ -180825,13 +180915,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Jeder hat das Recht, an der Gestaltung der öffentlichen Angelegenheiten seines Landes unmittelbar oder durch frei gewählte Vertreter mitzuwirken.",
-        "en": "Everyone has the right to take part in the government of his country, directly or through freely chosen representatives.",
+        "de": "Die Gestaltung der Webseite gefällt mir sehr.",
+        "en": "I really like the design of the website.",
         "lvl": "B1"
       },
       {
-        "de": "Die Gestaltung der Webseite gefällt mir sehr.",
-        "en": "I really like the design of the website.",
+        "de": "Jeder hat das Recht, an der Gestaltung der öffentlichen Angelegenheiten seines Landes unmittelbar oder durch frei gewählte Vertreter mitzuwirken.",
+        "en": "Everyone has the right to take part in the government of his country, directly or through freely chosen representatives.",
         "lvl": "B1"
       }
     ],
@@ -182841,13 +182931,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Sie versprechen uns das Blaue vom Himmel, ich vermute allerdings, wir können auf die Einhaltung der Versprechen bis in alle Ewigkeiten warten.",
-        "en": "They promise us the moon, but I suspect we can wait for the fulfillment of those promises till hell freezes over.",
+        "de": "Die Behörde überwacht die Einhaltung der Vorschriften.",
+        "en": "The authority monitors compliance with the regulations.",
         "lvl": "B2"
       },
       {
-        "de": "Die Behörde überwacht die Einhaltung der Vorschriften.",
-        "en": "The authority monitors compliance with the regulations.",
+        "de": "Sie versprechen uns das Blaue vom Himmel, ich vermute allerdings, wir können auf die Einhaltung der Versprechen bis in alle Ewigkeiten warten.",
+        "en": "They promise us the moon, but I suspect we can wait for the fulfillment of those promises till hell freezes over.",
         "lvl": "B2"
       }
     ],
@@ -183069,13 +183159,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Wir erfahren und verstehen die Welt durch Signale, die von den Sinnesorganen empfangen und vom Gehirn interpretiert werden - und beide Etappen dieses Prozesses sind Verzerrungen unterworfen.",
-        "en": "We experience and understand the world through signals that are received by the senses and interpreted by the brain - and both stages are subject to distortion.",
+        "de": "Die letzte Etappe der Tour war die schwerste.",
+        "en": "The final stage of the tour was the hardest.",
         "lvl": "B2"
       },
       {
-        "de": "Die letzte Etappe der Tour war die schwerste.",
-        "en": "The final stage of the tour was the hardest.",
+        "de": "Wir erfahren und verstehen die Welt durch Signale, die von den Sinnesorganen empfangen und vom Gehirn interpretiert werden - und beide Etappen dieses Prozesses sind Verzerrungen unterworfen.",
+        "en": "We experience and understand the world through signals that are received by the senses and interpreted by the brain - and both stages are subject to distortion.",
         "lvl": "B2"
       }
     ],
@@ -183640,13 +183730,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "An der Wall Street machten einige Insider den großen Reibach, indem sie „short“ gingen, als jedermann auf einen schon lang anhaltenden Aufwärtstrend aufgesprungen war.",
-        "en": "At Wall Street, some insiders made a killing by going short, when everyone had been sucked into an unsustainable uptrend.",
+        "de": "Das verstehst du nicht. Ist ein Insider bei uns.",
+        "en": "You won’t understand this. It’s an in-joke among us.",
         "lvl": "B2"
       },
       {
-        "de": "Das verstehst du nicht. Ist ein Insider bei uns.",
-        "en": "You won’t understand this. It’s an in-joke among us.",
+        "de": "An der Wall Street machten einige Insider den großen Reibach, indem sie „short“ gingen, als jedermann auf einen schon lang anhaltenden Aufwärtstrend aufgesprungen war.",
+        "en": "At Wall Street, some insiders made a killing by going short, when everyone had been sucked into an unsustainable uptrend.",
         "lvl": "B2"
       }
     ],
@@ -184399,6 +184489,11 @@
     "syn": [],
     "ant": [],
     "ex": [
+      {
+        "de": "Der Aufsatz enthält einen Verweis auf die ältere Studie.",
+        "en": "The essay contains a reference to the earlier study.",
+        "lvl": "B2"
+      },
       {
         "de": "Ich habe in meinem Profil einige Verweise zu Quellen ergänzt, die ich selbst zur Überprüfung meines Englisch verwende. Die eignen sich alle für britisches Englisch.",
         "en": "I've put some links in my profile to sources I use myself to check my English. They're all good for British English.",
@@ -199880,13 +199975,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Ein Verbot sollte es nach Ansicht vieler Ökonomen auch für die sogenannten Leerverkäufe geben. Banken verkaufen dabei Aktien oder Währungen, die sie noch gar nicht besitzen oder allenfalls geliehen haben.",
-        "en": "In the opinion of many economists there should also exist a prohibition for the so-called short sales. In these banks sell shares or currencies that they do not own at all yet or have borrowed at best.",
+        "de": "Allenfalls müsstest du zuerst noch den Schnee wegschaufeln.",
+        "en": "You might need to remove the snow first.",
         "lvl": "C1"
       },
       {
-        "de": "Allenfalls müsstest du zuerst noch den Schnee wegschaufeln.",
-        "en": "You might need to remove the snow first.",
+        "de": "Ein Verbot sollte es nach Ansicht vieler Ökonomen auch für die sogenannten Leerverkäufe geben. Banken verkaufen dabei Aktien oder Währungen, die sie noch gar nicht besitzen oder allenfalls geliehen haben.",
+        "en": "In the opinion of many economists there should also exist a prohibition for the so-called short sales. In these banks sell shares or currencies that they do not own at all yet or have borrowed at best.",
         "lvl": "C1"
       }
     ],
@@ -203791,6 +203886,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Der Bahnhof ist seit dem Umbau barrierefrei.",
+        "en": "Since the rebuild the station has been barrier-free.",
+        "lvl": "C1"
+      },
+      {
         "de": "eine barrierefreie Internetseite",
         "en": "an accessible web site",
         "lvl": "C1"
@@ -204631,6 +204731,11 @@
     "ant": [],
     "ex": [
       {
+        "de": "Sie kombiniert seit drei Jahren Beruf und Studium.",
+        "en": "She has been combining work and study for three years.",
+        "lvl": "C1"
+      },
+      {
         "de": "„Willst du schwimmen oder segeln gehen?“ – „Kombinieren wir beides miteinander!“",
         "en": "\"Do you want to go swimming or go sailing?\" \"Let's do both.\"",
         "lvl": "C1"
@@ -204687,13 +204792,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Kennt man die Ursache dieser Pestilenz?“ – „Die Gelehrten der Universitäten von Paris vermuten, die Ursache dieses Übels sei eine besonders ungünstige Konstellation des Jupiter, des Saturn und des Mars.“",
-        "en": "\"Does anyone know what has caused this plague?\" \"The scholars of the University of Paris believe that the source of this evil is an especially unfavorable constellation of Jupiter, Saturn, and Mars.\"",
+        "de": "In dieser Konstellation hat der Antrag keine Chance.",
+        "en": "In this constellation the motion has no chance.",
         "lvl": "C1"
       },
       {
-        "de": "In dieser Konstellation hat der Antrag keine Chance.",
-        "en": "In this constellation the motion has no chance.",
+        "de": "„Kennt man die Ursache dieser Pestilenz?“ – „Die Gelehrten der Universitäten von Paris vermuten, die Ursache dieses Übels sei eine besonders ungünstige Konstellation des Jupiter, des Saturn und des Mars.“",
+        "en": "\"Does anyone know what has caused this plague?\" \"The scholars of the University of Paris believe that the source of this evil is an especially unfavorable constellation of Jupiter, Saturn, and Mars.\"",
         "lvl": "C1"
       }
     ],
@@ -204929,6 +205034,11 @@
     "syn": [],
     "ant": [],
     "ex": [
+      {
+        "de": "Im Nordwesten des Landes regnet es deutlich mehr.",
+        "en": "In the northwest of the country it rains considerably more.",
+        "lvl": "C1"
+      },
       {
         "de": "Durch starke Regenfälle trat außerdem der Gelbe Fluss, welcher durch Nordchina verläuft, über die Ufer und unterbrach so eine Eisenbahnstrecke in der Provinz Shǎnxī im Nordwesten.",
         "en": "Heavy rain has also caused the Yellow River, which runs through northern China, to burst its banks, blocking a section of a railway line in the northwest province of Shaanxi.",
@@ -206892,6 +207002,11 @@
     "syn": [],
     "ant": [],
     "ex": [
+      {
+        "de": "Sie zog ihr Nachthemd an und ging ins Bett.",
+        "en": "She put on her nightie and went to bed.",
+        "lvl": "A2"
+      },
       {
         "de": "„War Ihr Fräulein Schwester bekleidet?“ – „Nein, sie war im Nachthemd.“",
         "en": "\"Was your sister dressed?\" \"No, she was in her night-dress.\"",
@@ -212270,13 +212385,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "ein bewährtes Hausmittel [gegen]",
-        "en": "a tried and true home remedy [against]",
+        "de": "Heißer Tee mit Honig ist ein altes Hausmittel.",
+        "en": "Hot tea with honey is an old home remedy.",
         "lvl": "B1"
       },
       {
-        "de": "Heißer Tee mit Honig ist ein altes Hausmittel.",
-        "en": "Hot tea with honey is an old home remedy.",
+        "de": "ein bewährtes Hausmittel [gegen]",
+        "en": "a tried and true home remedy [against]",
         "lvl": "B1"
       }
     ],
@@ -212353,14 +212468,14 @@
     "ant": [],
     "ex": [
       {
-        "de": "Der Tag, der mit einem idyllischen gemeinsamen Frühstück auf der von Sonnenschein überfluteten Terrasse begann, sollte mit einem Drama enden.",
-        "en": "The day, which began with them sharing an idyllic breakfast on the sun-drenched terrace, was to end in disaster.",
-        "lvl": "B1"
-      },
-      {
         "de": "Das Dorf liegt idyllisch an einem See.",
         "en": "The village lies idyllically by a lake.",
         "lvl": "B2"
+      },
+      {
+        "de": "Der Tag, der mit einem idyllischen gemeinsamen Frühstück auf der von Sonnenschein überfluteten Terrasse begann, sollte mit einem Drama enden.",
+        "en": "The day, which began with them sharing an idyllic breakfast on the sun-drenched terrace, was to end in disaster.",
+        "lvl": "B1"
       }
     ],
     "field": "Adjectives",
@@ -212901,14 +213016,14 @@
     "ant": [],
     "ex": [
       {
-        "de": "„Du hast so etwas Stilvolles an dir, Anne!“ sagte Diana mit neidloser Bewunderung.",
-        "en": "\"There's something so stylish about you, Anne,\" said Diana, with unenvious admiration.",
-        "lvl": "B1"
-      },
-      {
         "de": "Die Wohnung ist stilvoll und modern eingerichtet.",
         "en": "The apartment is furnished stylishly and modernly.",
         "lvl": "B2"
+      },
+      {
+        "de": "„Du hast so etwas Stilvolles an dir, Anne!“ sagte Diana mit neidloser Bewunderung.",
+        "en": "\"There's something so stylish about you, Anne,\" said Diana, with unenvious admiration.",
+        "lvl": "B1"
       }
     ],
     "field": "Adjectives",
@@ -212958,14 +213073,14 @@
     "ant": [],
     "ex": [
       {
-        "de": "Die zwölf Sterne in der Flagge der Europäischen Union symbolisieren nicht die zwölf Gründungsmitglieder der Union. Sie symbolisieren die Zwölf Apostel.",
-        "en": "The twelve stars on the flag of the European Union do not symbolize the twelve founding members of the union. They symbolize the Twelve Apostles.",
-        "lvl": "B1"
-      },
-      {
         "de": "Die Taube soll den Frieden symbolisieren.",
         "en": "The dove is meant to symbolise peace.",
         "lvl": "B2"
+      },
+      {
+        "de": "Die zwölf Sterne in der Flagge der Europäischen Union symbolisieren nicht die zwölf Gründungsmitglieder der Union. Sie symbolisieren die Zwölf Apostel.",
+        "en": "The twelve stars on the flag of the European Union do not symbolize the twelve founding members of the union. They symbolize the Twelve Apostles.",
+        "lvl": "B1"
       }
     ],
     "field": "Core verbs",
@@ -213230,14 +213345,14 @@
     "ant": [],
     "ex": [
       {
-        "de": "Die Montagelinie bringt durch Arbeitsteilung Effizienzgewinne, während der Vorgesetzte über die Zuordnung der Arbeitsaufgaben täglich neu entscheidet.",
-        "en": "The assembly line brings efficiencies through the division of labour, but the supervisor decides from day to day about the assignment of jobs.",
-        "lvl": "B1"
-      },
-      {
         "de": "Die Zuordnung der Aufgaben war nicht ganz klar.",
         "en": "The assignment of tasks was not entirely clear.",
         "lvl": "B2"
+      },
+      {
+        "de": "Die Montagelinie bringt durch Arbeitsteilung Effizienzgewinne, während der Vorgesetzte über die Zuordnung der Arbeitsaufgaben täglich neu entscheidet.",
+        "en": "The assembly line brings efficiencies through the division of labour, but the supervisor decides from day to day about the assignment of jobs.",
+        "lvl": "B1"
       }
     ],
     "field": "Education",

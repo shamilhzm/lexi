@@ -32,6 +32,8 @@ npm run corpus:crosscheck  # cross-check corpus gender/plural vs the categorized
 npm run corpus:examples    # example quality + coverage (--write emits fix batches)
 npm run corpus:casefix     # dry run: lowercase miscased headwords, merge the duplicates
 npm run corpus:casefix -- --write                     # apply + regenerate src/data/idmap.ts
+npm run corpus:frontfix    # dry run: cards leading with a fragment or a citation
+npm run corpus:frontfix -- --lead <tsv> --write        # promote a clean sibling / prepend authored leads
 npm run corpus:validate    # Goal 6: schema/dupe/distribution/probe + gzip size
 npm run corpus:validate -- --strict --sample=15       # gate on warnings, larger spot-check
 ```

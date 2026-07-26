@@ -16,6 +16,7 @@
     "corpus:coverage": "node scripts/corpus/coverage.ts",
     "corpus:examples": "node scripts/corpus/examples.ts",
     "corpus:casefix": "node scripts/corpus/casefix.ts",
+    "corpus:frontfix": "node scripts/corpus/frontfix.ts",
     "corpus:build": "node scripts/corpus/build.ts",
     "corpus:grammar": "node scripts/corpus/grammar-supplement.ts",
     "corpus:resector": "node scripts/corpus/resector.ts",

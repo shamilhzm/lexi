@@ -104,4 +104,29 @@ export function primeApp(corpus: Word[]): Matcher {
   return buildMatcher(corpus);
 }
 
+// ---- the lead example -----------------------------------------------------
+// The flip face shows ex[0], so the first example *is* the card. This is a
+// narrower question than whether a row is corrupt (examples.ts owns that): a
+// perfectly valid sentence can still be the wrong one to lead with. Lives here so
+// the audit and the fixer (frontfix.ts) can never disagree about what counts.
+export function leadProblems(e: { de?: string } | undefined): string[] {
+  const de = (e?.de ?? '').trim();
+  const out: string[] = [];
+  // A card face should show a sentence, not a citation fragment lifted out of a
+  // longer line ("geltende Vorschriften").
+  if (!/[.!?…]$/.test(de)) out.push('no final punctuation');
+  // Past this a phone truncates it, and it is more than one glance of reading.
+  if (de.length > 140) out.push('over 140 chars');
+  // An opening quote is not itself a defect, and saying it was would have demoted
+  // the best example on exactly the words that need it: „Kohle“ ist Umgangssprache
+  // für Geld. There the quotation is the subject, which is how you write a sentence
+  // *about* a word. What reads as a scrape is a row that *is* a quotation — so the
+  // test is where the quote closes, not that it opens.
+  const close = de.search(/[“"«]/);
+  if (/^[„"»]/.test(de) && (/[“"«]\s*[–—-]\s*[„"»]/.test(de) || close === -1 || close > 30 || close >= de.length - 2)) {
+    out.push('is a quoted passage');
+  }
+  return out;
+}
+
 export type { Word, SectorMeta, CEFR };

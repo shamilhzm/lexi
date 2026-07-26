@@ -377,6 +377,26 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-26 — the lead example (post-merge)
+
+- **No card leads with a scrape.** The flip face shows `ex[0]`, so the *first*
+  example **is** the card — a question the quality audit doesn't ask, because a
+  perfectly valid row can still be the wrong one to open with. 76 cards led with a
+  fragment ("einen Antrag stellen"), a quoted passage, or a news paragraph.
+  **45 needed no authoring at all**: a clean sibling was already on the card, so
+  `corpus:frontfix` promotes it (preferring one at or below the card's level) and
+  the scraped row simply stops being first. The remaining 23 got an authored lead,
+  *prepended* rather than substituted — the scraped row is poor as a face but is
+  still German the card can carry, and removing it would push the card back under
+  the two-example standard. Now 0 across the corpus, pinned by a test.
+  *The rule took two corrections to get right*, both caught before writing: an
+  opening quote mark is **not** a defect — „Kohle“ ist Umgangssprache für Geld. is
+  the *best* example that card could have, and a naive rule would have demoted it
+  on exactly the words that need it. What reads as a scrape is a row that **is** a
+  quotation, so the test is where the quote *closes*, not that it opens.
+  `leadProblems` lives in `scripts/corpus/lib.ts` so the audit and the fixer can
+  never disagree about what counts.
+
 ### Shipped 2026-07-26 — the persona pass (merged from `lexi-app-improvements`)
 
 Sixteen commits working the A1/A2/B1 persona findings. None of it was recorded
@@ -566,17 +586,6 @@ examples per card. The remaining example work is **quality, not coverage**: see
   offer HD voice in context at first pronunciation tap instead of hiding it in
   Settings; same-day session resume (persist queue ids + position). And S3: a
   one-time backup nudge after the first week.
-- **Example first impressions — order, don't author** (S). *Why:* the flip face
-  shows `ex[0]`, so the *first* example is the card. Between the quality repairs
-  and the second-example pass this is now down to **76 cards** whose first example
-  reads like a scrape: 50 without sentence-final punctuation ("geltende
-  Vorschriften."), 45 opening mid-quotation, 32 over 140 characters. *Do:* **53 of
-  the 76 need no authoring at all** — a later example on the same card is already
-  clean, so promote it and the defect disappears for free. Add the lint to
-  `corpus:examples` (it owns the defect classes already), do the reorder as a
-  scripted pass, then author replacements for the ~23 residue. *Done-when:* no
-  card's `ex[0]` trips the lint; a spot-check confirms the reorder didn't bury a
-  better sentence. *Touches:* `scripts/corpus/examples.ts`, `public/data/vocab.json`.
 - **Capitalised function words** (S, human-gated — the residue of the casefix
   pass). *Why:* `corpus:casefix` handled the mechanical set (adjectives, verbs,
   adverbs). **64 cards remain** where capitalisation needs a ruling, not a script:
