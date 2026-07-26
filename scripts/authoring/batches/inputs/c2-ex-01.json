@@ -1,0 +1,1965 @@
+[
+ {
+  "id": "voc:C2:die Argumentation",
+  "term": "die Argumentation",
+  "en": "argumentation, line of reasoning",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The set of reasons and their arrangement used to support a claim.",
+   "field": "Argument & Thesis",
+   "ex_de": [
+    "Ihre Argumentation baut auf einer einzigen strittigen Prämisse auf."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Prämisse",
+  "term": "die Prämisse",
+  "en": "premise",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A statement taken as true and used as the basis of an argument.",
+   "field": "Argument & Thesis",
+   "ex_de": [
+    "Wer die Prämisse ablehnt, muss auch den Schluss verwerfen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Schlussfolgerung",
+  "term": "die Schlussfolgerung",
+  "en": "conclusion, inference",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A judgement reached by reasoning from premises.",
+   "field": "Argument & Thesis",
+   "ex_de": [
+    "Die Schlussfolgerung ist kühn, aber logisch zwingend."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:darlegen",
+  "term": "darlegen",
+  "en": "to set out, expound",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To present and explain something clearly and in full.",
+   "field": "Scientific Language",
+   "ex_de": [
+    "Der Anwalt legte die Gründe für den Einspruch ausführlich dar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:erörtern",
+  "term": "erörtern",
+  "en": "to discuss, examine",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To consider a question carefully from various sides.",
+   "field": "Scientific Language",
+   "ex_de": [
+    "Der Aufsatz erörtert das Für und Wider der Schuluniform."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:stringent",
+  "term": "stringent",
+  "en": "cogent, rigorous",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Tightly reasoned and consistent throughout.",
+   "field": "Scientific Language",
+   "ex_de": [
+    "Die Studie ist methodisch stringent aufgebaut."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Beleg",
+  "term": "der Beleg",
+  "en": "piece of evidence",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A proof or record that supports a claim.",
+   "field": "Sources & Evidence",
+   "ex_de": [
+    "Für diese Behauptung fehlt bislang jeder Beleg."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Quellenkritik",
+  "term": "die Quellenkritik",
+  "en": "source criticism",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The scholarly assessment of how reliable a source is.",
+   "field": "Sources & Evidence",
+   "ex_de": [
+    "Ohne saubere Quellenkritik bleibt Geschichtsschreibung Spekulation."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:fundieren",
+  "term": "fundieren",
+  "en": "to substantiate, underpin",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To give something a firm basis in evidence or reason.",
+   "field": "Sources & Evidence",
+   "ex_de": [
+    "Er fundierte seine These mit umfangreichem Archivmaterial."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:nachweisen",
+  "term": "nachweisen",
+  "en": "to prove, demonstrate",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To show clearly, with evidence, that something is true.",
+   "field": "Sources & Evidence",
+   "ex_de": [
+    "Der Zusammenhang ließ sich statistisch eindeutig nachweisen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Metapher",
+  "term": "die Metapher",
+  "en": "metaphor",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A figure of speech that describes one thing as if it were another.",
+   "field": "Rhetorical Devices",
+   "ex_de": [
+    "Die Metapher vom „Schiff des Staates“ stammt aus der Antike."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Ironie",
+  "term": "die Ironie",
+  "en": "irony",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The expression of meaning through language that signifies the opposite.",
+   "field": "Rhetorical Devices",
+   "ex_de": [
+    "Seine feine Ironie entgeht vielen Lesern."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Übertreibung",
+  "term": "die Übertreibung",
+  "en": "exaggeration, hyperbole",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A statement that makes something seem greater than it is.",
+   "field": "Rhetorical Devices",
+   "ex_de": [
+    "Die satirische Übertreibung macht den Missstand erst sichtbar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Pointe",
+  "term": "die Pointe",
+  "en": "punchline, point",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The sharp, telling point of a joke or remark.",
+   "field": "Persuasion & Impact",
+   "ex_de": [
+    "Er erzählt gut, verdirbt aber oft die Pointe."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Eindringlichkeit",
+  "term": "die Eindringlichkeit",
+  "en": "forcefulness, urgency",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The compelling, insistent quality that makes something strike home.",
+   "field": "Persuasion & Impact",
+   "ex_de": [
+    "Die Eindringlichkeit ihrer Schilderung ließ niemanden kalt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:pointieren",
+  "term": "pointieren",
+  "en": "to make pointed, sharpen",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To sharpen a statement so that its point stands out.",
+   "field": "Persuasion & Impact",
+   "ex_de": [
+    "Er pointierte seine Kritik so geschickt, dass alle lachten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Vortrag",
+  "term": "der Vortrag",
+  "en": "talk, lecture",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A formal spoken presentation to an audience.",
+   "field": "Oral Presentation",
+   "ex_de": [
+    "Ihr Vortrag über Kafka war brillant gegliedert."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Redefluss",
+  "term": "der Redefluss",
+  "en": "flow of speech",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The smooth, uninterrupted flow of spoken language.",
+   "field": "Oral Presentation",
+   "ex_de": [
+    "Kein Zwischenruf konnte seinen Redefluss unterbrechen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:gliedern",
+  "term": "gliedern",
+  "en": "to structure, organise",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To divide something into clear, ordered parts.",
+   "field": "Oral Presentation",
+   "ex_de": [
+    "Gliedern Sie den Vortrag in drei klar erkennbare Teile."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:prägnant",
+  "term": "prägnant",
+  "en": "concise and pointed",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Expressed briefly and strikingly, with nothing wasted.",
+   "field": "Oral Presentation",
+   "ex_de": [
+    "Sie fasste die Debatte in zwei prägnanten Sätzen zusammen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Wahrheit",
+  "term": "die Wahrheit",
+  "en": "truth",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "What is true and matches the facts.",
+   "field": "Knowledge & Truth",
+   "ex_de": [
+    "Die Frage, was Wahrheit ist, beschäftigt die Philosophie seit Platon."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Zweifel",
+  "term": "der Zweifel",
+  "en": "doubt",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A feeling of not being sure about something.",
+   "field": "Knowledge & Truth",
+   "ex_de": [
+    "Der methodische Zweifel ist der Ausgangspunkt von Descartes' Denken."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Vernunft",
+  "term": "die Vernunft",
+  "en": "reason, rationality",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The power of the mind to think logically and judge soundly.",
+   "field": "Knowledge & Truth",
+   "ex_de": [
+    "Kant fragte, was die Vernunft aus eigener Kraft erkennen kann."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Bewusstsein",
+  "term": "das Bewusstsein",
+  "en": "consciousness",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Awareness of oneself and the world; also the state of being awake.",
+   "field": "Being & Consciousness",
+   "ex_de": [
+    "Wie Bewusstsein entsteht, ist bis heute ungeklärt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Dasein",
+  "term": "das Dasein",
+  "en": "existence, being",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The fact or manner of existing.",
+   "field": "Being & Consciousness",
+   "ex_de": [
+    "Heidegger machte das Dasein zum Grundbegriff seiner Philosophie."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Wahrnehmung",
+  "term": "die Wahrnehmung",
+  "en": "perception",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The way something is noticed or understood through the senses.",
+   "field": "Being & Consciousness",
+   "ex_de": [
+    "Unsere Wahrnehmung ist keine Kopie der Welt, sondern eine Konstruktion."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:ergründen",
+  "term": "ergründen",
+  "en": "to fathom, get to the bottom of",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To explore something deeply until it is understood.",
+   "field": "Being & Consciousness",
+   "ex_de": [
+    "Die Psychoanalyse will die Motive hinter dem Handeln ergründen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Tugend",
+  "term": "die Tugend",
+  "en": "virtue",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A trait of good moral character.",
+   "field": "Ethical Concepts",
+   "ex_de": [
+    "Für Aristoteles liegt die Tugend in der Mitte zweier Extreme."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Willensfreiheit",
+  "term": "die Willensfreiheit",
+  "en": "free will",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The idea that people can choose their actions freely.",
+   "field": "Ethical Concepts",
+   "ex_de": [
+    "Neurowissenschaftler stellen die Willensfreiheit in Frage."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:abstrakt",
+  "term": "abstrakt",
+  "en": "abstract",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Based on ideas rather than physical things; not directly representing reality.",
+   "field": "Knowledge & Truth",
+   "ex_de": [
+    "Je abstrakter der Begriff, desto größer die Gefahr des Missverständnisses."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Erzähler",
+  "term": "der Erzähler",
+  "en": "narrator",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The voice that tells a story.",
+   "field": "Narrative Technique",
+   "ex_de": [
+    "Der unzuverlässige Erzähler lässt den Leser bewusst im Unklaren."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Perspektive",
+  "term": "die Perspektive",
+  "en": "perspective",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A particular point of view; also the sense of depth in a picture.",
+   "field": "Narrative Technique",
+   "ex_de": [
+    "Der Roman erzählt dieselbe Nacht aus vier Perspektiven."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Rückblick",
+  "term": "der Rückblick",
+  "en": "flashback",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A look back at earlier events; in a story, a scene from the past.",
+   "field": "Narrative Technique",
+   "ex_de": [
+    "Im Rückblick erfährt der Leser von der Kindheit der Heldin."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Motiv",
+  "term": "das Motiv",
+  "en": "motif",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A recurring theme in a work; also a reason for acting.",
+   "field": "Motifs & Symbols",
+   "ex_de": [
+    "Das Motiv des Doppelgängers durchzieht die Romantik."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Symbol",
+  "term": "das Symbol",
+  "en": "symbol",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Something that stands for or represents something else.",
+   "field": "Motifs & Symbols",
+   "ex_de": [
+    "Die blaue Blume ist das Symbol der romantischen Sehnsucht."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Mehrdeutigkeit",
+  "term": "die Mehrdeutigkeit",
+  "en": "ambiguity",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of having more than one possible meaning.",
+   "field": "Motifs & Symbols",
+   "ex_de": [
+    "Die Mehrdeutigkeit des Schlusses ist vom Autor gewollt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:deuten",
+  "term": "deuten",
+  "en": "to interpret",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To explain the meaning of something; also to point.",
+   "field": "Motifs & Symbols",
+   "ex_de": [
+    "Das Gedicht lässt sich politisch wie privat deuten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Bildsprache",
+  "term": "die Bildsprache",
+  "en": "imagery, figurative language",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Figurative language that creates vivid pictures in the mind.",
+   "field": "Register & Style",
+   "ex_de": [
+    "Célans Bildsprache entzieht sich jeder einfachen Deutung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Stilebene",
+  "term": "die Stilebene",
+  "en": "stylistic register",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The level of formality or tone of a piece of language.",
+   "field": "Register & Style",
+   "ex_de": [
+    "Der Text wechselt bewusst zwischen den Stilebenen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:vieldeutig",
+  "term": "vieldeutig",
+  "en": "ambiguous, polysemous",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Open to several meanings.",
+   "field": "Register & Style",
+   "ex_de": [
+    "Das Ende bleibt bewusst vieldeutig."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Tatbestand",
+  "term": "der Tatbestand",
+  "en": "offence, set of facts",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The facts that make up an offence in law; the essential facts.",
+   "field": "Legal Terms",
+   "ex_de": [
+    "Das Verhalten erfüllt den Tatbestand der Nötigung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Rechtsprechung",
+  "term": "die Rechtsprechung",
+  "en": "jurisdiction, case law",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The body of decisions made by courts; the administration of justice.",
+   "field": "Legal Terms",
+   "ex_de": [
+    "Die Rechtsprechung zu diesem Paragrafen hat sich gewandelt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:ahnden",
+  "term": "ahnden",
+  "en": "to penalise, punish",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To punish an offence officially.",
+   "field": "Legal Terms",
+   "ex_de": [
+    "Verstöße gegen die Auflagen werden mit Bußgeld geahndet."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Sittlichkeit",
+  "term": "die Sittlichkeit",
+  "en": "morality",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The principles of right conduct in a society.",
+   "field": "Moral Judgements",
+   "ex_de": [
+    "Hegel unterscheidet Moralität und Sittlichkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:vertretbar",
+  "term": "vertretbar",
+  "en": "justifiable, defensible",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Able to be defended as reasonable or acceptable.",
+   "field": "Moral Judgements",
+   "ex_de": [
+    "Ist ein solcher Eingriff ethisch vertretbar?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Schuld",
+  "term": "die Schuld",
+  "en": "guilt, fault",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Responsibility for a wrong; also money that is owed.",
+   "field": "Responsibility & Guilt",
+   "ex_de": [
+    "Die Frage nach der Schuld lässt sich juristisch und moralisch stellen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Haftung",
+  "term": "die Haftung",
+  "en": "liability",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Legal responsibility for damage or debt.",
+   "field": "Responsibility & Guilt",
+   "ex_de": [
+    "Wer haftet bei Unfällen mit autonomen Fahrzeugen? Die Haftung ist ungeklärt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Zurechnungsfähigkeit",
+  "term": "die Zurechnungsfähigkeit",
+  "en": "criminal responsibility",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The mental capacity to be held responsible for one's acts.",
+   "field": "Responsibility & Guilt",
+   "ex_de": [
+    "Das Gericht ließ die Zurechnungsfähigkeit des Angeklagten prüfen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:verantworten",
+  "term": "verantworten",
+  "en": "to answer for, take responsibility",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To take responsibility and be accountable for something.",
+   "field": "Responsibility & Guilt",
+   "ex_de": [
+    "Diese Entscheidung muss der Minister persönlich verantworten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Herrschaft",
+  "term": "die Herrschaft",
+  "en": "rule, dominion",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "Bezeichnung für Regierende, Personen mit Leitungsfunktion",
+   "field": "Power & Authority",
+   "ex_de": [
+    "Die Herrschaft versammelte sich im Palast."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Legitimität",
+  "term": "die Legitimität",
+  "en": "legitimacy",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "Eigenschaft, anerkennungswürdig (legitim) zu sein, weil gewisse moralische, aber auch gesetzliche Normen und Wertvorstellungen eingehalten sind",
+   "field": "Power & Authority",
+   "ex_de": [
+    "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Autorität",
+  "term": "die Autorität",
+  "en": "authority",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The power or right to give orders; also an expert.",
+   "field": "Power & Authority",
+   "ex_de": [
+    "Ihre Autorität beruht auf Wissen, nicht auf ihrem Titel."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:einflussreich",
+  "term": "einflussreich",
+  "en": "influential",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "über Einfluss verfügend",
+   "field": "Power & Authority",
+   "ex_de": [
+    "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Euphemismus",
+  "term": "der Euphemismus",
+  "en": "euphemism",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A mild word used in place of a harsher or blunter one.",
+   "field": "Political Language",
+   "ex_de": [
+    "„Freisetzung“ ist ein Euphemismus für Entlassung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Parole",
+  "term": "die Parole",
+  "en": "slogan",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "Kennwort, Codewort (meist bei militärischen, polizeilichen, verbrecherischen oder anderweitig zu tarnenden, geheimzuhaltenden Handlungen)",
+   "field": "Political Language",
+   "ex_de": [
+    "„Halt! Parole?“ „Nullacht“ „Fünfzehn! Passieren!“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Schlagwort",
+  "term": "das Schlagwort",
+  "en": "buzzword, catchphrase",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "weithin bekannte, griffige Formulierung einer Idee oder Vorstellung, die vor allem in der gesellschaftlichen oder politischen Auseinandersetzung oder auch in der Werbung als programmatisch oder vorbildlich hingestellt werden soll",
+   "field": "Political Language",
+   "ex_de": [
+    "Die Schlagworte der Französischen Revolution waren „Freiheit, Gleichheit, Brüderlichkeit“."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Propaganda",
+  "term": "die Propaganda",
+  "en": "propaganda",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Information spread to promote a cause and shape opinion, often one-sidedly.",
+   "field": "Manipulation & Propaganda",
+   "ex_de": [
+    "Die Propaganda des Regimes durchdrang alle Medien."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Suggestion",
+  "term": "die Suggestion",
+  "en": "suggestion, insinuation",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "etwas, das jemandem suggeriert wird",
+   "field": "Manipulation & Propaganda",
+   "ex_de": [
+    "Die wirkliche und letzte Macht ist die Bejahung. Negative Suggestionen, Flüche, Verwünschungen etc. verfügen über keinerlei Macht, sofern sie nicht akzeptiert und damit zur eigenen Denkbewegung werden."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:beschönigen",
+  "term": "beschönigen",
+  "en": "to gloss over, whitewash",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "etwas als besser, schöner darstellen, als es in Wirklichkeit ist",
+   "field": "Manipulation & Propaganda",
+   "ex_de": [
+    "Romantische Darstellungen des Mittelalters beschönigen die finsteren Aspekte der Epoche."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Methode",
+  "term": "die Methode",
+  "en": "method",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "Art und Weise, wie man etwas tut, um ein Ziel zu erreichen; Vorgehen",
+   "field": "Method & Model",
+   "ex_de": [
+    "Eine Methode für einen effizienten Softwareentwurf heißt „Extreme Programming“."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Modell",
+  "term": "das Modell",
+  "en": "model",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "pragmatisch (auf relevante Eigenschaften) verkürzte (verkleinerte) Abbildung",
+   "field": "Method & Model",
+   "ex_de": [
+    "Bei der Entwicklung eines neuen Geräts ist es sinnvoll, sich zuerst ein Modell zu bauen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Paradigma",
+  "term": "das Paradigma",
+  "en": "paradigm",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A model or framework of thought accepted in a field.",
+   "field": "Method & Model",
+   "ex_de": [
+    "Mit Kopernikus wechselte die Astronomie ihr Paradigma."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Annahme",
+  "term": "die Annahme",
+  "en": "assumption",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "Glaube an einen (noch) nicht erwiesenen oder nicht beweisbaren Sachverhalt, eine Hypothese oder Axiom",
+   "field": "Method & Model",
+   "ex_de": [
+    "Unter der Annahme, dass er bedroht werde, entschied er sich zu fliehen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Gegenthese",
+  "term": "die Gegenthese",
+  "en": "counter-thesis",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A claim put forward to oppose another.",
+   "field": "Critique & Rebuttal",
+   "ex_de": [
+    "Zu jeder These formulierte das Seminar eine Gegenthese."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Falsifizierung",
+  "term": "die Falsifizierung",
+  "en": "falsification",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The proving of a theory to be false through testing.",
+   "field": "Critique & Rebuttal",
+   "ex_de": [
+    "Nach Popper ist die Falsifizierung das Kriterium der Wissenschaft."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:verifizieren",
+  "term": "verifizieren",
+  "en": "to verify",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To check and confirm that something is true.",
+   "field": "Critique & Rebuttal",
+   "ex_de": [
+    "Die Messung ließ sich in drei Laboren unabhängig verifizieren."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Tragweite",
+  "term": "die Tragweite",
+  "en": "scope, significance",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The extent of something's importance or consequences.",
+   "field": "Limits of Knowledge",
+   "ex_de": [
+    "Die Tragweite des Urteils wurde erst Jahre später sichtbar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Ungewissheit",
+  "term": "die Ungewissheit",
+  "en": "uncertainty",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The state of not knowing what will happen.",
+   "field": "Limits of Knowledge",
+   "ex_de": [
+    "Forschung heißt, Ungewissheit auszuhalten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:vorläufig",
+  "term": "vorläufig",
+  "en": "provisional, tentative",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "For the time being; not yet final.",
+   "field": "Limits of Knowledge",
+   "ex_de": [
+    "Alle Erkenntnisse der Wissenschaft sind vorläufig."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Redewendung",
+  "term": "die Redewendung",
+  "en": "idiom, set phrase",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A fixed expression whose meaning is not literal.",
+   "field": "Idioms",
+   "ex_de": [
+    "Die Redewendung „ins Gras beißen“ sollte man nicht wörtlich nehmen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Sprichwort",
+  "term": "das Sprichwort",
+  "en": "proverb",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A short, well-known saying that states a general truth.",
+   "field": "Idioms",
+   "ex_de": [
+    "Ein deutsches Sprichwort sagt: Der Apfel fällt nicht weit vom Stamm."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Floskel",
+  "term": "die Floskel",
+  "en": "empty phrase, platitude",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A worn-out phrase used with little real meaning.",
+   "field": "Idioms",
+   "ex_de": [
+    "Seine Rede bestand fast nur aus Floskeln."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Register",
+  "term": "das Register",
+  "en": "register (of language)",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The style of language suited to a particular situation.",
+   "field": "Connotation & Register",
+   "ex_de": [
+    "Im Bewerbungsgespräch zieht man ein anderes Register als am Stammtisch."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Beiklang",
+  "term": "der Beiklang",
+  "en": "overtone, connotation",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A secondary meaning or feeling that a word carries.",
+   "field": "Connotation & Register",
+   "ex_de": [
+    "Das Wort „Heimat“ hat im Deutschen einen besonderen Beiklang."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Umgangssprache",
+  "term": "die Umgangssprache",
+  "en": "colloquial language",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The informal language of everyday speech.",
+   "field": "Connotation & Register",
+   "ex_de": [
+    "In der Umgangssprache heißt es einfach „krass“."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Nuance",
+  "term": "die Nuance",
+  "en": "nuance",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A fine shade of meaning, feeling, or tone.",
+   "field": "Fine Distinctions",
+   "ex_de": [
+    "Übersetzen heißt, jede Nuance des Originals abzuwägen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Unterton",
+  "term": "der Unterton",
+  "en": "undertone",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A quality of feeling beneath what is openly said.",
+   "field": "Fine Distinctions",
+   "ex_de": [
+    "In ihrer Antwort schwang ein ironischer Unterton mit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:abtönen",
+  "term": "abtönen",
+  "en": "to shade, modulate (meaning)",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To adjust a colour or a meaning by a subtle degree.",
+   "field": "Fine Distinctions",
+   "ex_de": [
+    "Partikeln wie „doch“ und „mal“ tönen eine Aussage ab."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:treffend",
+  "term": "treffend",
+  "en": "apt, fitting",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Exactly right and well chosen.",
+   "field": "Fine Distinctions",
+   "ex_de": [
+    "Sie fand für das Gefühl ein treffendes Bild."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Ästhetik",
+  "term": "die Ästhetik",
+  "en": "aesthetics",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The study of beauty and taste in art.",
+   "field": "Aesthetic Concepts",
+   "ex_de": [
+    "Die Ästhetik des Hässlichen faszinierte die Moderne."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Erhabene",
+  "term": "das Erhabene",
+  "en": "the sublime",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A quality of awe-inspiring grandeur beyond ordinary beauty.",
+   "field": "Aesthetic Concepts",
+   "ex_de": [
+    "Kant unterscheidet das Schöne vom Erhabenen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Harmonie",
+  "term": "die Harmonie",
+  "en": "harmony",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A pleasing arrangement of parts; agreement and balance.",
+   "field": "Aesthetic Concepts",
+   "ex_de": [
+    "Die Komposition lebt vom Bruch mit der Harmonie."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Kitsch",
+  "term": "der Kitsch",
+  "en": "kitsch",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Art or objects seen as cheap, sentimental, and in poor taste.",
+   "field": "Cultural Critique",
+   "ex_de": [
+    "Die Grenze zwischen Kunst und Kitsch ist umstritten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Mainstream",
+  "term": "der Mainstream",
+  "en": "mainstream",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The ideas or tastes shared by most ordinary people.",
+   "field": "Cultural Critique",
+   "ex_de": [
+    "Die Band wollte nie Teil des Mainstreams sein."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Avantgarde",
+  "term": "die Avantgarde",
+  "en": "avant-garde",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Artists whose work is experimental and ahead of its time.",
+   "field": "Cultural Critique",
+   "ex_de": [
+    "Die Avantgarde der Zwanziger brach radikal mit der Tradition."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:der Geschmack",
+  "term": "der Geschmack",
+  "en": "taste",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The flavour of food; also a person's sense of style.",
+   "field": "Taste & Judgement",
+   "ex_de": [
+    "Über Geschmack lässt sich bekanntlich streiten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Werturteil",
+  "term": "das Werturteil",
+  "en": "value judgement",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A judgement based on personal values rather than fact.",
+   "field": "Taste & Judgement",
+   "ex_de": [
+    "Wissenschaft soll beschreiben, ohne Werturteile zu fällen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:würdigen",
+  "term": "würdigen",
+  "en": "to appreciate, acknowledge",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To recognise and honour the worth of something.",
+   "field": "Taste & Judgement",
+   "ex_de": [
+    "Erst spät wurde ihr Werk angemessen gewürdigt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:geschmackvoll",
+  "term": "geschmackvoll",
+  "en": "tasteful",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Showing good judgement of what is beautiful or fitting.",
+   "field": "Taste & Judgement",
+   "ex_de": [
+    "Die Wohnung ist geschmackvoll, aber sparsam eingerichtet."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Herausforderung",
+  "term": "die Herausforderung",
+  "en": "challenge",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A demanding task that tests one's abilities.",
+   "field": "Global Challenges",
+   "ex_de": [
+    "Der Klimawandel ist die zentrale Herausforderung unserer Zeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Ressourcenknappheit",
+  "term": "die Ressourcenknappheit",
+  "en": "scarcity of resources",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A shortage of the materials needed to meet demand.",
+   "field": "Global Challenges",
+   "ex_de": [
+    "Ressourcenknappheit zwingt zu neuen Formen des Wirtschaftens."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Umwälzung",
+  "term": "die Umwälzung",
+  "en": "upheaval, sweeping change",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A profound and far-reaching change.",
+   "field": "Global Challenges",
+   "ex_de": [
+    "Der Buchdruck löste eine gesellschaftliche Umwälzung aus."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:zukunftsfähig",
+  "term": "zukunftsfähig",
+  "en": "viable for the future, sustainable",
+  "pos": "adjective",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Able to remain workable and sustainable in the years ahead.",
+   "field": "Global Challenges",
+   "ex_de": [
+    "Nur ein zukunftsfähiges Energiesystem sichert den Standort."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Vermächtnis",
+  "term": "das Vermächtnis",
+  "en": "legacy, bequest",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Something handed down by a predecessor; also property left in a will.",
+   "field": "Responsibility & Generations",
+   "ex_de": [
+    "Ihr wissenschaftliches Vermächtnis prägt das Fach bis heute."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Verpflichtung",
+  "term": "die Verpflichtung",
+  "en": "obligation, commitment",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A duty that one is bound to fulfil.",
+   "field": "Responsibility & Generations",
+   "ex_de": [
+    "Aus dem Erbe erwächst eine Verpflichtung gegenüber kommenden Generationen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Weitsicht",
+  "term": "die Weitsicht",
+  "en": "foresight, vision",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The ability to judge wisely what the future may bring.",
+   "field": "Responsibility & Generations",
+   "ex_de": [
+    "Mit bemerkenswerter Weitsicht plante sie das Institut für Jahrzehnte."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:das Szenario",
+  "term": "das Szenario",
+  "en": "scenario",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A description of a possible course of events.",
+   "field": "Scenarios & Forecasts",
+   "ex_de": [
+    "Die Forscher rechneten mehrere Szenarien durch."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Hochrechnung",
+  "term": "die Hochrechnung",
+  "en": "projection, extrapolation",
+  "pos": "noun",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "An estimate of a whole based on a partial sample.",
+   "field": "Scenarios & Forecasts",
+   "ex_de": [
+    "Die erste Hochrechnung kam kurz nach Schließung der Wahllokale."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:absehen",
+  "term": "absehen",
+  "en": "to foresee, anticipate",
+  "pos": "verb",
+  "level": "C2",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To predict something; also to choose not to do something.",
+   "field": "Scenarios & Forecasts",
+   "ex_de": [
+    "Das Ende der Krise ist noch nicht abzusehen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:den Nagel auf den Kopf treffen",
+  "term": "den Nagel auf den Kopf treffen",
+  "en": "to hit the nail on the head",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To describe or identify something exactly right.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Mit dieser Bemerkung hast du den Nagel auf den Kopf getroffen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Katze im Sack kaufen",
+  "term": "die Katze im Sack kaufen",
+  "en": "to buy a pig in a poke",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To buy something without checking it first.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Ohne Probefahrt kaufst du die Katze im Sack."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:Tomaten auf den Augen haben",
+  "term": "Tomaten auf den Augen haben",
+  "en": "to be oblivious to the obvious",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To fail to see something plainly in front of one.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Der Fehler war offensichtlich – hast du Tomaten auf den Augen?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:ins Fettnäpfchen treten",
+  "term": "ins Fettnäpfchen treten",
+  "en": "to commit a faux pas",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To say or do something socially clumsy.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Mit der Frage nach ihrem Alter bin ich ins Fettnäpfchen getreten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Flinte ins Korn werfen",
+  "term": "die Flinte ins Korn werfen",
+  "en": "to throw in the towel",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To give up too soon in the face of difficulty.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Nach dem ersten Rückschlag warf sie die Flinte ins Korn."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:aus dem Nähkästchen plaudern",
+  "term": "aus dem Nähkästchen plaudern",
+  "en": "to spill the beans",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To share private details or inside gossip.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Der Regisseur plauderte über die Dreharbeiten aus dem Nähkästchen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:jemandem reinen Wein einschenken",
+  "term": "jemandem reinen Wein einschenken",
+  "en": "to come clean with someone",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To tell someone the plain, honest truth.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Es wird Zeit, dir reinen Wein einzuschenken."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:auf dem Holzweg sein",
+  "term": "auf dem Holzweg sein",
+  "en": "to be barking up the wrong tree",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To be following a mistaken line of thought.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Wer glaubt, das sei einfach, ist auf dem Holzweg."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:über den Tellerrand schauen",
+  "term": "über den Tellerrand schauen",
+  "en": "to think outside the box",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To look beyond one's own narrow point of view.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Gute Forscher schauen über den Tellerrand ihres Fachs."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:die Daumen drücken",
+  "term": "die Daumen drücken",
+  "en": "to wish someone luck",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To wish someone good luck.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Ich drücke dir für die Prüfung die Daumen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C2:jemandem auf die Nerven gehen",
+  "term": "jemandem auf die Nerven gehen",
+  "en": "to get on someones nerves",
+  "pos": "phrase",
+  "level": "C2",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "To irritate or annoy someone.",
+   "field": "Idioms & Nuance",
+   "ex_de": [
+    "Sein ständiges Klagen geht mir langsam auf die Nerven."
+   ]
+  }
+ }
+]

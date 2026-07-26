@@ -14,6 +14,8 @@
     "test:watch": "vitest",
     "corpus:fetch": "node scripts/corpus/fetch.ts",
     "corpus:coverage": "node scripts/corpus/coverage.ts",
+    "corpus:examples": "node scripts/corpus/examples.ts",
+    "corpus:casefix": "node scripts/corpus/casefix.ts",
     "corpus:build": "node scripts/corpus/build.ts",
     "corpus:grammar": "node scripts/corpus/grammar-supplement.ts",
     "corpus:resector": "node scripts/corpus/resector.ts",
@@ -22,6 +24,7 @@
     "corpus:flags": "node scripts/corpus/flags.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts",
     "corpus:enrich": "node scripts/corpus/enrich-fields.ts",
+    "authoring:input": "node scripts/authoring/make-input.ts",
     "authoring:apply": "node scripts/authoring/apply-authored.ts",
     "lint": "eslint src"
   },

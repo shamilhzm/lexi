@@ -2,6 +2,7 @@
 // Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
 // Adds a CEFR level filter and group/sector/all scoped stats + sessions.
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
+import { ID_MAP } from './data/idmap.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
@@ -63,6 +64,24 @@ async function loadKV<T>(key: string, fallback: T): Promise<T> {
   return fallback;
 }
 
+/** Carry stored schedules across a corpus correction that renamed or merged
+ *  card ids (see scripts/corpus/casefix.ts). Without this, fixing a headword
+ *  would silently reset that card to new. Where both ids carry a schedule the
+ *  more-practised one wins. Runs on every hydrate and is a no-op once the old
+ *  ids are gone. */
+function migrateIds(): void {
+  let moved = 0;
+  for (const [from, to] of Object.entries(ID_MAP)) {
+    const old = live.get(from);
+    if (!old) continue;
+    live.delete(from);
+    const cur = live.get(to);
+    if (!cur || old.reps > cur.reps) live.set(to, old);
+    moved++;
+  }
+  if (moved) persistCards();
+}
+
 let hydrated = false;
 /** Hydrate progress state from IndexedDB (with one-time localStorage migration).
  *  Call once, awaited, before the app first renders. Idempotent. */
@@ -75,6 +94,7 @@ export async function hydrate(): Promise<void> {
   ]);
   live.clear();
   for (const id of Object.keys(cards)) { try { live.set(id, reviveCard(cards[id])); } catch { /* skip corrupt */ } }
+  migrateIds();
   misses = Array.isArray(m) ? m : [];
   visits = Array.isArray(vis) ? vis : [];
   hydrated = true;

@@ -1,0 +1,1908 @@
+[
+ {
+  "id": "voc:C1:die Reform",
+  "term": "die Reform",
+  "en": "reform",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A change made to improve a system or law.",
+   "field": "Politics & Society",
+   "ex_de": [
+    "Die Reform des Wahlrechts ist längst überfällig."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Mehrheit",
+  "term": "die Mehrheit",
+  "en": "majority",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The greater number; more than half.",
+   "field": "Politics & Society",
+   "ex_de": [
+    "Für das Gesetz fand sich keine Mehrheit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Debatte",
+  "term": "die Debatte",
+  "en": "debate",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A formal discussion where opposing views are argued.",
+   "field": "Politics & Society",
+   "ex_de": [
+    "Die Debatte über das Tempolimit reißt nicht ab."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:verabschieden",
+  "term": "verabschieden",
+  "en": "to pass (a law)",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To formally approve a law; also to say goodbye.",
+   "field": "Politics & Society",
+   "ex_de": [
+    "Der Bundestag verabschiedete das Klimapaket."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:regeln",
+  "term": "regeln",
+  "en": "to regulate",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To control something by rules; also to settle a matter.",
+   "field": "Politics & Society",
+   "ex_de": [
+    "Ein neues Gesetz regelt den Datenschutz."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:umstritten",
+  "term": "umstritten",
+  "en": "controversial",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Causing strong disagreement among people.",
+   "field": "Politics & Society",
+   "ex_de": [
+    "Die Maßnahme ist in der Bevölkerung höchst umstritten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:einflussreich",
+  "term": "einflussreich",
+  "en": "influential",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "über Einfluss verfügend",
+   "field": "Politics & Society",
+   "ex_de": [
+    "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Errungenschaft",
+  "term": "die Errungenschaft",
+  "en": "achievement",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Something valuable gained through effort, especially by society.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Frauenwahlrecht ist eine große Errungenschaft."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Beeinträchtigung",
+  "term": "die Beeinträchtigung",
+  "en": "impairment",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A weakening or harming of something's function or quality.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der Lärm ist eine erhebliche Beeinträchtigung der Lebensqualität."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Diskrepanz",
+  "term": "die Diskrepanz",
+  "en": "discrepancy",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A difference between things that should match.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Es besteht eine Diskrepanz zwischen Anspruch und Wirklichkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Ambivalenz",
+  "term": "die Ambivalenz",
+  "en": "ambivalence",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The state of having mixed or conflicting feelings.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Seine Gefühle waren von Ambivalenz geprägt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Kohärenz",
+  "term": "die Kohärenz",
+  "en": "coherence",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of fitting together in a clear, logical way.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Dem Text fehlt es an innerer Kohärenz."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Plausibilität",
+  "term": "die Plausibilität",
+  "en": "plausibility",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of seeming reasonable or believable.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Plausibilität der Erklärung überzeugte die Jury."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Souveränität",
+  "term": "die Souveränität",
+  "en": "sovereignty",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The full right of a state to govern itself.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der Staat pocht auf seine nationale Souveränität."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Legitimität",
+  "term": "die Legitimität",
+  "en": "legitimacy",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "Eigenschaft, anerkennungswürdig (legitim) zu sein, weil gewisse moralische, aber auch gesetzliche Normen und Wertvorstellungen eingehalten sind",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Nachhaltigkeit",
+  "term": "die Nachhaltigkeit",
+  "en": "sustainability",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The use of resources in a way that does not harm the future.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Nachhaltigkeit ist zum zentralen Kriterium geworden."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Wechselwirkung",
+  "term": "die Wechselwirkung",
+  "en": "interaction",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The way two things affect each other.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Zwischen Klima und Vegetation gibt es enge Wechselwirkungen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Rahmenbedingung",
+  "term": "die Rahmenbedingung",
+  "en": "framework condition",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "One of the general conditions that shape what is possible.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die politischen Rahmenbedingungen müssen stimmen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Spielraum",
+  "term": "der Spielraum",
+  "en": "leeway / scope",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The freedom to act or decide within limits.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Für Verhandlungen bleibt kaum noch Spielraum."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Reichweite",
+  "term": "die Reichweite",
+  "en": "reach / scope",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "How far something extends or how many it affects.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Reichweite der Entscheidung wurde unterschätzt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Stellenwert",
+  "term": "der Stellenwert",
+  "en": "significance",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The importance or value given to something.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Bildung hat in der Familie einen hohen Stellenwert."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Tragweite",
+  "term": "die Tragweite",
+  "en": "significance / scope",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The extent of something's importance or consequences.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Niemand ahnte die Tragweite dieser Erfindung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Ausmaß",
+  "term": "das Ausmaß",
+  "en": "extent",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The size or scale of something.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Ausmaß der Schäden wurde erst später klar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Vorgehensweise",
+  "term": "die Vorgehensweise",
+  "en": "approach",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The particular way of tackling a task.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Ihre Vorgehensweise war systematisch und gründlich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Herangehensweise",
+  "term": "die Herangehensweise",
+  "en": "approach",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The manner in which one sets about a problem.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Eine neue Herangehensweise brachte den Durchbruch."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Grauzone",
+  "term": "die Grauzone",
+  "en": "grey area",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A situation where the rules are unclear or ambiguous.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Rechtlich bewegt sich das in einer Grauzone."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Gratwanderung",
+  "term": "die Gratwanderung",
+  "en": "balancing act",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A difficult course between two risks or extremes.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Es ist eine Gratwanderung zwischen Nähe und Distanz."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Zwangsläufigkeit",
+  "term": "die Zwangsläufigkeit",
+  "en": "inevitability",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of being certain to happen and impossible to avoid.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Er beschrieb den Verfall mit fast tragischer Zwangsläufigkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Beliebigkeit",
+  "term": "die Beliebigkeit",
+  "en": "arbitrariness",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of being random or interchangeable, without firm criteria.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Ohne klare Kriterien droht Beliebigkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Konsens",
+  "term": "der Konsens",
+  "en": "consensus",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "General agreement among a group.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Am Ende fand die Gruppe einen breiten Konsens."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Zuversicht",
+  "term": "die Zuversicht",
+  "en": "confidence",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A firm, hopeful belief that things will go well.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Trotz der Krise blickt sie mit Zuversicht nach vorn."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Gelassenheit",
+  "term": "die Gelassenheit",
+  "en": "composure",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A calm, unruffled state of mind.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Mit dem Alter kam eine gewisse Gelassenheit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Hartnäckigkeit",
+  "term": "die Hartnäckigkeit",
+  "en": "persistence",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of continuing firmly despite difficulty.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Nur ihrer Hartnäckigkeit ist der Erfolg zu verdanken."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Beharrlichkeit",
+  "term": "die Beharrlichkeit",
+  "en": "tenacity",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of holding firmly to a purpose despite difficulty.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Mit großer Beharrlichkeit verfolgte er sein Ziel."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:relativieren",
+  "term": "relativieren",
+  "en": "to put into perspective",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To make something seem less absolute by weighing it against other factors.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Man sollte solche Zahlen immer relativieren."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:untermauern",
+  "term": "untermauern",
+  "en": "to substantiate",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To support a claim with evidence or argument.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Er untermauerte die Behauptung mit Belegen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:hinterfragen",
+  "term": "hinterfragen",
+  "en": "to question",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To examine an assumption critically rather than accept it.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Man sollte Gewohnheiten von Zeit zu Zeit hinterfragen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:einräumen",
+  "term": "einräumen",
+  "en": "to concede",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To admit that something is true or valid; also to grant.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Er räumte ein, sich geirrt zu haben."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:nachvollziehen",
+  "term": "nachvollziehen",
+  "en": "to comprehend",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To follow and understand another's reasoning or feelings.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Ich kann deine Entscheidung gut nachvollziehen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:veranschaulichen",
+  "term": "veranschaulichen",
+  "en": "to illustrate",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To make an idea clear by means of an example or image.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Eine Grafik veranschaulicht den Zusammenhang."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:konkretisieren",
+  "term": "konkretisieren",
+  "en": "to make concrete",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To make a vague idea specific and detailed.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Können Sie Ihren Vorschlag konkretisieren?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:verallgemeinern",
+  "term": "verallgemeinern",
+  "en": "to generalise",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To draw a broad conclusion from particular cases.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Man darf aus einem Fall nicht verallgemeinern."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:eindämmen",
+  "term": "eindämmen",
+  "en": "to contain / curb",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To hold something harmful in check and stop it spreading.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Neue Regeln sollen den Missbrauch eindämmen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:ankurbeln",
+  "term": "ankurbeln",
+  "en": "to boost",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To stimulate activity or growth, as of an economy.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Steuersenkungen sollen die Wirtschaft ankurbeln."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:bewältigen",
+  "term": "bewältigen",
+  "en": "to cope with",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To deal successfully with a difficult task or problem.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Gemeinsam lässt sich die Krise besser bewältigen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:entgegenwirken",
+  "term": "entgegenwirken",
+  "en": "to counteract",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To act against something in order to reduce its effect.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Sport kann dem Stress wirksam entgegenwirken."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:herbeiführen",
+  "term": "herbeiführen",
+  "en": "to bring about",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To cause something to happen.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der Skandal führte den Rücktritt des Ministers herbei."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:in Kauf nehmen",
+  "term": "in Kauf nehmen",
+  "en": "to accept / put up with",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To accept a drawback as the price of something else.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Für den Job nimmt sie lange Wege in Kauf."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:in Frage stellen",
+  "term": "in Frage stellen",
+  "en": "to call into question",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To cast doubt on something's truth or value.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Studie stellt bisherige Annahmen in Frage."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:Rechnung tragen",
+  "term": "Rechnung tragen",
+  "en": "to take account of",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To give due consideration to something.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Gesetz trägt den neuen Realitäten Rechnung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:Stellung beziehen",
+  "term": "Stellung beziehen",
+  "en": "to take a stance",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To state one's position clearly on an issue.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der Verband bezog klar Stellung gegen den Plan."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:Maßstäbe setzen",
+  "term": "Maßstäbe setzen",
+  "en": "to set standards",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To establish a benchmark that others follow.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Design setzte neue Maßstäbe in der Branche."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich abzeichnen",
+  "term": "sich abzeichnen",
+  "en": "to emerge / loom",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To begin to become visible or apparent.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Eine Lösung zeichnet sich langsam ab."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich niederschlagen",
+  "term": "sich niederschlagen",
+  "en": "to be reflected",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To show up as a visible result in something else.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Reform schlägt sich in besseren Zahlen nieder."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich bewähren",
+  "term": "sich bewähren",
+  "en": "to prove itself",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To show its worth or reliability through experience.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Konzept hat sich über Jahre bewährt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:zugrunde liegen",
+  "term": "zugrunde liegen",
+  "en": "to underlie",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To form the basis of something.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der Entscheidung liegt eine gründliche Analyse zugrunde."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:ins Auge fassen",
+  "term": "ins Auge fassen",
+  "en": "to envisage",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To consider or plan something for the future.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Sie fassen einen Umzug ins Ausland ins Auge."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:ausschlaggebend",
+  "term": "ausschlaggebend",
+  "en": "decisive",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Being the factor that determines the outcome.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Ausschlaggebend war am Ende der Preis."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:gravierend",
+  "term": "gravierend",
+  "en": "grave",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Very serious in its effects.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der Fehler hatte gravierende Folgen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:weitreichend",
+  "term": "weitreichend",
+  "en": "far-reaching",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Having a wide and important effect.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Reform hat weitreichende Konsequenzen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:tiefgreifend",
+  "term": "tiefgreifend",
+  "en": "profound",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Reaching deep and having a strong, lasting effect.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Digitalisierung bewirkt tiefgreifende Veränderungen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:unabdingbar",
+  "term": "unabdingbar",
+  "en": "indispensable",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Absolutely necessary and impossible to do without.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Vertrauen ist für Teamarbeit unabdingbar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:unumgänglich",
+  "term": "unumgänglich",
+  "en": "unavoidable",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Impossible to avoid or get around.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Einschnitte sind leider unumgänglich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:vielschichtig",
+  "term": "vielschichtig",
+  "en": "multifaceted",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Having many layers or aspects; complex.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Problem ist vielschichtiger, als es scheint."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:differenziert",
+  "term": "differenziert",
+  "en": "nuanced",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Making fine distinctions rather than treating things simply.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Sie betrachtet das Thema sehr differenziert."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:nachweislich",
+  "term": "nachweislich",
+  "en": "demonstrably",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "In a way that can be proven with evidence.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Medikament wirkt nachweislich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:augenscheinlich",
+  "term": "augenscheinlich",
+  "en": "apparently",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex"
+  ],
+  "have": {
+   "def": "(auf den ersten Blick) klar erkennbar, klar ersichtlich",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "„Pineiß ſah den Spiegel mißtrauiſch an und ſagte: »Wärſt Du wohl im Stande, Bürſchchen! mir den Schatz ein wenig nachzuweiſen und augenſcheinlich zu machen?«“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:vermeintlich",
+  "term": "vermeintlich",
+  "en": "supposed",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Believed to be so, but perhaps wrongly.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Der vermeintliche Vorteil erwies sich als Nachteil."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:ausgeprägt",
+  "term": "ausgeprägt",
+  "en": "pronounced",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Strongly marked and clearly developed.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Sie hat einen ausgeprägten Sinn für Gerechtigkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:gängig",
+  "term": "gängig",
+  "en": "common / prevailing",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Widely used or accepted; current.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das ist die gängige Meinung unter Fachleuten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:triftig",
+  "term": "triftig",
+  "en": "cogent",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Sound and convincing, as a reason.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Er hatte keinen triftigen Grund zu fehlen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:schlüssig",
+  "term": "schlüssig",
+  "en": "conclusive",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Following logically and leaving no doubt.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Ihre Argumentation war schlüssig und überzeugend."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:lückenhaft",
+  "term": "lückenhaft",
+  "en": "incomplete",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Having gaps; not full or thorough.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Seine Kenntnisse sind noch recht lückenhaft."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:bezeichnend",
+  "term": "bezeichnend",
+  "en": "characteristic",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Typical and revealing of the nature of something.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Es ist bezeichnend, dass niemand widersprach."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:richtungsweisend",
+  "term": "richtungsweisend",
+  "en": "trailblazing",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Setting a direction for others to follow.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Urteil gilt als richtungsweisend."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:folgenschwer",
+  "term": "folgenschwer",
+  "en": "momentous",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Having serious and far-reaching consequences.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Es war eine folgenschwere Entscheidung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:unverhältnismäßig",
+  "term": "unverhältnismäßig",
+  "en": "disproportionate",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Too great or too small in relation to something else.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Strafe war unverhältnismäßig hart."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:unstrittig",
+  "term": "unstrittig",
+  "en": "undisputed",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Accepted by all; not open to argument.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Es ist unstrittig, dass Handlungsbedarf besteht."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:gleichermaßen",
+  "term": "gleichermaßen",
+  "en": "equally",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "In the same way; to the same degree.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Regel gilt für alle gleichermaßen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:zusehends",
+  "term": "zusehends",
+  "en": "visibly / increasingly",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "In a way that can be noticed as it happens.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Wetter besserte sich zusehends."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:unweigerlich",
+  "term": "unweigerlich",
+  "en": "inevitably",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "In a way that cannot be avoided.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Solche Konflikte führen unweigerlich zu Streit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:mitunter",
+  "term": "mitunter",
+  "en": "occasionally",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "From time to time; now and then.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Er kann mitunter recht stur sein."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:weitestgehend",
+  "term": "weitestgehend",
+  "en": "largely",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To the greatest possible extent.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Die Ziele wurden weitestgehend erreicht."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:letztlich",
+  "term": "letztlich",
+  "en": "ultimately",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "In the end; when all is considered.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Letztlich zählt nur das Ergebnis."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:nachgerade",
+  "term": "nachgerade",
+  "en": "downright",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Almost to the point of; virtually.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Seine Geduld war nachgerade heldenhaft."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:gemeinhin",
+  "term": "gemeinhin",
+  "en": "commonly",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Generally; as is usually thought.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das wird gemeinhin als selbstverständlich angesehen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:vorrangig",
+  "term": "vorrangig",
+  "en": "primarily",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Before other things; as a priority.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Wir kümmern uns vorrangig um die dringenden Fälle."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:hinlänglich",
+  "term": "hinlänglich",
+  "en": "sufficiently",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Enough for the purpose; adequately.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Das Verfahren ist hinlänglich bekannt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:ungeachtet",
+  "term": "ungeachtet",
+  "en": "regardless of",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Without being affected by; in spite of.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Ungeachtet aller Warnungen setzte er die Reise fort."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:anhand",
+  "term": "anhand",
+  "en": "on the basis of",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "By using something as a guide or evidence.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Anhand von Beispielen wird die Regel erklärt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:zugunsten",
+  "term": "zugunsten",
+  "en": "in favour of",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "For the benefit or advantage of.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Sie verzichtete zugunsten ihrer Schwester auf das Erbe."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:hinsichtlich",
+  "term": "hinsichtlich",
+  "en": "regarding",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "With reference to; concerning.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Hinsichtlich der Kosten gibt es noch offene Fragen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:angesichts",
+  "term": "angesichts",
+  "en": "in view of",
+  "pos": "word",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Considering; in the face of.",
+   "field": "Core Vocabulary",
+   "ex_de": [
+    "Angesichts der Lage bleibt uns keine Wahl."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Souverän",
+  "term": "der Souverän",
+  "en": "sovereign",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The supreme ruler; in a democracy, the people as holders of power.",
+   "field": "Politics",
+   "ex_de": [
+    "Der Vatikan ist der kleinste souveräne Staat der Welt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:bestmöglich",
+  "term": "bestmöglich",
+  "en": "best, best possible",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "As good as it can possibly be.",
+   "field": "Adjectives",
+   "ex_de": [
+    "Es spielt keine Rolle, wie klug man ist: man muss, um die bestmöglichen Entscheidungen treffen zu können, bestmöglich unterrichtet sein."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Finanzamt",
+  "term": "das Finanzamt",
+  "en": "tax office, tax authority, revenue office, finance authority",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The government office that collects taxes.",
+   "field": "Miscellaneous",
+   "ex_de": [
+    "Wir alle wissen, was wir unserem Vaterland schulden. Das Finanzamt teilt es uns mit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:geltend",
+  "term": "geltend",
+  "en": "applicable",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Currently valid or in effect.",
+   "field": "Adjectives",
+   "ex_de": [
+    "geltende Vorschriften."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:minimieren",
+  "term": "minimieren",
+  "en": "to minimize / minimise",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To reduce something to the smallest possible amount.",
+   "field": "Core verbs",
+   "ex_de": [
+    "Können wir das Risiko irgendwie minimieren?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:systematisch",
+  "term": "systematisch",
+  "en": "systematically",
+  "pos": "adverb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "In an organised, methodical way.",
+   "field": "Adverbs",
+   "ex_de": [
+    "Tom arbeitet systematisch."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Abhilfe",
+  "term": "die Abhilfe",
+  "en": "remedy, relief",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A way of putting right a problem or complaint.",
+   "field": "Miscellaneous",
+   "ex_de": [
+    "Abhilfe schaffen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:ausweiten",
+  "term": "ausweiten",
+  "en": "to expand, to widen, to extend, to stretch",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To make something larger in scope or extent.",
+   "field": "Core verbs",
+   "ex_de": [
+    "Die Suche wurde auf das gesamte Dorf ausgeweitet."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:eigenständig",
+  "term": "eigenständig",
+  "en": "independent",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Able to act or exist on its own; self-reliant.",
+   "field": "Adjectives",
+   "ex_de": [
+    "Das Wichtigste ist, dass du eigenständig denkst."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:europaweit",
+  "term": "europaweit",
+  "en": "Europewide",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Across the whole of Europe.",
+   "field": "Adjectives",
+   "ex_de": [
+    "Der Baukonzern will europaweit alle lokalen Arbeitnehmervertreter in transparenter Weise zu diesem Thema informieren und Vorschläge zur Verbesserung der Arbeitsbedingungen, der Vermeidung von Arbeitsunfällen und berufsbedingten Gefahren prüfen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Konstellation",
+  "term": "die Konstellation",
+  "en": "constellation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A particular arrangement of factors; also a group of stars.",
+   "field": "Miscellaneous",
+   "ex_de": [
+    "„Kennt man die Ursache dieser Pestilenz?“ – „Die Gelehrten der Universitäten von Paris vermuten, die Ursache dieses Übels sei eine besonders ungünstige Konstellation des Jupiter, des Saturn und des Mars.“"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Novelle",
+  "term": "die Novelle",
+  "en": "novella",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A short prose story, longer than a short story but shorter than a novel.",
+   "field": "Miscellaneous",
+   "ex_de": [
+    "Die Novelle wurde das erste Mal 1789 vorgelegt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Resolution",
+  "term": "die Resolution",
+  "en": "resolution",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A formal decision agreed by an official body.",
+   "field": "Miscellaneous",
+   "ex_de": [
+    "Bei der Abfassung der Resolution war Tom federführend."
+   ]
+  }
+ }
+]

@@ -29,8 +29,21 @@ npm run corpus:build -- --write                       # apply to public/data/*
 npm run corpus:build -- --level=A1 --limit=300 --write # one reviewable batch
 npm run corpus:build -- --llm --write                 # enable the offline LLM layer
 npm run corpus:crosscheck  # cross-check corpus gender/plural vs the categorized wordlist
+npm run corpus:examples    # example coverage per level (--list for the thin cards)
+npm run corpus:casefix     # dry run: lowercase miscased headwords, merge the duplicates
+npm run corpus:casefix -- --write                     # apply + regenerate src/data/idmap.ts
 npm run corpus:validate    # Goal 6: schema/dupe/distribution/probe + gzip size
 npm run corpus:validate -- --strict --sample=15       # gate on warnings, larger spot-check
+```
+
+Authoring the fields no open source covers (definitions, second examples,
+synonyms) runs beside this pipeline — see
+[`../authoring/card-authoring.md`](../authoring/card-authoring.md):
+
+```bash
+npm run authoring:input -- --level C1 --need ex,syn --size 120 \
+  --out scripts/authoring/batches/inputs/c1-ex     # cards still missing a field
+npm run authoring:apply -- <patch.tsv> --level C1 --dry   # fill-only, never overwrites
 ```
 
 Recommended loop: `fetch` → `coverage` (see the holes) → `build` batch (dry) →

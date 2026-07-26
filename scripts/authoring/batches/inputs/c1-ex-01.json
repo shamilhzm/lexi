@@ -1,0 +1,2162 @@
+[
+ {
+  "id": "voc:C1:die Fragestellung",
+  "term": "die Fragestellung",
+  "en": "research question",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The central question that a study or investigation sets out to answer.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Die Fragestellung der Studie war von Anfang an zu breit angelegt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die These",
+  "term": "die These",
+  "en": "thesis, claim",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A statement put forward as an idea to be argued and defended.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Seine These hielt der empirischen Überprüfung nicht stand."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Stichprobe",
+  "term": "die Stichprobe",
+  "en": "sample",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A small group selected to represent a larger whole in a study.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Bei einer so kleinen Stichprobe sind die Ergebnisse kaum belastbar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Auswertung",
+  "term": "die Auswertung",
+  "en": "analysis, evaluation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The careful examination of data to draw conclusions.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Die Auswertung der Daten dauerte länger als die Erhebung selbst."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Erkenntnis",
+  "term": "die Erkenntnis",
+  "en": "insight, finding",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A piece of knowledge gained through study or reflection.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Die zentrale Erkenntnis der Untersuchung widerspricht der bisherigen Lehrmeinung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Quellenangabe",
+  "term": "die Quellenangabe",
+  "en": "citation, reference",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A note stating where information or a quotation comes from.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Ohne vollständige Quellenangaben wird die Arbeit nicht angenommen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:herleiten",
+  "term": "herleiten",
+  "en": "to derive",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To work out or trace something logically from a source or principle.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Die Formel lässt sich aus wenigen Grundannahmen herleiten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:nachvollziehbar",
+  "term": "nachvollziehbar",
+  "en": "comprehensible, traceable",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Able to be understood or followed step by step.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Ihre Argumentation ist schlüssig und für Laien nachvollziehbar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:fundiert",
+  "term": "fundiert",
+  "en": "well-founded, sound",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Firmly based on solid knowledge or evidence.",
+   "field": "Academic Work",
+   "ex_de": [
+    "Er lieferte eine fundierte Kritik an der Methodik."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Integrität",
+  "term": "die Integrität",
+  "en": "integrity",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of being honest and holding firm moral principles.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Wissenschaftliche Integrität verlangt, auch unliebsame Ergebnisse zu veröffentlichen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Plagiat",
+  "term": "das Plagiat",
+  "en": "plagiarism",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The act of presenting someone else's work or ideas as one's own.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Wegen eines nachgewiesenen Plagiats verlor er den Doktortitel."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Verzerrung",
+  "term": "die Verzerrung",
+  "en": "bias, distortion",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A twisting of facts that gives a false or one-sided picture.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Die Auswahl der Teilnehmer führte zu einer systematischen Verzerrung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Interessenkonflikt",
+  "term": "der Interessenkonflikt",
+  "en": "conflict of interest",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A clash between one's duty and one's personal interests.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Die Autorin legte ihren Interessenkonflikt offen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Transparenz",
+  "term": "die Transparenz",
+  "en": "transparency",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Openness that allows others to see how decisions are made.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Volle Transparenz über die Rohdaten schafft Vertrauen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:manipulieren",
+  "term": "manipulieren",
+  "en": "to manipulate, falsify",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To influence or alter something dishonestly for one's own ends.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Wer Messwerte manipuliert, riskiert seine gesamte Karriere."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:fälschen",
+  "term": "fälschen",
+  "en": "to fabricate, falsify",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To make a false copy or alter something in order to deceive.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Er hatte Ergebnisse gefälscht, um die Förderung zu behalten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:fragwürdig",
+  "term": "fragwürdig",
+  "en": "questionable, dubious",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Open to doubt; likely to be unreliable or improper.",
+   "field": "Research Ethics",
+   "ex_de": [
+    "Die Studie beruht auf methodisch fragwürdigen Annahmen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Wissenschaftskommunikation",
+  "term": "die Wissenschaftskommunikation",
+  "en": "science communication",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The work of explaining research to a wider public.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Gute Wissenschaftskommunikation übersetzt Fachwissen in Alltagssprache."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Laie",
+  "term": "der Laie",
+  "en": "layperson",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A person without expert knowledge of a particular subject.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Für Laien ist der Unterschied kaum zu erkennen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Skepsis",
+  "term": "die Skepsis",
+  "en": "scepticism",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A doubting attitude that questions claims before accepting them.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Eine gesunde Skepsis gegenüber einfachen Antworten ist angebracht."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Verständlichkeit",
+  "term": "die Verständlichkeit",
+  "en": "intelligibility, clarity",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of being easy to understand.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Der Text wurde zugunsten der Verständlichkeit stark gekürzt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Förderung",
+  "term": "die Förderung",
+  "en": "funding, promotion",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Financial or practical support given to help something develop.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Ohne staatliche Förderung wäre das Projekt nie zustande gekommen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:vermitteln",
+  "term": "vermitteln",
+  "en": "to convey, communicate",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To pass on knowledge or a message; also to mediate.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Sie versteht es, komplexe Zusammenhänge anschaulich zu vermitteln."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:anerkannt",
+  "term": "anerkannt",
+  "en": "recognised, established",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Widely accepted as valid or of good standing.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Das Verfahren ist international anerkannt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:allgemeinverständlich",
+  "term": "allgemeinverständlich",
+  "en": "accessible to all",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Expressed so that everyone can understand it.",
+   "field": "Science & Public",
+   "ex_de": [
+    "Das Buch erklärt die Quantenphysik allgemeinverständlich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Wortschatz",
+  "term": "der Wortschatz",
+  "en": "vocabulary",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The whole set of words a person or language has.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Ihr aktiver Wortschatz wächst mit jedem gelesenen Roman."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Grammatik",
+  "term": "die Grammatik",
+  "en": "grammar",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The rules that govern how words combine in a language.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Die deutsche Grammatik gilt als schwierig, folgt aber klaren Regeln."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Aussprache",
+  "term": "die Aussprache",
+  "en": "pronunciation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The way in which a word or language is spoken.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "An seiner Aussprache erkennt man den süddeutschen Einschlag."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Dialekt",
+  "term": "der Dialekt",
+  "en": "dialect",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A local form of a language with its own words and sounds.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Im Dorf sprechen die Älteren noch den alten Dialekt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Muttersprache",
+  "term": "die Muttersprache",
+  "en": "native language",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The first language a person learns as a child.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Sie übersetzt ausschließlich in ihre Muttersprache."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Sprachkompetenz",
+  "term": "die Sprachkompetenz",
+  "en": "language competence",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A person's overall ability to use a language.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Für das Stipendium ist eine hohe Sprachkompetenz nachzuweisen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:erwerben",
+  "term": "erwerben",
+  "en": "to acquire",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To gain or come to possess something through effort.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Kinder erwerben ihre Erstsprache ohne bewussten Aufwand."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:fließend",
+  "term": "fließend",
+  "en": "fluent",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Able to speak or write a language easily and smoothly.",
+   "field": "Language Acquisition & Linguistics",
+   "ex_de": [
+    "Nach zwei Jahren in Wien spricht er fließend Deutsch."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Andeutung",
+  "term": "die Andeutung",
+  "en": "hint, implication",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "An indirect sign that suggests something without stating it.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Er machte nur eine vage Andeutung über seine Pläne."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Tonfall",
+  "term": "der Tonfall",
+  "en": "tone of voice",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The way the voice sounds, showing feeling or attitude.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Ihr Tonfall verriet, dass sie verärgert war."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Höflichkeit",
+  "term": "die Höflichkeit",
+  "en": "politeness",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Behaviour that shows good manners and respect.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Er erkundigte sich aus reiner Höflichkeit nach dem Projekt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Missverständnis",
+  "term": "das Missverständnis",
+  "en": "misunderstanding",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A failure to understand something correctly.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Das Missverständnis ließ sich schnell aus der Welt schaffen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Anspielung",
+  "term": "die Anspielung",
+  "en": "allusion",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "An indirect reference to something without naming it directly.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Seine Rede war voller Anspielungen auf die Klassiker."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:andeuten",
+  "term": "andeuten",
+  "en": "to imply, hint at",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To suggest something indirectly rather than stating it.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Sie deutete an, dass sie kündigen wolle."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:umschreiben",
+  "term": "umschreiben",
+  "en": "to paraphrase",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To express something using different words.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Wenn dir ein Wort fehlt, kannst du es einfach umschreiben."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:missverständlich",
+  "term": "missverständlich",
+  "en": "ambiguous, confusing",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Easily understood in more than one way; open to confusion.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Die Formulierung war missverständlich und wurde korrigiert."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:implizit",
+  "term": "implizit",
+  "en": "implicit",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Suggested or understood without being directly stated.",
+   "field": "Pragmatics & Communication",
+   "ex_de": [
+    "Die Kritik war nur implizit, aber jeder verstand sie."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Amtssprache",
+  "term": "die Amtssprache",
+  "en": "official language",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A language given legal status for use in government.",
+   "field": "Language Policy",
+   "ex_de": [
+    "In der Schweiz gibt es vier Amtssprachen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Sprachpflege",
+  "term": "die Sprachpflege",
+  "en": "language preservation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The effort to maintain and protect the quality of a language.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Der Verein hat sich der Sprachpflege verschrieben."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Anglizismus",
+  "term": "der Anglizismus",
+  "en": "anglicism",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "An English word or phrase borrowed into another language.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Manche Anglizismen wirken im Deutschen längst selbstverständlich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Sprachvielfalt",
+  "term": "die Sprachvielfalt",
+  "en": "linguistic diversity",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The existence of many different languages in a place.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Die Sprachvielfalt Europas ist ein kulturelles Erbe."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Sprachverfall",
+  "term": "der Sprachverfall",
+  "en": "language decline",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The perceived worsening or decay of a language over time.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Vom angeblichen Sprachverfall ist seit Jahrhunderten die Rede."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:bewahren",
+  "term": "bewahren",
+  "en": "to preserve",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To keep something safe and unchanged over time.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Die Minderheit kämpft darum, ihre Sprache zu bewahren."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:aussterben",
+  "term": "aussterben",
+  "en": "to die out (language)",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To cease to exist completely, as a species or language.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Alle zwei Wochen stirbt irgendwo eine Sprache aus."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:normativ",
+  "term": "normativ",
+  "en": "normative, prescriptive",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Setting out how things should be, not just how they are.",
+   "field": "Language Policy",
+   "ex_de": [
+    "Der Duden versteht sich heute weniger normativ als beschreibend."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Norm",
+  "term": "die Norm",
+  "en": "norm",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A standard or rule that is regarded as usual or expected.",
+   "field": "Changing Values",
+   "ex_de": [
+    "Was als sprachliche Norm gilt, verschiebt sich ständig."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Überzeugung",
+  "term": "die Überzeugung",
+  "en": "conviction, belief",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A firmly held belief or opinion.",
+   "field": "Changing Values",
+   "ex_de": [
+    "Sie vertrat ihre Überzeugung auch gegen Widerstand."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Selbstverwirklichung",
+  "term": "die Selbstverwirklichung",
+  "en": "self-realisation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The fulfilment of one's own talents and potential.",
+   "field": "Changing Values",
+   "ex_de": [
+    "Für viele steht Selbstverwirklichung über Sicherheit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Traditionsbewusstsein",
+  "term": "das Traditionsbewusstsein",
+  "en": "sense of tradition",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "An awareness of and respect for inherited customs.",
+   "field": "Changing Values",
+   "ex_de": [
+    "In der Region ist das Traditionsbewusstsein besonders ausgeprägt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Umbruch",
+  "term": "der Umbruch",
+  "en": "upheaval, radical change",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A time of great and sudden change.",
+   "field": "Changing Values",
+   "ex_de": [
+    "Die Branche befindet sich in einem tiefgreifenden Umbruch."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich wandeln",
+  "term": "sich wandeln",
+  "en": "to change, transform",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To gradually take on a different form or character.",
+   "field": "Changing Values",
+   "ex_de": [
+    "Das Rollenbild hat sich innerhalb einer Generation gewandelt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:überholt",
+  "term": "überholt",
+  "en": "outdated",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "No longer suitable because newer things have replaced it.",
+   "field": "Changing Values",
+   "ex_de": [
+    "Solche Vorstellungen gelten heute als überholt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Generationengerechtigkeit",
+  "term": "die Generationengerechtigkeit",
+  "en": "intergenerational justice",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Fairness between the young and the old, now and in the future.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Die Klimapolitik ist auch eine Frage der Generationengerechtigkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Babyboomer",
+  "term": "die Babyboomer",
+  "en": "baby boomers",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The large generation born in the years after the Second World War.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Wenn die Babyboomer in Rente gehen, fehlen Millionen Arbeitskräfte."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Zeitgeist",
+  "term": "der Zeitgeist",
+  "en": "zeitgeist, spirit of the age",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The mood and ideas that define a particular period.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Der Roman trifft den Zeitgeist der Achtziger perfekt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Lebensweise",
+  "term": "die Lebensweise",
+  "en": "way of life",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The manner in which a person or group lives.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Die städtische Lebensweise unterscheidet sich stark vom Dorfleben."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Kluft",
+  "term": "die Kluft",
+  "en": "gulf, divide",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A deep gap or difference between people or groups.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Die Kluft zwischen Arm und Reich vertieft sich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich entfremden",
+  "term": "sich entfremden",
+  "en": "to become estranged",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To grow apart from someone or something once close.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Über die Jahre hatten sich Vater und Sohn entfremdet."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:prägend",
+  "term": "prägend",
+  "en": "formative, defining",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Having a strong, lasting influence on how something develops.",
+   "field": "Generations & Society",
+   "ex_de": [
+    "Die Lehrjahre in Paris waren für ihr Werk prägend."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Bürgerinitiative",
+  "term": "die Bürgerinitiative",
+  "en": "citizens’ initiative",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A group of citizens organising to influence a public issue.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Eine Bürgerinitiative verhinderte den Bau der Umgehungsstraße."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Spende",
+  "term": "die Spende",
+  "en": "donation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Money or goods given freely to help a cause.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Der Verein finanziert sich ausschließlich aus Spenden."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Protest",
+  "term": "der Protest",
+  "en": "protest",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A public expression of strong objection.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Der Protest gegen die Schließung blieb friedlich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Mitbestimmung",
+  "term": "die Mitbestimmung",
+  "en": "co-determination, participation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The right to take part in decisions that affect one.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Die Beschäftigten fordern mehr Mitbestimmung im Betrieb."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich engagieren",
+  "term": "sich engagieren",
+  "en": "to get involved, commit",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To take an active part in something one cares about.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Sie engagiert sich seit Jahren in der Flüchtlingshilfe."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:sich einsetzen für",
+  "term": "sich einsetzen für",
+  "en": "to advocate for",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To work actively in support of a person or cause.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Er setzt sich für bezahlbaren Wohnraum ein."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:gemeinnützig",
+  "term": "gemeinnützig",
+  "en": "non-profit, charitable",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Working for the public good rather than for profit.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Die Stiftung ist als gemeinnützig anerkannt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:engagiert",
+  "term": "engagiert",
+  "en": "committed, dedicated",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Showing strong commitment and active involvement.",
+   "field": "Civil Society & Engagement",
+   "ex_de": [
+    "Ohne die engagierten Helfer wäre das Fest nicht möglich gewesen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Empfänger",
+  "term": "der Empfänger",
+  "en": "recipient",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The person who receives something, such as a letter or payment.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Der Empfänger hat die Nachricht noch nicht gelesen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Betreff",
+  "term": "der Betreff",
+  "en": "subject line",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The line in a letter or email that states its topic.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Wählen Sie einen aussagekräftigen Betreff für Ihre E-Mail."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Anrede",
+  "term": "die Anrede",
+  "en": "salutation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The words used to address someone at the start of a message.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Welche Anrede ist angemessen, wenn man den Namen nicht kennt?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Anlage",
+  "term": "die Anlage",
+  "en": "attachment, enclosure",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A document sent with a letter; also an investment or a facility.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Den Vertrag finden Sie in der Anlage dieser E-Mail."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Protokoll",
+  "term": "das Protokoll",
+  "en": "minutes, record",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A written record of what was said and decided at a meeting.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Wer führt heute das Protokoll der Sitzung?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:formulieren",
+  "term": "formulieren",
+  "en": "to formulate, word",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To put an idea into carefully chosen words.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Bitte formulieren Sie Ihre Kritik konkret und sachlich."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Anliegen",
+  "term": "das Anliegen",
+  "en": "request, concern",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A matter that someone wishes to raise or have dealt with.",
+   "field": "Business Correspondence",
+   "ex_de": [
+    "Schildern Sie Ihr Anliegen bitte in wenigen Sätzen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Argument",
+  "term": "das Argument",
+  "en": "argument",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A reason or set of reasons given to support a view.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Ihr stärkstes Argument hob sie sich für den Schluss auf."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Einwand",
+  "term": "der Einwand",
+  "en": "objection",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A reason given against a proposal or idea.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Gegen den Vorschlag gab es einen berechtigten Einwand."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Zugeständnis",
+  "term": "das Zugeständnis",
+  "en": "concession",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Something granted or given up to reach agreement.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Beide Seiten mussten Zugeständnisse machen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Standpunkt",
+  "term": "der Standpunkt",
+  "en": "position, standpoint",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The particular way a person views an issue.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Er vertrat seinen Standpunkt ruhig, aber bestimmt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Überzeugungskraft",
+  "term": "die Überzeugungskraft",
+  "en": "persuasiveness",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The power to make others believe or agree.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Ihrer Überzeugungskraft ist der Kompromiss zu verdanken."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:überzeugen",
+  "term": "überzeugen",
+  "en": "to convince",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To make someone believe something or agree to do it.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Mit Zahlen allein wirst du niemanden überzeugen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:widerlegen",
+  "term": "widerlegen",
+  "en": "to refute",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To prove that a statement or argument is wrong.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Die neue Studie widerlegt die alte Annahme eindeutig."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:stichhaltig",
+  "term": "stichhaltig",
+  "en": "cogent, valid",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Well reasoned and able to stand up to scrutiny.",
+   "field": "Negotiation & Argument",
+   "ex_de": [
+    "Ohne stichhaltige Beweise bleibt es eine Vermutung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Führungskraft",
+  "term": "die Führungskraft",
+  "en": "manager, executive",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A person who holds a leading position in an organisation.",
+   "field": "Leadership & Teamwork",
+   "ex_de": [
+    "Eine gute Führungskraft hört mehr zu, als sie redet."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Motivation",
+  "term": "die Motivation",
+  "en": "motivation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The reason or drive that makes someone act.",
+   "field": "Leadership & Teamwork",
+   "ex_de": [
+    "Nach dem Lob war ihre Motivation deutlich gestiegen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Wertschätzung",
+  "term": "die Wertschätzung",
+  "en": "appreciation, esteem",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The recognition of someone's or something's worth.",
+   "field": "Leadership & Teamwork",
+   "ex_de": [
+    "Ehrliche Wertschätzung wirkt stärker als jeder Bonus."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Konflikt",
+  "term": "der Konflikt",
+  "en": "conflict",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A serious disagreement or struggle between sides.",
+   "field": "Leadership & Teamwork",
+   "ex_de": [
+    "Der Konflikt im Team schwelte seit Monaten."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:motivieren",
+  "term": "motivieren",
+  "en": "to motivate",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To give someone a reason or drive to act.",
+   "field": "Leadership & Teamwork",
+   "ex_de": [
+    "Gute Chefs motivieren, statt Druck zu machen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:wertschätzend",
+  "term": "wertschätzend",
+  "en": "appreciative, respectful",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Showing recognition and respect for others.",
+   "field": "Leadership & Teamwork",
+   "ex_de": [
+    "Im Team pflegen wir einen wertschätzenden Umgangston."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Klimapolitik",
+  "term": "die Klimapolitik",
+  "en": "climate policy",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Government measures aimed at tackling climate change.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Die Klimapolitik der Regierung geht vielen nicht weit genug."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Grenzwert",
+  "term": "der Grenzwert",
+  "en": "limit value, threshold",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The maximum permitted level of something, such as a pollutant.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Die Stadt überschreitet regelmäßig die Grenzwerte für Feinstaub."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die CO2-Steuer",
+  "term": "die CO2-Steuer",
+  "en": "carbon tax",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A tax charged on the carbon dioxide that fuels release.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Die CO2-Steuer soll klimafreundliches Verhalten belohnen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Abkommen",
+  "term": "das Abkommen",
+  "en": "agreement, accord",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A formal arrangement agreed between parties or countries.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Das Abkommen wurde von fast allen Staaten unterzeichnet."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Auflage",
+  "term": "die Auflage",
+  "en": "requirement, condition",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "An official condition that must be met; also a print run.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Die Genehmigung ist mit strengen Auflagen verbunden."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:umsetzen",
+  "term": "umsetzen",
+  "en": "to implement",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To put a plan or decision into practice.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Die Reform wurde nur halbherzig umgesetzt."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:einhalten",
+  "term": "einhalten",
+  "en": "to comply with, adhere to",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To keep to a rule, promise, or deadline.",
+   "field": "Sustainability Policy",
+   "ex_de": [
+    "Viele Länder halten ihre Klimaziele nicht ein."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Gewissen",
+  "term": "das Gewissen",
+  "en": "conscience",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The inner sense of what is morally right and wrong.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Sein schlechtes Gewissen ließ ihm keine Ruhe."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Rechtfertigung",
+  "term": "die Rechtfertigung",
+  "en": "justification",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A reason given to show that something is right or reasonable.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Für diese Entscheidung gibt es keine Rechtfertigung."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:das Dilemma",
+  "term": "das Dilemma",
+  "en": "dilemma",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A difficult choice between two equally undesirable options.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Sie steckte im Dilemma zwischen Loyalität und Ehrlichkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Pflicht",
+  "term": "die Pflicht",
+  "en": "duty, obligation",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Something one is morally or legally bound to do.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Es ist unsere Pflicht, kommende Generationen mitzudenken."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Glaubwürdigkeit",
+  "term": "die Glaubwürdigkeit",
+  "en": "credibility",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The quality of being believable and trustworthy.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Wer Wasser predigt und Wein trinkt, verliert an Glaubwürdigkeit."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:abwägen",
+  "term": "abwägen",
+  "en": "to weigh up, consider",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To consider different factors carefully before deciding.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Wir müssen Nutzen und Risiken sorgfältig abwägen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:rechtfertigen",
+  "term": "rechtfertigen",
+  "en": "to justify",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To show or argue that something is right or reasonable.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Der Zweck allein rechtfertigt nicht jedes Mittel."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:moralisch",
+  "term": "moralisch",
+  "en": "moral, ethical",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Relating to right and wrong behaviour.",
+   "field": "Ethics & Responsibility",
+   "ex_de": [
+    "Rechtlich zulässig ist nicht immer moralisch vertretbar."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Einzelne",
+  "term": "der Einzelne",
+  "en": "the individual",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A single person considered separately from the group.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Was kann der Einzelne gegen den Klimawandel ausrichten?"
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Eigenverantwortung",
+  "term": "die Eigenverantwortung",
+  "en": "personal responsibility",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The duty to answer for one's own actions and choices.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Die Kampagne appelliert an die Eigenverantwortung der Bürger."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Systemwandel",
+  "term": "der Systemwandel",
+  "en": "systemic change",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A deep change affecting a whole system rather than its parts.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Aktivisten fordern einen echten Systemwandel statt kleiner Korrekturen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Wirkung",
+  "term": "die Wirkung",
+  "en": "effect, impact",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The change or result produced by a cause.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Die Wirkung der Maßnahme ließ sich erst nach Jahren messen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Strukturwandel",
+  "term": "der Strukturwandel",
+  "en": "structural change",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A lasting change in the basic make-up of an economy or society.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Der Strukturwandel im Ruhrgebiet dauert bis heute an."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:bewirken",
+  "term": "bewirken",
+  "en": "to bring about, effect",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To cause something to happen.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Ein einzelnes Gespräch kann mehr bewirken als hundert Plakate."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:beitragen zu",
+  "term": "beitragen zu",
+  "en": "to contribute to",
+  "pos": "verb",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "To help bring about a result.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Jeder kann etwas zum Gelingen beitragen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:wirkungslos",
+  "term": "wirkungslos",
+  "en": "ineffective",
+  "pos": "adjective",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "Producing no effect or result.",
+   "field": "Individual & System",
+   "ex_de": [
+    "Appelle allein bleiben oft wirkungslos."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Weltmarkt",
+  "term": "der Weltmarkt",
+  "en": "global market",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The worldwide buying and selling of goods and services.",
+   "field": "Global Economy",
+   "ex_de": [
+    "Auf dem Weltmarkt sind die Preise für Kaffee gestiegen."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Arbeitsteilung",
+  "term": "die Arbeitsteilung",
+  "en": "division of labour",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The splitting of work into separate tasks done by different people.",
+   "field": "Global Economy",
+   "ex_de": [
+    "Die internationale Arbeitsteilung macht Volkswirtschaften voneinander abhängig."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:der Standortvorteil",
+  "term": "der Standortvorteil",
+  "en": "locational advantage",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "A benefit a place offers for business over others.",
+   "field": "Global Economy",
+   "ex_de": [
+    "Niedrige Energiekosten sind ein klarer Standortvorteil."
+   ]
+  }
+ },
+ {
+  "id": "voc:C1:die Abhängigkeit",
+  "term": "die Abhängigkeit",
+  "en": "dependence",
+  "pos": "noun",
+  "level": "C1",
+  "need": [
+   "ex",
+   "syn"
+  ],
+  "have": {
+   "def": "The state of relying on someone or something; also addiction.",
+   "field": "Global Economy",
+   "ex_de": [
+    "Die Abhängigkeit von einzelnen Lieferanten wurde zum Risiko."
+   ]
+  }
+ }
+]

@@ -299,6 +299,75 @@ nobody re-implements them:
   total — today serves the oldest 60. The rest keep."). FSRS tolerates the delay
   by design. New fake-timer test (70 overdue → 60 served / 70 reported); 58/58.
 
+### Shipped 2026-07-25 / 26 — the design + IA pass
+
+- **Typeface, surface hierarchy, working phone layout.** IBM Plex Mono + Fraunces
+  self-hosted (the terminal identity only existed on macOS; Fraunces was fetched
+  every load and never painted). Extracted `Button/Card/Chip/IconButton/Kicker`
+  over ~41 retyped class strings. Fixed four real bugs: every view root overflowed
+  a phone viewport (`mx-auto` on a flex item sizes to max-content), the word map
+  drew 30 nodes on one ring, deck coverage bars had an invisible track, the
+  maskable icon had no safe zone. Added hash routing (the Android back gesture
+  used to close the installed PWA) and closed the a11y gaps — pinch-zoom,
+  `lang="de"`, a real dialog drawer with focus trap and `inert`, a focusable flip
+  card, 44pt targets, labels, skip link, `jsx-a11y` to hold the line.
+- **Paper card tried and reverted** — see Parked decisions; the card is now
+  distinguished by *material* inside one palette, and the rule it produced
+  (*a nested scope may change ground and ink, never the brand hue*) is in
+  [DESIGN.md](DESIGN.md). Light gained the three-step elevation ramp dark already
+  had, reserving pure white for the study surface.
+- **Two rooms, three destinations.** The session is its own room (early return in
+  `App.tsx`, no sidebar/ticker/bottom bar) — one aesthetic cannot serve both
+  scanning a heatmap and studying a single word. Nine surfaces collapse to
+  **Today · Progress · Library**; Explore's hand-rolled `useState` back-stack
+  became real routing, so a filtered deck list is linkable. Added ratcheted
+  sector completion — the app finally contains something you can finish.
+- **Provenance on every session item.** `SessionItem` carries a *required*
+  discriminated `reason`, enforced at all seven construction sites: nothing
+  enters a session without declaring why. Rendered as "because you just learned
+  *obwohl*" / "you've missed Kasus 4× this month", with the line that names a
+  weakness doubling as the way into the rule. Silence stays the answer for fresh
+  cards and on-time reviews.
+
+### Shipped 2026-07-26 — the example pass
+
+- **C1/C2 example + synonym pass** (was Next). Authored a second usage example for
+  all **680** cards that shipped with one (C1 466 · C2 214) plus **426** synonym
+  sets where they genuinely exist — never forced, since a loose pair mistaught in a
+  learning tool is worse than a blank. **Every card at every level now carries ≥2
+  examples** (mean 2.70 A1 → 2.00 C2). Fill-only application, verified: 0 existing
+  examples overwritten, 0 ids changed, 0 other fields touched.
+  Two maintainer helpers close the loop the authoring pipeline was missing:
+  `authoring:input` (`make-input.ts` — selects the cards missing a field and
+  splits them into reviewable batches) and a `.tsv` patch format in
+  `apply-authored.ts` (`term ⇥ de ⇥ en ⇥ syn|syn`), which reads better in review
+  than nested JSON. Batches kept as `scripts/authoring/batches/c{1,2}-ex-*.tsv`.
+- **`corpus:examples` audit** (the measurement half of *Example coverage
+  backfill*). Per-level table of `ex=0` / `ex=1` / mean / thin %, `--list` for the
+  authoring queue, non-zero exit at any zero-example card. `corpus:validate` now
+  **fails** at zero examples and **warns** under two — the standard can't quietly
+  slip again. *Not built:* the build-time source merging that item also proposed
+  (Tatoeba cap raise → Wiktextract usage examples → conjugation-derived
+  sentences). It was aimed at the same outcome, which authoring reached directly;
+  reach for it only if a future batch is too large to author.
+- **Capitalisation defect found and fixed** (not previously on this list). A legacy
+  import batch had entered **91 adjectives/verbs/adverbs with capitalised
+  headwords** ("Rot", "Wütend", "Packen") under its own sector names ("Colors" vs
+  "Colours") — and **62 of them duplicated a correct lowercase card**, so the
+  learner was shown *Rot* and *rot* as two cards to schedule separately. German
+  writes these lowercase and the card face is where the spelling is read, so this
+  taught the error. `corpus:casefix` deletes the duplicates, lowercases the 29
+  unique ones, and keeps the **earlier** CEFR claim where a pair disagreed (5
+  cards, e.g. *nah* back to A1). Corpus **7,464 → 7,402** cards; sector counts
+  rebuilt in place; `corpus:validate` **PASS** (was 1 hard error). Multi-word
+  headwords are exempt — "Rad fahren" opens with a noun — and validate now errors
+  on a capitalised single-word adj/verb/adverb so the batch can't return.
+- **Card ids survive corpus corrections.** Renaming or merging a card id used to
+  reset that card's FSRS schedule to *new*, silently. `casefix` emits
+  `src/data/idmap.ts`; `hydrate()` folds stored schedules onto the new ids (the
+  more-practised one wins where both exist). 3 tests, including guards that no
+  mapped id is still in the corpus and no target is dangling.
+
 ---
 
 ## Now
@@ -393,16 +462,9 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
   *Touches:* `src/lib/illustration.tsx`, `views/Review.tsx`, `views/Markt.tsx`,
   `views/Wortkarte.tsx`.
 
-- **C1/C2 example + synonym pass** (M, Claude-authored owned data). *Why:* A1–B2
-  now carry two hand-authored examples each (and synonyms where genuine); C1/C2
-  definitions are done but most cards still have <2 examples (C1 466/606, C2
-  214/220 at last count). *Do:* author a clean second example (`lvl` matching the
-  card level) for every C1/C2 card under two, plus synonyms only where they truly
-  exist — never force loose pairs, which mislead in a learning tool. Batch as
-  `scripts/authoring/batches/c1-ex-*.json` / `c2-ex-*.json`, apply fill-only via
-  `apply-authored.ts`. *Done-when:* C1 and C2 both reach 0 cards under two
-  examples; integrity check shows 0 existing-example overwrites and unchanged ids.
-  *Touches:* `scripts/authoring/batches/`, `public/data/vocab.json`.
+_C1/C2 example + synonym pass shipped 2026-07-26 — every level now carries ≥2
+examples per card. The remaining example work is **quality, not coverage**: see
+"Example first-impressions sweep" below._
 
 - **Friend-readiness leftovers** (S each — from the sharing analysis +
   [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
@@ -415,19 +477,21 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
   offer HD voice in context at first pronunciation tap instead of hiding it in
   Settings; same-day session resume (persist queue ids + position). And S3: a
   one-time backup nudge after the first week.
-- **Example coverage backfill** (M). *Why:* the consolidated study card folds
-  examples onto the back, which exposed that ~46% of word cards ship a single
-  example and 79 (all A1/A2) ship none — a thin connection between word and real
-  use. *Do:* treat examples like leveling — measure, source, gate. Add a
-  `corpus:examples` audit (sibling of `coverage.ts`) reporting `<2` and `=0` cards
-  by level; in `build.ts` merge sources to a target of ≥2 per card (Tatoeba, cap
-  raised to 3 → Wiktextract usage examples → for verbs a conjugation-derived
-  sentence, deduped, bilingual preferred); add a `validate` warning at `<2` and a
-  `--strict` failure at `0`; author the residue no open corpus covers via the
-  build-time `--llm` layer (human-reviewed, never hand-edited JSON). *Done-when:*
-  0 cards with 0 examples, `<2` count reported and trending down, validate clean.
-  *Touches:* `scripts/corpus/{build,coverage,validate}.ts`, new
-  `scripts/corpus/examples.ts`, `public/data/vocab.json`.
+- **Example first-impressions sweep** (M, human-gated — successor to *Example
+  coverage backfill*, whose coverage half shipped 2026-07-26). *Why:* coverage is
+  solved (≥2 everywhere), but the *first* example is the one the card face shows,
+  and a scan of the shipped set finds **361 cards whose first example reads like a
+  scrape rather than a teaching sentence**: 243 with no sentence-final punctuation
+  ("geltende Vorschriften."), 163 over 140 characters (a full news paragraph on
+  *einflussreich*), 86 opening mid-quotation, and 3 in 19th-century orthography
+  (*augenſcheinlich*). These are mostly A1–B2 — exactly where a learner is least
+  able to absorb a citation. *Do:* extend `corpus:examples` with a
+  first-impression lint on those four signals; where a card's *second* example is
+  the better teaching sentence, reorder rather than rewrite (free, no authoring);
+  author replacements only for what reordering can't fix; add the lint to
+  `validate --strict`. *Done-when:* 0 cards whose first example trips the lint;
+  spot-check confirms the reordering didn't bury a better sentence.
+  *Touches:* `scripts/corpus/{examples,validate}.ts`, `public/data/vocab.json`.
 
 _README refresh + store/session tests (incl. the `buildMixedSession` and streak
 follow-on) shipped 2026-07-11._

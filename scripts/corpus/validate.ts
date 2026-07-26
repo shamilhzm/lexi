@@ -32,6 +32,8 @@ const isArr = (v: unknown) => Array.isArray(v);
 
 interface Issue { id: string; msg: string; }
 
+const CASED_POS = new Set(['adjective', 'verb', 'adverb']);
+
 function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   const errors: Issue[] = [], warnings: Issue[] = [];
   for (const w of cards) {
@@ -47,7 +49,16 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     if (w.kind === 'word' && w.pos === 'noun' && !w.gender) warnings.push({ id, msg: 'noun without gender' });
     if (w.kind === 'word' && w.pos === 'noun' && !w.plural) warnings.push({ id, msg: 'noun without plural' });
     if (w.kind === 'word' && !w.ipa) warnings.push({ id, msg: 'no ipa' });
-    if (w.kind === 'word' && (!w.ex || !w.ex.length)) warnings.push({ id, msg: 'no example' });
+    // An example-less card is a bare gloss, so it fails outright; one example is
+    // a thin connection between word and use, so it only warns.
+    if (w.kind === 'word' && (!w.ex || !w.ex.length)) errors.push({ id, msg: 'no example' });
+    else if (w.kind === 'word' && w.ex.length < 2) warnings.push({ id, msg: 'fewer than two examples' });
+    // German writes adjectives, verbs and adverbs lowercase, and the card face is
+    // where the learner reads the spelling. Multi-word headwords are exempt:
+    // "Rad fahren" opens with a noun.
+    if (CASED_POS.has(w.pos) && !w.term.includes(' ') && /^[A-ZÄÖÜ]/.test(w.term)) {
+      errors.push({ id, msg: 'capitalised adjective/verb/adverb headword' });
+    }
     if (w.kind === 'word' && w.pos && !ALLOWED_POS.has(w.pos)) warnings.push({ id, msg: `pos "${w.pos}" outside new-card set` });
   }
   return { errors, warnings };
