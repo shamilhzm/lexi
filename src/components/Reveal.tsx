@@ -1,0 +1,131 @@
+// The reveal — the shared vocabulary for "here is the answer".
+//
+// Lexi had two wildly different answers to the same moment. Flip a card and you
+// got a translation, a definition, two bilingual examples, synonyms and antonyms.
+// Answer a transformation drill and you got `✗ Answer: du wirst müssen` and a Next
+// button. Same instant in the learning loop — the one where the encoding actually
+// happens — and one surface did nine times the teaching of the other.
+//
+// These are the pieces both surfaces build from, so the *anatomy* is consistent
+// even though the presentation isn't: a flip back is a card face you read, a drill
+// reveal is a block that grows under an exercise. Making the drill literally
+// flippable would have been the wrong fix — an exercise is already graded by the
+// time it resolves, so there is nothing behind it to turn over, and a flip
+// affordance would invite flipping *before* answering, which destroys the
+// retrieval attempt the drill exists to create.
+import { Volume2 } from 'lucide-react';
+import { speak } from '../lib/tts.ts';
+import Kicker from './ui/Kicker.tsx';
+import type { Example } from '../types.ts';
+
+/** Speak one German string. Small by design: these sit inline beside text rather
+ *  than acting as a primary control, so they take the 24px WCAG 2.5.8 floor
+ *  rather than the 44px one `IconButton` enforces for standalone targets. */
+export function SpeakButton({ text, label }: { text: string; label?: string }) {
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); speak(text); }}
+      aria-label={label ?? `Hear “${text}” in German`}
+      className="grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-amber
+        active:scale-95 transition-colors flex-shrink-0 align-middle">
+      <Volume2 size={14} />
+    </button>
+  );
+}
+
+/** A labelled block, separated by a hairline rather than by whitespace alone.
+ *
+ *  The old back face stacked five different kinds of information — translation,
+ *  definition, examples, synonyms, antonyms — as five centred spans with a uniform
+ *  `gap-2.5` between them. Nothing said which was which, so the definition sat in
+ *  the visual position of a subtitle and read as a *second translation*. */
+export function RevealBlock({ label, children, className = '' }: {
+  label?: string; children: React.ReactNode; className?: string;
+}) {
+  return (
+    <div className={`pt-3 mt-3 border-t border-line ${className}`}>
+      {label && <Kicker className="block mb-1.5">{label}</Kicker>}
+      {children}
+    </div>
+  );
+}
+
+/** Worked examples, as a dictionary sets them: the German on the line, its
+ *  translation indented beneath. Each German string is speakable — the moment you
+ *  learn what a word means is the moment you most want to hear it used, and the
+ *  front's pronunciation button disappeared on flip. */
+export function ExampleList({ items, max = 2 }: { items: Example[]; max?: number }) {
+  if (!items.length) return null;
+  return (
+    <ul className="space-y-2">
+      {items.slice(0, max).map((e, k) => (
+        <li key={k} className="text-sm leading-relaxed">
+          <span lang="de" className="text-txt">{e.de}</span>{' '}
+          <SpeakButton text={e.de} label={`Hear the example “${e.de}”`} />
+          {e.en && <span className="block text-dim italic pl-3.5 mt-0.5">{e.en}</span>}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Related German terms behind a mono label (SYN / OPP).
+ *
+ *  Prose labels ("Synonyms:", "Opposite:") were the only sentence-case labels on a
+ *  surface whose every other label is a mono kicker. */
+export function TermList({ label, terms, tone = 'txt' }: {
+  label: string; terms: string[]; tone?: 'txt' | 'red';
+}) {
+  if (!terms.length) return null;
+  return (
+    <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm">
+      <Kicker className="flex-shrink-0">{label}</Kicker>
+      <span lang="de" className={tone === 'red' ? 'text-red-txt' : 'text-txt'}>{terms.join(', ')}</span>
+    </p>
+  );
+}
+
+/** How the answer is built, as a formula: `wirst + müssen`.
+ *
+ *  This is the beat that was missing everywhere. A drill would state a verdict —
+ *  "Answer: du wirst müssen" — which tells a learner *what* without ever telling
+ *  them *why*, on the one screen where they are already paying full attention. */
+export function Derivation({ parts, note }: { parts: string[]; note?: string }) {
+  return (
+    <div>
+      <p lang="de" className="font-mono text-sm text-txt flex flex-wrap items-center gap-x-1.5 gap-y-1">
+        {parts.map((p, i) => (
+          <span key={i} className="flex items-center gap-1.5">
+            {i > 0 && <span aria-hidden className="text-dim">+</span>}
+            <span>{p}</span>
+          </span>
+        ))}
+      </p>
+      {note && <p className="text-dim text-xs mt-1">{note}</p>}
+    </div>
+  );
+}
+
+/** The full six-person paradigm, laid out the way a German table is —
+ *  singular in the left column, plural in the right.
+ *
+ *  `conjugate()` has computed all six forms all along and the drills used exactly
+ *  one of them, then threw the rest away. Showing them at the moment of a miss is
+ *  the difference between being corrected and being taught. */
+export function Paradigm({ rows }: { rows: [string, string][] }) {
+  const order = [0, 3, 1, 4, 2, 5]; // ich·wir / du·ihr / er·sie
+  return (
+    <div lang="de" className="grid grid-cols-2 gap-x-5 gap-y-1 font-mono text-xs">
+      {order.map((i) => {
+        const r = rows[i];
+        if (!r) return null;
+        return (
+          <p key={i} className="flex gap-1.5 min-w-0">
+            <span className="text-dim flex-shrink-0 w-8">{r[0]}</span>
+            <span className="text-txt truncate">{r[1]}</span>
+          </p>
+        );
+      })}
+    </div>
+  );
+}

@@ -6,10 +6,9 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
-import { haptic, tick } from '../lib/ui.ts';
+import { haptic, tick, genderColor } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG, modeRulePoint } from './Fundamentals.tsx';
-import { RuleToggle } from '../components/RulePanel.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
@@ -20,13 +19,14 @@ import { speak } from '../lib/tts.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
+import { SpeakButton, RevealBlock, ExampleList, TermList } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
+import Kicker from '../components/ui/Kicker.tsx';
 import type { Target } from '../types.ts';
 
-const GENDER_COLOR: Record<string, string> = { der: 'var(--color-der)', die: 'var(--color-die)', das: 'var(--color-das)' };
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
@@ -338,10 +338,11 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
               <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
               {/* A drill can arrive mid-session without the learner ever having
                   chosen the concept — this is the screen where a beginner meets
-                  "Nominativ" cold. Name it, and make the name open the rule. */}
-              {!grammarEx && item.type !== 'flip' && (
-                <div className="text-center mb-2.5"><RuleToggle pointRef={modeRulePoint(item.type)} label={MODE_TAG[item.type]} /></div>
-              )}
+                  "Nominativ" cold. Name it, and make the name open the rule.
+                  That header is now the *item's* (see DrillHeader): deriving it
+                  here from `item.type` could only ever name the mode, and three
+                  of the seven modes pick a different grammatical target on every
+                  card — so a Futur I prompt offered the Perfekt rule. */}
               {grammarEx
                 ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} point={{ level: card.level, title: card.term }} />
                 : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
@@ -378,7 +379,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
                 <span lang="de" className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
-                  {card.gender && <span style={{ color: GENDER_COLOR[card.gender] }}>{card.gender} </span>}
+                  {card.gender && <span style={{ color: genderColor(card.gender) }}>{card.gender} </span>}
                   {stripArticle(card.term, card.gender)}
                 </span>
                 {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
@@ -391,27 +392,83 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span lang="de" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {card.ex[0] && (
+                  <span className="max-w-[90%] flex items-baseline justify-center gap-1.5">
+                    <span lang="de" className="text-dim italic text-base leading-relaxed">{card.ex[0].de}</span>
+                    {/* Hearing the word *in a sentence* is how pronunciation is
+                        actually learned; the only speaker used to be on the bare
+                        headword. */}
+                    <SpeakButton text={card.ex[0].de} label={`Hear the example “${card.ex[0].de}”`} />
+                  </span>
+                )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>
-              {/* BACK — the reveal: translation + definition + worked examples + synonyms */}
-              <div className="flip-face flip-back border rounded-lg flex flex-col items-center justify-center gap-2.5 p-6 sm:p-8 text-center overflow-y-auto"
-                   style={{ background: 'var(--color-green-d)', borderColor: 'var(--color-green)' }}>
-                <span className="text-2xs text-dim font-mono uppercase tracking-widest">{grammar ? 'Rule' : 'Translation'}</span>
-                <span className={`headword font-bold text-green leading-tight break-words max-w-full px-2 ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
-                {card.def && <span className="text-txt text-sm leading-relaxed max-w-[92%]">{card.def}</span>}
-                {!grammar && card.ex.length > 0 && (
-                  <div className="w-full max-w-[94%] text-left mt-1 space-y-2">
-                    {card.ex.slice(0, 2).map((e, k) => (
-                      <div key={k} className="text-sm leading-relaxed">
-                        <div lang="de" className="text-txt">{e.de}</div>
-                        {e.en && <div className="text-dim italic">{e.en}</div>}
-                      </div>
-                    ))}
-                  </div>
+              {/* BACK — the reveal.
+                  Four things were wrong with the previous face, and all four came
+                  from the same idea: that the back is a different *thing*.
+
+                  1. It set `background: var(--color-green-d)` inline and so never
+                     applied `.bg-card` — no grain, no top-light gradient, only the
+                     `.flip-face` shadow. Turning the card over changed what it was
+                     made of, which is DESIGN.md §3 broken by the app's own hero
+                     object, and the `.paper` mistake in a different costume.
+                  2. Green is documented as the *status* colour ("gains / mastered").
+                     Painting the whole answer face in it delivers a verdict before
+                     any grading has happened — on a card you may be about to fail —
+                     and it collides with the drills' own green "correct" surface.
+                     Green now survives as an edge rule, the kicker and the ink.
+                  3. Three alignments in one 400px face: the face was `items-center
+                     text-center`, the examples block `text-left`, and the synonyms
+                     centred again. Nothing shared an edge.
+                  4. `justify-center` with `overflow-y-auto` scrolls from the middle,
+                     so a C1 card (definition + two bilingual examples + synonyms +
+                     antonyms) silently clipped at the top.
+
+                  The front is centred because it presents one object; the back is
+                  flush-left because it is an entry you read. That asymmetry is
+                  deliberate, and it replaces an accidental one. */}
+              <div className="flip-face flip-back bg-card border border-line border-l-4 rounded-lg
+                              flex flex-col items-stretch text-left p-5 sm:p-7 overflow-y-auto"
+                   style={{ borderLeftColor: 'var(--color-green)' }}>
+                <div className="flex items-center gap-2 mb-2.5">
+                  <Kicker tone="reward">{grammar ? 'Rule' : 'Answer'}</Kicker>
+                  {!grammar && (
+                    <>
+                      {/* The German stays in view at the reveal: seeing the pair
+                          together is the encoding, and the front's term vanished
+                          the instant you learned what it meant. */}
+                      <span aria-hidden className="text-dim text-2xs">·</span>
+                      {/* Gender ink survives the flip now. It used to live only on
+                          the front, so the article's colour — the most useful mark
+                          on a German card — vanished the moment you turned it. */}
+                      <span lang="de" className="font-mono text-2xs text-dim truncate">
+                        {card.gender && <span style={{ color: genderColor(card.gender) }}>{card.gender} </span>}
+                        {stripArticle(card.term, card.gender)}
+                      </span>
+                    </>
+                  )}
+                  <span className="ml-auto flex items-center flex-shrink-0">
+                    <SpeakButton text={card.term} label={`Hear “${card.term}” in German`} />
+                  </span>
+                </div>
+                <span className={`headword font-bold text-green leading-tight break-words ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
+                <Kicker className="block mt-1.5">
+                  {grammar ? 'Grammar' : card.pos} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
+                </Kicker>
+                {card.def && (
+                  <RevealBlock label={grammar ? 'How it works' : 'Definition'}>
+                    <p className="text-txt text-sm leading-relaxed whitespace-pre-line">{card.def}</p>
+                  </RevealBlock>
                 )}
-                {card.syn.length > 0 && <span className="text-xs text-dim">Synonyms: <span lang="de" className="text-txt">{card.syn.join(', ')}</span></span>}
-                {card.ant.length > 0 && <span className="text-xs text-dim">Opposite: <span lang="de" className="text-red-txt">{card.ant.join(', ')}</span></span>}
+                {!grammar && card.ex.length > 0 && (
+                  <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
+                )}
+                {(card.syn.length > 0 || card.ant.length > 0) && (
+                  <RevealBlock className="space-y-1.5">
+                    <TermList label="Syn" terms={card.syn} />
+                    <TermList label="Opp" terms={card.ant} tone="red" />
+                  </RevealBlock>
+                )}
               </div>
             </div>
           </SwipeCard>

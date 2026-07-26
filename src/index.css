@@ -72,8 +72,16 @@
 
   /* Grammatical gender ink. der/die/das were previously two tokens and one raw
      hex (#f472b6), so `die` was the only one that didn't follow the theme — and
-     on a light surface that pink fell below AA. Three tokens, three themes. */
-  --color-der: #3b82f6;
+     on a light surface that pink fell below AA. Three tokens, three themes.
+
+     `der` was #3b82f6, which measured 4.46 against --color-card: an AA failure at
+     small sizes that hid while gender ink only ever appeared as a 40px headword on
+     the flip front (large text needs 3:1). Putting the article on the reveal at
+     kicker size exposed it. #5a9bf8 measures 5.84 on card / 6.24 on panel / 7.01 on
+     bg, which also brings it into weight with die (6.19) and das (6.59) instead of
+     sitting a step darker than both. Side effect worth having: it no longer
+     collides with --color-a1, which was the identical hex for a different meaning. */
+  --color-der: #5a9bf8;
   --color-die: #f472b6;
   --color-das: #14b8a6;
 

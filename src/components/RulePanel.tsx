@@ -9,10 +9,10 @@
 // header ("what am I even practising?"), and a "Why?" link on a wrong answer
 // ("I got that wrong, explain it"). Neither interrupts the session — the panel
 // opens in place and the queue is untouched.
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, HelpCircle, X } from 'lucide-react';
-import { loadGrammar, findPoint, parsePointId, type GPoint } from '../lib/grammar.ts';
+import { loadGrammar, findPoint, parsePointId, type GPoint, type RuleSection } from '../lib/grammar.ts';
 import Card from './ui/Card.tsx';
 import IconButton from './ui/IconButton.tsx';
 import Kicker from './ui/Kicker.tsx';
@@ -38,6 +38,41 @@ export function usePoint(ref: { level: CEFR; title: string } | string | null) {
   return found;
 }
 
+/** One block of a sectioned rule: a mono kicker, prose, arrow-aligned pairs, and
+ *  glossed examples — in that order, because that is the order they teach in.
+ *
+ *  The arrow column is a real grid column rather than an inline "→", so five plural
+ *  patterns read as five scannable rows instead of a sentence you have to parse. */
+function Section({ s }: { s: RuleSection }) {
+  return (
+    <div className="pt-2.5 mt-2.5 border-t border-line first:border-0 first:pt-0 first:mt-0">
+      {s.label && <Kicker tone="accent" className="block mb-1">{s.label}</Kicker>}
+      {s.body && <p className="text-sm text-txt leading-relaxed">{s.body}</p>}
+      {s.pairs && s.pairs.length > 0 && (
+        <div lang="de" className={`grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-x-2 gap-y-1 text-sm ${s.body ? 'mt-1.5' : ''}`}>
+          {s.pairs.map((p, i) => (
+            <Fragment key={i}>
+              <span className="text-dim text-right">{p.from}</span>
+              <span aria-hidden className="text-amber">→</span>
+              <span className="text-txt">{p.to}</span>
+            </Fragment>
+          ))}
+        </div>
+      )}
+      {s.examples && s.examples.length > 0 && (
+        <ul className={`space-y-1 ${s.body || s.pairs ? 'mt-1.5' : ''}`}>
+          {s.examples.map((e, i) => (
+            <li key={i} className="text-sm leading-relaxed">
+              <span lang="de" className="text-txt">{e.de}</span>
+              {e.en && <span className="block text-dim italic text-xs">{e.en}</span>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 /** The rule card itself. `level` heads it so the learner can see whether this is
  *  something they’re meant to know yet. */
 export function RuleCard({ point, level, onClose }: { point: GPoint; level: CEFR; onClose?: () => void }) {
@@ -46,7 +81,7 @@ export function RuleCard({ point, level, onClose }: { point: GPoint; level: CEFR
       initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
       className="p-4 text-left">
-      <div className="flex items-start gap-2 mb-1.5">
+      <div className="flex items-start gap-2 mb-2">
         <BookOpen size={15} className="text-amber flex-shrink-0 mt-0.5" />
         <span className="flex-1 min-w-0">
           <span className="block text-sm font-semibold">{point.title}</span>
@@ -56,9 +91,13 @@ export function RuleCard({ point, level, onClose }: { point: GPoint; level: CEFR
           <IconButton label="Close rule" pull onClick={onClose}><X size={15} /></IconButton>
         )}
       </div>
-      <p className="text-xs text-dim mb-2">{point.summary}</p>
-      {/* whitespace-pre-line: several rules are multi-line conjugation tables. */}
-      <p className="text-sm text-txt whitespace-pre-line leading-relaxed">{point.rule}</p>
+      {/* The summary is the one-line version of the whole rule, so it leads rather
+          than sitting under the title as a caption in the smallest available size. */}
+      <p className="text-sm text-txt leading-relaxed mb-2.5">{point.summary}</p>
+      {point.sections?.length
+        ? <div>{point.sections.map((s, i) => <Section key={i} s={s} />)}</div>
+        // whitespace-pre-line: a few rules are multi-line conjugation tables.
+        : <p className="text-sm text-dim whitespace-pre-line leading-relaxed border-t border-line pt-2.5">{point.rule}</p>}
     </Card>
   );
 }
@@ -84,6 +123,22 @@ export function RuleToggle({ pointRef, label }: {
       </AnimatePresence>
     </div>
   );
+}
+
+/** What an exercise is testing, and the way into its rule.
+ *
+ *  Rendered by the item rather than by whatever is hosting it, because only the
+ *  item knows its *target*. The mixed session and the standalone drill both used
+ *  to render this themselves from the drill *mode* alone, which is how a card
+ *  asking for Futur I ended up offering the Perfekt rule: two call sites making
+ *  the same guess, wrong on three of the seven modes. See `TENSE_POINT`.
+ *
+ *  Lives here rather than beside the drills because both drill files need it and
+ *  they already import from each other in one direction. */
+export function DrillHeader({ pointRef, label }: {
+  pointRef: { level: CEFR; title: string } | string | null; label: string;
+}) {
+  return <div className="text-center mb-2.5"><RuleToggle pointRef={pointRef} label={label} /></div>;
 }
 
 /** The "Why?" affordance shown beside a wrong answer’s explanation. Collapsed by
