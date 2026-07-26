@@ -18,8 +18,8 @@
         "de": "Hast du ein Pflaster für meinen Finger?",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Hast du ein Pflaster für meinen Finger?",
+      "en": "Do you have a plaster for my finger?"
     },
     {
       "id": "voc:A2:der Unfall",
@@ -31,8 +31,8 @@
         "de": "Nach dem Unfall wurde er ins Krankenhaus gebracht.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Nach dem Unfall wurde er ins Krankenhaus gebracht.",
+      "en": "After the accident he was taken to hospital."
     },
     {
       "id": "voc:A2:das Vitamin",
@@ -44,8 +44,8 @@
         "de": "Obst enthält viele Vitamine.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Obst enthält viele Vitamine.",
+      "en": "Fruit contains a lot of vitamins."
     },
     {
       "id": "voc:A2:trainieren",
@@ -57,8 +57,8 @@
         "de": "Er trainiert dreimal pro Woche.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Er trainiert dreimal pro Woche.",
+      "en": "He trains three times a week."
     },
     {
       "id": "voc:A2:der Lohn",
@@ -70,8 +70,8 @@
         "de": "Sein Lohn wird wöchentlich ausgezahlt.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Sein Lohn wird wöchentlich ausgezahlt.",
+      "en": "His wages are paid out weekly."
     },
     {
       "id": "voc:A2:der Schrank",
@@ -83,8 +83,8 @@
         "de": "Die Kleider hängen im Schrank.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Kleider hängen im Schrank.",
+      "en": "The clothes are hanging in the wardrobe."
     },
     {
       "id": "voc:A2:das Regal",
@@ -96,8 +96,8 @@
         "de": "Die Bücher stehen im Regal.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Bücher stehen im Regal.",
+      "en": "The books are on the shelf."
     },
     {
       "id": "voc:A2:der Sessel",
@@ -109,8 +109,8 @@
         "de": "Mein Vater sitzt gern im Sessel.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Mein Vater sitzt gern im Sessel.",
+      "en": "My father likes sitting in the armchair."
     },
     {
       "id": "voc:A2:der Kühlschrank",
@@ -122,8 +122,8 @@
         "de": "Immer wenn man die Tür des Kühlschrankes öffnet, brennt darin Licht.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Immer wenn man die Tür des Kühlschrankes öffnet, brennt darin Licht.",
+      "en": "Whenever you open the fridge door, a light comes on inside."
     },
     {
       "id": "voc:A2:die Dusche",
@@ -135,8 +135,8 @@
         "de": "Ich nehme jeden Morgen eine Dusche.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ich nehme jeden Morgen eine Dusche.",
+      "en": "I take a shower every morning."
     },
     {
       "id": "voc:A2:das Kissen",
@@ -148,8 +148,8 @@
         "de": "Das Sofa hat bunte Kissen.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Das Sofa hat bunte Kissen.",
+      "en": "The sofa has colourful cushions."
     },
     {
       "id": "voc:A2:der Wecker",
@@ -161,8 +161,8 @@
         "de": "Mein Wecker klingelt um sechs Uhr.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Mein Wecker klingelt um sechs Uhr.",
+      "en": "My alarm clock goes off at six."
     },
     {
       "id": "voc:A2:aufräumen",
@@ -174,8 +174,8 @@
         "de": "Ich muss noch mein Zimmer aufräumen.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ich muss noch mein Zimmer aufräumen.",
+      "en": "I still have to tidy up my room."
     },
     {
       "id": "voc:B1:die Kneipe",
@@ -187,8 +187,8 @@
         "de": "„Die Kneipe war inzwischen voll geworden.“",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "„Die Kneipe war inzwischen voll geworden.“",
+      "en": "The pub had filled up by then."
     },
     {
       "id": "voc:B1:die Haltestelle",
@@ -200,8 +200,8 @@
         "de": "„An der nächsten Haltestelle verläßt er den Wagen, noch bevor der Schaffner merkt, daß er kein Billet gekauft hat.“",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "An der nächsten Haltestelle steigen wir aus.",
+      "en": "We're getting off at the next stop."
     },
     {
       "id": "voc:A2:die Bushaltestelle",
@@ -213,8 +213,8 @@
         "de": "Ich warte schon zwanzig Minuten an der Bushaltestelle.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ich warte schon zwanzig Minuten an der Bushaltestelle.",
+      "en": "I've been waiting at the bus stop for twenty minutes."
     },
     {
       "id": "voc:A2:die Bibliothek",
@@ -226,8 +226,8 @@
         "de": "Die Stadtbibliothek ist montags geschlossen.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Stadtbibliothek ist montags geschlossen.",
+      "en": "The city library is closed on Mondays."
     },
     {
       "id": "voc:A2:die Polizei",
@@ -239,8 +239,8 @@
         "de": "Die Polizei ist sehr schnell angekommen.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Polizei ist sehr schnell angekommen.",
+      "en": "The police arrived very quickly."
     },
     {
       "id": "voc:A2:wählen",
@@ -252,8 +252,8 @@
         "de": "Die Bürger wählen alle vier Jahre einen neuen Bundestag.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Bürger wählen alle vier Jahre einen neuen Bundestag.",
+      "en": "Citizens elect a new Bundestag every four years."
     },
     {
       "id": "voc:A2:der Staat",
@@ -265,8 +265,8 @@
         "de": "In der Not rufen Banken wieder nach dem Staat.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "In der Not rufen Banken wieder nach dem Staat.",
+      "en": "In a crisis, banks call on the state again."
     },
     {
       "id": "voc:A2:die Politik",
@@ -278,8 +278,8 @@
         "de": "Die Politik der Regierung ist umstritten.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Politik der Regierung ist umstritten.",
+      "en": "The government's policy is controversial."
     },
     {
       "id": "voc:A2:der Politiker",
@@ -291,8 +291,8 @@
         "de": "Der Politiker spricht über Bildungsreformen.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Der Politiker spricht über Bildungsreformen.",
+      "en": "The politician is speaking about education reforms."
     },
     {
       "id": "voc:A2:öffentlich",
@@ -304,8 +304,8 @@
         "de": "Die Sitzung ist öffentlich zugänglich.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Die Sitzung ist öffentlich zugänglich.",
+      "en": "The meeting is open to the public."
     },
     {
       "id": "voc:A2:kreativ",
@@ -317,8 +317,8 @@
         "de": "Malen ist eine kreative Freizeitbeschäftigung.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Malen ist eine kreative Freizeitbeschäftigung.",
+      "en": "Painting is a creative pastime."
     },
     {
       "id": "voc:A2:die Muskeln",
@@ -330,8 +330,8 @@
         "de": "Nach dem Training sind meine Muskeln müde.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Nach dem Training sind meine Muskeln müde.",
+      "en": "My muscles are tired after training."
     },
     {
       "id": "voc:A2:die Pause",
@@ -343,8 +343,8 @@
         "de": "Zwischen den Sätzen brauche ich eine kurze Pause.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Zwischen den Sätzen brauche ich eine kurze Pause.",
+      "en": "I need a short break between sets."
     },
     {
       "id": "voc:A2:der Sportverein",
@@ -356,8 +356,8 @@
         "de": "Er ist Mitglied in einem Sportverein.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Er ist Mitglied in einem Sportverein.",
+      "en": "He's a member of a sports club."
     },
     {
       "id": "voc:A2:die Sporttasche",
@@ -369,8 +369,8 @@
         "de": "„Bobby stopfte alles in eine leere Sporttasche und vergaß auch nicht, einen Dosenöffner mitzunehmen.“",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "„Bobby stopfte alles in eine leere Sporttasche und vergaß auch nicht, einen Dosenöffner mitzunehmen.“",
+      "en": "Bobby stuffed everything into an empty sports bag, and didn't forget to bring a can opener."
     },
     {
       "id": "voc:A2:die Sporttasche",
@@ -382,8 +382,8 @@
         "de": "„Er trägt einen Canada Goose Parka und stellt seine Sporttasche auf den frisch geflasterten Weg.“",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "„Er trägt einen Canada Goose Parka und stellt seine Sporttasche auf den frisch geflasterten Weg.“",
+      "en": "He's wearing a Canada Goose parka and sets his sports bag down on the freshly paved path."
     },
     {
       "id": "voc:A2:die Sportkleidung",
@@ -395,8 +395,8 @@
         "de": "Ich kaufe neue Sportkleidung für das Training.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ich kaufe neue Sportkleidung für das Training.",
+      "en": "I'm buying new sportswear for training."
     },
     {
       "id": "voc:A2:das Ziel",
@@ -408,8 +408,8 @@
         "de": "Mein Ziel ist es, einen Marathon zu laufen.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Mein Ziel ist es, einen Marathon zu laufen.",
+      "en": "My goal is to run a marathon."
     },
     {
       "id": "voc:A2:joggen",
@@ -421,8 +421,8 @@
         "de": "Ich jogge jeden Morgen eine Stunde.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ich jogge jeden Morgen eine Stunde.",
+      "en": "I jog for an hour every morning."
     },
     {
       "id": "voc:A2:radfahren",
@@ -434,8 +434,8 @@
         "de": "Im Sommer fahre ich jeden Tag Rad.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Im Sommer fahre ich jeden Tag Rad.",
+      "en": "In summer I cycle every day."
     },
     {
       "id": "voc:A2:aktiv",
@@ -447,8 +447,8 @@
         "de": "Ein aktiver Lebensstil ist gut für die Gesundheit.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ein aktiver Lebensstil ist gut für die Gesundheit.",
+      "en": "An active lifestyle is good for your health."
     },
     {
       "id": "voc:A2:der Freund",
@@ -460,8 +460,8 @@
         "de": "Ihr Freund kommt heute Abend.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ihr Freund kommt heute Abend.",
+      "en": "Her boyfriend is coming this evening."
     },
     {
       "id": "voc:A2:die Kollegin",
@@ -473,8 +473,8 @@
         "de": "Ich esse mit meiner Kollegin zu Mittag.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Ich esse mit meiner Kollegin zu Mittag.",
+      "en": "I have lunch with my colleague."
     },
     {
       "id": "voc:A2:das Paar",
@@ -486,8 +486,8 @@
         "de": "Das Paar tanzt sehr elegant.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Das Paar tanzt sehr elegant.",
+      "en": "The couple dance very elegantly."
     },
     {
       "id": "voc:A2:verlieben (sich)",
@@ -499,8 +499,8 @@
         "de": "Er hat sich sofort in sie verliebt.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Er hat sich sofort in sie verliebt.",
+      "en": "He fell in love with her straight away."
     },
     {
       "id": "voc:A2:kennenlernen",
@@ -512,8 +512,8 @@
         "de": "Wo habt ihr euch kennengelernt?",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Wo habt ihr euch kennengelernt?",
+      "en": "Where did you two meet?"
     },
     {
       "id": "voc:A2:die Regel",
@@ -525,8 +525,8 @@
         "de": "Jedes Spiel hat seine eigenen Regeln.",
         "en": ""
       },
-      "de": "",
-      "en": ""
+      "de": "Jedes Spiel hat seine eigenen Regeln.",
+      "en": "Every game has its own rules."
     }
   ]
 }
