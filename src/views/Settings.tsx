@@ -3,9 +3,10 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords } from '../store.ts';
+import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords, pace, setPace, PACE, statusOf, type Pace } from '../store.ts';
+import { WORDS } from '../data/index.ts';
 import { parsePack } from '../lib/classpack.ts';
 import { useStore } from '../useStore.ts';
 import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
@@ -39,6 +40,28 @@ export default function Settings() {
 
   const [theme, setTheme] = useState<ThemePref>(themePref());
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
+
+  const [pc, setPc] = useState<Pace>(pace());
+  const pickPace = (p: Pace) => { setPace(p); setPc(p); };
+
+  // A plain word list, for the tools Lexi is not: a spreadsheet, Anki, a printout
+  // for the fridge. exportData() is a backup blob meant only for Lexi to read
+  // back; this is the same knowledge in a format anything can open.
+  const exportWordList = () => {
+    const rows = [['German', 'English', 'Level', 'Status', 'Topic'].join('\t')];
+    for (const w of WORDS) {
+      if (w.kind !== 'word') continue;
+      const st = statusOf(w.id);
+      if (st === 'new') continue;   // a list of what you know, not the whole corpus
+      rows.push([w.term, w.en, w.level, st, w.field].map((c) => String(c).replace(/\t/g, ' ')).join('\t'));
+    }
+    const blob = new Blob([rows.join('\n')], { type: 'text/tab-separated-values' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `lexi-words-${new Date().toISOString().slice(0, 10)}.tsv`;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  };
 
   const [ret, setRet] = useState(retention());
   const pickRet = (r: number) => { setRetentionTarget(r); setRet(r); };
@@ -194,12 +217,36 @@ export default function Settings() {
           <Button variant="secondary" onClick={() => fileRef.current?.click()}>
             <Upload size={14} className="text-amber" /> Import backup
           </Button>
+          {/* A backup is only readable by Lexi. This is the same knowledge in a
+              format a spreadsheet, Anki or a printout can open. */}
+          <Button variant="quiet" onClick={exportWordList}>
+            <List size={14} /> Export word list
+          </Button>
           {/* Hidden, and driven by the button above — but it is still a real
               control in the tree, so it still needs a name. */}
           <input ref={fileRef} type="file" accept="application/json,.json" aria-label="Choose a Lexi backup file to import"
             onChange={onRestoreFile} className="hidden" tabIndex={-1} />
         </div>
         {restoreErr && <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5"><X size={14} /> {restoreErr}</p>}
+      </Card>
+
+      {/* Daily pace. The caps were good defaults and also a ceiling with no
+          override — an exam in three weeks could not ask for more. */}
+      <Card pad="none" className="p-4">
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-amber" /> Daily pace</h3>
+        <p className="text-dim text-xs mb-3 max-w-[60ch]">
+          How many new words a day, and how much of a backlog one day serves. The scheduler
+          is unaffected — FSRS tolerates delay by design, and a bigger budget only front-loads
+          what it would have shown you anyway.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {(Object.keys(PACE) as Pace[]).map((p) => (
+            <button key={p} onClick={() => pickPace(p)} aria-pressed={pc === p} className={toggle(pc === p)}>
+              {PACE[p].label}
+              <span className="font-mono text-2xs opacity-70">{PACE[p].fresh} new · {PACE[p].due} due</span>
+            </button>
+          ))}
+        </div>
       </Card>
 
       {/* Class packs. Local-first means there is no class to join — a file is the

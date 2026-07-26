@@ -24,6 +24,24 @@ const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
 const norm = (s: string) => canon(s)
   .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 
+/** Name the spelling that drifted on a near-miss.
+ *
+ *  Grading folds ä/ö/ü/ß to their ASCII digraphs so "schoen" is accepted for
+ *  "schön" — which is right, because the learner knew the word. But the message
+ *  was "Right — just the spelling: schön", and a learner who types "schoen" every
+ *  time is never told *which* part was the spelling. Forgiving an error silently
+ *  is how it becomes permanent.
+ *
+ *  Returns the substitutions actually needed, e.g. "oe → ö". Null when the two
+ *  differ some other way (case, spacing), where there is no lesson to name. */
+export function spellingDiff(typed: string, canonical: string): string | null {
+  const PAIRS: [string, string][] = [['ae', 'ä'], ['oe', 'ö'], ['ue', 'ü'], ['ss', 'ß']];
+  const t = canon(typed), c = canon(canonical);
+  const found = PAIRS.filter(([ascii, real]) => c.includes(real) && t.includes(ascii));
+  if (!found.length) return null;
+  return found.map(([ascii, real]) => `${ascii} → ${real}`).join(', ');
+}
+
 /** Progressive hint ladder for typed answers: shape → first letter → first
  *  half. A graceful path between blind guess and giving up; taking a hint
  *  never changes the grade. Exported for tests. */
@@ -242,7 +260,9 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
       {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center leading-relaxed">Hint: {rung(hint)}</p>}
       {result !== null && <Explain text={ex.explain} ok={result} answer={canonical}
-        note={near ? `Right — just the spelling: ${canonical}` : undefined}
+        note={near
+          ? `Right — just the spelling: ${canonical}${spellingDiff(val, canonical) ? ` (${spellingDiff(val, canonical)})` : ''}`
+          : undefined}
         rulePoint={rulePoint} reveal={ex.reveal} />}
       {result === null
         ? <div className="mt-5 flex items-center justify-center gap-3">

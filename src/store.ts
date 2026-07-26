@@ -13,11 +13,34 @@ const MISS_KEY = 'lexi.miss.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
+const PACE_KEY = 'lexi.pace.v1';
 // After a gap, FSRS marks *everything* overdue at once; serving it all in one
 // briefing ("312 cards queued") is the classic SRS rage-quit moment. Cap the
 // day at the oldest-due slice — FSRS tolerates the extra delay by design — and
 // report the true backlog so Today can frame it honestly (UX-PATHS F2).
 const DAILY_DUE_CAP = 60;
+
+// ---- daily pace ----------------------------------------------------------
+// The two caps above are good defaults and were also a ceiling: a learner with an
+// exam in three weeks could not ask for more work, and one coming back from a
+// long gap could not ask for less. FSRS does not care — it tolerates delay by
+// design and a bigger new-card budget only front-loads what it would schedule
+// anyway — so this is a preference, not a scheduling parameter.
+export type Pace = 'gentle' | 'steady' | 'intense';
+/** New cards per day, and how much of the due backlog one day serves. */
+export const PACE: Record<Pace, { fresh: number; due: number; label: string }> = {
+  gentle:  { fresh: 10, due: 30,  label: 'Gentle' },
+  steady:  { fresh: NEW_PER_DAY, due: DAILY_DUE_CAP, label: 'Steady' },
+  intense: { fresh: 50, due: 150, label: 'Intense' },
+};
+export function pace(): Pace {
+  const v = localStorage.getItem(PACE_KEY);
+  return v === 'gentle' || v === 'intense' ? v : 'steady';
+}
+export function setPace(p: Pace) {
+  try { localStorage.setItem(PACE_KEY, p); } catch { /* */ }
+  emit();
+}
 
 // ---- persistence ---------------------------------------------------------
 // Progress state — FSRS cards, blind-spot misses, and visit days — lives in
@@ -147,7 +170,7 @@ function poolFor(target: Target): Word[] {
 }
 
 /** Build a study queue: due reviews first (oldest due), then fresh cards. */
-export function buildSession(target: Target, maxNew = NEW_PER_DAY): Word[] {
+export function buildSession(target: Target, maxNew = PACE[pace()].fresh): Word[] {
   const pool = poolFor(target);
   const now = Date.now();
   const dueReview: { w: Word; due: number }[] = [];
@@ -211,9 +234,9 @@ export function buildBriefing(): Briefing {
   }
   dueReview.sort((a, b) => a.due - b.due);
   // Oldest-first slice of the backlog; the rest waits for tomorrow's briefing.
-  const served = dueReview.slice(0, DAILY_DUE_CAP);
+  const served = dueReview.slice(0, PACE[pace()].due);
 
-  const want = Math.min(NEW_PER_DAY, Math.max(0, MIN_DAILY - served.length));
+  const want = Math.min(PACE[pace()].fresh, Math.max(0, MIN_DAILY - served.length));
   const freshIds: string[] = [];
   const weak: string[] = [];
   for (const s of weakestSectors(6)) {

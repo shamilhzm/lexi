@@ -125,6 +125,41 @@ export function RuleToggle({ pointRef, label }: {
   );
 }
 
+/** Plain English for the German grammar terms the drills use as headers.
+ *
+ *  A drill can arrive mid-session titled „Konjunktiv II“ or „Akkusativ“ for a
+ *  learner three weeks in who has never been told what a case *is*. The app names
+ *  the concept in German — correct, and what their teacher says — but a name you
+ *  cannot decode is not information, and the rule behind it is one tap away that
+ *  nobody takes because the label reads as noise.
+ *
+ *  An apposition, not a replacement: the German stays the headline, because that is
+ *  the word they need in class. Only terms a beginner meets cold are listed —
+ *  glossing everything would turn the header back into noise from the other side. */
+const TERM_GLOSS: Record<string, string> = {
+  'Nominativ': 'the subject case',
+  'Akkusativ': 'the direct-object case',
+  'Dativ': 'the indirect-object case',
+  'Genitiv': 'the possessive case',
+  'Präsens': 'present tense',
+  'Präteritum': 'simple past',
+  'Perfekt': 'spoken past',
+  'Plusquamperfekt': 'past perfect',
+  'Futur I': 'future tense',
+  'Futur II': 'future perfect',
+  'Konjunktiv I': 'reported speech',
+  'Konjunktiv II': 'would / hypothetical',
+  'Partizip II': 'past participle',
+  'Imperativ': 'commands',
+  'Passiv': 'the passive',
+  'Kasus': 'the four cases',
+};
+
+/** The gloss for a label, if it needs one. Exported for tests. */
+export function termGloss(label: string): string | undefined {
+  return TERM_GLOSS[label.trim()];
+}
+
 /** What an exercise is testing, and the way into its rule.
  *
  *  Rendered by the item rather than by whatever is hosting it, because only the
@@ -138,7 +173,15 @@ export function RuleToggle({ pointRef, label }: {
 export function DrillHeader({ pointRef, label }: {
   pointRef: { level: CEFR; title: string } | string | null; label: string;
 }) {
-  return <div className="text-center mb-2.5"><RuleToggle pointRef={pointRef} label={label} /></div>;
+  const gloss = termGloss(label);
+  return (
+    <div className="text-center mb-2.5">
+      <RuleToggle pointRef={pointRef} label={label} />
+      {/* Lowercase and unemphasised on purpose: the German is the thing being
+          learned, and this only has to stop the label reading as noise. */}
+      {gloss && <span className="block text-2xs text-dim mt-0.5 normal-case">{gloss}</span>}
+    </div>
+  );
 }
 
 /** The "Why?" affordance shown beside a wrong answer’s explanation. Collapsed by

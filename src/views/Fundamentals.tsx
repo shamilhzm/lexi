@@ -15,7 +15,7 @@ import { useMemo, useState, useCallback } from 'react';
 import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, review, levels, logMiss, streak } from '../store.ts';
+import { cardOf, review, levels, logMiss, streak, statusOf, type Status } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -614,11 +614,25 @@ const TENSES: { key: TenseKey; label: string }[] = [
   { key: 'pp', label: 'Partizip II' },
 ];
 const PERSONS_I: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
+
+/** Which grammatical person to ask about.
+ *
+ *  This was a uniform `Math.random() * 6`, so a learner meeting a verb for the
+ *  first time could be asked for „ihr werdet müssen“ before they had ever produced
+ *  „ich werde“. 2nd person plural is both the rarest form in speech and the last
+ *  one any textbook introduces — a coin flip is not a curriculum.
+ *
+ *  PERSONS_I is already in teaching order, so an unconsolidated card draws from
+ *  the three singular persons and a known one draws from all six. The card earns
+ *  the harder forms rather than being handed them. */
+export function pickPersonIndex(status: Status, rnd: () => number = Math.random): number {
+  return Math.floor(rnd() * (status === 'known' ? 6 : 3));
+}
 export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const conj = useMemo(() => conjugate(word.term), [word.id]);
   const data = useMemo(() => {
     const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
-    const pIdx = Math.floor(Math.random() * 6);
+    const pIdx = pickPersonIndex(statusOf(id('conj', word)));
     const formOf = (c: typeof conj, idx: number) => tense.key === 'pp' ? c.partizip : c[tense.key][idx];
     const answer = formOf(conj, pIdx);
     // The header names the tense (and opens its rule), so the kicker carries only
@@ -701,7 +715,7 @@ export function CaseItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
 export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const built = useMemo(() => {
     const t = TRANSFORM_TARGETS[Math.floor(Math.random() * TRANSFORM_TARGETS.length)];
-    const pIdx = Math.floor(Math.random() * 6);
+    const pIdx = pickPersonIndex(statusOf(id('transform', word)));
     const { prompt, accept, hints } = buildTransform(word.term, pIdx, t.key, t.label);
     return { ex: { kind: 'type' as const, prompt, accept, hints, explain: word.en }, target: t };
   }, [word.id]);

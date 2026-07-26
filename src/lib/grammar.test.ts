@@ -14,8 +14,10 @@ import {
 } from './grammar.ts';
 import {
   MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, buildTransform, transformHints,
-  wholeWordRe, type Mode,
+  wholeWordRe, pickPersonIndex, type Mode,
 } from '../views/Fundamentals.tsx';
+import { spellingDiff } from '../views/GrammarDrill.tsx';
+import { termGloss } from '../components/RulePanel.tsx';
 import { conjugate } from './conjugate.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 
@@ -287,5 +289,78 @@ describe('wholeWordRe — German word boundaries', () => {
   it('is case-insensitive but boundary-safe on both edges', () => {
     expect(hits('straße', 'Die Straße ist nass.')).toBe(true);
     expect(hits('straße', 'Die Straßenbahn kommt.')).toBe(false);
+  });
+});
+
+// Uniform random over six persons meant a first encounter with a verb could ask
+// for „ihr werdet müssen“ — the rarest form in speech and the last one taught —
+// before the learner had ever produced „ich werde“. A coin flip is not a
+// curriculum; PERSONS_I is already in teaching order.
+describe('pickPersonIndex', () => {
+  it('draws only from the singular persons until a card is known', () => {
+    for (const status of ['new', 'learning'] as const) {
+      for (let r = 0; r < 1; r += 0.05) {
+        expect(pickPersonIndex(status, () => r), `${status} @${r}`).toBeLessThan(3);
+      }
+    }
+  });
+
+  it('opens up to all six once the card is known', () => {
+    const seen = new Set<number>();
+    for (let r = 0; r < 1; r += 0.02) seen.add(pickPersonIndex('known', () => r));
+    expect([...seen].sort()).toEqual([0, 1, 2, 3, 4, 5]);
+  });
+
+  it('stays in range at the boundaries', () => {
+    for (const status of ['new', 'learning', 'known'] as const) {
+      expect(pickPersonIndex(status, () => 0)).toBe(0);
+      expect(pickPersonIndex(status, () => 0.999999)).toBeLessThan(status === 'known' ? 6 : 3);
+    }
+  });
+});
+
+// Grading folds ä/ö/ü/ß so "schoen" is accepted for "schön" — right, because the
+// learner knew the word. But the message never said *which* part was the
+// spelling, and an error forgiven silently is how it becomes permanent.
+describe('spellingDiff', () => {
+  it('names the substitution that was folded', () => {
+    expect(spellingDiff('schoen', 'schön')).toBe('oe → ö');
+    expect(spellingDiff('weiss', 'weiß')).toBe('ss → ß');
+    expect(spellingDiff('waehlen', 'wählen')).toBe('ae → ä');
+    expect(spellingDiff('ueber', 'über')).toBe('ue → ü');
+  });
+
+  it('names every substitution when there is more than one', () => {
+    expect(spellingDiff('haeuser gross', 'häuser groß')).toBe('ae → ä, ss → ß');
+  });
+
+  it('says nothing when there is no umlaut lesson to teach', () => {
+    expect(spellingDiff('schön', 'schön')).toBeNull();
+    expect(spellingDiff('Haus', 'haus')).toBeNull();
+  });
+});
+
+// A drill can arrive mid-session titled „Konjunktiv II“ for someone three weeks
+// in who has never been told what a case is. A name you cannot decode is not
+// information.
+describe('termGloss', () => {
+  it('glosses the terms a beginner meets cold', () => {
+    expect(termGloss('Akkusativ')).toBe('the direct-object case');
+    expect(termGloss('Präteritum')).toBe('simple past');
+    expect(termGloss('Konjunktiv II')).toBe('would / hypothetical');
+  });
+
+  it('covers every case and tense label the drills can show', () => {
+    // These are the labels CASE_POINT/TENSE_POINT headers render, so a missing
+    // gloss here is a header a beginner cannot read.
+    for (const t of ['Nominativ', 'Akkusativ', 'Dativ', 'Genitiv',
+                     'Präsens', 'Präteritum', 'Perfekt', 'Futur I', 'Konjunktiv II', 'Partizip II']) {
+      expect(termGloss(t), `${t} has no gloss`).toBeTruthy();
+    }
+  });
+
+  it('leaves ordinary labels alone', () => {
+    expect(termGloss('Noun plurals')).toBeUndefined();
+    expect(termGloss('Gender (der/die/das)')).toBeUndefined();
   });
 });
