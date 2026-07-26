@@ -1,0 +1,181 @@
+{
+  "_README": [
+    "13 example(s) classified \"archaic\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:mittlerweile",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:11336970",
+      "expect": {
+        "de": "Mittlerweile müßtest du das wissen.",
+        "en": "You ought to know that by now."
+      },
+      "de": "Mittlerweile müsstest du das wissen.",
+      "en": "You ought to know that by now."
+    },
+    {
+      "id": "voc:B1:unbedingt",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:12815025",
+      "expect": {
+        "de": "Muß ich das unbedingt?",
+        "en": "Is it absolutely necessary for me to do that?"
+      },
+      "de": "Muss ich das unbedingt?",
+      "en": "Is it absolutely necessary for me to do that?"
+    },
+    {
+      "id": "voc:A2:öfter",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": "tatoeba:5606620",
+      "expect": {
+        "de": "Das muß ich öfter tun.",
+        "en": "I should do that more often."
+      },
+      "de": "Das muss ich öfter tun.",
+      "en": "I should do that more often."
+    },
+    {
+      "id": "voc:B1:der Salzburger",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:928685",
+      "expect": {
+        "de": "Salzburger Nockerl sind süß wie die Liebe und zart wie ein Kuß.",
+        "en": "Salzburg dumplings are sweet as love and tender as a kiss."
+      },
+      "de": "Salzburger Nockerl sind süß wie die Liebe und zart wie ein Kuss.",
+      "en": "Salzburg dumplings are sweet as love and tender as a kiss."
+    },
+    {
+      "id": "voc:B1:kommend",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:12930090",
+      "expect": {
+        "de": "Stimmt es, daß du kommendes Wochenende nach Boston willst?",
+        "en": "Is it true you're planning to go to Boston next weekend?"
+      },
+      "de": "Stimmt es, dass du kommendes Wochenende nach Boston willst?",
+      "en": "Is it true you're planning to go to Boston next weekend?"
+    },
+    {
+      "id": "voc:B1:kommend",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:12930090",
+      "expect": {
+        "de": "Stimmt es, daß ihr kommendes Wochenende nach Boston wollt?",
+        "en": "Is it true you're planning to go to Boston next weekend?"
+      },
+      "de": "Stimmt es, dass ihr kommendes Wochenende nach Boston wollt?",
+      "en": "Is it true you're planning to go to Boston next weekend?"
+    },
+    {
+      "id": "voc:B2:abschließend",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:13027442",
+      "expect": {
+        "de": "Tom befand, daß es an ihm sei, abschließend zu entscheiden.",
+        "en": "Tom decided it was up to him to make the final decision."
+      },
+      "de": "Tom befand, dass es an ihm sei, abschließend zu entscheiden.",
+      "en": "Tom decided it was up to him to make the final decision."
+    },
+    {
+      "id": "voc:A2:hierbleiben",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": "tatoeba:12448982",
+      "expect": {
+        "de": "Tom muß hierbleiben.",
+        "en": "Tom must stay here."
+      },
+      "de": "Tom muss hierbleiben.",
+      "en": "Tom must stay here."
+    },
+    {
+      "id": "voc:B1:irgend",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:4079884",
+      "expect": {
+        "de": "Irgend jemand muß es tun.",
+        "en": "Someone has to do it."
+      },
+      "de": "Irgendjemand muss es tun.",
+      "en": "Someone has to do it."
+    },
+    {
+      "id": "voc:B2:das Geständnis",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:5768354",
+      "expect": {
+        "de": "Er muß ein Geständnis machen.",
+        "en": "He has a confession to make."
+      },
+      "de": "Er muss ein Geständnis machen.",
+      "en": "He has a confession to make."
+    },
+    {
+      "id": "voc:A2:zurückgeben",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": "tatoeba:7277257",
+      "expect": {
+        "de": "Ich muß diese Jacke zurückgeben.",
+        "en": "I need to return this jacket."
+      },
+      "de": "Ich muss diese Jacke zurückgeben.",
+      "en": "I need to return this jacket."
+    },
+    {
+      "id": "voc:C1:aufsuchen",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:12660930",
+      "expect": {
+        "de": "Ich muß Tom aufsuchen.",
+        "en": "I must go and see Tom."
+      },
+      "de": "Ich muss Tom aufsuchen.",
+      "en": "I must go and see Tom."
+    },
+    {
+      "id": "voc:C1:verwechseln",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:12627277",
+      "expect": {
+        "de": "Ihr müßt mich verwechseln.",
+        "en": "You must've confused me with someone else."
+      },
+      "de": "Ihr müsst mich verwechseln.",
+      "en": "You must've confused me with someone else."
+    }
+  ]
+}

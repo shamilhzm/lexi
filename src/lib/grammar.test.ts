@@ -13,7 +13,8 @@ import {
   type GrammarByLevel,
 } from './grammar.ts';
 import {
-  MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, buildTransform, transformHints, type Mode,
+  MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, buildTransform, transformHints,
+  wholeWordRe, type Mode,
 } from '../views/Fundamentals.tsx';
 import { conjugate } from './conjugate.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
@@ -244,5 +245,47 @@ describe('transformHints', () => {
     // müssen → müsste (its own form); machen → würde machen (analytic).
     expect(rungs('müssen', 0, 'konjunktiv2')[0]).toContain('its own Konjunktiv II form');
     expect(rungs('machen', 0, 'konjunktiv2')[0]).toContain('würde (conjugated)');
+  });
+});
+
+// JavaScript's \b is ASCII-only: `\w` is [A-Za-z0-9_], so ß/ä/ö/ü are *non-word*
+// characters and /\bgroß\b/ can never match "groß" — there is no word→non-word
+// transition between ß and a following space. The cloze and sentence-builder
+// drills gated eligibility on exactly that pattern, which silently excluded 135
+// cards, among them some of the first words an A1 learner meets. It failed by
+// doing nothing, which is why it went unnoticed; these pin it.
+describe('wholeWordRe — German word boundaries', () => {
+  const hits = (surface: string, sentence: string) => wholeWordRe(surface).test(sentence);
+
+  it('matches a headword ending in ß', () => {
+    expect(hits('groß', 'Das Haus ist groß.')).toBe(true);
+    expect(hits('Fuß', 'Mein Fuß tut weh.')).toBe(true);
+    expect(hits('weiß', 'Der Schnee ist weiß.')).toBe(true);
+    expect(hits('süß', 'Der Kuchen ist süß.')).toBe(true);
+  });
+
+  it('matches a headword starting with an umlaut', () => {
+    expect(hits('Übung', 'Die Übung ist leicht.')).toBe(true);
+    expect(hits('Öl', 'Gib etwas Öl in die Pfanne.')).toBe(true);
+    expect(hits('ähnlich', 'Die zwei Brüder sind sich ähnlich.')).toBe(true);
+  });
+
+  it('still refuses a partial word', () => {
+    // The boundary has to keep holding, or cloze would blank inside a compound.
+    expect(hits('groß', 'Die Großstadt ist laut.')).toBe(false);
+    expect(hits('Fuß', 'Der Fußball rollt.')).toBe(false);
+    expect(hits('Öl', 'Die Ölheizung ist alt.')).toBe(false);
+    expect(hits('Haus', 'Die Hausaufgabe ist fertig.')).toBe(false);
+  });
+
+  it('captures the match so the cloze can blank it', () => {
+    const m = wholeWordRe('groß').exec('Das Haus ist groß.');
+    expect(m?.[1]).toBe('groß');
+    expect('Das Haus ist groß.'.replace(wholeWordRe('groß'), '_____')).toBe('Das Haus ist _____.');
+  });
+
+  it('is case-insensitive but boundary-safe on both edges', () => {
+    expect(hits('straße', 'Die Straße ist nass.')).toBe(true);
+    expect(hits('straße', 'Die Straßenbahn kommt.')).toBe(false);
   });
 });

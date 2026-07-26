@@ -70,7 +70,9 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
       // new batches while the existing long rows are worked through.
       if (de.length > 160) warnings.push({ id, msg: `${where} is ${de.length} chars (long for a card)` });
       if (!en.trim() && de.trim()) warnings.push({ id, msg: `${where} has no translation` });
-      if (/\b(muß|müßte|daß|Weiber|itzt|beyder|seyn|thun)\b/.test(de)) {
+      // Unicode boundary, not \b: ß is not an ASCII word char, so /\bmuß\b/ can
+      // never match. See wholeWordRe in views/Fundamentals.tsx.
+      if (/(?<![\p{L}\p{N}])(muß|müß|daß|wuß|Kuß|Weiber|itzt|beyder|seyn|thun)/iu.test(de)) {
         warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
       }
       if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });

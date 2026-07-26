@@ -44,12 +44,30 @@ const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && in
 const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && w.plural && inLevels(w));
 const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canConjugate(w.term));
 const clozePool = () => WORDS.filter((w) => w.kind === 'word' && w.ex[0]?.de && inLevels(w)
-  && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de));
+  && wholeWordRe(stripArticle(w.term)).test(w.ex[0].de));
 const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderTokens(w.ex[0]?.de).length > 0);
 const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
 const casePool = () => WORDS.filter((w) => inLevels(w) && caseSafe(w));
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+/** Match a German surface form as a whole word, with a boundary that understands
+ *  German letters. Capture group 1 is the match, so callers can blank it.
+ *
+ *  JavaScript's `\b` is ASCII-only — `\w` is `[A-Za-z0-9_]`, so `ß`, `ä`, `ö`, `ü`
+ *  and their capitals are *non-word* characters. `/\bgroß\b/` therefore cannot
+ *  match "groß" at all: between `ß` and the following space there is no
+ *  word→non-word transition, because neither side is a word character. The same
+ *  failure hits any headword that *starts* with an umlaut (Übung, Öl).
+ *
+ *  Measured against the shipped corpus: 135 cards — including groß, Fuß, weiß,
+ *  süß, Übung and Öl, i.e. some of the most common words an A1 learner meets —
+ *  were silently ineligible for the cloze and sentence-builder drills, and the
+ *  blanking regex could never have fired for them either. Unicode property escapes
+ *  under the `u` flag give a boundary that actually holds. */
+export function wholeWordRe(surface: string): RegExp {
+  return new RegExp(`(?<![\\p{L}\\p{N}])(${escapeReg(surface)})(?![\\p{L}\\p{N}])`, 'iu');
+}
 
 // ---- production drills: shared pure helpers (exported for tests) ----------
 /** Tiles for the sentence builder from an example sentence: terminal punctuation
@@ -317,7 +335,7 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.kind === 'word' && w.gender) out.push('gender');
   if (w.kind === 'word' && w.plural) out.push('plural');
   if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
-  if (w.kind === 'word' && w.ex[0]?.de && new RegExp(`\\b${escapeReg(stripArticle(w.term))}\\b`, 'i').test(w.ex[0].de)) out.push('cloze');
+  if (w.kind === 'word' && w.ex[0]?.de && wholeWordRe(stripArticle(w.term)).test(w.ex[0].de)) out.push('cloze');
   if (w.kind === 'word' && orderTokens(w.ex[0]?.de).length > 0) out.push('order');
   if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');
   if (caseSafe(w)) out.push('case');
@@ -631,7 +649,7 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
 export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const surface = stripArticle(word.term);
   const ex = word.ex[0];
-  const re = new RegExp(`\\b(${escapeReg(surface)})\\b`, 'i');
+  const re = wholeWordRe(surface);
   const m = re.exec(ex.de);
   const target = m ? m[1] : surface;
   const blanked = ex.de.replace(re, '_____');
