@@ -444,25 +444,53 @@ export function addUserWords(words: Word[]): Word[] {
 // ---- blind spots (structural error log) ----------------------------------
 // The `misses` array + its persistence live in the persistence section above
 // (hydrated from IndexedDB); MISS_KEY sits with the other storage keys up top.
-export interface MissEvent { tag: string; at: number; }
-/** Record a wrong answer under a structural tag (grammar point, drill type…). */
-export function logMiss(tag: string) {
-  misses.push({ tag, at: Date.now() });
+export interface MissEvent {
+  tag: string;
+  at: number;
+  /** The word this miss happened on, where the drill had one. Optional because
+   *  grammar-point misses are about a system, not a word — and because it was
+   *  added later, so older logs simply don't carry it. */
+  term?: string;
+}
+/** Record a wrong answer under a structural tag (grammar point, drill type…),
+ *  optionally naming the word it happened on.
+ *
+ *  The tag alone answers "which system do I keep getting wrong"; it cannot answer
+ *  "which words". A learner who misses `nehmen` eight times and every other verb
+ *  once saw one row reading "Verb conjugation 15×", which is true and unactionable
+ *  — the fix is to drill `nehmen`, and the log knew that all along and dropped it. */
+export function logMiss(tag: string, term?: string) {
+  misses.push({ tag, at: Date.now(), ...(term ? { term } : {}) });
   if (misses.length > 800) misses = misses.slice(-800);
   persistMisses();
   emit();
 }
+export interface MissStat {
+  tag: string;
+  count: number;
+  last: number;
+  /** The words this weakness actually happened on, worst first. Empty for
+   *  grammar points and for logs recorded before misses carried a word. */
+  terms: { term: string; count: number }[];
+}
 /** Top recurring weaknesses within the last `days`, most frequent first. */
-export function missStats(days = 30): { tag: string; count: number; last: number }[] {
+export function missStats(days = 30): MissStat[] {
   const since = Date.now() - days * 86_400_000;
-  const m = new Map<string, { count: number; last: number }>();
+  const m = new Map<string, { count: number; last: number; terms: Map<string, number> }>();
   for (const e of misses) {
     if (e.at < since) continue;
-    const cur = m.get(e.tag) ?? { count: 0, last: 0 };
+    const cur = m.get(e.tag) ?? { count: 0, last: 0, terms: new Map<string, number>() };
     cur.count++; cur.last = Math.max(cur.last, e.at);
+    if (e.term) cur.terms.set(e.term, (cur.terms.get(e.term) ?? 0) + 1);
     m.set(e.tag, cur);
   }
-  return [...m.entries()].map(([tag, v]) => ({ tag, ...v })).sort((a, b) => b.count - a.count);
+  return [...m.entries()]
+    .map(([tag, v]) => ({
+      tag, count: v.count, last: v.last,
+      terms: [...v.terms.entries()].map(([term, count]) => ({ term, count }))
+        .sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
+    }))
+    .sort((a, b) => b.count - a.count);
 }
 export function missTotal(days = 30): number { return missStats(days).reduce((a, s) => a + s.count, 0); }
 

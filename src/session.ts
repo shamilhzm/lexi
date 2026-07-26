@@ -68,6 +68,118 @@ const MAX_LINKED = 2;        // cap word-linked grammar points per session
 const MAX_REMEDY = 1;        // cap miss-triggered remediation points per session
 const REMEDY_MIN_MISSES = 3; // misses (30d) in a mode before remediation fires
 
+// ---- resuming an interrupted session --------------------------------------
+// Same-day resume was described as "emergent": grades persist immediately and a
+// graded card leaves its pool, so reopening rebuilds the *remainder* and nothing
+// is lost. True for the cards — and not for the session. This builder makes five
+// randomised decisions per session (which drill mode rides along with which word,
+// where blind spots land, which remediation point fires), so the rebuilt queue is
+// a different queue: the position resets, the count jumps, and the run of cards
+// the learner was halfway through simply isn't there any more.
+//
+// So the queue is stored, not re-derived. Only identities are stored — an item is
+// a type, an FSRS id, a word id and a reason — and the Words are looked up again
+// on the way back in, so a stale copy of the lexicon can never be resurrected.
+//
+// Deliberately localStorage and deliberately *not* in the backup: a half-finished
+// queue is a fact about the last ten minutes, not about what you know.
+const RESUME_KEY = 'lexi.session.v1';
+
+/** A SessionReason with its Word references reduced to ids. */
+type PackedReason =
+  | { k: 'fresh' }
+  | { k: 'due'; d: number }
+  | { k: 'orphan'; d: number; m: Mode }
+  | { k: 'drill'; m: Mode; p: string }
+  | { k: 'linked'; t: string }
+  | { k: 'remedy'; m: Mode; g: string; n: number }
+  | { k: 'blindspot'; m: Mode; g: string; n: number };
+
+interface PackedItem { t: SessionItem['type']; s: string; w: string; r: PackedReason }
+interface StoredSession { target: string; at: number; i: number; items: PackedItem[] }
+
+/** What counts as "the same session" to come back to. */
+const targetKey = (t: Target) => `${t.kind}:${t.name}`;
+const dayKey = (ms: number) => new Date(ms).toISOString().slice(0, 10);
+
+function packReason(r: SessionReason): PackedReason {
+  switch (r.kind) {
+    case 'fresh': return { k: 'fresh' };
+    case 'due': return { k: 'due', d: r.overdueDays };
+    case 'orphan': return { k: 'orphan', d: r.overdueDays, m: r.mode };
+    case 'drill': return { k: 'drill', m: r.mode, p: r.parent.id };
+    case 'linked': return { k: 'linked', t: r.trigger.id };
+    case 'remedy': return { k: 'remedy', m: r.mode, g: r.tag, n: r.misses };
+    case 'blindspot': return { k: 'blindspot', m: r.mode, g: r.tag, n: r.misses };
+  }
+}
+
+/** Null when a referenced word has gone — the caller discards the whole session
+ *  rather than resuming a queue with holes in it. */
+function unpackReason(r: PackedReason): SessionReason | null {
+  switch (r.k) {
+    case 'fresh': return { kind: 'fresh' };
+    case 'due': return { kind: 'due', overdueDays: r.d };
+    case 'orphan': return { kind: 'orphan', overdueDays: r.d, mode: r.m };
+    case 'drill': {
+      const parent = BY_ID.get(r.p);
+      return parent ? { kind: 'drill', mode: r.m, parent } : null;
+    }
+    case 'linked': {
+      const trigger = BY_ID.get(r.t);
+      return trigger ? { kind: 'linked', trigger } : null;
+    }
+    case 'remedy': return { kind: 'remedy', mode: r.m, tag: r.g, misses: r.n };
+    case 'blindspot': return { kind: 'blindspot', mode: r.m, tag: r.g, misses: r.n };
+    default: return null;
+  }
+}
+
+/** Remember where the learner is. A finished or not-yet-started session stores
+ *  nothing, so there is never a stale queue waiting to be resumed into. */
+export function saveSession(target: Target, items: SessionItem[], i: number): void {
+  try {
+    if (i <= 0 || i >= items.length) { localStorage.removeItem(RESUME_KEY); return; }
+    const stored: StoredSession = {
+      target: targetKey(target), at: Date.now(), i,
+      items: items.map((it) => ({ t: it.type, s: it.srsId, w: it.word.id, r: packReason(it.reason) })),
+    };
+    localStorage.setItem(RESUME_KEY, JSON.stringify(stored));
+  } catch { /* quota or private mode — resume is a convenience, never a requirement */ }
+}
+
+export function clearSession(): void {
+  try { localStorage.removeItem(RESUME_KEY); } catch { /* */ }
+}
+
+/** The session to come back to, or null to build a fresh one.
+ *
+ *  Refused when it is for a different target, from a different day (yesterday's
+ *  queue is yesterday's scheduling and FSRS has moved on), or when any word in it
+ *  no longer resolves. Partial restores are not offered: a queue with holes would
+ *  renumber every position after the hole. */
+export function loadSession(target: Target): { items: SessionItem[]; position: number } | null {
+  let stored: StoredSession;
+  try {
+    const raw = localStorage.getItem(RESUME_KEY);
+    if (!raw) return null;
+    stored = JSON.parse(raw) as StoredSession;
+  } catch { return null; }
+
+  if (!stored || stored.target !== targetKey(target) || !Array.isArray(stored.items)) return null;
+  if (dayKey(stored.at) !== dayKey(Date.now())) return null;
+  if (!(stored.i > 0 && stored.i < stored.items.length)) return null;
+
+  const items: SessionItem[] = [];
+  for (const p of stored.items) {
+    const word = BY_ID.get(p.w);
+    const reason = word ? unpackReason(p.r) : null;
+    if (!word || !reason) return null;
+    items.push({ type: p.t, word, srsId: p.s, reason });
+  }
+  return { items, position: stored.i };
+}
+
 // ---- fitting a session to real minutes ------------------------------------
 // "Quick 5" was the right idea at the wrong unit: nobody has five cards spare,
 // they have four minutes. A queue length is only a proxy for a duration, and a bad

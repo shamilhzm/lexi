@@ -409,7 +409,7 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
     tick(ok ? 'good' : 'wrong');
-    if (!ok) logMiss(MODE_TAG[mode]);
+    if (!ok) logMiss(MODE_TAG[mode], word.term);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);
 

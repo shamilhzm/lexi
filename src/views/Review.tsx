@@ -7,7 +7,7 @@ import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Sh
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
-import { buildMixedSession } from '../session.ts';
+import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
@@ -19,7 +19,7 @@ import { speak } from '../lib/tts.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
-import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm } from '../components/Reveal.tsx';
+import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
@@ -60,7 +60,13 @@ function pickExercise(point: GPoint, seed: string) {
 export default function Review({ target, onExit, onPick, onDrills, firstRun = false }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
-  const queue = useMemo(() => buildMixedSession(target, firstRun), [target, lvKey, firstRun]);
+  // An interrupted session is resumed rather than rebuilt: the builder is
+  // randomised, so a rebuild is a *different* queue and the learner's place in it
+  // is gone. See session.ts.
+  const restored = useMemo(() => (firstRun ? null : loadSession(target)), [target, lvKey, firstRun]);
+  const queue = useMemo(
+    () => restored?.items ?? buildMixedSession(target, firstRun),
+    [restored, target, lvKey, firstRun]);
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
   // Counted from the queue's own provenance, so the recap can describe what the
   // scheduler did rather than only how the learner scored.
@@ -75,7 +81,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     { blindspot: 0, linked: 0, remedy: 0, overdue: 0 },
   ), [queue]);
   const reduce = useReducedMotion();
-  const [i, setI] = useState(0);
+  const [i, setI] = useState(restored?.position ?? 0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
   const [again, setAgain] = useState(0);       // lapses this session
@@ -97,8 +103,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // Misses tagged in *this* session, so the recap can name the one concept that
   // tripped the learner up most today rather than their 30-day average.
   const sessionMisses = useRef(new Map<string, number>());
-  const noteMiss = (tag: string) => {
-    logMiss(tag);
+  const noteMiss = (tag: string, term?: string) => {
+    logMiss(tag, term);
     sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
   };
   const [breather, setBreather] = useState(false);
@@ -120,10 +126,16 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
-    setI(0); setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
+    setI(restored?.position ?? 0);
+    setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
     setComeback(null); missRun.current = 0; setBreather(false); breatherShown.current = false;
     sessionMisses.current.clear();
-  }, [target, lvKey]);
+  }, [target, lvKey, restored]);
+
+  // Remember the place. Writes only while a session is genuinely in progress —
+  // saveSession clears the slot at 0 and at the end, so finishing leaves nothing
+  // behind to resume into.
+  useEffect(() => { saveSession(target, queue, i); }, [target, queue, i]);
 
   // Load the exercise bank once, so grammar cards can render as drills.
   useEffect(() => {
@@ -182,7 +194,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
-    if (!ok) noteMiss(MODE_TAG[item.type]);
+    if (!ok) noteMiss(MODE_TAG[item.type], item.word.term);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
     setFlipped(false);
@@ -218,7 +230,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     if (!item) return;
     exitDir.current = 0;
     history.current.push({ i, kind: 'skip' });
-    if (item.type !== 'flip') noteMiss(MODE_TAG[item.type]);
+    if (item.type !== 'flip') noteMiss(MODE_TAG[item.type], item.word.term);
     else if (item.word.kind === 'grammar') noteMiss(item.word.term);
     setFlipped(false);
     setI((n) => n + 1);
@@ -307,7 +319,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
           <IconButton label="Back to Today" pull onClick={onExit}><ArrowLeft size={16} /></IconButton>
           <h1 className="text-base font-semibold truncate flex-1 min-w-[7rem]">{target.name}</h1>
-          <Chip aria-label={`${queue.length - i} cards left in this session`}>{queue.length - i} left</Chip>
+          {/* Position out of a total, not a raw countdown. "92 left" on a first
+              session reads as a backlog with no floor; "7 / 92" is the same fact
+              as somewhere you are inside something finite, and it moves forward
+              rather than only shrinking. */}
+          <Chip aria-label={`Card ${Math.min(i + 1, queue.length)} of ${queue.length} in this session`}>
+            {Math.min(i + 1, queue.length)} / {queue.length}
+          </Chip>
           {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
             {/* Flag: "something’s wrong with this card" — the feedback loop for a
@@ -495,6 +513,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <TermList label="Opp" terms={card.ant} tone="red" />
                   </RevealBlock>
                 )}
+                {!grammar && <CardSource id={card.id} />}
               </div>
             </div>
           </SwipeCard>

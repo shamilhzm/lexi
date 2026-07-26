@@ -800,3 +800,95 @@ describe('session length estimates', () => {
     expect(session.estimateSeconds(10)).toBeGreaterThan(10 * session.SECONDS_PER_FLIP);
   });
 });
+
+// Same-day resume was called "emergent" — grades persist, so reopening rebuilds
+// the remainder and nothing is lost. True of the cards, false of the session: this
+// builder makes five randomised decisions per session, so a rebuild is a
+// *different* queue and the learner's place in it is gone.
+describe('session resume', () => {
+  const target = { kind: 'all' as const, name: 'All' };
+
+  async function seeded() {
+    const { data, store, session, srs } = await fresh();
+    data.registerWords(Array.from({ length: 12 }, (_, i) =>
+      word(`r${i}`, 'Core', { level: 'A1', en: 'x', gender: 'der', plural: 'die Rs', pos: 'noun',
+        ex: [{ de: `Der r${i} ist gut.`, en: 'x', lvl: 'A1' }] })));
+    return { store, session, srs };
+  }
+
+  it('brings back the exact queue and position', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 4);
+    const back = session.loadSession(target);
+    expect(back!.position).toBe(4);
+    expect(back!.items.map((it: any) => it.srsId)).toEqual(built.map((it: any) => it.srsId));
+    expect(back!.items.map((it: any) => it.type)).toEqual(built.map((it: any) => it.type));
+    // The reason is what WhyThisCard renders; losing it on resume would silently
+    // strip the one feature that explains the queue.
+    expect(back!.items.map((it: any) => it.reason.kind)).toEqual(built.map((it: any) => it.reason.kind));
+  });
+
+  it('rehydrates Word references rather than restoring stale copies', async () => {
+    const { session } = await seeded();
+    const { BY_ID } = await import('./data/index.ts');
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 2);
+    const back = session.loadSession(target)!;
+
+    // Identity, not a structural copy. Only ids are stored, so every Word on the
+    // way back is the live lexicon's object — a resumed session can never revive
+    // a card the corpus has since changed.
+    for (const it of back.items) expect(it.word).toBe(BY_ID.get(it.word.id));
+
+    const drill: any = back.items.find((it: any) => it.reason.kind === 'drill');
+    if (drill) expect(drill.reason.parent).toBe(BY_ID.get(drill.reason.parent.id));
+  });
+
+  it('stores nothing at the start or the end of a session', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 3);
+    expect(session.loadSession(target)).not.toBeNull();
+    session.saveSession(target, built, 0);            // not started
+    expect(session.loadSession(target)).toBeNull();
+    session.saveSession(target, built, 3);
+    session.saveSession(target, built, built.length); // finished
+    expect(session.loadSession(target)).toBeNull();
+  });
+
+  it('refuses a session saved for a different scope', async () => {
+    const { session } = await seeded();
+    session.saveSession(target, session.buildMixedSession(target), 3);
+    expect(session.loadSession({ kind: 'sector', name: 'Core' })).toBeNull();
+  });
+
+  it('refuses yesterday’s queue — FSRS has moved on since', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 3);
+    const raw = JSON.parse(localStorage.getItem('lexi.session.v1')!);
+    raw.at = Date.now() - 26 * 3600e3;
+    localStorage.setItem('lexi.session.v1', JSON.stringify(raw));
+    expect(session.loadSession(target)).toBeNull();
+  });
+
+  it('refuses a queue whose words have gone, rather than resuming with holes', async () => {
+    const { session } = await seeded();
+    const built = session.buildMixedSession(target);
+    session.saveSession(target, built, 3);
+    const raw = JSON.parse(localStorage.getItem('lexi.session.v1')!);
+    raw.items[1].w = 'voc:A1:this-card-no-longer-exists';
+    localStorage.setItem('lexi.session.v1', JSON.stringify(raw));
+    // A partial restore would renumber every position after the hole.
+    expect(session.loadSession(target)).toBeNull();
+  });
+
+  it('survives a corrupt or empty slot', async () => {
+    const { session } = await seeded();
+    localStorage.setItem('lexi.session.v1', 'not json');
+    expect(session.loadSession(target)).toBeNull();
+    localStorage.removeItem('lexi.session.v1');
+    expect(session.loadSession(target)).toBeNull();
+  });
+});

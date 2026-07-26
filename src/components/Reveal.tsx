@@ -13,11 +13,12 @@
 // time it resolves, so there is nothing behind it to turn over, and a flip
 // affordance would invite flipping *before* answering, which destroys the
 // retrieval attempt the drill exists to create.
-import { useEffect } from 'react';
-import { TriangleAlert, Volume2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Info, TriangleAlert, Volume2 } from 'lucide-react';
 import { speak } from '../lib/tts.ts';
 import { genderColor } from '../lib/ui.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
+import { loadProvenance, freqBand, exampleCitation, levelBasis, type Provenance } from '../lib/provenance.ts';
 import Kicker from './ui/Kicker.tsx';
 import type { Example } from '../types.ts';
 
@@ -148,6 +149,72 @@ export function FalseFriendNote({ term }: { term: string }) {
           </span>
         </span>
       </p>
+    </RevealBlock>
+  );
+}
+
+/** Where this card came from — collapsed, and silent when there is nothing to say.
+ *
+ *  Two questions this answers, from opposite ends of the app's audience: a C1
+ *  learner's "is this word actually used?", and a teacher's "where did this
+ *  sentence come from and what does B1 mean here?". Both were answerable from
+ *  `provenance.json`, which has shipped since the pipeline was written and was
+ *  never loaded.
+ *
+ *  Behind a disclosure because it is a detail, not part of the loop — and because
+ *  that keeps the 609 KB unfetched for everyone who never asks. Renders nothing at
+ *  all for the 73% of cards with no provenance recorded, rather than showing an
+ *  empty section: a card that cannot answer the question should not raise it. */
+export function CardSource({ id }: { id: string }) {
+  const [open, setOpen] = useState(false);
+  const [prov, setProv] = useState<Provenance | null | undefined>(undefined);
+
+  useEffect(() => {
+    if (!open) return;
+    let live = true;
+    loadProvenance().then((m) => { if (live) setProv(m.get(id) ?? null); });
+    return () => { live = false; };
+  }, [open, id]);
+
+  if (!open) {
+    return (
+      <button onClick={() => setOpen(true)}
+        className="mt-3 self-start inline-flex items-center gap-1 text-2xs text-dim hover:text-amber transition-colors">
+        <Info size={12} /> Where this came from
+      </button>
+    );
+  }
+  if (prov === undefined) return <RevealBlock label="Source"><p className="text-xs text-dim">Loading…</p></RevealBlock>;
+  if (prov === null) {
+    return (
+      <RevealBlock label="Source">
+        <p className="text-xs text-dim">No source recorded for this card.</p>
+      </RevealBlock>
+    );
+  }
+
+  const band = freqBand(prov.freqRank);
+  const cite = exampleCitation(prov.exampleSource);
+  return (
+    <RevealBlock label="Source">
+      <div className="space-y-1.5 text-xs">
+        {band && (
+          <p>
+            <span className="text-txt font-semibold">{band.label}</span>
+            <span className="text-dim"> — {band.note}.</span>
+          </p>
+        )}
+        <p className="text-dim">{prov.level} · {levelBasis(prov.levelSource)}.</p>
+        {cite && (
+          <p className="text-dim">
+            Example from{' '}
+            {cite.url
+              ? <a href={cite.url} target="_blank" rel="noopener noreferrer"
+                  className="text-amber hover:underline">{cite.label}</a>
+              : cite.label}.
+          </p>
+        )}
+      </div>
     </RevealBlock>
   );
 }
