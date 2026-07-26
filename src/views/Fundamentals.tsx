@@ -21,7 +21,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { conjugate, canConjugate, PRONOUN, type Person, type Conjugation } from '../lib/conjugate.ts';
 import { OrderItem, TypeItem, hintText } from './GrammarDrill.tsx';
-import { RevealBlock, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
+import { RevealBlock, Paradigm, useChoiceKeys, GenderTerm } from '../components/Reveal.tsx';
 import type { RevealData } from '../lib/grammar.ts';
 import WhyLink, { DrillHeader } from '../components/RulePanel.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
@@ -153,7 +153,7 @@ export function caseSafe(w: Word): boolean {
 
 /** `kase` rides along so the item can open the rule for the case it actually
  *  asked about rather than the mode's default. */
-export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; extra: string; kase: Kase; }
+export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; why: string; answer: string; kase: Kase; }
 /** Build one Kasus item: article choice or weak adjective ending, in a frame
  *  that forces the case. `rnd` injectable for tests. */
 export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseItemData {
@@ -178,7 +178,7 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
       prompt: `${frame} ___ ${noun}`,
       sub: `Which article? · ${CASE_LABEL[kase]}`,
       options, correct: options.indexOf(correct),
-      extra: `${w.term} · ${why} → ${correct}`,
+      why, answer: correct,
       kase,
     };
   }
@@ -190,7 +190,7 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
     prompt: `${frame} ${ARTICLE[kase][g]} ___ ${noun}`,
     sub: `Adjective ending · ${CASE_LABEL[kase]}`,
     options, correct: options.indexOf(correct),
-    extra: `${w.term} · ${why} · after the definite article → ${correct}`,
+    why: `${why} · after the definite article`, answer: correct,
     kase,
   };
 }
@@ -522,7 +522,7 @@ function pluralVariants(singular: string): string[] {
 }
 
 function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, mode, rulePoint, ruleLabel, reveal, onGrade }:
-  { prompt: string; sub?: string; hint?: string; options: string[]; correct: number; extra?: string; bigPrompt?: boolean;
+  { prompt: React.ReactNode; sub?: string; hint?: string; options: string[]; correct: number; extra?: React.ReactNode; bigPrompt?: boolean;
     mode?: Mode; rulePoint?: string | null; ruleLabel?: string; reveal?: RevealData; onGrade: (ok: boolean) => void }) {
   const [picked, setPicked] = useState<number | null>(null);
   // The rule for what this item actually tests. `rulePoint` is the item's own
@@ -600,7 +600,8 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
     }
     return buildMC(correct, distract);
   }, [word.id]);
-  return <MCItem prompt={singular} sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct}
+  return <MCItem prompt={<GenderTerm term={word.term} gender={word.gender} />}
+    sub="Choose the plural" hint={word.en} options={mc.options} correct={mc.correct}
     ruleLabel={MODE_TAG.plural} mode="plural" onGrade={onGrade} />;
 }
 
@@ -690,7 +691,8 @@ export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
 export function CaseItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
   const d = useMemo(() => buildCaseItem(word), [word.id]);
   return <MCItem prompt={d.prompt} sub={d.sub} hint={word.en} bigPrompt={false}
-    options={d.options} correct={d.correct} extra={d.extra}
+    options={d.options} correct={d.correct}
+    extra={<><GenderTerm term={word.term} gender={word.gender} /> · {d.why} → {d.answer}</>}
     rulePoint={CASE_POINT[d.kase]} ruleLabel={CASE_LABEL[d.kase]} mode="case" onGrade={onGrade} />;
 }
 

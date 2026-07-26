@@ -3,9 +3,10 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound } from '../store.ts';
+import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords } from '../store.ts';
+import { parsePack } from '../lib/classpack.ts';
 import { useStore } from '../useStore.ts';
 import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
 import { themePref, setThemePref, type ThemePref } from '../theme.ts';
@@ -64,6 +65,27 @@ export default function Settings() {
     } catch (err: any) {
       setRestoreErr(err?.message || 'Could not read that backup file.');
     }
+  };
+
+  // A word pack is someone else's deck, not a backup: it *adds* cards and never
+  // touches progress, so unlike a restore it needs no confirmation and no reload.
+  const packRef = useRef<HTMLInputElement>(null);
+  const [packMsg, setPackMsg] = useState('');
+  const [packErr, setPackErr] = useState('');
+  const onPackFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    setPackErr(''); setPackMsg('');
+    const { pack, error, dropped } = parsePack(await file.text());
+    if (!pack) { setPackErr(error ?? 'Could not read that pack.'); return; }
+    const added = addUserWords(pack.cards);
+    const already = pack.cards.length - added.length;
+    setPackMsg(
+      `Added ${added.length} card${added.length === 1 ? '' : 's'} from “${pack.name}”`
+      + (pack.from ? ` by ${pack.from}` : '') + '.'
+      + (already ? ` ${already} you already had.` : '')
+      + (dropped ? ` ${dropped} couldn’t be read.` : ''));
   };
 
   const enableHd = async () => {
@@ -178,6 +200,25 @@ export default function Settings() {
             onChange={onRestoreFile} className="hidden" tabIndex={-1} />
         </div>
         {restoreErr && <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5"><X size={14} /> {restoreErr}</p>}
+      </Card>
+
+      {/* Class packs. Local-first means there is no class to join — a file is the
+          honest bridge, and it costs no backend. Export lives on each deck in
+          Progress; this is the receiving end. */}
+      <Card pad="none" className="p-4">
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Users size={16} className="text-amber" /> Word packs</h3>
+        <p className="text-dim text-xs mb-3 max-w-[60ch]">
+          A pack is a deck someone shared with you — a file, no account. Importing adds its
+          cards to your lexicon; it never changes your progress. Export a deck from
+          Progress → Decks to share one back.
+        </p>
+        <Button variant="secondary" onClick={() => packRef.current?.click()}>
+          <Upload size={14} className="text-amber" /> Import a word pack
+        </Button>
+        <input ref={packRef} type="file" accept="application/json,.json" aria-label="Choose a Lexi word pack to import"
+          onChange={onPackFile} className="hidden" tabIndex={-1} />
+        {packMsg && <p className="text-green text-xs mt-2 flex items-center gap-1.5"><Check size={14} /> {packMsg}</p>}
+        {packErr && <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5"><X size={14} /> {packErr}</p>}
       </Card>
     </div>
   );

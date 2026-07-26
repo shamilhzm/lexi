@@ -14,8 +14,10 @@
 // affordance would invite flipping *before* answering, which destroys the
 // retrieval attempt the drill exists to create.
 import { useEffect } from 'react';
-import { Volume2 } from 'lucide-react';
+import { TriangleAlert, Volume2 } from 'lucide-react';
 import { speak } from '../lib/tts.ts';
+import { genderColor } from '../lib/ui.ts';
+import { falseFriend } from '../lib/falseFriends.ts';
 import Kicker from './ui/Kicker.tsx';
 import type { Example } from '../types.ts';
 
@@ -65,6 +67,27 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
   );
 }
 
+/** A German noun with its article inked by gender.
+ *
+ *  Colour-coding der/die/das is the most useful single mark on a German card, and
+ *  it existed in exactly one place — the flip front — as a local map. Turning the
+ *  card over lost it, and so did every drill that showed a noun. One component, so
+ *  any surface with an article gets the same three colours.
+ *
+ *  Never the only signal: the article is always spelled out beside its colour, so
+ *  the information survives for anyone who can't distinguish them. */
+export function GenderTerm({ term, gender, className = '' }: {
+  term: string; gender?: string | null; className?: string;
+}) {
+  const bare = term.replace(/^(der|die|das)\s+/i, '');
+  return (
+    <span lang="de" className={className}>
+      {gender && <span style={{ color: genderColor(gender) }}>{gender} </span>}
+      {bare}
+    </span>
+  );
+}
+
 /** A labelled block, separated by a hairline rather than by whitespace alone.
  *
  *  The old back face stacked five different kinds of information — translation,
@@ -98,6 +121,34 @@ export function ExampleList({ items, max = 2 }: { items: Example[]; max?: number
         </li>
       ))}
     </ul>
+  );
+}
+
+/** The false-friend warning.
+ *
+ *  Placed on the reveal rather than the front, because the front is the moment the
+ *  learner is *guessing* — and the guess this catches is the one their English
+ *  makes for them. Naming it a beat later, next to the real meaning, is what
+ *  attaches the correction to the word.
+ *
+ *  Three lines, and the third is the one that matters: a warning without a
+ *  replacement leaves a hole where the learner wanted a word. */
+export function FalseFriendNote({ term }: { term: string }) {
+  const ff = falseFriend(term);
+  if (!ff) return null;
+  return (
+    <RevealBlock label="False friend">
+      <p className="text-sm leading-relaxed flex gap-2">
+        <TriangleAlert size={14} className="text-amber flex-shrink-0 mt-0.5" aria-hidden />
+        <span>
+          Looks like <span className="text-txt font-semibold">“{ff.looksLike}”</span> — it means{' '}
+          <span className="text-txt font-semibold">{ff.actually}</span>.
+          <span className="block text-dim mt-0.5">
+            For “{ff.looksLike}” say <span lang="de" className="text-txt">{ff.insteadSay}</span>.
+          </span>
+        </span>
+      </p>
+    </RevealBlock>
   );
 }
 

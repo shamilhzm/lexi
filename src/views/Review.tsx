@@ -6,7 +6,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
-import { haptic, tick, genderColor } from '../lib/ui.ts';
+import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, MODE_TAG } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
@@ -19,7 +19,7 @@ import { speak } from '../lib/tts.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
-import { SpeakButton, RevealBlock, ExampleList, TermList } from '../components/Reveal.tsx';
+import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
@@ -407,10 +407,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 {/* lang="de" on every German string: without it a screen reader
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
-                <span lang="de" className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`}>
-                  {card.gender && <span style={{ color: genderColor(card.gender) }}>{card.gender} </span>}
-                  {stripArticle(card.term, card.gender)}
-                </span>
+                <GenderTerm term={card.term} gender={card.gender}
+                  className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`} />
                 {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
                 {isNew && !grammar && (
                   <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
@@ -470,10 +468,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                       {/* Gender ink survives the flip now. It used to live only on
                           the front, so the article's colour — the most useful mark
                           on a German card — vanished the moment you turned it. */}
-                      <span lang="de" className="font-mono text-2xs text-dim truncate">
-                        {card.gender && <span style={{ color: genderColor(card.gender) }}>{card.gender} </span>}
-                        {stripArticle(card.term, card.gender)}
-                      </span>
+                      <GenderTerm term={card.term} gender={card.gender}
+                        className="font-mono text-2xs text-dim truncate" />
                     </>
                   )}
                   <span className="ml-auto flex items-center flex-shrink-0">
@@ -489,6 +485,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <p className="text-txt text-sm leading-relaxed whitespace-pre-line">{card.def}</p>
                   </RevealBlock>
                 )}
+                {!grammar && <FalseFriendNote term={card.term} />}
                 {!grammar && card.ex.length > 0 && (
                   <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
                 )}
@@ -648,10 +645,6 @@ function CoachMarks() {
   );
 }
 
-function stripArticle(term: string, gender: string | null) {
-  if (!gender) return term;
-  return term.replace(/^(der|die|das)\s+/i, '');
-}
 
 /** Unobtrusive mastery dot on the card front: dim = new, amber = learning, green = known. */
 function StatusPip({ id }: { id: string }) {
