@@ -14,9 +14,10 @@ import {
 } from './grammar.ts';
 import {
   MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, buildTransform, transformHints,
-  wholeWordRe, pickPersonIndex, buildSeparable, isSeparable, canTransform, type Mode,
+  wholeWordRe, pickPersonIndex, buildSeparable, isSeparable, buildReflexive, isReflexive, canTransform, pickFocused, dictatable, type Mode,
 } from '../views/Fundamentals.tsx';
 import { spellingDiff } from '../views/GrammarDrill.tsx';
+import { FOCUS_CHOICES } from '../views/Settings.tsx';
 import { termGloss } from '../components/RulePanel.tsx';
 import { conjugate, setKnownVerbs } from './conjugate.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
@@ -148,7 +149,9 @@ describe('MODE_REMEDY', () => {
   it('gives every mode but cloze a rule to show on a miss', () => {
     for (const m of modes) {
       const id = modeRulePoint(m);
-      if (m === 'cloze') { expect(id).toBeNull(); continue; }
+      // Cloze is vocabulary-in-context and dictation is spelling from sound —
+      // neither is one grammatical system, so neither has a rule to open.
+      if (m === 'cloze' || m === 'dictation') { expect(id).toBeNull(); continue; }
       expect(id, `${m} has no rule point`).toBeTruthy();
     }
   });
@@ -475,5 +478,139 @@ describe('separable verbs, against the shipped corpus', () => {
         expect(a.trim().length, `${w.term}/${shape}`).toBeGreaterThan(2);
       }
     }
+  });
+});
+
+// The other class canTransform refuses, for the same reason: a reflexive verb's
+// bare finite form drops the pronoun it cannot do without. The error this drills is
+// omission — an English speaker says "I remember" and writes „ich erinnere“,
+// because English has no pronoun there to leave out.
+describe('reflexive verbs', () => {
+  it('puts the pronoun back, and inflects it with the person', () => {
+    expect(buildReflexive('sich freuen', 'praesens', 0).accept).toContain('ich freue mich');
+    expect(buildReflexive('sich freuen', 'praesens', 1).accept).toContain('du freust dich');
+    expect(buildReflexive('sich freuen', 'praesens', 2).accept).toContain('er freut sich');
+    expect(buildReflexive('sich freuen', 'praesens', 3).accept).toContain('wir freuen uns');
+    expect(buildReflexive('sich freuen', 'praesens', 4).accept).toContain('ihr freut euch');
+    expect(buildReflexive('sich freuen', 'praesens', 5).accept).toContain('sie freuen sich');
+  });
+
+  it('keeps the pronoun in the Perfekt too', () => {
+    const p = buildReflexive('sich freuen', 'perfekt', 0);
+    expect(p.accept[0]).toBe('ich habe mich gefreut');
+  });
+
+  it('shows the full pronoun set as its second hint', () => {
+    expect(buildReflexive('sich freuen', 'praesens', 0).hints[1])
+      .toBe('ich mich · du dich · er sich · wir uns · ihr euch · sie sich');
+  });
+
+  it('names the verb with its sich in the prompt', () => {
+    expect(buildReflexive('sich erinnern', 'praesens', 0).prompt).toBe('„sich erinnern“ → Präsens · ich');
+  });
+
+  it('is disjoint from the transform and separable drills', () => {
+    for (const v of ['sich freuen', 'sich erinnern', 'sich ausruhen']) {
+      expect(canTransform(v), `${v} must not reach transform`).toBe(false);
+    }
+    expect(isReflexive('machen')).toBe(false);
+    expect(isReflexive('anrufen')).toBe(false);
+  });
+
+  it('never renders a reflexive form without its pronoun, across the corpus', () => {
+    const corpus: { term: string; pos: string }[] =
+      JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
+    setKnownVerbs(corpus.filter((w) => w.pos === 'verb').map((w) => w.term));
+    const eligible = corpus.filter((w) => w.pos === 'verb' && isReflexive(w.term));
+    expect(eligible.length).toBeGreaterThan(20);
+
+    const broken: string[] = [];
+    for (const w of eligible) {
+      for (const shape of ['praesens', 'perfekt'] as const) {
+        for (let p = 0; p < 6; p++) {
+          const answer = buildReflexive(w.term, shape, p).accept[0];
+          if (!/\b(mich|dich|sich|uns|euch)\b/.test(answer)) broken.push(`${w.term}/${shape}/p${p} → ${answer}`);
+        }
+      }
+    }
+    expect(broken.slice(0, 8)).toEqual([]);
+  });
+});
+
+// A focus is a lean on which tense the drills pick, so a key that doesn't match a
+// real target would be a setting that silently does nothing.
+describe('weekly focus', () => {
+  it('offers only tenses the drills can actually target', () => {
+    for (const f of FOCUS_CHOICES) {
+      expect(TENSE_POINT[f.key as keyof typeof TENSE_POINT], `${f.key} is not a drill target`).toBeTruthy();
+    }
+  });
+
+  const opts = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }];
+  /** Two draws happen: the lean, then the uniform pick. Feed them separately —
+   *  one constant for both would constrain the pick to the top of the range. */
+  const rolls = (...vals: number[]) => { const q = [...vals]; return () => q.shift() ?? 0; };
+
+  it('takes the focus when the lean lands', () => {
+    expect(pickFocused(opts, 'c', rolls(0.1)).key).toBe('c');
+    expect(pickFocused(opts, 'c', rolls(0.59)).key).toBe('c');
+  });
+
+  it('leaves every other option reachable when it doesn’t', () => {
+    // Above the threshold the ordinary uniform draw runs, so nothing is excluded —
+    // a focus that filtered would quietly cost the learner the other three tenses.
+    const seen = new Set<string>();
+    for (const pick of [0.0, 0.3, 0.6, 0.9]) seen.add(pickFocused(opts, 'c', rolls(0.99, pick)).key);
+    expect([...seen].sort()).toEqual(['a', 'b', 'c', 'd']);
+  });
+
+  // With no matching focus the lean is short-circuited before rnd() is reached, so
+  // exactly one value is drawn rather than two.
+  it('is a plain uniform draw when nothing is focused', () => {
+    expect(pickFocused(opts, null, rolls(0.0)).key).toBe('a');
+    expect(pickFocused(opts, null, rolls(0.9)).key).toBe('d');
+  });
+
+  it('ignores a focus that names nothing', () => {
+    expect(pickFocused(opts, 'nonexistent', rolls(0.9)).key).toBe('d');
+  });
+});
+
+// The only writing in the app. Free composition can't be graded honestly without a
+// model — and a drill that marks correct German wrong is worse than no drill — so
+// dictation is the form of written production whose target is known to the
+// character. The gate decides what a learner can reasonably be asked to spell from
+// hearing it once.
+describe('dictation', () => {
+  it('takes a sentence of a size you can hold in your head', () => {
+    expect(dictatable('Ich lerne täglich Deutsch.')).toBe(true);
+    expect(dictatable('Der Hund wartet geduldig vor der Tür.')).toBe(true);
+  });
+
+  it('refuses what is too short to be a sentence or too long to type', () => {
+    expect(dictatable('Ja.')).toBe(false);
+    expect(dictatable('Guten Tag')).toBe(false);              // two words
+    expect(dictatable('Der Mann, der gestern im Regen vor dem Bahnhof stand, wartete auf seine Schwester aus Hamburg.')).toBe(false);
+  });
+
+  it('refuses what cannot be spelled from sound alone', () => {
+    // Digits, brackets and acronyms are guesses, not spelling.
+    expect(dictatable('Ich stehe um 7 Uhr auf.')).toBe(false);
+    expect(dictatable('Er arbeitet bei der ARD in Köln.')).toBe(false);
+    expect(dictatable('Sie sagte (leise) etwas zu ihm.')).toBe(false);
+    expect(dictatable('„Komm her“, sagte sie leise.')).toBe(false);
+  });
+
+  it('handles a missing sentence', () => {
+    expect(dictatable(undefined)).toBe(false);
+    expect(dictatable('')).toBe(false);
+  });
+
+  it('finds a usable pool in the shipped corpus', () => {
+    const corpus: { kind: string; ex?: { de: string }[] }[] =
+      JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
+    const n = corpus.filter((w) => w.kind === 'word' && dictatable(w.ex?.[0]?.de)).length;
+    // Enough that a learner doesn't see the same sentence twice in a week.
+    expect(n).toBeGreaterThan(500);
   });
 });

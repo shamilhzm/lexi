@@ -761,6 +761,28 @@ export function setClassList(list: ClassList | null) {
   emit();
 }
 
+// ---- this week's focus ---------------------------------------------------
+// Perfekt is most of what an A2 course spends a month on, and the app served it as
+// one of four random transform targets — so a learner working on it got it roughly
+// a quarter of the time, and could not say so. Randomness is right for *coverage*
+// and wrong for a syllabus: a course moves through one thing at a time.
+//
+// A focus doesn't narrow the queue or hide anything. It weights which grammatical
+// target the tense drills choose, so the thing the learner is studying this week
+// comes up more often than chance. Set it, and it stays until changed.
+const FOCUS_KEY = 'lexi.focus.v1';
+
+export function focusTense(): string | null {
+  const v = localStorage.getItem(FOCUS_KEY);
+  return v && v !== 'none' ? v : null;
+}
+export function setFocusTense(key: string | null) {
+  try {
+    if (key) localStorage.setItem(FOCUS_KEY, key); else localStorage.removeItem(FOCUS_KEY);
+  } catch { /* quota */ }
+  emit();
+}
+
 const INTERESTS_KEY = 'lexi.interests.v1';
 export function interests(): Set<string> {
   try {
@@ -961,7 +983,7 @@ const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
-  'lexi.classlist.v1',
+  'lexi.classlist.v1', 'lexi.focus.v1', 'lexi.pace.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
 ];

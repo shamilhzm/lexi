@@ -3,11 +3,12 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List, Crosshair } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords, pace, setPace, PACE, statusOf, type Pace } from '../store.ts';
 import { WORDS } from '../data/index.ts';
 import { parsePack } from '../lib/classpack.ts';
+import { focusTense, setFocusTense } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
 import { themePref, setThemePref, type ThemePref } from '../theme.ts';
@@ -19,6 +20,16 @@ import Button from '../components/ui/Button.tsx';
 const toggle = (on: boolean) =>
   `flex items-center gap-2 text-xs rounded-md px-3.5 py-2 border transition-colors ${
     on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:border-amber'}`;
+
+/** The tenses a learner can lean on. Keys match TENSE_POINT, so a focus always
+ *  names something the drills can actually target and the rule behind it exists. */
+export const FOCUS_CHOICES: { key: string; label: string }[] = [
+  { key: 'praesens', label: 'Präsens' },
+  { key: 'perfekt', label: 'Perfekt' },
+  { key: 'praeteritum', label: 'Präteritum' },
+  { key: 'futur1', label: 'Futur I' },
+  { key: 'konjunktiv2', label: 'Konjunktiv II' },
+];
 
 const THEMES: { id: ThemePref; label: string; icon: LucideIcon }[] = [
   { id: 'system', label: 'System', icon: Monitor },
@@ -42,6 +53,8 @@ export default function Settings() {
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
 
   const [pc, setPc] = useState<Pace>(pace());
+  const [focus, setFocus] = useState<string | null>(focusTense());
+  const pickFocus = (k: string | null) => { setFocusTense(k); setFocus(k); };
   const pickPace = (p: Pace) => { setPace(p); setPc(p); };
 
   // A plain word list, for the tools Lexi is not: a spreadsheet, Anki, a printout
@@ -113,6 +126,13 @@ export default function Settings() {
 
   const enableHd = async () => {
     setHdErr(''); setDl(0);
+    // Distinguish "you are offline" from "this device can't run it": the first is
+    // temporary and the learner can act on it, the second is not.
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      setDl(null);
+      setHdErr('You’re offline — the HD voice has to download once before it can work without a connection.');
+      return;
+    }
     try {
       await ensureHdVoice((f) => setDl(Math.round(f * 100)));
       // Only turn it on if synthesis actually works on this device.
@@ -189,6 +209,14 @@ export default function Settings() {
         <p className="text-dim text-xs mb-3">
           The HD voice is a native-German neural voice (Piper “Thorsten”) that runs on your device.
           It downloads once (~25 MB), then works offline — far better than the built-in browser voice.
+          {/* Lexi says it works offline, and that is true of everything except this
+              one step: enabling the voice fetches both a library and the voice
+              itself over the network. Saying so here is cheaper than a learner
+              discovering it on a train. */}
+          <span className="block mt-1">
+            Setting it up needs a connection and a few minutes — do it on wi-fi, not on the way to class.
+            Until then Lexi uses your device’s built-in German voice, which works offline straight away.
+          </span>
         </p>
         {hdVoice() ? (
           <div className="flex items-center gap-3 flex-wrap">
@@ -228,6 +256,27 @@ export default function Settings() {
             onChange={onRestoreFile} className="hidden" tabIndex={-1} />
         </div>
         {restoreErr && <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5"><X size={14} /> {restoreErr}</p>}
+      </Card>
+
+      {/* This week's focus. A course moves through one thing at a time; the drills
+          were choosing their tense at random, so a learner spending a month on the
+          Perfekt met it a quarter of the time and had no way to say so. */}
+      <Card pad="none" className="p-4">
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Crosshair size={16} className="text-amber" /> This week I’m working on</h3>
+        <p className="text-dim text-xs mb-3 max-w-[60ch]">
+          Weights which tense the conjugation and transformation drills ask for. A lean, not a
+          filter — the others keep coming round, or you’d quietly lose them.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <button onClick={() => pickFocus(null)} aria-pressed={focus === null} className={toggle(focus === null)}>
+            No focus
+          </button>
+          {FOCUS_CHOICES.map((f) => (
+            <button key={f.key} onClick={() => pickFocus(f.key)} aria-pressed={focus === f.key} className={toggle(focus === f.key)}>
+              {f.label}
+            </button>
+          ))}
+        </div>
       </Card>
 
       {/* Daily pace. The caps were good defaults and also a ceiling with no
