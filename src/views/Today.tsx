@@ -4,7 +4,7 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check } from 'lucide-react';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText } from 'lucide-react';
 import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
@@ -16,12 +16,13 @@ import Button, { buttonClass } from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { blindSpotDrills, estimateMinutes, wordsForMinutes } from '../session.ts';
+import ReadingList from '../components/ReadingList.tsx';
+import { BY_ID, WORDS } from '../data/index.ts';
+import type { CEFR, Target, Word } from '../types.ts';
 
 /** The short-session budgets offered beside the full one. A commute, a queue, a
  *  gap between classes — the three shapes a real day actually has. */
 const SHORT_MINUTES = [3, 5, 10];
-import { BY_ID, WORDS } from '../data/index.ts';
-import type { CEFR, Target, Word } from '../types.ts';
 
 export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
   { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
@@ -35,6 +36,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
     return blindSpotDrills(ws).length;
   }, [briefing, v]);
   const [drillsOpen, setDrillsOpen] = useState(false);
+  const [readOpen, setReadOpen] = useState(false);
   const t = totals();
   const placed = placementLevel();
   const today = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -256,6 +258,29 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           Progress: Today is for doing, and auditing your own weaknesses is a
           different mood from starting a session. The session still rehearses
           them either way — that's the "+ N drills" line above. */}
+
+      {/* Lesen — the input half. Everything else on this screen asks the learner
+          a question; this is the one thing that just gives them German to read.
+          The sentence scan runs only when this opens, so Home stays cheap. */}
+      <div className="mb-4">
+        <Card as="button" pad="none" onClick={() => setReadOpen((o) => !o)} aria-expanded={readOpen}
+          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpenText size={18} /></span>
+          <span className="flex-1">
+            <span className="block text-base font-semibold">Lesen</span>
+            <span className="block text-xs text-dim">Sentences you can almost read</span>
+          </span>
+          <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${readOpen ? 'rotate-180' : ''}`} />
+        </Card>
+        <AnimatePresence initial={false}>
+          {readOpen && (
+            <motion.div key="read" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
+              <div className="pt-2.5"><ReadingList onStudy={onStart} /></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Grammar — the concepts at your level, not a menu of exercise types.
           The bank is fetched only when this opens, so Home stays cheap. */}

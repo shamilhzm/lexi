@@ -892,3 +892,95 @@ describe('session resume', () => {
     expect(session.loadSession(target)).toBeNull();
   });
 });
+
+// Lesen. Everything else in the app is retrieval; this is the only thing that
+// hands the learner German to *understand*. The band is the whole design: zero
+// unknown words teaches nothing, four is a vocabulary list in disguise.
+describe('reader', () => {
+  async function withCorpus() {
+    vi.resetModules();
+    const data = await import('./data/index.ts');
+    const store = await import('./store.ts');
+    const reader = await import('./lib/reader.ts');
+    reader.resetSurfaceIndex();
+    data.registerWords([
+      word('voc:A1:der Hund', 'Animals', { term: 'der Hund', en: 'dog', gender: 'der', plural: 'die Hunde',
+        ex: [{ de: 'Der Hund schläft im Garten.', en: 'The dog sleeps in the garden.', lvl: 'A1' }] }),
+      word('voc:A1:der Garten', 'Home', { term: 'der Garten', en: 'garden', gender: 'der', plural: 'die Gärten', ex: [] }),
+      word('voc:A1:schlafen', 'Core', { term: 'schlafen', en: 'to sleep', pos: 'verb', ex: [] }),
+      word('voc:A1:im', 'Grammar', { term: 'im', en: 'in the', pos: 'preposition', ex: [] }),
+    ]);
+    return { data, store, reader };
+  }
+
+  it('resolves inflected forms back to their card', async () => {
+    const { reader } = await withCorpus();
+    const idx = reader.surfaceIndex();
+    // A plural and a conjugated form — a bare term index would miss both, and most
+    // of any real sentence with them.
+    expect(idx.get('hunde')?.id).toBe('voc:A1:der Hund');
+    expect(idx.get('schläft')?.id).toBe('voc:A1:schlafen');
+    expect(idx.get('geschlafen')?.id).toBe('voc:A1:schlafen');
+  });
+
+  it('marks only the words the learner has never met', async () => {
+    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
+    store.review('voc:A1:der Hund', srs.Rating.Good);   // met
+    const toks = reader.annotate('Der Hund schläft im Garten.',
+      (w: any) => store.statusOf(w.id) !== 'new');
+    const unknown = toks.filter((t: any) => t.unknown).map((t: any) => t.text);
+    expect(unknown).not.toContain('Hund');
+    expect(unknown).toContain('Garten');
+  });
+
+  it('reassembles the sentence exactly, punctuation and all', async () => {
+    const { reader } = await withCorpus();
+    const de = 'Der Hund schläft im Garten.';
+    expect(reader.annotate(de, () => true).map((t: any) => t.text).join('')).toBe(de);
+  });
+
+  it('offers nothing when every word is already known — that teaches nothing', async () => {
+    const { reader } = await withCorpus();
+    const out = reader.pickReadable({ familiar: () => true, inScope: () => true });
+    expect(out).toEqual([]);
+  });
+
+  it('offers nothing when the sentence is too far out of reach', async () => {
+    const { reader } = await withCorpus();
+    // Nothing familiar at all: 3+ unknown words is a vocabulary list, not reading.
+    const out = reader.pickReadable({ familiar: () => false, inScope: () => true, maxUnknown: 1 });
+    expect(out).toEqual([]);
+  });
+
+  it('finds the i+1 sentence and names what is new in it', async () => {
+    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
+    for (const id of ['voc:A1:der Hund', 'voc:A1:schlafen', 'voc:A1:im']) store.review(id, srs.Rating.Good);
+    const out = reader.pickReadable({
+      familiar: (w: any) => store.statusOf(w.id) !== 'new',
+      inScope: () => true, minTokens: 3,
+    });
+    expect(out).toHaveLength(1);
+    expect(out[0].unknownWords.map((w: any) => w.id)).toEqual(['voc:A1:der Garten']);
+    expect(out[0].en).toBe('The dog sleeps in the garden.');
+  });
+
+  it('respects the level filter', async () => {
+    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
+    for (const id of ['voc:A1:der Hund', 'voc:A1:schlafen', 'voc:A1:im']) store.review(id, srs.Rating.Good);
+    const out = reader.pickReadable({
+      familiar: (w: any) => store.statusOf(w.id) !== 'new',
+      inScope: () => false, minTokens: 3,
+    });
+    expect(out).toEqual([]);
+  });
+
+  it('puts the most readable sentence first', async () => {
+    const { reader } = await withCorpus();
+    const out = reader.pickReadable({
+      familiar: () => false, inScope: () => true, minTokens: 3, maxUnknown: 4,
+    });
+    for (let i = 1; i < out.length; i++) {
+      expect(out[i].unknownWords.length).toBeGreaterThanOrEqual(out[i - 1].unknownWords.length);
+    }
+  });
+});
