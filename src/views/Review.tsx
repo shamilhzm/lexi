@@ -3,7 +3,7 @@
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
+import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -26,7 +26,7 @@ import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
-import type { Target } from '../types.ts';
+import type { Target, Word } from '../types.ts';
 
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus', separable: 'Trennbar' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
@@ -104,6 +104,12 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // Misses tagged in *this* session, so the recap can name the one concept that
   // tripped the learner up most today rather than their 30-day average.
   const sessionMisses = useRef(new Map<string, number>());
+  // The words this session actually put in front of the learner, in order. A
+  // language-school student's day does not end when the app closes — see PocketList.
+  const metWords = useRef<Word[]>([]);
+  const noteMet = (w: Word) => {
+    if (w.kind === 'word' && !metWords.current.some((x) => x.id === w.id)) metWords.current.push(w);
+  };
   const noteMiss = (tag: string, term?: string) => {
     logMiss(tag, term);
     sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
@@ -131,6 +137,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
     setComeback(null); missRun.current = 0; setBreather(false); breatherShown.current = false;
     sessionMisses.current.clear();
+    metWords.current = [];
   }, [target, lvKey, restored]);
 
   // Remember the place. Writes only while a session is genuinely in progress —
@@ -178,6 +185,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     pushGrade(dAgain, dNew);
     exitDir.current = g === Rating.Again ? -1 : 1;
     noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term);
+    noteMet(item.word);
     review(item.srsId, g);
     haptic(g === Rating.Again ? 'wrong' : 'grade');
     setDone((d) => d + 1);
@@ -193,6 +201,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     pushGrade(dAgain, 0);
     exitDir.current = ok ? 1 : -1;
     noteResult(ok);
+    noteMet(item.word);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
     if (!ok) noteMiss(MODE_TAG[item.type], item.word.term);
@@ -281,7 +290,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   }, [flip, grade, item]);
 
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun}
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
     onExit={onExit} onPick={onPick} />;
@@ -676,6 +685,49 @@ function CoachMarks() {
 }
 
 
+/** The words you met today, in a shape you can take away.
+ *
+ *  "My class sets homework; Lexi sets a streak." A session ends and leaves nothing
+ *  behind — the learning is real but it lives inside an app you have closed, and a
+ *  language-school student's day is full of moments (a bus, a queue, a lecture
+ *  running long) that are too small to open it again.
+ *
+ *  So the recap hands over a plain list: German, English, one per line, sized to
+ *  screenshot. Deliberately not a feature with state — no "homework" to complete,
+ *  nothing to sync, nothing to feel guilty about. Just the day's words, in a form
+ *  that survives leaving. */
+function PocketList({ words }: { words: Word[] }) {
+  const [open, setOpen] = useState(false);
+  if (words.length === 0) return null;
+  return (
+    <div className="mt-4">
+      {!open ? (
+        <button onClick={() => setOpen(true)}
+          className="inline-flex items-center gap-1.5 text-xs text-dim hover:text-amber underline underline-offset-2">
+          <ClipboardList size={13} /> Today’s words, to take with you
+        </button>
+      ) : (
+        <Card tone="sunken" nested pad="none" className="p-4 text-left">
+          <div className="flex items-center gap-2 mb-2">
+            <Kicker tone="accent">{words.length} words today</Kicker>
+            <button onClick={() => setOpen(false)} className="ml-auto text-2xs text-dim hover:text-amber">Hide</button>
+          </div>
+          {/* One line per word, no controls inside: this is meant to be a picture. */}
+          <ul className="space-y-1">
+            {words.map((w) => (
+              <li key={w.id} className="flex gap-2 text-sm leading-relaxed">
+                <GenderTerm term={w.term} gender={w.gender} className="text-txt font-medium min-w-[9rem]" />
+                <span className="text-dim flex-1">{w.en}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-2xs text-dim mt-3">Screenshot this — it’s just a list, nothing to finish.</p>
+        </Card>
+      )}
+    </div>
+  );
+}
+
 /** The first time a drill mode appears, introduce it.
  *
  *  Lexi is a testing app that never taught: a beginner three weeks in was asked
@@ -715,9 +767,9 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, onExit, onPick }:
+function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, onExit, onPick }:
   { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
-    composition?: RecapData['composition']; onExit: () => void; onPick: () => void }) {
+    composition?: RecapData['composition']; met: Word[]; onExit: () => void; onPick: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
@@ -743,6 +795,7 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
           </p>
         )}
+        <PocketList words={met} />
         {firstRun && newLearned > 0 && (
           <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
         )}

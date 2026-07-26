@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime } from '../store.ts';
+import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime, visitCount } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
@@ -17,6 +17,7 @@ import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { blindSpotDrills, estimateMinutes, wordsForMinutes } from '../session.ts';
 import ReadingList from '../components/ReadingList.tsx';
+import ClassListPicker from '../components/ClassListPicker.tsx';
 import { BY_ID, WORDS } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
 
@@ -43,6 +44,13 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
 
   const total = briefing.ids.length;
   const firstRun = !onboarded() && !placed && t.learned === 0;
+  // Week one. The guided chain ends at a recap and drops the learner onto a screen
+  // with eight sections on it — a goal line, a backlog burn-down, blind spots, a
+  // reading list, a grammar syllabus — none of which mean anything until there is
+  // some history to read them against. For the first week the surface is the one
+  // thing that matters: today's session. Everything else keeps working; it just
+  // isn't shouted at someone who has been here three days.
+  const week1 = !firstRun && visitCount() <= 7 && t.known < 40;
 
   // Backlog burn-down: remember the mountain’s peak so clearing it reads as
   // finite progress. Recorded as an effect (it writes storage).
@@ -143,10 +151,10 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
         </Card>
       )}
 
-      <PathCard onGrammar={onGrammar} onStudy={onStart} onBlind={onBlindDrill} />
+      {!week1 && <PathCard onGrammar={onGrammar} onStudy={onStart} onBlind={onBlindDrill} />}
 
       {/* The goal line — one pace sentence for learners with a date. */}
-      {(() => {
+      {!week1 && (() => {
         const gp = goalProgress();
         if (!gp) return null;
         const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
@@ -258,6 +266,9 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           Progress: Today is for doing, and auditing your own weaknesses is a
           different mood from starting a session. The session still rehearses
           them either way — that's the "+ N drills" line above. */}
+
+      {/* The learner's own course, if they have given us one. */}
+      <div className="mb-4"><ClassListPicker onStudy={onStart} /></div>
 
       {/* Lesen — the input half. Everything else on this screen asks the learner
           a question; this is the one thing that just gives them German to read.

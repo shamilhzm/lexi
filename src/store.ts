@@ -733,6 +733,34 @@ export function firstRunIds(n = 10): string[] {
 // Fine-group topics the learner chose at onboarding (and can edit in Profile).
 // weakestSectors() floats sectors in these groups to the front, so fresh
 // vocabulary is drawn from what they care about first. Empty = no preference.
+// ---- the class list ------------------------------------------------------
+// 284 semantic sectors and a CEFR filter, and no way to say the one thing a
+// language-school student actually wants: "this is my chapter this week". The
+// sectors are the corpus's organisation, not the learner's course, and no amount
+// of filtering turns one into the other.
+//
+// So: paste the list your teacher handed out. Matching is the same surface index
+// the reader uses, so an inflected or plural form finds its card. Stored as ids,
+// because the list is a pointer into the lexicon rather than a copy of it.
+const CLASSLIST_KEY = 'lexi.classlist.v1';
+export interface ClassList { name: string; ids: string[]; at: number }
+
+export function classList(): ClassList | null {
+  try {
+    const raw = localStorage.getItem(CLASSLIST_KEY);
+    if (!raw) return null;
+    const p = JSON.parse(raw) as ClassList;
+    return p && Array.isArray(p.ids) && p.ids.length ? p : null;
+  } catch { return null; }
+}
+export function setClassList(list: ClassList | null) {
+  try {
+    if (list && list.ids.length) localStorage.setItem(CLASSLIST_KEY, JSON.stringify(list));
+    else localStorage.removeItem(CLASSLIST_KEY);
+  } catch { /* quota */ }
+  emit();
+}
+
 const INTERESTS_KEY = 'lexi.interests.v1';
 export function interests(): Set<string> {
   try {
@@ -868,6 +896,10 @@ export function reviewedToday(): boolean {
   return (reviewLog()[todayKey()]?.n ?? 0) > 0;
 }
 
+/** Distinct days this learner has opened Lexi. The honest measure of "how new am
+ *  I" — a streak resets, and a card count says nothing about elapsed time. */
+export function visitCount(): number { return new Set(visits).size; }
+
 export function streak(): number {
   const set = new Set(visits);
   let n = 0;
@@ -929,6 +961,7 @@ const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
+  'lexi.classlist.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
 ];
