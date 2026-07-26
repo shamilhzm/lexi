@@ -1,0 +1,532 @@
+{
+  "_README": [
+    "40 example(s) classified \"missing-en\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:das Pflaster",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Hast du ein Pflaster für meinen Finger?",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Unfall",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Nach dem Unfall wurde er ins Krankenhaus gebracht.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:das Vitamin",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Obst enthält viele Vitamine.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:trainieren",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er trainiert dreimal pro Woche.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Lohn",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Sein Lohn wird wöchentlich ausgezahlt.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Schrank",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Kleider hängen im Schrank.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:das Regal",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Bücher stehen im Regal.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Sessel",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Mein Vater sitzt gern im Sessel.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Kühlschrank",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Immer wenn man die Tür des Kühlschrankes öffnet, brennt darin Licht.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Dusche",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ich nehme jeden Morgen eine Dusche.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:das Kissen",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Das Sofa hat bunte Kissen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Wecker",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Mein Wecker klingelt um sechs Uhr.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:aufräumen",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ich muss noch mein Zimmer aufräumen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Kneipe",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Die Kneipe war inzwischen voll geworden.“",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Haltestelle",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„An der nächsten Haltestelle verläßt er den Wagen, noch bevor der Schaffner merkt, daß er kein Billet gekauft hat.“",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Bushaltestelle",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ich warte schon zwanzig Minuten an der Bushaltestelle.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Bibliothek",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Stadtbibliothek ist montags geschlossen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Polizei",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Polizei ist sehr schnell angekommen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:wählen",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Bürger wählen alle vier Jahre einen neuen Bundestag.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Staat",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "In der Not rufen Banken wieder nach dem Staat.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Politik",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Politik der Regierung ist umstritten.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Politiker",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der Politiker spricht über Bildungsreformen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:öffentlich",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Sitzung ist öffentlich zugänglich.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:kreativ",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Malen ist eine kreative Freizeitbeschäftigung.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Muskeln",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Nach dem Training sind meine Muskeln müde.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Pause",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Zwischen den Sätzen brauche ich eine kurze Pause.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Sportverein",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er ist Mitglied in einem Sportverein.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Sporttasche",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Bobby stopfte alles in eine leere Sporttasche und vergaß auch nicht, einen Dosenöffner mitzunehmen.“",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Sporttasche",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Er trägt einen Canada Goose Parka und stellt seine Sporttasche auf den frisch geflasterten Weg.“",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Sportkleidung",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ich kaufe neue Sportkleidung für das Training.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:das Ziel",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Mein Ziel ist es, einen Marathon zu laufen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:joggen",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ich jogge jeden Morgen eine Stunde.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:radfahren",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Im Sommer fahre ich jeden Tag Rad.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:aktiv",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ein aktiver Lebensstil ist gut für die Gesundheit.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Freund",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ihr Freund kommt heute Abend.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Kollegin",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Ich esse mit meiner Kollegin zu Mittag.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:das Paar",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Das Paar tanzt sehr elegant.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:verlieben (sich)",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er hat sich sofort in sie verliebt.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:kennenlernen",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Wo habt ihr euch kennengelernt?",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Regel",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Jedes Spiel hat seine eigenen Regeln.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    }
+  ]
+}

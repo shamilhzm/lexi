@@ -1,0 +1,77 @@
+{
+  "_README": [
+    "5 example(s) classified \"missing-en\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:die Mannschaft",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Unsere Mannschaft hat das Turnier gewonnen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Karte",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er hat eine starke Karte ausgespielt.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Ski",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Er hat seine Ski in der Hütte gelassen.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Skischule",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Kinder lernen das Skifahren oft in der Skischule.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:die Skijacke",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Sie trug eine warme Skijacke auf der Piste.",
+        "en": ""
+      },
+      "de": "",
+      "en": ""
+    }
+  ]
+}

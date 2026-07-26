@@ -1,0 +1,116 @@
+{
+  "_README": [
+    "8 example(s) classified \"elided\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:die Genesung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[...] und manche beglückwünschten ihn zu seiner Genesung in so scherzhaftem Ton, als hätten sie seine Erkrankung nie recht ernst genommen.",
+        "en": "… and some congratulated him to his recovery in such a humorous tone, as if they had never taken his illness really seriously."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Ressourcenverbrauch",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[…] „mehr Menschen bedeuten auch einen höheren Ressourcenverbrauch.“",
+        "en": "„more people also mean higher resource consumption.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:verzeihen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der österreichische Psychologe Alfred Adler […] setzte sich scharf von Freud als Übervater der Psychoanalyse ab. Dies hat ihm Sigmund Freud nie verziehen.",
+        "en": "The Austrian psychologist Alfred Adler … sharply distanced himself from Freud as the father of psychoanalysis. Sigmund Freud never forgave him for this."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Spiegel",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[…] Sie hatte auch einen Spiegel, vor den trat sie alle Morgen und fragte: / „Spieglein, Spieglein an der Wand: / wer ist die schönste Frau in dem ganzen Land?“",
+        "en": "She had a Mirror before which she came every morning. She'd ask: Mirror, Mirror, on the wall, who is the fairest Woman in the entire land?\""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:der Spiegel",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "[…] Sie hatte auch einen Spiegel, vor den trat sie alle Morgen und fragte: / „Spieglein, Spieglein an der Wand: / wer ist die schönste Frau in dem ganzen Land?“",
+        "en": "She had a Mirror before which she came every morning. She'd ask: Mirror, Mirror, on the wall, who is the fairest Woman in the entire land?\""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Urlaub",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Genug, er war so wenig bei sich selbst, daß er sich eiligst aus der Garnison ohne Urlaub entfernte und, um seinen Vater aufzusuchen[…]",
+        "en": "Enough now, he was so much beside himself that he left the garrison posthaste, without taking leave, to seek out his father […]"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Bedeutung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Die schon in der Antike bekannten, vor allem aus Kreta überlieferten Stierspiele […] hatten ursprünglich rituelle Bedeutung.“",
+        "en": "„The bull games known already in antiquity, handed down above all from Crete, originally had a ritual significance.“"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:durchsetzen",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Innovationen im Affenreich setzen sich meist nur dann durch, wenn sie von ranghohen Tieren eingeführt werden, berichten US-Primatologen […]",
+        "en": "Innovations in the ape kingdom mostly only establish themselves if they are introduced by high-ranking animals, report US primatologists […]"
+      },
+      "de": "",
+      "en": ""
+    }
+  ]
+}

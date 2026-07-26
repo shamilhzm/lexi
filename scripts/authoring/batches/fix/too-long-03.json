@@ -1,0 +1,493 @@
+{
+  "_README": [
+    "37 example(s) classified \"too-long\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:die Klimakrise",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:8308084",
+      "expect": {
+        "de": "Ein neuer Bericht von 11.258 Wissenschaftlern in 153 Ländern aus den verschiedensten Disziplinen warnt davor, dass der Planet \"klar und unmissverständlich vor einer Klimakrise steht\", und enthält sechs allgemeine politische Ziele, die erreicht werden müssen, um sie anzugehen.",
+        "en": "A new report by 11,258 scientists in 153 countries from a broad range of disciplines warns that the planet “clearly and unequivocally faces a climate emergency,” and provides six broad policy goals that must be met to address it."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Partnerschaft",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:1045477",
+      "expect": {
+        "de": "Diese Erfahrung leitet mich in meiner Überzeugung, dass eine Partnerschaft zwischen Amerika und dem Islam auf dem basieren muss, was der Islam ist, und nicht auf dem, was er nicht ist. Und ich sehe es als Teil meiner Verantwortung als Präsident der Vereinigten Staaten an, gegen negative Stereotypen des Islam anzukämpfen, wo immer sie auftauchen.",
+        "en": "That experience guides my conviction that partnership between America and Islam must be based on what Islam is, not what it isn't. And I consider it part of my responsibility as President of the United States to fight against negative stereotypes of Islam wherever they appear."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Antisemitismus",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:8452422",
+      "expect": {
+        "de": "Der Antisemitismus ist nichts als der Socialismus des dummen Kerls von Wien (schallende Heiterkeit), denn welcher vernünftige Mensch kann glauben, daß die Zukunft besser wird, wenn man das Volk in das finstere Mittelalter zurückführt?",
+        "en": "Antisemitism is nothing but the socialism of the idiot of Vienna (loud laughter) – for what reasonable person can believe that the future will be better if people are led back into the darkness of the Middle Ages?"
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Präsenz",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:10574379",
+      "expect": {
+        "de": "Die Theorie der Evolution durch zufällige Mutation und natürliche Selektion übersieht die extrem offensichtliche Präsenz einer planenden Intelligenz im Universum.",
+        "en": "The theory of evolution by random mutation and natural selection fails to see the extremely obvious presence of a planning intelligence in the universe."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Stärkung",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:11466237",
+      "expect": {
+        "de": "Da die Frauen der Vereinigten Staaten für eine größere Rolle in der Politik, gerechteren Lohn und die Unterbindung sexueller Belästigung kämpfen, sehen auch die Pfadfinderinnen eine Gelegenheit gekommen, stolz auf ihr hehrsten Ziel aufmerksam zu machen: die Stärkung der Mädchen.",
+        "en": "As American women seek a larger role in politics, fairer wages and an end to sexual harassment, the Girl Scouts see an opportune time to show some swagger in promoting their core mission: girl empowerment."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Stärkung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:11466237",
+      "expect": {
+        "de": "Die Bildung muss auf die volle Entfaltung der menschlichen Persönlichkeit und auf die Stärkung der Achtung vor den Menschenrechten und Grundfreiheiten gerichtet sein. Sie muss zu Verständnis, Toleranz und Freundschaft zwischen allen Nationen und allen rassischen oder religiösen Gruppen beitragen und der Tätigkeit der Vereinten Nationen für die Wahrung des Friedens förderlich sein.",
+        "en": "Education shall be directed to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms. It shall promote understanding, tolerance and friendship among all nations, racial or religious groups, and shall further the activities of the United Nations for the maintenance of peace."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Verteidigungsminister",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:933033",
+      "expect": {
+        "de": "Knuffel den Bären zum Verteidigungsminister zu bestimmen, war einer der entscheidenden Fehler in Dollys kurzer Karriere als Präsidentin der Demokratischen Volksrepublik von Kaffeeklatsch.",
+        "en": "Appointing Cuddles the Bear to the position of Secretary of Defense was one of the defining mistakes of Dolly's brief career as president of the People's Democratic Republic of Tea Time."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Gestaltung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:570688",
+      "expect": {
+        "de": "Die Begründer der modernen Wissenschaft - Kopernikus, Galilei, Kepler, Newton, Boyle und viele andere - sahen eindeutige Beweise für die Gestaltung des Universums und wurden durch ihren Glauben an einen transzendenten Gesetzgeber dazu inspiriert, die Naturgesetze zu entdecken.",
+        "en": "The fathers of modern science – Copernicus, Galileo, Kepler, Newton, Boyle, and many others – saw clear evidence of design in the universe and, in fact, were inspired to discover the laws of nature by their faith in a transcendent lawgiver."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Ministerpräsidentin",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:10851065",
+      "expect": {
+        "de": "Der Generalsekretärin schlossen sich mehrere wegbereitende Frauen an, darunter die jüngste Ministerpräsidentin der Welt, Sanna Marin aus Finnland. Sie ist 34 Jahre alt und steht einer Koalitionsregierung vor, in der alle fünf Parteien von Frauen geführt werden.",
+        "en": "The secretary-general was joined by several trailblazing women, including the world’s youngest female prime minister, Sanna Marin of Finland. She is 34 and heads a coalition government in which women lead all five parties."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Verteilung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:12684179",
+      "expect": {
+        "de": "Der Lehrer von einst ließ kluge Schüler sich ausdrücken: er verbrachte seine Zeit oft nur damit, Rat zu erteilen. Er war wie jener, dem die Verteilung des Wassers zur Bewässerung in den Dörfern obliegt: er leitete das Wasser nur dem richtigen Empfänger zu.",
+        "en": "The teacher of yesteryear allowed intelligent students to express themselves: he often spent his time only giving advice. He was like the person responsible for the distribution of irrigation water in the villages: he only channelled the water to the right recipient."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Abgabe",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:7010291",
+      "expect": {
+        "de": "Alle Anleger mit mehr als 100 000 € bei südzyprischen Banken werden nun eine Abgabe von 9,9 Prozent ihrer Ersparnisse zahlen müssen, Teil eines zehn Milliarden Euro schweren Rettungsplans, der am Freitag, dem 15. März, vereinbart wurde.",
+        "en": "All depositors with over €100,000 in Southern Cypriot banks will now have to pay 9.9 percent levy on their savings as part of a €10 billion bailout plan agreed on Friday, March 15."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Ausrichtung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2289453",
+      "expect": {
+        "de": "Es ist Arbeitgebern nicht erlaubt, Arbeitern aufgrund von Rasse, Religion, Volkszugehörigkeit, Hautfarbe, Geschlecht, Alter, Familienstand, Behinderung oder sexueller Ausrichtung die Anstellung zu verwehren.",
+        "en": "Employers cannot refuse to hire workers because of their race, religion, ethnic origin, skin colour, sex, age, marital status, disability or sexual orientation."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Entstehung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:13888680",
+      "expect": {
+        "de": "Obgleich dieser Schelm etwas vorwitzig, bevor er gerufen wurde, zur Welt kam, war doch seine Mutter schön, es ging lustig zu bei seiner Entstehung, und der Hurensohn konnte nicht verleugnet werden.",
+        "en": "Though this knave came something saucily into the world before he was sent for, yet was his mother fair; there was good sport at his making, and the whoreson must be acknowledged."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Etappe",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:1847511",
+      "expect": {
+        "de": "Wir erfahren und verstehen die Welt durch Signale, die von den Sinnesorganen empfangen und vom Gehirn interpretiert werden - und beide Etappen dieses Prozesses sind Verzerrungen unterworfen.",
+        "en": "We experience and understand the world through signals that are received by the senses and interpreted by the brain - and both stages are subject to distortion."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Insider",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:3284342",
+      "expect": {
+        "de": "An der Wall Street machten einige Insider den großen Reibach, indem sie „short“ gingen, als jedermann auf einen schon lang anhaltenden Aufwärtstrend aufgesprungen war.",
+        "en": "At Wall Street, some insiders made a killing by going short, when everyone had been sucked into an unsustainable uptrend."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:die Verurteilung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2343912",
+      "expect": {
+        "de": "Am dritten Jahrestag des russischen Überfalls auf die Ukraine stellten sich die USA auf die Seite Russlands, Nordkoreas und Weißrusslands, indem sie gegen eine UN-Resolution zur Verurteilung der Invasion stimmten.",
+        "en": "On the third anniversary of the Russian invasion of Ukraine, the US sided with Russia, North Korea and Belarus, voting against a UN resolution condemning the invasion."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Verweis",
+      "at": 0,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:11724691",
+      "expect": {
+        "de": "Ich habe in meinem Profil einige Verweise zu Quellen ergänzt, die ich selbst zur Überprüfung meines Englisch verwende. Die eignen sich alle für britisches Englisch.",
+        "en": "I've put some links in my profile to sources I use myself to check my English. They're all good for British English."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B2:der Verweis",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:11724691",
+      "expect": {
+        "de": "„Ich kenne eine Menge wirklich erstklassiger Wissenschaftler, die erst kürzlich in andere Länder gezogen sind“, sagte Lee mit Verweis auf Kollegen, die sich nach Europa und China begeben hätten.",
+        "en": "\"I know quite a lot of really top-notch scientists who have just moved to other countries,\" said Lee, citing colleagues who have headed to Europe and China."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:nunmehr",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:644005",
+      "expect": {
+        "de": "Durch das in Indien ergangene Verbot, dass sich 21 Tage lang niemand draußen sehen zu lassen habe, gilt für nahezu ein Fünftel der Weltbevölkerung nunmehr Ausgangssperre.",
+        "en": "India's 21-day ban on venturing out puts nearly one-fifth of the world's population under lockdown."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:allenfalls",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": "wiktextract",
+      "expect": {
+        "de": "Ein Verbot sollte es nach Ansicht vieler Ökonomen auch für die sogenannten Leerverkäufe geben. Banken verkaufen dabei Aktien oder Währungen, die sie noch gar nicht besitzen oder allenfalls geliehen haben.",
+        "en": "In the opinion of many economists there should also exist a prohibition for the so-called short sales. In these banks sell shares or currencies that they do not own at all yet or have borrowed at best."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C2:der Schuft",
+      "at": 0,
+      "level": "C2",
+      "siblings": 0,
+      "source": "tatoeba:6367195",
+      "expect": {
+        "de": "„Virginia, eine Frau sollte vor ihrem Manne kein Geheimnis haben.“ – „So? Du hast doch auch Geheimnisse vor mir! Oder glaubst du, ich wüsste nicht von dir und Maria?“ – „Aber Virginia!“ – „Kein Aber! Verlass sofort mein Haus und plage Maria mit deinem männlichen Chauvinismus, du Schuft!“",
+        "en": "\"Virginia, a wife shouldn't keep secrets from her husband.\" \"Oh? But you are keeping secrets from me, are you not? Or did you think I didn't know about you and Mary?\" \"But Virginia!\" \"No buts! Leave my house this instant and pester Mary with your male chauvinism, you cad!\""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:einführen",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:1707372",
+      "expect": {
+        "de": "Im vorgeheizten Ofen ca. eine Stunde backen, bis sich ein Küchenmesser ohne Mühe in die Mitte einer Kartoffel einführen lässt. Beiseite stellen und ca. zehn Minuten abkühlen lassen.",
+        "en": "Bake in the preheated oven until a paring knife easily inserts into the center of a potato, about 1 hour. Set aside to cool for about 10 minutes."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:die Europameisterschaft",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:10073299",
+      "expect": {
+        "de": "England hat die Europameisterschaft der Frauen 2022 gewonnen. Das ist seit 1966 die erste große Fußballauszeichnung irgendeiner A-Auswahl des Landes überhaupt und erst die zweite in der Geschichte.",
+        "en": "England have won the 2022 UEFA European Women's Championship. It is the country's first major football honour for any senior team since 1966, and only the second in its history."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:europaweit",
+      "at": 0,
+      "level": "C1",
+      "siblings": 0,
+      "source": "tatoeba:6871500",
+      "expect": {
+        "de": "Der Baukonzern will europaweit alle lokalen Arbeitnehmervertreter in transparenter Weise zu diesem Thema informieren und Vorschläge zur Verbesserung der Arbeitsbedingungen, der Vermeidung von Arbeitsunfällen und berufsbedingten Gefahren prüfen.",
+        "en": "The construction group is seeking to inform all local employee representatives throughout Europe on this topic in a transparent manner and to investigate suggestions for improving working conditions and for the prevention of industrial accidents and occupational hazards."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:die Konstellation",
+      "at": 0,
+      "level": "C1",
+      "siblings": 0,
+      "source": "tatoeba:4141031",
+      "expect": {
+        "de": "„Kennt man die Ursache dieser Pestilenz?“ – „Die Gelehrten der Universitäten von Paris vermuten, die Ursache dieses Übels sei eine besonders ungünstige Konstellation des Jupiter, des Saturn und des Mars.“",
+        "en": "\"Does anyone know what has caused this plague?\" \"The scholars of the University of Paris believe that the source of this evil is an especially unfavorable constellation of Jupiter, Saturn, and Mars.\""
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:der Nordwesten",
+      "at": 0,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:7842013",
+      "expect": {
+        "de": "Durch starke Regenfälle trat außerdem der Gelbe Fluss, welcher durch Nordchina verläuft, über die Ufer und unterbrach so eine Eisenbahnstrecke in der Provinz Shǎnxī im Nordwesten.",
+        "en": "Heavy rain has also caused the Yellow River, which runs through northern China, to burst its banks, blocking a section of a railway line in the northwest province of Shaanxi."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:der Nordwesten",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:7842013",
+      "expect": {
+        "de": "Der Jakobsweg ist eine Wallfahrtsroute zur Kathedrale von Santiago de Compostela im Nordwesten Spaniens, wo sich angeblich die sterblichen Überreste des Apostels Jakobus des Älteren befinden.",
+        "en": "The St. James's Way is a pilgrimage route to the Cathedral of Santiago de Compostela in northwestern Spain, where allegedly the remains of the apostle St. James are buried."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:permanent",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:1845035",
+      "expect": {
+        "de": "Die Raumstation wurde als Forschungseinrichtung geschaffen, welche permanent im All die Erde umkreisen soll. Ihre Hauptaufgabe besteht darin, Forschung und Wissenschaft von Weltrang zu betreiben, die nur in einer Umgebung der Schwerelosigkeit möglich sind.",
+        "en": "The space station is designed to be a permanent orbiting research facility. Its major purpose is to perform world-class science and research that only a microgravity environment can provide."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:C1:der Prediger",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:2120276",
+      "expect": {
+        "de": "Sie war da für die Busse in Montgomery, die Wasserschläuche in Birmingham, eine Brücke in Selma, und da gab es einen Prediger aus Atlanta, der einem Volk gesagt hat \"Wir werden siegen\". Ja, wir können.",
+        "en": "She was there for the buses in Montgomery, the hoses in Birmingham, a bridge in Selma, and a preacher from Atlanta who told a people that \"We Shall Overcome.\" Yes, we can."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:der Organisator",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:3197108",
+      "expect": {
+        "de": "Im Bemühen, der extremen Hitze und Luftfeuchtigkeit zuvorzukommen, ließen die Organisatoren der Olympiade den Marathon der Damen um 6 Uhr morgens Ortszeit, eine Stunde früher als geplant, beginnen.",
+        "en": "Olympic organizers started the women’s marathon at 6 a.m. local time, an hour earlier than planned, in an effort to avoid extreme heat and humidity."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:A2:der Bachelor",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": "tatoeba:13322980",
+      "expect": {
+        "de": "Mit seinen 32 Kursen, die man für einen Bachelor braucht, kostet der Studiengang 54 400 Dollar, was, verglichen mit den Preisen an vielen öffentlichen Einrichtungen relativ günstig ist, von Harvard ganz zu schweigen.",
+        "en": "The program costs $54,400 for the 32 classes required to earn a bachelor’s degree—relatively cheap even compared with costs at many public institutions, not to mention one from Harvard College."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:aneignen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:10162359",
+      "expect": {
+        "de": "Es wäre gut Bücher kaufen, wenn man die Zeit, sie zu lesen, mitkaufen könnte, aber man verwechselt meistens den Ankauf der Bücher mit dem Aneignen ihres Inhalts.",
+        "en": "Buying books would be a good thing if one could also buy the time to read them in: but as a rule the purchase of books is mistaken for the appropriation of their contents."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:der Hauseingang",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:11236681",
+      "expect": {
+        "de": "Peter fuhr nachts mit dem Fahrrad die Straße entlang und sah seinen Vater in einem Hauseingang umschlungen mit der jungen Nachbarin stehen, wie sie sich gerade küssten.",
+        "en": "Peter was cycling down the street at night when he saw his father standing in a front doorway with a young neighbour, his arms around her as they kissed."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:das Hausmittel",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "wiktextract",
+      "expect": {
+        "de": "Nicht allen Menschen ist es eigentlich um ihre Bildung zu tun; viele wünschen nur so ein Hausmittel zum Wohlbefinden, Rezepte zum Reichtum und zu jeder Art von Glückseligkeit.",
+        "en": "Not everyone cares about being cultivated, many just want a quick remedy for their well-being, recipes for wealth and all kinds of happiness."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:die Lagerung",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:10648219",
+      "expect": {
+        "de": "Die Auswirkungen des Klimawandels auf die Landwirtschaft hat Folgen für die Nahrungsmittelsicherheit in den Vereinigten Staaten wie auch weltweit durch die Veränderungen bei Ernteerträgen und Nahrungsmittelpreisen und den Auswirkungen auf Nahrungsmittelverarbeitung, Lagerung, Transport und Vertrieb.",
+        "en": "Climate change effects on agriculture will have consequences for food security, both in the U.S. and globally, through changes in crop yields and food prices and effects on food processing, storage, transportation, and retailing."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:vernetzen",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:2061435",
+      "expect": {
+        "de": "Soziale Netze haben uns dichter vernetzt denn je zuvor. Doch neue Untersuchungen zeigen, dass wir nie zuvor einsamer waren und dass uns diese Einsamkeit psychisch und physisch krank macht.",
+        "en": "Social media have made us more densely networked than ever. Yet new research suggests that we have never been lonelier and that this loneliness is making us mentally and physically ill."
+      },
+      "de": "",
+      "en": ""
+    },
+    {
+      "id": "voc:B1:versteigern",
+      "at": 0,
+      "level": "B1",
+      "siblings": 1,
+      "source": "tatoeba:1811923",
+      "expect": {
+        "de": "„Liebling, schnell! Hier ist so eine Webseite namens Tatoeba, wo die ihre Satzsammlung für einen Cent den Satz versteigern! Die haben sogar Sonderangebote, zum Beispiel einen Satz umsonst, wenn man 100 Sätze kauft!“ „Echt? Jetzt sammeln Leute auch noch als Hobby Sätze? Wo wird das noch enden!“",
+        "en": "\"Honey, quick, quick. There's this website called Tatoeba that's auctioning its sentence collection for a cent each! They've even got special offers like buy 100 sentences and get 1 free!\" \"Ah great! now people collect sentences as a hobby?! What's the world coming to!\""
+      },
+      "de": "",
+      "en": ""
+    }
+  ]
+}
