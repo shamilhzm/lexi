@@ -16,7 +16,7 @@
 import './shim.ts';
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { PATHS } from './config.ts';
-import { loadCorpus, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, isGermanDefinition, LEVELS, type Word } from './lib.ts';
 
 const write = process.argv.includes('--write');
 const list = process.argv.includes('--list');
@@ -36,8 +36,6 @@ const norm = (s: string) => s.toLowerCase().replace(/[.;,]/g, '').replace(/\s+/g
 
 /** Words that only appear when a definition is actually explaining something. */
 const EXPLAINS = /\b(or|such as|one more than|at all|without|who|whom|whose|which|that|where|when|used|serves?|denotes?|refers?|means?|made|consisting|containing|having|able|capable|someone|something|a person|an act|the act|the state|the quality|the process|especially|typically|usually|often|rather than|as opposed|in order)\b/i;
-/** German function words — a def in German on an English-facing card. */
-const GERMAN = /\b(der|die|das|dass|eine|einen|einem|nicht|werden|wird|sein|sich|zu|von|mit|beschaffen|jemand|etwas)\b/;
 
 /** Is this segment just a translation term rather than a description? */
 function termish(seg: string): boolean {
@@ -88,8 +86,7 @@ function classify(w: Word): Klass[] {
   // *quotes* German: "(Feminine die See means the sea.)" is the clearest way to
   // separate der See from die See, and flagging it as a German definition would
   // punish exactly the disambiguation this audit exists to encourage.
-  const outsideParens = def.replace(/\([^)]*\)/g, ' ');
-  if (GERMAN.test(outsideParens) && !GERMAN.test(en) && /[äöüß]|\b(der|die|das|dass)\b/.test(outsideParens)) out.push('german');
+  if (isGermanDefinition(def, en)) out.push('german');
 
   return [...new Set(out)];
 }

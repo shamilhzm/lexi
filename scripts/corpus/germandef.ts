@@ -14,18 +14,9 @@
 //
 //   node scripts/corpus/germandef.ts [--write]
 import { PATHS } from './config.ts';
-import { readJSON, writeJSON, type Word } from './lib.ts';
+import { readJSON, writeJSON, isGermanDefinition, type Word } from './lib.ts';
 
 const write = process.argv.includes('--write');
-
-// Same test corpus:definitions uses, kept in step deliberately: parentheticals
-// are stripped first so an English definition that *quotes* German — "(Feminine
-// die See means the sea.)" — is not mistaken for a German one.
-const GERMAN = /\b(der|die|das|dass|eine|einen|einem|nicht|werden|wird|sein|sich|zu|von|mit|beschaffen|jemand|etwas)\b/;
-const isGerman = (def: string, en: string): boolean => {
-  const outside = def.replace(/\([^)]*\)/g, ' ');
-  return GERMAN.test(outside) && !GERMAN.test(en) && /[äöüß]|\b(der|die|das|dass)\b/.test(outside);
-};
 
 const vocab = readJSON<Word[]>(PATHS.vocab);
 const moved: Word[] = [];
@@ -33,7 +24,7 @@ const skipped: string[] = [];
 
 for (const w of vocab) {
   if (w.kind !== 'word' || !w.def) continue;
-  if (!isGerman(w.def, w.en ?? '')) continue;
+  if (!isGermanDefinition(w.def, w.en ?? '')) continue;
   // Never overwrite an existing German definition with a different one.
   if (w.defDe) { skipped.push(`${w.id}: already has a defDe`); continue; }
   w.defDe = w.def;

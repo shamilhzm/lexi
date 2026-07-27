@@ -378,6 +378,22 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — one rule for German-in-the-English-field, and the gate that uses it
+
+- **Third copy, weakest copy.** Adding a validator gate for German definitions
+  meant writing the test a third time (audit, migration, validator) — and the third
+  one omitted `des` and `mit`, so regressing `der Apfel` back to German **sailed
+  past a gate reporting PASS**. Exactly the failure the rule-length gate had that
+  morning, and the same shape as the `ARCHAIC_SPELLING` drift before it. Three
+  copies became one `isGermanDefinition` in `lib.ts`, used by `corpus:definitions`,
+  `corpus:germandef` and `corpus:validate`.
+- **The stronger rule found 36 more.** The migration had been *incomplete* because
+  the rule was too weak — `die Haltestelle` → "Stelle, Ort, an dem Verkehrsmittel
+  halten" was sitting in the English field the whole time. Migrated; the class is
+  0 and the gate is now a hard **error**, verified by regressing a card and
+  watching it fail.
+- 336 cards now carry a German definition awaiting an English one, up from 300.
+
 ### Shipped 2026-07-27 — the definition classifier, corrected a fourth time
 
 - **The measure was over-counting by 328, and the false positives were my own

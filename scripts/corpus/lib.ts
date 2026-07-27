@@ -126,6 +126,24 @@ const ARCHAIC_STEMS = [
 export const ARCHAIC_SPELLING = new RegExp(
   '(?<![\\p{L}\\p{N}])(' + ARCHAIC_STEMS.join('|') + ')(e|en|em|er|es|te|ten)?(?![\\p{L}\\p{N}])', 'iu');
 
+// ---- German text in the English definition field ---------------------------
+// 367 cards shipped a German definition inside `def`; they live in `defDe` now
+// (corpus:germandef) and are shown from B2 up. This is the test that keeps them
+// there — and it lives here because it had already been written three times, and
+// the third copy was the weakest: validate's list omitted "des" and "mit", so a
+// card regressed back to German sailed past a gate that reported PASS.
+//
+// Parentheticals are stripped first: a good English definition often *quotes*
+// German — "(Feminine die See means the sea.)" — and flagging that would punish
+// the disambiguation the audit exists to encourage.
+const GERMAN_MARKERS = /\b(der|die|das|des|dem|den|dass|eine|einen|einem|einer|nicht|werden|wird|sich|zu|von|mit|beim|jemand|etwas|beschaffen)\b/;
+export function isGermanDefinition(def: string, en: string): boolean {
+  const outside = (def ?? '').replace(/\([^)]*\)/g, ' ');
+  if (!outside.trim()) return false;
+  if (GERMAN_MARKERS.test(en ?? '')) return false;   // the gloss itself is German
+  return GERMAN_MARKERS.test(outside) && /[äöüß]|\b(der|die|das|des|dem|den|dass)\b/.test(outside);
+}
+
 // ---- the lead example -----------------------------------------------------
 // The flip face shows ex[0], so the first example *is* the card. This is a
 // narrower question than whether a row is corrupt (examples.ts owns that): a

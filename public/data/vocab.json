@@ -11546,7 +11546,7 @@
     "gender": "die",
     "plural": "die Haltestellen",
     "ipa": "ˈhaltəˌʃtɛlə",
-    "def": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten",
+    "def": null,
     "syn": [
       "Haltestation",
       "Haltepunkt"
@@ -11570,7 +11570,8 @@
       }
     ],
     "field": "Town & travel",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten"
   },
   {
     "id": "voc:A1:der Platz",
@@ -14534,7 +14535,7 @@
     "gender": "die",
     "plural": "die Blusen",
     "ipa": "ˈbluːzə",
-    "def": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen",
+    "def": null,
     "syn": [],
     "ant": [
       "Hemd"
@@ -14557,7 +14558,8 @@
       }
     ],
     "field": "Clothing",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen"
   },
   {
     "id": "voc:A1:die Socke",
@@ -15084,7 +15086,7 @@
     "gender": "der",
     "plural": "die Vornamen",
     "ipa": "ˈfoːɐ̯ˌnaːmə",
-    "def": "ein von den Eltern individuell ausgesuchter Name",
+    "def": null,
     "syn": [
       "Rufname"
     ],
@@ -15109,7 +15111,8 @@
       }
     ],
     "field": "Identity",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "ein von den Eltern individuell ausgesuchter Name"
   },
   {
     "id": "voc:A1:der Nachname",
@@ -15502,7 +15505,7 @@
     "gender": "der",
     "plural": "die Vormittage",
     "ipa": "ˈfoːɐ̯ˌmɪtaːk",
-    "def": "Tageszeit: Zeitraum zwischen dem Morgen und dem Mittag",
+    "def": null,
     "syn": [
       "Morgen"
     ],
@@ -15527,7 +15530,8 @@
       }
     ],
     "field": "Time",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Tageszeit: Zeitraum zwischen dem Morgen und dem Mittag"
   },
   {
     "id": "voc:A1:das Wochenende",
@@ -15576,7 +15580,7 @@
     "gender": "das",
     "plural": "die Daten",
     "ipa": "ˈdaːtʊm",
-    "def": "Angabe des Kalendertages",
+    "def": null,
     "syn": [
       "Kalendertag"
     ],
@@ -15599,7 +15603,8 @@
       }
     ],
     "field": "Time",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Angabe des Kalendertages"
   },
   {
     "id": "voc:A1:der Kalender",
@@ -20060,7 +20065,7 @@
     "gender": null,
     "plural": null,
     "ipa": "tʏʁˈkiːs",
-    "def": "in einer Farbe zwischen blau und grün (für Textilien verwendet, sonst umgangssprachlich)",
+    "def": null,
     "syn": [
       "blaugrün",
       "petrol",
@@ -20090,7 +20095,8 @@
       }
     ],
     "field": "Adjectives",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "in einer Farbe zwischen blau und grün (für Textilien verwendet, sonst umgangssprachlich)"
   },
   {
     "id": "voc:A1:hellblau",
@@ -20439,7 +20445,7 @@
     "gender": "die",
     "plural": "die Bitten",
     "ipa": "ˈbɪtə",
-    "def": "höfliche Ausdrucksform eines Wunsches, einer Aufforderung, eines Ersuchens",
+    "def": null,
     "syn": [
       "Anliegen",
       "Aufforderung",
@@ -20467,7 +20473,8 @@
       }
     ],
     "field": "Communication",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "höfliche Ausdrucksform eines Wunsches, einer Aufforderung, eines Ersuchens"
   },
   {
     "id": "voc:A1:der Inhaber",
@@ -20723,7 +20730,7 @@
     "gender": "die",
     "plural": "die Listen",
     "ipa": "ˈlɪstə",
-    "def": "ein schriftliches Verzeichnis, in dem mehrere Punkte in einer bestimmten Reihenfolge aufgeführt sind",
+    "def": null,
     "syn": [
       "Aufstellung",
       "Aufzählung",
@@ -20749,7 +20756,8 @@
       }
     ],
     "field": "Communication",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "ein schriftliches Verzeichnis, in dem mehrere Punkte in einer bestimmten Reihenfolge aufgeführt sind"
   },
   {
     "id": "voc:A1:der Wunsch",
@@ -27612,7 +27620,7 @@
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "bluːt",
-    "def": "dem Stoffwechsel dienende, im Körper zirkulierende rote Flüssigkeit",
+    "def": null,
     "syn": [
       "Lebenssaft",
       "Abstammung"
@@ -27639,7 +27647,8 @@
       }
     ],
     "field": "Body & health",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "dem Stoffwechsel dienende, im Körper zirkulierende rote Flüssigkeit"
   },
   {
     "id": "voc:A2:die Verletzung",
@@ -31624,7 +31633,7 @@
     "gender": "die",
     "plural": "die Haltestellen",
     "ipa": "ˈhaltəˌʃtɛlə",
-    "def": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten",
+    "def": null,
     "syn": [
       "Haltestation",
       "Haltepunkt"
@@ -31648,7 +31657,8 @@
       }
     ],
     "field": "Town & travel",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten"
   },
   {
     "id": "voc:A2:die Fahrkarte",
@@ -33986,7 +33996,7 @@
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "abiˈtuːɐ̯",
-    "def": "Abschlussprüfung an einer höheren Schule",
+    "def": null,
     "syn": [
       "Reifeprüfung",
       "veraltet: Abiturientenexamen",
@@ -34012,7 +34022,8 @@
       }
     ],
     "field": "Education",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Abschlussprüfung an einer höheren Schule"
   },
   {
     "id": "voc:A2:die Berufsschule",
@@ -53897,7 +53908,7 @@
     "gender": "das",
     "plural": "die Ehrenämter",
     "ipa": "ˈeːʁənˌʔamt",
-    "def": "freiwilliges unentgeltliches Engagement in gesellschaftlich relevanten Bereichen, im engeren Sinne eine in den Statuten einer Organisation vorgesehene unbezahlte Position",
+    "def": null,
     "syn": [],
     "ant": [],
     "ex": [
@@ -53918,7 +53929,8 @@
       }
     ],
     "field": "Social life",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "freiwilliges unentgeltliches Engagement in gesellschaftlich relevanten Bereichen, im engeren Sinne eine in den Statuten einer Organisation vorgesehene unbezahlte Position"
   },
   {
     "id": "voc:B1:der Einsatz",
@@ -56134,7 +56146,7 @@
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "ˈkliːmaˌʃʊt͡s",
-    "def": "Maßnahme gegen nachhaltige Veränderungen des Klimas",
+    "def": null,
     "syn": [],
     "ant": [
       "Frostschutz",
@@ -56158,7 +56170,8 @@
       }
     ],
     "field": "Environment",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Maßnahme gegen nachhaltige Veränderungen des Klimas"
   },
   {
     "id": "voc:B1:sich ereignen",
@@ -57112,7 +57125,7 @@
     "gender": "der",
     "plural": "die Ursprünge",
     "ipa": "ˈuːɐ̯ˌʃpʁʊŋ",
-    "def": "Zeitpunkt, Ort oder Material, aus dem etwas hervorgegangen ist",
+    "def": null,
     "syn": [
       "Herkunft",
       "oft: Nullpunkt"
@@ -57136,7 +57149,8 @@
       }
     ],
     "field": "Society",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Zeitpunkt, Ort oder Material, aus dem etwas hervorgegangen ist"
   },
   {
     "id": "voc:B1:die Versorgung",
@@ -60974,7 +60988,7 @@
     "gender": "die",
     "plural": "die Kühe",
     "ipa": "kuː",
-    "def": "Muttertier des Hausrinds",
+    "def": null,
     "syn": [
       "Kindersprache: Muhkuh"
     ],
@@ -61001,7 +61015,8 @@
       }
     ],
     "field": "Farm",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Muttertier des Hausrinds"
   },
   {
     "id": "voc:B1:der Landwirt",
@@ -61251,7 +61266,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈɛʁntn̩",
-    "def": "Nutzpflanzen von den Feldern einholen",
+    "def": null,
     "syn": [
       "abernten",
       "einbringen",
@@ -61279,7 +61294,8 @@
       }
     ],
     "field": "Farm",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Nutzpflanzen von den Feldern einholen"
   },
   {
     "id": "voc:B1:füttern",
@@ -65646,7 +65662,7 @@
     "gender": "die",
     "plural": "die Auswanderungen",
     "ipa": "ˈaʊ̯sˌvandəʁʊŋ",
-    "def": "dauerhaftes Verlassen des Heimatlandes",
+    "def": null,
     "syn": [
       "Abwanderung",
       "Emigration"
@@ -65672,7 +65688,8 @@
       }
     ],
     "field": "Emigration & immigration",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "dauerhaftes Verlassen des Heimatlandes"
   },
   {
     "id": "voc:B1:der Auswanderer",
@@ -70252,7 +70269,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈteːmənɡəˌbiːt",
-    "def": "fachlicher Bereich, dem bestimmte Themen zugeordnet werden",
+    "def": null,
     "syn": [
       "Arbeitsgebiet",
       "Arbeitsbereich",
@@ -70273,7 +70290,8 @@
       }
     ],
     "field": "Miscellaneous",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "fachlicher Bereich, dem bestimmte Themen zugeordnet werden"
   },
   {
     "id": "voc:B1:umgehen mit + D",
@@ -84042,7 +84060,7 @@
     "gender": "die",
     "plural": "die Elektromobilitäten",
     "ipa": "eˈlɛktʁomobiliˌtɛːt",
-    "def": "Teil des Verkehrs, bei dem Elektrofahrzeuge eingesetzt werden",
+    "def": null,
     "syn": [
       "E-Mobilität"
     ],
@@ -84060,7 +84078,8 @@
       }
     ],
     "field": "Transport & Mobility",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Teil des Verkehrs, bei dem Elektrofahrzeuge eingesetzt werden"
   },
   {
     "id": "voc:B2:das Carsharing",
@@ -86280,7 +86299,7 @@
     "gender": "das",
     "plural": "-ämter",
     "ipa": "ˈeːʁənˌʔamt",
-    "def": "freiwilliges unentgeltliches Engagement in gesellschaftlich relevanten Bereichen, im engeren Sinne eine in den Statuten einer Organisation vorgesehene unbezahlte Position",
+    "def": null,
     "syn": [],
     "ant": [],
     "ex": [
@@ -86296,7 +86315,8 @@
       }
     ],
     "field": "Civil Society & Engagement",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "freiwilliges unentgeltliches Engagement in gesellschaftlich relevanten Bereichen, im engeren Sinne eine in den Statuten einer Organisation vorgesehene unbezahlte Position"
   },
   {
     "id": "voc:C1:die Bürgerinitiative",
@@ -97886,7 +97906,7 @@
     "gender": "der",
     "plural": "-e",
     "ipa": "bəˈfʊnt",
-    "def": "Ergebnis einer Prüfung, eines Tests; Bericht (beispielsweise eines Sachverständigen/Mediziners) darüber",
+    "def": null,
     "syn": [
       "Diagnose",
       "Report",
@@ -97907,7 +97927,8 @@
       }
     ],
     "field": "Academic Work",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Ergebnis einer Prüfung, eines Tests; Bericht (beispielsweise eines Sachverständigen/Mediziners) darüber"
   },
   {
     "id": "voc:C1:die Replikation",
@@ -97918,7 +97939,7 @@
     "gender": "die",
     "plural": "-en",
     "ipa": "ʁeplikaˈt͡si̯oːn",
-    "def": "zelluläre Synthese; Erzeugen einer Kopie durch Verdoppelung genetischen Materials (DNA/RNA), zum Beispiel eines Chromosoms oder Virus",
+    "def": null,
     "syn": [],
     "ant": [],
     "ex": [
@@ -97934,7 +97955,8 @@
       }
     ],
     "field": "Research Ethics",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "zelluläre Synthese; Erzeugen einer Kopie durch Verdoppelung genetischen Materials (DNA/RNA), zum Beispiel eines Chromosoms oder Virus"
   },
   {
     "id": "voc:C1:die Grundlagenforschung",
@@ -98437,7 +98459,7 @@
     "gender": null,
     "plural": null,
     "ipa": "kɔntɛkstuˈɛl",
-    "def": "Linguistik: den Kontext betreffend, zum Kontext gehörend, auf dem Kontext beruhend",
+    "def": null,
     "syn": [
       "kontextual"
     ],
@@ -98457,7 +98479,8 @@
       }
     ],
     "field": "Pragmatics & Communication",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Linguistik: den Kontext betreffend, zum Kontext gehörend, auf dem Kontext beruhend"
   },
   {
     "id": "voc:C1:kognitiv",
@@ -103060,7 +103083,7 @@
     "gender": "der",
     "plural": null,
     "ipa": "ˈkliːmaˌʃʊt͡s",
-    "def": "Maßnahme gegen nachhaltige Veränderungen des Klimas",
+    "def": null,
     "syn": [],
     "ant": [
       "Frostschutz",
@@ -103079,7 +103102,8 @@
       }
     ],
     "field": "Environment & Science",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Maßnahme gegen nachhaltige Veränderungen des Klimas"
   },
   {
     "id": "voc:B2:erforschen",
@@ -105579,7 +105603,7 @@
     "gender": "die",
     "plural": null,
     "ipa": "fʁyː",
-    "def": "Beginn des Tages, Morgen",
+    "def": null,
     "syn": [
       "Morgen"
     ],
@@ -105601,7 +105625,8 @@
       }
     ],
     "field": "Basic time concepts",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Beginn des Tages, Morgen"
   },
   {
     "id": "voc:A1:der Werktag",
@@ -106440,7 +106465,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˌviː ˈɡeːt əs ˌdiːɐ̯",
-    "def": "Interrogativsatz (Fragesatz): Frage nach dem Wohlbefinden oder dem Gesundheitszustand einer befreundeten oder gut bekannten Person",
+    "def": null,
     "syn": [
       "wie gehts?"
     ],
@@ -106458,7 +106483,8 @@
       }
     ],
     "field": "Everyday greetings and farewells",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Interrogativsatz (Fragesatz): Frage nach dem Wohlbefinden oder dem Gesundheitszustand einer befreundeten oder gut bekannten Person"
   },
   {
     "id": "voc:A1:Wie geht's?",
@@ -109938,7 +109964,7 @@
     "gender": "die",
     "plural": "die Ecken",
     "ipa": "ˈɛkə",
-    "def": "Punkt, in welchem zwei begrenzende Linien einer Fläche beziehungsweise drei oder mehr Grenzflächen eines Körpers zusammenstoßen",
+    "def": null,
     "syn": [
       "Eck",
       "Straßenecke",
@@ -109959,7 +109985,8 @@
       }
     ],
     "field": "Spatial relations",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Punkt, in welchem zwei begrenzende Linien einer Fläche beziehungsweise drei oder mehr Grenzflächen eines Körpers zusammenstoßen"
   },
   {
     "id": "voc:A2:die Mitte",
@@ -112072,7 +112099,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈmɛʁkn̩",
-    "def": "etwas mit den Sinnen wahrnehmen, sich einer Sache bewusst werden",
+    "def": null,
     "syn": [],
     "ant": [],
     "ex": [
@@ -112088,7 +112115,8 @@
       }
     ],
     "field": "Intermediate everyday verbs",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "etwas mit den Sinnen wahrnehmen, sich einer Sache bewusst werden"
   },
   {
     "id": "voc:B1:mitteilen",
@@ -117169,7 +117197,7 @@
     "gender": "die",
     "plural": "die Blusen",
     "ipa": "ˈbluːzə",
-    "def": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen",
+    "def": null,
     "syn": [],
     "ant": [
       "Hemd"
@@ -117187,7 +117215,8 @@
       }
     ],
     "field": "Clothing",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen"
   },
   {
     "id": "voc:A2:die Stiefel",
@@ -125344,7 +125373,7 @@
     "gender": "die",
     "plural": "die Lippen",
     "ipa": "ˈlɪpə",
-    "def": "Organ am Rand des Mundes; Teil und Abschluss des Mundes nach außen",
+    "def": null,
     "syn": [
       "Lefze",
       "fremdwörtlich: Labium",
@@ -125364,7 +125393,8 @@
       }
     ],
     "field": "Body parts",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Organ am Rand des Mundes; Teil und Abschluss des Mundes nach außen"
   },
   {
     "id": "voc:B1:die Stirn",
@@ -127702,7 +127732,7 @@
     "gender": "die",
     "plural": "die Resilienzen",
     "ipa": "ʁeziˈli̯ɛnt͡s",
-    "def": "Fähigkeit elastischen Materials, nach starker Verformung in den Ausgangszustand zurückzukehren",
+    "def": null,
     "syn": [],
     "ant": [],
     "ex": [
@@ -127718,7 +127748,8 @@
       }
     ],
     "field": "Mental health concepts",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Fähigkeit elastischen Materials, nach starker Verformung in den Ausgangszustand zurückzukehren"
   },
   {
     "id": "voc:B1:die Einsamkeit",
@@ -134254,7 +134285,7 @@
     "gender": "das",
     "plural": "die Schlafsofas",
     "ipa": "ˈʃlaːfˌzoːfa",
-    "def": "Sofa, auf dem man schlafen kann",
+    "def": null,
     "syn": [
       "Schlafcouch"
     ],
@@ -134274,7 +134305,8 @@
       }
     ],
     "field": "Furniture",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Sofa, auf dem man schlafen kann"
   },
   {
     "id": "voc:B2:der Einbauschrank",
@@ -134942,7 +134974,7 @@
     "gender": "die",
     "plural": "die Haltestellen",
     "ipa": "ˈhaltəˌʃtɛlə",
-    "def": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten",
+    "def": null,
     "syn": [
       "Haltestation",
       "Haltepunkt"
@@ -134961,7 +134993,8 @@
       }
     ],
     "field": "Urban life",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten"
   },
   {
     "id": "voc:A2:die Bushaltestelle",
@@ -135849,7 +135882,7 @@
     "gender": "der",
     "plural": "die Abgeordneten",
     "ipa": "ˈapɡəˌʔɔʁdnətə",
-    "def": "gewähltes, weibliches Mitglied einer parlamentarischen Versammlung",
+    "def": null,
     "syn": [
       "Deputierte",
       "Volksvertreterin",
@@ -135869,7 +135902,8 @@
       }
     ],
     "field": "Politics",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "gewähltes, weibliches Mitglied einer parlamentarischen Versammlung"
   },
   {
     "id": "voc:A2:wählen",
@@ -144009,7 +144043,7 @@
     "gender": "die",
     "plural": "die Loipen",
     "ipa": "ˈlɔɪ̯pə",
-    "def": "maschinell vorbereitete Piste, Laufbahn für den Skilanglauf",
+    "def": null,
     "syn": [
       "Langlaufspur",
       "Spur"
@@ -144028,7 +144062,8 @@
       }
     ],
     "field": "Skiing and snowboarding",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "maschinell vorbereitete Piste, Laufbahn für den Skilanglauf"
   },
   {
     "id": "voc:B1:die Düne",
@@ -153523,7 +153558,7 @@
     "gender": "die",
     "plural": null,
     "ipa": "ʁeziˈli̯ɛnt͡s",
-    "def": "Fähigkeit elastischen Materials, nach starker Verformung in den Ausgangszustand zurückzukehren",
+    "def": null,
     "syn": [],
     "ant": [],
     "ex": [
@@ -153539,7 +153574,8 @@
       }
     ],
     "field": "Core Vocabulary",
-    "kind": "word"
+    "kind": "word",
+    "defDe": "Fähigkeit elastischen Materials, nach starker Verformung in den Ausgangszustand zurückzukehren"
   },
   {
     "id": "voc:C2:die Disruption",

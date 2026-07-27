@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, readJSON, stripArticle, lemmaKey, ARCHAIC_SPELLING, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, LEVELS, type Word } from './lib.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
 const mulberry32 = (seed: number) => () => {
@@ -97,6 +97,22 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     // Miscapitalised headwords are caught in dupeCheck, where the lowercase-twin
     // set already exists to tell a duplicate from a lone miscapitalisation.
     if (w.kind === 'word' && w.pos && !ALLOWED_POS.has(w.pos)) warnings.push({ id, msg: `pos "${w.pos}" outside new-card set` });
+    // Definition quality (corpus:definitions owns the full audit; these two are
+    // the classes that have been cleared to zero and must stay there).
+    //
+    // A German definition in the English field is a hard error: all 367 moved to
+    // `defDe`, so a new one means an import path is writing to the wrong column
+    // again — the bug, not the content, since German definitions are now a shown
+    // feature at B2+.
+    if (w.kind === 'word' && w.def) {
+      if (isGermanDefinition(w.def, w.en ?? '')) {
+        errors.push({ id, msg: 'German definition in the English `def` field — belongs in `defDe`' });
+      }
+      // A definition that just repeats the gloss it sits next to teaches nothing.
+      if (w.def.trim().toLowerCase().replace(/[.;,]/g, '') === (w.en ?? '').trim().toLowerCase().replace(/[.;,]/g, '')) {
+        warnings.push({ id, msg: 'def only repeats the en gloss' });
+      }
+    }
   }
   return { errors, warnings };
 }
