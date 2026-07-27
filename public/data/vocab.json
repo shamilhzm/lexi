@@ -23100,7 +23100,7 @@
     "gender": "die",
     "plural": "die Erkältungen",
     "ipa": "ɛɐ̯ˈkɛltʊŋ",
-    "def": null,
+    "def": "A mild illness of the nose and throat, with coughing and sneezing.",
     "syn": [
       "grippaler Infekt",
       "Pips",
@@ -23379,7 +23379,7 @@
     "gender": "die",
     "plural": "die Vorspeisen",
     "ipa": "ˈfoːɐ̯ˌʃpaɪ̯zə",
-    "def": null,
+    "def": "The first course of a meal, served before the main dish.",
     "syn": [
       "Antipasto",
       "Entree",
@@ -25327,7 +25327,7 @@
     "gender": "die",
     "plural": "die Treppen",
     "ipa": "ˈtʁɛpə",
-    "def": null,
+    "def": "A set of steps leading from one floor to another.",
     "syn": [
       "Stiege"
     ],
@@ -25635,7 +25635,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈmiːtn̩",
-    "def": null,
+    "def": "To pay to use something — a flat, a car — for a set period.",
     "syn": [
       "anmieten"
     ],
@@ -26865,7 +26865,7 @@
     "gender": null,
     "plural": null,
     "ipa": "zoˈfɔʁt",
-    "def": null,
+    "def": "At once, with no delay at all.",
     "syn": [
       "gleich"
     ],
@@ -27439,7 +27439,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈzɔnɪç",
-    "def": null,
+    "def": "With the sun shining and few clouds.",
     "syn": [],
     "ant": [
       "schattig",
@@ -27512,7 +27512,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈvɪndɪç",
-    "def": null,
+    "def": "With a noticeable wind blowing.",
     "syn": [
       "böig",
       "stürmisch",
@@ -27620,7 +27620,7 @@
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "bluːt",
-    "def": null,
+    "def": "The red fluid the heart pumps around the body.",
     "syn": [
       "Lebenssaft",
       "Abstammung"
@@ -27659,7 +27659,7 @@
     "gender": "die",
     "plural": "die Verletzungen",
     "ipa": "fɛɐ̯ˈlɛtsʊŋ",
-    "def": null,
+    "def": "Damage to the body, such as a cut or a broken bone.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -27991,7 +27991,7 @@
     "gender": "die",
     "plural": "die Hochzeiten",
     "ipa": "ˈhɔxˌtsaɪ̯t",
-    "def": null,
+    "def": "The ceremony and celebration at which two people marry.",
     "syn": [
       "Eheschließung",
       "Heirat",
@@ -28030,7 +28030,7 @@
     "gender": "die",
     "plural": "die Ehen",
     "ipa": "ˈeːə",
-    "def": null,
+    "def": "The legally recognised union of two married people.",
     "syn": [
       "dichterisch: Eheband",
       "gehoben: Ehebund",
@@ -28579,7 +28579,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈɛŋstlɪç",
-    "def": null,
+    "def": "Full of fear, or easily frightened.",
     "syn": [
       "angstbesetzt",
       "angsterfüllt",
@@ -31633,7 +31633,7 @@
     "gender": "die",
     "plural": "die Haltestellen",
     "ipa": "ˈhaltəˌʃtɛlə",
-    "def": null,
+    "def": "The place where a bus or tram stops to let passengers on and off.",
     "syn": [
       "Haltestation",
       "Haltepunkt"
@@ -31943,7 +31943,7 @@
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "lɛʁm",
-    "def": null,
+    "def": "Sound that is unwanted and unpleasantly loud.",
     "syn": [
       "Buhei",
       "Gelärme",
@@ -32388,7 +32388,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈpʊt͡sn̩",
-    "def": null,
+    "def": "To remove dirt by scrubbing or wiping.",
     "syn": [
       "säubern",
       "reinigen",
@@ -32645,7 +32645,7 @@
     "gender": "die",
     "plural": "die Überraschungen",
     "ipa": "yːbɐˈʁaʃʊŋ",
-    "def": null,
+    "def": "Something unexpected, and the feeling it causes.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -32744,7 +32744,7 @@
     "gender": "das",
     "plural": "die Zentren",
     "ipa": "ˈt͡sɛntʁʊm",
-    "def": null,
+    "def": "The middle point of something — and the central part of a town.",
     "syn": [
       "Kern",
       "Mitte",
@@ -33152,7 +33152,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈmɪsn̩",
-    "def": null,
+    "def": "To notice that someone or something you want is absent.",
     "syn": [
       "ermangeln",
       "missen",
@@ -33296,7 +33296,7 @@
     "gender": "die",
     "plural": "die Überweisungen",
     "ipa": "yːbɐˈvaɪ̯zʊŋ",
-    "def": null,
+    "def": "A transfer of money between bank accounts — and a referral to a specialist.",
     "syn": [
       "Geldüberweisung"
     ],
@@ -33827,7 +33827,7 @@
     "gender": "das",
     "plural": "die Festivals",
     "ipa": "ˈfɛstival",
-    "def": null,
+    "def": "A multi-day event at which many performers appear.",
     "syn": [
       "Festspiele"
     ],
@@ -33996,7 +33996,7 @@
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "abiˈtuːɐ̯",
-    "def": null,
+    "def": "The final exam of a German academic secondary school, and the qualification it gives.",
     "syn": [
       "Reifeprüfung",
       "veraltet: Abiturientenexamen",
@@ -34237,7 +34237,7 @@
     "gender": "die",
     "plural": "die Ferienwohnungen",
     "ipa": "ˈfeːʁi̯ənˌvoːnʊŋ",
-    "def": null,
+    "def": "A flat rented out to holidaymakers for a short stay.",
     "syn": [],
     "ant": [
       "Ferienhaus"
@@ -34831,7 +34831,7 @@
     "gender": "die",
     "plural": "die Kunstakademien",
     "ipa": "ˈkʊnstʔakadeˌmiː",
-    "def": null,
+    "def": "A college devoted to teaching the fine arts.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -35033,7 +35033,7 @@
     "gender": null,
     "plural": null,
     "ipa": "bəˈʔɛndn̩",
-    "def": null,
+    "def": "To bring something to an end.",
     "syn": [
       "abbrechen",
       "abschließen",
@@ -35682,7 +35682,7 @@
     "gender": "die",
     "plural": "die Hoffnungen",
     "ipa": "ˈhɔfnʊŋ",
-    "def": null,
+    "def": "The expectation that something good will happen.",
     "syn": [],
     "ant": [
       "Hoffnungslosigkeit",
@@ -35783,7 +35783,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈapˌzaːɡn̩",
-    "def": null,
+    "def": "To call off something that had been arranged.",
     "syn": [],
     "ant": [
       "zusagen"
@@ -35891,7 +35891,7 @@
     "gender": "die",
     "plural": "die Altstädte",
     "ipa": "ˈaltˌʃtat",
-    "def": null,
+    "def": "The oldest part of a town, usually its historic centre.",
     "syn": [],
     "ant": [
       "Neustadt"
@@ -36350,7 +36350,7 @@
     "gender": "der",
     "plural": "die Altbauten",
     "ipa": "ˈaltˌbaʊ̯",
-    "def": null,
+    "def": "A building put up before the mid-twentieth century, with high ceilings.",
     "syn": [],
     "ant": [
       "der Neubau"
@@ -37435,7 +37435,7 @@
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "ˈalˌtaːk",
-    "def": null,
+    "def": "Ordinary life, the same routine repeating day after day.",
     "syn": [],
     "ant": [
       "Feiertag",
@@ -37538,7 +37538,7 @@
     "gender": "die",
     "plural": "die Jahreszeiten",
     "ipa": "ˈjaːʁəsˌt͡saɪ̯t",
-    "def": null,
+    "def": "One of the four parts of the year: spring, summer, autumn, winter.",
     "syn": [
       "Saison"
     ],
@@ -37678,7 +37678,7 @@
     "gender": "die",
     "plural": "die Literaturen",
     "ipa": "lɪtəʁaˈtuːɐ̯",
-    "def": null,
+    "def": "Written works valued as art — and the writing on a subject.",
     "syn": [
       "Schrifttum",
       "Belletristik",
@@ -38119,7 +38119,7 @@
     "gender": null,
     "plural": null,
     "ipa": "bəˈdɔɪ̯tn̩t",
-    "def": null,
+    "def": "Mattering a great deal; of real importance.",
     "syn": [
       "unübersehbar",
       "wichtig",
@@ -38765,7 +38765,7 @@
     "gender": "der",
     "plural": "die Semesterbeiträge",
     "ipa": "zeˈmɛstɐbaɪ̯ˌtʁaːk",
-    "def": null,
+    "def": "The fee a German student pays each semester, covering admin and transport.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -39279,7 +39279,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈhɛslɪç",
-    "def": null,
+    "def": "Unpleasant to look at; the opposite of schön.",
     "syn": [
       "unschön"
     ],
@@ -39316,7 +39316,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈkoːmɪʃ",
-    "def": null,
+    "def": "Funny — and also odd in a way that puzzles you.",
     "syn": [
       "seltsam"
     ],
@@ -39526,7 +39526,7 @@
     "gender": "der",
     "plural": "die Knochen",
     "ipa": "ˈknɔxn̩",
-    "def": null,
+    "def": "One of the hard parts making up the skeleton.",
     "syn": [
       "Gebein",
       "(übertr.) Gräte",
@@ -39634,7 +39634,7 @@
     "gender": "der",
     "plural": "die Muskeln",
     "ipa": "ˈmʊskl̩",
-    "def": null,
+    "def": "The body tissue that contracts to produce movement.",
     "syn": [
       "Muckis"
     ],
@@ -39767,7 +39767,7 @@
     "gender": "die",
     "plural": "die Schlafstörungen",
     "ipa": "ˈʃlaːfˌʃtøːʁʊŋ",
-    "def": null,
+    "def": "Persistent trouble falling asleep or staying asleep.",
     "syn": [
       "Dyssomnie"
     ],
@@ -40098,7 +40098,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈmɛsn̩",
-    "def": null,
+    "def": "To find the size, amount or degree of something.",
     "syn": [
       "sich vergleichen",
       "mustern",
@@ -41495,7 +41495,7 @@
     "gender": "die",
     "plural": "die Abneigungen",
     "ipa": "ˈapˌnaɪ̯ɡʊŋ",
-    "def": null,
+    "def": "A settled dislike of something or someone.",
     "syn": [
       "Ablehnung",
       "Abscheu",

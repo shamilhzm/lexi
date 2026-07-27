@@ -1,0 +1,367 @@
+{
+  "_README": [
+    "A2 definitions for cards whose German definition moved to defDe."
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:die Erkältung",
+      "level": "A2",
+      "en": "cold (illness)",
+      "expect": {
+        "def": ""
+      },
+      "def": "A mild illness of the nose and throat, with coughing and sneezing."
+    },
+    {
+      "id": "voc:A2:die Vorspeise",
+      "level": "A2",
+      "en": "starter, appetizer",
+      "expect": {
+        "def": ""
+      },
+      "def": "The first course of a meal, served before the main dish."
+    },
+    {
+      "id": "voc:A2:die Treppe",
+      "level": "A2",
+      "en": "stairs, staircase",
+      "expect": {
+        "def": ""
+      },
+      "def": "A set of steps leading from one floor to another."
+    },
+    {
+      "id": "voc:A2:mieten",
+      "level": "A2",
+      "en": "to rent",
+      "expect": {
+        "def": ""
+      },
+      "def": "To pay to use something — a flat, a car — for a set period."
+    },
+    {
+      "id": "voc:A2:sofort",
+      "level": "A2",
+      "en": "immediately, right away",
+      "expect": {
+        "def": ""
+      },
+      "def": "At once, with no delay at all."
+    },
+    {
+      "id": "voc:A2:sonnig",
+      "level": "A2",
+      "en": "sunny",
+      "expect": {
+        "def": ""
+      },
+      "def": "With the sun shining and few clouds."
+    },
+    {
+      "id": "voc:A2:windig",
+      "level": "A2",
+      "en": "windy",
+      "expect": {
+        "def": ""
+      },
+      "def": "With a noticeable wind blowing."
+    },
+    {
+      "id": "voc:A2:das Blut",
+      "level": "A2",
+      "en": "blood",
+      "expect": {
+        "def": ""
+      },
+      "def": "The red fluid the heart pumps around the body."
+    },
+    {
+      "id": "voc:A2:die Verletzung",
+      "level": "A2",
+      "en": "injury",
+      "expect": {
+        "def": ""
+      },
+      "def": "Damage to the body, such as a cut or a broken bone."
+    },
+    {
+      "id": "voc:A2:die Hochzeit",
+      "level": "A2",
+      "en": "wedding",
+      "expect": {
+        "def": ""
+      },
+      "def": "The ceremony and celebration at which two people marry."
+    },
+    {
+      "id": "voc:A2:die Ehe",
+      "level": "A2",
+      "en": "marriage",
+      "expect": {
+        "def": ""
+      },
+      "def": "The legally recognised union of two married people."
+    },
+    {
+      "id": "voc:A2:ängstlich",
+      "level": "A2",
+      "en": "anxious, fearful",
+      "expect": {
+        "def": ""
+      },
+      "def": "Full of fear, or easily frightened."
+    },
+    {
+      "id": "voc:A2:die Haltestelle",
+      "level": "A2",
+      "en": "stop (bus/tram)",
+      "expect": {
+        "def": ""
+      },
+      "def": "The place where a bus or tram stops to let passengers on and off."
+    },
+    {
+      "id": "voc:A2:der Lärm",
+      "level": "A2",
+      "en": "noise",
+      "expect": {
+        "def": ""
+      },
+      "def": "Sound that is unwanted and unpleasantly loud."
+    },
+    {
+      "id": "voc:A2:putzen",
+      "level": "A2",
+      "en": "to clean",
+      "expect": {
+        "def": ""
+      },
+      "def": "To remove dirt by scrubbing or wiping."
+    },
+    {
+      "id": "voc:A2:die Überraschung",
+      "level": "A2",
+      "en": "surprise",
+      "expect": {
+        "def": ""
+      },
+      "def": "Something unexpected, and the feeling it causes."
+    },
+    {
+      "id": "voc:A2:das Zentrum",
+      "level": "A2",
+      "en": "centre",
+      "expect": {
+        "def": ""
+      },
+      "def": "The middle point of something — and the central part of a town."
+    },
+    {
+      "id": "voc:A2:vermissen",
+      "level": "A2",
+      "en": "to miss (someone/something)",
+      "expect": {
+        "def": ""
+      },
+      "def": "To notice that someone or something you want is absent."
+    },
+    {
+      "id": "voc:A2:die Überweisung",
+      "level": "A2",
+      "en": "bank transfer; referral",
+      "expect": {
+        "def": ""
+      },
+      "def": "A transfer of money between bank accounts — and a referral to a specialist."
+    },
+    {
+      "id": "voc:A2:das Festival",
+      "level": "A2",
+      "en": "festival",
+      "expect": {
+        "def": ""
+      },
+      "def": "A multi-day event at which many performers appear."
+    },
+    {
+      "id": "voc:A2:das Abitur",
+      "level": "A2",
+      "en": "school-leaving exam (Abitur)",
+      "expect": {
+        "def": ""
+      },
+      "def": "The final exam of a German academic secondary school, and the qualification it gives."
+    },
+    {
+      "id": "voc:A2:die Ferienwohnung",
+      "level": "A2",
+      "en": "holiday flat",
+      "expect": {
+        "def": ""
+      },
+      "def": "A flat rented out to holidaymakers for a short stay."
+    },
+    {
+      "id": "voc:A2:die Kunstakademie",
+      "level": "A2",
+      "en": "art academy",
+      "expect": {
+        "def": ""
+      },
+      "def": "A college devoted to teaching the fine arts."
+    },
+    {
+      "id": "voc:A2:beenden",
+      "level": "A2",
+      "en": "to finish, end",
+      "expect": {
+        "def": ""
+      },
+      "def": "To bring something to an end."
+    },
+    {
+      "id": "voc:A2:die Hoffnung",
+      "level": "A2",
+      "en": "hope",
+      "expect": {
+        "def": ""
+      },
+      "def": "The expectation that something good will happen."
+    },
+    {
+      "id": "voc:A2:absagen",
+      "level": "A2",
+      "en": "to cancel, call off",
+      "expect": {
+        "def": ""
+      },
+      "def": "To call off something that had been arranged."
+    },
+    {
+      "id": "voc:A2:die Altstadt",
+      "level": "A2",
+      "en": "old town",
+      "expect": {
+        "def": ""
+      },
+      "def": "The oldest part of a town, usually its historic centre."
+    },
+    {
+      "id": "voc:A2:der Altbau",
+      "level": "A2",
+      "en": "old building",
+      "expect": {
+        "def": ""
+      },
+      "def": "A building put up before the mid-twentieth century, with high ceilings."
+    },
+    {
+      "id": "voc:A2:der Alltag",
+      "level": "A2",
+      "en": "everyday life",
+      "expect": {
+        "def": ""
+      },
+      "def": "Ordinary life, the same routine repeating day after day."
+    },
+    {
+      "id": "voc:A2:die Jahreszeit",
+      "level": "A2",
+      "en": "season",
+      "expect": {
+        "def": ""
+      },
+      "def": "One of the four parts of the year: spring, summer, autumn, winter."
+    },
+    {
+      "id": "voc:A2:die Literatur",
+      "level": "A2",
+      "en": "literature",
+      "expect": {
+        "def": ""
+      },
+      "def": "Written works valued as art — and the writing on a subject."
+    },
+    {
+      "id": "voc:A2:bedeutend",
+      "level": "A2",
+      "en": "significant, important",
+      "expect": {
+        "def": ""
+      },
+      "def": "Mattering a great deal; of real importance."
+    },
+    {
+      "id": "voc:A2:der Semesterbeitrag",
+      "level": "A2",
+      "en": "semester fee",
+      "expect": {
+        "def": ""
+      },
+      "def": "The fee a German student pays each semester, covering admin and transport."
+    },
+    {
+      "id": "voc:A2:hässlich",
+      "level": "A2",
+      "en": "ugly",
+      "expect": {
+        "def": ""
+      },
+      "def": "Unpleasant to look at; the opposite of schön."
+    },
+    {
+      "id": "voc:A2:komisch",
+      "level": "A2",
+      "en": "funny, odd",
+      "expect": {
+        "def": ""
+      },
+      "def": "Funny — and also odd in a way that puzzles you."
+    },
+    {
+      "id": "voc:A2:der Knochen",
+      "level": "A2",
+      "en": "bone",
+      "expect": {
+        "def": ""
+      },
+      "def": "One of the hard parts making up the skeleton."
+    },
+    {
+      "id": "voc:A2:der Muskel",
+      "level": "A2",
+      "en": "muscle",
+      "expect": {
+        "def": ""
+      },
+      "def": "The body tissue that contracts to produce movement."
+    },
+    {
+      "id": "voc:A2:die Schlafstörung",
+      "level": "A2",
+      "en": "sleep disorder",
+      "expect": {
+        "def": ""
+      },
+      "def": "Persistent trouble falling asleep or staying asleep."
+    },
+    {
+      "id": "voc:A2:messen",
+      "level": "A2",
+      "en": "to measure",
+      "expect": {
+        "def": ""
+      },
+      "def": "To find the size, amount or degree of something."
+    },
+    {
+      "id": "voc:A2:die Abneigung",
+      "level": "A2",
+      "en": "aversion",
+      "expect": {
+        "def": ""
+      },
+      "def": "A settled dislike of something or someone."
+    }
+  ]
+}

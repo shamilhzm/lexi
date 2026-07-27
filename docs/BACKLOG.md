@@ -378,6 +378,15 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — A2 definitions, and the queue drains
+
+- **40 more authored definitions**, closing the A2 half of the German-definition
+  migration. `die Haltestelle` — which had been sitting in the English field in
+  German all along — now reads "The place where a bus or tram stops to let
+  passengers on and off."
+- Cards with no English definition: **368 → 286**. C1 and C2 are effectively
+  finished at **0.2%** and **0.5%** flagged; A1 is at 15.6%, from 34% this morning.
+
 ### Shipped 2026-07-27 — a regression I caused, and the fourth copy of the rule
 
 - **The migration moved eleven English annotations into the German field.**
