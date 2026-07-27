@@ -42,8 +42,13 @@ export function usePoint(ref: { level: CEFR; title: string } | string | null) {
  *  glossed examples — in that order, because that is the order they teach in.
  *
  *  The arrow column is a real grid column rather than an inline "→", so five plural
- *  patterns read as five scannable rows instead of a sentence you have to parse. */
-function Section({ s }: { s: RuleSection }) {
+ *  patterns read as five scannable rows instead of a sentence you have to parse.
+ *
+ *  Exported because the Library syllabus renders rules too, and for a while it
+ *  rendered only `point.rule` — so every point carrying authored sections fell back
+ *  to its paragraph on the one surface built for *reading* a rule. Two renderers,
+ *  one of which had never heard of the feature. */
+export function RuleSectionBlock({ s }: { s: RuleSection }) {
   return (
     <div className="pt-2.5 mt-2.5 border-t border-line first:border-0 first:pt-0 first:mt-0">
       {s.label && <Kicker tone="accent" className="block mb-1">{s.label}</Kicker>}
@@ -101,7 +106,7 @@ export function RuleCard({ point, level, onClose, worked = false }: {
           than sitting under the title as a caption in the smallest available size. */}
       <p className="text-sm text-txt leading-relaxed mb-2.5">{point.summary}</p>
       {point.sections?.length
-        ? <div>{point.sections.map((s, i) => <Section key={i} s={s} />)}</div>
+        ? <div>{point.sections.map((s, i) => <RuleSectionBlock key={i} s={s} />)}</div>
         // whitespace-pre-line: a few rules are multi-line conjugation tables.
         : <p className="text-sm text-dim whitespace-pre-line leading-relaxed border-t border-line pt-2.5">{point.rule}</p>}
       {worked && <Worked point={point} />}

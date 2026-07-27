@@ -378,6 +378,26 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — structured rules reach the surface built for reading them
+
+- **Part E was only half-delivered, and the missing half was the important one.**
+  `RuleCard` (the in-drill panel) rendered `sections`; the **Library syllabus** —
+  the surface a learner opens to *read* a rule — had its own renderer that only
+  knew `point.rule`. So every point carrying authored sections fell back to its
+  paragraph exactly where the structure was meant to help. Two renderers, one of
+  which had never heard of the feature. `RuleSectionBlock` is now exported from
+  `RulePanel.tsx` and used by both; `rule` stays the fallback for genuine prose.
+  Found by paying off a verification debt — I had shipped the C1/C2 sections
+  having checked them structurally but never *looked* at them.
+- **A phantom bug, recorded because the near-miss is the lesson.** While verifying,
+  a light-theme contrast measurement on the Library point titles read **1.57**
+  against a 4.5 floor, stable across re-measures, and I came close to filing it.
+  It was an artifact of my own half-applied change: `PointRow` was throwing
+  `ReferenceError: RuleSectionBlock is not defined` into the ErrorBoundary, and I
+  was measuring the recovered tree. On a clean render the same element measures
+  **15.68**. The console error was visible the whole time and I read the DOM before
+  reading the log.
+
 ### Shipped 2026-07-27 — the advanced learners (personas B2 · C1 · C2)
 
 Fifteen of the thirty B2/C1/C2 findings were already closed. This pass takes the
