@@ -104386,8 +104386,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Ja",
-    "term": "Ja",
+    "id": "voc:A1:ja",
+    "term": "ja",
     "en": "yes",
     "pos": "particle",
     "level": "A1",
@@ -104413,8 +104413,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Nein",
-    "term": "Nein",
+    "id": "voc:A1:nein",
+    "term": "nein",
     "en": "no",
     "pos": "particle",
     "level": "A1",
@@ -105634,8 +105634,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Es",
-    "term": "Es",
+    "id": "voc:A1:es",
+    "term": "es",
     "en": "it",
     "pos": "pronoun",
     "level": "A1",
@@ -105661,8 +105661,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Ihr",
-    "term": "Ihr",
+    "id": "voc:A1:ihr",
+    "term": "ihr",
     "en": "you (plural)",
     "pos": "pronoun",
     "level": "A1",
@@ -105688,8 +105688,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Mein",
-    "term": "Mein",
+    "id": "voc:A1:mein",
+    "term": "mein",
     "en": "my",
     "pos": "pronoun",
     "level": "A1",
@@ -105715,8 +105715,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Dein",
-    "term": "Dein",
+    "id": "voc:A1:dein",
+    "term": "dein",
     "en": "your (informal)",
     "pos": "pronoun",
     "level": "A1",
@@ -105742,8 +105742,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Unser",
-    "term": "Unser",
+    "id": "voc:A1:unser",
+    "term": "unser",
     "en": "our",
     "pos": "pronoun",
     "level": "A1",
@@ -105769,8 +105769,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Euer",
-    "term": "Euer",
+    "id": "voc:A1:euer",
+    "term": "euer",
     "en": "your (plural)",
     "pos": "pronoun",
     "level": "A1",
@@ -105796,8 +105796,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Dieser",
-    "term": "Dieser",
+    "id": "voc:A1:dieser",
+    "term": "dieser",
     "en": "this",
     "pos": "pronoun",
     "level": "A1",
@@ -105823,8 +105823,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Jener",
-    "term": "Jener",
+    "id": "voc:A1:jener",
+    "term": "jener",
     "en": "that",
     "pos": "pronoun",
     "level": "A1",
@@ -105850,8 +105850,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Sich",
-    "term": "Sich",
+    "id": "voc:A1:sich",
+    "term": "sich",
     "en": "himself / herself / itself / themselves",
     "pos": "pronoun",
     "level": "A1",
@@ -105877,8 +105877,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Dich",
-    "term": "Dich",
+    "id": "voc:A1:dich",
+    "term": "dich",
     "en": "you (accusative)",
     "pos": "pronoun",
     "level": "A1",
@@ -105904,8 +105904,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Mich",
-    "term": "Mich",
+    "id": "voc:A1:mich",
+    "term": "mich",
     "en": "me",
     "pos": "pronoun",
     "level": "A1",
@@ -105931,8 +105931,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Ihn",
-    "term": "Ihn",
+    "id": "voc:A1:ihn",
+    "term": "ihn",
     "en": "him (accusative)",
     "pos": "pronoun",
     "level": "A1",
@@ -105958,8 +105958,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Ihm",
-    "term": "Ihm",
+    "id": "voc:A1:ihm",
+    "term": "ihm",
     "en": "him (dative)",
     "pos": "pronoun",
     "level": "A1",
@@ -105985,8 +105985,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Ihnen",
-    "term": "Ihnen",
+    "id": "voc:A1:ihnen",
+    "term": "ihnen",
     "en": "them / you (formal, dative)",
     "pos": "pronoun",
     "level": "A1",
@@ -106012,8 +106012,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Man",
-    "term": "Man",
+    "id": "voc:A1:man",
+    "term": "man",
     "en": "one / you (general)",
     "pos": "pronoun",
     "level": "A1",
@@ -106039,8 +106039,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Uns",
-    "term": "Uns",
+    "id": "voc:A1:uns",
+    "term": "uns",
     "en": "us",
     "pos": "pronoun",
     "level": "A1",
@@ -106066,8 +106066,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Euch",
-    "term": "Euch",
+    "id": "voc:A1:euch",
+    "term": "euch",
     "en": "you all (accusative/dative)",
     "pos": "pronoun",
     "level": "A1",
@@ -106093,8 +106093,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Deren",
-    "term": "Deren",
+    "id": "voc:A1:deren",
+    "term": "deren",
     "en": "whose / their",
     "pos": "pronoun",
     "level": "A1",
@@ -106120,8 +106120,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Mir",
-    "term": "Mir",
+    "id": "voc:A1:mir",
+    "term": "mir",
     "en": "me (dative)",
     "pos": "pronoun",
     "level": "A1",
@@ -106286,10 +106286,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:Willkommen",
-    "term": "Willkommen",
+    "id": "voc:A1:willkommen",
+    "term": "willkommen",
     "en": "welcome",
-    "pos": "interjection",
+    "pos": "adjective",
     "level": "A1",
     "gender": null,
     "plural": null,
@@ -108844,8 +108844,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:Neben",
-    "term": "Neben",
+    "id": "voc:A2:neben",
+    "term": "neben",
     "en": "next to",
     "pos": "preposition",
     "level": "A2",
@@ -108871,8 +108871,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:Zwischen",
-    "term": "Zwischen",
+    "id": "voc:A2:zwischen",
+    "term": "zwischen",
     "en": "between",
     "pos": "preposition",
     "level": "A2",
@@ -108898,89 +108898,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:Über",
-    "term": "Über",
-    "en": "over / above",
-    "pos": "preposition",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈyːbɐ",
-    "def": "left over, remaining, replaces übrig in all its predicative instances, including those lexicalized as verb prefixoids.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die Lampe hängt über dem Tisch.",
-        "en": "The lamp hangs above the table.",
-        "lvl": "A2"
-      },
-      {
-        "de": "überbleiben",
-        "en": "to be left over, to remain",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Spatial relations",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:Unter",
-    "term": "Unter",
-    "en": "under / below",
-    "pos": "preposition",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈʊntɐ",
-    "def": "jack, knave (playing card)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die Katze schläft unter dem Bett.",
-        "en": "The cat sleeps under the bed.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Die Schuhe stehen unter dem Bett.",
-        "en": "The shoes are under the bed.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Spatial relations",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:Vor",
-    "term": "Vor",
-    "en": "in front of",
-    "pos": "preposition",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "foːɐ̯",
-    "def": "Ahead of or facing the front of something; also earlier in time.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Das Auto steht vor dem Haus.",
-        "en": "The car is in front of the house.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Vor dem Haus steht ein Baum.",
-        "en": "There is a tree in front of the house.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Spatial relations",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:Hinter",
-    "term": "Hinter",
+    "id": "voc:A2:hinter",
+    "term": "hinter",
     "en": "behind",
     "pos": "preposition",
     "level": "A2",
@@ -109006,8 +108925,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:In",
-    "term": "In",
+    "id": "voc:A2:in",
+    "term": "in",
     "en": "in / inside",
     "pos": "preposition",
     "level": "A2",
@@ -109033,8 +108952,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:An",
-    "term": "An",
+    "id": "voc:A2:an",
+    "term": "an",
     "en": "at / on",
     "pos": "preposition",
     "level": "A2",
@@ -109060,8 +108979,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:Auf",
-    "term": "Auf",
+    "id": "voc:A2:auf",
+    "term": "auf",
     "en": "on / on top of",
     "pos": "preposition",
     "level": "A2",
@@ -144512,13 +144431,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Abenteuer",
-    "term": "Abenteuer",
+    "id": "voc:B1:das Abenteuer",
+    "term": "das Abenteuer",
     "en": "adventure",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "das",
+    "plural": "die Abenteuer",
     "ipa": "ˈaːbn̩tɔɪ̯ɐ",
     "def": "ein ungewöhnliches, spannendes, prickelndes, (auch romantisches), seltsames Erlebnis",
     "syn": [],
@@ -144543,13 +144462,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Abschnitt",
-    "term": "Abschnitt",
+    "id": "voc:B1:der Abschnitt",
+    "term": "der Abschnitt",
     "en": "section",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "der",
+    "plural": "die Abschnitte",
     "ipa": "ˈapʃnɪt",
     "def": "section (cutting)",
     "syn": [
@@ -144572,41 +144491,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Auslagerung",
-    "term": "Auslagerung",
-    "en": "outsourcing",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈaʊ̯slaːɡəʁʊŋ",
-    "def": "outsourcing (transfer business)",
-    "syn": [
-      "Outsourcing"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die Auslagerung der Produktion kostete viele Arbeitsplätze.",
-        "en": "The outsourcing of production cost many jobs.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Auslagerung ins Ausland spart Kosten.",
-        "en": "Outsourcing abroad saves costs.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Arbeitsrecht",
-    "term": "Arbeitsrecht",
+    "id": "voc:B1:das Arbeitsrecht",
+    "term": "das Arbeitsrecht",
     "en": "labor law",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
+    "gender": "das",
     "plural": null,
     "ipa": "ˈaʁbaɪ̯t͡sʁɛçt",
     "def": "labour law, employment law",
@@ -144628,12 +144518,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Dämmerung",
-    "term": "Dämmerung",
+    "id": "voc:B1:die Dämmerung",
+    "term": "die Dämmerung",
     "en": "twilight",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
+    "gender": "die",
     "plural": null,
     "ipa": "ˈdɛməʁʊŋ",
     "def": "twilight at the beginning or end of a day, dawn and dusk; any twilight",
@@ -144655,39 +144545,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Einreise",
-    "term": "Einreise",
-    "en": "entry",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈaɪ̯nʁaɪ̯zə",
-    "def": "entry (into a country)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Bei der Einreise braucht man einen gültigen Pass.",
-        "en": "For entry you need a valid passport.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Einreise wurde ihm ohne Visum verweigert.",
-        "en": "He was denied entry without a visa.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Einwanderung",
-    "term": "Einwanderung",
+    "id": "voc:B1:die Einwanderung",
+    "term": "die Einwanderung",
     "en": "immigration",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
+    "gender": "die",
     "plural": null,
     "ipa": "ˈaɪ̯nvandəʁʊŋ",
     "def": "The act of coming to live permanently in another country.",
@@ -144711,130 +144574,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Entlang",
-    "term": "Entlang",
-    "en": "along",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛntˈlaŋ",
-    "def": "Following the length or side of something.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Wir spazieren am Fluss entlang.",
-        "en": "We walk along the river.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ich gehe an dem Fluss entlang.",
-        "en": "I'm walking along the river.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Epoche",
-    "term": "Epoche",
-    "en": "epoch",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "eˈpɔxə",
-    "def": "A long, distinct period of history.",
-    "syn": [
-      "Ära"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die Renaissance war eine bedeutende Epoche.",
-        "en": "The Renaissance was an important epoch.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Jede Epoche hat ihren eigenen Kunststil.",
-        "en": "Every epoch has its own style of art.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Ergebnis",
-    "term": "Ergebnis",
-    "en": "result",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛɐ̯ˈɡeːpnɪs",
-    "def": "das, was bei einem Vorgang herauskommt",
-    "syn": [
-      "Ausbeute",
-      "Ausfluss",
-      "Ausgang",
-      "Auswirkung"
-    ],
-    "ant": [
-      "Vorgabe"
-    ],
-    "ex": [
-      {
-        "de": "Das Ergebnis seiner Bemühungen war gleich null.",
-        "en": "The result of his efforts was nil.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Das Ergebnis der Berechnung lautet 42.",
-        "en": "The result of the calculation is 42.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Frist",
-    "term": "Frist",
-    "en": "deadline",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "fʁɪst",
-    "def": "term, period (time limit), deadline",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die Frist für die Bewerbung läuft morgen ab.",
-        "en": "The deadline for the application expires tomorrow.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Frist endet am letzten Werktag des Monats.",
-        "en": "The deadline ends on the last working day of the month.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Gang",
-    "term": "Gang",
+    "id": "voc:B1:der Gang",
+    "term": "der Gang",
     "en": "aisle",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "der",
+    "plural": "die Gänge",
     "ipa": "ɡaŋ",
     "def": "motion, movement, progress, way, going; in gear, progressing, working, going",
     "syn": [],
@@ -144855,96 +144601,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Gegenteil",
-    "term": "Gegenteil",
-    "en": "opposite",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈɡeːɡn̩taɪ̯l",
-    "def": "opposite (contrary thing)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Das Gegenteil von „laut“ ist „leise“.",
-        "en": "The opposite of 'loud' is 'quiet'.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Das Gegenteil tritt ein, wenn wir uns wertend äußern.",
-        "en": "The opposite happens when we express ourselves in a judgmental way.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Regenschauer",
-    "term": "Regenschauer",
-    "en": "rain shower",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈʁeːɡn̩ʃaʊ̯ɐ",
-    "def": "downpour",
-    "syn": [
-      "Schauer"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ein kurzer Regenschauer unterbrach das Spiel.",
-        "en": "A brief rain shower interrupted the game.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ein kräftiger Regenschauer durchnässte uns.",
-        "en": "A heavy rain shower soaked us.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Zoll",
-    "term": "Zoll",
-    "en": "customs / inch",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "t͡sɔl",
-    "def": "custom (duty collected at the borders); customs (authority collecting that duty)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Am Flughafen mussten wir durch den Zoll.",
-        "en": "At the airport we had to go through customs.",
-        "lvl": "B1"
-      },
-      {
-        "de": "seinen Zoll fordern",
-        "en": "to take one's toll",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Hundertfüßer",
-    "term": "Hundertfüßer",
+    "id": "voc:B1:der Hundertfüßer",
+    "term": "der Hundertfüßer",
     "en": "centipede",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "der",
+    "plural": "die Hundertfüßer",
     "ipa": "ˈhʊndɐtfyːsɐ",
     "def": "Chilopoda",
     "syn": [],
@@ -144965,40 +144628,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Dieb",
-    "term": "Dieb",
-    "en": "thief",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "diːp",
-    "def": "thief (male or of unspecified gender)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Der Dieb wurde von der Polizei gefasst.",
-        "en": "The thief was caught by the police.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Der Dieb entkam über den Hinterhof.",
-        "en": "The thief escaped through the backyard.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Floh",
-    "term": "Floh",
+    "id": "voc:B1:der Floh",
+    "term": "der Floh",
     "en": "flea",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "der",
+    "plural": "die Flöhe",
     "ipa": "floː",
     "def": "flea (parasitic insect)",
     "syn": [],
@@ -145073,10 +144709,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Jauchzen",
-    "term": "Jauchzen",
+    "id": "voc:B1:jauchzen",
+    "term": "jauchzen",
     "en": "to cheer / rejoice",
-    "pos": "",
+    "pos": "verb",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145100,10 +144736,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Moorig",
-    "term": "Moorig",
+    "id": "voc:B1:moorig",
+    "term": "moorig",
     "en": "boggy / marshy",
-    "pos": "",
+    "pos": "adjective",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145129,13 +144765,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Moor",
-    "term": "Moor",
+    "id": "voc:B1:das Moor",
+    "term": "das Moor",
     "en": "moor / bog",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "das",
+    "plural": "die Moore",
     "ipa": "moːɐ̯",
     "def": "marsh, mire, bog",
     "syn": [
@@ -145158,13 +144794,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Naturschutzgebiet",
-    "term": "Naturschutzgebiet",
+    "id": "voc:B1:das Naturschutzgebiet",
+    "term": "das Naturschutzgebiet",
     "en": "nature reserve",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
-    "plural": null,
+    "gender": "das",
+    "plural": "die Naturschutzgebiete",
     "ipa": "naˈtuːɐ̯ʃʊt͡sɡəbiːt",
     "def": "A protected area where wildlife and plants are preserved.",
     "syn": [],
@@ -145185,10 +144821,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Nahezu",
-    "term": "Nahezu",
+    "id": "voc:B1:nahezu",
+    "term": "nahezu",
     "en": "nearly / almost",
-    "pos": "",
+    "pos": "adverb",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145212,10 +144848,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Vernebeln",
-    "term": "Vernebeln",
+    "id": "voc:B1:vernebeln",
+    "term": "vernebeln",
     "en": "to fog up / obscure",
-    "pos": "",
+    "pos": "verb",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145239,12 +144875,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Wille",
-    "term": "Wille",
+    "id": "voc:B1:der Wille",
+    "term": "der Wille",
     "en": "will / determination",
-    "pos": "",
+    "pos": "noun",
     "level": "B1",
-    "gender": null,
+    "gender": "der",
     "plural": null,
     "ipa": "ˈvɪlə",
     "def": "will",
@@ -145266,10 +144902,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Zuvor",
-    "term": "Zuvor",
+    "id": "voc:B1:zuvor",
+    "term": "zuvor",
     "en": "before / previously",
-    "pos": "",
+    "pos": "adverb",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145293,37 +144929,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Absicht",
-    "term": "Absicht",
-    "en": "intention",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈapzɪçt",
-    "def": "A plan or aim to do something.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Das habe ich nicht mit Absicht getan.",
-        "en": "I didn't do that on purpose.",
-        "lvl": "B1"
-      },
-      {
-        "de": "mit schlechten Absichten.",
-        "en": "with bad intentions.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Verstopfen",
-    "term": "Verstopfen",
+    "id": "voc:B1:verstopfen",
+    "term": "verstopfen",
     "en": "to block / clog",
-    "pos": "",
+    "pos": "verb",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145347,37 +144956,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Kindheit",
-    "term": "Kindheit",
-    "en": "childhood",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈkɪnthaɪ̯t",
-    "def": "The period of a person's life when they are a child.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ihre Kindheit verbrachte sie auf dem Land.",
-        "en": "She spent her childhood in the countryside.",
-        "lvl": "B1"
-      },
-      {
-        "de": "An ihre Kindheit erinnert sie sich gern.",
-        "en": "She likes to remember her childhood.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Reduzierend",
-    "term": "Reduzierend",
+    "id": "voc:B1:reduzierend",
+    "term": "reduzierend",
     "en": "reducing",
-    "pos": "",
+    "pos": "adjective",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145401,10 +144983,10 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Unfähig",
-    "term": "Unfähig",
+    "id": "voc:B1:unfähig",
+    "term": "unfähig",
     "en": "incapable",
-    "pos": "",
+    "pos": "adjective",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -145421,35 +145003,6 @@
       {
         "de": "Eine Situation, in der diejenigen, die ihres kulturellen Erbes beraubt wurden, unfähig gemacht wurden, die Wahrheit darüber zu verstehen.",
         "en": "A situation, whereby those who have been stripped of their cultural heritage, have been rendered unable to understand the truth about it.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Captured in study sessions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:Kontakt",
-    "term": "Kontakt",
-    "en": "contact",
-    "pos": "",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "kɔnˈtakt",
-    "def": "Communication or connection with a person.",
-    "syn": [
-      "Verbindung"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Wir stehen seit Jahren in Kontakt.",
-        "en": "We have been in contact for years.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Nach dem Umzug verlor ich den Kontakt zu vielen.",
-        "en": "After the move I lost contact with many people.",
         "lvl": "B1"
       }
     ],

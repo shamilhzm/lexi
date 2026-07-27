@@ -10,6 +10,7 @@
 import './shim.ts';
 import { gzipSync } from 'node:zlib';
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
 import { loadCorpus, loadSectors, primeApp, stripArticle, lemmaKey, LEVELS, type Word } from './lib.ts';
@@ -31,6 +32,15 @@ const isStr = (v: unknown) => typeof v === 'string';
 const isArr = (v: unknown) => Array.isArray(v);
 
 interface Issue { id: string; msg: string; }
+
+/** Cards whose capital was ruled correct by hand — see casefix.ts / case-rulings.tsv. */
+const RULED_CAPITAL = new Set(
+  readFileSync(join(PATHS.corpusDir, 'case-rulings.tsv'), 'utf8')
+    .split('\n')
+    .map((l) => l.trim().split('\t'))
+    .filter((c) => c[1] === 'keep')
+    .map((c) => c[0]),
+);
 
 function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   const errors: Issue[] = [], warnings: Issue[] = [];
@@ -121,11 +131,16 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   // determiners — need a human, because capitalisation there can be *correct*
   // (polite "Ihr", nominalised "das Ja"), so they stay warnings until someone
   // rules on them one by one.
+  // A card ruled `keep` in case-rulings.tsv is capitalised on purpose and carries
+  // its reason there ("Verzeihung!" is the noun used as an exclamation). Reading
+  // the rulings here is what lets this list reach zero and stay actionable —
+  // a warning nobody can ever clear is one everybody learns to scroll past.
   const MECHANICAL = new Set(['adjective', 'verb', 'adverb']);
   const lowercaseTwin = new Set(
     cards.filter((w) => w.kind === 'word').map((w) => w.term));
   for (const w of cards) {
     if (w.kind !== 'word' || w.pos === 'noun' || w.pos === 'phrase') continue;
+    if (RULED_CAPITAL.has(w.id)) continue;
     if (w.term.includes(' ') || !/^\p{Lu}/u.test(w.term)) continue;
     const twin = w.term.toLowerCase();
     const msg = lowercaseTwin.has(twin)

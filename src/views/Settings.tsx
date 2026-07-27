@@ -10,7 +10,8 @@ import { WORDS } from '../data/index.ts';
 import { parsePack } from '../lib/classpack.ts';
 import { focusTense, setFocusTense } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { ensureHdVoice, speakHd, speak } from '../lib/tts.ts';
+import { speak } from '../lib/tts.ts';
+import { useHdVoice } from '../lib/useHdVoice.ts';
 import { themePref, setThemePref, type ThemePref } from '../theme.ts';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -46,8 +47,7 @@ const RETENTIONS: { v: number; label: string; hint: string }[] = [
 export default function Settings() {
   useStore();
 
-  const [dl, setDl] = useState<number | null>(null);
-  const [hdErr, setHdErr] = useState('');
+  const { percent: dl, error: hdErr, enable: enableHd } = useHdVoice();
 
   const [theme, setTheme] = useState<ThemePref>(themePref());
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
@@ -122,25 +122,6 @@ export default function Settings() {
       + (pack.from ? ` by ${pack.from}` : '') + '.'
       + (already ? ` ${already} you already had.` : '')
       + (dropped ? ` ${dropped} couldn’t be read.` : ''));
-  };
-
-  const enableHd = async () => {
-    setHdErr(''); setDl(0);
-    // Distinguish "you are offline" from "this device can't run it": the first is
-    // temporary and the learner can act on it, the second is not.
-    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
-      setDl(null);
-      setHdErr('You’re offline — the HD voice has to download once before it can work without a connection.');
-      return;
-    }
-    try {
-      await ensureHdVoice((f) => setDl(Math.round(f * 100)));
-      // Only turn it on if synthesis actually works on this device.
-      await speakHd('Hallo! Das ist die neue deutsche Stimme.');
-      setHdVoice(true); setDl(null);
-    } catch (e: any) {
-      setHdErr(e?.message || 'Could not start the voice on this device.'); setDl(null);
-    }
   };
 
   return (

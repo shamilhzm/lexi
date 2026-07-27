@@ -8,6 +8,7 @@ import { cardOf, review, levels, logMiss } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
+import { lookupSurface } from '../lib/reader.ts';
 import { loadGrammar, flatten, type GItem, type RevealData } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 import { RevealBlock, Derivation, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
@@ -23,6 +24,44 @@ import type { CEFR } from '../types.ts';
 const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
 const norm = (s: string) => canon(s)
   .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+
+/** One insertion, deletion or substitution apart? */
+function editDistance1(a: string, b: string): boolean {
+  if (Math.abs(a.length - b.length) > 1) return false;
+  if (a === b) return false;
+  if (a.length === b.length) {
+    let d = 0;
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i] && ++d > 1) return false;
+    return d === 1;
+  }
+  const [s, l] = a.length < b.length ? [a, b] : [b, a];
+  let i = 0, j = 0, d = 0;
+  while (i < s.length && j < l.length) {
+    if (s[i] === l[j]) { i++; j++; } else if (++d > 1) return false; else j++;
+  }
+  return true;
+}
+
+/** Was this a slipped finger rather than a wrong answer?
+ *
+ *  Blanket edit-distance-1 tolerance is unusable here, and not marginally: 25% of
+ *  the corpus's typed targets have *another real German word* one edit away, and
+ *  they are concentrated in exactly the vocabulary a beginner is drilling —
+ *  Mutter/Butter, Haus/Hals, Brot/Boot, Uhr/Ohr, Zeit/weit, Kind/Kino. Accepting
+ *  "Butter" for "Mutter" would not be kindness; it would be teaching the wrong
+ *  word and calling it right.
+ *
+ *  So the tolerance is guarded: one edit *and* what they typed is not itself a
+ *  German word the app knows. A real word is treated as a real answer — and a
+ *  wrong one — while "muter" or "Hausu" is read as the typo it plainly is. The
+ *  learner is still told, because an error forgiven silently is how it sets.
+ */
+export function isTypoFor(typed: string, accept: string[]): boolean {
+  const t = norm(typed);
+  if (t.length < 4) return false;         // too short for one edit to be evidence
+  if (lookupSurface(typed.trim())) return false;  // a real word is a real answer
+  return accept.some((a) => editDistance1(t, norm(a)));
+}
 
 /** Name the spelling that drifted on a near-miss.
  *
@@ -242,9 +281,12 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
   const noHelp = useContext(NoHelpCtx);
   const submit = () => {
     if (result !== null) return;
-    const ok = accepts.has(norm(val));
-    // Near-miss: matched only through the umlaut/ß fold — correct, supportively
-    // shown with the proper spelling rather than punished as wrong.
+    const exact = accepts.has(norm(val));
+    const typo = !exact && isTypoFor(val, ex.accept ?? []);
+    const ok = exact || typo;
+    // Near-miss: matched only through the umlaut/ß fold, or a single slip of the
+    // finger — correct, supportively shown with the proper spelling rather than
+    // punished as wrong.
     setNear(ok && !(ex.accept ?? []).some((a) => canon(a) === canon(val)));
     setResult(ok);
   };
@@ -263,7 +305,12 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
       {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center leading-relaxed">Hint: {rung(hint)}</p>}
       {result !== null && <Explain text={ex.explain} ok={result} answer={canonical}
         note={near
-          ? `Right — just the spelling: ${canonical}${spellingDiff(val, canonical) ? ` (${spellingDiff(val, canonical)})` : ''}`
+          ? spellingDiff(val, canonical)
+            ? `Right — just the spelling: ${canonical} (${spellingDiff(val, canonical)})`
+            // A typo and an umlaut fold are both near-misses and are not the same
+            // lesson: one is a slipped finger, the other is a spelling the learner
+            // may believe is correct. Naming which is the whole point.
+            : `Right — just a typo: ${canonical}`
           : undefined}
         rulePoint={rulePoint} reveal={ex.reveal} />}
       {result === null

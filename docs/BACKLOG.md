@@ -370,12 +370,61 @@ nobody re-implements them:
   error). Multi-word headwords are exempt — "Rad fahren" opens with a noun.
   Validate's severity now splits on whether the fix is mechanical: adj/verb/adverb
   is a hard **error** (casefix clears it), while pronouns/particles/determiners
-  stay **warnings** — see *Capitalised function words* under Next.
+  stay **warnings**, and the 64 of those were then ruled on by hand — see the
+  2026-07-27 entry below.
 - **Card ids survive corpus corrections.** Renaming or merging a card id used to
   reset that card's FSRS schedule to *new*, silently. `casefix` emits
   `src/data/idmap.ts`; `hydrate()` folds stored schedules onto the new ids (the
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
+
+### Shipped 2026-07-27 — the persona leftovers and the last capitalisations
+
+- **Capitalised function words — ruled, not inferred** (closes the casefix
+  residue). The 64 cards `casefix` deliberately would not touch are now decided
+  one at a time in [`scripts/corpus/case-rulings.tsv`](../scripts/corpus/case-rulings.tsv),
+  each with its reason, applied by `corpus:casefix`. What the ruling found:
+  **12 were not capitalisation bugs at all** but ordinary nouns whose `pos`,
+  article and gender were missing (*Abenteuer*, *Floh*, *Moor*) — the capital was
+  right and the card was simply incomplete, so they gained `der/die/das` and a
+  plural; **13 more duplicated an article-carrying card** already in the corpus
+  (*Epoche*, *Kindheit*, *Kontakt*) and were dropped; the pronouns, particles and
+  prepositions were lowercased. **One is capitalised on purpose** — *Verzeihung!*
+  is the noun used as an exclamation — and `corpus:validate` now reads the rulings
+  so a `keep` stops warning. A warning nobody can ever clear is one everybody
+  learns to scroll past. Corpus **7,402 → 7,386**; 0 capitalisation flags left.
+- **The id map is cumulative.** `casefix` regenerated `idmap.ts` from scratch,
+  which would have silently stripped the previous pass's 96 migrations the moment
+  it ran again — the exact failure the map exists to prevent. It now carries
+  earlier entries forward and re-points any that this pass moved again, so one hop
+  is always enough at runtime, and throws if any entry would dangle. 159 entries.
+- **F4 — the HD voice is offered where it's wanted.** It lived behind a Settings
+  toggle, so the learners most in need of it were the least likely to find it: you
+  go to Settings to change something you already know exists. `speak()` now reports
+  when it fell back to the built-in voice, and the session offers the neural voice
+  at that tap — once ever, whichever way it's answered. The download-and-prove-it
+  flow moved to a shared `useHdVoice` hook so Settings and the offer can't drift.
+- **The flagged-cards list** (friend-readiness leftover). Flagging shipped as a
+  one-tap action and the flags then went nowhere the learner could see, which makes
+  the gesture feel like shouting into a drawer. Profile now lists them, with
+  unflagging, and says plainly that they travel in the backup file rather than over
+  a network — there is no server to receive them, and implying otherwise is a lie
+  the learner discovers by waiting.
+- **S3 — the backup nudge.** Export was always passive. Today now asks once, after
+  **7 distinct visit days and 100 known words** — late on purpose: asking on day one
+  is asking someone to insure something they don't own yet. Taking a backup or
+  dismissing both end it.
+- **Typo tolerance, measured first — and the measurement changed the design.** The
+  backlog said "edit-distance-1 on typed answers (measure over-forgiveness first)".
+  Measured: **25% of typed targets have another real German word one edit away**,
+  concentrated in exactly the beginner vocabulary being drilled — *Mutter/Butter*,
+  *Haus/Hals*, *Brot/Boot*, *Uhr/Ohr*, *Zeit/weit*, *Kind/Kino*. The naive rule
+  would accept *Butter* for *Mutter*: not kindness, but teaching the wrong word and
+  calling it right. Shipped **guarded** instead — one edit *and* what was typed is
+  not itself a word the app knows, so a real word stays a real (wrong) answer while
+  "muter" reads as the slip it is. Graded as a near-miss that **names** it ("Right —
+  just a typo"), separately from the umlaut fold, because an error forgiven silently
+  is how it sets. 5 tests, mostly of what it must refuse.
 
 ### Shipped 2026-07-26 — the lead example (post-merge)
 
@@ -572,33 +621,15 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
   `views/Wortkarte.tsx`.
 
 _C1/C2 example + synonym pass shipped 2026-07-26 — every level now carries ≥2
-examples per card. The remaining example work is **quality, not coverage**: see
-"Example first impressions" below._
+examples per card; the lead-example sweep followed it, so no card opens with a
+scrape. What remains of the example work is the 52 over-long and 2 elided rows
+`corpus:examples` still reports._
 
-- **Friend-readiness leftovers** (S each — from the sharing analysis +
-  [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
-  in Profile; edit-distance-1 typo tolerance on typed answers (measure
-  over-forgiveness first); decide the day-2 return mechanism deliberately (habit
-  anchor vs. Web Push for installed PWAs vs. nothing); run the *real* friend
-  session and update SIMULATED-SESSION.md with what the simulation missed.
-- **Frustrated-path softeners** (S each — UX-PATHS F3/F4/F5). Miss-streak
-  circuit-breaker ("Rough patch — these come back easier tomorrow" + natural break);
-  offer HD voice in context at first pronunciation tap instead of hiding it in
-  Settings; same-day session resume (persist queue ids + position). And S3: a
-  one-time backup nudge after the first week.
-- **Capitalised function words** (S, human-gated — the residue of the casefix
-  pass). *Why:* `corpus:casefix` handled the mechanical set (adjectives, verbs,
-  adverbs). **64 cards remain** where capitalisation needs a ruling, not a script:
-  31 with no `pos` at all, 19 pronouns (*Es*, *Mein*, *Dein*), 6 prepositions,
-  plus particles (*Ja*, *Nein*). Some are simply wrong; some may be *right* —
-  polite *Ihr*, nominalised *das Ja* — and a blanket lowercase would introduce
-  errors while removing them. *Do:* rule on them in one sitting from the
-  `corpus:validate` warning list, extend `casefix`'s pos set with whatever the
-  ruling makes mechanical, and lowercase the rest by hand through the same
-  id-map path so schedules survive. *Done-when:* 0 capitalisation warnings; each
-  card kept capitalised carries a one-line reason. *Touches:*
-  `scripts/corpus/casefix.ts`, `public/data/vocab.json`, `src/data/idmap.ts`.
-  *Touches:* `scripts/corpus/{examples,validate}.ts`, `public/data/vocab.json`.
+- **Run the *real* friend session** (S — the last friend-readiness leftover). The
+  flagged-cards list, typo tolerance and the day-2 habit anchor all shipped; what
+  no simulation can supply is a person. *Do:* sit a real beginner down with it and
+  update [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md) with what the simulation
+  got wrong — that delta is the point, not the session notes.
 
 _README refresh + store/session tests (incl. the `buildMixedSession` and streak
 follow-on) shipped 2026-07-11._

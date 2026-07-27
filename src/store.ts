@@ -548,6 +548,13 @@ export function flagCard(id: string, term: string) {
   try { localStorage.setItem(FLAGS_KEY, JSON.stringify(cur.slice(-200))); } catch { /* quota */ }
   emit();
 }
+/** Withdraw a flag. Flagging is one tap and so is mistyping it — without this the
+ *  list is a place things only ever accumulate, which is why nobody opens it. */
+export function unflagCard(id: string) {
+  const next = flags().filter((f) => f.id !== id);
+  try { localStorage.setItem(FLAGS_KEY, JSON.stringify(next)); } catch { /* quota */ }
+  emit();
+}
 
 // ---- text size -------------------------------------------------------------
 // The whole type ramp is rem-based, so scaling the root scales everything.
@@ -601,6 +608,16 @@ export function setReminderTime(t: string | null) {
 
 // ---- HD voice (Piper Thorsten, in-browser) -------------------------------
 const HDVOICE_KEY = 'lexi.hdvoice.v1';
+// Whether the in-context offer has already been made. Once, ever: a learner who
+// said no meant it, and an app that keeps asking is the reason people stop reading
+// its banners at all.
+const HDOFFER_KEY = 'lexi.hdoffer.v1';
+export function hdOffered(): boolean { return localStorage.getItem(HDOFFER_KEY) === '1'; }
+export function markHdOffered() {
+  try { localStorage.setItem(HDOFFER_KEY, '1'); } catch { /* quota */ }
+  emit();
+}
+
 export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }
 export function setHdVoice(on: boolean) {
   if (on) localStorage.setItem(HDVOICE_KEY, '1'); else localStorage.removeItem(HDVOICE_KEY);
@@ -1009,9 +1026,21 @@ const SETTING_KEYS = [
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */
+// Local-first means a cleared cache is unrecoverable, and the export has always
+// been passive — nothing ever suggested it (UX-PATHS S3). Recording when one was
+// last taken is what lets Today ask once, after there is something worth losing.
+const BACKUP_KEY = 'lexi.backup.v1';
+/** Day the last backup was exported, or null if never. */
+export function lastBackup(): string | null { return localStorage.getItem(BACKUP_KEY); }
+export function noteBackup() {
+  try { localStorage.setItem(BACKUP_KEY, todayKey()); } catch { /* quota */ }
+  emit();
+}
+
 export function exportData(): string {
   const settings: Record<string, string> = {};
   for (const k of SETTING_KEYS) { const v = localStorage.getItem(k); if (v != null) settings[k] = v; }
+  noteBackup();
   return JSON.stringify({ app: 'lexi', v: 1, exportedAt: new Date().toISOString(), cards: cardsObject(), misses, visits, settings });
 }
 

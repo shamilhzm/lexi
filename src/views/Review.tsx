@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
@@ -16,7 +16,8 @@ import { useStore } from '../useStore.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
 // can coexist in this file.
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
-import { speak } from '../lib/tts.ts';
+import { speak, onSystemVoice } from '../lib/tts.ts';
+import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
@@ -118,6 +119,15 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
   };
   const [breather, setBreather] = useState(false);
+  // F4: the engine tells us when it fell back to the built-in voice, so the offer
+  // lands on the tap that motivated it rather than in a settings screen nobody
+  // opens. Once per learner, ever — hdOffered() outlives the session.
+  const [offerVoice, setOfferVoice] = useState(false);
+  useEffect(() => {
+    if (hdVoice() || hdOffered()) return;
+    onSystemVoice(() => setOfferVoice(true));
+    return () => onSystemVoice(null);
+  }, []);
   const breatherShown = useRef(false);
   const noteResult = (ok: boolean, srsIdBefore?: SrsCard, term?: string) => {
     if (ok) {
@@ -310,6 +320,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   return (
     <div className="mx-auto w-full max-w-[640px] flex-1 flex flex-col justify-center">
       <CoachMarks />
+      {offerVoice && <div className="mb-2.5"><VoiceOffer onClose={() => setOfferVoice(false)} /></div>}
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
           patch. Offer a graceful stop at a natural break — once, then quiet. */}
       {breather && (

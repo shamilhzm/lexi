@@ -11,6 +11,7 @@ import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import PathCard from '../components/PathCard.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
+import BackupNudge from '../components/BackupNudge.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
@@ -271,6 +272,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
       {/* Local-first means device-bound: nudge install (durable storage +
           offline) until installed or dismissed. */}
       <InstallNudge onBackup={onBackup} />
+      <BackupNudge onBackup={onBackup} />
 
       {/* Blind spots used to live here behind an accordion. They've moved to
           Progress: Today is for doing, and auditing your own weaknesses is a

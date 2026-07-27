@@ -9,6 +9,7 @@ import { fmt } from '../lib/ui.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
 import ReminderCard from '../components/ReminderCard.tsx';
+import FlaggedCards from '../components/FlaggedCards.tsx';
 import Settings from './Settings.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -78,6 +79,7 @@ export default function Profile() {
       </Card>
 
       <ReminderCard />
+      <FlaggedCards />
 
       {/* Settings + data backup live inside the profile. */}
       <Settings />
