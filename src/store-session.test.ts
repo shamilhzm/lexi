@@ -1086,3 +1086,51 @@ describe('teach before test', () => {
     expect(back.items.map((it: any) => !!it.teach)).toEqual(built.map((it: any) => !!it.teach));
   });
 });
+
+
+// Persona B2 #34: "FSRS treats a word as one item. My recognition of `beharrlich`
+// is fine, my production isn't." It turns out the app already separates them —
+// the flip card is keyed on the word id and every drill mode gets its own
+// `gym:<mode>:<wordId>` track — so this is a property to pin rather than a feature
+// to build. Untested, it is one refactor away from silently collapsing back into
+// a single schedule, which would re-teach a word you can already recognise.
+describe('recognition and production are scheduled separately', () => {
+  it('reviewing the flip card leaves the word’s drill tracks untouched', async () => {
+    const { data, store, srs, fundamentals } = await fresh();
+    const w = word('voc:A1:nehmen', 'Sector A', { pos: 'verb', term: 'nehmen' });
+    data.registerWords([w]);
+    const drill = fundamentals.gymId('transform', w);
+
+    store.review(w.id, srs.Rating.Good);
+
+    expect(store.statusOf(w.id)).not.toBe('new');   // recognition moved
+    expect(store.statusOf(drill)).toBe('new');      // production did not
+    expect(store.cardOf(drill)).toBeUndefined();
+  });
+
+  it('reviewing a drill leaves recognition untouched', async () => {
+    const { data, store, srs, fundamentals } = await fresh();
+    const w = word('voc:A1:beharrlich', 'Sector A', { pos: 'adjective', term: 'beharrlich' });
+    data.registerWords([w]);
+    const drill = fundamentals.gymId('cloze', w);
+
+    store.review(drill, srs.Rating.Again);
+
+    expect(store.statusOf(drill)).not.toBe('new');
+    expect(store.statusOf(w.id)).toBe('new');
+  });
+
+  it('gives each production mode its own track, not one shared "production" one', async () => {
+    const { data, store, srs, fundamentals } = await fresh();
+    const w = word('voc:A1:geben', 'Sector A', { pos: 'verb', term: 'geben' });
+    data.registerWords([w]);
+    const conj = fundamentals.gymId('conj', w);
+    const order = fundamentals.gymId('order', w);
+
+    store.review(conj, srs.Rating.Good);
+
+    expect(conj).not.toBe(order);
+    expect(store.statusOf(conj)).not.toBe('new');
+    expect(store.statusOf(order)).toBe('new');
+  });
+});

@@ -378,6 +378,17 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — #34 was already true, and is now pinned
+
+- **Recognition and production were never one schedule.** The persona asked for
+  them to be tracked apart; the app already did it, and more finely than asked —
+  the flip card is keyed on the word id, and *every drill mode* gets its own
+  `gym:<mode>:<wordId>` track, so conjugating a verb and rebuilding its sentence
+  are separate schedules too. This was a property to verify, not a feature to
+  build. Three tests pin it, because untested it is one refactor away from
+  collapsing back into a single card — which would re-teach a word you can already
+  recognise just because you fumbled producing it.
+
 ### Shipped 2026-07-27 — a German definition, for the readers who can use one (B2 #38)
 
 - **367 German definitions were in the English field.** Real ones, from German
@@ -807,10 +818,6 @@ were being carried as one undifferentiated "advanced" item.
   character. Free composition cannot be graded honestly without a model, and a
   drill that marks correct German wrong is worse than no drill. Decide the shape
   before building.
-- **Recognition vs. production as separate FSRS tracks** (B2 #34 · XS to verify).
-  Likely **already true**: the flip card is keyed `word.id` and every drill mode is
-  its own `gym:<mode>:<wordId>` card, so the two are scheduled independently. Needs
-  a test pinning it, not an implementation.
 - **The name / aesthetic question** (C2 #58) — a decision, not a build item; see
   Part H of the session-quality plan.
 
