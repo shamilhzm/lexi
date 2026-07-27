@@ -35,7 +35,7 @@ type Klass = typeof CLASSES[number];
 const norm = (s: string) => s.toLowerCase().replace(/[.;,]/g, '').replace(/\s+/g, ' ').trim();
 
 /** Words that only appear when a definition is actually explaining something. */
-const EXPLAINS = /\b(who|whom|whose|which|that|where|when|used|serves?|denotes?|refers?|means?|made|consisting|containing|having|able|capable|someone|something|a person|an act|the act|the state|the quality|the process|especially|typically|usually|often|rather than|as opposed|in order)\b/i;
+const EXPLAINS = /\b(or|such as|one more than|at all|without|who|whom|whose|which|that|where|when|used|serves?|denotes?|refers?|means?|made|consisting|containing|having|able|capable|someone|something|a person|an act|the act|the state|the quality|the process|especially|typically|usually|often|rather than|as opposed|in order)\b/i;
 /** German function words — a def in German on an English-facing card. */
 const GERMAN = /\b(der|die|das|dass|eine|einen|einem|nicht|werden|wird|sein|sich|zu|von|mit|beschaffen|jemand|etwas)\b/;
 
@@ -58,7 +58,15 @@ function classify(w: Word): Klass[] {
   // nation)"), so their presence exempts a card from the list-shaped classes. A
   // colon does the same job differently — "irregular copula: ich bin, du bist …"
   // is a definition followed by its paradigm, not four ways of saying the word.
-  const hasGloss = /\(.+\)/.test(def) || def.includes(':');
+  //
+  // A definition written as a *sentence* is also exempt. "The number 5, one more
+  // than four." and "To move towards the speaker, or to arrive somewhere." both
+  // split on commas into short segments and would otherwise read as translation
+  // lists — but a scraped enumeration is never capitalised-and-stopped like prose.
+  // This pass was added after the classifier flagged definitions authored to fix
+  // its own earlier findings.
+  const sentenceShaped = /^[A-Z]/.test(def) && /[.!?]$/.test(def);
+  const hasGloss = /\(.+\)/.test(def) || def.includes(':') || sentenceShaped;
   const segs = def.split(/[;,]/).map((s) => s.trim()).filter(Boolean);
 
   if (!hasGloss && !EXPLAINS.test(def)) {

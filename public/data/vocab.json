@@ -145,7 +145,7 @@
     "gender": "der",
     "plural": "die Freunde",
     "ipa": "fʁɔɪ̯nt",
-    "def": "friend",
+    "def": "A person you like and trust — and, of a couple, a boyfriend.",
     "syn": [
       "Kumpel"
     ],
@@ -217,7 +217,7 @@
     "gender": "der",
     "plural": "die Väter",
     "ipa": "ˈfaːtɐ",
-    "def": "männlicher Elternteil",
+    "def": "A male parent.",
     "syn": [
       "der Papa"
     ],
@@ -326,7 +326,7 @@
     "gender": "der",
     "plural": "die Brüder",
     "ipa": "ˈbʁuːdɐ",
-    "def": "männliches Geschwisterteil",
+    "def": "A male sibling.",
     "syn": [
       "Genosse",
       "Gevatter",
@@ -599,7 +599,7 @@
     "gender": "das",
     "plural": "die Brote",
     "ipa": "bʁoːt",
-    "def": "bread; loaf of bread",
+    "def": "A baked staple food made from flour and water.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -971,7 +971,7 @@
     "gender": "der",
     "plural": "die Bahnhöfe",
     "ipa": "ˈbaːnhoːf",
-    "def": "railway depot, railroad station, railway station, train station",
+    "def": "The building and platforms where trains stop.",
     "syn": [
       "Bahnstation",
       "Bahnstelle",
@@ -1152,7 +1152,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈɡeːən",
-    "def": "sich schreitend, schrittweise fortbewegen",
+    "def": "To move on foot — and, more loosely, to go somewhere.",
     "syn": [
       "abhauen",
       "abmarschieren",
@@ -1265,7 +1265,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈhaɪ̯sn̩",
-    "def": "genannt werden, den Namen haben",
+    "def": "To have a particular name.",
     "syn": [
       "nennen",
       "anweisen",
@@ -1513,7 +1513,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡʁoːs",
-    "def": "big, large, large-scale",
+    "def": "Large in size — and, of a person, tall.",
     "syn": [],
     "ant": [
       "klein"
@@ -1650,7 +1650,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ʃøːn",
-    "def": "beautiful, lovely, pretty, handsome",
+    "def": "Pleasing to look at, and generally lovely.",
     "syn": [
       "hübsch"
     ],
@@ -1794,7 +1794,7 @@
     "gender": "der",
     "plural": "die Männer",
     "ipa": "man",
-    "def": "man, male human being",
+    "def": "An adult male — and, in a marriage, a husband.",
     "syn": [
       "Ehemann",
       "Gatte",
@@ -1910,7 +1910,7 @@
     "gender": "der",
     "plural": "die Menschen",
     "ipa": "mɛnʃ",
-    "def": "human, human being, person, man",
+    "def": "A human being, as distinct from an animal.",
     "syn": [
       "die Person"
     ],
@@ -2191,7 +2191,7 @@
     "gender": "der",
     "plural": "die Säfte",
     "ipa": "zaft",
-    "def": "juice; gravy, meat juice",
+    "def": "The liquid pressed out of fruit.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -2289,7 +2289,7 @@
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "flaɪ̯ʃ",
-    "def": "flesh",
+    "def": "The flesh of an animal, eaten as food.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -2353,7 +2353,7 @@
     "gender": "das",
     "plural": "die Eier",
     "ipa": "aɪ̯",
-    "def": "eine Keimzelle",
+    "def": "The oval object a bird lays, eaten as food.",
     "syn": [
       "Eizelle",
       "Ellipsoid",
@@ -2736,7 +2736,7 @@
     "gender": "das",
     "plural": "die Bäder",
     "ipa": "baːt",
-    "def": "bath",
+    "def": "The room with the bath and washbasin — and the bath itself.",
     "syn": [
       "Badezimmer",
       "Badeanstalt",
@@ -3145,7 +3145,7 @@
     "gender": "das",
     "plural": "die Geschäfte",
     "ipa": "ɡəˈʃɛft",
-    "def": "shop; store",
+    "def": "A place where goods are sold — and a business or a deal.",
     "syn": [
       "Laden",
       "Ladengeschäft"
@@ -3180,7 +3180,7 @@
     "gender": "das",
     "plural": "die Kinos",
     "ipa": "ˈkiːno",
-    "def": "cinema",
+    "def": "A building where films are shown.",
     "syn": [
       "Filmtheater",
       "Lichtspielhaus",
@@ -3317,7 +3317,7 @@
     "gender": "das",
     "plural": "die Flugzeuge",
     "ipa": "ˈfluːkˌtsɔɪ̯k",
-    "def": "aeroplane",
+    "def": "A powered aircraft with fixed wings.",
     "syn": [
       "Flieger",
       "Maschine",
@@ -3354,7 +3354,7 @@
     "gender": "die",
     "plural": "die Fahrkarten",
     "ipa": "ˈfaːɐ̯ˌkaʁtə",
-    "def": "fare ticket",
+    "def": "The card or paper that entitles you to travel.",
     "syn": [
       "das Ticket"
     ],
@@ -3894,7 +3894,7 @@
     "gender": "die",
     "plural": "die Hosen",
     "ipa": "ˈhoːzə",
-    "def": "trousers",
+    "def": "A garment covering the legs from the waist down.",
     "syn": [
       "Buxe"
     ],
@@ -4127,7 +4127,7 @@
     "gender": "der",
     "plural": "die Hunde",
     "ipa": "hʊnt",
-    "def": "dog, hound",
+    "def": "A domestic animal kept as a pet or for work.",
     "syn": [
       "Wauwau",
       "Köter",
@@ -4163,7 +4163,7 @@
     "gender": "die",
     "plural": "die Katzen",
     "ipa": "ˈkatsə",
-    "def": "house cat, Felis silvestris catus; female house cat",
+    "def": "A small domestic animal commonly kept as a pet.",
     "syn": [
       "Hauskatze",
       "Kätzin"
@@ -4269,7 +4269,7 @@
     "gender": "der",
     "plural": "die Preise",
     "ipa": "pʁaɪ̯s",
-    "def": "price",
+    "def": "What something costs — and, separately, an award won.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -4604,7 +4604,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈʃteːən",
-    "def": "to understand; to understand oneself, to understand each other, to be understood",
+    "def": "To grasp the meaning of something.",
     "syn": [
       "auffassen",
       "begreifen",
@@ -4673,7 +4673,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈdɛŋkn̩",
-    "def": "to think; to imagine",
+    "def": "To form thoughts, or to hold an opinion.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -4907,7 +4907,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈfaːʁən",
-    "def": "to go at speed; to go; to run; to drive; to sail",
+    "def": "To travel by vehicle — and, of the driver, to drive one.",
     "syn": [
       "abfahren",
       "führen"
@@ -5261,7 +5261,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈbɪlɪç",
-    "def": "appropriate, meet, fair",
+    "def": "Low in price, often with a hint of poor quality.",
     "syn": [
       "günstig"
     ],
@@ -5370,7 +5370,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ʃnɛl",
-    "def": "quick, fast",
+    "def": "Moving or happening at speed.",
     "syn": [
       "rasch",
       "flott"
@@ -5477,7 +5477,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈvɪçtɪç",
-    "def": "important, relevant, significant, weighty",
+    "def": "Mattering a great deal; not to be ignored.",
     "syn": [
       "bedeutend"
     ],
@@ -5658,7 +5658,7 @@
     "gender": null,
     "plural": null,
     "ipa": "hiːɐ̯",
-    "def": "an diesem Ort",
+    "def": "In this place, where the speaker is.",
     "syn": [
       "da",
       "hüben"
@@ -5798,7 +5798,7 @@
     "gender": null,
     "plural": null,
     "ipa": "vas",
-    "def": "clipping of etwas",
+    "def": "The question word for a thing or an action.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -5930,7 +5930,7 @@
     "gender": null,
     "plural": null,
     "ipa": "vaˈʁʊm",
-    "def": "why; for what reason",
+    "def": "The question word asking for a reason.",
     "syn": [
       "wieso",
       "weshalb"
@@ -6133,7 +6133,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈbɪtə",
-    "def": "request, plea",
+    "def": "Softens a request — and answers a thank-you.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -6421,7 +6421,7 @@
     "gender": null,
     "plural": null,
     "ipa": "axt",
-    "def": "the natural number eight; the numeral sign 8",
+    "def": "The number 8, one more than seven.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -6549,7 +6549,7 @@
     "gender": null,
     "plural": null,
     "ipa": "tsvœlf",
-    "def": "twelve, a dozen",
+    "def": "The number 12, one more than eleven.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -6876,7 +6876,7 @@
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "ˈjanuaːɐ̯",
-    "def": "erster, 31-tägiger Monat im Kalenderjahr",
+    "def": "The first month of the year.",
     "syn": [
       "sonst seltener sowie mundartlich: Jänner",
       "Eismonat/Eismond",
@@ -7662,7 +7662,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡʁaʊ̯",
-    "def": "grey, gray",
+    "def": "The colour between black and white.",
     "syn": [
       "gries"
     ],
@@ -8018,7 +8018,7 @@
     "gender": "der",
     "plural": "die Chefs",
     "ipa": "ʃɛf",
-    "def": "boss, chief",
+    "def": "The person in charge at work.",
     "syn": [
       "der Vorgesetzte"
     ],
@@ -8341,7 +8341,7 @@
     "gender": "der",
     "plural": "die Bäuche",
     "ipa": "baʊ̯x",
-    "def": "abdomen, belly",
+    "def": "The front of the body below the chest.",
     "syn": [
       "Magen"
     ],
@@ -8953,7 +8953,7 @@
     "gender": "der",
     "plural": "die Teller",
     "ipa": "ˈtɛlɐ",
-    "def": "plate, dish",
+    "def": "The flat dish you eat a meal from.",
     "syn": [],
     "ant": [],
     "ex": [

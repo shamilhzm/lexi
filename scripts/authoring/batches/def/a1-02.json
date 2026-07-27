@@ -1,0 +1,367 @@
+{
+  "_README": [
+    "A1 definitions that enumerated translations instead of discriminating a sense."
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:der Freund",
+      "level": "A1",
+      "en": "friend; boyfriend",
+      "expect": {
+        "def": "friend"
+      },
+      "def": "A person you like and trust — and, of a couple, a boyfriend."
+    },
+    {
+      "id": "voc:A1:der Vater",
+      "level": "A1",
+      "en": "father",
+      "expect": {
+        "def": "männlicher Elternteil"
+      },
+      "def": "A male parent."
+    },
+    {
+      "id": "voc:A1:der Bruder",
+      "level": "A1",
+      "en": "brother",
+      "expect": {
+        "def": "männliches Geschwisterteil"
+      },
+      "def": "A male sibling."
+    },
+    {
+      "id": "voc:A1:das Brot",
+      "level": "A1",
+      "en": "bread",
+      "expect": {
+        "def": "bread; loaf of bread"
+      },
+      "def": "A baked staple food made from flour and water."
+    },
+    {
+      "id": "voc:A1:der Bahnhof",
+      "level": "A1",
+      "en": "train station",
+      "expect": {
+        "def": "railway depot, railroad station, railway station, train station"
+      },
+      "def": "The building and platforms where trains stop."
+    },
+    {
+      "id": "voc:A1:gehen",
+      "level": "A1",
+      "en": "to go, to walk",
+      "expect": {
+        "def": "sich schreitend, schrittweise fortbewegen"
+      },
+      "def": "To move on foot — and, more loosely, to go somewhere."
+    },
+    {
+      "id": "voc:A1:heißen",
+      "level": "A1",
+      "en": "to be called",
+      "expect": {
+        "def": "genannt werden, den Namen haben"
+      },
+      "def": "To have a particular name."
+    },
+    {
+      "id": "voc:A1:groß",
+      "level": "A1",
+      "en": "big, tall, great",
+      "expect": {
+        "def": "big, large, large-scale"
+      },
+      "def": "Large in size — and, of a person, tall."
+    },
+    {
+      "id": "voc:A1:schön",
+      "level": "A1",
+      "en": "beautiful, nice",
+      "expect": {
+        "def": "beautiful, lovely, pretty, handsome"
+      },
+      "def": "Pleasing to look at, and generally lovely."
+    },
+    {
+      "id": "voc:A1:der Mann",
+      "level": "A1",
+      "en": "man; husband",
+      "expect": {
+        "def": "man, male human being"
+      },
+      "def": "An adult male — and, in a marriage, a husband."
+    },
+    {
+      "id": "voc:A1:der Mensch",
+      "level": "A1",
+      "en": "human, person",
+      "expect": {
+        "def": "human, human being, person, man"
+      },
+      "def": "A human being, as distinct from an animal."
+    },
+    {
+      "id": "voc:A1:der Saft",
+      "level": "A1",
+      "en": "juice",
+      "expect": {
+        "def": "juice; gravy, meat juice"
+      },
+      "def": "The liquid pressed out of fruit."
+    },
+    {
+      "id": "voc:A1:das Fleisch",
+      "level": "A1",
+      "en": "meat",
+      "expect": {
+        "def": "flesh"
+      },
+      "def": "The flesh of an animal, eaten as food."
+    },
+    {
+      "id": "voc:A1:das Ei",
+      "level": "A1",
+      "en": "egg",
+      "expect": {
+        "def": "eine Keimzelle"
+      },
+      "def": "The oval object a bird lays, eaten as food."
+    },
+    {
+      "id": "voc:A1:das Bad",
+      "level": "A1",
+      "en": "bathroom",
+      "expect": {
+        "def": "bath"
+      },
+      "def": "The room with the bath and washbasin — and the bath itself."
+    },
+    {
+      "id": "voc:A1:das Geschäft",
+      "level": "A1",
+      "en": "shop; business",
+      "expect": {
+        "def": "shop; store"
+      },
+      "def": "A place where goods are sold — and a business or a deal."
+    },
+    {
+      "id": "voc:A1:das Kino",
+      "level": "A1",
+      "en": "cinema, movie theater",
+      "expect": {
+        "def": "cinema"
+      },
+      "def": "A building where films are shown."
+    },
+    {
+      "id": "voc:A1:das Flugzeug",
+      "level": "A1",
+      "en": "airplane",
+      "expect": {
+        "def": "aeroplane"
+      },
+      "def": "A powered aircraft with fixed wings."
+    },
+    {
+      "id": "voc:A1:die Fahrkarte",
+      "level": "A1",
+      "en": "ticket",
+      "expect": {
+        "def": "fare ticket"
+      },
+      "def": "The card or paper that entitles you to travel."
+    },
+    {
+      "id": "voc:A1:die Hose",
+      "level": "A1",
+      "en": "trousers, pants",
+      "expect": {
+        "def": "trousers"
+      },
+      "def": "A garment covering the legs from the waist down."
+    },
+    {
+      "id": "voc:A1:der Hund",
+      "level": "A1",
+      "en": "dog",
+      "expect": {
+        "def": "dog, hound"
+      },
+      "def": "A domestic animal kept as a pet or for work."
+    },
+    {
+      "id": "voc:A1:die Katze",
+      "level": "A1",
+      "en": "cat",
+      "expect": {
+        "def": "house cat, Felis silvestris catus; female house cat"
+      },
+      "def": "A small domestic animal commonly kept as a pet."
+    },
+    {
+      "id": "voc:A1:der Preis",
+      "level": "A1",
+      "en": "price; prize",
+      "expect": {
+        "def": "price"
+      },
+      "def": "What something costs — and, separately, an award won."
+    },
+    {
+      "id": "voc:A1:verstehen",
+      "level": "A1",
+      "en": "to understand",
+      "expect": {
+        "def": "to understand; to understand oneself, to understand each other, to be understood"
+      },
+      "def": "To grasp the meaning of something."
+    },
+    {
+      "id": "voc:A1:denken",
+      "level": "A1",
+      "en": "to think",
+      "expect": {
+        "def": "to think; to imagine"
+      },
+      "def": "To form thoughts, or to hold an opinion."
+    },
+    {
+      "id": "voc:A1:fahren",
+      "level": "A1",
+      "en": "to drive, to go (by vehicle)",
+      "expect": {
+        "def": "to go at speed; to go; to run; to drive; to sail"
+      },
+      "def": "To travel by vehicle — and, of the driver, to drive one."
+    },
+    {
+      "id": "voc:A1:billig",
+      "level": "A1",
+      "en": "cheap",
+      "expect": {
+        "def": "appropriate, meet, fair"
+      },
+      "def": "Low in price, often with a hint of poor quality."
+    },
+    {
+      "id": "voc:A1:schnell",
+      "level": "A1",
+      "en": "fast, quick",
+      "expect": {
+        "def": "quick, fast"
+      },
+      "def": "Moving or happening at speed."
+    },
+    {
+      "id": "voc:A1:wichtig",
+      "level": "A1",
+      "en": "important",
+      "expect": {
+        "def": "important, relevant, significant, weighty"
+      },
+      "def": "Mattering a great deal; not to be ignored."
+    },
+    {
+      "id": "voc:A1:hier",
+      "level": "A1",
+      "en": "here",
+      "expect": {
+        "def": "an diesem Ort"
+      },
+      "def": "In this place, where the speaker is."
+    },
+    {
+      "id": "voc:A1:was",
+      "level": "A1",
+      "en": "what",
+      "expect": {
+        "def": "clipping of etwas"
+      },
+      "def": "The question word for a thing or an action."
+    },
+    {
+      "id": "voc:A1:warum",
+      "level": "A1",
+      "en": "why",
+      "expect": {
+        "def": "why; for what reason"
+      },
+      "def": "The question word asking for a reason."
+    },
+    {
+      "id": "voc:A1:bitte",
+      "level": "A1",
+      "en": "please; you’re welcome",
+      "expect": {
+        "def": "request, plea"
+      },
+      "def": "Softens a request — and answers a thank-you."
+    },
+    {
+      "id": "voc:A1:acht",
+      "level": "A1",
+      "en": "eight",
+      "expect": {
+        "def": "the natural number eight; the numeral sign 8"
+      },
+      "def": "The number 8, one more than seven."
+    },
+    {
+      "id": "voc:A1:zwölf",
+      "level": "A1",
+      "en": "twelve",
+      "expect": {
+        "def": "twelve, a dozen"
+      },
+      "def": "The number 12, one more than eleven."
+    },
+    {
+      "id": "voc:A1:der Januar",
+      "level": "A1",
+      "en": "January",
+      "expect": {
+        "def": "erster, 31-tägiger Monat im Kalenderjahr"
+      },
+      "def": "The first month of the year."
+    },
+    {
+      "id": "voc:A1:grau",
+      "level": "A1",
+      "en": "grey",
+      "expect": {
+        "def": "grey, gray"
+      },
+      "def": "The colour between black and white."
+    },
+    {
+      "id": "voc:A1:der Chef",
+      "level": "A1",
+      "en": "boss",
+      "expect": {
+        "def": "boss, chief"
+      },
+      "def": "The person in charge at work."
+    },
+    {
+      "id": "voc:A1:der Bauch",
+      "level": "A1",
+      "en": "belly, stomach",
+      "expect": {
+        "def": "abdomen, belly"
+      },
+      "def": "The front of the body below the chest."
+    },
+    {
+      "id": "voc:A1:der Teller",
+      "level": "A1",
+      "en": "plate",
+      "expect": {
+        "def": "plate, dish"
+      },
+      "def": "The flat dish you eat a meal from."
+    }
+  ]
+}

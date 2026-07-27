@@ -378,6 +378,21 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — the definition classifier, corrected a fourth time
+
+- **The measure was over-counting by 328, and the false positives were my own
+  work.** The classifier flagged `kommen` → "To move towards the speaker, or to
+  arrive somewhere." and `fünf` → "The number 5, one more than four." — definitions
+  authored the same day *to fix its earlier findings*. Both split on commas into
+  short segments, so the enumeration rule read them as translation lists. A
+  definition written as a sentence (initial capital, terminal stop) is now exempt,
+  because a scraped enumeration is never punctuated like prose. **1,871 → 1,543.**
+- **A second A1 batch: 40 more of the most-seen words.** `der Bahnhof` went from
+  "railway depot, railroad station, railway station, train station" to "The
+  building and platforms where trains stop." One more sense bug caught in passing:
+  `billig` was defined as "appropriate, meet, fair" — the archaic sense; the word
+  now means cheap. A1 is down to **16% flagged** from 34% at the start of the day.
+
 ### Shipped 2026-07-27 — word families, derived rather than guessed (C1 #45)
 
 - **`nehmen / annehmen / benehmen / unternehmen / entnehmen` is one system, told as
