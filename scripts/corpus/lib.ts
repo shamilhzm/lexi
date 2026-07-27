@@ -104,6 +104,28 @@ export function primeApp(corpus: Word[]): Matcher {
   return buildMatcher(corpus);
 }
 
+// ---- pre-1996 orthography -------------------------------------------------
+// The reform kept ß only after a long vowel or diphthong, so Fuß / Gruß / groß /
+// süß / Straße / weiß are all still correct and must not be flagged — only these
+// stems changed.
+//
+// Three bugs have been written into this rule, which is why it lives in one place
+// now. `/\b(muß|daß|…)\b/` under-counted by 13, because `\b` cannot match after ß.
+// Dropping the *trailing* boundary made `thun` match inside "Thunfisch" and report
+// tuna as 19th-century spelling. Restoring it then stopped "häßliches" matching,
+// because a stem plus an inflectional ending is the same word and a compound is
+// not. So the boundary stays, and an optional ending is allowed in front of it:
+// "häßlich|es" matches, "thun|fisch" does not.
+const ARCHAIC_STEMS = [
+  'mußtest', 'mußten', 'mußtet', 'mußte', 'mußt', 'muß',
+  'müßtest', 'müßten', 'müßtet', 'müßte', 'müßt',
+  'wüßtest', 'wüßten', 'wüßte', 'wußten', 'wußte', 'gewußt',
+  'daß', 'Kuß', 'Fluß', 'Schluß', 'Nuß', 'Riß', 'Haß', 'Biß',
+  'häßlich', 'numeriert', 'Weiber', 'itzt', 'beyder', 'seyn', 'thun', 'gerechtfertiget',
+];
+export const ARCHAIC_SPELLING = new RegExp(
+  '(?<![\\p{L}\\p{N}])(' + ARCHAIC_STEMS.join('|') + ')(e|en|em|er|es|te|ten)?(?![\\p{L}\\p{N}])', 'iu');
+
 // ---- the lead example -----------------------------------------------------
 // The flip face shows ex[0], so the first example *is* the card. This is a
 // narrower question than whether a row is corrupt (examples.ts owns that): a

@@ -1,0 +1,539 @@
+{
+  "_README": [
+    "40 example(s) classified \"too-long\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:vernetzt",
+      "at": 1,
+      "level": "B2",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Der Konnektionismus ist ein Problemlösungsansatz in der Kybernetik und beschäftigt sich mit dem Verhalten vernetzter Systeme basierend auf Zusammenschlüssen von künstlichen Informationsverarbeitungseinheiten.“",
+        "en": "„Connectionism is a problem-solving approach in cybernetics and deals with the behaviour of networked systems based on assemblies of artificial information-processing units.“"
+      },
+      "de": "Wer gut vernetzt ist, findet schneller eine Stelle.",
+      "en": "Someone who is well connected finds a job faster."
+    },
+    {
+      "id": "voc:B2:vernetzt",
+      "at": 2,
+      "level": "B2",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Durch die Orientierung an ökologischen Wechselwirkungen kann Ökosystemforschung zu vernetzem Denken beitragen und interdisziplinäre Betrachtungsweisen fördern.“",
+        "en": "„By focusing on ecological interactions, ecosystem research can contribute to networked thinking and promote interdisciplinary perspectives.“"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B2:der Flüchtling",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Es leben etwa 300 000 Bürger des ehemaligen Jugoslawien in der Schweiz, kaum ein Staat hat damals im Verhältnis zu seiner Einwohnerzahl so viele Flüchtlinge aufgenommen.",
+        "en": "There are about 300,000 citizens of the former Yugoslavia living in Switzerland, hardly any state took in so many refugees in relation to its population at that time."
+      },
+      "de": "Die Stadt bringt Flüchtlinge in einer alten Schule unter.",
+      "en": "The city is housing refugees in an old school."
+    },
+    {
+      "id": "voc:B2:die Ernährung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Ernährung ist ein wichtiger Faktor für die Gestaltung der Darmmikrobiota und kann dazu genutzt werden, die abweichende Zusammensetzung des Darmmikrobioms zu verändern.",
+        "en": "Diet is an important factor shaping the gut microbiota and can be used to alter aberrant gut microbial composition."
+      },
+      "de": "Bei Sportlern spielt die Ernährung eine große Rolle.",
+      "en": "For athletes, nutrition plays a big role."
+    },
+    {
+      "id": "voc:B2:fremd",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Fast alle Amerikaner können ihre Wurzeln in fremde Länder zurückverfolgen, und deshalb ist Einwanderung ein Thema, das die Identität der USA auf besondere Weise berührt.",
+        "en": "Nearly all Americans can trace back their roots into foreign countries, and therefore immigration is an issue that touches the identity of the US in a special way."
+      },
+      "de": "In der ersten Woche war mir die Stadt noch völlig fremd.",
+      "en": "In the first week the city was still completely unfamiliar to me."
+    },
+    {
+      "id": "voc:B2:konkurrenzfähig",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Aus Sicht der Hafenbetreiber ist die Elbvertiefung unverzichtbar, um weiter konkurrenzfähig zu bleiben und noch größeren Containerschiffen mit einem Tiefgang von 14,5 Metern die Nutzung des Hafens zu ermöglichen.“",
+        "en": "„From the port operators' point of view, the deepening of the Elbe is indispensable in order to remain competitive.“"
+      },
+      "de": "Ohne Investitionen bleibt der Standort nicht konkurrenzfähig.",
+      "en": "Without investment the site will not stay competitive."
+    },
+    {
+      "id": "voc:B2:die Gentrifizierung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Mit der Gentrifizierung ist es so richtig erst nach dem Fall der Mauer losgegangen. Die Studis—Achtung Klischee—aus Schwaben sind damals in Prenzlauer Berg und Friedrichshain in ziemlich runtergekommene, aber billige Wohnungen gezogen.",
+        "en": "Gentrification really got started after the fall of the Berlin Wall. At that time college students—pardon the cliché—from Swabia moved into rather run down but inexpensive apartments in Prenzlauer Berg and Friedrichshain."
+      },
+      "de": "Die Gentrifizierung beginnt oft mit einem neuen Café.",
+      "en": "Gentrification often starts with a new café."
+    },
+    {
+      "id": "voc:B2:die Begrünung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Graue Klötze in Wohn- und Gewerbegebieten bestimmen das Bild unserer Umgebung. Dabei kann die Begrünung der Wände Klima, Artenvielfalt und Häuser schützen und zudem noch unser Auge erfreuen.“",
+        "en": "„Grey blocks in residential and commercial areas dominate the appearance of our surroundings. Yet the greening of walls can protect the climate, biodiversity and buildings, and delight the eye as well.“"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:C1:das Ehrenamt",
+      "at": 1,
+      "level": "C1",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "[1, engerer Sinn] „Ein Ehrenamt ist in den Niederlanden mindestens so wichtig wie eine bezahlte Arbeit und ebenso ordentlich organisiert, einschließlich einer strengen Bewerbungsprozedur.“",
+        "en": "[1, narrower sense] „In the Netherlands a voluntary position is at least as important as paid work and just as properly organised, including a strict application procedure.“"
+      },
+      "de": "Ohne das Ehrenamt käme der Verein nicht über die Runden.",
+      "en": "Without voluntary work the club would not get by."
+    },
+    {
+      "id": "voc:C1:das Ehrenamt",
+      "at": 2,
+      "level": "C1",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "[1, zur Unterscheidung des engeren Sinns vom weiteren] Manche Haftpflichtversicherung für Vereine deckt nur die Arbeit derjenigen Ehrenämter, die in der Satzung genannt sind.",
+        "en": "[1, distinguishing the narrower sense from the broader] Some liability insurance for associations only covers the work of those voluntary offices named in the statutes."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:C2:die Legitimität",
+      "at": 1,
+      "level": "C2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
+        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“"
+      },
+      "de": "Die Legitimität des Verfahrens wurde vor Gericht bestritten.",
+      "en": "The legitimacy of the procedure was contested in court."
+    },
+    {
+      "id": "voc:C2:einflussreich",
+      "at": 1,
+      "level": "C2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“"
+      },
+      "de": "Ihre Stimme ist in diesem Gremium besonders einflussreich.",
+      "en": "Her voice is particularly influential on this committee."
+    },
+    {
+      "id": "voc:C2:die Suggestion",
+      "at": 1,
+      "level": "C2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die wirkliche und letzte Macht ist die Bejahung. Negative Suggestionen, Flüche, Verwünschungen etc. verfügen über keinerlei Macht, sofern sie nicht akzeptiert und damit zur eigenen Denkbewegung werden.",
+        "en": "The real and ultimate power is affirmation. Negative suggestions, curses, imprecations etc. have no power whatsoever unless they are accepted and thus become part of one's own thinking."
+      },
+      "de": "Der Werbespot arbeitet mit Suggestion statt mit Argumenten.",
+      "en": "The advert works by suggestion rather than by argument."
+    },
+    {
+      "id": "voc:B2:die Gesellschaft",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„In solchen Fällen wird »Gemeinschaft« gegen »Gesellschaft« ausgespielt - Gemeinschaft als eine ursprüngliche, nicht durch Organisation und Zwecksetzungen entstehende Verbindung.“",
+        "en": "„In such cases, 'community' is played off against 'society' - community as an original bond that does not arise through organisation and set purposes.“"
+      },
+      "de": "Die Gesellschaft altert schneller als erwartet.",
+      "en": "Society is ageing faster than expected."
+    },
+    {
+      "id": "voc:B2:der Fachkräftemangel",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Der Fachkräftemangel droht sich laut einer Studie des arbeitgebernahen IW Köln bis 2040 drastisch zu verschärfen. Der Staat müsse schon jetzt gegensteuern, verlangen die Ökonomen.",
+        "en": "The shortage of skilled workers threatens to drastically exacerbate by 2040, according to a study by IW Köln, the business-friendly German Economic Institute in Cologne. The economists insist that the government must take measures to address this now."
+      },
+      "de": "Gegen den Fachkräftemangel hilft nur Ausbildung.",
+      "en": "Only training helps against the shortage of skilled workers."
+    },
+    {
+      "id": "voc:B2:der Klimawandel",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Kohlendioxid trägt durch seine Menge mehr als jedes andere Treibhausgas zum Klimawandel bei, doch seine Konzentration in der Luft beträgt weniger als 0,04 Prozent.",
+        "en": "Carbon dioxide contributes by its amount more than any other greenhouse gas to climate change, but its concentration in the air is less than 0.04 percent."
+      },
+      "de": "Der Klimawandel ist längst messbar.",
+      "en": "Climate change has long been measurable."
+    },
+    {
+      "id": "voc:B2:die Aufführung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Sie liebte diese Aufführungen mehr als alles andere, und nichts anderes konnte sie sich vorstellen, als eines Tages selbst die Puppe zu führen und die alten Geschichten ihres Landes lebendig werden zu lassen.“",
+        "en": "„She loved these performances more than anything, and she could imagine nothing other than one day operating the puppet herself and bringing the old stories of her country to life.“"
+      },
+      "de": "Die Aufführung beginnt um Punkt acht.",
+      "en": "The performance begins at eight sharp."
+    },
+    {
+      "id": "voc:B2:ästhetisch",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Sie inszenieren die Resultate der Forschung als ästhetisches Objekt und erwecken damit den Anschein, die Hervorbringungen der Wissenschaften seien sei so schön wie die Natur selbst.",
+        "en": "They stage the results of research as an aesthetic object and thereby give the impression that the creations of science are as beautiful as nature itself."
+      },
+      "de": "Die Fassade ist rein ästhetisch und hat keine Funktion.",
+      "en": "The façade is purely aesthetic and has no function."
+    },
+    {
+      "id": "voc:B2:beeindruckend",
+      "at": 1,
+      "level": "B2",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Rund 10 000 Spinnenarten wurden in Australien bereits wissenschaftlich beschrieben, doch das ist wohl nur ein Teil der beeindruckenden Achtbeinervielfalt auf dem Kontinent.“",
+        "en": "„Around 10,000 species of spider have already been scientifically described in Australia, but that is probably only a fraction of the impressive diversity of eight-legged creatures on the continent.“"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:C1:der Befund",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Jetzt erweiterten die Entwickler OpenEyes um [ein Modul], mit dem Chirurgen ihre Befunde und Behandlungen inklusive Diagrammen und Bildern elektronisch erfassen können.“",
+        "en": "„The developers have now extended OpenEyes with a module that lets surgeons record their findings and treatments electronically, including diagrams and images.“"
+      },
+      "de": "Der Befund bestätigt den Verdacht des Arztes.",
+      "en": "The finding confirms the doctor's suspicion."
+    },
+    {
+      "id": "voc:C1:kognitiv",
+      "at": 1,
+      "level": "C1",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "Kognitive Lernziele beschreiben alles, was mit dem Verstand erfasst wird, sowohl Faktenwissen als auch kreative Anwendung von Wissen und das Lösen von Problemen.",
+        "en": "Cognitive learning objectives describe everything grasped by the intellect, both factual knowledge and the creative application of knowledge and problem-solving."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B2:befördern",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Große Schließkörbe, Koffer und Pakete wurden zur Bahn befördert, zwei Taxen fuhren vor, und, die Kolonne im ersten Taxi anführend, fuhr die Großmutter zum Bahnhof: im Sommer und im Winter je einen ganzen Monat.“",
+        "en": "„Large hampers, suitcases and parcels were taken to the train, two taxis pulled up, and, leading the convoy in the first taxi, grandmother rode to the station: a whole month each in summer and winter.“"
+      },
+      "de": "Nach fünf Jahren wurde sie zur Abteilungsleiterin befördert.",
+      "en": "After five years she was promoted to head of department."
+    },
+    {
+      "id": "voc:C1:die Minderheit",
+      "at": 2,
+      "level": "C1",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Dazu kommen der manipulative Zuschnitt von Wahlkreisen, das sogenannte Gerrymandering, und Maßnahmen zur Wählerunterdrückung. Diese halten insbesondere Minderheiten und arme Menschen von der Wahlurne fern.“",
+        "en": "„Added to this is the manipulative drawing of constituencies, so-called gerrymandering, and measures to suppress voters. These in particular keep minorities and poor people away from the ballot box.“"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:C1:einflussreich",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“"
+      },
+      "de": "Der Bericht zitiert mehrere einflussreiche Ökonomen.",
+      "en": "The report quotes several influential economists."
+    },
+    {
+      "id": "voc:B2:die Klimazone",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Atemzug für Atemzug realisierten meine Bronchien, dass sie nicht zu Hause und selbstverschuldet in eine Klimazone geraten waren, die ihrem angestammten Platz im Norden diametral entgegengesetzt war.“",
+        "en": "„Breath by breath, my bronchi realised that they had, through no fault of my own, ended up in a climate zone diametrically opposed to their ancestral place in the north.“"
+      },
+      "de": "Die Insel liegt in einer subtropischen Klimazone.",
+      "en": "The island lies in a subtropical climate zone."
+    },
+    {
+      "id": "voc:B2:die Minderheit",
+      "at": 2,
+      "level": "B2",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Dazu kommen der manipulative Zuschnitt von Wahlkreisen, das sogenannte Gerrymandering, und Maßnahmen zur Wählerunterdrückung. Diese halten insbesondere Minderheiten und arme Menschen von der Wahlurne fern.“",
+        "en": "„Added to this is the manipulative drawing of constituencies, so-called gerrymandering, and measures to suppress voters. These in particular keep minorities and poor people away from the ballot box.“"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B2:der Vertrag",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Seine Außengrenzen werden die Grenzen der Bundesrepublik Deutschland und der Deutschen Demokratischen Republik sein und werden am Tage des Inkrafttretens dieses Vertrags endgültig sein.",
+        "en": "Its external borders shall be the borders of the Federal Republic of Germany and the German Democratic Republic and shall be definitive from the date on which the present Treaty comes into force."
+      },
+      "de": "Bitte lesen Sie den Vertrag vor der Unterschrift.",
+      "en": "Please read the contract before signing."
+    },
+    {
+      "id": "voc:B2:endgültig",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Seine Außengrenzen werden die Grenzen der Bundesrepublik Deutschland und der Deutschen Demokratischen Republik sein und werden am Tage des Inkrafttretens dieses Vertrags endgültig sein.",
+        "en": "Its external borders shall be the borders of the Federal Republic of Germany and the German Democratic Republic and shall be definitive from the date on which the present Treaty comes into force."
+      },
+      "de": "Ein endgültiges Ergebnis liegt noch nicht vor.",
+      "en": "A final result is not yet available."
+    },
+    {
+      "id": "voc:B2:aufwendig",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "In einem aufwendigen Verfahren haben Fachleute zahlreiche Statistiken und Studien zusammengeführt, um ein umfassendes Bild des lebenslangen Lernens in den europäischen Ländern zu zeichnen.",
+        "en": "In a laborious procedure, experts have combined numerous statistics and studies to draw a comprehensive picture of lifelong learning in the European countries."
+      },
+      "de": "Das Kostüm war aufwendig von Hand bestickt.",
+      "en": "The costume was elaborately embroidered by hand."
+    },
+    {
+      "id": "voc:B2:einflussreich",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Erstmals spricht jetzt ein über Jahre einflussreicher Politiker aus dem Regierungslager aus, was viele in der Koalition denken: dass die europäische Währungsunion nicht zu retten ist.“",
+        "en": "„For the first time, a politician from the government camp who has been influential for years is saying openly what many in the coalition think: that the European monetary union cannot be saved.“"
+      },
+      "de": "Sie hat einflussreiche Freunde in der Verwaltung.",
+      "en": "She has influential friends in the administration."
+    },
+    {
+      "id": "voc:C1:die Legitimität",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„In der Zeit nachmetaphysischen Denkens stellt die Frage nach der Legitimität politischer Ordnungen, Herrschaftsträger und Entscheidungen moderner Massendemokratien eine große Herausforderung für (politische) Theoretiker dar.“",
+        "en": "„In the era of post-metaphysical thought, the question of the legitimacy of political orders, rulers and decisions in modern mass democracies poses a great challenge for (political) theorists.“"
+      },
+      "de": "Wer die Legitimität der Wahl bezweifelt, muss Belege liefern.",
+      "en": "Anyone doubting the legitimacy of the election has to provide evidence."
+    },
+    {
+      "id": "voc:B2:die Sanierung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2768365",
+      "expect": {
+        "de": "Wenn diese Organisation so belassen wird, wie sie ist, wird sie bald bankrott sein. Ihre Sanierung ist genauso schwierig, wie wenn man die Pferde wechseln wollte, während man dabei ist, einen Fluss zu durchqueren.",
+        "en": "If this organization is left as it is, it will soon go bankrupt; its recovery is as difficult as swapping horses while crossing a stream."
+      },
+      "de": "Während der Sanierung bleibt das Bad gesperrt.",
+      "en": "The pool stays closed during the refurbishment."
+    },
+    {
+      "id": "voc:B2:die Präsenz",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:10574379",
+      "expect": {
+        "de": "Die Theorie der Evolution durch zufällige Mutation und natürliche Selektion übersieht die extrem offensichtliche Präsenz einer planenden Intelligenz im Universum.",
+        "en": "The theory of evolution by random mutation and natural selection fails to see the extremely obvious presence of a planning intelligence in the universe."
+      },
+      "de": "Im Seminar wird Präsenz erwartet.",
+      "en": "Attendance is expected in the seminar."
+    },
+    {
+      "id": "voc:B2:der Verteidigungsminister",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:933033",
+      "expect": {
+        "de": "Knuffel den Bären zum Verteidigungsminister zu bestimmen, war einer der entscheidenden Fehler in Dollys kurzer Karriere als Präsidentin der Demokratischen Volksrepublik von Kaffeeklatsch.",
+        "en": "Appointing Cuddles the Bear to the position of Secretary of Defense was one of the defining mistakes of Dolly's brief career as president of the People's Democratic Republic of Tea Time."
+      },
+      "de": "Der Verteidigungsminister trat nach dem Skandal zurück.",
+      "en": "The defence minister resigned after the scandal."
+    },
+    {
+      "id": "voc:B2:die Abgabe",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:7010291",
+      "expect": {
+        "de": "Alle Anleger mit mehr als 100 000 € bei südzyprischen Banken werden nun eine Abgabe von 9,9 Prozent ihrer Ersparnisse zahlen müssen, Teil eines zehn Milliarden Euro schweren Rettungsplans, der am Freitag, dem 15. März, vereinbart wurde.",
+        "en": "All depositors with over €100,000 in Southern Cypriot banks will now have to pay 9.9 percent levy on their savings as part of a €10 billion bailout plan agreed on Friday, March 15."
+      },
+      "de": "Auf Zucker soll eine neue Abgabe erhoben werden.",
+      "en": "A new levy is to be imposed on sugar."
+    },
+    {
+      "id": "voc:B2:die Ausrichtung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2289453",
+      "expect": {
+        "de": "Es ist Arbeitgebern nicht erlaubt, Arbeitern aufgrund von Rasse, Religion, Volkszugehörigkeit, Hautfarbe, Geschlecht, Alter, Familienstand, Behinderung oder sexueller Ausrichtung die Anstellung zu verwehren.",
+        "en": "Employers cannot refuse to hire workers because of their race, religion, ethnic origin, skin colour, sex, age, marital status, disability or sexual orientation."
+      },
+      "de": "Die strategische Ausrichtung der Firma hat sich geändert.",
+      "en": "The company's strategic orientation has changed."
+    },
+    {
+      "id": "voc:B2:die Entstehung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:13888680",
+      "expect": {
+        "de": "Obgleich dieser Schelm etwas vorwitzig, bevor er gerufen wurde, zur Welt kam, war doch seine Mutter schön, es ging lustig zu bei seiner Entstehung, und der Hurensohn konnte nicht verleugnet werden.",
+        "en": "Though this knave came something saucily into the world before he was sent for, yet was his mother fair; there was good sport at his making, and the whoreson must be acknowledged."
+      },
+      "de": "Über die Entstehung des Universums streiten Forscher bis heute.",
+      "en": "Researchers still argue about the creation of the universe."
+    },
+    {
+      "id": "voc:B2:die Etappe",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:1847511",
+      "expect": {
+        "de": "Wir erfahren und verstehen die Welt durch Signale, die von den Sinnesorganen empfangen und vom Gehirn interpretiert werden - und beide Etappen dieses Prozesses sind Verzerrungen unterworfen.",
+        "en": "We experience and understand the world through signals that are received by the senses and interpreted by the brain - and both stages are subject to distortion."
+      },
+      "de": "Wir teilen die Wanderung in drei Etappen.",
+      "en": "We are dividing the hike into three stages."
+    },
+    {
+      "id": "voc:B2:der Insider",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:3284342",
+      "expect": {
+        "de": "An der Wall Street machten einige Insider den großen Reibach, indem sie „short“ gingen, als jedermann auf einen schon lang anhaltenden Aufwärtstrend aufgesprungen war.",
+        "en": "At Wall Street, some insiders made a killing by going short, when everyone had been sucked into an unsustainable uptrend."
+      },
+      "de": "Ein Insider hatte die Unterlagen an die Presse gegeben.",
+      "en": "An insider had given the documents to the press."
+    },
+    {
+      "id": "voc:B2:die Verurteilung",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:2343912",
+      "expect": {
+        "de": "Am dritten Jahrestag des russischen Überfalls auf die Ukraine stellten sich die USA auf die Seite Russlands, Nordkoreas und Weißrusslands, indem sie gegen eine UN-Resolution zur Verurteilung der Invasion stimmten.",
+        "en": "On the third anniversary of the Russian invasion of Ukraine, the US sided with Russia, North Korea and Belarus, voting against a UN resolution condemning the invasion."
+      },
+      "de": "Nach der Verurteilung legte er Berufung ein.",
+      "en": "After the conviction he lodged an appeal."
+    }
+  ]
+}

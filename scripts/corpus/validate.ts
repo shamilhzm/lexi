@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, stripArticle, lemmaKey, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, stripArticle, lemmaKey, ARCHAIC_SPELLING, LEVELS, type Word } from './lib.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
 const mulberry32 = (seed: number) => () => {
@@ -80,11 +80,10 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
       // new batches while the existing long rows are worked through.
       if (de.length > 160) warnings.push({ id, msg: `${where} is ${de.length} chars (long for a card)` });
       if (!en.trim() && de.trim()) warnings.push({ id, msg: `${where} has no translation` });
-      // Unicode boundary, not \b: ß is not an ASCII word char, so /\bmuß\b/ can
-      // never match. See wholeWordRe in views/Fundamentals.tsx.
-      if (/(?<![\p{L}\p{N}])(muß|müß|daß|wuß|Kuß|Weiber|itzt|beyder|seyn|thun)/iu.test(de)) {
-        warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
-      }
+      // One shared rule with corpus:examples (lib.ts). This used to be a second,
+      // subtly different copy that was missing the trailing word boundary, so it
+      // reported "Thunfisch" — tuna — as 19th-century spelling.
+      if (ARCHAIC_SPELLING.test(de)) warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
       if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });
     });
     if (w.gender != null && !['der', 'die', 'das'].includes(w.gender)) errors.push({ id, msg: `bad gender ${w.gender}` });
@@ -236,6 +235,26 @@ async function main() {
   const probeFail =
     (verbRes.n && verbRes.rate < T.verb) || (nounRes.n && nounRes.rate < T.noun) ||
     (adjRes.n && adjRes.rate < T.adj) || (closedRes.n > 0 && closedRes.hit < closedRes.n);
+
+  // A rule long enough to need structure must have it. 127 of 128 rules shipped as
+  // single unbroken paragraphs — up to 547 characters — into a RuleCard that has
+  // rendered `whitespace-pre-line` the whole time, waiting for newlines that never
+  // came. The sections are authored now; this is what stops the next batch
+  // regressing to a wall of prose nobody reads on a phone.
+  const RULE_PROSE_MAX = 280;
+  // Deliberately not wrapped in a catch: the first version was, and it swallowed a
+  // missing import so the gate silently passed while reporting PASS — a check that
+  // cannot fail is worse than no check, because it is trusted.
+  const bank = readJSON<Record<string, { title: string; rule?: string; sections?: unknown[] }[]>>(
+    join(PATHS.repoRoot, 'public', 'data', 'grammar.json'));
+  for (const [lv, points] of Object.entries(bank)) {
+    for (const p of points) {
+      const len = (p.rule ?? '').length;
+      if (len > RULE_PROSE_MAX && !p.sections?.length) {
+        allErrors.push({ id: `gram:${lv}:${p.title}`, msg: `rule is ${len} chars with no sections (max ${RULE_PROSE_MAX} as prose)` });
+      }
+    }
+  }
 
   // Size / perf.
   const raw = readFileSync(PATHS.vocab);

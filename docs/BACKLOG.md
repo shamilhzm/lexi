@@ -378,6 +378,34 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — the corpus is clean, and the gates that keep it clean
+
+- **Every example-defect class is at zero.** The last two batches of the Part D
+  cleanup: **52 over-long rows** (the corpus's longest example was a **795-char
+  Luther passage on `die Frau`**, a first-hundred word) and 2 elided passages.
+  10 were deleted where the card still kept two clean examples; **42 got an
+  authored replacement**, because deleting them would have pushed the card back
+  under the two-example standard. Applied through the expect-guarded
+  `fix-authored.ts` — **0 refused**, so every row replaced was the row the batch
+  was authored against. Longest example in the corpus is now **160 chars**.
+  `newline · cruft · missing-en · too-long · archaic · elided` all read 0.
+- **E4 — the rule-length gate** (completes Part E). The 20 rules over 280 chars
+  all have authored `sections`; nothing stopped the next batch regressing to the
+  547-character paragraph this started as. `corpus:validate` now fails on a rule
+  over 280 chars without sections. *Written twice:* the first version wrapped the
+  grammar load in a `try/catch`, which swallowed a missing import and reported
+  **PASS while checking nothing**. Caught by deliberately stripping `sections`
+  from a real point to watch the gate fire — it didn't. A check that cannot fail
+  is worse than no check, because it is trusted; the catch is gone.
+- **One rule for pre-1996 orthography, not two.** `validate.ts` and
+  `corpus:examples` each carried their own copy and they had drifted: validate's
+  had no trailing word boundary, so `thun` matched inside **Thunfisch** and
+  reported tuna as 19th-century German. Now `ARCHAIC_SPELLING` in
+  `scripts/corpus/lib.ts`, imported by both. Fixing the boundary then broke
+  `häßliches` — a stem plus an inflectional ending is the same word, a compound is
+  not — so the rule allows an optional ending in front of the boundary. Three
+  tests pin both sides, including the ß the reform *kept* (`Fuß`, `groß`, `weiß`).
+
 ### Shipped 2026-07-27 — the persona leftovers and the last capitalisations
 
 - **Capitalised function words — ruled, not inferred** (closes the casefix
@@ -620,10 +648,9 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
   *Touches:* `src/lib/illustration.tsx`, `views/Review.tsx`, `views/Markt.tsx`,
   `views/Wortkarte.tsx`.
 
-_C1/C2 example + synonym pass shipped 2026-07-26 — every level now carries ≥2
-examples per card; the lead-example sweep followed it, so no card opens with a
-scrape. What remains of the example work is the 52 over-long and 2 elided rows
-`corpus:examples` still reports._
+_The example work is finished: ≥2 examples on every card at every level, no card
+opens with a scrape, and `corpus:examples` reports zero in every defect class.
+The gates (`corpus:validate`, the audit, three tests) are what keep it there._
 
 - **Run the *real* friend session** (S — the last friend-readiness leftover). The
   flagged-cards list, typo tolerance and the day-2 habit anchor all shipped; what

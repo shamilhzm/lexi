@@ -17,6 +17,7 @@ import {
   wholeWordRe, pickPersonIndex, buildSeparable, isSeparable, buildReflexive, isReflexive, canTransform, pickFocused, dictatable, type Mode,
 } from '../views/Fundamentals.tsx';
 import { spellingDiff } from '../views/GrammarDrill.tsx';
+import { ARCHAIC_SPELLING } from '../../scripts/corpus/lib.ts';
 import { FOCUS_CHOICES } from '../views/Settings.tsx';
 import { termGloss } from '../components/RulePanel.tsx';
 import { conjugate, setKnownVerbs } from './conjugate.ts';
@@ -612,5 +613,29 @@ describe('dictation', () => {
     const n = corpus.filter((w) => w.kind === 'word' && dictatable(w.ex?.[0]?.de)).length;
     // Enough that a learner doesn't see the same sentence twice in a week.
     expect(n).toBeGreaterThan(500);
+  });
+});
+
+// Two checkers used to carry their own copy of the pre-1996 spelling rule and
+// they drifted: validate's copy had no trailing word boundary, so `thun` matched
+// inside "Thunfisch" and reported tuna as 19th-century German. One rule now, in
+// scripts/corpus/lib.ts, pinned here on both sides of the boundary.
+describe('ARCHAIC_SPELLING', () => {
+  it('flags the reformed stems wherever they appear in the word', () => {
+    for (const s of ['Er muß gehen.', 'Sie mußte warten.', 'Ich wußte es nicht.', 'Daß er kam.', 'ein häßliches Haus']) {
+      expect(ARCHAIC_SPELLING.test(s), s).toBe(true);
+    }
+  });
+
+  it('does not flag ordinary German that merely contains the letters', () => {
+    for (const s of ['Ich mag Pizza mit Thunfisch.', 'Der Fluss ist breit.', 'Sie muss gehen.', 'Das Weib', 'beyond']) {
+      expect(ARCHAIC_SPELLING.test(s), s).toBe(false);
+    }
+  });
+
+  it('still respects the ß that the reform kept', () => {
+    for (const s of ['der Fuß', 'ein großes Haus', 'die Straße', 'weiß', 'süß']) {
+      expect(ARCHAIC_SPELLING.test(s), s).toBe(false);
+    }
   });
 });
