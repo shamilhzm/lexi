@@ -20,7 +20,8 @@ import { readJSON, writeJSON } from '../corpus/lib.ts';
 import { cleanExample } from '../../src/lib/examples.ts';
 import type { Word } from '../../src/types.ts';
 
-interface Row {
+/** An example row: replace or delete `ex[at]`. */
+interface ExRow {
   id: string;
   at: number;
   siblings?: number;
@@ -30,6 +31,15 @@ interface Row {
   en?: string;
   delete?: boolean;
 }
+/** A definition row: replace the card's `def`. Same guard, different field —
+ *  batches come from `corpus:definitions`. */
+interface DefRow {
+  id: string;
+  expect: { def: string };
+  def?: string;
+}
+type Row = ExRow | DefRow;
+const isDefRow = (r: Row): r is DefRow => 'expect' in r && r.expect != null && 'def' in r.expect;
 
 const [batchPath, ...rest] = process.argv.slice(2);
 const dry = rest.includes('--dry');
@@ -46,15 +56,35 @@ const byId = new Map(vocab.map((c) => [c.id, c]));
 const norm = (s: string) => (s ?? '').replace(/\s+/g, ' ').trim();
 let applied = 0, deleted = 0, pending = 0;
 const refused: string[] = [];
-const refuse = (row: Row, why: string) => refused.push(`${row.id}#${row.at}: ${why}`);
+const refuse = (row: Row, why: string) =>
+  refused.push(`${row.id}${isDefRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
 
 // Deletions are applied last and in descending index order, so removing ex[1]
 // can't shift the meaning of a later row that targets ex[2] of the same card.
-const deletions: Row[] = [];
+const deletions: ExRow[] = [];
 
 for (const row of rows) {
   const card = byId.get(row.id);
   if (!card) { refuse(row, 'no such card id'); continue; }
+
+  if (isDefRow(row)) {
+    if (norm(card.def ?? '') !== norm(row.expect?.def ?? '')) {
+      refuse(row, 'expect no longer matches the corpus (already fixed, or a stale batch)');
+      continue;
+    }
+    const next = norm(row.def ?? '');
+    if (!next) { pending++; continue; }              // not authored yet — silent
+    // A replacement that is itself a list of translations would put the defect
+    // straight back, so hold it to the standard the audit measures.
+    if (next.toLowerCase() === norm(card.en).toLowerCase()) {
+      refuse(row, 'replacement just repeats the en gloss');
+      continue;
+    }
+    card.def = next;
+    applied++;
+    continue;
+  }
+
   const ex = card.ex?.[row.at];
   if (!ex) { refuse(row, `no example at index ${row.at}`); continue; }
 

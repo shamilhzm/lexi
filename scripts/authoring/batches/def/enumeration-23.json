@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:die Skipiste",
+      "level": "B1",
+      "en": "ski run",
+      "pos": "noun",
+      "expect": {
+        "def": "piste, ski slope"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Loipe",
+      "level": "B1",
+      "en": "cross-country trail",
+      "pos": "noun",
+      "expect": {
+        "def": "maschinell vorbereitete Piste, Laufbahn für den Skilanglauf"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Skistock",
+      "level": "B1",
+      "en": "ski pole",
+      "pos": "noun",
+      "expect": {
+        "def": "ski pole, ski stick"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Gipfel",
+      "level": "B1",
+      "en": "summit, peak",
+      "pos": "noun",
+      "expect": {
+        "def": "peak, pinnacle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gleiten",
+      "level": "B1",
+      "en": "to glide",
+      "pos": "verb",
+      "expect": {
+        "def": "to glide; to float; to move effortlessly; to slide; to slip; to transition smoothly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:steil",
+      "level": "B1",
+      "en": "steep",
+      "pos": "adjective",
+      "expect": {
+        "def": "Rising or falling sharply, at a big angle."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Seilbahn",
+      "level": "B1",
+      "en": "cable railway, aerial tramway",
+      "pos": "noun",
+      "expect": {
+        "def": "cable car, aerial tramway, gondola lift, ropeway conveyor"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Arbeitsrecht",
+      "level": "B1",
+      "en": "labor law",
+      "pos": "noun",
+      "expect": {
+        "def": "labour law, employment law"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Heckenschere",
+      "level": "B1",
+      "en": "hedge trimmer",
+      "pos": "",
+      "expect": {
+        "def": "hedge cutters, hedge shears, hedge trimmer, hedge clippers"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Moor",
+      "level": "B1",
+      "en": "moor / bog",
+      "pos": "noun",
+      "expect": {
+        "def": "marsh, mire, bog"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vernebeln",
+      "level": "B1",
+      "en": "to fog up / obscure",
+      "pos": "verb",
+      "expect": {
+        "def": "to obscure; to obfuscate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zuvor",
+      "level": "B1",
+      "en": "before / previously",
+      "pos": "adverb",
+      "expect": {
+        "def": "before, previously"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verstopfen",
+      "level": "B1",
+      "en": "to block / clog",
+      "pos": "verb",
+      "expect": {
+        "def": "to plug; to clog; to become clogged; to clog up"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unfähig",
+      "level": "B1",
+      "en": "incapable",
+      "pos": "adjective",
+      "expect": {
+        "def": "incapable, unable, inept"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:viel",
+      "level": "A1",
+      "en": "much / a lot",
+      "pos": "",
+      "expect": {
+        "def": "much, a lot"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Urlaub",
+      "level": "A2",
+      "en": "holiday / vacation",
+      "pos": "",
+      "expect": {
+        "def": "holiday, vacation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Wald",
+      "level": "A2",
+      "en": "forest",
+      "pos": "",
+      "expect": {
+        "def": "forest; woods; woodland"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Hund",
+      "level": "A2",
+      "en": "dog",
+      "pos": "",
+      "expect": {
+        "def": "dog, hound"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Katze",
+      "level": "A2",
+      "en": "cat",
+      "pos": "",
+      "expect": {
+        "def": "house cat, Felis silvestris catus; female house cat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Geschäft",
+      "level": "A2",
+      "en": "shop / business",
+      "pos": "",
+      "expect": {
+        "def": "shop; store"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Beruf",
+      "level": "A2",
+      "en": "profession",
+      "pos": "",
+      "expect": {
+        "def": "occupation, profession, trade, job, career"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Chef",
+      "level": "A2",
+      "en": "boss",
+      "pos": "",
+      "expect": {
+        "def": "boss, chief"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:besuchen",
+      "level": "A2",
+      "en": "to visit",
+      "pos": "",
+      "expect": {
+        "def": "to visit, to see; to attend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wichtig",
+      "level": "A2",
+      "en": "important",
+      "pos": "",
+      "expect": {
+        "def": "important, relevant, significant, weighty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:falsch",
+      "level": "A2",
+      "en": "wrong",
+      "pos": "",
+      "expect": {
+        "def": "false, unfactual, untrue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zusammen",
+      "level": "A2",
+      "en": "together",
+      "pos": "",
+      "expect": {
+        "def": "together, jointly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:allein",
+      "level": "A2",
+      "en": "alone",
+      "pos": "",
+      "expect": {
+        "def": "Without other people; on your own."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vielleicht",
+      "level": "A2",
+      "en": "maybe",
+      "pos": "",
+      "expect": {
+        "def": "perhaps, maybe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aufgabe",
+      "level": "B1",
+      "en": "task",
+      "pos": "",
+      "expect": {
+        "def": "task, job"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Möglichkeit",
+      "level": "B1",
+      "en": "possibility",
+      "pos": "",
+      "expect": {
+        "def": "possibility, likelihood"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Gelegenheit",
+      "level": "B1",
+      "en": "opportunity",
+      "pos": "",
+      "expect": {
+        "def": "opportunity, chance, instance, occasion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bedeutung",
+      "level": "B1",
+      "en": "meaning / importance",
+      "pos": "",
+      "expect": {
+        "def": "Sinn einer Information, Handlung oder Sache"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Gefahr",
+      "level": "B1",
+      "en": "danger",
+      "pos": "",
+      "expect": {
+        "def": "danger, hazard, peril, risk"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beweisen",
+      "level": "B1",
+      "en": "to prove",
+      "pos": "",
+      "expect": {
+        "def": "to prove; to display, to show, to demonstrate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gehören",
+      "level": "B1",
+      "en": "to belong",
+      "pos": "",
+      "expect": {
+        "def": "to belong to, be the property of; to be a prerequisite for; to be a characteristic of"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verzichten",
+      "level": "B1",
+      "en": "to do without",
+      "pos": "",
+      "expect": {
+        "def": "to give up, to go without, to live without, to make do without, to do without, to forgo, to dispense with; to refrain from, to abstain, to renounce, to forswear"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:deutlich",
+      "level": "B1",
+      "en": "clear",
+      "pos": "",
+      "expect": {
+        "def": "articulate, clear"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nützlich",
+      "level": "B1",
+      "en": "useful",
+      "pos": "",
+      "expect": {
+        "def": "useful; helpful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gemeinsam",
+      "level": "B1",
+      "en": "common / joint",
+      "pos": "",
+      "expect": {
+        "def": "together, jointly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ähnlich",
+      "level": "B1",
+      "en": "similar",
+      "pos": "",
+      "expect": {
+        "def": "similar, alike, resembling"
+      },
+      "def": ""
+    }
+  ]
+}

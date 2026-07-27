@@ -365,7 +365,7 @@
     "gender": "die",
     "plural": "die Schwestern",
     "ipa": "ˈʃvɛstɐ",
-    "def": "sister; sister; nun; used particularly, but not only, as a title of address",
+    "def": "A female sibling — and the everyday German word for a nurse.",
     "syn": [],
     "ant": [
       "der Bruder"
@@ -1112,7 +1112,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈmaxn̩",
-    "def": "to make, to produce, to create (an object, arrangement, situation, etc.); to make, prepare (food, drinks, etc.)",
+    "def": "To make or do something; German's general-purpose verb for producing or carrying out.",
     "syn": [
       "produzieren",
       "herstellen",
@@ -1334,7 +1334,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈɛsn̩",
-    "def": "to eat; to eat; to dine",
+    "def": "To take food into the body through the mouth.",
     "syn": [
       "fressen",
       "genießen",
@@ -1402,7 +1402,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈkaʊ̯fn̩",
-    "def": "to buy, to purchase; to buy, to purchase for someone",
+    "def": "To obtain something in exchange for money.",
     "syn": [],
     "ant": [
       "verkaufen"
@@ -1543,7 +1543,7 @@
     "gender": null,
     "plural": null,
     "ipa": "klaɪ̯n",
-    "def": "small, little, wee (in physical size or extent); small, little, young (not grown up)",
+    "def": "Little in size or extent — and, of a person, young.",
     "syn": [],
     "ant": [
       "groß"
@@ -3002,7 +3002,7 @@
     "gender": "die",
     "plural": "nur Singular",
     "ipa": "pɔst",
-    "def": "mail, post (sent and received letters etc.); mail, post, postal service (method of sending mail; organisation for it)",
+    "def": "The postal service, the letters it carries, and the office you hand them in at.",
     "syn": [
       "Postfiliale",
       "Postamt"
@@ -4391,7 +4391,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈfɪndn̩",
-    "def": "to find; to discover; to think, to consider, to find",
+    "def": "To come across what you were looking for — and, of an opinion, to think (ich finde …).",
     "syn": [],
     "ant": [],
     "ex": [
@@ -5175,7 +5175,7 @@
     "gender": null,
     "plural": null,
     "ipa": "kʊʁts",
-    "def": "short, quick, brief; short",
+    "def": "Small in length or in duration; the opposite of lang.",
     "syn": [
       "lang"
     ],
@@ -5285,7 +5285,7 @@
     "gender": null,
     "plural": null,
     "ipa": "vaʁm",
-    "def": "warm; mildly hot; warm; keeping the wearer warm",
+    "def": "Pleasantly heated — above cool and below hot.",
     "syn": [
       "schwul"
     ],
@@ -5321,7 +5321,7 @@
     "gender": null,
     "plural": null,
     "ipa": "kalt",
-    "def": "cold, chilly; the physical perception of something (objects, weather, body etc.) to have a low temperature; cold, frigid (especially when referring to emotions)",
+    "def": "Low in temperature; of a person or manner, unfeeling.",
     "syn": [
       "frostig"
     ],
@@ -5429,7 +5429,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈʁɪçtɪç",
-    "def": "correct, accurate, right; right, correct, good",
+    "def": "Free of error — and, before an adjective, thoroughly (ein richtig guter Film).",
     "syn": [
       "korrekt"
     ],
@@ -5534,7 +5534,7 @@
     "gender": null,
     "plural": null,
     "ipa": "nɛt",
-    "def": "nice; friendly; likable; nice; okay; decent; often expressing a more reluctant praise",
+    "def": "Pleasant and friendly in a mild, everyday way.",
     "syn": [
       "freundlich"
     ],
@@ -7544,7 +7544,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ʃvaʁts",
-    "def": "black, reflecting little or no light; black, having a high amount of melanin in an organ, e.g. the skin",
+    "def": "The colour of coal, reflecting almost no light.",
     "syn": [],
     "ant": [
       "weiß"
@@ -8567,7 +8567,7 @@
     "gender": "das",
     "plural": "die Salze",
     "ipa": "zalts",
-    "def": "salt, table salt, sal; salt",
+    "def": "Sodium chloride, used to season and preserve food.",
     "syn": [
       "Kochsalz",
       "Speisesalz",
@@ -9631,7 +9631,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈfliːɡn̩",
-    "def": "to fly; to travel by air; to rush; to fly; to go quickly",
+    "def": "To move through the air — and, of a person, to travel by plane.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -10919,7 +10919,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈfɛʁtɪç",
-    "def": "ready for use; done; fully prepared; done; finished; complete",
+    "def": "Finished or ready to go; colloquially also worn out.",
     "syn": [
       "bereit",
       "zubereitet",
@@ -10956,7 +10956,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fʁaɪ̯",
-    "def": "free; unenslaved; unimprisoned; free; unrestricted; more negative also: unrestrained; licentious",
+    "def": "Not restricted, and not occupied — of a seat or an appointment, available.",
     "syn": [
       "ungezwungen",
       "ungebunden",
@@ -12826,7 +12826,7 @@
     "gender": "der",
     "plural": "die Seen",
     "ipa": "zeː",
-    "def": "sea, ocean; sea, sea condition, swell",
+    "def": "An inland body of standing water. (Feminine die See means the sea.)",
     "syn": [
       "Meer",
       "Ozean"
@@ -12966,7 +12966,7 @@
     "gender": "der",
     "plural": "die Sterne",
     "ipa": "ʃtɛʁn",
-    "def": "a star; a small luminous dot that can be seen on the night sky; a star; the actual celestial body",
+    "def": "A luminous point in the night sky; a celestial body like the sun.",
     "syn": [
       "Gestirn",
       "Sonne",
@@ -13106,7 +13106,7 @@
     "gender": null,
     "plural": null,
     "ipa": "dan",
-    "def": "then, after that; then, in that case",
+    "def": "Next in time — and, after a condition, in that case.",
     "syn": [
       "danach"
     ],
@@ -14167,7 +14167,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈt͡saːlən",
-    "def": "to pay; to pay, to atone",
+    "def": "To hand over money for something bought or owed.",
     "syn": [
       "bezahlen"
     ],
@@ -17469,7 +17469,7 @@
     "gender": "der",
     "plural": "die Jobs",
     "ipa": "dʒɔp",
-    "def": "job, position, employment; job, work, profession",
+    "def": "Paid work, especially casual or short-term rather than a career.",
     "syn": [
       "die Stelle"
     ],
@@ -18187,7 +18187,7 @@
     "gender": null,
     "plural": null,
     "ipa": "tʁɛˈniːʁən",
-    "def": "to work out, to exercise, to train; to train, to coach",
+    "def": "To practise a sport or skill regularly — and, of a coach, to train others.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -19467,7 +19467,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈdʁʏkn̩",
-    "def": "to press, to push (a button/key; a finger or other object against something); to push, to press, to exert pressure, to click (with a mouse)",
+    "def": "To apply pressure with a finger or hand: a button, a key, someone's hand.",
     "syn": [
       "umarmen",
       "senken",
@@ -21214,7 +21214,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɛɐ̯ˈt͡sɛːlən",
-    "def": "to tell, to narrate, to recount; to tell, to say",
+    "def": "To tell someone about something, recounting it in sequence.",
     "syn": [
       "berichten"
     ],
@@ -21382,7 +21382,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈvɛkˌfaːʁən",
-    "def": "to drive away, to drive off; to drive away, take away with a vehicle",
+    "def": "To leave by vehicle — or to take something away in one.",
     "syn": [
       "davonfahren"
     ],
@@ -21991,7 +21991,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɪnst͡seˈniːʁən",
-    "def": "to stage, to perform (a dramatic work); to stage, to perpetrate (a hoax or deception)",
+    "def": "To put a dramatic work on stage; also to stage something for effect.",
     "syn": [
       "aufführen"
     ],
@@ -22685,7 +22685,7 @@
     "gender": null,
     "plural": null,
     "ipa": "niː",
-    "def": "never, never at all (referring to an indefinite period of time); never, not once (referring to a defined period of time; see usage notes below)",
+    "def": "At no time at all.",
     "syn": [
       "niemals",
       "nimmer",
@@ -23107,7 +23107,7 @@
     "gender": "die",
     "plural": "die Praxen",
     "ipa": "ˈpʁaksɪs",
-    "def": "practice, experience; practice, praxis (opposite of theory)",
+    "def": "A doctor's or lawyer's office — and practice as opposed to theory.",
     "syn": [
       "Erfahrung",
       "Ordination"
@@ -24979,7 +24979,7 @@
     "gender": "das",
     "plural": "die Programme",
     "ipa": "pʁoˈɡʁam",
-    "def": "program (set of structured ideas or activities; a list thereof); schedule; programming (whole of a station’s shows; their chronological order; a list thereof)",
+    "def": "A planned sequence of items or events; also a piece of software.",
     "syn": [
       "Sender",
       "Sendung"
@@ -25872,7 +25872,7 @@
     "gender": "die",
     "plural": "nur Singular",
     "ipa": "ˈʊmˌvɛlt",
-    "def": "environment; milieu; surroundings; environment; ecosystem",
+    "def": "The natural world around us, thought of as something to protect.",
     "syn": [
       "Natur"
     ],
@@ -26175,7 +26175,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈzuːxn̩",
-    "def": "to try, to attempt (often with an uncertain result); to try, to taste",
+    "def": "To make an attempt at something whose outcome is uncertain.",
     "syn": [
       "probieren",
       "kosten",
@@ -26314,7 +26314,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈdaʊ̯ɐn",
-    "def": "to last, to continue, to persist (for a period of time); to last, to be permanent",
+    "def": "To go on for a stretch of time.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -26423,7 +26423,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈeːɐ̯lɪç",
-    "def": "decent, honorable, honest; honest, truthful, true",
+    "def": "Truthful, and not out to deceive.",
     "syn": [
       "ehrenhaft",
       "ehrbar",
@@ -28027,7 +28027,7 @@
     "gender": "der",
     "plural": "die Streite",
     "ipa": "ʃtʁaɪ̯t",
-    "def": "quarrel, dispute, fight, argument; fight, battle",
+    "def": "A verbal fight — a quarrel or dispute rather than a physical one.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -30118,7 +30118,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ʃaʁf",
-    "def": "sharp; able to cut (of a knife, edge); sharp; tight (of a turn on a route)",
+    "def": "Hot to the taste; of a blade or an image, keen and well-defined.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -30724,7 +30724,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fʊŋktsi̯oˈniːʁən",
-    "def": "to work, function; to work, work out",
+    "def": "Of a device or an arrangement, to work as it is meant to.",
     "syn": [
       "laufen",
       "es tun",
@@ -31513,7 +31513,7 @@
     "gender": "der",
     "plural": "die Vorteile",
     "ipa": "ˈfoːɐ̯taɪ̯l",
-    "def": "advantage, plus, benefit, perk (of a job); advantage",
+    "def": "Something that puts you in a better position than others.",
     "syn": [],
     "ant": [
       "der Nachteil"
@@ -32268,7 +32268,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈzaml̩n",
-    "def": "to gather; to assemble; to collect; to congregate; to assemble; to meet",
+    "def": "To bring things together in one place — objects as a hobby, or people into a group.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -38826,7 +38826,7 @@
     "gender": "die",
     "plural": "die Hexen",
     "ipa": "ˈhɛksə",
-    "def": "witch, sorceress; witch, hag (evil and/or ugly woman)",
+    "def": "A woman with magic powers in folklore and fairy tales.",
     "syn": [
       "Zauberin",
       "Magierin"

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:herstellen",
+      "level": "A2",
+      "en": "to manufacture",
+      "pos": "verb",
+      "expect": {
+        "def": "to produce, manufacture; to establish, make, install, connect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:kontrollieren",
+      "level": "A2",
+      "en": "to check, monitor",
+      "pos": "verb",
+      "expect": {
+        "def": "to check; to control"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vertraut",
+      "level": "A2",
+      "en": "familiar",
+      "pos": "adjective",
+      "expect": {
+        "def": "close, intimate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zusätzlich",
+      "level": "A2",
+      "en": "additional(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "additional, extra, supplementary"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Berg",
+      "level": "A2",
+      "en": "mountain",
+      "pos": "noun",
+      "expect": {
+        "def": "a mountain, hill"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:segeln",
+      "level": "A2",
+      "en": "to sail",
+      "pos": "verb",
+      "expect": {
+        "def": "schweben, gleiten, fliegen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Pension",
+      "level": "A2",
+      "en": "guesthouse",
+      "pos": "noun",
+      "expect": {
+        "def": "boarding house, pension; retirement benefit, old age pension"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Ausgangspunkt",
+      "level": "A2",
+      "en": "starting point",
+      "pos": "noun",
+      "expect": {
+        "def": "origin, basis"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Bewertung",
+      "level": "A2",
+      "en": "rating, review",
+      "pos": "noun",
+      "expect": {
+        "def": "evaluation, rating"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:aufbauen",
+      "level": "A2",
+      "en": "to set up, build up",
+      "pos": "verb",
+      "expect": {
+        "def": "to build, to construct, to erect; to rebuild, to reconstruct"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:verwöhnen",
+      "level": "A2",
+      "en": "to spoil, pamper",
+      "pos": "verb",
+      "expect": {
+        "def": "to pamper, spoil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:echt",
+      "level": "A2",
+      "en": "genuine, real",
+      "pos": "adjective",
+      "expect": {
+        "def": "authentic, genuine, true"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fantastisch",
+      "level": "A2",
+      "en": "fantastic",
+      "pos": "adjective",
+      "expect": {
+        "def": "Extremely good; wonderful."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:großartig",
+      "level": "A2",
+      "en": "great, magnificent",
+      "pos": "adjective",
+      "expect": {
+        "def": "terrific, superb, etc."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:herrlich",
+      "level": "A2",
+      "en": "glorious, marvellous",
+      "pos": "adjective",
+      "expect": {
+        "def": "fantastic; marvelous; wonderful; splendid; glorious; lovely"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:traumhaft",
+      "level": "A2",
+      "en": "dreamlike, wonderful",
+      "pos": "adjective",
+      "expect": {
+        "def": "dreamlike, belonging in a dream"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Ärger",
+      "level": "B1",
+      "en": "anger; trouble",
+      "pos": "noun",
+      "expect": {
+        "def": "annoyance, anger"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Angst",
+      "level": "B1",
+      "en": "fear, anxiety",
+      "pos": "noun",
+      "expect": {
+        "def": "fear; fright; anxiety"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Umweltschutz",
+      "level": "B1",
+      "en": "environmental protection",
+      "pos": "noun",
+      "expect": {
+        "def": "environmentalism, protection of the environment, environmental protection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachhaltig",
+      "level": "B1",
+      "en": "sustainable",
+      "pos": "adjective",
+      "expect": {
+        "def": "long-term, sustainable, permanent, ongoing, lasting"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gerät",
+      "level": "B1",
+      "en": "device, appliance",
+      "pos": "noun",
+      "expect": {
+        "def": "device, tool, appliance, machine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Werbung",
+      "level": "B1",
+      "en": "advertising, advert",
+      "pos": "noun",
+      "expect": {
+        "def": "promotion, solicitation, recruitment"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Leistung",
+      "level": "B1",
+      "en": "performance, achievement",
+      "pos": "noun",
+      "expect": {
+        "def": "performance, accomplishment, achievement; contractual performance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Aufenthalt",
+      "level": "B1",
+      "en": "stay; residence",
+      "pos": "noun",
+      "expect": {
+        "def": "das Anwesendsein, das Verweilen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Staatsbürgerschaft",
+      "level": "B1",
+      "en": "citizenship",
+      "pos": "noun",
+      "expect": {
+        "def": "nationality, citizenship"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bescheinigung",
+      "level": "B1",
+      "en": "certificate, confirmation",
+      "pos": "noun",
+      "expect": {
+        "def": "certificate, certification, attestation, credentials"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vorsorge",
+      "level": "B1",
+      "en": "prevention, precaution",
+      "pos": "noun",
+      "expect": {
+        "def": "Vorbeugung, Vorbereitung für spätere Entwicklungen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bedingung",
+      "level": "B1",
+      "en": "condition",
+      "pos": "noun",
+      "expect": {
+        "def": "requirement, prerequisite"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Einfluss",
+      "level": "B1",
+      "en": "influence",
+      "pos": "noun",
+      "expect": {
+        "def": "inflow, influx"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Zusammenhang",
+      "level": "B1",
+      "en": "connection, context",
+      "pos": "noun",
+      "expect": {
+        "def": "coherence, cohesion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beschließen",
+      "level": "B1",
+      "en": "to decide, to resolve",
+      "pos": "verb",
+      "expect": {
+        "def": "to conclude, end; to terminate; to resolve, decide, determine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verlangen",
+      "level": "B1",
+      "en": "to demand, to require",
+      "pos": "verb",
+      "expect": {
+        "def": "to ask for, demand"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:behaupten",
+      "level": "B1",
+      "en": "to claim, to assert",
+      "pos": "verb",
+      "expect": {
+        "def": "to claim, maintain, assert; to stand one's ground"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:notwendig",
+      "level": "B1",
+      "en": "necessary",
+      "pos": "adjective",
+      "expect": {
+        "def": "necessary; essential; indispensable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zuverlässig",
+      "level": "B1",
+      "en": "reliable, dependable",
+      "pos": "adjective",
+      "expect": {
+        "def": "reliable, dependable, trustworthy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gründlich",
+      "level": "B1",
+      "en": "thorough",
+      "pos": "adjective",
+      "expect": {
+        "def": "thorough, in-depth"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sinnvoll",
+      "level": "B1",
+      "en": "sensible, meaningful",
+      "pos": "adjective",
+      "expect": {
+        "def": "geistig rege, mit einem großen Verstand"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bevor",
+      "level": "B1",
+      "en": "before",
+      "pos": "conjunction",
+      "expect": {
+        "def": "subordinating temporal; verb at the end"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Nachteil",
+      "level": "B1",
+      "en": "disadvantage",
+      "pos": "noun",
+      "expect": {
+        "def": "disadvantage, demerit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fähigkeit",
+      "level": "B1",
+      "en": "ability, skill",
+      "pos": "noun",
+      "expect": {
+        "def": "ability, capability"
+      },
+      "def": ""
+    }
+  ]
+}

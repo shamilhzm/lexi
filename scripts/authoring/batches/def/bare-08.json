@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:würzen",
+      "level": "B1",
+      "en": "to season / spice",
+      "pos": "verb",
+      "expect": {
+        "def": "to season"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Joghurt",
+      "level": "A2",
+      "en": "yoghurt",
+      "pos": "noun",
+      "expect": {
+        "def": "yogurt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Wurst",
+      "level": "A2",
+      "en": "sausage / cold cuts",
+      "pos": "noun",
+      "expect": {
+        "def": "sausage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Aufschnitt",
+      "level": "B1",
+      "en": "cold cuts / sliced meats",
+      "pos": "noun",
+      "expect": {
+        "def": "cold cuts"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Limonade",
+      "level": "A2",
+      "en": "lemonade / fizzy drink",
+      "pos": "noun",
+      "expect": {
+        "def": "lemonade"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Japan",
+      "level": "B1",
+      "en": "japan",
+      "pos": "noun",
+      "expect": {
+        "def": "Inselstaat in Ostasien"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Kenia",
+      "level": "B1",
+      "en": "Kenya",
+      "pos": "noun",
+      "expect": {
+        "def": "ellipsis of Kenia-Koalition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Ader",
+      "level": "B2",
+      "en": "vein, artery",
+      "pos": "noun",
+      "expect": {
+        "def": "blood vessel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vater",
+      "level": "B1",
+      "en": "father",
+      "pos": "noun",
+      "expect": {
+        "def": "männlicher Elternteil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Bruder",
+      "level": "B1",
+      "en": "brother",
+      "pos": "noun",
+      "expect": {
+        "def": "männliches Geschwisterteil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Freund",
+      "level": "B1",
+      "en": "boyfriend / friend (male)",
+      "pos": "noun",
+      "expect": {
+        "def": "friend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Geschwister",
+      "level": "B1",
+      "en": "siblings",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit der Schwestern"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Halbbruder",
+      "level": "B1",
+      "en": "half-brother",
+      "pos": "noun",
+      "expect": {
+        "def": "half brother"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Erschöpfung",
+      "level": "B1",
+      "en": "exhaustion",
+      "pos": "noun",
+      "expect": {
+        "def": "depletion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Trauma",
+      "level": "B1",
+      "en": "trauma",
+      "pos": "noun",
+      "expect": {
+        "def": "starke seelische Erschütterung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Überforderung",
+      "level": "B2",
+      "en": "overwhelm, overload",
+      "pos": "noun",
+      "expect": {
+        "def": "overexertion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Frustration",
+      "level": "B1",
+      "en": "frustration",
+      "pos": "noun",
+      "expect": {
+        "def": "schwerwiegende Enttäuschung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verzweiflung",
+      "level": "B2",
+      "en": "despair",
+      "pos": "noun",
+      "expect": {
+        "def": "desperation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Beratung",
+      "level": "B1",
+      "en": "counseling, consultation",
+      "pos": "noun",
+      "expect": {
+        "def": "discussion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Unsicherheit",
+      "level": "B1",
+      "en": "insecurity, uncertainty",
+      "pos": "noun",
+      "expect": {
+        "def": "uncertainty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schuld",
+      "level": "B1",
+      "en": "guilt",
+      "pos": "noun",
+      "expect": {
+        "def": "debt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Kummer",
+      "level": "B1",
+      "en": "sorrow, distress",
+      "pos": "noun",
+      "expect": {
+        "def": "Sorgegefühl beziehungsweise Niedergeschlagenheit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Mitgefühl",
+      "level": "B2",
+      "en": "compassion, empathy",
+      "pos": "noun",
+      "expect": {
+        "def": "compassion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:belastend",
+      "level": "B2",
+      "en": "burdensome, distressing",
+      "pos": "adjective",
+      "expect": {
+        "def": "burdening"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:psychisch",
+      "level": "B1",
+      "en": "psychological, mental",
+      "pos": "adjective",
+      "expect": {
+        "def": "die Psyche betreffend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schnupfen",
+      "level": "A2",
+      "en": "cold / runny nose",
+      "pos": "noun",
+      "expect": {
+        "def": "nasal congestion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Sprechstunde",
+      "level": "B1",
+      "en": "office hours / consultation",
+      "pos": "noun",
+      "expect": {
+        "def": "office hours"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Krankenkasse",
+      "level": "B1",
+      "en": "health insurance",
+      "pos": "noun",
+      "expect": {
+        "def": "health insurance company"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kalorie",
+      "level": "B1",
+      "en": "calorie",
+      "pos": "noun",
+      "expect": {
+        "def": "kilocalorie"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:exakt",
+      "level": "B1",
+      "en": "exact, precise",
+      "pos": "adjective",
+      "expect": {
+        "def": "exact"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Versuch",
+      "level": "B1",
+      "en": "attempt, experiment",
+      "pos": "noun",
+      "expect": {
+        "def": "attempt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schulden",
+      "level": "B1",
+      "en": "debts",
+      "pos": "noun",
+      "expect": {
+        "def": "debt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Gebühr",
+      "level": "B1",
+      "en": "fee, charge",
+      "pos": "noun",
+      "expect": {
+        "def": "fee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verschuldet",
+      "level": "B1",
+      "en": "indebted, in debt",
+      "pos": "adjective",
+      "expect": {
+        "def": "indebted"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Keller",
+      "level": "B1",
+      "en": "basement / cellar",
+      "pos": "noun",
+      "expect": {
+        "def": "cellar"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Sessel",
+      "level": "A2",
+      "en": "armchair",
+      "pos": "noun",
+      "expect": {
+        "def": "einsitziges Polstermöbelstück"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Steckdose",
+      "level": "B1",
+      "en": "power outlet, socket",
+      "pos": "noun",
+      "expect": {
+        "def": "socket"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Klingel",
+      "level": "B1",
+      "en": "doorbell",
+      "pos": "noun",
+      "expect": {
+        "def": "Gerät zum Klingeln"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Mieter",
+      "level": "B1",
+      "en": "tenant, renter",
+      "pos": "noun",
+      "expect": {
+        "def": "renter"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:aufräumen",
+      "level": "A2",
+      "en": "to tidy up, clean up",
+      "pos": "verb",
+      "expect": {
+        "def": "to tidy up"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:C1:bedauerlich",
+      "level": "C1",
+      "en": "regrettable",
+      "pos": "adjective",
+      "expect": {
+        "def": "Causing regret; unfortunate."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:bisweilen",
+      "level": "C1",
+      "en": "sometimes, occasionally, from time to time, now and then",
+      "pos": "adverb",
+      "expect": {
+        "def": "Now and then; occasionally."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:einigermaßen",
+      "level": "C1",
+      "en": "somewhat",
+      "pos": "adverb",
+      "expect": {
+        "def": "To a moderate degree; reasonably."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:intakt",
+      "level": "C1",
+      "en": "intact, functional",
+      "pos": "adjective",
+      "expect": {
+        "def": "Whole and undamaged; in working order."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:nacheinander",
+      "level": "C1",
+      "en": "successively",
+      "pos": "adverb",
+      "expect": {
+        "def": "In succession; one following the next."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:neuerdings",
+      "level": "C1",
+      "en": "lately",
+      "pos": "adverb",
+      "expect": {
+        "def": "Starting recently; as of late."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:systematisch",
+      "level": "C1",
+      "en": "systematically",
+      "pos": "adverb",
+      "expect": {
+        "def": "In an organised, methodical way."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:verdeckt",
+      "level": "C1",
+      "en": "covert, undercover",
+      "pos": "adjective",
+      "expect": {
+        "def": "Kept hidden; done in secret."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:zwangsläufig",
+      "level": "C1",
+      "en": "compulsory, inevitable",
+      "pos": "adjective",
+      "expect": {
+        "def": "Following of necessity; unavoidably."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:üblicherweise",
+      "level": "C1",
+      "en": "generally, usually, normally",
+      "pos": "adverb",
+      "expect": {
+        "def": "As a rule; in the normal way."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C2:der Schuft",
+      "level": "C2",
+      "en": "scoundrel, villain",
+      "pos": "noun",
+      "expect": {
+        "def": "A dishonourable, contemptible person."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:beklagen",
+      "level": "B2",
+      "en": "to pity, to lament",
+      "pos": "verb",
+      "expect": {
+        "def": "to pity, to lament; to complain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:blockieren",
+      "level": "B2",
+      "en": "to block",
+      "pos": "verb",
+      "expect": {
+        "def": "to block; to lock"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:durchmachen",
+      "level": "B2",
+      "en": "to go through, to endure, to suffer",
+      "pos": "verb",
+      "expect": {
+        "def": "to go through, to endure, to suffer; to undergo"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ernähren",
+      "level": "B2",
+      "en": "to nourish, to feed",
+      "pos": "verb",
+      "expect": {
+        "def": "to nourish, to feed; to eat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erobern",
+      "level": "B2",
+      "en": "to conquer, to capture",
+      "pos": "verb",
+      "expect": {
+        "def": "to conquer, to capture; to win"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hacken",
+      "level": "B2",
+      "en": "to chop, to hack",
+      "pos": "verb",
+      "expect": {
+        "def": "to chop, to hack; to be choppy, to not work properly, to not run smoothly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hindern",
+      "level": "B2",
+      "en": "to impede, hinder",
+      "pos": "verb",
+      "expect": {
+        "def": "to impede, hinder; to prevent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:plaudern",
+      "level": "B2",
+      "en": "to chat",
+      "pos": "verb",
+      "expect": {
+        "def": "To talk in a light, friendly way."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:umsehen",
+      "level": "B2",
+      "en": "to look around",
+      "pos": "verb",
+      "expect": {
+        "def": "to look around; to look back, to look round"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verurteilen",
+      "level": "B2",
+      "en": "to convict, condemn, sentence",
+      "pos": "verb",
+      "expect": {
+        "def": "to convict, condemn, sentence; to condemn, strongly denounce"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:angeben",
+      "level": "C1",
+      "en": "to indicate, specify",
+      "pos": "verb",
+      "expect": {
+        "def": "To state a detail; also to show off."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:dürr",
+      "level": "C1",
+      "en": "dried up, desiccated, especially",
+      "pos": "adjective",
+      "expect": {
+        "def": "Dry and withered; also very thin."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:laufend",
+      "level": "C1",
+      "en": "current, ongoing, pending",
+      "pos": "adjective",
+      "expect": {
+        "def": "Presently happening; continuous."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:vehement",
+      "level": "C1",
+      "en": "vehement",
+      "pos": "adjective",
+      "expect": {
+        "def": "Showing strong, forceful feeling."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Zeitalter",
+      "level": "C1",
+      "en": "age",
+      "pos": "noun",
+      "expect": {
+        "def": "A long, distinct period of history."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:zwecklos",
+      "level": "C1",
+      "en": "useless, futile",
+      "pos": "adjective",
+      "expect": {
+        "def": "Serving no purpose; useless."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Handynummer",
+      "level": "A1",
+      "en": "mobile number",
+      "pos": "noun",
+      "expect": {
+        "def": "mobile number; mobile phone number"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:normal",
+      "level": "A1",
+      "en": "ordinarily, normally, in a normal fashion",
+      "pos": "adverb",
+      "expect": {
+        "def": "In the usual, expected way; not oddly or excessively."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Professorin",
+      "level": "A1",
+      "en": "female professor",
+      "pos": "noun",
+      "expect": {
+        "def": "A woman holding a professorship, teaching at a university."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:einzeln",
+      "level": "A2",
+      "en": "single",
+      "pos": "adjective",
+      "expect": {
+        "def": "single; lone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Grippe",
+      "level": "A2",
+      "en": "flu",
+      "pos": "noun",
+      "expect": {
+        "def": "flu; influenza; grippe."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Hafen",
+      "level": "A2",
+      "en": "harbour/harbor",
+      "pos": "noun",
+      "expect": {
+        "def": "harbour/harbor; port; haven"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:passend",
+      "level": "A2",
+      "en": "suitable, fitting, matching",
+      "pos": "adjective",
+      "expect": {
+        "def": "Right for the purpose; going well together."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Ruhetag",
+      "level": "A2",
+      "en": "day off",
+      "pos": "noun",
+      "expect": {
+        "def": "day off; day of rest, rest day"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Schwägerin",
+      "level": "A2",
+      "en": "sister-in-law",
+      "pos": "noun",
+      "expect": {
+        "def": "The sister of your spouse, or your brother's wife."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:abwechselnd",
+      "level": "B1",
+      "en": "alternate, alternating",
+      "pos": "adjective",
+      "expect": {
+        "def": "Happening in turn, one after the other."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Lyrik",
+      "level": "B2",
+      "en": "poetry, verse",
+      "pos": "noun",
+      "expect": {
+        "def": "poetry, verse; lyric poetry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ausreichen",
+      "level": "A2",
+      "en": "to suffice",
+      "pos": "verb",
+      "expect": {
+        "def": "to suffice; to last"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:bar",
+      "level": "A2",
+      "en": "bare",
+      "pos": "adjective",
+      "expect": {
+        "def": "Not covered by anything; plain and empty."
+      },
+      "def": ""
+    }
+  ]
+}

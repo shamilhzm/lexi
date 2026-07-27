@@ -378,6 +378,37 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — the definition audit, and the first batch (C1 #44)
+
+- **`corpus:definitions` — a measure, because the old number was a guess.** My
+  rough check said "~750 cards"; a real classifier says **2,234**, and splits them
+  into kinds that need different fixes: **enumeration** (1,431 — "railway depot,
+  railroad station, railway station, train station"), **bare** (415 — a single
+  synonym standing in for a definition), **repeat** (138 — "to eat; to eat; to
+  dine"), **german** (367 — a German definition on an English-facing card, which
+  is a feature at C1 and a bug at A1), **echo** (0). C1/C2 are the *cleanest*
+  levels (10–14%) because they were authored; A1–B2 run ~33%.
+  The classifier took three calibration passes against real data, and each one
+  removed false positives rather than finding more: `das Haus` → "A building
+  **where** people live" was flagged until `where` joined the explanatory-word
+  list; `sein` → "irregular copula: ich bin, du bist …" is a paradigm, not four
+  ways of saying the word, so a colon now exempts a def the way a parenthetical
+  already did; and an English definition that *quotes* German — "(Feminine die See
+  means the sea.)" — was being called a German definition, so parentheticals are
+  stripped before that test. That last one was flagging the exact disambiguation
+  the audit exists to encourage.
+- **First batch applied: 40 A1/A2 definitions**, the most-seen vocabulary in the
+  corpus. `das Salz` went from "salt, table salt, sal; salt" to "Sodium chloride,
+  used to season and preserve food." Two were outright **sense bugs**: `der See`
+  (a lake) was defined as "sea, ocean" — that is *die* See — and now says so
+  explicitly; `das Fleisch` (meat) is defined as "flesh". Applied through the
+  expect-guarded path, 0 refused.
+- **`fix-authored.ts` repairs definitions too**, with the same optimistic-concurrency
+  guard and one added standard: a replacement that merely repeats the `en` gloss is
+  refused, so a fix cannot reintroduce the defect it was written to remove.
+- *Remaining:* 2,194 cards across 58 emitted batches in
+  `scripts/authoring/batches/def/`. This is a content programme, not a task.
+
 ### Shipped 2026-07-27 — structured rules reach the surface built for reading them
 
 - **Part E was only half-delivered, and the missing half was the important one.**
@@ -720,12 +751,14 @@ what each actually costs, because most are content programmes rather than code a
 were being carried as one undifferentiated "advanced" item.
 
 - **Definitions that discriminate senses, not enumerate translations** (C1 #44 ·
-  M, human-gated). *Why:* `def` is largely raw Wiktionary sense-listing — *das
-  Salz*: "salt, table salt, sal; salt"; *die Uhr*: "hours, o'clock (…); clock,
-  watch (…)". At C1 a definition should tell two senses apart, which a list of
-  synonyms cannot. **~750 cards** trip a repeats-the-gloss check, though that
-  over-counts legitimate two-sense entries — the first task is a tighter measure.
-  *Do:* audit → batch → author via the existing `fix-authored` expect-guarded path.
+  L, human-gated — *measured and started 2026-07-27*). `corpus:definitions` now
+  reports **2,234 cards** in four kinds, and the first batch of 40 is applied.
+  *Do:* work the 58 emitted batches in `scripts/authoring/batches/def/`, worst
+  class first, via `fix-authored`. Highest value per batch is A1–B2, which run
+  ~33% flagged against C1/C2's 10–14%. *Done-when:* `corpus:definitions` trends to
+  near zero on `repeat`/`bare`/`echo`; `enumeration` is the long tail and
+  `german` needs the #38 decision first (a German definition is right at C1 and
+  wrong at A1 — currently it is neither labelled nor level-gated).
 - **A German definition of a German word** (B2 #38 · M). *Why:* everything is
   de→en or en→de; B2+ needs to meet a word explained in German. *Do:* author `defDe`
   for C1/C2 first (848 cards), reveal it above the English one at those levels.

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:das Wohnheim",
+      "level": "A1",
+      "en": "dormitory, hall of residence",
+      "pos": "noun",
+      "expect": {
+        "def": "hostel, boarding house, dormitory"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:senden",
+      "level": "A1",
+      "en": "to send",
+      "pos": "verb",
+      "expect": {
+        "def": "to broadcast; to transmit; to send"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:mitmachen",
+      "level": "A1",
+      "en": "to take part, join in",
+      "pos": "verb",
+      "expect": {
+        "def": "to take part, to participate, to join in; to experience, to endure, to go through"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:eng",
+      "level": "A1",
+      "en": "tight, narrow",
+      "pos": "adjective",
+      "expect": {
+        "def": "narrow, tight"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Wirt",
+      "level": "A1",
+      "en": "innkeeper, landlord",
+      "pos": "noun",
+      "expect": {
+        "def": "pubkeeper; innkeeper"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Schriftsteller",
+      "level": "A1",
+      "en": "writer, author",
+      "pos": "noun",
+      "expect": {
+        "def": "author, writer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Sprachschule",
+      "level": "A1",
+      "en": "language school",
+      "pos": "noun",
+      "expect": {
+        "def": "language school, school of languages"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:toll",
+      "level": "A1",
+      "en": "great, fantastic",
+      "pos": "adjective",
+      "expect": {
+        "def": "great, nice, wonderful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:geschieden",
+      "level": "A1",
+      "en": "divorced",
+      "pos": "adjective",
+      "expect": {
+        "def": "No longer married, after a legal divorce."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Fan",
+      "level": "A1",
+      "en": "fan",
+      "pos": "noun",
+      "expect": {
+        "def": "fan, devotee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Muskelkater",
+      "level": "A1",
+      "en": "sore muscles",
+      "pos": "noun",
+      "expect": {
+        "def": "delayed-onset muscle soreness, DOMS"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Sieg",
+      "level": "A1",
+      "en": "victory",
+      "pos": "noun",
+      "expect": {
+        "def": "Winning a game, contest, or battle."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:tauchen",
+      "level": "A1",
+      "en": "to dive",
+      "pos": "verb",
+      "expect": {
+        "def": "to dive; to immerse, to bathe, to submerge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Herd",
+      "level": "A1",
+      "en": "stove, cooker",
+      "pos": "noun",
+      "expect": {
+        "def": "cooker; stove"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Metall",
+      "level": "A1",
+      "en": "metal",
+      "pos": "noun",
+      "expect": {
+        "def": "A hard, shiny material like iron, gold, or steel."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Eimer",
+      "level": "A1",
+      "en": "bucket",
+      "pos": "noun",
+      "expect": {
+        "def": "bucket, pail"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Waschsalon",
+      "level": "A1",
+      "en": "laundrette",
+      "pos": "noun",
+      "expect": {
+        "def": "laundromat, launderette"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:einräumen",
+      "level": "A1",
+      "en": "to put away (into)",
+      "pos": "verb",
+      "expect": {
+        "def": "to grant, concede, admit; to put, to place"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:aussehen",
+      "level": "A1",
+      "en": "to look, appear",
+      "pos": "verb",
+      "expect": {
+        "def": "to look, seem; to look good or bad; depending on intonation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:beschreiben",
+      "level": "A1",
+      "en": "to describe",
+      "pos": "verb",
+      "expect": {
+        "def": "to describe; to write on"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:erledigen",
+      "level": "A1",
+      "en": "to take care of, get done",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas fertig machen; zu Ende bringen; eine Arbeit tun, die noch aussteht"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:separat",
+      "level": "A1",
+      "en": "separate",
+      "pos": "adjective",
+      "expect": {
+        "def": "detached, discrete, separate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Hörspiel",
+      "level": "A1",
+      "en": "radio play",
+      "pos": "noun",
+      "expect": {
+        "def": "radio drama, radio play"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Anweisung",
+      "level": "A1",
+      "en": "instruction, directive",
+      "pos": "noun",
+      "expect": {
+        "def": "directive, order"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Bitte",
+      "level": "A1",
+      "en": "request",
+      "pos": "noun",
+      "expect": {
+        "def": "höfliche Ausdrucksform eines Wunsches, einer Aufforderung, eines Ersuchens"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Inhaber",
+      "level": "A1",
+      "en": "owner, proprietor",
+      "pos": "noun",
+      "expect": {
+        "def": "owner, holder, bearer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Situation",
+      "level": "A1",
+      "en": "situation",
+      "pos": "noun",
+      "expect": {
+        "def": "situation, circumstances"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Hochschulsport",
+      "level": "A1",
+      "en": "university sports",
+      "pos": "noun",
+      "expect": {
+        "def": "Ort/Räume, in denen Sportgeräte stehen, an denen man trainiert"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Langschläfer",
+      "level": "A1",
+      "en": "late riser",
+      "pos": "noun",
+      "expect": {
+        "def": "late riser, slugabed"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:mitnehmen",
+      "level": "A1",
+      "en": "to take along",
+      "pos": "verb",
+      "expect": {
+        "def": "to take with; to carry along; to pick up; to keep"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:unterrichten",
+      "level": "A1",
+      "en": "to teach",
+      "pos": "verb",
+      "expect": {
+        "def": "to teach, to school; to inform"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:aufpassen",
+      "level": "A1",
+      "en": "to pay attention, watch out",
+      "pos": "verb",
+      "expect": {
+        "def": "to watch out, to be alert; to look after, to take care of"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:eingeben",
+      "level": "A1",
+      "en": "to enter, type in",
+      "pos": "verb",
+      "expect": {
+        "def": "to enter, input; to type"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:suchen",
+      "level": "A1",
+      "en": "to search, look for",
+      "pos": "verb",
+      "expect": {
+        "def": "to search, to look for; to seek, to strive, to intend, to try"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:wünschen",
+      "level": "A1",
+      "en": "to wish",
+      "pos": "verb",
+      "expect": {
+        "def": "to wish for; to make a wish for; to want; to desire; to wish"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:erlaubt",
+      "level": "A1",
+      "en": "allowed, permitted",
+      "pos": "adjective",
+      "expect": {
+        "def": "allowed, allowable, permissible"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:wunderbar",
+      "level": "A1",
+      "en": "wonderful",
+      "pos": "adjective",
+      "expect": {
+        "def": "Extremely good or pleasing; marvelous."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:ziemlich",
+      "level": "A1",
+      "en": "quite, rather",
+      "pos": "adverb",
+      "expect": {
+        "def": "pretty, quite, rather, fairly, kind of; pretty much, quite a bit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:zum Glück",
+      "level": "A1",
+      "en": "luckily, fortunately",
+      "pos": "adverb",
+      "expect": {
+        "def": "fortunately, luckily"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:doch",
+      "level": "A1",
+      "en": "though; yes it is (contradicting)",
+      "pos": "particle",
+      "expect": {
+        "def": "after all; yet; however; nevertheless"
+      },
+      "def": ""
+    }
+  ]
+}

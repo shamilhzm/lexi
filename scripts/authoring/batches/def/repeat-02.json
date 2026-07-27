@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"repeat\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:regelmäßig",
+      "level": "A2",
+      "en": "regular(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "regular; according to the rule; expected; not forming an exception; regular; steady; even; with its components in proportion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Atmosphäre",
+      "level": "A2",
+      "en": "atmosphere",
+      "pos": "noun",
+      "expect": {
+        "def": "atmosphere; atmosphere, ambiance, mood"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Schicht",
+      "level": "A2",
+      "en": "shift",
+      "pos": "noun",
+      "expect": {
+        "def": "layer, stratum, seam; class, stratum, group of people with a certain social status"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:kühl",
+      "level": "A2",
+      "en": "cool",
+      "pos": "adjective",
+      "expect": {
+        "def": "cool; cool, frigid"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Sorge",
+      "level": "B1",
+      "en": "worry, concern",
+      "pos": "noun",
+      "expect": {
+        "def": "concern, care, responsibility, aid; concern, worry, apprehension, trouble, distress"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Datei",
+      "level": "B1",
+      "en": "file (computer)",
+      "pos": "noun",
+      "expect": {
+        "def": "file; file, register"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verändern",
+      "level": "B1",
+      "en": "to change, to alter",
+      "pos": "verb",
+      "expect": {
+        "def": "to alter, to change; to change"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:entwickeln",
+      "level": "B1",
+      "en": "to develop",
+      "pos": "verb",
+      "expect": {
+        "def": "to develop, to gain (strength, a skill, a talent, an ability, etc.; slowly, often by natural growth or practice); to develop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vorteil",
+      "level": "B1",
+      "en": "advantage",
+      "pos": "noun",
+      "expect": {
+        "def": "advantage, plus, benefit, perk (of a job); advantage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Umwelt",
+      "level": "B1",
+      "en": "environment",
+      "pos": "noun",
+      "expect": {
+        "def": "environment; milieu; surroundings; environment; ecosystem"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ehrlich",
+      "level": "B1",
+      "en": "honest",
+      "pos": "adjective",
+      "expect": {
+        "def": "decent, honorable, honest; honest, truthful, true"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fläche",
+      "level": "B1",
+      "en": "area, surface",
+      "pos": "noun",
+      "expect": {
+        "def": "surface; surface, a two-dimensional manifold"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Branche",
+      "level": "B1",
+      "en": "industry, sector",
+      "pos": "noun",
+      "expect": {
+        "def": "sector, a specific trade or industry; sector, domain (in other contexts)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterstützen",
+      "level": "B1",
+      "en": "to support",
+      "pos": "verb",
+      "expect": {
+        "def": "to support, to assist, to help, to aid; to endorse, to give support, to show support, to back up, to promote, to encourage, to sponsor, to support"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Ausdruck",
+      "level": "B1",
+      "en": "expression",
+      "pos": "noun",
+      "expect": {
+        "def": "expression, term; expression, manifestation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Anlass",
+      "level": "B1",
+      "en": "occasion",
+      "pos": "noun",
+      "expect": {
+        "def": "cause, starting, motive, occasion; occasion, event, gathering"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schwierigkeit",
+      "level": "B1",
+      "en": "difficulty",
+      "pos": "noun",
+      "expect": {
+        "def": "difficulty, problem; trouble, difficulty, hardships, complications (NOTE: when in the plural, this word can retain a singular English abstract meaning)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Werk",
+      "level": "B1",
+      "en": "plant, works",
+      "pos": "noun",
+      "expect": {
+        "def": "work, achievement (the result of working); work, piece (of art, literature, or the like)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Teilung",
+      "level": "B1",
+      "en": "division",
+      "pos": "noun",
+      "expect": {
+        "def": "sharing, splitting, division; division"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Glaube",
+      "level": "B1",
+      "en": "faith, belief",
+      "pos": "noun",
+      "expect": {
+        "def": "belief, faith; faith, creed"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:besonders",
+      "level": "A2",
+      "en": "especially",
+      "pos": "adverb",
+      "expect": {
+        "def": "especially, particularly; very, especially"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:entwickeln",
+      "level": "A2",
+      "en": "to develop",
+      "pos": "verb",
+      "expect": {
+        "def": "to develop, to gain (strength, a skill, a talent, an ability, etc.; slowly, often by natural growth or practice); to develop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der See",
+      "level": "A2",
+      "en": "lake",
+      "pos": "noun",
+      "expect": {
+        "def": "sea, ocean; sea, sea condition, swell"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fliegen",
+      "level": "A2",
+      "en": "to fly",
+      "pos": "verb",
+      "expect": {
+        "def": "to fly; to travel by air; to rush; to fly; to go quickly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:funktionieren",
+      "level": "A1",
+      "en": "to work, function",
+      "pos": "verb",
+      "expect": {
+        "def": "to work, function; to work, work out"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:dauern",
+      "level": "A1",
+      "en": "to last, take (time)",
+      "pos": "verb",
+      "expect": {
+        "def": "to last, to continue, to persist (for a period of time); to last, to be permanent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Vorteil",
+      "level": "A1",
+      "en": "advantage",
+      "pos": "noun",
+      "expect": {
+        "def": "advantage, plus, benefit, perk (of a job); advantage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:versuchen",
+      "level": "A1",
+      "en": "to try",
+      "pos": "verb",
+      "expect": {
+        "def": "to try, to attempt (often with an uncertain result); to try, to taste"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Desinformation",
+      "level": "B2",
+      "en": "disinformation",
+      "pos": "noun",
+      "expect": {
+        "def": "disinformation, (in the plural) disinformation (false information intentionally spread); disinformation, the act of spreading false information intentionally"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Konsum",
+      "level": "B2",
+      "en": "consumption",
+      "pos": "noun",
+      "expect": {
+        "def": "consumption, intake (the act of eating, drinking or using); consumption"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Nebenwirkung",
+      "level": "B2",
+      "en": "side effect",
+      "pos": "noun",
+      "expect": {
+        "def": "side effect; side effect, adverse effect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Praxis",
+      "level": "B2",
+      "en": "doctor’s practice",
+      "pos": "noun",
+      "expect": {
+        "def": "practice, experience; practice, praxis (opposite of theory)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erzählen",
+      "level": "B2",
+      "en": "to narrate, tell",
+      "pos": "verb",
+      "expect": {
+        "def": "to tell, to narrate, to recount; to tell, to say"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Berichterstattung",
+      "level": "B2",
+      "en": "reporting, coverage",
+      "pos": "noun",
+      "expect": {
+        "def": "reporting, reportage; the result of reporting; coverage, reportage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verbreiten",
+      "level": "B2",
+      "en": "to spread, disseminate",
+      "pos": "verb",
+      "expect": {
+        "def": "to put about, spread, circulate, disseminate sth.; to spread, circulate, go around"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Sekunde",
+      "level": "A1",
+      "en": "second",
+      "pos": "noun",
+      "expect": {
+        "def": "A unit of time; a second.; A unit of angular measurement; a second."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Hälfte",
+      "level": "A1",
+      "en": "half",
+      "pos": "noun",
+      "expect": {
+        "def": "half; fifty percent of something; half, share; any of two correlating pieces, whatever the size"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:noch",
+      "level": "A1",
+      "en": "still, yet",
+      "pos": "adverb",
+      "expect": {
+        "def": "still, yet (up to and including a given time); still, eventually, sometime (at an unspecified time in the future)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:erzählen",
+      "level": "A2",
+      "en": "to tell, narrate",
+      "pos": "verb",
+      "expect": {
+        "def": "to tell, to narrate, to recount; to tell, to say"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mitteilen",
+      "level": "B1",
+      "en": "to inform, communicate",
+      "pos": "verb",
+      "expect": {
+        "def": "to inform about, to tell, to disclose, to impart, to report, to announce; to share with, to impart, to transfer a deal to"
+      },
+      "def": ""
+    }
+  ]
+}

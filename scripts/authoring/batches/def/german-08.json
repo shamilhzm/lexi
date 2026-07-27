@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"german\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:der Arm",
+      "level": "B1",
+      "en": "arm",
+      "pos": "noun",
+      "expect": {
+        "def": "ein paariger Körperteil bei Primaten, der sich zwischen Rumpf und Hand befindet; Vordergliedmaße"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Finger",
+      "level": "B1",
+      "en": "finger",
+      "pos": "noun",
+      "expect": {
+        "def": "ein bewegliches Glied der Hand höherer Primaten"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Herz",
+      "level": "B1",
+      "en": "heart",
+      "pos": "noun",
+      "expect": {
+        "def": "das Zentralorgan für den Blutkreislauf"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Nacken",
+      "level": "B1",
+      "en": "nape of neck",
+      "pos": "noun",
+      "expect": {
+        "def": "der dorsale (rückseitige) Teil des Halses, das Genick"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Handgelenk",
+      "level": "B1",
+      "en": "wrist",
+      "pos": "noun",
+      "expect": {
+        "def": "Anatomie: dasjenige Gelenk, das Hand und Unterarm verbindet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Muskel",
+      "level": "B1",
+      "en": "muscle",
+      "pos": "noun",
+      "expect": {
+        "def": "Organ, welches durch die Abfolge von Kontraktion und Erschlaffen innere und äußere Strukturen des Organismus bewegen kann"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Knochen",
+      "level": "B1",
+      "en": "bone",
+      "pos": "noun",
+      "expect": {
+        "def": "Teil des Skeletts der Wirbeltiere"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beeindruckt",
+      "level": "B1",
+      "en": "impressed",
+      "pos": "adjective",
+      "expect": {
+        "def": "von etwas stark fasziniert oder positiv berührt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Panik",
+      "level": "B1",
+      "en": "panic",
+      "pos": "noun",
+      "expect": {
+        "def": "plötzlich auftretender Schrecken, plötzlich aufkommende Angst, schwer beherrschbarer, kontrollierbarer, von Angst und Schrecken geprägter Zustand in der Gruppendynamik und Interaktion, unter Umständen krankhafter Zustand der Psyche"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Trauer",
+      "level": "B1",
+      "en": "grief, sadness",
+      "pos": "noun",
+      "expect": {
+        "def": "Stimmungslage, die beim Verlust, insbesondere beim Tod eines geliebten Wesens auftritt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Erholung",
+      "level": "B1",
+      "en": "recovery, rest",
+      "pos": "noun",
+      "expect": {
+        "def": "derjenige Vorgang, bei dem sich ein biologischer Organismus nach einer anstrengenden Tätigkeit, aber auch nach Verletzungen oder Krankheiten durch eine Ruhephase wieder regeneriert und Kräfte sammelt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Hoffnung",
+      "level": "B1",
+      "en": "hope",
+      "pos": "noun",
+      "expect": {
+        "def": "Glaube beziehungsweise Erwartung eines erwünschten Ereignisses in der Zukunft, ohne dass Gewissheit darüber besteht, ob es auch wirklich eintreten wird"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Selbstfürsorge",
+      "level": "B2",
+      "en": "self-care",
+      "pos": "noun",
+      "expect": {
+        "def": "der Zustand einer Person, in dem die Fähigkeit zur Selbstpflege/Selbstfürsorge herabgesetzt ist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Blutdruck",
+      "level": "B1",
+      "en": "blood pressure",
+      "pos": "noun",
+      "expect": {
+        "def": "Medizin: Druck des Blutes in einem arteriellen oder venösen Blutgefäß"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Ergebnis",
+      "level": "B1",
+      "en": "result",
+      "pos": "noun",
+      "expect": {
+        "def": "das, was bei einem Vorgang herauskommt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:messen",
+      "level": "B1",
+      "en": "to measure",
+      "pos": "verb",
+      "expect": {
+        "def": "eine Größe mit Hilfe eines Maßes bestimmen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Überweisung",
+      "level": "B1",
+      "en": "transfer",
+      "pos": "noun",
+      "expect": {
+        "def": "die Übertragung von Geld von einem Bankkonto zum anderen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Lohn",
+      "level": "A2",
+      "en": "wage, pay",
+      "pos": "noun",
+      "expect": {
+        "def": "Vergütung für eine geleistete Arbeit der Arbeiter"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Küche",
+      "level": "B1",
+      "en": "kitchen",
+      "pos": "noun",
+      "expect": {
+        "def": "der Bereich oder Raum in Wohnungen, Bürogebäuden, Unterkünften, in dem gekocht wird"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schlafzimmer",
+      "level": "B1",
+      "en": "bedroom",
+      "pos": "noun",
+      "expect": {
+        "def": "Raum in einem Haus oder einer Wohnung, der zum Schlafen gedacht ist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Treppe",
+      "level": "B1",
+      "en": "stairs",
+      "pos": "noun",
+      "expect": {
+        "def": "Aufstieg und Abstieg aus Stufen in einem Gebäude oder im Freien"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Fenster",
+      "level": "B1",
+      "en": "window",
+      "pos": "noun",
+      "expect": {
+        "def": "eine baulich verschieden ausgestaltete verglaste Öffnung in einem Bauwerk, deren hauptsächliche Funktion darin besteht, Licht in das Bauwerk zu führen und dieses zu belüften"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kühlschrank",
+      "level": "A2",
+      "en": "refrigerator, fridge",
+      "pos": "noun",
+      "expect": {
+        "def": "kastenförmiges, einem Schrank ähnliches, gegen Wärme isoliertes und mit einem Kühlsystem ausgestattetes Behältnis, in dem leicht verderbliche Lebensmittel kühl aufbewahrt werden, um sie frischzuhalten"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wischen",
+      "level": "B1",
+      "en": "to wipe, mop",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas, zum Beispiel Schmutz von einer Oberfläche, entfernen, eventuell mit einem Lappen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vermieten",
+      "level": "B1",
+      "en": "to rent out, let",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas gegen Bezahlung für eine bestimmte Zeit zur Benutzung überlassen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ausziehen",
+      "level": "B1",
+      "en": "to move out",
+      "pos": "verb",
+      "expect": {
+        "def": "auch mit Dativ: etwas (für jemanden) durch Ziehen entfernen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Stuhl",
+      "level": "B1",
+      "en": "chair",
+      "pos": "noun",
+      "expect": {
+        "def": "(Sitz-)Möbel, meist mit vier hohen Beinen, Rückenlehne und eventuell Armlehnen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Matratze",
+      "level": "B1",
+      "en": "mattress",
+      "pos": "noun",
+      "expect": {
+        "def": "mit Rosshaar, Seegras oder Ähnlichem gefülltes oder aus Schaumstoff bestehendes Polster, das mit Stoff überzogen ist und das man meist auf Lattenroste oder Unterfederungen legt, um ein komfortables Liegen und Schlafen zu ermöglichen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Couchtisch",
+      "level": "B1",
+      "en": "coffee table",
+      "pos": "noun",
+      "expect": {
+        "def": "Tisch, der an/vor einer Couch oder einem Sofa platziert wird und entsprechend eine relativ niedrige Tischplatte hat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vorort",
+      "level": "B1",
+      "en": "suburb",
+      "pos": "noun",
+      "expect": {
+        "def": "eine Siedlung der Peripherie einer Stadt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Altstadt",
+      "level": "B1",
+      "en": "old town",
+      "pos": "noun",
+      "expect": {
+        "def": "der älteste Teil einer Stadt, sofern dieser (typischerweise) vor 1900 gebaut wurde oder in einem entsprechendem Stil wiederaufgebaut worden ist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Haushalt",
+      "level": "B1",
+      "en": "budget; household",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit von Einnahmen und Ausgaben einer Gruppe Zusammenlebender, eines Unternehmens, einer Institution oder Körperschaft"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Gesellschaftsvertrag",
+      "level": "B1",
+      "en": "social contract",
+      "pos": "noun",
+      "expect": {
+        "def": "freiwillige Übereinkunft, durch die der Wille des Einzelnen dem der Mehrheit untergeordnet wird."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Spielen",
+      "level": "B1",
+      "en": "playing",
+      "pos": "noun",
+      "expect": {
+        "def": "Handlung, bei der ein Instrument, ein Spiel oder dergleichen gespielt wird"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Übung",
+      "level": "B1",
+      "en": "exercise",
+      "pos": "noun",
+      "expect": {
+        "def": "Lerntechnik zur aktiven Aneignung einer bestimmten Fertigkeit, das praktische Üben"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sporttasche",
+      "level": "A2",
+      "en": "sports bag, gym bag",
+      "pos": "noun",
+      "expect": {
+        "def": "geräumige Tasche für die Utensilien, die beim Sport benötigt werden"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sportkleidung",
+      "level": "A2",
+      "en": "sportswear",
+      "pos": "noun",
+      "expect": {
+        "def": "Kleidung, die beim Sport getragen wird"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Literatur",
+      "level": "B1",
+      "en": "literature",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit sprachlicher, insbesondere schriftlich fixierter Überlieferung (einer Nation oder Sprache), zu unterteilen in \"Literaturen\" der einzelnen nationalen oder regionalsprachlichen Überlieferungen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vorstellung",
+      "level": "B1",
+      "en": "performance; show",
+      "pos": "noun",
+      "expect": {
+        "def": "die gedankliche, vergeistigte, innere Abbildung (Projektion) der (äußeren) Realität, Wirklichkeit, im inneren (Gedächtnis, Gefühl, Bewusstsein), die real erlebte Projektion der (äußeren) Realität/ Wirklichkeit; Abbild des Bewusstseins"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Veranstaltung",
+      "level": "B1",
+      "en": "event; occasion",
+      "pos": "noun",
+      "expect": {
+        "def": "das Veranstalten, Organisieren und Durchführen von einem zeitbegrenzten Ereignis, an dem eine Gruppe von Menschen teilnimmt"
+      },
+      "def": ""
+    }
+  ]
+}

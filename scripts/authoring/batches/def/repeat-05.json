@@ -1,0 +1,192 @@
+{
+  "_README": [
+    "18 definition(s) classified \"repeat\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:runter",
+      "level": "A2",
+      "en": "down, down here, downstairs",
+      "pos": "adverb",
+      "expect": {
+        "def": "down, down here, downstairs (towards the speaker); down, down there, downstairs (away from the speaker)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:satt",
+      "level": "A2",
+      "en": "not hungry, satiated, full, done",
+      "pos": "adjective",
+      "expect": {
+        "def": "not hungry, satiated, full, done; full, ample"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:auftauchen",
+      "level": "B1",
+      "en": "to come up",
+      "pos": "verb",
+      "expect": {
+        "def": "to come up (of a subject or name in conversation, a difficulty in a project, etc.); to turn up, to appear (in media, at some location, in some period of time, among a group of similar things, etc.)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:stöhnen",
+      "level": "B2",
+      "en": "to moan, to groan, to grunt",
+      "pos": "verb",
+      "expect": {
+        "def": "to moan, to groan, to grunt (to vocalize in a low, unarticulated manner, typically as an extension of exhaling); to moan, to groan (to say in a manner involving moaning or reminiscent thereof)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:brennen",
+      "level": "A2",
+      "en": "to burn",
+      "pos": "verb",
+      "expect": {
+        "def": "to burn; to light on fire; to burn; to be on fire"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Sorte",
+      "level": "B1",
+      "en": "a sort, variety, grade of a good produced for sale or consumption",
+      "pos": "noun",
+      "expect": {
+        "def": "a sort, variety, grade of a good produced for sale or consumption; a sort, kind, type of anything"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Ding",
+      "level": "A2",
+      "en": "thing",
+      "pos": "noun",
+      "expect": {
+        "def": "thing; thing; girl; boy (young person)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Doktor",
+      "level": "A2",
+      "en": "doctor",
+      "pos": "noun",
+      "expect": {
+        "def": "doctor; doctor, physician"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Raum",
+      "level": "A2",
+      "en": "space",
+      "pos": "noun",
+      "expect": {
+        "def": "space; place, area, field, room, space"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Auftritt",
+      "level": "B1",
+      "en": "appearance, look, comportment, behavior",
+      "pos": "noun",
+      "expect": {
+        "def": "appearance, look, comportment, behavior; gig, appearance, performance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:anständig",
+      "level": "B2",
+      "en": "decent, decorous, reputable, civilized, honest, moral, of integrity",
+      "pos": "adjective",
+      "expect": {
+        "def": "decent, decorous, reputable, civilized, honest, moral, of integrity; decent, proper, as it should be"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einnehmen",
+      "level": "B2",
+      "en": "to take, take up, assume, span",
+      "pos": "verb",
+      "expect": {
+        "def": "to take, take up, assume, span (a position, space, area); to take, to have (food, drink, medicine)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ersparen",
+      "level": "B2",
+      "en": "to save, save up, put aside",
+      "pos": "verb",
+      "expect": {
+        "def": "to save, save up, put aside (money) (the reflexive pronoun may be left out in order to distinguish more clearly from sense 2); to spare, to save"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:binden",
+      "level": "B2",
+      "en": "to bind, to tie, to fasten something by means of a string etc.",
+      "pos": "verb",
+      "expect": {
+        "def": "to bind, to tie, to fasten something by means of a string etc.; to tie, to fasten a string etc."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:kommunizieren",
+      "level": "B2",
+      "en": "to communicate, to exchange information",
+      "pos": "verb",
+      "expect": {
+        "def": "to communicate, to exchange information; to communicate, to receive Communion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Pfosten",
+      "level": "B2",
+      "en": "post",
+      "pos": "noun",
+      "expect": {
+        "def": "post; pillar (long, fairly thick piece of wood or metal used to stabilise something); post; pole; pale (such an object used for purposes other than stabilisation)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wiegen",
+      "level": "A2",
+      "en": "to weigh",
+      "pos": "verb",
+      "expect": {
+        "def": "to weigh; to be of a certain weight; to weigh; to measure the weight of"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ergänzung",
+      "level": "B1",
+      "en": "supplement, addition, complement, supplementation",
+      "pos": "noun",
+      "expect": {
+        "def": "supplement, addition, complement, supplementation; object, complement"
+      },
+      "def": ""
+    }
+  ]
+}

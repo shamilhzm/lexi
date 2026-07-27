@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:der Freund",
+      "level": "A1",
+      "en": "friend; boyfriend",
+      "pos": "noun",
+      "expect": {
+        "def": "friend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Vater",
+      "level": "A1",
+      "en": "father",
+      "pos": "noun",
+      "expect": {
+        "def": "männlicher Elternteil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Bruder",
+      "level": "A1",
+      "en": "brother",
+      "pos": "noun",
+      "expect": {
+        "def": "männliches Geschwisterteil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Fleisch",
+      "level": "A1",
+      "en": "meat",
+      "pos": "noun",
+      "expect": {
+        "def": "flesh"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Ei",
+      "level": "A1",
+      "en": "egg",
+      "pos": "noun",
+      "expect": {
+        "def": "eine Keimzelle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Bad",
+      "level": "A1",
+      "en": "bathroom",
+      "pos": "noun",
+      "expect": {
+        "def": "bath"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Kino",
+      "level": "A1",
+      "en": "cinema, movie theater",
+      "pos": "noun",
+      "expect": {
+        "def": "cinema"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Flugzeug",
+      "level": "A1",
+      "en": "airplane",
+      "pos": "noun",
+      "expect": {
+        "def": "aeroplane"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Fahrkarte",
+      "level": "A1",
+      "en": "ticket",
+      "pos": "noun",
+      "expect": {
+        "def": "fare ticket"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Hose",
+      "level": "A1",
+      "en": "trousers, pants",
+      "pos": "noun",
+      "expect": {
+        "def": "trousers"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Preis",
+      "level": "A1",
+      "en": "price; prize",
+      "pos": "noun",
+      "expect": {
+        "def": "price"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:hier",
+      "level": "A1",
+      "en": "here",
+      "pos": "adverb",
+      "expect": {
+        "def": "an diesem Ort"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:was",
+      "level": "A1",
+      "en": "what",
+      "pos": "pronoun",
+      "expect": {
+        "def": "clipping of etwas"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Boden",
+      "level": "A1",
+      "en": "floor, ground",
+      "pos": "noun",
+      "expect": {
+        "def": "die Erdoberfläche"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:voll",
+      "level": "A1",
+      "en": "full",
+      "pos": "adjective",
+      "expect": {
+        "def": "fully"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:ruhig",
+      "level": "A1",
+      "en": "calm, quiet",
+      "pos": "adjective",
+      "expect": {
+        "def": "quiet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:süß",
+      "level": "A1",
+      "en": "sweet; cute",
+      "pos": "adjective",
+      "expect": {
+        "def": "sweet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Stift",
+      "level": "A1",
+      "en": "pen, pencil",
+      "pos": "noun",
+      "expect": {
+        "def": "endowed monastery"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Plan",
+      "level": "A1",
+      "en": "plan",
+      "pos": "noun",
+      "expect": {
+        "def": "project"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:natürlich",
+      "level": "A1",
+      "en": "of course, naturally",
+      "pos": "adverb",
+      "expect": {
+        "def": "naturally"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Joghurt",
+      "level": "A1",
+      "en": "yoghurt",
+      "pos": "noun",
+      "expect": {
+        "def": "yogurt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Kilo",
+      "level": "A1",
+      "en": "kilogram",
+      "pos": "noun",
+      "expect": {
+        "def": "Kilogramm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Stück",
+      "level": "A1",
+      "en": "piece",
+      "pos": "noun",
+      "expect": {
+        "def": "Teil eines Ganzen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Krawatte",
+      "level": "A1",
+      "en": "tie",
+      "pos": "noun",
+      "expect": {
+        "def": "necktie"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Mütze",
+      "level": "A1",
+      "en": "cap, beanie",
+      "pos": "noun",
+      "expect": {
+        "def": "cap"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Postleitzahl",
+      "level": "A1",
+      "en": "postcode",
+      "pos": "noun",
+      "expect": {
+        "def": "postal code"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Datum",
+      "level": "A1",
+      "en": "date",
+      "pos": "noun",
+      "expect": {
+        "def": "Angabe des Kalendertages"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Laptop",
+      "level": "A1",
+      "en": "laptop",
+      "pos": "noun",
+      "expect": {
+        "def": "laptop computer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Geschwister",
+      "level": "A1",
+      "en": "siblings",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit der Schwestern"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Enkel",
+      "level": "A1",
+      "en": "grandson, grandchild",
+      "pos": "noun",
+      "expect": {
+        "def": "ankle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Programmierer",
+      "level": "A1",
+      "en": "programmer",
+      "pos": "noun",
+      "expect": {
+        "def": "Verfasser eines Computerprogramms"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Jurist",
+      "level": "A1",
+      "en": "lawyer, jurist",
+      "pos": "noun",
+      "expect": {
+        "def": "jurist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:fernsehen",
+      "level": "A1",
+      "en": "to watch TV",
+      "pos": "verb",
+      "expect": {
+        "def": "to watch television"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Sessel",
+      "level": "A1",
+      "en": "armchair",
+      "pos": "noun",
+      "expect": {
+        "def": "einsitziges Polstermöbelstück"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Tasche",
+      "level": "A1",
+      "en": "bag; pocket",
+      "pos": "noun",
+      "expect": {
+        "def": "bag"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Anleitung",
+      "level": "A1",
+      "en": "instructions, manual",
+      "pos": "noun",
+      "expect": {
+        "def": "guidance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:hoch",
+      "level": "A1",
+      "en": "high, tall",
+      "pos": "adjective",
+      "expect": {
+        "def": "weit oben befindlich"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Strecke",
+      "level": "A1",
+      "en": "route, distance",
+      "pos": "noun",
+      "expect": {
+        "def": "stretch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:organisieren",
+      "level": "A1",
+      "en": "to organise",
+      "pos": "verb",
+      "expect": {
+        "def": "to organize"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:herzlich",
+      "level": "A1",
+      "en": "warm, cordial",
+      "pos": "adjective",
+      "expect": {
+        "def": "freundlich gesinnt"
+      },
+      "def": ""
+    }
+  ]
+}

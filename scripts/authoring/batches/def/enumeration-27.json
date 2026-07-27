@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:passieren",
+      "level": "A2",
+      "en": "to happen",
+      "pos": "verb",
+      "expect": {
+        "def": "to happen; to move beyond; pass"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zuerst",
+      "level": "A2",
+      "en": "first, firstly",
+      "pos": "adverb",
+      "expect": {
+        "def": "first, firstly; at first"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bilden",
+      "level": "B1",
+      "en": "to form, to train",
+      "pos": "verb",
+      "expect": {
+        "def": "to form, to train; to educate oneself"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dank",
+      "level": "B1",
+      "en": "thanks to, because of, courtesy of",
+      "pos": "preposition",
+      "expect": {
+        "def": "thanks, gratitude, appreciation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:entstehen",
+      "level": "B1",
+      "en": "to come into being, to arise, to be produced",
+      "pos": "verb",
+      "expect": {
+        "def": "to come into being, to arise, to be produced; to develop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erhöhen",
+      "level": "B1",
+      "en": "to heighten, raise",
+      "pos": "verb",
+      "expect": {
+        "def": "to heighten, raise; to increase"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:extrem",
+      "level": "B1",
+      "en": "extreme",
+      "pos": "adjective",
+      "expect": {
+        "def": "Very great in degree; far from ordinary."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:fordern",
+      "level": "B1",
+      "en": "to demand, ask",
+      "pos": "verb",
+      "expect": {
+        "def": "to demand, ask; to claim"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gelten",
+      "level": "B1",
+      "en": "to be valid",
+      "pos": "verb",
+      "expect": {
+        "def": "to be valid; to count; to hold true; to be effective; to be in force"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:jedenfalls",
+      "level": "B1",
+      "en": "in any case",
+      "pos": "adverb",
+      "expect": {
+        "def": "Whatever else is true; anyway."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Meister",
+      "level": "B1",
+      "en": "master",
+      "pos": "noun",
+      "expect": {
+        "def": "A highly skilled expert; also a champion."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:offiziell",
+      "level": "B1",
+      "en": "official",
+      "pos": "adjective",
+      "expect": {
+        "def": "Approved by an authority; formal."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:präsentieren",
+      "level": "B1",
+      "en": "to present, to showcase",
+      "pos": "verb",
+      "expect": {
+        "def": "to present, to showcase; to introduce"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sichern",
+      "level": "B1",
+      "en": "to secure",
+      "pos": "verb",
+      "expect": {
+        "def": "to secure; to guarantee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:teils",
+      "level": "B1",
+      "en": "partly, partially",
+      "pos": "adverb",
+      "expect": {
+        "def": "To some extent; in part."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vermutlich",
+      "level": "B1",
+      "en": "suspected, presumable, assumed",
+      "pos": "adjective",
+      "expect": {
+        "def": "Most likely; probably."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vertreter",
+      "level": "B1",
+      "en": "agent noun of vertreten",
+      "pos": "noun",
+      "expect": {
+        "def": "representative, agent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wiederum",
+      "level": "B1",
+      "en": "in turn, then again, on the other hand, to the contrary",
+      "pos": "adverb",
+      "expect": {
+        "def": "in turn, then again, on the other hand, to the contrary; again, once more"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:angeblich",
+      "level": "B2",
+      "en": "alleged, pretended, reported",
+      "pos": "adjective",
+      "expect": {
+        "def": "Claimed to be true, but not proven."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ergeben",
+      "level": "B2",
+      "en": "to yield, produce",
+      "pos": "verb",
+      "expect": {
+        "def": "to yield, produce; to surrender"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gleichen",
+      "level": "B2",
+      "en": "to be like, to equal to, to resemble",
+      "pos": "verb",
+      "expect": {
+        "def": "to be like, to equal to, to resemble; to be alike"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:grundsätzlich",
+      "level": "B2",
+      "en": "based on principle",
+      "pos": "adjective",
+      "expect": {
+        "def": "Concerning basic principles; as a general rule."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:maximal",
+      "level": "B2",
+      "en": "maximal",
+      "pos": "adjective",
+      "expect": {
+        "def": "As great as possible; at the upper limit."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:profitieren",
+      "level": "B2",
+      "en": "to benefit",
+      "pos": "verb",
+      "expect": {
+        "def": "to benefit; to profit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Stürmer",
+      "level": "B2",
+      "en": "forward",
+      "pos": "noun",
+      "expect": {
+        "def": "forward; striker; attacker; rusher"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:vollständig",
+      "level": "B2",
+      "en": "complete",
+      "pos": "adjective",
+      "expect": {
+        "def": "Whole; with nothing missing."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:voran",
+      "level": "B2",
+      "en": "forth, ahead, forwards",
+      "pos": "adverb",
+      "expect": {
+        "def": "Moving forward; in front."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:vorerst",
+      "level": "B2",
+      "en": "for now, for the time being",
+      "pos": "adverb",
+      "expect": {
+        "def": "For the present time; until further notice."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:weitgehend",
+      "level": "B2",
+      "en": "extensive",
+      "pos": "adjective",
+      "expect": {
+        "def": "To a great extent; for the most part."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:womöglich",
+      "level": "B2",
+      "en": "possibly",
+      "pos": "adverb",
+      "expect": {
+        "def": "Perhaps; it may be so."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zugleich",
+      "level": "B2",
+      "en": "at the same time, simultaneously",
+      "pos": "adverb",
+      "expect": {
+        "def": "Simultaneously; also."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:nochmal",
+      "level": "A2",
+      "en": "once again",
+      "pos": "adverb",
+      "expect": {
+        "def": "once again; again, one more time"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:öfter",
+      "level": "A2",
+      "en": "comparative degree of oft",
+      "pos": "adverb",
+      "expect": {
+        "def": "ofttimes, from time to time"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ausfallen",
+      "level": "B1",
+      "en": "to sortie, to sally",
+      "pos": "verb",
+      "expect": {
+        "def": "to sortie, to sally; to fail, malfunction, to go off"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:definitiv",
+      "level": "B1",
+      "en": "definitive, conclusive, decisive",
+      "pos": "adjective",
+      "expect": {
+        "def": "Final and certain; without doubt."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einsetzen",
+      "level": "B1",
+      "en": "to put in",
+      "pos": "verb",
+      "expect": {
+        "def": "to put in; set in; insert; to implant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erscheinen",
+      "level": "B1",
+      "en": "to appear",
+      "pos": "verb",
+      "expect": {
+        "def": "to appear; to come out, be released"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gering",
+      "level": "B1",
+      "en": "little, low",
+      "pos": "adjective",
+      "expect": {
+        "def": "Small in amount, size, or importance."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Meisterschaft",
+      "level": "B1",
+      "en": "mastery",
+      "pos": "noun",
+      "expect": {
+        "def": "Great skill; also a championship contest."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:momentan",
+      "level": "B1",
+      "en": "current",
+      "pos": "adjective",
+      "expect": {
+        "def": "At the present moment; for now."
+      },
+      "def": ""
+    }
+  ]
+}

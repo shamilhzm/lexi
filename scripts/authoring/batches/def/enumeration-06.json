@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:der Heiligabend",
+      "level": "A2",
+      "en": "Christmas Eve",
+      "pos": "noun",
+      "expect": {
+        "def": "The evening of 24 December, before Christmas Day."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Weihnachtsmann",
+      "level": "A2",
+      "en": "Santa Claus",
+      "pos": "noun",
+      "expect": {
+        "def": "Santa Claus, Father Christmas"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schmücken",
+      "level": "A2",
+      "en": "to decorate, adorn",
+      "pos": "verb",
+      "expect": {
+        "def": "to adorn, to decorate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Festessen",
+      "level": "A2",
+      "en": "festive meal",
+      "pos": "noun",
+      "expect": {
+        "def": "besonders gutes, aufwendiges, festliches Essen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Absage",
+      "level": "A2",
+      "en": "cancellation, refusal",
+      "pos": "noun",
+      "expect": {
+        "def": "refusal, rejection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Ausblick",
+      "level": "A2",
+      "en": "view, outlook",
+      "pos": "noun",
+      "expect": {
+        "def": "outlook, view, vista"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Nebenkosten",
+      "level": "A2",
+      "en": "utility costs",
+      "pos": "noun",
+      "expect": {
+        "def": "side costs, additional costs"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Mietvertrag",
+      "level": "A2",
+      "en": "rental contract",
+      "pos": "noun",
+      "expect": {
+        "def": "lease agreement; rental agreement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Abstellraum",
+      "level": "A2",
+      "en": "storage room",
+      "pos": "noun",
+      "expect": {
+        "def": "storeroom, storage room"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Couch",
+      "level": "A2",
+      "en": "couch, sofa",
+      "pos": "noun",
+      "expect": {
+        "def": "sofa, couch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hängen",
+      "level": "A2",
+      "en": "to hang",
+      "pos": "verb",
+      "expect": {
+        "def": "to hang, to be suspended; to be attached to; to be fond of; to be devoted to; to cling to"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:legen",
+      "level": "A2",
+      "en": "to lay, put (down flat)",
+      "pos": "verb",
+      "expect": {
+        "def": "to lie down; to castrate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vereinbaren",
+      "level": "A2",
+      "en": "to arrange, agree on",
+      "pos": "verb",
+      "expect": {
+        "def": "to agree upon; to arrange"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:scheußlich",
+      "level": "A2",
+      "en": "hideous, dreadful",
+      "pos": "adjective",
+      "expect": {
+        "def": "hideous, atrocious, abominable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kathedrale",
+      "level": "A2",
+      "en": "cathedral",
+      "pos": "noun",
+      "expect": {
+        "def": "A large, important church."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Färbung",
+      "level": "A2",
+      "en": "colouring; tinge (of accent)",
+      "pos": "noun",
+      "expect": {
+        "def": "tinge, hue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kommunikation",
+      "level": "A2",
+      "en": "communication",
+      "pos": "noun",
+      "expect": {
+        "def": "communication, exchange of signs"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Wintersemester",
+      "level": "A2",
+      "en": "winter semester",
+      "pos": "noun",
+      "expect": {
+        "def": "fall semester, autumn semester, winter semester"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Besucher",
+      "level": "A2",
+      "en": "visitor",
+      "pos": "noun",
+      "expect": {
+        "def": "visitor; the visitor design pattern"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:erkennen",
+      "level": "A2",
+      "en": "to recognise",
+      "pos": "verb",
+      "expect": {
+        "def": "to recognize, perceive; to realize, detect, see, know, identify, discover, understand"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:attraktiv",
+      "level": "A2",
+      "en": "attractive",
+      "pos": "adjective",
+      "expect": {
+        "def": "attractive, fetching; handsome"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:kostenlos",
+      "level": "A2",
+      "en": "free of charge",
+      "pos": "adjective",
+      "expect": {
+        "def": "without cost, free"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lebendig",
+      "level": "A2",
+      "en": "lively, alive",
+      "pos": "adjective",
+      "expect": {
+        "def": "living, alive, animate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Geldautomat",
+      "level": "A2",
+      "en": "ATM, cash machine",
+      "pos": "noun",
+      "expect": {
+        "def": "ATM, automated teller machine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Münze",
+      "level": "A2",
+      "en": "coin",
+      "pos": "noun",
+      "expect": {
+        "def": "money, in its senses as"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Bericht",
+      "level": "A2",
+      "en": "report",
+      "pos": "noun",
+      "expect": {
+        "def": "report, account, news story"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:beraten",
+      "level": "A2",
+      "en": "to advise",
+      "pos": "verb",
+      "expect": {
+        "def": "to discuss; to advise"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:erleben",
+      "level": "A2",
+      "en": "to experience",
+      "pos": "verb",
+      "expect": {
+        "def": "eine Erfahrung machen, bei etwas dabei sein"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:aufmerksam",
+      "level": "A2",
+      "en": "attentive",
+      "pos": "adjective",
+      "expect": {
+        "def": "attentive, alert, observant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ungewöhnlich",
+      "level": "A2",
+      "en": "unusual",
+      "pos": "adjective",
+      "expect": {
+        "def": "uncommon, unusual, unordinary"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Darm",
+      "level": "A2",
+      "en": "intestine",
+      "pos": "noun",
+      "expect": {
+        "def": "intestine, gut"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Magen",
+      "level": "A2",
+      "en": "stomach",
+      "pos": "noun",
+      "expect": {
+        "def": "stomach, maw"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Schlafstörung",
+      "level": "A2",
+      "en": "sleep disorder",
+      "pos": "noun",
+      "expect": {
+        "def": "Beeinträchtigung der Fähigkeit, ein- oder durchzuschlafen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Symptom",
+      "level": "A2",
+      "en": "symptom",
+      "pos": "noun",
+      "expect": {
+        "def": "symptom, sign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:blitzen",
+      "level": "A2",
+      "en": "to flash (lightning)",
+      "pos": "verb",
+      "expect": {
+        "def": "to lighten; to flash"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:scheinen",
+      "level": "A2",
+      "en": "to shine; to seem",
+      "pos": "verb",
+      "expect": {
+        "def": "to shine; to gleam; to seem; to appear; to look"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Bekleidung",
+      "level": "A2",
+      "en": "clothing",
+      "pos": "noun",
+      "expect": {
+        "def": "clothing, garb, apparel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sandale",
+      "level": "A2",
+      "en": "sandal",
+      "pos": "noun",
+      "expect": {
+        "def": "An open shoe with straps, worn in warm weather."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:aussuchen",
+      "level": "A2",
+      "en": "to pick out",
+      "pos": "verb",
+      "expect": {
+        "def": "to select, to choose, to pick"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:einfarbig",
+      "level": "A2",
+      "en": "plain, single-coloured",
+      "pos": "adjective",
+      "expect": {
+        "def": "monocolor/monocolour, unicolor/unicolour, unicolored, monochromatic, monochrome"
+      },
+      "def": ""
+    }
+  ]
+}

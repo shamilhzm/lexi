@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"german\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:buchstabieren",
+      "level": "A1",
+      "en": "to spell",
+      "pos": "verb",
+      "expect": {
+        "def": "die genaue Schreibweise eines sprachlichen Ausdrucks (meist eines Wortes, Namens) Buchstabe für Buchstabe angeben"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Professor",
+      "level": "A1",
+      "en": "professor",
+      "pos": "noun",
+      "expect": {
+        "def": "Forscher und Lehrer an einer wissenschaftlichen Hochschule; Professoren können auch in leitenden Funktionen in Behörden mit Forschungseinrichtung oder außeruniversitären Forschungsorganisationen arbeiten"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Stundenplan",
+      "level": "A1",
+      "en": "timetable",
+      "pos": "noun",
+      "expect": {
+        "def": "Einteilung der Zeit als Maßnahme zur Organisation von Arbeit oder Ausbildung/Unterricht"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Sport",
+      "level": "A1",
+      "en": "sport",
+      "pos": "noun",
+      "expect": {
+        "def": "intensive körperliche und/oder geistige Betätigung mit Leistungsanspruch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Spieler",
+      "level": "A1",
+      "en": "player",
+      "pos": "noun",
+      "expect": {
+        "def": "jemand, der in einem Ballsport gegen einen anderen oder eine andere Mannschaft antritt; des Weiteren jemand, der an einem Brett-, Würfel-, Kartenspiel oder einem ähnlichen Gesellschaftsspiel teilnimmt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Haushalt",
+      "level": "A1",
+      "en": "household",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit von Einnahmen und Ausgaben einer Gruppe Zusammenlebender, eines Unternehmens, einer Institution oder Körperschaft"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Matratze",
+      "level": "A1",
+      "en": "mattress",
+      "pos": "noun",
+      "expect": {
+        "def": "mit Rosshaar, Seegras oder Ähnlichem gefülltes oder aus Schaumstoff bestehendes Polster, das mit Stoff überzogen ist und das man meist auf Lattenroste oder Unterfederungen legt, um ein komfortables Liegen und Schlafen zu ermöglichen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Kleiderschrank",
+      "level": "A1",
+      "en": "wardrobe",
+      "pos": "noun",
+      "expect": {
+        "def": "Schrank, der hauptsächlich für die Aufbewahrung von Kleidung gedacht ist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:umdrehen",
+      "level": "A1",
+      "en": "to turn over, turn inside out",
+      "pos": "verb",
+      "expect": {
+        "def": ": etwas im Bogen von einer Seite auf die andere Seite bewegen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:wischen",
+      "level": "A1",
+      "en": "to wipe, mop",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas, zum Beispiel Schmutz von einer Oberfläche, entfernen, eventuell mit einem Lappen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Überschrift",
+      "level": "A1",
+      "en": "headline, heading",
+      "pos": "noun",
+      "expect": {
+        "def": "hervorgehobene, abgesetzte Zeile oder Zeilenfolge über einem Text oder Textabschnitt, die oft Hinweise auf den Inhalt gibt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Veranstaltung",
+      "level": "A1",
+      "en": "event",
+      "pos": "noun",
+      "expect": {
+        "def": "das Veranstalten, Organisieren und Durchführen von einem zeitbegrenzten Ereignis, an dem eine Gruppe von Menschen teilnimmt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:begeistert",
+      "level": "A1",
+      "en": "enthusiastic, thrilled",
+      "pos": "adjective",
+      "expect": {
+        "def": "durch einen äußeren Anlass in freudiger Stimmung befindlich"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:sogar",
+      "level": "A1",
+      "en": "even",
+      "pos": "adverb",
+      "expect": {
+        "def": "bis hin zu einem beachtlichen Grad; auch: damit eine Schwelle überschreitend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:wirklich",
+      "level": "A1",
+      "en": "really",
+      "pos": "adverb",
+      "expect": {
+        "def": "tatsächlich existierend und nicht nur in der Einbildung vorhanden seiend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Erkältung",
+      "level": "A2",
+      "en": "cold (illness)",
+      "pos": "noun",
+      "expect": {
+        "def": "Erkrankung, Infektion der Atemwege (zum Beispiel Husten, Schnupfen, Heiserkeit, Katarrh)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Vorspeise",
+      "level": "A2",
+      "en": "starter, appetizer",
+      "pos": "noun",
+      "expect": {
+        "def": "erster und einführender Gang einer Mahlzeit mit mehreren Gängen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kellner",
+      "level": "A2",
+      "en": "waiter",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Kellnerin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Abfahrt",
+      "level": "A2",
+      "en": "departure",
+      "pos": "noun",
+      "expect": {
+        "def": "Beginn einer Fahrt (meist zu einem bestimmten Zeitpunkt oder ab einem bestimmten, örtlich festgelegten Punkt)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:abfahren",
+      "level": "A2",
+      "en": "to depart, to leave",
+      "pos": "verb",
+      "expect": {
+        "def": "separable: der Zug fährt … ab"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kunde",
+      "level": "A2",
+      "en": "customer",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Kundin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Treppe",
+      "level": "A2",
+      "en": "stairs, staircase",
+      "pos": "noun",
+      "expect": {
+        "def": "Aufstieg und Abstieg aus Stufen in einem Gebäude oder im Freien"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Nachbar",
+      "level": "A2",
+      "en": "neighbour",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Nachbarin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:mieten",
+      "level": "A2",
+      "en": "to rent",
+      "pos": "verb",
+      "expect": {
+        "def": "gegen Bezahlung für eine bestimmte Zeit zur Benutzung überlassen bekommen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:sonnig",
+      "level": "A2",
+      "en": "sunny",
+      "pos": "adjective",
+      "expect": {
+        "def": "sich auf die Sonne beziehend, in der Art und Weise der Sonne, von der Sonne beschienen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Verletzung",
+      "level": "A2",
+      "en": "injury",
+      "pos": "noun",
+      "expect": {
+        "def": "eine Beschädigung von Gewebe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Patient",
+      "level": "A2",
+      "en": "patient",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Patientin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Hochzeit",
+      "level": "A2",
+      "en": "wedding",
+      "pos": "noun",
+      "expect": {
+        "def": "Zeremonie und Feier der Eheschließung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Ehe",
+      "level": "A2",
+      "en": "marriage",
+      "pos": "noun",
+      "expect": {
+        "def": "institutionell anerkannte und beurkundete Verbindung zweier Menschen, die in der Regel durch eine Liebesbeziehung, gemeinsame Lebensführung und dauerhaftes Bestehen (sowie oft, aber nicht überall, auch durch den Ausschluss einer gleichzeitigen gleichartigen Verbindung mit einem Dritten) gekennzeichnet ist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Partner",
+      "level": "A2",
+      "en": "partner",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Partnerin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schüler",
+      "level": "A2",
+      "en": "pupil, student",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Schülerin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Beamte",
+      "level": "A2",
+      "en": "civil servant, official",
+      "pos": "noun",
+      "expect": {
+        "def": "female: die Beamtin"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:gehören",
+      "level": "A2",
+      "en": "to belong to",
+      "pos": "verb",
+      "expect": {
+        "def": "takes the dative: das gehört mir"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:stattfinden",
+      "level": "A2",
+      "en": "to take place",
+      "pos": "verb",
+      "expect": {
+        "def": "separable: das Konzert findet … statt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Lärm",
+      "level": "A2",
+      "en": "noise",
+      "pos": "noun",
+      "expect": {
+        "def": "subjektiv als unangenehm empfundener Schall, der unerwünschte Auswirkungen auf den Menschen hat (etwa das Gehör schädigt, krank machen kann, stört oder belästigt)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:putzen",
+      "level": "A2",
+      "en": "to clean",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas von Schmutz befreien mit Bürste oder Lappen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Überraschung",
+      "level": "A2",
+      "en": "surprise",
+      "pos": "noun",
+      "expect": {
+        "def": "kein Plural: das Gefühl nach einem unerwarteten Ereignis"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Zentrum",
+      "level": "A2",
+      "en": "centre",
+      "pos": "noun",
+      "expect": {
+        "def": "die Mitte, der Mittelpunkt eines zweidimensionalen oder dreidimensionalen Gegenstandes, einer Figur, einer Fläche oder eines lebenden Wesens"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vermissen",
+      "level": "A2",
+      "en": "to miss (someone/something)",
+      "pos": "verb",
+      "expect": {
+        "def": "feststellen, wahrnehmen, dass jemand oder etwas fehlt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Überweisung",
+      "level": "A2",
+      "en": "bank transfer; referral",
+      "pos": "noun",
+      "expect": {
+        "def": "die Übertragung von Geld von einem Bankkonto zum anderen"
+      },
+      "def": ""
+    }
+  ]
+}

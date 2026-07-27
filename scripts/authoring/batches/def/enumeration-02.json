@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:schließen",
+      "level": "A1",
+      "en": "to close",
+      "pos": "verb",
+      "expect": {
+        "def": "to shut; to close; to shut down; to lock"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:beginnen",
+      "level": "A1",
+      "en": "to begin, to start",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas in Gang setzen, etwas starten, etwas anfangen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:treffen",
+      "level": "A1",
+      "en": "to meet",
+      "pos": "verb",
+      "expect": {
+        "def": "to meet; to encounter; to hit; to strike"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:besuchen",
+      "level": "A1",
+      "en": "to visit",
+      "pos": "verb",
+      "expect": {
+        "def": "to visit, to see; to attend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:bekommen",
+      "level": "A1",
+      "en": "to get, to receive",
+      "pos": "verb",
+      "expect": {
+        "def": "to receive; to get; to catch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:schmutzig",
+      "level": "A1",
+      "en": "dirty",
+      "pos": "adjective",
+      "expect": {
+        "def": "dirty, filthy, grimy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:hell",
+      "level": "A1",
+      "en": "bright, light",
+      "pos": "adjective",
+      "expect": {
+        "def": "clear, bright, light"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:laut",
+      "level": "A1",
+      "en": "loud",
+      "pos": "adjective",
+      "expect": {
+        "def": "loud, noisy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:leise",
+      "level": "A1",
+      "en": "quiet, soft",
+      "pos": "adjective",
+      "expect": {
+        "def": "quiet, soft, low"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:schwer",
+      "level": "A1",
+      "en": "heavy; difficult",
+      "pos": "adjective",
+      "expect": {
+        "def": "heavy, weighty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:offen",
+      "level": "A1",
+      "en": "open",
+      "pos": "adjective",
+      "expect": {
+        "def": "Not closed; allowing entry or access."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:geschlossen",
+      "level": "A1",
+      "en": "closed",
+      "pos": "adjective",
+      "expect": {
+        "def": "shut; closed; locked"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:langweilig",
+      "level": "A1",
+      "en": "boring",
+      "pos": "adjective",
+      "expect": {
+        "def": "boring, dull, tedious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:lecker",
+      "level": "A1",
+      "en": "tasty, delicious",
+      "pos": "adjective",
+      "expect": {
+        "def": "yummy, tasty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:freundlich",
+      "level": "A1",
+      "en": "friendly, kind",
+      "pos": "adjective",
+      "expect": {
+        "def": "friendly, benign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Schwimmbad",
+      "level": "A1",
+      "en": "swimming pool",
+      "pos": "noun",
+      "expect": {
+        "def": "public pool, public swimming pool, baths, swimming bath"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Haltestelle",
+      "level": "A1",
+      "en": "stop (bus/tram)",
+      "pos": "noun",
+      "expect": {
+        "def": "Stelle, Ort, an dem Verkehrsmittel planmäßig halten"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Platz",
+      "level": "A1",
+      "en": "square; seat, space",
+      "pos": "noun",
+      "expect": {
+        "def": "square, plaza, piazza"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Brücke",
+      "level": "A1",
+      "en": "bridge",
+      "pos": "noun",
+      "expect": {
+        "def": "bridge; The bridge pattern"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Bäckerei",
+      "level": "A1",
+      "en": "bakery",
+      "pos": "noun",
+      "expect": {
+        "def": "bakery, baker’s, bakehouse, bakeshop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Straßenbahn",
+      "level": "A1",
+      "en": "tram",
+      "pos": "noun",
+      "expect": {
+        "def": "streetcar, tramway"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die U-Bahn",
+      "level": "A1",
+      "en": "underground, subway",
+      "pos": "noun",
+      "expect": {
+        "def": "underground railway; subway"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Koffer",
+      "level": "A1",
+      "en": "suitcase",
+      "pos": "noun",
+      "expect": {
+        "def": "idiot, fool"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Pass",
+      "level": "A1",
+      "en": "passport",
+      "pos": "noun",
+      "expect": {
+        "def": "pass, mountain pass"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Aufgabe",
+      "level": "A1",
+      "en": "task, exercise",
+      "pos": "noun",
+      "expect": {
+        "def": "task, job"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Pause",
+      "level": "A1",
+      "en": "break, pause",
+      "pos": "noun",
+      "expect": {
+        "def": "pause, break"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Unterricht",
+      "level": "A1",
+      "en": "lessons, instruction",
+      "pos": "noun",
+      "expect": {
+        "def": "lesson, class, instruction, education"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Fehler",
+      "level": "A1",
+      "en": "mistake, error",
+      "pos": "noun",
+      "expect": {
+        "def": "fault, error, mistake"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Nummer",
+      "level": "A1",
+      "en": "number",
+      "pos": "noun",
+      "expect": {
+        "def": "number; see usage notes below"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Pferd",
+      "level": "A1",
+      "en": "horse",
+      "pos": "noun",
+      "expect": {
+        "def": "horse; pommel horse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Wald",
+      "level": "A1",
+      "en": "forest, wood",
+      "pos": "noun",
+      "expect": {
+        "def": "forest; woods; woodland"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:vielleicht",
+      "level": "A1",
+      "en": "maybe, perhaps",
+      "pos": "adverb",
+      "expect": {
+        "def": "perhaps, maybe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:links",
+      "level": "A1",
+      "en": "left, on the left",
+      "pos": "adverb",
+      "expect": {
+        "def": "on the left; to the left"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:rechts",
+      "level": "A1",
+      "en": "right, on the right",
+      "pos": "adverb",
+      "expect": {
+        "def": "on the right; to the right"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Thunfisch",
+      "level": "A1",
+      "en": "tuna",
+      "pos": "noun",
+      "expect": {
+        "def": "tuna; tunafish"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Brötchen",
+      "level": "A1",
+      "en": "bread roll",
+      "pos": "noun",
+      "expect": {
+        "def": "a bun, bread roll; a small open sandwich"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Packung",
+      "level": "A1",
+      "en": "pack, packet",
+      "pos": "noun",
+      "expect": {
+        "def": "Verpackung, eine Ware umgebende Hülle, meist aus Papier, Pappe oder Plastik"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das T-Shirt",
+      "level": "A1",
+      "en": "T-shirt",
+      "pos": "noun",
+      "expect": {
+        "def": "T-shirt, tee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Bluse",
+      "level": "A1",
+      "en": "blouse",
+      "pos": "noun",
+      "expect": {
+        "def": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Anzeige",
+      "level": "A1",
+      "en": "ad; report",
+      "pos": "noun",
+      "expect": {
+        "def": "advertisement, announcement"
+      },
+      "def": ""
+    }
+  ]
+}

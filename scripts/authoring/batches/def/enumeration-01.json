@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:das Brot",
+      "level": "A1",
+      "en": "bread",
+      "pos": "noun",
+      "expect": {
+        "def": "bread; loaf of bread"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Bahnhof",
+      "level": "A1",
+      "en": "train station",
+      "pos": "noun",
+      "expect": {
+        "def": "railway depot, railroad station, railway station, train station"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:gehen",
+      "level": "A1",
+      "en": "to go, to walk",
+      "pos": "verb",
+      "expect": {
+        "def": "sich schreitend, schrittweise fortbewegen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:heißen",
+      "level": "A1",
+      "en": "to be called",
+      "pos": "verb",
+      "expect": {
+        "def": "genannt werden, den Namen haben"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:groß",
+      "level": "A1",
+      "en": "big, tall, great",
+      "pos": "adjective",
+      "expect": {
+        "def": "big, large, large-scale"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:schön",
+      "level": "A1",
+      "en": "beautiful, nice",
+      "pos": "adjective",
+      "expect": {
+        "def": "beautiful, lovely, pretty, handsome"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Mann",
+      "level": "A1",
+      "en": "man; husband",
+      "pos": "noun",
+      "expect": {
+        "def": "man, male human being"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Mensch",
+      "level": "A1",
+      "en": "human, person",
+      "pos": "noun",
+      "expect": {
+        "def": "human, human being, person, man"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Saft",
+      "level": "A1",
+      "en": "juice",
+      "pos": "noun",
+      "expect": {
+        "def": "juice; gravy, meat juice"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Geschäft",
+      "level": "A1",
+      "en": "shop; business",
+      "pos": "noun",
+      "expect": {
+        "def": "shop; store"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Nacht",
+      "level": "A1",
+      "en": "night",
+      "pos": "noun",
+      "expect": {
+        "def": "Zeit der Dunkelheit, zwischen Abenddämmerung und Morgengrauen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Wetter",
+      "level": "A1",
+      "en": "weather",
+      "pos": "noun",
+      "expect": {
+        "def": "The daily condition outside, such as sun, rain, or wind."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Hund",
+      "level": "A1",
+      "en": "dog",
+      "pos": "noun",
+      "expect": {
+        "def": "dog, hound"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Katze",
+      "level": "A1",
+      "en": "cat",
+      "pos": "noun",
+      "expect": {
+        "def": "house cat, Felis silvestris catus; female house cat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:verstehen",
+      "level": "A1",
+      "en": "to understand",
+      "pos": "verb",
+      "expect": {
+        "def": "to understand; to understand oneself, to understand each other, to be understood"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:denken",
+      "level": "A1",
+      "en": "to think",
+      "pos": "verb",
+      "expect": {
+        "def": "to think; to imagine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:fahren",
+      "level": "A1",
+      "en": "to drive, to go (by vehicle)",
+      "pos": "verb",
+      "expect": {
+        "def": "to go at speed; to go; to run; to drive; to sail"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:billig",
+      "level": "A1",
+      "en": "cheap",
+      "pos": "adjective",
+      "expect": {
+        "def": "appropriate, meet, fair"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:schnell",
+      "level": "A1",
+      "en": "fast, quick",
+      "pos": "adjective",
+      "expect": {
+        "def": "quick, fast"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:wichtig",
+      "level": "A1",
+      "en": "important",
+      "pos": "adjective",
+      "expect": {
+        "def": "important, relevant, significant, weighty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:immer",
+      "level": "A1",
+      "en": "always",
+      "pos": "adverb",
+      "expect": {
+        "def": "At all times; on every occasion, without exception."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:oft",
+      "level": "A1",
+      "en": "often",
+      "pos": "adverb",
+      "expect": {
+        "def": "Many times; frequently, on repeated occasions."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:warum",
+      "level": "A1",
+      "en": "why",
+      "pos": "adverb",
+      "expect": {
+        "def": "why; for what reason"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:bitte",
+      "level": "A1",
+      "en": "please; you’re welcome",
+      "pos": "particle",
+      "expect": {
+        "def": "request, plea"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:fünf",
+      "level": "A1",
+      "en": "five",
+      "pos": "number",
+      "expect": {
+        "def": "The number 5, one more than four."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:sechs",
+      "level": "A1",
+      "en": "six",
+      "pos": "number",
+      "expect": {
+        "def": "The number 6, one more than five."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:sieben",
+      "level": "A1",
+      "en": "seven",
+      "pos": "number",
+      "expect": {
+        "def": "The number 7, one more than six."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:acht",
+      "level": "A1",
+      "en": "eight",
+      "pos": "number",
+      "expect": {
+        "def": "the natural number eight; the numeral sign 8"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:neun",
+      "level": "A1",
+      "en": "nine",
+      "pos": "number",
+      "expect": {
+        "def": "The number 9, one more than eight."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:zwölf",
+      "level": "A1",
+      "en": "twelve",
+      "pos": "number",
+      "expect": {
+        "def": "twelve, a dozen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Januar",
+      "level": "A1",
+      "en": "January",
+      "pos": "noun",
+      "expect": {
+        "def": "erster, 31-tägiger Monat im Kalenderjahr"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:grau",
+      "level": "A1",
+      "en": "grey",
+      "pos": "adjective",
+      "expect": {
+        "def": "grey, gray"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Tante",
+      "level": "A1",
+      "en": "aunt",
+      "pos": "noun",
+      "expect": {
+        "def": "The sister of one's parent, or an uncle's wife."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Onkel",
+      "level": "A1",
+      "en": "uncle",
+      "pos": "noun",
+      "expect": {
+        "def": "The brother of one's parent, or an aunt's husband."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Chef",
+      "level": "A1",
+      "en": "boss",
+      "pos": "noun",
+      "expect": {
+        "def": "boss, chief"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Bauch",
+      "level": "A1",
+      "en": "belly, stomach",
+      "pos": "noun",
+      "expect": {
+        "def": "abdomen, belly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Teller",
+      "level": "A1",
+      "en": "plate",
+      "pos": "noun",
+      "expect": {
+        "def": "plate, dish"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Wand",
+      "level": "A1",
+      "en": "wall",
+      "pos": "noun",
+      "expect": {
+        "def": "wall, partition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:fragen",
+      "level": "A1",
+      "en": "to ask",
+      "pos": "verb",
+      "expect": {
+        "def": "to ask; to ask for, to ask after"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:mögen",
+      "level": "A1",
+      "en": "to like",
+      "pos": "verb",
+      "expect": {
+        "def": "ich mag, du magst, er mag, wir mögen"
+      },
+      "def": ""
+    }
+  ]
+}

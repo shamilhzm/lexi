@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:die Quelle",
+      "level": "B2",
+      "en": "source",
+      "pos": "noun",
+      "expect": {
+        "def": "spring"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Meinungsfreiheit",
+      "level": "B2",
+      "en": "freedom of opinion/speech",
+      "pos": "noun",
+      "expect": {
+        "def": "freedom of opinion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:glaubwürdig",
+      "level": "B2",
+      "en": "credible, trustworthy",
+      "pos": "adjective",
+      "expect": {
+        "def": "credible"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Fachkräftemangel",
+      "level": "B2",
+      "en": "shortage of skilled workers",
+      "pos": "noun",
+      "expect": {
+        "def": "skills shortage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Verzicht",
+      "level": "B2",
+      "en": "renunciation, doing without",
+      "pos": "noun",
+      "expect": {
+        "def": "abstention"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Bildungssystem",
+      "level": "B2",
+      "en": "education system",
+      "pos": "noun",
+      "expect": {
+        "def": "educational system"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Abschluss",
+      "level": "B2",
+      "en": "degree, qualification",
+      "pos": "noun",
+      "expect": {
+        "def": "exclusion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Weiterbildung",
+      "level": "B2",
+      "en": "further training, professional development",
+      "pos": "noun",
+      "expect": {
+        "def": "further education"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Wohlbefinden",
+      "level": "B2",
+      "en": "wellbeing",
+      "pos": "noun",
+      "expect": {
+        "def": "well-being"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Rezept",
+      "level": "B2",
+      "en": "prescription; recipe",
+      "pos": "noun",
+      "expect": {
+        "def": "recipe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Bruttoinlandsprodukt",
+      "level": "B2",
+      "en": "gross domestic product (GDP)",
+      "pos": "noun",
+      "expect": {
+        "def": "gross domestic product"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:explodieren",
+      "level": "B2",
+      "en": "to explode; to skyrocket (prices)",
+      "pos": "verb",
+      "expect": {
+        "def": "to explode"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Kaution",
+      "level": "B2",
+      "en": "security deposit",
+      "pos": "noun",
+      "expect": {
+        "def": "bail"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Wohnungsbesichtigung",
+      "level": "B2",
+      "en": "flat viewing",
+      "pos": "noun",
+      "expect": {
+        "def": "inspecting an apartment"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Anmeldung",
+      "level": "B1",
+      "en": "registration of residence",
+      "pos": "noun",
+      "expect": {
+        "def": "application"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Kaltmiete",
+      "level": "B2",
+      "en": "base (\"cold\") rent",
+      "pos": "noun",
+      "expect": {
+        "def": "base rent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Hausordnung",
+      "level": "B2",
+      "en": "house rules",
+      "pos": "noun",
+      "expect": {
+        "def": "house regulations"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Benutzeroberfläche",
+      "level": "B2",
+      "en": "user interface",
+      "pos": "noun",
+      "expect": {
+        "def": "graphical user interface"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Abstimmung",
+      "level": "B2",
+      "en": "vote / ballot",
+      "pos": "noun",
+      "expect": {
+        "def": "vote"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Protokoll",
+      "level": "B2",
+      "en": "minutes, record",
+      "pos": "noun",
+      "expect": {
+        "def": "protocol"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Lebensraum",
+      "level": "B2",
+      "en": "habitat",
+      "pos": "noun",
+      "expect": {
+        "def": "living space"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:einflussreich",
+      "level": "C1",
+      "en": "influential",
+      "pos": "adjective",
+      "expect": {
+        "def": "über Einfluss verfügend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:nein",
+      "level": "A1",
+      "en": "no",
+      "pos": "particle",
+      "expect": {
+        "def": "a no"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Kunst",
+      "level": "A1",
+      "en": "art",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit ästhetischer Werke"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Essen",
+      "level": "A1",
+      "en": "food",
+      "pos": "noun",
+      "expect": {
+        "def": "meal"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:fern",
+      "level": "A1",
+      "en": "distant",
+      "pos": "adjective",
+      "expect": {
+        "def": "remote"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:ich",
+      "level": "A1",
+      "en": "I",
+      "pos": "pronoun",
+      "expect": {
+        "def": "ego"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:täglich",
+      "level": "A1",
+      "en": "daily, every day",
+      "pos": "adjective",
+      "expect": {
+        "def": "daily"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:es",
+      "level": "A1",
+      "en": "it",
+      "pos": "pronoun",
+      "expect": {
+        "def": "id"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Telefon",
+      "level": "A2",
+      "en": "phone",
+      "pos": "noun",
+      "expect": {
+        "def": "telephone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Flugzeug",
+      "level": "A2",
+      "en": "airplane",
+      "pos": "noun",
+      "expect": {
+        "def": "aeroplane"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Farbe",
+      "level": "A2",
+      "en": "color",
+      "pos": "noun",
+      "expect": {
+        "def": "colour"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:oben",
+      "level": "A2",
+      "en": "above / up",
+      "pos": "adverb",
+      "expect": {
+        "def": "above"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:unten",
+      "level": "A2",
+      "en": "below / down",
+      "pos": "adverb",
+      "expect": {
+        "def": "below"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:innen",
+      "level": "A2",
+      "en": "inside",
+      "pos": "adverb",
+      "expect": {
+        "def": "within"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:an",
+      "level": "A2",
+      "en": "at / on",
+      "pos": "preposition",
+      "expect": {
+        "def": "on"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:bis",
+      "level": "A2",
+      "en": "until, up to",
+      "pos": "preposition",
+      "expect": {
+        "def": "B-sharp"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:draußen",
+      "level": "A2",
+      "en": "outside, outdoors",
+      "pos": "adverb",
+      "expect": {
+        "def": "outside"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:weit",
+      "level": "A2",
+      "en": "far, distant",
+      "pos": "adjective",
+      "expect": {
+        "def": "wide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Mitte",
+      "level": "A2",
+      "en": "the middle, center",
+      "pos": "noun",
+      "expect": {
+        "def": "middle"
+      },
+      "def": ""
+    }
+  ]
+}

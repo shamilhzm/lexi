@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:einsam",
+      "level": "B1",
+      "en": "lonely",
+      "pos": "adjective",
+      "expect": {
+        "def": "lonely, lone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aufmerksam",
+      "level": "B1",
+      "en": "attentive, alert",
+      "pos": "adjective",
+      "expect": {
+        "def": "attentive, alert, observant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zerstreut",
+      "level": "B1",
+      "en": "absent-minded, distracted",
+      "pos": "adjective",
+      "expect": {
+        "def": "distracted, absent-minded"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:feige",
+      "level": "B1",
+      "en": "cowardly",
+      "pos": "adjective",
+      "expect": {
+        "def": "cowardly, yellow"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachlässig",
+      "level": "B1",
+      "en": "careless, negligent",
+      "pos": "adjective",
+      "expect": {
+        "def": "negligent, careless"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hilfsbereit",
+      "level": "B1",
+      "en": "helpful, obliging",
+      "pos": "adjective",
+      "expect": {
+        "def": "bereit, jemandem zu helfen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:launisch",
+      "level": "B1",
+      "en": "moody, temperamental",
+      "pos": "adjective",
+      "expect": {
+        "def": "moody, capricious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:angespannt",
+      "level": "B1",
+      "en": "tense, stressed",
+      "pos": "adjective",
+      "expect": {
+        "def": "taut, tense"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erschrocken",
+      "level": "B1",
+      "en": "frightened, startled",
+      "pos": "adjective",
+      "expect": {
+        "def": "shocked, taken aback, startled"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verletzt",
+      "level": "B1",
+      "en": "hurt, offended",
+      "pos": "adjective",
+      "expect": {
+        "def": "hurt, injured"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:klug",
+      "level": "A2",
+      "en": "smart, clever",
+      "pos": "adjective",
+      "expect": {
+        "def": "intelligent, prudent, wise, smart, clever"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ernst",
+      "level": "B1",
+      "en": "serious, grave",
+      "pos": "adjective",
+      "expect": {
+        "def": "ohne Spaß, ohne Scherz, ohne Humor, ohne Ironie"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:spannend",
+      "level": "A2",
+      "en": "exciting, gripping",
+      "pos": "adjective",
+      "expect": {
+        "def": "thrilling, exciting, gripping, enthralling, spellbinding"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unsympathisch",
+      "level": "B1",
+      "en": "unlikeable, unpleasant",
+      "pos": "adjective",
+      "expect": {
+        "def": "unlikable, unpleasant, disagreeable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aufrichtig",
+      "level": "B1",
+      "en": "sincere, genuine",
+      "pos": "adjective",
+      "expect": {
+        "def": "candid, frank, sincere, genuine, honest"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hund",
+      "level": "B1",
+      "en": "dog",
+      "pos": "noun",
+      "expect": {
+        "def": "dog, hound"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Katze",
+      "level": "B1",
+      "en": "cat",
+      "pos": "noun",
+      "expect": {
+        "def": "house cat, Felis silvestris catus; female house cat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Pferd",
+      "level": "B1",
+      "en": "horse",
+      "pos": "noun",
+      "expect": {
+        "def": "horse; pommel horse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schwein",
+      "level": "B1",
+      "en": "pig",
+      "pos": "noun",
+      "expect": {
+        "def": "swine, pig"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Wal",
+      "level": "B1",
+      "en": "whale",
+      "pos": "noun",
+      "expect": {
+        "def": "A very large sea mammal, the biggest animal on earth."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schnecke",
+      "level": "B1",
+      "en": "snail",
+      "pos": "noun",
+      "expect": {
+        "def": "snail, slug"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Spinne",
+      "level": "B1",
+      "en": "spider",
+      "pos": "noun",
+      "expect": {
+        "def": "kleines achtbeiniges Tier, das häufig Fäden spinnt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Wildschwein",
+      "level": "B1",
+      "en": "wild boar",
+      "pos": "noun",
+      "expect": {
+        "def": "razorback, wild boar, wild hog"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Brot",
+      "level": "B1",
+      "en": "bread",
+      "pos": "noun",
+      "expect": {
+        "def": "bread; loaf of bread"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Saft",
+      "level": "B1",
+      "en": "juice",
+      "pos": "noun",
+      "expect": {
+        "def": "juice; gravy, meat juice"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Essiggurke",
+      "level": "B1",
+      "en": "pickle",
+      "pos": "noun",
+      "expect": {
+        "def": "gherkin, pickle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:braten",
+      "level": "B1",
+      "en": "to fry / roast",
+      "pos": "verb",
+      "expect": {
+        "def": "to pan-fry; to roast; to grill; to broil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:backen",
+      "level": "B1",
+      "en": "to bake",
+      "pos": "verb",
+      "expect": {
+        "def": "to bake; to roast; to fry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:probieren",
+      "level": "B1",
+      "en": "to taste / try",
+      "pos": "verb",
+      "expect": {
+        "def": "versuchen; testen; eine Probe machen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Soße",
+      "level": "B1",
+      "en": "sauce / gravy",
+      "pos": "noun",
+      "expect": {
+        "def": "sauce, gravy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gewürz",
+      "level": "B1",
+      "en": "spice / seasoning",
+      "pos": "noun",
+      "expect": {
+        "def": "spice, condiment, seasoning"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Weintraube",
+      "level": "B1",
+      "en": "grape",
+      "pos": "noun",
+      "expect": {
+        "def": "grape; wine-grape"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Müsli",
+      "level": "B1",
+      "en": "muesli / granola",
+      "pos": "noun",
+      "expect": {
+        "def": "muesli, granola"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lecker",
+      "level": "A2",
+      "en": "tasty / delicious",
+      "pos": "adjective",
+      "expect": {
+        "def": "yummy, tasty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:süß",
+      "level": "A2",
+      "en": "sweet",
+      "pos": "adjective",
+      "expect": {
+        "def": "Tasting like sugar; also charming or cute."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:salzig",
+      "level": "B1",
+      "en": "salty",
+      "pos": "adjective",
+      "expect": {
+        "def": "briny, salty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sauer",
+      "level": "B1",
+      "en": "sour",
+      "pos": "adjective",
+      "expect": {
+        "def": "sour; acid; acidic"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Österreich",
+      "level": "B1",
+      "en": "austria",
+      "pos": "noun",
+      "expect": {
+        "def": "A country in central Europe, south of Germany."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Italien",
+      "level": "B1",
+      "en": "italy",
+      "pos": "noun",
+      "expect": {
+        "def": "A country in southern Europe, shaped like a boot."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Schweden",
+      "level": "B1",
+      "en": "sweden",
+      "pos": "noun",
+      "expect": {
+        "def": "A country in northern Europe, part of Scandinavia."
+      },
+      "def": ""
+    }
+  ]
+}

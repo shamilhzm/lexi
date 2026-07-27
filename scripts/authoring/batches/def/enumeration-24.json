@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:außerdem",
+      "level": "B1",
+      "en": "moreover",
+      "pos": "",
+      "expect": {
+        "def": "in addition; furthermore, besides"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:trotzdem",
+      "level": "B1",
+      "en": "nevertheless",
+      "pos": "",
+      "expect": {
+        "def": "anyhow, nevertheless"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:damit",
+      "level": "B1",
+      "en": "so that",
+      "pos": "",
+      "expect": {
+        "def": "therefore, as a result"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Voraussetzung",
+      "level": "B2",
+      "en": "prerequisite",
+      "pos": "",
+      "expect": {
+        "def": "requirement, prerequisite"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Strategie",
+      "level": "B2",
+      "en": "strategy",
+      "pos": "",
+      "expect": {
+        "def": "strategy; The strategy pattern."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Zusammenhang",
+      "level": "B2",
+      "en": "connection / context",
+      "pos": "",
+      "expect": {
+        "def": "coherence, cohesion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Bereich",
+      "level": "B2",
+      "en": "area / field",
+      "pos": "",
+      "expect": {
+        "def": "area, realm, range, scope"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Behauptung",
+      "level": "B2",
+      "en": "claim",
+      "pos": "",
+      "expect": {
+        "def": "claim, assertion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Widerspruch",
+      "level": "B2",
+      "en": "contradiction",
+      "pos": "",
+      "expect": {
+        "def": "objection, protest"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Auseinandersetzung",
+      "level": "B2",
+      "en": "dispute / debate",
+      "pos": "",
+      "expect": {
+        "def": "altercation; controversy; argument, dispute, debate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Einschätzung",
+      "level": "B2",
+      "en": "assessment",
+      "pos": "",
+      "expect": {
+        "def": "assessment, estimation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Überzeugung",
+      "level": "B2",
+      "en": "conviction",
+      "pos": "",
+      "expect": {
+        "def": "conviction, belief"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Einstellung",
+      "level": "B2",
+      "en": "attitude",
+      "pos": "",
+      "expect": {
+        "def": "attitude, mindset, disposition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Belastung",
+      "level": "B2",
+      "en": "burden / strain",
+      "pos": "",
+      "expect": {
+        "def": "load, weight, pressure, strain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Zunahme",
+      "level": "B2",
+      "en": "increase",
+      "pos": "",
+      "expect": {
+        "def": "A rise in amount, size, or number."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Rückgang",
+      "level": "B2",
+      "en": "decline",
+      "pos": "",
+      "expect": {
+        "def": "decline, diminution"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Anstieg",
+      "level": "B2",
+      "en": "rise",
+      "pos": "",
+      "expect": {
+        "def": "increase, rise, surge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verpflichtung",
+      "level": "B2",
+      "en": "obligation",
+      "pos": "",
+      "expect": {
+        "def": "obligation, responsibility"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Vereinbarung",
+      "level": "B2",
+      "en": "agreement",
+      "pos": "",
+      "expect": {
+        "def": "agreement, arrangement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Vertrag",
+      "level": "B2",
+      "en": "contract",
+      "pos": "",
+      "expect": {
+        "def": "contract, agreement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Bedingung",
+      "level": "B2",
+      "en": "condition",
+      "pos": "",
+      "expect": {
+        "def": "requirement, prerequisite"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Begründung",
+      "level": "B2",
+      "en": "justification",
+      "pos": "",
+      "expect": {
+        "def": "reason, rationale, grounds"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Überschuss",
+      "level": "B2",
+      "en": "surplus",
+      "pos": "",
+      "expect": {
+        "def": "surplus, excess"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Knappheit",
+      "level": "B2",
+      "en": "scarcity",
+      "pos": "",
+      "expect": {
+        "def": "scarcity, shortage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausschließen",
+      "level": "B2",
+      "en": "to exclude",
+      "pos": "",
+      "expect": {
+        "def": "to exclude, to debar; to rule out, to preclude"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:betonen",
+      "level": "B2",
+      "en": "to emphasise",
+      "pos": "",
+      "expect": {
+        "def": "to emphasize; to stress"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:beurteilen",
+      "level": "B2",
+      "en": "to judge",
+      "pos": "",
+      "expect": {
+        "def": "to form an opinion on, to judge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:bewerten",
+      "level": "B2",
+      "en": "to evaluate",
+      "pos": "",
+      "expect": {
+        "def": "to evaluate, assess"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einschränken",
+      "level": "B2",
+      "en": "to restrict",
+      "pos": "",
+      "expect": {
+        "def": "to constrain; to economize"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ergänzen",
+      "level": "B2",
+      "en": "to complement",
+      "pos": "",
+      "expect": {
+        "def": "to fill, fill out, complete; to complement, to supplement, to add"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gewährleisten",
+      "level": "B2",
+      "en": "to ensure",
+      "pos": "",
+      "expect": {
+        "def": "to ensure; to guarantee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hervorheben",
+      "level": "B2",
+      "en": "to highlight",
+      "pos": "",
+      "expect": {
+        "def": "to emphasize, highlight"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:scheitern",
+      "level": "B2",
+      "en": "to fail",
+      "pos": "",
+      "expect": {
+        "def": "to fail, to conclude unsuccessfully; to flounder"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:schließen",
+      "level": "B2",
+      "en": "to conclude / close",
+      "pos": "",
+      "expect": {
+        "def": "to shut; to close; to shut down; to lock"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:umsetzen",
+      "level": "B2",
+      "en": "to implement",
+      "pos": "",
+      "expect": {
+        "def": "to implement, to realize; to transform, translate, convert, transpose"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:veranlassen",
+      "level": "B2",
+      "en": "to prompt / cause",
+      "pos": "",
+      "expect": {
+        "def": "to cause, to prompt, to arrange for, to bring about"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:voraussetzen",
+      "level": "B2",
+      "en": "to presuppose",
+      "pos": "",
+      "expect": {
+        "def": "to presuppose or assume; to require as a precondition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zusammenfassen",
+      "level": "B2",
+      "en": "to summarise",
+      "pos": "",
+      "expect": {
+        "def": "to summarize, to sum up; to consolidate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausführlich",
+      "level": "B2",
+      "en": "detailed",
+      "pos": "",
+      "expect": {
+        "def": "detailed, elaborate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:eindeutig",
+      "level": "B2",
+      "en": "unambiguous",
+      "pos": "",
+      "expect": {
+        "def": "unambiguous, unequivocal, explicit, unique"
+      },
+      "def": ""
+    }
+  ]
+}

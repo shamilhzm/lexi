@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:umfassen",
+      "level": "B1",
+      "en": "to comprise, encompass",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas umgreifen, umfangen, umgeben"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hervorragend",
+      "level": "B1",
+      "en": "outstanding, excellent",
+      "pos": "adjective",
+      "expect": {
+        "def": "outstanding, superb"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vernetzt",
+      "level": "B1",
+      "en": "interconnected, networked",
+      "pos": "adjective",
+      "expect": {
+        "def": "in ein Netzwerk eingebunden; zu einem Netzwerk verknüpft"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zahlreich",
+      "level": "B1",
+      "en": "numerous",
+      "pos": "adjective",
+      "expect": {
+        "def": "Existing in large numbers; many."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Anblick",
+      "level": "B1",
+      "en": "sight, view",
+      "pos": "noun",
+      "expect": {
+        "def": "view, sight, look"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Anlage",
+      "level": "B1",
+      "en": "grounds, complex; facility",
+      "pos": "noun",
+      "expect": {
+        "def": "public green area, site, park, garden"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:malerisch",
+      "level": "B1",
+      "en": "picturesque",
+      "pos": "adjective",
+      "expect": {
+        "def": "painting; painterly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Darsteller",
+      "level": "B1",
+      "en": "performer, actor",
+      "pos": "noun",
+      "expect": {
+        "def": "actor, player, performer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Argument",
+      "level": "B1",
+      "en": "argument (point)",
+      "pos": "noun",
+      "expect": {
+        "def": "proof, reason, point"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Nähe",
+      "level": "B1",
+      "en": "proximity, closeness",
+      "pos": "noun",
+      "expect": {
+        "def": "nearness, closeness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schönheit",
+      "level": "B1",
+      "en": "beauty",
+      "pos": "noun",
+      "expect": {
+        "def": "beauty, beautifulness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:retten",
+      "level": "B1",
+      "en": "to rescue, save",
+      "pos": "verb",
+      "expect": {
+        "def": "to save, to rescue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verschwinden",
+      "level": "B1",
+      "en": "to disappear",
+      "pos": "verb",
+      "expect": {
+        "def": "to disappear, to vanish, to move out of view; to leave, to go away"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:lebhaft",
+      "level": "B1",
+      "en": "lively",
+      "pos": "adjective",
+      "expect": {
+        "def": "lively, active, buoyant or agile"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:spannend",
+      "level": "B1",
+      "en": "exciting, gripping",
+      "pos": "adjective",
+      "expect": {
+        "def": "thrilling, exciting, gripping, enthralling, spellbinding"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterhaltsam",
+      "level": "B1",
+      "en": "entertaining",
+      "pos": "adjective",
+      "expect": {
+        "def": "amusing; entertaining; enjoyable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Katastrophe",
+      "level": "B1",
+      "en": "catastrophe, disaster",
+      "pos": "noun",
+      "expect": {
+        "def": "catastrophe, disaster, calamity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Einschränkung",
+      "level": "B1",
+      "en": "restriction, limitation",
+      "pos": "noun",
+      "expect": {
+        "def": "constraint, restraint"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:herausfinden",
+      "level": "B1",
+      "en": "to find out",
+      "pos": "verb",
+      "expect": {
+        "def": "to find out; to figure out"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterscheiden",
+      "level": "B1",
+      "en": "to distinguish",
+      "pos": "verb",
+      "expect": {
+        "def": "to distinguish, differentiate; to differ, be different, distinct"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ordentlich",
+      "level": "B1",
+      "en": "tidy, orderly",
+      "pos": "adjective",
+      "expect": {
+        "def": "Neat and well arranged; also proper."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hörsaal",
+      "level": "B1",
+      "en": "lecture hall",
+      "pos": "noun",
+      "expect": {
+        "def": "lecture theatre, lecture auditorium, lecture hall, lecture room"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Begabung",
+      "level": "B1",
+      "en": "talent, gift",
+      "pos": "noun",
+      "expect": {
+        "def": "angeborene überdurchschnittliche, besondere Fähigkeiten"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vorliebe",
+      "level": "B1",
+      "en": "preference, fondness",
+      "pos": "noun",
+      "expect": {
+        "def": "predilection; preference; liking; penchant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überfüllt",
+      "level": "B1",
+      "en": "overcrowded",
+      "pos": "adjective",
+      "expect": {
+        "def": "crowded, packed"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Feuerwehr",
+      "level": "B1",
+      "en": "fire brigade",
+      "pos": "noun",
+      "expect": {
+        "def": "fire brigade; fire department"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Mithilfe",
+      "level": "B1",
+      "en": "assistance",
+      "pos": "noun",
+      "expect": {
+        "def": "help, assistance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hahn",
+      "level": "B1",
+      "en": "rooster",
+      "pos": "noun",
+      "expect": {
+        "def": "cock, rooster"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ökologisch",
+      "level": "B1",
+      "en": "organic, ecological",
+      "pos": "adjective",
+      "expect": {
+        "def": "ecologic, ecological"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Arbeitslosigkeit",
+      "level": "B1",
+      "en": "unemployment",
+      "pos": "noun",
+      "expect": {
+        "def": "unemployment, joblessness, worklessness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Pflegeheim",
+      "level": "B1",
+      "en": "nursing home",
+      "pos": "noun",
+      "expect": {
+        "def": "care home, nursing home"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beurteilen",
+      "level": "B1",
+      "en": "to judge, assess",
+      "pos": "verb",
+      "expect": {
+        "def": "to form an opinion on, to judge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mitbestimmen",
+      "level": "B1",
+      "en": "to have a say",
+      "pos": "verb",
+      "expect": {
+        "def": "to decide together, to codetermine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Umarmung",
+      "level": "B1",
+      "en": "hug",
+      "pos": "noun",
+      "expect": {
+        "def": "embrace, hug"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zuwinken",
+      "level": "B1",
+      "en": "to wave at",
+      "pos": "verb",
+      "expect": {
+        "def": "to wave at, beckon"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ansprechen",
+      "level": "B1",
+      "en": "to address, approach (someone)",
+      "pos": "verb",
+      "expect": {
+        "def": "to speak to; to address; to appeal to"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Strategie",
+      "level": "B1",
+      "en": "strategy",
+      "pos": "noun",
+      "expect": {
+        "def": "strategy; The strategy pattern."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachschlagen",
+      "level": "B1",
+      "en": "to look up (in a dictionary)",
+      "pos": "verb",
+      "expect": {
+        "def": "to look up; to take after"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wörtlich",
+      "level": "B1",
+      "en": "literal(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "literal, verbatim"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Distanz",
+      "level": "B1",
+      "en": "distance",
+      "pos": "noun",
+      "expect": {
+        "def": "The space between two points; also emotional coolness."
+      },
+      "def": ""
+    }
+  ]
+}

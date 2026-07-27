@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:die Falschmeldung",
+      "level": "B2",
+      "en": "false report, fake news",
+      "pos": "noun",
+      "expect": {
+        "def": "hoax, canard"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:überprüfen",
+      "level": "B2",
+      "en": "to verify, check",
+      "pos": "verb",
+      "expect": {
+        "def": "to check, to verify"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:unreflektiert",
+      "level": "B2",
+      "en": "unreflective, uncritical",
+      "pos": "adjective",
+      "expect": {
+        "def": "Done without careful thought; uncritical."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Wandel",
+      "level": "B2",
+      "en": "change, transformation",
+      "pos": "noun",
+      "expect": {
+        "def": "transformation, change"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Artenvielfalt",
+      "level": "B2",
+      "en": "biodiversity",
+      "pos": "noun",
+      "expect": {
+        "def": "species richness; biodiversity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:reduzieren",
+      "level": "B2",
+      "en": "to reduce",
+      "pos": "verb",
+      "expect": {
+        "def": "to reduce; to simplify"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verursachen",
+      "level": "B2",
+      "en": "to cause",
+      "pos": "verb",
+      "expect": {
+        "def": "to cause, to induce"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ökologisch",
+      "level": "B2",
+      "en": "ecological",
+      "pos": "adjective",
+      "expect": {
+        "def": "ecologic, ecological"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Ausbildung",
+      "level": "B2",
+      "en": "vocational training, apprenticeship",
+      "pos": "noun",
+      "expect": {
+        "def": "training, apprenticeship, vocational education, education"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Fortbildung",
+      "level": "B2",
+      "en": "continuing education, upskilling",
+      "pos": "noun",
+      "expect": {
+        "def": "further education, continuing education"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:unerlässlich",
+      "level": "B2",
+      "en": "indispensable, essential",
+      "pos": "adjective",
+      "expect": {
+        "def": "requisite, necessary"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:akademisch",
+      "level": "B2",
+      "en": "academic",
+      "pos": "adjective",
+      "expect": {
+        "def": "Relating to study, scholarship, and universities."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Vorsorge",
+      "level": "B2",
+      "en": "prevention, precaution",
+      "pos": "noun",
+      "expect": {
+        "def": "Vorbeugung, Vorbereitung für spätere Entwicklungen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Psyche",
+      "level": "B2",
+      "en": "psyche, mental state",
+      "pos": "noun",
+      "expect": {
+        "def": "psyche, mind"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:vorbeugen",
+      "level": "B2",
+      "en": "to prevent",
+      "pos": "verb",
+      "expect": {
+        "def": "to prevent, obviate; to lean forward"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:leiden (unter)",
+      "level": "B2",
+      "en": "to suffer (from)",
+      "pos": "verb",
+      "expect": {
+        "def": "To experience pain, illness, or hardship."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Missverständnis",
+      "level": "B2",
+      "en": "misunderstanding",
+      "pos": "noun",
+      "expect": {
+        "def": "misunderstanding, misinterpretation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:angemessen",
+      "level": "B2",
+      "en": "appropriate, suitable",
+      "pos": "adjective",
+      "expect": {
+        "def": "appropriate, adequate, due, suitable, proper, fitting etc."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Kunstwerk",
+      "level": "B2",
+      "en": "work of art",
+      "pos": "noun",
+      "expect": {
+        "def": "artwork, work of art, piece of art"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Steuer",
+      "level": "B2",
+      "en": "tax",
+      "pos": "noun",
+      "expect": {
+        "def": "helm, rudder"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Grundlagenforschung",
+      "level": "C1",
+      "en": "basic/fundamental research",
+      "pos": "noun",
+      "expect": {
+        "def": "Research aimed at understanding, not at immediate use."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:kognitiv",
+      "level": "C1",
+      "en": "cognitive",
+      "pos": "adjective",
+      "expect": {
+        "def": "auf das Wissen, Verstehen, Denken eines Lebewesens bezogen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Verhandlung",
+      "level": "C1",
+      "en": "negotiation; trial",
+      "pos": "noun",
+      "expect": {
+        "def": "A discussion aimed at agreement; also a court hearing."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:verbindlich",
+      "level": "C1",
+      "en": "binding; reliable",
+      "pos": "adjective",
+      "expect": {
+        "def": "Legally binding; also dependable and cordial."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:folglich",
+      "level": "C1",
+      "en": "consequently, therefore",
+      "pos": "adverb",
+      "expect": {
+        "def": "As a logical result; therefore."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Ungleichheit",
+      "level": "C1",
+      "en": "inequality",
+      "pos": "noun",
+      "expect": {
+        "def": "The unfair difference in status, wealth, or opportunity."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Aktie",
+      "level": "B2",
+      "en": "share / stock",
+      "pos": "noun",
+      "expect": {
+        "def": "share, stock"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Börse",
+      "level": "B1",
+      "en": "stock exchange",
+      "pos": "noun",
+      "expect": {
+        "def": "stock market, stock exchange, bourse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Mietvertrag",
+      "level": "B1",
+      "en": "lease / rental contract",
+      "pos": "noun",
+      "expect": {
+        "def": "lease agreement; rental agreement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Nebenkosten",
+      "level": "B2",
+      "en": "utility / incidental costs",
+      "pos": "noun",
+      "expect": {
+        "def": "side costs, additional costs"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Makler",
+      "level": "B2",
+      "en": "real-estate agent",
+      "pos": "noun",
+      "expect": {
+        "def": "broker, agent, middleman, negotiator; realtor, real estate agent, estate agent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Warmmiete",
+      "level": "B2",
+      "en": "rent including utilities",
+      "pos": "noun",
+      "expect": {
+        "def": "total rent; base rent and utilities"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die künstliche Intelligenz",
+      "level": "B2",
+      "en": "artificial intelligence",
+      "pos": "noun",
+      "expect": {
+        "def": "artificial intelligence, AI"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Fortschritt",
+      "level": "B2",
+      "en": "progress",
+      "pos": "noun",
+      "expect": {
+        "def": "progress, advancement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Bundestag",
+      "level": "B2",
+      "en": "federal parliament",
+      "pos": "noun",
+      "expect": {
+        "def": "Bundestag; federal/state parliament"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Verkehrswende",
+      "level": "C1",
+      "en": "transport transition",
+      "pos": "noun",
+      "expect": {
+        "def": "The shift toward cleaner, more sustainable transport."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Belegschaft",
+      "level": "B2",
+      "en": "workforce, staff",
+      "pos": "noun",
+      "expect": {
+        "def": "workforce, labour force"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Tagung",
+      "level": "B2",
+      "en": "conference",
+      "pos": "noun",
+      "expect": {
+        "def": "meeting, conference / convention"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einreichen",
+      "level": "B2",
+      "en": "to submit, hand in",
+      "pos": "verb",
+      "expect": {
+        "def": "to send in, to hand in, to submit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Schadstoff",
+      "level": "B2",
+      "en": "pollutant",
+      "pos": "noun",
+      "expect": {
+        "def": "pollutant, contaminant"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:die Kunst",
+      "level": "A2",
+      "en": "art",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit ästhetischer Werke"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:verschieden",
+      "level": "A2",
+      "en": "different, various",
+      "pos": "adjective",
+      "expect": {
+        "def": "deceased"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Aussage",
+      "level": "A2",
+      "en": "statement",
+      "pos": "noun",
+      "expect": {
+        "def": "proposition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schatz",
+      "level": "A2",
+      "en": "treasure; darling",
+      "pos": "noun",
+      "expect": {
+        "def": "treasure"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schmuck",
+      "level": "A2",
+      "en": "jewellery",
+      "pos": "noun",
+      "expect": {
+        "def": "jewelry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Ader",
+      "level": "A2",
+      "en": "vein",
+      "pos": "noun",
+      "expect": {
+        "def": "blood vessel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Krankenkasse",
+      "level": "A2",
+      "en": "health insurance fund",
+      "pos": "noun",
+      "expect": {
+        "def": "health insurance company"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Tropfen",
+      "level": "A2",
+      "en": "drop (medicine)",
+      "pos": "noun",
+      "expect": {
+        "def": "drop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Muster",
+      "level": "A2",
+      "en": "pattern",
+      "pos": "noun",
+      "expect": {
+        "def": "example"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:kariert",
+      "level": "A2",
+      "en": "checked (pattern)",
+      "pos": "adjective",
+      "expect": {
+        "def": "checkered"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Bildungssystem",
+      "level": "A2",
+      "en": "education system",
+      "pos": "noun",
+      "expect": {
+        "def": "educational system"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Schulpflicht",
+      "level": "A2",
+      "en": "compulsory schooling",
+      "pos": "noun",
+      "expect": {
+        "def": "compulsory education"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kraftfahrer",
+      "level": "A2",
+      "en": "driver (professional)",
+      "pos": "noun",
+      "expect": {
+        "def": "motorist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Beratung",
+      "level": "A2",
+      "en": "consultation, advice",
+      "pos": "noun",
+      "expect": {
+        "def": "discussion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:analysieren",
+      "level": "A2",
+      "en": "to analyse",
+      "pos": "verb",
+      "expect": {
+        "def": "to analyze"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Abkürzung",
+      "level": "A2",
+      "en": "abbreviation",
+      "pos": "noun",
+      "expect": {
+        "def": "kürzerer Weg"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die EDV",
+      "level": "A2",
+      "en": "electronic data processing, IT",
+      "pos": "noun",
+      "expect": {
+        "def": "elektronische Datenverarbeitung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kontrolle",
+      "level": "A2",
+      "en": "control, check",
+      "pos": "noun",
+      "expect": {
+        "def": "inspection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Pflicht",
+      "level": "A2",
+      "en": "duty, obligation",
+      "pos": "noun",
+      "expect": {
+        "def": "duty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Regelung",
+      "level": "A2",
+      "en": "regulation, arrangement",
+      "pos": "noun",
+      "expect": {
+        "def": "regulation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Tätigkeit",
+      "level": "A2",
+      "en": "activity, occupation",
+      "pos": "noun",
+      "expect": {
+        "def": "activity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:üblich",
+      "level": "A2",
+      "en": "usual, customary",
+      "pos": "adjective",
+      "expect": {
+        "def": "usual"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Stellplatz",
+      "level": "A2",
+      "en": "pitch (camping), parking spot",
+      "pos": "noun",
+      "expect": {
+        "def": "parking place"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:faulenzen",
+      "level": "A2",
+      "en": "to laze around",
+      "pos": "verb",
+      "expect": {
+        "def": "to laze"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:absolut",
+      "level": "A2",
+      "en": "absolute(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "absolute"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:familiär",
+      "level": "A2",
+      "en": "family-like, informal",
+      "pos": "adjective",
+      "expect": {
+        "def": "familial"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Mülltrennung",
+      "level": "B1",
+      "en": "waste separation, recycling",
+      "pos": "noun",
+      "expect": {
+        "def": "waste sorting"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verschmutzung",
+      "level": "B1",
+      "en": "pollution",
+      "pos": "noun",
+      "expect": {
+        "def": "soiling"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Anwendung",
+      "level": "B1",
+      "en": "application; use",
+      "pos": "noun",
+      "expect": {
+        "def": "application"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Vorstellungsgespräch",
+      "level": "B1",
+      "en": "job interview",
+      "pos": "noun",
+      "expect": {
+        "def": "a job interview"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Arbeitsplatz",
+      "level": "B1",
+      "en": "workplace; job",
+      "pos": "noun",
+      "expect": {
+        "def": "workplace"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Genehmigung",
+      "level": "B1",
+      "en": "permit, approval",
+      "pos": "noun",
+      "expect": {
+        "def": "permit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ernährung",
+      "level": "B1",
+      "en": "nutrition, diet",
+      "pos": "noun",
+      "expect": {
+        "def": "nutrition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bewegung",
+      "level": "B1",
+      "en": "movement, exercise",
+      "pos": "noun",
+      "expect": {
+        "def": "motion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Operation",
+      "level": "B1",
+      "en": "operation, surgery",
+      "pos": "noun",
+      "expect": {
+        "def": "operation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Entwicklung",
+      "level": "B1",
+      "en": "development",
+      "pos": "noun",
+      "expect": {
+        "def": "evolution"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Folge",
+      "level": "B1",
+      "en": "consequence; episode",
+      "pos": "noun",
+      "expect": {
+        "def": "sequence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wirkung",
+      "level": "B1",
+      "en": "effect, impact",
+      "pos": "noun",
+      "expect": {
+        "def": "effect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beeinflussen",
+      "level": "B1",
+      "en": "to influence, to affect",
+      "pos": "verb",
+      "expect": {
+        "def": "to influence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:selbstständig",
+      "level": "B1",
+      "en": "independent; self-employed",
+      "pos": "adjective",
+      "expect": {
+        "def": "independent"
+      },
+      "def": ""
+    }
+  ]
+}

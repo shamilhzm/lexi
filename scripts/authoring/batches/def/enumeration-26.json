@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:C2:kraft",
+      "level": "C2",
+      "en": "by virtue of",
+      "pos": "",
+      "expect": {
+        "def": "On the strength of; by the authority of."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:alle",
+      "level": "A1",
+      "en": "finished",
+      "pos": "adjective",
+      "expect": {
+        "def": "finished; gone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Aktion",
+      "level": "A2",
+      "en": "operation, campaign, measure, organized course of action",
+      "pos": "noun",
+      "expect": {
+        "def": "operation, campaign, measure, organized course of action; sales campaign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fast",
+      "level": "A2",
+      "en": "almost",
+      "pos": "adverb",
+      "expect": {
+        "def": "almost; nearly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:her",
+      "level": "A2",
+      "en": "hither, to this place, to here, to me/us",
+      "pos": "adverb",
+      "expect": {
+        "def": "hither, to this place, to here, to me/us; along, on this way"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lediglich",
+      "level": "A2",
+      "en": "merely",
+      "pos": "adverb",
+      "expect": {
+        "def": "Only; nothing more than."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:meist",
+      "level": "A2",
+      "en": "mostly, most often, usually",
+      "pos": "adverb",
+      "expect": {
+        "def": "In most cases; most of the time."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:rechnen",
+      "level": "A2",
+      "en": "to count, reckon, calculate, compute",
+      "pos": "verb",
+      "expect": {
+        "def": "to count, reckon, calculate, compute; to count on, expect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:teilweise",
+      "level": "A2",
+      "en": "partially, to some extent",
+      "pos": "adverb",
+      "expect": {
+        "def": "partially, to some extent; in part, in some cases"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Titel",
+      "level": "A2",
+      "en": "title",
+      "pos": "noun",
+      "expect": {
+        "def": "The name of a book, film, song, or other work."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Trainer",
+      "level": "A2",
+      "en": "trainer, coach",
+      "pos": "noun",
+      "expect": {
+        "def": "trainer, coach; animal trainer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:weniger",
+      "level": "A2",
+      "en": "less",
+      "pos": "adverb",
+      "expect": {
+        "def": "A smaller amount; not as much."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zeugen",
+      "level": "A2",
+      "en": "to beget, father, procreate",
+      "pos": "verb",
+      "expect": {
+        "def": "to beget, father, procreate; to testify, bear witness, declare"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aufgrund",
+      "level": "B1",
+      "en": "due to, because of, as a result of, by reason of, on account of",
+      "pos": "preposition",
+      "expect": {
+        "def": "As a result of; owing to."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beispielsweise",
+      "level": "B1",
+      "en": "for example",
+      "pos": "adverb",
+      "expect": {
+        "def": "As an instance; for example."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dabei",
+      "level": "B1",
+      "en": "pronominal adverb of bei",
+      "pos": "adverb",
+      "expect": {
+        "def": "with one, on one"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dagegen",
+      "level": "B1",
+      "en": "against it, against that",
+      "pos": "adverb",
+      "expect": {
+        "def": "In opposition to it; also by contrast."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:davon",
+      "level": "B1",
+      "en": "from it, from that, therefrom, off it, off that",
+      "pos": "adverb",
+      "expect": {
+        "def": "Away from it, or concerning it."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ebenfalls",
+      "level": "B1",
+      "en": "also, likewise, as well",
+      "pos": "adverb",
+      "expect": {
+        "def": "In the same way; too."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:etwa",
+      "level": "B1",
+      "en": "approximately",
+      "pos": "adverb",
+      "expect": {
+        "def": "About or roughly; also 'for instance'."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:führen",
+      "level": "B1",
+      "en": "to lead",
+      "pos": "verb",
+      "expect": {
+        "def": "to lead; to carry, to sell"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:insgesamt",
+      "level": "B1",
+      "en": "overall, altogether, in total, all in all, by and large, on the whole",
+      "pos": "adverb",
+      "expect": {
+        "def": "Taking everything together; altogether."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:je",
+      "level": "B1",
+      "en": "ever",
+      "pos": "adverb",
+      "expect": {
+        "def": "At any time; also 'each' or 'per'."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mittlerweile",
+      "level": "B1",
+      "en": "meanwhile, in the meantime",
+      "pos": "adverb",
+      "expect": {
+        "def": "In the time since; by now."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:passiert",
+      "level": "B1",
+      "en": "sieved",
+      "pos": "adjective",
+      "expect": {
+        "def": "Pushed through a sieve; strained until smooth."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:rund",
+      "level": "B1",
+      "en": "around",
+      "pos": "adverb",
+      "expect": {
+        "def": "About or roughly; also round in shape."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Sicht",
+      "level": "B1",
+      "en": "view",
+      "pos": "noun",
+      "expect": {
+        "def": "view; point of view, aspect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sowie",
+      "level": "B1",
+      "en": "as well as",
+      "pos": "conjunction",
+      "expect": {
+        "def": "And also; together with."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:völlig",
+      "level": "B1",
+      "en": "complete, total, utter",
+      "pos": "adjective",
+      "expect": {
+        "def": "In every way; completely."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zuletzt",
+      "level": "B1",
+      "en": "finally",
+      "pos": "adverb",
+      "expect": {
+        "def": "finally; lastly; in the end"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zumindest",
+      "level": "B1",
+      "en": "at least",
+      "pos": "adverb",
+      "expect": {
+        "def": "If nothing more; as a minimum."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zunächst",
+      "level": "B1",
+      "en": "first, first of all, in the first place, to begin with, initially",
+      "pos": "adverb",
+      "expect": {
+        "def": "At the beginning; before anything else."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erneut",
+      "level": "B2",
+      "en": "again, anew",
+      "pos": "adverb",
+      "expect": {
+        "def": "Once more; another time."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:jeweils",
+      "level": "B2",
+      "en": "in each case",
+      "pos": "adverb",
+      "expect": {
+        "def": "in each case; each"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:weiterhin",
+      "level": "B2",
+      "en": "still",
+      "pos": "adverb",
+      "expect": {
+        "def": "As before; also in addition."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:außer",
+      "level": "A2",
+      "en": "except",
+      "pos": "preposition",
+      "expect": {
+        "def": "Not including; apart from."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:bauen",
+      "level": "A2",
+      "en": "to build, to construct",
+      "pos": "verb",
+      "expect": {
+        "def": "to build, to construct; to rely"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:egal",
+      "level": "A2",
+      "en": "all the same, unimportant",
+      "pos": "adjective",
+      "expect": {
+        "def": "all the same, unimportant; the same, identical, alike, matching"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fallen",
+      "level": "A2",
+      "en": "to fall",
+      "pos": "verb",
+      "expect": {
+        "def": "to fall; to drop; to die; to fall in battle; to die in battle; to be killed in action"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hart",
+      "level": "A2",
+      "en": "hard",
+      "pos": "adjective",
+      "expect": {
+        "def": "Firm and solid, not soft; also difficult."
+      },
+      "def": ""
+    }
+  ]
+}

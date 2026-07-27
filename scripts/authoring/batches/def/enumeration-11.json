@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:der Mut",
+      "level": "B1",
+      "en": "courage",
+      "pos": "noun",
+      "expect": {
+        "def": "courage; bravery"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Verständnis",
+      "level": "B1",
+      "en": "understanding",
+      "pos": "noun",
+      "expect": {
+        "def": "understanding, comprehension"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beherrschen",
+      "level": "B1",
+      "en": "to master (a language)",
+      "pos": "verb",
+      "expect": {
+        "def": "to master; to dominate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:angenehm",
+      "level": "B1",
+      "en": "pleasant",
+      "pos": "adjective",
+      "expect": {
+        "def": "pleasant, pleasing"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:seltsam",
+      "level": "B1",
+      "en": "strange, odd",
+      "pos": "adjective",
+      "expect": {
+        "def": "nicht normal; merkwürdig, sonderbar"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vornehm",
+      "level": "B1",
+      "en": "distinguished, refined",
+      "pos": "adjective",
+      "expect": {
+        "def": "elegant; posh; high-class; distinguished"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kündigungsfrist",
+      "level": "B1",
+      "en": "notice period",
+      "pos": "noun",
+      "expect": {
+        "def": "notice period; cancellation period"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Unternehmen",
+      "level": "B1",
+      "en": "company, enterprise",
+      "pos": "noun",
+      "expect": {
+        "def": "business, enterprise, company"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verarbeiten",
+      "level": "B1",
+      "en": "to process",
+      "pos": "verb",
+      "expect": {
+        "def": "to process, to handle, to manufacture"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Nachfrage",
+      "level": "B1",
+      "en": "demand; inquiry",
+      "pos": "noun",
+      "expect": {
+        "def": "request, inquiry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verwaltung",
+      "level": "B1",
+      "en": "administration",
+      "pos": "noun",
+      "expect": {
+        "def": "administration, management, administering, managing"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Zusammenfassung",
+      "level": "B1",
+      "en": "summary",
+      "pos": "noun",
+      "expect": {
+        "def": "summary, compilation, summing up, recapitulation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erfolgen",
+      "level": "B1",
+      "en": "to take place, ensue",
+      "pos": "verb",
+      "expect": {
+        "def": "to happen, occur, take place; to follow, ensue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Macht",
+      "level": "B1",
+      "en": "power",
+      "pos": "noun",
+      "expect": {
+        "def": "power, authority"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Bundestag",
+      "level": "B1",
+      "en": "German federal parliament",
+      "pos": "noun",
+      "expect": {
+        "def": "Bundestag; federal/state parliament"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:fliehen",
+      "level": "B1",
+      "en": "to flee",
+      "pos": "verb",
+      "expect": {
+        "def": "to flee; to escape; to diverge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:identisch",
+      "level": "B1",
+      "en": "identical",
+      "pos": "adjective",
+      "expect": {
+        "def": "sich vollkommen gleichend, vollkommen gleich, vollkommen gleichartig, übereinstimmend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:tatsächlich",
+      "level": "B1",
+      "en": "actual(ly), real(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "actual, real, factual"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fachkraft",
+      "level": "B1",
+      "en": "skilled worker",
+      "pos": "noun",
+      "expect": {
+        "def": "expert; trained professional"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gewerbe",
+      "level": "B1",
+      "en": "trade, business",
+      "pos": "noun",
+      "expect": {
+        "def": "business, commercial enterprise, industry, trade"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:festgefahren",
+      "level": "B1",
+      "en": "stuck, deadlocked",
+      "pos": "adjective",
+      "expect": {
+        "def": "entrenched, stuck, bogged down"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umfassend",
+      "level": "B1",
+      "en": "comprehensive",
+      "pos": "adjective",
+      "expect": {
+        "def": "viele, beinahe alle Teilgebiete betreffend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Bund",
+      "level": "B1",
+      "en": "federation, federal level",
+      "pos": "noun",
+      "expect": {
+        "def": "alliance, federation, league"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Landesregierung",
+      "level": "B1",
+      "en": "state government",
+      "pos": "noun",
+      "expect": {
+        "def": "state government; federal government"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fraktion",
+      "level": "B1",
+      "en": "parliamentary group",
+      "pos": "noun",
+      "expect": {
+        "def": "faction, parliamentary group"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Wahlzettel",
+      "level": "B1",
+      "en": "ballot paper",
+      "pos": "noun",
+      "expect": {
+        "def": "ballot paper, ballot"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gültig",
+      "level": "B1",
+      "en": "valid",
+      "pos": "adjective",
+      "expect": {
+        "def": "valid, validated, legal"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:konservativ",
+      "level": "B1",
+      "en": "conservative",
+      "pos": "adjective",
+      "expect": {
+        "def": "althergebracht, herkömmlich, wie bisher üblich, auf alte Werte besinnend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kompetenz",
+      "level": "B1",
+      "en": "competence",
+      "pos": "noun",
+      "expect": {
+        "def": "competence, power, authority"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bestätigen",
+      "level": "B1",
+      "en": "to confirm",
+      "pos": "verb",
+      "expect": {
+        "def": "to confirm, to corroborate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:debattieren",
+      "level": "B1",
+      "en": "to debate",
+      "pos": "verb",
+      "expect": {
+        "def": "To discuss an issue formally, giving different views."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ungerecht",
+      "level": "B1",
+      "en": "unjust",
+      "pos": "adjective",
+      "expect": {
+        "def": "unjust, unfair"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Gerät",
+      "level": "A1",
+      "en": "device",
+      "pos": "noun",
+      "expect": {
+        "def": "device, tool, appliance, machine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:verdienen",
+      "level": "A1",
+      "en": "to earn",
+      "pos": "verb",
+      "expect": {
+        "def": "to make money, to earn; to deserve"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:Rad fahren",
+      "level": "A1",
+      "en": "to cycle",
+      "pos": "phrase",
+      "expect": {
+        "def": "to cycle, to ride a bike"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:gemütlich",
+      "level": "A1",
+      "en": "cosy",
+      "pos": "adjective",
+      "expect": {
+        "def": "cosy, gemütlich"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Jacke",
+      "level": "A1",
+      "en": "jacket",
+      "pos": "noun",
+      "expect": {
+        "def": "An outer garment with sleeves, worn over other clothes."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:passen",
+      "level": "A1",
+      "en": "to fit",
+      "pos": "verb",
+      "expect": {
+        "def": "to fit; to suit, to be suitable for"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Kreuzung",
+      "level": "A1",
+      "en": "crossroads",
+      "pos": "noun",
+      "expect": {
+        "def": "crossing, intersection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Bauch",
+      "level": "A2",
+      "en": "belly",
+      "pos": "noun",
+      "expect": {
+        "def": "abdomen, belly"
+      },
+      "def": ""
+    }
+  ]
+}

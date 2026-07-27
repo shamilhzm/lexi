@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"repeat\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:gar",
+      "level": "B1",
+      "en": "at all",
+      "pos": "adverb",
+      "expect": {
+        "def": "at all; even; even; expressing a climax"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:innerhalb",
+      "level": "B1",
+      "en": "within, inside",
+      "pos": "preposition",
+      "expect": {
+        "def": "within, inside (spatial); within, in the space of (temporal)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schaffen",
+      "level": "B1",
+      "en": "to create, to call into being",
+      "pos": "verb",
+      "expect": {
+        "def": "to create, to call into being; to create, make, form, shape"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Artikel",
+      "level": "A2",
+      "en": "article",
+      "pos": "noun",
+      "expect": {
+        "def": "article; article, item, ware"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:raus",
+      "level": "A2",
+      "en": "out, out of there, outta there",
+      "pos": "adverb",
+      "expect": {
+        "def": "out, out of there, outta there; out, out of here, outta here"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sache",
+      "level": "A2",
+      "en": "matter, affair, case, question, issue",
+      "pos": "noun",
+      "expect": {
+        "def": "matter, affair, case, question, issue; subject, matter, business"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:tot",
+      "level": "A2",
+      "en": "dead, deceased",
+      "pos": "adjective",
+      "expect": {
+        "def": "dead, deceased; dead, in most of the senses also present in English"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Zeichen",
+      "level": "A2",
+      "en": "sign, token",
+      "pos": "noun",
+      "expect": {
+        "def": "sign, token (object representing something); sign, indication (fact that reveals an underlying state)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:außerhalb",
+      "level": "B1",
+      "en": "outside, beyond",
+      "pos": "preposition",
+      "expect": {
+        "def": "outside, beyond; outside"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:greifen",
+      "level": "B1",
+      "en": "to grab",
+      "pos": "verb",
+      "expect": {
+        "def": "to grab; to grasp; to grip (something); to grab; to seize; to snatch (in an aggressive way)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Leitung",
+      "level": "B1",
+      "en": "cable, line, wire",
+      "pos": "noun",
+      "expect": {
+        "def": "cable, line, wire; line"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Alkohol",
+      "level": "A2",
+      "en": "alcohol, ethanol",
+      "pos": "noun",
+      "expect": {
+        "def": "alcohol, ethanol (substance); alcohol, liquor (beverage containing the former substance)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Manager",
+      "level": "A2",
+      "en": "manager",
+      "pos": "noun",
+      "expect": {
+        "def": "manager (see usage notes below) (male or of unspecified sex, sometimes female); agent of an artist or sportsperson (male or of unspecified sex, sometimes female)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schlagen",
+      "level": "A2",
+      "en": "to beat",
+      "pos": "verb",
+      "expect": {
+        "def": "to beat; to hit; to knock; to strike; to punch; to hammer; to pound; to beat; to win against; to defeat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wachsen",
+      "level": "A2",
+      "en": "to grow",
+      "pos": "verb",
+      "expect": {
+        "def": "to grow; to grow, to increase"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dienen",
+      "level": "B1",
+      "en": "to serve",
+      "pos": "verb",
+      "expect": {
+        "def": "to serve; to serve, to be a servant (e.g. a butler or maid)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ursprünglich",
+      "level": "B1",
+      "en": "original, initial, first",
+      "pos": "adjective",
+      "expect": {
+        "def": "original, initial, first; original, authentic, genuine, unadulterated"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verlängerung",
+      "level": "B1",
+      "en": "prolongation",
+      "pos": "noun",
+      "expect": {
+        "def": "prolongation; lengthening (process of making something longer, in space or duration); lengthening (process of becoming longer, in space or duration)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gelangen",
+      "level": "B2",
+      "en": "to reach, get to, end up in",
+      "pos": "verb",
+      "expect": {
+        "def": "to reach, get to, end up in (a place, location); to reach, arrive at (a destination)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wahr",
+      "level": "A2",
+      "en": "true, real",
+      "pos": "adjective",
+      "expect": {
+        "def": "true, real; true, truthful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:betrachten",
+      "level": "B1",
+      "en": "to look at, to consider, to behold",
+      "pos": "verb",
+      "expect": {
+        "def": "to look at, to consider, to behold; to regard, to consider, look upon (something in a certain way)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dicht",
+      "level": "B1",
+      "en": "thick, tight, dense",
+      "pos": "adjective",
+      "expect": {
+        "def": "thick, tight, dense; tight, intoxicated"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:durchführen",
+      "level": "B1",
+      "en": "to perform, to conduct",
+      "pos": "verb",
+      "expect": {
+        "def": "to perform, to conduct (a study, a ceremony, an operation, etc.); to implement, to carry out, to execute, to put into action (a decision, measures, etc.)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Meldung",
+      "level": "B1",
+      "en": "report, notification",
+      "pos": "noun",
+      "expect": {
+        "def": "report, notification; report, news item"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:richten",
+      "level": "B1",
+      "en": "to direct, to point",
+      "pos": "verb",
+      "expect": {
+        "def": "to direct, to point; to direct, to address"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Seele",
+      "level": "B1",
+      "en": "soul",
+      "pos": "noun",
+      "expect": {
+        "def": "soul; human being, soul"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Statistik",
+      "level": "B1",
+      "en": "statistics",
+      "pos": "noun",
+      "expect": {
+        "def": "statistics; statistics, stats"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Versammlung",
+      "level": "B1",
+      "en": "gathering, meeting, assembly, congregation",
+      "pos": "noun",
+      "expect": {
+        "def": "gathering, meeting, assembly, congregation; assembly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hinterlassen",
+      "level": "B2",
+      "en": "to leave, to leave behind",
+      "pos": "verb",
+      "expect": {
+        "def": "to leave, to leave behind (after leaving a location); to leave, to leave behind, to be survived by (after demise)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Kabinett",
+      "level": "B2",
+      "en": "cabinet, ministry",
+      "pos": "noun",
+      "expect": {
+        "def": "cabinet, ministry; cabinet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zugänglich",
+      "level": "B2",
+      "en": "accessible, open, able to be factually or legally reached or accessed",
+      "pos": "adjective",
+      "expect": {
+        "def": "accessible, open, able to be factually or legally reached or accessed; amenable, open"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schießen",
+      "level": "A2",
+      "en": "to shoot",
+      "pos": "verb",
+      "expect": {
+        "def": "to shoot; to fire; to kick; to shoot"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schwach",
+      "level": "A2",
+      "en": "weak, lacking in strength",
+      "pos": "adjective",
+      "expect": {
+        "def": "weak, lacking in strength; weak"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wild",
+      "level": "A2",
+      "en": "wild",
+      "pos": "adjective",
+      "expect": {
+        "def": "wild (of animals, etc.); wild, unrestrained, raucous (of behavior, parties, etc.)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:kommend",
+      "level": "B1",
+      "en": "coming, next",
+      "pos": "adjective",
+      "expect": {
+        "def": "coming, next; next, future (holding a certain position in the future, especially after or just before the decision is made)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Auszeit",
+      "level": "B2",
+      "en": "time-out",
+      "pos": "noun",
+      "expect": {
+        "def": "time-out; time-out, hiatus"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Kulisse",
+      "level": "B2",
+      "en": "scenery",
+      "pos": "noun",
+      "expect": {
+        "def": "scenery; set; flat; scenery; setting; background (place or context in which something happens)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:blöd",
+      "level": "A2",
+      "en": "stupid, dim-witted",
+      "pos": "adjective",
+      "expect": {
+        "def": "stupid, dim-witted; stupid, damn; used as a general descriptor towards things one is frustrated with"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lieb",
+      "level": "A2",
+      "en": "lovable",
+      "pos": "adjective",
+      "expect": {
+        "def": "lovable; dear; darling; sweet; good-hearted; kind; dear"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:rauf",
+      "level": "A2",
+      "en": "up, up here, upstairs",
+      "pos": "adverb",
+      "expect": {
+        "def": "up, up here, upstairs (towards the speaker); up, up there, upstairs (away from the speaker)"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:empfehlen",
+      "level": "B1",
+      "en": "to recommend",
+      "pos": "verb",
+      "expect": {
+        "def": "to propose, to advise in favor of; to commend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Anschluss",
+      "level": "B1",
+      "en": "connection (transport)",
+      "pos": "noun",
+      "expect": {
+        "def": "connection, joining"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Geldautomat",
+      "level": "B1",
+      "en": "ATM, cash machine",
+      "pos": "noun",
+      "expect": {
+        "def": "ATM, automated teller machine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:abheben",
+      "level": "B1",
+      "en": "to withdraw (money)",
+      "pos": "verb",
+      "expect": {
+        "def": "to lift off; to answer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:versichert",
+      "level": "B1",
+      "en": "insured",
+      "pos": "adjective",
+      "expect": {
+        "def": "insured, covered"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Mietwagen",
+      "level": "B1",
+      "en": "rental car",
+      "pos": "noun",
+      "expect": {
+        "def": "rental car, hired car"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Navi",
+      "level": "B1",
+      "en": "sat-nav, GPS",
+      "pos": "noun",
+      "expect": {
+        "def": "GPS receiver; satellite navigation system"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:komfortabel",
+      "level": "B1",
+      "en": "comfortable",
+      "pos": "adjective",
+      "expect": {
+        "def": "mit Annehmlichkeiten, Komfort, guter technischer Ausrüstung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:belegt",
+      "level": "B1",
+      "en": "occupied, fully booked",
+      "pos": "adjective",
+      "expect": {
+        "def": "documented; proven; attested"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:anmelden",
+      "level": "B1",
+      "en": "to register, to check in",
+      "pos": "verb",
+      "expect": {
+        "def": "Bescheid sagen, dass etwas geschehen wird"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Nebel",
+      "level": "B1",
+      "en": "fog",
+      "pos": "noun",
+      "expect": {
+        "def": "fog, mist, haze"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Hitze",
+      "level": "B1",
+      "en": "heat",
+      "pos": "noun",
+      "expect": {
+        "def": "Very warm temperature; hot weather."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kälte",
+      "level": "B1",
+      "en": "cold",
+      "pos": "noun",
+      "expect": {
+        "def": "coldness; cold"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gewitter",
+      "level": "B1",
+      "en": "thunderstorm",
+      "pos": "noun",
+      "expect": {
+        "def": "thunderstorm, lightning storm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Dürre",
+      "level": "B1",
+      "en": "drought",
+      "pos": "noun",
+      "expect": {
+        "def": "drought, aridity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Hoch",
+      "level": "B1",
+      "en": "high pressure system",
+      "pos": "noun",
+      "expect": {
+        "def": "high, anticyclone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Brise",
+      "level": "B1",
+      "en": "breeze",
+      "pos": "noun",
+      "expect": {
+        "def": "A light, gentle wind."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Orkan",
+      "level": "B1",
+      "en": "hurricane, violent storm",
+      "pos": "noun",
+      "expect": {
+        "def": "hurricane; strong windstorm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Unwetter",
+      "level": "B1",
+      "en": "severe storm, bad weather",
+      "pos": "noun",
+      "expect": {
+        "def": "extremes, Schaden verursachendes Wetter"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Eis",
+      "level": "B1",
+      "en": "ice",
+      "pos": "noun",
+      "expect": {
+        "def": "ice; ice cream"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Schneedecke",
+      "level": "B2",
+      "en": "snow cover",
+      "pos": "noun",
+      "expect": {
+        "def": "snow cover, blanket of snow"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wetterlage",
+      "level": "B1",
+      "en": "weather situation",
+      "pos": "noun",
+      "expect": {
+        "def": "atmospheric conditions, weather conditions"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Niederschlag",
+      "level": "B1",
+      "en": "precipitation",
+      "pos": "noun",
+      "expect": {
+        "def": "fallout, condensation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aufhellen",
+      "level": "B1",
+      "en": "to brighten up, to clear up",
+      "pos": "verb",
+      "expect": {
+        "def": "to lighten; to clear up"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sich abkühlen",
+      "level": "B1",
+      "en": "to cool down",
+      "pos": "verb",
+      "expect": {
+        "def": "To become cooler; also to calm down."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schwül",
+      "level": "B1",
+      "en": "muggy, sultry",
+      "pos": "adjective",
+      "expect": {
+        "def": "sultry, close, oppressive, muggy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bedeckt",
+      "level": "B1",
+      "en": "overcast",
+      "pos": "adjective",
+      "expect": {
+        "def": "covered, coated, capped"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wechselhaft",
+      "level": "B2",
+      "en": "changeable, unsettled",
+      "pos": "adjective",
+      "expect": {
+        "def": "changeable, variable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das T-Shirt",
+      "level": "B1",
+      "en": "T-shirt",
+      "pos": "noun",
+      "expect": {
+        "def": "T-shirt, tee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Bluse",
+      "level": "A2",
+      "en": "blouse",
+      "pos": "noun",
+      "expect": {
+        "def": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Kapuzenpullover",
+      "level": "B1",
+      "en": "hoodie",
+      "pos": "noun",
+      "expect": {
+        "def": "hoodie, hoodie sweater"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sandalen",
+      "level": "A2",
+      "en": "sandals",
+      "pos": "noun",
+      "expect": {
+        "def": "Open shoes with straps, worn in warm weather."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:enganliegend",
+      "level": "B2",
+      "en": "tight-fitting, form-fitting",
+      "pos": "adjective",
+      "expect": {
+        "def": "close-fitting, snug"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dankbar",
+      "level": "B1",
+      "en": "grateful",
+      "pos": "adjective",
+      "expect": {
+        "def": "grateful, thankful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verlegen",
+      "level": "B1",
+      "en": "embarrassed",
+      "pos": "adjective",
+      "expect": {
+        "def": "abashed, embarrassed, confused, disconcerted, self-conscious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schüchtern",
+      "level": "B1",
+      "en": "shy, timid",
+      "pos": "adjective",
+      "expect": {
+        "def": "shy, timid, bashful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:freundlich",
+      "level": "A2",
+      "en": "friendly, kind",
+      "pos": "adjective",
+      "expect": {
+        "def": "friendly, benign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachdenklich",
+      "level": "B1",
+      "en": "thoughtful, pensive",
+      "pos": "adjective",
+      "expect": {
+        "def": "Deep in thought; quietly reflective."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:empfindlich",
+      "level": "B1",
+      "en": "sensitive, delicate",
+      "pos": "adjective",
+      "expect": {
+        "def": "sensitive, tender"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verliebt",
+      "level": "B1",
+      "en": "in love",
+      "pos": "adjective",
+      "expect": {
+        "def": "in love, enamored"
+      },
+      "def": ""
+    }
+  ]
+}
