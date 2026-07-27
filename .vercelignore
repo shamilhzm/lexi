@@ -16,15 +16,14 @@ dist
 # the app fetches the finished JSON from public/data at runtime.
 scripts
 
-# Local-only material, all gitignored too: DaF textbook scans and design
-# screenshots (~444 MB), and the parked legacy apps.
+# Local-only material, gitignored too: DaF textbook scans and design screenshots
+# (~444 MB), the source for the A1/A2 corpus work.
 reference
-to_be_deleted_or_archived
 
-# Docs, print assets and design sources aren't part of the app bundle.
+# Docs (including the archive and its print assets) and design sources aren't
+# part of the app bundle.
 docs
 design
-print-and-play
 
 *.local
 .DS_Store
