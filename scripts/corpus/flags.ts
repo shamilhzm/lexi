@@ -4,7 +4,7 @@
 // it lists every flagged card against its current corpus data, ready for
 // review — fix the card in the pipeline, never by hand-editing JSON.
 //
-//   npm run corpus:flags -- path/to/lexi-backup.json [more-backups.json …]
+//   npm run corpus:flags -- path/to/lexi-backup.json [lexi-flags-*.json …]
 import { readFileSync } from 'node:fs';
 import { PATHS } from './config.ts';
 import { readJSON, type Word } from './lib.ts';
@@ -26,8 +26,17 @@ for (const f of files) {
     console.error(`! ${f}: not readable JSON — skipped`);
     continue;
   }
+  // Two shapes are accepted. A full backup carries the flags under its settings;
+  // a flags-only report (Profile → "Save the report") carries them at the top
+  // level, so a learner can send a correction without sending their whole
+  // progress history with it.
+  const asReport = backup as { app?: string; flags?: FlagEvent[] };
+  if (asReport?.app === 'lexi-flags' && Array.isArray(asReport.flags)) {
+    for (const e of asReport.flags) if (e?.id && !flags.has(e.id)) flags.set(e.id, e);
+    continue;
+  }
   const raw = (backup as { settings?: Record<string, string> })?.settings?.['lexi.flags.v1'];
-  if (!raw) { console.error(`! ${f}: no flags in this backup`); continue; }
+  if (!raw) { console.error(`! ${f}: no flags in this file`); continue; }
   try {
     for (const e of JSON.parse(raw) as FlagEvent[]) {
       if (e?.id && !flags.has(e.id)) flags.set(e.id, e);
@@ -45,7 +54,7 @@ const missing: FlagEvent[] = [];
 for (const e of flags.values()) (byId.has(e.id) ? found : missing).push(e);
 const at = (e: FlagEvent) => new Date(e.at).toISOString().slice(0, 10);
 
-console.log(`${flags.size} flagged card(s) across ${files.length} backup(s):\n`);
+console.log(`${flags.size} flagged card(s) across ${files.length} file(s):\n`);
 for (const e of found.sort((a, b) => b.at - a.at)) {
   const w = byId.get(e.id)!;
   console.log(`[${w.level}] ${w.term} — ${w.en}   (flagged ${at(e)})`);

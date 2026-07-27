@@ -548,6 +548,17 @@ export function flagCard(id: string, term: string) {
   try { localStorage.setItem(FLAGS_KEY, JSON.stringify(cur.slice(-200))); } catch { /* quota */ }
   emit();
 }
+/** The flags alone, as a file small enough to send.
+ *
+ *  Flags have always ridden the full backup, which closes the loop for a solo
+ *  maintainer and not for a class (persona C2 #53): reporting one bad card meant
+ *  sending your entire progress history to your teacher. This carries the reports
+ *  and nothing else — no schedule, no streak, no visit log. `corpus:flags` reads
+ *  it alongside backups. */
+export function exportFlags(): string {
+  return JSON.stringify({ app: 'lexi-flags', v: 1, exportedAt: new Date().toISOString(), flags: flags() }, null, 2);
+}
+
 /** Withdraw a flag. Flagging is one tap and so is mistyping it — without this the
  *  list is a place things only ever accumulate, which is why nobody opens it. */
 export function unflagCard(id: string) {

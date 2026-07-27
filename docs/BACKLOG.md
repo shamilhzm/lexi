@@ -404,6 +404,12 @@ structural ones; what remains is listed under Next.
   system twice under two names. Keeping the title keeps the `gram:` card id and any
   FSRS progress riding on it. *Verben mit Präpositionen* 169 → 347 chars + 5
   exercises; *Funktionsverbgefüge* 168 → 401 + 6; *Nominalstil* 140 → 390 + 5.
+- **#53 — a correction can now travel without the learner's history.** Flags rode
+  the full backup, which closes the loop for a solo maintainer and not for a class:
+  reporting one bad card meant handing your teacher your entire progress log.
+  Profile → **Save the report** writes a flags-only file (`{app:'lexi-flags'}`) and
+  `corpus:flags` reads both shapes. Verified end to end — a report file resolves
+  through the maintainer script against live corpus data.
 - **#32 · #47 — three new C2 points.** *Stilebenen* (register: erwerben · kaufen ·
   sich zulegen — the remaining vocabulary problem at C2 is not meaning but height,
   and a mismatch is the clearest non-native marker); *Idiomatik: wörtlich vs.
@@ -686,6 +692,44 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
 _The example work is finished: ≥2 examples on every card at every level, no card
 opens with a scrape, and `corpus:examples` reports zero in every defect class.
 The gates (`corpus:validate`, the audit, three tests) are what keep it there._
+
+### The advanced-learner remainder (personas B2 · C1 · C2)
+
+Eight of the thirty B2/C1/C2 findings are still open. They are listed here with
+what each actually costs, because most are content programmes rather than code and
+were being carried as one undifferentiated "advanced" item.
+
+- **Definitions that discriminate senses, not enumerate translations** (C1 #44 ·
+  M, human-gated). *Why:* `def` is largely raw Wiktionary sense-listing — *das
+  Salz*: "salt, table salt, sal; salt"; *die Uhr*: "hours, o'clock (…); clock,
+  watch (…)". At C1 a definition should tell two senses apart, which a list of
+  synonyms cannot. **~750 cards** trip a repeats-the-gloss check, though that
+  over-counts legitimate two-sense entries — the first task is a tighter measure.
+  *Do:* audit → batch → author via the existing `fix-authored` expect-guarded path.
+- **A German definition of a German word** (B2 #38 · M). *Why:* everything is
+  de→en or en→de; B2+ needs to meet a word explained in German. *Do:* author `defDe`
+  for C1/C2 first (848 cards), reveal it above the English one at those levels.
+  Depends on the definition pass above — do them as one programme, not two.
+- **Word families** (C1 #45 · M). *nehmen / Nahme / benehmen / angenehm* is one
+  story told as unrelated cards. *Do:* **not** by stem-guessing — the conjugation
+  engine's own gate exists because German morphology defeats naive splitting.
+  Author family ids on the cards that have one, link them in Wortkarte.
+- **Discourse-level cloze** (B2 #35 · S–M). Single-word gaps in single sentences
+  only; B2 needs a paragraph with the connectors removed. Blocked on having
+  paragraphs: the reader ships sentences. Needs a short authored text set.
+- **Reading-first mode above B2** (C1 #49 · M). Lesen exists; this is the surface
+  around it — fewer numbers, longer texts, marginal glosses.
+- **Extended production** (C2 #57 · L, and partly a research question). Diktat is
+  the only writing and it works precisely because the target is known to the
+  character. Free composition cannot be graded honestly without a model, and a
+  drill that marks correct German wrong is worse than no drill. Decide the shape
+  before building.
+- **Recognition vs. production as separate FSRS tracks** (B2 #34 · XS to verify).
+  Likely **already true**: the flip card is keyed `word.id` and every drill mode is
+  its own `gym:<mode>:<wordId>` card, so the two are scheduled independently. Needs
+  a test pinning it, not an implementation.
+- **The name / aesthetic question** (C2 #58) — a decision, not a build item; see
+  Part H of the session-quality plan.
 
 - **Run the *real* friend session** (S — the last friend-readiness leftover). The
   flagged-cards list, typo tolerance and the day-2 habit anchor all shipped; what
