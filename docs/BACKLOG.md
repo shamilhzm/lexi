@@ -378,6 +378,30 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — word families, derived rather than guessed (C1 #45)
+
+- **`nehmen / annehmen / benehmen / unternehmen / entnehmen` is one system, told as
+  fifteen unrelated cards.** At C1 the prefix *is* the lesson: the base carries the
+  meaning and the prefix bends it. The reveal now shows the family.
+- **Derived from the lexicon, and only for verbs.** The guard is the one the
+  conjugation engine already uses: a prefix counts only if what remains is itself a
+  verb the lexicon knows — which is why *antworten* is not *an* + *tworten*. That
+  yields **146 families over 772 verb cards**, every base a real verb. Nouns and
+  adjectives are excluded deliberately: *Nahme* and *angenehm* belong to the nehmen
+  family too, but recovering them needs derivational morphology the app has no
+  reliable model for, and a family that is 60% right teaches 40% wrong.
+  *My first count said 219 — it double-counted lemmas the corpus carries at two
+  levels. A family is a set of words, not of cards.*
+- **Two implementation notes worth keeping.** The lookup is a prebuilt reverse
+  index rather than a `useMemo` in the component: the memo version landed *after an
+  early return*, which is the same rules-of-hooks violation fixed in `RulePanel`
+  earlier the same day — the fix belonged in the library, not the view. And 10
+  tests cover what the derivation must *refuse*, since a wrong family attaches the
+  wrong story to a word and is worse than none.
+- *Not visually confirmed:* the rendered `Family` line. Stepping a randomised
+  session to a verb that has relatives cost more than the confirmation was worth;
+  it reuses the `TermList` that renders `Syn`/`Opp` immediately above it.
+
 ### Shipped 2026-07-27 — #34 was already true, and is now pinned
 
 - **Recognition and production were never one schedule.** The persona asked for
@@ -804,10 +828,6 @@ were being carried as one undifferentiated "advanced" item.
   de→en or en→de; B2+ needs to meet a word explained in German. *Do:* author `defDe`
   for C1/C2 first (848 cards), reveal it above the English one at those levels.
   Depends on the definition pass above — do them as one programme, not two.
-- **Word families** (C1 #45 · M). *nehmen / Nahme / benehmen / angenehm* is one
-  story told as unrelated cards. *Do:* **not** by stem-guessing — the conjugation
-  engine's own gate exists because German morphology defeats naive splitting.
-  Author family ids on the cards that have one, link them in Wortkarte.
 - **Discourse-level cloze** (B2 #35 · S–M). Single-word gaps in single sentences
   only; B2 needs a paragraph with the connectors removed. Blocked on having
   paragraphs: the reader ships sentences. Needs a short authored text set.

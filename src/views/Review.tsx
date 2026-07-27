@@ -17,6 +17,8 @@ import { useStore } from '../useStore.ts';
 // can coexist in this file.
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
 import { speak, onSystemVoice } from '../lib/tts.ts';
+import { familyOf } from '../lib/family.ts';
+import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
@@ -321,6 +323,8 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   const card = item.word;
   const drill = item.type !== 'flip';
   const grammar = card.kind === 'grammar';
+  // No memo: familyOf keeps its own reverse index, so this is a Map lookup.
+  const family = grammar ? [] : familyOf(card, WORDS);
   const isNew = statusOf(item.srsId) === 'new';
   // A grammar card renders as a practical exercise when its point is in the bank.
   const gpoint = grammar && gmap ? gmap.get(`${card.level}::${card.term}`) : undefined;
@@ -569,6 +573,15 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                   <RevealBlock className="space-y-1.5">
                     <TermList label="Syn" terms={card.syn} />
                     <TermList label="Opp" terms={card.ant} tone="red" />
+                  </RevealBlock>
+                )}
+                {/* The word family (persona C1 #45). nehmen / annehmen / benehmen
+                    / unternehmen is one system told as separate cards; at this
+                    level the prefix is the lesson. Derived, verbs only — see
+                    lib/family.ts for why nouns are excluded. */}
+                {family.length > 0 && (
+                  <RevealBlock className="space-y-1.5">
+                    <TermList label="Family" terms={family} />
                   </RevealBlock>
                 )}
                 {!grammar && <CardSource id={card.id} />}
