@@ -16,6 +16,7 @@
     "corpus:coverage": "node scripts/corpus/coverage.ts",
     "corpus:examples": "node scripts/corpus/examples.ts",
     "corpus:definitions": "node scripts/corpus/definitions.ts",
+    "corpus:germandef": "node scripts/corpus/germandef.ts",
     "corpus:casefix": "node scripts/corpus/casefix.ts",
     "corpus:frontfix": "node scripts/corpus/frontfix.ts",
     "corpus:build": "node scripts/corpus/build.ts",

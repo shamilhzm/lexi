@@ -13,7 +13,15 @@ export interface Word {
   gender: 'der' | 'die' | 'das' | null;
   plural: string | null;
   ipa: string | null;
-  def: string | null;  // definition (for grammar: the rule)
+  def: string | null;  // English learner definition (for grammar: the rule)
+  /** German definition of a German word — the monolingual layer B2 upward needs,
+   *  and the level at which a bilingual gloss stops being enough (persona B2 #38).
+   *
+   *  Separate from `def` rather than replacing it: 367 of these shipped *inside*
+   *  `def`, where 318 sat at A1–B1 on an English-base card, so a beginner met a
+   *  definition they could not read. Same text, right field, shown to the readers
+   *  it is for. */
+  defDe?: string | null;
   syn: string[];
   ant: string[];
   ex: Example[];

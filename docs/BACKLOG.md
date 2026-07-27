@@ -378,6 +378,36 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — a German definition, for the readers who can use one (B2 #38)
+
+- **367 German definitions were in the English field.** Real ones, from German
+  Wiktionary — *der Apfel*: "rundliche Frucht des Apfelbaums mit Schale,
+  Fruchtfleisch und Kerngehäuse". Exactly what a B2+ learner wants, and exactly
+  what an A1 learner cannot read: **318 of the 367 sat at A1–B1**, on an app whose
+  premise is an English base. The text was never the problem; the field was.
+- **`defDe` is now its own field** (`corpus:germandef` migrates, never deletes),
+  and the reveal shows it under **Auf Deutsch** — gated on the *learner's* placement
+  level rather than the card's, because it is a fact about who is reading. That
+  closes persona B2 #38, which asked for a German definition of a German word,
+  using content the corpus already had and was showing to the wrong people.
+- **The vacated cards became a visible queue, not a silence.** `corpus:definitions`
+  now reports cards carrying no English definition (301, of which 300 have a German
+  one waiting), so the migration shows up as work rather than disappearing from the
+  numbers. **All 67 A1 cards were authored back the same day**, so the most-seen
+  vocabulary never sat blank.
+- **Two corpus bugs surfaced while reading them.** *die Geschwister* — siblings —
+  was defined as "Gesamtheit der Schwestern", the sisters only. And *mir*, the
+  dative of *ich*, carried the definition of **an oriental carpet**: a different
+  word, wrongly attached. The first is corrected, the second removed, because a
+  wrong definition is worse than none.
+- *Verified:* the migration and the gate are pinned by tests (no German left in
+  `def`, no card holding the same text twice, and the B2 threshold asserted at
+  every level). *Not verified visually:* the `Auf Deutsch` block itself — the
+  session queue is randomised and I could not deterministically surface one of the
+  66 A1 cards that carry a `defDe` before the browser tooling became the expensive
+  part. The block is six lines of JSX reusing `RevealBlock` exactly as the
+  `Definition` block two lines above it does.
+
 ### Shipped 2026-07-27 — the definition audit, and the first batch (C1 #44)
 
 - **`corpus:definitions` — a measure, because the old number was a guess.** My

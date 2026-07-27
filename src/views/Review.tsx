@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
@@ -27,7 +27,8 @@ import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
-import type { Target, Word } from '../types.ts';
+import { ALL_LEVELS } from '../types.ts';
+import type { Target, Word, CEFR } from '../types.ts';
 
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus', separable: 'Trennbar', reflexive: 'Reflexiv', dictation: 'Diktat' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
@@ -59,12 +60,21 @@ function pickExercise(point: GPoint, seed: string) {
   return point.exercises[Math.abs(h) % point.exercises.length];
 }
 
+/** Does this learner get the monolingual layer? A German definition is the right
+ *  thing to show from B2 up and the wrong thing below it, so the gate is the
+ *  learner's own level rather than the card's — it is a fact about who is reading.
+ *  Exported so the rule is testable on its own; the JSX only consumes it. */
+export function showsGermanDefs(placed: CEFR | null): boolean {
+  return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
+}
+
 export default function Review({ target, onExit, onPick, onDrills, firstRun = false, exam = false }:
   { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean;
     /** Exam conditions: no hints, no rules, no "why?" — see NoHelpCtx. */
     exam?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
+  const germanDefs = showsGermanDefs(placementLevel());
   // An interrupted session is resumed rather than rebuilt: the builder is
   // randomised, so a rebuild is a *different* queue and the learner's place in it
   // is gone. See session.ts.
@@ -539,6 +549,16 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 {card.def && (
                   <RevealBlock label={grammar ? 'How it works' : 'Definition'}>
                     <p className="text-txt text-sm leading-relaxed whitespace-pre-line">{card.def}</p>
+                  </RevealBlock>
+                )}
+                {/* The monolingual layer (persona B2 #38). Everything else on this
+                    card is de→en; at B2 the useful question stops being "what is
+                    this in English" and becomes "how would a German explain it".
+                    Gated on the *learner's* level rather than the card's, because
+                    it is a fact about who is reading. */}
+                {!grammar && card.defDe && germanDefs && (
+                  <RevealBlock label="Auf Deutsch">
+                    <p lang="de" className="text-txt text-sm leading-relaxed">{card.defDe}</p>
                   </RevealBlock>
                 )}
                 {!grammar && <FalseFriendNote term={card.term} />}

@@ -18,6 +18,8 @@ import {
 } from '../views/Fundamentals.tsx';
 import { spellingDiff } from '../views/GrammarDrill.tsx';
 import { ARCHAIC_SPELLING } from '../../scripts/corpus/lib.ts';
+import { showsGermanDefs } from '../views/Review.tsx';
+import type { Word } from '../types.ts';
 import { FOCUS_CHOICES } from '../views/Settings.tsx';
 import { termGloss } from '../components/RulePanel.tsx';
 import { conjugate, setKnownVerbs } from './conjugate.ts';
@@ -637,5 +639,34 @@ describe('ARCHAIC_SPELLING', () => {
     for (const s of ['der Fuß', 'ein großes Haus', 'die Straße', 'weiß', 'süß']) {
       expect(ARCHAIC_SPELLING.test(s), s).toBe(false);
     }
+  });
+});
+
+// The monolingual layer (persona B2 #38). 367 German definitions shipped inside
+// `def`, where 318 sat at A1–B1 on an English-base card — right text, wrong field,
+// wrong reader. corpus:germandef moved them to `defDe`; these pin both halves:
+// that the migration is complete, and that the layer is shown to B2 and up only.
+describe('German definitions (defDe)', () => {
+  const vocab: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
+
+  it('shows the German layer from B2 up, and never below it', () => {
+    expect(showsGermanDefs(null)).toBe(false);
+    for (const l of ['A1', 'A2', 'B1'] as const) expect(showsGermanDefs(l), l).toBe(false);
+    for (const l of ['B2', 'C1', 'C2'] as const) expect(showsGermanDefs(l), l).toBe(true);
+  });
+
+  it('left no German definition behind in the English field', () => {
+    const german = /\b(der|die|das|dass|eine|einen|einem|nicht|werden|wird|sich|beschaffen)\b/;
+    const stragglers = vocab.filter((w) => {
+      if (w.kind !== 'word' || !w.def) return false;
+      const outside = w.def.replace(/\([^)]*\)/g, ' ');   // an English def may quote German
+      return german.test(outside) && !german.test(w.en ?? '') && /[äöüß]|\b(der|die|das|dass)\b/.test(outside);
+    });
+    expect(stragglers.map((w) => w.id)).toEqual([]);
+  });
+
+  it('never stores the same text in both fields', () => {
+    const same = vocab.filter((w) => w.defDe && w.def && w.defDe.trim() === w.def.trim());
+    expect(same.map((w) => w.id)).toEqual([]);
   });
 });

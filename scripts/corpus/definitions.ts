@@ -105,6 +105,16 @@ for (const k of CLASSES) {
 const flagged = new Set(CLASSES.flatMap((k) => byClass.get(k)!.map((w) => w.id)));
 console.log(`\n  ${flagged.size} distinct cards flagged · ${withDef.length - flagged.size} read as real definitions`);
 
+// Cards carrying no English definition at all. This became a real state when the
+// German definitions moved to `defDe` (corpus:germandef) — reported so that the
+// migration shows up as a queue rather than disappearing from the numbers.
+const missing = corpus.filter((w) => !w.def);
+const withGerman = missing.filter((w) => w.defDe).length;
+if (missing.length) {
+  console.log(`  ${missing.length} card(s) carry no English definition` +
+    (withGerman ? ` — ${withGerman} of them have a German one waiting in defDe` : ''));
+}
+
 console.log('\n  By level:');
 for (const lv of LEVELS) {
   const at = withDef.filter((w) => w.level === lv);
