@@ -23521,7 +23521,7 @@
     "gender": "der",
     "plural": "die Kellner",
     "ipa": "ˈkɛlnɐ",
-    "def": null,
+    "def": "female: die Kellnerin",
     "syn": [
       "Ober",
       "Bedienung"
@@ -23546,7 +23546,7 @@
     ],
     "field": "Dining",
     "kind": "word",
-    "defDe": "female: die Kellnerin"
+    "defDe": null
   },
   {
     "id": "voc:A2:die Bestellung",
@@ -24464,7 +24464,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈapˌfaːʁən",
-    "def": null,
+    "def": "separable: der Zug fährt … ab",
     "syn": [
       "abreisen"
     ],
@@ -24490,7 +24490,7 @@
     ],
     "field": "Town & travel",
     "kind": "word",
-    "defDe": "separable: der Zug fährt … ab"
+    "defDe": null
   },
   {
     "id": "voc:A2:ankommen",
@@ -24636,7 +24636,7 @@
     "gender": "der",
     "plural": "die Kunden",
     "ipa": "ˈkʊndə",
-    "def": null,
+    "def": "female: die Kundin",
     "syn": [
       "Abnehmer",
       "Auftraggeber",
@@ -24667,7 +24667,7 @@
     ],
     "field": "Money & shopping",
     "kind": "word",
-    "defDe": "female: die Kundin"
+    "defDe": null
   },
   {
     "id": "voc:A2:das Sonderangebot",
@@ -25464,7 +25464,7 @@
     "gender": "der",
     "plural": "die Nachbarn",
     "ipa": "ˈnaːxbaːɐ̯",
-    "def": null,
+    "def": "female: die Nachbarin",
     "syn": [],
     "ant": [],
     "ex": [
@@ -25486,7 +25486,7 @@
     ],
     "field": "People",
     "kind": "word",
-    "defDe": "female: die Nachbarin"
+    "defDe": null
   },
   {
     "id": "voc:A2:der Vermieter",
@@ -27926,7 +27926,7 @@
     "gender": "der",
     "plural": "die Patienten",
     "ipa": "paˈtsi̯ɛnt",
-    "def": null,
+    "def": "female: die Patientin",
     "syn": [],
     "ant": [],
     "ex": [
@@ -27948,7 +27948,7 @@
     ],
     "field": "Health",
     "kind": "word",
-    "defDe": "female: die Patientin"
+    "defDe": null
   },
   {
     "id": "voc:A2:der Verwandte",
@@ -28341,7 +28341,7 @@
     "gender": "der",
     "plural": "die Partner",
     "ipa": "ˈpaʁtnɐ",
-    "def": null,
+    "def": "female: die Partnerin",
     "syn": [],
     "ant": [],
     "ex": [
@@ -28363,7 +28363,7 @@
     ],
     "field": "Social life",
     "kind": "word",
-    "defDe": "female: die Partnerin"
+    "defDe": null
   },
   {
     "id": "voc:A2:froh",
@@ -28860,7 +28860,7 @@
     "gender": "der",
     "plural": "die Schüler",
     "ipa": "ˈʃyːlɐ",
-    "def": null,
+    "def": "female: die Schülerin",
     "syn": [],
     "ant": [],
     "ex": [
@@ -28882,7 +28882,7 @@
     ],
     "field": "Education",
     "kind": "word",
-    "defDe": "female: die Schülerin"
+    "defDe": null
   },
   {
     "id": "voc:A2:das Studium",
@@ -29493,7 +29493,7 @@
     "gender": "der",
     "plural": "die Beamten",
     "ipa": "bəˈʔamtə",
-    "def": null,
+    "def": "female: die Beamtin",
     "syn": [],
     "ant": [],
     "ex": [
@@ -29515,7 +29515,7 @@
     ],
     "field": "Administration",
     "kind": "word",
-    "defDe": "female: die Beamtin"
+    "defDe": null
   },
   {
     "id": "voc:A2:das Konto",
@@ -30646,7 +30646,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈhøːʁən",
-    "def": null,
+    "def": "takes the dative: das gehört mir",
     "syn": [],
     "ant": [],
     "ex": [
@@ -30668,7 +30668,7 @@
     ],
     "field": "Core verbs",
     "kind": "word",
-    "defDe": "takes the dative: das gehört mir"
+    "defDe": null
   },
   {
     "id": "voc:A2:gefallen",
@@ -30745,7 +30745,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈʃtatˌfɪndn̩",
-    "def": null,
+    "def": "separable: das Konzert findet … statt",
     "syn": [],
     "ant": [],
     "ex": [
@@ -30767,7 +30767,7 @@
     ],
     "field": "Core verbs",
     "kind": "word",
-    "defDe": "separable: das Konzert findet … statt"
+    "defDe": null
   },
   {
     "id": "voc:A2:teilnehmen",
@@ -49357,7 +49357,7 @@
     "gender": "der",
     "plural": "die Nutzer",
     "ipa": "ˈnʊtsɐ",
-    "def": null,
+    "def": "female: die Nutzerin",
     "syn": [
       "der Benutzer"
     ],
@@ -49381,7 +49381,7 @@
     ],
     "field": "Technology",
     "kind": "word",
-    "defDe": "female: die Nutzerin"
+    "defDe": null
   },
   {
     "id": "voc:B1:die Anwendung",

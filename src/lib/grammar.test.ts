@@ -17,7 +17,7 @@ import {
   wholeWordRe, pickPersonIndex, buildSeparable, isSeparable, buildReflexive, isReflexive, canTransform, pickFocused, dictatable, type Mode,
 } from '../views/Fundamentals.tsx';
 import { spellingDiff } from '../views/GrammarDrill.tsx';
-import { ARCHAIC_SPELLING } from '../../scripts/corpus/lib.ts';
+import { ARCHAIC_SPELLING, isGermanDefinition } from '../../scripts/corpus/lib.ts';
 import { showsGermanDefs } from '../views/Review.tsx';
 import type { Word } from '../types.ts';
 import { FOCUS_CHOICES } from '../views/Settings.tsx';
@@ -656,12 +656,9 @@ describe('German definitions (defDe)', () => {
   });
 
   it('left no German definition behind in the English field', () => {
-    const german = /\b(der|die|das|dass|eine|einen|einem|nicht|werden|wird|sich|beschaffen)\b/;
-    const stragglers = vocab.filter((w) => {
-      if (w.kind !== 'word' || !w.def) return false;
-      const outside = w.def.replace(/\([^)]*\)/g, ' ');   // an English def may quote German
-      return german.test(outside) && !german.test(w.en ?? '') && /[äöüß]|\b(der|die|das|dass)\b/.test(outside);
-    });
+    // Uses the pipeline's own rule rather than a copy: this test *was* a fourth
+    // copy, and it drifted from the shared one within the hour.
+    const stragglers = vocab.filter((w) => w.kind === 'word' && w.def && isGermanDefinition(w.def, w.en ?? ''));
     expect(stragglers.map((w) => w.id)).toEqual([]);
   });
 

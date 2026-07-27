@@ -137,8 +137,17 @@ export const ARCHAIC_SPELLING = new RegExp(
 // German — "(Feminine die See means the sea.)" — and flagging that would punish
 // the disambiguation the audit exists to encourage.
 const GERMAN_MARKERS = /\b(der|die|das|des|dem|den|dass|eine|einen|einem|einer|nicht|werden|wird|sich|zu|von|mit|beim|jemand|etwas|beschaffen)\b/;
+// An English annotation that *quotes* German is not a German definition:
+// "female: die Kellnerin", "separable: der Zug fährt … ab", "takes the dative:
+// das gehört mir". The first version of this rule moved eleven of these out of
+// the English field and left those cards with no definition at all — the German
+// they contain is the illustration, not the explanation.
+const ENGLISH_LABEL = /^(female|male|separable|inseparable|takes|no plural|abbr\.?|informal|formal|colloquial|literally|lit\.?|also|often|usually|comparative|superlative)\b[^:]*:/i;
+
 export function isGermanDefinition(def: string, en: string): boolean {
-  const outside = (def ?? '').replace(/\([^)]*\)/g, ' ');
+  const raw = (def ?? '').trim();
+  if (!raw || ENGLISH_LABEL.test(raw)) return false;
+  const outside = raw.replace(/\([^)]*\)/g, ' ');
   if (!outside.trim()) return false;
   if (GERMAN_MARKERS.test(en ?? '')) return false;   // the gloss itself is German
   return GERMAN_MARKERS.test(outside) && /[äöüß]|\b(der|die|das|des|dem|den|dass)\b/.test(outside);

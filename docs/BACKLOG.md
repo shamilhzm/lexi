@@ -378,6 +378,21 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — a regression I caused, and the fourth copy of the rule
+
+- **The migration moved eleven English annotations into the German field.**
+  `der Kellner` → "female: die Kellnerin", `abfahren` → "separable: der Zug fährt
+  … ab", `gehören` → "takes the dative: das gehört mir". Each quotes German, so the
+  rule called it a German definition — but the German is the *illustration*, not
+  the explanation, and those eleven cards were left with no definition at all.
+  Found while reading the A2 queue rather than by any gate. `isGermanDefinition`
+  now refuses a field that opens with an English annotation label, and the eleven
+  are restored.
+- **And the test was a fourth copy.** Pointing the validator at the shared rule
+  left `grammar.test.ts` still carrying its own inline version, which disagreed
+  within the hour and failed. It imports `isGermanDefinition` now. Four places had
+  independently reimplemented "is this German": audit, migration, validator, test.
+
 ### Shipped 2026-07-27 — one rule for German-in-the-English-field, and the gate that uses it
 
 - **Third copy, weakest copy.** Adding a validator gate for German definitions
