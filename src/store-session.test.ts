@@ -509,10 +509,55 @@ describe('Kasus drill (case & endings)', () => {
 
   it('builds correct adjective-ending items (rnd pinned high: Dativ, adjective)', async () => {
     const { fundamentals } = await fresh();
-    // rnd=0.99 → masc cases[2]=dat, prep 'bei', flavor adjective, adj 'jung'
+    // rnd=0.99 → masc cases[2]=dat, prep 'bei', flavor adjective, adj 'jung',
+    // and the last declension offered for a countable noun, which is mixed.
     const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0.99);
-    expect(d.prompt).toBe('bei dem ___ Tisch');
+    expect(d.prompt).toBe('bei einem ___ Tisch');
     expect(d.options[d.correct]).toBe('jungen');
+  });
+
+  // German declines an adjective three ways and the drill used to teach only the
+  // weak table, which is nearly all -en — so a learner could score well on it and
+  // still write "ein gute Mann". Each declension is pinned by call order:
+  // kase → article/adjective → preposition → adjective → declension.
+  it('teaches all three declensions, with the right ending for each', async () => {
+    const { fundamentals } = await fresh();
+    const pin = (v: number[]) => { const q = [...v]; return () => q.shift() ?? 0; };
+    // masc, Nominativ ("Hier ist"), adjective flavour, adj 'alt' (index 0).
+    const weak = fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0]));
+    expect(weak.prompt).toBe('Hier ist der ___ Tisch');
+    expect(weak.options[weak.correct]).toBe('alte');          // weak nom masc → -e
+
+    const mixed = fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0.6]));
+    expect(mixed.prompt).toBe('Hier ist ein ___ Tisch');
+    expect(mixed.options[mixed.correct]).toBe('alter');       // mixed nom masc → -er
+
+    // Strong needs a bare noun, which is only grammatical on a mass noun.
+    const strong = fundamentals.buildCaseItem(noun('Wasser', 'das'), pin([0, 0.9, 0, 0.9]));
+    expect(strong.prompt).toBe('Hier ist ___ Wasser');
+    expect(strong.options[strong.correct]).toBe('altes');     // strong nom neut → -es
+  });
+
+  it('never declines a countable noun strong, which would be ungrammatical', async () => {
+    const { fundamentals } = await fresh();
+    // "alter Tisch" is not German — a countable singular needs an article. Roll
+    // the drill hard over a countable noun and assert an article always precedes.
+    for (let i = 0; i < 200; i++) {
+      const d = fundamentals.buildCaseItem(noun('Tisch', 'der'));
+      if (!d.sub.startsWith('Adjective')) continue;
+      expect(d.prompt, d.prompt).toMatch(/(der|den|dem|des|ein|einen|einem|eines) ___ Tisch$/);
+    }
+  });
+
+  it('always offers the correct ending among the options', async () => {
+    const { fundamentals } = await fresh();
+    for (const [term, gender] of [['Tisch', 'der'], ['Lampe', 'die'], ['Wasser', 'das']] as const) {
+      for (let i = 0; i < 150; i++) {
+        const d = fundamentals.buildCaseItem(noun(term, gender));
+        expect(d.correct, `${term}: ${d.prompt}`).toBeGreaterThanOrEqual(0);
+        expect(new Set(d.options).size).toBe(d.options.length); // no repeated option
+      }
+    }
   });
 
   it('bare-noun dative article items always use "mit" (von/bei would contract)', async () => {
@@ -528,7 +573,7 @@ describe('Kasus drill (case & endings)', () => {
     const { fundamentals } = await fresh();
     // fem, rnd=0.99 → cases[3]=gen, adjective flavor, prep 'trotz', adj 'jung'
     const fem = fundamentals.buildCaseItem(noun('Lampe', 'die'), () => 0.99);
-    expect(fem.prompt).toBe('trotz der ___ Lampe');
+    expect(fem.prompt).toBe('trotz einer ___ Lampe');
     expect(fem.options[fem.correct]).toBe('jungen');
     // masc/neut never see genitive (would need noun +-(e)s); spot-check many rolls
     for (let i = 0; i < 50; i++) {

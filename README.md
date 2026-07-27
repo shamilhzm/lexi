@@ -19,13 +19,14 @@ Planning and strategy live in [`docs/`](docs/). Start with
 
 ## What's inside
 
-- **7,386 cards across all six CEFR levels** (A1 965 · A2 1,802 · B1 2,728 · B2 1,046
-  · C1 617 · C2 228), including **101 grammar points**, merged from open German word
+- **7,389 cards across all six CEFR levels** (A1 965 · A2 1,802 · B1 2,728 · B2 1,046
+  · C1 617 · C2 231), including **104 grammar points**, merged from open German word
   lists and a dictionary-enrichment cache, deduped by level + term.
 - **Every card carries at least two usage examples**, German and English, graded at
   or just below the card's level (`npm run corpus:examples` audits it).
-- **128 authored grammar points · 774 exercises** (A1 20 · A2 32 · B1 40 · B2 16
-  · C1 12 · C2 8), each point carrying a plain-English summary and rule.
+- **131 authored grammar points · 805 exercises** (A1 20 · A2 32 · B1 40 · B2 16
+  · C1 12 · C2 11), each point carrying a plain-English summary and rule — and, where
+  the rule is a list rather than prose, a structured breakdown instead of a paragraph.
 - Cards carry IPA, gloss, gender + plural, synonyms/antonyms, and example sentences
   where available.
 - **284 fine sectors** rolled up into **16 theme groups** (Arbeit & Wirtschaft,

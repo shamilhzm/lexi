@@ -1,6 +1,6 @@
 // "This is my chapter this week."
 //
-// Lexi organises 7,386 cards into 284 semantic sectors and a CEFR filter. That is
+// Lexi organises 7,389 cards into 284 semantic sectors and a CEFR filter. That is
 // the *corpus's* organisation, and no amount of filtering turns it into a
 // learner's course — someone at a language school has a list their teacher handed
 // out, and until now there was nowhere to put it.

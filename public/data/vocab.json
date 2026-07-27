@@ -220514,5 +220514,53 @@
     ],
     "field": "Exam Vocabulary B1",
     "kind": "word"
+  },
+  {
+    "id": "gram:C2:Stilebenen: gehoben, neutral, umgangssprachlich",
+    "term": "Stilebenen: gehoben, neutral, umgangssprachlich",
+    "en": "Near-synonyms differ by register, not meaning — and the mismatch is audible.",
+    "pos": "grammar",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "At this level the remaining vocabulary problem is not meaning but register. Words that a dictionary lists as synonyms sit at different heights, and choosing the wrong height is the clearest marker of a non-native writer: an academic paper that says \"kriegen\" or a text message that says \"erwerben\" is wrong in a way no grammar check catches.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
+  },
+  {
+    "id": "gram:C2:Idiomatik: wörtlich vs. übertragen",
+    "term": "Idiomatik: wörtlich vs. übertragen",
+    "en": "An idiom means nothing like its parts — and it is fixed word for word.",
+    "pos": "grammar",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "Idioms are learned whole. The literal reading is usually absurd, which is the point: it is what makes the phrase memorable and what makes a word-by-word translation fail. They are also frozen — swapping a synonym in breaks them, so \"den Nagel auf den Kopf schlagen\" is not German however reasonable it looks.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
+  },
+  {
+    "id": "gram:C2:Passiversatzformen (sein + zu, sich lassen, -bar)",
+    "term": "Passiversatzformen (sein + zu, sich lassen, -bar)",
+    "en": "Three ways to say \"can be done\" without ever using werden.",
+    "pos": "grammar",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "Formal German usually avoids a modal passive. Instead of \"das kann gemacht werden\" it writes \"das ist zu machen\", \"das lässt sich machen\" or \"das ist machbar\". All three mean roughly the same thing and all three sound more idiomatic in writing than the full passive; sein + zu can also carry obligation rather than possibility, which the context decides.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
   }
 ]

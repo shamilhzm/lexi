@@ -16,7 +16,7 @@ survived a year longer than it should have (see *Hue discipline*, below).
 ## 1. The identity
 
 Lexi looks like a **market terminal** because the app's real job is to show you a
-territory — 7,386 cards across 284 sectors — and where you are thin in it. Cool
+territory — 7,389 cards across 284 sectors — and where you are thin in it. Cool
 Glacier cyan, mono numerals, dense data, hairline separation.
 
 That identity belongs to the **instrument** (Progress, the heatmap, the

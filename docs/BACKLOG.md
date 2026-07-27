@@ -378,6 +378,41 @@ nobody re-implements them:
   more-practised one wins where both exist). 3 tests, including guards that no
   mapped id is still in the corpus and no target is dangling.
 
+### Shipped 2026-07-27 — the advanced learners (personas B2 · C1 · C2)
+
+Fifteen of the thirty B2/C1/C2 findings were already closed. This pass takes the
+structural ones; what remains is listed under Next.
+
+- **#36 — the Kasus drill taught the easy declension only.** German declines an
+  adjective three ways depending on what precedes it, and the drill knew one: the
+  weak table, which is nearly all `-en`. A learner could score well on it and still
+  write *ein gute Mann*. Added **mixed** (after ein/kein/mein — where the article
+  is ambiguous and the adjective carries the marking) and **strong** (no article at
+  all). Strong is gated to a curated **mass-noun list**, because a bare countable
+  singular is ungrammatical — *kaltes Wasser* is German, *alter Tisch* is not —
+  the same over-exclusion `caseSafe` already prefers. The card now names which
+  declension it is asking for, since "adjective ending" is three systems. 5 tests,
+  including 200 rolls asserting a countable noun never declines strong and 450
+  asserting the correct ending is always among the options.
+- **#31 · #43 · #41 — the syllabus stopped above B2.** 12 C1 points and 8 C2, and
+  the two the advanced personas named were one-line titles: *Verben mit
+  Präpositionen* had 6 exercises for a system with hundreds of members, and
+  *Funktionsverbgefüge* was "a title" where what C1 needs is **which noun takes
+  which light verb**. Both are now **upgraded in place**, not duplicated —
+  `grammar-supplement.ts` gained an `upgrade` mode, because authoring a second
+  point beside a thin one is worse than the thin point: the learner meets the same
+  system twice under two names. Keeping the title keeps the `gram:` card id and any
+  FSRS progress riding on it. *Verben mit Präpositionen* 169 → 347 chars + 5
+  exercises; *Funktionsverbgefüge* 168 → 401 + 6; *Nominalstil* 140 → 390 + 5.
+- **#32 · #47 — three new C2 points.** *Stilebenen* (register: erwerben · kaufen ·
+  sich zulegen — the remaining vocabulary problem at C2 is not meaning but height,
+  and a mismatch is the clearest non-native marker); *Idiomatik: wörtlich vs.
+  übertragen* (the literal reading beside what it means, and that the phrase is
+  frozen word for word); *Passiversatzformen* (`sein + zu`, `sich lassen`, `-bar` —
+  formal German's three ways to avoid a modal passive). C2 8 → 11 points.
+  Grammar bank **131 points · 805 exercises**; every new rule ships with authored
+  `sections`, so the E4 gate passes by construction rather than by retro-fit.
+
 ### Shipped 2026-07-27 — the corpus is clean, and the gates that keep it clean
 
 - **Every example-defect class is at zero.** The last two batches of the Part D

@@ -199,13 +199,52 @@ const ARTICLE: Record<Kase, Record<Gender, string>> = {
   dat: { der: 'dem', die: 'der', das: 'dem' },
   gen: { der: 'des', die: 'der', das: 'des' },
 };
-// Weak declension (after the definite article): -e or -en, fully deterministic.
+// German declines an adjective three ways depending on what stands in front of
+// it, and this drill used to teach only the first — which is the easy one. The
+// weak table is nearly all -en, so a learner can score well on it while still
+// producing "ein guter Mann" as "ein gute Mann". The hard cases were exactly the
+// excluded ones (persona B2 #36).
+//
+// Weak — after a definite article (der/die/das), which has already marked the
+// case, so the adjective only has to agree: -e or -en, fully deterministic.
 const WEAK_END: Record<Kase, Record<Gender, string>> = {
   nom: { der: 'e', die: 'e', das: 'e' },
   akk: { der: 'en', die: 'e', das: 'e' },
   dat: { der: 'en', die: 'en', das: 'en' },
   gen: { der: 'en', die: 'en', das: 'en' },
 };
+// Mixed — after ein/kein/mein, which is *ambiguous* in three slots (ein is both
+// masculine nominative and neuter), so the adjective carries the marking the
+// article failed to: "ein guter Mann" but "der gute Mann".
+const MIXED_END: Record<Kase, Record<Gender, string>> = {
+  nom: { der: 'er', die: 'e', das: 'es' },
+  akk: { der: 'en', die: 'e', das: 'es' },
+  dat: { der: 'en', die: 'en', das: 'en' },
+  gen: { der: 'en', die: 'en', das: 'en' },
+};
+const INDEF: Record<Kase, Record<Gender, string>> = {
+  nom: { der: 'ein', die: 'eine', das: 'ein' },
+  akk: { der: 'einen', die: 'eine', das: 'ein' },
+  dat: { der: 'einem', die: 'einer', das: 'einem' },
+  gen: { der: 'eines', die: 'einer', das: 'eines' },
+};
+// Strong — no article at all, so the adjective takes over the article's own
+// endings: "kalter Wein", "mit kaltem Wein".
+const STRONG_END: Record<Kase, Record<Gender, string>> = {
+  nom: { der: 'er', die: 'e', das: 'es' },
+  akk: { der: 'en', die: 'e', das: 'es' },
+  dat: { der: 'em', die: 'er', das: 'em' },
+  gen: { der: 'en', die: 'er', das: 'en' },
+};
+// Strong declension is only grammatical on a bare *singular* noun when that noun
+// is a mass noun: "kaltes Wasser" is German, "alter Tisch" is not — a countable
+// singular needs an article. So the strong flavour is gated to a curated list
+// rather than inferred, which is the same over-exclusion `caseSafe` already
+// prefers: a drill that prints wrong German teaches wrong German.
+const MASS_NOUNS = new Set([
+  'Wasser', 'Brot', 'Geld', 'Wein', 'Milch', 'Musik', 'Luft', 'Käse', 'Zucker',
+  'Salz', 'Fleisch', 'Papier', 'Holz', 'Glück', 'Zeit', 'Arbeit', 'Hilfe', 'Kaffee', 'Tee',
+]);
 // Regularly-declining adjectives only (no -el/-er contraction, no "hoch").
 const CASE_ADJ = ['alt', 'neu', 'klein', 'gut', 'lang', 'jung'];
 const ARTICLE_OPTIONS: Record<Gender, string[]> = {
@@ -227,6 +266,12 @@ export function caseSafe(w: Word): boolean {
 /** `kase` rides along so the item can open the rule for the case it actually
  *  asked about rather than the mode's default. */
 export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; why: string; answer: string; kase: Kase; }
+/** Which declension the item is asking for — named on the card, because "adjective
+ *  ending" is three different systems and the learner needs to know which one. */
+export type Declension = 'weak' | 'mixed' | 'strong';
+const DECL_LABEL: Record<Declension, string> = {
+  weak: 'after the definite article', mixed: 'after ein/eine', strong: 'no article',
+};
 /** Build one Kasus item: article choice or weak adjective ending, in a frame
  *  that forces the case. `rnd` injectable for tests. */
 export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseItemData {
@@ -255,15 +300,26 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
       kase,
     };
   }
-  // Which adjective ending? (weak, after the definite article)
+  // Which adjective ending? One of the three declensions — strong only where a
+  // bare noun is grammatical, i.e. a mass noun.
   const adj = CASE_ADJ[Math.floor(rnd() * CASE_ADJ.length)];
-  const correct = adj + WEAK_END[kase][g];
-  const options = shuffle([`${adj}e`, `${adj}en`, `${adj}er`, `${adj}es`]);
+  const flavours: Declension[] = MASS_NOUNS.has(noun)
+    ? ['weak', 'mixed', 'strong']
+    : ['weak', 'mixed'];
+  const decl = flavours[Math.floor(rnd() * flavours.length)];
+  const END = decl === 'weak' ? WEAK_END : decl === 'mixed' ? MIXED_END : STRONG_END;
+  const correct = adj + END[kase][g];
+  const before = decl === 'weak' ? `${ARTICLE[kase][g]} ` : decl === 'mixed' ? `${INDEF[kase][g]} ` : '';
+  // All five endings are live once strong declension is in play (-em only ever
+  // appears there), so the distractors are drawn from the full set rather than a
+  // fixed four — otherwise the right answer would sometimes not be on offer.
+  const distractors = ['e', 'en', 'er', 'es', 'em'].map((e) => adj + e).filter((o) => o !== correct);
+  const options = shuffle([correct, ...shuffle(distractors).slice(0, 3)]);
   return {
-    prompt: `${frame} ${ARTICLE[kase][g]} ___ ${noun}`,
+    prompt: `${frame} ${before}___ ${noun}`,
     sub: `Adjective ending · ${CASE_LABEL[kase]}`,
     options, correct: options.indexOf(correct),
-    why: `${why} · after the definite article`, answer: correct,
+    why: `${why} · ${DECL_LABEL[decl]}`, answer: correct,
     kase,
   };
 }

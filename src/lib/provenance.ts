@@ -13,7 +13,7 @@
 // every learner pay for a maintainer's answer on every session.
 //
 // Two honest limits, both surfaced rather than papered over:
-//   - It covers 1,986 of 7,386 cards (27%). The rest predate the provenance log,
+//   - It covers 1,986 of 7,389 cards (27%). The rest predate the provenance log,
 //     so most cards have nothing to show and the UI shows nothing.
 //   - `levelSource` is "reference" for 98% and `exampleSource` is Tatoeba for
 //     99.4%. Per-card those are near-constant and close to noise; what carries
