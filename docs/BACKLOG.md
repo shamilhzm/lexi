@@ -870,6 +870,23 @@ Eight of the thirty B2/C1/C2 findings are still open. They are listed here with
 what each actually costs, because most are content programmes rather than code and
 were being carried as one undifferentiated "advanced" item.
 
+- **Cross-level duplicate cards** (M, human-gated — *measured 2026-07-27*). *Why:*
+  **874 terms sit on more than one card, 1,021 cards redundant — 14% of the
+  corpus.** `die Miete` exists at A1, A2, B1 *and* B2; `die Haltestelle` three
+  times. Each copy is a separate FSRS schedule, so the learner meets and re-learns
+  the same word up to four times, which is precisely the defect the capitalisation
+  dedupe fixed for 62 cards while 1,021 sat untouched. It also inflates every
+  content programme: 75 duplicate groups have at least one copy still awaiting a
+  definition, so that work would be done two and three times over.
+  *Do:* triage by group, not in bulk — some pairs are real homographs (`der See` /
+  `die See` differ by article and would not collide on term, but check for others).
+  Keep the lowest level, fold the rest via the existing `casefix` id-map path so
+  schedules survive. *Done-when:* duplicate groups are either merged or carry a
+  recorded reason, as `case-rulings.tsv` does. *Touches:* `scripts/corpus/`,
+  `public/data/vocab.json`, `src/data/idmap.ts`.
+  *Do this before the rest of #44* — otherwise a share of those 1,493 definitions
+  gets authored more than once.
+
 - **Definitions that discriminate senses, not enumerate translations** (C1 #44 ·
   L, human-gated — *measured and started 2026-07-27*). `corpus:definitions` now
   reports **2,234 cards** in four kinds, and the first batch of 40 is applied.
