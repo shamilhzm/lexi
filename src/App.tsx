@@ -1,10 +1,9 @@
-// Lexi — a German vocabulary terminal (A1–C2).
+// Lexi — an atlas of your German (A1–C2).
 //
 // Two rooms, not one app with a modal in it.
 //
 //   The instrument — Today, Progress, Library. Nav rail or bottom bar, the live
-//   ticker, a bounded content column. Dense, cool, scannable: this is where the
-//   terminal metaphor is earned.
+//   ticker, a bounded content column. Dense and scannable: the map room.
 //
 //   The desk — a session. Full-bleed, no navigation, no ticker, no streak
 //   counter competing with the word. You go there; you don't render it inside
@@ -13,7 +12,8 @@
 // One aesthetic cannot serve both — scanning a heatmap and studying a single
 // word want opposite things. See docs/DESIGN.md.
 import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+// No `motion` import here any more: both entrances in this file are CSS
+// keyframes without a fill-mode, so a stalled animation cannot hide a room.
 import { Menu } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
 import Sidebar, { LexiMark } from './components/Sidebar.tsx';
@@ -40,7 +40,6 @@ const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
 export default function App() {
   useStore(); // keep the sidebar profile (name / level / streak) live
-  const reduce = useReducedMotion();
   const boot = parseHash();
   const [view, setView] = useState<View>(boot.view);
   const [target, setTarget] = useState<Target>(boot.target ?? ALL);
@@ -124,12 +123,13 @@ export default function App() {
   if (view === 'session') {
     return (
       <div className="h-[100dvh] w-full overflow-y-auto bg-bg">
-        <motion.main
+        {/* Same fill-mode-free rule as the route entrance: entering the desk is
+            a bigger move than changing rooms in the instrument, so it gets its
+            own slightly longer curve — but it can no more strand the session at
+            opacity 0 than a route can. */}
+        <main
           id="main" tabIndex={-1}
-          initial={reduce ? false : { opacity: 0, scale: 0.985 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: reduce ? 0 : 0.24, ease: [0.32, 0.72, 0, 1] }}
-          className="min-h-[100dvh] w-full flex flex-col px-3 sm:px-5 py-4 safe-top safe-bottom">
+          className="desk-in min-h-[100dvh] w-full flex flex-col px-3 sm:px-5 py-4 safe-top safe-bottom">
           <ErrorBoundary resetKey={`session:${target.kind}:${target.name}`}>
             <Review
               target={target} firstRun={guided}
@@ -138,7 +138,7 @@ export default function App() {
               onDrills={() => { setDrillInit(null); setView('library'); }}
             />
           </ErrorBoundary>
-        </motion.main>
+        </main>
       </div>
     );
   }
@@ -173,15 +173,19 @@ export default function App() {
         <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
 
         <main id="main" tabIndex={-1} className="flex-1 overflow-y-auto bg-bg min-h-0">
-          <AnimatePresence mode="wait">
-            {/* The route transition ignored prefers-reduced-motion, unlike the
-                rest of the app. A cross-fade is still motion. */}
-            <motion.div key={view}
-              initial={reduce ? false : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-              transition={{ duration: reduce ? 0 : 0.18, ease: [0.32, 0.72, 0, 1] }}
-              className="max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
+          {/* The route entrance is CSS, not Framer, and deliberately so.
+              It used to be `initial={{ opacity: 0 }}` inside an AnimatePresence,
+              which strands the whole destination at opacity 0 whenever the
+              animation does not run — a hash change landing while the tab is
+              backgrounded throttles rAF, and it was caught doing exactly that
+              with 1,769px of Progress laid out and invisible.
+              `.route-in` has no fill-mode, so the resting state is the correct
+              one and a stalled, disabled or never-started animation simply shows
+              the page. This is the same rule `.bar-grow` and `.node-in` already
+              follow; it had never been applied to the layer every navigation
+              passes through. See docs/DESIGN.md §7. */}
+          <div key={view}
+            className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
                 {view === 'today' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
@@ -190,8 +194,7 @@ export default function App() {
                 {view === 'interests' && <Interests onDone={firstRunSession} />}
                 {view === 'profile' && <Profile />}
               </ErrorBoundary>
-            </motion.div>
-          </AnimatePresence>
+          </div>
         </main>
 
         <BottomNav view={view} onGo={go} onStartSession={startSession} />

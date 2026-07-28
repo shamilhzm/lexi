@@ -9,7 +9,7 @@ import { Play, ArrowLeft, LayoutGrid, List } from 'lucide-react';
 import { groupStats, sectorStats, groupDeltas } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { squarify, type Tile } from '../lib/treemap.ts';
-import { heat, heatText, tileInk, fmt } from '../lib/ui.ts';
+import { heat, heatText, makeHeatScale, heatFill, fmt } from '../lib/ui.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import type { Target } from '../types.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
@@ -47,6 +47,19 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
   const tiles: Tile<Cell>[] = useMemo(
     () => squarify(cells.map((c) => ({ value: c.count, data: c })), 0, 0, size.w, size.h),
     [cells, size.w, size.h]);
+
+  /** The quantity a tile is painted and labelled with: share of the tile that
+   *  is *Known*. Deliberately not `Stat.coverage`, which counts cards that have
+   *  merely left the New state — classifying one and painting the other put the
+   *  whole ramp above the data and rendered every tile in class 0. One function,
+   *  used by the scale, the tiles and the list, so they cannot drift apart. */
+  const known = (c: Cell) => (c.count ? c.known / c.count : 0);
+
+  // The scale is built from the cells *currently on screen*, so drilling into a
+  // group reclassifies against that group's own sectors. The alternative —
+  // one global scale — is what made every tile the same colour: a group whose
+  // sectors all sit between 20% and 30% should still show which is thinnest.
+  const scale = useMemo(() => makeHeatScale(cells.map((c) => (c.count ? c.known / c.count : 0))), [cells]);
 
   // Tap: at group level zoom in; at sector level study it. Right-click: study.
   const tap = (c: Cell) => { if (zoom) onStudy({ kind: 'sector', name: c.name }); else { setZoom(c.name); setHover(null); } };
@@ -100,8 +113,8 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
             )}
             {tiles.map((t, idx) => {
-              const c = t.data, p = c.count ? c.known / c.count : 0, big = t.w > 118 && t.h > 62, mid = t.w > 76 && t.h > 42;
-              const ink = tileInk(p);
+              const c = t.data, p = known(c), big = t.w > 118 && t.h > 62, mid = t.w > 76 && t.h > 42;
+              const ink = scale.ink(p);
               const d = !zoom ? (deltas?.get(c.name) ?? 0) : 0;
               return (
                 <button key={c.name}
@@ -112,18 +125,22 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                   onPointerLeave={() => { pressEnd(); setHover(null); }}
                   onPointerCancel={pressEnd}
                   onMouseMove={(e) => setHover({ c, x: e.clientX, y: e.clientY })}
-                  className="tile-in absolute overflow-hidden border border-bg transition-[filter,transform] duration-100 hover:brightness-115 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left"
-                  style={{ left: t.x, top: t.y, width: t.w, height: t.h, background: heat(p), animationDelay: `${Math.min(idx * 14, 240)}ms` }}>
+                  className="tile-in absolute overflow-hidden border border-bg transition-[filter,transform] duration-100 hover:brightness-105 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left"
+                  style={{ left: t.x, top: t.y, width: t.w, height: t.h, background: scale.fill(p), animationDelay: `${Math.min(idx * 14, 240)}ms` }}>
+                  {/* No text-shadow any more. It existed to rescue a single ink
+                      colour guessed against an arbitrary fill; ink is now paired
+                      to its class in the stylesheet, so the contrast is decided
+                      rather than compensated for. */}
                   <span className="absolute inset-0 p-2 flex flex-col justify-between pointer-events-none" style={{ color: ink }}>
-                    <span className="font-semibold leading-tight" style={{ fontSize: big ? 12 : 11, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>
+                    <span className="font-semibold leading-tight" style={{ fontSize: big ? 12 : 11 }}>
                       {mid ? c.name : shortName(c.name)}
                     </span>
                     <span className="flex items-end justify-between gap-1">
                       <span className="min-w-0">
-                        <span className="font-mono font-bold block leading-none" style={{ fontSize: big ? 26 : mid ? 18 : 13, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>{Math.round(p * 100)}%</span>
-                        {big && <span className="block font-mono opacity-90 mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)} · {c.sub}</span>}
+                        <span className="font-mono font-bold block leading-none" style={{ fontSize: big ? 26 : mid ? 18 : 13 }}>{Math.round(p * 100)}%</span>
+                        {big && <span className="block font-mono opacity-80 mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)} · {c.sub}</span>}
                       </span>
-                      {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0" style={{ fontSize: 11, textShadow: '0 1px 2px rgba(0,0,0,.45)' }}>▲{d}</span>}
+                      {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0 opacity-80" style={{ fontSize: 11 }}>▲{d}</span>}
                     </span>
                   </span>
                 </button>
@@ -137,7 +154,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                 <h4 className="text-xs font-semibold mb-1.5 flex items-center gap-1.5"><Illustration sector={hover.c.name} size={15} className="text-amber flex-shrink-0" /> {hover.c.name}</h4>
                 <Row k="Cards" val={`${fmt(hover.c.count)} · ${hover.c.sub}`} />
                 <Row k="Known" val={`${fmt(hover.c.known)}`} />
-                <Row k="Coverage" val={`${Math.round(hover.c.coverage * 100)}%`} valColor={heat(hover.c.coverage)} />
+                <Row k="Coverage" val={`${Math.round(hover.c.coverage * 100)}%`} valColor={heatText(hover.c.coverage)} />
                 <Row k="Due today" val={`${fmt(hover.c.due)}`} />
                 <div className="mt-1.5 text-amber">{zoom ? '▸ click = study · right-click = study' : '▸ click = open sectors · right-click = study'}</div>
               </Card>
@@ -146,12 +163,18 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
         )}
 
         <div className="flex items-center gap-2 px-4 py-2.5 border-t border-line text-2xs text-dim flex-wrap">
-          <span>0%</span>
-          {/* Built from heat() itself, so the key can never drift from the scale
-              it documents (it used to be three hand-copied hex stops). */}
-          <span className="h-2.5 w-40 rounded-sm"
-            style={{ background: `linear-gradient(90deg, ${heat(0)}, ${heat(0.5)}, ${heat(1)})` }} />
-          <span>100% known</span>
+          {/* A classed key, not a gradient — because the map is now classed.
+              Built from the live scale, so it can never drift from what the
+              tiles are painted with, and it states the range it actually covers
+              instead of implying a 0–100% span the data never uses. */}
+          <span className="font-mono">{Math.round(scale.domain[0] * 100)}%</span>
+          <span className="flex rounded-sm overflow-hidden" aria-hidden>
+            {[0, 1, 2, 3, 4].map((k) => (
+              <span key={k} className="h-2.5 w-8" style={{ background: heatFill(k) }} />
+            ))}
+          </span>
+          <span className="font-mono">{Math.round(scale.domain[1] * 100)}%</span>
+          <span>known · {scale.breaks.length ? 'five classes, equal count' : 'proportional'}</span>
           {/* Was hidden below sm — which removed the only explanation of the
               interaction from the screens that have no right-click at all. */}
           <span className="ml-auto">{zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · long-press to study it directly'}</span>

@@ -2,7 +2,7 @@
 // = knew it, swipe left = didn’t know) with grammar drills (gender / plural /
 // conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
+import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2 } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound } from '../store.ts';
@@ -13,6 +13,7 @@ import { RuleToggle } from '../components/RulePanel.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
+import { useMedia } from '../lib/useMedia.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
 // can coexist in this file.
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
@@ -54,7 +55,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     },
     { blindspot: 0, linked: 0, remedy: 0, overdue: 0 },
   ), [queue]);
-  const reduce = useReducedMotion();
+  // Above every early return — this is a hook. `hover: none` means the primary
+  // input is touch, which is the honest test for "is there a Space key"; the
+  // viewport width is not (a tablet is wide and still has no keyboard).
+  const keyboard = useMedia('(hover: hover) and (pointer: fine)');
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -83,7 +87,21 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   };
   const [breather, setBreather] = useState(false);
   const breatherShown = useRef(false);
-  const noteResult = (ok: boolean, srsIdBefore?: SrsCard, term?: string) => {
+  // Every answer gets an acknowledgment. Before this, a correct answer produced
+  // a colour change and a haptic tick and nothing else — persona P8, at B2 with
+  // fading motivation, called it "like a spreadsheet", and round 2 answered that
+  // in the *recap*, which is not where the feeling happens.
+  //
+  // What it says is the interval, not "well done". The scheduler already knows
+  // when the card comes back and previews it on the grade buttons; showing the
+  // committed value is the same trick as those previews — machinery, not praise —
+  // and it is the one acknowledgment that survives being seen sixty times a
+  // session without curdling. Drills have no per-card interval, so they get the
+  // mark alone.
+  const [ack, setAck] = useState<{ n: number; ok: boolean; interval?: string } | null>(null);
+  const ackSeq = useRef(0);
+  const noteResult = (ok: boolean, srsIdBefore?: SrsCard, term?: string, interval?: string) => {
+    setAck({ n: ++ackSeq.current, ok, interval });
     if (ok) {
       missRun.current = 0;
       tick('good');
@@ -97,6 +115,13 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
       setBreather(true);
     }
   };
+  // Clear on a timer rather than on an animation end — same rule as the
+  // entrances: nothing the learner needs may hang off a frame callback.
+  useEffect(() => {
+    if (!ack) return;
+    const t = setTimeout(() => setAck((a) => (a && a.n === ack.n ? null : a)), 1600);
+    return () => clearTimeout(t);
+  }, [ack?.n]);
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
@@ -142,7 +167,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     const dNew = g !== Rating.Again && wasNew ? 1 : 0;
     pushGrade(dAgain, dNew);
     exitDir.current = g === Rating.Again ? -1 : 1;
-    noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term);
+    // `preview` is computed for this card *before* the grade commits, so it is
+    // exactly the interval the learner was shown on the button they pressed.
+    noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term,
+      g === Rating.Again ? preview?.again : preview?.good);
     review(item.srsId, g);
     haptic(g === Rating.Again ? 'wrong' : 'grade');
     setDone((d) => d + 1);
@@ -306,9 +334,25 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
           aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}
           aria-valuetext={`${i} of ${queue.length} done`}>
           <div className="relative h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
-            {/* The cursor rides the tip of the bar — the terminal writes your session. */}
-            {i > 0 && <span aria-hidden className="absolute -right-px top-1/2 -translate-y-1/2 w-[3px] h-[3px] rounded-full bg-amber" style={{ boxShadow: '0 0 8px 2px var(--color-amber)' }} />}
+            {/* The cursor rides the tip of the bar — it writes your session. */}
+            {i > 0 && <span aria-hidden key={ack?.n ?? 0} className={ack?.ok ? 'tip tip-hit' : 'tip'} />}
           </div>
+        </div>
+
+        {/* The acknowledgment. Lives in the chrome, not on the card, because the
+            card unmounts the instant it is graded — anything rendered there gets
+            about zero frames to be seen. `key` on the sequence number so a run of
+            correct answers re-triggers rather than sitting still.
+            aria-hidden: the grade is already announced by the live region on the
+            card area, and a screen reader does not need it twice. */}
+        <div aria-hidden className="h-5 flex items-center justify-center">
+          {ack && (
+            <span key={ack.n}
+              className={`ack-in inline-flex items-center gap-1.5 text-2xs font-mono ${ack.ok ? 'text-green' : 'text-dim'}`}>
+              {ack.ok ? <Check size={11} /> : <X size={11} />}
+              {ack.interval ? `back in ${ack.interval}` : ack.ok ? 'right' : 'not yet'}
+            </span>
+          )}
         </div>
 
         {/* The card swaps in place, so nothing here is ever re-announced without
@@ -316,20 +360,24 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
             primary loop was the surface that didn’t. */}
         <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]"
           role="region" aria-live="polite" aria-label="Current card">
-          <AnimatePresence mode="wait" custom={exitDir.current}>
-          <motion.div key={item.srsId} custom={exitDir.current} className="w-full flex flex-col items-center"
-            variants={{
-              initial: { opacity: 0, scale: 0.97, y: 12 },
-              enter: { opacity: 1, scale: 1, y: 0 },
-              // A graded card leaves the way it was judged — continuing the
-              // swipe’s motion (or lending buttons/keys the same physics).
-              // Neutral exits (skip, prev, drills swapping in) just dissolve.
-              exit: (dir: number) => (reduce || !dir)
-                ? { opacity: 0, scale: 0.98, transition: { duration: reduce ? 0 : 0.15, ease: 'easeOut' } }
-                : { opacity: 0, x: dir * 340, rotate: dir * 5, transition: { duration: 0.22, ease: [0.32, 0.72, 0, 1] } },
-            }}
-            initial="initial" animate="enter" exit="exit"
-            transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 460, damping: 34, mass: 0.8 }}>
+          {/* The card swap is React state, not an animation lifecycle.
+              It used to be `AnimatePresence mode="wait"`, which keeps the
+              outgoing card mounted until its exit *completes* and only then
+              mounts the next one. That makes the correctness of the primary
+              study loop depend on a rAF-driven animation finishing: with rAF
+              stalled, grading advanced the counter 272→268 while the headword
+              never changed. Measured, with `rafTicksIn600ms: 0`.
+              In a real browser rAF only pauses on a hidden tab and resumes on
+              return, so this was not silently eating cards in normal use — but
+              "the deck advances only if an animation finishes" is the same
+              defect class as the entrance rule in DESIGN.md §7, and rapid
+              keyboard grading queues against the 220ms exit for no good reason.
+              Now: the current item always renders, and direction is carried by
+              the *entrance* — the next card arrives from the side opposite the
+              judgement, the way a deck advances when you flick one off. CSS,
+              transform-only, no fill-mode, so it cannot gate anything. */}
+          <div key={item.srsId} className="card-in w-full flex flex-col items-center"
+            style={{ '--dir': exitDir.current } as React.CSSProperties}>
           {/* The payoff of carrying provenance: the scheduler shows its work. */}
           <WhyThisCard reason={item.reason} />
 
@@ -436,15 +484,19 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                 {preview && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{preview.good}</span>}
               </button>
             </div>
+            {/* The hint has to match the device. This read "Space to flip" on
+                phones, which have no Space key — the app's primary surface was
+                naming an affordance that did not exist there. `hover: none`
+                identifies a touch primary input more reliably than width does:
+                a tablet is wide and still has no keyboard. */}
             <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
               {isNew && !grammar
                 ? 'First time seeing this — take it in, then say how it landed'
-                : `Space to flip and check the ${grammar ? 'rule' : 'translation'}`}
+                : `${keyboard ? 'Space' : 'Tap the card'} to flip and check the ${grammar ? 'rule' : 'translation'}`}
             </span>
           </div>
           </>)}
-          </motion.div>
-          </AnimatePresence>
+          </div>
         </div>
       </Card>
     </div>

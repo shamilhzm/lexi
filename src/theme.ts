@@ -10,8 +10,10 @@ export function themePref(): ThemePref {
   return v === 'light' || v === 'dark' ? v : 'system';
 }
 
+/** Falls back to *false* — light is the Atlas default, so a browser that can't
+ *  answer the media query gets the primary theme rather than the alternate. */
 function prefersDark(): boolean {
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? true;
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
 }
 
 export function resolvedTheme(): 'light' | 'dark' {
@@ -29,7 +31,7 @@ export function applyTheme() {
   // in index.html, and theme_color in the manifest — otherwise the mobile status
   // bar sits at a slightly different shade than the page under it.
   document.querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', t === 'light' ? '#eef3f8' : '#080b11');
+    ?.setAttribute('content', t === 'light' ? '#e7ecee' : '#101619');
 }
 
 export function setThemePref(p: ThemePref) {

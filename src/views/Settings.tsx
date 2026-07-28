@@ -87,7 +87,7 @@ export default function Settings() {
       {/* Appearance */}
       <Card as="section" className="mb-4">
         <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-amber" /><h3 className="text-base font-semibold">Appearance</h3></div>
-        <p className="text-dim text-xs mb-3">The terminal runs dark by default. Pick a fixed theme or follow your system.</p>
+        <p className="text-dim text-xs mb-3">Lexi runs light by default — it’s a thing you read. Pick a fixed theme or follow your system.</p>
         <div className="flex flex-wrap gap-2">
           {THEMES.map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => pickTheme(id)} aria-pressed={theme === id} className={toggle(theme === id)}>
