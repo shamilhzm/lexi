@@ -265,7 +265,7 @@ nobody re-implements them:
   learners, and printing each flagged card against its live corpus data
   (gender/plural/IPA/example) plus a not-in-corpus list — closes the loop
   flag-a-card opened; smoke-tested against a real backup fixture. 63/63.
-- **Next-10 items 1–3** (from SIMULATED-SESSIONS-2). (1) **Interval previews** on
+- **Next-10 items 1–3** (from the round-2 personas). (1) **Interval previews** on
   the flip grade buttons ("Got it · 3 days") via the existing-but-unwired
   `previewInterval` (its sub-hour bucket fixed: "8 min", not "<1 min") — the
   scheduler is now machinery, not magic. (2) **Quick 5**: a second, quiet button
@@ -285,7 +285,7 @@ nobody re-implements them:
   silent total data loss for a casual friend. (2) **Flag-a-card:** one-tap flag in
   the session chrome (`lexi.flags.v1`, deduped, capped, rides the backup export) —
   the error-report loop a solo-maintained corpus needs. (3) **Simulated user
-  sessions** ([`SIMULATED-SESSION.md`](SIMULATED-SESSION.md), stand-in until a
+  sessions** ([`PERSONAS.md`](PERSONAS.md) round 1, stand-in until a
   real friend is picked) drove five fixes: zero-seed placement copy ("Starting
   fresh at A1" instead of "Seeded 0 words"), **"Still learning / Got it"** labels
   on first-sight cards (new cards can't be "known"), ✓/✗ icons on all MC
@@ -302,6 +302,166 @@ nobody re-implements them:
 ---
 
 ## Now
+
+### 0. The comprehension meter — the flagship  ·  L (decided 2026-07-27)
+
+**Why.** From the competitive pass ([COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md)):
+Lexi builds an honest per-lemma knowledge model and spends it entirely on describing
+itself. The 95–98% **lexical coverage threshold** (Hu & Nation; Kremmel et al. 2023) is
+the most robust finding in reading-based SLA, and every competitor approximates it
+badly — Lenguia scores text by generic CEFR band, LingQ by an admittedly inflated
+word-form counter its own staff calls *"the mechanical rabbit at a dog race"*, graded
+readers by a population average. FSRS state **is** a forgetting-aware per-lemma model,
+which makes Lexi the only product in the category able to compute the number honestly.
+It is also the first feature that makes the corpus bottleneck stop mattering: unknown
+words arrive from the learner's own text instead of the hand-gated word list.
+
+**Scope ruling (2026-07-27).** *Additive.* Known and the market **stay the headline**;
+the meter is a new first-class surface, not a replacement identity. The full reframe was
+argued and declined — see the ruling block in COMPETITIVE-RESEARCH §5.
+
+**Phase 0 · prerequisites (S).** Land these first; each is independently defensible.
+- Port `buildMatcher` back app-side from `scripts/corpus/matcher.ts`. It is already
+  self-contained (imports only `conjugate`/`types`, takes the corpus explicitly) and
+  covered by 8 tests. Keep one implementation — the pipeline should import the app's,
+  not the reverse of what the July prune did.
+- Extend `freqRank` to all 7,464 cards in the build. It currently covers 1,986
+  (`public/data/provenance.json`) and comes from Leipzig lists `build.ts` already loads.
+- Order fresh cards by frequency *within* a CEFR band in `firstRunIds`/`weakestSectors`,
+  not by band alone — so the most useful words in a band surface first.
+
+**Phase 1 · the meter (M).** Paste (or save a URL's text) → annotate via the matcher →
+report coverage against the 95/98 bands, honestly and with the count, not just a
+percentage. Then: *"the N words that get you over the line"*, ranked by frequency ×
+recurrence in this text, one tap into the session as a `{kind:'custom', ids}` target
+carrying a **new `SessionReason`** — `{ kind: 'unlock'; text: string }` — with a
+`whyLine` case, so the scheduler shows its work here too ("because you want to read
+this"). Plus the read-back view: known/learning/new tinting from FSRS state, tap for
+gloss + gender/plural, tap to add.
+**Done-when.** A pasted text reports a coverage figure that matches a hand count; the
+unlock set demonstrably raises it on re-check after those cards reach Review; `whyLine`
+has a tested `unlock` case; proper nouns and function words are excluded from the
+denominator the way `isNeutralWord`/`isLikelyEntity` already decide.
+
+**Phase 2 · the library that returns (M).** Saved texts, each with a **live meter that
+moves as you study** — the app's first return mechanism that isn't self-referential.
+Listening is nearly free here (TTS incl. Piper HD already ships) and is the most
+neglected skill in every SRS app. ⚠️ **Licensing:** ship learner-pasted text and
+learner-saved URLs only. Do not bundle a feed of someone else's journalism — DW's
+*Langsam gesprochene Nachrichten* is the obvious fit and is **not** automatically
+redistributable. Check terms before any bundled content.
+
+**Phase 3 · output, narrowly (M).** Not a chatbot. *"Write one sentence using these
+three words"* with grounded, mostly-deterministic checking, reusing `norm`, near-miss
+grading and the hint ladder. Local-first survives. On-device WebGPU (a ~1B model is fine
+for a <100-token correction, useless for conversation) is an implementation option here,
+not a strategy — see the refusals list in COMPETITIVE-RESEARCH §5.
+
+**Touches.** New `src/lib/matcher.ts` (moved), new `src/views/Reader.tsx` +
+`src/lib/coverage.ts`, `session.ts` (`SessionReason`, `whyLine`), `store.ts` (saved
+texts), `scripts/corpus/build.ts` (freqRank fill).
+
+### 0b. The Atlas — the design-review P0/P1s  ·  M (from PERSONAS round 3)
+
+> **Direction settled 2026-07-28: the Atlas.** The review put the terminal on
+> trial; the user then disclosed that it had never been *chosen* — it was the
+> nearest reference for "organise a vast information space well" from a
+> precedent vocabulary of Salesforce dashboards and phone apps. That makes
+> "finish the terminal" the right answer to the wrong question. Three
+> directions were rendered against the same real learner data and compared;
+> the Atlas won. Rationale in [DESIGN.md §1](DESIGN.md).
+>
+> **Shipped in the first Atlas pass:**
+> - **Light-primary Atlas palette.** `@theme` now holds the light values,
+>   `html.dark` the alternate; `theme.ts`, the pre-paint script in `index.html`
+>   and the boot splash all inverted. Accent is Aicher's light blue.
+> - **The heatmap is a heat map** (finding #7). Five classes classified over the
+>   *observed* range via `makeHeatScale`, ink paired per class in CSS, and a
+>   legend that states the real domain instead of implying 0–100%. Verified in
+>   both themes: ten groups → 5 distinct colours, 2 per class.
+> - **P0 #1 route opacity** — fixed, and the *rule* was wrong too. See below.
+> - **P0 #4** `de-DE` separators → `en-US` (`fmt`). **P0 #5** "Space to flip" now
+>   switches on `(hover: hover) and (pointer: fine)`.
+> - `.tile-in` 1.5% → 6%; the two hardcoded scrollbar hex literals tokenised.
+> - 8 new tests over `makeHeatScale`/`fmt` (112 total).
+>
+> **The rule that was wrong.** DESIGN.md claimed no-fill-mode made an entrance
+> safe. It does not: **a stalled animation sits on its `from` frame**, so
+> `from { opacity: 0 }` renders nothing regardless. `.bar-grow` (`scaleY(0)`)
+> and `.node-in` (`opacity: 0`) were cited *as the safe pattern* and had the
+> same defect. All five entrances are now **transform-only** — worst case is
+> content 8px low or at 94%, never invisible. Test with a paused probe.
+>
+> **Still open from this item:** P0 #2 (success is silent) and P0 #3 (the
+> heatmap doesn't animate on data change), plus Batches B and C below. Both
+> remaining P0s are motion-system work and were deliberately sequenced *after*
+> DESIGN.md §7 defined the scale, continuity and data-change rules — which it
+> now does.
+
+**Why.** The 12-persona review ([PERSONAS.md](PERSONAS.md)) put the "market terminal"
+identity on trial and returned a more useful answer than keep-or-replace: **the
+identity is not the wrong metaphor, it is a half-built one.** The aesthetic promises
+density, precision and liveness; the implementation ships sparseness, compression and
+stillness. The hostile designer and the assigned defence reached that diagnosis
+independently from opposite directions. Ordering note: this **precedes** the
+comprehension meter's UI (Now #0 Phase 1) — the meter's surface should be built on the
+fixed motion and composition rules, not retrofitted onto them.
+
+**Sequenced by the consolidated table (25 distinct findings, ranked).**
+
+**Batch A · the five P0s (S each, independent).**
+1. **Route enter can strand a view at `opacity: 0`** — *observed*: 1,769px of Progress
+   fully laid out and invisible, transform frozen mid-flight. `App.tsx:179` uses
+   `initial={{ opacity: 0, y: 8 }}`; if the animation never runs (backgrounded tab,
+   throttled rAF) the destination stays blank. **This is precisely the hazard
+   `DESIGN.md` §7 documents** — the no-fill-mode rule was applied to `.bar-grow` and
+   `.node-in` in CSS and never to the Framer route transition every navigation uses.
+   *Fix:* resting state must be the correct one; animate from a non-destructive
+   property or guarantee completion.
+2. **Success is silent** — no motion or acknowledgment on a correct answer anywhere.
+   Round 2's "feel layer" answered this *in the recap only*; the moment Sofia actually
+   described (answering) was never touched.
+3. **The heatmap never animates on data change** — a tile going 41%→47% after a session
+   is a re-render. The most emotionally loaded event in the product.
+4. **`de-DE` thousands separators in an English UI** — "2.320 known", "6.618", "1.705".
+   An English reader parses 2.320 as *two point three two*. Headline number, every
+   surface. Cheapest P0 here.
+5. **"Space to flip" shown on touch devices** — wrong affordance, primary surface.
+
+**Batch B · composition and precision (M).** Earn the two claims the palette makes:
+single-column stack of six identical rounded rects on a 1280px desktop (#17); ~200px
+of chrome before any map on mobile Progress (#12); the FAB overlapping treemap tiles
+(#13); **heatmap colour range compressed** — data spans 26–45% against a 0–100% ramp,
+so every tile renders the same green and the heat map isn't one (#7); dark-theme "60"
+reading as disabled where light theme renders it black (#8); tile text truncation
+(#21); the desk letterboxed to ~800px on desktop against DESIGN.md §8's full-bleed
+promise (#10).
+
+**Batch C · the motion system (M).** No shared-element continuity — `layoutId` appears
+**once** in the codebase and every navigation cross-fades through blank (#6); `.tile-in`
+animates 1.5%, below the perceptual threshold (#19); no hover/press affordance on
+treemap tiles (#22). Write the system into `DESIGN.md` §7 first — see 0c.
+
+**Done-when.** All five P0s closed; the heatmap reads as a heat map across the real
+data range; one documented motion scale with continuity and data-change rules, applied
+to the treemap drill-down and the Known headline.
+**Touches.** `App.tsx`, `index.css`, `views/{Progress,Markt,Review,Today}.tsx`,
+`components/CountUp.tsx`, `lib/ui.ts` (number formatting), `docs/DESIGN.md`.
+
+### 0c. DESIGN.md §1 and §7 — finish, don't replace  ·  S
+
+**Why.** §1 *asserts* the terminal identity without defending it; §7 is three restraint
+bullets with no positive system, and "motion should explain, not decorate" has been
+applied as "motion should be minimal" — a different rule that produced the stillness
+round 3 found. **Do.** §1 gains the reasons the identity survived and the three things
+personas said they'd lose (*the adulthood*, *the heatmap*, *the numeric/typographic
+discipline*). §7 gains: a **motion scale** with numbers (micro 80–120ms · transition
+200–320ms · narrative 400–700ms, one easing per tier); a **continuity rule** (two views
+showing the same object transform it, they don't cross-fade); a **data-change rule** (a
+number or area that changed because the learner did something animates from its old
+value). The existing constraint — *no resting state may depend on an animation
+running* — survives unchanged and gains the route-transition case as its second
+worked example.
 
 ### 1. Grow the corpus toward ~10k + rebalance A1/A2  ·  M (ongoing)
 **Why.** Distribution is B1-heavy with thin A1/A2 — backwards for early reading; core
@@ -362,7 +522,7 @@ vocabulary→grammar loop (first cut shipped 2026-07-18), on top of the corpus w
 above. "Grounded, supportive German lexicon expander with embedded grammar
 training."_
 
-### The Next 10 (from eleven simulated sessions — see [SIMULATED-SESSIONS-2.md](SIMULATED-SESSIONS-2.md))
+### The Next 10 (from eleven simulated sessions — see [PERSONAS.md](PERSONAS.md) rounds 1–2)
 
 Priority order; each traces to a persona finding. The diagnosis: the app is
 correct and kind, but not yet *legible* (can't see the machine think), *fitted*
@@ -379,8 +539,12 @@ correct and kind, but not yet *legible* (can't see the machine think), *fitted*
 9. ~~`corpus:flags` maintainer loop~~ ✅ 2026-07-18
 10. **Content depth arc** (L, human-gated) — DaF-fed A1/A2 fill + hand-authored C1/C2 register; the promise everything else polishes.
 
-**Decision required, not a build item:** commit out loud to "English-base
-learners" or scope gloss-language layers (persona S10). Silence drifts.
+~~**Decision required, not a build item:** commit out loud to "English-base
+learners" or scope gloss-language layers (persona S10). Silence drifts.~~
+✅ **Closed 2026-07-27 — English-base, said out loud.** Stated in the root
+`README.md` intro and in the first-run hero (`views/Today.tsx`). A gloss-language
+layer is not scoped and not promised. This is about *gloss* language only —
+French/Spanish from an English base stays open.
 
 - **Illustration artwork — match the reference style** (M). *Why:* the curated
   line-art layer that replaced emojis (`src/lib/illustration.tsx`, 54 concepts +
@@ -405,11 +569,11 @@ learners" or scope gloss-language layers (persona S10). Silence drifts.
   *Touches:* `scripts/authoring/batches/`, `public/data/vocab.json`.
 
 - **Friend-readiness leftovers** (S each — from the sharing analysis +
-  [`SIMULATED-SESSION.md`](SIMULATED-SESSION.md)): surface the flagged-cards list
+  [`PERSONAS.md`](PERSONAS.md) round 1): surface the flagged-cards list
   in Profile; edit-distance-1 typo tolerance on typed answers (measure
   over-forgiveness first); decide the day-2 return mechanism deliberately (habit
   anchor vs. Web Push for installed PWAs vs. nothing); run the *real* friend
-  session and update SIMULATED-SESSION.md with what the simulation missed.
+  session and update PERSONAS.md with what the simulation missed.
 - **Frustrated-path softeners** (S each — UX-PATHS F3/F4/F5). Miss-streak
   circuit-breaker ("Rough patch — these come back easier tomorrow" + natural break);
   offer HD voice in context at first pronunciation tap instead of hiding it in
@@ -434,6 +598,251 @@ follow-on) shipped 2026-07-11._
 
 ---
 
+## The Fifty — from the twelve personas, walked against the running app
+
+*2026-07-28. The twelve personas of [PERSONAS.md](PERSONAS.md) pointed at every
+surface, in both themes and both viewports, against a seeded mid-B1 learner
+(3,475 cards · 2,332 known · 42-day streak · 247 due). Findings are from a live
+DOM audit — contrast ratios, hit-box measurement, clip detection, and a stepped
+walk through the session loop — not from reading the source.*
+
+**Method note, stated because it bounds what follows.** The iOS Simulator was
+unavailable (host has Command Line Tools only, no `simctl`), so every mobile
+finding is a 375×812 browser viewport. That viewport reports
+`(hover: hover) and (pointer: fine)`, so **touch-only behaviour is unverified on
+real hardware** — including the "Tap the card" fix, safe-area insets, the
+Add-to-Home-Screen flow, and iOS Safari's storage eviction. Items marked 📱
+need a real device before they can be called done.
+
+**One thing the audit cleared:** colour contrast passes on every route, in both
+themes, at every text size sampled. The token discipline is holding.
+
+Effort: **XS** <½ day · **S** ~1 day · **M** a few days · **L** 1–2 weeks.
+
+### A · Breakage and correctness
+
+**1. ~~`AnimatePresence` gates the study loop on rAF~~ · ✅ 2026-07-28.**
+*Found live, then corrected on the way to fixing it.* The card swap was an
+`AnimatePresence mode="wait"`, which keeps the outgoing card mounted until its
+exit animation *finishes* before mounting the next. Framer is rAF-driven, so with
+rAF stalled the deck froze: grading advanced the counter 272→268 while the
+headword stayed `der Ausblick`. Measured with `rafTicksIn600ms: 0`.
+
+**The first framing was too strong and is withdrawn.** "You grade cards you never
+saw" implied routine data loss. In a real browser rAF pauses only on a hidden tab
+and resumes on return, completing the exit — so this was not quietly eating cards
+in normal use. What was genuinely wrong is the principle: **the correctness of the
+primary loop must not depend on an animation completing**, which is the same
+defect class as the entrance rule in DESIGN.md §7, and rapid keyboard grading
+queues against the 220ms exit for no reason.
+
+*Fixed:* the current item always renders (`key={item.srsId}`), and direction moved
+from the exit to the **entrance** — the next card arrives from the side opposite
+the judgement, the way a deck advances under a card you flick away. CSS,
+transform-only, no fill-mode (`.card-in`, `--dir`). *Verified* with rAF still
+dead: six grades → six distinct headwords, drills interleaving correctly.
+*Guarded:* `views/review-structure.test.ts` — 9 tests asserting no
+`<AnimatePresence>` in the loop and that **every** entrance keyframe
+(`routein`/`deskin`/`cardin`/`tilein`/`nodein`/`bargrow`) is transform-only and
+never scales to zero. Mutation-checked: reintroducing `opacity: 0` fails it.
+*Correction to the audit that found this:* the earlier "26 flips, zero drills"
+reading was the frozen deck, not a missing drill — drills interleave fine.
+
+*Adjacent, checked, **not** fixed:* six `<AnimatePresence>` remain in `src/`
+(RulePanel ×2, Grammar ×3, Today ×1). All are `initial={false}` with **no**
+`mode="wait"`, so a new child mounts immediately and none can strand a surface
+the way the card loop did. They are height-animated disclosures, though, and the
+Library's expanded *Dativ* panel showed its **Practise button clipped** during the
+audit — consistent with a height animation frozen part-way. Same family, much
+smaller blast radius. Worth a pass when C/#19 touches composition.
+
+**2. Success is silent · S · P0** (P8, P10, P12, P3). No motion, no acknowledgment
+on a correct answer. Round 2's "feel layer" answered this *in the recap only*; the
+moment personas actually described — answering — was never touched.
+
+**3. The heatmap doesn't animate on data change · S · P0** (P8, P3). A tile moving
+41%→47% after a session is a re-render. DESIGN.md §7 now has the data-change rule;
+this is its first application.
+
+**4. Touch targets miss the documented 44×44 minimum, broadly · S · P1.** Measured
+per route: 16 (Library) to **69** (Decks) controls under 44px. Sidebar nav 223×**34**,
+the sidebar's primary *Start session* 219×**37**, *Collapse sidebar* **24×24**,
+mobile *Open menu* **36×36**, ticker items 78×**20**. DESIGN.md §6 claims
+`IconButton` enforces this; it enforces it only where it is used.
+
+**5. Content clips at both widths · S · P1.** Treemap tile subline 132→**80** on
+mobile; deck names 252→**188**; Today overflows its own column by 8px
+(999>991 desktop, 350>342 mobile); a Today `text-2xs` line clips 406→**237**.
+
+**6. The display-name input has no accessible name · XS · P1** (a11y). Profile ships
+an `INPUT` with no label association — the two `sr-only` labels measure 83→1, so
+they exist but aren't bound. Screen-reader users get an unlabelled text field.
+
+**7. Grammar progress reads 0/20 · 0/32 · 0/40 after 42 days · S · P1** (P4, P6).
+A learner with 2,332 known words shows *zero* grammar started, on Today and in the
+Library. The vocabulary→grammar loop fires inside sessions but never credits the
+concept it taught. *Do:* count a point as started when its card leaves New.
+
+**8. Verify the touch affordances on real hardware · S · 📱.** The "Tap the card"
+fix is correct in logic and **unproven** — no browser viewport reports
+`hover: none`. Blocked on Xcode: `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`.
+
+### B · The study loop
+
+**9. Shared-element continuity, tile → sector · M · P1** (P2, P9, P7). `layoutId`
+appears once in the codebase. The one navigation where the same object exists on
+both sides is a hard swap. DESIGN.md §7's continuity rule, applied.
+
+**10. Blind spots rank by raw count, not rate · S · P1** (P6). Drilling a mode makes
+it look worse; avoiding one makes it look fine. Divide by attempts.
+
+**11. Interleave the drill types visibly · S** (P6). A session can run 20+ flips
+before a drill. Surface the mix ("14 cards · 4 drills") so the interleaving the
+scheduler is proud of is legible before it happens, not only after.
+
+**12. Undo should be reachable after the card leaves · XS** (P6). *Previous card*
+exists at 43×43 in the chrome; nobody finds it in the half-second they want it.
+
+**13. Grade from the front face without flipping · XS** (P6). A power user who knows
+the word shouldn't need the flip round-trip.
+
+**14. Session length is fixed at the queue · S** (P3, P5). Quick 5 exists; a "how
+long have you got?" control (2 / 5 / 15 min) fits the minutes people actually have
+better than a card count they can't convert to time.
+
+**15. Show the queue shape · S** (P5, P6). A progress rail that distinguishes due
+from fresh from drill, so "246 left" becomes a thing with an end you can see.
+
+**16. Typed answers need mobile keyboard hints · XS · 📱.** No `autocapitalize`,
+`autocorrect`, `spellcheck` or `enterkeyhint` on the answer input. iOS will
+autocapitalise and autocorrect German, then mark the learner wrong for it.
+
+**17. Near-miss tolerance beyond the umlaut fold · S** (round 1, Jonas). Edit-distance-1
+for typed answers, gated so *gemacht*/*gedacht* stays a miss. Measure over-forgiveness first.
+
+**18. The circuit breaker should offer a *softer* item, not just an exit · S** (P8).
+After four misses the kindest move is an easy win, not a door.
+
+### C · Legibility and composition — the Atlas, pass 2
+
+**19. Break the single-column stack · M · P1** (P2, P7). Six identical rounded
+rectangles at one width on a 1280px screen, each with 40–60% empty space to its
+right. This is the largest remaining visual finding.
+
+**20. Category hue per theme group · M** (the Atlas's second channel). Fill already
+encodes magnitude; hue should encode identity, consistently across map, decks,
+cards and stats. Ten groups, Aicher-derived, legible on both grounds.
+
+**21. The card becomes a lexicon entry · M** (the Atlas's desk). Headword · IPA ·
+POS · sense · citation is already the content model; the layout doesn't use it.
+Also closes the ~250px of dead space inside the card on desktop.
+
+**22. The desk is letterboxed on desktop · S · P1** (P6). DESIGN.md §8 promises
+full-bleed; an ~800px column in a 1280px viewport is not that.
+
+**23. The goal line is styled as a footnote · XS · P1** (P5). The most motivating
+sentence in the app, set at 14px between two large cards.
+
+**24. "+ 4 drills targeting your blind spots" is red · XS · P1** (P5). Reads as an
+error. It's the app doing you a favour.
+
+**25. Tile hover/press affordance · XS · P1** (P4, P10). A desktop region that
+doesn't acknowledge the pointer reads as an image.
+
+**26. The interaction hint sits below the fold · XS** (P10). "Long-press to study"
+is documented where it cannot be seen, on both viewports.
+
+**27. Retire the `--color-amber` misnomer · XS.** A token named amber holding Atlas
+blue, having previously held cyan. Rename with a codemod.
+
+**28. The ticker is clipped and, on mobile, noise · S · P2** (P7, P3). Partial "7%"
+against the sidebar edge on desktop; 3.5 items and a mid-word cut at 375px.
+
+**29. Empty and first-run states in the Atlas · S.** First-run Today spends ~60% of
+a desktop viewport on nothing (P1). The one screen where density would reassure.
+
+### D · Mobile and platform 📱
+
+**30. Mobile Progress spends ~200px on chrome before any map · S · P1** (P3).
+Three stacked rows of controls above the content they filter.
+
+**31. The FAB overlaps the treemap · XS · P1** (P3). Two interactive things, same pixels.
+
+**32. Coach marks eat 200px of 812 · XS · P1** (P8).
+
+**33. Real-device pass on safe areas and Dynamic Type · S · 📱.** `safe-top`/`safe-bottom`
+and the rem ramp are written but never observed on hardware.
+
+**34. Web Push for installed PWAs · M** (round 1, S3). The deliberate day-2 return
+mechanism, still undecided. Local notification from the existing reminder watch is
+the serverless version.
+
+**35. Home-screen widget / Live Activity · M · 📱.** "3 due" on the lock screen is
+the highest-leverage retention surface a local-first app can own without a backend.
+
+**36. Storage durability re-check on iOS · S · 📱.** `navigator.storage.persist()`
+ships; nobody has confirmed it survives 7 days of ITP on a real iPhone. The failure
+mode is total, silent data loss.
+
+### E · Content and pedagogy
+
+**37. C1/C2 register depth · L (human-gated)** (P9, P11). Confirmed again by the two
+most credible personas. C2 is 6 exercise points. The promise "grows with you A1–C2"
+thins exactly where it is hardest to keep.
+
+**38. Search across the 128 concepts · S · P1** (P4, P9). No way to find *Konjunktiv*
+without expanding levels and scrolling.
+
+**39. Listening is absent · M** (P3, P10). TTS and Piper HD already ship. A
+listen-first card mode is nearly free and it is the most neglected skill in every
+SRS app.
+
+**40. Output beyond mechanical transformation · M** (Swain; P11). "Write one sentence
+using these three words", grounded and mostly deterministic. Not a chatbot.
+
+**41. Heritage / uneven-profile learners · M** (P10). Placement assumes ignorance is
+uniform. Yusuf tests C1 on vocabulary and B1 on orthography and the app has one
+number for him. Skill-scoped drills rather than level-gated ones.
+
+**42. A maintenance mode for the arrived · S** (P12). At C2 the value inverts:
+low-volume, high-interval, rare vocabulary. FSRS is already excellent at exactly
+this; the app never offers it as a shape.
+
+**43. Exam alignment without an exam simulator · M** (P5). Goethe B1 is the
+most-taken certificate in the category. The app knows his level, pace and weak
+modes and never says "your weakest area *for B1* is Kasus".
+
+**44. Textbook-chapter decks · M** (P4). Netzwerk, Menschen, Schritte, Begegnungen.
+Becomes cheap once the comprehension meter lands — paste the chapter.
+
+**45. Register and collocation on C1+ cards · M** (P9). Synonyms exist but aren't
+differentiated by register, which is most of what C1 vocabulary work *is*.
+
+### F · Meaning and return
+
+**46. Name the session's best moment on the card, not just the recap · XS** (P8).
+"Comeback of the day" exists and fires where nobody is looking.
+
+**47. Finishable things · S.** A fully-known sector is finite and earned; DESIGN.md
+§8c calls this out and only the recap ever mentions it.
+
+**48. Weekly arc · S** (P5, P9). A seven-day view — words added, retention, the goal
+line's slope — is the narrative unit people actually feel. Daily is too granular,
+"since forever" too coarse.
+
+### G · Reach and trust
+
+**49. Performance budget · M · P2** (P7, P12). `vocab.json` is 5.2MB and the build
+warns above 500kB. Awwwards jurors test on real devices; so do learners on 3G. Split
+the corpus by level and fetch on demand.
+
+**50. Make the scheduler's reasoning visible from outside a session · S · P1**
+(P6, P11). `WhyThisCard` is the app's genuine moat and its strongest word-of-mouth
+asset, and it is invisible unless you are three cards deep. This is the single
+cheapest thing on this list that changes how the product is *described*.
+
+---
+
 ## Parked decisions (revisit deliberately, don't drift into)
 
 - ~~**Paper card faces.**~~ **Closed 2026-07-26: tried, and reverted.** Shipped on
@@ -449,13 +858,24 @@ follow-on) shipped 2026-07-11._
   no longer coupled to the colour scope). The rule this produced — *a nested scope
   may change ground and ink, never the brand hue* — is written down in
   [DESIGN.md](DESIGN.md).
-- **AI tutor & the Reader/Mine flow.** ROADMAP's two flagship paid features; **cut
-  from the core loop** in the July prune. `lib/ai.ts` and the OpenAI-compatible
-  client still exist for **build-time corpus enrichment** (`scripts/corpus/enrich-llm.ts`),
-  so re-adding a tutor or a known-word-coloured reader is feasible later — but it's
-  roadmap-gated. The in-app Settings "AI provider" widget has now been **removed**;
-  its `store.ts` config accessors (`aiConfig`/`setAiConfig`/`apiKey`/`setApiKey`)
-  linger unused and can be deleted if a tutor is definitively off the table.
+- **The Reader/Mine flow. ~~Parked~~ — un-parked 2026-07-27, and re-scoped.** It comes
+  back as **Now #0, the comprehension meter**, which is a different feature from what
+  was cut: not "paste text and mine words" but *"here is what percentage of this text
+  you know, and the N words that get you over 98%."* The cut version was a capture
+  tool; this one is a measurement instrument pointed at the model Lexi already has.
+- **AI tutor.** Still cut, and now cut *on the record* rather than by omission: the
+  conversation-app camp is commoditizing, needs a backend and keys, and breaks the
+  DSGVO-by-architecture story that is Lexi's best B2B asset. `lib/ai.ts` and the
+  OpenAI-compatible client stay for **build-time corpus enrichment**
+  (`scripts/corpus/enrich-llm.ts`). The in-app Settings "AI provider" widget was
+  **removed**; its `store.ts` accessors (`aiConfig`/`setAiConfig`/`apiKey`/`setApiKey`)
+  linger unused — **now safe to delete**, since the only sanctioned on-device
+  intelligence is the Phase-3 WebGPU option, which needs no provider config.
+- **The Sprachschule / B2B route.** Live, not parked, and explicitly **sequenced behind
+  Phases 1–2** (decided 2026-07-27). Re-read [SCHOOL-PITCH.md](SCHOOL-PITCH.md)'s gap
+  table *after* the meter ships — the meter closes two of its rows nearly for free
+  (curriculum alignment becomes "paste the chapter"; pre/post evidence gains a better
+  unit than a word count).
 - **Billing / €5 supporter tier.** The whole freemium split in `ROADMAP.md` depends
   on it. No infra yet; the "Support" link (now → GitHub) and any Pro gating wait on this.
 

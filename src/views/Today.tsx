@@ -88,6 +88,11 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
           <h2 className="text-xl sm:text-2xl font-bold mb-1.5 mt-2">Find your level, then learn your first words</h2>
           <p className="text-dim text-base mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
           <span className={buttonClass('primary', 'sm')}><Play size={13} /> Start</span>
+          {/* Said out loud on purpose. The corpus is English-glossed to the last
+              card, so a learner whose English is itself a second language pays a
+              double-translation tax on every item. Better they know that in the
+              first ten seconds than discover it in week three. */}
+          <p className="text-dim text-2xs mt-4">German from English — every gloss, rule and example is in English.</p>
         </Card>
       </div>
     );

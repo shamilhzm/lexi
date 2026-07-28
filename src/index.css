@@ -48,43 +48,60 @@
 }
 
 /* ============================================================
-   Karteikasten — Bloomberg-terminal theme tokens.
+   THE ATLAS — theme tokens.
    @theme color tokens auto-generate Tailwind utilities
-   (bg-bg, text-amber, border-line, …). Dark by default.
+   (bg-bg, text-amber, border-line, …). LIGHT by default;
+   `html.dark` overrides below.
+
+   Why light is primary now: this app is read, in daylight, for
+   fifteen minutes at a time. The dark-first default was inherited
+   from the terminal reference, and a 12-persona review found the
+   light theme already carried *better* hierarchy than the dark one
+   (the session-card number reads as data on light and as *disabled*
+   on dark). The three traditions this palette descends from —
+   Aicher/Ulm, cartography, and the printed lexicon — are all
+   light-ground. See docs/DESIGN.md §1.
+
+   The accent is Aicher's light blue, the "colour of peace" he made
+   the official hue of Munich 1972, darkened here to clear AA both
+   as ink on white and as a ground under white text.
    ============================================================ */
 @theme {
-  /* Glacier — a cool cyan terminal. "amber" is the legacy token NAME for the
-     accent; its value is now Glacier cyan (kept named to avoid churning every
-     text-amber/bg-amber/border-amber utility). Green stays the reward colour. */
-  --color-bg:      #080b11;   /* page */
-  --color-panel:   #111a25;   /* raised surface (lifted for separation) */
-  --color-panel2:  #0b1017;   /* sunken surface */
-  --color-card:    #16202e;   /* lifted card surface — study cards / exercises */
-  --color-line:    #223041;   /* hairline borders (a touch lighter for definition) */
-  --color-txt:     #eaf1f8;   /* primary text */
-  --color-dim:     #9fb0c2;   /* secondary text — cool grey, AA on every surface */
-  --color-amber:   #38cde8;   /* brand / accent / focus (Glacier cyan) */
-  --color-green:   #16c784;   /* gains / mastered */
-  --color-green-d: #0b3b2c;
-  --color-red:     #ea3943;   /* losses / weak */
-  --color-red-d:   #3d1216;   /* deep red surface (fill behind red-txt) */
-  --color-red-txt: #f0545e;   /* AA-legible red for small text on dark (drill "wrong") */
+  /* "amber" is the legacy token NAME for the accent (kept so every
+     text-amber/bg-amber/border-amber utility doesn't churn); its value has been
+     Glacier cyan and is now Atlas blue. Rename is tracked in the backlog. */
+  --color-bg:      #e7ecee;   /* page — cool paper, biased toward the accent */
+  --color-panel:   #f7f9fa;   /* chrome surfaces */
+  --color-panel2:  #dbe3e6;   /* sunken fills, nested rows */
+  --color-card:    #ffffff;   /* the study surface — pure white, reserved */
+  --color-line:    #c9d5d9;   /* hairlines */
+  --color-txt:     #16232a;   /* primary ink */
+  --color-dim:     #52646d;   /* secondary ink — AA on paper and on white */
+  --color-amber:   #1d6a8c;   /* brand / accent / focus (Atlas blue) */
+  --color-green:   #3f7a3a;   /* gains / mastered */
+  --color-green-d: #dfeddc;
+  --color-red:     #a3402f;   /* losses / weak */
+  --color-red-d:   #f6e3de;
+  --color-red-txt: #96351f;
+
+  /* NB: the coverage ramp (--heat-*) is deliberately NOT declared here — see
+     the :root block just below this @theme for why. */
 
   /* Grammatical gender ink. der/die/das were previously two tokens and one raw
      hex (#f472b6), so `die` was the only one that didn't follow the theme — and
      on a light surface that pink fell below AA. Three tokens, three themes. */
-  --color-der: #3b82f6;
-  --color-die: #f472b6;
-  --color-das: #14b8a6;
+  --color-der: #2d5be3;
+  --color-die: #be185d;
+  --color-das: #0f766e;
 
   /* CEFR ink — its own ramp, decoupled from the green/red/amber status colors
      (blue → teal → violet → fuchsia → coral). No value equals a status color. */
-  --color-a1: #3b82f6;
-  --color-a2: #0ea5e9;
-  --color-b1: #14b8a6;
-  --color-b2: #8b5cf6;
-  --color-c1: #d946ef;
-  --color-c2: #fb7185;
+  --color-a1: #2d5be3;
+  --color-a2: #0e7490;
+  --color-b1: #0f766e;
+  --color-b2: #6d28d9;
+  --color-c1: #a21caf;
+  --color-c2: #be185d;
 
   /* Mono is the brand voice: every stat, kicker, CEFR badge and numeral. It is
      shipped, not borrowed — the system stack only covers the swap window. */
@@ -120,6 +137,32 @@
   --tracking-widest: 0.17em;
 }
 
+/* ── The coverage ramp ───────────────────────────────────────────────────────
+   Five classes, not a continuous gradient, and *classified over the observed
+   range* rather than 0–100% (see lib/ui.ts → makeHeatScale). The old scale
+   mapped linearly across 0–100 while real coverage spans roughly 26–45%, so ten
+   genuinely different territories all landed in a 19-point slice of a 100-point
+   ramp and the map rendered as one flat colour. Cartography settled this a
+   century ago: classify over the observed range, and show the classes.
+
+   Declared in :root, NOT in @theme. Tailwind v4 only emits custom properties
+   that fall inside a theme namespace (--color-*, --text-*, --radius-*, …) and
+   silently drops the rest — so `--heat-0` inside @theme produced *no* variable
+   at all, every `var(--heat-N)` resolved to nothing, and every tile painted
+   transparent. It appeared to work only in dark, where `html.dark` is ordinary
+   CSS and therefore untouched. If you add a token here, keep it out of @theme
+   unless it is genuinely a --color-*.
+
+   Ink is paired to its class so contrast is decided here, once, rather than
+   guessed from a luminance threshold at paint time. */
+:root {
+  --heat-0: #dbe4e8;  --heat-ink-0: #3d4d55;
+  --heat-1: #b4ccd8;  --heat-ink-1: #1c2e37;
+  --heat-2: #7fadc2;  --heat-ink-2: #10222b;
+  --heat-3: #4a89a8;  --heat-ink-3: #ffffff;
+  --heat-4: #1d6a8c;  --heat-ink-4: #ffffff;
+}
+
 /* The German headword — the one place the display serif is used.
  *
  * This used to live inside a `.paper` scope that also re-skinned the card in
@@ -143,75 +186,79 @@
 }
 
 /* ============================================================
-   Light theme — a full light surface for the whole terminal,
-   toggled via `html.light` (see theme.ts). Dark stays the
-   @theme default. Same hues, same elevation ramp, same
-   semantics — only the luminance inverts.
+   Dark theme — the alternate, toggled via `html.dark` (see
+   theme.ts). Light is now the @theme default. Same hues, same
+   three-step elevation ramp, same semantics — only the luminance
+   inverts, so "raised" means the same thing in both.
+   Measured: bg→panel 1.12 (light: 1.12), panel→card 1.07 (light: 1.05).
    ============================================================ */
-html.light {
-  /* Glacier light — cool white, not cream (the cream was part of the "Claude" look).
-     Three-step elevation ramp, mirroring dark: bg (recessed) → panel (chrome) →
-     card (the study surface). Panel and card were both #ffffff, so the card had
-     literally 1.00 contrast against the chrome it sat on — no figure/ground at
-     all. Pure white is now reserved for the one surface you read from.
-     Measured: bg→panel 1.12 (dark: 1.12), panel→card 1.05 (dark: 1.07). */
-  --color-bg:      #e8eef5;
-  --color-panel:   #f8fafc;
-  --color-panel2:  #dde5ee;
-  --color-card:    #ffffff;
-  --color-line:    #cfd9e4;
-  --color-txt:     #16202e;
-  --color-dim:     #55657a;   /* AA on cool white */
-  --color-amber:   #0a6f88;   /* Glacier cyan (dark) — AA on white + AA for bg-text on the button */
-  --color-green:   #17663b;   /* AA on the green drill-feedback surface */
-  --color-green-d: #dcefe2;
-  --color-red:     #b0311f;   /* AA on the red drill-feedback surface */
-  --color-red-d:   #f6e1dc;
-  --color-red-txt: #a52714;
-  --color-der: #2d5be3;
-  --color-die: #be185d;
-  --color-das: #0f766e;
-  --color-a1: #2d5be3;
-  --color-a2: #0e7490;
-  --color-b1: #0f766e;
-  --color-b2: #6d28d9;
-  --color-c1: #a21caf;
-  --color-c2: #be185d;
+html.dark {
+  --color-bg:      #101619;
+  --color-panel:   #192327;
+  --color-panel2:  #0b1013;
+  --color-card:    #1f2b30;
+  --color-line:    #2c3b41;
+  --color-txt:     #e6edef;
+  --color-dim:     #93a5ac;   /* AA on every dark surface */
+  --color-amber:   #63b3d4;   /* Atlas blue, lifted for a dark ground */
+  --color-green:   #7bb36a;
+  --color-green-d: #17301a;
+  --color-red:     #e0705c;
+  --color-red-d:   #3a1712;
+  --color-red-txt: #ef8571;
+
+  /* The ramp inverts direction: on a dark ground the *unlearned* end must
+     recede into the page, not glow off it. Same five classes, same pairing
+     rule — ink is decided here, per class, not guessed at paint time. */
+  --heat-0: #1c2a30;  --heat-ink-0: #8fa3ac;
+  --heat-1: #244a5c;  --heat-ink-1: #cfe2ea;
+  --heat-2: #2e6c86;  --heat-ink-2: #eaf4f8;
+  --heat-3: #3d90ae;  --heat-ink-3: #06181f;
+  --heat-4: #63b3d4;  --heat-ink-4: #06181f;
+
+  --color-der: #7fa5ff;
+  --color-die: #f472b6;
+  --color-das: #4bd6c4;
+  --color-a1: #7fa5ff;
+  --color-a2: #38bdf8;
+  --color-b1: #4bd6c4;
+  --color-b2: #a78bfa;
+  --color-c1: #e879f9;
+  --color-c2: #fb7185;
 }
-/* Light-surface field: cool top wash + faint dark grid (mirrors the dark body). */
-html.light body {
+/* Dark-surface field: a soft top glow + a faint light grid (mirrors light). */
+html.dark body {
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(232,238,245,0) 55%),
-    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+    radial-gradient(130% 80% at 50% -12%, #16323f 0%, rgba(16,22,25,0) 55%),
+    radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
 }
-/* On light, the panel/card material highlight inverts to a soft dark wash.
-   The shadows are cool-neutral, not the warm brown they used to be — that was a
-   leftover from the cream card and it tinted the whole light theme. */
-html.light .bg-panel {
-  background-image: linear-gradient(180deg, rgba(16,32,48,0.014), rgba(0,0,0,0) 40%);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 8px 24px -20px rgba(22,32,46,0.45);
+/* On dark the panel/card material highlight is a light wash rather than the
+   soft dark one the light theme uses. */
+html.dark .bg-panel {
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0) 40%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 20px 44px -26px rgba(0,0,0,0.85);
 }
-/* The card carries a visibly deeper lift than a panel: at 1.05 luminance apart,
+/* The card carries a visibly deeper lift than a panel: at ~1.07 luminance apart,
    elevation and grain are what actually separate them, not colour. The noise
-   layer is re-declared (not inherited) because the light gradient differs, and
-   dialled back — soft-light bites harder against high luminance. */
-html.light .bg-card {
+   layer is re-declared (not inherited) because the gradient differs, and turned
+   *up* — soft-light bites less against low luminance. */
+html.dark .bg-card {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(16,32,48,0.02), rgba(0,0,0,0) 46%);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0) 46%);
   background-size: 140px 140px, auto;
   background-blend-mode: soft-light, normal;
 }
-html.light .bg-card,
-html.light .flip-face {
-  box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6);
+html.dark .bg-card,
+html.dark .flip-face {
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 24px 50px -24px rgba(0,0,0,0.9);
 }
 
 * { box-sizing: border-box; }
 
 /* Native form controls, scrollbars and system UI follow the active theme. */
-html { color-scheme: dark; }
-html.light { color-scheme: light; }
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
 
 /* Terminal numerals: anything mono is a stat — digits align in columns. */
 .font-mono, code, kbd { font-variant-numeric: tabular-nums; }
@@ -246,11 +293,12 @@ body {
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
-  /* Trading-floor field: soft top glow + a faint dotted grid for depth. */
+  /* The sheet: a soft top wash + a faint dotted grid — the register of a map
+     sheet under daylight rather than a trading floor in the dark. */
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #0f2230 0%, rgba(8,11,17,0) 55%),
-    radial-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(231,236,238,0) 55%),
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: auto, 24px 24px;
   background-attachment: fixed;
 }
@@ -258,8 +306,8 @@ body {
 /* Panel material — subtle top highlight + elevation, applied wherever the
    bg-panel token is used (header, cards, KPIs). Low-churn global polish. */
 .bg-panel {
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0) 40%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 44px -26px rgba(0, 0, 0, 0.85);
+  background-image: linear-gradient(180deg, rgba(16,32,48,0.014), rgba(0,0,0,0) 40%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 8px 24px -20px rgba(22,32,46,0.45);
 }
 
 /* ── The card is a different *material*, not a different colour ──────────────
@@ -278,14 +326,14 @@ body {
    resolution-independent, so it stays crisp on a 3× phone. */
 .bg-card {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 46%);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(16,32,48,0.02), rgba(0,0,0,0) 46%);
   background-size: 140px 140px, auto;
   background-blend-mode: soft-light, normal;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 24px 50px -24px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6);
 }
 /* Raise the flip-card faces too. */
-.flip-face { box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 24px 50px -24px rgba(0,0,0,0.9); }
+.flip-face { box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6); }
 
 /* Live status dot */
 .live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); }
@@ -295,21 +343,66 @@ body {
 }
 @keyframes livepulse { 0% { transform: scale(.7); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
 
-/* Treemap tile entrance */
-@keyframes tilein { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
-.tile-in { animation: tilein .42s cubic-bezier(.32,.72,0,1) both; }
+/* ── Route entrance ─────────────────────────────────────────────────────────
+   This replaces a Framer `initial={{ opacity: 0 }}` on the route container,
+   which could — and did — strand an entire destination at opacity 0 when the
+   animation never ran (a hash change landing while the tab was backgrounded
+   throttles rAF; observed with 1,769px of Progress laid out and invisible).
+   That is the same failure the bar/node entrances below were written to avoid,
+   and the rule had simply never been applied to the route layer.
+   No fill-mode, so the resting state is the correct one: if this animation is
+   disabled, throttled, or never starts, the page is simply *there*. */
+@keyframes routein { from { transform: translateY(8px); } }
+.route-in { animation: routein .2s cubic-bezier(.32,.72,0,1); }
+/* Entering the desk is a bigger move than changing rooms — same rule, longer
+   curve, and a scale rather than a slide because the session is a place you go
+   *into*, not a page that replaces another. */
+@keyframes deskin { from { transform: scale(.985); } }
+.desk-in { animation: deskin .28s cubic-bezier(.32,.72,0,1); }
+
+/* The study card arriving. `--dir` is the direction the previous card was
+   judged (+1 knew it, −1 didn't, 0 neutral: skip, undo, a drill swapping in),
+   so the next card enters from the opposite side — the deck advancing under
+   the one you just flicked away. Transform-only and fill-mode-free by the §7
+   rule, which matters more here than anywhere: this is the primary loop, and
+   the card must be on screen whether or not anything animates. */
+@keyframes cardin { from { transform: translateX(calc(var(--dir, 0) * -26px)) scale(.985); } }
+.card-in { animation: cardin .26s cubic-bezier(.32,.72,0,1); }
+
+/* The answer acknowledgment. Rises rather than fades in: transform-only, so a
+   stalled animation leaves the text legible rather than invisible. */
+@keyframes ackin { from { transform: translateY(4px); } }
+.ack-in { animation: ackin .16s cubic-bezier(.32,.72,0,1); }
+
+/* The cursor at the tip of the session bar. On a correct answer it takes one
+   short pulse — the micro tier, felt rather than watched, and the only thing in
+   the loop that distinguishes a hit from a miss without saying "well done". */
+.tip { position: absolute; right: -1px; top: 50%; width: 3px; height: 3px;
+  border-radius: 50%; background: var(--color-amber); margin-top: -1.5px;
+  box-shadow: 0 0 8px 2px var(--color-amber); }
+@keyframes tiphit { 45% { transform: scale(2.6); } }
+.tip-hit { background: var(--color-green); box-shadow: 0 0 9px 3px var(--color-green);
+  animation: tiphit .22s cubic-bezier(.32,.72,0,1); }
+
+/* Treemap tile entrance. Was scale(.985) — a 1.5% change, below the perceptual
+   threshold, which cost a frame budget and bought nothing. */
+@keyframes tilein { from { transform: scale(.94); } }
+.tile-in { animation: tilein .42s cubic-bezier(.32,.72,0,1); }
 
 /* Stats bars grow from the baseline on mount.
    Deliberately CSS with no fill-mode and no per-bar delay: the resting state is
    the *correct* one, so if the animation never runs — reduced motion, a tab
    that mounted in the background, anything — the chart still shows its data.
    An entrance that can leave real numbers invisible is not worth the stagger. */
-@keyframes bargrow { from { transform: scaleY(0); } }
+/* scaleY(0), not 0 — a stalled animation sits on its `from` frame, and a bar
+   frozen at zero height is the empty chart this comment was written to prevent.
+   8% still reads as growth and is never nothing. */
+@keyframes bargrow { from { transform: scaleY(.08); } }
 .bar-grow { transform-origin: bottom; transform-box: fill-box; animation: bargrow .5s cubic-bezier(.32,.72,0,1); }
 
 /* Word-map nodes settle in on mount. Same rule as the bars: no fill-mode, so a
    node that never animates is simply a node that is already there. */
-@keyframes nodein { from { opacity: 0; transform: scale(.86); } }
+@keyframes nodein { from { transform: scale(.86); } }
 .node-in { transform-origin: center; transform-box: fill-box; animation: nodein .45s cubic-bezier(.32,.72,0,1); }
 
 /* iOS safe areas (notch / Dynamic Island / home indicator) */
@@ -318,8 +411,10 @@ body {
 
 /* thin terminal scrollbars */
 *::-webkit-scrollbar { width: 9px; height: 9px; }
-*::-webkit-scrollbar-thumb { background: #20293600; }
-*:hover::-webkit-scrollbar-thumb { background: #243042; border-radius: 6px; }
+*::-webkit-scrollbar-thumb { background: transparent; }
+/* Tokenised — these were two dark hex literals, so on a light ground the thumb
+   was a near-black bar. The only hardcoded colours left in the stylesheet. */
+*:hover::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 6px; }
 *::-webkit-scrollbar-track { background: transparent; }
 
 /* ticker marquee */
@@ -328,8 +423,9 @@ body {
 .ticker-track:hover { animation-play-state: paused; }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track, .tile-in, .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
-  .tile-in { opacity: 1; transform: none; }
+  .ticker-track, .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,
+  .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
+  .tile-in, .route-in, .desk-in, .card-in, .ack-in { opacity: 1; transform: none; }
   * { scroll-behavior: auto; }
 }
 

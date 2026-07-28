@@ -1,15 +1,17 @@
 # Lexi
 
-**A German vocabulary terminal (A1–C2).** Lexi opens on **Today** — a daily
+**An atlas of your German (A1–C2).** Lexi opens on **Today** — a daily
 briefing that assembles your session from what's due (FSRS) plus fresh cards from
 your weakest sectors; a single **Start session** launches it. **Explore** holds the
 live *knowledge heatmap*: a squarified treemap where every tile is a theme group —
-**area = cards in the group, colour = % you've learned** (slate → green). Click a
-tile to drill into its sectors; right-click to study it. A Bloomberg-style terminal
-for working through German vocabulary with spaced repetition.
+**area = cards in the group, colour = how much of it you know**, classified over
+the range your own data actually occupies. Click a tile to drill into its sectors;
+long-press to study it.
 
-Lexi is built for everyone learning German and runs entirely on your device — no
-accounts, no tracking.
+**Lexi is built for English speakers learning German.** Every gloss, definition,
+rule and exercise prompt is in English — that's a deliberate scope, not an
+oversight, and it's stated here so the promise never runs ahead of what the
+corpus can keep. It runs entirely on your device — no accounts, no tracking.
 
 ## Docs
 
@@ -44,7 +46,7 @@ content area — four destinations plus the session:
 - **Explore** — the coverage **Knowledge Heatmap** (treemap by theme group) with a
   KPI strip and live ticker, a **Markt / Liste** toggle, and **Decks**: every sector
   as a card, filterable by group and sortable by urgency / size / progress. A CEFR
-  **level filter** rescopes the whole terminal. Opening a sector shows its
+  **level filter** rescopes the whole app. Opening a sector shows its
   **Wortkarte** — a semantic map (hub + word rings, synonym links, node colour =
   learning status).
 - **Fundamentals** — interactive grammar drills, each on its own spaced-repetition

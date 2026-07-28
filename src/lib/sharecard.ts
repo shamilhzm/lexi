@@ -64,7 +64,7 @@ export function renderShareCard(): HTMLCanvasElement {
   ctx.fillText('Lexi', PAD + 58, H - 76);
   ctx.fillStyle = DIM;
   ctx.font = `22px ${sans}`;
-  ctx.fillText('the German vocabulary terminal', PAD + 128, H - 76);
+  ctx.fillText('an atlas of your German', PAD + 128, H - 76);
 
   // ---- right column: the market, coloured by Known -----------------------
   const mx = 560, my = PAD, mw = W - mx - PAD, mh = H - PAD * 2;

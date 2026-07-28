@@ -13,11 +13,55 @@ survived a year longer than it should have (see *Hue discipline*, below).
 
 ---
 
-## 1. The identity
+## 1. The identity — **the Atlas**
 
-Lexi looks like a **market terminal** because the app's real job is to show you a
-territory — 7,464 cards across 284 sectors — and where you are thin in it. Cool
-Glacier cyan, mono numerals, dense data, hairline separation.
+> **Changed 2026-07-28.** Lexi looked like a **market terminal** for a year. That
+> was never chosen; it was the nearest available reference for "organise a vast
+> information space well," reached for by someone whose vocabulary of precedents
+> was Salesforce dashboards and the apps on a modern phone. The instinct was
+> sound. The reference was borrowed from the wrong domain, and a twelve-persona
+> review found it half-built besides — see [PERSONAS.md](PERSONAS.md).
+
+**Why the terminal was wrong here.** A trading terminal is built for *extraction
+under time pressure*: scanning **other people's** data for anomalies, in a dim
+room, across ten hours. Lexi is *accretion over years* — something of your own,
+built slowly, in daylight, **reading text**. Applying the aesthetics of
+surveillance to self-cultivation is why a persona said answering correctly "feels
+like a spreadsheet": the room was built for watching, and a person trying to grow
+something was put inside it.
+
+**What the Atlas is.** Three traditions, one per problem:
+
+| | Tradition | Solves |
+|---|---|---|
+| The system | **Otl Aicher / HfG Ulm** | a rigorous, humane, *German* visual method |
+| The instrument | **cartography** | a large space, partially known, that you move through |
+| The desk | **the printed lexicon** | headword · IPA · sense · citation — already the card's content model |
+
+Aicher's Munich 1972 was built so Germany could present itself in "cheerful
+colours and democratic forms" — deliberate counter-design to 1936, with an
+"apolitical light blue" as its official hue. That is not a surface resemblance:
+**the values match.** Systematic, humane, anti-authoritarian, adult without being
+cold — the one thing the terminal structurally could not be, since the review's
+personas wanted both its seriousness *and* warmth.
+
+It also makes form match subject. An app that teaches German drawing on the
+German design tradition *feels like* what it is; a Bloomberg terminal never can.
+
+**Light is primary.** Dark is a real, fully-designed alternate, not an
+afterthought — but the default inverted, because all three traditions are
+light-ground, because this app is *read*, and because the review measured the
+light theme as already carrying better hierarchy than the dark one (the session
+card's headline number reads as data on light and as *disabled* on dark).
+
+**The risk is pastiche.** The defence: take the *principles* — colour as
+category, grid as structure, white as active space, systematic construction — not
+a 1972 costume.
+
+**What survived the change unaltered**, because none of it was ever about the
+terminal: the token architecture (still zero hardcoded palette classes and zero
+hex literals in `src/`), the two-rooms split, the radius hierarchy, §10
+Accessibility in full, and the gotchas in §11.
 
 That identity belongs to the **instrument** (Progress, the heatmap, the
 forecast). It is deliberately *not* the whole app: see *Two rooms*.
@@ -37,23 +81,24 @@ Tailwind palette classes anywhere in `src/`, and it should stay that way.
 | `--color-card` | **the study surface** — the thing you read from |
 | `--color-line` | hairlines |
 | `--color-txt` / `--color-dim` | primary / secondary ink |
-| `--color-amber` | the brand accent (Glacier cyan — the name is legacy) |
+| `--color-amber` | the brand accent (**Atlas blue** — the name is doubly legacy: not amber, no longer cyan) |
 | `--color-green` / `--color-red` / `--color-red-txt` | gains / losses / AA-safe small red |
 | `--color-der` / `--color-die` / `--color-das` | grammatical gender |
 | `--color-a1` … `--color-c2` | CEFR ink, deliberately decoupled from status colours |
+| `--heat-0…4` / `--heat-ink-0…4` | the five-class coverage ramp, ink paired per class |
 
 ### The elevation ramp
 
 Both themes use the **same three-step ramp**, so "raised" means the same thing in
 each. Only luminance inverts.
 
-| | dark | light |
+| | light (primary) | dark |
 |---|---|---|
-| `bg` | `#080b11` | `#e8eef5` |
-| `panel` | `#111a25` | `#f8fafc` |
-| `card` | `#16202e` | `#ffffff` |
+| `bg` | `#e7ecee` | `#101619` |
+| `panel` | `#f7f9fa` | `#192327` |
+| `card` | `#ffffff` | `#1f2b30` |
 
-Measured: bg→panel **1.12 / 1.12**, panel→card **1.07 / 1.05**.
+Measured: bg→panel **1.12 / 1.12**, panel→card **1.05 / 1.07**.
 
 Pure white is **reserved for the study surface** in light. Panel and card were
 both `#ffffff` for a while, which gave the card exactly 1.00 contrast against the
@@ -129,13 +174,68 @@ a big target from inflating a tight row).
 
 ## 7. Motion
 
+"Motion should explain, not decorate" was the whole of this section for a year,
+and it got *applied* as "motion should be minimal" — a different rule. The result:
+the session player and the recap got real craft, and the instrument room got
+nothing. Below is a system rather than a restraint.
+
+### The safety rule (rewritten — the old one was wrong)
+
+> **An entrance may animate `transform`. It may never animate `opacity`, or scale
+> to zero, on anything that holds content.**
+
+The previous rule said no fill-mode was sufficient. It isn't. **A stalled
+animation sits on its `from` frame** — so `from { opacity: 0 }` renders nothing
+whether or not a fill-mode is set. That is not theoretical: the route container
+was caught holding **1,769px of fully laid-out Progress at `opacity: 0`**, enter
+transform frozen mid-flight, because a hash change landed while the tab was
+backgrounded and rAF was throttled.
+
+`.bar-grow` and `.node-in` were cited *in this document* as the safe pattern and
+had the same defect (`scaleY(0)`, `opacity: 0`). All five entrances are now
+transform-only: worst case is content 8px low, or at 94%, or a bar at 8% height —
+always visible. Verify with a paused probe, which is the real test:
+
+```js
+const p = document.createElement('div');
+p.className = 'route-in'; p.style.animationPlayState = 'paused';
+document.body.appendChild(p);
+getComputedStyle(p).opacity; // must be "1"
+```
+
+### The scale
+
+One easing, `cubic-bezier(.32,.72,0,1)`, at three weights. If a duration isn't on
+this scale, it needs a reason.
+
+| Tier | Duration | For |
+|---|---|---|
+| **micro** | 80–120ms | press, toggle, hover — feedback you feel, not watch |
+| **transition** | 200–320ms | route (`.route-in` 200), desk (`.desk-in` 280), panels |
+| **narrative** | 400–700ms | tiles (`.tile-in` 420), recap, milestones, a chart's first paint |
+
+### Continuity
+
+> **Two views showing the same object transform that object. They do not
+> cross-fade.**
+
+Navigation currently goes visible → invisible → visible, which is why the app
+reads as a slideshow of states rather than one place. `layoutId` appears exactly
+once in the codebase. The heatmap tile → sector drill-down is the case that most
+obviously wants it. *Not yet built — see BACKLOG 0b Batch C.*
+
+### Data change
+
+> **A number or area that changed because the learner did something animates from
+> its old value.**
+
+Finishing a session moves a tile from 41% to 47% and nothing moves; `CountUp`
+exists and fires only in the recap. This is the single largest gap between what
+the app measures and what it lets you feel. *Not yet built — BACKLOG 0b.*
+
+### Still true
+
 - Everything obeys `prefers-reduced-motion`, including route transitions.
-- **An entrance must never leave content invisible if it doesn't run.** No
-  zero-height or zero-opacity resting states on data. See `.bar-grow` and
-  `.node-in` in `index.css`: CSS animations with *no* fill-mode, so the resting
-  state is the correct one and a stalled or disabled animation still shows the
-  numbers. This was learned the hard way — bars animated from `height: 0` render
-  an empty chart if the tab mounts in the background.
 - Motion should explain, not decorate. The graded card leaves in the direction it
   was judged; that is the standard to match.
 
