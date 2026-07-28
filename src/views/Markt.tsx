@@ -145,6 +145,11 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             )}
             {tiles.map((t, idx) => {
               const c = t.data, p = known(c), big = t.w > 118 && t.h > 62, mid = t.w > 76 && t.h > 42;
+              // The subline is two facts joined by a separator, and at `big`
+              // the second one was being cut mid-word ("22 secto…"). A count
+              // sliced in half is worse than a count omitted, so the sector
+              // tally only appears once there is genuinely room for it.
+              const wide = t.w > 190;
               const ink = scale.ink(p);
               const d = !zoom ? (deltas?.get(c.name) ?? 0) : 0;
               // Only tiles that actually crossed a class boundary animate. A
@@ -179,7 +184,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                     <span className="flex items-end justify-between gap-1">
                       <span className="min-w-0">
                         <span className="font-mono font-bold block leading-none" style={{ fontSize: big ? 26 : mid ? 18 : 13 }}>{Math.round(p * 100)}%</span>
-                        {big && <span className="block font-mono opacity-80 mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)} · {c.sub}</span>}
+                        {big && <span className="block font-mono opacity-80 mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)}{wide ? ` · ${c.sub}` : ''}</span>}
                       </span>
                       {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0 opacity-80" style={{ fontSize: 11 }}>▲{d}</span>}
                     </span>

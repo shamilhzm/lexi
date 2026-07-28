@@ -263,6 +263,32 @@ html.dark { color-scheme: dark; }
 /* Terminal numerals: anything mono is a stat — digits align in columns. */
 .font-mono, code, kbd { font-variant-numeric: tabular-nums; }
 
+/* ── Touch targets ──────────────────────────────────────────────────────────
+   `IconButton` has enforced 44×44 since it was written, but only for controls
+   that go through it. An audit of the running app found 16–69 raw buttons per
+   route under the minimum, including the sidebar's own primary CTA (219×37),
+   its nav rows (223×34) and the mobile menu button (36×36).
+
+   Gated on pointer type on purpose. 44px is a *touch* guideline — WCAG 2.5.5
+   exists because fingers are imprecise, not mice — and applying it to the
+   desktop rail would add 10px to every row on a surface twelve personas already
+   called too sparse. A finger gets 44; a cursor keeps the density.
+
+   `any-pointer`, not `pointer`: a Surface, a touch laptop, or an iPad with a
+   keyboard reports `pointer: fine` for its *primary* input while a finger is
+   still an available one. `any-pointer: coarse` is true whenever some pointer
+   on the device is imprecise, which is the condition the rule actually cares
+   about.
+
+   `min-height` rather than `height`, so a row that is already taller (the
+   56px bottom bar) is untouched.
+
+   NOT verified on hardware — no browser viewport reports a coarse pointer, so
+   this and the "Tap the card" hint both wait on item 8. */
+@media (any-pointer: coarse) {
+  .tap-44 { min-height: 44px; }
+}
+
 /* Controls are controls, not text: no selection ghosting on fast taps, and
    touch-action removes the double-tap-zoom delay on touch devices. */
 button, [role="button"] { -webkit-user-select: none; user-select: none; touch-action: manipulation; }

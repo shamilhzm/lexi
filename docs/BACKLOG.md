@@ -687,15 +687,46 @@ classification ran on raw floats, so three territories all displaying **42%** we
 split across two colours; it now classifies on the rounded percentage, making label
 and fill agree by construction. Two new tests pin both.
 
-**4. Touch targets miss the documented 44×44 minimum, broadly · S · P1.** Measured
-per route: 16 (Library) to **69** (Decks) controls under 44px. Sidebar nav 223×**34**,
-the sidebar's primary *Start session* 219×**37**, *Collapse sidebar* **24×24**,
-mobile *Open menu* **36×36**, ticker items 78×**20**. DESIGN.md §6 claims
-`IconButton` enforces this; it enforces it only where it is used.
+**4. ~~Touch targets miss the documented 44×44 minimum~~ · ✅ 2026-07-28 (code) ·
+📱 unverified.** Sidebar nav rows, the primary *Start session* and the profile row
+now carry `.tap-44`; the mobile menu button went 36→44 (pulled, so the header bar
+doesn't grow); the desktop collapse chevron keeps its 24px look and gains a 44px
+hit area via a `::before` expander.
 
-**5. Content clips at both widths · S · P1.** Treemap tile subline 132→**80** on
-mobile; deck names 252→**188**; Today overflows its own column by 8px
-(999>991 desktop, 350>342 mobile); a Today `text-2xs` line clips 406→**237**.
+**Gated on `any-pointer: coarse`, deliberately.** 44px is a *touch* guideline —
+WCAG 2.5.5 exists because fingers are imprecise, not mice — and applying it to the
+desktop rail would add 10px to every row on a surface twelve personas already called
+too sparse. `any-pointer` rather than `pointer` so a Surface, a touch laptop or an
+iPad with a keyboard (all of which report `pointer: fine` for their *primary* input)
+still get the larger targets.
+
+*Verified:* the rule compiles into the bundle, and forcing the declaration in the
+live DOM brings all five sidebar targets to ≥44 with no nav overflow and no sideways
+scroll. *Not verified:* that the media query actually fires — no browser viewport
+reports a coarse pointer, so this joins the "Tap the card" hint behind item 8.
+*Still open:* ticker items (78×20) belong to #28, which is rethinking that strip for
+mobile anyway — a moving marquee is a poor tap target at any size.
+
+**5. ~~Content clips at both widths~~ · ✅ 2026-07-28 — and mostly a false alarm.**
+Two of the four claims were **my audit's error, not the app's**. The overflow
+heuristic (`scrollWidth > clientWidth`) flags this codebase's deliberate `pull`
+idiom — the `-m-2` that lets a 44px target sit in a tight row without inflating it
+— as a defect. Measured at 320, 375 and 1280: the overhang is 8px, `offscreen: 0`,
+and neither `body` nor `html` scrolls sideways at any width.
+
+- ~~Today overflows its column by 8px~~ — the streak button's `-m-2`. Contained.
+- ~~Decks rows 208→200~~ — same idiom on the card's icon cluster. The "230 clips"
+  figure was one benign row per deck card.
+- **Treemap subline 132→80 — real, and fixed.** It was cutting a count mid-word
+  ("22 secto…"). A number sliced in half is worse than a number omitted, so the
+  sector tally now appears only above 190px; below that the tile shows the ratio
+  alone. *Verified:* no subline clips at 375px.
+- **Deck names 252→188** — genuine truncation, but by design and with an ellipsis.
+  They now carry a `title`, so the full name is recoverable rather than lost.
+
+*Lesson for the next audit:* `scrollWidth > clientWidth` alone is not evidence of a
+bug. Overflow that stays on screen and scrolls nothing is a layout idiom; the test
+has to be "does anything become unreachable".
 
 **6. The display-name input has no accessible name · XS · P1** (a11y). Profile ships
 an `INPUT` with no label association — the two `sr-only` labels measure 83→1, so
