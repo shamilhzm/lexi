@@ -18,7 +18,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, ChevronDown, ChevronRight, GraduationCap, Loader2, Play } from 'lucide-react';
 import { levels, placementLevel, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { heat } from '../lib/ui.ts';
+import { heat, fmt } from '../lib/ui.ts';
 import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
 import GrammarDrill, { type PointScope } from './GrammarDrill.tsx';
 import { Drill, MODES, type Mode } from './Fundamentals.tsx';
@@ -121,7 +121,7 @@ function Syllabus({ onRoute }: { onRoute: (r: Route) => void }) {
             <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpen size={18} /></span>
             <span className="flex-1">
               <span className="block text-base font-semibold">Mixed exercise session</span>
-              <span className="block text-2xs text-dim">Whatever is due across your levels — {GRAMMAR_COUNTS.exercises.toLocaleString('de-DE')} exercises in the bank.</span>
+              <span className="block text-2xs text-dim">Whatever is due across your levels — {fmt(GRAMMAR_COUNTS.exercises)} exercises in the bank.</span>
             </span>
             <ChevronRight size={16} className="text-dim flex-shrink-0" />
           </Card>

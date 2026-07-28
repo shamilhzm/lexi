@@ -4,9 +4,9 @@
 // and the % is the primary glyph so it reads on a phone. A Markt/Liste toggle
 // swaps the treemap for a plain ranked list on the smallest screens; the CEFR
 // filter rescopes the whole terminal.
-import { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Play, ArrowLeft, LayoutGrid, List } from 'lucide-react';
-import { groupStats, sectorStats, groupDeltas } from '../store.ts';
+import { groupStats, sectorStats, groupDeltas, lastSeen, markSeen, totals } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { squarify, type Tile } from '../lib/treemap.ts';
 import { heat, heatText, makeHeatScale, heatFill, fmt } from '../lib/ui.ts';
@@ -60,6 +60,37 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
   // one global scale — is what made every tile the same colour: a group whose
   // sectors all sit between 20% and 30% should still show which is thinnest.
   const scale = useMemo(() => makeHeatScale(cells.map((c) => (c.count ? c.known / c.count : 0))), [cells]);
+
+  // What the map looked like the last time this learner opened it. Captured
+  // once, on mount, *before* anything is recorded — so the tiles that moved
+  // since can travel from the colour they were. Only at group level: sector
+  // coverage isn't in the seen-state, and inventing a baseline for it would
+  // animate a lie.
+  const seenAtMount = useRef(zoom ? null : lastSeen());
+  // One paint at the old colours, then the truth. Driven by a timer rather than
+  // a frame callback precisely so a paused tab cannot leave the map showing
+  // last week's colours as if they were current.
+  const [atOldColours, setAtOldColours] = useState(!zoom && !!seenAtMount.current);
+  useEffect(() => {
+    if (!atOldColours) return;
+    const t = setTimeout(() => setAtOldColours(false), 50);
+    return () => clearTimeout(t);
+  }, [atOldColours]);
+
+  useEffect(() => {
+    if (zoom || cells.length === 0) return;
+    // A timeout, not a rAF: the record must happen even in a tab whose frame
+    // callbacks are paused, or the next visit would replay this same animation
+    // against a stale baseline forever.
+    const t = setTimeout(() => {
+      const groups: Record<string, number> = {};
+      for (const c of cells) groups[c.name] = c.count ? c.known / c.count : 0;
+      // `totals().known`, not the sum of the cells: that is the number the
+      // headline renders, and the two must animate from one baseline.
+      markSeen(totals().known, groups);
+    }, 1000);
+    return () => clearTimeout(t);
+  }, [zoom, cells]);
 
   // Tap: at group level zoom in; at sector level study it. Right-click: study.
   const tap = (c: Cell) => { if (zoom) onStudy({ kind: 'sector', name: c.name }); else { setZoom(c.name); setHover(null); } };
@@ -116,6 +147,11 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               const c = t.data, p = known(c), big = t.w > 118 && t.h > 62, mid = t.w > 76 && t.h > 42;
               const ink = scale.ink(p);
               const d = !zoom ? (deltas?.get(c.name) ?? 0) : 0;
+              // Only tiles that actually crossed a class boundary animate. A
+              // territory that gained two words and stayed in the same band has
+              // nothing to show, and colouring it anyway would be theatre.
+              const was = seenAtMount.current?.groups[c.name];
+              const shifted = was !== undefined && scale.classOf(was) !== scale.classOf(p);
               return (
                 <button key={c.name}
                   onClick={() => { if (longFired.current) { longFired.current = false; return; } tap(c); }}
@@ -125,8 +161,13 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                   onPointerLeave={() => { pressEnd(); setHover(null); }}
                   onPointerCancel={pressEnd}
                   onMouseMove={(e) => setHover({ c, x: e.clientX, y: e.clientY })}
-                  className="tile-in absolute overflow-hidden border border-bg transition-[filter,transform] duration-100 hover:brightness-105 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left"
-                  style={{ left: t.x, top: t.y, width: t.w, height: t.h, background: scale.fill(p), animationDelay: `${Math.min(idx * 14, 240)}ms` }}>
+                  className={`tile ${shifted ? '' : 'tile-in'} absolute overflow-hidden border border-bg hover:brightness-105 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left`}
+                  style={{
+                    left: t.x, top: t.y, width: t.w, height: t.h,
+                    // The old colour for exactly one paint, then the real one.
+                    background: shifted && atOldColours ? heatFill(scale.classOf(was!)) : scale.fill(p),
+                    animationDelay: shifted ? '0ms' : `${Math.min(idx * 14, 240)}ms`,
+                  }}>
                   {/* No text-shadow any more. It existed to rescue a single ink
                       colour guessed against an arbitrary fill; ink is now paired
                       to its class in the stylesheet, so the contrast is decided

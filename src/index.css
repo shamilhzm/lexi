@@ -384,6 +384,26 @@ body {
 .tip-hit { background: var(--color-green); box-shadow: 0 0 9px 3px var(--color-green);
   animation: tiphit .22s cubic-bezier(.32,.72,0,1); }
 
+/* A territory that changed since you last looked travels from the colour you
+   last saw to the colour it is now. Finishing a session and watching the map
+   move is the payoff the whole instrument exists for, and it used to be a
+   silent re-render.
+
+   This is a *transition*, not a keyframe animation, and the distinction is the
+   whole point. The first attempt was `@keyframes { from { background-color:
+   var(--was) } }`, reasoning that a stalled animation would leave the resting
+   (correct) colour. That reasoning holds for transforms and is wrong here: a
+   stalled animation sits on its `from` frame, and on this element the colour
+   *is the data*. The test caught a 44% territory painting itself in the 23%
+   band because the animation never advanced — stale data, presented as fact.
+
+   A transition inverts the dependency. React writes the old colour, a timer
+   (not a frame callback) writes the new one, and the transition merely decides
+   whether the change is gradual or instant. Timers run in background tabs, so
+   the map is always eventually true; the animation is decoration on top. */
+.tile { transition: filter .1s linear, transform .1s linear,
+                    background-color .85s cubic-bezier(.32,.72,0,1); }
+
 /* Treemap tile entrance. Was scale(.985) — a 1.5% change, below the perceptual
    threshold, which cost a frame budget and bought nothing. */
 @keyframes tilein { from { transform: scale(.94); } }
@@ -425,6 +445,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,
   .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
+  .tile { transition: none; }
   .tile-in, .route-in, .desk-in, .card-in, .ack-in { opacity: 1; transform: none; }
   * { scroll-behavior: auto; }
 }

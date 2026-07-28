@@ -656,13 +656,36 @@ Library's expanded *Dativ* panel showed its **Practise button clipped** during t
 audit — consistent with a height animation frozen part-way. Same family, much
 smaller blast radius. Worth a pass when C/#19 touches composition.
 
-**2. Success is silent · S · P0** (P8, P10, P12, P3). No motion, no acknowledgment
-on a correct answer. Round 2's "feel layer" answered this *in the recap only*; the
-moment personas actually described — answering — was never touched.
+**2. ~~Success is silent~~ · ✅ 2026-07-28** (P8, P10, P12, P3). Every answer now
+gets an acknowledgment in the session chrome — and it says **the interval the card
+just moved to** ("back in 15 days"), not "well done". Same machinery-not-magic trick
+as the grade-button previews, and the only acknowledgment that survives being seen
+sixty times a session without curdling. The bar's cursor takes one short green pulse
+on a hit (micro tier, 220ms). *Verified:* the interval shown always matches the
+button pressed, across both grade paths. It lives in the chrome rather than on the
+card because the card unmounts the instant it is graded.
 
-**3. The heatmap doesn't animate on data change · S · P0** (P8, P3). A tile moving
-41%→47% after a session is a re-render. DESIGN.md §7 now has the data-change rule;
-this is its first application.
+**3. ~~The heatmap doesn't animate on data change~~ · ✅ 2026-07-28** (P8, P3).
+Territories that crossed a class boundary since you last looked now travel from the
+colour you last saw (`lexi.mapseen.v1`), and the Known headline counts up from the
+same baseline, so the number and the map agree about what changed. Only tiles that
+actually changed band animate — colouring the rest would be theatre.
+
+*The first implementation was wrong, and the test caught it.* It used
+`@keyframes { from { background-color: var(--was) } }`, on the same reasoning as the
+transform-only entrances. That reasoning does not transfer: **on this element the
+colour is the data**, and a stalled animation sits on its `from` frame — a 44%
+territory painted itself in the 23% band. Now a CSS *transition*: React writes the
+old colour, a **timer** writes the true one, and the transition only decides whether
+the change is gradual. Correctness rides on a timer, never on a frame callback.
+
+*Two bugs found on the way:* `CountUp` had its own inline `toLocaleString('de-DE')`,
+so the Known headline still rendered **"2.320"** beside a `fmt()`-formatted "6,618" —
+the `fmt` fix had missed it and it shipped to production. It could also strand a
+*wrong number* if rAF paused, so it now has a timer backstop. Separately,
+classification ran on raw floats, so three territories all displaying **42%** were
+split across two colours; it now classifies on the rounded percentage, making label
+and fill agree by construction. Two new tests pin both.
 
 **4. Touch targets miss the documented 44×44 minimum, broadly · S · P1.** Measured
 per route: 16 (Library) to **69** (Decks) controls under 44px. Sidebar nav 223×**34**,

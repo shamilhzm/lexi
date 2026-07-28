@@ -12,8 +12,9 @@
 //
 // Depth (deck list, word map) is now real routing, so Back works and a deck is
 // a linkable thing.
+import { useRef } from 'react';
 import { ArrowLeft, Check } from 'lucide-react';
-import { totals, streak, goalProgress, completions } from '../store.ts';
+import { totals, streak, goalProgress, completions, lastSeen } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heatText } from '../lib/ui.ts';
 import Markt from './Markt.tsx';
@@ -143,13 +144,22 @@ function Headline() {
   const t = totals();
   const gp = goalProgress();
   const pct = Math.round(t.coverage * 100);
+  // Read once, on mount, before Markt's own effect records the new state —
+  // both surfaces animate from the same baseline, so the number and the map
+  // agree about what changed.
+  const seen = useRef(lastSeen()).current;
 
   return (
     <Card pad="none" className="px-4 sm:px-6 py-5 sm:py-6 mb-4">
       <Kicker tone="accent" className="block mb-2">Words you know</Kicker>
       <div className="flex items-end gap-3 flex-wrap">
+        {/* Counts up from the total the learner last saw on this surface, so
+            returning after a session shows the number *arriving* rather than
+            already sitting there. `from` is undefined on a first visit, which
+            makes CountUp render the value flat — nothing to travel from, and a
+            count-up from zero would be a small lie about what just happened. */}
         <span className="font-mono font-bold text-5xl sm:text-6xl leading-none tabular-nums text-green">
-          <CountUp value={t.known} />
+          <CountUp value={t.known} from={seen?.known} />
         </span>
         <span className="text-dim text-base mb-1.5">
           of {fmt(t.count)} in scope

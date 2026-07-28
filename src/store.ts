@@ -260,6 +260,30 @@ export function gymDue(): number {
 }
 
 // ---- daily snapshots (market deltas) --------------------------------------
+// ---- what the learner last *saw* ------------------------------------------
+// Distinct from the daily snapshot above, which is a once-per-day historical
+// record. This is "the state of the map the last time you looked at it", so a
+// return visit can animate from there to now — the data-change rule in
+// DESIGN.md §7. Studying is the only thing that moves these numbers, so the
+// movement is always earned.
+//
+// Deliberately *not* in SETTING_KEYS: it is ephemeral view state, and restoring
+// a months-old "last seen" from a backup would animate a wild, meaningless jump.
+const SEEN_KEY = 'lexi.mapseen.v1';
+export interface SeenState { known: number; groups: Record<string, number> }
+export function lastSeen(): SeenState | null {
+  try {
+    const v = JSON.parse(localStorage.getItem(SEEN_KEY) || 'null');
+    if (v && typeof v.known === 'number' && v.groups && typeof v.groups === 'object') return v as SeenState;
+  } catch { /* corrupt — treat as first visit */ }
+  return null;
+}
+/** Record the map as it stands now. Call *after* a paint that used the old
+ *  values, or the animation has nothing to travel from. */
+export function markSeen(known: number, groups: Record<string, number>) {
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify({ known, groups })); } catch { /* quota */ }
+}
+
 const SNAP_KEY = 'lexi.snap.v1';
 interface Snapshot { date: string; groups: Record<string, number>; known?: number; }
 function loadSnaps(): Snapshot[] {

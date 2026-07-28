@@ -37,16 +37,23 @@ export interface HeatScale {
  *  Degenerate inputs fall back to a proportional spread so a one-sector group,
  *  or a corpus where every value is identical, still renders something sane. */
 export function makeHeatScale(values: number[]): HeatScale {
-  const v = values.filter(Number.isFinite).sort((a, b) => a - b);
-  const lo = v.length ? v[0] : 0;
-  const hi = v.length ? v[v.length - 1] : 1;
+  // Classify on the *displayed* percentage, not the raw fraction. Two
+  // territories at 0.4204 and 0.4198 both render "42%", and classifying the
+  // floats put them either side of a break — the map showed two identical
+  // numbers in two different colours, which is precisely the confusion a heat
+  // map exists to prevent. Rounding first makes colour and label agree by
+  // construction: equal labels are now guaranteed equal fills.
+  const pp = (p: number) => Math.round(p * 100);
+  const v = values.filter(Number.isFinite).map(pp).sort((a, b) => a - b);
+  const lo = v.length ? v[0] / 100 : 0;
+  const hi = v.length ? v[v.length - 1] / 100 : 1;
   // Too few distinct values to classify — spread across the full 0..1 instead.
   const distinct = new Set(v).size;
   const breaks = distinct >= CLASSES
-    ? Array.from({ length: CLASSES - 1 }, (_, i) => v[Math.floor(((i + 1) * v.length) / CLASSES)])
+    ? Array.from({ length: CLASSES - 1 }, (_, i) => v[Math.floor(((i + 1) * v.length) / CLASSES)] / 100)
     : [];
   const classOf = (p: number) => breaks.length
-    ? breaks.reduce((c, b) => (p >= b ? c + 1 : c), 0)
+    ? breaks.reduce((c, b) => (pp(p) >= pp(b) ? c + 1 : c), 0)
     : Math.max(0, Math.min(CLASSES - 1, Math.floor(p * CLASSES)));
   return {
     classOf,
