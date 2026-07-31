@@ -728,14 +728,31 @@ and neither `body` nor `html` scrolls sideways at any width.
 bug. Overflow that stays on screen and scrolls nothing is a layout idiom; the test
 has to be "does anything become unreachable".
 
-**6. The display-name input has no accessible name · XS · P1** (a11y). Profile ships
-an `INPUT` with no label association — the two `sr-only` labels measure 83→1, so
-they exist but aren't bound. Screen-reader users get an unlabelled text field.
+**6. ~~The display-name input has no accessible name~~ · ✅ false positive.**
+Every control on Profile is correctly named — `profile-name`, `goal-level` and
+`goal-date` each have an associated `sr-only` `<label for>`, and the reminder and
+backup inputs carry `aria-label`. Verified in the browser via `el.labels`:
+`everyControlNamed: true` across Profile, the word map and the Library.
 
-**7. Grammar progress reads 0/20 · 0/32 · 0/40 after 42 days · S · P1** (P4, P6).
-A learner with 2,332 known words shows *zero* grammar started, on Today and in the
-Library. The vocabulary→grammar loop fires inside sessions but never credits the
-concept it taught. *Do:* count a point as started when its card leaves New.
+My audit tested `aria-label || innerText || title`, and an `<input>` has no
+`innerText` — so a properly labelled field read as unnamed. **Third false positive
+from that sweep** (with two in #5). The accessibility-correct test is `el.labels`
+or the computed accessible name; the heuristic I used is not a substitute.
+
+**7. ~~Grammar progress reads 0/20 · 0/32 · 0/40 after 42 days~~ · ✅ 2026-07-28**
+(P4, P6). Real, and the cause was two id namespaces that never met. `pointStats`
+counted only `gex:<level>:<point>:<exercise>` cards — created by drilling in the
+Library. But when the session's vocabulary→grammar loop surfaces a concept (learn
+*obwohl*, get Konzessivsätze a few items later) it grades the point's own
+`gram:<level>:<title>` card. So the loop taught the concept and the Library denied
+it had happened, on the app's most distinctive feature.
+
+*Fixed:* `pointStats` takes the point's title and counts either. A concept met only
+through a session reads **`·seen`** rather than `—` (untouched) or `0/7` (which
+would look like seven failures). Mastery deliberately stays a measure of the
+*exercises* — meeting is not drilling, and inflating it would make the Library lie
+in the other direction. 4 tests: the loop credits, drilling wins over the marker,
+matching is by title not index, and the 3-argument call is unchanged.
 
 **8. Verify the touch affordances on real hardware · S · 📱.** The "Tap the card"
 fix is correct in logic and **unproven** — no browser viewport reports

@@ -170,7 +170,7 @@ function LevelSection({ level, points, isHome, open, onToggle, onPractise }: {
   level: CEFR; points: GPoint[]; isHome: boolean; open: boolean;
   onToggle: () => void; onPractise: (pi: number, p: GPoint) => void;
 }) {
-  const stats = useMemo(() => points.map((p, pi) => pointStats(level, pi, p.exercises.length)), [points, level]);
+  const stats = useMemo(() => points.map((p, pi) => pointStats(level, pi, p.exercises.length, p.title)), [points, level]);
   const started = stats.filter((s) => s.started).length;
   const due = stats.reduce((n, s) => n + s.due, 0);
   const mastery = stats.length
@@ -241,8 +241,12 @@ function PointRow({ point, stat, onPractise }: {
             but "0%" reads as a score of zero for work you just did, whereas
             "0/6" reads as progress through something finite. */}
         <span className="flex items-center gap-2 flex-shrink-0 pt-0.5">
-          <span className="text-2xs font-mono text-dim tabular-nums w-10 text-right">
-            {stat.started ? `${stat.known}/${stat.count}` : '—'}
+          {/* A concept met through the session loop has been *taught* but not
+              *drilled*, and "0/7" would read as seven failures. The dot says
+              met-not-drilled without pretending either more or less happened. */}
+          <span className="text-2xs font-mono text-dim tabular-nums w-10 text-right"
+            title={stat.metInSession ? 'Met in a session — not drilled here yet' : undefined}>
+            {stat.metInSession ? '·seen' : stat.started ? `${stat.known}/${stat.count}` : '—'}
           </span>
           <ChevronDown size={14} className={`text-dim transition-transform ${open ? 'rotate-180' : ''}`} />
         </span>
@@ -260,7 +264,9 @@ function PointRow({ point, stat, onPractise }: {
                 <Button size="sm" onClick={onPractise}><Play size={13} /> Practise</Button>
                 <span className="text-2xs text-dim font-mono">
                   {point.exercises.length} exercise{point.exercises.length === 1 ? '' : 's'}
-                  {stat.started && ` · ${stat.seen} seen · ${stat.known} consolidated`}
+                  {stat.metInSession
+                    ? ' · met in a session'
+                    : stat.started && ` · ${stat.seen} seen · ${stat.known} consolidated`}
                 </span>
               </div>
             </div>
