@@ -67,6 +67,10 @@ const MAX_BLIND_SPOTS = 4;   // cap blind-spot drills woven into a session
 const MAX_LINKED = 2;        // cap word-linked grammar points per session
 const MAX_REMEDY = 1;        // cap miss-triggered remediation points per session
 const REMEDY_MIN_MISSES = 3; // misses (30d) in a mode before remediation fires
+// Orphan drills were previously uncapped — harmless only because the branch was
+// unreachable on the primary path (see buildMixedSession). Now that it fires, a
+// learner returning to a large Gym backlog needs a bound like everything else.
+const MAX_ORPHANS = 6;
 
 // ---- the vocabulary→grammar loop -----------------------------------------
 // Vocabulary is the trigger, grammar the remediation. Two edges:
@@ -233,15 +237,30 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
 
   // Orphan due drills: gym cards due for in-scope words whose flip is NOT in
   // this queue. Spread them randomly so Study fully absorbs the Gym's dues.
+  //
+  // The scope has to be wider than the queue or this branch is unreachable. For
+  // a `custom` target — which is what BOTH "Start session" and "Quick 5" build —
+  // `buildSession` returns the whole id list and `wordsFor` returns the same
+  // list, so `scope` and `inQueue` were identical sets and the `!inQueue` guard
+  // rejected every candidate. The result was that the primary CTA, the path
+  // ~all sessions take, could never absorb a due drill: the "N due" chip on
+  // Today's Grammar row was only clearable by navigating to Fundamentals, which
+  // is the opposite of what this block is for. A curated day stands for the
+  // learner's whole current scope, so that is what it draws orphans from.
   const inQueue = new Set(words.map((w) => w.id));
-  const scope = new Set(wordsFor(target).map((w) => w.id));
+  const scope = target.kind === 'custom'
+    ? new Set(wordsFor({ kind: 'all', name: 'All sectors' }).map((w) => w.id))
+    : new Set(wordsFor(target).map((w) => w.id));
+  let orphanBudget = MAX_ORPHANS;
   for (const rawId of dueGymIds()) {
+    if (orphanBudget <= 0) break;
     const parts = rawId.split(':');
     const mode = parts[1] as Mode;
     const wordId = parts.slice(2).join(':'); // user words contain ':' (usr:…)
     if (!(mode in MODE_TAG) || inQueue.has(wordId) || !scope.has(wordId)) continue;
     const w = BY_ID.get(wordId);
     if (!w) continue;
+    orphanBudget--;
     out.splice(Math.floor(Math.random() * (out.length + 1)), 0, {
       type: mode, word: w, srsId: rawId,
       reason: { kind: 'orphan', mode, overdueDays: overdueDays(rawId, now) },
@@ -272,6 +291,13 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   for (const g of remedyGrammar()) {
     if (out.some((it) => it.srsId === g.srsId)) continue;
     out.splice(Math.floor(Math.random() * (out.length + 1)), 0, g);
+  }
+
+  // A capped target keeps its promise. Applied here, after every splice, because
+  // the cap is on the session the learner actually sits through — capping the
+  // flip slice earlier would just let the drills push past it again.
+  if (target.kind === 'custom' && target.cap !== undefined && out.length > target.cap) {
+    return out.slice(0, target.cap);
   }
   return out;
 }

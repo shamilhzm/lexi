@@ -47,4 +47,10 @@ export type Target =
   | { kind: 'all'; name: string }
   | { kind: 'group'; name: string }
   | { kind: 'sector'; name: string }
-  | { kind: 'custom'; name: string; ids: string[] }; // explicit id list (briefing, mining)
+  // Explicit id list (briefing, mining). `cap` bounds the *assembled* session —
+  // the flips plus every drill and grammar point the builder weaves in — so a
+  // target that promises a length can keep it. Without it "Quick 5" served the
+  // 5 flips it sliced plus up to a drill each plus 4 blind spots, 2 linked
+  // points and a remedy: twelve items, for a button whose whole promise is that
+  // it fits a commute.
+  | { kind: 'custom'; name: string; ids: string[]; cap?: number };

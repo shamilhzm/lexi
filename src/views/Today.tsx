@@ -216,7 +216,7 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
                   grades persist immediately, so the rest simply remains. */}
               {total > 5 && (
                 <Button variant="quiet" size="sm" block className="sm:w-auto"
-                  onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}>
+                  onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5), cap: 5 })}>
                   <Zap size={13} /> Quick 5
                 </Button>
               )}

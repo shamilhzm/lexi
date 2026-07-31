@@ -8,7 +8,14 @@ export default defineConfig({
   test: {
     environment: 'node',
     setupFiles: ['./src/test-setup.ts'],
-    // The parked legacy apps carry their own (stale) test files.
-    exclude: ['**/node_modules/**', '**/dist/**', 'to_be_deleted_or_archived/**'],
+    // The parked legacy apps carry their own (stale) test files — and so do the
+    // git worktrees under `.claude/worktrees/`, which are full checkouts of the
+    // in-flight branches. Without that second exclusion `npm test` runs four
+    // other trees alongside this one (889 tests instead of 121) and reports
+    // *their* failures as ours, which makes the suite unreadable as a signal.
+    exclude: [
+      '**/node_modules/**', '**/dist/**',
+      'to_be_deleted_or_archived/**', '**/.claude/**',
+    ],
   },
 });

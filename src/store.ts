@@ -39,7 +39,39 @@ function cardsObject(): Record<string, Card> {
   live.forEach((c, id) => (obj[id] = c));
   return obj;
 }
-function persistCards() { idbSet(CARDS_KEY, cardsObject()); }
+// Writing progress is debounced, because `cardsObject()` copies the ENTIRE card
+// map and `review()` fires on every grade. That is fine at 200 cards and not fine
+// later: a mature learner holds a card per word plus a `gym:<mode>:<wordId>` card
+// per eligible drill mode (seven of them) plus `gex:` exercises — tens of
+// thousands of entries, rebuilt and structured-cloned once per keystroke, on a
+// phone, mid-session.
+//
+// The trailing window is short enough that a normal grade-to-grade gap still
+// writes, and the flush handlers below guarantee the one case that actually
+// matters — the learner leaving — is never lost. `live` stays the synchronous
+// source of truth throughout, so nothing reads a stale value in the meantime.
+const PERSIST_DEBOUNCE_MS = 400;
+let persistTimer: ReturnType<typeof setTimeout> | null = null;
+
+function flushCards() {
+  if (persistTimer !== null) { clearTimeout(persistTimer); persistTimer = null; }
+  idbSet(CARDS_KEY, cardsObject());
+}
+
+function persistCards() {
+  if (persistTimer !== null) clearTimeout(persistTimer);
+  persistTimer = setTimeout(() => { persistTimer = null; idbSet(CARDS_KEY, cardsObject()); }, PERSIST_DEBOUNCE_MS);
+}
+
+// Backgrounding a tab on mobile can be the last code that runs before the page is
+// discarded, so a pending write has to land here. `visibilitychange` is the
+// reliable one; `pagehide` covers the bfcache path. Guarded for the Node test env.
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushCards(); });
+}
+if (typeof window !== 'undefined') {
+  window.addEventListener('pagehide', flushCards);
+}
 function persistMisses() { idbSet(MISS_KEY, misses); }
 function persistVisits() { idbSet(VISITS_KEY, visits); }
 
@@ -125,9 +157,16 @@ export function review(id: string, grade: Grade) {
 }
 
 /** Undo a review: restore the card's prior FSRS state, or remove it if it was
- *  never seen before (returns to 'new'). Powers the session's prev/undo control. */
-export function restoreCard(id: string, snap: Card | undefined) {
+ *  never seen before (returns to 'new'). Powers the session's prev/undo control.
+ *
+ *  `wasAgain` reverses the review-log entry the undone grade wrote. Without it
+ *  the FSRS card and the session counters rewound exactly while the log kept the
+ *  review, so an undo still fed `reviewedToday()` (the streak-at-risk banner),
+ *  the Stats reviews/day panel and the recall percentage. Small numbers, but
+ *  this app's whole argument is that its numbers are honest. */
+export function restoreCard(id: string, snap: Card | undefined, wasAgain = false) {
   if (snap) live.set(id, snap); else live.delete(id);
+  unbumpReviewLog(wasAgain);
   persistCards();
   emit();
 }
@@ -327,10 +366,27 @@ function bumpReviewLog(grade: Grade) {
   try { localStorage.setItem(REVIEWLOG_KEY, JSON.stringify(log)); } catch { /* quota */ }
 }
 
+/** Reverse one logged review (see `restoreCard`). Never drops below zero, and
+ *  removes the day's entry entirely when it empties, so an undone-to-nothing day
+ *  reads as unstudied rather than as a studied day with no reviews. */
+function unbumpReviewLog(wasAgain: boolean) {
+  const log = reviewLog();
+  const t = todayKey();
+  const d = log[t];
+  if (!d) return;
+  d.n = Math.max(0, d.n - 1);
+  if (wasAgain) d.again = Math.max(0, d.again - 1);
+  if (d.n === 0) delete log[t]; else log[t] = d;
+  try { localStorage.setItem(REVIEWLOG_KEY, JSON.stringify(log)); } catch { /* quota */ }
+}
+
 /** Scheduled cards due per day for the next `days` days; index 0 = overdue + today. */
 export function dueForecast(days = 7): number[] {
   const out = new Array<number>(days).fill(0);
-  const start = new Date(todayKey() + 'T00:00:00Z').getTime();
+  // Local midnight: this bucket boundary is compared against real `due`
+  // timestamps, so it has to be the learner's midnight or every card lands in
+  // the wrong column by up to a day.
+  const start = dayStart(todayKey());
   live.forEach((c) => {
     if (c.state === State.New) return;
     const idx = Math.floor((new Date(c.due).getTime() - start) / 86_400_000);
@@ -786,7 +842,34 @@ export function isComplete(sector: string): boolean {
 // ---- visits / streak -----------------------------------------------------
 // The `visits` array + its persistence live in the persistence section above
 // (hydrated from IndexedDB).
-function todayKey(d = new Date()) { return d.toISOString().slice(0, 10); }
+// The day boundary for everything the learner experiences as "a day": visits and
+// therefore `streak()`, the review log, the daily snapshots, the goal's days-left.
+//
+// It must be the LEARNER'S midnight, not UTC's. `toISOString().slice(0,10)` — what
+// this was — is the UTC calendar date, and for anyone west of Greenwich an evening
+// session already belongs to tomorrow. Studying at 16:00 Tuesday and 18:00
+// Wednesday in Los Angeles produced the keys 08-04 and 08-06: a one-day hole, so
+// the streak reset to 1 after two genuinely consecutive days. East of Greenwich it
+// fails the other way — 01:00 and 23:00 on one Berlin day produced two keys and
+// inflated the streak.
+//
+// Every fake-timer test pinned the clock to 12:00Z, which is the one hour of the
+// day where the UTC date agrees with every plausible local date, so the suite
+// could not see it. See the timezone cases in store-session.test.ts.
+function todayKey(d = new Date()) {
+  const p = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+/** Local midnight of a YYYY-MM-DD key, as ms. Use this — not `Date.parse(key)`,
+ *  which reads a bare date as UTC — whenever a day key is compared against a real
+ *  timestamp (a card's `due`, `Date.now()`). Key-to-key *differences* elsewhere in
+ *  this file deliberately keep parsing as UTC midnight: both sides get the same
+ *  treatment, so the day count is right and immune to DST-length days. */
+function dayStart(key: string) {
+  const [y, m, d] = key.split('-').map(Number);
+  return new Date(y, m - 1, d).getTime();
+}
 
 export function recordVisit() {
   const t = todayKey();
@@ -880,6 +963,10 @@ export async function importData(json: string): Promise<void> {
   if (!d || typeof d !== 'object' || typeof d.cards !== 'object' || d.cards === null) {
     throw new Error('That doesn’t look like a Lexi backup file.');
   }
+  // Drop any debounced write still in flight. It would fire after these writes
+  // land and overwrite the restored cards with the in-memory ones we are
+  // replacing — the caller reloads the app, so `live` is about to be discarded.
+  if (persistTimer !== null) { clearTimeout(persistTimer); persistTimer = null; }
   await Promise.all([
     idbSet(CARDS_KEY, d.cards),
     idbSet(MISS_KEY, Array.isArray(d.misses) ? d.misses : []),
