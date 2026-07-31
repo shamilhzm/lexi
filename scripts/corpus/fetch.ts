@@ -55,6 +55,7 @@ const JOBS: Job[] = [
   { name: 'tatoeba-de', url: SOURCES.tatoebaDe.url, out: SOURCES.tatoebaDe.file, kind: 'bz2' },
   { name: 'tatoeba-en', url: SOURCES.tatoebaEn.url, out: SOURCES.tatoebaEn.file, kind: 'bz2' },
   { name: 'tatoeba-links', url: SOURCES.tatoebaLinks.url, out: SOURCES.tatoebaLinks.file, kind: 'tar', member: /links\.csv$/ },
+  { name: 'tatoeba-audio', url: SOURCES.tatoebaAudio.url, out: SOURCES.tatoebaAudio.file, kind: 'tar', member: /sentences_with_audio\.csv$/ },
   // Categorized wordlist: one small raw file per POS/gender, cached side-by-side.
   ...SOURCES.wordlist.files.map((f): Job => ({
     name: `wordlist/${f}`, url: `${SOURCES.wordlist.baseUrl}/${f}`, out: f, kind: 'raw', dir: PATHS.wordlistDir,

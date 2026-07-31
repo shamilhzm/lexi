@@ -30,6 +30,7 @@ import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
+import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
@@ -50,6 +51,10 @@ export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
+  // The human-audio manifest is a small id list; loading it at boot lets cards
+  // decide synchronously whether to show the "real voice" marker. A missing file
+  // resolves to an empty manifest, so this can never block or fail the app.
+  useEffect(() => { loadAudioManifest(); }, []);
   // Only does anything once a study time is set and permission granted; the
   // watch itself is three localStorage reads a minute.
   useEffect(() => startReminderWatch(), []);

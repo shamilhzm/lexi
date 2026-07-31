@@ -18,6 +18,7 @@ import { useMedia } from '../lib/useMedia.ts';
 // can coexist in this file.
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
 import { speak } from '../lib/tts.ts';
+import { sayExample, hasHumanAudio, stopAudio } from '../lib/audio.ts';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
@@ -122,6 +123,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     const t = setTimeout(() => setAck((a) => (a && a.n === ack.n ? null : a)), 1600);
     return () => clearTimeout(t);
   }, [ack?.n]);
+
+  // A clip playing over the next card is worse than no audio, so every advance
+  // and every exit silences whatever is in flight.
+  useEffect(() => stopAudio, []);
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
@@ -439,7 +444,23 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <Volume2 size={18} />
                   </button>
                 )}
-                {card.ex[0] && <span lang="de" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</span>}
+                {/* The example is audible, and prefers a real human reading of it
+                    over synthesis where Tatoeba has one (see lib/audio.ts). The
+                    headword button above stays synthesis — it's a pronunciation
+                    model, and Piper is the more consistent teacher for a single
+                    word. Sentences are where a human voice actually earns its
+                    place: rhythm, linking and stress are the things TTS flattens. */}
+                {card.ex[0] && (
+                  <button lang="de"
+                    onClick={(e) => { e.stopPropagation(); sayExample(card.id, card.ex[0].de); }}
+                    title={hasHumanAudio(card.id) ? 'Play — read by a Tatoeba contributor' : 'Play this sentence'}
+                    className="text-dim italic text-base leading-relaxed max-w-[90%] hover:text-txt transition-colors cursor-pointer">
+                    {card.ex[0].de}
+                    {hasHumanAudio(card.id) && (
+                      <Volume2 size={13} aria-hidden className="inline-block ml-1.5 -mt-0.5 text-amber" />
+                    )}
+                  </button>
+                )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>
               {/* BACK — the reveal: translation + definition + worked examples + synonyms */}

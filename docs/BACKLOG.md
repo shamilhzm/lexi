@@ -864,9 +864,46 @@ thins exactly where it is hardest to keep.
 **38. Search across the 128 concepts · S · P1** (P4, P9). No way to find *Konjunktiv*
 without expanding levels and scrolling.
 
-**39. Listening is absent · M** (P3, P10). TTS and Piper HD already ship. A
-listen-first card mode is nearly free and it is the most neglected skill in every
-SRS app.
+**39. Listening — Phase 1 (the audio layer) ✅ 2026-07-28 · Phase 2–4 open**
+(P3, P10). *Why it went first:* `Known` has always meant **recognised in print**,
+so the number the whole app is organised around overstates what a learner can
+actually do. Listening does not just add a skill — it makes the existing number
+true. (It also reaches the ~70 min/week the maintainer spends running with his
+ears free, which no other feature does.)
+
+**Shipped:** `src/lib/audio.ts` — human recordings from Tatoeba, fetched on first
+play and cached in OPFS, mirroring how `tts.ts` already handles the Piper voice.
+Build side: `corpus:audio` joins the Tatoeba sentence ids already in
+`provenance.json` against the `sentences_with_audio` export and emits
+`public/data/audio.json` (ids only, no audio bytes committed). The card's example
+sentence is now tappable and shows a marker when the voice is a real person.
+
+**The licence is the interesting part.** Unlike every other source, Tatoeba's
+audio licence is *per recording*, and their download page states that an **empty
+licence field means the audio may not be reused**. So the filter is an
+**allow-list**: CC0 / CC BY / CC BY-SA / public domain are kept; empty,
+unrecognised, NC and ND are all dropped. Being too strict costs a card nothing
+but a fallback to synthesis; being too loose would redistribute someone's voice
+against their terms. 13 tests cover each rejection case individually.
+
+**Keyed by card id, not sentence id** — `Word` carries no provenance field and
+the app deliberately never loads the 596KB `provenance.json`, so a
+sentence-keyed manifest would have been unusable in the browser. The join
+resolves to a card id at build time. (Caught by checking the type before
+building on the assumption, not after.)
+
+*Verified, not assumed:* with **no** `audio.json` present, Vite's SPA fallback
+serves HTML, `r.json()` throws, the catch yields an empty manifest, and clicking
+an example still calls `speechSynthesis.speak` with the exact sentence. With a
+manifest entry present but the clip fetch failing, `sayExample` does not throw
+and speech is called once. **The fallback is the design, not a safety net** —
+only a minority of cards will ever have a human recording, so the feature has to
+be complete without one.
+
+**Still open:** Phase 2 the `listen` dictation drill (reuses `TypeItem` and the
+whole drill framework); Phase 3 the hands-free/jogging queue (Media Session API —
+and it must *not* feed FSRS the way a graded answer does, since passive exposure
+is not retrieval); Phase 4 Common Voice (CC0) for minimal pairs.
 
 **40. Output beyond mechanical transformation · M** (Swain; P11). "Write one sentence
 using these three words", grounded and mostly deterministic. Not a chatbot.

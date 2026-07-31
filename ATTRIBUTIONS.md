@@ -57,6 +57,29 @@ license, how it's used, and the obligations that attach to the data we ship.
   (Tatoeba sentence id) is recorded in `public/data/provenance.json` so any
   individual sentence can be traced to its contributor.
 
+### 3b. Tatoeba audio — human recordings of example sentences
+- **URL:** https://downloads.tatoeba.org/exports/sentences_with_audio.tar.bz2
+- **License:** **per recording, chosen by the contributor.** This is the only
+  source here without a single corpus-wide licence, and Tatoeba's download page
+  is explicit: *"If the license field is empty, you may not reuse the audio
+  outside the Tatoeba project."*
+- **Used for:** playing a real human reading of a card's example sentence, in
+  preference to synthetic speech. No audio is redistributed by this repository:
+  `npm run corpus:audio` emits **`public/data/audio.json`**, a manifest of ids
+  (`cardId → { audioId, license, attribution, by }`), and the app fetches each
+  clip from Tatoeba on first play and caches it on the learner's own device.
+- **How the obligation is met.** `scripts/corpus/sources/tatoeba-audio.ts`
+  filters row by row with an **allow-list**, not a deny-list: a recording is kept
+  only if its licence string is one recognised as permitting reuse (CC0, CC BY,
+  CC BY-SA, public domain). An empty licence, an unrecognised licence, and the
+  NC/ND variants are all dropped. Being too strict costs a card nothing but a
+  fallback to synthetic speech; being too loose would mean redistributing a
+  contributor's voice against their terms. The filter is covered by
+  `scripts/corpus/tatoeba-audio.test.ts`, which asserts each rejection case
+  individually.
+- **Attribution:** the manifest carries each recording's contributor and
+  attribution URL so the app can credit the specific voice, not just the project.
+
 ### 4. CEFR wordlists (Goethe-Institut / telc / Profile Deutsch) — reference only
 - **License:** copyrighted. **Not redistributed and not shipped.**
 - **Used for:** *checking/assigning* a level where a maintainer supplies a local
