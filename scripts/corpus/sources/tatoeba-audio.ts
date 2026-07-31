@@ -63,6 +63,10 @@ const REUSABLE = [
 export function isReusableLicense(license: string | undefined | null): boolean {
   const l = (license ?? '').trim().toLowerCase();
   if (!l) return false;                       // the documented "do not reuse" case
+  // `\N` is Tatoeba's NULL marker and appears in ~1,400 real rows. It means the
+  // same thing as empty; it is only called out because seeing it in the data is
+  // the sort of thing that gets "fixed" by someone assuming it is a licence name.
+  if (l === '\\n') return false;
   // Share-alike is fine (the corpus is already CC BY-SA); non-commercial and
   // no-derivatives are not, and must not slip through on the `cc by` prefix.
   if (l.includes('nc') || l.includes('noncommercial') || l.includes('non-commercial')) return false;

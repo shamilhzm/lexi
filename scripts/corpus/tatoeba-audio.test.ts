@@ -31,6 +31,10 @@ describe('isReusableLicense — the allow-list', () => {
     }
   });
 
+  it("rejects Tatoeba's \\N null marker, which appears in ~1,400 real rows", () => {
+    expect(isReusableLicense('\\N')).toBe(false);
+  });
+
   it('rejects anything it does not recognise, rather than guessing', () => {
     for (const bad of ['All rights reserved', 'ask me first', 'GPL-3.0', 'unknown']) {
       expect(isReusableLicense(bad), bad).toBe(false);
