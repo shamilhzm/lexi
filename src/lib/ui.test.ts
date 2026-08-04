@@ -52,6 +52,24 @@ describe('makeHeatScale', () => {
     }
   });
 
+  it('gives identical displayed percentages identical classes', () => {
+    // Regression: three territories rendered "42%" and the raw floats put them
+    // either side of a quantile break, so the map showed the same number in two
+    // different colours. Classification now runs on the rounded percentage.
+    const near = [0.23, 0.36, 0.41, 0.4204, 0.4198, 0.4201, 0.44, 0.45, 0.56, 0.62];
+    const s = makeHeatScale(near);
+    const fortyTwos = near.filter((p) => Math.round(p * 100) === 42);
+    expect(fortyTwos).toHaveLength(3);
+    expect(new Set(fortyTwos.map((p) => s.classOf(p))).size).toBe(1);
+  });
+
+  it('never colours a lower percentage above a higher one', () => {
+    const near = [0.23, 0.36, 0.41, 0.4204, 0.4198, 0.4201, 0.44, 0.45, 0.56, 0.62];
+    const s = makeHeatScale(near);
+    const sorted = [...near].sort((a, b) => a - b).map((p) => s.classOf(p));
+    expect(sorted).toEqual([...sorted].sort((a, b) => a - b));
+  });
+
   it('clamps out-of-range input to a real class', () => {
     const s = makeHeatScale(REAL);
     for (const p of [-1, 0, 1, 99, NaN]) {

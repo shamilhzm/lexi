@@ -91,7 +91,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
               <h3 className="text-base font-semibold leading-tight flex items-center gap-1.5 min-w-0">
                 {/* Somewhere you've been all the way through, marked as such. */}
                 {done.has(d.name) && <Check size={15} className="text-green flex-shrink-0" aria-label="Finished" />}
-                <span className="truncate">{d.name}</span>
+                <span className="truncate" title={d.name}>{d.name}</span>
               </h3>
               {/* These two had no sizing class at all — a 15px icon with no
                   padding, the smallest touch targets in the app. */}

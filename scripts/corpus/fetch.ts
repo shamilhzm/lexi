@@ -55,6 +55,7 @@ const JOBS: Job[] = [
   { name: 'tatoeba-de', url: SOURCES.tatoebaDe.url, out: SOURCES.tatoebaDe.file, kind: 'bz2' },
   { name: 'tatoeba-en', url: SOURCES.tatoebaEn.url, out: SOURCES.tatoebaEn.file, kind: 'bz2' },
   { name: 'tatoeba-links', url: SOURCES.tatoebaLinks.url, out: SOURCES.tatoebaLinks.file, kind: 'tar', member: /links\.csv$/ },
+  { name: 'tatoeba-audio', url: SOURCES.tatoebaAudio.url, out: SOURCES.tatoebaAudio.file, kind: 'tar', member: /sentences_with_audio\.csv$/ },
   // Categorized wordlist: one small raw file per POS/gender, cached side-by-side.
   ...SOURCES.wordlist.files.map((f): Job => ({
     name: `wordlist/${f}`, url: `${SOURCES.wordlist.baseUrl}/${f}`, out: f, kind: 'raw', dir: PATHS.wordlistDir,
@@ -62,9 +63,24 @@ const JOBS: Job[] = [
 ];
 
 async function main() {
+  // Optional name filters: `npm run corpus:fetch -- tatoeba-audio`.
+  //
+  // Without this, adding one small source means re-running a job list whose
+  // full cost is ~1.6GB (the Wiktextract dump alone is a gigabyte). Cached
+  // files are skipped, so that only bites on a fresh checkout or a new
+  // worktree — which is exactly when someone wants a single file and not the
+  // whole corpus. Substring match, so `tatoeba` takes all three Tatoeba jobs.
+  const only = process.argv.slice(2).filter((a) => !a.startsWith('-'));
+  const wanted = only.length ? JOBS.filter((j) => only.some((o) => j.name.includes(o))) : JOBS;
+  if (only.length && wanted.length === 0) {
+    console.error(`✗ no source matches ${only.join(', ')}\n  available: ${JOBS.map((j) => j.name).join(', ')}`);
+    process.exit(1);
+  }
+  if (only.length) console.log(`Fetching ${wanted.length} of ${JOBS.length} sources: ${wanted.map((j) => j.name).join(', ')}\n`);
+
   mkdirSync(PATHS.raw, { recursive: true });
   mkdirSync(PATHS.wordlistDir, { recursive: true });
-  for (const j of JOBS) {
+  for (const j of wanted) {
     const dir = j.dir ?? PATHS.raw;
     const dest = join(dir, j.out);
     if (existsSync(dest)) { console.log(`  ✓ ${j.name} cached (${MB(statSync(dest).size)})`); continue; }

@@ -753,6 +753,48 @@ describe('pointStats (grammar syllabus mastery)', () => {
     expect(store.pointStats('B1', 0, 6).seen).toBe(0);
   });
 
+  // The vocabulary→grammar loop grades the point's own `gram:` card, not its
+  // `gex:` exercises. Counting only the latter meant a learner who had met a
+  // dozen concepts mid-session still read "0/40 started" — the loop taught the
+  // concept and the Library denied it had happened.
+  it('counts a concept met through the session loop as started', async () => {
+    const { store, srs } = await fresh();
+    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
+
+    const s = store.pointStats('A1', 0, 6, 'Artikel & Genus');
+    expect(s.started).toBe(true);
+    expect(s.metInSession).toBe(true);
+    // Meeting is not drilling: mastery stays a measure of the exercises.
+    expect(s.seen).toBe(0);
+    expect(s.mastery).toBe(0);
+  });
+
+  it('prefers drilled progress over the met-in-session marker', async () => {
+    const { store, srs } = await fresh();
+    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
+    store.review('gex:A1:0:0', srs.Rating.Good);
+
+    const s = store.pointStats('A1', 0, 6, 'Artikel & Genus');
+    expect(s.started).toBe(true);
+    expect(s.metInSession).toBe(false);   // it has actually been drilled now
+    expect(s.seen).toBe(1);
+  });
+
+  it('matches the card by title, not by position', async () => {
+    const { store, srs } = await fresh();
+    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
+    // Same index, different point: must not inherit the other card's status.
+    expect(store.pointStats('A1', 0, 6, 'sein & haben').started).toBe(false);
+    // Same title, different level.
+    expect(store.pointStats('A2', 0, 6, 'Artikel & Genus').started).toBe(false);
+  });
+
+  it('without a title, behaves exactly as before', async () => {
+    const { store, srs } = await fresh();
+    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
+    expect(store.pointStats('A1', 0, 6).started).toBe(false);
+  });
+
   it('mastery is known/count, and a lapse leaves the point started but unmastered', async () => {
     const { store, srs } = await fresh();
     for (let xi = 0; xi < 4; xi++) store.review(`gex:A1:0:${xi}`, srs.Rating.Easy);

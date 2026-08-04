@@ -319,6 +319,30 @@ export function gymDue(): number {
 }
 
 // ---- daily snapshots (market deltas) --------------------------------------
+// ---- what the learner last *saw* ------------------------------------------
+// Distinct from the daily snapshot above, which is a once-per-day historical
+// record. This is "the state of the map the last time you looked at it", so a
+// return visit can animate from there to now — the data-change rule in
+// DESIGN.md §7. Studying is the only thing that moves these numbers, so the
+// movement is always earned.
+//
+// Deliberately *not* in SETTING_KEYS: it is ephemeral view state, and restoring
+// a months-old "last seen" from a backup would animate a wild, meaningless jump.
+const SEEN_KEY = 'lexi.mapseen.v1';
+export interface SeenState { known: number; groups: Record<string, number> }
+export function lastSeen(): SeenState | null {
+  try {
+    const v = JSON.parse(localStorage.getItem(SEEN_KEY) || 'null');
+    if (v && typeof v.known === 'number' && v.groups && typeof v.groups === 'object') return v as SeenState;
+  } catch { /* corrupt — treat as first visit */ }
+  return null;
+}
+/** Record the map as it stands now. Call *after* a paint that used the old
+ *  values, or the animation has nothing to travel from. */
+export function markSeen(known: number, groups: Record<string, number>) {
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify({ known, groups })); } catch { /* quota */ }
+}
+
 const SNAP_KEY = 'lexi.snap.v1';
 interface Snapshot { date: string; groups: Record<string, number>; known?: number; }
 function loadSnaps(): Snapshot[] {
@@ -720,8 +744,24 @@ export interface PointStat {
   due: number;        // exercises due right now
   mastery: number;    // known / count, 0..1
   started: boolean;
+  /** Met through the session's vocabulary→grammar loop rather than by drilling
+   *  it here — the concept's own card has been graded, its exercises haven't. */
+  metInSession: boolean;
 }
-export function pointStats(level: CEFR, pointIndex: number, exerciseCount: number): PointStat {
+/** Progress on one grammar point.
+ *
+ *  A concept can be met two ways, and for a long time only one of them counted.
+ *  Drilling it in the Library grades `gex:<level>:<point>:<exercise>` cards, one
+ *  per exercise. But the session's vocabulary→grammar loop — learn *obwohl*, get
+ *  the Konzessivsätze card a few items later — grades the point's own
+ *  `gram:<level>:<title>` card instead. Two namespaces that never met, so a
+ *  learner forty days in, who had seen a dozen concepts arrive mid-session,
+ *  still read **0/40 started**. The loop taught the concept and the Library
+ *  denied it had happened.
+ *
+ *  `title` is optional so the older three-argument calls (and their tests) keep
+ *  working; without it the card half is simply skipped. */
+export function pointStats(level: CEFR, pointIndex: number, exerciseCount: number, title?: string): PointStat {
   const now = Date.now();
   let seen = 0, known = 0, due = 0;
   for (let xi = 0; xi < exerciseCount; xi++) {
@@ -731,10 +771,16 @@ export function pointStats(level: CEFR, pointIndex: number, exerciseCount: numbe
     if (c.state === State.Review) known++;
     if (isDue(c, now)) due++;
   }
+  // The concept's own card, as the session grades it.
+  const card = title ? live.get(`gram:${level}:${title}`) : undefined;
   return {
     count: exerciseCount, seen, known, due,
+    // Mastery stays a measure of the *exercises*: meeting a concept once in a
+    // session is not the same as having drilled it, and inflating this number
+    // would make the Library lie in the other direction.
     mastery: exerciseCount ? known / exerciseCount : 0,
-    started: seen > 0,
+    started: seen > 0 || !!card,
+    metInSession: !!card && seen === 0,
   };
 }
 

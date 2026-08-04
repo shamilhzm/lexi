@@ -18,6 +18,7 @@ import { useMedia } from '../lib/useMedia.ts';
 // can coexist in this file.
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
 import { speak, onSystemVoice } from '../lib/tts.ts';
+import { sayExample, hasHumanAudio, stopAudio } from '../lib/audio.ts';
 import { familyOf } from '../lib/family.ts';
 import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
@@ -181,6 +182,10 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     const t = setTimeout(() => setAck((a) => (a && a.n === ack.n ? null : a)), 1600);
     return () => clearTimeout(t);
   }, [ack?.n]);
+
+  // A clip playing over the next card is worse than no audio, so every advance
+  // and every exit silences whatever is in flight.
+  useEffect(() => stopAudio, []);
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
@@ -539,14 +544,30 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
                     <Volume2 size={18} />
                   </button>
                 )}
+                {/* The example is audible, and prefers a real human reading of it
+                    over synthesis where Tatoeba has one (see lib/audio.ts). The
+                    headword button above stays synthesis — it's a pronunciation
+                    model, and Piper is the more consistent teacher for a single
+                    word. Sentences are where a human voice actually earns its
+                    place: rhythm, linking and stress are the things TTS flattens.
+
+                    This replaced a `SpeakButton` sitting beside the text, so the
+                    whole sentence is now the target rather than a 24px speaker —
+                    which is the better touch affordance. `aria-label` carries the
+                    naming that `SpeakButton` used to provide: without it the
+                    accessible name is the German sentence alone, which never says
+                    the control plays anything. */}
                 {card.ex[0] && (
-                  <span className="max-w-[90%] flex items-baseline justify-center gap-1.5">
-                    <span lang="de" className="text-dim italic text-base leading-relaxed">{card.ex[0].de}</span>
-                    {/* Hearing the word *in a sentence* is how pronunciation is
-                        actually learned; the only speaker used to be on the bare
-                        headword. */}
-                    <SpeakButton text={card.ex[0].de} label={`Hear the example “${card.ex[0].de}”`} />
-                  </span>
+                  <button lang="de"
+                    onClick={(e) => { e.stopPropagation(); sayExample(card.id, card.ex[0].de); }}
+                    aria-label={`Hear the example “${card.ex[0].de}”`}
+                    title={hasHumanAudio(card.id) ? 'Play — read by a Tatoeba contributor' : 'Play this sentence'}
+                    className="text-dim italic text-base leading-relaxed max-w-[90%] hover:text-txt transition-colors cursor-pointer">
+                    {card.ex[0].de}
+                    {hasHumanAudio(card.id) && (
+                      <Volume2 size={13} aria-hidden className="inline-block ml-1.5 -mt-0.5 text-amber" />
+                    )}
+                  </button>
                 )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
               </div>

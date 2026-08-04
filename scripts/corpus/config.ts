@@ -72,6 +72,21 @@ export const SOURCES = {
     file: 'tatoeba-links.csv',
     license: 'CC BY 2.0 FR',
   },
+  // Human recordings of Tatoeba sentences. Columns:
+  //   audioId <TAB> sentenceId <TAB> username <TAB> licence <TAB> attributionUrl
+  //
+  // ⚠️ Unlike every other source here, the licence is **per recording, not per
+  // corpus**, and Tatoeba's own download page is explicit: "If the license field
+  // is empty, you may not reuse the audio outside the Tatoeba project." So this
+  // one cannot be waved through with a single line in ATTRIBUTIONS.md — the
+  // pipeline has to filter row by row, and `tatoeba-audio.ts` does. There is no
+  // corpus-level `license` key on purpose; putting one here would imply a
+  // blanket permission that does not exist.
+  tatoebaAudio: {
+    url: process.env.LEXI_TATOEBA_AUDIO_URL ?? 'https://downloads.tatoeba.org/exports/sentences_with_audio.tar.bz2',
+    file: 'tatoeba-audio.csv',
+    license: 'per-recording — see tatoeba-audio.ts',
+  },
   // German Categorized Wordlist (CC BY 4.0, ynsrc/german-categorized-wordlist).
   // Per-POS plain-text files (one bare entry per line); nouns split into
   // der/die/das files. An independent cross-source for gender/plural validation,

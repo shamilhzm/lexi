@@ -1,0 +1,41 @@
+# CI — typecheck, tests, build.
+#
+# This replaces `deploy.yml`, a GitHub Pages workflow that had failed on every
+# push since it was added. Its *build* job was always green; the deploy step
+# 404'd with "Ensure GitHub Pages has been enabled", because Pages was never
+# switched on for the repo. Production is Vercel (lexi-eosin.vercel.app), which
+# deploys from `main` on its own, so the Pages job was publishing to a target
+# that does not exist — and a permanently red check trains you to ignore the
+# one signal that is supposed to mean something.
+#
+# To bring Pages back instead: enable it at Settings → Pages → Source: GitHub
+# Actions, then restore the deploy job from git history. `vite.config.ts`
+# already serves a `/lexi/` base for non-Vercel builds, so nothing else changes.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build

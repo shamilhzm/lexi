@@ -30,6 +30,7 @@ import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
+import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
@@ -51,6 +52,10 @@ export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
+  // The human-audio manifest is a small id list; loading it at boot lets cards
+  // decide synchronously whether to show the "real voice" marker. A missing file
+  // resolves to an empty manifest, so this can never block or fail the app.
+  useEffect(() => { loadAudioManifest(); }, []);
   // Only does anything once a study time is set and permission granted; the
   // watch itself is three localStorage reads a minute.
   useEffect(() => startReminderWatch(), []);
@@ -172,7 +177,7 @@ export default function App() {
         {/* Mobile top bar — the sidebar is a drawer on phones. min-height adds the
             safe-area inset on top of a 52px bar so the notch never eats the logo. */}
         <header className="sm:hidden safe-top pb-2 flex items-center gap-2.5 px-3 min-h-[calc(52px_+_env(safe-area-inset-top))] bg-panel border-b border-line flex-shrink-0">
-          <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-9 h-9 -ml-1 text-dim hover:text-amber" title="Menu" aria-label="Open menu" aria-expanded={mobileOpen}><Menu size={20} /></button>
+          <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-11 h-11 -ml-2.5 text-dim hover:text-amber" title="Menu" aria-label="Open menu" aria-expanded={mobileOpen}><Menu size={20} /></button>
           <LexiMark size={24} />
           <span className="font-bold text-lg tracking-wide">Lexi</span>
         </header>

@@ -110,14 +110,15 @@ export default function Sidebar({
 
         {/* Desktop collapse toggle — a chevron that straddles the rail’s right edge */}
         <button onClick={onToggleCollapse} title={collapsed ? 'Expand' : 'Collapse'} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="hidden sm:grid place-items-center absolute top-1/2 -translate-y-1/2 -right-3 z-50 w-6 h-6 rounded-full bg-panel border border-line text-dim hover:text-amber hover:border-amber transition-colors">
+          className="hidden sm:grid place-items-center absolute top-1/2 -translate-y-1/2 -right-3 z-50 w-6 h-6 rounded-full bg-panel border border-line text-dim hover:text-amber hover:border-amber transition-colors
+            before:absolute before:-inset-2.5 before:content-['']">
           {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
         </button>
 
         {/* Start session — the primary action (launches Study) */}
         <div className="px-2.5 pt-3 pb-1">
           <button onClick={onStartSession} title="Start today’s session"
-            className="w-full flex items-center justify-center gap-2 bg-amber text-bg font-bold rounded-md py-2.5 px-3 hover:brightness-105 transition">
+            className="tap-44 w-full flex items-center justify-center gap-2 bg-amber text-bg font-bold rounded-md py-2.5 px-3 hover:brightness-105 transition">
             <Play size={16} /> <span className={`text-sm ${hideLabel}`}>Start session</span>
           </button>
         </div>
@@ -130,7 +131,7 @@ export default function Sidebar({
             return (
               <button key={n.id} onClick={() => onGo(n.id)} title={n.label}
                 aria-current={active ? 'page' : undefined}
-                className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-md text-sm transition-colors ${
+                className={`tap-44 w-full flex items-center gap-3 px-2.5 py-2 rounded-md text-sm transition-colors ${
                   active ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt hover:bg-panel2'} ${centre}`}>
                 <n.icon size={18} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
                 <span className={hideLabel}>{n.label}</span>
@@ -142,7 +143,7 @@ export default function Sidebar({
         {/* Profile (Settings live inside it) */}
         <div className="p-2 border-t border-line safe-bottom">
           <button onClick={onProfile} title="Profile"
-            className={`w-full flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-panel2 transition-colors ${
+            className={`tap-44 w-full flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-panel2 transition-colors ${
               view === 'profile' ? 'bg-panel2' : ''} ${centre}`}>
             <span className="grid place-items-center w-8 h-8 rounded-full bg-panel2 text-amber text-xs font-bold flex-shrink-0">{initial}</span>
             <span className={`flex-1 min-w-0 text-left ${hideLabel}`}>
