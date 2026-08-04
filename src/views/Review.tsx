@@ -313,7 +313,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     if (!e) return;
     exitDir.current = 0;
     if (e.kind === 'grade' && e.srsId) {
-      restoreCard(e.srsId, e.prevCard);
+      restoreCard(e.srsId, e.prevCard, (e.dAgain ?? 0) > 0);
       setDone((d) => Math.max(0, d - 1));
       setAgain((a) => Math.max(0, a - (e.dAgain ?? 0)));
       setNewLearned((n) => Math.max(0, n - (e.dNew ?? 0)));

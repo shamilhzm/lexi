@@ -13,6 +13,10 @@ import type { Word } from './types.ts';
 const vocab: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
 const ids = new Set(vocab.map((w) => w.id));
 
+/** Mirrors store.ts. Kept local rather than exported: the debounce is an internal
+ *  scheduling detail, and the test only needs to outwait it. */
+const PERSIST_DEBOUNCE_MS = 400;
+
 describe('card id migration map', () => {
   it('points every old id at a card the corpus still ships', () => {
     const dangling = Object.entries(ID_MAP).filter(([, to]) => !ids.has(to));
@@ -38,11 +42,22 @@ describe('card id migration map', () => {
       idbGet: async (key: string) => stored[key],
       idbSet: async (key: string, value: unknown) => { stored[key] = value; },
     }));
+    vi.useFakeTimers();
     const store = await import('./store.ts');
     await store.hydrate();
 
+    // In memory, immediately: this is what the session actually reads.
     expect(store.statusOf(to)).not.toBe('new');
+
+    // On disk, one debounce later. `persistCards` batches writes on a 400ms timer
+    // (store.ts PERSIST_DEBOUNCE_MS), so the write-back that drops the old id does
+    // not land inside hydrate(). Losing that write is survivable by construction —
+    // `migrateIds` re-runs on every hydrate and is a no-op once the old ids are
+    // gone — but it must land, or the map would be re-walked forever.
+    await vi.advanceTimersByTimeAsync(PERSIST_DEBOUNCE_MS + 100);
     expect((stored['lexi.cards.v1'] as Record<string, unknown>)[from]).toBeUndefined();
+
+    vi.useRealTimers();
     vi.doUnmock('./lib/idb.ts');
   });
 });

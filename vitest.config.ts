@@ -8,6 +8,12 @@ export default defineConfig({
   test: {
     environment: 'node',
     setupFiles: ['./src/test-setup.ts'],
-    exclude: ['**/node_modules/**', '**/dist/**'],
+    // The git worktrees under `.claude/worktrees/` are full checkouts of the
+    // in-flight branches. Without that second exclusion `npm test` runs those
+    // trees alongside this one and reports *their* failures as ours, which makes
+    // the suite unreadable as a signal. (The `to_be_deleted_or_archived/` legacy
+    // apps were the other offender; that tree is now deleted, so the pattern is
+    // gone with it.)
+    exclude: ['**/node_modules/**', '**/dist/**', '**/.claude/**'],
   },
 });

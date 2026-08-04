@@ -220,6 +220,45 @@ describe('buildMixedSession', () => {
     expect(out.filter((it) => it.type !== 'flip')).toHaveLength(10); // fresh cap
   });
 
+  it('caps a custom target that asked for one, drills included', async () => {
+    const { data, session } = await fresh();
+    // Every word is drill-eligible, so an uncapped build weaves in extra items:
+    // this is the "Quick 5 served twelve" shape.
+    const ids = Array.from({ length: 5 }, (_, i) => `q${i}`);
+    data.registerWords(ids.map((id) => word(id, 'Quick', { gender: 'die', pos: 'x' })));
+
+    const uncapped = session.buildMixedSession(custom(ids));
+    expect(uncapped.length).toBeGreaterThan(5); // the defect the cap exists for
+
+    const capped = session.buildMixedSession({ ...custom(ids), cap: 5 });
+    expect(capped).toHaveLength(5);
+  });
+
+  it('absorbs a due drill whose word is not in a curated day', async () => {
+    const { data, store, session, srs, fundamentals } = await fresh();
+    // Two eligible words; only the first is in today's curated queue.
+    data.registerWords([
+      word('o0', 'Orph', { gender: 'die', pos: 'x' }),
+      word('o1', 'Orph', { gender: 'die', pos: 'x' }),
+    ]);
+    // Schedule o1's gender drill and wind past it so it comes due.
+    const gid = fundamentals.gymId('gender', word('o1', 'Orph'));
+    store.review(gid, srs.Rating.Again);
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date(Date.now() + 30 * 86_400_000));
+      // A `custom` target used to make scope === queue, so this branch could
+      // never fire on the path "Start session" and "Quick 5" both take.
+      const out = session.buildMixedSession(custom(['o0']));
+      const orphan = out.find((it) => it.reason.kind === 'orphan');
+      expect(orphan).toBeDefined();
+      expect(orphan!.srsId).toBe(gid);
+      expect(orphan!.word.id).toBe('o1');
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('gives every item a reason — nothing enters a session unexplained', async () => {
     const { data, session } = await fresh();
     const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die', pos: 'x' }));
@@ -602,8 +641,37 @@ describe('stats (review log / due forecast)', () => {
     store.review('r0', srs.Rating.Good);
     store.review('r1', srs.Rating.Again);
     store.review('r2', srs.Rating.Good);
-    const today = new Date().toISOString().slice(0, 10);
+    // The store keys the log by the learner's LOCAL calendar date, so the test
+    // has to build the same key. It used to recompute `toISOString().slice(0,10)`
+    // — the UTC date — which silently agreed only because the store had the same
+    // bug, and disagreed for real at offsets past ±12.
+    const p = (n: number) => String(n).padStart(2, '0');
+    const d = new Date();
+    const today = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
     expect(store.reviewLog()[today]).toEqual({ n: 3, again: 1 });
+  });
+
+  it('undoing a review takes it back out of the log', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('u0', 'S'), word('u1', 'S')]);
+    const p = (n: number) => String(n).padStart(2, '0');
+    const d = new Date();
+    const today = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+
+    store.review('u0', srs.Rating.Good);
+    const snap = store.cardOf('u1');          // undefined — never seen
+    store.review('u1', srs.Rating.Again);
+    expect(store.reviewLog()[today]).toEqual({ n: 2, again: 1 });
+
+    store.restoreCard('u1', snap, true);      // the session's prev/undo
+    expect(store.reviewLog()[today]).toEqual({ n: 1, again: 0 });
+    expect(store.statusOf('u1')).toBe('new'); // FSRS state rewound too
+    expect(store.reviewedToday()).toBe(true); // one real review remains
+
+    store.restoreCard('u0', undefined, false);
+    // Undone to nothing reads as unstudied, not as a studied day with 0 reviews.
+    expect(store.reviewLog()[today]).toBeUndefined();
+    expect(store.reviewedToday()).toBe(false);
   });
 
   it('due forecast buckets scheduled cards by day, overdue into today', async () => {
@@ -629,7 +697,11 @@ describe('goal line', () => {
     const { data, store, srs } = await fresh();
     vi.useFakeTimers();
     try {
-      vi.setSystemTime(new Date('2026-07-18T12:00:00Z'));
+      // Noon *local*, not noon UTC: the day counts below are in the learner's
+      // calendar, so the clock has to be pinned in it too. `'2026-07-18T12:00:00Z'`
+      // is already the 19th in UTC+14, which shifted daysLeft to 9 and the
+      // projection with it.
+      vi.setSystemTime(new Date(2026, 6, 18, 12, 0, 0));
       data.registerWords([
         ...['a0', 'a1', 'a2'].map((id) => word(id, 'S')),                    // A1
         word('b0', 'S', { level: 'B1' }),                                    // outside an A1 goal
@@ -725,6 +797,52 @@ describe('streak / visits', () => {
       vi.setSystemTime(new Date('2026-07-11T12:00:00Z')); // skipped the 10th
       store.recordVisit();
       expect(store.streak()).toBe(1); // only today counts
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  // Every other fake-timer test in this file pins the clock to 12:00Z, which is
+  // the one hour of the day where the UTC calendar date agrees with the local
+  // date in every plausible timezone. That is exactly why the UTC day-key bug
+  // survived: the suite could not see it. These two run at the hours where UTC
+  // and local disagree, and they fail against `toISOString().slice(0,10)`.
+  //
+  // The system timezone is whatever the machine running the suite has, so these
+  // assert the property that must hold everywhere — two consecutive *local*
+  // evenings are a 2-day streak, and one local day is never two — rather than
+  // pinning a timezone the CI box may not share.
+  it('counts a local evening and the next local evening as one streak', async () => {
+    const { store } = await fresh();
+    vi.useFakeTimers();
+    try {
+      // An afternoon then an evening, on two consecutive local days — the
+      // ordinary shape of "I studied yesterday and today". At UTC-7 the first
+      // stays on its own UTC date and the second rolls over to the next, so the
+      // old key produced 08-04 then 08-06: a one-day hole that reset the streak
+      // to 1. Two visits at the *same* hour would have rolled over together and
+      // hidden it, which is why the hours differ.
+      vi.setSystemTime(new Date(2026, 7, 4, 16, 0, 0));
+      store.recordVisit();
+      vi.setSystemTime(new Date(2026, 7, 5, 18, 0, 0));
+      store.recordVisit();
+      expect(store.streak()).toBe(2);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('treats one local day as one day however late or early it is studied', async () => {
+    const { store } = await fresh();
+    vi.useFakeTimers();
+    try {
+      // 00:30 and 23:30 on the SAME local day. East of Greenwich the old key
+      // split these across two UTC dates and inflated the streak to 2.
+      vi.setSystemTime(new Date(2026, 7, 4, 0, 30, 0));
+      store.recordVisit();
+      vi.setSystemTime(new Date(2026, 7, 4, 23, 30, 0));
+      store.recordVisit();
+      expect(store.streak()).toBe(1);
     } finally {
       vi.useRealTimers();
     }

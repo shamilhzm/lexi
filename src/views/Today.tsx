@@ -16,7 +16,7 @@ import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
-import { blindSpotDrills, estimateMinutes, wordsForMinutes } from '../session.ts';
+import { blindSpotDrills, estimateMinutes, wordsForMinutes, itemsForMinutes } from '../session.ts';
 import ReadingList from '../components/ReadingList.tsx';
 import ClassListPicker from '../components/ClassListPicker.tsx';
 import { BY_ID, WORDS } from '../data/index.ts';
@@ -242,7 +242,12 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
               {/* "Quick 5" was the right idea in the wrong unit — nobody has five
                   cards spare, they have four minutes. Same queue, trimmed to a time
                   budget; grades persist immediately, so the rest simply remains.
-                  Only offers budgets that would actually shorten today's session. */}
+                  Only offers budgets that would actually shorten today's session.
+
+                  `cap` is what makes the number on the chip true. Slicing the ids
+                  bounds the flips and nothing else: the builder then weaves drills,
+                  blind spots, linked points and a remedy on top, so the button that
+                  promised three minutes used to serve rather more. */}
               {SHORT_MINUTES.some((m) => wordsForMinutes(m) < total) && (
                 <div className="flex items-center gap-1.5 sm:justify-end flex-wrap">
                   <Kicker className="mr-0.5"><Zap size={11} className="inline -mt-0.5" /> Got less time?</Kicker>
@@ -251,6 +256,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                       onClick={() => onStart({
                         kind: 'custom', name: `${m}-minute session`,
                         ids: briefing.ids.slice(0, wordsForMinutes(m)),
+                        cap: itemsForMinutes(m),
                       })}
                       className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
                         hover:border-amber hover:text-amber transition-colors">
