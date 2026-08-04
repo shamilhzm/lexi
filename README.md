@@ -33,8 +33,9 @@ Planning and strategy live in [`docs/`](docs/). Start with
   the rule is a list rather than prose, a structured breakdown instead of a paragraph.
 - Cards carry IPA, gloss, gender + plural, synonyms/antonyms, and example sentences
   where available.
-- **284 fine sectors** rolled up into **16 theme groups** (Arbeit & Wirtschaft,
-  Reisen & Verkehr, Gesundheit & Körper, Technik & Wissenschaft, Grammatik, …).
+- **291 fine sectors** rolled up into **16 theme groups** (Work & Economy, Travel &
+  Transport, Health & Body, Tech & Science, Grammar, …), which the market view
+  coarsens further to 10 top-level categories so the treemap reads on a phone.
 - **FSRS** scheduling via `ts-fsrs` — modern spaced repetition, not hand-rolled,
   and every drill mode is its own track, so recognising a word and producing it are
   scheduled separately.

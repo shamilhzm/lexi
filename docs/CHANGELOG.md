@@ -11,6 +11,135 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-04 — the consolidation: four histories become one
+
+- **Three stranded branches landed on `main`.** The July 27 work (20 commits — the
+  definition programme, duplicate measurement, word families, structured rules, the
+  four-grade scale, session resume, Lesen) had never been merged: `main` forked away
+  from it on July 28 and the Atlas pass, the listening branch and the day-boundary fix
+  were all written on top of the fork. The tell was that **both sides deleted the same
+  archived Orbita and print-and-play trees, independently** — duplicated work is what a
+  silent fork buys you. Merged in date order, each with typecheck + suite green.
+- **What the merge caught that neither branch could see alone.** The time-budget chips
+  ("3 min · 5 min · 10 min") from one branch had exactly the defect `Target.cap` from
+  another branch existed to fix — slicing the id list bounds the flips, and the builder
+  then weaves drills, blind spots, linked points and a remedy on top, so a chip
+  promising three minutes served rather more. New `itemsForMinutes()` gives the chips
+  the cap. Neither branch was wrong; they had simply never met.
+- **A test broken correctly.** `store-idmap` asserts a corrected card id carries its
+  schedule across and drops the old key; persistence became debounced on another
+  branch, so the write no longer lands inside `hydrate()`. The behaviour is right and
+  self-healing (`migrateIds` re-runs every hydrate, no-ops once the ids are gone), so
+  the test outwaits the debounce rather than the API growing a `flushCards` export.
+- **Conflicts resolved on the merits, not by recency.** The gender-ink retune was
+  measured against a *dark* card that the Atlas inversion has since made `html.dark`'s
+  job — superseded, but its durable finding survives as a comment: `--color-der` and
+  `--color-a1` are the same hex in both themes, one colour carrying two meanings.
+  `AnimatePresence` stayed out of the study loop. The audible example kept the human
+  Tatoeba voice and regained the `aria-label` that the replaced `SpeakButton` had been
+  providing.
+- **BACKLOG split adopted, and reconciled.** This file's open/shipped split was the
+  better shape and survived the merge; `BACKLOG.md` is now open work only, with the
+  Atlas findings and the Fifty folded into it and every closed item moved here.
+
+### Shipped 2026-08-01 — the day belongs to the learner's clock
+
+- **`todayKey()` was the UTC calendar date.** An evening session west of Greenwich
+  already belonged to tomorrow: 16:00 Tue then 18:00 Wed in Los Angeles produced keys
+  08-04 and 08-06 — a one-day hole that **reset the streak after two genuinely
+  consecutive days**. East of Greenwich it failed the other way and inflated it. The key
+  now comes from local calendar components, with a `dayStart()` helper for
+  `dueForecast`, the one place a day key meets a real timestamp.
+- **The suite could not see it**, because every fake-timer test pinned 12:00Z — the one
+  hour where UTC and local agree in every plausible timezone. Tests now also run at
+  16:00/18:00 and 00:30/23:30 local; green under LA, New York, Berlin, Kolkata,
+  Kiritimati, Midway and UTC, where before it passed under UTC alone.
+- **Four things the instruments were hiding.** Vitest walked `.claude/worktrees/` and
+  ran four stale branch checkouts alongside this one, reporting their failures as ours.
+  The orphan-drill branch was unreachable on the only path sessions take. Undo rewound
+  the card and the counters but left its review in the log, so it still fed
+  `reviewedToday()`, Stats and recall. Every grade re-serialised the whole card map to
+  IndexedDB — now debounced 400ms, flushed on `visibilitychange`/`pagehide`, cancelled
+  on import so a restore cannot be clobbered.
+
+### Shipped 2026-07-31 — listening, and the map that moves
+
+- **Listening, phase 1 (the Fifty #39).** Known has always meant "recognised in print";
+  a learner with 2,300 Known words can still catch none of them spoken. `corpus:audio`
+  joins the Tatoeba sentence ids already in `provenance.json` against the
+  `sentences_with_audio` export and emits `public/data/audio.json` — **ids only, no
+  audio bytes committed**. `lib/audio.ts` fetches a clip on first play and caches it in
+  OPFS, mirroring `tts.ts`. **The licence is the interesting part:** Tatoeba's audio
+  licence is *per recording*, and an empty field means the audio may not be reused — so
+  the filter is an **allow-list, not a deny-list** (CC0 / CC BY / CC BY-SA / public
+  domain kept; empty, unrecognised, NC and ND dropped). Too strict costs a card its
+  human voice and falls back to synthesis; too loose redistributes someone's voice
+  against their terms. Keyed by *card* id, not sentence id — `Word` has no provenance
+  field and the app never loads the 596KB `provenance.json`.
+- **The map moves because you studied (#2, #3).** Territories that changed since you
+  last looked travel from the colour you last saw (`lexi.mapseen.v1`), and the Known
+  headline counts up from the same baseline so the number and the map agree about what
+  changed. Only tiles crossing a class boundary move. **The first version was wrong and
+  a test caught it:** it animated `from { background-color: var(--was) }` on the
+  transform-only-entrance reasoning, which does *not* transfer — here the colour **is**
+  the data, so a stalled animation painted a 44% territory in the 23% band. It is now a
+  transition: React writes the old colour, a timer writes the true one, and the
+  animation only decides whether the change is gradual.
+- **Two bugs found on the way.** `CountUp` had its own inline `toLocaleString('de-DE')`,
+  so the Known headline still rendered "2.320" beside a `fmt()`-formatted "6,618" — the
+  earlier P0 #4 fix missed it and it shipped. And classification ran on raw floats, so
+  three territories all *displaying* 42% were split across two colours; it now
+  classifies on the rounded percentage, so label and fill agree by construction.
+- **Grammar credited for what a session taught (#7).** Two id namespaces that never met:
+  `pointStats` counted only `gex:<level>:<point>:<exercise>` cards from Library drills,
+  while the vocabulary→grammar loop grades the point's own `gram:<level>:<title>` card.
+  The loop taught the concept and the Library denied it had happened — 0/40 started
+  after forty days, on the app's most distinctive feature. `pointStats` now counts
+  either; a concept met only in a session reads `· seen` rather than `—` or `0/7`
+  (which would look like seven failures). Mastery stays a measure of the exercises:
+  meeting is not drilling.
+- **Touch targets, gated honestly (#4).** Sidebar rows, the primary *Start session* and
+  the profile row get `.tap-44`; the mobile menu button goes 36→44 (pulled, so the
+  header doesn't grow); the desktop collapse chevron keeps its 24px look and gains a
+  44px hit area via `::before`. Gated on `any-pointer: coarse` — 44px is a *touch*
+  guideline, and applying it to the desktop rail would add 10px to every row on a
+  surface twelve personas already called too sparse. **Not verified that the query
+  fires:** no browser viewport reports a coarse pointer, so this waits on real hardware
+  alongside the "Tap the card" hint.
+- **`corpus:fetch` takes one source** instead of all of them. And the dead GitHub Pages
+  deploy — which always 404'd, because Pages was never switched on and production is
+  Vercel — was replaced with `ci.yml` (typecheck, test, build).
+- **One false positive retired (#6).** Every control on Profile *is* correctly labelled;
+  the audit's check tested `aria-label || innerText || title`, and an `<input>` has no
+  `innerText`, so a properly associated `<label for>` read as unnamed. Verified via
+  `el.labels`. The third false positive from that audit.
+
+### Shipped 2026-07-28 — the Atlas, the twelve personas, and the first P0s
+
+- **The terminal retired for the Atlas.** Lexi looked like a market terminal for a year;
+  it had never been *chosen* — it was the nearest available reference for "organise a
+  vast information space well" from a precedent vocabulary of Salesforce dashboards and
+  phone apps. Three traditions replace it, one per problem: **Aicher / HfG Ulm** for the
+  system, **cartography** for the instrument, **the printed lexicon** for the desk.
+  **Light is primary.** Rationale in [DESIGN.md §1](DESIGN.md).
+- **The heatmap became a heat map.** It classified over a linear 0–100% ramp while real
+  coverage spans ~26–45%, so ten genuinely different territories all rendered the same
+  green. Five classes over the *observed* range (`makeHeatScale`), ink paired per class,
+  and a legend stating the real domain.
+- **PERSONAS.md** — 12 personas, 2 per CEFR level, desktop and mobile, the first round
+  run against the *running app* rather than the code. Consolidates the two older persona
+  docs. Produced the Fifty: 50 backlog items from a live DOM audit.
+- **The P0s, and the rule that was wrong.** Route and desk entrances could strand a view
+  at `opacity: 0` — DESIGN.md claimed no-fill-mode made an entrance safe, and it does
+  not: **a stalled animation sits on its `from` frame**. All six entrances are now
+  transform-only. The card swap was gated on `AnimatePresence` completing an exit
+  (`review-structure.test.ts` now guards both). Plus `de-DE` separators in an English UI,
+  and "Space to flip" shown on touch devices.
+- **Every answer gets an acknowledgment (#2)**, and it says the interval the card just
+  moved to rather than "well done" — the same machinery-not-magic trick as the
+  grade-button previews, and the only form that survives being seen sixty times a
+  session.
+
 ### Shipped 2026-07-27 — the repository tidy
 
 - **The root is the project again.** `to_be_deleted_or_archived/` — 69 tracked
