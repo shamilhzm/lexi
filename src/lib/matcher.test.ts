@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildMatcher } from './matcher.ts';
-import type { Word } from '../../src/types.ts';
+import type { Word } from '../types.ts';
 
 const w = (over: Partial<Word>): Word => ({
   id: 'x', term: '', en: '', pos: 'noun', level: 'A1', gender: null, plural: null,

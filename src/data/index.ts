@@ -6,6 +6,7 @@
 import type { Word, SectorMeta, CEFR } from '../types.ts';
 import { setKnownVerbs } from '../lib/conjugate.ts';
 import { cleanExamples } from '../lib/examples.ts';
+import { primeFreq } from '../lib/freq.ts';
 
 export let WORDS: Word[] = [];
 export let SECTORS: SectorMeta[] = [];
@@ -109,10 +110,18 @@ export function isLoaded() { return loaded; }
 export async function initData(): Promise<void> {
   if (loaded) return;
   const base = import.meta.env.BASE_URL || '/';
-  const [words, sectors] = await Promise.all([
+  const [words, sectors, freq] = await Promise.all([
     fetch(base + 'data/vocab.json').then((r) => r.json() as Promise<Word[]>),
     fetch(base + 'data/sectors.json').then((r) => r.json() as Promise<SectorMeta[]>),
+    // Frequency ranks for intra-band ordering (49 KB — see lib/freq.ts). Optional
+    // by construction: an older deploy without the file, or a failed fetch, leaves
+    // the index empty and the scheduler falls back to corpus order rather than
+    // failing to boot over a nice-to-have.
+    fetch(base + 'data/freq.json')
+      .then((r) => (r.ok ? (r.json() as Promise<Record<string, number>>) : {}))
+      .catch(() => ({} as Record<string, number>)),
   ]);
+  primeFreq(freq);
 
   // Scrub the example rows that carry their source's citation apparatus into the
   // UI (see lib/examples.ts). The corpus is being repaired in batches, but it

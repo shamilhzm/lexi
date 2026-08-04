@@ -59,6 +59,58 @@ describe('buildBriefing', () => {
     for (const id of b.ids) expect(store.statusOf(id)).toBe('new');
   });
 
+  it('teaches the commonest words in a sector first', async () => {
+    // The point of the frequency index: within one sector at one level, every card
+    // is equally eligible, and corpus order decided it. Registered deliberately
+    // out of rank order so passing cannot be an accident of insertion.
+    const { data, store } = await fresh();
+    const freq = await import('./lib/freq.ts');
+    data.registerWords([
+      word('rare', 'Sector A'), word('common', 'Sector A'), word('mid', 'Sector A'),
+    ]);
+    freq.primeFreq({ common: 5, mid: 300, rare: 9000 });
+
+    expect(store.buildBriefing().ids).toEqual(['common', 'mid', 'rare']);
+  });
+
+  it('keeps corpus order for words whose frequency is unmeasured', async () => {
+    // 73% of the real corpus has no rank. Ranked words lead; the rest must follow
+    // in the order they were registered, not in an arbitrary one.
+    const { data, store } = await fresh();
+    const freq = await import('./lib/freq.ts');
+    data.registerWords([
+      word('unranked1', 'Sector A'), word('unranked2', 'Sector A'), word('ranked', 'Sector A'),
+    ]);
+    freq.primeFreq({ ranked: 42 });
+
+    expect(store.buildBriefing().ids).toEqual(['ranked', 'unranked1', 'unranked2']);
+  });
+
+  it('falls back to corpus order when the frequency file never loaded', async () => {
+    // initData tolerates a missing/failed freq.json, so this is a real runtime
+    // state and not a hypothetical: the briefing must still be built.
+    const { data, store } = await fresh();
+    const freq = await import('./lib/freq.ts');
+    data.registerWords([word('x', 'Sector A'), word('y', 'Sector A')]);
+    freq.primeFreq({});
+
+    expect(store.buildBriefing().ids).toEqual(['x', 'y']);
+  });
+
+  it('never lets frequency override the CEFR band', async () => {
+    // Band is the outer sort and must stay that way: a very common B2 word is
+    // still the wrong thing to teach before an uncommon A1 one.
+    const { data, store } = await fresh();
+    const freq = await import('./lib/freq.ts');
+    data.registerWords([
+      word('b2common', 'Sector A', { level: 'B2' }),
+      word('a1rare', 'Sector A', { level: 'A1' }),
+    ]);
+    freq.primeFreq({ b2common: 1, a1rare: 8000 });
+
+    expect(store.buildBriefing().ids).toEqual(['a1rare', 'b2common']);
+  });
+
   it('excludes cards that have been touched but are not yet due', async () => {
     const { data, store, srs } = await fresh();
     data.registerWords(Array.from({ length: 6 }, (_, i) => word(`c${i}`, 'Sector C')));

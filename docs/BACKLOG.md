@@ -42,8 +42,15 @@ iOS Simulator was unavailable (host had Command Line Tools only, no `simctl`), s
 every "mobile" finding to date is a 375×812 *browser* viewport that reports
 `(hover: hover) and (pointer: fine)`.
 
-**Do.** Unblock the toolchain first —
-`sudo xcode-select -s /Applications/Xcode.app/Contents/Developer` — then run a full
+> ⛔ **Blocked on the maintainer, and the documented fix is wrong.** The backlog has
+> carried `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer` as the
+> remediation since the audit. Checked 2026-08-04: `xcode-select -p` is
+> `/Library/Developer/CommandLineTools` and **`/Applications/Xcode.app` does not
+> exist** — Xcode is not installed, so there is nothing to switch to and `simctl` is
+> absent entirely. This needs a multi-GB App Store install (or a physical handset)
+> and an admin password. **No agent can clear it.** Everything below waits on that.
+
+**Do.** Install Xcode (for the Simulator) or attach a real handset, then run a full
 session on a real iPhone *and* a real Android, in the browser and installed, at
 default and largest text sizes, in both themes, offline after a cold start.
 Specifically check: safe areas (notch, Dynamic Island, home indicator) on the
@@ -86,14 +93,24 @@ argued and declined — see the ruling block in COMPETITIVE-RESEARCH §5.
 > ends up with two reading surfaces that disagree.
 
 **Phase 0 · prerequisites (S).** Land these first; each is independently defensible.
-- Port `buildMatcher` back app-side from `scripts/corpus/matcher.ts`. It is already
-  self-contained (imports only `conjugate`/`types`, takes the corpus explicitly) and
-  covered by 8 tests. Keep one implementation — the pipeline should import the app's,
-  not the reverse of what the July prune did.
-- Extend `freqRank` to all cards in the build. It currently covers a fraction
-  (`public/data/provenance.json`) and comes from Leipzig lists `build.ts` already loads.
-- Order fresh cards by frequency *within* a CEFR band in `firstRunIds`/`weakestSectors`,
-  not by band alone — so the most useful words in a band surface first.
+- ~~Port `buildMatcher` back app-side.~~ ✅ **2026-08-04.** Now `src/lib/matcher.ts`;
+  `scripts/corpus/lib.ts` imports the app's copy. One implementation, so the meter and
+  `corpus:coverage` cannot disagree about what "known" means. `corpus:selftest` 39/39
+  and `corpus:validate` PASS through the moved module.
+- ~~Order fresh cards by frequency *within* a CEFR band.~~ ✅ **2026-08-04.** Band is
+  the outer sort, frequency the tiebreak, in both `firstRunIds` and the fresh-card fill
+  in `buildBriefing`. New `src/lib/freq.ts` + `public/data/freq.json` (49 KB, emitted by
+  `npm run corpus:freq` from the ranks provenance already carries). Unranked cards keep
+  corpus order behind the ranked ones; a missing or failed `freq.json` degrades to the
+  old behaviour rather than failing to boot. 11 tests, mutation-checked.
+- **Extend `freqRank` to all cards · S, maintainer machine.** Still open, and now the
+  only thing limiting the ordering above: ranks cover **1,986 of 7,389 cards (27%)** —
+  the rest predate the provenance log. Not a random 27% either, since those cards were
+  *discovered through* the frequency list, so today's ordering is mildly
+  self-fulfilling. The ranks come from the Leipzig lists `build.ts` already loads, but
+  filling them means a `corpus:build` run, which is human-gated (CLAUDE.md) and needs
+  the network-enabled maintainer machine. **When it lands, re-run `npm run corpus:freq`
+  and nothing else has to change** — the app side is finished and coverage-agnostic.
 
 **Phase 1 · the meter (M).** Paste (or save a URL's text) → annotate via the matcher →
 report coverage against the 95/98 bands, honestly and with the count, not just a

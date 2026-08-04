@@ -3,7 +3,7 @@
 // and validation measure exactly what the reader would light up.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { buildMatcher, type Matcher } from './matcher.ts';
+import { buildMatcher, type Matcher } from '../../src/lib/matcher.ts';
 import type { Word, SectorMeta, CEFR } from '../../src/types.ts';
 
 export const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];

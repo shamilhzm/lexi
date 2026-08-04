@@ -2,6 +2,7 @@
 // Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
 // Adds a CEFR level filter and group/sector/all scoped stats + sessions.
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
+import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
@@ -301,7 +302,13 @@ export function buildBriefing(): Briefing {
   for (const s of weakestSectors(6)) {
     if (freshIds.length >= want) break;
     const newCards = (WORDS_BY_SECTOR.get(s.name) ?? [])
-      .filter((w) => inLevels(w) && statusOf(w.id) === 'new');
+      .filter((w) => inLevels(w) && statusOf(w.id) === 'new')
+      // Within a sector, teach the commonest words first. Same reasoning as
+      // firstRunIds: the sector and the level are both coarse, and this is the one
+      // ordering signal that says which of two equally-eligible A2 nouns the
+      // learner is more likely to meet tomorrow. Stable, so unranked cards keep
+      // corpus order behind the ranked ones.
+      .sort((a, b) => (ALL_LEVELS.indexOf(a.level) - ALL_LEVELS.indexOf(b.level)) || byFrequency(a, b));
     if (newCards.length === 0) continue;
     weak.push(s.name);
     for (const w of newCards) {
@@ -874,7 +881,11 @@ export function setOnboarded(v = true) {
 export function firstRunIds(n = 10): string[] {
   return WORDS
     .filter((w) => w.kind === 'word' && inLevels(w) && statusOf(w.id) === 'new')
-    .sort((a, b) => ALL_LEVELS.indexOf(a.level) - ALL_LEVELS.indexOf(b.level))
+    // Band first, then commonest-within-band. Band alone put whatever the corpus
+    // happened to list first in front of a learner's very first ten cards; "A1"
+    // spans several thousand frequency ranks, so that was close to arbitrary.
+    // Unranked words keep their relative order and follow — see lib/freq.ts.
+    .sort((a, b) => (ALL_LEVELS.indexOf(a.level) - ALL_LEVELS.indexOf(b.level)) || byFrequency(a, b))
     .slice(0, n)
     .map((w) => w.id);
 }

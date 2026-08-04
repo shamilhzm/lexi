@@ -1,12 +1,20 @@
-// Build-time corpus matcher for the pipeline. A self-contained port of the match
-// half of the app's former reader/mining module (removed in the July prune): it
-// tokenises a German surface form and decides whether it already "lights up"
-// against a given corpus — plus the closed-class and proper-noun heuristics the
-// gap discovery needs. Kept here (not in the app) so the pipeline no longer depends
-// on the deleted `src/lib/mining.ts`. Takes the corpus explicitly (no global
-// WORDS), and imports only still-present app modules (conjugate, types).
-import { conjugate, canConjugate, setKnownVerbs } from '../../src/lib/conjugate.ts';
-import type { Word } from '../../src/types.ts';
+// The corpus matcher. Tokenises German text and decides whether each word already
+// "lights up" against a given corpus — plus the closed-class and proper-noun
+// heuristics that keep un-learnable tokens out of a coverage denominator.
+//
+// It lived in `scripts/corpus/` from the July prune until 2026-08-04, because the
+// pipeline needed it and the app's `lib/mining.ts` had just been deleted. That put
+// it the wrong way round: this is app logic that the *pipeline* borrows, not build
+// tooling the app happens to want. The comprehension meter needs it at runtime, and
+// two copies of a matcher would mean the meter and `corpus:coverage` could disagree
+// about what "known" means — which is the one number the feature exists to state
+// honestly. One implementation, here; `scripts/corpus/lib.ts` imports it.
+//
+// Deliberately takes the corpus explicitly rather than reaching for the global
+// `WORDS`, so the pipeline can point it at a candidate build and the app can point
+// it at the shipped one.
+import { conjugate, canConjugate, setKnownVerbs } from './conjugate.ts';
+import type { Word } from '../types.ts';
 
 const stripArticle = (term: string) => term.replace(/^(der|die|das)\s+/i, '');
 
