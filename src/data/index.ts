@@ -1,10 +1,11 @@
-// Lexi lexicon — 7,464 A1–C2 cards (vocabulary + grammar). Loaded at runtime
+// Lexi lexicon — 7,389 A1–C2 cards (vocabulary + grammar). Loaded at runtime
 // from /public/data so the ~2 MB corpus is a separately-cached fetch rather than
 // parsed inside the JS bundle (keeps first paint fast; the service worker caches
 // it for instant offline reloads). Exports are live `let` bindings, populated by
 // initData() before the app renders.
 import type { Word, SectorMeta, CEFR } from '../types.ts';
 import { setKnownVerbs } from '../lib/conjugate.ts';
+import { cleanExamples } from '../lib/examples.ts';
 
 export let WORDS: Word[] = [];
 export let SECTORS: SectorMeta[] = [];
@@ -112,6 +113,18 @@ export async function initData(): Promise<void> {
     fetch(base + 'data/vocab.json').then((r) => r.json() as Promise<Word[]>),
     fetch(base + 'data/sectors.json').then((r) => r.json() as Promise<SectorMeta[]>),
   ]);
+
+  // Scrub the example rows that carry their source's citation apparatus into the
+  // UI (see lib/examples.ts). The corpus is being repaired in batches, but it
+  // already ships on real devices — this makes a defective row degrade to one
+  // clean sentence instead of rendering garbage. Cheap: one pass, no allocation
+  // for the ~99.6% of rows that are already clean.
+  for (const w of words) {
+    const cleaned = cleanExamples(w.ex);
+    if (cleaned.length !== w.ex.length || cleaned.some((e, i) => e.de !== w.ex[i].de || e.en !== w.ex[i].en)) {
+      w.ex = cleaned;
+    }
+  }
 
   WORDS = words;
   SECTORS = sectors;

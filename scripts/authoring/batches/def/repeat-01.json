@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"repeat\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:die Schwester",
+      "level": "A1",
+      "en": "sister",
+      "pos": "noun",
+      "expect": {
+        "def": "sister; sister; nun; used particularly, but not only, as a title of address"
+      },
+      "def": "A female sibling — and the everyday German word for a nurse."
+    },
+    {
+      "id": "voc:A1:machen",
+      "level": "A1",
+      "en": "to do, to make",
+      "pos": "verb",
+      "expect": {
+        "def": "to make, to produce, to create (an object, arrangement, situation, etc.); to make, prepare (food, drinks, etc.)"
+      },
+      "def": "To make or do something; German's general-purpose verb for producing or carrying out."
+    },
+    {
+      "id": "voc:A1:essen",
+      "level": "A1",
+      "en": "to eat",
+      "pos": "verb",
+      "expect": {
+        "def": "to eat; to eat; to dine"
+      },
+      "def": "To take food into the body through the mouth."
+    },
+    {
+      "id": "voc:A1:kaufen",
+      "level": "A1",
+      "en": "to buy",
+      "pos": "verb",
+      "expect": {
+        "def": "to buy, to purchase; to buy, to purchase for someone"
+      },
+      "def": "To obtain something in exchange for money."
+    },
+    {
+      "id": "voc:A1:klein",
+      "level": "A1",
+      "en": "small, little",
+      "pos": "adjective",
+      "expect": {
+        "def": "small, little, wee (in physical size or extent); small, little, young (not grown up)"
+      },
+      "def": "Little in size or extent — and, of a person, young."
+    },
+    {
+      "id": "voc:A1:die Post",
+      "level": "A1",
+      "en": "post office; mail",
+      "pos": "noun",
+      "expect": {
+        "def": "mail, post (sent and received letters etc.); mail, post, postal service (method of sending mail; organisation for it)"
+      },
+      "def": "The postal service, the letters it carries, and the office you hand them in at."
+    },
+    {
+      "id": "voc:A1:finden",
+      "level": "A1",
+      "en": "to find; to think",
+      "pos": "verb",
+      "expect": {
+        "def": "to find; to discover; to think, to consider, to find"
+      },
+      "def": "To come across what you were looking for — and, of an opinion, to think (ich finde …)."
+    },
+    {
+      "id": "voc:A1:kurz",
+      "level": "A1",
+      "en": "short",
+      "pos": "adjective",
+      "expect": {
+        "def": "short, quick, brief; short"
+      },
+      "def": "Small in length or in duration; the opposite of lang."
+    },
+    {
+      "id": "voc:A1:warm",
+      "level": "A1",
+      "en": "warm",
+      "pos": "adjective",
+      "expect": {
+        "def": "warm; mildly hot; warm; keeping the wearer warm"
+      },
+      "def": "Pleasantly heated — above cool and below hot."
+    },
+    {
+      "id": "voc:A1:kalt",
+      "level": "A1",
+      "en": "cold",
+      "pos": "adjective",
+      "expect": {
+        "def": "cold, chilly; the physical perception of something (objects, weather, body etc.) to have a low temperature; cold, frigid (especially when referring to emotions)"
+      },
+      "def": "Low in temperature; of a person or manner, unfeeling."
+    },
+    {
+      "id": "voc:A1:richtig",
+      "level": "A1",
+      "en": "right, correct",
+      "pos": "adjective",
+      "expect": {
+        "def": "correct, accurate, right; right, correct, good"
+      },
+      "def": "Free of error — and, before an adjective, thoroughly (ein richtig guter Film)."
+    },
+    {
+      "id": "voc:A1:nett",
+      "level": "A1",
+      "en": "nice, kind",
+      "pos": "adjective",
+      "expect": {
+        "def": "nice; friendly; likable; nice; okay; decent; often expressing a more reluctant praise"
+      },
+      "def": "Pleasant and friendly in a mild, everyday way."
+    },
+    {
+      "id": "voc:A1:schwarz",
+      "level": "A1",
+      "en": "black",
+      "pos": "adjective",
+      "expect": {
+        "def": "black, reflecting little or no light; black, having a high amount of melanin in an organ, e.g. the skin"
+      },
+      "def": "The colour of coal, reflecting almost no light."
+    },
+    {
+      "id": "voc:A1:das Salz",
+      "level": "A1",
+      "en": "salt",
+      "pos": "noun",
+      "expect": {
+        "def": "salt, table salt, sal; salt"
+      },
+      "def": "Sodium chloride, used to season and preserve food."
+    },
+    {
+      "id": "voc:A1:fliegen",
+      "level": "A1",
+      "en": "to fly",
+      "pos": "verb",
+      "expect": {
+        "def": "to fly; to travel by air; to rush; to fly; to go quickly"
+      },
+      "def": "To move through the air — and, of a person, to travel by plane."
+    },
+    {
+      "id": "voc:A1:fertig",
+      "level": "A1",
+      "en": "ready, finished",
+      "pos": "adjective",
+      "expect": {
+        "def": "ready for use; done; fully prepared; done; finished; complete"
+      },
+      "def": "Finished or ready to go; colloquially also worn out."
+    },
+    {
+      "id": "voc:A1:frei",
+      "level": "A1",
+      "en": "free; available",
+      "pos": "adjective",
+      "expect": {
+        "def": "free; unenslaved; unimprisoned; free; unrestricted; more negative also: unrestrained; licentious"
+      },
+      "def": "Not restricted, and not occupied — of a seat or an appointment, available."
+    },
+    {
+      "id": "voc:A1:der See",
+      "level": "A1",
+      "en": "lake",
+      "pos": "noun",
+      "expect": {
+        "def": "sea, ocean; sea, sea condition, swell"
+      },
+      "def": "An inland body of standing water. (Feminine die See means the sea.)"
+    },
+    {
+      "id": "voc:A1:der Stern",
+      "level": "A1",
+      "en": "star",
+      "pos": "noun",
+      "expect": {
+        "def": "a star; a small luminous dot that can be seen on the night sky; a star; the actual celestial body"
+      },
+      "def": "A luminous point in the night sky; a celestial body like the sun."
+    },
+    {
+      "id": "voc:A1:dann",
+      "level": "A1",
+      "en": "then",
+      "pos": "adverb",
+      "expect": {
+        "def": "then, after that; then, in that case"
+      },
+      "def": "Next in time — and, after a condition, in that case."
+    },
+    {
+      "id": "voc:A1:zahlen",
+      "level": "A1",
+      "en": "to pay",
+      "pos": "verb",
+      "expect": {
+        "def": "to pay; to pay, to atone"
+      },
+      "def": "To hand over money for something bought or owed."
+    },
+    {
+      "id": "voc:A1:der Job",
+      "level": "A1",
+      "en": "job",
+      "pos": "noun",
+      "expect": {
+        "def": "job, position, employment; job, work, profession"
+      },
+      "def": "Paid work, especially casual or short-term rather than a career."
+    },
+    {
+      "id": "voc:A1:trainieren",
+      "level": "A1",
+      "en": "to train",
+      "pos": "verb",
+      "expect": {
+        "def": "to work out, to exercise, to train; to train, to coach"
+      },
+      "def": "To practise a sport or skill regularly — and, of a coach, to train others."
+    },
+    {
+      "id": "voc:A1:drücken",
+      "level": "A1",
+      "en": "to press, push",
+      "pos": "verb",
+      "expect": {
+        "def": "to press, to push (a button/key; a finger or other object against something); to push, to press, to exert pressure, to click (with a mouse)"
+      },
+      "def": "To apply pressure with a finger or hand: a button, a key, someone's hand."
+    },
+    {
+      "id": "voc:A1:erzählen",
+      "level": "A1",
+      "en": "to tell, narrate",
+      "pos": "verb",
+      "expect": {
+        "def": "to tell, to narrate, to recount; to tell, to say"
+      },
+      "def": "To tell someone about something, recounting it in sequence."
+    },
+    {
+      "id": "voc:A1:wegfahren",
+      "level": "A1",
+      "en": "to drive away, go away",
+      "pos": "verb",
+      "expect": {
+        "def": "to drive away, to drive off; to drive away, take away with a vehicle"
+      },
+      "def": "To leave by vehicle — or to take something away in one."
+    },
+    {
+      "id": "voc:A1:inszenieren",
+      "level": "A1",
+      "en": "to stage, direct",
+      "pos": "verb",
+      "expect": {
+        "def": "to stage, to perform (a dramatic work); to stage, to perpetrate (a hoax or deception)"
+      },
+      "def": "To put a dramatic work on stage; also to stage something for effect."
+    },
+    {
+      "id": "voc:A1:nie",
+      "level": "A1",
+      "en": "never",
+      "pos": "adverb",
+      "expect": {
+        "def": "never, never at all (referring to an indefinite period of time); never, not once (referring to a defined period of time; see usage notes below)"
+      },
+      "def": "At no time at all."
+    },
+    {
+      "id": "voc:A2:die Praxis",
+      "level": "A2",
+      "en": "practice (doctor’s office)",
+      "pos": "noun",
+      "expect": {
+        "def": "practice, experience; practice, praxis (opposite of theory)"
+      },
+      "def": "A doctor's or lawyer's office — and practice as opposed to theory."
+    },
+    {
+      "id": "voc:A2:das Programm",
+      "level": "A2",
+      "en": "program(me); software",
+      "pos": "noun",
+      "expect": {
+        "def": "program (set of structured ideas or activities; a list thereof); schedule; programming (whole of a station’s shows; their chronological order; a list thereof)"
+      },
+      "def": "A planned sequence of items or events; also a piece of software."
+    },
+    {
+      "id": "voc:A2:die Umwelt",
+      "level": "A2",
+      "en": "environment",
+      "pos": "noun",
+      "expect": {
+        "def": "environment; milieu; surroundings; environment; ecosystem"
+      },
+      "def": "The natural world around us, thought of as something to protect."
+    },
+    {
+      "id": "voc:A2:versuchen",
+      "level": "A2",
+      "en": "to try, to attempt",
+      "pos": "verb",
+      "expect": {
+        "def": "to try, to attempt (often with an uncertain result); to try, to taste"
+      },
+      "def": "To make an attempt at something whose outcome is uncertain."
+    },
+    {
+      "id": "voc:A2:dauern",
+      "level": "A2",
+      "en": "to last, to take (time)",
+      "pos": "verb",
+      "expect": {
+        "def": "to last, to continue, to persist (for a period of time); to last, to be permanent"
+      },
+      "def": "To go on for a stretch of time."
+    },
+    {
+      "id": "voc:A2:ehrlich",
+      "level": "A2",
+      "en": "honest",
+      "pos": "adjective",
+      "expect": {
+        "def": "decent, honorable, honest; honest, truthful, true"
+      },
+      "def": "Truthful, and not out to deceive."
+    },
+    {
+      "id": "voc:A2:der Streit",
+      "level": "A2",
+      "en": "argument, quarrel",
+      "pos": "noun",
+      "expect": {
+        "def": "quarrel, dispute, fight, argument; fight, battle"
+      },
+      "def": "A verbal fight — a quarrel or dispute rather than a physical one."
+    },
+    {
+      "id": "voc:A2:scharf",
+      "level": "A2",
+      "en": "spicy; sharp",
+      "pos": "adjective",
+      "expect": {
+        "def": "sharp; able to cut (of a knife, edge); sharp; tight (of a turn on a route)"
+      },
+      "def": "Hot to the taste; of a blade or an image, keen and well-defined."
+    },
+    {
+      "id": "voc:A2:funktionieren",
+      "level": "A2",
+      "en": "to work, to function",
+      "pos": "verb",
+      "expect": {
+        "def": "to work, function; to work, work out"
+      },
+      "def": "Of a device or an arrangement, to work as it is meant to."
+    },
+    {
+      "id": "voc:A2:der Vorteil",
+      "level": "A2",
+      "en": "advantage",
+      "pos": "noun",
+      "expect": {
+        "def": "advantage, plus, benefit, perk (of a job); advantage"
+      },
+      "def": "Something that puts you in a better position than others."
+    },
+    {
+      "id": "voc:A2:sammeln",
+      "level": "A2",
+      "en": "to collect",
+      "pos": "verb",
+      "expect": {
+        "def": "to gather; to assemble; to collect; to congregate; to assemble; to meet"
+      },
+      "def": "To bring things together in one place — objects as a hobby, or people into a group."
+    },
+    {
+      "id": "voc:A2:die Hexe",
+      "level": "A2",
+      "en": "witch",
+      "pos": "noun",
+      "expect": {
+        "def": "witch, sorceress; witch, hag (evil and/or ugly woman)"
+      },
+      "def": "A woman with magic powers in folklore and fairy tales."
+    }
+  ]
+}

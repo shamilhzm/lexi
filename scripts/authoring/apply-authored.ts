@@ -5,6 +5,15 @@
 // LLM — the authored data is ours.
 //
 //   node scripts/authoring/apply-authored.ts <patch.json> [--dry]
+//
+// A .tsv patch is also accepted, for the common single-example pass — one line
+// per card reads better in review than nested JSON:
+//
+//   <term-or-id> \t <de> \t <en> [\t syn1|syn2]
+//   node scripts/authoring/apply-authored.ts <patch.tsv> --level C1 [--dry]
+//
+// Bare terms are resolved against --level (ids are `voc:<level>:<term>`); the
+// example is filed at that level too.
 import { readFileSync } from 'node:fs';
 import { PATHS } from '../corpus/config.ts';
 import { readJSON, writeJSON, stripArticle } from '../corpus/lib.ts';
@@ -23,13 +32,28 @@ interface Patch {
 
 const [patchPath, ...rest] = process.argv.slice(2);
 const dry = rest.includes('--dry');
-if (!patchPath) { console.error('Usage: node scripts/authoring/apply-authored.ts <patch.json> [--dry]'); process.exit(1); }
+const level = rest[rest.indexOf('--level') + 1] ?? '';
+if (!patchPath) { console.error('Usage: node scripts/authoring/apply-authored.ts <patch.json|patch.tsv> [--level C1] [--dry]'); process.exit(1); }
+
+const LEVELS = new Set(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
 
 const vocab = readJSON<Word[]>(PATHS.vocab);
 const byId = new Map(vocab.map((c) => [c.id, c]));
-const patches: Patch[] = JSON.parse(readFileSync(patchPath, 'utf8'));
 
-const LEVELS = new Set(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+/** `<term-or-id> \t <de> \t <en> [\t syn1|syn2]` → the same patch shape as JSON. */
+const parseTSV = (text: string): Patch[] =>
+  text.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#')).map((line) => {
+    const [ref, de, en, syn] = line.split('\t').map((s) => (s ?? '').trim());
+    const p: Patch = { id: ref.startsWith('voc:') ? ref : `voc:${level}:${ref}` };
+    if (de && en) p.ex = [{ de, en, lvl: level }];
+    if (syn) p.syn = syn.split('|').map((s) => s.trim()).filter(Boolean);
+    return p;
+  });
+
+const raw = readFileSync(patchPath, 'utf8');
+if (patchPath.endsWith('.tsv') && !LEVELS.has(level)) { console.error('A .tsv patch needs --level A1|A2|B1|B2|C1|C2'); process.exit(1); }
+const patches: Patch[] = patchPath.endsWith('.tsv') ? parseTSV(raw) : JSON.parse(raw);
+
 const isStr = (v: unknown, max = 400): v is string => typeof v === 'string' && v.trim().length > 0 && v.length <= max;
 
 let set = 0, skipped = 0, missing = 0;

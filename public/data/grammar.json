@@ -1046,6 +1046,35 @@
           "fix": "Ich spreche mit meinem Vater.",
           "explain": "Vater masc., dative → meinem."
         }
+      ],
+      "sections": [
+        {
+          "body": "Possessives (mein, dein, sein, ihr, unser, euer, Ihr) take exactly the endings of ein/kein. The stem shows the possessor; the ending agrees with the noun that follows."
+        },
+        {
+          "label": "Nominative",
+          "examples": [
+            {
+              "de": "mein Vater · meine Mutter · mein Kind · meine Eltern"
+            }
+          ]
+        },
+        {
+          "label": "Accusative — only masculine changes",
+          "examples": [
+            {
+              "de": "meinen Vater"
+            }
+          ]
+        },
+        {
+          "label": "Dative",
+          "examples": [
+            {
+              "de": "meinem Vater · meiner Mutter · meinem Kind"
+            }
+          ]
+        }
       ]
     },
     {
@@ -1160,6 +1189,45 @@
           "fix": "Wir gehen um den See.",
           "explain": "um takes the accusative → den See (masc.), not dem."
         }
+      ],
+      "sections": [
+        {
+          "body": "A fixed set of prepositions always governs the accusative, whatever their meaning. Memorise them as one group: durch, für, gegen, ohne, um — plus bis and entlang."
+        },
+        {
+          "label": "The group",
+          "pairs": [
+            {
+              "from": "durch",
+              "to": "through"
+            },
+            {
+              "from": "für",
+              "to": "for"
+            },
+            {
+              "from": "gegen",
+              "to": "against"
+            },
+            {
+              "from": "ohne",
+              "to": "without"
+            },
+            {
+              "from": "um",
+              "to": "around, at"
+            }
+          ]
+        },
+        {
+          "label": "Only masculine changes: der → den",
+          "body": "die, das and the plural die keep their form.",
+          "examples": [
+            {
+              "de": "für den Mann · ohne mich · um die Ecke · gegen den Wind"
+            }
+          ]
+        }
       ]
     },
     {
@@ -1214,6 +1282,57 @@
           "answer": 4,
           "fix": "Wir treffen uns am zweiten April.",
           "explain": "am + ordinal takes -ten → am zweiten April."
+        }
+      ],
+      "sections": [
+        {
+          "label": "Building the ordinal",
+          "pairs": [
+            {
+              "from": "up to 19: + -t",
+              "to": "der vierte, der siebte"
+            },
+            {
+              "from": "from 20: + -st",
+              "to": "der zwanzigste"
+            }
+          ]
+        },
+        {
+          "label": "Irregulars",
+          "body": "erste, dritte, siebte, achte."
+        },
+        {
+          "label": "They decline like adjectives",
+          "examples": [
+            {
+              "de": "der erste Tag"
+            },
+            {
+              "de": "am ersten Tag"
+            }
+          ]
+        },
+        {
+          "label": "Dates",
+          "body": "“On” a date is am + the ordinal in -ten.",
+          "examples": [
+            {
+              "de": "Heute ist der erste Mai.",
+              "en": "Nominative."
+            },
+            {
+              "de": "am ersten Mai · am dritten Juni"
+            }
+          ]
+        },
+        {
+          "label": "As a figure, the ordinal takes a period",
+          "examples": [
+            {
+              "de": "der 1. Mai · am 3. Juni"
+            }
+          ]
         }
       ]
     },
@@ -1291,6 +1410,76 @@
           "answer": 3,
           "fix": "Ich habe zwei Bücher gelesen.",
           "explain": "After a number the noun is plural: das Buch → die Bücher (-er + umlaut)."
+        }
+      ],
+      "sections": [
+        {
+          "body": "German forms the plural in five main patterns. Whatever the pattern, the plural article is always die."
+        },
+        {
+          "label": "-e, often with umlaut",
+          "pairs": [
+            {
+              "from": "der Tisch",
+              "to": "die Tische"
+            },
+            {
+              "from": "der Stuhl",
+              "to": "die Stühle"
+            }
+          ]
+        },
+        {
+          "label": "-(e)n — the rule for most feminines",
+          "pairs": [
+            {
+              "from": "die Frau",
+              "to": "die Frauen"
+            },
+            {
+              "from": "die Lampe",
+              "to": "die Lampen"
+            }
+          ]
+        },
+        {
+          "label": "-er, umlaut where possible — mostly neuters",
+          "pairs": [
+            {
+              "from": "das Kind",
+              "to": "die Kinder"
+            },
+            {
+              "from": "das Buch",
+              "to": "die Bücher"
+            }
+          ]
+        },
+        {
+          "label": "-s — loanwords and words ending in a vowel",
+          "pairs": [
+            {
+              "from": "das Auto",
+              "to": "die Autos"
+            },
+            {
+              "from": "das Büro",
+              "to": "die Büros"
+            }
+          ]
+        },
+        {
+          "label": "No ending — masculines/neuters in -er, -el, -en",
+          "pairs": [
+            {
+              "from": "der Lehrer",
+              "to": "die Lehrer"
+            },
+            {
+              "from": "der Vater",
+              "to": "die Väter"
+            }
+          ]
         }
       ]
     }
@@ -2528,6 +2717,60 @@
           "fix": "Ich gehe ins Kino.",
           "explain": "gehen = direction (wohin?) → in das = ins, not in dem (im)."
         }
+      ],
+      "sections": [
+        {
+          "body": "German fuses many prepositions with a following definite article. These are the everyday, unmarked forms."
+        },
+        {
+          "label": "The fusions",
+          "pairs": [
+            {
+              "from": "an / in + dem",
+              "to": "am / im"
+            },
+            {
+              "from": "an / in + das",
+              "to": "ans / ins"
+            },
+            {
+              "from": "bei / von / zu + dem",
+              "to": "beim / vom / zum"
+            },
+            {
+              "from": "zu + der",
+              "to": "zur"
+            },
+            {
+              "from": "auf / für / um / durch + das",
+              "to": "aufs / fürs / ums / durchs"
+            }
+          ]
+        },
+        {
+          "label": "The case still follows the meaning",
+          "body": "With two-way prepositions (Wechselpräpositionen), position (wo?) takes the dative and direction (wohin?) the accusative.",
+          "examples": [
+            {
+              "de": "Ich bin im Kino.",
+              "en": "Position — dative."
+            },
+            {
+              "de": "Ich gehe ins Kino.",
+              "en": "Direction — accusative."
+            }
+          ]
+        },
+        {
+          "label": "When to keep the full form",
+          "body": "Only to stress the article itself.",
+          "examples": [
+            {
+              "de": "in dem Haus, das ich meine",
+              "en": "in that house, the one I mean"
+            }
+          ]
+        }
       ]
     },
     {
@@ -2583,6 +2826,42 @@
           "fix": "Der Kaffee ist sehr heiß.",
           "explain": "sehr never takes an ending → sehr."
         }
+      ],
+      "sections": [
+        {
+          "body": "Degree particles stand directly before the adjective or adverb they scale, and never take an ending."
+        },
+        {
+          "label": "Scaling",
+          "pairs": [
+            {
+              "from": "sehr gut",
+              "to": "very good"
+            },
+            {
+              "from": "ziemlich groß",
+              "to": "quite big"
+            },
+            {
+              "from": "ganz neu",
+              "to": "completely new"
+            }
+          ]
+        },
+        {
+          "label": "Strengthening a negation",
+          "body": "gar and überhaupt reinforce a negative.",
+          "pairs": [
+            {
+              "from": "gar nicht",
+              "to": "not at all"
+            },
+            {
+              "from": "gar kein",
+              "to": "none whatsoever"
+            }
+          ]
+        }
       ]
     },
     {
@@ -2637,6 +2916,79 @@
           "answer": 1,
           "fix": "Nach dem Film gehen wir essen.",
           "explain": "nach + dative → dem Film (masc.), not der."
+        }
+      ],
+      "sections": [
+        {
+          "body": "A fixed set of prepositions always governs the dative. Memorise them as one group: aus, bei, mit, nach, seit, von, zu — gegenüber belongs here too."
+        },
+        {
+          "label": "The group",
+          "pairs": [
+            {
+              "from": "aus",
+              "to": "from, out of"
+            },
+            {
+              "from": "bei",
+              "to": "at, near"
+            },
+            {
+              "from": "mit",
+              "to": "with"
+            },
+            {
+              "from": "nach",
+              "to": "after, to"
+            },
+            {
+              "from": "seit",
+              "to": "since, for"
+            },
+            {
+              "from": "von",
+              "to": "from, of"
+            },
+            {
+              "from": "zu",
+              "to": "to"
+            }
+          ]
+        },
+        {
+          "label": "Dative endings — dem / der / den(+n)",
+          "examples": [
+            {
+              "de": "mit dem Auto"
+            },
+            {
+              "de": "bei der Arbeit"
+            },
+            {
+              "de": "zu den Kindern"
+            }
+          ]
+        },
+        {
+          "label": "Several fuse",
+          "pairs": [
+            {
+              "from": "bei dem",
+              "to": "beim"
+            },
+            {
+              "from": "von dem",
+              "to": "vom"
+            },
+            {
+              "from": "zu dem",
+              "to": "zum"
+            },
+            {
+              "from": "zu der",
+              "to": "zur"
+            }
+          ]
         }
       ]
     },
@@ -2697,6 +3049,27 @@
           "answer": 0,
           "explain": "Plural after die → -en: die kleinen Kinder."
         }
+      ],
+      "sections": [
+        {
+          "body": "After a definite article (der, die, das, dieser, jeder, alle) the adjective takes only two endings — which is why this is the declension to learn first."
+        },
+        {
+          "label": "-e — nominative singular, and feminine/neuter accusative",
+          "examples": [
+            {
+              "de": "der gute Mann · die gute Frau · das gute Kind"
+            }
+          ]
+        },
+        {
+          "label": "-en — everywhere else, and the whole plural",
+          "examples": [
+            {
+              "de": "den guten Mann · dem guten Kind · die guten Kinder"
+            }
+          ]
+        }
       ]
     },
     {
@@ -2754,6 +3127,63 @@
           "answer": 2,
           "fix": "Sie ist Lehrerin.",
           "explain": "A bare profession after sein → no article: Sie ist Lehrerin."
+        }
+      ],
+      "sections": [
+        {
+          "body": "German drops the article in four places where English often keeps one."
+        },
+        {
+          "label": "After sein / werden / bleiben — profession, nationality, religion",
+          "examples": [
+            {
+              "de": "Sie ist Ärztin."
+            },
+            {
+              "de": "Er wird Lehrer."
+            }
+          ]
+        },
+        {
+          "label": "Uncountable or abstract nouns, used generally",
+          "examples": [
+            {
+              "de": "Ich trinke Wasser."
+            },
+            {
+              "de": "Zeit ist Geld."
+            },
+            {
+              "de": "Sie hat Geduld."
+            }
+          ]
+        },
+        {
+          "label": "Most countries, cities and languages",
+          "examples": [
+            {
+              "de": "Ich lerne Deutsch."
+            },
+            {
+              "de": "Er wohnt in Deutschland."
+            }
+          ]
+        },
+        {
+          "label": "Set phrases",
+          "examples": [
+            {
+              "de": "zu Fuß · nach Hause · mit Freunden"
+            }
+          ]
+        },
+        {
+          "label": "Keep the article when the noun is specific",
+          "examples": [
+            {
+              "de": "Der Kaffee hier ist gut."
+            }
+          ]
         }
       ]
     },
@@ -4637,6 +5067,45 @@
           ],
           "explain": "Feminine subject → die."
         }
+      ],
+      "sections": [
+        {
+          "body": "A relative pronoun agrees with its noun in gender and number, but takes its case from its own role inside the relative clause. The conjugated verb moves to the end."
+        },
+        {
+          "label": "Case comes from the clause",
+          "pairs": [
+            {
+              "from": "nominative",
+              "to": "der Mann, der dort steht"
+            },
+            {
+              "from": "accusative",
+              "to": "der Mann, den ich kenne"
+            },
+            {
+              "from": "dative",
+              "to": "der Mann, dem ich helfe"
+            },
+            {
+              "from": "genitive",
+              "to": "der Mann, dessen Auto …"
+            }
+          ]
+        },
+        {
+          "label": "Plural dative & genitive",
+          "pairs": [
+            {
+              "from": "denen",
+              "to": "dative"
+            },
+            {
+              "from": "deren",
+              "to": "genitive"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4757,6 +5226,58 @@
           "answer": 0,
           "explain": "selbst AFTER the noun = himself."
         }
+      ],
+      "sections": [
+        {
+          "body": "Focus particles pick out one part of the sentence and stand directly before it."
+        },
+        {
+          "label": "The four",
+          "pairs": [
+            {
+              "from": "nur",
+              "to": "only — restricts"
+            },
+            {
+              "from": "auch",
+              "to": "also, too — adds"
+            },
+            {
+              "from": "sogar",
+              "to": "even — a surprising addition"
+            },
+            {
+              "from": "selbst",
+              "to": "even (before the noun)"
+            }
+          ]
+        },
+        {
+          "label": "selbst cuts both ways",
+          "examples": [
+            {
+              "de": "Selbst der Chef kam.",
+              "en": "Before the noun: even the boss came."
+            },
+            {
+              "de": "Der Chef selbst kam.",
+              "en": "After the noun: the boss himself came."
+            }
+          ]
+        },
+        {
+          "label": "Moving the particle moves the meaning",
+          "examples": [
+            {
+              "de": "Nur ich habe ihn gesehen.",
+              "en": "only I"
+            },
+            {
+              "de": "Ich habe nur ihn gesehen.",
+              "en": "only him"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4811,6 +5332,35 @@
           "answer": 4,
           "fix": "Ich trinke keinen Tee, sondern Kaffee.",
           "explain": "After a negation the correction uses sondern, not aber."
+        }
+      ],
+      "sections": [
+        {
+          "body": "All three are coordinating, so the verb does not move."
+        },
+        {
+          "label": "sondern — corrects a negation, “but rather”",
+          "examples": [
+            {
+              "de": "Das ist nicht rot, sondern blau."
+            }
+          ]
+        },
+        {
+          "label": "aber — a plain contrast, replacing nothing",
+          "examples": [
+            {
+              "de": "Es ist klein, aber gemütlich."
+            }
+          ]
+        },
+        {
+          "label": "sowie — links like und, mostly in writing",
+          "examples": [
+            {
+              "de": "Getränke sowie Snacks"
+            }
+          ]
         }
       ]
     },
@@ -4902,6 +5452,41 @@
           ],
           "explain": "obwohl-clause (verb last), then main clause with the verb in position 2."
         }
+      ],
+      "sections": [
+        {
+          "body": "A concessive names something you would expect to prevent the main event, but which doesn’t. Three words do this job and each takes a different structure — that is the whole difficulty."
+        },
+        {
+          "label": "obwohl — subordinator, verb last",
+          "body": "Formally also obgleich, obschon.",
+          "examples": [
+            {
+              "de": "Obwohl es regnet, gehen wir spazieren."
+            },
+            {
+              "de": "Wir gehen spazieren, obwohl es regnet."
+            }
+          ]
+        },
+        {
+          "label": "trotzdem — adverb, verb second",
+          "examples": [
+            {
+              "de": "Es regnet; trotzdem gehen wir.",
+              "en": "It’s raining; we’re going anyway."
+            }
+          ]
+        },
+        {
+          "label": "trotz — preposition, takes the genitive",
+          "examples": [
+            {
+              "de": "trotz des Regens",
+              "en": "despite the rain"
+            }
+          ]
+        }
       ]
     },
     {
@@ -4957,6 +5542,56 @@
           "fix": "Ich denke daran.",
           "explain": "denken an + a thing → daran, not \"an es\"."
         }
+      ],
+      "sections": [
+        {
+          "body": "When a preposition points to a *thing* rather than a person, German fuses the two instead of saying “preposition + it/that”."
+        },
+        {
+          "label": "Statements: da(r)-",
+          "examples": [
+            {
+              "de": "Ich warte darauf.",
+              "en": "Not “auf es”."
+            },
+            {
+              "de": "Ich freue mich darüber."
+            }
+          ]
+        },
+        {
+          "label": "Insert -r- before a vowel",
+          "pairs": [
+            {
+              "from": "da + auf",
+              "to": "darauf"
+            },
+            {
+              "from": "da + über",
+              "to": "darüber"
+            },
+            {
+              "from": "wo + an",
+              "to": "woran"
+            }
+          ]
+        },
+        {
+          "label": "Questions and relative links: wo(r)-",
+          "examples": [
+            {
+              "de": "Worauf wartest du?"
+            }
+          ]
+        },
+        {
+          "label": "For people, keep preposition + pronoun",
+          "examples": [
+            {
+              "de": "Auf wen wartest du? — auf ihn."
+            }
+          ]
+        }
       ]
     },
     {
@@ -5011,6 +5646,49 @@
           "answer": 7,
           "fix": "Er trinkt ein kaltes Bier mit einem guten Freund.",
           "explain": "Masc. dat. after ein- is weak → guten, not gutem."
+        }
+      ],
+      "sections": [
+        {
+          "body": "After ein, kein and the possessives (mein, dein …) the adjective takes the weak endings -e / -en — except in the three slots where ein itself has no ending. There the adjective must show the gender instead."
+        },
+        {
+          "label": "The three slots where the adjective carries the gender",
+          "pairs": [
+            {
+              "from": "masc. nom. → -er",
+              "to": "ein guter Wein"
+            },
+            {
+              "from": "neut. nom. → -es",
+              "to": "ein gutes Buch"
+            },
+            {
+              "from": "neut. acc. → -es",
+              "to": "ein gutes Buch"
+            }
+          ]
+        },
+        {
+          "label": "Everywhere else",
+          "pairs": [
+            {
+              "from": "fem. nom./acc. → -e",
+              "to": "eine gute Idee"
+            },
+            {
+              "from": "all other cases → -en",
+              "to": "einen guten Wein"
+            },
+            {
+              "from": "dative → -en",
+              "to": "meinem guten Freund"
+            },
+            {
+              "from": "plural → -en",
+              "to": "keine guten Ideen"
+            }
+          ]
         }
       ]
     },
@@ -5070,6 +5748,58 @@
           ],
           "answer": 0,
           "explain": "Neut. dat., no article → like dem: kaltem Wasser."
+        }
+      ],
+      "sections": [
+        {
+          "body": "With no article — common in plurals, mass nouns and after numbers — the adjective carries the case signal itself, taking the endings the definite article would have shown."
+        },
+        {
+          "label": "Nominative",
+          "pairs": [
+            {
+              "from": "masc. (like der)",
+              "to": "guter Wein"
+            },
+            {
+              "from": "neut. (like das)",
+              "to": "gutes Bier"
+            },
+            {
+              "from": "fem. (like die)",
+              "to": "gute Milch"
+            },
+            {
+              "from": "plural",
+              "to": "gute Weine"
+            }
+          ]
+        },
+        {
+          "label": "Accusative & dative",
+          "pairs": [
+            {
+              "from": "masc. acc.",
+              "to": "guten Wein"
+            },
+            {
+              "from": "dat.",
+              "to": "gutem Wein / guter Milch"
+            },
+            {
+              "from": "plural dat.",
+              "to": "guten Weinen"
+            }
+          ]
+        },
+        {
+          "label": "The one exception",
+          "body": "Masculine and neuter genitive take -en, not -es, because the noun already carries the -s.",
+          "examples": [
+            {
+              "de": "guten Weines"
+            }
+          ]
         }
       ]
     },
@@ -6859,8 +7589,8 @@
     },
     {
       "title": "Verben mit Präpositionen",
-      "summary": "Fixed verb + preposition + case: warten auf + A, sich freuen über + A.",
-      "rule": "Learn verb + preposition + case as one unit: denken an + A, sich interessieren für + A, teilnehmen an + D, abhängen von + D. Questions: Worauf? Woran? — people: Auf wen?",
+      "summary": "The preposition belongs to the verb and cannot be reasoned out.",
+      "rule": "Many German verbs govern a fixed preposition, and that preposition also fixes the case. The pairing is arbitrary — it is learned with the verb, not derived from meaning, and English almost never matches: warten AUF is \"wait FOR\", sich freuen ÜBER is \"be pleased ABOUT\". Get the preposition wrong and the sentence is wrong however good the rest is.",
       "exercises": [
         {
           "kind": "choose",
@@ -6920,6 +7650,124 @@
           "answer": 5,
           "fix": "Er nimmt an dem Kurs teil.",
           "explain": "Separable: teilnehmen → nimmt … teil."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ärgert sich ___ den Lärm.",
+          "options": [
+            "über",
+            "auf",
+            "von"
+          ],
+          "answer": 0,
+          "explain": "sich ärgern über + Akkusativ."
+        },
+        {
+          "kind": "type",
+          "prompt": "Das hängt ___ dem Wetter ab. (preposition)",
+          "accept": [
+            "von"
+          ],
+          "explain": "abhängen von + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich freue mich ___ das Wochenende.",
+          "options": [
+            "auf",
+            "über",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "The weekend is still ahead → sich freuen auf."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir nehmen ___ der Sitzung teil.",
+          "options": [
+            "an",
+            "auf",
+            "in"
+          ],
+          "answer": 0,
+          "explain": "teilnehmen an + Dativ."
+        },
+        {
+          "kind": "type",
+          "prompt": "Sie fragt ___ dem Weg. (preposition)",
+          "accept": [
+            "nach"
+          ],
+          "explain": "fragen nach + Dativ."
+        }
+      ],
+      "sections": [
+        {
+          "label": "auf + Akkusativ",
+          "pairs": [
+            {
+              "from": "warten",
+              "to": "auf den Bus warten"
+            },
+            {
+              "from": "sich freuen (future)",
+              "to": "sich auf den Urlaub freuen"
+            },
+            {
+              "from": "achten",
+              "to": "auf die Kinder achten"
+            }
+          ]
+        },
+        {
+          "label": "über + Akkusativ",
+          "pairs": [
+            {
+              "from": "sich freuen (past/present)",
+              "to": "sich über das Geschenk freuen"
+            },
+            {
+              "from": "sich ärgern",
+              "to": "sich über den Lärm ärgern"
+            },
+            {
+              "from": "sprechen",
+              "to": "über die Arbeit sprechen"
+            }
+          ]
+        },
+        {
+          "label": "an + Akkusativ / Dativ",
+          "pairs": [
+            {
+              "from": "denken an (+A)",
+              "to": "an dich denken"
+            },
+            {
+              "from": "teilnehmen an (+D)",
+              "to": "an der Sitzung teilnehmen"
+            }
+          ]
+        },
+        {
+          "label": "mit / von / nach + Dativ",
+          "pairs": [
+            {
+              "from": "sich beschäftigen mit",
+              "to": "sich mit dem Thema beschäftigen"
+            },
+            {
+              "from": "abhängen von",
+              "to": "vom Wetter abhängen"
+            },
+            {
+              "from": "fragen nach",
+              "to": "nach dem Weg fragen"
+            }
+          ]
+        },
+        {
+          "body": "auf and über with sich freuen differ in time, not in style: auf looks forward, über looks back."
         }
       ]
     },
@@ -7320,6 +8168,39 @@
           "answer": 0,
           "explain": "schließlich = finally / after all."
         }
+      ],
+      "sections": [
+        {
+          "body": "These adverbs guide a reader through time and argument. In position 1 they trigger verb-second inversion: Zunächst müssen wir planen."
+        },
+        {
+          "label": "Time and sequence",
+          "pairs": [
+            {
+              "from": "bereits",
+              "to": "already (formal schon)"
+            },
+            {
+              "from": "zunächst",
+              "to": "at first"
+            },
+            {
+              "from": "schließlich",
+              "to": "finally, after all"
+            },
+            {
+              "from": "inzwischen / mittlerweile",
+              "to": "meanwhile, by now"
+            },
+            {
+              "from": "derzeit",
+              "to": "currently"
+            }
+          ]
+        },
+        {
+          "label": "nun — now, or “well …” to open a point"
+        }
       ]
     },
     {
@@ -7375,6 +8256,36 @@
           "answer": 0,
           "fix": "Er ist wohl krank.",
           "explain": "Modal particles sit in the middle field, not in position 1."
+        }
+      ],
+      "sections": [
+        {
+          "body": "Modal particles colour a statement without changing its facts, and are never stressed. They sit in the middle field, after the finite verb and any pronouns."
+        },
+        {
+          "label": "eigentlich — softens, “actually / by the way”",
+          "examples": [
+            {
+              "de": "Was machst du eigentlich?"
+            }
+          ]
+        },
+        {
+          "label": "eben / halt — resignation, “just the way it is”",
+          "body": "eben is more neutral and northern, halt southern.",
+          "examples": [
+            {
+              "de": "Das ist halt so."
+            }
+          ]
+        },
+        {
+          "label": "wohl — a guess, “probably”",
+          "examples": [
+            {
+              "de": "Er ist wohl krank."
+            }
+          ]
         }
       ]
     }
@@ -7514,8 +8425,8 @@
     },
     {
       "title": "Funktionsverbgefüge",
-      "summary": "Fixed noun + light-verb collocations (C1 register).",
-      "rule": "The verb carries little meaning; the noun does the work. e.g. in Betracht ziehen (consider), zur Verfügung stehen (be available), in Frage stellen (call into question).",
+      "summary": "A noun carries the meaning; the verb is nearly empty — and fixed.",
+      "rule": "In formal and written German a verb is often replaced by a noun plus a \"light\" verb that adds almost no meaning of its own: entscheiden becomes eine Entscheidung treffen. The noun chooses its verb and the choice is not negotiable — eine Entscheidung machen is the single most recognisable learner error at this level. The construction raises the register; the simple verb is never wrong, only plainer.",
       "exercises": [
         {
           "kind": "choose",
@@ -7579,6 +8490,123 @@
           ],
           "answer": 0,
           "explain": "zum Abschluss bringen ≈ abschließen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir müssen heute eine Entscheidung ___.",
+          "options": [
+            "treffen",
+            "machen",
+            "nehmen"
+          ],
+          "answer": 0,
+          "explain": "eine Entscheidung treffen. \"machen\" is the English calque."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Darf ich eine Frage ___?",
+          "options": [
+            "stellen",
+            "machen",
+            "fragen"
+          ],
+          "answer": 0,
+          "explain": "eine Frage stellen."
+        },
+        {
+          "kind": "type",
+          "prompt": "Daraus lässt sich ein Schluss ___. (light verb, infinitive)",
+          "accept": [
+            "ziehen"
+          ],
+          "explain": "einen Schluss ziehen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Verband hat scharfe Kritik ___.",
+          "options": [
+            "geübt",
+            "gemacht",
+            "gestellt"
+          ],
+          "answer": 0,
+          "explain": "Kritik üben → hat Kritik geübt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat einen wichtigen Beitrag ___.",
+          "options": [
+            "geleistet",
+            "gemacht",
+            "getroffen"
+          ],
+          "answer": 0,
+          "explain": "einen Beitrag leisten."
+        },
+        {
+          "kind": "type",
+          "prompt": "Er will einen Antrag ___. (light verb, infinitive)",
+          "accept": [
+            "stellen"
+          ],
+          "explain": "einen Antrag stellen."
+        }
+      ],
+      "sections": [
+        {
+          "label": "treffen",
+          "pairs": [
+            {
+              "from": "entscheiden",
+              "to": "eine Entscheidung treffen"
+            },
+            {
+              "from": "vereinbaren",
+              "to": "eine Vereinbarung treffen"
+            }
+          ]
+        },
+        {
+          "label": "stellen",
+          "pairs": [
+            {
+              "from": "fragen",
+              "to": "eine Frage stellen"
+            },
+            {
+              "from": "beantragen",
+              "to": "einen Antrag stellen"
+            }
+          ]
+        },
+        {
+          "label": "ziehen / leisten",
+          "pairs": [
+            {
+              "from": "folgern",
+              "to": "eine Schlussfolgerung ziehen"
+            },
+            {
+              "from": "beitragen",
+              "to": "einen Beitrag leisten"
+            }
+          ]
+        },
+        {
+          "label": "üben / erheben",
+          "pairs": [
+            {
+              "from": "kritisieren",
+              "to": "Kritik üben"
+            },
+            {
+              "from": "einwenden",
+              "to": "Einspruch erheben"
+            }
+          ]
+        },
+        {
+          "body": "Never machen. It is the default in English (\"make a decision\") and it is wrong in nearly every German pairing here."
         }
       ]
     },
@@ -8273,8 +9301,8 @@
     },
     {
       "title": "Nominalstil",
-      "summary": "Dense, noun-heavy register typical of formal C2 texts.",
-      "rule": "Verbal clauses become nominal phrases, often with a preposition + Genitiv. e.g. “weil die Preise stiegen” → “wegen des Anstiegs der Preise”.",
+      "summary": "Written German packs clauses into nouns; spoken German unpacks them.",
+      "rule": "Formal written German — laws, reports, academic prose — prefers a noun where speech uses a subordinate clause: \"nach der Prüfung der Unterlagen\" instead of \"nachdem die Unterlagen geprüft worden sind\". Reading C1 texts means unpacking these; writing them means being able to build one. Overused it becomes the notorious Behördendeutsch, so the skill is switching, not converting everything.",
       "exercises": [
         {
           "kind": "mc",
@@ -8334,6 +9362,84 @@
           "answer": 1,
           "fix": "Wegen der Verspätung des Zuges kamen wir spät an.",
           "explain": "wegen + Genitiv → der Verspätung."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nominal for \"weil die Preise gestiegen sind\":",
+          "options": [
+            "wegen des Preisanstiegs",
+            "wegen die Preise steigen",
+            "weil des Preisanstiegs"
+          ],
+          "answer": 0,
+          "explain": "weil → wegen + Genitiv, verb → noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nominal for \"wenn das Wetter schlecht ist\":",
+          "options": [
+            "bei schlechtem Wetter",
+            "bei schlechtes Wetter",
+            "wenn schlechtem Wetter"
+          ],
+          "answer": 0,
+          "explain": "wenn → bei + Dativ; strong ending after a bare preposition."
+        },
+        {
+          "kind": "type",
+          "prompt": "„nachdem man die Daten erhoben hat\" → nach der ___ der Daten",
+          "accept": [
+            "Erhebung"
+          ],
+          "explain": "erheben → die Erhebung."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Which is the *spoken* version of \"nach Abschluss der Arbeiten\"?",
+          "options": [
+            "nachdem die Arbeiten abgeschlossen worden sind",
+            "nach die Arbeiten abschließen",
+            "weil die Arbeiten abschließen"
+          ],
+          "answer": 0,
+          "explain": "Unpacking the noun restores the temporal clause."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Nominalstil is characteristic of…",
+          "options": [
+            "written, formal registers",
+            "casual speech",
+            "all German equally"
+          ],
+          "answer": 0,
+          "explain": "It marks formal writing; speech unpacks it."
+        }
+      ],
+      "sections": [
+        {
+          "label": "Clause → noun phrase",
+          "pairs": [
+            {
+              "from": "nachdem man die Daten erhoben hat",
+              "to": "nach der Erhebung der Daten"
+            },
+            {
+              "from": "weil die Preise gestiegen sind",
+              "to": "wegen des Preisanstiegs"
+            },
+            {
+              "from": "wenn das Wetter schlecht ist",
+              "to": "bei schlechtem Wetter"
+            },
+            {
+              "from": "um zu prüfen, ob …",
+              "to": "zur Prüfung, ob …"
+            }
+          ]
+        },
+        {
+          "body": "The preposition carries the logical relation the conjunction used to: nach = nachdem, wegen = weil, bei = wenn."
         }
       ]
     },
@@ -8675,6 +9781,33 @@
           ],
           "explain": "w-word + auch, finite verb (fragst) last."
         }
+      ],
+      "sections": [
+        {
+          "body": "To say “no matter who / what / how …”, German pairs a w-word with auch (immer). The finite verb still closes the concessive clause, and the main clause that follows keeps verb-second. Formal, argumentative register."
+        },
+        {
+          "label": "w-word + auch (immer)",
+          "examples": [
+            {
+              "de": "Wer auch immer anruft, ich bin nicht da."
+            },
+            {
+              "de": "Was auch (immer) geschieht, wir bleiben ruhig."
+            },
+            {
+              "de": "Wie schwer es auch sein mag, wir schaffen es."
+            }
+          ]
+        },
+        {
+          "label": "The paired variant: ob … oder",
+          "examples": [
+            {
+              "de": "Ob reich oder arm, alle sind willkommen."
+            }
+          ]
+        }
       ]
     },
     {
@@ -8729,6 +9862,304 @@
           "answer": 2,
           "fix": "Wir gedenken der Verstorbenen.",
           "explain": "gedenken governs the genitive → der Verstorbenen."
+        }
+      ],
+      "sections": [
+        {
+          "body": "A small, formal set of verbs takes a genitive object. Written, elevated register — everyday German usually substitutes (brauchen for bedürfen, denken an for gedenken)."
+        },
+        {
+          "label": "Plain genitive object",
+          "examples": [
+            {
+              "de": "Wir gedenken der Opfer.",
+              "en": "gedenken — to commemorate"
+            },
+            {
+              "de": "Es bedarf großer Geduld.",
+              "en": "bedürfen — to require"
+            }
+          ]
+        },
+        {
+          "label": "Reflexive",
+          "body": "sich rühmen, sich schämen, sich bemächtigen, sich entledigen."
+        },
+        {
+          "label": "Accusative person + genitive thing",
+          "body": "jemanden + Genitiv anklagen / beschuldigen / verdächtigen.",
+          "examples": [
+            {
+              "de": "Man klagte ihn des Betrugs an."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Stilebenen: gehoben, neutral, umgangssprachlich",
+      "summary": "Near-synonyms differ by register, not meaning — and the mismatch is audible.",
+      "rule": "At this level the remaining vocabulary problem is not meaning but register. Words that a dictionary lists as synonyms sit at different heights, and choosing the wrong height is the clearest marker of a non-native writer: an academic paper that says \"kriegen\" or a text message that says \"erwerben\" is wrong in a way no grammar check catches.",
+      "sections": [
+        {
+          "label": "gehoben → neutral → umgangssprachlich",
+          "pairs": [
+            {
+              "from": "erwerben · kaufen · sich zulegen",
+              "to": "to buy"
+            },
+            {
+              "from": "erhalten · bekommen · kriegen",
+              "to": "to get"
+            },
+            {
+              "from": "speisen · essen · futtern",
+              "to": "to eat"
+            },
+            {
+              "from": "sich äußern · sagen · loswerden",
+              "to": "to say"
+            },
+            {
+              "from": "umfangreich · groß · riesig",
+              "to": "extensive / large / huge"
+            }
+          ]
+        },
+        {
+          "body": "The middle column is safe almost everywhere. The outer columns carry information about you, not about the thing described."
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "In a scientific paper: „Die Studie ___ zahlreiche Belege.\"",
+          "options": [
+            "liefert",
+            "kriegt",
+            "holt"
+          ],
+          "answer": 0,
+          "explain": "kriegen/holen are colloquial; liefern is the neutral-formal choice."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Which is gehoben (elevated)?",
+          "options": [
+            "erwerben",
+            "kaufen",
+            "sich zulegen"
+          ],
+          "answer": 0,
+          "explain": "erwerben is formal; sich zulegen is colloquial."
+        },
+        {
+          "kind": "choose",
+          "prompt": "A friend texts you. Which fits?",
+          "options": [
+            "Hast du das Buch gekriegt?",
+            "Habt Ihr das Buch erhalten?",
+            "Wurde Ihnen das Buch zugestellt?"
+          ],
+          "answer": 0,
+          "explain": "kriegen is right at home in a text message; the others are office German."
+        },
+        {
+          "kind": "type",
+          "prompt": "Neutral synonym of „speisen\"? (infinitive)",
+          "accept": [
+            "essen"
+          ],
+          "explain": "speisen is elevated; essen is neutral."
+        },
+        {
+          "kind": "mc",
+          "prompt": "A register mismatch is a mistake because…",
+          "options": [
+            "it misplaces the text socially, even when the meaning is right",
+            "the word means something else",
+            "the grammar breaks"
+          ],
+          "answer": 0,
+          "explain": "Register carries social information independent of meaning."
+        }
+      ]
+    },
+    {
+      "title": "Idiomatik: wörtlich vs. übertragen",
+      "summary": "An idiom means nothing like its parts — and it is fixed word for word.",
+      "rule": "Idioms are learned whole. The literal reading is usually absurd, which is the point: it is what makes the phrase memorable and what makes a word-by-word translation fail. They are also frozen — swapping a synonym in breaks them, so \"den Nagel auf den Kopf schlagen\" is not German however reasonable it looks.",
+      "sections": [
+        {
+          "label": "Literal → what it means",
+          "pairs": [
+            {
+              "from": "den Nagel auf den Kopf treffen",
+              "to": "to put it exactly right"
+            },
+            {
+              "from": "die Katze im Sack kaufen",
+              "to": "to buy without checking"
+            },
+            {
+              "from": "ins Fettnäpfchen treten",
+              "to": "to say the wrong thing"
+            },
+            {
+              "from": "die Flinte ins Korn werfen",
+              "to": "to give up"
+            },
+            {
+              "from": "über den Tellerrand schauen",
+              "to": "to look beyond your own field"
+            },
+            {
+              "from": "jemandem reinen Wein einschenken",
+              "to": "to tell someone the truth"
+            }
+          ]
+        },
+        {
+          "body": "Fixed means fixed: the verb, the preposition and the article are all part of the phrase."
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "„Damit hast du den Nagel auf den Kopf ___.\"",
+          "options": [
+            "getroffen",
+            "geschlagen",
+            "gehauen"
+          ],
+          "answer": 0,
+          "explain": "The idiom is treffen. schlagen is what you would do to a real nail."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wer eine Wohnung ungesehen mietet, …",
+          "options": [
+            "kauft die Katze im Sack",
+            "wirft die Flinte ins Korn",
+            "tritt ins Fettnäpfchen"
+          ],
+          "answer": 0,
+          "explain": "Committing without inspecting = die Katze im Sack kaufen."
+        },
+        {
+          "kind": "type",
+          "prompt": "Er gab nach dem ersten Rückschlag auf: Er warf die Flinte ins ___.",
+          "accept": [
+            "Korn"
+          ],
+          "explain": "die Flinte ins Korn werfen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "„über den Tellerrand schauen\" heißt:",
+          "options": [
+            "den eigenen Horizont erweitern",
+            "sehr genau hinsehen",
+            "beim Essen stören"
+          ],
+          "answer": 0,
+          "explain": "Looking beyond your own plate = beyond your own field."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Why can an idiom not be translated word for word?",
+          "options": [
+            "its meaning is not the sum of its parts",
+            "the words are archaic",
+            "it has no grammar"
+          ],
+          "answer": 0,
+          "explain": "That non-compositionality is what makes it an idiom."
+        }
+      ]
+    },
+    {
+      "title": "Passiversatzformen (sein + zu, sich lassen, -bar)",
+      "summary": "Three ways to say \"can be done\" without ever using werden.",
+      "rule": "Formal German usually avoids a modal passive. Instead of \"das kann gemacht werden\" it writes \"das ist zu machen\", \"das lässt sich machen\" or \"das ist machbar\". All three mean roughly the same thing and all three sound more idiomatic in writing than the full passive; sein + zu can also carry obligation rather than possibility, which the context decides.",
+      "sections": [
+        {
+          "label": "Passive with modal → the three replacements",
+          "pairs": [
+            {
+              "from": "Das kann gemacht werden.",
+              "to": "Das ist zu machen."
+            },
+            {
+              "from": "Das kann gemacht werden.",
+              "to": "Das lässt sich machen."
+            },
+            {
+              "from": "Das kann gemacht werden.",
+              "to": "Das ist machbar."
+            },
+            {
+              "from": "Der Antrag muss unterschrieben werden.",
+              "to": "Der Antrag ist zu unterschreiben."
+            }
+          ]
+        },
+        {
+          "body": "sein + zu is possibility or obligation; sich lassen is possibility only; -bar makes an adjective and not every verb allows one."
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "„Das Problem kann gelöst werden.\" → ",
+          "options": [
+            "Das Problem lässt sich lösen.",
+            "Das Problem lässt sich zu lösen.",
+            "Das Problem ist sich lösen."
+          ],
+          "answer": 0,
+          "explain": "sich lassen + infinitive."
+        },
+        {
+          "kind": "choose",
+          "prompt": "„Die Rechnung muss bis Freitag bezahlt werden.\" → ",
+          "options": [
+            "Die Rechnung ist bis Freitag zu bezahlen.",
+            "Die Rechnung ist bis Freitag bezahlbar.",
+            "Die Rechnung lässt sich bis Freitag bezahlen."
+          ],
+          "answer": 0,
+          "explain": "Obligation → sein + zu. bezahlbar would mean \"affordable\"."
+        },
+        {
+          "kind": "type",
+          "prompt": "„Das kann man machen.\" mit -bar: Das ist ___.",
+          "accept": [
+            "machbar"
+          ],
+          "explain": "machen → machbar."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Which does NOT express possibility?",
+          "options": [
+            "Der Antrag ist zu unterschreiben.",
+            "Der Antrag lässt sich unterschreiben.",
+            "Der Antrag ist unterschreibbar."
+          ],
+          "answer": 0,
+          "explain": "Here sein + zu reads as obligation: it must be signed."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Why does formal German prefer these to \"kann … werden\"?",
+          "options": [
+            "they are shorter and more idiomatic in writing",
+            "the passive is ungrammatical",
+            "they mean something different"
+          ],
+          "answer": 0,
+          "explain": "The full modal passive is correct but heavy."
         }
       ]
     }

@@ -4,7 +4,7 @@
 // coloured by how much of each territory is Known, plus the headline number.
 // navigator.share where available (mobile), download fallback elsewhere.
 import { squarify } from './treemap.ts';
-import { groupStats, totals, streak, placementLevel } from '../store.ts';
+import { groupStats, totals, streak, placementLevel, profileName } from '../store.ts';
 
 const W = 1200, H = 630, PAD = 48;
 
@@ -43,7 +43,11 @@ export function renderShareCard(): HTMLCanvasElement {
   ctx.fillText(String(t.known), PAD, 218);
   ctx.fillStyle = TXT;
   ctx.font = `600 34px ${sans}`;
-  ctx.fillText('German words known', PAD, 268);
+  // With a name set, the card says something about a person rather than about a
+  // dataset — which is the whole difference between a screenshot and a brag.
+  // Opt-in by construction: profileName() is empty until the learner fills it in.
+  const who = profileName().trim();
+  ctx.fillText(who ? `German words ${who} knows` : 'German words known', PAD, 268);
 
   const lvl = placementLevel();
   const st = streak();

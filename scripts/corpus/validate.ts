@@ -10,9 +10,10 @@
 import './shim.ts';
 import { gzipSync } from 'node:zlib';
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, stripArticle, lemmaKey, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, LEVELS, type Word } from './lib.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
 const mulberry32 = (seed: number) => () => {
@@ -32,6 +33,15 @@ const isArr = (v: unknown) => Array.isArray(v);
 
 interface Issue { id: string; msg: string; }
 
+/** Cards whose capital was ruled correct by hand — see casefix.ts / case-rulings.tsv. */
+const RULED_CAPITAL = new Set(
+  readFileSync(join(PATHS.corpusDir, 'case-rulings.tsv'), 'utf8')
+    .split('\n')
+    .map((l) => l.trim().split('\t'))
+    .filter((c) => c[1] === 'keep')
+    .map((c) => c[0]),
+);
+
 function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   const errors: Issue[] = [], warnings: Issue[] = [];
   for (const w of cards) {
@@ -43,12 +53,66 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     if (!isStr(w.field) || !w.field) errors.push({ id, msg: 'missing field' });
     if (!isArr(w.syn) || !isArr(w.ant) || !isArr(w.ex)) errors.push({ id, msg: 'syn/ant/ex not arrays' });
     for (const e of w.ex ?? []) if (!isStr(e?.de) || !isStr(e?.en)) errors.push({ id, msg: 'malformed example' });
+    // Example hygiene. These are the classes that actually shipped — see
+    // scripts/corpus/examples.ts for the audit and src/lib/examples.ts for the
+    // runtime guard that absorbs them until the JSON is repaired. Hard errors are
+    // the ones that render visibly wrong; the rest are warnings so --strict gates
+    // new batches without failing the whole corpus today.
+    (w.ex ?? []).forEach((e, at) => {
+      const de = isStr(e?.de) ? e.de : '', en = isStr(e?.en) ? e.en : '';
+      const where = `ex[${at}]`;
+      if (de.includes('\n') || en.includes('\n')) {
+        // "Unser täglich Brot gib uns heute\nGive us today our daily bread"
+        errors.push({ id, msg: `${where} splices German and English with a newline` });
+      }
+      if (en && de.trim().toLowerCase().endsWith(en.trim().toLowerCase()) && de.trim().length > en.trim().length) {
+        errors.push({ id, msg: `${where} German field ends with its own translation` });
+      }
+      if (/please add an English translation/i.test(de) || /please add an English translation/i.test(en)) {
+        errors.push({ id, msg: `${where} carries Wiktionary's untranslated-quotation placeholder` });
+      }
+      if (/^\s*(c\.\s*)?\d{3,4}\s*[,;]/.test(de)) {
+        // "1812, the Brothers Grimm, Kinder- und Haus-Märchen, …, page VIII"
+        errors.push({ id, msg: `${where} German field is a bibliography line` });
+      }
+      // Length is a judgement call, not corruption: a 300-char B2 sentence is poor
+      // for a flashcard but it is still correct German. Warning, so --strict gates
+      // new batches while the existing long rows are worked through.
+      if (de.length > 160) warnings.push({ id, msg: `${where} is ${de.length} chars (long for a card)` });
+      if (!en.trim() && de.trim()) warnings.push({ id, msg: `${where} has no translation` });
+      // One shared rule with corpus:examples (lib.ts). This used to be a second,
+      // subtly different copy that was missing the trailing word boundary, so it
+      // reported "Thunfisch" — tuna — as 19th-century spelling.
+      if (ARCHAIC_SPELLING.test(de)) warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
+      if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });
+    });
     if (w.gender != null && !['der', 'die', 'das'].includes(w.gender)) errors.push({ id, msg: `bad gender ${w.gender}` });
     if (w.kind === 'word' && w.pos === 'noun' && !w.gender) warnings.push({ id, msg: 'noun without gender' });
     if (w.kind === 'word' && w.pos === 'noun' && !w.plural) warnings.push({ id, msg: 'noun without plural' });
     if (w.kind === 'word' && !w.ipa) warnings.push({ id, msg: 'no ipa' });
-    if (w.kind === 'word' && (!w.ex || !w.ex.length)) warnings.push({ id, msg: 'no example' });
+    // An example-less card is a bare gloss, so it fails outright; one example is
+    // a thin connection between word and use, so it only warns.
+    if (w.kind === 'word' && (!w.ex || !w.ex.length)) errors.push({ id, msg: 'no example' });
+    else if (w.kind === 'word' && w.ex.length < 2) warnings.push({ id, msg: 'fewer than two examples' });
+    // Miscapitalised headwords are caught in dupeCheck, where the lowercase-twin
+    // set already exists to tell a duplicate from a lone miscapitalisation.
     if (w.kind === 'word' && w.pos && !ALLOWED_POS.has(w.pos)) warnings.push({ id, msg: `pos "${w.pos}" outside new-card set` });
+    // Definition quality (corpus:definitions owns the full audit; these two are
+    // the classes that have been cleared to zero and must stay there).
+    //
+    // A German definition in the English field is a hard error: all 367 moved to
+    // `defDe`, so a new one means an import path is writing to the wrong column
+    // again — the bug, not the content, since German definitions are now a shown
+    // feature at B2+.
+    if (w.kind === 'word' && w.def) {
+      if (isGermanDefinition(w.def, w.en ?? '')) {
+        errors.push({ id, msg: 'German definition in the English `def` field — belongs in `defDe`' });
+      }
+      // A definition that just repeats the gloss it sits next to teaches nothing.
+      if (w.def.trim().toLowerCase().replace(/[.;,]/g, '') === (w.en ?? '').trim().toLowerCase().replace(/[.;,]/g, '')) {
+        warnings.push({ id, msg: 'def only repeats the en gloss' });
+      }
+    }
   }
   return { errors, warnings };
 }
@@ -69,6 +133,39 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     else byLevelLemma.set(kl, w.id);
   }
   for (const [id, n] of byId) if (n > 1) errors.push({ id, msg: `duplicate id ×${n}` });
+
+  // German capitalises nouns and nothing else, so a single-word headword that is
+  // capitalised and *isn't* a noun is a miscapitalisation — and where a lowercase
+  // twin exists it is a duplicate card too, splitting FSRS progress for one word
+  // across two ids. Found by the reading index, which resolved "Haben Sie …?" to a
+  // capitalised copy of `haben`. Multi-word phrases are exempt: "Wie bitte?" and
+  // "Rad fahren" are correctly capitalised as citation forms.
+  // Severity splits on whether the fix is mechanical. For adjectives, verbs and
+  // adverbs it is: scripts/corpus/casefix.ts cleared all 91 of them, so a new one
+  // is a regression and fails the build. The rest — pronouns, particles,
+  // determiners — need a human, because capitalisation there can be *correct*
+  // (polite "Ihr", nominalised "das Ja"), so they stay warnings until someone
+  // rules on them one by one.
+  // A card ruled `keep` in case-rulings.tsv is capitalised on purpose and carries
+  // its reason there ("Verzeihung!" is the noun used as an exclamation). Reading
+  // the rulings here is what lets this list reach zero and stay actionable —
+  // a warning nobody can ever clear is one everybody learns to scroll past.
+  const MECHANICAL = new Set(['adjective', 'verb', 'adverb']);
+  const lowercaseTwin = new Set(
+    cards.filter((w) => w.kind === 'word').map((w) => w.term));
+  for (const w of cards) {
+    if (w.kind !== 'word' || w.pos === 'noun' || w.pos === 'phrase') continue;
+    if (RULED_CAPITAL.has(w.id)) continue;
+    if (w.term.includes(' ') || !/^\p{Lu}/u.test(w.term)) continue;
+    const twin = w.term.toLowerCase();
+    const msg = lowercaseTwin.has(twin)
+      ? `capitalised duplicate of "${twin}" — German capitalises only nouns`
+      : `capitalised non-noun headword (${w.pos || 'no pos'})`;
+    (MECHANICAL.has(w.pos) ? errors : warnings).push({
+      id: w.id,
+      msg: MECHANICAL.has(w.pos) ? `${msg} — run corpus:casefix` : msg,
+    });
+  }
   return { errors, warnings };
 }
 
@@ -154,6 +251,26 @@ async function main() {
   const probeFail =
     (verbRes.n && verbRes.rate < T.verb) || (nounRes.n && nounRes.rate < T.noun) ||
     (adjRes.n && adjRes.rate < T.adj) || (closedRes.n > 0 && closedRes.hit < closedRes.n);
+
+  // A rule long enough to need structure must have it. 127 of 128 rules shipped as
+  // single unbroken paragraphs — up to 547 characters — into a RuleCard that has
+  // rendered `whitespace-pre-line` the whole time, waiting for newlines that never
+  // came. The sections are authored now; this is what stops the next batch
+  // regressing to a wall of prose nobody reads on a phone.
+  const RULE_PROSE_MAX = 280;
+  // Deliberately not wrapped in a catch: the first version was, and it swallowed a
+  // missing import so the gate silently passed while reporting PASS — a check that
+  // cannot fail is worse than no check, because it is trusted.
+  const bank = readJSON<Record<string, { title: string; rule?: string; sections?: unknown[] }[]>>(
+    join(PATHS.repoRoot, 'public', 'data', 'grammar.json'));
+  for (const [lv, points] of Object.entries(bank)) {
+    for (const p of points) {
+      const len = (p.rule ?? '').length;
+      if (len > RULE_PROSE_MAX && !p.sections?.length) {
+        allErrors.push({ id: `gram:${lv}:${p.title}`, msg: `rule is ${len} chars with no sections (max ${RULE_PROSE_MAX} as prose)` });
+      }
+    }
+  }
 
   // Size / perf.
   const raw = readFileSync(PATHS.vocab);

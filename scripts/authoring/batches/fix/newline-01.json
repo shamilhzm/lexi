@@ -1,0 +1,180 @@
+{
+  "_README": [
+    "12 example(s) classified \"newline\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:das Essen",
+      "at": 1,
+      "level": "A1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Das Trinken lernt der Mensch schon früh, und später erst das Essen.\nSo soll der Mensch aus Dankbarkeit das Trinken nicht vergessen.",
+        "en": "Man learns to drink early on, and only later to eat.\nSo man will not, out of gratitude, forget to drink."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A1:täglich",
+      "at": 1,
+      "level": "A1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Unser täglich Brot gib uns heute\nGive us today our daily bread",
+        "en": "Give us today our daily bread"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:Dankbar",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Johann Sebastian Bach, Christ lag in Todes Banden (BWV 4)",
+        "en": "Praise God and be thankful to him, and sing hallelujah, hallelujah!\n(literally, “God praise and to him thankful be, and sing hallelujah, hallelujah!”)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:der Bär",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Eine kleine Auswahl aus den Notizen sei hier noch gegeben (die ausgeschriebenen Namen sind meist gekürzt): Erwähnenswert ist noch, dass „Bär“ bei ihm stets Geldschrank bedeutet.\n„In N. bei F. das Rittergut, Freigut, der Bär ist Partere^([sic]), […]“",
+        "en": "Finally, a small excerpt from his notes will be given here (the full names have been shortened for the most part): Worth noting that, with \"bear\", he always means \"safe\".\n\"In N. near F., the manor, estate, the safe is ground floor, […]"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:die Frau",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "7. Denn der Mann muß das Haupt nicht bedecken, indem er das Bild und die Herrlichkeit Gottes ist; aber die Frau ist die Herrlichkeit des Mannes. 8. Denn der Mann ist aus der Frauen nicht, sondern die Frau aus dem Manne. 9. Denn auch der Mann ist nicht um der Frauen willen, sondern die Frau um des Mannes willen geschaffen.\n(please add an English translation of this quotation)\nOb sich gleich in andern Dingen zwischen dem Manne und der Frauen Unterschied findet, und der Mann einigen Vorrang und einige Würde vorzüglich vor der Frauen hat: so ist doch in Absicht auf beyder geistlichen Zustand kein Unterschied; Männer und Weiber werden gleich gut wiedergeboren, gerechtfertiget und von Schuld befreyet, und werden zusammen verherrlichet werden. [...] Itzt wird der Mann aus der Frauen geboren;",
+        "en": "(please add an English translation of this quotation)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:untersuchen",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Sie forschten in den Weiten der Sowjetunion und untersuchten rund eintausend verschiedene Pflanzenarten, um einen Ersatz für den Saft des südamerikanischen Kautschukbaums Hevea brasiliensis zu finden.",
+        "en": "2021 March 10, Jack McGovan, Could rubber from dandelions make tires more sustainable?, in Deutsche Welle (article), retrieved 1 July 2022:\nThey scoured the vast and various territories of the Soviet Union and examined over 1,000 different species looking for an alternative to the South American rubber tree, Hevea brasiliensi."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:die Liebe",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1787, Johann Wolfgang von Goethe, Egmont\nUnd konnte ich fürchten, daß diese unglückliche Liebe das kluge Klärchen so bald hinreißen würde? Ich muß es nun tragen, daß meine Tochter—",
+        "en": "And could I imagine, that this unhappy love would so soon carry away the prudent little Klara? I must endure it now, that my daughter"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B1:der Offizier",
+      "at": 1,
+      "level": "B1",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "§. 3. Die Schachfiguren bestehen aus zwei einander gleichen Haufen zu je 16 Stück. […] Die acht kleineren einander gleichen Steine jeder Partei werden Bauern, die übrigen acht, grösseren aber Offiziere genannt.\n§. 4. Unter den Offizieren ragt durch seine Grösse der König hervor, welcher nach §. 1 die wichtigste Figur des Spieles ist.",
+        "en": "(please add an English translation of this quotation)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:der Hund",
+      "at": 1,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Die Schnauze ist namentlich bei dem Hunde (Rüde) oft stark schwarz verbrämt; die alten Hunde haben starke Hautfalten am Kopfe.\nThe muzzle, especially in the male dog, is often heavily trimmed in black; the older dogs have strong folds of skin on their heads.\nWehe dann dem Hunde, der ihn tollkühn angreift[.]",
+        "en": "Woe then to the dog that attacks him recklessly (daringly)[.]"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:A2:frei",
+      "at": 0,
+      "level": "A2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "Wer schläft und ist von Sorgen freier?\nDer Tod belauscht die stille Nacht\nSo wie des Nilstroms Ungeheuer",
+        "en": "(please add an English translation of this quotation)"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B2:umfangreich",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "1938, Mark Twain, Die Geschichte des Hausierers. The translation of Twain's short story The Canvasser's Tale into German by Heinrich Conrad\nIch schrieb und erzählte ihm von der äußerst umfangreichen Muschelsammlung eines Herrn, von eines andern ausgezeichneter Sammlung von Meerschaumpfeifen, von eines dritten wunderbarer Sammlung von unentzifferbaren Autographen, eines vierten unschätzbarer Sammlung von chinesischem Porzellan, eines fünften bezaubernder Briefmarkensammlung – und so weiter und so weiter.",
+        "en": "I wrote and told him of one gentleman's vast collection of shells; another's noble collection of meerschaum pipes; another's elevating and refining collection of undecipherable autographs; another's priceless collection of old china; another's enchanting collection of postage- stamps--and so forth and so on."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:B2:die Etappe",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": "tatoeba:1847511",
+      "expect": {
+        "de": "Clay und Cloy aus USA sind für die Etappe da.\n Solln die German boys verrecken in dem Sand!",
+        "en": "Clay and Cloy from the USA are designed for the rear.\n Let the German boys perish in that sand [of a nuclear explosion]!"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    }
+  ]
+}

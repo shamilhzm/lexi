@@ -1,0 +1,610 @@
+{
+  "_README": [
+    "English definitions for the A1 cards whose German definition moved to defDe (corpus:germandef)."
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:der Monat",
+      "level": "A1",
+      "en": "month",
+      "expect": {
+        "def": ""
+      },
+      "def": "One of the twelve parts a year is divided into."
+    },
+    {
+      "id": "voc:A1:der Apfel",
+      "level": "A1",
+      "en": "apple",
+      "expect": {
+        "def": ""
+      },
+      "def": "A round, firm fruit with a core — red, green or yellow."
+    },
+    {
+      "id": "voc:A1:das Fenster",
+      "level": "A1",
+      "en": "window",
+      "expect": {
+        "def": ""
+      },
+      "def": "A glazed opening in a wall that lets in light and air."
+    },
+    {
+      "id": "voc:A1:kommen",
+      "level": "A1",
+      "en": "to come",
+      "expect": {
+        "def": ""
+      },
+      "def": "To move towards the speaker, or to arrive somewhere."
+    },
+    {
+      "id": "voc:A1:das Frühstück",
+      "level": "A1",
+      "en": "breakfast",
+      "expect": {
+        "def": ""
+      },
+      "def": "The first meal of the day, eaten in the morning."
+    },
+    {
+      "id": "voc:A1:das Abendessen",
+      "level": "A1",
+      "en": "dinner, supper",
+      "expect": {
+        "def": ""
+      },
+      "def": "The evening meal, at the end of the day."
+    },
+    {
+      "id": "voc:A1:das Restaurant",
+      "level": "A1",
+      "en": "restaurant",
+      "expect": {
+        "def": ""
+      },
+      "def": "A place you go to buy and eat a prepared meal."
+    },
+    {
+      "id": "voc:A1:der Stuhl",
+      "level": "A1",
+      "en": "chair",
+      "expect": {
+        "def": ""
+      },
+      "def": "A seat for one person, with a back and usually four legs."
+    },
+    {
+      "id": "voc:A1:die Küche",
+      "level": "A1",
+      "en": "kitchen",
+      "expect": {
+        "def": ""
+      },
+      "def": "The room where food is prepared and cooked."
+    },
+    {
+      "id": "voc:A1:die Minute",
+      "level": "A1",
+      "en": "minute",
+      "expect": {
+        "def": ""
+      },
+      "def": "A sixtieth of an hour."
+    },
+    {
+      "id": "voc:A1:der Abend",
+      "level": "A1",
+      "en": "evening",
+      "expect": {
+        "def": ""
+      },
+      "def": "The part of the day between afternoon and night."
+    },
+    {
+      "id": "voc:A1:die Nacht",
+      "level": "A1",
+      "en": "night",
+      "expect": {
+        "def": ""
+      },
+      "def": "The dark hours between evening and morning."
+    },
+    {
+      "id": "voc:A1:der Frühling",
+      "level": "A1",
+      "en": "spring",
+      "expect": {
+        "def": ""
+      },
+      "def": "The season between winter and summer, when plants start growing."
+    },
+    {
+      "id": "voc:A1:braun",
+      "level": "A1",
+      "en": "brown",
+      "expect": {
+        "def": ""
+      },
+      "def": "The colour of earth, wood or coffee."
+    },
+    {
+      "id": "voc:A1:der Arm",
+      "level": "A1",
+      "en": "arm",
+      "expect": {
+        "def": ""
+      },
+      "def": "The limb between the shoulder and the hand."
+    },
+    {
+      "id": "voc:A1:die Nase",
+      "level": "A1",
+      "en": "nose",
+      "expect": {
+        "def": ""
+      },
+      "def": "The organ in the middle of the face, used for smelling and breathing."
+    },
+    {
+      "id": "voc:A1:der Finger",
+      "level": "A1",
+      "en": "finger",
+      "expect": {
+        "def": ""
+      },
+      "def": "One of the five moving parts of the hand."
+    },
+    {
+      "id": "voc:A1:das Gesicht",
+      "level": "A1",
+      "en": "face",
+      "expect": {
+        "def": ""
+      },
+      "def": "The front of the head, from forehead to chin."
+    },
+    {
+      "id": "voc:A1:der Hals",
+      "level": "A1",
+      "en": "neck, throat",
+      "expect": {
+        "def": ""
+      },
+      "def": "The part joining head to body — and, inside, the throat."
+    },
+    {
+      "id": "voc:A1:das Herz",
+      "level": "A1",
+      "en": "heart",
+      "expect": {
+        "def": ""
+      },
+      "def": "The organ that pumps blood around the body."
+    },
+    {
+      "id": "voc:A1:die Flasche",
+      "level": "A1",
+      "en": "bottle",
+      "expect": {
+        "def": ""
+      },
+      "def": "A narrow-necked container for liquid."
+    },
+    {
+      "id": "voc:A1:der Boden",
+      "level": "A1",
+      "en": "floor, ground",
+      "expect": {
+        "def": ""
+      },
+      "def": "The surface you stand on: a floor indoors, the ground outside."
+    },
+    {
+      "id": "voc:A1:der Fernseher",
+      "level": "A1",
+      "en": "television set",
+      "expect": {
+        "def": ""
+      },
+      "def": "The device that receives and shows television programmes."
+    },
+    {
+      "id": "voc:A1:der Kühlschrank",
+      "level": "A1",
+      "en": "fridge, refrigerator",
+      "expect": {
+        "def": ""
+      },
+      "def": "An insulated cabinet that keeps food cold."
+    },
+    {
+      "id": "voc:A1:sitzen",
+      "level": "A1",
+      "en": "to sit",
+      "expect": {
+        "def": ""
+      },
+      "def": "To rest on your bottom, on a chair or on the ground."
+    },
+    {
+      "id": "voc:A1:die Übung",
+      "level": "A1",
+      "en": "exercise, practice",
+      "expect": {
+        "def": ""
+      },
+      "def": "A task repeated in order to build a skill — and practice itself."
+    },
+    {
+      "id": "voc:A1:die Adresse",
+      "level": "A1",
+      "en": "address",
+      "expect": {
+        "def": ""
+      },
+      "def": "Where someone lives, written so that post can reach them."
+    },
+    {
+      "id": "voc:A1:der Liter",
+      "level": "A1",
+      "en": "litre",
+      "expect": {
+        "def": ""
+      },
+      "def": "A metric measure of volume, equal to a cubic decimetre."
+    },
+    {
+      "id": "voc:A1:die Packung",
+      "level": "A1",
+      "en": "pack, packet",
+      "expect": {
+        "def": ""
+      },
+      "def": "The wrapping a product comes in, and the amount it holds."
+    },
+    {
+      "id": "voc:A1:die Jeans",
+      "level": "A1",
+      "en": "jeans",
+      "expect": {
+        "def": ""
+      },
+      "def": "Casual trousers made of blue denim."
+    },
+    {
+      "id": "voc:A1:der Handschuh",
+      "level": "A1",
+      "en": "glove",
+      "expect": {
+        "def": ""
+      },
+      "def": "A covering for the hand and fingers, for warmth or protection."
+    },
+    {
+      "id": "voc:A1:der Nachname",
+      "level": "A1",
+      "en": "surname",
+      "expect": {
+        "def": ""
+      },
+      "def": "The family name, which follows the first name."
+    },
+    {
+      "id": "voc:A1:die Telefonnummer",
+      "level": "A1",
+      "en": "phone number",
+      "expect": {
+        "def": ""
+      },
+      "def": "The digits you dial to reach one particular phone."
+    },
+    {
+      "id": "voc:A1:das Studienfach",
+      "level": "A1",
+      "en": "subject of study",
+      "expect": {
+        "def": ""
+      },
+      "def": "The subject someone studies at university."
+    },
+    {
+      "id": "voc:A1:die Heimat",
+      "level": "A1",
+      "en": "home (country/region)",
+      "expect": {
+        "def": ""
+      },
+      "def": "The place you come from and feel you belong to."
+    },
+    {
+      "id": "voc:A1:die Staatsangehörigkeit",
+      "level": "A1",
+      "en": "nationality",
+      "expect": {
+        "def": ""
+      },
+      "def": "The status of being a citizen of a particular country."
+    },
+    {
+      "id": "voc:A1:die E-Mail-Adresse",
+      "level": "A1",
+      "en": "email address",
+      "expect": {
+        "def": ""
+      },
+      "def": "The unique address at which someone receives email."
+    },
+    {
+      "id": "voc:A1:das Wochenende",
+      "level": "A1",
+      "en": "weekend",
+      "expect": {
+        "def": ""
+      },
+      "def": "Saturday and Sunday, when most people do not work."
+    },
+    {
+      "id": "voc:A1:der Kalender",
+      "level": "A1",
+      "en": "calendar",
+      "expect": {
+        "def": ""
+      },
+      "def": "A chart of the days, weeks and months of a year."
+    },
+    {
+      "id": "voc:A1:die Geschwister",
+      "level": "A1",
+      "en": "siblings",
+      "expect": {
+        "def": ""
+      },
+      "def": "Brothers and sisters taken together."
+    },
+    {
+      "id": "voc:A1:buchstabieren",
+      "level": "A1",
+      "en": "to spell",
+      "expect": {
+        "def": ""
+      },
+      "def": "To say the letters of a word one by one."
+    },
+    {
+      "id": "voc:A1:der Professor",
+      "level": "A1",
+      "en": "professor",
+      "expect": {
+        "def": ""
+      },
+      "def": "A senior teacher and researcher at a university."
+    },
+    {
+      "id": "voc:A1:der Stundenplan",
+      "level": "A1",
+      "en": "timetable",
+      "expect": {
+        "def": ""
+      },
+      "def": "A chart showing which lesson happens when."
+    },
+    {
+      "id": "voc:A1:der Sport",
+      "level": "A1",
+      "en": "sport",
+      "expect": {
+        "def": ""
+      },
+      "def": "Physical activity done for exercise or competition."
+    },
+    {
+      "id": "voc:A1:der Spieler",
+      "level": "A1",
+      "en": "player",
+      "expect": {
+        "def": ""
+      },
+      "def": "Someone taking part in a game or a sport."
+    },
+    {
+      "id": "voc:A1:der Haushalt",
+      "level": "A1",
+      "en": "household",
+      "expect": {
+        "def": ""
+      },
+      "def": "The people living together in one home — and that home's budget."
+    },
+    {
+      "id": "voc:A1:die Matratze",
+      "level": "A1",
+      "en": "mattress",
+      "expect": {
+        "def": ""
+      },
+      "def": "The padded layer you lie on, resting on a bed frame."
+    },
+    {
+      "id": "voc:A1:der Kleiderschrank",
+      "level": "A1",
+      "en": "wardrobe",
+      "expect": {
+        "def": ""
+      },
+      "def": "A tall cupboard for hanging and storing clothes."
+    },
+    {
+      "id": "voc:A1:umdrehen",
+      "level": "A1",
+      "en": "to turn over, turn inside out",
+      "expect": {
+        "def": ""
+      },
+      "def": "To turn something so that the other side faces up."
+    },
+    {
+      "id": "voc:A1:wischen",
+      "level": "A1",
+      "en": "to wipe, mop",
+      "expect": {
+        "def": ""
+      },
+      "def": "To clean a surface by moving a cloth across it."
+    },
+    {
+      "id": "voc:A1:erledigen",
+      "level": "A1",
+      "en": "to take care of, get done",
+      "expect": {
+        "def": ""
+      },
+      "def": "To finish a task and get it out of the way."
+    },
+    {
+      "id": "voc:A1:die Überschrift",
+      "level": "A1",
+      "en": "headline, heading",
+      "expect": {
+        "def": ""
+      },
+      "def": "The title line standing above a text."
+    },
+    {
+      "id": "voc:A1:die Veranstaltung",
+      "level": "A1",
+      "en": "event",
+      "expect": {
+        "def": ""
+      },
+      "def": "An organised occasion — a concert, a class, a meeting."
+    },
+    {
+      "id": "voc:A1:begeistert",
+      "level": "A1",
+      "en": "enthusiastic, thrilled",
+      "expect": {
+        "def": ""
+      },
+      "def": "Full of eager excitement about something."
+    },
+    {
+      "id": "voc:A1:sogar",
+      "level": "A1",
+      "en": "even",
+      "expect": {
+        "def": ""
+      },
+      "def": "Marks something surprising, beyond what was expected."
+    },
+    {
+      "id": "voc:A1:wirklich",
+      "level": "A1",
+      "en": "really",
+      "expect": {
+        "def": ""
+      },
+      "def": "Actually the case, and not merely imagined."
+    },
+    {
+      "id": "voc:A1:absagen",
+      "level": "A1",
+      "en": "to cancel",
+      "expect": {
+        "def": ""
+      },
+      "def": "To call off something that had been arranged."
+    },
+    {
+      "id": "voc:A1:die Jahreszeit",
+      "level": "A1",
+      "en": "season",
+      "expect": {
+        "def": ""
+      },
+      "def": "One of the four parts of the year: spring, summer, autumn, winter."
+    },
+    {
+      "id": "voc:A1:anprobieren",
+      "level": "A1",
+      "en": "to try on",
+      "expect": {
+        "def": ""
+      },
+      "def": "To put clothing on briefly to see whether it fits."
+    },
+    {
+      "id": "voc:A1:die Vorspeise",
+      "level": "A1",
+      "en": "starter",
+      "expect": {
+        "def": ""
+      },
+      "def": "The first course of a meal, before the main dish."
+    },
+    {
+      "id": "voc:A1:der Kunde",
+      "level": "A1",
+      "en": "customer",
+      "expect": {
+        "def": ""
+      },
+      "def": "Someone who buys goods or services from a business."
+    },
+    {
+      "id": "voc:A1:mieten",
+      "level": "A1",
+      "en": "to rent",
+      "expect": {
+        "def": ""
+      },
+      "def": "To pay to use something — a flat, a car — for a set time."
+    },
+    {
+      "id": "voc:A1:die Nachricht (SMS)",
+      "level": "A1",
+      "en": "message",
+      "expect": {
+        "def": ""
+      },
+      "def": "A short written message sent to someone's phone."
+    },
+    {
+      "id": "voc:A1:putzen",
+      "level": "A1",
+      "en": "to clean",
+      "expect": {
+        "def": ""
+      },
+      "def": "To remove dirt by scrubbing or wiping."
+    },
+    {
+      "id": "voc:A1:vermuten",
+      "level": "A1",
+      "en": "to suspect, assume",
+      "expect": {
+        "def": ""
+      },
+      "def": "To think something is likely without being certain."
+    },
+    {
+      "id": "voc:A1:wir",
+      "level": "A1",
+      "en": "we",
+      "expect": {
+        "def": ""
+      },
+      "def": "The speaker together with at least one other person."
+    },
+    {
+      "id": "voc:A1:mir",
+      "level": "A1",
+      "en": "me (dative)",
+      "expect": {
+        "def": ""
+      },
+      "def": "The dative form of ich: to me, for me."
+    }
+  ]
+}

@@ -50,8 +50,17 @@ export async function speakHd(text: string): Promise<void> {
   await audio.play();
 }
 
+// The HD voice used to be discoverable only by opening Settings, so the learners
+// most in need of it — the ones straining to hear a robotic vowel — were exactly
+// the ones who never found it (UX-PATHS F4). Rather than wire an offer into every
+// speaker button, the engine reports when it fell back to the system voice and the
+// session decides whether that is the moment to mention it.
+let onFallback: (() => void) | null = null;
+/** Register a listener for "this was spoken with the built-in voice". */
+export function onSystemVoice(fn: (() => void) | null): void { onFallback = fn; }
+
 /** Speak German text with the best available engine (HD if enabled, else system). */
 export function speak(text: string): void {
-  if (!hdVoice()) { speakDe(text); return; }
+  if (!hdVoice()) { speakDe(text); onFallback?.(); return; }
   speakHd(text).catch(() => speakDe(text)); // fall back on any HD failure
 }

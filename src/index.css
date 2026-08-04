@@ -89,7 +89,15 @@
 
   /* Grammatical gender ink. der/die/das were previously two tokens and one raw
      hex (#f472b6), so `die` was the only one that didn't follow the theme — and
-     on a light surface that pink fell below AA. Three tokens, three themes. */
+     on a light surface that pink fell below AA. Three tokens, three themes.
+
+     Merge note (2026-08-04): the outstanding-work branch retuned these against a
+     *dark* --color-card, which the Atlas inversion has since made `html.dark`'s
+     job — those values now live in the html.dark block below, so its retune is
+     superseded, not lost. The one finding that survives the inversion: `der` and
+     `a1` are the identical hex in BOTH themes (#2d5be3 light / #7fa5ff dark) —
+     one colour carrying two unrelated meanings. Tracked in the backlog; not
+     changed here, because a hue move needs a contrast pass, not a merge. */
   --color-der: #2d5be3;
   --color-die: #be185d;
   --color-das: #0f766e;

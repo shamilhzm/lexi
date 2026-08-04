@@ -5,4 +5,10 @@ You're an incredible engineer with a background in languages, pedagogy, computer
 - **Stack**: Vite 6 · React 19 · TypeScript · Tailwind 4 · motion · lucide-react · ts-fsrs. Local-first, no backend.
 - **Commands**: `npm run dev`, `npm run build`, `npm run typecheck`, `npm test` (Vitest over the pure logic: conjugate, treemap, corpus matcher). Corpus pipeline: `npm run corpus:*` — build-time only, on a maintainer's machine.
 - **Entry points**: `src/main.tsx` (boot: loads lexicon + hydrates progress before first paint), `src/App.tsx` (nav/IA), `src/store.ts` (state, FSRS stats, IndexedDB persistence), `src/session.ts` (mixed flip+drill session builder), `src/views/` (surfaces), `public/data/*.json` (the lexicon, fetched at runtime).
-- **Docs**: `docs/BACKLOG.md` is the source of truth for open work; `docs/README.md` indexes the rest.
+- **Docs**: `docs/BACKLOG.md` is the source of truth for **open** work; `docs/CHANGELOG.md`
+  records what shipped and why (check it before building something that looks obvious —
+  several entries exist because the obvious thing was tried and reverted);
+  `docs/README.md` indexes the rest.
+- **Corpus rule**: never hand-edit `public/data/*.json`. Changes go through
+  `scripts/corpus/*` or the expect-guarded `scripts/authoring/fix-authored.ts`, so
+  every edit is reviewable and repeatable. Run `npm run corpus:validate` after.

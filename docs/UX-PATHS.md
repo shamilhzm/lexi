@@ -54,7 +54,7 @@ every graded card was persisted at grade time.
 |---|---|---|
 | S1 | Today's **"All clear"** state was a dead end: prose said "open a deck to push ahead" with no way to do it. The one moment a motivated learner asks for more, and we answered with a shrug. | ✅ fixed — "Open decks" button |
 | S2 | Abandoning the guided first run mid-placement returns to the hero next launch (`onboarded` unset) — correct, but the hero doesn't acknowledge the retry ("Pick up where you left off"). Cosmetic. | → backlog (note) |
-| S3 | A cleared browser cache with no backup is unrecoverable. Export exists but is passive — nothing ever *suggests* it. Consider a one-time nudge after the first week ("You own 200 words — save a backup?"). | → backlog |
+| S3 | A cleared browser cache with no backup is unrecoverable. Export exists but is passive — nothing ever *suggests* it. Consider a one-time nudge after the first week ("You own 200 words — save a backup?"). | ✅ shipped — asks once after 7 distinct visit days and 100 known words, and never again once a backup exists (`components/BackupNudge.tsx`) |
 
 ---
 
@@ -77,9 +77,9 @@ correct material.
 |---|---|---|
 | F1 | **Space couldn't be typed in typed exercises during a session.** Review's global key handler `preventDefault`ed Space to flip the card — so "habe gemacht" was untypeable in the transform drill; the space bar silently did nothing (worse: flipped state under the card). Classic frustrated path: the app looks broken and blames your fingers. | ✅ fixed — key handler ignores input/textarea/contentEditable |
 | F2 | **The post-gap mountain.** `buildBriefing` included *every* due review, uncapped. After two weeks away a learner opened the app to "312 cards queued" — the single most common reason people quit SRS apps. | ✅ fixed — `DAILY_DUE_CAP` 60 oldest-first, `dueTotal` reported, Today frames it honestly ("… waiting in total — today serves the oldest 60. The rest keep.") |
-| F3 | Wrong-answer feedback tone is uniform. After the 5th consecutive miss the app behaves identically to the 1st. A tiny circuit-breaker ("Rough patch — these will come back easier tomorrow" + offer to end the session at a natural break) would read as care, not failure. | → backlog |
-| F4 | HD voice (Piper Thorsten) hides behind a Settings toggle; frustrated ears meet robo-TTS and never learn better exists. Offer once, in context, at first pronunciation tap. | → backlog |
-| F5 | No session resume: an interruption rebuilds the queue from scratch. | ✅ resolved by design — grades persist at grade time and graded cards leave their pools, so reopening rebuilds exactly the remainder; only cosmetic position is lost. "Quick 5" now serves the short-moment case directly. |
+| F3 | Wrong-answer feedback tone is uniform. After the 5th consecutive miss the app behaves identically to the 1st. A tiny circuit-breaker ("Rough patch — these will come back easier tomorrow" + offer to end the session at a natural break) would read as care, not failure. | ✅ shipped — four straight misses raises one banner offering a stop at a natural break, once per session (`views/Review.tsx`) |
+| F4 | HD voice (Piper Thorsten) hides behind a Settings toggle; frustrated ears meet robo-TTS and never learn better exists. Offer once, in context, at first pronunciation tap. | ✅ shipped — `tts.speak()` reports when it fell back to the built-in voice and the session offers the HD one at that tap, once ever (`components/VoiceOffer.tsx`) |
+| F5 | No session resume: an interruption rebuilds the queue from scratch. | ✅ shipped — the "resolved by design" note below was half right and is superseded: grades do persist, but the builder makes five randomised decisions per session, so a rebuild is a *different* queue and the run you were halfway through is gone. The queue is now stored and rehydrated (`session.ts`). |
 
 ---
 

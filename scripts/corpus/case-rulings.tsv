@@ -1,0 +1,93 @@
+# Capitalisation rulings — the cards corpus:casefix cannot decide by rule.
+#
+# German capitalises nouns and nothing else, but "is this a noun" is not something
+# a script can read off a card whose `pos` is empty, and a capital is sometimes
+# correct on a word that isn't one (polite "Ihr", "Verzeihung!" as an exclamation).
+# So each of these is a decision, recorded with its reason and applied by casefix.
+#
+#   id <TAB> action <TAB> detail <TAB> reason
+#
+#   lowercase  detail = the pos to set    lowercase the headword, rebuild the id
+#   noun       detail = "der Xxx|die Xxx" it was a noun all along: set pos, article,
+#                                         gender and plural (empty plural = omit)
+#   drop       detail = surviving id      duplicate of a card that is already correct
+#   keep       detail = pos               the capital is right; here is why
+
+# ── Pronouns. German writes every one of these lowercase. The polite forms (Sie,
+#    Ihnen, Ihr) are capitalised, but each card here is glossed with its ordinary
+#    sense, so the ordinary spelling is the one to teach.
+voc:A1:Es	lowercase	pronoun	Personal pronoun; only sentence-initial capitals apply
+voc:A1:Ihr	lowercase	pronoun	Glossed "you (plural)" — that is lowercase ihr; polite Ihr is a separate sense
+voc:A1:Mein	lowercase	pronoun	Possessive determiner
+voc:A1:Dein	lowercase	pronoun	Possessive determiner
+voc:A1:Unser	lowercase	pronoun	Possessive determiner
+voc:A1:Euer	lowercase	pronoun	Possessive determiner
+voc:A1:Dieser	lowercase	pronoun	Demonstrative determiner
+voc:A1:Jener	lowercase	pronoun	Demonstrative determiner
+voc:A1:Sich	lowercase	pronoun	Reflexive pronoun
+voc:A1:Dich	lowercase	pronoun	Accusative pronoun
+voc:A1:Mich	lowercase	pronoun	Accusative pronoun
+voc:A1:Ihn	lowercase	pronoun	Accusative pronoun
+voc:A1:Ihm	lowercase	pronoun	Dative pronoun
+voc:A1:Ihnen	lowercase	pronoun	Glossed "them" first; the polite dative is a separate sense
+voc:A1:Man	lowercase	pronoun	Indefinite pronoun — capital "Mann" is a different word entirely
+voc:A1:Uns	lowercase	pronoun	Accusative/dative pronoun
+voc:A1:Euch	lowercase	pronoun	Accusative/dative pronoun
+voc:A1:Deren	lowercase	pronoun	Relative/demonstrative genitive
+voc:A1:Mir	lowercase	pronoun	Dative pronoun
+
+# ── Particles and interjections.
+voc:A1:Ja	lowercase	particle	The particle is lowercase; nominalised "das Ja" would be a different card
+voc:A1:Nein	lowercase	particle	As above
+voc:A1:Willkommen	lowercase	adjective	"Herzlich willkommen!" — predicative adjective, lowercase
+voc:A2:Verzeihung	keep	interjection	THE EXCEPTION: this is the noun die Verzeihung used as an exclamation, so the capital is correct
+
+# ── Prepositions. All lowercase; three already exist as correct lowercase cards.
+voc:A2:Neben	lowercase	preposition	Two-way preposition
+voc:A2:Zwischen	lowercase	preposition	Two-way preposition
+voc:A2:Hinter	lowercase	preposition	Two-way preposition
+voc:A2:In	lowercase	preposition	Two-way preposition
+voc:A2:An	lowercase	preposition	Two-way preposition
+voc:A2:Auf	lowercase	preposition	Two-way preposition
+voc:A2:Über	drop	voc:A1:über	Duplicate of the correct lowercase card
+voc:A2:Unter	drop	voc:A1:unter	Duplicate of the correct lowercase card
+voc:A2:Vor	drop	voc:A1:vor	Duplicate of the correct lowercase card
+
+# ── Cards with no `pos` at all. Most are ordinary nouns whose capital was never
+#    wrong — what was missing is the pos, the article and the gender the app inks.
+voc:B1:Abenteuer	noun	das Abenteuer|die Abenteuer	Noun; capital correct, pos/article/gender were missing
+voc:B1:Abschnitt	noun	der Abschnitt|die Abschnitte	Noun; as above
+voc:B1:Arbeitsrecht	noun	das Arbeitsrecht|	Noun, uncountable — no plural
+voc:B1:Dämmerung	noun	die Dämmerung|	Noun; plural exists but is vanishingly rare
+voc:B1:Einwanderung	noun	die Einwanderung|	Noun, mass sense — no plural
+voc:B1:Gang	noun	der Gang|die Gänge	Noun; as above
+voc:B1:Hundertfüßer	noun	der Hundertfüßer|die Hundertfüßer	Noun; plural identical to singular
+voc:B1:Floh	noun	der Floh|die Flöhe	Noun; as above
+voc:B1:Moor	noun	das Moor|die Moore	Noun; as above
+voc:B1:Naturschutzgebiet	noun	das Naturschutzgebiet|die Naturschutzgebiete	Noun; as above
+voc:B1:Wille	noun	der Wille|	Noun (n-declension, gen. des Willens); plural not used
+
+# ── Cards with no `pos` that are not nouns: lowercase and classify.
+voc:B1:Jauchzen	lowercase	verb	Verb; the capital would be the nominalised infinitive, not this card's sense
+voc:B1:Moorig	lowercase	adjective	Adjective
+voc:B1:Nahezu	lowercase	adverb	Adverb
+voc:B1:Vernebeln	lowercase	verb	Verb
+voc:B1:Zuvor	lowercase	adverb	Adverb
+voc:B1:Verstopfen	lowercase	verb	Verb
+voc:B1:Reduzierend	lowercase	adjective	Present participle used adjectivally
+voc:B1:Unfähig	lowercase	adjective	Adjective
+
+# ── Cards with no `pos` that duplicate an existing, correct card.
+voc:B1:Entlang	drop	voc:A2:entlang	Duplicate of the correct lowercase preposition card
+voc:B1:Auslagerung	drop	voc:C1:die Auslagerung	Duplicate of the article-carrying noun card
+voc:B1:Einreise	drop	voc:B1:die Einreise	Duplicate of the article-carrying noun card
+voc:B1:Epoche	drop	voc:B1:die Epoche	Duplicate of the article-carrying noun card
+voc:B1:Ergebnis	drop	voc:B1:das Ergebnis	Duplicate of the article-carrying noun card
+voc:B1:Frist	drop	voc:B1:die Frist	Duplicate of the article-carrying noun card
+voc:B1:Gegenteil	drop	voc:A2:das Gegenteil	Duplicate of the article-carrying noun card
+voc:B1:Regenschauer	drop	voc:B1:der Regenschauer	Duplicate of the article-carrying noun card
+voc:B1:Zoll	drop	voc:B1:der Zoll	Duplicate of the article-carrying noun card
+voc:B1:Dieb	drop	voc:A2:der Dieb	Duplicate of the article-carrying noun card
+voc:B1:Absicht	drop	voc:B1:die Absicht	Duplicate of the article-carrying noun card
+voc:B1:Kindheit	drop	voc:B1:die Kindheit	Duplicate of the article-carrying noun card
+voc:B1:Kontakt	drop	voc:A1:der Kontakt	Duplicate of the article-carrying noun card

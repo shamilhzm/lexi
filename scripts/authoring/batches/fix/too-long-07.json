@@ -1,0 +1,144 @@
+{
+  "_README": [
+    "10 example(s) classified \"too-long\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:der Verweis",
+      "at": 1,
+      "level": "B2",
+      "siblings": 2,
+      "source": "tatoeba:11724691",
+      "expect": {
+        "de": "Ich habe in meinem Profil einige Verweise zu Quellen ergänzt, die ich selbst zur Überprüfung meines Englisch verwende. Die eignen sich alle für britisches Englisch.",
+        "en": "I've put some links in my profile to sources I use myself to check my English. They're all good for British English."
+      },
+      "de": "Der Schüler erhielt einen Verweis wegen Betrugs.",
+      "en": "The pupil received an official warning for cheating."
+    },
+    {
+      "id": "voc:B2:der Verweis",
+      "at": 2,
+      "level": "B2",
+      "siblings": 2,
+      "source": "tatoeba:11724691",
+      "expect": {
+        "de": "„Ich kenne eine Menge wirklich erstklassiger Wissenschaftler, die erst kürzlich in andere Länder gezogen sind“, sagte Lee mit Verweis auf Kollegen, die sich nach Europa und China begeben hätten.",
+        "en": "\"I know quite a lot of really top-notch scientists who have just moved to other countries,\" said Lee, citing colleagues who have headed to Europe and China."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:C1:nunmehr",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:644005",
+      "expect": {
+        "de": "Durch das in Indien ergangene Verbot, dass sich 21 Tage lang niemand draußen sehen zu lassen habe, gilt für nahezu ein Fünftel der Weltbevölkerung nunmehr Ausgangssperre.",
+        "en": "India's 21-day ban on venturing out puts nearly one-fifth of the world's population under lockdown."
+      },
+      "de": "Die Frist ist nunmehr abgelaufen.",
+      "en": "The deadline has now expired."
+    },
+    {
+      "id": "voc:C1:allenfalls",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "wiktextract",
+      "expect": {
+        "de": "Ein Verbot sollte es nach Ansicht vieler Ökonomen auch für die sogenannten Leerverkäufe geben. Banken verkaufen dabei Aktien oder Währungen, die sie noch gar nicht besitzen oder allenfalls geliehen haben.",
+        "en": "In the opinion of many economists there should also exist a prohibition for the so-called short sales. In these banks sell shares or currencies that they do not own at all yet or have borrowed at best."
+      },
+      "de": "Das reicht allenfalls für eine Woche.",
+      "en": "That will last a week at most."
+    },
+    {
+      "id": "voc:C1:einführen",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:1707372",
+      "expect": {
+        "de": "Im vorgeheizten Ofen ca. eine Stunde backen, bis sich ein Küchenmesser ohne Mühe in die Mitte einer Kartoffel einführen lässt. Beiseite stellen und ca. zehn Minuten abkühlen lassen.",
+        "en": "Bake in the preheated oven until a paring knife easily inserts into the center of a potato, about 1 hour. Set aside to cool for about 10 minutes."
+      },
+      "de": "Die Schule führt ab Herbst ein neues Fach ein.",
+      "en": "From autumn the school is introducing a new subject."
+    },
+    {
+      "id": "voc:C1:die Europameisterschaft",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:10073299",
+      "expect": {
+        "de": "England hat die Europameisterschaft der Frauen 2022 gewonnen. Das ist seit 1966 die erste große Fußballauszeichnung irgendeiner A-Auswahl des Landes überhaupt und erst die zweite in der Geschichte.",
+        "en": "England have won the 2022 UEFA European Women's Championship. It is the country's first major football honour for any senior team since 1966, and only the second in its history."
+      },
+      "de": "Die Europameisterschaft findet alle vier Jahre statt.",
+      "en": "The European championship takes place every four years."
+    },
+    {
+      "id": "voc:C1:die Konstellation",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:4141031",
+      "expect": {
+        "de": "„Kennt man die Ursache dieser Pestilenz?“ – „Die Gelehrten der Universitäten von Paris vermuten, die Ursache dieses Übels sei eine besonders ungünstige Konstellation des Jupiter, des Saturn und des Mars.“",
+        "en": "\"Does anyone know what has caused this plague?\" \"The scholars of the University of Paris believe that the source of this evil is an especially unfavorable constellation of Jupiter, Saturn, and Mars.\""
+      },
+      "de": "Eine solche Konstellation hat es seit Jahren nicht gegeben.",
+      "en": "Such a constellation has not arisen for years."
+    },
+    {
+      "id": "voc:C1:der Nordwesten",
+      "at": 1,
+      "level": "C1",
+      "siblings": 2,
+      "source": "tatoeba:7842013",
+      "expect": {
+        "de": "Durch starke Regenfälle trat außerdem der Gelbe Fluss, welcher durch Nordchina verläuft, über die Ufer und unterbrach so eine Eisenbahnstrecke in der Provinz Shǎnxī im Nordwesten.",
+        "en": "Heavy rain has also caused the Yellow River, which runs through northern China, to burst its banks, blocking a section of a railway line in the northwest province of Shaanxi."
+      },
+      "de": "Der Wind kommt heute aus dem Nordwesten.",
+      "en": "The wind is coming from the northwest today."
+    },
+    {
+      "id": "voc:C1:der Nordwesten",
+      "at": 2,
+      "level": "C1",
+      "siblings": 2,
+      "source": "tatoeba:7842013",
+      "expect": {
+        "de": "Der Jakobsweg ist eine Wallfahrtsroute zur Kathedrale von Santiago de Compostela im Nordwesten Spaniens, wo sich angeblich die sterblichen Überreste des Apostels Jakobus des Älteren befinden.",
+        "en": "The St. James's Way is a pilgrimage route to the Cathedral of Santiago de Compostela in northwestern Spain, where allegedly the remains of the apostle St. James are buried."
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    },
+    {
+      "id": "voc:C1:der Prediger",
+      "at": 1,
+      "level": "C1",
+      "siblings": 1,
+      "source": "tatoeba:2120276",
+      "expect": {
+        "de": "Sie war da für die Busse in Montgomery, die Wasserschläuche in Birmingham, eine Brücke in Selma, und da gab es einen Prediger aus Atlanta, der einem Volk gesagt hat \"Wir werden siegen\". Ja, wir können.",
+        "en": "She was there for the buses in Montgomery, the hoses in Birmingham, a bridge in Selma, and a preacher from Atlanta who told a people that \"We Shall Overcome.\" Yes, we can."
+      },
+      "de": "Als Prediger reiste er von Dorf zu Dorf.",
+      "en": "As a preacher he travelled from village to village."
+    }
+  ]
+}

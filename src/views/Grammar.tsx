@@ -21,6 +21,7 @@ import { useStore } from '../useStore.ts';
 import { heat } from '../lib/ui.ts';
 import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
 import GrammarDrill, { type PointScope } from './GrammarDrill.tsx';
+import { RuleSectionBlock } from '../components/RulePanel.tsx';
 import { Drill, MODES, type Mode } from './Fundamentals.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -253,9 +254,16 @@ function PointRow({ point, stat, onPractise }: {
           <motion.div key="rule" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
             <div className="px-3.5 pb-3.5 pt-0.5">
-              {/* whitespace-pre-line: several rules are multi-line conjugation
+              {/* A rule that has been given structure renders as structure here
+                  too — this is the surface built for reading one. `rule` stays the
+                  fallback for the rules that are genuinely prose.
+                  whitespace-pre-line: several of those are multi-line conjugation
                   tables (sein/haben), and losing the breaks makes them unreadable. */}
-              <p className="text-sm text-txt bg-panel2 border border-line rounded-md p-3 whitespace-pre-line leading-relaxed">{point.rule}</p>
+              <div className="text-sm bg-panel2 border border-line rounded-md p-3">
+                {point.sections?.length
+                  ? point.sections.map((s, i) => <RuleSectionBlock key={i} s={s} />)
+                  : <p className="text-txt whitespace-pre-line leading-relaxed">{point.rule}</p>}
+              </div>
               <div className="flex items-center gap-3 mt-2.5">
                 <Button size="sm" onClick={onPractise}><Play size={13} /> Practise</Button>
                 <span className="text-2xs text-dim font-mono">

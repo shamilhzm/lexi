@@ -1,0 +1,39 @@
+{
+  "_README": [
+    "2 example(s) classified \"elided\".",
+    "Author each row: set \"de\" (and \"en\") to the replacement, or set \"delete\": true",
+    "to drop the example — only allowed when \"siblings\" is > 0.",
+    "\"expect\" is what the corpus holds right now; fix-authored.ts refuses to apply",
+    "a row whose expect no longer matches, so a stale batch cannot clobber a later fix.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:der Ressourcenverbrauch",
+      "at": 1,
+      "level": "B2",
+      "siblings": 1,
+      "source": null,
+      "expect": {
+        "de": "„Nach verschiedenen Berechnungen hat sich der Ressourcenverbrauch in den vergangenen 50 Jahren versiebenfacht, […] während sich die Weltbevölkerung ‚nur‘ verdoppelt hat.“",
+        "en": "„According to various calculations, resource consumption has increased sevenfold over the past 50 years, while the world population has 'only' doubled.“"
+      },
+      "de": "Der Ressourcenverbrauch pro Kopf ist hier am höchsten.",
+      "en": "Per capita resource consumption is highest here."
+    },
+    {
+      "id": "voc:C2:die Resilienz",
+      "at": 2,
+      "level": "C2",
+      "siblings": 2,
+      "source": null,
+      "expect": {
+        "de": "„Hierdurch können&lsqb;sic&rsqb; die Resilienz der […] entworfenden Carbonbetonstrukturen gegenüber verschiedenen kombinierten äußeren Lasten zuverlässig bewertet werden.“",
+        "en": "„This allows the resilience of the designed carbon-concrete structures against various combined external loads to be reliably assessed.“"
+      },
+      "de": "",
+      "en": "",
+      "delete": true
+    }
+  ]
+}

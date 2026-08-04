@@ -2,6 +2,7 @@
 // Exposes a tiny pub/sub so React can subscribe via useSyncExternalStore.
 // Adds a CEFR level filter and group/sector/all scoped stats + sessions.
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
+import { ID_MAP } from './data/idmap.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
@@ -13,11 +14,34 @@ const MISS_KEY = 'lexi.miss.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
+const PACE_KEY = 'lexi.pace.v1';
 // After a gap, FSRS marks *everything* overdue at once; serving it all in one
 // briefing ("312 cards queued") is the classic SRS rage-quit moment. Cap the
 // day at the oldest-due slice — FSRS tolerates the extra delay by design — and
 // report the true backlog so Today can frame it honestly (UX-PATHS F2).
 const DAILY_DUE_CAP = 60;
+
+// ---- daily pace ----------------------------------------------------------
+// The two caps above are good defaults and were also a ceiling: a learner with an
+// exam in three weeks could not ask for more work, and one coming back from a
+// long gap could not ask for less. FSRS does not care — it tolerates delay by
+// design and a bigger new-card budget only front-loads what it would schedule
+// anyway — so this is a preference, not a scheduling parameter.
+export type Pace = 'gentle' | 'steady' | 'intense';
+/** New cards per day, and how much of the due backlog one day serves. */
+export const PACE: Record<Pace, { fresh: number; due: number; label: string }> = {
+  gentle:  { fresh: 10, due: 30,  label: 'Gentle' },
+  steady:  { fresh: NEW_PER_DAY, due: DAILY_DUE_CAP, label: 'Steady' },
+  intense: { fresh: 50, due: 150, label: 'Intense' },
+};
+export function pace(): Pace {
+  const v = localStorage.getItem(PACE_KEY);
+  return v === 'gentle' || v === 'intense' ? v : 'steady';
+}
+export function setPace(p: Pace) {
+  try { localStorage.setItem(PACE_KEY, p); } catch { /* */ }
+  emit();
+}
 
 // ---- persistence ---------------------------------------------------------
 // Progress state — FSRS cards, blind-spot misses, and visit days — lives in
@@ -63,6 +87,24 @@ async function loadKV<T>(key: string, fallback: T): Promise<T> {
   return fallback;
 }
 
+/** Carry stored schedules across a corpus correction that renamed or merged
+ *  card ids (see scripts/corpus/casefix.ts). Without this, fixing a headword
+ *  would silently reset that card to new. Where both ids carry a schedule the
+ *  more-practised one wins. Runs on every hydrate and is a no-op once the old
+ *  ids are gone. */
+function migrateIds(): void {
+  let moved = 0;
+  for (const [from, to] of Object.entries(ID_MAP)) {
+    const old = live.get(from);
+    if (!old) continue;
+    live.delete(from);
+    const cur = live.get(to);
+    if (!cur || old.reps > cur.reps) live.set(to, old);
+    moved++;
+  }
+  if (moved) persistCards();
+}
+
 let hydrated = false;
 /** Hydrate progress state from IndexedDB (with one-time localStorage migration).
  *  Call once, awaited, before the app first renders. Idempotent. */
@@ -75,6 +117,7 @@ export async function hydrate(): Promise<void> {
   ]);
   live.clear();
   for (const id of Object.keys(cards)) { try { live.set(id, reviveCard(cards[id])); } catch { /* skip corrupt */ } }
+  migrateIds();
   misses = Array.isArray(m) ? m : [];
   visits = Array.isArray(vis) ? vis : [];
   hydrated = true;
@@ -147,7 +190,7 @@ function poolFor(target: Target): Word[] {
 }
 
 /** Build a study queue: due reviews first (oldest due), then fresh cards. */
-export function buildSession(target: Target, maxNew = NEW_PER_DAY): Word[] {
+export function buildSession(target: Target, maxNew = PACE[pace()].fresh): Word[] {
   const pool = poolFor(target);
   const now = Date.now();
   const dueReview: { w: Word; due: number }[] = [];
@@ -211,9 +254,9 @@ export function buildBriefing(): Briefing {
   }
   dueReview.sort((a, b) => a.due - b.due);
   // Oldest-first slice of the backlog; the rest waits for tomorrow's briefing.
-  const served = dueReview.slice(0, DAILY_DUE_CAP);
+  const served = dueReview.slice(0, PACE[pace()].due);
 
-  const want = Math.min(NEW_PER_DAY, Math.max(0, MIN_DAILY - served.length));
+  const want = Math.min(PACE[pace()].fresh, Math.max(0, MIN_DAILY - served.length));
   const freshIds: string[] = [];
   const weak: string[] = [];
   for (const s of weakestSectors(6)) {
@@ -240,6 +283,22 @@ export function buildBriefing(): Briefing {
 export function wordsFor(target: Target): Word[] { return poolFor(target); }
 
 /** Ids of due word-drill cards (gym:<mode>:<wordId>). */
+/** Drill modes the learner has ever actually attempted.
+ *
+ *  Not "has a card scheduled" but "has answered one": a drill mode is met the first
+ *  time it is graded, and until then the learner has never been told what it tests.
+ *  The session builder uses this to teach before it tests — see `teach` in
+ *  session.ts. One pass over the card map, called once per session build. */
+export function practisedModes(): Set<string> {
+  const out = new Set<string>();
+  live.forEach((_c, id) => {
+    if (!id.startsWith('gym:')) return;
+    const mode = id.split(':')[1];
+    if (mode) out.add(mode);
+  });
+  return out;
+}
+
 export function dueGymIds(): string[] {
   const now = Date.now();
   const out: string[] = [];
@@ -421,25 +480,53 @@ export function addUserWords(words: Word[]): Word[] {
 // ---- blind spots (structural error log) ----------------------------------
 // The `misses` array + its persistence live in the persistence section above
 // (hydrated from IndexedDB); MISS_KEY sits with the other storage keys up top.
-export interface MissEvent { tag: string; at: number; }
-/** Record a wrong answer under a structural tag (grammar point, drill type…). */
-export function logMiss(tag: string) {
-  misses.push({ tag, at: Date.now() });
+export interface MissEvent {
+  tag: string;
+  at: number;
+  /** The word this miss happened on, where the drill had one. Optional because
+   *  grammar-point misses are about a system, not a word — and because it was
+   *  added later, so older logs simply don't carry it. */
+  term?: string;
+}
+/** Record a wrong answer under a structural tag (grammar point, drill type…),
+ *  optionally naming the word it happened on.
+ *
+ *  The tag alone answers "which system do I keep getting wrong"; it cannot answer
+ *  "which words". A learner who misses `nehmen` eight times and every other verb
+ *  once saw one row reading "Verb conjugation 15×", which is true and unactionable
+ *  — the fix is to drill `nehmen`, and the log knew that all along and dropped it. */
+export function logMiss(tag: string, term?: string) {
+  misses.push({ tag, at: Date.now(), ...(term ? { term } : {}) });
   if (misses.length > 800) misses = misses.slice(-800);
   persistMisses();
   emit();
 }
+export interface MissStat {
+  tag: string;
+  count: number;
+  last: number;
+  /** The words this weakness actually happened on, worst first. Empty for
+   *  grammar points and for logs recorded before misses carried a word. */
+  terms: { term: string; count: number }[];
+}
 /** Top recurring weaknesses within the last `days`, most frequent first. */
-export function missStats(days = 30): { tag: string; count: number; last: number }[] {
+export function missStats(days = 30): MissStat[] {
   const since = Date.now() - days * 86_400_000;
-  const m = new Map<string, { count: number; last: number }>();
+  const m = new Map<string, { count: number; last: number; terms: Map<string, number> }>();
   for (const e of misses) {
     if (e.at < since) continue;
-    const cur = m.get(e.tag) ?? { count: 0, last: 0 };
+    const cur = m.get(e.tag) ?? { count: 0, last: 0, terms: new Map<string, number>() };
     cur.count++; cur.last = Math.max(cur.last, e.at);
+    if (e.term) cur.terms.set(e.term, (cur.terms.get(e.term) ?? 0) + 1);
     m.set(e.tag, cur);
   }
-  return [...m.entries()].map(([tag, v]) => ({ tag, ...v })).sort((a, b) => b.count - a.count);
+  return [...m.entries()]
+    .map(([tag, v]) => ({
+      tag, count: v.count, last: v.last,
+      terms: [...v.terms.entries()].map(([term, count]) => ({ term, count }))
+        .sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
+    }))
+    .sort((a, b) => b.count - a.count);
 }
 export function missTotal(days = 30): number { return missStats(days).reduce((a, s) => a + s.count, 0); }
 
@@ -459,6 +546,24 @@ export function flagCard(id: string, term: string) {
   if (cur.some((f) => f.id === id)) return;
   cur.push({ id, term, at: Date.now() });
   try { localStorage.setItem(FLAGS_KEY, JSON.stringify(cur.slice(-200))); } catch { /* quota */ }
+  emit();
+}
+/** The flags alone, as a file small enough to send.
+ *
+ *  Flags have always ridden the full backup, which closes the loop for a solo
+ *  maintainer and not for a class (persona C2 #53): reporting one bad card meant
+ *  sending your entire progress history to your teacher. This carries the reports
+ *  and nothing else — no schedule, no streak, no visit log. `corpus:flags` reads
+ *  it alongside backups. */
+export function exportFlags(): string {
+  return JSON.stringify({ app: 'lexi-flags', v: 1, exportedAt: new Date().toISOString(), flags: flags() }, null, 2);
+}
+
+/** Withdraw a flag. Flagging is one tap and so is mistyping it — without this the
+ *  list is a place things only ever accumulate, which is why nobody opens it. */
+export function unflagCard(id: string) {
+  const next = flags().filter((f) => f.id !== id);
+  try { localStorage.setItem(FLAGS_KEY, JSON.stringify(next)); } catch { /* quota */ }
   emit();
 }
 
@@ -514,6 +619,16 @@ export function setReminderTime(t: string | null) {
 
 // ---- HD voice (Piper Thorsten, in-browser) -------------------------------
 const HDVOICE_KEY = 'lexi.hdvoice.v1';
+// Whether the in-context offer has already been made. Once, ever: a learner who
+// said no meant it, and an app that keeps asking is the reason people stop reading
+// its banners at all.
+const HDOFFER_KEY = 'lexi.hdoffer.v1';
+export function hdOffered(): boolean { return localStorage.getItem(HDOFFER_KEY) === '1'; }
+export function markHdOffered() {
+  try { localStorage.setItem(HDOFFER_KEY, '1'); } catch { /* quota */ }
+  emit();
+}
+
 export function hdVoice(): boolean { return localStorage.getItem(HDVOICE_KEY) === '1'; }
 export function setHdVoice(on: boolean) {
   if (on) localStorage.setItem(HDVOICE_KEY, '1'); else localStorage.removeItem(HDVOICE_KEY);
@@ -666,6 +781,56 @@ export function firstRunIds(n = 10): string[] {
 // Fine-group topics the learner chose at onboarding (and can edit in Profile).
 // weakestSectors() floats sectors in these groups to the front, so fresh
 // vocabulary is drawn from what they care about first. Empty = no preference.
+// ---- the class list ------------------------------------------------------
+// 284 semantic sectors and a CEFR filter, and no way to say the one thing a
+// language-school student actually wants: "this is my chapter this week". The
+// sectors are the corpus's organisation, not the learner's course, and no amount
+// of filtering turns one into the other.
+//
+// So: paste the list your teacher handed out. Matching is the same surface index
+// the reader uses, so an inflected or plural form finds its card. Stored as ids,
+// because the list is a pointer into the lexicon rather than a copy of it.
+const CLASSLIST_KEY = 'lexi.classlist.v1';
+export interface ClassList { name: string; ids: string[]; at: number }
+
+export function classList(): ClassList | null {
+  try {
+    const raw = localStorage.getItem(CLASSLIST_KEY);
+    if (!raw) return null;
+    const p = JSON.parse(raw) as ClassList;
+    return p && Array.isArray(p.ids) && p.ids.length ? p : null;
+  } catch { return null; }
+}
+export function setClassList(list: ClassList | null) {
+  try {
+    if (list && list.ids.length) localStorage.setItem(CLASSLIST_KEY, JSON.stringify(list));
+    else localStorage.removeItem(CLASSLIST_KEY);
+  } catch { /* quota */ }
+  emit();
+}
+
+// ---- this week's focus ---------------------------------------------------
+// Perfekt is most of what an A2 course spends a month on, and the app served it as
+// one of four random transform targets — so a learner working on it got it roughly
+// a quarter of the time, and could not say so. Randomness is right for *coverage*
+// and wrong for a syllabus: a course moves through one thing at a time.
+//
+// A focus doesn't narrow the queue or hide anything. It weights which grammatical
+// target the tense drills choose, so the thing the learner is studying this week
+// comes up more often than chance. Set it, and it stays until changed.
+const FOCUS_KEY = 'lexi.focus.v1';
+
+export function focusTense(): string | null {
+  const v = localStorage.getItem(FOCUS_KEY);
+  return v && v !== 'none' ? v : null;
+}
+export function setFocusTense(key: string | null) {
+  try {
+    if (key) localStorage.setItem(FOCUS_KEY, key); else localStorage.removeItem(FOCUS_KEY);
+  } catch { /* quota */ }
+  emit();
+}
+
 const INTERESTS_KEY = 'lexi.interests.v1';
 export function interests(): Set<string> {
   try {
@@ -801,6 +966,10 @@ export function reviewedToday(): boolean {
   return (reviewLog()[todayKey()]?.n ?? 0) > 0;
 }
 
+/** Distinct days this learner has opened Lexi. The honest measure of "how new am
+ *  I" — a streak resets, and a card count says nothing about elapsed time. */
+export function visitCount(): number { return new Set(visits).size; }
+
 export function streak(): number {
   const set = new Set(visits);
   let n = 0;
@@ -862,14 +1031,27 @@ const SETTING_KEYS = [
   'lexi.placement.v1', 'lexi.levels.v1', 'lexi.milestones.v1', 'lexi.snap.v1',
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
+  'lexi.classlist.v1', 'lexi.focus.v1', 'lexi.pace.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */
+// Local-first means a cleared cache is unrecoverable, and the export has always
+// been passive — nothing ever suggested it (UX-PATHS S3). Recording when one was
+// last taken is what lets Today ask once, after there is something worth losing.
+const BACKUP_KEY = 'lexi.backup.v1';
+/** Day the last backup was exported, or null if never. */
+export function lastBackup(): string | null { return localStorage.getItem(BACKUP_KEY); }
+export function noteBackup() {
+  try { localStorage.setItem(BACKUP_KEY, todayKey()); } catch { /* quota */ }
+  emit();
+}
+
 export function exportData(): string {
   const settings: Record<string, string> = {};
   for (const k of SETTING_KEYS) { const v = localStorage.getItem(k); if (v != null) settings[k] = v; }
+  noteBackup();
   return JSON.stringify({ app: 'lexi', v: 1, exportedAt: new Date().toISOString(), cards: cardsObject(), misses, visits, settings });
 }
 

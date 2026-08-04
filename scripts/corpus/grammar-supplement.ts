@@ -9,10 +9,25 @@
 //   npm run corpus:grammar -- --write # apply to public/data/{grammar,vocab}.json
 import { PATHS } from './config.ts';
 import { readJSON, writeJSON, LEVELS, type Word, type SectorMeta } from './lib.ts';
-import type { GExercise, GPoint, GrammarByLevel } from '../../src/lib/grammar.ts';
+import type { GExercise, GPoint, GrammarByLevel, RuleSection } from '../../src/lib/grammar.ts';
 import type { CEFR } from '../../src/types.ts';
 
-interface NewPoint { level: CEFR; title: string; summary: string; rule: string; exercises: GExercise[]; }
+// `sections` is optional but not decorative: corpus:validate fails a rule over
+// 280 characters that has none, so anything list-shaped ships structured from the
+// start rather than being retro-fitted out of a wall of prose later.
+interface NewPoint {
+  level: CEFR; title: string; summary: string; rule: string;
+  sections?: RuleSection[]; exercises: GExercise[];
+  /** Replace an existing point of the same title rather than skipping it.
+   *
+   *  Without this the script could only ever *add*, so deepening a point that
+   *  already exists meant authoring a near-duplicate beside it — which is worse
+   *  than the thin point it was meant to fix, because now the learner meets the
+   *  same system twice under two names. An upgrade keeps the title, and therefore
+   *  the `gram:` card id and any FSRS progress riding on it, and merges exercises
+   *  by prompt so the originals survive. */
+  upgrade?: boolean;
+}
 
 const POINTS: NewPoint[] = [
   {
@@ -359,6 +374,167 @@ const POINTS: NewPoint[] = [
       { kind: 'error', prompt: 'Ich habe zwei Buch gelesen.', answer: 3, fix: 'Ich habe zwei Bücher gelesen.', explain: 'After a number the noun is plural: das Buch → die Bücher (-er + umlaut).' },
     ],
   },
+
+  // ── The advanced syllabus (personas B2 #31/#32, C1 #41/#43, C2 #47) ─────────
+  // Below B2 Lexi is a curriculum; above it, it was a word list — 12 C1 points
+  // and 8 C2. These six close the specific gaps the advanced personas named, and
+  // each is a *system* rather than a single form, because phrase-level and
+  // register failures are what actually plateau at B2.
+  {
+    level: 'B2', title: 'Verben mit Präpositionen', upgrade: true,
+    summary: 'The preposition belongs to the verb and cannot be reasoned out.',
+    rule: 'Many German verbs govern a fixed preposition, and that preposition also fixes the case. The pairing is arbitrary — it is learned with the verb, not derived from meaning, and English almost never matches: warten AUF is "wait FOR", sich freuen ÜBER is "be pleased ABOUT". Get the preposition wrong and the sentence is wrong however good the rest is.',
+    sections: [
+      { label: 'auf + Akkusativ', pairs: [
+        { from: 'warten', to: 'auf den Bus warten' },
+        { from: 'sich freuen (future)', to: 'sich auf den Urlaub freuen' },
+        { from: 'achten', to: 'auf die Kinder achten' },
+      ] },
+      { label: 'über + Akkusativ', pairs: [
+        { from: 'sich freuen (past/present)', to: 'sich über das Geschenk freuen' },
+        { from: 'sich ärgern', to: 'sich über den Lärm ärgern' },
+        { from: 'sprechen', to: 'über die Arbeit sprechen' },
+      ] },
+      { label: 'an + Akkusativ / Dativ', pairs: [
+        { from: 'denken an (+A)', to: 'an dich denken' },
+        { from: 'teilnehmen an (+D)', to: 'an der Sitzung teilnehmen' },
+      ] },
+      { label: 'mit / von / nach + Dativ', pairs: [
+        { from: 'sich beschäftigen mit', to: 'sich mit dem Thema beschäftigen' },
+        { from: 'abhängen von', to: 'vom Wetter abhängen' },
+        { from: 'fragen nach', to: 'nach dem Weg fragen' },
+      ] },
+      { body: 'auf and über with sich freuen differ in time, not in style: auf looks forward, über looks back.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Ich warte ___ den Bus.', options: ['auf', 'für', 'über'], answer: 0, explain: 'warten auf + Akkusativ. English "wait for" does not transfer.' },
+      { kind: 'choose', prompt: 'Sie ärgert sich ___ den Lärm.', options: ['über', 'auf', 'von'], answer: 0, explain: 'sich ärgern über + Akkusativ.' },
+      { kind: 'type', prompt: 'Das hängt ___ dem Wetter ab. (preposition)', accept: ['von'], explain: 'abhängen von + Dativ.' },
+      { kind: 'choose', prompt: 'Ich freue mich ___ das Wochenende.', options: ['auf', 'über', 'für'], answer: 0, explain: 'The weekend is still ahead → sich freuen auf.' },
+      { kind: 'choose', prompt: 'Wir nehmen ___ der Sitzung teil.', options: ['an', 'auf', 'in'], answer: 0, explain: 'teilnehmen an + Dativ.' },
+      { kind: 'type', prompt: 'Sie fragt ___ dem Weg. (preposition)', accept: ['nach'], explain: 'fragen nach + Dativ.' },
+    ],
+  },
+  {
+    level: 'C1', title: 'Funktionsverbgefüge', upgrade: true,
+    summary: 'A noun carries the meaning; the verb is nearly empty — and fixed.',
+    rule: 'In formal and written German a verb is often replaced by a noun plus a "light" verb that adds almost no meaning of its own: entscheiden becomes eine Entscheidung treffen. The noun chooses its verb and the choice is not negotiable — eine Entscheidung machen is the single most recognisable learner error at this level. The construction raises the register; the simple verb is never wrong, only plainer.',
+    sections: [
+      { label: 'treffen', pairs: [
+        { from: 'entscheiden', to: 'eine Entscheidung treffen' },
+        { from: 'vereinbaren', to: 'eine Vereinbarung treffen' },
+      ] },
+      { label: 'stellen', pairs: [
+        { from: 'fragen', to: 'eine Frage stellen' },
+        { from: 'beantragen', to: 'einen Antrag stellen' },
+      ] },
+      { label: 'ziehen / leisten', pairs: [
+        { from: 'folgern', to: 'eine Schlussfolgerung ziehen' },
+        { from: 'beitragen', to: 'einen Beitrag leisten' },
+      ] },
+      { label: 'üben / erheben', pairs: [
+        { from: 'kritisieren', to: 'Kritik üben' },
+        { from: 'einwenden', to: 'Einspruch erheben' },
+      ] },
+      { body: 'Never machen. It is the default in English ("make a decision") and it is wrong in nearly every German pairing here.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Wir müssen heute eine Entscheidung ___.', options: ['treffen', 'machen', 'nehmen'], answer: 0, explain: 'eine Entscheidung treffen. "machen" is the English calque.' },
+      { kind: 'choose', prompt: 'Darf ich eine Frage ___?', options: ['stellen', 'machen', 'fragen'], answer: 0, explain: 'eine Frage stellen.' },
+      { kind: 'type', prompt: 'Daraus lässt sich ein Schluss ___. (light verb, infinitive)', accept: ['ziehen'], explain: 'einen Schluss ziehen.' },
+      { kind: 'choose', prompt: 'Der Verband hat scharfe Kritik ___.', options: ['geübt', 'gemacht', 'gestellt'], answer: 0, explain: 'Kritik üben → hat Kritik geübt.' },
+      { kind: 'choose', prompt: 'Sie hat einen wichtigen Beitrag ___.', options: ['geleistet', 'gemacht', 'getroffen'], answer: 0, explain: 'einen Beitrag leisten.' },
+      { kind: 'type', prompt: 'Er will einen Antrag ___. (light verb, infinitive)', accept: ['stellen'], explain: 'einen Antrag stellen.' },
+    ],
+  },
+  {
+    level: 'C2', title: 'Nominalstil', upgrade: true,
+    summary: 'Written German packs clauses into nouns; spoken German unpacks them.',
+    rule: 'Formal written German — laws, reports, academic prose — prefers a noun where speech uses a subordinate clause: "nach der Prüfung der Unterlagen" instead of "nachdem die Unterlagen geprüft worden sind". Reading C1 texts means unpacking these; writing them means being able to build one. Overused it becomes the notorious Behördendeutsch, so the skill is switching, not converting everything.',
+    sections: [
+      { label: 'Clause → noun phrase', pairs: [
+        { from: 'nachdem man die Daten erhoben hat', to: 'nach der Erhebung der Daten' },
+        { from: 'weil die Preise gestiegen sind', to: 'wegen des Preisanstiegs' },
+        { from: 'wenn das Wetter schlecht ist', to: 'bei schlechtem Wetter' },
+        { from: 'um zu prüfen, ob …', to: 'zur Prüfung, ob …' },
+      ] },
+      { body: 'The preposition carries the logical relation the conjunction used to: nach = nachdem, wegen = weil, bei = wenn.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Nominal for "weil die Preise gestiegen sind":', options: ['wegen des Preisanstiegs', 'wegen die Preise steigen', 'weil des Preisanstiegs'], answer: 0, explain: 'weil → wegen + Genitiv, verb → noun.' },
+      { kind: 'choose', prompt: 'Nominal for "wenn das Wetter schlecht ist":', options: ['bei schlechtem Wetter', 'bei schlechtes Wetter', 'wenn schlechtem Wetter'], answer: 0, explain: 'wenn → bei + Dativ; strong ending after a bare preposition.' },
+      { kind: 'type', prompt: '„nachdem man die Daten erhoben hat" → nach der ___ der Daten', accept: ['Erhebung'], explain: 'erheben → die Erhebung.' },
+      { kind: 'choose', prompt: 'Which is the *spoken* version of "nach Abschluss der Arbeiten"?', options: ['nachdem die Arbeiten abgeschlossen worden sind', 'nach die Arbeiten abschließen', 'weil die Arbeiten abschließen'], answer: 0, explain: 'Unpacking the noun restores the temporal clause.' },
+      { kind: 'mc', prompt: 'Nominalstil is characteristic of…', options: ['written, formal registers', 'casual speech', 'all German equally'], answer: 0, explain: 'It marks formal writing; speech unpacks it.' },
+    ],
+  },
+  {
+    level: 'C2', title: 'Stilebenen: gehoben, neutral, umgangssprachlich',
+    summary: 'Near-synonyms differ by register, not meaning — and the mismatch is audible.',
+    rule: 'At this level the remaining vocabulary problem is not meaning but register. Words that a dictionary lists as synonyms sit at different heights, and choosing the wrong height is the clearest marker of a non-native writer: an academic paper that says "kriegen" or a text message that says "erwerben" is wrong in a way no grammar check catches.',
+    sections: [
+      { label: 'gehoben → neutral → umgangssprachlich', pairs: [
+        { from: 'erwerben · kaufen · sich zulegen', to: 'to buy' },
+        { from: 'erhalten · bekommen · kriegen', to: 'to get' },
+        { from: 'speisen · essen · futtern', to: 'to eat' },
+        { from: 'sich äußern · sagen · loswerden', to: 'to say' },
+        { from: 'umfangreich · groß · riesig', to: 'extensive / large / huge' },
+      ] },
+      { body: 'The middle column is safe almost everywhere. The outer columns carry information about you, not about the thing described.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'In a scientific paper: „Die Studie ___ zahlreiche Belege."', options: ['liefert', 'kriegt', 'holt'], answer: 0, explain: 'kriegen/holen are colloquial; liefern is the neutral-formal choice.' },
+      { kind: 'choose', prompt: 'Which is gehoben (elevated)?', options: ['erwerben', 'kaufen', 'sich zulegen'], answer: 0, explain: 'erwerben is formal; sich zulegen is colloquial.' },
+      { kind: 'choose', prompt: 'A friend texts you. Which fits?', options: ['Hast du das Buch gekriegt?', 'Habt Ihr das Buch erhalten?', 'Wurde Ihnen das Buch zugestellt?'], answer: 0, explain: 'kriegen is right at home in a text message; the others are office German.' },
+      { kind: 'type', prompt: 'Neutral synonym of „speisen"? (infinitive)', accept: ['essen'], explain: 'speisen is elevated; essen is neutral.' },
+      { kind: 'mc', prompt: 'A register mismatch is a mistake because…', options: ['it misplaces the text socially, even when the meaning is right', 'the word means something else', 'the grammar breaks'], answer: 0, explain: 'Register carries social information independent of meaning.' },
+    ],
+  },
+  {
+    level: 'C2', title: 'Idiomatik: wörtlich vs. übertragen',
+    summary: 'An idiom means nothing like its parts — and it is fixed word for word.',
+    rule: 'Idioms are learned whole. The literal reading is usually absurd, which is the point: it is what makes the phrase memorable and what makes a word-by-word translation fail. They are also frozen — swapping a synonym in breaks them, so "den Nagel auf den Kopf schlagen" is not German however reasonable it looks.',
+    sections: [
+      { label: 'Literal → what it means', pairs: [
+        { from: 'den Nagel auf den Kopf treffen', to: 'to put it exactly right' },
+        { from: 'die Katze im Sack kaufen', to: 'to buy without checking' },
+        { from: 'ins Fettnäpfchen treten', to: 'to say the wrong thing' },
+        { from: 'die Flinte ins Korn werfen', to: 'to give up' },
+        { from: 'über den Tellerrand schauen', to: 'to look beyond your own field' },
+        { from: 'jemandem reinen Wein einschenken', to: 'to tell someone the truth' },
+      ] },
+      { body: 'Fixed means fixed: the verb, the preposition and the article are all part of the phrase.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: '„Damit hast du den Nagel auf den Kopf ___."', options: ['getroffen', 'geschlagen', 'gehauen'], answer: 0, explain: 'The idiom is treffen. schlagen is what you would do to a real nail.' },
+      { kind: 'choose', prompt: 'Wer eine Wohnung ungesehen mietet, …', options: ['kauft die Katze im Sack', 'wirft die Flinte ins Korn', 'tritt ins Fettnäpfchen'], answer: 0, explain: 'Committing without inspecting = die Katze im Sack kaufen.' },
+      { kind: 'type', prompt: 'Er gab nach dem ersten Rückschlag auf: Er warf die Flinte ins ___.', accept: ['Korn'], explain: 'die Flinte ins Korn werfen.' },
+      { kind: 'choose', prompt: '„über den Tellerrand schauen" heißt:', options: ['den eigenen Horizont erweitern', 'sehr genau hinsehen', 'beim Essen stören'], answer: 0, explain: 'Looking beyond your own plate = beyond your own field.' },
+      { kind: 'mc', prompt: 'Why can an idiom not be translated word for word?', options: ['its meaning is not the sum of its parts', 'the words are archaic', 'it has no grammar'], answer: 0, explain: 'That non-compositionality is what makes it an idiom.' },
+    ],
+  },
+  {
+    level: 'C2', title: 'Passiversatzformen (sein + zu, sich lassen, -bar)',
+    summary: 'Three ways to say "can be done" without ever using werden.',
+    rule: 'Formal German usually avoids a modal passive. Instead of "das kann gemacht werden" it writes "das ist zu machen", "das lässt sich machen" or "das ist machbar". All three mean roughly the same thing and all three sound more idiomatic in writing than the full passive; sein + zu can also carry obligation rather than possibility, which the context decides.',
+    sections: [
+      { label: 'Passive with modal → the three replacements', pairs: [
+        { from: 'Das kann gemacht werden.', to: 'Das ist zu machen.' },
+        { from: 'Das kann gemacht werden.', to: 'Das lässt sich machen.' },
+        { from: 'Das kann gemacht werden.', to: 'Das ist machbar.' },
+        { from: 'Der Antrag muss unterschrieben werden.', to: 'Der Antrag ist zu unterschreiben.' },
+      ] },
+      { body: 'sein + zu is possibility or obligation; sich lassen is possibility only; -bar makes an adjective and not every verb allows one.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: '„Das Problem kann gelöst werden." → ', options: ['Das Problem lässt sich lösen.', 'Das Problem lässt sich zu lösen.', 'Das Problem ist sich lösen.'], answer: 0, explain: 'sich lassen + infinitive.' },
+      { kind: 'choose', prompt: '„Die Rechnung muss bis Freitag bezahlt werden." → ', options: ['Die Rechnung ist bis Freitag zu bezahlen.', 'Die Rechnung ist bis Freitag bezahlbar.', 'Die Rechnung lässt sich bis Freitag bezahlen.'], answer: 0, explain: 'Obligation → sein + zu. bezahlbar would mean "affordable".' },
+      { kind: 'type', prompt: '„Das kann man machen." mit -bar: Das ist ___.', accept: ['machbar'], explain: 'machen → machbar.' },
+      { kind: 'choose', prompt: 'Which does NOT express possibility?', options: ['Der Antrag ist zu unterschreiben.', 'Der Antrag lässt sich unterschreiben.', 'Der Antrag ist unterschreibbar.'], answer: 0, explain: 'Here sein + zu reads as obligation: it must be signed.' },
+      { kind: 'mc', prompt: 'Why does formal German prefer these to "kann … werden"?', options: ['they are shorter and more idiomatic in writing', 'the passive is ungrammatical', 'they mean something different'], answer: 0, explain: 'The full modal passive is correct but heavy.' },
+    ],
+  },
+
 ];
 
 function toCard(p: NewPoint): Word {
@@ -378,10 +554,19 @@ function main() {
   for (const p of POINTS) {
     const level = p.level;
     grammar[level] ??= [];
-    const exists = grammar[level].some((g: GPoint) => g.title === p.title);
-    if (!exists) {
-      grammar[level].push({ title: p.title, summary: p.summary, rule: p.rule, exercises: p.exercises });
+    const current = grammar[level].find((g: GPoint) => g.title === p.title);
+    if (!current) {
+      grammar[level].push({ title: p.title, summary: p.summary, rule: p.rule, ...(p.sections ? { sections: p.sections } : {}), exercises: p.exercises });
       addedPoints.push(`${level} · ${p.title} (${p.exercises.length} exercises)`);
+    } else if (p.upgrade) {
+      const have = new Set(current.exercises.map((e) => e.prompt));
+      const added = p.exercises.filter((e) => !have.has(e.prompt));
+      const before = current.rule.length;
+      current.summary = p.summary;
+      current.rule = p.rule;
+      if (p.sections) current.sections = p.sections;
+      current.exercises = [...current.exercises, ...added];
+      addedPoints.push(`${level} · ${p.title} — upgraded (rule ${before} → ${p.rule.length} chars, +${added.length} exercises)`);
     }
     const card = toCard(p);
     if (!haveCard.has(card.id)) vocab.push(card);

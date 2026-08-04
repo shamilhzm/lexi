@@ -100,7 +100,7 @@
   },
   {
     "name": "Intermediate descriptive adjectives",
-    "count": 66,
+    "count": 55,
     "levels": [
       "A2",
       "B1",
@@ -231,7 +231,7 @@
   },
   {
     "name": "Captured in study sessions",
-    "count": 34,
+    "count": 21,
     "levels": [
       "B1"
     ],
@@ -292,7 +292,7 @@
   },
   {
     "name": "First words to learn",
-    "count": 31,
+    "count": 28,
     "levels": [
       "A1"
     ],
@@ -546,7 +546,7 @@
   },
   {
     "name": "Emotions",
-    "count": 54,
+    "count": 51,
     "levels": [
       "A1",
       "A2",
@@ -600,7 +600,7 @@
   },
   {
     "name": "Relationships",
-    "count": 56,
+    "count": 55,
     "levels": [
       "A2",
       "B1",
@@ -655,7 +655,7 @@
   },
   {
     "name": "Grammar",
-    "count": 101,
+    "count": 104,
     "levels": [
       "A1",
       "A2",
@@ -751,6 +751,7 @@
     "name": "Prevention & Wellbeing",
     "count": 14,
     "levels": [
+      "B1",
       "B2"
     ],
     "group": "Health & Body"
@@ -822,7 +823,7 @@
   },
   {
     "name": "Everyday life basics",
-    "count": 61,
+    "count": 59,
     "levels": [
       "A2"
     ],
@@ -946,7 +947,7 @@
   },
   {
     "name": "Basic verbs",
-    "count": 39,
+    "count": 16,
     "levels": [
       "A2"
     ],
@@ -954,7 +955,7 @@
   },
   {
     "name": "Colors",
-    "count": 39,
+    "count": 27,
     "levels": [
       "A1",
       "A2",
@@ -1064,8 +1065,9 @@
   },
   {
     "name": "Spatial relations",
-    "count": 49,
+    "count": 44,
     "levels": [
+      "A1",
       "A2",
       "B1"
     ],
@@ -1516,7 +1518,7 @@
   },
   {
     "name": "Weather conditions",
-    "count": 66,
+    "count": 62,
     "levels": [
       "A1",
       "A2",
@@ -1981,7 +1983,7 @@
   },
   {
     "name": "Fitness and training",
-    "count": 47,
+    "count": 46,
     "levels": [
       "A1",
       "A2",

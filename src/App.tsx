@@ -46,6 +46,7 @@ export default function App() {
   const [progress, setProgress] = useState<ProgressRoute>(boot.progress);
   const [drillInit, setDrillInit] = useState<GrammarInit>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
+  const [exam, setExam] = useState(false);      // a sitting under exam conditions
   const [collapsed, setCollapsed] = useState(() => { try { return localStorage.getItem(COLLAPSE_KEY) === '1'; } catch { return false; } });
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -87,7 +88,7 @@ export default function App() {
     return n;
   });
 
-  const study = (t: Target) => { setTarget(t); setView('session'); };
+  const study = (t: Target) => { setExam(false); setTarget(t); setView('session'); };
   const go = (v: View) => {
     if (v === 'session') setTarget(ALL);
     if (v === 'library') setDrillInit(null);
@@ -100,6 +101,12 @@ export default function App() {
   };
   /** The primary CTA — assemble and launch today's session. */
   const startSession = () => { setGuided(false); setMobileOpen(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
+  /** The same day's material with the scaffolding removed. */
+  const startExam = () => {
+    setGuided(false); setMobileOpen(false);
+    setTarget({ kind: 'custom', name: 'Exam conditions', ids: buildBriefing().ids });
+    setExam(true); setView('session');
+  };
 
   // First-run chain: hero → placement → pick topics → an auto-built 10-card session → recap.
   const startFirstRun = () => { setGuided(true); setView('placement'); };
@@ -132,7 +139,7 @@ export default function App() {
           className="desk-in min-h-[100dvh] w-full flex flex-col px-3 sm:px-5 py-4 safe-top safe-bottom">
           <ErrorBoundary resetKey={`session:${target.kind}:${target.name}`}>
             <Review
-              target={target} firstRun={guided}
+              target={target} firstRun={guided} exam={exam}
               onExit={exitSession}
               onPick={() => { setProgress({ level: 'decks' }); setView('progress'); }}
               onDrills={() => { setDrillInit(null); setView('library'); }}
@@ -187,7 +194,7 @@ export default function App() {
           <div key={view}
             className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'today' && <Today onStart={study} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} />}
+                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
                 {view === 'library' && <Grammar initial={drillInit} />}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}

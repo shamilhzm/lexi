@@ -4,23 +4,30 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime } from '../store.ts';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime, visitCount } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import PathCard from '../components/PathCard.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
+import BackupNudge from '../components/BackupNudge.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
-import { blindSpotDrills } from '../session.ts';
-import { BY_ID } from '../data/index.ts';
+import { blindSpotDrills, estimateMinutes, wordsForMinutes } from '../session.ts';
+import ReadingList from '../components/ReadingList.tsx';
+import ClassListPicker from '../components/ClassListPicker.tsx';
+import { BY_ID, WORDS } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
 
-export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
-  { onStart: (t: Target) => void; onPlacement: () => void; onGuidedStart: () => void;
+/** The short-session budgets offered beside the full one. A commute, a queue, a
+ *  gap between classes — the three shapes a real day actually has. */
+const SHORT_MINUTES = [3, 5, 10];
+
+export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
+  { onStart: (t: Target) => void; onExam: () => void; onPlacement: () => void; onGuidedStart: () => void;
     onBlindDrill: (tag?: string) => void; onDecks: () => void;
     onBackup: () => void; onGrammar: () => void; onProgress: () => void }) {
   const v = useStore();
@@ -31,12 +38,20 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
     return blindSpotDrills(ws).length;
   }, [briefing, v]);
   const [drillsOpen, setDrillsOpen] = useState(false);
+  const [readOpen, setReadOpen] = useState(false);
   const t = totals();
   const placed = placementLevel();
   const today = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
 
   const total = briefing.ids.length;
   const firstRun = !onboarded() && !placed && t.learned === 0;
+  // Week one. The guided chain ends at a recap and drops the learner onto a screen
+  // with eight sections on it — a goal line, a backlog burn-down, blind spots, a
+  // reading list, a grammar syllabus — none of which mean anything until there is
+  // some history to read them against. For the first week the surface is the one
+  // thing that matters: today's session. Everything else keeps working; it just
+  // isn't shouted at someone who has been here three days.
+  const week1 = !firstRun && visitCount() <= 7 && t.known < 40;
 
   // Backlog burn-down: remember the mountain’s peak so clearing it reads as
   // finite progress. Recorded as an effect (it writes storage).
@@ -94,6 +109,17 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
               first ten seconds than discover it in week three. */}
           <p className="text-dim text-2xs mt-4">German from English — every gloss, rule and example is in English.</p>
         </Card>
+        {/* Someone arriving from a shared link has been told nothing about what
+            this is. The hero says what to *do*; these two lines say what it *is*
+            and where the data lives — the two questions a classmate actually asks
+            before they type anything into a stranger's app. */}
+        <p className="text-dim text-xs mt-3 max-w-[52ch] leading-relaxed">
+          Lexi is a free, open-source German trainer — {fmt(WORDS.length)} cards from A1 to C2 with
+          spaced repetition and grammar drills built in.
+          <span className="block mt-1">
+            No account, no sign-in. Your progress is stored on this device only and never leaves it.
+          </span>
+        </p>
       </div>
     );
   }
@@ -131,10 +157,10 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
         </Card>
       )}
 
-      <PathCard onGrammar={onGrammar} onStudy={onStart} onBlind={onBlindDrill} />
+      {!week1 && <PathCard onGrammar={onGrammar} onStudy={onStart} onBlind={onBlindDrill} />}
 
       {/* The goal line — one pace sentence for learners with a date. */}
-      {(() => {
+      {!week1 && (() => {
         const gp = goalProgress();
         if (!gp) return null;
         const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
@@ -211,14 +237,37 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
               <Button size="lg" block className="sm:w-auto"
                 onClick={() => onStart({ kind: 'custom', name: 'Today’s session', ids: briefing.ids })}>
                 <Play size={16} /> Start session
+                <span className="font-mono text-2xs font-normal opacity-80">≈{estimateMinutes(total)} min</span>
               </Button>
-              {/* The session that fits four real minutes. Same queue, first five;
-                  grades persist immediately, so the rest simply remains. */}
-              {total > 5 && (
-                <Button variant="quiet" size="sm" block className="sm:w-auto"
-                  onClick={() => onStart({ kind: 'custom', name: 'Quick 5', ids: briefing.ids.slice(0, 5) })}>
-                  <Zap size={13} /> Quick 5
-                </Button>
+              {/* "Quick 5" was the right idea in the wrong unit — nobody has five
+                  cards spare, they have four minutes. Same queue, trimmed to a time
+                  budget; grades persist immediately, so the rest simply remains.
+                  Only offers budgets that would actually shorten today's session. */}
+              {SHORT_MINUTES.some((m) => wordsForMinutes(m) < total) && (
+                <div className="flex items-center gap-1.5 sm:justify-end flex-wrap">
+                  <Kicker className="mr-0.5"><Zap size={11} className="inline -mt-0.5" /> Got less time?</Kicker>
+                  {SHORT_MINUTES.filter((m) => wordsForMinutes(m) < total).map((m) => (
+                    <button key={m}
+                      onClick={() => onStart({
+                        kind: 'custom', name: `${m}-minute session`,
+                        ids: briefing.ids.slice(0, wordsForMinutes(m)),
+                      })}
+                      className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
+                        hover:border-amber hover:text-amber transition-colors">
+                      {m} min
+                    </button>
+                  ))}
+                </div>
+              )}
+              {/* The same material with the scaffolding removed. Offered only once
+                  there is something to be tested on — an exam on day two measures
+                  nothing. Hidden in week one for the same reason. */}
+              {!week1 && t.known >= 40 && (
+                <button onClick={onExam}
+                  className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
+                    hover:border-amber hover:text-amber transition-colors self-start sm:self-end">
+                  Exam conditions
+                </button>
               )}
             </div>
           </div>
@@ -228,11 +277,38 @@ export default function Today({ onStart, onPlacement, onGuidedStart, onBlindDril
       {/* Local-first means device-bound: nudge install (durable storage +
           offline) until installed or dismissed. */}
       <InstallNudge onBackup={onBackup} />
+      <BackupNudge onBackup={onBackup} />
 
       {/* Blind spots used to live here behind an accordion. They've moved to
           Progress: Today is for doing, and auditing your own weaknesses is a
           different mood from starting a session. The session still rehearses
           them either way — that's the "+ N drills" line above. */}
+
+      {/* The learner's own course, if they have given us one. */}
+      <div className="mb-4"><ClassListPicker onStudy={onStart} /></div>
+
+      {/* Lesen — the input half. Everything else on this screen asks the learner
+          a question; this is the one thing that just gives them German to read.
+          The sentence scan runs only when this opens, so Home stays cheap. */}
+      <div className="mb-4">
+        <Card as="button" pad="none" onClick={() => setReadOpen((o) => !o)} aria-expanded={readOpen}
+          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpenText size={18} /></span>
+          <span className="flex-1">
+            <span className="block text-base font-semibold">Lesen</span>
+            <span className="block text-xs text-dim">Sentences you can almost read</span>
+          </span>
+          <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${readOpen ? 'rotate-180' : ''}`} />
+        </Card>
+        <AnimatePresence initial={false}>
+          {readOpen && (
+            <motion.div key="read" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
+              <div className="pt-2.5"><ReadingList onStudy={onStart} /></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Grammar — the concepts at your level, not a menu of exercise types.
           The bank is fetched only when this opens, so Home stays cheap. */}

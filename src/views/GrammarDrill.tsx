@@ -8,9 +8,11 @@ import { cardOf, review, levels, logMiss } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
-import { loadGrammar, flatten, type GItem } from '../lib/grammar.ts';
+import { lookupSurface } from '../lib/reader.ts';
+import { loadGrammar, flatten, type GItem, type RevealData } from '../lib/grammar.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
-import WhyLink, { RuleToggle } from '../components/RulePanel.tsx';
+import { RevealBlock, Derivation, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
+import WhyLink, { RuleToggle, DrillHeader, NoHelpCtx } from '../components/RulePanel.tsx';
 import Surface from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
@@ -22,6 +24,62 @@ import type { CEFR } from '../types.ts';
 const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
 const norm = (s: string) => canon(s)
   .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+
+/** One insertion, deletion or substitution apart? */
+function editDistance1(a: string, b: string): boolean {
+  if (Math.abs(a.length - b.length) > 1) return false;
+  if (a === b) return false;
+  if (a.length === b.length) {
+    let d = 0;
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i] && ++d > 1) return false;
+    return d === 1;
+  }
+  const [s, l] = a.length < b.length ? [a, b] : [b, a];
+  let i = 0, j = 0, d = 0;
+  while (i < s.length && j < l.length) {
+    if (s[i] === l[j]) { i++; j++; } else if (++d > 1) return false; else j++;
+  }
+  return true;
+}
+
+/** Was this a slipped finger rather than a wrong answer?
+ *
+ *  Blanket edit-distance-1 tolerance is unusable here, and not marginally: 25% of
+ *  the corpus's typed targets have *another real German word* one edit away, and
+ *  they are concentrated in exactly the vocabulary a beginner is drilling —
+ *  Mutter/Butter, Haus/Hals, Brot/Boot, Uhr/Ohr, Zeit/weit, Kind/Kino. Accepting
+ *  "Butter" for "Mutter" would not be kindness; it would be teaching the wrong
+ *  word and calling it right.
+ *
+ *  So the tolerance is guarded: one edit *and* what they typed is not itself a
+ *  German word the app knows. A real word is treated as a real answer — and a
+ *  wrong one — while "muter" or "Hausu" is read as the typo it plainly is. The
+ *  learner is still told, because an error forgiven silently is how it sets.
+ */
+export function isTypoFor(typed: string, accept: string[]): boolean {
+  const t = norm(typed);
+  if (t.length < 4) return false;         // too short for one edit to be evidence
+  if (lookupSurface(typed.trim())) return false;  // a real word is a real answer
+  return accept.some((a) => editDistance1(t, norm(a)));
+}
+
+/** Name the spelling that drifted on a near-miss.
+ *
+ *  Grading folds ä/ö/ü/ß to their ASCII digraphs so "schoen" is accepted for
+ *  "schön" — which is right, because the learner knew the word. But the message
+ *  was "Right — just the spelling: schön", and a learner who types "schoen" every
+ *  time is never told *which* part was the spelling. Forgiving an error silently
+ *  is how it becomes permanent.
+ *
+ *  Returns the substitutions actually needed, e.g. "oe → ö". Null when the two
+ *  differ some other way (case, spacing), where there is no lesson to name. */
+export function spellingDiff(typed: string, canonical: string): string | null {
+  const PAIRS: [string, string][] = [['ae', 'ä'], ['oe', 'ö'], ['ue', 'ü'], ['ss', 'ß']];
+  const t = canon(typed), c = canon(canonical);
+  const found = PAIRS.filter(([ascii, real]) => c.includes(real) && t.includes(ascii));
+  if (!found.length) return null;
+  return found.map(([ascii, real]) => `${ascii} → ${real}`).join(', ');
+}
 
 /** Progressive hint ladder for typed answers: shape → first letter → first
  *  half. A graceful path between blind guess and giving up; taking a hint
@@ -120,14 +178,41 @@ export function GrammarExercise({ ex, onGrade, point }: {
 function Card({ children }: { children: React.ReactNode }) {
   return <div className="bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
 }
-function Explain({ text, ok, answer, note }: { text?: string; ok: boolean; answer?: string; note?: string }) {
-  const point = useContext(PointCtx);
+function Explain({ text, ok, answer, note, rulePoint, reveal }: {
+  text?: string; ok: boolean; answer?: string; note?: string;
+  rulePoint?: string | null; reveal?: RevealData;
+}) {
+  const ctx = useContext(PointCtx);
+  // A *generated* word-drill isn't an authored point, so it has no PointCtx —
+  // which meant a wrong transformation answer had no route to any rule at all.
+  // An explicit `rulePoint` (the tense this card actually asked for) wins.
+  const point = rulePoint !== undefined ? rulePoint : ctx;
+  // Show the derivation and the paradigm on a miss, and on a near-miss (right
+  // form, spelling drifted) — but not on a clean correct answer, where a run of
+  // extra teaching becomes wallpaper. Same rule as WhyThisCard: silence is valid.
+  const teach = reveal && (!ok || note);
   return (
     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center" role="status" aria-live="polite">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
           : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
       {note && <p className="text-amber text-xs mt-1">{note}</p>}
       {text && <p className="text-dim text-xs mt-1.5">{text}</p>}
+      {teach && (
+        // Left-aligned inside a centred block on purpose: a formula and a
+        // paradigm are things you read down a column, not banner copy.
+        <div className="mt-3.5 text-left mx-auto max-w-[19rem]">
+          {reveal.derivation && (
+            <RevealBlock label="How it’s built">
+              <Derivation parts={reveal.derivation} note={reveal.note} />
+            </RevealBlock>
+          )}
+          {reveal.paradigm && (
+            <RevealBlock label={reveal.paradigm.label}>
+              <Paradigm rows={reveal.paradigm.rows} />
+            </RevealBlock>
+          )}
+        </div>
+      )}
       {/* The per-exercise `explain` justifies this answer; the rule explains the
           system. Offer it only on a miss, so a run of correct answers stays clean. */}
       {!ok && point && <div className="flex justify-center"><WhyLink pointRef={point} /></div>}
@@ -142,9 +227,15 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
   const [picked, setPicked] = useState<number | null>(null);
   const correct = ex.answer ?? 0;
   const choose = (idx: number) => { if (picked !== null) return; setPicked(idx); };
+  useChoiceKeys({
+    count: (ex.options ?? []).length,
+    answered: picked !== null,
+    onPick: choose,
+    onNext: () => picked !== null && onGrade(picked === correct),
+  });
   return (
     <Card>
-      <p className="text-xl sm:text-2xl font-bold text-center mb-5 leading-snug">{ex.prompt}</p>
+      <p lang="de" className="headword text-xl sm:text-2xl font-bold text-center mb-5 leading-snug">{ex.prompt}</p>
       <div className="grid gap-2.5">
         {(ex.options ?? []).map((o, idx) => {
           const state = picked === null ? 'idle' : idx === correct ? 'right' : idx === picked ? 'wrong' : 'idle';
@@ -154,6 +245,7 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-panel2 border-line hover:border-amber'}`}>
+              <kbd aria-hidden className="hidden sm:inline-block font-mono text-2xs text-dim mr-2 tabular-nums">{idx + 1}</kbd>
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
               {o}
@@ -169,7 +261,9 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
 
 /** Typed-answer widget. Exported so word-level drills (tense transformation)
  *  can reuse it with a fabricated exercise object. */
-export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
+export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
+  ex: GItem['ex']; onGrade: (ok: boolean) => void; rulePoint?: string | null; ruleLabel?: string;
+}) {
   const [val, setVal] = useState('');
   const [result, setResult] = useState<boolean | null>(null);
   const [near, setNear] = useState(false); // right word, spelling drifted (umlauts/ß)
@@ -178,17 +272,29 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
   useEffect(() => { ref.current?.focus(); }, []);
   const accepts = useMemo(() => new Set((ex.accept ?? []).map(norm)), [ex]);
   const canonical = ex.accept?.[0] ?? '';
+  // An authored ladder wins over the generic one. `hintText` counts letters and
+  // leaks the first character, which is useless when the prompt already prints
+  // the pronoun — see `transformHints`.
+  const rung = (n: number) => ex.hints?.[n - 1] ?? hintText(canonical, n);
+  const rungs = ex.hints?.length ?? 3;
+  // Exam conditions: the hint ladder is exactly the scaffolding an exam removes.
+  const noHelp = useContext(NoHelpCtx);
   const submit = () => {
     if (result !== null) return;
-    const ok = accepts.has(norm(val));
-    // Near-miss: matched only through the umlaut/ß fold — correct, supportively
-    // shown with the proper spelling rather than punished as wrong.
+    const exact = accepts.has(norm(val));
+    const typo = !exact && isTypoFor(val, ex.accept ?? []);
+    const ok = exact || typo;
+    // Near-miss: matched only through the umlaut/ß fold, or a single slip of the
+    // finger — correct, supportively shown with the proper spelling rather than
+    // punished as wrong.
     setNear(ok && !(ex.accept ?? []).some((a) => canon(a) === canon(val)));
     setResult(ok);
   };
   return (
+    <>
+      {ruleLabel && <DrillHeader pointRef={rulePoint ?? null} label={ruleLabel} />}
     <Card>
-      <p lang="de" className="text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
+      <p lang="de" className="headword text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
       <label className="sr-only" htmlFor="drill-answer">Your answer</label>
       <input id="drill-answer" lang="de" ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
         onKeyDown={(e) => { if (e.key === 'Enter') { if (result === null) submit(); else onGrade(result); } }}
@@ -196,13 +302,21 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
         className={`w-full bg-panel2 border rounded-md px-4 py-3 text-xl outline-none text-center ${
           result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
-      {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center">Hint: {hintText(canonical, hint)}</p>}
+      {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center leading-relaxed">Hint: {rung(hint)}</p>}
       {result !== null && <Explain text={ex.explain} ok={result} answer={canonical}
-        note={near ? `Right — just the spelling: ${canonical}` : undefined} />}
+        note={near
+          ? spellingDiff(val, canonical)
+            ? `Right — just the spelling: ${canonical} (${spellingDiff(val, canonical)})`
+            // A typo and an umlaut fold are both near-misses and are not the same
+            // lesson: one is a slipped finger, the other is a spelling the learner
+            // may believe is correct. Naming which is the whole point.
+            : `Right — just a typo: ${canonical}`
+          : undefined}
+        rulePoint={rulePoint} reveal={ex.reveal} />}
       {result === null
         ? <div className="mt-5 flex items-center justify-center gap-3">
             <Button onClick={submit} disabled={!val.trim()}>Check</Button>
-            {canonical && hint < 3 && (
+            {canonical && hint < rungs && !noHelp && (
               <button onClick={() => setHint((h) => h + 1)} className="text-dim text-xs underline underline-offset-2 hover:text-amber">
                 {hint === 0 ? 'Hint' : 'More'}
               </button>
@@ -210,12 +324,15 @@ export function TypeItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boole
           </div>
         : <NextBtn onClick={() => onGrade(result)} />}
     </Card>
+    </>
   );
 }
 
 /** Tap-tile sentence builder. Exported so word-level drills (rebuild the card’s
  *  own example sentence) can reuse it with a fabricated exercise object. */
-export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) => void }) {
+export function OrderItem({ ex, onGrade, rulePoint, ruleLabel }: {
+  ex: GItem['ex']; onGrade: (ok: boolean) => void; rulePoint?: string | null; ruleLabel?: string;
+}) {
   const target = ex.tiles ?? [];
   const [pool, setPool] = useState<number[]>(() => shuffle(target.map((_, i) => i)));
   const [built, setBuilt] = useState<number[]>([]);
@@ -224,6 +341,8 @@ export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: bool
   const removeAt = (pos: number) => { if (result !== null) return; const idx = built[pos]; setBuilt(built.filter((_, i) => i !== pos)); setPool([...pool, idx]); };
   const check = () => setResult(built.map((i) => target[i]).join(' ') === target.join(' '));
   return (
+    <>
+      {ruleLabel && <DrillHeader pointRef={rulePoint ?? null} label={ruleLabel} />}
     <Card>
       <p className="text-xl sm:text-2xl font-semibold text-center mb-4">{ex.prompt}</p>
       <div className="min-h-[52px] border border-dashed border-line rounded-md p-2 flex flex-wrap gap-2 mb-3">
@@ -237,11 +356,12 @@ export function OrderItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: bool
           <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-base hover:border-amber">{target[idx]}</button>
         ))}
       </div>
-      {result !== null && <Explain text={ex.explain} ok={result} answer={target.join(' ')} />}
+      {result !== null && <Explain text={ex.explain} ok={result} answer={target.join(' ')} rulePoint={rulePoint} />}
       {result === null
         ? <div className="mt-5 flex justify-center"><Button onClick={check} disabled={built.length !== target.length}>Check</Button></div>
         : <NextBtn onClick={() => onGrade(result)} />}
     </Card>
+    </>
   );
 }
 

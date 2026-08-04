@@ -3,13 +3,14 @@
 // the highest focused level passes ~80%.
 import { ChevronRight } from 'lucide-react';
 import { levelStats, levels, setLevels } from '../store.ts';
+import { CAN_DO, coverageNote } from '../lib/candos.ts';
 import { useStore } from '../useStore.ts';
 import { heat } from '../lib/ui.ts';
-import { ALL_LEVELS } from '../types.ts';
+import { ALL_LEVELS, type Target } from '../types.ts';
 
 const ADVANCE = 0.8;
 
-export default function LevelProgress() {
+export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => void } = {}) {
   useStore();
   const stats = levelStats();
   const focus = levels();
@@ -54,6 +55,41 @@ export default function LevelProgress() {
           );
         })}
       </div>
+
+      {/* What the level you're working on actually *is*.
+          A count is the app's own currency and answers a question nobody asked —
+          "am I B1 yet" is not a number question, because a B1 certificate is
+          awarded for things you can do. These are the CEFR descriptors, stated as
+          what the level means and never as a claim about the learner: vocabulary
+          coverage measures words met, and the copy stops exactly where the
+          evidence does. */}
+      {edge && edgeStat && (
+        <div className="mt-3 pt-3 border-t border-line">
+          <div className="flex items-baseline gap-2 flex-wrap mb-1.5">
+            <span className="text-xs font-semibold">{edge} means being able to…</span>
+            <span className="text-2xs text-dim font-mono ml-auto">
+              {edgeStat.known} / {edgeStat.count} words
+            </span>
+          </div>
+          <ul className="space-y-0.5 mb-2">
+            {CAN_DO[edge].map((c) => (
+              <li key={c} className="text-xs text-dim leading-relaxed flex gap-1.5">
+                <span aria-hidden className="text-amber flex-shrink-0">·</span>{c}
+              </li>
+            ))}
+          </ul>
+          <p className="text-2xs text-dim">
+            {coverageNote(Math.round(edgeKr * 100))}. Lexi measures words met — the rest is practice.
+          </p>
+          {/* A level as somewhere you can finish, not just a filter setting. */}
+          {onStudy && edgeStat.count > edgeStat.known && (
+            <button onClick={() => { focusUpTo(edgeIdx); onStudy({ kind: 'all', name: `All ${edge}` }); }}
+              className="mt-2 inline-flex items-center gap-1 text-2xs text-amber hover:underline">
+              Work through {edge} <ChevronRight size={12} />
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

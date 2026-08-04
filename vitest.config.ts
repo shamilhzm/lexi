@@ -8,7 +8,6 @@ export default defineConfig({
   test: {
     environment: 'node',
     setupFiles: ['./src/test-setup.ts'],
-    // The parked legacy apps carry their own (stale) test files.
-    exclude: ['**/node_modules/**', '**/dist/**', 'to_be_deleted_or_archived/**'],
+    exclude: ['**/node_modules/**', '**/dist/**'],
   },
 });

@@ -104,4 +104,78 @@ export function primeApp(corpus: Word[]): Matcher {
   return buildMatcher(corpus);
 }
 
+// ---- pre-1996 orthography -------------------------------------------------
+// The reform kept ß only after a long vowel or diphthong, so Fuß / Gruß / groß /
+// süß / Straße / weiß are all still correct and must not be flagged — only these
+// stems changed.
+//
+// Three bugs have been written into this rule, which is why it lives in one place
+// now. `/\b(muß|daß|…)\b/` under-counted by 13, because `\b` cannot match after ß.
+// Dropping the *trailing* boundary made `thun` match inside "Thunfisch" and report
+// tuna as 19th-century spelling. Restoring it then stopped "häßliches" matching,
+// because a stem plus an inflectional ending is the same word and a compound is
+// not. So the boundary stays, and an optional ending is allowed in front of it:
+// "häßlich|es" matches, "thun|fisch" does not.
+const ARCHAIC_STEMS = [
+  'mußtest', 'mußten', 'mußtet', 'mußte', 'mußt', 'muß',
+  'müßtest', 'müßten', 'müßtet', 'müßte', 'müßt',
+  'wüßtest', 'wüßten', 'wüßte', 'wußten', 'wußte', 'gewußt',
+  'daß', 'Kuß', 'Fluß', 'Schluß', 'Nuß', 'Riß', 'Haß', 'Biß',
+  'häßlich', 'numeriert', 'Weiber', 'itzt', 'beyder', 'seyn', 'thun', 'gerechtfertiget',
+];
+export const ARCHAIC_SPELLING = new RegExp(
+  '(?<![\\p{L}\\p{N}])(' + ARCHAIC_STEMS.join('|') + ')(e|en|em|er|es|te|ten)?(?![\\p{L}\\p{N}])', 'iu');
+
+// ---- German text in the English definition field ---------------------------
+// 367 cards shipped a German definition inside `def`; they live in `defDe` now
+// (corpus:germandef) and are shown from B2 up. This is the test that keeps them
+// there — and it lives here because it had already been written three times, and
+// the third copy was the weakest: validate's list omitted "des" and "mit", so a
+// card regressed back to German sailed past a gate that reported PASS.
+//
+// Parentheticals are stripped first: a good English definition often *quotes*
+// German — "(Feminine die See means the sea.)" — and flagging that would punish
+// the disambiguation the audit exists to encourage.
+const GERMAN_MARKERS = /\b(der|die|das|des|dem|den|dass|eine|einen|einem|einer|nicht|werden|wird|sich|zu|von|mit|beim|jemand|etwas|beschaffen)\b/;
+// An English annotation that *quotes* German is not a German definition:
+// "female: die Kellnerin", "separable: der Zug fährt … ab", "takes the dative:
+// das gehört mir". The first version of this rule moved eleven of these out of
+// the English field and left those cards with no definition at all — the German
+// they contain is the illustration, not the explanation.
+const ENGLISH_LABEL = /^(female|male|separable|inseparable|takes|no plural|abbr\.?|informal|formal|colloquial|literally|lit\.?|also|often|usually|comparative|superlative)\b[^:]*:/i;
+
+export function isGermanDefinition(def: string, en: string): boolean {
+  const raw = (def ?? '').trim();
+  if (!raw || ENGLISH_LABEL.test(raw)) return false;
+  const outside = raw.replace(/\([^)]*\)/g, ' ');
+  if (!outside.trim()) return false;
+  if (GERMAN_MARKERS.test(en ?? '')) return false;   // the gloss itself is German
+  return GERMAN_MARKERS.test(outside) && /[äöüß]|\b(der|die|das|des|dem|den|dass)\b/.test(outside);
+}
+
+// ---- the lead example -----------------------------------------------------
+// The flip face shows ex[0], so the first example *is* the card. This is a
+// narrower question than whether a row is corrupt (examples.ts owns that): a
+// perfectly valid sentence can still be the wrong one to lead with. Lives here so
+// the audit and the fixer (frontfix.ts) can never disagree about what counts.
+export function leadProblems(e: { de?: string } | undefined): string[] {
+  const de = (e?.de ?? '').trim();
+  const out: string[] = [];
+  // A card face should show a sentence, not a citation fragment lifted out of a
+  // longer line ("geltende Vorschriften").
+  if (!/[.!?…]$/.test(de)) out.push('no final punctuation');
+  // Past this a phone truncates it, and it is more than one glance of reading.
+  if (de.length > 140) out.push('over 140 chars');
+  // An opening quote is not itself a defect, and saying it was would have demoted
+  // the best example on exactly the words that need it: „Kohle“ ist Umgangssprache
+  // für Geld. There the quotation is the subject, which is how you write a sentence
+  // *about* a word. What reads as a scrape is a row that *is* a quotation — so the
+  // test is where the quote closes, not that it opens.
+  const close = de.search(/[“"«]/);
+  if (/^[„"»]/.test(de) && (/[“"«]\s*[–—-]\s*[„"»]/.test(de) || close === -1 || close > 30 || close >= de.length - 2)) {
+    out.push('is a quoted passage');
+  }
+  return out;
+}
+
 export type { Word, SectorMeta, CEFR };
