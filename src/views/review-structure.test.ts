@@ -36,6 +36,25 @@ describe('Review — the card swap is state, not animation', () => {
   });
 });
 
+// Exam conditions are a promise made in Review's own prop doc — "no hints, no
+// rules, no 'why?'" — and all three are absences. An absence has no pixel to
+// look at, so a regression here is invisible in review and in the running app
+// unless someone thinks to sit an exam. Source-level, for the same reason as
+// the guard above: the suite has no React renderer, and this is architectural.
+describe('Review — exam conditions withhold help', () => {
+  it('does not render the why-line under exam conditions', () => {
+    // Shipped unconditionally until 2026-08-05: the scheduler explained its
+    // reasoning ("you've missed Kasus 4× this month") mid-exam, which is the
+    // third of the three things exam mode promises not to do.
+    expect(src).toMatch(/\{!exam && <WhyThisCard/);
+  });
+
+  it('gates the teach card on exam too', () => {
+    // The sibling that was always correct, pinned so the pair stays consistent.
+    expect(src).toMatch(/item\.teach[^}]*&& !exam/);
+  });
+});
+
 describe('entrance keyframes never animate opacity', () => {
   // The stronger form of the DESIGN.md §7 rule. A stalled animation sits on its
   // `from` frame, so `from { opacity: 0 }` renders nothing whether or not a

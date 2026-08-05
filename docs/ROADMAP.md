@@ -57,7 +57,9 @@ skills, scores them, and shows a **readiness gauge** ("B1 readiness: 78% — wea
 
 ### 4. The daily briefing — "markets open"
 A one-tap daily session auto-assembled from what's due (FSRS), your weakest sectors, and a
-streak-safe minimum — with smart **push reminders** (the PWA already supports this) and an
+streak-safe minimum — with smart **push reminders** (⚠️ *not built: as of 2026-08-05 there is
+no push subscription, no `push` listener and no `notificationclick` handler anywhere in the
+repo — the reminder is a page-context timer that only fires while Lexi is open*) and an
 optional exam-countdown that back-plans your workload.
 **Why it wows:** removes the "what should I study today?" decision that kills habits. It makes
 Lexi the app you open *first*, every morning, on the train.

@@ -472,8 +472,12 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
               transform-only, no fill-mode, so it cannot gate anything. */}
           <div key={item.srsId} className="card-in w-full flex flex-col items-center"
             style={{ '--dir': exitDir.current } as React.CSSProperties}>
-          {/* The payoff of carrying provenance: the scheduler shows its work. */}
-          <WhyThisCard reason={item.reason} />
+          {/* The payoff of carrying provenance: the scheduler shows its work.
+              Gated on `!exam` like the teach card below: this component's own
+              prop doc promises exam conditions mean "no hints, no rules, no
+              'why?'", and the why-line is exactly the third of those. It had
+              been rendering unconditionally since it shipped. */}
+          {!exam && <WhyThisCard reason={item.reason} />}
 
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">

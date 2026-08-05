@@ -64,7 +64,16 @@ it is already built.
 
 ### Shipped 2026-07-31 — listening, and the map that moves
 
-- **Listening, phase 1 (the Fifty #39).** Known has always meant "recognised in print";
+- **Listening, phase 1 — the plumbing, not the skill (the Fifty #39).**
+  > ⚠️ **Corrected 2026-08-05.** This entry originally claimed listening "makes the
+  > number the whole app is organised around true". It does not, and the number that
+  > says so is **10 of 7,389 cards — 0.14%** carrying a human recording. A learner
+  > will almost certainly never meet one. What shipped is the licensing, fetching and
+  > caching layer that makes real coverage *possible*; the coverage itself is unfunded
+  > work, tracked as "Listening, phase 2" in the backlog. The original wording is the
+  > kind of overclaim [CRITIQUE.md](CRITIQUE.md) exists to catch.
+
+  Known has always meant "recognised in print";
   a learner with 2,300 Known words can still catch none of them spoken. `corpus:audio`
   joins the Tatoeba sentence ids already in `provenance.json` against the
   `sentences_with_audio` export and emits `public/data/audio.json` — **ids only, no

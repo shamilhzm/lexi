@@ -154,8 +154,16 @@ export function RuleToggle({ pointRef, label }: {
   pointRef: { level: CEFR; title: string } | string | null; label?: string;
 }) {
   const [open, setOpen] = useState(false);
+  // Exam conditions mean no rules. `DrillHeader` below already swaps the toggle for
+  // a plain label when `noHelp` is set, but `RuleToggle` is also used *directly* —
+  // by `WhyThisCard` and by `GrammarDrill` — and those two paths bypassed that
+  // guard entirely, so "Read the rule" was reachable mid-exam. Handling it here
+  // covers every call site instead of each one remembering.
+  const noHelp = useContext(NoHelpCtx);
   const found = usePoint(pointRef);
-  if (!found) return label ? <Kicker tone="accent">{label}</Kicker> : null;
+  // The label survives — naming what you are practising is not help, it is the
+  // question. Only the way through to the rule closes.
+  if (!found || noHelp) return label ? <Kicker tone="accent">{label}</Kicker> : null;
 
   return (
     <div className="w-full">

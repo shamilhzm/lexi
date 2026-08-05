@@ -276,7 +276,8 @@ denominator the way `isNeutralWord`/`isLikelyEntity` already decide.
 
 **Phase 2 · the library that returns (M).** Saved texts, each with a **live meter that
 moves as you study** — the app's first return mechanism that isn't self-referential.
-Listening is now genuinely cheap here: `lib/audio.ts` and the Piper HD voice both ship.
+Listening is *plumbed* here — `lib/audio.ts` and the Piper HD voice both ship — but human
+audio covers **10 of 7,389 cards (0.14%)**, so in practice this still means synthesis.
 ⚠️ **Licensing:** ship learner-pasted text and learner-saved URLs only. Do not bundle a
 feed of someone else's journalism — DW's *Langsam gesprochene Nachrichten* is the
 obvious fit and is **not** automatically redistributable. Check terms before any
@@ -492,7 +493,8 @@ load size still acceptable.
   sentences — so it needs a short authored text set, or Now #2 Phase 2.
 - **Reading-first mode above B2 · M.** Lesen exists; this is the surface around it —
   fewer numbers, longer texts, marginal glosses.
-- **Listening, phase 2 · M.** Phase 1 shipped the audio layer and made the example
+- **Listening, phase 2 · M — and phase 1 is thinner than it sounds.** Phase 1 shipped the
+  licensing/fetch/cache layer and made the example
   audible. Phase 2 is the *mode*: a listen-first card where the prompt is the sound.
 
 **Platform and reach.**
