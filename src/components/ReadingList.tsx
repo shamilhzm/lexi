@@ -8,8 +8,9 @@
 //
 // The unknown words are the only interactive thing on the surface. Everything else
 // is text, on purpose: this is the one screen in Lexi that asks nothing of you.
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BookOpenText, Plus, Check } from 'lucide-react';
+import { loadDetail, detailLoaded } from '../data/detail.ts';
 import { statusOf, levels } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { pickReadable, type Readable } from '../lib/reader.ts';
@@ -28,15 +29,28 @@ export default function ReadingList({ onStudy }: { onStudy: (t: Target) => void 
   // accepts plain identifiers.
   const lvKey = [...lv].sort().join('');
 
+  // Lesen reads `word.ex`, so it has nothing to offer until the detail sidecar
+  // lands. Fetch on mount and key the memo on readiness — without the key the
+  // first (empty) result would be cached and the accordion would stay empty for
+  // the rest of the session. The existing "nothing to read just yet" state covers
+  // the gap, and the accordion is click-to-open, so waiting is natural here.
+  const [ready, setReady] = useState(detailLoaded);
+  useEffect(() => {
+    if (ready) return;
+    let live = true;
+    loadDetail().then(() => { if (live) setReady(true); });
+    return () => { live = false; };
+  }, [ready]);
+
   const sentences = useMemo(
-    () => pickReadable({
+    () => (!ready ? [] : pickReadable({
       // A word you are *currently* studying is exactly the one you want to meet in
       // a sentence, so "learning" counts as familiar; only never-seen words are new.
       familiar: (w: Word) => statusOf(w.id) !== 'new',
       inScope: (w: Word) => lv.has(w.level),
-    }),
+    })),
     // eslint-disable-next-line react-hooks/exhaustive-deps -- lvKey stands in for lv
-    [v, lvKey],
+    [v, lvKey, ready],
   );
 
   if (sentences.length === 0) {

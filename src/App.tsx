@@ -31,6 +31,7 @@ import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, 
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
+import { loadDetail } from './data/detail.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
@@ -56,6 +57,11 @@ export default function App() {
   // decide synchronously whether to show the "real voice" marker. A missing file
   // resolves to an empty manifest, so this can never block or fail the app.
   useEffect(() => { loadAudioManifest(); }, []);
+  // Examples and definitions — 70% of the corpus, and nothing on the boot path
+  // reads them, so first paint does not wait. Same slot and same reasoning as the
+  // grammar bank's post-paint load in PathCard. Never rejects; a session that
+  // starts before this lands waits on it explicitly (see Review).
+  useEffect(() => { loadDetail(); }, []);
   // Only does anything once a study time is set and permission granted; the
   // watch itself is three localStorage reads a minute.
   useEffect(() => startReminderWatch(), []);

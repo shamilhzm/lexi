@@ -8,6 +8,7 @@ import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
+import { loadDetail, detailLoaded } from '../data/detail.ts';
 import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { usePoint, RuleCard, RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
@@ -82,10 +83,28 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
   // An interrupted session is resumed rather than rebuilt: the builder is
   // randomised, so a rebuild is a *different* queue and the learner's place in it
   // is gone. See session.ts.
+  // A session cannot be built until the examples have landed. `eligibleModes` reads
+  // `word.ex` to decide whether a card can carry a cloze, a sentence-builder or a
+  // dictation, and it runs *inside* the synchronous session builder — so a queue
+  // assembled before `data/detail.ts` attaches would quietly contain no drills of
+  // those three kinds, with nothing to show for it.
+  //
+  // The first run is exempt, and deliberately: `buildMixedSession(target, true)` is
+  // teach-only (session.ts strips every drill), so `eligibleModes` never runs and
+  // detail cannot change what the queue contains. That exemption is what lets a cold
+  // learner reach a card in seconds instead of waiting on 837 KB.
+  const [detailReady, setDetailReady] = useState(() => firstRun || detailLoaded());
+  useEffect(() => {
+    if (detailReady) return;
+    let live = true;
+    loadDetail().then(() => { if (live) setDetailReady(true); });
+    return () => { live = false; };
+  }, [detailReady]);
+
   const restored = useMemo(() => (firstRun || exam ? null : loadSession(target)), [target, lvKey, firstRun, exam]);
   const queue = useMemo(
-    () => restored?.items ?? buildMixedSession(target, firstRun),
-    [restored, target, lvKey, firstRun]);
+    () => (detailReady ? (restored?.items ?? buildMixedSession(target, firstRun)) : []),
+    [restored, target, lvKey, firstRun, detailReady]);
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
   // Counted from the queue's own provenance, so the recap can describe what the
   // scheduler did rather than only how the learner scored.
@@ -349,6 +368,15 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     return () => window.removeEventListener('keydown', onKey);
   }, [flip, grade, item]);
 
+  // Before the empty-state check, or a session opened seconds after boot reads as
+  // "nothing to study" rather than "one moment".
+  if (!detailReady) {
+    return (
+      <div className="mx-auto w-full max-w-[640px] flex-1 flex flex-col justify-center items-center gap-3">
+        <p className="text-dim text-sm">Getting your cards ready…</p>
+      </div>
+    );
+  }
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
   if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}

@@ -6,6 +6,7 @@ import { Network, Play, Check, Share2 } from 'lucide-react';
 import { sectorStats, completions, profileName } from '../store.ts';
 import { GROUPS, WORDS_BY_SECTOR } from '../data/index.ts';
 import { buildPack, packFilename } from '../lib/classpack.ts';
+import { loadDetail } from '../data/detail.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
 import LevelFilter from '../components/LevelFilter.tsx';
@@ -22,7 +23,12 @@ const kpct = (d: { known: number; count: number }) => (d.count ? d.known / d.cou
 
 /** Download one sector as a shareable pack. Self-contained cards, no progress —
  *  see lib/classpack.ts. Nothing leaves the device except through this click. */
-function exportDeck(sector: string) {
+async function exportDeck(sector: string) {
+  // Await the detail sidecar first. `validCard` accepts `ex: []`, so a pack built
+  // before examples land looks perfectly valid, downloads without complaint, and
+  // arrives on a classmate's device with every example stripped. The one silent
+  // failure in the split that lands on a third party.
+  await loadDetail();
   const cards = WORDS_BY_SECTOR.get(sector) ?? [];
   if (!cards.length) return;
   const pack = buildPack(sector, cards, profileName());

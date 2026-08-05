@@ -58,6 +58,10 @@ let visits: string[] = [];
 let version = 0;
 const listeners = new Set<() => void>();
 function emit() { version++; listeners.forEach((l) => l()); }
+/** Tell every subscriber the lexicon itself changed — not a card's schedule but
+ *  the card data. `data/detail.ts` calls this after attaching examples and
+ *  definitions, so surfaces that rendered without them re-render with them. */
+export function notifyLexiconChanged() { emit(); }
 
 function cardsObject(): Record<string, Card> {
   const obj: Record<string, Card> = {};
