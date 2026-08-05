@@ -95,11 +95,34 @@ export function buildMatcher(corpus: Word[]): Matcher {
   const adjIndex = new Map<string, Word>(); // adjective lemma -> Word, for de-inflection
   const add = (k: string, w: Word) => { if (k && !index.has(k)) index.set(k, w); };
 
+  // A verb form's own index, consulted when the primary index's only claim on a
+  // token is a noun plural. `die Rufe` and `ich rufe` collide, and first-wins gave
+  // the noun every time — so "Ich rufe dich an" resolved to *der Ruf*.
+  const verbIndex = new Map<string, Word>();
+  const addVerb = (k: string, w: Word) => { if (k && !verbIndex.has(k)) verbIndex.set(k, w); };
+  /** Keys whose only reason to be in `index` is a noun's plural form. */
+  const pluralOnly = new Set<string>();
+
+  // Separable verbs, keyed by the *stem* token with the particle recorded beside it.
+  // `conjugate('anrufen')` yields "rufe an" — a two-token string that single-token
+  // lookup could never reach, which is why every separable verb missed entirely.
+  const sepIndex = new Map<string, { word: Word; particle: string }[]>();
+  const addSep = (stem: string, particle: string, w: Word) => {
+    if (!stem || !particle) return;
+    const list = sepIndex.get(stem) ?? [];
+    if (!list.some((e) => e.word.id === w.id)) list.push({ word: w, particle });
+    sepIndex.set(stem, list);
+  };
+
   // Base forms first, so a lemma always wins over another word's inflection.
   for (const w of corpus) {
     add(w.term.toLowerCase(), w);
     add(stripArticle(w.term).toLowerCase(), w);
-    if (w.plural) add(stripArticle(w.plural).toLowerCase(), w);
+    if (w.plural) {
+      const k = stripArticle(w.plural).toLowerCase();
+      if (!index.has(k)) pluralOnly.add(k);
+      add(k, w);
+    }
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adjIndex.has(k)) adjIndex.set(k, w); }
   }
   // Closed-class inflections → their lemma card.
@@ -112,18 +135,115 @@ export function buildMatcher(corpus: Word[]): Matcher {
     if (w.pos !== 'verb') continue;
     const inf = stripArticle(w.term);
     const extra = EXTRA_VERB_FORMS[inf.toLowerCase()];
-    if (extra) for (const f of extra) add(f, w);
+    if (extra) for (const f of extra) { add(f, w); addVerb(f, w); }
     if (!canConjugate(inf)) continue;
     try {
       const c = conjugate(inf);
-      for (const f of [...c.praesens, ...c.praeteritum, c.partizip]) add(f.toLowerCase(), w);
+      for (const f of [...c.praesens, ...c.praeteritum, c.partizip]) {
+        const lc = f.toLowerCase();
+        // A separable form arrives as "rufe an": index the stem alone, remembering
+        // the particle, so `annotate` can confirm the particle really is in the
+        // clause before claiming the token for the separable verb.
+        const space = lc.indexOf(' ');
+        if (space > 0) {
+          const stem = lc.slice(0, space);
+          // Deliberately NOT added to `verbIndex`: a separable stem must be
+          // reachable only through `sepIndex`, which requires the particle. Adding
+          // it here let *anrufen* outrank the simplex *rufen* in "Ich rufe laut",
+          // where there is no particle and the simplex is the right answer.
+          addSep(stem, lc.slice(space + 1), w);
+        } else {
+          add(lc, w);
+          addVerb(lc, w);
+        }
+      }
+      // Imperatives. The conjugator does not emit them and they are extremely
+      // common in example sentences ("Gib mir das Buch", "Ruf mich an") — every
+      // one of them missed. Derived from the du-form rather than re-deriving the
+      // stem: `gibst`→`gib`, `machst`→`mach`, and `liest`→`lies`, which is why
+      // both the -st and -t strips are indexed. Over-generating here is cheap
+      // (`lie` is not a word, so it can never be wrongly claimed); under-
+      // generating is a silent miss. Strong verbs drop the a→ä umlaut in the
+      // imperative (`fährst` → *fahr*), so the de-umlauted form goes in too.
+      // The zu-infinitive of a separable verb is one word with the `zu` infixed:
+      // an + zu + rufen = "anzurufen". It is the ordinary way to write "trying to
+      // call someone", and nothing else in the index could ever reach it.
+      if (c.separable) {
+        const rest = inf.toLowerCase().slice(c.separable.length);
+        add(`${c.separable}zu${rest}`, w);
+        addVerb(`${c.separable}zu${rest}`, w);
+      }
+      const du = c.praesens[1];
+      if (du && !du.includes(' ')) {
+        const cands = [du.replace(/st$/, ''), du.replace(/t$/, '')];
+        for (const cand of cands) {
+          if (cand.length < 2) continue;
+          for (const form of [cand, deUmlaut(cand)]) { add(form.toLowerCase(), w); addVerb(form.toLowerCase(), w); }
+        }
+      } else if (du) {
+        // Separable: "rufst an" → imperative "ruf an", stem indexed with its particle.
+        const [stem, particle] = du.split(/\s+/);
+        for (const cand of [stem.replace(/st$/, ''), stem.replace(/t$/, '')]) {
+          if (cand.length < 2) continue;
+          for (const form of [cand, deUmlaut(cand)]) addSep(form.toLowerCase(), particle, w);
+        }
+      }
     } catch { /* skip unconjugable */ }
   }
 
-  const matchWord = (tok: string): Word | null => {
+  /** Nominative personal pronouns. A finite verb follows one of these in German's
+   *  verb-second order, which is what disambiguates a token that is both an
+   *  adjective lemma and a verb form. */
+  const SUBJECT_PRONOUN = new Set(['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'man']);
+
+  /** @param after tokens following this one in the same sentence, lowercased —
+   *  used only to confirm a separable verb's particle actually landed.
+   *  @param prev the immediately preceding token, lowercased.
+   *  @param pos 0-based position of this token within its own sentence. */
+  const matchWord = (tok: string, after: string[] = [], prev = '', pos = -1): Word | null => {
     const lc = tok.toLowerCase();
+
+    // 1. A separable verb, but only when the particle is genuinely present later in
+    //    the clause. German puts it at the end ("Ich *rufe* dich später *an*"), so
+    //    requiring it *after* the verb both matches the grammar and stops a
+    //    preposition earlier in the sentence from being read as a particle. Both
+    //    halves observed is stronger evidence than any single-token lookup, so this
+    //    runs first.
+    const sep = sepIndex.get(lc);
+    if (sep) {
+      const hit = sep.find((e) => after.includes(e.particle));
+      if (hit) return hit.word;
+    }
+
     const direct = index.get(lc);
+    // 2. A token that is both a lemma of some other class and a finite verb form —
+    //    *weiß* is the colour and it is `wissen`'s 1st/3rd singular.
+    //
+    //    German is verb-**second**, and that word "second" is load-bearing. A first
+    //    version of this rule asked only whether the previous token was a subject
+    //    pronoun, and it broke *"Hier ist es sicher"*: the pronoun is third, the
+    //    adjective fourth, and `sicher` was handed to the verb `sichern`. Requiring
+    //    the token to sit in second position with the pronoun first is the actual
+    //    rule — "Ich weiß es nicht" qualifies, "Hier ist es sicher" does not.
+    //
+    //    Only fires when a verb reading already exists, so it cannot invent one.
+    if (direct && direct.pos !== 'verb' && pos === 1 && SUBJECT_PRONOUN.has(prev)) {
+      const verb = verbIndex.get(lc);
+      if (verb) return verb;
+    }
+    // 3. `die Rufe` (noun plural) and `ich rufe` (verb) collide. German capitalises
+    //    nouns, so a *lowercase* token whose only claim in the primary index is a
+    //    noun's plural is far likelier to be the verb. Sentence-initial words are
+    //    capitalised regardless of class, which is why the test is on the token
+    //    being lowercase rather than on it being capitalised.
+    if (direct && pluralOnly.has(lc) && tok[0] === tok[0].toLowerCase()) {
+      const verb = verbIndex.get(lc);
+      if (verb) return verb;
+    }
     if (direct) return direct;
+    // 3. A verb form that lost the first-wins race to an unrelated lemma.
+    const verb = verbIndex.get(lc);
+    if (verb) return verb;
     // Dative plural adds -n (Wählern → Wähler). Accept only a noun match.
     if (lc.length >= 5 && lc.endsWith('n')) {
       const w = index.get(lc.slice(0, -1));
@@ -142,14 +262,36 @@ export function buildMatcher(corpus: Word[]): Matcher {
   };
 
   const annotate = (text: string): Segment[] => {
+    // Two passes, because a separable verb cannot be resolved from its own token:
+    // "rufe" is only *anrufen* if an "an" follows it. Tokenise first, then match
+    // each token knowing what comes after it in the same sentence.
+    const toks: { text: string; start: number }[] = [];
+    WORD_RE.lastIndex = 0;
+    for (let m = WORD_RE.exec(text); m; m = WORD_RE.exec(text)) toks.push({ text: m[0], start: m.index });
+    // Sentence boundaries bound the particle search: a particle in the next
+    // sentence has nothing to do with this verb.
+    const sentenceEnd = (i: number) => {
+      for (let j = i + 1; j < toks.length; j++) {
+        const between = text.slice(toks[j - 1].start + toks[j - 1].text.length, toks[j].start);
+        if (/[.!?;]/.test(between)) return j;
+      }
+      return toks.length;
+    };
+
     const out: Segment[] = [];
     let last = 0;
-    WORD_RE.lastIndex = 0;
-    for (let m = WORD_RE.exec(text); m; m = WORD_RE.exec(text)) {
-      if (m.index > last) out.push({ text: text.slice(last, m.index), word: null, isWord: false });
-      const tok = m[0];
-      out.push({ text: tok, word: tok.length >= 2 ? matchWord(tok) : null, isWord: true });
-      last = m.index + tok.length;
+    let posInSentence = 0;
+    for (let i = 0; i < toks.length; i++) {
+      const { text: tok, start } = toks[i];
+      if (start > last) out.push({ text: text.slice(last, start), word: null, isWord: false });
+      const after = toks.slice(i + 1, sentenceEnd(i)).map((t) => t.text.toLowerCase());
+      const prev = i > 0 ? toks[i - 1].text.toLowerCase() : '';
+      out.push({ text: tok, word: tok.length >= 2 ? matchWord(tok, after, prev, posInSentence) : null, isWord: true });
+      last = start + tok.length;
+      // Reset at a sentence boundary so "second position" means second in *this*
+      // clause, not the paragraph.
+      const gap = i + 1 < toks.length ? text.slice(last, toks[i + 1].start) : '';
+      posInSentence = /[.!?;]/.test(gap) ? 0 : posInSentence + 1;
     }
     if (last < text.length) out.push({ text: text.slice(last), word: null, isWord: false });
     return out;
