@@ -75,7 +75,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
             on the surface whose hero number is the size of today's task. It
             links to the place that explains it rather than restating it here. */}
         <button onClick={onProgress}
-          className="flex items-baseline gap-2 text-left rounded-md px-2 py-1 -mx-2 hover:bg-panel2 transition-colors">
+          className="tap-44 flex items-baseline gap-2 text-left rounded-md px-2 py-1 -mx-2 hover:bg-panel2 transition-colors">
           <span className="font-mono font-bold text-green text-xl tabular-nums">{fmt(t.known)}</span>
           <span className="text-dim text-xs">known</span>
           <span className="flex items-center gap-1 text-amber font-mono font-bold text-base ml-1">
@@ -258,7 +258,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                         ids: briefing.ids.slice(0, wordsForMinutes(m)),
                         cap: itemsForMinutes(m),
                       })}
-                      className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
+                      className="tap-44 inline-flex items-center font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
                         hover:border-amber hover:text-amber transition-colors">
                       {m} min
                     </button>

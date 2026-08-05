@@ -97,7 +97,11 @@ for (const w of scope) {
   if (bare && w.pos === 'noun' && !multiword && bare[0] !== bare[0].toUpperCase()) {
     add('error', 'noun-lowercase', w, w.term);
   }
-  if (bare && w.pos && !['noun', 'grammar', 'phrase'].includes(w.pos) && !multiword
+  // `interjection` joins the exemption list: German interjections are routinely
+  // nouns pressed into service (*Verzeihung!*, *Entschuldigung!*) and keep the
+  // noun's capital. Flagging them was reading a rule off the part-of-speech tag
+  // when the capital comes from the word's origin.
+  if (bare && w.pos && !['noun', 'grammar', 'phrase', 'interjection'].includes(w.pos) && !multiword
       && bare[0] === bare[0].toUpperCase() && bare[0] !== bare[0].toLowerCase()) {
     add('warn', 'non-noun-capitalised', w, `${w.term} (${w.pos})`);
   }
@@ -120,11 +124,16 @@ for (const w of scope) {
   }
 
   // ---- self-referencing synonyms -------------------------------------------
+  // Compared *without* the umlaut fold, unlike the plural check. `der Makler`
+  // lists "Mäkler", which the fold collapsed into the headword and reported as
+  // self-reference — but Mäkler is a real orthographic variant, and pointing at
+  // it is exactly what a synonym field is for.
+  const same = (a: string, b: string) => stripArticle(a).toLowerCase() === stripArticle(b).toLowerCase();
   for (const s of w.syn) {
-    if (fold(stripArticle(s)) === fold(bare)) add('warn', 'synonym-is-self', w, `${w.term} lists itself`);
+    if (same(s, bare)) add('warn', 'synonym-is-self', w, `${w.term} lists itself`);
   }
   for (const a of w.ant) {
-    if (fold(stripArticle(a)) === fold(bare)) add('error', 'antonym-is-self', w, `${w.term} is its own antonym`);
+    if (same(a, bare)) add('error', 'antonym-is-self', w, `${w.term} is its own antonym`);
   }
 
   // ---- examples -------------------------------------------------------------

@@ -40,7 +40,7 @@ export default function ReminderCard() {
 
       <div className="flex items-center gap-2.5 flex-wrap mb-3">
         <input type="time" value={time} onChange={(e) => setTime(e.target.value)} aria-label="Daily study time"
-          className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
+          className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
         {dirty && (
           <Button size="sm" onClick={() => setReminderTime(time)}>
             <Check size={13} /> Save

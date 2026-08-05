@@ -43,11 +43,11 @@ export default function Profile() {
               <input id="profile-name" autoFocus value={draft} onChange={(e) => setDraft(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') save(); if (e.key === 'Escape') setEditing(false); }}
                 placeholder="Your name" maxLength={40}
-                className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-base outline-none focus:border-amber w-full max-w-[240px]" />
+                className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-base outline-none focus:border-amber w-full max-w-[240px]" />
               <IconButton label="Save name" onClick={save} className="bg-amber text-bg hover:text-bg"><Check size={16} /></IconButton>
             </div>
           ) : (
-            <button onClick={() => { setDraft(name); setEditing(true); }} className="group flex items-center gap-2 text-left">
+            <button onClick={() => { setDraft(name); setEditing(true); }} className="tap-44 group flex items-center gap-2 text-left">
               <span className={`text-lg font-bold ${name ? '' : 'text-dim'}`}>{name || 'Add your name'}</span>
               <Pencil size={14} className="text-dim group-hover:text-amber" />
             </button>
@@ -85,7 +85,7 @@ export default function Profile() {
       <Settings />
 
       <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
-        className="mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-amber">
+        className="tap-44 mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-amber">
         <Heart size={13} /> Support Lexi’s development
       </a>
     </div>
@@ -109,13 +109,13 @@ function GoalCard() {
       <div className="flex items-center gap-2.5 flex-wrap">
         <label className="sr-only" htmlFor="goal-level">Target level</label>
         <select id="goal-level" value={level} onChange={(e) => setLevel(e.target.value as CEFR)}
-          className="bg-panel2 border border-line rounded-md px-2.5 py-2 text-sm outline-none focus:border-amber">
+          className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-2 text-sm outline-none focus:border-amber">
           {ALL_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
         </select>
         <span className="text-dim text-xs" aria-hidden>by</span>
         <label className="sr-only" htmlFor="goal-date">Target date</label>
         <input id="goal-date" type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)}
-          className="bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
+          className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
         {dirty && valid && <Button size="sm" onClick={() => setGoal({ level, date })}>Set</Button>}
         {g && (
           <button onClick={() => { setGoal(null); setDate(''); }}

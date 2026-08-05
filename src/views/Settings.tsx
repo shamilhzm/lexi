@@ -19,7 +19,10 @@ import Button from '../components/ui/Button.tsx';
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
 const toggle = (on: boolean) =>
-  `flex items-center gap-2 text-xs rounded-md px-3.5 py-2 border transition-colors ${
+  // `tap-44` here reaches every toggle group on the page at once — theme, text
+  // size, pace and tense focus were all 33px, and Settings is the surface most
+  // likely to be used one-handed on a phone.
+  `tap-44 flex items-center gap-2 text-xs rounded-md px-3.5 py-2 border transition-colors ${
     on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:border-amber'}`;
 
 /** The tenses a learner can lean on. Keys match TENSE_POINT, so a focus always

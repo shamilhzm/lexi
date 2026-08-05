@@ -29,7 +29,11 @@ const SIZE: Record<ButtonSize, string> = {
 
 // Controls are rounded-md (10px); rounded-lg (16px) is reserved for cards, so
 // radius alone tells you whether a thing is a surface or something you press.
-const BASE = 'inline-flex items-center justify-center rounded-md transition-colors '
+// `tap-44` here rather than at each call site, because the padding scale alone
+// does not reach 44px at any size: lg computes to 42, md to ~37, sm to ~32. The
+// app's primary action — *Start session* on Today — was one of the 42s. It only
+// applies on a coarse pointer, so the desktop rhythm is unchanged.
+const BASE = 'tap-44 inline-flex items-center justify-center rounded-md transition-colors '
   + 'disabled:opacity-40 disabled:pointer-events-none';
 
 /** The button's classes, for the rare case where the element can't be a button

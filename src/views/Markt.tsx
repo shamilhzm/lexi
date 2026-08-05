@@ -237,9 +237,9 @@ function Toggle({ list, onChange }: { list: boolean; onChange: (v: boolean) => v
       {/* The labels used to be hidden below sm, leaving two unlabelled icons on
           exactly the screens where the list view matters most. */}
       <button onClick={() => onChange(false)} aria-label="Treemap view" aria-pressed={!list}
-        className={`flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Markt</button>
+        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Markt</button>
       <button onClick={() => onChange(true)} aria-label="List view" aria-pressed={list}
-        className={`flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> Liste</button>
+        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> Liste</button>
     </div>
   );
 }

@@ -61,7 +61,12 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
     <button
       onClick={(e) => { e.stopPropagation(); speak(text); }}
       aria-label={label ?? `Hear “${text}” in German`}
-      className="grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-amber
+      // `tap-hit` rather than a bigger box: the speaker sits inline beside a
+      // sentence at 24px by design, and growing it for real would push the
+      // reveal's typography around. The target reaches 44px, the ink does not
+      // move. These never sit adjacent to another control, so the enlarged area
+      // cannot overlap a neighbour's.
+      className="tap-hit grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-amber
         active:scale-95 transition-colors flex-shrink-0 align-middle">
       <Volume2 size={14} />
     </button>

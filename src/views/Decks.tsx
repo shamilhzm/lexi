@@ -55,7 +55,10 @@ export default function Decks({ initialGroup, onStudy, onMap }:
   return (
     <Card pad="none">
       <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
-        <h2 className="text-base font-semibold">Vocabulary Decks</h2>
+        {/* h1, not h2: this is the whole content of the #/progress/decks route,
+            and it was the only route in the app rendering no top-level heading.
+            Sized to match its neighbours rather than to announce itself. */}
+        <h1 className="text-base font-semibold">Vocabulary Decks</h1>
         <Chip>{decks.length} sectors</Chip>
         {group && (
           <Button size="sm" onClick={() => onStudy({ kind: 'group', name: group })}>
@@ -67,7 +70,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
           <div className="flex gap-1 text-xs">
             {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
               <button key={s} onClick={() => setSort(s)}
-                className={`px-2.5 py-1 rounded-md ${sort === s ? 'text-amber bg-panel2' : 'text-dim hover:text-txt'}`}>
+                className={`tap-44 inline-flex items-center px-2.5 py-1 rounded-md ${sort === s ? 'text-amber bg-panel2' : 'text-dim hover:text-txt'}`}>
                 {s === 'attention' ? 'Urgent' : s === 'size' ? 'Size' : 'Progress'}
               </button>
             ))}
@@ -91,7 +94,13 @@ export default function Decks({ initialGroup, onStudy, onMap }:
               <h3 className="text-base font-semibold leading-tight flex items-center gap-1.5 min-w-0">
                 {/* Somewhere you've been all the way through, marked as such. */}
                 {done.has(d.name) && <Check size={15} className="text-green flex-shrink-0" aria-label="Finished" />}
-                <span className="truncate" title={d.name}>{d.name}</span>
+                {/* Two lines, not one. `truncate` clipped 77 deck names at 375px —
+                    "Intermediate descriptive adjec…" and "Intermediate travel and
+                    daily …" are the same card to a reader, and the deck name is the
+                    only thing distinguishing one deck from another. The `title`
+                    stays for the rare name that still needs a third line, but it is
+                    a hover affordance and this is a surface people use on a phone. */}
+                <span className="line-clamp-2" title={d.name}>{d.name}</span>
               </h3>
               {/* These two had no sizing class at all — a 15px icon with no
                   padding, the smallest touch targets in the app. */}
@@ -115,7 +124,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
             </div>
             <div className="flex items-center gap-2 mt-2">
               <button onClick={() => onStudy({ kind: 'sector', name: d.name })}
-                className={`font-mono text-2xs px-2 py-0.5 rounded-full ${d.due > 0 ? 'bg-red-d text-red-txt' : 'bg-green-d text-green'}`}>
+                className={`tap-hit font-mono text-2xs px-2 py-0.5 rounded-full ${d.due > 0 ? 'bg-red-d text-red-txt' : 'bg-green-d text-green'}`}>
                 {d.due > 0 ? `${d.due} due` : `${d.newCount} new`}
               </button>
               <span className="font-mono text-2xs text-dim ml-auto">{Math.round(kpct(d) * 100)}% known</span>
@@ -131,7 +140,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
 function FilterChip({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
   return (
     <button onClick={onClick} aria-pressed={on}
-      className={`whitespace-nowrap text-xs px-2.5 py-1 rounded-full border transition-colors ${
+      className={`tap-44 inline-flex items-center whitespace-nowrap text-xs px-2.5 py-1 rounded-full border transition-colors ${
         on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{children}</button>
   );
 }

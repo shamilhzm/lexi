@@ -14,7 +14,7 @@ export default function TopicPicker() {
         const on = picks.has(name);
         return (
           <button key={name} onClick={() => toggleInterest(name)} aria-pressed={on}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors ${
+            className={`tap-44 flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors ${
               on ? 'bg-amber text-bg border-amber font-semibold' : 'bg-panel2 border-line hover:border-amber'}`}>
             {on && <Check size={13} />}
             {name}

@@ -291,10 +291,33 @@ html.dark { color-scheme: dark; }
    `min-height` rather than `height`, so a row that is already taller (the
    56px bottom bar) is untouched.
 
-   NOT verified on hardware — no browser viewport reports a coarse pointer, so
-   this and the "Tap the card" hint both wait on item 8. */
+   Verified 2026-08-05, on an iPhone 17 Pro and in a device-emulated viewport —
+   the earlier note that no browser reports a coarse pointer was true of resizing
+   a window and false of device emulation. All five gated sidebar controls measure
+   >= 44 with the query live. */
 @media (any-pointer: coarse) {
   .tap-44 { min-height: 44px; }
+
+  /* Both axes, for controls that are short *and* narrow — the CEFR filter chips
+     were 31x25. Grown for real rather than given an invisible ::before halo,
+     because six chips on a 35px pitch would have overlapping hit areas and a
+     mis-tap is worse than a small target. Six 44px chips plus gaps fit 375px. */
+  .tap-44-sq { min-height: 44px; min-width: 44px; }
+
+  /* For an icon that must keep its drawn size — the in-card speaker is 23px by
+     design and inflating it would push the card's layout around. The target
+     grows, the ink does not. Safe here precisely where `.tap-44-sq` is not:
+     these sit alone, so a 44px halo cannot overlap a neighbour's. */
+  .tap-hit { position: relative; }
+  .tap-hit::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* Controls are controls, not text: no selection ghosting on fast taps, and

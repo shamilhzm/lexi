@@ -13,7 +13,8 @@ export default function LevelFilter() {
         const on = lv.has(l);
         return (
           <button key={l} onClick={() => toggleLevel(l)} aria-pressed={on}
-            className={`font-mono text-2xs px-2 py-1 rounded-md border transition-colors ${
+            className={`tap-44-sq inline-flex items-center justify-center font-mono text-2xs px-2 py-1
+              rounded-md border transition-colors ${
               on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{l}</button>
         );
       })}
