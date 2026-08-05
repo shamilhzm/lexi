@@ -1,0 +1,188 @@
+# Part-of-speech rulings — the cards `corpus:posfix` cannot decide by rule.
+#
+# posfix infers two classes safely, each validated against the ~6,900 cards that
+# already carry a pos: an article plus a single token is a noun (99.5% agreement),
+# and a single token whose English gloss opens with "to" is a verb (99.8%). What is
+# left is function words, adjectives and adverbs, where no surface feature decides
+# it — so each is a decision, recorded here and applied by posfix.
+#
+# term<TAB>pos<TAB>reason
+#
+# Judgement calls worth knowing about:
+#   viel / wenig  -> adjective, not pronoun. They grade (mehr, meist) and decline
+#                    adjectivally (viele, wenige); DaF teaches them either way.
+#   gleich        -> adjective. Glossed "same / shortly"; the adverbial reading is
+#                    secondary and the card teaches the adjective.
+#   zwar          -> adverb, not particle. It is a Konnektor here (zwar … aber),
+#                    not a Modalpartikel.
+#   allein        -> adverb. Predicative "alone"; the adjectival use is marginal.
+
+# ---- prepositions ----------------------------------------------------------
+mit	preposition	core Wechsel-/Dativ preposition
+ohne	preposition	+ Akkusativ
+für	preposition	+ Akkusativ
+gegen	preposition	+ Akkusativ
+über	preposition	Wechselpräposition
+unter	preposition	Wechselpräposition
+nach	preposition	+ Dativ
+vor	preposition	Wechselpräposition
+bei	preposition	+ Dativ
+ungeachtet	preposition	+ Genitiv, formal
+anhand	preposition	+ Genitiv
+zugunsten	preposition	+ Genitiv
+hinsichtlich	preposition	+ Genitiv
+angesichts	preposition	+ Genitiv
+unbeschadet	preposition	+ Genitiv, legal register
+vermittels	preposition	+ Genitiv, formal
+kraft	preposition	+ Genitiv, formal
+behufs	preposition	+ Genitiv, archaic/administrative
+zwecks	preposition	+ Genitiv, administrative
+
+# ---- conjunctions ----------------------------------------------------------
+aber	conjunction	coordinating
+weil	conjunction	subordinating, causal
+wenn	conjunction	subordinating, temporal/conditional
+obwohl	conjunction	subordinating, concessive
+damit	conjunction	subordinating, final
+vorausgesetzt	conjunction	subordinating, conditional
+zumal	conjunction	subordinating, causal-emphatic
+je nachdem	conjunction	correlative, subordinating
+
+# ---- adverbs ---------------------------------------------------------------
+zusammen	adverb	manner
+allein	adverb	see header
+vielleicht	adverb	modal
+ungefähr	adverb	degree
+mindestens	adverb	degree
+höchstens	adverb	degree
+besonders	adverb	degree
+außerdem	adverb	connective
+trotzdem	adverb	connective, concessive
+deshalb	adverb	connective, causal
+einerseits	adverb	correlative connective
+zunehmend	adverb	degree
+nachweislich	adverb	epistemic
+augenscheinlich	adverb	epistemic
+gleichermaßen	adverb	degree
+zusehends	adverb	degree
+unweigerlich	adverb	modal
+mitunter	adverb	frequency
+weitestgehend	adverb	degree
+letztlich	adverb	connective
+nachgerade	adverb	degree, elevated
+gemeinhin	adverb	frequency
+vorrangig	adverb	degree
+hinlänglich	adverb	degree
+allerdings	adverb	connective, adversative
+dennoch	adverb	connective, concessive
+folglich	adverb	connective, consecutive
+hingegen	adverb	connective, adversative
+insofern	adverb	connective
+nämlich	adverb	connective, explanatory
+ohnehin	adverb	modal
+zwar	adverb	see header
+mithin	adverb	connective, consecutive
+gleichwohl	adverb	connective, concessive
+indes	adverb	connective, adversative
+vorderhand	adverb	temporal, elevated
+
+# ---- adjectives ------------------------------------------------------------
+viel	adjective	see header
+wenig	adjective	see header
+gleich	adjective	see header
+wichtig	adjective	
+richtig	adjective	
+falsch	adjective	
+möglich	adjective	
+nötig	adjective	
+schwierig	adjective	
+schnell	adjective	
+langsam	adjective	
+fertig	adjective	
+frei	adjective	
+besetzt	adjective	participle used adjectivally
+deutlich	adjective	
+nützlich	adjective	
+gemeinsam	adjective	
+persönlich	adjective	
+ähnlich	adjective	
+ausführlich	adjective	
+eindeutig	adjective	
+erheblich	adjective	
+gravierend	adjective	Partizip I used adjectivally
+umfangreich	adjective	
+unverzichtbar	adjective	
+wesentlich	adjective	
+zahlreich	adjective	
+vorläufig	adjective	
+endgültig	adjective	
+gegenseitig	adjective	
+umstritten	adjective	Partizip II used adjectivally
+aufwendig	adjective	
+durchschnittlich	adjective	
+einflussreich	adjective	
+unverändert	adjective	Partizip II used adjectivally
+ausschlaggebend	adjective	Partizip I used adjectivally
+weitreichend	adjective	Partizip I used adjectivally
+tiefgreifend	adjective	Partizip I used adjectivally
+unabdingbar	adjective	
+unumgänglich	adjective	
+vielschichtig	adjective	
+differenziert	adjective	Partizip II used adjectivally
+vermeintlich	adjective	
+ausgeprägt	adjective	Partizip II used adjectivally
+gängig	adjective	
+triftig	adjective	
+schlüssig	adjective	
+lückenhaft	adjective	
+bezeichnend	adjective	Partizip I used adjectivally
+richtungsweisend	adjective	Partizip I used adjectivally
+folgenschwer	adjective	
+unverhältnismäßig	adjective	
+unstrittig	adjective	
+idiosynkratisch	adjective	
+ubiquitär	adjective	
+immanent	adjective	
+inhärent	adjective	
+ambivalent	adjective	
+dezidiert	adjective	
+eklatant	adjective	
+frappierend	adjective	Partizip I used adjectivally
+gravitätisch	adjective	
+lapidar	adjective	
+nuanciert	adjective	Partizip II used adjectivally
+rekurrent	adjective	
+signifikant	adjective	
+subversiv	adjective	
+suggestiv	adjective	
+tendenziös	adjective	
+konziliant	adjective	
+kohärent	adjective	
+diametral	adjective	
+exemplarisch	adjective	
+kategorisch	adjective	
+paradox	adjective	
+profund	adjective	
+rudimentär	adjective	
+marginal	adjective	
+obsolet	adjective	
+redundant	adjective	
+kontraproduktiv	adjective	
+
+# ---- phrases (multiword; several are Funktionsverbgefüge) ------------------
+sich kümmern	phrase	reflexive verb + preposition
+in Kauf nehmen	phrase	Funktionsverbgefüge
+in Frage stellen	phrase	Funktionsverbgefüge
+Rechnung tragen	phrase	Funktionsverbgefüge
+Stellung beziehen	phrase	Funktionsverbgefüge
+Maßstäbe setzen	phrase	Funktionsverbgefüge
+sich abzeichnen	phrase	reflexive
+sich niederschlagen	phrase	reflexive
+sich bewähren	phrase	reflexive
+zugrunde liegen	phrase	fixed collocation
+ins Auge fassen	phrase	idiom
+sich verselbstständigen	phrase	reflexive
+ins Wanken geraten	phrase	idiom
+zutage treten	phrase	fixed collocation
+Einzug halten	phrase	Funktionsverbgefüge
+Überhand nehmen	phrase	Funktionsverbgefüge
