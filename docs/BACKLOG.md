@@ -148,14 +148,48 @@ is the certificate that gates university admission and many jobs; it is the seco
 most-taken exam in the category, and it is the thinnest real layer in the bank.
 *M, human-gated.*
 
+### ⚠️ Grammar points can only ever be appended — and nothing says so
+
+*Found 2026-08-06 while costing the A1 reassignment below, which is what turned
+that item from XS into a migration.*
+
+`lib/grammar.ts:120` mints exercise card ids as **`gex:<level>:<pointIndex>:<exerciseIndex>`**,
+where `pointIndex` is the point's **array position within its level**. Those ids are
+what every learner's FSRS schedule is keyed on.
+
+So inserting a point anywhere but the end of a level, reordering two points, or
+moving one between levels **silently re-points every subsequent schedule at a
+different exercise**. No error, no migration, no way to notice: a learner who had
+mastered *Perfekt* would find their progress now attached to whatever slid into
+that index.
+
+It has never bitten because `corpus:grammar --write` only ever `push`es
+(`grammar-supplement.ts:559`), and appending preserves every existing index. That
+is load-bearing behaviour that reads like an implementation detail.
+
+**Do (S):** either key exercises on something stable — the point's title, as
+`gram:<level>:<title>` cards already are — with `src/data/idmap.ts` carrying the
+one-time migration; or, if positional ids stay, assert the constraint in a test
+that pins the current point order per level so any insertion fails CI loudly
+rather than corrupting schedules quietly. The first is correct; the second is
+cheap and would have caught this.
+
 ### 🟠 Four A1 exam topics are filed at A2
 
 **Modalverben, trennbare Verben, Imperativ and Perfekt** all sit at A2. Goethe A1 /
 Start Deutsch 1 tests all four, and Netzwerk/Menschen introduce them in A1.2. The
 content exists and is good; the *level assignment* is wrong, and it matters
 because the CEFR filter scopes what a learner is shown — an A1-scoped learner
-never meets them. Cheap to fix (a level field), needs a judgement call on whether
-Lexi follows Goethe's A1 or a stricter CEFR reading. **XS–S, human-gated.**
+never meets them.
+
+**Re-costed 2026-08-06: not XS.** Moving a point between levels changes its
+`gram:<level>:<title>` id (five hardcoded references in `Fundamentals.tsx`:
+`TENSE_POINT`, `MODE_REMEDY` ×2, `separable`) *and* shifts the positional `gex:`
+index of every later point in **both** levels — see the hazard above. It needs
+`idmap` entries and a schedule migration, so **S–M**, and it should wait until
+exercise ids are keyed on something stable. Still human-gated on the pedagogy:
+whether Lexi follows Goethe's A1 or a stricter CEFR reading is your call, not a
+script's.
 
 ### 🟡 C1/C2 are 23 points, but the choices are right
 
