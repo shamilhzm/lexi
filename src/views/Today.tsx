@@ -19,6 +19,7 @@ import Kicker from '../components/ui/Kicker.tsx';
 import { blindSpotDrills, estimateMinutes, wordsForMinutes, itemsForMinutes } from '../session.ts';
 import ReadingList from '../components/ReadingList.tsx';
 import ClassListPicker from '../components/ClassListPicker.tsx';
+import SessionWhy from '../components/SessionWhy.tsx';
 import { BY_ID, WORDS } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
 
@@ -246,8 +247,11 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                 </div>
               )}
               {blindDrills > 0 && (
-                <p className="text-red text-xs mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
+                <p className="text-amber text-xs mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
               )}
+              {/* The scheduler's reasoning, before the decision to start rather
+                  than three cards into it. See components/SessionWhy.tsx. */}
+              <SessionWhy ids={briefing.ids} />
             </div>
             <div className="flex flex-col sm:items-end gap-2 w-full sm:w-auto sm:flex-shrink-0">
               <Button size="lg" block className="sm:w-auto"

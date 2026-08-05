@@ -1392,3 +1392,92 @@ describe('first run before placement', () => {
     expect(store.studyLevel()).toBe('B1');
   });
 });
+
+// The scheduler's reasoning, shown before the session rather than three cards
+// into it. The component is JSX; everything that decides *what it says* is in
+// `whyLinesFor`, which is where the tests go.
+describe('SessionWhy — the reasons, before you press start', () => {
+  it('says nothing when the day is plain reviews', async () => {
+    // The common case, and the one worth protecting: a heading with nothing
+    // under it would read as broken rather than quiet.
+    const { data } = await fresh();
+    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
+    data.registerWords([word('plain', 'Sector A')]);
+    expect(whyLinesFor(['plain'])).toEqual([]);
+  });
+
+  it('explains a grammar point that rides along with a word being learned', async () => {
+    // The flagship case: learn *obwohl*, and its Konzessivsätze point joins the
+    // session. This is the line no competitor can write.
+    const { data } = await fresh();
+    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
+    data.registerWords([
+      word('voc:B1:obwohl', 'Sector A', { term: 'obwohl', level: 'B1' }),
+      word('gram:B1:Konzessivsätze: obwohl', 'Grammar',
+        { term: 'Konzessivsätze: obwohl', level: 'B1', kind: 'grammar' }),
+    ]);
+    const lines = whyLinesFor(['voc:B1:obwohl']);
+    expect(lines).toHaveLength(1);
+    expect(lines[0].line.em).toContain('obwohl');
+  });
+
+  it('never repeats the same reason', async () => {
+    // `blindSpotDrills` de-duplicates by srsId, which is mode+word — so one weak
+    // mode across four different words returns four items carrying four identical
+    // reasons, because the line names the weakness and not the word. Four copies
+    // of "you've missed Gender 1x this month" is worse than one.
+    //
+    // Written against blind spots specifically, and not against `linkedGrammar`,
+    // because that one already de-duplicates internally: a test built on it passes
+    // whether or not this code does anything. Checked by mutation.
+    const { data, store, fundamentals } = await fresh();
+    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
+    const words = Array.from({ length: 6 }, (_, i) => word(`n${i}`, 'Nouns', { gender: 'die' }));
+    data.registerWords(words);
+    store.logMiss(fundamentals.MODE_TAG.gender);
+
+    const ids = words.map((w) => w.id);
+    const lines = whyLinesFor(ids);
+    expect(lines.length).toBe(1);
+    expect(lines[0].line.em).toBe(fundamentals.MODE_TAG.gender);
+  });
+
+  it('collapses remedy and blind spot when they name the same weakness', async () => {
+    // Found in the browser against a real profile, not in a test: the block
+    // rendered "You've missed Gender (der/die/das) 6x this month" directly above
+    // "A weak spot - Gender (der/die/das), missed 6x". Two sentences, one fact.
+    // De-duplication keys off the reason's tag now rather than its phrasing.
+    const { data, store, fundamentals } = await fresh();
+    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
+    const words = Array.from({ length: 6 }, (_, i) => word(`n${i}`, 'Nouns', { gender: 'die' }));
+    // `remedyGrammar` only fires when the point card it would teach actually
+    // exists — without it the test passes for the wrong reason, which is how the
+    // first version of this test slipped through a mutation check.
+    data.registerWords([
+      ...words,
+      word('gram:A1:Artikel & Genus', 'Grammar',
+        { term: 'Artikel & Genus', level: 'A1', kind: 'grammar' }),
+    ]);
+    // Enough misses that remedyGrammar fires as well as blindSpotDrills.
+    for (let i = 0; i < 6; i++) store.logMiss(fundamentals.MODE_TAG.gender);
+
+    const lines = whyLinesFor(words.map((w) => w.id));
+    const genderLines = lines.filter((l) => l.line.em === fundamentals.MODE_TAG.gender);
+    expect(genderLines).toHaveLength(1);
+  });
+
+  it('caps at three so the primary action keeps its card', async () => {
+    const { data } = await fresh();
+    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
+    const triggers = ['obwohl', 'weil', 'damit', 'sodass', 'nachdem'];
+    const points = [
+      'Konzessivsätze: obwohl', 'Nebensätze (weil/dass)', 'Finalsätze: damit & um … zu',
+      'Konsekutivsätze: sodass', 'Plusquamperfekt & nachdem/bevor',
+    ];
+    data.registerWords([
+      ...triggers.map((tm) => word(`voc:B1:${tm}`, 'Sector A', { term: tm, level: 'B1' })),
+      ...points.map((p) => word(`gram:B1:${p}`, 'Grammar', { term: p, level: 'B1', kind: 'grammar' })),
+    ]);
+    expect(whyLinesFor(triggers.map((tm) => `voc:B1:${tm}`)).length).toBeLessThanOrEqual(3);
+  });
+});
