@@ -108,12 +108,32 @@ export function parsePointId(id: string): { level: CEFR; title: string } | null 
   return { level: level as CEFR, title: rest.join(':') };
 }
 
-/** Locate an authored point by level + title, returning its index so callers can
- *  address its exercises (`gex:<level>:<pi>:<xi>`) and its mastery. Returns null
- *  for the ~27 vocab grammar cards that have no exercise set behind them. */
+/** Locate an authored point by level + title, returning its index. Returns null
+ *  for the ~27 vocab grammar cards that have no exercise set behind them.
+ *
+ *  The index is for addressing the point in the bank, not for building card ids —
+ *  see `gexId` for why those are keyed on the title. */
 export function findPoint(g: GrammarByLevel, level: CEFR, title: string): { point: GPoint; pi: number } | null {
   const pi = (g[level] ?? []).findIndex((p) => p.title === title);
   return pi < 0 ? null : { point: g[level][pi], pi };
+}
+
+/** The FSRS card id for one exercise.
+ *
+ *  Keyed on the point's **title**, not its position. It used to be
+ *  `gex:<level>:<pointIndex>:<xi>`, where the index was the point's slot in its
+ *  level's array — so inserting a point anywhere but the end, reordering two, or
+ *  moving one between levels silently re-attached every later learner schedule to
+ *  a different exercise. No error and no way to notice; it only never happened
+ *  because `corpus:grammar --write` appends and appending preserves indices.
+ *  Titles survive all three operations, and `gram:<level>:<title>` cards were
+ *  already keyed this way, so this makes the two namespaces consistent.
+ *
+ *  Titles are unique within a level (asserted in grammar.test.ts). They contain
+ *  colons — 43 of them do — which is why the exercise index is read from the end;
+ *  `parsePointId` already rejoins on colons for the same reason. */
+export function gexId(level: CEFR, title: string, xi: number): string {
+  return `gex:${level}:${title}:${xi}`;
 }
 
 /** Flatten to individually-schedulable exercise items, optionally level-filtered. */
@@ -122,7 +142,7 @@ export function flatten(g: GrammarByLevel, levels: Set<CEFR>): GItem[] {
   (Object.keys(g) as CEFR[]).forEach((level) => {
     if (!levels.has(level)) return;
     g[level].forEach((point, pi) => point.exercises.forEach((ex, xi) =>
-      out.push({ level, point, ex, pi, xi, id: `gex:${level}:${pi}:${xi}` })));
+      out.push({ level, point, ex, pi, xi, id: gexId(level, point.title, xi) })));
   });
   return out;
 }

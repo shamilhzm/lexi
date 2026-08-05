@@ -667,3 +667,33 @@ describe('German definitions (defDe)', () => {
     expect(same.map((w) => w.id)).toEqual([]);
   });
 });
+
+// `gexId` keys exercise cards on the point's title, so two points sharing a title
+// within one level would silently share their schedules. That is the failure the
+// positional scheme was replaced to avoid, reintroduced from the other direction —
+// and it would arrive as an ordinary authoring commit, not as a code change.
+describe('grammar point titles are unique within a level', () => {
+  it('has no duplicate title in any level', () => {
+    const dupes: string[] = [];
+    for (const level of Object.keys(g) as (keyof typeof g)[]) {
+      const seen = new Set<string>();
+      for (const p of g[level]) {
+        if (seen.has(p.title)) dupes.push(`${level} · ${p.title}`);
+        seen.add(p.title);
+      }
+    }
+    expect(dupes).toEqual([]);
+  });
+
+  it('no title ends in a colon followed by digits', () => {
+    // `gex:<level>:<title>:<xi>` is parsed by taking the last colon-segment as the
+    // exercise index. 43 titles legitimately contain colons ("Negation: nicht vs.
+    // kein"), which is fine — but one ending in ":12" would be indistinguishable
+    // from an index and would break the migration's positional test.
+    const bad: string[] = [];
+    for (const level of Object.keys(g) as (keyof typeof g)[]) {
+      for (const p of g[level]) if (/:\s*\d+$/.test(p.title)) bad.push(`${level} · ${p.title}`);
+    }
+    expect(bad).toEqual([]);
+  });
+});

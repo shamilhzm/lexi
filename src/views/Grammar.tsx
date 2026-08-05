@@ -170,7 +170,7 @@ function LevelSection({ level, points, isHome, open, onToggle, onPractise }: {
   level: CEFR; points: GPoint[]; isHome: boolean; open: boolean;
   onToggle: () => void; onPractise: (pi: number, p: GPoint) => void;
 }) {
-  const stats = useMemo(() => points.map((p, pi) => pointStats(level, pi, p.exercises.length, p.title)), [points, level]);
+  const stats = useMemo(() => points.map((p) => pointStats(level, p.title, p.exercises.length)), [points, level]);
   const started = stats.filter((s) => s.started).length;
   const due = stats.reduce((n, s) => n + s.due, 0);
   const mastery = stats.length

@@ -61,3 +61,94 @@ describe('card id migration map', () => {
     vi.doUnmock('./lib/idb.ts');
   });
 });
+
+// Grammar exercise cards used to be keyed positionally —
+// `gex:<level>:<pointIndex>:<xi>` — so a learner's schedule pointed at an array
+// slot. Inserting or reordering a point would have re-attached it to a different
+// exercise, silently. Ids are keyed on the point's title now, and this is the
+// one-time walk that carries existing learners across.
+//
+// Worth testing carefully because the failure is invisible: a dropped schedule
+// looks like an untouched card, and a *wrongly* moved one looks like progress on
+// a concept the learner never studied.
+describe('grammar exercise ids move off array positions', () => {
+  it('carries a positional schedule onto the title-keyed id', async () => {
+    const { GEX_POINT_ORDER } = await import('./data/gexmap.ts');
+    const title = GEX_POINT_ORDER['A1:0'];
+    expect(title, 'snapshot must cover A1:0').toBeTruthy();
+
+    const stored = {
+      'lexi.cards.v1': {
+        'gex:A1:0:2': { due: new Date(Date.now() - 86_400_000).toISOString(), reps: 5, lapses: 0, state: 2,
+          stability: 7, difficulty: 5, elapsed_days: 1, scheduled_days: 3, last_review: new Date().toISOString() },
+      },
+    } as Record<string, unknown>;
+
+    vi.resetModules();
+    vi.doMock('./lib/idb.ts', () => ({
+      idbGet: async (key: string) => stored[key],
+      idbSet: async (key: string, value: unknown) => { stored[key] = value; },
+    }));
+    const store = await import('./store.ts');
+    await store.hydrate();
+
+    // Read through the public accessor rather than poking at ids: this is the
+    // question a learner would ask — "is my progress on this concept still here?"
+    expect(store.pointStats('A1', title, 6).seen).toBe(1);
+
+    vi.doUnmock('./lib/idb.ts');
+  });
+
+  it('drops an index the snapshot does not cover rather than guessing', async () => {
+    // An index beyond the frozen snapshot can only come from a bank newer than
+    // it, where the position means something this code cannot know. Losing one
+    // exercise's schedule is recoverable; attaching it to the wrong concept is
+    // the exact bug the change exists to prevent.
+    const stored = {
+      'lexi.cards.v1': {
+        'gex:A1:999:0': { due: new Date().toISOString(), reps: 3, lapses: 0, state: 2,
+          stability: 7, difficulty: 5, elapsed_days: 1, scheduled_days: 3, last_review: new Date().toISOString() },
+      },
+    } as Record<string, unknown>;
+
+    vi.resetModules();
+    vi.doMock('./lib/idb.ts', () => ({
+      idbGet: async (key: string) => stored[key],
+      idbSet: async (key: string, value: unknown) => { stored[key] = value; },
+    }));
+    const store = await import('./store.ts');
+    await store.hydrate();
+
+    // Nothing anywhere claims it.
+    const { GEX_POINT_ORDER } = await import('./data/gexmap.ts');
+    for (const title of Object.values(GEX_POINT_ORDER)) {
+      expect(store.pointStats('A1', title, 6).seen, `${title} must not inherit it`).toBe(0);
+    }
+
+    vi.doUnmock('./lib/idb.ts');
+  });
+
+  it('leaves an already-migrated id alone', async () => {
+    // The migration runs on every hydrate. It must be idempotent, or the second
+    // launch would re-walk cards that are already correct.
+    const { GEX_POINT_ORDER } = await import('./data/gexmap.ts');
+    const title = GEX_POINT_ORDER['A1:0'];
+    const stored = {
+      'lexi.cards.v1': {
+        [`gex:A1:${title}:0`]: { due: new Date().toISOString(), reps: 9, lapses: 0, state: 2,
+          stability: 7, difficulty: 5, elapsed_days: 1, scheduled_days: 3, last_review: new Date().toISOString() },
+      },
+    } as Record<string, unknown>;
+
+    vi.resetModules();
+    vi.doMock('./lib/idb.ts', () => ({
+      idbGet: async (key: string) => stored[key],
+      idbSet: async (key: string, value: unknown) => { stored[key] = value; },
+    }));
+    const store = await import('./store.ts');
+    await store.hydrate();
+
+    expect(store.pointStats('A1', title, 6).seen).toBe(1);
+    vi.doUnmock('./lib/idb.ts');
+  });
+});

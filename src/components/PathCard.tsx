@@ -44,7 +44,7 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
   // Home must not wait on a 266 KB fetch to render its primary action.
   const [points, setPoints] = useState<GPoint[] | null>(null);
   useEffect(() => { loadGrammar().then((g) => setPoints(g[level] ?? [])); }, [level]);
-  const gstats = points?.map((p, pi) => ({ p, pi, s: pointStats(level, pi, p.exercises.length, p.title) }));
+  const gstats = points?.map((p, pi) => ({ p, pi, s: pointStats(level, p.title, p.exercises.length) }));
   const started = gstats?.filter((r) => r.s.started).length ?? 0;
 
   // Three suggestions, each a different kind of work, so "next" never reads as

@@ -904,7 +904,7 @@ describe('streak / visits', () => {
 describe('pointStats (grammar syllabus mastery)', () => {
   it('reports an untouched point as not started', async () => {
     const { store } = await fresh();
-    const s = store.pointStats('A1', 0, 6);
+    const s = store.pointStats('A1', 'P0', 6);
     expect(s).toMatchObject({ count: 6, seen: 0, known: 0, due: 0, started: false });
     expect(s.mastery).toBe(0);
   });
@@ -912,15 +912,15 @@ describe('pointStats (grammar syllabus mastery)', () => {
   it('counts only the exercises belonging to that point', async () => {
     const { store, srs } = await fresh();
     // Two exercises of A1 point 0, plus a decoy in point 1 and another level.
-    store.review('gex:A1:0:0', srs.Rating.Good);
-    store.review('gex:A1:0:1', srs.Rating.Good);
-    store.review('gex:A1:1:0', srs.Rating.Good);
-    store.review('gex:A2:0:0', srs.Rating.Good);
+    store.review('gex:A1:P0:0', srs.Rating.Good);
+    store.review('gex:A1:P0:1', srs.Rating.Good);
+    store.review('gex:A1:P1:0', srs.Rating.Good);
+    store.review('gex:A2:P0:0', srs.Rating.Good);
 
-    const s = store.pointStats('A1', 0, 6);
+    const s = store.pointStats('A1', 'P0', 6);
     expect(s.seen).toBe(2);
-    expect(store.pointStats('A1', 1, 6).seen).toBe(1);
-    expect(store.pointStats('B1', 0, 6).seen).toBe(0);
+    expect(store.pointStats('A1', 'P1', 6).seen).toBe(1);
+    expect(store.pointStats('B1', 'P0', 6).seen).toBe(0);
   });
 
   // The vocabulary→grammar loop grades the point's own `gram:` card, not its
@@ -931,7 +931,7 @@ describe('pointStats (grammar syllabus mastery)', () => {
     const { store, srs } = await fresh();
     store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
 
-    const s = store.pointStats('A1', 0, 6, 'Artikel & Genus');
+    const s = store.pointStats('A1', 'Artikel & Genus', 6);
     expect(s.started).toBe(true);
     expect(s.metInSession).toBe(true);
     // Meeting is not drilling: mastery stays a measure of the exercises.
@@ -942,9 +942,9 @@ describe('pointStats (grammar syllabus mastery)', () => {
   it('prefers drilled progress over the met-in-session marker', async () => {
     const { store, srs } = await fresh();
     store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
-    store.review('gex:A1:0:0', srs.Rating.Good);
+    store.review('gex:A1:Artikel & Genus:0', srs.Rating.Good);
 
-    const s = store.pointStats('A1', 0, 6, 'Artikel & Genus');
+    const s = store.pointStats('A1', 'Artikel & Genus', 6);
     expect(s.started).toBe(true);
     expect(s.metInSession).toBe(false);   // it has actually been drilled now
     expect(s.seen).toBe(1);
@@ -954,26 +954,26 @@ describe('pointStats (grammar syllabus mastery)', () => {
     const { store, srs } = await fresh();
     store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
     // Same index, different point: must not inherit the other card's status.
-    expect(store.pointStats('A1', 0, 6, 'sein & haben').started).toBe(false);
+    expect(store.pointStats('A1', 'sein & haben', 6).started).toBe(false);
     // Same title, different level.
-    expect(store.pointStats('A2', 0, 6, 'Artikel & Genus').started).toBe(false);
+    expect(store.pointStats('A2', 'Artikel & Genus', 6).started).toBe(false);
   });
 
   it('without a title, behaves exactly as before', async () => {
     const { store, srs } = await fresh();
     store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
-    expect(store.pointStats('A1', 0, 6).started).toBe(false);
+    expect(store.pointStats('A1', 'P0', 6).started).toBe(false);
   });
 
   it('mastery is known/count, and a lapse leaves the point started but unmastered', async () => {
     const { store, srs } = await fresh();
-    for (let xi = 0; xi < 4; xi++) store.review(`gex:A1:0:${xi}`, srs.Rating.Easy);
-    const s = store.pointStats('A1', 0, 4);
+    for (let xi = 0; xi < 4; xi++) store.review(`gex:A1:P0:${xi}`, srs.Rating.Easy);
+    const s = store.pointStats('A1', 'P0', 4);
     expect(s.known).toBe(4);
     expect(s.mastery).toBe(1);
 
-    store.review('gex:A1:0:0', srs.Rating.Again);
-    const after = store.pointStats('A1', 0, 4);
+    store.review('gex:A1:P0:0', srs.Rating.Again);
+    const after = store.pointStats('A1', 'P0', 4);
     expect(after.started).toBe(true);
     expect(after.known).toBe(3);
     expect(after.mastery).toBeCloseTo(0.75, 5);
@@ -981,7 +981,7 @@ describe('pointStats (grammar syllabus mastery)', () => {
 
   it('handles a point with no exercises without dividing by zero', async () => {
     const { store } = await fresh();
-    expect(store.pointStats('C2', 0, 0).mastery).toBe(0);
+    expect(store.pointStats('C2', 'P0', 0).mastery).toBe(0);
   });
 });
 

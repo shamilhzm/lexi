@@ -4,6 +4,8 @@
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
 import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
+import { GEX_POINT_ORDER } from './data/gexmap.ts';
+import { gexId } from './lib/grammar.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
@@ -139,7 +141,44 @@ function migrateIds(): void {
     if (!cur || old.reps > cur.reps) live.set(to, old);
     moved++;
   }
+  moved += migrateGexIds();
   if (moved) persistCards();
+}
+
+/** Carry grammar-exercise schedules off positional ids.
+ *
+ *  `gex:<level>:<pointIndex>:<xi>` keyed a learner's schedule to an *array slot*,
+ *  so any insertion or reorder in the bank would have re-attached it to a
+ *  different exercise. Ids are keyed on the point's title now (see `gexId`), and
+ *  this walks a learner's stored cards across that change once, using the frozen
+ *  index→title snapshot in `data/gexmap.ts`.
+ *
+ *  An index with no entry in the snapshot is dropped rather than guessed: it can
+ *  only come from a bank newer than the snapshot, where the index means something
+ *  this code cannot know. Losing one exercise's schedule is recoverable; silently
+ *  attaching it to the wrong concept is the bug being fixed. */
+function migrateGexIds(): number {
+  let moved = 0;
+  for (const id of [...live.keys()]) {
+    if (!id.startsWith('gex:')) continue;
+    // gex : level : pointIndex : exerciseIndex — positional ids have a numeric
+    // third field, which is what distinguishes them from the title-keyed form.
+    const parts = id.split(':');
+    if (parts.length !== 4 || !/^\d+$/.test(parts[2])) continue;
+    const [, level, pi, xi] = parts;
+    const old = live.get(id);
+    if (!old) continue;
+    const title = GEX_POINT_ORDER[`${level}:${pi}`];
+    // Read the card *before* removing it — an earlier draft deleted first and then
+    // read, so every migrated schedule was silently dropped instead of moved.
+    live.delete(id);
+    if (!title) continue;
+    const next = gexId(level as CEFR, title, Number(xi));
+    const cur = live.get(next);
+    if (!cur || old.reps > cur.reps) live.set(next, old);
+    moved++;
+  }
+  return moved;
 }
 
 let hydrated = false;
@@ -826,20 +865,21 @@ export interface PointStat {
  *  still read **0/40 started**. The loop taught the concept and the Library
  *  denied it had happened.
  *
- *  `title` is optional so the older three-argument calls (and their tests) keep
- *  working; without it the card half is simply skipped. */
-export function pointStats(level: CEFR, pointIndex: number, exerciseCount: number, title?: string): PointStat {
+ *  Takes the title rather than the point's index, because that is what exercise
+ *  cards are keyed on now — see `gexId`. Both halves of the concept therefore
+ *  address the same stable name. */
+export function pointStats(level: CEFR, title: string, exerciseCount: number): PointStat {
   const now = Date.now();
   let seen = 0, known = 0, due = 0;
   for (let xi = 0; xi < exerciseCount; xi++) {
-    const c = live.get(`gex:${level}:${pointIndex}:${xi}`);
+    const c = live.get(gexId(level, title, xi));
     if (!c) continue;
     seen++;
     if (c.state === State.Review) known++;
     if (isDue(c, now)) due++;
   }
   // The concept's own card, as the session grades it.
-  const card = title ? live.get(`gram:${level}:${title}`) : undefined;
+  const card = live.get(`gram:${level}:${title}`);
   return {
     count: exerciseCount, seen, known, due,
     // Mastery stays a measure of the *exercises*: meeting a concept once in a

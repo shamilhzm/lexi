@@ -368,7 +368,7 @@ function LevelGrammar({ level, onOpen }: { level: CEFR; onOpen: () => void }) {
   useEffect(() => { loadGrammar().then((g) => setBank(g[level] ?? [])); }, [level]);
   if (!bank) return <p className="text-2xs text-dim font-mono px-1 py-2">Loading…</p>;
 
-  const rows = bank.map((p, pi) => ({ p, pi, s: pointStats(level, pi, p.exercises.length, p.title) }));
+  const rows = bank.map((p, pi) => ({ p, pi, s: pointStats(level, p.title, p.exercises.length) }));
   // Unstarted first, then whatever has reviews waiting: "what should I look at
   // next" rather than an alphabetical index.
   const next = [...rows].sort((a, b) =>
