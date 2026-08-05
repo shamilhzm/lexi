@@ -72,16 +72,35 @@ every "mobile" finding to date is a 375×812 *browser* viewport that reports
 >   as two interactive things sharing pixels.
 > - The bottom nav clears Safari's toolbar with no overlap in browser mode.
 >
-> ⛔ **Still blocked, and now precisely.** The live-panel integration needs
-> `/var/db/xcode_select_link`, which does not exist — `xcode-select -p` auto-detects
-> the single Xcode (so `xcrun` works) but the link is absent, so the integration
-> reports "not selected". Fix needs a password:
-> `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`. Without it the
-> simulator can only be driven by `simctl openurl` + `screenshot` — **no tapping and
-> no DOM**, which is why the session surface and the "Tap the card" hint are still
-> unverified on iOS (reaching them requires getting through onboarding by hand).
-> Beyond that, no simulator settles **real haptics**, **7-day ITP eviction**, or
-> **true network conditions for the ~25 MB voice** — those want a physical handset.
+**Driven on the simulator, 2026-08-05 (tap + swipe, iPhone 17 Pro / iOS 26.5).**
+- ✅ **The touch affordance is right on real iOS.** The session coach marks read
+  **"Tap the card to flip it"**, not "Space to flip". This is the item the audit
+  explicitly could not settle; settled.
+- ✅ **The first-sight grade scale renders correctly**: two buttons (*Still learning*
+  / *Got it*) with their interval previews (1 min / 10 min), and the first-sight
+  line beneath. The four-grade scale correctly does not appear for an unseen card.
+- ⚠️ **#32 sharpened, and a claim of mine withdrawn.** On first run the coach marks
+  wrap to **three lines** at 402pt and push the grade buttons below the fold. I first
+  wrote that this made grading impossible; **that was too strong and is withdrawn.**
+  The outer session wrapper (`h-[100dvh] overflow-y-auto`) *does* scroll —
+  `scrollHeight` 722 against `clientHeight` 640 — and swiping **off** the card
+  scrolls the buttons into view. What is true: on first run the primary action
+  starts below the fold, and it is the coach marks that put it there.
+- ❓ **The card may swallow vertical scroll — needs a real finger.** A vertical swipe
+  *starting on the flip card* scrolled nothing in the simulator, twice; the identical
+  swipe starting on the session header scrolled fine. The card is a framer-motion
+  `drag="x"` surface carrying `touch-pan-y`, which *should* permit vertical panning,
+  and the card covers most of the screen — so if this reproduces under a real finger
+  it means the natural scroll gesture is dead across the primary surface. **Not fixed,
+  deliberately**: synthetic swipes and iOS's real touch-axis arbitration are not the
+  same thing, and a speculative fix to the grading gesture is not worth the risk.
+  Confirm on hardware first.
+
+> ⛔ **The ceiling, now that the toolchain is clear.** `sudo xcode-select -s
+> /Applications/Xcode.app/Contents/Developer` was run and the live panel works. What
+> no simulator can settle: **real haptics**, **7-day ITP storage eviction**, **true
+> network conditions for the ~25 MB voice**, and **real touch-axis arbitration** (the
+> open question directly above). Those want a physical handset.
 
 **Still open — measured, not guessed (375×812, coarse pointer, 2026-08-05).**
 Every number below is a rendered `getBoundingClientRect`, not a reading of the CSS.
