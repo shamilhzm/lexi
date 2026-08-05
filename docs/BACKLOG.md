@@ -104,6 +104,67 @@ meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5
 
 ---
 
+## The 2026-08-06 grammar audit — comprehensive where it is easy, thin where it sells
+
+*Measured over `public/data/grammar.json`: 131 points, 805 exercises, five widget
+kinds (choose 404 · type 147 · error 106 · mc 93 · order 55).*
+
+### What is genuinely good, so it is not "improved" by accident
+
+- **A1–B1 is comprehensive** — 92 of the 131 points, and B1 (40) goes past a
+  standard syllabus: Partizip Präsens als Adjektiv, Relativsätze mit Präpositionen,
+  Konjunktiv II der Vergangenheit, `je … desto`. This is not the weak part.
+- **Interaction variety is better than it looks.** I expected monotony and did not
+  find it: **zero** of 131 points use a single widget kind; 53 use three and 60 use
+  four. A learner drilling one concept does not get six identical gap-fills.
+- **The instructions are adequate.** `error` says "Tap the wrong word", `order`
+  says "Tap tiles to build the sentence", `type`/`order` carry a `DrillHeader`
+  naming the concept. `choose`/`mc` (62% of all items) carry no instruction and do
+  not need one — a gapped sentence over three options is self-evident, at every
+  level sampled from A1 *"___ Mann ist groß."* to C2 *"Wer eine Wohnung ungesehen
+  mietet, …"*.
+
+### 🔴 B2 is mostly revision of B1, and B2 is where the money is
+
+**11 of 16 B2 points re-tread a topic already taught at A2 or B1**, several under a
+near-identical title:
+
+| B2 point | already at |
+|---|---|
+| n-Deklination | A2 *and* B1 |
+| Genitiv | B1 |
+| Plusquamperfekt | B1 (*Plusquamperfekt & nachdem/bevor*) |
+| Zweiteilige Konnektoren | B1 (same title) |
+| Finalsätze (um … zu / damit) | B1 (*Finalsätze: damit & um … zu*) |
+| Passiv · Passiv Perfekt | A2 Passiv Präsens, B1 ×2 |
+| Konjunktiv II (Gegenwart) | A2, B1 ×2 |
+| Adjektivdeklination | A2 ×3, B1 ×2 |
+| Relativsätze | B1 |
+| Temporale Nebensätze | B1 ×2 |
+
+So B2 contributes roughly **four new points** — Konnektoren (deshalb/trotzdem),
+Textadverbien, Modalpartikeln II, and arguably Verben mit Präpositionen. Goethe B2
+is the certificate that gates university admission and many jobs; it is the second
+most-taken exam in the category, and it is the thinnest real layer in the bank.
+*M, human-gated.*
+
+### 🟠 Four A1 exam topics are filed at A2
+
+**Modalverben, trennbare Verben, Imperativ and Perfekt** all sit at A2. Goethe A1 /
+Start Deutsch 1 tests all four, and Netzwerk/Menschen introduce them in A1.2. The
+content exists and is good; the *level assignment* is wrong, and it matters
+because the CEFR filter scopes what a learner is shown — an A1-scoped learner
+never meets them. Cheap to fix (a level field), needs a judgement call on whether
+Lexi follows Goethe's A1 or a stricter CEFR reading. **XS–S, human-gated.**
+
+### 🟡 C1/C2 are 23 points, but the choices are right
+
+Thin, as the critique said. What is there is well chosen — Funktionsverbgefüge,
+Nominalisierung ↔ Verbalstil, Passiv-Ersatzformen, Gerundivum, Stilebenen. This is
+a volume problem, not a taste problem, which is the better of the two to have.
+
+---
+
 ## Now
 
 Ordered. The reasoning for the order is in each *Why*; the short version is that
