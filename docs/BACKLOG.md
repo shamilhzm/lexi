@@ -20,6 +20,90 @@ trusting it — the last four times a count was guessed here it was wrong by a t
 
 ---
 
+## The 2026-08-05 quality pass — every card, every screen, every action
+
+*Method: a new `npm run corpus:audit` over all 7,389 cards; a DOM harness run against
+all five routes at 1280px and 375px in both themes; and the session loop driven
+end-to-end. Numbers are measured, not estimated. **Two of my own audits were wrong
+first** — see the "checks that were tried and removed" block at the top of
+`scripts/corpus/audit.ts`, and the contrast note below — so treat any new check that
+fires on thousands of rows as a bug in the check.*
+
+### What is clean, stated so nobody re-audits it
+
+- **Contrast passes everywhere**, light *and* dark, on all five routes. An initial run
+  reported six dark-theme failures including one at 1.0:1; every one was an artifact of
+  toggling `.dark` at runtime and measuring mid-transition, or of measuring the
+  off-screen sidebar. Re-measured on-screen after settling: **zero**.
+- **Every control has an accessible name** on every route. Zero unnamed.
+- **No horizontal overflow** at 375px on any route.
+- **No console errors** anywhere in the walk.
+- **The session loop is correct.** Grade advances the counter and the headword; undo
+  rewinds both; skip advances without grading; flag and mute are present and labelled.
+  The card is a real focusable control (`role="button"`, `tabIndex 0`, `aria-label`).
+- **Examples**: 0 cards under two examples, 0 leading with a scrape.
+- **Corpus audit: 0 errors** across all 7,389 cards — no article/gender mismatch, no
+  unknown sector, no untranslated example, no markup leaking into a field.
+
+### 🔴 The matcher is wrong about verbs, and it is about to become the headline
+
+**The finding that matters most, because it lands on Now #2.** The matcher fails to
+resolve the headword in **3,611 of 16,681 example rows (21.6%)**. Verified by hand,
+three distinct defects — and two produce *wrong* answers, not missing ones:
+
+| Sentence | Token | Resolves to | Should be |
+|---|---|---|---|
+| Ich **weiß** es nicht. | weiß | **weiß** (white) | wissen |
+| Ich **rufe** dich an. | rufe | **der Ruf** (the call) | anrufen |
+| **Gib** mir das Buch. | Gib | *(no match)* | geben |
+
+Stem changes are fine (`nimmt`→nehmen, `fährt`→fahren). What is broken is **strong-verb
+homographs, separable verbs, and imperatives** — three of the most common things in
+any German sentence. The hard cases by part of speech: **verb 593**, phrase 183,
+*empty-`pos`* 107, noun 71.
+
+**Why this is urgent rather than interesting.** The comprehension meter exists to state
+one number honestly. A homograph that resolves to the wrong card makes that number too
+*high* (knowing the colour *weiß* would count you as knowing *wissen*); a missing
+imperative makes it too *low*. Shipping Phase 1 on this matcher ships a dishonest
+meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5).
+**Do this before Now #2 Phase 1.** *S–M · `src/lib/matcher.ts`, `conjugate.ts`.*
+
+### 🟠 Real content defects
+
+- **~71 cards whose example does not contain the word** — not an inflection the matcher
+  missed, the word is simply absent. `das Pferd` is taught with *"Meine Tochter möchte
+  gern reiten lernen."*; `die Uhr` with *"Können Sie mir sagen, wie spät es ist?"*.
+  Thematically adjacent, lexically useless. *S, human-gated.*
+- **370 cards carry an empty `pos`** — and this pass shows the cost is not latent: 107
+  of them are matcher misses *because* nothing can classify them. Promoted out of Next.
+- **1,493 definitions still flagged** (enumeration 1,064 · bare 363 · repeat 138) and
+  **286 cards with no English definition** — unchanged, tracked as Now #5.
+- Two singletons: `der Makler` lists itself as a synonym; `Verzeihung` is tagged
+  `interjection` but is a noun.
+
+### 🟡 Screens — measured at 375px with a coarse pointer
+
+| Route | controls | <44px | clipped |
+|---|---|---|---|
+| Today | 18 | **4** | 0 |
+| Progress | 31 | **9** | 0 |
+| Progress → Decks | 1,197 | **311** | **77** |
+| Library | 31 | **0** ✅ | 0 |
+| Profile | 61 | **44** | 0 |
+
+- **Library is the proof it can be done** — 31 controls, none under 44.
+- **Decks is the worst surface in the app**: 311 sub-44 controls and **77 clipped deck
+  subtitles** (e.g. *"Intermediate descriptive adjec…"* at 252px in a 142px box).
+- The repeat offenders are the **CEFR filter chips at 31×25** (on both Progress and
+  Decks), the **sort chips** (*Urgent* 62×23, *Size* 45×23), and the **Markt/Liste
+  toggle** at 68×27 — a handful of shared components, not hundreds of separate fixes.
+- **Today's *Start session* is 42px** — the app's primary action, 2px under.
+- **Profile's name input is 151×22**, the shortest interactive target in the app.
+- **`#/progress/decks` renders no `<h1>`** — the only route with no top-level heading.
+
+---
+
 ## Now
 
 Ordered. The reasoning for the order is in each *Why*; the short version is that
