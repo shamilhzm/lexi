@@ -42,13 +42,44 @@ iOS Simulator was unavailable (host had Command Line Tools only, no `simctl`), s
 every "mobile" finding to date is a 375×812 *browser* viewport that reports
 `(hover: hover) and (pointer: fine)`.
 
-> ⛔ **Blocked on the maintainer, and the documented fix is wrong.** The backlog has
-> carried `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer` as the
-> remediation since the audit. Checked 2026-08-04: `xcode-select -p` is
-> `/Library/Developer/CommandLineTools` and **`/Applications/Xcode.app` does not
-> exist** — Xcode is not installed, so there is nothing to switch to and `simctl` is
-> absent entirely. This needs a multi-GB App Store install (or a physical handset)
-> and an admin password. **No agent can clear it.** Everything below waits on that.
+> **Partly done 2026-08-05 — and the premise was wrong.** The audit recorded that
+> "no browser viewport reports `hover: none`", which is what made these items
+> unverifiable and parked them behind hardware. That is true of *resizing* a window
+> and false of **device emulation**: at the mobile preset the browser reports
+> `any-pointer: coarse`, `hover: none`, `pointer: coarse`, `maxTouchPoints: 5`. So
+> the touch-gated CSS was measurable all along. What that produced:
+>
+> - ✅ **`.tap-44` confirmed working.** All five gated controls measure ≥44 with a
+>   coarse pointer active (sidebar rows 223×44, *Start session* 219×44, profile
+>   223×48). Previously unprovable — the rule had never once fired in a test.
+> - ✅ **A real bug, fixed.** `.desk-in` scaled from `.985`, and a stalled entrance
+>   sits on its `from` frame — so every 44px control in the session rendered at
+>   **43.34px** while its CSS said 44. See the DESIGN.md §7 corollary; the rule now
+>   forbids scaling a subtree that holds sized targets, guarded and mutation-checked.
+> - ❌ **The `.tap-44` pass never reached the content surfaces**, which is where the
+>   audit's "16 to 69 controls under 44px" actually lives. Measured with a coarse
+>   pointer, still open (below).
+>
+> ⛔ **Still genuinely blocked, for the rest.** Xcode 26.6 is now installed and
+> selected, but `simctl` lists **no runtimes** — the iOS runtime is a separate
+> multi-GB download (`xcodebuild -downloadPlatform iOS`), which was still running
+> when this was written. And emulation cannot settle these at all: **real haptics**,
+> **7-day ITP storage eviction**, **true network conditions for the ~25 MB voice**,
+> and iOS Safari's own **safe-area** behaviour in standalone PWA mode need the
+> Simulator at minimum and a physical handset to be honest.
+
+**Still open — measured, not guessed (375×812, coarse pointer, 2026-08-05).**
+Every number below is a rendered `getBoundingClientRect`, not a reading of the CSS.
+- **Session surface** (the primary one): the four speaker buttons at **23×23**;
+  *Hear the example* at 45×24; *Where this came from* at 127×13; the first-sight
+  *Got it* at 34×15.
+- **Today**: *Start session* at 308×**42** — the app's primary action, 2px under;
+  the time-budget chips (*3 min*) at 51×**25**; *Paste a list* at 99×33; the KPI
+  chip at 115×34.
+- The `IconButton` pattern itself is correct at exactly 44×44 once nothing scales
+  it, so this is reach, not rebuild: the fix is applying it (or a `::before` hit
+  area, as the sidebar chevron already does) to the controls above.
+- No horizontal overflow at 375px on Today or in the session (`scrollWidth` 375).
 
 **Do.** Install Xcode (for the Simulator) or attach a real handset, then run a full
 session on a real iPhone *and* a real Android, in the browser and installed, at

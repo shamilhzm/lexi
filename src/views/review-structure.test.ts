@@ -61,4 +61,26 @@ describe('entrance keyframes never animate opacity', () => {
       }
     }
   });
+
+  // Transform-only keeps a stalled entrance *visible*. It does not make the
+  // resting state correct, and a scale applies to the whole subtree — so an
+  // entrance wrapping sized controls silently shrinks every one of them for as
+  // long as it sits on its `from` frame.
+  //
+  // Measured 2026-08-05: `deskin` scaled from .985 and stalled at currentTime 0,
+  // so the session's five chrome IconButtons rendered 43.34px against a CSS
+  // width of 44px — under the 44px minimum DESIGN.md §6 claims to enforce, with
+  // nothing in the CSS to show for it.
+  //
+  // Scoped to the entrances that wrap interactive subtrees. `tilein` and
+  // `nodein` scale the target *itself* rather than a container of targets, and
+  // both are large; they are perceptible animations doing real work, so they
+  // stay. `bargrow` animates a chart bar, which is not a control.
+  it('an entrance that wraps touch targets does not scale them', () => {
+    for (const name of ['routein', 'deskin']) {
+      const m = css.match(new RegExp(`@keyframes\\s+${name}\\s*\\{([\\s\\S]*?)\\n?\\}`));
+      expect(m, `@keyframes ${name} not found`).toBeTruthy();
+      expect(m![1], `${name} scales a subtree containing sized controls`).not.toMatch(/scale/);
+    }
+  });
 });

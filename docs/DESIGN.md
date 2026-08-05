@@ -236,6 +236,39 @@ document.body.appendChild(p);
 getComputedStyle(p).opacity; // must be "1"
 ```
 
+### The corollary (found 2026-08-05, by measuring instead of reasoning)
+
+> **An entrance may translate. It must not *scale* a subtree that contains sized
+> touch targets.**
+
+Transform-only is necessary and **not sufficient**. It guarantees a stalled
+entrance stays *visible*; it says nothing about whether the resting geometry is
+correct — and a scale applies to the entire subtree.
+
+`.desk-in` scaled from `.985`. Caught in a coarse-pointer viewport with animations
+stalled (`playState: "running"`, `currentTime` pinned at 0 two minutes after load),
+the desk sat on its `from` frame indefinitely, and **every 44px control inside the
+session rendered at 43.34px** — the five chrome `IconButton`s included. Their
+computed CSS read `width: 44px` throughout; only `getBoundingClientRect` disagreed.
+So §6's "IconButton enforces 44×44" was false on the app's primary surface, and no
+amount of reading the CSS would have shown it.
+
+The fix cost nothing, which is the tell: **1.5% is below the perceptual threshold**
+— the same fact that moved `.tile-in` off 1.5% to 6%. It was an animation nobody
+could see that shrank every target in the session whenever it stalled. `.desk-in`
+now translates 6px.
+
+`.tile-in` and `.node-in` keep their scales: they scale the target *itself* rather
+than a container of targets, both are far larger than 44px, and both are
+perceptible animations doing real work. `.bar-grow` animates a chart bar, which is
+not a control at all.
+
+Guarded in `views/review-structure.test.ts`, mutation-checked. **The lesson worth
+keeping:** the first version of this rule was derived by reasoning about
+fill-modes, and was wrong. The second was derived by reasoning about visibility,
+and was incomplete. Both gaps were found by measuring rendered geometry under the
+failure condition — a paused probe for the first, a stalled tab for this one.
+
 ### The scale
 
 One easing, `cubic-bezier(.32,.72,0,1)`, at three weights. If a duration isn't on

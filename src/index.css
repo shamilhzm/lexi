@@ -389,9 +389,27 @@ body {
 @keyframes routein { from { transform: translateY(8px); } }
 .route-in { animation: routein .2s cubic-bezier(.32,.72,0,1); }
 /* Entering the desk is a bigger move than changing rooms — same rule, longer
-   curve, and a scale rather than a slide because the session is a place you go
-   *into*, not a page that replaces another. */
-@keyframes deskin { from { transform: scale(.985); } }
+   curve.
+
+   It used to scale from .985, and that was wrong twice over. Measured 2026-08-05
+   in a coarse-pointer viewport with animations stalled (playState "running",
+   currentTime pinned at 0): the desk sat on its `from` frame indefinitely, and
+   because a transform scales the *subtree*, every 44px control inside the session
+   rendered at 43.34px — the five chrome IconButtons included. Their CSS said
+   `width: 44px` the whole time; `getBoundingClientRect` said otherwise.
+
+   So the transform-only rule is necessary but not sufficient. It guarantees a
+   stalled entrance stays *visible*; it does not guarantee the resting state, and
+   a scale silently rewrites hit geometry for everything underneath it. An
+   entrance may translate; it must not scale a subtree that contains sized touch
+   targets. See DESIGN.md §7.
+
+   Losing the scale costs nothing: 1.5% is below the perceptual threshold — the
+   same reason `.tile-in` was moved off 1.5% to 6%. This was an animation nobody
+   could see that shrank every target in the session when it stalled. 6px of
+   travel, slightly less than a route change's 8px, so the desk settles *into*
+   the room rather than restaging it. */
+@keyframes deskin { from { transform: translateY(6px); } }
 .desk-in { animation: deskin .28s cubic-bezier(.32,.72,0,1); }
 
 /* The study card arriving. `--dir` is the direction the previous card was
