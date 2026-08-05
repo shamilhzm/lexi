@@ -2,8 +2,8 @@
 // theme group (or browse all), sort by urgency / size / progress, and study a
 // single sector or a whole group.
 import { useMemo, useState, type ReactNode } from 'react';
-import { Network, Play, Check, Share2 } from 'lucide-react';
-import { sectorStats, completions, profileName } from '../store.ts';
+import { Network, Play, Check, Share2, SlidersHorizontal, ChevronDown } from 'lucide-react';
+import { sectorStats, completions, profileName, levels } from '../store.ts';
 import { GROUPS, WORDS_BY_SECTOR } from '../data/index.ts';
 import { buildPack, packFilename } from '../lib/classpack.ts';
 import { loadDetail } from '../data/detail.ts';
@@ -14,6 +14,7 @@ import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
+import { ALL_LEVELS } from '../types.ts';
 import type { Target } from '../types.ts';
 
 type Sort = 'attention' | 'size' | 'coverage';
@@ -46,6 +47,11 @@ export default function Decks({ initialGroup, onStudy, onMap }:
   const v = useStore();
   const [group, setGroup] = useState<string | null>(initialGroup);
   const [sort, setSort] = useState<Sort>('attention');
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  // What the button has to admit to. A phone showing three decks because a
+  // filter is on, with the filters hidden, is indistinguishable from a phone
+  // showing three decks because there are three.
+  const narrowed = (group ? 1 : 0) + (levels().size < ALL_LEVELS.length ? 1 : 0);
   const done = useMemo(() => new Set(completions().map((c) => c.id)), [v]);
 
   const decks = useMemo(() => {
@@ -60,6 +66,15 @@ export default function Decks({ initialGroup, onStudy, onMap }:
 
   return (
     <Card pad="none">
+      {/* Three rows of controls used to sit above the content they filter, and the
+          44px touch targets made it worse: measured on a 375×812 phone, the first
+          deck began 408px down — **half the viewport spent before a single deck**.
+          That is finding #30, and my own regression on top of it.
+
+          Collapsed behind one control below `sm`, expanded inline above it. Nothing
+          is removed: a desktop keeps every filter visible as before, and a phone
+          gets them one tap away with the count of what is active on the button, so
+          a narrowed view can never look like an empty one. */}
       <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
         {/* h1, not h2: this is the whole content of the #/progress/decks route,
             and it was the only route in the app rendering no top-level heading.
@@ -71,7 +86,13 @@ export default function Decks({ initialGroup, onStudy, onMap }:
             <Play size={13} /> Study {group}
           </Button>
         )}
-        <div className="ml-auto flex items-center gap-2.5 flex-wrap">
+        <button onClick={() => setFiltersOpen((o) => !o)} aria-expanded={filtersOpen}
+          className="tap-44 sm:hidden ml-auto inline-flex items-center gap-1.5 text-xs text-dim border border-line rounded-md px-2.5 py-1">
+          <SlidersHorizontal size={13} />
+          Filter{narrowed > 0 ? ` · ${narrowed}` : ''}
+          <ChevronDown size={13} className={`transition-transform ${filtersOpen ? 'rotate-180' : ''}`} />
+        </button>
+        <div className="hidden sm:flex ml-auto items-center gap-2.5 flex-wrap">
           <LevelFilter />
           <div className="flex gap-1 text-xs">
             {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
@@ -84,8 +105,19 @@ export default function Decks({ initialGroup, onStudy, onMap }:
         </div>
       </div>
 
-      {/* group filter row */}
-      <div className="flex gap-1.5 px-4 py-2.5 border-b border-line overflow-x-auto">
+      {/* The level + sort controls on a phone, and the group row everywhere. */}
+      <div className={`${filtersOpen ? 'flex' : 'hidden'} sm:hidden flex-col gap-2.5 px-3 py-2.5 border-b border-line`}>
+        <LevelFilter />
+        <div className="flex gap-1 text-xs">
+          {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
+            <button key={s} onClick={() => setSort(s)}
+              className={`tap-44 inline-flex items-center px-2.5 py-1 rounded-md ${sort === s ? 'text-amber bg-panel2' : 'text-dim hover:text-txt'}`}>
+              {s === 'attention' ? 'Urgent' : s === 'size' ? 'Size' : 'Progress'}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className={`${filtersOpen ? 'flex' : 'hidden'} sm:flex gap-1.5 px-4 py-2.5 border-b border-line overflow-x-auto`}>
         <FilterChip on={group === null} onClick={() => setGroup(null)}>All groups</FilterChip>
         {GROUPS.map((g) => <FilterChip key={g} on={group === g} onClick={() => setGroup(g)}>{g}</FilterChip>)}
       </div>
