@@ -60,13 +60,28 @@ every "mobile" finding to date is a 375×812 *browser* viewport that reports
 >   audit's "16 to 69 controls under 44px" actually lives. Measured with a coarse
 >   pointer, still open (below).
 >
-> ⛔ **Still genuinely blocked, for the rest.** Xcode 26.6 is now installed and
-> selected, but `simctl` lists **no runtimes** — the iOS runtime is a separate
-> multi-GB download (`xcodebuild -downloadPlatform iOS`), which was still running
-> when this was written. And emulation cannot settle these at all: **real haptics**,
-> **7-day ITP storage eviction**, **true network conditions for the ~25 MB voice**,
-> and iOS Safari's own **safe-area** behaviour in standalone PWA mode need the
-> Simulator at minimum and a physical handset to be honest.
+> **First run on real iOS, 2026-08-05.** Xcode 26.6 + the iOS 26.5 runtime are now
+> installed; Lexi has been loaded in Safari on a booted **iPhone 17 Pro** simulator
+> for the first time. Two findings confirmed against the real renderer:
+> - ✅ **#30 confirmed, and understated.** The three stacked control rows are exactly
+>   as described (Markt/Liste · the six CEFR chips · *Study all*) — and the treemap
+>   does not begin until roughly **half the viewport** is spent, against the audit's
+>   "~200px". Screenshot evidence, iPhone 17 Pro, Safari.
+> - ✅ **#31 confirmed.** The play FAB sits directly on the treemap and **truncates
+>   the tile label underneath it** ("Work & Eco…"), so it is a legibility bug as well
+>   as two interactive things sharing pixels.
+> - The bottom nav clears Safari's toolbar with no overlap in browser mode.
+>
+> ⛔ **Still blocked, and now precisely.** The live-panel integration needs
+> `/var/db/xcode_select_link`, which does not exist — `xcode-select -p` auto-detects
+> the single Xcode (so `xcrun` works) but the link is absent, so the integration
+> reports "not selected". Fix needs a password:
+> `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`. Without it the
+> simulator can only be driven by `simctl openurl` + `screenshot` — **no tapping and
+> no DOM**, which is why the session surface and the "Tap the card" hint are still
+> unverified on iOS (reaching them requires getting through onboarding by hand).
+> Beyond that, no simulator settles **real haptics**, **7-day ITP eviction**, or
+> **true network conditions for the ~25 MB voice** — those want a physical handset.
 
 **Still open — measured, not guessed (375×812, coarse pointer, 2026-08-05).**
 Every number below is a rendered `getBoundingClientRect`, not a reading of the CSS.
