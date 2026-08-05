@@ -857,6 +857,24 @@ export function placementLevel(): CEFR | null {
   const v = localStorage.getItem(PLACEMENT_KEY);
   return (v && (ALL_LEVELS as string[]).includes(v)) ? (v as CEFR) : null;
 }
+/** The level to teach at when nobody has been placed yet.
+ *
+ *  `PathCard` and `Grammar` both used to fall back to
+ *  `[...ALL_LEVELS].reverse().find((l) => filter.has(l))` — the *highest* level in
+ *  the filter. The filter defaults to all six, so an unplaced learner was offered
+ *  **C2** grammar and a C2 syllabus. It was masked because the first-run chain put
+ *  placement before anything else and `PathCard` is hidden in week one; moving the
+ *  session first makes "unplaced" the ordinary state and would have made C2 the
+ *  ordinary answer.
+ *
+ *  Lowest in-filter level rather than highest: a learner who has told us nothing is
+ *  far likelier to be a beginner than a near-native, and being offered A1 when you
+ *  are C1 costs a tap, while the reverse costs the whole first impression. */
+export function studyLevel(): CEFR {
+  const placed = placementLevel();
+  if (placed) return placed;
+  return ALL_LEVELS.find((l) => levelFilter.has(l)) ?? 'A1';
+}
 export function setPlacementLevel(l: CEFR | null) {
   if (l) localStorage.setItem(PLACEMENT_KEY, l); else localStorage.removeItem(PLACEMENT_KEY);
   emit();

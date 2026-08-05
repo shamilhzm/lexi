@@ -1346,3 +1346,49 @@ describe('recognition and production are scheduled separately', () => {
     expect(store.statusOf(order)).toBe('new');
   });
 });
+
+// The first run puts a ten-card session before the placement test. Two facts make
+// that safe, and both are load-bearing enough to pin: the queue is sensible with
+// no placement, and "unplaced" no longer resolves to C2.
+describe('first run before placement', () => {
+  it('serves the commonest A1 words with no placement at all', async () => {
+    // `firstRunIds` sorts by CEFR band then frequency, and the level filter
+    // defaults to all six — so a beginner gets the same ten cards whether or not
+    // they have been placed. This is the fact the whole reorder rests on; if it
+    // stopped being true, a cold learner's first session would start at C2.
+    const { data, store } = await fresh();
+    const freq = await import('./lib/freq.ts');
+    data.registerWords([
+      word('c2word', 'Sector A', { level: 'C2' }),
+      word('b1word', 'Sector A', { level: 'B1' }),
+      word('a1rare', 'Sector A', { level: 'A1' }),
+      word('a1common', 'Sector A', { level: 'A1' }),
+    ]);
+    freq.primeFreq({ a1common: 3, a1rare: 9000, b1word: 50, c2word: 10 });
+
+    expect(store.placementLevel()).toBeNull();
+    expect(store.firstRunIds(3)).toEqual(['a1common', 'a1rare', 'b1word']);
+  });
+
+  it('teaches at the lowest level in scope until placed, not the highest', async () => {
+    // The defect this reorder would otherwise have exposed: PathCard and Grammar
+    // both fell back to the *highest* level in the filter, and the filter defaults
+    // to all six — so an unplaced learner was offered C2 grammar. Masked before
+    // only because placement used to come first.
+    const { store } = await fresh();
+    expect(store.placementLevel()).toBeNull();
+    expect(store.studyLevel()).toBe('A1');
+  });
+
+  it('defers to the placement once there is one', async () => {
+    const { store } = await fresh();
+    store.setPlacementLevel('B2');
+    expect(store.studyLevel()).toBe('B2');
+  });
+
+  it('honours a narrowed filter when unplaced', async () => {
+    const { store } = await fresh();
+    store.setLevels(new Set(['B1', 'B2'] as const));
+    expect(store.studyLevel()).toBe('B1');
+  });
+});

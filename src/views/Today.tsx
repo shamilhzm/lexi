@@ -91,17 +91,22 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
     </div>
   );
 
-  // First-run: one guided hero that chains placement → first session → recap.
-  // Nothing else (no market, no drills) competes for attention.
+  // First-run: one guided hero that chains a ten-card session → recap →
+  // placement. Nothing else (no market, no drills) competes for attention.
   if (firstRun) {
     return (
       <div className="w-full max-w-[920px] mx-auto">
         {greeting}
         <Card as="button" accent onClick={onGuidedStart} pad="none"
           className="w-full text-left px-5 py-6 sm:py-8 hover:brightness-105 transition-[filter]">
-          <Kicker tone="accent" className="flex items-center gap-1.5 mb-2"><GraduationCap size={14} /> Start here · 2 minutes</Kicker>
-          <h2 className="text-xl sm:text-2xl font-bold mb-1.5 mt-2">Find your level, then learn your first words</h2>
-          <p className="text-dim text-base mb-4 max-w-[52ch]">A 2-minute placement, then a short session. Every word you learn comes back tomorrow — that’s the whole system.</p>
+          {/* The promise the app can now keep. This used to say "Start here ·
+              2 minutes / Find your level, then learn your first words", because
+              the placement test came first — two minutes of being tested by an
+              app the learner had not yet seen work. The session is first now, so
+              the hero says what actually happens next. */}
+          <Kicker tone="accent" className="flex items-center gap-1.5 mb-2"><GraduationCap size={14} /> Start here · 1 minute</Kicker>
+          <h2 className="text-xl sm:text-2xl font-bold mb-1.5 mt-2">Learn your first ten German words</h2>
+          <p className="text-dim text-base mb-4 max-w-[52ch]">Ten cards, right now. Every word you learn comes back tomorrow — that’s the whole system. We’ll find your level afterwards.</p>
           <span className={buttonClass('primary', 'sm')}><Play size={13} /> Start</span>
           {/* Said out loud on purpose. The corpus is English-glossed to the last
               card, so a learner whose English is itself a second language pays a
@@ -144,14 +149,25 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
         </Card>
       )}
 
-      {/* Placement nudge for learners who haven’t calibrated yet */}
+      {/* Placement nudge for learners who haven’t calibrated yet.
+          This is now the ordinary path rather than the exception: the first run
+          leads with a session and offers the test from the recap, so anyone who
+          declined it lands here. The copy follows — "New here?" was written for
+          someone who had done nothing, and by the time they read this they have
+          finished a session. */}
       {!placed && (
         <Card as="button" accent pad="none" onClick={onPlacement}
           className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:brightness-110 transition-[filter]">
           <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><GraduationCap size={18} /></span>
           <span className="flex-1">
-            <span className="block text-base font-semibold">New here? Take the 2-minute placement test</span>
-            <span className="block text-xs text-dim">Find your level and skip the words you already know.</span>
+            <span className="block text-base font-semibold">
+              {t.learned > 0 ? 'Two minutes to find your level' : 'New here? Take the 2-minute placement test'}
+            </span>
+            <span className="block text-xs text-dim">
+              {t.learned > 0
+                ? 'Lexi will skip the words you already know and start you where you actually are.'
+                : 'Find your level and skip the words you already know.'}
+            </span>
           </span>
           <Play size={14} className="text-amber flex-shrink-0" />
         </Card>

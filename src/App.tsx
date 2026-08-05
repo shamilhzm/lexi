@@ -119,11 +119,25 @@ export default function App() {
     setExam(true); setView('session');
   };
 
-  // First-run chain: hero → placement → pick topics → an auto-built 10-card session → recap.
-  const startFirstRun = () => { setGuided(true); setView('placement'); };
-  // Onboarded the moment the first session begins: placement and topics are
-  // behind them, so the hero has done its job whether or not they finish.
-  const firstRunSession = () => { setOnboarded(); setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) }); setView('session'); };
+  // First-run chain: hero → an auto-built 10-card session → recap → placement →
+  // pick topics.
+  //
+  // The session used to come *third*, behind a two-minute placement test and a
+  // topic picker, which is a long time to ask of someone who has not yet seen the
+  // thing work. Nothing was gained by the order: `firstRunIds()` sorts by CEFR band
+  // then frequency and the level filter defaults to all six, so a beginner gets the
+  // commonest A1 words with or without a placement. Placement is not skipped, it is
+  // offered from the recap — once the learner has something to calibrate.
+  //
+  // Onboarded the moment the first session begins: the hero has done its job
+  // whether or not they finish, and `Today`'s placement nudge covers anyone who
+  // never takes the test.
+  const startFirstRun = () => {
+    setOnboarded();
+    setGuided(true);
+    setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) });
+    setView('session');
+  };
   const endGuided = () => { setOnboarded(); setGuided(false); setView('today'); };
   /** Blind Spots → the matching practice. Word-drill misses log a mode tag;
    *  grammar misses log the point's own title, which now opens that concept
@@ -152,6 +166,12 @@ export default function App() {
             <Review
               target={target} firstRun={guided} exam={exam}
               onExit={exitSession}
+              // Recap -> placement, written with `replace` so the finished session
+              // is not a Back target. Pressing Back off the placement test would
+              // otherwise land on a bare `#/session`, which rebuilds the queue from
+              // scratch and drops the learner at card 1 of a session they just
+              // finished — on the most fragile learner in the app.
+              onPlacement={() => { location.replace('#/placement'); setView('placement'); }}
               onPick={() => { setProgress({ level: 'decks' }); setView('progress'); }}
               onDrills={() => { setDrillInit(null); setView('library'); }}
             />
@@ -209,7 +229,7 @@ export default function App() {
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
                 {view === 'library' && <Grammar initial={drillInit} />}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}
-                {view === 'interests' && <Interests onDone={firstRunSession} />}
+                {view === 'interests' && <Interests onDone={endGuided} />}
                 {view === 'profile' && <Profile />}
               </ErrorBoundary>
           </div>

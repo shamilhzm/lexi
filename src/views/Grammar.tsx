@@ -16,7 +16,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, ChevronDown, ChevronRight, GraduationCap, Loader2, Play } from 'lucide-react';
-import { levels, placementLevel, pointStats } from '../store.ts';
+import { studyLevel, placementLevel, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
 import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
@@ -78,11 +78,10 @@ function Syllabus({ onRoute }: { onRoute: (r: Route) => void }) {
   // Open the learner’s own level by default. Falling back to the highest level
   // in the filter means someone who skipped placement still lands somewhere
   // meaningful rather than on a wall of collapsed sections.
-  const placed = placementLevel();
-  const filter = levels();
-  const home: CEFR = placed
-    ?? [...ALL_LEVELS].reverse().find((l) => filter.has(l))
-    ?? 'A1';
+  // Was `placed ?? highest-in-filter ?? 'A1'`, which opened the C2 section for
+  // anyone unplaced — now the ordinary state, since the first session comes
+  // before the placement test. See store.studyLevel.
+  const home: CEFR = studyLevel();
   const [open, setOpen] = useState<CEFR | null>(home);
   useEffect(() => { setOpen(home); }, [home]);
 

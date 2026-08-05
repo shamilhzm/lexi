@@ -73,8 +73,10 @@ export function showsGermanDefs(placed: CEFR | null): boolean {
   return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
 }
 
-export default function Review({ target, onExit, onPick, onDrills, firstRun = false, exam = false }:
-  { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void; firstRun?: boolean;
+export default function Review({ target, onExit, onPick, onDrills, onPlacement, firstRun = false, exam = false }:
+  { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void;
+    /** Offered from the first-run recap — see DoneState. */
+    onPlacement?: () => void; firstRun?: boolean;
     /** Exam conditions: no hints, no rules, no "why?" — see NoHelpCtx. */
     exam?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
@@ -378,7 +380,7 @@ export default function Review({ target, onExit, onPick, onDrills, firstRun = fa
     );
   }
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current}
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
     onExit={onExit} onPick={onPick} />;
@@ -928,9 +930,11 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick }:
+function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick, onPlacement }:
   { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
-    composition?: RecapData['composition']; met: Word[]; exam?: boolean; onExit: () => void; onPick: () => void }) {
+    composition?: RecapData['composition']; met: Word[]; exam?: boolean; onExit: () => void; onPick: () => void;
+    /** Offered from the first recap, once there is something to calibrate. */
+    onPlacement?: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
@@ -973,6 +977,21 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
         <PocketList words={met} />
         {firstRun && newLearned > 0 && (
           <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
+        )}
+        {/* Placement, offered here rather than before the session. It used to be
+            the first thing a cold learner met — two minutes of being tested by an
+            app they had not yet seen work. Asking now costs the same two minutes
+            and buys them something they can already picture, and it leads with
+            what they just earned rather than with a test. Only shown while there
+            is no placement; `Today`'s nudge catches anyone who declines. */}
+        {firstRun && onPlacement && !placementLevel() && (
+          <Card accent pad="none" className="px-4 py-3.5 mb-5 text-left">
+            <p className="text-sm mb-2.5">
+              Those {newLearned > 0 ? newLearned : done} are yours. Two minutes more and Lexi
+              skips the words you already know.
+            </p>
+            <Button size="sm" onClick={onPlacement}>Find my level</Button>
+          </Card>
         )}
         <div className="flex gap-2.5 justify-center flex-wrap">
           {!firstRun && <Button variant="secondary" onClick={onPick}>Another deck</Button>}

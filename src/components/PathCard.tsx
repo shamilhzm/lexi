@@ -11,14 +11,14 @@
 // Start-session button below it remains the primary action.
 import { useEffect, useState } from 'react';
 import { BookOpen, ChevronRight, Layers, TrendingDown } from 'lucide-react';
-import { levelStats, placementLevel, levels, weakestSectors, missStats, pointStats } from '../store.ts';
+import { levelStats, studyLevel, weakestSectors, missStats, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { heatText } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import LevelProgress from './LevelProgress.tsx';
 import Card from './ui/Card.tsx';
 import Kicker from './ui/Kicker.tsx';
-import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
+import { type CEFR, type Target } from '../types.ts';
 
 interface NextItem {
   icon: typeof BookOpen;
@@ -33,9 +33,9 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
   onBlind: (tag?: string) => void;
 }) {
   useStore();
-  const placed = placementLevel();
-  const filter = levels();
-  const level: CEFR = placed ?? [...ALL_LEVELS].reverse().find((l) => filter.has(l)) ?? 'A1';
+  // Was `placed ?? highest-in-filter ?? 'A1'`, which resolved to C2 for anyone
+  // unplaced. See store.studyLevel.
+  const level: CEFR = studyLevel();
 
   const stat = levelStats().find((s) => s.level === level);
   const known = stat && stat.count ? stat.known / stat.count : 0;
