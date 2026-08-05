@@ -23,12 +23,12 @@ Planning and strategy live in [`docs/`](docs/). Start with
 
 ## What's inside
 
-- **7,389 cards across all six CEFR levels** (A1 965 · A2 1,802 · B1 2,728 · B2 1,046
-  · C1 617 · C2 231), including **104 grammar points**, merged from open German word
+- **7,394 cards across all six CEFR levels** (A1 965 · A2 1,802 · B1 2,728 · B2 1,051
+  · C1 617 · C2 231), including **109 grammar points**, merged from open German word
   lists and a dictionary-enrichment cache, deduped by level + term.
 - **Every card carries at least two usage examples**, German and English, graded at
   or just below the card's level (`npm run corpus:examples` audits it).
-- **131 authored grammar points · 805 exercises** (A1 20 · A2 32 · B1 40 · B2 16
+- **136 authored grammar points · 835 exercises** (A1 20 · A2 32 · B1 40 · B2 21
   · C1 12 · C2 11), each point carrying a plain-English summary and rule — and, where
   the rule is a list rather than prose, a structured breakdown instead of a paragraph.
 - Cards carry IPA, gloss, gender + plural, synonyms/antonyms, and example sentences
@@ -52,7 +52,7 @@ heatmap and studying a single word.
 - **Today** — what to do now. One **Start session** button, the day's shape, and
   the things that only appear when they apply: a comeback greeting after a gap, a
   backlog burn-down, blind spots that expand inline into one-tap drills. The first
-  run routes through a placement test and a topic picker.
+  run leads with a ten-card session, then offers the placement test and a topic picker.
 - **Progress** — how it is going. The knowledge heatmap (treemap by theme group, area
   = cards, colour = how much you know) drilling into sectors, with a KPI strip, a live
   ticker and a **Markt / Liste** toggle; review and recall history, the 7-day due
@@ -89,7 +89,7 @@ npm install
 npm run dev        # http://localhost:5173/lexi/  (the base path is /lexi/ off Vercel)
 npm run build      # production bundle to dist/
 npm run typecheck  # tsc --noEmit
-npm test           # vitest — 277 tests over the pure logic and the shipped corpus
+npm test           # vitest — 369 tests over the pure logic and the shipped corpus
 npm run lint       # eslint, including jsx-a11y
 ```
 

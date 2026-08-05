@@ -535,6 +535,154 @@ const POINTS: NewPoint[] = [
     ],
   },
 
+  // ---- B2, the layer that was mostly revision -----------------------------
+  // The 2026-08-06 audit found 11 of B2's 16 points re-treading a topic already
+  // taught at A2 or B1 — n-Deklination appears at A2, B1 *and* B2; Genitiv,
+  // Plusquamperfekt, Zweiteilige Konnektoren and Finalsätze each twice under
+  // near-identical titles. B2 contributed roughly four genuinely new points, on
+  // the certificate that gates university admission and many jobs.
+  //
+  // All five below were checked against the whole bank for absence before being
+  // written, which is the discipline the audit exists to enforce. Two other
+  // candidates were dropped for being covered already: the verb-first conditional
+  // ("Hätte ich Zeit, käme ich mit") is in B1's Irreale Konditionalsätze, and
+  // subjective modals are at C1.
+  {
+    level: 'B2', title: 'Adjektive mit fester Präposition',
+    summary: 'stolz auf, interessiert an — the preposition is learned, not derived.',
+    rule: 'Like verbs, many adjectives govern a fixed preposition, and that preposition fixes the case. The pairing is arbitrary and rarely matches English, so the adjective, its preposition and its case are learned as one item.',
+    sections: [
+      { label: 'auf + Akkusativ', pairs: [
+        { from: 'stolz', to: 'stolz auf seine Tochter' },
+        { from: 'gespannt', to: 'gespannt auf den Film' },
+        { from: 'böse', to: 'böse auf den Nachbarn' },
+      ] },
+      { label: 'an + Dativ', pairs: [
+        { from: 'interessiert', to: 'interessiert an Kunst' },
+        { from: 'beteiligt', to: 'beteiligt an dem Projekt' },
+      ] },
+      { label: 'mit / von + Dativ', pairs: [
+        { from: 'zufrieden', to: 'zufrieden mit dem Ergebnis' },
+        { from: 'abhängig', to: 'abhängig von den Eltern' },
+        { from: 'überzeugt', to: 'überzeugt von der Idee' },
+      ] },
+      { label: 'für + Akkusativ', pairs: [
+        { from: 'verantwortlich', to: 'verantwortlich für das Projekt' },
+        { from: 'dankbar', to: 'dankbar für die Hilfe' },
+      ] },
+      { label: 'the trap', body: 'The adjective and its related verb often take different prepositions: interessiert AN etwas, but sich interessieren FÜR etwas.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Sie ist sehr stolz ___ ihre Tochter.', options: ['auf', 'über', 'von'], answer: 0, explain: 'stolz auf + Akkusativ.' },
+      { kind: 'choose', prompt: 'Ich bin ___ Kunst interessiert.', options: ['an', 'für', 'auf'], answer: 0, explain: 'interessiert an + Dativ. The verb sich interessieren takes FÜR — same idea, different preposition.' },
+      { kind: 'choose', prompt: 'Wir sind mit dem Ergebnis ___.', options: ['zufrieden', 'stolz', 'gespannt'], answer: 0, explain: 'Only zufrieden pairs with mit + Dativ.' },
+      { kind: 'type', prompt: 'Er ist verantwortlich ___ das Projekt.', accept: ['für'], explain: 'verantwortlich für + Akkusativ.' },
+      { kind: 'error', prompt: 'Das Kind ist abhängig von seine Eltern.', answer: 5, fix: 'Das Kind ist abhängig von seinen Eltern.', explain: 'abhängig von takes the dative → seinen Eltern.' },
+      { kind: 'mc', prompt: 'Which is correct?', options: ['Ich bin gespannt auf den Film.', 'Ich bin gespannt für den Film.', 'Ich bin gespannt über den Film.'], answer: 0, explain: 'gespannt auf + Akkusativ.' },
+    ],
+  },
+  {
+    level: 'B2', title: 'Zustandspassiv: „ist geschlossen“',
+    summary: 'sein + Partizip II describes a state, not an action.',
+    rule: 'German separates the action from the state it leaves behind. werden + Partizip II reports something happening; sein + Partizip II reports the result that now holds.',
+    sections: [
+      { label: 'action → state', pairs: [
+        { from: 'Die Tür wird geschlossen.', to: 'Die Tür ist geschlossen.' },
+        { from: 'Das Auto wird repariert.', to: 'Das Auto ist repariert.' },
+        { from: 'Der Brief wird geschrieben.', to: 'Der Brief ist geschrieben.' },
+      ] },
+      { label: 'in the past', pairs: [
+        { from: 'wurde geschlossen (it happened)', to: 'war geschlossen (it stood shut)' },
+      ] },
+      { label: 'why it matters', body: 'Choosing sein where werden belongs turns an event into a description. "Das Auto wird repariert" answers "what is happening?"; "Das Auto ist repariert" answers "can I drive it?".' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Vorsicht, die Tür ___ gerade geschlossen!', options: ['wird', 'ist', 'war'], answer: 0, explain: 'Happening now → Vorgangspassiv with werden.' },
+      { kind: 'choose', prompt: 'Das Geschäft ___ seit acht Uhr geöffnet.', options: ['ist', 'wird', 'werden'], answer: 0, explain: 'A state that holds → Zustandspassiv with sein.' },
+      { kind: 'mc', prompt: 'Which reports a state rather than an event?', options: ['Der Brief ist geschrieben.', 'Der Brief wird geschrieben.', 'Der Brief wurde geschrieben.'], answer: 0, explain: 'sein + Partizip II: the letter is written and now exists.' },
+      { kind: 'type', prompt: 'Das Fenster ___ kaputt — jemand hat es gestern zerbrochen. (state, present)', accept: ['ist'], explain: 'The result holds now → sein.' },
+      { kind: 'error', prompt: 'Die Rechnung wird schon bezahlt, du musst nichts mehr tun.', answer: 2, fix: 'Die Rechnung ist schon bezahlt, du musst nichts mehr tun.', explain: '"Nothing left to do" describes the state → ist bezahlt.' },
+      { kind: 'order', prompt: 'Build: „The shop was closed yesterday.“ (state)', tiles: ['Das', 'Geschäft', 'war', 'gestern', 'geschlossen'], explain: 'war + Partizip II is the past of the state.' },
+    ],
+  },
+  {
+    level: 'B2', title: 'Die Stellung von „nicht“',
+    summary: 'Where nicht stands decides what it denies.',
+    rule: 'A1 settles which negator to use — kein for nouns, nicht for everything else. This settles where nicht goes, because its position changes the meaning.',
+    sections: [
+      { label: 'nicht comes before', examples: [
+        { de: 'Ich rufe dich nicht an.', en: 'before a separable prefix' },
+        { de: 'Ich habe nicht geschlafen.', en: 'before an infinitive or Partizip II' },
+        { de: 'Der Kaffee ist nicht heiß.', en: 'before a predicate adjective' },
+        { de: 'Wir fahren nicht nach Berlin.', en: 'before a directional phrase' },
+      ] },
+      { label: 'nicht comes after', examples: [
+        { de: 'Ich kenne ihn nicht.', en: 'after the subject and objects' },
+        { de: 'Er kommt heute nicht.', en: 'after time expressions' },
+      ] },
+      { label: 'Sondernegation', body: 'To deny one element rather than the sentence, nicht stands immediately before it — usually with a correction: Nicht ich habe angerufen, sondern Peter.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Ich rufe dich heute ___ an.', options: ['nicht', 'kein', 'nichts'], answer: 0, explain: 'A verb is negated with nicht, and it sits before the separable prefix.' },
+      { kind: 'order', prompt: 'Build: „I did not read the book.“', tiles: ['Ich', 'habe', 'das', 'Buch', 'nicht', 'gelesen'], explain: 'nicht sits before the Partizip II.' },
+      { kind: 'mc', prompt: 'Which denies only the subject, and invites a correction?', options: ['Nicht ich habe angerufen.', 'Ich habe nicht angerufen.', 'Ich habe niemanden angerufen.'], answer: 0, explain: 'Sondernegation: nicht stands directly before the element it denies.' },
+      { kind: 'type', prompt: 'Wir fahren ___ nach Berlin. (deny the whole sentence)', accept: ['nicht'], explain: 'nicht precedes the directional phrase.' },
+      { kind: 'choose', prompt: 'Er kommt ___ heute, sondern morgen.', options: ['nicht', 'kein', 'nie'], answer: 0, explain: 'Sondernegation on "heute", corrected by sondern.' },
+      { kind: 'choose', prompt: 'Der Kaffee ist ___ heiß.', options: ['nicht', 'kein', 'nichts'], answer: 0, explain: 'nicht precedes the predicate adjective.' },
+    ],
+  },
+  {
+    level: 'B2', title: 'Adversative Konnektoren: dennoch, allerdings, hingegen',
+    summary: 'Four ways to say "but" that are not aber.',
+    rule: 'Written German rarely repeats aber. All four below are adverbs rather than conjunctions — they occupy a position in the clause, so the verb still comes second.',
+    sections: [
+      { label: 'dennoch / trotzdem — concession', examples: [
+        { de: 'Es regnete; dennoch gingen wir spazieren.', en: 'even so' },
+      ] },
+      { label: 'jedoch — contrast', examples: [
+        { de: 'Er wollte kommen, jedoch war er krank.', en: 'position 1, verb second' },
+        { de: 'Er war jedoch krank.', en: 'or inside the clause' },
+      ] },
+      { label: 'allerdings — qualification', examples: [
+        { de: 'Das Hotel war schön, allerdings ziemlich teuer.', en: 'a mild objection to what was just said' },
+      ] },
+      { label: 'hingegen / dagegen — opposition', examples: [
+        { de: 'Berlin ist günstig, München hingegen ist teuer.', en: 'two things set against each other' },
+      ] },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Es regnete stark. ___ gingen wir spazieren.', options: ['Dennoch', 'Denn', 'Sondern'], answer: 0, explain: 'Concession in position 1, verb second.' },
+      { kind: 'choose', prompt: 'Das Hotel war schön, ___ ziemlich teuer.', options: ['allerdings', 'dennoch', 'hingegen'], answer: 0, explain: 'allerdings qualifies what was just said.' },
+      { kind: 'choose', prompt: 'Berlin ist günstig, München ___ ist teuer.', options: ['hingegen', 'trotzdem', 'deshalb'], answer: 0, explain: 'hingegen marks a direct contrast between two things.' },
+      { kind: 'error', prompt: 'Dennoch wir gingen spazieren.', answer: 1, fix: 'Dennoch gingen wir spazieren.', explain: 'dennoch is an adverb in position 1, so the verb must come second.' },
+      { kind: 'order', prompt: 'Build: „He wanted to come; however he was ill.“', tiles: ['Er', 'wollte', 'kommen,', 'jedoch', 'war', 'er', 'krank'], explain: 'jedoch takes position 1 of its clause, verb second.' },
+      { kind: 'mc', prompt: 'Which of these is NOT a conjunction like aber?', options: ['dennoch', 'sondern', 'denn'], answer: 0, explain: 'dennoch is an adverb: it fills a clause position and pushes the verb to second.' },
+    ],
+  },
+  {
+    level: 'B2', title: 'Präpositionalobjekt mit da-Kompositum',
+    summary: 'Ich freue mich darauf, dass du kommst.',
+    rule: 'When a verb with a fixed preposition takes a whole clause as its object, the preposition cannot stand in front of a dass-clause. A da-Kompositum holds its place.',
+    sections: [
+      { label: 'verb + preposition → correlate', pairs: [
+        { from: 'warten auf', to: 'Ich warte darauf, dass er anruft.' },
+        { from: 'sich freuen über', to: 'Ich freue mich darüber, dass du da bist.' },
+        { from: 'denken an', to: 'Ich denke daran, dass du das gesagt hast.' },
+      ] },
+      { label: 'with an infinitive clause', examples: [
+        { de: 'Ich freue mich darauf, dich zu sehen.', en: 'the same correlate introduces zu + Infinitiv' },
+      ] },
+      { label: 'form and question', body: 'Before a vowel the form takes -r-: darauf, darüber, daran, darin. Questions use the wo-form: Worauf wartest du? Dropping the correlate reads as unfinished German.' },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Ich warte ___, dass er endlich anruft.', options: ['darauf', 'auf das', 'darüber'], answer: 0, explain: 'warten auf → the correlate darauf carries the preposition.' },
+      { kind: 'choose', prompt: 'Sie freut sich ___, dich zu sehen.', options: ['darauf', 'darüber', 'davon'], answer: 0, explain: 'sich freuen auf (anticipation) → darauf + infinitive clause.' },
+      { kind: 'type', prompt: '___ wartest du? (ask about the thing)', accept: ['Worauf', 'worauf'], explain: 'The question form of darauf is worauf.' },
+      { kind: 'error', prompt: 'Ich denke oft, dass du das gesagt hast.', answer: 3, fix: 'Ich denke oft daran, dass du das gesagt hast.', explain: 'denken an needs its correlate daran before the dass-clause.' },
+      { kind: 'order', prompt: 'Build: „I am pleased that you are here.“', tiles: ['Ich', 'freue', 'mich', 'darüber,', 'dass', 'du', 'da', 'bist'], explain: 'sich freuen über → darüber holds the preposition’s place.' },
+      { kind: 'mc', prompt: 'Why does „Ich warte auf, dass er kommt“ fail?', options: ['A preposition cannot stand before a dass-clause; it needs the da-form.', 'warten takes the dative.', 'dass must be replaced by ob.'], answer: 0, explain: 'The correlate darauf is what carries the preposition.' },
+    ],
+  },
 ];
 
 function toCard(p: NewPoint): Word {

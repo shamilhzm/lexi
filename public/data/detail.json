@@ -197,6 +197,15 @@
   "gram:B2:Adjektivdeklination": {
     "def": "After “der”: -e (nominative) / -en (most other cases). After “ein”: masc nom -er, neut nom/akk -es. e.g. der gute Mann, ein guter Mann, das neue Auto."
   },
+  "gram:B2:Adjektive mit fester Präposition": {
+    "def": "Like verbs, many adjectives govern a fixed preposition, and that preposition fixes the case. The pairing is arbitrary and rarely matches English, so the adjective, its preposition and its case are learned as one item."
+  },
+  "gram:B2:Adversative Konnektoren: dennoch, allerdings, hingegen": {
+    "def": "Written German rarely repeats aber. All four below are adverbs rather than conjunctions — they occupy a position in the clause, so the verb still comes second."
+  },
+  "gram:B2:Die Stellung von „nicht“": {
+    "def": "A1 settles which negator to use — kein for nouns, nicht for everything else. This settles where nicht goes, because its position changes the meaning."
+  },
   "gram:B2:Finalsätze (um … zu / damit)": {
     "def": "Same subject in both clauses → um + … + zu + Infinitiv. Different subjects → damit + Nebensatz. e.g. Ich lerne, um zu bestehen. Ich erkläre es, damit du es verstehst."
   },
@@ -224,6 +233,9 @@
   "gram:B2:Plusquamperfekt": {
     "def": "For an action completed before another past action: hatte gegessen, war gegangen. Typically with nachdem/bevor. e.g. Nachdem er gegangen war, kam sie."
   },
+  "gram:B2:Präpositionalobjekt mit da-Kompositum": {
+    "def": "When a verb with a fixed preposition takes a whole clause as its object, the preposition cannot stand in front of a dass-clause. A da-Kompositum holds its place."
+  },
   "gram:B2:Relativsätze": {
     "def": "The relative pronoun matches the noun’s gender/number; its case comes from its role in the clause (der/die/das, dative dem/der/denen). e.g. Der Mann, der dort steht. Das Buch, das ich lese."
   },
@@ -235,6 +247,9 @@
   },
   "gram:B2:Verben mit Präpositionen": {
     "def": "Learn verb + preposition + case as one unit: denken an + A, sich interessieren für + A, teilnehmen an + D, abhängen von + D. Questions: Worauf? Woran? — people: Auf wen?"
+  },
+  "gram:B2:Zustandspassiv: „ist geschlossen“": {
+    "def": "German separates the action from the state it leaves behind. werden + Partizip II reports something happening; sein + Partizip II reports the result that now holds."
   },
   "gram:B2:Zweiteilige Konnektoren": {
     "def": "Paired connectors link alternatives and contrasts: entweder…oder (either/or), weder…noch (neither/nor), sowohl…als auch (both/and), je + Komparativ … desto + Komparativ, zwar…aber."
