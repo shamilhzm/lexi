@@ -8,6 +8,7 @@ import { GEX_POINT_ORDER } from './data/gexmap.ts';
 import { gexId } from './lib/grammar.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
+import { logReview, dropLastReview } from './lib/ledger.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
 
@@ -239,6 +240,10 @@ export function review(id: string, grade: Grade) {
   live.set(id, schedule(cur, grade));
   recordVisit();
   bumpReviewLog(grade);
+  // The ledger: what was reviewed, when, and how. `bumpReviewLog` above only keeps
+  // a daily count, which cannot rebuild a card — see lib/ledger.ts. Fire-and-forget
+  // on purpose: a ledger failure must never break a session.
+  logReview(id, grade);
   persistCards();
   emit();
 }
@@ -254,6 +259,10 @@ export function review(id: string, grade: Grade) {
 export function restoreCard(id: string, snap: Card | undefined, wasAgain = false) {
   if (snap) live.set(id, snap); else live.delete(id);
   unbumpReviewLog(wasAgain);
+  // A rewound review did not happen, so it leaves the ledger too — the same
+  // reasoning `unbumpReviewLog` applies to the daily counts, for the same reason:
+  // this app's whole argument is that its numbers are honest.
+  dropLastReview(id);
   persistCards();
   emit();
 }
