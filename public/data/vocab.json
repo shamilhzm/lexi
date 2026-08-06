@@ -156070,11 +156070,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:A2:Perfekt",
+    "id": "gram:A1:Perfekt",
     "term": "Perfekt",
     "en": "Spoken past: haben/sein + past participle.",
     "pos": "grammar",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -156102,11 +156102,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:A2:Modalverben",
+    "id": "gram:A1:Modalverben",
     "term": "Modalverben",
     "en": "können, müssen, wollen, dürfen, sollen, mögen.",
     "pos": "grammar",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -156134,11 +156134,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:A2:Trennbare Verben",
+    "id": "gram:A1:Trennbare Verben",
     "term": "Trennbare Verben",
     "en": "Separable verbs split — the prefix jumps to the end of a main clause.",
     "pos": "grammar",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -156150,11 +156150,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:A2:Imperativ",
+    "id": "gram:A1:Imperativ",
     "term": "Imperativ",
     "en": "Commands. The du-form drops -st and the pronoun.",
     "pos": "grammar",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,

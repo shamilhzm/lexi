@@ -161,5 +161,40 @@ export const ID_MAP: Record<string, string> = {
   "voc:B1:Zuvor": "voc:B1:zuvor",
   "voc:B1:Verstopfen": "voc:B1:verstopfen",
   "voc:B1:Reduzierend": "voc:B1:reduzierend",
-  "voc:B1:Unfähig": "voc:B1:unfähig"
+  "voc:B1:Unfähig": "voc:B1:unfähig",
+
+  // ---- 2026-08-06: four Goethe-A1 topics moved off A2 -----------------------
+  // Modalverben, trennbare Verben, Imperativ and Perfekt are examined by Start
+  // Deutsch 1 but were filed at A2, so the CEFR filter hid them from exactly the
+  // learners who need them. Moving a point changes only the level segment of its
+  // ids now that both `gram:` and `gex:` are keyed on the title, which is what
+  // makes this a flat rename rather than a reconstruction. See corpus:relevel.
+  'gram:A2:Modalverben': 'gram:A1:Modalverben',
+  'gex:A2:Modalverben:0': 'gex:A1:Modalverben:0',
+  'gex:A2:Modalverben:1': 'gex:A1:Modalverben:1',
+  'gex:A2:Modalverben:2': 'gex:A1:Modalverben:2',
+  'gex:A2:Modalverben:3': 'gex:A1:Modalverben:3',
+  'gex:A2:Modalverben:4': 'gex:A1:Modalverben:4',
+  'gex:A2:Modalverben:5': 'gex:A1:Modalverben:5',
+  'gram:A2:Trennbare Verben': 'gram:A1:Trennbare Verben',
+  'gex:A2:Trennbare Verben:0': 'gex:A1:Trennbare Verben:0',
+  'gex:A2:Trennbare Verben:1': 'gex:A1:Trennbare Verben:1',
+  'gex:A2:Trennbare Verben:2': 'gex:A1:Trennbare Verben:2',
+  'gex:A2:Trennbare Verben:3': 'gex:A1:Trennbare Verben:3',
+  'gex:A2:Trennbare Verben:4': 'gex:A1:Trennbare Verben:4',
+  'gex:A2:Trennbare Verben:5': 'gex:A1:Trennbare Verben:5',
+  'gram:A2:Imperativ': 'gram:A1:Imperativ',
+  'gex:A2:Imperativ:0': 'gex:A1:Imperativ:0',
+  'gex:A2:Imperativ:1': 'gex:A1:Imperativ:1',
+  'gex:A2:Imperativ:2': 'gex:A1:Imperativ:2',
+  'gex:A2:Imperativ:3': 'gex:A1:Imperativ:3',
+  'gex:A2:Imperativ:4': 'gex:A1:Imperativ:4',
+  'gex:A2:Imperativ:5': 'gex:A1:Imperativ:5',
+  'gram:A2:Perfekt': 'gram:A1:Perfekt',
+  'gex:A2:Perfekt:0': 'gex:A1:Perfekt:0',
+  'gex:A2:Perfekt:1': 'gex:A1:Perfekt:1',
+  'gex:A2:Perfekt:2': 'gex:A1:Perfekt:2',
+  'gex:A2:Perfekt:3': 'gex:A1:Perfekt:3',
+  'gex:A2:Perfekt:4': 'gex:A1:Perfekt:4',
+  'gex:A2:Perfekt:5': 'gex:A1:Perfekt:5',
 };

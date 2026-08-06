@@ -345,8 +345,8 @@ export type TransformKey = Exclude<TenseKey, 'praesens' | 'pp'>;
 export const TENSE_POINT: Record<TenseKey, string> = {
   praesens:    'gram:A1:Präsens (regelmäßig)',
   praeteritum: 'gram:A2:Präteritum',
-  perfekt:     'gram:A2:Perfekt',
-  pp:          'gram:A2:Perfekt',
+  perfekt:     'gram:A1:Perfekt',
+  pp:          'gram:A1:Perfekt',
   futur1:      'gram:B1:Futur I',
   konjunktiv2: 'gram:B1:Konjunktiv II (würde)',
 };
@@ -613,12 +613,12 @@ export const MODE_TAG: Record<Mode, string> = {
 export const MODE_REMEDY: Record<Mode, string[]> = {
   gender: ['gram:A1:Artikel & Genus', 'gram:A1:Artikelwörter & kein'],
   plural: ['gram:A1:Pluralbildung (die Nomen im Plural)'],
-  conj: ['gram:A1:Präsens (regelmäßig)', 'gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Konjunktiv II (würde)'],
+  conj: ['gram:A1:Präsens (regelmäßig)', 'gram:A1:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Konjunktiv II (würde)'],
   cloze: [], // vocabulary-in-context, not a structural system
   order: ['gram:A1:Wortstellung & Fragen', 'gram:C1:TeKaMoLo & Satzklammer'],
-  transform: ['gram:A2:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
+  transform: ['gram:A1:Perfekt', 'gram:A2:Präteritum', 'gram:B1:Futur I', 'gram:B1:Konjunktiv II (würde)'],
   case: ['gram:A2:Akkusativ', 'gram:A2:Präpositionen mit Dativ (aus, bei, mit, nach, seit, von, zu)', 'gram:A2:Adjektivdeklination: nach bestimmtem Artikel (schwach)', 'gram:B1:Genitiv'],
-  separable: ['gram:A2:Trennbare Verben'],
+  separable: ['gram:A1:Trennbare Verben'],
   reflexive: ['gram:A2:Reflexive Verben'],
   // Spelling from sound isn't one grammatical system, so there is no rule to open.
   dictation: [],

@@ -1482,78 +1482,6 @@
           ]
         }
       ]
-    }
-  ],
-  "A2": [
-    {
-      "title": "Perfekt",
-      "summary": "Spoken past: haben/sein + past participle.",
-      "rule": "Most verbs use haben; verbs of motion or change of state use sein. Participle: ge-…-t (regular), ge-…-en (irregular). e.g. Ich habe gespielt. Ich bin gegangen.",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "Ich ___ gestern Fußball gespielt.",
-          "options": [
-            "habe",
-            "bin",
-            "hat"
-          ],
-          "answer": 0,
-          "explain": "spielen → haben."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ___ nach Hause gegangen.",
-          "options": [
-            "hat",
-            "ist",
-            "haben"
-          ],
-          "answer": 1,
-          "explain": "gehen (motion) → sein."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich ___ gestern Pizza gegessen.",
-          "options": [
-            "habe",
-            "bin",
-            "hatte"
-          ],
-          "answer": 0,
-          "explain": "essen → haben."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ___ nach Hause gegangen.",
-          "options": [
-            "ist",
-            "hat",
-            "wird"
-          ],
-          "answer": 0,
-          "explain": "movement → sein."
-        },
-        {
-          "kind": "type",
-          "prompt": "Wir haben den Film ___. (sehen)",
-          "accept": [
-            "gesehen"
-          ],
-          "explain": "Partizip II: ge- + seh + -en."
-        },
-        {
-          "kind": "order",
-          "prompt": "Build the Perfekt sentence:",
-          "tiles": [
-            "Er",
-            "hat",
-            "lange",
-            "gearbeitet"
-          ],
-          "explain": "haben pos 2, Partizip at the end."
-        }
-      ]
     },
     {
       "title": "Modalverben",
@@ -1619,72 +1547,6 @@
           "answer": 3,
           "fix": "Er kann gut schwimmen.",
           "explain": "Modal + Infinitiv."
-        }
-      ]
-    },
-    {
-      "title": "Akkusativ",
-      "summary": "Direct-object case — only the masculine article changes.",
-      "rule": "der → den, ein → einen (masculine). die / das / eine stay the same. e.g. Ich sehe den Mann, die Frau, das Kind.",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "Ich kaufe ___ Apfel.",
-          "options": [
-            "der",
-            "den",
-            "dem"
-          ],
-          "answer": 1,
-          "explain": "Akkusativ masc → den."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie liest ___ Buch.",
-          "options": [
-            "das",
-            "dem",
-            "den"
-          ],
-          "answer": 0,
-          "explain": "das (neuter) is unchanged in the accusative."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich nehme ___ Bus.",
-          "options": [
-            "den",
-            "der",
-            "dem"
-          ],
-          "answer": 0,
-          "explain": "masculine Akkusativ → den."
-        },
-        {
-          "kind": "type",
-          "prompt": "Sie hat ___ Hund. (ein, masc)",
-          "accept": [
-            "einen"
-          ],
-          "explain": "Akkusativ → einen."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Geschenk ist für ___ Lehrer.",
-          "options": [
-            "den",
-            "dem",
-            "der"
-          ],
-          "answer": 0,
-          "explain": "für + Akkusativ."
-        },
-        {
-          "kind": "error",
-          "prompt": "Ich besuche der Markt am Samstag.",
-          "answer": 2,
-          "fix": "Ich besuche den Markt am Samstag.",
-          "explain": "besuchen + Akkusativ → den."
         }
       ]
     },
@@ -1821,6 +1683,144 @@
           "answer": 0,
           "fix": "Lies das Buch bis morgen!",
           "explain": "du-Imperativ of lesen → Lies."
+        }
+      ]
+    },
+    {
+      "title": "Perfekt",
+      "summary": "Spoken past: haben/sein + past participle.",
+      "rule": "Most verbs use haben; verbs of motion or change of state use sein. Participle: ge-…-t (regular), ge-…-en (irregular). e.g. Ich habe gespielt. Ich bin gegangen.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ gestern Fußball gespielt.",
+          "options": [
+            "habe",
+            "bin",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "spielen → haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ nach Hause gegangen.",
+          "options": [
+            "hat",
+            "ist",
+            "haben"
+          ],
+          "answer": 1,
+          "explain": "gehen (motion) → sein."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ gestern Pizza gegessen.",
+          "options": [
+            "habe",
+            "bin",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "essen → haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ nach Hause gegangen.",
+          "options": [
+            "ist",
+            "hat",
+            "wird"
+          ],
+          "answer": 0,
+          "explain": "movement → sein."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wir haben den Film ___. (sehen)",
+          "accept": [
+            "gesehen"
+          ],
+          "explain": "Partizip II: ge- + seh + -en."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build the Perfekt sentence:",
+          "tiles": [
+            "Er",
+            "hat",
+            "lange",
+            "gearbeitet"
+          ],
+          "explain": "haben pos 2, Partizip at the end."
+        }
+      ]
+    }
+  ],
+  "A2": [
+    {
+      "title": "Akkusativ",
+      "summary": "Direct-object case — only the masculine article changes.",
+      "rule": "der → den, ein → einen (masculine). die / das / eine stay the same. e.g. Ich sehe den Mann, die Frau, das Kind.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Ich kaufe ___ Apfel.",
+          "options": [
+            "der",
+            "den",
+            "dem"
+          ],
+          "answer": 1,
+          "explain": "Akkusativ masc → den."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie liest ___ Buch.",
+          "options": [
+            "das",
+            "dem",
+            "den"
+          ],
+          "answer": 0,
+          "explain": "das (neuter) is unchanged in the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich nehme ___ Bus.",
+          "options": [
+            "den",
+            "der",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "masculine Akkusativ → den."
+        },
+        {
+          "kind": "type",
+          "prompt": "Sie hat ___ Hund. (ein, masc)",
+          "accept": [
+            "einen"
+          ],
+          "explain": "Akkusativ → einen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Geschenk ist für ___ Lehrer.",
+          "options": [
+            "den",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "für + Akkusativ."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich besuche der Markt am Samstag.",
+          "answer": 2,
+          "fix": "Ich besuche den Markt am Samstag.",
+          "explain": "besuchen + Akkusativ → den."
         }
       ]
     },

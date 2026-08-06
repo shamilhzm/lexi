@@ -26,6 +26,7 @@
     "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
     "corpus:flags": "node scripts/corpus/flags.ts",
+    "corpus:relevel": "node scripts/corpus/relevel.ts",
     "corpus:posfix": "node scripts/corpus/posfix.ts",
     "corpus:split": "node scripts/corpus/split.ts",
     "corpus:audit": "node scripts/corpus/audit.ts",

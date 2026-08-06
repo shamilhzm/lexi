@@ -8,6 +8,12 @@
   "gram:A1:Der Verbstamm": {
     "def": "Almost every verb form is built from the Verbstamm: take the infinitive and drop -en (spielen → spiel-) or just -n if it ends in a vowel + n (sammeln → sammel-, lächeln → lächel-). Add endings to that stem: spiel- + -st = spielst. Stem-changing verbs (fahren → du fährst, sehen → du siehst) still start from the same stem you read off the infinitive — only the vowel shifts in du/er-sie-es."
   },
+  "gram:A1:Imperativ": {
+    "def": "du: Mach! Geh! Mahl(e)! · ihr: Macht! · Sie: Machen Sie! · sein → Sei! / Seien Sie!"
+  },
+  "gram:A1:Modalverben": {
+    "def": "The modal is conjugated in position 2; the main verb goes to the end as an infinitive. e.g. Ich kann gut schwimmen. Du musst jetzt gehen."
+  },
   "gram:A1:Negation: nicht vs. kein": {
     "def": "Use kein to negate a noun that would take ein or no article: Ich habe kein Auto. kein declines like ein/mein: keinen (m. acc.), keinem/keiner (dat.), keine (pl.). Use nicht for verbs, adjectives or definite nouns: Ich kenne ihn nicht."
   },
@@ -19,6 +25,9 @@
   },
   "gram:A1:Partikeln: denn, ja, doch, mal": {
     "def": "denn softens questions (Was machst du denn?). ja marks shared surprise (Das ist ja toll!). doch + mal make requests friendly (Komm doch mal vorbei!). They never take stress and never change the facts."
+  },
+  "gram:A1:Perfekt": {
+    "def": "Most verbs use haben; verbs of motion or change of state use sein. Participle: ge-…-t (regular), ge-…-en (irregular). e.g. Ich habe gespielt. Ich bin gegangen."
   },
   "gram:A1:Personalpronomen (Akkusativ)": {
     "def": "Direct objects use the accusative pronouns: ich → mich, du → dich, er → ihn, sie → sie, es → es, wir → uns, ihr → euch. e.g. Ich sehe ihn morgen."
@@ -46,6 +55,9 @@
   },
   "gram:A1:Richtungsangaben & Indefinitpronomen": {
     "def": "Directions: zu + Dativ for people/places (zum Bahnhof, zur Post), nach for cities/countries (nach Bern), in + Akkusativ to go inside (ins Museum). Indefinite: man (people in general), etwas/nichts, alle."
+  },
+  "gram:A1:Trennbare Verben": {
+    "def": "aufstehen → ich stehe … auf; ankommen → er kommt … an; einkaufen → wir kaufen … ein. In a subordinate clause they rejoin: …, weil ich früh aufstehe."
   },
   "gram:A1:Verben mit Vokalwechsel": {
     "def": "Only du and er/sie/es change: a → ä (fahren → fährt, schlafen → schläft), e → i/ie (essen → isst, sehen → sieht, lesen → liest, nehmen → nimmt). ich/wir/ihr/sie stay regular."
@@ -80,23 +92,14 @@
   "gram:A2:Hilfsverben & Partizip II ohne ge-": {
     "def": "haben/sein are the Hilfsverben (auxiliaries) that carry the person/tense in Perfekt; the main verb sits at the end as Partizip II. Most participles take ge-…-(e)t/-en (gespielt, gegangen) — but verbs with an unstressed prefix (be-, ge-, er-, ver-, zer-, ent-, emp-) never add ge-: besuchen → besucht, verstehen → verstanden, erzählen → erzählt. Verbs ending in -ieren also skip ge-: studieren → studiert."
   },
-  "gram:A2:Imperativ": {
-    "def": "du: Mach! Geh! Mahl(e)! · ihr: Macht! · Sie: Machen Sie! · sein → Sei! / Seien Sie!"
-  },
   "gram:A2:Indirekte Fragesätze": {
     "def": "W-questions keep their W-word: Wissen Sie, wann der Zug fährt? Yes/no questions use ob: Ich weiß nicht, ob er kommt. The verb moves to the end of the embedded clause."
-  },
-  "gram:A2:Modalverben": {
-    "def": "The modal is conjugated in position 2; the main verb goes to the end as an infinitive. e.g. Ich kann gut schwimmen. Du musst jetzt gehen."
   },
   "gram:A2:Nebensätze: wenn & als": {
     "def": "als for one completed past event (Als ich 18 war, …). wenn for repetition (immer wenn) and for present/future conditions (Wenn es regnet, bleiben wir hier). Verb goes to the end in both."
   },
   "gram:A2:Nullartikel: wann kein Artikel steht": {
     "def": "German drops the article where English often keeps one: after sein/werden/bleiben with a profession, nationality or religion — Sie ist Ärztin, Er wird Lehrer; with uncountable or abstract nouns used generally — Ich trinke Wasser, Zeit ist Geld, Sie hat Geduld; with most countries, cities and languages — Ich lerne Deutsch, Er wohnt in Deutschland; and in set phrases — zu Fuß, nach Hause, mit Freunden. Keep the article when the noun is specific: Der Kaffee hier ist gut."
-  },
-  "gram:A2:Perfekt": {
-    "def": "Most verbs use haben; verbs of motion or change of state use sein. Participle: ge-…-t (regular), ge-…-en (irregular). e.g. Ich habe gespielt. Ich bin gegangen."
   },
   "gram:A2:Personalpronomen (Akkusativ & Dativ)": {
     "def": "Accusative pronouns: mich, dich, ihn, sie, es, uns, euch, sie/Sie. Dative pronouns: mir, dir, ihm, ihr, ihm, uns, euch, ihnen/Ihnen. Some verbs (helfen, danken, gefallen) take the dative. With two objects, a pronoun comes before a noun."
@@ -112,9 +115,6 @@
   },
   "gram:A2:Temporalsätze: seit(dem) & bis": {
     "def": "seit(dem) marks the starting point of something still true: Seitdem ich in Köln wohne, fahre ich Rad. bis marks the end point: Ich warte, bis du kommst. Verb at the end of the clause."
-  },
-  "gram:A2:Trennbare Verben": {
-    "def": "aufstehen → ich stehe … auf; ankommen → er kommt … an; einkaufen → wir kaufen … ein. In a subordinate clause they rejoin: …, weil ich früh aufstehe."
   },
   "gram:A2:Vergleiche: so … wie / als": {
     "def": "so/genauso + Adjektiv + wie for equality (Köln ist so schön wie Bonn); nicht so … wie for inequality from below; comparative + als for difference (Berlin ist größer als Köln). Never „wie\" after a comparative."

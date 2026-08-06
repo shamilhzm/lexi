@@ -11,7 +11,22 @@ import { ID_MAP } from './data/idmap.ts';
 import type { Word } from './types.ts';
 
 const vocab: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
-const ids = new Set(vocab.map((w) => w.id));
+const grammar: Record<string, { title: string; exercises: unknown[] }[]> =
+  JSON.parse(readFileSync('public/data/grammar.json', 'utf8'));
+
+/** Every id the app can legitimately schedule a card under.
+ *
+ *  Not just `vocab.json`: exercise cards (`gex:<level>:<title>:<xi>`) are minted
+ *  from the grammar bank and never appear in the corpus, so a guard that only knew
+ *  about vocab reported all 24 of the 2026-08-06 level-move entries as dangling.
+ *  The map is allowed to retire a grammar exercise, so the guard has to know where
+ *  those live. */
+const ids = new Set<string>(vocab.map((w) => w.id));
+for (const [level, points] of Object.entries(grammar)) {
+  for (const p of points) {
+    for (let xi = 0; xi < p.exercises.length; xi++) ids.add(`gex:${level}:${p.title}:${xi}`);
+  }
+}
 
 /** Mirrors store.ts. Kept local rather than exported: the debounce is an internal
  *  scheduling detail, and the test only needs to outwait it. */

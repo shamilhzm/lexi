@@ -28,7 +28,7 @@ Planning and strategy live in [`docs/`](docs/). Start with
   lists and a dictionary-enrichment cache, deduped by level + term.
 - **Every card carries at least two usage examples**, German and English, graded at
   or just below the card's level (`npm run corpus:examples` audits it).
-- **136 authored grammar points · 835 exercises** (A1 20 · A2 32 · B1 40 · B2 21
+- **136 authored grammar points · 835 exercises** (A1 24 · A2 28 · B1 40 · B2 21
   · C1 12 · C2 11), each point carrying a plain-English summary and rule — and, where
   the rule is a list rather than prose, a structured breakdown instead of a paragraph.
 - Cards carry IPA, gloss, gender + plural, synonyms/antonyms, and example sentences
