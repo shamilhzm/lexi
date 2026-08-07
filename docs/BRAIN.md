@@ -164,6 +164,22 @@ It is fetched **only when the room is opened** — never on Today's first paint,
 where the hero keeps the cheap procedural cloud. A 0.6MB surface has no business
 on the boot path for a 210px strip that would downscale the detail away.
 
+### Why the shell is alpha-blended
+
+Everything else in the scene is additive, which is right for points of light.
+The cortical surface is not a point of light, and rendering it additively cost
+three revisions to work out: under `ONE, ONE` a fragment that shades to black
+adds nothing, so the darkest parts of the cortex become windows onto the
+background. The interhemispheric fissure — a real canyon that 2% of the surface
+sits inside — read as a tear across the top of the brain, and each fix was a
+floor on how dark the surface was allowed to go.
+
+That trade is backwards for an organ whose character is deep shadowed grooves.
+Alpha blending lets dark be dark and makes the silhouette solid by construction;
+translucency comes from the alpha channel instead, low face-on and opaque at the
+rim. The cost is that alpha blending is order-dependent, so the scene draws in
+three explicit passes — depth, interior, shell — rather than trusting a sort.
+
 ### The procedural hull, which is still here
 
 `src/lib/brain/geometry.ts` still builds an approximate brain from five deformed

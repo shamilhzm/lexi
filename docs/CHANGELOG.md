@@ -184,6 +184,20 @@ changed because the learner did something animates from its old value.**
   not a shadow here, it is a hole. Every fragment now emits a floor, and the
   cavity darkening stops well short of black.
 
+- **The shell is alpha-blended now, not additive — the fix the holes actually
+  needed.** Under `ONE, ONE` a fragment that shades to black contributes
+  nothing, so the darkest cortex became a window onto the void; the fissure read
+  as a tear and every patch was a floor on how dark the surface was allowed to
+  get. That is the wrong trade for an organ whose character *is* deep shadowed
+  grooves. Alpha blending inverts it: dark is dark, because the fragment still
+  replaces its share of what is behind it, and the silhouette is solid by
+  construction. Translucency moved to the alpha channel — low face-on so the
+  words read through, rising to opaque at grazing angles, which is how glass
+  behaves and what makes a rim a rim. Three ordered passes: depth only, then the
+  interior (words and tracts), then the shell over the top. Alpha blending is
+  order-dependent, so the order is stated in `renderOrder` rather than left to
+  the sort. Cavity darkening went back up now that it cannot punch through.
+
 - **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
   including the joins worth arguing about (Work → TPJ is the loosest). The surface
   itself carries a standing, non-dismissible line: *a map of the published

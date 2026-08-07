@@ -143,14 +143,27 @@ const FRAG = /* glsl */ `
 `;
 
 
-// The cortical shell.
+// The cortical shell — a translucent *surface*, alpha-blended.
 //
-// Additive *with* depth writing, which is the combination that makes this read
-// as an object rather than a fog: the nearest fragment writes depth, so the far
-// half of the cortex is rejected instead of shining through the near half —
-// while the surface still adds light rather than occluding it, which is what
-// gives the glass. The word-neurons then draw with `depthTest: false` and glow
-// straight through it, exactly as they should: they are *inside* the brain.
+// It was additive for three revisions, and additive is why the fissure kept
+// reading as a hole: under `ONE, ONE` a fragment that shades to black
+// contributes nothing, so the darkest parts of the cortex became windows onto
+// the void. Every fix for that was a floor on the darkness — which is to say,
+// a refusal to let the surface be dark. That is the wrong trade for an organ
+// whose whole character is deep shadowed grooves.
+//
+// Alpha blending inverts the relationship. Dark is now *dark*, because the
+// fragment still replaces its share of what is behind it, and the silhouette is
+// solid by construction. Translucency comes from the alpha channel instead:
+// low face-on, so the words inside show through, rising to opaque at grazing
+// angles, which is exactly how glass behaves and what makes a rim read as a rim.
+//
+// Three passes, in this order:
+//   1. depth only    — establishes the nearest front surface
+//   2. words, tracts — the interior, depth-test off
+//   3. the shell     — alpha over the interior, at the pre-pass depth only
+// Alpha blending is order-dependent, so the order is stated in `renderOrder`
+// rather than left to whatever the sort happens to produce.
 const SHELL_VERT = /* glsl */ `
   attribute float aCurv;            // + inside a sulcus, - on a gyral crown
   varying vec3 vNormal;
@@ -170,56 +183,46 @@ const SHELL_VERT = /* glsl */ `
 const SHELL_FRAG = /* glsl */ `
   uniform vec3 uTint;
   uniform vec3 uRim;
-  uniform float uOpacity;
+  uniform float uBase;        // opacity face-on; the edges go to 1
   varying vec3 vNormal;
   varying vec3 vView;
   varying float vHeight;
   varying float vCurv;
   void main() {
-    float facing = abs(dot(normalize(vNormal), normalize(vView)));
-
-    // Fresnel: a real surface goes bright where it turns away from you, and it
-    // is most of why glass looks like glass.
-    float fres = pow(1.0 - facing, 2.6);
+    vec3 n = normalize(vNormal);
+    float facing = abs(dot(n, normalize(vView)));
+    float fres = pow(1.0 - facing, 2.4);
 
     vec3 key = normalize(vec3(-0.45, 0.75, 0.5));
-    float lambert = max(0.0, dot(normalize(vNormal), key));
+    float lambert = max(0.0, dot(n, key));
 
-    // Gyral relief. Diffuse alone renders the folds as a soft gradient; the
-    // specular term is what puts a hard edge on each gyral crown, and hard
-    // edges are the whole difference between "detailed" and "fuzzy".
     // Not named 'half': that is reserved in GLSL ES.
     vec3 hv = normalize(key + normalize(vView));
-    float spec = pow(max(0.0, dot(normalize(vNormal), hv)), 34.0);
+    float spec = pow(max(0.0, dot(n, hv)), 34.0);
 
-    // Cavity shading. This is what makes the folds read as folds: lighting alone
-    // gives a sulcus and a crown nearly the same value, because the bottom of a
-    // groove still faces roughly outward. Every cortical render darkens by
-    // curvature instead, and so does this one.
-    float cavity = smoothstep(0.06, -0.10, vCurv);        // 1 on a crown, 0 in a groove
-    float groove = 0.46 + 0.54 * cavity;
+    // Cavity shading. Lighting alone gives a sulcus and a crown nearly the same
+    // value, because the floor of a groove still faces roughly outward; every
+    // cortical render darkens by curvature instead. It can go properly dark now
+    // without punching a hole, which is the entire point of this pass.
+    float cavity = smoothstep(0.06, -0.10, vCurv);   // 1 on a crown, 0 in a groove
+    float groove = 0.16 + 0.84 * cavity;
 
-    float body = 0.14 + 0.50 * lambert;
-    vec3 col = uTint * body * groove
-             + uRim * fres * 0.72 * (0.45 + 0.55 * cavity)
-             + vec3(0.55, 0.78, 0.95) * spec * 0.62 * cavity;
-
-    // A floor the surface can never go under.
-    //
-    // This shell is additive, so a fragment that shades to black contributes
-    // nothing and the void shows straight through it — a dark patch is not a
-    // shadow here, it is a hole. The interhemispheric fissure is a genuinely
-    // deep canyon 2% of the surface sits inside, and with aggressive cavity
-    // darkening it read as a tear across the top of the brain. Every part of
-    // the cortex now emits *something*.
-    col += uTint * 0.13;
+    vec3 col = uTint * (0.22 + 0.78 * lambert) * groove
+             + uRim * fres * 0.55
+             + vec3(0.62, 0.82, 1.0) * spec * 0.7 * cavity;
 
     // The underside sits in shadow, so the brain has a top and a bottom.
-    col *= 0.72 + 0.28 * smoothstep(-70.0, 40.0, vHeight);
+    col *= 0.74 + 0.26 * smoothstep(-70.0, 40.0, vHeight);
 
-    gl_FragColor = vec4(col * uOpacity, 1.0);
+    // Translucent face-on so the lexicon reads through it, opaque at the rim so
+    // the silhouette is solid. A groove is slightly more opaque than a crown —
+    // you are looking through more tissue to see into it.
+    float alpha = clamp(uBase + (1.0 - uBase) * fres + (1.0 - cavity) * 0.10, 0.0, 1.0);
+
+    gl_FragColor = vec4(col, alpha);
   }
 `;
+
 
 
 // The pathways.
@@ -388,7 +391,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   });
   const tracts = new THREE.LineSegments(buildTracts(), tractMat);
   tracts.frustumCulled = false;
-  tracts.renderOrder = 1;
+  tracts.renderOrder = -1;
   rig.add(tracts);
 
   let shell: THREE.Mesh | null = null;
@@ -423,12 +426,12 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
     vertexShader: SHELL_VERT,
     fragmentShader: SHELL_FRAG,
     uniforms: {
-      uTint: { value: new THREE.Vector3(0.085, 0.225, 0.35) },
-      uRim: { value: new THREE.Vector3(0.30, 0.62, 0.86) },
-      uOpacity: { value: 1.0 },
+      uTint: { value: new THREE.Vector3(0.34, 0.62, 0.82) },
+      uRim: { value: new THREE.Vector3(0.55, 0.82, 1.0) },
+      uBase: { value: 0.14 },
     },
     transparent: true,
-    blending: THREE.AdditiveBlending,
+    blending: THREE.NormalBlending,
     depthWrite: false,
     depthTest: true,
     // Only fragments at the depth the pre-pass established get through. Same
@@ -449,17 +452,18 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       // Tuned down when the words were sixteen dense blobs that blew out
       // against the shell. Spread across their territories they barely overlap,
       // so the dimming was buying nothing and costing every individual dot.
-      lexMat.uniforms.uGain.value = 0.72;
+      lexMat.uniforms.uGain.value = 1.15;
       lexMat.uniforms.uSize.value = mode === 'hero' ? 4.6 : 5.4;
 
       shellDepth = new THREE.Mesh(g, depthMat);
       shellDepth.frustumCulled = false;
-      shellDepth.renderOrder = -2;   // depth first
+      shellDepth.renderOrder = -3;   // depth first
       rig.add(shellDepth);
 
       shell = new THREE.Mesh(g, shellMat);
       shell.frustumCulled = false;
-      shell.renderOrder = -1;        // then colour, against that depth
+      // Last, so it veils the words and tracts drawn beneath it.
+      shell.renderOrder = 2;
       rig.add(shell);
 
       // The real surface replaces the procedural cloud rather than sitting
@@ -524,6 +528,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
         lexGeom.setAttribute('aCurv', new THREE.BufferAttribute(new Float32Array(n), 1));
         lexPts = new THREE.Points(lexGeom, lexMat);
         lexPts.frustumCulled = false;
+        lexPts.renderOrder = -2;
         rig.add(lexPts);
       } else {
         (posAttr!.array as Float32Array).set(positions);
