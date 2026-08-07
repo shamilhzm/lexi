@@ -22,6 +22,9 @@ export interface BrainMesh {
   /** Unit normals, derived here rather than shipped: one pass over the
    *  triangles costs a few milliseconds and saved a quarter of the file. */
   normal: Float32Array;
+  /** Signed concavity per vertex: positive inside a sulcus, negative on a gyral
+   *  crown. Also derived here — it falls out of the same neighbour walk. */
+  curvature: Float32Array;
   index: Uint16Array | Uint32Array;
   vertexCount: number;
   triangleCount: number;
@@ -45,6 +48,49 @@ function computeNormals(position: Float32Array, index: Uint16Array | Uint32Array
   return normal;
 }
 
+/**
+ * Signed concavity per vertex — what makes the folds read as folds.
+ *
+ * Lighting from normals alone gives a sulcus and a gyral crown almost the same
+ * value, because at the bottom of a groove the surface is still facing roughly
+ * outward. Real cortical renders darken the sulci, and they do it from
+ * *curvature*, not from light.
+ *
+ * The measure is the mean neighbour offset resolved along the normal. On a
+ * convex crown the neighbours sit below the tangent plane (negative); inside a
+ * concave groove they sit above it (positive). It is a discrete mean curvature,
+ * and it costs one more walk over the triangles we are already walking.
+ */
+function computeCurvature(
+  position: Float32Array,
+  normal: Float32Array,
+  index: Uint16Array | Uint32Array,
+): Float32Array {
+  const n = position.length / 3;
+  const sum = new Float32Array(position.length);
+  const deg = new Float32Array(n);
+
+  for (let t = 0; t < index.length; t += 3) {
+    for (let e = 0; e < 3; e++) {
+      const a = index[t + e], b = index[t + ((e + 1) % 3)];
+      sum[a * 3] += position[b * 3]; sum[a * 3 + 1] += position[b * 3 + 1]; sum[a * 3 + 2] += position[b * 3 + 2];
+      deg[a]++;
+      sum[b * 3] += position[a * 3]; sum[b * 3 + 1] += position[a * 3 + 1]; sum[b * 3 + 2] += position[a * 3 + 2];
+      deg[b]++;
+    }
+  }
+
+  const curv = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    if (!deg[i]) continue;
+    const dx = sum[i * 3] / deg[i] - position[i * 3];
+    const dy = sum[i * 3 + 1] / deg[i] - position[i * 3 + 1];
+    const dz = sum[i * 3 + 2] / deg[i] - position[i * 3 + 2];
+    curv[i] = dx * normal[i * 3] + dy * normal[i * 3 + 1] + dz * normal[i * 3 + 2];
+  }
+  return curv;
+}
+
 export function parseBrainMesh(buf: ArrayBuffer): BrainMesh {
   const head = new Int32Array(buf, 0, 5);
   if (head[0] !== MAGIC) throw new Error('brain-mesh.bin: bad magic');
@@ -65,7 +111,9 @@ export function parseBrainMesh(buf: ArrayBuffer): BrainMesh {
     ? new Uint16Array(buf.slice(off, off + idxLen * 2))
     : new Uint32Array(buf.slice(off, off + idxLen * 4));
 
-  return { position, normal: computeNormals(position, index), index, vertexCount, triangleCount };
+  const normal = computeNormals(position, index);
+  const curvature = computeCurvature(position, normal, index);
+  return { position, normal, curvature, index, vertexCount, triangleCount };
 }
 
 let inflight: Promise<BrainMesh | null> | null = null;

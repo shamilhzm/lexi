@@ -12,7 +12,7 @@
 // `Math.random`. Two devices showing the same progress must draw the same brain,
 // and a corpus rebuild that reorders `cards.json` must not shuffle the sky.
 import { REGION_BY_ID, HIPPOCAMPUS, RESIDUAL, regionForCardId, REGIONS } from './atlas.ts';
-import { clampInside, projectToShell, type Vec3 } from './geometry.ts';
+import { clampInside, projectToShell, sampleSurface, type Vec3 } from './geometry.ts';
 import { hashString, mulberry32 } from './noise.ts';
 import { consolidation, smoothstep } from './consolidation.ts';
 import type { Word } from '../../types.ts';
@@ -24,6 +24,53 @@ function jitter(rnd: () => number, scale: number): number {
   return (rnd() + rnd() + rnd() - 1.5) * scale;
 }
 
+// ---- cortical territories -------------------------------------------------
+//
+// A region is an *area of cortex*, not a point. Seating every word in a small
+// gaussian around one MNI coordinate packed 7,394 words into sixteen dots and
+// left the rest of the brain dark — which is both a poor picture and the less
+// accurate one: Huth et al. (2016) found semantic categories *tiling* the
+// cortex, continuously and bilaterally, not clustering at a handful of peaks.
+//
+// So each surface region takes the patch of cortex closer to its coordinate than
+// to any other: a Voronoi partition of the shell. Every point on the surface
+// belongs to exactly one region, so a full lexicon covers the whole cortex, and
+// the coordinates still decide which colour goes where.
+//
+// Deep structures — the hippocampus, amygdala, insula, caudate — keep the
+// gaussian. They are small nuclei buried in the volume, and giving them surface
+// territory would be the inaccurate thing.
+
+const TERRITORY_POINTS = 12000;
+
+/** Region id + hemisphere → a flat list of xyz on the cortical shell. */
+let territories: Map<string, number[]> | null = null;
+
+function getTerritories(): Map<string, number[]> {
+  if (territories) return territories;
+  const surface = REGIONS.filter((r) => r.depth === 'surface');
+  const cloud = sampleSurface(TERRITORY_POINTS, 11);
+  const out = new Map<string, number[]>();
+
+  for (let i = 0; i < cloud.count; i++) {
+    const x = cloud.position[i * 3], y = cloud.position[i * 3 + 1], z = cloud.position[i * 3 + 2];
+    let best = RESIDUAL, bestD = Infinity;
+    for (const r of surface) {
+      // The atlas quotes the left hemisphere; mirror it for points on the right.
+      const cx = x < 0 ? r.mni[0] : -r.mni[0];
+      const d = (x - cx) ** 2 + (y - r.mni[1]) ** 2 + (z - r.mni[2]) ** 2;
+      if (d < bestD) { bestD = d; best = r.id; }
+    }
+    const key = best + (x < 0 ? 'L' : 'R');
+    let bucket = out.get(key);
+    if (!bucket) { bucket = []; out.set(key, bucket); }
+    bucket.push(x, y, z);
+  }
+
+  territories = out;
+  return out;
+}
+
 /** A seat inside a region. `left` is carried in rather than drawn here so a
  *  word's hippocampal origin and its cortical home land in the same hemisphere
  *  — a word does not cross the midline as it consolidates. */
@@ -31,6 +78,23 @@ export function siteFor(regionId: string, left: boolean, seed: number): Vec3 {
   const r = REGION_BY_ID.get(regionId) ?? REGION_BY_ID.get(RESIDUAL)!;
   const rnd = mulberry32(seed);
   const sign = left ? 1 : -1; // atlas x is negative, i.e. already left
+
+  if (r.depth === 'surface') {
+    const bucket = getTerritories().get(r.id + (left ? 'L' : 'R'));
+    if (bucket && bucket.length >= 3) {
+      // Spread across the whole territory, not clustered in it: the index comes
+      // from the card's own seed, so a word keeps its spot but neighbouring ids
+      // land nowhere near each other.
+      const n = bucket.length / 3;
+      const k = Math.floor(rnd() * n) * 3;
+      const p: Vec3 = [
+        bucket[k] + jitter(rnd, 1.6),
+        bucket[k + 1] + jitter(rnd, 1.6),
+        bucket[k + 2] + jitter(rnd, 1.6),
+      ];
+      return clampInside(p, 1.01);
+    }
+  }
 
   let p: Vec3 = [
     r.mni[0] * sign + jitter(rnd, r.spread * 0.55),

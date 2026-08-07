@@ -17,6 +17,10 @@ import { useMedia } from '../../lib/useMedia.ts';
 import type { SceneHandle } from '../../lib/brain/scene.ts';
 import { loadBrainMesh } from '../../lib/brain/meshdata.ts';
 
+/** Pointer travel, in CSS pixels, under which a press counts as a click
+ *  rather than a rotation. */
+const CLICK_SLOP = 6;
+
 /** Radians per second of idle rotation. A brain that is perfectly still reads
  *  as a diagram; one that turns fast enough to notice reads as a screensaver. */
 const IDLE_SPIN = 0.085;
@@ -33,7 +37,7 @@ export interface BrainSceneProps {
   className?: string;
 }
 
-export default function BrainScene({ mode, selected, simulate = null, className }: BrainSceneProps) {
+export default function BrainScene({ mode, selected, simulate = null, onPickRegion, className }: BrainSceneProps) {
   // Two canvases, stacked, not one.
   //
   // A canvas can only ever hand out one kind of context. The 2D renderer paints
@@ -60,6 +64,17 @@ export default function BrainScene({ mode, selected, simulate = null, className 
   const size = useRef({ w: 0, h: 0, dpr: 1 });
   /** Set by the render loop so anything that changes the view can ask for a frame. */
   const paintRef = useRef<(() => void) | null>(null);
+
+  // Held in a ref so the gesture effect below does not depend on it.
+  //
+  // Callers pass an inline arrow, so its identity changes on every render. With
+  // it in the dependency array the effect tore down and re-registered its
+  // listeners mid-gesture, and the fresh closure started with `id = null` — so
+  // `pointerup` returned early and a click never selected anything. The
+  // listeners have to outlive a re-render for a press-then-release to survive
+  // one.
+  const pickRef = useRef(onPickRegion);
+  pickRef.current = onPickRegion;
 
   // ---- 3D, when and if it arrives ----------------------------------------
   // Reduced motion is honoured by *not moving* — no idle spin, no breath, and a
@@ -214,17 +229,25 @@ export default function BrainScene({ mode, selected, simulate = null, className 
     if (!cv) return;
     let id: number | null = null;
     let last = [0, 0];
+    let start = [0, 0];
+    let travelled = 0;
 
     const down = (e: PointerEvent) => {
       id = e.pointerId; last = [e.clientX, e.clientY];
+      start = [e.clientX, e.clientY];
+      travelled = 0;
       setDragging(true);
       view.current.spin = false;
-      cv.setPointerCapture(e.pointerId);
+      // Capture is a nicety, not a requirement: it throws for a pointer the
+      // browser does not recognise, and an exception here would abort the whole
+      // gesture before it registered.
+      try { cv.setPointerCapture(e.pointerId); } catch { /* keep the gesture */ }
     };
     const move = (e: PointerEvent) => {
       if (id !== e.pointerId) return;
       view.current.yaw += (e.clientX - last[0]) * 0.008;
       view.current.pitch = Math.max(-1.1, Math.min(1.1, view.current.pitch + (e.clientY - last[1]) * 0.006));
+      travelled += Math.abs(e.clientX - last[0]) + Math.abs(e.clientY - last[1]);
       last = [e.clientX, e.clientY];
       paintRef.current?.();
     };
@@ -232,7 +255,19 @@ export default function BrainScene({ mode, selected, simulate = null, className 
       if (id !== e.pointerId) return;
       id = null;
       setDragging(false);
-      cv.releasePointerCapture?.(e.pointerId);
+      try { cv.releasePointerCapture?.(e.pointerId); } catch { /* already gone */ }
+
+      // A press that barely moved is a click, not the end of a rotation. Without
+      // the threshold every drag would also reselect whatever it finished over.
+      if (travelled <= CLICK_SLOP && pickRef.current && gl) {
+        const r = cv.getBoundingClientRect();
+        const hit = gl.pick(
+          ((e.clientX - r.left) / r.width) * 2 - 1,
+          -(((e.clientY - r.top) / r.height) * 2 - 1),
+        );
+        pickRef.current(hit);
+      }
+      void start;
     };
 
     cv.addEventListener('pointerdown', down);
@@ -245,7 +280,7 @@ export default function BrainScene({ mode, selected, simulate = null, className 
       cv.removeEventListener('pointerup', up);
       cv.removeEventListener('pointercancel', up);
     };
-  }, [mode]);
+  }, [mode, gl]);
 
   // Turning the brain from the console. Dev builds only.
   //
@@ -261,6 +296,7 @@ export default function BrainScene({ mode, selected, simulate = null, className 
     const w = window as unknown as { __brain?: unknown };
     w.__brain = {
       view: view.current,
+      pick: (nx: number, ny: number) => gl?.pick(nx, ny) ?? 'no-gl-or-miss',
       look: (yaw: number, pitch = view.current.pitch) => {
         view.current.yaw = yaw;
         view.current.pitch = pitch;
@@ -269,7 +305,7 @@ export default function BrainScene({ mode, selected, simulate = null, className 
       },
     };
     return () => { delete w.__brain; };
-  }, [mode]);
+  }, [mode, gl]);
 
   return (
     // Positioning is left entirely to the caller. An inline `position: relative`

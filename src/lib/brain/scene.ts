@@ -28,6 +28,9 @@ export interface SceneHandle {
   upload(positions: Float32Array, lum: Float32Array, region: Uint8Array): void;
   render(yaw: number, pitch: number, flares: Float32Array, now: number): void;
   setSelected(id: string | null): void;
+  /** Region under a point, in normalised device coords (-1..1). Null if the ray
+   *  missed the brain entirely. */
+  pick(ndcX: number, ndcY: number): string | null;
   resize(w: number, h: number): void;
   dispose(): void;
 }
@@ -120,9 +123,9 @@ const FRAG = /* glsl */ `
     // is what makes a point of light look like a point of light.
     float d = length(gl_PointCoord - vec2(0.5));
     if (d > 0.5) discard;
-    float core = smoothstep(0.16, 0.0, d);
-    float halo = smoothstep(0.5, 0.14, d);
-    float a = core * 1.15 + halo * halo * 0.16;
+    float core = smoothstep(0.18, 0.0, d);
+    float halo = smoothstep(0.5, 0.15, d);
+    float a = core * 1.2 + halo * halo * 0.22;
     gl_FragColor = vec4(vColor * (a * vLum), 1.0);
   }
 `;
@@ -137,14 +140,17 @@ const FRAG = /* glsl */ `
 // gives the glass. The word-neurons then draw with `depthTest: false` and glow
 // straight through it, exactly as they should: they are *inside* the brain.
 const SHELL_VERT = /* glsl */ `
+  attribute float aCurv;            // + inside a sulcus, - on a gyral crown
   varying vec3 vNormal;
   varying vec3 vView;
   varying float vHeight;
+  varying float vCurv;
   void main() {
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
     vNormal = normalize(normalMatrix * normal);
     vView = normalize(-mv.xyz);
     vHeight = position.z;           // MNI z, for a subtle vertical gradient
+    vCurv = aCurv;
     gl_Position = projectionMatrix * mv;
   }
 `;
@@ -156,6 +162,7 @@ const SHELL_FRAG = /* glsl */ `
   varying vec3 vNormal;
   varying vec3 vView;
   varying float vHeight;
+  varying float vCurv;
   void main() {
     float facing = abs(dot(normalize(vNormal), normalize(vView)));
 
@@ -173,8 +180,17 @@ const SHELL_FRAG = /* glsl */ `
     vec3 hv = normalize(key + normalize(vView));
     float spec = pow(max(0.0, dot(normalize(vNormal), hv)), 34.0);
 
+    // Cavity shading. This is what makes the folds read as folds: lighting alone
+    // gives a sulcus and a crown nearly the same value, because the bottom of a
+    // groove still faces roughly outward. Every cortical render darkens by
+    // curvature instead, and so does this one.
+    float cavity = smoothstep(0.06, -0.10, vCurv);        // 1 on a crown, 0 in a groove
+    float groove = 0.20 + 0.80 * cavity;
+
     float body = 0.14 + 0.50 * lambert;
-    vec3 col = uTint * body + uRim * fres * 0.72 + vec3(0.55, 0.78, 0.95) * spec * 0.55;
+    vec3 col = uTint * body * groove
+             + uRim * fres * 0.72 * (0.45 + 0.55 * cavity)
+             + vec3(0.55, 0.78, 0.95) * spec * 0.62 * cavity;
 
     // The underside sits in shadow, so the brain has a top and a bottom.
     col *= 0.72 + 0.28 * smoothstep(-70.0, 40.0, vHeight);
@@ -219,6 +235,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   // brain freezes on whatever the first frame happened to rasterise.
   renderer.autoClear = true;
 
+  const raycaster = new THREE.Raycaster();
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, 1, 1200);
   const rig = new THREE.Group();
@@ -293,9 +310,13 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       const g = new THREE.BufferGeometry();
       g.setAttribute('position', new THREE.BufferAttribute(mesh.position, 3));
       g.setAttribute('normal', new THREE.BufferAttribute(mesh.normal, 3));
+      g.setAttribute('aCurv', new THREE.BufferAttribute(mesh.curvature, 1));
       g.setIndex(new THREE.BufferAttribute(mesh.index, 1));
-      lexMat.uniforms.uGain.value = 0.42;
-      lexMat.uniforms.uSize.value = mode === 'hero' ? 4.0 : 4.6;
+      // Tuned down when the words were sixteen dense blobs that blew out
+      // against the shell. Spread across their territories they barely overlap,
+      // so the dimming was buying nothing and costing every individual dot.
+      lexMat.uniforms.uGain.value = 0.72;
+      lexMat.uniforms.uSize.value = mode === 'hero' ? 4.6 : 5.4;
 
       shellDepth = new THREE.Mesh(g, depthMat);
       shellDepth.frustumCulled = false;
@@ -377,6 +398,29 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       baseLum = lum;
       (lumAttr!.array as Float32Array).set(lum);
       lumAttr!.needsUpdate = true;
+    },
+
+    pick(ndcX, ndcY) {
+      if (disposed || !shell) return null;
+      raycaster.setFromCamera(new THREE.Vector2(ndcX, ndcY), camera);
+      const hit = raycaster.intersectObject(shell, false)[0];
+      if (!hit) return null;
+
+      // The hit is in world space; the rig carries the yaw and pitch, so undo it
+      // to get back to atlas millimetres before comparing against coordinates.
+      const local = rig.worldToLocal(hit.point.clone());
+
+      // Nearest region to the point of contact — the same Voronoi rule that
+      // decided which words live there, so clicking a patch of cortex selects
+      // the region whose words are actually under the cursor.
+      let best: string | null = null, bestD = Infinity;
+      for (const r of REGIONS) {
+        if (r.depth !== 'surface') continue;
+        const cx = local.x < 0 ? r.mni[0] : -r.mni[0];
+        const d = (local.x - cx) ** 2 + (local.y - r.mni[1]) ** 2 + (local.z - r.mni[2]) ** 2;
+        if (d < bestD) { bestD = d; best = r.id; }
+      }
+      return best;
     },
 
     setSelected(id) {

@@ -80,7 +80,11 @@ export default function BrainRoom({ onExit, onStudy }: { onExit: () => void; onS
   return (
     <div className="brain-room h-[100dvh] w-full flex flex-col lg:flex-row overflow-hidden">
       <div className="relative flex-1 min-h-[46vh] lg:min-h-0">
-        <BrainScene mode="room" selected={sel} simulate={sim} className="absolute inset-0" />
+        <BrainScene
+          mode="room" selected={sel} simulate={sim}
+          onPickRegion={(id) => setSel((cur) => (cur === id ? null : id))}
+          className="absolute inset-0"
+        />
 
         <div className="absolute top-0 left-0 right-0 flex items-start gap-3 p-4 sm:p-5 pointer-events-none safe-top">
           <div className="pointer-events-auto">

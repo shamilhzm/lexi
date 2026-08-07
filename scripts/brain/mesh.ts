@@ -48,7 +48,7 @@ const ISO = 0.35;
 /** Laplacian smoothing passes over the finished mesh. Surface Nets output is
  *  faceted along the sampling grid; a few passes remove the staircase without
  *  touching the fold pattern, which is far larger than one cell. */
-const SMOOTH_PASSES = Number(process.env.BRAIN_SMOOTH ?? 3);
+const SMOOTH_PASSES = Number(process.env.BRAIN_SMOOTH ?? 2);
 const SMOOTH_RATE = Number(process.env.BRAIN_SMOOTH_RATE ?? 0.42);
 
 type Vec = [number, number, number];

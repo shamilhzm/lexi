@@ -133,6 +133,34 @@ changed because the learner did something animates from its old value.**
   is what puts a hard edge on a gyral crown where diffuse alone gives a soft
   gradient. And `powerPreference` went to `high-performance`.
 
+- **Words tile the cortex instead of clustering at sixteen points.** Each word
+  was seated in a small gaussian around its region's MNI coordinate, so a full
+  lexicon packed into sixteen dots and left the rest of the brain dark. Each
+  surface region now takes the patch of cortex closer to its coordinate than to
+  any other — a Voronoi partition of the shell — so a maxed-out lexicon covers
+  the whole surface and the coordinates still decide which colour goes where.
+  This is also the more accurate picture: Huth et al. found semantic categories
+  *tiling* the cortex continuously, not clustering at peaks. Deep nuclei — the
+  hippocampus, amygdala, insula, caudate — keep the gaussian, because they are
+  small structures buried in the volume.
+- **Cavity shading, so the grooves read as grooves.** Lighting from normals
+  alone gives a sulcus and a gyral crown nearly the same value, because the
+  bottom of a groove still faces roughly outward. Per-vertex concavity is now
+  derived at load — the mean neighbour offset resolved along the normal, which
+  is a discrete mean curvature and falls out of the walk that already computes
+  normals — and the shell darkens by it. No format change, no larger download.
+- **Click the brain to select a region.** A raycast against the shell, resolved
+  by the same Voronoi rule that placed the words, so clicking a patch of cortex
+  selects the region whose words are under the cursor. Press-and-drag still
+  rotates; only a press that travels under 6px counts as a click.
+- **A gesture now survives a re-render.** `onPickRegion` arrives as an inline
+  arrow, so its identity changes every render; with it in the effect's
+  dependency array the pointer listeners tore down and re-registered *mid
+  gesture*, and the fresh closure began with no active pointer — so `pointerup`
+  returned early and a click never selected anything. The callback lives in a
+  ref now. `setPointerCapture` is also wrapped: it throws for a pointer the
+  browser does not recognise, and an exception there aborted the whole gesture.
+
 - **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
   including the joins worth arguing about (Work → TPJ is the loosest). The surface
   itself carries a standing, non-dismissible line: *a map of the published
