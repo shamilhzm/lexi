@@ -26,6 +26,7 @@ import { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
+import BrainRoom from './views/BrainRoom.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
@@ -36,7 +37,7 @@ import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile';
+export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile' | 'brain';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
@@ -149,6 +150,18 @@ export default function App() {
   };
   const exitSession = () => { if (guided) endGuided(); else setView('today'); };
 
+  // ---- the observatory ------------------------------------------------------
+  // A second early return, for the same reason as the desk below: the brain is
+  // its own room, unconditionally dark, and the instrument's chrome has no
+  // business in it. Not in NAV — DESIGN.md §8a keeps three destinations.
+  if (view === 'brain') {
+    return (
+      <ErrorBoundary resetKey="brain">
+        <BrainRoom onExit={() => go('today')} onStudy={study} />
+      </ErrorBoundary>
+    );
+  }
+
   // ---- the desk -------------------------------------------------------------
   // Deliberately an early return. A session is not a view inside the shell; it
   // is the other room, and nothing from the instrument follows you into it.
@@ -233,7 +246,7 @@ export default function App() {
           <div key={view}
             className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} />}
+                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
                 {view === 'library' && <Grammar initial={drillInit} />}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}

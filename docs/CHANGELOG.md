@@ -11,6 +11,90 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-06 — das Gehirn: the lexicon as a brain
+
+The app measured a great deal and let you *feel* almost none of it. Progress is a
+treemap, a bar chart and a list — instruments that answer "how am I doing?"
+precisely and answer "what have I built?" not at all. §7 of DESIGN.md named the
+gap in the app's own words and marked it *not yet built*: **a number or area that
+changed because the learner did something animates from its old value.**
+
+- **A 3D brain made of your vocabulary**, at `#/brain` and as the hero on Today.
+  One point of light per card, placed in the cortical region the literature
+  associates with its meaning. Not a mesh with dots painted on: the brain *is* the
+  point cloud, hull included.
+- **Words are born in the hippocampus and migrate to the cortex.** This is the
+  part that is not decoration. Complementary Learning Systems theory says a new
+  memory is hippocampus-dependent and becomes neocortical through spaced
+  reactivation; FSRS `stability` is a monotone estimate of exactly that, so
+  `consolidation.ts` maps it (log-scaled) onto the journey from the centre
+  outward. The visualisation renders the scheduler's own belief rather than
+  inventing one. The result reads as coloured streams leaving a white core.
+- **The atlas is rules, not a table** (`lib/brain/atlas.ts`). 291 authored sectors
+  → 16 regions via ordered patterns over the *normalised* name, then the fine
+  corpus group, then the angular gyrus. Total by construction; a new corpus sector
+  cannot come out homeless. Guarded by `atlas.test.ts`: every sector resolves, no
+  region goes unclaimed, the residual stays under 5% once the corpus's own
+  `Miscellaneous` is excluded, no region holds more than a quarter of the lexicon.
+- **Three defects the guard was written for, all found by printing the numbers
+  rather than reading the code.** (1) The rules were first written
+  `\b(?:stem|…)\b`, and the trailing boundary silently broke every plural and
+  inflection in the file — "Animals" never reached the fusiform, "Communication"
+  never reached Wernicke's, "Working Life" landed in the residual. (2) `ag` is both
+  a real rule outcome and the fallback sentinel, so testing `out === RESIDUAL` to
+  decide whether to fall back sent every legitimately abstract sector to its group
+  instead. (3) `\bmigrat` cannot match inside "emigration". All three are pinned.
+- **`three` is the first dynamic import in the codebase.** Reached only through
+  `await import()` in `BrainScene.tsx`, so it lands in its own chunk (118KB gzip)
+  and Today's first paint never waits on it. A 2D canvas renderer paints the same
+  point set immediately and hands over when the chunk arrives — which also means
+  the no-WebGL path is not a fallback anyone had to design, it is what shipped
+  first.
+- **The observatory is unconditionally dark**, in both themes. A documented
+  exception to §2's hue discipline on the same grounds §8 uses to strip chrome off
+  the session desk: a different room for a different activity. A bioluminescent
+  field needs black to be luminous. Tokens live in `:root`, *not* `@theme` — see
+  the `--heat-*` note directly above them for what happens otherwise.
+- **`store.onCardEvent`** — a second, narrower channel beside the version counter.
+  `subscribe()` says *something* changed, which is right for aggregates and
+  useless to a consumer that must animate one card. Fired from `review()` and from
+  `restoreCard()`, because a rewound review did not happen and its light has to go
+  back out, for the same reason `unbumpReviewLog` exists.
+- **Coming back from a session, the brain replays what changed.** The desk is a
+  full-bleed early return, so nothing is mounted to see the flares while you
+  study; a module-level log records them and the next brain to mount ignites them
+  in sequence. §7's "Data change", finally built.
+- **Reduced motion means less motion, not a lesser picture.** No idle spin, no
+  breath, and the loop stops once nothing is changing — but the 3D scene still
+  renders. Reading the preference as "show me less" would have been a different
+  and worse thing.
+- **Two rAF traps, both the defect class §7 already documents.** Substrate
+  generation was deferred behind `requestAnimationFrame`, which never fires in a
+  backgrounded tab, so a brain opened in one stayed black forever; it is a
+  `setTimeout` now, and the first frame paints synchronously before any loop is
+  scheduled. Verified with `rafTicksIn600ms: 0`, the same probe §7 was written
+  from.
+- **Two canvases, stacked in one grid cell.** A canvas hands out one kind of
+  context for life, so the 2D renderer taking `getContext('2d')` for the first
+  frame permanently poisoned the element and every later `WebGLRenderer` on it
+  threw — the scene silently stayed 2D. Separate elements remove the race rather
+  than trying to time it. (Stacking them with `position` would not do: an inline
+  `position: relative` on the wrapper beats the `absolute inset-0` the room passes
+  through `className`, which is how the room first rendered as a blank 300×150
+  strip.)
+- **`#/brain` is a View but not a nav destination**, like session/placement/
+  profile. §8a's three destinations survive.
+- **The canvas is `aria-hidden` and does not pretend otherwise.** The accessible
+  surface — and the useful one — is the region rail: every number as text, with
+  each association's confidence tier and citations, and a "Study this region"
+  button that builds a custom target from the region's cards.
+- **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
+  including the joins worth arguing about (Work → TPJ is the loosest). The surface
+  itself carries a standing, non-dismissible line: *a map of the published
+  literature, not a map of your head — nobody has scanned you.*
+
+---
+
 ### Shipped 2026-08-04 — the consolidation: four histories become one
 
 - **Three stranded branches landed on `main`.** The July 27 work (20 commits — the

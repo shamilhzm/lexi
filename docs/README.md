@@ -17,6 +17,7 @@ root [`README.md`](../README.md); this folder is the *why* and the *next*.
 |---|---|---|
 | [BACKLOG.md](BACKLOG.md) | Open work only, prioritised, with effort and acceptance criteria. The source of truth for what's next. | Picking up work. |
 | [CHANGELOG.md](CHANGELOG.md) | Shipped work, newest first, with the reasoning kept. | Asking "why is it like this?" |
+| [BRAIN.md](BRAIN.md) | What the brain map at `#/brain` claims and what it does not: the sector→region atlas, its confidence tiers, the joins worth arguing about, and the sources. | Touching `lib/brain/*`, or asked whether the map is real. |
 | [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost time. Living — argue with it. | Touching anything visual. |
 | [BACKEND.md](BACKEND.md) | **The accounts + sync design.** Written before any code: what syncs, what deliberately does not, how two offline devices merge, and the user-facing promise that has to change first. Design only. | Before touching auth, sync or push. |
 | [CRITIQUE.md](CRITIQUE.md) | **The hostile read** — the case against Lexi, written as an investor who has shipped consumer language apps and sat on a Goethe procurement panel. Names two strategic contradictions and the fact that no real learner has used the product. Argue with it in the file. | Deciding what to build next, or why. |

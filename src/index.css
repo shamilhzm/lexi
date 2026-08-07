@@ -169,6 +169,19 @@
   --heat-2: #7fadc2;  --heat-ink-2: #10222b;
   --heat-3: #4a89a8;  --heat-ink-3: #ffffff;
   --heat-4: #1d6a8c;  --heat-ink-4: #ffffff;
+
+  /* The observatory. Declared here for exactly the reason above — these are not
+     --color-* tokens, so inside @theme Tailwind would drop them silently.
+
+     Unconditionally dark in both themes. That is a real exception to §2's hue
+     discipline, taken on the same grounds §8 uses to strip every piece of
+     chrome off the session desk: a different room for a different activity. A
+     field of bioluminescent points needs black to be luminous, and the light
+     version of this surface is not a weaker version of the idea, it is a
+     different and worse one. Numeric values live in lib/brain/palette.ts, which
+     WebGL reads; these mirror them for the region rail. */
+  --brain-void: #04070d;
+  --brain-ink: #ffffff;
 }
 
 /* The German headword — the one place the display serif is used.
@@ -516,6 +529,28 @@ body {
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .ticker-track { animation: ticker 42s linear infinite; }
 .ticker-track:hover { animation-play-state: paused; }
+
+/* The observatory: the brain room and the Today hero.
+ *
+ * Always dark, whatever the theme — see the --brain-* block above for why. The
+ * hero is a *button* holding a 210px canvas, so it must not be scaled by any
+ * entrance (DESIGN.md §7's corollary): a stalled 0.985 scale would shrink a
+ * touch target, which is exactly the defect `.desk-in` was caught committing. */
+.brain-room, .brain-hero {
+  background: var(--brain-void);
+  color: var(--brain-ink);
+  color-scheme: dark;
+}
+.brain-hero { border: 1px solid rgb(255 255 255 / 0.08); }
+.brain-hero:hover { border-color: rgb(255 255 255 / 0.16); }
+/* Sits above the void so the canvas never reads as a hole punched in the page. */
+.brain-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 80% at 50% 120%, rgb(99 200 255 / 0.10), transparent 70%);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,

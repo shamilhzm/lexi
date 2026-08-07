@@ -20,6 +20,7 @@ import { blindSpotDrills, estimateMinutes, wordsForMinutes, itemsForMinutes } fr
 import ReadingList from '../components/ReadingList.tsx';
 import ClassListPicker from '../components/ClassListPicker.tsx';
 import SessionWhy from '../components/SessionWhy.tsx';
+import BrainHero from '../components/Brain/BrainHero.tsx';
 import { BY_ID, WORDS } from '../data/index.ts';
 import type { CEFR, Target, Word } from '../types.ts';
 
@@ -27,10 +28,10 @@ import type { CEFR, Target, Word } from '../types.ts';
  *  gap between classes — the three shapes a real day actually has. */
 const SHORT_MINUTES = [3, 5, 10];
 
-export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress }:
+export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress, onBrain }:
   { onStart: (t: Target) => void; onExam: () => void; onPlacement: () => void; onGuidedStart: () => void;
     onBlindDrill: (tag?: string) => void; onDecks: () => void;
-    onBackup: () => void; onGrammar: () => void; onProgress: () => void }) {
+    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onBrain: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
@@ -134,6 +135,12 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
     // Wider on large desktops so the daily briefing doesn’t sit in a narrow
     // column with a field of empty terminal either side of it.
     <div className="w-full max-w-[920px] xl:max-w-[1040px] mx-auto">
+      {/* Above the greeting on purpose. Today's other cards all answer "what do
+          I do now?"; this one answers "what have I built?", and it is the only
+          thing on the screen that rewards yesterday rather than demanding
+          today. */}
+      <BrainHero onOpen={onBrain} />
+
       {greeting}
 
       {/* Streak at risk. Only once there’s a streak worth protecting and the

@@ -105,6 +105,22 @@ license, how it's used, and the obligations that attach to the data we ship.
   Categorized Wordlist (https://github.com/ynsrc/german-categorized-wordlist),
   licensed CC BY 4.0." CC BY content folds cleanly into the corpus's CC BY-SA 4.0.
 
+## The brain map (`#/brain`)
+
+**three.js** — MIT licence, © 2010–present three.js authors. Loaded as a lazy
+chunk; see `src/lib/brain/scene.ts`.
+
+The atlas that places a vocabulary sector in a cortical region is an
+interpretation laid over published work, not a finding, and `docs/BRAIN.md` states
+exactly what it claims and what it does not. **No brain imaging data is
+redistributed**: the hull is procedural (`src/lib/brain/geometry.ts`), and the
+only thing taken from the literature is a rounded MNI152 peak coordinate per
+region, quoted with its source. Nobody's brain has been scanned, and the surface
+says so in a standing caption.
+
+Per-region citations live in `src/lib/brain/atlas.ts` and are shown to the learner
+alongside a confidence tier. Primary sources are listed in `docs/BRAIN.md`.
+
 ## License of the shipped corpus
 
 Because of the CC BY-SA obligation from Wiktionary (source 2), the **data files**

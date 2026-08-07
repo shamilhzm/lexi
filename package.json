@@ -46,6 +46,7 @@
     "@types/node": "^26.1.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.185.4",
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.39.5",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -62,6 +63,7 @@
     "motion": "^12.23.24",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
+    "three": "^0.180.0",
     "ts-fsrs": "^5.4.1"
   }
 }

@@ -110,6 +110,42 @@ function persistVisits() { idbSet(VISITS_KEY, visits); }
 export function subscribe(fn: () => void) { listeners.add(fn); return () => listeners.delete(fn); }
 export function getVersion() { return version; }
 
+// ---- card-level events ---------------------------------------------------
+// `subscribe` says *something* changed and hands back a version integer, which
+// is exactly right for the aggregates every view reads. It is not enough for a
+// consumer that has to animate one card: the brain map lights the neuron you
+// just graded, and it cannot find it by diffing 7,394 of them.
+//
+// Deliberately narrow, and deliberately not a general event bus — one shape,
+// fired from the two functions that can change a card.
+
+/** `grade` is null on an undo. `before`/`after` are the FSRS records either
+ *  side of the change; `after` is undefined when an undo returns a card to New. */
+export interface CardEvent {
+  id: string;
+  grade: Grade | null;
+  before: Card | undefined;
+  after: Card | undefined;
+  at: number;
+  undo: boolean;
+}
+
+const cardListeners = new Set<(e: CardEvent) => void>();
+
+/** Subscribe to individual card changes. Returns an unsubscribe. */
+export function onCardEvent(fn: (e: CardEvent) => void) {
+  cardListeners.add(fn);
+  return () => { cardListeners.delete(fn); };
+}
+
+function emitCard(e: CardEvent) {
+  // A listener that throws must not take the session down with it — this fires
+  // from inside `review`, which is the primary study loop.
+  for (const fn of cardListeners) {
+    try { fn(e); } catch { /* a display listener is never load-bearing */ }
+  }
+}
+
 /** Load one key from IndexedDB, migrating a legacy localStorage value on first
  *  run (then dropping the localStorage copy so IDB becomes the single source). */
 async function loadKV<T>(key: string, fallback: T): Promise<T> {
@@ -236,8 +272,11 @@ export function statusOf(id: string): Status {
 export function cardOf(id: string): Card | undefined { return live.get(id); }
 
 export function review(id: string, grade: Grade) {
-  const cur = live.get(id) ?? emptyCard();
-  live.set(id, schedule(cur, grade));
+  const before = live.get(id);
+  const cur = before ?? emptyCard();
+  const after = schedule(cur, grade);
+  live.set(id, after);
+  emitCard({ id, grade, before, after, at: Date.now(), undo: false });
   recordVisit();
   bumpReviewLog(grade);
   // The ledger: what was reviewed, when, and how. `bumpReviewLog` above only keeps
@@ -257,7 +296,11 @@ export function review(id: string, grade: Grade) {
  *  the Stats reviews/day panel and the recall percentage. Small numbers, but
  *  this app's whole argument is that its numbers are honest. */
 export function restoreCard(id: string, snap: Card | undefined, wasAgain = false) {
+  const before = live.get(id);
   if (snap) live.set(id, snap); else live.delete(id);
+  // A rewound review did not happen, so anything that lit up for it has to go
+  // back out — the same reasoning `unbumpReviewLog` applies to the daily counts.
+  emitCard({ id, grade: null, before, after: snap, at: Date.now(), undo: true });
   unbumpReviewLog(wasAgain);
   // A rewound review did not happen, so it leaves the ledger too — the same
   // reasoning `unbumpReviewLog` applies to the daily counts, for the same reason:

@@ -35,7 +35,11 @@ export interface Route {
   target?: Target;
 }
 
-const VIEWS: View[] = ['today', 'progress', 'library', 'session', 'placement', 'interests', 'profile'];
+// `brain` is a View but deliberately not a nav destination — the same pattern as
+// session, placement, interests and profile. DESIGN.md §8a argues for exactly
+// three places you can *go*; the observatory is somewhere you open from Today,
+// not a fourth thing competing for the bottom bar.
+const VIEWS: View[] = ['today', 'progress', 'library', 'session', 'placement', 'interests', 'profile', 'brain'];
 
 export const DEFAULT_ROUTE: Route = { view: 'today', progress: { level: 'overview' } };
 
