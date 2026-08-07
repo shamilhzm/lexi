@@ -40,7 +40,8 @@ export function fitScale(width: number, height: number): number {
 }
 
 export interface FlatScene {
-  /** Substrate points, xyz triples in MNI mm. */
+  /** Substrate points, xyz triples in MNI mm. The 2D renderer uses positions
+   *  only — no lighting, which is part of why it is the lesser picture. */
   substrate: Float32Array;
   /** Current neuron positions, xyz triples. */
   positions: Float32Array;

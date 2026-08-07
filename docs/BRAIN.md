@@ -129,8 +129,20 @@ region holds more than a quarter of the lexicon.
 ## The shape
 
 There is no mesh asset. `src/lib/brain/geometry.ts` builds the hull from five
-deformed superellipsoids merged at their seams, wrinkled by seeded fbm noise, and
-carved by the longitudinal fissure, the Sylvian fissure and the central sulcus.
+deformed superellipsoids merged at their seams, wrinkled by seeded anisotropic
+noise, and carved by twelve named sulci — Sylvian, central, parieto-occipital,
+superior and inferior frontal, pre- and postcentral, intraparietal, calcarine,
+superior and inferior temporal, cingulate — plus the interhemispheric fissure.
+Gyral noise alone cannot make a brain recognisable; what the eye identifies is
+the *named* pattern, so those are drawn rather than left to chance.
+
+Every point carries a surface normal (finite differences across the folded
+surface) and its signed relief, which is what lets the renderer light the cortex
+and darken the sulci instead of scattering uniform dots. Point brightness is
+scaled by the cosine of the viewing angle — that is the projected area a patch of
+surface covers, and without it uniform direction sampling piles unbounded density
+onto the silhouette and additive blending draws a hard outline around every part.
+
 That solves bundle size and licensing, but the real reason is the idea: this
 brain is not a model with your vocabulary painted onto it, it is *made of* your
 vocabulary, and every point in it is a card.

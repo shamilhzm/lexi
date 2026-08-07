@@ -8,8 +8,8 @@
 // until the learner has looked at it.
 //
 // Two `THREE.Points` clouds, one draw call each:
-//   substrate — the tissue, dim and cold, ~46k points
-//   lexicon   — one point per card, coloured by region, ≤7,394
+//   substrate — the tissue, lit and curvature-shaded, up to 130k points
+//   lexicon   — one point per card, coloured by region, unlit, ≤7,394
 //
 // Glow is a radial falloff in the fragment shader over additive blending, not
 // `EffectComposer` + `UnrealBloomPass`. Those live in `three/examples`, would
@@ -17,10 +17,11 @@
 // these point sizes produce something a two-line smoothstep already gives.
 import * as THREE from 'three';
 import { REGIONS } from './atlas.ts';
+import type { Substrate } from './geometry.ts';
 import { REGION_COLOR, SUBSTRATE, VOID } from './palette.ts';
 
 export interface SceneHandle {
-  setSubstrate(points: Float32Array): void;
+  setSubstrate(sub: Substrate): void;
   upload(positions: Float32Array, lum: Float32Array, region: Uint8Array): void;
   render(yaw: number, pitch: number, flares: Float32Array, now: number): void;
   setSelected(id: string | null): void;
@@ -35,30 +36,68 @@ const REGION_RGB = REGIONS.map((r) => REGION_COLOR[r.id] ?? SUBSTRATE);
 const VERT = /* glsl */ `
   attribute float aLum;
   attribute vec3 aColor;
+  attribute vec3 aNormal;    // zero-length for lexicon points, which are not a surface
+  attribute float aCurv;     // negative = sulcus
+  attribute float aRegion;
   uniform float uScale;
   uniform float uSize;
   uniform float uSelected;   // -1 = nothing selected
-  uniform float uCamDist;    // camera distance to the brain's centre
-  attribute float aRegion;
+  uniform float uCamDist;    // camera distance to the brain centre
   varying vec3 vColor;
   varying float vLum;
   void main() {
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
-    // Depth cue: far points dim, so the far surface reads as behind the near one
-    // rather than as noise laid over it.
-    //
-    // Measured from the brain's centre, not from the camera. Using view-space z
-    // directly assumed the object sat near the origin of view space; the camera
-    // is ~340 units back, so every point clamped to fully-far and the whole
-    // scene rendered black. (No backticks in here: this is a template literal.)
-    float rel = -mv.z - uCamDist;          // about -120..120 through the brain
+
+    // Depth cue, measured from the brain centre rather than the camera. Using
+    // view-space z directly assumed the object sat at the origin of view space;
+    // the camera is a few hundred units back, so every point clamped to
+    // fully-far and the scene rendered black.
+    float rel = -mv.z - uCamDist;
     float depth = clamp((rel + 130.0) / 260.0, 0.0, 1.0);
     float fade = 0.25 + 0.75 * pow(1.0 - depth, 1.5);
+
+    float shade = 1.0;
+    if (dot(aNormal, aNormal) > 0.25) {
+      vec3 nrm = normalize(normalMatrix * aNormal);
+      vec3 viewDir = normalize(-mv.xyz);
+      float facing = dot(nrm, viewDir);
+
+      // Foreshortening, which is also the occlusion.
+      //
+      // Sampling a surface uniformly by *direction* piles unbounded point
+      // density onto the silhouette, where the surface runs edge-on to the
+      // camera: many more points land in far fewer pixels. Under additive
+      // blending that drew a hard bright outline around every part, so the
+      // lobes read as separate bodies no matter how the lighting was balanced —
+      // it looked like a rim-light problem and was not one.
+      //
+      // Scaling by the cosine is the exact compensation (it is the projected
+      // area a patch of surface covers), and it disposes of back-facing points
+      // for free, since their cosine is negative.
+      float area = max(0.0, facing);
+
+      // A key light up and to the left, so gyri catch it and sulci fall away.
+      // This is the difference between a cloud of dots and a surface.
+      vec3 key = normalize(vec3(-0.45, 0.75, 0.5));
+      float lambert = 0.42 + 0.58 * max(0.0, dot(nrm, key));
+
+      // Sulci go dark. Cortical surfaces are conventionally rendered with
+      // curvature shading for exactly this reason: the fold pattern is the thing
+      // that makes a brain recognisable as one. The window spans the real range:
+      // a named sulcus reaches about -3.8, an fbm trough about -0.6, a gyral
+      // crown about +0.8.
+      float sulcus = smoothstep(-1.2, 0.20, aCurv) * 0.90 + 0.10;
+
+      // A whisper of rim so the edge does not vanish into the void entirely.
+      float rim = area * pow(1.0 - area, 4.0) * 0.55;
+
+      shade = area * lambert * sulcus + rim;
+    }
 
     float dim = 1.0;
     if (uSelected >= 0.0) dim = abs(aRegion - uSelected) < 0.5 ? 1.0 : 0.16;
 
-    vLum = aLum * fade * dim;
+    vLum = aLum * fade * dim * shade;
     vColor = aColor;
     gl_PointSize = uSize * (0.65 + 0.9 * aLum) * (uScale / -mv.z);
     gl_Position = projectionMatrix * mv;
@@ -118,7 +157,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   // nobody has to remember a conversion.
   rig.rotation.x = -Math.PI / 2;
 
-  const subMat = makeMaterial(mode === 'hero' ? 2.4 : 1.9);
+  const subMat = makeMaterial(mode === 'hero' ? 2.4 : 2.1);
   const lexMat = makeMaterial(mode === 'hero' ? 5.0 : 6.5);
 
   let subPts: THREE.Points | null = null;
@@ -130,16 +169,25 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   let disposed = false;
 
   const handle: SceneHandle = {
-    setSubstrate(points) {
+    setSubstrate(sub) {
       if (disposed) return;
       subPts?.geometry.dispose();
       if (subPts) rig.remove(subPts);
       const g = new THREE.BufferGeometry();
-      const n = points.length / 3;
-      g.setAttribute('position', new THREE.BufferAttribute(points, 3));
-      const lum = new Float32Array(n).fill(mode === 'hero' ? 0.46 : 0.32);
+      const n = sub.count;
+      g.setAttribute('position', new THREE.BufferAttribute(sub.position, 3));
+      g.setAttribute('aNormal', new THREE.BufferAttribute(sub.normal, 3));
+      g.setAttribute('aCurv', new THREE.BufferAttribute(sub.curv, 1));
+
+      // Tissue brightness varies a little per point. A perfectly uniform value
+      // makes 46,000 identical dots read as a printed halftone; the jitter is
+      // below the threshold of being seen as jitter and above the threshold of
+      // killing the pattern.
+      const base = mode === 'hero' ? 1.05 : 0.86;
+      const lum = new Float32Array(n);
       const col = new Float32Array(n * 3);
       for (let i = 0; i < n; i++) {
+        lum[i] = base * (0.78 + 0.44 * (((i * 2654435761) >>> 8) & 255) / 255);
         col[i * 3] = SUBSTRATE.r; col[i * 3 + 1] = SUBSTRATE.g; col[i * 3 + 2] = SUBSTRATE.b;
       }
       g.setAttribute('aLum', new THREE.BufferAttribute(lum, 1));
@@ -170,6 +218,10 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
         lexGeom.setAttribute('aLum', lumAttr);
         lexGeom.setAttribute('aColor', new THREE.BufferAttribute(col, 3));
         lexGeom.setAttribute('aRegion', new THREE.BufferAttribute(reg, 1));
+        // A word is a light source, not a piece of surface: a zero normal is the
+        // shader's signal to skip shading entirely and glow in every direction.
+        lexGeom.setAttribute('aNormal', new THREE.BufferAttribute(new Float32Array(n * 3), 3));
+        lexGeom.setAttribute('aCurv', new THREE.BufferAttribute(new Float32Array(n), 1));
         lexPts = new THREE.Points(lexGeom, lexMat);
         lexPts.frustumCulled = false;
         rig.add(lexPts);

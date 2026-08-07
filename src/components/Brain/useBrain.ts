@@ -10,12 +10,12 @@ import { cardOf, onCardEvent } from '../../store.ts';
 import { useStore } from '../../useStore.ts';
 import { buildField, writePositions, regionProgress } from '../../lib/brain/field.ts';
 import { consolidation, luminance, crossedStage } from '../../lib/brain/consolidation.ts';
-import { sampleSurface } from '../../lib/brain/geometry.ts';
+import { sampleSurface, type Substrate } from '../../lib/brain/geometry.ts';
 
 /** How much tissue each surface draws. The hero is a 240px strip on the app's
  *  first-paint screen, so it takes the cheap cloud; the room gets the dense one
  *  a full-bleed surface can carry. */
-export const SUBSTRATE_COUNT = { hero: 20000, room: 46000 } as const;
+export const SUBSTRATE_COUNT = { hero: 34000, room: 130000 } as const;
 
 /** How long a graded neuron stays lit, in ms. Long enough to notice on the
  *  surface you are looking at, short enough not to still be burning when the
@@ -162,17 +162,40 @@ export function useFlares(field: { index: Map<string, number>; ids: string[] }) 
   return { flares, step, hasFlares: () => active.current.length > 0 };
 }
 
+/** Points generated per slice. Each slice is a full, independent draw from the
+ *  *same* brain — the fold and the sulci are keyed to the seed, only the sampling
+ *  stream varies — so slices can simply be concatenated. */
+const SLICE = 15000;
+
+function concat(a: Substrate, b: Substrate): Substrate {
+  const out: Substrate = {
+    position: new Float32Array(a.position.length + b.position.length),
+    normal: new Float32Array(a.normal.length + b.normal.length),
+    curv: new Float32Array(a.curv.length + b.curv.length),
+    count: a.count + b.count,
+  };
+  out.position.set(a.position); out.position.set(b.position, a.position.length);
+  out.normal.set(a.normal); out.normal.set(b.normal, a.normal.length);
+  out.curv.set(a.curv); out.curv.set(b.curv, a.curv.length);
+  return out;
+}
+
 /** The substrate cloud. Generated once per size and cached across mounts, so
  *  moving between the hero and the room does not pay for it twice. */
-const substrateCache = new Map<number, Float32Array>();
+const substrateCache = new Map<number, Substrate>();
+
 export function useSubstrate(count: number) {
-  const [cloud, setCloud] = useState<Float32Array | null>(() => substrateCache.get(count) ?? null);
+  const [cloud, setCloud] = useState<Substrate | null>(() => substrateCache.get(count) ?? null);
 
   useEffect(() => {
     const hit = substrateCache.get(count);
     if (hit) { setCloud(hit); return; }
-    // ~35ms at hero size, ~110ms at room size. Deferred so it lands after the
-    // surface has painted rather than inside its first render.
+
+    // Generated in slices, and handed over after each one, so density builds up
+    // instead of the main thread stalling on a single long pass. Each point now
+    // costs three surface evaluations rather than one — the two extra are the
+    // finite differences behind its normal, which is what lets the cortex be lit
+    // — so a 46k room at one go would block for most of a second.
     //
     // `setTimeout`, not `requestAnimationFrame`. rAF does not fire in a
     // backgrounded tab, so gating *initialisation* on it meant a brain opened in
@@ -180,12 +203,22 @@ export function useSubstrate(count: number) {
     // forever — the same defect class as DESIGN.md §7's stalled entrances:
     // nothing the learner needs to see may depend on an animation frame.
     let cancelled = false;
-    const id = setTimeout(() => {
-      const made = sampleSurface(count, 1);
-      substrateCache.set(count, made);
-      if (!cancelled) setCloud(made);
-    }, 0);
-    return () => { cancelled = true; clearTimeout(id); };
+    let timer: ReturnType<typeof setTimeout>;
+    let acc: Substrate | null = null;
+    let stream = 0;
+
+    const slice = () => {
+      if (cancelled) return;
+      const want = Math.min(SLICE, count - (acc?.count ?? 0));
+      const batch = sampleSurface(want, 1, stream++);
+      acc = acc ? concat(acc, batch) : batch;
+      substrateCache.set(count, acc);
+      setCloud(acc);
+      if (acc.count < count) timer = setTimeout(slice, 0);
+    };
+    timer = setTimeout(slice, 0);
+
+    return () => { cancelled = true; clearTimeout(timer); };
   }, [count]);
 
   return cloud;

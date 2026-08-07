@@ -88,6 +88,33 @@ changed because the learner did something animates from its old value.**
   surface — and the useful one — is the region rail: every number as text, with
   each association's confidence tier and citations, and a "Study this region"
   button that builds a custom target from the region's cards.
+- **A detail pass, after the first version read as gauze.** Three causes, all
+  separable. (1) No shading: every tissue point was lit identically, so no gyrus
+  caught the light. Each point now carries a surface normal, taken by finite
+  differences across the folded surface, and a signed relief value; the shader
+  does a key light plus curvature darkening, which is how every neuroimaging tool
+  renders a cortical surface and for the same reason. (2) No occlusion: additive
+  blending has no notion of in-front-of, so the far hemisphere shone through the
+  near one. (3) Isotropic noise gives round bumps; real gyri are elongated
+  ridges, so the fold is now sampled through a stretched coordinate, and twelve
+  *named* sulci are drawn rather than left to fbm — the eye identifies the named
+  pattern, not the roughness.
+- **The bright outline was a sampling artefact, not a rim light.** Sampling a
+  surface uniformly by direction piles unbounded point density onto the
+  silhouette, where the surface runs edge-on; additive blending turned that into
+  a hard outline around every part, so the lobes read as separate bodies however
+  the lighting was balanced. Scaling brightness by the cosine of the viewing
+  angle is the exact compensation — it is the projected area a patch covers — and
+  it disposes of back-facing points for free. Two evenings of "the rim is too
+  strong" were the wrong diagnosis.
+- **Density up to 130k points, generated in slices.** Each point now costs three
+  surface evaluations rather than one (two are the finite differences behind its
+  normal), so a single synchronous pass would block for most of a second. Slices
+  of 15k are handed over as they finish and simply concatenated — the fold and
+  the sulci are keyed to the seed while only the sampling stream varies, so two
+  batches are two draws from the same brain. Sulcus lookup got per-sulcus
+  bounding spheres, which took a slice from 261ms to 93ms.
+
 - **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
   including the joins worth arguing about (Work → TPJ is the loosest). The surface
   itself carries a standing, non-dismissible line: *a map of the published

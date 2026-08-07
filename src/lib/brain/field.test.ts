@@ -54,15 +54,19 @@ describe('noise is seeded, never random', () => {
 });
 
 describe('the hull is a brain-shaped, deterministic point cloud', () => {
-  const pts = sampleSurface(4000, 1);
+  const sub = sampleSurface(4000, 1);
+  const pts = sub.position;
 
   it('returns the count it was asked for', () => {
     expect(pts.length).toBe(4000 * 3);
+    expect(sub.count).toBe(4000);
+    expect(sub.normal.length).toBe(4000 * 3);
+    expect(sub.curv.length).toBe(4000);
   });
 
   it('is identical for the same seed', () => {
-    expect(Array.from(sampleSurface(300, 5))).toEqual(Array.from(sampleSurface(300, 5)));
-    expect(Array.from(sampleSurface(300, 5))).not.toEqual(Array.from(sampleSurface(300, 6)));
+    expect(Array.from(sampleSurface(300, 5).position)).toEqual(Array.from(sampleSurface(300, 5).position));
+    expect(Array.from(sampleSurface(300, 5).position)).not.toEqual(Array.from(sampleSurface(300, 6).position));
   });
 
   it('never leaves a point at the origin', () => {

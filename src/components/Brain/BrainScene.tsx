@@ -144,7 +144,7 @@ export default function BrainScene({ mode, selected, className }: BrainSceneProp
         gl.render(view.current.yaw, view.current.pitch, flares.current, still ? 0 : now);
       } else if (ctx2d) {
         paintFlat(ctx2d, size.current.w, size.current.h, {
-          substrate, positions, region: field.region, lum,
+          substrate: substrate.position, positions, region: field.region, lum,
           yaw: view.current.yaw, pitch: view.current.pitch, flare: flares.current,
           dpr: size.current.dpr,
         });
