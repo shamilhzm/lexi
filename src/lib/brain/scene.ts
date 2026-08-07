@@ -61,7 +61,13 @@ const VERT = /* glsl */ `
     // fully-far and the scene rendered black.
     float rel = -mv.z - uCamDist;
     float depth = clamp((rel + 130.0) / 260.0, 0.0, 1.0);
-    float fade = 0.25 + 0.75 * pow(1.0 - depth, 1.5);
+
+    // Steep, and it has to be. The lexicon draws with depth testing off so words
+    // inside the volume glow through the shell — but that also let the *far*
+    // hemisphere's territories shine through the near one, and two sets of
+    // colours superimposed is not a map, it is noise. A hard falloff keeps the
+    // far side present as a suggestion of depth without competing.
+    float fade = 0.06 + 0.94 * pow(1.0 - depth, 3.4);
 
     float shade = 1.0;
     if (dot(aNormal, aNormal) > 0.25) {
@@ -126,7 +132,13 @@ const FRAG = /* glsl */ `
     float core = smoothstep(0.18, 0.0, d);
     float halo = smoothstep(0.5, 0.15, d);
     float a = core * 1.2 + halo * halo * 0.22;
-    gl_FragColor = vec4(vColor * (a * vLum), 1.0);
+
+    // Reinhard. Additive blending has no ceiling, so a dense patch of territory
+    // summed past 1.0 in every channel and clipped to white — losing exactly the
+    // colour that says which region it is. Compressing instead of clipping keeps
+    // a bright region bright *and* still coloured.
+    vec3 lit = vColor * (a * vLum);
+    gl_FragColor = vec4(lit / (1.0 + lit * 0.65), 1.0);
   }
 `;
 
@@ -185,12 +197,22 @@ const SHELL_FRAG = /* glsl */ `
     // groove still faces roughly outward. Every cortical render darkens by
     // curvature instead, and so does this one.
     float cavity = smoothstep(0.06, -0.10, vCurv);        // 1 on a crown, 0 in a groove
-    float groove = 0.20 + 0.80 * cavity;
+    float groove = 0.46 + 0.54 * cavity;
 
     float body = 0.14 + 0.50 * lambert;
     vec3 col = uTint * body * groove
              + uRim * fres * 0.72 * (0.45 + 0.55 * cavity)
              + vec3(0.55, 0.78, 0.95) * spec * 0.62 * cavity;
+
+    // A floor the surface can never go under.
+    //
+    // This shell is additive, so a fragment that shades to black contributes
+    // nothing and the void shows straight through it — a dark patch is not a
+    // shadow here, it is a hole. The interhemispheric fissure is a genuinely
+    // deep canyon 2% of the surface sits inside, and with aggressive cavity
+    // darkening it read as a tear across the top of the brain. Every part of
+    // the cortex now emits *something*.
+    col += uTint * 0.13;
 
     // The underside sits in shadow, so the brain has a top and a bottom.
     col *= 0.72 + 0.28 * smoothstep(-70.0, 40.0, vHeight);
@@ -198,6 +220,103 @@ const SHELL_FRAG = /* glsl */ `
     gl_FragColor = vec4(col * uOpacity, 1.0);
   }
 `;
+
+
+// The pathways.
+//
+// Consolidation is a *journey* — hippocampus to cortex — and until now that
+// journey was only implied by where partly-learned words happened to sit. These
+// are the routes themselves: one arc per region per hemisphere, bowed outward,
+// carrying a travelling pulse from the centre to the destination.
+//
+// Anatomically motivated rather than decorative: the hippocampal–neocortical
+// projection is the pathway Complementary Learning Systems theory is *about*,
+// and the direction of travel is the direction a memory actually moves.
+const TRACT_VERT = /* glsl */ `
+  attribute vec3 aColor;
+  attribute float aT;        // 0 at the hippocampus, 1 at the cortical seat
+  uniform float uTime;
+  uniform float uSelected;
+  attribute float aRegion;
+  varying vec3 vColor;
+  varying float vA;
+  void main() {
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+
+    // A pulse running outward along the arc. Three of them in flight at once, so
+    // the route reads as a direction of travel rather than a blinking line.
+    float flow = fract(aT * 3.0 - uTime * 0.22);
+    float pulse = pow(1.0 - flow, 7.0);
+
+    float dim = 1.0;
+    if (uSelected >= 0.0) dim = abs(aRegion - uSelected) < 0.5 ? 1.4 : 0.10;
+
+    // Fades in as it leaves the hippocampus and out as it arrives, so neither
+    // end terminates in a hard stub.
+    float ends = smoothstep(0.0, 0.18, aT) * smoothstep(1.0, 0.82, aT);
+    vA = (0.055 + 0.85 * pulse) * ends * dim;
+    vColor = aColor;
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+
+const TRACT_FRAG = /* glsl */ `
+  varying vec3 vColor;
+  varying float vA;
+  void main() {
+    vec3 lit = vColor * vA;
+    gl_FragColor = vec4(lit / (1.0 + lit * 0.6), 1.0);
+  }
+`;
+
+/** Segments per arc. Enough that a quadratic curve reads as a curve. */
+const TRACT_STEPS = 40;
+
+function buildTracts(): THREE.BufferGeometry {
+  const hip = REGIONS.find((r) => r.id === 'hip')!;
+  const pos: number[] = [], col: number[] = [], ts: number[] = [], reg: number[] = [];
+
+  REGIONS.forEach((r, ri) => {
+    if (r.id === 'hip') return;
+    const c = REGION_COLOR[r.id] ?? SUBSTRATE;
+
+    for (const sign of [1, -1]) {
+      const a = [hip.mni[0] * sign, hip.mni[1], hip.mni[2]];
+      const b = [r.mni[0] * sign, r.mni[1], r.mni[2]];
+      // Bow the control point away from the midline and upward, so the arc
+      // sweeps through tissue instead of cutting a chord through the ventricles.
+      const m = [
+        (a[0] + b[0]) / 2 + sign * 12,
+        (a[1] + b[1]) / 2,
+        (a[2] + b[2]) / 2 + 14,
+      ];
+
+      let prev: number[] | null = null;
+      for (let i = 0; i <= TRACT_STEPS; i++) {
+        const t = i / TRACT_STEPS, u = 1 - t;
+        const p = [
+          u * u * a[0] + 2 * u * t * m[0] + t * t * b[0],
+          u * u * a[1] + 2 * u * t * m[1] + t * t * b[1],
+          u * u * a[2] + 2 * u * t * m[2] + t * t * b[2],
+        ];
+        if (prev) {
+          pos.push(prev[0], prev[1], prev[2], p[0], p[1], p[2]);
+          col.push(c.r, c.g, c.b, c.r, c.g, c.b);
+          ts.push((i - 1) / TRACT_STEPS, t);
+          reg.push(ri, ri);
+        }
+        prev = p;
+      }
+    }
+  });
+
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('aColor', new THREE.Float32BufferAttribute(col, 3));
+  g.setAttribute('aT', new THREE.Float32BufferAttribute(ts, 1));
+  g.setAttribute('aRegion', new THREE.Float32BufferAttribute(reg, 1));
+  return g;
+}
 
 function makeMaterial(size: number): THREE.ShaderMaterial {
   return new THREE.ShaderMaterial({
@@ -256,6 +375,21 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   let posAttr: THREE.BufferAttribute | null = null;
   let baseLum: Float32Array = new Float32Array(0);
   let disposed = false;
+
+  const tractMat = new THREE.ShaderMaterial({
+    vertexShader: TRACT_VERT,
+    fragmentShader: TRACT_FRAG,
+    uniforms: { uTime: { value: 0 }, uSelected: { value: -1 } },
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+    // Inside the volume, so they read through the shell like the words do.
+    depthTest: false,
+  });
+  const tracts = new THREE.LineSegments(buildTracts(), tractMat);
+  tracts.frustumCulled = false;
+  tracts.renderOrder = 1;
+  rig.add(tracts);
 
   let shell: THREE.Mesh | null = null;
   let shellDepth: THREE.Mesh | null = null;
@@ -427,6 +561,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       const i = id ? REGIONS.findIndex((r) => r.id === id) : -1;
       subMat.uniforms.uSelected.value = i;
       lexMat.uniforms.uSelected.value = i;
+      tractMat.uniforms.uSelected.value = i;
     },
 
     resize(w, h) {
@@ -466,6 +601,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       if (any) lumAttr.needsUpdate = true;
 
       // A slow breath, so a brain with no activity is still alive.
+      tractMat.uniforms.uTime.value = now * 0.001;
       const breathe = 1 + Math.sin(now * 0.00042) * 0.012;
       rig.scale.setScalar(breathe);
 
@@ -477,6 +613,8 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       disposed = true;
       subPts?.geometry.dispose();
       lexGeom?.dispose();
+      tracts.geometry.dispose();
+      tractMat.dispose();
       shell?.geometry.dispose();
       shellMat.dispose();
       depthMat.dispose();

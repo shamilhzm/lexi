@@ -161,6 +161,29 @@ changed because the learner did something animates from its old value.**
   ref now. `setPointerCapture` is also wrapped: it throws for a pointer the
   browser does not recognise, and an exception there aborted the whole gesture.
 
+- **The pathways, finally drawn.** One arc per region per hemisphere, bowed
+  outward from the hippocampus to the cortical seat, carrying a travelling pulse
+  so the route reads as a *direction of travel*. Anatomically motivated rather
+  than decorative: the hippocampal–neocortical projection is the pathway
+  Complementary Learning Systems theory is about, and it is the direction a
+  memory actually moves. They dim with the rest when a region is selected.
+- **The far hemisphere stopped muddying the near one.** The lexicon draws with
+  depth testing off so words inside the volume glow through the shell — which
+  also let the *back* half's territories shine through the front, and two sets
+  of colours superimposed is not a map, it is noise. The depth falloff is now
+  steep enough that the far side reads as depth rather than as competition.
+- **Tone-mapped instead of clipped.** Additive blending has no ceiling, so a
+  dense patch of territory summed past 1.0 in every channel and went white —
+  losing the colour that says which region it is. Reinhard keeps a bright region
+  bright *and* coloured.
+- **"A massive hole in the top" was not a hole.** The mesh is watertight — zero
+  boundary edges, all 155,616 edges used by exactly two triangles. It was the
+  interhemispheric fissure, a genuine canyon that 2% of the surface sits inside,
+  rendered black by the new cavity shading. And because the shell is *additive*,
+  black contributes nothing and the void shows straight through: a dark patch is
+  not a shadow here, it is a hole. Every fragment now emits a floor, and the
+  cavity darkening stops well short of black.
+
 - **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
   including the joins worth arguing about (Work → TPJ is the loosest). The surface
   itself carries a standing, non-dismissible line: *a map of the published
