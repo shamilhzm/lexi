@@ -18,10 +18,13 @@
 import * as THREE from 'three';
 import { REGIONS } from './atlas.ts';
 import type { Substrate } from './geometry.ts';
+import type { BrainMesh } from './meshdata.ts';
 import { REGION_COLOR, SUBSTRATE, VOID } from './palette.ts';
 
 export interface SceneHandle {
   setSubstrate(sub: Substrate): void;
+  /** Swap the procedural point cloud for the real cortical surface. */
+  setMesh(mesh: BrainMesh): void;
   upload(positions: Float32Array, lum: Float32Array, region: Uint8Array): void;
   render(yaw: number, pitch: number, flares: Float32Array, now: number): void;
   setSelected(id: string | null): void;
@@ -43,6 +46,7 @@ const VERT = /* glsl */ `
   uniform float uSize;
   uniform float uSelected;   // -1 = nothing selected
   uniform float uCamDist;    // camera distance to the brain centre
+  uniform float uGain;       // global dimmer: the shell adds light of its own
   varying vec3 vColor;
   varying float vLum;
   void main() {
@@ -97,7 +101,7 @@ const VERT = /* glsl */ `
     float dim = 1.0;
     if (uSelected >= 0.0) dim = abs(aRegion - uSelected) < 0.5 ? 1.0 : 0.16;
 
-    vLum = aLum * fade * dim * shade;
+    vLum = aLum * fade * dim * shade * uGain;
     vColor = aColor;
     gl_PointSize = uSize * (0.65 + 0.9 * aLum) * (uScale / -mv.z);
     gl_Position = projectionMatrix * mv;
@@ -118,6 +122,57 @@ const FRAG = /* glsl */ `
   }
 `;
 
+
+// The cortical shell.
+//
+// Additive *with* depth writing, which is the combination that makes this read
+// as an object rather than a fog: the nearest fragment writes depth, so the far
+// half of the cortex is rejected instead of shining through the near half —
+// while the surface still adds light rather than occluding it, which is what
+// gives the glass. The word-neurons then draw with `depthTest: false` and glow
+// straight through it, exactly as they should: they are *inside* the brain.
+const SHELL_VERT = /* glsl */ `
+  varying vec3 vNormal;
+  varying vec3 vView;
+  varying float vHeight;
+  void main() {
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    vNormal = normalize(normalMatrix * normal);
+    vView = normalize(-mv.xyz);
+    vHeight = position.z;           // MNI z, for a subtle vertical gradient
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+
+const SHELL_FRAG = /* glsl */ `
+  uniform vec3 uTint;
+  uniform vec3 uRim;
+  uniform float uOpacity;
+  varying vec3 vNormal;
+  varying vec3 vView;
+  varying float vHeight;
+  void main() {
+    float facing = abs(dot(normalize(vNormal), normalize(vView)));
+
+    // Fresnel: a real surface goes bright where it turns away from you, and it
+    // is most of why glass looks like glass.
+    float fres = pow(1.0 - facing, 2.6);
+
+    vec3 key = normalize(vec3(-0.45, 0.75, 0.5));
+    float lambert = max(0.0, dot(normalize(vNormal), key));
+
+    // Gyral relief. The surface is dense enough at 2.4mm that the shading
+    // gradient across a fold is what draws it; nothing extra is needed.
+    float body = 0.16 + 0.52 * lambert;
+    vec3 col = uTint * body + uRim * fres * 0.85;
+
+    // The underside sits in shadow, so the brain has a top and a bottom.
+    col *= 0.72 + 0.28 * smoothstep(-70.0, 40.0, vHeight);
+
+    gl_FragColor = vec4(col * uOpacity, 1.0);
+  }
+`;
+
 function makeMaterial(size: number): THREE.ShaderMaterial {
   return new THREE.ShaderMaterial({
     vertexShader: VERT,
@@ -127,6 +182,7 @@ function makeMaterial(size: number): THREE.ShaderMaterial {
       uSize: { value: size },
       uSelected: { value: -1 },
       uCamDist: { value: 340 },
+      uGain: { value: 1.0 },
     },
     transparent: true,
     blending: THREE.AdditiveBlending,
@@ -146,6 +202,9 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
     return null;
   }
   renderer.setClearColor(new THREE.Color(VOID), 1);
+  // The shell writes depth, so the buffer has to be cleared between frames or the
+  // brain freezes on whatever the first frame happened to rasterise.
+  renderer.autoClear = true;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, 1, 1200);
@@ -168,8 +227,50 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   let baseLum: Float32Array = new Float32Array(0);
   let disposed = false;
 
+  let shell: THREE.Mesh | null = null;
+  const shellMat = new THREE.ShaderMaterial({
+    vertexShader: SHELL_VERT,
+    fragmentShader: SHELL_FRAG,
+    uniforms: {
+      uTint: { value: new THREE.Vector3(0.085, 0.225, 0.35) },
+      uRim: { value: new THREE.Vector3(0.30, 0.62, 0.86) },
+      uOpacity: { value: 1.0 },
+    },
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    // The pair that matters. Writing depth from an additive surface means the
+    // nearest fragment wins and the far half of the cortex never draws, so the
+    // shell reads as one solid object; not writing it produced a fog with two
+    // superimposed hemispheres.
+    depthWrite: true,
+    depthTest: true,
+    side: THREE.FrontSide,
+  });
+
   const handle: SceneHandle = {
+    setMesh(mesh) {
+      if (disposed) return;
+      if (shell) { rig.remove(shell); shell.geometry.dispose(); }
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(mesh.position, 3));
+      g.setAttribute('normal', new THREE.BufferAttribute(mesh.normal, 3));
+      g.setIndex(new THREE.BufferAttribute(mesh.index, 1));
+      lexMat.uniforms.uGain.value = 0.42;
+      lexMat.uniforms.uSize.value = mode === 'hero' ? 4.0 : 4.6;
+      shell = new THREE.Mesh(g, shellMat);
+      shell.frustumCulled = false;
+      // Drawn before the points so its depth is already in the buffer.
+      shell.renderOrder = -1;
+      rig.add(shell);
+
+      // The real surface replaces the procedural cloud rather than sitting
+      // inside it — two hulls at once is just noise.
+      if (subPts) { rig.remove(subPts); subPts.geometry.dispose(); subPts = null; }
+    },
+
     setSubstrate(sub) {
+      // Once the measured surface is in, the approximation is not wanted back.
+      if (shell) return;
       if (disposed) return;
       subPts?.geometry.dispose();
       if (subPts) rig.remove(subPts);
@@ -280,6 +381,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       const breathe = 1 + Math.sin(now * 0.00042) * 0.012;
       rig.scale.setScalar(breathe);
 
+      renderer.clear();
       renderer.render(scene, camera);
     },
 
@@ -287,6 +389,8 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       disposed = true;
       subPts?.geometry.dispose();
       lexGeom?.dispose();
+      shell?.geometry.dispose();
+      shellMat.dispose();
       subMat.dispose();
       lexMat.dispose();
       renderer.dispose();

@@ -128,27 +128,49 @@ region holds more than a quarter of the lexicon.
 
 ## The shape
 
-There is no mesh asset. `src/lib/brain/geometry.ts` builds the hull from five
-deformed superellipsoids merged at their seams, wrinkled by seeded anisotropic
-noise, and carved by twelve named sulci — Sylvian, central, parieto-occipital,
-superior and inferior frontal, pre- and postcentral, intraparietal, calcarine,
-superior and inferior temporal, cingulate — plus the interhemispheric fissure.
-Gyral noise alone cannot make a brain recognisable; what the eye identifies is
-the *named* pattern, so those are drawn rather than left to chance.
+**The hull is measured, not invented.** `public/data/brain-mesh.bin` is a
+triangle mesh isosurfaced from the grey-matter probability map of the MNI
+ICBM152 2009c nonlinear asymmetric template — a 152-subject average — by
+`npm run brain:mesh`. The gyri, the Sylvian fissure, the temporal lobe and the
+cerebellum are all real anatomy at 2.4mm sampling. See `ATTRIBUTIONS.md` for the
+licence, which expressly permits shipping a derived mesh.
 
-Every point carries a surface normal (finite differences across the folded
-surface) and its signed relief, which is what lets the renderer light the cortex
-and darken the sulci instead of scattering uniform dots. Point brightness is
-scaled by the cosine of the viewing angle — that is the projected area a patch of
-surface covers, and without it uniform direction sampling piles unbounded density
-onto the silhouette and additive blending draws a hard outline around every part.
+That matters beyond looks: **the template is MNI152, which is the space the
+region coordinates were already quoted in.** Swapping the procedural hull for
+real anatomy moved nothing about the science — every word kept its seat, and
+`meshdata.test.ts` asserts that every region still lands within 30mm of the
+cortical surface, which is what would catch a space or unit mismatch.
 
-That solves bundle size and licensing, but the real reason is the idea: this
-brain is not a model with your vocabulary painted onto it, it is *made of* your
-vocabulary, and every point in it is a card.
+Pipeline, in `scripts/brain/mesh.ts`:
 
-**Anatomical honesty stops at the silhouette and starts again at the
-coordinates.** The hull is stylised. Where the regions sit inside it is not.
+1. Fetch and cache the 7.2MB volume (git-ignored, never redistributed).
+2. Box-average to a 2.4mm isotropic grid — a probability map's cell mean is its
+   partial-volume estimate, so averaging is the right resample.
+3. **Fill the interior.** Grey matter is a *ribbon*: white matter falls below
+   threshold, so a naïve isosurface yields two shells, the pial surface and a
+   ghost brain inside it. Flooding the background inward from the volume border
+   marks what is genuinely outside; whatever is left below threshold is enclosed
+   and gets filled.
+4. Surface Nets rather than marching cubes — no 256-case tables, one vertex per
+   surface cell instead of up to five, and near-uniform output.
+5. Three passes of Laplacian smoothing. Six washed the gyri out.
+6. Orient every triangle from the **field gradient**, which points from inside to
+   outside by construction. The first version reasoned about the sign of each
+   axis's quad and got 40% of faces wound inward, which lights as holes.
+7. Quantise: int16 tenths of a millimetre, 16-bit indices, normals derived in the
+   browser. 0.60MB gzipped.
+
+It is fetched **only when the room is opened** — never on Today's first paint,
+where the hero keeps the cheap procedural cloud. A 0.6MB surface has no business
+on the boot path for a 210px strip that would downscale the detail away.
+
+### The procedural hull, which is still here
+
+`src/lib/brain/geometry.ts` still builds an approximate brain from five deformed
+superellipsoids with named sulci carved into them. It is what the 2D fallback
+renderer draws, and what the hero draws, and `meshdata.test.ts` cross-checks the
+measured surface against it — a sample of the real mesh has to land inside the
+approximation, which is what would catch an axis flip or a tenfold scale error.
 
 ## Primary sources
 

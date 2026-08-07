@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Lexi — a free, open-source German vocabulary terminal (A1–C2). FSRS spaced repetition over a deep lexicon, rendered as a live dictionary market. Local-first, donation-supported.",
+  "description": "Lexi \u2014 a free, open-source German vocabulary terminal (A1\u2013C2). FSRS spaced repetition over a deep lexicon, rendered as a live dictionary market. Local-first, donation-supported.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -32,6 +32,7 @@
     "corpus:audit": "node scripts/corpus/audit.ts",
     "corpus:freq": "node scripts/corpus/freq.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts",
+    "brain:mesh": "node scripts/brain/mesh.ts",
     "corpus:enrich": "node scripts/corpus/enrich-fields.ts",
     "authoring:input": "node scripts/authoring/make-input.ts",
     "authoring:apply": "node scripts/authoring/apply-authored.ts",

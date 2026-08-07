@@ -110,13 +110,40 @@ license, how it's used, and the obligations that attach to the data we ship.
 **three.js** — MIT licence, © 2010–present three.js authors. Loaded as a lazy
 chunk; see `src/lib/brain/scene.ts`.
 
+### The cortical surface — MNI ICBM152 2009c
+
+`public/data/brain-mesh.bin` is a triangle mesh derived from the grey-matter
+probability map of the **ICBM152 2009c nonlinear asymmetric** template, obtained
+via TemplateFlow's public mirror and isosurfaced by `npm run brain:mesh`
+(`scripts/brain/mesh.ts`). The gyri and sulci in the app are therefore measured
+anatomy from a 152-subject average, not an artist's impression.
+
+> Copyright (C) 1993–2004 Louis Collins, McConnell Brain Imaging Centre,
+> Montreal Neurological Institute, McGill University. Permission to use, copy,
+> modify, and distribute this software and its documentation for any purpose and
+> without fee is hereby granted, provided that the above copyright notice appear
+> in all copies.
+
+The licence expressly permits modification and redistribution, which is what
+shipping a derived mesh is. Cite:
+
+- Fonov V, Evans AC, Botteron K, Almli CR, McKinstry RC, Collins DL and BDCG
+  (2011). *Unbiased average age-appropriate atlases for pediatric studies.*
+  NeuroImage 54(1):313–327.
+- Fonov V, Evans AC, McKinstry RC, Almli CR, Collins DL (2009). *Unbiased
+  nonlinear average age-appropriate brain templates from birth to adulthood.*
+  NeuroImage 47, Supplement 1:S102.
+
+The 7.2MB source volume is cached under `scripts/brain/data/` (git-ignored) and
+**is not redistributed** — only the derived surface ships.
+
+### What is still an interpretation
+
 The atlas that places a vocabulary sector in a cortical region is an
-interpretation laid over published work, not a finding, and `docs/BRAIN.md` states
-exactly what it claims and what it does not. **No brain imaging data is
-redistributed**: the hull is procedural (`src/lib/brain/geometry.ts`), and the
-only thing taken from the literature is a rounded MNI152 peak coordinate per
-region, quoted with its source. Nobody's brain has been scanned, and the surface
-says so in a standing caption.
+interpretation laid over published work, not a finding, and `docs/BRAIN.md`
+states exactly what it claims and what it does not. The template is a group
+average of 152 people; **nobody using Lexi has been scanned**, no individual's
+imaging data is involved, and the surface says so in a standing caption.
 
 Per-region citations live in `src/lib/brain/atlas.ts` and are shown to the learner
 alongside a confidence tier. Primary sources are listed in `docs/BRAIN.md`.

@@ -15,6 +15,7 @@ import { VOID } from '../../lib/brain/palette.ts';
 import { useBrainField, useFlares, useSubstrate, SUBSTRATE_COUNT } from './useBrain.ts';
 import { useMedia } from '../../lib/useMedia.ts';
 import type { SceneHandle } from '../../lib/brain/scene.ts';
+import { loadBrainMesh } from '../../lib/brain/meshdata.ts';
 
 /** Radians per second of idle rotation. A brain that is perfectly still reads
  *  as a diagram; one that turns fast enough to notice reads as a screensaver. */
@@ -78,6 +79,20 @@ export default function BrainScene({ mode, selected, className }: BrainSceneProp
 
     return () => { dead = true; handle?.dispose(); setGl(null); };
   }, [mode]);
+
+  // ---- the real cortical surface -----------------------------------------
+  // Room only. The hero sits on Today, which is the app's first paint, and a
+  // 0.6MB surface has no business on the boot path for a 210px strip where its
+  // detail would not survive the downscale anyway. The room is somewhere you
+  // chose to go.
+  //
+  // Fetched independently of the `three` chunk so the two download in parallel.
+  useEffect(() => {
+    if (mode !== 'room' || !gl) return;
+    let dead = false;
+    loadBrainMesh().then((m) => { if (m && !dead) gl.setMesh(m); });
+    return () => { dead = true; };
+  }, [mode, gl]);
 
   // ---- sizing -------------------------------------------------------------
   useEffect(() => {
