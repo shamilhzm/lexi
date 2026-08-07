@@ -16,6 +16,11 @@ scripts/corpus/data/
 # ships — see docs/BRAIN.md and ATTRIBUTIONS.md.
 scripts/brain/data/
 
+# Screen recordings dropped in for review. macOS blocks this process from
+# reading ~/Desktop and ~/Downloads, so they get copied here instead.
+*.mov
+*.mp4
+
 # Local reference material (~260 MB: DaF textbook scans, design screenshots).
 # Source for the A1/A2 corpus rebalance — see reference/DaF Wortschatz/MANIFEST.md
 # and docs/archive/COHESION-PLAN.md Phase 3. Never committed, never redistributed.

@@ -27,10 +27,13 @@ export interface BrainSceneProps {
   selected?: string | null;
   /** Fired when a region is picked out of the scene (room only). */
   onPickRegion?: (id: string | null) => void;
+  /** Preview: fraction of the lexicon to render as consolidated, or null for
+   *  real progress. See `simulatedConsolidation` — strictly read-only. */
+  simulate?: number | null;
   className?: string;
 }
 
-export default function BrainScene({ mode, selected, className }: BrainSceneProps) {
+export default function BrainScene({ mode, selected, simulate = null, className }: BrainSceneProps) {
   // Two canvases, stacked, not one.
   //
   // A canvas can only ever hand out one kind of context. The 2D renderer paints
@@ -44,7 +47,7 @@ export default function BrainScene({ mode, selected, className }: BrainSceneProp
   const wrap = useRef<HTMLDivElement>(null);
   const still = useMedia('(prefers-reduced-motion: reduce)');
 
-  const { field, positions, lum, revision } = useBrainField();
+  const { field, positions, lum, revision } = useBrainField(simulate);
   const substrate = useSubstrate(SUBSTRATE_COUNT[mode]);
   const { flares, step } = useFlares(field);
 
@@ -127,7 +130,7 @@ export default function BrainScene({ mode, selected, className }: BrainSceneProp
   // ---- upload on data change ---------------------------------------------
   useEffect(() => {
     gl?.upload(positions, lum, field.region);
-  }, [gl, positions, lum, field, revision]);
+  }, [gl, positions, lum, field, revision, simulate]);
 
   useEffect(() => { gl?.setSelected(selected ?? null); }, [gl, selected]);
 

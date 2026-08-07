@@ -115,6 +115,24 @@ changed because the learner did something animates from its old value.**
   batches are two draws from the same brain. Sulcus lookup got per-sulcus
   bounding spheres, which took a slice from 261ms to 93ms.
 
+- **A preview scrubber, behind `g` in the room.** A slider that renders the brain
+  at any size of lexicon — "what does 5,000 words look like" without anybody
+  having to learn 5,000 words, which is the only way to see the far end of the
+  design. It substitutes the consolidation function (`simulatedConsolidation`,
+  a pure function of the card id) and never reads or writes the store, so no
+  amount of scrubbing can touch real progress. Ranks are stable in the id, so
+  raising the fraction only ever *adds* words rather than reshuffling the sky.
+  Hidden by default, and unmistakably labelled whenever it is on: a control that
+  shows numbers which are not yours has to say so.
+- **Sharpened, on four counts.** Antialiasing was off from when the scene was
+  points only, where it bought nothing; with a mesh in it every gyral edge was
+  stair-stepped, and at arm's length a staircase reads as blur rather than as
+  aliasing. The point sprite was a wide halo carrying most of the energy — 7,394
+  overlapping wide halos is not a constellation, it is fog — so the core is now
+  the bright part and the halo a hint. The shell gained a specular term, which
+  is what puts a hard edge on a gyral crown where diffuse alone gives a soft
+  gradient. And `powerPreference` went to `high-performance`.
+
 - **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
   including the joins worth arguing about (Work → TPJ is the loosest). The surface
   itself carries a standing, non-dismissible line: *a map of the published

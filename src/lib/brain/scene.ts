@@ -112,12 +112,17 @@ const FRAG = /* glsl */ `
   varying vec3 vColor;
   varying float vLum;
   void main() {
-    // Radial falloff with a hot core: this is the bloom.
+    // A hard little core with a tight halo, rather than the other way round.
+    //
+    // The first version was a wide smoothstep halo carrying most
+    // of the energy, and 7,394 wide halos overlapping is not a constellation,
+    // it is fog. The core is now the bright part and the halo is a hint, which
+    // is what makes a point of light look like a point of light.
     float d = length(gl_PointCoord - vec2(0.5));
     if (d > 0.5) discard;
-    float halo = smoothstep(0.5, 0.0, d);
-    float core = smoothstep(0.22, 0.0, d);
-    float a = halo * halo * 0.55 + core * 0.9;
+    float core = smoothstep(0.16, 0.0, d);
+    float halo = smoothstep(0.5, 0.14, d);
+    float a = core * 1.15 + halo * halo * 0.16;
     gl_FragColor = vec4(vColor * (a * vLum), 1.0);
   }
 `;
@@ -161,10 +166,15 @@ const SHELL_FRAG = /* glsl */ `
     vec3 key = normalize(vec3(-0.45, 0.75, 0.5));
     float lambert = max(0.0, dot(normalize(vNormal), key));
 
-    // Gyral relief. The surface is dense enough at 2.4mm that the shading
-    // gradient across a fold is what draws it; nothing extra is needed.
-    float body = 0.16 + 0.52 * lambert;
-    vec3 col = uTint * body + uRim * fres * 0.85;
+    // Gyral relief. Diffuse alone renders the folds as a soft gradient; the
+    // specular term is what puts a hard edge on each gyral crown, and hard
+    // edges are the whole difference between "detailed" and "fuzzy".
+    // Not named 'half': that is reserved in GLSL ES.
+    vec3 hv = normalize(key + normalize(vView));
+    float spec = pow(max(0.0, dot(normalize(vNormal), hv)), 34.0);
+
+    float body = 0.14 + 0.50 * lambert;
+    vec3 col = uTint * body + uRim * fres * 0.72 + vec3(0.55, 0.78, 0.95) * spec * 0.55;
 
     // The underside sits in shadow, so the brain has a top and a bottom.
     col *= 0.72 + 0.28 * smoothstep(-70.0, 40.0, vHeight);
@@ -197,7 +207,10 @@ function makeMaterial(size: number): THREE.ShaderMaterial {
 export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'room'): Promise<SceneHandle | null> {
   let renderer: THREE.WebGLRenderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'low-power' });
+    // Antialiasing was off from when this was points only, where it bought
+    // nothing. With a mesh in the scene every gyral edge was stair-stepped, and
+    // at arm's length a staircase does not read as aliasing — it reads as blur.
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
   } catch {
     return null;
   }

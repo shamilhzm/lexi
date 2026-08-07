@@ -7,8 +7,8 @@
 // The canvas is `aria-hidden`. The accessible surface — and the *useful* one, for
 // everyone — is the region list on the right: the same numbers as text, with the
 // evidence behind each association and a way to study it.
-import { useMemo, useState } from 'react';
-import { X, Play, ExternalLink } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { X, Play, ExternalLink, FlaskConical } from 'lucide-react';
 import BrainScene from '../components/Brain/BrainScene.tsx';
 import { useBrainField } from '../components/Brain/useBrain.ts';
 import { REGIONS, REGION_BY_ID, type Confidence } from '../lib/brain/atlas.ts';
@@ -32,7 +32,27 @@ const CONFIDENCE_NOTE: Record<Confidence, string> = {
 };
 
 export default function BrainRoom({ onExit, onStudy }: { onExit: () => void; onStudy: (t: Target) => void }) {
-  const { field, progress } = useBrainField();
+  // The preview scrubber. Hidden until you ask for it with `g`, because it is a
+  // maker's tool: it answers "what does 5,000 words look like" without anybody
+  // having to learn 5,000 words, and it is the only way to see the far end of
+  // the design. It substitutes the consolidation function and never touches the
+  // store, so no amount of scrubbing can damage real progress — but a control
+  // that shows numbers which are not yours has to say so, loudly, whenever it
+  // is on.
+  const [sim, setSim] = useState<number | null>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'g' && e.key !== 'G') return;
+      const el = e.target as HTMLElement | null;
+      if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
+      setSim((s) => (s === null ? 0.35 : null));
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const { field, progress } = useBrainField(sim);
   const [sel, setSel] = useState<string | null>(null);
 
   const rows = useMemo(() => REGIONS
@@ -60,7 +80,7 @@ export default function BrainRoom({ onExit, onStudy }: { onExit: () => void; onS
   return (
     <div className="brain-room h-[100dvh] w-full flex flex-col lg:flex-row overflow-hidden">
       <div className="relative flex-1 min-h-[46vh] lg:min-h-0">
-        <BrainScene mode="room" selected={sel} className="absolute inset-0" />
+        <BrainScene mode="room" selected={sel} simulate={sim} className="absolute inset-0" />
 
         <div className="absolute top-0 left-0 right-0 flex items-start gap-3 p-4 sm:p-5 pointer-events-none safe-top">
           <div className="pointer-events-auto">
@@ -80,9 +100,34 @@ export default function BrainRoom({ onExit, onStudy }: { onExit: () => void; onS
           </button>
         </div>
 
+        {sim !== null && (
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16 safe-bottom">
+            <div className="pointer-events-auto max-w-[420px] rounded-md bg-white/[0.08] backdrop-blur px-4 py-3
+              border border-amber-300/25">
+              <div className="flex items-center gap-2 mb-2">
+                <FlaskConical size={13} className="text-amber-300 flex-shrink-0" />
+                <span className="text-amber-300 text-2xs font-mono uppercase tracking-wider">Preview — not your progress</span>
+                <button onClick={() => setSim(null)}
+                  className="ml-auto text-white/50 hover:text-white text-2xs underline">exit</button>
+              </div>
+              <label className="flex items-center gap-3">
+                <span className="sr-only">Words consolidated</span>
+                <input
+                  type="range" min={0} max={1000} value={Math.round(sim * 1000)}
+                  onChange={(e) => setSim(Number(e.target.value) / 1000)}
+                  className="flex-1 accent-amber-300"
+                />
+                <span className="font-mono text-white text-xs tabular-nums w-[5.5ch] text-right">
+                  {fmt(Math.round(sim * field.ids.length))}
+                </span>
+              </label>
+            </div>
+          </div>
+        )}
+
         <p className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white/35 text-2xs leading-relaxed pointer-events-none safe-bottom">
           A map of the published literature, not a map of your head — nobody has scanned you.
-          Drag to turn.
+          Drag to turn.{sim === null && <span className="text-white/20"> · press G to preview any size of lexicon</span>}
         </p>
       </div>
 

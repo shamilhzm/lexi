@@ -108,11 +108,19 @@ export function positionAt(f: NeuronField, i: number, t: number, out: Vec3 = [0,
   return out;
 }
 
+/** How consolidated a card is, 0..1. Taken as a function rather than read from
+ *  the store directly so the room's preview slider can substitute a synthetic
+ *  one — which is what keeps the preview strictly read-only. */
+export type Consolidation = (id: string) => number;
+
+export const fromCards = (cardOf: (id: string) => Card | undefined): Consolidation =>
+  (id) => consolidation(cardOf(id));
+
 /** Fill `out` (3 floats per neuron) with current positions. One pass, no
  *  allocation — this runs on the store's version tick, not per frame. */
-export function writePositions(f: NeuronField, out: Float32Array, cardOf: (id: string) => Card | undefined): void {
+export function writePositions(f: NeuronField, out: Float32Array, tOf: Consolidation): void {
   for (let i = 0; i < f.ids.length; i++) {
-    const k = smoothstep(consolidation(cardOf(f.ids[i])));
+    const k = smoothstep(tOf(f.ids[i]));
     const j = i * 3;
     out[j] = f.origin[j] + (f.home[j] - f.origin[j]) * k;
     out[j + 1] = f.origin[j + 1] + (f.home[j + 1] - f.origin[j + 1]) * k;
@@ -122,14 +130,14 @@ export function writePositions(f: NeuronField, out: Float32Array, cardOf: (id: s
 
 /** Per-region progress, for the rail and for the post-session diff.
  *  `known` counts cards past halfway out of the hippocampus. */
-export function regionProgress(f: NeuronField, cardOf: (id: string) => Card | undefined) {
+export function regionProgress(f: NeuronField, tOf: Consolidation) {
   const out = new Map<string, { total: number; touched: number; known: number; sum: number }>();
   for (const r of REGIONS) out.set(r.id, { total: 0, touched: 0, known: 0, sum: 0 });
 
   for (let i = 0; i < f.ids.length; i++) {
     const rid = REGIONS[f.region[i]].id;
     const slot = out.get(rid)!;
-    const t = consolidation(cardOf(f.ids[i]));
+    const t = tOf(f.ids[i]);
     slot.total++;
     if (t > 0) slot.touched++;
     if (t >= 0.5) slot.known++;

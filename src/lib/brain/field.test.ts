@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { mulberry32, hashString, fbm3, valueNoise3, unitVector } from './noise.ts';
 import { sampleSurface, insideBrain, clampInside, projectToShell, BOUNDS, type Vec3 } from './geometry.ts';
 import { consolidation, luminance, smoothstep, crossedStage } from './consolidation.ts';
-import { buildField, positionAt, regionProgress } from './field.ts';
+import { buildField, positionAt, regionProgress, fromCards } from './field.ts';
 import { REGIONS, HIPPOCAMPUS } from './atlas.ts';
 import { State, type Card } from '../../srs.ts';
 import type { Word } from '../../types.ts';
@@ -252,7 +252,7 @@ describe('the field gives every card a fixed seat', () => {
 
   it('reports per-region progress the rail can render', () => {
     const cards = new Map<string, Card>([['voc:A1:der Hund', card({ stability: 200 })]]);
-    const p = regionProgress(f, (id) => cards.get(id));
+    const p = regionProgress(f, fromCards((id) => cards.get(id)));
     expect(p.get('ffg')!.total).toBe(1);
     expect(p.get('ffg')!.known).toBe(1);
     expect(p.get('ips')!.known).toBe(0);

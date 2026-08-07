@@ -16,6 +16,7 @@
 // hippocampus to cortex renders the scheduler's own belief rather than inventing
 // a new one.
 import { State, type Card } from '../../srs.ts';
+import { hashString } from './noise.ts';
 
 /** Stability, in days, at which a word is treated as having just left the
  *  hippocampus. One day: it survived a night. */
@@ -49,6 +50,24 @@ export function consolidation(card: Card | undefined): number {
 
   const s = Math.max(S0, card.stability || S0);
   return Math.max(0, Math.min(1, Math.log(s / S0) / LOG_SPAN));
+}
+
+/** What the brain would look like with `fraction` of the lexicon consolidated.
+ *
+ *  A preview, and deliberately a *pure function of the card id* — it never reads
+ *  or writes the store, so scrubbing it cannot touch anyone's real progress. The
+ *  same id always occupies the same rank, so raising the fraction only ever adds
+ *  words: scrubbing up and back down is stable rather than reshuffling the sky.
+ *
+ *  Words near the threshold come out barely consolidated and words well inside
+ *  it come out fully so, which is what makes the scrub read as a migration out
+ *  of the hippocampus rather than a light switch. */
+export function simulatedConsolidation(id: string, fraction: number): number {
+  if (fraction <= 0) return 0;
+  const rank = hashString(id) / 4294967296;   // stable in [0, 1)
+  if (rank >= fraction) return 0;
+  const depth = 1 - rank / fraction;          // 0 at the threshold, 1 at the front
+  return Math.max(0.02, Math.min(1, depth ** 0.65));
 }
 
 /** Ease the journey so words bunch at the two ends rather than smearing evenly

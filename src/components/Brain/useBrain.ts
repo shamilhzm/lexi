@@ -8,8 +8,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { WORDS, SECTOR_FINEGROUP } from '../../data/index.ts';
 import { cardOf, onCardEvent } from '../../store.ts';
 import { useStore } from '../../useStore.ts';
-import { buildField, writePositions, regionProgress } from '../../lib/brain/field.ts';
-import { consolidation, luminance, crossedStage } from '../../lib/brain/consolidation.ts';
+import { buildField, writePositions, regionProgress, fromCards, type Consolidation } from '../../lib/brain/field.ts';
+import { consolidation, luminance, crossedStage, simulatedConsolidation } from '../../lib/brain/consolidation.ts';
 import { sampleSurface, type Substrate } from '../../lib/brain/geometry.ts';
 
 /** How much tissue each surface draws. The hero is a 240px strip on the app's
@@ -22,7 +22,12 @@ export const SUBSTRATE_COUNT = { hero: 34000, room: 130000 } as const;
  *  next card is graded. */
 const FLARE_MS = 1400;
 
-export function useBrainField() {
+/**
+ * @param simulate  Fraction of the lexicon to *pretend* is consolidated, 0..1,
+ *   or null for the truth. Read-only: it substitutes the consolidation function
+ *   and never touches the store, so scrubbing it cannot damage real progress.
+ */
+export function useBrainField(simulate: number | null = null) {
   const v = useStore();
 
   // The field is static: it depends on the lexicon, not on progress. Rebuilding
@@ -42,17 +47,28 @@ export function useBrainField() {
   // Mutating a value produced by an earlier render is not safe under concurrent
   // React and the compiler rejects it outright; ~120KB per grade is a cheaper
   // price than a torn frame.
+  const tOf: Consolidation = useMemo(
+    () => (simulate === null ? fromCards(cardOf) : (id: string) => simulatedConsolidation(id, simulate)),
+    [simulate],
+  );
+
   const { positions, lum } = useMemo(() => {
     const pos = new Float32Array(field.ids.length * 3);
     const light = new Float32Array(field.ids.length);
-    writePositions(field, pos, cardOf);
-    for (let i = 0; i < field.ids.length; i++) light[i] = luminance(cardOf(field.ids[i]));
+    writePositions(field, pos, tOf);
+    for (let i = 0; i < field.ids.length; i++) {
+      // In preview the synthetic journey *is* the brightness — there are no
+      // lapses to dim a word that does not exist.
+      light[i] = simulate === null
+        ? luminance(cardOf(field.ids[i]))
+        : Math.max(0.14, 0.35 + 0.65 * tOf(field.ids[i]));
+    }
     return { positions: pos, lum: light };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [field, v]);
+  }, [field, v, tOf, simulate]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const progress = useMemo(() => regionProgress(field, cardOf), [field, v]);
+  const progress = useMemo(() => regionProgress(field, tOf), [field, v, tOf]);
 
   return { field, positions, lum, progress, revision: v };
 }
