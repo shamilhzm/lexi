@@ -241,6 +241,33 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
   let disposed = false;
 
   let shell: THREE.Mesh | null = null;
+  let shellDepth: THREE.Mesh | null = null;
+
+  // A depth pre-pass, drawn first, writing depth and no colour.
+  //
+  // This exists because additive blending and depth *writing* do not mix. Additive
+  // is order-independent; depth writing is emphatically not — whichever triangle
+  // reaches a pixel first wins it, and every later triangle behind that depth is
+  // rejected. Surface Nets emits triangles in grid scan order, z-slice by
+  // z-slice, so drawing the shell with `depthWrite: true` rendered the mesh's
+  // *generation order* as horizontal bands across the cortex, plus torn patches
+  // wherever the order flipped. It looked like a mesh defect and was a blend-state
+  // defect.
+  //
+  // With the depth of the front surface established up front, the shell can then
+  // draw with depth writing *off* and an equal-or-nearer test, so only the
+  // frontmost fragments survive — self-occlusion without any dependence on the
+  // order triangles happen to arrive in.
+  const depthMat = new THREE.ShaderMaterial({
+    vertexShader: SHELL_VERT,
+    fragmentShader: 'void main() { gl_FragColor = vec4(0.0); }',
+    uniforms: {},
+    colorWrite: false,
+    depthWrite: true,
+    depthTest: true,
+    side: THREE.FrontSide,
+  });
+
   const shellMat = new THREE.ShaderMaterial({
     vertexShader: SHELL_VERT,
     fragmentShader: SHELL_FRAG,
@@ -251,12 +278,11 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
     },
     transparent: true,
     blending: THREE.AdditiveBlending,
-    // The pair that matters. Writing depth from an additive surface means the
-    // nearest fragment wins and the far half of the cortex never draws, so the
-    // shell reads as one solid object; not writing it produced a fog with two
-    // superimposed hemispheres.
-    depthWrite: true,
+    depthWrite: false,
     depthTest: true,
+    // Only fragments at the depth the pre-pass established get through. Same
+    // vertex shader in both passes, so the interpolated depths agree exactly.
+    depthFunc: THREE.LessEqualDepth,
     side: THREE.FrontSide,
   });
 
@@ -270,10 +296,15 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       g.setIndex(new THREE.BufferAttribute(mesh.index, 1));
       lexMat.uniforms.uGain.value = 0.42;
       lexMat.uniforms.uSize.value = mode === 'hero' ? 4.0 : 4.6;
+
+      shellDepth = new THREE.Mesh(g, depthMat);
+      shellDepth.frustumCulled = false;
+      shellDepth.renderOrder = -2;   // depth first
+      rig.add(shellDepth);
+
       shell = new THREE.Mesh(g, shellMat);
       shell.frustumCulled = false;
-      // Drawn before the points so its depth is already in the buffer.
-      shell.renderOrder = -1;
+      shell.renderOrder = -1;        // then colour, against that depth
       rig.add(shell);
 
       // The real surface replaces the procedural cloud rather than sitting
@@ -404,6 +435,7 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
       lexGeom?.dispose();
       shell?.geometry.dispose();
       shellMat.dispose();
+      depthMat.dispose();
       subMat.dispose();
       lexMat.dispose();
       renderer.dispose();

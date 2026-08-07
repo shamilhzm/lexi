@@ -58,6 +58,8 @@ export default function BrainScene({ mode, selected, simulate = null, className 
   // nothing in the tree needs to re-render when it does.
   const view = useRef({ yaw: mode === 'hero' ? 0.55 : 0.7, pitch: 0.22, spin: true });
   const size = useRef({ w: 0, h: 0, dpr: 1 });
+  /** Set by the render loop so anything that changes the view can ask for a frame. */
+  const paintRef = useRef<(() => void) | null>(null);
 
   // ---- 3D, when and if it arrives ----------------------------------------
   // Reduced motion is honoured by *not moving* — no idle spin, no breath, and a
@@ -142,10 +144,20 @@ export default function BrainScene({ mode, selected, simulate = null, className 
 
     let raf = 0;
     let last = performance.now();
+
+    // A paint can be *requested*, not only scheduled by the running loop.
+    //
+    // Under reduced motion the loop deliberately stops once nothing is changing,
+    // which meant dragging the brain moved `view` and then redrew nothing —
+    // the surface simply did not respond. Anything that changes what should be
+    // on screen has to be able to ask for a frame.
+    const requestPaint = () => { if (!raf) raf = requestAnimationFrame(frame); };
+    paintRef.current = requestPaint;
     // Only ever taken on the 2D element, and only while WebGL is not live.
     const ctx2d = gl ? null : flatCanvas.current?.getContext('2d') ?? null;
 
     const frame = (now: number) => {
+      raf = 0;
       const dt = Math.min(0.1, (now - last) / 1000);
       last = now;
 
@@ -154,7 +166,7 @@ export default function BrainScene({ mode, selected, simulate = null, className 
 
       // Nothing to draw into yet — the wrapper has no layout on the very first
       // synchronous pass in some flex arrangements.
-      if (size.current.w < 2 || size.current.h < 2) { raf = requestAnimationFrame(frame); return; }
+      if (size.current.w < 2 || size.current.h < 2) { requestPaint(); return; }
 
       if (gl) {
         // `now` is frozen under reduced motion so the slow breath in the scene
@@ -170,7 +182,7 @@ export default function BrainScene({ mode, selected, simulate = null, className 
 
       // Under reduced motion the brain is painted once and then only when
       // something actually changes — no idle loop at all.
-      if (!still || lit) raf = requestAnimationFrame(frame);
+      if (!still || lit) requestPaint();
     };
 
     // Paint synchronously before scheduling. rAF does not fire in a backgrounded
@@ -183,7 +195,11 @@ export default function BrainScene({ mode, selected, simulate = null, className 
     // burst of flare maths when it returns.
     const onVis = () => { last = performance.now(); };
     document.addEventListener('visibilitychange', onVis);
-    return () => { cancelAnimationFrame(raf); document.removeEventListener('visibilitychange', onVis); };
+    return () => {
+      cancelAnimationFrame(raf);
+      paintRef.current = null;
+      document.removeEventListener('visibilitychange', onVis);
+    };
     // `selected` is a dependency so that picking a region repaints. It only
     // changes a shader uniform, which the idle loop would pick up on its next
     // frame — but under reduced motion there is no next frame, so highlighting a
@@ -210,6 +226,7 @@ export default function BrainScene({ mode, selected, simulate = null, className 
       view.current.yaw += (e.clientX - last[0]) * 0.008;
       view.current.pitch = Math.max(-1.1, Math.min(1.1, view.current.pitch + (e.clientY - last[1]) * 0.006));
       last = [e.clientX, e.clientY];
+      paintRef.current?.();
     };
     const up = (e: PointerEvent) => {
       if (id !== e.pointerId) return;
@@ -228,6 +245,30 @@ export default function BrainScene({ mode, selected, simulate = null, className 
       cv.removeEventListener('pointerup', up);
       cv.removeEventListener('pointercancel', up);
     };
+  }, [mode]);
+
+  // Turning the brain from the console. Dev builds only.
+  //
+  // Two rendering defects reached a preview because the only way to inspect this
+  // was a screenshot of one frame at one yaw: a backgrounded tab gets no
+  // animation frames, so the brain never turned, and depth-order banding is
+  // invisible until it does. An escape hatch that makes every angle reachable is
+  // cheaper than the next one of those.
+  //
+  //   __brain.look(1.9, 0.15)
+  useEffect(() => {
+    if (!import.meta.env.DEV || mode !== 'room') return;
+    const w = window as unknown as { __brain?: unknown };
+    w.__brain = {
+      view: view.current,
+      look: (yaw: number, pitch = view.current.pitch) => {
+        view.current.yaw = yaw;
+        view.current.pitch = pitch;
+        view.current.spin = false;
+        paintRef.current?.();
+      },
+    };
+    return () => { delete w.__brain; };
   }, [mode]);
 
   return (

@@ -190,10 +190,25 @@ log(`surface nets: ${(verts.length / 3).toLocaleString()} vertices`);
 // Quads across every sign-changing grid edge, wound consistently so the normals
 // come out facing away from the brain.
 const tris: number[] = [];
+let patched = 0;
 const quad = (a: number, b: number, c: number, d: number, flip: boolean) => {
-  if (a < 0 || b < 0 || c < 0 || d < 0) return;
-  if (flip) tris.push(a, c, b, a, d, c);
-  else tris.push(a, b, c, a, c, d);
+  const have = [a, b, c, d].filter((v) => v >= 0);
+  if (have.length === 4) {
+    if (flip) tris.push(a, c, b, a, d, c);
+    else tris.push(a, b, c, a, c, d);
+    return;
+  }
+  // Three corners is still a face, so a partial cell closes rather than leaving
+  // a hole. At the current 2.4mm grid this fires zero times — the dark notches
+  // that prompted it turned out to be real sulci seen end-on, not punctures —
+  // but a hole in an additively-lit shell reads as damage, and the count is
+  // logged so it stays honest if the grid ever changes.
+  if (have.length === 3) {
+    const [x, y, z] = have;
+    if (flip) tris.push(x, z, y);
+    else tris.push(x, y, z);
+    patched++;
+  }
 };
 
 for (let z = 1; z < gz - 1; z++) {
@@ -216,7 +231,7 @@ for (let z = 1; z < gz - 1; z++) {
     }
   }
 }
-log(`${(tris.length / 3).toLocaleString()} triangles`);
+log(`${(tris.length / 3).toLocaleString()} triangles (${patched.toLocaleString()} closed a partial cell)`);
 
 // ---- 4. to world millimetres, then smooth --------------------------------
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mulberry32, hashString, fbm3, valueNoise3, unitVector } from './noise.ts';
 import { sampleSurface, insideBrain, clampInside, projectToShell, BOUNDS, type Vec3 } from './geometry.ts';
-import { consolidation, luminance, smoothstep, crossedStage } from './consolidation.ts';
+import { consolidation, luminance, smoothstep, crossedStage, simulatedConsolidation } from './consolidation.ts';
 import { buildField, positionAt, regionProgress, fromCards } from './field.ts';
 import { REGIONS, HIPPOCAMPUS } from './atlas.ts';
 import { State, type Card } from '../../srs.ts';
@@ -257,5 +257,49 @@ describe('the field gives every card a fixed seat', () => {
     expect(p.get('ffg')!.known).toBe(1);
     expect(p.get('ips')!.known).toBe(0);
     expect(p.get(HIPPOCAMPUS)!.total).toBe(0); // nothing is filed there by meaning
+  });
+});
+
+describe('the preview slider means what its number says', () => {
+  // The first version ramped consolidation from 0 to 1 across the selected
+  // words, so at full scrub the slider read 7,394 while the region panel beside
+  // it summed to roughly 60% of that: the lower half of the ramp fell below the
+  // 0.5 that counts as consolidated. A control whose number disagrees with the
+  // panel next to it is worse than no control.
+  const ids = Array.from({ length: 4000 }, (_, i) => `voc:A1:w${i}`);
+  const countKnown = (f: number) => ids.filter((id) => simulatedConsolidation(id, f) >= 0.5).length;
+
+  for (const f of [0.1, 0.25, 0.5, 0.75, 1]) {
+    it(`counts ~${Math.round(f * 100)}% as consolidated at ${f}`, () => {
+      // Hash ranks are uniform but not perfectly so at n=4000; 3 points of slack.
+      expect(Math.abs(countKnown(f) / ids.length - f)).toBeLessThan(0.03);
+    });
+  }
+
+  it('lights nothing at zero, and leaves a learning frontier above the line', () => {
+    expect(countKnown(0)).toBe(0);
+    for (const id of ids) expect(simulatedConsolidation(id, 0)).toBe(0);
+
+    // Some words sit between the hippocampus and the line, or the centre of the
+    // brain empties out and the migration stops being visible.
+    const transit = ids.filter((id) => {
+      const t = simulatedConsolidation(id, 0.4);
+      return t > 0 && t < 0.5;
+    }).length;
+    expect(transit).toBeGreaterThan(50);
+  });
+
+  it('is stable in the id, so scrubbing adds words rather than reshuffling them', () => {
+    const lit = (f: number) => new Set(ids.filter((id) => simulatedConsolidation(id, f) >= 0.5));
+    const small = lit(0.3), big = lit(0.6);
+    for (const id of small) expect(big.has(id), `${id} dropped out as the slider rose`).toBe(true);
+  });
+
+  it('never touches the store', async () => {
+    // Structural: the preview is a pure function of the card id. If it ever
+    // grows a store import, this is the guard that says so.
+    const { readFileSync } = await import('node:fs');
+    const src = readFileSync('src/lib/brain/consolidation.ts', 'utf8');
+    expect(src).not.toMatch(/from '\.\.\/\.\.\/store/);
   });
 });

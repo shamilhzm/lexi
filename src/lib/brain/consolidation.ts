@@ -62,13 +62,49 @@ export function consolidation(card: Card | undefined): number {
  *  Words near the threshold come out barely consolidated and words well inside
  *  it come out fully so, which is what makes the scrub read as a migration out
  *  of the hippocampus rather than a light switch. */
+/** A card's place in the queue, uniform in [0, 1).
+ *
+ *  FNV-1a alone is not flat enough here: over ids that differ in only a few
+ *  characters its output clusters, and the quartiles came out at 0.24 / 0.53 /
+ *  0.74 rather than 0.25 / 0.50 / 0.75 — which showed up as the slider's count
+ *  drifting three points from the number under it. The extra avalanche step is
+ *  applied *here* rather than inside `hashString`, which seeds every word's
+ *  position and must never change: doing it there would move the entire lexicon. */
+function rankOf(id: string): number {
+  let h = hashString(id);
+  h ^= h >>> 16; h = Math.imul(h, 0x7feb352d);
+  h ^= h >>> 15; h = Math.imul(h, 0x846ca68b);
+  h ^= h >>> 16;
+  return (h >>> 0) / 4294967296;
+}
+
 export function simulatedConsolidation(id: string, fraction: number): number {
   if (fraction <= 0) return 0;
-  const rank = hashString(id) / 4294967296;   // stable in [0, 1)
-  if (rank >= fraction) return 0;
-  const depth = 1 - rank / fraction;          // 0 at the threshold, 1 at the front
-  return Math.max(0.02, Math.min(1, depth ** 0.65));
+  const rank = rankOf(id);                    // stable in [0, 1)
+
+  if (rank < fraction) {
+    // Everything under the threshold is genuinely consolidated — at or above the
+    // 0.5 that `regionProgress` counts as known.
+    //
+    // The first version ramped these from 0 to 1, which made the readout lie:
+    // the slider said 7,394 while the regions summed to about 60% of that,
+    // because the lower half of the ramp fell below the counting threshold. A
+    // control whose number disagrees with the panel next to it is worse than no
+    // control.
+    const depth = 1 - rank / fraction;        // 0 at the threshold, 1 at the front
+    return 0.5 + 0.5 * depth ** 0.7;
+  }
+
+  // A learning frontier just past the threshold, so the hippocampus is never
+  // empty and the migration outward stays visible. These are *not* counted as
+  // consolidated, which is exactly why they sit below 0.5.
+  const edge = (rank - fraction) / LEARNING_BAND;
+  if (edge >= 1) return 0;
+  return 0.45 * (1 - edge) ** 1.5;
 }
+
+/** How much of the unlearned remainder shows as in-transit in the preview. */
+const LEARNING_BAND = 0.08;
 
 /** Ease the journey so words bunch at the two ends rather than smearing evenly
  *  along the path. A word is mostly *somewhere* — arriving is the event. */
