@@ -5,12 +5,13 @@
 // — the hero on Today and the room at `#/brain` — and because everything here is
 // testable arithmetic while none of it is markup.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { WORDS, SECTOR_FINEGROUP } from '../../data/index.ts';
+import { WORDS, SECTOR_FINEGROUP, BY_ID } from '../../data/index.ts';
 import { cardOf, onCardEvent } from '../../store.ts';
 import { useStore } from '../../useStore.ts';
 import { buildField, writePositions, regionProgress, fromCards, type Consolidation } from '../../lib/brain/field.ts';
 import { consolidation, luminance, crossedStage, simulatedConsolidation } from '../../lib/brain/consolidation.ts';
 import { sampleSurface, type Substrate } from '../../lib/brain/geometry.ts';
+import { regionForCardId } from '../../lib/brain/atlas.ts';
 
 /** How much tissue each surface draws. The hero is a 240px strip on the app's
  *  first-paint screen, so it takes the cheap cloud; the room gets the dense one
@@ -106,6 +107,29 @@ if (typeof window !== 'undefined') {
     changes.push({ id: e.id, at: e.at, moved: crossedStage(e.before, e.after) });
     if (changes.length > 400) changes.shift();
   });
+}
+
+/** Which regions this session touched, most-touched first — *without* draining.
+ *
+ *  The recap runs before any brain mounts, so it reads the same log the ignition
+ *  will later replay. Peeking rather than draining is deliberate: the recap says
+ *  where the work landed, and then Today shows it landing. Two views of one fact,
+ *  in the order they happen.
+ *
+ *  `fineGroupOf` is threaded in for the same reason as everywhere else — the
+ *  atlas needs the *fine* corpus group, not the coarse market category. */
+export function peekChangedRegions(): { id: string; n: number }[] {
+  const cutoff = Date.now() - REPLAY_WINDOW_MS;
+  const tally = new Map<string, number>();
+  for (const c of changes) {
+    if (c.at < cutoff) continue;
+    const w = BY_ID.get(c.id);
+    const rid = regionForCardId(c.id, w, w ? SECTOR_FINEGROUP.get(w.field) : undefined);
+    tally.set(rid, (tally.get(rid) ?? 0) + 1);
+  }
+  return [...tally.entries()]
+    .map(([id, n]) => ({ id, n }))
+    .sort((a, b) => b.n - a.n);
 }
 
 /** Take the recent changes and clear them, so the ignition plays once. */

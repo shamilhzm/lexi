@@ -31,6 +31,9 @@ export interface SceneHandle {
   /** Region under a point, in normalised device coords (-1..1). Null if the ray
    *  missed the brain entirely. */
   pick(ndcX: number, ndcY: number): string | null;
+  /** Where a region's centre lands on screen, in normalised device coords, and
+   *  whether it is on the near face. Used to anchor its label. */
+  locate(id: string): { x: number; y: number; front: boolean } | null;
   resize(w: number, h: number): void;
   dispose(): void;
 }
@@ -560,6 +563,33 @@ export async function createScene(canvas: HTMLCanvasElement, mode: 'hero' | 'roo
         if (d < bestD) { bestD = d; best = r.id; }
       }
       return best;
+    },
+
+    locate(id) {
+      if (disposed) return null;
+      const r = REGIONS.find((x) => x.id === id);
+      if (!r) return null;
+
+      // The atlas quotes the left hemisphere. Anchor on whichever side is facing
+      // the camera, so the label follows the brain round rather than hiding.
+      const camDir = new THREE.Vector3();
+      camera.getWorldDirection(camDir);
+      let best: THREE.Vector3 | null = null, bestDot = -Infinity;
+      for (const sign of [1, -1]) {
+        const p = rig.localToWorld(new THREE.Vector3(r.mni[0] * sign, r.mni[1], r.mni[2]));
+        const toCam = p.clone().sub(camera.position).normalize();
+        const d = -toCam.dot(camDir);
+        if (d > bestDot) { bestDot = d; best = p; }
+      }
+      if (!best) return null;
+
+      // Is this side of the brain the near one? Compared against the rig centre,
+      // so the label fades rather than sitting on a point that is round the back.
+      const centre = rig.localToWorld(new THREE.Vector3(0, -14, 12));
+      const front = best.distanceTo(camera.position) <= centre.distanceTo(camera.position) + 6;
+
+      const ndc = best.clone().project(camera);
+      return { x: ndc.x, y: ndc.y, front };
     },
 
     setSelected(id) {

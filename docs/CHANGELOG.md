@@ -198,6 +198,21 @@ changed because the learner did something animates from its old value.**
   order-dependent, so the order is stated in `renderOrder` rather than left to
   the sort. Cavity darkening went back up now that it cannot punch through.
 
+- **The selected region names itself on the brain.** A label anchored to the
+  region's centre with a leader line, positioned from the render loop by writing
+  a transform rather than through React state — it moves every frame the brain
+  turns, and re-rendering the tree at 60fps to move one div is what the canvas
+  exists to avoid. It dims rather than vanishing when the region rotates round
+  the back, so it never blinks out mid-drag.
+- **The recap says where the night's work landed.** One line under the tiles
+  naming the regions this session touched, with their colours — then Today
+  ignites those same neurons when you land back on it. Two views of one fact, in
+  the order they happen. `peekChangedRegions` reads the change log *without*
+  draining it, which is what lets both happen. Deliberately a sentence and not a
+  fourth tile: the recap already has a row of numbers, and three names say more
+  than another count would. This is the brain earning a place in the daily loop
+  instead of being a room you visit.
+
 - **`docs/BRAIN.md`** states precisely what the map claims and what it does not,
   including the joins worth arguing about (Work → TPJ is the loosest). The surface
   itself carries a standing, non-dismissible line: *a map of the published

@@ -83,6 +83,7 @@ export default function BrainRoom({ onExit, onStudy }: { onExit: () => void; onS
         <BrainScene
           mode="room" selected={sel} simulate={sim}
           onPickRegion={(id) => setSel((cur) => (cur === id ? null : id))}
+          label={sel ? { name: REGION_BY_ID.get(sel)?.short ?? '', color: HEX[sel] } : null}
           className="absolute inset-0"
         />
 

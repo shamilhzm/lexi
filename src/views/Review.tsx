@@ -25,6 +25,7 @@ import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
+import WhereItLanded from '../components/Brain/WhereItLanded.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
 import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
@@ -950,6 +951,10 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
   return (
     <div className="grid place-items-center min-h-[440px]">
       <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
+        {/* Where the session landed on the map, before the numbers. The brain
+            is not a separate toy if the recap names it every night. */}
+        <div className="mb-5"><WhereItLanded /></div>
+
         {finished.length > 0 && (
           <p className="text-sm mb-5">
             You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span> — every card in it is yours.

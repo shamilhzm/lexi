@@ -34,10 +34,12 @@ export interface BrainSceneProps {
   /** Preview: fraction of the lexicon to render as consolidated, or null for
    *  real progress. See `simulatedConsolidation` — strictly read-only. */
   simulate?: number | null;
+  /** Name and colour for the floating label on the selected region. */
+  label?: { name: string; color: string } | null;
   className?: string;
 }
 
-export default function BrainScene({ mode, selected, simulate = null, onPickRegion, className }: BrainSceneProps) {
+export default function BrainScene({ mode, selected, simulate = null, onPickRegion, label = null, className }: BrainSceneProps) {
   // Two canvases, stacked, not one.
   //
   // A canvas can only ever hand out one kind of context. The 2D renderer paints
@@ -64,6 +66,13 @@ export default function BrainScene({ mode, selected, simulate = null, onPickRegi
   const size = useRef({ w: 0, h: 0, dpr: 1 });
   /** Set by the render loop so anything that changes the view can ask for a frame. */
   const paintRef = useRef<(() => void) | null>(null);
+  /** The floating label for the selected region. Positioned from the render loop
+   *  by writing a transform directly, never through React state: it moves every
+   *  frame the brain turns, and re-rendering the tree at 60fps to move one div
+   *  is exactly what the canvas exists to avoid. */
+  const labelRef = useRef<HTMLDivElement>(null);
+  const selectedRef = useRef<string | null>(selected ?? null);
+  selectedRef.current = selected ?? null;
 
   // Held in a ref so the gesture effect below does not depend on it.
   //
@@ -187,6 +196,25 @@ export default function BrainScene({ mode, selected, simulate = null, onPickRegi
         // `now` is frozen under reduced motion so the slow breath in the scene
         // resolves to a constant.
         gl.render(view.current.yaw, view.current.pitch, flares.current, still ? 0 : now);
+
+        const el = labelRef.current;
+        if (el) {
+          const id = selectedRef.current;
+          const at = id ? gl.locate(id) : null;
+          if (at) {
+            // NDC to CSS pixels. The canvas backing store is in device pixels,
+            // the label is laid out in CSS ones.
+            const w = size.current.w / size.current.dpr;
+            const h = size.current.h / size.current.dpr;
+            el.style.transform = `translate3d(${(at.x * 0.5 + 0.5) * w}px, ${(-at.y * 0.5 + 0.5) * h}px, 0)`;
+            // Round the back it dims rather than vanishing, so it never blinks
+            // out mid-drag.
+            el.style.opacity = at.front ? '1' : '0.28';
+            el.style.visibility = 'visible';
+          } else {
+            el.style.visibility = 'hidden';
+          }
+        }
       } else if (ctx2d) {
         paintFlat(ctx2d, size.current.w, size.current.h, {
           substrate: substrate.position, positions, region: field.region, lum,
@@ -326,6 +354,40 @@ export default function BrainScene({ mode, selected, simulate = null, onPickRegi
         aria-hidden="true"
         style={{ gridArea: '1/1', width: '100%', height: '100%', display: gl ? 'none' : 'block' }}
       />
+      {/* Anchored to the region's centre in the scene. `pointer-events: none` so
+          it never eats a drag or a click meant for the brain underneath. */}
+      <div
+        ref={labelRef}
+        aria-hidden="true"
+        style={{
+          gridArea: '1/1', position: 'relative', pointerEvents: 'none',
+          visibility: 'hidden', zIndex: 2, width: 0, height: 0,
+          transition: 'opacity 160ms cubic-bezier(.32,.72,0,1)',
+        }}
+      >
+        {label && (
+          <div style={{
+            position: 'absolute', left: 0, top: 0,
+            transform: 'translate(14px, -50%)', whiteSpace: 'nowrap',
+          }}>
+            <span style={{
+              display: 'block', width: 26, height: 1,
+              background: 'rgb(255 255 255 / 0.45)',
+              position: 'absolute', left: -26, top: '50%',
+            }} />
+            <span style={{
+              display: 'inline-block',
+              font: '600 12px/1.2 var(--font-sans, system-ui)',
+              color: '#fff', letterSpacing: '0.01em',
+              background: 'rgb(0 0 0 / 0.55)',
+              padding: '4px 9px', borderRadius: 6,
+              border: `1px solid ${label.color}66`,
+              boxShadow: `0 0 14px ${label.color}44`,
+            }}>{label.name}</span>
+          </div>
+        )}
+      </div>
+
       <canvas
         ref={glCanvas}
         aria-hidden="true"
