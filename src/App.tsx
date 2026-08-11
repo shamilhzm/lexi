@@ -11,7 +11,7 @@
 //
 // One aesthetic cannot serve both — scanning a heatmap and studying a single
 // word want opposite things. See docs/DESIGN.md.
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 // No `motion` import here any more: both entrances in this file are CSS
 // keyframes without a fill-mode, so a stalled animation cannot hide a room.
 import { Menu } from 'lucide-react';
@@ -27,6 +27,12 @@ import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
 import BrainRoom from './views/BrainRoom.tsx';
+// The exam room is five surfaces nobody on the boot path renders — the answer
+// sheet, the cloze, the listening controls, the speaking lab, the result — and
+// most sessions never open it. Split for the same reason `three` is: the paper
+// itself is already a second dynamic import behind this one, so opening `#/exam`
+// costs two fetches and opening anything else costs none.
+const Exam = lazy(() => import('./views/Exam.tsx'));
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
@@ -37,7 +43,7 @@ import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile' | 'brain';
+export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
@@ -248,7 +254,12 @@ export default function App() {
               <ErrorBoundary resetKey={view}>
                 {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
-                {view === 'library' && <Grammar initial={drillInit} />}
+                {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} />}
+                {view === 'exam' && (
+                  <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
+                    <Exam onExit={() => go('library')} onGrammar={() => go('library')} />
+                  </Suspense>
+                )}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}
                 {view === 'interests' && <Interests onDone={endGuided} />}
                 {view === 'profile' && <Profile />}

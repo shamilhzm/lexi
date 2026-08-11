@@ -38,8 +38,10 @@ export interface Route {
 // `brain` is a View but deliberately not a nav destination — the same pattern as
 // session, placement, interests and profile. DESIGN.md §8a argues for exactly
 // three places you can *go*; the observatory is somewhere you open from Today,
-// not a fourth thing competing for the bottom bar.
-const VIEWS: View[] = ['today', 'progress', 'library', 'session', 'placement', 'interests', 'profile', 'brain'];
+// not a fourth thing competing for the bottom bar. `exam` follows the same rule:
+// it is opened from the Library, and a `#/exam` link has to survive a reload
+// because a sitting in progress is the one thing in the app worth restoring.
+const VIEWS: View[] = ['today', 'progress', 'library', 'session', 'placement', 'interests', 'profile', 'brain', 'exam'];
 
 export const DEFAULT_ROUTE: Route = { view: 'today', progress: { level: 'overview' } };
 

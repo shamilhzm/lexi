@@ -571,10 +571,19 @@ load size still acceptable.
   personas. The promise "grows with you A1–C2" thins exactly where it is hardest to keep.
 - **Register and collocation on C1+ cards · M** (#45). Synonyms exist but aren't
   differentiated by register, which is most of what C1 vocabulary work *is*.
-- **Exam alignment without an exam simulator · M** (#43). Goethe B1 is the most-taken
-  certificate in the category. *Exam conditions* shipped; the alignment did not — the
-  app knows his level, pace and weak modes and never says "your weakest area *for B1*
-  is Kasus".
+- ~~**Exam alignment without an exam simulator · M** (#43).~~ **Shipped 2026-08-11** —
+  and it turned out to want the simulator after all. `#/exam` is a full telc Deutsch
+  B1 paper in telc's own format and weighting, with the oral rehearsed against model
+  answers at A2/B1/B2. See the CHANGELOG entry. *Still open under it:* the weakest-part
+  readout on the result screen is per **subtest**, not per grammar concept — "your
+  weakest area for B1 is Kasus" needs the miss log joined to the paper's items, which
+  wants item-level grammar tags the paper does not yet carry. *S, and worth doing.*
+- **More papers · M each, authoring not building** — A1, A2, B2, C1, C2 render honestly
+  as "no paper yet". They share the scoring engine, the renderers and the mark scheme;
+  what each needs is the German. B2 first: it is the second most-taken certificate and
+  is already the thinnest layer in the grammar bank (see the 2026-08-06 audit above).
+  Goethe's B1 differs from telc's in format and would be a second `provider`, not a
+  second paper.
 - **Heritage / uneven-profile learners · M** (#41). Placement assumes ignorance is
   uniform. Yusuf tests C1 on vocabulary and B1 on orthography and the app has one number
   for him. Skill-scoped drills rather than level-gated ones.

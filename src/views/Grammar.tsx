@@ -15,8 +15,9 @@
 // drills", demoted to what they are — practice, not curriculum.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, ChevronDown, ChevronRight, GraduationCap, Loader2, Play } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, Play } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
+import { current as examInProgress } from '../lib/exam-store.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
 import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
@@ -35,7 +36,7 @@ type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope }
  *  concept (a grammar blind spot, which is logged by point title alone). */
 export type GrammarInit = Mode | 'grammar' | { point: string } | null;
 
-export default function Grammar({ initial = null }: { initial?: GrammarInit }) {
+export default function Grammar({ initial = null, onExam }: { initial?: GrammarInit; onExam?: () => void }) {
   const [route, setRoute] = useState<Route>(
     initial === 'grammar' ? { kind: 'bank' }
       : typeof initial === 'string' ? { kind: 'mode', mode: initial }
@@ -67,10 +68,10 @@ export default function Grammar({ initial = null }: { initial?: GrammarInit }) {
   if (route?.kind === 'mode') return <Drill mode={route.mode} onExit={back} />;
   if (route?.kind === 'point') return <GrammarDrill scope={route.scope} onExit={back} />;
   if (route?.kind === 'bank') return <GrammarDrill onExit={back} />;
-  return <Syllabus onRoute={setRoute} />;
+  return <Syllabus onRoute={setRoute} onExam={onExam} />;
 }
 
-function Syllabus({ onRoute }: { onRoute: (r: Route) => void }) {
+function Syllabus({ onRoute, onExam }: { onRoute: (r: Route) => void; onExam?: () => void }) {
   useStore();
   const [bank, setBank] = useState<GrammarByLevel | null>(null);
   useEffect(() => { loadGrammar().then(setBank); }, []);
@@ -91,6 +92,11 @@ function Syllabus({ onRoute }: { onRoute: (r: Route) => void }) {
           rather than to be tested. Grammar is what's in it today; word-level
           reference is not built, so this doesn't promise it. */}
       <h1 className="text-xl sm:text-2xl font-bold mb-4">Library</h1>
+
+      {/* Exam practice sits above the syllabus rather than inside it: a
+          certificate paper is not a grammar concept, and for a learner with a
+          date in the diary it is the reason they opened the Library at all. */}
+      {onExam && <ExamCard onExam={onExam} />}
 
       <div className="flex items-center gap-2.5 mb-1">
         <GraduationCap size={20} className="text-amber" />
@@ -128,6 +134,30 @@ function Syllabus({ onRoute }: { onRoute: (r: Route) => void }) {
         </>
       )}
     </div>
+  );
+}
+
+/** The way in to a certificate paper. Announces the sitting in progress, because
+ *  an abandoned exam is the one piece of app state a learner will come looking
+ *  for and would otherwise have to remember the URL of. */
+function ExamCard({ onExam }: { onExam: () => void }) {
+  const running = examInProgress();
+  return (
+    <Card as="button" pad="none" accent onClick={onExam}
+      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><ClipboardList size={18} /></span>
+      <span className="flex-1 min-w-0">
+        <span className="flex items-center gap-2 flex-wrap">
+          <span className="text-base font-semibold">Exam practice</span>
+          {running && <Chip>sitting in progress</Chip>}
+        </span>
+        <span className="block text-2xs text-dim">
+          telc Deutsch B1 — a full paper in the real format, with the oral rehearsed against model
+          answers at three levels.
+        </span>
+      </span>
+      <ChevronRight size={16} className="text-dim flex-shrink-0" />
+    </Card>
   );
 }
 

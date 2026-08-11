@@ -11,6 +11,80 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — telc Deutsch B1: a real paper, and three answers to every question
+
+Backlog item #43 has said the same thing for months: *"Goethe B1 is the most-taken
+certificate in the category. The app knows his level, pace and weak modes and never
+says 'your weakest area **for B1** is Kasus.'"* Exam conditions shipped; the
+alignment did not. This is the alignment, and the paper it aligns to.
+
+- **`#/exam` — a full telc Deutsch B1 sitting.** 60 objectively scored items across
+  the five real Teile, a letter, and the paired oral. Two modes: *Übungsmodus*
+  checks a Teil at a time and explains every key; *Prüfungsmodus* gives no feedback
+  until you hand in, and the 90-minute block locks when it expires.
+- **The format is telc's, taken from telc's own published Übungstest** — item
+  ranges (1–20 · 21–40 · 41–60), options per gap, points per item (5 · 5 · 2,5 ·
+  1,5 · 1,5 · 5 · 2,5 · 5), what is heard once and what is heard twice, the four
+  criteria of the oral with their A/B/C/D point tables, and the 60%-of-each-half
+  pass rule. **Every text is written for Lexi.** No telc passage, advert, cloze or
+  item is reproduced — a licence question, and also the pedagogically better answer,
+  since a learner who has memorised Übungstest 1 has learned Übungstest 1.
+- **Three model answers to every speaking prompt, at A2, B1 and B2.** The feature
+  the whole thing was built around. A single model answer hides the two facts that
+  decide the mark: that a short, correct, complete answer *passes* (criterion 2 is
+  Aufgabenbewältigung, not eloquence), and that the distance from pass to good mark
+  is a small learnable set of moves — a reason, a connector, a question back — not a
+  bigger vocabulary. So the ladder is visible and you can step down it under
+  pressure instead of off it. 8 Kontaktaufnahme prompts, 3 Teil-2 topics with both
+  partners' info sheets, 3 Teil-3 planning tasks with full graded dialogues, and a
+  33-phrase Redemittel bank. **Reachable without starting a paper** — someone with
+  the exam next week wants this at a bus stop, not behind a 90-minute reading test.
+- **The two productive parts are self-assessed, and the screen says so.** Free
+  composition cannot be graded honestly without a model, and a drill that marks
+  correct German wrong is worse than no drill (the ruling already recorded under
+  *Extended production*). So the app hands over the examiners' own grid with telc's
+  published descriptors and refuses to pretend the number is a machine's judgement.
+  Until both are marked, every total is labelled a **floor, not a score**.
+- **The result screen leads with two numbers, never one.** telc's rule is 60% of
+  *each* half independently, so a 240 with a weak oral is a fail and a screen
+  headlining "240/300" would be lying by emphasis. The two hard rules on the letter
+  are enforced rather than described: a D on criterion I or III zeroes it, and the
+  discretionary points are unavailable to a letter already at full marks or graded
+  C anywhere.
+- **Listening is spoken by the device, and the limitation is stated on the card.**
+  No recording can ship — licensed material, and 20 minutes of German would outweigh
+  the app. Deliberately the *platform* voice rather than the HD Piper one:
+  `speechSynthesis` has a real queue, so a fifteen-turn interview plays as one
+  continuous track, its rate is adjustable for the slow replay, and it cannot put a
+  ~25 MB download in the middle of a timed part. telc's playback count is enforced —
+  Teil 1 plays **once** — because a practice run that lets you replay it has
+  removed the hardest thing about the part. A watchdog polls the engine, because
+  `end` is dropped by backgrounded Chrome and by iOS Safari, and a stuck "Stop"
+  button during a timed listening part is the worst failure this surface has.
+- **The paper is a dynamic import** — the second in the codebase after `three`.
+  ~90 KB of German prose that nothing on the boot path reads, and six levels of it
+  would be most of the bundle.
+- **28 tests, and they pin the paper as well as the arithmetic.** Item numbering is
+  1–60 with no gaps or repeats; each subtest sums to telc's maximum; every key
+  names an option that exists; no advert or Sprachbausteine word is used twice;
+  every cloze marker has an item and vice versa; every item has an explanation;
+  every speaking prompt has exactly three bands. An authoring slip now fails CI
+  instead of quietly changing what a learner's score means.
+- **A tiny `Rich`** renders `**bold**` / `*italic*` in exam copy only. An
+  explanation that points at a word — *bei* takes the dative, so the key is
+  **mir** — is a worse explanation if it cannot mark which word it means. Two
+  characters of markdown, no dependency, no `dangerouslySetInnerHTML`.
+
+Verified in the browser at 1280 and 375, both themes: no horizontal overflow, the
+verdict strips measure 5.8–13.5:1 contrast, the play limit holds, and the sheet
+survives a reload mid-sitting (written through on every keystroke; the clock
+persists every five seconds).
+
+A1/A2/B2/C1/C2 render honestly as "no paper yet". They share this scoring engine
+and these renderers, so adding one is authoring, not building.
+
+---
+
 ### Shipped 2026-08-06 — das Gehirn: the lexicon as a brain
 
 The app measured a great deal and let you *feel* almost none of it. Progress is a
