@@ -605,7 +605,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:also",
+    "id": "voc:A1:also",
     "lemma": "also",
     "level": "A2",
     "levelSource": "reference",
@@ -627,7 +627,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:anbieten",
+    "id": "voc:A1:anbieten",
     "lemma": "anbieten",
     "level": "A2",
     "levelSource": "reference",
@@ -781,7 +781,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:ausmachen",
+    "id": "voc:A1:ausmachen",
     "lemma": "ausmachen",
     "level": "A2",
     "levelSource": "reference",
@@ -825,7 +825,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:automatisch",
+    "id": "voc:A1:automatisch",
     "lemma": "automatisch",
     "level": "A2",
     "levelSource": "reference",
@@ -847,7 +847,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:baden",
+    "id": "voc:A1:baden",
     "lemma": "baden",
     "level": "A2",
     "levelSource": "reference",
@@ -858,7 +858,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:bar",
+    "id": "voc:A1:bar",
     "lemma": "bar",
     "level": "A2",
     "levelSource": "reference",
@@ -979,7 +979,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:bisschen",
+    "id": "voc:A1:bisschen",
     "lemma": "bisschen",
     "level": "A2",
     "levelSource": "frequency",
@@ -1122,7 +1122,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:A2:danken",
+    "id": "voc:A1:danken",
     "lemma": "danken",
     "level": "A2",
     "levelSource": "reference",
@@ -1144,7 +1144,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:A2:das Apartment",
+    "id": "voc:A1:das Apartment",
     "lemma": "Apartment",
     "level": "A2",
     "levelSource": "reference",
@@ -1232,7 +1232,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:das Feuer",
+    "id": "voc:A1:das Feuer",
     "lemma": "Feuer",
     "level": "A2",
     "levelSource": "frequency",
@@ -1650,7 +1650,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:das Wiedersehen",
+    "id": "voc:A1:das Wiedersehen",
     "lemma": "Wiedersehen",
     "level": "A2",
     "levelSource": "reference",
@@ -1727,7 +1727,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:der Anruf",
+    "id": "voc:A1:der Anruf",
     "lemma": "Anruf",
     "level": "A2",
     "levelSource": "reference",
@@ -1870,7 +1870,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:der Doktor",
+    "id": "voc:A1:der Doktor",
     "lemma": "Doktor",
     "level": "A2",
     "levelSource": "reference",
@@ -2508,7 +2508,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:der Süden",
+    "id": "voc:A1:der Süden",
     "lemma": "Süden",
     "level": "A2",
     "levelSource": "reference",
@@ -3311,7 +3311,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:die Maschine",
+    "id": "voc:A1:die Maschine",
     "lemma": "Maschine",
     "level": "A2",
     "levelSource": "reference",
@@ -3542,7 +3542,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:die Reparatur",
+    "id": "voc:A1:die Reparatur",
     "lemma": "Reparatur",
     "level": "A2",
     "levelSource": "reference",
@@ -3872,7 +3872,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:die Vorsicht",
+    "id": "voc:A1:die Vorsicht",
     "lemma": "Vorsicht",
     "level": "A2",
     "levelSource": "reference",
@@ -3883,7 +3883,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:A2:die Vorwahl",
+    "id": "voc:A1:die Vorwahl",
     "lemma": "Vorwahl",
     "level": "A2",
     "levelSource": "reference",
@@ -3982,7 +3982,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:die Zigarette",
+    "id": "voc:A1:die Zigarette",
     "lemma": "Zigarette",
     "level": "A2",
     "levelSource": "reference",
@@ -4213,7 +4213,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:einmal",
+    "id": "voc:A1:einmal",
     "lemma": "einmal",
     "level": "A2",
     "levelSource": "reference",
@@ -4224,7 +4224,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:A2:einsteigen",
+    "id": "voc:A1:einsteigen",
     "lemma": "einsteigen",
     "level": "A2",
     "levelSource": "reference",
@@ -4477,7 +4477,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:grillen",
+    "id": "voc:A1:grillen",
     "lemma": "grillen",
     "level": "A2",
     "levelSource": "reference",
@@ -4521,7 +4521,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:halten",
+    "id": "voc:A1:halten",
     "lemma": "halten",
     "level": "A2",
     "levelSource": "reference",
@@ -4730,7 +4730,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:klar",
+    "id": "voc:A1:klar",
     "lemma": "klar",
     "level": "A2",
     "levelSource": "reference",
@@ -4939,7 +4939,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:mitkommen",
+    "id": "voc:A1:mitkommen",
     "lemma": "mitkommen",
     "level": "A2",
     "levelSource": "reference",
@@ -5324,7 +5324,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:riechen",
+    "id": "voc:A1:riechen",
     "lemma": "riechen",
     "level": "A2",
     "levelSource": "reference",
@@ -5412,7 +5412,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:schicken",
+    "id": "voc:A1:schicken",
     "lemma": "schicken",
     "level": "A2",
     "levelSource": "reference",
@@ -5753,7 +5753,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:tot",
+    "id": "voc:A1:tot",
     "lemma": "tot",
     "level": "A2",
     "levelSource": "reference",
@@ -5775,7 +5775,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:tun",
+    "id": "voc:A1:tun",
     "lemma": "tun",
     "level": "A2",
     "levelSource": "reference",
@@ -6149,7 +6149,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:wiederholen",
+    "id": "voc:A1:wiederholen",
     "lemma": "wiederholen",
     "level": "A2",
     "levelSource": "reference",
@@ -6336,7 +6336,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:abgeben",
+    "id": "voc:A1:abgeben",
     "lemma": "abgeben",
     "level": "B1",
     "levelSource": "reference",
@@ -8448,7 +8448,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:der Opa",
+    "id": "voc:A1:der Opa",
     "lemma": "Opa",
     "level": "B1",
     "levelSource": "reference",
@@ -10043,7 +10043,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:die Halle",
+    "id": "voc:A1:die Halle",
     "lemma": "Halle",
     "level": "B1",
     "levelSource": "reference",
@@ -10076,7 +10076,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:die Hilfe",
+    "id": "voc:A1:die Hilfe",
     "lemma": "Hilfe",
     "level": "B1",
     "levelSource": "reference",
@@ -11671,7 +11671,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:eilig",
+    "id": "voc:A1:eilig",
     "lemma": "eilig",
     "level": "B1",
     "levelSource": "reference",
@@ -15917,7 +15917,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Ausgang",
+    "id": "voc:A1:der Ausgang",
     "lemma": "Ausgang",
     "level": "B2",
     "levelSource": "reference",
@@ -20691,7 +20691,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:der Gruß",
+    "id": "voc:A1:der Gruß",
     "lemma": "Gruß",
     "level": "C1",
     "levelSource": "reference",

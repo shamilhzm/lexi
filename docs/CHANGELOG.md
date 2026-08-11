@@ -11,6 +11,63 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — the Goethe A1 relevel, and a finding withdrawn
+
+**162 words the Start Deutsch 1 syllabus examines now have an A1 card.** A1 word
+cards 964 → 1,126; on an 82-word probe of the A1 exam's core lexicon, 85% → 91%.
+
+- **The authority is Goethe's.** `scripts/corpus/data/goethe-a1-wordlist.txt` is the
+  published Goethe-Zertifikat A1 / Start Deutsch 1 Wortliste — 657 lemmas, extracted
+  from the official PDF **by column position** (headwords sit in their own column at
+  x=375.8, examples at x=386.1), which is why it is a faithful list of *entries*
+  rather than a scrape of every word on the page. Three heuristic parses were tried
+  and thrown away first; the count landing on 657 against Goethe's stated "circa 650"
+  is what says the fourth is right. Lemmas only — the example sentences are Goethe's
+  copyrighted expression and are deliberately not reproduced.
+- **A part-of-speech guard, found by reviewing the 34 largest jumps by hand.**
+  Article-stripped matching let Goethe's noun `der Dank` find Lexi's *preposition*
+  `dank`, `das Lokal` find the adjective `lokal`, the verb `reisen` find the
+  nominalisation `das Reisen`, and the interjection `Achtung!` find the abstract noun
+  `die Achtung` ("respect"). Four genuinely B1+ words would have been promoted on the
+  authority of a homograph. Goethe prints the article for nouns and omits it
+  otherwise, so the list itself carries the signal to catch all four.
+- **A relevel is a schedule migration, and three files hold a card id.** Word ids
+  embed the level (`voc:B1:der Tisch`), so this ships 162 new `ID_MAP` entries plus
+  **nine existing ones re-pointed** — they aimed at ids this pass moved
+  (`voc:A2:Oben` → `voc:A2:oben` → `voc:A1:oben`), and a broken chain silently resets
+  a learner's schedule rather than erroring. `vocab.json`, `provenance.json` (37 rows)
+  and the id map are all migrated by the script; `cards.json`/`detail.json` follow via
+  `corpus:split`. `store-idmap.test.ts` and `provenance.test.ts` both caught this
+  before it shipped, which is the entire argument for having them.
+- **Nothing was demoted.** Lexi holding a word at A1 that Goethe omits is not an
+  error, and pushing it up would take it from the learner who needs it most.
+
+#### The finding that produced this was wrong, and the correction matters more
+
+The pass was commissioned off a measurement that said *"an A1-placed learner reaches
+34 of 82 core A1 words — 41%; one of thirteen in Wohnen"*. **That was an artefact.**
+The probe looked each word up in a `Map` built by iterating the corpus, so for any
+term on more than one card it kept whichever copy came last and reported *that*
+card's level. 874 terms sit on more than one card: `der Tisch` is at A1 in *Home* and
+at B1 in *Furniture*, `der Zug` at A1 in *Town & travel* and B1 in *Games*. Every
+alarming row was a duplicate, not a gate. Measured properly — does an A1 card exist —
+the real figure was 85%.
+
+The relevel is still right and still shipped: all 162 promotions are words with **no**
+A1 card at all. But it is a 6-point improvement, not the 50-point one that was
+claimed, and what the probe actually rediscovered is the duplicate problem already
+ranked as Now #3. Recorded at length in BACKLOG.md under "a withdrawn finding, kept
+because the mistake is the lesson" — the top of that file already says *treat any
+check that fires on thousands of rows as a bug in the check*, and this is what it
+looks like to ignore your own rule.
+
+**Also fixed:** `BlockClock` persisted the exam clock from inside a `setState`
+updater, so the store emitted mid-render and React warned that `Exam` was being
+updated while `BlockClock` rendered. The tick now lives in the interval callback; a
+state updater has to be pure.
+
+---
+
 ### Shipped 2026-08-11 — telc Deutsch B1: a real paper, and three answers to every question
 
 Backlog item #43 has said the same thing for months: *"Goethe B1 is the most-taken

@@ -210,33 +210,58 @@ paper, scoped to a corpus filtered to each CEFR level; plus an 82-word probe of 
 Start Deutsch 1 / telc A1 core lexicon (form-filling, time, shopping, housing,
 transport, everyday health) against the shipped corpus. Numbers are measured.*
 
-### 🔴 An A1-placed learner can reach 34 of the 82 core A1-exam words — 41%
+### ⚠️ A withdrawn finding, kept because the mistake is the lesson
 
-**The finding that should reorder this file.** `Placement.tsx:60` calls
-`setLevels(new Set(upto))`, so passing the placement test at A1 sets the level
-filter to `{A1}` — and the CEFR filter scopes what the learner is *shown*
-everywhere. That would be correct if the levels were right. They are not:
+**What was written here first — "an A1-placed learner reaches 34 of the 82 core A1
+words, 41%; Wohnen 1 of 13" — was wrong, and it is worth saying loudly because it
+briefly reordered this file.** The probe looked each word up in a `Map` built by
+iterating the corpus, so for any term on more than one card it kept whichever copy
+came *last* and reported that card's level. **874 terms sit on more than one card**
+(Now #3). `der Tisch` exists at A1 *and* B1; the probe saw the B1 copy and concluded
+the word was gated. Every alarming row in that table was a duplicate, not a gate.
 
-| Field | reachable at A1 | filed above A1 |
-|---|---|---|
-| Wohnen | **1 of 13** | Wohnung, Zimmer, Küche, Miete, Tisch, Stuhl, Bett, Schrank, Fenster, Tür, Balkon **all at B1** |
-| Einkaufen | 5 of 15 | Brot, Milch, Obst, Gemüse **at B1**; Supermarkt, Preis, teuer, billig, Kasse at A2 |
-| Verkehr & Wege | 2 of 10 | Zug, Haltestelle at B1; Bahnhof, Bus, Fahrkarte, Flughafen at A2 |
-| Alltag & Gesundheit | 5 of 12 | Arzt, Apotheke **at B1** |
-| Formular & Anmeldung | 6 of 15 | Formular, Anmeldung, Straße at B1 |
-| Zeit & Datum | 15 of 17 | — the one field that is right |
+Measured properly — *does an A1 card exist for this word* — the real figure before
+any change was **69 of 81 = 85%**. Bad, not catastrophic.
 
-`der Tisch`, `das Bett`, `die Tür`, `das Brot`, `der Arzt` are the first two hundred
-words of any A1 textbook and the substance of Start Deutsch 1's picture and
-form-filling tasks. **The corpus contains 94% of the A1 exam lexicon and shows an A1
-learner 41% of it.** This is not a content programme, it is a `level` field.
-**Do (S–M, human-gated, scripted):** a relevel pass over the A1/A2 exam lexicon
-through `corpus:relevel`, ruled on by hand and recorded like `case-rulings.tsv`.
-Anchor the ruling on the published Goethe A1 / telc A1 Wortlisten, not on intuition.
-> This subsumes the "rebalance A1/A2" half of Now #6 and should be done *first* —
-> it costs a fraction of corpus growth and moves more learners.
+The lesson is the one already at the top of this file, and I re-learned it the
+expensive way: *treat any new check that fires on thousands of rows as a bug in the
+check.* A first-wins/last-wins lookup over a corpus with a known duplicate problem
+is exactly that bug.
 
-### 🟠 Genuinely absent, and not obscure
+**What this really found is Now #3.** A learner meets `der Tisch` at A1 in *Home*
+and again at B1 in *Furniture*, with two FSRS schedules and two sectors. That is the
+defect, and it is already ranked. This pass raised its evidence, not its position.
+
+### ✅ The Goethe A1 relevel — done 2026-08-11, and smaller than advertised
+
+`npm run corpus:relevel:a1`, against the published Goethe-Zertifikat A1 / Start
+Deutsch 1 Wortliste (657 lemmas, extracted from the official PDF by column position
+and committed as `scripts/corpus/data/goethe-a1-wordlist.txt`).
+
+- **162 words promoted to A1** — every one a word the A1 exam examines that had *no*
+  A1 card at all. A1 word cards **964 → 1,126**. On the 82-word probe: **85% → 91%**,
+  gaining `Formular`, `Termin`, `die Kasse`, `der Balkon`, `E-Mail`.
+- **Nothing demoted.** Lexi holding a word at A1 that Goethe omits is not an error,
+  and pushing it up would take it from the learner who needs it most.
+- **A part-of-speech guard earns its place.** Article-stripped matching let Goethe's
+  noun `der Dank` find Lexi's *preposition* `dank`, `das Lokal` find the adjective
+  `lokal`, the verb `reisen` find the nominalisation `das Reisen`, and the
+  interjection `Achtung!` find the abstract noun `die Achtung` ("respect"). Four
+  genuinely B1+ words would have been promoted on the authority of a homograph.
+  Goethe prints the article for nouns and omits it otherwise, so the list carries
+  the signal to catch all four.
+- **A relevel is a schedule migration.** Word ids embed the level
+  (`voc:B1:der Tisch`), so 162 `ID_MAP` entries shipped with it — plus **nine
+  existing entries re-pointed**, because they aimed at ids this pass moved
+  (`voc:A2:Oben` → `voc:A2:oben` → `voc:A1:oben`). Three files hold a card id and
+  all three are migrated by the script: `vocab.json`, `provenance.json` (37 rows)
+  and the id map; `cards.json`/`detail.json` follow via `corpus:split`.
+
+**Still open here:** 109 syllabus entries absent from the corpus, listed by the
+script — including `Euro`, `Ticket`, `Familienname`, `Geburtsdatum`, `Geburtsort`,
+`die Unterschrift` at A1. Authoring, not levelling. Folds into Now #6.
+
+### 🟠 Genuinely absent, and not obscure — verified, and unaffected by the above
 
 `Euro` · `Prozent` · `Ticket` · `Anfang` · `Projekt` · `genug` · `Zustand` ·
 `Familienname` · `Geburtsdatum` · `Geburtsort`. You cannot read a German newspaper
@@ -476,7 +501,9 @@ list in COMPETITIVE-RESEARCH §5.
 ### 3. Cross-level duplicate cards · M, human-gated
 
 **Why.** **874 terms sit on more than one card; 1,021 cards are redundant — 14% of
-the corpus.** `die Miete` exists at A1, A2, B1 *and* B2; `die Haltestelle` three
+the corpus.** The 2026-08-11 pass raised the evidence for this item and, briefly,
+mistook it for a levelling problem: `der Tisch` is at A1 in *Home* and at B1 in
+*Furniture*, `der Zug` at A1 in *Town & travel* and B1 in *Games*. `die Miete` exists at A1, A2, B1 *and* B2; `die Haltestelle` three
 times. Each copy carries its own FSRS schedule, so a learner meets and re-learns
 the same word up to four times. This is exactly the defect the capitalisation pass
 fixed for 62 cards while a thousand more sat untouched. It also inflates every other

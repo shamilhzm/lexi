@@ -23028,11 +23028,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Fieber",
+    "id": "voc:A1:das Fieber",
     "term": "das Fieber",
     "en": "fever",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "ˈfiːbɐ",
@@ -23199,11 +23199,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Termin",
+    "id": "voc:A1:der Termin",
     "term": "der Termin",
     "en": "appointment",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Termine",
     "ipa": "tɛʁˈmiːn",
@@ -23447,11 +23447,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Rechnung",
+    "id": "voc:A1:die Rechnung",
     "term": "die Rechnung",
     "en": "bill, invoice",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Rechnungen",
     "ipa": "ˈʁɛçnʊŋ",
@@ -23726,11 +23726,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Stelle",
+    "id": "voc:A1:die Stelle",
     "term": "die Stelle",
     "en": "job position; spot",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Stellen",
     "ipa": "ˈʃtɛlə",
@@ -24077,11 +24077,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Praktikum",
+    "id": "voc:A1:das Praktikum",
     "term": "das Praktikum",
     "en": "internship",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Praktika",
     "ipa": "ˈpʁaktikʊm",
@@ -24143,11 +24143,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:arbeitslos",
+    "id": "voc:A1:arbeitslos",
     "term": "arbeitslos",
     "en": "unemployed",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈaʁbaɪ̯tsˌloːs",
@@ -24314,11 +24314,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Abfahrt",
+    "id": "voc:A1:die Abfahrt",
     "term": "die Abfahrt",
     "en": "departure",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Abfahrten",
     "ipa": "ˈapˌfaːɐ̯t",
@@ -24353,11 +24353,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Ausflug",
+    "id": "voc:A1:der Ausflug",
     "term": "der Ausflug",
     "en": "excursion, trip",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Ausflüge",
     "ipa": "ˈaʊ̯sˌfluːk",
@@ -24422,11 +24422,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Gepäck",
+    "id": "voc:A1:das Gepäck",
     "term": "das Gepäck",
     "en": "luggage",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "ɡəˈpɛk",
@@ -24493,11 +24493,11 @@
     "defDe": null
   },
   {
-    "id": "voc:A2:ankommen",
+    "id": "voc:A1:ankommen",
     "term": "ankommen",
     "en": "to arrive",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈanˌkɔmən",
@@ -24596,11 +24596,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Kasse",
+    "id": "voc:A1:die Kasse",
     "term": "die Kasse",
     "en": "checkout, cash register",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Kassen",
     "ipa": "ˈkasə",
@@ -24739,11 +24739,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Größe",
+    "id": "voc:A1:die Größe",
     "term": "die Größe",
     "en": "size",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Größen",
     "ipa": "ˈɡʁøːsə",
@@ -24837,11 +24837,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:günstig",
+    "id": "voc:A1:günstig",
     "term": "günstig",
     "en": "cheap, good-value",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈɡʏnstɪç",
@@ -24972,11 +24972,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die E-Mail",
+    "id": "voc:A1:die E-Mail",
     "term": "die E-Mail",
     "en": "email",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die E-Mails",
     "ipa": "ˈiːmeːl",
@@ -25217,11 +25217,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:anklicken",
+    "id": "voc:A1:anklicken",
     "term": "anklicken",
     "en": "to click (on)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈanˌklɪkn̩",
@@ -25319,11 +25319,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Treppe",
+    "id": "voc:A1:die Treppe",
     "term": "die Treppe",
     "en": "stairs, staircase",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Treppen",
     "ipa": "ˈtʁɛpə",
@@ -25356,11 +25356,11 @@
     "defDe": "Aufstieg und Abstieg aus Stufen in einem Gebäude oder im Freien"
   },
   {
-    "id": "voc:A2:der Aufzug",
+    "id": "voc:A1:der Aufzug",
     "term": "der Aufzug",
     "en": "lift, elevator",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Aufzüge",
     "ipa": "ˈaʊ̯fˌtsuːk",
@@ -25392,11 +25392,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Balkon",
+    "id": "voc:A1:der Balkon",
     "term": "der Balkon",
     "en": "balcony",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Balkone",
     "ipa": "balˈkoːn",
@@ -25595,11 +25595,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:umziehen",
+    "id": "voc:A1:umziehen",
     "term": "umziehen",
     "en": "to move (house)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʊmˌtsiːən",
@@ -25664,11 +25664,11 @@
     "defDe": "gegen Bezahlung für eine bestimmte Zeit zur Benutzung überlassen bekommen"
   },
   {
-    "id": "voc:A2:der Geburtstag",
+    "id": "voc:A1:der Geburtstag",
     "term": "der Geburtstag",
     "en": "birthday",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Geburtstage",
     "ipa": "ɡəˈbuːɐ̯tsˌtaːk",
@@ -25730,11 +25730,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Einladung",
+    "id": "voc:A1:die Einladung",
     "term": "die Einladung",
     "en": "invitation",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Einladungen",
     "ipa": "ˈaɪ̯nˌlaːdʊŋ",
@@ -25762,11 +25762,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Geschenk",
+    "id": "voc:A1:das Geschenk",
     "term": "das Geschenk",
     "en": "present, gift",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Geschenke",
     "ipa": "ɡəˈʃɛŋk",
@@ -26038,11 +26038,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:aufhören",
+    "id": "voc:A1:aufhören",
     "term": "aufhören",
     "en": "to stop, to quit",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈaʊ̯fˌhøːʁən",
@@ -26109,11 +26109,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:mitbringen",
+    "id": "voc:A1:mitbringen",
     "term": "mitbringen",
     "en": "to bring (along)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈmɪtˌbʁɪŋən",
@@ -26276,11 +26276,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:erklären",
+    "id": "voc:A1:erklären",
     "term": "erklären",
     "en": "to explain",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɛɐ̯ˈklɛːʁən",
@@ -26634,11 +26634,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:ledig",
+    "id": "voc:A1:ledig",
     "term": "ledig",
     "en": "single, unmarried",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈleːdɪç",
@@ -26857,11 +26857,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:sofort",
+    "id": "voc:A1:sofort",
     "term": "sofort",
     "en": "immediately, right away",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "zoˈfɔʁt",
@@ -27333,11 +27333,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Grad",
+    "id": "voc:A1:der Grad",
     "term": "der Grad",
     "en": "degree",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Grad",
     "ipa": "ɡʁaːt",
@@ -27951,11 +27951,11 @@
     "defDe": null
   },
   {
-    "id": "voc:A2:der Verwandte",
+    "id": "voc:A1:der Verwandte",
     "term": "der Verwandte",
     "en": "relative",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Verwandten",
     "ipa": "fɛɐ̯ˈvantə",
@@ -27983,11 +27983,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Hochzeit",
+    "id": "voc:A1:die Hochzeit",
     "term": "die Hochzeit",
     "en": "wedding",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Hochzeiten",
     "ipa": "ˈhɔxˌtsaɪ̯t",
@@ -28301,11 +28301,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:sich kümmern",
+    "id": "voc:A1:sich kümmern",
     "term": "sich kümmern",
     "en": "to take care (of)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈkʏmɐn",
@@ -28611,11 +28611,11 @@
     "defDe": "von Angst ergriffen, erfüllt"
   },
   {
-    "id": "voc:A2:lustig",
+    "id": "voc:A1:lustig",
     "term": "lustig",
     "en": "funny, cheerful",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈlʊstɪç",
@@ -28715,11 +28715,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:lachen",
+    "id": "voc:A1:lachen",
     "term": "lachen",
     "en": "to laugh",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈlaxn̩",
@@ -28885,11 +28885,11 @@
     "defDe": null
   },
   {
-    "id": "voc:A2:das Studium",
+    "id": "voc:A1:das Studium",
     "term": "das Studium",
     "en": "studies, degree course",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Studien",
     "ipa": "ˈʃtuːdiʊm",
@@ -29219,11 +29219,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Ausweis",
+    "id": "voc:A1:der Ausweis",
     "term": "der Ausweis",
     "en": "ID card",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Ausweise",
     "ipa": "ˈaʊ̯sˌvaɪ̯s",
@@ -29287,11 +29287,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Formular",
+    "id": "voc:A1:das Formular",
     "term": "das Formular",
     "en": "form",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Formulare",
     "ipa": "fɔʁmuˈlaːɐ̯",
@@ -29386,11 +29386,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:ausfüllen",
+    "id": "voc:A1:ausfüllen",
     "term": "ausfüllen",
     "en": "to fill in (a form)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈaʊ̯sˌfʏlən",
@@ -29418,11 +29418,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:unterschreiben",
+    "id": "voc:A1:unterschreiben",
     "term": "unterschreiben",
     "en": "to sign",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ʊntɐˈʃʁaɪ̯bn̩",
@@ -29485,11 +29485,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Beamte",
+    "id": "voc:A1:der Beamte",
     "term": "der Beamte",
     "en": "civil servant, official",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Beamten",
     "ipa": "bəˈʔamtə",
@@ -29518,11 +29518,11 @@
     "defDe": null
   },
   {
-    "id": "voc:A2:das Konto",
+    "id": "voc:A1:das Konto",
     "term": "das Konto",
     "en": "bank account",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Konten",
     "ipa": "ˈkɔnto",
@@ -29625,11 +29625,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:überweisen",
+    "id": "voc:A1:überweisen",
     "term": "überweisen",
     "en": "to transfer (money)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "yːbɐˈvaɪ̯zn̩",
@@ -30638,11 +30638,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:gehören",
+    "id": "voc:A1:gehören",
     "term": "gehören",
     "en": "to belong to",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈhøːʁən",
@@ -30671,11 +30671,11 @@
     "defDe": null
   },
   {
-    "id": "voc:A2:gefallen",
+    "id": "voc:A1:gefallen",
     "term": "gefallen",
     "en": "to please, to like",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈfalən",
@@ -30703,11 +30703,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:fehlen",
+    "id": "voc:A1:fehlen",
     "term": "fehlen",
     "en": "to be missing; to be absent",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈfeːlən",
@@ -30874,11 +30874,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:gratulieren",
+    "id": "voc:A1:gratulieren",
     "term": "gratulieren",
     "en": "to congratulate",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɡʁatuˈliːʁən",
@@ -30945,11 +30945,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:bekannt",
+    "id": "voc:A1:bekannt",
     "term": "bekannt",
     "en": "well-known, familiar",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "bəˈkant",
@@ -31210,11 +31210,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:fremd",
+    "id": "voc:A1:fremd",
     "term": "fremd",
     "en": "foreign, strange",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "fʁɛmt",
@@ -31278,11 +31278,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Moment",
+    "id": "voc:A1:der Moment",
     "term": "der Moment",
     "en": "moment",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Momente",
     "ipa": "moˈmɛnt",
@@ -31695,11 +31695,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Bahnsteig",
+    "id": "voc:A1:der Bahnsteig",
     "term": "der Bahnsteig",
     "en": "platform",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Bahnsteige",
     "ipa": "ˈbaːnˌʃtaɪ̯k",
@@ -31729,11 +31729,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Auskunft",
+    "id": "voc:A1:die Auskunft",
     "term": "die Auskunft",
     "en": "information",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Auskünfte",
     "ipa": "ˈaʊ̯sˌkʊnft",
@@ -31829,11 +31829,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Eintritt",
+    "id": "voc:A1:der Eintritt",
     "term": "der Eintritt",
     "en": "admission, entry",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Eintritte",
     "ipa": "ˈaɪ̯nˌtʁɪt",
@@ -32007,11 +32007,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Ordnung",
+    "id": "voc:A1:die Ordnung",
     "term": "die Ordnung",
     "en": "order, tidiness",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "nur Singular",
     "ipa": "ˈɔʁdnʊŋ",
@@ -33080,11 +33080,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:besichtigen",
+    "id": "voc:A1:besichtigen",
     "term": "besichtigen",
     "en": "to view, visit (a place)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "bəˈzɪçtɪɡn̩",
@@ -33251,11 +33251,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:übernachten",
+    "id": "voc:A1:übernachten",
     "term": "übernachten",
     "en": "to stay overnight",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "yːbɐˈnaxtn̩",
@@ -34264,11 +34264,11 @@
     "defDe": "Wohnung, die nur als vorübergehender Aufenthalt in freier Zeit genutzt wird"
   },
   {
-    "id": "voc:A2:die Halbpension",
+    "id": "voc:A1:die Halbpension",
     "term": "die Halbpension",
     "en": "half board",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "nur Singular",
     "ipa": "ˈhalppɑ̃ˌzi̯oːn",
@@ -34493,11 +34493,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:aussteigen",
+    "id": "voc:A1:aussteigen",
     "term": "aussteigen",
     "en": "to get off, get out",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈaʊ̯sˌʃtaɪ̯ɡn̩",
@@ -34591,11 +34591,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Führung",
+    "id": "voc:A1:die Führung",
     "term": "die Führung",
     "en": "guided tour; leadership",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Führungen",
     "ipa": "ˈfyːʁʊŋ",
@@ -34888,11 +34888,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Eingang",
+    "id": "voc:A1:der Eingang",
     "term": "der Eingang",
     "en": "entrance",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Eingänge",
     "ipa": "ˈaɪ̯nˌɡaŋ",
@@ -36847,11 +36847,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Norden",
+    "id": "voc:A1:der Norden",
     "term": "der Norden",
     "en": "north",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "ˈnɔʁdn̩",
@@ -36881,11 +36881,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Osten",
+    "id": "voc:A1:der Osten",
     "term": "der Osten",
     "en": "east",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "ˈɔstn̩",
@@ -36950,11 +36950,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:legen",
+    "id": "voc:A1:legen",
     "term": "legen",
     "en": "to lay, put (down flat)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈleːɡn̩",
@@ -36987,11 +36987,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:stellen",
+    "id": "voc:A1:stellen",
     "term": "stellen",
     "en": "to put, place (upright)",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʃtɛlən",
@@ -37565,11 +37565,11 @@
     "defDe": "in den polaren und gemäßigten Breiten vorkommender Abschnitt eines Jahres nach klimatischer bzw. astronomischer Unterteilung nach der scheinbaren Bahn der Sonne am Himmel"
   },
   {
-    "id": "voc:A2:das Lied",
+    "id": "voc:A1:das Lied",
     "term": "das Lied",
     "en": "song",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Lieder",
     "ipa": "liːt",
@@ -38659,11 +38659,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Aussage",
+    "id": "voc:A1:die Aussage",
     "term": "die Aussage",
     "en": "statement",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Aussagen",
     "ipa": "ˈaʊ̯sˌzaːɡə",
@@ -40501,11 +40501,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Wind",
+    "id": "voc:A1:der Wind",
     "term": "der Wind",
     "en": "wind",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Winde",
     "ipa": "vɪnt",
@@ -40629,11 +40629,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:scheinen",
+    "id": "voc:A1:scheinen",
     "term": "scheinen",
     "en": "to shine; to seem",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʃaɪ̯nən",
@@ -41934,11 +41934,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:kaputt",
+    "id": "voc:A1:kaputt",
     "term": "kaputt",
     "en": "broken",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "kaˈpʊt",
@@ -42730,11 +42730,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Angebot",
+    "id": "voc:A1:das Angebot",
     "term": "das Angebot",
     "en": "offer",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Angebote",
     "ipa": "ˈanɡəˌboːt",
@@ -43495,11 +43495,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Klasse",
+    "id": "voc:A1:die Klasse",
     "term": "die Klasse",
     "en": "class, grade",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Klassen",
     "ipa": "ˈklasə",
@@ -43625,11 +43625,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Test",
+    "id": "voc:A1:der Test",
     "term": "der Test",
     "en": "test",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Tests",
     "ipa": "tɛst",
@@ -47308,11 +47308,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Doppelzimmer",
+    "id": "voc:A1:das Doppelzimmer",
     "term": "das Doppelzimmer",
     "en": "double room",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Doppelzimmer",
     "ipa": "ˈdɔpl̩ˌt͡sɪmɐ",
@@ -49688,11 +49688,11 @@
     "defDe": "Arbeitszeit, die über die im Arbeitsvertrag festgelegte Zeit hinausgeht"
   },
   {
-    "id": "voc:B1:der Arbeitsplatz",
+    "id": "voc:A1:der Arbeitsplatz",
     "term": "der Arbeitsplatz",
     "en": "workplace; job",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Arbeitsplätze",
     "ipa": "ˈaʁbaɪ̯tsˌplats",
@@ -51376,11 +51376,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:selbstständig",
+    "id": "voc:A1:selbstständig",
     "term": "selbstständig",
     "en": "independent; self-employed",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈzɛlpstˌʃtɛndɪç",
@@ -53359,11 +53359,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Reiseführer",
+    "id": "voc:A1:der Reiseführer",
     "term": "der Reiseführer",
     "en": "guidebook; tour guide",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Reiseführer",
     "ipa": "ˈʁaɪ̯zəˌfyːʁɐ",
@@ -53427,11 +53427,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Empfänger",
+    "id": "voc:A1:der Empfänger",
     "term": "der Empfänger",
     "en": "recipient",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Empfänger",
     "ipa": "ɛmˈp͡fɛŋɐ",
@@ -53637,11 +53637,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Verein",
+    "id": "voc:A1:der Verein",
     "term": "der Verein",
     "en": "club, association",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Vereine",
     "ipa": "fɛɐ̯ˈʔaɪ̯n",
@@ -54111,11 +54111,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Anrede",
+    "id": "voc:A1:die Anrede",
     "term": "die Anrede",
     "en": "form of address, salutation",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die Anreden",
     "ipa": "ˈanˌʁeːdə",
@@ -58704,11 +58704,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Schalter",
+    "id": "voc:A1:der Schalter",
     "term": "der Schalter",
     "en": "counter, desk; switch",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Schalter",
     "ipa": "ˈʃaltɐ",
@@ -58768,11 +58768,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Zoll",
+    "id": "voc:A1:der Zoll",
     "term": "der Zoll",
     "en": "customs",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "nur Singular",
     "ipa": "t͡sɔl",
@@ -67945,11 +67945,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:gültig",
+    "id": "voc:A1:gültig",
     "term": "gültig",
     "en": "valid",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈɡʏltɪç",
@@ -70851,11 +70851,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:zurzeit",
+    "id": "voc:A1:zurzeit",
     "term": "zurzeit",
     "en": "at the moment",
     "pos": "adverb",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "t͡suːɐ̯ˈt͡saɪ̯t",
@@ -106912,11 +106912,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Laden",
+    "id": "voc:A1:der Laden",
     "term": "der Laden",
     "en": "shop",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": null,
     "ipa": "ˈlaːdn̩",
@@ -107294,11 +107294,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Taxi",
+    "id": "voc:A1:das Taxi",
     "term": "das Taxi",
     "en": "taxi",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Taxis",
     "ipa": "ˈtaksi",
@@ -108943,11 +108943,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:oben",
+    "id": "voc:A1:oben",
     "term": "oben",
     "en": "above / up",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈoːbn̩",
@@ -108970,11 +108970,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:unten",
+    "id": "voc:A1:unten",
     "term": "unten",
     "en": "below / down",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʊntn̩",
@@ -109024,11 +109024,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:hinten",
+    "id": "voc:A1:hinten",
     "term": "hinten",
     "en": "behind",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈhɪntn̩",
@@ -109135,11 +109135,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:zwischen",
+    "id": "voc:A1:zwischen",
     "term": "zwischen",
     "en": "between",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈt͡svɪʃn̩",
@@ -109189,11 +109189,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:in",
+    "id": "voc:A1:in",
     "term": "in",
     "en": "in / inside",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɪn",
@@ -109216,11 +109216,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:an",
+    "id": "voc:A1:an",
     "term": "an",
     "en": "at / on",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "an",
@@ -109243,11 +109243,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:auf",
+    "id": "voc:A1:auf",
     "term": "auf",
     "en": "on / on top of",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "aʊ̯f",
@@ -109270,11 +109270,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:durch",
+    "id": "voc:A1:durch",
     "term": "durch",
     "en": "through",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "dʊʁç",
@@ -109329,11 +109329,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:bis",
+    "id": "voc:A1:bis",
     "term": "bis",
     "en": "until, up to",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "bɪs",
@@ -109356,11 +109356,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:von",
+    "id": "voc:A1:von",
     "term": "von",
     "en": "from",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "fɔn",
@@ -109410,11 +109410,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:zu",
+    "id": "voc:A1:zu",
     "term": "zu",
     "en": "to, toward",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "t͡suː",
@@ -109464,11 +109464,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:aus",
+    "id": "voc:A1:aus",
     "term": "aus",
     "en": "out of, from",
     "pos": "preposition",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "aʊ̯s",
@@ -109626,11 +109626,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:daneben",
+    "id": "voc:A1:daneben",
     "term": "daneben",
     "en": "next to it, beside it",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "daˈneːbn̩",
@@ -109707,11 +109707,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:draußen",
+    "id": "voc:A1:draußen",
     "term": "draußen",
     "en": "outside, outdoors",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈdʁaʊ̯sn̩",
@@ -109821,11 +109821,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:weit",
+    "id": "voc:A1:weit",
     "term": "weit",
     "en": "far, distant",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "vaɪ̯t",
@@ -109956,11 +109956,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Ecke",
+    "id": "voc:A1:die Ecke",
     "term": "die Ecke",
     "en": "the corner",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Ecken",
     "ipa": "ˈɛkə",
@@ -109989,11 +109989,11 @@
     "defDe": "Punkt, in welchem zwei begrenzende Linien einer Fläche beziehungsweise drei oder mehr Grenzflächen eines Körpers zusammenstoßen"
   },
   {
-    "id": "voc:A2:die Mitte",
+    "id": "voc:A1:die Mitte",
     "term": "die Mitte",
     "en": "the middle, center",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Mitten",
     "ipa": "ˈmɪtə",
@@ -113409,11 +113409,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Rezeption",
+    "id": "voc:A1:die Rezeption",
     "term": "die Rezeption",
     "en": "reception desk",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die Rezeptionen",
     "ipa": "ʁet͡sɛpˈt͡si̯oːn",
@@ -113808,11 +113808,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:empfehlen",
+    "id": "voc:A1:empfehlen",
     "term": "empfehlen",
     "en": "to recommend",
     "pos": "verb",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɛmˈpfeːlən",
@@ -113976,11 +113976,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Anschluss",
+    "id": "voc:A1:der Anschluss",
     "term": "der Anschluss",
     "en": "connection (transport)",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Anschlüsse",
     "ipa": "ˈanʃlʊs",
@@ -114459,11 +114459,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Autobahn",
+    "id": "voc:A1:die Autobahn",
     "term": "die Autobahn",
     "en": "motorway, highway",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die Autobahnen",
     "ipa": "ˈaʊ̯tobaːn",
@@ -121145,11 +121145,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Salat",
+    "id": "voc:A1:der Salat",
     "term": "der Salat",
     "en": "salad",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Salate",
     "ipa": "zaˈlaːt",
@@ -121348,11 +121348,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:das Bier",
+    "id": "voc:A1:das Bier",
     "term": "das Bier",
     "en": "beer",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "das",
     "plural": "die Biere",
     "ipa": "biːɐ̯",
@@ -122294,11 +122294,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:das Hähnchen",
+    "id": "voc:A1:das Hähnchen",
     "term": "das Hähnchen",
     "en": "chicken",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "das",
     "plural": "die Hähnchen",
     "ipa": "ˈhɛːnçən",
@@ -130209,11 +130209,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:das Ergebnis",
+    "id": "voc:A1:das Ergebnis",
     "term": "das Ergebnis",
     "en": "result",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "das",
     "plural": "die Ergebnisse",
     "ipa": "ɛɐ̯ˈɡeːpnɪs",
@@ -133350,11 +133350,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:vermieten",
+    "id": "voc:A1:vermieten",
     "term": "vermieten",
     "en": "to rent out, let",
     "pos": "verb",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈmiːtn̩",
@@ -135227,11 +135227,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Polizei",
+    "id": "voc:A1:die Polizei",
     "term": "die Polizei",
     "en": "police",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Polizeien",
     "ipa": "ˌpo.liˈt͡saɪ̯",
@@ -140054,11 +140054,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:kulturell",
+    "id": "voc:A1:kulturell",
     "term": "kulturell",
     "en": "cultural",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "kʊltuˈʁɛl",
@@ -140629,11 +140629,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Partnerin",
+    "id": "voc:A1:die Partnerin",
     "term": "die Partnerin",
     "en": "partner (female)",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die Partnerinnen",
     "ipa": "ˈpaʁtnəʁɪn",
@@ -141138,11 +141138,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:kennenlernen",
+    "id": "voc:A1:kennenlernen",
     "term": "kennenlernen",
     "en": "to get to know",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈkɛnənˌlɛɐ̯nən",
@@ -143309,11 +143309,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Karte",
+    "id": "voc:A1:die Karte",
     "term": "die Karte",
     "en": "card",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Karten",
     "ipa": "ˈkartə",
@@ -146131,11 +146131,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Bild",
+    "id": "voc:A1:das Bild",
     "term": "das Bild",
     "en": "picture",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": null,
     "ipa": "bɪlt",
@@ -146351,11 +146351,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:leben",
+    "id": "voc:A1:leben",
     "term": "leben",
     "en": "to live",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈleːbən",
@@ -146575,11 +146575,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:falsch",
+    "id": "voc:A1:falsch",
     "term": "falsch",
     "en": "wrong",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "falʃ",
@@ -146802,11 +146802,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:besetzt",
+    "id": "voc:A1:besetzt",
     "term": "besetzt",
     "en": "occupied",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "bəˈzɛtst",
@@ -146831,11 +146831,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:gleich",
+    "id": "voc:A1:gleich",
     "term": "gleich",
     "en": "same / shortly",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɡlaɪ̯ç",
@@ -146858,11 +146858,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:zusammen",
+    "id": "voc:A1:zusammen",
     "term": "zusammen",
     "en": "together",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "tsuˈzamən",
@@ -146885,11 +146885,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:allein",
+    "id": "voc:A1:allein",
     "term": "allein",
     "en": "alone",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "(ʔ)aˈlaɪn",
@@ -157628,11 +157628,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:also",
+    "id": "voc:A1:also",
     "term": "also",
     "en": "so, therefore",
     "pos": "conjunction",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʔalzoː",
@@ -157831,11 +157831,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:bisschen",
+    "id": "voc:A1:bisschen",
     "term": "bisschen",
     "en": "bit",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈbɪsçən",
@@ -157976,11 +157976,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:einmal",
+    "id": "voc:A1:einmal",
     "term": "einmal",
     "en": "once, one time",
     "pos": "adverb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈaɪ̯nmaːl",
@@ -158035,11 +158035,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Feuer",
+    "id": "voc:A1:das Feuer",
     "term": "das Feuer",
     "en": "fire",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Feuer",
     "ipa": "ˈfɔʏ̯ər",
@@ -158236,11 +158236,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:halten",
+    "id": "voc:A1:halten",
     "term": "halten",
     "en": "to hold",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈhaltn̩",
@@ -158376,11 +158376,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:klar",
+    "id": "voc:A1:klar",
     "term": "klar",
     "en": "clear",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "kläː(ɐ̯)",
@@ -159075,11 +159075,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:tun",
+    "id": "voc:A1:tun",
     "term": "tun",
     "en": "To do.",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "tuːn",
@@ -160040,11 +160040,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Hilfe",
+    "id": "voc:A1:die Hilfe",
     "term": "die Hilfe",
     "en": "help, aid",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die Hilfen",
     "ipa": "ˈhɪlfə",
@@ -162356,11 +162356,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:tot",
+    "id": "voc:A1:tot",
     "term": "tot",
     "en": "dead, deceased",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "toːt",
@@ -166025,11 +166025,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:anbieten",
+    "id": "voc:A1:anbieten",
     "term": "anbieten",
     "en": "to offer, to provide",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʔanbiːtn̩",
@@ -166052,11 +166052,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:automatisch",
+    "id": "voc:A1:automatisch",
     "term": "automatisch",
     "en": "automatic",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -167599,11 +167599,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Halle",
+    "id": "voc:A1:die Halle",
     "term": "die Halle",
     "en": "hall",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die Hallen",
     "ipa": "ˈhalə",
@@ -171087,11 +171087,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Maschine",
+    "id": "voc:A1:die Maschine",
     "term": "die Maschine",
     "en": "machine",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Maschinen",
     "ipa": "maˈʃiːnə",
@@ -171405,11 +171405,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:schicken",
+    "id": "voc:A1:schicken",
     "term": "schicken",
     "en": "to send, to dispatch",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʃɪkən",
@@ -171948,11 +171948,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:abgeben",
+    "id": "voc:A1:abgeben",
     "term": "abgeben",
     "en": "to give up, relinquish, let go, concede, hand over, etc.",
     "pos": "verb",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈap.ɡeːbn̩",
@@ -178711,11 +178711,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:baden",
+    "id": "voc:A1:baden",
     "term": "baden",
     "en": "to bathe, to give a bath to or have a bath.",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈbaːdn̩",
@@ -179524,11 +179524,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Reparatur",
+    "id": "voc:A1:die Reparatur",
     "term": "die Reparatur",
     "en": "repair, mending",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Reparaturen",
     "ipa": "ʁepaʁaˈtuːɐ̯",
@@ -179912,11 +179912,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Wiedersehen",
+    "id": "voc:A1:das Wiedersehen",
     "term": "das Wiedersehen",
     "en": "reunion",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Wiedersehen",
     "ipa": "ˈviːdɐˌzeː(ə)n",
@@ -184950,11 +184950,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:danken",
+    "id": "voc:A1:danken",
     "term": "danken",
     "en": "to thank",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈdaŋkn̩",
@@ -185180,11 +185180,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:mitkommen",
+    "id": "voc:A1:mitkommen",
     "term": "mitkommen",
     "en": "to come with, to join and come along with",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈmɪtˌkɔmən",
@@ -187867,11 +187867,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:riechen",
+    "id": "voc:A1:riechen",
     "term": "riechen",
     "en": "to smell",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʁiːçn̩",
@@ -188066,11 +188066,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:wiederholen",
+    "id": "voc:A1:wiederholen",
     "term": "wiederholen",
     "en": "to bring back, take back",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈviːdɐˌhoːlən",
@@ -188526,11 +188526,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:eilig",
+    "id": "voc:A1:eilig",
     "term": "eilig",
     "en": "speedy, hasty",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʔaɪ̯lɪç",
@@ -190437,11 +190437,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Zigarette",
+    "id": "voc:A1:die Zigarette",
     "term": "die Zigarette",
     "en": "cigarette",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Zigaretten",
     "ipa": "ˌtsi(ː).ɡaˈʁɛ.tə",
@@ -192567,11 +192567,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:ausmachen",
+    "id": "voc:A1:ausmachen",
     "term": "ausmachen",
     "en": "to turn off, switch off",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʔaʊ̯smaxn̩",
@@ -192722,11 +192722,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:einsteigen",
+    "id": "voc:A1:einsteigen",
     "term": "einsteigen",
     "en": "to get in or on",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʔaɪ̯nʃtaɪ̯ɡŋ̩",
@@ -195333,11 +195333,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Anruf",
+    "id": "voc:A1:der Anruf",
     "term": "der Anruf",
     "en": "a call, a holler",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Anrufe",
     "ipa": "ˈanʁuːf",
@@ -195501,11 +195501,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Doktor",
+    "id": "voc:A1:der Doktor",
     "term": "der Doktor",
     "en": "doctor",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Doktoren",
     "ipa": "ˈdɔktoːr",
@@ -195787,11 +195787,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Süden",
+    "id": "voc:A1:der Süden",
     "term": "der Süden",
     "en": "south",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": null,
     "ipa": "ˈzyːdən",
@@ -195868,11 +195868,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Vorsicht",
+    "id": "voc:A1:die Vorsicht",
     "term": "die Vorsicht",
     "en": "caution, cautiousness",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": null,
     "ipa": "ˈfoːʁˌzɪçt",
@@ -196547,11 +196547,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Opa",
+    "id": "voc:A1:der Opa",
     "term": "der Opa",
     "en": "grandpa",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Opas",
     "ipa": "ˈoːpʰa",
@@ -197471,11 +197471,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:der Ausgang",
+    "id": "voc:A1:der Ausgang",
     "term": "der Ausgang",
     "en": "exit",
     "pos": "noun",
-    "level": "B2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Ausgänge",
     "ipa": "ˈʔaʊ̯sˌɡaŋ",
@@ -200525,11 +200525,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:C1:der Gruß",
+    "id": "voc:A1:der Gruß",
     "term": "der Gruß",
     "en": "greeting",
     "pos": "noun",
-    "level": "C1",
+    "level": "A1",
     "gender": "der",
     "plural": "die Grüße",
     "ipa": "ɡʁuːs",
@@ -206328,11 +206328,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Apartment",
+    "id": "voc:A1:das Apartment",
     "term": "das Apartment",
     "en": "apartment",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Apartments",
     "ipa": null,
@@ -206500,11 +206500,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:grillen",
+    "id": "voc:A1:grillen",
     "term": "grillen",
     "en": "to grill",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -207664,11 +207664,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Vorwahl",
+    "id": "voc:A1:die Vorwahl",
     "term": "die Vorwahl",
     "en": "area code, prefix",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Vorwahlen",
     "ipa": null,
@@ -208946,11 +208946,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:bar",
+    "id": "voc:A1:bar",
     "term": "bar",
     "en": "bare",
     "pos": "adjective",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -216769,11 +216769,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:europäisch",
+    "id": "voc:A1:europäisch",
     "term": "europäisch",
     "en": "European",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ɔɪʁoˈpɛːɪʃ",
@@ -217568,11 +217568,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Briefmarke",
+    "id": "voc:A1:die Briefmarke",
     "term": "die Briefmarke",
     "en": "stamp",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "die",
     "plural": "die Briefmarken",
     "ipa": "ˈbʁiːfmaʁkə",
@@ -217603,11 +217603,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Absender",
+    "id": "voc:A1:der Absender",
     "term": "der Absender",
     "en": "sender",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Absender",
     "ipa": "ˈapˌzɛndɐ",
@@ -217669,11 +217669,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Gewicht",
+    "id": "voc:A1:das Gewicht",
     "term": "das Gewicht",
     "en": "weight",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "das",
     "plural": "die Gewichte",
     "ipa": "ɡəˈvɪçt",

@@ -424,19 +424,24 @@ function BlockClock({ paper, attempt, block }: {
   const [left, setLeft] = useState(() => attempt.clocks?.[block] ?? total);
   const saved = useRef(left);
 
+  // The tick lives in the interval callback rather than inside a `setLeft`
+  // updater. It was in the updater first, and React caught it: `setClock` writes
+  // to the exam store, the store emits, and `Exam` — subscribed via
+  // `useSyncExternalStore` — was told to update *while `BlockClock` was
+  // rendering*. A state updater has to be pure; persistence is a side effect.
+  const leftRef = useRef(left);
   useEffect(() => {
     if (attempt.submitted) return;
     const id = setInterval(() => {
-      setLeft((s) => {
-        const next = Math.max(0, s - 1);
-        // Persist every five seconds rather than every tick: a sitting must
-        // survive a reload, and rewriting the whole sheet once a second to save
-        // one second is the wrong trade.
-        if (saved.current - next >= 5 || next === 0) { saved.current = next; ex.setClock(block, next); }
-        return next;
-      });
+      const next = Math.max(0, leftRef.current - 1);
+      leftRef.current = next;
+      setLeft(next);
+      // Persist every five seconds rather than every tick: a sitting must survive
+      // a reload, and rewriting the whole sheet once a second to save one second
+      // is the wrong trade.
+      if (saved.current - next >= 5 || next === 0) { saved.current = next; ex.setClock(block, next); }
     }, 1000);
-    return () => { clearInterval(id); ex.setClock(block, saved.current); };
+    return () => { clearInterval(id); ex.setClock(block, leftRef.current); };
   }, [block, attempt.submitted]);
 
   const m = Math.floor(left / 60);
