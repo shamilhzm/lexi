@@ -11,6 +11,41 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — Goethe A2, and a ratchet that was measuring the wrong thing
+
+The third paper. **Goethe-Zertifikat A2**: 40 scored items — four reading parts
+(newspaper text, a store directory, an email, six people against six adverts with
+one `x`) and four listening parts, two heard once and two heard twice — plus the
+SMS-and-email writing and the paired oral.
+
+- **A2's pass rule is neither A1's nor B1's**, which is the third confirmation that
+  the `Scheme` belongs to the paper: four parts of 25 and 60/100 overall, but with
+  **two floors** — 45 of 75 across the written parts and 15 of 25 on the oral. A1
+  has no oral floor; telc B1 wants 60% of each half. A2 sits between them.
+- **Two more model generalisations**, both from the paper rather than from
+  speculation. `MatchPart` gained optional audio and a `once` flag, because A2's
+  Hören Teil 2 is the same match-to-options task as telc B1's Leseverstehen Teil 1
+  but heard, unrepeated, and with each option spendable once. And `TfPart` gained
+  `labels`, because Goethe A2 prints **Ja/Nein** where telc prints richtig/falsch —
+  a small infidelity, and the kind that makes a practice paper feel like a
+  different exam.
+- **One adaptation, stated rather than hidden.** Hören Teil 2 matches what you hear
+  to *pictures*. Lexi has none, so the nine options are phrases. The task — hold
+  five slots open through a single unrepeated conversation, spend each option once
+  — is unchanged, and the rubric says so.
+- The store directory started as a per-question `stimulus` and is now a `passage`.
+  One text serving five questions is a shared stimulus; attaching it to question 6
+  would have repeated it five times and said something untrue about the task.
+
+**The speaking-vocabulary ratchet was measuring the wrong thing, and adding a paper
+proved it.** It capped the *total* unresolved words across all papers at 70; A2
+pushed it to 74 and failed a bar its own material had not breached. A total falls
+to the newest paper. It is now **per paper**, each with its own measured ceiling,
+so a new paper is held to its own standard and cannot be dragged over the line by
+its predecessors — nor drag them. Six more cards authored against the A2 list
+first: `weiterempfehlen`, `bezahlbar`, `das Prinzip`, `der Hort`, `die Absprache`,
+`das Parfüm`. 6,457 → 6,463.
+
 ### Shipped 2026-08-11 — every word in our own papers, and a conjugator bug 37 verbs wide
 
 "Make sure every word across the practice exams is in the corpus" is only

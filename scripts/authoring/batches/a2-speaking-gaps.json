@@ -1,0 +1,108 @@
+[
+{
+"term": "weiterempfehlen",
+"en": "to recommend (to others)",
+"pos": "verb",
+"level": "B1",
+"field": "Communication",
+"ex": [
+{
+"de": "Ich kann dieses Lokal wirklich weiterempfehlen.",
+"en": "I can really recommend this restaurant."
+},
+{
+"de": "Würdest du den Kurs weiterempfehlen?",
+"en": "Would you recommend the course?"
+}
+]
+},
+{
+"term": "bezahlbar",
+"en": "affordable",
+"pos": "adjective",
+"level": "B1",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Die Mieten sind hier noch bezahlbar.",
+"en": "Rents are still affordable here."
+},
+{
+"de": "Wir suchen eine bezahlbare Wohnung.",
+"en": "We are looking for an affordable flat."
+}
+]
+},
+{
+"term": "das Prinzip",
+"gender": "das",
+"en": "principle",
+"pos": "noun",
+"level": "B2",
+"field": "Communication",
+"ex": [
+{
+"de": "Das mache ich aus Prinzip nicht.",
+"en": "I do not do that on principle."
+},
+{
+"de": "Das Prinzip ist ganz einfach.",
+"en": "The principle is quite simple."
+}
+]
+},
+{
+"term": "der Hort",
+"gender": "der",
+"en": "after-school care",
+"pos": "noun",
+"level": "B1",
+"field": "Education",
+"ex": [
+{
+"de": "Ich hole meine Tochter aus dem Hort ab.",
+"en": "I collect my daughter from after-school care."
+},
+{
+"de": "Der Hort ist bis achtzehn Uhr geöffnet.",
+"en": "The after-school club is open until six."
+}
+]
+},
+{
+"term": "die Absprache",
+"gender": "die",
+"en": "arrangement, agreement",
+"pos": "noun",
+"level": "B2",
+"field": "Work",
+"ex": [
+{
+"de": "Ohne die Absprachen am Morgen geht bei uns nichts.",
+"en": "Nothing works with us without the morning arrangements."
+},
+{
+"de": "Das war so nicht die Absprache.",
+"en": "That was not the arrangement."
+}
+]
+},
+{
+"term": "das Parfüm",
+"gender": "das",
+"en": "perfume",
+"pos": "noun",
+"level": "A2",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Im Erdgeschoss gibt es Parfüm und Schmuck.",
+"en": "There is perfume and jewellery on the ground floor."
+},
+{
+"de": "Sie hat mir ein Parfüm geschenkt.",
+"en": "She gave me a perfume."
+}
+]
+}
+]

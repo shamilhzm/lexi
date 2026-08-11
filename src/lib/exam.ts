@@ -63,11 +63,19 @@ interface PartBase {
   items: Item[];
 }
 
-/** Teil 1 reading: five texts, ten headings, five of which are distractors. */
+/** Match each numbered item to one lettered option.
+ *
+ *  telc B1's Leseverstehen Teil 1 (five texts, ten headings, five distractors) and
+ *  Goethe A2's Hören Teil 2 (five slots, nine options, each usable once, heard) are
+ *  the same task over different stimuli — so the audio is optional here too, and
+ *  `once` marks the variants where an option may not be reused. */
 export interface MatchPart extends PartBase {
   kind: 'match';
   options: Opt[];
   texts: { n: number; body: string }[];
+  audio?: AudioBlock;
+  /** Each option may be used only once — the A2 variant. */
+  once?: boolean;
 }
 
 /** Multiple choice over something you read or hear.
@@ -131,6 +139,10 @@ export interface ClozePart extends PartBase {
 export interface TfPart extends PartBase {
   kind: 'tf';
   intro: string;
+  /** What the two buttons say. telc prints *richtig / falsch*; Goethe A2's Hören
+   *  Teil 4 prints *Ja / Nein*, and showing the wrong pair is the kind of small
+   *  infidelity that makes a practice paper feel like a different exam. */
+  labels?: [string, string];
   audio?: AudioBlock;
   /** The read stimulus, when there is no audio. */
   texts?: { label?: string; body: string }[];
@@ -477,6 +489,16 @@ export const PAPERS: PaperMeta[] = [
       + 'and the three-part group oral with model answers at three levels.',
     minutes: 80,
     load: () => import('../data/exams/goethe-a1-01.ts').then((m) => m.PAPER),
+  },
+  {
+    id: 'goethe-a2-01',
+    provider: 'goethe',
+    level: 'A2',
+    title: 'Goethe-Zertifikat A2',
+    blurb: 'The full A2 exam in Goethe’s format — 40 scored items across reading and listening, '
+      + 'an SMS and an email, and the paired oral with model answers at three levels.',
+    minutes: 105,
+    load: () => import('../data/exams/goethe-a2-01.ts').then((m) => m.PAPER),
   },
 ];
 

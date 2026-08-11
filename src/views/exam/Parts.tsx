@@ -143,8 +143,11 @@ function MatchView({ part, responses, onAnswer, reveal, locked }: PartProps & { 
 
   return (
     <>
+      {part.audio && <AudioBar audio={part.audio} reveal={reveal} />}
       <Card pad="sm" className="mb-4">
-        <Kicker tone="accent" className="block mb-2">Die Überschriften</Kicker>
+        <Kicker tone="accent" className="block mb-2">
+          {part.audio ? 'Die Auswahl' : 'Die Überschriften'}
+        </Kicker>
         <ol className="space-y-1.5">
           {part.options.map((o) => (
             <li key={o.k} className="flex gap-2.5 text-sm">
@@ -503,10 +506,11 @@ function TfView({ part, responses, onAnswer, reveal, locked }: PartProps & { par
                 <p className="text-sm leading-relaxed flex-1 min-w-0 pt-1.5">{s.text}</p>
               </div>
               <div className="mt-2.5 pl-11 flex gap-2">
-                {(['r', 'f'] as const).map((k) => {
+                {(['r', 'f'] as const).map((k, ki) => {
                   const picked = given === k;
                   const isKey = reveal && k === item.answer;
                   const isMiss = reveal && picked && k !== item.answer;
+                  const label = part.labels ? part.labels[ki] : (k === 'r' ? '+ richtig' : '– falsch');
                   return (
                     <button key={k} role="radio" aria-checked={picked} disabled={locked}
                       onClick={() => onAnswer(s.n, k)}
@@ -514,7 +518,7 @@ function TfView({ part, responses, onAnswer, reveal, locked }: PartProps & { par
                         ${isKey ? 'border-green bg-green-d text-green'
                           : isMiss ? 'border-red bg-red-d text-red-txt'
                           : picked ? 'border-amber bg-amber text-bg' : 'border-line bg-panel2 hover:border-amber'}`}>
-                      {k === 'r' ? '+ richtig' : '– falsch'}
+                      {label}
                     </button>
                   );
                 })}

@@ -15,6 +15,7 @@ import {
 } from './exam.ts';
 import { PAPER } from '../data/exams/telc-b1-01.ts';
 import { PAPER as A1 } from '../data/exams/goethe-a1-01.ts';
+import { PAPER as A2 } from '../data/exams/goethe-a2-01.ts';
 
 const marks = (o: Partial<WritingMarks> = {}): WritingMarks => ({
   leitpunkte: 'A', gestaltung: 'A', richtigkeit: 'A', extraRange: false, extraLength: false, ...o,
@@ -265,7 +266,7 @@ describe('cloze markers', () => {
 // multiple-choice-over-audio and true/false-over-a-sign, neither of which the
 // telc-shaped model could express.
 
-describe.each([['telc B1', PAPER], ['Goethe A1', A1]])('%s — structural integrity', (_name, paper) => {
+describe.each([['telc B1', PAPER], ['Goethe A1', A1], ['Goethe A2', A2]])('%s — structural integrity', (_name, paper) => {
   it('numbers its items consecutively with no gaps or repeats', () => {
     const ns = paper.parts.flatMap((p) => p.items.map((i) => i.n)).sort((a, b) => a - b);
     expect(ns).toEqual(Array.from({ length: ns.length }, (_, i) => i + ns[0]));
@@ -292,6 +293,19 @@ describe.each([['telc B1', PAPER], ['Goethe A1', A1]])('%s — structural integr
       if (p.kind === 'tf') expect(p.statements.map((q) => q.n), p.id).toEqual(itemNs);
       if (p.kind === 'match') expect(p.texts.map((t) => t.n), p.id).toEqual(itemNs);
       if (p.kind === 'ads') expect(p.situations.map((t) => t.n), p.id).toEqual(itemNs);
+    }
+  });
+
+  it('never reuses an option where the paper says each may be used once', () => {
+    for (const p of paper.parts) {
+      if (p.kind === 'match' && p.once) {
+        const used = p.items.map((i) => i.answer);
+        expect(new Set(used).size, p.id).toBe(used.length);
+      }
+      if (p.kind === 'ads') {
+        const used = p.items.map((i) => i.answer).filter((k) => k !== 'x');
+        expect(new Set(used).size, p.id).toBe(used.length);
+      }
     }
   });
 

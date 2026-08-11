@@ -30370,6 +30370,20 @@
       }
     ]
   },
+  "voc:A2:das Parfüm": {
+    "ex": [
+      {
+        "de": "Im Erdgeschoss gibt es Parfüm und Schmuck.",
+        "en": "There is perfume and jewellery on the ground floor.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat mir ein Parfüm geschenkt.",
+        "en": "She gave me a perfume.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Passwort": {
     "def": "A secret word or code used to prove who you are and access an account.",
     "ex": [
@@ -56319,6 +56333,20 @@
       }
     ]
   },
+  "voc:B1:bezahlbar": {
+    "ex": [
+      {
+        "de": "Die Mieten sind hier noch bezahlbar.",
+        "en": "Rents are still affordable here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir suchen eine bezahlbare Wohnung.",
+        "en": "We are looking for an affordable flat.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:bezeichnen": {
     "def": "to name (give a name to), to call, to designate, to denote; to identify with, to indicate, to describe as",
     "ex": [
@@ -63289,6 +63317,20 @@
       {
         "de": "Der Honig kommt direkt vom Imker.",
         "en": "The honey comes straight from the beekeeper.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Hort": {
+    "ex": [
+      {
+        "de": "Ich hole meine Tochter aus dem Hort ab.",
+        "en": "I collect my daughter from after-school care.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Hort ist bis achtzehn Uhr geöffnet.",
+        "en": "The after-school club is open until six.",
         "lvl": "B1"
       }
     ]
@@ -90018,6 +90060,20 @@
       }
     ]
   },
+  "voc:B1:weiterempfehlen": {
+    "ex": [
+      {
+        "de": "Ich kann dieses Lokal wirklich weiterempfehlen.",
+        "en": "I can really recommend this restaurant.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Würdest du den Kurs weiterempfehlen?",
+        "en": "Would you recommend the course?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:weitergeben": {
     "def": "to impart (to communicate the knowledge of); to pass on, to share",
     "ex": [
@@ -93531,6 +93587,20 @@
       }
     ]
   },
+  "voc:B2:das Prinzip": {
+    "ex": [
+      {
+        "de": "Das mache ich aus Prinzip nicht.",
+        "en": "I do not do that on principle.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Prinzip ist ganz einfach.",
+        "en": "The principle is quite simple.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Protokoll": {
     "def": "protocol",
     "ex": [
@@ -95879,6 +95949,20 @@
       {
         "de": "Viele forderten die Abschaffung dieser Regel.",
         "en": "Many called for the abolition of this rule.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Absprache": {
+    "ex": [
+      {
+        "de": "Ohne die Absprachen am Morgen geht bei uns nichts.",
+        "en": "Nothing works with us without the morning arrangements.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das war so nicht die Absprache.",
+        "en": "That was not the arrangement.",
         "lvl": "B2"
       }
     ]

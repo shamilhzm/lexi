@@ -202732,5 +202732,167 @@
     ],
     "field": "Time",
     "kind": "word"
+  },
+  {
+    "id": "voc:B1:weiterempfehlen",
+    "term": "weiterempfehlen",
+    "en": "to recommend (to others)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯tɐʔɛmˌp͡feːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich kann dieses Lokal wirklich weiterempfehlen.",
+        "en": "I can really recommend this restaurant.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Würdest du den Kurs weiterempfehlen?",
+        "en": "Would you recommend the course?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:bezahlbar",
+    "term": "bezahlbar",
+    "en": "affordable",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈt͡saːlbaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Mieten sind hier noch bezahlbar.",
+        "en": "Rents are still affordable here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir suchen eine bezahlbare Wohnung.",
+        "en": "We are looking for an affordable flat.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Prinzip",
+    "term": "das Prinzip",
+    "en": "principle",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "pʁɪnˈt͡siːp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das mache ich aus Prinzip nicht.",
+        "en": "I do not do that on principle.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Prinzip ist ganz einfach.",
+        "en": "The principle is quite simple.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Hort",
+    "term": "der Hort",
+    "en": "after-school care",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Horte",
+    "ipa": "hɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich hole meine Tochter aus dem Hort ab.",
+        "en": "I collect my daughter from after-school care.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Hort ist bis achtzehn Uhr geöffnet.",
+        "en": "The after-school club is open until six.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Absprache",
+    "term": "die Absprache",
+    "en": "arrangement, agreement",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Absprachen",
+    "ipa": "ˈapˌʃpʁaːxə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne die Absprachen am Morgen geht bei uns nichts.",
+        "en": "Nothing works with us without the morning arrangements.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das war so nicht die Absprache.",
+        "en": "That was not the arrangement.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Parfüm",
+    "term": "das Parfüm",
+    "en": "perfume",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Parfüms",
+    "ipa": "paʁˈfyːm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Erdgeschoss gibt es Parfüm und Schmuck.",
+        "en": "There is perfume and jewellery on the ground floor.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat mir ein Parfüm geschenkt.",
+        "en": "She gave me a perfume.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
   }
 ]
