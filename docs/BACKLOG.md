@@ -174,7 +174,11 @@ that pins the current point order per level so any insertion fails CI loudly
 rather than corrupting schedules quietly. The first is correct; the second is
 cheap and would have caught this.
 
-### 🟠 Four A1 exam topics are filed at A2
+### ~~🟠 Four A1 exam topics are filed at A2~~ — **stale, verified 2026-08-11**
+
+*Modalverben, Trennbare Verben, Imperativ and Perfekt are all in the A1 list today.
+The block below is kept because its analysis of the `gex:` id hazard is still live
+and still unfixed; the level assignment it describes is not.*
 
 **Modalverben, trennbare Verben, Imperativ and Perfekt** all sit at A2. Goethe A1 /
 Start Deutsch 1 tests all four, and Netzwerk/Menschen introduce them in A1.2. The
@@ -196,6 +200,85 @@ script's.
 Thin, as the critique said. What is there is well chosen — Funktionsverbgefüge,
 Nominalisierung ↔ Verbalstil, Passiv-Ersatzformen, Gerundivum, Stilebenen. This is
 a volume problem, not a taste problem, which is the better of the two to have.
+
+---
+
+## The 2026-08-11 exam-readiness pass — the corpus has the words and hides them
+
+*Method: the app's own `buildMatcher` run over every German word of the new telc B1
+paper, scoped to a corpus filtered to each CEFR level; plus an 82-word probe of the
+Start Deutsch 1 / telc A1 core lexicon (form-filling, time, shopping, housing,
+transport, everyday health) against the shipped corpus. Numbers are measured.*
+
+### 🔴 An A1-placed learner can reach 34 of the 82 core A1-exam words — 41%
+
+**The finding that should reorder this file.** `Placement.tsx:60` calls
+`setLevels(new Set(upto))`, so passing the placement test at A1 sets the level
+filter to `{A1}` — and the CEFR filter scopes what the learner is *shown*
+everywhere. That would be correct if the levels were right. They are not:
+
+| Field | reachable at A1 | filed above A1 |
+|---|---|---|
+| Wohnen | **1 of 13** | Wohnung, Zimmer, Küche, Miete, Tisch, Stuhl, Bett, Schrank, Fenster, Tür, Balkon **all at B1** |
+| Einkaufen | 5 of 15 | Brot, Milch, Obst, Gemüse **at B1**; Supermarkt, Preis, teuer, billig, Kasse at A2 |
+| Verkehr & Wege | 2 of 10 | Zug, Haltestelle at B1; Bahnhof, Bus, Fahrkarte, Flughafen at A2 |
+| Alltag & Gesundheit | 5 of 12 | Arzt, Apotheke **at B1** |
+| Formular & Anmeldung | 6 of 15 | Formular, Anmeldung, Straße at B1 |
+| Zeit & Datum | 15 of 17 | — the one field that is right |
+
+`der Tisch`, `das Bett`, `die Tür`, `das Brot`, `der Arzt` are the first two hundred
+words of any A1 textbook and the substance of Start Deutsch 1's picture and
+form-filling tasks. **The corpus contains 94% of the A1 exam lexicon and shows an A1
+learner 41% of it.** This is not a content programme, it is a `level` field.
+**Do (S–M, human-gated, scripted):** a relevel pass over the A1/A2 exam lexicon
+through `corpus:relevel`, ruled on by hand and recorded like `case-rulings.tsv`.
+Anchor the ruling on the published Goethe A1 / telc A1 Wortlisten, not on intuition.
+> This subsumes the "rebalance A1/A2" half of Now #6 and should be done *first* —
+> it costs a fraction of corpus growth and moves more learners.
+
+### 🟠 Genuinely absent, and not obscure
+
+`Euro` · `Prozent` · `Ticket` · `Anfang` · `Projekt` · `genug` · `Zustand` ·
+`Familienname` · `Geburtsdatum` · `Geburtsort`. You cannot read a German newspaper
+or a B1 reading paper without *Prozent* and *Euro*, and the last three are printed
+on the A1 answer sheet itself.
+
+**No feminine `-in` forms anywhere.** `der Lehrer` ships; `die Lehrerin` does not,
+and neither do Sprecherin, Muttersprachlerin, Besucherin, Kundin, Teilnehmerin. Exam
+texts use paired and Binnen-I forms constantly. Cheaper as a *matcher* rule
+(derive `-in`/`-innen` from the masculine card) than as several hundred new cards —
+which makes it the same fix as the item below.
+
+### 🔴 The comprehension meter would under-report by ~8 points, for two fixable reasons
+
+**This lands on Now #2, the flagship, whose entire claim is an honest number.** Run
+over the B1 paper against the *whole* corpus, the matcher resolves 83.6% of content
+tokens. Classified by hand, the shortfall is mostly not vocabulary:
+
+| bucket | share of content tokens | examples |
+|---|---|---|
+| grammatical words missing from `FUNCTION_WORDS` | **3.9%** | etwas, alles, nichts, mehr, jeder/jede/jeden, andere, jemand, einige, solche, **ihren/ihrem/seinen/seines/unsere** (inflected possessives), zurück (particle), hause |
+| proper nouns `isLikelyEntity` misses | **1.4%** | single-capital names — Reuter, Ahrens, Leipzig, Katja |
+| inflections the matcher drops | **2.5%** | genitives (Kurses, Romans, Vaters, Hauses), adverbial `-s` (samstags, montags, nachmittags), `-in` feminines, spelled-out numerals (fünfzehn, achtzig) |
+| genuine vocabulary gaps | 9.0% | the list above, plus authored compounds |
+
+The first three are denominator bugs, not learning gaps, and together they are
+**7.8 percentage points** — enough to move a text from "readable" to "not readable"
+against the 95/98 bands the meter exists to report. Fix before Phase 1 ships, for
+the same reason the verb-homograph defect above it is blocking.
+**Do (S):** extend `FUNCTION_WORDS` with the indefinite/possessive inflections;
+tighten `isLikelyEntity` with a name list or a capitalised-and-unresolvable rule;
+add genitive `-s/-es`, adverbial `-s` and `-in/-innen` derivation to the index.
+
+### ✅ Grammar is not the problem, and one item here was stale
+
+Every structure the B1 paper tests has an authored point at or below its level —
+weil-word-order, aber/trotzdem/sondern, Akkusativ endings, relative-pronoun case,
+`am …sten`, `bei`+Dativ, damit vs. um…zu, verbs with fixed prepositions, `falls`,
+Konjunktiv II. **And the "four A1 exam topics are filed at A2" item below is out of
+date:** Modalverben, Trennbare Verben, Imperativ and Perfekt are all in the A1 list
+today (points 21–24). Nothing in the CHANGELOG records the move, which is its own
+small lesson. Struck from Next.
 
 ---
 
