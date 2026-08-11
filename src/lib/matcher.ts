@@ -29,6 +29,28 @@ export const FUNCTION_WORDS = new Set<string>([
   'zwischen', 'um', 'durch', 'gegen', 'ohne', 'bis', 'seit', 'während', 'wegen', 'trotz', 'gegenüber',
   'und', 'oder', 'aber', 'denn', 'sondern', 'weil', 'dass', 'ob', 'als', 'wenn', 'damit', 'obwohl',
   'am', 'im', 'beim', 'zum', 'zur', 'ans', 'ins', 'vom', 'aufs',
+
+  // ---- added 2026-08-11, measured against the telc B1 paper ----------------
+  // These were 3.9% of the paper's content tokens and none of them is learnable
+  // vocabulary; every one was being counted against the learner as an unknown
+  // word. That is 3.9 points of a coverage figure whose entire claim is honesty,
+  // and it is the largest single defect in the meter's denominator.
+  //
+  // Indefinite pronouns and quantifiers. Closed-class by definition: you cannot
+  // add a new one to German the way you can add a noun.
+  'etwas', 'alles', 'nichts', 'allem', 'aller', 'alle', 'allen',
+  'jeder', 'jede', 'jedes', 'jeden', 'jedem', 'jemand', 'niemand',
+  'andere', 'anderen', 'anderes', 'anderer', 'anderem', 'anders',
+  'einige', 'einigen', 'einiges', 'manche', 'manchen', 'manches', 'solche', 'solchen', 'solches',
+  'beide', 'beiden', 'beides', 'mehr', 'meisten', 'viele', 'vielen', 'vieles', 'wenige', 'wenigen',
+  'man', 'selbst', 'welche', 'welcher', 'welches', 'welchen', 'welchem',
+  'dieser', 'diese', 'dieses', 'diesen', 'diesem', 'jener', 'jene', 'jenes',
+  // Possessive determiners beyond the bare stems already listed. `ihre` was here
+  // and `ihren`/`ihrem`/`ihrer` were not, so the same word counted as known in
+  // one case and unknown in three.
+  'meinen', 'meinem', 'meiner', 'meines', 'deinen', 'deinem', 'deiner', 'deines',
+  'seinen', 'seinem', 'seiner', 'seines', 'ihren', 'ihrem', 'ihrer', 'ihres',
+  'unseren', 'unserem', 'unserer', 'unseres', 'unsere', 'euren', 'eurem', 'eurer', 'eures', 'eure',
 ]);
 export const isFunctionWord = (tok: string) => FUNCTION_WORDS.has(tok.toLowerCase());
 
@@ -41,8 +63,31 @@ const ORDINAL_STEMS = new Set<string>([
 export const isOrdinal = (tok: string) =>
   ORDINAL_STEMS.has(tok.toLowerCase().replace(/(ens|en|es|em|er|e)$/, ''));
 
-/** True for words the gap scan shouldn't count as missing vocab: function words + ordinals. */
-export const isNeutralWord = (tok: string) => isFunctionWord(tok) || isOrdinal(tok);
+// Cardinal numbers, spelled out. German writes them as one word, so `fünfzehn`,
+// `achtzig` and `zweihundertfünfzig` are single tokens that no corpus can list —
+// the set is infinite. They are excluded for the same reason ordinals already
+// were: knowing "eighty" is arithmetic, not vocabulary, and counting it as an
+// unknown word makes a coverage figure worse than the learner's actual position.
+const NUM_PARTS = [
+  'null', 'eins', 'ein', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
+  'zehn', 'elf', 'zwölf', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig', 'sechzig', 'siebzig',
+  'achtzig', 'neunzig', 'hundert', 'tausend', 'million', 'millionen', 'milliarde', 'milliarden',
+  'und', 'zig',
+];
+// Longest-first so `sechzig` is consumed before `sechs`.
+const NUM_RE = new RegExp(`^(?:${[...NUM_PARTS].sort((a, b) => b.length - a.length).join('|')})+$`);
+/** A spelled-out cardinal ("fünfzehn", "einundzwanzig", "zweihundert"). */
+export const isCardinal = (tok: string) => {
+  const lc = tok.toLowerCase();
+  // `und` and `ein` are in the parts list and are words in their own right, so a
+  // bare part is only a number when it is unambiguously one.
+  if (lc.length < 3 || lc === 'und' || lc === 'ein') return false;
+  return NUM_RE.test(lc);
+};
+
+/** True for words the gap scan shouldn't count as missing vocab: function words,
+ *  ordinals and spelled-out cardinals. */
+export const isNeutralWord = (tok: string) => isFunctionWord(tok) || isOrdinal(tok) || isCardinal(tok);
 
 /** Structurally obvious proper nouns/acronyms: two or more capital letters
  *  (ARD-Hauptstadtstudio, AfD-Abgeordneten, Sachsen-Anhalt). German common nouns
@@ -50,6 +95,16 @@ export const isNeutralWord = (tok: string) => isFunctionWord(tok) || isOrdinal(t
 export const isLikelyEntity = (tok: string) => (tok.match(/[A-ZÄÖÜ]/g) ?? []).length >= 2;
 
 const deUmlaut = (s: string) => s.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+/** Nouns whose lowercase `-s` form is an adverb of time: *montags*, *abends*,
+ *  *nachmittags*. The only place the adverbial genitive is still productive. */
+const TIME_NOUNS = new Set([
+  'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonnabend', 'sonntag',
+  'morgen', 'vormittag', 'mittag', 'nachmittag', 'abend', 'nacht', 'wochenende', 'werktag', 'feiertag',
+]);
+
+/** Umlaut the last plain back vowel — the change German makes when deriving
+ *  `Ärztin` from `Arzt` or `Köchin` from `Koch`. */
+const umlautStem = (s: string) => s.replace(/([aou])(?!.*[aou])/, (m) => ({ a: 'ä', o: 'ö', u: 'ü' }[m] ?? m));
 // Adjective endings, longest first, so "schärfere" strips "ere" before "e".
 const ADJ_SUFFIXES = ['eren', 'erem', 'erer', 'eres', 'sten', 'ere', 'ste', 'en', 'em', 'er', 'es', 'e'];
 
@@ -191,6 +246,36 @@ export function buildMatcher(corpus: Word[]): Matcher {
     } catch { /* skip unconjugable */ }
   }
 
+  // Feminine derivation — and deliberately the **last** pass over the corpus.
+  //
+  // Exam texts use paired and Binnen-I forms constantly ("acht Schülerinnen und
+  // fünf Schüler"), and Sprecherin, Muttersprachlerin, Besucherin, Teilnehmerin
+  // and Kundin are all absent as cards, so every one counted against the learner.
+  // A derivation rather than several hundred new cards, because that is what it
+  // is: -in is productive, and someone who knows *der Lehrer* is not missing a
+  // separate item when they meet *die Lehrerin*.
+  //
+  // **Last, because `add` is first-wins and 111 of these forms are real cards.**
+  // Run inside the base-form loop it stole `die Freundin`, `die Ärztin` and
+  // `die Kollegin` from themselves whenever the masculine happened to come first
+  // in corpus order — and, worse, took `Freundinnen` off `die Freundin`'s plural,
+  // which is how it showed up: `corpus:validate`'s reader probe went 168/200 to
+  // 165/200 on plurals. Deriving after every real form is indexed means a real
+  // card always wins and only the genuinely missing feminines are invented.
+  for (const w of corpus) {
+    if (w.pos !== 'noun' || w.gender !== 'der') continue;
+    const base = stripArticle(w.term).toLowerCase();
+    // `der Kunde` → `die Kundin`, so the schwa is dropped as well as kept, and
+    // the umlauted stem goes in too: Arzt → Ärztin, Koch → Köchin.
+    const stems = new Set([base, base.replace(/e$/, '')]);
+    for (const s of [...stems]) stems.add(umlautStem(s));
+    for (const s of stems) {
+      if (s.length < 3) continue;
+      add(`${s}in`, w);
+      add(`${s}innen`, w);
+    }
+  }
+
   /** Nominative personal pronouns. A finite verb follows one of these in German's
    *  verb-second order, which is what disambiguates a token that is both an
    *  adjective lemma and a verb form. */
@@ -257,6 +342,44 @@ export function buildMatcher(corpus: Word[]): Matcher {
         const w = adjIndex.get(stem) ?? adjIndex.get(deUmlaut(stem));
         if (w) return w;
       }
+    }
+    // Genitive singular, and the adverbial -s that looks exactly like it.
+    //
+    // `des Kurses`, `des Vaters`, `des Hauses`, `des Romans` — and `montags`,
+    // `samstags`, `abends`, `nachmittags`, which are the same suffix doing a
+    // different job and are extremely common in listening texts. Both fall out of
+    // one rule. Restricted to a noun result for the same reason the dative-plural
+    // rule above is: `liest` and `heißt` must not be stripped into nouns.
+    //
+    // **Deliberately after the adjective block, and gated on capitalisation.**
+    // Adjective endings and the genitive are spelled identically: `festes` is the
+    // adjective `fest` in "ein festes Programm", and an ungated rule handed it to
+    // the noun `das Fest`. Ordering alone did not fix that, because the corpus has
+    // no `fest` adjective card for the earlier rule to find — so the wrong answer
+    // survived, which is the failure mode this file already warns about for verb
+    // homographs: a miss is visible, a wrong lemma is not.
+    //
+    // German capitalises nouns, so `Kurses`/`Vaters`/`Hauses` are capitalised and
+    // an inflected adjective is not. That is the actual distinguishing signal, and
+    // rule 3 above already leans on it. Sentence-initial words are capitalised
+    // regardless, which costs an occasional miss and never causes a wrong claim.
+    const capitalised = tok[0] === tok[0].toUpperCase() && tok[0] !== tok[0].toLowerCase();
+    if (capitalised && lc.length >= 5 && lc.endsWith('s')) {
+      const w = index.get(lc.slice(0, -1)) ?? (lc.endsWith('es') ? index.get(lc.slice(0, -2)) : undefined);
+      if (w && w.pos === 'noun') return w;
+    }
+    // The adverbial -s is the same suffix doing a different job — `montags`,
+    // `samstags`, `abends`, `nachmittags` — and it is lowercase, so it needs its
+    // own door. Scoped to time nouns because that is the only place the pattern is
+    // productive; a general lowercase -s rule is what let `festes` through.
+    if (!capitalised && lc.length >= 5 && lc.endsWith('s')) {
+      const w = index.get(lc.slice(0, -1));
+      if (w && w.pos === 'noun' && TIME_NOUNS.has(stripArticle(w.term).toLowerCase())) return w;
+    }
+    // Dative -e, the form that survives in fixed phrases: "zu Hause", "im Jahre".
+    if (capitalised && lc.length >= 5 && lc.endsWith('e')) {
+      const w = index.get(lc.slice(0, -1));
+      if (w && w.pos === 'noun') return w;
     }
     return null;
   };

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildMatcher } from './matcher.ts';
+import { buildMatcher, isCardinal, isNeutralWord } from './matcher.ts';
 import type { Word } from '../types.ts';
 
 const w = (over: Partial<Word>): Word => ({
@@ -111,5 +111,106 @@ describe('buildMatcher — heuristics', () => {
     expect(m.isLikelyEntity('EU')).toBe(true);
     expect(m.isLikelyEntity('Sachsen-Anhalt')).toBe(true);
     expect(m.isLikelyEntity('Tisch')).toBe(false);
+  });
+});
+
+// ---- the 2026-08-11 denominator pass ---------------------------------------
+// Measured over the telc B1 paper: 7.8% of content tokens were being counted
+// against the learner for reasons that had nothing to do with vocabulary. The
+// meter's whole claim is an honest number, so each of these is pinned.
+
+describe('the coverage denominator', () => {
+  it('does not count indefinite pronouns and quantifiers as vocabulary', () => {
+    for (const t of ['etwas', 'alles', 'nichts', 'jeder', 'jeden', 'jemand', 'andere',
+      'einige', 'solche', 'mehr', 'viele', 'beide', 'welche', 'dieser']) {
+      expect(isNeutralWord(t), t).toBe(true);
+    }
+  });
+
+  it('does not count inflected possessives — the bug was that only some were listed', () => {
+    // `ihre` was in the set from the start and `ihren`/`ihrem`/`ihrer` were not,
+    // so one word counted as known in one case and unknown in three.
+    for (const t of ['ihre', 'ihren', 'ihrem', 'ihrer', 'ihres',
+      'seinen', 'seinem', 'unsere', 'unserer', 'meinen', 'euren']) {
+      expect(isNeutralWord(t), t).toBe(true);
+    }
+  });
+
+  it('does not count spelled-out cardinals, which are an infinite set', () => {
+    for (const t of ['fünfzehn', 'achtzig', 'zwanzig', 'einundzwanzig', 'zweihundert', 'dreitausend']) {
+      expect(isCardinal(t), t).toBe(true);
+      expect(isNeutralWord(t), t).toBe(true);
+    }
+  });
+
+  it('still counts real vocabulary that merely looks numeric or grammatical', () => {
+    for (const t of ['einladen', 'undicht', 'Zeitung', 'Meinung', 'Sechser']) {
+      expect(isCardinal(t), t).toBe(false);
+    }
+    // `ein` and `und` are parts of every compound number and words in their own
+    // right; a bare one must never be read as a numeral.
+    expect(isCardinal('ein')).toBe(false);
+    expect(isCardinal('und')).toBe(false);
+  });
+});
+
+describe('inflections that were silently missing', () => {
+  const big: Word[] = [
+    w({ id: 'v:lehrer', term: 'der Lehrer', pos: 'noun', gender: 'der', plural: 'die Lehrer' }),
+    w({ id: 'v:kunde', term: 'der Kunde', pos: 'noun', gender: 'der', plural: 'die Kunden' }),
+    w({ id: 'v:arzt', term: 'der Arzt', pos: 'noun', gender: 'der', plural: 'die Ärzte' }),
+    w({ id: 'v:kurs', term: 'der Kurs', pos: 'noun', gender: 'der', plural: 'die Kurse' }),
+    w({ id: 'v:haus', term: 'das Haus', pos: 'noun', gender: 'das', plural: 'die Häuser' }),
+    w({ id: 'v:montag', term: 'der Montag', pos: 'noun', gender: 'der', plural: null }),
+    w({ id: 'v:fest', term: 'das Fest', pos: 'noun', gender: 'das', plural: 'die Feste' }),
+    w({ id: 'v:lesen', term: 'lesen', pos: 'verb' }),
+  ];
+  const mm = buildMatcher(big);
+  const hit = (s: string) => mm.annotate(s)[0]?.word?.term ?? null;
+
+  it('derives the feminine -in and -innen from the masculine card', () => {
+    expect(hit('Lehrerin')).toBe('der Lehrer');
+    expect(hit('Lehrerinnen')).toBe('der Lehrer');
+    expect(hit('Kundin')).toBe('der Kunde');       // schwa dropped
+    expect(hit('Ärztin')).toBe('der Arzt');        // and umlauted
+  });
+
+  it('resolves the genitive singular', () => {
+    expect(hit('Kurses')).toBe('der Kurs');
+    expect(hit('Hauses')).toBe('das Haus');
+  });
+
+  it('resolves the adverbial -s on time nouns', () => {
+    expect(hit('montags')).toBe('der Montag');
+  });
+
+  it('resolves the dative -e that survives in fixed phrases', () => {
+    expect(hit('Hause')).toBe('das Haus');         // "zu Hause"
+  });
+
+  it('does not hand an inflected adjective to a same-spelled noun', () => {
+    // `festes` in "ein festes Programm" is the adjective `fest`, which this
+    // corpus does not carry. Claiming `das Fest` for it would be a wrong lemma,
+    // and a wrong lemma is worse than a miss because nothing surfaces it.
+    expect(hit('festes')).toBe(null);
+  });
+
+  it('does not strip a verb form into a noun', () => {
+    expect(hit('liest')).toBe('lesen');
+  });
+
+  it('lets a real feminine card beat the derived one', () => {
+    // The derivation is generated last for this reason. Run inside the base-form
+    // loop it stole `die Freundin` from itself whenever `der Freund` came first in
+    // corpus order, and took `Freundinnen` off that card's own plural — which is
+    // how it surfaced: corpus:validate's reader probe dropped 168/200 to 165/200.
+    const both = buildMatcher([
+      w({ id: 'v:freund', term: 'der Freund', pos: 'noun', gender: 'der', plural: 'die Freunde' }),
+      w({ id: 'v:freundin', term: 'die Freundin', pos: 'noun', gender: 'die', plural: 'die Freundinnen' }),
+    ]);
+    const h = (s: string) => both.annotate(s)[0]?.word?.term ?? null;
+    expect(h('Freundin')).toBe('die Freundin');
+    expect(h('Freundinnen')).toBe('die Freundin');
+    expect(h('Freund')).toBe('der Freund');
   });
 });
