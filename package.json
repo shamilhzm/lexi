@@ -39,7 +39,8 @@
     "authoring:fix": "node scripts/authoring/fix-authored.ts",
     "lint": "eslint src",
     "corpus:relevel:a1": "node scripts/corpus/relevel-a1.ts",
-    "corpus:dupes": "node scripts/corpus/merge-dupes.ts"
+    "corpus:dupes": "node scripts/corpus/merge-dupes.ts",
+    "authoring:new": "node scripts/authoring/new-cards.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

@@ -11,6 +11,52 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — the authoring gate is now a machine, and 52 A1 cards went through it
+
+Corpus growth was human-gated: *"needs a network- and LLM-enabled maintainer
+machine plus human spot-checks of gender/plural/level — not an autonomous bulk
+commit."* That rule was protecting something real. A generated card is a
+plausible-looking sentence with a **gender** attached, and a wrong gender is worse
+than a missing card, because it is taught, drilled and remembered.
+
+So it is replaced rather than removed. The insight is that authoring a card is two
+jobs wearing one name:
+
+- **Facts** — gender, plural, part of speech, IPA — are *never generated*. They are
+  read from de.wiktionary and copied, and a disagreement with the candidate is a
+  hard reject.
+- **Prose** — the gloss and the example — is written, then checked mechanically.
+  The example must contain a real inflection of the headword, proved with the app's
+  own matcher. A substring test would pass *"Meine Tochter möchte gern reiten
+  lernen"* for `das Pferd`, which is how ~71 such cards shipped in the first place.
+
+`scripts/authoring/verify.ts` + `npm run authoring:new`. Third member of the family
+after fill-only `apply-authored.ts` and expect-guarded `fix-authored.ts`.
+
+**52 A1 cards shipped through it** — `der Euro`, `das Ticket`, `der Familienname`,
+`der Geburtsort`, `der Kilometer`, `das Prozent`, `der Kugelschreiber` and the rest
+of the Goethe A1 syllabus that the corpus lacked. 6,373 → 6,425 cards.
+
+**The gate caught three real defects, two of them mine:**
+
+1. **A transient fetch failure was cached as "no entry"**, rejecting 40 perfectly
+   good candidates for words that plainly exist (`Fahrer`, `Westen`, `Text`). The
+   API saying *missingtitle* is a durable fact and is cached; a network error is
+   not and now retries. A cache that remembers failures is worse than no cache.
+2. **Reading only the first `Genus=` on a page** rejected `das Schild`, `das Alter`
+   and `der Teil` as contradicting the dictionary. German has real gender pairs —
+   `der Schild` is a shield, `das Schild` is a sign — so the parser now collects
+   *every* attested gender, and refuses to guess when a page attests more than one.
+   That refusal is the good part: the batch had to state those genders explicitly,
+   which turns the dictionary from a source into a witness.
+3. **Umlauts in an English translation** were read as German prose, rejecting
+   *"Good afternoon, Mr Müller!"*. Capitalised words are names.
+
+What remains un-machine-checkable is whether a sentence is *good* German, and that
+is not pretended away — `--report` prints every verified card for reading. But
+nothing now ships on anyone's say-so about a gender, which is what the human gate
+actually existed to catch.
+
 ### Shipped 2026-08-11 — Tests: a quiz engine at every level, and a path to a pass
 
 The exam surface shipped as one authored telc B1 paper, which shaped the whole

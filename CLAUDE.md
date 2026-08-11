@@ -12,3 +12,14 @@ You're an incredible engineer with a background in languages, pedagogy, computer
 - **Corpus rule**: never hand-edit `public/data/*.json`. Changes go through
   `scripts/corpus/*` or the expect-guarded `scripts/authoring/fix-authored.ts`, so
   every edit is reviewable and repeatable. Run `npm run corpus:validate` after.
+- **Authoring is machine-gated, not human-gated** (changed 2026-08-11). New cards
+  go through `npm run authoring:new -- <batch.json>`, which **refuses to write a
+  card it cannot verify**: gender, plural, part of speech and IPA are looked up in
+  de.wiktionary and a disagreement is a hard reject, and every example must contain
+  a real inflection of its headword — proved with the app's own matcher, not a
+  substring test. Facts are never generated; only the gloss and the example
+  sentence are written, and both are checked. Use `--report` to read what passed.
+  *The old rule ("needs a maintainer machine plus human spot-checks of
+  gender/plural/level") was protecting against exactly one thing — a plausible
+  sentence with a wrong gender attached — and that is now caught by a machine that
+  does not get bored on card 300.*

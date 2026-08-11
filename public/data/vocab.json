@@ -200464,5 +200464,1409 @@
     "ex": [],
     "field": "Grammar",
     "kind": "grammar"
+  },
+  {
+    "id": "voc:A1:der Euro",
+    "term": "der Euro",
+    "en": "euro",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈɔɪ̯ʁo",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Brot kostet zwei Euro.",
+        "en": "The bread costs two euros.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du einen Euro für mich?",
+        "en": "Do you have a euro for me?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Cent",
+    "term": "der Cent",
+    "en": "cent",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "t͡sɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kaffee kostet ein Euro fünfzig Cent.",
+        "en": "The coffee costs one euro fifty cents.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe nur noch zwanzig Cent.",
+        "en": "I only have twenty cents left.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Prozent",
+    "term": "das Prozent",
+    "en": "percent",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Prozente",
+    "ipa": "pʁoˈt͡sɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Heute bekommen Sie zehn Prozent Rabatt.",
+        "en": "Today you get a ten percent discount.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Fast fünfzig Prozent der Leute fahren mit dem Rad.",
+        "en": "Almost fifty percent of people cycle.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Meter",
+    "term": "der Meter",
+    "en": "metre",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Meter",
+    "ipa": "ˈmeːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Zimmer ist vier Meter lang.",
+        "en": "The room is four metres long.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mein Bruder ist fast zwei Meter groß.",
+        "en": "My brother is almost two metres tall.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Zentimeter",
+    "term": "der Zentimeter",
+    "en": "centimetre",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Zentimeter",
+    "ipa": "ˌt͡sɛntiˈmeːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Bild ist dreißig Zentimeter breit.",
+        "en": "The picture is thirty centimetres wide.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Bitte schneiden Sie zwei Zentimeter ab.",
+        "en": "Please cut off two centimetres.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Kilometer",
+    "term": "der Kilometer",
+    "en": "kilometre",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Kilometer",
+    "ipa": "ˌkiloˈmeːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bis zum Bahnhof sind es zwei Kilometer.",
+        "en": "It is two kilometres to the station.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir sind heute zehn Kilometer gelaufen.",
+        "en": "We walked ten kilometres today.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Familienname",
+    "term": "der Familienname",
+    "en": "surname",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Familiennamen",
+    "ipa": "faˈmiːli̯ənˌnaːmə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte schreiben Sie hier Ihren Familiennamen.",
+        "en": "Please write your surname here.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mein Familienname ist Karimi.",
+        "en": "My surname is Karimi.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Familienstand",
+    "term": "der Familienstand",
+    "en": "marital status",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Familienstände",
+    "ipa": "faˈmiːliənʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Formular fehlt noch der Familienstand.",
+        "en": "The marital status is still missing on the form.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Familienstand: verheiratet.",
+        "en": "Marital status: married.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Geburtsort",
+    "term": "der Geburtsort",
+    "en": "place of birth",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Geburtsorte",
+    "ipa": "ɡəˈbuːɐ̯t͡sˌʔɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Geburtsort ist Isfahan.",
+        "en": "My place of birth is Isfahan.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Tragen Sie bitte Ihren Geburtsort ein.",
+        "en": "Please enter your place of birth.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Ort",
+    "term": "der Ort",
+    "en": "place, town",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "An welchem Ort wohnen Sie?",
+        "en": "In which place do you live?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Ort ist sehr klein und ruhig.",
+        "en": "The town is very small and quiet.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Ticket",
+    "term": "das Ticket",
+    "en": "ticket",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Tickets",
+    "ipa": "ˈtɪkət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe das Ticket online gekauft.",
+        "en": "I bought the ticket online.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Zeigen Sie bitte Ihr Ticket.",
+        "en": "Please show your ticket.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die S-Bahn",
+    "term": "die S-Bahn",
+    "en": "suburban train",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die S-Bahnen",
+    "ipa": "ˈɛsˌbaːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich nehme lieber die S-Bahn.",
+        "en": "I would rather take the suburban train.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die S-Bahn fährt alle zehn Minuten.",
+        "en": "The suburban train runs every ten minutes.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Reisebüro",
+    "term": "das Reisebüro",
+    "en": "travel agency",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Reisebüros",
+    "ipa": "ˈʁaɪ̯zəbyˌʁoː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Frau arbeitet in einem Reisebüro.",
+        "en": "My wife works at a travel agency.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Reisebüro gibt es günstige Flüge.",
+        "en": "There are cheap flights at the travel agency.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Fahrer",
+    "term": "der Fahrer",
+    "en": "driver",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Fahrer",
+    "ipa": "ˈfaːʁɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Fahrer hat mir geholfen.",
+        "en": "The driver helped me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Fragen Sie bitte den Fahrer.",
+        "en": "Please ask the driver.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Westen",
+    "term": "der Westen",
+    "en": "west",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈvɛstn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Familie wohnt im Westen von Deutschland.",
+        "en": "My family lives in the west of Germany.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Wind kommt heute aus dem Westen.",
+        "en": "The wind is coming from the west today.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Kiosk",
+    "term": "der Kiosk",
+    "en": "kiosk, newsstand",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Kioske",
+    "ipa": "ˈkiːɔsk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Kiosk kaufe ich eine Zeitung.",
+        "en": "I buy a newspaper at the kiosk.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Kiosk ist bis zwanzig Uhr offen.",
+        "en": "The kiosk is open until eight in the evening.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Prospekt",
+    "term": "der Prospekt",
+    "en": "brochure",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Prospekte",
+    "ipa": "pʁoˈspɛkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schicken Sie mir bitte einen Prospekt.",
+        "en": "Please send me a brochure.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Prospekt stehen alle Preise.",
+        "en": "All the prices are in the brochure.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Automat",
+    "term": "der Automat",
+    "en": "machine, vending machine",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Automaten",
+    "ipa": "aʊ̯toˈmaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Automat nimmt keine Karten.",
+        "en": "The machine does not take cards.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Am Automaten bekommen Sie Ihre Fahrkarte.",
+        "en": "You get your ticket from the machine.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Bleistift",
+    "term": "der Bleistift",
+    "en": "pencil",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Bleistifte",
+    "ipa": "ˈblaɪ̯ˌʃtɪft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schreiben Sie bitte nicht mit Bleistift.",
+        "en": "Please do not write in pencil.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du einen Bleistift für mich?",
+        "en": "Do you have a pencil for me?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Kugelschreiber",
+    "term": "der Kugelschreiber",
+    "en": "ballpoint pen",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Kugelschreiber",
+    "ipa": "ˈkuːɡl̩ˌʃʁaɪ̯bɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Kugelschreiber schreibt nicht mehr.",
+        "en": "My ballpoint pen does not write any more.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Bitte unterschreiben Sie mit Kugelschreiber.",
+        "en": "Please sign with a ballpoint pen.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Drucker",
+    "term": "der Drucker",
+    "en": "printer",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Drucker",
+    "ipa": "ˈdʁʊkɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Drucker im Büro ist kaputt.",
+        "en": "The printer in the office is broken.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wo steht der Drucker?",
+        "en": "Where is the printer?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Fax",
+    "term": "das Fax",
+    "en": "fax",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Faxe",
+    "ipa": "faks",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe Ihnen ein Fax geschickt.",
+        "en": "I have sent you a fax.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Fax ist heute Morgen gekommen.",
+        "en": "The fax arrived this morning.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Text",
+    "term": "der Text",
+    "en": "text",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Texte",
+    "ipa": "tɛkst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lesen Sie bitte den Text.",
+        "en": "Please read the text.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Text ist nicht sehr lang.",
+        "en": "The text is not very long.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Buchstabe",
+    "term": "der Buchstabe",
+    "en": "letter (of the alphabet)",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Buchstaben",
+    "ipa": "ˈbuːxˌʃtaːbə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Name hat sechs Buchstaben.",
+        "en": "My name has six letters.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Welcher Buchstabe kommt nach K?",
+        "en": "Which letter comes after K?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Ansage",
+    "term": "die Ansage",
+    "en": "announcement",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Ansagen",
+    "ipa": "ˈanzaːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hören Sie die Ansage am Bahnhof.",
+        "en": "Listen to the announcement at the station.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Ansage war sehr leise.",
+        "en": "The announcement was very quiet.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Durchsage",
+    "term": "die Durchsage",
+    "en": "public announcement",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Durchsagen",
+    "ipa": "ˈdʊʁçˌzaːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Supermarkt kommt eine Durchsage.",
+        "en": "There is an announcement in the supermarket.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe die Durchsage nicht verstanden.",
+        "en": "I did not understand the announcement.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Schild",
+    "term": "das Schild",
+    "en": "sign",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ʃɪlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auf dem Schild steht „Ausgang“.",
+        "en": "The sign says “exit”.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du das Schild gesehen?",
+        "en": "Did you see the sign?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Hausaufgabe",
+    "term": "die Hausaufgabe",
+    "en": "homework",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Hausaufgaben",
+    "ipa": "ˈhaʊ̯sʔaʊ̯fˌɡaːbə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Kinder machen ihre Hausaufgaben.",
+        "en": "The children are doing their homework.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du die Hausaufgabe schon fertig?",
+        "en": "Have you finished the homework yet?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Kindergarten",
+    "term": "der Kindergarten",
+    "en": "nursery school",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Kindergärten",
+    "ipa": "ˈkɪndɐˌɡaʁtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Tochter geht in den Kindergarten.",
+        "en": "My daughter goes to nursery school.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Kindergarten beginnt um acht Uhr.",
+        "en": "Nursery school starts at eight.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Beispiel",
+    "term": "das Beispiel",
+    "en": "example",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Beispiele",
+    "ipa": "ˈbaɪ̯ˌʃpiːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie mir ein Beispiel geben?",
+        "en": "Can you give me an example?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist ein gutes Beispiel.",
+        "en": "That is a good example.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Birne",
+    "term": "die Birne",
+    "en": "pear",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Birnen",
+    "ipa": "ˈbɪʁnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Kilo Birnen, bitte.",
+        "en": "A kilo of pears, please.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Birne schmeckt sehr süß.",
+        "en": "The pear tastes very sweet.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Schinken",
+    "term": "der Schinken",
+    "en": "ham",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Schinken",
+    "ipa": "ˈʃɪŋkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich möchte ein Brötchen mit Schinken.",
+        "en": "I would like a roll with ham.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Schinken ist aus der Region.",
+        "en": "The ham is from the region.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Appetit",
+    "term": "der Appetit",
+    "en": "appetite",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "apeˈtiːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Guten Appetit!",
+        "en": "Enjoy your meal!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe heute keinen Appetit.",
+        "en": "I have no appetite today.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Oma",
+    "term": "die Oma",
+    "en": "grandma",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Omas",
+    "ipa": "ˈoːma",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Oma wohnt in Hamburg.",
+        "en": "My grandma lives in Hamburg.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Am Sonntag besuchen wir die Oma.",
+        "en": "On Sunday we visit grandma.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Herr",
+    "term": "der Herr",
+    "en": "gentleman; Mr",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "hɛʁ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Guten Tag, Herr Müller!",
+        "en": "Good afternoon, Mr Müller!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Herr dort wartet schon lange.",
+        "en": "That gentleman over there has been waiting a long time.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "People",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Glückwunsch",
+    "term": "der Glückwunsch",
+    "en": "congratulations",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Glückwünsche",
+    "ipa": "ˈɡlʏkˌvʊnʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Herzlichen Glückwunsch zum Geburtstag!",
+        "en": "Happy birthday!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir schicken ihr einen Glückwunsch.",
+        "en": "We are sending her congratulations.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Anfang",
+    "term": "der Anfang",
+    "en": "beginning",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Anfänge",
+    "ipa": "ˈanˌfaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Anfang war alles neu für mich.",
+        "en": "At the beginning everything was new to me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Kurs beginnt Anfang September.",
+        "en": "The course starts at the beginning of September.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Alter",
+    "term": "das Alter",
+    "en": "age",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Alter",
+    "ipa": "ˈaltɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte schreiben Sie Ihr Alter in das Formular.",
+        "en": "Please write your age on the form.",
+        "lvl": "A1"
+      },
+      {
+        "de": "In seinem Alter ist das ganz normal.",
+        "en": "At his age that is quite normal.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Fußball",
+    "term": "der Fußball",
+    "en": "football",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Fußbälle",
+    "ipa": "ˈfuːsˌbal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Sohn spielt gern Fußball.",
+        "en": "My son likes playing football.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Fußball liegt im Garten.",
+        "en": "The football is in the garden.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Licht",
+    "term": "das Licht",
+    "en": "light",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "lɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mach bitte das Licht an!",
+        "en": "Please turn the light on!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Zimmer ist wenig Licht.",
+        "en": "There is little light in the room.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Teil",
+    "term": "der Teil",
+    "en": "part",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Teile",
+    "ipa": "taɪ̯l",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der erste Teil war einfach.",
+        "en": "The first part was easy.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ein Teil der Gruppe kommt später.",
+        "en": "Part of the group is coming later.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Blick",
+    "term": "der Blick",
+    "en": "view; look",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Blicke",
+    "ipa": "blɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Zimmer hat einen schönen Blick.",
+        "en": "The room has a lovely view.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie hat mir einen freundlichen Blick geschenkt.",
+        "en": "She gave me a friendly look.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:drucken",
+    "term": "drucken",
+    "en": "to print",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʁʊkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich drucke das Formular gleich.",
+        "en": "I will print the form right away.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Können Sie das bitte zweimal drucken?",
+        "en": "Can you print that twice, please?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:bitten",
+    "term": "bitten",
+    "en": "to ask (for)",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbɪtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Darf ich Sie um Hilfe bitten?",
+        "en": "May I ask you for help?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Er bittet mich jeden Tag um Geld.",
+        "en": "He asks me for money every day.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:kriegen",
+    "term": "kriegen",
+    "en": "to get",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʁiːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich kriege morgen mein Zeugnis.",
+        "en": "I get my certificate tomorrow.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Was kriegen Sie dafür?",
+        "en": "What do you get for that?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:enden",
+    "term": "enden",
+    "en": "to end",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɛndn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kurs endet im Juli.",
+        "en": "The course ends in July.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann enden die Ferien?",
+        "en": "When do the holidays end?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:geboren",
+    "term": "geboren",
+    "en": "born",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈboːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin in Isfahan geboren.",
+        "en": "I was born in Isfahan.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann sind Sie geboren?",
+        "en": "When were you born?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:männlich",
+    "term": "männlich",
+    "en": "male",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmɛnlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kreuzen Sie bitte an: weiblich oder männlich.",
+        "en": "Please tick: female or male.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Wort ist männlich.",
+        "en": "The word is masculine.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:weiblich",
+    "term": "weiblich",
+    "en": "female",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯plɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte kreuzen Sie weiblich an.",
+        "en": "Please tick female.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Hälfte der Gruppe ist weiblich.",
+        "en": "Half of the group is female.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:verboten",
+    "term": "verboten",
+    "en": "forbidden",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈboːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hier ist Rauchen verboten.",
+        "en": "Smoking is forbidden here.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Parken ist am Bahnhof verboten.",
+        "en": "Parking is forbidden at the station.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:bitter",
+    "term": "bitter",
+    "en": "bitter",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbɪtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kaffee ist mir zu bitter.",
+        "en": "The coffee is too bitter for me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Diese Schokolade schmeckt bitter.",
+        "en": "This chocolate tastes bitter.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:zurück",
+    "term": "zurück",
+    "en": "back",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suˈʁʏk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Einmal Frankfurt und zurück, bitte.",
+        "en": "One return to Frankfurt, please.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann kommst du zurück?",
+        "en": "When are you coming back?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
   }
 ]

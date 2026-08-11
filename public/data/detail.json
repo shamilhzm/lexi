@@ -2259,6 +2259,34 @@
       }
     ]
   },
+  "voc:A1:bitten": {
+    "ex": [
+      {
+        "de": "Darf ich Sie um Hilfe bitten?",
+        "en": "May I ask you for help?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Er bittet mich jeden Tag um Geld.",
+        "en": "He asks me for money every day.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:bitter": {
+    "ex": [
+      {
+        "de": "Der Kaffee ist mir zu bitter.",
+        "en": "The coffee is too bitter for me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Diese Schokolade schmeckt bitter.",
+        "en": "This chocolate tastes bitter.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:blau": {
     "def": "blue (color/colour)",
     "ex": [
@@ -2562,6 +2590,20 @@
       }
     ]
   },
+  "voc:A1:das Alter": {
+    "ex": [
+      {
+        "de": "Bitte schreiben Sie Ihr Alter in das Formular.",
+        "en": "Please write your age on the form.",
+        "lvl": "A1"
+      },
+      {
+        "de": "In seinem Alter ist das ganz normal.",
+        "en": "At his age that is quite normal.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Angebot": {
     "def": "offer, proposition; quote, estimate, offer (as made by an artisan)",
     "ex": [
@@ -2794,6 +2836,20 @@
         "de": "Er hat sich beim Skifahren das Bein gebrochen.",
         "en": "He broke his leg skiing.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:das Beispiel": {
+    "ex": [
+      {
+        "de": "Können Sie mir ein Beispiel geben?",
+        "en": "Can you give me an example?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist ein gutes Beispiel.",
+        "en": "That is a good example.",
+        "lvl": "A1"
       }
     ]
   },
@@ -3154,6 +3210,20 @@
         "de": "Mein Fahrrad hat einen platten Reifen.",
         "en": "My bicycle has a flat tyre.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:das Fax": {
+    "ex": [
+      {
+        "de": "Ich habe Ihnen ein Fax geschickt.",
+        "en": "I have sent you a fax.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Fax ist heute Morgen gekommen.",
+        "en": "The fax arrived this morning.",
+        "lvl": "A1"
       }
     ]
   },
@@ -4376,6 +4446,20 @@
       }
     ]
   },
+  "voc:A1:das Licht": {
+    "ex": [
+      {
+        "de": "Mach bitte das Licht an!",
+        "en": "Please turn the light on!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Zimmer ist wenig Licht.",
+        "en": "There is little light in the room.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Lied": {
     "def": "song (musical composition sung with vocals or vocal lyrics)",
     "ex": [
@@ -4886,6 +4970,20 @@
       }
     ]
   },
+  "voc:A1:das Prozent": {
+    "ex": [
+      {
+        "de": "Heute bekommen Sie zehn Prozent Rabatt.",
+        "en": "Today you get a ten percent discount.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Fast fünfzig Prozent der Leute fahren mit dem Rad.",
+        "en": "Almost fifty percent of people cycle.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Publikum": {
     "def": "audience, those who see, hear, read some work or performance (crowd, viewership, readership etc.); members of the public who frequent some place, institution, establishment",
     "ex": [
@@ -4953,6 +5051,20 @@
         "de": "Stell das Buch zurück ins Regal.",
         "en": "Put the book back on the shelf.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:das Reisebüro": {
+    "ex": [
+      {
+        "de": "Meine Frau arbeitet in einem Reisebüro.",
+        "en": "My wife works at a travel agency.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Reisebüro gibt es günstige Flüge.",
+        "en": "There are cheap flights at the travel agency.",
+        "lvl": "A1"
       }
     ]
   },
@@ -5039,6 +5151,20 @@
         "de": "Das Schiff war viele Wochen unterwegs.",
         "en": "The ship was travelling for many weeks.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:das Schild": {
+    "ex": [
+      {
+        "de": "Auf dem Schild steht „Ausgang“.",
+        "en": "The sign says “exit”.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du das Schild gesehen?",
+        "en": "Did you see the sign?",
+        "lvl": "A1"
       }
     ]
   },
@@ -5490,6 +5616,20 @@
         "de": "Das Thema ist so komplex, dass ein einziger Abend kaum ausreicht.",
         "en": "The topic is so complex that a single evening is hardly enough.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:das Ticket": {
+    "ex": [
+      {
+        "de": "Ich habe das Ticket online gekauft.",
+        "en": "I bought the ticket online.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Zeigen Sie bitte Ihr Ticket.",
+        "en": "Please show your ticket.",
+        "lvl": "A1"
       }
     ]
   },
@@ -6075,6 +6215,20 @@
       }
     ]
   },
+  "voc:A1:der Anfang": {
+    "ex": [
+      {
+        "de": "Am Anfang war alles neu für mich.",
+        "en": "At the beginning everything was new to me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Kurs beginnt Anfang September.",
+        "en": "The course starts at the beginning of September.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Anfänger": {
     "def": "someone who is just starting to learn something",
     "ex": [
@@ -6168,6 +6322,20 @@
         "de": "Ein Apfel am Tag hält angeblich den Arzt fern.",
         "en": "An apple a day supposedly keeps the doctor away.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Appetit": {
+    "ex": [
+      {
+        "de": "Guten Appetit!",
+        "en": "Enjoy your meal!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe heute keinen Appetit.",
+        "en": "I have no appetite today.",
+        "lvl": "A1"
       }
     ]
   },
@@ -6409,6 +6577,20 @@
         "de": "Er hatte seinen Ausweis verloren und musste einen neuen beantragen.",
         "en": "He had lost his ID and had to apply for a new one.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:der Automat": {
+    "ex": [
+      {
+        "de": "Der Automat nimmt keine Karten.",
+        "en": "The machine does not take cards.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Am Automaten bekommen Sie Ihre Fahrkarte.",
+        "en": "You get your ticket from the machine.",
+        "lvl": "A1"
       }
     ]
   },
@@ -6697,6 +6879,34 @@
       }
     ]
   },
+  "voc:A1:der Bleistift": {
+    "ex": [
+      {
+        "de": "Schreiben Sie bitte nicht mit Bleistift.",
+        "en": "Please do not write in pencil.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du einen Bleistift für mich?",
+        "en": "Do you have a pencil for me?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Blick": {
+    "ex": [
+      {
+        "de": "Das Zimmer hat einen schönen Blick.",
+        "en": "The room has a lovely view.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie hat mir einen freundlichen Blick geschenkt.",
+        "en": "She gave me a friendly look.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Boden": {
     "def": "The surface you stand on: a floor indoors, the ground outside.",
     "defDe": "die Erdoberfläche",
@@ -6788,6 +6998,20 @@
       }
     ]
   },
+  "voc:A1:der Buchstabe": {
+    "ex": [
+      {
+        "de": "Mein Name hat sechs Buchstaben.",
+        "en": "My name has six letters.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Welcher Buchstabe kommt nach K?",
+        "en": "Which letter comes after K?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Bus": {
     "def": "bus (public transport); bus (on a computer mainboard)",
     "ex": [
@@ -6829,6 +7053,20 @@
       {
         "de": "Tom ist Bäcker.",
         "en": "Tom is a baker.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Cent": {
+    "ex": [
+      {
+        "de": "Der Kaffee kostet ein Euro fünfzig Cent.",
+        "en": "The coffee costs one euro fifty cents.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe nur noch zwanzig Cent.",
+        "en": "I only have twenty cents left.",
         "lvl": "A1"
       }
     ]
@@ -6985,6 +7223,20 @@
         "de": "Bis Donnerstag muss ich die Aufgabe abgeben.",
         "en": "I have to hand in the task by Thursday.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Drucker": {
+    "ex": [
+      {
+        "de": "Der Drucker im Büro ist kaputt.",
+        "en": "The printer in the office is broken.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wo steht der Drucker?",
+        "en": "Where is the printer?",
+        "lvl": "A1"
       }
     ]
   },
@@ -7188,6 +7440,34 @@
       }
     ]
   },
+  "voc:A1:der Euro": {
+    "ex": [
+      {
+        "de": "Das Brot kostet zwei Euro.",
+        "en": "The bread costs two euros.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du einen Euro für mich?",
+        "en": "Do you have a euro for me?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Fahrer": {
+    "ex": [
+      {
+        "de": "Der Fahrer hat mir geholfen.",
+        "en": "The driver helped me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Fragen Sie bitte den Fahrer.",
+        "en": "Please ask the driver.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Fahrgast": {
     "def": "a person travelling on a bus, train or tram",
     "ex": [
@@ -7200,6 +7480,34 @@
         "de": "Sehr geehrte Fahrgäste!",
         "en": "Dear passengers!",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:der Familienname": {
+    "ex": [
+      {
+        "de": "Bitte schreiben Sie hier Ihren Familiennamen.",
+        "en": "Please write your surname here.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mein Familienname ist Karimi.",
+        "en": "My surname is Karimi.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Familienstand": {
+    "ex": [
+      {
+        "de": "Im Formular fehlt noch der Familienstand.",
+        "en": "The marital status is still missing on the form.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Familienstand: verheiratet.",
+        "en": "Marital status: married.",
+        "lvl": "A1"
       }
     ]
   },
@@ -7611,6 +7919,20 @@
       }
     ]
   },
+  "voc:A1:der Fußball": {
+    "ex": [
+      {
+        "de": "Mein Sohn spielt gern Fußball.",
+        "en": "My son likes playing football.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Fußball liegt im Garten.",
+        "en": "The football is in the garden.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Garten": {
     "def": "garden, yard (grounds at the front or back of a house); garden (outdoor area containing one or more types of plants, usually plants grown for food or ornamental purposes)",
     "ex": [
@@ -7681,6 +8003,20 @@
       }
     ]
   },
+  "voc:A1:der Geburtsort": {
+    "ex": [
+      {
+        "de": "Mein Geburtsort ist Isfahan.",
+        "en": "My place of birth is Isfahan.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Tragen Sie bitte Ihren Geburtsort ein.",
+        "en": "Please enter your place of birth.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Geburtstag": {
     "def": "The yearly anniversary of the day a person was born.",
     "ex": [
@@ -7728,6 +8064,20 @@
         "de": "Der Geschirrspüler ist leiser als das alte Modell.",
         "en": "The dishwasher is quieter than the old model.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Glückwunsch": {
+    "ex": [
+      {
+        "de": "Herzlichen Glückwunsch zum Geburtstag!",
+        "en": "Happy birthday!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir schicken ihr einen Glückwunsch.",
+        "en": "We are sending her congratulations.",
+        "lvl": "A1"
       }
     ]
   },
@@ -8006,6 +8356,20 @@
         "de": "Der Herd besteht aus einem Ofen und vier Herdplatten.",
         "en": "The cooker consists of an oven and four rings.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Herr": {
+    "ex": [
+      {
+        "de": "Guten Tag, Herr Müller!",
+        "en": "Good afternoon, Mr Müller!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Herr dort wartet schon lange.",
+        "en": "That gentleman over there has been waiting a long time.",
+        "lvl": "A1"
       }
     ]
   },
@@ -8450,6 +8814,48 @@
       }
     ]
   },
+  "voc:A1:der Kilometer": {
+    "ex": [
+      {
+        "de": "Bis zum Bahnhof sind es zwei Kilometer.",
+        "en": "It is two kilometres to the station.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir sind heute zehn Kilometer gelaufen.",
+        "en": "We walked ten kilometres today.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Kindergarten": {
+    "ex": [
+      {
+        "de": "Meine Tochter geht in den Kindergarten.",
+        "en": "My daughter goes to nursery school.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Kindergarten beginnt um acht Uhr.",
+        "en": "Nursery school starts at eight.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Kiosk": {
+    "ex": [
+      {
+        "de": "Am Kiosk kaufe ich eine Zeitung.",
+        "en": "I buy a newspaper at the kiosk.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Kiosk ist bis zwanzig Uhr offen.",
+        "en": "The kiosk is open until eight in the evening.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Kleiderschrank": {
     "def": "A tall cupboard for hanging and storing clothes.",
     "defDe": "Schrank, der hauptsächlich für die Aufbewahrung von Kleidung gedacht ist",
@@ -8638,6 +9044,20 @@
         "de": "Der Kuchen muss noch im Ofen backen.",
         "en": "The cake still needs to bake in the oven.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Kugelschreiber": {
+    "ex": [
+      {
+        "de": "Mein Kugelschreiber schreibt nicht mehr.",
+        "en": "My ballpoint pen does not write any more.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Bitte unterschreiben Sie mit Kugelschreiber.",
+        "en": "Please sign with a ballpoint pen.",
+        "lvl": "A1"
       }
     ]
   },
@@ -9071,6 +9491,20 @@
         "de": "Der Mensch braucht andere Menschen, um glücklich zu sein.",
         "en": "People need other people in order to be happy.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Meter": {
+    "ex": [
+      {
+        "de": "Das Zimmer ist vier Meter lang.",
+        "en": "The room is four metres long.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mein Bruder ist fast zwei Meter groß.",
+        "en": "My brother is almost two metres tall.",
+        "lvl": "A1"
       }
     ]
   },
@@ -9596,6 +10030,20 @@
       }
     ]
   },
+  "voc:A1:der Ort": {
+    "ex": [
+      {
+        "de": "An welchem Ort wohnen Sie?",
+        "en": "In which place do you live?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Ort ist sehr klein und ruhig.",
+        "en": "The town is very small and quiet.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Osten": {
     "def": "The direction where the sun rises.",
     "ex": [
@@ -9854,6 +10302,20 @@
         "de": "Gute Programmierer sind sehr gefragt.",
         "en": "Good programmers are in high demand.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Prospekt": {
+    "ex": [
+      {
+        "de": "Schicken Sie mir bitte einen Prospekt.",
+        "en": "Please send me a brochure.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Prospekt stehen alle Preise.",
+        "en": "All the prices are in the brochure.",
+        "lvl": "A1"
       }
     ]
   },
@@ -10344,6 +10806,20 @@
         "de": "Der Schauspieler spielt die Hauptrolle.",
         "en": "The actor plays the leading role.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:der Schinken": {
+    "ex": [
+      {
+        "de": "Ich möchte ein Brötchen mit Schinken.",
+        "en": "I would like a roll with ham.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Schinken ist aus der Region.",
+        "en": "The ham is from the region.",
+        "lvl": "A1"
       }
     ]
   },
@@ -11136,6 +11612,20 @@
       }
     ]
   },
+  "voc:A1:der Teil": {
+    "ex": [
+      {
+        "de": "Der erste Teil war einfach.",
+        "en": "The first part was easy.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ein Teil der Gruppe kommt später.",
+        "en": "Part of the group is coming later.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Teller": {
     "def": "The flat dish you eat a meal from.",
     "ex": [
@@ -11223,6 +11713,20 @@
         "de": "Das neue Material wird zuerst in einem Test geprüft.",
         "en": "The new material is first checked in a test.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:der Text": {
+    "ex": [
+      {
+        "de": "Lesen Sie bitte den Text.",
+        "en": "Please read the text.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Text ist nicht sehr lang.",
+        "en": "The text is not very long.",
+        "lvl": "A1"
       }
     ]
   },
@@ -11731,6 +12235,20 @@
       }
     ]
   },
+  "voc:A1:der Westen": {
+    "ex": [
+      {
+        "de": "Meine Familie wohnt im Westen von Deutschland.",
+        "en": "My family lives in the west of Germany.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Wind kommt heute aus dem Westen.",
+        "en": "The wind is coming from the west today.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Wind": {
     "def": "wind; the movement of air usually caused by convection or differences of air pressure",
     "ex": [
@@ -11943,6 +12461,20 @@
         "de": "Der Zeitungsartikel löste eine große Debatte aus.",
         "en": "The newspaper article triggered a big debate.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Zentimeter": {
+    "ex": [
+      {
+        "de": "Das Bild ist dreißig Zentimeter breit.",
+        "en": "The picture is thirty centimetres wide.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Bitte schneiden Sie zwei Zentimeter ab.",
+        "en": "Please cut off two centimetres.",
+        "lvl": "A1"
       }
     ]
   },
@@ -12309,6 +12841,20 @@
         "de": "Nach der Anrede folgt im Deutschen ein Komma.",
         "en": "In German a comma follows the salutation.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:A1:die Ansage": {
+    "ex": [
+      {
+        "de": "Hören Sie die Ansage am Bahnhof.",
+        "en": "Listen to the announcement at the station.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Ansage war sehr leise.",
+        "en": "The announcement was very quiet.",
+        "lvl": "A1"
       }
     ]
   },
@@ -12722,6 +13268,20 @@
       }
     ]
   },
+  "voc:A1:die Birne": {
+    "ex": [
+      {
+        "de": "Ein Kilo Birnen, bitte.",
+        "en": "A kilo of pears, please.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Birne schmeckt sehr süß.",
+        "en": "The pear tastes very sweet.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Bitte": {
     "defDe": "höfliche Ausdrucksform eines Wunsches, einer Aufforderung, eines Ersuchens",
     "ex": [
@@ -12969,6 +13529,20 @@
         "de": "Leere Dosen gehören in den Gelben Sack.",
         "en": "Empty cans go in the recycling bag.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:die Durchsage": {
+    "ex": [
+      {
+        "de": "Im Supermarkt kommt eine Durchsage.",
+        "en": "There is an announcement in the supermarket.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe die Durchsage nicht verstanden.",
+        "en": "I did not understand the announcement.",
+        "lvl": "A1"
       }
     ]
   },
@@ -13752,6 +14326,20 @@
       {
         "de": "Gibst du mir deine Handynummer?",
         "en": "Will you give me your mobile number?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:die Hausaufgabe": {
+    "ex": [
+      {
+        "de": "Die Kinder machen ihre Hausaufgaben.",
+        "en": "The children are doing their homework.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hast du die Hausaufgabe schon fertig?",
+        "en": "Have you finished the homework yet?",
         "lvl": "A1"
       }
     ]
@@ -15306,6 +15894,20 @@
       }
     ]
   },
+  "voc:A1:die Oma": {
+    "ex": [
+      {
+        "de": "Meine Oma wohnt in Hamburg.",
+        "en": "My grandma lives in Hamburg.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Am Sonntag besuchen wir die Oma.",
+        "en": "On Sunday we visit grandma.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Orange": {
     "def": "orange (fruit)",
     "ex": [
@@ -15788,6 +16390,20 @@
       {
         "de": "Sind das Rosen?",
         "en": "Are those roses?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:die S-Bahn": {
+    "ex": [
+      {
+        "de": "Ich nehme lieber die S-Bahn.",
+        "en": "I would rather take the suburban train.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die S-Bahn fährt alle zehn Minuten.",
+        "en": "The suburban train runs every ten minutes.",
         "lvl": "A1"
       }
     ]
@@ -17454,6 +18070,20 @@
       }
     ]
   },
+  "voc:A1:drucken": {
+    "ex": [
+      {
+        "de": "Ich drucke das Formular gleich.",
+        "en": "I will print the form right away.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Können Sie das bitte zweimal drucken?",
+        "en": "Can you print that twice, please?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:drücken": {
     "def": "To apply pressure with a finger or hand: a button, a key, someone's hand.",
     "ex": [
@@ -17896,6 +18526,20 @@
         "de": "Aufgrund ihrer bisherigen Arbeit empfiehlt sich die Fachkraft für die Beförderung.",
         "en": "In view of their previous work, the specialist merits the promotion.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:enden": {
+    "ex": [
+      {
+        "de": "Der Kurs endet im Juli.",
+        "en": "The course ends in July.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann enden die Ferien?",
+        "en": "When do the holidays end?",
+        "lvl": "A1"
       }
     ]
   },
@@ -18867,6 +19511,20 @@
         "de": "Können Sie mir einen Rat geben?",
         "en": "Can you give me some advice?",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:geboren": {
+    "ex": [
+      {
+        "de": "Ich bin in Isfahan geboren.",
+        "en": "I was born in Isfahan.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann sind Sie geboren?",
+        "en": "When were you born?",
+        "lvl": "A1"
       }
     ]
   },
@@ -20596,6 +21254,20 @@
       }
     ]
   },
+  "voc:A1:kriegen": {
+    "ex": [
+      {
+        "de": "Ich kriege morgen mein Zeugnis.",
+        "en": "I get my certificate tomorrow.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Was kriegen Sie dafür?",
+        "en": "What do you get for that?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:kulturell": {
     "def": "Relating to the customs and arts of a society.",
     "ex": [
@@ -21539,6 +22211,20 @@
         "de": "Was motiviert dich, jeden Morgen um sechs zu laufen?",
         "en": "What motivates you to run at six every morning?",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:A1:männlich": {
+    "ex": [
+      {
+        "de": "Kreuzen Sie bitte an: weiblich oder männlich.",
+        "en": "Please tick: female or male.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Wort ist männlich.",
+        "en": "The word is masculine.",
+        "lvl": "A1"
       }
     ]
   },
@@ -24192,6 +24878,20 @@
       }
     ]
   },
+  "voc:A1:verboten": {
+    "ex": [
+      {
+        "de": "Hier ist Rauchen verboten.",
+        "en": "Smoking is forbidden here.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Parken ist am Bahnhof verboten.",
+        "en": "Parking is forbidden at the station.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:verdienen": {
     "def": "to make money, to earn; to deserve",
     "ex": [
@@ -24740,6 +25440,20 @@
         "de": "Über die Feiertage fahren viele Familien weg.",
         "en": "Over the holidays many families go away.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:weiblich": {
+    "ex": [
+      {
+        "de": "Bitte kreuzen Sie weiblich an.",
+        "en": "Please tick female.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Hälfte der Gruppe ist weiblich.",
+        "en": "Half of the group is female.",
+        "lvl": "A1"
       }
     ]
   },
@@ -25338,6 +26052,20 @@
         "de": "Zurzeit ist das Museum leider geschlossen.",
         "en": "At the moment the museum is unfortunately closed.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:zurück": {
+    "ex": [
+      {
+        "de": "Einmal Frankfurt und zurück, bitte.",
+        "en": "One return to Frankfurt, please.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann kommst du zurück?",
+        "en": "When are you coming back?",
+        "lvl": "A1"
       }
     ]
   },

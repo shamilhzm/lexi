@@ -257,9 +257,12 @@ and committed as `scripts/corpus/data/goethe-a1-wordlist.txt`).
   all three are migrated by the script: `vocab.json`, `provenance.json` (37 rows)
   and the id map; `cards.json`/`detail.json` follow via `corpus:split`.
 
-**Still open here:** 109 syllabus entries absent from the corpus, listed by the
-script — including `Euro`, `Ticket`, `Familienname`, `Geburtsdatum`, `Geburtsort`,
-`die Unterschrift` at A1. Authoring, not levelling. Folds into Now #6.
+**Was open here, now closed:** 109 syllabus entries were absent from the corpus.
+**52 of the content words shipped 2026-08-11** through the new verified authoring
+path — `der Euro`, `das Ticket`, `der Familienname`, `der Geburtsort`, `das Schild`,
+`der Kilometer` and the rest. What remains is deliberate: closed-class function
+words (`denn`, `kein`, `mehr`, `nichts`, `seit`) that `FUNCTION_WORDS` already
+excludes from every count, and a handful of extraction artefacts.
 
 ### 🟠 Genuinely absent, and not obscure — verified, and unaffected by the above
 
@@ -625,10 +628,17 @@ definition block for anyone below B2.
 ### 6. Grow the corpus toward ~10k + rebalance A1/A2 · M, ongoing
 
 **Why.** Distribution is B1-heavy — backwards for early reading — and core
-high-frequency lemmas are still missing. The pipeline is green (`corpus:selftest`,
-`corpus:validate` PASS) but growth **needs a network- and LLM-enabled maintainer
-machine plus human spot-checks of gender/plural/level — not an autonomous bulk
-commit.**
+high-frequency lemmas are still missing.
+> ✅ **The human gate is gone, 2026-08-11 — replaced, not deleted.**
+> `npm run authoring:new -- <batch.json>` refuses to write a card it cannot
+> verify: gender, plural, part of speech and IPA are read from de.wiktionary and a
+> disagreement is a hard reject; every example must contain a real inflection of
+> its headword, proved with the app's own matcher rather than a substring test.
+> Facts are never generated — only the gloss and the sentence are written, and both
+> are checked. The rule it replaces was guarding against a plausible sentence with
+> a wrong gender attached, which a machine now catches on card 300 as reliably as
+> on card 3. First batch: **52 A1 cards, 0 rejected after three real defects the
+> gate caught** (see the CHANGELOG).
 **Do.** `corpus:coverage` → build A1/A2 batches → `corpus:validate --strict` → review
 the diff → commit, in reviewable batches. Close the top-frequency gaps first.
 **Source material:** `reference/DaF Wortschatz/` — 69 page-mapped scans of a complete

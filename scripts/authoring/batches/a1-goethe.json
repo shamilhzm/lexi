@@ -1,0 +1,934 @@
+[
+{
+"term": "der Euro",
+"en": "euro",
+"sameAsGerman": true,
+"pos": "noun",
+"level": "A1",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Das Brot kostet zwei Euro.",
+"en": "The bread costs two euros."
+},
+{
+"de": "Hast du einen Euro für mich?",
+"en": "Do you have a euro for me?"
+}
+],
+"gender": "der"
+},
+{
+"term": "der Cent",
+"en": "cent",
+"sameAsGerman": true,
+"pos": "noun",
+"level": "A1",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Der Kaffee kostet ein Euro fünfzig Cent.",
+"en": "The coffee costs one euro fifty cents."
+},
+{
+"de": "Ich habe nur noch zwanzig Cent.",
+"en": "I only have twenty cents left."
+}
+],
+"gender": "der"
+},
+{
+"term": "das Prozent",
+"en": "percent",
+"pos": "noun",
+"level": "A1",
+"field": "Numbers",
+"ex": [
+{
+"de": "Heute bekommen Sie zehn Prozent Rabatt.",
+"en": "Today you get a ten percent discount."
+},
+{
+"de": "Fast fünfzig Prozent der Leute fahren mit dem Rad.",
+"en": "Almost fifty percent of people cycle."
+}
+],
+"gender": "das"
+},
+{
+"term": "der Meter",
+"en": "metre",
+"pos": "noun",
+"level": "A1",
+"field": "Numbers",
+"ex": [
+{
+"de": "Das Zimmer ist vier Meter lang.",
+"en": "The room is four metres long."
+},
+{
+"de": "Mein Bruder ist fast zwei Meter groß.",
+"en": "My brother is almost two metres tall."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Zentimeter",
+"en": "centimetre",
+"pos": "noun",
+"level": "A1",
+"field": "Numbers",
+"ex": [
+{
+"de": "Das Bild ist dreißig Zentimeter breit.",
+"en": "The picture is thirty centimetres wide."
+},
+{
+"de": "Bitte schneiden Sie zwei Zentimeter ab.",
+"en": "Please cut off two centimetres."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Kilometer",
+"en": "kilometre",
+"pos": "noun",
+"level": "A1",
+"field": "Numbers",
+"ex": [
+{
+"de": "Bis zum Bahnhof sind es zwei Kilometer.",
+"en": "It is two kilometres to the station."
+},
+{
+"de": "Wir sind heute zehn Kilometer gelaufen.",
+"en": "We walked ten kilometres today."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Familienname",
+"en": "surname",
+"pos": "noun",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Bitte schreiben Sie hier Ihren Familiennamen.",
+"en": "Please write your surname here."
+},
+{
+"de": "Mein Familienname ist Karimi.",
+"en": "My surname is Karimi."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Familienstand",
+"en": "marital status",
+"pos": "noun",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Im Formular fehlt noch der Familienstand.",
+"en": "The marital status is still missing on the form."
+},
+{
+"de": "Familienstand: verheiratet.",
+"en": "Marital status: married."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Geburtsort",
+"en": "place of birth",
+"pos": "noun",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Mein Geburtsort ist Isfahan.",
+"en": "My place of birth is Isfahan."
+},
+{
+"de": "Tragen Sie bitte Ihren Geburtsort ein.",
+"en": "Please enter your place of birth."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Ort",
+"en": "place, town",
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "An welchem Ort wohnen Sie?",
+"en": "In which place do you live?"
+},
+{
+"de": "Der Ort ist sehr klein und ruhig.",
+"en": "The town is very small and quiet."
+}
+],
+"gender": "der"
+},
+{
+"term": "das Ticket",
+"en": "ticket",
+"sameAsGerman": true,
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Ich habe das Ticket online gekauft.",
+"en": "I bought the ticket online."
+},
+{
+"de": "Zeigen Sie bitte Ihr Ticket.",
+"en": "Please show your ticket."
+}
+],
+"gender": "das"
+},
+{
+"term": "die S-Bahn",
+"en": "suburban train",
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Ich nehme lieber die S-Bahn.",
+"en": "I would rather take the suburban train."
+},
+{
+"de": "Die S-Bahn fährt alle zehn Minuten.",
+"en": "The suburban train runs every ten minutes."
+}
+],
+"gender": "die"
+},
+{
+"term": "das Reisebüro",
+"en": "travel agency",
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Meine Frau arbeitet in einem Reisebüro.",
+"en": "My wife works at a travel agency."
+},
+{
+"de": "Im Reisebüro gibt es günstige Flüge.",
+"en": "There are cheap flights at the travel agency."
+}
+],
+"gender": "das"
+},
+{
+"term": "der Fahrer",
+"en": "driver",
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Der Fahrer hat mir geholfen.",
+"en": "The driver helped me."
+},
+{
+"de": "Fragen Sie bitte den Fahrer.",
+"en": "Please ask the driver."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Westen",
+"en": "west",
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Meine Familie wohnt im Westen von Deutschland.",
+"en": "My family lives in the west of Germany."
+},
+{
+"de": "Der Wind kommt heute aus dem Westen.",
+"en": "The wind is coming from the west today."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Kiosk",
+"en": "kiosk, newsstand",
+"pos": "noun",
+"level": "A1",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Am Kiosk kaufe ich eine Zeitung.",
+"en": "I buy a newspaper at the kiosk."
+},
+{
+"de": "Der Kiosk ist bis zwanzig Uhr offen.",
+"en": "The kiosk is open until eight in the evening."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Prospekt",
+"en": "brochure",
+"pos": "noun",
+"level": "A1",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Schicken Sie mir bitte einen Prospekt.",
+"en": "Please send me a brochure."
+},
+{
+"de": "Im Prospekt stehen alle Preise.",
+"en": "All the prices are in the brochure."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Automat",
+"en": "machine, vending machine",
+"pos": "noun",
+"level": "A1",
+"field": "Money & shopping",
+"ex": [
+{
+"de": "Der Automat nimmt keine Karten.",
+"en": "The machine does not take cards."
+},
+{
+"de": "Am Automaten bekommen Sie Ihre Fahrkarte.",
+"en": "You get your ticket from the machine."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Bleistift",
+"en": "pencil",
+"pos": "noun",
+"level": "A1",
+"field": "Office & Communication",
+"ex": [
+{
+"de": "Schreiben Sie bitte nicht mit Bleistift.",
+"en": "Please do not write in pencil."
+},
+{
+"de": "Hast du einen Bleistift für mich?",
+"en": "Do you have a pencil for me?"
+}
+],
+"gender": "der"
+},
+{
+"term": "der Kugelschreiber",
+"en": "ballpoint pen",
+"pos": "noun",
+"level": "A1",
+"field": "Office & Communication",
+"ex": [
+{
+"de": "Mein Kugelschreiber schreibt nicht mehr.",
+"en": "My ballpoint pen does not write any more."
+},
+{
+"de": "Bitte unterschreiben Sie mit Kugelschreiber.",
+"en": "Please sign with a ballpoint pen."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Drucker",
+"en": "printer",
+"pos": "noun",
+"level": "A1",
+"field": "Office & Communication",
+"ex": [
+{
+"de": "Der Drucker im Büro ist kaputt.",
+"en": "The printer in the office is broken."
+},
+{
+"de": "Wo steht der Drucker?",
+"en": "Where is the printer?"
+}
+],
+"gender": "der"
+},
+{
+"term": "das Fax",
+"en": "fax",
+"sameAsGerman": true,
+"pos": "noun",
+"level": "A1",
+"field": "Office & Communication",
+"ex": [
+{
+"de": "Ich habe Ihnen ein Fax geschickt.",
+"en": "I have sent you a fax."
+},
+{
+"de": "Das Fax ist heute Morgen gekommen.",
+"en": "The fax arrived this morning."
+}
+],
+"gender": "das"
+},
+{
+"term": "der Text",
+"en": "text",
+"sameAsGerman": true,
+"pos": "noun",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Lesen Sie bitte den Text.",
+"en": "Please read the text."
+},
+{
+"de": "Der Text ist nicht sehr lang.",
+"en": "The text is not very long."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Buchstabe",
+"en": "letter (of the alphabet)",
+"pos": "noun",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Mein Name hat sechs Buchstaben.",
+"en": "My name has six letters."
+},
+{
+"de": "Welcher Buchstabe kommt nach K?",
+"en": "Which letter comes after K?"
+}
+],
+"gender": "der"
+},
+{
+"term": "die Ansage",
+"en": "announcement",
+"pos": "noun",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Hören Sie die Ansage am Bahnhof.",
+"en": "Listen to the announcement at the station."
+},
+{
+"de": "Die Ansage war sehr leise.",
+"en": "The announcement was very quiet."
+}
+],
+"gender": "die"
+},
+{
+"term": "die Durchsage",
+"en": "public announcement",
+"pos": "noun",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Im Supermarkt kommt eine Durchsage.",
+"en": "There is an announcement in the supermarket."
+},
+{
+"de": "Ich habe die Durchsage nicht verstanden.",
+"en": "I did not understand the announcement."
+}
+],
+"gender": "die"
+},
+{
+"term": "das Schild",
+"en": "sign",
+"pos": "noun",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Auf dem Schild steht „Ausgang“.",
+"en": "The sign says “exit”."
+},
+{
+"de": "Hast du das Schild gesehen?",
+"en": "Did you see the sign?"
+}
+],
+"gender": "das"
+},
+{
+"term": "die Hausaufgabe",
+"en": "homework",
+"pos": "noun",
+"level": "A1",
+"field": "Education",
+"ex": [
+{
+"de": "Die Kinder machen ihre Hausaufgaben.",
+"en": "The children are doing their homework."
+},
+{
+"de": "Hast du die Hausaufgabe schon fertig?",
+"en": "Have you finished the homework yet?"
+}
+],
+"gender": "die"
+},
+{
+"term": "der Kindergarten",
+"en": "nursery school",
+"pos": "noun",
+"level": "A1",
+"field": "Education",
+"ex": [
+{
+"de": "Meine Tochter geht in den Kindergarten.",
+"en": "My daughter goes to nursery school."
+},
+{
+"de": "Der Kindergarten beginnt um acht Uhr.",
+"en": "Nursery school starts at eight."
+}
+],
+"gender": "der"
+},
+{
+"term": "das Beispiel",
+"en": "example",
+"pos": "noun",
+"level": "A1",
+"field": "Education",
+"ex": [
+{
+"de": "Können Sie mir ein Beispiel geben?",
+"en": "Can you give me an example?"
+},
+{
+"de": "Das ist ein gutes Beispiel.",
+"en": "That is a good example."
+}
+],
+"gender": "das"
+},
+{
+"term": "die Birne",
+"en": "pear",
+"pos": "noun",
+"level": "A1",
+"field": "Food & drink",
+"ex": [
+{
+"de": "Ein Kilo Birnen, bitte.",
+"en": "A kilo of pears, please."
+},
+{
+"de": "Die Birne schmeckt sehr süß.",
+"en": "The pear tastes very sweet."
+}
+],
+"gender": "die"
+},
+{
+"term": "der Schinken",
+"en": "ham",
+"pos": "noun",
+"level": "A1",
+"field": "Food & drink",
+"ex": [
+{
+"de": "Ich möchte ein Brötchen mit Schinken.",
+"en": "I would like a roll with ham."
+},
+{
+"de": "Der Schinken ist aus der Region.",
+"en": "The ham is from the region."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Appetit",
+"en": "appetite",
+"pos": "noun",
+"level": "A1",
+"field": "Food & drink",
+"ex": [
+{
+"de": "Guten Appetit!",
+"en": "Enjoy your meal!"
+},
+{
+"de": "Ich habe heute keinen Appetit.",
+"en": "I have no appetite today."
+}
+],
+"gender": "der"
+},
+{
+"term": "die Oma",
+"en": "grandma",
+"pos": "noun",
+"level": "A1",
+"field": "Family",
+"ex": [
+{
+"de": "Meine Oma wohnt in Hamburg.",
+"en": "My grandma lives in Hamburg."
+},
+{
+"de": "Am Sonntag besuchen wir die Oma.",
+"en": "On Sunday we visit grandma."
+}
+],
+"gender": "die"
+},
+{
+"term": "der Herr",
+"en": "gentleman; Mr",
+"pos": "noun",
+"level": "A1",
+"field": "People",
+"ex": [
+{
+"de": "Guten Tag, Herr Müller!",
+"en": "Good afternoon, Mr Müller!"
+},
+{
+"de": "Der Herr dort wartet schon lange.",
+"en": "That gentleman over there has been waiting a long time."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Glückwunsch",
+"en": "congratulations",
+"pos": "noun",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Herzlichen Glückwunsch zum Geburtstag!",
+"en": "Happy birthday!"
+},
+{
+"de": "Wir schicken ihr einen Glückwunsch.",
+"en": "We are sending her congratulations."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Anfang",
+"en": "beginning",
+"pos": "noun",
+"level": "A1",
+"field": "Time",
+"ex": [
+{
+"de": "Am Anfang war alles neu für mich.",
+"en": "At the beginning everything was new to me."
+},
+{
+"de": "Der Kurs beginnt Anfang September.",
+"en": "The course starts at the beginning of September."
+}
+],
+"gender": "der"
+},
+{
+"term": "das Alter",
+"en": "age",
+"pos": "noun",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Bitte schreiben Sie Ihr Alter in das Formular.",
+"en": "Please write your age on the form."
+},
+{
+"de": "In seinem Alter ist das ganz normal.",
+"en": "At his age that is quite normal."
+}
+],
+"gender": "das"
+},
+{
+"term": "der Fußball",
+"en": "football",
+"pos": "noun",
+"level": "A1",
+"field": "Sport",
+"ex": [
+{
+"de": "Mein Sohn spielt gern Fußball.",
+"en": "My son likes playing football."
+},
+{
+"de": "Der Fußball liegt im Garten.",
+"en": "The football is in the garden."
+}
+],
+"gender": "der"
+},
+{
+"term": "das Licht",
+"en": "light",
+"pos": "noun",
+"level": "A1",
+"field": "Home",
+"ex": [
+{
+"de": "Mach bitte das Licht an!",
+"en": "Please turn the light on!"
+},
+{
+"de": "Im Zimmer ist wenig Licht.",
+"en": "There is little light in the room."
+}
+],
+"gender": "das"
+},
+{
+"term": "der Teil",
+"en": "part",
+"pos": "noun",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Der erste Teil war einfach.",
+"en": "The first part was easy."
+},
+{
+"de": "Ein Teil der Gruppe kommt später.",
+"en": "Part of the group is coming later."
+}
+],
+"gender": "der"
+},
+{
+"term": "der Blick",
+"en": "view; look",
+"pos": "noun",
+"level": "A1",
+"field": "Home",
+"ex": [
+{
+"de": "Das Zimmer hat einen schönen Blick.",
+"en": "The room has a lovely view."
+},
+{
+"de": "Sie hat mir einen freundlichen Blick geschenkt.",
+"en": "She gave me a friendly look."
+}
+],
+"gender": "der"
+},
+{
+"term": "drucken",
+"en": "to print",
+"pos": "verb",
+"level": "A1",
+"field": "Office & Communication",
+"ex": [
+{
+"de": "Ich drucke das Formular gleich.",
+"en": "I will print the form right away."
+},
+{
+"de": "Können Sie das bitte zweimal drucken?",
+"en": "Can you print that twice, please?"
+}
+]
+},
+{
+"term": "bitten",
+"en": "to ask (for)",
+"pos": "verb",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Darf ich Sie um Hilfe bitten?",
+"en": "May I ask you for help?"
+},
+{
+"de": "Er bittet mich jeden Tag um Geld.",
+"en": "He asks me for money every day."
+}
+]
+},
+{
+"term": "kriegen",
+"en": "to get",
+"pos": "verb",
+"level": "A1",
+"field": "Communication",
+"ex": [
+{
+"de": "Ich kriege morgen mein Zeugnis.",
+"en": "I get my certificate tomorrow."
+},
+{
+"de": "Was kriegen Sie dafür?",
+"en": "What do you get for that?"
+}
+]
+},
+{
+"term": "enden",
+"en": "to end",
+"pos": "verb",
+"level": "A1",
+"field": "Time",
+"ex": [
+{
+"de": "Der Kurs endet im Juli.",
+"en": "The course ends in July."
+},
+{
+"de": "Wann enden die Ferien?",
+"en": "When do the holidays end?"
+}
+]
+},
+{
+"term": "geboren",
+"en": "born",
+"pos": "adjective",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Ich bin in Isfahan geboren.",
+"en": "I was born in Isfahan."
+},
+{
+"de": "Wann sind Sie geboren?",
+"en": "When were you born?"
+}
+]
+},
+{
+"term": "männlich",
+"en": "male",
+"pos": "adjective",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Kreuzen Sie bitte an: weiblich oder männlich.",
+"en": "Please tick: female or male."
+},
+{
+"de": "Das Wort ist männlich.",
+"en": "The word is masculine."
+}
+]
+},
+{
+"term": "weiblich",
+"en": "female",
+"pos": "adjective",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Bitte kreuzen Sie weiblich an.",
+"en": "Please tick female."
+},
+{
+"de": "Die Hälfte der Gruppe ist weiblich.",
+"en": "Half of the group is female."
+}
+]
+},
+{
+"term": "verboten",
+"en": "forbidden",
+"pos": "adjective",
+"level": "A1",
+"field": "Administration",
+"ex": [
+{
+"de": "Hier ist Rauchen verboten.",
+"en": "Smoking is forbidden here."
+},
+{
+"de": "Das Parken ist am Bahnhof verboten.",
+"en": "Parking is forbidden at the station."
+}
+]
+},
+{
+"term": "bitter",
+"en": "bitter",
+"sameAsGerman": true,
+"pos": "adjective",
+"level": "A1",
+"field": "Food & drink",
+"ex": [
+{
+"de": "Der Kaffee ist mir zu bitter.",
+"en": "The coffee is too bitter for me."
+},
+{
+"de": "Diese Schokolade schmeckt bitter.",
+"en": "This chocolate tastes bitter."
+}
+]
+},
+{
+"term": "zurück",
+"en": "back",
+"pos": "adverb",
+"level": "A1",
+"field": "Town & travel",
+"ex": [
+{
+"de": "Einmal Frankfurt und zurück, bitte.",
+"en": "One return to Frankfurt, please."
+},
+{
+"de": "Wann kommst du zurück?",
+"en": "When are you coming back?"
+}
+]
+}
+]
