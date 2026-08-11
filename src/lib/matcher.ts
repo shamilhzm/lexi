@@ -120,6 +120,23 @@ const EXTRA_VERB_FORMS: Record<string, string[]> = {
   sein: ['wäre', 'wärest', 'wärst', 'wären', 'wäret', 'sei', 'seist', 'seiest', 'seien', 'seiet'],
 };
 
+/** Suppletive comparison — the handful of adjectives whose comparative and
+ *  superlative are different words. `besser` and `besten` cannot be reached from
+ *  `gut` by stripping an ending, so no amount of de-inflection finds them; they
+ *  are irregular in the way *good/better/best* is, and there are only six. */
+const SUPPLETIVE: Record<string, string[]> = {
+  gut: ['besser', 'bessere', 'besseren', 'besserer', 'besseres', 'besserem',
+    'best', 'beste', 'besten', 'bester', 'bestes', 'bestem'],
+  viel: ['mehr', 'meist', 'meiste', 'meisten', 'meister', 'meistes', 'meistem'],
+  gern: ['lieber', 'liebsten', 'am liebsten'],
+  hoch: ['höher', 'höhere', 'höheren', 'höherer', 'höheres', 'höherem',
+    'höchst', 'höchste', 'höchsten', 'höchster', 'höchstes', 'höchstem'],
+  nah: ['näher', 'nähere', 'näheren', 'näherer', 'näheres', 'näherem',
+    'nächst', 'nächste', 'nächsten', 'nächster', 'nächstes', 'nächstem'],
+  groß: ['größer', 'größere', 'größeren', 'größerer', 'größeres', 'größerem',
+    'größt', 'größte', 'größten', 'größter', 'größtes', 'größtem'],
+};
+
 // Closed-class inflections neither the conjugator nor the adjective de-inflector
 // produce: declined demonstratives, non-neutral possessive endings, passive "worden".
 const EXTRA_CLOSED_FORMS: Record<string, string[]> = {
@@ -128,7 +145,11 @@ const EXTRA_CLOSED_FORMS: Record<string, string[]> = {
   werden: ['worden'],
 };
 
-const WORD_RE = /[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß-]*/g;
+// Loanwords keep their diacritics in German — Café, Büro's fine but Café, Résumé,
+// Portemonnaie — and a class limited to the umlauts split *Café* into `Caf` and a
+// stray `é`, which then failed to resolve and was reported as a missing word.
+// `\p{L}` is the actual rule: a letter is a letter.
+const WORD_RE = /\p{L}[\p{L}-]*/gu;
 
 /** A run of text: a word token (with its corpus match, if any) or a separator. */
 export interface Segment { text: string; word: Word | null; isWord: boolean }
@@ -184,6 +205,8 @@ export function buildMatcher(corpus: Word[]): Matcher {
   for (const w of corpus) {
     const forms = EXTRA_CLOSED_FORMS[stripArticle(w.term).toLowerCase()];
     if (forms) for (const f of forms) add(f, w);
+    const sup = SUPPLETIVE[stripArticle(w.term).toLowerCase()];
+    if (sup) for (const f of sup) add(f, w);
   }
   // Verb inflections (präsens, präteritum, Partizip II) + extra subjunctive forms → infinitive.
   for (const w of corpus) {
@@ -201,6 +224,14 @@ export function buildMatcher(corpus: Word[]): Matcher {
         // clause before claiming the token for the separable verb.
         const space = lc.indexOf(' ');
         if (space > 0) {
+          // A separable verb is written as ONE word whenever the clause pushes the
+          // finite verb to the end — every Nebensatz, every relative clause:
+          // *"…, wer mitkommt"*, *"…, wenn der Zug ankommt"*. `sepIndex` only ever
+          // held the split form, so those forms — which are most of the subordinate
+          // clauses in any real text — resolved to nothing at all.
+          const joined = lc.slice(space + 1) + lc.slice(0, space);
+          add(joined, w);
+          addVerb(joined, w);
           const stem = lc.slice(0, space);
           // Deliberately NOT added to `verbIndex`: a separable stem must be
           // reachable only through `sepIndex`, which requires the particle. Adding
@@ -381,8 +412,51 @@ export function buildMatcher(corpus: Word[]): Matcher {
       const w = index.get(lc.slice(0, -1));
       if (w && w.pos === 'noun') return w;
     }
+
+    // Compounds, last of all.
+    //
+    // German builds nouns by concatenation and the set is genuinely infinite —
+    // *Deutschkurs*, *Gruppenticket*, *Besprechungsraum*, *Fahrradanhänger*. No
+    // corpus can list them, and listing them would be the wrong answer anyway: a
+    // learner who knows *Deutsch* and *Kurs* can read *Deutschkurs*, and teaching
+    // it as a separate item spends a review on something they already have.
+    //
+    // So a compound resolves to its **head** — the last element, which carries the
+    // gender and the core meaning — but only when every element is itself known.
+    // That constraint is what keeps this honest: an unknown stem plus a known head
+    // stays unresolved, because *Bohrmaschine* is not readable from *Maschine*.
+    //
+    // Runs last so it can never outrank a real lemma, and is capped at two splits
+    // because three-element compounds that are not already covered are rare enough
+    // to be worth leaving visible.
+    const compound = splitCompound(lc, 0);
+    if (compound) return compound;
     return null;
   };
+
+  /** Linking elements German inserts between compound elements. */
+  const FUGEN = ['s', 'es', 'n', 'en', 'er', 'e', ''];
+  const MIN_ELEMENT = 4;
+
+  /** Resolve `lc` as a compound whose every element is known. Returns the head. */
+  function splitCompound(lc: string, depth: number): Word | null {
+    if (depth > 1 || lc.length < MIN_ELEMENT * 2) return null;
+    // Longest head first: prefer *Gruppen|ticket* over *Gruppenti|cket*.
+    for (let cut = lc.length - MIN_ELEMENT; cut >= MIN_ELEMENT; cut--) {
+      const head = index.get(lc.slice(cut));
+      // Only a noun head, and only a noun compound. Verb and adjective compounds
+      // change meaning far more freely (`umfahren` is two opposite verbs).
+      if (!head || head.pos !== 'noun') continue;
+      const front = lc.slice(0, cut);
+      for (const fuge of FUGEN) {
+        if (fuge && !front.endsWith(fuge)) continue;
+        const stem = fuge ? front.slice(0, -fuge.length) : front;
+        if (stem.length < MIN_ELEMENT) continue;
+        if (index.get(stem) || adjIndex.get(stem) || splitCompound(stem, depth + 1)) return head;
+      }
+    }
+    return null;
+  }
 
   const annotate = (text: string): Segment[] => {
     // Two passes, because a separable verb cannot be resolved from its own token:

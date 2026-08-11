@@ -201868,5 +201868,869 @@
     ],
     "field": "Town & travel",
     "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Blatt",
+    "term": "das Blatt",
+    "en": "sheet (of paper); leaf",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Blätter",
+    "ipa": "blat",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schreiben Sie bitte auf dieses Blatt.",
+        "en": "Please write on this sheet.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf meinem Blatt stehen fünf Aufgaben.",
+        "en": "There are five tasks on my sheet.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:genug",
+    "term": "genug",
+    "en": "enough",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈnuːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir haben genug Zeit.",
+        "en": "We have enough time.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist genug, danke.",
+        "en": "That is enough, thank you.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Gutschein",
+    "term": "der Gutschein",
+    "en": "voucher",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Gutscheine",
+    "ipa": "ˈɡuːtˌʃaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zum Geburtstag schenken wir ihr einen Gutschein.",
+        "en": "For her birthday we are giving her a voucher.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Gutschein gilt ein Jahr.",
+        "en": "The voucher is valid for one year.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Café",
+    "term": "das Café",
+    "en": "café",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "die Cafés",
+    "ipa": "kaˈfeː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir treffen uns im Café.",
+        "en": "We are meeting at the café.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Café gegenüber ist sehr gemütlich.",
+        "en": "The café opposite is very cosy.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Projekt",
+    "term": "das Projekt",
+    "en": "project",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Projekte",
+    "ipa": "pʁoˈjɛkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Projekt dauert drei Monate.",
+        "en": "The project lasts three months.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir arbeiten zusammen an einem Projekt.",
+        "en": "We are working on a project together.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Tennis",
+    "term": "das Tennis",
+    "en": "tennis",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈtɛnɪs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Samstag spiele ich Tennis.",
+        "en": "On Saturday I play tennis.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tennis ist bei uns sehr beliebt.",
+        "en": "Tennis is very popular where we live.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Kasten",
+    "term": "der Kasten",
+    "en": "box; crate",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈkastn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Wörter stehen im Kasten.",
+        "en": "The words are in the box.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Bring bitte einen Kasten Wasser mit.",
+        "en": "Please bring a crate of water.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Zustand",
+    "term": "der Zustand",
+    "en": "condition, state",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Zustände",
+    "ipa": "ˈt͡suːˌʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Fahrrad ist in gutem Zustand.",
+        "en": "The bike is in good condition.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Zustand der Wohnung war sehr schlecht.",
+        "en": "The condition of the flat was very bad.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Lust",
+    "term": "die Lust",
+    "en": "desire, inclination",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Lüste",
+    "ipa": "lʊst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe heute keine Lust auf Sport.",
+        "en": "I do not feel like doing sport today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Hast du Lust, ins Kino zu gehen?",
+        "en": "Do you feel like going to the cinema?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Rest",
+    "term": "der Rest",
+    "en": "rest, remainder",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Reste",
+    "ipa": "ʁɛst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Den Rest erkläre ich dir morgen.",
+        "en": "I will explain the rest to you tomorrow.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Rest der Gruppe wartet draußen.",
+        "en": "The rest of the group is waiting outside.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Geschirr",
+    "term": "das Geschirr",
+    "en": "crockery, dishes",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Geschirre",
+    "ipa": "ɡəˈʃɪʁ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich wasche das Geschirr ab.",
+        "en": "I am washing the dishes.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Geschirr steht schon auf dem Tisch.",
+        "en": "The crockery is already on the table.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Spielzeug",
+    "term": "das Spielzeug",
+    "en": "toy, toys",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Spielzeuge",
+    "ipa": "ˈʃpiːlˌt͡sɔɪ̯k",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Kinder räumen ihr Spielzeug auf.",
+        "en": "The children are tidying up their toys.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf dem Basar gibt es günstiges Spielzeug.",
+        "en": "There are cheap toys at the sale.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Papa",
+    "term": "der Papa",
+    "en": "dad",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Papas",
+    "ipa": "ˈpapa",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Papa holt mich um vier ab.",
+        "en": "My dad picks me up at four.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Papa, kannst du mir helfen?",
+        "en": "Dad, can you help me?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Nische",
+    "term": "die Nische",
+    "en": "niche, alcove",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Nischen",
+    "ipa": "ˈniːʃə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Nische steht ein kleines Regal.",
+        "en": "There is a small shelf in the alcove.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Nische ist nur achtzig Zentimeter breit.",
+        "en": "The alcove is only eighty centimetres wide.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Kriterium",
+    "term": "das Kriterium",
+    "en": "criterion",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Kriterien",
+    "ipa": "kʁiˈteːʁiʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das wichtigste Kriterium ist der Preis.",
+        "en": "The most important criterion is the price.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach welchem Kriterium haben Sie entschieden?",
+        "en": "By which criterion did you decide?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Rhythmus",
+    "term": "der Rhythmus",
+    "en": "rhythm",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Rhythmen",
+    "ipa": "ˈʁʏtmʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich mag diesen Rhythmus im Alltag.",
+        "en": "I like this rhythm in everyday life.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rhythmus der Musik ist sehr schnell.",
+        "en": "The rhythm of the music is very fast.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Ritual",
+    "term": "das Ritual",
+    "en": "ritual",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ʁituˈaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Sonntagsspaziergang ist bei uns ein Ritual.",
+        "en": "The Sunday walk is a ritual for us.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Jede Familie hat ihre eigenen Rituale.",
+        "en": "Every family has its own rituals.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Aufruf",
+    "term": "der Aufruf",
+    "en": "call, appeal",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Aufrufe",
+    "ipa": "ˈaʊ̯fˌʁuːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Letzter Aufruf für den Flug nach Wien.",
+        "en": "Last call for the flight to Vienna.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Aufruf stand in der Zeitung.",
+        "en": "The appeal was in the newspaper.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Rückmeldung",
+    "term": "die Rückmeldung",
+    "en": "feedback, reply",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Rückmeldungen",
+    "ipa": "ˈʁʏkˌmɛldʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Über eine kurze Rückmeldung würde ich mich freuen.",
+        "en": "I would be glad of a brief reply.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir warten noch auf Ihre Rückmeldung.",
+        "en": "We are still waiting for your reply.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Ausgleich",
+    "term": "der Ausgleich",
+    "en": "balance, counterbalance",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Ausgleiche",
+    "ipa": "ˈaʊ̯sˌɡlaɪ̯ç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sport ist für mich ein guter Ausgleich.",
+        "en": "Sport is a good counterbalance for me.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sucht einen Ausgleich zur Arbeit.",
+        "en": "She is looking for a counterbalance to work.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:reservieren",
+    "term": "reservieren",
+    "en": "to reserve, book",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʁezɛʁˈviːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich möchte einen Tisch reservieren.",
+        "en": "I would like to reserve a table.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir reservieren das Zimmer für zwei Nächte.",
+        "en": "We are booking the room for two nights.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:markieren",
+    "term": "markieren",
+    "en": "to mark",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "maʁˈkiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Markieren Sie bitte die richtige Lösung.",
+        "en": "Please mark the correct answer.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich markiere die wichtigen Wörter.",
+        "en": "I mark the important words.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:stimmen",
+    "term": "stimmen",
+    "en": "to be correct",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtɪmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir stimmen dem Vorschlag zu.",
+        "en": "We agree to the proposal.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Zahlen stimmen nicht.",
+        "en": "The figures are not correct.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:klappen",
+    "term": "klappen",
+    "en": "to work out",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈklapn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Leider hat es nicht geklappt.",
+        "en": "Unfortunately it did not work out.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hoffentlich klappt alles am Samstag.",
+        "en": "Hopefully everything works out on Saturday.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:mähen",
+    "term": "mähen",
+    "en": "to mow",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmɛːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Samstag mähe ich den Rasen.",
+        "en": "On Saturday I mow the lawn.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wer mäht bei euch den Garten?",
+        "en": "Who mows the garden at your place?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:eigen",
+    "term": "eigen",
+    "en": "own",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯ɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat eine eigene Wohnung.",
+        "en": "She has her own flat.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Jeder hat seine eigenen Gründe.",
+        "en": "Everyone has their own reasons.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:auffällig",
+    "term": "auffällig",
+    "en": "striking, noticeable",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌfɛlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auffällig ist vor allem der große Unterschied.",
+        "en": "What is striking above all is the big difference.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie trägt eine auffällige Jacke.",
+        "en": "She is wearing a striking jacket.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:berufstätig",
+    "term": "berufstätig",
+    "en": "working, in employment",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈʁuːfsˌtɛːtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Beide Eltern sind berufstätig.",
+        "en": "Both parents are in employment.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kurs ist für Berufstätige.",
+        "en": "The course is for people in employment.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:unverbindlich",
+    "term": "unverbindlich",
+    "en": "without obligation",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnfɛɐ̯bɪntlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Beratung ist kostenlos und unverbindlich.",
+        "en": "The consultation is free and without obligation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Fragen Sie unverbindlich nach dem Preis.",
+        "en": "Ask about the price without obligation.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:spontan",
+    "term": "spontan",
+    "en": "spontaneous, spontaneously",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃpɔnˈtaːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Spontan würde ich Ja sagen.",
+        "en": "Off the top of my head I would say yes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben ganz spontan entschieden.",
+        "en": "We decided quite spontaneously.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:örtlich",
+    "term": "örtlich",
+    "en": "local",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈœʁtlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Örtlich fällt morgen Regen.",
+        "en": "There will be rain locally tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die örtliche Zeitung berichtet darüber.",
+        "en": "The local newspaper is reporting on it.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Town & travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:seltener",
+    "term": "seltener",
+    "en": "more rarely",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɛltənɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seltener als früher gehe ich ins Kino.",
+        "en": "I go to the cinema more rarely than I used to.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Solche Fehler passieren jetzt seltener.",
+        "en": "Such mistakes happen more rarely now.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
   }
 ]

@@ -11,6 +11,46 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — every word in our own papers, and a conjugator bug 37 verbs wide
+
+"Make sure every word across the practice exams is in the corpus" is only
+enforceable if the set of exams is bounded. The published ones are not — and above
+B1 no board publishes a word list, because vocabulary there is open by design. The
+papers **we author** are bounded, and they are what a learner actually sits here.
+So `npm run corpus:papervocab` walks every German string in every Lexi paper and
+reports what the corpus cannot teach, and `paper-vocab.test.ts` holds the line in
+CI. **92.9% → 96.0% covered.**
+
+Most of the gap was not missing vocabulary. Four matcher defects were:
+
+- **Compounds.** German builds nouns by concatenation and the set is infinite —
+  *Deutschkurs*, *Gruppenticket*, *Besprechungsraum*. A compound now resolves to
+  its **head**, but only when every element is itself known: *Bohrmaschine* is not
+  readable from *Maschine*, so it stays a gap. Listing compounds as cards would be
+  the wrong answer anyway — a learner who knows *Deutsch* and *Kurs* already has
+  *Deutschkurs*, and teaching it separately spends a review on nothing.
+- **Separable verbs written as one word.** Every Nebensatz does this — *"…, wer
+  mitkommt"*, *"…, wenn der Zug ankommt"* — and the index only ever held the split
+  form, so most subordinate clauses in any real text resolved to nothing.
+- **Suppletive comparison.** `besser` and `besten` cannot be reached from `gut` by
+  stripping an ending. Six adjectives, listed.
+- **The tokeniser could not read `Café`.** A character class of the umlauts split
+  it into `Caf` and a stray `é`. `\p{L}` is the actual rule.
+
+**And a real bug in the conjugator, found because the authoring gate refused a
+card.** `stimmen` was rejected for an example containing *"Das stimmt"* — the
+verifier proves an example contains its headword, and it could not find one. The
+cause: `needsE` inserts the epenthetic *-e-* after a stem-final m/n preceded by a
+consonant (*atmen → du atmest*), and did not exclude a **geminate**. So `stimmen`
+conjugated to *stimmest / stimmet* — which are the Konjunktiv I forms — and every
+regular `-mm-`/`-nn-` verb lost its entire present tense. **37 cards.** The common
+ones hid it by being in the irregular table: *kommen*, *nennen* and *schwimmen*
+were all correct, which is why the reader probe never caught it.
+
+32 more cards authored through the verified path for the words that were genuinely
+missing — `das Blatt`, `genug`, `der Gutschein`, `das Café`, `das Projekt`,
+`der Zustand`, `die Lust`. 6,425 → 6,457.
+
 ### Shipped 2026-08-11 — 52 more grammar exercises, and a tool that only appends
 
 **835 → 887 exercises** across 13 points, weighted to where the bank was thinnest:

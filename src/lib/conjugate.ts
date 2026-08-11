@@ -196,6 +196,15 @@ function needsE(stem: string): boolean {
   if (/[mn]$/.test(stem)) {
     const a = stem[stem.length - 2];
     if (!a || VOWEL.includes(a) || a === 'l' || a === 'r') return false;
+    // A doubled m/n is not "a consonant before m/n" in the sense this rule means.
+    // The epenthetic -e- exists to make an unpronounceable cluster sayable —
+    // *atm-st*, *öffn-st*, *rechn-st* — and a geminate is already sayable:
+    // stimmen → du stimmst, gewinnen → er gewinnt, summen → es summt. Without
+    // this line `stimmen` conjugated to *stimmest / stimmet*, which are the
+    // Konjunktiv I forms, so every regular -mm-/-nn- verb in the corpus resolved
+    // its present tense to nothing. The common ones hid it by being in the
+    // irregular table: kommen, nennen and schwimmen were all correct.
+    if (a === stem[stem.length - 1]) return false;
     if (a === 'h') { const b = stem[stem.length - 3]; return !!b && !VOWEL.includes(b); }
     return true;
   }

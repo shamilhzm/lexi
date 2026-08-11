@@ -3028,6 +3028,20 @@
       }
     ]
   },
+  "voc:A1:das Café": {
+    "ex": [
+      {
+        "de": "Wir treffen uns im Café.",
+        "en": "We are meeting at the café.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Café gegenüber ist sehr gemütlich.",
+        "en": "The café opposite is very cosy.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Datum": {
     "defDe": "Angabe des Kalendertages",
     "ex": [
@@ -10061,6 +10075,20 @@
         "de": "Der Osten und der Westen entwickelten sich lange getrennt.",
         "en": "The East and the West developed separately for a long time.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:der Papa": {
+    "ex": [
+      {
+        "de": "Mein Papa holt mich um vier ab.",
+        "en": "My dad picks me up at four.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Papa, kannst du mir helfen?",
+        "en": "Dad, can you help me?",
+        "lvl": "A1"
       }
     ]
   },
@@ -19698,6 +19726,20 @@
       }
     ]
   },
+  "voc:A1:genug": {
+    "ex": [
+      {
+        "de": "Wir haben genug Zeit.",
+        "en": "We have enough time.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist genug, danke.",
+        "en": "That is enough, thank you.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:geradeaus": {
     "def": "straight ahead, straightforward (in a forward direction)",
     "ex": [
@@ -28608,6 +28650,20 @@
       }
     ]
   },
+  "voc:A2:das Blatt": {
+    "ex": [
+      {
+        "de": "Schreiben Sie bitte auf dieses Blatt.",
+        "en": "Please write on this sheet.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf meinem Blatt stehen fünf Aufgaben.",
+        "en": "There are five tasks on my sheet.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Blut": {
     "def": "The red fluid the heart pumps around the body.",
     "defDe": "dem Stoffwechsel dienende, im Körper zirkulierende rote Flüssigkeit",
@@ -29332,6 +29388,20 @@
         "de": "Der Streit ließ sich nicht klären und landete schließlich vor Gericht.",
         "en": "The dispute could not be resolved and finally ended up in court.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Geschirr": {
+    "ex": [
+      {
+        "de": "Ich wasche das Geschirr ab.",
+        "en": "I am washing the dishes.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Geschirr steht schon auf dem Tisch.",
+        "en": "The crockery is already on the table.",
+        "lvl": "A2"
       }
     ]
   },
@@ -30390,6 +30460,20 @@
       }
     ]
   },
+  "voc:A2:das Projekt": {
+    "ex": [
+      {
+        "de": "Das Projekt dauert drei Monate.",
+        "en": "The project lasts three months.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir arbeiten zusammen an einem Projekt.",
+        "en": "We are working on a project together.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Quiz": {
     "def": "A game or test of knowledge with questions.",
     "ex": [
@@ -30730,6 +30814,20 @@
       }
     ]
   },
+  "voc:A2:das Spielzeug": {
+    "ex": [
+      {
+        "de": "Die Kinder räumen ihr Spielzeug auf.",
+        "en": "The children are tidying up their toys.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf dem Basar gibt es günstiges Spielzeug.",
+        "en": "There are cheap toys at the sale.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Steak": {
     "def": "steak (slice of meat, chiefly beef)",
     "ex": [
@@ -30862,6 +30960,20 @@
         "de": "Im Tal war es deutlich wärmer als auf dem Gipfel.",
         "en": "In the valley it was noticeably warmer than on the summit.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Tennis": {
+    "ex": [
+      {
+        "de": "Am Samstag spiele ich Tennis.",
+        "en": "On Saturday I play tennis.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tennis ist bei uns sehr beliebt.",
+        "en": "Tennis is very popular where we live.",
+        "lvl": "A2"
       }
     ]
   },
@@ -33088,6 +33200,20 @@
       }
     ]
   },
+  "voc:A2:der Gutschein": {
+    "ex": [
+      {
+        "de": "Zum Geburtstag schenken wir ihr einen Gutschein.",
+        "en": "For her birthday we are giving her a voucher.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Gutschein gilt ein Jahr.",
+        "en": "The voucher is valid for one year.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Gymnastikkurs": {
     "def": "a course of physical exercises",
     "ex": [
@@ -33449,6 +33575,20 @@
       {
         "de": "Ein Karton fehlt noch.",
         "en": "One box is still missing.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Kasten": {
+    "ex": [
+      {
+        "de": "Die Wörter stehen im Kasten.",
+        "en": "The words are in the box.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Bring bitte einen Kasten Wasser mit.",
+        "en": "Please bring a crate of water.",
         "lvl": "A2"
       }
     ]
@@ -34857,6 +34997,20 @@
       {
         "de": "Tom ist kein Reporter.",
         "en": "Tom isn't a reporter.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Rest": {
+    "ex": [
+      {
+        "de": "Den Rest erkläre ich dir morgen.",
+        "en": "I will explain the rest to you tomorrow.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Rest der Gruppe wartet draußen.",
+        "en": "The rest of the group is waiting outside.",
         "lvl": "A2"
       }
     ]
@@ -40780,6 +40934,20 @@
       }
     ]
   },
+  "voc:A2:die Lust": {
+    "ex": [
+      {
+        "de": "Ich habe heute keine Lust auf Sport.",
+        "en": "I do not feel like doing sport today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Hast du Lust, ins Kino zu gehen?",
+        "en": "Do you feel like going to the cinema?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Mahlzeit": {
     "def": "The food eaten at one time, such as breakfast, lunch, or dinner.",
     "ex": [
@@ -44739,6 +44907,20 @@
       }
     ]
   },
+  "voc:A2:eigen": {
+    "ex": [
+      {
+        "de": "Sie hat eine eigene Wohnung.",
+        "en": "She has her own flat.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Jeder hat seine eigenen Gründe.",
+        "en": "Everyone has their own reasons.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:eigentlich": {
     "def": "Used to frame a statement as being a more (formally) truthful description of the situation in comparison to another claim or assumption",
     "ex": [
@@ -47546,6 +47728,20 @@
       }
     ]
   },
+  "voc:A2:markieren": {
+    "ex": [
+      {
+        "de": "Markieren Sie bitte die richtige Lösung.",
+        "en": "Please mark the correct answer.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich markiere die wichtigen Wörter.",
+        "en": "I mark the important words.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:medizinisch": {
     "def": "Relating to medicine and the treatment of illness.",
     "ex": [
@@ -48704,6 +48900,20 @@
         "de": "Reiselustige Rentner erkunden heute die ganze Welt.",
         "en": "Travel-loving pensioners explore the whole world today.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:reservieren": {
+    "ex": [
+      {
+        "de": "Ich möchte einen Tisch reservieren.",
+        "en": "I would like to reserve a table.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir reservieren das Zimmer für zwei Nächte.",
+        "en": "We are booking the room for two nights.",
+        "lvl": "A2"
       }
     ]
   },
@@ -50214,6 +50424,20 @@
       {
         "de": "Halt still!",
         "en": "Keep still.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:stimmen": {
+    "ex": [
+      {
+        "de": "Wir stimmen dem Vorschlag zu.",
+        "en": "We agree to the proposal.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Zahlen stimmen nicht.",
+        "en": "The figures are not correct.",
         "lvl": "A2"
       }
     ]
@@ -55488,6 +55712,20 @@
         "de": "Beruflich erfolgreich zu sein bedeutet nicht automatisch, erfüllt zu sein.",
         "en": "Being professionally successful doesn’t automatically mean being fulfilled.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:berufstätig": {
+    "ex": [
+      {
+        "de": "Beide Eltern sind berufstätig.",
+        "en": "Both parents are in employment.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kurs ist für Berufstätige.",
+        "en": "The course is for people in employment.",
+        "lvl": "B1"
       }
     ]
   },
@@ -60873,6 +61111,20 @@
         "de": "„Nach ihrem mehrmonatigen Aufenthalt in Lausanne macht sich die Familie auf nach Wien.“",
         "en": "„After their stay of several months in Lausanne, the family sets off for Vienna.“",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Aufruf": {
+    "ex": [
+      {
+        "de": "Letzter Aufruf für den Flug nach Wien.",
+        "en": "Last call for the flight to Vienna.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Aufruf stand in der Zeitung.",
+        "en": "The appeal was in the newspaper.",
+        "lvl": "B1"
       }
     ]
   },
@@ -67273,6 +67525,20 @@
         "de": "Für das Gepäck fällt ein kleiner Zuschlag an.",
         "en": "There is a small surcharge for the luggage.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Zustand": {
+    "ex": [
+      {
+        "de": "Das Fahrrad ist in gutem Zustand.",
+        "en": "The bike is in good condition.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Zustand der Wohnung war sehr schlecht.",
+        "en": "The condition of the flat was very bad.",
+        "lvl": "B1"
       }
     ]
   },
@@ -75821,6 +76087,20 @@
       }
     ]
   },
+  "voc:B1:die Rückmeldung": {
+    "ex": [
+      {
+        "de": "Über eine kurze Rückmeldung würde ich mich freuen.",
+        "en": "I would be glad of a brief reply.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir warten noch auf Ihre Rückmeldung.",
+        "en": "We are still waiting for your reply.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Rücksicht": {
     "def": "care not to disturb or hurt other people",
     "ex": [
@@ -83226,6 +83506,20 @@
       }
     ]
   },
+  "voc:B1:klappen": {
+    "ex": [
+      {
+        "de": "Leider hat es nicht geklappt.",
+        "en": "Unfortunately it did not work out.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hoffentlich klappt alles am Samstag.",
+        "en": "Hopefully everything works out on Saturday.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:klingen": {
     "def": "to ring; to clink; to sound",
     "ex": [
@@ -84192,6 +84486,20 @@
       {
         "de": "Tom ist mächtig.",
         "en": "Tom is powerful.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:mähen": {
+    "ex": [
+      {
+        "de": "Am Samstag mähe ich den Rasen.",
+        "en": "On Saturday I mow the lawn.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wer mäht bei euch den Garten?",
+        "en": "Who mows the garden at your place?",
         "lvl": "B1"
       }
     ]
@@ -85948,6 +86256,20 @@
         "de": "Vieles, was wir für selbstverständlich halten, ist hart erkämpft.",
         "en": "Much of what we take for granted was hard-won.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:seltener": {
+    "ex": [
+      {
+        "de": "Seltener als früher gehe ich ins Kino.",
+        "en": "I go to the cinema more rarely than I used to.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Solche Fehler passieren jetzt seltener.",
+        "en": "Such mistakes happen more rarely now.",
+        "lvl": "B1"
       }
     ]
   },
@@ -91721,6 +92043,20 @@
       }
     ]
   },
+  "voc:B2:auffällig": {
+    "ex": [
+      {
+        "de": "Auffällig ist vor allem der große Unterschied.",
+        "en": "What is striking above all is the big difference.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie trägt eine auffällige Jacke.",
+        "en": "She is wearing a striking jacket.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:aufgewühlt": {
     "def": "Emotionally stirred up and restless.",
     "ex": [
@@ -93016,6 +93352,20 @@
       }
     ]
   },
+  "voc:B2:das Kriterium": {
+    "ex": [
+      {
+        "de": "Das wichtigste Kriterium ist der Preis.",
+        "en": "The most important criterion is the price.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach welchem Kriterium haben Sie entschieden?",
+        "en": "By which criterion did you decide?",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Kulturgut": {
     "defDe": "Werk oder Errungenschaft, das/die innerhalb einer Kultur einen Wert hat und deshalb bewahrt wird",
     "ex": [
@@ -93217,6 +93567,20 @@
       {
         "de": "Wo wird das Raumschiff aufsetzen?",
         "en": "Where will the spaceship touch down?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Ritual": {
+    "ex": [
+      {
+        "de": "Der Sonntagsspaziergang ist bei uns ein Ritual.",
+        "en": "The Sunday walk is a ritual for us.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Jede Familie hat ihre eigenen Rituale.",
+        "en": "Every family has its own rituals.",
         "lvl": "B2"
       }
     ]
@@ -93657,6 +94021,20 @@
       {
         "de": "Der Aufwand steht in keinem Verhältnis zum Nutzen.",
         "en": "The effort is out of all proportion to the benefit.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Ausgleich": {
+    "ex": [
+      {
+        "de": "Sport ist für mich ein guter Ausgleich.",
+        "en": "Sport is a good counterbalance for me.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sucht einen Ausgleich zur Arbeit.",
+        "en": "She is looking for a counterbalance to work.",
         "lvl": "B2"
       }
     ]
@@ -94737,6 +95115,20 @@
       {
         "de": "Ich brauche einen Rettungswagen.",
         "en": "I need an ambulance.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Rhythmus": {
+    "ex": [
+      {
+        "de": "Ich mag diesen Rhythmus im Alltag.",
+        "en": "I like this rhythm in everyday life.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rhythmus der Musik ist sehr schnell.",
+        "en": "The rhythm of the music is very fast.",
         "lvl": "B2"
       }
     ]
@@ -98042,6 +98434,20 @@
       {
         "de": "Kinder lernen vor allem aus Neugier.",
         "en": "Children learn above all out of curiosity.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Nische": {
+    "ex": [
+      {
+        "de": "In der Nische steht ein kleines Regal.",
+        "en": "There is a small shelf in the alcove.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Nische ist nur achtzig Zentimeter breit.",
+        "en": "The alcove is only eighty centimetres wide.",
         "lvl": "B2"
       }
     ]
@@ -102671,6 +103077,20 @@
       }
     ]
   },
+  "voc:B2:spontan": {
+    "ex": [
+      {
+        "de": "Spontan würde ich Ja sagen.",
+        "en": "Off the top of my head I would say yes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben ganz spontan entschieden.",
+        "en": "We decided quite spontaneously.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:sprengen": {
     "def": "to blow up, to blast; to sprinkle",
     "ex": [
@@ -103082,6 +103502,20 @@
       {
         "de": "Bestellt doch unterdessen ein Taxi!",
         "en": "Call a taxi in the meantime.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:unverbindlich": {
+    "ex": [
+      {
+        "de": "Die Beratung ist kostenlos und unverbindlich.",
+        "en": "The consultation is free and without obligation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Fragen Sie unverbindlich nach dem Preis.",
+        "en": "Ask about the price without obligation.",
         "lvl": "B2"
       }
     ]
@@ -104197,6 +104631,20 @@
       {
         "de": "Es war äußerst kalt.",
         "en": "It was extremely cold.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:örtlich": {
+    "ex": [
+      {
+        "de": "Örtlich fällt morgen Regen.",
+        "en": "There will be rain locally tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die örtliche Zeitung berichtet darüber.",
+        "en": "The local newspaper is reporting on it.",
         "lvl": "B2"
       }
     ]
