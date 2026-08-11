@@ -43,6 +43,11 @@ export interface Attempt {
    *  `responses` would be equivalent today and would silently rewrite history the
    *  first time a key is corrected. */
   score?: { written: number; oral: number; total: number };
+  /** Per-strand share of that strand's maximum, 0..1, frozen with the score.
+   *  This is what the readiness read consumes: it is the only evidence the app
+   *  has about reading, listening, writing and speaking, and recomputing it would
+   *  need the paper loaded on a screen that may never load one. */
+  strands?: Record<string, number>;
 }
 
 interface Store { current: Attempt | null; past: Attempt[] }
@@ -96,6 +101,64 @@ export function bestTotal(paperId: string): number | null {
   return scored.length ? Math.max(...scored) : null;
 }
 
+/** Best measured value per strand across every sitting at this level, including
+ *  one still in progress. Strands improve independently — a learner who fixed
+ *  their listening in a later sitting should not have it averaged back down by
+ *  the first — so this is a per-strand max rather than "the best sitting". */
+export function bestStrands(paperId?: string): Record<string, number> {
+  const out: Record<string, number> = {};
+  const all = [...history(paperId), ...(current() ? [current()!] : [])];
+  for (const a of all) {
+    if (paperId && a.paperId !== paperId) continue;
+    for (const [k, v] of Object.entries(a.strands ?? {})) {
+      if (typeof v === 'number' && (out[k] == null || v > out[k])) out[k] = v;
+    }
+  }
+  return out;
+}
+
+// ---- the target ------------------------------------------------------------
+// What the learner is aiming at. Level is required (it scopes every test in the
+// room); the date is optional, because plenty of people are working towards B1
+// without having booked anything, and the app should still be able to say how
+// ready they are.
+export interface Target { level: string; date?: string | null }
+const TARGET_KEY = 'lexi.exam.target.v1';
+
+export function target(): Target | null {
+  try { return JSON.parse(localStorage.getItem(TARGET_KEY) || 'null') as Target | null; }
+  catch { return null; }
+}
+
+export function setTarget(t: Target | null): void {
+  try {
+    if (t) localStorage.setItem(TARGET_KEY, JSON.stringify(t));
+    else localStorage.removeItem(TARGET_KEY);
+  } catch { /* quota */ }
+  emit();
+}
+
+// ---- quiz results ----------------------------------------------------------
+// Deliberately thinner than a sitting: a quiz is a five-minute check, not a
+// record, so only the last and best score per preset are kept. Enough to show
+// movement, not enough to become a second history nobody asked for.
+export interface QuizResult { preset: string; level: string; correct: number; total: number; at: number }
+const QUIZ_KEY = 'lexi.quiz.v1';
+
+export function quizResults(): Record<string, QuizResult> {
+  try { return JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}') as Record<string, QuizResult>; }
+  catch { return {}; }
+}
+
+export function recordQuiz(r: QuizResult): void {
+  const all = quizResults();
+  const key = `${r.preset}:${r.level}`;
+  const prev = all[key];
+  if (!prev || r.correct / r.total >= prev.correct / prev.total) all[key] = r;
+  try { localStorage.setItem(QUIZ_KEY, JSON.stringify(all)); } catch { /* quota */ }
+  emit();
+}
+
 // ---- writes ----------------------------------------------------------------
 
 export function start(paperId: string, mode: Mode): Attempt {
@@ -136,8 +199,9 @@ export function setSpeakingMarks(teil: 1 | 2 | 3, m: SpeakingMarks): void {
 /** Hand the paper in: keys become visible, the sheet becomes read-only, and the
  *  score is frozen (see `Attempt.score`). The sitting stays current so the
  *  result and the review survive a reload. */
-export function submit(score: { written: number; oral: number; total: number }): void {
-  patch((a) => ({ ...a, submitted: true, score }));
+export function submit(score: { written: number; oral: number; total: number },
+                       strands?: Record<string, number>): void {
+  patch((a) => ({ ...a, submitted: true, score, ...(strands ? { strands } : {}) }));
 }
 
 /** Leave for good and file the sitting in the history. */

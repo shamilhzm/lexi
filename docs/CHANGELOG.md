@@ -11,6 +11,47 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — Tests: a quiz engine at every level, and a path to a pass
+
+The exam surface shipped as one authored telc B1 paper, which shaped the whole
+room around a 150-minute commitment at a single level. Two things were wrong with
+that: a learner with twenty minutes could not use it at all, and A1, A2, B2, C1 and
+C2 got an empty shelf and an apology.
+
+- **`lib/quiz.ts` — five generated test kinds**, built from the corpus and the
+  grammar bank rather than authored: German→English, English→German, der/die/das,
+  a cloze made by blanking a headword in its own example sentence, and the
+  multiple-choice half of the grammar bank. **Every level is testable today.** An
+  authored paper is now the deep end rather than the only end.
+- **Deterministic from a seed.** "Dieselben Fragen" replays the *same* twelve
+  questions, which is what makes a second run a measurement rather than a
+  different, possibly easier, quiz. It is also what lets the tests assert real
+  behaviour instead of "it returned five things".
+- **The quiz is a loop, the paper is a sheet**, and the difference is deliberate.
+  A paper shows every item and marks nothing until you hand in, because that is
+  the skill being rehearsed. A quiz answers immediately and moves on. Blurring them
+  would give you a paper that spoils itself and a quiz that makes you wait.
+- **`lib/readiness.ts` — the path.** Six strands (Wortschatz, Grammatik,
+  Leseverstehen, Hörverstehen, Schreiben, Sprechen), a ranked list of what to do
+  next, and an optional exam date. Each action carries its reason and is a link:
+  a weak oral goes to the scripts, a weak Sprachbausteine to the context quiz, a
+  repeated blind spot to that grammar concept.
+- **Preparation and performance are two numbers and are never averaged.**
+  Preparation is what FSRS knows about the level's material; performance is what a
+  sitting measured. Blending them would let a learner with 90% preparation and no
+  measured listening believe they were ready. **An unmeasured strand renders as a
+  dash, not a zero** — "nobody has checked" and "you are bad at this" are different
+  facts, and only one of them is true before you sit anything.
+- The room now defaults to the learner's own level rather than to B1, remembers
+  the target, and reports quiz scores against the same 60% both telc and Goethe
+  pass at rather than inventing a friendlier line.
+
+**One bug worth recording:** the readiness memo keyed only on its props, so it kept
+its first-paint answer — and first paint happens before IndexedDB has hydrated,
+which rendered a fully-studied learner at 0%. The store version has to be a
+dependency, not just a subscription. That is the pattern the other views already
+follow; this one had to relearn it.
+
 ### Shipped 2026-08-11 — 599 duplicate cards retired, and the matcher got better for free
 
 **7,394 → 6,795 cards.** 516 groups where the same word existed two or three times

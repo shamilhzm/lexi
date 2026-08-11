@@ -24,7 +24,14 @@ import SpeakingView from './exam/Speaking.tsx';
 import WritingView from './exam/Writing.tsx';
 import Results from './exam/Results.tsx';
 import Rich from './exam/Rich.tsx';
+import Quiz from './exam/Quiz.tsx';
 import { stopTrack } from '../lib/exam-audio.ts';
+import { PRESETS, buildQuiz, type QuizPreset } from '../lib/quiz.ts';
+import { PASS_MARK, readiness, type Action, type Readiness } from '../lib/readiness.ts';
+import { loadGrammar, type GrammarByLevel } from '../lib/grammar.ts';
+import { WORDS } from '../data/index.ts';
+import { levelStats, missStats, pointStats, studyLevel } from '../store.ts';
+import { useStore } from '../useStore.ts';
 import * as ex from '../lib/exam-store.ts';
 import {
   PAPERS, loadPaper, papersFor, scoreExam,
@@ -36,51 +43,113 @@ function useExam(): number {
   return useSyncExternalStore(ex.subscribeExam, ex.examVersion, ex.examVersion);
 }
 
-export default function Exam({ onExit, onGrammar }: { onExit: () => void; onGrammar: () => void }) {
+export default function Exam({ onExit, onGrammar, onSession }: {
+  onExit: () => void; onGrammar: () => void; onSession: () => void;
+}) {
   useExam();
   const attempt = ex.current();
   useEffect(() => () => stopTrack(), []);
   if (attempt) return <Runner attempt={attempt} onExit={onExit} onGrammar={onGrammar} />;
-  return <Room onGrammar={onGrammar} />;
+  return <Room onGrammar={onGrammar} onSession={onSession} />;
 }
 
 // ---- the room --------------------------------------------------------------
+// Three things, in the order a learner needs them: where am I, a short test I
+// can take now, and the full paper when I have two hours. The level tabs drive
+// all three — the quizzes are generated from the corpus and the grammar bank, so
+// every level has tests whether or not anyone has authored a paper for it.
 
-function Room({ onGrammar }: { onGrammar: () => void }) {
-  const [level, setLevel] = useState<CEFR>('B1');
+function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () => void }) {
+  useStore();
+  const saved = ex.target();
+  const [level, setLevel] = useState<CEFR>((saved?.level as CEFR) ?? studyLevel());
   const [lab, setLab] = useState<string | null>(null);
+  const [quiz, setQuiz] = useState<{ preset: QuizPreset; seed: number } | null>(null);
+  const [bank, setBank] = useState<GrammarByLevel | null>(null);
   const papers = papersFor(level);
 
+  useEffect(() => { loadGrammar().then(setBank).catch(() => { /* quizzes degrade */ }); }, []);
+  useEffect(() => { ex.setTarget({ level, date: saved?.date ?? null }); }, [level]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const items = useMemo(() => {
+    if (!quiz) return [];
+    return buildQuiz({ level, n: quiz.preset.n, kinds: quiz.preset.kinds, seed: quiz.seed },
+      { words: WORDS, grammar: bank });
+  }, [quiz, level, bank]);
+
   if (lab) return <SpeakingLab paperId={lab} onExit={() => setLab(null)} />;
+  if (quiz) {
+    return (
+      <Quiz preset={quiz.preset} items={items} level={level}
+        onExit={() => setQuiz(null)}
+        onRetry={() => setQuiz({ ...quiz })}
+        onNew={() => setQuiz({ preset: quiz.preset, seed: Math.floor(Math.random() * 1e9) })} />
+    );
+  }
+
+  const go = (a: Action) => {
+    if (a.to.kind === 'quiz') {
+      const { preset } = a.to;
+      const p = PRESETS.find((x) => x.key === preset);
+      if (p) setQuiz({ preset: p, seed: Math.floor(Math.random() * 1e9) });
+    } else if (a.to.kind === 'paper') { const m = papers[0]; if (m) ex.start(m.id, 'practice'); }
+    else if (a.to.kind === 'speaking') { const m = papers[0] ?? PAPERS[0]; if (m) setLab(m.id); }
+    else if (a.to.kind === 'grammar') onGrammar();
+    else onSession();
+  };
 
   return (
     <div className="w-full max-w-[820px] mx-auto">
-      <h1 className="text-xl sm:text-2xl font-bold mb-1">Exam practice</h1>
+      <h1 className="text-xl sm:text-2xl font-bold mb-1">Tests</h1>
       <p className="text-dim text-xs mb-4 leading-relaxed">
-        A full certificate paper in the real format, the real weighting and the real clock — with the
-        answer keys explained, and the oral rehearsed against worked answers at three levels.
+        Where you stand at a level, short tests you can take now, and the full certificate paper
+        when you have the afternoon.
       </p>
 
       <div className="flex flex-wrap gap-1.5 mb-4">
-        {ALL_LEVELS.map((l) => {
-          const n = papersFor(l).length;
+        {ALL_LEVELS.map((l) => (
+          <button key={l} onClick={() => setLevel(l)} aria-pressed={level === l}
+            className={`tap-44 rounded-md border px-3 py-2 font-mono text-sm font-bold transition-colors
+              ${level === l ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
+            {l}
+          </button>
+        ))}
+      </div>
+
+      <ReadinessCard level={level} bank={bank} paperId={papers[0]?.id} onAction={go} />
+
+      <Kicker tone="accent" className="block mt-6 mb-2">Kurze Tests · 3–5 Minuten</Kicker>
+      <p className="text-2xs text-dim mb-2.5 leading-relaxed">
+        Generated from your own vocabulary and the grammar bank, so they work at every level.
+        Answer, find out immediately, move on.
+      </p>
+      <div className="grid sm:grid-cols-2 gap-2">
+        {PRESETS.map((p) => {
+          const best = ex.quizResults()[`${p.key}:${level}`];
           return (
-            <button key={l} onClick={() => setLevel(l)} aria-pressed={level === l}
-              className={`tap-44 rounded-md border px-3 py-2 font-mono text-sm font-bold transition-colors
-                ${level === l ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
-              {l}
-              <span className="ml-1.5 text-2xs opacity-70">{n || '–'}</span>
-            </button>
+            <Card as="button" key={p.key} nested pad="none"
+              onClick={() => setQuiz({ preset: p, seed: Math.floor(Math.random() * 1e9) })}
+              className="tap-44 w-full px-3 py-2.5 text-left hover:border-amber transition-colors">
+              <span className="flex items-center gap-2 flex-wrap">
+                <span className="text-sm font-semibold">{p.label}</span>
+                <Chip tone="dim">{p.n} · {p.minutes} min</Chip>
+                {best && <Chip tone={best.correct / best.total >= 0.6 ? 'good' : 'bad'}>
+                  best {Math.round(100 * best.correct / best.total)}%
+                </Chip>}
+              </span>
+              <span className="block text-2xs text-dim leading-relaxed mt-1">{p.blurb}</span>
+            </Card>
           );
         })}
       </div>
 
+      <Kicker tone="accent" className="block mt-6 mb-2">Vollständige Prüfung</Kicker>
       {papers.length === 0 ? (
-        <Card pad="md" className="mb-4">
+        <Card pad="md">
           <p className="text-sm leading-relaxed">
-            No {level} paper yet. B1 came first because it is the most-taken certificate in the category
-            and the one that gates residence and apprenticeships; the rest follow the same structure and
-            the same scoring engine, so adding one is authoring, not building.
+            No authored {level} paper yet — B1 came first because it is the most-taken certificate in
+            the category. The short tests above are generated and already cover {level}; a paper adds
+            the parts a generator cannot fake, which is timing, reading passages and the oral.
           </p>
         </Card>
       ) : papers.map((meta) => {
@@ -122,6 +191,124 @@ function Room({ onGrammar }: { onGrammar: () => void }) {
 
       <History onGrammar={onGrammar} />
     </div>
+  );
+}
+
+
+// ---- the path --------------------------------------------------------------
+
+/** Two numbers and a ranked list. See lib/readiness.ts for why preparation and
+ *  performance are never averaged into one reassuring percentage. */
+function ReadinessCard({ level, bank, paperId, onAction }: {
+  level: CEFR; bank: GrammarByLevel | null; paperId?: string; onAction: (a: Action) => void;
+}) {
+  // The store version has to be a dependency below, not just a subscription:
+  // `levelStats()` and `pointStats()` read module state, so a memo keyed only on
+  // the props keeps its first-paint answer forever — and first paint happens
+  // before IndexedDB has hydrated, which renders a fully-studied learner at 0%.
+  const v = useStore();
+  const saved = ex.target();
+  const [editingDate, setEditingDate] = useState(false);
+
+  const r: Readiness = useMemo(() => {
+    // Cumulative: a certificate tests everything up to its level, not the band.
+    const upTo = ALL_LEVELS.slice(0, ALL_LEVELS.indexOf(level) + 1);
+    const stats = levelStats().filter((s) => upTo.includes(s.level));
+    const vocab = stats.reduce((a, s) => ({ known: a.known + s.known, count: a.count + s.count }), { known: 0, count: 0 });
+
+    let grammar: number | null = null;
+    if (bank) {
+      const points = upTo.flatMap((l) => (bank[l] ?? []).map((p) => pointStats(l, p.title, p.exercises.length)));
+      grammar = points.length ? points.reduce((a, p) => a + p.mastery, 0) / points.length : null;
+    }
+
+    return readiness({
+      level, vocab, grammar,
+      measured: ex.bestStrands(paperId),
+      blindSpots: missStats(30).map((m) => ({ tag: m.tag, count: m.count })),
+      examDate: saved?.date ?? null,
+    });
+  }, [level, bank, paperId, saved?.date, v]);
+
+  return (
+    <Card pad="md">
+      <div className="flex flex-wrap items-start gap-x-6 gap-y-3 mb-4">
+        <div>
+          <Kicker tone="accent" className="block mb-1">Vorbereitung</Kicker>
+          <p className="text-3xl font-bold tabular-nums">{Math.round(r.preparation * 100)}<span className="text-dim text-lg font-normal">%</span></p>
+          <p className="text-2xs text-dim">of {level} material consolidated</p>
+        </div>
+        <div>
+          <Kicker className="block mb-1">Gemessen</Kicker>
+          {r.performance == null ? (
+            <>
+              <p className="text-3xl font-bold text-dim">—</p>
+              <p className="text-2xs text-dim">never tested</p>
+            </>
+          ) : (
+            <>
+              <p className={`text-3xl font-bold tabular-nums ${r.performance >= PASS_MARK ? 'text-green' : 'text-red-txt'}`}>
+                {Math.round(r.performance * 100)}<span className="text-dim text-lg font-normal">%</span>
+              </p>
+              <p className="text-2xs text-dim">best sitting</p>
+            </>
+          )}
+        </div>
+        <span className="flex-1" />
+        <div className="text-right">
+          <Kicker className="block mb-1">Prüfungstermin</Kicker>
+          {editingDate || !saved?.date ? (
+            <input
+              type="date" defaultValue={saved?.date ?? ''}
+              onChange={(e) => { ex.setTarget({ level, date: e.target.value || null }); setEditingDate(false); }}
+              className="tap-44 rounded-md border border-line bg-panel2 px-2 py-1.5 text-sm" />
+          ) : (
+            <button onClick={() => setEditingDate(true)} className="tap-44 text-right">
+              <span className="block text-lg font-bold tabular-nums">
+                {r.daysLeft != null && r.daysLeft >= 0 ? `${r.daysLeft} Tage` : 'vorbei'}
+              </span>
+              <span className="block text-2xs text-dim">{saved.date}</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* The two productive strands sit beside the receptive ones deliberately:
+          an unmeasured strand shows a dash, not a zero, because "nobody checked"
+          and "you are bad at this" are different facts. */}
+      <div className="grid sm:grid-cols-2 gap-x-5 gap-y-1.5 mb-4">
+        {r.strands.map((s) => (
+          <div key={s.key} className="flex items-center gap-2.5" title={s.basis}>
+            <span className="text-xs w-32 flex-shrink-0 truncate">{s.label}</span>
+            <span className="flex-1 h-1.5 rounded-full bg-bg overflow-hidden">
+              {s.score != null && (
+                <span className="block h-full transition-[width] duration-500"
+                  style={{ width: `${Math.max(s.score * 100, 2)}%`,
+                    background: s.score >= PASS_MARK ? 'var(--color-green)' : 'var(--color-red)' }} />
+              )}
+            </span>
+            <span className="font-mono text-2xs tabular-nums w-8 text-right text-dim">
+              {s.score == null ? '—' : `${Math.round(s.score * 100)}%`}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <Kicker tone="accent" className="block mb-2">Was als Nächstes</Kicker>
+      <div className="space-y-1.5">
+        {r.actions.slice(0, 3).map((a, i) => (
+          <button key={i} onClick={() => onAction(a)}
+            className="tap-44 w-full flex items-start gap-2.5 rounded-md border border-line bg-panel2 px-3 py-2.5 text-left hover:border-amber transition-colors">
+            <span className="grid place-items-center w-5 h-5 rounded-full bg-panel font-mono text-2xs font-bold flex-shrink-0 mt-0.5">{i + 1}</span>
+            <span className="flex-1 min-w-0">
+              <span className="block text-sm font-semibold">{a.label}</span>
+              <span className="block text-2xs text-dim leading-relaxed mt-0.5">{a.why}</span>
+            </span>
+            <ArrowRight size={14} className="text-dim flex-shrink-0 mt-1" />
+          </button>
+        ))}
+      </div>
+    </Card>
   );
 }
 
@@ -252,7 +439,19 @@ function Runner({ attempt, onExit, onGrammar }: {
 
   const hand = () => {
     if (!result) return;
-    ex.submit({ written: result.written, oral: result.oral, total: result.total });
+    // Freeze the per-strand shares alongside the score. This is the only evidence
+    // the readiness read has about reading, listening, writing and speaking, and
+    // recomputing it later would need the paper loaded on a screen that never
+    // loads one. Writing and speaking are omitted until self-assessed, so an
+    // unmarked letter reads as "not measured" rather than as a zero.
+    const strands: Record<string, number> = {};
+    for (const k of ['reading', 'language', 'listening', 'writing', 'speaking'] as const) {
+      const { points, max } = result.bySubtest[k];
+      if (!max) continue;
+      if ((k === 'writing' && !attempt.writing) || (k === 'speaking' && !attempt.speaking)) continue;
+      strands[k] = points / max;
+    }
+    ex.submit({ written: result.written, oral: result.oral, total: result.total }, strands);
     setIx(screens.findIndex((s) => s.kind === 'results'));
   };
   const leave = () => {

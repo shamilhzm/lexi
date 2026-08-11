@@ -257,7 +257,7 @@ export default function App() {
                 {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} />}
                 {view === 'exam' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
-                    <Exam onExit={() => go('library')} onGrammar={() => go('library')} />
+                    <Exam onExit={() => go('library')} onGrammar={() => go('library')} onSession={startSession} />
                   </Suspense>
                 )}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}
