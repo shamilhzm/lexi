@@ -730,6 +730,15 @@ load size still acceptable.
   audible. Phase 2 is the *mode*: a listen-first card where the prompt is the sound.
 
 **Platform and reach.**
+- **`ID_MAP` is on the boot path and grows without bound · XS–S.** Noticed
+  2026-08-11: the two corpus passes that day took it from 159 entries to 920, and
+  the main JS bundle from 694 KB to 719 KB — it is imported by `store.ts`, so every
+  learner downloads every id the corpus has ever retired, forever. It is also
+  append-only by design (that is what makes a schedule survive), so this only goes
+  one way. *Do:* move it to a fetched JSON beside `freq.json`, or compact it once
+  the app can be sure no live device still holds a pre-compaction schedule — which
+  needs a stored schema version, so probably the former.
+
 - **Performance budget · M · P2** (#49). `vocab.json` is ~5MB and the build warns above
   500kB (currently 630kB JS). Awwwards jurors test on real devices; so do learners on
   3G. Split the corpus by level and fetch on demand.
