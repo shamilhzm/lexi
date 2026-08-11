@@ -8096,7 +8096,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:der Gegensatz",
+    "id": "voc:A2:der Gegensatz",
     "lemma": "Gegensatz",
     "level": "B1",
     "levelSource": "reference",
@@ -16115,7 +16115,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Gegenstand",
+    "id": "voc:A2:der Gegenstand",
     "lemma": "Gegenstand",
     "level": "B2",
     "levelSource": "reference",
@@ -16522,7 +16522,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:der Verbraucher",
+    "id": "voc:B1:der Verbraucher",
     "lemma": "Verbraucher",
     "level": "B2",
     "levelSource": "reference",
@@ -19129,7 +19129,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:lächerlich",
+    "id": "voc:B1:lächerlich",
     "lemma": "lächerlich",
     "level": "B2",
     "levelSource": "reference",
@@ -19569,7 +19569,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:tätig",
+    "id": "voc:B1:tätig",
     "lemma": "tätig",
     "level": "B2",
     "levelSource": "reference",
@@ -20559,7 +20559,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:das Heimatland",
+    "id": "voc:B1:das Heimatland",
     "lemma": "Heimatland",
     "level": "C1",
     "levelSource": "reference",

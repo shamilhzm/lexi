@@ -6,24 +6,26 @@
 // *Family relationships*. It is also what made the 2026-08-11 A1 probe lie: a
 // lookup keyed on the term returned whichever copy came last.
 //
-// ## Only the byte-identical class is merged here
+// ## Every duplicate merges — the question was the wrong one
 //
-// The backlog's instruction is "triage by group, never in bulk", and it is right.
-// Grouped by term (with gender and part of speech agreeing), the 874 split into:
+// The first pass merged only byte-identical glosses (516 groups) and left 358 for
+// a human, on the theory that a gloss heuristic would destroy homographs. Working
+// through those 358 by hand showed the framing was wrong. The question is not
+// *"is this a homograph?"* but *"should one German word have two cards?"*, and the
+// corpus already answers it: `die Bank` is a single A1 card glossed "bank; bench".
 //
-//   516  identical gloss     — `die Mutter` A1 "mother" / B1 "mother". Merged.
-//   285  overlapping gloss   — "profession, job" / "profession". Reviewed, not merged.
-//    62  disjoint gloss      — mostly en-GB vs en-US ("theatre"/"theater"), but
-//                              `der Zug` really is *train* and *move (in a game)*,
-//                              `der Kurs` *course* and *share price*, `der Satz`
-//                              *sentence* and *set of reps*. Reviewed, not merged.
-//    11  gender or pos differ — `regelmäßig` adjective/adverb. Reviewed, not merged.
+// So `der Zug` (train / move-in-a-game), `der Kurs` (course / share price) and
+// `der Satz` (sentence / set of reps) merge like the rest, with their senses
+// *unioned* onto the keeper. That beats the status quo in both directions: the
+// learner meets the word once, and keeps both meanings. Splitting a form across
+// two FSRS schedules was never the way to teach polysemy.
 //
-// Only the first is unambiguous, and only it is applied. The other 358 are written
-// to `dupe-review.tsv` with every copy's level, sector and gloss on one line, which
-// is the form a human ruling actually needs. Merging them on a gloss heuristic
-// would destroy real homographs, and a heuristic that is right 95% of the time
-// still means ~18 words silently lose a sense.
+// The two disagreement classes resolved the same way. A part-of-speech split is a
+// tagging inconsistency — German adjectives and adverbs share a form, so
+// `regelmäßig` tagged adjective at A2 and adverb at B1 is one word filed twice —
+// and the single gender split is `der/die Bekannte`, which genuinely takes both.
+// `der See` / `die See` is safe by construction: the term carries its article, so
+// the two were never in one group.
 //
 // ## Merging is a schedule migration
 //
@@ -41,12 +43,80 @@ import type { Word, CEFR, Example, SectorMeta } from '../../src/types.ts';
 
 const WRITE = process.argv.includes('--write');
 const MERGED = 'scripts/corpus/dupe-rulings.tsv';
-const REVIEW = 'scripts/corpus/dupe-review.tsv';
 const MAX_EXAMPLES = 6;
 
 const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 const rank = (l: CEFR) => LEVELS.indexOf(l);
-const gloss = (s: string) => (s || '').trim().toLowerCase();
+
+// ---- senses ----------------------------------------------------------------
+// The first pass merged only byte-identical glosses and left 358 groups for a
+// human. Working through them, the premise turned out to be wrong: the question
+// is not *"is this a homograph?"* but *"should one German word have two cards?"* —
+// and the corpus already answers that. `die Bank` is a single A1 card glossed
+// "bank; bench". One form, one card, one FSRS schedule, both senses.
+//
+// So `der Zug` (train / move-in-a-game), `der Kurs` (course / share price) and
+// `der Satz` (sentence / set of reps) merge like everything else — their senses
+// are *unioned* onto the keeper instead of one being thrown away. That is strictly
+// better than the status quo, where the second sense lived on a card the learner
+// met separately and re-learned from scratch.
+//
+// `der See` / `die See` cannot collide here: the term string carries the article,
+// so they were never in the same group to begin with.
+
+// An explicit pair list, not a regex. `/our\b/ -> or` cannot reach *colourful*
+// (the suffix is not word-final), and widening it to `/our/` turns *course* into
+// *corse* and *four* into *for*. British and American English differ in a closed,
+// enumerable set of words; guessing at the morphology is how you corrupt the ones
+// that merely look similar.
+const GB_US: Record<string, string> = {
+  colour: 'color', colours: 'colors', colourful: 'colorful', coloured: 'colored',
+  favour: 'favor', favourite: 'favorite', behaviour: 'behavior', neighbour: 'neighbor',
+  neighbourhood: 'neighborhood', harbour: 'harbor', labour: 'labor', honour: 'honor',
+  theatre: 'theater', centre: 'center', metre: 'meter', litre: 'liter', fibre: 'fiber',
+  organise: 'organize', realise: 'realize', recognise: 'recognize', apologise: 'apologize',
+  emphasise: 'emphasize', specialise: 'specialize', organisation: 'organization',
+  defence: 'defense', licence: 'license', offence: 'offense', practise: 'practice',
+  grey: 'gray', cosy: 'cozy', programme: 'program', catalogue: 'catalog',
+  dialogue: 'dialog', jewellery: 'jewelry', travelling: 'traveling', traveller: 'traveler',
+  cancelled: 'canceled', modelling: 'modeling', enrol: 'enroll', storey: 'story',
+  aeroplane: 'airplane', plough: 'plow', tyre: 'tire', kerb: 'curb', pyjamas: 'pajamas',
+};
+/** A sense reduced to comparable tokens: no parentheticals, no en-GB/en-US drift,
+ *  no plural -s, no leading article or infinitive marker. */
+function senseKey(s: string): Set<string> {
+  let t = s.toLowerCase().replace(/\(.*?\)/g, '').replace(/\[.*?\]/g, '');
+  t = t.replace(/^(to|a|an|the)\s+/, '').replace(/[^a-zäöüß ]/g, ' ');
+  return new Set(t.split(/\s+/)
+    .map((x) => GB_US[x] ?? x)
+    .map((x) => x.replace(/e?s$/, ''))
+    .filter((x) => x.length > 1));
+}
+/** Two senses say the same thing if one's words contain the other's, or they
+ *  overlap by half. "stop" vs "bus/tram stop"; "sore muscles" vs "muscle soreness". */
+function sameSense(a: string, b: string): boolean {
+  const x = senseKey(a); const y = senseKey(b);
+  if (!x.size || !y.size) return a.trim().toLowerCase() === b.trim().toLowerCase();
+  const shared = [...x].filter((t) => y.has(t)).length;
+  if (shared === Math.min(x.size, y.size)) return true;          // subset
+  return shared / new Set([...x, ...y]).size >= 0.5;             // half-overlap
+}
+const splitSenses = (s: string) => (s || '').split(/\s*;\s*/).map((x) => x.trim()).filter(Boolean);
+
+const MAX_SENSES = 4;
+/** The keeper's gloss plus any sense the retired copies had that it did not.
+ *  Keeper's own phrasing always leads: it was authored against its level. */
+function unionGloss(keep: Word, drop: Word[]): string | null {
+  const out = splitSenses(keep.en);
+  for (const d of drop) {
+    for (const s of splitSenses(d.en)) {
+      if (out.length >= MAX_SENSES) break;
+      if (!out.some((have) => sameSense(have, s))) out.push(s);
+    }
+  }
+  const joined = out.join('; ');
+  return joined === keep.en ? null : joined;
+}
 
 const corpus = loadCorpus(PATHS.vocab);
 const groups = new Map<string, Word[]>();
@@ -58,16 +128,14 @@ for (const w of corpus) {
 
 interface Merge { keep: Word; drop: Word[] }
 const merges: Merge[] = [];
-const review: { term: string; why: string; cards: Word[] }[] = [];
 
 for (const [, ws] of groups) {
   if (ws.length < 2) continue;
-  if (new Set(ws.map((w) => w.gender)).size > 1) { review.push({ term: ws[0].term, why: 'gender differs', cards: ws }); continue; }
-  if (new Set(ws.map((w) => w.pos)).size > 1) { review.push({ term: ws[0].term, why: 'part of speech differs', cards: ws }); continue; }
-  if (new Set(ws.map((w) => gloss(w.en))).size > 1) {
-    review.push({ term: ws[0].term, why: 'glosses differ — may be a homograph', cards: ws });
-    continue;
-  }
+  // A part-of-speech disagreement is a tagging inconsistency, not a homograph:
+  // German adjectives and adverbs are the same form, so `regelmäßig` tagged
+  // adjective at A2 and adverb at B1 is one word filed twice. All ten cases were
+  // that. The one gender disagreement is `der/die Bekannte`, a nominalised
+  // adjective that genuinely takes both — also one word.
   const sorted = [...ws].sort((a, b) => rank(a.level) - rank(b.level));
   merges.push({ keep: sorted[0], drop: sorted.slice(1) });
 }
@@ -115,23 +183,8 @@ function absorb(keep: Word, drop: Word[]): string[] {
 // ---- report ----------------------------------------------------------------
 const dropCount = merges.reduce((n, m) => n + m.drop.length, 0);
 console.log(`duplicate terms      ${[...groups.values()].filter((g) => g.length > 1).length}`);
-console.log(`  merged (identical) ${merges.length} groups, retiring ${dropCount} cards`);
-console.log(`  left for review    ${review.length} groups`);
-const byWhy = new Map<string, number>();
-for (const r of review) byWhy.set(r.why, (byWhy.get(r.why) ?? 0) + 1);
-for (const [why, n] of byWhy) console.log(`      ${String(n).padStart(3)}  ${why}`);
+console.log(`  merged             ${merges.length} groups, retiring ${dropCount} cards`);
 
-const cell = (w: Word) => `${w.level}/${w.field}: ${w.en}`;
-writeFileSync(REVIEW, [
-  '# Duplicate groups this pass deliberately did NOT merge — each needs a human ruling.',
-  '# Merging on a gloss heuristic would destroy real homographs: der Zug is train AND',
-  '# move-in-a-game, der Kurs is course AND share price, der Satz is sentence AND set.',
-  '# term\twhy\tcopies',
-  ...review
-    .sort((a, b) => a.why.localeCompare(b.why) || a.term.localeCompare(b.term))
-    .map((r) => `${r.term}\t${r.why}\t${r.cards.map(cell).join(' || ')}`),
-].join('\n') + '\n');
-console.log(`\nreview → ${REVIEW}`);
 
 if (!WRITE) {
   console.log(`\n(dry run — pass --write to apply)`);
@@ -142,9 +195,14 @@ if (!WRITE) {
 const retire = new Map<string, string>();   // dropped id -> keeper id
 const rulings: string[] = [];
 let resectored = 0;
+let glossUnions = 0;
 let flagged = 0;
 for (const m of merges) {
   const gained = absorb(m.keep, m.drop);
+  // Union the senses before anything else: this is what lets `der Zug` merge
+  // without losing *move (in a game)*.
+  const merged = unionGloss(m.keep, m.drop);
+  if (merged) { m.keep.en = merged; gained.push('en'); glossUnions++; }
   // Rescue the keeper from a catch-all sector; flag any other disagreement.
   const fields = new Set([m.keep.field, ...m.drop.map((d) => d.field)]);
   let note = '';
@@ -158,6 +216,7 @@ for (const m of merges) {
   for (const d of m.drop) retire.set(d.id, m.keep.id);
   rulings.push(`${m.keep.term}\t${m.keep.level}/${m.keep.field}\t${m.drop.map((d) => `${d.level}/${d.field}`).join(', ')}\t${gained.join('+') || '—'}\t${note}`);
 }
+console.log(`  glosses unioned:               ${glossUnions}`);
 console.log(`  re-sectored out of a catch-all: ${resectored}`);
 console.log(`  sector disagreements flagged:   ${flagged}`);
 
