@@ -14,6 +14,7 @@ import {
   type Part, type WritingMarks,
 } from './exam.ts';
 import { PAPER } from '../data/exams/telc-b1-01.ts';
+import { PAPER as A1 } from '../data/exams/goethe-a1-01.ts';
 
 const marks = (o: Partial<WritingMarks> = {}): WritingMarks => ({
   leitpunkte: 'A', gestaltung: 'A', richtigkeit: 'A', extraRange: false, extraLength: false, ...o,
@@ -201,7 +202,7 @@ describe('the B1 paper itself', () => {
       if (p.kind !== 'tf') continue;
       expect(p.statements.map((s) => s.n), p.id).toEqual(p.items.map((i) => i.n));
       expect(p.items.every((i) => i.answer === 'r' || i.answer === 'f'), p.id).toBe(true);
-      expect(p.tracks.every((t) => t.lines.length > 0), p.id).toBe(true);
+      expect(p.audio?.tracks.every((t) => t.lines.length > 0), p.id).toBe(true);
     }
   });
 
@@ -253,5 +254,103 @@ describe('cloze markers', () => {
   it('splits a body into alternating text and gap numbers', () => {
     expect(clozeSegments('a [[7]] b')).toEqual(['a ', 7, ' b']);
     expect(clozeSegments('no gaps')).toEqual(['no gaps']);
+  });
+});
+
+
+// ---- every paper, not just the first one -----------------------------------
+// The B1 suite above pins telc's arithmetic. These are the guarantees that must
+// hold for *any* paper the app can load, and they exist because the second paper
+// is what proved the engine was not as general as it claimed: Goethe A1 is
+// multiple-choice-over-audio and true/false-over-a-sign, neither of which the
+// telc-shaped model could express.
+
+describe.each([['telc B1', PAPER], ['Goethe A1', A1]])('%s — structural integrity', (_name, paper) => {
+  it('numbers its items consecutively with no gaps or repeats', () => {
+    const ns = paper.parts.flatMap((p) => p.items.map((i) => i.n)).sort((a, b) => a - b);
+    expect(ns).toEqual(Array.from({ length: ns.length }, (_, i) => i + ns[0]));
+  });
+
+  it('keys every item to an option that actually exists', () => {
+    for (const p of paper.parts) {
+      for (const it of p.items) {
+        expect(optionKeys(p, it.n), `${p.id} item ${it.n} (key "${it.answer}")`).toContain(it.answer);
+      }
+    }
+  });
+
+  it('explains every item', () => {
+    for (const p of paper.parts) {
+      for (const it of p.items) expect(it.why, `${p.id} item ${it.n}`).toBeTruthy();
+    }
+  });
+
+  it('gives every question and statement exactly one item, and vice versa', () => {
+    for (const p of paper.parts) {
+      const itemNs = p.items.map((i) => i.n);
+      if (p.kind === 'mc') expect(p.questions.map((q) => q.n), p.id).toEqual(itemNs);
+      if (p.kind === 'tf') expect(p.statements.map((q) => q.n), p.id).toEqual(itemNs);
+      if (p.kind === 'match') expect(p.texts.map((t) => t.n), p.id).toEqual(itemNs);
+      if (p.kind === 'ads') expect(p.situations.map((t) => t.n), p.id).toEqual(itemNs);
+    }
+  });
+
+  it('carries a stimulus for every part — heard, read, or per-question', () => {
+    for (const p of paper.parts) {
+      if (p.kind === 'mc') {
+        const has = !!p.passage || !!p.audio || p.questions.every((q) => q.stimulus?.length);
+        expect(has, `${p.id} has nothing to read or hear`).toBe(true);
+      }
+      if (p.kind === 'tf') {
+        expect(!!p.audio || !!p.texts?.length, `${p.id} has nothing to read or hear`).toBe(true);
+      }
+      if (p.kind === 'tf' && p.audio) {
+        expect(p.audio.tracks.every((t) => t.lines.length > 0), p.id).toBe(true);
+      }
+    }
+  });
+
+  it('scores a perfect sheet at exactly the objective maximum', () => {
+    const scheme = paper.scheme ?? MAX;
+    const all = Object.fromEntries(paper.parts.flatMap((p) => p.items.map((i) => [i.n, i.answer])));
+    const r = scoreExam(paper, { responses: all });
+    for (const sub of ['reading', 'language', 'listening'] as const) {
+      const authored = paper.parts.some((p) => p.subtest === sub);
+      if (authored) expect(Math.round(r.bySubtest[sub].points), `${sub}`).toBe(scheme[sub]);
+    }
+  });
+
+  it('offers three graded models for every speaking prompt and for the letter', () => {
+    for (const t of paper.speaking) {
+      for (const pr of t.prompts) {
+        expect(pr.models, pr.id).toHaveLength(3);
+        expect(pr.models.every((m) => m.lines.length > 0), pr.id).toBe(true);
+      }
+    }
+    expect(paper.writing.models).toHaveLength(3);
+  });
+
+  it('lists every part exactly once across its timed blocks', () => {
+    const listed = paper.blocks.flatMap((b) => b.partIds).sort();
+    expect(listed).toEqual(paper.parts.map((p) => p.id).sort());
+  });
+});
+
+describe('Goethe A1 scoring differs from telc B1, and the scheme travels with the paper', () => {
+  it('scales four skills of 25 to 100', () => {
+    const s = A1.scheme!;
+    expect(s.total).toBe(100);
+    expect(s.reading + s.listening + s.writing + s.speaking).toBe(100);
+  });
+
+  it('has no separate floor on the oral — unlike telc B1', () => {
+    expect(A1.scheme!.pass.oral).toBe(0);
+    expect(PASS.oral).toBe(45);
+  });
+
+  it('grades on its own bands', () => {
+    expect(noteFor(95, true, true, A1.scheme!)).toBe('sehr gut');
+    expect(noteFor(60, true, true, A1.scheme!)).toBe('ausreichend');
+    expect(noteFor(59, true, true, A1.scheme!)).toBe('nicht bestanden');
   });
 });

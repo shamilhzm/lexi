@@ -14,6 +14,7 @@ import Chip from '../../components/ui/Chip.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
 import { speak } from '../../lib/tts.ts';
 import { scoreWriting, type Band, type Model, type WritingMarks, type WritingTask } from '../../lib/exam.ts';
+import type { CEFR } from '../../types.ts';
 import { CriterionRow, WRITING_CRITERIA } from './SelfAssess.tsx';
 
 export default function Writing({ task, letter, onLetter, marks, onMarks, locked }: {
@@ -135,10 +136,13 @@ export default function Writing({ task, letter, onLetter, marks, onMarks, locked
   );
 }
 
-const BAND_TONE: Record<Model['band'], string> = {
+const BAND_TONE: Record<CEFR, string> = {
+  A1: 'var(--color-a1)',
   A2: 'var(--color-green)',
   B1: 'var(--color-amber)',
   B2: 'var(--color-b2)',
+  C1: 'var(--color-c1)',
+  C2: 'var(--color-c2)',
 };
 
 function ModelLetter({ model }: { model: Model }) {

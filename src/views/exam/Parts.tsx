@@ -11,11 +11,11 @@
 // Nothing in between — a paper that turns a chip green as you tap it is not a
 // practice exam, it is a quiz.
 import { useEffect, useRef, useState } from 'react';
-import { Check, Ear, Loader2, Pause, Play, Volume2, X } from 'lucide-react';
+import { Check, Ear, Pause, Play, Volume2, X } from 'lucide-react';
 import Card from '../../components/ui/Card.tsx';
 import Button from '../../components/ui/Button.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
-import { clozeSegments, type AdsPart, type ClozePart, type MatchPart, type McPart, type Part, type Responses, type TfPart } from '../../lib/exam.ts';
+import { clozeSegments, type AdsPart, type AudioBlock, type ClozePart, type MatchPart, type McPart, type Part, type Responses, type TfPart } from '../../lib/exam.ts';
 import { audioAvailable, playTrack, stopTrack } from '../../lib/exam-audio.ts';
 import Rich from './Rich.tsx';
 
@@ -183,17 +183,20 @@ function MatchView({ part, responses, onAnswer, reveal, locked }: PartProps & { 
 function McView({ part, responses, onAnswer, reveal, locked }: PartProps & { part: McPart }) {
   return (
     <>
-      <Card pad="md" className="mb-4">
-        <h3 className="text-xl font-bold mb-1">{part.passage.title}</h3>
-        {part.passage.standfirst && (
-          <p className="text-sm text-dim mb-3 leading-relaxed">{part.passage.standfirst}</p>
-        )}
-        <div className="space-y-3">
-          {part.passage.paras.map((p, i) => (
-            <p key={i} className="text-sm leading-relaxed">{p}</p>
-          ))}
-        </div>
-      </Card>
+      {part.audio && <AudioBar audio={part.audio} reveal={reveal} />}
+      {part.passage && (
+        <Card pad="md" className="mb-4">
+          <h3 className="text-xl font-bold mb-1">{part.passage.title}</h3>
+          {part.passage.standfirst && (
+            <p className="text-sm text-dim mb-3 leading-relaxed">{part.passage.standfirst}</p>
+          )}
+          <div className="space-y-3">
+            {part.passage.paras.map((p, i) => (
+              <p key={i} className="text-sm leading-relaxed">{p}</p>
+            ))}
+          </div>
+        </Card>
+      )}
 
       <div className="space-y-3">
         {part.questions.map((q) => {
@@ -204,6 +207,16 @@ function McView({ part, responses, onAnswer, reveal, locked }: PartProps & { par
               <p className="text-sm font-semibold mb-2.5">
                 <span className="font-mono text-dim mr-2">{q.n}.</span>{q.stem}
               </p>
+              {q.stimulus && (
+                <div className="grid sm:grid-cols-2 gap-2 mb-2.5">
+                  {q.stimulus.map((st) => (
+                    <Card key={st.label} tone="sunken" pad="sm">
+                      <Kicker tone="accent" className="block mb-1">{st.label}</Kicker>
+                      <p className="text-xs leading-relaxed whitespace-pre-line">{st.body}</p>
+                    </Card>
+                  ))}
+                </div>
+              )}
               <div className="space-y-1.5">
                 {q.options.map((o) => (
                   <OptionRow key={o.k} opt={o} picked={given === o.k} isKey={reveal && o.k === item.answer}
@@ -376,70 +389,108 @@ function GapChip({ n, shown }: { n: number; shown?: string }) {
   );
 }
 
-// ---- Hörverstehen ----------------------------------------------------------
+// ---- true/false, heard or read ---------------------------------------------
 
-function TfView({ part, responses, onAnswer, reveal, locked }: PartProps & { part: TfPart }) {
-  // telc's playback count is a rule, not a suggestion: Teil 1 is heard once, and
-  // a practice run that lets you replay it has quietly removed the hardest thing
-  // about the part. So `plays` is enforced — until the keys are out, after which
-  // replaying is the whole point.
+/** The playback controls. Lifted out of the listening view when Goethe A1 landed
+ *  a *multiple-choice* listening part: the transport is the same, the item shape
+ *  is not, so it belongs to neither. */
+function AudioBar({ audio, reveal }: { audio: AudioBlock; reveal: boolean }) {
+  // The exam's playback count is a rule, not a suggestion: a part heard once in
+  // the hall and twice here has quietly removed the hardest thing about it.
   const [played, setPlayed] = useState(0);
   const [busy, setBusy] = useState(false);
   const [slow, setSlow] = useState(false);
-  const [showScript, setShowScript] = useState(false);
   const live = useRef(true);
   useEffect(() => { live.current = true; return () => { live.current = false; stopTrack(); }; }, []);
 
   const lines = [
-    ...(part.intro ? [{ text: part.intro }] : []),
-    ...part.tracks.flatMap((t) => t.lines.map((l) => ({ text: l.text }))),
+    ...(audio.intro ? [{ text: audio.intro }] : []),
+    ...audio.tracks.flatMap((t) => t.lines.map((l) => ({ text: l.text }))),
   ];
-  const canPlay = audioAvailable() && (reveal || played < part.plays) && !busy;
-
+  const canPlay = audioAvailable() && (reveal || played < audio.plays) && !busy;
   const play = () => {
     setBusy(true);
     if (!reveal) setPlayed((p) => p + 1);
     playTrack(lines, slow ? 0.75 : 1, () => { if (live.current) setBusy(false); });
   };
-  const stop = () => { stopTrack(); setBusy(false); };
 
   return (
-    <>
-      <Card pad="sm" className="mb-4">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Ear size={18} /></span>
-          <div className="flex-1 min-w-[10rem]">
-            <p className="text-sm font-semibold">
-              {part.plays === 1 ? 'Sie hören diesen Teil nur einmal.' : 'Sie hören diesen Teil zweimal.'}
-            </p>
-            <p className="text-2xs text-dim font-mono">
-              {reveal ? 'Replay as often as you like' : `${Math.max(part.plays - played, 0)} of ${part.plays} plays left`}
-            </p>
-          </div>
-          {busy
-            ? <Button variant="secondary" size="sm" onClick={stop}><Pause size={14} /> Stop</Button>
-            : <Button size="sm" onClick={play} disabled={!canPlay}>
-                {busy ? <Loader2 size={14} className="animate-spin" /> : <Play size={14} />}
-                {played === 0 ? 'Abspielen' : 'Noch einmal'}
-              </Button>}
-          <button
-            onClick={() => setSlow((s) => !s)}
-            aria-pressed={slow}
-            className={`tap-44 rounded-md border px-3 py-2 text-xs font-semibold transition-colors
-              ${slow ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
-            <Volume2 size={13} className="inline mr-1" />langsam
-          </button>
-        </div>
-        {!audioAvailable() && (
-          <p className="text-xs text-red-txt mt-2">
-            This device has no speech synthesis. Read the script below instead — the items still work.
+    <Card pad="sm" className="mb-4">
+      <div className="flex flex-wrap items-center gap-2.5">
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Ear size={18} /></span>
+        <div className="flex-1 min-w-[10rem]">
+          <p className="text-sm font-semibold">
+            {audio.plays === 1 ? 'Sie hören diesen Teil nur einmal.' : 'Sie hören diesen Teil zweimal.'}
           </p>
-        )}
-        <p className="text-2xs text-dim mt-2 leading-relaxed">
-          One synthetic voice reads every speaker. The real exam uses several voices, background noise
-          and natural hesitation, so treat a comfortable score here as a floor rather than a forecast.
+          <p className="text-2xs text-dim font-mono">
+            {reveal ? 'Replay as often as you like' : `${Math.max(audio.plays - played, 0)} of ${audio.plays} plays left`}
+          </p>
+        </div>
+        {busy
+          ? <Button variant="secondary" size="sm" onClick={() => { stopTrack(); setBusy(false); }}><Pause size={14} /> Stop</Button>
+          : <Button size="sm" onClick={play} disabled={!canPlay}>
+              <Play size={14} />{played === 0 ? 'Abspielen' : 'Noch einmal'}
+            </Button>}
+        <button onClick={() => setSlow((v) => !v)} aria-pressed={slow}
+          className={`tap-44 rounded-md border px-3 py-2 text-xs font-semibold transition-colors
+            ${slow ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
+          <Volume2 size={13} className="inline mr-1" />langsam
+        </button>
+      </div>
+      {!audioAvailable() && (
+        <p className="text-xs text-red-txt mt-2">
+          This device has no speech synthesis. Read the script after checking — the items still work.
         </p>
-      </Card>
+      )}
+      <p className="text-2xs text-dim mt-2 leading-relaxed">
+        One synthetic voice reads every speaker. The real exam uses several voices, background noise
+        and natural hesitation, so treat a comfortable score here as a floor rather than a forecast.
+      </p>
+    </Card>
+  );
+}
+
+/** The script, revealed only once the keys are out — same reason the playback
+ *  count is enforced. */
+function Script({ audio }: { audio: AudioBlock }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="mt-4">
+      <Button variant="quiet" size="sm" onClick={() => setOpen((o) => !o)}>
+        {open ? 'Hörtext ausblenden' : 'Hörtext anzeigen'}
+      </Button>
+      {open && (
+        <Card tone="sunken" pad="sm" className="mt-2.5 space-y-3">
+          {audio.intro && <p className="text-xs text-dim italic">{audio.intro}</p>}
+          {audio.tracks.map((t, ti) => (
+            <div key={ti}>
+              <Kicker tone="accent" className="block mb-1">{t.n ? `${t.n} · ${t.label}` : t.label}</Kicker>
+              <div className="space-y-1.5">
+                {t.lines.map((l, li) => (
+                  <p key={li} className="text-sm leading-relaxed">
+                    {l.who && <span className="font-mono text-2xs text-dim mr-2">{l.who}</span>}
+                    {l.text}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </Card>
+      )}
+    </div>
+  );
+}
+
+function TfView({ part, responses, onAnswer, reveal, locked }: PartProps & { part: TfPart }) {
+  return (
+    <>
+      {part.audio && <AudioBar audio={part.audio} reveal={reveal} />}
+      {part.texts?.map((t, i) => (
+        <Card key={i} pad="md" className="mb-3">
+          {t.label && <Kicker tone="accent" className="block mb-1.5">{t.label}</Kicker>}
+          <p className="text-sm leading-relaxed whitespace-pre-line">{t.body}</p>
+        </Card>
+      ))}
 
       <div className="space-y-2.5">
         {part.statements.map((s) => {
@@ -476,35 +527,7 @@ function TfView({ part, responses, onAnswer, reveal, locked }: PartProps & { par
         })}
       </div>
 
-      {/* The script is the teaching material, and it is locked until the keys
-          are out for exactly the reason the playback count is enforced. */}
-      {reveal && (
-        <div className="mt-4">
-          <Button variant="quiet" size="sm" onClick={() => setShowScript((s) => !s)}>
-            {showScript ? 'Hörtext ausblenden' : 'Hörtext anzeigen'}
-          </Button>
-          {showScript && (
-            <Card tone="sunken" pad="sm" className="mt-2.5 space-y-3">
-              {part.intro && <p className="text-xs text-dim italic">{part.intro}</p>}
-              {part.tracks.map((t, ti) => (
-                <div key={ti}>
-                  <Kicker tone="accent" className="block mb-1">
-                    {t.n ? `${t.n} · ${t.label}` : t.label}
-                  </Kicker>
-                  <div className="space-y-1.5">
-                    {t.lines.map((l, li) => (
-                      <p key={li} className="text-sm leading-relaxed">
-                        {l.who && <span className="font-mono text-2xs text-dim mr-2">{l.who}</span>}
-                        {l.text}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </Card>
-          )}
-        </div>
-      )}
+      {reveal && part.audio && <Script audio={part.audio} />}
     </>
   );
 }

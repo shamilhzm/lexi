@@ -471,6 +471,9 @@ function Runner({ attempt, onExit, onGrammar }: {
   const block = 'block' in screen ? screen.block : null;
   const answered = paper.parts.reduce((n, p) =>
     n + p.items.filter((i) => attempt.responses[i.n]).length, 0);
+  // Not 60. telc B1 has sixty objective items and Goethe A1 has thirty, and the
+  // counter was quietly asserting the former on both.
+  const itemCount = paper.parts.reduce((n, p) => n + p.items.length, 0);
 
   return (
     <div className="w-full max-w-[820px] mx-auto">
@@ -481,7 +484,7 @@ function Runner({ attempt, onExit, onGrammar }: {
         <span className="flex-1 min-w-0">
           <span className="block text-sm font-bold truncate">{paper.title}</span>
           <span className="block font-mono text-2xs text-dim">
-            {attempt.mode === 'exam' ? 'PRÜFUNGSMODUS' : 'ÜBUNGSMODUS'} · {answered}/60 beantwortet
+            {attempt.mode === 'exam' ? 'PRÜFUNGSMODUS' : 'ÜBUNGSMODUS'} · {answered}/{itemCount} beantwortet
           </span>
         </span>
         {block && <BlockClock key={block} paper={paper} attempt={attempt} block={block} />}
@@ -559,8 +562,12 @@ function Runner({ attempt, onExit, onGrammar }: {
   );
 }
 
-const shortName = (p: Part) =>
-  p.subtest === 'reading' ? 'LV' : p.subtest === 'language' ? 'SB' : 'HV';
+/** The stepper's two-or-three-letter tag. Derived from the part's own label so a
+ *  Goethe paper reads "Hören 1" rather than telc's "HV 1". */
+const shortName = (p: Part) => {
+  const word = p.label.split(/[,\s]/)[0];
+  return word.length <= 6 ? word : word.slice(0, 4) + '.';
+};
 
 /** One part of the sheet, plus the practice-mode "check this Teil" control. */
 function PartScreen({ paper, attempt, part, submitted }: {
@@ -678,7 +685,14 @@ function Brief({ paper, mode }: { paper: ExamPaper; mode: ex.Mode }) {
           ))}
           <div className="flex items-baseline gap-3 text-sm">
             <span className="font-mono text-dim tabular-nums w-16 flex-shrink-0">~15 min</span>
-            <span className="flex-1">Mündliche Prüfung <span className="text-dim">(paarweise, 20 Minuten Vorbereitung davor)</span></span>
+            <span className="flex-1">
+              Mündliche Prüfung{' '}
+              <span className="text-dim">
+                {paper.provider === 'goethe' && paper.level === 'A1'
+                  ? '(in der Gruppe, ohne Vorbereitungszeit)'
+                  : '(paarweise, 20 Minuten Vorbereitung davor)'}
+              </span>
+            </span>
           </div>
         </div>
       </Card>

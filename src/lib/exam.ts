@@ -70,11 +70,35 @@ export interface MatchPart extends PartBase {
   texts: { n: number; body: string }[];
 }
 
-/** Teil 2 reading: one article, five three-way multiple-choice questions. */
+/** Multiple choice over something you read or hear.
+ *
+ *  Generalised past telc B1's "one article, five questions" when the Goethe A1
+ *  paper landed: A1's Hören Teil 1 and 3 are three-way multiple choice over short
+ *  *dialogues*, and its Lesen Teil 2 is a two-way choice between a pair of small
+ *  adverts. Same item shape, three different stimuli — so the stimulus is
+ *  optional and independent rather than baked in.
+ *
+ *  Exactly one of `passage`, `audio` or per-question `stimulus` carries the text. */
 export interface McPart extends PartBase {
   kind: 'mc';
-  passage: { title: string; standfirst?: string; paras: string[] };
-  questions: { n: number; stem: string; options: Opt[] }[];
+  passage?: { title: string; standfirst?: string; paras: string[] };
+  /** Present when the stimulus is heard rather than read. */
+  audio?: AudioBlock;
+  questions: {
+    n: number;
+    stem: string;
+    options: Opt[];
+    /** A per-item stimulus — the pair of adverts in Goethe A1 Lesen Teil 2. */
+    stimulus?: { label: string; body: string }[];
+  }[];
+}
+
+/** A track set, heard a fixed number of times. Shared by the listening parts. */
+export interface AudioBlock {
+  plays: 1 | 2;
+  intro?: string;
+  /** One block per track: separate short texts, or a single long conversation. */
+  tracks: { n?: number; label: string; lines: { who?: string; text: string }[] }[];
 }
 
 /** Teil 3 reading: ten situations, twelve adverts, each usable once — and one
@@ -100,15 +124,16 @@ export interface ClozePart extends PartBase {
   bank?: Opt[];
 }
 
-/** Hörverstehen. No recording ships, so the script is spoken by the app's German
- *  voice. `plays` is telc's own count for that Teil and is enforced. */
+/** Richtig/Falsch. Heard when `audio` is present — no recording ships, so the
+ *  script is spoken by the app's German voice and `plays` is the exam's own count,
+ *  enforced. Read when it is absent: Goethe A1's Lesen Teil 1 and 3 are the same
+ *  item shape over emails and public notices. */
 export interface TfPart extends PartBase {
   kind: 'tf';
   intro: string;
-  plays: 1 | 2;
-  /** One block per audio track: Teil 1 and 3 are five separate short texts,
-   *  Teil 2 is a single long conversation. */
-  tracks: { n?: number; label: string; lines: { who?: string; text: string }[] }[];
+  audio?: AudioBlock;
+  /** The read stimulus, when there is no audio. */
+  texts?: { label?: string; body: string }[];
   statements: { n: number; text: string }[];
 }
 
@@ -117,7 +142,10 @@ export type Part = MatchPart | McPart | AdsPart | ClozePart | TfPart;
 /** A worked answer at one strength. Three per prompt: the safe one, the one that
  *  passes, and the one that pulls the mark up. */
 export interface Model {
-  band: 'A2' | 'B1' | 'B2';
+  /** The *language* level of this version of the answer, not a mark. A B1 paper
+   *  ladders A2/B1/B2; an A1 paper ladders A1/A2/B1. Always three, always
+   *  answering the same question. */
+  band: CEFR;
   label: string;
   /** What this version is doing differently, in one line. */
   note: string;
@@ -185,6 +213,8 @@ export interface ExamPaper {
   writing: WritingTask;
   speaking: SpeakingTopic[];
   redemittel: Redemittel[];
+  /** Weighting and pass rule. Defaults to telc B1's when absent. */
+  scheme?: Scheme;
   /** Exam-day facts worth knowing the night before. */
   briefing: { q: string; a: string }[];
 }
@@ -194,29 +224,53 @@ export interface ExamPaper {
 // table. Held here rather than in the paper so a second B1 paper cannot quietly
 // disagree with the first about what a pass is.
 
-export const MAX = {
-  reading: 75,
-  language: 30,
-  listening: 75,
-  writing: 45,
-  speaking: 75,
-  written: 225,
-  oral: 75,
-  total: 300,
-} as const;
+export interface Scheme {
+  reading: number;
+  language: number;
+  listening: number;
+  writing: number;
+  speaking: number;
+  written: number;
+  oral: number;
+  total: number;
+  /** The floor on each half, independently. telc B1 sets 60% of both; Goethe A1
+   *  scales to 100 and passes at 60 overall with no separate oral floor, so the
+   *  rule travels with the paper rather than being global. */
+  pass: { written: number; oral: number };
+  /** Grade bands, highest first: [floor, name]. */
+  bands: [number, Note][];
+}
 
-/** 60% of each half, independently. Failing one fails the sitting. */
-export const PASS = { written: 135, oral: 45 } as const;
+/** telc Deutsch B1 — from the Übungstest's own "Punkte, Gewichtung und Benotung". */
+export const TELC_B1: Scheme = {
+  reading: 75, language: 30, listening: 75, writing: 45, speaking: 75,
+  written: 225, oral: 75, total: 300,
+  pass: { written: 135, oral: 45 },
+  bands: [[270, 'sehr gut'], [240, 'gut'], [210, 'befriedigend'], [180, 'ausreichend']],
+};
+
+/** Goethe-Zertifikat A1 · Start Deutsch 1 — four skills of 25, scaled to 100,
+ *  pass at 60. There is no separate oral floor, so `pass.oral` is 0 and the
+ *  written figure carries the whole rule. */
+export const GOETHE_A1: Scheme = {
+  reading: 25, language: 0, listening: 25, writing: 25, speaking: 25,
+  written: 75, oral: 25, total: 100,
+  pass: { written: 0, oral: 0 },
+  bands: [[90, 'sehr gut'], [80, 'gut'], [70, 'befriedigend'], [60, 'ausreichend']],
+};
+
+/** Kept as the default so every existing call site and test reads unchanged. */
+export const MAX = TELC_B1;
+export const PASS = TELC_B1.pass;
 
 export type Note = 'sehr gut' | 'gut' | 'befriedigend' | 'ausreichend' | 'nicht bestanden';
 
-/** telc's grade bands, applied only once both halves have cleared 60%. */
-export function noteFor(total: number, passedWritten: boolean, passedOral: boolean): Note {
+/** Grade bands, applied only once every half has cleared its floor. */
+export function noteFor(total: number, passedWritten: boolean, passedOral: boolean,
+                        scheme: Scheme = TELC_B1): Note {
   if (!passedWritten || !passedOral) return 'nicht bestanden';
-  if (total >= 270) return 'sehr gut';
-  if (total >= 240) return 'gut';
-  if (total >= 210) return 'befriedigend';
-  return 'ausreichend';   // 180 is the floor, and 135 + 45 = 180 by construction
+  for (const [floor, name] of scheme.bands) if (total >= floor) return name;
+  return 'nicht bestanden';
 }
 
 // ---- self-assessment -------------------------------------------------------
@@ -348,19 +402,21 @@ export interface Sitting {
 }
 
 export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
+  const scheme = paper.scheme ?? TELC_B1;
   const parts = paper.parts.map((p) => scorePart(p, sitting.responses));
 
   const bySubtest = {
-    reading: { points: 0, max: MAX.reading },
-    language: { points: 0, max: MAX.language },
-    listening: { points: 0, max: MAX.listening },
-    writing: { points: 0, max: MAX.writing },
-    speaking: { points: 0, max: MAX.speaking },
+    reading: { points: 0, max: scheme.reading },
+    language: { points: 0, max: scheme.language },
+    listening: { points: 0, max: scheme.listening },
+    writing: { points: 0, max: scheme.writing },
+    speaking: { points: 0, max: scheme.speaking },
   } satisfies Record<Subtest, { points: number; max: number }>;
 
   for (const p of parts) bySubtest[p.subtest].points = round1(bySubtest[p.subtest].points + p.points);
 
-  bySubtest.writing.points = sitting.writing ? scoreWriting(sitting.writing) : 0;
+  bySubtest.writing.points = sitting.writing
+    ? Math.min(scoreWriting(sitting.writing), scheme.writing) : 0;
   const sp = sitting.speaking ?? {};
   bySubtest.speaking.points = ([1, 2, 3] as const)
     .reduce((n, t) => n + (sp[t] ? scoreSpeaking(t, sp[t]!) : 0), 0);
@@ -370,8 +426,8 @@ export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
   const oral = bySubtest.speaking.points;
   const total = round1(written + oral);
 
-  const passedWritten = written >= PASS.written;
-  const passedOral = oral >= PASS.oral;
+  const passedWritten = written >= scheme.pass.written;
+  const passedOral = oral >= scheme.pass.oral;
   return {
     parts,
     bySubtest,
@@ -381,7 +437,7 @@ export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
     passedWritten,
     passedOral,
     passed: passedWritten && passedOral,
-    note: noteFor(total, passedWritten, passedOral),
+    note: noteFor(total, passedWritten, passedOral, scheme),
     provisional: !sitting.writing || !sp[1] || !sp[2] || !sp[3],
   };
 }
@@ -411,6 +467,16 @@ export const PAPERS: PaperMeta[] = [
     blurb: 'A full paper in the real format — reading, Sprachbausteine, listening, a letter and the paired oral.',
     minutes: 150,
     load: () => import('../data/exams/telc-b1-01.ts').then((m) => m.PAPER),
+  },
+  {
+    id: 'goethe-a1-01',
+    provider: 'goethe',
+    level: 'A1',
+    title: 'Goethe-Zertifikat A1 · Start Deutsch 1',
+    blurb: 'The whole A1 exam in Goethe’s format — 30 scored items, the short written message, '
+      + 'and the three-part group oral with model answers at three levels.',
+    minutes: 80,
+    load: () => import('../data/exams/goethe-a1-01.ts').then((m) => m.PAPER),
   },
 ];
 

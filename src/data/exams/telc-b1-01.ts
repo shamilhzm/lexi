@@ -395,10 +395,12 @@ export const PAPER: ExamPaper = {
         + 'in the real exam that half-minute is most of the task. Decide as you listen; there is no '
         + 'second pass.',
       pointsPerItem: 5,
-      plays: 1,
-      intro: 'Wir haben Menschen auf der Straße gefragt: Wie sind Sie eigentlich zu Ihrem Beruf gekommen? '
+      intro: '',
+      audio: {
+        plays: 1,
+        intro: 'Wir haben Menschen auf der Straße gefragt: Wie sind Sie eigentlich zu Ihrem Beruf gekommen? '
         + 'Hören Sie fünf Antworten.',
-      tracks: [
+        tracks: [
         {
           n: 41, label: 'Sprecherin 1',
           lines: [{ text: 'Also ehrlich gesagt war das Zufall. Ich habe nach der Schule erst einmal gejobbt, in einer Apotheke, eigentlich nur für ein halbes Jahr. Und dann hat mir die Chefin gesagt, ich solle doch die Ausbildung machen. Jetzt bin ich seit zwölf Jahren dabei und würde nichts anderes machen wollen.' }],
@@ -419,7 +421,8 @@ export const PAPER: ExamPaper = {
           n: 45, label: 'Sprecherin 5',
           lines: [{ text: 'Ich habe drei Kinder und war zehn Jahre zu Hause. Der Wiedereinstieg war schwierig, das muss man ehrlich sagen. Geholfen hat mir am Ende ein Praktikum — danach hat die Firma mich einfach übernommen. Ohne dieses Praktikum säße ich wahrscheinlich immer noch zu Hause.' }],
         },
-      ],
+        ],
+      },
       statements: [
         { n: 41, text: 'Die Sprecherin ist eher zufällig zu ihrem Beruf gekommen.' },
         { n: 42, text: 'Der Sprecher hat sich bewusst gegen den Beruf seines Vaters entschieden.' },
@@ -451,9 +454,11 @@ export const PAPER: ExamPaper = {
         + 'raises them. Use the first pass for the ones you are sure of and the second for the rest — do '
         + 'not try to settle all ten on the first hearing.',
       pointsPerItem: 2.5,
-      plays: 2,
-      intro: 'Sie hören ein Interview aus der Sendung „Stadtgespräch".',
-      tracks: [
+      intro: '',
+      audio: {
+        plays: 2,
+        intro: 'Sie hören ein Interview aus der Sendung „Stadtgespräch".',
+        tracks: [
         {
           label: 'Interview · „Stadtgespräch"',
           lines: [
@@ -475,7 +480,8 @@ export const PAPER: ExamPaper = {
             { who: 'Frau Ahrens', text: 'Dass es solche Häuser in jedem Stadtteil gibt. Und dass die Leute nicht erst kommen, wenn sie einsam sind, sondern schon vorher.' },
           ],
         },
-      ],
+        ],
+      },
       statements: [
         { n: 46, text: 'Wer das Haus besuchen möchte, muss Mitglied werden.' },
         { n: 47, text: 'Das Haus ist seit der Eröffnung im selben Gebäude.' },
@@ -515,9 +521,11 @@ export const PAPER: ExamPaper = {
       rubricEn: 'Five short announcements, each heard **twice**. You are listening for one fact per text — '
         + 'a platform, a date, a price. Everything else is noise, deliberately.',
       pointsPerItem: 5,
-      plays: 2,
-      intro: 'Sie hören fünf kurze Ansagen aus dem Alltag.',
-      tracks: [
+      intro: '',
+      audio: {
+        plays: 2,
+        intro: 'Sie hören fünf kurze Ansagen aus dem Alltag.',
+        tracks: [
         {
           n: 56, label: 'Ansage im Bahnhof',
           lines: [{ text: 'Information für die Reisenden nach Hamburg: Der ICE 574, planmäßige Abfahrt 14 Uhr 32, fährt heute von Gleis 9, nicht wie angezeigt von Gleis 4. Ich wiederhole: von Gleis 9. Der Zug hat voraussichtlich zehn Minuten Verspätung.' }],
@@ -538,7 +546,8 @@ export const PAPER: ExamPaper = {
           n: 60, label: 'Ansage am Telefon eines Kinos',
           lines: [{ text: 'Willkommen beim Kino am Markt. Heute Abend zeigen wir um 20 Uhr den Film „Nordwind" in der Originalfassung mit Untertiteln. Karten gibt es nur noch an der Abendkasse — der Verkauf über unsere Internetseite ist für diese Vorstellung bereits geschlossen.' }],
         },
-      ],
+        ],
+      },
       statements: [
         { n: 56, text: 'Der Zug nach Hamburg fährt heute von Gleis 4.' },
         { n: 57, text: 'Während der Schließung kann man Rezepte im Internet bestellen.' },

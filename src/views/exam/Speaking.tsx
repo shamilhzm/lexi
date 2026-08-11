@@ -17,6 +17,7 @@ import Kicker from '../../components/ui/Kicker.tsx';
 import { speak } from '../../lib/tts.ts';
 import { playTrack, stopTrack } from '../../lib/exam-audio.ts';
 import { SPEAK_MAX, scoreSpeaking, type Band, type Model, type Redemittel, type SpeakingMarks, type SpeakingTopic } from '../../lib/exam.ts';
+import type { CEFR } from '../../types.ts';
 import { CriterionRow, speakingCriteria } from './SelfAssess.tsx';
 
 const TEILE = [1, 2, 3] as const;
@@ -49,8 +50,8 @@ export default function Speaking({ topics, redemittel, marks, onMarks }: {
           <h2 className="text-lg sm:text-xl font-bold">Mündliche Prüfung</h2>
         </div>
         <p className="text-dim text-xs leading-relaxed">
-          Paired exam, three parts, about 15 minutes — with 20 minutes of preparation beforehand.
-          Worth 75 of the 300 points, and marked on four criteria of which only one is grammar.
+          Three parts, and the part of the exam a book cannot rehearse. Marked on four criteria,
+          of which only one is grammar — the other three are vocabulary, task behaviour and sound.
         </p>
       </div>
 
@@ -140,17 +141,22 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
   );
 }
 
-const BAND_TONE: Record<Model['band'], string> = {
+const BAND_TONE: Record<CEFR, string> = {
+  A1: 'var(--color-a1)',
   A2: 'var(--color-green)',
   B1: 'var(--color-amber)',
   B2: 'var(--color-b2)',
+  C1: 'var(--color-c1)',
+  C2: 'var(--color-c2)',
 };
 
 function PromptCard({ prompt }: { prompt: SpeakingTopic['prompts'][number] }) {
   // B1 is the default because it is the target. Opening on A2 would teach the
   // safe version first, which is the right thing to *reach for* under pressure
   // and the wrong thing to practise.
-  const [band, setBand] = useState<Model['band']>('B1');
+  // The middle rung, whatever it is. A B1 paper ladders A2/B1/B2 and an A1 paper
+  // A1/A2/B1, so hard-coding 'B1' showed an empty card on the A1 paper.
+  const [band, setBand] = useState<Model['band']>(prompt.models[1]?.band ?? prompt.models[0].band);
   const model = prompt.models.find((m) => m.band === band) ?? prompt.models[0];
   const [showEn, setShowEn] = useState(false);
   const [playing, setPlaying] = useState(false);

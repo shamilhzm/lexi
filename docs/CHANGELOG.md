@@ -11,6 +11,40 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — Goethe A1, and the engine stopped being telc-shaped
+
+A second paper, and the one that proved the exam engine was less general than it
+claimed. **Goethe-Zertifikat A1 · Start Deutsch 1**: 30 objectively scored items
+across Hören and Lesen, the short written message, and the three-part group oral —
+authored from the published Modellsatz's structure, with none of its text.
+
+**What the second paper broke, and how it was fixed rather than special-cased:**
+
+- **`McPart` and `TfPart` had their stimulus baked in.** telc B1 is
+  multiple-choice over an *article* and true/false over *audio*; Start Deutsch 1 is
+  multiple-choice over a *dialogue* and true/false over a *sign*. Same two item
+  shapes, four different stimuli. Both parts now carry an optional `audio` block, an
+  optional read stimulus, and — for A1's Lesen Teil 2, which shows a pair of adverts
+  per question — an optional per-question stimulus. The playback transport moved out
+  into a shared `AudioBar`, since it belongs to neither item shape.
+- **The mark scheme was a module constant.** Goethe A1 scales four skills of 25 to
+  100, passes at 60, and — unlike telc B1 — sets **no separate floor on the oral**,
+  so a strong written half genuinely can carry a weak spoken one. That rule now
+  travels with the paper as a `Scheme`; `TELC_B1` stays the default so every
+  existing call site reads unchanged.
+- **`Model.band` was `'A2' | 'B1' | 'B2'`.** An A1 paper ladders A1/A2/B1. Widened
+  to `CEFR`, and the speaking view now opens on the *middle* rung rather than on a
+  hard-coded 'B1' that rendered an empty card.
+- **Two hard-coded telc facts were being asserted on a Goethe paper**: the item
+  counter said "0/60" on a 30-item paper, and the schedule promised "paarweise, 20
+  Minuten Vorbereitung" for an exam that is a group with no preparation time. Both
+  now come from the paper.
+
+The structural test suite runs over **both** papers with `describe.each`: consecutive
+item numbering, every key naming an option that exists, every item explained, every
+part carrying something to read or hear, a perfect sheet scoring exactly the
+objective maximum, and three graded models on every speaking prompt. 545 tests.
+
 ### Shipped 2026-08-11 — the authoring gate is now a machine, and 52 A1 cards went through it
 
 Corpus growth was human-gated: *"needs a network- and LLM-enabled maintainer
