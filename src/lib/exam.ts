@@ -227,6 +227,12 @@ export interface ExamPaper {
   redemittel: Redemittel[];
   /** Weighting and pass rule. Defaults to telc B1's when absent. */
   scheme?: Scheme;
+  /** Rename a subtest for this paper. Goethe C1 has no Sprachbausteine, but its
+   *  Schreiben *Aufgabe 2* — rewrite a note as a formal letter, ten gaps, five
+   *  points — is objectively scored and cannot live in the self-assessed writing
+   *  slot without being wiped by it. It scores in `language` and says so under
+   *  its own name rather than under telc's. */
+  subtestLabels?: Partial<Record<Subtest, string>>;
   /** What to do about a weak subtest, in this paper's own terms. Generic study
    *  advice is worthless here — "Teil 3 is scanning, not comprehension" is only
    *  true of the paper that has that Teil — so the text lives with the paper and
@@ -555,6 +561,16 @@ export const PAPERS: PaperMeta[] = [
       + 'a forum post and a message, and the four-minute talk plus debate, with models at three levels.',
     minutes: 195,
     load: () => import('../data/exams/goethe-b2-01.ts').then((m) => m.PAPER),
+  },
+  {
+    id: 'goethe-c1-01',
+    provider: 'goethe',
+    level: 'C1',
+    title: 'Goethe-Zertifikat C1',
+    blurb: 'The full C1 in Goethe’s format — 40 scored items plus the register task, a structured '
+      + 'essay, and the oral’s talk-from-data and joint decision, with models at three levels.',
+    minutes: 205,
+    load: () => import('../data/exams/goethe-c1-01.ts').then((m) => m.PAPER),
   },
 ];
 

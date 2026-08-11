@@ -49,6 +49,7 @@ export default function Results({ paper, result, onReview, onGrammar }: {
   const { bySubtest } = result;
   const scheme = paper.scheme ?? MAX;
   const remedy = { ...REMEDY, ...paper.remedy };
+  const label = { ...SUBTEST_LABEL, ...paper.subtestLabels };
   // Weakest as a *proportion* of its own maximum — Sprachbausteine can never
   // lose 40 points, so ranking by raw loss would always name Hörverstehen. A
   // subtest this paper does not have (`max` 0) is not a candidate.
@@ -83,7 +84,7 @@ export default function Results({ paper, result, onReview, onGrammar }: {
       {result.modules.length > 0 ? (
         <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
           {result.modules.map((m) => (
-            <Half key={m.subtest} label={SUBTEST_LABEL[m.subtest]} points={m.points} max={m.max}
+            <Half key={m.subtest} label={label[m.subtest]} points={m.points} max={m.max}
               need={m.need} passed={m.passed} />
           ))}
         </div>
@@ -122,14 +123,14 @@ export default function Results({ paper, result, onReview, onGrammar }: {
             Goethe paper has Sprachbausteine, and printing it as 0/0 would read
             as a wiped part. */}
         {(Object.keys(SUBTEST_LABEL) as Subtest[]).filter((s) => bySubtest[s].max > 0).map((s) => (
-          <SubtestRow key={s} label={SUBTEST_LABEL[s]} points={bySubtest[s].points} max={bySubtest[s].max}
+          <SubtestRow key={s} label={label[s]} points={bySubtest[s].points} max={bySubtest[s].max}
             parts={result.parts.filter((p) => p.subtest === s)} />
         ))}
       </div>
 
       <Card tone="sunken" pad="sm" className="mb-4">
         <Kicker tone="accent" className="block mb-1.5">
-          Ihr schwächster objektiv bewerteter Teil: {SUBTEST_LABEL[weakest]}
+          Ihr schwächster objektiv bewerteter Teil: {label[weakest]}
         </Kicker>
         <p className="text-sm leading-relaxed">{remedy[weakest]}</p>
       </Card>

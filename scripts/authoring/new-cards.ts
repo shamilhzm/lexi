@@ -43,7 +43,7 @@ if (dupes.length) {
   process.exit(1);
 }
 
-const verdicts = await verifyAll(cands, existing);
+const verdicts = await verifyAll(cands, existing, corpus);
 const ok = verdicts.filter((v) => v.ok);
 const bad = verdicts.filter((v) => !v.ok);
 

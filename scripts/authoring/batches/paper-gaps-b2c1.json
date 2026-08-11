@@ -1,0 +1,1049 @@
+[
+ {
+  "term": "ehren",
+  "en": "to honour, to pay tribute to",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Stadt ehrt ihn mit einer Ausstellung.",
+    "en": "The city is honouring him with an exhibition."
+   },
+   {
+    "de": "Wir ehren heute eine langjährige Kollegin.",
+    "en": "Today we are honouring a colleague of many years."
+   }
+  ]
+ },
+ {
+  "term": "reden",
+  "en": "to talk, to speak",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Wir reden später darüber.",
+    "en": "We will talk about it later."
+   },
+   {
+    "de": "Er redet zu schnell.",
+    "en": "He talks too quickly."
+   }
+  ]
+ },
+ {
+  "term": "nützen",
+  "en": "to be of use, to help",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Das nützt mir leider nichts.",
+    "en": "Unfortunately that is of no use to me."
+   },
+   {
+    "de": "Ein zweiter Schlüssel würde uns sehr nützen.",
+    "en": "A second key would be very useful to us."
+   }
+  ]
+ },
+ {
+  "term": "vorkommen",
+  "en": "to occur, to happen",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "So etwas kommt selten vor.",
+    "en": "Something like that rarely happens."
+   },
+   {
+    "de": "In diesem Text kommen viele Fremdwörter vor.",
+    "en": "Many foreign words occur in this text."
+   }
+  ]
+ },
+ {
+  "term": "befassen",
+  "en": "to deal with, to occupy oneself with",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Ich befasse mich seit Jahren mit diesem Thema.",
+    "en": "I have been dealing with this topic for years."
+   },
+   {
+    "de": "Kaum jemand befasst sich mit den Einstellungen.",
+    "en": "Hardly anyone deals with the settings."
+   }
+  ]
+ },
+ {
+  "term": "abstreiten",
+  "en": "to deny, to dispute",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Er streitet den Vorwurf ab.",
+    "en": "He denies the accusation."
+   },
+   {
+    "de": "Das lässt sich nicht abstreiten.",
+    "en": "That cannot be denied."
+   }
+  ]
+ },
+ {
+  "term": "benennen",
+  "en": "to name, to state explicitly",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Man sollte das Problem klar benennen.",
+    "en": "One should name the problem clearly."
+   },
+   {
+    "de": "Sie benennt die Ursachen sehr genau.",
+    "en": "She names the causes very precisely."
+   }
+  ]
+ },
+ {
+  "term": "notieren",
+  "en": "to note down, to write down",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Bitte notieren Sie die Nummer.",
+    "en": "Please note down the number."
+   },
+   {
+    "de": "Ich habe mir den Termin notiert.",
+    "en": "I have noted the appointment down."
+   }
+  ]
+ },
+ {
+  "term": "transportieren",
+  "en": "to transport, to carry",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Wir transportieren das Material mit dem Lastwagen.",
+    "en": "We transport the material by lorry."
+   },
+   {
+    "de": "Der Schrank lässt sich schwer transportieren.",
+    "en": "The cupboard is difficult to transport."
+   }
+  ]
+ },
+ {
+  "term": "verlagern",
+  "en": "to shift, to relocate",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Firma verlagert ihre Produktion ins Ausland.",
+    "en": "The company is relocating its production abroad."
+   },
+   {
+    "de": "Das Problem wird damit nur verlagert.",
+    "en": "The problem is thereby merely shifted."
+   }
+  ]
+ },
+ {
+  "term": "nachholen",
+  "en": "to catch up on, to make up for",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Ich muss die Prüfung nachholen.",
+    "en": "I have to retake the exam."
+   },
+   {
+    "de": "Verpassten Schlaf kann man nicht nachholen.",
+    "en": "You cannot catch up on lost sleep."
+   }
+  ]
+ },
+ {
+  "term": "zurechtkommen",
+  "en": "to cope, to manage",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Ohne Hilfe wird sie damit nicht zurechtkommen.",
+    "en": "Without help she will not cope with it."
+   },
+   {
+    "de": "Allein kommt sie nicht mehr zurecht.",
+    "en": "She can no longer manage on her own."
+   }
+  ]
+ },
+ {
+  "term": "hinterlegen",
+  "en": "to deposit, to leave (with someone)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Bitte hinterlegen Sie den Schlüssel bei der Nachbarin.",
+    "en": "Please leave the key with the neighbour."
+   },
+   {
+    "de": "Er hat eine Nachricht im Büro hinterlegt.",
+    "en": "He left a message at the office."
+   }
+  ]
+ },
+ {
+  "term": "freigeben",
+  "en": "to release, to make available",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Stadt gibt die Straße morgen wieder frei.",
+    "en": "The city is reopening the road tomorrow."
+   },
+   {
+    "de": "Der Chef gibt den Termin heute frei.",
+    "en": "The boss is releasing the date today."
+   }
+  ]
+ },
+ {
+  "term": "strukturieren",
+  "en": "to structure, to organise",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Strukturieren Sie Ihren Vortrag klar.",
+    "en": "Structure your talk clearly."
+   },
+   {
+    "de": "Der Text ist gut strukturiert.",
+    "en": "The text is well structured."
+   }
+  ]
+ },
+ {
+  "term": "überschreiten",
+  "en": "to exceed, to cross",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Der Lärm überschreitet den Grenzwert.",
+    "en": "The noise exceeds the limit."
+   },
+   {
+    "de": "Die Kosten überschreiten den Plan deutlich.",
+    "en": "The costs clearly exceed the plan."
+   }
+  ]
+ },
+ {
+  "term": "verfallen",
+  "en": "to lapse, to expire",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Die Karten verfallen am Monatsende.",
+    "en": "The tickets expire at the end of the month."
+   },
+   {
+    "de": "Ohne Zuschuss verfällt der Kursplatz.",
+    "en": "Without a subsidy the course place lapses."
+   }
+  ]
+ },
+ {
+  "term": "einteilen",
+  "en": "to divide up, to organise (time)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Ich kann mir meinen Tag selbst einteilen.",
+    "en": "I can organise my own day."
+   },
+   {
+    "de": "Wir teilen den Kurs in vier Abschnitte ein.",
+    "en": "We divide the course into four sections."
+   }
+  ]
+ },
+ {
+  "term": "anknüpfen",
+  "en": "to pick up on, to build on",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Daran möchte ich gern anknüpfen.",
+    "en": "I would like to pick up on that."
+   },
+   {
+    "de": "An diesen Gedanken möchte ich anknüpfen.",
+    "en": "I would like to build on this thought."
+   }
+  ]
+ },
+ {
+  "term": "beeinträchtigen",
+  "en": "to impair, to affect adversely",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Der Ausfall beeinträchtigt mehrere Mietparteien.",
+    "en": "The failure adversely affects several tenants."
+   },
+   {
+    "de": "Lärm beeinträchtigt den Schlaf messbar.",
+    "en": "Noise measurably impairs sleep."
+   }
+  ]
+ },
+ {
+  "term": "auffangen",
+  "en": "to catch, to absorb, to offset",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Diesen Einwand kann man leicht auffangen.",
+    "en": "That objection can easily be accommodated."
+   },
+   {
+    "de": "Die Rücklagen fangen den Verlust auf.",
+    "en": "The reserves offset the loss."
+   }
+  ]
+ },
+ {
+  "term": "das Geräusch",
+  "en": "noise, sound",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Ein gleichmäßiges Geräusch stört weniger.",
+    "en": "A steady noise disturbs less."
+   },
+   {
+    "de": "Draußen hörte ich seltsame Geräusche.",
+    "en": "Outside I heard strange noises."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "das Umland",
+  "en": "surrounding area, hinterland",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Viele Familien ziehen ins Umland.",
+    "en": "Many families move to the surrounding area."
+   },
+   {
+    "de": "Im Umland sind die Mieten niedriger.",
+    "en": "In the surrounding area rents are lower."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "die Disziplin",
+  "en": "discipline",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Dafür braucht man viel Disziplin.",
+    "en": "That takes a lot of discipline."
+   },
+   {
+    "de": "Es geht hier nicht um Disziplin, sondern um Konzentration.",
+    "en": "This is not about discipline but about concentration."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Redner",
+  "en": "speaker (giving a talk)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Der Redner spricht über bessere Arbeitstechniken.",
+    "en": "The speaker is talking about better working techniques."
+   },
+   {
+    "de": "Nach dem Vortrag stellten die Zuhörer dem Redner Fragen.",
+    "en": "After the talk the audience asked the speaker questions."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Benutzung",
+  "en": "use, usage",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Die Benutzung der Bibliothek ist kostenlos.",
+    "en": "Use of the library is free of charge."
+   },
+   {
+    "de": "Zur Benutzung berechtigt sind alle Studierenden.",
+    "en": "All students are entitled to use it."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Bezahlung",
+  "en": "payment, pay",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Über die Bezahlung möchte ich nicht sprechen.",
+    "en": "I do not want to talk about the pay."
+   },
+   {
+    "de": "Die Bezahlung erfolgt am Monatsende.",
+    "en": "Payment is made at the end of the month."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Ersatz",
+  "en": "replacement, substitute",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Ein Mittagsschlaf ist kein Ersatz für die Nacht.",
+    "en": "A nap is no substitute for the night."
+   },
+   {
+    "de": "Wir suchen Ersatz für den erkrankten Kollegen.",
+    "en": "We are looking for a replacement for the sick colleague."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Einleitung",
+  "en": "introduction (of a text or talk)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Denken Sie an eine Einleitung und einen Schluss.",
+    "en": "Remember an introduction and a conclusion."
+   },
+   {
+    "de": "Die Einleitung ist zu lang geraten.",
+    "en": "The introduction has turned out too long."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Produktivität",
+  "en": "productivity",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Über Produktivität wird ständig geredet.",
+    "en": "Productivity is talked about constantly."
+   },
+   {
+    "de": "Die Produktivität hat sich kaum verändert.",
+    "en": "Productivity has barely changed."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Verarbeitung",
+  "en": "processing",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Verarbeitung findet auf dem Gerät selbst statt.",
+    "en": "The processing takes place on the device itself."
+   },
+   {
+    "de": "Erholung ist nicht dasselbe wie Verarbeitung.",
+    "en": "Rest is not the same as processing."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Unterbrechung",
+  "en": "interruption",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Nach einer Unterbrechung dauert es lange, wieder hineinzufinden.",
+    "en": "After an interruption it takes a long time to find your way back in."
+   },
+   {
+    "de": "Der Vortrag lief ohne Unterbrechung.",
+    "en": "The talk ran without interruption."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "das Tempo",
+  "en": "pace, speed",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Das Tempo ist hier auf dreißig begrenzt.",
+    "en": "The speed here is limited to thirty."
+   },
+   {
+    "de": "Er spricht in authentischem Tempo.",
+    "en": "He speaks at an authentic pace."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Umbau",
+  "en": "conversion, renovation work",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Der Umbau nebenan ist in drei Wochen fertig.",
+    "en": "The building work next door will be finished in three weeks."
+   },
+   {
+    "de": "Während des Umbaus bleibt das Café geschlossen.",
+    "en": "During the renovation the café remains closed."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Sperrung",
+  "en": "closure (of a road)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Die Sperrung der Straße gilt ab Montag.",
+    "en": "The closure of the road applies from Monday."
+   },
+   {
+    "de": "Gegen die Sperrung gab es Widerspruch.",
+    "en": "There was opposition to the closure."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Ablauf",
+  "en": "sequence of events, procedure",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Wie ist der Ablauf der Prüfung?",
+    "en": "What is the procedure for the exam?"
+   },
+   {
+    "de": "Das Gehirn spielt bestimmte Abläufe noch einmal ab.",
+    "en": "The brain replays certain sequences."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "das Fazit",
+  "en": "conclusion, verdict",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Mein Fazit fällt weniger eindeutig aus.",
+    "en": "My conclusion is less clear-cut."
+   },
+   {
+    "de": "Am Ende zog sie ein nüchternes Fazit.",
+    "en": "At the end she drew a sober conclusion."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "die Erhebung",
+  "en": "survey, study",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Nach einer Erhebung des Verbands lesen 26 Prozent täglich.",
+    "en": "According to a survey by the association, 26 per cent read daily."
+   },
+   {
+    "de": "Solche Erhebungen beruhen auf Selbstauskünften.",
+    "en": "Such surveys are based on self-reporting."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Zusatz",
+  "en": "addition, supplement",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Freiwilligkeit ist kein Zusatz zum System.",
+    "en": "Voluntary work is not an addition to the system."
+   },
+   {
+    "de": "Der Vertrag enthält einen wichtigen Zusatz.",
+    "en": "The contract contains an important addition."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "das Mikrofon",
+  "en": "microphone",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Ein Mikrofon im Wohnzimmer stört viele Menschen.",
+    "en": "A microphone in the living room bothers many people."
+   },
+   {
+    "de": "Sprechen Sie bitte in das Mikrofon.",
+    "en": "Please speak into the microphone."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "das Semester",
+  "en": "semester, term",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Das Semester beginnt im Oktober.",
+    "en": "The semester begins in October."
+   },
+   {
+    "de": "Ich möchte ein Semester im Ausland verbringen.",
+    "en": "I would like to spend a semester abroad."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "die Vorgabe",
+  "en": "requirement, specification",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Vorgaben der Ordnung sind eindeutig.",
+    "en": "The requirements of the regulations are unambiguous."
+   },
+   {
+    "de": "Er schreibt nach Vorgabe von fünf Leitpunkten.",
+    "en": "He writes according to a specification of five guide points."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Äußerung",
+  "en": "utterance, statement of opinion",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Welche Äußerung passt zu welcher Überschrift?",
+    "en": "Which statement fits which heading?"
+   },
+   {
+    "de": "Seine Äußerung wurde falsch verstanden.",
+    "en": "His statement was misunderstood."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Freiwilligkeit",
+  "en": "voluntariness, being voluntary",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Freiwilligkeit ist hier die Voraussetzung.",
+    "en": "Being voluntary is the precondition here."
+   },
+   {
+    "de": "Über die Grenzen der Freiwilligkeit muss man reden.",
+    "en": "One has to talk about the limits of voluntariness."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Erwähnung",
+  "en": "mention",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Eine Erwähnung im Jahresbericht wäre schon viel.",
+    "en": "A mention in the annual report would already be a lot."
+   },
+   {
+    "de": "Der Vorfall fand keine Erwähnung.",
+    "en": "The incident received no mention."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Beschädigung",
+  "en": "damage",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Bei Beschädigung müssen Sie den Schaden ersetzen.",
+    "en": "In the event of damage you must replace it."
+   },
+   {
+    "de": "Die Beschädigung war schon vorher da.",
+    "en": "The damage was already there beforehand."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "das Inhaltsverzeichnis",
+  "en": "table of contents",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Überschriften stehen im Inhaltsverzeichnis.",
+    "en": "The headings are in the table of contents."
+   },
+   {
+    "de": "Ein Inhaltsverzeichnis erleichtert das Suchen.",
+    "en": "A table of contents makes searching easier."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Rasenmäher",
+  "en": "lawnmower",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Der Rasenmäher am Sonntag stört die Nachbarn.",
+    "en": "The lawnmower on Sunday disturbs the neighbours."
+   },
+   {
+    "de": "Unser Rasenmäher ist kaputt.",
+    "en": "Our lawnmower is broken."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "hartnäckig",
+  "en": "persistent, stubborn",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Dieses Missverständnis hält sich hartnäckig.",
+    "en": "This misunderstanding persists stubbornly."
+   },
+   {
+    "de": "Sie ist hartnäckig und gibt nicht auf.",
+    "en": "She is stubborn and does not give up."
+   }
+  ]
+ },
+ {
+  "term": "banal",
+  "en": "banal, trivial",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Der Rat klingt banal und hilft trotzdem.",
+    "en": "The advice sounds banal and helps nonetheless."
+   },
+   {
+    "de": "Die Feststellung ist banal.",
+    "en": "The observation is trivial."
+   }
+  ]
+ },
+ {
+  "term": "fachlich",
+  "en": "professional, technical (in subject terms)",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Fachlich funktioniert die Zusammenarbeit tadellos.",
+    "en": "In professional terms the cooperation works impeccably."
+   },
+   {
+    "de": "Ihre Bedenken sind rein fachlich.",
+    "en": "Her concerns are purely professional."
+   }
+  ]
+ },
+ {
+  "term": "überflüssig",
+  "en": "superfluous, unnecessary",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Diese zweite Sitzung war überflüssig.",
+    "en": "This second meeting was superfluous."
+   },
+   {
+    "de": "Diese Diskussion halte ich für überflüssig.",
+    "en": "I consider this discussion unnecessary."
+   }
+  ]
+ },
+ {
+  "term": "zumutbar",
+  "en": "reasonable, acceptable to expect",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Frage war, ob das zumutbar sei.",
+    "en": "The question was whether that was reasonable to expect."
+   },
+   {
+    "de": "Ein Weg von einer Stunde ist noch zumutbar.",
+    "en": "A journey of an hour is still reasonable."
+   }
+  ]
+ },
+ {
+  "term": "messbar",
+  "en": "measurable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Er schläft messbar besser.",
+    "en": "He sleeps measurably better."
+   },
+   {
+    "de": "Der Unterschied ist kaum messbar.",
+    "en": "The difference is barely measurable."
+   }
+  ]
+ },
+ {
+  "term": "tadellos",
+  "en": "impeccable, flawless",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Technik funktioniert tadellos.",
+    "en": "The technology works impeccably."
+   },
+   {
+    "de": "Sein Deutsch ist tadellos.",
+    "en": "His German is impeccable."
+   }
+  ]
+ },
+ {
+  "term": "aufschlussreich",
+  "en": "revealing, informative",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Das Gespräch war aufschlussreich.",
+    "en": "The conversation was revealing."
+   },
+   {
+    "de": "Das Gespräch war sehr aufschlussreich.",
+    "en": "The conversation was very revealing."
+   }
+  ]
+ },
+ {
+  "term": "wirksam",
+  "en": "effective",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Tempo dreißig ist besonders wirksam.",
+    "en": "Thirty kilometres an hour is particularly effective."
+   },
+   {
+    "de": "Das Mittel ist wirksam und billig.",
+    "en": "The remedy is effective and cheap."
+   }
+  ]
+ },
+ {
+  "term": "gleichmäßig",
+  "en": "even, regular, steady",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Das Geräusch ist gleichmäßig und stört kaum.",
+    "en": "The noise is steady and hardly disturbs."
+   },
+   {
+    "de": "Verteilen Sie das Gewicht gleichmäßig.",
+    "en": "Distribute the weight evenly."
+   }
+  ]
+ },
+ {
+  "term": "unregelmäßig",
+  "en": "irregular",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Das Geräusch ist unregelmäßig und stört dauerhaft.",
+    "en": "The noise is irregular and disturbs permanently."
+   },
+   {
+    "de": "Er kommt nur unregelmäßig zum Unterricht.",
+    "en": "He comes to class only irregularly."
+   }
+  ]
+ },
+ {
+  "term": "pragmatisch",
+  "en": "pragmatic",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Antwort fällt pragmatisch aus.",
+    "en": "The answer turns out to be pragmatic."
+   },
+   {
+    "de": "Ihre Lösung ist pragmatisch.",
+    "en": "Her solution is pragmatic."
+   }
+  ]
+ }
+]

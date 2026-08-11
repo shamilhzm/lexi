@@ -148,12 +148,12 @@ const INSEPARABLE = ['be', 'emp', 'ent', 'er', 'ge', 'miss', 'ver', 'zer', 'hint
 // Every prefix (incl. ambiguous über/unter/um/durch…) used only to detect a
 // strong core, so a strong verb hidden behind any prefix is never drilled with
 // a wrongly-generated past tense.
-const GATE_PREFIXES = [...INSEPARABLE, ...['ab', 'an', 'auf', 'aus', 'bei', 'durch', 'ein', 'gegen', 'hinter', 'los', 'mit', 'nach', 'über', 'um', 'unter', 'vor', 'voll', 'weg', 'wider', 'wieder', 'zer', 'zu', 'zurück', 'zusammen', 'her', 'hin']];
+const GATE_PREFIXES = [...INSEPARABLE, ...['ab', 'an', 'auf', 'aus', 'bei', 'durch', 'ein', 'frei', 'gegen', 'hinter', 'los', 'mit', 'nach', 'über', 'um', 'unter', 'vor', 'voll', 'weg', 'wider', 'wieder', 'zer', 'zu', 'zurück', 'zusammen', 'her', 'hin']];
 // Unambiguously separable prefixes (those that can be either, like über/unter/um/durch,
 // are deliberately excluded so we don't guess wrong; such verbs fall back to the table only).
 const SEPARABLE = [
   'ab', 'an', 'auf', 'aus', 'bei', 'dar', 'ein', 'empor', 'fern', 'fest', 'fort', 'her', 'herab', 'heran',
-  'herauf', 'heraus', 'herbei', 'herein', 'herum', 'herunter', 'hervor', 'hin', 'hinauf', 'hinaus',
+  'frei', 'herauf', 'heraus', 'herbei', 'herein', 'herum', 'herunter', 'hervor', 'hin', 'hinauf', 'hinaus',
   'hinein', 'hinunter', 'hinweg', 'hinzu', 'los', 'mit', 'nach', 'nieder', 'statt', 'teil', 'vor', 'voran', 'voraus',
   'vorbei', 'weg', 'weiter', 'zu', 'zurecht', 'zurück', 'zusammen',
 ];

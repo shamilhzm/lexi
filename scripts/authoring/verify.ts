@@ -169,15 +169,27 @@ const POS_MAP: Record<string, string> = {
  *  in Lexi: a real inflection resolves to this card. A substring test would pass
  *  *"Meine Tochter möchte gern reiten lernen"* for `das Pferd` — which is exactly
  *  how ~71 such cards shipped. */
-export function exampleTeachesWord(card: Word, de: string): boolean {
-  const m = buildMatcher([card]);
+export function exampleTeachesWord(card: Word, de: string, corpus: Word[] = []): boolean {
+  // Built over the **shipped corpus plus the draft**, not over the draft alone.
+  //
+  // A lexicon of one gives the conjugator less knowledge than the app has, and it
+  // shows up on separable verbs: `einteilen` only splits to *teilen … ein* when
+  // `teilen` is a verb it has heard of, and with a single card it never is. The
+  // effect was a false reject — "example does not contain einteilen" for a
+  // sentence that reads *Wir teilen den Kurs in vier Abschnitte ein* — which is
+  // the worst kind of gate failure, because it rejects the correct example and
+  // invites the author to write a worse one.
+  //
+  // The identity check stays on `card.id`, so a sentence that merely contains
+  // some *other* corpus word still fails: the draft has to be what lights up.
+  const m = buildMatcher([...corpus, card]);
   return m.annotate(de).some((s) => s.isWord && s.word?.id === card.id);
 }
 
 const GLOSS_MAX = 80;
 
 /** Verify one candidate against the dictionary and the matcher. */
-export async function verify(c: Candidate, existing: Set<string>): Promise<Verdict> {
+export async function verify(c: Candidate, existing: Set<string>, corpus: Word[] = []): Promise<Verdict> {
   const reasons: string[] = [];
   const notes: string[] = [];
   const head = stripArticle(c.term);
@@ -271,7 +283,7 @@ export async function verify(c: Candidate, existing: Set<string>): Promise<Verdi
   for (const [i, e] of (c.ex ?? []).entries()) {
     if (!e.de?.trim() || !e.en?.trim()) { reasons.push(`example ${i + 1} is incomplete`); continue; }
     if (!/[.!?]$/.test(e.de.trim())) reasons.push(`example ${i + 1} has no sentence-final punctuation`);
-    if (!exampleTeachesWord(draft, e.de)) {
+    if (!exampleTeachesWord(draft, e.de, corpus)) {
       reasons.push(`example ${i + 1} does not contain "${head}" — "${e.de}"`);
     }
     // Umlauts inside a capitalised word are a name — "Mr Müller", "Köln" — and a
@@ -287,11 +299,12 @@ export async function verify(c: Candidate, existing: Set<string>): Promise<Verdi
 
 /** Verify a batch, sequentially and with a pause between uncached lookups so a
  *  hundred-card batch does not read as a scraper to Wikimedia. */
-export async function verifyAll(cands: Candidate[], existing: Set<string>): Promise<Verdict[]> {
+export async function verifyAll(cands: Candidate[], existing: Set<string>,
+                                corpus: Word[] = []): Promise<Verdict[]> {
   const out: Verdict[] = [];
   for (const c of cands) {
     const cached = existsSync(join(CACHE, `${encodeURIComponent(stripArticle(c.term))}.txt`));
-    out.push(await verify(c, existing));
+    out.push(await verify(c, existing, corpus));
     if (!cached) await sleep(150);
   }
   return out;

@@ -259,6 +259,23 @@ export function buildMatcher(corpus: Word[]): Matcher {
         add(`${c.separable}zu${rest}`, w);
         addVerb(`${c.separable}zu${rest}`, w);
       }
+      // The Partizip II, declined as an attributive adjective. German does this
+      // constantly and Lexi could not read any of it: *sehr geehrte Damen*, *die
+      // gestrichene Strecke*, *ein eingeteilter Kurs*. `geehrt` was indexed and
+      // `geehrte` was not, which made the commonest salutation in the language an
+      // unknown word in all five papers. The bare participle is already indexed
+      // above; these are the five endings it takes in front of a noun.
+      // …unless the participle is itself an adjective card. *geeignet*, *bekannt*
+      // and *gelernt* are lemmas in their own right, and pre-indexing `geeignete`
+      // here would beat the adjective de-inflection path — which resolves at
+      // lookup and so always loses to a literal index hit — and gloss the word as
+      // a verb the learner did not meet. Caught by the reader probe: adjectives
+      // went 0.955 to 0.945 the first time this shipped without the guard.
+      if (!c.partizip.includes(' ') && !adjIndex.has(c.partizip.toLowerCase())) {
+        for (const end of ['e', 'en', 'em', 'er', 'es']) {
+          add((c.partizip + end).toLowerCase(), w);
+        }
+      }
       const du = c.praesens[1];
       if (du && !du.includes(' ')) {
         const cands = [du.replace(/st$/, ''), du.replace(/t$/, '')];

@@ -1,0 +1,6 @@
+[
+ { "id": "voc:A1:das Wort",
+   "expect": { "plural": null },
+   "plural": "die Wörter",
+   "src": "de.wiktionary: Wort — two plurals are attested, die Wörter (individual words) and die Worte (connected utterance). Wörter is the one a learner meets in a rubric: 'Schreiben Sie 150 Wörter.'" }
+]

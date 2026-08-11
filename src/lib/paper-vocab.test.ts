@@ -20,11 +20,12 @@ import { PAPER as TELC_B1 } from '../data/exams/telc-b1-01.ts';
 import { PAPER as GOETHE_A1 } from '../data/exams/goethe-a1-01.ts';
 import { PAPER as GOETHE_A2 } from '../data/exams/goethe-a2-01.ts';
 import { PAPER as GOETHE_B2 } from '../data/exams/goethe-b2-01.ts';
+import { PAPER as GOETHE_C1 } from '../data/exams/goethe-c1-01.ts';
 import type { Word } from '../types.ts';
 
 const raw = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
 const corpus: Word[] = (Array.isArray(raw) ? raw : raw.words) as Word[];
-const papers = [TELC_B1, GOETHE_A1, GOETHE_A2, GOETHE_B2];
+const papers = [TELC_B1, GOETHE_A1, GOETHE_A2, GOETHE_B2, GOETHE_C1];
 
 /** Content tokens in one paper — the denominator the meter would use. */
 function counted(paper: typeof papers[number]): number {
@@ -57,10 +58,11 @@ describe('paper vocabulary', () => {
   // level papers to A1's floor would mean authoring compounds nobody should
   // study as separate cards.
   const FLOOR: Record<string, number> = {
-    'telc-b1-01': 0.955,
-    'goethe-a1-01': 0.97,
-    'goethe-a2-01': 0.955,
-    'goethe-b2-01': 0.89,
+    'telc-b1-01': 0.96,
+    'goethe-a1-01': 0.98,
+    'goethe-a2-01': 0.96,
+    'goethe-b2-01': 0.92,
+    'goethe-c1-01': 0.895,
   };
 
   it.each(papers.map((p) => [p.id, p] as const))('%s — covered by the corpus', (id, paper) => {
@@ -87,10 +89,11 @@ describe('paper vocabulary', () => {
   // held to its own standard and cannot be dragged over the line by its
   // predecessors — nor drag them.
   const CEILING: Record<string, number> = {
-    'telc-b1-01': 68,
-    'goethe-a1-01': 8,
-    'goethe-a2-01': 14,
-    'goethe-b2-01': 32,
+    'telc-b1-01': 56,
+    'goethe-a1-01': 0,
+    'goethe-a2-01': 6,
+    'goethe-b2-01': 22,
+    'goethe-c1-01': 33,
   };
 
   it.each(papers.map((p) => [p.id, p] as const))(
