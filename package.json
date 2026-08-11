@@ -40,7 +40,8 @@
     "lint": "eslint src",
     "corpus:relevel:a1": "node scripts/corpus/relevel-a1.ts",
     "corpus:dupes": "node scripts/corpus/merge-dupes.ts",
-    "authoring:new": "node scripts/authoring/new-cards.ts"
+    "authoring:new": "node scripts/authoring/new-cards.ts",
+    "corpus:gex": "node scripts/corpus/grammar-exercises.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

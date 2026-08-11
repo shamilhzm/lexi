@@ -1,0 +1,101 @@
+// Add exercises to grammar points that already exist.
+//
+// `grammar-supplement.ts` can do this through its `upgrade` flag, but that flag
+// also overwrites the point's `summary`, `rule` and `sections` — so deepening a
+// point by four questions means restating its whole teaching text, and any slip
+// in the restatement silently rewrites what the learner reads. This does the one
+// job: **append exercises, touch nothing else.**
+//
+// ## Append-only is a correctness requirement, not a style
+//
+// `lib/grammar.ts` mints exercise ids as `gex:<level>:<pointIndex>:<exerciseIndex>`
+// — positions, not names — and every learner's FSRS schedule is keyed on them.
+// Inserting an exercise anywhere but the end of a point silently re-points every
+// later schedule at a different question. So new exercises go on the end, and the
+// guard below refuses a batch that would do anything else.
+//
+//   npm run corpus:gex -- <batch.json>            report
+//   npm run corpus:gex -- <batch.json> --write    apply
+import { readFileSync } from 'node:fs';
+import { PATHS } from './config.ts';
+import { readJSON, writeJSON } from './lib.ts';
+import type { GExercise, GPoint, GrammarByLevel } from '../../src/lib/grammar.ts';
+import type { CEFR } from '../../src/types.ts';
+
+interface Batch { level: CEFR; title: string; exercises: GExercise[] }
+
+const [batchPath, ...rest] = process.argv.slice(2);
+const WRITE = rest.includes('--write');
+if (!batchPath) {
+  console.error('usage: node scripts/corpus/grammar-exercises.ts <batch.json> [--write]');
+  process.exit(1);
+}
+
+const batches = JSON.parse(readFileSync(batchPath, 'utf8')) as Batch[];
+const grammar = readJSON<GrammarByLevel>(PATHS.grammar);
+
+/** Everything that must be true of an exercise before it can reach a learner. */
+function problems(e: GExercise, where: string): string[] {
+  const out: string[] = [];
+  if (!e.prompt?.trim()) out.push(`${where}: no prompt`);
+  if (e.kind !== 'choose' && e.kind !== 'mc') {
+    out.push(`${where}: kind "${e.kind}" — this tool only adds the four-option kinds`);
+    return out;
+  }
+  if (!e.options?.length) out.push(`${where}: no options`);
+  else {
+    if (e.options.length < 2) out.push(`${where}: needs at least two options`);
+    if (new Set(e.options).size !== e.options.length) out.push(`${where}: duplicate options`);
+    if (e.answer == null || e.answer < 0 || e.answer >= e.options.length) {
+      out.push(`${where}: answer ${e.answer} is outside the options`);
+    }
+  }
+  // A gapped prompt whose gap is missing is the commonest authoring slip, and it
+  // reads as a complete sentence with an inexplicable set of choices under it.
+  if (e.kind === 'choose' && !/_{2,}|…|\.\.\./.test(e.prompt)) {
+    out.push(`${where}: a "choose" prompt with no gap marker`);
+  }
+  if (!e.explain?.trim()) out.push(`${where}: no explanation`);
+  return out;
+}
+
+let added = 0;
+let skipped = 0;
+const errors: string[] = [];
+const report: string[] = [];
+
+for (const b of batches) {
+  const points: GPoint[] = grammar[b.level] ?? [];
+  const point = points.find((p) => p.title === b.title);
+  if (!point) { errors.push(`${b.level} · "${b.title}" — no such point`); continue; }
+
+  const have = new Set(point.exercises.map((e) => e.prompt.trim()));
+  const fresh: GExercise[] = [];
+  for (const [i, e] of b.exercises.entries()) {
+    const errs = problems(e, `${b.level} · ${b.title} #${i + 1}`);
+    if (errs.length) { errors.push(...errs); continue; }
+    if (have.has(e.prompt.trim())) { skipped++; continue; }
+    have.add(e.prompt.trim());
+    fresh.push(e);
+  }
+  if (fresh.length) {
+    report.push(`${b.level} · ${b.title}: ${point.exercises.length} → ${point.exercises.length + fresh.length}`);
+    if (WRITE) point.exercises = [...point.exercises, ...fresh];   // append; never splice
+    added += fresh.length;
+  }
+}
+
+const before = Object.values(grammar).reduce((n, ps) => n + ps.reduce((m, p) => m + p.exercises.length, 0), 0);
+console.log(`points touched ${report.length} · exercises added ${added} · already present ${skipped}`);
+for (const r of report) console.log(`  ${r}`);
+if (errors.length) {
+  console.error(`\n✗ ${errors.length} rejected`);
+  for (const e of errors) console.error(`  ${e}`);
+}
+
+if (!WRITE) { console.log('\n(dry run — pass --write to apply)'); process.exit(errors.length ? 1 : 0); }
+if (errors.length) { console.error('\nnothing written — fix the batch first'); process.exit(1); }
+
+writeJSON(PATHS.grammar, grammar);
+console.log(`\n✓ ${before - added} → ${before} exercises in ${PATHS.grammar}`);
+console.log('  Next: npm run corpus:validate && npm test');

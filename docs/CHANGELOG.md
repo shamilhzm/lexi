@@ -11,6 +11,34 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — 52 more grammar exercises, and a tool that only appends
+
+**835 → 887 exercises** across 13 points, weighted to where the bank was thinnest:
+five B2 points that are genuinely new rather than B1 re-treads (Zustandspassiv,
+the position of *nicht*, adversative connectors, da-compounds, adjectives with a
+fixed preposition), two C1, one C2, and the four most-tested points at A1/A2/B1.
+
+- **`npm run corpus:gex` — a tool that does one job.** `grammar-supplement.ts`
+  could already deepen a point through its `upgrade` flag, but that flag also
+  overwrites the point's `summary`, `rule` and `sections`, so adding four
+  questions meant restating the whole teaching text and any slip in the
+  restatement silently rewrote what the learner reads. This appends exercises and
+  touches nothing else.
+- **Append-only is a correctness requirement here, not a style.**
+  `lib/grammar.ts` mints exercise ids as `gex:<level>:<pointIndex>:<exerciseIndex>`
+  — positions, not names — and every learner's FSRS schedule is keyed on them.
+  Inserting anywhere but the end re-points every later schedule at a different
+  question, silently. The tool only ever concatenates.
+- **The batch is validated before it lands**: four-option kinds only, no duplicate
+  options, an answer index inside the options, an explanation on every item, and —
+  the commonest authoring slip — a `choose` prompt is rejected if it has no gap
+  marker, because that reads as a complete sentence with an inexplicable set of
+  choices underneath it.
+
+Every one of these is a `choose` or `mc` item, which means they also flow straight
+into the generated quiz engine: the grammar quiz now draws on 887 items rather
+than 835, at every level.
+
 ### Shipped 2026-08-11 — Goethe A1, and the engine stopped being telc-shaped
 
 A second paper, and the one that proved the exam engine was less general than it

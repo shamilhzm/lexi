@@ -124,6 +124,14 @@ kinds (choose 404 · type 147 · error 106 · mc 93 · order 55).*
   level sampled from A1 *"___ Mann ist groß."* to C2 *"Wer eine Wohnung ungesehen
   mietet, …"*.
 
+> **Partly addressed 2026-08-11.** B2 now has 21 points, and the ones added since
+> this audit are genuinely new rather than B1 re-treads: Zustandspassiv, the
+> position of *nicht*, adversative connectors (dennoch/allerdings/hingegen),
+> da-compounds, adjectives with a fixed preposition. `npm run corpus:gex` took the
+> bank 835 → 887 exercises. The "11 of 16" count below is the state at the time of
+> the audit and is now stale; the *shape* of the finding — B2 is where the money is
+> and it was the thinnest real layer — is what stands.
+
 ### 🔴 B2 is mostly revision of B1, and B2 is where the money is
 
 **11 of 16 B2 points re-tread a topic already taught at A2 or B1**, several under a
