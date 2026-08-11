@@ -35,7 +35,7 @@ import { A2_REDEMITTEL, A2_SPEAKING } from './goethe-a2-speaking.ts';
 export const GOETHE_A2: Scheme = {
   reading: 25, language: 0, listening: 25, writing: 25, speaking: 25,
   written: 75, oral: 25, total: 100,
-  pass: { written: 45, oral: 15 },
+  pass: { written: 45, oral: 15, total: 60 },
   bands: [[90, 'sehr gut'], [80, 'gut'], [70, 'befriedigend'], [60, 'ausreichend']],
 };
 

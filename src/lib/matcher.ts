@@ -13,7 +13,7 @@
 // Deliberately takes the corpus explicitly rather than reaching for the global
 // `WORDS`, so the pipeline can point it at a candidate build and the app can point
 // it at the shipped one.
-import { conjugate, canConjugate, setKnownVerbs } from './conjugate.ts';
+import { conjugate, canConjugate, recognitionPraesens, setKnownVerbs } from './conjugate.ts';
 import type { Word } from '../types.ts';
 
 const stripArticle = (term: string) => term.replace(/^(der|die|das)\s+/i, '');
@@ -275,6 +275,37 @@ export function buildMatcher(corpus: Word[]): Matcher {
         }
       }
     } catch { /* skip unconjugable */ }
+  }
+
+  // Present tense of the verbs the conjugator refuses to drill.
+  //
+  // `canConjugate` is a gate on *teaching*, and the loop above used it as a gate
+  // on *reading* too, which is a category error: a strong verb outside the
+  // irregular table produced no indexed forms at all, so `hängt`, `klingt`,
+  // `gilt` and `schafft` were unresolvable while `hängen`, `klingen`, `gelten`
+  // and `schaffen` sat in the lexicon. The present tense is where a verb spends
+  // most of its life in running text, and it was the part that was missing.
+  //
+  // Also **after** the reliable pass, and for the same reason as the feminines:
+  // `add` is first-wins, so anything a properly conjugated verb already claimed
+  // stays claimed. See `recognitionPraesens` for why the past tense is not here.
+  for (const w of corpus) {
+    if (w.pos !== 'verb') continue;
+    const inf = stripArticle(w.term);
+    if (canConjugate(inf)) continue;
+    for (const f of recognitionPraesens(inf)) {
+      const lc = f.toLowerCase();
+      const space = lc.indexOf(' ');
+      if (space > 0) {
+        const [stem, particle] = lc.split(/\s+/);
+        addSep(stem, particle, w);
+        add(lc.slice(space + 1) + lc.slice(0, space), w);     // "…, wenn er mitkommt"
+        addVerb(lc.slice(space + 1) + lc.slice(0, space), w);
+      } else {
+        add(lc, w);
+        addVerb(lc, w);
+      }
+    }
   }
 
   // Feminine derivation — and deliberately the **last** pass over the corpus.

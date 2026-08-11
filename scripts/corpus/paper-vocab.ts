@@ -30,8 +30,9 @@ import type { ExamPaper } from '../../src/lib/exam.ts';
 import { PAPER as TELC_B1 } from '../../src/data/exams/telc-b1-01.ts';
 import { PAPER as GOETHE_A1 } from '../../src/data/exams/goethe-a1-01.ts';
 import { PAPER as GOETHE_A2 } from '../../src/data/exams/goethe-a2-01.ts';
+import { PAPER as GOETHE_B2 } from '../../src/data/exams/goethe-b2-01.ts';
 
-const PAPERS: ExamPaper[] = [TELC_B1, GOETHE_A1, GOETHE_A2];
+const PAPERS: ExamPaper[] = [TELC_B1, GOETHE_A1, GOETHE_A2, GOETHE_B2];
 
 /** Names invented for the papers. Held here rather than sniffed for, so adding a
  *  character to a listening script is a deliberate two-line act. */

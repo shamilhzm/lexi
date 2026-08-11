@@ -34,7 +34,7 @@ import { levelStats, missStats, pointStats, studyLevel } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import * as ex from '../lib/exam-store.ts';
 import {
-  PAPERS, loadPaper, papersFor, scoreExam,
+  MAX, PAPERS, loadPaper, papersFor, scoreExam,
   type ExamPaper, type Part, type Sitting, type SpeakingMarks, type WritingMarks,
 } from '../lib/exam.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
@@ -336,7 +336,10 @@ function History({ onGrammar }: { onGrammar: () => void }) {
       <div className="space-y-1.5">
         {past.map((a, i) => {
           const meta = PAPERS.find((p) => p.id === a.paperId);
-          const passed = a.score ? a.score.written >= 135 && a.score.oral >= 45 : false;
+          // Frozen with the sitting. Rows filed before papers had schemes carry
+          // neither figure, and those rows are telc B1 by construction.
+          const passed = a.score?.passed ?? (a.score ? a.score.written >= 135 && a.score.oral >= 45 : false);
+          const max = a.score?.max ?? 300;
           return (
             <Card key={`${a.started}-${i}`} pad="sm">
               <div className="flex items-center gap-3">
@@ -347,7 +350,7 @@ function History({ onGrammar }: { onGrammar: () => void }) {
                   </span>
                 </span>
                 {a.score
-                  ? <Chip tone={passed ? 'good' : 'bad'}>{fmt(a.score.total)} / 300</Chip>
+                  ? <Chip tone={passed ? 'good' : 'bad'}>{fmt(a.score.total)} / {max}</Chip>
                   : <Chip tone="dim">abgebrochen</Chip>}
               </div>
             </Card>
@@ -451,13 +454,19 @@ function Runner({ attempt, onExit, onGrammar }: {
       if ((k === 'writing' && !attempt.writing) || (k === 'speaking' && !attempt.speaking)) continue;
       strands[k] = points / max;
     }
-    ex.submit({ written: result.written, oral: result.oral, total: result.total }, strands);
+    ex.submit({
+      written: result.written, oral: result.oral, total: result.total,
+      max: (paper!.scheme ?? MAX).total, passed: result.passed,
+    }, strands);
     setIx(screens.findIndex((s) => s.kind === 'results'));
   };
   const leave = () => {
     stopTrack();
     if (attempt.submitted && result) {
-      ex.finish({ written: result.written, oral: result.oral, total: result.total });
+      ex.finish({
+        written: result.written, oral: result.oral, total: result.total,
+        max: (paper!.scheme ?? MAX).total, passed: result.passed,
+      });
     } else {
       ex.abandon();
     }
@@ -538,7 +547,7 @@ function Runner({ attempt, onExit, onGrammar }: {
       )}
 
       {screen.kind === 'results' && (
-        <Results result={result} onReview={() => setIx(1)} onGrammar={onGrammar} />
+        <Results paper={paper} result={result} onReview={() => setIx(1)} onGrammar={onGrammar} />
       )}
 
       {/* ---- moving on ---- */}

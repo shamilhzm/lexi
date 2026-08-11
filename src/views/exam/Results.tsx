@@ -1,17 +1,20 @@
-// The result — reported the way telc reports it, and no better.
+// The result — reported the way the board that owns the paper reports it.
 //
-// Two things this screen refuses to do. It does not print one number: telc's
-// pass rule is 60% of *each* half independently, so a 240 with a weak oral is a
-// fail and a screen that leads with "240/300" would be lying by emphasis. And it
-// does not quietly count an unmarked letter as zero — until both productive
-// parts have been self-assessed, every total on this screen is a floor, said out
-// loud, rather than a score.
+// Three things this screen refuses to do. It does not print one number where the
+// pass rule is not one number: telc B1 wants 60% of *each* half, so a 240 with a
+// weak oral is a fail and leading with "240/300" would be lying by emphasis. It
+// does not quietly count an unmarked letter as zero — until both productive parts
+// have been self-assessed, every total here is a floor, said out loud. And it does
+// not print telc's arithmetic over somebody else's paper: the halves, the total,
+// the 60% line on every bar and the sentence under the grade all come from the
+// paper's own `Scheme`. Goethe B2 and C2 are *modular* — four independent 60%
+// gates and no total at all — and that is a different screen, not a footnote.
 import { AlertTriangle, ArrowRight, Check, X } from 'lucide-react';
 import Card from '../../components/ui/Card.tsx';
 import Button from '../../components/ui/Button.tsx';
 import Chip from '../../components/ui/Chip.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
-import { MAX, PASS, type Result, type Subtest } from '../../lib/exam.ts';
+import { MAX, type ExamPaper, type Result, type Scheme, type Subtest } from '../../lib/exam.ts';
 
 const SUBTEST_LABEL: Record<Subtest, string> = {
   reading: 'Leseverstehen',
@@ -21,33 +24,36 @@ const SUBTEST_LABEL: Record<Subtest, string> = {
   speaking: 'Mündliche Prüfung',
 };
 
-/** What to do about a weak subtest — the "exam alignment" half of the feature.
- *  Generic study advice would be worthless here; each of these names the thing
- *  the subtest actually tests and where in Lexi it lives. */
+/** The fallback when a paper says nothing of its own. Deliberately free of point
+ *  totals and Teil numbers, because those are exactly the facts that differ from
+ *  paper to paper — the specific version lives on `paper.remedy`. */
 const REMEDY: Record<Subtest, string> = {
-  reading: 'Reading is 75 points and mostly vocabulary breadth under time pressure. The 2.5-point items '
-    + 'in Teil 3 are the cheapest to recover: they are scanning, not comprehension.',
+  reading: 'Reading is mostly vocabulary breadth under time pressure. The matching tasks are the '
+    + 'cheapest marks to recover: they are scanning, not comprehension.',
   language: 'Sprachbausteine is grammar in context — connectors, cases, verbs with fixed prepositions. '
-    + 'This maps one-to-one onto the Library’s B1 concepts, and it is the smallest subtest, so fix it '
-    + 'only after reading and listening are safe.',
-  listening: 'Hörverstehen is 75 points and the part practice reaches least. Teil 1 is worth 5 points an '
-    + 'item and is heard once — read the five statements in the 30 seconds you are given, and answer as '
-    + 'you listen rather than after.',
-  writing: 'Criterion I is a count, not a judgement: four Leitpunkte, four passages. If you lost marks '
-    + 'here, check whether you actually ran out of time on the fourth.',
-  speaking: 'The oral is a quarter of the exam and half of it is behaviour rather than language — '
-    + 'participating, reacting, and in Teil 3 actually deciding things. Work the three-level scripts.',
+    + 'This maps one-to-one onto the Library’s concepts for your level.',
+  listening: 'Listening is the part practice reaches least, and the tracks heard **once** are where the '
+    + 'marks go. Read the items in the seconds you are given, and answer as you listen rather than after.',
+  writing: 'The content criterion is a count, not a judgement: every prompt point wants its own '
+    + 'sentence. If you lost marks here, check whether you actually ran out of time on the last one.',
+  speaking: 'Half of the oral is behaviour rather than language — participating, reacting, and in the '
+    + 'planning tasks actually deciding things. Work the three-level scripts.',
 };
 
-export default function Results({ result, onReview, onGrammar }: {
+export default function Results({ paper, result, onReview, onGrammar }: {
+  paper: ExamPaper;
   result: Result;
   onReview: () => void;
   onGrammar: () => void;
 }) {
   const { bySubtest } = result;
+  const scheme = paper.scheme ?? MAX;
+  const remedy = { ...REMEDY, ...paper.remedy };
   // Weakest as a *proportion* of its own maximum — Sprachbausteine can never
-  // lose 40 points, so ranking by raw loss would always name Hörverstehen.
-  const objective: Subtest[] = ['reading', 'language', 'listening'];
+  // lose 40 points, so ranking by raw loss would always name Hörverstehen. A
+  // subtest this paper does not have (`max` 0) is not a candidate.
+  const objective = (['reading', 'language', 'listening'] as Subtest[])
+    .filter((s) => bySubtest[s].max > 0);
   const weakest = [...objective].sort((a, b) =>
     bySubtest[a].points / bySubtest[a].max - bySubtest[b].points / bySubtest[b].max)[0];
 
@@ -55,7 +61,7 @@ export default function Results({ result, onReview, onGrammar }: {
     <div className="w-full">
       <h2 className="text-lg sm:text-xl font-bold mb-1">Ergebnis</h2>
       <p className="text-dim text-xs mb-4">
-        telc Deutsch B1 · Punkte, Gewichtung und Benotung
+        {paper.title} · {scheme.modular ? 'Ergebnis nach Modulen' : 'Punkte, Gewichtung und Benotung'}
       </p>
 
       {result.provisional && (
@@ -71,19 +77,33 @@ export default function Results({ result, onReview, onGrammar }: {
         </Card>
       )}
 
-      <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
-        <Half label="Schriftliche Prüfung" points={result.written} max={MAX.written}
-          need={PASS.written} passed={result.passedWritten} />
-        <Half label="Mündliche Prüfung" points={result.oral} max={MAX.oral}
-          need={PASS.oral} passed={result.passedOral} />
-      </div>
+      {/* Modular papers get a gate per module and no total; everything else gets
+          the two halves. Showing both would invite the learner to average them,
+          which is the one arithmetic the boards never do. */}
+      {result.modules.length > 0 ? (
+        <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
+          {result.modules.map((m) => (
+            <Half key={m.subtest} label={SUBTEST_LABEL[m.subtest]} points={m.points} max={m.max}
+              need={m.need} passed={m.passed} />
+          ))}
+        </div>
+      ) : (
+        <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
+          <Half label="Schriftliche Prüfung" points={result.written} max={scheme.written}
+            need={scheme.pass.written} passed={result.passedWritten} />
+          <Half label="Mündliche Prüfung" points={result.oral} max={scheme.oral}
+            need={scheme.pass.oral} passed={result.passedOral} />
+        </div>
+      )}
 
       <Card pad="md" className="mb-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <Kicker tone="accent" className="block mb-1">Gesamtpunktzahl</Kicker>
+            <Kicker tone="accent" className="block mb-1">
+              {scheme.modular ? 'Punkte insgesamt (nicht die Bestehensregel)' : 'Gesamtpunktzahl'}
+            </Kicker>
             <p className="text-3xl font-bold tabular-nums">
-              {fmt(result.total)}<span className="text-dim text-lg font-normal"> / 300</span>
+              {fmt(result.total)}<span className="text-dim text-lg font-normal"> / {scheme.total}</span>
             </p>
           </div>
           <div className="text-right">
@@ -93,15 +113,15 @@ export default function Results({ result, onReview, onGrammar }: {
             </p>
           </div>
         </div>
-        <p className="text-2xs text-dim mt-3 leading-relaxed">
-          Bestanden heißt: mindestens 60 % in <em>beiden</em> Teilen — 135 von 225 schriftlich und 45 von
-          75 mündlich. Ein starker Teil gleicht einen schwachen nicht aus.
-        </p>
+        <p className="text-2xs text-dim mt-3 leading-relaxed">{passRule(scheme)}</p>
       </Card>
 
       <Kicker tone="accent" className="block mb-2">Nach Prüfungsteilen</Kicker>
       <div className="space-y-1.5 mb-4">
-        {(Object.keys(SUBTEST_LABEL) as Subtest[]).map((s) => (
+        {/* A subtest this paper does not have is not a zero — it is absent. No
+            Goethe paper has Sprachbausteine, and printing it as 0/0 would read
+            as a wiped part. */}
+        {(Object.keys(SUBTEST_LABEL) as Subtest[]).filter((s) => bySubtest[s].max > 0).map((s) => (
           <SubtestRow key={s} label={SUBTEST_LABEL[s]} points={bySubtest[s].points} max={bySubtest[s].max}
             parts={result.parts.filter((p) => p.subtest === s)} />
         ))}
@@ -111,7 +131,7 @@ export default function Results({ result, onReview, onGrammar }: {
         <Kicker tone="accent" className="block mb-1.5">
           Ihr schwächster objektiv bewerteter Teil: {SUBTEST_LABEL[weakest]}
         </Kicker>
-        <p className="text-sm leading-relaxed">{REMEDY[weakest]}</p>
+        <p className="text-sm leading-relaxed">{remedy[weakest]}</p>
       </Card>
 
       <div className="flex flex-wrap gap-2">
@@ -123,6 +143,23 @@ export default function Results({ result, onReview, onGrammar }: {
 }
 
 const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1).replace('.', ','));
+
+/** The pass rule in the board's own words. Three genuinely different rules ship
+ *  here, and paraphrasing them into one sentence would make two of them false. */
+function passRule(s: Scheme): string {
+  if (s.modular) {
+    return `Bestanden wird modulweise: jedes Modul braucht 60 % von sich selbst. Ein bestandenes `
+      + `Modul bleibt bestehen, ein nicht bestandenes wiederholen Sie allein — die Gesamtpunktzahl `
+      + `oben ist nur zur Information.`;
+  }
+  if (s.pass.written === 0 && s.pass.oral === 0) {
+    return `Bestanden heißt: mindestens ${s.pass.total} von ${s.total} Punkten insgesamt. Es gibt keine `
+      + `Mindestpunktzahl für die einzelnen Teile — ein starker Teil gleicht hier einen schwachen aus.`;
+  }
+  return `Bestanden heißt: mindestens ${s.pass.written} von ${s.written} Punkten schriftlich `
+    + `und ${s.pass.oral} von ${s.oral} mündlich, und insgesamt ${s.pass.total} von ${s.total}. `
+    + `Ein starker Teil gleicht einen schwachen nicht aus.`;
+}
 
 function Half({ label, points, max, need, passed }: {
   label: string; points: number; max: number; need: number; passed: boolean;
@@ -151,7 +188,7 @@ function Half({ label, points, max, need, passed }: {
         <span className="absolute -top-2 w-px h-3 bg-txt" style={{ left: `${needPct * 100}%` }} aria-hidden />
         <span className="absolute top-1 font-mono text-2xs text-dim -translate-x-1/2 whitespace-nowrap"
           style={{ left: `${needPct * 100}%` }}>
-          {need} = 60 %
+          {need}
         </span>
       </div>
     </Card>

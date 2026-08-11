@@ -381,6 +381,39 @@ function stripPrefixForms(forms: Six, prefix: string): Six {
   return forms.map((f) => (f.startsWith(prefix) ? f.slice(prefix.length) : f)) as Six;
 }
 
+/**
+ * The regular present tense of any verb, **for recognition only**.
+ *
+ * `conjugate().reliable` is a single flag covering three unrelated failures, and
+ * the matcher was treating it as one: a strong verb outside the table produced no
+ * indexed forms *at all*, so `hängt`, `klingt` and `gilt` resolved to nothing
+ * even though `hängen`, `klingen` and `gelten` are all in the lexicon. That is
+ * hundreds of verbs whose present tense — by far their commonest appearance in
+ * running text — the app could not read.
+ *
+ * The gate is right about drilling and wrong about reading, because the two want
+ * opposite things. Generating `hangte` for a drill teaches a false form. Indexing
+ * `hängst` as a *key* cannot teach anything: either the string occurs, in which
+ * case it really is that verb, or it never occurs and the entry is inert. What is
+ * lost is only the vowel-changing du/er forms of strong verbs (`gibt`, `hält`),
+ * which are missed rather than mis-taught — and those come back the moment the
+ * verb earns a row in the irregular table.
+ *
+ * Present tense only. The Präteritum and the Partizip II of a strong verb are
+ * genuinely unguessable (`klang`, `geklungen`), and guessing them would put a
+ * wrong string in the index where a right one might later land.
+ */
+export function recognitionPraesens(rawVerb: string): string[] {
+  const { base } = deReflex(rawVerb);
+  const inf = base.toLowerCase();
+  if (!/(en|eln|ern|n)$/.test(inf)) return [];
+  if (lookup(inf)) return [];                       // already generated correctly
+  let sep: string | null = null;
+  for (const p of SEPARABLE) { if (inf.startsWith(p) && isKnownRoot(inf.slice(p.length))) { sep = p; break; } }
+  const forms = regularPraesens(inf);
+  return [...new Set(sep ? appendSep(stripPrefixForms(forms, sep), sep) : forms)];
+}
+
 /** Whether the trainer should drill this verb (we can conjugate it correctly). */
 export function canConjugate(rawVerb: string): boolean {
   return conjugate(rawVerb).reliable;

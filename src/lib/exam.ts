@@ -227,6 +227,11 @@ export interface ExamPaper {
   redemittel: Redemittel[];
   /** Weighting and pass rule. Defaults to telc B1's when absent. */
   scheme?: Scheme;
+  /** What to do about a weak subtest, in this paper's own terms. Generic study
+   *  advice is worthless here — "Teil 3 is scanning, not comprehension" is only
+   *  true of the paper that has that Teil — so the text lives with the paper and
+   *  the result screen falls back to something level-agnostic when it is absent. */
+  remedy?: Partial<Record<Subtest, string>>;
   /** Exam-day facts worth knowing the night before. */
   briefing: { q: string; a: string }[];
 }
@@ -245,29 +250,39 @@ export interface Scheme {
   written: number;
   oral: number;
   total: number;
-  /** The floor on each half, independently. telc B1 sets 60% of both; Goethe A1
-   *  scales to 100 and passes at 60 overall with no separate oral floor, so the
-   *  rule travels with the paper rather than being global. */
-  pass: { written: number; oral: number };
+  /** The floor on each half, independently, and on the paper as a whole. telc B1
+   *  sets 60% of both halves, which happens to imply its total; Goethe A1 has no
+   *  oral floor at all and the whole rule lives in `total`. A scheme that sets
+   *  only the halves to 0 would pass a blank sheet, so `total` is not optional. */
+  pass: { written: number; oral: number; total: number };
+  /** Modular exams — Goethe B2 and C2 — are not passed on a total at all. Each of
+   *  the four modules needs 60% of *itself*, and a module you fail is the module
+   *  you resit; the others keep. Non-modular papers leave this unset. */
+  modular?: boolean;
   /** Grade bands, highest first: [floor, name]. */
   bands: [number, Note][];
 }
+
+/** The four modules of a modular paper, in the order the certificate prints them.
+ *  `language` is not among them: no modular Goethe exam has a Sprachbausteine. */
+export const MODULES: Subtest[] = ['reading', 'listening', 'writing', 'speaking'];
 
 /** telc Deutsch B1 — from the Übungstest's own "Punkte, Gewichtung und Benotung". */
 export const TELC_B1: Scheme = {
   reading: 75, language: 30, listening: 75, writing: 45, speaking: 75,
   written: 225, oral: 75, total: 300,
-  pass: { written: 135, oral: 45 },
+  pass: { written: 135, oral: 45, total: 180 },
   bands: [[270, 'sehr gut'], [240, 'gut'], [210, 'befriedigend'], [180, 'ausreichend']],
 };
 
 /** Goethe-Zertifikat A1 · Start Deutsch 1 — four skills of 25, scaled to 100,
- *  pass at 60. There is no separate oral floor, so `pass.oral` is 0 and the
- *  written figure carries the whole rule. */
+ *  pass at 60. Neither half has a floor of its own: A1 is the one level where a
+ *  strong written performance genuinely does carry a weak oral, so the whole rule
+ *  is the total. */
 export const GOETHE_A1: Scheme = {
   reading: 25, language: 0, listening: 25, writing: 25, speaking: 25,
   written: 75, oral: 25, total: 100,
-  pass: { written: 0, oral: 0 },
+  pass: { written: 0, oral: 0, total: 60 },
   bands: [[90, 'sehr gut'], [80, 'gut'], [70, 'befriedigend'], [60, 'ausreichend']],
 };
 
@@ -375,6 +390,9 @@ export interface Result {
   total: number;
   passedWritten: boolean;
   passedOral: boolean;
+  /** Modular papers only — one row per module, each passed or failed alone. Empty
+   *  for the papers that are scored as a whole. */
+  modules: { subtest: Subtest; points: number; max: number; need: number; passed: boolean }[];
   passed: boolean;
   note: Note;
   /** True while either productive part is still unmarked — the totals are then a
@@ -397,13 +415,15 @@ export function scorePart(part: Part, responses: Responses): PartScore {
     correct,
     answered,
     total: part.items.length,
-    points: round1(correct * part.pointsPerItem),
-    max: round1(part.items.length * part.pointsPerItem),
+    points: correct * part.pointsPerItem,
+    max: part.items.length * part.pointsPerItem,
   };
 }
 
-/** Half-points are real here (2.5 an item in two parts), so keep one decimal and
- *  round the *displayed* number rather than accumulating float dust. */
+/** Half-points are real here (2.5 an item in two parts, 1.25 in the Goethe
+ *  papers), so points are carried **exact** and rounded once, at the totals a
+ *  learner actually reads. Rounding each part first is how a perfect Goethe A2
+ *  sheet came to 100.4 out of 100: four parts of 6.25 each rounded up to 6.3. */
 const round1 = (n: number) => Math.round(n * 10) / 10;
 
 export interface Sitting {
@@ -425,21 +445,46 @@ export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
     speaking: { points: 0, max: scheme.speaking },
   } satisfies Record<Subtest, { points: number; max: number }>;
 
-  for (const p of parts) bySubtest[p.subtest].points = round1(bySubtest[p.subtest].points + p.points);
+  for (const p of parts) bySubtest[p.subtest].points += p.points;
 
+  // The two self-assessed parts are marked on telc's grids — 15 points for the
+  // letter, 15/30/30 for the oral — and then **scaled** to whatever this paper
+  // says they are worth. Clamping instead (which is what this did) would have
+  // made a B/B/B letter full marks on a 25-point scheme, because 27 clamps to 25.
   bySubtest.writing.points = sitting.writing
-    ? Math.min(scoreWriting(sitting.writing), scheme.writing) : 0;
+    ? scoreWriting(sitting.writing) / MAX.writing * scheme.writing : 0;
+
+  // Which parts the oral *has* is the paper's business, not the engine's: telc B1
+  // and Goethe A1/A2 run three, Goethe B2 upwards runs two.
   const sp = sitting.speaking ?? {};
-  bySubtest.speaking.points = ([1, 2, 3] as const)
-    .reduce((n, t) => n + (sp[t] ? scoreSpeaking(t, sp[t]!) : 0), 0);
+  const teile = [...new Set(paper.speaking.map((t) => t.teil))].sort();
+  const oralMax = teile.reduce((n, t) => n + SPEAK_MAX[t], 0) || 1;
+  const oralRaw = teile.reduce((n, t) => n + (sp[t] ? scoreSpeaking(t, sp[t]!) : 0), 0);
+  bySubtest.speaking.points = oralRaw / oralMax * scheme.speaking;
 
   const written = round1(bySubtest.reading.points + bySubtest.language.points
     + bySubtest.listening.points + bySubtest.writing.points);
-  const oral = bySubtest.speaking.points;
+  const oral = round1(bySubtest.speaking.points);
   const total = round1(written + oral);
+  for (const k of Object.keys(bySubtest) as Subtest[]) {
+    bySubtest[k].points = round1(bySubtest[k].points);
+  }
 
-  const passedWritten = written >= scheme.pass.written;
-  const passedOral = oral >= scheme.pass.oral;
+  // A module you fail is a module you resit, so on a modular paper the total is
+  // reported but decides nothing. Elsewhere the halves and the total all bind.
+  const modules = scheme.modular
+    ? MODULES.filter((s) => bySubtest[s].max > 0).map((s) => {
+      const need = round1(0.6 * bySubtest[s].max);
+      return { subtest: s, points: bySubtest[s].points, max: bySubtest[s].max, need,
+        passed: bySubtest[s].points >= need };
+    })
+    : [];
+
+  const passedWritten = written >= scheme.pass.written
+    && modules.every((m) => m.subtest === 'speaking' || m.passed);
+  const passedOral = oral >= scheme.pass.oral
+    && modules.every((m) => m.subtest !== 'speaking' || m.passed);
+  const passedTotal = scheme.modular || total >= scheme.pass.total;
   return {
     parts,
     bySubtest,
@@ -448,9 +493,10 @@ export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
     total,
     passedWritten,
     passedOral,
-    passed: passedWritten && passedOral,
-    note: noteFor(total, passedWritten, passedOral, scheme),
-    provisional: !sitting.writing || !sp[1] || !sp[2] || !sp[3],
+    modules,
+    passed: passedWritten && passedOral && passedTotal,
+    note: noteFor(total, passedWritten && passedTotal, passedOral, scheme),
+    provisional: !sitting.writing || teile.some((t) => !sp[t]),
   };
 }
 
@@ -499,6 +545,16 @@ export const PAPERS: PaperMeta[] = [
       + 'an SMS and an email, and the paired oral with model answers at three levels.',
     minutes: 105,
     load: () => import('../data/exams/goethe-a2-01.ts').then((m) => m.PAPER),
+  },
+  {
+    id: 'goethe-b2-01',
+    provider: 'goethe',
+    level: 'B2',
+    title: 'Goethe-Zertifikat B2',
+    blurb: 'The reformed modular B2 — 40 scored items across five reading and four listening tasks, '
+      + 'a forum post and a message, and the four-minute talk plus debate, with models at three levels.',
+    minutes: 195,
+    load: () => import('../data/exams/goethe-b2-01.ts').then((m) => m.PAPER),
   },
 ];
 

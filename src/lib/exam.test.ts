@@ -10,16 +10,19 @@
 // fails CI instead of quietly changing what a learner's score means.
 import { describe, expect, it } from 'vitest';
 import {
-  MAX, PASS, clozeSegments, noteFor, scoreExam, scorePart, scoreSpeaking, scoreWriting,
-  type Part, type WritingMarks,
+  MAX, PAPERS, PASS, clozeSegments, noteFor, scoreExam, scorePart, scoreSpeaking, scoreWriting,
+  type Part, type SpeakingMarks, type WritingMarks,
 } from './exam.ts';
 import { PAPER } from '../data/exams/telc-b1-01.ts';
 import { PAPER as A1 } from '../data/exams/goethe-a1-01.ts';
 import { PAPER as A2 } from '../data/exams/goethe-a2-01.ts';
+import { PAPER as B2 } from '../data/exams/goethe-b2-01.ts';
 
 const marks = (o: Partial<WritingMarks> = {}): WritingMarks => ({
   leitpunkte: 'A', gestaltung: 'A', richtigkeit: 'A', extraRange: false, extraLength: false, ...o,
 });
+
+const allA: SpeakingMarks = { expression: 'A', task: 'A', accuracy: 'A', pronunciation: 'A' };
 
 describe('the letter', () => {
   it('is (I + II + III) × 3', () => {
@@ -266,7 +269,7 @@ describe('cloze markers', () => {
 // multiple-choice-over-audio and true/false-over-a-sign, neither of which the
 // telc-shaped model could express.
 
-describe.each([['telc B1', PAPER], ['Goethe A1', A1], ['Goethe A2', A2]])('%s — structural integrity', (_name, paper) => {
+describe.each([['telc B1', PAPER], ['Goethe A1', A1], ['Goethe A2', A2], ['Goethe B2', B2]])('%s — structural integrity', (_name, paper) => {
   it('numbers its items consecutively with no gaps or repeats', () => {
     const ns = paper.parts.flatMap((p) => p.items.map((i) => i.n)).sort((a, b) => a - b);
     expect(ns).toEqual(Array.from({ length: ns.length }, (_, i) => i + ns[0]));
@@ -347,6 +350,62 @@ describe.each([['telc B1', PAPER], ['Goethe A1', A1], ['Goethe A2', A2]])('%s �
   it('lists every part exactly once across its timed blocks', () => {
     const listed = paper.blocks.flatMap((b) => b.partIds).sort();
     expect(listed).toEqual(paper.parts.map((p) => p.id).sort());
+  });
+});
+
+describe('the pass rule is the paper’s own, and a blank sheet never passes', () => {
+  // This is here because it did. A1 and A2 have no telc-style floor on the
+  // written half, `pass.written` was 0, and `passed` was `written >= 0 && oral >=
+  // 0` — so an untouched Goethe sheet came back **bestanden** with a grade of
+  // *nicht bestanden* printed beside it. The total is now part of the rule.
+  it('fails an empty sheet on every paper', () => {
+    for (const paper of [PAPER, A1, A2, B2]) {
+      const r = scoreExam(paper, { responses: {} });
+      expect(r.passed, paper.id).toBe(false);
+      expect(r.note, paper.id).toBe('nicht bestanden');
+    }
+  });
+
+  it('agrees with itself: passing is exactly the bottom band', () => {
+    for (const paper of [PAPER, A1, A2, B2]) {
+      const s = paper.scheme ?? MAX;
+      expect(s.pass.total, paper.id).toBe(s.bands[s.bands.length - 1][0]);
+      expect(s.pass.written + s.pass.oral, paper.id).toBeLessThanOrEqual(s.pass.total);
+    }
+  });
+});
+
+describe('modular papers are passed module by module', () => {
+  const modular = PAPERS.filter((p) => p.level === 'B2' || p.level === 'C2');
+
+  it('is what B2 and C2 use, and nothing else does', async () => {
+    for (const meta of modular) {
+      const paper = await meta.load();
+      expect(paper.scheme?.modular, meta.id).toBe(true);
+    }
+    expect(A1.scheme!.modular).toBeUndefined();
+    expect(A2.scheme!.modular).toBeUndefined();
+  });
+
+  it('fails the whole sitting for one weak module, however strong the rest', async () => {
+    for (const meta of modular) {
+      const paper = await meta.load();
+      const all = Object.fromEntries(paper.parts.flatMap((p) => p.items.map((i) => [i.n, i.answer])));
+      // Everything right, everything self-assessed at A — except a listening
+      // sheet left blank. Three modules at 100%, one at 0%.
+      const listening = new Set(paper.parts.filter((p) => p.subtest === 'listening')
+        .flatMap((p) => p.items.map((i) => i.n)));
+      const responses = Object.fromEntries(
+        Object.entries(all).filter(([n]) => !listening.has(Number(n))));
+      const r = scoreExam(paper, {
+        responses,
+        writing: marks(),
+        speaking: { 1: allA, 2: allA, 3: allA },
+      });
+      expect(r.modules.find((m) => m.subtest === 'listening')!.passed, meta.id).toBe(false);
+      expect(r.modules.find((m) => m.subtest === 'reading')!.passed, meta.id).toBe(true);
+      expect(r.passed, meta.id).toBe(false);
+    }
   });
 });
 
