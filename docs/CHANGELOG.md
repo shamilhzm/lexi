@@ -11,6 +11,83 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-11 — 599 duplicate cards retired, and the matcher got better for free
+
+**7,394 → 6,795 cards.** 516 groups where the same word existed two or three times
+over, agreeing on gender, part of speech and gloss — `die Mutter` at A1 in *Family*
+and again at B1 in *Family relationships*, each with its own FSRS schedule, so the
+learner met and re-learned it.
+
+- **Only the byte-identical class was merged**, which is BACKLOG Now #3's own
+  instruction: *triage by group, never in bulk*. Of the 874 duplicate terms, 516
+  agreed on everything, and the remaining **358 are written to `dupe-review.tsv`
+  unmerged**, one line per group with every copy's level, sector and gloss. A gloss
+  heuristic would have destroyed real homographs: `der Zug` is *train* **and** *move
+  (in a game)*, `der Kurs` is *course* **and** *share price*, `der Satz` is
+  *sentence* **and** *set of reps*. Most of the rest are en-GB against en-US —
+  "theatre"/"theater", "colourful"/"colorful" — which is a different job again.
+- **A merge never loses content.** The keeper absorbs whatever the retired copies
+  had and it lacked: definition, German definition, IPA, plural, synonyms, and
+  examples unioned to a cap of six.
+- **The keeper is chosen by level, but not always by sector.** Keeping the lowest
+  copy is right — it is the one an early learner can reach — but its sector comes
+  along for the ride, and `putzen` would have kept A1/*Miscellaneous* over
+  A2/*Home*. 53 keepers were rescued out of a catch-all sector; the other 438
+  sector disagreements are flagged in `dupe-rulings.tsv` for `corpus:resector`
+  rather than guessed at (`die Handschuhe` is A2/*Skiing and snowboarding* and
+  B1/*Clothing*, and picking between two real sectors is a judgement call).
+- **Six sectors emptied entirely** and were dropped — they existed only as copies
+  of cards filed elsewhere.
+- 599 `ID_MAP` entries plus 3 re-pointed; `sectors.json` counts and level lists
+  refreshed; `provenance.json` re-pointed and de-duplicated.
+
+**The unplanned win: the matcher got materially better.** `corpus:validate`'s reader
+probe, unchanged, went **verb 0.75 → 0.83, plural 0.84 → 0.94, adjective 0.84 →
+0.87**. Duplicates were shadowing each other in the matcher's first-wins index, so a
+token resolved to whichever copy happened to come first — and that copy might be the
+one with no plural recorded, or the one whose examples were thinner. Removing them
+did not change a line of `matcher.ts`. It is also, precisely, the mechanism that made
+the A1 probe lie two entries below.
+
+---
+
+### Shipped 2026-08-11 — the meter was counting "etwas" against the learner
+
+Measured over the new B1 paper: **7.8% of content tokens** were failing to resolve
+for reasons with nothing to do with vocabulary. Coverage of the paper against the
+whole corpus: **83.6% → 87.6%**. This matters because it lands on Now #2, whose
+entire competitive claim is that its number is honest.
+
+- **`FUNCTION_WORDS` gained the closed class it was missing** — indefinite pronouns
+  (*etwas, alles, nichts, jemand*), quantifiers (*jeder, andere, einige, mehr,
+  viele*), demonstratives, and the inflected possessives. `ihre` was in the set from
+  the start and `ihren`/`ihrem`/`ihrer` were not, so one word counted as known in one
+  case and unknown in three.
+- **Spelled-out cardinals join ordinals as neutral.** German writes them as one
+  word, so the set is infinite and no corpus can list it; knowing *achtzig* is
+  arithmetic, not vocabulary.
+- **Three inflections that were silently dropped now resolve**: the feminine
+  `-in`/`-innen` (exam texts use paired forms constantly — "acht Schülerinnen und
+  fünf Schüler"), the genitive singular (*des Kurses, des Vaters, des Hauses*), and
+  the adverbial `-s` on time nouns (*montags, samstags, nachmittags*).
+
+**Two of my own mistakes are pinned as tests**, because both are the wrong-answer
+class this file already warns about for verb homographs — worse than a miss, since a
+miss is visible and a wrong lemma is not:
+
+1. The genitive rule first claimed `festes` — the adjective in *"ein festes
+   Programm"* — for the noun `das Fest`. Reordering it after adjective de-inflection
+   was not enough, because the corpus has no `fest` adjective card for that rule to
+   find. It is now gated on capitalisation, which is the signal German actually
+   gives; the adverbial `-s` gets its own lowercase door, scoped to time nouns.
+2. The `-in` derivation ran inside the base-form loop, where first-wins let it steal
+   `die Freundin` and `die Ärztin` **from themselves** — 111 of those forms are real
+   cards — and take `Freundinnen` off that card's own plural. `corpus:validate`
+   caught it as a plural regression, 168/200 → 165/200. It derives last now, after
+   every real form is indexed.
+
+---
+
 ### Shipped 2026-08-11 — the Goethe A1 relevel, and a finding withdrawn
 
 **162 words the Start Deutsch 1 syllabus examines now have an A1 card.** A1 word

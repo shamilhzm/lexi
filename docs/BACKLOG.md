@@ -498,7 +498,25 @@ list in COMPETITIVE-RESEARCH §5.
 `src/lib/coverage.ts` (new), `session.ts` (`SessionReason`, `whyLine`), `store.ts`
 (saved texts), `scripts/corpus/build.ts` (freqRank fill).
 
-### 3. Cross-level duplicate cards · M, human-gated
+### 3. Cross-level duplicate cards · 516 of 874 done · M, human-gated
+
+> ✅ **516 groups merged 2026-08-11** (`npm run corpus:dupes`), retiring **599
+> cards, 7,394 → 6,795** — the class where every copy agreed on gender, part of
+> speech and gloss. Side effect worth knowing: `corpus:validate`'s reader probe rose
+> from verb 0.75 / plural 0.84 / adj 0.84 to **0.83 / 0.94 / 0.87** without touching
+> `matcher.ts`, because duplicates were shadowing each other in a first-wins index.
+>
+> **The remaining 358 groups are in `scripts/corpus/dupe-review.tsv` and each needs
+> a ruling** — 347 whose glosses differ, 10 whose part of speech differs, 1 whose
+> gender does. Most are en-GB vs en-US ("theatre"/"theater") and are safe merges
+> once someone says so; a handful are real homographs that must **not** merge:
+> `der Zug` train / move-in-a-game, `der Kurs` course / share price, `der Satz`
+> sentence / set of reps, `einräumen` to put away / to concede, `passen` to fit /
+> to pass a turn.
+>
+> Also open from the same pass: **438 merged groups had disagreeing sectors** and
+> kept the lowest copy's, flagged in `dupe-rulings.tsv` for `corpus:resector`.
+> `die Handschuhe` now sits in *Skiing and snowboarding* rather than *Clothing*.
 
 **Why.** **874 terms sit on more than one card; 1,021 cards are redundant — 14% of
 the corpus.** The 2026-08-11 pass raised the evidence for this item and, briefly,

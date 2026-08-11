@@ -38,7 +38,8 @@
     "authoring:apply": "node scripts/authoring/apply-authored.ts",
     "authoring:fix": "node scripts/authoring/fix-authored.ts",
     "lint": "eslint src",
-    "corpus:relevel:a1": "node scripts/corpus/relevel-a1.ts"
+    "corpus:relevel:a1": "node scripts/corpus/relevel-a1.ts",
+    "corpus:dupes": "node scripts/corpus/merge-dupes.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

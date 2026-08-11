@@ -17,8 +17,9 @@
   },
   {
     "name": "Arts and culture",
-    "count": 56,
+    "count": 45,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -61,7 +62,7 @@
   },
   {
     "name": "Free time",
-    "count": 64,
+    "count": 63,
     "levels": [
       "A1",
       "A2",
@@ -72,8 +73,9 @@
   },
   {
     "name": "Games",
-    "count": 65,
+    "count": 60,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -90,7 +92,7 @@
   },
   {
     "name": "Hobbies and leisure",
-    "count": 40,
+    "count": 37,
     "levels": [
       "A2",
       "B1",
@@ -100,7 +102,7 @@
   },
   {
     "name": "Intermediate descriptive adjectives",
-    "count": 55,
+    "count": 51,
     "levels": [
       "A2",
       "B1",
@@ -110,7 +112,7 @@
   },
   {
     "name": "Intermediate everyday verbs",
-    "count": 66,
+    "count": 54,
     "levels": [
       "A2",
       "B1"
@@ -127,7 +129,7 @@
   },
   {
     "name": "Literature & Film",
-    "count": 10,
+    "count": 9,
     "levels": [
       "B2"
     ],
@@ -168,7 +170,7 @@
   },
   {
     "name": "Music & Theatre",
-    "count": 11,
+    "count": 7,
     "levels": [
       "B2"
     ],
@@ -176,7 +178,7 @@
   },
   {
     "name": "Skiing and snowboarding",
-    "count": 35,
+    "count": 34,
     "levels": [
       "A2",
       "B1",
@@ -186,7 +188,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 559,
+    "count": 503,
     "levels": [
       "A1",
       "A2",
@@ -201,6 +203,7 @@
     "name": "Academic Writing",
     "count": 13,
     "levels": [
+      "B2",
       "C1"
     ],
     "group": "Education & Language"
@@ -225,6 +228,7 @@
     "name": "Being & Consciousness",
     "count": 4,
     "levels": [
+      "B2",
       "C2"
     ],
     "group": "Education & Language"
@@ -239,7 +243,7 @@
   },
   {
     "name": "Communication",
-    "count": 121,
+    "count": 119,
     "levels": [
       "A1",
       "A2",
@@ -274,7 +278,7 @@
   },
   {
     "name": "Education",
-    "count": 51,
+    "count": 50,
     "levels": [
       "A1",
       "A2",
@@ -284,7 +288,7 @@
   },
   {
     "name": "Energy & Resources",
-    "count": 9,
+    "count": 8,
     "levels": [
       "B2"
     ],
@@ -300,7 +304,7 @@
   },
   {
     "name": "Idioms",
-    "count": 3,
+    "count": 2,
     "levels": [
       "C2"
     ],
@@ -316,7 +320,7 @@
   },
   {
     "name": "Knowledge & Truth",
-    "count": 4,
+    "count": 1,
     "levels": [
       "C2"
     ],
@@ -326,6 +330,7 @@
     "name": "Connotation & Register",
     "count": 3,
     "levels": [
+      "A2",
       "C2"
     ],
     "group": "Education & Language"
@@ -340,7 +345,7 @@
   },
   {
     "name": "Language Acquisition & Linguistics",
-    "count": 15,
+    "count": 11,
     "levels": [
       "C1"
     ],
@@ -348,7 +353,7 @@
   },
   {
     "name": "Language Policy",
-    "count": 9,
+    "count": 8,
     "levels": [
       "C1"
     ],
@@ -380,15 +385,16 @@
   },
   {
     "name": "Method & Model",
-    "count": 4,
+    "count": 2,
     "levels": [
+      "B2",
       "C2"
     ],
     "group": "Education & Language"
   },
   {
     "name": "Multilingualism",
-    "count": 10,
+    "count": 8,
     "levels": [
       "C1"
     ],
@@ -420,7 +426,7 @@
   },
   {
     "name": "Pragmatics & Communication",
-    "count": 12,
+    "count": 11,
     "levels": [
       "C1"
     ],
@@ -446,6 +452,7 @@
     "name": "Rhetoric & Debate",
     "count": 12,
     "levels": [
+      "C1",
       "C2"
     ],
     "group": "Education & Language"
@@ -462,13 +469,14 @@
     "name": "School",
     "count": 9,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Education & Language"
   },
   {
     "name": "School & Education System",
-    "count": 7,
+    "count": 6,
     "levels": [
       "B2"
     ],
@@ -500,7 +508,7 @@
   },
   {
     "name": "University & Studies",
-    "count": 14,
+    "count": 13,
     "levels": [
       "A1",
       "A2",
@@ -530,7 +538,7 @@
   },
   {
     "name": "Culture & Encounter",
-    "count": 11,
+    "count": 8,
     "levels": [
       "B2"
     ],
@@ -546,7 +554,7 @@
   },
   {
     "name": "Emotions",
-    "count": 51,
+    "count": 48,
     "levels": [
       "A1",
       "A2",
@@ -567,15 +575,7 @@
   },
   {
     "name": "Family relationships",
-    "count": 31,
-    "levels": [
-      "B1"
-    ],
-    "group": "Feelings & Relationships"
-  },
-  {
-    "name": "Forms of Address & Politeness",
-    "count": 1,
+    "count": 16,
     "levels": [
       "B1"
     ],
@@ -600,8 +600,9 @@
   },
   {
     "name": "Relationships",
-    "count": 55,
+    "count": 52,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -610,15 +611,16 @@
   },
   {
     "name": "Dining",
-    "count": 12,
+    "count": 9,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Food & Drink"
   },
   {
     "name": "Food & drink",
-    "count": 93,
+    "count": 92,
     "levels": [
       "A1",
       "A2",
@@ -628,8 +630,9 @@
   },
   {
     "name": "Food and beverages",
-    "count": 74,
+    "count": 40,
     "levels": [
+      "A1",
       "A2",
       "B1"
     ],
@@ -676,7 +679,7 @@
   },
   {
     "name": "Body & Illness",
-    "count": 13,
+    "count": 9,
     "levels": [
       "B2"
     ],
@@ -694,7 +697,7 @@
   },
   {
     "name": "Body and health",
-    "count": 41,
+    "count": 32,
     "levels": [
       "A2",
       "B1"
@@ -703,7 +706,7 @@
   },
   {
     "name": "Body parts",
-    "count": 46,
+    "count": 26,
     "levels": [
       "A2",
       "B1",
@@ -721,7 +724,7 @@
   },
   {
     "name": "Health",
-    "count": 54,
+    "count": 50,
     "levels": [
       "A1",
       "A2",
@@ -740,7 +743,7 @@
   },
   {
     "name": "Mental health concepts",
-    "count": 47,
+    "count": 44,
     "levels": [
       "B1",
       "B2"
@@ -749,7 +752,7 @@
   },
   {
     "name": "Prevention & Wellbeing",
-    "count": 14,
+    "count": 10,
     "levels": [
       "B1",
       "B2"
@@ -774,14 +777,6 @@
     "group": "Health & Body"
   },
   {
-    "name": "Sport & Leisure",
-    "count": 1,
-    "levels": [
-      "A2"
-    ],
-    "group": "Health & Body"
-  },
-  {
     "name": "Sport & leisure",
     "count": 7,
     "levels": [
@@ -791,7 +786,7 @@
   },
   {
     "name": "The Body",
-    "count": 11,
+    "count": 2,
     "levels": [
       "A2"
     ],
@@ -807,7 +802,7 @@
   },
   {
     "name": "Water sports",
-    "count": 3,
+    "count": 2,
     "levels": [
       "A2"
     ],
@@ -823,15 +818,16 @@
   },
   {
     "name": "Everyday life basics",
-    "count": 59,
+    "count": 21,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Home & Daily Life"
   },
   {
     "name": "Furniture",
-    "count": 32,
+    "count": 22,
     "levels": [
       "A1",
       "A2",
@@ -842,7 +838,7 @@
   },
   {
     "name": "Home",
-    "count": 182,
+    "count": 163,
     "levels": [
       "A1",
       "A2",
@@ -863,15 +859,16 @@
   },
   {
     "name": "Living & City Life",
-    "count": 11,
+    "count": 8,
     "levels": [
+      "A2",
       "B2"
     ],
     "group": "Home & Daily Life"
   },
   {
     "name": "Location",
-    "count": 2,
+    "count": 1,
     "levels": [
       "A2"
     ],
@@ -879,7 +876,7 @@
   },
   {
     "name": "The Apartment",
-    "count": 2,
+    "count": 1,
     "levels": [
       "A2"
     ],
@@ -895,8 +892,9 @@
   },
   {
     "name": "Urban life",
-    "count": 45,
+    "count": 36,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -907,13 +905,14 @@
     "name": "Abstract",
     "count": 11,
     "levels": [
+      "A1",
       "B1"
     ],
     "group": "Language Building Blocks"
   },
   {
     "name": "Adjectives",
-    "count": 481,
+    "count": 478,
     "levels": [
       "A1",
       "A2",
@@ -947,7 +946,7 @@
   },
   {
     "name": "Basic verbs",
-    "count": 16,
+    "count": 5,
     "levels": [
       "A2"
     ],
@@ -955,7 +954,7 @@
   },
   {
     "name": "Colors",
-    "count": 27,
+    "count": 26,
     "levels": [
       "A1",
       "A2",
@@ -985,7 +984,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 533,
+    "count": 532,
     "levels": [
       "A1",
       "A2",
@@ -1056,7 +1055,7 @@
   },
   {
     "name": "Opinion",
-    "count": 13,
+    "count": 11,
     "levels": [
       "A2",
       "B1"
@@ -1075,7 +1074,7 @@
   },
   {
     "name": "Time",
-    "count": 31,
+    "count": 30,
     "levels": [
       "A1",
       "A2",
@@ -1134,7 +1133,7 @@
   },
   {
     "name": "Working Life",
-    "count": 15,
+    "count": 11,
     "levels": [
       "B2"
     ],
@@ -1150,8 +1149,9 @@
   },
   {
     "name": "Visual Arts",
-    "count": 13,
+    "count": 8,
     "levels": [
+      "A2",
       "B2"
     ],
     "group": "Miscellaneous"
@@ -1166,8 +1166,9 @@
   },
   {
     "name": "Future & Forecast",
-    "count": 9,
+    "count": 7,
     "levels": [
+      "B1",
       "C1"
     ],
     "group": "Miscellaneous"
@@ -1184,13 +1185,14 @@
     "name": "Taste & Judgement",
     "count": 4,
     "levels": [
+      "A2",
       "C2"
     ],
     "group": "Miscellaneous"
   },
   {
     "name": "Global Challenges",
-    "count": 4,
+    "count": 3,
     "levels": [
       "C2"
     ],
@@ -1222,7 +1224,7 @@
   },
   {
     "name": "Real Estate & Moving",
-    "count": 20,
+    "count": 17,
     "levels": [
       "B1",
       "B2",
@@ -1232,7 +1234,7 @@
   },
   {
     "name": "Individual & System",
-    "count": 12,
+    "count": 11,
     "levels": [
       "C1"
     ],
@@ -1240,7 +1242,7 @@
   },
   {
     "name": "Contact & Communication",
-    "count": 2,
+    "count": 1,
     "levels": [
       "B1"
     ],
@@ -1264,7 +1266,7 @@
   },
   {
     "name": "Miscellaneous",
-    "count": 600,
+    "count": 553,
     "levels": [
       "A1",
       "A2",
@@ -1293,7 +1295,7 @@
   },
   {
     "name": "Care & doctor",
-    "count": 3,
+    "count": 2,
     "levels": [
       "A2"
     ],
@@ -1301,7 +1303,7 @@
   },
   {
     "name": "Scenarios & Forecasts",
-    "count": 3,
+    "count": 2,
     "levels": [
       "C2"
     ],
@@ -1309,7 +1311,7 @@
   },
   {
     "name": "Social Networks",
-    "count": 11,
+    "count": 9,
     "levels": [
       "B2"
     ],
@@ -1335,6 +1337,7 @@
     "name": "The report",
     "count": 3,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Miscellaneous"
@@ -1349,7 +1352,7 @@
   },
   {
     "name": "Getting Around & Communication",
-    "count": 8,
+    "count": 7,
     "levels": [
       "B2"
     ],
@@ -1357,23 +1360,15 @@
   },
   {
     "name": "Urban Planning & Future",
-    "count": 11,
+    "count": 10,
     "levels": [
       "B2"
     ],
     "group": "Miscellaneous"
   },
   {
-    "name": "Contract & Position",
-    "count": 1,
-    "levels": [
-      "B1"
-    ],
-    "group": "Miscellaneous"
-  },
-  {
     "name": "Volunteering",
-    "count": 9,
+    "count": 8,
     "levels": [
       "B1"
     ],
@@ -1383,6 +1378,7 @@
     "name": "Elections",
     "count": 17,
     "levels": [
+      "A1",
       "B1"
     ],
     "group": "Miscellaneous"
@@ -1397,7 +1393,7 @@
   },
   {
     "name": "Animals",
-    "count": 60,
+    "count": 55,
     "levels": [
       "A2",
       "B1",
@@ -1407,7 +1403,7 @@
   },
   {
     "name": "Climate Change",
-    "count": 13,
+    "count": 9,
     "levels": [
       "B1",
       "B2"
@@ -1416,7 +1412,7 @@
   },
   {
     "name": "Environment",
-    "count": 27,
+    "count": 26,
     "levels": [
       "A2",
       "B1",
@@ -1426,7 +1422,7 @@
   },
   {
     "name": "Environment & Science",
-    "count": 10,
+    "count": 6,
     "levels": [
       "B2"
     ],
@@ -1450,16 +1446,8 @@
     "group": "Nature & Environment"
   },
   {
-    "name": "Landscapes & Nature",
-    "count": 3,
-    "levels": [
-      "A2"
-    ],
-    "group": "Nature & Environment"
-  },
-  {
     "name": "Politics & Sustainability",
-    "count": 17,
+    "count": 12,
     "levels": [
       "B2",
       "C1"
@@ -1478,13 +1466,14 @@
     "name": "Sustainability Policy",
     "count": 9,
     "levels": [
+      "B2",
       "C1"
     ],
     "group": "Nature & Environment"
   },
   {
     "name": "Sustainable Lifestyle",
-    "count": 14,
+    "count": 12,
     "levels": [
       "B2"
     ],
@@ -1509,16 +1498,8 @@
     "group": "Nature & Environment"
   },
   {
-    "name": "Weather Report",
-    "count": 1,
-    "levels": [
-      "A2"
-    ],
-    "group": "Nature & Environment"
-  },
-  {
     "name": "Weather conditions",
-    "count": 62,
+    "count": 50,
     "levels": [
       "A1",
       "A2",
@@ -1529,8 +1510,9 @@
   },
   {
     "name": "Weather report",
-    "count": 9,
+    "count": 7,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Nature & Environment"
@@ -1545,7 +1527,7 @@
   },
   {
     "name": "Clothing",
-    "count": 81,
+    "count": 62,
     "levels": [
       "A1",
       "A2",
@@ -1566,6 +1548,7 @@
     "name": "Administration",
     "count": 38,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -1574,7 +1557,7 @@
   },
   {
     "name": "Changing Values",
-    "count": 11,
+    "count": 10,
     "levels": [
       "C1"
     ],
@@ -1582,7 +1565,7 @@
   },
   {
     "name": "Civic Courage",
-    "count": 10,
+    "count": 9,
     "levels": [
       "C1"
     ],
@@ -1598,8 +1581,9 @@
   },
   {
     "name": "Civil Society & Engagement",
-    "count": 14,
+    "count": 12,
     "levels": [
+      "B1",
       "C1"
     ],
     "group": "Society & Politics"
@@ -1616,7 +1600,7 @@
   },
   {
     "name": "Democratic Structures",
-    "count": 11,
+    "count": 5,
     "levels": [
       "C1"
     ],
@@ -1624,7 +1608,7 @@
   },
   {
     "name": "Demographic Change",
-    "count": 12,
+    "count": 10,
     "levels": [
       "B2"
     ],
@@ -1634,6 +1618,7 @@
     "name": "Development & Inequality",
     "count": 10,
     "levels": [
+      "B1",
       "C1"
     ],
     "group": "Society & Politics"
@@ -1648,8 +1633,9 @@
   },
   {
     "name": "Ethics & Responsibility",
-    "count": 9,
+    "count": 8,
     "levels": [
+      "A2",
       "C1"
     ],
     "group": "Society & Politics"
@@ -1696,8 +1682,9 @@
   },
   {
     "name": "Migration & Integration",
-    "count": 12,
+    "count": 10,
     "levels": [
+      "B1",
       "B2"
     ],
     "group": "Society & Politics"
@@ -1713,7 +1700,7 @@
   },
   {
     "name": "News Media",
-    "count": 26,
+    "count": 25,
     "levels": [
       "A2",
       "B1",
@@ -1750,15 +1737,17 @@
   },
   {
     "name": "Politics & Society",
-    "count": 12,
+    "count": 9,
     "levels": [
+      "B1",
+      "B2",
       "C1"
     ],
     "group": "Society & Politics"
   },
   {
     "name": "Populism & Media",
-    "count": 11,
+    "count": 10,
     "levels": [
       "C1"
     ],
@@ -1766,15 +1755,16 @@
   },
   {
     "name": "Power & Authority",
-    "count": 4,
+    "count": 3,
     "levels": [
+      "C1",
       "C2"
     ],
     "group": "Society & Politics"
   },
   {
     "name": "Religion",
-    "count": 5,
+    "count": 4,
     "levels": [
       "B1"
     ],
@@ -1806,7 +1796,7 @@
   },
   {
     "name": "Social life",
-    "count": 69,
+    "count": 66,
     "levels": [
       "A1",
       "A2",
@@ -1829,13 +1819,14 @@
     "name": "Values & Norms",
     "count": 11,
     "levels": [
+      "A2",
       "B2"
     ],
     "group": "Society & Politics"
   },
   {
     "name": "Artificial Intelligence",
-    "count": 13,
+    "count": 12,
     "levels": [
       "C1"
     ],
@@ -1843,7 +1834,7 @@
   },
   {
     "name": "Digital Transformation",
-    "count": 10,
+    "count": 9,
     "levels": [
       "C1"
     ],
@@ -1851,7 +1842,7 @@
   },
   {
     "name": "AI & Technology",
-    "count": 12,
+    "count": 11,
     "levels": [
       "B2",
       "C1"
@@ -1876,8 +1867,9 @@
   },
   {
     "name": "Science concepts",
-    "count": 40,
+    "count": 36,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -1888,6 +1880,7 @@
     "name": "Technology",
     "count": 35,
     "levels": [
+      "A1",
       "A2",
       "B1",
       "B2"
@@ -1909,13 +1902,14 @@
     "name": "Accommodation",
     "count": 13,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Travel & Transport"
   },
   {
     "name": "Around Town",
-    "count": 3,
+    "count": 2,
     "levels": [
       "A2"
     ],
@@ -1983,7 +1977,7 @@
   },
   {
     "name": "Fitness and training",
-    "count": 46,
+    "count": 44,
     "levels": [
       "A1",
       "A2",
@@ -2009,8 +2003,9 @@
   },
   {
     "name": "Intermediate travel and daily life",
-    "count": 77,
+    "count": 63,
     "levels": [
+      "A1",
       "A2",
       "B1"
     ],
@@ -2034,16 +2029,15 @@
   },
   {
     "name": "Sightseeing",
-    "count": 2,
+    "count": 1,
     "levels": [
-      "A2",
-      "B1"
+      "A2"
     ],
     "group": "Travel & Transport"
   },
   {
     "name": "Studies & Training",
-    "count": 14,
+    "count": 10,
     "levels": [
       "B2"
     ],
@@ -2051,7 +2045,7 @@
   },
   {
     "name": "Town & travel",
-    "count": 111,
+    "count": 105,
     "levels": [
       "A1",
       "A2",
@@ -2060,16 +2054,8 @@
     "group": "Travel & Transport"
   },
   {
-    "name": "Transport",
-    "count": 1,
-    "levels": [
-      "B1"
-    ],
-    "group": "Travel & Transport"
-  },
-  {
     "name": "Transport & Mobility",
-    "count": 27,
+    "count": 25,
     "levels": [
       "A2",
       "B1",
@@ -2090,7 +2076,7 @@
   },
   {
     "name": "Trip Planning & Logistics",
-    "count": 11,
+    "count": 8,
     "levels": [
       "B2"
     ],
@@ -2098,7 +2084,7 @@
   },
   {
     "name": "Academic Work",
-    "count": 18,
+    "count": 16,
     "levels": [
       "B1",
       "C1"
@@ -2123,7 +2109,7 @@
   },
   {
     "name": "Business & Workplace",
-    "count": 23,
+    "count": 19,
     "levels": [
       "A2",
       "B1",
@@ -2133,15 +2119,16 @@
   },
   {
     "name": "Business Correspondence",
-    "count": 11,
+    "count": 9,
     "levels": [
+      "A2",
       "C1"
     ],
     "group": "Work & Economy"
   },
   {
     "name": "Business Ethics",
-    "count": 14,
+    "count": 13,
     "levels": [
       "C1"
     ],
@@ -2149,7 +2136,7 @@
   },
   {
     "name": "Career & Advancement",
-    "count": 13,
+    "count": 10,
     "levels": [
       "B2"
     ],
@@ -2165,7 +2152,7 @@
   },
   {
     "name": "Digitalisation & Work",
-    "count": 9,
+    "count": 8,
     "levels": [
       "C1"
     ],
@@ -2173,7 +2160,7 @@
   },
   {
     "name": "Economy & Markets",
-    "count": 13,
+    "count": 11,
     "levels": [
       "B2"
     ],
@@ -2181,7 +2168,7 @@
   },
   {
     "name": "Employment Contract",
-    "count": 5,
+    "count": 4,
     "levels": [
       "B1"
     ],
@@ -2197,7 +2184,7 @@
   },
   {
     "name": "Finance & Taxes",
-    "count": 12,
+    "count": 11,
     "levels": [
       "B2"
     ],
@@ -2205,7 +2192,7 @@
   },
   {
     "name": "Financial Markets",
-    "count": 18,
+    "count": 16,
     "levels": [
       "B1",
       "B2",
@@ -2215,7 +2202,7 @@
   },
   {
     "name": "Global Economy",
-    "count": 22,
+    "count": 21,
     "levels": [
       "B2",
       "C1"
@@ -2232,7 +2219,7 @@
   },
   {
     "name": "Job Applications",
-    "count": 15,
+    "count": 8,
     "levels": [
       "B2"
     ],
@@ -2240,7 +2227,7 @@
   },
   {
     "name": "Leadership & Teamwork",
-    "count": 9,
+    "count": 6,
     "levels": [
       "C1"
     ],
@@ -2248,7 +2235,7 @@
   },
   {
     "name": "Money & shopping",
-    "count": 63,
+    "count": 61,
     "levels": [
       "A1",
       "A2",
@@ -2259,7 +2246,7 @@
   },
   {
     "name": "Negotiation & Argument",
-    "count": 12,
+    "count": 10,
     "levels": [
       "C1"
     ],
@@ -2275,7 +2262,7 @@
   },
   {
     "name": "Personal finance",
-    "count": 30,
+    "count": 24,
     "levels": [
       "A2",
       "B1",
@@ -2285,7 +2272,7 @@
   },
   {
     "name": "Work",
-    "count": 116,
+    "count": 111,
     "levels": [
       "A1",
       "A2",
@@ -2306,7 +2293,7 @@
   },
   {
     "name": "Work & career",
-    "count": 31,
+    "count": 28,
     "levels": [
       "B1"
     ],
@@ -2314,7 +2301,7 @@
   },
   {
     "name": "Work & profession",
-    "count": 16,
+    "count": 15,
     "levels": [
       "A2"
     ],
@@ -2322,7 +2309,7 @@
   },
   {
     "name": "Everyday Luck & Accidents",
-    "count": 7,
+    "count": 6,
     "levels": [
       "B1"
     ],
@@ -2338,7 +2325,7 @@
   },
   {
     "name": "Health & Prevention",
-    "count": 9,
+    "count": 8,
     "levels": [
       "B1"
     ],
@@ -2346,7 +2333,7 @@
   },
   {
     "name": "Languages & Multilingualism",
-    "count": 6,
+    "count": 5,
     "levels": [
       "B1"
     ],
@@ -2354,7 +2341,7 @@
   },
   {
     "name": "Applying for Jobs",
-    "count": 6,
+    "count": 5,
     "levels": [
       "B1"
     ],
@@ -2362,7 +2349,7 @@
   },
   {
     "name": "Services & Complaints",
-    "count": 9,
+    "count": 8,
     "levels": [
       "B1"
     ],
@@ -2370,7 +2357,7 @@
   },
   {
     "name": "Living Together & Housing",
-    "count": 10,
+    "count": 8,
     "levels": [
       "B1"
     ],
@@ -2386,7 +2373,7 @@
   },
   {
     "name": "Digital World & Technology",
-    "count": 9,
+    "count": 6,
     "levels": [
       "B1"
     ],
@@ -2410,8 +2397,9 @@
   },
   {
     "name": "Social Engagement",
-    "count": 9,
+    "count": 8,
     "levels": [
+      "A2",
       "B1"
     ],
     "group": "Society & Politics"
@@ -2426,15 +2414,16 @@
   },
   {
     "name": "Home & Europe",
-    "count": 10,
+    "count": 8,
     "levels": [
+      "A1",
       "B1"
     ],
     "group": "Society & Politics"
   },
   {
     "name": "Weekend & Events",
-    "count": 8,
+    "count": 7,
     "levels": [
       "A2"
     ],
@@ -2442,7 +2431,7 @@
   },
   {
     "name": "Objects & Materials",
-    "count": 7,
+    "count": 5,
     "levels": [
       "A2"
     ],
@@ -2452,13 +2441,14 @@
     "name": "Post & Communication",
     "count": 9,
     "levels": [
+      "A1",
       "A2"
     ],
     "group": "Society & Politics"
   },
   {
     "name": "Getting Around & Weather",
-    "count": 7,
+    "count": 5,
     "levels": [
       "A2"
     ],
