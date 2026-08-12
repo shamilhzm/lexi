@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-12 — the sidebar becomes a bar, and the drawer stops existing
+
+A 240px rail (64px collapsed) carried three destinations, Start session and the
+profile. Three destinations do not need a column: on a 1280px laptop the rail was
+19% of the width, and the content it pushed is already `max-w-[1280px] mx-auto`,
+so on a wide display the rail cost nothing and on a laptop it cost a fifth of the
+screen. `TopBar.tsx` spends 55px of the axis there is more of.
+
+- **The mobile drawer went entirely.** The sidebar doubled as one, which meant a
+  focus trap, an Escape handler, `role="dialog"` applied conditionally, and an
+  `inert` dance to keep seven controls out of the tab order while the panel stayed
+  mounted so it could still slide. None of that has to be correct any more,
+  because none of it exists. Destinations were already in `BottomNav` under the
+  thumb; the profile is now on the bar at every width, which is all the drawer was
+  still for. Tabbable controls before `#main` on a phone: **7 → 3**.
+- **`lexi.sidebar.collapsed.v1` is dead**, along with `mobileOpen`, `collapsed`,
+  the collapse chevron and the hamburger.
+- **Start session stays out of `NAV`** and sits to the right of the destinations.
+  It is an action, not a place — the same distinction the bottom bar learned when
+  it stopped being a fifth item raised out of the row.
+
+Chosen over an icon-only rail and a bottom bar at all widths, on the grounds that
+Games is arriving as a fourth destination: four labels fit a bar comfortably,
+where a rail would still be a column and an icon rail would make four unlabelled
+glyphs carry the whole information architecture.
+
 ### Shipped 2026-08-12 — 5,207 grammar exercises, and six ways a generator gets German wrong
 
 The bank was 887 exercises across 136 points — about six a point, which is one

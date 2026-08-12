@@ -679,14 +679,12 @@ load size still acceptable.
 
 **Games, and the navigation that has to come first.** *Decided 2026-08-12 with the
 user; none of it is built.*
-- **Top-bar navigation · S — do this before either game.** A 240px sidebar for three
-  destinations is most of a laptop's left edge, and the content column is already
-  `max-w-[1280px]` centred so it buys nothing on a wide display. Chosen shape: a
-  ~52px horizontal header carrying the mark, the destinations, Start session and the
-  profile. *Why first:* Games is a fourth destination, and a rail scales to four
-  worse than a bar does — building a game into the nav that is about to be replaced
-  is the wasted-work order. *Touches:* `Sidebar.tsx`, `BottomNav.tsx`, `App.tsx`, and
-  the `lexi.sidebar.collapsed.v1` key, which becomes dead.
+- ~~**Top-bar navigation · S**~~ **Shipped 2026-08-12.** `TopBar.tsx` replaces the
+  240px rail with a 55px bar; the content column gained 240px on a laptop. The
+  mobile drawer went with it — its focus trap, Escape handler and `inert` dance no
+  longer have to be right because they no longer exist, and tabbable controls
+  before `#main` went 7 → 3 on a phone. Destinations stay in `BottomNav` under the
+  thumb; the profile is on the bar at every width. See the CHANGELOG.
 - **Typing race · M.** Ported in spirit from viberacer: ASCII track, opponents as
   fixed-WPM pace-setters, live per-racer WPM. **What you type is German at your
   level**, drawn from corpus cards and paper passages — which is what makes it a

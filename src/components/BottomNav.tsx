@@ -4,9 +4,10 @@
 // habit app that is the wrong shape — the surface people actually study on hid
 // everything except the thing already on screen.
 //
-// Desktop keeps the sidebar; this is `sm:hidden`. The two share Sidebar's NAV
-// array so a destination can never exist in one and not the other. The drawer
-// stays for Profile and Settings, which aren't primary.
+// Desktop puts the destinations in the top bar; this is `sm:hidden`. The two
+// share `TopBar`'s NAV array so a destination can never exist in one and not the
+// other. Profile is reachable from the avatar in the bar at every width, which is
+// what let the drawer go entirely.
 //
 // The start button used to be a fifth item raised out of the bar, splitting two
 // destinations either side. With three destinations that split no longer works,
@@ -16,7 +17,7 @@
 // the same button twice.
 import { motion, useReducedMotion } from 'motion/react';
 import { Play } from 'lucide-react';
-import { NAV } from './Sidebar.tsx';
+import { NAV } from './TopBar.tsx';
 import type { View } from '../App.tsx';
 
 export default function BottomNav({ view, onGo, onStartSession }: {
