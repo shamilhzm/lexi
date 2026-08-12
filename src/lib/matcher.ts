@@ -414,11 +414,18 @@ export function buildMatcher(corpus: Word[]): Matcher {
       if (w && w.pos === 'noun') return w;
     }
     // Adjective de-inflection (strip an ending, match an adjective lemma; umlaut fallback).
+    //
+    // The `stem + 'e'` fallback exists because a handful of adjective cards are
+    // stored in their *weak* form rather than their stem — `letzte`, not `letzt`.
+    // That is the right thing to print on a card (nobody writes "letzt"), and it
+    // meant `letzten`, `letztes` and `letzter` all resolved to nothing while
+    // `letzte` resolved fine. Only consulted after the bare stem misses, so it
+    // cannot take a word away from an adjective stored the ordinary way.
     if (lc.length >= 4) {
       for (const suf of ADJ_SUFFIXES) {
         if (lc.length - suf.length < 3 || !lc.endsWith(suf)) continue;
         const stem = lc.slice(0, -suf.length);
-        const w = adjIndex.get(stem) ?? adjIndex.get(deUmlaut(stem));
+        const w = adjIndex.get(stem) ?? adjIndex.get(deUmlaut(stem)) ?? adjIndex.get(`${stem}e`);
         if (w) return w;
       }
     }

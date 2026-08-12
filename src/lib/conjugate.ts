@@ -149,12 +149,29 @@ const INSEPARABLE = ['be', 'emp', 'ent', 'er', 'ge', 'miss', 'ver', 'zer', 'hint
 // strong core, so a strong verb hidden behind any prefix is never drilled with
 // a wrongly-generated past tense.
 const GATE_PREFIXES = [...INSEPARABLE, ...['ab', 'an', 'auf', 'aus', 'bei', 'durch', 'ein', 'frei', 'gegen', 'hinter', 'los', 'mit', 'nach', 'über', 'um', 'unter', 'vor', 'voll', 'weg', 'wider', 'wieder', 'zer', 'zu', 'zurück', 'zusammen', 'her', 'hin']];
+// Prefixes that are separable in one verb and inseparable in the next, with no
+// rule that decides which: *übersetzen* is "translate" (übersetzt) or "ferry
+// across" (setzt über) depending on stress alone. They are kept out of SEPARABLE
+// below so the separable machinery never guesses — but keeping them out was only
+// half the job, because the *regular* generator then ran on the full infinitive
+// and produced `ge` + infinitive: **geübersetzt, geunterstützt, gewiederholt,
+// geüberzeugt**. Twenty-eight corpus verbs, every one `reliable: true`, every one
+// drilled. No reading of German produces those forms — the separable reading
+// would be *übergesetzt* — so this is not a wrong guess between two options but a
+// form that is wrong under both.
+//
+// They are now a reliability gate. The present tense still resolves for reading
+// through `recognitionPraesens`, where the regular forms are correct for the
+// inseparable reading; what stops is drilling a participle nobody can write.
+const AMBIGUOUS_PREFIXES = ['über', 'unter', 'um', 'durch', 'wieder', 'voll', 'hinter', 'wider'];
+
 // Unambiguously separable prefixes (those that can be either, like über/unter/um/durch,
 // are deliberately excluded so we don't guess wrong; such verbs fall back to the table only).
 const SEPARABLE = [
   'ab', 'an', 'auf', 'aus', 'bei', 'dar', 'ein', 'empor', 'fern', 'fest', 'fort', 'her', 'herab', 'heran',
   'frei', 'herauf', 'heraus', 'herbei', 'herein', 'herum', 'herunter', 'hervor', 'hin', 'hinauf', 'hinaus',
-  'hinein', 'hinunter', 'hinweg', 'hinzu', 'los', 'mit', 'nach', 'nieder', 'statt', 'teil', 'vor', 'voran', 'voraus',
+  'hinein', 'hinunter', 'hinweg', 'hinzu', 'los', 'mit', 'nach', 'nieder', 'statt', 'teil', 'überein',
+  'vor', 'voran', 'voraus',
   'vorbei', 'weg', 'weiter', 'zu', 'zurecht', 'zurück', 'zusammen',
 ];
 
@@ -338,6 +355,15 @@ export function conjugate(rawVerb: string): Conjugation {
   let inseparable = false;
   for (const p of SEPARABLE) { if (inf.startsWith(p) && isKnownRoot(inf.slice(p.length))) { sep = p; break; } }
   if (!sep) for (const p of INSEPARABLE) { if (inf.startsWith(p) && inf.length > p.length + 2) { inseparable = true; break; } }
+  // An ambiguous prefix whose remainder is **not** a verb in its own right —
+  // *überraschen*, *unterstützen*, *übernachten*, *umarmen*. There is no separable
+  // reading available for those (there is no verb *raschen* to strip off), so the
+  // inseparable one is the only one, and the ge-drop applies. It is the pair where
+  // the root *is* a verb — übersetzen/setzen, umstellen/stellen — that stays
+  // genuinely undecidable and is gated below.
+  const ambiguous = !sep && AMBIGUOUS_PREFIXES.find(
+    (p) => inf.startsWith(p) && inf.length > p.length + 2);
+  if (ambiguous && !isKnownRoot(inf.slice(ambiguous.length))) inseparable = true;
 
   const praesens0 = regularPraesens(inf);
   const praeteritum0 = regularPraeteritum(inf);
@@ -352,6 +378,8 @@ export function conjugate(rawVerb: string): Conjugation {
   //  - a verb that *starts* like a prefixed verb but whose base we couldn't
   //    confirm (aufräumen, beobachten) → unreliable, rather than guess wrong.
   const looksStrong = isStrong(inf);
+  // An unstressed-or-stressed prefix we cannot resolve — see AMBIGUOUS_PREFIXES.
+  const ambiguousPrefix = !!ambiguous && isKnownRoot(inf.slice(ambiguous.length));
   const goodEnding = /(en|eln|ern|n)$/.test(inf);
   // A verb that *looks* separable (starts with a separable prefix, remainder is
   // verb-like) but whose base we couldn't confirm — e.g. aufräumen (räumen not
@@ -362,7 +390,7 @@ export function conjugate(rawVerb: string): Conjugation {
       if (inf.startsWith(p) && inf.length > p.length + 2 && /(en|n)$/.test(inf.slice(p.length))) { unstrippedSeparable = true; break; }
     }
   }
-  const reliable = !looksStrong && goodEnding && !unstrippedSeparable;
+  const reliable = !looksStrong && goodEnding && !unstrippedSeparable && !ambiguousPrefix;
 
   return {
     infinitive: base, reflexive, aux, praesens, praeteritum, partizip,

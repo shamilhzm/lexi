@@ -726,12 +726,19 @@ load size still acceptable.
   readout on the result screen is per **subtest**, not per grammar concept — "your
   weakest area for B1 is Kasus" needs the miss log joined to the paper's items, which
   wants item-level grammar tags the paper does not yet carry. *S, and worth doing.*
-- **More papers · M each, authoring not building** — A1, A2, B2, C1, C2 render honestly
-  as "no paper yet". They share the scoring engine, the renderers and the mark scheme;
-  what each needs is the German. B2 first: it is the second most-taken certificate and
-  is already the thinnest layer in the grammar bank (see the 2026-08-06 audit above).
-  Goethe's B1 differs from telc's in format and would be a second `provider`, not a
-  second paper.
+- ~~**More papers · M each, authoring not building.**~~ **Shipped 2026-08-12** — all six
+  levels now have a paper: telc B1, Goethe A1, A2, B2, C1 and C2. The prediction that
+  they would only need the German was half right; each one also found something the
+  engine had hard-coded from telc, and the last two found four scoring bugs. See the
+  CHANGELOG entries for 08-11 and 08-12. *Still open under it:* Goethe's own **B1**
+  differs from telc's in format and would be a second `provider` at the same level —
+  the first case the paper registry has of two papers competing for one CEFR row, and
+  the level picker currently assumes at most one full paper per level. *S.*
+- **Second papers per level · M each** — every level ships exactly one, so a learner who
+  sits it has spent it. The engine takes a second without changes (`PAPERS` is a list
+  and `loadPaper` is keyed by id); what is missing is the German and a UI that offers a
+  choice rather than a single card. Worth doing for B1 and B2 first, where people
+  actually resit.
 - **Heritage / uneven-profile learners · M** (#41). Placement assumes ignorance is
   uniform. Yusuf tests C1 on vocabulary and B1 on orthography and the app has one number
   for him. Skill-scoped drills rather than level-gated ones.

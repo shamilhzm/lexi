@@ -48,6 +48,7 @@ export const PAPER: ExamPaper = {
   title: 'Goethe-Zertifikat A2',
   blurb: 'The full A2 exam in Goethe’s format — 40 scored items across reading and listening, '
     + 'an SMS and an email, and the paired oral with model answers at three levels.',
+  oralFormat: '(paarweise, ohne Vorbereitungszeit)',
   scheme: GOETHE_A2,
   blocks: [
     { label: 'Lesen', minutes: 30, partIds: ['l1', 'l2', 'l3', 'l4'] },

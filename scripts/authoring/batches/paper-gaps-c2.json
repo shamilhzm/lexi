@@ -1,0 +1,1016 @@
+[
+ {
+  "term": "der Vorwurf",
+  "en": "accusation, reproach",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Der Vorwurf ist berechtigt.",
+    "en": "The reproach is justified."
+   },
+   {
+    "de": "Sie wies alle Vorwürfe zurück.",
+    "en": "She rejected all the accusations."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "der Eingriff",
+  "en": "intervention, procedure",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Jeder Eingriff wird genau dokumentiert.",
+    "en": "Every intervention is documented precisely."
+   },
+   {
+    "de": "Solche Eingriffe müssen umkehrbar sein.",
+    "en": "Such interventions must be reversible."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Ablenkung",
+  "en": "distraction",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Alles andere ist nur Ablenkung.",
+    "en": "Everything else is just a distraction."
+   },
+   {
+    "de": "Er sucht eine Ablenkung von der Arbeit.",
+    "en": "He is looking for a distraction from work."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Verdrängung",
+  "en": "displacement, repression",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "In vielen Vierteln führt der Umbau zur Verdrängung.",
+    "en": "In many districts the redevelopment leads to displacement."
+   },
+   {
+    "de": "Über Verdrängung wird selten offen gesprochen.",
+    "en": "Displacement is rarely spoken about openly."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Kundschaft",
+  "en": "customers, clientele",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Kundschaft fährt inzwischen ins Zentrum am Stadtrand.",
+    "en": "The clientele now drives to the centre on the edge of town."
+   },
+   {
+    "de": "Unsere Kundschaft ist sehr treu.",
+    "en": "Our customers are very loyal."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Absatz",
+  "en": "sales figures; paragraph",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Der Absatz ist im vergangenen Jahr gestiegen.",
+    "en": "Sales rose in the past year."
+   },
+   {
+    "de": "Lesen Sie bitte den zweiten Absatz.",
+    "en": "Please read the second paragraph."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "der Ausschnitt",
+  "en": "excerpt, extract",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Media & Arts",
+  "ex": [
+   {
+    "de": "Sie hören einen Ausschnitt aus einer Radiosendung.",
+    "en": "You will hear an excerpt from a radio programme."
+   },
+   {
+    "de": "Der Ausschnitt dauert drei Minuten.",
+    "en": "The excerpt lasts three minutes."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "das Archiv",
+  "en": "archive",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Unterlagen liegen im Archiv.",
+    "en": "The documents are in the archive."
+   },
+   {
+    "de": "Ein Archiv erhält niemanden am Leben.",
+    "en": "An archive keeps nobody alive."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "das Gehäuse",
+  "en": "casing, housing (of a device)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Das Gehäuse lässt sich nicht öffnen.",
+    "en": "The casing cannot be opened."
+   },
+   {
+    "de": "Viele Gehäuse sind verklebt.",
+    "en": "Many casings are glued shut."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Geruch",
+  "en": "smell, odour",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Der Geruch stört die Beschäftigten weniger als die Uhrzeit.",
+    "en": "The smell bothers the staff less than the hour."
+   },
+   {
+    "de": "In der Küche liegt ein seltsamer Geruch.",
+    "en": "There is a strange smell in the kitchen."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Gewissheit",
+  "en": "certainty",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Was bleibt, ist die Gewissheit, dass es weitergeht.",
+    "en": "What remains is the certainty that it will go on."
+   },
+   {
+    "de": "Diese Gewissheit hat er längst verloren.",
+    "en": "He lost that certainty long ago."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Öffentlichkeit",
+  "en": "the public",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Öffentlichkeit reagiert bislang gelassen.",
+    "en": "The public has so far reacted calmly."
+   },
+   {
+    "de": "Der Fall kam erst spät an die Öffentlichkeit.",
+    "en": "The case only came to public attention late."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Etat",
+  "en": "budget",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Ein Etat wächst, ein anderer stagniert.",
+    "en": "One budget grows, another stagnates."
+   },
+   {
+    "de": "Der Etat wurde um zehn Prozent gekürzt.",
+    "en": "The budget was cut by ten per cent."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Erreichbarkeit",
+  "en": "accessibility, being reachable",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Es geht um die Erreichbarkeit der Innenstadt.",
+    "en": "It is about the accessibility of the city centre."
+   },
+   {
+    "de": "Die Erreichbarkeit im Notfall muss gesichert sein.",
+    "en": "Being reachable in an emergency must be guaranteed."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "das Vokabular",
+  "en": "vocabulary (of a field or register)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Uns fehlt ein Vokabular ohne Pathos.",
+    "en": "We lack a vocabulary free of pathos."
+   },
+   {
+    "de": "Das Vokabular der Verwaltung ist schwer zu lesen.",
+    "en": "Administrative vocabulary is hard to read."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "das Lob",
+  "en": "praise",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Das Lob besetzt alles, was gesagt werden könnte.",
+    "en": "The praise occupies everything that could be said."
+   },
+   {
+    "de": "Sie bekam viel Lob für ihren Vortrag.",
+    "en": "She received a lot of praise for her talk."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "das Niveau",
+  "en": "level, standard",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Zahlen liegen auf dem Niveau des Vorjahres.",
+    "en": "The figures are at the level of the previous year."
+   },
+   {
+    "de": "Der Kurs hat ein hohes Niveau.",
+    "en": "The course is at a high level."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Umfang",
+  "en": "extent, scope",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Beide können nicht in vollem Umfang recht behalten.",
+    "en": "Both cannot be right to the full extent."
+   },
+   {
+    "de": "Der Umfang der Arbeit war größer als geplant.",
+    "en": "The scope of the work was larger than planned."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Trägheit",
+  "en": "inertia, sluggishness",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Manche Eigentümer handeln aus schlichter Trägheit nicht.",
+    "en": "Some owners fail to act out of sheer inertia."
+   },
+   {
+    "de": "Die Trägheit der Verwaltung ist bekannt.",
+    "en": "The inertia of the administration is well known."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Leinwand",
+  "en": "canvas; screen",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Media & Arts",
+  "ex": [
+   {
+    "de": "Man verbringt viele Stunden nah an einer Leinwand.",
+    "en": "You spend many hours close to a canvas."
+   },
+   {
+    "de": "Die Leinwand war an einer Stelle beschädigt.",
+    "en": "The canvas was damaged in one place."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Vorzug",
+  "en": "merit, advantage",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Ihre Serie hat den Vorzug, drei Positionen nebeneinanderzustellen.",
+    "en": "Your series has the merit of placing three positions side by side."
+   },
+   {
+    "de": "Der Vorzug dieser Lösung liegt in ihrer Einfachheit.",
+    "en": "The advantage of this solution lies in its simplicity."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Restaurierung",
+  "en": "restoration (of art or buildings)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Media & Arts",
+  "ex": [
+   {
+    "de": "Die meisten Schäden stammen von früheren Restaurierungen.",
+    "en": "Most damage comes from earlier restorations."
+   },
+   {
+    "de": "Die Restaurierung dauert zwei Jahre.",
+    "en": "The restoration will take two years."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Erhaltung",
+  "en": "preservation, conservation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Erhaltung alter Sorten kostet Zeit.",
+    "en": "The preservation of old varieties takes time."
+   },
+   {
+    "de": "Es geht um die Erhaltung des Gebäudes.",
+    "en": "It is about the preservation of the building."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Konfession",
+  "en": "religious denomination",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Erwartet wird die Zugehörigkeit zu einer Konfession.",
+    "en": "Membership of a denomination is expected."
+   },
+   {
+    "de": "Nach der Konfession wird nicht gefragt.",
+    "en": "No question is asked about denomination."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Auftraggeber",
+  "en": "client, commissioning party",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Der Auftraggeber will etwas anderes als eine Restaurierung.",
+    "en": "The client wants something other than a restoration."
+   },
+   {
+    "de": "Wir warten auf die Antwort des Auftraggebers.",
+    "en": "We are waiting for the client's answer."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Ökonomie",
+  "en": "economy; economics",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Ökonomie öffentlicher Debatten begünstigt das Reichliche.",
+    "en": "The economy of public debate favours what is plentiful."
+   },
+   {
+    "de": "Er hat Ökonomie studiert.",
+    "en": "He studied economics."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "der Neubau",
+  "en": "new building, new construction",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Neubau wirkt frühestens in fünf Jahren.",
+    "en": "New building takes effect in five years at the earliest."
+   },
+   {
+    "de": "Neben der Schule entsteht ein Neubau.",
+    "en": "A new building is going up next to the school."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Verlagerung",
+  "en": "shift, relocation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Das ist keine Leistungseinbuße, sondern eine Verlagerung.",
+    "en": "That is not a loss of capacity but a shift."
+   },
+   {
+    "de": "Die Verlagerung der Produktion war umstritten.",
+    "en": "The relocation of production was controversial."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "einschätzen",
+  "en": "to assess, to judge",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Wie schätzen Sie die Lage ein?",
+    "en": "How do you assess the situation?"
+   },
+   {
+    "de": "Ich kann das schwer einschätzen.",
+    "en": "I find that hard to judge."
+   }
+  ]
+ },
+ {
+  "term": "differenzieren",
+  "en": "to differentiate, to draw distinctions",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Hier muss man differenzieren.",
+    "en": "One has to draw distinctions here."
+   },
+   {
+    "de": "Sie differenziert sehr genau zwischen beiden Fällen.",
+    "en": "She differentiates very precisely between the two cases."
+   }
+  ]
+ },
+ {
+  "term": "dokumentieren",
+  "en": "to document",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Wir dokumentieren jeden Schritt.",
+    "en": "We document every step."
+   },
+   {
+    "de": "Der Vorgang ist vollständig dokumentiert.",
+    "en": "The process is fully documented."
+   }
+  ]
+ },
+ {
+  "term": "vermehren",
+  "en": "to multiply, to increase",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Anerkennung lässt sich kostenlos vermehren.",
+    "en": "Recognition can be multiplied at no cost."
+   },
+   {
+    "de": "Die Bestände vermehren sich langsam.",
+    "en": "The stocks are increasing slowly."
+   }
+  ]
+ },
+ {
+  "term": "verwalten",
+  "en": "to administer, to manage",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Politik verwaltet die Knappheit, statt sie zu beenden.",
+    "en": "Policy administers scarcity instead of ending it."
+   },
+   {
+    "de": "Wer verwaltet das Konto?",
+    "en": "Who manages the account?"
+   }
+  ]
+ },
+ {
+  "term": "vorziehen",
+  "en": "to prefer; to bring forward",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Manche Eigentümer würden eine leere Fläche vorziehen.",
+    "en": "Some owners would prefer an empty space."
+   },
+   {
+    "de": "Wir mussten den Termin vorziehen.",
+    "en": "We had to bring the appointment forward."
+   }
+  ]
+ },
+ {
+  "term": "wegziehen",
+  "en": "to move away",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Wer die Miete nicht zahlen kann, muss wegziehen.",
+    "en": "Anyone who cannot pay the rent has to move away."
+   },
+   {
+    "de": "Seine Familie will nächstes Jahr wegziehen.",
+    "en": "His family wants to move away next year."
+   }
+  ]
+ },
+ {
+  "term": "zitieren",
+  "en": "to quote, to cite",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Diese Sätze werden regelmäßig zitiert.",
+    "en": "These sentences are quoted regularly."
+   },
+   {
+    "de": "Bitte zitieren Sie die Quelle.",
+    "en": "Please cite the source."
+   }
+  ]
+ },
+ {
+  "term": "beziffern",
+  "en": "to quantify, to put a figure on",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Diese Forderung lässt sich beziffern.",
+    "en": "This demand can be quantified."
+   },
+   {
+    "de": "Den Schaden kann niemand genau beziffern.",
+    "en": "Nobody can put an exact figure on the damage."
+   }
+  ]
+ },
+ {
+  "term": "abstellen",
+  "en": "to switch off; to park; to remedy",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Wer die Rechnung sehen will, muss den Applaus abstellen.",
+    "en": "Anyone who wants to see the bill has to switch off the applause."
+   },
+   {
+    "de": "Bitte stellen Sie das Radio ab.",
+    "en": "Please switch off the radio."
+   }
+  ]
+ },
+ {
+  "term": "stagnieren",
+  "en": "to stagnate",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Ein Etat wächst, während der andere stagniert.",
+    "en": "One budget grows while the other stagnates."
+   },
+   {
+    "de": "Die Zahlen stagnieren seit Jahren.",
+    "en": "The figures have been stagnating for years."
+   }
+  ]
+ },
+ {
+  "term": "verzögern",
+  "en": "to delay",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Sanierung verzögert sich um ein Jahr.",
+    "en": "The refurbishment is being delayed by a year."
+   },
+   {
+    "de": "Nichts soll das Verfahren weiter verzögern.",
+    "en": "Nothing should delay the procedure further."
+   }
+  ]
+ },
+ {
+  "term": "übereinstimmen",
+  "en": "to agree, to correspond",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Die Aussage soll mit dem Textinhalt übereinstimmen.",
+    "en": "The statement should correspond to the content of the text."
+   },
+   {
+    "de": "In diesem Punkt stimmen wir überein.",
+    "en": "On this point we agree."
+   }
+  ]
+ },
+ {
+  "term": "belehren",
+  "en": "to lecture, to instruct",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Niemand möchte die Leute belehren.",
+    "en": "Nobody wants to lecture people."
+   },
+   {
+    "de": "Ich lasse mich gern belehren.",
+    "en": "I am happy to be corrected."
+   }
+  ]
+ },
+ {
+  "term": "nachgeben",
+  "en": "to give way, to yield",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "In einem Punkt möchte ich nachgeben.",
+    "en": "On one point I would like to give way."
+   },
+   {
+    "de": "Sie gibt in dieser Frage nicht nach.",
+    "en": "She is not giving way on this question."
+   }
+  ]
+ },
+ {
+  "term": "abrufbar",
+  "en": "retrievable, available on demand",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Wissen ist heute jederzeit abrufbar.",
+    "en": "Knowledge is retrievable at any time today."
+   },
+   {
+    "de": "Die Daten sind online abrufbar.",
+    "en": "The data are available online."
+   }
+  ]
+ },
+ {
+  "term": "beliebig",
+  "en": "arbitrary; any at all",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Beliebig ist es nicht, es ist begründungspflichtig.",
+    "en": "It is not arbitrary; it requires justification."
+   },
+   {
+    "de": "Wählen Sie eine beliebige Zahl.",
+    "en": "Choose any number."
+   }
+  ]
+ },
+ {
+  "term": "gleichgültig",
+  "en": "indifferent; immaterial",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Für die Händlerin ist es gleichgültig, woher die Kundschaft kommt.",
+    "en": "To the retailer it is immaterial where the customers come from."
+   },
+   {
+    "de": "Er blieb der Sache gegenüber gleichgültig.",
+    "en": "He remained indifferent to the matter."
+   }
+  ]
+ },
+ {
+  "term": "mühsam",
+  "en": "laborious, painstaking",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Reise war lang und mühsam.",
+    "en": "The journey was long and laborious."
+   },
+   {
+    "de": "Sie trennen den Abfall mühsam.",
+    "en": "They separate the waste painstakingly."
+   }
+  ]
+ },
+ {
+  "term": "umkehrbar",
+  "en": "reversible",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Jeder Eingriff muss umkehrbar sein.",
+    "en": "Every intervention must be reversible."
+   },
+   {
+    "de": "Der Vorgang ist nicht umkehrbar.",
+    "en": "The process is not reversible."
+   }
+  ]
+ },
+ {
+  "term": "vergleichbar",
+  "en": "comparable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Das ist vergleichbar mit einer Telefonnummer.",
+    "en": "That is comparable to a telephone number."
+   },
+   {
+    "de": "Beide Fälle sind kaum vergleichbar.",
+    "en": "The two cases are hardly comparable."
+   }
+  ]
+ },
+ {
+  "term": "verheerend",
+  "en": "devastating, disastrous",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Betriebswirtschaftlich vernünftig, stadtplanerisch verheerend.",
+    "en": "Sound in business terms, disastrous in planning terms."
+   },
+   {
+    "de": "Die Folgen waren verheerend.",
+    "en": "The consequences were devastating."
+   }
+  ]
+ },
+ {
+  "term": "zurückhaltend",
+  "en": "reserved, cautious",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Wer das begriffen hat, wird zurückhaltend.",
+    "en": "Anyone who has grasped that becomes cautious."
+   },
+   {
+    "de": "Sie ist im Gespräch eher zurückhaltend.",
+    "en": "She is rather reserved in conversation."
+   }
+  ]
+ },
+ {
+  "term": "zutreffend",
+  "en": "accurate, applicable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Die Aussage ist in der Sache zutreffend.",
+    "en": "The statement is accurate in substance."
+   },
+   {
+    "de": "Bitte kreuzen Sie das Zutreffende an.",
+    "en": "Please tick whichever applies."
+   }
+  ]
+ },
+ {
+  "term": "hinfällig",
+  "en": "invalid, no longer applicable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Dann wäre mein Argument hinfällig.",
+    "en": "Then my argument would be invalid."
+   },
+   {
+    "de": "Der alte Plan ist damit hinfällig.",
+    "en": "The old plan is thereby invalid."
+   }
+  ]
+ },
+ {
+  "term": "legitim",
+  "en": "legitimate",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society & Politics",
+  "ex": [
+   {
+    "de": "Das ist ein legitimer Wunsch.",
+    "en": "That is a legitimate wish."
+   },
+   {
+    "de": "Die Frage halte ich für legitim.",
+    "en": "I consider the question legitimate."
+   }
+  ]
+ },
+ {
+  "term": "gelegentlich",
+  "en": "occasional; occasionally",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Der Aufwand wird gelegentlich bezweifelt.",
+    "en": "The effort is occasionally doubted."
+   },
+   {
+    "de": "Wir treffen uns gelegentlich.",
+    "en": "We meet occasionally."
+   }
+  ]
+ },
+ {
+  "term": "lesbar",
+  "en": "legible, readable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Media & Arts",
+  "ex": [
+   {
+    "de": "Wir entscheiden, welchen Zustand wir für lesbar halten.",
+    "en": "We decide which state we consider legible."
+   },
+   {
+    "de": "Die Schrift ist kaum noch lesbar.",
+    "en": "The writing is hardly legible any more."
+   }
+  ]
+ },
+ {
+  "term": "unterdurchschnittlich",
+  "en": "below average",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work & Study",
+  "ex": [
+   {
+    "de": "Sie wird dafür unterdurchschnittlich entlohnt.",
+    "en": "She is paid below average for it."
+   },
+   {
+    "de": "Die Ergebnisse sind unterdurchschnittlich.",
+    "en": "The results are below average."
+   }
+  ]
+ },
+ {
+  "term": "ernüchternd",
+  "en": "sobering",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Das Ergebnis ist ernüchternd.",
+    "en": "The result is sobering."
+   },
+   {
+    "de": "Sie zog eine ernüchternde Bilanz.",
+    "en": "She drew a sobering conclusion."
+   }
+  ]
+ }
+]

@@ -56,6 +56,7 @@ export const PAPER: ExamPaper = {
   title: 'Goethe-Zertifikat C1',
   blurb: 'The full C1 in Goethe’s format — 40 scored items plus the register task, a structured '
     + 'essay, and the oral’s talk-from-data and joint decision, with models at three levels.',
+  oralFormat: '(paarweise, 15 Minuten Vorbereitung davor)',
   scheme: GOETHE_C1,
   subtestLabels: { language: 'Schreiben, Aufgabe 2' },
   blocks: [

@@ -89,11 +89,16 @@ export default function Results({ paper, result, onReview, onGrammar }: {
           ))}
         </div>
       ) : (
+        // A half with no floor of its own gets no verdict. Goethe A1 and C1 pass
+        // on the total alone, so `pass.written` is 0 — and a card that read the
+        // floor off that printed a green **bestanden** against 0 / 75, directly
+        // above a grade of *nicht bestanden*. The points are still worth showing;
+        // the claim is not.
         <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
           <Half label="Schriftliche Prüfung" points={result.written} max={scheme.written}
-            need={scheme.pass.written} passed={result.passedWritten} />
+            need={scheme.pass.written} passed={result.passedWritten} judged={scheme.pass.written > 0} />
           <Half label="Mündliche Prüfung" points={result.oral} max={scheme.oral}
-            need={scheme.pass.oral} passed={result.passedOral} />
+            need={scheme.pass.oral} passed={result.passedOral} judged={scheme.pass.oral > 0} />
         </div>
       )}
 
@@ -162,8 +167,10 @@ function passRule(s: Scheme): string {
     + `Ein starker Teil gleicht einen schwachen nicht aus.`;
 }
 
-function Half({ label, points, max, need, passed }: {
+function Half({ label, points, max, need, passed, judged = true }: {
   label: string; points: number; max: number; need: number; passed: boolean;
+  /** False when this half carries no pass rule of its own — see the call site. */
+  judged?: boolean;
 }) {
   const pct = Math.max(0, Math.min(1, points / max));
   const needPct = need / max;
@@ -171,27 +178,34 @@ function Half({ label, points, max, need, passed }: {
     <Card pad="sm">
       <div className="flex items-baseline justify-between gap-2 mb-2">
         <span className="text-sm font-semibold">{label}</span>
-        <Chip tone={passed ? 'good' : 'bad'}>
-          {passed ? <Check size={11} /> : <X size={11} />}
-          {passed ? 'bestanden' : 'nicht bestanden'}
-        </Chip>
+        {judged ? (
+          <Chip tone={passed ? 'good' : 'bad'}>
+            {passed ? <Check size={11} /> : <X size={11} />}
+            {passed ? 'bestanden' : 'nicht bestanden'}
+          </Chip>
+        ) : (
+          <Chip tone="dim">zählt zur Gesamtpunktzahl</Chip>
+        )}
       </div>
       <p className="text-2xl font-bold tabular-nums mb-2">
         {fmt(points)}<span className="text-dim text-base font-normal"> / {max}</span>
       </p>
-      {/* The 60% line is drawn on the bar rather than stated beside it: the only
-          question a learner has here is "am I over it". */}
       <div className="relative h-2 rounded-full bg-bg overflow-hidden">
         <div className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-500"
           style={{ width: `${pct * 100}%`, background: passed ? 'var(--color-green)' : 'var(--color-red)' }} />
       </div>
-      <div className="relative h-3">
-        <span className="absolute -top-2 w-px h-3 bg-txt" style={{ left: `${needPct * 100}%` }} aria-hidden />
-        <span className="absolute top-1 font-mono text-2xs text-dim -translate-x-1/2 whitespace-nowrap"
-          style={{ left: `${needPct * 100}%` }}>
-          {need}
-        </span>
-      </div>
+      {/* The floor line, drawn on the bar rather than stated beside it: the only
+          question a learner has here is "am I over it". Omitted when there is no
+          floor to draw — a marker at zero reads as a threshold of zero. */}
+      {judged && (
+        <div className="relative h-3">
+          <span className="absolute -top-2 w-px h-3 bg-txt" style={{ left: `${needPct * 100}%` }} aria-hidden />
+          <span className="absolute top-1 font-mono text-2xs text-dim -translate-x-1/2 whitespace-nowrap"
+            style={{ left: `${needPct * 100}%` }}>
+            {need}
+          </span>
+        </div>
+      )}
     </Card>
   );
 }

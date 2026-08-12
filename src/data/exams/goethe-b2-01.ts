@@ -53,6 +53,7 @@ export const PAPER: ExamPaper = {
   title: 'Goethe-Zertifikat B2',
   blurb: 'The reformed modular B2 — 40 scored items across five reading and four listening tasks, '
     + 'a forum post and a message, and the four-minute talk plus debate, with models at three levels.',
+  oralFormat: '(paarweise, 15 Minuten Vorbereitung davor)',
   scheme: GOETHE_B2,
   blocks: [
     { label: 'Lesen', minutes: 65, partIds: ['l1', 'l2', 'l3', 'l4', 'l5'] },

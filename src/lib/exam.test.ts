@@ -18,6 +18,7 @@ import { PAPER as A1 } from '../data/exams/goethe-a1-01.ts';
 import { PAPER as A2 } from '../data/exams/goethe-a2-01.ts';
 import { PAPER as B2 } from '../data/exams/goethe-b2-01.ts';
 import { PAPER as C1 } from '../data/exams/goethe-c1-01.ts';
+import { PAPER as C2 } from '../data/exams/goethe-c2-01.ts';
 
 const marks = (o: Partial<WritingMarks> = {}): WritingMarks => ({
   leitpunkte: 'A', gestaltung: 'A', richtigkeit: 'A', extraRange: false, extraLength: false, ...o,
@@ -270,7 +271,7 @@ describe('cloze markers', () => {
 // multiple-choice-over-audio and true/false-over-a-sign, neither of which the
 // telc-shaped model could express.
 
-describe.each([['telc B1', PAPER], ['Goethe A1', A1], ['Goethe A2', A2], ['Goethe B2', B2], ['Goethe C1', C1]])('%s — structural integrity', (_name, paper) => {
+describe.each([['telc B1', PAPER], ['Goethe A1', A1], ['Goethe A2', A2], ['Goethe B2', B2], ['Goethe C1', C1], ['Goethe C2', C2]])('%s — structural integrity', (_name, paper) => {
   it('numbers its items consecutively with no gaps or repeats', () => {
     const ns = paper.parts.flatMap((p) => p.items.map((i) => i.n)).sort((a, b) => a - b);
     expect(ns).toEqual(Array.from({ length: ns.length }, (_, i) => i + ns[0]));
@@ -360,7 +361,7 @@ describe('the pass rule is the paper’s own, and a blank sheet never passes', (
   // 0` — so an untouched Goethe sheet came back **bestanden** with a grade of
   // *nicht bestanden* printed beside it. The total is now part of the rule.
   it('fails an empty sheet on every paper', () => {
-    for (const paper of [PAPER, A1, A2, B2, C1]) {
+    for (const paper of [PAPER, A1, A2, B2, C1, C2]) {
       const r = scoreExam(paper, { responses: {} });
       expect(r.passed, paper.id).toBe(false);
       expect(r.note, paper.id).toBe('nicht bestanden');
@@ -368,7 +369,7 @@ describe('the pass rule is the paper’s own, and a blank sheet never passes', (
   });
 
   it('agrees with itself: passing is exactly the bottom band', () => {
-    for (const paper of [PAPER, A1, A2, B2, C1]) {
+    for (const paper of [PAPER, A1, A2, B2, C1, C2]) {
       const s = paper.scheme ?? MAX;
       expect(s.pass.total, paper.id).toBe(s.bands[s.bands.length - 1][0]);
       expect(s.pass.written + s.pass.oral, paper.id).toBeLessThanOrEqual(s.pass.total);

@@ -39,6 +39,7 @@ export const PAPER: ExamPaper = {
   title: 'Goethe-Zertifikat A1 · Start Deutsch 1',
   blurb: 'The whole A1 exam in Goethe’s format — 30 scored items across listening and reading, '
     + 'the short written message, and the three-part group oral with model answers at three levels.',
+  oralFormat: '(in der Gruppe, ohne Vorbereitungszeit)',
   scheme: GOETHE_A1,
   blocks: [
     { label: 'Hören', minutes: 20, partIds: ['h1', 'h2', 'h3'] },

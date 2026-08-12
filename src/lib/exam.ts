@@ -227,6 +227,12 @@ export interface ExamPaper {
   redemittel: Redemittel[];
   /** Weighting and pass rule. Defaults to telc B1's when absent. */
   scheme?: Scheme;
+  /** How the oral is run, in one parenthetical — "(paarweise, 20 Minuten
+   *  Vorbereitung davor)". Six papers now disagree about this: A1 is a group with
+   *  no preparation, B1/A2/B2/C1 are pairs, and C2 is a conversation with the
+   *  examiner. The pre-exam summary was guessing it from `level === 'A1'`, which
+   *  told a C2 candidate they would be sitting with a partner. */
+  oralFormat?: string;
   /** Rename a subtest for this paper. Goethe C1 has no Sprachbausteine, but its
    *  Schreiben *Aufgabe 2* — rewrite a note as a formal letter, ten gaps, five
    *  points — is objectively scored and cannot live in the self-assessed writing
@@ -571,6 +577,16 @@ export const PAPERS: PaperMeta[] = [
       + 'essay, and the oral’s talk-from-data and joint decision, with models at three levels.',
     minutes: 205,
     load: () => import('../data/exams/goethe-c1-01.ts').then((m) => m.PAPER),
+  },
+  {
+    id: 'goethe-c2-01',
+    provider: 'goethe',
+    level: 'C2',
+    title: 'Goethe-Zertifikat C2 · GDS',
+    blurb: 'The Großes Deutsches Sprachdiplom in Goethe’s modular format — 40 items where the wrong '
+      + 'answers are all things the text says, a 350-word Leserbrief, and the oral with the examiner.',
+    minutes: 210,
+    load: () => import('../data/exams/goethe-c2-01.ts').then((m) => m.PAPER),
   },
 ];
 

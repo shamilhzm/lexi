@@ -11,6 +11,90 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-12 — Goethe C2, and the exam room stops assuming it is telc
+
+The last two papers, and with them A1–C2 complete: **Goethe C1** (40 items plus
+the five-point register task) and **Goethe C2 · GDS** (40 items, modular).
+
+- **C1 is the odd one out and that is the point.** B1, B2 and C2 are modular or
+  half-gated; C1 is one exam, 100 points, 60 to pass, with no floor on any single
+  part. A candidate arriving from B2 expects four gates and finds none, so the
+  briefing leads with it.
+- **C1's Schreiben Aufgabe 2 is objectively scored** — rewrite a note as a formal
+  letter, ten gaps, five points — and could not live in the self-assessed writing
+  slot without being wiped by it. It scores in `language` and `subtestLabels`
+  renames the row, because "Sprachbausteine" is telc's word and C1 has none.
+- **Two C1 adaptations, stated in the rubric.** Lesen Aufgabe 1 and Hören Aufgabe 1
+  are open production in the real paper. Lexi cannot mark free text honestly — the
+  same ruling that governs the letter and the oral — so both become closed tasks
+  over the same stimulus. What is lost is spelling and recall; what is tested is
+  unchanged.
+- **C2 is where the reading stops asking what a text says.** Every wrong option in
+  Lesen Teil 1 is something the author does say, in a voice that is not their own,
+  and the Hören items turn on a single qualifier — *überwiegend*, *erstmals*,
+  *zunächst*. That is authored into the distractors, not asserted in a rubric.
+
+**The exam room had been printing telc's arithmetic over everybody's paper**, and
+adding schemes that genuinely disagree is what exposed it. Fixed at the source —
+the halves, the total, the line on every bar, the sentence under the grade, the
+oral's format and the history chips now all come from the paper:
+
+- A blank Goethe sheet came back **bestanden**. A1 and C1 have no floor on either
+  half, so `passed` was `written >= 0 && oral >= 0`, printed beside a grade of
+  *nicht bestanden*. `pass.total` is now part of the rule and not optional.
+- The two halves showed a green **bestanden** against 0 / 75 for the same reason.
+  A half with no floor of its own now reports *zählt zur Gesamtpunktzahl* and
+  draws no threshold line — a marker at zero reads as a threshold of zero.
+- The letter and the oral were **clamped** to the paper's maximum rather than
+  scaled: a B/B/B letter was full marks on a 25-point scheme, and a perfect A1
+  oral scored 75 into a slot worth 25.
+- Part points were rounded before being summed, so four parts of 6.25 became 6.3
+  apiece and a perfect A2 sheet totalled **100.4 out of 100**.
+- The pre-exam summary guessed the oral's format from `level === 'A1'` and told a
+  C2 candidate they would be sitting with a partner. C2's oral is with the
+  examiner; `oralFormat` now travels with the paper.
+
+**Three conjugation and matcher bugs, all found by something refusing rather than
+by inspection** — the authoring gate rejecting cards, and the coverage ratchet
+failing CI:
+
+- `canConjugate` gates *drilling*, and the matcher was using it to gate *reading*.
+  A strong verb outside the irregular table contributed **no indexed forms at
+  all**, so `hängt`, `klingt` and `schafft` resolved to nothing while `hängen`,
+  `klingen` and `schaffen` sat in the lexicon. `recognitionPraesens` indexes the
+  present for any verb; the Präteritum and Partizip stay out, because those are
+  the forms a guess gets wrong.
+- **Participles were never indexed in their attributive forms.** `geehrt` was
+  known and `geehrte` was not, which made *Sehr geehrte Damen und Herren* an
+  unknown word in all five papers and the single most frequent gap in the corpus.
+  Guarded against participles that are adjective cards in their own right
+  (*geeignet*, *bekannt*) — without the guard the reader probe drops on adjectives,
+  which is how the guard turned out to be needed.
+- **Twenty-eight verbs generated impossible participles and were marked reliable.**
+  `über`, `unter`, `um`, `durch`, `wieder` were kept out of the separable list so
+  nothing would guess — but the *regular* generator then ran on the full
+  infinitive and produced `geübersetzt`, `geunterstützt`, `gewiederholt`,
+  `geüberzeugt`. No reading of German produces those. Where the remainder is not
+  itself a verb (*überraschen*, *unterstützen*, *übernachten*) the inseparable
+  reading is the only one available and now applies; where it is a verb
+  (übersetzen/setzen, umstellen/stellen) the verb is unreliable rather than wrong.
+- The **verifier judged examples against a lexicon of one**, so `einteilen` never
+  split to *teilen … ein* and a correct example was rejected. It now builds over
+  the shipped corpus plus the draft.
+
+`fix-authored` gained a plural row — same optimistic-concurrency guard as the
+other two, plus a mandatory `src`, because *die Worte* and *die Wörter* are not
+the same word.
+
+**Coverage is measured per paper, not pooled.** A single figure is dragged around
+by whichever paper is newest and largest — B2 alone took it from 96.0% to 93.9%,
+which reads as the corpus getting worse when nothing about the other papers
+changed. The floors also legitimately differ by level: Goethe publishes a closed
+Wortliste up to B1, and above B1 vocabulary is open by design, so holding a C2
+paper to A1's floor would mean authoring compounds nobody should study as cards.
+Measured: B1 96.3% · A1 98.6% · A2 96.1% · B2 92.3% · C1 90.0% · C2 90.4%, with
+118 cards authored through the machine gate along the way (6,463 → 6,581).
+
 ### Shipped 2026-08-11 — Goethe A2, and a ratchet that was measuring the wrong thing
 
 The third paper. **Goethe-Zertifikat A2**: 40 scored items — four reading parts

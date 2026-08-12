@@ -168,7 +168,7 @@ function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () =
                 title="Übungsmodus" sub="Check each Teil as you finish it and read why every key is the key. The clock runs but nothing locks."
                 onClick={() => ex.start(meta.id, 'practice')} primary />
               <ModeCard
-                title="Prüfungsmodus" sub="No feedback until you hand in. The 90-minute block locks when it expires, and Teil 1 of the listening plays once."
+                title="Prüfungsmodus" sub="No feedback until you hand in. Each timed block locks when it expires, and anything the real exam plays once plays once."
                 onClick={() => ex.start(meta.id, 'exam')} />
             </div>
 
@@ -679,7 +679,8 @@ function Brief({ paper, mode }: { paper: ExamPaper; mode: ex.Mode }) {
       <h2 className="text-lg sm:text-xl font-bold mb-1">Vor der Prüfung</h2>
       <p className="text-dim text-xs mb-4 leading-relaxed">
         {mode === 'exam'
-          ? 'Prüfungsmodus: no feedback until you hand in, and the 90-minute block locks when it runs out.'
+          ? `Prüfungsmodus: no feedback until you hand in, and each block locks when it runs out — `
+            + `${paper.blocks.map((b) => `${b.label} ${b.minutes}′`).join(', ')}.`
           : 'Übungsmodus: check each Teil when you finish it and read why each key is the key. The clock runs but nothing locks.'}
       </p>
 
@@ -697,9 +698,7 @@ function Brief({ paper, mode }: { paper: ExamPaper; mode: ex.Mode }) {
             <span className="flex-1">
               Mündliche Prüfung{' '}
               <span className="text-dim">
-                {paper.provider === 'goethe' && paper.level === 'A1'
-                  ? '(in der Gruppe, ohne Vorbereitungszeit)'
-                  : '(paarweise, 20 Minuten Vorbereitung davor)'}
+                {paper.oralFormat ?? '(paarweise, 20 Minuten Vorbereitung davor)'}
               </span>
             </span>
           </div>
