@@ -11,6 +11,62 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-12 — 5,207 grammar exercises, and six ways a generator gets German wrong
+
+The bank was 887 exercises across 136 points — about six a point, which is one
+sitting before a point is spent. Ten times that is not an authoring job at any
+quality bar worth having, so `corpus:genex` does for exercises what
+`authoring/verify.ts` did for vocabulary: derive candidates from facts the corpus
+already carries, and refuse what cannot be proved.
+
+**887 → 5,207 (4,320 generated) across 35 derivable points.** The other 101 points
+are untouched. *Konzessivsätze: obwohl* is not a fact, and neither is *Partizip
+Präsens als Adjektiv*; the summary prints how many points it could not help rather
+than filling them with something shaped like an exercise.
+
+**The first run was wrong in six places, and the check is the story.** A generator
+bug is not one bad exercise, it is four hundred:
+
+- possessives came out **meinm / deinm** — `/^eine?/` ate the -e- of *einem*, and
+  the -e of *eine*, so feminine nominative was `mein` too
+- the du-imperative of *vergessen* was **vergis**: a sibilant stem takes only -t
+  in du, so the ending to remove is one letter and not two
+- it generated **fähr!** — e→i keeps the change (*gib!*), a→ä reverts (*fahr!*)
+- modals had imperatives at all, which they do not
+- *Verben mit Vokalwechsel* filled with **mieten, bedeuten, regnen**: the test
+  compared whole forms, so the epenthetic -e- read as a vowel change. It now asks
+  whether the er-form still starts with its own stem
+- the passive was generated for intransitives — **du wirst weggezogen**, *sie wird
+  geleuchtet*. `aux === 'haben'` was the nearest available proxy for transitivity
+  and is not good enough, so that generator draws from a read list instead
+
+**Two generators produced grammatically flawless nonsense.** Pairing corpus words
+at random gave *das verheiratete Glas*, *ein lila Detail*, *unter die Rede*. A
+learner cannot tell a drill frame from a claim about German, so adjective
+declension and the Wechselpräpositionen draw their nouns and adjectives from
+curated lists — the endings are still derived, only the pairing is read. `teuer`,
+`dunkel` and `hoch` are deliberately absent: they elide or change stem, and
+appending an ending to them produces a wrong form.
+
+**`gen: true` earns its keep immediately.** A scoped drill ("practise this point")
+would otherwise have become ~96% machine drill, since 150 generated items now sit
+beside six authored ones. Authored exercises are spent first, because a generated
+item can only state that an answer is right where an authored one was written to
+say why.
+
+The cap is 150 a point and the supply is far larger — B1 *Genitiv* had 2,069
+candidates and took 150. That is deliberate: exercises are scheduled individually,
+so a large point costs nothing until something walks it end to end, and the scoped
+drill is that something. Raising the cap is a one-line change if the bank ever
+needs to be bigger; it was **declined** on 2026-08-12 rather than left unnoticed.
+
+Seven tests pin the generated bank, including a list of the exact forms the first
+run got wrong. One of them found a duplicate that was already there: A1 *Perfekt*
+asks "Sie ___ nach Hause gegangen." twice, authored, with two different option
+sets. It cannot be spliced out — exercise ids are `gex:<level>:<title>:<index>`
+and every learner's schedule is keyed on the index — so it is a ratchet at 1 until
+somebody edits it in place.
+
 ### Shipped 2026-08-12 — Goethe C2, and the exam room stops assuming it is telc
 
 The last two papers, and with them A1–C2 complete: **Goethe C1** (40 items plus
