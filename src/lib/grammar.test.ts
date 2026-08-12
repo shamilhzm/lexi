@@ -697,3 +697,84 @@ describe('grammar point titles are unique within a level', () => {
     expect(bad).toEqual([]);
   });
 });
+
+// ---- the generated bank ----------------------------------------------------
+// 4,320 of the 5,207 exercises were derived by `corpus:genex` rather than
+// written, and nobody is going to read them. That is fine for facts — a gender
+// is a gender — and it is exactly why the *shape* of every generated item has to
+// be pinned: a generator bug does not produce one bad exercise, it produces four
+// hundred. Each of these caught a real one during the first run.
+describe('generated exercises', () => {
+  const gen = Object.values(g).flatMap((points) =>
+    points.flatMap((p) => p.exercises.filter((e) => e.gen).map((e) => ({ p, e }))));
+
+  it('exist, and are the majority of the bank', () => {
+    expect(gen.length).toBeGreaterThan(4000);
+  });
+
+  it('always offers the answer among the options, exactly once', () => {
+    for (const { p, e } of gen) {
+      const where = `${p.title} · ${e.prompt}`;
+      expect(e.options, where).toBeTruthy();
+      const correct = e.options![e.answer!];
+      expect(correct, where).toBeTruthy();
+      expect(e.options!.filter((o) => o === correct).length, where).toBe(1);
+    }
+  });
+
+  it('never offers a gap marker or an empty string as an option', () => {
+    for (const { p, e } of gen) {
+      for (const o of e.options!) expect(o.trim(), `${p.title} · ${e.prompt}`).not.toBe('');
+    }
+  });
+
+  it('gives every item a gap and an explanation', () => {
+    for (const { p, e } of gen) {
+      expect(e.prompt, p.title).toMatch(/_{2,}/);
+      expect(e.explain?.trim(), `${p.title} · ${e.prompt}`).toBeTruthy();
+    }
+  });
+
+  // `sie` is 3sg feminine and 3pl at once, so "sie ___ (kommen)" has two right
+  // answers and both were on screen. The plural is written "sie (Pl.)".
+  it('never asks for a bare "sie" subject', () => {
+    for (const { p, e } of gen) {
+      expect(e.prompt, `${p.title} · ${e.prompt}`).not.toMatch(/^sie ___/);
+    }
+  });
+
+  // Every one of these shipped in the first generated run.
+  it('never produces the forms the first run got wrong', () => {
+    const banned = [
+      /\bmeinm\b/, /\bdeinm\b/, /\bseinm\b/,   // possessive: /^eine?/ ate the -e-
+      /\bvergis\b/,                             // sibilant stem: sliced two letters
+      /\bfähr\b/, /\bgäb\b/,                    // imperative: a→ä must revert
+    ];
+    for (const { p, e } of gen) {
+      const text = [e.prompt, ...(e.options ?? []), e.explain ?? ''].join(' ');
+      for (const re of banned) expect(text, `${p.title} · ${e.prompt}`).not.toMatch(re);
+    }
+  });
+
+  it('never repeats a prompt inside a point', () => {
+    // A ratchet rather than a zero, because it found one that was already there:
+    // A1 · Perfekt asks "Sie ___ nach Hause gegangen." twice, authored, with two
+    // different option sets. It cannot simply be deleted — exercise ids are
+    // `gex:<level>:<title>:<index>` and every learner's schedule is keyed on the
+    // index, so removing one silently re-points every later exercise in that
+    // point. It wants an expect-guarded edit in place, not a splice. Until then
+    // this stops a *second* one appearing.
+    const KNOWN_AUTHORED_DUPES = 1;
+    let dupes = 0;
+    for (const [level, points] of Object.entries(g)) {
+      for (const p of points) {
+        const prompts = p.exercises.map((e) => e.prompt.trim());
+        dupes += prompts.length - new Set(prompts).size;
+        // The generated half must be clean on its own, with no allowance.
+        const genPrompts = p.exercises.filter((e) => e.gen).map((e) => e.prompt.trim());
+        expect(new Set(genPrompts).size, `${level} · ${p.title} (generated)`).toBe(genPrompts.length);
+      }
+    }
+    expect(dupes).toBeLessThanOrEqual(KNOWN_AUTHORED_DUPES);
+  });
+});

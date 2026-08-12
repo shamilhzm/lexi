@@ -117,10 +117,20 @@ export default function GrammarDrill({ onExit, scope }: { onExit: () => void; sc
     const now = Date.now();
     const due: GItem[] = [], fresh: GItem[] = [];
     for (const it of all) { const c = cardOf(it.id); if (!c) fresh.push(it); else if (isDue(c, now)) due.push(it); }
-    // Scoped: play the whole point (a handful of exercises) rather than a slice
-    // of the day’s mixed queue, and replay it even when nothing is due — the
-    // learner asked for this concept.
-    if (scope) return all.length <= 25 ? shuffle(all) : shuffle(all).slice(0, 25);
+    // Scoped: play this point rather than a slice of the day's mixed queue, and
+    // replay it even when nothing is due — the learner asked for this concept.
+    //
+    // **Authored exercises first.** Points used to hold about six exercises each
+    // and a scoped session was all of them. `corpus:genex` then added up to 150
+    // derived ones per point, which would have made a session asking to *learn* a
+    // concept about 96% machine drill — and a generated item can only state that
+    // an answer is right, where an authored one was written to explain why. So
+    // the authored ones are spent first and the generated ones fill the rest.
+    if (scope) {
+      const authored = all.filter((x) => !x.ex.gen);
+      const derived = all.filter((x) => x.ex.gen);
+      return [...shuffle(authored), ...shuffle(derived)].slice(0, 25);
+    }
     return [...shuffle(due), ...shuffle(fresh)].slice(0, 25);
   }, [all, scopeKey]);
 

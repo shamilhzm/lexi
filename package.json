@@ -42,7 +42,8 @@
     "corpus:dupes": "node scripts/corpus/merge-dupes.ts",
     "authoring:new": "node scripts/authoring/new-cards.ts",
     "corpus:gex": "node scripts/corpus/grammar-exercises.ts",
-    "corpus:papervocab": "node scripts/corpus/paper-vocab.ts"
+    "corpus:papervocab": "node scripts/corpus/paper-vocab.ts",
+    "corpus:genex": "node scripts/corpus/gen-exercises.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

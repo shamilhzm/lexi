@@ -35,7 +35,7 @@ import { A2_REDEMITTEL, A2_SPEAKING } from './goethe-a2-speaking.ts';
 export const GOETHE_A2: Scheme = {
   reading: 25, language: 0, listening: 25, writing: 25, speaking: 25,
   written: 75, oral: 25, total: 100,
-  pass: { written: 45, oral: 15 },
+  pass: { written: 45, oral: 15, total: 60 },
   bands: [[90, 'sehr gut'], [80, 'gut'], [70, 'befriedigend'], [60, 'ausreichend']],
 };
 
@@ -48,6 +48,7 @@ export const PAPER: ExamPaper = {
   title: 'Goethe-Zertifikat A2',
   blurb: 'The full A2 exam in Goethe’s format — 40 scored items across reading and listening, '
     + 'an SMS and an email, and the paired oral with model answers at three levels.',
+  oralFormat: '(paarweise, ohne Vorbereitungszeit)',
   scheme: GOETHE_A2,
   blocks: [
     { label: 'Lesen', minutes: 30, partIds: ['l1', 'l2', 'l3', 'l4'] },

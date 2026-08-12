@@ -22,6 +22,7 @@ export const PAPER: ExamPaper = {
   title: 'telc Deutsch B1 · Übungstest 1',
   blurb: 'A full paper in the real format and the real weighting — 60 objectively '
     + 'scored items, a letter, and the paired oral with worked answers at three levels.',
+  oralFormat: '(paarweise, 20 Minuten Vorbereitung davor)',
   blocks: [
     { label: 'Leseverstehen und Sprachbausteine', minutes: 90, partIds: ['lv1', 'lv2', 'lv3', 'sb1', 'sb2'] },
     { label: 'Hörverstehen', minutes: 30, partIds: ['hv1', 'hv2', 'hv3'] },

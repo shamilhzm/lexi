@@ -42,7 +42,15 @@ export interface Attempt {
   /** Final points, frozen at the moment the sitting ended. Recomputing from
    *  `responses` would be equivalent today and would silently rewrite history the
    *  first time a key is corrected. */
-  score?: { written: number; oral: number; total: number };
+  score?: {
+    written: number; oral: number; total: number;
+    /** The paper's own maximum and its own verdict, frozen with the points. Six
+     *  papers now disagree about what 100% and what "bestanden" mean, so a
+     *  history row that recomputed either against telc's numbers would mislabel
+     *  every Goethe sitting. Absent on rows filed before this existed — read them
+     *  as telc B1, which is what they were. */
+    max?: number; passed?: boolean;
+  };
   /** Per-strand share of that strand's maximum, 0..1, frozen with the score.
    *  This is what the readiness read consumes: it is the only evidence the app
    *  has about reading, listening, writing and speaking, and recomputing it would
@@ -199,13 +207,13 @@ export function setSpeakingMarks(teil: 1 | 2 | 3, m: SpeakingMarks): void {
 /** Hand the paper in: keys become visible, the sheet becomes read-only, and the
  *  score is frozen (see `Attempt.score`). The sitting stays current so the
  *  result and the review survive a reload. */
-export function submit(score: { written: number; oral: number; total: number },
+export function submit(score: NonNullable<Attempt['score']>,
                        strands?: Record<string, number>): void {
   patch((a) => ({ ...a, submitted: true, score, ...(strands ? { strands } : {}) }));
 }
 
 /** Leave for good and file the sitting in the history. */
-export function finish(score?: { written: number; oral: number; total: number }): void {
+export function finish(score?: Attempt['score']): void {
   const s = read();
   if (!s.current) return;
   const done: Attempt = { ...s.current, finished: Date.now(), score: score ?? s.current.score };

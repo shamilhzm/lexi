@@ -14,9 +14,8 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 // No `motion` import here any more: both entrances in this file are CSS
 // keyframes without a fill-mode, so a stalled animation cannot hide a room.
-import { Menu } from 'lucide-react';
 import Ticker from './components/Ticker.tsx';
-import Sidebar, { LexiMark } from './components/Sidebar.tsx';
+import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
@@ -45,7 +44,6 @@ import type { Target } from './types.ts';
 
 export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
-const COLLAPSE_KEY = 'lexi.sidebar.collapsed.v1';
 
 export default function App() {
   useStore(); // keep the sidebar profile (name / level / streak) live
@@ -56,8 +54,6 @@ export default function App() {
   const [drillInit, setDrillInit] = useState<GrammarInit>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [exam, setExam] = useState(false);      // a sitting under exam conditions
-  const [collapsed, setCollapsed] = useState(() => { try { return localStorage.getItem(COLLAPSE_KEY) === '1'; } catch { return false; } });
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
   // The human-audio manifest is a small id list; loading it at boot lets cards
@@ -84,7 +80,6 @@ export default function App() {
       setView(r.view);
       setProgress(r.progress);
       if (r.target) setTarget(r.target);
-      setMobileOpen(false);
     };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
@@ -100,28 +95,22 @@ export default function App() {
     else location.hash = next;
   }, [view, target, progress]);
 
-  const toggleCollapse = () => setCollapsed((c) => {
-    const n = !c;
-    try { localStorage.setItem(COLLAPSE_KEY, n ? '1' : '0'); } catch { /* */ }
-    return n;
-  });
-
   const study = (t: Target) => { setExam(false); setTarget(t); setView('session'); };
   const go = (v: View) => {
     if (v === 'session') setTarget(ALL);
     if (v === 'library') setDrillInit(null);
     if (v === 'progress') setProgress({ level: 'overview' });
-    // Leaving the guided chain by the sidebar is still leaving it. Without this
-    // the first-run hero came back on the next visit, as though placement and
-    // the first session had never happened.
+    // Leaving the guided chain by the navigation is still leaving it. Without
+    // this the first-run hero came back on the next visit, as though placement
+    // and the first session had never happened.
     if (guided) setOnboarded();
-    setGuided(false); setView(v); setMobileOpen(false);
+    setGuided(false); setView(v);
   };
   /** The primary CTA — assemble and launch today's session. */
-  const startSession = () => { setGuided(false); setMobileOpen(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
+  const startSession = () => { setGuided(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
   /** The same day's material with the scaffolding removed. */
   const startExam = () => {
-    setGuided(false); setMobileOpen(false);
+    setGuided(false);
     setTarget({ kind: 'custom', name: 'Exam conditions', ids: buildBriefing().ids });
     setExam(true); setView('session');
   };
@@ -202,31 +191,24 @@ export default function App() {
 
   // ---- the instrument -------------------------------------------------------
   return (
-    <div className="flex h-[100dvh] w-full overflow-hidden">
-      {/* Without this a keyboard user re-tabs the sidebar's controls on every
+    // Column, not row: the navigation is a bar across the top rather than a rail
+    // down the left. See TopBar for why the rail went.
+    <div className="flex flex-col h-[100dvh] w-full overflow-hidden">
+      {/* Without this a keyboard user re-tabs the navigation's controls on every
           single view change before reaching any content. */}
       <a href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100]
           focus:bg-amber focus:text-bg focus:font-bold focus:rounded-md focus:px-4 focus:py-2.5">
         Skip to content
       </a>
-      <Sidebar
+
+      <TopBar
         view={view} onGo={go} onStartSession={startSession}
-        collapsed={collapsed} onToggleCollapse={toggleCollapse}
-        mobileOpen={mobileOpen} onMobileClose={() => setMobileOpen(false)}
         onProfile={() => go('profile')}
         name={profileName()} level={placementLevel()} streak={streak()}
       />
 
-      <div className="flex-1 flex flex-col min-w-0">
-        {/* Mobile top bar — the sidebar is a drawer on phones. min-height adds the
-            safe-area inset on top of a 52px bar so the notch never eats the logo. */}
-        <header className="sm:hidden safe-top pb-2 flex items-center gap-2.5 px-3 min-h-[calc(52px_+_env(safe-area-inset-top))] bg-panel border-b border-line flex-shrink-0">
-          <button onClick={() => setMobileOpen(true)} className="grid place-items-center w-11 h-11 -ml-2.5 text-dim hover:text-amber" title="Menu" aria-label="Open menu" aria-expanded={mobileOpen}><Menu size={20} /></button>
-          <LexiMark size={24} />
-          <span className="font-bold text-lg tracking-wide">Lexi</span>
-        </header>
-
+      <div className="flex-1 flex flex-col min-w-0 min-h-0">
         <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
 
         <main id="main" tabIndex={-1}

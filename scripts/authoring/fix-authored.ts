@@ -38,8 +38,22 @@ interface DefRow {
   expect: { def: string };
   def?: string;
 }
-type Row = ExRow | DefRow;
+/** A plural row: fill or correct a noun's `plural`. Same guard again.
+ *
+ *  Plurals are a *fact*, not a judgement, so unlike the other two row types this
+ *  one carries a `src` naming where the value came from — de.wiktionary, in
+ *  practice, read through the same page the authoring gate reads. A plural that
+ *  nobody can point at is how *die Worte* and *die Wörter* get confused, and they
+ *  do not mean the same thing. */
+interface PlRow {
+  id: string;
+  expect: { plural: string | null };
+  plural?: string;
+  src: string;
+}
+type Row = ExRow | DefRow | PlRow;
 const isDefRow = (r: Row): r is DefRow => 'expect' in r && r.expect != null && 'def' in r.expect;
+const isPlRow = (r: Row): r is PlRow => 'expect' in r && r.expect != null && 'plural' in r.expect;
 
 const [batchPath, ...rest] = process.argv.slice(2);
 const dry = rest.includes('--dry');
@@ -57,7 +71,7 @@ const norm = (s: string) => (s ?? '').replace(/\s+/g, ' ').trim();
 let applied = 0, deleted = 0, pending = 0;
 const refused: string[] = [];
 const refuse = (row: Row, why: string) =>
-  refused.push(`${row.id}${isDefRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
+  refused.push(`${row.id}${isDefRow(row) || isPlRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
 
 // Deletions are applied last and in descending index order, so removing ex[1]
 // can't shift the meaning of a later row that targets ex[2] of the same card.
@@ -66,6 +80,21 @@ const deletions: ExRow[] = [];
 for (const row of rows) {
   const card = byId.get(row.id);
   if (!card) { refuse(row, 'no such card id'); continue; }
+
+  if (isPlRow(row)) {
+    if ((card.plural ?? null) !== (row.expect?.plural ?? null)) {
+      refuse(row, 'expect no longer matches the corpus (already fixed, or a stale batch)');
+      continue;
+    }
+    const next = norm(row.plural ?? '');
+    if (!next) { pending++; continue; }
+    if (card.pos !== 'noun') { refuse(row, 'not a noun'); continue; }
+    if (!/^(die|der|das)\s/.test(next)) { refuse(row, 'plural must be written with its article'); continue; }
+    if (!row.src?.trim()) { refuse(row, 'no source given for the plural'); continue; }
+    card.plural = next;
+    applied++;
+    continue;
+  }
 
   if (isDefRow(row)) {
     if (norm(card.def ?? '') !== norm(row.expect?.def ?? '')) {

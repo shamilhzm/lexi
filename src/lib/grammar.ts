@@ -25,6 +25,15 @@ export interface GExercise {
    *  saying *why* — on the one screen where the learner is already paying full
    *  attention. See components/Reveal.tsx. */
   reveal?: RevealData;
+  /** Derived by `corpus:genex` from the corpus rather than written by hand.
+   *
+   *  Generated items are correct — a gender or a conjugation is a fact, and the
+   *  generator refuses anything it cannot prove — but they are correct the way a
+   *  table is correct. An authored exercise can teach *why* the answer is what it
+   *  is; a generated one can only state it. The flag exists so a surface can
+   *  prefer authored items when teaching a concept and generated ones when the
+   *  learner just wants volume. */
+  gen?: true;
 }
 
 /** The teaching beats a resolved exercise can show. Both are derived from data the
@@ -98,7 +107,7 @@ export function grammarCounts(g: GrammarByLevel): { points: number; exercises: n
 /** The same counts for copy that must render before (or without) the fetch —
  *  Today's drills accordion. grammar.test.ts asserts these against the shipped
  *  file, so the numbers cannot drift out of sync again. */
-export const GRAMMAR_COUNTS = { points: 136, exercises: 887 } as const;
+export const GRAMMAR_COUNTS = { points: 136, exercises: 5207 } as const;
 
 /** Split a `gram:<level>:<title>` vocab-card id into its parts. Titles contain
  *  colons ("Konzessivsätze: obwohl"), so only the first two segments are fixed. */

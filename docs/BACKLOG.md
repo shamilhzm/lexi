@@ -124,6 +124,15 @@ kinds (choose 404 · type 147 · error 106 · mc 93 · order 55).*
   level sampled from A1 *"___ Mann ist groß."* to C2 *"Wer eine Wohnung ungesehen
   mietet, …"*.
 
+> **Exercise depth closed 2026-08-12.** `npm run corpus:genex` took the bank
+> **887 → 5,207** (4,320 generated across 35 derivable points; 101 points stay
+> authored because their exercises cannot be derived). The interaction-variety
+> finding below still stands and is unaffected — generated items are all `choose`,
+> so they add depth to points that already had four widget kinds rather than
+> flattening them. See the CHANGELOG entry, and in particular the six wrong forms
+> the first run produced: the lesson is that a generator bug is four hundred bad
+> exercises, so the spot-check is not optional.
+>
 > **Partly addressed 2026-08-11.** B2 now has 21 points, and the ones added since
 > this audit are genuinely new rather than B1 re-treads: Zustandspassiv, the
 > position of *nicht*, adversative connectors (dennoch/allerdings/hingegen),
@@ -668,6 +677,36 @@ load size still acceptable.
 
 ## Next
 
+**Games, and the navigation that has to come first.** *Decided 2026-08-12 with the
+user; none of it is built.*
+- ~~**Top-bar navigation · S**~~ **Shipped 2026-08-12.** `TopBar.tsx` replaces the
+  240px rail with a 55px bar; the content column gained 240px on a laptop. The
+  mobile drawer went with it — its focus trap, Escape handler and `inert` dance no
+  longer have to be right because they no longer exist, and tabbable controls
+  before `#main` went 7 → 3 on a phone. Destinations stay in `BottomNav` under the
+  thumb; the profile is on the bar at every width. See the CHANGELOG.
+- **Typing race · M.** Ported in spirit from viberacer: ASCII track, opponents as
+  fixed-WPM pace-setters, live per-racer WPM. **What you type is German at your
+  level**, drawn from corpus cards and paper passages — which is what makes it a
+  Lexi surface rather than a minigame, because it drills noun capitalisation,
+  umlauts and ß under time pressure. *Done-when:* the WPM readout says on its face
+  that it is motivation and not a diagnostic. The real Schreiben is handwritten;
+  typing speed is tested in none of the six papers, and a number that looks like a
+  score has to admit it is not one — same rule the results screen already follows
+  for self-assessment.
+- **Connections · M.** Sixteen tiles, four groups of four. German gives the format
+  better categories than English does: four nouns sharing a gender, four verbs
+  sharing a separable prefix, four false friends, four in a semantic field — and the
+  trap tile that plausibly belongs to two groups is exactly how gender and false
+  friends actually bite. *Open question:* whether the groups are generated from the
+  corpus (which can guarantee the facts but not that a category is *interesting*) or
+  authored. The exercise generator's six-bug run is the argument for authoring the
+  categories and generating only the members.
+- **Artwork and animation pass · S–M.** `motion` is already a dependency in nine
+  files, so this extends a house style rather than inventing one. Unscoped
+  deliberately: "where it is most fitting" wants a pass over the real screens, not a
+  list written in advance.
+
 **The study loop.**
 - **Show the queue shape · S** (#15). A progress rail distinguishing due from fresh
   from drill, so "246 left" becomes a thing with an end you can see.
@@ -726,12 +765,19 @@ load size still acceptable.
   readout on the result screen is per **subtest**, not per grammar concept — "your
   weakest area for B1 is Kasus" needs the miss log joined to the paper's items, which
   wants item-level grammar tags the paper does not yet carry. *S, and worth doing.*
-- **More papers · M each, authoring not building** — A1, A2, B2, C1, C2 render honestly
-  as "no paper yet". They share the scoring engine, the renderers and the mark scheme;
-  what each needs is the German. B2 first: it is the second most-taken certificate and
-  is already the thinnest layer in the grammar bank (see the 2026-08-06 audit above).
-  Goethe's B1 differs from telc's in format and would be a second `provider`, not a
-  second paper.
+- ~~**More papers · M each, authoring not building.**~~ **Shipped 2026-08-12** — all six
+  levels now have a paper: telc B1, Goethe A1, A2, B2, C1 and C2. The prediction that
+  they would only need the German was half right; each one also found something the
+  engine had hard-coded from telc, and the last two found four scoring bugs. See the
+  CHANGELOG entries for 08-11 and 08-12. *Still open under it:* Goethe's own **B1**
+  differs from telc's in format and would be a second `provider` at the same level —
+  the first case the paper registry has of two papers competing for one CEFR row, and
+  the level picker currently assumes at most one full paper per level. *S.*
+- **Second papers per level · M each** — every level ships exactly one, so a learner who
+  sits it has spent it. The engine takes a second without changes (`PAPERS` is a list
+  and `loadPaper` is keyed by id); what is missing is the German and a UI that offers a
+  choice rather than a single card. Worth doing for B1 and B2 first, where people
+  actually resit.
 - **Heritage / uneven-profile learners · M** (#41). Placement assumes ignorance is
   uniform. Yusuf tests C1 on vocabulary and B1 on orthography and the app has one number
   for him. Skill-scoped drills rather than level-gated ones.
