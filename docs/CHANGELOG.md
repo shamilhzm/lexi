@@ -11,6 +11,38 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — verb government, and the mining that does not work
+
+First of Tier 2, and the interesting half is what was *not* built.
+
+**The plan was wrong.** BACKLOG and [PEDAGOGY](PEDAGOGY.md) both said verb valency was
+"derivable for a large share from the corpus's own examples via the matcher". Probed
+before writing anything: the naive mine fires on **238 verbs (20%)** and roughly **one
+in twelve is real**. German sentences are full of prepositional phrases with no relation
+to the verb — *gehen nach* ("nach Hause"), *trinken bei* ("bei der Hitze"), *heißen auf*
+("auf Deutsch"), *verstehen bei* ("bei dem Lärm"). Exactly one of the first twelve
+samples, *denken an*, was genuine government. A mined field would have put wrong grammar
+on hundreds of cards and any drill built on it would teach *"trinken bei"*. Recorded in
+[LESSONS](LESSONS.md) class 2; nothing here is mined.
+
+**What shipped is the part that is fact rather than inference.** 33 cards already say
+`verzichten auf + A` inside their own headword, and 12 more carry a preposition with no
+case marker — verified data sitting in a string nothing could read. `lib/valency.ts`
+parses it, and the card now shows *warten auf + Akkusativ* under the headword.
+
+The case is completed by rule **only where the preposition allows it**: `aus/bei/mit/
+nach/von/zu/seit` are always dative and `für/um/durch/gegen/ohne` always accusative, so
+`beitragen zu` becomes `+ Dativ` without a guess. The **two-way** prepositions — an,
+auf, in, über, unter, vor — are refused and print with no case at all, because which
+case `auf` takes after a given verb *is* the fact being sought. A learner reads a case
+off a card and believes it; a missing one costs less than a wrong one.
+
+Growing past 45 cards is authoring, not derivation, and it needs the network-gated
+pipeline. 13 tests, including two run against the shipped corpus that assert no two-way
+preposition ever acquires a case it was not authored with.
+
+---
+
 ### Shipped 2026-08-13 — paper, and a placement test that can be lied to
 
 The last two of the pedagogic critique's Tier 1. **All five are now shipped.**

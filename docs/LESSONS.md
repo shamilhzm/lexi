@@ -80,6 +80,16 @@ it turns out to be wrong.**
 - **Two of `corpus:audit`'s own checks** were tried and removed for firing on thousands
   of correct rows. The removals are documented at the top of `scripts/corpus/audit.ts`
   so they are not re-added.
+- **Mining verb government from example sentences.** *(2026-08-13, caught before
+  anything was written.)* The backlog and the pedagogic critique both proposed deriving
+  `warten auf + A` from the corpus's 16,000 examples — "derivable for a large share via
+  the matcher". Probed first: it fires on **238 verbs (20%)** and roughly **one in
+  twelve is real**. German sentences are full of prepositional phrases that have nothing
+  to do with the verb — *gehen nach* ("nach Hause"), *trinken bei* ("bei der Hitze"),
+  *heißen auf* ("auf Deutsch"), *verstehen bei* ("bei dem Lärm"). A mined field would
+  have attached wrong grammar to hundreds of cards and a drill on it would teach
+  *"trinken bei"*. **The estimate in the backlog was wrong, and the only thing that
+  showed it was measuring 12 samples by hand before writing the script.**
 
 ---
 

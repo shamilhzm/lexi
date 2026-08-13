@@ -576,8 +576,16 @@ new part.
 7. **Modal particles, properly.** *doch, mal, eben, halt, wohl, schon, denn, ja* — with
    the B2 point that already exists pointed at cards that exist. Currently 7 particle
    cards, one of them a mislabelled pronoun.
-8. **Verb valency on the card.** `warten auf` + Akk. *A field, derivable for a large
-   share from the corpus's own examples via the matcher.* Feeds a new drill for free.
+8. ⚠️ **Verb valency on the card.** `warten auf` + Akk. **Partly shipped 2026-08-13,
+   and the estimate was wrong.** "Derivable from the corpus's own examples via the
+   matcher" does not hold: probed before building, mining fires on 238 verbs (20%) and
+   about **one in twelve is genuine** — *trinken bei der Hitze* is not government. See
+   [LESSONS.md](LESSONS.md) class 2.
+   What shipped instead is the honest part: the **45 cards that already carry their
+   government in the headword** are now parsed into a structured field and shown on the
+   card, and the case is filled by rule for one-way prepositions (`zu` → Dativ, `für` →
+   Akkusativ) and **refused for two-way ones**, because which case `auf` takes after a
+   verb *is* the missing fact. Growing past 45 is authoring, not mining.
 9. **Fix the taxonomy.** Re-sector the 2,201 cards in *Miscellaneous / Core Vocabulary
    / Adjectives / Adverbs / Core verbs*, and fill the functional sectors that currently
    hold one card. The treemap is the app's best screen and a third of it says nothing;

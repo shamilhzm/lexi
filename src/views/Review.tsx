@@ -24,6 +24,7 @@ import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } 
 import { speak, onSystemVoice } from '../lib/tts.ts';
 import { sayExample, hasHumanAudio, stopAudio } from '../lib/audio.ts';
 import { familyOf } from '../lib/family.ts';
+import { valencyOf, valencyLabel } from '../lib/valency.ts';
 import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
@@ -394,6 +395,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   const grammar = card.kind === 'grammar';
   // No memo: familyOf keeps its own reverse index, so this is a Map lookup.
   const family = grammar ? [] : familyOf(card, WORDS);
+  // Cheap: a regex over one short string, and only for verbs.
+  const valency = grammar ? null : valencyOf(card);
   const isNew = statusOf(item.srsId) === 'new';
   // A grammar card renders as a practical exercise when its point is in the bank.
   const gpoint = grammar && gmap ? gmap.get(`${card.level}::${card.term}`) : undefined;
@@ -676,6 +679,14 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                   </RevealBlock>
                 )}
                 {!grammar && <FalseFriendNote term={card.term} />}
+                {/* Government, where the card carries it. A learner who knows
+                    *warten* and not *warten auf + Akkusativ* cannot build the
+                    sentence, and the corpus has been holding this inside the
+                    headword string where nothing could read it. Never shows a
+                    case it had to guess — see lib/valency.ts. */}
+                {!grammar && valency && (
+                  <p lang="de" className="text-sm text-amber font-mono mb-2">{valencyLabel(valency)}</p>
+                )}
                 {!grammar && card.ex.length > 0 && (
                   <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
                 )}
