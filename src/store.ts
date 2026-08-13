@@ -470,7 +470,18 @@ export function gymDue(): number {
 // Deliberately *not* in SETTING_KEYS: it is ephemeral view state, and restoring
 // a months-old "last seen" from a backup would animate a wild, meaningless jump.
 const SEEN_KEY = 'lexi.mapseen.v1';
-export interface SeenState { known: number; groups: Record<string, number> }
+export interface SeenState {
+  known: number;
+  groups: Record<string, number>;
+  /** What **Today** last showed, tracked apart from the map's `known`.
+   *
+   *  They cannot share one number. `markSeen` fires when the treemap paints, so
+   *  a learner who finished a session and opened Progress first would consume
+   *  the change there — and Today would then show a headline that had silently
+   *  already moved, which is precisely the thing the data-change rule exists to
+   *  prevent. Each surface reports the change once, on its own terms. */
+  today?: number;
+}
 export function lastSeen(): SeenState | null {
   try {
     const v = JSON.parse(localStorage.getItem(SEEN_KEY) || 'null');
@@ -481,7 +492,18 @@ export function lastSeen(): SeenState | null {
 /** Record the map as it stands now. Call *after* a paint that used the old
  *  values, or the animation has nothing to travel from. */
 export function markSeen(known: number, groups: Record<string, number>) {
-  try { localStorage.setItem(SEEN_KEY, JSON.stringify({ known, groups })); } catch { /* quota */ }
+  const prev = lastSeen();
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify({ known, groups, today: prev?.today })); } catch { /* quota */ }
+}
+
+/** The same, for Today's headline. Same file, same rule, separate number. */
+export function markTodaySeen(known: number) {
+  const prev = lastSeen();
+  try {
+    localStorage.setItem(SEEN_KEY, JSON.stringify({
+      known: prev?.known ?? known, groups: prev?.groups ?? {}, today: known,
+    }));
+  } catch { /* quota */ }
 }
 
 const SNAP_KEY = 'lexi.snap.v1';

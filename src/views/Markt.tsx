@@ -5,6 +5,7 @@
 // swaps the treemap for a plain ranked list on the smallest screens; the CEFR
 // filter rescopes the whole terminal.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Play, ArrowLeft, LayoutGrid, List } from 'lucide-react';
 import { groupStats, sectorStats, groupDeltas, lastSeen, markSeen, totals } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -100,6 +101,28 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
   // that does not exist on a phone, described in a hint that was itself hidden
   // on phones. Long-press is the touch equivalent; one timer is enough because
   // only one tile can be under a finger at a time.
+  const reduce = useReducedMotion();
+  // The shared element's escape hatch. See the block comment where it renders.
+  const sharedRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (reduce || !zoom) return;
+    // The same backstop `CountUp` runs, for the same reason and against the same
+    // failure. rAF is throttled in a hidden tab, and a framer `layout` animation
+    // then freezes on its `from` projection: measured here at
+    // `matrix(0.254, 0, 0, 0.936, -399.5, 0)` a full second after the drill-in,
+    // with `getAnimations()` empty and the layout box already correct at
+    // 1098×516. Only the transform was wrong, and nothing was going to fix it.
+    //
+    // Timers keep running when rAF does not, so one pass past the duration
+    // guarantees the resting geometry is the true one — which is the rule the
+    // rest of §7 gets by being transform-only, and which a layout animation
+    // cannot get that way because the transform *is* the mechanism.
+    const id = setTimeout(() => {
+      const el = sharedRef.current;
+      if (el && el.style.transform && el.style.transform !== 'none') el.style.transform = 'none';
+    }, 360);
+    return () => clearTimeout(id);
+  }, [zoom, reduce]);
   const pressTimer = useRef<number | null>(null);
   const longFired = useRef(false);
   const pressStart = (c: Cell) => {
@@ -143,6 +166,34 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             {tiles.length === 0 && (
               <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
             )}
+
+            {/* Shared-element continuity, tile → sector (DESIGN.md §7).
+                Drilling in used to be a hard swap: ten group tiles vanished and
+                twenty-three sector tiles appeared, and nothing said the second
+                set lived *inside* the first. This is the same object on both
+                sides — the group's own frame, expanding from the tile you tapped
+                to enclose the sectors it contains.
+
+                **It is a backdrop, never a control, and that is deliberate.**
+                A `layout` animation drives position and size with transforms, so
+                a stalled one leaves whatever it drives in the wrong place. This
+                file's own history says what that costs: `.desk-in` was caught
+                holding every 44px control in the session at 43.34px because an
+                entrance stalled on its `from` frame. Putting the shared element
+                on the tiles themselves would repeat that with a far bigger
+                displacement. Here the worst case is a decorative outline in the
+                wrong place, with every tile exactly where it belongs and fully
+                interactive. */}
+            {!reduce && zoom && (
+              <motion.div
+                ref={sharedRef}
+                layoutId={`zoom-${zoom}`}
+                aria-hidden
+                className="absolute inset-0 pointer-events-none rounded-sm z-0"
+                style={{ outline: '2px solid var(--color-amber)', outlineOffset: -2 }}
+                transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
+              />
+            )}
             {tiles.map((t, idx) => {
               const c = t.data, p = known(c), big = t.w > 118 && t.h > 62, mid = t.w > 76 && t.h > 42;
               // The subline is two facts joined by a separator, and at `big`
@@ -166,13 +217,29 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                   onPointerLeave={() => { pressEnd(); setHover(null); }}
                   onPointerCancel={pressEnd}
                   onMouseMove={(e) => setHover({ c, x: e.clientX, y: e.clientY })}
-                  className={`tile ${shifted ? '' : 'tile-in'} absolute overflow-hidden border border-bg hover:brightness-105 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left`}
+                  // `active:` completes the affordance the stylesheet was already dressed
+                  // for: `.tile` has declared `transition: filter .1s` since it was
+                  // written and nothing ever moved a filter on press, so a tile
+                  // acknowledged the pointer on the way in and went dead under it.
+                  // Brightness rather than scale — tiles are laid edge to edge, and
+                  // scaling one opens a gap to its neighbours.
+                  className={`tile ${shifted ? '' : 'tile-in'} absolute overflow-hidden border border-bg hover:brightness-105 active:brightness-90 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left`}
                   style={{
                     left: t.x, top: t.y, width: t.w, height: t.h,
                     // The old colour for exactly one paint, then the real one.
                     background: shifted && atOldColours ? heatFill(scale.classOf(was!)) : scale.fill(p),
                     animationDelay: shifted ? '0ms' : `${Math.min(idx * 14, 240)}ms`,
                   }}>
+                  {/* The other half of the shared element. Only at group level:
+                      a sector tile drills into nothing, so it has no twin. */}
+                  {!reduce && !zoom && (
+                    <motion.span
+                      layoutId={`zoom-${c.name}`}
+                      aria-hidden
+                      className="absolute inset-0 pointer-events-none rounded-sm"
+                      transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
+                    />
+                  )}
                   {/* No text-shadow any more. It existed to rescue a single ink
                       colour guessed against an arbitrary fill; ink is now paired
                       to its class in the stylesheet, so the contrast is decided
