@@ -271,8 +271,23 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
 
 /** Typed-answer widget. Exported so word-level drills (tense transformation)
  *  can reuse it with a fabricated exercise object. */
-export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
+export function TypeItem({ ex, onGrade, rulePoint, ruleLabel, promptLang = 'de', noteFor }: {
   ex: GItem['ex']; onGrade: (ok: boolean) => void; rulePoint?: string | null; ruleLabel?: string;
+  /** Language of the *prompt*. Every drill but one asks a question in German, so
+   *  `de` is the default — but the recall drill's prompt is the English gloss, and
+   *  a screen reader handed English inside `lang="de"` reads it in a German voice.
+   *  That is the exact defect `lang="de"` exists to prevent, pointed the other way. */
+  promptLang?: 'de' | 'en';
+  /** Say something more specific than right/wrong about *this* attempt.
+   *
+   *  `spellingDiff` already does this for the umlaut fold — "Right — just the
+   *  spelling: schön (oe → ö)" — on the principle that an error forgiven silently
+   *  is how it becomes permanent. The same principle has a second case the widget
+   *  cannot know about on its own: in the recall drill, typing "Fakultät" for
+   *  "die Fakultät" is a **gender** miss wearing a vocabulary miss's clothes, and
+   *  the learner should be told which one they made. Returning a note never
+   *  changes the grade. */
+  noteFor?: (typed: string, ok: boolean) => string | undefined;
 }) {
   const [val, setVal] = useState('');
   const [result, setResult] = useState<boolean | null>(null);
@@ -304,7 +319,7 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
     <>
       {ruleLabel && <DrillHeader pointRef={rulePoint ?? null} label={ruleLabel} />}
     <Card>
-      <p lang="de" className="headword text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
+      <p lang={promptLang} className="headword text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
       <label className="sr-only" htmlFor="drill-answer">Your answer</label>
       <input id="drill-answer" lang="de" ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
         onKeyDown={(e) => { if (e.key === 'Enter') { if (result === null) submit(); else onGrade(result); } }}
@@ -321,7 +336,9 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel }: {
             // lesson: one is a slipped finger, the other is a spelling the learner
             // may believe is correct. Naming which is the whole point.
             : `Right — just a typo: ${canonical}`
-          : undefined}
+          // The caller's note only gets a say when there is no near-miss to
+          // report, so the umlaut/typo lessons above are never displaced.
+          : noteFor?.(val, result)}
         rulePoint={rulePoint} reveal={ex.reveal} />}
       {result === null
         ? <div className="mt-5 flex items-center justify-center gap-3">

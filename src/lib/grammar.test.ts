@@ -149,12 +149,19 @@ describe('MODE_REMEDY', () => {
     for (const m of modes) for (const id of MODE_REMEDY[m]) expectResolves(id, m);
   });
 
-  it('gives every mode but cloze a rule to show on a miss', () => {
+  it('gives every structural mode a rule to show on a miss', () => {
+    // The three exceptions are deliberate and are each a different reason there
+    // is no single rule to open. Adding a fourth should require saying which.
+    //   cloze     — vocabulary in context, not one grammatical system
+    //   dictation — spelling from sound, likewise
+    //   recall    — failing to *produce* a word you can recognise is a retrieval
+    //               problem, not a grammatical one. Its one system is gender, and
+    //               RecallItem opens that point per-card for nouns, so a
+    //               mode-level default would be wrong for every verb.
+    const noRule = new Set<Mode>(['cloze', 'dictation', 'recall']);
     for (const m of modes) {
       const id = modeRulePoint(m);
-      // Cloze is vocabulary-in-context and dictation is spelling from sound —
-      // neither is one grammatical system, so neither has a rule to open.
-      if (m === 'cloze' || m === 'dictation') { expect(id).toBeNull(); continue; }
+      if (noRule.has(m)) { expect(id, `${m} should have no rule point`).toBeNull(); continue; }
       expect(id, `${m} has no rule point`).toBeTruthy();
     }
   });

@@ -9,7 +9,7 @@ import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMi
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { loadDetail, detailLoaded } from '../data/detail.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, RecallItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { usePoint, RuleCard, RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
@@ -36,7 +36,7 @@ import Kicker from '../components/ui/Kicker.tsx';
 import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
 
-const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus', separable: 'Trennbar', reflexive: 'Reflexiv', dictation: 'Diktat' };
+const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus', separable: 'Trennbar', reflexive: 'Reflexiv', dictation: 'Diktat', recall: 'Recall' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
 /** The grade scale.
@@ -539,6 +539,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                 : item.type === 'separable' ? <SeparableItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'reflexive' ? <ReflexiveItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'dictation' ? <DictationItem key={item.srsId} word={card} onGrade={gradeDrill} />
+                : item.type === 'recall' ? <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
               </RuleShownCtx.Provider>
             </div>

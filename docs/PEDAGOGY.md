@@ -500,7 +500,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 
 | # | Finding | Sev | Personas | Tag |
 |---|---|---|---|---|
-| 1 | **No productive (EN→DE) recall track anywhere.** `known` is recognition, on every card, always — and per-mode FSRS was built to carry exactly this and doesn't. | **P0** | L2, L5, T4, T5 | construct |
+| 1 | ✅ **No productive (EN→DE) recall track anywhere.** `known` is recognition, on every card, always — and per-mode FSRS was built to carry exactly this and doesn't. **Shipped 2026-08-13** as the `recall` mode: 3,675 gated cards, article required for nouns, gated on the flip card reaching Review so recognition unlocks production. See the CHANGELOG. | **P0** | L2, L5, T4, T5 | construct |
 | 2 | **The placement test is a 5-item Yes/No test with no foils**, and it seeds FSRS with what the learner claims. | **P0** | T5, L1, L2 | assessment |
 | 3 | **Nothing can be printed.** No worksheet, no answer key, no diagnostic — and print is the local-first answer to the B2B contradiction. | **P0** | T1, T2, T3, T6 | teacher |
 | 4 | **Misses are logged as a mode tag, not as an error.** The distractor chosen is known at grade time and discarded. | **P0** | T5, L2, L3 | diagnosis |
@@ -531,11 +531,14 @@ new part.
 
 ### Tier 1 — cheap, and each one changes what the product *is*
 
-1. **A `recall` drill mode: English prompt → type the German** (with the article for
-   nouns). *One `Mode` entry, one pool predicate, one item component, `norm` +
-   `editDistance1` already exist.* Turns Known from a recognition count into two
-   honest numbers, closes L2's entire complaint, and uses the per-mode FSRS split for
-   the thing it was built for. **The highest-value item in this file.**
+1. ✅ **A `recall` drill mode: English prompt → type the German** (with the article for
+   nouns). **Shipped 2026-08-13.** The estimate held — one `Mode` entry, one pool
+   predicate, one item component — and the work that was not estimated was the *gate*:
+   529 cards share a gloss with another card (`table` is both *der Tisch* and *die
+   Tabelle*), so the pool had to exclude them or the drill would mark correct German
+   wrong. 3,675 cards survive. Eligibility in a mixed session additionally requires the
+   word's flip card to have reached Review, so recognition unlocks production.
+   **Item 5 below is now unblocked and is the natural follow-up.**
 2. **Log the wrong answer, not just the miss.** `logMiss(tag, term)` →
    `logMiss(tag, term, {asked, chosen})`. *A field on an existing call.* Unlocks
    per-concept diagnosis, the exam's weakest-concept readout the backlog wants and

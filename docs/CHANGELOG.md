@@ -11,6 +11,75 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — Recall: the app finally asks you to produce a word
+
+**The pedagogic critique's P0, closed.** Every track in this app showed German and
+asked what it meant, so `known` measured *recognition* — on every card, always. A
+learner could hold 2,000 known words and be unable to produce one. `recall` is the
+other direction: the English gloss is the prompt, the German is the answer, typed,
+**with the article for nouns**, because the article is most of what knowing a German
+noun means.
+
+**It cost nothing architecturally, which is the point.** Drills already schedule under
+`gym:<mode>:<wordId>` with their own FSRS card — a split that exists precisely so
+recognising a word and producing it can be scheduled apart. That split had never been
+used for the thing it was built for.
+
+**The gate is the feature.** Reversing a gloss is not symmetrical with reading one:
+"die Sprache → language" is always fair, "language → ?" only when exactly one German
+card answers it. `recallSafe` excludes three ways it can be unfair, and the third is
+the one that matters — **529 cards share a gloss with another card.** `table` is *der
+Tisch* **and** *die Tabelle*; `to eat` is *essen* and *fressen*. Prompting "table" and
+marking *die Tabelle* wrong would be the one thing this codebase never does: render a
+verdict that is itself wrong German. Also excluded: 2,043 list-glosses ("station,
+depot, terminus" — the learner cannot know which is wanted) and 323 transparent ones
+("hotel" tests confidence, not German).
+
+What survives is **3,675 cards — A1 712 · A2 802 · B1 1,295 · B2 442 · C1 308 · C2
+116**, of which 2,237 are nouns. Rule 1 is deliberately blunt: many list-glosses have a
+dominant first sense and could be admitted by taking it. Left undone, because picking
+the dominant sense is a judgement a script cannot make and the cost of being wrong is
+marking correct German incorrect.
+
+**Recall is gated on the learner, not only on the card.** A word becomes eligible in a
+mixed session only once its *flip* card reaches Review. Producing a word requires a
+form–meaning link that recognising it builds; asking earlier is not a desirable
+difficulty but a retrieval attempt on an unencoded item, returning a failure and an
+FSRS lapse for a word the learner never had. **Recognition is what unlocks production**
+— which is also the honest relationship between the two numbers Today should eventually
+show. Picking Recall from Fundamentals deliberately bypasses this and draws the full
+pool, on the same reasoning a scoped grammar drill ignores the CEFR filter: asking for
+a thing is the licence for it.
+
+**A wrong article is a nameable error, not a "no".** Typing `Statistik` for *die
+Statistik* is a **gender** miss wearing a vocabulary miss's clothes. It is still graded
+wrong — in German the article is not an accessory — but the note says which:
+*"The word is right — German needs the article: die Statistik."* Wrong article gets
+*"Right word, wrong gender."* A genuinely wrong word gets neither, so nothing is
+excused. This is `spellingDiff`'s principle (an error forgiven silently is how it
+becomes permanent) applied to the second case the widget could not see on its own;
+`TypeItem` gained a `noteFor` hook that never displaces the umlaut/typo lessons and
+never changes the grade.
+
+**Two smaller things found on the way.**
+- `TypeItem` rendered every prompt inside `lang="de"`. A recall prompt is English, and
+  a screen reader handed English in a German voice is the exact defect `lang="de"`
+  exists to prevent, pointed the other way. Prompt language is now a prop.
+- The gloss-collision index is keyed on `WORDS.length` rather than built once, because
+  the lexicon grows at runtime — importing a class pack calls `registerWords`, and a
+  cache built at boot would keep admitting a gloss a new card had just made ambiguous.
+  A stale entry's failure mode here is marking correct German wrong. *(Finding this
+  turned up the same bug in the reader's surface index, which was filed separately and
+  fixed the same day — see the entry below. That fix is the better of the two patterns:
+  it stamps the array **identity** as well as its length, so it also survives `initData`
+  replacing `WORDS` wholesale. Worth folding this index onto it next time either is
+  touched.)*
+
+15 new tests pin every exclusion, so a future pass that loosens the gate to grow the
+pool has to delete one deliberately. 665 green.
+
+---
+
 ### Shipped 2026-08-13 — the docs pass: an anchor, a licence, and eight files deleted
 
 The docs had grown to 26 markdown files and 7,443 lines, and had started disagreeing

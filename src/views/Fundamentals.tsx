@@ -12,7 +12,7 @@
 // NOTE: the persisted card-id prefix stays `gym:` (see `id` below) — it’s a stable
 // storage namespace, deliberately NOT renamed so existing schedules survive.
 import { useEffect, useMemo, useState, useCallback } from 'react';
-import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Split, RefreshCw, Ear, Volume2, Check, X } from 'lucide-react';
+import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Split, RefreshCw, Ear, PenLine, Volume2, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, review, levels, logMiss, streak, statusOf, focusTense, type Status } from '../store.ts';
@@ -31,7 +31,7 @@ import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { Word, Example } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case' | 'separable' | 'reflexive' | 'dictation';
+export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case' | 'separable' | 'reflexive' | 'dictation' | 'recall';
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -51,6 +51,115 @@ const casePool = () => WORDS.filter((w) => inLevels(w) && caseSafe(w));
 const separablePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isSeparable(w.term));
 const reflexivePool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && isReflexive(w.term));
 const dictationPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && drillExample(w, dictatable));
+const recallPool = () => WORDS.filter((w) => inLevels(w) && recallSafe(w));
+
+// ---- recall: the productive direction ------------------------------------
+// Every other track in this app shows German and asks what it means. `known`
+// therefore measures *recognition*, on every card, always — a learner can hold
+// 2,000 known words and be unable to produce one of them (PEDAGOGY L2, finding
+// #1). This mode is the other direction: the English gloss is the prompt and the
+// German is the answer, typed, with the article for nouns because the article is
+// most of what "knowing a German noun" means.
+//
+// It costs nothing architecturally: drills already schedule under
+// `gym:<mode>:<wordId>` with their own FSRS card, which is precisely so that
+// recognising a word and producing it can be scheduled apart. That split existed
+// and had never been used for the thing it was built for.
+//
+// ## The gate, and why it is deliberately strict
+//
+// Reversing a gloss is not symmetrical with reading one. "die Sprache → language"
+// is always fair; "language → ?" is only fair when exactly one German card
+// answers it. Three ways it can be unfair, all excluded:
+//
+//   1. **The gloss is a list.** "station, depot, terminus" gives the learner no
+//      way to know which word is wanted. (2,043 cards.)
+//   2. **The gloss is transparent.** "hotel" → `das Hotel` tests nothing but
+//      confidence. Same reasoning as `isTransparent` in the placement test.
+//      (323 cards.)
+//   3. **Two cards share the gloss.** `table` is *der Tisch* **and** *die
+//      Tabelle*; `to eat` is *essen* and *fressen*. Asking for "table" and
+//      marking *die Tabelle* wrong would be the one thing this codebase never
+//      does — render a verdict that is itself wrong German. (529 cards.)
+//
+// What survives is 3,675 cards — A1 712 · A2 802 · B1 1,295 · B2 442 · C1 308 ·
+// C2 116, of which 2,237 are nouns and so require the article — more than enough
+// to drill, and spread across every level.
+// Rule 1 is the blunt one: many list-glosses have a dominant first sense and
+// could be admitted by taking it. That is left undone on purpose, because
+// picking the dominant sense is a judgement a script cannot make, and the cost
+// of being wrong is marking correct German incorrect.
+const glossKey = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+const GLOSS_IS_LIST = /[,;/]|\bor\b/;
+
+/** Cards per gloss, used only to find collisions.
+ *
+ *  Keyed on `WORDS.length` rather than built once, because the lexicon grows at
+ *  runtime: importing a class pack calls `registerWords`, and a cache built at
+ *  boot would keep admitting a gloss that a newly-imported card has just made
+ *  ambiguous. Rebuilding on a length change is cheap (one pass over ~6.5k rows,
+ *  and only when the count actually moves) and cannot go stale, which is worth
+ *  more here than the saved milliseconds — a stale entry's failure mode is
+ *  marking correct German wrong. */
+let glossIndex: Map<string, number> | null = null;
+let glossIndexFor = -1;
+function glossCount(g: string): number {
+  if (!glossIndex || glossIndexFor !== WORDS.length) {
+    glossIndex = new Map();
+    for (const w of WORDS) {
+      if (w.kind !== 'word' || !w.en) continue;
+      const k = glossKey(w.en);
+      glossIndex.set(k, (glossIndex.get(k) ?? 0) + 1);
+    }
+    glossIndexFor = WORDS.length;
+  }
+  return glossIndex.get(glossKey(g)) ?? 0;
+}
+
+/** Does this card's English gloss point back at exactly one German answer?
+ *  Exported for the test that pins the three exclusions above. */
+export function recallSafe(w: Word): boolean {
+  if (w.kind !== 'word' || !w.en || !w.term) return false;
+  if (GLOSS_IS_LIST.test(w.en)) return false;
+  if (glossKey(stripArticle(w.term)) === glossKey(w.en)) return false; // transparent
+  return glossCount(w.en) === 1;
+}
+
+/** Did the learner produce the right noun and the wrong article — or none?
+ *
+ *  Returns the lesson to show, or null when this isn't what happened. Graded
+ *  wrong either way: in German the article is not an accessory to the noun, and a
+ *  learner who says "Fakultät ist groß" has said something no native speaker
+ *  would. But *wrong for a nameable reason* is a different message from "no", and
+ *  the app already knows which one this is.
+ *
+ *  Exported for the test that pins the three shapes: bare noun, wrong article,
+ *  and an actually-wrong word (which must return null so it is not excused). */
+export function articleMiss(typed: string, w: Word): string | null {
+  if (!w.gender) return null;
+  const bare = norm(stripArticle(w.term));
+  const t = norm(typed);
+  if (t === bare) return `The word is right — German needs the article: ${w.term}.`;
+  const m = /^(der|die|das)\s+(.*)$/.exec(t);
+  if (m && m[2] === bare) return `Right word, wrong gender: it is ${w.term}, not „${typed.trim()}“.`;
+  return null;
+}
+
+/** The hint ladder for a recall card.
+ *
+ *  Deliberately not `hintText`'s generic shape → first letter → first half. For a
+ *  noun the most useful first rung is the **gender**: a learner who has the word
+ *  but not the article has a different problem from one who has neither, and
+ *  naming the gender first separates them. The article is never given away —
+ *  "feminine" still requires knowing that feminine means *die*. */
+export function recallHints(w: Word): string[] {
+  const bare = stripArticle(w.term);
+  const GENDER_WORD: Record<string, string> = { der: 'masculine', die: 'feminine', das: 'neuter' };
+  const first = w.gender
+    ? `${GENDER_WORD[w.gender]} · ${bare.length} letters`
+    : `${w.pos || 'word'} · ${bare.length} letters`;
+  return [first, `starts with “${bare[0]}”`, `“${bare.slice(0, Math.ceil(bare.length / 2))}…”`];
+}
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
@@ -591,6 +700,20 @@ export function eligibleModes(w: Word): Mode[] {
   if (w.pos === 'verb' && isSeparable(w.term)) out.push('separable');
   if (w.pos === 'verb' && isReflexive(w.term)) out.push('reflexive');
   if (w.kind === 'word' && drillExample(w, dictatable)) out.push('dictation');
+  // Recall is the one mode gated on the learner rather than on the card.
+  //
+  // Producing a word requires a form–meaning link that recognising it builds, so
+  // asking for production before that link exists is not a desirable difficulty —
+  // it is a retrieval attempt on something not yet encoded, and it returns a
+  // failure and an FSRS lapse for a word the learner never had. So a word becomes
+  // eligible for recall only once its *flip* card has reached Review: recognition
+  // is what unlocks production, which is also the honest relationship between the
+  // two numbers on Today.
+  //
+  // Choosing the Recall drill from Fundamentals deliberately bypasses this — it
+  // draws from `recallPool` instead, on the same reasoning that a scoped grammar
+  // drill ignores the CEFR filter: asking for a thing is the licence for it.
+  if (recallSafe(w) && statusOf(w.id) === 'known') out.push('recall');
   if (caseSafe(w)) out.push('case');
   return out;
 }
@@ -600,6 +723,7 @@ export const MODE_TAG: Record<Mode, string> = {
   separable: 'Separable verbs (trennbare Verben)',
   reflexive: 'Reflexive verbs (sich …)',
   dictation: 'Dictation (hearing to spelling)',
+  recall: 'Recall (English → German)',
 };
 
 /** The authored grammar point that teaches the system each generated drill
@@ -622,6 +746,11 @@ export const MODE_REMEDY: Record<Mode, string[]> = {
   reflexive: ['gram:A2:Reflexive Verben'],
   // Spelling from sound isn't one grammatical system, so there is no rule to open.
   dictation: [],
+  // Producing a word you have only ever recognised is a retrieval problem, not a
+  // grammatical one — there is no rule that fixes it. The one system it *does*
+  // expose is gender, and `RecallItem` opens that point itself when the card is a
+  // noun, so a mode-level default here would be wrong for every verb.
+  recall: [],
 };
 
 /** The point whose rule explains a drill mode, for the "Why?" link. */
@@ -632,7 +761,7 @@ function queue(mode: Mode): Word[] {
   const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : mode === 'conj' ? conjPool()
     : mode === 'order' ? orderPool() : mode === 'transform' ? transformPool() : mode === 'case' ? casePool()
     : mode === 'separable' ? separablePool() : mode === 'reflexive' ? reflexivePool()
-    : mode === 'dictation' ? dictationPool() : clozePool();
+    : mode === 'dictation' ? dictationPool() : mode === 'recall' ? recallPool() : clozePool();
   const now = Date.now();
   const due: Word[] = [], fresh: Word[] = [];
   for (const w of pool) {
@@ -655,6 +784,7 @@ export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[]
   { m: 'separable', label: 'Trennbare Verben', icon: Split, desc: 'Where the prefix goes — anrufen → ich rufe an, angerufen.' },
   { m: 'reflexive', label: 'Reflexive Verben', icon: RefreshCw, desc: 'The pronoun that isn’t optional — sich freuen → ich freue mich.' },
   { m: 'dictation', label: 'Diktat', icon: Ear, desc: 'Hear a sentence, write it. The only drill that makes you spell.' },
+  { m: 'recall', label: 'Recall', icon: PenLine, desc: 'English in, German out — with the article. The only drill that asks you to produce a word rather than recognise one.' },
 ];
 
 /** One generated word-drill, played to completion. The landing that used to sit
@@ -696,6 +826,7 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
       {mode === 'separable' && <SeparableItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'reflexive' && <ReflexiveItem key={word.id} word={word} onGrade={advance} />}
       {mode === 'dictation' && <DictationItem key={word.id} word={word} onGrade={advance} />}
+      {mode === 'recall' && <RecallItem key={word.id} word={word} onGrade={advance} />}
     </Shell>
   );
 }
@@ -1021,6 +1152,46 @@ export function ReflexiveItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
   }, [word.id]);
   return <TypeItem ex={built.ex} onGrade={onGrade}
     rulePoint={modeRulePoint('reflexive')} ruleLabel={built.label} />;
+}
+
+/** Recall — the English gloss is the prompt, the German is the answer.
+ *
+ *  The only drill in the app that asks the learner to *produce* a word rather than
+ *  recognise, transform or transcribe one. For a noun the article is part of the
+ *  answer: "Tisch" is not knowing the word, and the whole reason German nouns are
+ *  hard is the three-way article that English has no slot for.
+ *
+ *  Grading is `TypeItem`'s, unchanged — umlaut-folded, typo-tolerant only when the
+ *  near-miss is not itself a real German word, with the drifted spelling named
+ *  rather than silently forgiven. The card's own example is withheld until after
+ *  the answer, because it contains the target. */
+export function RecallItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+  const ex = useMemo(() => ({
+    kind: 'type' as const,
+    prompt: word.en,
+    // Only the canonical form is accepted. The pool gate guarantees no *other*
+    // card answers this gloss, so there is no correct German being marked wrong —
+    // see `recallSafe`.
+    accept: [word.term],
+    hints: recallHints(word),
+    // Shown after grading: the sentence is the payoff, and before grading it
+    // would print the answer.
+    explain: word.ex[0]?.de ? `${word.ex[0].de} — ${word.ex[0].en}` : undefined,
+  }), [word.id]);
+
+  return (
+    <>
+      <p className="text-2xs text-dim text-center mb-2">
+        {word.gender
+          ? 'Type the German — with its article'
+          : 'Type the German'}
+      </p>
+      <TypeItem ex={ex} onGrade={onGrade} promptLang="en"
+        noteFor={(typed, ok) => (ok ? undefined : articleMiss(typed, word) ?? undefined)}
+        rulePoint={word.gender ? modeRulePoint('gender') : null}
+        ruleLabel={MODE_TAG.recall} />
+    </>
+  );
 }
 
 /** Diktat — hear a sentence, write it.
