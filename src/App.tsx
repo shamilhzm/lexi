@@ -21,6 +21,7 @@ import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
 import Progress from './views/Progress.tsx';
 import Grammar, { type GrammarInit } from './views/Grammar.tsx';
+import Games from './views/Games.tsx';
 import { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
@@ -42,7 +43,7 @@ import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'progress' | 'library' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam';
+export type View = 'today' | 'progress' | 'library' | 'games' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 export default function App() {
@@ -237,6 +238,7 @@ export default function App() {
                 {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
                 {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} />}
+                {view === 'games' && <Games />}
                 {view === 'exam' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
                     <Exam onExit={() => go('library')} onGrammar={() => go('library')} onSession={startSession} />

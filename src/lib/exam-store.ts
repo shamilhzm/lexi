@@ -167,6 +167,45 @@ export function recordQuiz(r: QuizResult): void {
   emit();
 }
 
+// ---- race results ----------------------------------------------------------
+// Thinner again than a quiz, and for a sharper reason: a race result is **not a
+// measurement of German**. Typing speed is tested in none of the six papers —
+// Schreiben is handwritten — so this must never reach the readiness read, which
+// is why it lives in its own key and is not a `strands` contributor. What it is
+// good for is one number a learner wants to beat, and the digraph count, which
+// is the only part of a race that says something about their spelling.
+export interface RaceResult {
+  level: string;
+  wpm: number;
+  accuracy: number;
+  /** Umlauts and ß typed as ae/oe/ue/ss. The teachable part. */
+  digraphs: number;
+  at: number;
+}
+const RACE_KEY = 'lexi.race.v1';
+
+export function raceBests(): Record<string, RaceResult> {
+  try { return JSON.parse(localStorage.getItem(RACE_KEY) || '{}') as Record<string, RaceResult>; }
+  catch { return {}; }
+}
+
+/** Keep the best WPM per level. Returns true when this run beat the record. */
+export function recordRace(r: RaceResult): boolean {
+  const all = raceBests();
+  const prev = all[r.level];
+  const better = !prev || r.wpm > prev.wpm;
+  if (better) all[r.level] = r;
+  try { localStorage.setItem(RACE_KEY, JSON.stringify(all)); } catch { /* quota */ }
+  emit();
+  return better;
+}
+
+/** The best across every level — what the pace-setters are built from. */
+export function bestWpm(): number | null {
+  const all = Object.values(raceBests());
+  return all.length ? Math.max(...all.map((r) => r.wpm)) : null;
+}
+
 // ---- writes ----------------------------------------------------------------
 
 export function start(paperId: string, mode: Mode): Attempt {
