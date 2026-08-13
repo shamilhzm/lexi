@@ -11,6 +11,71 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — two honest numbers, and a log that names the error
+
+Two more of the pedagogic critique's Tier 1, both unblocked by Recall shipping.
+
+**The headline says what it measures.** It read *"2,320 known"* for a year and was
+never true: the number counts flip cards in FSRS Review, and a flip shows the German
+and asks what it means, so it has only ever measured **recognition**. "Known" claimed
+the productive half too, for free. It now reads **"2,320 recognised"**, and once a
+learner has consolidated anything in the recall track, **"· 340 recalled"** appears
+beside it.
+
+The two are counted separately and stay separate — `countsFor` gained `recalled`
+rather than folding it into `known`. Averaging them into one reassuring figure is the
+trick `readiness.ts` already refuses for preparation and performance; this is that rule
+applied to the app's own currency. Expect `recalled ≤ known` in practice, but it is
+counted independently rather than assumed, because the Fundamentals drill deliberately
+bypasses the "flip must be in Review" gate and a learner can produce a word the flip
+has not consolidated. **An invariant that is merely usually true should not be encoded
+as arithmetic.**
+
+A zero is not shown. A learner who has never done a recall drill sees no "· 0
+recalled" — a zero beside the headline reads as a deficiency rather than as a track
+they have not started, and the number arrives on its own the first time they finish
+one.
+
+The rename went to every surface that makes the same claim — Today's headline and goal
+line, Decks, the heatmap legend, the level strip, the path card — because an app that
+says "recognised" on one screen and "known" on the next is inconsistent with *itself*,
+which is the defect the i18n separator finding was really about. The **per-card**
+status pip keeps new/learning/known: that describes one card's scheduling state, not a
+claim about the learner.
+
+**The miss log now records the error, not just the failure.** `logMiss(tag, term)`
+became `logMiss(tag, term, {asked, chose})`. A tag says *which system* is weak; a term
+says *which word*; neither says *which error* — and that is the one a teacher can act
+on. Every multiple-choice drill has known both at the moment it graded and discarded
+them the instant it called `onGrade(false)`.
+
+Blind spots now read: **"reaches for *den* when it should be *Dativ* 4×"** under
+"Cases & endings (Kasus) 4×". That is the line PEDAGOGY's assessment specialist and
+Kenji both asked for, and it is the missing input for the exam surface's per-concept
+readout that the backlog wants and correctly says it cannot build yet.
+
+Three decisions worth keeping:
+- **The Kasus drill logs the *case*, not the article.** Its options are surface forms —
+  den, dem, der — and logging "wanted dem, chose den" is true and nearly useless,
+  because the same pair means different things on a masculine noun and on a plural.
+  `askedLabel` lets an item name the real question. Mapping the *chosen* form back to a
+  case is deliberately not attempted: `den` is accusative masculine **and** dative
+  plural, so the inference would be wrong often enough to poison the table.
+- **Typed drills contribute nothing here, on purpose.** A free-text answer is not a
+  choice between named alternatives, and recording "wanted die Fakultät, chose
+  fakultat" would fill the confusion table with spellings instead of errors.
+- **Half a confusion is refused.** An `asked` with no `chose` is not a row; it is still
+  counted as a miss, but never as a confusion, so nothing is invented to fill the gap.
+  Misses logged before this existed stay readable at the resolution they were recorded
+  at — `confusions` is additive, not a replacement for `terms`.
+
+A confusion is surfaced only when the same pair repeats. A single one is a slip, and
+calling it a pattern would be the app overclaiming — which is the thing it is for.
+
+12 new tests. 672 green.
+
+---
+
 ### Shipped 2026-08-13 — Recall: the app finally asks you to produce a word
 
 **The pedagogic critique's P0, closed.** Every track in this app showed German and

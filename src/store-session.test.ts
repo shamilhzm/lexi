@@ -1501,3 +1501,89 @@ describe('SessionWhy — the reasons, before you press start', () => {
     expect(whyLinesFor(triggers.map((tm) => `voc:B1:${tm}`)).length).toBeLessThanOrEqual(3);
   });
 });
+
+// The two numbers, kept two.
+//
+// `known` counts flip cards in Review, and a flip shows the German — so it has
+// only ever measured recognition. `recalled` counts the recall drill reaching
+// Review, which is production. The pressure over time will be to average them
+// into one reassuring figure; these pin that they stay apart, and that neither
+// silently counts the other.
+describe('totals: recognition and production are counted separately', () => {
+  it('starts both at zero and moves them independently', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('voc:A1:die Sprache', 'Sector A', { term: 'die Sprache', gender: 'die' })]);
+
+    expect(store.totals()).toMatchObject({ known: 0, recalled: 0 });
+
+    // Consolidate the *flip* only: recognised, not yet produced.
+    for (let i = 0; i < 4; i++) store.review('voc:A1:die Sprache', srs.Rating.Good);
+    const afterFlip = store.totals();
+    expect(afterFlip.known).toBe(1);
+    expect(afterFlip.recalled).toBe(0);
+
+    // Now consolidate the recall drill for the same word.
+    for (let i = 0; i < 4; i++) store.review('gym:recall:voc:A1:die Sprache', srs.Rating.Good);
+    const afterRecall = store.totals();
+    expect(afterRecall.known).toBe(1);        // unchanged — not double counted
+    expect(afterRecall.recalled).toBe(1);
+  });
+
+  it('does not let a produced word inflate the recognised count', async () => {
+    // The Fundamentals drill bypasses the "flip must be in Review" gate, so this
+    // state is reachable: produced but never consolidated receptively. `known`
+    // must not quietly absorb it.
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('voc:A1:der Tisch', 'Sector A', { term: 'der Tisch' })]);
+    for (let i = 0; i < 4; i++) store.review('gym:recall:voc:A1:der Tisch', srs.Rating.Good);
+    expect(store.totals()).toMatchObject({ known: 0, recalled: 1 });
+  });
+});
+
+// The confusion log: what was asked, and what was reached for instead.
+//
+// A tag says which system is weak; a term says which word. Neither says which
+// *error*, and that is the one a teacher can act on. Every multiple-choice drill
+// has known this at grade time and used to discard it.
+describe('missStats: the substitution, not just the miss', () => {
+  it('counts repeated confusions worst-first, per tag', async () => {
+    const { store } = await fresh();
+    for (let i = 0; i < 3; i++) store.logMiss('Kasus', 'der Tisch', { asked: 'Dativ', chose: 'den' });
+    store.logMiss('Kasus', 'das Haus', { asked: 'Genitiv', chose: 'dem' });
+
+    const [kasus] = store.missStats(30);
+    expect(kasus.count).toBe(4);
+    expect(kasus.confusions[0]).toEqual({ asked: 'Dativ', chose: 'den', count: 3 });
+    expect(kasus.confusions[1]).toEqual({ asked: 'Genitiv', chose: 'dem', count: 1 });
+  });
+
+  it('keeps a miss with no detail readable, at the resolution it was recorded', async () => {
+    // Every miss logged before this existed has no asked/chose. It must still
+    // count toward the tag rather than vanishing or inventing a confusion.
+    const { store } = await fresh();
+    store.logMiss('Gender (der/die/das)', 'die Sprache');
+    const [g] = store.missStats(30);
+    expect(g.count).toBe(1);
+    expect(g.terms[0]).toEqual({ term: 'die Sprache', count: 1 });
+    expect(g.confusions).toEqual([]);
+  });
+
+  it('refuses half a confusion rather than inventing the other half', async () => {
+    const { store } = await fresh();
+    store.logMiss('Kasus', 'der Tisch', { asked: 'Dativ', chose: '' });
+    store.logMiss('Kasus', 'der Tisch', { asked: '', chose: 'den' });
+    const [kasus] = store.missStats(30);
+    expect(kasus.count).toBe(2);         // both are still misses
+    expect(kasus.confusions).toEqual([]); // neither is a confusion
+  });
+
+  it('does not let one tag\'s confusions leak into another', async () => {
+    const { store } = await fresh();
+    store.logMiss('Kasus', 'a', { asked: 'Dativ', chose: 'den' });
+    store.logMiss('Noun plurals', 'b', { asked: 'die Häuser', chose: 'die Hausen' });
+    const byTag = Object.fromEntries(store.missStats(30).map((s) => [s.tag, s.confusions]));
+    expect(byTag['Kasus']).toHaveLength(1);
+    expect(byTag['Noun plurals']).toHaveLength(1);
+    expect(byTag['Kasus'][0].asked).toBe('Dativ');
+  });
+});

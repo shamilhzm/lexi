@@ -60,6 +60,22 @@ export default function BlindSpotList({ onDrill, days = 30 }:
                 ))}
               </p>
             )}
+            {/* The substitution, which is the only line here a teacher would
+                call a diagnosis. "Kasus 15×" names a category and "most often
+                *der Tisch*" names a word; neither says what the learner
+                actually does — and what they do is reach for the accusative
+                when the frame wants a dative, every time, which is one lesson.
+                Shown only for a repeated pair: a single confusion is a slip,
+                and calling it a pattern would be the app overclaiming. */}
+            {s.confusions.length > 0 && s.confusions[0].count > 1 && (
+              <p className="text-2xs mt-1 truncate">
+                <span className="text-dim">reaches for </span>
+                <span lang="de" className="text-red-txt">{s.confusions[0].chose}</span>
+                <span className="text-dim"> when it should be </span>
+                <span lang="de" className="text-txt">{s.confusions[0].asked}</span>
+                <span className="text-dim font-mono"> {s.confusions[0].count}×</span>
+              </p>
+            )}
           </button>
         ))}
       </div>

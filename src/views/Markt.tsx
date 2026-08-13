@@ -287,7 +287,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             ))}
           </span>
           <span className="font-mono">{Math.round(scale.domain[1] * 100)}%</span>
-          <span>known · {scale.breaks.length ? 'five classes, equal count' : 'proportional'}</span>
+          <span>recognised · {scale.breaks.length ? 'five classes, equal count' : 'proportional'}</span>
           {/* Was hidden below sm — which removed the only explanation of the
               interaction from the screens that have no right-click at all. */}
           <span className="ml-auto">{zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · long-press to study it directly'}</span>

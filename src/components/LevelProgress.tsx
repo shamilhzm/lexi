@@ -34,7 +34,7 @@ export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => vo
         <div className="flex justify-end mb-2.5">
           <button onClick={() => focusUpTo(edgeIdx + 1)}
             className="flex items-center gap-1 text-2xs text-amber hover:underline">
-            {edge} is {Math.round(edgeKr * 100)}% known — add {ALL_LEVELS[edgeIdx + 1]} <ChevronRight size={12} />
+            {edge} is {Math.round(edgeKr * 100)}% recognised — add {ALL_LEVELS[edgeIdx + 1]} <ChevronRight size={12} />
           </button>
         </div>
       )}

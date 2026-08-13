@@ -15,7 +15,7 @@ import { useEffect, useMemo, useState, useCallback } from 'react';
 import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Split, RefreshCw, Ear, PenLine, Volume2, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, review, levels, logMiss, streak, statusOf, focusTense, type Status } from '../store.ts';
+import { cardOf, review, levels, logMiss, streak, statusOf, focusTense, type Status, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -32,6 +32,16 @@ import IconButton from '../components/ui/IconButton.tsx';
 import type { Word, Example } from '../types.ts';
 
 export type Mode = 'gender' | 'plural' | 'conj' | 'cloze' | 'order' | 'transform' | 'case' | 'separable' | 'reflexive' | 'dictation' | 'recall';
+
+/** How every drill item reports its result.
+ *
+ *  `detail` is the confusion — what the item asked for and what was picked —
+ *  supplied by the multiple-choice items, which know both at the moment they
+ *  grade and used to discard both. Optional because the typed items have nothing
+ *  comparable to offer: a free-text answer is not a choice between named
+ *  alternatives, and recording "wanted 'die Fakultät', chose 'fakultat'" would
+ *  fill the confusion table with spellings rather than errors. */
+export type Grade = (ok: boolean, detail?: MissDetail) => void;
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 // Grading is umlaut-tolerant: fold ä/ö/ü/ß to their ASCII digraphs on both
 // sides, so "schoen" == "schön" and "weiss" == "weiß".
@@ -799,12 +809,12 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
   const [correct, setCorrect] = useState(0);
 
   const word = q[i];
-  const advance = useCallback((ok: boolean) => {
+  const advance = useCallback<Grade>((ok, detail) => {
     if (!word) return;
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
     tick(ok ? 'good' : 'wrong');
-    if (!ok) logMiss(MODE_TAG[mode], word.term);
+    if (!ok) logMiss(MODE_TAG[mode], word.term, detail);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);
 
@@ -850,12 +860,15 @@ const GENDER = [
   { g: 'die' as const, color: 'var(--color-die)', icon: Venus },
   { g: 'das' as const, color: 'var(--color-das)', icon: CircleDot },
 ];
-export function GenderItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const [picked, setPicked] = useState<string | null>(null);
   const choose = (g: string) => {
     if (picked) return;
     setPicked(g);
-    setTimeout(() => onGrade(g === word.gender), 750);
+    // The confusion, not just the failure: "wanted die, chose der" over a month
+    // is the shape of a learner's gender error, and it is exactly what an
+    // ending-rule lesson would fix.
+    setTimeout(() => onGrade(g === word.gender, { asked: word.gender ?? '', chose: g }), 750);
   };
   return (
     <>
@@ -920,19 +933,33 @@ function pluralVariants(singular: string): string[] {
   return [endsE ? singular + 'n' : singular + 'e', stem + 'en', stem + 'er', stem + 's', us + 'e', us + 'er', umlaut(singular), singular];
 }
 
-function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, mode, rulePoint, ruleLabel, reveal, onGrade }:
+function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, mode, rulePoint, ruleLabel, reveal, askedLabel, onGrade }:
   { prompt: React.ReactNode; sub?: string; hint?: string; options: string[]; correct: number; extra?: React.ReactNode; bigPrompt?: boolean;
-    mode?: Mode; rulePoint?: string | null; ruleLabel?: string; reveal?: RevealData; onGrade: (ok: boolean) => void }) {
+    mode?: Mode; rulePoint?: string | null; ruleLabel?: string; reveal?: RevealData;
+    /** Name the thing being asked for, when it is not the correct option itself.
+     *
+     *  The Kasus drill's options are surface forms — den, dem, der — and the
+     *  question behind them is a case. Logging "wanted dem, chose den" is true
+     *  and nearly useless, because the same pair means something different on a
+     *  masculine noun than on a plural; logging "wanted Dativ, chose den" is the
+     *  diagnosis. Mapping the *chosen* form back to a case is deliberately not
+     *  attempted — `den` is accusative masculine **and** dative plural, so the
+     *  inference would be wrong often enough to poison the table. */
+    askedLabel?: string;
+    onGrade: Grade }) {
   const [picked, setPicked] = useState<number | null>(null);
   // The rule for what this item actually tests. `rulePoint` is the item's own
   // target (the Genitiv of *this* Kasus item, the Präteritum of *this* conjugation);
   // the mode default is the fallback for modes whose items are all one system.
   const point = rulePoint !== undefined ? rulePoint : mode ? modeRulePoint(mode) : null;
+  /** Report the result *and* the substitution that produced it. */
+  const settle = (i: number) =>
+    onGrade(i === correct, { asked: askedLabel ?? options[correct], chose: options[i] });
   useChoiceKeys({
     count: options.length,
     answered: picked !== null,
     onPick: setPicked,
-    onNext: () => picked !== null && onGrade(picked === correct),
+    onNext: () => picked !== null && settle(picked),
   });
   return (
     <>
@@ -973,13 +1000,13 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
       {picked !== null && picked !== correct && point && (
         <div className="mt-1 flex justify-center"><WhyLink pointRef={point} /></div>
       )}
-      {picked !== null && <div className="mt-5 flex justify-center"><Button variant="secondary" onClick={() => onGrade(picked === correct)}>Next →</Button></div>}
+      {picked !== null && <div className="mt-5 flex justify-center"><Button variant="secondary" onClick={() => settle(picked)}>Next →</Button></div>}
     </Card>
     </>
   );
 }
 
-export function PluralItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function PluralItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const correct = word.plural!;
   const singular = stripArticle(word.term);
   const mc = useMemo(() => {
@@ -1027,7 +1054,7 @@ const PERSONS_I: Person[] = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
 export function pickPersonIndex(status: Status, rnd: () => number = Math.random): number {
   return Math.floor(rnd() * (status === 'known' ? 6 : 3));
 }
-export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function ConjItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const conj = useMemo(() => conjugate(word.term), [word.id]);
   const data = useMemo(() => {
     const tense = pickFocused(TENSES, focusTense());
@@ -1060,7 +1087,7 @@ export function ConjItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean)
     reveal={{ paradigm: data.paradigm }} mode="conj" onGrade={onGrade} />;
 }
 
-export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function ClozeItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const surface = stripArticle(word.term);
   const ex = clozeExample(word)!;
   const re = wholeWordRe(surface);
@@ -1088,7 +1115,7 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean
 // ---- production drills (reuse the authored-exercise widgets) --------------
 /** Sentence builder over the card’s own example sentence — no new content
  *  needed, and real sentences carry real V2 / verb-final word order. */
-export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const ex = useMemo(() => {
     const src = orderExample(word);
     return {
@@ -1101,17 +1128,19 @@ export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
 }
 
 /** Kasus: declined articles & weak adjective endings in case-forcing frames. */
-export function CaseItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function CaseItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const d = useMemo(() => buildCaseItem(word), [word.id]);
   return <MCItem prompt={d.prompt} sub={d.sub} hint={word.en} bigPrompt={false}
     options={d.options} correct={d.correct}
     extra={<><GenderTerm term={word.term} gender={word.gender} /> · {d.why} → {d.answer}</>}
+    // The case is the question; the article is only how it is spelled here.
+    askedLabel={d.kase}
     rulePoint={CASE_POINT[d.kase]} ruleLabel={CASE_LABEL[d.kase]} mode="case" onGrade={onGrade} />;
 }
 
 /** Tense transformation, typed: „ich mache“ → Perfekt. Production, not
  *  recognition — the other half of the conjugation drill. */
-export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function TransformItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const built = useMemo(() => {
     const t = pickFocused(TRANSFORM_TARGETS, focusTense());
     const pIdx = pickPersonIndex(statusOf(id('transform', word)));
@@ -1128,7 +1157,7 @@ export function TransformItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
 /** Separable verbs, typed. Three shapes drawn per card, because the system is that
  *  the prefix *moves*: off to the end in the present, around -ge- in the participle,
  *  and nowhere at all in the Perfekt's auxiliary construction. */
-export function SeparableItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function SeparableItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const built = useMemo(() => {
     const shapes: SepShape[] = ['praesens', 'praesens', 'partizip', 'perfekt'];
     const shape = shapes[Math.floor(Math.random() * shapes.length)];
@@ -1143,7 +1172,7 @@ export function SeparableItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
 /** Reflexive verbs, typed. The error this catches is omission: an English speaker
  *  says "I remember" and writes „ich erinnere“, because English has no pronoun
  *  there to forget. */
-export function ReflexiveItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function ReflexiveItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const built = useMemo(() => {
     const shape = Math.random() < 0.65 ? 'praesens' as const : 'perfekt' as const;
     const pIdx = pickPersonIndex(statusOf(id('reflexive', word)));
@@ -1165,7 +1194,7 @@ export function ReflexiveItem({ word, onGrade }: { word: Word; onGrade: (ok: boo
  *  near-miss is not itself a real German word, with the drifted spelling named
  *  rather than silently forgiven. The card's own example is withheld until after
  *  the answer, because it contains the target. */
-export function RecallItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function RecallItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const ex = useMemo(() => ({
     kind: 'type' as const,
     prompt: word.en,
@@ -1205,7 +1234,7 @@ export function RecallItem({ word, onGrade }: { word: Word; onGrade: (ok: boolea
  *  replayed as often as the learner likes — replaying is not cheating, it is the
  *  exercise — and there is an escape for a device whose speech doesn't work, which
  *  reveals the text and grades the attempt as unknown rather than stranding them. */
-export function DictationItem({ word, onGrade }: { word: Word; onGrade: (ok: boolean) => void }) {
+export function DictationItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const src = drillExample(word, dictatable);
   const sentence = src?.de ?? '';
   const gloss = src?.en ?? '';

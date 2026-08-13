@@ -165,7 +165,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
                 className={`tap-hit font-mono text-2xs px-2 py-0.5 rounded-full ${d.due > 0 ? 'bg-red-d text-red-txt' : 'bg-green-d text-green'}`}>
                 {d.due > 0 ? `${d.due} due` : `${d.newCount} new`}
               </button>
-              <span className="font-mono text-2xs text-dim ml-auto">{Math.round(kpct(d) * 100)}% known</span>
+              <span className="font-mono text-2xs text-dim ml-auto">{Math.round(kpct(d) * 100)}% recognised</span>
             </div>
           </Card>
         ))}

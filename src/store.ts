@@ -691,16 +691,39 @@ export interface MissEvent {
    *  grammar-point misses are about a system, not a word — and because it was
    *  added later, so older logs simply don't carry it. */
   term?: string;
+  /** What the item asked for, in the item's own terms — "Dativ", "die", "Perfekt". */
+  asked?: string;
+  /** What the learner picked instead. Only ever set together with `asked`. */
+  chose?: string;
 }
+
+/** The wrong answer itself, where the item knows it.
+ *
+ *  A tag says *which system* is weak. A term says *which word*. Neither says
+ *  **which error**, and that is the one a teacher can act on: "you miss Kasus"
+ *  is a fact about a category, while "asked for Dativ, you chose the Akkusativ
+ *  form, nine times" is a diagnosis with a lesson attached.
+ *
+ *  Every multiple-choice drill has had this at the moment it grades — it knows
+ *  the option it wanted and the option that was tapped — and threw both away the
+ *  instant it called `onGrade(false)`. */
+export interface MissDetail { asked: string; chose: string }
+
 /** Record a wrong answer under a structural tag (grammar point, drill type…),
- *  optionally naming the word it happened on.
+ *  optionally naming the word it happened on and the specific confusion.
  *
  *  The tag alone answers "which system do I keep getting wrong"; it cannot answer
  *  "which words". A learner who misses `nehmen` eight times and every other verb
  *  once saw one row reading "Verb conjugation 15×", which is true and unactionable
  *  — the fix is to drill `nehmen`, and the log knew that all along and dropped it. */
-export function logMiss(tag: string, term?: string) {
-  misses.push({ tag, at: Date.now(), ...(term ? { term } : {}) });
+export function logMiss(tag: string, term?: string, detail?: MissDetail) {
+  misses.push({
+    tag, at: Date.now(),
+    ...(term ? { term } : {}),
+    // Guarded together: a `chose` with no `asked` is not a confusion, it is half
+    // a row, and `missStats` would have to invent the other half to display it.
+    ...(detail && detail.asked && detail.chose ? { asked: detail.asked, chose: detail.chose } : {}),
+  });
   if (misses.length > 800) misses = misses.slice(-800);
   persistMisses();
   emit();
@@ -712,16 +735,28 @@ export interface MissStat {
   /** The words this weakness actually happened on, worst first. Empty for
    *  grammar points and for logs recorded before misses carried a word. */
   terms: { term: string; count: number }[];
+  /** The specific substitutions made, worst first — "wanted Dativ, chose den".
+   *  Empty for typed drills, for grammar points, and for every miss logged
+   *  before this existed, which is why it is additive rather than replacing
+   *  `terms`: an old log stays readable at the resolution it was recorded at. */
+  confusions: { asked: string; chose: string; count: number }[];
 }
 /** Top recurring weaknesses within the last `days`, most frequent first. */
 export function missStats(days = 30): MissStat[] {
   const since = Date.now() - days * 86_400_000;
-  const m = new Map<string, { count: number; last: number; terms: Map<string, number> }>();
+  const m = new Map<string, { count: number; last: number; terms: Map<string, number>; conf: Map<string, number> }>();
   for (const e of misses) {
     if (e.at < since) continue;
-    const cur = m.get(e.tag) ?? { count: 0, last: 0, terms: new Map<string, number>() };
+    const cur = m.get(e.tag) ?? { count: 0, last: 0, terms: new Map<string, number>(), conf: new Map<string, number>() };
     cur.count++; cur.last = Math.max(cur.last, e.at);
     if (e.term) cur.terms.set(e.term, (cur.terms.get(e.term) ?? 0) + 1);
+    // ` ` rather than a printable separator: these are learner-facing German
+    // strings and an option genuinely containing "→" would split into a third
+    // field and corrupt the row.
+    if (e.asked && e.chose) {
+      const k = `${e.asked} ${e.chose}`;
+      cur.conf.set(k, (cur.conf.get(k) ?? 0) + 1);
+    }
     m.set(e.tag, cur);
   }
   return [...m.entries()]
@@ -729,6 +764,9 @@ export function missStats(days = 30): MissStat[] {
       tag, count: v.count, last: v.last,
       terms: [...v.terms.entries()].map(([term, count]) => ({ term, count }))
         .sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
+      confusions: [...v.conf.entries()]
+        .map(([k, count]) => { const [asked, chose] = k.split(' '); return { asked, chose, count }; })
+        .sort((a, b) => b.count - a.count || a.asked.localeCompare(b.asked)),
     }))
     .sort((a, b) => b.count - a.count);
 }
@@ -858,18 +896,40 @@ export function setRetentionTarget(r: number) {
 setRetention(retention());
 
 // ---- stats ---------------------------------------------------------------
-interface Counts { count: number; learned: number; known: number; due: number; newCount: number; }
+interface Counts { count: number; learned: number; known: number; recalled: number; due: number; newCount: number; }
+
+/** The two numbers, and why they are two.
+ *
+ *  `known` counts cards in FSRS Review — and the card it counts is the *flip*,
+ *  whose front is always the German. So it has only ever measured **recognition**:
+ *  shown the German, could you retrieve the meaning. That is a real measurement of
+ *  a real thing, and it is not the same thing as knowing a word.
+ *
+ *  `recalled` counts the same word's **recall** drill reaching Review — English in,
+ *  German out, article included. It is the productive half, it is strictly harder,
+ *  and it stays a separate number rather than being averaged in. Reporting one
+ *  blended figure is the trick `readiness.ts` already refuses for preparation and
+ *  performance; this is that rule applied to the app's headline currency.
+ *
+ *  Expect `recalled` ≤ `known` in normal use — a word only becomes eligible for a
+ *  recall drill in a session once its flip has reached Review — but it is counted
+ *  independently rather than assumed, because the Fundamentals drill deliberately
+ *  bypasses that gate and a learner may produce a word the flip has not yet
+ *  consolidated. An invariant that is merely *usually* true should not be encoded
+ *  as arithmetic. */
 function countsFor(words: Word[]): Counts {
   const now = Date.now();
-  let learned = 0, known = 0, due = 0, newCount = 0;
+  let learned = 0, known = 0, recalled = 0, due = 0, newCount = 0;
   for (const w of words) {
+    const r = live.get(`gym:recall:${w.id}`);
+    if (r && r.state === State.Review) recalled++;
     const c = live.get(w.id);
     if (!c || c.state === State.New) { newCount++; continue; }
     learned++;
     if (c.state === State.Review) known++;
     if (isDue(c, now)) due++;
   }
-  return { count: words.length, learned, known, due, newCount };
+  return { count: words.length, learned, known, recalled, due, newCount };
 }
 
 export function groupStats(): GroupStat[] {

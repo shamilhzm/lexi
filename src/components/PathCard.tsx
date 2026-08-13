@@ -66,7 +66,7 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
     next.push({
       icon: Layers,
       label: weak.name,
-      detail: `Your thinnest topic · ${Math.round(weak.coverage * 100)}% known of ${weak.count}`,
+      detail: `Your thinnest topic · ${Math.round(weak.coverage * 100)}% recognised of ${weak.count}`,
       onGo: () => onStudy({ kind: 'sector', name: weak.name }),
     });
   }
@@ -119,7 +119,7 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
       {next.length === 0 && points && (
         <p className="text-2xs text-dim px-1 mt-1">
           Everything at {level} is under way — the level bar above moves as reviews land.
-          <span className="ml-1 font-semibold" style={{ color: heatText(known) }}>{Math.round(known * 100)}% known</span>
+          <span className="ml-1 font-semibold" style={{ color: heatText(known) }}>{Math.round(known * 100)}% recognised</span>
         </p>
       )}
     </Card>

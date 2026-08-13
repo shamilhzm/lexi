@@ -95,7 +95,23 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           <span className="font-mono font-bold text-green text-xl tabular-nums">
             <CountUp value={t.known} from={seenToday} />
           </span>
-          <span className="text-dim text-xs">known</span>
+          {/* "known" for a year, and it was never true.
+              This number counts flip cards in FSRS Review, and a flip shows the
+              German and asks what it means — so it has only ever measured
+              *recognition*. Saying "known" claimed the other half too, for free.
+              The word costs nothing to fix and the number is the app's whole
+              claim about itself, so it says what it measures. */}
+          <span className="text-dim text-xs">recognised</span>
+          {/* The productive half, and only once there is one. A learner who has
+              never done a recall drill is not shown "· 0 recalled" — a zero
+              beside the headline reads as a deficiency rather than as a track
+              they haven't started, and the number arrives on its own the first
+              time they finish one. */}
+          {t.recalled > 0 && (
+            <span className="text-dim text-xs">
+              · <span className="font-mono font-bold text-amber tabular-nums">{t.recalled}</span> recalled
+            </span>
+          )}
           <span className="flex items-center gap-1 text-amber font-mono font-bold text-base ml-1">
             <Flame size={15} /> {streak()}
           </span>
@@ -210,7 +226,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
             <TargetIcon size={16} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
             <p className="text-xs text-dim">
               <span className="text-txt font-semibold">{gp.goal.level} by {when}</span>
-              {' · '}{gp.pct}% known
+              {' · '}{gp.pct}% recognised
               {gp.projectedPct !== null && (
                 <> · at your pace: <span className={onTrack ? 'text-green font-semibold' : 'text-txt font-semibold'}>~{gp.projectedPct}%</span> by then</>
               )}

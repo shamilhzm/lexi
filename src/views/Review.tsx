@@ -5,11 +5,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, type MissDetail } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { loadDetail, detailLoaded } from '../data/detail.ts';
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, RecallItem, MODE_TAG, modeRulePoint, type Mode } from './Fundamentals.tsx';
+// `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
+// drill callback type is aliased rather than renamed at its definition, where
+// `Grade` is the honest name.
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, RecallItem, MODE_TAG, modeRulePoint, type Mode, type Grade as DrillGrade } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
 import { usePoint, RuleCard, RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
@@ -154,8 +157,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   const noteMet = (w: Word) => {
     if (w.kind === 'word' && !metWords.current.some((x) => x.id === w.id)) metWords.current.push(w);
   };
-  const noteMiss = (tag: string, term?: string) => {
-    logMiss(tag, term);
+  const noteMiss = (tag: string, term?: string, detail?: MissDetail) => {
+    logMiss(tag, term, detail);
     sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
   };
   const [breather, setBreather] = useState(false);
@@ -277,7 +280,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     setI((n) => n + 1);
   }, [item, i]);
 
-  const gradeDrill = useCallback((ok: boolean) => {
+  const gradeDrill = useCallback<DrillGrade>((ok, detail) => {
     if (!item || item.type === 'flip') return;
     const dAgain = ok ? 0 : 1;
     pushGrade(dAgain, 0);
@@ -286,7 +289,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     noteMet(item.word);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
-    if (!ok) noteMiss(MODE_TAG[item.type], item.word.term);
+    if (!ok) noteMiss(MODE_TAG[item.type], item.word.term, detail);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
     setFlipped(false);
