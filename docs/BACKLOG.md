@@ -587,11 +587,16 @@ which is why they group into one pass rather than fifteen tickets.
   viewport on nothing — the one screen where density would reassure.
 
 **Continuity and affordance.**
-- **Shared-element continuity, tile → sector (#9 · M · P1).** `layoutId` appears
-  **once** in the codebase; the one navigation where the same object exists on both
-  sides is a hard swap. DESIGN.md §7's continuity rule, applied.
-- **Tile hover/press affordance (#25 · XS · P1).** A desktop region that doesn't
-  acknowledge the pointer reads as an image.
+- ~~**Shared-element continuity, tile → sector (#9 · M · P1).**~~ **Shipped
+  2026-08-13.** The group's frame expands from the tapped tile into the sector
+  panel. It also produced §7's third correction: a `layout` animation may not
+  drive a control, because the transform *is* the mechanism and there is no
+  resting frame — so the shared element is inert decoration with a timer backstop.
+  See the CHANGELOG.
+- ~~**Tile hover/press affordance (#25 · XS · P1).**~~ **Shipped 2026-08-13.**
+  Hover was already there (brightness + outline); *press* was not, even though
+  `.tile` had declared `transition: filter .1s` since it was written. A tile
+  acknowledged the pointer on the way in and went dead under it.
 - **The interaction hint sits below the fold (#26 · XS).** "Long-press to study" is
   documented where it cannot be seen, on both viewports.
 - **The goal line is styled as a footnote (#23 · XS · P1)** — the most motivating
@@ -698,10 +703,14 @@ user; none of it is built.*
   corpus (which can guarantee the facts but not that a category is *interesting*) or
   authored. The exercise generator's six-bug run is the argument for authoring the
   categories and generating only the members.
-- **Artwork and animation pass · S–M.** `motion` is already a dependency in nine
-  files, so this extends a house style rather than inventing one. Unscoped
-  deliberately: "where it is most fitting" wants a pass over the real screens, not a
-  list written in advance.
+- **Artwork and animation pass · S–M.** *First pass shipped 2026-08-13* — it went
+  to the two things DESIGN.md §7 had already reasoned out and marked "not yet
+  built" (continuity, and the data-change rule on Today's headline) plus the press
+  affordance, rather than to a list of my own. **Still open:** the treemap tile's
+  percentage snaps while its colour animates — the remaining half of the
+  data-change rule; and `Illustration` exists per sector but appears only in the
+  hover card and the list view, so the artwork half of this item is genuinely
+  untouched.
 
 **The study loop.**
 - **Show the queue shape · S** (#15). A progress rail distinguishing due from fresh

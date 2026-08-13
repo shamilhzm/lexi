@@ -285,19 +285,50 @@ this scale, it needs a reason.
 > **Two views showing the same object transform that object. They do not
 > cross-fade.**
 
-Navigation currently goes visible → invisible → visible, which is why the app
-reads as a slideshow of states rather than one place. `layoutId` appears exactly
-once in the codebase. The heatmap tile → sector drill-down is the case that most
-obviously wants it. *Not yet built — see BACKLOG 0b Batch C.*
+Navigation went visible → invisible → visible, which is why the app read as a
+slideshow of states rather than one place. **Built 2026-08-13** for the case that
+most obviously wanted it: the heatmap tile → sector drill-down. Tapping a group
+expands that group's own frame from the tile into the panel that holds its
+sectors, so the second set visibly lives *inside* the first.
+
+One rule came out of building it, and it is the third correction this section has
+needed:
+
+> **A `layout` animation may not drive a control. Put the shared element on
+> something inert, and give it a timer backstop.**
+
+Everything above protects a stalled animation by making its resting frame the
+correct one. A framer `layout` animation cannot be protected that way, because
+the transform *is* the mechanism — there is no resting frame to fall back to.
+Measured in a hidden tab: rAF throttles, the projection freezes on its `from`
+transform (`matrix(0.254, 0, 0, 0.936, -399.5, 0)`), `getAnimations()` is empty,
+and it sits there indefinitely while the layout box is already correct.
+
+So the shared element is a decorative outline rather than the tile itself — a
+frozen projection then misplaces decoration, not a 44px target — and a
+`setTimeout` past the duration clears the transform, which works because timers
+keep running when rAF does not. That is the same backstop `CountUp` already runs,
+for the same reason. Guarded in `views/markt-motion.test.ts`.
 
 ### Data change
 
 > **A number or area that changed because the learner did something animates from
 > its old value.**
 
-Finishing a session moves a tile from 41% to 47% and nothing moves; `CountUp`
-exists and fires only in the recap. This is the single largest gap between what
-the app measures and what it lets you feel. *Not yet built — BACKLOG 0b.*
+`CountUp` fired only in the recap, so the number that moves for exactly one
+reason — the learner studied — sat there already changed on every surface that
+showed it.
+
+**Built 2026-08-13 for the headline on Today**, which is the first number a
+learner sees each day and the one a session moves. It counts from what *Today*
+last showed, tracked separately from the map's own last-seen: `markSeen` fires
+when the treemap paints, so a shared number would let whichever surface you
+opened first eat the change and leave the other silently already moved. Each
+surface reports it once, on its own terms. Pinned in `store-seen.test.ts`.
+
+*Still open:* the treemap tile's **percentage** does not count up — the tile
+animates its *colour* across a class boundary and its number snaps. That is the
+remaining half of this rule.
 
 ### Still true
 

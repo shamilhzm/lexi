@@ -2,14 +2,15 @@
 // session from what’s due (FSRS) plus fresh cards from your weakest sectors,
 // to a streak-safe minimum. Shows streak, level progress, grammar drills, and
 // blind spots. The market (children) mounts below it on the merged home.
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime, visitCount } from '../store.ts';
+import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime, visitCount, lastSeen, markTodaySeen } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import PathCard from '../components/PathCard.tsx';
+import CountUp from '../components/CountUp.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import BackupNudge from '../components/BackupNudge.tsx';
 import Card from '../components/ui/Card.tsx';
@@ -43,6 +44,12 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
   const [readOpen, setReadOpen] = useState(false);
   const t = totals();
   const placed = placementLevel();
+  // Read once, on mount, *before* the effect below overwrites it — otherwise the
+  // headline animates from the value it is already showing, which is nothing.
+  const seenToday = useRef(lastSeen()?.today).current;
+  // Record after the first paint, so the count-up has something to travel from
+  // on this visit and nothing to replay on the next one.
+  useEffect(() => { markTodaySeen(t.known); }, [t.known]);
   const today = new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
 
   const total = briefing.ids.length;
@@ -78,7 +85,16 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
             links to the place that explains it rather than restating it here. */}
         <button onClick={onProgress}
           className="tap-44 flex items-baseline gap-2 text-left rounded-md px-2 py-1 -mx-2 hover:bg-panel2 transition-colors">
-          <span className="font-mono font-bold text-green text-xl tabular-nums">{fmt(t.known)}</span>
+          {/* The data-change rule (DESIGN.md §7), on the number it was written
+              for. Known is the app's currency and it moves for exactly one
+              reason — the learner studied — so returning to Today after a
+              session should show it *arriving* rather than already sitting
+              there. `from` is undefined on a first visit, which renders it flat:
+              counting up from zero would be a small lie about what just
+              happened. */}
+          <span className="font-mono font-bold text-green text-xl tabular-nums">
+            <CountUp value={t.known} from={seenToday} />
+          </span>
           <span className="text-dim text-xs">known</span>
           <span className="flex items-center gap-1 text-amber font-mono font-bold text-base ml-1">
             <Flame size={15} /> {streak()}
