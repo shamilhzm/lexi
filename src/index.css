@@ -571,3 +571,67 @@ body {
 
 /* focus ring */
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 2px; }
+
+/* ---- paper ---------------------------------------------------------------
+   The worksheet surface (views/Print.tsx) is the one screen in this app whose
+   real output is not a screen. Everything the app puts around content — the top
+   bar, the bottom nav, the controls that built the sheet — is furniture, and
+   furniture must not cost a teacher a second sheet of paper.
+
+   The sheet renders white-on-black-text at every screen theme deliberately: a
+   preview that matches the paper is the whole point of a preview, and a dark
+   preview that prints light is a surprise at the printer. */
+.sheet {
+  /* A4 content width at 96dpi minus 2cm margins, so the on-screen preview
+     breaks lines where the paper will. */
+  max-width: 17cm;
+}
+
+@media print {
+  /* Give the page its margins here rather than relying on the browser's
+     default, which differs across engines and silently reflows the sheet. */
+  @page { size: A4 portrait; margin: 1.6cm; }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Chrome, in both senses.
+     `.no-print` is carried explicitly by the three chrome components (TopBar,
+     BottomNav, Ticker) and by this view's own controls — explicit because the
+     first version of this rule matched `header[class*="fixed"]`, and the top bar
+     is not fixed, so the whole nav printed. The bare `nav`/`header` selectors
+     stay underneath as a backstop for anything added later that forgets. */
+  .no-print,
+  header,
+  nav,
+  [data-nav] { display: none !important; }
+
+  /* …except the sheet's own header, which carries the title, the note and the
+     name/date line. Bare `header` is the right net for app chrome and it caught
+     this too — verified by applying the print rules and finding a worksheet with
+     no title on it. */
+  .sheet header { display: block !important; }
+
+  .sheet {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* An item split across a page break is a question whose answer line is on the
+     next sheet. */
+  li, .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+
+  /* The key starts its own page: a worksheet with the answers visible at the
+     bottom is not a worksheet. This is the single most important rule here. */
+  .key-page { break-before: page; page-break-before: always; }
+
+  /* Print the URL of links? No. A worksheet is not a web page. */
+  a[href]::after { content: none !important; }
+}

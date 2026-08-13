@@ -73,7 +73,7 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
   return (
     // `min-h` rather than `h`, plus safe-top: the notch sits above the bar
     // instead of eating the logo, exactly as the old mobile header did.
-    <header className="flex-shrink-0 z-50 bg-panel border-b border-line safe-top
+    <header className="no-print flex-shrink-0 z-50 bg-panel border-b border-line safe-top
       min-h-[calc(52px_+_env(safe-area-inset-top))] flex items-center gap-1 px-3 sm:px-4">
 
       <button onClick={() => onGo('today')} aria-label="Lexi — home"

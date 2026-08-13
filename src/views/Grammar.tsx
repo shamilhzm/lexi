@@ -15,7 +15,7 @@
 // drills", demoted to what they are — practice, not curriculum.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, Play } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, Play, Printer } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
 import { current as examInProgress } from '../lib/exam-store.ts';
 import { useStore } from '../useStore.ts';
@@ -36,7 +36,7 @@ type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope }
  *  concept (a grammar blind spot, which is logged by point title alone). */
 export type GrammarInit = Mode | 'grammar' | { point: string } | null;
 
-export default function Grammar({ initial = null, onExam }: { initial?: GrammarInit; onExam?: () => void }) {
+export default function Grammar({ initial = null, onExam, onPrint }: { initial?: GrammarInit; onExam?: () => void; onPrint?: () => void }) {
   const [route, setRoute] = useState<Route>(
     initial === 'grammar' ? { kind: 'bank' }
       : typeof initial === 'string' ? { kind: 'mode', mode: initial }
@@ -68,10 +68,10 @@ export default function Grammar({ initial = null, onExam }: { initial?: GrammarI
   if (route?.kind === 'mode') return <Drill mode={route.mode} onExit={back} />;
   if (route?.kind === 'point') return <GrammarDrill scope={route.scope} onExit={back} />;
   if (route?.kind === 'bank') return <GrammarDrill onExit={back} />;
-  return <Syllabus onRoute={setRoute} onExam={onExam} />;
+  return <Syllabus onRoute={setRoute} onExam={onExam} onPrint={onPrint} />;
 }
 
-function Syllabus({ onRoute, onExam }: { onRoute: (r: Route) => void; onExam?: () => void }) {
+function Syllabus({ onRoute, onExam, onPrint }: { onRoute: (r: Route) => void; onExam?: () => void; onPrint?: () => void }) {
   useStore();
   const [bank, setBank] = useState<GrammarByLevel | null>(null);
   useEffect(() => { loadGrammar().then(setBank); }, []);
@@ -97,6 +97,10 @@ function Syllabus({ onRoute, onExam }: { onRoute: (r: Route) => void; onExam?: (
           certificate paper is not a grammar concept, and for a learner with a
           date in the diary it is the reason they opened the Library at all. */}
       {onExam && <ExamCard onExam={onExam} />}
+      {/* Paper sits beside the paper exam, which is where a teacher looks — and
+          where a learner who has just been told what they keep getting wrong can
+          take it to a lesson. */}
+      {onPrint && <PrintCard onPrint={onPrint} />}
 
       <div className="flex items-center gap-2.5 mb-1">
         <GraduationCap size={20} className="text-amber" />
@@ -140,6 +144,23 @@ function Syllabus({ onRoute, onExam }: { onRoute: (r: Route) => void; onExam?: (
 /** The way in to a certificate paper. Announces the sitting in progress, because
  *  an abandoned exam is the one piece of app state a learner will come looking
  *  for and would otherwise have to remember the URL of. */
+function PrintCard({ onPrint }: { onPrint: () => void }) {
+  return (
+    <Card as="button" pad="none" onClick={onPrint}
+      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Printer size={18} /></span>
+      <span className="flex-1 min-w-0">
+        <span className="text-base font-semibold block">Worksheets</span>
+        <span className="block text-2xs text-dim">
+          A printable sheet and answer key from any deck or grammar point — or your own error
+          log, to take to a lesson. Generated here; nothing is sent anywhere.
+        </span>
+      </span>
+      <ChevronRight size={16} className="text-dim flex-shrink-0" />
+    </Card>
+  );
+}
+
 function ExamCard({ onExam }: { onExam: () => void }) {
   const running = examInProgress();
   return (

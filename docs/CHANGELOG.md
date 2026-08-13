@@ -11,6 +11,59 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — paper, and a placement test that can be lied to
+
+The last two of the pedagogic critique's Tier 1. **All five are now shipped.**
+
+#### Drucken — the worksheet surface
+
+Four of six teachers asked for the same thing first, and it was the cheapest
+unbuilt item in the product: something they can print. `#/print`, reached from the
+Library beside Exam practice.
+
+**It is also the resolution to the contradiction [CRITIQUE §2](CRITIQUE.md) says
+someone has to pick.** *"Your students' data never leaves their device"* and *"here is
+your students' data"* are genuinely incompatible; a worksheet is neither. The teacher
+gets a real artefact, the learner's schedule stays put, and no refusal in
+[VISION](VISION.md) is spent — no dashboard, no login, no collection. There is no
+send button and there is not going to be one.
+
+Five sheets: vocabulary in either direction, gap-fill built from the cards' own
+example sentences, a grammar point, and the learner's own error log. Each with an
+answer key that breaks to its own page — *a worksheet with the answers at the bottom
+is not a worksheet*, which is the single most important line in the print stylesheet.
+
+Three decisions:
+- **`order` and `error` exercises are dropped from grammar sheets.** They are
+  interactions — drag these tiles, tap the wrong word — and transcribed onto paper
+  they become questions nobody can answer with a pen. Four good items beat nine with
+  three that make no sense.
+- **A gap-fill is only built where the blank is safe.** `blankExample` returns null
+  rather than guessing: it will not blank *Haus* inside *Hausaufgabe*, and it refuses
+  the ~71 cards whose example does not contain their own headword. The sheet comes out
+  shorter than the deck instead of padded with sentences that give the answer away.
+- **The noun's article stays standing.** "Das __________ ist groß" asks for the noun;
+  blanking both would make it a gender question wearing a vocabulary question's
+  clothes, and the key would have to accept two words for a one-word gap.
+
+**Two bugs found by actually applying the print rules rather than trusting them.** The
+first `@media print` block matched `header[class*="fixed"]` — and the top bar is not
+fixed, so the entire navigation would have printed. Widening it to bare `header` fixed
+that and immediately broke the other end: the *sheet's own* header is a `<header>`, so
+the worksheet came out with no title, no name line and no date. Both were only visible
+by hiding what the stylesheet hides and reading what was left.
+
+#### Placement: words that do not exist
+
+See the entry below for the reasoning. Summary: 22 hand-authored foils, Meara's
+`(h−f)/(1−f)` correction, probes per level 5 → 7, and **nothing seeded into FSRS when
+the false-alarm rate clears a third**. Measured on the running app — a learner claiming
+every word now lands at A1 with 0 seeded where they previously reached C2 with 42.
+
+708 green.
+
+---
+
 ### Shipped 2026-08-13 — two honest numbers, and a log that names the error
 
 Two more of the pedagogic critique's Tier 1, both unblocked by Recall shipping.

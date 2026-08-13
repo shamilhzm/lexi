@@ -26,7 +26,7 @@ export default function BottomNav({ view, onGo, onStartSession }: {
   const reduce = useReducedMotion();
 
   return (
-    <div className="sm:hidden flex-shrink-0 relative">
+    <div className="sm:hidden flex-shrink-0 relative no-print">
       {view !== 'today' && (
         <motion.button
           onClick={onStartSession}

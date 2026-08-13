@@ -502,7 +502,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 |---|---|---|---|---|
 | 1 | ✅ **No productive (EN→DE) recall track anywhere.** `known` is recognition, on every card, always — and per-mode FSRS was built to carry exactly this and doesn't. **Shipped 2026-08-13** as the `recall` mode: 3,675 gated cards, article required for nouns, gated on the flip card reaching Review so recognition unlocks production. See the CHANGELOG. | **P0** | L2, L5, T4, T5 | construct |
 | 2 | ✅ **The placement test is a 5-item Yes/No test with no foils**, and it seeds FSRS with what the learner claims. **Shipped 2026-08-13.** | **P0** | T5, L1, L2 | assessment |
-| 3 | **Nothing can be printed.** No worksheet, no answer key, no diagnostic — and print is the local-first answer to the B2B contradiction. | **P0** | T1, T2, T3, T6 | teacher |
+| 3 | ✅ **Nothing can be printed.** No worksheet, no answer key, no diagnostic — and print is the local-first answer to the B2B contradiction. **Shipped 2026-08-13.** | **P0** | T1, T2, T3, T6 | teacher |
 | 4 | ✅ **Misses are logged as a mode tag, not as an error.** The distractor chosen is known at grade time and discarded. **Shipped 2026-08-13.** | **P0** | T5, L2, L3 | diagnosis |
 | 5 | ⟳ **Speaking has no recording**, though local-only playback needs no backend and breaks no promise. | **P0** | L4, L1, T6 | output |
 | 6 | ⟳ **Listening is 10 human recordings.** Synthesis teaches citation form; every exam tests connected speech. | **P0** | L1, L4, L6, T3 | input |
@@ -545,10 +545,12 @@ new part.
    different things on a masculine noun and a plural; mapping the chosen form back to
    a case is refused for the same reason. Typed drills contribute nothing, on purpose.
    **The exam's per-concept readout is now unblocked.**
-3. **Print.** One route that renders a worksheet + answer key from any deck, sector,
-   grammar point or the day's misses, styled for A4. *No new content; `grammar.json`
-   holds 5,207 exercises with explanations.* This is the whole B2B story, told
-   honestly, for a few days' work.
+3. ✅ **Print.** **Shipped 2026-08-13** as `#/print`, reached from the Library beside
+   Exam practice. Five sheets — vocabulary either direction, gap-fill from the cards'
+   own sentences, a grammar point, and the learner's own error log — each with an
+   answer key that breaks to its own page. `order` and `error` exercises are dropped
+   from grammar sheets on purpose: they are interactions, and transcribed they become
+   questions nobody can answer with a pen.
 4. ✅ **Pseudoword foils in placement, and more items.** **Shipped 2026-08-13.** 22
    hand-authored foils (not generated — a generator eventually emits a real word, and
    telling a learner *Kringel* is invented is the same defect as marking correct German

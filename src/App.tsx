@@ -33,6 +33,9 @@ import BrainRoom from './views/BrainRoom.tsx';
 // itself is already a second dynamic import behind this one, so opening `#/exam`
 // costs two fetches and opening anything else costs none.
 const Exam = lazy(() => import('./views/Exam.tsx'));
+// Paper. Lazy like Exam: a worksheet is opened deliberately and rarely, and the
+// A4 rendering has no business on the boot path.
+const Print = lazy(() => import('./views/Print.tsx'));
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
@@ -43,7 +46,7 @@ import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'progress' | 'library' | 'games' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam';
+export type View = 'today' | 'progress' | 'library' | 'games' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam' | 'print';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 export default function App() {
@@ -237,11 +240,16 @@ export default function App() {
               <ErrorBoundary resetKey={view}>
                 {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
-                {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} />}
+                {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} />}
                 {view === 'games' && <Games />}
                 {view === 'exam' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
                     <Exam onExit={() => go('library')} onGrammar={() => go('library')} onSession={startSession} />
+                  </Suspense>
+                )}
+                {view === 'print' && (
+                  <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
+                    <Print onExit={() => go('library')} />
                   </Suspense>
                 )}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}
