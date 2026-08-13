@@ -1,0 +1,416 @@
+[
+  {
+    "level": "C1",
+    "title": "Konjunktiv I (indirekte Rede)",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Er sagt, er ___ krank.",
+        "options": [
+          "sei",
+          "ist",
+          "wäre"
+        ],
+        "answer": 0,
+        "explain": "Indirect speech takes Konjunktiv I: sein → er sei. „ist“ would be direct speech; „wäre“ is Konjunktiv II, kept in reserve for when Konjunktiv I looks like the indicative."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie behauptet, sie ___ das Buch schon gelesen.",
+        "options": [
+          "habe",
+          "hat",
+          "hätte"
+        ],
+        "answer": 0,
+        "explain": "The perfect in reported speech uses the Konjunktiv I of haben: sie habe … gelesen."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Minister erklärte, die Lage ___ sich verbessert.",
+        "options": [
+          "habe",
+          "hat",
+          "haben"
+        ],
+        "answer": 0,
+        "explain": "Third person singular, so Konjunktiv I of haben is „habe“ — unchanged by the past tense of the reporting verb."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie sagten, sie ___ keine Zeit.",
+        "options": [
+          "hätten",
+          "haben",
+          "habe"
+        ],
+        "answer": 0,
+        "explain": "Konjunktiv I of haben in the third person plural is „haben“ — identical to the indicative, so it carries no signal. That is exactly when German switches to Konjunktiv II: hätten."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er meint, er ___ morgen.",
+        "options": [
+          "komme",
+          "kommt",
+          "käme"
+        ],
+        "answer": 0,
+        "explain": "kommen → er komme. Regular Konjunktiv I: the stem plus -e."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Die Zeugin gab an, sie ___ nichts gesehen.",
+        "options": [
+          "habe",
+          "hat",
+          "hatte"
+        ],
+        "answer": 0,
+        "explain": "Reported perfect again: habe + Partizip II. „hatte“ is the indicative pluperfect and reports nothing."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie schrieb, sie ___ bald zurückkommen.",
+        "options": [
+          "werde",
+          "wird",
+          "würde"
+        ],
+        "answer": 0,
+        "explain": "The future in reported speech: Konjunktiv I of werden, er/sie werde."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Sprecher betonte, man ___ die Frist einhalten.",
+        "options": [
+          "müsse",
+          "muss",
+          "müsste"
+        ],
+        "answer": 0,
+        "explain": "Modal verbs form Konjunktiv I regularly: müssen → er/man müsse."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie sagt, die Kinder ___ schon zu Hause.",
+        "options": [
+          "seien",
+          "sind",
+          "wären"
+        ],
+        "answer": 0,
+        "explain": "sein is the one verb whose Konjunktiv I is distinct in every person: sie seien. No fallback to Konjunktiv II is needed."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er fragte, ob ich Zeit ___.",
+        "options": [
+          "hätte",
+          "habe",
+          "haben"
+        ],
+        "answer": 0,
+        "explain": "First person singular Konjunktiv I of haben is „habe“, identical to the indicative — so Konjunktiv II takes over: hätte."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Die Zeitung meldet, der Vertrag ___ unterzeichnet worden.",
+        "options": [
+          "sei",
+          "ist",
+          "wäre"
+        ],
+        "answer": 0,
+        "explain": "Passive in reported speech: sei + Partizip II + worden."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er behauptet, er ___ nichts davon gewusst.",
+        "options": [
+          "habe",
+          "hätte",
+          "hat"
+        ],
+        "answer": 0,
+        "explain": "Third person singular has a distinct Konjunktiv I („habe“), so there is no reason to reach for Konjunktiv II."
+      }
+    ]
+  },
+  {
+    "level": "C1",
+    "title": "Nominalisierung ↔ Verbalstil",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Wegen ___ Wetters konnten wir nicht starten.",
+        "options": [
+          "des schlechten",
+          "dem schlechten",
+          "das schlechte"
+        ],
+        "answer": 0,
+        "explain": "wegen takes the genitive in written German: wegen des schlechten Wetters."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Nach ___ der Ergebnisse wurde der Bericht veröffentlicht.",
+        "options": [
+          "der Auswertung",
+          "die Auswertung",
+          "dem Auswerten"
+        ],
+        "answer": 0,
+        "explain": "nach takes the dative, and die Auswertung → der Auswertung. The nominalisation replaces a whole subordinate clause (nachdem man die Ergebnisse ausgewertet hatte)."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Trotz ___ Bemühungen scheiterte das Projekt.",
+        "options": [
+          "aller",
+          "allen",
+          "alle"
+        ],
+        "answer": 0,
+        "explain": "trotz takes the genitive; the genitive plural of alle is aller."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Bei ___ des Vertrags ist Vorsicht geboten.",
+        "options": [
+          "der Prüfung",
+          "die Prüfung",
+          "der Prüfen"
+        ],
+        "answer": 0,
+        "explain": "bei takes the dative: bei der Prüfung. Nominal style compresses „wenn man den Vertrag prüft“ into a prepositional phrase."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Zur ___ der Kosten wurden Maßnahmen ergriffen.",
+        "options": [
+          "Senkung",
+          "Senken",
+          "Sinkung"
+        ],
+        "answer": 0,
+        "explain": "The noun from senken is die Senkung. „zur Senkung der Kosten“ = um die Kosten zu senken."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Die ___ der Daten erfolgt automatisch.",
+        "options": [
+          "Verarbeitung",
+          "Verarbeiten",
+          "Verarbeitete"
+        ],
+        "answer": 0,
+        "explain": "verarbeiten → die Verarbeitung. The -ung noun is the standard nominalisation of a process."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Nach dem ___ des Gesetzes gilt eine Übergangsfrist.",
+        "options": [
+          "Inkrafttreten",
+          "Inkraftgetreten",
+          "Inkrafttritt"
+        ],
+        "answer": 0,
+        "explain": "A nominalised infinitive: das Inkrafttreten. German turns any infinitive into a neuter noun this way."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Verbalstil für „bei Ankunft des Zuges“:",
+        "options": [
+          "wenn der Zug ankommt",
+          "wenn der Zug ankam",
+          "der Zug ankommt"
+        ],
+        "answer": 0,
+        "explain": "The prepositional phrase unpacks into a subordinate clause with the verb at the end: wenn der Zug ankommt."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Während ___ Aufenthalts lernte er viel.",
+        "options": [
+          "seines",
+          "seinem",
+          "sein"
+        ],
+        "answer": 0,
+        "explain": "während takes the genitive: während seines Aufenthalts."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Nominalstil für „weil die Preise gestiegen sind“:",
+        "options": [
+          "wegen des Anstiegs der Preise",
+          "wegen dem Anstieg der Preise",
+          "wegen die Preise gestiegen"
+        ],
+        "answer": 0,
+        "explain": "Cause becomes wegen + genitive, and the verb becomes a noun: der Anstieg."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Zum ___ des Problems fehlen die Mittel.",
+        "options": [
+          "Lösen",
+          "Lösung",
+          "Gelöst"
+        ],
+        "answer": 0,
+        "explain": "After zum the nominalised infinitive is used: zum Lösen. („zur Lösung des Problems“ is equally good, but the article zum fixes the neuter form here.)"
+      },
+      {
+        "kind": "choose",
+        "prompt": "Aufgrund ___ Nachfrage wurde die Produktion erhöht.",
+        "options": [
+          "der hohen",
+          "die hohe",
+          "dem hohen"
+        ],
+        "answer": 0,
+        "explain": "aufgrund takes the genitive: aufgrund der hohen Nachfrage."
+      }
+    ]
+  },
+  {
+    "level": "C1",
+    "title": "Partizipialattribute",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "das von der Regierung ___ Gesetz (die Regierung hat es beschlossen)",
+        "options": [
+          "beschlossene",
+          "beschließende",
+          "beschlossen"
+        ],
+        "answer": 0,
+        "explain": "Partizip II as an attribute carries a passive, completed meaning: the law that was passed. It declines like any adjective."
+      },
+      {
+        "kind": "choose",
+        "prompt": "der ___ Zug (der Zug fährt gerade ab)",
+        "options": [
+          "abfahrende",
+          "abgefahrene",
+          "abfahrend"
+        ],
+        "answer": 0,
+        "explain": "Partizip I is active and simultaneous: the train that is departing. Formed with the infinitive plus -d, then declined."
+      },
+      {
+        "kind": "choose",
+        "prompt": "das ___ Problem (das Problem wurde gelöst)",
+        "options": [
+          "gelöste",
+          "lösende",
+          "zu lösende"
+        ],
+        "answer": 0,
+        "explain": "Passive and finished, so Partizip II: das gelöste Problem."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die ___ Frau (die Frau lacht)",
+        "options": [
+          "lachende",
+          "gelachte",
+          "lachend"
+        ],
+        "answer": 0,
+        "explain": "Active and simultaneous: Partizip I, declined after the definite article."
+      },
+      {
+        "kind": "choose",
+        "prompt": "der ___ Brief (der Brief wurde geschrieben)",
+        "options": [
+          "geschriebene",
+          "schreibende",
+          "geschrieben"
+        ],
+        "answer": 0,
+        "explain": "Partizip II: the letter that was written. The bare form „geschrieben“ cannot stand before a noun."
+      },
+      {
+        "kind": "choose",
+        "prompt": "ein ___ Hund (der Hund schläft)",
+        "options": [
+          "schlafender",
+          "geschlafener",
+          "schlafend"
+        ],
+        "answer": 0,
+        "explain": "Partizip I after the indefinite article takes the strong masculine ending: ein schlafender Hund."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die von ihm ___ Bücher (er hat sie gelesen)",
+        "options": [
+          "gelesenen",
+          "lesenden",
+          "gelesene"
+        ],
+        "answer": 0,
+        "explain": "Plural after the definite article takes the weak ending -en: die gelesenen Bücher."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die ___ Kinder (die Kinder spielen)",
+        "options": [
+          "spielenden",
+          "gespielten",
+          "spielende"
+        ],
+        "answer": 0,
+        "explain": "Partizip I, plural, after the definite article: die spielenden Kinder."
+      },
+      {
+        "kind": "choose",
+        "prompt": "ein ___ Fenster (jemand hat das Fenster geöffnet)",
+        "options": [
+          "geöffnetes",
+          "öffnendes",
+          "geöffnet"
+        ],
+        "answer": 0,
+        "explain": "Passive and completed, neuter, after ein: ein geöffnetes Fenster."
+      },
+      {
+        "kind": "choose",
+        "prompt": "der seit Jahren ___ Streit (der Streit dauert an)",
+        "options": [
+          "andauernde",
+          "angedauerte",
+          "andauernd"
+        ],
+        "answer": 0,
+        "explain": "Partizip I for a state still going on: der andauernde Streit."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die ___ Tür (jemand hat die Tür geschlossen)",
+        "options": [
+          "geschlossene",
+          "schließende",
+          "geschlossen"
+        ],
+        "answer": 0,
+        "explain": "Partizip II, feminine, after the definite article: die geschlossene Tür."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welche Bedeutung hat „die zu prüfenden Unterlagen“?",
+        "options": [
+          "die Unterlagen, die geprüft werden müssen",
+          "die Unterlagen, die geprüft worden sind",
+          "die Unterlagen, die gerade prüfen"
+        ],
+        "answer": 0,
+        "explain": "„zu“ plus Partizip I is the Gerundivum: it means something that must or can be done — the documents to be checked."
+      }
+    ]
+  }
+]

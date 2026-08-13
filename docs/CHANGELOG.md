@@ -11,6 +11,45 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — C1 gets exercises, and two findings are withdrawn
+
+**The blocker was not real.** I reported Tier 2's content items as blocked on a
+"network-gated authoring pipeline". Both halves were wrong, and the user said so.
+`scripts/authoring/card-authoring.md` is titled *"Claude task prompt"* and opens with
+*"Run it with Claude (no third-party LLM APIs)"* — the pipeline is **designed** for the
+model to author the prose, and the gate exists to verify *facts* (gender, plural, POS,
+IPA), which is a different thing. And the network had never been tested: one `fetch` to
+de.wiktionary from this environment returns 9,340 bytes. See [LESSONS](LESSONS.md)
+class 7 — *before reporting something as blocked, execute the smallest thing that would
+prove it.*
+
+**C1 exercise depth, started.** Three points taken from 6 exercises to 18 —
+**Konjunktiv I (indirekte Rede)**, **Nominalisierung ↔ Verbalstil** and
+**Partizipialattribute**. Bank **5,207 → 5,243**. Authored, not generated: these are the
+levels where a generated item cannot explain *why*, and where the critique's own reading
+was that the point selection is right and the volume is not.
+
+Appended through `corpus:gex`, which is the tool that exists because exercise ids are
+positional (`gex:<level>:<pointIndex>:<exerciseIndex>`) and every learner's FSRS
+schedule is keyed on them — inserting anywhere but the end silently re-points later
+schedules. Its validator earned its place immediately: it rejected three items for being
+`choose` (gap-fill) with no gap marker, which they were — they are questions, and are
+now `mc`.
+
+**The modal-particle finding is substantially withdrawn.** PEDAGOGY said the B2 point
+*Modalpartikeln II* existed but "the words it is about are not in the lexicon". Measured
+against the grammar bank rather than the part-of-speech counts: the system is taught by
+**five** points across A1/A2/B1/B2/C2, and the words are all present as their *lexical*
+senses (`mal` = "times", `schon` = "already"). The gap is not absence — it is that the
+modal function lives in the bank rather than on the cards, and **adding particle cards
+would recreate exactly the duplicate-term defect Now #3 just spent a pass merging.**
+What is left is exercise depth on those five points, which is the item above.
+
+C1 still averages 10 exercises per point against A1's 64, so this is a start and not a
+close. 721 green; `GRAMMAR_COUNTS` re-pinned to 5,243.
+
+---
+
 ### Shipped 2026-08-13 — verb government, and the mining that does not work
 
 First of Tier 2, and the interesting half is what was *not* built.

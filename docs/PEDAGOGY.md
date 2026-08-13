@@ -573,9 +573,15 @@ new part.
    every DaF book ends with, at A2–B2 where they do the most work. The corpus has 152
    phrase cards; this is the largest content gap in the product and it is what makes
    people sound German rather than merely correct.
-7. **Modal particles, properly.** *doch, mal, eben, halt, wohl, schon, denn, ja* — with
-   the B2 point that already exists pointed at cards that exist. Currently 7 particle
-   cards, one of them a mislabelled pronoun.
+7. ⚠️ **Modal particles, properly.** **Finding substantially withdrawn 2026-08-13.**
+   Measured against the grammar bank rather than the POS counts: the system is taught by
+   **five** points — *Partikeln: denn, ja, doch, mal* (A1), *Gradpartikeln* (A2),
+   *Fokuspartikeln* (B1), *Modalpartikeln II* (B2) and *Modalpartikeln* (C2) — and the
+   words are all in the lexicon, as their **lexical** senses (`mal` = "times", `schon` =
+   "already"). So this is not an absence; it is that the modal *function* lives in the
+   grammar bank and not on the cards. Adding particle cards would recreate exactly the
+   duplicate-term defect Now #3 just spent a pass merging. What remains is exercise
+   depth on those five points — item 10, not a content gap.
 8. ⚠️ **Verb valency on the card.** `warten auf` + Akk. **Partly shipped 2026-08-13,
    and the estimate was wrong.** "Derivable from the corpus's own examples via the
    matcher" does not hold: probed before building, mining fires on 238 verbs (20%) and
@@ -590,8 +596,12 @@ new part.
    / Adjectives / Adverbs / Core verbs*, and fill the functional sectors that currently
    hold one card. The treemap is the app's best screen and a third of it says nothing;
    `weakestSectors()` is choosing tomorrow's words from it.
-10. **C1/C2 exercise depth.** 156 items for two levels. ⟳ Known; the pedagogic point is
-    that the *point selection* is already right, so this is volume against a good plan.
+10. 🔄 **C1/C2 exercise depth.** 156 items for two levels. **Started 2026-08-13:**
+    three C1 points taken 6 → 18 each (Konjunktiv I, Nominalisierung ↔ Verbalstil,
+    Partizipialattribute), bank 5,207 → 5,243, authored not generated and appended
+    through `corpus:gex` because the positional `gex:` ids make append-only a
+    correctness requirement. **C1 still averages 10 exercises per point against A1's
+    64**, so this is the clearest remaining volume gap and the plan behind it is good.
 11. **Collocation and register on B2+ cards.** ⟳ Backlog #45, moved earlier: it bites
     at B2 for anyone working in German, not only at C1.
 

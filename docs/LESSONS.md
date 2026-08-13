@@ -190,6 +190,17 @@ deleting them.**
   created it without comment. Correct handling: it forbids a fourth *round of the design
   review*; a different lens is a peer, and the exception belongs written down in both
   files. *(2026-08-13)*
+- **Calling work "blocked" without testing the block.** *(2026-08-13, corrected by the
+  user.)* I reported that Tier 2's content items were "blocked on the network-gated
+  authoring pipeline". Two things were wrong. **The pipeline is designed for a Claude to
+  write the content** — `scripts/authoring/card-authoring.md` is titled *"Claude task
+  prompt"* and says *"Run it with Claude (no third-party LLM APIs)"*; the gate verifies
+  *facts* (gender, plural, POS, IPA), and the contract's own rule is "facts are never
+  generated; only the gloss and the example sentence are written". And **the network was
+  never tested** — one `fetch` to de.wiktionary from this environment returned 9,340
+  bytes. Neither half of the claim survived thirty seconds of checking.
+  **Rule: before reporting something as blocked, execute the smallest thing that would
+  prove it.** A blocker asserted from a doc summary is a guess.
 
 ---
 
