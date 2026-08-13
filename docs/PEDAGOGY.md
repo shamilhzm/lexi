@@ -501,7 +501,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 | # | Finding | Sev | Personas | Tag |
 |---|---|---|---|---|
 | 1 | ✅ **No productive (EN→DE) recall track anywhere.** `known` is recognition, on every card, always — and per-mode FSRS was built to carry exactly this and doesn't. **Shipped 2026-08-13** as the `recall` mode: 3,675 gated cards, article required for nouns, gated on the flip card reaching Review so recognition unlocks production. See the CHANGELOG. | **P0** | L2, L5, T4, T5 | construct |
-| 2 | **The placement test is a 5-item Yes/No test with no foils**, and it seeds FSRS with what the learner claims. | **P0** | T5, L1, L2 | assessment |
+| 2 | ✅ **The placement test is a 5-item Yes/No test with no foils**, and it seeds FSRS with what the learner claims. **Shipped 2026-08-13.** | **P0** | T5, L1, L2 | assessment |
 | 3 | **Nothing can be printed.** No worksheet, no answer key, no diagnostic — and print is the local-first answer to the B2B contradiction. | **P0** | T1, T2, T3, T6 | teacher |
 | 4 | ✅ **Misses are logged as a mode tag, not as an error.** The distractor chosen is known at grade time and discarded. **Shipped 2026-08-13.** | **P0** | T5, L2, L3 | diagnosis |
 | 5 | ⟳ **Speaking has no recording**, though local-only playback needs no backend and breaks no promise. | **P0** | L4, L1, T6 | output |
@@ -549,9 +549,14 @@ new part.
    grammar point or the day's misses, styled for A4. *No new content; `grammar.json`
    holds 5,207 exercises with explanations.* This is the whole B2B story, told
    honestly, for a few days' work.
-4. **Pseudoword foils in placement, and more items.** Generate plausible German
-   non-words, measure the false-alarm rate, correct the estimate — and raise the probe
-   count to something that can carry the decision. *`sample()` and a generator.*
+4. ✅ **Pseudoword foils in placement, and more items.** **Shipped 2026-08-13.** 22
+   hand-authored foils (not generated — a generator eventually emits a real word, and
+   telling a learner *Kringel* is invented is the same defect as marking correct German
+   wrong), two per level, probes raised 5 → 7. The climb uses Meara's correction
+   `(h−f)/(1−f)`, and **nothing is seeded into FSRS when the false-alarm rate clears a
+   third** — the schedule corruption was the real damage, not the level. Measured: a
+   learner claiming everything now lands at A1 with 0 seeded, where they previously got
+   C2 and ~42 seeded words.
 5. ✅ **Rename the headline. "2,320 recognised."** **Shipped 2026-08-13**, and it turned
    out to be two things rather than a string: the label, and the *second* number beside
    it once recall has data. The two are counted separately and never averaged. Applied
