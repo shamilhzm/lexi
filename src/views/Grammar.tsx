@@ -15,11 +15,12 @@
 // drills", demoted to what they are — practice, not curriculum.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, Play, Printer } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, MessagesSquare, Play, Printer } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
 import { current as examInProgress } from '../lib/exam-store.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
+import { loadRedemittel } from '../lib/redemittel.ts';
 import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
 import GrammarDrill, { type PointScope } from './GrammarDrill.tsx';
 import { RuleSectionBlock } from '../components/RulePanel.tsx';
@@ -36,7 +37,7 @@ type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope }
  *  concept (a grammar blind spot, which is logged by point title alone). */
 export type GrammarInit = Mode | 'grammar' | { point: string } | null;
 
-export default function Grammar({ initial = null, onExam, onPrint }: { initial?: GrammarInit; onExam?: () => void; onPrint?: () => void }) {
+export default function Grammar({ initial = null, onExam, onPrint, onRedemittel }: { initial?: GrammarInit; onExam?: () => void; onPrint?: () => void; onRedemittel?: () => void }) {
   const [route, setRoute] = useState<Route>(
     initial === 'grammar' ? { kind: 'bank' }
       : typeof initial === 'string' ? { kind: 'mode', mode: initial }
@@ -68,10 +69,10 @@ export default function Grammar({ initial = null, onExam, onPrint }: { initial?:
   if (route?.kind === 'mode') return <Drill mode={route.mode} onExit={back} />;
   if (route?.kind === 'point') return <GrammarDrill scope={route.scope} onExit={back} />;
   if (route?.kind === 'bank') return <GrammarDrill onExit={back} />;
-  return <Syllabus onRoute={setRoute} onExam={onExam} onPrint={onPrint} />;
+  return <Syllabus onRoute={setRoute} onExam={onExam} onPrint={onPrint} onRedemittel={onRedemittel} />;
 }
 
-function Syllabus({ onRoute, onExam, onPrint }: { onRoute: (r: Route) => void; onExam?: () => void; onPrint?: () => void }) {
+function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Route) => void; onExam?: () => void; onPrint?: () => void; onRedemittel?: () => void }) {
   useStore();
   const [bank, setBank] = useState<GrammarByLevel | null>(null);
   useEffect(() => { loadGrammar().then(setBank); }, []);
@@ -100,6 +101,7 @@ function Syllabus({ onRoute, onExam, onPrint }: { onRoute: (r: Route) => void; o
       {/* Paper sits beside the paper exam, which is where a teacher looks — and
           where a learner who has just been told what they keep getting wrong can
           take it to a lesson. */}
+      {onRedemittel && <RedemittelCardEntry onStudy={onRedemittel} />}
       {onPrint && <PrintCard onPrint={onPrint} />}
 
       <div className="flex items-center gap-2.5 mb-1">
@@ -144,6 +146,28 @@ function Syllabus({ onRoute, onExam, onPrint }: { onRoute: (r: Route) => void; o
 /** The way in to a certificate paper. Announces the sitting in progress, because
  *  an abandoned exam is the one piece of app state a learner will come looking
  *  for and would otherwise have to remember the URL of. */
+function RedemittelCardEntry({ onStudy }: { onStudy: () => void }) {
+  const [n, setN] = useState<number | null>(null);
+  useEffect(() => { loadRedemittel().then((c) => setN(c.length)).catch(() => setN(null)); }, []);
+  return (
+    <Card as="button" pad="none" onClick={onStudy}
+      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><MessagesSquare size={18} /></span>
+      <span className="flex-1 min-w-0">
+        <span className="flex items-center gap-2 flex-wrap">
+          <span className="text-base font-semibold">Redemittel</span>
+          {n !== null && <Chip>{n} phrases</Chip>}
+        </span>
+        <span className="block text-2xs text-dim">
+          The phrases that start a sentence — agreeing, objecting, weighing up. Grouped by what
+          they <em>do</em>, and now scheduled like everything else.
+        </span>
+      </span>
+      <ChevronRight size={16} className="text-dim flex-shrink-0" />
+    </Card>
+  );
+}
+
 function PrintCard({ onPrint }: { onPrint: () => void }) {
   return (
     <Card as="button" pad="none" onClick={onPrint}

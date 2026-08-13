@@ -43,6 +43,7 @@ import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
 import { loadDetail } from './data/detail.ts';
 import { startReminderWatch } from './lib/reminder.ts';
+import { registerRedemittel } from './lib/redemittel.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
@@ -112,6 +113,22 @@ export default function App() {
   };
   /** The primary CTA — assemble and launch today's session. */
   const startSession = () => { setGuided(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
+  /** Study the Redemittel.
+   *
+   *  They ship inside the exam speaking labs and no scheduler had ever seen them
+   *  — 129 phrases read once and never reviewed. Registering them into the live
+   *  lexicon makes them ordinary cards, so FSRS, the session builder, decks and
+   *  the worksheet all pick them up without a second system.
+   *
+   *  A `custom` target rather than a sector, because they span six levels and
+   *  twenty-seven functions; the learner asked for "the phrases", not a level. */
+  const startRedemittel = () => {
+    setGuided(false);
+    registerRedemittel().then((cards) => {
+      if (!cards.length) return;
+      study({ kind: 'custom', name: 'Redemittel', ids: cards.map((c) => c.id) });
+    });
+  };
   /** The same day's material with the scaffolding removed. */
   const startExam = () => {
     setGuided(false);
@@ -240,7 +257,7 @@ export default function App() {
               <ErrorBoundary resetKey={view}>
                 {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
-                {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} />}
+                {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} onRedemittel={startRedemittel} />}
                 {view === 'games' && <Games />}
                 {view === 'exam' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>

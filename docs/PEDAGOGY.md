@@ -506,7 +506,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 | 4 | ✅ **Misses are logged as a mode tag, not as an error.** The distractor chosen is known at grade time and discarded. **Shipped 2026-08-13.** | **P0** | T5, L2, L3 | diagnosis |
 | 5 | ⟳ **Speaking has no recording**, though local-only playback needs no backend and breaks no promise. | **P0** | L4, L1, T6 | output |
 | 6 | ⟳ **Listening is 10 human recordings.** Synthesis teaches citation form; every exam tests connected speech. | **P0** | L1, L4, L6, T3 | input |
-| 7 | **The corpus is 2.3% multi-word and 7 particles.** Redemittel and Modalpartikeln are what German courses teach and what fluency sounds like. | **P1** | L3, L5, T3, T6 | corpus |
+| 7 | ⚠️ **The corpus is 2.3% multi-word and 7 particles.** **Largely withdrawn 2026-08-13** — the finding measured the card corpus only. 129 Redemittel ship in the exam speaking labs (now scheduled) and five grammar points teach the particle system. The residue is real but smaller: this material lives outside the cards, so search, decks and print could not see it. | **P2** | L3, L5, T3, T6 | corpus |
 | 8 | **34% of cards sit in five non-semantic bins**, and `weakestSectors()` feeds tomorrow's vocabulary off that taxonomy. | **P1** | T3, L6, L1 | corpus |
 | 9 | ⟳ **No textbook/chapter alignment**, and the functional sectors that would carry it hold one card each. | **P1** | T3, L1, T6 | syllabus |
 | 10 | ⟳ **C1/C2 is 3% of the exercise bank** (156 of 5,207) against 1,538 at A1. | **P1** | T4, L5 | corpus |
@@ -569,10 +569,14 @@ new part.
 
 ### Tier 2 — the content work, ordered by who is hurt most
 
-6. **Redemittel as a first-class card kind.** The functional chunks every chapter of
-   every DaF book ends with, at A2–B2 where they do the most work. The corpus has 152
-   phrase cards; this is the largest content gap in the product and it is what makes
-   people sound German rather than merely correct.
+6. ✅ **Redemittel as a first-class card kind.** **Shipped 2026-08-13 — and the finding
+   was wrong about the cause.** Lexi does not lack Redemittel: **129 across 27 groups**
+   already ship, well authored, inside the exam speaking labs. What was true is that
+   **nothing scheduled them** — `redemittel` appeared in the exam data and two views and
+   nowhere else, no FSRS card, no id. They are now projected into the lexicon as
+   `pos: 'phrase'` cards keyed `red:<level>:<german>`, registered at runtime through the
+   same door class packs use, with the **communicative function as the sector** — so
+   *Widersprechen, ohne unhöflich zu werden* is a deck. Studiable from the Library.
 7. ⚠️ **Modal particles, properly.** **Finding substantially withdrawn 2026-08-13.**
    Measured against the grammar bank rather than the POS counts: the system is taught by
    **five** points — *Partikeln: denn, ja, doch, mal* (A1), *Gradpartikeln* (A2),

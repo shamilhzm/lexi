@@ -11,6 +11,53 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — Redemittel: 129 phrases nothing had ever scheduled
+
+The critique's item 6 said Redemittel were "the largest content gap in the product".
+That was wrong about the cause, and the truth is a better finding.
+
+**They already ship.** 129 phrases across 27 groups, authored to a high standard —
+*Widersprechen, ohne unhöflich zu werden*, *Nachgeben, ohne einzuknicken*, *Zahlen
+deuten, nicht vorlesen* — inside the exam speaking labs. Better functional material than
+most textbooks print.
+
+**And nothing scheduled them.** `redemittel` appeared in the exam data, `Speaking.tsx`
+and `Exam.tsx`, and nowhere else: no `review()`, no FSRS card, no id. A learner met them
+three levels inside `#/exam`, read them once, and the app whose entire job is making
+things stick did not make these stick.
+
+So this ships no new phrases. It gives the existing ones an identity the rest of the app
+can act on: they are projected into the lexicon as `pos: 'phrase'` cards and registered
+at runtime through `registerWords` — the same door mined words and class packs use — so
+FSRS, the session builder, decks, search and the worksheet all pick them up with no
+second system invented, and `public/data/*.json` is untouched.
+
+**The sector is the communicative function.** *Sich vorstellen*, *Abwägen*,
+*Widersprechen* — which is a considerably better deck than *Miscellaneous*, where a
+third of the corpus currently lives, and is exactly the unit the taxonomy finding says
+is missing.
+
+Three decisions:
+- **Ids are content-keyed** (`red:<level>:<german>`), not positional. The `gex:` ids are
+  positional and that is a live hazard in the backlog; reordering a paper's groups must
+  not silently re-point a learner's schedule.
+- **`pos: 'phrase'`**, which keeps them out of the gender, plural, conjugation, Kasus,
+  separable and reflexive pools — every one of which would produce nonsense from a
+  multi-word chunk.
+- **No example.** The first version set the example to the phrase itself, and the card
+  printed the same German twice. It also mattered beyond cosmetics: `eligibleModes`
+  reads `ex` to decide cloze, sentence-builder and dictation eligibility, and all three
+  would have gapped the chunk against itself. Caught by running a session.
+
+**A counting mistake worth recording.** This entry first said *214* phrases. That came
+from a regex over the whole speaking module, which also matches the model answers; the
+REDEMITTEL exports hold 129. A test asserting `>= 200` is what caught it. See
+[LESSONS](LESSONS.md) class 1 — *count inside the thing you are counting.*
+
+12 tests. 733 green.
+
+---
+
 ### Shipped 2026-08-13 — C1 gets exercises, and two findings are withdrawn
 
 **The blocker was not real.** I reported Tier 2's content items as blocked on a

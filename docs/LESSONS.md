@@ -180,6 +180,19 @@ deleting them.**
   nothing in the simulator, twice. Synthetic swipes and iOS's real touch-axis
   arbitration are not the same thing, so a speculative fix to the *grading gesture* was
   not worth the risk. Confirm on hardware first. *(2026-08-05)*
+- **A regex over a file is not a count of an export.** *(2026-08-13.)* I reported
+  "214 Redemittel across 27 groups" from `grep`-ing `de:` out of the speaking modules.
+  The real figure is **129**: the same pattern also matches the *model answers*, which
+  are the bulk of those files. Caught only because a test asserted `>= 200` and failed.
+  *Count inside the thing you are counting* — scope the read to the export, not the file.
+- **Three findings in one critique died on contact with the grammar bank.** Verb valency
+  ("derivable via the matcher" — it is not), modal particles ("the words are not in the
+  lexicon" — they are, as lexical senses, and five points teach the system), and
+  Redemittel ("Lexi has almost none" — 129 ship inside the exam speaking labs). The
+  common cause: **PEDAGOGY.md measured the card corpus exhaustively and the grammar
+  bank, the exam papers and the speaking labs not at all**, so anything taught outside a
+  card read as absent. *Before calling something missing, grep the whole `src/` and
+  `public/data/` for it, not the one file you already have open.*
 - **Two counting slips in one review.** In PEDAGOGY.md I wrote "72 raw findings"
   (actual 73, when counted with a script rather than by eye) and compressed BACKLOG's
   "1,493 definitions flagged across three kinds" into "1,493 flagged enumerations"
