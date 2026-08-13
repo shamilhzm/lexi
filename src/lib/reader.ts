@@ -41,6 +41,17 @@ export function tokenize(sentence: string): { text: string; isWord: boolean }[] 
 let exact: Map<string, Word> | null = null;
 let lower: Map<string, Word> | null = null;
 
+// What the maps above were built from. The lexicon is not fixed at boot: `initData`
+// replaces `WORDS` wholesale, and `registerWords` appends to it whenever a learner
+// imports a class pack or mines a word. A build-once index would go stale silently —
+// the new words stay invisible to Lesen's i+1 selection until a full page reload —
+// and the alternative, making every writer remember to invalidate it, is a rule that
+// holds until the next writer. So the cache carries its own provenance and rebuilds
+// itself, the same way `useBrain`'s field keys on `WORDS.length`.
+let builtFrom: Word[] | null = null;
+let builtLen = 0;
+const stale = () => !exact || builtFrom !== WORDS || builtLen !== WORDS.length;
+
 function build(): void {
   const e = new Map<string, Word>(), l = new Map<string, Word>();
   // First writer wins: WORDS is level-ordered, so A1 claims the common forms and a
@@ -65,12 +76,12 @@ function build(): void {
       // indexing the phrase would only add multi-word keys a token can never match.
     }
   }
-  exact = e; lower = l;
+  exact = e; lower = l; builtFrom = WORDS; builtLen = WORDS.length;
 }
 
 /** All surface forms, lowercased. Exposed for inspection and tests. */
 export function surfaceIndex(): Map<string, Word> {
-  if (!lower) build();
+  if (stale()) build();
   return lower!;
 }
 
@@ -81,12 +92,14 @@ export function surfaceIndex(): Map<string, Word> {
  *  it `Essen` resolves to the verb `essen`, `Reisen` to the noun `die Reise`, and
  *  a reader would be told the new word in "Das Essen ist gut" is a verb. */
 export function lookupSurface(token: string): Word | null {
-  if (!exact) build();
+  if (stale()) build();
   return exact!.get(token) ?? lower!.get(token.toLowerCase()) ?? null;
 }
 
-/** Test seam — the index is built from the live lexicon, which tests replace. */
-export function resetSurfaceIndex() { exact = null; lower = null; }
+/** Force the next lookup to rebuild. Only tests need this — production growth of
+ *  the lexicon is picked up by `stale()` — but a test can swap the lexicon for one
+ *  of the same length, which identity alone would miss. */
+export function resetSurfaceIndex() { exact = null; lower = null; builtFrom = null; builtLen = 0; }
 
 export interface ReadToken {
   text: string;

@@ -1180,6 +1180,26 @@ describe('reader', () => {
     expect(idx.get('geschlafen')?.id).toBe('voc:A1:schlafen');
   });
 
+  // The lexicon grows after boot: importing a class pack appends to WORDS through
+  // `addUserWords`. The index is lazy and was built the first time Lesen ran, so
+  // without provenance on the cache the learner's own words stayed invisible to
+  // the reader — every one of them counted as an unrecognised token — until a full
+  // page reload happened to rebuild it.
+  it('sees a word registered after the index was already built', async () => {
+    const { reader, store } = await withCorpus();
+    expect(reader.lookupSurface('Katze')).toBeNull();   // forces the first build
+
+    store.addUserWords([word('usr:die Katze', 'Mein Wortschatz', {
+      term: 'die Katze', en: 'cat', gender: 'die', plural: 'die Katzen',
+      ex: [{ de: 'Die Katze schläft im Garten.', en: 'The cat sleeps in the garden.', lvl: 'A1' }],
+    })]);
+
+    expect(reader.lookupSurface('Katze')?.id).toBe('usr:die Katze');
+    expect(reader.surfaceIndex().get('katzen')?.id).toBe('usr:die Katze');  // and its plural
+    const toks = reader.annotate('Die Katze schläft.', () => false);
+    expect(toks.find((t: any) => t.text === 'Katze')?.unknown).toBe(true);
+  });
+
   it('marks only the words the learner has never met', async () => {
     const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
     store.review('voc:A1:der Hund', srs.Rating.Good);   // met
