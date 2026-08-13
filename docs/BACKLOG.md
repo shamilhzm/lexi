@@ -685,15 +685,11 @@ user; none of it is built.*
   longer have to be right because they no longer exist, and tabbable controls
   before `#main` went 7 → 3 on a phone. Destinations stay in `BottomNav` under the
   thumb; the profile is on the bar at every width. See the CHANGELOG.
-- **Typing race · M.** Ported in spirit from viberacer: ASCII track, opponents as
-  fixed-WPM pace-setters, live per-racer WPM. **What you type is German at your
-  level**, drawn from corpus cards and paper passages — which is what makes it a
-  Lexi surface rather than a minigame, because it drills noun capitalisation,
-  umlauts and ß under time pressure. *Done-when:* the WPM readout says on its face
-  that it is motivation and not a diagnostic. The real Schreiben is handwritten;
-  typing speed is tested in none of the six papers, and a number that looks like a
-  score has to admit it is not one — same rule the results screen already follows
-  for self-assessment.
+- ~~**Typing race · M.**~~ **Shipped 2026-08-12.** `#/games` → Tipprennen. Three
+  sentences from the learner's own cards, two fixed-pace rivals, case- and
+  umlaut-strict. The WPM figure carries its disclaimer on the finish screen rather
+  than in a help page. Digraphs (`ae` for `ä`) are accepted, counted, and named at
+  the finish as the spelling errors they would be in the exam.
 - **Connections · M.** Sixteen tiles, four groups of four. German gives the format
   better categories than English does: four nouns sharing a gender, four verbs
   sharing a separable prefix, four false friends, four in a semantic field — and the

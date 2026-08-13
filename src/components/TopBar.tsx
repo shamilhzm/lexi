@@ -28,7 +28,7 @@
 // the bottom bar already learned that lesson once when it was a fifth item
 // raised out of the row. Same rule here — places on the left, the action on the
 // right, the person at the end.
-import { Play, Sunrise, TrendingUp, Library, Flame } from 'lucide-react';
+import { Play, Sunrise, TrendingUp, Library, Gamepad2, Flame } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { View } from '../App.tsx';
 
@@ -52,11 +52,16 @@ export function LexiMark({ size = 28, className = '' }: { size?: number; classNa
  *  are the questions:
  *    Today    — what do I do now?
  *    Progress — how am I doing? (absorbs Explore, Stats, KPIs, Blind Spots)
- *    Library  — what does this mean / how does this work? */
+ *    Library  — what does this mean / how does this work?
+ *    Games    — I do not want to study today, and I am still here.
+ *
+ *  The fourth is what the bar was chosen for: four labels fit across the top
+ *  where a 240px rail would still have been a column. */
 export const NAV: { id: View; label: string; icon: LucideIcon }[] = [
   { id: 'today', label: 'Today', icon: Sunrise },
   { id: 'progress', label: 'Progress', icon: TrendingUp },
   { id: 'library', label: 'Library', icon: Library },
+  { id: 'games', label: 'Games', icon: Gamepad2 },
 ];
 
 export default function TopBar({ view, onGo, onStartSession, onProfile, name, level, streak }: {

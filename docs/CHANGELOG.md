@@ -11,6 +11,61 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-12 — the typing race, and a passage nobody could type
+
+`#/games` is the fourth destination, and **Tipprennen** is the first thing in it:
+three sentences drawn from the learner's own cards, two rivals running at a fixed
+pace, and a track drawn in characters.
+
+**The number is not a measurement, and the screen says so.** Typing speed is
+tested in none of the six papers — Schreiben is handwritten — so the WPM figure
+carries its disclaimer on the finish screen itself rather than in a help page
+nobody opens. It is also kept out of `strands`, so it can never reach the
+readiness read: this is the same rule the exam results screen already follows when
+it refuses to pass a self-assessment off as a machine's judgement.
+
+What *is* real is what you have to type to move it. The reducer is strict about
+the two things German actually punishes and a multiple-choice drill cannot reach:
+
+- **capitalisation.** `haus` never becomes `Haus`, and the cursor does not move
+  past the capital, so the habit forms on the one screen where it is unavoidable.
+- **umlauts and ß.** Refusing `ae` outright makes the first race miserable on a US
+  keyboard; accepting it silently makes the feature pointless, since avoiding
+  umlauts is the exact habit it exists to break. So a digraph is accepted, counted,
+  and named at the finish — *7× you typed an umlaut as ae/oe/ue; in the exam each
+  of those is a spelling error* — and it is worth the one character it stands for,
+  so substituting cannot inflate the speed it is meant to expose.
+
+The reducer also refuses to advance on a wrong key, which is why the passage is
+rendered character by character with the caret drawn in rather than as an input
+box: a race must not be finishable with a scrambled sentence.
+
+**Two bugs found by playing it, both invisible to the type system:**
+
+- **The first passage could not be typed.** It contained *langweilig – lass*, with
+  an en dash, and no keyboard has that key. 48 corpus sentences carry German
+  quotation marks, 23 an en dash, and a handful a no-break space that looks
+  exactly like a space. Those are normalised to their ASCII equivalents; `é`, `₂`,
+  `ō` and `Å` have no equivalent and those sentences are simply not raced. Pinned
+  by a test that walks every character of 60 seeds at all six levels.
+- **The game did nothing on a phone.** A `window` keydown listener is perfect on a
+  laptop and unplayable on a phone: with nothing focusable on screen the on-screen
+  keyboard never opens, so the race starts, the rivals drive off, and the learner
+  cannot type. Input now arrives through a real, visually hidden `<input>`, which
+  covers desktop and touch through one code path — with `autoCapitalize="none"`
+  and `autoCorrect="off"`, because iOS would otherwise autocapitalise German and
+  the race would mark the learner wrong for what the phone did.
+
+A third was found the same way: a scripted run recorded **305 WPM**, and the next
+race opened with rivals at 244 and 351 — permanently, because the record only ever
+rises and there is no way to clear it. The pacer *basis* is now clamped to 120: a
+personal best stays whatever it honestly was, and it can no longer wreck the race
+it feeds.
+
+33 tests on the logic, including the digraph allowance, case sensitivity, the
+refusal to advance, the pacer ceiling, and a race built and typed to completion
+from the shipped corpus at every level.
+
 ### Shipped 2026-08-12 — the sidebar becomes a bar, and the drawer stops existing
 
 A 240px rail (64px collapsed) carried three destinations, Start session and the
