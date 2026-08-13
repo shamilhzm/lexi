@@ -4,6 +4,27 @@
 are not cheap to reverse, and two of them are promises to users rather than
 technical choices.
 
+> ## ⚠️ Proposal, not policy — flagged 2026-08-13
+>
+> **This document and [`CLAUDE.md`](../CLAUDE.md) disagree, and neither has yielded.**
+> §"Why this is happening" below says *"the call was made: build toward accounts and a
+> backend."* The project's own instructions say *"Local-first, no backend."* Since this
+> was written, [PEDAGOGY.md](PEDAGOGY.md) found that **every teacher persona and several
+> learners named the absence of accounts as the single thing they would lose** — and
+> that the teacher-visibility problem this design exists to solve has a local-first
+> answer nobody had costed: print, plus learner-initiated export.
+>
+> **Ruling ([VISION.md](VISION.md) § open decisions): local-first is the shipping
+> behaviour, and no doc, screen or pitch may promise otherwise until this is settled
+> deliberately.** Nothing here is cancelled — the design work is good and §1 (the
+> promise that has to change first) and §4 (why per-card last-write-wins is wrong) are
+> both correct and would be expensive to re-derive. But it is a proposal awaiting a
+> decision, not a direction being executed.
+>
+> The one item worth building regardless is **§5 step 1, the append-only review
+> ledger** — it improves Stats on its own, involves no server, and is the prerequisite
+> for any future merge.
+
 ## Why this is happening
 
 [CRITIQUE.md](CRITIQUE.md) named two contradictions the product could not hold at

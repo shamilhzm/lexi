@@ -1,103 +1,112 @@
 # Lexi
 
-**An atlas of your German (A1–C2).** Lexi opens on **Today** and one button starts a
-session: a queue assembled from what FSRS says is due, plus fresh cards from the
-sectors you are thinnest in, with grammar drills woven in for the words you are
-actually seeing. **Progress** holds the live *knowledge heatmap* — a squarified
-treemap where every tile is a theme group, **area = cards in the group, colour = how
-much of it you know**, classified over the range your own data actually occupies.
-Click a tile to drill into its sectors; long-press to study it. **Library** is
-everything the app can explain, A1 to C2, none of it locked.
+**An atlas of your German (A1–C2).** A free, open-source, local-first app for **English
+speakers learning German** — spaced repetition over a deep lexicon, grammar drills woven
+in for the words you are actually seeing, and a scheduler that tells you *why* each card
+is in front of you.
 
-**Lexi is built for English speakers learning German.** Every gloss, definition,
-rule and exercise prompt is in English — that's a deliberate scope, not an
-oversight, and it's stated here so the promise never runs ahead of what the
-corpus can keep. It runs entirely on your device — no account, no sign-in, no
-tracking, and nothing to cancel.
+No account, no sign-in, no tracking, and nothing to cancel. It runs entirely on your
+device and works offline.
+
+> **Scope, stated so the promise never runs ahead of the corpus:** every gloss,
+> definition, rule and exercise prompt is in English. That is a deliberate choice — see
+> [`docs/VISION.md`](docs/VISION.md). Other language pairs are an architectural goal,
+> not a shipped feature.
 
 ## Docs
 
-Planning and strategy live in [`docs/`](docs/). Start with
-[`docs/BACKLOG.md`](docs/BACKLOG.md) for what's next; see
-[`docs/README.md`](docs/README.md) for the full index.
+[`docs/VISION.md`](docs/VISION.md) is the anchor — what this is, what it refuses, and
+what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
+[`docs/CHANGELOG.md`](docs/CHANGELOG.md) is what shipped and why. Full index at
+[`docs/README.md`](docs/README.md).
 
 ## What's inside
 
-- **7,394 cards across all six CEFR levels** (A1 965 · A2 1,802 · B1 2,728 · B2 1,051
-  · C1 617 · C2 231), including **109 grammar points**, merged from open German word
-  lists and a dictionary-enrichment cache, deduped by level + term.
-- **Every card carries at least two usage examples**, German and English, graded at
-  or just below the card's level (`npm run corpus:examples` audits it).
-- **136 authored grammar points · 835 exercises** (A1 24 · A2 28 · B1 40 · B2 21
-  · C1 12 · C2 11), each point carrying a plain-English summary and rule — and, where
-  the rule is a list rather than prose, a structured breakdown instead of a paragraph.
-- Cards carry IPA, gloss, gender + plural, synonyms/antonyms, and example sentences
+Measured against the shipped corpus on 2026-08-13, not estimated.
+
+- **6,581 cards** — 6,472 vocabulary and 109 grammar points, across all six CEFR levels.
+  Vocabulary by level: **A1 1,161 · A2 1,391 · B1 2,278 · B2 904 · C1 553 · C2 185**.
+- **136 grammar points · 5,207 exercises** (A1 1,538 · A2 1,582 · B1 1,477 · B2 454 ·
+  C1 86 · C2 70), each point carrying a plain-English summary and rule, and each
+  exercise an explanation shown when you get it wrong.
+- **Every card carries at least two usage examples**, German and English, graded at or
+  just below the card's level.
+- Cards carry IPA, gloss, gender + plural, synonyms/antonyms and example sentences
   where available.
-- **291 fine sectors** rolled up into **16 theme groups** (Work & Economy, Travel &
-  Transport, Health & Body, Tech & Science, Grammar, …), which the market view
-  coarsens further to 10 top-level categories so the treemap reads on a phone.
-- **FSRS** scheduling via `ts-fsrs` — modern spaced repetition, not hand-rolled,
-  and every drill mode is its own track, so recognising a word and producing it are
-  scheduled separately.
-- **Local-first**: progress lives in IndexedDB on the device, with export/import
-  for backup and moving between machines. No backend, no account.
+- **277 fine sectors** rolled up into **16 theme groups**, which the market view
+  coarsens further so the treemap reads on a phone.
+- **Six full exam papers**, one per level — telc B1 and Goethe A1, A2, B2, C1, C2 — in
+  their own formats and weightings.
+- **FSRS** scheduling via `ts-fsrs`. Every drill mode is its own track, so recognising
+  a word and producing a form are scheduled separately.
+- **Local-first**: progress lives in IndexedDB with export/import for backup and moving
+  between machines.
 
 ## Surfaces
 
-Two rooms. The **instrument** — a collapsible left sidebar (a bottom bar on phones)
-over three destinations — and the **session**, which renders full-bleed with no
-sidebar, ticker or header, because one aesthetic cannot serve both scanning a
-heatmap and studying a single word.
+Two rooms: the **instrument** — a top bar plus a bottom bar on phones, over four
+destinations — and the **session**, which renders with its own chrome because one
+aesthetic cannot serve both scanning a heatmap and studying a single word.
 
-- **Today** — what to do now. One **Start session** button, the day's shape, and
-  the things that only appear when they apply: a comeback greeting after a gap, a
-  backlog burn-down, blind spots that expand inline into one-tap drills. The first
-  run leads with a ten-card session, then offers the placement test and a topic picker.
-- **Progress** — how it is going. The knowledge heatmap (treemap by theme group, area
-  = cards, colour = how much you know) drilling into sectors, with a KPI strip, a live
-  ticker and a **Markt / Liste** toggle; review and recall history, the 7-day due
-  forecast, the known-growth curve, and **Decks**: every sector filterable by group and
-  sortable by urgency / size / progress, each with a completion that ratchets and
-  cannot be taken back by a lapse. A CEFR **level filter** rescopes the whole app, and
-  opening a sector shows its **Wortkarte** — a semantic map (hub + word rings, synonym
-  links, node colour = learning status).
-- **Library** — what things mean and how they work. The full grammar syllabus, A1 to
-  C2, with each concept's rule (structured into aligned rows where it is a list
-  rather than prose) and a Practise button straight into its exercises. The drills
-  behind it — der/die/das gender, noun plurals, verb conjugation (Präsens ·
-  Präteritum · Partizip II, via a rule-based engine), and cloze from example
-  sentences — each ride their own spaced-repetition track.
+- **Today** — what to do now. One **Start session** button, the day's shape, and the
+  things that only appear when they apply: a comeback greeting after a gap, an honest
+  backlog burn-down, blind spots that expand inline into one-tap drills, and **Lesen**
+  (sentences you can almost read). First run leads with a ten-card session, then offers
+  the placement test.
+- **Progress** — how it is going. The knowledge heatmap (treemap by theme group, area =
+  cards, colour = how much you know) drilling into sectors; review and recall history,
+  the 7-day due forecast, the known-growth curve, and **Decks**. A CEFR **level filter**
+  rescopes the whole app. Opening a sector shows its **Wortkarte** — a semantic map with
+  synonym links and node colour by learning status.
+- **Library** — what things mean and how they work. The full grammar syllabus A1–C2 with
+  each concept's rule and a Practise button into its exercises, plus the **Fundamentals**
+  drills: ten modes, each on its own spaced-repetition track — gender, plurals,
+  conjugation, cloze, sentence builder, tense transformation, Kasus, separable verbs,
+  reflexive verbs and Diktat.
+- **Games** — short rounds for the days a full session is too much. **Tipprennen**, a
+  typing race over your own cards, strict about the two things German actually punishes:
+  capitalisation and umlauts.
+- **Exam** — a full paper per level, with the oral rehearsed against model answers at
+  three strengths and the written parts self-assessed against the examiners' own
+  published criteria. It refuses to machine-mark what a machine cannot mark.
 - **Profile** — name, level, streak, goal, topics, flagged cards, and **Settings**:
-  theme, text size, review intensity (FSRS desired retention), daily pace, the HD
-  German voice, class packs, and backup / restore.
+  theme, text size, review intensity (FSRS desired retention), daily pace, the HD German
+  voice, class packs, and backup / restore.
 
-**The session** — flip cards and ten drill types on one queue. Space to flip, 1–4
-to grade, interval previews on the buttons, German text-to-speech on every string,
-and a line under each item saying *why it is here* ("because you just learned
-obwohl", "you've missed Kasus 4× this month"). Silence when there is nothing
-non-obvious to say.
+**The session** — flip cards and ten drill types on one queue. Interval previews on the
+grade buttons, German text-to-speech on every string, a hint ladder on typed answers,
+near-miss tolerance for a slipped finger, and a line under each item saying *why it is
+here* ("because you just learned obwohl", "you've missed Kasus 4× this month"). Silence
+when there is nothing non-obvious to say.
 
 ## Stack
 
-Vite 6 · React 19 · TypeScript · Tailwind CSS v4 · `motion` (Framer Motion) ·
-`lucide-react` · `ts-fsrs`.
+Vite 6 · React 19 · TypeScript · Tailwind CSS v4 · `motion` · `lucide-react` · `ts-fsrs`.
 
 ## Run
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173/lexi/  (the base path is /lexi/ off Vercel)
+```
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:5173/lexi/` — the base path is `/lexi/` locally and `/` on
+Vercel.
+
+```bash
 npm run build      # production bundle to dist/
 npm run typecheck  # tsc --noEmit
-npm test           # vitest — 369 tests over the pure logic and the shipped corpus
+npm test           # vitest — 650 tests over the pure logic and the shipped corpus
 npm run lint       # eslint, including jsx-a11y
 ```
 
 Before pushing anything that touches the corpus:
 
 ```bash
-npm run corpus:validate    # schema, duplicates, distribution, example + definition gates
-npm run corpus:selftest    # offline end-to-end over fixtures, no network
+npm run corpus:validate && npm run corpus:selftest
 ```
 
 ## Repository layout
@@ -106,47 +115,49 @@ npm run corpus:selftest    # offline end-to-end over fixtures, no network
 src/            the app — views/, components/ (+ ui/ primitives), lib/, data/
 public/data/    the shipped corpus: vocab.json, grammar.json, sectors.json, provenance.json
 scripts/corpus/     build-time ingestion, audits and one-shot corpus fixes (npm run corpus:*)
-scripts/authoring/  the human-authoring loop: batch in, expect-guarded apply, audit trail
-docs/           BACKLOG (open work) · CHANGELOG (shipped, with reasoning) · DESIGN · archive/
+scripts/authoring/  the verified card-authoring loop: batch in, machine-gated, audit trail
+docs/           VISION (the anchor) · BACKLOG (open) · CHANGELOG (shipped, with reasoning)
 design/         logo sources
 ```
 
 Nothing under `scripts/` ships to the browser: it runs on a maintainer's machine and
-writes `public/data/*.json`, which the app fetches at runtime. Corpus JSON is never
-hand-edited — every change goes through a script so it is reviewable and repeatable.
+writes `public/data/*.json`, which the app fetches at runtime. **Corpus JSON is never
+hand-edited** — every change goes through a script so it is reviewable and repeatable.
 
 ## Data
 
-`public/data/vocab.json` (the cards) and `public/data/sectors.json` (sector → group
-index). They're served as static files and fetched at runtime (see
-`src/data/index.ts → initData`) so the ~2 MB corpus isn't parsed inside the JS
-bundle — the app shell paints immediately and the service worker caches the data
-for instant offline reloads. To extend coverage toward the whole German dictionary,
-don't hand-edit the JSON — use the reproducible ingestion pipeline in
-[`scripts/corpus/`](scripts/corpus/) (`npm run corpus:coverage` to see the gap,
-`corpus:build` to grow it from open sources). Sources and licenses are recorded in
-[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md).
+`public/data/` is served as static files and fetched at runtime (see
+`src/data/index.ts → initData`) so the corpus isn't parsed inside the JS bundle — the
+app shell paints immediately and the service worker caches the data for offline reloads.
+To extend coverage, use the reproducible pipeline in
+[`scripts/corpus/`](scripts/corpus/README.md): `npm run corpus:coverage` to see the gap,
+`corpus:build` to grow it from open sources.
 
 ## Install as an app (PWA)
 
-Lexi ships a web app manifest and a service worker, so it installs on phone and
-desktop (Add to Home Screen / Install), runs full-screen and works offline after the
-first load. The lexicon and assets are cached on first visit, and
-`navigator.storage.persist()` runs at boot — without it Safari evicts IndexedDB
-after about a week of not opening the app, which for a local-first tool is total
-data loss.
+Lexi ships a web app manifest and a service worker, so it installs on phone and desktop,
+runs full-screen and works offline after the first load. `navigator.storage.persist()`
+runs at boot — without it Safari evicts IndexedDB after about a week of not opening the
+app, which for a local-first tool is total data loss.
 
-## Data & licences
+## Licence
 
-Lexi is built on open tools and open data. The **corpus data**
-(`public/data/*.json`) is built from Wiktionary/Wiktextract, Tatoeba, and the
-Leipzig Corpora Collection, so it carries **CC BY-SA 4.0** with attribution — see
-[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md). The application code itself is proprietary.
+**The code is MIT** — see [`LICENSE`](LICENSE).
+
+**The corpus** (`public/data/*.json`) is built from Wiktionary/Wiktextract, Tatoeba and
+the Leipzig Corpora Collection, and carries **CC BY-SA 4.0** with attribution. Every
+source, its licence, and exactly what is redistributed is recorded in
+[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md) — if you fork this, that file travels with it.
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). The short version: the corpus is never
+hand-edited, tests and `corpus:validate` gate every merge, and
+[`docs/VISION.md`](docs/VISION.md) lists what the project deliberately refuses to build.
 
 ## Notes
 
-Coverage colour uses FSRS state: a card counts as *learned* once it leaves `New`
-and *consolidated* once it reaches `Review`. New-card introductions are capped per
-day, at a pace you can change. Respects `prefers-reduced-motion`, honours iOS
-Dynamic Type, and pairs every colour signal with a shape or a label so nothing
-rides on hue alone.
+Coverage colour uses FSRS state: a card counts as *learned* once it leaves `New` and
+*consolidated* once it reaches `Review`. New-card introductions are capped per day, at a
+pace you can change. Respects `prefers-reduced-motion`, honours iOS Dynamic Type, and
+pairs every colour signal with a shape or a label so nothing rides on hue alone.

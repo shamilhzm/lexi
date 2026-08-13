@@ -409,3 +409,10 @@ are the unclosed half of that report.
 
 *Maintenance: when a finding ships, mark it here and move the detail to
 BACKLOG.md's shipped log. This file is the only persona doc — don't start a fourth.*
+
+> **One deliberate exception, 2026-08-13.** [PEDAGOGY.md](PEDAGOGY.md) runs twelve more
+> personas — six learners, six teachers — on the **pedagogy** lens rather than the
+> design one, alongside [CRITIQUE.md](CRITIQUE.md)'s investor lens. It is not a fourth
+> *round*, which is what the rule above forbids; the rounds in this file are the design
+> review and it stays the only one. Where the two overlap, PEDAGOGY marks the finding
+> and does not re-count it.

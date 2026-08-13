@@ -5,11 +5,13 @@ rules new work is held to. If the code and this file disagree, one of them is a
 bug — say which and fix it. Nothing here is settled by seniority; the useful
 version of this document is one you can argue with.
 
-Its ancestor, [`archive/DESIGN-REVIEW-2026-07.md`](archive/DESIGN-REVIEW-2026-07.md),
-was a dated critique that mixed a design system with a go-to-market strategy and
-framed itself as coming from inside a famous design org. That framing invited
-deference instead of argument, which is roughly why one of its recommendations
-survived a year longer than it should have (see *Hue discipline*, below).
+Its ancestor — `archive/DESIGN-REVIEW-2026-07.md`, deleted in the 2026-08-13 docs pass
+and recoverable from git history — was a dated critique that mixed a design system with
+a go-to-market strategy and framed itself as coming from inside a famous design org.
+That framing invited deference instead of argument, which is roughly why one of its
+recommendations survived a year longer than it should have (see *Hue discipline*,
+below). Its B2B half lives on as [SCHOOL-PITCH.md](SCHOOL-PITCH.md); everything else in
+it is either shipped or superseded by this file.
 
 ---
 

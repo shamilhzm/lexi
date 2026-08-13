@@ -668,7 +668,7 @@ A1–B1 Lektionswortschatz (Lektion → Feld → Wortart); see its `MANIFEST.md`
 `IMG_4850` is the irregular-verbs appendix — feed it to the conjugation engine's
 known-verb checks.
 > **The extraction rules** used to live in `archive/COHESION-PLAN.md`, deleted in the
-> July tidy. They are: entries are *selected and authored* in the book's style, never
+> July tidy and recoverable from git history only. They are: entries are *selected and authored* in the book's style, never
 > transcribed wholesale; level is the book's placement, honesty-bumped where DaF runs
 > ahead of CEFR; nouns map to existing sectors, verbs and adjectives fall to POS
 > defaults. Recorded here because the file they were in is gone.
@@ -744,6 +744,18 @@ user; none of it is built.*
   expanding levels and scrolling. Confirmed still absent 2026-08-04.
 - **Name the session's best moment on the card, not just the recap · XS** (#46).
   "Comeback of the day" exists and fires where nobody is looking.
+- **The recap doesn't celebrate drill work distinctly · XS** (UX-PATHS H2). Flips and
+  recall are reported; the interleaved drills — the harder half of the session — are
+  folded into the same count. *Folded in from UX-PATHS.md when it was retired 08-13.*
+- **The first-run hero doesn't acknowledge a retry · XS** (UX-PATHS S2). Abandoning the
+  guided first run mid-placement correctly returns to the hero next launch, but it
+  reads as a fresh start rather than "pick up where you left off." *Same source.*
+- **Tokenizer: split fused paste artifacts · XS.** Pasted headlines and HTML sometimes
+  concatenate two words with no separator ("TriumphBei"). A camelCase-boundary split
+  (lower→Upper) is near-zero risk in German, which has no intra-word case transitions —
+  and it becomes wrong the moment a second language pair lands, so gate it behind the
+  per-language interface rather than hardcoding it. *Rescued from ROADMAP.md when it
+  was retired 08-13.*
 - **Finishable things · S** (#47). A fully-known sector is finite and earned; DESIGN.md
   §8c calls this out and only the recap ever mentions it.
 - **Weekly arc · S** (#48). A seven-day view — words added, retention, the goal line's
@@ -848,9 +860,11 @@ user; none of it is built.*
   be graded honestly without a model, and a drill that marks correct German wrong is
   worse than no drill. Decide the shape before building anything. Overlaps Now #2
   Phase 3, which is the narrow, deterministic version.
-- **Billing / €5 supporter tier.** The whole freemium split in
-  [ROADMAP.md](ROADMAP.md) depends on it. No infra; the Support link (→ GitHub) and any
-  Pro gating wait on this.
+- **Billing / €5 supporter tier.** No infra; the Support link (→ GitHub) and any Pro
+  gating wait on this. ⚠️ The freemium split this used to depend on lived in
+  ROADMAP.md, retired 2026-08-13 because its two headline paid features (the AI tutor
+  and the mining flow) were cut or re-scoped — so a tier has to be re-derived from what
+  the app actually is now, not recovered. See [VISION.md](VISION.md) § open decisions.
 - **B2B / Sprachschule.** Sequenced deliberately **after** consumer
   (COMPETITIVE-RESEARCH §5–6). Most of [SCHOOL-PITCH.md](SCHOOL-PITCH.md)'s gap list
   isn't built.

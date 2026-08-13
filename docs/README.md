@@ -1,87 +1,80 @@
 # Lexi docs
 
-Planning, strategy and reference. Code and product truth live in `src/` and the
-root [`README.md`](../README.md); this folder is the *why* and the *next*.
+Planning, strategy and reference. Code and product truth live in `src/` and the root
+[`README.md`](../README.md); this folder is the *why* and the *next*.
 
 ## Start here
 
-- **[BACKLOG.md](BACKLOG.md)** — the single prioritised list of **open** work. If
-  you want to know what to do next, it is here and nothing else is.
-- **[CHANGELOG.md](CHANGELOG.md)** — what shipped and *why*. Check it before
-  building something that sounds obvious: several entries exist because the obvious
-  thing was tried and reverted.
+- **[VISION.md](VISION.md)** — **the anchor.** What we are building, the six
+  commitments and what each one forbids, the refusals, the settled decisions, and the
+  three things that are genuinely still open. When two docs disagree, this one decides.
+- **[BACKLOG.md](BACKLOG.md)** — the single prioritised list of **open** work. If you
+  want to know what to do next, it is here and nothing else is.
+- **[CHANGELOG.md](CHANGELOG.md)** — what shipped and *why*. Check it before building
+  something that sounds obvious: several entries exist because the obvious thing was
+  tried and reverted.
 
-## Living docs
+## The four kinds of document
+
+Nothing here is a fifth kind. A document that is none of these has finished its job and
+should be deleted — git history is what history is for.
+
+### Anchor
 
 | Doc | What it is | Use it when |
 |---|---|---|
-| [BACKLOG.md](BACKLOG.md) | Open work only, prioritised, with effort and acceptance criteria. The source of truth for what's next. | Picking up work. |
+| [VISION.md](VISION.md) | What Lexi is for, what it refuses, what is undecided. Changes rarely and deliberately. | Starting anything. Deciding whether a feature belongs at all. |
+
+### Live state
+
+| Doc | What it is | Use it when |
+|---|---|---|
+| [BACKLOG.md](BACKLOG.md) | Open work only, prioritised, with effort and acceptance criteria. | Picking up work. |
 | [CHANGELOG.md](CHANGELOG.md) | Shipped work, newest first, with the reasoning kept. | Asking "why is it like this?" |
-| [BRAIN.md](BRAIN.md) | What the brain map at `#/brain` claims and what it does not: the sector→region atlas, its confidence tiers, the joins worth arguing about, and the sources. | Touching `lib/brain/*`, or asked whether the map is real. |
+| [LESSONS.md](LESSONS.md) | **Append-only.** Mistakes caught and the rule each produced, grouped into eight recurring classes, with a pre-work checklist at the top. | **Before starting work** — and the moment you catch a mistake, before fixing it. |
+
+### Systems — how one part works, or is proposed to
+
+| Doc | What it is | Use it when |
+|---|---|---|
 | [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost time. Living — argue with it. | Touching anything visual. |
-| [BACKEND.md](BACKEND.md) | **The accounts + sync design.** Written before any code: what syncs, what deliberately does not, how two offline devices merge, and the user-facing promise that has to change first. Design only. | Before touching auth, sync or push. |
-| [CRITIQUE.md](CRITIQUE.md) | **The hostile read** — the case against Lexi, written as an investor who has shipped consumer language apps and sat on a Goethe procurement panel. Names two strategic contradictions and the fact that no real learner has used the product. Argue with it in the file. | Deciding what to build next, or why. |
-| [PERSONAS.md](PERSONAS.md) | **The single persona doc.** Round 3 (12 personas, 2 per CEFR level, desktop + mobile) is the first round run against the *running app* rather than the code, and carries the verdict on the terminal identity. Rounds 1–2 folded in with status. Supersedes the two `SIMULATED-SESSION*` files. | Judging the design; before touching the aesthetic. |
-| [UX-PATHS.md](UX-PATHS.md) | Happy / sad / frustrated walkthroughs traced against the code, with each finding's status. | Changing the session or onboarding flow. |
-| [SCHOOL-PITCH.md](SCHOOL-PITCH.md) | The B2B "Sprachschule" strategy: ROI arithmetic, the gap list, and a signable guarantee. Forward-looking; most of the gap list isn't built. | A school / B2B conversation. |
-| [COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md) | The four camps (curriculum / immersion / AI tutors / SRS tools), what Lexi genuinely beats them at, the honest weakness list, and the argued case for the **comprehension meter** as the flagship. Carries an open decision. | Sizing a feature against the market; deciding direction. |
-| [ROADMAP.md](ROADMAP.md) | Product vision & freemium strategy (the 10 Pro features). **Pre-prune — see the reconciliation below.** | Thinking about direction or monetisation. |
+| [BRAIN.md](BRAIN.md) | What the brain map at `#/brain` claims and what it does not: the sector→region atlas, its confidence tiers, and the sources. | Touching `lib/brain/*`, or asked whether the map is real. |
+| [BACKEND.md](BACKEND.md) | **Proposal, not policy.** The accounts + sync design: what would sync, what deliberately would not, how two offline devices merge. No code written, and it contradicts the current shipping behaviour — see VISION § open decisions. | Before touching auth, sync or push. |
+| [../ATTRIBUTIONS.md](../ATTRIBUTIONS.md) | Every corpus source, its licence, what is redistributed and what is only cached. | Adding a data source. Forking. |
+
+### Standing critiques — one lens each, written to be argued with
+
+| Doc | Lens | Use it when |
+|---|---|---|
+| [PEDAGOGY.md](PEDAGOGY.md) | **Does it teach?** Six learners and six teachers across A1–C2 and across the contexts German is actually taught in. Carries the wishlist and the eight items struck from it. | Deciding what to build for *learning*; before touching the session, the corpus shape, or what "known" means. |
+| [PERSONAS.md](PERSONAS.md) | **Does it look and move like a thing worth using?** Twelve personas run against the running app, two per CEFR level, desktop + mobile. The only *design* persona doc. | Judging the design; before touching the aesthetic. |
+| [CRITIQUE.md](CRITIQUE.md) | **Is this a business?** The hostile read, written as an investor who has shipped consumer language apps. Names the fact that no real learner has used the product. | Deciding what to build next, or why. |
+| [COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md) | **Who else is in this market?** The four camps, what Lexi genuinely beats them at, the honest weakness list, and the case for the comprehension meter. | Sizing a feature against the market. |
+| [SCHOOL-PITCH.md](SCHOOL-PITCH.md) | **Would a Sprachschule buy it?** ROI arithmetic, the gap list, a signable guarantee. Forward-looking; most of the gap list isn't built. | A school / B2B conversation. |
 
 ## Pipeline docs
 
 The corpus and authoring tooling documents itself where it lives:
-[`../scripts/corpus/README.md`](../scripts/corpus/README.md) for the ingestion and
-audit commands, [`../scripts/authoring/card-authoring.md`](../scripts/authoring/card-authoring.md)
+[`../scripts/corpus/README.md`](../scripts/corpus/README.md) for the ingestion and audit
+commands, [`../scripts/authoring/card-authoring.md`](../scripts/authoring/card-authoring.md)
 for the card-authoring contract.
 
-## Archive (`archive/`)
+## What was deleted, and when
 
-Delivered or superseded, kept for provenance. **Not current.**
+Recoverable from git history only. Each was deleted because it had finished its job, not
+because it was wrong.
 
-| Item | Status |
-|---|---|
-| [archive/DESIGN-REVIEW-2026-07.md](archive/DESIGN-REVIEW-2026-07.md) | The original design critique. Split into `DESIGN.md` + `SCHOOL-PITCH.md`. Most findings shipped; its paper-card recommendation was wrong, and the banner says why. |
-| [archive/PRODUCT-FOCUS.md](archive/PRODUCT-FOCUS.md) | July 2026 prune. Decisions shipped; open items moved to the backlog. |
-| [archive/IMPLEMENTATION-PLAN.md](archive/IMPLEMENTATION-PLAN.md) | Phased build order for the design review. Phases 1–5 delivered. |
-| [archive/LEXICON-EXPANSION-TASK.md](archive/LEXICON-EXPANSION-TASK.md) | Corpus-pipeline brief. Delivered; the pipeline lives in [`../scripts/corpus/`](../scripts/corpus/README.md). |
-| [archive/briefs/](archive/briefs/) | Orbita-era product, style and content briefs — Lexi's predecessor. |
+**2026-08-13 docs pass** — `ROADMAP.md` (its ten Pro features assumed an AI tutor and a
+mining flow that were cut or re-scoped; the multilingual section survives in VISION, the
+tokenizer note in BACKLOG); `UX-PATHS.md` (ten of twelve findings shipped — the table is
+preserved in the CHANGELOG because source comments cite its ids); and all of `archive/` —
+`DESIGN-REVIEW-2026-07.md`, `PRODUCT-FOCUS.md`, `IMPLEMENTATION-PLAN.md`,
+`LEXICON-EXPANSION-TASK.md` and the three Orbita-era briefs, every one already
+banner-marked superseded.
 
-**Deleted in the July 2026 tidy, recoverable from git history only:**
-`archive/COHESION-PLAN.md` (the DaF-scan extraction rules — note that the backlog's
-corpus-growth item still describes them in prose, so nothing was lost that the
-backlog does not now carry itself), `archive/next-2-weeks-plan.md` (an Orbita-era
-planning snapshot), and `archive/print-and-play/` (the Lexi Duel printable PDFs and
-their generators — the Duel was cut from the core loop). The consolidation merge on
-2026-08-04 re-proposed all three and they were declined again, deliberately.
-
-The legacy Orbita and Atlas applications used to sit in a root-level
-`to_be_deleted_or_archived/` folder. They were removed in the July 2026 tidy —
-2.6 MB of superseded code that git history still holds if it is ever wanted.
-
-## One reconciliation worth knowing
-
-`ROADMAP.md` and `archive/PRODUCT-FOCUS.md` **disagree**, and the backlog follows
-PRODUCT-FOCUS because it is newer: the roadmap's two flagship paid features — the
-**AI tutor** and the sentence-mining **Reader/Mine** — were **cut from the core
-loop** during the July prune.
-
-**Updated 2026-07-27 by the competitive pass.** The two have now diverged:
-
-- The **AI tutor stays cut**, and for a stated reason (commoditizing category;
-  needs a backend; breaks the DSGVO-by-architecture story).
-- The **reader is back as BACKLOG Now #0**, re-scoped into the *comprehension
-  meter* — not a mining tool but a measurement instrument: what percentage of a
-  given text you know, and the words that get you over the 95/98 threshold.
-
-Three decisions were settled in that pass and are recorded in
-[COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md) §5–6: the meter is **additive**
-(Known and the market keep the headline), B2B is sequenced **after** consumer, and
-Lexi is **English-base**, now said out loud in the root README and the first-run
-hero.
-
-**Reconciled again 2026-08-04 by the consolidation merge.** A reading surface had
-*already* returned on the stranded branch, as **Lesen** — free, built on the existing
-corpus (`lib/reader.ts`, `components/ReadingList.tsx`, surfaced on Today) rather than
-as a paid mining flow. It is a genuine down-payment on Now #0: it does the retrieval
-half (find sentences you can almost read) but not the measurement half (report
-coverage against the 95/98 bands). The two are now one item in the backlog.
+**July 2026 tidy** — `archive/COHESION-PLAN.md` (the DaF-scan extraction rules, which
+the backlog's corpus-growth item now carries in prose), `archive/next-2-weeks-plan.md`,
+`archive/print-and-play/` (Lexi Duel, cut from the core loop), and the root-level
+`to_be_deleted_or_archived/` folder — 2.6 MB of superseded Orbita and Atlas code. The
+consolidation merge on 2026-08-04 re-proposed three of these and they were declined
+again, deliberately.

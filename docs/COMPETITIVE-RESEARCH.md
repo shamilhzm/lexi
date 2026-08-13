@@ -6,6 +6,17 @@ flow and a Wortkarte that were cut or demoted in the July prune). This version i
 reconciled against `src/` at commit `7146bc7` and against what the market actually
 looks like now.*
 
+> **Scope note, 2026-08-13.** The **decisions** this document reached (English-base,
+> consumer-before-schools, the meter as additive, the refusals) now live in
+> [VISION.md](VISION.md), which is the anchor. They are left in place below with their
+> arguments intact, because the argument is the valuable part and a decision without its
+> reasoning gets re-litigated — but **VISION is authoritative if the two ever diverge.**
+> What this file uniquely holds is the *market survey* and its sources.
+>
+> Card counts below are the July figures and were correct then; the corpus is **6,581
+> cards** as of 2026-08-13 after the duplicate merge. Per [LESSONS.md](LESSONS.md)
+> Class 1, measure before quoting.
+
 **The argument in one paragraph.** Lexi has quietly built the expensive half of a
 product nobody in the category has shipped: an honest, per-lemma, forgetting-aware
 model of what one learner knows. It currently spends that model on measuring itself.
@@ -150,10 +161,11 @@ describing itself.
 work and were the right call, but they are mechanical transformations, not
 communication. No writing, no speaking, no feedback on either.
 
-**3. The corpus is the bottleneck, and it's hand-gated.** 7,464 cards; BACKLOG has
-"grow toward ~10k" as ongoing, human-reviewed, maintainer-machine work. This is the one
-axis where Lexi competes on the dimension it cannot win — content volume — by hand.
-Meanwhile Duolingo shipped 20,500 units in a quarter.
+**3. The corpus is the bottleneck.** BACKLOG has "grow toward ~10k" as ongoing work.
+This is the one axis where Lexi competes on a dimension it cannot win — content volume.
+Meanwhile Duolingo shipped 20,500 units in a quarter. *(The "hand-gated" half of this
+finding expired 2026-08-11: authoring is now machine-gated, and refuses to write a card
+it cannot verify. The volume problem stands; the throughput ceiling moved.)*
 
 **4. Nothing new ever arrives.** Streak, goal line, market, milestones — every return
 mechanism is self-referential. There is no *new thing in the world* in the app on
@@ -191,11 +203,12 @@ because it already holds all four required pieces:
 
 - **A per-lemma retention model.** FSRS state *is* a forgetting-aware estimate of what
   you know right now. Nobody else's "known" is evidence-based.
-- **A German lemma matcher.** `scripts/corpus/matcher.ts` already tokenises German,
-  resolves inflections (verb paradigms, dative plurals, adjective de-inflection, umlaut
-  fallback) to their lemma card, and classifies function words and proper nouns. It is
-  self-contained, imports only `conjugate`/`types`, and passes 8 tests. It is currently
-  **exiled to build-time** — it was ported out of the app during the prune.
+- **A German lemma matcher.** Tokenises German, resolves inflections (verb paradigms,
+  dative plurals, adjective de-inflection, umlaut fallback) to their lemma card, and
+  classifies function words and proper nouns. *(Was exiled to build-time when this was
+  written; **ported back app-side 2026-08-04** and now lives at `src/lib/matcher.ts`,
+  which `scripts/corpus/lib.ts` imports — one implementation, so the meter and
+  `corpus:coverage` cannot disagree about what "known" means.)*
 - **Frequency ranks.** `freqRank` already ships in `public/data/provenance.json` for
   1,986 cards and comes from Leipzig lists the pipeline already loads — extending it to
   all 7,464 is a build pass, not a research project.
@@ -279,10 +292,13 @@ crossing 95% and 98% — **alongside** Known, not instead of it.
 
 ### Sequencing
 
-**Phase 0 — good regardless of the decision (days).**
-- Port `buildMatcher` back app-side. It is already self-contained and tested.
-- Join `freqRank` onto all 7,464 cards in the build. Leipzig lists are already loaded.
-- Order new cards by frequency within a CEFR band, not just by band.
+**Phase 0 — good regardless of the decision (days).** *Two of three shipped 2026-08-04;
+see BACKLOG Now #2 for the live status.*
+- ~~Port `buildMatcher` back app-side.~~ ✅ `src/lib/matcher.ts`.
+- ~~Order new cards by frequency within a CEFR band, not just by band.~~ ✅
+- Join `freqRank` onto every card in the build. **Still open** — ranks cover 27%, and
+  because those cards were *discovered through* the frequency list, today's ordering is
+  mildly self-fulfilling. Needs a `corpus:build` run on the maintainer machine.
 
 **Phase 1 — the meter (weeks).** Paste → annotate → coverage verdict against the 95/98
 bands → "the N words that get you over the line" → into the session with an `unlock`

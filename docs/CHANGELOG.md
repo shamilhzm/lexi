@@ -11,6 +11,72 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — the docs pass: an anchor, a licence, and eight files deleted
+
+The docs had grown to 26 markdown files and 7,443 lines, and had started disagreeing
+with each other about facts rather than about judgement. This pass reorganised them
+around one anchor and deleted what had finished its job.
+
+**A licence contradiction, resolved.** `README.md` said *"the application code itself is
+proprietary"*; `ATTRIBUTIONS.md` said *"Lexi's code is MIT-licensed"*; `package.json`
+said `"license": "MIT"`; and **no LICENSE file existed**. Four sources, three answers,
+on the single most load-bearing fact about an open-source project. MIT wins — it is what
+two of the three said, and it is what the project is for. `LICENSE` now exists and names
+the corpus's separate CC BY-SA obligations, and `CONTRIBUTING.md` gives the project a
+door.
+
+**[VISION.md](VISION.md) is new and is the anchor.** Six commitments — beautiful,
+bulletproof, effective, open-source, pedagogically sound, English→German and expandable
+— each stating what it *forbids*, because that is the part that does work. It absorbs
+the settled decisions that were scattered across four files, consolidates the refusals
+into one arguable table, and carries the multilingual arc rescued from ROADMAP.
+
+**It also names a contradiction rather than resolving it.** [BACKEND.md](BACKEND.md)
+opens with *"the call was made: build toward accounts and a backend"*; `CLAUDE.md` says
+*"Local-first, no backend."* Both are authoritative and they disagree. VISION records it
+as the top open decision and rules that **local-first is the shipping behaviour until it
+is settled**; BACKEND.md is marked proposal, not policy.
+
+**Deleted, recoverable from git history:**
+
+- **`ROADMAP.md`** — the ten Pro features assumed an AI tutor (cut on the record) and a
+  mining flow (re-scoped into the meter). Its one surviving asset, the per-language
+  module interface, is now VISION's multilingual section; the tokenizer note moved to
+  the backlog.
+- **`UX-PATHS.md`** — ten of its twelve findings had shipped. The two open notes moved
+  to the backlog; the finding table is preserved below because six source comments cite
+  its ids.
+- **`archive/`** (6 files, 940 lines) — DESIGN-REVIEW-2026-07, PRODUCT-FOCUS,
+  IMPLEMENTATION-PLAN, LEXICON-EXPANSION-TASK and the three Orbita-era briefs. Every one
+  carried a banner saying it was superseded and not current. Same precedent as the July
+  tidy: git history is what history is for.
+
+**The README was wrong in almost every number** — 7,394 cards (actual 6,581), 835
+exercises (actual 5,207), 291 sectors (actual 277), 369 tests (actual 650) — and still
+described a left sidebar that `TopBar` replaced on 08-12, three destinations when there
+are four, and four drill types when there are ten. It never mentioned the exam surface
+at all. Rewritten against measured values.
+
+#### The UX path findings (July 2026), preserved
+
+Traced against the code, not against how we hoped it behaved. `store.ts`,
+`VoiceOffer.tsx`, `tts.ts`, `BackupNudge.tsx` and `useHdVoice.ts` cite these ids.
+
+| # | Finding | Status |
+|---|---|---|
+| H1 | Today's grammar row showed a stale exercise count. Stale numbers corrode trust in every other number. | ✅ fixed |
+| H2 | The recap reports flips + recall but doesn't celebrate drill work distinctly. | → backlog |
+| S1 | Today's "All clear" state was a dead end — the one moment a motivated learner asks for more, answered with a shrug. | ✅ fixed |
+| S2 | Abandoning the guided first run mid-placement returns to the hero without acknowledging the retry. | → backlog |
+| S3 | A cleared cache with no backup is unrecoverable, and nothing ever *suggested* exporting. | ✅ `BackupNudge.tsx` |
+| F1 | **Space couldn't be typed in typed exercises** — the global flip handler ate it, so "habe gemacht" was untypeable. The app looked broken and blamed your fingers. | ✅ fixed |
+| F2 | **The post-gap mountain** — `buildBriefing` included every due review, uncapped. "312 cards queued" is the most common reason people quit SRS apps. | ✅ `DAILY_DUE_CAP` 60, oldest-first, honestly framed |
+| F3 | Wrong-answer tone was uniform; the 5th consecutive miss behaved like the 1st. | ✅ circuit breaker |
+| F4 | The HD voice hid behind a Settings toggle; frustrated ears met robo-TTS and never learned better existed. | ✅ offered in context at the failing tap |
+| F5 | No session resume — and the "grades persist so it's fine" reasoning was half right: the builder makes five randomised decisions, so a rebuild is a *different* queue. | ✅ the queue is stored and rehydrated |
+
+---
+
 ### Shipped 2026-08-12 — the typing race, and a passage nobody could type
 
 `#/games` is the fourth destination, and **Tipprennen** is the first thing in it:
@@ -1616,7 +1682,8 @@ here at the time; written up on merge.
   Dativ-Präpositionen → Adjektivdeklination (schwach) → Genitiv. Seven drill
   tiles now. 4 new tests (gate + pinned-rnd generator checks); 57/57.
 - **UX path analysis + three fixes** (user-requested "final pass"). New
-  [`docs/UX-PATHS.md`](UX-PATHS.md): happy / sad / frustrated walkthroughs traced
+  `docs/UX-PATHS.md` (retired 2026-08-13; its table is preserved in this file's
+  2026-08-13 entry): happy / sad / frustrated walkthroughs traced
   against the code, findings tables, priorities. Fixed in the pass: **F1** —
   Review's global Space handler made spaces untypeable in typed exercises
   (`habe gemacht`); key handling now ignores inputs. **S1** — Today's "All clear"
@@ -1680,7 +1747,8 @@ here at the time; written up on merge.
   silent total data loss for a casual friend. (2) **Flag-a-card:** one-tap flag in
   the session chrome (`lexi.flags.v1`, deduped, capped, rides the backup export) —
   the error-report loop a solo-maintained corpus needs. (3) **Simulated user
-  sessions** ([`SIMULATED-SESSION.md`](SIMULATED-SESSION.md), stand-in until a
+  sessions** (`SIMULATED-SESSION.md`, since folded into [PERSONAS.md](PERSONAS.md) —
+  stand-in until a
   real friend is picked) drove five fixes: zero-seed placement copy ("Starting
   fresh at A1" instead of "Seeded 0 words"), **"Still learning / Got it"** labels
   on first-sight cards (new cards can't be "known"), ✓/✗ icons on all MC

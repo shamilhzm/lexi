@@ -84,5 +84,35 @@ table. That's what "a certain level of guarantee" means: not confidence —
 - **Device continuity** is partly addressed: encrypted-free JSON export/restore
   ships in Settings, and the install nudge exists because Safari evicts
   script-writable storage after ~7 days. Sync remains out of scope.
-- Everything else in the gap table is still open. See
-  [BACKLOG.md](BACKLOG.md).
+- **Assignability** has a partial answer: `lib/classpack.ts` ships a self-contained
+  deck format one person can hand another as a file. It carries whole cards (not ids,
+  which would assume both sides run the same corpus build) and **no progress** — what
+  you studied is yours. The gap it leaves is direction: the flow is learner → learner,
+  and a teacher needs teacher → class.
+- Everything else in the gap table is still open. See [BACKLOG.md](BACKLOG.md).
+
+## The contradiction, and its resolution — 2026-08-13
+
+[CRITIQUE.md §2](CRITIQUE.md) named this pitch's central problem: *"the two strongest
+B2B arguments are in direct opposition — 'your students' data never leaves their device'
+and 'here is your students' data.' Someone has to pick."* That is correct, and the first
+row of the gap table above ("measurement a teacher can see") is where it bites.
+
+[PEDAGOGY.md](PEDAGOGY.md) found the way out, from six teachers who were asked what they
+actually wanted:
+
+1. **Print.** A worksheet with an answer key is the highest-value artefact any teacher
+   can be handed, and it needs no backend, no accounts, no sync and no DSGVO exposure.
+   The app holds 5,207 explained exercises and 6,472 cards and can currently emit none
+   of it onto paper. It is the cheapest unbuilt thing in the product.
+2. **A learner-initiated report.** The student exports and sends; the app never
+   collects. This is the *Klassen-Report* row of the gap table, built the only way that
+   keeps row 2 of "the three assets" true.
+3. **Not a dashboard.** Asked directly, the UK classroom teacher argued against one
+   while wanting the outcome: *"Do not build me a dashboard. I have six and I look at
+   none. If you add a login I cannot use it at all."*
+
+**So the pick is made: print and learner-initiated export, never collection.** The
+guarantee below survives it — every clause is still measurable, and the teacher's
+verification becomes a document the student hands over rather than a login the school
+administers. [VISION.md](VISION.md) records this as a refusal.
