@@ -377,8 +377,15 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
 export function buildMixedSession(target: Target, teachOnly = false): SessionItem[] {
   const words = buildSession(target);
   const now = Date.now();
+  // A session assembled by the comprehension meter has a better answer to "why is
+  // this card here?" than `fresh` — the learner picked a text and these are the
+  // words in the way of it. Only the *flips* carry it; a drill woven in beside one
+  // still explains itself as a drill.
+  const unlockText = target.kind === 'custom' ? target.unlockText : undefined;
+  const reasonFor = (w: Word): SessionReason =>
+    unlockText ? { kind: 'unlock', text: unlockText } : flipReason(w, now);
   if (teachOnly) {
-    return words.map((w) => ({ type: 'flip' as const, word: w, srsId: w.id, reason: flipReason(w, now) }));
+    return words.map((w) => ({ type: 'flip' as const, word: w, srsId: w.id, reason: reasonFor(w) }));
   }
 
   const drills = new Map<number, SessionItem>(); // flip index → its drill
@@ -412,7 +419,7 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
 
   const out: SessionItem[] = [];
   words.forEach((w, idx) => {
-    out.push({ type: 'flip', word: w, srsId: w.id, reason: flipReason(w, now) });
+    out.push({ type: 'flip', word: w, srsId: w.id, reason: reasonFor(w) });
     const d = drills.get(idx - GAP);
     if (d) out.push(d);
   });

@@ -11,6 +11,44 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the comprehension meter, Phase 1: the surface
+
+`src/views/Read.tsx`, on `#/read`, reached from inside Lesen on Today — the same
+section, on purpose, because "one reading place, not two" is the whole point of
+building Phase 1 on Lesen rather than beside it.
+
+Paste German, get the number with **the count beside it** — *"0 of 14 content words
+known · 14 more words to reach the 95% mark"* — the ranked words that get you there,
+and the passage read back with your own state on it.
+
+**The read-back matches Lesen's visual language rather than inventing one.**
+`ReadingList` already marks a word the learner has not met as `text-amber underline
+decoration-dotted`, so the meter does too. Known words stay plain ink: the gaps are
+what the eye should catch, and a passage where every readable word is coloured is a
+passage nobody reads. The key is rendered from the same `TINT` map as the text, so it
+cannot drift out of sync with what is on screen. (A first draft used `text-blue`,
+which is not a token in this theme at all — `--color-amber` *is* the Atlas blue.)
+
+**`unlockText` on a custom target** carries the learner's own text into
+`buildMixedSession`, which gives the flips `{ kind: 'unlock' }` instead of `fresh`.
+Verified end to end in the browser: pasting a paragraph and pressing *Study these 14*
+opens a session whose first card reads **"Because you want to read „Der große Hund und
+die Katze schlafen im…"**. Drills woven in beside those flips still explain themselves
+as drills — only the flips carry the unlock reason, because only they are the words
+standing between the learner and the text.
+
+The live run is also the clearest demonstration of why the meter runs on the matcher
+and not on Lesen's index: `beschlossen` resolved to **beschließen**, `große` to
+**groß**, `hat` to **haben**, `war` to **sein**. On the reader's index all four would
+have been reported as words the learner cannot read.
+
+**Phase 1 is complete.** Phase 2 (saved texts with a live meter) and Phase 3 (narrow
+output) remain, as does converging `reader.ts` onto the matcher.
+
+775 tests green.
+
+---
+
 ### Shipped 2026-08-15 — the comprehension meter, Phase 1: the number
 
 `src/lib/coverage.ts`. Paste a text, get the share of it you can actually read,

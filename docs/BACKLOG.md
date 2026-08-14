@@ -542,11 +542,13 @@ argued and declined — see the ruling block in COMPETITIVE-RESEARCH §5.
   the network-enabled maintainer machine. **When it lands, re-run `npm run corpus:freq`
   and nothing else has to change** — the app side is finished and coverage-agnostic.
 
-> ✅ **The measurement half shipped 2026-08-15** — `src/lib/coverage.ts`, 14 tests.
-> Coverage against the 95/98 bands with counts, the ranked unlock set,
+> ✅ **Phase 1 shipped 2026-08-15, both halves.** `src/lib/coverage.ts` (14 tests) —
+> coverage against the 95/98 bands with counts, the ranked unlock set,
 > `unlocksToReach`, and `{ kind: 'unlock'; text }` on `SessionReason` with a
-> `whyLine` case. **Left to build: the paste/save surface and the read-back view**
-> (known/learning/new tinting, tap for gloss, tap to add).
+> `whyLine` case. `src/views/Read.tsx` on `#/read`, reached from inside Lesen —
+> paste, measure, read back with known/learning/new tinting, tap for gloss, and one
+> tap into a session that says *"because you want to read …"*. Verified end to end
+> in the browser.
 >
 > ⚠️ **Follow-up: `reader.ts` should converge on the matcher.** The meter runs on
 > `buildMatcher` because Lesen's own index is strictly thinner — `große`, `Hunden`

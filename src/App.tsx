@@ -36,6 +36,7 @@ const Exam = lazy(() => import('./views/Exam.tsx'));
 // Paper. Lazy like Exam: a worksheet is opened deliberately and rarely, and the
 // A4 rendering has no business on the boot path.
 const Print = lazy(() => import('./views/Print.tsx'));
+const Read = lazy(() => import('./views/Read.tsx'));
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
@@ -47,7 +48,7 @@ import { registerRedemittel } from './lib/redemittel.ts';
 import { parseHash, toHash, type ProgressRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'progress' | 'library' | 'games' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam' | 'print';
+export type View = 'today' | 'progress' | 'library' | 'games' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam' | 'print' | 'read';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 export default function App() {
@@ -255,7 +256,7 @@ export default function App() {
           <div key={view}
             className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} />}
+                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} onRead={() => go('read')} />}
                 {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
                 {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} onRedemittel={startRedemittel} />}
                 {view === 'games' && <Games />}
@@ -267,6 +268,11 @@ export default function App() {
                 {view === 'print' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
                     <Print onExit={() => go('library')} />
+                  </Suspense>
+                )}
+                {view === 'read' && (
+                  <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
+                    <Read onExit={() => go('today')} onStudy={study} />
                   </Suspense>
                 )}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}

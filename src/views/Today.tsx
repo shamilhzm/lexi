@@ -4,7 +4,7 @@
 // blind spots. The market (children) mounts below it on the merged home.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText } from 'lucide-react';
+import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText, Gauge } from 'lucide-react';
 import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime, visitCount, lastSeen, markTodaySeen } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
@@ -29,10 +29,11 @@ import type { CEFR, Target, Word } from '../types.ts';
  *  gap between classes — the three shapes a real day actually has. */
 const SHORT_MINUTES = [3, 5, 10];
 
-export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress, onBrain }:
+export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress, onBrain, onRead }:
   { onStart: (t: Target) => void; onExam: () => void; onPlacement: () => void; onGuidedStart: () => void;
     onBlindDrill: (tag?: string) => void; onDecks: () => void;
-    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onBrain: () => void }) {
+    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onBrain: () => void;
+    onRead: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const drillsDue = useMemo(() => gymDue(), [v]);
@@ -369,7 +370,20 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           {readOpen && (
             <motion.div key="read" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
-              <div className="pt-2.5"><ReadingList onStudy={onStart} /></div>
+              <div className="pt-2.5 flex flex-col gap-2.5">
+                <ReadingList onStudy={onStart} />
+                {/* The other half of Lesen: sentences Lexi picked, and now a text
+                    the learner brings. Same section on purpose — one reading
+                    place, not two. */}
+                <Card as="button" tone="sunken" pad="none" onClick={onRead}
+                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
+                  <span className="grid place-items-center w-9 h-9 rounded-md bg-panel text-blue flex-shrink-0"><Gauge size={18} /></span>
+                  <span className="flex-1">
+                    <span className="block text-sm font-semibold">Can I read this?</span>
+                    <span className="block text-xs text-dim">Paste a text — see what you’d understand</span>
+                  </span>
+                </Card>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

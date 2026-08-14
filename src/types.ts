@@ -61,4 +61,7 @@ export type Target =
   // 5 flips it sliced plus up to a drill each plus 4 blind spots, 2 linked
   // points and a remedy: twelve items, for a button whose whole promise is that
   // it fits a commute.
-  | { kind: 'custom'; name: string; ids: string[]; cap?: number };
+  // `unlockText` is set only by the comprehension meter: it is the learner's own
+  // text, carried through so the scheduler can say *why* these words are here
+  // ("because you want to read …") instead of calling them plain new cards.
+  | { kind: 'custom'; name: string; ids: string[]; cap?: number; unlockText?: string };
