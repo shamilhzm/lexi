@@ -80,6 +80,14 @@ it turns out to be wrong.**
 - **Two of `corpus:audit`'s own checks** were tried and removed for firing on thousands
   of correct rows. The removals are documented at the top of `scripts/corpus/audit.ts`
   so they are not re-added.
+- **An automated gender check firing on nominalised adjectives.** *(2026-08-13.)* A
+  wiktionary gender probe over B2+ nouns reported 2 disagreements in 90. Hand-verified:
+  **one was real** (*die Babyboomer*, wiktionary says *der*) and **one was the check
+  being wrong** — *der Einzelne* is a nominalised adjective and takes all three genders
+  (*der/die Einzelne*), which wiktionary documents under the feminine headword. Any
+  gender audit must exclude adjectival nouns — *der Bekannte*, *die Angestellte*, *der
+  Deutsche* — the same way `caseSafe` already excludes n-Deklination masculines. Two
+  hits, one false, exactly as this class predicts.
 - **Mining verb government from example sentences.** *(2026-08-13, caught before
   anything was written.)* The backlog and the pedagogic critique both proposed deriving
   `warten auf + A` from the corpus's 16,000 examples — "derivable for a large share via
