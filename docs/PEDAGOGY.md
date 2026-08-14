@@ -509,7 +509,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 | 7 | ⚠️ **The corpus is 2.3% multi-word and 7 particles.** **Largely withdrawn 2026-08-13** — the finding measured the card corpus only. 129 Redemittel ship in the exam speaking labs (now scheduled) and five grammar points teach the particle system. The residue is real but smaller: this material lives outside the cards, so search, decks and print could not see it. | **P2** | L3, L5, T3, T6 | corpus |
 | 8 | ⚠️ **34% of cards sit in five non-semantic bins**, and `weakestSectors()` feeds tomorrow's vocabulary off that taxonomy. **Fixed 2026-08-13, and half the finding was overstated** — three of the five bins are coherent POS decks. The real defects were seven duplicated sector names, 118 cards with no sector row, a Miscellaneous *group* holding 35 misfiled sectors, and 501 unclassified cards. All four closed; the Miscellaneous sector and its group no longer exist. | **P1** | T3, L6, L1 | corpus |
 | 9 | ⟳ **No textbook/chapter alignment**, and the functional sectors that would carry it hold one card each. | **P1** | T3, L1, T6 | syllabus |
-| 10 | ⟳ **C1/C2 is 3% of the exercise bank** (156 of 5,207) against 1,538 at A1. | **P1** | T4, L5 | corpus |
+| 10 | ✅ **C1/C2 is 3% of the exercise bank** (156 of 5,207) against 1,538 at A1. **Closed 2026-08-13** — C1 86→204, C2 70→174, and both levels now have a higher *minimum* per point than A1–B2 do. | **P1** | T4, L5 | corpus |
 | 11 | **No collocation and no verb valency field.** 1,199 verbs that don't know their own preposition. | **P1** | L2, L5, T4 | corpus |
 | 12 | **No fossilisation model.** FSRS finds forgetting; a plateau learner's problem is fluent, stable, wrong. | **P1** | L5 | diagnosis |
 | 13 | **Nothing longer than a sentence exists**, as input or output, anywhere. | **P1** | L2, L3, T4 | output |
@@ -625,18 +625,24 @@ new part.
    and **142 in part-of-speech or `Abstract` bins** — because *Chance*, *Detail*,
    *System* and *Zufall* have no topic, and `Abstract` is a true label where
    `Miscellaneous` was an absent one.
-10. 🔄 **C1/C2 exercise depth.** Was 156 items across two levels; now **301**.
-    Authored not generated — at these levels a generated item can state that an answer
-    is right but not why — and appended through `corpus:gex`, because the positional
-    `gex:` ids make append-only a correctness requirement.
+10. ✅ **C1/C2 exercise depth.** **Closed 2026-08-13.** Was 156 items across two
+    levels; now **378**, authored not generated — at these levels a generated item can
+    state that an answer is right and not why — and appended through `corpus:gex`,
+    because the positional `gex:` ids make append-only a correctness requirement.
 
     | | points | exercises | avg | thinnest |
     |---|---|---|---|---|
-    | C1 | 12 | 86 → **182** | 7.2 → **15.2** | 10 |
-    | C2 | 11 | 70 → **119** | 6.4 → **10.8** | 5 |
+    | C1 | 12 | 86 → **204** | 7.2 → **17.0** | 6 → **16** |
+    | C2 | 11 | 70 → **174** | 6.4 → **15.8** | 5 → **15** |
 
-    Bank 5,207 → **5,352**. **A1 still averages 64**, so the gap is narrowed and not
-    closed: six C1 points and six C2 points remain at 5–10.
+    Bank 5,207 → **5,429**. About half the C2 items are questions about the system
+    rather than gap-fills, because at C2 the remaining errors are rarely grammatical —
+    they are choices that are correct and wrong at once.
+
+    **The finding now points the other way.** C1 and C2 have the **highest minimum of
+    any level**: A1, A2, B1 and B2 each still contain a point with only **5** exercises.
+    The thin layer is no longer the top of the syllabus.
+
 11. **Collocation and register on B2+ cards.** ⟳ Backlog #45, moved earlier: it bites
     at B2 for anyone working in German, not only at C1.
 

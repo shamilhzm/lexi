@@ -65817,6 +65817,72 @@
             "stellen"
           ],
           "explain": "einen Antrag stellen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ eine Entscheidung.",
+          "options": [
+            "treffen",
+            "machen",
+            "nehmen"
+          ],
+          "answer": 0,
+          "explain": "eine Entscheidung treffen. The verb is nearly empty; the noun carries the meaning, and the pairing is fixed."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ Kritik an dem Plan.",
+          "options": [
+            "übt",
+            "macht",
+            "gibt"
+          ],
+          "answer": 0,
+          "explain": "Kritik üben an + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ zur Folge, dass die Kosten steigen.",
+          "options": [
+            "hat",
+            "macht",
+            "nimmt"
+          ],
+          "answer": 0,
+          "explain": "zur Folge haben — the standard way written German states a consequence."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ einen Antrag auf Förderung.",
+          "options": [
+            "stellt",
+            "macht",
+            "gibt"
+          ],
+          "answer": 0,
+          "explain": "einen Antrag stellen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ die Verantwortung für den Fehler.",
+          "options": [
+            "übernehmen",
+            "nehmen",
+            "machen"
+          ],
+          "answer": 0,
+          "explain": "Verantwortung übernehmen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum benutzt Fachsprache Funktionsverbgefüge?",
+          "options": [
+            "das Nomen lässt sich näher bestimmen — „scharfe Kritik üben“",
+            "sie sind kürzer als das einfache Verb",
+            "sie sind umgangssprachlich"
+          ],
+          "answer": 0,
+          "explain": "„kritisieren“ takes no adjective; „Kritik üben“ does. That is the whole point of the construction, and why it thrives in formal writing."
         }
       ],
       "sections": [
@@ -65984,6 +66050,94 @@
           ],
           "answer": 0,
           "explain": "sich lassen again — the most idiomatic of the replacements in speech."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Tür ___ sich nicht öffnen.",
+          "options": [
+            "lässt",
+            "ist",
+            "wird"
+          ],
+          "answer": 0,
+          "explain": "sich lassen + Infinitiv: the door cannot be opened. Possibility, without ever saying werden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Antrag ist bis Freitag ___ stellen.",
+          "options": [
+            "zu",
+            "zum",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv carries obligation: the application must be submitted by Friday."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Aufgabe ist nicht ___.",
+          "options": [
+            "lösbar",
+            "lösend",
+            "gelöst"
+          ],
+          "answer": 0,
+          "explain": "-bar on a transitive verb means „can be …ed“. „gelöst“ would say it is finished, not that it is possible."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hier ___ man nicht rauchen.",
+          "options": [
+            "darf",
+            "ist",
+            "lässt"
+          ],
+          "answer": 0,
+          "explain": "man + modal is the fourth substitute, and the commonest in speech: „hier darf man nicht rauchen“ for „hier darf nicht geraucht werden“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Regel ist leicht ___ merken.",
+          "options": [
+            "zu",
+            "zum",
+            "am"
+          ],
+          "answer": 0,
+          "explain": "sein + zu again — here possibility rather than obligation. Context decides which."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Schaden ___ sich reparieren.",
+          "options": [
+            "lässt",
+            "ist",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "sich lassen + Infinitiv."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Das Problem lässt sich lösen“ heißt:",
+          "options": [
+            "Das Problem kann gelöst werden.",
+            "Das Problem wurde gelöst.",
+            "Das Problem löst sich selbst."
+          ],
+          "answer": 0,
+          "explain": "sich lassen is possibility. The third reading — that it solves itself — is what „sich lösen“ alone would mean, without lassen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum vermeidet gutes Deutsch oft das werden-Passiv?",
+          "options": [
+            "die Ersatzformen sind kürzer und weniger behördlich",
+            "das Passiv ist grammatisch falsch",
+            "die Ersatzformen sind höflicher"
+          ],
+          "answer": 0,
+          "explain": "A register choice. All four constructions are correct; the substitutes simply sound less like a form letter."
         }
       ]
     },
@@ -66472,6 +66626,94 @@
           ],
           "answer": 0,
           "explain": "mögen as a subjective modal concedes possibility: “that may well be true”."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ sehr reich sein. (Man sagt das.)",
+          "options": [
+            "soll",
+            "will",
+            "muss"
+          ],
+          "answer": 0,
+          "explain": "sollen reports hearsay: people say he is rich. The speaker takes no position."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ das Buch selbst geschrieben haben. (Sie behauptet es.)",
+          "options": [
+            "will",
+            "soll",
+            "darf"
+          ],
+          "answer": 0,
+          "explain": "wollen reports the *subject's own* claim — and quietly signals the speaker doubts it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ stimmen. (Ich bin ziemlich sicher.)",
+          "options": [
+            "dürfte",
+            "darf",
+            "will"
+          ],
+          "answer": 0,
+          "explain": "dürfte is a confident estimate, not permission. Konjunktiv II is what makes it subjective."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ krank sein — er sieht schrecklich aus.",
+          "options": [
+            "muss",
+            "will",
+            "soll"
+          ],
+          "answer": 0,
+          "explain": "müssen is the strongest inference: the evidence leaves no other reading."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ schon zu Hause sein. (Möglich, aber unsicher.)",
+          "options": [
+            "könnte",
+            "kann",
+            "will"
+          ],
+          "answer": 0,
+          "explain": "könnte is the weakest of the certainty scale — possible, no more."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Minister ___ zurückgetreten sein. (Laut Zeitung.)",
+          "options": [
+            "soll",
+            "will",
+            "müsste"
+          ],
+          "answer": 0,
+          "explain": "Reported by someone else: sollen. This is the everyday journalistic use."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er will nichts gewusst haben“ bedeutet:",
+          "options": [
+            "Er behauptet, nichts gewusst zu haben.",
+            "Er wollte es nicht wissen.",
+            "Man sagt, er habe nichts gewusst."
+          ],
+          "answer": 0,
+          "explain": "The subject's own assertion. The third option would be „Er soll nichts gewusst haben“ — the same sentence with a different source."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Modalverb drückt Hörensagen aus?",
+          "options": [
+            "sollen",
+            "wollen",
+            "können"
+          ],
+          "answer": 0,
+          "explain": "sollen = someone else says so; wollen = the subject says so. Getting these two the wrong way round is the classic C1 error."
         }
       ]
     },
@@ -67443,6 +67685,116 @@
           "answer": 7,
           "fix": "Setz dich doch mal bitte hin.",
           "explain": "Particles cluster before the verb complement; sofort over-stuffs the imperative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Komm ___ her! (freundlich, nicht befehlend)",
+          "options": [
+            "mal",
+            "ja",
+            "wohl"
+          ],
+          "answer": 0,
+          "explain": "mal softens an imperative into an invitation. Without it the sentence is an order."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ nicht so einfach. (Einsicht: es ist nun einmal so)",
+          "options": [
+            "eben",
+            "mal",
+            "denn"
+          ],
+          "answer": 0,
+          "explain": "eben (and halt in the south) marks something as simply the case and not worth arguing about."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Du weißt ___, dass ich keine Zeit habe.",
+          "options": [
+            "doch",
+            "denn",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "doch appeals to something the hearer already knows — a reminder, gently reproachful."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wo ist ___ mein Schlüssel? (leicht ungeduldig)",
+          "options": [
+            "denn",
+            "ja",
+            "eben"
+          ],
+          "answer": 0,
+          "explain": "denn in a question adds involvement or impatience. A question without it is neutral to the point of coldness."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er wird ___ recht haben. (Vermutung)",
+          "options": [
+            "wohl",
+            "ja",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "wohl marks a supposition: probably."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ ein Problem! (Überraschung)",
+          "options": [
+            "ja",
+            "denn",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "Stressed ja in a statement expresses surprise at something just noticed."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Setz dich ___ hin. (beruhigend)",
+          "options": [
+            "ruhig",
+            "wohl",
+            "denn"
+          ],
+          "answer": 0,
+          "explain": "ruhig as a particle grants permission and removes hesitation — nothing to do with quietness."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nimm ___ Platz! (einladend, drängend)",
+          "options": [
+            "doch",
+            "denn",
+            "wohl"
+          ],
+          "answer": 0,
+          "explain": "doch in an imperative presses gently: do go ahead and sit down."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was tun Modalpartikeln?",
+          "options": [
+            "sie färben die Haltung des Sprechers, nicht den Inhalt",
+            "sie verändern die Zeitform",
+            "sie verneinen den Satz"
+          ],
+          "answer": 0,
+          "explain": "Remove every particle and the propositional content is unchanged — which is exactly why they are invisible to a learner and audible to a native."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Modalpartikeln sind …",
+          "options": [
+            "unbetont und stehen im Mittelfeld",
+            "immer betont und stehen am Satzanfang",
+            "trennbar wie Verbpräfixe"
+          ],
+          "answer": 0,
+          "explain": "They cannot open a sentence and cannot stand alone as an answer — the test that separates the particle *doch* from the answer *Doch!*"
         }
       ]
     },
@@ -67561,6 +67913,72 @@
           ],
           "answer": 0,
           "explain": "It marks formal writing; speech unpacks it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nach dem ___ der Arbeiten wird die Straße freigegeben.",
+          "options": [
+            "Abschluss",
+            "Abschließen",
+            "Abgeschlossen"
+          ],
+          "answer": 0,
+          "explain": "The -ung/-schluss noun is the standard nominalisation; „nach dem Abschließen“ is possible but reads clumsier."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die ___ des Antrags erfolgt schriftlich.",
+          "options": [
+            "Einreichung",
+            "Einreichen",
+            "Eingereicht"
+          ],
+          "answer": 0,
+          "explain": "einreichen → die Einreichung. Administrative German prefers the noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Bei ___ des Vertrags gelten neue Bedingungen.",
+          "options": [
+            "der Verlängerung",
+            "die Verlängerung",
+            "dem Verlängern"
+          ],
+          "answer": 0,
+          "explain": "bei + Dativ, and verlängern → die Verlängerung."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Zur ___ der Qualität wurden Tests durchgeführt.",
+          "options": [
+            "Sicherung",
+            "Sicherheit",
+            "Sichern"
+          ],
+          "answer": 0,
+          "explain": "sichern → die Sicherung (the act). „Sicherheit“ is the state, which is a different noun and a different claim."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Verbalstil für „unter Berücksichtigung der Kosten“:",
+          "options": [
+            "wenn man die Kosten berücksichtigt",
+            "die Kosten werden berücksichtigt",
+            "unter den Kosten"
+          ],
+          "answer": 0,
+          "explain": "The prepositional phrase unpacks into a subordinate clause; that is the whole Nominalstil ↔ Verbalstil exchange."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Nominalstil ist typisch für:",
+          "options": [
+            "Verwaltungs-, Rechts- und Fachtexte",
+            "Gespräche unter Freunden",
+            "Kinderbücher"
+          ],
+          "answer": 0,
+          "explain": "It compresses information and removes the agent — useful in a statute, deadening in a conversation."
         }
       ],
       "sections": [
@@ -68018,6 +68436,116 @@
           ],
           "answer": 0,
           "explain": "gleichwohl marks elevated written German."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er war erschöpft; ___ arbeitete er weiter.",
+          "options": [
+            "gleichwohl",
+            "sofern",
+            "zumal"
+          ],
+          "answer": 0,
+          "explain": "gleichwohl = nevertheless, in an elevated register. It is a Konjunktionaladverb, so the verb follows it directly."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Sie einverstanden sind, beginnen wir sofort.",
+          "options": [
+            "Sofern",
+            "Zumal",
+            "Gleichwohl"
+          ],
+          "answer": 0,
+          "explain": "sofern = provided that. It subordinates, so the verb goes to the end of its clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Plan überzeugt, ___ er wenig kostet.",
+          "options": [
+            "zumal",
+            "sofern",
+            "indes"
+          ],
+          "answer": 0,
+          "explain": "zumal adds a reinforcing reason — especially since."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ aller Bedenken wurde das Projekt umgesetzt.",
+          "options": [
+            "Ungeachtet",
+            "Gleichwohl",
+            "Sofern"
+          ],
+          "answer": 0,
+          "explain": "ungeachtet is a preposition taking the genitive: notwithstanding all reservations."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Zahlen stiegen; ___ blieb die Lage angespannt.",
+          "options": [
+            "indes",
+            "sofern",
+            "zumal"
+          ],
+          "answer": 0,
+          "explain": "indes(sen) = however, meanwhile. Strongly literary."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er erfüllt alle Kriterien und ist ___ geeignet.",
+          "options": [
+            "mithin",
+            "sofern",
+            "zumal"
+          ],
+          "answer": 0,
+          "explain": "mithin = hence, therefore. It draws a conclusion, and belongs to formal argument."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„zumal“ leitet ein:",
+          "options": [
+            "einen verstärkenden Grund",
+            "eine Bedingung",
+            "einen Gegensatz"
+          ],
+          "answer": 0,
+          "explain": "It does not simply mean „weil“ — it says the reason just given is especially strong."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„sofern“ entspricht ungefähr:",
+          "options": [
+            "wenn / falls",
+            "obwohl",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "A condition, in a register a legal text would use."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Konnektor ist am förmlichsten?",
+          "options": [
+            "ungeachtet",
+            "trotzdem",
+            "aber"
+          ],
+          "answer": 0,
+          "explain": "Same relation, three registers: ungeachtet (gehoben) · trotzdem (neutral) · aber (neutral, spoken). Choosing wrongly is not a grammar error, which is what makes it a C2 problem."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht das Verb nach „gleichwohl“ am Satzanfang?",
+          "options": [
+            "direkt danach — es ist ein Adverb, keine Konjunktion",
+            "am Satzende",
+            "vor dem Subjekt am Ende"
+          ],
+          "answer": 0,
+          "explain": "„Gleichwohl arbeitete er weiter.“ Treating it as a subordinating conjunction and sending the verb to the end is the commonest mistake with this set."
         }
       ]
     },
@@ -68088,6 +68616,116 @@
           ],
           "answer": 0,
           "explain": "auf der Kippe stehen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ dir die Daumen.",
+          "options": [
+            "drücke",
+            "halte",
+            "mache"
+          ],
+          "answer": 0,
+          "explain": "die Daumen drücken — to keep one's fingers crossed. The verb is fixed; no synonym works."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Du hast den Nagel auf den Kopf ___.",
+          "options": [
+            "getroffen",
+            "geschlagen",
+            "gemacht"
+          ],
+          "answer": 0,
+          "explain": "den Nagel auf den Kopf treffen — to hit the nail on the head."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Damit hat er nur Öl ins Feuer ___.",
+          "options": [
+            "gegossen",
+            "gelegt",
+            "getan"
+          ],
+          "answer": 0,
+          "explain": "Öl ins Feuer gießen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nun ___ endlich die Katze aus dem Sack!",
+          "options": [
+            "lass",
+            "mach",
+            "gib"
+          ],
+          "answer": 0,
+          "explain": "die Katze aus dem Sack lassen — to come out with it. The verb is fixed; machen and geben do not work."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat mir einen Bären ___.",
+          "options": [
+            "aufgebunden",
+            "erzählt",
+            "gemacht"
+          ],
+          "answer": 0,
+          "explain": "jemandem einen Bären aufbinden — to spin someone a yarn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat aus dem Nähkästchen ___.",
+          "options": [
+            "geplaudert",
+            "gesprochen",
+            "erzählt"
+          ],
+          "answer": 0,
+          "explain": "aus dem Nähkästchen plaudern — to share the inside story."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Patient ist über den ___.",
+          "options": [
+            "Berg",
+            "Hügel",
+            "Gipfel"
+          ],
+          "answer": 0,
+          "explain": "über den Berg sein — to be out of the woods. A synonym for Berg breaks the idiom, which is the point."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Da ist Hopfen und Malz verloren.“",
+          "options": [
+            "Es ist hoffnungslos.",
+            "Es wird teuer.",
+            "Es hat gut geschmeckt."
+          ],
+          "answer": 0,
+          "explain": "From brewing: once hops and malt are spoiled, nothing can be salvaged."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er hat Tomaten auf den Augen.“",
+          "options": [
+            "Er sieht das Offensichtliche nicht.",
+            "Er hat geweint.",
+            "Er ist krank."
+          ],
+          "answer": 0,
+          "explain": "Not about eyes at all — which is the definition of an idiom."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum kann man ein Idiom nicht Wort für Wort übersetzen?",
+          "options": [
+            "die Bedeutung folgt nicht aus den Einzelwörtern",
+            "die Wörter sind zu alt",
+            "es fehlt ein Verb"
+          ],
+          "answer": 0,
+          "explain": "And the wording is fixed: *den Nagel auf den Kopf schlagen* is grammatical German and simply not the phrase."
         }
       ]
     },
@@ -68191,6 +68829,83 @@
           ],
           "answer": 0,
           "explain": "wie oft … auch = however often. The subjunctive-flavoured past keeps the register high."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ auch immer kommt, wir sind vorbereitet.",
+          "options": [
+            "Wer",
+            "Was",
+            "Wie"
+          ],
+          "answer": 0,
+          "explain": "A person is at stake, so wer. „auch immer“ makes the identity irrelevant."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ schwer es auch sein mag, wir schaffen es.",
+          "options": [
+            "Wie",
+            "Was",
+            "Wer"
+          ],
+          "answer": 0,
+          "explain": "wie + adjective: however hard it may be."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ er auch hingeht, man erkennt ihn.",
+          "options": [
+            "Wohin",
+            "Wo",
+            "Was"
+          ],
+          "answer": 0,
+          "explain": "Direction, so wohin — the same distinction as in an ordinary question."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ oft ich es auch versuche, es klappt nicht.",
+          "options": [
+            "Wie",
+            "Was",
+            "Wer"
+          ],
+          "answer": 0,
+          "explain": "wie + adverb: however often."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Was auch immer geschieht — bleib ___.",
+          "options": [
+            "ruhig",
+            "ruhe",
+            "geruhig"
+          ],
+          "answer": 0,
+          "explain": "The main clause is ordinary; only the concessive clause is special. The adjective stands undeclined after bleiben."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht das Verb im Irrelevanzkonzessivsatz?",
+          "options": [
+            "am Ende des Nebensatzes",
+            "an zweiter Position",
+            "direkt nach „auch“"
+          ],
+          "answer": 0,
+          "explain": "It is a subordinate clause despite opening with a question word: „Wer auch immer kommt …“."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Wie dem auch sei“ bedeutet:",
+          "options": [
+            "Jedenfalls / ungeachtet dessen",
+            "Wie geht es dir?",
+            "So ist es richtig"
+          ],
+          "answer": 0,
+          "explain": "A frozen form of the same construction, and one of the few places Konjunktiv I still surfaces in speech."
         }
       ],
       "sections": [
@@ -68372,6 +69087,28 @@
           ],
           "answer": 0,
           "explain": "Genitive objects survive in a small, largely formal set — bedürfen, gedenken, sich enthalten, sich bedienen, and the legal verbs of accusation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er entledigte sich ___ lästigen Aufgabe.",
+          "options": [
+            "der",
+            "die",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "sich entledigen + Genitiv: to rid oneself of something. Feminine genitive singular is der."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie rühmte sich ___ Erfolgs.",
+          "options": [
+            "ihres",
+            "ihren",
+            "ihrem"
+          ],
+          "answer": 0,
+          "explain": "sich rühmen + Genitiv: to boast of. Masculine genitive singular takes -es on both the possessive and the noun."
         }
       ],
       "sections": [
@@ -68695,6 +69432,116 @@
           ],
           "answer": 0,
           "explain": "That non-compositionality is what makes it an idiom."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er hat den Faden verloren.“ — übertragen:",
+          "options": [
+            "Er weiß nicht mehr, wo er war.",
+            "Er hat etwas fallen lassen.",
+            "Er kann nicht nähen."
+          ],
+          "answer": 0,
+          "explain": "Literally about thread, figuratively about losing the thread of an argument — the two readings share no content."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Das Fest ist ins Wasser gefallen.“",
+          "options": [
+            "Es hat nicht stattgefunden.",
+            "Es hat geregnet.",
+            "Jemand ist gestürzt."
+          ],
+          "answer": 0,
+          "explain": "Rain may be the origin, but the phrase now simply means it did not happen — and works indoors."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Du nimmst mich auf den Arm.“",
+          "options": [
+            "Du veralberst mich.",
+            "Du trägst mich.",
+            "Du hilfst mir."
+          ],
+          "answer": 0,
+          "explain": "You're pulling my leg."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Ich habe die Nase voll.“",
+          "options": [
+            "Ich habe genug davon.",
+            "Ich bin erkältet.",
+            "Ich rieche etwas."
+          ],
+          "answer": 0,
+          "explain": "Frustration, not a blocked nose — though the literal reading is perfectly available, which is what makes idioms hard."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Sie ist aus allen Wolken gefallen.“",
+          "options": [
+            "Sie war völlig überrascht.",
+            "Sie ist gestürzt.",
+            "Sie war im Flugzeug."
+          ],
+          "answer": 0,
+          "explain": "Astonishment."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er schiebt es auf die lange Bank.“",
+          "options": [
+            "Er schiebt es immer weiter auf.",
+            "Er setzt sich hin.",
+            "Er räumt auf."
+          ],
+          "answer": 0,
+          "explain": "From the long benches where court documents once waited — now simply procrastination."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Ich stehe auf dem Schlauch.“",
+          "options": [
+            "Ich begreife es gerade nicht.",
+            "Ich bin im Garten.",
+            "Ich bin müde."
+          ],
+          "answer": 0,
+          "explain": "The water stops because you are standing on your own hose: the thinking has stalled."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Wir haben unter vier Augen gesprochen.“",
+          "options": [
+            "zu zweit und vertraulich",
+            "mit vier Personen",
+            "im Dunkeln"
+          ],
+          "answer": 0,
+          "explain": "Two people, four eyes — in private."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er hat kalte Füße bekommen.“",
+          "options": [
+            "Er hat den Mut verloren.",
+            "Ihm war kalt.",
+            "Er ist gelaufen."
+          ],
+          "answer": 0,
+          "explain": "Getting cold feet, the same image as in English — but do not assume the overlap: most idioms do not transfer."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Woran erkennt man, dass eine Wendung übertragen gemeint ist?",
+          "options": [
+            "die wörtliche Lesart passt nicht in den Kontext",
+            "sie enthält immer ein Tier",
+            "sie steht immer am Satzanfang"
+          ],
+          "answer": 0,
+          "explain": "Context alone. Both readings are grammatical, which is why an idiom taken literally produces a sentence that is correct and absurd."
         }
       ]
     },

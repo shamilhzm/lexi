@@ -773,6 +773,13 @@ user; none of it is built.*
   other gap in the mastery pass now has a point with ≥5 exercises.)
 - **C1/C2 register depth · L, human-gated** (#37). Confirmed by the two most credible
   personas. The promise "grows with you A1–C2" thins exactly where it is hardest to keep.
+  > **The *exercise* half closed 2026-08-13.** C1 86 → 204 items, C2 70 → 174; both
+  > levels now carry a higher minimum per point than A1–B2 do. What remains under this
+  > item is **vocabulary and register depth**, not drill volume: 761 word cards across
+  > C1+C2, and no collocation or register field on any of them (#45).
+- **The thin layer moved.** A1, A2, B1 and B2 each still contain a grammar point with
+  only **5** exercises, which is now the lowest in the bank — the C1/C2 pass overtook
+  them. *Do:* run the same `corpus:gex` treatment downward, worst-first. *S–M each.*
 - **Register and collocation on C1+ cards · M** (#45). Synonyms exist but aren't
   differentiated by register, which is most of what C1 vocabulary work *is*.
 - ~~**Exam alignment without an exam simulator · M** (#43).~~ **Shipped 2026-08-11** —

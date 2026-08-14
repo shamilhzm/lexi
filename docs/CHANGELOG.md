@@ -11,6 +11,43 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — C1/C2 exercise depth, closed
+
+The last nine thin points, and the finding now points the other way.
+
+| | points | exercises | avg | thinnest |
+|---|---|---|---|---|
+| C1 | 12 | 86 → **204** | 7.2 → **17.0** | 6 → **16** |
+| C2 | 11 | 70 → **174** | 6.4 → **15.8** | 5 → **15** |
+
+Bank **5,207 → 5,429** across four batches. This pass closed *Passiv-Ersatzformen*,
+*Subjektive Modalverben* and *Funktionsverbgefüge* at C1, and *Modalpartikeln*,
+*Nominalstil*, *Gehobene Konnektoren*, *Idiomatik & feste Wendungen*,
+*Irrelevanzkonzessivsätze* and *Idiomatik: wörtlich vs. übertragen* at C2.
+
+**About half the C2 items are questions about the system rather than gap-fills** —
+*"Was tun Modalpartikeln?"*, *"Welcher Konnektor ist am förmlichsten?"*, *"Woran
+erkennt man, dass eine Wendung übertragen gemeint ist?"* — because at C2 the errors
+that remain are rarely grammatical. They are choices that are correct and wrong at
+once, and a gap-fill cannot ask about a choice.
+
+**The finding has inverted.** C1 and C2 now have the **highest minimum of any level**:
+A1, A2, B1 and B2 each still contain a point with only **5** exercises. *"Your C1 is a
+rumour"* was true when the Lektor said it; the thin layer is now the bottom of the
+syllabus, and it is filed in the backlog as such.
+
+**Three things the tooling caught**, which is the argument for having it: a point title
+whose closing quote was a straight `"` and not `“`, so the batch addressed a point that
+did not exist; one exercise already present; and two items I had written with an
+empty-string correct answer, which would have rendered a gap-fill whose answer was
+nothing. All three surfaced in the dry run.
+
+`GRAMMAR_COUNTS` re-pinned to 5,429. `corpus:validate` PASS, 733 green, spot-checked in
+the app — *Modalpartikeln* now reads *Practise · 16 exercises* and its items render with
+their explanations.
+
+---
+
 ### Shipped 2026-08-13 — Miscellaneous is empty, and then gone
 
 The 501 cards left over from the sector pass, hand-classified and applied.

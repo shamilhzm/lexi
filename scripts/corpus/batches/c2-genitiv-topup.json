@@ -1,0 +1,10 @@
+[
+  {
+    "level": "C2",
+    "title": "Verben mit Genitivobjekt",
+    "exercises": [
+      { "kind": "choose", "prompt": "Er entledigte sich ___ lästigen Aufgabe.", "options": ["der", "die", "dem"], "answer": 0, "explain": "sich entledigen + Genitiv: to rid oneself of something. Feminine genitive singular is der." },
+      { "kind": "choose", "prompt": "Sie rühmte sich ___ Erfolgs.", "options": ["ihres", "ihren", "ihrem"], "answer": 0, "explain": "sich rühmen + Genitiv: to boast of. Masculine genitive singular takes -es on both the possessive and the noun." }
+    ]
+  }
+]
