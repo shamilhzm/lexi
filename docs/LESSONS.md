@@ -24,6 +24,11 @@ number forward from a doc. *(Four counts in the README were stale by up to 6×.)
 Hand-verify three hits before you believe the count. *(Twice this has been a bug in the
 check.)*
 
+**…finish a pass that drives something to zero.** Write the check that keeps it there, in
+the same commit. Then prove the check fires — inject the defect and watch it fail — before
+trusting the PASS. *(`corpus:validate` passed on a duplicate for as long as the invariant
+lived only in a CHANGELOG sentence.)*
+
 **…look a term up in a corpus with known duplicates.** Ask "does a row matching X
 exist?", never "what does the map say X is?" — a first-wins/last-wins `Map` silently
 picks one of the copies.
@@ -131,6 +136,18 @@ that is a latent version of this bug.**
   learner schedule**. No error, no way to notice. It has never bitten only because the
   writer exclusively appends — load-bearing behaviour that reads like an implementation
   detail. **Still open** (BACKLOG).
+- **A rename can collide.** Correcting `die Visum` → `das Visum` (2026-08-14) produced a
+  term the corpus already had at B1, so a gender fix silently *created* a duplicate — the
+  exact defect Now #3 had spent 874 merges removing. `genderfix.ts` had a guard for this
+  and it did not fire: it checks `byId`, and the two cards had different ids because they
+  sat at different levels. **A rename guard must check the invariant the rename can break,
+  not just the one the id enforces.**
+- **An ID_MAP that must be pasted by hand is not a migration.** `merge-dupes.ts` ended by
+  *printing* its entries with "paste the entries above into `src/data/idmap.ts`" — a file
+  whose own header says do not edit by hand. A forgotten paste does not fail loudly; it
+  resets every affected learner's schedule to new. It now writes the file, with the same
+  carry-forward `genderfix.ts` uses. **If a step is required for correctness, a script
+  does it.**
 
 ---
 
@@ -152,6 +169,12 @@ style question. Fix it at the anchor ([VISION.md](VISION.md)) and let the others
   applied to the Framer route transition every navigation goes through, which left
   1,769px of content at `opacity: 0`. *A rule stated in a doc but not enforced in the
   code is a comment, not a rule.*
+- **"0 terms left on more than one card" — asserted by CHANGELOG, enforced by nothing.**
+  `corpus:validate` returned **PASS** on a corpus containing a duplicate, because its
+  dupe check is keyed on `(level, term)` and cross-level duplication — the entire defect
+  Now #3 removed — was invisible to it. The end state of a large pass is exactly the kind
+  of thing that needs a check written *at the same time*, or the next pass quietly undoes
+  it. *(2026-08-14; the check now exists and was verified to fire before it was trusted.)*
 - **The README described a UI that had been replaced.** A left sidebar (`TopBar` had
   replaced it), three destinations (four), four drill types (ten), and no mention of the
   exam surface at all. *(2026-08-13.)*

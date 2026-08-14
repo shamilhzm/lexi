@@ -37328,13 +37328,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:C1:die Babyboomer",
-    "term": "die Babyboomer",
+    "id": "voc:C1:der Babyboomer",
+    "term": "der Babyboomer",
     "en": "baby boomers",
     "pos": "noun",
     "level": "C1",
-    "gender": "die",
-    "plural": "(Pl.)",
+    "gender": "der",
+    "plural": "die Babyboomer",
     "ipa": "ˈbeːbibuːmɐ",
     "syn": [],
     "ant": [],
@@ -41426,24 +41426,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:die Visum",
-    "term": "die Visum",
-    "en": "visa",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "die",
-    "plural": "Visa",
-    "ipa": "ˈviːzʊm",
-    "syn": [
-      "Einreiseerlaubnis",
-      "Sichtvermerk",
-      "Passvermerk"
-    ],
-    "ant": [],
-    "field": "Trip Planning & Logistics",
-    "kind": "word"
-  },
-  {
     "id": "voc:B2:rechnen mit",
     "term": "rechnen mit",
     "en": "to reckon with, expect",
@@ -42533,7 +42515,7 @@
     "pos": "noun",
     "level": "C1",
     "gender": "das",
-    "plural": "-s",
+    "plural": "die Szenarien",
     "ipa": "st͡seˈnaːʁio",
     "syn": [],
     "ant": [],
@@ -42950,7 +42932,7 @@
     "pos": "noun",
     "level": "C1",
     "gender": "das",
-    "plural": "-s",
+    "plural": "die Zukunftsszenarien",
     "ipa": "ˈt͡suːkʊnft͡sst͡seˌnaːʁio",
     "syn": [],
     "ant": [],
@@ -69946,12 +69928,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:die Vorstand",
-    "term": "die Vorstand",
+    "id": "voc:B2:der Vorstand",
+    "term": "der Vorstand",
     "en": "director, board member, warden",
     "pos": "noun",
     "level": "B2",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Vorstände",
     "ipa": "ˈfoːɐ̯ʃtant",
     "syn": [

@@ -60363,6 +60363,16 @@
         "de": "Die Beantragung des Visums zog sich über mehrere Monate hin.",
         "en": "Applying for the visa dragged on for several months.",
         "lvl": "C1"
+      },
+      {
+        "de": "Für die Einreise brauchst du ein gültiges Visum.",
+        "en": "You need a valid visa to enter the country.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für das Visum musst du persönlich zur Botschaft.",
+        "en": "For the visa you have to go to the embassy in person.",
+        "lvl": "B2"
       }
     ]
   },
@@ -96079,6 +96089,21 @@
       }
     ]
   },
+  "voc:B2:der Vorstand": {
+    "def": "board, board of directors, (of a church) council, (of a party) executive, (of an organization) committee, executive committee",
+    "ex": [
+      {
+        "de": "Wir ernannten Tom zum Vorstand.",
+        "en": "We appointed Tom chairman.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mike ist der einzige Mann im Vorstand.",
+        "en": "Mike is the only man on the board.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Vorwurf": {
     "ex": [
       {
@@ -100295,21 +100320,6 @@
       }
     ]
   },
-  "voc:B2:die Visum": {
-    "def": "visa (permit to enter a country); visa (stamp on a passport)",
-    "ex": [
-      {
-        "de": "Für die Einreise brauchst du ein gültiges Visum.",
-        "en": "You need a valid visa to enter the country.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Für das Visum musst du persönlich zur Botschaft.",
-        "en": "For the visa you have to go to the embassy in person.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B2:die Volkspartei": {
     "def": "A large party that draws support from across society.",
     "ex": [
@@ -100391,21 +100401,6 @@
       {
         "de": "Martin Luthers antisemitische Tirade „Von den Juden und ihren Lügen“ lieferte die Vorlage für die Nazis.",
         "en": "Martin Luther's antisemitic rant \"On the Jews and Their Lies\" helped create the template for the Nazis.",
-        "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:die Vorstand": {
-    "def": "board, board of directors, (of a church) council, (of a party) executive, (of an organization) committee, executive committee",
-    "ex": [
-      {
-        "de": "Wir ernannten Tom zum Vorstand.",
-        "en": "We appointed Tom chairman.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Mike ist der einzige Mann im Vorstand.",
-        "en": "Mike is the only man on the board.",
         "lvl": "B2"
       }
     ]
@@ -107574,6 +107569,21 @@
       }
     ]
   },
+  "voc:C1:der Babyboomer": {
+    "def": "The large generation born in the years after the Second World War.",
+    "ex": [
+      {
+        "de": "Wenn die Babyboomer in Rente gehen, fehlen Millionen Arbeitskräfte.",
+        "en": "When the baby boomers retire, millions of workers will be missing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Babyboomer prägen den Wohnungsmarkt bis heute.",
+        "en": "The baby boomers shape the housing market to this day.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Befund": {
     "defDe": "Ergebnis einer Prüfung, eines Tests; Bericht (beispielsweise eines Sachverständigen/Mediziners) darüber",
     "ex": [
@@ -108512,21 +108522,6 @@
       {
         "de": "Die Region kämpft seit Jahrzehnten um mehr Autonomie.",
         "en": "The region has been fighting for more autonomy for decades.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Babyboomer": {
-    "def": "The large generation born in the years after the Second World War.",
-    "ex": [
-      {
-        "de": "Wenn die Babyboomer in Rente gehen, fehlen Millionen Arbeitskräfte.",
-        "en": "When the baby boomers retire, millions of workers will be missing.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Die Babyboomer prägen den Wohnungsmarkt bis heute.",
-        "en": "The baby boomers shape the housing market to this day.",
         "lvl": "C1"
       }
     ]

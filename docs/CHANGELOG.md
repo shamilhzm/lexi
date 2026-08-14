@@ -11,6 +11,63 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-14 — the shipped corpus gets its genders checked, and the fix breaks something
+
+`scripts/authoring/verify.ts` refuses to write a *new* card whose gender de.wiktionary
+disagrees with. It had never been pointed at the cards already there — and **559 of the
+848 B2+ nouns carry no provenance row**, i.e. were hand-curated, so nothing had ever
+machine-checked them. Two wrong genders had been found by hand the day before, which is
+not a rate you can extrapolate from.
+
+`corpus:gender-audit` (report-only, disk-cached under a gitignored directory, resumable
+because de.wiktionary rate-limits) checked all 848: **782 decided, 11 flagged, a 0.5%
+gender disagreement rate.** The corpus is in better shape than the two hand-finds
+suggested. Re-run after this pass, on the 847 nouns that remain: **781 decided, 5
+flagged, 0.1%** — the five below fixed, and the sixth row gone with the merge.
+
+**Six of the eleven were defensible and were not touched** — *der/das Burnout* (Duden
+allows both), *Schlagwörter* beside *Schlagworte* (two real plurals for two senses),
+*Rettungswägen* (southern), a plural of *Fachkräftemangel* almost nobody writes. A
+dictionary disagreement is evidence, not a verdict, which is why the audit reports and
+`corpus:genderfix` — a separate, expect-guarded table of five — repairs.
+
+The check also has one false-positive class excluded by name: **nominalised adjectives
+take all three genders**, so *der Einzelne* and *die Einzelne* are both correct and a
+page declaring adjectival declension is reported `ambiguous`, never as a mismatch. The
+first version of the plural check flagged 8 of the first 12 cards — every one correct,
+because the corpus writes plurals two ways (2,763 full `die Namen`, 210 suffix `-en`).
+
+**The interesting part is what the fix then did.** Card ids embed the term *with its
+article*, so `die Visum` → `das Visum` is a schedule migration — and the corrected term
+was one the corpus **already had at B1**. A gender fix created a duplicate: the exact
+defect Now #3 spent 874 merges removing. `genderfix.ts` had a guard for precisely this
+and it did not fire, because it checks ids and the two cards had different ids at
+different levels.
+
+Worse, **`corpus:validate` returned PASS on it.** Its dupe check is keyed on
+`(level, term)`; cross-level duplication — the whole of Now #3 — was invisible to it. The
+"0 terms on more than one card" that pass ended on lived only in a CHANGELOG sentence.
+
+So three things shipped alongside the five corrections:
+
+- **`corpus:validate` now errors on a term that appears at two levels.** Verified by
+  injecting the duplicate and watching it FAIL before the PASS was trusted. (The article
+  is part of the term, so `der See` / `die See` remain two terms.)
+- **`merge-dupes.ts` writes `src/data/idmap.ts` instead of printing it.** It used to end
+  with *"paste the entries above into src/data/idmap.ts"* — a file whose own header says
+  do not edit by hand. A forgotten paste does not fail loudly; it resets every affected
+  learner's schedule to new. It now carries earlier entries forward the way
+  `genderfix.ts` does: `voc:B2:die Visum` was re-pointed past the id it had been given an
+  hour earlier, straight to the B1 keeper, so one hop is still always enough.
+- **`dupe-rulings.tsv` is cumulative.** It truncated to the current pass, which would have
+  replaced 358 rulings with one — and a merged duplicate cannot be re-derived, so the row
+  is gone for good. Same rule as ID_MAP: only ever added.
+
+Net: 6,581 → 6,580 cards, id map 1,370 → 1,374, and the keeper absorbed the retired
+card's two examples rather than losing them.
+
+---
+
 ### Shipped 2026-08-13 — B2 closes the syllabus: zero thin points at any level
 
 The last eighteen points, and the end of a finding that changed shape three times.

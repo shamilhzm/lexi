@@ -121,6 +121,7 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   const errors: Issue[] = [], warnings: Issue[] = [];
   const byId = new Map<string, number>();
   const byLevelTerm = new Map<string, string>();
+  const byTerm = new Map<string, string>();
   const byLevelLemma = new Map<string, string>();
   for (const w of cards) {
     byId.set(w.id, (byId.get(w.id) ?? 0) + 1);
@@ -128,6 +129,20 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     const kt = `${w.level} ${w.term.toLowerCase()}`;
     if (byLevelTerm.has(kt)) errors.push({ id: w.id, msg: `duplicate (level, term) with ${byLevelTerm.get(kt)}` });
     else byLevelTerm.set(kt, w.id);
+
+    // The same term at *different* levels — the defect BACKLOG Now #3 existed to
+    // remove (874 terms on 1,021 redundant cards; the learner meets `die Mutter`
+    // at A1 and re-learns it at B1 under a second FSRS schedule). The check above
+    // is keyed on level, so it could never see it, and nothing else enforced the
+    // zero that pass ended on. It went unnoticed until the 2026-08-14 gender fix
+    // renamed `die Visum` to `das Visum` and silently collided with the B1 card:
+    // `corpus:validate` returned PASS on a corpus with a duplicate in it.
+    //
+    // The article is part of the term, so `der See` / `die See` are two terms and
+    // do not collide here — the same property `merge-dupes.ts` relies on.
+    const kg = w.term.toLowerCase();
+    if (byTerm.has(kg)) errors.push({ id: w.id, msg: `same term as ${byTerm.get(kg)} at another level — merge with corpus:dupes` });
+    else byTerm.set(kg, w.id);
     const kl = `${w.level} ${lemmaKey(w.term)}`;
     if (byLevelLemma.has(kl)) warnings.push({ id: w.id, msg: `near-duplicate lemma with ${byLevelLemma.get(kl)}` });
     else byLevelLemma.set(kl, w.id);

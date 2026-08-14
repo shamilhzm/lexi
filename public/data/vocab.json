@@ -52662,6 +52662,16 @@
         "de": "Die Beantragung des Visums zog sich über mehrere Monate hin.",
         "en": "Applying for the visa dragged on for several months.",
         "lvl": "C1"
+      },
+      {
+        "de": "Für die Einreise brauchst du ein gültiges Visum.",
+        "en": "You need a valid visa to enter the country.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für das Visum musst du persönlich zur Botschaft.",
+        "en": "For the visa you have to go to the embassy in person.",
+        "lvl": "B2"
       }
     ],
     "field": "Administration",
@@ -85361,13 +85371,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:C1:die Babyboomer",
-    "term": "die Babyboomer",
+    "id": "voc:C1:der Babyboomer",
+    "term": "der Babyboomer",
     "en": "baby boomers",
     "pos": "noun",
     "level": "C1",
-    "gender": "die",
-    "plural": "(Pl.)",
+    "gender": "der",
+    "plural": "die Babyboomer",
     "ipa": "ˈbeːbibuːmɐ",
     "def": "The large generation born in the years after the Second World War.",
     "syn": [],
@@ -92919,37 +92929,6 @@
     "defDe": "Werk oder Errungenschaft, das/die innerhalb einer Kultur einen Wert hat und deshalb bewahrt wird"
   },
   {
-    "id": "voc:B2:die Visum",
-    "term": "die Visum",
-    "en": "visa",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "die",
-    "plural": "Visa",
-    "ipa": "ˈviːzʊm",
-    "def": "visa (permit to enter a country); visa (stamp on a passport)",
-    "syn": [
-      "Einreiseerlaubnis",
-      "Sichtvermerk",
-      "Passvermerk"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Für die Einreise brauchst du ein gültiges Visum.",
-        "en": "You need a valid visa to enter the country.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Für das Visum musst du persönlich zur Botschaft.",
-        "en": "For the visa you have to go to the embassy in person.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Trip Planning & Logistics",
-    "kind": "word"
-  },
-  {
     "id": "voc:B2:rechnen mit",
     "term": "rechnen mit",
     "en": "to reckon with, expect",
@@ -94948,7 +94927,7 @@
     "pos": "noun",
     "level": "C1",
     "gender": "das",
-    "plural": "-s",
+    "plural": "die Szenarien",
     "ipa": "st͡seˈnaːʁio",
     "def": "A description of a possible course of events.",
     "syn": [],
@@ -95749,7 +95728,7 @@
     "pos": "noun",
     "level": "C1",
     "gender": "das",
-    "plural": "-s",
+    "plural": "die Zukunftsszenarien",
     "ipa": "ˈt͡suːkʊnft͡sst͡seˌnaːʁio",
     "def": "A description of a possible future situation.",
     "syn": [],
@@ -146142,12 +146121,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:die Vorstand",
-    "term": "die Vorstand",
+    "id": "voc:B2:der Vorstand",
+    "term": "der Vorstand",
     "en": "director, board member, warden",
     "pos": "noun",
     "level": "B2",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Vorstände",
     "ipa": "ˈfoːɐ̯ʃtant",
     "def": "board, board of directors, (of a church) council, (of a party) executive, (of an organization) committee, executive committee",

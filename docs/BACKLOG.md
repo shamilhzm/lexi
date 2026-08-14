@@ -539,6 +539,14 @@ list in COMPETITIVE-RESEARCH §5.
 > copy's, flagged in `dupe-rulings.tsv` for `corpus:resector`. `die Handschuhe` now
 > sits in *Skiing and snowboarding* rather than *Clothing*. 14 sectors emptied
 > entirely and were dropped.
+>
+> **It came back on 2026-08-14, and the zero is now enforced.** A gender correction
+> renamed `die Visum` to `das Visum` — a term the corpus already held at B1 — and
+> `corpus:validate` returned **PASS**, because its dupe check is keyed on
+> `(level, term)` and cross-level duplication was invisible to it. The end state of
+> this item lived only in the sentence above. `corpus:validate` now errors on a term
+> appearing at two levels, `merge-dupes.ts` writes `idmap.ts` rather than printing it
+> to be pasted by hand, and `dupe-rulings.tsv` is cumulative. **6,581 → 6,580 cards.**
 
 **Why.** **874 terms sit on more than one card; 1,021 cards are redundant — 14% of
 the corpus.** The 2026-08-11 pass raised the evidence for this item and, briefly,
