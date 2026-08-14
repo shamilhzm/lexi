@@ -95,8 +95,13 @@ describe('entrance keyframes never animate opacity', () => {
   // `nodein` scale the target *itself* rather than a container of targets, and
   // both are large; they are perceptible animations doing real work, so they
   // stay. `bargrow` animates a chart bar, which is not a control.
+  // `cardin` was missing from this list until 2026-08-15 — the rule was written,
+  // the guard was written, and the one entrance wrapping the *primary* surface was
+  // left out of it, so it kept `scale(.985)` for ten days after `deskin` lost it.
+  // A guard that enumerates its subjects is only as good as the enumeration; this
+  // list must gain a name whenever an entrance is added over interactive content.
   it('an entrance that wraps touch targets does not scale them', () => {
-    for (const name of ['routein', 'deskin']) {
+    for (const name of ['routein', 'deskin', 'cardin']) {
       const m = css.match(new RegExp(`@keyframes\\s+${name}\\s*\\{([\\s\\S]*?)\\n?\\}`));
       expect(m, `@keyframes ${name} not found`).toBeTruthy();
       expect(m![1], `${name} scales a subtree containing sized controls`).not.toMatch(/scale/);

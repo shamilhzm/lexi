@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — `cardin` loses its scale, and the guard that missed it gains a name
+
+The touch-target sweep below recorded `@keyframes cardin` as still carrying
+`scale(.985)` ten days after `deskin` was reduced to a pure translate. It wraps the
+flip card — the most interactive subtree in the app, holding the 44px pronunciation
+button and the graded speaker controls — so it is exactly what the DESIGN §7 corollary
+forbids: *an entrance may translate; it must not scale a subtree that contains sized
+touch targets.*
+
+**The rule was written. The guard was written. Its list read `['routein', 'deskin']`.**
+A guard that enumerates its subjects is only as strong as the enumeration, and the one
+entrance over the primary surface was never added to it.
+
+Fixed, and **verified under the real failure condition instead of by reading the CSS**:
+with the document timeline stopped — `cardin` at `playState: "running"`, `currentTime:
+0`, which *is* the stall the rule exists for — the `from` frame now computes to
+`matrix(1, 0, 0, 1, 0, 0)`, and every sized control renders at exactly its CSS width.
+The pronunciation button measures **44.00×44.00** where it measured 43.34, and all five
+chrome IconButtons with it. Mutation-checked: restoring the scale fails the guard with
+*"cardin scales a subtree containing sized controls"*.
+
+Costs nothing to remove — 1.5% is below the perceptual threshold, the same fact that
+moved `.tile-in` off 1.5% to 6%.
+
+---
+
 ### Shipped 2026-08-15 — the touch-target sweep closes, and the worst finding was my own instrument
 
 Every interactive control on all six routes, re-measured at 375×812 with a coarse

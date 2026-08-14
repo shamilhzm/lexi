@@ -454,7 +454,12 @@ body {
    the one you just flicked away. Transform-only and fill-mode-free by the §7
    rule, which matters more here than anywhere: this is the primary loop, and
    the card must be on screen whether or not anything animates. */
-@keyframes cardin { from { transform: translateX(calc(var(--dir, 0) * -26px)) scale(.985); } }
+/* Translate-only, for the reason `deskin` is: this wraps the flip card, whose
+   subtree holds the 44px pronunciation button and the graded speaker controls, and
+   a scale applies to the whole subtree for as long as the entrance sits on its
+   `from` frame. .985 is below the perceptual threshold anyway — the same fact that
+   moved `.tile-in` off 1.5%. See DESIGN.md §7 corollary. */
+@keyframes cardin { from { transform: translateX(calc(var(--dir, 0) * -26px)); } }
 .card-in { animation: cardin .26s cubic-bezier(.32,.72,0,1); }
 
 /* The answer acknowledgment. Rises rather than fades in: transform-only, so a

@@ -260,6 +260,22 @@ The fix cost nothing, which is the tell: **1.5% is below the perceptual threshol
 could see that shrank every target in the session whenever it stalled. `.desk-in`
 now translates 6px.
 
+**`.card-in` had the same defect and kept it for ten days** *(fixed 2026-08-15)*.
+`@keyframes cardin` still read `translateX(…) scale(.985)` after `deskin` had been
+reduced to a pure translate — and it wraps the flip card, the most interactive
+subtree in the app, holding the 44px pronunciation button and the graded speaker
+controls. The rule was written, the guard in `review-structure.test.ts` was written,
+and its list read `['routein', 'deskin']`. **A guard that enumerates its subjects is
+only as strong as the enumeration**; the list now includes `cardin` and must gain a
+name whenever an entrance is added over interactive content.
+
+Verified under the real failure condition rather than by reading the CSS: with the
+document timeline stopped (`cardin` at `playState: "running"`, `currentTime: 0`), the
+`from` frame now computes to `matrix(1, 0, 0, 1, 0, 0)` and every sized control in the
+session renders at exactly its CSS width — the pronunciation button at **44.00×44.00**
+where it measured 43.34. A frozen timeline is an excellent test rig for this rule: it
+*is* the stall.
+
 `.tile-in` and `.node-in` keep their scales: they scale the target *itself* rather
 than a container of targets, both are far larger than 44px, and both are
 perceptible animations doing real work. `.bar-grow` animates a chart bar, which is
