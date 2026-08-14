@@ -16,6 +16,7 @@
 import { WORDS } from '../data/index.ts';
 import { conjugate, canConjugate } from './conjugate.ts';
 import { pluralForm } from './matcher.ts';
+import { appMatcher } from './appMatcher.ts';
 import type { Word } from '../types.ts';
 
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
@@ -102,7 +103,20 @@ export function surfaceIndex(): Map<string, Word> {
  *  a reader would be told the new word in "Das Essen ist gut" is a verb. */
 export function lookupSurface(token: string): Word | null {
   if (stale()) build();
-  return exact!.get(token) ?? lower!.get(token.toLowerCase()) ?? null;
+  // The maps above answer first, and that ordering is the whole design: they carry
+  // the case disambiguation the matcher does not have, so `Essen` stays the noun
+  // and `Morgen` stays the morning. Measured over one example per card, the two
+  // indexes disagree on 520 of 32,713 tokens and the reader is right about the
+  // capitalised ones.
+  //
+  // The matcher then catches what the maps miss — **2,076 tokens, 6.3%** — because
+  // it generates adjective declension, dative plurals and `-in` feminines that this
+  // index never did: `große`, `Hunden` and `Lehrerin` were all reported to the
+  // learner as words they do not know. Fallback rather than replacement, so nothing
+  // that resolves today can start resolving differently.
+  const hit = exact!.get(token) ?? lower!.get(token.toLowerCase());
+  if (hit) return hit;
+  return appMatcher().annotate(token).find((s) => s.isWord)?.word ?? null;
 }
 
 /** Force the next lookup to rebuild. Only tests need this — production growth of

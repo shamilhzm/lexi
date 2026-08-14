@@ -45,27 +45,14 @@
 // known means". The remaining duplication is `reader.ts`'s own index, which should
 // converge on the matcher; that is tracked in BACKLOG rather than done here,
 // because it changes what Lesen selects as i+1 and deserves its own measurement.
-import { buildMatcher, isNeutralWord, isLikelyEntity, type Matcher } from './matcher.ts';
-import { WORDS } from '../data/index.ts';
+import { isNeutralWord, isLikelyEntity } from './matcher.ts';
+import { appMatcher, resetAppMatcher } from './appMatcher.ts';
 import { freqRankOf } from './freq.ts';
 import type { Word } from '../types.ts';
 
-// The lexicon is not fixed at boot — `initData` replaces `WORDS` and
-// `registerWords` appends — so the index carries its own provenance and rebuilds
-// itself, the same pattern `reader.ts` uses for the same reason.
-let cached: Matcher | null = null;
-let builtFrom: Word[] | null = null;
-let builtLen = 0;
-function matcher(): Matcher {
-  if (!cached || builtFrom !== WORDS || builtLen !== WORDS.length) {
-    cached = buildMatcher(WORDS);
-    builtFrom = WORDS;
-    builtLen = WORDS.length;
-  }
-  return cached;
-}
-/** Force a rebuild. Tests need this when swapping a lexicon of the same length. */
-export function resetCoverageIndex() { cached = null; builtFrom = null; builtLen = 0; }
+/** Kept as a named re-export so callers and tests do not need to know that the
+ *  index is shared with the reading surface. */
+export const resetCoverageIndex = resetAppMatcher;
 
 /** Hu & Nation's bands. 98% reads independently; 95% reads with support. */
 export const INDEPENDENT = 0.98;
@@ -154,7 +141,7 @@ export function coverageOf(text: string, opts: CoverageOptions): Coverage {
   // `Vorschläge` in one text are one word to learn, worth two occurrences.
   const occurrences = new Map<string, { word: Word; n: number }>();
 
-  for (const seg of matcher().annotate(text)) {
+  for (const seg of appMatcher().annotate(text)) {
     const tok = seg.text;
     if (!seg.isWord) { tokens.push({ text: tok, isWord: false, word: null, counted: false, state: null }); continue; }
 

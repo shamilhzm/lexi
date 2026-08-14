@@ -11,6 +11,36 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — Lesen stops calling `große` a word you don't know
+
+The follow-up logged when the meter shipped: `reader.ts` kept its own surface index,
+built from terms, plurals and verb conjugations and **nothing else**. Measured over one
+example per card — 32,713 tokens — the matcher resolved **2,076 of them (6.3%) that the
+reader did not**. Every one was a word Lesen was reporting to the learner as unknown:
+adjective declension (`große`), dative plurals (`Hunden`), `-in` feminines (`Lehrerin`).
+
+**It is a fallback, not a replacement, and the measurement is why.** The two indexes
+disagree on **520** of the 22,861 both resolve — and on the capitalised ones the
+*reader* is right. German capitalises nouns, so `Essen` is the meal and `Morgen` is the
+morning; `lookupSurface` checks an exact-case map before a lowercase one, which is
+disambiguation the matcher has no equivalent for. So the maps still answer first and
+the matcher only catches what they miss. Nothing that resolves today can start
+resolving differently.
+
+(The first measurement fed the matcher bare tokens and reported 283 disagreements. That
+disables exactly the context-sensitive half — homographs and separable verbs — that
+makes it better than a map lookup. Re-measured on whole sentences: 520. The smaller
+number was the more flattering one and it was wrong.)
+
+`src/lib/appMatcher.ts` now holds the one lexicon-keyed matcher the app shares, so the
+reading surface and the meter cannot build separate ones and drift. It sits outside
+`matcher.ts` deliberately: that module is imported by the corpus scripts under node,
+where `WORDS` does not exist.
+
+778 tests green (+3).
+
+---
+
 ### Shipped 2026-08-15 — the comprehension meter, Phase 1: the surface
 
 `src/views/Read.tsx`, on `#/read`, reached from inside Lesen on Today — the same

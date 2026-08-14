@@ -13,6 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import { buildMatcher, pluralForm } from './matcher.ts';
 import { lookupSurface, resetSurfaceIndex } from './reader.ts';
+import { resetAppMatcher } from './appMatcher.ts';
 import { registerWords } from '../data/index.ts';
 import type { Word } from '../types.ts';
 
@@ -36,6 +37,7 @@ const CARDS: Word[] = [
 describe('the reader index and the matcher index agree', () => {
   registerWords(CARDS);
   resetSurfaceIndex();
+  resetAppMatcher();
   const m = buildMatcher(CARDS);
   const viaMatcher = (tok: string) => m.annotate(tok).find((s) => s.isWord)?.word?.term ?? null;
   const viaReader = (tok: string) => lookupSurface(tok)?.term ?? null;
@@ -61,5 +63,45 @@ describe('the reader index and the matcher index agree', () => {
   it('a card asserting no plural contributes no plural form', () => {
     expect(pluralForm('das Gemüse', 'nur Singular')).toBeNull();
     expect(pluralForm('der Regen', '—')).toBeNull();
+  });
+});
+
+// `reader.ts` used to answer only from its own maps, which index terms, plurals and
+// verb conjugations — and nothing else. Measured over one example per card, 32,713
+// tokens: the matcher resolved **2,076 (6.3%)** that the reader did not, so Lesen
+// was telling learners that `große`, `Hunden` and `Lehrerin` were words they did
+// not know. `lookupSurface` now falls through to the shared matcher.
+//
+// It is a fallback and not a replacement on purpose. The two disagree on 520 of the
+// 22,861 both resolve, and on the capitalised ones the *reader* is right: German
+// capitalises nouns, so `Essen` is the meal and `Morgen` is the morning, which a
+// case-insensitive index cannot see. Answering from the maps first means nothing
+// that resolves today can start resolving differently.
+describe('the reader falls through to the matcher', () => {
+  const RICH: Word[] = [
+    w({ id: 'v:gross', term: 'groß', pos: 'adjective' }),
+    w({ id: 'v:hund', term: 'der Hund', gender: 'der', plural: 'die Hunde' }),
+    w({ id: 'v:lehrer', term: 'der Lehrer', gender: 'der', plural: 'die Lehrer' }),
+    w({ id: 'v:essen-n', term: 'das Essen', gender: 'das' }),
+    w({ id: 'v:essen-v', term: 'essen', pos: 'verb' }),
+  ];
+  const prime = () => { registerWords(RICH); resetSurfaceIndex(); resetAppMatcher(); };
+
+  it('now resolves the inflections its own maps never carried', () => {
+    prime();
+    expect(lookupSurface('große')?.term).toBe('groß');       // adjective declension
+    expect(lookupSurface('Hunden')?.term).toBe('der Hund');  // dative plural
+    expect(lookupSurface('Lehrerin')?.term).toBe('der Lehrer'); // -in feminine
+  });
+
+  it('still lets its own case-sensitive map win — Essen is the meal', () => {
+    prime();
+    expect(lookupSurface('Essen')?.term).toBe('das Essen');
+    expect(lookupSurface('essen')?.term).toBe('essen');
+  });
+
+  it('returns null for a word nothing knows', () => {
+    prime();
+    expect(lookupSurface('Quatschwortxyz')).toBeNull();
   });
 });

@@ -550,12 +550,13 @@ argued and declined — see the ruling block in COMPETITIVE-RESEARCH §5.
 > tap into a session that says *"because you want to read …"*. Verified end to end
 > in the browser.
 >
-> ⚠️ **Follow-up: `reader.ts` should converge on the matcher.** The meter runs on
-> `buildMatcher` because Lesen's own index is strictly thinner — `große`, `Hunden`
-> and `Lehrerin` all resolve in the matcher and in none of them in the reader — so
-> Lesen currently under-selects adjectives, dative plurals and `-in` feminines for
-> its i+1 sentences. Converging changes what Lesen picks, so it needs its own
-> measurement rather than a drive-by edit.
+> ✅ **Converged 2026-08-15.** Measured first: over 32,713 tokens the matcher
+> resolved **2,076 (6.3%)** the reader did not, all of them words Lesen was calling
+> unknown. Done as a *fallback* rather than a swap, because the two disagree on 520
+> of the 22,861 both resolve and on the capitalised ones the reader is right —
+> `Essen` is the meal, `Morgen` the morning, which the matcher cannot see. The maps
+> answer first; the matcher catches the rest. `src/lib/appMatcher.ts` now holds the
+> single shared instance.
 
 **Phase 1 · the meter (M).** Paste (or save a URL's text) → annotate via the matcher →
 report coverage against the 95/98 bands, honestly and with the count, not just a
