@@ -1,0 +1,15 @@
+{
+  "why": "der Diesel described three different words at once. The 2026-08-14 gender audit caught the article; this is the rest of it. The gloss named the regional Cola-Bier drink (sense 4 on de.wiktionary), the synonyms belonged to that drink and to dirt (Schweinebier, Schmutz, Moorwasser — the page's Synonyme for sense 4, 'Dreckiges'), while the definition covered senses 1 and 3 and both examples are about fuel. The definition and the examples agree with each other, so they decide: this card is the fuel and the engine.",
+  "rows": [
+    {
+      "id": "voc:A2:der Diesel",
+      "expect": {
+        "en": "Coke mixed with beer",
+        "syn": ["Moorwasser", "Schmutz", "Schweinebier"]
+      },
+      "en": "diesel (fuel); diesel engine",
+      "syn": ["Dieselmotor", "Dieselöl", "Dieseltreibstoff"],
+      "src": "de.wiktionary Diesel — Synonyme [1] Dieselmotor, [3] Dieselöl / Dieseltreibstoff, matching Bedeutungen [1] 'Kurzform für Dieselmotor' and [3] 'Kurzform für Dieselkraftstoff'."
+    }
+  ]
+}

@@ -159170,7 +159170,7 @@
   {
     "id": "voc:A2:der Diesel",
     "term": "der Diesel",
-    "en": "Coke mixed with beer",
+    "en": "diesel (fuel); diesel engine",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -159178,9 +159178,9 @@
     "ipa": "ˈdiːzl̩",
     "def": "ellipsis of Dieselkraftstoff (“diesel fuel”); ellipsis of Dieselmotor (“diesel engine”)",
     "syn": [
-      "Moorwasser",
-      "Schmutz",
-      "Schweinebier"
+      "Dieselmotor",
+      "Dieselöl",
+      "Dieseltreibstoff"
     ],
     "ant": [],
     "ex": [
@@ -198202,7 +198202,7 @@
     "pos": "noun",
     "level": "A1",
     "gender": "die",
-    "plural": null,
+    "plural": "nur Plural",
     "ipa": "ˈɡaʁtn̩ˌmøːbl̩",
     "def": "tables and chairs for the garden (plural)",
     "syn": [],

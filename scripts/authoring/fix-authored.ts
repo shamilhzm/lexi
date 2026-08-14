@@ -51,9 +51,32 @@ interface PlRow {
   plural?: string;
   src: string;
 }
-type Row = ExRow | DefRow | PlRow;
+/** A sense row: the English gloss, and the synonyms that belong to it.
+ *
+ *  The two travel together because they answer the same question — *which word is
+ *  this card about?* — and `der Diesel` shipped answering it three ways at once: a
+ *  gloss reading "Coke mixed with beer", synonyms belonging to that drink and to
+ *  dirt (*Schweinebier*, *Schmutz*, *Moorwasser*), a definition about fuel and
+ *  engines, and two examples about trains. Correcting `en` alone would have left
+ *  two thirds of the mash-up in place.
+ *
+ *  Synonyms are facts, so this carries `src` the way a plural does. A gloss is a
+ *  judgement and needs no source, but a row that rewrites both does. */
+interface SenseRow {
+  id: string;
+  expect: { en: string; syn?: string[] };
+  en?: string;
+  syn?: string[];
+  src?: string;
+}
+
+type Row = ExRow | DefRow | PlRow | SenseRow;
 const isDefRow = (r: Row): r is DefRow => 'expect' in r && r.expect != null && 'def' in r.expect;
 const isPlRow = (r: Row): r is PlRow => 'expect' in r && r.expect != null && 'plural' in r.expect;
+// An ExRow's `expect` also carries an `en`, so the discriminator is the absence of
+// `de` — the field only an example has.
+const isSenseRow = (r: Row): r is SenseRow =>
+  'expect' in r && r.expect != null && 'en' in r.expect && !('de' in r.expect);
 
 const [batchPath, ...rest] = process.argv.slice(2);
 const dry = rest.includes('--dry');
@@ -71,7 +94,7 @@ const norm = (s: string) => (s ?? '').replace(/\s+/g, ' ').trim();
 let applied = 0, deleted = 0, pending = 0;
 const refused: string[] = [];
 const refuse = (row: Row, why: string) =>
-  refused.push(`${row.id}${isDefRow(row) || isPlRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
+  refused.push(`${row.id}${isDefRow(row) || isPlRow(row) || isSenseRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
 
 // Deletions are applied last and in descending index order, so removing ex[1]
 // can't shift the meaning of a later row that targets ex[2] of the same card.
@@ -92,6 +115,30 @@ for (const row of rows) {
     if (!/^(die|der|das)\s/.test(next)) { refuse(row, 'plural must be written with its article'); continue; }
     if (!row.src?.trim()) { refuse(row, 'no source given for the plural'); continue; }
     card.plural = next;
+    applied++;
+    continue;
+  }
+
+  if (isSenseRow(row)) {
+    if (norm(card.en ?? '') !== norm(row.expect?.en ?? '')) {
+      refuse(row, 'expect no longer matches the corpus (already fixed, or a stale batch)');
+      continue;
+    }
+    if (row.expect.syn && JSON.stringify(card.syn ?? []) !== JSON.stringify(row.expect.syn)) {
+      refuse(row, 'expect.syn no longer matches the corpus');
+      continue;
+    }
+    const nextEn = norm(row.en ?? '');
+    if (!nextEn && !row.syn) { pending++; continue; }
+    if (row.syn && !row.src?.trim()) { refuse(row, 'no source given for the synonyms'); continue; }
+    // The gloss is what the learner is graded against in recall mode, so it may
+    // not be the definition verbatim — that would make the prompt its own answer.
+    if (nextEn && nextEn.toLowerCase() === norm(card.def ?? '').toLowerCase()) {
+      refuse(row, 'gloss would just repeat the definition');
+      continue;
+    }
+    if (nextEn) card.en = nextEn;
+    if (row.syn) card.syn = row.syn;
     applied++;
     continue;
   }

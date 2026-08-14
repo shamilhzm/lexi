@@ -157,8 +157,17 @@ const FIXES: Fix[] = [
     why: 'der Diesel. The page carries a single Genus (m) across all four senses — the engine, '
       + 'the vehicle, the fuel, and the regional Cola-Bier drink — so the correction holds '
       + 'whichever sense the card means. Which it means is a separate defect: the gloss says '
-      + '„Coke mixed with beer“ while both examples are about fuel. Left for a content pass; '
-      + 'the gender is wrong either way.',
+      + '„Coke mixed with beer“ while both examples are about fuel. Fixed separately by '
+      + 'scripts/corpus/batches/diesel-sense.json; the gender is wrong either way.',
+  },
+  {
+    id: 'voc:A1:die Gartenmöbel',
+    expect: { plural: null },
+    set: { plural: 'nur Plural' },
+    why: 'Not a wrong gender — `die` is the plural article and the card teaches the plural, '
+      + 'the same as `die Möbel`, `die Lebensmittel`, `die Geschwister`. But its plural field '
+      + 'was empty where `die Möbel` says „nur Plural“, so the intent was implicit and the '
+      + 'audit had no way to tell it apart from a mistake. Saying it out loud is the fix.',
   },
 ];
 
