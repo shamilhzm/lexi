@@ -24,6 +24,12 @@ number forward from a doc. *(Four counts in the README were stale by up to 6×.)
 Hand-verify three hits before you believe the count. *(Twice this has been a bug in the
 check.)*
 
+**…write a check, guard or index that enumerates its cases.** Count the cases in the
+data first, then write the list. Three separate bugs this month were an *incomplete
+enumeration*, not faulty logic. *(Plural notations: the corpus writes six, the code
+knew one. Entrance guard: three animations, the list named two. Gender audit: learned
+three notations one failure at a time.)*
+
 **…finish a pass that drives something to zero.** Write the check that keeps it there, in
 the same commit. Then prove the check fires — inject the defect and watch it fail — before
 trusting the PASS. *(`corpus:validate` passed on a duplicate for as long as the invariant
@@ -112,6 +118,17 @@ it turns out to be wrong.**
   gender audit must exclude adjectival nouns — *der Bekannte*, *die Angestellte*, *der
   Deutsche* — the same way `caseSafe` already excludes n-Deklination masculines. Two
   hits, one false, exactly as this class predicts.
+- **The matcher indexed `"¨-e"` as a word.** *(2026-08-15.)* `buildMatcher` added
+  `stripArticle(w.plural)` to its index verbatim, which is correct for the 2,766 cards
+  writing `die Namen` and garbage for the other 390: a card reading `¨-e` contributed
+  the literal key `"¨-e"`, one reading `nur Singular` contributed `"nur singular"`, and
+  the form a reader actually meets — `Vorschläge` — was never indexed at all. It went
+  unnoticed because the junk keys are unreachable rather than wrong: nothing ever
+  *resolves* to them, so the failure is silent under-reporting. **A field written in
+  more than one notation cannot be used raw, and the way to find out how many
+  notations exist is to count them, not to read the type.** Same root cause as the
+  gender audit two days earlier, in a different file.
+
 - **The same gender check, wrong four more ways at A1.** *(2026-08-14.)* Pointed at the
   2,742 A1–B1 nouns it flagged **10% of A1** — against 0.5% at B2+. A twenty-fold jump
   on the *best*-curated words in the corpus is not a finding, and all four causes were

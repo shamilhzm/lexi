@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildMatcher, isCardinal, isNeutralWord } from './matcher.ts';
+import { buildMatcher, isCardinal, isNeutralWord, pluralForm } from './matcher.ts';
 import type { Word } from '../types.ts';
 
 const w = (over: Partial<Word>): Word => ({
@@ -212,5 +212,58 @@ describe('inflections that were silently missing', () => {
     expect(h('Freundin')).toBe('die Freundin');
     expect(h('Freundinnen')).toBe('die Freundin');
     expect(h('Freund')).toBe('der Freund');
+  });
+});
+
+// The corpus writes plurals **six** ways and `buildMatcher` used to index only one
+// of them, adding the rest to the index verbatim: a card reading `¨-e` contributed
+// the literal key "¨-e" while `Vorschläge` — the form a reader actually meets — was
+// never indexed. 390 cards were affected. Measured over the six exam papers,
+// `Vorschläge`, `Höfe`, `Läden`, `Einwände` and `Patienten` all failed to resolve
+// against cards the corpus already teaches, which is the worst direction for a
+// coverage meter to be wrong in.
+//
+// One case per notation, because the repeated failure here is an *incomplete
+// enumeration* — the same shape as the gender audit learning three notations one at
+// a time, and as the entrance guard listing two of three animations.
+describe('plural notations — every one the corpus actually uses', () => {
+  const cases: [string, string | null, string | null][] = [
+    ['das Wort', 'die Wörter', 'Wörter'],          // full form
+    ['der Patient', '-en', 'Patienten'],           // append
+    ['der Grenzwert', '-e', 'Grenzwerte'],
+    ['das Handy', '-s', 'Handys'],
+    ['der Vorschlag', '¨-e', 'Vorschläge'],        // umlaut, then append
+    ['der Rock', '¨-e', 'Röcke'],
+    ['das Buch', '¨-er', 'Bücher'],
+    ['der Mantel', '¨-', 'Mäntel'],                // umlaut, nothing appended
+    ['der Einwand', '-wände', 'Einwände'],         // splice on the overlap
+    ['der Werdegang', '-gänge', 'Werdegänge'],
+    ['der Pullover', '-', 'Pullover'],             // unchanged plural
+    ['das Gemüse', 'nur Singular', null],          // assertions: no form at all
+    ['die Möbel', 'nur Plural', null],
+    ['der Regen', '—', null],
+    ['der Laden', null, null],
+  ];
+  for (const [term, plural, want] of cases) {
+    it(`${term} [${plural ?? 'none'}] -> ${want ?? 'no plural'}`, () => {
+      expect(pluralForm(term, plural)).toBe(want);
+    });
+  }
+
+  // The capital matters: umlautStem matched [aou] only, so a noun whose sole back
+  // vowel is its capitalised initial came back unchanged — *Angst* produced the
+  // plural *Angste*. German capitalises every noun, so this was not an edge case.
+  it('umlauts a capitalised initial vowel', () => {
+    expect(pluralForm('die Angst', '¨-e')).toBe('Ängste');
+    expect(pluralForm('der Arzt', '¨-e')).toBe('Ärzte');
+  });
+
+  it('an assertion never becomes an index key', () => {
+    const mm = buildMatcher([
+      w({ id: 'v:gemuese', term: 'das Gemüse', pos: 'noun', gender: 'das', plural: 'nur Singular' }),
+      w({ id: 'v:vorschlag', term: 'der Vorschlag', pos: 'noun', gender: 'der', plural: '¨-e' }),
+    ]);
+    expect(mm.annotate('nur')[0]?.word ?? null).toBeNull();
+    expect(mm.annotate('Vorschläge')[0]?.word?.term).toBe('der Vorschlag');
   });
 });

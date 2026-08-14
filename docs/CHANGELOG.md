@@ -11,6 +11,52 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the matcher was indexing `"¨-e"` as a word
+
+Work on Now #2's blocking finding — *"the comprehension meter would under-report by ~8
+points"* — began by re-measuring it, and most of it was already gone. The function-word
+bucket (3.9%) was fixed on 2026-08-11. Measured with the meter's own denominator (the
+paper walk **without** `PAPER_NAMES`, because a learner pasting their own text gets no
+curated name list), the six papers resolved **92.61%**, not 83.6%, and the inflection
+bucket was **0.29%**, not 2.5%.
+
+**The cause of that 0.29% was not a missing derivation rule.** `buildMatcher` indexed
+`stripArticle(w.plural)` verbatim. That is right for the 2,766 cards writing `die Namen`
+and garbage for the other **390**: a card reading `¨-e` contributed the literal index key
+`"¨-e"`, one reading `nur Singular` contributed `"nur singular"`, and `Vorschläge` — the
+form a reader actually meets — was never indexed at all. `Höfe`, `Läden`, `Einwände`,
+`Patienten`, `Herren` and `Einstellungen` all failed to resolve against cards the corpus
+already teaches, which is the worst direction for a coverage meter to be wrong in: it
+under-reports words the learner has studied.
+
+`pluralForm()` now expands all six notations — append (`-en`), splice on the overlap
+(`-wände` → *Einwände*), umlaut (`¨-e` → *Vorschläge*, `¨-` → *Mäntel*), unchanged (`-`),
+the full form, and the three assertions that correctly yield no plural at all. **215
+cards gained a real plural form** (`Handys`, `Jacken`, `Geräte`, `Speisekarten`,
+`Kreuzungen`) and 175 junk keys left the index. One test per notation, because the
+repeated failure here is an incomplete enumeration.
+
+It also surfaced a second bug in the same helper: `umlautStem` matched `[aou]` only, so a
+noun whose sole back vowel is its capitalised initial came back unchanged — *Angst* gave
+the plural *Angste*, and *Arzt* never reached *Ärztin*. German capitalises every noun, so
+that was never an edge case.
+
+⛔ **One of the finding's proposed fixes is recorded as wrong rather than done.**
+"Tighten `isLikelyEntity` with a capitalised-and-unresolvable rule" cannot work: German
+capitalises *every* noun, so the rule reclassifies unresolved common nouns as proper
+nouns. Tried as a measurement, it swept up `Vorschläge`, `Prüferin`, `Moderatorin`,
+`Einstellungen` and `Lesesaal` — 328 distinct tokens, most of them real vocabulary — and
+would have raised the reported figure by ~2.9 points while making it less honest. That is
+the LingQ failure mode this feature exists to beat. A bundled list of given names and
+place names stays the honest option.
+
+What remains is **7.10% of content tokens the corpus does not contain at any
+inflection** — corpus growth (item 6), not a meter defect. Phase 1 is unblocked.
+
+750 tests green (+17).
+
+---
+
 ### Shipped 2026-08-15 — `cardin` loses its scale, and the guard that missed it gains a name
 
 The touch-target sweep below recorded `@keyframes cardin` as still carrying

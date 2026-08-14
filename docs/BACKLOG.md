@@ -294,26 +294,41 @@ texts use paired and Binnen-I forms constantly. Cheaper as a *matcher* rule
 (derive `-in`/`-innen` from the masculine card) than as several hundred new cards —
 which makes it the same fix as the item below.
 
-### 🔴 The comprehension meter would under-report by ~8 points, for two fixable reasons
+### 🟠 The comprehension meter's denominator — re-measured 2026-08-15, and mostly already fixed
 
-**This lands on Now #2, the flagship, whose entire claim is an honest number.** Run
-over the B1 paper against the *whole* corpus, the matcher resolves 83.6% of content
-tokens. Classified by hand, the shortfall is mostly not vocabulary:
-
-| bucket | share of content tokens | examples |
-|---|---|---|
-| grammatical words missing from `FUNCTION_WORDS` | **3.9%** | etwas, alles, nichts, mehr, jeder/jede/jeden, andere, jemand, einige, solche, **ihren/ihrem/seinen/seines/unsere** (inflected possessives), zurück (particle), hause |
-| proper nouns `isLikelyEntity` misses | **1.4%** | single-capital names — Reuter, Ahrens, Leipzig, Katja |
-| inflections the matcher drops | **2.5%** | genitives (Kurses, Romans, Vaters, Hauses), adverbial `-s` (samstags, montags, nachmittags), `-in` feminines, spelled-out numerals (fünfzehn, achtzig) |
-| genuine vocabulary gaps | 9.0% | the list above, plus authored compounds |
-
-The first three are denominator bugs, not learning gaps, and together they are
-**7.8 percentage points** — enough to move a text from "readable" to "not readable"
-against the 95/98 bands the meter exists to report. Fix before Phase 1 ships, for
-the same reason the verb-homograph defect above it is blocking.
-**Do (S):** extend `FUNCTION_WORDS` with the indefinite/possessive inflections;
-tighten `isLikelyEntity` with a name list or a capitalised-and-unresolvable rule;
-add genitive `-s/-es`, adverbial `-s` and `-in/-innen` derivation to the index.
+> **The 83.6% and the ~8 points below are stale, and one of the proposed fixes is
+> actively wrong.** Re-measured with the meter's own denominator — the paper walk
+> *without* `PAPER_NAMES`, because a learner pasting their own text gets no curated
+> name list — the six papers now resolve **92.69%** of content tokens.
+>
+> | bucket | 2026-08-11 claim | measured 2026-08-15 |
+> |---|---|---|
+> | grammatical words missing from `FUNCTION_WORDS` | 3.9% | **0** — fixed 2026-08-11 |
+> | inflections the matcher drops | 2.5% | **0.21%** (32 tokens, 12 distinct) |
+> | proper nouns `isLikelyEntity` misses | 1.4% | **still real** — see below |
+>
+> ⛔ **Do not implement "tighten `isLikelyEntity` with a capitalised-and-unresolvable
+> rule".** German capitalises *every* noun, so that rule reclassifies every unresolved
+> common noun as a proper noun. Tried as a measurement here, it swept up `Vorschläge`,
+> `Prüferin`, `Moderatorin`, `Einstellungen` and `Lesesaal` — 328 distinct tokens, most
+> of them real vocabulary — and would have raised the reported figure by ~2.9 points
+> while making it *less* honest. A meter that hides its gaps is the LingQ failure mode
+> this feature exists to beat. **The remaining honest option is a bundled list of given
+> names and place names** — data, explicit, and incapable of silently absorbing
+> vocabulary — which is what the original "a name list" suggestion said before the
+> heuristic was offered as an alternative.
+>
+> ✅ **The inflection bucket is fixed** (2026-08-15). The cause was not missing
+> derivation rules but the plural **notations**: `buildMatcher` indexed
+> `stripArticle(w.plural)` verbatim, so a card reading `¨-e` contributed the literal
+> key `"¨-e"` and its real form was never indexed. **390 cards were indexed under a
+> junk key**; 215 now contribute a real plural (`Handys`, `Jacken`, `Geräte`,
+> `Speisekarten`, `Kreuzungen`) and 175 correctly contribute none. `pluralForm()` now
+> expands all six notations, one test per notation.
+>
+> **What is left is genuine corpus coverage, not a denominator bug**: 7.10% of content
+> tokens are words the corpus does not contain at any inflection — which is item 6
+> (grow the corpus), not a meter defect. Phase 1 is no longer blocked on this.
 
 ### ✅ Grammar is not the problem, and one item here was stale
 

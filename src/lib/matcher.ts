@@ -103,10 +103,57 @@ const TIME_NOUNS = new Set([
 ]);
 
 /** Umlaut the last plain back vowel — the change German makes when deriving
- *  `Ärztin` from `Arzt` or `Köchin` from `Koch`. */
-const umlautStem = (s: string) => s.replace(/([aou])(?!.*[aou])/, (m) => ({ a: 'ä', o: 'ö', u: 'ü' }[m] ?? m));
+ *  `Ärztin` from `Arzt` or `Köchin` from `Koch`.
+ *
+ *  Case matters here and used to be missed: this matched `[aou]` only, so a noun
+ *  whose only back vowel is its capitalised initial was returned unchanged —
+ *  *Angst* stayed *Angst* and produced the plural *Angste*, and *Arzt* never
+ *  reached *Ärztin*. German capitalises every noun, so that is not an edge case. */
+const UMLAUT: Record<string, string> = { a: 'ä', o: 'ö', u: 'ü', A: 'Ä', O: 'Ö', U: 'Ü' };
+const umlautStem = (s: string) => s.replace(/([aouAOU])(?!.*[aouAOU])/, (m) => UMLAUT[m] ?? m);
 // Adjective endings, longest first, so "schärfere" strips "ere" before "e".
 const ADJ_SUFFIXES = ['eren', 'erem', 'erer', 'eres', 'sten', 'ere', 'ste', 'en', 'em', 'er', 'es', 'e'];
+
+/** The plural **surface form** a card describes, or `null` when it describes none.
+ *
+ *  The corpus writes plurals six ways and this used to index only one of them. The
+ *  rest were added to the index *verbatim*: a card reading `¨-e` contributed the
+ *  literal key `"¨-e"`, and `Vorschläge` — the form a reader actually meets — was
+ *  never indexed at all. Measured over the six exam papers, `Vorschläge`, `Höfe`,
+ *  `Läden`, `Einwände` and `Patienten` all failed to resolve against cards the
+ *  corpus already teaches, which is the worst direction for a coverage meter to be
+ *  wrong in: it under-reports words the learner has studied.
+ *
+ *    die Namen   full form, already worked
+ *    -en / -e    append:            Patient  + en  -> Patienten
+ *    -wände      splice on overlap: Einwand  + wände -> Einwände
+ *    ¨-e / ¨-    umlaut, then append: Vorschlag -> Vorschläge, Laden -> Läden
+ *    -           unchanged:         Pullover -> Pullover
+ *    nur Singular / nur Plural / —  no plural form to index
+ *
+ *  Exported for the tests, which assert each notation against a real card. */
+export function pluralForm(term: string, plural: string | null | undefined): string | null {
+  const singular = stripArticle(term).trim();
+  const p = (plural ?? '').trim();
+  if (!p || /^nur\s/i.test(p) || p === '—') return null;
+  if (!p.startsWith('-') && !p.startsWith('¨')) return stripArticle(p).trim() || null;
+  if (p === '-') return singular;
+
+  const umlaut = p.startsWith('¨');
+  const suffix = p.replace(/^¨/, '').replace(/^-/, '');
+  const base = umlaut ? umlautStem(singular) : singular;
+  if (!suffix) return umlaut ? base : singular;
+  // `-wände` on *Einwand* names the whole tail, not an ending to append. Splice at
+  // the longest overlap the singular actually ends with, comparing without umlauts
+  // so `wänd` still matches `wand`.
+  for (let k = suffix.length; k > 0; k--) {
+    const head = deUmlaut(suffix.slice(0, k).toLowerCase());
+    if (base.length > k && deUmlaut(base.toLowerCase()).endsWith(head)) {
+      return base.slice(0, base.length - k) + suffix;
+    }
+  }
+  return base + suffix;
+}
 
 // High-frequency finite forms the conjugation generator doesn't produce (modal +
 // haben/werden Konjunktiv II, sein's Konjunktiv I/II), keyed by infinitive.
@@ -194,8 +241,9 @@ export function buildMatcher(corpus: Word[]): Matcher {
   for (const w of corpus) {
     add(w.term.toLowerCase(), w);
     add(stripArticle(w.term).toLowerCase(), w);
-    if (w.plural) {
-      const k = stripArticle(w.plural).toLowerCase();
+    const pl = pluralForm(w.term, w.plural);
+    if (pl) {
+      const k = pl.toLowerCase();
       if (!index.has(k)) pluralOnly.add(k);
       add(k, w);
     }
