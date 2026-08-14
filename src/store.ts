@@ -1118,6 +1118,65 @@ export function setClassList(list: ClassList | null) {
   emit();
 }
 
+// ---- saved texts ---------------------------------------------------------
+// BACKLOG Now #2 Phase 2: the app's first return mechanism that is not about the
+// app. Everything else brings a learner back to see their own numbers move; a
+// saved text brings them back because they want to read *it*, and the meter
+// beside it moves on its own as they study.
+//
+// The **body** is stored, not a list of ids, and that is the whole point: the
+// coverage figure has to be recomputed against today's FSRS state, so a snapshot
+// of which words were unknown last week would defeat the feature.
+//
+// ⚠️ Learner-supplied text only. BACKLOG is explicit that a bundled feed of
+// someone else's journalism is a licensing question nobody has answered — DW's
+// *Langsam gesprochene Nachrichten* is the obvious fit and is **not**
+// automatically redistributable. Nothing here ships content; it stores what the
+// learner pasted, on their own device.
+const TEXTS_KEY = 'lexi.texts.v1';
+/** Enough to come back to, small enough not to threaten the 5MB localStorage
+ *  budget the rest of the store shares. A text past the cap is stored truncated
+ *  rather than rejected, because a coverage figure over the first 40k characters
+ *  is still the honest answer for the part that was kept. */
+const MAX_TEXTS = 24;
+const MAX_TEXT_CHARS = 40_000;
+
+export interface SavedText { id: string; title: string; body: string; at: number }
+
+export function savedTexts(): SavedText[] {
+  try {
+    const raw = localStorage.getItem(TEXTS_KEY);
+    if (!raw) return [];
+    const p = JSON.parse(raw) as SavedText[];
+    return Array.isArray(p) ? p.filter((t) => t && typeof t.body === 'string' && t.body.trim()) : [];
+  } catch { return []; }
+}
+
+function writeTexts(list: SavedText[]) {
+  try { localStorage.setItem(TEXTS_KEY, JSON.stringify(list.slice(0, MAX_TEXTS))); }
+  catch { /* quota — the newest save is dropped rather than corrupting the list */ }
+  emit();
+}
+
+/** Saves, newest first. Re-saving the same body updates its title and timestamp
+ *  instead of filling the list with copies of one article. */
+export function saveText(title: string, body: string): SavedText | null {
+  const trimmed = body.trim();
+  if (!trimmed) return null;
+  const list = savedTexts();
+  const existing = list.find((t) => t.body === trimmed.slice(0, MAX_TEXT_CHARS));
+  const entry: SavedText = existing
+    ? { ...existing, title: title.trim() || existing.title, at: Date.now() }
+    : { id: `txt:${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`,
+        title: title.trim() || 'Untitled', body: trimmed.slice(0, MAX_TEXT_CHARS), at: Date.now() };
+  writeTexts([entry, ...list.filter((t) => t.id !== entry.id)]);
+  return entry;
+}
+
+export function removeText(id: string): void {
+  writeTexts(savedTexts().filter((t) => t.id !== id));
+}
+
 // ---- this week's focus ---------------------------------------------------
 // Perfekt is most of what an A2 course spends a month on, and the app served it as
 // one of four random transform targets — so a learner working on it got it roughly

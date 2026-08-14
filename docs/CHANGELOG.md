@@ -11,6 +11,37 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the comprehension meter, Phase 2: texts that come back
+
+Saved texts, each with a meter that moves while you study. BACKLOG's framing is that
+this is **the app's first return mechanism that is not about the app**: everything else
+brings a learner back to watch their own numbers move, and a saved text brings them
+back because they want to read *it*.
+
+**The body is stored, not a list of unknown-word ids**, and that is the whole design —
+the figure is recomputed against today's FSRS state on every store change, so a
+snapshot of what was unknown last week cannot masquerade as a live meter.
+
+Proven end to end in the browser rather than argued: paste a paragraph, save it, take
+the unlock session, grade two cards, come back. The shelf row went from
+*"0 of 7 words · 7 to go"* to *"0 of 7 words · **1 learning** · 7 to go"* on its own.
+
+That run also produced a real fix. The row first showed only `known` and `to go` — but
+a single grade moves a card to **Learning**, not Review, so a learner who had just
+studied three of these words would return to a shelf that looked untouched. `learning`
+is now on the row. The meter was right and the copy was hiding it.
+
+⚠️ **Learner-supplied text only.** BACKLOG is explicit that bundling someone else's
+journalism is an unanswered licensing question — DW's *Langsam gesprochene Nachrichten*
+is the obvious fit and is not automatically redistributable. Nothing here ships
+content; it stores what the learner pasted, on their own device, capped at 24 texts and
+40k characters each so it cannot eat the localStorage budget the rest of the store
+shares.
+
+783 tests green (+5).
+
+---
+
 ### Shipped 2026-08-15 — Lesen stops calling `große` a word you don't know
 
 The follow-up logged when the meter shipped: `reader.ts` kept its own surface index,

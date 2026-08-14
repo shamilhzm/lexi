@@ -15,12 +15,13 @@
 // amount of studying moves it past 90%. Saying so is the difference between an
 // honest meter and one that offers a study set that cannot deliver what it implies.
 import { useMemo, useState } from 'react';
-import { BookOpen, ArrowLeft, Sparkle } from 'lucide-react';
+import { BookOpen, ArrowLeft, Sparkle, Bookmark, X } from 'lucide-react';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { coverageOf, unlocksToReach, ASSISTED, INDEPENDENT, type Coverage, type WordState } from '../lib/coverage.ts';
-import { cardOf } from '../store.ts';
+import { cardOf, savedTexts, saveText, removeText } from '../store.ts';
+import { useStore } from '../useStore.ts';
 import { State } from '../srs.ts';
 import type { Target, Word } from '../types.ts';
 
@@ -55,9 +56,20 @@ const BAND_COPY = {
 } as const;
 
 export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy: (t: Target) => void }) {
+  const v = useStore();
   const [text, setText] = useState('');
   const [submitted, setSubmitted] = useState('');
   const [selected, setSelected] = useState<Word | null>(null);
+  const [saved, setSaved] = useState(false);
+
+  // The live meter. Recomputed against today's FSRS state on every store change —
+  // that is the feature: the shelf moves while you study, without the learner
+  // re-pasting anything. `v` is the store version, so a review re-runs this.
+  const shelf = useMemo(
+    () => savedTexts().map((t) => ({ text: t, cov: coverageOf(t.body, { stateOf }) })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [v],
+  );
 
   const cov: Coverage | null = useMemo(
     () => (submitted.trim() ? coverageOf(submitted, { stateOf }) : null),
@@ -97,8 +109,14 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
             Measure it
           </Button>
           {submitted && (
-            <Button variant="quiet" size="sm" onClick={() => { setText(''); setSubmitted(''); setSelected(null); }}>
+            <Button variant="quiet" size="sm" onClick={() => { setText(''); setSubmitted(''); setSelected(null); setSaved(false); }}>
               Clear
+            </Button>
+          )}
+          {submitted && (
+            <Button variant="secondary" size="sm" disabled={saved}
+              onClick={() => { saveText(snippet(submitted, 60), submitted); setSaved(true); }}>
+              <Bookmark size={14} /> {saved ? 'Saved' : 'Save this text'}
             </Button>
           )}
         </div>
@@ -218,6 +236,42 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
             </Card>
           )}
         </>
+      )}
+      {shelf.length > 0 && (
+        <Card tone="panel" pad="md">
+          <Kicker><Bookmark size={12} /> Your texts</Kicker>
+          <p className="mt-1 text-xs text-dim">These move on their own as you study.</p>
+          <ul className="mt-3 flex flex-col gap-2">
+            {shelf.map(({ text: t, cov: c }) => (
+              <li key={t.id} className="flex items-center gap-3">
+                <button
+                  onClick={() => { setText(t.body); setSubmitted(t.body); setSelected(null); setSaved(true); }}
+                  className="tap-44 flex-1 flex items-center gap-3 rounded-md border border-line bg-panel2
+                             px-3 py-2 text-left hover:border-amber transition-colors">
+                  <span className={`font-mono text-sm font-bold w-12 flex-shrink-0 ${BAND_COPY[c.band].tone}`}>
+                    {Math.round(c.ratio * 100)}%
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span lang="de" className="block text-sm truncate">{t.title}</span>
+                    {/* `learning` is shown here and not only in the detail view:
+                        one grade moves a card to Learning, not Review, so without
+                        this line a learner who just studied three of these words
+                        would come back to a shelf that looks untouched. */}
+                    <span className="block text-2xs text-dim">
+                      {c.known} of {c.counted} words
+                      {c.learning > 0 && <> · {c.learning} learning</>}
+                      {c.ratio < ASSISTED && <> · {c.toAssisted} to go</>}
+                    </span>
+                  </span>
+                </button>
+                <button onClick={() => removeText(t.id)} aria-label={`Remove ${t.title}`}
+                  className="tap-hit text-dim hover:text-red transition-colors flex-shrink-0">
+                  <X size={16} />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </Card>
       )}
     </div>
   );

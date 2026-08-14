@@ -571,6 +571,13 @@ unlock set demonstrably raises it on re-check after those cards reach Review; `w
 has a tested `unlock` case; proper nouns and function words are excluded from the
 denominator the way `isNeutralWord`/`isLikelyEntity` already decide.
 
+> ✅ **The saved-texts half shipped 2026-08-15.** `savedTexts`/`saveText`/`removeText`
+> in the store (body stored, not ids, so the meter is live), and the shelf in
+> `views/Read.tsx` — each text with its current figure, recomputed on every store
+> change. Verified end to end: grading in an unlock session moves the shelf without
+> re-pasting. **Still open in this phase: listening**, and the licensing question
+> below is unchanged — nothing bundled, learner text only.
+
 **Phase 2 · the library that returns (M).** Saved texts, each with a **live meter that
 moves as you study** — the app's first return mechanism that isn't self-referential.
 Listening is *plumbed* here — `lib/audio.ts` and the Piper HD voice both ship — but human
