@@ -79,6 +79,25 @@ it turns out to be wrong.**
   874 terms sat on more than one card. Measured properly — *does an A1 card exist for
   this word* — the real figure was **85%**. Every alarming row was a duplicate, not a
   gate. *(2026-08-11)*
+- **Every 44px control measured 43.34px — and the browser was frozen.** *(2026-08-15.)*
+  A touch-target sweep found the exact `.desk-in` signature (44 × .985) across the
+  session, and `@keyframes cardin` genuinely does still scale where `deskin` was long
+  ago reduced to a pure translate — a *motive*, which is the most dangerous thing to
+  have when you are about to report a bug. It was an artifact: `document.timeline`
+  advanced **0ms over 600ms** of real time in the automated browser, so every CSS
+  animation sat on its `from` frame. The test that settled it was creating a **fresh
+  probe element** and watching its clock stay at 0 too — the app cannot be blamed for
+  an element it never rendered. **Before reporting a measurement taken during or after
+  an animation, prove the timeline is running.** Same family as the contrast audit
+  below, one layer deeper: there the measurement was mid-transition, here the
+  transition never started.
+- **`.tap-hit` "did not work" — I was probing the hidden face of the flip card.**
+  *(2026-08-15, same sweep.)* Hit-testing the speaker halos returned `DIV.flip-face`
+  at every edge, which reads as a shipped accessibility fix that does nothing. The
+  card's back face is `rotateY(180deg)` with `backface-visibility: hidden`, so its
+  buttons are correctly unhittable while it faces away. **When hit-testing a 3D-flipped
+  surface, assert which face is live first** — the check must know about the geometry
+  it is measuring through.
 - **Contrast audit** reported six dark-theme failures including one at 1.0:1. Every one
   was an artifact of toggling `.dark` at runtime and measuring mid-transition, or of
   measuring the off-screen sidebar. Re-measured after settling: **zero**. *(2026-08-05)*

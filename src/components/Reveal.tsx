@@ -184,7 +184,7 @@ export function CardSource({ id }: { id: string }) {
   if (!open) {
     return (
       <button onClick={() => setOpen(true)}
-        className="mt-3 self-start inline-flex items-center gap-1 text-2xs text-dim hover:text-amber transition-colors">
+        className="tap-hit mt-3 self-start inline-flex items-center gap-1 text-2xs text-dim hover:text-amber transition-colors">
         <Info size={12} /> Where this came from
       </button>
     );

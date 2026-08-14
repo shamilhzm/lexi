@@ -858,7 +858,7 @@ function CoachMarks() {
       </span>
       <span aria-hidden className="hidden sm:inline">·</span>
       <span><b className="text-txt font-semibold">Skip</b> is always free</span>
-      <button onClick={dismiss} className="ml-auto text-amber font-semibold hover:brightness-110">Got it</button>
+      <button onClick={dismiss} className="tap-hit ml-auto text-amber font-semibold hover:brightness-110">Got it</button>
     </Card>
   );
 }

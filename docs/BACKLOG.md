@@ -409,18 +409,43 @@ every "mobile" finding to date is a 375×812 *browser* viewport that reports
 > network conditions for the ~25 MB voice**, and **real touch-axis arbitration** (the
 > open question directly above). Those want a physical handset.
 
-**Still open — measured, not guessed (375×812, coarse pointer, 2026-08-05).**
-Every number below is a rendered `getBoundingClientRect`, not a reading of the CSS.
-- **Session surface** (the primary one): the four speaker buttons at **23×23**;
-  *Hear the example* at 45×24; *Where this came from* at 127×13; the first-sight
-  *Got it* at 34×15.
-- **Today**: *Start session* at 308×**42** — the app's primary action, 2px under;
-  the time-budget chips (*3 min*) at 51×**25**; *Paste a list* at 99×33; the KPI
-  chip at 115×34.
-- The `IconButton` pattern itself is correct at exactly 44×44 once nothing scales
-  it, so this is reach, not rebuild: the fix is applying it (or a `::before` hit
-  area, as the sidebar chevron already does) to the controls above.
-- No horizontal overflow at 375px on Today or in the session (`scrollWidth` 375).
+> ### ✅ The touch-target sweep — closed 2026-08-15
+>
+> **Re-measured every interactive control on all six routes at 375×812 with a coarse
+> pointer live, and the session surface card-by-card. Zero controls now under 44px
+> without a hit area.** Two remained and both are fixed with the existing `.tap-hit`
+> halo — the ink is untouched, only the target grows:
+>
+> | control | ink | hit area |
+> |---|---|---|
+> | *Where this came from* | 131×13 | 131×**44** |
+> | first-sight *Got it* | 35×15 | **44×44** |
+>
+> **The speaker buttons were already fixed** and the 2026-08-05 row above is stale:
+> they draw at 24×24 and already carry a working 44×44 halo. Verified by hit-testing
+> rather than measuring — `elementFromPoint` at each halo edge returns the button.
+>
+> **One left deliberately.** *Hear the example* — the example **sentence** as a play
+> button — is 176×24 with no halo, and stays that way. The 24×24 speaker icon beside
+> it fires the *identical* action and already meets 44×44, so the sentence is a bonus
+> affordance, not the only route to that function. Growing it would claim a 176×44
+> band of the flip card and steal taps from the flip gesture for no accessibility
+> gain.
+>
+> **Today's row above is stale too**: *Start session* is `hidden sm:flex` — it does
+> not render at 375px at all, and already carries `.tap-44` for where it does. The
+> time-budget chips, *Paste a list* and the KPI chip no longer exist in `Today.tsx`.
+>
+> ⚠️ **The 43.34px reading was almost re-reported as a live bug.** Measuring the
+> session found every 44px control at 43.34 — the exact `.desk-in` signature, with
+> `.card-in` still carrying `scale(.985)` where `deskin` had long since been reduced
+> to a pure translate. It is **not** live: `document.timeline` advanced 0ms over 600ms
+> of real time in the automated browser, so every CSS animation — including a probe
+> element created on the spot — sat frozen on its `from` frame. Neutralising
+> animations put every control back at 44. *The hazard in `@keyframes cardin` is real
+> and still violates the DESIGN §7 rule; what is not real is the measurement.*
+>
+> No horizontal overflow at 375px on Today or in the session (`scrollWidth` 375).
 
 **Do.** Install Xcode (for the Simulator) or attach a real handset, then run a full
 session on a real iPhone *and* a real Android, in the browser and installed, at

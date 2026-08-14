@@ -11,6 +11,54 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the touch-target sweep closes, and the worst finding was my own instrument
+
+Every interactive control on all six routes, re-measured at 375×812 with a coarse
+pointer live, plus the session surface card by card. **Zero controls left under 44px
+without a hit area.** Two needed fixing, both with the `.tap-hit` halo that already
+existed — the drawn ink is untouched, only the target grows:
+
+| control | ink | hit area |
+|---|---|---|
+| *Where this came from* | 131×13 | 131×**44** |
+| first-sight *Got it* | 35×15 | **44×44** |
+
+Verified by **hit-testing**, not measuring: `elementFromPoint` at each halo edge
+returns the button, and at desktop the halo is `content: none` so the density the rule
+was written to protect is untouched.
+
+Three rows of the backlog's 2026-08-05 list were **stale**. The speaker buttons already
+had working halos. *Start session* is `hidden sm:flex` and does not render at 375px at
+all. The time-budget chips, *Paste a list* and the KPI chip no longer exist.
+
+**One is left undone on purpose.** *Hear the example* — the example sentence itself as a
+play button — is 176×24 and stays that way. The 24×24 speaker icon beside it fires the
+identical action and already meets 44×44, so the sentence is a second route to a
+function that already has a compliant one. A halo there would claim a 176×44 band of the
+flip card and take taps away from the flip gesture, buying nothing.
+
+**The finding that nearly shipped was wrong.** The sweep measured every 44px control at
+**43.34px** — the exact `.desk-in` signature — and `@keyframes cardin` really does still
+carry `scale(.985)` where `deskin` was long ago reduced to a pure translate. Motive,
+signature and a documented precedent all lined up. It was an artifact:
+`document.timeline` advanced **0ms across 600ms** of real time in the automated browser,
+so every animation sat frozen on its `from` frame. What settled it was creating a fresh
+probe element and watching its clock stay at 0 as well — the app cannot be responsible
+for an element it never rendered. Neutralising animations put every control back at 44.
+
+The hazard in `cardin` is still real and still contradicts the DESIGN §7 rule; it is
+recorded as a rule violation to fix by reading the CSS, not as a measured defect.
+
+`.tap-hit` also appeared broken for a while — hit tests on the speaker halos returned
+`DIV.flip-face` at every edge. That was the card's **back face**, `rotateY(180deg)` with
+`backface-visibility: hidden`, correctly unhittable while facing away. Both are in
+LESSONS.
+
+733 tests green. The one `npm run lint` error (`src/views/Placement.tsx:74`) predates
+this work — confirmed by re-running with the changes stashed.
+
+---
+
 ### Shipped 2026-08-14 — eight wrong genders at A1–B1, and a check that was wrong four times first
 
 The B2+ audit left 2,742 A1–B1 nouns unchecked — the levels where a wrong gender does
