@@ -11,6 +11,30 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — Lesen had the same bug, for one day
+
+The plural-notation fix landed in `matcher.ts` and **not** in `reader.ts`, which keeps
+its own surface index for the reading surface. For a day `Vorschläge` resolved for the
+comprehension meter and not for Lesen — precisely the *"two reading surfaces that
+disagree"* hazard BACKLOG Now #2 warns about, created by fixing one of the two indexes.
+
+`reader.ts` now expands through the same `pluralForm`, and `reader-index.test.ts` exists
+so the next divergence fails a test rather than quietly telling a learner two different
+things about one word: one case per notation asserted against **both** indexes, plus the
+rule that a notation must never itself become a lookup key. Mutation-checked — restoring
+the raw indexing fails 6 of the 9.
+
+**Both 🔴 blockers on Phase 1 are now cleared, and both were largely stale.** The verb
+finding re-measures at **6.4%**, not 21.6%, with all three cited defects fixed (`weiß` →
+wissen, `rufe` → anrufen, `Gib` → geben) — and much of the remainder is not a matcher
+defect but examples that genuinely lack their headword, separated multiwords, and terms
+carrying notation (`verzichten auf + A`, `das Gericht (Essen)`) that the probe has to
+strip. Phase 1 is unblocked.
+
+759 tests green (+9).
+
+---
+
 ### Shipped 2026-08-15 — the matcher was indexing `"¨-e"` as a word
 
 Work on Now #2's blocking finding — *"the comprehension meter would under-report by ~8

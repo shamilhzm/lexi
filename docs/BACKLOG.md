@@ -45,6 +45,23 @@ fires on thousands of rows as a bug in the check.*
 - **Corpus audit: 0 errors** across all 7,389 cards — no article/gender mismatch, no
   unknown sector, no untranslated example, no markup leaking into a field.
 
+> ### ✅ Re-measured 2026-08-15 — largely fixed, and no longer blocking Phase 1
+>
+> All three cited defects now resolve correctly: `weiß` → **wissen**, `rufe` (in *Ich
+> rufe dich an*) → **anrufen**, `Gib` → **geben**. The headline rate is **6.4%**, not
+> 21.6% — 1,077 of 16,883 example rows.
+>
+> And most of that 6.4% is not a matcher defect. Sampling the misses: `der Kopf` taught
+> with *«Kopfschmerzen»* (the headword is genuinely absent — the separate content
+> defect below), `Rad fahren` with *«fahre ich Rad»* (a separated multiword), and terms
+> whose surface form carries notation the probe has to strip — `verzichten auf + A`,
+> `das Gericht (Essen)`, `der/die Abgeordnete`. **The probe was wrong about several of
+> its own hits**, which is this file's own standing warning.
+>
+> Left standing as 🟠 rather than closed: the remaining verb (424) and phrase (307)
+> rows deserve a proper classification pass before anyone claims a number. **What is
+> settled is that this no longer blocks Now #2 Phase 1.**
+
 ### 🔴 The matcher is wrong about verbs, and it is about to become the headline
 
 **The finding that matters most, because it lands on Now #2.** The matcher fails to

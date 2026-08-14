@@ -15,6 +15,7 @@
 // is a vocabulary list in disguise, and one with none teaches nothing new.
 import { WORDS } from '../data/index.ts';
 import { conjugate, canConjugate } from './conjugate.ts';
+import { pluralForm } from './matcher.ts';
 import type { Word } from '../types.ts';
 
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
@@ -66,7 +67,15 @@ function build(): void {
   for (const w of WORDS) {
     if (w.kind !== 'word') continue;
     put(stripArticle(w.term), w);
-    if (w.plural) put(stripArticle(w.plural), w);
+    // `pluralForm`, not the raw field. The corpus writes plurals six ways and this
+    // used to index whatever the field said: a card reading `¨-e` contributed the
+    // literal surface form `"¨-e"` and `Vorschläge` was never indexed at all — 390
+    // cards affected. `matcher.ts` had the same bug and was fixed first, which is
+    // precisely how Lesen and the meter end up disagreeing about what "known"
+    // means. Both indexes now expand through one function; `reader.test.ts` asserts
+    // they agree.
+    const pl = pluralForm(w.term, w.plural);
+    if (pl) put(pl, w);
     if (w.pos === 'verb' && canConjugate(w.term)) {
       const c = conjugate(w.term);
       put(c.infinitive, w);
