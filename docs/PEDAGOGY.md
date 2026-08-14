@@ -507,7 +507,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 | 5 | ⟳ **Speaking has no recording**, though local-only playback needs no backend and breaks no promise. | **P0** | L4, L1, T6 | output |
 | 6 | ⟳ **Listening is 10 human recordings.** Synthesis teaches citation form; every exam tests connected speech. | **P0** | L1, L4, L6, T3 | input |
 | 7 | ⚠️ **The corpus is 2.3% multi-word and 7 particles.** **Largely withdrawn 2026-08-13** — the finding measured the card corpus only. 129 Redemittel ship in the exam speaking labs (now scheduled) and five grammar points teach the particle system. The residue is real but smaller: this material lives outside the cards, so search, decks and print could not see it. | **P2** | L3, L5, T3, T6 | corpus |
-| 8 | ⚠️ **34% of cards sit in five non-semantic bins**, and `weakestSectors()` feeds tomorrow's vocabulary off that taxonomy. **Half fixed, half overstated, 2026-08-13** — three of the five bins are coherent POS decks; the real defects were seven duplicated sector names, 118 cards with no sector row, and a Miscellaneous *group* holding 35 misfiled sectors. All three fixed; the 501 genuinely unclassified cards remain. | **P1** | T3, L6, L1 | corpus |
+| 8 | ⚠️ **34% of cards sit in five non-semantic bins**, and `weakestSectors()` feeds tomorrow's vocabulary off that taxonomy. **Fixed 2026-08-13, and half the finding was overstated** — three of the five bins are coherent POS decks. The real defects were seven duplicated sector names, 118 cards with no sector row, a Miscellaneous *group* holding 35 misfiled sectors, and 501 unclassified cards. All four closed; the Miscellaneous sector and its group no longer exist. | **P1** | T3, L6, L1 | corpus |
 | 9 | ⟳ **No textbook/chapter alignment**, and the functional sectors that would carry it hold one card each. | **P1** | T3, L1, T6 | syllabus |
 | 10 | ⟳ **C1/C2 is 3% of the exercise bank** (156 of 5,207) against 1,538 at A1. | **P1** | T4, L5 | corpus |
 | 11 | **No collocation and no verb valency field.** 1,199 verbs that don't know their own preposition. | **P1** | L2, L5, T4 | corpus |
@@ -615,8 +615,16 @@ new part.
    - *Beschwerden*, the one German sector name in an English taxonomy, merged into
      *Ailments*.
 
-   Sectors and fields are now in sync at **275**. **Still open:** the 501 genuinely
-   unclassified cards, which is per-card judgement rather than a rename.
+   Sectors and fields are now in sync, and **`Miscellaneous` is empty**: all 501 cards
+   were hand-classified into `misc-sectors.tsv` and applied by `corpus:misc-sector`.
+   The theme group went with it — **16 groups → 15** — so every card on the treemap now
+   sits under a tile that names something.
+
+   Honest about where they went: **359 landed in genuinely semantic sectors** (*Legal
+   Terms* 3→16, *Objects & Materials* 5→18, *Useful Phrases* 37→55, *Emotions* 47→66),
+   and **142 in part-of-speech or `Abstract` bins** — because *Chance*, *Detail*,
+   *System* and *Zufall* have no topic, and `Abstract` is a true label where
+   `Miscellaneous` was an absent one.
 10. 🔄 **C1/C2 exercise depth.** Was 156 items across two levels; now **301**.
     Authored not generated — at these levels a generated item can state that an answer
     is right but not why — and appended through `corpus:gex`, because the positional

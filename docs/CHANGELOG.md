@@ -11,6 +11,42 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — Miscellaneous is empty, and then gone
+
+The 501 cards left over from the sector pass, hand-classified and applied.
+
+**Why it mattered more than a tidy.** *Miscellaneous* held **7.7% of the corpus** under
+a name that means *nobody looked*. It was the second-largest tile on the treemap; it fed
+`weakestSectors()`, so it was deciding which fresh vocabulary a learner met next; and it
+was the one deck a teacher could not use for anything.
+
+`scripts/corpus/misc-sectors.tsv` is the authored half — one line per lemma, 501 of
+them, every target a sector that already exists. `corpus:misc-sector` is the mechanical
+half. **501 moved, 0 unmapped, into 87 sectors.** The sector is now empty, so
+`rebuildSectors` drops it, and the *Miscellaneous theme group* goes with it: **16 groups
+→ 15**. Every card on the map now sits under a tile that names something.
+
+**Where they actually went, stated honestly.** 359 landed in genuinely semantic
+sectors — *Legal Terms* 3→16, *Objects & Materials* 5→18, *Useful Phrases* 37→55,
+*Emotions* 47→66, *Time* 30→55. The other 142 went to part-of-speech bins or to
+`Abstract` (10→65), because *Chance*, *Detail*, *System* and *Zufall* have no topic and
+pretending otherwise would be a worse lie than the one being fixed. **`Abstract` is a
+true label where `Miscellaneous` was an absent one**, and that is the whole difference.
+
+**A separate script from `corpus:resector`, deliberately.** That one only moves
+pipeline-added cards so a bulk re-run cannot disturb hand-curated ones — right in
+general and exactly wrong here, because **293 of these 501 were hand-curated** and being
+curated is not what gave them a sector; they were curated *into the bin*. So this script
+ignores provenance and buys the safety back differently: **it will only ever move a card
+whose field is `Miscellaneous`**, whatever the TSV says. It also refuses to run if any
+target sector does not exist, so a typo cannot mint a one-card sector and put a stray
+tile on the map.
+
+274 sectors, 274 fields, zero duplicates, zero orphans, zero empty rows.
+`corpus:validate` PASS, 733 green, treemap verified.
+
+---
+
 ### Shipped 2026-08-13 — the taxonomy tells the truth about itself
 
 `corpus:sector-merge`, and a finding that was half right aimed at the wrong half.
