@@ -11,6 +11,52 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — A1 has no thin points, and the mean was lying
+
+Closing C1/C2 surfaced a bigger finding, and it inverts the one the critique made.
+
+**The averages were describing nothing.** I had been quoting "A1 averages 64 exercises
+per point" all session. True, and useless: `corpus:genex` generated 50+ items for 29
+derivable points, which pulled every mean up and hid the shape.
+
+| | mean | median | points under 12 |
+|---|---|---|---|
+| A1 | 64.1 | 27 | 12 of 24 |
+| A2 | 56.5 | **8** | 17 of 28 |
+| B1 | 36.9 | **6** | 29 of 40 |
+| B2 | 21.6 | **6** | 18 of 21 |
+| C1 | 17.0 | 18 | **0** |
+| C2 | 15.8 | 16 | **0** |
+
+**76 of 113 points at A1–B2 held fewer than twelve exercises**, against none at C1 or
+C2. *"Your C1 is a rumour"* was true when the Lektor said it and is now the opposite of
+the problem: the thin layer is the bottom of the syllabus, where every learner starts
+and where [CRITIQUE §5](CRITIQUE.md) already says the churn is. Recorded in
+[LESSONS](LESSONS.md) — *a mean is only a summary when the data has one mode.*
+
+**A1 is now clear.** All twelve thin points authored across two batches: *Negation:
+nicht vs. kein*, *dieser-Wörter*, *Ordinalzahlen & Datum*, *sein & haben*,
+*Personalpronomen* (Nominativ and Akkusativ), *Wortstellung & Fragen*, *Artikelwörter &
+kein*, *Präteritum: sein & haben*, *Zeitangaben mit Präpositionen*, *Richtungsangaben &
+Indefinitpronomen*, and *Partikeln: denn, ja, doch, mal*.
+
+Level minimum **5 → 14**, median 27, bank **5,429 → 5,545**. The four items `corpus:gex`
+skipped as already present are the sign the existing content was hit rather than
+duplicated.
+
+These are the mechanics an A1 learner is actually stuck on — *kein* versus *nicht*
+is the single most confused thing at the level and had **five** exercises behind it.
+Each item carries an explanation that states the rule rather than the answer: *"if the
+positive sentence has ein or no article, negate with kein. Everything else takes
+nicht."*
+
+**Still open: A2 (17 thin points), B1 (29), B2 (18).** B1 is the largest and the level
+learners sit at longest.
+
+`corpus:validate` PASS, 733 green, spot-checked in the app.
+
+---
+
 ### Shipped 2026-08-13 — C1/C2 exercise depth, closed
 
 The last nine thin points, and the finding now points the other way.

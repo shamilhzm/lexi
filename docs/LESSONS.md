@@ -185,6 +185,15 @@ deleting them.**
   The real figure is **129**: the same pattern also matches the *model answers*, which
   are the bulk of those files. Caught only because a test asserted `>= 200` and failed.
   *Count inside the thing you are counting* — scope the read to the export, not the file.
+- **A mean over a bimodal distribution described nothing.** *(2026-08-13.)* I closed
+  the C1/C2 exercise-depth item quoting "A1 averages 64 exercises per point" — true, and
+  useless. `corpus:genex` had generated 50+ items for 29 derivable points, which pulled
+  every mean up and hid the shape: **A2 mean 56.5 / median 8 · B1 mean 36.9 / median 6 ·
+  B2 mean 21.6 / median 6.** In fact **76 of 113 points at A1–B2 hold 5–11 exercises**,
+  and C1/C2 — the levels the critique called a rumour — are the only two with no thin
+  point at all. The whole finding was inverted by a statistic that averaged a spike with
+  a floor. *Report the median and the minimum for any distribution you have not plotted;
+  a mean is only a summary when the data has one mode.*
 - **A taxonomy finding that was half right and aimed at the wrong half.**
   *(2026-08-13.)* PEDAGOGY said "2,201 cards, 34% of the corpus, in five bins that
   carry no semantic information". Measured card by card, three of those five —

@@ -1930,6 +1930,105 @@
           "answer": 2,
           "fix": "Sie haben einen Bruder.",
           "explain": "Akkusativ masculine → einen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Du ___ Recht.",
+          "options": [
+            "hast",
+            "bist",
+            "habe"
+          ],
+          "answer": 0,
+          "explain": "„Recht haben“ is a fixed expression — German has, where English is."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ Student.",
+          "options": [
+            "ist",
+            "hat",
+            "sind"
+          ],
+          "answer": 0,
+          "explain": "A profession takes sein, and with no article: er ist Student."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ Hunger.",
+          "options": [
+            "haben",
+            "sind",
+            "seid"
+          ],
+          "answer": 0,
+          "explain": "Hunger, Durst, Angst and Zeit are all had, not been."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ihr ___ zu spät.",
+          "options": [
+            "seid",
+            "sind",
+            "habt"
+          ],
+          "answer": 0,
+          "explain": "The ihr-form of sein is seid — no „i“, and no relation to seit."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ ein großes Auto.",
+          "options": [
+            "haben",
+            "sind",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Third person plural of haben: sie haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ du heute Zeit?",
+          "options": [
+            "Hast",
+            "Bist",
+            "Habst"
+          ],
+          "answer": 0,
+          "explain": "haben loses its -b- in the du- and er-forms: du hast, er hat."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ meine Schwester.",
+          "options": [
+            "ist",
+            "hat",
+            "sind"
+          ],
+          "answer": 0,
+          "explain": "Identifying someone takes sein."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ aus Berlin.",
+          "options": [
+            "sind",
+            "haben",
+            "seid"
+          ],
+          "answer": 0,
+          "explain": "Origin takes sein: wir sind aus …"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ einen Bruder.",
+          "options": [
+            "habe",
+            "bin",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Possession takes haben, and the object is accusative: einen Bruder."
         }
       ]
     },
@@ -3578,6 +3677,116 @@
           ],
           "answer": 0,
           "explain": "neuter → es."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ bin Anna.",
+          "options": [
+            "Ich",
+            "Du",
+            "Er"
+          ],
+          "answer": 0,
+          "explain": "„bin“ can only belong to ich."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ bist mein Freund.",
+          "options": [
+            "Du",
+            "Ich",
+            "Ihr"
+          ],
+          "answer": 0,
+          "explain": "„bist“ belongs to du. The verb ending identifies the pronoun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist Herr Meyer. ___ ist mein Lehrer.",
+          "options": [
+            "Er",
+            "Sie",
+            "Es"
+          ],
+          "answer": 0,
+          "explain": "A masculine noun is replaced by er."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist Frau Klein. ___ ist Ärztin.",
+          "options": [
+            "Sie",
+            "Er",
+            "Es"
+          ],
+          "answer": 0,
+          "explain": "A feminine noun is replaced by sie."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wo ist das Buch? ___ liegt hier.",
+          "options": [
+            "Es",
+            "Er",
+            "Sie"
+          ],
+          "answer": 0,
+          "explain": "A neuter noun is replaced by es."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Anna und ich — ___ sind Studenten.",
+          "options": [
+            "wir",
+            "sie",
+            "ihr"
+          ],
+          "answer": 0,
+          "explain": "Someone else plus ich is always wir."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Du und Tom — ___ seid nett.",
+          "options": [
+            "ihr",
+            "wir",
+            "sie"
+          ],
+          "answer": 0,
+          "explain": "Several people you address informally: ihr."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das sind meine Eltern. ___ wohnen in Köln.",
+          "options": [
+            "Sie",
+            "Er",
+            "Ihr"
+          ],
+          "answer": 0,
+          "explain": "Third person plural: sie wohnen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Pronomen ersetzt „das Mädchen“?",
+          "options": [
+            "es",
+            "sie",
+            "er"
+          ],
+          "answer": 0,
+          "explain": "Grammatical gender wins over natural gender: das Mädchen → es. Real speakers often say sie, but the rule is es."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Woran erkennt man „Sie“ (höflich) im Satz?",
+          "options": [
+            "es wird immer großgeschrieben",
+            "es steht am Satzende",
+            "es hat eine eigene Verbform"
+          ],
+          "answer": 0,
+          "explain": "The polite Sie takes the same verb form as plural sie; only the capital letter separates them in writing."
         }
       ]
     },
@@ -3645,6 +3854,116 @@
           "answer": 1,
           "fix": "Heute gehe ich ins Kino.",
           "explain": "Verb must stay in position 2."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ heißt du?",
+          "options": [
+            "Wie",
+            "Was",
+            "Wer"
+          ],
+          "answer": 0,
+          "explain": "German asks „how are you called“, not „what“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Morgen ___ ich nach Berlin.",
+          "options": [
+            "fahre",
+            "ich fahre",
+            "fahren"
+          ],
+          "answer": 0,
+          "explain": "„Morgen“ occupies position 1, so the verb must be second and the subject follows it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ du Deutsch?",
+          "options": [
+            "Sprichst",
+            "Du sprichst",
+            "Sprechen"
+          ],
+          "answer": 0,
+          "explain": "A yes/no question puts the verb first."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ kommst du? — Aus Spanien.",
+          "options": [
+            "Woher",
+            "Wohin",
+            "Wo"
+          ],
+          "answer": 0,
+          "explain": "woher asks about origin, wohin about direction, wo about position."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Heute ___ wir ins Kino.",
+          "options": [
+            "gehen",
+            "wir gehen",
+            "geht"
+          ],
+          "answer": 0,
+          "explain": "Verb second, subject third — the same inversion as with „Morgen“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ wohnst du? — In Hamburg.",
+          "options": [
+            "Wo",
+            "Wohin",
+            "Woher"
+          ],
+          "answer": 0,
+          "explain": "Position, so wo."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ alt bist du?",
+          "options": [
+            "Wie",
+            "Was",
+            "Wer"
+          ],
+          "answer": 0,
+          "explain": "wie + adjective asks for a degree: wie alt, wie groß, wie teuer."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Am Montag ___ ich zur Arbeit.",
+          "options": [
+            "gehe",
+            "ich gehe",
+            "gehen"
+          ],
+          "answer": 0,
+          "explain": "The time phrase is position 1; the finite verb stays in position 2 whatever comes before it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht das Verb im Aussagesatz?",
+          "options": [
+            "an Position 2",
+            "an Position 1",
+            "am Satzende"
+          ],
+          "answer": 0,
+          "explain": "The single most load-bearing rule in German word order. Position 1 can hold anything; position 2 is the finite verb."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht das Verb in der Ja/Nein-Frage?",
+          "options": [
+            "an Position 1",
+            "an Position 2",
+            "am Satzende"
+          ],
+          "answer": 0,
+          "explain": "„Kommst du mit?“ — no question word, so the verb opens the sentence."
         }
       ]
     },
@@ -3711,6 +4030,116 @@
           "answer": 2,
           "fix": "Ich trinke keinen Kaffee.",
           "explain": "Nouns are negated with kein, not nicht."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe ___ Hund.",
+          "options": [
+            "einen",
+            "ein",
+            "eine"
+          ],
+          "answer": 0,
+          "explain": "der Hund, direct object → accusative masculine: einen. This -en is the only change ein makes in the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ Frau.",
+          "options": [
+            "eine",
+            "ein",
+            "einen"
+          ],
+          "answer": 0,
+          "explain": "die Frau → eine Frau, nominative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir haben ___ Kind.",
+          "options": [
+            "ein",
+            "einen",
+            "eine"
+          ],
+          "answer": 0,
+          "explain": "das Kind is neuter, and neuter looks the same in nominative and accusative: ein Kind."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat ___ Bruder.",
+          "options": [
+            "keinen",
+            "kein",
+            "keine"
+          ],
+          "answer": 0,
+          "explain": "kein takes exactly the endings of ein: keinen Bruder in the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich brauche ___ Hilfe.",
+          "options": [
+            "keine",
+            "kein",
+            "keinen"
+          ],
+          "answer": 0,
+          "explain": "die Hilfe is feminine, and feminine is unchanged in the accusative: keine Hilfe."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ Auto.",
+          "options": [
+            "mein",
+            "meinen",
+            "meine"
+          ],
+          "answer": 0,
+          "explain": "The possessives decline like ein too: das Auto → mein Auto."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich suche ___ Schlüssel.",
+          "options": [
+            "meinen",
+            "mein",
+            "meine"
+          ],
+          "answer": 0,
+          "explain": "der Schlüssel, accusative: meinen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hast du ___ Stift?",
+          "options": [
+            "einen",
+            "ein",
+            "eine"
+          ],
+          "answer": 0,
+          "explain": "der Stift, accusative masculine."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Wörter haben dieselben Endungen wie „ein“?",
+          "options": [
+            "kein und die Possessivartikel",
+            "der/die/das",
+            "dieser/jeder"
+          ],
+          "answer": 0,
+          "explain": "ein, kein, mein, dein, sein, ihr, unser, euer — one table for all of them. dieser and jeder follow the *definite* article instead."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was ändert sich im Akkusativ?",
+          "options": [
+            "nur der maskuline Artikel",
+            "alle drei Artikel",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "ein → einen. Feminine and neuter are identical in nominative and accusative, which is why the masculine is the one to watch."
         }
       ]
     },
@@ -5791,6 +6220,116 @@
           "answer": 1,
           "fix": "Wo wart ihr am Wochenende?",
           "explain": "ihr → wart."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gestern ___ ich krank.",
+          "options": [
+            "war",
+            "bin",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "sein in the past: ich war. German prefers the Präteritum of sein and haben even in speech, where other verbs take the Perfekt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ gestern im Kino.",
+          "options": [
+            "waren",
+            "hatten",
+            "sind"
+          ],
+          "answer": 0,
+          "explain": "wir waren."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ keine Zeit.",
+          "options": [
+            "hatte",
+            "war",
+            "habe"
+          ],
+          "answer": 0,
+          "explain": "haben in the past: ich hatte."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ du gestern zu Hause?",
+          "options": [
+            "Warst",
+            "Warest",
+            "Hattest"
+          ],
+          "answer": 0,
+          "explain": "du warst — no extra -e-."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ einen Hund.",
+          "options": [
+            "hatte",
+            "war",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "er hatte. The first and third person singular are identical in the Präteritum."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ihr ___ sehr nett.",
+          "options": [
+            "wart",
+            "wart nicht",
+            "hattet"
+          ],
+          "answer": 0,
+          "explain": "ihr wart."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ viele Fragen.",
+          "options": [
+            "hatten",
+            "waren",
+            "haben"
+          ],
+          "answer": 0,
+          "explain": "sie hatten, third person plural."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ ein schöner Tag.",
+          "options": [
+            "war",
+            "hatte",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "Describing a state in the past: war."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum benutzt man bei sein/haben meist das Präteritum?",
+          "options": [
+            "„ich war“ ist kürzer und üblicher als „ich bin gewesen“",
+            "das Perfekt ist falsch",
+            "sie haben kein Perfekt"
+          ],
+          "answer": 0,
+          "explain": "Both forms exist and both are correct; the Präteritum is simply what people say. The same is true of the modal verbs."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Formen sind im Präteritum identisch?",
+          "options": [
+            "ich und er/sie/es",
+            "du und ihr",
+            "wir und ihr"
+          ],
+          "answer": 0,
+          "explain": "ich war / er war, ich hatte / er hatte — no ending on the first and third person singular."
         }
       ]
     },
@@ -5854,6 +6393,116 @@
           "answer": 2,
           "fix": "Wir besuchen sie am Sonntag.",
           "explain": "besuchen + Akkusativ → sie."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne ___. (du)",
+          "options": [
+            "dich",
+            "dir",
+            "du"
+          ],
+          "answer": 0,
+          "explain": "du → dich in the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie liebt ___. (ich)",
+          "options": [
+            "mich",
+            "mir",
+            "ich"
+          ],
+          "answer": 0,
+          "explain": "ich → mich."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir sehen ___ morgen. (er)",
+          "options": [
+            "ihn",
+            "ihm",
+            "er"
+          ],
+          "answer": 0,
+          "explain": "er → ihn. This is the one form learners most often replace with „ihm“, which is dative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich frage ___. (sie, Singular)",
+          "options": [
+            "sie",
+            "ihr",
+            "ihn"
+          ],
+          "answer": 0,
+          "explain": "sie is unchanged in the accusative — feminine never changes."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Kennst du ___? (wir)",
+          "options": [
+            "uns",
+            "wir",
+            "unser"
+          ],
+          "answer": 0,
+          "explain": "wir → uns."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich besuche ___ morgen. (ihr)",
+          "options": [
+            "euch",
+            "ihr",
+            "eure"
+          ],
+          "answer": 0,
+          "explain": "ihr → euch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Buch? Ich lese ___ gerade.",
+          "options": [
+            "es",
+            "ihn",
+            "sie"
+          ],
+          "answer": 0,
+          "explain": "das Buch is neuter, and es is unchanged in the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Den Film? Ich habe ___ schon gesehen.",
+          "options": [
+            "ihn",
+            "es",
+            "sie"
+          ],
+          "answer": 0,
+          "explain": "der Film → ihn. The pronoun keeps the noun's gender, not the English one."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich rufe ___ später an. (Sie, höflich)",
+          "options": [
+            "Sie",
+            "Ihnen",
+            "ihr"
+          ],
+          "answer": 0,
+          "explain": "The polite Sie is unchanged in the accusative and stays capitalised."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Akkusativpronomen sehen genauso aus wie im Nominativ?",
+          "options": [
+            "sie, es und Sie",
+            "ich und du",
+            "er und wir"
+          ],
+          "answer": 0,
+          "explain": "Only the masculine and the first/second persons change shape — which is why *ihn* and *mich* are where the errors live."
         }
       ]
     },
@@ -5925,6 +6574,105 @@
             "im"
           ],
           "explain": "seasons → im."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Kurs beginnt ___ acht Uhr.",
+          "options": [
+            "um",
+            "am",
+            "im"
+          ],
+          "answer": 0,
+          "explain": "Clock times take um."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Mai fahre ich nach Italien.",
+          "options": [
+            "Im",
+            "Am",
+            "Um"
+          ],
+          "answer": 0,
+          "explain": "Months and seasons take in + dem = im: im Mai, im Sommer."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Wochenende schlafe ich lange.",
+          "options": [
+            "Am",
+            "Im",
+            "Um"
+          ],
+          "answer": 0,
+          "explain": "am Wochenende — an exception worth simply learning."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich arbeite ___ Montag ___ Freitag.",
+          "options": [
+            "von … bis",
+            "am … bis",
+            "im … zu"
+          ],
+          "answer": 0,
+          "explain": "A span takes von … bis, with no articles on the days."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Winter ist es kalt.",
+          "options": [
+            "Im",
+            "Am",
+            "Um"
+          ],
+          "answer": 0,
+          "explain": "Seasons take im."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir treffen uns ___ halb sieben.",
+          "options": [
+            "um",
+            "am",
+            "im"
+          ],
+          "answer": 0,
+          "explain": "Still a clock time, so um."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Nacht schlafe ich.",
+          "options": [
+            "In der",
+            "Am",
+            "Um"
+          ],
+          "answer": 0,
+          "explain": "die Nacht is the exception to the am-rule for parts of the day: in der Nacht."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Regel gilt für Tage und Tageszeiten?",
+          "options": [
+            "am — am Montag, am Abend",
+            "im",
+            "um"
+          ],
+          "answer": 0,
+          "explain": "am for days and parts of the day, im for months and seasons, um for the clock. „in der Nacht“ is the one to remember separately."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann benutzt man „um“?",
+          "options": [
+            "bei Uhrzeiten",
+            "bei Monaten",
+            "bei Wochentagen"
+          ],
+          "answer": 0,
+          "explain": "um acht, um Viertel nach drei."
         }
       ]
     },
@@ -8345,6 +9093,116 @@
             "nach"
           ],
           "explain": "nach Hause = homewards."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich gehe ___ Arzt.",
+          "options": [
+            "zum",
+            "nach",
+            "in"
+          ],
+          "answer": 0,
+          "explain": "zu + dem = zum for a person or an institution: zum Arzt, zum Bahnhof."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir fahren ___ Berlin.",
+          "options": [
+            "nach",
+            "zum",
+            "in die"
+          ],
+          "answer": 0,
+          "explain": "Cities and most countries take nach, with no article."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie geht ___ Schule.",
+          "options": [
+            "in die",
+            "nach",
+            "zum"
+          ],
+          "answer": 0,
+          "explain": "Entering a building or an enclosed space takes in + accusative: in die Schule."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich fahre ___ Schweiz.",
+          "options": [
+            "in die",
+            "nach",
+            "zur"
+          ],
+          "answer": 0,
+          "explain": "Countries that carry an article take in: in die Schweiz, in die Türkei, in die USA."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich gehe ___ Hause.",
+          "options": [
+            "nach",
+            "zu",
+            "in"
+          ],
+          "answer": 0,
+          "explain": "nach Hause for going home; zu Hause for being there. The pair is fixed."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ hat angerufen, aber ich weiß nicht wer.",
+          "options": [
+            "Jemand",
+            "Niemand",
+            "Etwas"
+          ],
+          "answer": 0,
+          "explain": "jemand = an unknown someone."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe ___ gesehen. Das Haus war leer.",
+          "options": [
+            "niemanden",
+            "jemanden",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "niemand is the negative of jemand, and it declines: niemanden in the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Möchtest du ___ trinken?",
+          "options": [
+            "etwas",
+            "jemand",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "etwas for an unspecified thing; jemand is only ever a person."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ kann Deutsch lernen.",
+          "options": [
+            "Man",
+            "Jemand",
+            "Etwas"
+          ],
+          "answer": 0,
+          "explain": "man is the general „one/you“, always with the er-form of the verb."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann benutzt man „nach“ und wann „in“ bei Ländern?",
+          "options": [
+            "nach ohne Artikel, in bei Ländern mit Artikel",
+            "immer nach",
+            "immer in"
+          ],
+          "answer": 0,
+          "explain": "nach Deutschland, nach Frankreich — but in die Schweiz, in den Iran, in die Niederlande."
         }
       ]
     },
@@ -8418,6 +9276,116 @@
           ],
           "answer": 0,
           "explain": "ja marks evident surprise."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wie heißt du ___?",
+          "options": [
+            "denn",
+            "doch",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "denn makes a question sound interested rather than blunt. It appears only in questions."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Komm ___ her!",
+          "options": [
+            "mal",
+            "denn",
+            "ja"
+          ],
+          "answer": 0,
+          "explain": "mal softens an imperative into an invitation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ toll!",
+          "options": [
+            "ja",
+            "denn",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "ja in a statement expresses surprise at something just noticed."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Du weißt ___, dass ich keine Zeit habe.",
+          "options": [
+            "doch",
+            "denn",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "doch appeals to shared knowledge — you know this already."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Warum kommst du ___ nicht mit?",
+          "options": [
+            "denn",
+            "ja",
+            "mal"
+          ],
+          "answer": 0,
+          "explain": "A question again, so denn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Warte ___ einen Moment!",
+          "options": [
+            "mal",
+            "denn",
+            "ja"
+          ],
+          "answer": 0,
+          "explain": "„Warte mal“ is one of the commonest things you will hear in German."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Setz dich ___ hin!",
+          "options": [
+            "doch",
+            "denn",
+            "ja"
+          ],
+          "answer": 0,
+          "explain": "doch in an imperative presses gently: do sit down."
+        },
+        {
+          "kind": "mc",
+          "prompt": "In welchem Satztyp steht „denn“?",
+          "options": [
+            "in Fragen",
+            "in Aussagen",
+            "in Imperativen"
+          ],
+          "answer": 0,
+          "explain": "Only in questions. A statement with denn is the *conjunction* denn („because“), which is a different word."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was macht „mal“ mit einem Imperativ?",
+          "options": [
+            "es macht ihn freundlicher",
+            "es macht ihn strenger",
+            "es verneint ihn"
+          ],
+          "answer": 0,
+          "explain": "„Komm her!“ is an order; „Komm mal her!“ is an invitation. Nothing else in the sentence changes."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum sind diese Wörter schwer zu lernen?",
+          "options": [
+            "sie ändern die Bedeutung nicht, sondern den Ton",
+            "sie sind unregelmäßig",
+            "sie stehen am Satzende"
+          ],
+          "answer": 0,
+          "explain": "Leave them out and the sentence still means the same — it just sounds abrupt or foreign. That is why they are invisible to a learner and audible to everyone else."
         }
       ]
     },
@@ -8477,6 +9445,105 @@
           ],
           "answer": 0,
           "explain": "Dative masculine → diesem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Mann ist mein Vater.",
+          "options": [
+            "Dieser",
+            "Diese",
+            "Dieses"
+          ],
+          "answer": 0,
+          "explain": "der Mann → dieser Mann. The endings copy the definite article exactly."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Frau kenne ich.",
+          "options": [
+            "Diese",
+            "Dieser",
+            "Dieses"
+          ],
+          "answer": 0,
+          "explain": "die Frau → diese Frau."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Kind spielt im Garten.",
+          "options": [
+            "Dieses",
+            "Dieser",
+            "Diese"
+          ],
+          "answer": 0,
+          "explain": "das Kind → dieses Kind."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne ___ Mann.",
+          "options": [
+            "diesen",
+            "dieser",
+            "dieses"
+          ],
+          "answer": 0,
+          "explain": "Masculine accusative: den Mann → diesen Mann. This is the one form that changes."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Mit ___ Auto fahre ich.",
+          "options": [
+            "diesem",
+            "diesen",
+            "dieses"
+          ],
+          "answer": 0,
+          "explain": "mit takes the dative, neuter: dem Auto → diesem Auto."
+        },
+        {
+          "kind": "choose",
+          "prompt": "In ___ Woche habe ich Zeit.",
+          "options": [
+            "dieser",
+            "diese",
+            "diesem"
+          ],
+          "answer": 0,
+          "explain": "in + dative for a time span, feminine: der Woche → dieser Woche."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Kinder sind laut.",
+          "options": [
+            "Diese",
+            "Dieser",
+            "Dieses"
+          ],
+          "answer": 0,
+          "explain": "Plural: die Kinder → diese Kinder."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gib mir bitte ___ Stift.",
+          "options": [
+            "diesen",
+            "dieser",
+            "diesem"
+          ],
+          "answer": 0,
+          "explain": "der Stift, direct object → accusative masculine: diesen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„dieser“ dekliniert wie:",
+          "options": [
+            "der bestimmte Artikel (der/die/das)",
+            "„ein“",
+            "gar nicht"
+          ],
+          "answer": 0,
+          "explain": "Learn one table, get four words: dieser, jener, jeder and welcher all take the same endings."
         }
       ]
     },
@@ -10570,6 +11637,105 @@
           ],
           "answer": 0,
           "explain": "Plural → keine."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe ___ Auto.",
+          "options": [
+            "kein",
+            "nicht",
+            "nicht ein"
+          ],
+          "answer": 0,
+          "explain": "kein negates a noun that would otherwise take ein or no article: ein Auto → kein Auto."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ mein Buch.",
+          "options": [
+            "nicht",
+            "kein",
+            "keine"
+          ],
+          "answer": 0,
+          "explain": "The noun already has a possessive, so kein is impossible. Everything except ein/no-article is negated with nicht."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich trinke ___ Kaffee.",
+          "options": [
+            "keinen",
+            "kein",
+            "nicht"
+          ],
+          "answer": 0,
+          "explain": "Kaffee is masculine and the object, so accusative: keinen. kein declines exactly like ein."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er kommt heute ___.",
+          "options": [
+            "nicht",
+            "kein",
+            "keine"
+          ],
+          "answer": 0,
+          "explain": "There is no noun to negate — only the verb — so nicht, and it comes at the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat ___ Zeit.",
+          "options": [
+            "keine",
+            "kein",
+            "nicht"
+          ],
+          "answer": 0,
+          "explain": "die Zeit is feminine: keine Zeit."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Buch ist ___ interessant.",
+          "options": [
+            "nicht",
+            "kein",
+            "keines"
+          ],
+          "answer": 0,
+          "explain": "An adjective is negated with nicht, and nicht goes directly in front of it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne ihn ___.",
+          "options": [
+            "nicht",
+            "kein",
+            "keinen"
+          ],
+          "answer": 0,
+          "explain": "A pronoun cannot take kein. nicht follows the pronoun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hast du ___ Hunger?",
+          "options": [
+            "keinen",
+            "kein",
+            "nicht"
+          ],
+          "answer": 0,
+          "explain": "der Hunger is masculine, accusative after haben: keinen Hunger."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann benutzt man „kein“?",
+          "options": [
+            "vor einem Nomen mit „ein“ oder ohne Artikel",
+            "vor jedem Nomen",
+            "vor Verben"
+          ],
+          "answer": 0,
+          "explain": "The one rule worth memorising: if the positive sentence has ein or no article, negate with kein. Everything else takes nicht."
         }
       ]
     },
@@ -12669,6 +13835,116 @@
           "answer": 4,
           "fix": "Wir treffen uns am zweiten April.",
           "explain": "am + ordinal takes -ten → am zweiten April."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Heute ist der ___ Mai. (1.)",
+          "options": [
+            "erste",
+            "einte",
+            "eine"
+          ],
+          "answer": 0,
+          "explain": "1. is irregular: erste, not „einte“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Am ___ Juni habe ich Geburtstag. (3.)",
+          "options": [
+            "dritten",
+            "dreiten",
+            "dritte"
+          ],
+          "answer": 0,
+          "explain": "3. is irregular (dritte), and „am“ is dative, so the ending is -en."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der ___ Mann von links. (7.)",
+          "options": [
+            "siebte",
+            "siebente",
+            "siebende"
+          ],
+          "answer": 0,
+          "explain": "7. drops the -en: siebte. („siebente“ exists but is old-fashioned.)"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie wohnt im ___ Stock. (3.)",
+          "options": [
+            "dritten",
+            "dritte",
+            "drittem"
+          ],
+          "answer": 0,
+          "explain": "in dem = im, so dative masculine: im dritten Stock."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist mein ___ Versuch. (2.)",
+          "options": [
+            "zweiter",
+            "zweite",
+            "zweiten"
+          ],
+          "answer": 0,
+          "explain": "After mein the masculine nominative takes the strong ending: mein zweiter Versuch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich komme am ___ August. (20.)",
+          "options": [
+            "zwanzigsten",
+            "zwanzigten",
+            "zwanzigste"
+          ],
+          "answer": 0,
+          "explain": "From 20 upward the suffix is -st, then the dative ending: am zwanzigsten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Am ___ Dezember ist Silvester. (31.)",
+          "options": [
+            "einunddreißigsten",
+            "einunddreißigten",
+            "einunddreißigste"
+          ],
+          "answer": 0,
+          "explain": "-st again, and the units word comes first: einunddreißigsten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der ___ Januar ist ein Feiertag. (1.)",
+          "options": [
+            "erste",
+            "einste",
+            "erster"
+          ],
+          "answer": 0,
+          "explain": "der + ordinal in the nominative takes -e: der erste Januar."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie bildet man Ordinalzahlen bis 19?",
+          "options": [
+            "Zahl + -t + Endung",
+            "Zahl + -st + Endung",
+            "Zahl + -en"
+          ],
+          "answer": 0,
+          "explain": "vier → vierte, fünf → fünfte. The exceptions are erste, dritte, siebte and achte."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie bildet man Ordinalzahlen ab 20?",
+          "options": [
+            "Zahl + -st + Endung",
+            "Zahl + -t + Endung",
+            "Zahl + -er"
+          ],
+          "answer": 0,
+          "explain": "zwanzig → zwanzigste, hundert → hundertste."
         }
       ],
       "sections": [

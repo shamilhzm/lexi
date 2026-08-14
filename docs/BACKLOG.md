@@ -777,9 +777,17 @@ user; none of it is built.*
   > levels now carry a higher minimum per point than A1–B2 do. What remains under this
   > item is **vocabulary and register depth**, not drill volume: 761 word cards across
   > C1+C2, and no collocation or register field on any of them (#45).
-- **The thin layer moved.** A1, A2, B1 and B2 each still contain a grammar point with
-  only **5** exercises, which is now the lowest in the bank — the C1/C2 pass overtook
-  them. *Do:* run the same `corpus:gex` treatment downward, worst-first. *S–M each.*
+- **The thin layer is A1–B2, and the mean was hiding it · M, ongoing.** The bank's
+  *means* look healthy because `corpus:genex` generated 50+ items for 29 derivable
+  points; the **medians** are A2 **8**, B1 **6**, B2 **6**. Measured 2026-08-13:
+  **76 of 113 points at A1–B2 held fewer than 12 exercises**, against zero at C1/C2.
+  > ✅ **A1 closed 2026-08-13** — all 12 thin points authored, level min 5 → **14**,
+  > median 27, bank 5,429 → 5,545.
+  > **Still open: A2 (17 points), B1 (29), B2 (18).** Same treatment, worst-first;
+  > B1 is the largest and the level most learners sit longest at.
+  *Do:* author in reviewable batches of ~6 points through `corpus:gex`, re-pin
+  `GRAMMAR_COUNTS`, spot-check in the app. *Touches:* `scripts/corpus/batches/`,
+  `public/data/grammar.json`, `src/lib/grammar.ts`.
 - **Register and collocation on C1+ cards · M** (#45). Synonyms exist but aren't
   differentiated by register, which is most of what C1 vocabulary work *is*.
 - ~~**Exam alignment without an exam simulator · M** (#43).~~ **Shipped 2026-08-11** —
