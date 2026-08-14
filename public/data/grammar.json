@@ -66252,6 +66252,116 @@
           "answer": 7,
           "fix": "Wenn ich Zeit gehabt hätte, wäre ich gekommen.",
           "explain": "kommen takes sein → wäre gekommen, not würde."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wenn ich Zeit gehabt hätte, ___ ich gekommen.",
+          "options": [
+            "wäre",
+            "hätte",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "kommen takes sein, so the past Konjunktiv II is wäre + Partizip II. The auxiliary follows the verb, not the sentence."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ das nicht gesagt, wenn er es gewusst hätte.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "sagen takes haben: hätte gesagt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir ___ früher losgefahren, wenn es nicht geregnet hätte.",
+          "options": [
+            "wären",
+            "hätten",
+            "würden"
+          ],
+          "answer": 0,
+          "explain": "losfahren is a verb of motion and takes sein: wären losgefahren."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich wünschte, ich ___ mehr gelernt.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "A regret about the past: hätte + Partizip II."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ohne deine Hilfe ___ ich das nicht geschafft.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "„Ohne …“ carries the condition, so no wenn-clause is needed — but the tense is still the past Konjunktiv II."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Beinahe ___ ich den Zug verpasst.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "beinahe / fast plus Konjunktiv II: it nearly happened and did not."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wenn sie hier gewesen ___, hätte sie geholfen.",
+          "options": [
+            "wäre",
+            "hätte",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "sein forms its own past Konjunktiv II with wäre: wäre gewesen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ nicht passieren dürfen.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "With a modal, the past Konjunktiv II uses hätte and two infinitives at the end: hätte passieren dürfen. Never „gedurft“ here."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er tat so, als ___ er nichts bemerkt.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "als plus Konjunktiv II, with the verb straight after als: als hätte er nichts bemerkt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hätte ich das gewusst, ___ ich anders entschieden.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "The wenn can be dropped if the conditional clause starts with its verb; the main clause is unchanged."
         }
       ]
     },
@@ -66431,6 +66541,116 @@
           "answer": 1,
           "fix": "Infolge des Unfalls war die Straße gesperrt.",
           "explain": "infolge + Genitiv → des Unfalls."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ des schlechten Wetters fiel das Spiel aus.",
+          "options": [
+            "Infolge",
+            "Zufolge",
+            "Folglich"
+          ],
+          "answer": 0,
+          "explain": "infolge + Genitiv states the cause. „zufolge“ follows its noun and takes the dative; „folglich“ is an adverb, not a preposition."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ einer Woche müssen Sie antworten.",
+          "options": [
+            "Innerhalb",
+            "Außerhalb",
+            "Während"
+          ],
+          "answer": 0,
+          "explain": "innerhalb + Genitiv marks a deadline: within a week."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er kam ___ des Regens.",
+          "options": [
+            "trotz",
+            "wegen",
+            "statt"
+          ],
+          "answer": 0,
+          "explain": "trotz + Genitiv: concession — he came in spite of it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ des Jubiläums gab es ein Fest.",
+          "options": [
+            "Anlässlich",
+            "Hinsichtlich",
+            "Mangels"
+          ],
+          "answer": 0,
+          "explain": "anlässlich + Genitiv: on the occasion of."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Beweisen wurde das Verfahren eingestellt.",
+          "options": [
+            "Mangels",
+            "Zwecks",
+            "Anlässlich"
+          ],
+          "answer": 0,
+          "explain": "mangels: for want of. With an unmarked plural it takes the dative form Beweisen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ dieser Frage gibt es keine Einigung.",
+          "options": [
+            "Hinsichtlich",
+            "Anlässlich",
+            "Infolge"
+          ],
+          "answer": 0,
+          "explain": "hinsichtlich + Genitiv: with regard to."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ eines Kommentars schwieg er.",
+          "options": [
+            "Anstatt",
+            "Mangels",
+            "Zwecks"
+          ],
+          "answer": 0,
+          "explain": "(an)statt + Genitiv: instead of."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Konferenz findet ___ der Stadt statt.",
+          "options": [
+            "außerhalb",
+            "innerhalb",
+            "unterhalb"
+          ],
+          "answer": 0,
+          "explain": "außerhalb + Genitiv: outside the city."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wegen ___ Sturms blieb die Schule geschlossen.",
+          "options": [
+            "des",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "wegen takes the genitive in written German: wegen des Sturms."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ besserer Übersicht wurde eine Tabelle erstellt.",
+          "options": [
+            "Zwecks",
+            "Mangels",
+            "Trotz"
+          ],
+          "answer": 0,
+          "explain": "zwecks + Genitiv: for the purpose of. Strongly administrative register."
         }
       ]
     },
@@ -66503,6 +66723,116 @@
           "answer": 6,
           "fix": "Man lernt eine Sprache, indem man viel übt.",
           "explain": "indem is a subordinator → verb to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er verbesserte sein Deutsch, ___ er täglich las.",
+          "options": [
+            "indem",
+            "sodass",
+            "folglich"
+          ],
+          "answer": 0,
+          "explain": "indem names the *means*: by reading daily. The verb goes to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es regnete stark, ___ das Spiel abgesagt wurde.",
+          "options": [
+            "sodass",
+            "indem",
+            "obwohl"
+          ],
+          "answer": 0,
+          "explain": "sodass names the *consequence*, and the verb goes to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Kosten stiegen; ___ musste gespart werden.",
+          "options": [
+            "folglich",
+            "indem",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "folglich is a Konjunktionaladverb: it stands in position 1 and the verb follows immediately."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ man früh aufsteht, gewinnt man Zeit.",
+          "options": [
+            "Indem",
+            "Sodass",
+            "Folglich"
+          ],
+          "answer": 0,
+          "explain": "The means again — by getting up early."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er war krank und konnte ___ nicht kommen.",
+          "options": [
+            "deshalb",
+            "indem",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "deshalb links two main clauses; indem and sodass introduce subordinate clauses and cannot sit here."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie sparte, ___ sie auf den Urlaub verzichtete.",
+          "options": [
+            "indem",
+            "sodass",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "How she saved: by going without the holiday. damit would state a purpose, which is a different relation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Zug hatte Verspätung, ___ wir den Anschluss verpassten.",
+          "options": [
+            "sodass",
+            "indem",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "An unintended result: sodass."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Nachfrage sank. ___ wurden Stellen gestrichen.",
+          "options": [
+            "Folglich",
+            "Indem",
+            "Sodass"
+          ],
+          "answer": 0,
+          "explain": "A new sentence needs an adverb, not a subordinating conjunction — and folglich forces inversion."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist richtig?",
+          "options": [
+            "Folglich stiegen die Preise.",
+            "Folglich die Preise stiegen.",
+            "Folglich, die Preise stiegen."
+          ],
+          "answer": 0,
+          "explain": "folglich occupies position 1, so the finite verb must come second: stiegen die Preise."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Worin unterscheiden sich „indem“ und „sodass“?",
+          "options": [
+            "indem nennt das Mittel, sodass die Folge",
+            "indem nennt die Folge, sodass das Mittel",
+            "sie sind austauschbar"
+          ],
+          "answer": 0,
+          "explain": "Means versus consequence. Both send the verb to the end, which is why they get confused."
         }
       ]
     },
@@ -66569,6 +66899,116 @@
           "answer": 6,
           "fix": "Das ist etwas, was ich nicht verstehe.",
           "explain": "etwas → was; no stranded worüber."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist etwas, ___ ich mich freue.",
+          "options": [
+            "worüber",
+            "über was",
+            "worauf"
+          ],
+          "answer": 0,
+          "explain": "sich freuen über, and the antecedent is the indefinite „etwas“ — so the wo(r)- form: worüber."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Mann, ___ Auto gestohlen wurde, ist mein Nachbar.",
+          "options": [
+            "dessen",
+            "deren",
+            "wessen"
+          ],
+          "answer": 0,
+          "explain": "A masculine antecedent takes the genitive relative pronoun dessen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Frau, ___ Tasche ich gefunden habe, wohnt hier.",
+          "options": [
+            "deren",
+            "dessen",
+            "wessen"
+          ],
+          "answer": 0,
+          "explain": "A feminine antecedent takes deren."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist alles, ___ ich brauche.",
+          "options": [
+            "was",
+            "das",
+            "welches"
+          ],
+          "answer": 0,
+          "explain": "After alles, etwas, nichts, vieles and a superlative, the relative pronoun is was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er erzählte etwas, ___ ich nicht verstand.",
+          "options": [
+            "was",
+            "das",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "etwas is indefinite, so was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Firma, ___ Mitarbeiter streiken, steht unter Druck.",
+          "options": [
+            "deren",
+            "dessen",
+            "wessen"
+          ],
+          "answer": 0,
+          "explain": "die Firma is feminine: deren Mitarbeiter."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich weiß nicht, ___ Buch das ist.",
+          "options": [
+            "wessen",
+            "dessen",
+            "deren"
+          ],
+          "answer": 0,
+          "explain": "This is an indirect question, not a relative clause: the interrogative wessen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Beste, ___ mir passiert ist, war dieser Tag.",
+          "options": [
+            "was",
+            "das",
+            "welches"
+          ],
+          "answer": 0,
+          "explain": "After a nominalised superlative the relative pronoun is was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist es, ___ es ankommt.",
+          "options": [
+            "worauf",
+            "auf was",
+            "worüber"
+          ],
+          "answer": 0,
+          "explain": "ankommen auf, with an indefinite antecedent: worauf."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann steht „wo(r)-“ statt „Präposition + Relativpronomen“?",
+          "options": [
+            "wenn sich der Relativsatz auf etwas Unbestimmtes oder einen ganzen Satz bezieht",
+            "immer, wenn eine Präposition dabei ist",
+            "nur bei Personen"
+          ],
+          "answer": 0,
+          "explain": "For a concrete noun German prefers „der Punkt, auf den es ankommt“; the wo(r)- form belongs with etwas, alles, nichts or a whole preceding clause. Never with people."
         }
       ]
     },
@@ -66638,6 +67078,116 @@
           "answer": 4,
           "fix": "Sie wird das Buch gelesen haben.",
           "explain": "Futur II needs the infinitive haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Bis morgen ___ ich den Bericht fertiggestellt haben.",
+          "options": [
+            "werde",
+            "wurde",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "Futur II is werden + Partizip II + haben/sein: something finished by a point in the future."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er wird den Zug ___ haben.",
+          "options": [
+            "verpasst",
+            "verpassen",
+            "verpasste"
+          ],
+          "answer": 0,
+          "explain": "The Partizip II comes before the auxiliary infinitive: verpasst haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie wird schon angekommen ___.",
+          "options": [
+            "sein",
+            "haben",
+            "werden"
+          ],
+          "answer": 0,
+          "explain": "ankommen takes sein, so Futur II ends in „… angekommen sein“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Bis Ende des Jahres ___ wir umgezogen sein.",
+          "options": [
+            "werden",
+            "wurden",
+            "würden"
+          ],
+          "answer": 0,
+          "explain": "First person plural of werden: wir werden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er wird es wohl vergessen ___.",
+          "options": [
+            "haben",
+            "sein",
+            "werden"
+          ],
+          "answer": 0,
+          "explain": "vergessen takes haben. „wohl“ is the clue that this is a supposition, not a plan."
+        },
+        {
+          "kind": "choose",
+          "prompt": "In zehn Jahren ___ sich vieles geändert haben.",
+          "options": [
+            "wird",
+            "würde",
+            "wurde"
+          ],
+          "answer": 0,
+          "explain": "Third person singular: es wird … geändert haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Bis dahin ___ er die Stadt verlassen haben.",
+          "options": [
+            "wird",
+            "wurde",
+            "werde"
+          ],
+          "answer": 0,
+          "explain": "verlassen takes haben, and the auxiliary is the finite werden in position 2."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was drückt „Er wird es vergessen haben“ meistens aus?",
+          "options": [
+            "eine Vermutung über die Vergangenheit",
+            "eine feste Absicht für morgen",
+            "eine Bitte"
+          ],
+          "answer": 0,
+          "explain": "In practice Futur II is far more often a supposition about something already over than a real future perfect."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist richtig?",
+          "options": [
+            "Sie wird die Prüfung bestanden haben.",
+            "Sie wird die Prüfung haben bestanden.",
+            "Sie wird bestanden die Prüfung haben."
+          ],
+          "answer": 0,
+          "explain": "Partizip II first, then the auxiliary infinitive, both at the end of the clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Paket wird gestern ___ worden sein.",
+          "options": [
+            "geliefert",
+            "liefern",
+            "gelieferte"
+          ],
+          "answer": 0,
+          "explain": "Futur II passive: Partizip II + worden + sein."
         }
       ]
     },
@@ -66712,6 +67262,116 @@
             "Kausal"
           ],
           "explain": "kausal comes second."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich fahre ___ nach Berlin.",
+          "options": [
+            "morgen mit dem Zug",
+            "mit dem Zug morgen",
+            "nach Berlin morgen"
+          ],
+          "answer": 0,
+          "explain": "TeKaMoLo: temporal before modal, and the local phrase comes last — morgen (Te) mit dem Zug (Mo) nach Berlin (Lo)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe gestern einen Film ___.",
+          "options": [
+            "gesehen",
+            "sehen",
+            "gesehen habe"
+          ],
+          "answer": 0,
+          "explain": "The Satzklammer: the finite verb is in position 2 and the Partizip II closes the bracket at the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er will morgen nach Hause ___.",
+          "options": [
+            "fahren",
+            "gefahren",
+            "fährt"
+          ],
+          "answer": 0,
+          "explain": "A modal opens the bracket and the plain infinitive closes it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wann ___ du gestern nach Hause gekommen?",
+          "options": [
+            "bist",
+            "hast",
+            "warst"
+          ],
+          "answer": 0,
+          "explain": "kommen takes sein, and the finite auxiliary sits in position 2 of the question."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich rufe dich morgen ___.",
+          "options": [
+            "an",
+            "auf",
+            "ab"
+          ],
+          "answer": 0,
+          "explain": "anrufen is separable: the prefix closes the bracket at the very end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat ___ gearbeitet.",
+          "options": [
+            "gestern wegen des Projekts konzentriert",
+            "konzentriert gestern wegen des Projekts",
+            "wegen des Projekts gestern konzentriert"
+          ],
+          "answer": 0,
+          "explain": "Temporal, then causal, then modal: gestern (Te) wegen des Projekts (Ka) konzentriert (Mo)."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wofür steht das „Ka“ in TeKaMoLo?",
+          "options": [
+            "kausal — warum?",
+            "kasus — welcher Fall?",
+            "kausativ — wer verursacht?"
+          ],
+          "answer": 0,
+          "explain": "Temporal (wann), kausal (warum), modal (wie), lokal (wo/wohin). It is a default order, not a law — anything can move to position 1 for emphasis."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist richtig?",
+          "options": [
+            "Er hat mir gestern das Buch gegeben.",
+            "Er hat gegeben mir gestern das Buch.",
+            "Er gestern hat mir das Buch gegeben."
+          ],
+          "answer": 0,
+          "explain": "Finite verb second, participle last, and everything else inside the bracket."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ bin ich mit dem Rad zur Arbeit gefahren.",
+          "options": [
+            "Heute",
+            "Gefahren",
+            "Bin"
+          ],
+          "answer": 0,
+          "explain": "Position 1 can hold any single element; the finite verb still follows immediately."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was steht im Nebensatz am Ende?",
+          "options": [
+            "das finite Verb",
+            "das Subjekt",
+            "die Zeitangabe"
+          ],
+          "answer": 0,
+          "explain": "A subordinate clause closes with the finite verb — „…, weil ich gestern zu Hause geblieben bin.“"
         }
       ]
     }
@@ -66998,6 +67658,116 @@
           "answer": 4,
           "fix": "Es scheint, als ob es regnen würde.",
           "explain": "als ob is subordinating: K II verb to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er tut so, ___ er alles wüsste.",
+          "options": [
+            "als ob",
+            "als wenn nicht",
+            "wie ob"
+          ],
+          "answer": 0,
+          "explain": "als ob introduces an unreal comparison and sends the verb to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie sah aus, als ___ sie geweint.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "weinen takes haben, and after a bare „als“ the verb comes immediately: als hätte sie geweint."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es klingt, ___ wäre er beleidigt.",
+          "options": [
+            "als",
+            "als ob",
+            "wie"
+          ],
+          "answer": 0,
+          "explain": "Without „ob“ the finite verb follows „als“ directly. With „ob“ it would go to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er benimmt sich, als ob er der Chef ___.",
+          "options": [
+            "wäre",
+            "ist",
+            "sei"
+          ],
+          "answer": 0,
+          "explain": "The comparison is counterfactual, so Konjunktiv II."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie tat, als ___ sie nichts gehört.",
+          "options": [
+            "hätte",
+            "wäre",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "hören takes haben: als hätte sie nichts gehört."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Mir ist, ___ hätte ich das schon einmal gehört.",
+          "options": [
+            "als",
+            "als ob",
+            "wie"
+          ],
+          "answer": 0,
+          "explain": "Verb-second after „als“ when „ob“ is dropped."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es scheint, als ob er müde ___.",
+          "options": [
+            "wäre",
+            "ist",
+            "sein"
+          ],
+          "answer": 0,
+          "explain": "Konjunktiv II after als ob; the verb closes the clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er redet, als ___ er ein Experte.",
+          "options": [
+            "wäre",
+            "ist",
+            "sei"
+          ],
+          "answer": 0,
+          "explain": "Bare „als“, so the verb comes straight after — and it is Konjunktiv II because he is not one."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was folgt auf „als“ ohne „ob“?",
+          "options": [
+            "sofort das finite Verb",
+            "das Subjekt",
+            "das Partizip"
+          ],
+          "answer": 0,
+          "explain": "„als hätte er …“ — the two constructions differ only in word order, and mixing them is the commonest C1/C2 slip here."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum steht nach „als ob“ meist Konjunktiv II?",
+          "options": [
+            "der Vergleich ist ausdrücklich irreal",
+            "es ist eine höfliche Bitte",
+            "es ist indirekte Rede"
+          ],
+          "answer": 0,
+          "explain": "The whole point of the construction is that the comparison is not true."
         }
       ]
     },
@@ -67065,6 +67835,116 @@
           "answer": 8,
           "fix": "Das ist ein nicht zu unterschätzendes Problem.",
           "explain": "The Gerundivum needs no passive tail."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die zu ___ Frage (die Frage muss geklärt werden)",
+          "options": [
+            "klärende",
+            "geklärte",
+            "klärend"
+          ],
+          "answer": 0,
+          "explain": "Gerundivum: zu + Partizip I, declined. It carries necessity and a passive sense."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„das zu lösende Problem“ bedeutet:",
+          "options": [
+            "das Problem, das gelöst werden muss",
+            "das Problem, das gelöst wurde",
+            "das Problem, das sich löst"
+          ],
+          "answer": 0,
+          "explain": "Necessity plus passive — the single most compressed construction in written German."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die nicht zu ___ Tatsache (man kann sie nicht leugnen)",
+          "options": [
+            "leugnende",
+            "geleugnete",
+            "leugnend"
+          ],
+          "answer": 0,
+          "explain": "Negated, the Gerundivum expresses impossibility: a fact that cannot be denied."
+        },
+        {
+          "kind": "choose",
+          "prompt": "ein kaum zu ___ Aufwand (man kann ihn kaum bewältigen)",
+          "options": [
+            "bewältigender",
+            "bewältigter",
+            "bewältigend"
+          ],
+          "answer": 0,
+          "explain": "Masculine nominative after „ein“ takes the strong ending -er."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die zu ___ Unterlagen (sie müssen geprüft werden)",
+          "options": [
+            "prüfenden",
+            "geprüften",
+            "prüfend"
+          ],
+          "answer": 0,
+          "explain": "Plural after the definite article takes the weak ending -en."
+        },
+        {
+          "kind": "choose",
+          "prompt": "der zu ___ Betrag (er muss gezahlt werden)",
+          "options": [
+            "zahlende",
+            "gezahlte",
+            "zahlend"
+          ],
+          "answer": 0,
+          "explain": "„der zu zahlende Betrag“ — the amount payable, standard on any invoice."
+        },
+        {
+          "kind": "choose",
+          "prompt": "das nicht zu ___ Risiko (man darf es nicht unterschätzen)",
+          "options": [
+            "unterschätzende",
+            "unterschätzte",
+            "unterschätzend"
+          ],
+          "answer": 0,
+          "explain": "Neuter after „das“ takes -e."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Woraus besteht das Gerundivum?",
+          "options": [
+            "zu + Partizip I, dekliniert",
+            "zu + Partizip II, dekliniert",
+            "zu + Infinitiv, undekliniert"
+          ],
+          "answer": 0,
+          "explain": "The Partizip II would give an ordinary passive attribute („das gelöste Problem“) with no necessity in it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„die zu erwartenden Kosten“ =",
+          "options": [
+            "die Kosten, die erwartet werden müssen",
+            "die Kosten, die erwartet haben",
+            "die Kosten, die erwarten"
+          ],
+          "answer": 0,
+          "explain": "Passive plus necessity or expectation, compressed into one attribute."
+        },
+        {
+          "kind": "choose",
+          "prompt": "eine zu ___ Entwicklung (man soll sie begrüßen)",
+          "options": [
+            "begrüßende",
+            "begrüßte",
+            "begrüßend"
+          ],
+          "answer": 0,
+          "explain": "Feminine after „eine“ takes -e."
         }
       ]
     },
@@ -67393,6 +68273,105 @@
           "answer": 2,
           "fix": "Wir gedenken der Verstorbenen.",
           "explain": "gedenken governs the genitive → der Verstorbenen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er wurde ___ Diebstahls beschuldigt.",
+          "options": [
+            "des",
+            "dem",
+            "den"
+          ],
+          "answer": 0,
+          "explain": "beschuldigen takes a genitive object: jemanden des Diebstahls beschuldigen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das bedarf ___ Erklärung.",
+          "options": [
+            "keiner",
+            "keine",
+            "keinem"
+          ],
+          "answer": 0,
+          "explain": "bedürfen governs the genitive throughout — one of the few verbs where it is still obligatory."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie erfreut sich ___ Gesundheit.",
+          "options": [
+            "bester",
+            "beste",
+            "besten"
+          ],
+          "answer": 0,
+          "explain": "sich erfreuen + Genitiv: sich bester Gesundheit erfreuen. Feminine genitive singular takes -er."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er enthielt sich ___ Stimme.",
+          "options": [
+            "der",
+            "die",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "sich enthalten + Genitiv — the standard formula for abstaining in a vote."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Man verdächtigte ihn ___ Betrugs.",
+          "options": [
+            "des",
+            "dem",
+            "den"
+          ],
+          "answer": 0,
+          "explain": "verdächtigen takes an accusative person and a genitive offence."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie bediente sich ___ alten Tricks.",
+          "options": [
+            "eines",
+            "einem",
+            "einen"
+          ],
+          "answer": 0,
+          "explain": "sich bedienen + Genitiv: to make use of something. Distinct from „jemanden bedienen“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Angeklagte wurde ___ Mordes angeklagt.",
+          "options": [
+            "des",
+            "dem",
+            "den"
+          ],
+          "answer": 0,
+          "explain": "anklagen + Genitiv, the fixed courtroom construction."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich versichere dich ___ Unterstützung.",
+          "options": [
+            "meiner",
+            "meine",
+            "meinem"
+          ],
+          "answer": 0,
+          "explain": "jemanden seiner Unterstützung versichern: accusative person, genitive thing."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Kasus folgt „bedürfen“?",
+          "options": [
+            "Genitiv",
+            "Dativ",
+            "Akkusativ"
+          ],
+          "answer": 0,
+          "explain": "Genitive objects survive in a small, largely formal set — bedürfen, gedenken, sich enthalten, sich bedienen, and the legal verbs of accusation."
         }
       ],
       "sections": [
@@ -67513,6 +68492,116 @@
           ],
           "answer": 0,
           "explain": "Register carries social information independent of meaning."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Wort ist gehoben?",
+          "options": [
+            "speisen",
+            "essen",
+            "futtern"
+          ],
+          "answer": 0,
+          "explain": "speisen (gehoben) · essen (neutral) · futtern (umgangssprachlich). Three registers, one meaning."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Umgangssprachlich für „Geld“:",
+          "options": [
+            "Kohle",
+            "Kapital",
+            "Vermögen"
+          ],
+          "answer": 0,
+          "explain": "Kohle is colloquial; Kapital and Vermögen are neutral to formal."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Neutral für „ableben“:",
+          "options": [
+            "sterben",
+            "verscheiden",
+            "abkratzen"
+          ],
+          "answer": 0,
+          "explain": "ableben and verscheiden are elevated euphemisms; abkratzen is crude. sterben is the neutral word."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Gehoben für „anfangen“:",
+          "options": [
+            "seinen Anfang nehmen",
+            "anfangen",
+            "loslegen"
+          ],
+          "answer": 0,
+          "explain": "The Funktionsverbgefüge lifts the register; loslegen drops it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Umgangssprachlich für „sich beeilen“:",
+          "options": [
+            "sich ranhalten",
+            "sich sputen",
+            "sich beeilen"
+          ],
+          "answer": 0,
+          "explain": "sich ranhalten is colloquial; sich sputen is dated-elevated."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist am förmlichsten?",
+          "options": [
+            "Wir bitten um Ihr Verständnis.",
+            "Wir hoffen, Sie verstehen das.",
+            "Passt schon, oder?"
+          ],
+          "answer": 0,
+          "explain": "Nominal style and the Sie-form mark the formal register."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„kriegen“ ist gegenüber „erhalten“:",
+          "options": [
+            "umgangssprachlicher",
+            "gehobener",
+            "gleichwertig"
+          ],
+          "answer": 0,
+          "explain": "erhalten belongs in a letter, kriegen in a conversation. bekommen sits neutrally between them."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Gehoben für „Haus“:",
+          "options": [
+            "Domizil",
+            "Haus",
+            "Bude"
+          ],
+          "answer": 0,
+          "explain": "Domizil (gehoben) · Haus (neutral) · Bude (umgangssprachlich)."
+        },
+        {
+          "kind": "mc",
+          "prompt": "In einer Bewerbung schreibt man:",
+          "options": [
+            "Ich interessiere mich für die ausgeschriebene Stelle.",
+            "Ich hätte Bock auf den Job.",
+            "Der Job wäre voll okay."
+          ],
+          "answer": 0,
+          "explain": "Register is not politeness: the second and third are friendly and would still end the application."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum ist die Stilebene bei C2 wichtiger als die Grammatik?",
+          "options": [
+            "ein registerfalsches Wort ist grammatisch richtig und trotzdem falsch",
+            "die Grammatik ist bei C2 nicht mehr relevant",
+            "gehobene Wörter sind immer besser"
+          ],
+          "answer": 0,
+          "explain": "At C2 the errors that remain are almost never grammatical — they are choices that are correct and wrong at once."
         }
       ]
     },
@@ -67691,6 +68780,116 @@
           ],
           "answer": 0,
           "explain": "The full modal passive is correct but heavy."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Problem ___ sich lösen.",
+          "options": [
+            "lässt",
+            "lasst",
+            "ließ"
+          ],
+          "answer": 0,
+          "explain": "sich lassen + Infinitiv means it can be done: the problem can be solved."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Aufgabe ist bis morgen ___ erledigen.",
+          "options": [
+            "zu",
+            "zum",
+            "am"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv: it must (or can) be done by tomorrow."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Das ist zu erledigen“ bedeutet:",
+          "options": [
+            "Das muss erledigt werden.",
+            "Das wird gerade erledigt.",
+            "Das ist schon erledigt."
+          ],
+          "answer": 0,
+          "explain": "sein + zu carries necessity or possibility, not a completed action."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Text ist leicht ___.",
+          "options": [
+            "verständlich",
+            "verstehen",
+            "verstanden"
+          ],
+          "answer": 0,
+          "explain": "The -lich / -bar adjectives are the third passive substitute: leicht verständlich = kann leicht verstanden werden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Gerät ist leicht ___.",
+          "options": [
+            "bedienbar",
+            "bedienend",
+            "bedient"
+          ],
+          "answer": 0,
+          "explain": "-bar on a transitive verb means „can be …ed“: bedienbar."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Fehler lässt sich ___.",
+          "options": [
+            "beheben",
+            "behoben",
+            "behebt"
+          ],
+          "answer": 0,
+          "explain": "sich lassen is followed by a bare infinitive."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Frage ist schwer ___ beantworten.",
+          "options": [
+            "zu",
+            "zum",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv again, here expressing difficulty rather than obligation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Termin ___ sich nicht verschieben.",
+          "options": [
+            "lässt",
+            "ist",
+            "wird"
+          ],
+          "answer": 0,
+          "explain": "The negated sich-lassen form: the appointment cannot be moved."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Form ist KEINE Passiversatzform?",
+          "options": [
+            "werden + Partizip II",
+            "sich lassen + Infinitiv",
+            "sein + zu + Infinitiv"
+          ],
+          "answer": 0,
+          "explain": "werden + Partizip II *is* the passive. The other two are the ways German avoids it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum benutzt man Passiversatzformen?",
+          "options": [
+            "sie klingen leichter und weniger behördlich als das Passiv",
+            "sie sind grammatisch korrekter",
+            "sie ändern die Bedeutung"
+          ],
+          "answer": 0,
+          "explain": "A stylistic choice, not a grammatical one — which is exactly why they belong at C2."
         }
       ]
     }

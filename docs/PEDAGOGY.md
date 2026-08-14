@@ -600,12 +600,18 @@ new part.
    / Adjectives / Adverbs / Core verbs*, and fill the functional sectors that currently
    hold one card. The treemap is the app's best screen and a third of it says nothing;
    `weakestSectors()` is choosing tomorrow's words from it.
-10. 🔄 **C1/C2 exercise depth.** 156 items for two levels. **Started 2026-08-13:**
-    three C1 points taken 6 → 18 each (Konjunktiv I, Nominalisierung ↔ Verbalstil,
-    Partizipialattribute), bank 5,207 → 5,243, authored not generated and appended
-    through `corpus:gex` because the positional `gex:` ids make append-only a
-    correctness requirement. **C1 still averages 10 exercises per point against A1's
-    64**, so this is the clearest remaining volume gap and the plan behind it is good.
+10. 🔄 **C1/C2 exercise depth.** Was 156 items across two levels; now **301**.
+    Authored not generated — at these levels a generated item can state that an answer
+    is right but not why — and appended through `corpus:gex`, because the positional
+    `gex:` ids make append-only a correctness requirement.
+
+    | | points | exercises | avg | thinnest |
+    |---|---|---|---|---|
+    | C1 | 12 | 86 → **182** | 7.2 → **15.2** | 10 |
+    | C2 | 11 | 70 → **119** | 6.4 → **10.8** | 5 |
+
+    Bank 5,207 → **5,352**. **A1 still averages 64**, so the gap is narrowed and not
+    closed: six C1 points and six C2 points remain at 5–10.
 11. **Collocation and register on B2+ cards.** ⟳ Backlog #45, moved earlier: it bites
     at B2 for anyone working in German, not only at C1.
 

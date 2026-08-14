@@ -11,6 +11,50 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — C1 and C2 stop being a rumour
+
+*"Your C1 is a rumour"* was the university Lektor's line in [PEDAGOGY](PEDAGOGY.md), and
+the numbers backed him: 86 exercises across twelve C1 points and 70 across eleven C2
+points, against **1,538 at A1**. The point *selection* was right — Funktionsverbgefüge,
+Nominalisierung ↔ Verbalstil, Passiv-Ersatzformen, Gerundivum, Stilebenen — which made
+the thinness worse, because someone knew what belonged there and then there was nothing
+behind it.
+
+|  | points | exercises | avg per point | thinnest |
+|---|---|---|---|---|
+| C1 | 12 | 86 → **182** | 7.2 → **15.2** | 10 |
+| C2 | 11 | 70 → **119** | 6.4 → **10.8** | 5 |
+
+Bank **5,207 → 5,352** across three batches. Nine points deepened this pass:
+Konjunktiv II Vergangenheit, Futur II, Relativsätze mit wo(r)- & wessen,
+Genitivpräpositionen, Konnektoren (indem/sodass/folglich) and TeKaMoLo at C1; Verben mit
+Genitivobjekt, Passiversatzformen, Irreale Vergleiche (als ob), Gerundivum and
+Stilebenen at C2.
+
+**Authored, not generated,** and the reason is specific to these levels: a generated item
+can state that an answer is right, and at C1/C2 the whole content of the point is *why*.
+Half the C2 items are `mc` questions about the system rather than gap-fills —
+*"Warum steht nach „als ob“ meist Konjunktiv II?"*, *"Welche Form ist KEINE
+Passiversatzform?"*, *"Warum ist die Stilebene bei C2 wichtiger als die Grammatik?"* —
+because at C2 the remaining errors are almost never grammatical. They are choices that
+are correct and wrong at once.
+
+**The tooling earned its keep three times.** `corpus:gex` rejected three items in the
+first batch for being `choose` with no gap marker (they were questions, now `mc`); it
+skipped one C2 item as already present; and appending is enforced rather than trusted,
+because `gex:` ids are positional and every learner's FSRS schedule hangs on them.
+
+Spot-checked in the running app, which is not optional for bulk content even when it is
+hand-written: the Gerundivum point now reads *Practise · 16 exercises*, and
+*"die nicht zu ___ Tatsache"* renders with its three options and its explanation.
+
+`GRAMMAR_COUNTS` re-pinned to 5,352. `corpus:validate` PASS, 733 green.
+
+**Still open:** A1 averages 64 exercises per point. Six C1 and six C2 points remain
+between 5 and 10, so this narrows the gap rather than closing it.
+
+---
+
 ### Shipped 2026-08-13 — Redemittel: 129 phrases nothing had ever scheduled
 
 The critique's item 6 said Redemittel were "the largest content gap in the product".

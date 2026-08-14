@@ -1,0 +1,582 @@
+[
+  {
+    "level": "C2",
+    "title": "Verben mit Genitivobjekt",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Er wurde ___ Diebstahls beschuldigt.",
+        "options": [
+          "des",
+          "dem",
+          "den"
+        ],
+        "answer": 0,
+        "explain": "beschuldigen takes a genitive object: jemanden des Diebstahls beschuldigen."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Das bedarf ___ Erklärung.",
+        "options": [
+          "keiner",
+          "keine",
+          "keinem"
+        ],
+        "answer": 0,
+        "explain": "bedürfen governs the genitive throughout — one of the few verbs where it is still obligatory."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie erfreut sich ___ Gesundheit.",
+        "options": [
+          "bester",
+          "beste",
+          "besten"
+        ],
+        "answer": 0,
+        "explain": "sich erfreuen + Genitiv: sich bester Gesundheit erfreuen. Feminine genitive singular takes -er."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Wir gedenken ___ Opfer.",
+        "options": [
+          "der",
+          "den",
+          "die"
+        ],
+        "answer": 0,
+        "explain": "gedenken + Genitiv: der Opfer gedenken."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er enthielt sich ___ Stimme.",
+        "options": [
+          "der",
+          "die",
+          "dem"
+        ],
+        "answer": 0,
+        "explain": "sich enthalten + Genitiv — the standard formula for abstaining in a vote."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Man verdächtigte ihn ___ Betrugs.",
+        "options": [
+          "des",
+          "dem",
+          "den"
+        ],
+        "answer": 0,
+        "explain": "verdächtigen takes an accusative person and a genitive offence."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie bediente sich ___ alten Tricks.",
+        "options": [
+          "eines",
+          "einem",
+          "einen"
+        ],
+        "answer": 0,
+        "explain": "sich bedienen + Genitiv: to make use of something. Distinct from „jemanden bedienen“."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Angeklagte wurde ___ Mordes angeklagt.",
+        "options": [
+          "des",
+          "dem",
+          "den"
+        ],
+        "answer": 0,
+        "explain": "anklagen + Genitiv, the fixed courtroom construction."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Ich versichere dich ___ Unterstützung.",
+        "options": [
+          "meiner",
+          "meine",
+          "meinem"
+        ],
+        "answer": 0,
+        "explain": "jemanden seiner Unterstützung versichern: accusative person, genitive thing."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welcher Kasus folgt „bedürfen“?",
+        "options": [
+          "Genitiv",
+          "Dativ",
+          "Akkusativ"
+        ],
+        "answer": 0,
+        "explain": "Genitive objects survive in a small, largely formal set — bedürfen, gedenken, sich enthalten, sich bedienen, and the legal verbs of accusation."
+      }
+    ]
+  },
+  {
+    "level": "C2",
+    "title": "Passiversatzformen (sein + zu, sich lassen, -bar)",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Das Problem ___ sich lösen.",
+        "options": [
+          "lässt",
+          "lasst",
+          "ließ"
+        ],
+        "answer": 0,
+        "explain": "sich lassen + Infinitiv means it can be done: the problem can be solved."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Die Aufgabe ist bis morgen ___ erledigen.",
+        "options": [
+          "zu",
+          "zum",
+          "am"
+        ],
+        "answer": 0,
+        "explain": "sein + zu + Infinitiv: it must (or can) be done by tomorrow."
+      },
+      {
+        "kind": "mc",
+        "prompt": "„Das ist zu erledigen“ bedeutet:",
+        "options": [
+          "Das muss erledigt werden.",
+          "Das wird gerade erledigt.",
+          "Das ist schon erledigt."
+        ],
+        "answer": 0,
+        "explain": "sein + zu carries necessity or possibility, not a completed action."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Text ist leicht ___.",
+        "options": [
+          "verständlich",
+          "verstehen",
+          "verstanden"
+        ],
+        "answer": 0,
+        "explain": "The -lich / -bar adjectives are the third passive substitute: leicht verständlich = kann leicht verstanden werden."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Das Gerät ist leicht ___.",
+        "options": [
+          "bedienbar",
+          "bedienend",
+          "bedient"
+        ],
+        "answer": 0,
+        "explain": "-bar on a transitive verb means „can be …ed“: bedienbar."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Fehler lässt sich ___.",
+        "options": [
+          "beheben",
+          "behoben",
+          "behebt"
+        ],
+        "answer": 0,
+        "explain": "sich lassen is followed by a bare infinitive."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Diese Frage ist schwer ___ beantworten.",
+        "options": [
+          "zu",
+          "zum",
+          "für"
+        ],
+        "answer": 0,
+        "explain": "sein + zu + Infinitiv again, here expressing difficulty rather than obligation."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Termin ___ sich nicht verschieben.",
+        "options": [
+          "lässt",
+          "ist",
+          "wird"
+        ],
+        "answer": 0,
+        "explain": "The negated sich-lassen form: the appointment cannot be moved."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welche Form ist KEINE Passiversatzform?",
+        "options": [
+          "werden + Partizip II",
+          "sich lassen + Infinitiv",
+          "sein + zu + Infinitiv"
+        ],
+        "answer": 0,
+        "explain": "werden + Partizip II *is* the passive. The other two are the ways German avoids it."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Warum benutzt man Passiversatzformen?",
+        "options": [
+          "sie klingen leichter und weniger behördlich als das Passiv",
+          "sie sind grammatisch korrekter",
+          "sie ändern die Bedeutung"
+        ],
+        "answer": 0,
+        "explain": "A stylistic choice, not a grammatical one — which is exactly why they belong at C2."
+      }
+    ]
+  },
+  {
+    "level": "C2",
+    "title": "Irreale Vergleiche (als ob)",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Er tut so, ___ er alles wüsste.",
+        "options": [
+          "als ob",
+          "als wenn nicht",
+          "wie ob"
+        ],
+        "answer": 0,
+        "explain": "als ob introduces an unreal comparison and sends the verb to the end."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie sah aus, als ___ sie geweint.",
+        "options": [
+          "hätte",
+          "wäre",
+          "würde"
+        ],
+        "answer": 0,
+        "explain": "weinen takes haben, and after a bare „als“ the verb comes immediately: als hätte sie geweint."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Es klingt, ___ wäre er beleidigt.",
+        "options": [
+          "als",
+          "als ob",
+          "wie"
+        ],
+        "answer": 0,
+        "explain": "Without „ob“ the finite verb follows „als“ directly. With „ob“ it would go to the end."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er benimmt sich, als ob er der Chef ___.",
+        "options": [
+          "wäre",
+          "ist",
+          "sei"
+        ],
+        "answer": 0,
+        "explain": "The comparison is counterfactual, so Konjunktiv II."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie tat, als ___ sie nichts gehört.",
+        "options": [
+          "hätte",
+          "wäre",
+          "würde"
+        ],
+        "answer": 0,
+        "explain": "hören takes haben: als hätte sie nichts gehört."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Mir ist, ___ hätte ich das schon einmal gehört.",
+        "options": [
+          "als",
+          "als ob",
+          "wie"
+        ],
+        "answer": 0,
+        "explain": "Verb-second after „als“ when „ob“ is dropped."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Es scheint, als ob er müde ___.",
+        "options": [
+          "wäre",
+          "ist",
+          "sein"
+        ],
+        "answer": 0,
+        "explain": "Konjunktiv II after als ob; the verb closes the clause."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er redet, als ___ er ein Experte.",
+        "options": [
+          "wäre",
+          "ist",
+          "sei"
+        ],
+        "answer": 0,
+        "explain": "Bare „als“, so the verb comes straight after — and it is Konjunktiv II because he is not one."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Was folgt auf „als“ ohne „ob“?",
+        "options": [
+          "sofort das finite Verb",
+          "das Subjekt",
+          "das Partizip"
+        ],
+        "answer": 0,
+        "explain": "„als hätte er …“ — the two constructions differ only in word order, and mixing them is the commonest C1/C2 slip here."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Warum steht nach „als ob“ meist Konjunktiv II?",
+        "options": [
+          "der Vergleich ist ausdrücklich irreal",
+          "es ist eine höfliche Bitte",
+          "es ist indirekte Rede"
+        ],
+        "answer": 0,
+        "explain": "The whole point of the construction is that the comparison is not true."
+      }
+    ]
+  },
+  {
+    "level": "C2",
+    "title": "Gerundivum (das zu lösende Problem)",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "die zu ___ Frage (die Frage muss geklärt werden)",
+        "options": [
+          "klärende",
+          "geklärte",
+          "klärend"
+        ],
+        "answer": 0,
+        "explain": "Gerundivum: zu + Partizip I, declined. It carries necessity and a passive sense."
+      },
+      {
+        "kind": "mc",
+        "prompt": "„das zu lösende Problem“ bedeutet:",
+        "options": [
+          "das Problem, das gelöst werden muss",
+          "das Problem, das gelöst wurde",
+          "das Problem, das sich löst"
+        ],
+        "answer": 0,
+        "explain": "Necessity plus passive — the single most compressed construction in written German."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die nicht zu ___ Tatsache (man kann sie nicht leugnen)",
+        "options": [
+          "leugnende",
+          "geleugnete",
+          "leugnend"
+        ],
+        "answer": 0,
+        "explain": "Negated, the Gerundivum expresses impossibility: a fact that cannot be denied."
+      },
+      {
+        "kind": "choose",
+        "prompt": "ein kaum zu ___ Aufwand (man kann ihn kaum bewältigen)",
+        "options": [
+          "bewältigender",
+          "bewältigter",
+          "bewältigend"
+        ],
+        "answer": 0,
+        "explain": "Masculine nominative after „ein“ takes the strong ending -er."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die zu ___ Unterlagen (sie müssen geprüft werden)",
+        "options": [
+          "prüfenden",
+          "geprüften",
+          "prüfend"
+        ],
+        "answer": 0,
+        "explain": "Plural after the definite article takes the weak ending -en."
+      },
+      {
+        "kind": "choose",
+        "prompt": "der zu ___ Betrag (er muss gezahlt werden)",
+        "options": [
+          "zahlende",
+          "gezahlte",
+          "zahlend"
+        ],
+        "answer": 0,
+        "explain": "„der zu zahlende Betrag“ — the amount payable, standard on any invoice."
+      },
+      {
+        "kind": "choose",
+        "prompt": "das nicht zu ___ Risiko (man darf es nicht unterschätzen)",
+        "options": [
+          "unterschätzende",
+          "unterschätzte",
+          "unterschätzend"
+        ],
+        "answer": 0,
+        "explain": "Neuter after „das“ takes -e."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Woraus besteht das Gerundivum?",
+        "options": [
+          "zu + Partizip I, dekliniert",
+          "zu + Partizip II, dekliniert",
+          "zu + Infinitiv, undekliniert"
+        ],
+        "answer": 0,
+        "explain": "The Partizip II would give an ordinary passive attribute („das gelöste Problem“) with no necessity in it."
+      },
+      {
+        "kind": "mc",
+        "prompt": "„die zu erwartenden Kosten“ =",
+        "options": [
+          "die Kosten, die erwartet werden müssen",
+          "die Kosten, die erwartet haben",
+          "die Kosten, die erwarten"
+        ],
+        "answer": 0,
+        "explain": "Passive plus necessity or expectation, compressed into one attribute."
+      },
+      {
+        "kind": "choose",
+        "prompt": "eine zu ___ Entwicklung (man soll sie begrüßen)",
+        "options": [
+          "begrüßende",
+          "begrüßte",
+          "begrüßend"
+        ],
+        "answer": 0,
+        "explain": "Feminine after „eine“ takes -e."
+      }
+    ]
+  },
+  {
+    "level": "C2",
+    "title": "Stilebenen: gehoben, neutral, umgangssprachlich",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "Welches Wort ist gehoben?",
+        "options": [
+          "speisen",
+          "essen",
+          "futtern"
+        ],
+        "answer": 0,
+        "explain": "speisen (gehoben) · essen (neutral) · futtern (umgangssprachlich). Three registers, one meaning."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Umgangssprachlich für „Geld“:",
+        "options": [
+          "Kohle",
+          "Kapital",
+          "Vermögen"
+        ],
+        "answer": 0,
+        "explain": "Kohle is colloquial; Kapital and Vermögen are neutral to formal."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Neutral für „ableben“:",
+        "options": [
+          "sterben",
+          "verscheiden",
+          "abkratzen"
+        ],
+        "answer": 0,
+        "explain": "ableben and verscheiden are elevated euphemisms; abkratzen is crude. sterben is the neutral word."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Gehoben für „anfangen“:",
+        "options": [
+          "seinen Anfang nehmen",
+          "anfangen",
+          "loslegen"
+        ],
+        "answer": 0,
+        "explain": "The Funktionsverbgefüge lifts the register; loslegen drops it."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Umgangssprachlich für „sich beeilen“:",
+        "options": [
+          "sich ranhalten",
+          "sich sputen",
+          "sich beeilen"
+        ],
+        "answer": 0,
+        "explain": "sich ranhalten is colloquial; sich sputen is dated-elevated."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welcher Satz ist am förmlichsten?",
+        "options": [
+          "Wir bitten um Ihr Verständnis.",
+          "Wir hoffen, Sie verstehen das.",
+          "Passt schon, oder?"
+        ],
+        "answer": 0,
+        "explain": "Nominal style and the Sie-form mark the formal register."
+      },
+      {
+        "kind": "mc",
+        "prompt": "„kriegen“ ist gegenüber „erhalten“:",
+        "options": [
+          "umgangssprachlicher",
+          "gehobener",
+          "gleichwertig"
+        ],
+        "answer": 0,
+        "explain": "erhalten belongs in a letter, kriegen in a conversation. bekommen sits neutrally between them."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Gehoben für „Haus“:",
+        "options": [
+          "Domizil",
+          "Haus",
+          "Bude"
+        ],
+        "answer": 0,
+        "explain": "Domizil (gehoben) · Haus (neutral) · Bude (umgangssprachlich)."
+      },
+      {
+        "kind": "mc",
+        "prompt": "In einer Bewerbung schreibt man:",
+        "options": [
+          "Ich interessiere mich für die ausgeschriebene Stelle.",
+          "Ich hätte Bock auf den Job.",
+          "Der Job wäre voll okay."
+        ],
+        "answer": 0,
+        "explain": "Register is not politeness: the second and third are friendly and would still end the application."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Warum ist die Stilebene bei C2 wichtiger als die Grammatik?",
+        "options": [
+          "ein registerfalsches Wort ist grammatisch richtig und trotzdem falsch",
+          "die Grammatik ist bei C2 nicht mehr relevant",
+          "gehobene Wörter sind immer besser"
+        ],
+        "answer": 0,
+        "explain": "At C2 the errors that remain are almost never grammatical — they are choices that are correct and wrong at once."
+      }
+    ]
+  }
+]
