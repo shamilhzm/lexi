@@ -1,0 +1,610 @@
+[
+  {
+    "level": "B1",
+    "title": "Temporale Konjunktionen: während, bis, seit/seitdem",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "___ ich koche, hörst du Musik.",
+        "options": [
+          "Während",
+          "Bis",
+          "Seit"
+        ],
+        "answer": 0,
+        "explain": "während marks two things happening at the same time."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Ich warte, ___ du fertig bist.",
+        "options": [
+          "bis",
+          "während",
+          "seit"
+        ],
+        "answer": 0,
+        "explain": "bis marks the end point."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ ich hier wohne, geht es mir besser.",
+        "options": [
+          "Seitdem",
+          "Während",
+          "Bis"
+        ],
+        "answer": 0,
+        "explain": "A period that began in the past and still holds."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Während er ___, klingelte das Telefon.",
+        "options": [
+          "schlief",
+          "schlief er",
+          "schlafen"
+        ],
+        "answer": 0,
+        "explain": "Verb at the end of the subordinate clause."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Bleib hier, ___ ich zurückkomme.",
+        "options": [
+          "bis",
+          "seit",
+          "während"
+        ],
+        "answer": 0,
+        "explain": "The waiting ends when I return."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ dem Unfall fährt er langsamer.",
+        "options": [
+          "Seit",
+          "Seitdem",
+          "Während"
+        ],
+        "answer": 0,
+        "explain": "seit + Dativ before a noun; seitdem before a clause."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ des Essens sprachen wir über Politik.",
+        "options": [
+          "Während",
+          "Bis",
+          "Seit"
+        ],
+        "answer": 0,
+        "explain": "während as a *preposition* takes the genitive: während des Essens."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welche Zeitform folgt meist auf „seit(dem)“?",
+        "options": [
+          "Präsens, weil es noch andauert",
+          "Perfekt",
+          "Plusquamperfekt"
+        ],
+        "answer": 0,
+        "explain": "German uses the present where English uses „have been“."
+      },
+      {
+        "kind": "mc",
+        "prompt": "„während“ kann zwei Wortarten sein — welche?",
+        "options": [
+          "Konjunktion (+ Nebensatz) und Präposition (+ Genitiv)",
+          "nur Konjunktion",
+          "Adverb und Präposition"
+        ],
+        "answer": 0,
+        "explain": "„während ich koche“ versus „während des Essens“ — same word, different structure."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Temporale Konjunktion: als",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "___ ich jung war, spielte ich Klavier.",
+        "options": [
+          "Als",
+          "Wenn",
+          "Wann"
+        ],
+        "answer": 0,
+        "explain": "A single period in the past: als."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ ich gestern ankam, war niemand da.",
+        "options": [
+          "Als",
+          "Wenn",
+          "Wann"
+        ],
+        "answer": 0,
+        "explain": "One completed event in the past."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Immer ___ ich ihn sehe, lacht er.",
+        "options": [
+          "wenn",
+          "als",
+          "wann"
+        ],
+        "answer": 0,
+        "explain": "Repetition takes wenn, even in the past."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Als ich klein ___, wohnten wir in Köln.",
+        "options": [
+          "war",
+          "bin",
+          "wäre"
+        ],
+        "answer": 0,
+        "explain": "Verb at the end, past tense."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ ich morgen komme, bringe ich Kuchen mit.",
+        "options": [
+          "Wenn",
+          "Als",
+          "Wann"
+        ],
+        "answer": 0,
+        "explain": "The future always takes wenn."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Weißt du noch, ___ wir uns kennengelernt haben?",
+        "options": [
+          "als",
+          "wenn",
+          "wann"
+        ],
+        "answer": 0,
+        "explain": "One remembered moment: als."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Ich weiß nicht, ___ er kommt.",
+        "options": [
+          "wann",
+          "als",
+          "wenn"
+        ],
+        "answer": 0,
+        "explain": "An indirect question keeps wann."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welcher Satz braucht „als“?",
+        "options": [
+          "ein einmaliges Ereignis in der Vergangenheit",
+          "eine Wiederholung",
+          "eine Bedingung"
+        ],
+        "answer": 0,
+        "explain": "One rule with no exceptions worth learning at B1: als = once, past. Everything else is wenn, and questions are wann."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Warum verwechseln Lernende „als“ und „wenn“?",
+        "options": [
+          "im Englischen ist beides „when“",
+          "sie klingen ähnlich",
+          "beide brauchen den Konjunktiv"
+        ],
+        "answer": 0,
+        "explain": "English collapses three German words — als, wenn and wann — into one."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Zweiteilige Konjunktion: je … desto/umso",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "___ mehr ich lerne, desto besser verstehe ich.",
+        "options": [
+          "Je",
+          "Desto",
+          "Umso"
+        ],
+        "answer": 0,
+        "explain": "je opens the first half, desto or umso the second."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Je länger ich warte, ___ ungeduldiger werde ich.",
+        "options": [
+          "desto",
+          "je",
+          "als"
+        ],
+        "answer": 0,
+        "explain": "desto (or umso) introduces the main clause."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Je mehr er ___, desto müder wurde er.",
+        "options": [
+          "arbeitete",
+          "arbeitete er",
+          "arbeiten"
+        ],
+        "answer": 0,
+        "explain": "The je-clause is subordinate: the verb goes to the end."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Je schneller du fährst, desto gefährlicher ___ es.",
+        "options": [
+          "wird",
+          "es wird",
+          "werden"
+        ],
+        "answer": 0,
+        "explain": "The desto-clause is a main clause with inversion: desto + comparative + verb + subject."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Je ___ Übung, desto besser das Ergebnis.",
+        "options": [
+          "mehr",
+          "viel",
+          "mehrere"
+        ],
+        "answer": 0,
+        "explain": "Both halves need a comparative — that is the whole construction."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Je weniger Zucker, ___ gesünder.",
+        "options": [
+          "umso",
+          "je",
+          "als"
+        ],
+        "answer": 0,
+        "explain": "umso is a full synonym of desto."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Wo steht das Verb im „je“-Teil?",
+        "options": [
+          "am Ende",
+          "an Position 2",
+          "an Position 1"
+        ],
+        "answer": 0,
+        "explain": "je introduces a subordinate clause; desto introduces a main clause. The two halves have different word order, which is what makes this construction hard."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Was muss in beiden Teilen stehen?",
+        "options": [
+          "ein Komparativ",
+          "ein Modalverb",
+          "eine Verneinung"
+        ],
+        "answer": 0,
+        "explain": "je mehr … desto besser, je länger … desto schwieriger."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Adjektive als Nomen (der/die Bekannte)",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Ich habe einen ___ getroffen. (bekannt)",
+        "options": [
+          "Bekannten",
+          "Bekannte",
+          "Bekannter"
+        ],
+        "answer": 0,
+        "explain": "After einen the adjective noun takes -en: einen Bekannten."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Das ist meine ___. (verwandt)",
+        "options": [
+          "Verwandte",
+          "Verwandten",
+          "Verwandter"
+        ],
+        "answer": 0,
+        "explain": "Feminine nominative after meine: -e."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der ___ wartet draußen. (fremd)",
+        "options": [
+          "Fremde",
+          "Fremden",
+          "Fremder"
+        ],
+        "answer": 0,
+        "explain": "After der the ending is weak: der Fremde."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Ein ___ hat angerufen. (deutsch)",
+        "options": [
+          "Deutscher",
+          "Deutsche",
+          "Deutschen"
+        ],
+        "answer": 0,
+        "explain": "After ein the masculine takes the strong ending: ein Deutscher."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Ich helfe den ___. (arm)",
+        "options": [
+          "Armen",
+          "Arme",
+          "Armer"
+        ],
+        "answer": 0,
+        "explain": "Dative plural after den: -en."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Etwas ___ ist passiert. (schön)",
+        "options": [
+          "Schönes",
+          "Schöne",
+          "Schöner"
+        ],
+        "answer": 0,
+        "explain": "After etwas, nichts and viel the adjective noun is neuter and takes -es: etwas Schönes."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Nichts ___! (neu)",
+        "options": [
+          "Neues",
+          "Neue",
+          "Neuer"
+        ],
+        "answer": 0,
+        "explain": "Same pattern: nichts Neues."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Wie dekliniert ein Adjektiv als Nomen?",
+        "options": [
+          "weiter wie ein Adjektiv, aber großgeschrieben",
+          "wie ein normales Nomen",
+          "gar nicht"
+        ],
+        "answer": 0,
+        "explain": "der Bekannte / ein Bekannter / den Bekannten — the endings follow the article exactly as they would before a noun."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Was folgt auf „etwas“, „nichts“ und „viel“?",
+        "options": [
+          "ein großgeschriebenes Adjektiv auf -es",
+          "ein Nomen ohne Artikel",
+          "ein Infinitiv"
+        ],
+        "answer": 0,
+        "explain": "etwas Gutes, nichts Besonderes, viel Interessantes."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Verben & Ausdrücke mit „es“",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "___ regnet seit Stunden.",
+        "options": [
+          "Es",
+          "Das",
+          "Er"
+        ],
+        "answer": 0,
+        "explain": "Weather verbs have no real subject; es fills the slot."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ gibt hier kein Restaurant.",
+        "options": [
+          "Es",
+          "Da",
+          "Man"
+        ],
+        "answer": 0,
+        "explain": "es gibt + Akkusativ is fixed, and the es can never be dropped."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Es geht ___ gut. (ich)",
+        "options": [
+          "mir",
+          "mich",
+          "ich"
+        ],
+        "answer": 0,
+        "explain": "„es geht“ takes a dative person: mir, dir, ihm."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Wie viel Uhr ist ___?",
+        "options": [
+          "es",
+          "das",
+          "die"
+        ],
+        "answer": 0,
+        "explain": "Time expressions take es."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Es ___ mir leid.",
+        "options": [
+          "tut",
+          "macht",
+          "ist"
+        ],
+        "answer": 0,
+        "explain": "„Es tut mir leid“ — the fixed apology."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ ist kalt heute.",
+        "options": [
+          "Es",
+          "Das",
+          "Er"
+        ],
+        "answer": 0,
+        "explain": "Weather again."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Es ___ sich, das Buch zu lesen.",
+        "options": [
+          "lohnt",
+          "macht",
+          "gibt"
+        ],
+        "answer": 0,
+        "explain": "sich lohnen with es: it is worth doing."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Warum steht bei „es gibt“ der Akkusativ?",
+        "options": [
+          "„geben“ ist hier ein normales transitives Verb mit „es“ als Subjekt",
+          "es ist eine Ausnahme ohne Grund",
+          "es ist Dativ"
+        ],
+        "answer": 0,
+        "explain": "„Es gibt einen Grund“ — es is the subject and der Grund the object."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Wann darf „es“ NICHT wegfallen?",
+        "options": [
+          "bei Wetterverben und festen Ausdrücken wie „es gibt“",
+          "immer",
+          "nie"
+        ],
+        "answer": 0,
+        "explain": "It is not a placeholder there but the grammatical subject."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Wortbildung: Komposita (Nomen)",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "die Haustür — welches Wort bestimmt den Artikel?",
+        "options": [
+          "Tür",
+          "Haus",
+          "beide"
+        ],
+        "answer": 0,
+        "explain": "The **last** word decides gender and meaning: die Tür → die Haustür."
+      },
+      {
+        "kind": "choose",
+        "prompt": "der Sommer + das Kleid = ___",
+        "options": [
+          "das Sommerkleid",
+          "der Sommerkleid",
+          "die Sommerkleid"
+        ],
+        "answer": 0,
+        "explain": "das Kleid is last, so the compound is neuter."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die Arbeit + der Platz = ___",
+        "options": [
+          "der Arbeitsplatz",
+          "die Arbeitsplatz",
+          "das Arbeitsplatz"
+        ],
+        "answer": 0,
+        "explain": "der Platz decides — and note the linking -s-: Arbeit**s**platz."
+      },
+      {
+        "kind": "choose",
+        "prompt": "das Kind + der Garten = ___",
+        "options": [
+          "der Kindergarten",
+          "das Kindergarten",
+          "die Kindergarten"
+        ],
+        "answer": 0,
+        "explain": "der Garten is last. The linking element here is -er."
+      },
+      {
+        "kind": "choose",
+        "prompt": "die Straße + die Bahn = ___",
+        "options": [
+          "die Straßenbahn",
+          "der Straßenbahn",
+          "das Straßenbahn"
+        ],
+        "answer": 0,
+        "explain": "die Bahn, with a linking -n-."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Was ist ein „Hausschlüssel“?",
+        "options": [
+          "ein Schlüssel für das Haus",
+          "ein Haus mit Schlüssel",
+          "ein kleines Haus"
+        ],
+        "answer": 0,
+        "explain": "The last word is the thing; everything before it describes it."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Welches Wort bestimmt Genus und Bedeutung?",
+        "options": [
+          "das letzte",
+          "das erste",
+          "das längste"
+        ],
+        "answer": 0,
+        "explain": "die Wohnungstür is a door, der Türgriff is a handle. Reading a compound backwards is the fastest way to understand it."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Wozu dient das Fugen-s (Arbeitsplatz)?",
+        "options": [
+          "es verbindet die Teile und erleichtert das Sprechen",
+          "es zeigt den Genitiv",
+          "es macht den Plural"
+        ],
+        "answer": 0,
+        "explain": "Purely phonetic glue — and unpredictable enough that compounds are worth learning whole."
+      }
+    ]
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "level": "B1",
+    "title": "Fokuspartikeln: nur, auch, sogar, selbst",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ Anna hat die Prüfung bestanden. (niemand sonst)", "options": ["Nur", "Auch", "Sogar"], "answer": 0, "explain": "nur excludes everyone else. The particle sits directly before the element it focuses." },
+      { "kind": "choose", "prompt": "___ Anna hat die Prüfung bestanden. (und andere auch)", "options": ["Auch", "Nur", "Selbst"], "answer": 0, "explain": "auch adds Anna to a group." },
+      { "kind": "choose", "prompt": "___ der Lehrer konnte es nicht lösen. (überraschend)", "options": ["Sogar", "Nur", "Auch"], "answer": 0, "explain": "sogar marks the unexpected member of a set — even the teacher." },
+      { "kind": "choose", "prompt": "___ ich weiß das, und ich bin kein Experte.", "options": ["Selbst", "Nur", "Auch"], "answer": 0, "explain": "selbst as a focus particle is a more formal sogar." },
+      { "kind": "choose", "prompt": "Ich habe ___ zwei Euro. (nicht mehr)", "options": ["nur", "auch", "sogar"], "answer": 0, "explain": "nur limits the quantity." },
+      { "kind": "choose", "prompt": "Er spricht Deutsch und ___ Französisch.", "options": ["auch", "nur", "sogar"], "answer": 0, "explain": "Adding a second item." },
+      { "kind": "mc", "prompt": "Wo steht die Fokuspartikel?", "options": ["direkt vor dem Element, das sie betont", "am Satzanfang", "am Satzende"], "answer": 0, "explain": "Moving it changes the meaning: „Nur ich habe das gesagt“ versus „Ich habe nur das gesagt“." },
+      { "kind": "mc", "prompt": "Was unterscheidet „auch“ von „sogar“?", "options": ["sogar drückt Überraschung aus, auch nur Addition", "sie sind identisch", "auch ist stärker"], "answer": 0, "explain": "Both add; only sogar says the addition is surprising." },
+      { "kind": "mc", "prompt": "„Selbst der Chef kam.“ heißt:", "options": ["Sogar der Chef kam.", "Der Chef kam allein.", "Der Chef kam persönlich."], "answer": 0, "explain": "Careful: *selbst* after the noun („der Chef selbst“) means „in person“ — the position decides." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Konjunktionen: sondern vs. aber, sowie",
+    "exercises": [
+      { "kind": "choose", "prompt": "Das ist nicht mein Buch, ___ deins.", "options": ["sondern", "aber", "oder"], "answer": 0, "explain": "sondern corrects a negation: not X but Y." },
+      { "kind": "choose", "prompt": "Das Buch ist teuer, ___ gut.", "options": ["aber", "sondern", "sowie"], "answer": 0, "explain": "There is no negation to correct, so aber." },
+      { "kind": "choose", "prompt": "Er kommt nicht heute, ___ morgen.", "options": ["sondern", "aber", "und"], "answer": 0, "explain": "nicht … sondern — the frame is fixed." },
+      { "kind": "choose", "prompt": "Wir brauchen Brot ___ Milch.", "options": ["sowie", "sondern", "aber"], "answer": 0, "explain": "sowie is a slightly formal „and also“." },
+      { "kind": "choose", "prompt": "Sie ist müde, ___ sie arbeitet weiter.", "options": ["aber", "sondern", "sowie"], "answer": 0, "explain": "A contrast without a negation." },
+      { "kind": "choose", "prompt": "Ich trinke keinen Kaffee, ___ Tee.", "options": ["sondern", "aber", "oder"], "answer": 0, "explain": "kein counts as the negation that licenses sondern." },
+      { "kind": "mc", "prompt": "Wann benutzt man „sondern“?", "options": ["nach einer Verneinung, als Korrektur", "bei jedem Gegensatz", "nur schriftlich"], "answer": 0, "explain": "No negation in the first clause means aber. This is the whole distinction, and English has no separate word for it." },
+      { "kind": "mc", "prompt": "Ändern „aber“ und „sondern“ die Wortstellung?", "options": ["nein — sie verbinden zwei Hauptsätze", "ja, das Verb geht ans Ende", "ja, das Subjekt fällt weg"], "answer": 0, "explain": "Both are coordinating: the clause after them keeps normal verb-second order." },
+      { "kind": "mc", "prompt": "„nicht nur …, sondern auch …“ bedeutet:", "options": ["beides trifft zu", "nur das Zweite trifft zu", "nichts trifft zu"], "answer": 0, "explain": "The frame adds rather than corrects — one of the commonest B1 writing patterns." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Präpositionaladverbien: da(r)- & wo(r)-",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich freue mich ___. (auf das Wochenende)", "options": ["darauf", "auf es", "darüber"], "answer": 0, "explain": "A thing is replaced by da(r)- + preposition, never by a pronoun: darauf, not „auf es“." },
+      { "kind": "choose", "prompt": "___ denkst du? (an was)", "options": ["Woran", "An was", "Daran"], "answer": 0, "explain": "The question form is wo(r)- + preposition: woran." },
+      { "kind": "choose", "prompt": "Ich habe ___ gesprochen. (über das Problem)", "options": ["darüber", "über es", "worüber"], "answer": 0, "explain": "darüber." },
+      { "kind": "choose", "prompt": "___ wartest du? (auf was)", "options": ["Worauf", "Auf was", "Darauf"], "answer": 0, "explain": "worauf." },
+      { "kind": "choose", "prompt": "Ich interessiere mich ___. (für Musik)", "options": ["dafür", "für es", "wofür"], "answer": 0, "explain": "dafür." },
+      { "kind": "choose", "prompt": "Ich warte auf meinen Bruder. Ich warte ___.", "options": ["auf ihn", "darauf", "worauf"], "answer": 0, "explain": "**A person keeps the pronoun**: auf ihn. da(r)- is only for things — the distinction learners most often miss." },
+      { "kind": "choose", "prompt": "___ hast du Angst? (vor was)", "options": ["Wovor", "Vor was", "Davor"], "answer": 0, "explain": "wovor." },
+      { "kind": "mc", "prompt": "Wann kommt das „r“ dazu?", "options": ["wenn die Präposition mit einem Vokal beginnt", "immer", "nie im Plural"], "answer": 0, "explain": "da + auf → darauf, da + für → dafür. The r is there purely to separate two vowels." },
+      { "kind": "mc", "prompt": "Wofür benutzt man da(r)- NICHT?", "options": ["für Personen", "für Sachen", "für abstrakte Begriffe"], "answer": 0, "explain": "„Ich denke an ihn“ for a person; „Ich denke daran“ for a thing." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "welcher & was für ein",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ Auto möchtest du — das rote oder das blaue?", "options": ["Welches", "Was für ein", "Welcher"], "answer": 0, "explain": "A choice from known options: welcher." },
+      { "kind": "choose", "prompt": "___ Auto möchtest du? — Ein schnelles.", "options": ["Was für ein", "Welches", "Welcher"], "answer": 0, "explain": "Asking about the kind, not the individual: was für ein." },
+      { "kind": "choose", "prompt": "___ Film hast du gesehen? (von diesen dreien)", "options": ["Welchen", "Was für einen", "Welcher"], "answer": 0, "explain": "Accusative masculine: welchen." },
+      { "kind": "choose", "prompt": "___ Musik hörst du gern?", "options": ["Was für", "Welche", "Was für eine"], "answer": 0, "explain": "Uncountable or plural nouns drop the ein: was für Musik, was für Bücher." },
+      { "kind": "choose", "prompt": "In ___ Stadt wohnst du?", "options": ["welcher", "welche", "welchem"], "answer": 0, "explain": "in + dative, feminine: welcher Stadt." },
+      { "kind": "choose", "prompt": "___ Mensch macht so etwas?", "options": ["Was für ein", "Welcher", "Welches"], "answer": 0, "explain": "Character rather than selection." },
+      { "kind": "mc", "prompt": "Was fragt „welcher“?", "options": ["nach einer Auswahl aus Bekanntem", "nach der Art", "nach dem Grund"], "answer": 0, "explain": "welcher picks; was für ein describes." },
+      { "kind": "mc", "prompt": "Wie dekliniert das „ein“ in „was für ein“?", "options": ["nach dem Kasus des Nomens im Satz", "immer Nominativ", "gar nicht"], "answer": 0, "explain": "„für“ here is not a preposition governing the case — „Was für einen Wagen hast du?“ is accusative because of *haben*." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Präposition: außer + Dativ",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ mir war niemand da.", "options": ["Außer", "Ohne", "Bis"], "answer": 0, "explain": "außer + Dativ: apart from, except for." },
+      { "kind": "choose", "prompt": "Alle kamen außer ___. (er)", "options": ["ihm", "ihn", "er"], "answer": 0, "explain": "Dative pronoun: ihm." },
+      { "kind": "choose", "prompt": "Außer ___ Auto haben wir nichts.", "options": ["dem", "das", "des"], "answer": 0, "explain": "Dative neuter: dem Auto." },
+      { "kind": "choose", "prompt": "Wir haben außer ___ Kindern keine Gäste.", "options": ["den", "die", "der"], "answer": 0, "explain": "Dative plural takes -n on both article and noun: den Kindern." },
+      { "kind": "choose", "prompt": "Ich esse alles außer ___. (Fisch)", "options": ["Fisch", "dem Fisch", "den Fisch"], "answer": 0, "explain": "With no article the noun stands bare — the dative is invisible here." },
+      { "kind": "choose", "prompt": "Außer ___ Schwester kenne ich niemanden.", "options": ["meiner", "meine", "meinen"], "answer": 0, "explain": "Dative feminine: meiner Schwester." },
+      { "kind": "mc", "prompt": "Welchen Kasus verlangt „außer“?", "options": ["Dativ", "Akkusativ", "Genitiv"], "answer": 0, "explain": "It joins aus, bei, mit, nach, seit, von, zu in the fixed dative group." },
+      { "kind": "mc", "prompt": "Was bedeutet „außer“?", "options": ["mit Ausnahme von", "ohne", "außerhalb"], "answer": 0, "explain": "„ohne dich“ means you are absent; „außer dir“ means everyone else, but not you." },
+      { "kind": "mc", "prompt": "„außer“ kann auch eine Konjunktion sein — in welchem Sinn?", "options": ["außer wenn / außer dass — es sei denn", "und", "weil"], "answer": 0, "explain": "„Ich komme, außer wenn es regnet.“" }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Nebensätze (weil/dass)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich bleibe zu Hause, weil ich krank ___.", "options": ["bin", "bin ich", "sein"], "answer": 0, "explain": "The finite verb closes a subordinate clause." },
+      { "kind": "choose", "prompt": "Ich glaube, dass er recht ___.", "options": ["hat", "hat er", "haben"], "answer": 0, "explain": "Same rule with dass." },
+      { "kind": "choose", "prompt": "Weil es regnet, ___ wir zu Hause.", "options": ["bleiben", "wir bleiben", "bleiben wir zu"], "answer": 0, "explain": "The whole subordinate clause fills position 1, so the main clause's verb comes straight after the comma." },
+      { "kind": "choose", "prompt": "Er sagt, dass er morgen ___.", "options": ["kommt", "kommt er", "kommen"], "answer": 0, "explain": "Verb last." },
+      { "kind": "choose", "prompt": "Ich weiß, dass du gestern dort ___.", "options": ["warst", "warst du", "sein"], "answer": 0, "explain": "Past tense, still verb-final." },
+      { "kind": "choose", "prompt": "Sie kommt nicht, weil sie keine Zeit ___.", "options": ["hat", "hat sie", "haben"], "answer": 0, "explain": "Verb last." },
+      { "kind": "choose", "prompt": "Ich hoffe, dass es morgen nicht ___.", "options": ["regnet", "regnet es", "regnen"], "answer": 0, "explain": "Verb last." },
+      { "kind": "choose", "prompt": "Weil er krank war, ___ er nicht gekommen.", "options": ["ist", "er ist", "sein"], "answer": 0, "explain": "Inversion in the main clause after a fronted subordinate clause." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zwischen „weil“ und „denn“?", "options": ["weil schickt das Verb ans Ende, denn nicht", "sie sind identisch", "denn ist ein Nebensatz"], "answer": 0, "explain": "„…, weil ich müde bin“ versus „…, denn ich bin müde“. Same meaning, different structure." },
+      { "kind": "mc", "prompt": "Was passiert, wenn der Nebensatz vorne steht?", "options": ["das Verb des Hauptsatzes folgt direkt nach dem Komma", "nichts", "beide Verben gehen ans Ende"], "answer": 0, "explain": "The subordinate clause counts as position 1, so position 2 is the main verb: „Weil es regnet, bleiben wir zu Hause.“" }
+    ]
+  }
+]

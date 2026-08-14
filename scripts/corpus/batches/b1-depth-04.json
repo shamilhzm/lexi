@@ -1,0 +1,90 @@
+[
+  {
+    "level": "B1",
+    "title": "n-Deklination",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich habe mit dem ___ gesprochen. (der Kollege)", "options": ["Kollegen", "Kollege", "Kollegs"], "answer": 0, "explain": "n-Deklination: -n everywhere except the nominative singular." },
+      { "kind": "choose", "prompt": "Der Brief des ___. (der Präsident)", "options": ["Präsidenten", "Präsidents", "Präsident"], "answer": 0, "explain": "Genitive takes -en, not -s — the one place learners over-apply the ordinary rule." },
+      { "kind": "choose", "prompt": "Ich sehe einen ___. (der Polizist)", "options": ["Polizisten", "Polizist", "Polizistes"], "answer": 0, "explain": "Nouns in -ist belong to this group." },
+      { "kind": "choose", "prompt": "Das Auto des ___. (der Nachbar)", "options": ["Nachbarn", "Nachbars", "Nachbar"], "answer": 0, "explain": "der Nachbar → des Nachbarn." },
+      { "kind": "choose", "prompt": "Wir helfen dem ___. (der Praktikant)", "options": ["Praktikanten", "Praktikant", "Praktikants"], "answer": 0, "explain": "-ant is another reliable signal." },
+      { "kind": "choose", "prompt": "Die Meinung des ___. (der Experte)", "options": ["Experten", "Expertes", "Experte"], "answer": 0, "explain": "Masculine nouns ending in -e are almost all n-Deklination." },
+      { "kind": "choose", "prompt": "Ich kenne diesen ___. (der Herr)", "options": ["Herrn", "Herr", "Herren"], "answer": 0, "explain": "der Herr is irregular: -n in the singular, -en in the plural." },
+      { "kind": "mc", "prompt": "Welche Endungen zeigen n-Deklination an?", "options": ["-e, -ent, -ist, -ant, -oge", "-ung, -heit, -keit", "-chen, -lein"], "answer": 0, "explain": "The second group is feminine and the third neuter — neither can be n-Deklination, which is masculine only." },
+      { "kind": "mc", "prompt": "Wo steht die Grundform ohne Endung?", "options": ["nur im Nominativ Singular", "im Nominativ und Akkusativ", "im Genitiv"], "answer": 0, "explain": "One bare slot, three inflected ones — so if you are not in the nominative singular, add the -n." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Genitiv-Präpositionen (wegen, während, trotz, außerhalb, innerhalb)",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ des Regens blieben wir zu Hause.", "options": ["Wegen", "Trotz", "Während"], "answer": 0, "explain": "wegen + Genitiv states a cause." },
+      { "kind": "choose", "prompt": "___ des schlechten Wetters gingen wir spazieren.", "options": ["Trotz", "Wegen", "Innerhalb"], "answer": 0, "explain": "trotz concedes: in spite of." },
+      { "kind": "choose", "prompt": "___ der Woche arbeite ich viel.", "options": ["Während", "Außerhalb", "Trotz"], "answer": 0, "explain": "während + Genitiv for a period." },
+      { "kind": "choose", "prompt": "___ von zwei Tagen müssen Sie antworten.", "options": ["Innerhalb", "Außerhalb", "Wegen"], "answer": 0, "explain": "innerhalb marks a deadline. With „von“ it takes the dative instead." },
+      { "kind": "choose", "prompt": "Das liegt ___ der Stadt.", "options": ["außerhalb", "innerhalb", "während"], "answer": 0, "explain": "außerhalb + Genitiv: outside." },
+      { "kind": "choose", "prompt": "Wegen ___ Krankheit kam er nicht.", "options": ["seiner", "seine", "seinem"], "answer": 0, "explain": "Feminine genitive: seiner Krankheit." },
+      { "kind": "choose", "prompt": "Trotz ___ Bemühungen scheiterte es.", "options": ["aller", "allen", "alle"], "answer": 0, "explain": "Genitive plural of alle is aller." },
+      { "kind": "mc", "prompt": "Was passiert mit „wegen“ in der Umgangssprache?", "options": ["es steht oft mit dem Dativ — „wegen dem Regen“", "es verschwindet", "es wird zu „weil“"], "answer": 0, "explain": "Extremely common in speech, still marked wrong in a B1 exam. Worth knowing both." },
+      { "kind": "mc", "prompt": "Welche Endung hat der Genitiv Singular maskulin/neutrum?", "options": ["-es beim Nomen, -es beim Artikel", "-er", "-en"], "answer": 0, "explain": "des Regens, des Wetters — the noun takes -s or -es too." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Komparativ & Superlativ",
+    "exercises": [
+      { "kind": "choose", "prompt": "Das ist die ___ Lösung. (gut)", "options": ["beste", "gutste", "bessere"], "answer": 0, "explain": "gut – besser – best-. Irregular and very frequent." },
+      { "kind": "choose", "prompt": "Er hat ___ Geld als ich. (viel)", "options": ["mehr", "vieler", "mehrere"], "answer": 0, "explain": "viel – mehr – meist-. „mehr“ never takes an ending." },
+      { "kind": "choose", "prompt": "Das ist der ___ Berg. (hoch)", "options": ["höchste", "hochste", "höhere"], "answer": 0, "explain": "hoch loses its -c- in the comparative (höher) and regains it in the superlative (höchst-)." },
+      { "kind": "choose", "prompt": "Ich trinke ___ Tee als Kaffee. (gern)", "options": ["lieber", "gerner", "liebster"], "answer": 0, "explain": "gern – lieber – am liebsten." },
+      { "kind": "choose", "prompt": "Sie ist die ___ Schülerin der Klasse. (fleißig)", "options": ["fleißigste", "fleißiger", "am fleißigsten"], "answer": 0, "explain": "Before a noun the superlative declines: die fleißigste." },
+      { "kind": "choose", "prompt": "Von allen läuft er ___. (schnell)", "options": ["am schnellsten", "der schnellste", "schneller"], "answer": 0, "explain": "With no noun following, the am-form is used." },
+      { "kind": "choose", "prompt": "Je älter er wird, desto ___ wird er. (ruhig)", "options": ["ruhiger", "am ruhigsten", "ruhigste"], "answer": 0, "explain": "Both halves of je … desto need a comparative." },
+      { "kind": "choose", "prompt": "Das Wetter wird ___. (schlecht)", "options": ["schlechter", "am schlechtesten", "schlechteste"], "answer": 0, "explain": "A simple comparative with no comparison partner: it is getting worse." },
+      { "kind": "mc", "prompt": "Wann bekommt der Superlativ „am …sten“?", "options": ["wenn kein Nomen folgt", "immer", "nie"], "answer": 0, "explain": "„der schnellste Läufer“ before a noun, „er läuft am schnellsten“ without one." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Konjunktion: als ob (irreal)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Er tut so, ___ er alles wüsste.", "options": ["als ob", "als wenn dass", "wie ob"], "answer": 0, "explain": "als ob + Konjunktiv II, verb at the end." },
+      { "kind": "choose", "prompt": "Sie sieht aus, als ob sie krank ___.", "options": ["wäre", "ist", "sei"], "answer": 0, "explain": "The comparison is unreal, so Konjunktiv II." },
+      { "kind": "choose", "prompt": "Es klingt, ___ er beleidigt wäre.", "options": ["als ob", "wie", "dass"], "answer": 0, "explain": "als ob." },
+      { "kind": "choose", "prompt": "Er tat, ___ hätte er nichts gehört.", "options": ["als", "als ob", "wie"], "answer": 0, "explain": "Drop the ob and the verb jumps to the front: als hätte er …" },
+      { "kind": "choose", "prompt": "Sie benimmt sich, als ob sie die Chefin ___.", "options": ["wäre", "ist", "sei"], "answer": 0, "explain": "Konjunktiv II again." },
+      { "kind": "choose", "prompt": "Mir ist, ___ hätte ich das schon gehört.", "options": ["als", "als ob", "wie"], "answer": 0, "explain": "Verb-second after a bare als." },
+      { "kind": "mc", "prompt": "Was ändert sich, wenn man „ob“ weglässt?", "options": ["das Verb steht direkt nach „als“", "nichts", "man braucht den Indikativ"], "answer": 0, "explain": "„als ob er käme“ versus „als käme er“ — same meaning, opposite word order." },
+      { "kind": "mc", "prompt": "Warum steht Konjunktiv II?", "options": ["der Vergleich ist nicht real", "es ist höflich", "es ist indirekte Rede"], "answer": 0, "explain": "He is not the boss; she only behaves as if she were." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Lassen & Modalverben im Perfekt",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich habe mein Auto reparieren ___.", "options": ["lassen", "gelassen", "gelasst"], "answer": 0, "explain": "With a second infinitive, lassen keeps its infinitive form: the Ersatzinfinitiv." },
+      { "kind": "choose", "prompt": "Er hat nicht kommen ___.", "options": ["können", "gekonnt", "konnte"], "answer": 0, "explain": "Modals do the same: „hat kommen können“, not „gekonnt“." },
+      { "kind": "choose", "prompt": "Ich habe das nicht ___. (können, ohne zweites Verb)", "options": ["gekonnt", "können", "konnte"], "answer": 0, "explain": "With **no** second infinitive the modal takes its normal participle: „Ich habe das nicht gekonnt.“" },
+      { "kind": "choose", "prompt": "Sie hat gestern arbeiten ___.", "options": ["müssen", "gemusst", "musste"], "answer": 0, "explain": "Second infinitive present, so müssen." },
+      { "kind": "choose", "prompt": "Wir haben den Schlüssel zu Hause ___.", "options": ["gelassen", "lassen", "gelasst"], "answer": 0, "explain": "Here lassen means „to leave“ and has no second infinitive, so the normal participle." },
+      { "kind": "choose", "prompt": "Er hat sich die Haare schneiden ___.", "options": ["lassen", "gelassen", "geschnitten"], "answer": 0, "explain": "Ersatzinfinitiv." },
+      { "kind": "choose", "prompt": "Ich habe ihn kommen ___.", "options": ["sehen", "gesehen", "sieht"], "answer": 0, "explain": "sehen, hören and lassen behave like the modals in this construction." },
+      { "kind": "mc", "prompt": "Wann benutzt man den Ersatzinfinitiv?", "options": ["wenn ein zweiter Infinitiv im Satz steht", "immer im Perfekt", "nur bei „lassen“"], "answer": 0, "explain": "No second infinitive, no Ersatzinfinitiv — which is why „gekonnt“ and „können“ are both correct, in different sentences." },
+      { "kind": "mc", "prompt": "Wo stehen die beiden Infinitive?", "options": ["am Satzende, Hauptverb zuerst", "am Satzanfang", "getrennt"], "answer": 0, "explain": "„… reparieren lassen“, „… kommen können“ — the modal or lassen comes last." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Partizip Präsens als Adjektiv",
+    "exercises": [
+      { "kind": "choose", "prompt": "Das ___ Kind lacht. (spielen)", "options": ["spielende", "gespielte", "spielend"], "answer": 0, "explain": "Partizip I = Infinitiv + d, then declined: das spielende Kind." },
+      { "kind": "choose", "prompt": "Ein ___ Hund bellt nicht. (schlafen)", "options": ["schlafender", "geschlafener", "schlafend"], "answer": 0, "explain": "Strong masculine ending after ein." },
+      { "kind": "choose", "prompt": "Die ___ Sonne wärmt. (scheinen)", "options": ["scheinende", "geschienene", "scheinend"], "answer": 0, "explain": "Active and simultaneous: Partizip I." },
+      { "kind": "choose", "prompt": "Der ___ Zug hat Verspätung. (ankommen)", "options": ["ankommende", "angekommene", "ankommend"], "answer": 0, "explain": "The train that is arriving." },
+      { "kind": "choose", "prompt": "Die ___ Kinder waren laut. (lachen)", "options": ["lachenden", "gelachten", "lachend"], "answer": 0, "explain": "Weak plural ending after the definite article." },
+      { "kind": "choose", "prompt": "Sie kam ___ ins Zimmer. (lachen)", "options": ["lachend", "lachende", "gelacht"], "answer": 0, "explain": "Used adverbially the participle stays **undeclined**: sie kam lachend herein." },
+      { "kind": "mc", "prompt": "Was drückt das Partizip I aus?", "options": ["etwas geschieht gleichzeitig und aktiv", "etwas ist abgeschlossen", "etwas ist passiv"], "answer": 0, "explain": "Partizip I is active and ongoing; Partizip II is passive and finished." },
+      { "kind": "mc", "prompt": "„das gekochte Essen“ vs. „das kochende Wasser“ —", "options": ["gekocht = fertig, kochend = gerade dabei", "beide bedeuten dasselbe", "kochend ist passiv"], "answer": 0, "explain": "The clearest minimal pair for the whole distinction." }
+    ]
+  }
+]

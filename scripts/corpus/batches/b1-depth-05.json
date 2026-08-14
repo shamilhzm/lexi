@@ -1,0 +1,73 @@
+[
+  {
+    "level": "B1",
+    "title": "Konzessivsätze: obwohl",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ es regnete, gingen wir spazieren.", "options": ["Obwohl", "Weil", "Damit"], "answer": 0, "explain": "obwohl concedes: it rained and we went anyway." },
+      { "kind": "choose", "prompt": "Er kam, obwohl er krank ___.", "options": ["war", "war er", "sein"], "answer": 0, "explain": "Verb at the end of the subordinate clause." },
+      { "kind": "choose", "prompt": "Obwohl sie wenig geübt hat, ___ sie gut.", "options": ["spielt", "sie spielt", "spielen"], "answer": 0, "explain": "The fronted subordinate clause is position 1, so the main verb comes straight after the comma." },
+      { "kind": "choose", "prompt": "Es war teuer. ___ habe ich es gekauft.", "options": ["Trotzdem", "Obwohl", "Weil"], "answer": 0, "explain": "trotzdem is the adverb version and joins two main clauses; obwohl introduces a subordinate one." },
+      { "kind": "choose", "prompt": "___ des Regens gingen wir spazieren.", "options": ["Trotz", "Obwohl", "Trotzdem"], "answer": 0, "explain": "The preposition takes a noun in the genitive; obwohl takes a whole clause." },
+      { "kind": "choose", "prompt": "Obwohl ich müde ___, arbeite ich weiter.", "options": ["bin", "bin ich", "sein"], "answer": 0, "explain": "Verb last." },
+      { "kind": "mc", "prompt": "Wie unterscheiden sich „obwohl“, „trotzdem“ und „trotz“?", "options": ["Konjunktion + Nebensatz, Adverb + Hauptsatz, Präposition + Genitiv", "sie sind austauschbar", "nur der Stil ist anders"], "answer": 0, "explain": "Same meaning, three grammars. Choosing the wrong one is a structural error, not a stylistic one." },
+      { "kind": "mc", "prompt": "Wo steht das Verb nach „trotzdem“ am Satzanfang?", "options": ["direkt danach", "am Ende", "vor „trotzdem“"], "answer": 0, "explain": "„Trotzdem habe ich es gekauft.“ — trotzdem takes position 1, the verb position 2." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Finalsätze: damit & um … zu",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich lerne Deutsch, ___ in Berlin zu arbeiten.", "options": ["um", "damit", "dass"], "answer": 0, "explain": "Same subject in both halves, so um … zu." },
+      { "kind": "choose", "prompt": "Ich erkläre es, ___ du es verstehst.", "options": ["damit", "um", "dass"], "answer": 0, "explain": "The subjects differ — I explain, you understand — so damit." },
+      { "kind": "choose", "prompt": "Sie spart, ___ ein Auto zu kaufen.", "options": ["um", "damit", "sodass"], "answer": 0, "explain": "One subject: um … zu." },
+      { "kind": "choose", "prompt": "Er spricht langsam, ___ ihn alle verstehen.", "options": ["damit", "um", "dass"], "answer": 0, "explain": "Two subjects." },
+      { "kind": "choose", "prompt": "Ich gehe früh, um den Zug ___ bekommen.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "um … zu + Infinitiv at the end." },
+      { "kind": "choose", "prompt": "Wir treffen uns, ___ das Projekt zu besprechen.", "options": ["um", "damit", "weil"], "answer": 0, "explain": "Same subject." },
+      { "kind": "choose", "prompt": "Ich gebe dir Geld, ___ du einkaufen kannst.", "options": ["damit", "um", "sodass"], "answer": 0, "explain": "Different subjects, and damit states the purpose rather than the result." },
+      { "kind": "mc", "prompt": "Wann geht „um … zu“ nicht?", "options": ["wenn die Subjekte verschieden sind", "wenn das Verb trennbar ist", "im Perfekt"], "answer": 0, "explain": "One subject → um … zu. Two subjects → damit. That single test decides every case." },
+      { "kind": "mc", "prompt": "Wo steht „zu“ bei trennbaren Verben?", "options": ["zwischen Präfix und Verb — „einzukaufen“", "vor dem Präfix", "am Satzende"], "answer": 0, "explain": "um einzukaufen, um anzurufen — written as one word." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Infinitivsätze (zu + Infinitiv)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich habe vor, nach Berlin ___ ziehen.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "vorhaben takes a zu-infinitive." },
+      { "kind": "choose", "prompt": "Es ist wichtig, pünktlich ___ sein.", "options": ["zu", "zum", "um zu"], "answer": 0, "explain": "After „es ist + Adjektiv“ a zu-infinitive follows." },
+      { "kind": "choose", "prompt": "Er versucht, das Problem ___ lösen.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "versuchen takes zu." },
+      { "kind": "choose", "prompt": "Ich habe keine Lust, heute ___ arbeiten.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "Lust haben + zu." },
+      { "kind": "choose", "prompt": "Vergiss nicht, mich ___!", "options": ["anzurufen", "zu anrufen", "anrufen zu"], "answer": 0, "explain": "Separable verbs take the zu inside: anzurufen." },
+      { "kind": "choose", "prompt": "Ich kann heute nicht ___.", "options": ["kommen", "zu kommen", "zum kommen"], "answer": 0, "explain": "Modal verbs take a **bare** infinitive — no zu. This is the exception worth pinning." },
+      { "kind": "choose", "prompt": "Sie beginnt, Deutsch ___ lernen.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "beginnen + zu." },
+      { "kind": "mc", "prompt": "Nach welchen Verben steht KEIN „zu“?", "options": ["nach Modalverben und werden", "nach allen Verben", "nach „versuchen“"], "answer": 0, "explain": "können, müssen, wollen, sollen, dürfen, mögen and werden take the bare infinitive; almost everything else takes zu." },
+      { "kind": "mc", "prompt": "Wo steht „zu“ bei trennbaren Verben?", "options": ["zwischen Präfix und Stamm", "davor", "danach"], "answer": 0, "explain": "aufzustehen, mitzukommen, einzuladen." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "statt / ohne … zu + Infinitiv",
+    "exercises": [
+      { "kind": "choose", "prompt": "Er ging, ___ sich zu verabschieden.", "options": ["ohne", "statt", "um"], "answer": 0, "explain": "ohne … zu: he left without saying goodbye." },
+      { "kind": "choose", "prompt": "___ zu arbeiten, schaute er fern.", "options": ["Statt", "Ohne", "Um"], "answer": 0, "explain": "statt … zu: instead of working." },
+      { "kind": "choose", "prompt": "Sie half mir, ___ zu fragen.", "options": ["ohne", "statt", "um"], "answer": 0, "explain": "Without asking." },
+      { "kind": "choose", "prompt": "Statt ins Kino ___ gehen, blieben wir zu Hause.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "The zu-infinitive closes the clause." },
+      { "kind": "choose", "prompt": "Er ging weg, ___ ein Wort zu sagen.", "options": ["ohne", "statt", "um"], "answer": 0, "explain": "ohne … zu." },
+      { "kind": "choose", "prompt": "Ich lerne, ___ fernzusehen.", "options": ["statt", "ohne", "um"], "answer": 0, "explain": "Instead of watching television — and note the separable verb takes zu inside." },
+      { "kind": "mc", "prompt": "Was gilt für die Subjekte bei „ohne … zu“?", "options": ["beide Teile haben dasselbe Subjekt", "sie müssen verschieden sein", "es gibt kein Subjekt"], "answer": 0, "explain": "If the subjects differ you need „ohne dass“: „Er ging, ohne dass ich es merkte.“" },
+      { "kind": "mc", "prompt": "Wie heißt die Variante mit zwei Subjekten?", "options": ["ohne dass / statt dass", "ohne zu / statt zu", "damit"], "answer": 0, "explain": "Exactly the same split as um … zu versus damit." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Konjunktion: falls",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ es regnet, bleiben wir zu Hause.", "options": ["Falls", "Als", "Obwohl"], "answer": 0, "explain": "falls introduces a condition, like wenn but marking it as less certain." },
+      { "kind": "choose", "prompt": "Falls du Zeit ___, ruf mich an.", "options": ["hast", "hast du", "haben"], "answer": 0, "explain": "Verb at the end." },
+      { "kind": "choose", "prompt": "Nimm einen Schirm mit, ___ es regnet.", "options": ["falls", "als", "damit"], "answer": 0, "explain": "In case it rains." },
+      { "kind": "choose", "prompt": "___ Sie Fragen haben, melden Sie sich.", "options": ["Falls", "Wann", "Als"], "answer": 0, "explain": "A polite conditional, common in formal writing." },
+      { "kind": "choose", "prompt": "Falls er nicht ___, fangen wir ohne ihn an.", "options": ["kommt", "kommt er", "kommen"], "answer": 0, "explain": "Verb last." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zwischen „falls“ und „wenn“?", "options": ["falls betont, dass es unsicher ist", "falls ist Vergangenheit", "sie sind nie austauschbar"], "answer": 0, "explain": "Both are conditions; falls signals „only if it happens, which it may not“." },
+      { "kind": "mc", "prompt": "Kann „falls“ auch am Satzende stehen?", "options": ["nein — es leitet immer einen Nebensatz ein", "ja", "nur schriftlich"], "answer": 0, "explain": "It is a subordinating conjunction, so it opens its clause and sends the verb to the end." }
+    ]
+  }
+]

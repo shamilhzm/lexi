@@ -11,6 +11,40 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — A2 and B1 clear; only B2 still has thin points
+
+Continuing the pass the median exposed. A1 closed earlier today; A2 and B1 now follow.
+
+| | points | total | median | min | thin |
+|---|---|---|---|---|---|
+| A1 | 24 | 1,654 | 27 | **14** | 0 |
+| A2 | 28 | 1,748 | 8 → **17** | 5 → **14** | 17 → **0** |
+| B1 | 40 | 1,725 | 6 → **15** | 5 → **12** | 29 → **0** |
+| B2 | 21 | 454 | **6** | **5** | **18** |
+| C1 | 12 | 204 | 18 | 16 | 0 |
+| C2 | 11 | 174 | 16 | 15 | 0 |
+
+Bank **5,545 → 5,959** across eight batches. **B2 is now the only level with a thin
+point anywhere in it** — and the 2026-08-06 grammar audit already called it *"where the
+money is and the thinnest real layer"*, so the finding has converged from two directions.
+
+**What was actually authored.** These are the errors that get corrected in a classroom,
+not a syllabus checklist: *größer wie* instead of *als*; *wenn* for an indirect yes/no
+question instead of *ob*; *in der* contracted to a form that does not exist; *ihn*
+versus *ihm*; *hat gekonnt* where the sentence needs *hat kommen können*; *da(r)-* used
+for a person; *wegen dem Regen* — flagged as widespread in speech and still wrong in an
+exam. Several items name the mistake rather than only the rule, because at B1 the
+learner has usually met the rule and is still making the error.
+
+**One batch was rejected whole and re-run.** Two Komposita items were `choose` with no
+gap marker — questions, not gap-fills — and `corpus:gex` refused the entire batch rather
+than writing the other 50. That is the right behaviour: a partial write would have left
+the bank in a state no dry run had described.
+
+`corpus:validate` PASS, 733 green, `GRAMMAR_COUNTS` re-pinned to 5,959.
+
+---
+
 ### Shipped 2026-08-13 — A1 has no thin points, and the mean was lying
 
 Closing C1/C2 surfaced a bigger finding, and it inverts the one the critique made.

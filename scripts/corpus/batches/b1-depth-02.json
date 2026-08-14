@@ -1,0 +1,90 @@
+[
+  {
+    "level": "B1",
+    "title": "Irreale Konditionalsätze",
+    "exercises": [
+      { "kind": "choose", "prompt": "Wenn ich Zeit ___, würde ich mitkommen.", "options": ["hätte", "habe", "hatte"], "answer": 0, "explain": "An unreal condition takes Konjunktiv II in both clauses: hätte … würde." },
+      { "kind": "choose", "prompt": "Wenn ich reich wäre, ___ ich ein Haus kaufen.", "options": ["würde", "werde", "wurde"], "answer": 0, "explain": "würde + Infinitiv is the everyday Konjunktiv II for most verbs." },
+      { "kind": "choose", "prompt": "___ ich das gewusst, wäre ich gekommen.", "options": ["Hätte", "Habe", "Hatte"], "answer": 0, "explain": "The wenn can be dropped if the clause opens with its verb." },
+      { "kind": "choose", "prompt": "Wenn er hier ___, könnte er helfen.", "options": ["wäre", "ist", "war"], "answer": 0, "explain": "sein has its own Konjunktiv II: wäre." },
+      { "kind": "choose", "prompt": "Ich ___ gern mehr Sport machen.", "options": ["würde", "werde", "wurde"], "answer": 0, "explain": "A polite or hypothetical wish." },
+      { "kind": "choose", "prompt": "Wenn wir mehr Geld hätten, ___ wir verreisen.", "options": ["könnten", "können", "konnten"], "answer": 0, "explain": "Modals form Konjunktiv II directly, without würde: könnten." },
+      { "kind": "choose", "prompt": "An deiner Stelle ___ ich das nicht tun.", "options": ["würde", "werde", "will"], "answer": 0, "explain": "„An deiner Stelle“ replaces the wenn-clause entirely." },
+      { "kind": "mc", "prompt": "Warum benutzt man meist „würde“ statt der eigenen Konjunktivform?", "options": ["die eigenen Formen klingen bei den meisten Verben altmodisch", "würde ist grammatisch korrekter", "die eigenen Formen gibt es nicht"], "answer": 0, "explain": "„ich käme“ is correct and rare; „ich würde kommen“ is what people say. haben, sein and the modals are the exceptions that keep their own forms." },
+      { "kind": "mc", "prompt": "Welche Verben benutzen fast nie „würde“?", "options": ["haben, sein und die Modalverben", "alle starken Verben", "die trennbaren Verben"], "answer": 0, "explain": "hätte, wäre, könnte, müsste, sollte, dürfte, wollte." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Konjunktiv II der Vergangenheit (irreale Wünsche)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich wünschte, ich ___ mehr gelernt.", "options": ["hätte", "wäre", "würde"], "answer": 0, "explain": "lernen takes haben: hätte gelernt." },
+      { "kind": "choose", "prompt": "Wenn ich früher ___, hätte ich den Zug bekommen.", "options": ["gegangen wäre", "gegangen hätte", "ginge"], "answer": 0, "explain": "gehen takes sein: wäre gegangen." },
+      { "kind": "choose", "prompt": "Hätte ich das gewusst, ___ ich anders gehandelt.", "options": ["hätte", "wäre", "würde"], "answer": 0, "explain": "handeln takes haben." },
+      { "kind": "choose", "prompt": "Wärst du doch nur früher ___!", "options": ["gekommen", "kommen", "gekommt"], "answer": 0, "explain": "kommen takes sein, and „doch nur“ marks the wish as unfulfilled." },
+      { "kind": "choose", "prompt": "Ich ___ dir geholfen, wenn du gefragt hättest.", "options": ["hätte", "wäre", "würde"], "answer": 0, "explain": "helfen takes haben." },
+      { "kind": "choose", "prompt": "Beinahe ___ ich zu spät gekommen.", "options": ["wäre", "hätte", "würde"], "answer": 0, "explain": "kommen takes sein; beinahe marks something that nearly happened." },
+      { "kind": "choose", "prompt": "Das ___ nicht passieren sollen.", "options": ["hätte", "wäre", "würde"], "answer": 0, "explain": "With a modal the auxiliary is always hätte, and two infinitives close the clause: hätte passieren sollen." },
+      { "kind": "mc", "prompt": "Wie bildet man den Konjunktiv II der Vergangenheit?", "options": ["hätte/wäre + Partizip II", "würde + Partizip II", "war/hatte + Infinitiv"], "answer": 0, "explain": "There is only one past Konjunktiv II — no separate pluperfect form." },
+      { "kind": "mc", "prompt": "Wann benutzt man „wäre“ statt „hätte“?", "options": ["bei Verben, die das Perfekt mit sein bilden", "bei allen starken Verben", "nie"], "answer": 0, "explain": "The same rule as the Perfekt: verbs of motion and change of state take sein." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Passiv Perfekt & Präteritum",
+    "exercises": [
+      { "kind": "choose", "prompt": "Das Haus ___ 1990 gebaut. (Präteritum Passiv)", "options": ["wurde", "wird", "ist"], "answer": 0, "explain": "Passive Präteritum: wurde + Partizip II." },
+      { "kind": "choose", "prompt": "Der Brief ist gestern geschrieben ___.", "options": ["worden", "geworden", "wurden"], "answer": 0, "explain": "The passive perfect ends in **worden**, not geworden — the ge- disappears." },
+      { "kind": "choose", "prompt": "Die Tür ___ geöffnet. (Perfekt Passiv)", "options": ["ist … worden", "hat … worden", "wurde … worden"], "answer": 0, "explain": "The passive perfect uses sein as the auxiliary." },
+      { "kind": "choose", "prompt": "Die Fenster ___ letzte Woche geputzt.", "options": ["wurden", "wurde", "sind"], "answer": 0, "explain": "Plural subject, Präteritum: wurden." },
+      { "kind": "choose", "prompt": "Das Problem ist gelöst ___.", "options": ["worden", "geworden", "wurde"], "answer": 0, "explain": "worden again." },
+      { "kind": "choose", "prompt": "Der Film ___ von Fritz Lang gedreht.", "options": ["wurde", "hat", "ist"], "answer": 0, "explain": "von + Dativ names the agent." },
+      { "kind": "choose", "prompt": "Ihm ___ geholfen. (Präteritum)", "options": ["wurde", "war", "hatte"], "answer": 0, "explain": "helfen takes the dative, so the passive has no nominative subject at all — the verb stays singular." },
+      { "kind": "mc", "prompt": "Wie unterscheidet man „worden“ und „geworden“?", "options": ["worden im Passiv, geworden bei werden als Vollverb", "sie sind austauschbar", "geworden ist immer falsch"], "answer": 0, "explain": "„Er ist Arzt geworden“ (became) versus „Es ist gebaut worden“ (was built)." },
+      { "kind": "mc", "prompt": "Welches Hilfsverb hat das Perfekt Passiv?", "options": ["sein", "haben", "werden"], "answer": 0, "explain": "ist/sind … worden — never „hat … worden“." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Relativsätze mit Präpositionen, wo & was",
+    "exercises": [
+      { "kind": "choose", "prompt": "Der Mann, ___ ich gesprochen habe, ist mein Chef.", "options": ["mit dem", "mit den", "mit der"], "answer": 0, "explain": "sprechen mit + Dativ, masculine: mit dem." },
+      { "kind": "choose", "prompt": "Die Stadt, ___ ich wohne, ist klein.", "options": ["in der", "in die", "wo hin"], "answer": 0, "explain": "Position, feminine dative: in der. „wo“ is also possible and more colloquial." },
+      { "kind": "choose", "prompt": "Das Haus, ___ ich wohne, ist alt.", "options": ["in dem", "in das", "in der"], "answer": 0, "explain": "Neuter dative: in dem — or simply „wo“." },
+      { "kind": "choose", "prompt": "Alles, ___ er sagt, ist wahr.", "options": ["was", "das", "welches"], "answer": 0, "explain": "After alles, etwas, nichts and a superlative the pronoun is was." },
+      { "kind": "choose", "prompt": "Der Grund, ___ ich gekommen bin, ist einfach.", "options": ["aus dem", "aus den", "warum dem"], "answer": 0, "explain": "aus + Dativ, masculine." },
+      { "kind": "choose", "prompt": "Das ist das Beste, ___ mir passiert ist.", "options": ["was", "das", "dem"], "answer": 0, "explain": "Nominalised superlative → was." },
+      { "kind": "choose", "prompt": "Die Firma, ___ ich arbeite, ist groß.", "options": ["bei der", "bei die", "bei dem"], "answer": 0, "explain": "arbeiten bei + Dativ, feminine: bei der." },
+      { "kind": "mc", "prompt": "Wann kann man „wo“ statt Präposition + Relativpronomen benutzen?", "options": ["bei Orten", "bei Personen", "immer"], "answer": 0, "explain": "„die Stadt, wo ich wohne“ works; „der Mann, wo ich gesprochen habe“ is dialect." },
+      { "kind": "mc", "prompt": "Woran erkennt man den Kasus des Relativpronomens?", "options": ["an seiner Rolle im Relativsatz, nicht im Hauptsatz", "am Hauptsatz", "es ist immer Nominativ"], "answer": 0, "explain": "The gender comes from the antecedent; the case comes from the verb or preposition *inside* the relative clause." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Konsekutivsätze: sodass",
+    "exercises": [
+      { "kind": "choose", "prompt": "Es regnete stark, ___ das Spiel abgesagt wurde.", "options": ["sodass", "damit", "weil"], "answer": 0, "explain": "sodass states an unintended consequence, and sends the verb to the end." },
+      { "kind": "choose", "prompt": "Er sprach so leise, ___ ihn niemand verstand.", "options": ["dass", "sodass", "damit"], "answer": 0, "explain": "With „so + Adjektiv“ in the main clause, the second half is simply dass." },
+      { "kind": "choose", "prompt": "Sie war müde, sodass sie früh ins Bett ___.", "options": ["ging", "ging sie", "gehen"], "answer": 0, "explain": "Verb at the end." },
+      { "kind": "choose", "prompt": "Der Koffer war so schwer, dass ich ihn nicht tragen ___.", "options": ["konnte", "konnte ich", "können"], "answer": 0, "explain": "Verb last." },
+      { "kind": "choose", "prompt": "Wir sparten, ___ wir uns die Reise leisten konnten.", "options": ["sodass", "damit", "weil"], "answer": 0, "explain": "Here the result follows from the saving. („damit“ would state the *purpose*, which is a different relation.)" },
+      { "kind": "choose", "prompt": "Es war kalt, ___ wir zu Hause blieben.", "options": ["sodass", "damit", "obwohl"], "answer": 0, "explain": "Consequence." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zwischen „sodass“ und „damit“?", "options": ["sodass nennt die Folge, damit den Zweck", "sie sind gleich", "damit nennt die Folge"], "answer": 0, "explain": "„Ich spare, damit ich reisen kann“ (intention) versus „Ich sparte, sodass ich reisen konnte“ (outcome)." },
+      { "kind": "mc", "prompt": "Wann schreibt man „so …, dass“ getrennt?", "options": ["wenn „so“ zu einem Adjektiv im Hauptsatz gehört", "immer", "nie"], "answer": 0, "explain": "„so laut, dass …“ — the so belongs to laut, so only dass introduces the clause." }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Konjunktionen: da (kausal) & indem",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ er krank war, blieb er zu Hause.", "options": ["Da", "Indem", "Damit"], "answer": 0, "explain": "da gives a reason, usually one already known, and typically opens the sentence." },
+      { "kind": "choose", "prompt": "Er verbesserte sein Deutsch, ___ er täglich las.", "options": ["indem", "da", "damit"], "answer": 0, "explain": "indem names the means: by reading daily." },
+      { "kind": "choose", "prompt": "___ es schon spät ist, gehen wir nach Hause.", "options": ["Da", "Indem", "Sodass"], "answer": 0, "explain": "A reason both speakers already accept." },
+      { "kind": "choose", "prompt": "Man spart Energie, ___ man weniger heizt.", "options": ["indem", "da", "weil"], "answer": 0, "explain": "The method, not the reason." },
+      { "kind": "choose", "prompt": "Da er kein Geld ___, konnte er nicht mitkommen.", "options": ["hatte", "hatte er", "haben"], "answer": 0, "explain": "Verb at the end." },
+      { "kind": "choose", "prompt": "Sie half ihm, ___ sie ihm Geld lieh.", "options": ["indem", "da", "obwohl"], "answer": 0, "explain": "How she helped." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zwischen „da“ und „weil“?", "options": ["da nennt einen bekannten Grund und steht meist vorn", "sie sind identisch", "weil ist förmlicher"], "answer": 0, "explain": "Both are correct and interchangeable in most sentences; da is a shade more formal and prefers first position." },
+      { "kind": "mc", "prompt": "Was drückt „indem“ aus?", "options": ["das Mittel — wodurch etwas geschieht", "den Grund", "die Zeit"], "answer": 0, "explain": "Answering „how?“ rather than „why?“ — and it is the construction B1 writing tasks reward." }
+    ]
+  }
+]
