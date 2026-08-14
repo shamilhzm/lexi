@@ -45,7 +45,9 @@ fires on thousands of rows as a bug in the check.*
 - **Corpus audit: 0 errors** across all 7,389 cards — no article/gender mismatch, no
   unknown sector, no untranslated example, no markup leaking into a field.
 
-> ### ✅ Re-measured 2026-08-15 — largely fixed, and no longer blocking Phase 1
+### 🟠 The matcher and verbs — re-measured 2026-08-15, and no longer the headline
+
+> ✅ **Re-measured 2026-08-15 — largely fixed, and no longer blocking Phase 1.**
 >
 > All three cited defects now resolve correctly: `weiß` → **wissen**, `rufe` (in *Ich
 > rufe dich an*) → **anrufen**, `Gib` → **geben**. The headline rate is **6.4%**, not
@@ -62,7 +64,6 @@ fires on thousands of rows as a bug in the check.*
 > rows deserve a proper classification pass before anyone claims a number. **What is
 > settled is that this no longer blocks Now #2 Phase 1.**
 
-### 🔴 The matcher is wrong about verbs, and it is about to become the headline
 
 **The finding that matters most, because it lands on Now #2.** The matcher fails to
 resolve the headword in **3,611 of 16,681 example rows (21.6%)**. Verified by hand,
