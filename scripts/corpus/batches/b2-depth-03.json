@@ -1,0 +1,93 @@
+[
+  {
+    "level": "B2",
+    "title": "Adjektive mit fester Präposition",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich bin stolz ___ meine Tochter.", "options": ["auf", "über", "von"], "answer": 0, "explain": "stolz auf + Akkusativ. The preposition is fixed and cannot be reasoned out from English." },
+      { "kind": "choose", "prompt": "Er ist ___ seine Arbeit zufrieden.", "options": ["mit", "über", "auf"], "answer": 0, "explain": "zufrieden mit + Dativ." },
+      { "kind": "choose", "prompt": "Sie ist ___ Nüsse allergisch.", "options": ["gegen", "auf", "für"], "answer": 0, "explain": "allergisch gegen + Akkusativ." },
+      { "kind": "choose", "prompt": "Das ist typisch ___ ihn.", "options": ["für", "von", "an"], "answer": 0, "explain": "typisch für + Akkusativ." },
+      { "kind": "choose", "prompt": "Ich bin ___ das Ergebnis überrascht.", "options": ["über", "von", "auf"], "answer": 0, "explain": "überrascht über + Akkusativ." },
+      { "kind": "choose", "prompt": "Er ist ___ seiner Meinung überzeugt.", "options": ["von", "über", "auf"], "answer": 0, "explain": "überzeugt von + Dativ." },
+      { "kind": "choose", "prompt": "Sie ist ___ ihrem Chef abhängig.", "options": ["von", "auf", "an"], "answer": 0, "explain": "abhängig von + Dativ." },
+      { "kind": "choose", "prompt": "Ich bin ___ dich böse.", "options": ["auf", "über", "mit"], "answer": 0, "explain": "böse auf jemanden — angry *at* a person; böse über etwas for a thing." },
+      { "kind": "mc", "prompt": "Wie lernt man diese Präpositionen am besten?", "options": ["als feste Einheit mit dem Adjektiv", "über eine Regel", "aus dem Englischen"], "answer": 0, "explain": "There is no rule. „stolz auf“ is one item, like a vocabulary word — which is exactly why the recall drill exists." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Verben mit Präpositionen",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich warte ___ den Bus.", "options": ["auf", "für", "an"], "answer": 0, "explain": "warten auf + Akkusativ." },
+      { "kind": "choose", "prompt": "Sie denkt oft ___ ihre Familie.", "options": ["an", "über", "auf"], "answer": 0, "explain": "denken an + Akkusativ. „denken über“ exists but means to hold an opinion." },
+      { "kind": "choose", "prompt": "Er interessiert sich ___ Politik.", "options": ["für", "an", "auf"], "answer": 0, "explain": "sich interessieren für + Akkusativ." },
+      { "kind": "choose", "prompt": "Wir haben ___ das Problem gesprochen.", "options": ["über", "von", "an"], "answer": 0, "explain": "sprechen über + Akkusativ." },
+      { "kind": "choose", "prompt": "Sie leidet ___ Kopfschmerzen.", "options": ["an", "unter", "über"], "answer": 0, "explain": "leiden an for an illness; leiden unter for a circumstance." },
+      { "kind": "choose", "prompt": "Er nimmt ___ dem Kurs teil.", "options": ["an", "auf", "in"], "answer": 0, "explain": "teilnehmen an + Dativ." },
+      { "kind": "choose", "prompt": "Das hängt ___ dem Wetter ab.", "options": ["von", "an", "auf"], "answer": 0, "explain": "abhängen von + Dativ." },
+      { "kind": "choose", "prompt": "Ich freue mich ___ das Wochenende.", "options": ["auf", "über", "für"], "answer": 0, "explain": "sich freuen auf for something coming; sich freuen über for something that has happened." },
+      { "kind": "mc", "prompt": "Wie fragt man nach einem präpositionalen Objekt (Sache)?", "options": ["mit wo(r)- + Präposition", "mit was", "mit welcher"], "answer": 0, "explain": "„Worauf wartest du?“ — the question word mirrors the da-compound." },
+      { "kind": "mc", "prompt": "Wie fragt man, wenn es um eine Person geht?", "options": ["Präposition + wen/wem", "mit wo(r)-", "mit was"], "answer": 0, "explain": "„Auf wen wartest du?“ People never take wo(r)- or da(r)-." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Präpositionalobjekt mit da-Kompositum",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich freue mich ___, dass du kommst.", "options": ["darüber", "über das", "worüber"], "answer": 0, "explain": "The da-compound anticipates the dass-clause that follows." },
+      { "kind": "choose", "prompt": "Er denkt ___, ein Auto zu kaufen.", "options": ["daran", "an das", "woran"], "answer": 0, "explain": "denken an → daran, followed by a zu-infinitive." },
+      { "kind": "choose", "prompt": "Wir warten ___, dass er anruft.", "options": ["darauf", "auf das", "worauf"], "answer": 0, "explain": "warten auf → darauf." },
+      { "kind": "choose", "prompt": "Ich bin ___ überzeugt, dass es klappt.", "options": ["davon", "von dem", "wovon"], "answer": 0, "explain": "überzeugt von → davon." },
+      { "kind": "choose", "prompt": "Sie hat sich ___ beschwert, dass es zu laut war.", "options": ["darüber", "über das", "worüber"], "answer": 0, "explain": "sich beschweren über → darüber." },
+      { "kind": "choose", "prompt": "Es hängt ___ ab, ob wir Zeit haben.", "options": ["davon", "von dem", "wovon"], "answer": 0, "explain": "abhängen von → davon, anticipating an ob-clause." },
+      { "kind": "choose", "prompt": "Ich warte auf meinen Kollegen. Ich warte ___.", "options": ["auf ihn", "darauf", "worauf"], "answer": 0, "explain": "**A person keeps the pronoun.** da-compounds are only ever for things and clauses." },
+      { "kind": "mc", "prompt": "Wozu dient das da-Kompositum vor einem Nebensatz?", "options": ["es kündigt den Nebensatz an", "es ersetzt ihn", "es verneint ihn"], "answer": 0, "explain": "„Ich freue mich darüber, dass …“ — the darüber is a placeholder pointing forward, and leaving it out sounds wrong to a native ear." },
+      { "kind": "mc", "prompt": "Wann kommt das „r“ dazu?", "options": ["wenn die Präposition mit einem Vokal beginnt", "immer im Plural", "nie"], "answer": 0, "explain": "darauf, daran, darüber — but damit, davon, dafür." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Zustandspassiv: „ist geschlossen“",
+    "exercises": [
+      { "kind": "choose", "prompt": "Die Tür ___ geschlossen. (Zustand)", "options": ["ist", "wird", "hat"], "answer": 0, "explain": "sein + Partizip II describes a *state*; werden + Partizip II describes the action." },
+      { "kind": "choose", "prompt": "Die Tür ___ gerade geschlossen. (Vorgang)", "options": ["wird", "ist", "hat"], "answer": 0, "explain": "Someone is closing it right now — Vorgangspassiv." },
+      { "kind": "choose", "prompt": "Das Fenster ___ seit gestern repariert. (Zustand)", "options": ["ist", "wird", "hat"], "answer": 0, "explain": "The repair is finished and the state persists." },
+      { "kind": "choose", "prompt": "Das Geschäft ___ um 20 Uhr geschlossen. (jeden Abend, Vorgang)", "options": ["wird", "ist", "hat"], "answer": 0, "explain": "A recurring action rather than a state." },
+      { "kind": "choose", "prompt": "Der Brief ___ schon geschrieben.", "options": ["ist", "wird", "hat"], "answer": 0, "explain": "Result state: the letter is written." },
+      { "kind": "choose", "prompt": "Die Rechnung ___ bereits bezahlt.", "options": ["ist", "wird", "hat"], "answer": 0, "explain": "State." },
+      { "kind": "mc", "prompt": "Worin unterscheiden sich „Die Tür ist geschlossen“ und „Die Tür wird geschlossen“?", "options": ["Zustand vs. Vorgang", "Gegenwart vs. Vergangenheit", "nichts"], "answer": 0, "explain": "The first describes how the door is; the second describes something happening to it." },
+      { "kind": "mc", "prompt": "Kann man das Zustandspassiv in die Vergangenheit setzen?", "options": ["ja — „war geschlossen“", "nein", "nur mit „worden“"], "answer": 0, "explain": "war + Partizip II. Note there is no „worden“ here, because nothing is happening." },
+      { "kind": "mc", "prompt": "Warum verwechseln Lernende die beiden?", "options": ["das Englische benutzt für beides „is closed“", "sie klingen gleich", "beide brauchen „worden“"], "answer": 0, "explain": "English collapses the distinction; German keeps it, and B2 texts rely on it." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Die Stellung von „nicht“",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich kenne ihn ___.", "options": ["nicht", "nicht ihn", "kein"], "answer": 0, "explain": "Negating the whole sentence: nicht goes at the end, after the objects." },
+      { "kind": "choose", "prompt": "Ich fahre ___ nach Berlin, sondern nach Köln.", "options": ["nicht", "kein", "nichts"], "answer": 0, "explain": "Negating one element: nicht stands directly before it." },
+      { "kind": "choose", "prompt": "Das Buch ist ___ interessant.", "options": ["nicht", "kein", "nichts"], "answer": 0, "explain": "nicht comes before the adjective it negates." },
+      { "kind": "choose", "prompt": "Ich habe ihn gestern ___ gesehen.", "options": ["nicht", "kein", "nichts"], "answer": 0, "explain": "With a Partizip II, nicht goes just before it — the participle closes the bracket." },
+      { "kind": "choose", "prompt": "Er kann heute ___ kommen.", "options": ["nicht", "kein", "nichts"], "answer": 0, "explain": "Before the infinitive at the end of the clause." },
+      { "kind": "choose", "prompt": "Ich rufe ihn ___ an.", "options": ["nicht", "kein", "nichts"], "answer": 0, "explain": "With a separable verb, nicht comes before the prefix." },
+      { "kind": "choose", "prompt": "Sie wohnt ___ in München.", "options": ["nicht", "kein", "nichts"], "answer": 0, "explain": "A local complement is negated in front, because it belongs to the verb." },
+      { "kind": "mc", "prompt": "Wo steht „nicht“ bei einer Satznegation?", "options": ["möglichst weit hinten, aber vor Partizip, Infinitiv oder Präfix", "immer nach dem Verb", "am Satzanfang"], "answer": 0, "explain": "It moves to the end and then stops in front of whatever closes the verb bracket." },
+      { "kind": "mc", "prompt": "Wo steht „nicht“ bei einer Teilnegation?", "options": ["direkt vor dem negierten Element", "am Satzende", "vor dem Subjekt"], "answer": 0, "explain": "„Ich fahre nicht nach Berlin (sondern nach Köln)“ — the position tells the listener what is being denied." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Adversative Konnektoren: dennoch, allerdings, hingegen",
+    "exercises": [
+      { "kind": "choose", "prompt": "Der Plan war gut; ___ scheiterte er.", "options": ["dennoch", "hingegen", "allerdings"], "answer": 0, "explain": "dennoch = nevertheless, the formal sibling of trotzdem." },
+      { "kind": "choose", "prompt": "Das Hotel war schön. Das Essen ___ war schlecht.", "options": ["allerdings", "dennoch", "hingegen"], "answer": 0, "explain": "allerdings qualifies what was just said — „admittedly“, „mind you“." },
+      { "kind": "choose", "prompt": "Im Norden regnet es; im Süden ___ scheint die Sonne.", "options": ["hingegen", "dennoch", "allerdings"], "answer": 0, "explain": "hingegen sets two things side by side rather than conceding." },
+      { "kind": "choose", "prompt": "Er hat wenig geübt. ___ hat er gewonnen.", "options": ["Dennoch", "Hingegen", "Allerdings"], "answer": 0, "explain": "An unexpected outcome." },
+      { "kind": "choose", "prompt": "Die Idee ist gut, ___ zu teuer.", "options": ["allerdings", "hingegen", "dennoch"], "answer": 0, "explain": "A restriction attached to a positive judgement." },
+      { "kind": "choose", "prompt": "Dennoch ___ er weiter.", "options": ["arbeitete", "er arbeitete", "arbeiten"], "answer": 0, "explain": "These are adverbs: in position 1 the verb follows immediately." },
+      { "kind": "mc", "prompt": "Was unterscheidet „hingegen“ von „dennoch“?", "options": ["hingegen vergleicht, dennoch räumt ein", "sie sind gleich", "dennoch vergleicht"], "answer": 0, "explain": "hingegen contrasts two parallel facts; dennoch says something happened despite an obstacle." },
+      { "kind": "mc", "prompt": "Welches Wort ist die gehobene Variante von „trotzdem“?", "options": ["dennoch", "allerdings", "hingegen"], "answer": 0, "explain": "Same relation, higher register — the kind of swap that lifts a B2 essay." },
+      { "kind": "mc", "prompt": "Wo kann „allerdings“ stehen?", "options": ["an Position 1 oder im Mittelfeld", "nur am Satzanfang", "nur am Ende"], "answer": 0, "explain": "„Allerdings war es teuer“ and „Es war allerdings teuer“ are both correct." }
+    ]
+  }
+]

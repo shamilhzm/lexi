@@ -1,0 +1,97 @@
+[
+  {
+    "level": "B2",
+    "title": "Passiv Perfekt: „ist … worden“",
+    "exercises": [
+      { "kind": "choose", "prompt": "Das Haus ist 1990 gebaut ___.", "options": ["worden", "geworden", "wurde"], "answer": 0, "explain": "The passive perfect ends in worden — werden loses its ge- when it is the passive auxiliary." },
+      { "kind": "choose", "prompt": "Er ist Arzt ___.", "options": ["geworden", "worden", "gewesen"], "answer": 0, "explain": "Here werden is a full verb meaning „to become“, so it keeps its ordinary participle: geworden." },
+      { "kind": "choose", "prompt": "Die Fenster ___ gestern geputzt worden.", "options": ["sind", "haben", "wurden"], "answer": 0, "explain": "The passive perfect takes sein, never haben." },
+      { "kind": "choose", "prompt": "Mir ___ nicht geholfen worden.", "options": ["ist", "hat", "bin"], "answer": 0, "explain": "helfen takes the dative, so the passive has no nominative subject and the verb stays third person singular." },
+      { "kind": "choose", "prompt": "Nachdem das Haus gebaut worden ___, zogen sie ein.", "options": ["war", "ist", "hatte"], "answer": 0, "explain": "Pluperfect passive: war + Partizip II + worden." },
+      { "kind": "choose", "prompt": "Der Vertrag ist gestern unterschrieben ___.", "options": ["worden", "geworden", "gewesen"], "answer": 0, "explain": "worden." },
+      { "kind": "choose", "prompt": "Es ___ viel darüber diskutiert worden.", "options": ["ist", "hat", "wurde"], "answer": 0, "explain": "An impersonal passive still takes sein in the perfect." },
+      { "kind": "mc", "prompt": "Wie unterscheidet man „worden“ und „geworden“?", "options": ["worden im Passiv, geworden bei werden als Vollverb", "worden ist immer falsch", "sie sind austauschbar"], "answer": 0, "explain": "„Es ist gebaut worden“ (was built) versus „Er ist müde geworden“ (became tired)." },
+      { "kind": "mc", "prompt": "Welches Hilfsverb hat das Perfekt Passiv?", "options": ["sein", "haben", "werden"], "answer": 0, "explain": "ist/sind … worden. „hat … worden“ does not exist." },
+      { "kind": "mc", "prompt": "Warum benutzt man im Deutschen oft das Präteritum Passiv statt des Perfekts?", "options": ["„wurde gebaut“ ist kürzer als „ist gebaut worden“", "das Perfekt Passiv ist falsch", "es gibt kein Präteritum Passiv"], "answer": 0, "explain": "Both are correct; written German prefers the shorter form, especially in reports." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Textadverbien: bereits, nun, zunächst, schließlich",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ möchte ich mich kurz vorstellen.", "options": ["Zunächst", "Schließlich", "Bereits"], "answer": 0, "explain": "zunächst opens a sequence: first of all." },
+      { "kind": "choose", "prompt": "___ komme ich zu meinem letzten Punkt.", "options": ["Schließlich", "Zunächst", "Bereits"], "answer": 0, "explain": "schließlich closes one." },
+      { "kind": "choose", "prompt": "Die Frist ist ___ abgelaufen.", "options": ["bereits", "nun", "zunächst"], "answer": 0, "explain": "bereits = schon, in a more formal register." },
+      { "kind": "choose", "prompt": "___ stellt sich die Frage, wie es weitergeht.", "options": ["Nun", "Bereits", "Schließlich"], "answer": 0, "explain": "nun moves the argument to its next stage — closer to „now then“ than to „jetzt“." },
+      { "kind": "choose", "prompt": "___ wurde das Problem analysiert, danach gelöst.", "options": ["Zunächst", "Schließlich", "Nun"], "answer": 0, "explain": "First … then." },
+      { "kind": "choose", "prompt": "Er hatte ___ dreimal angerufen.", "options": ["bereits", "zunächst", "nun"], "answer": 0, "explain": "Already, by that point." },
+      { "kind": "choose", "prompt": "___ konnten wir uns doch einigen.", "options": ["Schließlich", "Zunächst", "Bereits"], "answer": 0, "explain": "In the end, after all." },
+      { "kind": "mc", "prompt": "Wofür braucht man Textadverbien?", "options": ["sie gliedern einen Text und zeigen die Reihenfolge", "sie verneinen", "sie stellen Fragen"], "answer": 0, "explain": "They are what turns a list of sentences into an argument, and B2 writing tasks are marked on exactly that." },
+      { "kind": "mc", "prompt": "Was passiert mit dem Verb nach einem Textadverb am Satzanfang?", "options": ["es steht direkt danach", "es geht ans Ende", "nichts"], "answer": 0, "explain": "„Zunächst möchte ich …“ — position 1 is taken, so the finite verb is second." },
+      { "kind": "mc", "prompt": "„bereits“ ist gegenüber „schon“:", "options": ["förmlicher, sonst gleichbedeutend", "stärker", "eine Verneinung"], "answer": 0, "explain": "A register choice, which is what most of B2 vocabulary work actually is." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Modalpartikeln II: eigentlich, eben, halt, wohl",
+    "exercises": [
+      { "kind": "choose", "prompt": "Was machst du ___ hier? (leicht überrascht)", "options": ["eigentlich", "eben", "halt"], "answer": 0, "explain": "eigentlich makes a question sound casual and slightly surprised." },
+      { "kind": "choose", "prompt": "Das ist ___ so — daran kann man nichts ändern.", "options": ["eben", "eigentlich", "wohl"], "answer": 0, "explain": "eben marks something as simply the case." },
+      { "kind": "choose", "prompt": "Da kann man ___ nichts machen. (süddeutsch)", "options": ["halt", "eigentlich", "wohl"], "answer": 0, "explain": "halt is the southern equivalent of eben — the same meaning, a different region." },
+      { "kind": "choose", "prompt": "Er ist ___ schon nach Hause gegangen.", "options": ["wohl", "eben", "eigentlich"], "answer": 0, "explain": "wohl marks a supposition: probably." },
+      { "kind": "choose", "prompt": "___ wollte ich früher gehen, aber dann blieb ich doch.", "options": ["Eigentlich", "Eben", "Wohl"], "answer": 0, "explain": "eigentlich signals a plan that did not survive contact with reality." },
+      { "kind": "choose", "prompt": "Das war ___ ein Missverständnis.", "options": ["wohl", "halt", "eigentlich"], "answer": 0, "explain": "A cautious conclusion." },
+      { "kind": "choose", "prompt": "Wie heißt du ___?", "options": ["eigentlich", "eben", "wohl"], "answer": 0, "explain": "Softening a direct question." },
+      { "kind": "mc", "prompt": "Worin unterscheiden sich „eben“ und „halt“?", "options": ["nur regional — halt ist eher süddeutsch", "halt ist stärker", "eben ist eine Verneinung"], "answer": 0, "explain": "Identical in function. Which one you hear tells you where you are, not what is meant." },
+      { "kind": "mc", "prompt": "Sind Modalpartikeln betont?", "options": ["nein, sie sind unbetont", "ja, immer", "nur am Satzanfang"], "answer": 0, "explain": "Stressed *eben* is the adverb meaning „just now“ — a different word with the same spelling." },
+      { "kind": "mc", "prompt": "Was ändert eine Modalpartikel am Satz?", "options": ["die Haltung des Sprechers, nicht den Inhalt", "die Zeitform", "den Kasus"], "answer": 0, "explain": "Remove it and the sentence still means the same; it just sounds blunter, or foreign." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Konnektoren (deshalb/trotzdem)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Es regnete stark. Wir sind ___ spazieren gegangen.", "options": ["trotzdem", "deshalb", "deswegen"], "answer": 0, "explain": "Here the connector sits in the Mittelfeld rather than position 1 — both placements are correct, and B2 is where the choice starts to matter." },
+      { "kind": "choose", "prompt": "Ich war krank, ___ bin ich zu Hause geblieben.", "options": ["deshalb", "trotzdem", "obwohl"], "answer": 0, "explain": "A consequence." },
+      { "kind": "choose", "prompt": "Das Wetter war schlecht. ___ sind wir gefahren.", "options": ["Trotzdem", "Deshalb", "Darum"], "answer": 0, "explain": "The outcome contradicts the expectation." },
+      { "kind": "choose", "prompt": "Er hat viel gelernt und hat ___ bestanden.", "options": ["deshalb", "trotzdem", "obwohl"], "answer": 0, "explain": "Cause and effect, with the connector in the middle field." },
+      { "kind": "choose", "prompt": "Sie ist erschöpft; ___ arbeitet sie weiter.", "options": ["trotzdem", "deshalb", "daher"], "answer": 0, "explain": "Concession." },
+      { "kind": "mc", "prompt": "Welcher Satz ist richtig?", "options": ["Ich habe deshalb abgesagt.", "Ich deshalb habe abgesagt.", "Deshalb ich habe abgesagt."], "answer": 0, "explain": "The connector can stand in position 1 (then the verb follows it) or inside the clause — but never between subject and verb." },
+      { "kind": "mc", "prompt": "„deswegen“, „darum“ und „daher“ sind:", "options": ["Synonyme von „deshalb“", "Gegenteile", "Konjunktionen mit Endstellung"], "answer": 0, "explain": "Four words for one relation. Varying them is a cheap way to lift a B2 text." },
+      { "kind": "mc", "prompt": "Warum steht nach „Trotzdem“ am Satzanfang das Verb?", "options": ["es ist ein Adverb auf Position 1", "es ist eine Konjunktion", "es ist ein Nebensatz"], "answer": 0, "explain": "Unlike obwohl, it does not subordinate — so the verb stays second rather than going to the end." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zu „obwohl“?", "options": ["obwohl leitet einen Nebensatz ein, trotzdem nicht", "keiner", "obwohl ist umgangssprachlich"], "answer": 0, "explain": "„Obwohl es regnete, gingen wir“ versus „Es regnete; trotzdem gingen wir“ — same meaning, different structure." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Relativsätze",
+    "exercises": [
+      { "kind": "choose", "prompt": "Der Mann, ___ Auto gestohlen wurde, ist mein Nachbar.", "options": ["dessen", "deren", "den"], "answer": 0, "explain": "Genitive relative pronoun, masculine antecedent: dessen." },
+      { "kind": "choose", "prompt": "Die Frau, ___ ich geholfen habe, hat sich bedankt.", "options": ["der", "die", "deren"], "answer": 0, "explain": "helfen takes the dative, so the pronoun is dative feminine: der. The gender comes from the antecedent, the case from the verb." },
+      { "kind": "choose", "prompt": "Die Kinder, ___ ich Geschenke gab, freuten sich.", "options": ["denen", "die", "deren"], "answer": 0, "explain": "Dative plural: denen." },
+      { "kind": "choose", "prompt": "Das ist der Kollege, mit ___ ich arbeite.", "options": ["dem", "den", "der"], "answer": 0, "explain": "mit takes the dative." },
+      { "kind": "choose", "prompt": "Die Firma, für ___ er arbeitet, expandiert.", "options": ["die", "der", "dem"], "answer": 0, "explain": "für takes the accusative, feminine: die." },
+      { "kind": "choose", "prompt": "Die Stadt, ___ ich komme, liegt im Süden.", "options": ["aus der", "aus die", "woher"], "answer": 0, "explain": "aus + Dativ, feminine." },
+      { "kind": "choose", "prompt": "Alles, ___ er sagte, war wahr.", "options": ["was", "das", "welches"], "answer": 0, "explain": "After alles, etwas, nichts and nominalised superlatives: was." },
+      { "kind": "choose", "prompt": "Das Haus, ___ Dach undicht ist, wird verkauft.", "options": ["dessen", "deren", "das"], "answer": 0, "explain": "Neuter antecedent takes dessen too — deren is feminine and plural." },
+      { "kind": "mc", "prompt": "Woher kommt der Kasus des Relativpronomens?", "options": ["aus seiner Rolle im Relativsatz", "aus dem Hauptsatz", "es ist immer Nominativ"], "answer": 0, "explain": "Gender and number come from the antecedent; case comes from the verb or preposition inside the relative clause. Two different sources, which is the whole difficulty." },
+      { "kind": "mc", "prompt": "Wann benutzt man „welcher“ als Relativpronomen?", "options": ["kaum noch — es wirkt gehoben oder veraltet", "immer im Genitiv", "nur im Plural"], "answer": 0, "explain": "Grammatically fine, stylistically heavy. der/die/das is the normal choice." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Temporale Nebensätze (als/wenn/nachdem/bevor)",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ ich gegessen hatte, ging ich spazieren.", "options": ["Nachdem", "Bevor", "Während"], "answer": 0, "explain": "nachdem needs one tense step back: pluperfect in the subordinate clause, past in the main one." },
+      { "kind": "choose", "prompt": "Nachdem er gegangen ___, wurde es still.", "options": ["war", "ist", "hatte"], "answer": 0, "explain": "gehen takes sein, so the pluperfect is war gegangen." },
+      { "kind": "choose", "prompt": "___ du gehst, ruf mich bitte an.", "options": ["Bevor", "Nachdem", "Als"], "answer": 0, "explain": "bevor points forward: before you go." },
+      { "kind": "choose", "prompt": "Nachdem wir angekommen ___, aßen wir zu Abend.", "options": ["waren", "hatten", "sind"], "answer": 0, "explain": "ankommen takes sein." },
+      { "kind": "choose", "prompt": "___ ich in Berlin wohnte, hatte ich kein Auto.", "options": ["Als", "Wenn", "Nachdem"], "answer": 0, "explain": "One period in the past: als." },
+      { "kind": "choose", "prompt": "___ er kommt, fangen wir an.", "options": ["Sobald", "Nachdem", "Als"], "answer": 0, "explain": "sobald = as soon as, and it takes the present for a future event." },
+      { "kind": "choose", "prompt": "Nachdem das Essen gekocht worden ___, wurde serviert.", "options": ["war", "ist", "hatte"], "answer": 0, "explain": "Pluperfect passive inside a nachdem-clause — the construction B2 reading texts are full of." },
+      { "kind": "mc", "prompt": "Welche Zeitenfolge verlangt „nachdem“?", "options": ["Plusquamperfekt im Nebensatz, Präteritum im Hauptsatz", "beide im Präteritum", "beide im Perfekt"], "answer": 0, "explain": "Or perfect in the subordinate clause with present in the main one. The point is that the two events are one step apart." },
+      { "kind": "mc", "prompt": "„ehe“ ist ein Synonym für:", "options": ["bevor", "nachdem", "während"], "answer": 0, "explain": "Slightly more literary, otherwise identical." },
+      { "kind": "mc", "prompt": "Warum ist „nachdem“ für Lernende schwierig?", "options": ["es verlangt eine Zeitverschiebung, die es im Englischen so nicht gibt", "es ist unregelmäßig", "es steht am Satzende"], "answer": 0, "explain": "English tolerates „after I ate, I left“; German expects the pluperfect." }
+    ]
+  }
+]

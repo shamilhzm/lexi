@@ -1,0 +1,98 @@
+[
+  {
+    "level": "B2",
+    "title": "Genitiv",
+    "exercises": [
+      { "kind": "choose", "prompt": "Das ist das Auto ___ Vaters.", "options": ["meines", "meinem", "mein"], "answer": 0, "explain": "Masculine genitive: meines Vaters, with -s on the noun as well." },
+      { "kind": "choose", "prompt": "Die Farbe ___ Hauses gefällt mir.", "options": ["des", "dem", "das"], "answer": 0, "explain": "Neuter genitive: des Hauses." },
+      { "kind": "choose", "prompt": "Die Meinung ___ Kollegin ist wichtig.", "options": ["meiner", "meine", "meinem"], "answer": 0, "explain": "Feminine genitive takes -er and the noun stays unchanged." },
+      { "kind": "choose", "prompt": "Die Rechte ___ Arbeitnehmer sind geschützt.", "options": ["der", "den", "die"], "answer": 0, "explain": "Genitive plural is der, with no -s on the noun." },
+      { "kind": "choose", "prompt": "Der Titel ___ Films ist lang.", "options": ["des", "dem", "der"], "answer": 0, "explain": "des Films — one-syllable masculines often take -es (des Kindes), longer ones -s." },
+      { "kind": "choose", "prompt": "Das Ende ___ Geschichte war überraschend.", "options": ["der", "des", "dem"], "answer": 0, "explain": "die Geschichte → der Geschichte." },
+      { "kind": "choose", "prompt": "Die Ansicht ___ Präsidenten.", "options": ["des", "dem", "der"], "answer": 0, "explain": "An n-Deklination noun in the genitive: des Präsidenten — -en, not -s." },
+      { "kind": "mc", "prompt": "Wie ersetzt die Umgangssprache den Genitiv?", "options": ["mit „von“ + Dativ — „das Auto von meinem Vater“", "mit dem Akkusativ", "gar nicht"], "answer": 0, "explain": "Both are understood; written and formal German expects the genitive, which is why B2 exams test it." },
+      { "kind": "mc", "prompt": "Welche Endung hat ein maskulines Nomen im Genitiv?", "options": ["-s oder -es", "-n", "keine"], "answer": 0, "explain": "des Mannes, des Autos — unless the noun is n-Deklination, where it is -en." },
+      { "kind": "mc", "prompt": "Bei welchem Genus bleibt das Nomen im Genitiv unverändert?", "options": ["feminin und Plural", "maskulin", "neutrum"], "answer": 0, "explain": "der Frau, der Kinder — only the article changes." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "n-Deklination",
+    "exercises": [
+      { "kind": "choose", "prompt": "die Meinung des ___ (der Experte)", "options": ["Experten", "Expertes", "Experts"], "answer": 0, "explain": "Genitive of an n-Deklination noun is -en, never -s. This is where the group most often catches learners out at B2." },
+      { "kind": "choose", "prompt": "Ich habe mit dem ___ gesprochen. (der Journalist)", "options": ["Journalisten", "Journalist", "Journalists"], "answer": 0, "explain": "Dative -en." },
+      { "kind": "choose", "prompt": "Der Vortrag des ___ war gut. (der Kollege)", "options": ["Kollegen", "Kolleges", "Kollege"], "answer": 0, "explain": "Genitive -en." },
+      { "kind": "choose", "prompt": "Wir empfangen den ___. (der Herr)", "options": ["Herrn", "Herr", "Herren"], "answer": 0, "explain": "der Herr is irregular: -n in the singular, -en in the plural." },
+      { "kind": "choose", "prompt": "Die Rolle des ___ in der Gesellschaft. (der Mensch)", "options": ["Menschen", "Menschs", "Mensch"], "answer": 0, "explain": "des Menschen." },
+      { "kind": "choose", "prompt": "Der Name des ___. (der Zeuge)", "options": ["Zeugen", "Zeuges", "Zeuge"], "answer": 0, "explain": "Masculine nouns in -e are almost all in this group." },
+      { "kind": "choose", "prompt": "Das Gehalt des ___. (der Praktikant)", "options": ["Praktikanten", "Praktikants", "Praktikant"], "answer": 0, "explain": "-ant marks the group reliably." },
+      { "kind": "choose", "prompt": "Der Wunsch des ___. (der Kunde)", "options": ["Kunden", "Kundes", "Kunde"], "answer": 0, "explain": "des Kunden." },
+      { "kind": "mc", "prompt": "Welche Nomen sind gemischt (n-Deklination + Genitiv-s)?", "options": ["der Name, der Gedanke, der Wille", "der Kunde, der Kollege", "der Tisch, der Stuhl"], "answer": 0, "explain": "des Namens, des Gedankens — they take the -n *and* an -s. A small group, and worth knowing by name." },
+      { "kind": "mc", "prompt": "Woran erkennt man ein n-Deklination-Nomen im Wörterbuch?", "options": ["am Eintrag „-n, -n“ oder „-en, -en“", "am Artikel", "an der Länge"], "answer": 0, "explain": "The dictionary prints the genitive and plural; identical -n endings give it away." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Plusquamperfekt",
+    "exercises": [
+      { "kind": "choose", "prompt": "Nachdem er gegessen ___, ging er.", "options": ["hatte", "war", "ist"], "answer": 0, "explain": "essen takes haben: hatte gegessen." },
+      { "kind": "choose", "prompt": "Als wir ankamen, ___ der Film schon begonnen.", "options": ["hatte", "war", "ist"], "answer": 0, "explain": "beginnen takes haben." },
+      { "kind": "choose", "prompt": "Sie ___ schon gegangen, als ich kam.", "options": ["war", "hatte", "ist"], "answer": 0, "explain": "gehen takes sein: war gegangen." },
+      { "kind": "choose", "prompt": "Ich ___ den Schlüssel vergessen, deshalb kam ich nicht rein.", "options": ["hatte", "war", "bin"], "answer": 0, "explain": "vergessen takes haben." },
+      { "kind": "choose", "prompt": "Nachdem das Konzert zu Ende ___, gingen alle nach Hause.", "options": ["gewesen war", "war gewesen", "hatte"], "answer": 0, "explain": "sein forms its own pluperfect: war gewesen." },
+      { "kind": "choose", "prompt": "Er ___ nie zuvor geflogen.", "options": ["war", "hatte", "ist"], "answer": 0, "explain": "fliegen as a verb of motion takes sein." },
+      { "kind": "choose", "prompt": "Wir waren müde, weil wir den ganzen Tag ___ waren.", "options": ["gelaufen", "gelauft", "laufen"], "answer": 0, "explain": "laufen takes sein, participle gelaufen." },
+      { "kind": "mc", "prompt": "Wofür braucht man das Plusquamperfekt?", "options": ["für das Frühere von zwei vergangenen Ereignissen", "für die Zukunft", "für Wünsche"], "answer": 0, "explain": "It marks the earlier of two past events — which is why it lives almost entirely next to nachdem and als." },
+      { "kind": "mc", "prompt": "Wie bildet man es?", "options": ["hatte/war + Partizip II", "habe/bin + Partizip II", "würde + Infinitiv"], "answer": 0, "explain": "The perfect with the auxiliary in the Präteritum." },
+      { "kind": "mc", "prompt": "Welches Hilfsverb nimmt ein Verb im Plusquamperfekt?", "options": ["dasselbe wie im Perfekt", "immer haben", "immer sein"], "answer": 0, "explain": "If it is „ist gegangen“, it is „war gegangen“. No new rule to learn." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Zweiteilige Konnektoren",
+    "exercises": [
+      { "kind": "choose", "prompt": "Er spricht ___ Deutsch als auch Französisch.", "options": ["sowohl", "entweder", "weder"], "answer": 0, "explain": "sowohl … als auch = both … and." },
+      { "kind": "choose", "prompt": "___ kommst du mit, oder du bleibst hier.", "options": ["Entweder", "Weder", "Sowohl"], "answer": 0, "explain": "entweder … oder = either … or." },
+      { "kind": "choose", "prompt": "Ich habe ___ Zeit noch Geld.", "options": ["weder", "entweder", "sowohl"], "answer": 0, "explain": "weder … noch = neither … nor, and it needs no further negation." },
+      { "kind": "choose", "prompt": "Er ist ___ nur klug, sondern auch fleißig.", "options": ["nicht", "kein", "weder"], "answer": 0, "explain": "nicht nur … sondern auch." },
+      { "kind": "choose", "prompt": "Sie ist zwar müde, ___ arbeitet sie weiter.", "options": ["aber", "sondern", "noch"], "answer": 0, "explain": "zwar … aber concedes and then contrasts." },
+      { "kind": "choose", "prompt": "Je mehr er übte, ___ besser wurde er.", "options": ["desto", "als", "wie"], "answer": 0, "explain": "je … desto, with a comparative in both halves." },
+      { "kind": "choose", "prompt": "Weder er ___ sie war da.", "options": ["noch", "oder", "und"], "answer": 0, "explain": "noch is the second half of weder." },
+      { "kind": "mc", "prompt": "Braucht „weder … noch“ eine zusätzliche Verneinung?", "options": ["nein, es ist bereits verneint", "ja, immer „nicht“", "ja, „kein“"], "answer": 0, "explain": "„Ich habe weder Zeit noch Geld“ — adding nicht would negate twice." },
+      { "kind": "mc", "prompt": "Was folgt auf „nicht nur“?", "options": ["sondern auch", "aber auch", "und auch"], "answer": 0, "explain": "The frame is fixed, and it is one of the most reliable ways to lift a B2 written text." },
+      { "kind": "mc", "prompt": "Wie verhält sich „zwar … aber“?", "options": ["es räumt etwas ein und schränkt dann ein", "es nennt zwei Gründe", "es verneint beide Teile"], "answer": 0, "explain": "Concede, then push back — the standard shape of a balanced B2 argument." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Infinitiv mit zu",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich habe vor, nächstes Jahr ___ ziehen.", "options": ["umzuziehen", "zu umziehen", "umziehen zu"], "answer": 0, "explain": "Separable verb: the zu goes inside — umzuziehen." },
+      { "kind": "choose", "prompt": "Es ist schwierig, das ___ erklären.", "options": ["zu", "zum", "um zu"], "answer": 0, "explain": "„es ist + Adjektiv“ takes a plain zu-infinitive." },
+      { "kind": "choose", "prompt": "Er behauptet, alles ___ wissen.", "options": ["zu", "zum", "um zu"], "answer": 0, "explain": "behaupten + zu-infinitive, where English would use a that-clause." },
+      { "kind": "choose", "prompt": "Ich freue mich darauf, dich ___ sehen.", "options": ["zu", "zum", "für zu"], "answer": 0, "explain": "The da-compound anticipates the infinitive clause: sich freuen auf → darauf, … zu sehen." },
+      { "kind": "choose", "prompt": "Sie hat die Absicht, sich ___ bewerben.", "options": ["zu", "zum", "um zu"], "answer": 0, "explain": "A noun can govern a zu-infinitive too: die Absicht … zu." },
+      { "kind": "choose", "prompt": "Ich muss heute leider ___.", "options": ["arbeiten", "zu arbeiten", "zum Arbeiten"], "answer": 0, "explain": "Modal verbs take the bare infinitive — the main exception." },
+      { "kind": "choose", "prompt": "Der Text ist leicht ___ verstehen.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "sein + zu + Infinitiv, here meaning possibility." },
+      { "kind": "choose", "prompt": "Er scheint müde ___ sein.", "options": ["zu", "zum", "um zu"], "answer": 0, "explain": "scheinen + zu-infinitive: he seems to be tired." },
+      { "kind": "mc", "prompt": "Nach welchen Wortarten kann ein „zu“-Infinitiv stehen?", "options": ["Verben, Nomen und Adjektiven", "nur Verben", "nur Adjektiven"], "answer": 0, "explain": "versuchen zu, die Absicht zu, schwierig zu — which is why the construction is everywhere in B2 writing." },
+      { "kind": "mc", "prompt": "Wann steht KEIN „zu“?", "options": ["nach Modalverben, werden, sehen, hören und lassen", "nach allen Hilfsverben", "im Nebensatz"], "answer": 0, "explain": "„Ich sehe ihn kommen“, „Ich lasse es reparieren“ — bare infinitive." }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Finalsätze (um … zu / damit)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich lerne, ___ die Prüfung zu bestehen.", "options": ["um", "damit", "sodass"], "answer": 0, "explain": "One subject, so um … zu." },
+      { "kind": "choose", "prompt": "Ich erkläre es langsam, ___ alle mitkommen.", "options": ["damit", "um", "sodass"], "answer": 0, "explain": "Two subjects — I explain, they follow — so damit." },
+      { "kind": "choose", "prompt": "Er spart, ___ sich ein Auto kaufen zu können.", "options": ["um", "damit", "dass"], "answer": 0, "explain": "um … zu works with a modal too: um … kaufen zu können." },
+      { "kind": "choose", "prompt": "Die Regel wurde geändert, ___ Missbrauch verhindert wird.", "options": ["damit", "um", "sodass"], "answer": 0, "explain": "The subordinate clause is passive and has its own subject, so damit." },
+      { "kind": "choose", "prompt": "Wir treffen uns, ___ das Projekt zu besprechen.", "options": ["um", "damit", "weil"], "answer": 0, "explain": "Same subject." },
+      { "kind": "choose", "prompt": "Ich gebe dir den Schlüssel, ___ du hineinkommst.", "options": ["damit", "um", "sodass"], "answer": 0, "explain": "Different subjects." },
+      { "kind": "choose", "prompt": "Er ging früher, um den Zug ___ erreichen.", "options": ["zu", "zum", "für"], "answer": 0, "explain": "The infinitive closes the clause." },
+      { "kind": "mc", "prompt": "Wann ist „um … zu“ ausgeschlossen?", "options": ["wenn die Subjekte verschieden sind", "wenn ein Modalverb dabei ist", "im Passiv des Hauptsatzes"], "answer": 0, "explain": "One subject → um … zu; two → damit. The rule is absolute and decides every case." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zu „sodass“?", "options": ["damit nennt die Absicht, sodass die Folge", "sie sind gleich", "sodass nennt die Absicht"], "answer": 0, "explain": "„Ich spare, damit ich reisen kann“ (intended) versus „Ich sparte, sodass ich reisen konnte“ (what followed)." },
+      { "kind": "mc", "prompt": "Kann „damit“ auch bei gleichem Subjekt stehen?", "options": ["ja, es ist erlaubt, aber „um … zu“ klingt besser", "nein, nie", "nur im Passiv"], "answer": 0, "explain": "Not an error — just the heavier of two options, and B2 writing is marked on choosing the lighter one." }
+    ]
+  }
+]

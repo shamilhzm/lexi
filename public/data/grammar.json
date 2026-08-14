@@ -67344,6 +67344,105 @@
           "answer": 3,
           "fix": "Es schneit, trotzdem fahren wir in die Berge.",
           "explain": "After trotzdem the verb must come second."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es regnete stark. Wir sind ___ spazieren gegangen.",
+          "options": [
+            "trotzdem",
+            "deshalb",
+            "deswegen"
+          ],
+          "answer": 0,
+          "explain": "Here the connector sits in the Mittelfeld rather than position 1 — both placements are correct, and B2 is where the choice starts to matter."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich war krank, ___ bin ich zu Hause geblieben.",
+          "options": [
+            "deshalb",
+            "trotzdem",
+            "obwohl"
+          ],
+          "answer": 0,
+          "explain": "A consequence."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Wetter war schlecht. ___ sind wir gefahren.",
+          "options": [
+            "Trotzdem",
+            "Deshalb",
+            "Darum"
+          ],
+          "answer": 0,
+          "explain": "The outcome contradicts the expectation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat viel gelernt und hat ___ bestanden.",
+          "options": [
+            "deshalb",
+            "trotzdem",
+            "obwohl"
+          ],
+          "answer": 0,
+          "explain": "Cause and effect, with the connector in the middle field."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist erschöpft; ___ arbeitet sie weiter.",
+          "options": [
+            "trotzdem",
+            "deshalb",
+            "daher"
+          ],
+          "answer": 0,
+          "explain": "Concession."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist richtig?",
+          "options": [
+            "Ich habe deshalb abgesagt.",
+            "Ich deshalb habe abgesagt.",
+            "Deshalb ich habe abgesagt."
+          ],
+          "answer": 0,
+          "explain": "The connector can stand in position 1 (then the verb follows it) or inside the clause — but never between subject and verb."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„deswegen“, „darum“ und „daher“ sind:",
+          "options": [
+            "Synonyme von „deshalb“",
+            "Gegenteile",
+            "Konjunktionen mit Endstellung"
+          ],
+          "answer": 0,
+          "explain": "Four words for one relation. Varying them is a cheap way to lift a B2 text."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum steht nach „Trotzdem“ am Satzanfang das Verb?",
+          "options": [
+            "es ist ein Adverb auf Position 1",
+            "es ist eine Konjunktion",
+            "es ist ein Nebensatz"
+          ],
+          "answer": 0,
+          "explain": "Unlike obwohl, it does not subordinate — so the verb stays second rather than going to the end."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was ist der Unterschied zu „obwohl“?",
+          "options": [
+            "obwohl leitet einen Nebensatz ein, trotzdem nicht",
+            "keiner",
+            "obwohl ist umgangssprachlich"
+          ],
+          "answer": 0,
+          "explain": "„Obwohl es regnete, gingen wir“ versus „Es regnete; trotzdem gingen wir“ — same meaning, different structure."
         }
       ]
     },
@@ -67414,6 +67513,116 @@
           "answer": 2,
           "fix": "Der Film, der gestern lief, war langweilig.",
           "explain": "The pronoun is the subject of the clause → der, not den."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Mann, ___ Auto gestohlen wurde, ist mein Nachbar.",
+          "options": [
+            "dessen",
+            "deren",
+            "den"
+          ],
+          "answer": 0,
+          "explain": "Genitive relative pronoun, masculine antecedent: dessen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Frau, ___ ich geholfen habe, hat sich bedankt.",
+          "options": [
+            "der",
+            "die",
+            "deren"
+          ],
+          "answer": 0,
+          "explain": "helfen takes the dative, so the pronoun is dative feminine: der. The gender comes from the antecedent, the case from the verb."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Kinder, ___ ich Geschenke gab, freuten sich.",
+          "options": [
+            "denen",
+            "die",
+            "deren"
+          ],
+          "answer": 0,
+          "explain": "Dative plural: denen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist der Kollege, mit ___ ich arbeite.",
+          "options": [
+            "dem",
+            "den",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "mit takes the dative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Firma, für ___ er arbeitet, expandiert.",
+          "options": [
+            "die",
+            "der",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "für takes the accusative, feminine: die."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Stadt, ___ ich komme, liegt im Süden.",
+          "options": [
+            "aus der",
+            "aus die",
+            "woher"
+          ],
+          "answer": 0,
+          "explain": "aus + Dativ, feminine."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Alles, ___ er sagte, war wahr.",
+          "options": [
+            "was",
+            "das",
+            "welches"
+          ],
+          "answer": 0,
+          "explain": "After alles, etwas, nichts and nominalised superlatives: was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Haus, ___ Dach undicht ist, wird verkauft.",
+          "options": [
+            "dessen",
+            "deren",
+            "das"
+          ],
+          "answer": 0,
+          "explain": "Neuter antecedent takes dessen too — deren is feminine and plural."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Woher kommt der Kasus des Relativpronomens?",
+          "options": [
+            "aus seiner Rolle im Relativsatz",
+            "aus dem Hauptsatz",
+            "es ist immer Nominativ"
+          ],
+          "answer": 0,
+          "explain": "Gender and number come from the antecedent; case comes from the verb or preposition inside the relative clause. Two different sources, which is the whole difficulty."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann benutzt man „welcher“ als Relativpronomen?",
+          "options": [
+            "kaum noch — es wirkt gehoben oder veraltet",
+            "immer im Genitiv",
+            "nur im Plural"
+          ],
+          "answer": 0,
+          "explain": "Grammatically fine, stylistically heavy. der/die/das is the normal choice."
         }
       ]
     },
@@ -67484,6 +67693,116 @@
           "answer": 0,
           "fix": "Als ich gestern ankam, war niemand da.",
           "explain": "Single past event → als, not wenn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich gegessen hatte, ging ich spazieren.",
+          "options": [
+            "Nachdem",
+            "Bevor",
+            "Während"
+          ],
+          "answer": 0,
+          "explain": "nachdem needs one tense step back: pluperfect in the subordinate clause, past in the main one."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nachdem er gegangen ___, wurde es still.",
+          "options": [
+            "war",
+            "ist",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "gehen takes sein, so the pluperfect is war gegangen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ du gehst, ruf mich bitte an.",
+          "options": [
+            "Bevor",
+            "Nachdem",
+            "Als"
+          ],
+          "answer": 0,
+          "explain": "bevor points forward: before you go."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nachdem wir angekommen ___, aßen wir zu Abend.",
+          "options": [
+            "waren",
+            "hatten",
+            "sind"
+          ],
+          "answer": 0,
+          "explain": "ankommen takes sein."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich in Berlin wohnte, hatte ich kein Auto.",
+          "options": [
+            "Als",
+            "Wenn",
+            "Nachdem"
+          ],
+          "answer": 0,
+          "explain": "One period in the past: als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ er kommt, fangen wir an.",
+          "options": [
+            "Sobald",
+            "Nachdem",
+            "Als"
+          ],
+          "answer": 0,
+          "explain": "sobald = as soon as, and it takes the present for a future event."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nachdem das Essen gekocht worden ___, wurde serviert.",
+          "options": [
+            "war",
+            "ist",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "Pluperfect passive inside a nachdem-clause — the construction B2 reading texts are full of."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Zeitenfolge verlangt „nachdem“?",
+          "options": [
+            "Plusquamperfekt im Nebensatz, Präteritum im Hauptsatz",
+            "beide im Präteritum",
+            "beide im Perfekt"
+          ],
+          "answer": 0,
+          "explain": "Or perfect in the subordinate clause with present in the main one. The point is that the two events are one step apart."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„ehe“ ist ein Synonym für:",
+          "options": [
+            "bevor",
+            "nachdem",
+            "während"
+          ],
+          "answer": 0,
+          "explain": "Slightly more literary, otherwise identical."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum ist „nachdem“ für Lernende schwierig?",
+          "options": [
+            "es verlangt eine Zeitverschiebung, die es im Englischen so nicht gibt",
+            "es ist unregelmäßig",
+            "es steht am Satzende"
+          ],
+          "answer": 0,
+          "explain": "English tolerates „after I ate, I left“; German expects the pluperfect."
         }
       ]
     },
@@ -67554,6 +67873,116 @@
           "answer": 4,
           "fix": "Ich nehme ein Taxi, um pünktlich zu sein.",
           "explain": "damit takes a conjugated verb; with the same subject use um … zu sein."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich lerne, ___ die Prüfung zu bestehen.",
+          "options": [
+            "um",
+            "damit",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "One subject, so um … zu."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich erkläre es langsam, ___ alle mitkommen.",
+          "options": [
+            "damit",
+            "um",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "Two subjects — I explain, they follow — so damit."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er spart, ___ sich ein Auto kaufen zu können.",
+          "options": [
+            "um",
+            "damit",
+            "dass"
+          ],
+          "answer": 0,
+          "explain": "um … zu works with a modal too: um … kaufen zu können."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Regel wurde geändert, ___ Missbrauch verhindert wird.",
+          "options": [
+            "damit",
+            "um",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "The subordinate clause is passive and has its own subject, so damit."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir treffen uns, ___ das Projekt zu besprechen.",
+          "options": [
+            "um",
+            "damit",
+            "weil"
+          ],
+          "answer": 0,
+          "explain": "Same subject."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich gebe dir den Schlüssel, ___ du hineinkommst.",
+          "options": [
+            "damit",
+            "um",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "Different subjects."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ging früher, um den Zug ___ erreichen.",
+          "options": [
+            "zu",
+            "zum",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "The infinitive closes the clause."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann ist „um … zu“ ausgeschlossen?",
+          "options": [
+            "wenn die Subjekte verschieden sind",
+            "wenn ein Modalverb dabei ist",
+            "im Passiv des Hauptsatzes"
+          ],
+          "answer": 0,
+          "explain": "One subject → um … zu; two → damit. The rule is absolute and decides every case."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was ist der Unterschied zu „sodass“?",
+          "options": [
+            "damit nennt die Absicht, sodass die Folge",
+            "sie sind gleich",
+            "sodass nennt die Absicht"
+          ],
+          "answer": 0,
+          "explain": "„Ich spare, damit ich reisen kann“ (intended) versus „Ich sparte, sodass ich reisen konnte“ (what followed)."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Kann „damit“ auch bei gleichem Subjekt stehen?",
+          "options": [
+            "ja, es ist erlaubt, aber „um … zu“ klingt besser",
+            "nein, nie",
+            "nur im Passiv"
+          ],
+          "answer": 0,
+          "explain": "Not an error — just the heavier of two options, and B2 writing is marked on choosing the lighter one."
         }
       ]
     },
@@ -67620,6 +68049,116 @@
           "answer": 3,
           "fix": "Wir helfen dem Jungen bei den Hausaufgaben.",
           "explain": "Dativ of der Junge → dem Jungen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die Meinung des ___ (der Experte)",
+          "options": [
+            "Experten",
+            "Expertes",
+            "Experts"
+          ],
+          "answer": 0,
+          "explain": "Genitive of an n-Deklination noun is -en, never -s. This is where the group most often catches learners out at B2."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe mit dem ___ gesprochen. (der Journalist)",
+          "options": [
+            "Journalisten",
+            "Journalist",
+            "Journalists"
+          ],
+          "answer": 0,
+          "explain": "Dative -en."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Vortrag des ___ war gut. (der Kollege)",
+          "options": [
+            "Kollegen",
+            "Kolleges",
+            "Kollege"
+          ],
+          "answer": 0,
+          "explain": "Genitive -en."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir empfangen den ___. (der Herr)",
+          "options": [
+            "Herrn",
+            "Herr",
+            "Herren"
+          ],
+          "answer": 0,
+          "explain": "der Herr is irregular: -n in the singular, -en in the plural."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Rolle des ___ in der Gesellschaft. (der Mensch)",
+          "options": [
+            "Menschen",
+            "Menschs",
+            "Mensch"
+          ],
+          "answer": 0,
+          "explain": "des Menschen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Name des ___. (der Zeuge)",
+          "options": [
+            "Zeugen",
+            "Zeuges",
+            "Zeuge"
+          ],
+          "answer": 0,
+          "explain": "Masculine nouns in -e are almost all in this group."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Gehalt des ___. (der Praktikant)",
+          "options": [
+            "Praktikanten",
+            "Praktikants",
+            "Praktikant"
+          ],
+          "answer": 0,
+          "explain": "-ant marks the group reliably."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Wunsch des ___. (der Kunde)",
+          "options": [
+            "Kunden",
+            "Kundes",
+            "Kunde"
+          ],
+          "answer": 0,
+          "explain": "des Kunden."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Nomen sind gemischt (n-Deklination + Genitiv-s)?",
+          "options": [
+            "der Name, der Gedanke, der Wille",
+            "der Kunde, der Kollege",
+            "der Tisch, der Stuhl"
+          ],
+          "answer": 0,
+          "explain": "des Namens, des Gedankens — they take the -n *and* an -s. A small group, and worth knowing by name."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Woran erkennt man ein n-Deklination-Nomen im Wörterbuch?",
+          "options": [
+            "am Eintrag „-n, -n“ oder „-en, -en“",
+            "am Artikel",
+            "an der Länge"
+          ],
+          "answer": 0,
+          "explain": "The dictionary prints the genitive and plural; identical -n endings give it away."
         }
       ]
     },
@@ -67687,6 +68226,116 @@
           "answer": 5,
           "fix": "Das ist das Büro meines Chefs.",
           "explain": "Masc Genitiv adds -s: des/meines Chefs."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist das Auto ___ Vaters.",
+          "options": [
+            "meines",
+            "meinem",
+            "mein"
+          ],
+          "answer": 0,
+          "explain": "Masculine genitive: meines Vaters, with -s on the noun as well."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Farbe ___ Hauses gefällt mir.",
+          "options": [
+            "des",
+            "dem",
+            "das"
+          ],
+          "answer": 0,
+          "explain": "Neuter genitive: des Hauses."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Meinung ___ Kollegin ist wichtig.",
+          "options": [
+            "meiner",
+            "meine",
+            "meinem"
+          ],
+          "answer": 0,
+          "explain": "Feminine genitive takes -er and the noun stays unchanged."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Rechte ___ Arbeitnehmer sind geschützt.",
+          "options": [
+            "der",
+            "den",
+            "die"
+          ],
+          "answer": 0,
+          "explain": "Genitive plural is der, with no -s on the noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Titel ___ Films ist lang.",
+          "options": [
+            "des",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "des Films — one-syllable masculines often take -es (des Kindes), longer ones -s."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Ende ___ Geschichte war überraschend.",
+          "options": [
+            "der",
+            "des",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "die Geschichte → der Geschichte."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Ansicht ___ Präsidenten.",
+          "options": [
+            "des",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "An n-Deklination noun in the genitive: des Präsidenten — -en, not -s."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie ersetzt die Umgangssprache den Genitiv?",
+          "options": [
+            "mit „von“ + Dativ — „das Auto von meinem Vater“",
+            "mit dem Akkusativ",
+            "gar nicht"
+          ],
+          "answer": 0,
+          "explain": "Both are understood; written and formal German expects the genitive, which is why B2 exams test it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Endung hat ein maskulines Nomen im Genitiv?",
+          "options": [
+            "-s oder -es",
+            "-n",
+            "keine"
+          ],
+          "answer": 0,
+          "explain": "des Mannes, des Autos — unless the noun is n-Deklination, where it is -en."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Bei welchem Genus bleibt das Nomen im Genitiv unverändert?",
+          "options": [
+            "feminin und Plural",
+            "maskulin",
+            "neutrum"
+          ],
+          "answer": 0,
+          "explain": "der Frau, der Kinder — only the article changes."
         }
       ]
     },
@@ -67802,6 +68451,94 @@
             "nach"
           ],
           "explain": "fragen nach + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie denkt oft ___ ihre Familie.",
+          "options": [
+            "an",
+            "über",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "denken an + Akkusativ. „denken über“ exists but means to hold an opinion."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er interessiert sich ___ Politik.",
+          "options": [
+            "für",
+            "an",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "sich interessieren für + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir haben ___ das Problem gesprochen.",
+          "options": [
+            "über",
+            "von",
+            "an"
+          ],
+          "answer": 0,
+          "explain": "sprechen über + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie leidet ___ Kopfschmerzen.",
+          "options": [
+            "an",
+            "unter",
+            "über"
+          ],
+          "answer": 0,
+          "explain": "leiden an for an illness; leiden unter for a circumstance."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er nimmt ___ dem Kurs teil.",
+          "options": [
+            "an",
+            "auf",
+            "in"
+          ],
+          "answer": 0,
+          "explain": "teilnehmen an + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das hängt ___ dem Wetter ab.",
+          "options": [
+            "von",
+            "an",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "abhängen von + Dativ."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie fragt man nach einem präpositionalen Objekt (Sache)?",
+          "options": [
+            "mit wo(r)- + Präposition",
+            "mit was",
+            "mit welcher"
+          ],
+          "answer": 0,
+          "explain": "„Worauf wartest du?“ — the question word mirrors the da-compound."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie fragt man, wenn es um eine Person geht?",
+          "options": [
+            "Präposition + wen/wem",
+            "mit wo(r)-",
+            "mit was"
+          ],
+          "answer": 0,
+          "explain": "„Auf wen wartest du?“ People never take wo(r)- or da(r)-."
         }
       ],
       "sections": [
@@ -67941,6 +68678,116 @@
           "answer": 3,
           "fix": "Bevor ich kam, hatte er das Haus verlassen.",
           "explain": "verlassen (transitive) → haben: hatte verlassen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nachdem er gegessen ___, ging er.",
+          "options": [
+            "hatte",
+            "war",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "essen takes haben: hatte gegessen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Als wir ankamen, ___ der Film schon begonnen.",
+          "options": [
+            "hatte",
+            "war",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "beginnen takes haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ schon gegangen, als ich kam.",
+          "options": [
+            "war",
+            "hatte",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "gehen takes sein: war gegangen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ den Schlüssel vergessen, deshalb kam ich nicht rein.",
+          "options": [
+            "hatte",
+            "war",
+            "bin"
+          ],
+          "answer": 0,
+          "explain": "vergessen takes haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nachdem das Konzert zu Ende ___, gingen alle nach Hause.",
+          "options": [
+            "gewesen war",
+            "war gewesen",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "sein forms its own pluperfect: war gewesen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ nie zuvor geflogen.",
+          "options": [
+            "war",
+            "hatte",
+            "ist"
+          ],
+          "answer": 0,
+          "explain": "fliegen as a verb of motion takes sein."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir waren müde, weil wir den ganzen Tag ___ waren.",
+          "options": [
+            "gelaufen",
+            "gelauft",
+            "laufen"
+          ],
+          "answer": 0,
+          "explain": "laufen takes sein, participle gelaufen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wofür braucht man das Plusquamperfekt?",
+          "options": [
+            "für das Frühere von zwei vergangenen Ereignissen",
+            "für die Zukunft",
+            "für Wünsche"
+          ],
+          "answer": 0,
+          "explain": "It marks the earlier of two past events — which is why it lives almost entirely next to nachdem and als."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie bildet man es?",
+          "options": [
+            "hatte/war + Partizip II",
+            "habe/bin + Partizip II",
+            "würde + Infinitiv"
+          ],
+          "answer": 0,
+          "explain": "The perfect with the auxiliary in the Präteritum."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Hilfsverb nimmt ein Verb im Plusquamperfekt?",
+          "options": [
+            "dasselbe wie im Perfekt",
+            "immer haben",
+            "immer sein"
+          ],
+          "answer": 0,
+          "explain": "If it is „ist gegangen“, it is „war gegangen“. No new rule to learn."
         }
       ]
     },
@@ -68015,6 +68862,116 @@
           "answer": 5,
           "fix": "Zwar ist das Hotel teuer, aber es ist sehr gut.",
           "explain": "zwar pairs with aber, not sondern."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er spricht ___ Deutsch als auch Französisch.",
+          "options": [
+            "sowohl",
+            "entweder",
+            "weder"
+          ],
+          "answer": 0,
+          "explain": "sowohl … als auch = both … and."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ kommst du mit, oder du bleibst hier.",
+          "options": [
+            "Entweder",
+            "Weder",
+            "Sowohl"
+          ],
+          "answer": 0,
+          "explain": "entweder … oder = either … or."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe ___ Zeit noch Geld.",
+          "options": [
+            "weder",
+            "entweder",
+            "sowohl"
+          ],
+          "answer": 0,
+          "explain": "weder … noch = neither … nor, and it needs no further negation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist ___ nur klug, sondern auch fleißig.",
+          "options": [
+            "nicht",
+            "kein",
+            "weder"
+          ],
+          "answer": 0,
+          "explain": "nicht nur … sondern auch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist zwar müde, ___ arbeitet sie weiter.",
+          "options": [
+            "aber",
+            "sondern",
+            "noch"
+          ],
+          "answer": 0,
+          "explain": "zwar … aber concedes and then contrasts."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Je mehr er übte, ___ besser wurde er.",
+          "options": [
+            "desto",
+            "als",
+            "wie"
+          ],
+          "answer": 0,
+          "explain": "je … desto, with a comparative in both halves."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Weder er ___ sie war da.",
+          "options": [
+            "noch",
+            "oder",
+            "und"
+          ],
+          "answer": 0,
+          "explain": "noch is the second half of weder."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Braucht „weder … noch“ eine zusätzliche Verneinung?",
+          "options": [
+            "nein, es ist bereits verneint",
+            "ja, immer „nicht“",
+            "ja, „kein“"
+          ],
+          "answer": 0,
+          "explain": "„Ich habe weder Zeit noch Geld“ — adding nicht would negate twice."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was folgt auf „nicht nur“?",
+          "options": [
+            "sondern auch",
+            "aber auch",
+            "und auch"
+          ],
+          "answer": 0,
+          "explain": "The frame is fixed, and it is one of the most reliable ways to lift a B2 written text."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie verhält sich „zwar … aber“?",
+          "options": [
+            "es räumt etwas ein und schränkt dann ein",
+            "es nennt zwei Gründe",
+            "es verneint beide Teile"
+          ],
+          "answer": 0,
+          "explain": "Concede, then push back — the standard shape of a balanced B2 argument."
         }
       ]
     },
@@ -68084,6 +69041,116 @@
           "answer": 4,
           "fix": "Sie beginnt morgen zu arbeiten.",
           "explain": "zu + Infinitiv (arbeiten), never a conjugated form."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe vor, nächstes Jahr ___ ziehen.",
+          "options": [
+            "umzuziehen",
+            "zu umziehen",
+            "umziehen zu"
+          ],
+          "answer": 0,
+          "explain": "Separable verb: the zu goes inside — umzuziehen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ist schwierig, das ___ erklären.",
+          "options": [
+            "zu",
+            "zum",
+            "um zu"
+          ],
+          "answer": 0,
+          "explain": "„es ist + Adjektiv“ takes a plain zu-infinitive."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er behauptet, alles ___ wissen.",
+          "options": [
+            "zu",
+            "zum",
+            "um zu"
+          ],
+          "answer": 0,
+          "explain": "behaupten + zu-infinitive, where English would use a that-clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich freue mich darauf, dich ___ sehen.",
+          "options": [
+            "zu",
+            "zum",
+            "für zu"
+          ],
+          "answer": 0,
+          "explain": "The da-compound anticipates the infinitive clause: sich freuen auf → darauf, … zu sehen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat die Absicht, sich ___ bewerben.",
+          "options": [
+            "zu",
+            "zum",
+            "um zu"
+          ],
+          "answer": 0,
+          "explain": "A noun can govern a zu-infinitive too: die Absicht … zu."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich muss heute leider ___.",
+          "options": [
+            "arbeiten",
+            "zu arbeiten",
+            "zum Arbeiten"
+          ],
+          "answer": 0,
+          "explain": "Modal verbs take the bare infinitive — the main exception."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Text ist leicht ___ verstehen.",
+          "options": [
+            "zu",
+            "zum",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv, here meaning possibility."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er scheint müde ___ sein.",
+          "options": [
+            "zu",
+            "zum",
+            "um zu"
+          ],
+          "answer": 0,
+          "explain": "scheinen + zu-infinitive: he seems to be tired."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Nach welchen Wortarten kann ein „zu“-Infinitiv stehen?",
+          "options": [
+            "Verben, Nomen und Adjektiven",
+            "nur Verben",
+            "nur Adjektiven"
+          ],
+          "answer": 0,
+          "explain": "versuchen zu, die Absicht zu, schwierig zu — which is why the construction is everywhere in B2 writing."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann steht KEIN „zu“?",
+          "options": [
+            "nach Modalverben, werden, sehen, hören und lassen",
+            "nach allen Hilfsverben",
+            "im Nebensatz"
+          ],
+          "answer": 0,
+          "explain": "„Ich sehe ihn kommen“, „Ich lasse es reparieren“ — bare infinitive."
         }
       ]
     },
@@ -70160,6 +71227,116 @@
           "answer": 4,
           "fix": "Die Tür ist geöffnet worden.",
           "explain": "Passive perfect → worden, not geworden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Haus ist 1990 gebaut ___.",
+          "options": [
+            "worden",
+            "geworden",
+            "wurde"
+          ],
+          "answer": 0,
+          "explain": "The passive perfect ends in worden — werden loses its ge- when it is the passive auxiliary."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist Arzt ___.",
+          "options": [
+            "geworden",
+            "worden",
+            "gewesen"
+          ],
+          "answer": 0,
+          "explain": "Here werden is a full verb meaning „to become“, so it keeps its ordinary participle: geworden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Fenster ___ gestern geputzt worden.",
+          "options": [
+            "sind",
+            "haben",
+            "wurden"
+          ],
+          "answer": 0,
+          "explain": "The passive perfect takes sein, never haben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Mir ___ nicht geholfen worden.",
+          "options": [
+            "ist",
+            "hat",
+            "bin"
+          ],
+          "answer": 0,
+          "explain": "helfen takes the dative, so the passive has no nominative subject and the verb stays third person singular."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Nachdem das Haus gebaut worden ___, zogen sie ein.",
+          "options": [
+            "war",
+            "ist",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "Pluperfect passive: war + Partizip II + worden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Vertrag ist gestern unterschrieben ___.",
+          "options": [
+            "worden",
+            "geworden",
+            "gewesen"
+          ],
+          "answer": 0,
+          "explain": "worden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ___ viel darüber diskutiert worden.",
+          "options": [
+            "ist",
+            "hat",
+            "wurde"
+          ],
+          "answer": 0,
+          "explain": "An impersonal passive still takes sein in the perfect."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie unterscheidet man „worden“ und „geworden“?",
+          "options": [
+            "worden im Passiv, geworden bei werden als Vollverb",
+            "worden ist immer falsch",
+            "sie sind austauschbar"
+          ],
+          "answer": 0,
+          "explain": "„Es ist gebaut worden“ (was built) versus „Er ist müde geworden“ (became tired)."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Hilfsverb hat das Perfekt Passiv?",
+          "options": [
+            "sein",
+            "haben",
+            "werden"
+          ],
+          "answer": 0,
+          "explain": "ist/sind … worden. „hat … worden“ does not exist."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum benutzt man im Deutschen oft das Präteritum Passiv statt des Perfekts?",
+          "options": [
+            "„wurde gebaut“ ist kürzer als „ist gebaut worden“",
+            "das Perfekt Passiv ist falsch",
+            "es gibt kein Präteritum Passiv"
+          ],
+          "answer": 0,
+          "explain": "Both are correct; written German prefers the shorter form, especially in reports."
         }
       ]
     },
@@ -70220,6 +71397,116 @@
           ],
           "answer": 0,
           "explain": "schließlich = finally / after all."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ möchte ich mich kurz vorstellen.",
+          "options": [
+            "Zunächst",
+            "Schließlich",
+            "Bereits"
+          ],
+          "answer": 0,
+          "explain": "zunächst opens a sequence: first of all."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ komme ich zu meinem letzten Punkt.",
+          "options": [
+            "Schließlich",
+            "Zunächst",
+            "Bereits"
+          ],
+          "answer": 0,
+          "explain": "schließlich closes one."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Frist ist ___ abgelaufen.",
+          "options": [
+            "bereits",
+            "nun",
+            "zunächst"
+          ],
+          "answer": 0,
+          "explain": "bereits = schon, in a more formal register."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ stellt sich die Frage, wie es weitergeht.",
+          "options": [
+            "Nun",
+            "Bereits",
+            "Schließlich"
+          ],
+          "answer": 0,
+          "explain": "nun moves the argument to its next stage — closer to „now then“ than to „jetzt“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ wurde das Problem analysiert, danach gelöst.",
+          "options": [
+            "Zunächst",
+            "Schließlich",
+            "Nun"
+          ],
+          "answer": 0,
+          "explain": "First … then."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hatte ___ dreimal angerufen.",
+          "options": [
+            "bereits",
+            "zunächst",
+            "nun"
+          ],
+          "answer": 0,
+          "explain": "Already, by that point."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ konnten wir uns doch einigen.",
+          "options": [
+            "Schließlich",
+            "Zunächst",
+            "Bereits"
+          ],
+          "answer": 0,
+          "explain": "In the end, after all."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wofür braucht man Textadverbien?",
+          "options": [
+            "sie gliedern einen Text und zeigen die Reihenfolge",
+            "sie verneinen",
+            "sie stellen Fragen"
+          ],
+          "answer": 0,
+          "explain": "They are what turns a list of sentences into an argument, and B2 writing tasks are marked on exactly that."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was passiert mit dem Verb nach einem Textadverb am Satzanfang?",
+          "options": [
+            "es steht direkt danach",
+            "es geht ans Ende",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "„Zunächst möchte ich …“ — position 1 is taken, so the finite verb is second."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„bereits“ ist gegenüber „schon“:",
+          "options": [
+            "förmlicher, sonst gleichbedeutend",
+            "stärker",
+            "eine Verneinung"
+          ],
+          "answer": 0,
+          "explain": "A register choice, which is what most of B2 vocabulary work actually is."
         }
       ],
       "sections": [
@@ -70309,6 +71596,116 @@
           "answer": 0,
           "fix": "Er ist wohl krank.",
           "explain": "Modal particles sit in the middle field, not in position 1."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Was machst du ___ hier? (leicht überrascht)",
+          "options": [
+            "eigentlich",
+            "eben",
+            "halt"
+          ],
+          "answer": 0,
+          "explain": "eigentlich makes a question sound casual and slightly surprised."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist ___ so — daran kann man nichts ändern.",
+          "options": [
+            "eben",
+            "eigentlich",
+            "wohl"
+          ],
+          "answer": 0,
+          "explain": "eben marks something as simply the case."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Da kann man ___ nichts machen. (süddeutsch)",
+          "options": [
+            "halt",
+            "eigentlich",
+            "wohl"
+          ],
+          "answer": 0,
+          "explain": "halt is the southern equivalent of eben — the same meaning, a different region."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist ___ schon nach Hause gegangen.",
+          "options": [
+            "wohl",
+            "eben",
+            "eigentlich"
+          ],
+          "answer": 0,
+          "explain": "wohl marks a supposition: probably."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ wollte ich früher gehen, aber dann blieb ich doch.",
+          "options": [
+            "Eigentlich",
+            "Eben",
+            "Wohl"
+          ],
+          "answer": 0,
+          "explain": "eigentlich signals a plan that did not survive contact with reality."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das war ___ ein Missverständnis.",
+          "options": [
+            "wohl",
+            "halt",
+            "eigentlich"
+          ],
+          "answer": 0,
+          "explain": "A cautious conclusion."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wie heißt du ___?",
+          "options": [
+            "eigentlich",
+            "eben",
+            "wohl"
+          ],
+          "answer": 0,
+          "explain": "Softening a direct question."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Worin unterscheiden sich „eben“ und „halt“?",
+          "options": [
+            "nur regional — halt ist eher süddeutsch",
+            "halt ist stärker",
+            "eben ist eine Verneinung"
+          ],
+          "answer": 0,
+          "explain": "Identical in function. Which one you hear tells you where you are, not what is meant."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Sind Modalpartikeln betont?",
+          "options": [
+            "nein, sie sind unbetont",
+            "ja, immer",
+            "nur am Satzanfang"
+          ],
+          "answer": 0,
+          "explain": "Stressed *eben* is the adverb meaning „just now“ — a different word with the same spelling."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was ändert eine Modalpartikel am Satz?",
+          "options": [
+            "die Haltung des Sprechers, nicht den Inhalt",
+            "die Zeitform",
+            "den Kasus"
+          ],
+          "answer": 0,
+          "explain": "Remove it and the sentence still means the same; it just sounds blunter, or foreign."
         }
       ],
       "sections": [
@@ -70515,6 +71912,105 @@
           ],
           "answer": 0,
           "explain": "zufrieden mit + Dativ — one of the commonest in the B2 exam."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin stolz ___ meine Tochter.",
+          "options": [
+            "auf",
+            "über",
+            "von"
+          ],
+          "answer": 0,
+          "explain": "stolz auf + Akkusativ. The preposition is fixed and cannot be reasoned out from English."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist ___ seine Arbeit zufrieden.",
+          "options": [
+            "mit",
+            "über",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "zufrieden mit + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist ___ Nüsse allergisch.",
+          "options": [
+            "gegen",
+            "auf",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "allergisch gegen + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist typisch ___ ihn.",
+          "options": [
+            "für",
+            "von",
+            "an"
+          ],
+          "answer": 0,
+          "explain": "typisch für + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin ___ das Ergebnis überrascht.",
+          "options": [
+            "über",
+            "von",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "überrascht über + Akkusativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist ___ seiner Meinung überzeugt.",
+          "options": [
+            "von",
+            "über",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "überzeugt von + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist ___ ihrem Chef abhängig.",
+          "options": [
+            "von",
+            "auf",
+            "an"
+          ],
+          "answer": 0,
+          "explain": "abhängig von + Dativ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin ___ dich böse.",
+          "options": [
+            "auf",
+            "über",
+            "mit"
+          ],
+          "answer": 0,
+          "explain": "böse auf jemanden — angry *at* a person; böse über etwas for a thing."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie lernt man diese Präpositionen am besten?",
+          "options": [
+            "als feste Einheit mit dem Adjektiv",
+            "über eine Regel",
+            "aus dem Englischen"
+          ],
+          "answer": 0,
+          "explain": "There is no rule. „stolz auf“ is one item, like a vocabulary word — which is exactly why the recall drill exists."
         }
       ]
     },
@@ -70658,6 +72154,105 @@
           ],
           "answer": 0,
           "explain": "The state matters, not the signing: sein + Partizip II."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Tür ___ geschlossen. (Zustand)",
+          "options": [
+            "ist",
+            "wird",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "sein + Partizip II describes a *state*; werden + Partizip II describes the action."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Tür ___ gerade geschlossen. (Vorgang)",
+          "options": [
+            "wird",
+            "ist",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Someone is closing it right now — Vorgangspassiv."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Fenster ___ seit gestern repariert. (Zustand)",
+          "options": [
+            "ist",
+            "wird",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "The repair is finished and the state persists."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Geschäft ___ um 20 Uhr geschlossen. (jeden Abend, Vorgang)",
+          "options": [
+            "wird",
+            "ist",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "A recurring action rather than a state."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Brief ___ schon geschrieben.",
+          "options": [
+            "ist",
+            "wird",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Result state: the letter is written."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Rechnung ___ bereits bezahlt.",
+          "options": [
+            "ist",
+            "wird",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "State."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Worin unterscheiden sich „Die Tür ist geschlossen“ und „Die Tür wird geschlossen“?",
+          "options": [
+            "Zustand vs. Vorgang",
+            "Gegenwart vs. Vergangenheit",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "The first describes how the door is; the second describes something happening to it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Kann man das Zustandspassiv in die Vergangenheit setzen?",
+          "options": [
+            "ja — „war geschlossen“",
+            "nein",
+            "nur mit „worden“"
+          ],
+          "answer": 0,
+          "explain": "war + Partizip II. Note there is no „worden“ here, because nothing is happening."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum verwechseln Lernende die beiden?",
+          "options": [
+            "das Englische benutzt für beides „is closed“",
+            "sie klingen gleich",
+            "beide brauchen „worden“"
+          ],
+          "answer": 0,
+          "explain": "English collapses the distinction; German keeps it, and B2 texts rely on it."
         }
       ]
     },
@@ -70814,6 +72409,105 @@
           ],
           "answer": 0,
           "explain": "helfen takes no object article here, so the verb itself is negated with nicht."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne ihn ___.",
+          "options": [
+            "nicht",
+            "nicht ihn",
+            "kein"
+          ],
+          "answer": 0,
+          "explain": "Negating the whole sentence: nicht goes at the end, after the objects."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich fahre ___ nach Berlin, sondern nach Köln.",
+          "options": [
+            "nicht",
+            "kein",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "Negating one element: nicht stands directly before it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Buch ist ___ interessant.",
+          "options": [
+            "nicht",
+            "kein",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "nicht comes before the adjective it negates."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe ihn gestern ___ gesehen.",
+          "options": [
+            "nicht",
+            "kein",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "With a Partizip II, nicht goes just before it — the participle closes the bracket."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er kann heute ___ kommen.",
+          "options": [
+            "nicht",
+            "kein",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "Before the infinitive at the end of the clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich rufe ihn ___ an.",
+          "options": [
+            "nicht",
+            "kein",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "With a separable verb, nicht comes before the prefix."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie wohnt ___ in München.",
+          "options": [
+            "nicht",
+            "kein",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "A local complement is negated in front, because it belongs to the verb."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht „nicht“ bei einer Satznegation?",
+          "options": [
+            "möglichst weit hinten, aber vor Partizip, Infinitiv oder Präfix",
+            "immer nach dem Verb",
+            "am Satzanfang"
+          ],
+          "answer": 0,
+          "explain": "It moves to the end and then stops in front of whatever closes the verb bracket."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht „nicht“ bei einer Teilnegation?",
+          "options": [
+            "direkt vor dem negierten Element",
+            "am Satzende",
+            "vor dem Subjekt"
+          ],
+          "answer": 0,
+          "explain": "„Ich fahre nicht nach Berlin (sondern nach Köln)“ — the position tells the listener what is being denied."
         }
       ]
     },
@@ -70972,6 +72666,105 @@
           ],
           "answer": 0,
           "explain": "A genuine concession — the second clause happens against the odds of the first."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Plan war gut; ___ scheiterte er.",
+          "options": [
+            "dennoch",
+            "hingegen",
+            "allerdings"
+          ],
+          "answer": 0,
+          "explain": "dennoch = nevertheless, the formal sibling of trotzdem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Hotel war schön. Das Essen ___ war schlecht.",
+          "options": [
+            "allerdings",
+            "dennoch",
+            "hingegen"
+          ],
+          "answer": 0,
+          "explain": "allerdings qualifies what was just said — „admittedly“, „mind you“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Im Norden regnet es; im Süden ___ scheint die Sonne.",
+          "options": [
+            "hingegen",
+            "dennoch",
+            "allerdings"
+          ],
+          "answer": 0,
+          "explain": "hingegen sets two things side by side rather than conceding."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat wenig geübt. ___ hat er gewonnen.",
+          "options": [
+            "Dennoch",
+            "Hingegen",
+            "Allerdings"
+          ],
+          "answer": 0,
+          "explain": "An unexpected outcome."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Idee ist gut, ___ zu teuer.",
+          "options": [
+            "allerdings",
+            "hingegen",
+            "dennoch"
+          ],
+          "answer": 0,
+          "explain": "A restriction attached to a positive judgement."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Dennoch ___ er weiter.",
+          "options": [
+            "arbeitete",
+            "er arbeitete",
+            "arbeiten"
+          ],
+          "answer": 0,
+          "explain": "These are adverbs: in position 1 the verb follows immediately."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was unterscheidet „hingegen“ von „dennoch“?",
+          "options": [
+            "hingegen vergleicht, dennoch räumt ein",
+            "sie sind gleich",
+            "dennoch vergleicht"
+          ],
+          "answer": 0,
+          "explain": "hingegen contrasts two parallel facts; dennoch says something happened despite an obstacle."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Wort ist die gehobene Variante von „trotzdem“?",
+          "options": [
+            "dennoch",
+            "allerdings",
+            "hingegen"
+          ],
+          "answer": 0,
+          "explain": "Same relation, higher register — the kind of swap that lifts a B2 essay."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo kann „allerdings“ stehen?",
+          "options": [
+            "an Position 1 oder im Mittelfeld",
+            "nur am Satzanfang",
+            "nur am Ende"
+          ],
+          "answer": 0,
+          "explain": "„Allerdings war es teuer“ and „Es war allerdings teuer“ are both correct."
         }
       ]
     },
@@ -71119,6 +72912,94 @@
           ],
           "answer": 0,
           "explain": "warten auf → darauf, and here it does point forward to the dass-clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er denkt ___, ein Auto zu kaufen.",
+          "options": [
+            "daran",
+            "an das",
+            "woran"
+          ],
+          "answer": 0,
+          "explain": "denken an → daran, followed by a zu-infinitive."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir warten ___, dass er anruft.",
+          "options": [
+            "darauf",
+            "auf das",
+            "worauf"
+          ],
+          "answer": 0,
+          "explain": "warten auf → darauf."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin ___ überzeugt, dass es klappt.",
+          "options": [
+            "davon",
+            "von dem",
+            "wovon"
+          ],
+          "answer": 0,
+          "explain": "überzeugt von → davon."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat sich ___ beschwert, dass es zu laut war.",
+          "options": [
+            "darüber",
+            "über das",
+            "worüber"
+          ],
+          "answer": 0,
+          "explain": "sich beschweren über → darüber."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es hängt ___ ab, ob wir Zeit haben.",
+          "options": [
+            "davon",
+            "von dem",
+            "wovon"
+          ],
+          "answer": 0,
+          "explain": "abhängen von → davon, anticipating an ob-clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich warte auf meinen Kollegen. Ich warte ___.",
+          "options": [
+            "auf ihn",
+            "darauf",
+            "worauf"
+          ],
+          "answer": 0,
+          "explain": "**A person keeps the pronoun.** da-compounds are only ever for things and clauses."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wozu dient das da-Kompositum vor einem Nebensatz?",
+          "options": [
+            "es kündigt den Nebensatz an",
+            "es ersetzt ihn",
+            "es verneint ihn"
+          ],
+          "answer": 0,
+          "explain": "„Ich freue mich darüber, dass …“ — the darüber is a placeholder pointing forward, and leaving it out sounds wrong to a native ear."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann kommt das „r“ dazu?",
+          "options": [
+            "wenn die Präposition mit einem Vokal beginnt",
+            "immer im Plural",
+            "nie"
+          ],
+          "answer": 0,
+          "explain": "darauf, daran, darüber — but damit, davon, dafür."
         }
       ]
     }

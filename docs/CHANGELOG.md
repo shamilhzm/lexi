@@ -11,6 +11,50 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — B2 closes the syllabus: zero thin points at any level
+
+The last eighteen points, and the end of a finding that changed shape three times.
+
+| | points | exercises | median | min | thin |
+|---|---|---|---|---|---|
+| A1 | 24 | 1,654 | 27 | 14 | 0 |
+| A2 | 28 | 1,748 | 17 | 14 | 0 |
+| B1 | 40 | 1,725 | 15 | 12 | 0 |
+| B2 | 21 | 454 → **625** | 6 → **16** | 5 → **12** | 18 → **0** |
+| C1 | 12 | 204 | 18 | 16 | 0 |
+| C2 | 11 | 174 | 16 | 15 | 0 |
+
+**Bank 5,207 → 6,130 across fourteen authored batches. No grammar point at any level
+now holds fewer than twelve exercises.**
+
+**B2 was authored deliberately above its lower-level twins.** The 2026-08-06 audit found
+that *11 of 16 B2 points re-tread a topic already taught at A2 or B1* — n-Deklination,
+Genitiv, Relativsätze, Finalsätze, Infinitiv mit zu, Temporale Nebensätze. Rather than
+repeat the B1 items written earlier today, these test the hard edges: the **genitive** of
+an n-Deklination noun (*des Experten*, never *des Expertes*); the **pluperfect passive**
+inside a nachdem-clause (*nachdem es gebaut worden war*); relative pronouns whose case
+comes from inside the clause while their gender comes from outside it; *damit* versus
+*um … zu* when the subordinate clause is passive and therefore has its own subject.
+
+Also at B2, the three points a B1 learner has never met and a B2 exam relies on:
+**Zustandspassiv** (*ist geschlossen* versus *wird geschlossen* — a distinction English
+collapses into one form), **the position of nicht** (sentence negation drifts to the end
+and stops in front of whatever closes the verb bracket; partial negation stands directly
+before what it denies), and the **adversative connectors** *dennoch / allerdings /
+hingegen*, which are the register lift a B2 essay is actually marked on.
+
+**How the finding moved.** It began as *"C1/C2 is 3% of the exercise bank"* — true, and
+pointed at the wrong end of the syllabus. Closing C1/C2 exposed that the *means* were
+concealing a bimodal distribution: `corpus:genex` had generated 50+ items for 29
+derivable points, so A2's mean of 56.5 sat on a median of 8, and **76 of 113 points at
+A1–B2 held fewer than twelve exercises against zero at C1/C2**. The level the critique
+called a rumour was the only healthy one. Recorded in [LESSONS](LESSONS.md).
+
+`corpus:validate` PASS, 733 green, `GRAMMAR_COUNTS` re-pinned to 6,130, spot-checked in
+the app.
+
+---
+
 ### Shipped 2026-08-13 — A2 and B1 clear; only B2 still has thin points
 
 Continuing the pass the median exposed. A1 closed earlier today; A2 and B1 now follow.

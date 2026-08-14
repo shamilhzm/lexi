@@ -777,21 +777,12 @@ user; none of it is built.*
   > levels now carry a higher minimum per point than A1–B2 do. What remains under this
   > item is **vocabulary and register depth**, not drill volume: 761 word cards across
   > C1+C2, and no collocation or register field on any of them (#45).
-- **The thin layer is A1–B2, and the mean was hiding it · M, ongoing.** The bank's
-  *means* look healthy because `corpus:genex` generated 50+ items for 29 derivable
-  points; the **medians** are A2 **8**, B1 **6**, B2 **6**. Measured 2026-08-13:
-  **76 of 113 points at A1–B2 held fewer than 12 exercises**, against zero at C1/C2.
-  > ✅ **A1 closed 2026-08-13** — all 12 thin points authored, level min 5 → **14**,
-  > median 27, bank 5,429 → 5,545.
-  > ✅ **A2 closed 2026-08-13** — 17 thin points, min 5 → **14**, median 8 → **17**.
-  > ✅ **B1 closed 2026-08-13** — 29 thin points across five batches, min 5 → **12**,
-  > median 6 → **15**, bank 5,711 → **5,959**.
-  > **Still open: B2 (18 of 21 points).** The only level left with a thin point, and
-  > the certificate that gates university admission — see the 2026-08-06 audit above,
-  > which already called B2 "where the money is and the thinnest real layer".
-  *Do:* author in reviewable batches of ~6 points through `corpus:gex`, re-pin
-  `GRAMMAR_COUNTS`, spot-check in the app. *Touches:* `scripts/corpus/batches/`,
-  `public/data/grammar.json`, `src/lib/grammar.ts`.
+- ~~**The thin layer is A1–B2**~~ · ✅ **closed 2026-08-13.** The bank's *means* had
+  looked healthy because `corpus:genex` generated 50+ items for 29 derivable points;
+  the medians were A2 **8**, B1 **6**, B2 **6**, and **76 of 113 points at A1–B2 held
+  fewer than twelve exercises** against zero at C1/C2. All six levels are now clear —
+  **0 thin points in the whole syllabus**, minimum 12, bank 5,207 → **6,130**. See the
+  CHANGELOG entries of 2026-08-13.
 - **Register and collocation on C1+ cards · M** (#45). Synonyms exist but aren't
   differentiated by register, which is most of what C1 vocabulary work *is*.
 - ~~**Exam alignment without an exam simulator · M** (#43).~~ **Shipped 2026-08-11** —

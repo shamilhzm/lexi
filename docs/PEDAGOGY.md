@@ -625,23 +625,24 @@ new part.
    and **142 in part-of-speech or `Abstract` bins** — because *Chance*, *Detail*,
    *System* and *Zufall* have no topic, and `Abstract` is a true label where
    `Miscellaneous` was an absent one.
-10. ✅ **C1/C2 exercise depth.** **Closed 2026-08-13.** Was 156 items across two
-    levels; now **378**, authored not generated — at these levels a generated item can
-    state that an answer is right and not why — and appended through `corpus:gex`,
-    because the positional `gex:` ids make append-only a correctness requirement.
+10. ✅ **Exercise depth, all six levels.** **Closed 2026-08-13.** The finding started
+    as "C1/C2 is 3% of the bank" and ended somewhere else entirely: the *means* were
+    concealing a bimodal distribution, and once the medians were measured the thin layer
+    turned out to be **A1–B2**, not the top.
 
-    | | points | exercises | avg | thinnest |
-    |---|---|---|---|---|
-    | C1 | 12 | 86 → **204** | 7.2 → **17.0** | 6 → **16** |
-    | C2 | 11 | 70 → **174** | 6.4 → **15.8** | 5 → **15** |
+    | | points | exercises | median | min | thin |
+    |---|---|---|---|---|---|
+    | A1 | 24 | 1,654 | 27 | 14 | 0 |
+    | A2 | 28 | 1,748 | 8 → **17** | 5 → **14** | 17 → **0** |
+    | B1 | 40 | 1,725 | 6 → **15** | 5 → **12** | 29 → **0** |
+    | B2 | 21 | 454 → **625** | 6 → **16** | 5 → **12** | 18 → **0** |
+    | C1 | 12 | 86 → **204** | **18** | **16** | 0 |
+    | C2 | 11 | 70 → **174** | **16** | **15** | 0 |
 
-    Bank 5,207 → **5,429**. About half the C2 items are questions about the system
-    rather than gap-fills, because at C2 the remaining errors are rarely grammatical —
-    they are choices that are correct and wrong at once.
-
-    **The finding now points the other way.** C1 and C2 have the **highest minimum of
-    any level**: A1, A2, B1 and B2 each still contain a point with only **5** exercises.
-    The thin layer is no longer the top of the syllabus.
+    Bank **5,207 → 6,130** across fourteen authored batches. **Zero thin points remain
+    anywhere in the syllabus.** All authored rather than generated, and appended through
+    `corpus:gex` because the positional `gex:` ids make append-only a correctness
+    requirement.
 
 11. **Collocation and register on B2+ cards.** ⟳ Backlog #45, moved earlier: it bites
     at B2 for anyone working in German, not only at C1.
