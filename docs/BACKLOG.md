@@ -542,6 +542,19 @@ argued and declined — see the ruling block in COMPETITIVE-RESEARCH §5.
   the network-enabled maintainer machine. **When it lands, re-run `npm run corpus:freq`
   and nothing else has to change** — the app side is finished and coverage-agnostic.
 
+> ✅ **The measurement half shipped 2026-08-15** — `src/lib/coverage.ts`, 14 tests.
+> Coverage against the 95/98 bands with counts, the ranked unlock set,
+> `unlocksToReach`, and `{ kind: 'unlock'; text }` on `SessionReason` with a
+> `whyLine` case. **Left to build: the paste/save surface and the read-back view**
+> (known/learning/new tinting, tap for gloss, tap to add).
+>
+> ⚠️ **Follow-up: `reader.ts` should converge on the matcher.** The meter runs on
+> `buildMatcher` because Lesen's own index is strictly thinner — `große`, `Hunden`
+> and `Lehrerin` all resolve in the matcher and in none of them in the reader — so
+> Lesen currently under-selects adjectives, dative plurals and `-in` feminines for
+> its i+1 sentences. Converging changes what Lesen picks, so it needs its own
+> measurement rather than a drive-by edit.
+
 **Phase 1 · the meter (M).** Paste (or save a URL's text) → annotate via the matcher →
 report coverage against the 95/98 bands, honestly and with the count, not just a
 percentage. Then: *"the N words that get you over the line"*, ranked by frequency ×

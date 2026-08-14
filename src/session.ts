@@ -36,7 +36,11 @@ export type SessionReason =
   /** A drill in one of the modes the learner misses most. */
   | { kind: 'blindspot'; mode: Mode; tag: string; misses: number }
   /** A due drill for an in-scope word whose flip is *not* in today's queue. */
-  | { kind: 'orphan'; mode: Mode; overdueDays: number };
+  | { kind: 'orphan'; mode: Mode; overdueDays: number }
+  /** Picked because the learner wants to read a specific text and this word is
+   *  one of the ones standing between them and it. `text` is the learner's own
+   *  label for it, so the scheduler can say "because you want to read this". */
+  | { kind: 'unlock'; text: string };
 
 export interface SessionItem {
   type: 'flip' | Mode;
@@ -109,7 +113,8 @@ type PackedReason =
   | { k: 'drill'; m: Mode; p: string }
   | { k: 'linked'; t: string }
   | { k: 'remedy'; m: Mode; g: string; n: number }
-  | { k: 'blindspot'; m: Mode; g: string; n: number };
+  | { k: 'blindspot'; m: Mode; g: string; n: number }
+  | { k: 'unlock'; x: string };
 
 interface PackedItem { t: SessionItem['type']; s: string; w: string; r: PackedReason; e?: 1 }
 interface StoredSession { target: string; at: number; i: number; items: PackedItem[] }
@@ -127,6 +132,7 @@ function packReason(r: SessionReason): PackedReason {
     case 'linked': return { k: 'linked', t: r.trigger.id };
     case 'remedy': return { k: 'remedy', m: r.mode, g: r.tag, n: r.misses };
     case 'blindspot': return { k: 'blindspot', m: r.mode, g: r.tag, n: r.misses };
+    case 'unlock': return { k: 'unlock', x: r.text };
   }
 }
 
@@ -135,6 +141,7 @@ function packReason(r: SessionReason): PackedReason {
 function unpackReason(r: PackedReason): SessionReason | null {
   switch (r.k) {
     case 'fresh': return { kind: 'fresh' };
+    case 'unlock': return { kind: 'unlock', text: r.x };
     case 'due': return { kind: 'due', overdueDays: r.d };
     case 'orphan': return { kind: 'orphan', overdueDays: r.d, mode: r.m };
     case 'drill': {

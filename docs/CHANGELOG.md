@@ -11,6 +11,57 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the comprehension meter, Phase 1: the number
+
+`src/lib/coverage.ts`. Paste a text, get the share of it you can actually read,
+against Hu & Nation's 95/98% bands — **with the count, not just a percentage** — plus
+the ranked set of words that carry you over the line.
+
+**The denominator is the whole feature**, so three decisions are written into the file
+rather than left to a caller:
+
+1. **Function words, ordinals and spelled-out cardinals are excluded.** Knowing *und*
+   or *achtzig* is not vocabulary knowledge and counting it pushes every text toward
+   the same score.
+2. **Only *structural* proper nouns are excluded** (`isLikelyEntity`, two or more
+   capitals). The capitalised-and-unresolvable rule stays rejected — it was measured,
+   it swept up 328 distinct tokens most of which are real vocabulary, and it inflates.
+3. **A word the corpus has never heard of still counts against you.** Excluding it
+   would rebase the score on Lexi's own coverage and report *the corpus's* ignorance
+   as the learner's fluency. `ceiling` states the cap out loud, so a text that cannot
+   reach 95% on this lexicon says so instead of quietly offering an unlock set that
+   would not get there.
+
+**Which index — measured, not assumed.** The backlog says build Phase 1 *on* Lesen "or
+the app ends up with two reading surfaces that disagree". The intent is one shared
+definition of *known*, and building on `reader.ts` would not have delivered it: that
+index is strictly thinner. Head to head, `große` → nothing, `Hunden` → nothing,
+`Lehrerin` → nothing, where the matcher resolves all three. A meter on the reader's
+index would report every inflected adjective and every feminine as unreadable. So it
+runs on `buildMatcher` — which Phase 0 ported app-side for exactly this reason. The
+remaining duplication is `reader.ts`'s own index, now tracked as follow-up: converging
+it changes what Lesen picks as i+1, so it deserves its own measurement.
+
+**`{ kind: 'unlock'; text }` joins `SessionReason`**, packed and unpacked with the
+resumable session and given a `whyLine` case — *"Because you want to read „…“"*. It is
+the one reason the learner chooses themselves, so it names their own text rather than a
+Lexi concept, and it keeps the rule that nothing enters a session without saying why.
+
+Phase 1 done-when, met: a hand-counted sentence is asserted token by token (6 counted,
+5 resolvable, *Berlin* absent and counting against); the unlock set demonstrably raises
+the figure on re-check; `whyLine` has a tested `unlock` case; proper nouns and function
+words leave the denominator by the rules `isNeutralWord`/`isLikelyEntity` already
+decide. **Still to build: the paste surface and the read-back view.**
+
+One test caught itself being wrong, which is the point of writing them first: a fixture
+sentence contained *gut*, not a card in that fixture, and one absent token in a
+seven-token text caps coverage at 85.7% — so `unlocksToReach` correctly reported it
+could not reach 95%. The code was right and the test was wrong.
+
+775 tests green (+16).
+
+---
+
 ### Shipped 2026-08-15 — Lesen had the same bug, for one day
 
 The plural-notation fix landed in `matcher.ts` and **not** in `reader.ts`, which keeps

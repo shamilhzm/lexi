@@ -16,7 +16,7 @@
 //
 // `whyLine` is pure and structured rather than returning JSX, so the copy is
 // unit-testable and there is exactly one source of truth for it.
-import { Sparkle, Link2, TrendingDown, Clock } from 'lucide-react';
+import { Sparkle, Link2, TrendingDown, Clock, BookOpen } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { RuleToggle } from './RulePanel.tsx';
 import { modeRulePoint } from '../views/Fundamentals.tsx';
@@ -81,6 +81,14 @@ export function whyLine(reason: SessionReason): WhyLine | null {
       return reason.overdueDays >= STALE_DAYS
         ? { icon: Clock, lead: `This drill has been waiting ${reason.overdueDays} days` }
         : null;
+
+    case 'unlock':
+      // The scheduler shows its work here too. This is the one reason the learner
+      // chose themselves, so it names their own text rather than a Lexi concept.
+      return {
+        icon: BookOpen,
+        lead: 'Because you want to read ', em: `„${reason.text}“`,
+      };
   }
 }
 

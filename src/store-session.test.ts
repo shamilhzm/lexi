@@ -1587,3 +1587,32 @@ describe('missStats: the substitution, not just the miss', () => {
     expect(byTag['Kasus'][0].asked).toBe('Dativ');
   });
 });
+
+// Phase 1 of the comprehension meter (BACKLOG Now #2): a word can now enter a
+// session because the learner wants to read a particular text, and the scheduler
+// has to be able to say so — "nothing may enter a session without saying why".
+describe('the unlock reason', () => {
+  it('names the learner’s own text rather than a Lexi concept', async () => {
+    const { why } = await freshWhy();
+    const line = why.whyLine({ kind: 'unlock', text: 'Die Zeit — Klimapolitik' });
+    expect(line).not.toBeNull();
+    expect(line!.lead).toBe('Because you want to read ');
+    expect(line!.em).toBe('„Die Zeit — Klimapolitik“');
+  });
+
+  it('survives being saved and resumed with the session', async () => {
+    const { data, session } = await fresh();
+    const w = word('lesen', 'X', { id: 'v:lesen', term: 'lesen' });
+    data.registerWords([w]);
+    const reason = { kind: 'unlock' as const, text: 'Mein Artikel' };
+    // A resumable session is one already in progress: loadSession requires
+    // 0 < position < items.length, so save two items part-way through.
+    const tgt = { kind: 'all' as const, name: 'All' };
+    session.saveSession(tgt, [
+      { type: 'flip', word: w, srsId: w.id, reason },
+      { type: 'flip', word: w, srsId: w.id, reason: { kind: 'fresh' } },
+    ], 1);
+    const back = session.loadSession(tgt);
+    expect(back?.items[0].reason).toEqual(reason);
+  });
+});
