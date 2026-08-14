@@ -783,8 +783,10 @@ user; none of it is built.*
   **76 of 113 points at A1–B2 held fewer than 12 exercises**, against zero at C1/C2.
   > ✅ **A1 closed 2026-08-13** — all 12 thin points authored, level min 5 → **14**,
   > median 27, bank 5,429 → 5,545.
-  > **Still open: A2 (17 points), B1 (29), B2 (18).** Same treatment, worst-first;
-  > B1 is the largest and the level most learners sit longest at.
+  > ✅ **A2 closed 2026-08-13** — all 17 thin points authored, level min 5 → **14**,
+  > median 8 → **17**, bank 5,545 → 5,711.
+  > **Still open: B1 (29 points), B2 (18).** B1 is the largest and the level most
+  > learners sit longest at.
   *Do:* author in reviewable batches of ~6 points through `corpus:gex`, re-pin
   `GRAMMAR_COUNTS`, spot-check in the app. *Touches:* `scripts/corpus/batches/`,
   `public/data/grammar.json`, `src/lib/grammar.ts`.

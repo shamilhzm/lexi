@@ -1,0 +1,79 @@
+[
+  {
+    "level": "A2",
+    "title": "Verb: lassen",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich ___ mir die Haare schneiden.", "options": ["lasse", "lässt", "lassen"], "answer": 0, "explain": "lassen + Infinitiv means having something done by someone else — you are not cutting your own hair." },
+      { "kind": "choose", "prompt": "Er ___ das Auto reparieren.", "options": ["lässt", "lasst", "lassen"], "answer": 0, "explain": "Third person singular takes an umlaut: er lässt." },
+      { "kind": "choose", "prompt": "___ mich in Ruhe!", "options": ["Lass", "Lässt", "Lasse"], "answer": 0, "explain": "The du-imperative drops the ending and the umlaut: lass!" },
+      { "kind": "choose", "prompt": "Ich habe meinen Schlüssel zu Hause ___.", "options": ["gelassen", "lassen", "gelasst"], "answer": 0, "explain": "Here lassen means „to leave something“, and it has a normal Partizip II: gelassen." },
+      { "kind": "choose", "prompt": "Sie hat ihr Auto reparieren ___.", "options": ["lassen", "gelassen", "lässt"], "answer": 0, "explain": "With a second infinitive, the perfect uses the Ersatzinfinitiv: „hat … reparieren lassen“, not „gelassen“." },
+      { "kind": "choose", "prompt": "___ uns gehen!", "options": ["Lass", "Lassen", "Lässt"], "answer": 0, "explain": "„Lass uns …“ is the everyday way to say „let's“." },
+      { "kind": "choose", "prompt": "Das Fenster ___ sich nicht öffnen.", "options": ["lässt", "lasst", "ließ"], "answer": 0, "explain": "sich lassen means „can be“ — a passive substitute the learner will meet again at B2." },
+      { "kind": "mc", "prompt": "Was bedeutet „Ich lasse mein Auto waschen“?", "options": ["Jemand anders wäscht es.", "Ich wasche es selbst.", "Ich verkaufe es."], "answer": 0, "explain": "This is the meaning learners most often miss: lassen delegates the action." },
+      { "kind": "mc", "prompt": "Welche Perfektform ist richtig?", "options": ["Ich habe es machen lassen.", "Ich habe es machen gelassen.", "Ich bin es machen lassen."], "answer": 0, "explain": "Two infinitives at the end, the second being lassen itself." },
+      { "kind": "mc", "prompt": "Wie heißt die er-Form von „lassen“?", "options": ["lässt", "lasst", "lasset"], "answer": 0, "explain": "„lasst“ is the ihr-form. The umlaut marks the third person singular." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Wortbildung: Adjektive",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ein Tag mit Sonne ist ___.", "options": ["sonnig", "sonnlich", "sonnbar"], "answer": 0, "explain": "-ig turns many nouns into adjectives: Sonne → sonnig, Wind → windig." },
+      { "kind": "choose", "prompt": "Etwas, das man essen kann, ist ___.", "options": ["essbar", "essig", "esslich"], "answer": 0, "explain": "-bar on a verb means „can be …ed“: essbar, machbar, lesbar." },
+      { "kind": "choose", "prompt": "Ein Kind, das keine Angst hat, ist ___.", "options": ["furchtlos", "furchtbar", "furchtig"], "answer": 0, "explain": "-los means „without“: furchtlos, arbeitslos, kostenlos. („furchtbar“ means terrible — the opposite trap.)" },
+      { "kind": "choose", "prompt": "Ein Problem, das man lösen kann, ist ___.", "options": ["lösbar", "löslich", "lösig"], "answer": 0, "explain": "-bar again. („löslich“ exists but means soluble in liquid.)" },
+      { "kind": "choose", "prompt": "Jemand, der viel Glück hat, ist ___.", "options": ["glücklich", "glückig", "glücksam"], "answer": 0, "explain": "-lich is the other common ending: Glück → glücklich, Freund → freundlich." },
+      { "kind": "choose", "prompt": "Eine Arbeit ohne Ende ist ___.", "options": ["endlos", "endig", "endbar"], "answer": 0, "explain": "-los = without." },
+      { "kind": "choose", "prompt": "Ein Mensch, der Freunde mag, ist ___.", "options": ["freundlich", "freundig", "freundbar"], "answer": 0, "explain": "-lich." },
+      { "kind": "choose", "prompt": "Das Gegenteil von „möglich“ ist ___.", "options": ["unmöglich", "nichtmöglich", "losmöglich"], "answer": 0, "explain": "un- is the standard negating prefix: unmöglich, unfreundlich, ungesund." },
+      { "kind": "mc", "prompt": "Was bedeutet die Endung „-bar“?", "options": ["etwas kann gemacht werden", "etwas ist ohne", "etwas ist voll"], "answer": 0, "explain": "It attaches to verbs, where -ig and -lich attach mostly to nouns." },
+      { "kind": "mc", "prompt": "Was bedeutet die Endung „-los“?", "options": ["ohne", "mit", "sehr"], "answer": 0, "explain": "arbeitslos = without work. Do not confuse it with -bar, which is about possibility." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Frageartikel & Demonstrativartikel",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ Buch möchtest du?", "options": ["Welches", "Welcher", "Welche"], "answer": 0, "explain": "das Buch → welches Buch. welcher declines like der/die/das." },
+      { "kind": "choose", "prompt": "___ Mann ist dein Chef?", "options": ["Welcher", "Welches", "Welche"], "answer": 0, "explain": "der Mann → welcher Mann." },
+      { "kind": "choose", "prompt": "___ Farbe gefällt dir?", "options": ["Welche", "Welcher", "Welches"], "answer": 0, "explain": "die Farbe → welche Farbe." },
+      { "kind": "choose", "prompt": "In ___ Haus wohnst du?", "options": ["welchem", "welches", "welcher"], "answer": 0, "explain": "in + dative for position, neuter: welchem Haus." },
+      { "kind": "choose", "prompt": "___ Film hast du gesehen?", "options": ["Welchen", "Welcher", "Welches"], "answer": 0, "explain": "Accusative masculine: welchen Film." },
+      { "kind": "choose", "prompt": "___ Auto ist neu. (dieses hier)", "options": ["Dieses", "Diese", "Dieser"], "answer": 0, "explain": "das Auto → dieses Auto." },
+      { "kind": "choose", "prompt": "Ich nehme ___ Jacke. (die hier)", "options": ["diese", "dieser", "dieses"], "answer": 0, "explain": "Feminine is unchanged in the accusative: diese Jacke." },
+      { "kind": "mc", "prompt": "Wie dekliniert „welcher“?", "options": ["wie der bestimmte Artikel", "wie „ein“", "gar nicht"], "answer": 0, "explain": "welcher, dieser, jeder and jener all share one table with der/die/das." },
+      { "kind": "mc", "prompt": "Was fragt „was für ein“?", "options": ["nach der Art oder Eigenschaft", "nach einer Auswahl", "nach dem Ort"], "answer": 0, "explain": "„Welches Auto?“ picks from known options; „Was für ein Auto?“ asks what kind." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Indirekte Fragesätze",
+    "exercises": [
+      { "kind": "choose", "prompt": "Weißt du, ___ der Zug kommt?", "options": ["wann", "wenn", "als"], "answer": 0, "explain": "The question word survives into the indirect question, and the verb goes to the end." },
+      { "kind": "choose", "prompt": "Ich weiß nicht, ___ er kommt.", "options": ["ob", "wenn", "dass"], "answer": 0, "explain": "A yes/no question becomes ob — never wenn, which is the commonest error here." },
+      { "kind": "choose", "prompt": "Können Sie mir sagen, wo der Bahnhof ___?", "options": ["ist", "ist er", "sein"], "answer": 0, "explain": "Verb at the end: wo der Bahnhof ist." },
+      { "kind": "choose", "prompt": "Er fragt, ___ ich Zeit habe.", "options": ["ob", "wenn", "was"], "answer": 0, "explain": "„Hast du Zeit?“ has no question word, so ob." },
+      { "kind": "choose", "prompt": "Ich möchte wissen, ___ das kostet.", "options": ["was", "ob", "wenn"], "answer": 0, "explain": "„Was kostet das?“ keeps its was." },
+      { "kind": "choose", "prompt": "Sie fragt, wie alt ich ___.", "options": ["bin", "bin ich", "sein"], "answer": 0, "explain": "Verb last, subject before it." },
+      { "kind": "choose", "prompt": "Weißt du, ___ das Buch gehört?", "options": ["wem", "wen", "wer"], "answer": 0, "explain": "gehören takes the dative, so the question word is wem." },
+      { "kind": "mc", "prompt": "Welches Wort leitet eine indirekte Ja/Nein-Frage ein?", "options": ["ob", "wenn", "dass"], "answer": 0, "explain": "„wenn“ means if in the sense of a condition, not a question — the two English „if“s are different words in German." },
+      { "kind": "mc", "prompt": "Was ändert sich gegenüber der direkten Frage?", "options": ["das Verb geht ans Ende", "das Fragewort fällt weg", "nichts"], "answer": 0, "explain": "„Wann kommt der Zug?“ → „…, wann der Zug kommt.“" }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Vergleiche: so … wie / als",
+    "exercises": [
+      { "kind": "choose", "prompt": "Er ist so groß ___ ich.", "options": ["wie", "als", "denn"], "answer": 0, "explain": "Equality takes so … wie." },
+      { "kind": "choose", "prompt": "Sie ist größer ___ ich.", "options": ["als", "wie", "so"], "answer": 0, "explain": "A comparative always takes als. „größer wie“ is very common in speech and is not standard." },
+      { "kind": "choose", "prompt": "Der Film war nicht so gut ___ das Buch.", "options": ["wie", "als", "denn"], "answer": 0, "explain": "„nicht so … wie“ is still the equality frame, just negated." },
+      { "kind": "choose", "prompt": "Heute ist es kälter ___ gestern.", "options": ["als", "wie", "so"], "answer": 0, "explain": "Comparative → als." },
+      { "kind": "choose", "prompt": "Ich habe genauso viel Zeit ___ du.", "options": ["wie", "als", "denn"], "answer": 0, "explain": "genauso … wie is an emphatic equality." },
+      { "kind": "choose", "prompt": "Berlin ist ___ groß wie München.", "options": ["nicht so", "nicht als", "kein so"], "answer": 0, "explain": "The negation goes in front of so." },
+      { "kind": "choose", "prompt": "Er läuft schneller ___ sein Bruder.", "options": ["als", "wie", "wie als"], "answer": 0, "explain": "als, and „als wie“ is dialect rather than standard." },
+      { "kind": "mc", "prompt": "Wann benutzt man „wie“ und wann „als“?", "options": ["wie bei Gleichheit, als beim Komparativ", "wie beim Komparativ, als bei Gleichheit", "beide immer möglich"], "answer": 0, "explain": "so groß wie (the same) versus größer als (more). This is the single most-corrected comparison error in German." },
+      { "kind": "mc", "prompt": "Ist „größer wie ich“ korrekt?", "options": ["nein — Standard ist „größer als ich“", "ja, immer", "ja, nur schriftlich"], "answer": 0, "explain": "Extremely widespread in spoken German, and still marked wrong in an exam." }
+    ]
+  }
+]

@@ -23107,6 +23107,116 @@
           "answer": 4,
           "fix": "Der Polizist fragt den Touristen.",
           "explain": "Tourist is n-Deklination → Touristen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne den ___. (der Junge)",
+          "options": [
+            "Jungen",
+            "Junge",
+            "Junges"
+          ],
+          "answer": 0,
+          "explain": "n-Deklination nouns add -n or -en everywhere except the nominative singular."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist der ___. (der Kunde)",
+          "options": [
+            "Kunde",
+            "Kunden",
+            "Kundes"
+          ],
+          "answer": 0,
+          "explain": "Nominative singular is the one bare form: der Kunde."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich helfe dem ___. (der Kollege)",
+          "options": [
+            "Kollegen",
+            "Kollege",
+            "Kolleg"
+          ],
+          "answer": 0,
+          "explain": "Dative, so the -n appears: dem Kollegen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich spreche mit dem ___. (der Student)",
+          "options": [
+            "Studenten",
+            "Student",
+            "Studente"
+          ],
+          "answer": 0,
+          "explain": "Nouns in -ent, -ist, -ent and -oge almost all belong to this group."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe den ___. (der Mensch)",
+          "options": [
+            "Menschen",
+            "Mensch",
+            "Menschs"
+          ],
+          "answer": 0,
+          "explain": "der Mensch → den Menschen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der ___ wohnt nebenan. (der Nachbar)",
+          "options": [
+            "Nachbar",
+            "Nachbarn",
+            "Nachbars"
+          ],
+          "answer": 0,
+          "explain": "Nominative again, so no ending."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Guten Tag, ___ Müller!",
+          "options": [
+            "Herr",
+            "Herrn",
+            "Herren"
+          ],
+          "answer": 0,
+          "explain": "Direct address is the nominative: Herr Müller. But „Ich sehe Herrn Müller“ takes the -n."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wie ist Ihr ___? (der Name)",
+          "options": [
+            "Name",
+            "Namen",
+            "Namens"
+          ],
+          "answer": 0,
+          "explain": "Nominative: Ihr Name. („der Name“ is slightly irregular — genitive is des Namens.)"
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Endung bekommen n-Deklination-Nomen?",
+          "options": [
+            "-n oder -en in allen Fällen außer Nominativ Singular",
+            "-s im Genitiv",
+            "gar keine"
+          ],
+          "answer": 0,
+          "explain": "One ending, everywhere but one slot — which is why the nominative is the form to check against."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Nomen gehört NICHT zur n-Deklination?",
+          "options": [
+            "der Tisch",
+            "der Junge",
+            "der Kollege"
+          ],
+          "answer": 0,
+          "explain": "The group is almost entirely masculine nouns ending in -e, plus -ent/-ist/-ent/-oge. der Tisch is an ordinary masculine noun."
         }
       ]
     },
@@ -23179,6 +23289,116 @@
           ],
           "answer": 0,
           "explain": "Dativ pronoun before Akkusativ noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich gebe ___ das Buch. (er)",
+          "options": [
+            "ihm",
+            "ihn",
+            "er"
+          ],
+          "answer": 0,
+          "explain": "The recipient is dative: ihm."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich gebe es ___. (er)",
+          "options": [
+            "ihm",
+            "ihn",
+            "sein"
+          ],
+          "answer": 0,
+          "explain": "Same dative pronoun — only the word order changed."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er zeigt ___ die Fotos. (wir)",
+          "options": [
+            "uns",
+            "wir",
+            "unser"
+          ],
+          "answer": 0,
+          "explain": "uns is both accusative and dative; here it receives."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Reihenfolge ist richtig?",
+          "options": [
+            "Ich gebe dem Kind das Buch.",
+            "Ich gebe das Buch dem Kind.",
+            "Beide sind möglich, aber die erste ist normal."
+          ],
+          "answer": 2,
+          "explain": "Two nouns: dative before accusative. Both orders occur, but dative-first is the neutral one."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht das Pronomen, wenn eines ein Pronomen ist?",
+          "options": [
+            "das Pronomen zuerst — „Ich gebe es dem Kind.“",
+            "immer der Dativ zuerst",
+            "am Satzende"
+          ],
+          "answer": 0,
+          "explain": "The rule flips with pronouns: a pronoun moves forward, so „Ich gebe es dem Kind“ and „Ich gebe ihm das Buch“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kaufe ___ ein Eis. (du)",
+          "options": [
+            "dir",
+            "dich",
+            "du"
+          ],
+          "answer": 0,
+          "explain": "Buying *for* someone: dative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Kleid steht ___ gut. (sie, Sg.)",
+          "options": [
+            "ihr",
+            "sie",
+            "ihn"
+          ],
+          "answer": 0,
+          "explain": "stehen in the sense of „suit“ takes the dative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Kannst du ___ das erklären? (ich)",
+          "options": [
+            "mir",
+            "mich",
+            "meiner"
+          ],
+          "answer": 0,
+          "explain": "erklären takes a dative person and an accusative thing."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Film hat ___ gefallen. (wir)",
+          "options": [
+            "uns",
+            "wir",
+            "unser"
+          ],
+          "answer": 0,
+          "explain": "gefallen + Dativ, and the film is the subject."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Pronomen ist Dativ Plural?",
+          "options": [
+            "ihnen",
+            "sie",
+            "euch"
+          ],
+          "answer": 0,
+          "explain": "sie → ihnen. And the polite form is Ihnen, capitalised."
         }
       ]
     },
@@ -23274,6 +23494,105 @@
             "lieber"
           ],
           "explain": "lieber als = prefer to."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist so groß ___ ich.",
+          "options": [
+            "wie",
+            "als",
+            "denn"
+          ],
+          "answer": 0,
+          "explain": "Equality takes so … wie."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist größer ___ ich.",
+          "options": [
+            "als",
+            "wie",
+            "so"
+          ],
+          "answer": 0,
+          "explain": "A comparative always takes als. „größer wie“ is very common in speech and is not standard."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Film war nicht so gut ___ das Buch.",
+          "options": [
+            "wie",
+            "als",
+            "denn"
+          ],
+          "answer": 0,
+          "explain": "„nicht so … wie“ is still the equality frame, just negated."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Heute ist es kälter ___ gestern.",
+          "options": [
+            "als",
+            "wie",
+            "so"
+          ],
+          "answer": 0,
+          "explain": "Comparative → als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe genauso viel Zeit ___ du.",
+          "options": [
+            "wie",
+            "als",
+            "denn"
+          ],
+          "answer": 0,
+          "explain": "genauso … wie is an emphatic equality."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Berlin ist ___ groß wie München.",
+          "options": [
+            "nicht so",
+            "nicht als",
+            "kein so"
+          ],
+          "answer": 0,
+          "explain": "The negation goes in front of so."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er läuft schneller ___ sein Bruder.",
+          "options": [
+            "als",
+            "wie",
+            "wie als"
+          ],
+          "answer": 0,
+          "explain": "als, and „als wie“ is dialect rather than standard."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann benutzt man „wie“ und wann „als“?",
+          "options": [
+            "wie bei Gleichheit, als beim Komparativ",
+            "wie beim Komparativ, als bei Gleichheit",
+            "beide immer möglich"
+          ],
+          "answer": 0,
+          "explain": "so groß wie (the same) versus größer als (more). This is the single most-corrected comparison error in German."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Ist „größer wie ich“ korrekt?",
+          "options": [
+            "nein — Standard ist „größer als ich“",
+            "ja, immer",
+            "ja, nur schriftlich"
+          ],
+          "answer": 0,
+          "explain": "Extremely widespread in spoken German, and still marked wrong in an exam."
         }
       ]
     },
@@ -27636,6 +27955,116 @@
           "answer": 2,
           "fix": "Als ich nach Hause kam, war es dunkel.",
           "explain": "Verb to the end; single past → als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich Kind war, wohnte ich in Bonn.",
+          "options": [
+            "Als",
+            "Wenn",
+            "Wann"
+          ],
+          "answer": 0,
+          "explain": "als for a single, completed event or period in the past."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich Zeit habe, rufe ich dich an.",
+          "options": [
+            "Wenn",
+            "Als",
+            "Wann"
+          ],
+          "answer": 0,
+          "explain": "wenn for the present, the future, or something repeated."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Immer ___ es regnet, bleibe ich zu Hause.",
+          "options": [
+            "wenn",
+            "als",
+            "wann"
+          ],
+          "answer": 0,
+          "explain": "„immer wenn“ marks repetition — never als, however far in the past."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich gestern nach Hause kam, war niemand da.",
+          "options": [
+            "Als",
+            "Wenn",
+            "Wann"
+          ],
+          "answer": 0,
+          "explain": "One event, one moment in the past: als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Weißt du, ___ der Zug kommt?",
+          "options": [
+            "wann",
+            "wenn",
+            "als"
+          ],
+          "answer": 0,
+          "explain": "wann is the question word, and it survives inside an indirect question."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wenn ich Geld ___, kaufe ich ein Auto.",
+          "options": [
+            "habe",
+            "hätte",
+            "haben"
+          ],
+          "answer": 0,
+          "explain": "The verb goes to the end of the subordinate clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Als ich klein ___, hatte ich einen Hund.",
+          "options": [
+            "war",
+            "bin",
+            "wäre"
+          ],
+          "answer": 0,
+          "explain": "Past tense, verb at the end: als ich klein war."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ du fertig bist, sag Bescheid.",
+          "options": [
+            "Wenn",
+            "Als",
+            "Wann"
+          ],
+          "answer": 0,
+          "explain": "Future condition: wenn."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann benutzt man „als“?",
+          "options": [
+            "einmalige Handlung in der Vergangenheit",
+            "wiederholte Handlung",
+            "in der Zukunft"
+          ],
+          "answer": 0,
+          "explain": "One rule, one exception-free line: als = once, in the past. Everything else is wenn."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht das Verb im Nebensatz mit „wenn“?",
+          "options": [
+            "am Ende",
+            "an Position 2",
+            "an Position 1"
+          ],
+          "answer": 0,
+          "explain": "Every subordinate clause sends its finite verb to the end."
         }
       ]
     },
@@ -27703,6 +28132,116 @@
           "answer": 3,
           "fix": "Ich wohne hier seit drei Jahren.",
           "explain": "duration up to now → seit."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ ich in Berlin wohne, bin ich glücklich.",
+          "options": [
+            "Seitdem",
+            "Bis",
+            "Als"
+          ],
+          "answer": 0,
+          "explain": "seitdem introduces a period that began in the past and still continues."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich warte, ___ du kommst.",
+          "options": [
+            "bis",
+            "seit",
+            "als"
+          ],
+          "answer": 0,
+          "explain": "bis marks the end point of the waiting."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ zwei Jahren lerne ich Deutsch.",
+          "options": [
+            "Seit",
+            "Seitdem",
+            "Bis"
+          ],
+          "answer": 0,
+          "explain": "seit + Dativ is the *preposition*; seitdem is the conjunction that introduces a clause."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir bleiben, ___ der Film zu Ende ist.",
+          "options": [
+            "bis",
+            "seit",
+            "wenn"
+          ],
+          "answer": 0,
+          "explain": "bis + subordinate clause, verb at the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Seitdem er hier ___, ist alles besser.",
+          "options": [
+            "arbeitet",
+            "arbeiten",
+            "gearbeitet"
+          ],
+          "answer": 0,
+          "explain": "Verb at the end of the subordinate clause, and the present tense because it is still true."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bleibe hier ___ morgen.",
+          "options": [
+            "bis",
+            "seit",
+            "seitdem"
+          ],
+          "answer": 0,
+          "explain": "bis as a preposition with a time: bis morgen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ wann bleibst du?",
+          "options": [
+            "Bis",
+            "Seit",
+            "Von"
+          ],
+          "answer": 0,
+          "explain": "bis wann asks for an end point; seit wann asks for a beginning."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne ihn, ___ wir Kinder waren.",
+          "options": [
+            "seit",
+            "bis",
+            "wenn"
+          ],
+          "answer": 0,
+          "explain": "seit + clause is also possible alongside seitdem, and means the same."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was ist der Unterschied zwischen „seit“ und „seitdem“?",
+          "options": [
+            "seit steht vor einem Nomen, seitdem vor einem Nebensatz",
+            "sie sind identisch",
+            "seitdem ist Vergangenheit"
+          ],
+          "answer": 0,
+          "explain": "seit zwei Jahren (noun) versus seitdem ich hier wohne (clause)."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Zeitform steht meist nach „seit“?",
+          "options": [
+            "Präsens, weil es noch andauert",
+            "Perfekt",
+            "Präteritum"
+          ],
+          "answer": 0,
+          "explain": "German uses the present where English uses „have been“: „Seit zwei Jahren lerne ich Deutsch.“"
         }
       ]
     },
@@ -27793,6 +28332,105 @@
           ],
           "answer": 0,
           "explain": "Verpackung is feminine → eine."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Buch möchtest du?",
+          "options": [
+            "Welches",
+            "Welcher",
+            "Welche"
+          ],
+          "answer": 0,
+          "explain": "das Buch → welches Buch. welcher declines like der/die/das."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Mann ist dein Chef?",
+          "options": [
+            "Welcher",
+            "Welches",
+            "Welche"
+          ],
+          "answer": 0,
+          "explain": "der Mann → welcher Mann."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Farbe gefällt dir?",
+          "options": [
+            "Welche",
+            "Welcher",
+            "Welches"
+          ],
+          "answer": 0,
+          "explain": "die Farbe → welche Farbe."
+        },
+        {
+          "kind": "choose",
+          "prompt": "In ___ Haus wohnst du?",
+          "options": [
+            "welchem",
+            "welches",
+            "welcher"
+          ],
+          "answer": 0,
+          "explain": "in + dative for position, neuter: welchem Haus."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Film hast du gesehen?",
+          "options": [
+            "Welchen",
+            "Welcher",
+            "Welches"
+          ],
+          "answer": 0,
+          "explain": "Accusative masculine: welchen Film."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Auto ist neu. (dieses hier)",
+          "options": [
+            "Dieses",
+            "Diese",
+            "Dieser"
+          ],
+          "answer": 0,
+          "explain": "das Auto → dieses Auto."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich nehme ___ Jacke. (die hier)",
+          "options": [
+            "diese",
+            "dieser",
+            "dieses"
+          ],
+          "answer": 0,
+          "explain": "Feminine is unchanged in the accusative: diese Jacke."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie dekliniert „welcher“?",
+          "options": [
+            "wie der bestimmte Artikel",
+            "wie „ein“",
+            "gar nicht"
+          ],
+          "answer": 0,
+          "explain": "welcher, dieser, jeder and jener all share one table with der/die/das."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was fragt „was für ein“?",
+          "options": [
+            "nach der Art oder Eigenschaft",
+            "nach einer Auswahl",
+            "nach dem Ort"
+          ],
+          "answer": 0,
+          "explain": "„Welches Auto?“ picks from known options; „Was für ein Auto?“ asks what kind."
         }
       ]
     },
@@ -27898,6 +28536,105 @@
             "was"
           ],
           "explain": "Indirect question with was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Weißt du, ___ der Zug kommt?",
+          "options": [
+            "wann",
+            "wenn",
+            "als"
+          ],
+          "answer": 0,
+          "explain": "The question word survives into the indirect question, and the verb goes to the end."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich weiß nicht, ___ er kommt.",
+          "options": [
+            "ob",
+            "wenn",
+            "dass"
+          ],
+          "answer": 0,
+          "explain": "A yes/no question becomes ob — never wenn, which is the commonest error here."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Können Sie mir sagen, wo der Bahnhof ___?",
+          "options": [
+            "ist",
+            "ist er",
+            "sein"
+          ],
+          "answer": 0,
+          "explain": "Verb at the end: wo der Bahnhof ist."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er fragt, ___ ich Zeit habe.",
+          "options": [
+            "ob",
+            "wenn",
+            "was"
+          ],
+          "answer": 0,
+          "explain": "„Hast du Zeit?“ has no question word, so ob."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich möchte wissen, ___ das kostet.",
+          "options": [
+            "was",
+            "ob",
+            "wenn"
+          ],
+          "answer": 0,
+          "explain": "„Was kostet das?“ keeps its was."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie fragt, wie alt ich ___.",
+          "options": [
+            "bin",
+            "bin ich",
+            "sein"
+          ],
+          "answer": 0,
+          "explain": "Verb last, subject before it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Weißt du, ___ das Buch gehört?",
+          "options": [
+            "wem",
+            "wen",
+            "wer"
+          ],
+          "answer": 0,
+          "explain": "gehören takes the dative, so the question word is wem."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Wort leitet eine indirekte Ja/Nein-Frage ein?",
+          "options": [
+            "ob",
+            "wenn",
+            "dass"
+          ],
+          "answer": 0,
+          "explain": "„wenn“ means if in the sense of a condition, not a question — the two English „if“s are different words in German."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was ändert sich gegenüber der direkten Frage?",
+          "options": [
+            "das Verb geht ans Ende",
+            "das Fragewort fällt weg",
+            "nichts"
+          ],
+          "answer": 0,
+          "explain": "„Wann kommt der Zug?“ → „…, wann der Zug kommt.“"
         }
       ]
     },
@@ -27957,6 +28694,116 @@
           ],
           "answer": 0,
           "explain": "Pronoun dative before noun accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Kannst du ___ helfen? (ich)",
+          "options": [
+            "mir",
+            "mich",
+            "ich"
+          ],
+          "answer": 0,
+          "explain": "helfen takes the dative — one of a small group of verbs where German and English disagree about the case."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich gebe ___ das Buch. (du)",
+          "options": [
+            "dir",
+            "dich",
+            "du"
+          ],
+          "answer": 0,
+          "explain": "The person receiving is dative, the thing given is accusative: ich gebe dir das Buch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe ___ morgen. (er)",
+          "options": [
+            "ihn",
+            "ihm",
+            "er"
+          ],
+          "answer": 0,
+          "explain": "sehen takes the accusative: ihn. „ihm“ would be the dative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er dankt ___ für die Hilfe. (wir)",
+          "options": [
+            "uns",
+            "wir",
+            "unser"
+          ],
+          "answer": 0,
+          "explain": "danken takes the dative — and uns is the same in both cases, which is why it feels easy."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Auto gehört ___. (sie, Singular)",
+          "options": [
+            "ihr",
+            "sie",
+            "ihn"
+          ],
+          "answer": 0,
+          "explain": "gehören takes the dative: ihr."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich schreibe ___ eine E-Mail. (er)",
+          "options": [
+            "ihm",
+            "ihn",
+            "er"
+          ],
+          "answer": 0,
+          "explain": "The recipient is dative: ihm. Compare „ich sehe ihn“, where he is the object seen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gefällt ___ das Bild? (du)",
+          "options": [
+            "dir",
+            "dich",
+            "du"
+          ],
+          "answer": 0,
+          "explain": "gefallen takes the dative, and the *picture* is the subject: it pleases you."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ruft ___ später an. (wir)",
+          "options": [
+            "uns",
+            "wir",
+            "unser"
+          ],
+          "answer": 0,
+          "explain": "anrufen takes the accusative — and uns again looks identical."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich zeige ___ die Stadt. (ihr, Plural)",
+          "options": [
+            "euch",
+            "ihr",
+            "eure"
+          ],
+          "answer": 0,
+          "explain": "euch is both accusative and dative; here it is the dative recipient."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Verben verlangen den Dativ?",
+          "options": [
+            "helfen, danken, gehören, gefallen",
+            "sehen, hören, kennen",
+            "haben, brauchen"
+          ],
+          "answer": 0,
+          "explain": "A short list worth learning whole: helfen, danken, gehören, gefallen, antworten, folgen, passen, schmecken."
         }
       ]
     },
@@ -28012,6 +28859,105 @@
           "answer": 2,
           "fix": "Ich gehe ins Kino.",
           "explain": "gehen = direction (wohin?) → in das = ins, not in dem (im)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir warten ___ Bahnhof.",
+          "options": [
+            "am",
+            "ans",
+            "an dem"
+          ],
+          "answer": 0,
+          "explain": "Position, so dative: an + dem = am. „an dem“ is not wrong, just unusual."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie fährt ___ Arbeit.",
+          "options": [
+            "zur",
+            "zum",
+            "zu der"
+          ],
+          "answer": 0,
+          "explain": "die Arbeit is feminine: zu + der = zur."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich komme gerade ___ Arzt.",
+          "options": [
+            "vom",
+            "von dem",
+            "zum"
+          ],
+          "answer": 0,
+          "explain": "von + dem = vom. Coming *from*, so von; going *to* would be zum."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er wohnt ___ Bruder.",
+          "options": [
+            "beim",
+            "bei dem",
+            "zum"
+          ],
+          "answer": 0,
+          "explain": "bei + dem = beim."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir gehen ___ Supermarkt.",
+          "options": [
+            "zum",
+            "zur",
+            "ins"
+          ],
+          "answer": 0,
+          "explain": "der Supermarkt is masculine: zu + dem = zum."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich freue mich ___ Wochenende.",
+          "options": [
+            "aufs",
+            "auf dem",
+            "am"
+          ],
+          "answer": 0,
+          "explain": "sich freuen auf takes the accusative: auf + das = aufs."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist ___ Schule.",
+          "options": [
+            "in der",
+            "inr",
+            "im"
+          ],
+          "answer": 0,
+          "explain": "There is **no** contraction for in + der. This is the trap: im is in + dem, not in + der."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Geschenk ist ___ Kind.",
+          "options": [
+            "fürs",
+            "für dem",
+            "vom"
+          ],
+          "answer": 0,
+          "explain": "für + das = fürs, and für always takes the accusative."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Verschmelzung gibt es NICHT?",
+          "options": [
+            "in + der",
+            "in + dem",
+            "zu + der"
+          ],
+          "answer": 0,
+          "explain": "im (in dem), ins (in das), zur (zu der), zum (zu dem), am, ans, beim, vom — but never in + der."
         }
       ],
       "sections": [
@@ -28121,6 +29067,116 @@
           "answer": 3,
           "fix": "Der Kaffee ist sehr heiß.",
           "explain": "sehr never takes an ending → sehr."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Film war ___ interessant! (starkes Lob)",
+          "options": [
+            "sehr",
+            "gar",
+            "ziemlich"
+          ],
+          "answer": 0,
+          "explain": "sehr is the strongest of the everyday intensifiers."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich bin ___ nicht müde.",
+          "options": [
+            "gar",
+            "sehr",
+            "ganz"
+          ],
+          "answer": 0,
+          "explain": "gar only appears with a negation: gar nicht, gar kein. On its own it means nothing."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Essen war ___ gut. (besser als okay, nicht super)",
+          "options": [
+            "ziemlich",
+            "gar",
+            "sehr"
+          ],
+          "answer": 0,
+          "explain": "ziemlich sits in the middle: quite, fairly."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe ___ keine Zeit.",
+          "options": [
+            "gar",
+            "sehr",
+            "ziemlich"
+          ],
+          "answer": 0,
+          "explain": "gar kein = none at all."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ist heute ___ kalt.",
+          "options": [
+            "ziemlich",
+            "gar",
+            "ganz"
+          ],
+          "answer": 0,
+          "explain": "Fairly cold — noticeable, not extreme."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie spricht ___ gut Deutsch. (freundlich, aber nicht perfekt)",
+          "options": [
+            "ganz",
+            "sehr",
+            "gar"
+          ],
+          "answer": 0,
+          "explain": "Unstressed „ganz gut“ softens rather than strengthens — it means „pretty good“, not „completely good“."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„gar nicht“ bedeutet:",
+          "options": [
+            "überhaupt nicht",
+            "ein bisschen nicht",
+            "fast nicht"
+          ],
+          "answer": 0,
+          "explain": "The strongest negation available at this level."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Wort verstärkt am stärksten?",
+          "options": [
+            "sehr",
+            "ziemlich",
+            "ganz"
+          ],
+          "answer": 0,
+          "explain": "sehr > ziemlich > ganz, with ganz the weakest when it is unstressed."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Das ist ganz gut“ heißt meistens:",
+          "options": [
+            "nicht perfekt, aber okay",
+            "sehr gut",
+            "schlecht"
+          ],
+          "answer": 0,
+          "explain": "The commonest misunderstanding at A2: it sounds like praise and is only half of one."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Womit steht „gar“ immer zusammen?",
+          "options": [
+            "mit einer Verneinung",
+            "mit einem Adjektiv",
+            "mit einem Verb"
+          ],
+          "answer": 0,
+          "explain": "gar nicht, gar kein, gar nichts — never on its own."
         }
       ],
       "sections": [
@@ -32323,6 +33379,116 @@
           "answer": 2,
           "fix": "Sie ist Lehrerin.",
           "explain": "A bare profession after sein → no article: Sie ist Lehrerin."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist normal?",
+          "options": [
+            "Ich bin Lehrer.",
+            "Ich bin ein Lehrer.",
+            "Ich bin der Lehrer."
+          ],
+          "answer": 0,
+          "explain": "Professions after sein or werden take no article. „ein Lehrer“ is possible but stresses a role rather than stating a job."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er arbeitet als ___.",
+          "options": [
+            "Arzt",
+            "ein Arzt",
+            "der Arzt"
+          ],
+          "answer": 0,
+          "explain": "After als the noun stands bare."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hast du ___?",
+          "options": [
+            "Hunger",
+            "einen Hunger",
+            "den Hunger"
+          ],
+          "answer": 0,
+          "explain": "Hunger, Durst, Angst and Zeit are used without an article."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir fahren nach ___.",
+          "options": [
+            "Berlin",
+            "dem Berlin",
+            "das Berlin"
+          ],
+          "answer": 0,
+          "explain": "Cities and most countries take no article at all."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Ring ist aus ___.",
+          "options": [
+            "Gold",
+            "dem Gold",
+            "einem Gold"
+          ],
+          "answer": 0,
+          "explain": "Materials take no article: aus Gold, aus Holz, aus Plastik."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich lerne ___.",
+          "options": [
+            "Deutsch",
+            "das Deutsch",
+            "ein Deutsch"
+          ],
+          "answer": 0,
+          "explain": "Languages take no article after lernen or sprechen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat ___ vor Hunden.",
+          "options": [
+            "Angst",
+            "eine Angst",
+            "die Angst"
+          ],
+          "answer": 0,
+          "explain": "Angst haben vor + Dativ, with no article on Angst."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich trinke morgens ___.",
+          "options": [
+            "Kaffee",
+            "den Kaffee",
+            "einen Kaffee"
+          ],
+          "answer": 0,
+          "explain": "A substance in general takes no article. „einen Kaffee“ would mean one cup."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann steht kein Artikel?",
+          "options": [
+            "bei Berufen, Nationalitäten, Materialien und Sprachen",
+            "immer im Plural",
+            "nach Präpositionen"
+          ],
+          "answer": 0,
+          "explain": "Plus abstract nouns like Zeit and Hunger, and most place names."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Ich bin ein Lehrer“ ist …",
+          "options": [
+            "möglich, betont aber eine Rolle",
+            "immer falsch",
+            "höflicher"
+          ],
+          "answer": 0,
+          "explain": "Not an error — a different emphasis. Which is why the rule is „normally no article“ rather than „never“."
         }
       ],
       "sections": [
@@ -34507,6 +35673,116 @@
           "answer": 2,
           "fix": "Trotzdem",
           "explain": "Going for a walk despite the rain is a concession → Trotzdem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es regnete. ___ gingen wir spazieren.",
+          "options": [
+            "Trotzdem",
+            "Deshalb",
+            "Weil"
+          ],
+          "answer": 0,
+          "explain": "trotzdem marks a contrast: it rained and we went anyway."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich war müde. ___ bin ich früh ins Bett gegangen.",
+          "options": [
+            "Deshalb",
+            "Trotzdem",
+            "Obwohl"
+          ],
+          "answer": 0,
+          "explain": "deshalb states a consequence."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Trotzdem ___ wir gekommen.",
+          "options": [
+            "sind",
+            "wir sind",
+            "gekommen"
+          ],
+          "answer": 0,
+          "explain": "trotzdem occupies position 1, so the verb comes second and the subject follows it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Deshalb ___ ich zu Hause.",
+          "options": [
+            "bleibe",
+            "ich bleibe",
+            "bleiben"
+          ],
+          "answer": 0,
+          "explain": "The same inversion: these are adverbs, not subordinating conjunctions."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat viel gelernt. ___ hat er die Prüfung bestanden.",
+          "options": [
+            "Deshalb",
+            "Trotzdem",
+            "Damit"
+          ],
+          "answer": 0,
+          "explain": "Cause then consequence."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat wenig geübt. ___ spielt sie gut.",
+          "options": [
+            "Trotzdem",
+            "Deshalb",
+            "Darum"
+          ],
+          "answer": 0,
+          "explain": "The result is unexpected, so trotzdem."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe kein Geld, ___ kaufe ich nichts.",
+          "options": [
+            "deshalb",
+            "trotzdem",
+            "obwohl"
+          ],
+          "answer": 0,
+          "explain": "Consequence again — and note the verb still follows immediately."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was bedeutet „trotzdem“?",
+          "options": [
+            "dennoch, obwohl etwas dagegen spricht",
+            "deswegen",
+            "danach"
+          ],
+          "answer": 0,
+          "explain": "It is the adverb matching the conjunction obwohl."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist richtig?",
+          "options": [
+            "Deshalb bin ich müde.",
+            "Deshalb ich bin müde.",
+            "Deshalb, ich bin müde."
+          ],
+          "answer": 0,
+          "explain": "Position 1 is taken by deshalb, so the finite verb must be second. Putting the subject there is the commonest A2 word-order error with these words."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie unterscheiden sich „weil“ und „deshalb“?",
+          "options": [
+            "weil leitet einen Nebensatz ein, deshalb ist ein Adverb",
+            "sie sind gleich",
+            "deshalb schickt das Verb ans Ende"
+          ],
+          "answer": 0,
+          "explain": "„Ich bleibe, weil ich müde bin“ versus „Ich bin müde, deshalb bleibe ich“ — same meaning, opposite word order."
         }
       ]
     },
@@ -36589,6 +37865,116 @@
           "answer": 2,
           "fix": "größer",
           "explain": "groß → größer (with ß and umlaut)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Berlin ist ___ als Hamburg.",
+          "options": [
+            "größer",
+            "größerer",
+            "am größten"
+          ],
+          "answer": 0,
+          "explain": "Comparative: adjective + -er, then als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist der ___ Berg der Welt.",
+          "options": [
+            "höchste",
+            "höher",
+            "hoch"
+          ],
+          "answer": 0,
+          "explain": "Superlative before a noun: der höchste. Note the umlaut and the -ch-."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich laufe ___ als du.",
+          "options": [
+            "schneller",
+            "am schnellsten",
+            "schnell"
+          ],
+          "answer": 0,
+          "explain": "Comparing two things: comparative + als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er läuft ___.",
+          "options": [
+            "am schnellsten",
+            "der schnellste",
+            "schneller"
+          ],
+          "answer": 0,
+          "explain": "A superlative with no following noun takes am …-sten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Dieses Buch ist ___ als das andere.",
+          "options": [
+            "besser",
+            "guter",
+            "am besten"
+          ],
+          "answer": 0,
+          "explain": "gut is irregular: gut – besser – am besten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie spricht ___ Deutsch von allen.",
+          "options": [
+            "am besten",
+            "besser",
+            "das beste"
+          ],
+          "answer": 0,
+          "explain": "„von allen“ marks a superlative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich mag Tee ___ als Kaffee.",
+          "options": [
+            "lieber",
+            "gerner",
+            "am liebsten"
+          ],
+          "answer": 0,
+          "explain": "gern is irregular: gern – lieber – am liebsten. „gerner“ does not exist."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist mein ___ Film.",
+          "options": [
+            "liebster",
+            "lieber",
+            "am liebsten"
+          ],
+          "answer": 0,
+          "explain": "Before a noun, the superlative declines: mein liebster Film."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Heute ist es ___ als gestern.",
+          "options": [
+            "wärmer",
+            "warmer",
+            "am wärmsten"
+          ],
+          "answer": 0,
+          "explain": "Short adjectives with a, o or u usually take an umlaut: warm → wärmer."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie lauten die Formen von „viel“?",
+          "options": [
+            "viel – mehr – am meisten",
+            "viel – vieler – am vielsten",
+            "viel – mehrer – am mehrsten"
+          ],
+          "answer": 0,
+          "explain": "The four irregulars worth memorising: gut, viel, gern, hoch."
         }
       ]
     },
@@ -37293,6 +38679,116 @@
           "answer": 2,
           "fix": "durch",
           "explain": "Through an area → durch den Park (über = across/over)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gehen Sie ___ zur Ampel.",
+          "options": [
+            "geradeaus",
+            "gerade",
+            "rechts"
+          ],
+          "answer": 0,
+          "explain": "geradeaus = straight ahead. „gerade“ alone means „just now“ or „straight“ as a shape."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Biegen Sie ___ links ab.",
+          "options": [
+            "nach",
+            "zu",
+            "an"
+          ],
+          "answer": 0,
+          "explain": "nach links / nach rechts abbiegen — the fixed phrase for turning."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Kino ist ___ der Post.",
+          "options": [
+            "gegenüber",
+            "über",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "gegenüber + Dativ: opposite."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gehen Sie ___ die Straße.",
+          "options": [
+            "über",
+            "auf",
+            "an"
+          ],
+          "answer": 0,
+          "explain": "über + Akkusativ for crossing."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Bank ist ___ Supermarkt.",
+          "options": [
+            "neben dem",
+            "neben den",
+            "neben das"
+          ],
+          "answer": 0,
+          "explain": "Position, not movement, so neben takes the dative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Park ist ___ Ecke.",
+          "options": [
+            "um die",
+            "an die",
+            "auf die"
+          ],
+          "answer": 0,
+          "explain": "um die Ecke — around the corner, with the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Fahren Sie ___ Brücke.",
+          "options": [
+            "über die",
+            "über der",
+            "auf der"
+          ],
+          "answer": 0,
+          "explain": "Movement across, so accusative: über die Brücke."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Hotel liegt ___ Bahnhof.",
+          "options": [
+            "am",
+            "ans",
+            "an das"
+          ],
+          "answer": 0,
+          "explain": "Position: an + dem = am Bahnhof."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Gehen Sie ___ Park.",
+          "options": [
+            "durch den",
+            "durch dem",
+            "durch das"
+          ],
+          "answer": 0,
+          "explain": "durch always takes the accusative: durch den Park."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann steht bei Wechselpräpositionen der Akkusativ?",
+          "options": [
+            "bei Bewegung (wohin?)",
+            "bei Position (wo?)",
+            "immer"
+          ],
+          "answer": 0,
+          "explain": "wohin → Akkusativ, wo → Dativ. It is the single most useful test in German prepositions."
         }
       ]
     },
@@ -39376,6 +40872,116 @@
           "answer": 1,
           "fix": "lässt",
           "explain": "er-form of lassen → lässt (umlaut)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich ___ mir die Haare schneiden.",
+          "options": [
+            "lasse",
+            "lässt",
+            "lassen"
+          ],
+          "answer": 0,
+          "explain": "lassen + Infinitiv means having something done by someone else — you are not cutting your own hair."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ das Auto reparieren.",
+          "options": [
+            "lässt",
+            "lasst",
+            "lassen"
+          ],
+          "answer": 0,
+          "explain": "Third person singular takes an umlaut: er lässt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ mich in Ruhe!",
+          "options": [
+            "Lass",
+            "Lässt",
+            "Lasse"
+          ],
+          "answer": 0,
+          "explain": "The du-imperative drops the ending and the umlaut: lass!"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe meinen Schlüssel zu Hause ___.",
+          "options": [
+            "gelassen",
+            "lassen",
+            "gelasst"
+          ],
+          "answer": 0,
+          "explain": "Here lassen means „to leave something“, and it has a normal Partizip II: gelassen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie hat ihr Auto reparieren ___.",
+          "options": [
+            "lassen",
+            "gelassen",
+            "lässt"
+          ],
+          "answer": 0,
+          "explain": "With a second infinitive, the perfect uses the Ersatzinfinitiv: „hat … reparieren lassen“, not „gelassen“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ uns gehen!",
+          "options": [
+            "Lass",
+            "Lassen",
+            "Lässt"
+          ],
+          "answer": 0,
+          "explain": "„Lass uns …“ is the everyday way to say „let's“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Fenster ___ sich nicht öffnen.",
+          "options": [
+            "lässt",
+            "lasst",
+            "ließ"
+          ],
+          "answer": 0,
+          "explain": "sich lassen means „can be“ — a passive substitute the learner will meet again at B2."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was bedeutet „Ich lasse mein Auto waschen“?",
+          "options": [
+            "Jemand anders wäscht es.",
+            "Ich wasche es selbst.",
+            "Ich verkaufe es."
+          ],
+          "answer": 0,
+          "explain": "This is the meaning learners most often miss: lassen delegates the action."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Perfektform ist richtig?",
+          "options": [
+            "Ich habe es machen lassen.",
+            "Ich habe es machen gelassen.",
+            "Ich bin es machen lassen."
+          ],
+          "answer": 0,
+          "explain": "Two infinitives at the end, the second being lassen itself."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie heißt die er-Form von „lassen“?",
+          "options": [
+            "lässt",
+            "lasst",
+            "lasset"
+          ],
+          "answer": 0,
+          "explain": "„lasst“ is the ihr-form. The umlaut marks the third person singular."
         }
       ]
     },
@@ -39442,6 +41048,116 @@
           "answer": 4,
           "fix": "stürmisch",
           "explain": "Sturm → stürmisch (umlaut + -isch)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ein Tag mit Sonne ist ___.",
+          "options": [
+            "sonnig",
+            "sonnlich",
+            "sonnbar"
+          ],
+          "answer": 0,
+          "explain": "-ig turns many nouns into adjectives: Sonne → sonnig, Wind → windig."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Etwas, das man essen kann, ist ___.",
+          "options": [
+            "essbar",
+            "essig",
+            "esslich"
+          ],
+          "answer": 0,
+          "explain": "-bar on a verb means „can be …ed“: essbar, machbar, lesbar."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ein Kind, das keine Angst hat, ist ___.",
+          "options": [
+            "furchtlos",
+            "furchtbar",
+            "furchtig"
+          ],
+          "answer": 0,
+          "explain": "-los means „without“: furchtlos, arbeitslos, kostenlos. („furchtbar“ means terrible — the opposite trap.)"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ein Problem, das man lösen kann, ist ___.",
+          "options": [
+            "lösbar",
+            "löslich",
+            "lösig"
+          ],
+          "answer": 0,
+          "explain": "-bar again. („löslich“ exists but means soluble in liquid.)"
+        },
+        {
+          "kind": "choose",
+          "prompt": "Jemand, der viel Glück hat, ist ___.",
+          "options": [
+            "glücklich",
+            "glückig",
+            "glücksam"
+          ],
+          "answer": 0,
+          "explain": "-lich is the other common ending: Glück → glücklich, Freund → freundlich."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Eine Arbeit ohne Ende ist ___.",
+          "options": [
+            "endlos",
+            "endig",
+            "endbar"
+          ],
+          "answer": 0,
+          "explain": "-los = without."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ein Mensch, der Freunde mag, ist ___.",
+          "options": [
+            "freundlich",
+            "freundig",
+            "freundbar"
+          ],
+          "answer": 0,
+          "explain": "-lich."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Gegenteil von „möglich“ ist ___.",
+          "options": [
+            "unmöglich",
+            "nichtmöglich",
+            "losmöglich"
+          ],
+          "answer": 0,
+          "explain": "un- is the standard negating prefix: unmöglich, unfreundlich, ungesund."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was bedeutet die Endung „-bar“?",
+          "options": [
+            "etwas kann gemacht werden",
+            "etwas ist ohne",
+            "etwas ist voll"
+          ],
+          "answer": 0,
+          "explain": "It attaches to verbs, where -ig and -lich attach mostly to nouns."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was bedeutet die Endung „-los“?",
+          "options": [
+            "ohne",
+            "mit",
+            "sehr"
+          ],
+          "answer": 0,
+          "explain": "arbeitslos = without work. Do not confuse it with -bar, which is about possibility."
         }
       ]
     },
@@ -41513,6 +43229,116 @@
           "answer": 3,
           "fix": "eine",
           "explain": "über + Akkusativ → über eine Stunde."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ morgen an gilt der neue Preis.",
+          "options": [
+            "Von",
+            "Ab dem",
+            "Seit"
+          ],
+          "answer": 0,
+          "explain": "von … an marks a starting point in time: from tomorrow onwards."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir fahren ___ München nach Wien.",
+          "options": [
+            "über",
+            "durch",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "über for a route via somewhere."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich trinke Kaffee ___ Zucker.",
+          "options": [
+            "ohne",
+            "außer",
+            "von"
+          ],
+          "answer": 0,
+          "explain": "ohne = without, and it always takes the accusative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Film dauert ___ zwei Stunden.",
+          "options": [
+            "über",
+            "auf",
+            "von"
+          ],
+          "answer": 0,
+          "explain": "über also means „more than“ with a quantity."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ging ___ ein Wort.",
+          "options": [
+            "ohne",
+            "außer",
+            "über"
+          ],
+          "answer": 0,
+          "explain": "ohne + accusative: ohne ein Wort."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir sprechen ___ das Wetter.",
+          "options": [
+            "über",
+            "von",
+            "auf"
+          ],
+          "answer": 0,
+          "explain": "sprechen über + Akkusativ — the topic of conversation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ohne ___ Auto ist es schwierig.",
+          "options": [
+            "mein",
+            "meinem",
+            "meines"
+          ],
+          "answer": 0,
+          "explain": "ohne takes the accusative, and neuter is unchanged: ohne mein Auto."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ jetzt an mache ich mehr Sport.",
+          "options": [
+            "Von",
+            "Seit",
+            "Bis"
+          ],
+          "answer": 0,
+          "explain": "von jetzt an — from now on."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welchen Kasus verlangt „ohne“?",
+          "options": [
+            "Akkusativ",
+            "Dativ",
+            "Genitiv"
+          ],
+          "answer": 0,
+          "explain": "ohne belongs to the fixed accusative group: durch, für, gegen, ohne, um."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„von … an“ bedeutet:",
+          "options": [
+            "ab einem Zeitpunkt",
+            "bis zu einem Zeitpunkt",
+            "während eines Zeitraums"
+          ],
+          "answer": 0,
+          "explain": "The starting edge of a period, not its end."
         }
       ]
     }

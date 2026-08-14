@@ -1,0 +1,98 @@
+[
+  {
+    "level": "A2",
+    "title": "Dativ: Pronomen & Stellung",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich gebe ___ das Buch. (er)", "options": ["ihm", "ihn", "er"], "answer": 0, "explain": "The recipient is dative: ihm." },
+      { "kind": "choose", "prompt": "Ich gebe es ___. (er)", "options": ["ihm", "ihn", "sein"], "answer": 0, "explain": "Same dative pronoun — only the word order changed." },
+      { "kind": "choose", "prompt": "Er zeigt ___ die Fotos. (wir)", "options": ["uns", "wir", "unser"], "answer": 0, "explain": "uns is both accusative and dative; here it receives." },
+      { "kind": "mc", "prompt": "Welche Reihenfolge ist richtig?", "options": ["Ich gebe dem Kind das Buch.", "Ich gebe das Buch dem Kind.", "Beide sind möglich, aber die erste ist normal."], "answer": 2, "explain": "Two nouns: dative before accusative. Both orders occur, but dative-first is the neutral one." },
+      { "kind": "mc", "prompt": "Wo steht das Pronomen, wenn eines ein Pronomen ist?", "options": ["das Pronomen zuerst — „Ich gebe es dem Kind.“", "immer der Dativ zuerst", "am Satzende"], "answer": 0, "explain": "The rule flips with pronouns: a pronoun moves forward, so „Ich gebe es dem Kind“ and „Ich gebe ihm das Buch“." },
+      { "kind": "choose", "prompt": "Ich kaufe ___ ein Eis. (du)", "options": ["dir", "dich", "du"], "answer": 0, "explain": "Buying *for* someone: dative." },
+      { "kind": "choose", "prompt": "Das Kleid steht ___ gut. (sie, Sg.)", "options": ["ihr", "sie", "ihn"], "answer": 0, "explain": "stehen in the sense of „suit“ takes the dative." },
+      { "kind": "choose", "prompt": "Kannst du ___ das erklären? (ich)", "options": ["mir", "mich", "meiner"], "answer": 0, "explain": "erklären takes a dative person and an accusative thing." },
+      { "kind": "choose", "prompt": "Der Film hat ___ gefallen. (wir)", "options": ["uns", "wir", "unser"], "answer": 0, "explain": "gefallen + Dativ, and the film is the subject." },
+      { "kind": "mc", "prompt": "Welches Pronomen ist Dativ Plural?", "options": ["ihnen", "sie", "euch"], "answer": 0, "explain": "sie → ihnen. And the polite form is Ihnen, capitalised." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Komparativ & Superlativ",
+    "exercises": [
+      { "kind": "choose", "prompt": "Berlin ist ___ als Hamburg.", "options": ["größer", "größerer", "am größten"], "answer": 0, "explain": "Comparative: adjective + -er, then als." },
+      { "kind": "choose", "prompt": "Das ist der ___ Berg der Welt.", "options": ["höchste", "höher", "hoch"], "answer": 0, "explain": "Superlative before a noun: der höchste. Note the umlaut and the -ch-." },
+      { "kind": "choose", "prompt": "Ich laufe ___ als du.", "options": ["schneller", "am schnellsten", "schnell"], "answer": 0, "explain": "Comparing two things: comparative + als." },
+      { "kind": "choose", "prompt": "Er läuft ___.", "options": ["am schnellsten", "der schnellste", "schneller"], "answer": 0, "explain": "A superlative with no following noun takes am …-sten." },
+      { "kind": "choose", "prompt": "Dieses Buch ist ___ als das andere.", "options": ["besser", "guter", "am besten"], "answer": 0, "explain": "gut is irregular: gut – besser – am besten." },
+      { "kind": "choose", "prompt": "Sie spricht ___ Deutsch von allen.", "options": ["am besten", "besser", "das beste"], "answer": 0, "explain": "„von allen“ marks a superlative." },
+      { "kind": "choose", "prompt": "Ich mag Tee ___ als Kaffee.", "options": ["lieber", "gerner", "am liebsten"], "answer": 0, "explain": "gern is irregular: gern – lieber – am liebsten. „gerner“ does not exist." },
+      { "kind": "choose", "prompt": "Das ist mein ___ Film.", "options": ["liebster", "lieber", "am liebsten"], "answer": 0, "explain": "Before a noun, the superlative declines: mein liebster Film." },
+      { "kind": "choose", "prompt": "Heute ist es ___ als gestern.", "options": ["wärmer", "warmer", "am wärmsten"], "answer": 0, "explain": "Short adjectives with a, o or u usually take an umlaut: warm → wärmer." },
+      { "kind": "mc", "prompt": "Wie lauten die Formen von „viel“?", "options": ["viel – mehr – am meisten", "viel – vieler – am vielsten", "viel – mehrer – am mehrsten"], "answer": 0, "explain": "The four irregulars worth memorising: gut, viel, gern, hoch." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Lokale Präpositionen: Wegbeschreibung",
+    "exercises": [
+      { "kind": "choose", "prompt": "Gehen Sie ___ zur Ampel.", "options": ["geradeaus", "gerade", "rechts"], "answer": 0, "explain": "geradeaus = straight ahead. „gerade“ alone means „just now“ or „straight“ as a shape." },
+      { "kind": "choose", "prompt": "Biegen Sie ___ links ab.", "options": ["nach", "zu", "an"], "answer": 0, "explain": "nach links / nach rechts abbiegen — the fixed phrase for turning." },
+      { "kind": "choose", "prompt": "Das Kino ist ___ der Post.", "options": ["gegenüber", "über", "auf"], "answer": 0, "explain": "gegenüber + Dativ: opposite." },
+      { "kind": "choose", "prompt": "Gehen Sie ___ die Straße.", "options": ["über", "auf", "an"], "answer": 0, "explain": "über + Akkusativ for crossing." },
+      { "kind": "choose", "prompt": "Die Bank ist ___ Supermarkt.", "options": ["neben dem", "neben den", "neben das"], "answer": 0, "explain": "Position, not movement, so neben takes the dative." },
+      { "kind": "choose", "prompt": "Der Park ist ___ Ecke.", "options": ["um die", "an die", "auf die"], "answer": 0, "explain": "um die Ecke — around the corner, with the accusative." },
+      { "kind": "choose", "prompt": "Fahren Sie ___ Brücke.", "options": ["über die", "über der", "auf der"], "answer": 0, "explain": "Movement across, so accusative: über die Brücke." },
+      { "kind": "choose", "prompt": "Das Hotel liegt ___ Bahnhof.", "options": ["am", "ans", "an das"], "answer": 0, "explain": "Position: an + dem = am Bahnhof." },
+      { "kind": "choose", "prompt": "Gehen Sie ___ Park.", "options": ["durch den", "durch dem", "durch das"], "answer": 0, "explain": "durch always takes the accusative: durch den Park." },
+      { "kind": "mc", "prompt": "Wann steht bei Wechselpräpositionen der Akkusativ?", "options": ["bei Bewegung (wohin?)", "bei Position (wo?)", "immer"], "answer": 0, "explain": "wohin → Akkusativ, wo → Dativ. It is the single most useful test in German prepositions." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Nebensätze: wenn & als",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ ich Kind war, wohnte ich in Bonn.", "options": ["Als", "Wenn", "Wann"], "answer": 0, "explain": "als for a single, completed event or period in the past." },
+      { "kind": "choose", "prompt": "___ ich Zeit habe, rufe ich dich an.", "options": ["Wenn", "Als", "Wann"], "answer": 0, "explain": "wenn for the present, the future, or something repeated." },
+      { "kind": "choose", "prompt": "Immer ___ es regnet, bleibe ich zu Hause.", "options": ["wenn", "als", "wann"], "answer": 0, "explain": "„immer wenn“ marks repetition — never als, however far in the past." },
+      { "kind": "choose", "prompt": "___ ich gestern nach Hause kam, war niemand da.", "options": ["Als", "Wenn", "Wann"], "answer": 0, "explain": "One event, one moment in the past: als." },
+      { "kind": "choose", "prompt": "Weißt du, ___ der Zug kommt?", "options": ["wann", "wenn", "als"], "answer": 0, "explain": "wann is the question word, and it survives inside an indirect question." },
+      { "kind": "choose", "prompt": "Wenn ich Geld ___, kaufe ich ein Auto.", "options": ["habe", "hätte", "haben"], "answer": 0, "explain": "The verb goes to the end of the subordinate clause." },
+      { "kind": "choose", "prompt": "Als ich klein ___, hatte ich einen Hund.", "options": ["war", "bin", "wäre"], "answer": 0, "explain": "Past tense, verb at the end: als ich klein war." },
+      { "kind": "choose", "prompt": "___ du fertig bist, sag Bescheid.", "options": ["Wenn", "Als", "Wann"], "answer": 0, "explain": "Future condition: wenn." },
+      { "kind": "mc", "prompt": "Wann benutzt man „als“?", "options": ["einmalige Handlung in der Vergangenheit", "wiederholte Handlung", "in der Zukunft"], "answer": 0, "explain": "One rule, one exception-free line: als = once, in the past. Everything else is wenn." },
+      { "kind": "mc", "prompt": "Wo steht das Verb im Nebensatz mit „wenn“?", "options": ["am Ende", "an Position 2", "an Position 1"], "answer": 0, "explain": "Every subordinate clause sends its finite verb to the end." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Temporalsätze: seit(dem) & bis",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ ich in Berlin wohne, bin ich glücklich.", "options": ["Seitdem", "Bis", "Als"], "answer": 0, "explain": "seitdem introduces a period that began in the past and still continues." },
+      { "kind": "choose", "prompt": "Ich warte, ___ du kommst.", "options": ["bis", "seit", "als"], "answer": 0, "explain": "bis marks the end point of the waiting." },
+      { "kind": "choose", "prompt": "___ zwei Jahren lerne ich Deutsch.", "options": ["Seit", "Seitdem", "Bis"], "answer": 0, "explain": "seit + Dativ is the *preposition*; seitdem is the conjunction that introduces a clause." },
+      { "kind": "choose", "prompt": "Wir bleiben, ___ der Film zu Ende ist.", "options": ["bis", "seit", "wenn"], "answer": 0, "explain": "bis + subordinate clause, verb at the end." },
+      { "kind": "choose", "prompt": "Seitdem er hier ___, ist alles besser.", "options": ["arbeitet", "arbeiten", "gearbeitet"], "answer": 0, "explain": "Verb at the end of the subordinate clause, and the present tense because it is still true." },
+      { "kind": "choose", "prompt": "Ich bleibe hier ___ morgen.", "options": ["bis", "seit", "seitdem"], "answer": 0, "explain": "bis as a preposition with a time: bis morgen." },
+      { "kind": "choose", "prompt": "___ wann bleibst du?", "options": ["Bis", "Seit", "Von"], "answer": 0, "explain": "bis wann asks for an end point; seit wann asks for a beginning." },
+      { "kind": "choose", "prompt": "Ich kenne ihn, ___ wir Kinder waren.", "options": ["seit", "bis", "wenn"], "answer": 0, "explain": "seit + clause is also possible alongside seitdem, and means the same." },
+      { "kind": "mc", "prompt": "Was ist der Unterschied zwischen „seit“ und „seitdem“?", "options": ["seit steht vor einem Nomen, seitdem vor einem Nebensatz", "sie sind identisch", "seitdem ist Vergangenheit"], "answer": 0, "explain": "seit zwei Jahren (noun) versus seitdem ich hier wohne (clause)." },
+      { "kind": "mc", "prompt": "Welche Zeitform steht meist nach „seit“?", "options": ["Präsens, weil es noch andauert", "Perfekt", "Präteritum"], "answer": 0, "explain": "German uses the present where English uses „have been“: „Seit zwei Jahren lerne ich Deutsch.“" }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Verbindungsadverbien: trotzdem & deshalb",
+    "exercises": [
+      { "kind": "choose", "prompt": "Es regnete. ___ gingen wir spazieren.", "options": ["Trotzdem", "Deshalb", "Weil"], "answer": 0, "explain": "trotzdem marks a contrast: it rained and we went anyway." },
+      { "kind": "choose", "prompt": "Ich war müde. ___ bin ich früh ins Bett gegangen.", "options": ["Deshalb", "Trotzdem", "Obwohl"], "answer": 0, "explain": "deshalb states a consequence." },
+      { "kind": "choose", "prompt": "Trotzdem ___ wir gekommen.", "options": ["sind", "wir sind", "gekommen"], "answer": 0, "explain": "trotzdem occupies position 1, so the verb comes second and the subject follows it." },
+      { "kind": "choose", "prompt": "Deshalb ___ ich zu Hause.", "options": ["bleibe", "ich bleibe", "bleiben"], "answer": 0, "explain": "The same inversion: these are adverbs, not subordinating conjunctions." },
+      { "kind": "choose", "prompt": "Er hat viel gelernt. ___ hat er die Prüfung bestanden.", "options": ["Deshalb", "Trotzdem", "Damit"], "answer": 0, "explain": "Cause then consequence." },
+      { "kind": "choose", "prompt": "Sie hat wenig geübt. ___ spielt sie gut.", "options": ["Trotzdem", "Deshalb", "Darum"], "answer": 0, "explain": "The result is unexpected, so trotzdem." },
+      { "kind": "choose", "prompt": "Ich habe kein Geld, ___ kaufe ich nichts.", "options": ["deshalb", "trotzdem", "obwohl"], "answer": 0, "explain": "Consequence again — and note the verb still follows immediately." },
+      { "kind": "mc", "prompt": "Was bedeutet „trotzdem“?", "options": ["dennoch, obwohl etwas dagegen spricht", "deswegen", "danach"], "answer": 0, "explain": "It is the adverb matching the conjunction obwohl." },
+      { "kind": "mc", "prompt": "Welcher Satz ist richtig?", "options": ["Deshalb bin ich müde.", "Deshalb ich bin müde.", "Deshalb, ich bin müde."], "answer": 0, "explain": "Position 1 is taken by deshalb, so the finite verb must be second. Putting the subject there is the commonest A2 word-order error with these words." },
+      { "kind": "mc", "prompt": "Wie unterscheiden sich „weil“ und „deshalb“?", "options": ["weil leitet einen Nebensatz ein, deshalb ist ein Adverb", "sie sind gleich", "deshalb schickt das Verb ans Ende"], "answer": 0, "explain": "„Ich bleibe, weil ich müde bin“ versus „Ich bin müde, deshalb bleibe ich“ — same meaning, opposite word order." }
+    ]
+  }
+]

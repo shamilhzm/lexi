@@ -1,0 +1,98 @@
+[
+  {
+    "level": "A2",
+    "title": "Personalpronomen (Akkusativ & Dativ)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Kannst du ___ helfen? (ich)", "options": ["mir", "mich", "ich"], "answer": 0, "explain": "helfen takes the dative — one of a small group of verbs where German and English disagree about the case." },
+      { "kind": "choose", "prompt": "Ich gebe ___ das Buch. (du)", "options": ["dir", "dich", "du"], "answer": 0, "explain": "The person receiving is dative, the thing given is accusative: ich gebe dir das Buch." },
+      { "kind": "choose", "prompt": "Ich sehe ___ morgen. (er)", "options": ["ihn", "ihm", "er"], "answer": 0, "explain": "sehen takes the accusative: ihn. „ihm“ would be the dative." },
+      { "kind": "choose", "prompt": "Er dankt ___ für die Hilfe. (wir)", "options": ["uns", "wir", "unser"], "answer": 0, "explain": "danken takes the dative — and uns is the same in both cases, which is why it feels easy." },
+      { "kind": "choose", "prompt": "Das Auto gehört ___. (sie, Singular)", "options": ["ihr", "sie", "ihn"], "answer": 0, "explain": "gehören takes the dative: ihr." },
+      { "kind": "choose", "prompt": "Ich schreibe ___ eine E-Mail. (er)", "options": ["ihm", "ihn", "er"], "answer": 0, "explain": "The recipient is dative: ihm. Compare „ich sehe ihn“, where he is the object seen." },
+      { "kind": "choose", "prompt": "Gefällt ___ das Bild? (du)", "options": ["dir", "dich", "du"], "answer": 0, "explain": "gefallen takes the dative, and the *picture* is the subject: it pleases you." },
+      { "kind": "choose", "prompt": "Sie ruft ___ später an. (wir)", "options": ["uns", "wir", "unser"], "answer": 0, "explain": "anrufen takes the accusative — and uns again looks identical." },
+      { "kind": "choose", "prompt": "Ich zeige ___ die Stadt. (ihr, Plural)", "options": ["euch", "ihr", "eure"], "answer": 0, "explain": "euch is both accusative and dative; here it is the dative recipient." },
+      { "kind": "mc", "prompt": "Welche Verben verlangen den Dativ?", "options": ["helfen, danken, gehören, gefallen", "sehen, hören, kennen", "haben, brauchen"], "answer": 0, "explain": "A short list worth learning whole: helfen, danken, gehören, gefallen, antworten, folgen, passen, schmecken." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Verschmelzung: Präposition + Artikel (im, am, zum …)",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich gehe ___ Kino.", "options": ["ins", "im", "in dem"], "answer": 0, "explain": "Movement into somewhere: in + das = ins Kino." },
+      { "kind": "choose", "prompt": "Wir warten ___ Bahnhof.", "options": ["am", "ans", "an dem"], "answer": 0, "explain": "Position, so dative: an + dem = am. „an dem“ is not wrong, just unusual." },
+      { "kind": "choose", "prompt": "Sie fährt ___ Arbeit.", "options": ["zur", "zum", "zu der"], "answer": 0, "explain": "die Arbeit is feminine: zu + der = zur." },
+      { "kind": "choose", "prompt": "Ich komme gerade ___ Arzt.", "options": ["vom", "von dem", "zum"], "answer": 0, "explain": "von + dem = vom. Coming *from*, so von; going *to* would be zum." },
+      { "kind": "choose", "prompt": "Er wohnt ___ Bruder.", "options": ["beim", "bei dem", "zum"], "answer": 0, "explain": "bei + dem = beim." },
+      { "kind": "choose", "prompt": "Wir gehen ___ Supermarkt.", "options": ["zum", "zur", "ins"], "answer": 0, "explain": "der Supermarkt is masculine: zu + dem = zum." },
+      { "kind": "choose", "prompt": "Ich freue mich ___ Wochenende.", "options": ["aufs", "auf dem", "am"], "answer": 0, "explain": "sich freuen auf takes the accusative: auf + das = aufs." },
+      { "kind": "choose", "prompt": "Sie ist ___ Schule.", "options": ["in der", "inr", "im"], "answer": 0, "explain": "There is **no** contraction for in + der. This is the trap: im is in + dem, not in + der." },
+      { "kind": "choose", "prompt": "Das Geschenk ist ___ Kind.", "options": ["fürs", "für dem", "vom"], "answer": 0, "explain": "für + das = fürs, and für always takes the accusative." },
+      { "kind": "mc", "prompt": "Welche Verschmelzung gibt es NICHT?", "options": ["in + der", "in + dem", "zu + der"], "answer": 0, "explain": "im (in dem), ins (in das), zur (zu der), zum (zu dem), am, ans, beim, vom — but never in + der." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Gradpartikeln: sehr, ganz, ziemlich, gar",
+    "exercises": [
+      { "kind": "choose", "prompt": "Der Film war ___ interessant! (starkes Lob)", "options": ["sehr", "gar", "ziemlich"], "answer": 0, "explain": "sehr is the strongest of the everyday intensifiers." },
+      { "kind": "choose", "prompt": "Ich bin ___ nicht müde.", "options": ["gar", "sehr", "ganz"], "answer": 0, "explain": "gar only appears with a negation: gar nicht, gar kein. On its own it means nothing." },
+      { "kind": "choose", "prompt": "Das Essen war ___ gut. (besser als okay, nicht super)", "options": ["ziemlich", "gar", "sehr"], "answer": 0, "explain": "ziemlich sits in the middle: quite, fairly." },
+      { "kind": "choose", "prompt": "Ich habe ___ keine Zeit.", "options": ["gar", "sehr", "ziemlich"], "answer": 0, "explain": "gar kein = none at all." },
+      { "kind": "choose", "prompt": "Es ist heute ___ kalt.", "options": ["ziemlich", "gar", "ganz"], "answer": 0, "explain": "Fairly cold — noticeable, not extreme." },
+      { "kind": "choose", "prompt": "Sie spricht ___ gut Deutsch. (freundlich, aber nicht perfekt)", "options": ["ganz", "sehr", "gar"], "answer": 0, "explain": "Unstressed „ganz gut“ softens rather than strengthens — it means „pretty good“, not „completely good“." },
+      { "kind": "mc", "prompt": "„gar nicht“ bedeutet:", "options": ["überhaupt nicht", "ein bisschen nicht", "fast nicht"], "answer": 0, "explain": "The strongest negation available at this level." },
+      { "kind": "mc", "prompt": "Welches Wort verstärkt am stärksten?", "options": ["sehr", "ziemlich", "ganz"], "answer": 0, "explain": "sehr > ziemlich > ganz, with ganz the weakest when it is unstressed." },
+      { "kind": "mc", "prompt": "„Das ist ganz gut“ heißt meistens:", "options": ["nicht perfekt, aber okay", "sehr gut", "schlecht"], "answer": 0, "explain": "The commonest misunderstanding at A2: it sounds like praise and is only half of one." },
+      { "kind": "mc", "prompt": "Womit steht „gar“ immer zusammen?", "options": ["mit einer Verneinung", "mit einem Adjektiv", "mit einem Verb"], "answer": 0, "explain": "gar nicht, gar kein, gar nichts — never on its own." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Nullartikel: wann kein Artikel steht",
+    "exercises": [
+      { "kind": "mc", "prompt": "Welcher Satz ist normal?", "options": ["Ich bin Lehrer.", "Ich bin ein Lehrer.", "Ich bin der Lehrer."], "answer": 0, "explain": "Professions after sein or werden take no article. „ein Lehrer“ is possible but stresses a role rather than stating a job." },
+      { "kind": "choose", "prompt": "Er arbeitet als ___.", "options": ["Arzt", "ein Arzt", "der Arzt"], "answer": 0, "explain": "After als the noun stands bare." },
+      { "kind": "choose", "prompt": "Hast du ___?", "options": ["Hunger", "einen Hunger", "den Hunger"], "answer": 0, "explain": "Hunger, Durst, Angst and Zeit are used without an article." },
+      { "kind": "choose", "prompt": "Wir fahren nach ___.", "options": ["Berlin", "dem Berlin", "das Berlin"], "answer": 0, "explain": "Cities and most countries take no article at all." },
+      { "kind": "choose", "prompt": "Der Ring ist aus ___.", "options": ["Gold", "dem Gold", "einem Gold"], "answer": 0, "explain": "Materials take no article: aus Gold, aus Holz, aus Plastik." },
+      { "kind": "choose", "prompt": "Ich lerne ___.", "options": ["Deutsch", "das Deutsch", "ein Deutsch"], "answer": 0, "explain": "Languages take no article after lernen or sprechen." },
+      { "kind": "choose", "prompt": "Sie hat ___ vor Hunden.", "options": ["Angst", "eine Angst", "die Angst"], "answer": 0, "explain": "Angst haben vor + Dativ, with no article on Angst." },
+      { "kind": "choose", "prompt": "Ich trinke morgens ___.", "options": ["Kaffee", "den Kaffee", "einen Kaffee"], "answer": 0, "explain": "A substance in general takes no article. „einen Kaffee“ would mean one cup." },
+      { "kind": "mc", "prompt": "Wann steht kein Artikel?", "options": ["bei Berufen, Nationalitäten, Materialien und Sprachen", "immer im Plural", "nach Präpositionen"], "answer": 0, "explain": "Plus abstract nouns like Zeit and Hunger, and most place names." },
+      { "kind": "mc", "prompt": "„Ich bin ein Lehrer“ ist …", "options": ["möglich, betont aber eine Rolle", "immer falsch", "höflicher"], "answer": 0, "explain": "Not an error — a different emphasis. Which is why the rule is „normally no article“ rather than „never“." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Präpositionen: von … an, über, ohne",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ morgen an gilt der neue Preis.", "options": ["Von", "Ab dem", "Seit"], "answer": 0, "explain": "von … an marks a starting point in time: from tomorrow onwards." },
+      { "kind": "choose", "prompt": "Wir fahren ___ München nach Wien.", "options": ["über", "durch", "auf"], "answer": 0, "explain": "über for a route via somewhere." },
+      { "kind": "choose", "prompt": "Ich trinke Kaffee ___ Zucker.", "options": ["ohne", "außer", "von"], "answer": 0, "explain": "ohne = without, and it always takes the accusative." },
+      { "kind": "choose", "prompt": "Der Film dauert ___ zwei Stunden.", "options": ["über", "auf", "von"], "answer": 0, "explain": "über also means „more than“ with a quantity." },
+      { "kind": "choose", "prompt": "Sie ging ___ ein Wort.", "options": ["ohne", "außer", "über"], "answer": 0, "explain": "ohne + accusative: ohne ein Wort." },
+      { "kind": "choose", "prompt": "Wir sprechen ___ das Wetter.", "options": ["über", "von", "auf"], "answer": 0, "explain": "sprechen über + Akkusativ — the topic of conversation." },
+      { "kind": "choose", "prompt": "Ohne ___ Auto ist es schwierig.", "options": ["mein", "meinem", "meines"], "answer": 0, "explain": "ohne takes the accusative, and neuter is unchanged: ohne mein Auto." },
+      { "kind": "choose", "prompt": "___ jetzt an mache ich mehr Sport.", "options": ["Von", "Seit", "Bis"], "answer": 0, "explain": "von jetzt an — from now on." },
+      { "kind": "mc", "prompt": "Welchen Kasus verlangt „ohne“?", "options": ["Akkusativ", "Dativ", "Genitiv"], "answer": 0, "explain": "ohne belongs to the fixed accusative group: durch, für, gegen, ohne, um." },
+      { "kind": "mc", "prompt": "„von … an“ bedeutet:", "options": ["ab einem Zeitpunkt", "bis zu einem Zeitpunkt", "während eines Zeitraums"], "answer": 0, "explain": "The starting edge of a period, not its end." }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "n-Deklination",
+    "exercises": [
+      { "kind": "choose", "prompt": "Ich kenne den ___. (der Junge)", "options": ["Jungen", "Junge", "Junges"], "answer": 0, "explain": "n-Deklination nouns add -n or -en everywhere except the nominative singular." },
+      { "kind": "choose", "prompt": "Das ist der ___. (der Kunde)", "options": ["Kunde", "Kunden", "Kundes"], "answer": 0, "explain": "Nominative singular is the one bare form: der Kunde." },
+      { "kind": "choose", "prompt": "Ich helfe dem ___. (der Kollege)", "options": ["Kollegen", "Kollege", "Kolleg"], "answer": 0, "explain": "Dative, so the -n appears: dem Kollegen." },
+      { "kind": "choose", "prompt": "Ich spreche mit dem ___. (der Student)", "options": ["Studenten", "Student", "Studente"], "answer": 0, "explain": "Nouns in -ent, -ist, -ent and -oge almost all belong to this group." },
+      { "kind": "choose", "prompt": "Ich sehe den ___. (der Mensch)", "options": ["Menschen", "Mensch", "Menschs"], "answer": 0, "explain": "der Mensch → den Menschen." },
+      { "kind": "choose", "prompt": "Der ___ wohnt nebenan. (der Nachbar)", "options": ["Nachbar", "Nachbarn", "Nachbars"], "answer": 0, "explain": "Nominative again, so no ending." },
+      { "kind": "choose", "prompt": "Guten Tag, ___ Müller!", "options": ["Herr", "Herrn", "Herren"], "answer": 0, "explain": "Direct address is the nominative: Herr Müller. But „Ich sehe Herrn Müller“ takes the -n." },
+      { "kind": "choose", "prompt": "Wie ist Ihr ___? (der Name)", "options": ["Name", "Namen", "Namens"], "answer": 0, "explain": "Nominative: Ihr Name. („der Name“ is slightly irregular — genitive is des Namens.)" },
+      { "kind": "mc", "prompt": "Welche Endung bekommen n-Deklination-Nomen?", "options": ["-n oder -en in allen Fällen außer Nominativ Singular", "-s im Genitiv", "gar keine"], "answer": 0, "explain": "One ending, everywhere but one slot — which is why the nominative is the form to check against." },
+      { "kind": "mc", "prompt": "Welches Nomen gehört NICHT zur n-Deklination?", "options": ["der Tisch", "der Junge", "der Kollege"], "answer": 0, "explain": "The group is almost entirely masculine nouns ending in -e, plus -ent/-ist/-ent/-oge. der Tisch is an ordinary masculine noun." }
+    ]
+  }
+]

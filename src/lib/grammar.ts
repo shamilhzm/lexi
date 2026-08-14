@@ -107,7 +107,7 @@ export function grammarCounts(g: GrammarByLevel): { points: number; exercises: n
 /** The same counts for copy that must render before (or without) the fetch —
  *  Today's drills accordion. grammar.test.ts asserts these against the shipped
  *  file, so the numbers cannot drift out of sync again. */
-export const GRAMMAR_COUNTS = { points: 136, exercises: 5545 } as const;
+export const GRAMMAR_COUNTS = { points: 136, exercises: 5711 } as const;
 
 /** Split a `gram:<level>:<title>` vocab-card id into its parts. Titles contain
  *  colons ("Konzessivsätze: obwohl"), so only the first two segments are fixed. */
