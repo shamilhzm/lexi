@@ -9632,12 +9632,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:das Polyester",
-    "term": "das Polyester",
+    "id": "voc:A1:der Polyester",
+    "term": "der Polyester",
     "en": "polyester",
     "pos": "noun",
     "level": "A1",
-    "gender": "das",
+    "gender": "der",
     "plural": "nur Singular",
     "ipa": "polyˈʔɛstɐ",
     "syn": [],
@@ -47830,12 +47830,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Mietwagen",
-    "term": "die Mietwagen",
+    "id": "voc:B1:der Mietwagen",
+    "term": "der Mietwagen",
     "en": "rental car",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Mietwagen",
     "ipa": "ˈmiːtvaːɡn̩",
     "syn": [],
@@ -53369,22 +53369,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Gelenk",
-    "term": "die Gelenk",
-    "en": "joint",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Gelenke",
-    "ipa": "ɡəˈlɛŋk",
-    "syn": [
-      "Geleich"
-    ],
-    "ant": [],
-    "field": "Body & health",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:das Gelenk",
     "term": "das Gelenk",
     "en": "joint",
@@ -55096,25 +55080,6 @@
     "ipa": "ˈfuːsɡɛŋɐt͡soːnə",
     "syn": [
       "Fuzo"
-    ],
-    "ant": [],
-    "field": "Urban life",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Stau",
-    "term": "die Stau",
-    "en": "traffic jam",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Staus",
-    "ipa": "ʃtaʊ̯",
-    "syn": [
-      "Wehr",
-      "Stauwehr",
-      "Stauwerk",
-      "Stauanlage"
     ],
     "ant": [],
     "field": "Urban life",
@@ -59123,12 +59088,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Skilehrerin",
-    "term": "der Skilehrerin",
+    "id": "voc:B1:die Skilehrerin",
+    "term": "die Skilehrerin",
     "en": "ski instructor",
     "pos": "noun",
     "level": "B1",
-    "gender": "der",
+    "gender": "die",
     "plural": "die Skilehrerinnen",
     "ipa": "ˈʃiːleːʁəʁɪn",
     "syn": [],
@@ -59221,12 +59186,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Schlepplift",
-    "term": "die Schlepplift",
+    "id": "voc:B1:der Schlepplift",
+    "term": "der Schlepplift",
     "en": "T-bar lift, drag lift",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Schlepplifte",
     "ipa": "ˈʃlɛpˌlɪft",
     "syn": [],
@@ -68353,12 +68318,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Coach",
-    "term": "die Coach",
+    "id": "voc:B1:der Coach",
+    "term": "der Coach",
     "en": "coach",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Coaches",
     "ipa": "koːtʃ",
     "syn": [
@@ -76953,12 +76918,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Diesel",
-    "term": "das Diesel",
+    "id": "voc:A2:der Diesel",
+    "term": "der Diesel",
     "en": "Coke mixed with beer",
     "pos": "noun",
     "level": "A2",
-    "gender": "das",
+    "gender": "der",
     "plural": "die Diesel",
     "ipa": "ˈdiːzl̩",
     "syn": [

@@ -4899,26 +4899,6 @@
       }
     ]
   },
-  "voc:A1:das Polyester": {
-    "def": "A synthetic fiber or fabric used to make clothing and textiles.",
-    "ex": [
-      {
-        "de": "Die Jacke ist aus Polyester.",
-        "en": "The jacket is made of polyester.",
-        "lvl": "A1"
-      },
-      {
-        "de": "Polyester trocknet schnell.",
-        "en": "Polyester dries quickly.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Polyester ist pflegeleicht, aber weniger atmungsaktiv.",
-        "en": "Polyester is easy-care, but less breathable.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:A1:das Praktikum": {
     "def": "internship (job taken by a student), apprenticeship",
     "ex": [
@@ -10258,6 +10238,26 @@
       {
         "de": "Marktplatz",
         "en": "market square",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Polyester": {
+    "def": "A synthetic fiber or fabric used to make clothing and textiles.",
+    "ex": [
+      {
+        "de": "Die Jacke ist aus Polyester.",
+        "en": "The jacket is made of polyester.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Polyester trocknet schnell.",
+        "en": "Polyester dries quickly.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Polyester ist pflegeleicht, aber weniger atmungsaktiv.",
+        "en": "Polyester is easy-care, but less breathable.",
         "lvl": "B1"
       }
     ]
@@ -28800,21 +28800,6 @@
       }
     ]
   },
-  "voc:A2:das Diesel": {
-    "def": "ellipsis of Dieselkraftstoff (“diesel fuel”); ellipsis of Dieselmotor (“diesel engine”)",
-    "ex": [
-      {
-        "de": "Sami roch Diesel.",
-        "en": "Sami smelt diesel.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Laufen die Züge mit Diesel?",
-        "en": "Do the trains run on diesel oil?",
-        "lvl": "A2"
-      }
-    ]
-  },
   "voc:A2:das Ding": {
     "def": "thing; thing; girl; boy (young person)",
     "ex": [
@@ -32581,6 +32566,21 @@
         "de": "Der Dieb wurde auf frischer Tat ertappt.",
         "en": "The thief was caught in the act.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Diesel": {
+    "def": "ellipsis of Dieselkraftstoff (“diesel fuel”); ellipsis of Dieselmotor (“diesel engine”)",
+    "ex": [
+      {
+        "de": "Sami roch Diesel.",
+        "en": "Sami smelt diesel.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Laufen die Züge mit Diesel?",
+        "en": "Do the trains run on diesel oil?",
+        "lvl": "A2"
       }
     ]
   },
@@ -57753,6 +57753,16 @@
         "de": "Nach dem Sturz schmerzt das Gelenk stark.",
         "en": "After the fall the joint hurts a lot.",
         "lvl": "B1"
+      },
+      {
+        "de": "Bei Kälte schmerzen ihre Gelenke.",
+        "en": "In the cold her joints ache.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bewegung hält die Gelenke gesund.",
+        "en": "Movement keeps the joints healthy.",
+        "lvl": "B1"
       }
     ]
   },
@@ -61975,6 +61985,21 @@
       }
     ]
   },
+  "voc:B1:der Coach": {
+    "def": "coach (trainer or instructor)",
+    "ex": [
+      {
+        "de": "Und ich bin Ihr Coach.",
+        "en": "And, I'm your coach.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Coach gab ihm ein paar gute Ratschläge.",
+        "en": "The coach gave him some good advice.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Cocktail": {
     "def": "A mixed drink, usually containing alcohol.",
     "ex": [
@@ -64438,6 +64463,21 @@
       }
     ]
   },
+  "voc:B1:der Mietwagen": {
+    "def": "rental car, hired car",
+    "ex": [
+      {
+        "de": "Der Mietwagen kostet fünfzig Euro pro Tag.",
+        "en": "The rental car costs fifty euros a day.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Den Mietwagen geben wir am Flughafen zurück.",
+        "en": "We return the rental car at the airport.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Minister": {
     "def": "Leiter eines Ministeriums",
     "ex": [
@@ -65632,6 +65672,21 @@
       }
     ]
   },
+  "voc:B1:der Schlepplift": {
+    "defDe": "Anlage, die Wintersportler auf ihren Sportgeräten (Skier, Snowboards …) auf Schnee einen Hang hinaufbefördert",
+    "ex": [
+      {
+        "de": "Der Schlepplift zieht die Anfänger den Hang hinauf.",
+        "en": "The drag lift pulls the beginners up the slope.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Am Schlepplift muss man die Ski gerade halten.",
+        "en": "At the drag lift you have to keep the skis straight.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B1:der Schlips": {
     "defDe": "Krawatte; ein schmaler Streifen aus Stoff, der um den Hals gebunden und typischerweise zu Hemd und Anzug getragen wird",
     "ex": [
@@ -65938,21 +65993,6 @@
       {
         "de": "Hab es einen Skandal?",
         "en": "Was there a scandal?",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:der Skilehrerin": {
-    "def": "A person who teaches others how to ski.",
-    "ex": [
-      {
-        "de": "Die Skilehrerin zeigt den Kindern das Bremsen.",
-        "en": "The ski instructor shows the children how to brake.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Skilehrerin lobt die Fortschritte der Kinder.",
-        "en": "The ski instructor praises the children's progress.",
         "lvl": "B1"
       }
     ]
@@ -69855,21 +69895,6 @@
       }
     ]
   },
-  "voc:B1:die Coach": {
-    "def": "coach (trainer or instructor)",
-    "ex": [
-      {
-        "de": "Und ich bin Ihr Coach.",
-        "en": "And, I'm your coach.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Der Coach gab ihm ein paar gute Ratschläge.",
-        "en": "The coach gave him some good advice.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Cousine": {
     "def": "Tochter von Onkel oder Tante",
     "ex": [
@@ -71836,21 +71861,6 @@
       {
         "de": "ausgezeichnete Gelegenheit.",
         "en": "excellent opportunity.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:die Gelenk": {
-    "def": "A place in the body where two bones meet and can move.",
-    "ex": [
-      {
-        "de": "Bei Kälte schmerzen ihre Gelenke.",
-        "en": "In the cold her joints ache.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Bewegung hält die Gelenke gesund.",
-        "en": "Movement keeps the joints healthy.",
         "lvl": "B1"
       }
     ]
@@ -74635,21 +74645,6 @@
       }
     ]
   },
-  "voc:B1:die Mietwagen": {
-    "def": "rental car, hired car",
-    "ex": [
-      {
-        "de": "Der Mietwagen kostet fünfzig Euro pro Tag.",
-        "en": "The rental car costs fifty euros a day.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Den Mietwagen geben wir am Flughafen zurück.",
-        "en": "We return the rental car at the airport.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Mikrowelle": {
     "def": "an appliance that heats food quickly",
     "ex": [
@@ -76479,21 +76474,6 @@
       }
     ]
   },
-  "voc:B1:die Schlepplift": {
-    "defDe": "Anlage, die Wintersportler auf ihren Sportgeräten (Skier, Snowboards …) auf Schnee einen Hang hinaufbefördert",
-    "ex": [
-      {
-        "de": "Der Schlepplift zieht die Anfänger den Hang hinauf.",
-        "en": "The drag lift pulls the beginners up the slope.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Am Schlepplift muss man die Ski gerade halten.",
-        "en": "At the drag lift you have to keep the skis straight.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B1:die Schließung": {
     "def": "closure (all senses)",
     "ex": [
@@ -76989,6 +76969,21 @@
       }
     ]
   },
+  "voc:B1:die Skilehrerin": {
+    "def": "A person who teaches others how to ski.",
+    "ex": [
+      {
+        "de": "Die Skilehrerin zeigt den Kindern das Bremsen.",
+        "en": "The ski instructor shows the children how to brake.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Skilehrerin lobt die Fortschritte der Kinder.",
+        "en": "The ski instructor praises the children's progress.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Skipiste": {
     "def": "piste, ski slope",
     "ex": [
@@ -77395,21 +77390,6 @@
       {
         "de": "Ich kenne die Statistiken.",
         "en": "I know the statistics.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:die Stau": {
-    "def": "congestion, stagnancy of water or anything dammed or otherwise backed-up",
-    "ex": [
-      {
-        "de": "Wegen des Staus kam ich zu spät zur Arbeit.",
-        "en": "Because of the traffic jam I was late for work.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Auf der Autobahn steht ein kilometerlanger Stau.",
-        "en": "There is a traffic jam kilometres long on the motorway.",
         "lvl": "B1"
       }
     ]

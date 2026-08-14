@@ -11,6 +11,72 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-14 — eight wrong genders at A1–B1, and a check that was wrong four times first
+
+The B2+ audit left 2,742 A1–B1 nouns unchecked — the levels where a wrong gender does
+the most damage, because it is the first article a learner ever attaches to the word.
+
+**The first run flagged 10% of A1.** At B2+ the rate was 0.5%, so a twenty-fold jump on
+the best-curated words in the corpus meant the check was broken, not the cards — the
+LESSONS rule that says assume exactly that. It was broken four separate ways:
+
+| what it did not know | flagged | truth |
+|---|---|---|
+| `nur Singular` / `nur Plural` / `—` | 29 of the first 31 | the card refusing to teach `die Märze`, `die Milche`, `die Baumwollen` |
+| the umlaut notation `¨-e`, `¨-` | 5 | `der Rock` → `Röcke`, `der Mantel` → `Mäntel` — correct |
+| a plural-taught card's article | 2 | `die Lebensmittel`, `die Geschwister` carry the **plural** article; the dictionary documents a singular the card never teaches |
+| more than one attested plural | 3 | `Picknicke` **and** `Picknicks`; `Balkons` **and** `Balkone`; the check read only the first |
+
+The corpus writes plurals **six** ways — 2,766 full (`die Namen`), 208 suffix (`-en`),
+148 assertions that there is no plural, 14 a lone `-` for an unchanged plural, plus the
+umlaut forms. The file's own header had confidently said "two ways". The multi-plural
+allowance is the one that stings: the gender half of the same check had handled
+`der/das Teil` correctly since day one, and nobody gave the plural half the same rule.
+
+**Corrected, the rate came to 0.4% and eight genders were genuinely wrong.** Four of
+them were caught by the card contradicting *itself*:
+
+| card | is | the card's own example |
+|---|---|---|
+| `die Mietwagen` | **der** | „**Der** Mietwagen kostet fünfzig Euro pro Tag.“ |
+| `die Stau` | **der** | „Wegen **des Staus** kam ich zu spät zur Arbeit.“ |
+| `die Schlepplift` | **der** | „**Der** Schlepplift zieht die Anfänger den Hang hinauf.“ |
+| `die Coach` | **der** | „**Der** Coach gab ihm ein paar gute Ratschläge.“ |
+
+And four from the dictionary: `das Polyester` → **der** (built from *der* Ester);
+`der Skilehrerin` → **die** (the `-in` suffix is feminine without exception);
+`die Gelenk` → **das** (not a form of anything — the singular is *das Gelenk*, the
+plural *die Gelenke*, which the card already had right); `das Diesel` → **der**.
+
+`der Diesel` carries a second defect left for a content pass: the gloss reads "Coke
+mixed with beer" while both examples are about train fuel. The page has one Genus across
+all four senses, so the gender correction holds either way.
+
+**Two of the eight collided, in the two different shapes a collision has.** `die Gelenk`
+corrected onto a card at the *same* level, so the ids clashed and `genderfix` merged it
+directly. `die Stau` corrected onto `voc:A2:der Stau` at *another* level, so the ids did
+not clash at all and the rename looked free — precisely how the Visum duplicate got in
+the day before. Both must now be declared with `merge: true`; an undeclared collision of
+either shape aborts. The cross-level one is handed to `corpus:dupes`, and
+**`corpus:validate` errored on it in between**, which is the guard from that pass doing
+its job on the very next pass.
+
+`genderfix`'s table is now a cumulative ledger rather than a one-shot script: it follows
+`ID_MAP` to recognise its own applied rows, so re-running reports "8 applied, 5 already
+in the corpus" instead of aborting on finished work.
+
+**Left alone, and why** — the audit reports evidence, not verdicts. `der/das Burnout`
+(Duden allows both), `Coaches`/`Coachs`, `Graffiti`/`Graffitis`, `Bachelor`/`Bachelors`,
+`Fachkräftemängel` (nobody writes it), and the plural-taught pair items `die Socken`,
+`die Stiefel`, `die Gartenmöbel`, where `die` is the plural article. `die Gartenmöbel`
+does carry a real gap: its plural field is empty where `die Möbel` says `nur Plural`.
+
+**All 3,587 nouns at every level are now machine-checked: 3,356 decided, 8 flagged, a
+0.1% gender disagreement rate, and every one of the 8 verified defensible by hand.**
+6,580 → 6,578 cards · id map 1,374 → 1,382 · 733 tests green.
+
+---
+
 ### Shipped 2026-08-14 — the shipped corpus gets its genders checked, and the fix breaks something
 
 `scripts/authoring/verify.ts` refuses to write a *new* card whose gender de.wiktionary

@@ -1376,5 +1376,13 @@ export const ID_MAP: Record<string, string> = {
   "voc:B2:die Visum": "voc:B1:das Visum",
   "voc:B2:die Vorstand": "voc:B2:der Vorstand",
   "voc:C1:die Babyboomer": "voc:C1:der Babyboomer",
-  "voc:B2:das Visum": "voc:B1:das Visum"
+  "voc:B2:das Visum": "voc:B1:das Visum",
+  "voc:A1:das Polyester": "voc:A1:der Polyester",
+  "voc:B1:die Mietwagen": "voc:B1:der Mietwagen",
+  "voc:B1:die Gelenk": "voc:B1:das Gelenk",
+  "voc:B1:die Stau": "voc:A2:der Stau",
+  "voc:B1:der Skilehrerin": "voc:B1:die Skilehrerin",
+  "voc:B1:die Schlepplift": "voc:B1:der Schlepplift",
+  "voc:B1:die Coach": "voc:B1:der Coach",
+  "voc:A2:das Diesel": "voc:A2:der Diesel"
 };

@@ -16,7 +16,7 @@
 // dictionary disagreement is evidence and not a verdict — see the nominalised
 // adjectives below, where the dictionary is right and so is the card.
 //
-// ## The false-positive class, excluded by name
+// ## The false-positive classes, excluded by name
 //
 // **Nominalised adjectives take all three genders.** *der Einzelne* and *die
 // Einzelne* are both correct; de.wiktionary documents the lemma under one of
@@ -54,6 +54,7 @@ const limit = Number(arg('limit') ?? '0') || Infinity;
 
 const GENUS: Record<string, 'der' | 'die' | 'das'> = { m: 'der', f: 'die', n: 'das' };
 const strip = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
+const deumlaut = (t: string) => t.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 mkdirSync(CACHE, { recursive: true });
@@ -86,6 +87,29 @@ async function wikitext(page: string): Promise<string | null> {
 const isAdjectivalNoun = (wt: string) =>
   /adjektivische[rn]?\s+Deklination|substantiviert/i.test(wt);
 
+/** The corpus writes plurals **five** ways, not the two this file first assumed:
+ *  2,766 full (`die Namen`), 208 suffix (`-en`), 102 `nur Singular`, 75 `—`, and
+ *  11 `nur Plural`. The last three are not plurals to compare — they are the card
+ *  *asserting there is nothing useful to teach here*, and the dictionary almost
+ *  always has a technical form anyway: `die Märze`, `die Milche`, `die Baumwollen`,
+ *  `die Gemüse`. Comparing against those flagged 29 of the first 31 A1 rows, every
+ *  one of them a correct card. They are counted and skipped, never flagged.
+ *
+ *  See docs/LESSONS.md class 2 — this is the same mistake as the first version of
+ *  the suffix check, made again one notation later.
+ *
+ *  A lone ASCII `-` is **not** one of them: 14 cards use it for an unchanged plural
+ *  (`der Pullover` → `die Pullover`) and that comparison works. Only the em dash
+ *  `—` (61 cards) means "no plural". */
+const isAssertion = (p: string) => /^nur\s/i.test(p.trim()) || p.trim() === '—';
+
+/** A plurale tantum card carries the **plural** article: `die Eltern`, `die Leute`,
+ *  `die Geschwister`. The dictionary documents the singular (`das Geschwister`), so
+ *  a gender comparison is not wrong about the card — it is asking the wrong
+ *  question. Same reasoning as the adjectival nouns above. */
+const isPluraleTantum = (p: string | null | undefined) =>
+  (p ?? '').trim().toLowerCase() === 'nur plural';
+
 type Row = { term: string; id: string; level: string; kind: string; detail: string };
 
 const corpus = loadCorpus(PATHS.vocab) as Word[];
@@ -95,6 +119,7 @@ console.log(`auditing ${Math.min(nouns.length, limit)} of ${nouns.length} noun(s
 
 const rows: Row[] = [];
 let agree = 0, ambiguous = 0, noEntry = 0, undecided = 0, done = 0;
+let pluraleTantum = 0, pluralAsserted = 0;
 
 for (const w of nouns) {
   if (done >= limit) break;
@@ -104,6 +129,7 @@ for (const w of nouns) {
   if (wt === '') { noEntry++; continue; }
 
   if (isAdjectivalNoun(wt)) { ambiguous++; continue; }
+  if (isPluraleTantum(w.plural)) { pluraleTantum++; continue; }
 
   const genders = new Set<string>();
   for (const m of wt.matchAll(/\|\s*Genus(?:\s*\d*)?\s*=\s*([mfn])\b/g)) genders.add(GENUS[m[1]]);
@@ -117,26 +143,49 @@ for (const w of nouns) {
 
   // Plural, only where the card claims one and the page states one.
   //
-  // **The corpus writes plurals two ways**, which a naive comparison does not
-  // survive: 2,763 cards carry the full form (`die Namen`) and 210 carry a
-  // suffix (`-en`, `-s`, `-gänge`, or `-` for an unchanged plural). The first
-  // version of this check compared the raw strings and flagged 8 of the first 12
-  // cards — every one of them correct. See docs/LESSONS.md class 2.
+  // **The corpus writes plurals five ways**, which a naive comparison does not
+  // survive: 2,766 cards carry the full form (`die Namen`), 208 a suffix (`-en`,
+  // `-s`, `-gänge`), 14 a lone `-` for an unchanged plural, and 163 an assertion
+  // that there is no plural to teach (`nur Singular`, `nur Plural`, `—`) — see
+  // `isAssertion` above, which skips those. The first version of this check
+  // compared the raw strings and flagged 8 of the first 12 cards; the second knew
+  // two notations and flagged 29 of the first 31 A1 rows. Every one was correct.
+  // See docs/LESSONS.md class 2.
   //
   // A suffix matches if the dictionary's plural *ends with* it, which covers the
   // appending cases (`Zuständigkeit` + `-en`) and the stem-changing ones
   // (`Werdegang` → `-gänge` → `Werdegänge`) without having to model umlaut.
-  if (w.plural) {
-    const m = wt.match(/\|\s*Nominativ Plural(?:\s*\d*)?\s*=\s*([^\n|}]+)/);
-    const want = m?.[1]?.trim();
+  if (w.plural && isAssertion(w.plural)) pluralAsserted++;
+  if (w.plural && !isAssertion(w.plural)) {
+    // **All** the plurals the page lists, not the first one. `Picknick` documents
+    // `Picknicke` *and* `Picknicks`, `Balkon` documents `Balkons` *and* `Balkone`,
+    // and `Bank` carries two entries with `Bänke` and `Banken` — a card matching
+    // the second was reported wrong by a check reading only the first. This is the
+    // same allowance the gender half already makes for `der/das Teil`; the plural
+    // half never got it. It was 3 of the 4 rows left after the notation fix.
+    const wants = [...wt.matchAll(/\|\s*Nominativ Plural(?:\s*\d*)?\s*=\s*([^\n|}]+)/g)]
+      .map((m) => m[1].trim())
+      .filter((v) => v && v !== '—' && v !== '-');
     const have = w.plural.replace(/^die\s+/i, '').trim();
     const singular = strip(w.term);
-    if (want && want !== '—' && want !== '-' && want !== '') {
+    const matches = (want: string) => {
       const wl = want.toLowerCase();
-      const ok = have.startsWith('-')
+      // `¨-e`, `¨-er`, `¨-` — the umlaut notation, a sixth way the corpus writes a
+      // plural and the last one this check learned. It flagged `der Rock` "¨-e"
+      // against „Röcke“ and `der Mantel` "¨-" against „Mäntel“: correct cards
+      // every time. Undo the umlaut, strip the suffix, and what is left must be
+      // the singular.
+      if (have.startsWith('¨')) {
+        const suffix = have.replace(/^¨-?/, '').toLowerCase();
+        const stem = deumlaut(wl).slice(0, wl.length - suffix.length);
+        return deumlaut(wl).endsWith(suffix) && stem === singular.toLowerCase();
+      }
+      return have.startsWith('-')
         ? (have === '-' ? wl === singular.toLowerCase() : wl.endsWith(have.slice(1).toLowerCase()))
         : wl === have.toLowerCase();
-      if (!ok) rows.push({ term: w.term, id: w.id, level: w.level, kind: 'plural', detail: `card "${have}" · wiktionary "${want}"` });
+    };
+    if (wants.length && !wants.some(matches)) {
+      rows.push({ term: w.term, id: w.id, level: w.level, kind: 'plural', detail: `card "${have}" · wiktionary "${wants.join('" / "')}"` });
     }
   }
 
@@ -146,7 +195,8 @@ for (const w of nouns) {
 const decided = agree + rows.filter((r) => r.kind === 'gender').length;
 console.log(`\nchecked ${done} · decided ${decided} · agree ${agree}`);
 console.log(`flagged ${rows.length} (gender ${rows.filter((r) => r.kind === 'gender').length} · plural ${rows.filter((r) => r.kind === 'plural').length})`);
-console.log(`adjectival nouns skipped ${ambiguous} · no dictionary entry ${noEntry} · fetch undecided ${undecided}`);
+console.log(`adjectival nouns skipped ${ambiguous} · plurale tantum skipped ${pluraleTantum} · no dictionary entry ${noEntry} · fetch undecided ${undecided}`);
+console.log(`plural not compared (card asserts „nur Singular“ / „nur Plural“ / „—“): ${pluralAsserted}`);
 if (decided) console.log(`gender disagreement rate: ${(rows.filter((r) => r.kind === 'gender').length / decided * 100).toFixed(1)}%`);
 
 if (rows.length) {

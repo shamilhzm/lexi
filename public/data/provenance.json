@@ -1188,7 +1188,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:A2:das Diesel",
+    "id": "voc:A2:der Diesel",
     "lemma": "Diesel",
     "level": "A2",
     "levelSource": "reference",
@@ -9669,7 +9669,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:die Coach",
+    "id": "voc:B1:der Coach",
     "lemma": "Coach",
     "level": "B1",
     "levelSource": "reference",

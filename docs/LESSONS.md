@@ -93,6 +93,24 @@ it turns out to be wrong.**
   gender audit must exclude adjectival nouns — *der Bekannte*, *die Angestellte*, *der
   Deutsche* — the same way `caseSafe` already excludes n-Deklination masculines. Two
   hits, one false, exactly as this class predicts.
+- **The same gender check, wrong four more ways at A1.** *(2026-08-14.)* Pointed at the
+  2,742 A1–B1 nouns it flagged **10% of A1** — against 0.5% at B2+. A twenty-fold jump
+  on the *best*-curated words in the corpus is not a finding, and all four causes were
+  the check: three plural notations it had never seen (`nur Singular`, `nur Plural`,
+  `—`), the umlaut notation (`¨-e` against „Röcke“), a gender comparison against the
+  singular of a plural-taught card (`die Lebensmittel` carries the *plural* article),
+  and a comparison against only the **first** of several attested plurals (`Picknicke`
+  *and* `Picknicks`). Corrected: 0.4%, and eight genders genuinely wrong. Two further
+  rules fall out of it:
+  - **Count the notations before comparing against them.** The file's header said the
+    corpus wrote plurals "two ways". It writes them **six**. Every one of the four bugs
+    was a variant nobody had enumerated — and one enumeration query would have found
+    all of them.
+  - **When a check has two halves, the allowance one half needs, the other usually
+    needs too.** The gender half had handled `der/das Teil` — a word with two right
+    answers — since the day it was written. The plural half compared against a single
+    value for just as long, and `der Balkon` has two plurals for exactly the same
+    reason.
 - **Mining verb government from example sentences.** *(2026-08-13, caught before
   anything was written.)* The backlog and the pedagogic critique both proposed deriving
   `warten auf + A` from the corpus's 16,000 examples — "derivable for a large share via
@@ -136,6 +154,11 @@ that is a latent version of this bug.**
   learner schedule**. No error, no way to notice. It has never bitten only because the
   writer exclusively appends — load-bearing behaviour that reads like an implementation
   detail. **Still open** (BACKLOG).
+- **A collision has two shapes, and only one of them has an id.** The day after the
+  Visum duplicate, `die Stau` corrected to `der Stau` — which existed at **another
+  level**, so the ids did not clash and the id guard added for Visum saw nothing.
+  A rename must be checked against the invariant in *term* space as well as id space.
+  *(Caught by `corpus:validate`'s new cross-level rule, one pass after it was written.)*
 - **A rename can collide.** Correcting `die Visum` → `das Visum` (2026-08-14) produced a
   term the corpus already had at B1, so a gender fix silently *created* a duplicate — the
   exact defect Now #3 had spent 874 merges removing. `genderfix.ts` had a guard for this

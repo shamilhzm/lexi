@@ -22943,12 +22943,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:das Polyester",
-    "term": "das Polyester",
+    "id": "voc:A1:der Polyester",
+    "term": "der Polyester",
     "en": "polyester",
     "pos": "noun",
     "level": "A1",
-    "gender": "das",
+    "gender": "der",
     "plural": "nur Singular",
     "ipa": "polyˈʔɛstɐ",
     "def": "A synthetic fiber or fabric used to make clothing and textiles.",
@@ -105178,12 +105178,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Mietwagen",
-    "term": "die Mietwagen",
+    "id": "voc:B1:der Mietwagen",
+    "term": "der Mietwagen",
     "en": "rental car",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Mietwagen",
     "ipa": "ˈmiːtvaːɡn̩",
     "def": "rental car, hired car",
@@ -115619,35 +115619,6 @@
     "defDe": "Medizin: Druck des Blutes in einem arteriellen oder venösen Blutgefäß"
   },
   {
-    "id": "voc:B1:die Gelenk",
-    "term": "die Gelenk",
-    "en": "joint",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Gelenke",
-    "ipa": "ɡəˈlɛŋk",
-    "def": "A place in the body where two bones meet and can move.",
-    "syn": [
-      "Geleich"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Bei Kälte schmerzen ihre Gelenke.",
-        "en": "In the cold her joints ache.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Bewegung hält die Gelenke gesund.",
-        "en": "Movement keeps the joints healthy.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Body & health",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:das Gelenk",
     "term": "das Gelenk",
     "en": "joint",
@@ -115670,6 +115641,16 @@
       {
         "de": "Nach dem Sturz schmerzt das Gelenk stark.",
         "en": "After the fall the joint hurts a lot.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bei Kälte schmerzen ihre Gelenke.",
+        "en": "In the cold her joints ache.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bewegung hält die Gelenke gesund.",
+        "en": "Movement keeps the joints healthy.",
         "lvl": "B1"
       }
     ],
@@ -118953,38 +118934,6 @@
       {
         "de": "In der Fußgängerzone spielen Straßenmusiker.",
         "en": "Street musicians play in the pedestrian zone.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Urban life",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Stau",
-    "term": "die Stau",
-    "en": "traffic jam",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Staus",
-    "ipa": "ʃtaʊ̯",
-    "def": "congestion, stagnancy of water or anything dammed or otherwise backed-up",
-    "syn": [
-      "Wehr",
-      "Stauwehr",
-      "Stauwerk",
-      "Stauanlage"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Wegen des Staus kam ich zu spät zur Arbeit.",
-        "en": "Because of the traffic jam I was late for work.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Auf der Autobahn steht ein kilometerlanger Stau.",
-        "en": "There is a traffic jam kilometres long on the motorway.",
         "lvl": "B1"
       }
     ],
@@ -126704,12 +126653,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Skilehrerin",
-    "term": "der Skilehrerin",
+    "id": "voc:B1:die Skilehrerin",
+    "term": "die Skilehrerin",
     "en": "ski instructor",
     "pos": "noun",
     "level": "B1",
-    "gender": "der",
+    "gender": "die",
     "plural": "die Skilehrerinnen",
     "ipa": "ˈʃiːleːʁəʁɪn",
     "def": "A person who teaches others how to ski.",
@@ -126893,12 +126842,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Schlepplift",
-    "term": "die Schlepplift",
+    "id": "voc:B1:der Schlepplift",
+    "term": "der Schlepplift",
     "en": "T-bar lift, drag lift",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Schlepplifte",
     "ipa": "ˈʃlɛpˌlɪft",
     "def": null,
@@ -143194,12 +143143,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Coach",
-    "term": "die Coach",
+    "id": "voc:B1:der Coach",
+    "term": "der Coach",
     "en": "coach",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "der",
     "plural": "die Coaches",
     "ipa": "koːtʃ",
     "def": "coach (trainer or instructor)",
@@ -159219,12 +159168,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:das Diesel",
-    "term": "das Diesel",
+    "id": "voc:A2:der Diesel",
+    "term": "der Diesel",
     "en": "Coke mixed with beer",
     "pos": "noun",
     "level": "A2",
-    "gender": "das",
+    "gender": "der",
     "plural": "die Diesel",
     "ipa": "ˈdiːzl̩",
     "def": "ellipsis of Dieselkraftstoff (“diesel fuel”); ellipsis of Dieselmotor (“diesel engine”)",
