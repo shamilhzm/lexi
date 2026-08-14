@@ -11,6 +11,58 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-13 — the taxonomy tells the truth about itself
+
+`corpus:sector-merge`, and a finding that was half right aimed at the wrong half.
+
+**What the critique claimed:** *"2,201 cards, 34% of the corpus, in five bins that carry
+no semantic information."* Measured card by card, three of those five — *Adjectives*,
+*Adverbs*, *Core verbs* — are coherent part-of-speech decks, and *Core Vocabulary* is
+largely function words, which genuinely have no topic. Only *Miscellaneous* (501) was
+the defect described.
+
+**What was actually broken** turned up only when the data was queried directly, and none
+of it was visible from a list of the biggest buckets:
+
+- **Seven sectors existed twice.** *Body & health* (33) beside *Body and health* (27);
+  *Colors* beside *Colours*; *Hobbies & Leisure*, *Work & Profession*, *At the Bank*,
+  *Festivals & Customs*, *Employment Contract*. A sector is a **treemap tile** and a
+  **deck**, so a split name draws one topic as two smaller things — and it skews
+  `weakestSectors()`, which picks tomorrow's fresh vocabulary. **127 cards merged.**
+- **118 cards had no sector row at all.** `sectors.json` described 277 sectors for 283
+  distinct fields; six names — *Work & Study*, *Society & Politics*, *Everyday Life*,
+  *Science & Technology*, *Travel & Transport*, *Media & Arts* — existed on cards and
+  nowhere else, and would have fallen to the default group unnoticed. Adopted with
+  their real groups.
+- **The Miscellaneous *group* held 36 sectors / 714 cards**, of which 35 sectors were
+  correctly named and simply misfiled — *Elections* is politics, *Laundry* is daily
+  life, *Visual Arts* is art. Regrouped. The tile is now **1 sector / 501 cards**.
+- ***Beschwerden***, the one German sector name in an English taxonomy — the VHS
+  teacher's smallest and most correct complaint — merged into *Ailments*.
+
+**Sectors and fields are now in sync at 275**, with zero duplicate names, zero orphaned
+fields and zero empty rows.
+
+**Why this could be mechanical.** A card's id does not contain its field
+(`voc:A1:der Name`), so re-sectoring is **not** a schedule migration — unlike a relevel,
+which changes the id and needs `ID_MAP` entries. The real hazard is a merge that crosses
+a theme group, silently moving cards to a different tile, and the script refuses to do
+that. It is also idempotent: a `from` that no longer exists is a merge already applied,
+not an error.
+
+**`src/lib/brain/atlas.ts` was the evidence this was already being felt.** It normalises
+sector names before mapping them to a cortical region, and its own comments name these
+exact pairs as the reason. Those comments now say the duplication *was* there and that
+the normalisation stays as a guard against its return.
+
+**Still open:** the 501 genuinely unclassified cards. That is per-card judgement, not a
+rename, and 208 of them are pipeline-added so `corpus:resector` can carry them once the
+lemma→sector entries are authored.
+
+`corpus:validate` PASS, 733 green, treemap verified.
+
+---
+
 ### Shipped 2026-08-13 — C1 and C2 stop being a rumour
 
 *"Your C1 is a rumour"* was the university Lektor's line in [PEDAGOGY](PEDAGOGY.md), and

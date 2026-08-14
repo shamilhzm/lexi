@@ -23,6 +23,7 @@
     "corpus:audio": "node scripts/corpus/audio.ts",
     "corpus:grammar": "node scripts/corpus/grammar-supplement.ts",
     "corpus:resector": "node scripts/corpus/resector.ts",
+    "corpus:sector-merge": "node scripts/corpus/sector-merge.ts",
     "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
     "corpus:flags": "node scripts/corpus/flags.ts",

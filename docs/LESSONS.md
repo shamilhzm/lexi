@@ -185,6 +185,18 @@ deleting them.**
   The real figure is **129**: the same pattern also matches the *model answers*, which
   are the bulk of those files. Caught only because a test asserted `>= 200` and failed.
   *Count inside the thing you are counting* — scope the read to the export, not the file.
+- **A taxonomy finding that was half right and aimed at the wrong half.**
+  *(2026-08-13.)* PEDAGOGY said "2,201 cards, 34% of the corpus, in five bins that
+  carry no semantic information". Measured card by card, three of those five —
+  *Adjectives*, *Adverbs*, *Core verbs* — are coherent part-of-speech decks, and
+  *Core Vocabulary* is largely function words, which genuinely have no topic. Only
+  *Miscellaneous* (501) was the defect claimed. Meanwhile the *real* taxonomy bugs were
+  invisible to that framing and turned up only when the data was queried directly:
+  seven sectors existing twice under case variants, 118 cards whose field had no
+  `sectors.json` row at all, and a Miscellaneous **group** carrying 35 correctly-named
+  but misfiled sectors. *A count of the biggest buckets is not an audit of the
+  taxonomy — check the joins (name collisions, orphaned keys, group assignment), not
+  just the sizes.*
 - **Three findings in one critique died on contact with the grammar bank.** Verb valency
   ("derivable via the matcher" — it is not), modal particles ("the words are not in the
   lexicon" — they are, as lexical senses, and five points teach the system), and

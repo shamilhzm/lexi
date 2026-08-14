@@ -14,8 +14,12 @@
 // "Weather & Climate" lands in the same place "Weather conditions" already does,
 // and the residual is a deliberate destination rather than an accident.
 //
-// Normalisation is not cosmetic. The corpus ships both `Festivals & Customs` and
-// `Festivals & customs`, and `Colors` beside `Colours`; matching the raw string
+// Normalisation is not cosmetic. The corpus *shipped* both `Festivals & Customs`
+// and `Festivals & customs`, and `Colors` beside `Colours` — seven such pairs,
+// merged by `corpus:sector-merge` on 2026-08-13, which this file's own comments
+// are what finally motivated. The normalisation stays: it is now a guard against
+// the duplication returning rather than a workaround for it, and matching the raw
+// string
 // would scatter one concept across two regions.
 import type { Word } from '../../types.ts';
 

@@ -921,12 +921,12 @@ Informatik	University & Studies
 Jura	University & Studies
 Mathematik	Education
 Philosophie	Education
-Lehrerin	Work & Profession
-Sprachlehrer	Work & Profession
-Deutschlehrer	Work & Profession
-Ingenieurin	Work & Profession
+Lehrerin	Work & profession
+Sprachlehrer	Work & profession
+Deutschlehrer	Work & profession
+Ingenieurin	Work & profession
 Schülerin	Education
-Schriftstellerin	Work & Profession
+Schriftstellerin	Work & profession
 Genie	Society
 Nobelpreis	Society
 Plattenspieler	Technology & Devices
@@ -955,7 +955,7 @@ Dessert	Food & drink
 Apfelstrudel	Food & drink
 Sonnabend	Core Vocabulary
 Ruhetag	Core Vocabulary
-Kellnerin	Work & Profession
+Kellnerin	Work & profession
 Telefonkarte	Communication
 Champignon	Food & drink
 Hackfleisch	Food & drink
@@ -986,26 +986,26 @@ Referat	University & Studies
 Semester	University & Studies
 Kommilitone	University & Studies
 Kommilitonin	University & Studies
-Verkäuferin	Work & Profession
-Kassiererin	Work & Profession
-Bürokraft	Work & Profession
-Programmiererin	Work & Profession
+Verkäuferin	Work & profession
+Kassiererin	Work & profession
+Bürokraft	Work & profession
+Programmiererin	Work & profession
 Grippe	Health
 Pech	Core Vocabulary
-Webentwicklerin	Work & Profession
-Juristin	Work & Profession
-Betriebswirt	Work & Profession
-Informatikerin	Work & Profession
-Architektin	Work & Profession
-Zahnärztin	Work & Profession
-Mediziner	Work & Profession
-Chemikerin	Work & Profession
-Maschinenbauer	Work & Profession
-Werbefachmann	Work & Profession
-Köchin	Work & Profession
-Wirtin	Work & Profession
-Automechaniker	Work & Profession
-Bäuerin	Work & Profession
+Webentwicklerin	Work & profession
+Juristin	Work & profession
+Betriebswirt	Work & profession
+Informatikerin	Work & profession
+Architektin	Work & profession
+Zahnärztin	Work & profession
+Mediziner	Work & profession
+Chemikerin	Work & profession
+Maschinenbauer	Work & profession
+Werbefachmann	Work & profession
+Köchin	Work & profession
+Wirtin	Work & profession
+Automechaniker	Work & profession
+Bäuerin	Work & profession
 Logo	Business & Workplace
 Band	Arts and culture
 Spielerin	Sport
@@ -1015,8 +1015,8 @@ Siegerin	Sport
 Flyer	Communication
 Sporthalle	Sport
 Kilometer	Core Vocabulary
-Organisator	Work & Profession
-Hausmeisterin	Work & Profession
+Organisator	Work & profession
+Hausmeisterin	Work & profession
 Apartment	Housing & Room Search
 Wohngemeinschaft	Housing & Room Search
 Bewohnerin	Housing & Room Search
@@ -1028,9 +1028,9 @@ Küchentisch	Home
 Herdplatte	Home
 Studentenwohnheim	Housing & Room Search
 Studentenwerk	University & Studies
-Berufstätige	Work & Profession
-Grafikdesigner	Work & Profession
-Grafikdesignerin	Work & Profession
+Berufstätige	Work & profession
+Grafikdesigner	Work & profession
+Grafikdesignerin	Work & profession
 Restmüll	Home
 Mülltüte	Home
 Altglas	Home
@@ -1050,7 +1050,7 @@ Copyshop	Money & shopping
 Espresso	Food & drink
 Milchkaffee	Food & drink
 Schokoladenkuchen	Food & drink
-Inhaberin	Work & Profession
+Inhaberin	Work & profession
 Wegbeschreibung	City & Directions
 Fahrkartenautomat	Transport
 Ort	Core Vocabulary
@@ -1067,17 +1067,17 @@ etwas	Core Vocabulary
 nichts	Core Vocabulary
 mancher	Core Vocabulary
 # --- DaF kompakt A2 batch (2026-07-18): noun sector map; verbs/adj/adv fall to POS defaults.
-Ball	Festivals & Customs
-Weihnachtsbaum	Festivals & Customs
-Bescherung	Festivals & Customs
-Christkind	Festivals & Customs
-Erntedankfest	Festivals & Customs
-Abschlussfeier	Festivals & Customs
-Karfreitag	Festivals & Customs
-Osterhase	Festivals & Customs
-Ostermontag	Festivals & Customs
-Ostersonntag	Festivals & Customs
-Weihnachtsfest	Festivals & Customs
+Ball	Festivals & customs
+Weihnachtsbaum	Festivals & customs
+Bescherung	Festivals & customs
+Christkind	Festivals & customs
+Erntedankfest	Festivals & customs
+Abschlussfeier	Festivals & customs
+Karfreitag	Festivals & customs
+Osterhase	Festivals & customs
+Ostermontag	Festivals & customs
+Ostersonntag	Festivals & customs
+Weihnachtsfest	Festivals & customs
 Büffet	Food & drink
 Fondue	Food & drink
 Frucht	Food & drink
@@ -1088,13 +1088,13 @@ Master	University & Studies
 Talar	University & Studies
 Besteck	Home
 Dorf	Core Vocabulary
-Festhalle	Festivals & Customs
+Festhalle	Festivals & customs
 Geschirr	Home
 Schüssel	Home
 Topf	Home
 Kochbuch	Food & drink
-Konfetti	Festivals & Customs
-Luftschlange	Festivals & Customs
+Konfetti	Festivals & customs
+Luftschlange	Festivals & customs
 Vollmond	Weather & nature
 Parfum	Money & shopping
 Rest	Core Vocabulary
@@ -1143,7 +1143,7 @@ Quiz	Games
 Rauchverbot	Society
 Sauberkeit	Home
 Bau	Urban life
-Aschermittwoch	Festivals & Customs
+Aschermittwoch	Festivals & customs
 Kommunikationsmittel	Communication
 Konsonant	Education
 Sommersemester	University & Studies
@@ -1158,21 +1158,21 @@ Klub	Free time
 Ruf	Society
 Tourist	Travel
 Touristin	Travel
-Girokonto	At the Bank
-Kreditinstitut	At the Bank
-Kundennummer	At the Bank
-Online-Banking	At the Bank
+Girokonto	At the bank
+Kreditinstitut	At the bank
+Kundennummer	At the bank
+Online-Banking	At the bank
 Personalausweis	Administration
-PIN	At the Bank
-Sparbuch	At the Bank
-Transaktion	At the Bank
-Zins	At the Bank
+PIN	At the bank
+Sparbuch	At the bank
+Transaktion	At the bank
+Zins	At the bank
 Hauptmenü	Media & technology
 Besitzer	Society
 Finder	Society
 Finderlohn	Society
 Fundsache	Administration
-Polizist	Work & Profession
+Polizist	Work & profession
 Wertsache	Money & shopping
 Buchhandlung	Money & shopping
 Ehrlichkeit	Emotions
@@ -1185,7 +1185,7 @@ Pfeife	Core Vocabulary
 Pfütze	Weather & nature
 Portemonnaie	Money & shopping
 Projekt	Work
-Richter	Work & Profession
+Richter	Work & profession
 Versteigerung	Money & shopping
 Zuordnung	Education
 Mandel	Body & health
@@ -1201,7 +1201,7 @@ Rheuma	Health
 Kassenpatient	Healthcare System
 Hausarzt	Health
 Allgemeinmediziner	Healthcare System
-Arzthelferin	Work & Profession
+Arzthelferin	Work & profession
 Spezialist	Health
 Internist	Healthcare System
 Orthopäde	Healthcare System
@@ -1251,9 +1251,9 @@ Aktenkoffer	Business & Workplace
 Ökonomie	Society
 Regisseurin	Arts and culture
 Eintrag	Communication
-Feierlichkeit	Festivals & Customs
+Feierlichkeit	Festivals & customs
 Katalog	Money & shopping
-Kindermädchen	Work & Profession
+Kindermädchen	Work & profession
 Klischee	Society
 Monatsende	Core Vocabulary
 Motto	Core Vocabulary
@@ -1280,16 +1280,16 @@ Politikerin	Politics
 Profil	Communication
 Auszubildende	Education
 Lehrling	Education
-Astronaut	Work & Profession
-Bäcker	Work & Profession
-Bankkauffrau	Work & Profession
-Berufsberater	Work & Profession
+Astronaut	Work & profession
+Bäcker	Work & profession
+Bankkauffrau	Work & profession
+Berufsberater	Work & profession
 Einzelhandel	Business & Workplace
-Elektroniker	Work & Profession
-Eventmanager	Work & Profession
-Florist	Work & Profession
-Mechatroniker	Work & Profession
-Sozialpädagoge	Work & Profession
+Elektroniker	Work & profession
+Eventmanager	Work & profession
+Florist	Work & profession
+Mechatroniker	Work & profession
+Sozialpädagoge	Work & profession
 Kraftfahrzeug	Transport
 Verkauf	Business & Workplace
 Bearbeitung	Administration

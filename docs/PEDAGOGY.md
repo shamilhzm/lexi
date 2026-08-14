@@ -507,7 +507,7 @@ the item** — those are re-ranked here from the pedagogic side, not discovered.
 | 5 | ⟳ **Speaking has no recording**, though local-only playback needs no backend and breaks no promise. | **P0** | L4, L1, T6 | output |
 | 6 | ⟳ **Listening is 10 human recordings.** Synthesis teaches citation form; every exam tests connected speech. | **P0** | L1, L4, L6, T3 | input |
 | 7 | ⚠️ **The corpus is 2.3% multi-word and 7 particles.** **Largely withdrawn 2026-08-13** — the finding measured the card corpus only. 129 Redemittel ship in the exam speaking labs (now scheduled) and five grammar points teach the particle system. The residue is real but smaller: this material lives outside the cards, so search, decks and print could not see it. | **P2** | L3, L5, T3, T6 | corpus |
-| 8 | **34% of cards sit in five non-semantic bins**, and `weakestSectors()` feeds tomorrow's vocabulary off that taxonomy. | **P1** | T3, L6, L1 | corpus |
+| 8 | ⚠️ **34% of cards sit in five non-semantic bins**, and `weakestSectors()` feeds tomorrow's vocabulary off that taxonomy. **Half fixed, half overstated, 2026-08-13** — three of the five bins are coherent POS decks; the real defects were seven duplicated sector names, 118 cards with no sector row, and a Miscellaneous *group* holding 35 misfiled sectors. All three fixed; the 501 genuinely unclassified cards remain. | **P1** | T3, L6, L1 | corpus |
 | 9 | ⟳ **No textbook/chapter alignment**, and the functional sectors that would carry it hold one card each. | **P1** | T3, L1, T6 | syllabus |
 | 10 | ⟳ **C1/C2 is 3% of the exercise bank** (156 of 5,207) against 1,538 at A1. | **P1** | T4, L5 | corpus |
 | 11 | **No collocation and no verb valency field.** 1,199 verbs that don't know their own preposition. | **P1** | L2, L5, T4 | corpus |
@@ -596,10 +596,27 @@ new part.
    card, and the case is filled by rule for one-way prepositions (`zu` → Dativ, `für` →
    Akkusativ) and **refused for two-way ones**, because which case `auf` takes after a
    verb *is* the missing fact. Growing past 45 is authoring, not mining.
-9. **Fix the taxonomy.** Re-sector the 2,201 cards in *Miscellaneous / Core Vocabulary
-   / Adjectives / Adverbs / Core verbs*, and fill the functional sectors that currently
-   hold one card. The treemap is the app's best screen and a third of it says nothing;
-   `weakestSectors()` is choosing tomorrow's words from it.
+9. 🔄 **Fix the taxonomy.** **Half done 2026-08-13, and the finding was aimed at the
+   wrong half.** Measured properly, the five "junk bins" are two different things:
+   *Miscellaneous* (501) is genuinely unclassified, but *Adjectives*, *Adverbs* and
+   *Core verbs* are coherent part-of-speech decks and *Core Vocabulary* is largely
+   function words, which have no topic. Calling all 2,201 cards uncategorised was
+   overstated.
+
+   What was actually broken, and is now fixed by `corpus:sector-merge`:
+   - **Seven sectors existed twice** under case- or `&`/`and`-variants — *Body & health*
+     (33) beside *Body and health* (27), *Colors* beside *Colours*. A split name draws
+     one topic as two smaller tiles and skews `weakestSectors()`. 127 cards merged.
+   - **118 cards on six field names had no `sectors.json` row at all**, so the file
+     described 277 sectors for 283 fields. Adopted with their real groups.
+   - **The Miscellaneous *group* held 36 sectors / 714 cards**, of which 35 sectors
+     were misfiled — *Elections*, *Laundry*, *Visual Arts*. Regrouped; the tile is now
+     **1 sector / 501 cards**.
+   - *Beschwerden*, the one German sector name in an English taxonomy, merged into
+     *Ailments*.
+
+   Sectors and fields are now in sync at **275**. **Still open:** the 501 genuinely
+   unclassified cards, which is per-card judgement rather than a rename.
 10. 🔄 **C1/C2 exercise depth.** Was 156 items across two levels; now **301**.
     Authored not generated — at these levels a generated item can state that an answer
     is right but not why — and appended through `corpus:gex`, because the positional
