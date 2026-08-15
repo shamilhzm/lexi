@@ -63,7 +63,30 @@ shapes:
 | noun and verb of one stem | `die Folge` / `folgen` · `die Spende` / `spenden` · `duschen` / `die Dusche` |
 | reflexive and plain variant | `erinnern` / `sich erinnern` · `der Vorgesetzte` / `der/die Vorgesetzte` |
 
-*Not* all of these should merge. A participle that has become an adjective in its own
+> **The singular/plural shape is ruled, 2026-08-15.** 17 noun cards whose *term* is
+> another noun card's plural form (a first pass said 46 by counting verb infinitives
+> — *fragen* is not the plural of *die Frage*).
+>
+> **Merge (11)** — a plural filed as its own noun, teaching one word twice:
+> `die Schuhe`→`der Schuh` · `die Nudeln`→`die Nudel` · `die Socken`→`die Socke` ·
+> `die Handschuhe`→`der Handschuh` · `die Muskeln`→`der Muskel` ·
+> `die Sandalen`→`die Sandale` · `die Stiefel`→`der Stiefel` ·
+> `die Emissionen`→`die Emission` · `die Kenntnisse`→`die Kenntnis` ·
+> `erneuerbare Energien`→`die erneuerbare Energie` · `die Daten`→`das Datum`.
+>
+> **Keep both (6)** — not plurals, or a plural that has become its own word:
+> `der Westen` (the west) is not the plural of `die Weste` (waistcoat), and
+> `das Reisen` / `das Angeln` are nominalised infinitives, not plurals of `die Reise`
+> / `die Angel`. `die Schulden` (debts) and `die Schuld` (guilt) part company in
+> meaning, as do `die Medien` and `das Medium`; `die Alpen` is a proper name.
+>
+> ⚠️ **The mechanism does not exist yet.** `corpus:dupes` groups by *identical* term
+> and these differ by definition, so merging them needs a new expect-guarded pass —
+> one that also folds the retired card's examples onto the keeper and writes `ID_MAP`,
+> the way `genderfix.ts` learned to. That is the next step, and it is mechanical now
+> that the ruling is written down.
+
+*Not* all of these should merge.*Not* all of these should merge. A participle that has become an adjective in its own
 right (*verboten*, *belegt*) is arguably a card worth having; a plural filed as a
 separate noun almost never is. **The shapes need separate rulings**, which is why this
 is not simply another `corpus:dupes` run.
