@@ -45,6 +45,40 @@ fires on thousands of rows as a bug in the check.*
 - **Corpus audit: 0 errors** across all 7,389 cards — no article/gender mismatch, no
   unknown sector, no untranslated example, no markup leaking into a field.
 
+### 🟠 Cards that are inflections of each other — measured 2026-08-15
+
+**Now #3 merged terms that were *identical*. These are terms that are forms of one
+another, which a term-equality check cannot see** — so they survived the 874-group
+merge and they make the index ambiguous: two cards claim the same surface form, and
+first-wins picks one.
+
+Measured over 16,979 example rows: **236 (1.39%)** of examples fail to resolve their
+own headword because another card claimed the token. 173 distinct collisions, in four
+shapes:
+
+| shape | examples |
+|---|---|
+| singular and plural as separate cards | `der Handschuh` / `die Handschuhe` · `die Schuld` / `die Schulden` · `die Emission` / `die Emissionen` |
+| verb and its participle-adjective | `erlauben` / `erlaubt` · `verbieten` / `verboten` · `verletzen` / `verletzt` · `belegen` / `belegt` |
+| noun and verb of one stem | `die Folge` / `folgen` · `die Spende` / `spenden` · `duschen` / `die Dusche` |
+| reflexive and plain variant | `erinnern` / `sich erinnern` · `der Vorgesetzte` / `der/die Vorgesetzte` |
+
+*Not* all of these should merge. A participle that has become an adjective in its own
+right (*verboten*, *belegt*) is arguably a card worth having; a plural filed as a
+separate noun almost never is. **The shapes need separate rulings**, which is why this
+is not simply another `corpus:dupes` run.
+
+⚠️ **The 236 is a ceiling, and the probe's history is why.** A first pass reported
+**615** by counting multiword cards — `Rad fahren` "losing" to `das Rad`, `die
+künstliche Intelligenz` to `künstlich` — where the matcher resolving a component is
+correct and the probe's expectation was wrong. Excluding multiword headwords halved
+it. Assume more of the same before trusting the figure.
+
+**Do.** Rule per shape, then merge the ones that should merge through `corpus:dupes`
+with `ID_MAP` entries. **Done-when.** A card's own example resolves to that card;
+`corpus:validate` grows a check for a card whose surface form another card already
+claims. **Touches.** `scripts/corpus/merge-dupes.ts`, `validate.ts`, `public/data/`.
+
 ### 🟠 The matcher and verbs — re-measured 2026-08-15, and no longer the headline
 
 > ✅ **Re-measured 2026-08-15 — largely fixed, and no longer blocking Phase 1.**
