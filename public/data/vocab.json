@@ -100966,7 +100966,7 @@
     "pos": "noun",
     "level": "A1",
     "gender": "der",
-    "plural": null,
+    "plural": "die Läden",
     "ipa": "ˈlaːdn̩",
     "def": "to load (something) e.g. into a container or onto a vehicle, to load up; to load (some weapon)",
     "syn": [
@@ -128406,7 +128406,7 @@
     "pos": "noun",
     "level": "A1",
     "gender": "das",
-    "plural": null,
+    "plural": "die Bilder",
     "ipa": "bɪlt",
     "def": "depiction, image, picture; computer file containing a digital image",
     "syn": [],
@@ -129361,7 +129361,7 @@
     "pos": "noun",
     "level": "B2",
     "gender": "der",
-    "plural": null,
+    "plural": "die Bereiche",
     "ipa": "bəˈʁaɪ̯ç",
     "def": "area, realm, range, scope",
     "syn": [],
@@ -129727,7 +129727,7 @@
     "pos": "noun",
     "level": "B2",
     "gender": "die",
-    "plural": null,
+    "plural": "die Einstellungen",
     "ipa": "ˈaɪ̯nʃtɛlʊŋ",
     "def": "attitude, mindset, disposition",
     "syn": [],
@@ -201318,7 +201318,7 @@
     "pos": "noun",
     "level": "A1",
     "gender": "der",
-    "plural": null,
+    "plural": "die Herren",
     "ipa": "hɛʁ",
     "def": null,
     "syn": [],
@@ -206007,6 +206007,276 @@
       }
     ],
     "field": "Science & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Lesesaal",
+    "term": "der Lesesaal",
+    "en": "reading room",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Lesesäle",
+    "ipa": "ˈleːzəˌzaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Lesesaal muss man leise sein.",
+        "en": "You have to be quiet in the reading room.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Lesesäle der Bibliothek schließen um zweiundzwanzig Uhr.",
+        "en": "The library's reading rooms close at ten p.m.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "At the University",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Arbeitstag",
+    "term": "der Arbeitstag",
+    "en": "working day",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Arbeitstage",
+    "ipa": "ˈaʁbaɪ̯t͡sˌtaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Arbeitstag beginnt um acht Uhr.",
+        "en": "My working day starts at eight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach einem langen Arbeitstag koche ich selten.",
+        "en": "After a long working day I rarely cook.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Lehrkraft",
+    "term": "die Lehrkraft",
+    "en": "teacher, teaching staff member",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Lehrkräfte",
+    "ipa": "ˈleːɐ̯ˌkʁaft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Schule sucht eine neue Lehrkraft für Mathematik.",
+        "en": "The school is looking for a new maths teacher.",
+        "lvl": "B2"
+      },
+      {
+        "de": "An der Schule fehlen zurzeit mehrere Lehrkräfte.",
+        "en": "The school is currently short of several teachers.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Anrufbeantworter",
+    "term": "der Anrufbeantworter",
+    "en": "answering machine",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Anrufbeantworter",
+    "ipa": "ˈanʁuːfbəˌʔantvɔʁtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sprich mir bitte auf den Anrufbeantworter.",
+        "en": "Please leave me a message on the answering machine.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Anrufbeantworter war voll.",
+        "en": "The answering machine was full.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Post & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Zuschuss",
+    "term": "der Zuschuss",
+    "en": "subsidy, financial contribution",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Zuschüsse",
+    "ipa": "ˈt͡suːˌʃʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Stadt zahlt einen Zuschuss zur Miete.",
+        "en": "The city pays a subsidy toward the rent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für den Umbau gibt es staatliche Zuschüsse.",
+        "en": "There are state subsidies for the conversion.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Vorbehalt",
+    "term": "der Vorbehalt",
+    "en": "reservation, qualification",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Vorbehalte",
+    "ipa": "ˈfoːɐ̯bəˌhalt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er stimmte dem Plan nur unter Vorbehalt zu.",
+        "en": "He agreed to the plan only with reservations.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegen den Vorschlag gab es deutliche Vorbehalte.",
+        "en": "There were clear reservations about the proposal.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Angabe",
+    "term": "die Angabe",
+    "en": "detail, piece of information",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Angaben",
+    "ipa": "ˈanˌɡaːbə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte prüfen Sie Ihre Angaben noch einmal.",
+        "en": "Please check your details once more.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne diese Angabe können wir den Antrag nicht bearbeiten.",
+        "en": "Without this detail we cannot process the application.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Bequemlichkeit",
+    "term": "die Bequemlichkeit",
+    "en": "comfort, convenience",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Bequemlichkeiten",
+    "ipa": "bəˈkveːmlɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Aus Bequemlichkeit nimmt er immer das Auto.",
+        "en": "Out of laziness he always takes the car.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie schätzt die Bequemlichkeit eines eigenen Gartens.",
+        "en": "She appreciates the comfort of having her own garden.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:argumentieren",
+    "term": "argumentieren",
+    "en": "to argue, to make a case",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "aʁɡumɛnˈtiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie argumentiert sehr überzeugend.",
+        "en": "She argues very convincingly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In seinem Aufsatz argumentierte er gegen das Verbot.",
+        "en": "In his essay he argued against the ban.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Assistent",
+    "term": "der Assistent",
+    "en": "assistant",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Assistenten",
+    "ipa": "asɪsˈtɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Assistent bereitet die Sitzung vor.",
+        "en": "The assistant is preparing the meeting.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Professorin sucht zwei neue Assistenten.",
+        "en": "The professor is looking for two new assistants.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
     "kind": "word"
   }
 ]

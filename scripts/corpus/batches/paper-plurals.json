@@ -1,0 +1,35 @@
+{
+  "why": "Five very common nouns whose plural field was empty, so the matcher had no plural form to index and the reader reported Herren, Bilder, Läden, Bereiche and Einstellungen as words the learner does not know. Found by splitting corpus:papervocab's 700 gap rows into 'existing card missing a plural' (7) and 'no card at any inflection' (686) — these are the cheap half. Plurals read from the de.wiktionary pages already cached by corpus:gender-audit.",
+  "rows": [
+    {
+      "id": "voc:A1:der Herr",
+      "expect": { "plural": null },
+      "plural": "die Herren",
+      "src": "de.wiktionary Herr — Nominativ Plural: Herren (the archaic 'Herrn' is listed second and is not what a learner should produce)."
+    },
+    {
+      "id": "voc:A1:das Bild",
+      "expect": { "plural": null },
+      "plural": "die Bilder",
+      "src": "de.wiktionary Bild — Genus n, Nominativ Plural: Bilder."
+    },
+    {
+      "id": "voc:A1:der Laden",
+      "expect": { "plural": null },
+      "plural": "die Läden",
+      "src": "de.wiktionary Laden — the masculine (shop) takes Läden; the neuter 'das Laden' (loading) is a separate entry this card is not about."
+    },
+    {
+      "id": "voc:B2:die Einstellung",
+      "expect": { "plural": null },
+      "plural": "die Einstellungen",
+      "src": "de.wiktionary Einstellung — Genus f, Nominativ Plural: Einstellungen."
+    },
+    {
+      "id": "voc:B2:der Bereich",
+      "expect": { "plural": null },
+      "plural": "die Bereiche",
+      "src": "de.wiktionary Bereich — Nominativ Plural: Bereiche."
+    }
+  ]
+}

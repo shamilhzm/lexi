@@ -1,0 +1,112 @@
+[
+  {
+    "term": "der Lesesaal",
+    "en": "reading room",
+    "pos": "noun",
+    "level": "B2",
+    "field": "At the University",
+    "ex": [
+      { "de": "Im Lesesaal muss man leise sein.", "en": "You have to be quiet in the reading room." },
+      { "de": "Die Lesesäle der Bibliothek schließen um zweiundzwanzig Uhr.", "en": "The library's reading rooms close at ten p.m." }
+    ]
+  },
+  {
+    "term": "der Arbeitstag",
+    "en": "working day",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Business & Workplace",
+    "ex": [
+      { "de": "Mein Arbeitstag beginnt um acht Uhr.", "en": "My working day starts at eight." },
+      { "de": "Nach einem langen Arbeitstag koche ich selten.", "en": "After a long working day I rarely cook." }
+    ]
+  },
+  {
+    "term": "die Lehrkraft",
+    "en": "teacher, teaching staff member",
+    "pos": "noun",
+    "level": "B2",
+    "field": "School & Education System",
+    "ex": [
+      { "de": "Die Schule sucht eine neue Lehrkraft für Mathematik.", "en": "The school is looking for a new maths teacher." },
+      { "de": "An der Schule fehlen zurzeit mehrere Lehrkräfte.", "en": "The school is currently short of several teachers." }
+    ]
+  },
+  {
+    "term": "der Anrufbeantworter",
+    "en": "answering machine",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Post & Communication",
+    "ex": [
+      { "de": "Sprich mir bitte auf den Anrufbeantworter.", "en": "Please leave me a message on the answering machine." },
+      { "de": "Der Anrufbeantworter war voll.", "en": "The answering machine was full." }
+    ]
+  },
+  {
+    "term": "der Zuschuss",
+    "en": "subsidy, financial contribution",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Administration",
+    "ex": [
+      { "de": "Die Stadt zahlt einen Zuschuss zur Miete.", "en": "The city pays a subsidy toward the rent." },
+      { "de": "Für den Umbau gibt es staatliche Zuschüsse.", "en": "There are state subsidies for the conversion." }
+    ]
+  },
+  {
+    "term": "der Vorbehalt",
+    "en": "reservation, qualification",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Administration",
+    "ex": [
+      { "de": "Er stimmte dem Plan nur unter Vorbehalt zu.", "en": "He agreed to the plan only with reservations." },
+      { "de": "Gegen den Vorschlag gab es deutliche Vorbehalte.", "en": "There were clear reservations about the proposal." }
+    ]
+  },
+  {
+    "term": "die Angabe",
+    "en": "detail, piece of information",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Administration",
+    "ex": [
+      { "de": "Bitte prüfen Sie Ihre Angaben noch einmal.", "en": "Please check your details once more." },
+      { "de": "Ohne diese Angabe können wir den Antrag nicht bearbeiten.", "en": "Without this detail we cannot process the application." }
+    ]
+  },
+  {
+    "term": "die Bequemlichkeit",
+    "en": "comfort, convenience",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Home",
+    "ex": [
+      { "de": "Aus Bequemlichkeit nimmt er immer das Auto.", "en": "Out of laziness he always takes the car." },
+      { "de": "Sie schätzt die Bequemlichkeit eines eigenen Gartens.", "en": "She appreciates the comfort of having her own garden." }
+    ]
+  },
+  {
+    "term": "argumentieren",
+    "en": "to argue, to make a case",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Communication",
+    "ex": [
+      { "de": "Sie argumentiert sehr überzeugend.", "en": "She argues very convincingly." },
+      { "de": "In seinem Aufsatz argumentierte er gegen das Verbot.", "en": "In his essay he argued against the ban." }
+    ]
+  },
+  {
+    "term": "der Assistent",
+    "en": "assistant",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Business & Workplace",
+    "ex": [
+      { "de": "Der Assistent bereitet die Sitzung vor.", "en": "The assistant is preparing the meeting." },
+      { "de": "Die Professorin sucht zwei neue Assistenten.", "en": "The professor is looking for two new assistants." }
+    ]
+  }
+]
