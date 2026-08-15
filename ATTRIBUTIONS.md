@@ -10,6 +10,37 @@ license, how it's used, and the obligations that attach to the data we ship.
 > `vocab.json`. The bulk source dumps are cached locally under
 > `scripts/corpus/data/` and are **git-ignored — never redistributed**.
 
+## Sources considered and rejected
+
+Recording these so the same source is not proposed again — a licence check is
+cheap the first time and invisible the second.
+
+### DWDS (Digitales Wörterbuch der deutschen Sprache) — **rejected, licence**
+- **URL:** https://www.dwds.de · API at `/api/wb/snippet`
+- **Why it was wanted:** the Berlin-Brandenburgische Akademie der Wissenschaften
+  dictionary is a stronger authority than Wiktionary, and it distinguishes *senses*
+  — which is exactly what the ambiguous-prefix verbs need (`umstellen` is
+  "rearrange" or "surround" depending on separability, and the card means one of
+  them).
+- **Why it is out.** The Nutzungsbedingungen are explicit: *"Jegliche Nutzung der
+  Inhalte des DWDS, einschließlich jedoch nicht beschränkt auf automatisierte
+  Abfragen und Auswertungen (Crawlen, Parsen, Text- und Data-Mining), sofern nicht
+  über § 60d UrhG zulässig, ist nur mit ausdrücklicher Genehmigung gestattet."*
+  BBAW additionally reserves its rights under § 44b UrhG (the TDM opt-out). § 60d
+  is the *research-organisation* exception; Lexi is a public application, not a
+  research body, so it does not apply. **Automated querying would need express
+  written permission from BBAW.** The API answering a request is not permission.
+- **If it is ever wanted:** ask BBAW via their contact form first, and record the
+  answer here. Do not wire it in on the strength of the endpoint being reachable.
+
+### Candidates not yet verified
+- **Wikidata Lexemes** — CC0, and explicitly built for automated use, which would
+  make it the cleanest possible fit. The SPARQL endpoint returned **502** when
+  probed on 2026-08-15, so whether German verb paradigms are actually populated
+  there is **unconfirmed**. Worth one more attempt before any work is planned on it.
+- **UniMorph** (CC BY-SA) — morphological paradigms released for computational use.
+  Not probed.
+
 ## Sources
 
 ### 1. Leipzig Corpora Collection — "Deutscher Wortschatz" frequency lists

@@ -11,6 +11,37 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the source I recommended fails its own licence check
+
+Last entry proposed DWDS as the obvious next authority for the ambiguous-prefix
+verbs. Checked the terms before writing any code, and it is **out**:
+
+> *"Jegliche Nutzung der Inhalte des DWDS, einschließlich jedoch nicht beschränkt auf
+> automatisierte Abfragen und Auswertungen (Crawlen, Parsen, Text- und Data-Mining),
+> sofern nicht über § 60d UrhG zulässig, ist nur mit ausdrücklicher Genehmigung
+> gestattet."*
+
+BBAW also reserves its § 44b UrhG rights. § 60d is the research-organisation
+exception and Lexi is a public application, so automated querying would need express
+written permission. **The API answering a request is not permission** — that is the
+whole trap, and it is why the licence check goes before the integration rather than
+after it.
+
+Recorded in `ATTRIBUTIONS.md` under a new *Sources considered and rejected* section,
+with what it would take to revisit (ask BBAW, record the answer). A licence check is
+cheap the first time and invisible the second.
+
+**Wikidata Lexemes** is the more promising direction — CC0 and built for automated
+use — but its SPARQL endpoint returned 502 when probed, so whether German verb
+paradigms are populated there is **unconfirmed** and it is filed as a candidate, not
+a plan. UniMorph likewise, unprobed.
+
+So the ambiguous-prefix senses (`umstellen`, `hängen`, `überfahren`, `überholen`)
+stay open, and stay documented, rather than being resolved against a source Lexi is
+not licensed to query.
+
+---
+
 ### Shipped 2026-08-15 — a second source, and three real errors it caught
 
 Pushed on why the pipeline only ever asks de.wiktionary, the honest answer was that
