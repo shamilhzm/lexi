@@ -87,6 +87,39 @@ imperative makes it too *low*. Shipping Phase 1 on this matcher ships a dishones
 meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5).
 **Do this before Now #2 Phase 1.** *S–M · `src/lib/matcher.ts`, `conjugate.ts`.*
 
+### 🟠 Correct verb forms are generated and then thrown away — found 2026-08-15
+
+`conjugate()` marks a verb `reliable: false` when it cannot vouch for its forms, and
+the matcher then indexes none of them. That is the right instinct and it is currently
+discarding correct German along with wrong German.
+
+**Hand-verified, three hits** (the rule this file sets for believing any new check):
+
+| sentence | headword | resolves? | the generated form |
+|---|---|---|---|
+| Sie **antwortete** sofort. | antworten | **no** | *antwortete* — correct |
+| Er hat sofort **geantwortet**. | antworten | **no** | correct |
+| Er **ergriff** die Gelegenheit. | ergreifen | **no** | *greifen* class unknown |
+| Wir **kauften** gestern **ein**. | einkaufen | yes | separable path handles it |
+
+So `antworten` — a regular A1 verb — has no inflection a reader can resolve, while
+separable verbs are fine because `sepIndex` catches them by another route.
+
+**192 of 1,079 single-word verb cards have a generated form that does not resolve.**
+That number is solid. **The split between "the form was wrong" and "the form was right
+and discarded" is not** — a first attempt to size it classified `reitete` and
+`umziehte` as correct weak German alongside `antwortete`, because a stem+`te` shape
+test cannot tell a weak verb from a strong one. That is the same limitation that makes
+`conjugate()` give up in the first place, so **the split needs a strong-verb list, not
+a cleverer regex** — and quoting a number from the regex would have been wrong in the
+flattering direction.
+
+**Do.** Add the strong/irregular verb list (the ~200 that matter), so `conjugate` can
+mark the weak ones reliable instead of refusing wholesale. **Done-when.** `antwortete`,
+`geantwortet` and `ergriff` all resolve; no verb gains a form the list does not
+license; `corpus:validate`'s reader probe does not regress.
+**Touches.** `src/lib/conjugate.ts`, `src/lib/matcher.ts`.
+
 ### 🟠 Real content defects
 
 - **~71 cards whose example does not contain the word** — not an inflection the matcher

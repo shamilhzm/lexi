@@ -62099,6 +62099,20 @@
       }
     ]
   },
+  "voc:B1:der Code": {
+    "ex": [
+      {
+        "de": "Gib bitte den Code ein.",
+        "en": "Please enter the code.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Codes werden jede Woche geändert.",
+        "en": "The codes are changed every week.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Couchtisch": {
     "defDe": "Tisch, der an/vor einer Couch oder einem Sofa platziert wird und entsprechend eine relativ niedrige Tischplatte hat",
     "ex": [
@@ -94865,6 +94879,34 @@
       }
     ]
   },
+  "voc:B2:der Brand": {
+    "ex": [
+      {
+        "de": "Der Brand wurde schnell gelöscht.",
+        "en": "The fire was put out quickly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach den Bränden blieb kaum etwas übrig.",
+        "en": "Almost nothing was left after the fires.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Bruch": {
+    "ex": [
+      {
+        "de": "Der Arzt stellte einen Bruch fest.",
+        "en": "The doctor diagnosed a fracture.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es kam zum Bruch zwischen den beiden Freunden.",
+        "en": "The two friends fell out.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Burnout": {
     "def": "A state of deep exhaustion caused by long-term stress.",
     "ex": [
@@ -94891,6 +94933,20 @@
       {
         "de": "Der CO2-Ausstoß muss drastisch sinken.",
         "en": "CO2 emissions have to fall drastically.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Charakter": {
+    "ex": [
+      {
+        "de": "Sie hat einen starken Charakter.",
+        "en": "She has a strong character.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die beiden Romane haben einen ganz unterschiedlichen Charakter.",
+        "en": "The two novels have a quite different character.",
         "lvl": "B2"
       }
     ]
@@ -95090,6 +95146,20 @@
       {
         "de": "Gegen den Fachkräftemangel hilft nur Ausbildung.",
         "en": "Only training helps against the shortage of skilled workers.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Faden": {
+    "ex": [
+      {
+        "de": "Der Faden ist gerissen.",
+        "en": "The thread has snapped.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie verlor beim Reden den Faden.",
+        "en": "She lost her thread while speaking.",
         "lvl": "B2"
       }
     ]
@@ -97494,6 +97564,20 @@
       {
         "de": "Wann wird die Blockade des Hafens aufgehoben?",
         "en": "When will the blockade at the port be lifted?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Bohrmaschine": {
+    "ex": [
+      {
+        "de": "Kannst du mir deine Bohrmaschine leihen?",
+        "en": "Can you lend me your drill?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bohrmaschine ist im Keller.",
+        "en": "The drill is in the basement.",
         "lvl": "B2"
       }
     ]
@@ -107176,6 +107260,20 @@
       }
     ]
   },
+  "voc:C1:das Fachgebiet": {
+    "ex": [
+      {
+        "de": "Das ist nicht mein Fachgebiet.",
+        "en": "That isn't my field.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beide Fachgebiete arbeiten hier eng zusammen.",
+        "en": "The two fields work closely together here.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Fazit": {
     "ex": [
       {
@@ -108044,6 +108142,20 @@
       {
         "de": "Die Regel gilt für alle, ohne Rücksicht auf den Einzelnen.",
         "en": "The rule applies to everyone, regardless of the individual.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Ernstfall": {
+    "ex": [
+      {
+        "de": "Im Ernstfall rufen Sie die Feuerwehr.",
+        "en": "In an emergency, call the fire brigade.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für den Ernstfall wird regelmäßig geübt.",
+        "en": "They practise regularly for an emergency.",
         "lvl": "C1"
       }
     ]
@@ -109044,6 +109156,20 @@
       }
     ]
   },
+  "voc:C1:die Beschaffung": {
+    "ex": [
+      {
+        "de": "Die Beschaffung der Unterlagen dauert.",
+        "en": "Obtaining the documents takes time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für die Beschaffung ist eine eigene Abteilung zuständig.",
+        "en": "A separate department is responsible for procurement.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Bilanz": {
     "def": "A summary of finances; also an overall assessment of results.",
     "ex": [
@@ -109292,6 +109418,20 @@
       {
         "de": "Aus dieser Erkenntnis folgt eine völlig neue Praxis.",
         "en": "A completely new practice follows from this insight.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Erpressung": {
+    "ex": [
+      {
+        "de": "Er wurde wegen Erpressung verurteilt.",
+        "en": "He was convicted of blackmail.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Erpressungen bleiben oft unentdeckt.",
+        "en": "Extortion like this often goes undetected.",
         "lvl": "C1"
       }
     ]
@@ -109633,6 +109773,20 @@
       {
         "de": "Sami hat aus Gier getötet.",
         "en": "Sami killed for greed.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Gleichgültigkeit": {
+    "ex": [
+      {
+        "de": "Seine Gleichgültigkeit verletzte sie.",
+        "en": "His indifference hurt her.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegen so viel Gleichgültigkeit kommt man schwer an.",
+        "en": "It is hard to get anywhere against that much indifference.",
         "lvl": "C1"
       }
     ]
@@ -111795,6 +111949,20 @@
       }
     ]
   },
+  "voc:C1:entziehen": {
+    "ex": [
+      {
+        "de": "Man entzog ihm den Führerschein.",
+        "en": "His driving licence was taken away.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie entzieht sich jeder Verantwortung.",
+        "en": "She evades all responsibility.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:erfordern": {
     "def": "To make something necessary.",
     "ex": [
@@ -111806,6 +111974,20 @@
       {
         "de": "Das erfordert Mut.",
         "en": "It takes courage.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:ergreifen": {
+    "ex": [
+      {
+        "de": "Die Regierung ergreift strenge Maßnahmen.",
+        "en": "The government is taking strict measures.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir müssen sofort Maßnahmen ergreifen.",
+        "en": "We have to take measures immediately.",
         "lvl": "C1"
       }
     ]

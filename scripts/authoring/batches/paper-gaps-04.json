@@ -1,0 +1,225 @@
+[
+  {
+    "term": "der Brand",
+    "en": "fire, blaze",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Urban life",
+    "ex": [
+      {
+        "de": "Der Brand wurde schnell gelöscht.",
+        "en": "The fire was put out quickly."
+      },
+      {
+        "de": "Nach den Bränden blieb kaum etwas übrig.",
+        "en": "Almost nothing was left after the fires."
+      }
+    ]
+  },
+  {
+    "term": "der Bruch",
+    "en": "break, fracture; rupture",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Der Arzt stellte einen Bruch fest.",
+        "en": "The doctor diagnosed a fracture."
+      },
+      {
+        "de": "Es kam zum Bruch zwischen den beiden Freunden.",
+        "en": "The two friends fell out."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Charakter",
+    "en": "character, personality",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Sie hat einen starken Charakter.",
+        "en": "She has a strong character."
+      },
+      {
+        "de": "Die beiden Romane haben einen ganz unterschiedlichen Charakter.",
+        "en": "The two novels have a quite different character."
+      }
+    ]
+  },
+  {
+    "term": "der Code",
+    "en": "code",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Digital World & Technology",
+    "ex": [
+      {
+        "de": "Gib bitte den Code ein.",
+        "en": "Please enter the code."
+      },
+      {
+        "de": "Die Codes werden jede Woche geändert.",
+        "en": "The codes are changed every week."
+      }
+    ],
+    "sameAsGerman": true
+  },
+  {
+    "term": "die Bohrmaschine",
+    "en": "drill",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Kannst du mir deine Bohrmaschine leihen?",
+        "en": "Can you lend me your drill?"
+      },
+      {
+        "de": "Die Bohrmaschine ist im Keller.",
+        "en": "The drill is in the basement."
+      }
+    ]
+  },
+  {
+    "term": "die Erpressung",
+    "en": "blackmail, extortion",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Er wurde wegen Erpressung verurteilt.",
+        "en": "He was convicted of blackmail."
+      },
+      {
+        "de": "Solche Erpressungen bleiben oft unentdeckt.",
+        "en": "Extortion like this often goes undetected."
+      }
+    ]
+  },
+  {
+    "term": "das Fachgebiet",
+    "en": "specialist field",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Academic Work",
+    "ex": [
+      {
+        "de": "Das ist nicht mein Fachgebiet.",
+        "en": "That isn't my field."
+      },
+      {
+        "de": "Beide Fachgebiete arbeiten hier eng zusammen.",
+        "en": "The two fields work closely together here."
+      }
+    ]
+  },
+  {
+    "term": "der Faden",
+    "en": "thread",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Clothing",
+    "ex": [
+      {
+        "de": "Der Faden ist gerissen.",
+        "en": "The thread has snapped."
+      },
+      {
+        "de": "Sie verlor beim Reden den Faden.",
+        "en": "She lost her thread while speaking."
+      }
+    ]
+  },
+  {
+    "term": "die Gleichgültigkeit",
+    "en": "indifference",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Seine Gleichgültigkeit verletzte sie.",
+        "en": "His indifference hurt her."
+      },
+      {
+        "de": "Gegen so viel Gleichgültigkeit kommt man schwer an.",
+        "en": "It is hard to get anywhere against that much indifference."
+      }
+    ]
+  },
+  {
+    "term": "die Beschaffung",
+    "en": "procurement, obtaining",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Business & Workplace",
+    "ex": [
+      {
+        "de": "Die Beschaffung der Unterlagen dauert.",
+        "en": "Obtaining the documents takes time."
+      },
+      {
+        "de": "Für die Beschaffung ist eine eigene Abteilung zuständig.",
+        "en": "A separate department is responsible for procurement."
+      }
+    ]
+  },
+  {
+    "term": "der Ernstfall",
+    "en": "emergency, worst case",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Urban life",
+    "ex": [
+      {
+        "de": "Im Ernstfall rufen Sie die Feuerwehr.",
+        "en": "In an emergency, call the fire brigade."
+      },
+      {
+        "de": "Für den Ernstfall wird regelmäßig geübt.",
+        "en": "They practise regularly for an emergency."
+      }
+    ]
+  },
+  {
+    "term": "ergreifen",
+    "en": "to seize, to take (a measure)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Business & Workplace",
+    "ex": [
+      {
+        "de": "Die Regierung ergreift strenge Maßnahmen.",
+        "en": "The government is taking strict measures."
+      },
+      {
+        "de": "Wir müssen sofort Maßnahmen ergreifen.",
+        "en": "We have to take measures immediately."
+      }
+    ]
+  },
+  {
+    "term": "entziehen",
+    "en": "to withdraw, to take away",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Man entzog ihm den Führerschein.",
+        "en": "His driving licence was taken away."
+      },
+      {
+        "de": "Sie entzieht sich jeder Verantwortung.",
+        "en": "She evades all responsibility."
+      }
+    ]
+  }
+]

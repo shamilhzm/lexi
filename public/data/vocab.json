@@ -206953,5 +206953,356 @@
     ],
     "field": "Migration & Integration",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Brand",
+    "term": "der Brand",
+    "en": "fire, blaze",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Brände",
+    "ipa": "bʁant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Brand wurde schnell gelöscht.",
+        "en": "The fire was put out quickly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach den Bränden blieb kaum etwas übrig.",
+        "en": "Almost nothing was left after the fires.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Urban life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Bruch",
+    "term": "der Bruch",
+    "en": "break, fracture; rupture",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "bʁʊx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Arzt stellte einen Bruch fest.",
+        "en": "The doctor diagnosed a fracture.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es kam zum Bruch zwischen den beiden Freunden.",
+        "en": "The two friends fell out.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Charakter",
+    "term": "der Charakter",
+    "en": "character, personality",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Charaktere",
+    "ipa": "kaˈʁaktɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat einen starken Charakter.",
+        "en": "She has a strong character.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die beiden Romane haben einen ganz unterschiedlichen Charakter.",
+        "en": "The two novels have a quite different character.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Code",
+    "term": "der Code",
+    "en": "code",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Codes",
+    "ipa": "koːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gib bitte den Code ein.",
+        "en": "Please enter the code.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Codes werden jede Woche geändert.",
+        "en": "The codes are changed every week.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Digital World & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Bohrmaschine",
+    "term": "die Bohrmaschine",
+    "en": "drill",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Bohrmaschinen",
+    "ipa": "ˈboːɐ̯maˌʃiːnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kannst du mir deine Bohrmaschine leihen?",
+        "en": "Can you lend me your drill?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bohrmaschine ist im Keller.",
+        "en": "The drill is in the basement.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Erpressung",
+    "term": "die Erpressung",
+    "en": "blackmail, extortion",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Erpressungen",
+    "ipa": "ɛɐ̯ˈpʁɛsʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er wurde wegen Erpressung verurteilt.",
+        "en": "He was convicted of blackmail.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Erpressungen bleiben oft unentdeckt.",
+        "en": "Extortion like this often goes undetected.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Fachgebiet",
+    "term": "das Fachgebiet",
+    "en": "specialist field",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Fachgebiete",
+    "ipa": "ˈfaxɡəˌbiːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist nicht mein Fachgebiet.",
+        "en": "That isn't my field.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beide Fachgebiete arbeiten hier eng zusammen.",
+        "en": "The two fields work closely together here.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Faden",
+    "term": "der Faden",
+    "en": "thread",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈfaːdn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Faden ist gerissen.",
+        "en": "The thread has snapped.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie verlor beim Reden den Faden.",
+        "en": "She lost her thread while speaking.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Clothing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Gleichgültigkeit",
+    "term": "die Gleichgültigkeit",
+    "en": "indifference",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Gleichgültigkeiten",
+    "ipa": "ˈɡlaɪ̯çɡʏltɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seine Gleichgültigkeit verletzte sie.",
+        "en": "His indifference hurt her.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegen so viel Gleichgültigkeit kommt man schwer an.",
+        "en": "It is hard to get anywhere against that much indifference.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Beschaffung",
+    "term": "die Beschaffung",
+    "en": "procurement, obtaining",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Beschaffungen",
+    "ipa": "bəˈʃafʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Beschaffung der Unterlagen dauert.",
+        "en": "Obtaining the documents takes time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für die Beschaffung ist eine eigene Abteilung zuständig.",
+        "en": "A separate department is responsible for procurement.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Ernstfall",
+    "term": "der Ernstfall",
+    "en": "emergency, worst case",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Ernstfälle",
+    "ipa": "ˈɛʁnstˌfal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Ernstfall rufen Sie die Feuerwehr.",
+        "en": "In an emergency, call the fire brigade.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für den Ernstfall wird regelmäßig geübt.",
+        "en": "They practise regularly for an emergency.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Urban life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:ergreifen",
+    "term": "ergreifen",
+    "en": "to seize, to take (a measure)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈɡʁaɪ̯fn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Regierung ergreift strenge Maßnahmen.",
+        "en": "The government is taking strict measures.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir müssen sofort Maßnahmen ergreifen.",
+        "en": "We have to take measures immediately.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:entziehen",
+    "term": "entziehen",
+    "en": "to withdraw, to take away",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛntˈt͡siːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man entzog ihm den Führerschein.",
+        "en": "His driving licence was taken away.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie entzieht sich jeder Verantwortung.",
+        "en": "She evades all responsibility.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
   }
 ]

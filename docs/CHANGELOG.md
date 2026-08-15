@@ -11,6 +11,44 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — corpus growth, batches three and four
+
+Twenty-six more cards through the authoring gate: Prüfer, Anschlusszug, Display,
+Deutung, Egoismus, Verschiebung, Prestige, Schichtdienst, Aufzählung, Anbau,
+Großstadt, Zehntel, Zulauf, Brand, Bruch, Charakter, Code, Bohrmaschine, Erpressung,
+Fachgebiet, Faden, Gleichgültigkeit, Beschaffung, Ernstfall, ergreifen, entziehen.
+
+`der Prüfer` is worth more than its own card: the matcher derives `-in` feminines, so
+it also resolves *Prüferin*, which was the second most frequent gap in the whole paper
+set.
+
+**Eight rejections across the two batches, every one of them right.** *die Abholung*
+has no de.wiktionary entry and so was not written at all — unverifiable is not the same
+as wrong, and neither is a reason to guess. *das Prestige* and *der Code* repeat their
+German in the gloss and had to say so with `sameAsGerman`. *der Bruch* and *das
+Zehntel* are attested with more than one gender, so the gate refused to pick for the
+author. Two named sectors that do not exist and were caught by the check added earlier
+today, which suggested the real ones.
+
+And one rejection was a finding: **the gate refused *"Er ergriff die Gelegenheit"*
+because the matcher cannot resolve `ergriff`**. Pulling that thread found that
+`conjugate()` marks a verb unreliable when it cannot vouch for its forms — correctly —
+and the matcher then indexes none of them, which throws away correct German along with
+wrong. `antworten`, a regular A1 verb, resolves in neither preterite nor participle.
+**192 of 1,079 single-word verb cards** have a generated form that does not resolve.
+
+That last number is solid; the split between *wrong form* and *right form discarded* is
+not, and it is recorded as unsized rather than guessed. A first attempt classified
+`reitete` and `umziehte` as correct weak German next to `antwortete`, because a
+stem+`te` shape test cannot tell a weak verb from a strong one — which is the same
+limitation that makes `conjugate()` give up. Sizing it needs a strong-verb list, not a
+cleverer regex. Filed in BACKLOG with the three hand-verified hits.
+
+**6,600 → 6,626 cards · papers 94.2% → 94.5% covered · distinct gaps 667 → 638.**
+783 tests green, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-15 — corpus growth, aimed by the meter
 
 The meter's own measurement said **7.10% of exam-paper tokens are words the corpus does
