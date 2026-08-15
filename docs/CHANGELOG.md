@@ -11,6 +11,41 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the strong roots, and the verb finding closes
+
+Twenty-seven strong roots join the irregular table, and **a root cascades**: `greifen`
+alone rescued *ergreifen*, *angreifen*, *begreifen* and *aufgreifen*. Forty-two verbs
+became correctly conjugated from twenty-six rows.
+
+`Er ergriff die Gelegenheit` — the sentence the authoring gate refused two commits ago,
+which started this whole thread — now resolves.
+
+**All 42 forms were read by eye, and one was wrong**: `gefrieren` inherited `haben`
+from `frieren`, but it takes *sein* (**das Wasser ist gefroren**). That is precisely
+the risk the table's own comment names — an auxiliary is the one field a prefixed form
+can inherit wrongly — and it was caught by reading the output rather than by trusting
+the comment. It has its own row now, and a test.
+
+**The four verbs the seed got wrong are now right, through the table rather than the
+seed.** `hervorheben` → *hob hervor / hervorgehoben*, `ausweichen` → *wich aus*,
+`abwägen` → *wog ab*, `vorbereiten` → *vorbereitet* (separable, but no `ge-`: it
+attaches to *bereitet*, whose unstressed `be-` already suppresses it). The test that
+asserted they were refused now asserts they are correct — adding them to `SEED_ROOTS`
+would still be the bug; giving them rows is the fix.
+
+**962 of 1,079 single-word verb cards now have a generated form that resolves**, from
+887 at the start of the day. Reader probe verb 146/156 → **154/164**; plural,
+adjective and closed-class unchanged. 814 tests green.
+
+| stage | resolving |
+|---|---|
+| start of day | 887 |
+| `SEED_ROOTS` (separable bases) | 904 |
+| ambiguous-prefix rows | 920 |
+| strong roots | **962** |
+
+---
+
 ### Shipped 2026-08-15 — the verbs behind an ambiguous prefix
 
 `über`, `unter`, `um`, `durch` and `wieder` sit in neither `SEPARABLE` nor

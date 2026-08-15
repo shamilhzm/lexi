@@ -128,15 +128,22 @@ describe('canConjugate — reliability gate', () => {
     expect(conjugate('zusammenfassen').praeteritum[2]).toBe('fasste zusammen');
   });
 
-  it('still refuses the strong roots the seed deliberately omits', () => {
-    // Listing a strong root would confirm the split and then generate a weak
-    // form for it: `hervorheben` came out as *hebte hervor / hervorgehebt*, and
-    // `isStrong` does not catch it because `hervor` is not a gate prefix. Four of
-    // the first 89 were wrong this way. The list carries weak roots only.
-    expect(canConjugate('hervorheben')).toBe(false);
-    expect(canConjugate('ausweichen')).toBe(false);
-    expect(canConjugate('abwägen')).toBe(false);
-    expect(canConjugate('vorbereiten')).toBe(false);
+  it('SEED_ROOTS carries weak roots only', () => {
+    // Listing a strong root confirms the split and then generates a weak form for
+    // it: `hervorheben` came out as *hebte hervor / hervorgehebt*, because
+    // `isStrong` cannot catch it — `hervor` is not a gate prefix. Four of the
+    // first 89 were wrong that way.
+    //
+    // All four are now **correct**, but through the table rather than the seed:
+    // `heben`, `weichen`, `wägen` and `vorbereiten` have rows stating their real
+    // forms. That is the fix; adding them as roots would still be the bug.
+    for (const [verb, part] of [
+      ['hervorheben', 'hervorgehoben'], ['ausweichen', 'ausgewichen'],
+      ['abwägen', 'abgewogen'], ['vorbereiten', 'vorbereitet'],
+    ] as const) {
+      expect(canConjugate(verb), verb).toBe(true);
+      expect(conjugate(verb).partizip, verb).toBe(part);
+    }
   });
 
   it('rejects a non-verb-shaped token', () => {
@@ -205,4 +212,43 @@ describe('verbs behind an ambiguous prefix', () => {
       expect(c.partizip).toBe(part);
     });
   }
+});
+
+// Strong roots, added 2026-08-15. A root cascades — `greifen` alone rescued
+// *ergreifen*, *angreifen*, *begreifen* and *aufgreifen* — so these rows are worth
+// more than their own verbs. All 42 forms the roots unlocked were read by eye
+// before the table was trusted, which is how `gefrieren` was caught inheriting
+// haben from `frieren` when it takes sein.
+describe('strong roots and what they cascade to', () => {
+  const cases: [string, string, string, string][] = [
+    ['greifen',    'griff',     'gegriffen',    'haben'],
+    ['ergreifen',  'ergriff',   'ergriffen',    'haben'],   // the verb that started this
+    ['begreifen',  'begriff',   'begriffen',    'haben'],
+    ['aufgreifen', 'griff auf', 'aufgegriffen', 'haben'],
+    ['schneiden',  'schnitt',   'geschnitten',  'haben'],
+    ['messen',     'maß',       'gemessen',     'haben'],
+    ['genießen',   'genoss',    'genossen',     'haben'],
+    ['leiden',     'litt',      'gelitten',     'haben'],
+    ['heben',      'hob',       'gehoben',      'haben'],
+    ['abheben',    'hob ab',    'abgehoben',    'haben'],
+    ['reiten',     'ritt',      'geritten',     'sein'],
+    ['sterben',    'starb',     'gestorben',    'sein'],
+    ['wachsen',    'wuchs',     'gewachsen',    'sein'],
+    ['ausweichen', 'wich aus',  'ausgewichen',  'sein'],
+    ['abwägen',    'wog ab',    'abgewogen',    'haben'],
+  ];
+  for (const [verb, praet, part, aux] of cases) {
+    it(`${verb} → ${praet} / ${part}`, () => {
+      const c = conjugate(verb);
+      expect(c.reliable).toBe(true);
+      expect(c.praeteritum[2]).toBe(praet);
+      expect(c.partizip).toBe(part);
+      expect(c.aux).toBe(aux);
+    });
+  }
+
+  it('gefrieren takes sein even though frieren takes haben', () => {
+    expect(conjugate('frieren').aux).toBe('haben');
+    expect(conjugate('gefrieren').aux).toBe('sein');
+  });
 });

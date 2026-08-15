@@ -94,8 +94,12 @@ meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5
 > `einordnen`, `zurückkehren` and 82 others now split and conjugate correctly. Reading
 > all 89 by eye caught four wrong ones (`hervorheben`, `ausweichen`, `abwägen`,
 > `vorbereiten`) — the list carries **weak roots only**, and a test pins those four.
-> **Still open: the strong verbs below** (`ergreifen`, `reiten`, `messen`), which need
-> the irregular table extended rather than a root list.
+> ✅ **The strong verbs are done too** (2026-08-15). Twenty-seven roots joined the
+> irregular table; `greifen` alone rescued *ergreifen*, *angreifen*, *begreifen* and
+> *aufgreifen*. **962 of 1,079 verb cards resolve, from 887.** All 42 cascaded forms
+> read by eye — which caught `gefrieren` inheriting *haben* from `frieren` when it
+> takes *sein*. The remaining 117 are the long tail; each needs its own row, and the
+> reading discipline above is the cost of adding one.
 
 `conjugate()` marks a verb `reliable: false` when it cannot vouch for its forms, and
 the matcher then indexes none of them. That is the right instinct and it is currently

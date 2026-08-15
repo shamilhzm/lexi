@@ -104,6 +104,47 @@ const TABLE: Record<string, Entry> = {
   bieten: { praesens: six('biete','bietest','bietet','bieten','bietet','bieten'), praeteritum: six('bot','botest','bot','boten','botet','boten'), partizip: 'geboten', aux: 'haben' },
   raten:  { praesens: six('rate','rätst','rät','raten','ratet','raten'), praeteritum: six('riet','rietest','riet','rieten','rietet','rieten'), partizip: 'geraten', aux: 'haben' },
   werben: { praesens: six('werbe','wirbst','wirbt','werben','werbt','werben'), praeteritum: six('warb','warbst','warb','warben','warbt','warben'), partizip: 'geworben', aux: 'haben' },
+  // ---- strong roots -------------------------------------------------------
+  // Adding a root cascades: `greifen` alone rescues *ergreifen*, *angreifen*,
+  // *begreifen* and *aufgreifen*, because `splitPrefix` finds the tabled root
+  // behind the prefix. These are the roots the corpus builds on, which is why
+  // they earn a row before rarer strong verbs do.
+  //
+  // `aux` is the one field a prefixed form can inherit wrongly — *treten* is
+  // haben in *betreten* and sein in *eintreten* — so verbs whose auxiliary
+  // depends on the prefix are deliberately left out rather than guessed.
+  greifen:   { praesens: six('greife','greifst','greift','greifen','greift','greifen'), praeteritum: six('griff','griffst','griff','griffen','grifft','griffen'), partizip: 'gegriffen', aux: 'haben' },
+  schneiden: { praesens: six('schneide','schneidest','schneidet','schneiden','schneidet','schneiden'), praeteritum: six('schnitt','schnittst','schnitt','schnitten','schnittet','schnitten'), partizip: 'geschnitten', aux: 'haben' },
+  messen:    { praesens: six('messe','misst','misst','messen','messt','messen'), praeteritum: six('maß','maßest','maß','maßen','maßt','maßen'), partizip: 'gemessen', aux: 'haben' },
+  genießen:  { praesens: six('genieße','genießt','genießt','genießen','genießt','genießen'), praeteritum: six('genoss','genossest','genoss','genossen','genosst','genossen'), partizip: 'genossen', aux: 'haben' },
+  brechen:   { praesens: six('breche','brichst','bricht','brechen','brecht','brechen'), praeteritum: six('brach','brachst','brach','brachen','bracht','brachen'), partizip: 'gebrochen', aux: 'haben' },
+  schießen:  { praesens: six('schieße','schießt','schießt','schießen','schießt','schießen'), praeteritum: six('schoss','schossest','schoss','schossen','schosst','schossen'), partizip: 'geschossen', aux: 'haben' },
+  schreien:  { praesens: six('schreie','schreist','schreit','schreien','schreit','schreien'), praeteritum: six('schrie','schriest','schrie','schrien','schriet','schrien'), partizip: 'geschrien', aux: 'haben' },
+  fressen:   { praesens: six('fresse','frisst','frisst','fressen','fresst','fressen'), praeteritum: six('fraß','fraßest','fraß','fraßen','fraßt','fraßen'), partizip: 'gefressen', aux: 'haben' },
+  brennen:   { praesens: six('brenne','brennst','brennt','brennen','brennt','brennen'), praeteritum: six('brannte','branntest','brannte','brannten','branntet','brannten'), partizip: 'gebrannt', aux: 'haben' },
+  wiegen:    { praesens: six('wiege','wiegst','wiegt','wiegen','wiegt','wiegen'), praeteritum: six('wog','wogst','wog','wogen','wogt','wogen'), partizip: 'gewogen', aux: 'haben' },
+  heben:     { praesens: six('hebe','hebst','hebt','heben','hebt','heben'), praeteritum: six('hob','hobst','hob','hoben','hobt','hoben'), partizip: 'gehoben', aux: 'haben' },
+  binden:    { praesens: six('binde','bindest','bindet','binden','bindet','binden'), praeteritum: six('band','bandest','band','banden','bandet','banden'), partizip: 'gebunden', aux: 'haben' },
+  meiden:    { praesens: six('meide','meidest','meidet','meiden','meidet','meiden'), praeteritum: six('mied','miedest','mied','mieden','miedet','mieden'), partizip: 'gemieden', aux: 'haben' },
+  klingen:   { praesens: six('klinge','klingst','klingt','klingen','klingt','klingen'), praeteritum: six('klang','klangst','klang','klangen','klangt','klangen'), partizip: 'geklungen', aux: 'haben' },
+  frieren:   { praesens: six('friere','frierst','friert','frieren','friert','frieren'), praeteritum: six('fror','frorst','fror','froren','frort','froren'), partizip: 'gefroren', aux: 'haben' },
+  leiden:    { praesens: six('leide','leidest','leidet','leiden','leidet','leiden'), praeteritum: six('litt','littst','litt','litten','littet','litten'), partizip: 'gelitten', aux: 'haben' },
+  riechen:   { praesens: six('rieche','riechst','riecht','riechen','riecht','riechen'), praeteritum: six('roch','rochst','roch','rochen','rocht','rochen'), partizip: 'gerochen', aux: 'haben' },
+  leihen:    { praesens: six('leihe','leihst','leiht','leihen','leiht','leihen'), praeteritum: six('lieh','liehst','lieh','liehen','lieht','liehen'), partizip: 'geliehen', aux: 'haben' },
+  braten:    { praesens: six('brate','brätst','brät','braten','bratet','braten'), praeteritum: six('briet','brietst','briet','brieten','brietet','brieten'), partizip: 'gebraten', aux: 'haben' },
+  backen:    { praesens: six('backe','backst','backt','backen','backt','backen'), praeteritum: six('backte','backtest','backte','backten','backtet','backten'), partizip: 'gebacken', aux: 'haben' },
+  wägen:     { praesens: six('wäge','wägst','wägt','wägen','wägt','wägen'), praeteritum: six('wog','wogst','wog','wogen','wogt','wogen'), partizip: 'gewogen', aux: 'haben' },
+  reiten:    { praesens: six('reite','reitest','reitet','reiten','reitet','reiten'), praeteritum: six('ritt','rittst','ritt','ritten','rittet','ritten'), partizip: 'geritten', aux: 'sein' },
+  springen:  { praesens: six('springe','springst','springt','springen','springt','springen'), praeteritum: six('sprang','sprangst','sprang','sprangen','sprangt','sprangen'), partizip: 'gesprungen', aux: 'sein' },
+  wachsen:   { praesens: six('wachse','wächst','wächst','wachsen','wachst','wachsen'), praeteritum: six('wuchs','wuchsest','wuchs','wuchsen','wuchst','wuchsen'), partizip: 'gewachsen', aux: 'sein' },
+  sterben:   { praesens: six('sterbe','stirbst','stirbt','sterben','sterbt','sterben'), praeteritum: six('starb','starbst','starb','starben','starbt','starben'), partizip: 'gestorben', aux: 'sein' },
+  weichen:   { praesens: six('weiche','weichst','weicht','weichen','weicht','weichen'), praeteritum: six('wich','wichst','wich','wichen','wicht','wichen'), partizip: 'gewichen', aux: 'sein' },
+  // `frieren` is haben (*mich hat gefroren*); `gefrieren` is sein (*das Wasser ist
+  // gefroren*). Inheriting the root's auxiliary would have got this one wrong —
+  // the risk the note above names, caught by reading the 42 forms the roots
+  // unlocked rather than by trusting the note.
+  gefrieren: { praesens: six('gefriere','gefrierst','gefriert','gefrieren','gefriert','gefrieren'), praeteritum: six('gefror','gefrorst','gefror','gefroren','gefrort','gefroren'), partizip: 'gefroren', aux: 'sein' },
+
   // ---- verbs behind an ambiguous prefix -------------------------------------
   // `über`, `unter`, `um`, `durch` and `wieder` are neither in SEPARABLE nor in
   // INSEPARABLE, because German uses them both ways — *umschreiben* genuinely has
@@ -135,6 +176,10 @@ const TABLE: Record<string, Entry> = {
   untersuchen:    { praesens: six('untersuche','untersuchst','untersucht','untersuchen','untersucht','untersuchen'), praeteritum: six('untersuchte','untersuchtest','untersuchte','untersuchten','untersuchtet','untersuchten'), partizip: 'untersucht', aux: 'haben' },
   überzeugen:     { praesens: six('überzeuge','überzeugst','überzeugt','überzeugen','überzeugt','überzeugen'), praeteritum: six('überzeugte','überzeugtest','überzeugte','überzeugten','überzeugtet','überzeugten'), partizip: 'überzeugt', aux: 'haben' },
   umtauschen:     { praesens: six('tausche um','tauschst um','tauscht um','tauschen um','tauscht um','tauschen um'), praeteritum: six('tauschte um','tauschtest um','tauschte um','tauschten um','tauschtet um','tauschten um'), partizip: 'umgetauscht', aux: 'haben' },
+  // Separable, but the participle takes no `ge-`: it attaches to *bereitet*, whose
+  // own unstressed `be-` already suppresses it. The generator produced
+  // **gevorbereitet**, which is why `bereiten` is not in SEED_ROOTS.
+  vorbereiten:    { praesens: six('bereite vor','bereitest vor','bereitet vor','bereiten vor','bereitet vor','bereiten vor'), praeteritum: six('bereitete vor','bereitetest vor','bereitete vor','bereiteten vor','bereitetet vor','bereiteten vor'), partizip: 'vorbereitet', aux: 'haben' },
   gleichen:{ praesens: six('gleiche','gleichst','gleicht','gleichen','gleicht','gleichen'), praeteritum: six('glich','glichst','glich','glichen','glicht','glichen'), partizip: 'geglichen', aux: 'haben' },
   streiten:{ praesens: six('streite','streitest','streitet','streiten','streitet','streiten'), praeteritum: six('stritt','strittest','stritt','stritten','strittet','stritten'), partizip: 'gestritten', aux: 'haben' },
   scheiden:{ praesens: six('scheide','scheidest','scheidet','scheiden','scheidet','scheiden'), praeteritum: six('schied','schiedest','schied','schieden','schiedet','schieden'), partizip: 'geschieden', aux: 'haben' },
