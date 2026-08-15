@@ -156,7 +156,7 @@ const TABLE: Record<string, Entry> = {
   fließen: { praesens: six('fließe','fließt','fließt','fließen','fließt','fließen'), praeteritum: six('floss','flossest','floss','flossen','flosst','flossen'), partizip: 'geflossen', aux: 'sein' },
   gelingen: { praesens: six('gelinge','gelingst','gelingt','gelingen','gelingt','gelingen'), praeteritum: six('gelang','gelangst','gelang','gelangen','gelangt','gelangen'), partizip: 'gelungen', aux: 'sein' },
   gelten: { praesens: six('gelte','giltst','gilt','gelten','geltet','gelten'), praeteritum: six('galt','galtest','galt','galten','galtt','galten'), partizip: 'gegolten', aux: 'haben' },
-  gleiten: { praesens: six('gleite','gleitest','gleitet','gleiten','gleitet','gleiten'), praeteritum: six('glitt','glittst','glitt','glitten','glittt','glitten'), partizip: 'geglitten', aux: 'sein' },
+  gleiten: { praesens: six('gleite','gleitest','gleitet','gleiten','gleitet','gleiten'), praeteritum: six('glitt','glittest','glitt','glitten','glittt','glitten'), partizip: 'geglitten', aux: 'sein' },
   herrschen: { praesens: six('herrsche','herrschst','herrscht','herrschen','herrscht','herrschen'), praeteritum: six('herrschte','herrschtest','herrschte','herrschten','herrschtet','herrschten'), partizip: 'geherrscht', aux: 'haben' },
   hindern: { praesens: six('hindere','hinderst','hindert','hindern','hindert','hindern'), praeteritum: six('hinderte','hindertest','hinderte','hinderten','hindertet','hinderten'), partizip: 'gehindert', aux: 'haben' },
   hinterfragen: { praesens: six('hinterfrage','hinterfragst','hinterfragt','hinterfragen','hinterfragt','hinterfragen'), praeteritum: six('hinterfragte','hinterfragtest','hinterfragte','hinterfragten','hinterfragtet','hinterfragten'), partizip: 'hinterfragt', aux: 'haben' },
@@ -180,7 +180,10 @@ const TABLE: Record<string, Entry> = {
   umbringen: { praesens: six('bringe um','bringst um','bringt um','bringen um','bringt um','bringen um'), praeteritum: six('brachte um','brachtest um','brachte um','brachten um','brachtet um','brachten um'), partizip: 'umgebracht', aux: 'haben' },
   umdrehen: { praesens: six('drehe um','drehst um','dreht um','drehen um','dreht um','drehen um'), praeteritum: six('drehte um','drehtest um','drehte um','drehten um','drehtet um','drehten um'), partizip: 'umgedreht', aux: 'haben' },
   umfassen: { praesens: six('umfasse','umfasst','umfasst','umfassen','umfasst','umfassen'), praeteritum: six('umfasste','umfasstest','umfasste','umfassten','umfasstet','umfassten'), partizip: 'umfasst', aux: 'haben' },
-  umgeben: { praesens: six('gebe um','gibst um','gibt um','geben um','gebt um','geben um'), praeteritum: six('gab um','gabst um','gab um','gaben um','gabt um','gaben um'), partizip: 'umgegeben', aux: 'haben' },
+  // Inseparable: *umgeben* is to surround. The generated split produced
+  // "gabst um", which is the separable reading German does not use here —
+  // caught by checking the full Flexion paradigm rather than the summary box.
+  umgeben: { praesens: six('umgebe','umgibst','umgibt','umgeben','umgebt','umgeben'), praeteritum: six('umgab','umgabst','umgab','umgaben','umgabt','umgaben'), partizip: 'umgeben', aux: 'haben' },
   umkommen: { praesens: six('komme um','kommst um','kommt um','kommen um','kommt um','kommen um'), praeteritum: six('kam um','kamst um','kam um','kamen um','kamt um','kamen um'), partizip: 'umgekommen', aux: 'sein' },
   umschauen: { praesens: six('schaue um','schaust um','schaut um','schauen um','schaut um','schauen um'), praeteritum: six('schaute um','schautest um','schaute um','schauten um','schautet um','schauten um'), partizip: 'umgeschaut', aux: 'haben' },
   umsehen: { praesens: six('sehe um','siehst um','sieht um','sehen um','seht um','sehen um'), praeteritum: six('sah um','sahst um','sah um','sahen um','saht um','sahen um'), partizip: 'umgesehen', aux: 'haben' },
@@ -212,7 +215,7 @@ const TABLE: Record<string, Entry> = {
   überleben: { praesens: six('überlebe','überlebst','überlebt','überleben','überlebt','überleben'), praeteritum: six('überlebte','überlebtest','überlebte','überlebten','überlebtet','überlebten'), partizip: 'überlebt', aux: 'haben' },
   überprüfen: { praesens: six('überprüfe','überprüfst','überprüft','überprüfen','überprüft','überprüfen'), praeteritum: six('überprüfte','überprüftest','überprüfte','überprüften','überprüftet','überprüften'), partizip: 'überprüft', aux: 'haben' },
   überreden: { praesens: six('überrede','überredest','überredet','überreden','überredet','überreden'), praeteritum: six('überredete','überredetest','überredete','überredeten','überredetet','überredeten'), partizip: 'überredet', aux: 'haben' },
-  überschreiten: { praesens: six('überschreite','überschreitest','überschreitet','überschreiten','überschreitet','überschreiten'), praeteritum: six('überschritt','überschrittst','überschritt','überschritten','überschrittt','überschritten'), partizip: 'überschritten', aux: 'haben' },
+  überschreiten: { praesens: six('überschreite','überschreitest','überschreitet','überschreiten','überschreitet','überschreiten'), praeteritum: six('überschritt','überschrittest','überschritt','überschritten','überschrittt','überschritten'), partizip: 'überschritten', aux: 'haben' },
   übersehen: { praesens: six('übersehe','übersiehst','übersieht','übersehen','überseht','übersehen'), praeteritum: six('übersah','übersahst','übersah','übersahen','übersaht','übersahen'), partizip: 'übersehen', aux: 'haben' },
   überstehen: { praesens: six('überstehe','überstehst','übersteht','überstehen','übersteht','überstehen'), praeteritum: six('überstand','überstandest','überstand','überstanden','überstandt','überstanden'), partizip: 'überstanden', aux: 'haben' },
   übertragen: { praesens: six('übertrage','überträgst','überträgt','übertragen','übertragt','übertragen'), praeteritum: six('übertrug','übertrugst','übertrug','übertrugen','übertrugt','übertrugen'), partizip: 'übertragen', aux: 'haben' },

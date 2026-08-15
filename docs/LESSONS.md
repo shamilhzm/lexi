@@ -118,6 +118,15 @@ it turns out to be wrong.**
   gender audit must exclude adjectival nouns — *der Bekannte*, *die Angestellte*, *der
   Deutsche* — the same way `caseSafe` already excludes n-Deklination masculines. Two
   hits, one false, exactly as this class predicts.
+- **One source, never re-examined.** *(2026-08-15.)* Every fact-check in this pipeline
+  asked de.wiktionary because the first one did, and no later pass asked whether that
+  was the best source *or whether it was being used fully*. Both were wrong: wiktionary
+  has `Flexion:` pages carrying the complete verb paradigm, while the pipeline read only
+  the summary box — so 102 verbs shipped with rule-derived person forms that the same
+  site states outright. Checking against the fuller page found **two invented rules and
+  one real split error** in 101 verbs. **A source is a decision, and an inherited
+  decision is still one you own — ask what else it offers, and what else exists.**
+
 - **The matcher indexed `"¨-e"` as a word.** *(2026-08-15.)* `buildMatcher` added
   `stripArticle(w.plural)` to its index verbatim, which is correct for the 2,766 cards
   writing `die Namen` and garbage for the other 390: a card reading `¨-e` contributed

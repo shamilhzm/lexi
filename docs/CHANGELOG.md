@@ -11,6 +11,42 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — a second source, and three real errors it caught
+
+Pushed on why the pipeline only ever asks de.wiktionary, the honest answer was that
+`verify.ts` and `gender-audit.ts` chose it and nothing since re-examined the choice.
+Two things came out of actually looking.
+
+**The first source was under-used.** Wiktionary carries `Flexion:` pages with the
+**complete** paradigm — every person, both passives, both Konjunktive. The summary box
+this pipeline had been reading gives only `Präsens ich/du/er`, `Präteritum ich`,
+`Partizip II` and `Hilfsverb`, which is why the 102 verbs shipped an hour ago had their
+du- and ihr-forms derived by rule. The full table states them.
+
+Checked all 101 that have one: **95 agreed, 6 differed**, and the six split three ways.
+
+- **Two were my rule being wrong.** `gleiten` → *glittest*, not *glittst*; same for
+  `überschreiten`. The `-tt` exception I wrote was invented.
+- **One was a real split error.** `umgeben` is inseparable — to surround. The generated
+  entry read *gabst um*, a separable reading German does not use here.
+- **Three are the ambiguous-prefix sense problem already on record**: `hängen`
+  (strong "be hanging" vs weak "hang something"), `überfahren`, `überholen`. The
+  `Flexion:` page follows a different sense from the card. Left standing and documented
+  rather than flipped, because picking the wrong one is how *umstellen* got in.
+
+**DWDS answers too** — `https://www.dwds.de/api/wb/snippet?q=…` returns JSON, and it is
+the Berlin-Brandenburg Academy of Sciences dictionary, a stronger authority than
+wiktionary for exactly the sense disambiguation those last three need. Not wired in
+here; recorded as the obvious next source, with the licensing check that any new source
+needs before its facts enter the corpus (`ATTRIBUTIONS.md` is the gate).
+
+The `Flexion:` HTML is cached under the already-gitignored `scripts/corpus/data/`, so
+re-running costs nothing.
+
+827 tests green. Reader probe unchanged at verb 174/185.
+
+---
+
 ### Shipped 2026-08-15 — the long tail closes: every verb card conjugates
 
 The remaining 102. **Zero verb cards are now marked unreliable**, and 1,064 of 1,079
