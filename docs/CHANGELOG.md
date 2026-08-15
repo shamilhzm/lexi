@@ -11,6 +11,40 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the routes my own sweep missed
+
+The touch-target sweep earlier today swept six **hash** routes and called the app
+clean. Decks, Profile, the word map, Brain, Exam, Print, Placement, Interests and
+Read are not in that list — Decks and the map sit one level deeper under
+`#/progress`, and the rest were simply never enumerated. **A sweep is only as wide as
+its route list**, which is the same failure as a guard that enumerates its subjects.
+
+Measured all nine. Six were already clean, and **three of the 2026-08-05 audit's
+findings about Decks are stale**: it now has 1,106 controls with **zero** under 44px
+(the audit said 311), **zero** clipped subtitles (it said 77), and it does render an
+`<h1>` (it said none). Profile is clean too, against "44 of 61 under".
+
+Four real defects, one of them introduced today:
+
+- **Exam's CEFR chips were 43×44** — one pixel short, because they carried `tap-44`
+  (height only) where they needed `tap-44-sq`. That utility exists for exactly this
+  case and its comment names these chips.
+- **Print's three selects and its number input** were 29–31px tall.
+- **Placement's *skip*** was 25×15.
+- **`#/read` had no `<h1>`** — my own view, shipped this morning. A `Kicker` is
+  styling; screen-reader users navigate by heading and a styled span is not one.
+
+**The checkbox needed a different fix, and the first attempt was inert.** `.tap-hit`
+paints a 44px halo with `::before` — and **`::before` does not render on replaced
+elements**, so on an `<input type="checkbox">` it does nothing at all. The target is
+the wrapping `<label>`, which forwards its clicks to the input. Verified by tapping
+30px from the tiny 13px box and watching it toggle: label 90×44, box unchanged.
+
+830 tests green. The one `npm run lint` error remains the pre-existing
+`src/views/Placement.tsx:74`.
+
+---
+
 ### Shipped 2026-08-15 — the ambiguous senses, settled by reading the cards
 
 Four verbs were left open because a paradigm is only correct relative to a *sense*,

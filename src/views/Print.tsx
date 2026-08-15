@@ -111,7 +111,7 @@ export default function Print({ onExit }: { onExit: () => void }) {
               <label className="flex items-center gap-2 text-xs">
                 <span className="text-dim">Deck</span>
                 <select value={sector} onChange={(e) => setSector(e.target.value)}
-                  className="bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs max-w-[16rem]">
+                  className="tap-44 bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs max-w-[16rem]">
                   <option value="">All sectors in your level filter</option>
                   {inScope.map((n) => <option key={n} value={n}>{n}</option>)}
                 </select>
@@ -122,14 +122,14 @@ export default function Print({ onExit }: { onExit: () => void }) {
                 <label className="flex items-center gap-2 text-xs">
                   <span className="text-dim">Level</span>
                   <select value={level} onChange={(e) => { setLevel(e.target.value as CEFR); setPointIdx(0); }}
-                    className="bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs">
+                    className="tap-44 bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs">
                     {ALL_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
                   </select>
                 </label>
                 <label className="flex items-center gap-2 text-xs">
                   <span className="text-dim">Point</span>
                   <select value={pointIdx} onChange={(e) => setPointIdx(Number(e.target.value))}
-                    className="bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs max-w-[18rem]">
+                    className="tap-44 bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs max-w-[18rem]">
                     {points.map((p, i) => <option key={p.title} value={i}>{p.title}</option>)}
                   </select>
                 </label>
@@ -139,9 +139,12 @@ export default function Print({ onExit }: { onExit: () => void }) {
               <span className="text-dim">Items</span>
               <input type="number" min={5} max={40} value={count}
                 onChange={(e) => setCount(Math.max(5, Math.min(40, Number(e.target.value) || 20)))}
-                className="bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs w-16 tabular-nums" />
+                className="tap-44 bg-panel2 border border-line rounded-md px-2 py-1.5 text-xs w-16 tabular-nums" />
             </label>
-            <label className="flex items-center gap-2 text-xs cursor-pointer">
+            {/* `tap-44` on the label, not the input: `::before` does not render on
+                replaced elements, so `.tap-hit` on a checkbox is inert. The label
+                forwards its clicks to the input, so growing it grows the target. */}
+            <label className="tap-44 flex items-center gap-2 text-xs cursor-pointer">
               <input type="checkbox" checked={withKey} onChange={(e) => setWithKey(e.target.checked)} />
               <span>Answer key</span>
             </label>

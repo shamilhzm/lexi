@@ -109,7 +109,7 @@ function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () =
       <div className="flex flex-wrap gap-1.5 mb-4">
         {ALL_LEVELS.map((l) => (
           <button key={l} onClick={() => setLevel(l)} aria-pressed={level === l}
-            className={`tap-44 rounded-md border px-3 py-2 font-mono text-sm font-bold transition-colors
+            className={`tap-44-sq rounded-md border px-3 py-2 font-mono text-sm font-bold transition-colors
               ${level === l ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
             {l}
           </button>

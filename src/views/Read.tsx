@@ -86,7 +86,11 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
         <button onClick={onExit} className="tap-hit text-dim hover:text-amber transition-colors" aria-label="Back">
           <ArrowLeft size={18} />
         </button>
-        <Kicker><BookOpen size={12} /> Can I read this?</Kicker>
+        {/* A real heading, not just a Kicker: this is a route, and every other one
+            has an h1. Screen-reader users navigate by heading, and a styled span
+            is not one. */}
+        <h1 className="sr-only">Can I read this?</h1>
+        <Kicker aria-hidden><BookOpen size={12} /> Can I read this?</Kicker>
       </div>
 
       <Card tone="panel" pad="md">

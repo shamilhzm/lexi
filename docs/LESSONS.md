@@ -24,6 +24,11 @@ number forward from a doc. *(Four counts in the README were stale by up to 6×.)
 Hand-verify three hits before you believe the count. *(Twice this has been a bug in the
 check.)*
 
+**…sweep routes, files or surfaces.** Enumerate the list from the router, not from
+memory. A sweep is only as wide as its route list. *(The touch-target sweep covered six
+hash routes and reported the app clean; Decks, Profile, Exam, Print, Placement and Read
+were never visited, and four carried real defects.)*
+
 **…write a check, guard or index that enumerates its cases.** Count the cases in the
 data first, then write the list. Three separate bugs this month were an *incomplete
 enumeration*, not faulty logic. *(Plural notations: the corpus writes six, the code

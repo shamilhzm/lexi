@@ -180,7 +180,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
     <div className="w-full max-w-[520px] mx-auto">
       <div className="flex items-center justify-between mb-3">
         <h1 className="text-xl font-bold">Placement test</h1>
-        <button onClick={onDone} className="text-xs text-dim hover:text-amber">skip</button>
+        <button onClick={onDone} className="tap-hit text-xs text-dim hover:text-amber">skip</button>
       </div>
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">
         <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
