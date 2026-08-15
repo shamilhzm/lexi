@@ -171,3 +171,38 @@ describe('separable + -ieren participles', () => {
     expect(conjugate('verkaufen').partizip).toBe('verkauft');
   });
 });
+
+// `über`, `unter`, `um`, `durch` and `wieder` sit in neither SEPARABLE nor
+// INSEPARABLE, because German uses them both ways — *umschreiben* has a separable
+// reading (rewrite) and an inseparable one (paraphrase). So `splitPrefix` never
+// reached the tabled root and `umsteigen` came out as *umsteigte*. Resolved by
+// data rather than rule, one verb at a time; these assertions are the data.
+describe('verbs behind an ambiguous prefix', () => {
+  const cases: [string, string, string][] = [
+    // verb            3sg preterite     participle
+    ['umsteigen',      'stieg um',       'umgestiegen'],
+    ['umziehen',       'zog um',         'umgezogen'],
+    ['durchfallen',    'fiel durch',     'durchgefallen'],
+    ['übernehmen',     'übernahm',       'übernommen'],
+    ['unternehmen',    'unternahm',      'unternommen'],
+    ['unterschreiben', 'unterschrieb',   'unterschrieben'],
+    ['unterscheiden',  'unterschied',    'unterschieden'],
+    ['überweisen',     'überwies',       'überwiesen'],
+    // the weak ones: no ge- on the participle, because the prefix is unstressed.
+    // These produced geübersetzt / gewiederholt / geüberlegt before.
+    ['übersetzen',     'übersetzte',     'übersetzt'],
+    ['wiederholen',    'wiederholte',    'wiederholt'],
+    ['überlegen',      'überlegte',      'überlegt'],
+    ['untersuchen',    'untersuchte',    'untersucht'],
+    // ...and the separable one that does take ge-.
+    ['umtauschen',     'tauschte um',    'umgetauscht'],
+  ];
+  for (const [verb, praet, part] of cases) {
+    it(`${verb} → ${praet} / ${part}`, () => {
+      const c = conjugate(verb);
+      expect(c.reliable).toBe(true);
+      expect(c.praeteritum[2]).toBe(praet);
+      expect(c.partizip).toBe(part);
+    });
+  }
+});

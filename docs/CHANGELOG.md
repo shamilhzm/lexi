@@ -11,6 +11,37 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the verbs behind an ambiguous prefix
+
+`über`, `unter`, `um`, `durch` and `wieder` sit in neither `SEPARABLE` nor
+`INSEPARABLE`, and correctly so: German uses them both ways — *umschreiben* has a
+separable reading (rewrite) and an inseparable one (paraphrase). But that meant
+`splitPrefix` never reached the tabled root, so `umsteigen` — built on `steigen`,
+which has been in the table all along — came out as **umsteigte**.
+
+The ambiguity is real and cannot be resolved by rule, so it is resolved by data:
+seventeen verbs, full forms, one at a time. `umsteigen`, `umziehen`, `umgehen`,
+`durchfallen`, `übernehmen`, `unternehmen`, `unterschreiben`, `unterscheiden`,
+`überweisen`, `umschreiben`.
+
+**The weak members needed to be there too, and a first draft said they didn't.** The
+comment claimed they "already conjugate correctly once the prefix is treated as
+inseparable". Reading the output: *übersetzen* → **geübersetzt**, *wiederholen* →
+**gewiederholt**, *überlegen* → **geüberlegt**, *untersuchen* → **geuntersucht**. The
+reliability gate kept all of those out of the index, so no learner was ever shown a
+wrong form — but none was shown a right one either. Their participles take no `ge-`
+because the prefix is unstressed, and *umtauschen* is the separable one that does:
+**umgetauscht**. All seven added, all thirteen pinned by test.
+
+**920 of 1,079 single-word verb cards now have a generated form that resolves**, up
+from 904 before this change and 887 before the root seed. Reader probe verb 146/156 →
+**148/158**; plural, adjective and closed-class unchanged. 785 tests green.
+
+Still open: the plain strong verbs with no prefix at all — `reiten`, `messen`,
+`genießen`, `schneiden`, `braten` — which want table rows of their own.
+
+---
+
 ### Shipped 2026-08-15 — 85 separable verbs get their inflections back
 
 Chasing the `ergriff` rejection from the last batch: `conjugate()` marks a verb

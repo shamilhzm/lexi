@@ -104,6 +104,37 @@ const TABLE: Record<string, Entry> = {
   bieten: { praesens: six('biete','bietest','bietet','bieten','bietet','bieten'), praeteritum: six('bot','botest','bot','boten','botet','boten'), partizip: 'geboten', aux: 'haben' },
   raten:  { praesens: six('rate','rätst','rät','raten','ratet','raten'), praeteritum: six('riet','rietest','riet','rieten','rietet','rieten'), partizip: 'geraten', aux: 'haben' },
   werben: { praesens: six('werbe','wirbst','wirbt','werben','werbt','werben'), praeteritum: six('warb','warbst','warb','warben','warbt','warben'), partizip: 'geworben', aux: 'haben' },
+  // ---- verbs behind an ambiguous prefix -------------------------------------
+  // `über`, `unter`, `um`, `durch` and `wieder` are neither in SEPARABLE nor in
+  // INSEPARABLE, because German uses them both ways — *umschreiben* genuinely has
+  // a separable reading (rewrite) and an inseparable one (paraphrase). So
+  // `splitPrefix` never reaches the tabled root, and `umsteigen` came out as
+  // *umsteigte*. The ambiguity is real and cannot be resolved by rule, so it is
+  // resolved by data: full forms, one verb at a time.
+  //
+  // The weak members of the family need to be here too. A first draft claimed they
+  // "already conjugate correctly once the prefix is treated as inseparable" — they
+  // do not: *übersetzen* produced **geübersetzt**, *wiederholen* **gewiederholt**,
+  // *überlegen* **geüberlegt**. The gate kept those out of the index, so nothing
+  // wrong was ever shown, but nothing right was shown either. Their participles
+  // take no `ge-` (the prefix is unstressed), and *umtauschen* is the separable one
+  // that does: **umgetauscht**.
+  umsteigen:      { praesens: six('steige um','steigst um','steigt um','steigen um','steigt um','steigen um'), praeteritum: six('stieg um','stiegst um','stieg um','stiegen um','stiegt um','stiegen um'), partizip: 'umgestiegen', aux: 'sein' },
+  umziehen:       { praesens: six('ziehe um','ziehst um','zieht um','ziehen um','zieht um','ziehen um'), praeteritum: six('zog um','zogst um','zog um','zogen um','zogt um','zogen um'), partizip: 'umgezogen', aux: 'sein' },
+  umgehen:        { praesens: six('gehe um','gehst um','geht um','gehen um','geht um','gehen um'), praeteritum: six('ging um','gingst um','ging um','gingen um','gingt um','gingen um'), partizip: 'umgegangen', aux: 'sein' },
+  durchfallen:    { praesens: six('falle durch','fällst durch','fällt durch','fallen durch','fallt durch','fallen durch'), praeteritum: six('fiel durch','fielst durch','fiel durch','fielen durch','fielt durch','fielen durch'), partizip: 'durchgefallen', aux: 'sein' },
+  übernehmen:     { praesens: six('übernehme','übernimmst','übernimmt','übernehmen','übernehmt','übernehmen'), praeteritum: six('übernahm','übernahmst','übernahm','übernahmen','übernahmt','übernahmen'), partizip: 'übernommen', aux: 'haben' },
+  unternehmen:    { praesens: six('unternehme','unternimmst','unternimmt','unternehmen','unternehmt','unternehmen'), praeteritum: six('unternahm','unternahmst','unternahm','unternahmen','unternahmt','unternahmen'), partizip: 'unternommen', aux: 'haben' },
+  unterschreiben: { praesens: six('unterschreibe','unterschreibst','unterschreibt','unterschreiben','unterschreibt','unterschreiben'), praeteritum: six('unterschrieb','unterschriebst','unterschrieb','unterschrieben','unterschriebt','unterschrieben'), partizip: 'unterschrieben', aux: 'haben' },
+  unterscheiden:  { praesens: six('unterscheide','unterscheidest','unterscheidet','unterscheiden','unterscheidet','unterscheiden'), praeteritum: six('unterschied','unterschiedst','unterschied','unterschieden','unterschiedet','unterschieden'), partizip: 'unterschieden', aux: 'haben' },
+  überweisen:     { praesens: six('überweise','überweist','überweist','überweisen','überweist','überweisen'), praeteritum: six('überwies','überwiesest','überwies','überwiesen','überwiest','überwiesen'), partizip: 'überwiesen', aux: 'haben' },
+  umschreiben:    { praesens: six('umschreibe','umschreibst','umschreibt','umschreiben','umschreibt','umschreiben'), praeteritum: six('umschrieb','umschriebst','umschrieb','umschrieben','umschriebt','umschrieben'), partizip: 'umschrieben', aux: 'haben' },
+  übersetzen:     { praesens: six('übersetze','übersetzt','übersetzt','übersetzen','übersetzt','übersetzen'), praeteritum: six('übersetzte','übersetztest','übersetzte','übersetzten','übersetztet','übersetzten'), partizip: 'übersetzt', aux: 'haben' },
+  wiederholen:    { praesens: six('wiederhole','wiederholst','wiederholt','wiederholen','wiederholt','wiederholen'), praeteritum: six('wiederholte','wiederholtest','wiederholte','wiederholten','wiederholtet','wiederholten'), partizip: 'wiederholt', aux: 'haben' },
+  überlegen:      { praesens: six('überlege','überlegst','überlegt','überlegen','überlegt','überlegen'), praeteritum: six('überlegte','überlegtest','überlegte','überlegten','überlegtet','überlegten'), partizip: 'überlegt', aux: 'haben' },
+  untersuchen:    { praesens: six('untersuche','untersuchst','untersucht','untersuchen','untersucht','untersuchen'), praeteritum: six('untersuchte','untersuchtest','untersuchte','untersuchten','untersuchtet','untersuchten'), partizip: 'untersucht', aux: 'haben' },
+  überzeugen:     { praesens: six('überzeuge','überzeugst','überzeugt','überzeugen','überzeugt','überzeugen'), praeteritum: six('überzeugte','überzeugtest','überzeugte','überzeugten','überzeugtet','überzeugten'), partizip: 'überzeugt', aux: 'haben' },
+  umtauschen:     { praesens: six('tausche um','tauschst um','tauscht um','tauschen um','tauscht um','tauschen um'), praeteritum: six('tauschte um','tauschtest um','tauschte um','tauschten um','tauschtet um','tauschten um'), partizip: 'umgetauscht', aux: 'haben' },
   gleichen:{ praesens: six('gleiche','gleichst','gleicht','gleichen','gleicht','gleichen'), praeteritum: six('glich','glichst','glich','glichen','glicht','glichen'), partizip: 'geglichen', aux: 'haben' },
   streiten:{ praesens: six('streite','streitest','streitet','streiten','streitet','streiten'), praeteritum: six('stritt','strittest','stritt','stritten','strittet','stritten'), partizip: 'gestritten', aux: 'haben' },
   scheiden:{ praesens: six('scheide','scheidest','scheidet','scheiden','scheidet','scheiden'), praeteritum: six('schied','schiedest','schied','schieden','schiedet','schieden'), partizip: 'geschieden', aux: 'haben' },
