@@ -143,12 +143,29 @@ license; `corpus:validate`'s reader probe does not regress.
 
 ### 🟠 Real content defects
 
-- **~71 cards whose example does not contain the word** — not an inflection the matcher
+- **Cards whose example does not contain the word** — not an inflection the matcher
   missed, the word is simply absent. `das Pferd` is taught with *"Meine Tochter möchte
-  gern reiten lernen."*; `die Uhr` with *"Können Sie mir sagen, wie spät es ist?"*.
-  Thematically adjacent, lexically useless. *S, human-gated.*
-- **370 cards carry an empty `pos`** — and this pass shows the cost is not latent: 107
-  of them are matcher misses *because* nothing can classify them. Promoted out of Next.
+  gern reiten lernen."*; `die Uhr` with *"Können Sie mir sagen, wie spät es ist?"*;
+  `das Stück` with *"Ganz geschwinde, eins, zwei, drei"*. Thematically adjacent,
+  lexically useless.
+  > **Re-measured 2026-08-15, and the count is still not trustworthy.** A substring
+  > probe over 16,979 example rows reports **270 (1.59%)**, down from 516 on the first
+  > pass once reflexive markers (`sich vorstellen`), slashed genders
+  > (`der/die Verwandte`), parenthetical disambiguators, umlaut comparatives (`öfter`
+  > ← *oft*), split separables (*"Mein Kopf tut weh"* contains **wehtun**) and
+  > hyphenated ellipsis (*"Vor- und Nachnamen"* contains **Vorname**) were excluded.
+  >
+  > **What is left still over-reports**, and structurally so: a substring test cannot
+  > span a strong-verb vowel change, so *verbieten* «Kaffee **verboten**» and *wissen*
+  > «ich **weiß**» are counted as absent when they are present. **270 is an upper
+  > bound, not the number.** Sizing it properly needs the matcher rather than a
+  > substring — and the matcher's own homograph handling is what mis-resolves `weiß`
+  > in the first place, so the two problems are the same problem.
+  >
+  > The hand-verified genuine cases so far: `die Uhr`, `das Pferd`, `das Stück` (×2),
+  > `der Orangensaft`, `eins`, `telefonieren`, `das Mittagessen`. *S, human-gated.*
+- ~~**370 cards carry an empty `pos`**~~ — ✅ **stale, verified 2026-08-15: 0 of 6,517.**
+  Fixed at some point since the audit and never struck through.
 - **1,493 definitions still flagged** (enumeration 1,064 · bare 363 · repeat 138) and
   **286 cards with no English definition** — unchanged, tracked as Now #5.
 - Two singletons: `der Makler` lists itself as a synonym; `Verzeihung` is tagged
