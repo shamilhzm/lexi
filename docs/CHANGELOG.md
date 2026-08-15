@@ -11,6 +11,48 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — 85 separable verbs get their inflections back
+
+Chasing the `ergriff` rejection from the last batch: `conjugate()` marks a verb
+`reliable: false` when it cannot vouch for its forms, and the matcher then indexes
+none of them. Correct. The problem was *why* so many were unvouched.
+
+A prefixed verb is only split when its **root** is known, and `KNOWN` was seeded from
+the lexicon alone — so `aufräumen`, `einordnen` and `zurückkehren` were unsplit and
+unreliable purely because *räumen*, *ordnen* and *kehren* are not themselves cards.
+The learner met a verb whose preterite and participle resolved nowhere.
+
+`SEED_ROOTS` fixes that with data: German verb roots that exist whether or not Lexi
+teaches them. Purely additive — a root can only *confirm* a split the code already
+suspected, never invent one, because the prefix has to match too. **85 verbs went from
+"no inflection resolves anywhere" to correctly conjugated**, among them `anmelden`,
+`ausfüllen`, `aufhören`, `zuhören`, `einkaufen`, `vorstellen`, `feststellen`.
+
+**Reading all 89 by eye caught four that were wrong**, which is the only reason this
+list is trustworthy:
+
+| verb | generated | correct |
+|---|---|---|
+| `hervorheben` | *hebte hervor / hervorgehebt* | hob hervor / hervorgehoben |
+| `ausweichen` | *weichte aus / ausgeweicht* | wich aus / ausgewichen |
+| `abwägen` | *wägte ab / abgewägt* | wog ab / abgewogen |
+| `vorbereiten` | *vorgebereitet* | vorbereitet — no `-ge-` |
+
+The first draft listed strong roots deliberately, reasoning that `isStrong` would gate
+anything built on them. That is true for `abheben`, whose `ab` is a gate prefix, and
+false for `hervorheben`, whose `hervor` is not. **The list now carries weak roots
+only**, and the four failures are pinned by a test so the next person to add a strong
+root finds out immediately.
+
+`conjugate.test.ts` also lost an assertion that had encoded the old limitation as
+intended behaviour — *"rejects a separable verb whose base is unknown (aufräumen)"*.
+The gate is unchanged; `räumen` simply is known now. The test keeps the real contract
+with a base that is genuinely not a German verb.
+
+Reader probe unchanged at verb 146/156 · plural 200/200 · adj 187/200. 785 tests green.
+
+---
+
 ### Shipped 2026-08-15 — corpus growth, batches three and four
 
 Twenty-six more cards through the authoring gate: Prüfer, Anschlusszug, Display,

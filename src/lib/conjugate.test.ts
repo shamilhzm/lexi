@@ -109,9 +109,34 @@ describe('canConjugate — reliability gate', () => {
     expect(canConjugate('gehen')).toBe(true);
   });
 
-  it('rejects a separable verb whose base is unknown (aufräumen)', () => {
-    // räumen isn't in the table/known set, so a generated participle would be wrong.
-    expect(canConjugate('aufräumen')).toBe(false);
+  it('rejects a separable verb whose base is unknown', () => {
+    // The gate is unchanged: an unconfirmed base means a generated participle
+    // could be wrong, so the verb is refused. `aufräumen` used to be the example
+    // here and no longer is — *räumen* joined SEED_ROOTS on 2026-08-15, which is
+    // the point of that list. A base that is genuinely not a German verb still
+    // fails, which is what this test is actually about.
+    expect(canConjugate('aufquasseln')).toBe(false);
+    expect(canConjugate('anzwirbeln')).toBe(false);
+  });
+
+  it('accepts a separable verb once its base is a seeded root', () => {
+    // The 2026-08-15 seed: 85 verbs went from "no inflection resolves anywhere"
+    // to correctly conjugated. Forms read by eye before the list was trusted.
+    expect(canConjugate('aufräumen')).toBe(true);
+    expect(conjugate('aufräumen').partizip).toBe('aufgeräumt');
+    expect(conjugate('zurückkehren').partizip).toBe('zurückgekehrt');
+    expect(conjugate('zusammenfassen').praeteritum[2]).toBe('fasste zusammen');
+  });
+
+  it('still refuses the strong roots the seed deliberately omits', () => {
+    // Listing a strong root would confirm the split and then generate a weak
+    // form for it: `hervorheben` came out as *hebte hervor / hervorgehebt*, and
+    // `isStrong` does not catch it because `hervor` is not a gate prefix. Four of
+    // the first 89 were wrong this way. The list carries weak roots only.
+    expect(canConjugate('hervorheben')).toBe(false);
+    expect(canConjugate('ausweichen')).toBe(false);
+    expect(canConjugate('abwägen')).toBe(false);
+    expect(canConjugate('vorbereiten')).toBe(false);
   });
 
   it('rejects a non-verb-shaped token', () => {

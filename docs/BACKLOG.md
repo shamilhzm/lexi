@@ -87,7 +87,15 @@ imperative makes it too *low*. Shipping Phase 1 on this matcher ships a dishones
 meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5).
 **Do this before Now #2 Phase 1.** *S–M · `src/lib/matcher.ts`, `conjugate.ts`.*
 
-### 🟠 Correct verb forms are generated and then thrown away — found 2026-08-15
+### 🟠 Correct verb forms are generated and then thrown away — 85 recovered 2026-08-15
+
+> ✅ **The separable half is fixed.** `SEED_ROOTS` in `conjugate.ts` seeds the known-root
+> set with German verb roots the lexicon does not happen to teach, so `aufräumen`,
+> `einordnen`, `zurückkehren` and 82 others now split and conjugate correctly. Reading
+> all 89 by eye caught four wrong ones (`hervorheben`, `ausweichen`, `abwägen`,
+> `vorbereiten`) — the list carries **weak roots only**, and a test pins those four.
+> **Still open: the strong verbs below** (`ergreifen`, `reiten`, `messen`), which need
+> the irregular table extended rather than a root list.
 
 `conjugate()` marks a verb `reliable: false` when it cannot vouch for its forms, and
 the matcher then indexes none of them. That is the right instinct and it is currently

@@ -124,11 +124,45 @@ const STRONG_GATE = new Set<string>([
   'befehlen','gebären','genesen','geschehen','messen','fressen','quellen','schmelzen','schwellen','verderben','werben','winken',
 ]);
 
-// Known simple verbs (lexicon infinitives), used to avoid false prefix splits:
-// "antworten" must not be read as "an" + "tworten". Populated at app start.
-let KNOWN: Set<string> = new Set();
+// Known simple verbs, used to avoid false prefix splits: "antworten" must not be
+// read as "an" + "tworten".
+//
+// Seeded from the lexicon at app start — and that alone was not enough. A prefixed
+// verb is only split when its **root** is known, so `aufräumen`, `einordnen` and
+// `zurückkehren` were all left unsplit and therefore `reliable: false`, purely
+// because *räumen*, *ordnen* and *kehren* are not themselves cards. Measured
+// 2026-08-15: 52 distinct roots missing this way. The learner then met a verb whose
+// preterite and participle resolved nowhere.
+//
+// These are roots, not cards: German verbs that exist whether or not Lexi teaches
+// them. Adding one can only *confirm* a split the code already suspected — it can
+// never invent one, because the prefix must also match — and a strong root stays
+// gated by `isStrong`, so `abheben` does not become reliable just because *heben*
+// is listed here.
+const SEED_ROOTS = [
+  // bases of separable verbs the corpus teaches but whose root it does not
+  'kehren', 'fassen', 'räumen', 'ordnen', 'melden', 'füllen', 'passen', 'klicken',
+  'schauen', 'zahlen', 'suchen', 'reichen', 'bauen', 'zeichnen',
+  'klären', 'grenzen', 'decken', 'lehnen', 'weisen', 'schränken', 'dämmen',
+  'wachen', 'ruhen', 'zünden', 'regen', 'beugen', 'heitern', 'hellen', 'kurbeln',
+  'hetzen', 'tönen', 'winken', 'checken', 'probieren',
+  // very common bases that anchor many prefixed forms
+  'machen', 'kaufen', 'hören', 'sagen', 'führen', 'setzen', 'stellen', 'legen',
+  'schalten', 'holen', 'zeigen', 'danken', 'wohnen', 'lernen', 'leben', 'spielen',
+  'arbeiten', 'kochen', 'packen', 'drehen', 'schicken', 'rechnen', 'buchen',
+  // Strong bases are **deliberately absent**. The first draft listed them on the
+  // reasoning that `isStrong` would still gate anything built on them — which is
+  // true for `abheben` (prefix `ab` is in GATE_PREFIXES) and false for
+  // `hervorheben`, which came out as *hebte hervor / hervorgehebt*. Four of the 89
+  // verbs the seed unlocked were wrong that way — `hervorheben`, `ausweichen`
+  // (wich aus), `abwägen` (wog ab) — and `bereiten` produced *vorgebereitet* for
+  // a participle that takes no -ge-. A root goes in this list only when it is weak
+  // and its prefixed forms have been read by eye.
+];
+
+let KNOWN: Set<string> = new Set(SEED_ROOTS);
 export function setKnownVerbs(infinitives: Iterable<string>) {
-  KNOWN = new Set([...infinitives].map((v) => v.replace(/^sich\s+/i, '').toLowerCase()));
+  KNOWN = new Set([...SEED_ROOTS, ...[...infinitives].map((v) => v.replace(/^sich\s+/i, '').toLowerCase())]);
 }
 const isKnownRoot = (root: string) => KNOWN.has(root) || !!TABLE[root];
 
