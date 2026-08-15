@@ -98,9 +98,10 @@ meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5
 > from de.wiktionary (stems, participle, auxiliary) rather than written from memory,
 > with the remaining persons rule-derived; every entry reproduces the dictionary
 > exactly. **1,064 of 1,079 verb cards resolve, from 887.** Two known limits: the
-> derived du/ihr preterites are rule-based, and ambiguous-prefix verbs follow
-> wiktionary's primary sense — `umstellen` is the inseparable "surround", which may
-> not be the sense its card teaches. A pass against the glosses would settle those.
+> derived du/ihr preterites are rule-based. ✅ **The ambiguous-prefix senses are
+> settled** (2026-08-15): read against each card's own gloss and examples, which found
+> `umstellen` and `hängen` wrong and `überfahren`/`überholen` already right — the
+> dictionary's primary headword shows the rarer sense for those two.
 >
 > ✅ **The strong verbs** (2026-08-15). Twenty-seven roots joined the
 > irregular table; `greifen` alone rescued *ergreifen*, *angreifen*, *begreifen* and

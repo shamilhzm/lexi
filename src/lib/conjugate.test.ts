@@ -289,3 +289,25 @@ describe('the dictionary-sourced long tail', () => {
     expect(conjugate('analysieren').praeteritum[5]).toBe('analysierten');
   });
 });
+
+// The ambiguous-prefix senses, settled 2026-08-15 by reading each card's own gloss
+// and examples rather than deferring to a dictionary's primary entry. A paradigm is
+// only right relative to a sense, and the card states which sense it teaches.
+describe('ambiguous prefixes follow the card, not the dictionary headword', () => {
+  it('umstellen is the separable "rearrange" — the card says umgestellt', () => {
+    expect(conjugate('umstellen').partizip).toBe('umgestellt');
+    expect(conjugate('umstellen').praeteritum[2]).toBe('stellte um');
+  });
+
+  it('hängen is the strong intransitive — the card leads with "be suspended"', () => {
+    expect(conjugate('hängen').praeteritum[2]).toBe('hing');
+    expect(conjugate('hängen').partizip).toBe('gehangen');
+  });
+
+  it('überfahren and überholen are inseparable, as their examples show', () => {
+    // "Tom hat einen Hund überfahren" · "Er überholte den Lastwagen".
+    // Wiktionary's Flexion page shows the rarer separable readings for both.
+    expect(conjugate('überfahren').partizip).toBe('überfahren');
+    expect(conjugate('überholen').praeteritum[2]).toBe('überholte');
+  });
+});

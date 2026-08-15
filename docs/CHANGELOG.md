@@ -11,6 +11,38 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the ambiguous senses, settled by reading the cards
+
+Four verbs were left open because a paradigm is only correct relative to a *sense*,
+and I had been treating "which sense does this card teach?" as a question needing an
+external authority. It is not. **The card states it**, in its gloss and its own
+examples, and those are in the repo.
+
+| card | its own evidence | verdict |
+|---|---|---|
+| `umstellen` | *"die Möbel im Wohnzimmer **umgestellt**"* | **separable** — the entry was wrong |
+| `hängen` | def leads *"to hang, to be suspended"*; *"Das Bild **hängt** an der Wand"* | **strong** — the entry was wrong |
+| `überfahren` | *"Tom hat einen Hund **überfahren**"* | inseparable — the entry was already right |
+| `überholen` | *"Er **überholte** den Lastwagen"* | inseparable — already right |
+
+So two were genuinely wrong and two were fine: `Flexion:überfahren` and
+`Flexion:überholen` show the *rarer* separable readings (fuhr über, holte über), and
+deferring to them would have broken two correct entries. **A dictionary's primary
+headword is not the same question as which verb a card teaches.**
+
+`umstellen` now reads *stellte um / umgestellt* and `hängen` *hing / gehangen*, both
+matching the sense the card actually teaches. All four pinned.
+
+830 tests green, reader probe unchanged at verb 174/185.
+
+**On method.** Four times today a check of mine turned out to be the bug, and the
+over-correction was to treat my own judgement as unusable everywhere. The line that
+actually holds: 1,400 verb forms is past what memory is a reliable instrument for and
+belongs to a source; four sense judgements against evidence sitting in the repo do
+not. Deferring those was not caution, it was just slower.
+
+---
+
 ### Shipped 2026-08-15 — the source I recommended fails its own licence check
 
 Last entry proposed DWDS as the obvious next authority for the ambiguous-prefix

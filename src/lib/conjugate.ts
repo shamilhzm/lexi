@@ -162,7 +162,11 @@ const TABLE: Record<string, Entry> = {
   hinterfragen: { praesens: six('hinterfrage','hinterfragst','hinterfragt','hinterfragen','hinterfragt','hinterfragen'), praeteritum: six('hinterfragte','hinterfragtest','hinterfragte','hinterfragten','hinterfragtet','hinterfragten'), partizip: 'hinterfragt', aux: 'haben' },
   hinterlegen: { praesens: six('hinterlege','hinterlegst','hinterlegt','hinterlegen','hinterlegt','hinterlegen'), praeteritum: six('hinterlegte','hinterlegtest','hinterlegte','hinterlegten','hinterlegtet','hinterlegten'), partizip: 'hinterlegt', aux: 'haben' },
   hinzufügen: { praesens: six('füge hinzu','fügst hinzu','fügt hinzu','fügen hinzu','fügt hinzu','fügen hinzu'), praeteritum: six('fügte hinzu','fügtest hinzu','fügte hinzu','fügten hinzu','fügtet hinzu','fügten hinzu'), partizip: 'hinzugefügt', aux: 'haben' },
-  hängen: { praesens: six('hänge','hängst','hängt','hängen','hängt','hängen'), praeteritum: six('hängte','hängtest','hängte','hängten','hängtet','hängten'), partizip: 'gehängt', aux: 'haben' },
+  // Strong: the card's definition leads with "to hang, to be suspended" and its
+  // first example is "Das Bild hängt an der Wand". German has a second, weak
+  // *hängen* (to hang something up — hängte/gehängt); this card is the
+  // intransitive one.
+  hängen: { praesens: six('hänge','hängst','hängt','hängen','hängt','hängen'), praeteritum: six('hing','hingst','hing','hingen','hingt','hingen'), partizip: 'gehangen', aux: 'haben' },
   nachvollziehen: { praesens: six('vollziehe nach','vollziehst nach','vollzieht nach','vollziehen nach','vollzieht nach','vollziehen nach'), praeteritum: six('vollzog nach','vollzogst nach','vollzog nach','vollzogen nach','vollzogt nach','vollzogen nach'), partizip: 'nachvollzogen', aux: 'haben' },
   nachweisen: { praesens: six('weise nach','weist nach','weist nach','weisen nach','weist nach','weisen nach'), praeteritum: six('wies nach','wiesest nach','wies nach','wiesen nach','wiest nach','wiesen nach'), partizip: 'nachgewiesen', aux: 'haben' },
   reißen: { praesens: six('reiße','reißt','reißt','reißen','reißt','reißen'), praeteritum: six('riss','rissest','riss','rissen','risst','rissen'), partizip: 'gerissen', aux: 'haben' },
@@ -188,7 +192,11 @@ const TABLE: Record<string, Entry> = {
   umschauen: { praesens: six('schaue um','schaust um','schaut um','schauen um','schaut um','schauen um'), praeteritum: six('schaute um','schautest um','schaute um','schauten um','schautet um','schauten um'), partizip: 'umgeschaut', aux: 'haben' },
   umsehen: { praesens: six('sehe um','siehst um','sieht um','sehen um','seht um','sehen um'), praeteritum: six('sah um','sahst um','sah um','sahen um','saht um','sahen um'), partizip: 'umgesehen', aux: 'haben' },
   umsetzen: { praesens: six('setze um','setzt um','setzt um','setzen um','setzt um','setzen um'), praeteritum: six('setzte um','setztest um','setzte um','setzten um','setztet um','setzten um'), partizip: 'umgesetzt', aux: 'haben' },
-  umstellen: { praesens: six('umstelle','umstellst','umstellt','umstellen','umstellt','umstellen'), praeteritum: six('umstellte','umstelltest','umstellte','umstellten','umstelltet','umstellten'), partizip: 'umstellt', aux: 'haben' },
+  // Separable — the card teaches "rearrange / switch over" and its own example
+  // reads "die Möbel … umgestellt". The inseparable *umstéllen* (to surround,
+  // umstellte/umstellt) is a different verb and was what the dictionary's primary
+  // entry gave.
+  umstellen: { praesens: six('stelle um','stellst um','stellt um','stellen um','stellt um','stellen um'), praeteritum: six('stellte um','stelltest um','stellte um','stellten um','stelltet um','stellten um'), partizip: 'umgestellt', aux: 'haben' },
   umstrukturieren: { praesens: six('strukturiere um','strukturierst um','strukturiert um','strukturieren um','strukturiert um','strukturieren um'), praeteritum: six('strukturierte um','strukturiertest um','strukturierte um','strukturierten um','strukturiertet um','strukturierten um'), partizip: 'umstrukturiert', aux: 'haben' },
   unterbrechen: { praesens: six('unterbreche','unterbrichst','unterbricht','unterbrechen','unterbrecht','unterbrechen'), praeteritum: six('unterbrach','unterbrachst','unterbrach','unterbrachen','unterbracht','unterbrachen'), partizip: 'unterbrochen', aux: 'haben' },
   unterhalten: { praesens: six('unterhalte','unterhältst','unterhält','unterhalten','unterhaltet','unterhalten'), praeteritum: six('unterhielt','unterhieltest','unterhielt','unterhielten','unterhieltt','unterhielten'), partizip: 'unterhalten', aux: 'haben' },
