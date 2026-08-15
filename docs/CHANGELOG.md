@@ -11,6 +11,44 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — corpus growth, aimed by the meter
+
+The meter's own measurement said **7.10% of exam-paper tokens are words the corpus does
+not carry at any inflection**. That is the ceiling on every text a learner pastes, so it
+is where growth pays — and `corpus:papervocab` already emits the exact list.
+
+**Splitting the list before authoring it separated two very different jobs.** Of 700 gap
+rows, **7** were an existing card with an empty `plural` field and **686** were words
+with no card at any inflection. The first seven are not authoring work at all: `der
+Herr`, `das Bild`, `der Laden`, `die Einstellung` and `der Bereich` all had `plural:
+null`, so the matcher had no plural form to index and the reader was calling *Herren*,
+*Bilder*, *Läden*, *Bereiche* and *Einstellungen* words the learner does not know.
+Plurals read from the de.wiktionary pages `corpus:gender-audit` had already cached, and
+applied through `fix-authored`'s expect-guarded `PlRow`.
+
+**Then 22 new cards through the authoring gate, in two batches.** Lesesaal, Arbeitstag,
+Lehrkraft, Anrufbeantworter, Zuschuss, Vorbehalt, Angabe, Bequemlichkeit, argumentieren,
+Assistent, Buffet, Speisewagen, Nachtzug, Hallenbad, Zertifikat, Anregung, Anschaffung,
+Ausfall, Verlegenheit, auswendig, frühestens, abschalten. Gender, plural and IPA came
+from the dictionary rather than from the author, and every example was checked to
+contain a real inflection of its headword by the app's own matcher.
+
+**The gate caught one thing and missed another, and both are now fixed.** It rejected
+*das Buffet* for a gloss that repeats the German term — correct: "buffet" genuinely is
+the same word, and saying so with `sameAsGerman` is the difference between a stated fact
+and an unfilled field. But it accepted three **sectors that do not exist** ("Restaurant &
+Ordering", "Feelings & Emotions", "Time & Dates"), because a wrong filing is not a
+linguistic error and none of the dictionary checks can see it. `corpus:validate` would
+have caught it afterwards, but this gate's promise is that it *refuses to write a card it
+cannot verify*, and a sector is part of the card. It now checks, and suggests the near
+matches — verified by feeding it a fresh term with an invented sector and watching it
+refuse.
+
+**6,578 → 6,600 cards · papers 93.7% → 94.2% covered · distinct gaps 706 → 667.**
+783 tests green, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-15 — the comprehension meter, Phase 2: texts that come back
 
 Saved texts, each with a meter that moves while you study. BACKLOG's framing is that

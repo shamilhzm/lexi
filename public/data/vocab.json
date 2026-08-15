@@ -206278,5 +206278,329 @@
     ],
     "field": "Business & Workplace",
     "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Buffet",
+    "term": "das Buffet",
+    "en": "buffet",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Buffets",
+    "ipa": "bʏˈfeː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Frühstück ist ein Buffet.",
+        "en": "Breakfast is a buffet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Am Buffet gibt es auch warme Speisen.",
+        "en": "There are hot dishes at the buffet too.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Restaurant & Dining",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Speisewagen",
+    "term": "der Speisewagen",
+    "en": "dining car",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʃpaɪ̯zəˌvaːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Speisewagen befindet sich in der Mitte des Zuges.",
+        "en": "The dining car is in the middle of the train.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Speisewagen kann man warm essen.",
+        "en": "You can get a hot meal in the dining car.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Travel & Transport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Nachtzug",
+    "term": "der Nachtzug",
+    "en": "night train",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Nachtzüge",
+    "ipa": "ˈnaxtˌt͡suːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir nehmen den Nachtzug nach Wien.",
+        "en": "We're taking the night train to Vienna.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nachtzüge fahren wieder häufiger.",
+        "en": "Night trains are running more often again.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Travel & Transport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Hallenbad",
+    "term": "das Hallenbad",
+    "en": "indoor swimming pool",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Hallenbäder",
+    "ipa": "ˈhalənˌbaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Winter schwimme ich im Hallenbad.",
+        "en": "In winter I swim at the indoor pool.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Hallenbad ist montags geschlossen.",
+        "en": "The indoor pool is closed on Mondays.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Sport & Exercise",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Zertifikat",
+    "term": "das Zertifikat",
+    "en": "certificate",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Zertifikate",
+    "ipa": "t͡sɛʁtifiˈkaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Prüfung bekommst du ein Zertifikat.",
+        "en": "You get a certificate after the exam.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Arbeitgeber verlangen solche Zertifikate.",
+        "en": "Many employers ask for certificates like these.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Anregung",
+    "term": "die Anregung",
+    "en": "suggestion, stimulus",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Anregungen",
+    "ipa": "ˈanʁeːɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Danke für die Anregung!",
+        "en": "Thanks for the suggestion!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ihre Anregungen haben wir gerne aufgenommen.",
+        "en": "We were glad to take up your suggestions.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Anschaffung",
+    "term": "die Anschaffung",
+    "en": "purchase, acquisition",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Anschaffungen",
+    "ipa": "ˈanʃafʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein neues Auto ist eine teure Anschaffung.",
+        "en": "A new car is an expensive purchase.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über größere Anschaffungen entscheiden wir gemeinsam.",
+        "en": "We decide on larger purchases together.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Ausfall",
+    "term": "der Ausfall",
+    "en": "cancellation, failure, outage",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Ausfälle",
+    "ipa": "ˈaʊ̯sfal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wegen des Ausfalls warteten wir zwei Stunden.",
+        "en": "We waited two hours because of the cancellation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei technischen Ausfällen informiert die Bahn per App.",
+        "en": "In the event of technical failures the railway informs you by app.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Travel & Transport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Verlegenheit",
+    "term": "die Verlegenheit",
+    "en": "embarrassment, awkward position",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Verlegenheiten",
+    "ipa": "fɛɐ̯ˈleːɡn̩haɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Frage brachte ihn in Verlegenheit.",
+        "en": "The question put him in an awkward position.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie überspielte ihre Verlegenheit mit einem Witz.",
+        "en": "She covered up her embarrassment with a joke.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:auswendig",
+    "term": "auswendig",
+    "en": "by heart, from memory",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sˌvɛndɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich kann das Gedicht auswendig.",
+        "en": "I know the poem by heart.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat die ganze Rede auswendig gelernt.",
+        "en": "She learned the whole speech by heart.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:frühestens",
+    "term": "frühestens",
+    "en": "at the earliest",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfʁyːəstn̩s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich komme frühestens um acht.",
+        "en": "I'll come at eight at the earliest.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Antwort kommt frühestens nächste Woche.",
+        "en": "The answer will come next week at the earliest.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:abschalten",
+    "term": "abschalten",
+    "en": "to switch off; to switch off mentally",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌʃaltn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte schalte den Computer ab.",
+        "en": "Please switch the computer off.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Urlaub kann ich endlich abschalten.",
+        "en": "On holiday I can finally switch off.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Media & technology",
+    "kind": "word"
   }
 ]

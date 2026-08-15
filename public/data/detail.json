@@ -55123,6 +55123,20 @@
       }
     ]
   },
+  "voc:B1:auswendig": {
+    "ex": [
+      {
+        "de": "Ich kann das Gedicht auswendig.",
+        "en": "I know the poem by heart.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat die ganze Rede auswendig gelernt.",
+        "en": "She learned the whole speech by heart.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:auswärts": {
     "def": "out of town; outside the place in question; outside one’s house; out",
     "ex": [
@@ -57181,6 +57195,20 @@
       }
     ]
   },
+  "voc:B1:das Buffet": {
+    "ex": [
+      {
+        "de": "Das Frühstück ist ein Buffet.",
+        "en": "Breakfast is a buffet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Am Buffet gibt es auch warme Speisen.",
+        "en": "There are hot dishes at the buffet too.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Bundesland": {
     "def": "federal state (non-sovereign state); One of the 16 federal states of Germany",
     "ex": [
@@ -57987,6 +58015,20 @@
         "de": "Das Grundgesetz bildet das Fundament, auf dem der Staat ruht.",
         "en": "The Basic Law forms the foundation on which the state rests.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:das Hallenbad": {
+    "ex": [
+      {
+        "de": "Im Winter schwimme ich im Hallenbad.",
+        "en": "In winter I swim at the indoor pool.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Hallenbad ist montags geschlossen.",
+        "en": "The indoor pool is closed on Mondays.",
+        "lvl": "B1"
       }
     ]
   },
@@ -64653,6 +64695,20 @@
         "de": "Wer hier spart, verschafft sich langfristig einen erheblichen Nachteil.",
         "en": "Whoever saves here puts themselves at a considerable disadvantage in the long run.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Nachtzug": {
+    "ex": [
+      {
+        "de": "Wir nehmen den Nachtzug nach Wien.",
+        "en": "We're taking the night train to Vienna.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nachtzüge fahren wieder häufiger.",
+        "en": "Night trains are running more often again.",
+        "lvl": "B1"
       }
     ]
   },
@@ -81911,6 +81967,20 @@
       }
     ]
   },
+  "voc:B1:frühestens": {
+    "ex": [
+      {
+        "de": "Ich komme frühestens um acht.",
+        "en": "I'll come at eight at the earliest.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Antwort kommt frühestens nächste Woche.",
+        "en": "The answer will come next week at the earliest.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:fähig": {
     "def": "capable (having the general capability to)",
     "ex": [
@@ -92015,6 +92085,20 @@
       }
     ]
   },
+  "voc:B2:abschalten": {
+    "ex": [
+      {
+        "de": "Bitte schalte den Computer ab.",
+        "en": "Please switch the computer off.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Urlaub kann ich endlich abschalten.",
+        "en": "On holiday I can finally switch off.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:abschließend": {
     "def": "Coming at the end; final.",
     "ex": [
@@ -94187,6 +94271,20 @@
       }
     ]
   },
+  "voc:B2:das Zertifikat": {
+    "ex": [
+      {
+        "de": "Nach der Prüfung bekommst du ein Zertifikat.",
+        "en": "You get a certificate after the exam.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Arbeitgeber verlangen solche Zertifikate.",
+        "en": "Many employers ask for certificates like these.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das soziale Netzwerk": {
     "def": "An online service where people connect and share content.",
     "ex": [
@@ -94529,6 +94627,20 @@
       {
         "de": "Der Aufwand steht in keinem Verhältnis zum Nutzen.",
         "en": "The effort is out of all proportion to the benefit.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Ausfall": {
+    "ex": [
+      {
+        "de": "Wegen des Ausfalls warteten wir zwei Stunden.",
+        "en": "We waited two hours because of the cancellation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei technischen Ausfällen informiert die Bahn per App.",
+        "en": "In the event of technical failures the railway informs you by app.",
         "lvl": "B2"
       }
     ]
@@ -95786,6 +95898,20 @@
       }
     ]
   },
+  "voc:B2:der Speisewagen": {
+    "ex": [
+      {
+        "de": "Der Speisewagen befindet sich in der Mitte des Zuges.",
+        "en": "The dining car is in the middle of the train.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Speisewagen kann man warm essen.",
+        "en": "You can get a hot meal in the dining car.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Staatsbürger": {
     "def": "citizen (legal member of a state) (male or unspecified)",
     "ex": [
@@ -96726,6 +96852,20 @@
         "de": "Die Annahme erwies sich schon nach wenigen Versuchen als falsch.",
         "en": "The assumption proved false after only a few experiments.",
         "lvl": "C2"
+      }
+    ]
+  },
+  "voc:B2:die Anregung": {
+    "ex": [
+      {
+        "de": "Danke für die Anregung!",
+        "en": "Thanks for the suggestion!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ihre Anregungen haben wir gerne aufgenommen.",
+        "en": "We were glad to take up your suggestions.",
+        "lvl": "B2"
       }
     ]
   },
@@ -108512,6 +108652,20 @@
       }
     ]
   },
+  "voc:C1:die Anschaffung": {
+    "ex": [
+      {
+        "de": "Ein neues Auto ist eine teure Anschaffung.",
+        "en": "A new car is an expensive purchase.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über größere Anschaffungen entscheiden wir gemeinsam.",
+        "en": "We decide on larger purchases together.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Anspielung": {
     "def": "An indirect reference to something without naming it directly.",
     "ex": [
@@ -110665,6 +110819,20 @@
       {
         "de": "Die Verlagerung der Produktion war umstritten.",
         "en": "The relocation of production was controversial.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Verlegenheit": {
+    "ex": [
+      {
+        "de": "Die Frage brachte ihn in Verlegenheit.",
+        "en": "The question put him in an awkward position.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie überspielte ihre Verlegenheit mit einem Witz.",
+        "en": "She covered up her embarrassment with a joke.",
         "lvl": "C1"
       }
     ]

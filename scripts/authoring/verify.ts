@@ -301,10 +301,23 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
  *  hundred-card batch does not read as a scraper to Wikimedia. */
 export async function verifyAll(cands: Candidate[], existing: Set<string>,
                                 corpus: Word[] = []): Promise<Verdict[]> {
+  // The sectors that actually exist. A card filed under a name nobody uses is not
+  // a linguistic error, so none of the dictionary checks below can see it — and on
+  // 2026-08-15 a batch invented three ("Restaurant & Ordering", "Feelings &
+  // Emotions", "Time & Dates") and passed every one of them. `corpus:validate`
+  // catches it afterwards, but this file's promise is that it *refuses to write a
+  // card it cannot verify*, and a sector is part of the card.
+  const sectors = new Set(corpus.map((w) => w.field).filter(Boolean));
   const out: Verdict[] = [];
   for (const c of cands) {
     const cached = existsSync(join(CACHE, `${encodeURIComponent(stripArticle(c.term))}.txt`));
-    out.push(await verify(c, existing, corpus));
+    const v = await verify(c, existing, corpus);
+    if (sectors.size && !sectors.has(c.field)) {
+      const near = [...sectors].filter((s2) => s2.toLowerCase().includes(c.field.split(/[&,]/)[0].trim().toLowerCase()));
+      v.ok = false;
+      v.reasons.push(`no sector named "${c.field}"${near.length ? ` — did you mean ${near.slice(0, 3).map((n) => `"${n}"`).join(', ')}?` : ''}`);
+    }
+    out.push(v);
     if (!cached) await sleep(150);
   }
   return out;
