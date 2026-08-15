@@ -57294,6 +57294,20 @@
       }
     ]
   },
+  "voc:B1:das Display": {
+    "ex": [
+      {
+        "de": "Das Display ist gesprungen.",
+        "en": "The display is cracked.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Display erscheint eine Nachricht.",
+        "en": "A message appears on the display.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Du anbieten": {
     "def": "To invite someone to use the informal form of address.",
     "ex": [
@@ -72401,6 +72415,20 @@
         "de": "Die Forschung stößt hier an die Grenzen des technisch Machbaren.",
         "en": "Research here reaches the limits of what is technically feasible.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Großstadt": {
+    "ex": [
+      {
+        "de": "In der Großstadt ist die Miete hoch.",
+        "en": "Rent is high in the city.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele junge Leute ziehen in die Großstädte.",
+        "en": "Many young people move to the cities.",
+        "lvl": "B1"
       }
     ]
   },
@@ -94503,6 +94531,20 @@
       }
     ]
   },
+  "voc:B2:der Anschlusszug": {
+    "ex": [
+      {
+        "de": "Wir haben den Anschlusszug verpasst.",
+        "en": "We missed the connecting train.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Anschlusszüge warten bei Verspätungen nicht immer.",
+        "en": "Connecting trains don't always wait when there are delays.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Anstieg": {
     "def": "increase, rise, surge",
     "ex": [
@@ -95701,6 +95743,20 @@
       {
         "de": "Ich bin ein Profi.",
         "en": "I'm a pro.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Prüfer": {
+    "ex": [
+      {
+        "de": "Der Prüfer stellt noch eine letzte Frage.",
+        "en": "The examiner asks one last question.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zwei Prüfer bewerten die mündliche Leistung.",
+        "en": "Two examiners assess the oral performance.",
         "lvl": "B2"
       }
     ]
@@ -107448,6 +107504,20 @@
       }
     ]
   },
+  "voc:C1:das Prestige": {
+    "ex": [
+      {
+        "de": "Der Beruf hat ein hohes Prestige.",
+        "en": "The profession carries high prestige.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es ging ihm nur um Prestige.",
+        "en": "He was only interested in prestige.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Risiko streuen": {
     "def": "To spread investments so that losses in one are offset by others.",
     "ex": [
@@ -107588,6 +107658,20 @@
       {
         "de": "Das Vokabular der Verwaltung ist schwer zu lesen.",
         "en": "Administrative vocabulary is hard to read.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Zehntel": {
+    "ex": [
+      {
+        "de": "Nur ein Zehntel der Fläche ist bebaut.",
+        "en": "Only a tenth of the area is built on.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es fehlten wenige Zehntel einer Sekunde.",
+        "en": "A few tenths of a second were missing.",
         "lvl": "C1"
       }
     ]
@@ -107757,6 +107841,20 @@
       }
     ]
   },
+  "voc:C1:der Anbau": {
+    "ex": [
+      {
+        "de": "Der Anbau von Getreide lohnt sich hier kaum.",
+        "en": "Growing grain is hardly worthwhile here.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Hinter dem Haus entsteht ein Anbau.",
+        "en": "An extension is going up behind the house.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Anglizismus": {
     "def": "An English word or phrase borrowed into another language.",
     "ex": [
@@ -107873,6 +107971,20 @@
       {
         "de": "Im wissenschaftlichen Diskurs zählen Argumente, nicht Titel.",
         "en": "In academic discourse arguments count, not titles.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Egoismus": {
+    "ex": [
+      {
+        "de": "Sein Egoismus hat die Freundschaft zerstört.",
+        "en": "His selfishness destroyed the friendship.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man warf der Politik reinen Egoismus vor.",
+        "en": "The political class was accused of pure selfishness.",
         "lvl": "C1"
       }
     ]
@@ -108171,6 +108283,20 @@
       {
         "de": "Der Sachverhalt ist komplizierter, als die Schlagzeile nahelegt.",
         "en": "The facts are more complicated than the headline suggests.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Schichtdienst": {
+    "ex": [
+      {
+        "de": "Sie arbeitet im Schichtdienst.",
+        "en": "She works shifts.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Schichtdienst belastet den Schlaf.",
+        "en": "Shift work takes a toll on sleep.",
         "lvl": "C1"
       }
     ]
@@ -108518,6 +108644,20 @@
       }
     ]
   },
+  "voc:C1:der Zulauf": {
+    "ex": [
+      {
+        "de": "Der Verein hat großen Zulauf.",
+        "en": "The club is attracting a lot of interest.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kurse fanden regen Zulauf.",
+        "en": "The courses drew a lively response.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Zuschuss": {
     "ex": [
       {
@@ -108707,6 +108847,20 @@
       {
         "de": "Als Auflage muss der Konzern eine ganze Sparte verkaufen.",
         "en": "As a condition the group has to sell an entire division.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Aufzählung": {
+    "ex": [
+      {
+        "de": "Die Aufzählung war viel zu lang.",
+        "en": "The list was far too long.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Verzichten Sie in der Einleitung auf lange Aufzählungen.",
+        "en": "Avoid long lists in the introduction.",
         "lvl": "C1"
       }
     ]
@@ -108976,6 +109130,20 @@
       {
         "de": "Für die Datensicherheit ist die Geschäftsführung verantwortlich.",
         "en": "Management is responsible for data security.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Deutung": {
+    "ex": [
+      {
+        "de": "Diese Deutung des Gedichts überzeugt mich nicht.",
+        "en": "This interpretation of the poem doesn't convince me.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Text lässt mehrere Deutungen zu.",
+        "en": "The text allows several interpretations.",
         "lvl": "C1"
       }
     ]
@@ -110848,6 +111016,20 @@
       {
         "de": "Die Vernetzung der Forschungsgruppen war das eigentliche Ergebnis.",
         "en": "The networking of the research groups was the real result.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Verschiebung": {
+    "ex": [
+      {
+        "de": "Die Verschiebung des Termins war nötig.",
+        "en": "Postponing the appointment was necessary.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Verschiebungen kosten das Projekt Zeit.",
+        "en": "Shifts like these cost the project time.",
         "lvl": "C1"
       }
     ]

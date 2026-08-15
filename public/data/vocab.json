@@ -206602,5 +206602,356 @@
     ],
     "field": "Media & technology",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Prüfer",
+    "term": "der Prüfer",
+    "en": "examiner",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Prüfer",
+    "ipa": "ˈpʁyːfɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Prüfer stellt noch eine letzte Frage.",
+        "en": "The examiner asks one last question.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zwei Prüfer bewerten die mündliche Leistung.",
+        "en": "Two examiners assess the oral performance.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Anschlusszug",
+    "term": "der Anschlusszug",
+    "en": "connecting train",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Anschlusszüge",
+    "ipa": "ˈanʃlʊsˌt͡suːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir haben den Anschlusszug verpasst.",
+        "en": "We missed the connecting train.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Anschlusszüge warten bei Verspätungen nicht immer.",
+        "en": "Connecting trains don't always wait when there are delays.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Travel & Transport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Display",
+    "term": "das Display",
+    "en": "display, screen",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Displays",
+    "ipa": "ˈdɪsplɛɪ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Display ist gesprungen.",
+        "en": "The display is cracked.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Display erscheint eine Nachricht.",
+        "en": "A message appears on the display.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Digital World & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Deutung",
+    "term": "die Deutung",
+    "en": "interpretation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Deutungen",
+    "ipa": "ˈdɔɪ̯tʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Diese Deutung des Gedichts überzeugt mich nicht.",
+        "en": "This interpretation of the poem doesn't convince me.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Text lässt mehrere Deutungen zu.",
+        "en": "The text allows several interpretations.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Egoismus",
+    "term": "der Egoismus",
+    "en": "selfishness, egoism",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Egoismen",
+    "ipa": "eɡoˈɪsmʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sein Egoismus hat die Freundschaft zerstört.",
+        "en": "His selfishness destroyed the friendship.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man warf der Politik reinen Egoismus vor.",
+        "en": "The political class was accused of pure selfishness.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Verschiebung",
+    "term": "die Verschiebung",
+    "en": "postponement, shift",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Verschiebungen",
+    "ipa": "fɛɐ̯ˈʃiːbʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Verschiebung des Termins war nötig.",
+        "en": "Postponing the appointment was necessary.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Verschiebungen kosten das Projekt Zeit.",
+        "en": "Shifts like these cost the project time.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Prestige",
+    "term": "das Prestige",
+    "en": "prestige",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "pʁɛsˈtiːʒə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Beruf hat ein hohes Prestige.",
+        "en": "The profession carries high prestige.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es ging ihm nur um Prestige.",
+        "en": "He was only interested in prestige.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Schichtdienst",
+    "term": "der Schichtdienst",
+    "en": "shift work",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Schichtdienste",
+    "ipa": "ˈʃɪçtˌdiːnst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie arbeitet im Schichtdienst.",
+        "en": "She works shifts.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Schichtdienst belastet den Schlaf.",
+        "en": "Shift work takes a toll on sleep.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Aufzählung",
+    "term": "die Aufzählung",
+    "en": "list, enumeration",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Aufzählungen",
+    "ipa": "ˈaʊ̯fˌt͡sɛːlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Aufzählung war viel zu lang.",
+        "en": "The list was far too long.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Verzichten Sie in der Einleitung auf lange Aufzählungen.",
+        "en": "Avoid long lists in the introduction.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Anbau",
+    "term": "der Anbau",
+    "en": "cultivation; extension (of a building)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Anbauten",
+    "ipa": "ˈanˌbaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Anbau von Getreide lohnt sich hier kaum.",
+        "en": "Growing grain is hardly worthwhile here.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Hinter dem Haus entsteht ein Anbau.",
+        "en": "An extension is going up behind the house.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Environment",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Großstadt",
+    "term": "die Großstadt",
+    "en": "city, large city",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Großstädte",
+    "ipa": "ˈɡʁoːsˌʃtat",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Großstadt ist die Miete hoch.",
+        "en": "Rent is high in the city.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele junge Leute ziehen in die Großstädte.",
+        "en": "Many young people move to the cities.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Urban life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Zehntel",
+    "term": "das Zehntel",
+    "en": "tenth",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Zehntel",
+    "ipa": "ˈt͡seːntl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nur ein Zehntel der Fläche ist bebaut.",
+        "en": "Only a tenth of the area is built on.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es fehlten wenige Zehntel einer Sekunde.",
+        "en": "A few tenths of a second were missing.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Zulauf",
+    "term": "der Zulauf",
+    "en": "influx, following",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Zuläufe",
+    "ipa": "ˈt͡suːlaʊ̯f",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Verein hat großen Zulauf.",
+        "en": "The club is attracting a lot of interest.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kurse fanden regen Zulauf.",
+        "en": "The courses drew a lively response.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
   }
 ]
