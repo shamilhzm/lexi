@@ -252,3 +252,40 @@ describe('strong roots and what they cascade to', () => {
     expect(conjugate('gefrieren').aux).toBe('sein');
   });
 });
+
+// The long tail, closed 2026-08-15: 102 verbs whose stems come from de.wiktionary
+// rather than from memory. A sample is pinned here — the 3sg preterite and the
+// participle, which are the two forms recognition depends on and the two the
+// dictionary states exactly. The other persons are rule-derived and deliberately
+// not asserted, because a rule is what they are.
+describe('the dictionary-sourced long tail', () => {
+  const cases: [string, string, string, string][] = [
+    ['schieben',      'schob',        'geschoben',      'haben'],
+    ['begraben',      'begrub',       'begraben',       'haben'],
+    ['auftreten',     'trat auf',     'aufgetreten',    'sein'],
+    ['umkommen',      'kam um',       'umgekommen',     'sein'],
+    ['durchgehen',    'ging durch',   'durchgegangen',  'sein'],
+    ['anstoßen',      'stieß an',     'angestoßen',     'haben'],
+    ['abbiegen',      'bog ab',       'abgebogen',      'haben'],
+    ['stehlen',       'stahl',        'gestohlen',      'haben'],
+    ['zwingen',       'zwang',        'gezwungen',      'haben'],
+    ['schweigen',     'schwieg',      'geschwiegen',    'haben'],
+    ['abonnieren',    'abonnierte',   'abonniert',      'haben'],  // weak: -te + -n, not -teen
+    ['analysieren',   'analysierte',  'analysiert',     'haben'],
+  ];
+  for (const [verb, praet, part, aux] of cases) {
+    it(`${verb} → ${praet} / ${part}`, () => {
+      const c = conjugate(verb);
+      expect(c.reliable).toBe(true);
+      expect(c.praeteritum[2]).toBe(praet);
+      expect(c.partizip).toBe(part);
+      expect(c.aux).toBe(aux);
+    });
+  }
+
+  it('a weak preterite pluralises with -n, not -en', () => {
+    // The generator's first pass produced *abonnierteen*.
+    expect(conjugate('abonnieren').praeteritum[3]).toBe('abonnierten');
+    expect(conjugate('analysieren').praeteritum[5]).toBe('analysierten');
+  });
+});

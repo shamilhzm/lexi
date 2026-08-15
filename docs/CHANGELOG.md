@@ -11,6 +11,45 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the long tail closes: every verb card conjugates
+
+The remaining 102. **Zero verb cards are now marked unreliable**, and 1,064 of 1,079
+have a generated form the reader resolves — from 887 this morning.
+
+**The stems are not written from memory.** `Präsens_ich/du/er`, `Präteritum_ich`,
+`Partizip II` and `Hilfsverb` come from each verb's de.wiktionary entry, fetched and
+cached; only the remaining persons are derived by rule. That follows the pipeline's
+standing rule that facts are never generated, and it is the only reason a batch this
+size is defensible — 102 verbs is roughly 1,400 forms, well past what reading by eye
+can carry.
+
+**A machine check replaces the eye, and states what it covers**: every one of the 102
+entries reproduces the dictionary's own preterite, participle and auxiliary exactly —
+0 disagreements. The first generated pass was wrong and the check caught it: weak
+preterites already end in `-e`, so the plural ending is `-n`, and appending `-en` gave
+**abonnierteen**.
+
+**Two limits, stated rather than buried.** The derived persons are rule-based, so a
+du- or ihr-preterite could be off where German is irregular there; the forms
+recognition actually depends on — 3sg preterite and participle — are dictionary-exact,
+and those are what the tests pin. And where a prefix is ambiguous these follow
+wiktionary's *primary* entry, which is not always the sense the card teaches:
+`umstellen` is here as the inseparable "surround" (umstellte/umstellt), not the
+separable "rearrange". Worth a pass against the glosses.
+
+Reader probe verb 154/165 → **174/185**; plural, adjective and closed-class unchanged.
+814 tests green.
+
+| stage | resolving |
+|---|---|
+| start of day | 887 / 1,079 |
+| `SEED_ROOTS` | 904 |
+| ambiguous-prefix rows | 920 |
+| strong roots | 962 |
+| the dictionary-sourced tail | **1,064** |
+
+---
+
 ### Shipped 2026-08-15 — the strong roots, and the verb finding closes
 
 Twenty-seven strong roots join the irregular table, and **a root cascades**: `greifen`

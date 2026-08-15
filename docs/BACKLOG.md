@@ -94,7 +94,15 @@ meter — and "honest" is the entire competitive claim (COMPETITIVE-RESEARCH §5
 > `einordnen`, `zurückkehren` and 82 others now split and conjugate correctly. Reading
 > all 89 by eye caught four wrong ones (`hervorheben`, `ausweichen`, `abwägen`,
 > `vorbereiten`) — the list carries **weak roots only**, and a test pins those four.
-> ✅ **The strong verbs are done too** (2026-08-15). Twenty-seven roots joined the
+> ✅ **Closed 2026-08-15 — zero verb cards are unreliable.** The last 102 were taken
+> from de.wiktionary (stems, participle, auxiliary) rather than written from memory,
+> with the remaining persons rule-derived; every entry reproduces the dictionary
+> exactly. **1,064 of 1,079 verb cards resolve, from 887.** Two known limits: the
+> derived du/ihr preterites are rule-based, and ambiguous-prefix verbs follow
+> wiktionary's primary sense — `umstellen` is the inseparable "surround", which may
+> not be the sense its card teaches. A pass against the glosses would settle those.
+>
+> ✅ **The strong verbs** (2026-08-15). Twenty-seven roots joined the
 > irregular table; `greifen` alone rescued *ergreifen*, *angreifen*, *begreifen* and
 > *aufgreifen*. **962 of 1,079 verb cards resolve, from 887.** All 42 cascaded forms
 > read by eye — which caught `gefrieren` inheriting *haben* from `frieren` when it
