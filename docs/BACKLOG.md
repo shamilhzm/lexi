@@ -860,21 +860,47 @@ which is why they group into one pass rather than fifteen tickets.
   Hover was already there (brightness + outline); *press* was not, even though
   `.tile` had declared `transition: filter .1s` since it was written. A tile
   acknowledged the pointer on the way in and went dead under it.
-- **The interaction hint sits below the fold (#26 · XS).** "Long-press to study" is
-  documented where it cannot be seen, on both viewports.
+- ~~**The interaction hint sits below the fold (#26 · XS).**~~ ✅ **Fixed 2026-08-16.**
+  It lived in the legend row *below* the map, which on a 375×812 phone sits at ~877px
+  — off the bottom — and long-press is the only way to study a group directly from the
+  map on touch. The phone now carries its own line in the card header; the legend row
+  keeps the full sentence from `sm:` up. First attempt put it in the controls row's
+  "spare" width, which truncated the hint **and** shrank *Study all* into a two-line
+  wrap — the DOM read said unclipped and the screenshot said otherwise, which is the
+  argument for looking. It has its own 19px line instead. **First tile 390 → 401**;
+  net against the pre-#30 465.
 - **The goal line is styled as a footnote (#23 · XS · P1)** — the most motivating
-  sentence in the app, at 14px between two large cards. And **"+ 4 drills targeting
-  your blind spots" is red (#24 · XS · P1)**, which reads as an error for the app
-  doing you a favour.
+  sentence in the app, at `text-xs text-dim` between two large cards. *Still open, and
+  not attempted 2026-08-16 for a stated reason:* it renders only for a learner past
+  week 1 with a goal set, so verifying any change needs a seeded multi-day store, and
+  shipping an unverified typographic promotion of the app's most motivating sentence
+  is the wrong trade.
+- ~~**"+ 4 drills targeting your blind spots" is red (#24 · XS · P1)**~~ — ✅ **stale,
+  verified 2026-08-16.** `Today.tsx:290` renders it `text-amber`, and `--color-amber`
+  is Atlas blue (`#1d6a8c` light / `#63b3d4` dark). Nothing on that line is red. Fixed
+  at some point and never struck through — the same shape as the empty-`pos` item.
 
 **Also here, cheaply.**
 - **Category hue per theme group (#20 · M).** Fill encodes magnitude; hue should
   encode identity, consistently across map, decks, cards and stats.
 - **Retire the `--color-amber` misnomer (#27 · XS).** A token named amber holding
   Atlas blue, having previously held cyan. Rename with a codemod.
-- **`--color-der` and `--color-a1` are the same hex** in both themes (#2d5be3 light /
-  #7fa5ff dark) — one colour carrying two unrelated meanings. Found during the July 27
-  gender-ink work and preserved through the merge; needs a contrast pass, not a guess.
+- **Gender ink and CEFR ink share values — the contrast pass is done, and it is five
+  collisions, not one.** This item recorded `--color-der` == `--color-a1`. Measured
+  2026-08-16 by `src/lib/palette.test.ts`, which parses `index.css` and compares the
+  ramps: **light has three** (`der`=`a1` #2d5be3, `die`=`c2` #be185d, `das`=`b1`
+  #0f766e) and **dark has two** (`der`=`a1`, `das`=`b1`; dark lifts `die` and `c2` 45
+  apart, which is why counting in one theme got it wrong).
+  **Severity is lower than it reads, and that is measured too.** Neither ink is ever
+  the only signal — `genderColor`'s contract in `lib/ui.ts` is "the article itself is
+  always spelled out beside it", and a CEFR badge renders "A1" as text. So this is
+  polish, not ambiguity.
+  **What it still needs is the ruling, not the measurement:** which ramp moves. Gender
+  follows the blue/pink/green convention DaF materials use; CEFR has its own
+  documented order (blue → teal → violet → fuchsia → coral) and its own invariant
+  against the status colours. The test now enumerates the five so a **new** collision
+  fails the build while these stay visible, and it also pins contrast ≥3:1 for every
+  ink and mutual distinctness within each ramp — all of which pass today.
 
 **Done-when.** The desk is full-bleed; no measured clip remains; the treemap
 drill-down transforms rather than cross-fades; one documented motion scale applied.

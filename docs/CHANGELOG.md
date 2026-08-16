@@ -11,6 +11,58 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the hint nobody could see, and a palette check that found five of one
+
+Continuing through Now #4's ranked survivors. Two fixed, two struck as stale, one
+measured and handed back with the decision it actually needs.
+
+**#26 · the interaction hint was documented where it could not be seen.** "Long-press
+to study" lives in the legend row *below* the treemap — at ~877px on a 375×812 phone,
+off the bottom of the viewport — and long-press is the **only** way to study a group
+directly from the map on touch. The phone now carries its own line in the card header;
+the legend keeps the full sentence from `sm:` up, with a comment saying why it must not
+simply be re-shown there.
+
+The first attempt is worth recording: it rode in the controls row's "spare" width, on
+the arithmetic that 133 + 104 of 340 left 95px free. **The DOM read said unclipped and
+the screenshot said otherwise** — flexbox had shrunk `Study all` into a two-line wrap
+and truncated the hint to "Hold to stu…". Measuring the element I changed did not catch
+a defect in the element beside it. It has its own 19px line now. First tile 390 → 401,
+against 465 before yesterday's #30 work.
+
+**#24 · struck, stale.** "+ 4 drills targeting your blind spots is red, which reads as
+an error." It is `text-amber`, and `--color-amber` has been Atlas blue (`#1d6a8c` /
+`#63b3d4`) since the Glacier retune. Nothing on that line is red.
+
+**#23 · not attempted, deliberately.** The goal line renders only for a learner past
+week 1 with a goal set, so verifying a change needs a seeded multi-day store. A
+typographic promotion of what this file calls "the most motivating sentence in the app",
+shipped unverified, is the wrong trade. Left open with that reason written down.
+
+**The gender/CEFR ink collision: one recorded, five real.** The backlog carried
+`--color-der` == `--color-a1` and asked for "a contrast pass, not a guess". Done, as
+`src/lib/palette.test.ts` — it parses `index.css`, splits the themes and compares the
+ramps. **Light has three collisions** (`der`=`a1`, `die`=`c2`, `das`=`b1`) and **dark
+has two**; dark lifts `die` and `c2` 45 apart, which is exactly why counting by eye in
+one theme got the number wrong.
+
+Severity turned out lower than the entry reads, and that is measured too: neither ink
+is ever the only signal — `genderColor`'s own contract is "the article itself is always
+spelled out beside it" and a CEFR badge renders "A1" as text. So it is polish, and the
+open question is a *ruling* on which ramp moves, not a measurement: gender follows the
+blue/pink/green convention DaF materials use, CEFR has its own documented order. The
+test enumerates the five so a **new** collision fails the build while these stay
+visible, and pins contrast ≥3:1 for every ink plus mutual distinctness within each
+ramp — all passing. Proved firing by making `a2` equal `der` and watching three
+assertions fail.
+
+Its first version put every light token in the dark half: it split on the string
+`html.dark`, which appears in a comment 170 lines above the rule it describes. Same
+family as every other check in LESSONS class 2 — the parse was wrong before the
+finding could be.
+
+859 tests green.
+
 ### Shipped 2026-08-16 — the chrome in front of the map, and two numbers that were wrong
 
 BACKLOG Now #4's mobile P1s, re-measured before being touched — which is how two of

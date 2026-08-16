@@ -159,6 +159,17 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               ? <Button size="sm" onClick={() => onStudyGroup(zoom)}><Play size={13} /> Study {shortName(zoom)}</Button>
               : <Button size="sm" onClick={onStudyAll}><Play size={13} /> Study all</Button>}
           </div>
+          {/* The interaction hint, on a phone (BACKLOG #26). Its home is the
+              legend row below the map, which on a 375×812 screen sits at ~877px —
+              off the bottom of an 812px viewport. Long-press is the *only* way to
+              study a group directly from the map on touch, and its one explanation
+              could not be seen on the single device that has no right-click.
+              A line of its own, because the controls row has none to give: putting
+              it there truncated the hint *and* shrank `Study all` into a two-line
+              wrap. 16px, against the 75 the header just gave back. */}
+          <span className="w-full sm:hidden text-2xs text-dim -mt-1">
+            {zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · hold to study it'}
+          </span>
         </div>
 
         {list ? (
@@ -294,9 +305,13 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
           </span>
           <span className="font-mono">{Math.round(scale.domain[1] * 100)}%</span>
           <span>recognised · {scale.breaks.length ? 'five classes, equal count' : 'proportional'}</span>
-          {/* Was hidden below sm — which removed the only explanation of the
-              interaction from the screens that have no right-click at all. */}
-          <span className="ml-auto">{zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · long-press to study it directly'}</span>
+          {/* This was once hidden below `sm`, which removed the only explanation
+              of the interaction from the screens that have no right-click at all.
+              It is `sm:`-only again — but only because the phone now carries its
+              own copy up in the header row, where it can actually be seen. Do not
+              re-show it here without deleting that one: this legend sits below a
+              487px map and is off-screen on a phone. */}
+          <span className="ml-auto hidden sm:inline">{zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · long-press to study it directly'}</span>
           {zoom && <button onClick={() => onOpenGroup(zoom)} className="text-amber hover:underline sm:ml-3">All decks →</button>}
         </div>
       </Card>

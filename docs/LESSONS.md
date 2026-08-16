@@ -58,6 +58,11 @@ before writing.
 **…animate anything that content depends on.** An entrance that doesn't run leaves the
 thing invisible or mis-sized. See DESIGN §7.
 
+**…trust a DOM measurement of the thing you changed.** Screenshot it. A hint measured
+"unclipped" while the screenshot showed "Hold to stu…" — flexbox had shrunk the *button
+beside it* instead, wrapping it to two lines. Measuring one element cannot see what it
+did to its siblings.
+
 ---
 
 ## Class 1 — guessing a number instead of measuring it
