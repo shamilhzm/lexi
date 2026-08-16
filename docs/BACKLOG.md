@@ -869,14 +869,39 @@ precision and liveness, and the implementation still ships sparseness and
 compression in places. These are the ranked survivors, and they are mostly *layout*,
 which is why they group into one pass rather than fifteen tickets.
 
-**Composition (the largest remaining visual finding).**
-- **Break the single-column stack (#19 · M · P1).** Six identical rounded rectangles
-  at one width on a 1280px screen, each with 40–60% empty space to its right.
-- **The desk is letterboxed on desktop (#22 · S · P1).** DESIGN.md §8 promises
-  full-bleed; an ~800px column in a 1280px viewport is not that.
-- **The card becomes a lexicon entry (#21 · M).** Headword · IPA · POS · sense ·
-  citation is already the content model; the layout doesn't use it. Also closes the
-  ~250px of dead space inside the card on desktop.
+**Composition — measured 2026-08-16, and the three headline findings did not survive
+it.** All three were re-measured at 1280px before any of them was built, on the
+principle this file has re-learned five times this month. None is what it says.
+
+- ~~**Break the single-column stack (#19 · M · P1).** Six identical rounded rectangles
+  at one width on a 1280px screen, each with 40–60% empty space to its right.~~
+  ⚠️ **Measured: of the nine cards on Today, six use 95–98% of their width.** Only
+  three are sparse, and each for a reason: the Brain hero (70% — a canvas, where the
+  space *is* the artwork), the goal line (71% — a deliberately small card, redesigned
+  earlier today so the commitment leads), and *My class list* (51%). "Six rectangles
+  at 40–60% empty" is not the state of this surface. A two-column pass would be
+  redesigning six cards that already fill their column.
+- ~~**The desk is letterboxed on desktop (#22 · S · P1).** DESIGN.md §8 promises
+  full-bleed; an ~800px column in a 1280px viewport is not that.~~
+  ⚠️ **Measured: the column is 640px, not ~800 — and the desk carries no chrome at
+  all** (no top bar, no bottom nav, no ticker; verified in the running app). §8's
+  table contrasts *chrome* with *no chrome* — "the terminal: mono, cool, hairlines,
+  nav, ticker" against "full-bleed, no chrome at all" — it does not promise that the
+  card spans the viewport. The desk satisfies what §8 actually says, and a
+  viewport-wide flashcard would contradict the same section's "one object".
+- ~~**The card becomes a lexicon entry (#21 · M).**~~ ⚠️ **Substantially already
+  shipped, and never struck.** The front carries **POS · level · sector · headword
+  with gender ink · IPA · citation**; the back is flush-left with headword, POS ·
+  level · field, definition, the German definition layer, examples and synonyms —
+  its own source comment already calls it "an entry you read". The dead space inside
+  the front measures **169px, not ~250**, and it is symmetric (85 above, 85 below)
+  because the front is *centred on purpose*: §8 wants one object. The only thing
+  genuinely absent is IPA on the *back* face, which is XS and not what this item says.
+
+**What this costs, stated plainly:** a day of composition work was queued against
+three findings that measure fine. The pattern is now five-for-five this month — see
+LESSONS class 1. **Nothing else in this section should be built before it is
+re-measured.**
 - ~~**Content clips at both widths (#5 · S · P1).**~~ **Swept 2026-08-16 across all
   ten hash routes at 1280 and 375 — one real, one artifact, one unreproduced.**
   - ✅ **Deck names were cut mid-word.** `line-clamp-2` fixed the multi-word case in

@@ -131,6 +131,16 @@ that session. If you cannot measure it, say "roughly" and say why.**
 quietly corrode trust in every *other* number on the screen, including the honest ones
 that are the product's whole competitive claim.
 
+**The strongest form, 2026-08-16: an audit's findings decay, and a whole section can
+decay together.** Atlas pass 2's three headline composition findings were re-measured
+before any was built. *Six cards 40–60% empty* was six of nine cards using 95–98% of
+their width. *The desk letterboxed at ~800px* was a 640px column on a surface carrying
+no chrome at all, which is what the design doc actually asks for. *The card should
+become a lexicon entry* was already shipped, front and back, and never struck. **Three
+for three, and a day of redesign was queued against them.** Re-measure a finding
+immediately before building it, not when it is written — the codebase moves weekly and
+the finding does not.
+
 **The corollary, learned 2026-08-16: a guessed number is wrong in *both* directions,
 so it cannot be used to rank.** Two P1s were carried side by side as "~200px" each. On
 measurement one was 79px and marginal, the other was 200px of header on top of a

@@ -11,6 +11,40 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — three composition findings, measured instead of built
+
+Atlas pass 2's remaining headline items were next on the list. All three were
+re-measured at 1280px first, and **none of them is what it says.** Nothing was built.
+
+**#19, "six identical rectangles each 40–60% empty".** Of the nine cards on Today,
+**six use 95–98% of their width**. Three are sparse and each has a reason: the Brain
+hero (70%, a canvas where the space *is* the artwork), the goal line (71%, a small card
+by design — redesigned earlier today so the commitment leads), and *My class list*
+(51%). A two-column pass would have redesigned six cards that already fill their column.
+
+**#22, "the desk is letterboxed at ~800px".** The column is **640px**, and the desk
+carries **no chrome at all** — no top bar, no bottom nav, no ticker, verified in the
+running app. DESIGN §8's table contrasts *chrome* against *no chrome*: "the terminal:
+mono, cool, hairlines, nav, ticker" versus "full-bleed, no chrome at all". It never
+promised the card spans the viewport, and a viewport-wide flashcard would contradict
+the same section's "one object".
+
+**#21, "the card should become a lexicon entry".** Already shipped, front and back, and
+never struck. The front carries POS · level · sector · headword with gender ink · IPA ·
+citation; the back is flush-left with headword, POS · level · field, definition, the
+German layer, examples and synonyms — its own source comment calls it "an entry you
+read". The dead space measures **169px, not ~250**, and is symmetric at 85/85 because
+the front is centred on purpose. The only thing genuinely missing is IPA on the *back*,
+which is XS and not what the item describes.
+
+**That is three for three, and five for five across this month.** The value here is the
+day that was not spent redesigning surfaces that measure fine — so the finding is
+recorded as a rule rather than a mood: *re-measure a finding immediately before building
+it, not when it is written.* An audit decays; the codebase moves weekly and the finding
+does not. See LESSONS class 1.
+
+912 tests green.
+
 ### Shipped 2026-08-16 — the German definitions that were about a different word
 
 `defDe` is the monolingual layer B2+ learners are **shown**, so a German definition of
