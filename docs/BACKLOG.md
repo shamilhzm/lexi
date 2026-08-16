@@ -1036,6 +1036,26 @@ single hole in the app's core artefact.
 > with no `def` rendered nothing at all *specifically* for A1–B1 learners — the ones
 > with no fallback. That population is now covered.
 >
+> ✅ **Sized and cleared 2026-08-16 — by reading all 302, because no proxy works.**
+> **23 cards** carried a `defDe` describing a different word or a different sense, or
+> English prose outright. All cleared through `corpus:cardfix`; **302 → 279** cards
+> carry a German definition, and the ones that remain were each read against their own
+> gloss.
+>
+> **Cleared, not rewritten.** A card with no `defDe` simply does not show the German
+> layer — already true of 6,200 others — and showing nothing beats showing a definition
+> of another word. Authoring replacement German for advanced learners is a different
+> job with a different bar.
+>
+> **How it was sized matters.** Two cheap proxies were tried and both were wrong in
+> both directions (a marker test found 1 card and that one was a false positive, while
+> the genuinely English `fallen` slipped past on the word *in*). The population was 302,
+> which is small enough to read — so it was read. `corpus:validate` now errors on
+> English prose in `defDe` via a **stopword-ratio** test, which survives both failure
+> modes; it is a floor, not a sweep, and the one known miss (`die Währung`, half English
+> and half German) is pinned in a test saying so.
+>
+> *The original finding, kept:*
 > 🔴 **`defDe` frequently describes a different sense from the card's own gloss** — a
 > new finding, and a real one, because that field is *shown* to B2+ learners. The
 > German definitions were imported by headword and took whichever sense came first:

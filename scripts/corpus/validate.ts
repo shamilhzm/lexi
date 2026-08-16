@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, LEVELS, type Word } from './lib.ts';
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
@@ -105,6 +105,12 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     // `defDe`, so a new one means an import path is writing to the wrong column
     // again — the bug, not the content, since German definitions are now a shown
     // feature at B2+.
+    // The mirror defect: English in the *German* field. `defDe` is shown to B2+
+    // learners as the monolingual layer, so an English gloss list there is not a
+    // tidiness question — it is the one thing that layer exists not to be.
+    if (w.kind === 'word' && w.defDe && isEnglishInGermanField(w.defDe)) {
+      errors.push({ id, msg: 'English prose in the German `defDe` field' });
+    }
     if (w.kind === 'word' && w.def) {
       if (isGermanDefinition(w.def, w.en ?? '')) {
         errors.push({ id, msg: 'German definition in the English `def` field — belongs in `defDe`' });

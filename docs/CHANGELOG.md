@@ -11,6 +11,48 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the German definitions that were about a different word
+
+`defDe` is the monolingual layer B2+ learners are **shown**, so a German definition of
+the wrong word is live content. Yesterday's definition pass turned up a handful by eye;
+this sizes the class and clears it. **23 cards, 302 → 279 carrying a German definition.**
+
+**It was sized by reading all 302, because no proxy works.** Two were tried and both
+failed in both directions: a German-marker test found exactly one card, and that one was
+a *false positive* — „an einen Zugang montierte Schließvorrichtung“ is perfectly good
+German — while `fallen`'s genuinely English "to fall; to drop; to die; …" slipped past on
+the word *in*. The population is 302. That is small enough to read, so it was read.
+
+What came back, in three shapes:
+
+- **English in the German field** (4) — `fallen`, `betreten`, `einschlafen` carrying
+  gloss lists; `die Währung` carrying "currency, bank notes and cents, die Münzen und
+  Banknoten".
+- **A definition of a different word** (11) — `mintgrün` defined as a garment wrapped
+  round the body; `die Alp` as the nightmare demon; `packen` as the noun *Packen*, a
+  bundle; `profitieren von` as *Fach*; `sorgen für` as *sich sorgen*, to worry;
+  `umgehen mit` as washing up; `die Selbstfürsorge` as *Pflegeabhängigkeit*, which is
+  its opposite; `schützen` given not a definition at all but a collocation frame,
+  „jemanden/etwas vor … schützen“.
+- **A real sense, but not the card's** (8) — `die Resilienz` in materials science,
+  `die Trennung` in chemistry, `die Vorstellung` as a mental image, `die Beförderung` as
+  transport, `konstruktiv` as structural engineering.
+
+**Cleared, not rewritten.** A card with no `defDe` shows no German layer, which is
+already true of 6,200 others — and showing nothing beats showing a definition of another
+word. Authoring replacement German for advanced learners is a different job with a
+different bar, and this pass had no business assuming it.
+
+`corpus:validate` now errors on English prose in `defDe`, using a **stopword ratio**
+rather than a marker, because the ratio survives both ways the marker test failed. It is
+a floor and not a sweep: `die Währung`'s half-and-half text does not trip it, and a test
+pins that miss rather than letting the check imply a clean sweep.
+
+`corpus:cardfix` grew `defDe` handling to do it — the same pass built this morning for
+`der Somit`, now doing the second job it was shaped for.
+
+877 tests green · `corpus:validate` PASS.
+
 ### Shipped 2026-08-16 — the card the definitions could not fix
 
 `npm run corpus:cardfix`, and with it the last card in the definition queue. **Cards

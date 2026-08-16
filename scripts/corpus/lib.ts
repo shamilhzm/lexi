@@ -144,6 +144,30 @@ const GERMAN_MARKERS = /\b(der|die|das|des|dem|den|dass|eine|einen|einem|einer|n
 // they contain is the illustration, not the explanation.
 const ENGLISH_LABEL = /^(female|male|separable|inseparable|takes|no plural|abbr\.?|informal|formal|colloquial|literally|lit\.?|also|often|usually|comparative|superlative)\b[^:]*:/i;
 
+/** English prose sitting in the **German** definition field — the mirror of the
+ *  rule below, and the shape three cards actually shipped: `fallen` carried
+ *  "to fall; to drop; to die; …", an English gloss list, in `defDe`.
+ *
+ *  Counts stopwords rather than looking for a marker, because a marker test fails
+ *  in both directions here and was measured doing so: keyed on German function
+ *  words it found one card, and that one was a *false positive* — „an einen Zugang
+ *  montierte Schließvorrichtung“ is good German — while `fallen`'s genuine English
+ *  slipped past on the word *in*. A ratio survives both: real German definitions
+ *  are dense with der/die/das/und/von, English ones with the/of/to/a.
+ *
+ *  Deliberately not exhaustive. `die Währung` shipped "currency, bank notes and
+ *  cents, die Münzen und Banknoten" — half and half — and does not trip this. It
+ *  catches the shape that recurs, and says so rather than claiming a clean sweep. */
+const EN_STOP = /\b(the|of|a|an|to|and|in|for|is|are|was|were|be|with|that|this|it|as|on|at|by|or|from|not)\b/gi;
+const DE_STOP = /\b(der|die|das|den|dem|des|ein|eine|einen|einem|einer|und|oder|als|mit|von|zu|im|auf|für|ist|sind|wird|werden|man|etwas|jemand|jemanden|nicht|sich|bei|aus|nach|über|unter|durch|ohne|dass|beim|zum|zur)\b/gi;
+export function isEnglishInGermanField(defDe: string): boolean {
+  const raw = (defDe ?? '').trim();
+  if (!raw) return false;
+  const en = (raw.match(EN_STOP) ?? []).length;
+  const de = (raw.match(DE_STOP) ?? []).length;
+  return en >= 2 && en > de;
+}
+
 export function isGermanDefinition(def: string, en: string): boolean {
   const raw = (def ?? '').trim();
   if (!raw || ENGLISH_LABEL.test(raw)) return false;

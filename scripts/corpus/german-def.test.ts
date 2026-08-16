@@ -13,7 +13,7 @@
 // letting real German through, and that is the regression the guard exists for:
 // 367 cards once shipped a German definition inside `def`.
 import { describe, it, expect } from 'vitest';
-import { isGermanDefinition } from './lib.ts';
+import { isGermanDefinition, isEnglishInGermanField } from './lib.ts';
 
 describe('isGermanDefinition', () => {
   it('does not mistake the English verb "die" for the German article', () => {
@@ -64,5 +64,39 @@ describe('isGermanDefinition', () => {
 
   it('does not flag a card whose gloss is itself German', () => {
     expect(isGermanDefinition('etwas, das man nicht kennt', 'das Unbekannte')).toBe(false);
+  });
+});
+
+describe('isEnglishInGermanField', () => {
+  it('catches the English gloss lists that actually shipped in defDe', () => {
+    // All three were live in the corpus until 2026-08-16.
+    expect(isEnglishInGermanField('to fall; to drop; to die; to fall in battle; to die in battle')).toBe(true);
+    expect(isEnglishInGermanField('to enter, to go or come into; to step onto, especially die Bühne - the stage')).toBe(true);
+    expect(isEnglishInGermanField('to fall asleep; to pass away, die (peacefully)')).toBe(true);
+  });
+
+  it('leaves real German definitions alone', () => {
+    // Including the one a marker-based check reported as English, and the one it
+    // reported as a false positive. Both are good German.
+    for (const de of [
+      'an einen Zugang montierte Schließvorrichtung',
+      'Muttertier des Hausrinds',
+      'Wasserdampfgehalt der Luft',
+      'Teil des Skeletts der Wirbeltiere',
+      'die Erdoberfläche',
+    ]) {
+      expect(isEnglishInGermanField(de), de).toBe(false);
+    }
+  });
+
+  it('is a floor, not a sweep — and the known miss is pinned', () => {
+    // `die Währung` shipped half English, half German: "currency, bank notes and
+    // cents, die Münzen und Banknoten". The ratio does not trip on it, and the
+    // check claims to catch the recurring shape rather than every instance.
+    expect(isEnglishInGermanField('currency, bank notes and cents, die Münzen und Banknoten')).toBe(false);
+  });
+
+  it('ignores an empty field', () => {
+    expect(isEnglishInGermanField('')).toBe(false);
   });
 });
