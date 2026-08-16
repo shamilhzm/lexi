@@ -34240,7 +34240,7 @@
         "lvl": "B2"
       }
     ],
-    "field": "Core verbs",
+    "field": "Abstract",
     "kind": "word"
   },
   {
@@ -138876,15 +138876,15 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Somit",
-    "term": "der Somit",
-    "en": "somite",
-    "pos": "noun",
+    "id": "voc:A2:somit",
+    "term": "somit",
+    "en": "thus, therefore",
+    "pos": "adverb",
     "level": "A2",
-    "gender": "der",
-    "plural": "die Somite",
+    "gender": null,
+    "plural": null,
     "ipa": null,
-    "def": null,
+    "def": "Therefore — drawing the conclusion that follows from what was just said.",
     "syn": [],
     "ant": [],
     "ex": [

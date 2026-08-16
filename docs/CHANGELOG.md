@@ -11,6 +11,45 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the card the definitions could not fix
+
+`npm run corpus:cardfix`, and with it the last card in the definition queue. **Cards
+with no English definition: 0.**
+
+The pipeline could already repair every field that does not change what a card *is* —
+`fix-authored.ts` for glosses, definitions, examples and plurals, `genderfix.ts` for a
+wrong article, `casefix.ts` for a wrong capital. None of them could say *this card is
+not a noun at all*, and `voc:A2:der Somit` needed exactly that: glossed "somite", the
+embryology term, carrying `gender: der` and `plural: die Somite`, while its sector read
+**Adverbs** and both examples were the ordinary adverb *somit* — already translated
+"therefore" and "thus". A frequency-list adverb that collected a homograph's noun facts
+at build time.
+
+It is now `voc:A2:somit`, an adverb with no gender and no plural, glossed "thus,
+therefore". The headword changed, so the id changed, so `ID_MAP` carries the schedule —
+and the pass refuses a rename that lands on a term the corpus already holds, which is
+the collision that let the Visum duplicate in twice. Both guards were proved by
+injection before the write.
+
+**The check that would have caught it, and the one that wouldn't.** The tell was that
+every field was individually plausible and only the *sector* disagreed with the part of
+speech. The obvious general rule — "a POS sector that disagrees with `pos`" — was
+measured first and discarded: **65 hits, of which about 64 are correct.** `die Zahl` is
+a noun in *Numbers*; `doch` is a particle in *Adverbs*; forty-four phrases sit in
+*Useful Phrases* precisely where they belong. Narrowed to **nouns in the four sectors
+reserved for other parts of speech**, it finds the two real ones and nothing else —
+`der Somit`, and `das Gegenteil`, a noun filed under *Core verbs* and now in *Abstract*
+beside `die Ursache` and `die Folge`. Shipped as an error at zero.
+
+**A ledger bug the guard caught on its own second row.** `cardfix` recognised finished
+work only through `ID_MAP`, which exists only when the id moves — so the first row that
+changed nothing but a `field` made every later run abort on its own completed fix. A
+row now also counts as applied when every value it sets is already the value on the
+card. The table is a ledger, not a one-shot script, and it was one row away from not
+being.
+
+873 tests green · `corpus:validate` PASS.
+
 ### Shipped 2026-08-16 — the definition queue is empty
 
 B2, C1 and C2 authored — **180 more, 454 in all today. Cards with no English

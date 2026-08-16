@@ -27,6 +27,7 @@
     "corpus:misc-sector": "node scripts/corpus/misc-sector.ts",
     "corpus:gender-audit": "node scripts/corpus/gender-audit.ts",
     "corpus:genderfix": "node scripts/corpus/genderfix.ts",
+    "corpus:cardfix": "node scripts/corpus/cardfix.ts",
     "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
     "corpus:flags": "node scripts/corpus/flags.ts",

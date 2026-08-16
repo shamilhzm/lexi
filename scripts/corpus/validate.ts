@@ -313,6 +313,26 @@ async function main() {
     }
   }
 
+  // A noun filed in a sector reserved for another part of speech. This is the
+  // signal that would have caught `der Somit` — a card glossed "somite" with a
+  // gender and a plural, sitting in **Adverbs**, whose examples were the adverb
+  // *somit* all along. It went unnoticed for as long as it did because every field
+  // was individually plausible; only the sector disagreed with the part of speech.
+  //
+  // ⚠️ The obvious wider check does not work, and was measured before this one was
+  // written: "the sector is a part-of-speech sector that disagrees with `pos`"
+  // fires on **65 cards, of which ~64 are correct** — `die Zahl` is a noun in
+  // *Numbers*, `doch` a particle in *Adverbs*, and 44 phrases sit in *Useful
+  // Phrases* exactly where they belong. Narrowed to nouns in the four sectors that
+  // are reserved for other parts of speech, it finds the two real ones and nothing
+  // else. *Numbers is deliberately not in the list*: it holds `die Zahl` on purpose.
+  const NON_NOUN_SECTORS = new Set(['Core verbs', 'Adverbs', 'Adjectives', 'Connectors']);
+  for (const w of words) {
+    if (w.pos === 'noun' && NON_NOUN_SECTORS.has(w.field)) {
+      allErrors.push({ id: w.id, msg: `a noun filed in "${w.field}", a sector for another part of speech — check the card is really a noun, then re-sector it (corpus:cardfix)` });
+    }
+  }
+
   // freq.json is the **fourth** file that holds a card id, and until 2026-08-15 no
   // migration pass said so. LESSONS' own checklist named three — vocab, provenance
   // and the id map — so every relevel and merge since `corpus:freq` shipped left

@@ -1399,5 +1399,6 @@ export const ID_MAP: Record<string, string> = {
   "voc:B2:erneuerbare Energien": "voc:B2:die erneuerbare Energie",
   "voc:B1:die Daten": "voc:A1:das Datum",
   "voc:A2:das Joghurt": "voc:A1:der Joghurt",
-  "voc:B2:das Burnout": "voc:B2:der Burnout"
+  "voc:B2:das Burnout": "voc:B2:der Burnout",
+  "voc:A2:der Somit": "voc:A2:somit"
 };

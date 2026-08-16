@@ -992,16 +992,30 @@ single hole in the app's core artefact.
 > ✅ **A2 done, 2026-08-16** — 53 of 54, flagged total again unmoved at 1,213.
 > **455 → 335** overall; A1 0 · A2 1 · B1 154 · B2 103 · C1 74 · C2 3.
 >
-> 🔴 **The 54th is a broken card, and the definition pass is how it surfaced —
+> ✅ **Fixed 2026-08-16 — the card, not the definition.** `npm run corpus:cardfix`,
+> a new expect-guarded pass for a card whose *identity* is wrong. `voc:A2:der Somit`
+> → **`voc:A2:somit`**, `pos: adverb`, gender and plural cleared, glossed
+> "thus, therefore", with a definition. `ID_MAP` carries the schedule. **Cards with
+> no English definition: 0.**
+>
+> **And the check that would have caught it:** a *noun filed in a sector reserved for
+> another part of speech*. ⚠️ The obvious wider version was measured first and thrown
+> away — "sector is a POS sector that disagrees with `pos`" fires on **65 cards of
+> which ~64 are correct** (`die Zahl` is a noun in *Numbers*, `doch` a particle in
+> *Adverbs*, 44 phrases sit in *Useful Phrases*). Narrowed to nouns in Core verbs /
+> Adverbs / Adjectives / Connectors it found exactly one more — `das Gegenteil`, a
+> noun filed under **Core verbs**, now in *Abstract* beside `die Ursache` and
+> `die Folge`. Both fixed, the check ships as an error at zero, proved firing.
+>
+> *The original finding, kept because it is the reason the pass exists:*
+> 🔴 **The 54th was a broken card, and the definition pass is how it surfaced —
 > exactly what this item's "watch for sense bugs, not just style" warning predicts.**
 > `voc:A2:der Somit` is glossed **"somite"** (the embryology term) with noun facts
 > attached — `gender: der`, `plural: die Somite` — while **its sector is `Adverbs`**
 > and both its examples are the adverb *somit*, correctly translated "therefore" and
 > "thus". A frequency-list adverb that collected a homograph's noun facts at build
 > time. Left undefined deliberately: writing a definition would have papered over it.
-> *Do:* re-term to `somit`, `pos: adverb`, gender and plural to null, gloss to
-> "thus, therefore" — an id change (`voc:A2:der Somit` → `voc:A2:somit`) and therefore
-> a schedule migration, so it wants an expect-guarded row rather than a hand edit.
+> *Done exactly that way,* through `corpus:cardfix`.
 >
 > Two smaller `defDe` defects found beside it, both harmless to the English pass:
 > `voc:A2:fallen` carries an **English** gloss list in its German-definition field, and

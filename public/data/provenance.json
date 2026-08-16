@@ -2442,7 +2442,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:der Somit",
+    "id": "voc:A2:somit",
     "lemma": "Somit",
     "level": "A2",
     "levelSource": "frequency",

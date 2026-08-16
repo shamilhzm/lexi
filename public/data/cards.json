@@ -14357,7 +14357,7 @@
     "ipa": "ˈɡeːɡn̩ˌtaɪ̯l",
     "syn": [],
     "ant": [],
-    "field": "Core verbs",
+    "field": "Abstract",
     "kind": "word"
   },
   {
@@ -65956,13 +65956,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Somit",
-    "term": "der Somit",
-    "en": "somite",
-    "pos": "noun",
+    "id": "voc:A2:somit",
+    "term": "somit",
+    "en": "thus, therefore",
+    "pos": "adverb",
     "level": "A2",
-    "gender": "der",
-    "plural": "die Somite",
+    "gender": null,
+    "plural": null,
     "ipa": null,
     "syn": [],
     "ant": [],

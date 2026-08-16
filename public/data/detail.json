@@ -35611,20 +35611,6 @@
       }
     ]
   },
-  "voc:A2:der Somit": {
-    "ex": [
-      {
-        "de": "Er war neu im Dorf und somit niemandem bekannt.",
-        "en": "He was new in the village, and therefore unknown to everyone.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Somit hat der Ausdruck zwei verschiedene Bedeutungen.",
-        "en": "Thus the term has two distinct usages.",
-        "lvl": "A2"
-      }
-    ]
-  },
   "voc:A2:der Sonnabend": {
     "def": "The sixth day of the week; another word for Samstag.",
     "ex": [
@@ -50208,6 +50194,21 @@
       {
         "de": "Bronze, Silber und Gold hab ich nie gewollt",
         "en": "I never wanted bronze, silver and gold (medals)",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:somit": {
+    "def": "Therefore — drawing the conclusion that follows from what was just said.",
+    "ex": [
+      {
+        "de": "Er war neu im Dorf und somit niemandem bekannt.",
+        "en": "He was new in the village, and therefore unknown to everyone.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Somit hat der Ausdruck zwei verschiedene Bedeutungen.",
+        "en": "Thus the term has two distinct usages.",
         "lvl": "A2"
       }
     ]

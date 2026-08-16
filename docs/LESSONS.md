@@ -73,6 +73,12 @@ thing invisible or mis-sized. See DESIGN §7.
 beside it* instead, wrapping it to two lines. Measuring one element cannot see what it
 did to its siblings.
 
+**…write a check from the obvious rule.** Measure the obvious one first, then narrow
+until the hits are real. "A sector that disagrees with the part of speech" fired on 65
+cards and ~64 were correct; narrowed to *nouns in the four sectors reserved for other
+parts of speech* it found exactly the two defects. The wide version would have been a
+warning nobody could ever clear.
+
 **…believe a sweep that returns zero.** Assert the instrument first. A clip sweep
 reported *zero clips on all ten routes* because `innerWidth` was 0 in a backgrounded
 pane — every rect collapsed and the minimum-size filter discarded every element before
