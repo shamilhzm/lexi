@@ -607,7 +607,7 @@
   {
     "id": "voc:A1:also",
     "lemma": "also",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 177,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -629,7 +629,7 @@
   {
     "id": "voc:A1:anbieten",
     "lemma": "anbieten",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 2363,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -783,7 +783,7 @@
   {
     "id": "voc:A1:ausmachen",
     "lemma": "ausmachen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 6369,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -827,7 +827,7 @@
   {
     "id": "voc:A1:automatisch",
     "lemma": "automatisch",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 2239,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -849,7 +849,7 @@
   {
     "id": "voc:A1:baden",
     "lemma": "baden",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 5083,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -860,7 +860,7 @@
   {
     "id": "voc:A1:bar",
     "lemma": "bar",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 1669,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -981,7 +981,7 @@
   {
     "id": "voc:A1:bisschen",
     "lemma": "bisschen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "frequency",
     "freqRank": 933,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -1124,7 +1124,7 @@
   {
     "id": "voc:A1:danken",
     "lemma": "danken",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 2212,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -1146,7 +1146,7 @@
   {
     "id": "voc:A1:das Apartment",
     "lemma": "Apartment",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 6193,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -1234,7 +1234,7 @@
   {
     "id": "voc:A1:das Feuer",
     "lemma": "Feuer",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "frequency",
     "freqRank": 873,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -1652,7 +1652,7 @@
   {
     "id": "voc:A1:das Wiedersehen",
     "lemma": "Wiedersehen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 6686,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -1729,7 +1729,7 @@
   {
     "id": "voc:A1:der Anruf",
     "lemma": "Anruf",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 1789,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -1872,7 +1872,7 @@
   {
     "id": "voc:A1:der Doktor",
     "lemma": "Doktor",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 963,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -2510,7 +2510,7 @@
   {
     "id": "voc:A1:der Süden",
     "lemma": "Süden",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 1697,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -3313,7 +3313,7 @@
   {
     "id": "voc:A1:die Maschine",
     "lemma": "Maschine",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 3560,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -3544,7 +3544,7 @@
   {
     "id": "voc:A1:die Reparatur",
     "lemma": "Reparatur",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 6655,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -3874,7 +3874,7 @@
   {
     "id": "voc:A1:die Vorsicht",
     "lemma": "Vorsicht",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 1638,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -3885,7 +3885,7 @@
   {
     "id": "voc:A1:die Vorwahl",
     "lemma": "Vorwahl",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 31841,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -3984,7 +3984,7 @@
   {
     "id": "voc:A1:die Zigarette",
     "lemma": "Zigarette",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 4773,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4215,7 +4215,7 @@
   {
     "id": "voc:A1:einmal",
     "lemma": "einmal",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 182,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4226,7 +4226,7 @@
   {
     "id": "voc:A1:einsteigen",
     "lemma": "einsteigen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 6339,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4479,7 +4479,7 @@
   {
     "id": "voc:A1:grillen",
     "lemma": "grillen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 12749,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4523,7 +4523,7 @@
   {
     "id": "voc:A1:halten",
     "lemma": "halten",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 460,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4732,7 +4732,7 @@
   {
     "id": "voc:A1:klar",
     "lemma": "klar",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 320,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4941,7 +4941,7 @@
   {
     "id": "voc:A1:mitkommen",
     "lemma": "mitkommen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 2509,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -5326,7 +5326,7 @@
   {
     "id": "voc:A1:riechen",
     "lemma": "riechen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 4305,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -5414,7 +5414,7 @@
   {
     "id": "voc:A1:schicken",
     "lemma": "schicken",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 3141,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -5755,7 +5755,7 @@
   {
     "id": "voc:A1:tot",
     "lemma": "tot",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 2148,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -5777,7 +5777,7 @@
   {
     "id": "voc:A1:tun",
     "lemma": "tun",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 350,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -6151,7 +6151,7 @@
   {
     "id": "voc:A1:wiederholen",
     "lemma": "wiederholen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 4424,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -6338,7 +6338,7 @@
   {
     "id": "voc:A1:abgeben",
     "lemma": "abgeben",
-    "level": "B1",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 3032,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -8098,7 +8098,7 @@
   {
     "id": "voc:A2:der Gegensatz",
     "lemma": "Gegensatz",
-    "level": "B1",
+    "level": "A2",
     "levelSource": "reference",
     "freqRank": 3027,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -8450,7 +8450,7 @@
   {
     "id": "voc:A1:der Opa",
     "lemma": "Opa",
-    "level": "B1",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 2998,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -10045,7 +10045,7 @@
   {
     "id": "voc:A1:die Halle",
     "lemma": "Halle",
-    "level": "B1",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 1534,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -10078,7 +10078,7 @@
   {
     "id": "voc:A1:die Hilfe",
     "lemma": "Hilfe",
-    "level": "B1",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 524,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -10230,9 +10230,9 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:die Kenntnis",
+    "id": "voc:A2:die Kenntnis",
     "lemma": "Kenntnis",
-    "level": "B1",
+    "level": "A2",
     "levelSource": "reference",
     "freqRank": 4537,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -11673,7 +11673,7 @@
   {
     "id": "voc:A1:eilig",
     "lemma": "eilig",
-    "level": "B1",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 4070,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -15919,7 +15919,7 @@
   {
     "id": "voc:A1:der Ausgang",
     "lemma": "Ausgang",
-    "level": "B2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 6034,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -16117,7 +16117,7 @@
   {
     "id": "voc:A2:der Gegenstand",
     "lemma": "Gegenstand",
-    "level": "B2",
+    "level": "A2",
     "levelSource": "reference",
     "freqRank": 6420,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -16524,7 +16524,7 @@
   {
     "id": "voc:B1:der Verbraucher",
     "lemma": "Verbraucher",
-    "level": "B2",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 1936,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -19131,7 +19131,7 @@
   {
     "id": "voc:B1:lächerlich",
     "lemma": "lächerlich",
-    "level": "B2",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 2339,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -19571,7 +19571,7 @@
   {
     "id": "voc:B1:tätig",
     "lemma": "tätig",
-    "level": "B2",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 1378,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -20561,7 +20561,7 @@
   {
     "id": "voc:B1:das Heimatland",
     "lemma": "Heimatland",
-    "level": "C1",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 13392,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -20693,7 +20693,7 @@
   {
     "id": "voc:A1:der Gruß",
     "lemma": "Gruß",
-    "level": "C1",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 13028,
     "glossSource": "wiktextract:kaikki-de.jsonl",

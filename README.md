@@ -22,18 +22,18 @@ what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
 
 ## What's inside
 
-Measured against the shipped corpus on 2026-08-13, not estimated.
+Measured against the shipped corpus on 2026-08-15, not estimated.
 
-- **6,581 cards** — 6,472 vocabulary and 109 grammar points, across all six CEFR levels.
-  Vocabulary by level: **A1 1,161 · A2 1,391 · B1 2,278 · B2 904 · C1 553 · C2 185**.
-- **136 grammar points · 5,207 exercises** (A1 1,538 · A2 1,582 · B1 1,477 · B2 454 ·
-  C1 86 · C2 70), each point carrying a plain-English summary and rule, and each
+- **6,613 cards** — 6,504 vocabulary and 109 grammar points, across all six CEFR levels.
+  Vocabulary by level: **A1 1,161 · A2 1,386 · B1 2,281 · B2 917 · C1 574 · C2 185**.
+- **136 grammar points · 6,130 exercises** (A1 1,654 · A2 1,748 · B1 1,725 · B2 625 ·
+  C1 204 · C2 174), each point carrying a plain-English summary and rule, and each
   exercise an explanation shown when you get it wrong.
 - **Every card carries at least two usage examples**, German and English, graded at or
   just below the card's level.
 - Cards carry IPA, gloss, gender + plural, synonyms/antonyms and example sentences
   where available.
-- **277 fine sectors** rolled up into **16 theme groups**, which the market view
+- **274 fine sectors** rolled up into **15 theme groups**, which the market view
   coarsens further so the treemap reads on a phone.
 - **Six full exam papers**, one per level — telc B1 and Goethe A1, A2, B2, C1, C2 — in
   their own formats and weightings.

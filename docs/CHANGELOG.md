@@ -11,6 +11,80 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-15 — the cards that were forms of each other
+
+The mechanism the singular/plural ruling said did not exist yet. `corpus:dupes`
+groups by *identical* term, so it never saw `die Schuhe` beside `der Schuh`: two
+terms, two cards, one word, two FSRS schedules. `npm run corpus:forms` finds them
+and merges the ones ruled to merge. **6,626 → 6,613 cards.**
+
+**The ruling table is the deliverable, not the script.** `scripts/corpus/form-rulings.ts`
+holds a detector and a hand-written ruling for every pair it finds, and both the
+merge pass and `corpus:validate` read the same table — so the list can reach zero
+and stay there. 20 collisions, 13 merged, 7 kept, each with its reason on the record.
+The 11 plural merges are the ones ruled yesterday; two more came out of the same
+detector and needed their own shape:
+
+- **`der Joghurt` / `das Joghurt`** and **`der Burnout` / `das Burnout`** — one lemma
+  whose article varies by region (Duden lists both under one entry), filed twice with
+  an identical gloss and an identical definition. They survived the 874-group merge
+  only because the article is part of the term string.
+- **`der Bekannte` / `die Bekannte` is kept.** Not one word twice: the cards gloss
+  themselves "acquaintance (male)" and "acquaintance (female)". The same pair as
+  `der Lehrer` / `die Lehrerin`, which the backlog wants more of.
+
+**The detector is noun-to-noun, and that restriction is the finding.** German derives
+nouns from verbs constantly — *die Frage*'s plural *Fragen* is also the infinitive
+*fragen*, *die Dusche*'s is *duschen* — so 29 of the 45 raw hits are correct German
+and not duplicates at all. Including them is what made the first count of this defect
+nearly three times too high.
+
+**Two defects the dry run caught before anything was written.**
+
+- **A gloss union is right for `merge-dupes` and wrong here.** That pass unions senses
+  because its groups are one headword twice, so a second gloss is a second sense. Here
+  the retired card is the keeper's *plural*, so its gloss is the same sense in another
+  number — and the union produced **"shoe; shoes"**, "glove; gloves", "muscle; muscles",
+  "noodle, pasta; noodles / pasta". Now a ruling writes the gloss out where the merge
+  should change one, and exactly one earns it: `das Datum` → **"date; data"**, because
+  German really does put the data sense in the plural.
+- **A definition does not always travel with the merge.** `die Daten` is defined as
+  "Facts and figures collected for study or reference", which is a definition of the
+  plural and would read as the definition of *das Datum*. It stays behind. In the other
+  direction, `die Kenntnisse` had the *better* definition — "The things a person knows
+  about a subject." against the keeper's "knowledge; science (knowledge gained through
+  study or practice)", which is the enumeration class Now #5 exists to remove — so
+  retiring the card would have thrown it away. Both are per-row rulings now.
+
+**A merge can be a relevel, and this one was.** `die Kenntnisse` sat at A2 and its
+singular at B1, so merging into the singular would have taken the word off an A2
+learner who has it today. The keeper takes the **lower** of the two levels, for the
+reason `relevel-a1.ts` promotes and never demotes — which makes it a second id change
+and a second `ID_MAP` entry (`voc:B1:die Kenntnis` → `voc:A2:die Kenntnis`), plus two
+existing entries re-pointed to follow it.
+
+**A fourth file holds card ids, and nothing said so.** Found while migrating: `freq.json`
+keys frequency ranks by id and no pass re-ran `corpus:freq`, so **47 of its 1,986 keys
+pointed at cards retired by earlier passes** — 47 cards silently unranked in the
+frequency-within-band ordering of fresh cards, failing nothing and showing nothing.
+`corpus:validate` now errors on a rank whose card is gone, and every migration script's
+closing line names `corpus:freq`. See LESSONS class 4.
+
+**The check that keeps it at zero, proved firing.** `corpus:validate` errors on a
+collision that is unruled *and* on one ruled `merge` that is still present — an
+invariant that lives only in a CHANGELOG sentence is not enforced, which is how the
+Visum duplicate got in. All three branches were verified by injecting the defect and
+watching the build fail. Measured on the same probe before and after: example rows
+whose own card does not claim them, **435 → 411 of ~16,200**; distinct cards losing
+their token to another card, **195 → 184**.
+
+`scripts/corpus/merge-lib.ts` is new and holds what the two merge passes share —
+sense union, absorption, the cumulative id map — because a second copy of "what does
+a merge preserve?" is the archaic-spelling failure again. **840 tests green** (830 + the
+ten that prove this detector sees each shape and refuses the verb false positives).
+
+---
+
 ### Shipped 2026-08-15 — the routes my own sweep missed
 
 The touch-target sweep earlier today swept six **hash** routes and called the app

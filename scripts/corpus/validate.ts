@@ -13,7 +13,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, readJSON, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, LEVELS, type Word } from './lib.ts';
+import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
 const mulberry32 = (seed: number) => () => {
@@ -181,6 +182,31 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
       msg: MECHANICAL.has(w.pos) ? `${msg} — run corpus:casefix` : msg,
     });
   }
+
+  // A card whose **surface form** another card already claims. The check above is
+  // keyed on the term string, so it cannot see `die Schuhe` beside `der Schuh` —
+  // two terms, two cards, one word, and `buildMatcher` indexes surface forms
+  // first-wins so one of them silently claims *Schuhe* for both. That is how a
+  // card's own example comes to resolve to a different card.
+  //
+  // Every pair is ruled in form-rulings.ts, merged or kept, and both `merge-forms`
+  // and this check read the same table — so the list can reach zero and stay
+  // actionable. Only a pair ruled **keep** is allowed to survive: an unruled pair
+  // is a judgement nobody has made, and a pair ruled `merge` that is still here
+  // means the pass was never run. Both fail the build, for the reason the 2026-08-14
+  // Visum duplicate did not: an invariant that lives only in a sentence somewhere
+  // is not enforced.
+  const ruled = new Map(FORM_RULINGS.map((r) => [pairKey(r.form, r.lemma), r.rule]));
+  for (const c of findFormCollisions(cards)) {
+    const rule = ruled.get(pairKey(c.form.id, c.lemma.id));
+    if (rule === 'keep') continue;
+    errors.push({
+      id: c.form.id,
+      msg: rule === 'merge'
+        ? `ruled to merge into ${c.lemma.id} and still here — run corpus:forms -- --write`
+        : `headword is a form of ${c.lemma.id} ("${c.lemma.term}", pl. ${c.lemma.plural ?? '—'}) — rule it in form-rulings.ts, then run corpus:forms`,
+    });
+  }
   return { errors, warnings };
 }
 
@@ -284,6 +310,23 @@ async function main() {
       if (len > RULE_PROSE_MAX && !p.sections?.length) {
         allErrors.push({ id: `gram:${lv}:${p.title}`, msg: `rule is ${len} chars with no sections (max ${RULE_PROSE_MAX} as prose)` });
       }
+    }
+  }
+
+  // freq.json is the **fourth** file that holds a card id, and until 2026-08-15 no
+  // migration pass said so. LESSONS' own checklist named three — vocab, provenance
+  // and the id map — so every relevel and merge since `corpus:freq` shipped left
+  // ranks pointing at retired ids. Measured when this check was written: **47 of
+  // 1,986 keys** were dead, which is 47 cards silently demoted to "unranked" in the
+  // frequency-within-band ordering that BACKLOG Now #2 Phase 0 exists to provide.
+  // It fails nothing and shows nothing, which is why it needed a check rather than
+  // a note. Fix: `npm run corpus:freq`, which re-derives it from provenance.
+  const freqPath = join(PATHS.repoRoot, 'public', 'data', 'freq.json');
+  if (fileExists(freqPath)) {
+    const live = new Set(full.map((w) => w.id));
+    const dead = Object.keys(readJSON<Record<string, number>>(freqPath)).filter((id) => !live.has(id));
+    if (dead.length) {
+      allErrors.push({ id: 'freq.json', msg: `${dead.length} rank(s) on cards that no longer exist (${dead.slice(0, 3).join(', ')}…) — run corpus:freq` });
     }
   }
 

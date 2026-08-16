@@ -3059,6 +3059,16 @@
         "de": "Das Datum der Prüfung steht noch nicht fest.",
         "en": "The date of the exam hasn’t been set yet.",
         "lvl": "B1"
+      },
+      {
+        "de": "Die gesammelten Daten werden anonym gespeichert.",
+        "en": "The collected data are stored anonymously.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Daten müssen zuerst geprüft werden.",
+        "en": "The data have to be checked first.",
+        "lvl": "B1"
       }
     ]
   },
@@ -8224,6 +8234,21 @@
         "de": "Bei der Arbeit schützen Handschuhe die Hände.",
         "en": "At work gloves protect the hands.",
         "lvl": "B1"
+      },
+      {
+        "de": "Ohne Handschuhe werden die Hände kalt.",
+        "en": "Without gloves your hands get cold.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie strickt warme Handschuhe für den Winter.",
+        "en": "She knits warm gloves for winter.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ohne Handschuhe frieren mir die Finger.",
+        "en": "Without gloves my fingers get cold.",
+        "lvl": "B1"
       }
     ]
   },
@@ -8654,6 +8679,16 @@
         "de": "Naturjoghurt ist gesünder als gesüßter.",
         "en": "Plain yoghurt is healthier than sweetened.",
         "lvl": "B1"
+      },
+      {
+        "de": "Zum Frühstück esse ich oft Joghurt mit Früchten.",
+        "en": "For breakfast I often eat yoghurt with fruit.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich mag Joghurt mit Honig.",
+        "en": "I like yoghurt with honey.",
+        "lvl": "A2"
       }
     ]
   },
@@ -11022,6 +11057,16 @@
       {
         "de": "Für die Wanderung brauche ich feste Schuhe.",
         "en": "For the hike I need sturdy shoes.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Meine neuen Schuhe drücken ein wenig.",
+        "en": "My new shoes pinch a little.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zieh die nassen Schuhe an der Tür aus.",
+        "en": "Take off the wet shoes at the door.",
         "lvl": "B1"
       }
     ]
@@ -15899,6 +15944,16 @@
         "de": "Nudeln mit Tomatensoße sind schnell gemacht.",
         "en": "Pasta with tomato sauce is quick to make.",
         "lvl": "B1"
+      },
+      {
+        "de": "Kinder essen fast überall gern Nudeln.",
+        "en": "Children almost everywhere love pasta.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Nudeln müssen noch zehn Minuten kochen.",
+        "en": "The pasta needs another ten minutes.",
+        "lvl": "B1"
       }
     ]
   },
@@ -16647,6 +16702,16 @@
       {
         "de": "Im Winter trage ich am liebsten dicke Wollsocken.",
         "en": "In winter I like wearing thick wool socks best.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Winter trage ich dicke Socken.",
+        "en": "In winter I wear thick socks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ein Paar Socken ist in der Wäsche verschwunden.",
+        "en": "A pair of socks disappeared in the wash.",
         "lvl": "B1"
       }
     ]
@@ -29710,21 +29775,6 @@
       }
     ]
   },
-  "voc:A2:das Joghurt": {
-    "def": "yogurt",
-    "ex": [
-      {
-        "de": "Zum Frühstück esse ich oft Joghurt mit Früchten.",
-        "en": "For breakfast I often eat yoghurt with fruit.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Ich mag Joghurt mit Honig.",
-        "en": "I like yoghurt with honey.",
-        "lvl": "A2"
-      }
-    ]
-  },
   "voc:A2:das Kabarett": {
     "def": "a show with satirical songs and sketches",
     "ex": [
@@ -34477,6 +34527,11 @@
         "de": "Muskeln aufbauen",
         "en": "to build muscles",
         "lvl": "B1"
+      },
+      {
+        "de": "Nach dem Training sind meine Muskeln müde.",
+        "en": "My muscles are tired after training.",
+        "lvl": "A2"
       }
     ]
   },
@@ -35792,6 +35847,11 @@
         "de": "Gute Stiefel halten bei jedem Wetter trocken.",
         "en": "Good boots keep you dry in any weather.",
         "lvl": "B2"
+      },
+      {
+        "de": "Meine Stiefel sind vom Regen ganz nass.",
+        "en": "My boots are all wet from the rain.",
+        "lvl": "A2"
       }
     ]
   },
@@ -39470,31 +39530,6 @@
       }
     ]
   },
-  "voc:A2:die Handschuhe": {
-    "def": "Coverings for the hands, with a part for each finger.",
-    "ex": [
-      {
-        "de": "Ohne Handschuhe werden die Hände kalt.",
-        "en": "Without gloves your hands get cold.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Sie strickt warme Handschuhe für den Winter.",
-        "en": "She knits warm gloves for winter.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ohne Handschuhe frieren mir die Finger.",
-        "en": "Without gloves my fingers get cold.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Zieh die Handschuhe an, es friert draußen.",
-        "en": "Put on the gloves, it's freezing outside.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:A2:die Handtasche": {
     "def": "handbag, (US) purse",
     "ex": [
@@ -40191,9 +40226,19 @@
       }
     ]
   },
-  "voc:A2:die Kenntnisse": {
+  "voc:A2:die Kenntnis": {
     "def": "The things a person knows about a subject.",
     "ex": [
+      {
+        "de": "Zur Kenntnis genommen.",
+        "en": "Duly noted.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er wurde in Kenntnis gesetzt.",
+        "en": "He was informed.",
+        "lvl": "B1"
+      },
       {
         "de": "Ich habe gute Englischkenntnisse.",
         "en": "I have good knowledge of English.",
@@ -40212,16 +40257,6 @@
       {
         "de": "Ich habe gute Deutschkenntnisse.",
         "en": "I have good knowledge of German.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Für den Job braucht man Englischkenntnisse.",
-        "en": "For the job you need knowledge of English.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er hat dank seiner guten Deutschkenntnisse einen Platz gefunden.",
-        "en": "Thanks to his good German he found a place.",
         "lvl": "B1"
       }
     ]
@@ -41209,21 +41244,6 @@
         "de": "Die alten Mundarten verschwinden allmählich.",
         "en": "The old dialects are gradually disappearing.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:A2:die Muskeln": {
-    "def": "The parts of the body that tighten and relax to make it move.",
-    "ex": [
-      {
-        "de": "Nach dem Training sind meine Muskeln müde.",
-        "en": "My muscles are tired after training.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Durch das Training werden die Muskeln stärker.",
-        "en": "Through training the muscles become stronger.",
-        "lvl": "A2"
       }
     ]
   },
@@ -42269,12 +42289,7 @@
         "de": "Sandalen mit Socken sind Geschmackssache.",
         "en": "Sandals with socks are a matter of taste.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:A2:die Sandalen": {
-    "def": "Open shoes with straps, worn in warm weather.",
-    "ex": [
+      },
       {
         "de": "Im Sommer trage ich am liebsten Sandalen.",
         "en": "In summer I most like to wear sandals.",
@@ -42885,21 +42900,6 @@
         "de": "Auf viele Produkte wird eine Steuer erhoben.",
         "en": "A tax is levied on many products.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:A2:die Stiefel": {
-    "def": "boot (shoe)",
-    "ex": [
-      {
-        "de": "Im Winter trage ich warme Stiefel.",
-        "en": "In winter I wear warm boots.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Meine Stiefel sind vom Regen ganz nass.",
-        "en": "My boots are all wet from the rain.",
-        "lvl": "A2"
       }
     ]
   },
@@ -70042,21 +70042,6 @@
       }
     ]
   },
-  "voc:B1:die Daten": {
-    "def": "Facts and figures collected for study or reference.",
-    "ex": [
-      {
-        "de": "Die gesammelten Daten werden anonym gespeichert.",
-        "en": "The collected data are stored anonymously.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Daten müssen zuerst geprüft werden.",
-        "en": "The data have to be checked first.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Dauer": {
     "def": "The length of time something lasts.",
     "ex": [
@@ -73191,21 +73176,6 @@
       }
     ]
   },
-  "voc:B1:die Kenntnis": {
-    "def": "knowledge; science (knowledge gained through study or practice)",
-    "ex": [
-      {
-        "de": "Zur Kenntnis genommen.",
-        "en": "Duly noted.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er wurde in Kenntnis gesetzt.",
-        "en": "He was informed.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Kindheit": {
     "def": "the period of a person's life when they are a child",
     "ex": [
@@ -75351,21 +75321,6 @@
       }
     ]
   },
-  "voc:B1:die Nudeln": {
-    "def": "to fatten, to force-feed (of animals, by gavage); to do something tedious or repetitive in a bored manner; to play something tedious or banal",
-    "ex": [
-      {
-        "de": "Kinder essen fast überall gern Nudeln.",
-        "en": "Children almost everywhere love pasta.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Nudeln müssen noch zehn Minuten kochen.",
-        "en": "The pasta needs another ten minutes.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Nutzung": {
     "def": "The act of using something.",
     "ex": [
@@ -76710,21 +76665,6 @@
       }
     ]
   },
-  "voc:B1:die Schuhe": {
-    "def": "Coverings worn on the feet.",
-    "ex": [
-      {
-        "de": "Meine neuen Schuhe drücken ein wenig.",
-        "en": "My new shoes pinch a little.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Zieh die nassen Schuhe an der Tür aus.",
-        "en": "Take off the wet shoes at the door.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Schuld": {
     "def": "debt",
     "ex": [
@@ -77161,21 +77101,6 @@
       {
         "de": "Die Slowakei grenzt an fünf Länder.",
         "en": "Slovakia borders five countries.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:die Socken": {
-    "def": "Soft coverings worn on the feet inside shoes.",
-    "ex": [
-      {
-        "de": "Im Winter trage ich dicke Socken.",
-        "en": "In winter I wear thick socks.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ein Paar Socken ist in der Wäsche verschwunden.",
-        "en": "A pair of socks disappeared in the wash.",
         "lvl": "B1"
       }
     ]
@@ -93514,21 +93439,6 @@
       }
     ]
   },
-  "voc:B2:das Burnout": {
-    "def": "A state of deep exhaustion caused by long-term stress.",
-    "ex": [
-      {
-        "de": "Er wurde wegen eines Burnouts krankgeschrieben.",
-        "en": "He was signed off sick because of burnout.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Nach dem Burnout stellte er sein Leben um.",
-        "en": "After the burnout he changed his life.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B2:das Carsharing": {
     "def": "A system where people share the use of cars for short periods.",
     "ex": [
@@ -94918,6 +94828,16 @@
       {
         "de": "Immer mehr junge Menschen erleiden einen Burnout.",
         "en": "More and more young people suffer a burnout.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er wurde wegen eines Burnouts krankgeschrieben.",
+        "en": "He was signed off sick because of burnout.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Burnout stellte er sein Leben um.",
+        "en": "After the burnout he changed his life.",
         "lvl": "B2"
       }
     ]
@@ -97967,12 +97887,7 @@
         "de": "Neue Filter senken die Emission von Feinstaub.",
         "en": "New filters lower the emission of fine dust.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:die Emissionen": {
-    "def": "Gases or substances released into the air, especially pollution.",
-    "ex": [
+      },
       {
         "de": "Die Emissionen müssen drastisch sinken.",
         "en": "Emissions must fall drastically.",
@@ -100984,6 +100899,7 @@
     ]
   },
   "voc:B2:die erneuerbare Energie": {
+    "def": "Energy from sources that do not run out, like sun and wind.",
     "defDe": "Energiequelle, die für sehr lange Zeiträume praktisch unerschöpflich ist oder schnell nachwächst",
     "ex": [
       {
@@ -100999,6 +100915,16 @@
       {
         "de": "„Wenn man in Zukunft von fossilen Energieträgern und von der Atomkraft wegkommen will, braucht es erneuerbare Energie.“",
         "en": "„If we want to move away from fossil fuels and nuclear power in future, renewable energy is needed.“",
+        "lvl": "B2"
+      },
+      {
+        "de": "Erneuerbare Energien decken einen wachsenden Teil des Bedarfs.",
+        "en": "Renewable energies cover a growing share of demand.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Erneuerbare Energien sollen bald den größten Teil abdecken.",
+        "en": "Renewable energy is soon to cover the largest share.",
         "lvl": "B2"
       }
     ]
@@ -101870,21 +101796,6 @@
       {
         "de": "Der Anteil erneuerbarer Energien wächst stetig.",
         "en": "The share of renewable energy is growing steadily.",
-        "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:erneuerbare Energien": {
-    "def": "Energy from sources that do not run out, like sun and wind.",
-    "ex": [
-      {
-        "de": "Erneuerbare Energien decken einen wachsenden Teil des Bedarfs.",
-        "en": "Renewable energies cover a growing share of demand.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Erneuerbare Energien sollen bald den größten Teil abdecken.",
-        "en": "Renewable energy is soon to cover the largest share.",
         "lvl": "B2"
       }
     ]

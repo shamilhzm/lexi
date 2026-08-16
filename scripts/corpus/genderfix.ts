@@ -320,4 +320,4 @@ writeText(join(PATHS.repoRoot, 'src', 'data', 'idmap.ts'),
   + `// pass: an entry is only ever added or re-pointed, never dropped.\n`
   + `export const ID_MAP: Record<string, string> = ${JSON.stringify(map, null, 2)};\n`);
 console.log('\nWrote public/data/{vocab,sectors,provenance}.json and src/data/idmap.ts');
-console.log('  Next: npm run corpus:split && npm run corpus:validate && npm test');
+console.log('  Next: npm run corpus:split && npm run corpus:freq && npm run corpus:validate && npm test');

@@ -160,10 +160,11 @@
   },
   {
     "name": "Media & technology",
-    "count": 5,
+    "count": 6,
     "levels": [
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Arts, Media & Leisure"
   },
@@ -188,7 +189,7 @@
   },
   {
     "name": "Skiing and snowboarding",
-    "count": 33,
+    "count": 32,
     "levels": [
       "A2",
       "B1",
@@ -259,9 +260,10 @@
   },
   {
     "name": "At the University",
-    "count": 1,
+    "count": 2,
     "levels": [
-      "A1"
+      "A1",
+      "B2"
     ],
     "group": "Education & Language"
   },
@@ -284,7 +286,7 @@
   },
   {
     "name": "Communication",
-    "count": 148,
+    "count": 150,
     "levels": [
       "A1",
       "A2",
@@ -545,9 +547,10 @@
   },
   {
     "name": "School & Education System",
-    "count": 5,
+    "count": 9,
     "levels": [
       "A2",
+      "B1",
       "B2"
     ],
     "group": "Education & Language"
@@ -613,7 +616,7 @@
   },
   {
     "name": "University & study",
-    "count": 21,
+    "count": 20,
     "levels": [
       "A2",
       "B1"
@@ -649,7 +652,7 @@
   },
   {
     "name": "Emotions",
-    "count": 66,
+    "count": 70,
     "levels": [
       "A1",
       "A2",
@@ -746,7 +749,7 @@
   },
   {
     "name": "Food and beverages",
-    "count": 31,
+    "count": 29,
     "levels": [
       "A1",
       "A2",
@@ -767,9 +770,10 @@
   },
   {
     "name": "Restaurant & Dining",
-    "count": 6,
+    "count": 7,
     "levels": [
-      "A1"
+      "A1",
+      "B1"
     ],
     "group": "Food & Drink"
   },
@@ -814,11 +818,12 @@
   },
   {
     "name": "Body & health",
-    "count": 65,
+    "count": 66,
     "levels": [
       "A1",
       "A2",
       "B1",
+      "B2",
       "C1",
       "C2"
     ],
@@ -888,7 +893,7 @@
   },
   {
     "name": "Mental health concepts",
-    "count": 45,
+    "count": 44,
     "levels": [
       "B1",
       "B2"
@@ -918,9 +923,10 @@
   },
   {
     "name": "Sport & Exercise",
-    "count": 1,
+    "count": 2,
     "levels": [
-      "A1"
+      "A1",
+      "B1"
     ],
     "group": "Health & Body"
   },
@@ -983,7 +989,7 @@
   },
   {
     "name": "Home",
-    "count": 156,
+    "count": 158,
     "levels": [
       "A1",
       "A2",
@@ -1065,12 +1071,13 @@
   },
   {
     "name": "Urban life",
-    "count": 29,
+    "count": 32,
     "levels": [
       "A1",
       "A2",
       "B1",
-      "B2"
+      "B2",
+      "C1"
     ],
     "group": "Home & Daily Life"
   },
@@ -1245,11 +1252,12 @@
   },
   {
     "name": "Numbers",
-    "count": 29,
+    "count": 30,
     "levels": [
       "A1",
       "A2",
-      "B1"
+      "B1",
+      "C1"
     ],
     "group": "Language Building Blocks"
   },
@@ -1276,7 +1284,7 @@
   },
   {
     "name": "Time",
-    "count": 55,
+    "count": 56,
     "levels": [
       "A1",
       "A2",
@@ -1307,7 +1315,7 @@
   },
   {
     "name": "Environment",
-    "count": 28,
+    "count": 29,
     "levels": [
       "A2",
       "B1",
@@ -1346,7 +1354,7 @@
   },
   {
     "name": "Politics & Sustainability",
-    "count": 10,
+    "count": 8,
     "levels": [
       "B2",
       "C1"
@@ -1426,7 +1434,7 @@
   },
   {
     "name": "Clothing",
-    "count": 58,
+    "count": 55,
     "levels": [
       "A1",
       "A2",
@@ -1465,7 +1473,7 @@
   },
   {
     "name": "Administration",
-    "count": 56,
+    "count": 59,
     "levels": [
       "A1",
       "A2",
@@ -1657,7 +1665,7 @@
   },
   {
     "name": "Legal Terms",
-    "count": 16,
+    "count": 18,
     "levels": [
       "A2",
       "B1",
@@ -1677,10 +1685,11 @@
   },
   {
     "name": "Migration & Integration",
-    "count": 10,
+    "count": 11,
     "levels": [
       "B1",
-      "B2"
+      "B2",
+      "C1"
     ],
     "group": "Society & Politics"
   },
@@ -1767,10 +1776,11 @@
   },
   {
     "name": "Post & Communication",
-    "count": 9,
+    "count": 10,
     "levels": [
       "A1",
-      "A2"
+      "A2",
+      "B1"
     ],
     "group": "Society & Politics"
   },
@@ -1919,7 +1929,7 @@
   },
   {
     "name": "Digital World & Technology",
-    "count": 5,
+    "count": 7,
     "levels": [
       "B1"
     ],
@@ -1953,7 +1963,7 @@
   },
   {
     "name": "Science concepts",
-    "count": 42,
+    "count": 41,
     "levels": [
       "A1",
       "A2",
@@ -2076,7 +2086,7 @@
   },
   {
     "name": "Fitness and training",
-    "count": 37,
+    "count": 36,
     "levels": [
       "A1",
       "A2",
@@ -2185,7 +2195,7 @@
   },
   {
     "name": "Travel & Transport",
-    "count": 5,
+    "count": 9,
     "levels": [
       "B1",
       "B2",
@@ -2203,7 +2213,7 @@
   },
   {
     "name": "Academic Work",
-    "count": 24,
+    "count": 27,
     "levels": [
       "A2",
       "B1",
@@ -2264,11 +2274,12 @@
   },
   {
     "name": "Business & Workplace",
-    "count": 18,
+    "count": 25,
     "levels": [
       "A2",
       "B1",
-      "B2"
+      "B2",
+      "C1"
     ],
     "group": "Work & Economy"
   },
@@ -2396,12 +2407,13 @@
   },
   {
     "name": "Money & shopping",
-    "count": 72,
+    "count": 73,
     "levels": [
       "A1",
       "A2",
       "B1",
-      "B2"
+      "B2",
+      "C1"
     ],
     "group": "Work & Economy"
   },

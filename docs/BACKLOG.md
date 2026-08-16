@@ -63,33 +63,44 @@ shapes:
 | noun and verb of one stem | `die Folge` / `folgen` · `die Spende` / `spenden` · `duschen` / `die Dusche` |
 | reflexive and plain variant | `erinnern` / `sich erinnern` · `der Vorgesetzte` / `der/die Vorgesetzte` |
 
-> **The singular/plural shape is ruled, 2026-08-15.** 17 noun cards whose *term* is
-> another noun card's plural form (a first pass said 46 by counting verb infinitives
-> — *fragen* is not the plural of *die Frage*).
+> ✅ **The singular/plural shape is ruled *and merged*, 2026-08-15.** The mechanism
+> exists now: `npm run corpus:forms`, over `scripts/corpus/form-rulings.ts` — a
+> noun-to-noun detector plus a hand-written ruling for every pair it finds, read by
+> the merge pass *and* by `corpus:validate` so the list can reach zero and stay
+> there. **20 collisions, 13 merged, 7 kept; 6,626 → 6,613 cards.** See the CHANGELOG.
 >
-> **Merge (11)** — a plural filed as its own noun, teaching one word twice:
-> `die Schuhe`→`der Schuh` · `die Nudeln`→`die Nudel` · `die Socken`→`die Socke` ·
-> `die Handschuhe`→`der Handschuh` · `die Muskeln`→`der Muskel` ·
-> `die Sandalen`→`die Sandale` · `die Stiefel`→`der Stiefel` ·
-> `die Emissionen`→`die Emission` · `die Kenntnisse`→`die Kenntnis` ·
-> `erneuerbare Energien`→`die erneuerbare Energie` · `die Daten`→`das Datum`.
+> The 11 plural merges landed as ruled. Two more pairs came out of the same detector
+> and needed their own shape — **`der`/`das Joghurt`** and **`der`/`das Burnout`**, one
+> lemma whose article varies by region, filed twice with an identical gloss and an
+> identical definition. **`der`/`die Bekannte` is kept**: the cards say "acquaintance
+> (male)" and "acquaintance (female)", which is the `der Lehrer`/`die Lehrerin` pair
+> this file wants more of.
 >
-> **Keep both (6)** — not plurals, or a plural that has become its own word:
-> `der Westen` (the west) is not the plural of `die Weste` (waistcoat), and
-> `das Reisen` / `das Angeln` are nominalised infinitives, not plurals of `die Reise`
-> / `die Angel`. `die Schulden` (debts) and `die Schuld` (guilt) part company in
-> meaning, as do `die Medien` and `das Medium`; `die Alpen` is a proper name.
+> Two things the dry run caught before anything was written, both now per-row rulings:
+> a **gloss union is wrong for this shape** (the retired card is the keeper's plural,
+> so unioning gave "shoe; shoes", "glove; gloves", "muscle; muscles" — only `das Datum`
+> → *"date; data"* earns a change), and a **definition does not always travel** (`die
+> Daten`'s defines the plural and stays behind; `die Kenntnisse`' is *better* than the
+> keeper's enumeration and moves onto it).
 >
-> ⚠️ **The mechanism does not exist yet.** `corpus:dupes` groups by *identical* term
-> and these differ by definition, so merging them needs a new expect-guarded pass —
-> one that also folds the retired card's examples onto the keeper and writes `ID_MAP`,
-> the way `genderfix.ts` learned to. That is the next step, and it is mechanical now
-> that the ruling is written down.
+> **A merge can be a relevel.** `die Kenntnisse` was A2 and its singular B1, so the
+> keeper takes the **lower** level — merging upward takes a word off a learner who has
+> it. That is a second id change, and `voc:B1:die Kenntnis` → `voc:A2:die Kenntnis` is
+> in `ID_MAP` with two prior entries re-pointed to follow it.
+>
+> Measured on one probe before and after: example rows whose own card does not claim
+> them **435 → 411** of ~16,200; distinct cards losing their token **195 → 184**. Those
+> are this session's numbers on this session's probe, not the 236/173 above — a
+> different definition, so compare the delta and not the level.
 
-*Not* all of these should merge.*Not* all of these should merge. A participle that has become an adjective in its own
-right (*verboten*, *belegt*) is arguably a card worth having; a plural filed as a
-separate noun almost never is. **The shapes need separate rulings**, which is why this
-is not simply another `corpus:dupes` run.
+**Three shapes are still open**, and they are the reason this item is not closed: the
+verb/participle-adjective pairs (*erlauben*/*erlaubt*, *verbieten*/*verboten*), the
+noun/verb-of-one-stem pairs, and the reflexive variants. *Not* all of these should
+merge — a participle that has become an adjective in its own right is arguably a card
+worth having, where a plural filed as a separate noun almost never is. **Each shape
+needs its own ruling**, which is why this was never one `corpus:dupes` run. The
+machinery is now built for all of them: add rows to `FORM_RULINGS` and widen the
+detector one shape at a time, with `corpus:validate` refusing anything unruled.
 
 ⚠️ **The 236 is a ceiling, and the probe's history is why.** A first pass reported
 **615** by counting multiword cards — `Rad fahren` "losing" to `das Rad`, `die
@@ -97,10 +108,14 @@ künstliche Intelligenz` to `künstlich` — where the matcher resolving a compo
 correct and the probe's expectation was wrong. Excluding multiword headwords halved
 it. Assume more of the same before trusting the figure.
 
-**Do.** Rule per shape, then merge the ones that should merge through `corpus:dupes`
-with `ID_MAP` entries. **Done-when.** A card's own example resolves to that card;
-`corpus:validate` grows a check for a card whose surface form another card already
-claims. **Touches.** `scripts/corpus/merge-dupes.ts`, `validate.ts`, `public/data/`.
+**Do.** Rule the next shape (the participle-adjectives are the largest), widen
+`findFormCollisions` to see it, add the rows, run `npm run corpus:forms -- --write`.
+**Done-when.** A card's own example resolves to that card. ✅ *`corpus:validate` grows a
+check for a card whose surface form another card already claims* — done 2026-08-15, and
+it errors on an unruled collision **and** on one ruled `merge` that is still present,
+so an invariant cannot survive as a sentence the way the Visum one did.
+**Touches.** `scripts/corpus/form-rulings.ts`, `merge-forms.ts`, `validate.ts`,
+`public/data/`.
 
 ### 🟠 The matcher and verbs — re-measured 2026-08-15, and no longer the headline
 

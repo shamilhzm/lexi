@@ -4721,6 +4721,16 @@
         "de": "Für die Wanderung brauche ich feste Schuhe.",
         "en": "For the hike I need sturdy shoes.",
         "lvl": "B1"
+      },
+      {
+        "de": "Meine neuen Schuhe drücken ein wenig.",
+        "en": "My new shoes pinch a little.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zieh die nassen Schuhe an der Tür aus.",
+        "en": "Take off the wet shoes at the door.",
+        "lvl": "B1"
       }
     ],
     "field": "Clothing",
@@ -10163,6 +10173,16 @@
       {
         "de": "Nudeln mit Tomatensoße sind schnell gemacht.",
         "en": "Pasta with tomato sauce is quick to make.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kinder essen fast überall gern Nudeln.",
+        "en": "Children almost everywhere love pasta.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Nudeln müssen noch zehn Minuten kochen.",
+        "en": "The pasta needs another ten minutes.",
         "lvl": "B1"
       }
     ],
@@ -15834,6 +15854,16 @@
         "de": "Naturjoghurt ist gesünder als gesüßter.",
         "en": "Plain yoghurt is healthier than sweetened.",
         "lvl": "B1"
+      },
+      {
+        "de": "Zum Frühstück esse ich oft Joghurt mit Früchten.",
+        "en": "For breakfast I often eat yoghurt with fruit.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich mag Joghurt mit Honig.",
+        "en": "I like yoghurt with honey.",
+        "lvl": "A2"
       }
     ],
     "field": "Food & drink",
@@ -16879,6 +16909,16 @@
         "de": "Im Winter trage ich am liebsten dicke Wollsocken.",
         "en": "In winter I like wearing thick wool socks best.",
         "lvl": "B1"
+      },
+      {
+        "de": "Im Winter trage ich dicke Socken.",
+        "en": "In winter I wear thick socks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ein Paar Socken ist in der Wäsche verschwunden.",
+        "en": "A pair of socks disappeared in the wash.",
+        "lvl": "B1"
       }
     ],
     "field": "Clothing",
@@ -17040,6 +17080,21 @@
       {
         "de": "Bei der Arbeit schützen Handschuhe die Hände.",
         "en": "At work gloves protect the hands.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ohne Handschuhe werden die Hände kalt.",
+        "en": "Without gloves your hands get cold.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie strickt warme Handschuhe für den Winter.",
+        "en": "She knits warm gloves for winter.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ohne Handschuhe frieren mir die Finger.",
+        "en": "Without gloves my fingers get cold.",
         "lvl": "B1"
       }
     ],
@@ -17964,7 +18019,7 @@
   {
     "id": "voc:A1:das Datum",
     "term": "das Datum",
-    "en": "date",
+    "en": "date; data",
     "pos": "noun",
     "level": "A1",
     "gender": "das",
@@ -17989,6 +18044,16 @@
       {
         "de": "Das Datum der Prüfung steht noch nicht fest.",
         "en": "The date of the exam hasn’t been set yet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die gesammelten Daten werden anonym gespeichert.",
+        "en": "The collected data are stored anonymously.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Daten müssen zuerst geprüft werden.",
+        "en": "The data have to be checked first.",
         "lvl": "B1"
       }
     ],
@@ -41794,6 +41859,11 @@
         "de": "Muskeln aufbauen",
         "en": "to build muscles",
         "lvl": "B1"
+      },
+      {
+        "de": "Nach dem Training sind meine Muskeln müde.",
+        "en": "My muscles are tired after training.",
+        "lvl": "A2"
       }
     ],
     "field": "Body",
@@ -43252,6 +43322,16 @@
         "de": "Sandalen mit Socken sind Geschmackssache.",
         "en": "Sandals with socks are a matter of taste.",
         "lvl": "B2"
+      },
+      {
+        "de": "Im Sommer trage ich am liebsten Sandalen.",
+        "en": "In summer I most like to wear sandals.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Sandalen sind bequem und leicht.",
+        "en": "The sandals are comfortable and light.",
+        "lvl": "A2"
       }
     ],
     "field": "Clothes shop",
@@ -43284,6 +43364,11 @@
         "de": "Gute Stiefel halten bei jedem Wetter trocken.",
         "en": "Good boots keep you dry in any weather.",
         "lvl": "B2"
+      },
+      {
+        "de": "Meine Stiefel sind vom Regen ganz nass.",
+        "en": "My boots are all wet from the rain.",
+        "lvl": "A2"
       }
     ],
     "field": "Clothes shop",
@@ -48046,53 +48131,6 @@
         "de": "Der Fortbildungskurs wird vom Arbeitgeber bezahlt.",
         "en": "The further-training course is paid for by the employer.",
         "lvl": "B2"
-      }
-    ],
-    "field": "University & study",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Kenntnisse",
-    "term": "die Kenntnisse",
-    "en": "knowledge, skills",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": "die Kenntnisse (Pl.)",
-    "ipa": "ˈkɛntnɪsə",
-    "def": "The things a person knows about a subject.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ich habe gute Englischkenntnisse.",
-        "en": "I have good knowledge of English.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Für den Job sind EDV-Kenntnisse nötig.",
-        "en": "For the job, IT skills are needed.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ihre Kenntnisse gehen weit über das Übliche hinaus.",
-        "en": "Her knowledge goes far beyond the usual.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Ich habe gute Deutschkenntnisse.",
-        "en": "I have good knowledge of German.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Für den Job braucht man Englischkenntnisse.",
-        "en": "For the job you need knowledge of English.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er hat dank seiner guten Deutschkenntnisse einen Platz gefunden.",
-        "en": "Thanks to his good German he found a place.",
-        "lvl": "B1"
       }
     ],
     "field": "University & study",
@@ -92441,7 +92479,7 @@
     "gender": "die",
     "plural": "erneuerbare Energien",
     "ipa": "ɛɐ̯ˌnɔɪ̯ɐbaːʁə enɛʁˈɡiː",
-    "def": null,
+    "def": "Energy from sources that do not run out, like sun and wind.",
     "syn": [
       "Erneuerbare",
       "regenerative Energie"
@@ -92464,6 +92502,16 @@
         "de": "„Wenn man in Zukunft von fossilen Energieträgern und von der Atomkraft wegkommen will, braucht es erneuerbare Energie.“",
         "en": "„If we want to move away from fossil fuels and nuclear power in future, renewable energy is needed.“",
         "lvl": "B2"
+      },
+      {
+        "de": "Erneuerbare Energien decken einen wachsenden Teil des Bedarfs.",
+        "en": "Renewable energies cover a growing share of demand.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Erneuerbare Energien sollen bald den größten Teil abdecken.",
+        "en": "Renewable energy is soon to cover the largest share.",
+        "lvl": "B2"
       }
     ],
     "field": "Energy & Resources",
@@ -92481,7 +92529,8 @@
     "ipa": "emɪˈsi̯oːn",
     "def": "The release of gas, heat, or light, especially pollution.",
     "syn": [
-      "Ausstoß"
+      "Ausstoß",
+      "Abgase"
     ],
     "ant": [],
     "ex": [
@@ -92493,6 +92542,16 @@
       {
         "de": "Neue Filter senken die Emission von Feinstaub.",
         "en": "New filters lower the emission of fine dust.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Emissionen müssen drastisch sinken.",
+        "en": "Emissions must fall drastically.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Emissionen aus dem Verkehr sinken nur langsam.",
+        "en": "Emissions from traffic are falling only slowly.",
         "lvl": "B2"
       }
     ],
@@ -92753,6 +92812,16 @@
       {
         "de": "Immer mehr junge Menschen erleiden einen Burnout.",
         "en": "More and more young people suffer a burnout.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er wurde wegen eines Burnouts krankgeschrieben.",
+        "en": "He was signed off sick because of burnout.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Burnout stellte er sein Leben um.",
+        "en": "After the burnout he changed his life.",
         "lvl": "B2"
       }
     ],
@@ -97133,62 +97202,6 @@
         "de": "Der Gesetzentwurf geht nun in die zweite Lesung.",
         "en": "The bill now goes into its second reading.",
         "lvl": "C1"
-      }
-    ],
-    "field": "Politics & Sustainability",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:erneuerbare Energien",
-    "term": "erneuerbare Energien",
-    "en": "renewable energy",
-    "pos": "noun",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛɐ̯ˈnɔɪ̯ɐbaːʁə enɛʁˈɡiːən",
-    "def": "Energy from sources that do not run out, like sun and wind.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Erneuerbare Energien decken einen wachsenden Teil des Bedarfs.",
-        "en": "Renewable energies cover a growing share of demand.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Erneuerbare Energien sollen bald den größten Teil abdecken.",
-        "en": "Renewable energy is soon to cover the largest share.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Politics & Sustainability",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:die Emissionen",
-    "term": "die Emissionen",
-    "en": "emissions",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "die",
-    "plural": null,
-    "ipa": "emɪˈsi̯oːnən",
-    "def": "Gases or substances released into the air, especially pollution.",
-    "syn": [
-      "Abgase"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die Emissionen müssen drastisch sinken.",
-        "en": "Emissions must fall drastically.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Die Emissionen aus dem Verkehr sinken nur langsam.",
-        "en": "Emissions from traffic are falling only slowly.",
-        "lvl": "B2"
       }
     ],
     "field": "Politics & Sustainability",
@@ -107085,60 +107098,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Schuhe",
-    "term": "die Schuhe",
-    "en": "shoes",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Schuhe",
-    "ipa": "ˈʃuːə",
-    "def": "Coverings worn on the feet.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Meine neuen Schuhe drücken ein wenig.",
-        "en": "My new shoes pinch a little.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Zieh die nassen Schuhe an der Tür aus.",
-        "en": "Take off the wet shoes at the door.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Socken",
-    "term": "die Socken",
-    "en": "socks",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Socken",
-    "ipa": "ˈzɔkn̩",
-    "def": "Soft coverings worn on the feet inside shoes.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Im Winter trage ich dicke Socken.",
-        "en": "In winter I wear thick socks.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ein Paar Socken ist in der Wäsche verschwunden.",
-        "en": "A pair of socks disappeared in the wash.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:die Unterwäsche",
     "term": "die Unterwäsche",
     "en": "underwear",
@@ -107160,33 +107119,6 @@
         "de": "Für die Reise packe ich genug Unterwäsche ein.",
         "en": "For the trip I pack enough underwear.",
         "lvl": "B1"
-      }
-    ],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Stiefel",
-    "term": "die Stiefel",
-    "en": "boots",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": "die Stiefel",
-    "ipa": "ˈʃtiːfl̩",
-    "def": "boot (shoe)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Im Winter trage ich warme Stiefel.",
-        "en": "In winter I wear warm boots.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Meine Stiefel sind vom Regen ganz nass.",
-        "en": "My boots are all wet from the rain.",
-        "lvl": "A2"
       }
     ],
     "field": "Clothing",
@@ -107307,33 +107239,6 @@
     "field": "Clothing",
     "kind": "word",
     "defDe": "Krawatte; ein schmaler Streifen aus Stoff, der um den Hals gebunden und typischerweise zu Hemd und Anzug getragen wird"
-  },
-  {
-    "id": "voc:A2:die Sandalen",
-    "term": "die Sandalen",
-    "en": "sandals",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": null,
-    "ipa": "zanˈdaːlən",
-    "def": "Open shoes with straps, worn in warm weather.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Im Sommer trage ich am liebsten Sandalen.",
-        "en": "In summer I most like to wear sandals.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Die Sandalen sind bequem und leicht.",
-        "en": "The sandals are comfortable and light.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Clothing",
-    "kind": "word"
   },
   {
     "id": "voc:B1:modisch",
@@ -110304,38 +110209,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Nudeln",
-    "term": "die Nudeln",
-    "en": "noodles / pasta",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": null,
-    "ipa": "ˈnuːdl̩n",
-    "def": "to fatten, to force-feed (of animals, by gavage); to do something tedious or repetitive in a bored manner; to play something tedious or banal",
-    "syn": [
-      "herunternudeln",
-      "durchnudeln",
-      "ableiern",
-      "ausnudeln"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Kinder essen fast überall gern Nudeln.",
-        "en": "Children almost everywhere love pasta.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Nudeln müssen noch zehn Minuten kochen.",
-        "en": "The pasta needs another ten minutes.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Food and beverages",
-    "kind": "word"
-  },
-  {
     "id": "voc:A1:das Bier",
     "term": "das Bier",
     "en": "beer",
@@ -110531,33 +110404,6 @@
         "de": "In diesem Regal stehen alle Gewürze.",
         "en": "All the spices are on this shelf.",
         "lvl": "B1"
-      }
-    ],
-    "field": "Food and beverages",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:das Joghurt",
-    "term": "das Joghurt",
-    "en": "yoghurt",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "das",
-    "plural": "die Joghurts",
-    "ipa": "ˈjoːɡʊʁt",
-    "def": "yogurt",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Zum Frühstück esse ich oft Joghurt mit Früchten.",
-        "en": "For breakfast I often eat yoghurt with fruit.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Ich mag Joghurt mit Honig.",
-        "en": "I like yoghurt with honey.",
-        "lvl": "A2"
       }
     ],
     "field": "Food and beverages",
@@ -114798,35 +114644,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:das Burnout",
-    "term": "das Burnout",
-    "en": "burnout",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "das",
-    "plural": null,
-    "ipa": null,
-    "def": "A state of deep exhaustion caused by long-term stress.",
-    "syn": [
-      "Ausgebranntsein"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Er wurde wegen eines Burnouts krankgeschrieben.",
-        "en": "He was signed off sick because of burnout.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Nach dem Burnout stellte er sein Leben um.",
-        "en": "After the burnout he changed his life.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Mental health concepts",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:der Psychiater",
     "term": "der Psychiater",
     "en": "psychiatrist",
@@ -116323,33 +116140,6 @@
         "de": "Die Analyse zeigt einen klaren Trend.",
         "en": "The analysis shows a clear trend.",
         "lvl": "B2"
-      }
-    ],
-    "field": "Science concepts",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Daten",
-    "term": "die Daten",
-    "en": "data",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Daten",
-    "ipa": "ˈdaːtn̩",
-    "def": "Facts and figures collected for study or reference.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Die gesammelten Daten werden anonym gespeichert.",
-        "en": "The collected data are stored anonymously.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Daten müssen zuerst geprüft werden.",
-        "en": "The data have to be checked first.",
-        "lvl": "B1"
       }
     ],
     "field": "Science concepts",
@@ -122092,33 +121882,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Muskeln",
-    "term": "die Muskeln",
-    "en": "muscles",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": null,
-    "ipa": null,
-    "def": "The parts of the body that tighten and relax to make it move.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Nach dem Training sind meine Muskeln müde.",
-        "en": "My muscles are tired after training.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Durch das Training werden die Muskeln stärker.",
-        "en": "Through training the muscles become stronger.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:das Protein",
     "term": "das Protein",
     "en": "protein",
@@ -126945,43 +126708,6 @@
         "de": "Die Skijacke hält auch bei Schnee warm.",
         "en": "The ski jacket keeps you warm even in snow.",
         "lvl": "A2"
-      }
-    ],
-    "field": "Skiing and snowboarding",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Handschuhe",
-    "term": "die Handschuhe",
-    "en": "gloves",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": "die Handschuhe",
-    "ipa": "ˈhantˌʃuːə",
-    "def": "Coverings for the hands, with a part for each finger.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ohne Handschuhe werden die Hände kalt.",
-        "en": "Without gloves your hands get cold.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Sie strickt warme Handschuhe für den Winter.",
-        "en": "She knits warm gloves for winter.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ohne Handschuhe frieren mir die Finger.",
-        "en": "Without gloves my fingers get cold.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Zieh die Handschuhe an, es friert draußen.",
-        "en": "Put on the gloves, it's freezing outside.",
-        "lvl": "B1"
       }
     ],
     "field": "Skiing and snowboarding",
@@ -154205,15 +153931,15 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Kenntnis",
+    "id": "voc:A2:die Kenntnis",
     "term": "die Kenntnis",
     "en": "knowledge",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "gender": "die",
     "plural": "die Kenntnisse",
     "ipa": "ˈkɛntnɪs",
-    "def": "knowledge; science (knowledge gained through study or practice)",
+    "def": "The things a person knows about a subject.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -154225,6 +153951,26 @@
       {
         "de": "Er wurde in Kenntnis gesetzt.",
         "en": "He was informed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe gute Englischkenntnisse.",
+        "en": "I have good knowledge of English.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Für den Job sind EDV-Kenntnisse nötig.",
+        "en": "For the job, IT skills are needed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihre Kenntnisse gehen weit über das Übliche hinaus.",
+        "en": "Her knowledge goes far beyond the usual.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe gute Deutschkenntnisse.",
+        "en": "I have good knowledge of German.",
         "lvl": "B1"
       }
     ],

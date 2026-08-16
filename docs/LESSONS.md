@@ -45,7 +45,9 @@ exist?", never "what does the map say X is?" — a first-wins/last-wins `Map` si
 picks one of the copies.
 
 **…move, rename, relevel or merge a card.** It is a schedule migration. Ship `ID_MAP`
-entries or you silently re-point a learner's FSRS state.
+entries or you silently re-point a learner's FSRS state. **Four** files hold a card id —
+`vocab.json`, `provenance.json`, `freq.json` and `idmap.ts` — and this line said three
+until `freq.json` was found holding 47 dead ones.
 
 **…claim a fact about the product in a doc.** Check it against `src/` at that moment.
 Docs age against a codebase that moves weekly.
@@ -221,6 +223,18 @@ that is a latent version of this bug.**
   resets every affected learner's schedule to new. It now writes the file, with the same
   carry-forward `genderfix.ts` uses. **If a step is required for correctness, a script
   does it.**
+- **The list of files holding an id was itself wrong — there are four, and this file
+  said three.** `public/data/freq.json` keys frequency ranks by card id, and no migration
+  pass re-ran `corpus:freq`. Measured 2026-08-15 while merging the inflection duplicates:
+  **47 of its 1,986 keys pointed at cards that no longer existed**, stale since the A1
+  relevel and the 874-group dupe merge. The cost is invisible by construction — those 47
+  cards silently fell to "unranked" in the frequency-within-band ordering of fresh cards,
+  which is a worse ordering and not an error. **An enumeration of "everything that holds
+  an X" is itself a check that needs writing, not a sentence in a doc**; `corpus:validate`
+  now errors on a rank whose card is gone, and every migration script's closing "Next:"
+  line names `corpus:freq`. Same class as the plural notations and the entrance guard:
+  the enumeration was incomplete, not the logic. (See also the checklist item above,
+  which has been corrected from three files to four.)
 
 ---
 

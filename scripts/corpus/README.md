@@ -34,6 +34,10 @@ npm run corpus:casefix     # dry run: lowercase miscased headwords, merge the du
 npm run corpus:casefix -- --write                     # apply + regenerate src/data/idmap.ts
 npm run corpus:frontfix    # dry run: cards leading with a fragment or a citation
 npm run corpus:frontfix -- --lead <tsv> --write        # promote a clean sibling / prepend authored leads
+npm run corpus:dupes       # dry run: cards with an identical term, merged onto the lowest level
+npm run corpus:dupes -- --write                       # apply + regenerate src/data/idmap.ts
+npm run corpus:forms       # dry run: cards that are *inflections* of each other (die Schuhe / der Schuh)
+npm run corpus:forms -- --write                       # apply the rulings in form-rulings.ts
 npm run corpus:validate    # Goal 6: schema/dupe/distribution/probe + gzip size
 npm run corpus:validate -- --strict --sample=15       # gate on warnings, larger spot-check
 ```

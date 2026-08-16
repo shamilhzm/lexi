@@ -44,6 +44,7 @@
     "lint": "eslint src",
     "corpus:relevel:a1": "node scripts/corpus/relevel-a1.ts",
     "corpus:dupes": "node scripts/corpus/merge-dupes.ts",
+    "corpus:forms": "node scripts/corpus/merge-forms.ts",
     "authoring:new": "node scripts/authoring/new-cards.ts",
     "corpus:gex": "node scripts/corpus/grammar-exercises.ts",
     "corpus:papervocab": "node scripts/corpus/paper-vocab.ts",

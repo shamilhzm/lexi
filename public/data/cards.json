@@ -7472,7 +7472,7 @@
   {
     "id": "voc:A1:das Datum",
     "term": "das Datum",
-    "en": "date",
+    "en": "date; data",
     "pos": "noun",
     "level": "A1",
     "gender": "das",
@@ -20300,20 +20300,6 @@
     "gender": "der",
     "plural": "die Fortbildungskurse",
     "ipa": "ˈfɔʁtbɪldʊŋsˌkʊʁs",
-    "syn": [],
-    "ant": [],
-    "field": "University & study",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Kenntnisse",
-    "term": "die Kenntnisse",
-    "en": "knowledge, skills",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": "die Kenntnisse (Pl.)",
-    "ipa": "ˈkɛntnɪsə",
     "syn": [],
     "ant": [],
     "field": "University & study",
@@ -41187,7 +41173,8 @@
     "plural": "-en",
     "ipa": "emɪˈsi̯oːn",
     "syn": [
-      "Ausstoß"
+      "Ausstoß",
+      "Abgase"
     ],
     "ant": [],
     "field": "Climate Change",
@@ -43667,36 +43654,6 @@
     "ipa": "ɡəˈzɛt͡sʔɛntvʊʁf",
     "syn": [
       "Gesetzesvorlage"
-    ],
-    "ant": [],
-    "field": "Politics & Sustainability",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:erneuerbare Energien",
-    "term": "erneuerbare Energien",
-    "en": "renewable energy",
-    "pos": "noun",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛɐ̯ˈnɔɪ̯ɐbaːʁə enɛʁˈɡiːən",
-    "syn": [],
-    "ant": [],
-    "field": "Politics & Sustainability",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:die Emissionen",
-    "term": "die Emissionen",
-    "en": "emissions",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "die",
-    "plural": null,
-    "ipa": "emɪˈsi̯oːnən",
-    "syn": [
-      "Abgase"
     ],
     "ant": [],
     "field": "Politics & Sustainability",
@@ -48834,34 +48791,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Schuhe",
-    "term": "die Schuhe",
-    "en": "shoes",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Schuhe",
-    "ipa": "ˈʃuːə",
-    "syn": [],
-    "ant": [],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Socken",
-    "term": "die Socken",
-    "en": "socks",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Socken",
-    "ipa": "ˈzɔkn̩",
-    "syn": [],
-    "ant": [],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:die Unterwäsche",
     "term": "die Unterwäsche",
     "en": "underwear",
@@ -48870,20 +48799,6 @@
     "gender": "die",
     "plural": "die Unterwäschen",
     "ipa": "ˈʊntɐvɛʃə",
-    "syn": [],
-    "ant": [],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Stiefel",
-    "term": "die Stiefel",
-    "en": "boots",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": "die Stiefel",
-    "ipa": "ˈʃtiːfl̩",
     "syn": [],
     "ant": [],
     "field": "Clothing",
@@ -48948,20 +48863,6 @@
       "Binder",
       "Krawatte"
     ],
-    "ant": [],
-    "field": "Clothing",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Sandalen",
-    "term": "die Sandalen",
-    "en": "sandals",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": null,
-    "ipa": "zanˈdaːlən",
-    "syn": [],
     "ant": [],
     "field": "Clothing",
     "kind": "word"
@@ -50562,25 +50463,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Nudeln",
-    "term": "die Nudeln",
-    "en": "noodles / pasta",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": null,
-    "ipa": "ˈnuːdl̩n",
-    "syn": [
-      "herunternudeln",
-      "durchnudeln",
-      "ableiern",
-      "ausnudeln"
-    ],
-    "ant": [],
-    "field": "Food and beverages",
-    "kind": "word"
-  },
-  {
     "id": "voc:A1:das Bier",
     "term": "das Bier",
     "en": "beer",
@@ -50685,20 +50567,6 @@
     "gender": "das",
     "plural": "die Gewürze",
     "ipa": "ɡəˈvʏʁt͡s",
-    "syn": [],
-    "ant": [],
-    "field": "Food and beverages",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:das Joghurt",
-    "term": "das Joghurt",
-    "en": "yoghurt",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "das",
-    "plural": "die Joghurts",
-    "ipa": "ˈjoːɡʊʁt",
     "syn": [],
     "ant": [],
     "field": "Food and beverages",
@@ -52940,22 +52808,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:das Burnout",
-    "term": "das Burnout",
-    "en": "burnout",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "das",
-    "plural": null,
-    "ipa": null,
-    "syn": [
-      "Ausgebranntsein"
-    ],
-    "ant": [],
-    "field": "Mental health concepts",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:der Psychiater",
     "term": "der Psychiater",
     "en": "psychiatrist",
@@ -53724,20 +53576,6 @@
     "syn": [
       "Untersuchung"
     ],
-    "ant": [],
-    "field": "Science concepts",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Daten",
-    "term": "die Daten",
-    "en": "data",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Daten",
-    "ipa": "ˈdaːtn̩",
-    "syn": [],
     "ant": [],
     "field": "Science concepts",
     "kind": "word"
@@ -56679,20 +56517,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:die Muskeln",
-    "term": "die Muskeln",
-    "en": "muscles",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": null,
-    "ipa": null,
-    "syn": [],
-    "ant": [],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:das Protein",
     "term": "das Protein",
     "en": "protein",
@@ -59236,20 +59060,6 @@
     "gender": "die",
     "plural": null,
     "ipa": null,
-    "syn": [],
-    "ant": [],
-    "field": "Skiing and snowboarding",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:die Handschuhe",
-    "term": "die Handschuhe",
-    "en": "gloves",
-    "pos": "noun",
-    "level": "A2",
-    "gender": "die",
-    "plural": "die Handschuhe",
-    "ipa": "ˈhantˌʃuːə",
     "syn": [],
     "ant": [],
     "field": "Skiing and snowboarding",
@@ -74269,11 +74079,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Kenntnis",
+    "id": "voc:A2:die Kenntnis",
     "term": "die Kenntnis",
     "en": "knowledge",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "gender": "die",
     "plural": "die Kenntnisse",
     "ipa": "ˈkɛntnɪs",
