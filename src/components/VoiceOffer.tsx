@@ -12,7 +12,7 @@ import Button from './ui/Button.tsx';
 import IconButton from './ui/IconButton.tsx';
 
 export default function VoiceOffer({ onClose }: { onClose: () => void }) {
-  const { percent, error, enable } = useHdVoice();
+  const { percent, phase, error, enable } = useHdVoice();
   const [done, setDone] = useState(false);
 
   const dismiss = () => { markHdOffered(); onClose(); };
@@ -44,9 +44,12 @@ export default function VoiceOffer({ onClose }: { onClose: () => void }) {
           {error && <p className="text-red-txt text-xs mt-2">{error}</p>}
           {!done && (
             <div className="flex items-center gap-2 mt-2.5 flex-wrap">
-              {percent !== null ? (
+              {phase !== null ? (
                 <span className="flex items-center gap-1.5 text-xs text-dim">
-                  <Loader2 size={14} className="animate-spin" /> Downloading… {percent}%
+                  <Loader2 size={14} className="animate-spin" />{' '}
+                  {phase === 'downloading' ? `Downloading… ${percent ?? 0}%`
+                    : phase === 'preparing' ? 'Unpacking the voice…'
+                    : 'Testing the voice…'}
                 </span>
               ) : (
                 <>

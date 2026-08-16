@@ -503,6 +503,46 @@ small lesson. Struck from Next.
 
 ---
 
+## Reported from real sessions — 2026-08-16
+
+Four things a learner hit on an iPhone in one sitting. Two were the same bug.
+
+- ✅ **The teach card explained the wrong rule.** Two reports: a tile exercise whose
+  answer was „Können Sie mir bitte Ihren Namen buchstabieren?“ opened *Wortstellung &
+  Fragen* and worked through „Wo wohnst du?“; an **adjective ending in the Dativ**
+  opened *Akkusativ* and worked through „Ich kaufe ___ Apfel → den“. One cause:
+  `IntroCard` was keyed on `item.type`, so it could only ever show
+  `MODE_REMEDY[mode][0]` — one static point per drill kind. **This is the third
+  instance of a bug `TENSE_POINT` and `CASE_POINT` were each written to fix**, and it
+  survived because the teach card lived a layer above the items that know their own
+  target. It renders from `DrillHeader` now, off the item's own `pointRef`, and the
+  exam gate moved with it. `orderPoint()` was added in the same pass so word-order
+  items resolve a rule from the *sentence* (modal → Modalverben, subordinator →
+  Nebensätze, W-word → Fragen) instead of always Wortstellung.
+- ✅ **The drill-type pill overlapped the drill label.** The pill is `-top-2.5` — 10px
+  above the card — and the header left exactly `mb-2.5`, 10px. Their edges met, so a
+  long label ("Word order (sentence builder)") rendered under it. Measured live: pill
+  top 320, card top 330. `mb-4` clears it with 6px to spare.
+- ✅ **You can now choose what a session contains.** *"Sometimes I just want to
+  casually flick through new words"* — Settings → **What's in a session**. Every drill
+  is a toggle, plus *Everything* / *Flip cards only*. Stored as the **excluded** set so
+  a drill added later is on by default rather than silently missing. Governs sessions
+  only: opening a drill from Grammar still drills it, because there you asked by name.
+  ⚠️ Grammar *exercise cards* are not drills — they are scheduled cards of their own —
+  so the first implementation still served them under "flip cards only". Caught by
+  driving a real session (twelve flips, then two grammar cards); they are on the same
+  switch now.
+- ⚠️ **The HD voice sits at "Downloading… 100%" and never finishes.** *Not reproduced —
+  fixed for the most likely cause and made legible for the rest.* Three faults found by
+  reading the flow: the label covered only the download, so the seconds of model init
+  and test synthesis after it looked like a stalled network; **there was no timeout
+  anywhere**, so any stall waited forever with nothing to report; and `audio.play()`
+  ran *after* awaiting a 25 MB download, which on iOS is outside the user gesture that
+  permits sound. `primeAudio()` now unlocks audio synchronously on the tap, the phases
+  are named ("Unpacking the voice…", "Testing the voice…"), and both stages have
+  timeouts with actionable messages. **Please retry and tell me what it says now** —
+  the new message distinguishes the causes, which the old spinner could not.
+
 ## Now
 
 Ordered. The reasoning for the order is in each *Why*; the short version is that

@@ -239,6 +239,14 @@ export const NoHelpCtx = createContext(false);
  *
  *  Lives here rather than beside the drills because both drill files need it and
  *  they already import from each other in one direction. */
+/** `usePoint` for the teach card: always called so the hook count is stable, and
+ *  returns nothing unless a point was asked for. Renders nothing for a drill with
+ *  no authored system behind it (cloze, dictation), which is the right silence. */
+function useIntroPoint(pointRef: { level: CEFR; title: string } | string | null) {
+  const found = usePoint(pointRef);
+  return pointRef ? found : null;
+}
+
 export function DrillHeader({ pointRef, label }: {
   pointRef: { level: CEFR; title: string } | string | null; label: string;
 }) {
@@ -248,8 +256,42 @@ export function DrillHeader({ pointRef, label }: {
   const ruleShown = useContext(RuleShownCtx);
   const noHelp = useContext(NoHelpCtx);
   const ruleAlreadyOpen = ruleShown || noHelp;
+  // The first-sight teach card, rendered here because **here is where the item's
+  // own rule is known**.
+  //
+  // It used to live in Review.tsx as `<IntroCard mode={item.type} />`, keyed on the
+  // *mode*, which meant `MODE_REMEDY[mode][0]` — one static point per drill kind.
+  // Two reports from real sessions, one bug: a tile exercise whose answer was
+  // „Können Sie mir bitte Ihren Namen buchstabieren?“ opened *Wortstellung & Fragen*
+  // and worked through „Wo wohnst du?“; and an **adjective ending in the Dativ**
+  // opened *Akkusativ* and worked through „Ich kaufe ___ Apfel → den“. In both the
+  // learner is taught a rule that does not describe the exercise in front of them,
+  // which is worse than teaching nothing — this is the app's one moment of
+  // instruction and it was spending it on the wrong system.
+  //
+  // The items already resolve their own target (`CASE_POINT[kase]`,
+  // `TENSE_POINT[tense]`, `orderPoint(sentence)`) and hand it here as `pointRef`.
+  // Same fix as those three maps, one layer up.
+  const intro = useIntroPoint(ruleShown && !noHelp ? pointRef : null);
   return (
-    <div className="text-center mb-2.5">
+    // `mb-4`, not `mb-2.5`, and the two numbers are related. The drill-type pill in
+    // Review is `-top-2.5`: pulled 10px *above* the card, into precisely the 10px
+    // this margin used to leave. Their edges met, so any label long enough to reach
+    // the right-hand side rendered underneath it — reported from a real session as
+    // "WORD ORDER" sitting on top of "Word order (sentence builder)". 16px clears
+    // the pill's overhang with room for a descender.
+    <div className="text-center mb-4">
+      {intro && (
+        <div className="mb-3 text-left">
+          <p className="text-2xs text-amber font-mono uppercase tracking-widest text-center mb-2 font-semibold">
+            New here — have a read first
+          </p>
+          <RuleCard point={intro.point} level={intro.level} worked />
+          <p className="text-2xs text-dim text-center mt-2">
+            This one doesn’t count. You’ll get it again later, for real.
+          </p>
+        </div>
+      )}
       {ruleAlreadyOpen
         ? <Kicker tone="accent">{label}</Kicker>
         : <RuleToggle pointRef={pointRef} label={label} />}

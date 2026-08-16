@@ -5,7 +5,7 @@
 // Gym's namespaced FSRS cards (gym:<mode>:<wordId>) — both surfaces share
 // one schedule and past Gym progress carries over.
 import type { Word, Target } from './types.ts';
-import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes } from './store.ts';
+import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue, State } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, MODE_REMEDY, type Mode } from './views/Fundamentals.tsx';
@@ -354,6 +354,7 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
   for (const { mode, tag, misses } of modes) {
     for (const w of words) {
       if (out.length >= cap) return out;
+      if (!modeEnabled(mode)) continue;          // muted for sessions by the learner
       if (!eligibleModes(w).includes(mode)) continue;
       const srsId = gymId(mode, w);
       const c = cardOf(srsId);
@@ -375,7 +376,12 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
  *  explained. Drills start from session two, once there is something to
  *  interleave *with*. */
 export function buildMixedSession(target: Target, teachOnly = false): SessionItem[] {
-  const words = buildSession(target);
+  // Grammar points are scheduled cards in their own right, not drills woven
+  // between flips — so the mode filter above cannot reach them, and a learner who
+  // asked for "flip cards only" still met grammar exercises. Verified by driving a
+  // real session: twelve flips, then two grammar cards. They are muted by the same
+  // switch, under the `grammar` key.
+  const words = buildSession(target).filter((w) => w.kind !== 'grammar' || modeEnabled('grammar'));
   const now = Date.now();
   // A session assembled by the comprehension meter has a better answer to "why is
   // this card here?" than `fresh` — the learner picked a text and these are the
@@ -397,7 +403,10 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
 
   words.forEach((w, idx) => {
     if (w.kind === 'grammar') return; // rule cards have no word drills
-    const modes = eligibleModes(w);
+    // `eligibleModes` answers what the *word* can carry; `modeEnabled` answers what
+    // the learner asked for. Filtering here rather than inside eligibleModes keeps
+    // the Fundamentals gym honest: opening Kasus by name still drills Kasus.
+    const modes = eligibleModes(w).filter((m) => modeEnabled(m));
     if (modes.length === 0) return;
     const due = modes.filter((m) => { const c = cardOf(gymId(m, w)); return c && isDue(c); });
     let pick: Mode | null = null;
@@ -451,7 +460,10 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
     const parts = rawId.split(':');
     const mode = parts[1] as Mode;
     const wordId = parts.slice(2).join(':'); // user words contain ':' (usr:…)
-    if (!(mode in MODE_TAG) || inQueue.has(wordId) || !scope.has(wordId)) continue;
+    // A muted mode is muted here too, or a learner who switched Kasus off would
+    // still meet Kasus items as orphans — the one path that reaches past the
+    // queue's own weave.
+    if (!(mode in MODE_TAG) || !modeEnabled(mode) || inQueue.has(wordId) || !scope.has(wordId)) continue;
     const w = BY_ID.get(wordId);
     if (!w) continue;
     orphanBudget--;

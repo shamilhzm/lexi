@@ -17,6 +17,7 @@ const VISITS_KEY = 'lexi.visits.v1';
 const MISS_KEY = 'lexi.miss.v1';
 const ATTEMPT_KEY = 'lexi.attempts.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
+const DRILLMODES_KEY = 'lexi.drillmodes.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
 const PACE_KEY = 'lexi.pace.v1';
@@ -242,6 +243,55 @@ export async function hydrate(): Promise<void> {
   attempts = Array.isArray(att) ? att : [];
   visits = Array.isArray(vis) ? vis : [];
   hydrated = true;
+}
+
+// ---- which drills a session may contain ----------------------------------
+// "Sometimes I just want to casually flick through new words." A mixed session
+// interleaves flips with generated drills, which is the right default and the
+// wrong thing when the learner wants to browse — and there was no way to say so.
+//
+// Two deliberate differences from the CEFR filter:
+//
+//   * **Empty is allowed, and it is the point.** The level filter refuses to empty
+//     because a session with no levels has nothing to serve; a session with no
+//     drills is a perfectly good flip-only session, which is the case this exists
+//     for.
+//   * **It governs sessions, not the gym.** `eligibleModes` answers "can this word
+//     carry this drill?", a fact about the word; this answers "do I want it in my
+//     session", a preference. Opening Kasus from the Fundamentals gym still drills
+//     Kasus — you asked for it by name.
+//
+// Stored as the *excluded* set rather than the included one, so a mode added to
+// the app later is on by default for everyone instead of silently missing for
+// every learner who ever touched this screen.
+function loadOffModes(): Set<string> {
+  try {
+    const a = JSON.parse(localStorage.getItem(DRILLMODES_KEY) || 'null');
+    if (Array.isArray(a)) return new Set(a as string[]);
+  } catch { /* */ }
+  return new Set();
+}
+let offModes = loadOffModes();
+
+/** Drill modes the learner has switched **off** for mixed sessions. */
+export function mutedModes(): Set<string> { return offModes; }
+/** Is this drill mode allowed into a mixed session? */
+export function modeEnabled(m: string): boolean { return !offModes.has(m); }
+
+export function toggleDrillMode(m: string) {
+  const next = new Set(offModes);
+  if (next.has(m)) next.delete(m); else next.add(m);
+  offModes = next;
+  try { localStorage.setItem(DRILLMODES_KEY, JSON.stringify([...next])); } catch { /* */ }
+  emit();
+}
+
+/** Turn every drill on (`[]`) or off (`all`) in one move — the two ends learners
+ *  actually reach for. */
+export function setAllDrillModes(all: string[], on: boolean) {
+  offModes = on ? new Set() : new Set(all);
+  try { localStorage.setItem(DRILLMODES_KEY, JSON.stringify([...offModes])); } catch { /* */ }
+  emit();
 }
 
 // ---- CEFR level filter ---------------------------------------------------

@@ -3,9 +3,10 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List, Crosshair } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List, Crosshair, Layers } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords, pace, setPace, PACE, statusOf, type Pace } from '../store.ts';
+import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
+import { MODE_TAG, type Mode } from './Fundamentals.tsx';
 import { WORDS } from '../data/index.ts';
 import { parsePack } from '../lib/classpack.ts';
 import { focusTense, setFocusTense } from '../store.ts';
@@ -47,10 +48,21 @@ const RETENTIONS: { v: number; label: string; hint: string }[] = [
   { v: 0.95, label: '95% · Intensive', hint: 'More reviews, minimal forgetting.' },
 ];
 
+/** Every drill a mixed session can weave in. `cloze` and the rest are included:
+ *  the learner's judgement about what they want to practise is not ours to
+ *  pre-filter. Order is the one MODE_TAG declares. */
+const DRILL_MODES: string[] = ['gender', 'plural', 'conj', 'cloze', 'order', 'transform', 'case', 'separable', 'reflexive', 'dictation', 'recall', 'grammar'];
+
+/** `grammar` is not a `Mode` — grammar points are scheduled cards of their own,
+ *  not drills woven between flips — but it belongs on this list because it is the
+ *  same question for the learner: is this in my session or not? */
+const MODE_LABEL = (m: string) => (m === 'grammar' ? 'Grammar exercises' : MODE_TAG[m as Mode]);
+
 export default function Settings() {
   useStore();
+  const muted = mutedModes();
 
-  const { percent: dl, error: hdErr, enable: enableHd } = useHdVoice();
+  const { percent: dl, phase: hdPhase, error: hdErr, enable: enableHd } = useHdVoice();
 
   const [theme, setTheme] = useState<ThemePref>(themePref());
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
@@ -208,8 +220,11 @@ export default function Settings() {
             <button onClick={() => speak('Guten Tag! Wie geht es dir heute?')} className="text-xs text-dim hover:text-amber">Test</button>
             <button onClick={() => setHdVoice(false)} className="text-xs text-dim hover:text-red-txt ml-auto">Turn off</button>
           </div>
-        ) : dl !== null ? (
-          <div className="flex items-center gap-2 text-xs text-dim"><Loader2 size={15} className="animate-spin" /> Downloading voice… {dl}%</div>
+        ) : hdPhase !== null ? (
+          <div className="flex items-center gap-2 text-xs text-dim"><Loader2 size={15} className="animate-spin" />{' '}
+            {hdPhase === 'downloading' ? `Downloading voice… ${dl ?? 0}%`
+              : hdPhase === 'preparing' ? 'Unpacking the voice…'
+              : 'Testing the voice…'}</div>
         ) : (
           <Button onClick={enableHd}><Download size={15} /> Enable HD German voice</Button>
         )}
@@ -260,6 +275,41 @@ export default function Settings() {
               {f.label}
             </button>
           ))}
+        </div>
+      </Card>
+
+      {/* What a session is made of.
+          "Sometimes I just want to casually flick through new words" — and there
+          was no way to say so. A mixed session weaves generated drills between the
+          flip cards, which is the right default and the wrong thing when you are
+          browsing. Switching them all off leaves a pure flip session, which is a
+          real way to study and not a degenerate case.
+
+          Governs *sessions only*: opening a drill from Fundamentals still drills
+          it, because there you asked for it by name. */}
+      <Card pad="none" className="p-4">
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-amber" /> What’s in a session</h3>
+        <p className="text-dim text-xs mb-3 max-w-[60ch]">
+          Flip cards are always there. These are the drills woven between them — switch any of
+          them off and they stop appearing in sessions. Turn them all off to just flick through
+          words. You can still practise any of them directly from Grammar.
+        </p>
+        <div className="flex flex-wrap gap-2 mb-3">
+          <button onClick={() => setAllDrillModes(DRILL_MODES, true)} className={toggle(muted.size === 0)}
+            aria-pressed={muted.size === 0}>Everything</button>
+          <button onClick={() => setAllDrillModes(DRILL_MODES, false)} className={toggle(muted.size === DRILL_MODES.length)}
+            aria-pressed={muted.size === DRILL_MODES.length}>Flip cards only</button>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {DRILL_MODES.map((m) => {
+            const on = !muted.has(m);
+            return (
+              <button key={m} onClick={() => toggleDrillMode(m)} aria-pressed={on} className={toggle(on)}>
+                {on && <Check size={13} aria-hidden className="inline-block mr-1 -mt-0.5" />}
+                {MODE_LABEL(m)}
+              </button>
+            );
+          })}
         </div>
       </Card>
 

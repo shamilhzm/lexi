@@ -13,7 +13,7 @@ import {
   type GrammarByLevel,
 } from './grammar.ts';
 import {
-  MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, buildTransform, transformHints,
+  MODE_REMEDY, MODE_TAG, modeRulePoint, TENSE_POINT, CASE_POINT, orderPoint, buildTransform, transformHints,
   wholeWordRe, pickPersonIndex, buildSeparable, isSeparable, buildReflexive, isReflexive, canTransform, pickFocused, dictatable, type Mode,
 } from '../views/Fundamentals.tsx';
 import { spellingDiff } from '../views/GrammarDrill.tsx';
@@ -178,6 +178,19 @@ describe('per-target rule lookup', () => {
 
   it('maps every case to an authored point', () => {
     for (const [key, id] of Object.entries(CASE_POINT)) expectResolves(id, `CASE_POINT.${key}`);
+  });
+
+  it('maps every sentence shape the builder can meet to an authored point', () => {
+    // Third instance of this bug: the sentence builder opened Wortstellung &
+    // Fragen for every item, including „Können Sie mir bitte Ihren Namen
+    // buchstabieren?“ — reported from a real session.
+    for (const s of [
+      'Können Sie mir bitte Ihren Namen buchstabieren?',
+      'Wo wohnst du?',
+      'Ich bleibe zu Hause, weil ich krank bin.',
+      'Ich habe gestern einen Brief geschrieben.',
+      'Ich lerne Deutsch.',
+    ]) expectResolves(orderPoint(s), `orderPoint(${s})`);
   });
 
   it('sends each tense to its own point, not one shared default', () => {

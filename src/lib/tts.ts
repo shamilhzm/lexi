@@ -36,6 +36,31 @@ export async function ensureHdVoice(onProgress?: (fraction: number) => void): Pr
   ready = true;
 }
 
+/** Unlock audio playback while a user gesture is still in scope.
+ *
+ *  iOS only allows sound that *begins* inside a tap. The HD-voice setup awaits a
+ *  ~25 MB download before it plays its proof-of-life clip, and after the first
+ *  await the tap is over as far as WebKit is concerned — so the play was refused
+ *  on exactly the device the voice matters most on. Playing (and immediately
+ *  pausing) a silent clip during the tap marks the audio context as user-approved,
+ *  and later playback inherits that.
+ *
+ *  Deliberately synchronous and deliberately silent: it must run before any
+ *  `await`, and it must make no sound of its own. Failures are swallowed — this is
+ *  an optimisation on platforms that do not need it, and it must never be the
+ *  reason setup fails. */
+let primed = false;
+export function primeAudio(): void {
+  if (primed || typeof Audio === 'undefined') return;
+  primed = true;
+  try {
+    // A 0.05s silent WAV, small enough to inline.
+    const a = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=');
+    a.volume = 0;
+    void a.play().then(() => { a.pause(); }).catch(() => { /* not needed here */ });
+  } catch { /* never block setup on the unlock */ }
+}
+
 let current: HTMLAudioElement | null = null;
 /** Synthesize and play with Piper. Throws (with a useful message) on failure. */
 export async function speakHd(text: string): Promise<void> {

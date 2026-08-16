@@ -763,6 +763,50 @@ export const MODE_REMEDY: Record<Mode, string[]> = {
   recall: [],
 };
 
+/** The point that explains the **sentence a word-order drill actually built**.
+ *
+ *  Third instance of one bug, and the first two are documented above: `TENSE_POINT`
+ *  exists because a Futur I card opened the Perfekt rule, `CASE_POINT` because a
+ *  Genitiv question opened the Akkusativ rule. The sentence builder had the same
+ *  defect and kept it — every item opened `MODE_REMEDY.order[0]`, *Wortstellung &
+ *  Fragen*, whatever the sentence was.
+ *
+ *  Reported from a real session: the rule card explained W-questions ("W-word
+ *  first, verb second", worked through with *Wo wohnst du?*) above a tile exercise
+ *  whose answer was **„Können Sie mir bitte Ihren Namen buchstabieren?“** — a
+ *  yes/no modal question whose whole difficulty is the bracket, the modal in
+ *  position 1 and its infinitive at the very end. The learner is shown a rule that
+ *  does not describe the sentence in front of them, which is worse than showing no
+ *  rule at all.
+ *
+ *  The sentences come from each card's own examples, so the shape cannot be fixed
+ *  at the mode level — it has to be read off the string. Ordered most specific
+ *  first: a subordinate clause with a modal is a subordinate clause.
+ *
+ *  Exported and pure so `grammar.test.ts` can pin every id to an authored point,
+ *  the way it already does for the two maps above. */
+const SUBORDINATORS = /\b(weil|dass|damit|obwohl|wenn|falls|während|bevor|nachdem|sobald|ob)\b/i;
+const W_WORDS = /^(wo|was|wer|wen|wem|wann|wie|warum|wieso|weshalb|welche[rsnm]?|wohin|woher)\b/i;
+const MODALS = /\b(kann|kannst|können|könnt|könnte[nst]?|muss|musst|müssen|müsst|darf|darfst|dürfen|dürft|will|willst|wollen|wollt|soll|sollst|sollen|sollt|mag|magst|mögen|möchte[nst]?)\b/i;
+const PERFEKT = /\b(habe|hast|hat|haben|habt|bin|bist|ist|sind|seid)\b.*\b(ge\w+[tn]|\w+iert)\b/i;
+
+export function orderPoint(sentence: string | undefined): string {
+  const s = (sentence ?? '').trim();
+  if (!s) return 'gram:A1:Wortstellung & Fragen';
+  // A subordinate clause sends its verb to the end — that is the rule being tested,
+  // regardless of what else the sentence contains.
+  if (SUBORDINATORS.test(s)) return 'gram:B1:Nebensätze (weil/dass)';
+  // A W-question really is the W-question rule, and it is the one case the old
+  // static point was right about.
+  if (W_WORDS.test(s)) return 'gram:A1:Wortstellung & Fragen';
+  // The reported case: a modal opens the bracket and parks its infinitive at the
+  // end. `Können Sie mir bitte Ihren Namen buchstabieren?`
+  if (MODALS.test(s)) return 'gram:A1:Modalverben';
+  if (PERFEKT.test(s)) return 'gram:A1:Perfekt';
+  // Statement V2 and yes/no inversion are both what Wortstellung & Fragen teaches.
+  return 'gram:A1:Wortstellung & Fragen';
+}
+
 /** The point whose rule explains a drill mode, for the "Why?" link. */
 export const modeRulePoint = (m: Mode): string | null => MODE_REMEDY[m][0] ?? null;
 
@@ -1123,9 +1167,11 @@ export function OrderWordItem({ word, onGrade }: { word: Word; onGrade: Grade })
       kind: 'order' as const,
       prompt: src?.en || `A sentence with „${stripArticle(word.term)}“`,
       tiles: orderTokens(src?.de),
+      de: src?.de,
     };
   }, [word.id]);
-  return <OrderItem ex={ex} onGrade={onGrade} rulePoint={modeRulePoint('order')} ruleLabel={MODE_TAG.order} />;
+  // The rule for *this sentence*, not for the mode. See orderPoint.
+  return <OrderItem ex={ex} onGrade={onGrade} rulePoint={orderPoint(ex.de)} ruleLabel={MODE_TAG.order} />;
 }
 
 /** Kasus: declined articles & weak adjective endings in case-forcing frames. */

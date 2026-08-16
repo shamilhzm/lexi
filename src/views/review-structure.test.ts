@@ -51,7 +51,17 @@ describe('Review — exam conditions withhold help', () => {
 
   it('gates the teach card on exam too', () => {
     // The sibling that was always correct, pinned so the pair stays consistent.
-    expect(src).toMatch(/item\.teach[^}]*&& !exam/);
+    //
+    // It moved 2026-08-16. The teach card used to be `<IntroCard mode={item.type}/>`
+    // in Review, which could only ever show the *mode's* rule: an adjective ending
+    // in the Dativ was taught Akkusativ, and a modal question was taught W-Fragen.
+    // It renders from `DrillHeader` now, where the item's own rule is known — so
+    // the exam gate lives there too, as `ruleShown && !noHelp` (NoHelpCtx is what
+    // Review sets under exam conditions). Same invariant, one layer down.
+    const panel = readFileSync(fileURLToPath(new URL('../components/RulePanel.tsx', import.meta.url)), 'utf8');
+    expect(panel).toMatch(/useIntroPoint\(ruleShown && !noHelp/);
+    // and Review must still be the thing that turns NoHelp on for an exam
+    expect(src).toMatch(/NoHelpCtx\.Provider value=\{exam\}|NoHelpCtx\.Provider value=\{!!exam\}/);
   });
 });
 

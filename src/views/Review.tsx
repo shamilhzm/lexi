@@ -12,9 +12,9 @@ import { loadDetail, detailLoaded } from '../data/detail.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
 // `Grade` is the honest name.
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, RecallItem, MODE_TAG, modeRulePoint, type Mode, type Grade as DrillGrade } from './Fundamentals.tsx';
+import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, RecallItem, MODE_TAG, type Grade as DrillGrade } from './Fundamentals.tsx';
 import { GrammarExercise } from './GrammarDrill.tsx';
-import { usePoint, RuleCard, RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
+import { RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import { useStore } from '../useStore.ts';
 import { useMedia } from '../lib/useMedia.ts';
@@ -526,11 +526,14 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
               <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
               {/* First encounter with this kind of exercise: teach, then test.
                   The rule has always been one tap away, behind a link nobody taps
-                  because they don't yet know they need it — so here it opens
-                  itself, and the item says plainly that it isn't a test yet. */}
-              {item.teach && item.type !== 'flip' && !exam && (
-                <IntroCard mode={item.type} />
-              )}
+                  because they don't yet know they need it — so it opens itself.
+
+                  It is rendered by `DrillHeader` now, not here. Keyed on
+                  `item.type` this could only ever name the *mode*, and it showed
+                  `MODE_REMEDY[mode][0]`: an adjective ending in the Dativ was
+                  taught Akkusativ, and a modal question was taught W-Fragen. The
+                  item knows its own target; this layer never did. Same reasoning as
+                  the header comment below, and the same bug. */}
               {/* A drill can arrive mid-session without the learner ever having
                   chosen the concept — this is the screen where a beginner meets
                   "Nominativ" cold. Name it, and make the name open the rule.
@@ -920,37 +923,6 @@ function PocketList({ words }: { words: Word[] }) {
           <p className="text-2xs text-dim mt-3">Screenshot this — it’s just a list, nothing to finish.</p>
         </Card>
       )}
-    </div>
-  );
-}
-
-/** The first time a drill mode appears, introduce it.
- *
- *  Lexi is a testing app that never taught: a beginner three weeks in was asked
- *  `der Vater → die ___` before anything had said what a plural is. The teaching
- *  text existed in grammar.json the whole time, reachable only through a small link
- *  — and a learner who does not yet know what a Kasus *is* has no reason to tap a
- *  word they cannot read.
- *
- *  So on a first encounter the rule is simply open, and the card says out loud that
- *  this one doesn't count. That the rule often contains a worked example of the very
- *  answer is the point rather than a leak: first sight is an introduction, and FSRS
- *  brings the real retrieval back minutes later.
- *
- *  Renders nothing if the mode has no authored point behind it (cloze), which is
- *  the right silence — there is no system to explain. */
-function IntroCard({ mode }: { mode: Mode }) {
-  const found = usePoint(modeRulePoint(mode));
-  if (!found) return null;
-  return (
-    <div className="mb-3">
-      <p className="text-2xs text-amber font-mono uppercase tracking-widest text-center mb-2 font-semibold">
-        New here — have a read first
-      </p>
-      <RuleCard point={found.point} level={found.level} worked />
-      <p className="text-2xs text-dim text-center mt-2">
-        This one doesn’t count. You’ll get it again later, for real.
-      </p>
     </div>
   );
 }
