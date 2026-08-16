@@ -505,6 +505,19 @@ small lesson. Struck from Next.
 
 ## Reported from real sessions — 2026-08-16
 
+- ✅ **You could not tell which build was on the phone.** Settings → **Version** now
+  shows the commit and build time stamped into the bundle, plus *Check for updates*,
+  which fetches a `version.json` emitted beside the bundle and compares. This is not
+  cosmetic: the service worker is offline-first, so a fix that landed and a fix that
+  did not looked identical, and every "does it work now?" was answered by reloading
+  and guessing. The check bypasses both the HTTP cache and the worker (`no-store`
+  plus a cache-busting query) — asking a stale worker whether it is stale is the one
+  way to get a confidently wrong answer. *Update now* clears every cache, unregisters
+  the worker and reloads; progress is in IndexedDB and is untouched. The stamp is
+  emitted at build time rather than committed, because a version constant someone has
+  to remember to bump is a version constant that is wrong.
+
+
 Four things a learner hit on an iPhone in one sitting. Two were the same bug.
 
 - ✅ **The teach card explained the wrong rule.** Two reports: a tile exercise whose

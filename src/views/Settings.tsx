@@ -3,7 +3,7 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List, Crosshair, Layers } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List, Crosshair, Layers, RefreshCw, Info } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
 import { MODE_TAG, type Mode } from './Fundamentals.tsx';
@@ -14,6 +14,7 @@ import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
 import { useHdVoice } from '../lib/useHdVoice.ts';
 import { themePref, setThemePref, type ThemePref } from '../theme.ts';
+import { BUILD, buildLabel, checkForUpdate, updateNow, type UpdateState } from '../lib/build.ts';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 
@@ -61,6 +62,13 @@ const MODE_LABEL = (m: string) => (m === 'grammar' ? 'Grammar exercises' : MODE_
 export default function Settings() {
   useStore();
   const muted = mutedModes();
+  const [update, setUpdate] = useState<UpdateState | null>(null);
+  const [checking, setChecking] = useState(false);
+  const check = async () => {
+    setChecking(true);
+    setUpdate(await checkForUpdate());
+    setChecking(false);
+  };
 
   const { percent: dl, phase: hdPhase, error: hdErr, enable: enableHd } = useHdVoice();
 
@@ -276,6 +284,44 @@ export default function Settings() {
             </button>
           ))}
         </div>
+      </Card>
+
+      {/* Which build is on this device.
+          An offline-first service worker serves the shell from cache, so "is the
+          phone running the fix that just shipped?" could only be answered by
+          reloading and hoping — a fix that landed and a fix that did not looked
+          identical. The stamp says what is running; the check asks the server what
+          is deployed and compares. See lib/build.ts. */}
+      <Card pad="none" className="p-4">
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Info size={16} className="text-amber" /> Version</h3>
+        <p className="text-dim text-xs mb-3 max-w-[60ch]">
+          What this device is running. If you’ve just been sent a fix, check here before
+          deciding whether it worked.
+        </p>
+        <dl className="text-xs font-mono mb-3">
+          <div className="flex gap-2"><dt className="text-dim w-16">built</dt><dd>{buildLabel()}</dd></div>
+          <div className="flex gap-2"><dt className="text-dim w-16">commit</dt><dd>{BUILD.sha}</dd></div>
+        </dl>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button size="sm" variant="secondary" onClick={check} disabled={checking}>
+            {checking ? <Loader2 size={14} className="animate-spin" /> : <RefreshCw size={14} />}
+            {checking ? 'Checking…' : 'Check for updates'}
+          </Button>
+          {update?.kind === 'stale' && (
+            <Button size="sm" onClick={() => { void updateNow(); }}>Update now</Button>
+          )}
+        </div>
+        {update && (
+          <p className={`text-xs mt-2.5 ${update.kind === 'current' ? 'text-green' : update.kind === 'stale' ? 'text-amber' : 'text-dim'}`}>
+            {update.kind === 'current' && 'You’re on the latest version.'}
+            {update.kind === 'stale' && (
+              <>A newer version is available ({update.sha}
+              {update.builtAt ? `, built ${buildLabel(update.builtAt)}` : ''}). Updating clears the
+              cached app — your progress is stored separately and is not affected.</>
+            )}
+            {update.kind === 'unknown' && update.why}
+          </p>
+        )}
       </Card>
 
       {/* What a session is made of.
