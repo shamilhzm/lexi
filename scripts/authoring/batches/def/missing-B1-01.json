@@ -19,7 +19,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Held in memory, so that you can say it without reading it."
     },
     {
       "id": "voc:B1:beeindruckt",
@@ -32,7 +32,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Left with a strong, admiring feeling by what someone has done."
     },
     {
       "id": "voc:B1:befehlen",
@@ -45,7 +45,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To give an order that must be obeyed, as a superior does."
     },
     {
       "id": "voc:B1:bemerkenswert",
@@ -58,7 +58,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Unusual enough to be worth noticing and commenting on."
     },
     {
       "id": "voc:B1:berufstätig",
@@ -70,7 +70,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "In paid employment, as opposed to retired, studying or at home."
     },
     {
       "id": "voc:B1:betreten",
@@ -83,7 +83,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To step into a room or onto a surface."
     },
     {
       "id": "voc:B1:bezahlbar",
@@ -95,7 +95,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Cheap enough that ordinary people can actually pay for it."
     },
     {
       "id": "voc:B1:bremsen",
@@ -108,7 +108,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To slow a vehicle down; also to hold back something that is gathering pace."
     },
     {
       "id": "voc:B1:das Altenheim",
@@ -121,7 +121,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A residence where older people live and are looked after as they need it."
     },
     {
       "id": "voc:B1:das Buffet",
@@ -133,7 +133,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A meal set out on a long table for guests to help themselves."
     },
     {
       "id": "voc:B1:das Display",
@@ -145,7 +145,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The screen of a device, on which it shows information."
     },
     {
       "id": "voc:B1:das Ehrenamt",
@@ -158,7 +158,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An unpaid post held for the good of a community or an organisation."
     },
     {
       "id": "voc:B1:das Frühstücksbuffet",
@@ -171,7 +171,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A self-service breakfast laid out in a hotel or guesthouse."
     },
     {
       "id": "voc:B1:das Geräusch",
@@ -183,7 +183,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A sound, especially one that is neither speech nor music."
     },
     {
       "id": "voc:B1:das Gesetz",
@@ -196,7 +196,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A rule passed by a parliament that everyone in the country must follow."
     },
     {
       "id": "voc:B1:das Hallenbad",
@@ -208,7 +208,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A swimming pool inside a building, usable all year round."
     },
     {
       "id": "voc:B1:das Handgelenk",
@@ -221,7 +221,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The joint connecting the hand to the forearm."
     },
     {
       "id": "voc:B1:das Handgepäck",
@@ -234,7 +234,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The bag a traveller keeps with them in the cabin rather than checking in."
     },
     {
       "id": "voc:B1:das Mikrofon",
@@ -246,7 +246,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A device that picks up sound so it can be amplified or recorded."
     },
     {
       "id": "voc:B1:das Niveau",
@@ -258,7 +258,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The standard something has reached, measured against others."
     },
     {
       "id": "voc:B1:das Schicksal",
@@ -271,7 +271,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The power thought to decide how a life turns out, and the course it takes."
     },
     {
       "id": "voc:B1:das Schlafsofa",
@@ -284,7 +284,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A sofa that unfolds into a bed for a guest."
     },
     {
       "id": "voc:B1:das Schloss",
@@ -297,7 +297,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A grand country house or palace; also the mechanism that fastens a door."
     },
     {
       "id": "voc:B1:das Semester",
@@ -309,7 +309,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Half of a university year — one of its two teaching terms."
     },
     {
       "id": "voc:B1:das Seminar",
@@ -322,7 +322,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A small teaching class in which the students take an active part."
     },
     {
       "id": "voc:B1:das Spielen",
@@ -335,7 +335,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The activity of playing — a game, or an instrument."
     },
     {
       "id": "voc:B1:das Tempo",
@@ -347,7 +347,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The speed at which something moves or is done."
     },
     {
       "id": "voc:B1:das Zielland",
@@ -360,7 +360,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The country a traveller or an emigrant is heading for."
     },
     {
       "id": "voc:B1:der Abgeordnete",
@@ -373,7 +373,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An elected member of a parliament."
     },
     {
       "id": "voc:B1:der Anrufbeantworter",
@@ -385,7 +385,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A machine that records messages from callers you did not answer."
     },
     {
       "id": "voc:B1:der Arbeitstag",
@@ -397,7 +397,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A day on which you work, and the hours it covers."
     },
     {
       "id": "voc:B1:der Aufenthalt",
@@ -410,7 +410,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A period spent in a place; also a scheduled stop on a journey."
     },
     {
       "id": "voc:B1:der Aufruf",
@@ -422,7 +422,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A public call asking people to come forward or to act."
     },
     {
       "id": "voc:B1:der Begriff",
@@ -435,7 +435,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A word together with the idea behind it — the concept it names."
     },
     {
       "id": "voc:B1:der Bergbau",
@@ -448,7 +448,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The industry of taking coal, ore and minerals out of the ground."
     },
     {
       "id": "voc:B1:der Blutdruck",
@@ -461,7 +461,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The pressure of blood inside the arteries, as a doctor measures it."
     },
     {
       "id": "voc:B1:der Code",
@@ -473,7 +473,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A sequence of numbers or letters that unlocks or identifies something."
     },
     {
       "id": "voc:B1:der Couchtisch",
@@ -486,7 +486,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A low table placed in front of a sofa."
     },
     {
       "id": "voc:B1:der Frost",
@@ -499,7 +499,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Weather cold enough to freeze water, and the ice it leaves behind."
     },
     {
       "id": "voc:B1:der Geruch",
@@ -511,7 +511,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "What something smells like, pleasant or not."
     }
   ]
 }

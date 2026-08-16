@@ -11,6 +11,47 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — every card below B2 has a definition
+
+274 definitions authored across A1, A2 and B1. **Missing English definitions 455 → 181**
+(A1 0 · A2 1 · B1 0 · B2 103 · C1 74 · C2 3).
+
+**A1–B1 is the line worth reaching first**, and not for tidiness: `defDe` is shown from
+B2 up, so a card with no `def` rendered no definition block *specifically* for the
+learners with no fallback. That population is now covered.
+
+**The flagged total did not move once in 274 definitions** — 1,213 before the first
+batch and 1,213 after the last. Not one of them landed back in `enumeration`, `bare` or
+`repeat`. That is the number this programme lives or dies by; volume without it is just
+a different defect.
+
+**The guard failed on an English definition, and the fix is the interesting part.**
+*"To die in an accident or a disaster."* was reported as German and failed the build.
+`isGermanDefinition` requires two signals — a German marker, plus an article or an
+umlaut — and **`die` satisfied both, by itself**: it is an ordinary English verb as well
+as a German article. The instinct is to reword around it; that would have left the trap
+armed for every future author, in a field where *"to die"* is a perfectly ordinary
+English gloss. So `die` now counts as an article only where it behaves like one,
+immediately before a capitalised noun — German capitalises every noun and English does
+not do this mid-sentence.
+
+Narrowed deliberately and no further. The regression this guard exists to prevent is
+real: 367 cards once shipped a German definition inside `def`. Seven tests now pin both
+sides — the English verb passes, and six genuine `defDe` values from the corpus are
+still caught. The rule had been written three times and never had a test.
+
+**A finding that outlives the batch: `defDe` often describes a different sense than the
+card's own gloss.** The German definitions were imported by headword and took whichever
+sense came first — `packen` (to pack) carries the definition of *Packen*, a bundle;
+`umgehen mit` (to handle) one about washing up; `sorgen für` (to provide for) carries
+*sich sorgen*, to worry; `die Alp` carries the nightmare-demon sense where the card
+means an alpine pasture. Two hold English outright. That field is *shown* to B2+
+learners, so it is a live content defect rather than a tidiness one. Recorded in
+BACKLOG as a class, explicitly unsized — it was spotted while authoring, and a lower
+bound is not a count.
+
+873 tests green · `corpus:validate` PASS.
+
 ### Shipped 2026-08-16 — A1 has a definition on every card
 
 The definition programme, starting where it matters most. A card with no `def` renders

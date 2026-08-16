@@ -55244,6 +55244,7 @@
     ]
   },
   "voc:B1:auswendig": {
+    "def": "Held in memory, so that you can say it without reading it.",
     "ex": [
       {
         "de": "Ich kann das Gedicht auswendig.",
@@ -55348,6 +55349,7 @@
     ]
   },
   "voc:B1:beeindruckt": {
+    "def": "Left with a strong, admiring feeling by what someone has done.",
     "defDe": "von etwas stark fasziniert oder positiv berührt",
     "ex": [
       {
@@ -55398,6 +55400,7 @@
     ]
   },
   "voc:B1:befehlen": {
+    "def": "To give an order that must be obeyed, as a superior does.",
     "defDe": "einen bindenden Auftrag erteilen, etwas Bestimmtes genau befolgend auszuführen",
     "ex": [
       {
@@ -55778,6 +55781,7 @@
     ]
   },
   "voc:B1:bemerkenswert": {
+    "def": "Unusual enough to be worth noticing and commenting on.",
     "defDe": "Aufmerksamkeit verdienend; so beschaffen, dass es bemerkt werden sollte",
     "ex": [
       {
@@ -55878,6 +55882,7 @@
     ]
   },
   "voc:B1:berufstätig": {
+    "def": "In paid employment, as opposed to retired, studying or at home.",
     "ex": [
       {
         "de": "Beide Eltern sind berufstätig.",
@@ -56232,6 +56237,7 @@
     ]
   },
   "voc:B1:betreten": {
+    "def": "To step into a room or onto a surface.",
     "defDe": "to enter, to go or come into; to step onto, especially die Bühne - the stage, meant figuratively",
     "ex": [
       {
@@ -56482,6 +56488,7 @@
     ]
   },
   "voc:B1:bezahlbar": {
+    "def": "Cheap enough that ordinary people can actually pay for it.",
     "ex": [
       {
         "de": "Die Mieten sind hier noch bezahlbar.",
@@ -56631,6 +56638,7 @@
     ]
   },
   "voc:B1:bremsen": {
+    "def": "To slow a vehicle down; also to hold back something that is gathering pace.",
     "defDe": "die Geschwindigkeit, das Tempo verringern, vermindern, verlangsamen",
     "ex": [
       {
@@ -57061,6 +57069,7 @@
     ]
   },
   "voc:B1:das Altenheim": {
+    "def": "A residence where older people live and are looked after as they need it.",
     "defDe": "Einrichtung, in der Menschen im Alter wohnen und je nach Bedarf betreut und gepflegt werden",
     "ex": [
       {
@@ -57316,6 +57325,7 @@
     ]
   },
   "voc:B1:das Buffet": {
+    "def": "A meal set out on a long table for guests to help themselves.",
     "ex": [
       {
         "de": "Das Frühstück ist ein Buffet.",
@@ -57415,6 +57425,7 @@
     ]
   },
   "voc:B1:das Display": {
+    "def": "The screen of a device, on which it shows information.",
     "ex": [
       {
         "de": "Das Display ist gesprungen.",
@@ -57459,6 +57470,7 @@
     ]
   },
   "voc:B1:das Ehrenamt": {
+    "def": "An unpaid post held for the good of a community or an organisation.",
     "defDe": "freiwilliges unentgeltliches Engagement in gesellschaftlich relevanten Bereichen, im engeren Sinne eine in den Statuten einer Organisation vorgesehene unbezahlte Position",
     "ex": [
       {
@@ -57774,6 +57786,7 @@
     ]
   },
   "voc:B1:das Frühstücksbuffet": {
+    "def": "A self-service breakfast laid out in a hotel or guesthouse.",
     "defDe": "zum Frühstück zur Selbstbedienung aufgebaute Speisen und Getränke in einem Restaurant, Hotel oder dergleichen",
     "ex": [
       {
@@ -57984,6 +57997,7 @@
     ]
   },
   "voc:B1:das Geräusch": {
+    "def": "A sound, especially one that is neither speech nor music.",
     "ex": [
       {
         "de": "Ein gleichmäßiges Geräusch stört weniger.",
@@ -57998,6 +58012,7 @@
     ]
   },
   "voc:B1:das Gesetz": {
+    "def": "A rule passed by a parliament that everyone in the country must follow.",
     "defDe": "Regel, die ein Gesetzgeber in einem bestimmten Verfahren erlässt und die die jeweilig Untergebenen zu befolgen haben",
     "ex": [
       {
@@ -58153,6 +58168,7 @@
     ]
   },
   "voc:B1:das Hallenbad": {
+    "def": "A swimming pool inside a building, usable all year round.",
     "ex": [
       {
         "de": "Im Winter schwimme ich im Hallenbad.",
@@ -58167,6 +58183,7 @@
     ]
   },
   "voc:B1:das Handgelenk": {
+    "def": "The joint connecting the hand to the forearm.",
     "defDe": "Anatomie: dasjenige Gelenk, das Hand und Unterarm verbindet",
     "ex": [
       {
@@ -58182,6 +58199,7 @@
     ]
   },
   "voc:B1:das Handgepäck": {
+    "def": "The bag a traveller keeps with them in the cabin rather than checking in.",
     "defDe": "Gepäckstück, das ein Reisender bei sich hat, Kabinengepäck, Bordgepäck",
     "ex": [
       {
@@ -58792,6 +58810,7 @@
     ]
   },
   "voc:B1:das Mikrofon": {
+    "def": "A device that picks up sound so it can be amplified or recorded.",
     "ex": [
       {
         "de": "Ein Mikrofon im Wohnzimmer stört viele Menschen.",
@@ -59201,6 +59220,7 @@
     ]
   },
   "voc:B1:das Niveau": {
+    "def": "The standard something has reached, measured against others.",
     "ex": [
       {
         "de": "Die Zahlen liegen auf dem Niveau des Vorjahres.",
@@ -59765,6 +59785,7 @@
     ]
   },
   "voc:B1:das Schicksal": {
+    "def": "The power thought to decide how a life turns out, and the course it takes.",
     "defDe": "höhere Macht, welche die Zukunft der/eines Menschen beliebig beeinflusst und lenkt",
     "ex": [
       {
@@ -59785,6 +59806,7 @@
     ]
   },
   "voc:B1:das Schlafsofa": {
+    "def": "A sofa that unfolds into a bed for a guest.",
     "defDe": "Sofa, auf dem man schlafen kann",
     "ex": [
       {
@@ -59800,6 +59822,7 @@
     ]
   },
   "voc:B1:das Schloss": {
+    "def": "A grand country house or palace; also the mechanism that fastens a door.",
     "defDe": "an einen Zugang montierte Schließvorrichtung",
     "ex": [
       {
@@ -59935,6 +59958,7 @@
     ]
   },
   "voc:B1:das Semester": {
+    "def": "Half of a university year — one of its two teaching terms.",
     "ex": [
       {
         "de": "Das Semester beginnt im Oktober.",
@@ -59949,6 +59973,7 @@
     ]
   },
   "voc:B1:das Seminar": {
+    "def": "A small teaching class in which the students take an active part.",
     "defDe": "Veranstaltungsform an Bildungseinrichtungen, die durch Aktivität der Teilnehmer gekennzeichnet ist",
     "ex": [
       {
@@ -60044,6 +60069,7 @@
     ]
   },
   "voc:B1:das Spielen": {
+    "def": "The activity of playing — a game, or an instrument.",
     "defDe": "Handlung, bei der ein Instrument, ein Spiel oder dergleichen gespielt wird",
     "ex": [
       {
@@ -60139,6 +60165,7 @@
     ]
   },
   "voc:B1:das Tempo": {
+    "def": "The speed at which something moves or is done.",
     "ex": [
       {
         "de": "Das Tempo ist hier auf dreißig begrenzt.",
@@ -60783,6 +60810,7 @@
     ]
   },
   "voc:B1:das Zielland": {
+    "def": "The country a traveller or an emigrant is heading for.",
     "defDe": "Land, das das Ziel von etwas oder jemanden ist",
     "ex": [
       {
@@ -61003,6 +61031,7 @@
     ]
   },
   "voc:B1:der Abgeordnete": {
+    "def": "An elected member of a parliament.",
     "defDe": "gewähltes, weibliches Mitglied einer parlamentarischen Versammlung",
     "ex": [
       {
@@ -61228,6 +61257,7 @@
     ]
   },
   "voc:B1:der Anrufbeantworter": {
+    "def": "A machine that records messages from callers you did not answer.",
     "ex": [
       {
         "de": "Sprich mir bitte auf den Anrufbeantworter.",
@@ -61362,6 +61392,7 @@
     ]
   },
   "voc:B1:der Arbeitstag": {
+    "def": "A day on which you work, and the hours it covers.",
     "ex": [
       {
         "de": "Mein Arbeitstag beginnt um acht Uhr.",
@@ -61421,6 +61452,7 @@
     ]
   },
   "voc:B1:der Aufenthalt": {
+    "def": "A period spent in a place; also a scheduled stop on a journey.",
     "defDe": "das Anwesendsein, das Verweilen",
     "ex": [
       {
@@ -61451,6 +61483,7 @@
     ]
   },
   "voc:B1:der Aufruf": {
+    "def": "A public call asking people to come forward or to act.",
     "ex": [
       {
         "de": "Letzter Aufruf für den Flug nach Wien.",
@@ -61670,6 +61703,7 @@
     ]
   },
   "voc:B1:der Begriff": {
+    "def": "A word together with the idea behind it — the concept it names.",
     "defDe": "gedankliche oder semantische Einheit als Konzept, das alle Merkmale eines Gegenstandes oder Sachverhaltes vereint; zum Zusammenhang: man bezeichnet durch ein Symbol (Wort oder Wortgruppe) einen Begriff, mit dem man über eine Realität (Ding oder Idee) spricht",
     "ex": [
       {
@@ -61740,6 +61774,7 @@
     ]
   },
   "voc:B1:der Bergbau": {
+    "def": "The industry of taking coal, ore and minerals out of the ground.",
     "defDe": "Gewinnung von mineralischen Rohstoffen aus einem Gesteinskörper der oberen Erdkruste",
     "ex": [
       {
@@ -61890,6 +61925,7 @@
     ]
   },
   "voc:B1:der Blutdruck": {
+    "def": "The pressure of blood inside the arteries, as a doctor measures it.",
     "defDe": "Medizin: Druck des Blutes in einem arteriellen oder venösen Blutgefäß",
     "ex": [
       {
@@ -62220,6 +62256,7 @@
     ]
   },
   "voc:B1:der Code": {
+    "def": "A sequence of numbers or letters that unlocks or identifies something.",
     "ex": [
       {
         "de": "Gib bitte den Code ein.",
@@ -62234,6 +62271,7 @@
     ]
   },
   "voc:B1:der Couchtisch": {
+    "def": "A low table placed in front of a sofa.",
     "defDe": "Tisch, der an/vor einer Couch oder einem Sofa platziert wird und entsprechend eine relativ niedrige Tischplatte hat",
     "ex": [
       {
@@ -63054,6 +63092,7 @@
     ]
   },
   "voc:B1:der Frost": {
+    "def": "Weather cold enough to freeze water, and the ice it leaves behind.",
     "defDe": "äußere, sowohl strenge als auch milde Kälte, die bei Temperaturen im Bereich unter null Grad Celsius, also unterhalb des Gefrierpunktes von Wasser, eintritt",
     "ex": [
       {
@@ -63284,6 +63323,7 @@
     ]
   },
   "voc:B1:der Geruch": {
+    "def": "What something smells like, pleasant or not.",
     "ex": [
       {
         "de": "Der Geruch stört die Beschäftigten weniger als die Uhrzeit.",
@@ -63298,6 +63338,7 @@
     ]
   },
   "voc:B1:der Gesellschaftsvertrag": {
+    "def": "The idea that people give up some freedom to a state in return for order and protection.",
     "defDe": "freiwillige Übereinkunft, durch die der Wille des Einzelnen dem der Mehrheit untergeordnet wird.",
     "ex": [
       {
@@ -63463,6 +63504,7 @@
     ]
   },
   "voc:B1:der Handschlag": {
+    "def": "The clasping of hands in greeting, in parting, or to seal an agreement.",
     "defDe": "wechselseitiges Sich-die-Hand-Geben zur Begrüßung, Verabschiedung oder zur Besiegelung einer Abmachung, eines Geschäfts",
     "ex": [
       {
@@ -63673,6 +63715,7 @@
     ]
   },
   "voc:B1:der Hort": {
+    "def": "A place that looks after schoolchildren before and after lessons.",
     "ex": [
       {
         "de": "Ich hole meine Tochter aus dem Hort ab.",
@@ -64027,6 +64070,7 @@
     ]
   },
   "voc:B1:der Klimaschutz": {
+    "def": "Action taken to limit human damage to the world’s climate.",
     "defDe": "Maßnahme gegen nachhaltige Veränderungen des Klimas",
     "ex": [
       {
@@ -64057,6 +64101,7 @@
     ]
   },
   "voc:B1:der Klimawandel": {
+    "def": "The long-term shift in the world’s weather patterns caused by warming.",
     "defDe": "Klimaveränderung: die Veränderung des Klimas der Erde innerhalb eines großen Zeitabschnitts",
     "ex": [
       {
@@ -64847,6 +64892,7 @@
     ]
   },
   "voc:B1:der Nachtzug": {
+    "def": "A train that runs overnight, with berths for sleeping.",
     "ex": [
       {
         "de": "Wir nehmen den Nachtzug nach Wien.",
@@ -64861,6 +64907,7 @@
     ]
   },
   "voc:B1:der Nacken": {
+    "def": "The back of the neck.",
     "defDe": "der dorsale (rückseitige) Teil des Halses, das Genick",
     "ex": [
       {
@@ -65146,6 +65193,7 @@
     ]
   },
   "voc:B1:der Papagei": {
+    "def": "A brightly coloured tropical bird with a hooked beak, able to imitate speech.",
     "defDe": "vorwiegend in den Tropen beheimatete, oft auffällig farbiger Vogel mit stark nach unten gekrümmtem Schnabel und Kletterfuß, kann oft menschliche Sprache oder andere Geräusche nachahmen",
     "ex": [
       {
@@ -65316,6 +65364,7 @@
     ]
   },
   "voc:B1:der Prozess": {
+    "def": "A series of steps leading to a result; also a case heard in court.",
     "defDe": "eine durch ein Ereignis ausgelöste Folge von Aktivitäten oder Zuständen, die in einen Endzustand mündet",
     "ex": [
       {
@@ -65516,6 +65565,7 @@
     ]
   },
   "voc:B1:der Rasenmäher": {
+    "def": "A machine for cutting grass.",
     "ex": [
       {
         "de": "Der Rasenmäher am Sonntag stört die Nachbarn.",
@@ -65675,6 +65725,7 @@
     ]
   },
   "voc:B1:der Respekt": {
+    "def": "Regard for someone’s worth or authority, shown in how you treat them.",
     "defDe": "Achtung und Wertschätzung gegenüber jemandem/etwas; meist bezogen auf eine andere Person, aber auch Tiere, Gruppen, Institutionen, Länder, Kulturen und Weltanschauungen",
     "ex": [
       {
@@ -65760,6 +65811,7 @@
     ]
   },
   "voc:B1:der Rückspiegel": {
+    "def": "The mirror in a car that shows the road behind.",
     "defDe": "Auto: Der Spiegel im Auto, um das rückwärtige Verkehrsgeschehen zu beobachten",
     "ex": [
       {
@@ -65905,6 +65957,7 @@
     ]
   },
   "voc:B1:der Schlepplift": {
+    "def": "A ski lift that pulls skiers uphill while they stay on their skis.",
     "defDe": "Anlage, die Wintersportler auf ihren Sportgeräten (Skier, Snowboards …) auf Schnee einen Hang hinaufbefördert",
     "ex": [
       {
@@ -65920,6 +65973,7 @@
     ]
   },
   "voc:B1:der Schlips": {
+    "def": "A narrow strip of cloth knotted at the collar of a shirt.",
     "defDe": "Krawatte; ein schmaler Streifen aus Stoff, der um den Hals gebunden und typischerweise zu Hemd und Anzug getragen wird",
     "ex": [
       {
@@ -66375,6 +66429,7 @@
     ]
   },
   "voc:B1:der Spielzug": {
+    "def": "A single action taken on your turn in a game.",
     "defDe": "das Durchführen einer (erlaubten) Handlung bei einem rundenbasierten Spiel während der dem Spieler zustehenden Aktivitätsperiode",
     "ex": [
       {
@@ -66455,6 +66510,7 @@
     ]
   },
   "voc:B1:der Stahl": {
+    "def": "A hard alloy of iron and carbon, used for building and for tools.",
     "defDe": "metallische Legierung, deren Hauptbestandteil Eisen ist; der Kohlenstoffgehalt liegt zwischen 0,02% und 2,06%.",
     "ex": [
       {
@@ -67115,6 +67171,7 @@
     ]
   },
   "voc:B1:der Ursprung": {
+    "def": "The point, place or source from which something came.",
     "defDe": "Zeitpunkt, Ort oder Material, aus dem etwas hervorgegangen ist",
     "ex": [
       {
@@ -67255,6 +67312,7 @@
     ]
   },
   "voc:B1:der Verlust": {
+    "def": "The losing of something, and what has been lost.",
     "defDe": "die Handlung des Verlierens",
     "ex": [
       {
@@ -67425,6 +67483,7 @@
     ]
   },
   "voc:B1:der Vorort": {
+    "def": "A residential district on the edge of a city.",
     "defDe": "eine Siedlung der Peripherie einer Stadt",
     "ex": [
       {
@@ -67600,6 +67659,7 @@
     ]
   },
   "voc:B1:der Wettkampf": {
+    "def": "An organised contest to decide who performs best.",
     "defDe": "Kampf um die beste Leistung unter mehreren Personen oder Gruppen",
     "ex": [
       {
@@ -67965,6 +68025,7 @@
     ]
   },
   "voc:B1:der Zustand": {
+    "def": "The state something is in at a given moment.",
     "ex": [
       {
         "de": "Das Fahrrad ist in gutem Zustand.",
@@ -68434,6 +68495,7 @@
     ]
   },
   "voc:B1:die Alp": {
+    "def": "A high mountain pasture where cattle graze through the summer.",
     "defDe": "gespenstisches Wesen, das Menschen besonders in der Nacht plagt",
     "ex": [
       {
@@ -68469,6 +68531,7 @@
     ]
   },
   "voc:B1:die Ameise": {
+    "def": "A small social insect that lives in large colonies.",
     "defDe": "staatenbildendes Insekt der Familie Formicidae",
     "ex": [
       {
@@ -68834,6 +68897,7 @@
     ]
   },
   "voc:B1:die Aufführung": {
+    "def": "A staging of a play, an opera or a concert before an audience.",
     "defDe": "Darstellung eines Bühnenwerkes oder Konzerts vor einem Publikum",
     "ex": [
       {
@@ -69124,6 +69188,7 @@
     ]
   },
   "voc:B1:die Auswanderung": {
+    "def": "Leaving your home country for good to settle in another.",
     "defDe": "dauerhaftes Verlassen des Heimatlandes",
     "ex": [
       {
@@ -69364,6 +69429,7 @@
     ]
   },
   "voc:B1:die Begrüßung": {
+    "def": "The words and gestures used to welcome someone on arrival.",
     "defDe": "Ritual (Wörter und/oder Gesten), um einer Person Respekt zu erweisen und sie willkommen zu heißen",
     "ex": [
       {
@@ -69674,6 +69740,7 @@
     ]
   },
   "voc:B1:die Bezahlung": {
+    "def": "The money given for work or goods, and the act of handing it over.",
     "ex": [
       {
         "de": "Über die Bezahlung möchte ich nicht sprechen.",
@@ -70893,6 +70960,7 @@
     ]
   },
   "voc:B1:die Erholung": {
+    "def": "The process of recovering strength after effort or illness.",
     "defDe": "derjenige Vorgang, bei dem sich ein biologischer Organismus nach einer anstrengenden Tätigkeit, aber auch nach Verletzungen oder Krankheiten durch eine Ruhephase wieder regeneriert und Kräfte sammelt",
     "ex": [
       {
@@ -70923,6 +70991,7 @@
     ]
   },
   "voc:B1:die Erlaubnis": {
+    "def": "Formal agreement that you may do something.",
     "defDe": "Genehmigung von etwas, Einverständnis mit etwas; Bestätigung, dass etwas Bestimmtes getan werden darf",
     "ex": [
       {
@@ -70958,6 +71027,7 @@
     ]
   },
   "voc:B1:die Ernte": {
+    "def": "The gathering in of crops, and the amount gathered.",
     "defDe": "sämtliche Arbeiten, die zum Einbringen landwirtschaftlicher Gewächse und Früchte notwendig sind",
     "ex": [
       {
@@ -72188,6 +72258,7 @@
     ]
   },
   "voc:B1:die Geschwindigkeit": {
+    "def": "How fast something moves — distance covered divided by time taken.",
     "defDe": "Verhältnis von zurückgelegter Strecke zur dafür benötigten Zeit (Geschwindigkeit = Strecke/Zeit)",
     "ex": [
       {
@@ -72208,6 +72279,7 @@
     ]
   },
   "voc:B1:die Geschäftsführung": {
+    "def": "The people who run a company day to day.",
     "defDe": "Eine oder mehrere Personen, die ein Unternehmen / eine Firma leiten",
     "ex": [
       {
@@ -72293,6 +72365,7 @@
     ]
   },
   "voc:B1:die Geste": {
+    "def": "A movement of the hand or arm that carries a meaning.",
     "defDe": "bildhaftes oder konventionelles Zeichen durch Bewegungen der Hände, Arme, Schultern, Fingern, des Kopfes, Gesichts, Oberkörpers und bestimmten Fingerkonfigurationen zwecks Kommunikation, oft nur einzeln ausgeführt gleichwertig einer Interjektion oder satzähnlich angereiht",
     "ex": [
       {
@@ -72483,6 +72556,7 @@
     ]
   },
   "voc:B1:die GmbH": {
+    "def": "A German private company whose owners are liable only up to what they put in.",
     "defDe": "initialism of Gesellschaft mit beschränkter Haftung",
     "ex": [
       {
@@ -72538,6 +72612,7 @@
     ]
   },
   "voc:B1:die Großstadt": {
+    "def": "A city with more than a hundred thousand inhabitants.",
     "ex": [
       {
         "de": "In der Großstadt ist die Miete hoch.",
@@ -72777,6 +72852,7 @@
     ]
   },
   "voc:B1:die Herrschaft": {
+    "def": "Power held over a country or a people, and the period for which it lasts.",
     "defDe": "Bezeichnung für Regierende, Personen mit Leitungsfunktion",
     "ex": [
       {
@@ -72867,6 +72943,7 @@
     ]
   },
   "voc:B1:die Hochschulreife": {
+    "def": "The school qualification that entitles you to study at a university.",
     "defDe": "Ausbildungsstand, der zur Aufnahme eines Hochschulstudiums berechtigt",
     "ex": [
       {
@@ -73367,6 +73444,7 @@
     ]
   },
   "voc:B1:die Klimaanlage": {
+    "def": "Equipment that cools and conditions the air in a building or a car.",
     "defDe": "elektrisches Gerät, das die Lufteigenschaften wie Wärme, Luftfeuchtigkeit oder Ähnliches an die Bedürfnisse anpasst",
     "ex": [
       {
@@ -73822,6 +73900,7 @@
     ]
   },
   "voc:B1:die Kuh": {
+    "def": "The adult female of cattle, kept for milk.",
     "defDe": "Muttertier des Hausrinds",
     "ex": [
       {
@@ -74322,6 +74401,7 @@
     ]
   },
   "voc:B1:die Lippe": {
+    "def": "One of the two soft edges of the mouth.",
     "defDe": "Organ am Rand des Mundes; Teil und Abschluss des Mundes nach außen",
     "ex": [
       {
@@ -74337,6 +74417,7 @@
     ]
   },
   "voc:B1:die Loipe": {
+    "def": "A prepared track in the snow for cross-country skiing.",
     "defDe": "maschinell vorbereitete Piste, Laufbahn für den Skilanglauf",
     "ex": [
       {
@@ -74352,6 +74433,7 @@
     ]
   },
   "voc:B1:die Luftfeuchtigkeit": {
+    "def": "How much water vapour the air is holding.",
     "defDe": "Wasserdampfgehalt der Luft",
     "ex": [
       {
@@ -74877,6 +74959,7 @@
     ]
   },
   "voc:B1:die Minderheit": {
+    "def": "The smaller part of a group; also a people who differ from the majority around them.",
     "defDe": "eine Gruppe, die sich nach der Anzahl der Mitglieder bezüglich der Gesamtheit in der Unterzahl befindet",
     "ex": [
       {
@@ -75322,6 +75405,7 @@
     ]
   },
   "voc:B1:die Nationalhymne": {
+    "def": "The official song of a country, played on formal occasions.",
     "defDe": "die in der Regel offizielle Hymne einer Nation, oft wird auch eine Staatshymne als Nationalhymne bezeichnet, auch wenn der entsprechende Staat mehr als eine Nation umfasst",
     "ex": [
       {
@@ -75552,6 +75636,7 @@
     ]
   },
   "voc:B1:die Panik": {
+    "def": "Sudden uncontrollable fear that seizes a person or spreads through a crowd.",
     "defDe": "plötzlich auftretender Schrecken, plötzlich aufkommende Angst, schwer beherrschbarer, kontrollierbarer, von Angst und Schrecken geprägter Zustand in der Gruppendynamik und Interaktion, unter Umständen krankhafter Zustand der Psyche",
     "ex": [
       {
@@ -75887,6 +75972,7 @@
     ]
   },
   "voc:B1:die Probe": {
+    "def": "A practice run of a performance; also a small quantity taken for testing.",
     "defDe": "das Einstudieren bei aufführenden Künsten",
     "ex": [
       {
@@ -75907,6 +75993,7 @@
     ]
   },
   "voc:B1:die Probezeit": {
+    "def": "The opening months of a job, during which either side may end it easily.",
     "defDe": "„vereinbarter oder gesetzlich angeordneter Zeitraum, während dessen ein Rechtsverhältnis oder eine erteilte Erlaubnis unter erleichterten Bedingungen gelöst bzw. entzogen werden kann.“",
     "ex": [
       {
@@ -75942,6 +76029,7 @@
     ]
   },
   "voc:B1:die Protestaktion": {
+    "def": "An organised public act staged to object to something.",
     "defDe": "eine organisierte und meist öffentliche Unternehmung, mit der gegen etwas protestiert wird",
     "ex": [
       {
@@ -76307,6 +76395,7 @@
     ]
   },
   "voc:B1:die Reservierung": {
+    "def": "A booking that holds a seat, table or room for you.",
     "defDe": "die Vormerkung einer bestimmten Sache",
     "ex": [
       {
@@ -76322,6 +76411,7 @@
     ]
   },
   "voc:B1:die Resilienz": {
+    "def": "The ability to recover from strain and carry on.",
     "defDe": "Fähigkeit elastischen Materials, nach starker Verformung in den Ausgangszustand zurückzukehren",
     "ex": [
       {
@@ -76357,6 +76447,7 @@
     ]
   },
   "voc:B1:die Revolution": {
+    "def": "A sudden, sweeping overthrow of a government or an established order.",
     "defDe": "eine im Gegensatz zur Evolution sehr schnelle Umwälzung oder Neuerung auf wissenschaftlichem, künstlerischem oder sozialem Gebiet",
     "ex": [
       {
@@ -76462,6 +76553,7 @@
     ]
   },
   "voc:B1:die Rückmeldung": {
+    "def": "A reply telling someone how their work or their message was received.",
     "ex": [
       {
         "de": "Über eine kurze Rückmeldung würde ich mich freuen.",
@@ -77426,6 +77518,7 @@
     ]
   },
   "voc:B1:die Spinne": {
+    "def": "A small eight-legged creature that spins webs.",
     "defDe": "kleines achtbeiniges Tier, das häufig Fäden spinnt",
     "ex": [
       {
@@ -78041,6 +78134,7 @@
     ]
   },
   "voc:B1:die Trainingseinheit": {
+    "def": "One block of practice within a training programme.",
     "defDe": "Phase, in der geübt wird",
     "ex": [
       {
@@ -78071,6 +78165,7 @@
     ]
   },
   "voc:B1:die Trauer": {
+    "def": "The deep sadness felt after a death or a great loss.",
     "defDe": "Stimmungslage, die beim Verlust, insbesondere beim Tod eines geliebten Wesens auftritt",
     "ex": [
       {
@@ -78086,6 +78181,7 @@
     ]
   },
   "voc:B1:die Trennung": {
+    "def": "The parting of two people who were together; also the setting apart of things.",
     "defDe": "materiell: Vorgang oder Ergebnis der Absonderung von Substanzen voneinander",
     "ex": [
       {
@@ -78426,6 +78522,7 @@
     ]
   },
   "voc:B1:die Ursache": {
+    "def": "The thing that brings a result about.",
     "defDe": "vorhergehender Sachverhalt, der einen momentanen Sachverhalt wesentlich bestimmt hat",
     "ex": [
       {
@@ -78461,6 +78558,7 @@
     ]
   },
   "voc:B1:die Verantwortung": {
+    "def": "The duty to see that something is done, and to answer for how it turns out.",
     "defDe": "(Selbst-)Verpflichtung für eine Sache oder Person; Bereitschaft, für seine Handlungen einzustehen",
     "ex": [
       {
@@ -79086,6 +79184,7 @@
     ]
   },
   "voc:B1:die Vorstellung": {
+    "def": "A showing of a play or a film to an audience.",
     "defDe": "die gedankliche, vergeistigte, innere Abbildung (Projektion) der (äußeren) Realität, Wirklichkeit, im inneren (Gedächtnis, Gefühl, Bewusstsein), die real erlebte Projektion der (äußeren) Realität/ Wirklichkeit; Abbild des Bewusstseins",
     "ex": [
       {
@@ -79681,6 +79780,7 @@
     ]
   },
   "voc:B1:die Währung": {
+    "def": "The money system a country uses, with its own unit, notes and coins.",
     "defDe": "currency, bank notes and cents, die Münzen und Banknoten",
     "ex": [
       {
@@ -79751,6 +79851,7 @@
     ]
   },
   "voc:B1:die Zeitzone": {
+    "def": "A band of the earth that keeps the same clock time.",
     "defDe": "Teil der Erdoberfläche, auf dem zu einem gegebenen Zeitpunkt dieselbe Uhrzeit und dasselbe Datum gelten",
     "ex": [
       {
@@ -79786,6 +79887,7 @@
     ]
   },
   "voc:B1:die Zerstörung": {
+    "def": "The act of ruining something completely, and the ruin it leaves.",
     "defDe": "die Handlung, etwas zu zerstören (kaputt zu machen)",
     "ex": [
       {
@@ -79806,6 +79908,7 @@
     ]
   },
   "voc:B1:die Ziege": {
+    "def": "A hardy horned animal kept for milk and meat.",
     "defDe": "Gattung wiederkäuender Tiere innerhalb der Familie der Hornträger",
     "ex": [
       {
@@ -80066,6 +80169,7 @@
     ]
   },
   "voc:B1:die Überschwemmung": {
+    "def": "Water spreading over land that is normally dry.",
     "defDe": "Zustand, der eintritt, wenn Gewässer über die Ufer treten und umliegende Gebiete unter Wasser setzen",
     "ex": [
       {
@@ -80096,6 +80200,7 @@
     ]
   },
   "voc:B1:die Überstunde": {
+    "def": "An hour worked beyond those the contract requires.",
     "defDe": "Arbeitszeit, die über die im Arbeitsvertrag festgelegte Zeit hinausgeht",
     "ex": [
       {
@@ -80591,6 +80696,7 @@
     ]
   },
   "voc:B1:einheimisch": {
+    "def": "Belonging to the place itself, rather than brought in from elsewhere.",
     "defDe": "zu einer Region, einem Ort (im eigentlichen Sinne zu einem Heim, zu einer Heimat) gehörig, in dieser Region, diesem Ort geboren, zu Hause sein",
     "ex": [
       {
@@ -80671,6 +80777,7 @@
     ]
   },
   "voc:B1:einteilen": {
+    "def": "To divide something into parts, or to arrange your time so it covers what is needed.",
     "ex": [
       {
         "de": "Ich kann mir meinen Tag selbst einteilen.",
@@ -81195,6 +81302,7 @@
     ]
   },
   "voc:B1:erleichtert": {
+    "def": "Freed from worry now that something feared is over.",
     "defDe": "ein Gefühl der Erleichterung verspürend",
     "ex": [
       {
@@ -81255,6 +81363,7 @@
     ]
   },
   "voc:B1:ernten": {
+    "def": "To gather in crops from the fields.",
     "defDe": "Nutzpflanzen von den Feldern einholen",
     "ex": [
       {
@@ -81275,6 +81384,7 @@
     ]
   },
   "voc:B1:erreichbar": {
+    "def": "Able to be reached — by telephone, or by travelling there.",
     "defDe": "nicht steigerbar: sich erreichen lassend: mündlich per Telefon oder schriftlich per Fax, E-Mail oder Post",
     "ex": [
       {
@@ -81370,6 +81480,7 @@
     ]
   },
   "voc:B1:erschöpft": {
+    "def": "Drained of strength, with nothing left to give.",
     "defDe": "von Personen: sehr müde und ausgelaugt sein",
     "ex": [
       {
@@ -82055,6 +82166,7 @@
     ]
   },
   "voc:B1:frühestens": {
+    "def": "Not before this time, though possibly later.",
     "ex": [
       {
         "de": "Ich komme frühestens um acht.",
@@ -82264,6 +82376,7 @@
     ]
   },
   "voc:B1:gegenseitig": {
+    "def": "Done by each of two sides to the other.",
     "defDe": "so, dass zwischen zwei Menschen oder Dingen ein für beide Seiten gleichermaßen geltendes Geschehen erfolgt",
     "ex": [
       {
@@ -82279,6 +82392,7 @@
     ]
   },
   "voc:B1:geheimnisvoll": {
+    "def": "Seeming to hold a secret that is not being told.",
     "defDe": "den Anschein/Eindruck erweckend, etwas Geheimes zu bergen; ein Geheimnis erahnen/vermuten lassend; voller Geheimnisse beziehungsweise Rätsel; so, dass es nicht ganz erklärt oder erklärbar ist",
     "ex": [
       {
@@ -82329,6 +82443,7 @@
     ]
   },
   "voc:B1:geizig": {
+    "def": "Unwilling to spend or share money, well beyond ordinary thrift.",
     "defDe": "sehr sparsam; nicht bereit, Geld auszugeben; sehr auf den Preis achtend; seine materiellen Werte zurückhaltend",
     "ex": [
       {
@@ -82959,6 +83074,7 @@
     ]
   },
   "voc:B1:herrschen": {
+    "def": "To hold power over a country; also to be the prevailing state of things.",
     "defDe": "Macht über jemand oder etwas ausüben",
     "ex": [
       {
@@ -83059,6 +83175,7 @@
     ]
   },
   "voc:B1:hilfreich": {
+    "def": "Giving help that is actually of use.",
     "defDe": "von Personen: helfend, unterstützend; von Sachen: Hilfe bietend",
     "ex": [
       {
@@ -83174,6 +83291,7 @@
     ]
   },
   "voc:B1:hochmodern": {
+    "def": "Built or equipped to the very latest standard.",
     "defDe": "auf dem neuesten Stand der Zeit befindlich",
     "ex": [
       {
@@ -83224,6 +83342,7 @@
     ]
   },
   "voc:B1:hupen": {
+    "def": "To sound a vehicle’s horn.",
     "defDe": "eine Hupe am Kraftfahrzeug betätigen, um ein akustisches Signal zu erzeugen",
     "ex": [
       {
@@ -83244,6 +83363,7 @@
     ]
   },
   "voc:B1:identisch": {
+    "def": "Exactly the same in every respect.",
     "defDe": "sich vollkommen gleichend, vollkommen gleich, vollkommen gleichartig, übereinstimmend",
     "ex": [
       {
@@ -83864,6 +83984,7 @@
     ]
   },
   "voc:B1:klappen": {
+    "def": "To go as intended and come off successfully.",
     "ex": [
       {
         "de": "Leider hat es nicht geklappt.",
@@ -83908,6 +84029,7 @@
     ]
   },
   "voc:B1:komfortabel": {
+    "def": "Well equipped and pleasant to be in.",
     "defDe": "mit Annehmlichkeiten, Komfort, guter technischer Ausrüstung",
     "ex": [
       {
@@ -84633,6 +84755,7 @@
     ]
   },
   "voc:B1:merken": {
+    "def": "To become aware of something; with sich, to fix it in memory.",
     "defDe": "etwas mit den Sinnen wahrnehmen, sich einer Sache bewusst werden",
     "ex": [
       {
@@ -84678,6 +84801,7 @@
     ]
   },
   "voc:B1:militärisch": {
+    "def": "Having to do with the armed forces.",
     "defDe": "das Militär betreffend",
     "ex": [
       {
@@ -84848,6 +84972,7 @@
     ]
   },
   "voc:B1:mähen": {
+    "def": "To cut grass or a standing crop with a blade or a machine.",
     "ex": [
       {
         "de": "Am Samstag mähe ich den Rasen.",
@@ -85007,6 +85132,7 @@
     ]
   },
   "voc:B1:nachholen": {
+    "def": "To do later something you missed at the proper time.",
     "ex": [
       {
         "de": "Ich muss die Prüfung nachholen.",
@@ -85221,6 +85347,7 @@
     ]
   },
   "voc:B1:notieren": {
+    "def": "To write something down so that it is not forgotten.",
     "ex": [
       {
         "de": "Bitte notieren Sie die Nummer.",
@@ -85285,6 +85412,7 @@
     ]
   },
   "voc:B1:nützen": {
+    "def": "To be of practical use to someone.",
     "ex": [
       {
         "de": "Das nützt mir leider nichts.",
@@ -85409,6 +85537,7 @@
     ]
   },
   "voc:B1:packen": {
+    "def": "To put belongings into a bag or a case for a journey.",
     "defDe": "aufeinander liegende gleichartige Dinge, die auch zusammengebunden sein können",
     "ex": [
       {
@@ -85599,6 +85728,7 @@
     ]
   },
   "voc:B1:profitieren von + D": {
+    "def": "To gain a clear advantage from something.",
     "defDe": "fachlicher Bereich, dem bestimmte Themen zugeordnet werden",
     "ex": [
       {
@@ -85614,6 +85744,7 @@
     ]
   },
   "voc:B1:promovieren": {
+    "def": "To take a doctorate at a university.",
     "defDe": "die Doktorwürde oder Lehrberechtigung an Hochschulen erlangen beziehungsweise erwerben",
     "ex": [
       {
@@ -85664,6 +85795,7 @@
     ]
   },
   "voc:B1:prüfen": {
+    "def": "To examine something to find out whether it is correct or in order.",
     "defDe": "feststellen, inwiefern einer Bedingung genügt wird",
     "ex": [
       {
@@ -85679,6 +85811,7 @@
     ]
   },
   "voc:B1:psychisch": {
+    "def": "Having to do with the mind rather than the body.",
     "defDe": "die Psyche betreffend",
     "ex": [
       {
@@ -86554,6 +86687,7 @@
     ]
   },
   "voc:B1:schützen": {
+    "def": "To keep someone or something safe from harm.",
     "defDe": "jemanden/etwas vor … schützen",
     "ex": [
       {
@@ -86624,6 +86758,7 @@
     ]
   },
   "voc:B1:selbstbewusst": {
+    "def": "Sure of your own worth and abilities, and showing it.",
     "defDe": "voller Selbstwertgefühl, ohne am eigenen Tun und Wirken zu zweifeln",
     "ex": [
       {
@@ -86639,6 +86774,7 @@
     ]
   },
   "voc:B1:selbstverständlich": {
+    "def": "So obvious it needs no saying — and, as an answer, willingly granted.",
     "defDe": "ohne Weiteres verständlich, sich aus dem Zusammenhang ergebend",
     "ex": [
       {
@@ -86659,6 +86795,7 @@
     ]
   },
   "voc:B1:seltener": {
+    "def": "Less often than before, or less often than something else.",
     "ex": [
       {
         "de": "Seltener als früher gehe ich ins Kino.",
@@ -86673,6 +86810,7 @@
     ]
   },
   "voc:B1:seltsam": {
+    "def": "Odd in a way that is hard to account for.",
     "defDe": "nicht normal; merkwürdig, sonderbar",
     "ex": [
       {
@@ -87533,6 +87671,7 @@
     ]
   },
   "voc:B1:sinnvoll": {
+    "def": "Serving a real purpose, and worth doing for that reason.",
     "defDe": "geistig rege, mit einem großen Verstand",
     "ex": [
       {
@@ -87618,6 +87757,7 @@
     ]
   },
   "voc:B1:sorgen für + A": {
+    "def": "To see that someone is looked after, or that something gets done.",
     "defDe": "sich ernsthaft Gedanken machen zu etwas/jemandem, etwas befürchten, was jemanden betrifft",
     "ex": [
       {
@@ -87633,6 +87773,7 @@
     ]
   },
   "voc:B1:sorgfältig": {
+    "def": "Done with close attention, leaving nothing sloppy.",
     "defDe": "mit großer Achtsamkeit und Sorgfalt",
     "ex": [
       {
@@ -88203,6 +88344,7 @@
     ]
   },
   "voc:B1:transportieren": {
+    "def": "To carry goods or people from one place to another.",
     "ex": [
       {
         "de": "Wir transportieren das Material mit dem Lastwagen.",
@@ -88422,6 +88564,7 @@
     ]
   },
   "voc:B1:umgehen mit + D": {
+    "def": "To handle a person or a situation in a particular way.",
     "defDe": "reinigende Arbeiten in der Küche verrichten, die mit der Verwendung von Wasser zu tun haben",
     "ex": [
       {
@@ -88437,6 +88580,7 @@
     ]
   },
   "voc:B1:umkommen": {
+    "def": "To die in an accident or a disaster.",
     "defDe": "auf ungewöhnliche Weise das Leben verlieren",
     "ex": [
       {
@@ -88742,6 +88886,7 @@
     ]
   },
   "voc:B1:unregelmäßig": {
+    "def": "Not following a regular pattern or a fixed interval.",
     "ex": [
       {
         "de": "Das Geräusch ist unregelmäßig und stört dauerhaft.",
@@ -89461,6 +89606,7 @@
     ]
   },
   "voc:B1:verlieren": {
+    "def": "To be left without something you had; also to be beaten in a contest.",
     "defDe": "etwas irgendwo hinlegen und es später nicht mehr wiederfinden",
     "ex": [
       {
@@ -89491,6 +89637,7 @@
     ]
   },
   "voc:B1:verlässlich": {
+    "def": "Able to be counted on to do what was promised.",
     "defDe": "so, dass man sich darauf verlassen kann",
     "ex": [
       {
@@ -89506,6 +89653,7 @@
     ]
   },
   "voc:B1:vermeiden": {
+    "def": "To act so that something unwanted does not happen.",
     "defDe": "etwas wenn möglich nicht tun; so handeln, dass etwas möglichst nicht passiert",
     "ex": [
       {
@@ -89581,6 +89729,7 @@
     ]
   },
   "voc:B1:vernetzt": {
+    "def": "Linked into a network, so that the parts can exchange information.",
     "defDe": "in ein Netzwerk eingebunden; zu einem Netzwerk verknüpft",
     "ex": [
       {
@@ -89676,6 +89825,7 @@
     ]
   },
   "voc:B1:versagen": {
+    "def": "To fall short when it matters; of a device, to stop working.",
     "defDe": "nicht so funktionieren, wie es geplant war oder üblich ist",
     "ex": [
       {
@@ -90286,6 +90436,7 @@
     ]
   },
   "voc:B1:vorkommen": {
+    "def": "To happen or be found, especially from time to time.",
     "ex": [
       {
         "de": "So etwas kommt selten vor.",
@@ -90445,6 +90596,7 @@
     ]
   },
   "voc:B1:wegziehen": {
+    "def": "To leave a place and go to live somewhere else.",
     "ex": [
       {
         "de": "Wer die Miete nicht zahlen kann, muss wegziehen.",
@@ -90474,6 +90626,7 @@
     ]
   },
   "voc:B1:weiterempfehlen": {
+    "def": "To tell other people that something is worth trying.",
     "ex": [
       {
         "de": "Ich kann dieses Lokal wirklich weiterempfehlen.",
@@ -90713,6 +90866,7 @@
     ]
   },
   "voc:B1:wiedererkennen": {
+    "def": "To know someone or something again from before.",
     "defDe": "etwas oder jemanden aus der Erinnerung richtig zuordnen können",
     "ex": [
       {

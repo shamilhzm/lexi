@@ -20,7 +20,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A prepared track in the snow for cross-country skiing."
     },
     {
       "id": "voc:B1:die Luftfeuchtigkeit",
@@ -33,7 +33,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "How much water vapour the air is holding."
     },
     {
       "id": "voc:B1:die Minderheit",
@@ -46,7 +46,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The smaller part of a group; also a people who differ from the majority around them."
     },
     {
       "id": "voc:B1:die Nationalhymne",
@@ -59,7 +59,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The official song of a country, played on formal occasions."
     },
     {
       "id": "voc:B1:die Panik",
@@ -72,7 +72,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Sudden uncontrollable fear that seizes a person or spreads through a crowd."
     },
     {
       "id": "voc:B1:die Probe",
@@ -85,7 +85,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A practice run of a performance; also a small quantity taken for testing."
     },
     {
       "id": "voc:B1:die Probezeit",
@@ -98,7 +98,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The opening months of a job, during which either side may end it easily."
     },
     {
       "id": "voc:B1:die Protestaktion",
@@ -111,7 +111,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An organised public act staged to object to something."
     },
     {
       "id": "voc:B1:die Reservierung",
@@ -124,7 +124,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A booking that holds a seat, table or room for you."
     },
     {
       "id": "voc:B1:die Resilienz",
@@ -137,7 +137,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The ability to recover from strain and carry on."
     },
     {
       "id": "voc:B1:die Revolution",
@@ -150,7 +150,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A sudden, sweeping overthrow of a government or an established order."
     },
     {
       "id": "voc:B1:die Rückmeldung",
@@ -162,7 +162,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A reply telling someone how their work or their message was received."
     },
     {
       "id": "voc:B1:die Spinne",
@@ -175,7 +175,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A small eight-legged creature that spins webs."
     },
     {
       "id": "voc:B1:die Trainingseinheit",
@@ -188,7 +188,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "One block of practice within a training programme."
     },
     {
       "id": "voc:B1:die Trauer",
@@ -201,7 +201,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The deep sadness felt after a death or a great loss."
     },
     {
       "id": "voc:B1:die Trennung",
@@ -214,7 +214,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The parting of two people who were together; also the setting apart of things."
     },
     {
       "id": "voc:B1:die Überschwemmung",
@@ -227,7 +227,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Water spreading over land that is normally dry."
     },
     {
       "id": "voc:B1:die Überstunde",
@@ -240,7 +240,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An hour worked beyond those the contract requires."
     },
     {
       "id": "voc:B1:die Ursache",
@@ -253,7 +253,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The thing that brings a result about."
     },
     {
       "id": "voc:B1:die Verantwortung",
@@ -266,7 +266,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The duty to see that something is done, and to answer for how it turns out."
     },
     {
       "id": "voc:B1:die Vorstellung",
@@ -279,7 +279,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A showing of a play or a film to an audience."
     },
     {
       "id": "voc:B1:die Währung",
@@ -292,7 +292,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The money system a country uses, with its own unit, notes and coins."
     },
     {
       "id": "voc:B1:die Zeitzone",
@@ -305,7 +305,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A band of the earth that keeps the same clock time."
     },
     {
       "id": "voc:B1:die Zerstörung",
@@ -318,7 +318,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The act of ruining something completely, and the ruin it leaves."
     },
     {
       "id": "voc:B1:die Ziege",
@@ -331,7 +331,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A hardy horned animal kept for milk and meat."
     },
     {
       "id": "voc:B1:einheimisch",
@@ -344,7 +344,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Belonging to the place itself, rather than brought in from elsewhere."
     },
     {
       "id": "voc:B1:einteilen",
@@ -356,7 +356,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To divide something into parts, or to arrange your time so it covers what is needed."
     },
     {
       "id": "voc:B1:erleichtert",
@@ -369,7 +369,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Freed from worry now that something feared is over."
     },
     {
       "id": "voc:B1:ernten",
@@ -382,7 +382,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To gather in crops from the fields."
     },
     {
       "id": "voc:B1:erreichbar",
@@ -395,7 +395,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Able to be reached — by telephone, or by travelling there."
     },
     {
       "id": "voc:B1:erschöpft",
@@ -408,7 +408,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Drained of strength, with nothing left to give."
     },
     {
       "id": "voc:B1:frühestens",
@@ -420,7 +420,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Not before this time, though possibly later."
     },
     {
       "id": "voc:B1:gegenseitig",
@@ -433,7 +433,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Done by each of two sides to the other."
     },
     {
       "id": "voc:B1:geheimnisvoll",
@@ -446,7 +446,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Seeming to hold a secret that is not being told."
     },
     {
       "id": "voc:B1:geizig",
@@ -459,7 +459,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Unwilling to spend or share money, well beyond ordinary thrift."
     },
     {
       "id": "voc:B1:herrschen",
@@ -472,7 +472,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To hold power over a country; also to be the prevailing state of things."
     },
     {
       "id": "voc:B1:hilfreich",
@@ -485,7 +485,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Giving help that is actually of use."
     },
     {
       "id": "voc:B1:hochmodern",
@@ -498,7 +498,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Built or equipped to the very latest standard."
     },
     {
       "id": "voc:B1:hupen",
@@ -511,7 +511,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To sound a vehicle’s horn."
     },
     {
       "id": "voc:B1:identisch",
@@ -524,7 +524,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Exactly the same in every respect."
     }
   ]
 }

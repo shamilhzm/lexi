@@ -147,7 +147,13 @@ const ENGLISH_LABEL = /^(female|male|separable|inseparable|takes|no plural|abbr\
 export function isGermanDefinition(def: string, en: string): boolean {
   const raw = (def ?? '').trim();
   if (!raw || ENGLISH_LABEL.test(raw)) return false;
-  const outside = raw.replace(/\([^)]*\)/g, ' ');
+  // `die` is an ordinary English verb as well as a German article, and the
+  // two-signal test below was satisfied *twice over by that single word*: the
+  // English definition "To die in an accident or a disaster." was reported as
+  // German and failed the build. It counts as an article only where it behaves
+  // like one — immediately before a capitalised noun, as in „die Kellnerin“,
+  // which English does not do mid-sentence.
+  const outside = raw.replace(/\([^)]*\)/g, ' ').replace(/\bdie\b(?!\s+\p{Lu})/gu, ' ');
   if (!outside.trim()) return false;
   if (GERMAN_MARKERS.test(en ?? '')) return false;   // the gloss itself is German
   return GERMAN_MARKERS.test(outside) && /[äöüß]|\b(der|die|das|des|dem|den|dass)\b/.test(outside);

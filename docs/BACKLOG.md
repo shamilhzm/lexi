@@ -1012,7 +1012,31 @@ single hole in the app's core artefact.
 > good German) while `fallen`'s genuine English list slipped through on the word *in*.
 > Wrong in both directions on its first run, so it was not shipped.
 
-**Do.** B1 (154) next — the largest remaining.
+> ✅ **B1 done, 2026-08-16 — and with it every level below B2.** 154 authored.
+> **455 → 181** overall: A1 0 · A2 1 · B1 0 · B2 103 · C1 74 · C2 3. The flagged total
+> has now not moved through **274 definitions** (1,213 before the first batch and
+> after the last), which is the check that matters: new definitions are not becoming
+> the next batch's defect.
+>
+> **This is the line worth reaching first.** `defDe` is shown from B2 up, so a card
+> with no `def` rendered nothing at all *specifically* for A1–B1 learners — the ones
+> with no fallback. That population is now covered.
+>
+> 🔴 **`defDe` frequently describes a different sense from the card's own gloss** — a
+> new finding, and a real one, because that field is *shown* to B2+ learners. The
+> German definitions were imported by headword and took whichever sense came first:
+> `packen` (to pack) carries the definition of *Packen*, a bundle; `umgehen mit`
+> (to handle) carries one about washing up; `sorgen für` (to provide for) carries
+> *sich sorgen*, to worry; `sinnvoll` carries "geistig rege"; `die Resilienz` and
+> `die Trennung` carry the materials-science senses; `die Vorstellung` the mental-image
+> one where the card means a performance; `die Alp` the nightmare-demon sense where
+> the card means an alpine pasture; `der Abgeordnete` a definition reading
+> *weibliches Mitglied*. Two hold **English**: `voc:A2:fallen` and `voc:B1:betreten`.
+> *Not sized* — spotted while authoring, so this is a lower bound on a class, not a
+> count. Sizing it needs a check that compares `defDe`'s sense against `en`, which is
+> harder than it sounds; the naive version is below.
+
+**Do.** B2 (103), then C1 (74) and C2 (3).
 **Done-when.** `corpus:definitions` reports 0 cards with no English definition.
 
 **Touches.** `scripts/authoring/batches/def/`, `public/data/vocab.json`.

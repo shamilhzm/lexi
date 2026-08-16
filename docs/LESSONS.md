@@ -60,7 +60,10 @@ did not become the next batch's defect.
 **…write English prose about German.** Quoting a bare German article inside an English
 definition makes `corpus:validate` read the whole field as German — correctly, by its
 own rule. Say "the masculine article", never `der`. *(Three of the first 67 definitions
-tripped this.)*
+tripped this.)* **But check the guard before obeying it**: the same rule failed the
+build on *"To die in an accident"*, because `die` is an English verb as well as a German
+article and the rule's two-signal test was satisfied twice over by that one word. The
+first instinct — reword around it — would have left the bug for every future author.
 
 **…animate anything that content depends on.** An entrance that doesn't run leaves the
 thing invisible or mis-sized. See DESIGN §7.

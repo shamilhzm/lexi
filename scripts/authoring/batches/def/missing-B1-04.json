@@ -19,7 +19,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To go as intended and come off successfully."
     },
     {
       "id": "voc:B1:komfortabel",
@@ -32,7 +32,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Well equipped and pleasant to be in."
     },
     {
       "id": "voc:B1:mähen",
@@ -44,7 +44,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To cut grass or a standing crop with a blade or a machine."
     },
     {
       "id": "voc:B1:merken",
@@ -57,7 +57,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To become aware of something; with sich, to fix it in memory."
     },
     {
       "id": "voc:B1:militärisch",
@@ -70,7 +70,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Having to do with the armed forces."
     },
     {
       "id": "voc:B1:nachholen",
@@ -82,7 +82,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To do later something you missed at the proper time."
     },
     {
       "id": "voc:B1:notieren",
@@ -94,7 +94,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To write something down so that it is not forgotten."
     },
     {
       "id": "voc:B1:nützen",
@@ -106,7 +106,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To be of practical use to someone."
     },
     {
       "id": "voc:B1:packen",
@@ -119,7 +119,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To put belongings into a bag or a case for a journey."
     },
     {
       "id": "voc:B1:profitieren von + D",
@@ -132,7 +132,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To gain a clear advantage from something."
     },
     {
       "id": "voc:B1:promovieren",
@@ -145,7 +145,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To take a doctorate at a university."
     },
     {
       "id": "voc:B1:prüfen",
@@ -158,7 +158,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To examine something to find out whether it is correct or in order."
     },
     {
       "id": "voc:B1:psychisch",
@@ -171,7 +171,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Having to do with the mind rather than the body."
     },
     {
       "id": "voc:B1:schützen",
@@ -184,7 +184,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To keep someone or something safe from harm."
     },
     {
       "id": "voc:B1:selbstbewusst",
@@ -197,7 +197,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Sure of your own worth and abilities, and showing it."
     },
     {
       "id": "voc:B1:selbstverständlich",
@@ -210,7 +210,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "So obvious it needs no saying — and, as an answer, willingly granted."
     },
     {
       "id": "voc:B1:seltener",
@@ -222,7 +222,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Less often than before, or less often than something else."
     },
     {
       "id": "voc:B1:seltsam",
@@ -235,7 +235,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Odd in a way that is hard to account for."
     },
     {
       "id": "voc:B1:sinnvoll",
@@ -248,7 +248,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Serving a real purpose, and worth doing for that reason."
     },
     {
       "id": "voc:B1:sorgen für + A",
@@ -261,7 +261,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To see that someone is looked after, or that something gets done."
     },
     {
       "id": "voc:B1:sorgfältig",
@@ -274,7 +274,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Done with close attention, leaving nothing sloppy."
     },
     {
       "id": "voc:B1:transportieren",
@@ -286,7 +286,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To carry goods or people from one place to another."
     },
     {
       "id": "voc:B1:umgehen mit + D",
@@ -299,7 +299,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To handle a person or a situation in a particular way."
     },
     {
       "id": "voc:B1:umkommen",
@@ -312,7 +312,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To die in an accident or a disaster."
     },
     {
       "id": "voc:B1:unregelmäßig",
@@ -324,7 +324,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Not following a regular pattern or a fixed interval."
     },
     {
       "id": "voc:B1:verlässlich",
@@ -337,7 +337,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Able to be counted on to do what was promised."
     },
     {
       "id": "voc:B1:verlieren",
@@ -350,7 +350,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To be left without something you had; also to be beaten in a contest."
     },
     {
       "id": "voc:B1:vermeiden",
@@ -363,7 +363,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To act so that something unwanted does not happen."
     },
     {
       "id": "voc:B1:vernetzt",
@@ -376,7 +376,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Linked into a network, so that the parts can exchange information."
     },
     {
       "id": "voc:B1:versagen",
@@ -389,7 +389,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To fall short when it matters; of a device, to stop working."
     },
     {
       "id": "voc:B1:vorkommen",
@@ -401,7 +401,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To happen or be found, especially from time to time."
     },
     {
       "id": "voc:B1:wegziehen",
@@ -413,7 +413,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To leave a place and go to live somewhere else."
     },
     {
       "id": "voc:B1:weiterempfehlen",
@@ -425,7 +425,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To tell other people that something is worth trying."
     },
     {
       "id": "voc:B1:wiedererkennen",
@@ -438,7 +438,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To know someone or something again from before."
     }
   ]
 }
