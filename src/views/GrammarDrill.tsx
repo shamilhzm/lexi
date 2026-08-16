@@ -81,6 +81,34 @@ export function spellingDiff(typed: string, canonical: string): string | null {
   return found.map(([ascii, real]) => `${ascii} → ${real}`).join(', ');
 }
 
+/** What the learner typed, word by word, marked where it diverges from the answer.
+ *
+ *  Reported from a real session on a dictation card: the answer field is a
+ *  single-line `<input>` at `text-xl`, so „Ich besuche meine Eltern jeden Sonntag.“
+ *  overflowed it and rendered as „Ich besuche meine Eltern jet“. The field is then
+ *  `disabled` — still clipped — at the exact moment the learner is comparing their
+ *  attempt against the correct sentence. *"I can't even see what I wrote to know
+ *  which part I wrote incorrectly."*
+ *
+ *  Word-level rather than character-level, deliberately: in a dictation the unit of
+ *  error is a word or an ending, and a character diff of a whole sentence is a
+ *  mess of fragments.
+ *
+ *  Compared through `norm`, not `canon` — the same fold the *grader* uses. `canon`
+ *  only lowercases and collapses whitespace; `norm` also folds ä/ö/ü/ß, which is
+ *  what makes „moechte“ an accepted spelling of „möchte“. Marking it red here would
+ *  contradict the grade the learner was just given, and `spellingDiff` already
+ *  teaches that difference in words.
+ *
+ *  Alignment is positional, which is right for the common cases (a wrong ending, a
+ *  missed word at the end) and gives up gracefully on a shifted sentence: extra or
+ *  missing words simply mark from the divergence on. Exported for tests. */
+export function typedDiff(typed: string, answer: string): { text: string; ok: boolean }[] {
+  const t = typed.trim().split(/\s+/).filter(Boolean);
+  const a = answer.trim().split(/\s+/).filter(Boolean);
+  return t.map((w, i) => ({ text: w, ok: i < a.length && norm(w) === norm(a[i]) }));
+}
+
 /** Progressive hint ladder for typed answers: shape → first letter → first
  *  half. A graceful path between blind guess and giving up; taking a hint
  *  never changes the grade. Exported for tests. */
@@ -331,6 +359,19 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel, promptLang = 'de',
           result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
       {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center leading-relaxed">Hint: {rung(hint)}</p>}
+      {/* Read back what they typed, wrapped and in full — the input above clips it
+          and stays clipped once disabled. Only on a miss: after a correct answer
+          there is nothing to compare. */}
+      {result === false && val.trim() && canonical && (
+        <p className="mt-3 text-sm text-center leading-relaxed" lang="de">
+          <span className="text-dim text-xs">You wrote: </span>
+          {typedDiff(val, canonical).map((seg, i) => (
+            <span key={i} className={seg.ok ? 'text-dim' : 'text-red-txt font-semibold underline decoration-dotted underline-offset-2'}>
+              {seg.text}{' '}
+            </span>
+          ))}
+        </p>
+      )}
       {result !== null && <Explain text={ex.explain} ok={result} answer={canonical}
         note={near
           ? spellingDiff(val, canonical)

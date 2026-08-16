@@ -523,7 +523,19 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
 
           {asExercise ? (
             <div className="relative w-full max-w-[580px]">
-              <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              {/* The drill-type pill notches the card's top-right corner — but on a
+                  *teach* card the block above the card is the rule, and the pill
+                  landed on top of its "New here — have a read first" line.
+                  Measured at 375px: pill x 226–329 / y 181–201 against that line's
+                  25–341 / 191–205.
+
+                  Hidden rather than moved, because on a teach card it is also
+                  redundant: the rule card names the system in full, and the drill
+                  label names it again underneath. Two labels, one of them
+                  overlapping a third. */}
+              {!item.teach && (
+                <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+              )}
               {/* First encounter with this kind of exercise: teach, then test.
                   The rule has always been one tap away, behind a link nobody taps
                   because they don't yet know they need it — so it opens itself.

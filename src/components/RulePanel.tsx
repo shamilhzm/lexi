@@ -274,12 +274,12 @@ export function DrillHeader({ pointRef, label }: {
   // Same fix as those three maps, one layer up.
   const intro = useIntroPoint(ruleShown && !noHelp ? pointRef : null);
   return (
-    // `mb-4`, not `mb-2.5`, and the two numbers are related. The drill-type pill in
-    // Review is `-top-2.5`: pulled 10px *above* the card, into precisely the 10px
-    // this margin used to leave. Their edges met, so any label long enough to reach
-    // the right-hand side rendered underneath it — reported from a real session as
-    // "WORD ORDER" sitting on top of "Word order (sentence builder)". 16px clears
-    // the pill's overhang with room for a descender.
+    // `mb-4`, not `mb-2.5`. The drill-type pill in Review is `-top-2.5`, pulled
+    // 10px above the card into precisely the 10px this margin used to leave, so
+    // their edges met. Measuring the reported overlap showed the pill was actually
+    // landing on the *intro* line rather than this label (Review hides it on a
+    // teach card now, which is the real fix) — but the two boxes were touching
+    // either way, and 16px gives the label its own band with room for a descender.
     <div className="text-center mb-4">
       {intro && (
         <div className="mb-3 text-left">

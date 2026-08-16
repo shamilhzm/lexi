@@ -532,6 +532,16 @@ Four things a learner hit on an iPhone in one sitting. Two were the same bug.
   so the first implementation still served them under "flip cards only". Caught by
   driving a real session (twelve flips, then two grammar cards); they are on the same
   switch now.
+- ✅ **A wrong typed answer could not be read back.** On a dictation card the answer
+  field is a single-line `<input>` at `text-xl`, so „Ich besuche meine Eltern jeden
+  Sonntag.“ overflowed and rendered as „Ich besuche meine Eltern jet“ — and the field
+  is `disabled` after grading, still clipped, at exactly the moment the learner is
+  comparing their attempt with the answer. *"I can't even see what I wrote to know
+  which part I wrote incorrectly."* A wrong answer now reads back in full, wrapped,
+  with the diverging words marked (`typedDiff`, 8 tests). Word-level, not character:
+  in a dictation the unit of error is a word or an ending. Compared through **`norm`,
+  the grader's own fold** — marking „moechte“ red would contradict the grade the
+  learner was just given, and `spellingDiff` teaches that difference in words.
 - ⚠️ **The HD voice sits at "Downloading… 100%" and never finishes.** *Not reproduced —
   fixed for the most likely cause and made legible for the rest.* Three faults found by
   reading the flow: the label covered only the download, so the seconds of model init
