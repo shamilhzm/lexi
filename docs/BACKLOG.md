@@ -811,8 +811,39 @@ which is why they group into one pass rather than fifteen tickets.
 - **Content clips at both widths (#5 · S · P1).** One of the four measured clips was
   fixed; three remain — deck names 252→188, Today overflowing its own column by 8px
   (999>991 desktop, 350>342 mobile), and a Today `text-2xs` line clipping 406→237.
-- **Mobile Progress spends ~200px on chrome before any map (#30 · S · P1)**, the FAB
-  overlaps the treemap (#31 · XS · P1), and coach marks eat 200px of 812 (#32 · XS · P1).
+- ~~**Mobile Progress spends ~200px on chrome before any map (#30 · S · P1)**~~
+  ✅ **Fixed 2026-08-16**, and it was worse than "~200px": measured at 375px the
+  heatmap card's header was **200px tall on its own** and the first tile did not
+  appear until **465px of an 812px viewport — 57%**. Four control clusters were
+  wrapping. The CEFR filter now collapses on a phone to one control that *states*
+  the scope ("All levels", "A1–B1"), and the header breaks deterministically into
+  two rows instead of however four clusters happen to land. **Header 200 → 125px,
+  first tile 465 → 390 (57% → 48%).** Unchanged from `sm:` up. The rest of the 48%
+  is the `Progress` h1 and the Headline card, which are *content* — shrinking the
+  app's hero number to win pixels is a different trade and nobody has ruled on it.
+- ~~coach marks eat 200px of 812 (#32 · XS · P1)~~ ✅ **Fixed 2026-08-16, and the
+  number was 2.5× too big.** The block measures **79px**, not 200. The "primary
+  action starts below the fold" claim is **false at 375×812 and 402×874** — the
+  grade buttons sat 56px and 71px clear. It is true on the **iPhone SE (375×667)**,
+  where they ended **7px past the fold** and the session scrolled. Fixed by
+  tightening padding and row gaps only (79 → 67px), not type size: "Tap the card to
+  flip it" is the one genuinely undiscoverable thing in the app and shrinking it to
+  win eight pixels trades away the finding the block exists to deliver. Grade
+  buttons now clear the SE fold by 7px. *Still true at 667:* the subordinate
+  first-sight line below the buttons is off-screen, and the session scrolls 42px.
+- **The FAB overlaps the treemap (#31 · XS · P1)** — **re-confirmed 2026-08-16 and
+  deliberately not fixed.** It is real: the 56px *Start today's session* button is
+  viewport-anchored above the bottom nav and sits on the map, truncating the tile
+  label under it. But every fix on the table trades something the app has already
+  ruled on. *Hiding it on Progress* (the rule Today uses) removes the only one-tap
+  route to the **scheduled** session from that surface — `Study all` is a different
+  action. *Docking it into the nav* is the category error `BottomNav.tsx` rejects in
+  its own header comment. *Shrinking the mobile map* so it ends above the FAB makes
+  the map ~300px, and the complaint about this surface was that the map was too
+  small and too far down. *Auto-hide on scroll* leaves the overlap at rest, which is
+  the state the screenshot was taken in. **What it needs is a ruling on which of
+  those to spend, not a script** — and a speculative fix to the app's primary action
+  is the kind this file has been burned by (see the swipe-gesture note in Now #1).
 - **The ticker is clipped, and on mobile it is noise (#28 · S · P2).** Partial "7%"
   against the sidebar edge on desktop; 3.5 items and a mid-word cut at 375px.
 - **Empty and first-run states (#29 · S).** First-run Today spends ~60% of a desktop

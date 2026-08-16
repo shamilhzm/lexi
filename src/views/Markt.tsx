@@ -134,6 +134,12 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
   return (
     <div>
       <Card pad="none">
+        {/* Two rows on a phone, one from `sm:` up — and *deterministically* two,
+            not however four clusters happen to wrap. Left to `flex-wrap` this
+            header measured 200px tall at 375px and pushed the first tile to 465px
+            of an 812px viewport (BACKLOG #30). `w-full sm:w-auto` on the second
+            cluster is what forces the break: the scope summary rides the title
+            row, the controls take their own. */}
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
           {zoom ? (
             <>
@@ -146,9 +152,9 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               <h2 className="text-xs sm:text-base font-semibold">Knowledge Heatmap</h2>
             </>
           )}
-          <div className="flex items-center gap-2 ml-auto flex-wrap">
+          <div className="ml-auto sm:order-2"><LevelFilter /></div>
+          <div className="flex items-center gap-2 w-full justify-end sm:w-auto sm:order-1 sm:ml-auto">
             <Toggle list={list} onChange={setList} />
-            <LevelFilter />
             {zoom
               ? <Button size="sm" onClick={() => onStudyGroup(zoom)}><Play size={13} /> Study {shortName(zoom)}</Button>
               : <Button size="sm" onClick={onStudyAll}><Play size={13} /> Study all</Button>}

@@ -11,6 +11,59 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the chrome in front of the map, and two numbers that were wrong
+
+BACKLOG Now #4's mobile P1s, re-measured before being touched — which is how two of
+the three turned out to be mis-sized and one turned out not to have a fix worth
+shipping.
+
+**#30 · Progress spent 57% of the phone on chrome.** The heatmap card's header
+measured **200px on its own** at 375px, and the first tile did not appear until
+**465px of an 812px viewport**. Four control clusters — title, Markt/Liste, six CEFR
+chips, *Study all* — were wrapping into four rows, and the six chips are a 284px row
+that cannot be made narrower: they are 44×44 because the touch-target sweep put them
+there, and shrinking them re-opens a closed defect.
+
+So the filter collapses on a phone into one control that **says what the scope is** —
+"All levels", "A1–B1", "A2, C1" — and expands to the chips on tap. That is strictly
+more legible than six chips whose selection you read off their borders. The header
+then breaks into two *deterministic* rows rather than however four clusters happen to
+land. **Header 200 → 125px, first tile 465 → 390, 57% → 48%.** Nothing changes from
+`sm:` up.
+
+Not hidden behind an icon, deliberately: the Markt/Liste labels were hidden below
+`sm` once and restored, because an unlabelled control is worst exactly where the
+screen is smallest. The summary keeps a word on screen. Seven tests pin what it says,
+including the case a range would misreport — A1 and C2 selected is "A1, C2", not
+"A1–C2".
+
+**#32 · the coach marks were 79px, not 200.** The backlog said they "eat 200px of
+812" and that the primary action starts below the fold. Measured on a real first run:
+the block is **79px**, and the grade buttons sat **56px clear of the fold at 375×812
+and 71px clear at 402×874**. The claim is only true on the **iPhone SE (375×667)**,
+where they ended **7px past it** and the session scrolled.
+
+Fixed by tightening padding and row gaps — 79 → 67px — and specifically *not* by
+shrinking the type. "Tap the card to flip it" is the one genuinely undiscoverable
+thing in the app, and it is the finding a previous pass could not settle without real
+iOS; winning eight pixels by making it harder to read would trade away the thing the
+block exists for. Grade buttons now clear the SE fold by 7px. Still true at 667: the
+subordinate first-sight line below them is off-screen and the session scrolls 42px.
+
+**#31 · the FAB does overlap the treemap, and it is not fixed.** Re-confirmed: the
+56px *Start today's session* button is anchored above the bottom nav and sits on the
+map, truncating the tile label under it. Every available fix spends something the app
+has already ruled on — hiding it on Progress removes the only one-tap route to the
+*scheduled* session (`Study all` is a different action); docking it into the nav is
+the category error `BottomNav.tsx` rejects in its own comment; shrinking the mobile
+map to clear it makes the map ~300px, when the complaint about this surface was that
+the map was too small and too far down; auto-hide on scroll leaves the overlap at
+rest. **It needs a ruling on which to spend, not a script.** Left open with the
+options written down, on the same principle as the unfixed swipe-gesture question in
+Now #1: a speculative fix to the primary action is not worth the risk.
+
+847 tests green.
+
 ### Shipped 2026-08-15 — the cards that were forms of each other
 
 The mechanism the singular/plural ruling said did not exist yet. `corpus:dupes`

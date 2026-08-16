@@ -73,10 +73,20 @@ that session. If you cannot measure it, say "roughly" and say why.**
 | 291 sectors | 277 | README, 2026-08-13 |
 | Today's grammar row: "444 exercises" | 571 | UX-PATHS H1, July 2026 |
 | Various backlog counts | "The last four times a count was guessed here it was wrong by a third" | BACKLOG's own header |
+| Session coach marks "eat 200px of 812"; the grade buttons start below the fold | The block is **79px**, and the buttons sat 56px clear at 375×812 and 71px clear at 402×874. Below the fold only on the iPhone SE (375×667), by **7px** | BACKLOG #32, 2026-08-16 |
+| Mobile Progress "spends ~200px on chrome before any map" | The header alone was 200px and the first tile did not appear until **465px of 812** — the estimate was of the wrong quantity, and low | BACKLOG #30, 2026-08-16 |
 
 **Why this class is worse than it looks.** Stale numbers do not fail loudly; they
 quietly corrode trust in every *other* number on the screen, including the honest ones
 that are the product's whole competitive claim.
+
+**The corollary, learned 2026-08-16: a guessed number is wrong in *both* directions,
+so it cannot be used to rank.** Two P1s were carried side by side as "~200px" each. On
+measurement one was 79px and marginal, the other was 200px of header on top of a
+465px-deep first tile and the worst thing about the surface. Same written size, an
+order of magnitude apart in value. **Measure before you rank, not just before you
+report** — and re-measure a finding before fixing it, because fixing the wrong one
+costs a day and closes the ticket.
 
 ---
 

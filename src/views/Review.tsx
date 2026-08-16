@@ -843,7 +843,19 @@ function CoachMarks() {
     setShow(false);
   };
   return (
-    <Card pad="none" className="px-4 py-3 mb-2.5 flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-dim">
+    // Vertically tight on purpose. Three tips wrap to three lines on a phone, and
+    // every pixel this block spends comes off the bottom of the session: measured
+    // 2026-08-16 on a first run at 375×667 — the iPhone SE floor — the grade
+    // buttons ended 7px past the fold and the session scrolled (723 against 667).
+    // At 375×812 and 402×874 they were already comfortably above it, so BACKLOG
+    // #32's "coach marks eat 200px of 812" is a 2.5× overstatement of a block that
+    // measures 79px; what was real is only real on the short viewport.
+    //
+    // Padding and gaps, not type size: the tips are the first words a learner
+    // reads and "Tap the card to flip it" is the one genuinely undiscoverable
+    // thing in the app. Shrinking the text to win eight pixels trades the finding
+    // this block exists to deliver.
+    <Card pad="none" className="px-4 py-2 mb-2 flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
       <span><b className="text-txt font-semibold">Tap</b> the card to flip it</span>
       <span aria-hidden>·</span>
       <span><b className="text-txt font-semibold">Swipe</b> or use the buttons to grade</span>
