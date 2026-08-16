@@ -63,6 +63,17 @@ thing invisible or mis-sized. See DESIGN §7.
 beside it* instead, wrapping it to two lines. Measuring one element cannot see what it
 did to its siblings.
 
+**…believe a sweep that returns zero.** Assert the instrument first. A clip sweep
+reported *zero clips on all ten routes* because `innerWidth` was 0 in a backgrounded
+pane — every rect collapsed and the minimum-size filter discarded every element before
+it was tested. **A check whose subject list is empty passes silently**; make it abort
+instead. Same shape as the frozen `document.timeline` below.
+
+**…attribute an overflow to layout.** `scrollWidth > clientWidth` also fires on
+deliberate negative margins (`-mx-2` for optical alignment) and on decorative
+overflowing pseudo-elements. If the overflow is *the same number of pixels at every
+viewport width*, it is a constant in the CSS, not a layout failure.
+
 ---
 
 ## Class 1 — guessing a number instead of measuring it

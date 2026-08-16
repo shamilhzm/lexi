@@ -137,8 +137,16 @@ export default function Decks({ initialGroup, onStudy, onMap }:
                     daily …" are the same card to a reader, and the deck name is the
                     only thing distinguishing one deck from another. The `title`
                     stays for the rare name that still needs a third line, but it is
-                    a hover affordance and this is a surface people use on a phone. */}
-                <span className="line-clamp-2" title={d.name}>{d.name}</span>
+                    a hover affordance and this is a surface people use on a phone.
+
+                    `break-words` closes the case two lines could not: a name that is
+                    a **single word wider than the column** has nowhere to wrap, so
+                    `line-clamp`'s `overflow: hidden` cut it mid-word with no
+                    ellipsis to say so. Measured at 1280px, "Communication" rendered
+                    as "Communicat" (113px of word in a 92px box), and Administration
+                    and Relationships did the same. Breaking the word keeps every
+                    letter on one of the two lines it already has. */}
+                <span className="line-clamp-2 break-words" title={d.name}>{d.name}</span>
               </h3>
               {/* These two had no sizing class at all — a 15px icon with no
                   padding, the smallest touch targets in the app. */}

@@ -808,9 +808,38 @@ which is why they group into one pass rather than fifteen tickets.
 - **The card becomes a lexicon entry (#21 · M).** Headword · IPA · POS · sense ·
   citation is already the content model; the layout doesn't use it. Also closes the
   ~250px of dead space inside the card on desktop.
-- **Content clips at both widths (#5 · S · P1).** One of the four measured clips was
-  fixed; three remain — deck names 252→188, Today overflowing its own column by 8px
-  (999>991 desktop, 350>342 mobile), and a Today `text-2xs` line clipping 406→237.
+- ~~**Content clips at both widths (#5 · S · P1).**~~ **Swept 2026-08-16 across all
+  ten hash routes at 1280 and 375 — one real, one artifact, one unreproduced.**
+  - ✅ **Deck names were cut mid-word.** `line-clamp-2` fixed the multi-word case in
+    an earlier pass and could not fix a name that is a **single word wider than the
+    column**: with nowhere to wrap, the clamp's `overflow: hidden` cut it with no
+    ellipsis. At 1280px *Communication* rendered as "Communicat" (113px of word in a
+    92px box); *Administration* and *Relationships* the same. `break-words` on the
+    name. **Horizontal cuts on Decks: 3 → 0** at 1280, 0 at 375.
+  - ⚠️ **"Today overflows its own column by 8px" is an artifact.** The offender is a
+    single control — the *recognised · streak* chip — carrying `px-2 py-1 **-mx-2**`,
+    the ordinary optical-alignment trick: pad for the 44px hit area, negate the margin
+    so the text still lines up with the column edge. Nothing is clipped and the
+    document does not scroll horizontally at either width. **The tell was in the
+    original numbers**: 999>991 and 350>342 are *both exactly 8px*, and a layout bug
+    scales with viewport while a negative margin does not. A first hypothesis here —
+    that the `.live-dot` pulse ring was inflating `scrollWidth` — was tested by
+    disabling the ring and **disproved**, which is the only reason the real cause was
+    found.
+  - ❓ **The Today `text-2xs` line clipping 406→237 was not reproduced** at either
+    width. The only `text-2xs` candidate is the backlog burn-down (`… of … backlog
+    cleared`), which renders only when `dueTotal > due` — a state this sweep could not
+    produce. Unverified rather than struck.
+  - *Left as designed:* two deck **subtitles** at 375px still hit `line-clamp-2`'s
+    third line (*Intermediate descriptive adjectives*, *Language Acquisition &
+    Linguistics*). That is the clamp working — visible ellipsis, full name in `title`.
+  - ⚠️ **The sweep's own first two attempts were wrong**, which is the standing warning
+    in this file. A "spills past its parent" check reported **350 hits on Decks alone**
+    with parent widths of 0 — it was comparing against elements that are not the
+    layout container. And a clean run of the corrected check returned *zero clips on
+    every route* while `innerWidth` was **0**: the pane was backgrounded, every rect
+    collapsed, and the size filter dropped every element before it could be tested. The
+    sweep now aborts unless the viewport is real.
 - ~~**Mobile Progress spends ~200px on chrome before any map (#30 · S · P1)**~~
   ✅ **Fixed 2026-08-16**, and it was worse than "~200px": measured at 375px the
   heatmap card's header was **200px tall on its own** and the first tile did not

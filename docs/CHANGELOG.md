@@ -11,6 +11,48 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the clip sweep: one real cut, one artifact, two broken instruments
+
+BACKLOG #5 carried three measured clips. Swept all ten hash routes at 1280 and 375 —
+enumerated from `route.ts`, because the last sweep that worked from memory missed four
+routes that carried real defects.
+
+**Real, and fixed: deck names cut mid-word.** An earlier pass replaced `truncate` with
+`line-clamp-2` and closed the multi-word case. It could not close the case where the
+name is a **single word wider than the column** — there is nowhere to wrap, so the
+clamp's `overflow: hidden` cuts the word with no ellipsis to admit it. At 1280px
+*Communication* rendered as "Communicat", 113px of word in a 92px box; *Administration*
+and *Relationships* the same. `break-words` lets the word break across the two lines it
+already has. Horizontal cuts on Decks **3 → 0**.
+
+**Artifact: "Today overflows its own column by 8px."** The offender is one control —
+the *recognised · streak* chip — carrying `px-2 py-1 -mx-2`, which is the ordinary
+optical-alignment trick: pad for a 44px hit area, negate the margin so the text still
+lines up with the column edge. Nothing is clipped, and the document does not scroll
+horizontally at either width. The tell was in the original numbers all along: 999>991
+and 350>342 are **both exactly 8px**, and a layout bug scales with viewport width while
+a negative margin does not.
+
+Worth recording that the *first* explanation was wrong: `.live-dot::after` is a pulse
+ring at `inset: -3px` scaling to 1.9×, an obviously overflowing pseudo-element sitting
+right there in the same row. Disabling it changed the measurement by zero pixels. The
+real cause was found only because the plausible one was tested instead of assumed.
+
+**Unreproduced:** the third claim, a Today `text-2xs` line clipping 406→237. The only
+candidate is the backlog burn-down line, which renders only when `dueTotal > due` — a
+state this sweep could not produce. Recorded as unverified, not struck.
+
+**Both instruments were broken before either finding was.** The first sweep arm —
+"element spills past its parent" — reported **350 hits on Decks alone**, with parent
+widths of 0; it was comparing elements against boxes that are not their layout
+container. Deleted rather than tuned. The corrected sweep then returned a confident
+*zero clips on every route* while `innerWidth` was **0**: the Browser pane was
+backgrounded, every rect collapsed to nothing, and the minimum-size filter discarded
+every element before it could be tested. A check whose subject list is empty passes
+silently, so the sweep now aborts unless the viewport is real. Both went into LESSONS.
+
+859 tests green.
+
 ### Shipped 2026-08-16 — the hint nobody could see, and a palette check that found five of one
 
 Continuing through Now #4's ranked survivors. Two fixed, two struck as stale, one
