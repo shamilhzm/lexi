@@ -20,7 +20,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The warming of the earth caused by atmospheric gases trapping heat."
     },
     {
       "id": "voc:B2:der Umbau",
@@ -32,7 +32,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Building work that alters an existing structure rather than replacing it."
     },
     {
       "id": "voc:B2:der Umfang",
@@ -44,7 +44,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "How much ground something covers — its size, range or scale."
     },
     {
       "id": "voc:B2:der Vorwurf",
@@ -56,7 +56,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A charge that someone has done wrong, made to their face or in public."
     },
     {
       "id": "voc:B2:der Zusatz",
@@ -68,7 +68,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Something added to what was already there."
     },
     {
       "id": "voc:B2:die Ablenkung",
@@ -80,7 +80,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Something that pulls your attention away from what you meant to do."
     },
     {
       "id": "voc:B2:die Absprache",
@@ -92,7 +92,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An understanding reached between people about how to proceed."
     },
     {
       "id": "voc:B2:die Angabe",
@@ -104,7 +104,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A single item of information supplied on a form or in a statement."
     },
     {
       "id": "voc:B2:die Anregung",
@@ -116,7 +116,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A suggestion or stimulus that prompts thought or action."
     },
     {
       "id": "voc:B2:die Beförderung",
@@ -129,7 +129,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A move to a higher position at work; also the carrying of goods or passengers."
     },
     {
       "id": "voc:B2:die Begrünung",
@@ -142,7 +142,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Planting greenery on or around a built structure."
     },
     {
       "id": "voc:B2:die Benutzung",
@@ -154,7 +154,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The act of using something, and the terms on which it may be used."
     },
     {
       "id": "voc:B2:die Beschädigung",
@@ -166,7 +166,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Harm done to an object that reduces its condition or its value."
     },
     {
       "id": "voc:B2:die Bohrmaschine",
@@ -178,7 +178,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A power tool that bores holes."
     },
     {
       "id": "voc:B2:die Disziplin",
@@ -190,7 +190,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Self-control that keeps you at a task; also a branch of study or sport."
     },
     {
       "id": "voc:B2:die Einleitung",
@@ -202,7 +202,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The opening section that sets up a text or a talk."
     },
     {
       "id": "voc:B2:die Elektromobilität",
@@ -215,7 +215,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Transport powered by electricity rather than by fuel."
     },
     {
       "id": "voc:B2:die Klimazone",
@@ -228,7 +228,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A broad band of the earth sharing similar climatic conditions."
     },
     {
       "id": "voc:B2:die Kundschaft",
@@ -240,7 +240,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The customers of a business, taken together."
     },
     {
       "id": "voc:B2:die Lehrkraft",
@@ -252,7 +252,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A member of teaching staff — the neutral term used in official contexts."
     },
     {
       "id": "voc:B2:die Mietpreisbremse",
@@ -265,7 +265,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A legal limit on how far rents may be raised."
     },
     {
       "id": "voc:B2:die Nische",
@@ -277,7 +277,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A recess set into a wall; also a small specialised corner of a market."
     },
     {
       "id": "voc:B2:die Öffentlichkeit",
@@ -289,7 +289,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "People in general, considered as an audience with opinions."
     },
     {
       "id": "voc:B2:die Produktivität",
@@ -301,7 +301,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "How much is produced for the time and effort put in."
     },
     {
       "id": "voc:B2:die Selbstfürsorge",
@@ -314,7 +314,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Deliberately looking after your own health and wellbeing."
     },
     {
       "id": "voc:B2:die Sperrung",
@@ -326,7 +326,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The closing of a road or a route to traffic."
     },
     {
       "id": "voc:B2:die Unterbrechung",
@@ -338,7 +338,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A break that stops something part-way through."
     },
     {
       "id": "voc:B2:die Verarbeitung",
@@ -350,7 +350,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The working of raw material or data into a finished form."
     },
     {
       "id": "voc:B2:die Verdichtung",
@@ -363,7 +363,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Packing something more tightly; in towns, building more closely on the same land."
     },
     {
       "id": "voc:B2:die Zersiedelung",
@@ -376,7 +376,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The spread of scattered building out across open country."
     },
     {
       "id": "voc:B2:dokumentieren",
@@ -388,7 +388,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To record what happens so that it can be checked later."
     },
     {
       "id": "voc:B2:ehren",
@@ -400,7 +400,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To show public respect for someone’s achievement."
     },
     {
       "id": "voc:B2:einschätzen",
@@ -412,7 +412,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To form a judgement about a situation or a person."
     },
     {
       "id": "voc:B2:einschlafen",
@@ -425,7 +425,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To pass from being awake into sleep."
     },
     {
       "id": "voc:B2:expandieren",
@@ -438,7 +438,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To grow larger, or to extend a business into new places."
     },
     {
       "id": "voc:B2:fachlich",
@@ -450,7 +450,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Relating to the subject matter itself, and to expertise in it."
     },
     {
       "id": "voc:B2:freigeben",
@@ -462,7 +462,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To release something for use after it has been held back."
     },
     {
       "id": "voc:B2:gelegentlich",
@@ -474,7 +474,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Happening now and then rather than regularly."
     },
     {
       "id": "voc:B2:gleichgültig",
@@ -486,7 +486,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Not caring either way; of a matter, making no difference."
     },
     {
       "id": "voc:B2:gleichmäßig",
@@ -498,7 +498,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Keeping the same rate or spacing throughout."
     }
   ]
 }

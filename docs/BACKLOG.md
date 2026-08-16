@@ -1036,7 +1036,18 @@ single hole in the app's core artefact.
 > count. Sizing it needs a check that compares `defDe`'s sense against `en`, which is
 > harder than it sounds; the naive version is below.
 
-**Do.** B2 (103), then C1 (74) and C2 (3).
+> ✅ **B2, C1 and C2 done, 2026-08-16 — the queue is empty.** **455 → 1.**
+> 6,503 of 6,504 word cards carry an English definition, and cards reading as *real*
+> definitions went **4,836 → 5,290**. The flagged total did not move once across all
+> **454**: 1,213 at the start and 1,213 at the end.
+>
+> **The remaining 1 is `voc:A2:der Somit`**, the broken card above — left undefined on
+> purpose, because a definition would hide it. Closing this item to a true zero means
+> fixing that card, not authoring a 455th definition.
+
+**Do.** ✅ Nothing — this sub-item is finished bar the broken card. What remains under
+**5a** is the flagged 1,213: `repeat` (113) and `bare` (285) are the two the audit wants
+at zero, then `enumeration` (872).
 **Done-when.** `corpus:definitions` reports 0 cards with no English definition.
 
 **Touches.** `scripts/authoring/batches/def/`, `public/data/vocab.json`.

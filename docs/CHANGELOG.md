@@ -11,6 +11,31 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the definition queue is empty
+
+B2, C1 and C2 authored — **180 more, 454 in all today. Cards with no English
+definition: 455 → 1.**
+
+6,503 of 6,504 word cards now carry a definition, and the number reading as *real*
+definitions rose **4,836 → 5,290**. Across all 454, the flagged total never moved:
+**1,213 at the start of the first batch and 1,213 at the end of the last.** Not one
+new definition landed back in `enumeration`, `bare` or `repeat` — which is the whole
+test of whether this programme is adding value or just adding text.
+
+**The one remaining card is the point.** `voc:A2:der Somit` is glossed "somite", the
+embryology term, with noun facts attached — while its sector is *Adverbs* and both its
+examples are the adverb *somit*, "therefore". It has been left undefined through four
+batches on purpose: writing a definition for it would have made a broken card look
+finished. Closing this to a true zero means correcting that card — a re-term to `somit`
+with `pos: adverb`, which changes its id and is therefore a schedule migration — not
+authoring a 455th definition.
+
+That is the honest end state for the sub-item, and it is worth saying plainly: the
+queue is empty because every card that *could* be given a definition has one, and the
+single exception is a defect that the definition pass itself surfaced.
+
+873 tests green · `corpus:validate` PASS.
+
 ### Shipped 2026-08-16 — every card below B2 has a definition
 
 274 definitions authored across A1, A2 and B1. **Missing English definitions 455 → 181**

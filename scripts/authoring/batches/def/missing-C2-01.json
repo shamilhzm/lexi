@@ -20,7 +20,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To describe something as better than it was, playing down what is ugly in it."
     },
     {
       "id": "voc:C2:das Schlagwort",
@@ -33,7 +33,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A catchy phrase that stands in for a whole idea, and is often repeated without thought."
     },
     {
       "id": "voc:C2:die Suggestion",
@@ -46,7 +46,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An idea planted in someone’s mind without being stated outright."
     }
   ]
 }

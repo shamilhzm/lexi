@@ -19,7 +19,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To leave something in someone’s keeping until it is called for."
     },
     {
       "id": "voc:B2:kommentieren",
@@ -32,7 +32,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To give your view on something publicly, in speech or in writing."
     },
     {
       "id": "voc:B2:konkurrenzfähig",
@@ -45,7 +45,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Good enough or cheap enough to hold its own against rivals."
     },
     {
       "id": "voc:B2:messbar",
@@ -57,7 +57,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Large or definite enough to be established by measurement."
     },
     {
       "id": "voc:B2:mühsam",
@@ -69,7 +69,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Costing a lot of effort for slow progress."
     },
     {
       "id": "voc:B2:örtlich",
@@ -81,7 +81,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Confined to one particular place rather than general."
     },
     {
       "id": "voc:B2:spontan",
@@ -93,7 +93,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Done on the spur of the moment, without planning."
     },
     {
       "id": "voc:B2:strukturieren",
@@ -105,7 +105,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To give something a clear order and shape."
     },
     {
       "id": "voc:B2:übereinstimmen",
@@ -117,7 +117,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To match, or to be of the same opinion as someone else."
     },
     {
       "id": "voc:B2:überflüssig",
@@ -129,7 +129,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Not needed, because it adds nothing that is not already there."
     },
     {
       "id": "voc:B2:überschreiten",
@@ -141,7 +141,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To go over a limit, a line or a border."
     },
     {
       "id": "voc:B2:unverbindlich",
@@ -153,7 +153,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Carrying no commitment — you may still walk away afterwards."
     },
     {
       "id": "voc:B2:verfallen",
@@ -165,7 +165,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To cease to be valid once its time has run out; of a building, to fall into ruin."
     },
     {
       "id": "voc:B2:vergleichbar",
@@ -177,7 +177,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Similar enough that the two can usefully be set side by side."
     },
     {
       "id": "voc:B2:verlagern",
@@ -189,7 +189,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To move an activity from one place to another."
     },
     {
       "id": "voc:B2:verwalten",
@@ -201,7 +201,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To look after and run something on behalf of others."
     },
     {
       "id": "voc:B2:verzögern",
@@ -213,7 +213,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To make something happen later than planned."
     },
     {
       "id": "voc:B2:vorziehen",
@@ -225,7 +225,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To choose one thing over another; also to move an appointment earlier."
     },
     {
       "id": "voc:B2:wirksam",
@@ -237,7 +237,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Actually producing the result it is meant to produce."
     },
     {
       "id": "voc:B2:wirtschaftlich",
@@ -250,7 +250,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To do with the economy; also run at a good ratio of cost to result."
     },
     {
       "id": "voc:B2:zitieren",
@@ -262,7 +262,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To repeat someone’s exact words and say whose they are."
     },
     {
       "id": "voc:B2:zurechtkommen",
@@ -274,7 +274,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To manage a situation well enough on your own."
     },
     {
       "id": "voc:B2:zurückhaltend",
@@ -286,7 +286,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Holding back rather than pushing forward, in manner or in judgement."
     }
   ]
 }

@@ -19,7 +19,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Available to be called up at any moment, without waiting."
     },
     {
       "id": "voc:C1:anknüpfen",
@@ -31,7 +31,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To take up a point already made and carry it further."
     },
     {
       "id": "voc:C1:auffangen",
@@ -43,7 +43,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To catch something falling; also to absorb a shock or blunt an objection."
     },
     {
       "id": "voc:C1:aufschlussreich",
@@ -55,7 +55,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Telling you something you did not know, and worth knowing."
     },
     {
       "id": "voc:C1:banal",
@@ -67,7 +67,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "So ordinary and obvious that it carries no interest."
     },
     {
       "id": "voc:C1:beeinträchtigen",
@@ -79,7 +79,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To make something work less well than it should."
     },
     {
       "id": "voc:C1:belehren",
@@ -91,7 +91,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To instruct someone in a way that assumes they know less than you."
     },
     {
       "id": "voc:C1:beliebig",
@@ -103,7 +103,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Any one you like, chosen without a reason that has to be given."
     },
     {
       "id": "voc:C1:beziffern",
@@ -115,7 +115,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To state something as a number rather than in words."
     },
     {
       "id": "voc:C1:das Fachgebiet",
@@ -127,7 +127,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The particular subject in which someone has expertise."
     },
     {
       "id": "voc:C1:das Fazit",
@@ -139,7 +139,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The conclusion drawn once everything has been weighed up."
     },
     {
       "id": "voc:C1:das Gehäuse",
@@ -151,7 +151,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The outer shell that holds and protects the workings of a device."
     },
     {
       "id": "voc:C1:das Prestige",
@@ -163,7 +163,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The standing something enjoys in the eyes of others."
     },
     {
       "id": "voc:C1:das Vokabular",
@@ -175,7 +175,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The set of words available for talking about a particular field."
     },
     {
       "id": "voc:C1:das Zehntel",
@@ -187,7 +187,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "One part of ten into which a whole is divided."
     },
     {
       "id": "voc:C1:der Anbau",
@@ -199,7 +199,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The growing of crops; also a wing added onto an existing building."
     },
     {
       "id": "voc:C1:der Befund",
@@ -212,7 +212,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "What an examination or investigation established."
     },
     {
       "id": "voc:C1:der Egoismus",
@@ -224,7 +224,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Putting your own interests first at other people’s expense."
     },
     {
       "id": "voc:C1:der Eingriff",
@@ -236,7 +236,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A deliberate act that alters a course of events; in medicine, an operation."
     },
     {
       "id": "voc:C1:der Ernstfall",
@@ -248,7 +248,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The situation you have prepared for, once it actually happens."
     },
     {
       "id": "voc:C1:der Etat",
@@ -260,7 +260,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The money allotted to a body for a period, and the plan for spending it."
     },
     {
       "id": "voc:C1:der Schichtdienst",
@@ -272,7 +272,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Work organised in shifts around the clock."
     },
     {
       "id": "voc:C1:der Vorbehalt",
@@ -284,7 +284,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A condition or doubt attached to an otherwise positive answer."
     },
     {
       "id": "voc:C1:der Vorzug",
@@ -296,7 +296,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A quality that makes one option better than another."
     },
     {
       "id": "voc:C1:der Zulauf",
@@ -308,7 +308,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A steady arrival of new people to a place or an organisation."
     },
     {
       "id": "voc:C1:der Zuschuss",
@@ -320,7 +320,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Money paid towards a cost that someone else is mostly bearing."
     },
     {
       "id": "voc:C1:die Anschaffung",
@@ -332,7 +332,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A substantial purchase, and the thing bought."
     },
     {
       "id": "voc:C1:die Aufzählung",
@@ -344,7 +344,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Items named one after another, without the links between them."
     },
     {
       "id": "voc:C1:die Äußerung",
@@ -356,7 +356,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Something said, considered as an expression of a view."
     },
     {
       "id": "voc:C1:die Bequemlichkeit",
@@ -368,7 +368,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Ease and comfort; also the reluctance to make an effort."
     },
     {
       "id": "voc:C1:die Beschaffung",
@@ -380,7 +380,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Obtaining what is needed, and the process of arranging it."
     },
     {
       "id": "voc:C1:die Deutung",
@@ -392,7 +392,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The meaning someone reads into a text, a sign or an event."
     },
     {
       "id": "voc:C1:die Erhaltung",
@@ -404,7 +404,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Keeping something in existence and in good condition."
     },
     {
       "id": "voc:C1:die Erhebung",
@@ -416,7 +416,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A systematic collection of data, and the report of its findings."
     },
     {
       "id": "voc:C1:die Erpressung",
@@ -428,7 +428,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Forcing money or compliance out of someone by threat."
     },
     {
       "id": "voc:C1:die Erreichbarkeit",
@@ -440,7 +440,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "How easily a place can be got to, or a person got hold of."
     },
     {
       "id": "voc:C1:die Erwähnung",
@@ -452,7 +452,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A brief naming of something in passing."
     },
     {
       "id": "voc:C1:die Freiwilligkeit",
@@ -464,7 +464,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The quality of being done by choice rather than under obligation."
     },
     {
       "id": "voc:C1:die Gewissheit",
@@ -476,7 +476,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Knowledge held without doubt."
     },
     {
       "id": "voc:C1:die Gleichgültigkeit",
@@ -488,7 +488,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A lack of interest or concern about what happens."
     }
   ]
 }

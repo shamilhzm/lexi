@@ -92327,6 +92327,7 @@
     ]
   },
   "voc:B2:abschalten": {
+    "def": "To turn a machine off; also to stop thinking about work and unwind.",
     "ex": [
       {
         "de": "Bitte schalte den Computer ab.",
@@ -92356,6 +92357,7 @@
     ]
   },
   "voc:B2:abstellen": {
+    "def": "To put something down or park it; also to shut off a supply, or to stop a bad practice.",
     "ex": [
       {
         "de": "Wer die Rechnung sehen will, muss den Applaus abstellen.",
@@ -92395,6 +92397,7 @@
     ]
   },
   "voc:B2:abstreiten": {
+    "def": "To insist firmly that an accusation is untrue.",
     "ex": [
       {
         "de": "Er streitet den Vorwurf ab.",
@@ -92679,6 +92682,7 @@
     ]
   },
   "voc:B2:argumentieren": {
+    "def": "To set out reasons in support of a position.",
     "ex": [
       {
         "de": "Sie argumentiert sehr überzeugend.",
@@ -92723,6 +92727,7 @@
     ]
   },
   "voc:B2:auffällig": {
+    "def": "Standing out enough that people notice it without looking.",
     "ex": [
       {
         "de": "Auffällig ist vor allem der große Unterschied.",
@@ -93092,6 +93097,7 @@
     ]
   },
   "voc:B2:befassen": {
+    "def": "To occupy yourself with a subject and work through it.",
     "ex": [
       {
         "de": "Ich befasse mich seit Jahren mit diesem Thema.",
@@ -93271,6 +93277,7 @@
     ]
   },
   "voc:B2:benennen": {
+    "def": "To give something a name, or to state plainly what it is.",
     "ex": [
       {
         "de": "Man sollte das Problem klar benennen.",
@@ -93670,6 +93677,7 @@
     ]
   },
   "voc:B2:das Archiv": {
+    "def": "A store of documents and records kept for future reference.",
     "ex": [
       {
         "de": "Die Unterlagen liegen im Archiv.",
@@ -93969,6 +93977,7 @@
     ]
   },
   "voc:B2:das Homeoffice": {
+    "def": "Working from home instead of the employer’s premises, and the setup that allows it.",
     "defDe": "digitaler Arbeitsplatz in der persönlichen Wohnstätte",
     "ex": [
       {
@@ -93999,6 +94008,7 @@
     ]
   },
   "voc:B2:das Inhaltsverzeichnis": {
+    "def": "The list at the front of a book showing its parts and their pages.",
     "ex": [
       {
         "de": "Die Überschriften stehen im Inhaltsverzeichnis.",
@@ -94073,6 +94083,7 @@
     ]
   },
   "voc:B2:das Kriterium": {
+    "def": "A standard against which something is judged or chosen.",
     "ex": [
       {
         "de": "Das wichtigste Kriterium ist der Preis.",
@@ -94087,6 +94098,7 @@
     ]
   },
   "voc:B2:das Kulturgut": {
+    "def": "Something of lasting cultural value that a society sets out to preserve.",
     "defDe": "Werk oder Errungenschaft, das/die innerhalb einer Kultur einen Wert hat und deshalb bewahrt wird",
     "ex": [
       {
@@ -94147,6 +94159,7 @@
     ]
   },
   "voc:B2:das Lob": {
+    "def": "Words expressing approval of what someone has done.",
     "ex": [
       {
         "de": "Das Lob besetzt alles, was gesagt werden könnte.",
@@ -94266,6 +94279,7 @@
     ]
   },
   "voc:B2:das Prinzip": {
+    "def": "A basic rule of conduct or of how something works, held to consistently.",
     "ex": [
       {
         "de": "Das mache ich aus Prinzip nicht.",
@@ -94320,6 +94334,7 @@
     ]
   },
   "voc:B2:das Ritual": {
+    "def": "A set sequence of actions repeated the same way each time, by custom or belief.",
     "ex": [
       {
         "de": "Der Sonntagsspaziergang ist bei uns ein Ritual.",
@@ -94379,6 +94394,7 @@
     ]
   },
   "voc:B2:das Umland": {
+    "def": "The country and smaller towns surrounding a city.",
     "ex": [
       {
         "de": "Viele Familien ziehen ins Umland.",
@@ -94498,6 +94514,7 @@
     ]
   },
   "voc:B2:das Zertifikat": {
+    "def": "An official document confirming that you have passed or achieved something.",
     "ex": [
       {
         "de": "Nach der Prüfung bekommst du ein Zertifikat.",
@@ -94602,6 +94619,7 @@
     ]
   },
   "voc:B2:der Ablauf": {
+    "def": "The order in which the stages of an event follow one another.",
     "ex": [
       {
         "de": "Wie ist der Ablauf der Prüfung?",
@@ -94616,6 +94634,7 @@
     ]
   },
   "voc:B2:der Absatz": {
+    "def": "A block of text between two line breaks; in business, the volume of goods sold.",
     "ex": [
       {
         "de": "Der Absatz ist im vergangenen Jahr gestiegen.",
@@ -94660,6 +94679,7 @@
     ]
   },
   "voc:B2:der Algorithmus": {
+    "def": "A precise set of steps that solves a problem in a finite number of moves.",
     "defDe": "eine exakt beschriebene Vorgehensweise zum Lösen eines Problems in endlich vielen und eindeutig beschriebenen Schritten",
     "ex": [
       {
@@ -94730,6 +94750,7 @@
     ]
   },
   "voc:B2:der Anschlusszug": {
+    "def": "The onward train you change to in order to complete a journey.",
     "ex": [
       {
         "de": "Wir haben den Anschlusszug verpasst.",
@@ -94814,6 +94835,7 @@
     ]
   },
   "voc:B2:der Assistent": {
+    "def": "Someone employed to support another person in their work.",
     "ex": [
       {
         "de": "Der Assistent bereitet die Sitzung vor.",
@@ -94843,6 +94865,7 @@
     ]
   },
   "voc:B2:der Auftraggeber": {
+    "def": "The person or organisation that orders a piece of work and pays for it.",
     "ex": [
       {
         "de": "Der Auftraggeber will etwas anderes als eine Restaurierung.",
@@ -94872,6 +94895,7 @@
     ]
   },
   "voc:B2:der Ausfall": {
+    "def": "A service or event not taking place, or equipment ceasing to work.",
     "ex": [
       {
         "de": "Wegen des Ausfalls warteten wir zwei Stunden.",
@@ -94886,6 +94910,7 @@
     ]
   },
   "voc:B2:der Ausgleich": {
+    "def": "Something that offsets a strain and restores balance.",
     "ex": [
       {
         "de": "Sport ist für mich ein guter Ausgleich.",
@@ -94915,6 +94940,7 @@
     ]
   },
   "voc:B2:der Ausschnitt": {
+    "def": "A short section taken out of a longer text, recording or film.",
     "ex": [
       {
         "de": "Sie hören einen Ausschnitt aus einer Radiosendung.",
@@ -95064,6 +95090,7 @@
     ]
   },
   "voc:B2:der Brand": {
+    "def": "A destructive fire, especially one in a building.",
     "ex": [
       {
         "de": "Der Brand wurde schnell gelöscht.",
@@ -95078,6 +95105,7 @@
     ]
   },
   "voc:B2:der Bruch": {
+    "def": "A place where something has broken, including a broken bone.",
     "ex": [
       {
         "de": "Der Arzt stellte einen Bruch fest.",
@@ -95132,6 +95160,7 @@
     ]
   },
   "voc:B2:der Charakter": {
+    "def": "The settled qualities that make a person who they are.",
     "ex": [
       {
         "de": "Sie hat einen starken Charakter.",
@@ -95146,6 +95175,7 @@
     ]
   },
   "voc:B2:der Dachs": {
+    "def": "A stocky nocturnal mammal with black-and-white head stripes, living in a burrow.",
     "defDe": "ein Säugetier mit grauem Fell und markanter weiß-schwarzer Fellzeichnung am Kopf, das in den europäischen Wäldern anzutreffen ist; der Europäische Dachs",
     "ex": [
       {
@@ -95316,6 +95346,7 @@
     ]
   },
   "voc:B2:der Ersatz": {
+    "def": "Something put in place of what is missing or worn out.",
     "ex": [
       {
         "de": "Ein Mittagsschlaf ist kein Ersatz für die Nacht.",
@@ -95345,6 +95376,7 @@
     ]
   },
   "voc:B2:der Faden": {
+    "def": "A fine strand of twisted fibre, used for sewing.",
     "ex": [
       {
         "de": "Der Faden ist gerissen.",
@@ -95804,6 +95836,7 @@
     ]
   },
   "voc:B2:der Lesesaal": {
+    "def": "A quiet room in a library set aside for reading and study.",
     "ex": [
       {
         "de": "Im Lesesaal muss man leise sein.",
@@ -95923,6 +95956,7 @@
     ]
   },
   "voc:B2:der Neubau": {
+    "def": "A recently constructed building, or the act of building anew.",
     "ex": [
       {
         "de": "Neubau wirkt frühestens in fünf Jahren.",
@@ -96012,6 +96046,7 @@
     ]
   },
   "voc:B2:der Prüfer": {
+    "def": "The person who sets and marks an examination.",
     "ex": [
       {
         "de": "Der Prüfer stellt noch eine letzte Frage.",
@@ -96056,6 +96091,7 @@
     ]
   },
   "voc:B2:der Redner": {
+    "def": "Someone delivering a speech to an audience.",
     "ex": [
       {
         "de": "Der Redner spricht über bessere Arbeitstechniken.",
@@ -96100,6 +96136,7 @@
     ]
   },
   "voc:B2:der Ressourcenverbrauch": {
+    "def": "The rate at which raw materials, energy and water are used up.",
     "defDe": "Verwendung von Rohstoffen, Materialien, Energie, Wasser; auch zusätzlich: Überbauung/Nutzung von Land (anstatt naturbelassenem Land), Einsatz von Arbeitskraft/-zeit",
     "ex": [
       {
@@ -96130,6 +96167,7 @@
     ]
   },
   "voc:B2:der Rhythmus": {
+    "def": "A regular recurring pattern in sound, movement or daily life.",
     "ex": [
       {
         "de": "Ich mag diesen Rhythmus im Alltag.",
@@ -96219,6 +96257,7 @@
     ]
   },
   "voc:B2:der Speisewagen": {
+    "def": "The carriage of a train where meals are served.",
     "ex": [
       {
         "de": "Der Speisewagen befindet sich in der Mitte des Zuges.",
@@ -96428,6 +96467,7 @@
     ]
   },
   "voc:B2:der Treibhauseffekt": {
+    "def": "The warming of the earth caused by atmospheric gases trapping heat.",
     "defDe": "Klimatologie, Meteorologie: das Ansteigen der weltweiten Durchschnittstemperatur, bedingt durch die Abgabe und Anreicherung sog. Treibhausgase, vor allem Kohlendioxid, in die Erdatmosphäre",
     "ex": [
       {
@@ -96468,6 +96508,7 @@
     ]
   },
   "voc:B2:der Umbau": {
+    "def": "Building work that alters an existing structure rather than replacing it.",
     "ex": [
       {
         "de": "Der Umbau nebenan ist in drei Wochen fertig.",
@@ -96482,6 +96523,7 @@
     ]
   },
   "voc:B2:der Umfang": {
+    "def": "How much ground something covers — its size, range or scale.",
     "ex": [
       {
         "de": "Beide können nicht in vollem Umfang recht behalten.",
@@ -96601,6 +96643,7 @@
     ]
   },
   "voc:B2:der Vorwurf": {
+    "def": "A charge that someone has done wrong, made to their face or in public.",
     "ex": [
       {
         "de": "Der Vorwurf ist berechtigt.",
@@ -96815,6 +96858,7 @@
     ]
   },
   "voc:B2:der Zusatz": {
+    "def": "Something added to what was already there.",
     "ex": [
       {
         "de": "Freiwilligkeit ist kein Zusatz zum System.",
@@ -96949,6 +96993,7 @@
     ]
   },
   "voc:B2:die Ablenkung": {
+    "def": "Something that pulls your attention away from what you meant to do.",
     "ex": [
       {
         "de": "Alles andere ist nur Ablenkung.",
@@ -96993,6 +97038,7 @@
     ]
   },
   "voc:B2:die Absprache": {
+    "def": "An understanding reached between people about how to proceed.",
     "ex": [
       {
         "de": "Ohne die Absprachen am Morgen geht bei uns nichts.",
@@ -97097,6 +97143,7 @@
     ]
   },
   "voc:B2:die Angabe": {
+    "def": "A single item of information supplied on a form or in a statement.",
     "ex": [
       {
         "de": "Bitte prüfen Sie Ihre Angaben noch einmal.",
@@ -97176,6 +97223,7 @@
     ]
   },
   "voc:B2:die Anregung": {
+    "def": "A suggestion or stimulus that prompts thought or action.",
     "ex": [
       {
         "de": "Danke für die Anregung!",
@@ -97465,6 +97513,7 @@
     ]
   },
   "voc:B2:die Beförderung": {
+    "def": "A move to a higher position at work; also the carrying of goods or passengers.",
     "defDe": "das Befördern oder das Transportieren von Gütern oder Personen",
     "ex": [
       {
@@ -97510,6 +97559,7 @@
     ]
   },
   "voc:B2:die Begrünung": {
+    "def": "Planting greenery on or around a built structure.",
     "defDe": "Bepflanzen mit Sträuchern oder Bäumen, beispielsweise bei Bauwerken an Fassaden und auf Dächern oder in Grünanlagen",
     "ex": [
       {
@@ -97600,6 +97650,7 @@
     ]
   },
   "voc:B2:die Benutzung": {
+    "def": "The act of using something, and the terms on which it may be used.",
     "ex": [
       {
         "de": "Die Benutzung der Bibliothek ist kostenlos.",
@@ -97674,6 +97725,7 @@
     ]
   },
   "voc:B2:die Beschädigung": {
+    "def": "Harm done to an object that reduces its condition or its value.",
     "ex": [
       {
         "de": "Bei Beschädigung müssen Sie den Schaden ersetzen.",
@@ -97763,6 +97815,7 @@
     ]
   },
   "voc:B2:die Bohrmaschine": {
+    "def": "A power tool that bores holes.",
     "ex": [
       {
         "de": "Kannst du mir deine Bohrmaschine leihen?",
@@ -97942,6 +97995,7 @@
     ]
   },
   "voc:B2:die Disziplin": {
+    "def": "Self-control that keeps you at a task; also a branch of study or sport.",
     "ex": [
       {
         "de": "Dafür braucht man viel Disziplin.",
@@ -98091,6 +98145,7 @@
     ]
   },
   "voc:B2:die Einleitung": {
+    "def": "The opening section that sets up a text or a talk.",
     "ex": [
       {
         "de": "Denken Sie an eine Einleitung und einen Schluss.",
@@ -98135,6 +98190,7 @@
     ]
   },
   "voc:B2:die Elektromobilität": {
+    "def": "Transport powered by electricity rather than by fuel.",
     "defDe": "Teil des Verkehrs, bei dem Elektrofahrzeuge eingesetzt werden",
     "ex": [
       {
@@ -99155,6 +99211,7 @@
     ]
   },
   "voc:B2:die Klimazone": {
+    "def": "A broad band of the earth sharing similar climatic conditions.",
     "defDe": "ein Gebiet, das anhand unterschiedlicher grundlegender klimatischer Verhältnisse abgegrenzt ist",
     "ex": [
       {
@@ -99320,6 +99377,7 @@
     ]
   },
   "voc:B2:die Kundschaft": {
+    "def": "The customers of a business, taken together.",
     "ex": [
       {
         "de": "Die Kundschaft fährt inzwischen ins Zentrum am Stadtrand.",
@@ -99379,6 +99437,7 @@
     ]
   },
   "voc:B2:die Lehrkraft": {
+    "def": "A member of teaching staff — the neutral term used in official contexts.",
     "ex": [
       {
         "de": "Die Schule sucht eine neue Lehrkraft für Mathematik.",
@@ -99523,6 +99582,7 @@
     ]
   },
   "voc:B2:die Mietpreisbremse": {
+    "def": "A legal limit on how far rents may be raised.",
     "defDe": "politische Maßnahme, um extreme Mieterhöhungen zu verhindern",
     "ex": [
       {
@@ -99683,6 +99743,7 @@
     ]
   },
   "voc:B2:die Nische": {
+    "def": "A recess set into a wall; also a small specialised corner of a market.",
     "ex": [
       {
         "de": "In der Nische steht ein kleines Regal.",
@@ -99852,6 +99913,7 @@
     ]
   },
   "voc:B2:die Produktivität": {
+    "def": "How much is produced for the time and effort put in.",
     "ex": [
       {
         "de": "Über Produktivität wird ständig geredet.",
@@ -100156,6 +100218,7 @@
     ]
   },
   "voc:B2:die Selbstfürsorge": {
+    "def": "Deliberately looking after your own health and wellbeing.",
     "defDe": "der Zustand einer Person, in dem die Fähigkeit zur Selbstpflege/Selbstfürsorge herabgesetzt ist",
     "ex": [
       {
@@ -100231,6 +100294,7 @@
     ]
   },
   "voc:B2:die Sperrung": {
+    "def": "The closing of a road or a route to traffic.",
     "ex": [
       {
         "de": "Die Sperrung der Straße gilt ab Montag.",
@@ -100515,6 +100579,7 @@
     ]
   },
   "voc:B2:die Unterbrechung": {
+    "def": "A break that stops something part-way through.",
     "ex": [
       {
         "de": "Nach einer Unterbrechung dauert es lange, wieder hineinzufinden.",
@@ -100559,6 +100624,7 @@
     ]
   },
   "voc:B2:die Verarbeitung": {
+    "def": "The working of raw material or data into a finished form.",
     "ex": [
       {
         "de": "Die Verarbeitung findet auf dem Gerät selbst statt.",
@@ -100588,6 +100654,7 @@
     ]
   },
   "voc:B2:die Verdichtung": {
+    "def": "Packing something more tightly; in towns, building more closely on the same land.",
     "defDe": "Veränderung: das Sichverdichten; das Verdichten von Komprimierbarem",
     "ex": [
       {
@@ -101113,6 +101180,7 @@
     ]
   },
   "voc:B2:die Zersiedelung": {
+    "def": "The spread of scattered building out across open country.",
     "defDe": "Bewirken/Vorhandensein von übermäßiger, gestreuter Bebauung",
     "ex": [
       {
@@ -101229,6 +101297,7 @@
     ]
   },
   "voc:B2:die Öffentlichkeit": {
+    "def": "People in general, considered as an audience with opinions.",
     "ex": [
       {
         "de": "Die Öffentlichkeit reagiert bislang gelassen.",
@@ -101313,6 +101382,7 @@
     ]
   },
   "voc:B2:dokumentieren": {
+    "def": "To record what happens so that it can be checked later.",
     "ex": [
       {
         "de": "Wir dokumentieren jeden Schritt.",
@@ -101402,6 +101472,7 @@
     ]
   },
   "voc:B2:ehren": {
+    "def": "To show public respect for someone’s achievement.",
     "ex": [
       {
         "de": "Die Stadt ehrt ihn mit einer Ausstellung.",
@@ -101586,6 +101657,7 @@
     ]
   },
   "voc:B2:einschlafen": {
+    "def": "To pass from being awake into sleep.",
     "defDe": "to fall asleep; to pass away, die (peacefully)",
     "ex": [
       {
@@ -101631,6 +101703,7 @@
     ]
   },
   "voc:B2:einschätzen": {
+    "def": "To form a judgement about a situation or a person.",
     "ex": [
       {
         "de": "Wie schätzen Sie die Lage ein?",
@@ -102180,6 +102253,7 @@
     ]
   },
   "voc:B2:expandieren": {
+    "def": "To grow larger, or to extend a business into new places.",
     "defDe": "sich oder etwas ausbauen beziehungsweise vergrößern",
     "ex": [
       {
@@ -102225,6 +102299,7 @@
     ]
   },
   "voc:B2:fachlich": {
+    "def": "Relating to the subject matter itself, and to expertise in it.",
     "ex": [
       {
         "de": "Fachlich funktioniert die Zusammenarbeit tadellos.",
@@ -102354,6 +102429,7 @@
     ]
   },
   "voc:B2:freigeben": {
+    "def": "To release something for use after it has been held back.",
     "ex": [
       {
         "de": "Die Stadt gibt die Straße morgen wieder frei.",
@@ -102518,6 +102594,7 @@
     ]
   },
   "voc:B2:gelegentlich": {
+    "def": "Happening now and then rather than regularly.",
     "ex": [
       {
         "de": "Der Aufwand wird gelegentlich bezweifelt.",
@@ -102692,6 +102769,7 @@
     ]
   },
   "voc:B2:gleichgültig": {
+    "def": "Not caring either way; of a matter, making no difference.",
     "ex": [
       {
         "de": "Für die Händlerin ist es gleichgültig, woher die Kundschaft kommt.",
@@ -102706,6 +102784,7 @@
     ]
   },
   "voc:B2:gleichmäßig": {
+    "def": "Keeping the same rate or spacing throughout.",
     "ex": [
       {
         "de": "Das Geräusch ist gleichmäßig und stört kaum.",
@@ -103015,6 +103094,7 @@
     ]
   },
   "voc:B2:hinterlegen": {
+    "def": "To leave something in someone’s keeping until it is called for.",
     "ex": [
       {
         "de": "Bitte hinterlegen Sie den Schlüssel bei der Nachbarin.",
@@ -103309,6 +103389,7 @@
     ]
   },
   "voc:B2:kommentieren": {
+    "def": "To give your view on something publicly, in speech or in writing.",
     "defDe": "einen Sachverhalt von einem bestimmten Standpunkt aus näher erläutern, einen Kommentar abgeben",
     "ex": [
       {
@@ -103354,6 +103435,7 @@
     ]
   },
   "voc:B2:konkurrenzfähig": {
+    "def": "Good enough or cheap enough to hold its own against rivals.",
     "defDe": "in der Lage, mit anderen zu konkurrieren",
     "ex": [
       {
@@ -103639,6 +103721,7 @@
     ]
   },
   "voc:B2:messbar": {
+    "def": "Large or definite enough to be established by measurement.",
     "ex": [
       {
         "de": "Er schläft messbar besser.",
@@ -103698,6 +103781,7 @@
     ]
   },
   "voc:B2:mühsam": {
+    "def": "Costing a lot of effort for slow progress.",
     "ex": [
       {
         "de": "Die Reise war lang und mühsam.",
@@ -104512,6 +104596,7 @@
     ]
   },
   "voc:B2:spontan": {
+    "def": "Done on the spur of the moment, without planning.",
     "ex": [
       {
         "de": "Spontan würde ich Ja sagen.",
@@ -104646,6 +104731,7 @@
     ]
   },
   "voc:B2:strukturieren": {
+    "def": "To give something a clear order and shape.",
     "ex": [
       {
         "de": "Strukturieren Sie Ihren Vortrag klar.",
@@ -104955,6 +105041,7 @@
     ]
   },
   "voc:B2:unverbindlich": {
+    "def": "Carrying no commitment — you may still walk away afterwards.",
     "ex": [
       {
         "de": "Die Beratung ist kostenlos und unverbindlich.",
@@ -105119,6 +105206,7 @@
     ]
   },
   "voc:B2:verfallen": {
+    "def": "To cease to be valid once its time has run out; of a building, to fall into ruin.",
     "ex": [
       {
         "de": "Die Karten verfallen am Monatsende.",
@@ -105163,6 +105251,7 @@
     ]
   },
   "voc:B2:vergleichbar": {
+    "def": "Similar enough that the two can usefully be set side by side.",
     "ex": [
       {
         "de": "Das ist vergleichbar mit einer Telefonnummer.",
@@ -105207,6 +105296,7 @@
     ]
   },
   "voc:B2:verlagern": {
+    "def": "To move an activity from one place to another.",
     "ex": [
       {
         "de": "Die Firma verlagert ihre Produktion ins Ausland.",
@@ -105386,6 +105476,7 @@
     ]
   },
   "voc:B2:verwalten": {
+    "def": "To look after and run something on behalf of others.",
     "ex": [
       {
         "de": "Die Politik verwaltet die Knappheit, statt sie zu beenden.",
@@ -105415,6 +105506,7 @@
     ]
   },
   "voc:B2:verzögern": {
+    "def": "To make something happen later than planned.",
     "ex": [
       {
         "de": "Die Sanierung verzögert sich um ein Jahr.",
@@ -105709,6 +105801,7 @@
     ]
   },
   "voc:B2:vorziehen": {
+    "def": "To choose one thing over another; also to move an appointment earlier.",
     "ex": [
       {
         "de": "Manche Eigentümer würden eine leere Fläche vorziehen.",
@@ -105843,6 +105936,7 @@
     ]
   },
   "voc:B2:wirksam": {
+    "def": "Actually producing the result it is meant to produce.",
     "ex": [
       {
         "de": "Tempo dreißig ist besonders wirksam.",
@@ -105857,6 +105951,7 @@
     ]
   },
   "voc:B2:wirtschaftlich": {
+    "def": "To do with the economy; also run at a good ratio of cost to result.",
     "defDe": "die Wirtschaft, eine Volks- oder Betriebswirtschaft betreffend; ökonomisch",
     "ex": [
       {
@@ -105917,6 +106012,7 @@
     ]
   },
   "voc:B2:zitieren": {
+    "def": "To repeat someone’s exact words and say whose they are.",
     "ex": [
       {
         "de": "Diese Sätze werden regelmäßig zitiert.",
@@ -105991,6 +106087,7 @@
     ]
   },
   "voc:B2:zurechtkommen": {
+    "def": "To manage a situation well enough on your own.",
     "ex": [
       {
         "de": "Ohne Hilfe wird sie damit nicht zurechtkommen.",
@@ -106050,6 +106147,7 @@
     ]
   },
   "voc:B2:zurückhaltend": {
+    "def": "Holding back rather than pushing forward, in manner or in judgement.",
     "ex": [
       {
         "de": "Wer das begriffen hat, wird zurückhaltend.",
@@ -106179,6 +106277,7 @@
     ]
   },
   "voc:B2:ästhetisch": {
+    "def": "Concerned with beauty, or pleasing to the eye.",
     "defDe": "auf die Sinne des Betrachters harmonisch wirkend",
     "ex": [
       {
@@ -106224,6 +106323,7 @@
     ]
   },
   "voc:B2:örtlich": {
+    "def": "Confined to one particular place rather than general.",
     "ex": [
       {
         "de": "Örtlich fällt morgen Regen.",
@@ -106238,6 +106338,7 @@
     ]
   },
   "voc:B2:übereinstimmen": {
+    "def": "To match, or to be of the same opinion as someone else.",
     "ex": [
       {
         "de": "Die Aussage soll mit dem Textinhalt übereinstimmen.",
@@ -106267,6 +106368,7 @@
     ]
   },
   "voc:B2:überflüssig": {
+    "def": "Not needed, because it adds nothing that is not already there.",
     "ex": [
       {
         "de": "Diese zweite Sitzung war überflüssig.",
@@ -106311,6 +106413,7 @@
     ]
   },
   "voc:B2:überschreiten": {
+    "def": "To go over a limit, a line or a border.",
     "ex": [
       {
         "de": "Der Lärm überschreitet den Grenzwert.",
@@ -106475,6 +106578,7 @@
     ]
   },
   "voc:C1:abrufbar": {
+    "def": "Available to be called up at any moment, without waiting.",
     "ex": [
       {
         "de": "Wissen ist heute jederzeit abrufbar.",
@@ -106639,6 +106743,7 @@
     ]
   },
   "voc:C1:anknüpfen": {
+    "def": "To take up a point already made and carry it further.",
     "ex": [
       {
         "de": "Daran möchte ich gern anknüpfen.",
@@ -106728,6 +106833,7 @@
     ]
   },
   "voc:C1:auffangen": {
+    "def": "To catch something falling; also to absorb a shock or blunt an objection.",
     "ex": [
       {
         "de": "Diesen Einwand kann man leicht auffangen.",
@@ -106787,6 +106893,7 @@
     ]
   },
   "voc:C1:aufschlussreich": {
+    "def": "Telling you something you did not know, and worth knowing.",
     "ex": [
       {
         "de": "Das Gespräch war aufschlussreich.",
@@ -107011,6 +107118,7 @@
     ]
   },
   "voc:C1:banal": {
+    "def": "So ordinary and obvious that it carries no interest.",
     "ex": [
       {
         "de": "Der Rat klingt banal und hilft trotzdem.",
@@ -107075,6 +107183,7 @@
     ]
   },
   "voc:C1:beeinträchtigen": {
+    "def": "To make something work less well than it should.",
     "ex": [
       {
         "de": "Der Ausfall beeinträchtigt mehrere Mietparteien.",
@@ -107119,6 +107228,7 @@
     ]
   },
   "voc:C1:belehren": {
+    "def": "To instruct someone in a way that assumes they know less than you.",
     "ex": [
       {
         "de": "Niemand möchte die Leute belehren.",
@@ -107133,6 +107243,7 @@
     ]
   },
   "voc:C1:beliebig": {
+    "def": "Any one you like, chosen without a reason that has to be given.",
     "ex": [
       {
         "de": "Beliebig ist es nicht, es ist begründungspflichtig.",
@@ -107297,6 +107408,7 @@
     ]
   },
   "voc:C1:beziffern": {
+    "def": "To state something as a number rather than in words.",
     "ex": [
       {
         "de": "Diese Forderung lässt sich beziffern.",
@@ -107446,6 +107558,7 @@
     ]
   },
   "voc:C1:das Fachgebiet": {
+    "def": "The particular subject in which someone has expertise.",
     "ex": [
       {
         "de": "Das ist nicht mein Fachgebiet.",
@@ -107460,6 +107573,7 @@
     ]
   },
   "voc:C1:das Fazit": {
+    "def": "The conclusion drawn once everything has been weighed up.",
     "ex": [
       {
         "de": "Mein Fazit fällt weniger eindeutig aus.",
@@ -107594,6 +107708,7 @@
     ]
   },
   "voc:C1:das Gehäuse": {
+    "def": "The outer shell that holds and protects the workings of a device.",
     "ex": [
       {
         "de": "Das Gehäuse lässt sich nicht öffnen.",
@@ -107788,6 +107903,7 @@
     ]
   },
   "voc:C1:das Prestige": {
+    "def": "The standing something enjoys in the eyes of others.",
     "ex": [
       {
         "de": "Der Beruf hat ein hohes Prestige.",
@@ -107932,6 +108048,7 @@
     ]
   },
   "voc:C1:das Vokabular": {
+    "def": "The set of words available for talking about a particular field.",
     "ex": [
       {
         "de": "Uns fehlt ein Vokabular ohne Pathos.",
@@ -107946,6 +108063,7 @@
     ]
   },
   "voc:C1:das Zehntel": {
+    "def": "One part of ten into which a whole is divided.",
     "ex": [
       {
         "de": "Nur ein Zehntel der Fläche ist bebaut.",
@@ -108125,6 +108243,7 @@
     ]
   },
   "voc:C1:der Anbau": {
+    "def": "The growing of crops; also a wing added onto an existing building.",
     "ex": [
       {
         "de": "Der Anbau von Getreide lohnt sich hier kaum.",
@@ -108184,6 +108303,7 @@
     ]
   },
   "voc:C1:der Befund": {
+    "def": "What an examination or investigation established.",
     "defDe": "Ergebnis einer Prüfung, eines Tests; Bericht (beispielsweise eines Sachverständigen/Mediziners) darüber",
     "ex": [
       {
@@ -108259,6 +108379,7 @@
     ]
   },
   "voc:C1:der Egoismus": {
+    "def": "Putting your own interests first at other people’s expense.",
     "ex": [
       {
         "de": "Sein Egoismus hat die Freundschaft zerstört.",
@@ -108288,6 +108409,7 @@
     ]
   },
   "voc:C1:der Eingriff": {
+    "def": "A deliberate act that alters a course of events; in medicine, an operation.",
     "ex": [
       {
         "de": "Jeder Eingriff wird genau dokumentiert.",
@@ -108332,6 +108454,7 @@
     ]
   },
   "voc:C1:der Ernstfall": {
+    "def": "The situation you have prepared for, once it actually happens.",
     "ex": [
       {
         "de": "Im Ernstfall rufen Sie die Feuerwehr.",
@@ -108346,6 +108469,7 @@
     ]
   },
   "voc:C1:der Etat": {
+    "def": "The money allotted to a body for a period, and the plan for spending it.",
     "ex": [
       {
         "de": "Ein Etat wächst, ein anderer stagniert.",
@@ -108585,6 +108709,7 @@
     ]
   },
   "voc:C1:der Schichtdienst": {
+    "def": "Work organised in shifts around the clock.",
     "ex": [
       {
         "de": "Sie arbeitet im Schichtdienst.",
@@ -108854,6 +108979,7 @@
     ]
   },
   "voc:C1:der Vorbehalt": {
+    "def": "A condition or doubt attached to an otherwise positive answer.",
     "ex": [
       {
         "de": "Er stimmte dem Plan nur unter Vorbehalt zu.",
@@ -108868,6 +108994,7 @@
     ]
   },
   "voc:C1:der Vorzug": {
+    "def": "A quality that makes one option better than another.",
     "ex": [
       {
         "de": "Ihre Serie hat den Vorzug, drei Positionen nebeneinanderzustellen.",
@@ -108942,6 +109069,7 @@
     ]
   },
   "voc:C1:der Zulauf": {
+    "def": "A steady arrival of new people to a place or an organisation.",
     "ex": [
       {
         "de": "Der Verein hat großen Zulauf.",
@@ -108956,6 +109084,7 @@
     ]
   },
   "voc:C1:der Zuschuss": {
+    "def": "Money paid towards a cost that someone else is mostly bearing.",
     "ex": [
       {
         "de": "Die Stadt zahlt einen Zuschuss zur Miete.",
@@ -109090,6 +109219,7 @@
     ]
   },
   "voc:C1:die Anschaffung": {
+    "def": "A substantial purchase, and the thing bought.",
     "ex": [
       {
         "de": "Ein neues Auto ist eine teure Anschaffung.",
@@ -109149,6 +109279,7 @@
     ]
   },
   "voc:C1:die Aufzählung": {
+    "def": "Items named one after another, without the links between them.",
     "ex": [
       {
         "de": "Die Aufzählung war viel zu lang.",
@@ -109313,6 +109444,7 @@
     ]
   },
   "voc:C1:die Bequemlichkeit": {
+    "def": "Ease and comfort; also the reluctance to make an effort.",
     "ex": [
       {
         "de": "Aus Bequemlichkeit nimmt er immer das Auto.",
@@ -109342,6 +109474,7 @@
     ]
   },
   "voc:C1:die Beschaffung": {
+    "def": "Obtaining what is needed, and the process of arranging it.",
     "ex": [
       {
         "de": "Die Beschaffung der Unterlagen dauert.",
@@ -109446,6 +109579,7 @@
     ]
   },
   "voc:C1:die Deutung": {
+    "def": "The meaning someone reads into a text, a sign or an event.",
     "ex": [
       {
         "de": "Diese Deutung des Gedichts überzeugt mich nicht.",
@@ -109565,6 +109699,7 @@
     ]
   },
   "voc:C1:die Erhaltung": {
+    "def": "Keeping something in existence and in good condition.",
     "ex": [
       {
         "de": "Die Erhaltung alter Sorten kostet Zeit.",
@@ -109579,6 +109714,7 @@
     ]
   },
   "voc:C1:die Erhebung": {
+    "def": "A systematic collection of data, and the report of its findings.",
     "ex": [
       {
         "de": "Nach einer Erhebung des Verbands lesen 26 Prozent täglich.",
@@ -109608,6 +109744,7 @@
     ]
   },
   "voc:C1:die Erpressung": {
+    "def": "Forcing money or compliance out of someone by threat.",
     "ex": [
       {
         "de": "Er wurde wegen Erpressung verurteilt.",
@@ -109622,6 +109759,7 @@
     ]
   },
   "voc:C1:die Erreichbarkeit": {
+    "def": "How easily a place can be got to, or a person got hold of.",
     "ex": [
       {
         "de": "Es geht um die Erreichbarkeit der Innenstadt.",
@@ -109651,6 +109789,7 @@
     ]
   },
   "voc:C1:die Erwähnung": {
+    "def": "A brief naming of something in passing.",
     "ex": [
       {
         "de": "Eine Erwähnung im Jahresbericht wäre schon viel.",
@@ -109755,6 +109894,7 @@
     ]
   },
   "voc:C1:die Freiwilligkeit": {
+    "def": "The quality of being done by choice rather than under obligation.",
     "ex": [
       {
         "de": "Freiwilligkeit ist hier die Voraussetzung.",
@@ -109934,6 +110074,7 @@
     ]
   },
   "voc:C1:die Gewissheit": {
+    "def": "Knowledge held without doubt.",
     "ex": [
       {
         "de": "Was bleibt, ist die Gewissheit, dass es weitergeht.",
@@ -109963,6 +110104,7 @@
     ]
   },
   "voc:C1:die Gleichgültigkeit": {
+    "def": "A lack of interest or concern about what happens.",
     "ex": [
       {
         "de": "Seine Gleichgültigkeit verletzte sie.",
@@ -110292,6 +110434,7 @@
     ]
   },
   "voc:C1:die Konfession": {
+    "def": "The branch of a religion a person belongs to.",
     "ex": [
       {
         "de": "Erwartet wird die Zugehörigkeit zu einer Konfession.",
@@ -110376,6 +110519,7 @@
     ]
   },
   "voc:C1:die Legitimität": {
+    "def": "The quality of being recognised as rightful, and so entitled to obedience.",
     "defDe": "Eigenschaft, anerkennungswürdig (legitim) zu sein, weil gewisse moralische, aber auch gesetzliche Normen und Wertvorstellungen eingehalten sind",
     "ex": [
       {
@@ -110401,6 +110545,7 @@
     ]
   },
   "voc:C1:die Leinwand": {
+    "def": "The stretched cloth a painting is made on; also the surface a film is projected onto.",
     "ex": [
       {
         "de": "Man verbringt viele Stunden nah an einer Leinwand.",
@@ -110815,6 +110960,7 @@
     ]
   },
   "voc:C1:die Replikation": {
+    "def": "Repeating a study to see whether its result holds; in biology, the copying of genetic material.",
     "defDe": "zelluläre Synthese; Erzeugen einer Kopie durch Verdoppelung genetischen Materials (DNA/RNA), zum Beispiel eines Chromosoms oder Virus",
     "ex": [
       {
@@ -110845,6 +110991,7 @@
     ]
   },
   "voc:C1:die Restaurierung": {
+    "def": "Careful repair that returns a work or a building to an earlier state.",
     "ex": [
       {
         "de": "Die meisten Schäden stammen von früheren Restaurierungen.",
@@ -110919,6 +111066,7 @@
     ]
   },
   "voc:C1:die Semantik": {
+    "def": "The study of meaning in language, and the meaning a form carries.",
     "defDe": "Disziplin der die Lehre von der Bedeutung von einfachen und komplexen sprachlichen Zeichen, also Morphemen, Wörtern, Sätzen und so weiter",
     "ex": [
       {
@@ -111199,6 +111347,7 @@
     ]
   },
   "voc:C1:die Trägheit": {
+    "def": "Resistance to being set in motion or to changing course, in physics or in people.",
     "ex": [
       {
         "de": "Manche Eigentümer handeln aus schlichter Trägheit nicht.",
@@ -111258,6 +111407,7 @@
     ]
   },
   "voc:C1:die Verdrängung": {
+    "def": "Pushing something out of its place; in psychology, pushing it out of conscious thought.",
     "ex": [
       {
         "de": "In vielen Vierteln führt der Umbau zur Verdrängung.",
@@ -111317,6 +111467,7 @@
     ]
   },
   "voc:C1:die Verlagerung": {
+    "def": "A move of an activity or a weight from one place to another.",
     "ex": [
       {
         "de": "Das ist keine Leistungseinbuße, sondern eine Verlagerung.",
@@ -111331,6 +111482,7 @@
     ]
   },
   "voc:C1:die Verlegenheit": {
+    "def": "The discomfort of being caught without a good answer.",
     "ex": [
       {
         "de": "Die Frage brachte ihn in Verlegenheit.",
@@ -111360,6 +111512,7 @@
     ]
   },
   "voc:C1:die Verschiebung": {
+    "def": "A move to a later time, or a shift in position.",
     "ex": [
       {
         "de": "Die Verschiebung des Termins war nötig.",
@@ -111479,6 +111632,7 @@
     ]
   },
   "voc:C1:die Vorgabe": {
+    "def": "A requirement set in advance that the work must meet.",
     "ex": [
       {
         "de": "Die Vorgaben der Ordnung sind eindeutig.",
@@ -111793,6 +111947,7 @@
     ]
   },
   "voc:C1:die Äußerung": {
+    "def": "Something said, considered as an expression of a view.",
     "ex": [
       {
         "de": "Welche Äußerung passt zu welcher Überschrift?",
@@ -111807,6 +111962,7 @@
     ]
   },
   "voc:C1:die Ökonomie": {
+    "def": "The economy of a place; also the study of how resources are allocated.",
     "ex": [
       {
         "de": "Die Ökonomie öffentlicher Debatten begünstigt das Reichliche.",
@@ -111836,6 +111992,7 @@
     ]
   },
   "voc:C1:differenzieren": {
+    "def": "To draw out the distinctions within something treated as one.",
     "ex": [
       {
         "de": "Hier muss man differenzieren.",
@@ -112135,6 +112292,7 @@
     ]
   },
   "voc:C1:entziehen": {
+    "def": "To take something away from someone who had been granted it.",
     "ex": [
       {
         "de": "Man entzog ihm den Führerschein.",
@@ -112164,6 +112322,7 @@
     ]
   },
   "voc:C1:ergreifen": {
+    "def": "To take hold of something firmly; also to take a measure or seize an opportunity.",
     "ex": [
       {
         "de": "Die Regierung ergreift strenge Maßnahmen.",
@@ -112193,6 +112352,7 @@
     ]
   },
   "voc:C1:ernüchternd": {
+    "def": "Bringing you down to a more realistic view than you had hoped for.",
     "ex": [
       {
         "de": "Das Ergebnis ist ernüchternd.",
@@ -112592,6 +112752,7 @@
     ]
   },
   "voc:C1:hartnäckig": {
+    "def": "Refusing to give way, and lasting far longer than expected.",
     "ex": [
       {
         "de": "Dieses Missverständnis hält sich hartnäckig.",
@@ -112651,6 +112812,7 @@
     ]
   },
   "voc:C1:hinfällig": {
+    "def": "No longer applying, because what it rested on has fallen away.",
     "ex": [
       {
         "de": "Dann wäre mein Argument hinfällig.",
@@ -112920,6 +113082,7 @@
     ]
   },
   "voc:C1:kognitiv": {
+    "def": "Having to do with knowing, thinking and understanding.",
     "defDe": "auf das Wissen, Verstehen, Denken eines Lebewesens bezogen",
     "ex": [
       {
@@ -112970,6 +113133,7 @@
     ]
   },
   "voc:C1:konstruktiv": {
+    "def": "Aimed at building something better rather than at finding fault.",
     "defDe": "auf die Konstruktion bezogen",
     "ex": [
       {
@@ -112985,6 +113149,7 @@
     ]
   },
   "voc:C1:kontextuell": {
+    "def": "Arising from the surrounding context rather than from the thing itself.",
     "defDe": "Linguistik: den Kontext betreffend, zum Kontext gehörend, auf dem Kontext beruhend",
     "ex": [
       {
@@ -113090,6 +113255,7 @@
     ]
   },
   "voc:C1:legitim": {
+    "def": "Justified, and defensible if challenged.",
     "ex": [
       {
         "de": "Das ist ein legitimer Wunsch.",
@@ -113119,6 +113285,7 @@
     ]
   },
   "voc:C1:lesbar": {
+    "def": "Clear enough to be read, whether in handwriting or in sense.",
     "ex": [
       {
         "de": "Wir entscheiden, welchen Zustand wir für lesbar halten.",
@@ -113388,6 +113555,7 @@
     ]
   },
   "voc:C1:nachgeben": {
+    "def": "To stop resisting and let the other side have its way.",
     "ex": [
       {
         "de": "In einem Punkt möchte ich nachgeben.",
@@ -113552,6 +113720,7 @@
     ]
   },
   "voc:C1:pragmatisch": {
+    "def": "Guided by what actually works rather than by principle.",
     "ex": [
       {
         "de": "Die Antwort fällt pragmatisch aus.",
@@ -113946,6 +114115,7 @@
     ]
   },
   "voc:C1:stagnieren": {
+    "def": "To stop growing or moving, and stay where it is.",
     "ex": [
       {
         "de": "Ein Etat wächst, während der andere stagniert.",
@@ -114020,6 +114190,7 @@
     ]
   },
   "voc:C1:tadellos": {
+    "def": "Leaving nothing at all to criticise.",
     "ex": [
       {
         "de": "Die Technik funktioniert tadellos.",
@@ -114119,6 +114290,7 @@
     ]
   },
   "voc:C1:umkehrbar": {
+    "def": "Able to be undone, returning things to how they were.",
     "ex": [
       {
         "de": "Jeder Eingriff muss umkehrbar sein.",
@@ -114238,6 +114410,7 @@
     ]
   },
   "voc:C1:unterdurchschnittlich": {
+    "def": "Below the usual level, measured against the average.",
     "ex": [
       {
         "de": "Sie wird dafür unterdurchschnittlich entlohnt.",
@@ -114502,6 +114675,7 @@
     ]
   },
   "voc:C1:verheerend": {
+    "def": "Causing damage on a scale that is hard to repair.",
     "ex": [
       {
         "de": "Betriebswirtschaftlich vernünftig, stadtplanerisch verheerend.",
@@ -114531,6 +114705,7 @@
     ]
   },
   "voc:C1:vermehren": {
+    "def": "To make something greater in number or amount.",
     "ex": [
       {
         "de": "Anerkennung lässt sich kostenlos vermehren.",
@@ -114890,6 +115065,7 @@
     ]
   },
   "voc:C1:zumutbar": {
+    "def": "Reasonable to ask of someone, given what it costs them.",
     "ex": [
       {
         "de": "Die Frage war, ob das zumutbar sei.",
@@ -114944,6 +115120,7 @@
     ]
   },
   "voc:C1:zutreffend": {
+    "def": "Correct as a description of the case in hand.",
     "ex": [
       {
         "de": "Die Aussage ist in der Sache zutreffend.",
@@ -115213,6 +115390,7 @@
     ]
   },
   "voc:C2:beschönigen": {
+    "def": "To describe something as better than it was, playing down what is ugly in it.",
     "defDe": "etwas als besser, schöner darstellen, als es in Wirklichkeit ist",
     "ex": [
       {
@@ -115348,6 +115526,7 @@
     ]
   },
   "voc:C2:das Schlagwort": {
+    "def": "A catchy phrase that stands in for a whole idea, and is often repeated without thought.",
     "defDe": "weithin bekannte, griffige Formulierung einer Idee oder Vorstellung, die vor allem in der gesellschaftlichen oder politischen Auseinandersetzung oder auch in der Werbung als programmatisch oder vorbildlich hingestellt werden soll",
     "ex": [
       {
@@ -116608,6 +116787,7 @@
     ]
   },
   "voc:C2:die Suggestion": {
+    "def": "An idea planted in someone’s mind without being stated outright.",
     "defDe": "etwas, das jemandem suggeriert wird",
     "ex": [
       {

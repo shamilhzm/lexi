@@ -19,7 +19,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The branch of a religion a person belongs to."
     },
     {
       "id": "voc:C1:die Legitimität",
@@ -32,7 +32,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The quality of being recognised as rightful, and so entitled to obedience."
     },
     {
       "id": "voc:C1:die Leinwand",
@@ -44,7 +44,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The stretched cloth a painting is made on; also the surface a film is projected onto."
     },
     {
       "id": "voc:C1:die Ökonomie",
@@ -56,7 +56,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The economy of a place; also the study of how resources are allocated."
     },
     {
       "id": "voc:C1:die Replikation",
@@ -69,7 +69,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Repeating a study to see whether its result holds; in biology, the copying of genetic material."
     },
     {
       "id": "voc:C1:die Restaurierung",
@@ -81,7 +81,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Careful repair that returns a work or a building to an earlier state."
     },
     {
       "id": "voc:C1:die Semantik",
@@ -94,7 +94,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The study of meaning in language, and the meaning a form carries."
     },
     {
       "id": "voc:C1:die Trägheit",
@@ -106,7 +106,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Resistance to being set in motion or to changing course, in physics or in people."
     },
     {
       "id": "voc:C1:die Verdrängung",
@@ -118,7 +118,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Pushing something out of its place; in psychology, pushing it out of conscious thought."
     },
     {
       "id": "voc:C1:die Verlagerung",
@@ -130,7 +130,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A move of an activity or a weight from one place to another."
     },
     {
       "id": "voc:C1:die Verlegenheit",
@@ -142,7 +142,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The discomfort of being caught without a good answer."
     },
     {
       "id": "voc:C1:die Verschiebung",
@@ -154,7 +154,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A move to a later time, or a shift in position."
     },
     {
       "id": "voc:C1:die Vorgabe",
@@ -166,7 +166,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A requirement set in advance that the work must meet."
     },
     {
       "id": "voc:C1:differenzieren",
@@ -178,7 +178,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To draw out the distinctions within something treated as one."
     },
     {
       "id": "voc:C1:entziehen",
@@ -190,7 +190,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To take something away from someone who had been granted it."
     },
     {
       "id": "voc:C1:ergreifen",
@@ -202,7 +202,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To take hold of something firmly; also to take a measure or seize an opportunity."
     },
     {
       "id": "voc:C1:ernüchternd",
@@ -214,7 +214,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Bringing you down to a more realistic view than you had hoped for."
     },
     {
       "id": "voc:C1:hartnäckig",
@@ -226,7 +226,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Refusing to give way, and lasting far longer than expected."
     },
     {
       "id": "voc:C1:hinfällig",
@@ -238,7 +238,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "No longer applying, because what it rested on has fallen away."
     },
     {
       "id": "voc:C1:kognitiv",
@@ -251,7 +251,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Having to do with knowing, thinking and understanding."
     },
     {
       "id": "voc:C1:konstruktiv",
@@ -264,7 +264,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Aimed at building something better rather than at finding fault."
     },
     {
       "id": "voc:C1:kontextuell",
@@ -277,7 +277,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Arising from the surrounding context rather than from the thing itself."
     },
     {
       "id": "voc:C1:legitim",
@@ -289,7 +289,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Justified, and defensible if challenged."
     },
     {
       "id": "voc:C1:lesbar",
@@ -301,7 +301,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Clear enough to be read, whether in handwriting or in sense."
     },
     {
       "id": "voc:C1:nachgeben",
@@ -313,7 +313,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To stop resisting and let the other side have its way."
     },
     {
       "id": "voc:C1:pragmatisch",
@@ -325,7 +325,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Guided by what actually works rather than by principle."
     },
     {
       "id": "voc:C1:stagnieren",
@@ -337,7 +337,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To stop growing or moving, and stay where it is."
     },
     {
       "id": "voc:C1:tadellos",
@@ -349,7 +349,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Leaving nothing at all to criticise."
     },
     {
       "id": "voc:C1:umkehrbar",
@@ -361,7 +361,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Able to be undone, returning things to how they were."
     },
     {
       "id": "voc:C1:unterdurchschnittlich",
@@ -373,7 +373,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Below the usual level, measured against the average."
     },
     {
       "id": "voc:C1:verheerend",
@@ -385,7 +385,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Causing damage on a scale that is hard to repair."
     },
     {
       "id": "voc:C1:vermehren",
@@ -397,7 +397,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To make something greater in number or amount."
     },
     {
       "id": "voc:C1:zumutbar",
@@ -409,7 +409,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Reasonable to ask of someone, given what it costs them."
     },
     {
       "id": "voc:C1:zutreffend",
@@ -421,7 +421,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Correct as a description of the case in hand."
     }
   ]
 }

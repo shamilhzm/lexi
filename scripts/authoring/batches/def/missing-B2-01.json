@@ -19,7 +19,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To turn a machine off; also to stop thinking about work and unwind."
     },
     {
       "id": "voc:B2:abstellen",
@@ -31,7 +31,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To put something down or park it; also to shut off a supply, or to stop a bad practice."
     },
     {
       "id": "voc:B2:abstreiten",
@@ -43,7 +43,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To insist firmly that an accusation is untrue."
     },
     {
       "id": "voc:B2:argumentieren",
@@ -55,7 +55,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To set out reasons in support of a position."
     },
     {
       "id": "voc:B2:ästhetisch",
@@ -68,7 +68,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Concerned with beauty, or pleasing to the eye."
     },
     {
       "id": "voc:B2:auffällig",
@@ -80,7 +80,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Standing out enough that people notice it without looking."
     },
     {
       "id": "voc:B2:befassen",
@@ -92,7 +92,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To occupy yourself with a subject and work through it."
     },
     {
       "id": "voc:B2:benennen",
@@ -104,7 +104,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "To give something a name, or to state plainly what it is."
     },
     {
       "id": "voc:B2:das Archiv",
@@ -116,7 +116,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A store of documents and records kept for future reference."
     },
     {
       "id": "voc:B2:das Homeoffice",
@@ -129,7 +129,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Working from home instead of the employer’s premises, and the setup that allows it."
     },
     {
       "id": "voc:B2:das Inhaltsverzeichnis",
@@ -141,7 +141,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The list at the front of a book showing its parts and their pages."
     },
     {
       "id": "voc:B2:das Kriterium",
@@ -153,7 +153,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A standard against which something is judged or chosen."
     },
     {
       "id": "voc:B2:das Kulturgut",
@@ -166,7 +166,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Something of lasting cultural value that a society sets out to preserve."
     },
     {
       "id": "voc:B2:das Lob",
@@ -178,7 +178,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Words expressing approval of what someone has done."
     },
     {
       "id": "voc:B2:das Prinzip",
@@ -190,7 +190,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A basic rule of conduct or of how something works, held to consistently."
     },
     {
       "id": "voc:B2:das Ritual",
@@ -202,7 +202,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A set sequence of actions repeated the same way each time, by custom or belief."
     },
     {
       "id": "voc:B2:das Umland",
@@ -214,7 +214,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The country and smaller towns surrounding a city."
     },
     {
       "id": "voc:B2:das Zertifikat",
@@ -226,7 +226,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "An official document confirming that you have passed or achieved something."
     },
     {
       "id": "voc:B2:der Ablauf",
@@ -238,7 +238,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The order in which the stages of an event follow one another."
     },
     {
       "id": "voc:B2:der Absatz",
@@ -250,7 +250,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A block of text between two line breaks; in business, the volume of goods sold."
     },
     {
       "id": "voc:B2:der Algorithmus",
@@ -263,7 +263,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A precise set of steps that solves a problem in a finite number of moves."
     },
     {
       "id": "voc:B2:der Anschlusszug",
@@ -275,7 +275,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The onward train you change to in order to complete a journey."
     },
     {
       "id": "voc:B2:der Assistent",
@@ -287,7 +287,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Someone employed to support another person in their work."
     },
     {
       "id": "voc:B2:der Auftraggeber",
@@ -299,7 +299,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The person or organisation that orders a piece of work and pays for it."
     },
     {
       "id": "voc:B2:der Ausfall",
@@ -311,7 +311,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A service or event not taking place, or equipment ceasing to work."
     },
     {
       "id": "voc:B2:der Ausgleich",
@@ -323,7 +323,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Something that offsets a strain and restores balance."
     },
     {
       "id": "voc:B2:der Ausschnitt",
@@ -335,7 +335,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A short section taken out of a longer text, recording or film."
     },
     {
       "id": "voc:B2:der Brand",
@@ -347,7 +347,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A destructive fire, especially one in a building."
     },
     {
       "id": "voc:B2:der Bruch",
@@ -359,7 +359,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A place where something has broken, including a broken bone."
     },
     {
       "id": "voc:B2:der Charakter",
@@ -371,7 +371,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The settled qualities that make a person who they are."
     },
     {
       "id": "voc:B2:der Dachs",
@@ -384,7 +384,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A stocky nocturnal mammal with black-and-white head stripes, living in a burrow."
     },
     {
       "id": "voc:B2:der Ersatz",
@@ -396,7 +396,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Something put in place of what is missing or worn out."
     },
     {
       "id": "voc:B2:der Faden",
@@ -408,7 +408,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A fine strand of twisted fibre, used for sewing."
     },
     {
       "id": "voc:B2:der Lesesaal",
@@ -420,7 +420,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A quiet room in a library set aside for reading and study."
     },
     {
       "id": "voc:B2:der Neubau",
@@ -432,7 +432,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A recently constructed building, or the act of building anew."
     },
     {
       "id": "voc:B2:der Prüfer",
@@ -444,7 +444,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The person who sets and marks an examination."
     },
     {
       "id": "voc:B2:der Redner",
@@ -456,7 +456,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "Someone delivering a speech to an audience."
     },
     {
       "id": "voc:B2:der Ressourcenverbrauch",
@@ -469,7 +469,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The rate at which raw materials, energy and water are used up."
     },
     {
       "id": "voc:B2:der Rhythmus",
@@ -481,7 +481,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "A regular recurring pattern in sound, movement or daily life."
     },
     {
       "id": "voc:B2:der Speisewagen",
@@ -493,7 +493,7 @@
       "expect": {
         "def": ""
       },
-      "def": ""
+      "def": "The carriage of a train where meals are served."
     }
   ]
 }
