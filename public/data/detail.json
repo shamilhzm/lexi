@@ -28783,6 +28783,7 @@
     ]
   },
   "voc:A2:das Blatt": {
+    "def": "A single flat piece of paper; also the flat green growth on a plant.",
     "ex": [
       {
         "de": "Schreiben Sie bitte auf dieses Blatt.",
@@ -29083,6 +29084,7 @@
     ]
   },
   "voc:A2:das Erlebnis": {
+    "def": "Something that happens to you and stays with you — an experience worth recounting.",
     "defDe": "ein bemerkenswertes Ereignis, das jemand erlebt hat",
     "ex": [
       {
@@ -29304,6 +29306,7 @@
     ]
   },
   "voc:A2:das Frühstücksbüfett": {
+    "def": "A breakfast laid out for guests to serve themselves, as in a hotel.",
     "defDe": "zum Frühstück zur Selbstbedienung aufgebaute Speisen und Getränke in einem Restaurant, Hotel oder dergleichen",
     "ex": [
       {
@@ -29509,6 +29512,7 @@
     ]
   },
   "voc:A2:das Geschirr": {
+    "def": "The plates, bowls and cups used at a meal, especially once they need washing.",
     "ex": [
       {
         "de": "Ich wasche das Geschirr ab.",
@@ -30223,6 +30227,7 @@
     ]
   },
   "voc:A2:das Mineralwasser": {
+    "def": "Bottled water containing minerals, usually carbonated.",
     "defDe": "Trinkwasser, das mit Mineralien und teilweise mit Kohlensäure versetzt ist",
     "ex": [
       {
@@ -30428,6 +30433,7 @@
     ]
   },
   "voc:A2:das Paar": {
+    "def": "Two people or things that belong together.",
     "defDe": "zwei durch eine (wie auch immer geartete) Beziehung miteinander verbundene Menschen (Lebewesen); speziell: zwei Menschen in einer engen, persönlichen (intimen) Verbindung",
     "ex": [
       {
@@ -30443,6 +30449,7 @@
     ]
   },
   "voc:A2:das Paket": {
+    "def": "Goods wrapped up and sent by post, larger than a letter.",
     "defDe": "Verpackung eines oder mehrerer Gegenstände zum Schutz, zu Zwecken der Bündelung, der Steigerung des Überraschungseffekts, des Scherzeffektes",
     "ex": [
       {
@@ -30473,6 +30480,7 @@
     ]
   },
   "voc:A2:das Parfüm": {
+    "def": "A scented liquid worn on the skin.",
     "ex": [
       {
         "de": "Im Erdgeschoss gibt es Parfüm und Schmuck.",
@@ -30577,6 +30585,7 @@
     ]
   },
   "voc:A2:das Projekt": {
+    "def": "A piece of planned work with an aim and an end date.",
     "ex": [
       {
         "de": "Das Projekt dauert drei Monate.",
@@ -30776,6 +30785,7 @@
     ]
   },
   "voc:A2:das Schlafzimmer": {
+    "def": "The room in a home that is used for sleeping.",
     "defDe": "Raum in einem Haus oder einer Wohnung, der zum Schlafen gedacht ist",
     "ex": [
       {
@@ -30931,6 +30941,7 @@
     ]
   },
   "voc:A2:das Spielzeug": {
+    "def": "Objects made for children to play with, taken together.",
     "ex": [
       {
         "de": "Die Kinder räumen ihr Spielzeug auf.",
@@ -31080,6 +31091,7 @@
     ]
   },
   "voc:A2:das Tennis": {
+    "def": "A game in which two players hit a ball over a net with rackets.",
     "ex": [
       {
         "de": "Am Samstag spiele ich Tennis.",
@@ -31419,6 +31431,7 @@
     ]
   },
   "voc:A2:das Wohnmobil": {
+    "def": "A motor vehicle fitted out to live and sleep in while travelling.",
     "defDe": "Kraftfahrzeug mit einer zum Wohnen geeigneten Ausstattung, um darin bei Reisen übernachten zu können",
     "ex": [
       {
@@ -31720,6 +31733,7 @@
     ]
   },
   "voc:A2:der Aktivurlaub": {
+    "def": "A holiday built around sport and exertion rather than rest.",
     "defDe": "Urlaub, bei dem sportliche Betätigung (zum Beispiel Wandern, Radfahren oder Wassersport) im Vordergrund steht, oft in der Natur oder im Freien",
     "ex": [
       {
@@ -31982,6 +31996,7 @@
     ]
   },
   "voc:A2:der Aufenthaltsraum": {
+    "def": "A shared room where people can sit and wait or take a break.",
     "defDe": "Raum in einem Betrieb, einer Behörde oder dergleichen, wo Berechtigte/Mitarbeiter sich vorübergehend aufhalten können",
     "ex": [
       {
@@ -32942,6 +32957,7 @@
     ]
   },
   "voc:A2:der Ferienjob": {
+    "def": "Short paid work taken by a school or university student during the holidays.",
     "defDe": "kurzzeitige Anstellung für Schüler und Studenten während der Ferien",
     "ex": [
       {
@@ -33117,6 +33133,7 @@
     ]
   },
   "voc:A2:der Gasthof": {
+    "def": "A country inn serving meals and offering a few rooms for the night.",
     "defDe": "Gasthaus (meist auf dem Lande), das neben Restaurantbetrieb in kleinerem Umfang auch Schlafgelegenheiten bietet",
     "ex": [
       {
@@ -33332,6 +33349,7 @@
     ]
   },
   "voc:A2:der Gutschein": {
+    "def": "A slip or code that can be exchanged for goods to a stated value.",
     "ex": [
       {
         "de": "Zum Geburtstag schenken wir ihr einen Gutschein.",
@@ -33441,6 +33459,7 @@
     ]
   },
   "voc:A2:der Hamster": {
+    "def": "A small nocturnal rodent with cheek pouches, often kept as a pet.",
     "defDe": "maus- (Zwerghamster) bis fast kaninchengroßes (Feldhamster), dämmerungsaktives Nagetier, mit dichtem Fell und kurzem bis stummelartigem Schwanz (Familie Cricetidae)",
     "ex": [
       {
@@ -33531,6 +33550,7 @@
     ]
   },
   "voc:A2:der Hof": {
+    "def": "An enclosed open space beside or between buildings; on a farm, the farmyard.",
     "defDe": "umgrenzter Platz, Wirtschafts- und Verkehrsfläche auf einem Grundstück, in der Regel von Gebäuden umschlossen oder hinter, vor oder zwischen Gebäuden gelegen",
     "ex": [
       {
@@ -33711,6 +33731,7 @@
     ]
   },
   "voc:A2:der Kasten": {
+    "def": "A rigid container with straight sides; also the crate a set of bottles is sold in.",
     "ex": [
       {
         "de": "Die Wörter stehen im Kasten.",
@@ -34326,6 +34347,7 @@
     ]
   },
   "voc:A2:der Lohn": {
+    "def": "Money paid for work done, reckoned by the hour or the week.",
     "defDe": "Vergütung für eine geleistete Arbeit der Arbeiter",
     "ex": [
       {
@@ -34356,6 +34378,7 @@
     ]
   },
   "voc:A2:der Luftballon": {
+    "def": "A thin rubber bag blown up with air or helium, used as a decoration or a toy.",
     "defDe": "Hülle aus Gummi, die mit Luft oder Helium aufgeblasen werden kann, oft in Form eines bunten, meist runden Kinderspielzeugs an einem Faden oder Draht",
     "ex": [
       {
@@ -35138,6 +35161,7 @@
     ]
   },
   "voc:A2:der Rest": {
+    "def": "What is left once part of something has been taken away or dealt with.",
     "ex": [
       {
         "de": "Den Rest erkläre ich dir morgen.",
@@ -35923,6 +35947,7 @@
     ]
   },
   "voc:A2:der Strandkorb": {
+    "def": "A hooded wicker beach seat that shelters you from wind and sun, found on German coasts.",
     "defDe": "schwerer beweglicher Sonnen- und Windschutz am Strand, der außen geflochten und innen gepolstert ist",
     "ex": [
       {
@@ -36203,6 +36228,7 @@
     ]
   },
   "voc:A2:der Treffpunkt": {
+    "def": "The place agreed in advance where people will meet.",
     "defDe": "ein zuvor vereinbarter Punkt oder Ort, an dem man sich treffen möchte",
     "ex": [
       {
@@ -36983,6 +37009,7 @@
     ]
   },
   "voc:A2:der Übersetzer": {
+    "def": "A person whose job is to carry written text from one language into another.",
     "defDe": "jemand, der Texte schriftlich von der einen in die andere Sprache überträgt",
     "ex": [
       {
@@ -37334,6 +37361,7 @@
     ]
   },
   "voc:A2:die Alpen": {
+    "def": "The mountain range running across Austria, Switzerland, Bavaria and northern Italy.",
     "defDe": "ein mitteleuropäisches Gebirge, an dem Deutschland, Österreich, die Schweiz, Liechtenstein, Slowenien, Italien und Frankreich Anteil haben; das höchste und nach Ausdehnung größte Gebirge Europas",
     "ex": [
       {
@@ -39058,6 +39086,7 @@
     ]
   },
   "voc:A2:die Fernreise": {
+    "def": "A journey to a distant country, far from home.",
     "defDe": "Reise in die Ferne, weit weg von der Heimat",
     "ex": [
       {
@@ -41006,6 +41035,7 @@
     ]
   },
   "voc:A2:die Luft": {
+    "def": "The mixture of gases we breathe, and the space it fills.",
     "defDe": "überwiegend aus Stickstoff und Sauerstoff bestehendes Gasgemisch, das Lebewesen zum Atmen benötigen",
     "ex": [
       {
@@ -41051,6 +41081,7 @@
     ]
   },
   "voc:A2:die Lust": {
+    "def": "The feeling of wanting to do something — what you have or lack when you are invited.",
     "ex": [
       {
         "de": "Ich habe heute keine Lust auf Sport.",
@@ -41215,6 +41246,7 @@
     ]
   },
   "voc:A2:die Metropole": {
+    "def": "A very large city that dominates the region around it.",
     "defDe": "sehr große und/oder bedeutende Stadt/Stelle, weil sie die betreffende Region dominiert, Zentrum eines Ballungsraums ist oder zum Beispiel auch viele Kulturen beherbergt",
     "ex": [
       {
@@ -41585,6 +41617,7 @@
     ]
   },
   "voc:A2:die PIN eingeben": {
+    "def": "To type your secret number into a machine to authorise a payment or a withdrawal.",
     "defDe": "die Handlung des Eingebens; Hinzuführen von Information",
     "ex": [
       {
@@ -41895,6 +41928,7 @@
     ]
   },
   "voc:A2:die Produktion": {
+    "def": "The making of goods, and the amount made.",
     "defDe": "Erstellung von Gütern, Dienstleistungen, Informationen oder Energien; neben der Beschaffung und dem Absatz die dritte betriebliche Grundfunktion",
     "ex": [
       {
@@ -41915,6 +41949,7 @@
     ]
   },
   "voc:A2:die Präsentation": {
+    "def": "A prepared talk given to an audience, usually with slides.",
     "defDe": "Darstellung oder Darbringung von Informationen, Planungen oder Waren gegenüber einem Publikum",
     "ex": [
       {
@@ -42531,6 +42566,7 @@
     ]
   },
   "voc:A2:die Schlange": {
+    "def": "A long limbless reptile; also a line of people waiting one behind another.",
     "defDe": "Unterordnung von fußlosen Tieren (Serpentes)",
     "ex": [
       {
@@ -42681,6 +42717,7 @@
     ]
   },
   "voc:A2:die Semesterferien": {
+    "def": "The break between two university terms, when no classes are held.",
     "defDe": "Zeit im Übergang von einem Semester zum nächsten, in der in der Regel keine Lehrveranstaltungen stattfinden",
     "ex": [
       {
@@ -42836,6 +42873,7 @@
     ]
   },
   "voc:A2:die Sportkleidung": {
+    "def": "Clothes made to be worn while exercising.",
     "defDe": "Kleidung, die beim Sport getragen wird",
     "ex": [
       {
@@ -42851,6 +42889,7 @@
     ]
   },
   "voc:A2:die Sporttasche": {
+    "def": "A roomy bag for carrying kit to and from training.",
     "defDe": "geräumige Tasche für die Utensilien, die beim Sport benötigt werden",
     "ex": [
       {
@@ -43927,6 +43966,7 @@
     ]
   },
   "voc:A2:die Vollpension": {
+    "def": "A hotel booking that includes breakfast, lunch and dinner.",
     "defDe": "meist ohne Artikel: Reiseaufenthalt mit Frühstück, Mittagessen und Abendessen",
     "ex": [
       {
@@ -44989,6 +45029,7 @@
     ]
   },
   "voc:A2:eigen": {
+    "def": "Belonging to the person spoken about and to nobody else.",
     "ex": [
       {
         "de": "Sie hat eine eigene Wohnung.",
@@ -45053,6 +45094,7 @@
     ]
   },
   "voc:A2:einbiegen": {
+    "def": "To leave the road you are on and turn into another one.",
     "defDe": "die Geh- oder Fahrtrichtung verlassen und nach rechts oder links in einen anderen Verkehrsweg schwenken",
     "ex": [
       {
@@ -45073,6 +45115,7 @@
     ]
   },
   "voc:A2:eine Rolle spielen": {
+    "def": "To matter — to be one of the things that influences a decision or an outcome.",
     "defDe": "in einem Theaterstück / Film Schauspieler sein",
     "ex": [
       {
@@ -45758,6 +45801,7 @@
     ]
   },
   "voc:A2:fallen": {
+    "def": "To drop downwards under its own weight, or to come down suddenly.",
     "defDe": "to fall; to drop; to die; to fall in battle; to die in battle; to be killed in action",
     "ex": [
       {
@@ -46223,6 +46267,7 @@
     ]
   },
   "voc:A2:gegenüber": {
+    "def": "On the other side, directly facing something across a street or a space.",
     "defDe": "Lokaladverb: auf der anderen (entgegengesetzten) Seite",
     "ex": [
       {
@@ -47810,6 +47855,7 @@
     ]
   },
   "voc:A2:markieren": {
+    "def": "To make a mark on something so it stands out or can be found again.",
     "ex": [
       {
         "de": "Markieren Sie bitte die richtige Lösung.",
@@ -47955,6 +48001,7 @@
     ]
   },
   "voc:A2:mintgrün": {
+    "def": "Of a pale blue-green colour, like mint leaves.",
     "defDe": "Kleidungsstück, das um den Körper geschlungen wird",
     "ex": [
       {
@@ -48515,6 +48562,7 @@
     ]
   },
   "voc:A2:plötzlich": {
+    "def": "Happening all at once, with no warning.",
     "defDe": "unerwartet, überraschend, auf einen Schlag",
     "ex": [
       {
@@ -48835,6 +48883,7 @@
     ]
   },
   "voc:A2:reden": {
+    "def": "To talk with someone, less formal and less prepared than sprechen.",
     "ex": [
       {
         "de": "Wir reden später darüber.",
@@ -48999,6 +49048,7 @@
     ]
   },
   "voc:A2:reservieren": {
+    "def": "To arrange in advance that a seat, table or room is held for you.",
     "ex": [
       {
         "de": "Ich möchte einen Tisch reservieren.",
@@ -50524,6 +50574,7 @@
     ]
   },
   "voc:A2:stimmen": {
+    "def": "To be true or accurate — said of figures, facts and statements.",
     "ex": [
       {
         "de": "Wir stimmen dem Vorschlag zu.",
@@ -50608,6 +50659,7 @@
     ]
   },
   "voc:A2:surfen": {
+    "def": "To ride breaking waves standing on a board; also to move from page to page online.",
     "defDe": "auf einem speziell dafür konzipierten Brett (Surfboard/Surfbrett) im Stehen sich balancierend von den Brandungswellen ans Ufer tragen lassen; Surfing betreiben",
     "ex": [
       {
@@ -51538,6 +51590,7 @@
     ]
   },
   "voc:A2:verlängern": {
+    "def": "To make something longer in space or in time, including renewing a document past its expiry.",
     "defDe": "etwas (räumlich) länger machen; die (räumliche) Ausdehnung von etwas erhöhen",
     "ex": [
       {

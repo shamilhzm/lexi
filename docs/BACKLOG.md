@@ -989,7 +989,30 @@ single hole in the app's core artefact.
 > to `isGermanDefinition`, so "…the grammatical gender of der words" and "in the plural,
 > die Daten, …" are hard errors. The rule for authors: name the article as *masculine
 > article*, never as `der`. The check is right and caught all three before they shipped.
-**Do.** A2 (54) next, then B1 (154) — the largest.
+> ✅ **A2 done, 2026-08-16** — 53 of 54, flagged total again unmoved at 1,213.
+> **455 → 335** overall; A1 0 · A2 1 · B1 154 · B2 103 · C1 74 · C2 3.
+>
+> 🔴 **The 54th is a broken card, and the definition pass is how it surfaced —
+> exactly what this item's "watch for sense bugs, not just style" warning predicts.**
+> `voc:A2:der Somit` is glossed **"somite"** (the embryology term) with noun facts
+> attached — `gender: der`, `plural: die Somite` — while **its sector is `Adverbs`**
+> and both its examples are the adverb *somit*, correctly translated "therefore" and
+> "thus". A frequency-list adverb that collected a homograph's noun facts at build
+> time. Left undefined deliberately: writing a definition would have papered over it.
+> *Do:* re-term to `somit`, `pos: adverb`, gender and plural to null, gloss to
+> "thus, therefore" — an id change (`voc:A2:der Somit` → `voc:A2:somit`) and therefore
+> a schedule migration, so it wants an expect-guarded row rather than a hand edit.
+>
+> Two smaller `defDe` defects found beside it, both harmless to the English pass:
+> `voc:A2:fallen` carries an **English** gloss list in its German-definition field, and
+> `voc:A2:mintgrün`'s `defDe` describes a garment wrapped round the body — it belongs
+> to another word entirely. ⚠️ I tried to add a `corpus:validate` check for "English in
+> `defDe`" and **withdrew it**: keyed on German function words it found 1 card, and
+> that one was a false positive (*„an einen Zugang montierte Schließvorrichtung"* is
+> good German) while `fallen`'s genuine English list slipped through on the word *in*.
+> Wrong in both directions on its first run, so it was not shipped.
+
+**Do.** B1 (154) next — the largest remaining.
 **Done-when.** `corpus:definitions` reports 0 cards with no English definition.
 
 **Touches.** `scripts/authoring/batches/def/`, `public/data/vocab.json`.
