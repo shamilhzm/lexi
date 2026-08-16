@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, type MissDetail } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, type MissDetail } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { loadDetail, detailLoaded } from '../data/detail.ts';
@@ -290,6 +290,10 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     noteMet(item.word);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
+    // Attempts, not only misses: BACKLOG #10's denominator. Logged for a correct
+    // answer too, which is the whole point — a mode you drill often and mostly
+    // pass should stop outranking one you avoid and always fail.
+    logAttempt(MODE_TAG[item.type]);
     if (!ok) noteMiss(MODE_TAG[item.type], item.word.term, detail);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
@@ -308,6 +312,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
+    logAttempt(item.word.term);
     if (!ok) noteMiss(item.word.term);
     setAgain((a) => a + dAgain);
     setNewLearned((n) => n + dNew);

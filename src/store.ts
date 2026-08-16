@@ -15,6 +15,7 @@ import { ALL_LEVELS } from './types.ts';
 const CARDS_KEY = 'lexi.cards.v1';
 const VISITS_KEY = 'lexi.visits.v1';
 const MISS_KEY = 'lexi.miss.v1';
+const ATTEMPT_KEY = 'lexi.attempts.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
 const NEW_PER_DAY = 24;
 const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
@@ -56,6 +57,7 @@ export function setPace(p: Pace) {
 // read pre-paint by the theme bootstrap in index.html.
 const live = new Map<string, Card>();
 let misses: MissEvent[] = [];
+let attempts: AttemptEvent[] = [];
 let visits: string[] = [];
 
 let version = 0;
@@ -105,6 +107,7 @@ if (typeof window !== 'undefined') {
   window.addEventListener('pagehide', flushCards);
 }
 function persistMisses() { idbSet(MISS_KEY, misses); }
+function persistAttempts() { idbSet(ATTEMPT_KEY, attempts); }
 function persistVisits() { idbSet(VISITS_KEY, visits); }
 
 export function subscribe(fn: () => void) { listeners.add(fn); return () => listeners.delete(fn); }
@@ -223,15 +226,20 @@ let hydrated = false;
  *  Call once, awaited, before the app first renders. Idempotent. */
 export async function hydrate(): Promise<void> {
   if (hydrated) return;
-  const [cards, m, vis] = await Promise.all([
+  const [cards, m, att, vis] = await Promise.all([
     loadKV<Record<string, any>>(CARDS_KEY, {}),
     loadKV<MissEvent[]>(MISS_KEY, []),
+    loadKV<AttemptEvent[]>(ATTEMPT_KEY, []),
     loadKV<string[]>(VISITS_KEY, []),
   ]);
   live.clear();
   for (const id of Object.keys(cards)) { try { live.set(id, reviveCard(cards[id])); } catch { /* skip corrupt */ } }
   migrateIds();
   misses = Array.isArray(m) ? m : [];
+  // Absent for every learner who existed before the attempt log; an empty array
+  // is the correct starting state and `missStats` falls back to count ranking
+  // until it fills.
+  attempts = Array.isArray(att) ? att : [];
   visits = Array.isArray(vis) ? vis : [];
   hydrated = true;
 }
@@ -696,6 +704,8 @@ export interface MissEvent {
   /** What the learner picked instead. Only ever set together with `asked`. */
   chose?: string;
 }
+/** A graded item under a tag. See `logAttempt`. */
+interface AttemptEvent { tag: string; at: number }
 
 /** The wrong answer itself, where the item knows it.
  *
@@ -728,10 +738,39 @@ export function logMiss(tag: string, term?: string, detail?: MissDetail) {
   persistMisses();
   emit();
 }
+/** One graded item under a structural tag — right or wrong. The counterpart to
+ *  `logMiss`, and the reason `missStats` can report a *rate*.
+ *
+ *  BACKLOG #10: blind spots ranked by raw miss count, which measures exposure as
+ *  much as weakness. Drill a mode ten times and miss three, and it outranks a mode
+ *  you attempted twice and failed both — so **drilling something makes it look
+ *  worse and avoiding it makes it look fine**, which is exactly backwards for a
+ *  list whose whole job is to tell you what to work on next.
+ *
+ *  Deliberately does not `emit()`. Every caller logs an attempt immediately before
+ *  or after grading, and grading already emits; a second notification per item
+ *  would double every subscriber's work through a session for no new information. */
+export function logAttempt(tag: string) {
+  attempts.push({ tag, at: Date.now() });
+  if (attempts.length > 4000) attempts = attempts.slice(-4000);
+  persistAttempts();
+}
+
+/** Attempts required under a tag before its miss *rate* is trusted for ranking.
+ *  Below this a single unlucky pair of items would out-rank a real weakness. */
+const MIN_ATTEMPTS = 6;
+
 export interface MissStat {
   tag: string;
   count: number;
   last: number;
+  /** Graded items seen under this tag in the window — 0 for a tag whose misses
+   *  predate `logAttempt`. */
+  attempts: number;
+  /** `count / attempts`, or `null` when there is not yet enough evidence to
+   *  divide by (see `MIN_ATTEMPTS`). Null is not zero and must not be rendered
+   *  as one: it means "not measured yet". */
+  rate: number | null;
   /** The words this weakness actually happened on, worst first. Empty for
    *  grammar points and for logs recorded before misses carried a word. */
   terms: { term: string; count: number }[];
@@ -744,6 +783,8 @@ export interface MissStat {
 /** Top recurring weaknesses within the last `days`, most frequent first. */
 export function missStats(days = 30): MissStat[] {
   const since = Date.now() - days * 86_400_000;
+  const seen = new Map<string, number>();
+  for (const a of attempts) if (a.at >= since) seen.set(a.tag, (seen.get(a.tag) ?? 0) + 1);
   const m = new Map<string, { count: number; last: number; terms: Map<string, number>; conf: Map<string, number> }>();
   for (const e of misses) {
     if (e.at < since) continue;
@@ -762,13 +803,25 @@ export function missStats(days = 30): MissStat[] {
   return [...m.entries()]
     .map(([tag, v]) => ({
       tag, count: v.count, last: v.last,
+      attempts: seen.get(tag) ?? 0,
+      rate: (seen.get(tag) ?? 0) >= MIN_ATTEMPTS ? v.count / (seen.get(tag) as number) : null,
       terms: [...v.terms.entries()].map(([term, count]) => ({ term, count }))
         .sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
       confusions: [...v.conf.entries()]
         .map(([k, count]) => { const [asked, chose] = k.split(' '); return { asked, chose, count }; })
         .sort((a, b) => b.count - a.count || a.asked.localeCompare(b.asked)),
     }))
-    .sort((a, b) => b.count - a.count);
+    // Rate first, but only where it has been earned. A tag with three attempts
+    // and two misses is not evidence of a weakness, and a tag whose misses predate
+    // the attempt log has no denominator at all — both fall back to raw count,
+    // which is what this list did for everyone until now, so no learner's ordering
+    // changes until real evidence accumulates.
+    .sort((a, b) => {
+      if (a.rate !== null && b.rate !== null) return b.rate - a.rate || b.count - a.count;
+      if (a.rate !== null) return -1;
+      if (b.rate !== null) return 1;
+      return b.count - a.count;
+    });
 }
 export function missTotal(days = 30): number { return missStats(days).reduce((a, s) => a + s.count, 0); }
 

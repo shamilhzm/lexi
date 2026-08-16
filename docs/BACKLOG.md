@@ -1044,8 +1044,22 @@ user; none of it is built.*
   from drill, so "246 left" becomes a thing with an end you can see.
 - **Interleave the drill types visibly · S** (#11). A session can run 20+ flips before
   a drill. Surface the mix ("14 cards · 4 drills") *before* it happens, not only after.
-- **Blind spots rank by raw count, not rate · S · P1** (#10). Drilling a mode makes it
-  look worse; avoiding one makes it look fine. Divide by attempts.
+- ~~**Blind spots rank by raw count, not rate · S · P1** (#10).~~ ✅ **Shipped
+  2026-08-16.** "Divide by attempts" needed a numerator the app was not recording:
+  `logMiss` fired only on failures and the review ledger carries `{id, grade, at}`
+  with no tag, so **no attempt count existed anywhere**. New `logAttempt(tag)` at all
+  four graded sites (flip drills, grammar exercises, Fundamentals, grammar cards),
+  persisted beside the miss log; `missStats` now reports `attempts` and `rate` and
+  ranks on rate. Verified live: 70%-of-10 now outranks 20%-of-40, where raw count had
+  it the other way round.
+  **The care is all in the fallback.** A rate off two attempts is noise, and every
+  learner who existed before this has misses with no denominator at all — both keep
+  count ordering (`MIN_ATTEMPTS = 6`, `rate: null` meaning *not measured*, never 0%),
+  so no existing list reorders until real evidence accumulates. The row shows
+  "70% of 10" where measured and "25×" where not, and the bar draws **neutral** for
+  unmeasured rows: sized by count on the same red scale, a legacy tag with the largest
+  raw count rendered full-width at the *bottom* of a list ordered by rate — caught by
+  looking at it rather than at the numbers.
 - **The circuit breaker should offer a *softer* item, not just an exit · S** (#18).
   After four misses the kindest move is an easy win, not a door.
 - **Undo should be reachable after the card leaves · XS** (#12). *Previous card* exists

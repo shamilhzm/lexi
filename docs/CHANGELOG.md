@@ -11,6 +11,38 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — blind spots stop punishing you for practising
+
+BACKLOG #10. The list that tells a learner what to work on ranked by **raw miss
+count**, which measures exposure at least as much as weakness: drill a mode forty
+times and miss eight, and it outranks a mode you attempted ten times and failed seven.
+**Practising something made it look worse and avoiding it made it look fine** — exactly
+backwards for the one list whose job is to point you at the next thing.
+
+"Divide by attempts" turned out to need a number the app never recorded. `logMiss`
+fires only on failures, and the review ledger stores `{id, grade, at}` with no tag —
+so there was no denominator anywhere to divide by. `logAttempt(tag)` now fires at every
+graded site (flip drills, grammar exercises, Fundamentals, grammar cards), persisted
+beside the miss log in IndexedDB, and `missStats` reports `attempts` and `rate` and
+ranks on rate. Verified against seeded evidence: 70%-of-10 leads 20%-of-40, where raw
+count had them the other way round.
+
+**The whole risk is in the fallback, so that is where the tests are.** A rate computed
+from two attempts is noise, and every learner who exists today has a miss log with no
+denominator at all. Both fall back to count ordering — `MIN_ATTEMPTS = 6`, and
+`rate: null` means *not measured*, never 0% — so nobody's list reorders until real
+evidence accumulates. Seven tests pin it, including the legacy case and the
+window (stale attempts outside the 30 days must not dilute a current rate).
+
+The UI had to follow the sort or contradict it. Rows read "70% of 10" where measured
+and "25×" where not. The bar was the interesting part: drawn naively, both kinds share
+one red scale, and a legacy tag with the largest raw count rendered **full-width at the
+bottom** of a list ordered by rate. Unmeasured rows are neutral now — a different
+colour for a different number, no legend required. Caught by looking at the rendered
+rows rather than at the ranking they came from.
+
+866 tests green.
+
 ### Shipped 2026-08-16 — the goal line stops being a caption
 
 BACKLOG #23, which the previous entry had recorded as blocked on "a seeded multi-day

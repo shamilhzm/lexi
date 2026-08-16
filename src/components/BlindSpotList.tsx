@@ -14,7 +14,11 @@ export default function BlindSpotList({ onDrill, days = 30 }:
   const v = useStore();
   const stats = useMemo(() => missStats(days), [days, v]);
   const total = missTotal(days);
-  const max = stats[0]?.count ?? 1;
+  // Two scales, because the list holds two kinds of row. A measured row is drawn
+  // against the worst *rate*; an unmeasured one against the largest *count*, as
+  // this list always did. Neither denominator can be 0.
+  const max = Math.max(1, ...stats.map((s) => s.count));
+  const worstRate = Math.max(0.01, ...stats.map((s) => s.rate ?? 0));
 
   if (stats.length === 0) {
     return (
@@ -40,10 +44,25 @@ export default function BlindSpotList({ onDrill, days = 30 }:
             className="block w-full text-left rounded-md px-1.5 py-1 -mx-1.5 hover:bg-panel2 transition-colors" title="Drill this weakness">
             <div className="flex justify-between text-xs mb-1">
               <span className="truncate pr-2">{s.tag}</span>
-              <span className="font-mono text-dim flex-shrink-0">{s.count}×</span>
+              {/* The rate is what the list is now *ordered* by, so it is what the
+                  row has to show — a bar sized by raw count beside a list sorted
+                  by rate is a chart that contradicts its own order. Tags with no
+                  denominator yet (logged before attempts were counted, or drilled
+                  too few times to mean anything) keep the count they always had;
+                  `rate === null` is "not measured", never 0%. */}
+              <span className="font-mono text-dim flex-shrink-0">
+                {s.rate !== null ? `${Math.round(s.rate * 100)}% of ${s.attempts}` : `${s.count}×`}
+              </span>
             </div>
+            {/* Two quantities cannot share one red bar. Drawn naively, an
+                unmeasured row with the largest raw count renders full-width at the
+                *bottom* of a list ordered by rate — measured live: "Legacy tag"
+                last, bar 100%, under a 70% row drawn the same width. Measured rows
+                are red and sized by rate; unmeasured rows are neutral and sized by
+                count, which says "this is a different number" without a legend. */}
             <div className="h-2 rounded-full bg-panel2 overflow-hidden">
-              <div className="h-full bg-red" style={{ width: `${Math.max(8, (s.count / max) * 100)}%` }} />
+              <div className={`h-full ${s.rate !== null ? 'bg-red' : 'bg-line'}`}
+                style={{ width: `${Math.max(8, (s.rate !== null ? s.rate / worstRate : s.count / max) * 100)}%` }} />
             </div>
             {/* "Verb conjugation 15×" is true and unactionable. The words it
                 actually happened on are what you'd go and drill — and the log

@@ -15,7 +15,7 @@ import { useEffect, useMemo, useState, useCallback } from 'react';
 import { ArrowLeft, Venus, Mars, CircleDot, Layers3, Cog, AlignLeft, Shuffle, Repeat, Braces, Split, RefreshCw, Ear, PenLine, Volume2, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, review, levels, logMiss, streak, statusOf, focusTense, type Status, type MissDetail } from '../store.ts';
+import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, focusTense, type Status, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -814,6 +814,7 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
     review(id(mode, word), ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
     tick(ok ? 'good' : 'wrong');
+    logAttempt(MODE_TAG[mode]);
     if (!ok) logMiss(MODE_TAG[mode], word.term, detail);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [word, mode]);

@@ -132,12 +132,12 @@ describe('buildGrammarSheet', () => {
 describe('buildMissSheet', () => {
   const stats: MissStat[] = [
     {
-      tag: 'Cases & endings (Kasus)', count: 4, last: Date.now(),
+      tag: 'Cases & endings (Kasus)', count: 4, last: Date.now(), attempts: 12, rate: 4 / 12,
       terms: [{ term: 'der Tisch', count: 3 }],
       confusions: [{ asked: 'Dativ', chose: 'den', count: 3 }],
     },
     {
-      tag: 'Noun plurals', count: 2, last: Date.now(),
+      tag: 'Noun plurals', count: 2, last: Date.now(), attempts: 0, rate: null,
       terms: [{ term: 'das Haus', count: 2 }],
       confusions: [],
     },

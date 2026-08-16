@@ -4,7 +4,7 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Check, X, Loader2 } from 'lucide-react';
-import { cardOf, review, levels, logMiss } from '../store.ts';
+import { cardOf, review, levels, logMiss, logAttempt } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -144,6 +144,9 @@ export default function GrammarDrill({ onExit, scope }: { onExit: () => void; sc
     review(item.id, ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
     tick(ok ? 'good' : 'wrong');
+    // Every graded item, not only the failures — the denominator BACKLOG #10
+    // needs so a blind spot can be ranked by rate instead of by exposure.
+    logAttempt(item.point.title);
     if (!ok) logMiss(item.point.title);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
   }, [item]);
