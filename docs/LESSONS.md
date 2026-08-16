@@ -79,6 +79,19 @@ cards and ~64 were correct; narrowed to *nouns in the four sectors reserved for 
 parts of speech* it found exactly the two defects. The wide version would have been a
 warning nobody could ever clear.
 
+**…ship a fix for "the most likely cause".** Instrument first. The HD voice was
+diagnosed as an iOS audio-gesture problem — plausible, documented, and wrong. The
+thing that actually found it was the *timeout* added to make the failure legible: it
+turned an eternal spinner into "downloaded but could not play", which pointed at
+synthesis rather than the network. **A diagnostic that narrows the search beats a fix
+for the likeliest cause**, because a wrong fix also closes the ticket.
+
+**…assume a hang is the device's fault.** A dependency that throws inside a promise
+nobody rejects hangs forever and looks like slowness. The HD voice had never worked on
+any hardware: esm.sh served the package through a Node shim whose `fs.readFile`
+throws. Same version from jsDelivr returned audio in 2.5s. **When a library hangs
+rather than errors, suspect the build you are loading, not the runtime you are on.**
+
 **…believe a sweep that returns zero.** Assert the instrument first. A clip sweep
 reported *zero clips on all ten routes* because `innerWidth` was 0 in a backgrounded
 pane — every rect collapsed and the minimum-size filter discarded every element before

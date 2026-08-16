@@ -9,7 +9,26 @@ import { speakDe } from './ui.ts';
 
 export const HD_VOICE_ID = 'de_DE-thorsten-medium';
 
-const CDN = 'https://esm.sh/@diffusionstudio/vits-web@1.0.3';
+// jsDelivr, and the CDN is load-bearing — this is not a matter of taste.
+//
+// The HD voice was reported stuck, and the timeout added to diagnose it reported
+// "downloaded but could not play". It had **never worked, on any device**. The
+// esm.sh build of this package is served through a Node-polyfill shim whose `fs`
+// is a stub, and `predict()` reaches it:
+//
+//     Error: [unenv] fs.readFile is not implemented yet!
+//       at .../@diffusionstudio/vits-web@1.0.3/es2022/vits-web.mjs
+//
+// The throw happens somewhere that never rejects the promise we are awaiting, so
+// synthesis hung forever rather than failing — which is why this looked like a
+// slow download or an iOS audio-permission problem for as long as it did. Measured
+// side by side in a browser: **esm.sh still "predicting" after 65s; jsDelivr
+// returned a 63,532-byte WAV in 2.56s**, same version, same voice, same page.
+//
+// `+esm` is jsDelivr's browser ESM build, which does not shim Node built-ins.
+// Version-pinned deliberately: the failure mode of the wrong build is a hang, not
+// an error, and a hang is the hardest thing to attribute.
+const CDN = 'https://cdn.jsdelivr.net/npm/@diffusionstudio/vits-web@1.0.3/+esm';
 
 let lib: any = null;
 let ready = false;
@@ -48,7 +67,13 @@ export async function ensureHdVoice(onProgress?: (fraction: number) => void): Pr
  *  Deliberately synchronous and deliberately silent: it must run before any
  *  `await`, and it must make no sound of its own. Failures are swallowed — this is
  *  an optimisation on platforms that do not need it, and it must never be the
- *  reason setup fails. */
+ *  reason setup fails.
+ *
+ *  ⚠️ This was added as the suspected cause of the stuck HD voice and **was not
+ *  it** — the real fault was the CDN build above. Kept because the gesture rule it
+ *  addresses is real (playback still happens after a multi-second await, which iOS
+ *  does restrict), but it is a precaution now, not a fix, and it earned no evidence
+ *  of its own. */
 let primed = false;
 export function primeAudio(): void {
   if (primed || typeof Audio === 'undefined') return;

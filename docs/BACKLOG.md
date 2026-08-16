@@ -555,16 +555,22 @@ Four things a learner hit on an iPhone in one sitting. Two were the same bug.
   in a dictation the unit of error is a word or an ending. Compared through **`norm`,
   the grader's own fold** — marking „moechte“ red would contradict the grade the
   learner was just given, and `spellingDiff` teaches that difference in words.
-- ⚠️ **The HD voice sits at "Downloading… 100%" and never finishes.** *Not reproduced —
-  fixed for the most likely cause and made legible for the rest.* Three faults found by
-  reading the flow: the label covered only the download, so the seconds of model init
-  and test synthesis after it looked like a stalled network; **there was no timeout
-  anywhere**, so any stall waited forever with nothing to report; and `audio.play()`
-  ran *after* awaiting a 25 MB download, which on iOS is outside the user gesture that
-  permits sound. `primeAudio()` now unlocks audio synchronously on the tap, the phases
-  are named ("Unpacking the voice…", "Testing the voice…"), and both stages have
-  timeouts with actionable messages. **Please retry and tell me what it says now** —
-  the new message distinguishes the causes, which the old spinner could not.
+- ✅ **The HD voice never worked — on any device — and the CDN was why.** Reported as
+  stuck at "Downloading… 100%". The timeout added to make that legible reported
+  *"downloaded but could not play"*, which moved the search from the network to
+  synthesis. Running `predict()` by hand produced the console line that settles it:
+  **`Error: [unenv] fs.readFile is not implemented yet!`** — esm.sh serves
+  `@diffusionstudio/vits-web` through a Node-polyfill shim, `predict()` reaches it, and
+  the throw never rejects the promise the app awaits. It hung rather than failed, which
+  is why this read as a slow download and then as an iOS permission problem.
+  Measured side by side, same version and voice: **esm.sh still "predicting" after 65s;
+  jsDelivr's `+esm` returned a 63,532-byte WAV in 2.56s.** Verified afterwards through
+  the app's own `ensureHdVoice` + `speakHd`: completes in 6.9s. A test pins the CDN so
+  it cannot be swapped back for tidiness, and the first-synthesis timeout went 45s → 2
+  min, because 6.9s on a desktop is minutes on a phone.
+  > ⚠️ **The first fix was for the wrong cause.** iOS's audio-gesture rule was the
+  > diagnosis — plausible, documented, and not it. `primeAudio()` stays as a precaution
+  > and earned no evidence. See LESSONS: instrument before fixing the likeliest cause.
 
 ## Now
 

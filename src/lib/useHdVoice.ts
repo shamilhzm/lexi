@@ -15,18 +15,21 @@
 //  2. **There was no timeout anywhere.** If `download`, `predict` or `play` never
 //     settled, the UI waited forever with no way out and nothing to report. Any of
 //     the three can hang on a memory-tight device.
-//  3. **`audio.play()` ran outside the user gesture.** iOS only permits playback
-//     that begins inside a tap, and this flow awaits a ~25 MB download *first* — so
-//     by the time the proof-of-life plays, the gesture is long gone and iOS refuses
-//     it. `primeAudio()` is called synchronously on the tap that starts all this,
-//     which is the standard unlock and the only part that has to happen early.
+//  3. **The CDN build was broken, and that was the actual fault.** See the `CDN`
+//     constant in tts.ts: esm.sh serves this package through a Node-polyfill shim
+//     whose `fs.readFile` throws, `predict()` reaches it, and the throw never
+//     rejects the promise we await — so synthesis hung rather than failed. The HD
+//     voice had **never worked, on any device**.
 //
-// ⚠️ Unverified on the reporter's device. The gesture rule is real and documented,
-// and BACKLOG Now #1 already lists "iOS needs a gesture to unlock audio" among the
-// claims nobody has confirmed on hardware — this is a fix for the most likely
-// cause, not a reproduction. The timeout means the failure is now *legible*
-// whatever the cause, which is the part that does not depend on the diagnosis
-// being right.
+// The order those were found in is the lesson. The first guess was the iOS audio
+// gesture — plausible, documented, and wrong. `primeAudio()` stays as a precaution
+// but earned no evidence. What actually found the bug was **the timeout added to
+// make the failure legible**: it turned an eternal spinner into "downloaded but
+// could not play", which pointed at synthesis rather than the network, which is
+// what led to running `predict()` by hand and reading the console.
+//
+// A diagnostic that narrows the search is worth more than a fix for the most
+// likely cause.
 import { useState } from 'react';
 import { ensureHdVoice, speakHd, primeAudio } from './tts.ts';
 import { setHdVoice } from '../store.ts';
@@ -47,7 +50,12 @@ export interface HdVoiceSetup {
 /** Generous, but finite. A 25 MB download on a slow connection is legitimately
  *  minutes; a synthesis that has not produced a sound in this long is not coming. */
 const DOWNLOAD_MS = 5 * 60_000;
-const SPEAK_MS = 45_000;
+// The *first* synthesis loads and warms the model as well as speaking, and it is
+// the one this flow runs. Measured end to end through `ensureHdVoice` + `speakHd`
+// on a fast desktop: **6.9s**. A phone is several times slower and a cold cache
+// slower again, so 45s was tight enough to fail a working setup; 2 minutes is
+// generous without being indistinguishable from a hang.
+const SPEAK_MS = 120_000;
 
 function withTimeout<T>(p: Promise<T>, ms: number, what: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
