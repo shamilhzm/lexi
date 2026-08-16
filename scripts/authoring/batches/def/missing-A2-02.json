@@ -1,0 +1,190 @@
+{
+  "_README": [
+    "14 A2 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:die Vollpension",
+      "level": "A2",
+      "term": "die Vollpension",
+      "en": "full board",
+      "pos": "noun",
+      "defDe": "meist ohne Artikel: Reiseaufenthalt mit Frühstück, Mittagessen und Abendessen",
+      "example": "Wir buchen das Hotel mit Vollpension.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:eigen",
+      "level": "A2",
+      "term": "eigen",
+      "en": "own",
+      "pos": "adjective",
+      "example": "Sie hat eine eigene Wohnung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:einbiegen",
+      "level": "A2",
+      "term": "einbiegen",
+      "en": "to turn into (a street)",
+      "pos": "verb",
+      "defDe": "die Geh- oder Fahrtrichtung verlassen und nach rechts oder links in einen anderen Verkehrsweg schwenken",
+      "example": "Biegen Sie links in die Hauptstraße ein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:eine Rolle spielen",
+      "level": "A2",
+      "term": "eine Rolle spielen",
+      "en": "to play a role",
+      "pos": "phrase",
+      "defDe": "in einem Theaterstück / Film Schauspieler sein",
+      "example": "Geld spielt bei dieser Entscheidung keine Rolle.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fallen",
+      "level": "A2",
+      "term": "fallen",
+      "en": "to fall",
+      "pos": "verb",
+      "defDe": "to fall; to drop; to die; to fall in battle; to die in battle; to be killed in action",
+      "example": "Wer fiel?",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:gegenüber",
+      "level": "A2",
+      "term": "gegenüber",
+      "en": "opposite",
+      "pos": "preposition",
+      "defDe": "Lokaladverb: auf der anderen (entgegengesetzten) Seite",
+      "example": "Das Hotel liegt gegenüber dem Park.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:markieren",
+      "level": "A2",
+      "term": "markieren",
+      "en": "to mark",
+      "pos": "verb",
+      "example": "Markieren Sie bitte die richtige Lösung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:mintgrün",
+      "level": "A2",
+      "term": "mintgrün",
+      "en": "mint green",
+      "pos": "adjective",
+      "defDe": "Kleidungsstück, das um den Körper geschlungen wird",
+      "example": "Das Badezimmer hat mintgrüne Fliesen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:plötzlich",
+      "level": "A2",
+      "term": "plötzlich",
+      "en": "suddenly",
+      "pos": "adverb",
+      "defDe": "unerwartet, überraschend, auf einen Schlag",
+      "example": "Plötzlich fing es an zu regnen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:reden",
+      "level": "A2",
+      "term": "reden",
+      "en": "to talk, to speak",
+      "pos": "verb",
+      "example": "Wir reden später darüber.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:reservieren",
+      "level": "A2",
+      "term": "reservieren",
+      "en": "to reserve, book",
+      "pos": "verb",
+      "example": "Ich möchte einen Tisch reservieren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:stimmen",
+      "level": "A2",
+      "term": "stimmen",
+      "en": "to be correct",
+      "pos": "verb",
+      "example": "Wir stimmen dem Vorschlag zu.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:surfen",
+      "level": "A2",
+      "term": "surfen",
+      "en": "to surf",
+      "pos": "verb",
+      "defDe": "auf einem speziell dafür konzipierten Brett (Surfboard/Surfbrett) im Stehen sich balancierend von den Brandungswellen ans Ufer tragen lassen; Surfing betreiben",
+      "example": "Am Meer kann man gut surfen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:verlängern",
+      "level": "A2",
+      "term": "verlängern",
+      "en": "to extend",
+      "pos": "verb",
+      "defDe": "etwas (räumlich) länger machen; die (räumliche) Ausdehnung von etwas erhöhen",
+      "example": "Ich möchte meinen Ausweis verlängern.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

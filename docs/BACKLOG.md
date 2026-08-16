@@ -966,10 +966,30 @@ oriental carpet.
 concentrated below B1.
 
 **5b. Finish the English definitions the German migration displaced · S.**
-**Why.** 391 cards carry a German definition in `defDe`; **286 have no English one at
-all** (A2 66, B1 165, B2 36, and a handful above). Those cards render without a
-definition block for anyone below B2.
-**Do.** Author English definitions for the B1 set next — it is the largest.
+**Why.** A card with no `def` renders no definition block at all below B2 — the biggest
+single hole in the app's core artefact.
+> **Re-measured 2026-08-16, and the recorded figure was wrong in the bad direction:
+> not 286 but 455** (A1 67 · A2 54 · B1 154 · B2 103 · C1 74 · C2 3). The corpus grew;
+> the number did not follow it.
+>
+> ✅ **A1 is at zero, 2026-08-16.** All 67 authored and applied through
+> `fix-authored.ts`. **455 → 388**, and the flagged total did *not* move (1,213 before
+> and after) — none of the 67 landed back in `bare`, `enumeration` or `repeat`, which
+> is the check that matters: adding definitions must not add defects.
+>
+> ⚠️ **The largest bucket had no authoring path.** `corpus:definitions` reported the
+> missing cards "as a queue" and emitted batches only for the *flagged* classes, so the
+> worst group was the one you could not work on. It now emits `missing-<LEVEL>-NN.json`,
+> ordered lowest level first, carrying `defDe` and the first example as **sense
+> evidence** — a German definition says which homograph the card is about, which is
+> what an author needs and what a bare gloss cannot supply.
+>
+> ⚠️ **Three of my own definitions were rejected by the corpus's own gate**, all the
+> same way: an English definition that *quotes a bare German article* reads as German
+> to `isGermanDefinition`, so "…the grammatical gender of der words" and "in the plural,
+> die Daten, …" are hard errors. The rule for authors: name the article as *masculine
+> article*, never as `der`. The check is right and caught all three before they shipped.
+**Do.** A2 (54) next, then B1 (154) — the largest.
 **Done-when.** `corpus:definitions` reports 0 cards with no English definition.
 
 **Touches.** `scripts/authoring/batches/def/`, `public/data/vocab.json`.

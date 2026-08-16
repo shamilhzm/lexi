@@ -1,0 +1,530 @@
+{
+  "_README": [
+    "40 B1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:die Loipe",
+      "level": "B1",
+      "term": "die Loipe",
+      "en": "cross-country trail",
+      "pos": "noun",
+      "defDe": "maschinell vorbereitete Piste, Laufbahn für den Skilanglauf",
+      "example": "Auf der Loipe fährt man Langlauf.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Luftfeuchtigkeit",
+      "level": "B1",
+      "term": "die Luftfeuchtigkeit",
+      "en": "humidity",
+      "pos": "noun",
+      "defDe": "Wasserdampfgehalt der Luft",
+      "example": "Im Sommer ist die Luftfeuchtigkeit hier sehr hoch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Minderheit",
+      "level": "B1",
+      "term": "die Minderheit",
+      "en": "minority",
+      "pos": "noun",
+      "defDe": "eine Gruppe, die sich nach der Anzahl der Mitglieder bezüglich der Gesamtheit in der Unterzahl befindet",
+      "example": "Nur eine Minderheit war dagegen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Nationalhymne",
+      "level": "B1",
+      "term": "die Nationalhymne",
+      "en": "national anthem",
+      "pos": "noun",
+      "defDe": "die in der Regel offizielle Hymne einer Nation, oft wird auch eine Staatshymne als Nationalhymne bezeichnet, auch wenn der entsprechende Staat mehr als eine Nation umfasst",
+      "example": "Vor dem Spiel spielt die Nationalhymne.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Panik",
+      "level": "B1",
+      "term": "die Panik",
+      "en": "panic",
+      "pos": "noun",
+      "defDe": "plötzlich auftretender Schrecken, plötzlich aufkommende Angst, schwer beherrschbarer, kontrollierbarer, von Angst und Schrecken geprägter Zustand in der Gruppendynamik und Interaktion, unter Umständen krankhafter Zustand der Psyche",
+      "example": "Als das Feuer ausbrach, brach Panik aus.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Probe",
+      "level": "B1",
+      "term": "die Probe",
+      "en": "rehearsal; sample",
+      "pos": "noun",
+      "defDe": "das Einstudieren bei aufführenden Künsten",
+      "example": "Wir haben heute Abend Probe mit der Band.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Probezeit",
+      "level": "B1",
+      "term": "die Probezeit",
+      "en": "probation period; probationary period",
+      "pos": "noun",
+      "defDe": "„vereinbarter oder gesetzlich angeordneter Zeitraum, während dessen ein Rechtsverhältnis oder eine erteilte Erlaubnis unter erleichterten Bedingungen gelöst bzw. entzogen werden kann.“",
+      "example": "Meine Probezeit dauert sechs Monate.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Protestaktion",
+      "level": "B1",
+      "term": "die Protestaktion",
+      "en": "protest action",
+      "pos": "noun",
+      "defDe": "eine organisierte und meist öffentliche Unternehmung, mit der gegen etwas protestiert wird",
+      "example": "Die Protestaktion war friedlich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Reservierung",
+      "level": "B1",
+      "term": "die Reservierung",
+      "en": "reservation",
+      "pos": "noun",
+      "defDe": "die Vormerkung einer bestimmten Sache",
+      "example": "Sollten Sie sich für eine Reservierung entscheiden, nutzen Sie einfach das Formular.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Resilienz",
+      "level": "B1",
+      "term": "die Resilienz",
+      "en": "resilience",
+      "pos": "noun",
+      "defDe": "Fähigkeit elastischen Materials, nach starker Verformung in den Ausgangszustand zurückzukehren",
+      "example": "Sport stärkt die Resilienz gegen Stress.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Revolution",
+      "level": "B1",
+      "term": "die Revolution",
+      "en": "revolution",
+      "pos": "noun",
+      "defDe": "eine im Gegensatz zur Evolution sehr schnelle Umwälzung oder Neuerung auf wissenschaftlichem, künstlerischem oder sozialem Gebiet",
+      "example": "Die Revolution veränderte das Land.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Rückmeldung",
+      "level": "B1",
+      "term": "die Rückmeldung",
+      "en": "feedback, reply",
+      "pos": "noun",
+      "example": "Über eine kurze Rückmeldung würde ich mich freuen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Spinne",
+      "level": "B1",
+      "term": "die Spinne",
+      "en": "spider",
+      "pos": "noun",
+      "defDe": "kleines achtbeiniges Tier, das häufig Fäden spinnt",
+      "example": "Eine Spinne webt ihr Netz in der Ecke.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Trainingseinheit",
+      "level": "B1",
+      "term": "die Trainingseinheit",
+      "en": "training session",
+      "pos": "noun",
+      "defDe": "Phase, in der geübt wird",
+      "example": "Heute habe ich eine harte Trainingseinheit hinter mir.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Trauer",
+      "level": "B1",
+      "term": "die Trauer",
+      "en": "grief, sadness",
+      "pos": "noun",
+      "defDe": "Stimmungslage, die beim Verlust, insbesondere beim Tod eines geliebten Wesens auftritt",
+      "example": "Nach dem Tod ihres Mannes war ihre Trauer groß.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Trennung",
+      "level": "B1",
+      "term": "die Trennung",
+      "en": "separation, breakup",
+      "pos": "noun",
+      "defDe": "materiell: Vorgang oder Ergebnis der Absonderung von Substanzen voneinander",
+      "example": "Nach der Trennung war er sehr traurig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Überschwemmung",
+      "level": "B1",
+      "term": "die Überschwemmung",
+      "en": "flood",
+      "pos": "noun",
+      "defDe": "Zustand, der eintritt, wenn Gewässer über die Ufer treten und umliegende Gebiete unter Wasser setzen",
+      "example": "Die Überschwemmung richtete in der Umgebung viele Schäden an.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Überstunde",
+      "level": "B1",
+      "term": "die Überstunde",
+      "en": "overtime (hour)",
+      "pos": "noun",
+      "defDe": "Arbeitszeit, die über die im Arbeitsvertrag festgelegte Zeit hinausgeht",
+      "example": "Ich mache oft Überstunden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ursache",
+      "level": "B1",
+      "term": "die Ursache",
+      "en": "cause",
+      "pos": "noun",
+      "defDe": "vorhergehender Sachverhalt, der einen momentanen Sachverhalt wesentlich bestimmt hat",
+      "example": "Was ist die Ursache des Problems?",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verantwortung",
+      "level": "B1",
+      "term": "die Verantwortung",
+      "en": "responsibility",
+      "pos": "noun",
+      "defDe": "(Selbst-)Verpflichtung für eine Sache oder Person; Bereitschaft, für seine Handlungen einzustehen",
+      "example": "Ich übernehme die Verantwortung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vorstellung",
+      "level": "B1",
+      "term": "die Vorstellung",
+      "en": "performance; show",
+      "pos": "noun",
+      "defDe": "die gedankliche, vergeistigte, innere Abbildung (Projektion) der (äußeren) Realität, Wirklichkeit, im inneren (Gedächtnis, Gefühl, Bewusstsein), die real erlebte Projektion der (äußeren) Realität/ Wirklichkeit; Abbild des Bewusstseins",
+      "example": "Die Vorstellung beginnt um acht Uhr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Währung",
+      "level": "B1",
+      "term": "die Währung",
+      "en": "currency",
+      "pos": "noun",
+      "defDe": "currency, bank notes and cents, die Münzen und Banknoten",
+      "example": "Der Euro ist die Währung vieler Länder.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Zeitzone",
+      "level": "B1",
+      "term": "die Zeitzone",
+      "en": "time zone",
+      "pos": "noun",
+      "defDe": "Teil der Erdoberfläche, auf dem zu einem gegebenen Zeitpunkt dieselbe Uhrzeit und dasselbe Datum gelten",
+      "example": "Zwischen uns liegen mehrere Zeitzonen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Zerstörung",
+      "level": "B1",
+      "term": "die Zerstörung",
+      "en": "destruction",
+      "pos": "noun",
+      "defDe": "die Handlung, etwas zu zerstören (kaputt zu machen)",
+      "example": "Der Krieg brachte große Zerstörung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ziege",
+      "level": "B1",
+      "term": "die Ziege",
+      "en": "goat",
+      "pos": "noun",
+      "defDe": "Gattung wiederkäuender Tiere innerhalb der Familie der Hornträger",
+      "example": "Die Ziege frisst Gras.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einheimisch",
+      "level": "B1",
+      "term": "einheimisch",
+      "en": "local, native",
+      "pos": "adjective",
+      "defDe": "zu einer Region, einem Ort (im eigentlichen Sinne zu einem Heim, zu einer Heimat) gehörig, in dieser Region, diesem Ort geboren, zu Hause sein",
+      "example": "Wir kaufen einheimisches Gemüse.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einteilen",
+      "level": "B1",
+      "term": "einteilen",
+      "en": "to divide up, to organise (time)",
+      "pos": "verb",
+      "example": "Ich kann mir meinen Tag selbst einteilen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erleichtert",
+      "level": "B1",
+      "term": "erleichtert",
+      "en": "relieved",
+      "pos": "adjective",
+      "defDe": "ein Gefühl der Erleichterung verspürend",
+      "example": "Nach seiner letzten Prüfung war Thomas in einer sehr erleichterten Stimmung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ernten",
+      "level": "B1",
+      "term": "ernten",
+      "en": "to harvest",
+      "pos": "verb",
+      "defDe": "Nutzpflanzen von den Feldern einholen",
+      "example": "Im Herbst ernten wir die Äpfel.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erreichbar",
+      "level": "B1",
+      "term": "erreichbar",
+      "en": "reachable, available",
+      "pos": "adjective",
+      "defDe": "nicht steigerbar: sich erreichen lassend: mündlich per Telefon oder schriftlich per Fax, E-Mail oder Post",
+      "example": "Ich bin den ganzen Tag telefonisch erreichbar.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erschöpft",
+      "level": "B1",
+      "term": "erschöpft",
+      "en": "exhausted",
+      "pos": "adjective",
+      "defDe": "von Personen: sehr müde und ausgelaugt sein",
+      "example": "Nach dem Fußballspiel gingen die Spieler erschöpft in die Kabinen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:frühestens",
+      "level": "B1",
+      "term": "frühestens",
+      "en": "at the earliest",
+      "pos": "adverb",
+      "example": "Ich komme frühestens um acht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gegenseitig",
+      "level": "B1",
+      "term": "gegenseitig",
+      "en": "mutual(ly)",
+      "pos": "adverb",
+      "defDe": "so, dass zwischen zwei Menschen oder Dingen ein für beide Seiten gleichermaßen geltendes Geschehen erfolgt",
+      "example": "Wir müssen uns gegenseitig helfen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:geheimnisvoll",
+      "level": "B1",
+      "term": "geheimnisvoll",
+      "en": "mysterious",
+      "pos": "adjective",
+      "defDe": "den Anschein/Eindruck erweckend, etwas Geheimes zu bergen; ein Geheimnis erahnen/vermuten lassend; voller Geheimnisse beziehungsweise Rätsel; so, dass es nicht ganz erklärt oder erklärbar ist",
+      "example": "Sie lächelte geheimnisvoll.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:geizig",
+      "level": "B1",
+      "term": "geizig",
+      "en": "stingy, miserly",
+      "pos": "adjective",
+      "defDe": "sehr sparsam; nicht bereit, Geld auszugeben; sehr auf den Preis achtend; seine materiellen Werte zurückhaltend",
+      "example": "Er ist so geizig, dass er nie etwas schenkt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:herrschen",
+      "level": "B1",
+      "term": "herrschen",
+      "en": "to rule; to prevail",
+      "pos": "verb",
+      "defDe": "Macht über jemand oder etwas ausüben",
+      "example": "Der König herrschte vierzig Jahre.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hilfreich",
+      "level": "B1",
+      "term": "hilfreich",
+      "en": "helpful",
+      "pos": "adjective",
+      "defDe": "von Personen: helfend, unterstützend; von Sachen: Hilfe bietend",
+      "example": "Deine Tipps waren sehr hilfreich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hochmodern",
+      "level": "B1",
+      "term": "hochmodern",
+      "en": "state-of-the-art",
+      "pos": "adjective",
+      "defDe": "auf dem neuesten Stand der Zeit befindlich",
+      "example": "Das Labor ist hochmodern.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hupen",
+      "level": "B1",
+      "term": "hupen",
+      "en": "to honk (the horn)",
+      "pos": "verb",
+      "defDe": "eine Hupe am Kraftfahrzeug betätigen, um ein akustisches Signal zu erzeugen",
+      "example": "Der Fahrer hupte ungeduldig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:identisch",
+      "level": "B1",
+      "term": "identisch",
+      "en": "identical",
+      "pos": "adjective",
+      "defDe": "sich vollkommen gleichend, vollkommen gleich, vollkommen gleichartig, übereinstimmend",
+      "example": "Die beiden Texte sind identisch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

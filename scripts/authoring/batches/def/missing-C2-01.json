@@ -1,0 +1,52 @@
+{
+  "_README": [
+    "3 C2 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:C2:beschönigen",
+      "level": "C2",
+      "term": "beschönigen",
+      "en": "to gloss over, whitewash",
+      "pos": "verb",
+      "defDe": "etwas als besser, schöner darstellen, als es in Wirklichkeit ist",
+      "example": "Romantische Darstellungen des Mittelalters beschönigen die finsteren Aspekte der Epoche.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C2:das Schlagwort",
+      "level": "C2",
+      "term": "das Schlagwort",
+      "en": "buzzword, catchphrase",
+      "pos": "noun",
+      "defDe": "weithin bekannte, griffige Formulierung einer Idee oder Vorstellung, die vor allem in der gesellschaftlichen oder politischen Auseinandersetzung oder auch in der Werbung als programmatisch oder vorbildlich hingestellt werden soll",
+      "example": "Die Schlagworte der Französischen Revolution waren „Freiheit, Gleichheit, Brüderlichkeit“.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C2:die Suggestion",
+      "level": "C2",
+      "term": "die Suggestion",
+      "en": "suggestion, insinuation",
+      "pos": "noun",
+      "defDe": "etwas, das jemandem suggeriert wird",
+      "example": "Die Frage enthält bereits eine Suggestion und ist deshalb unzulässig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

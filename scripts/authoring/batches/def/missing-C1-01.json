@@ -1,0 +1,494 @@
+{
+  "_README": [
+    "40 C1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:C1:abrufbar",
+      "level": "C1",
+      "term": "abrufbar",
+      "en": "retrievable, available on demand",
+      "pos": "adjective",
+      "example": "Wissen ist heute jederzeit abrufbar.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:anknüpfen",
+      "level": "C1",
+      "term": "anknüpfen",
+      "en": "to pick up on, to build on",
+      "pos": "verb",
+      "example": "Daran möchte ich gern anknüpfen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:auffangen",
+      "level": "C1",
+      "term": "auffangen",
+      "en": "to catch, to absorb, to offset",
+      "pos": "verb",
+      "example": "Diesen Einwand kann man leicht auffangen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:aufschlussreich",
+      "level": "C1",
+      "term": "aufschlussreich",
+      "en": "revealing, informative",
+      "pos": "adjective",
+      "example": "Das Gespräch war aufschlussreich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:banal",
+      "level": "C1",
+      "term": "banal",
+      "en": "banal, trivial",
+      "pos": "adjective",
+      "example": "Der Rat klingt banal und hilft trotzdem.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:beeinträchtigen",
+      "level": "C1",
+      "term": "beeinträchtigen",
+      "en": "to impair, to affect adversely",
+      "pos": "verb",
+      "example": "Der Ausfall beeinträchtigt mehrere Mietparteien.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:belehren",
+      "level": "C1",
+      "term": "belehren",
+      "en": "to lecture, to instruct",
+      "pos": "verb",
+      "example": "Niemand möchte die Leute belehren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:beliebig",
+      "level": "C1",
+      "term": "beliebig",
+      "en": "arbitrary; any at all",
+      "pos": "adjective",
+      "example": "Beliebig ist es nicht, es ist begründungspflichtig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:beziffern",
+      "level": "C1",
+      "term": "beziffern",
+      "en": "to quantify, to put a figure on",
+      "pos": "verb",
+      "example": "Diese Forderung lässt sich beziffern.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Fachgebiet",
+      "level": "C1",
+      "term": "das Fachgebiet",
+      "en": "specialist field",
+      "pos": "noun",
+      "example": "Das ist nicht mein Fachgebiet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Fazit",
+      "level": "C1",
+      "term": "das Fazit",
+      "en": "conclusion, verdict",
+      "pos": "noun",
+      "example": "Mein Fazit fällt weniger eindeutig aus.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Gehäuse",
+      "level": "C1",
+      "term": "das Gehäuse",
+      "en": "casing, housing (of a device)",
+      "pos": "noun",
+      "example": "Das Gehäuse lässt sich nicht öffnen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Prestige",
+      "level": "C1",
+      "term": "das Prestige",
+      "en": "prestige",
+      "pos": "noun",
+      "example": "Der Beruf hat ein hohes Prestige.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Vokabular",
+      "level": "C1",
+      "term": "das Vokabular",
+      "en": "vocabulary (of a field or register)",
+      "pos": "noun",
+      "example": "Uns fehlt ein Vokabular ohne Pathos.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:das Zehntel",
+      "level": "C1",
+      "term": "das Zehntel",
+      "en": "tenth",
+      "pos": "noun",
+      "example": "Nur ein Zehntel der Fläche ist bebaut.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Anbau",
+      "level": "C1",
+      "term": "der Anbau",
+      "en": "cultivation; extension (of a building)",
+      "pos": "noun",
+      "example": "Der Anbau von Getreide lohnt sich hier kaum.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Befund",
+      "level": "C1",
+      "term": "der Befund",
+      "en": "finding, result",
+      "pos": "noun",
+      "defDe": "Ergebnis einer Prüfung, eines Tests; Bericht (beispielsweise eines Sachverständigen/Mediziners) darüber",
+      "example": "Die Befunde waren alle negativ und zeigten keinen Hinweis auf eine Erkrankung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Egoismus",
+      "level": "C1",
+      "term": "der Egoismus",
+      "en": "selfishness, egoism",
+      "pos": "noun",
+      "example": "Sein Egoismus hat die Freundschaft zerstört.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Eingriff",
+      "level": "C1",
+      "term": "der Eingriff",
+      "en": "intervention, procedure",
+      "pos": "noun",
+      "example": "Jeder Eingriff wird genau dokumentiert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Ernstfall",
+      "level": "C1",
+      "term": "der Ernstfall",
+      "en": "emergency, worst case",
+      "pos": "noun",
+      "example": "Im Ernstfall rufen Sie die Feuerwehr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Etat",
+      "level": "C1",
+      "term": "der Etat",
+      "en": "budget",
+      "pos": "noun",
+      "example": "Ein Etat wächst, ein anderer stagniert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Schichtdienst",
+      "level": "C1",
+      "term": "der Schichtdienst",
+      "en": "shift work",
+      "pos": "noun",
+      "example": "Sie arbeitet im Schichtdienst.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Vorbehalt",
+      "level": "C1",
+      "term": "der Vorbehalt",
+      "en": "reservation, qualification",
+      "pos": "noun",
+      "example": "Er stimmte dem Plan nur unter Vorbehalt zu.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Vorzug",
+      "level": "C1",
+      "term": "der Vorzug",
+      "en": "merit, advantage",
+      "pos": "noun",
+      "example": "Ihre Serie hat den Vorzug, drei Positionen nebeneinanderzustellen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Zulauf",
+      "level": "C1",
+      "term": "der Zulauf",
+      "en": "influx, following",
+      "pos": "noun",
+      "example": "Der Verein hat großen Zulauf.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:der Zuschuss",
+      "level": "C1",
+      "term": "der Zuschuss",
+      "en": "subsidy, financial contribution",
+      "pos": "noun",
+      "example": "Die Stadt zahlt einen Zuschuss zur Miete.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Anschaffung",
+      "level": "C1",
+      "term": "die Anschaffung",
+      "en": "purchase, acquisition",
+      "pos": "noun",
+      "example": "Ein neues Auto ist eine teure Anschaffung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Aufzählung",
+      "level": "C1",
+      "term": "die Aufzählung",
+      "en": "list, enumeration",
+      "pos": "noun",
+      "example": "Die Aufzählung war viel zu lang.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Äußerung",
+      "level": "C1",
+      "term": "die Äußerung",
+      "en": "utterance, statement of opinion",
+      "pos": "noun",
+      "example": "Welche Äußerung passt zu welcher Überschrift?",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Bequemlichkeit",
+      "level": "C1",
+      "term": "die Bequemlichkeit",
+      "en": "comfort, convenience",
+      "pos": "noun",
+      "example": "Aus Bequemlichkeit nimmt er immer das Auto.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Beschaffung",
+      "level": "C1",
+      "term": "die Beschaffung",
+      "en": "procurement, obtaining",
+      "pos": "noun",
+      "example": "Die Beschaffung der Unterlagen dauert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Deutung",
+      "level": "C1",
+      "term": "die Deutung",
+      "en": "interpretation",
+      "pos": "noun",
+      "example": "Diese Deutung des Gedichts überzeugt mich nicht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Erhaltung",
+      "level": "C1",
+      "term": "die Erhaltung",
+      "en": "preservation, conservation",
+      "pos": "noun",
+      "example": "Die Erhaltung alter Sorten kostet Zeit.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Erhebung",
+      "level": "C1",
+      "term": "die Erhebung",
+      "en": "survey, study",
+      "pos": "noun",
+      "example": "Nach einer Erhebung des Verbands lesen 26 Prozent täglich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Erpressung",
+      "level": "C1",
+      "term": "die Erpressung",
+      "en": "blackmail, extortion",
+      "pos": "noun",
+      "example": "Er wurde wegen Erpressung verurteilt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Erreichbarkeit",
+      "level": "C1",
+      "term": "die Erreichbarkeit",
+      "en": "accessibility, being reachable",
+      "pos": "noun",
+      "example": "Es geht um die Erreichbarkeit der Innenstadt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Erwähnung",
+      "level": "C1",
+      "term": "die Erwähnung",
+      "en": "mention",
+      "pos": "noun",
+      "example": "Eine Erwähnung im Jahresbericht wäre schon viel.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Freiwilligkeit",
+      "level": "C1",
+      "term": "die Freiwilligkeit",
+      "en": "voluntariness, being voluntary",
+      "pos": "noun",
+      "example": "Freiwilligkeit ist hier die Voraussetzung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Gewissheit",
+      "level": "C1",
+      "term": "die Gewissheit",
+      "en": "certainty",
+      "pos": "noun",
+      "example": "Was bleibt, ist die Gewissheit, dass es weitergeht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Gleichgültigkeit",
+      "level": "C1",
+      "term": "die Gleichgültigkeit",
+      "en": "indifference",
+      "pos": "noun",
+      "example": "Seine Gleichgültigkeit verletzte sie.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

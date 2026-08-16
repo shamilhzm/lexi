@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:färben",
+      "level": "A2",
+      "en": "to dye, to color",
+      "pos": "verb",
+      "expect": {
+        "def": "to color; to dye"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verzeihen",
+      "level": "B1",
+      "en": "to forgive",
+      "pos": "verb",
+      "expect": {
+        "def": "to forgive; to pardon; to excuse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ablehnen",
+      "level": "B1",
+      "en": "to refuse",
+      "pos": "verb",
+      "expect": {
+        "def": "to decline, refuse, reject, turn down"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bereuen",
+      "level": "B1",
+      "en": "to repent / regret",
+      "pos": "verb",
+      "expect": {
+        "def": "to regret, to rue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erinnern",
+      "level": "B1",
+      "en": "to remember",
+      "pos": "verb",
+      "expect": {
+        "def": "to remind; to remember, to be reminded of"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beobachten",
+      "level": "B1",
+      "en": "to observe, watch",
+      "pos": "verb",
+      "expect": {
+        "def": "to watch, to observe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ergänzen",
+      "level": "B1",
+      "en": "to supplement, complete; to complement",
+      "pos": "verb",
+      "expect": {
+        "def": "to fill, fill out, complete; to complement, to supplement, to add"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:handeln",
+      "level": "B1",
+      "en": "to act, deal, trade",
+      "pos": "verb",
+      "expect": {
+        "def": "to act; to take action; to negotiate; to bargain; to haggle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:kämpfen",
+      "level": "B1",
+      "en": "to fight, struggle",
+      "pos": "verb",
+      "expect": {
+        "def": "to fight, to struggle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:klingen",
+      "level": "B1",
+      "en": "to sound",
+      "pos": "verb",
+      "expect": {
+        "def": "to ring; to clink; to sound"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:lösen",
+      "level": "B1",
+      "en": "to solve, resolve",
+      "pos": "verb",
+      "expect": {
+        "def": "to loose; to loosen; to detach; to remove; to separate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:reagieren",
+      "level": "B1",
+      "en": "to react, respond",
+      "pos": "verb",
+      "expect": {
+        "def": "to react; to respond"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verabreden",
+      "level": "B1",
+      "en": "to arrange to meet",
+      "pos": "verb",
+      "expect": {
+        "def": "to arrange; to make an appointment"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verbinden",
+      "level": "B1",
+      "en": "to connect, link",
+      "pos": "verb",
+      "expect": {
+        "def": "to join, to combine, to connect, to interlink; to bandage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zustimmen",
+      "level": "B1",
+      "en": "to agree, consent",
+      "pos": "verb",
+      "expect": {
+        "def": "to agree; to agree with, to be in accord with"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zweifeln",
+      "level": "B1",
+      "en": "to doubt",
+      "pos": "verb",
+      "expect": {
+        "def": "to doubt, to be doubtful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Stornierung",
+      "level": "B1",
+      "en": "cancellation",
+      "pos": "noun",
+      "expect": {
+        "def": "reversal, cancellation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bettwäsche",
+      "level": "B1",
+      "en": "bed linen",
+      "pos": "noun",
+      "expect": {
+        "def": "bedding, bedclothes, bedlinen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beschweren",
+      "level": "B1",
+      "en": "to complain",
+      "pos": "verb",
+      "expect": {
+        "def": "to weight, to weight down; to complain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:empfehlen",
+      "level": "A1",
+      "en": "to recommend",
+      "pos": "verb",
+      "expect": {
+        "def": "to propose, to advise in favor of; to commend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Anschluss",
+      "level": "A1",
+      "en": "connection (transport)",
+      "pos": "noun",
+      "expect": {
+        "def": "connection, joining"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:versichert",
+      "level": "B1",
+      "en": "insured",
+      "pos": "adjective",
+      "expect": {
+        "def": "insured, covered"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Mietwagen",
+      "level": "B1",
+      "en": "rental car",
+      "pos": "noun",
+      "expect": {
+        "def": "rental car, hired car"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Navi",
+      "level": "B1",
+      "en": "sat-nav, GPS",
+      "pos": "noun",
+      "expect": {
+        "def": "GPS receiver; satellite navigation system"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:belegt",
+      "level": "B1",
+      "en": "occupied, fully booked",
+      "pos": "adjective",
+      "expect": {
+        "def": "documented; proven; attested"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kälte",
+      "level": "B1",
+      "en": "cold",
+      "pos": "noun",
+      "expect": {
+        "def": "coldness; cold"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Dürre",
+      "level": "B1",
+      "en": "drought",
+      "pos": "noun",
+      "expect": {
+        "def": "drought, aridity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Hoch",
+      "level": "B1",
+      "en": "high pressure system",
+      "pos": "noun",
+      "expect": {
+        "def": "high, anticyclone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Orkan",
+      "level": "B1",
+      "en": "hurricane, violent storm",
+      "pos": "noun",
+      "expect": {
+        "def": "hurricane; strong windstorm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Unwetter",
+      "level": "B1",
+      "en": "severe storm, bad weather",
+      "pos": "noun",
+      "expect": {
+        "def": "extremes, Schaden verursachendes Wetter"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Eis",
+      "level": "B1",
+      "en": "ice",
+      "pos": "noun",
+      "expect": {
+        "def": "ice; ice cream"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Schneedecke",
+      "level": "B2",
+      "en": "snow cover",
+      "pos": "noun",
+      "expect": {
+        "def": "snow cover, blanket of snow"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wetterlage",
+      "level": "B1",
+      "en": "weather situation",
+      "pos": "noun",
+      "expect": {
+        "def": "atmospheric conditions, weather conditions"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Niederschlag",
+      "level": "B1",
+      "en": "precipitation",
+      "pos": "noun",
+      "expect": {
+        "def": "fallout, condensation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aufhellen",
+      "level": "B1",
+      "en": "to brighten up, to clear up",
+      "pos": "verb",
+      "expect": {
+        "def": "to lighten; to clear up"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schwül",
+      "level": "B1",
+      "en": "muggy, sultry",
+      "pos": "adjective",
+      "expect": {
+        "def": "sultry, close, oppressive, muggy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bedeckt",
+      "level": "B1",
+      "en": "overcast",
+      "pos": "adjective",
+      "expect": {
+        "def": "covered, coated, capped"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wechselhaft",
+      "level": "B2",
+      "en": "changeable, unsettled",
+      "pos": "adjective",
+      "expect": {
+        "def": "changeable, variable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Kapuzenpullover",
+      "level": "B1",
+      "en": "hoodie",
+      "pos": "noun",
+      "expect": {
+        "def": "hoodie, hoodie sweater"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:enganliegend",
+      "level": "B2",
+      "en": "tight-fitting, form-fitting",
+      "pos": "adjective",
+      "expect": {
+        "def": "close-fitting, snug"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "_README": [
+    "Two corrections. Naming the bare German articles inside an English definition",
+    "makes corpus:validate read the whole field as German — correctly, by its own",
+    "rule. The sense is carried by \"masculine/feminine article\" instead."
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:männlich",
+      "expect": {
+        "def": "Of the male sex — the box you tick on a form, and the grammatical gender of der words."
+      },
+      "def": "Of the male sex — the box you tick on a form, and the grammatical gender that takes a masculine article."
+    },
+    {
+      "id": "voc:A1:weiblich",
+      "expect": {
+        "def": "Of the female sex — the box you tick on a form, and the grammatical gender of die words."
+      },
+      "def": "Of the female sex — the box you tick on a form, and the grammatical gender that takes a feminine article."
+    }
+  ]
+}

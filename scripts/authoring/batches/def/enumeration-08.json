@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:die Anlage",
+      "level": "B1",
+      "en": "grounds, complex; facility; attachment, enclosure",
+      "pos": "noun",
+      "expect": {
+        "def": "public green area, site, park, garden"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:malerisch",
+      "level": "B1",
+      "en": "picturesque",
+      "pos": "adjective",
+      "expect": {
+        "def": "painting; painterly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Darsteller",
+      "level": "B1",
+      "en": "performer, actor",
+      "pos": "noun",
+      "expect": {
+        "def": "actor, player, performer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Argument",
+      "level": "B1",
+      "en": "argument (point)",
+      "pos": "noun",
+      "expect": {
+        "def": "proof, reason, point"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schönheit",
+      "level": "B1",
+      "en": "beauty",
+      "pos": "noun",
+      "expect": {
+        "def": "beauty, beautifulness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:retten",
+      "level": "B1",
+      "en": "to rescue, save",
+      "pos": "verb",
+      "expect": {
+        "def": "to save, to rescue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verschwinden",
+      "level": "B1",
+      "en": "to disappear",
+      "pos": "verb",
+      "expect": {
+        "def": "to disappear, to vanish, to move out of view; to leave, to go away"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterhaltsam",
+      "level": "B1",
+      "en": "entertaining",
+      "pos": "adjective",
+      "expect": {
+        "def": "amusing; entertaining; enjoyable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Katastrophe",
+      "level": "B1",
+      "en": "catastrophe, disaster",
+      "pos": "noun",
+      "expect": {
+        "def": "catastrophe, disaster, calamity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Einschränkung",
+      "level": "B1",
+      "en": "restriction, limitation",
+      "pos": "noun",
+      "expect": {
+        "def": "constraint, restraint"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:herausfinden",
+      "level": "B1",
+      "en": "to find out",
+      "pos": "verb",
+      "expect": {
+        "def": "to find out; to figure out"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterscheiden",
+      "level": "B1",
+      "en": "to distinguish",
+      "pos": "verb",
+      "expect": {
+        "def": "to distinguish, differentiate; to differ, be different, distinct"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hörsaal",
+      "level": "B1",
+      "en": "lecture hall",
+      "pos": "noun",
+      "expect": {
+        "def": "lecture theatre, lecture auditorium, lecture hall, lecture room"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Begabung",
+      "level": "B1",
+      "en": "talent, gift",
+      "pos": "noun",
+      "expect": {
+        "def": "angeborene überdurchschnittliche, besondere Fähigkeiten"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überfüllt",
+      "level": "B1",
+      "en": "overcrowded",
+      "pos": "adjective",
+      "expect": {
+        "def": "crowded, packed"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Feuerwehr",
+      "level": "B1",
+      "en": "fire brigade",
+      "pos": "noun",
+      "expect": {
+        "def": "fire brigade; fire department"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Mithilfe",
+      "level": "B1",
+      "en": "assistance",
+      "pos": "noun",
+      "expect": {
+        "def": "help, assistance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hahn",
+      "level": "B1",
+      "en": "rooster",
+      "pos": "noun",
+      "expect": {
+        "def": "cock, rooster"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ökologisch",
+      "level": "B1",
+      "en": "organic, ecological",
+      "pos": "adjective",
+      "expect": {
+        "def": "ecologic, ecological"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Arbeitslosigkeit",
+      "level": "B1",
+      "en": "unemployment",
+      "pos": "noun",
+      "expect": {
+        "def": "unemployment, joblessness, worklessness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Pflegeheim",
+      "level": "B1",
+      "en": "nursing home",
+      "pos": "noun",
+      "expect": {
+        "def": "care home, nursing home"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beurteilen",
+      "level": "B1",
+      "en": "to judge, assess",
+      "pos": "verb",
+      "expect": {
+        "def": "to form an opinion on, to judge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mitbestimmen",
+      "level": "B1",
+      "en": "to have a say",
+      "pos": "verb",
+      "expect": {
+        "def": "to decide together, to codetermine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Umarmung",
+      "level": "B1",
+      "en": "hug",
+      "pos": "noun",
+      "expect": {
+        "def": "embrace, hug"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zuwinken",
+      "level": "B1",
+      "en": "to wave at",
+      "pos": "verb",
+      "expect": {
+        "def": "to wave at, beckon"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ansprechen",
+      "level": "B1",
+      "en": "to address, approach (someone)",
+      "pos": "verb",
+      "expect": {
+        "def": "to speak to; to address; to appeal to"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Strategie",
+      "level": "B1",
+      "en": "strategy",
+      "pos": "noun",
+      "expect": {
+        "def": "strategy; The strategy pattern."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachschlagen",
+      "level": "B1",
+      "en": "to look up (in a dictionary)",
+      "pos": "verb",
+      "expect": {
+        "def": "to look up; to take after"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wörtlich",
+      "level": "B1",
+      "en": "literal(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "literal, verbatim"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Mut",
+      "level": "B1",
+      "en": "courage",
+      "pos": "noun",
+      "expect": {
+        "def": "courage; bravery"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Verständnis",
+      "level": "B1",
+      "en": "understanding",
+      "pos": "noun",
+      "expect": {
+        "def": "understanding, comprehension"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beherrschen",
+      "level": "B1",
+      "en": "to master (a language)",
+      "pos": "verb",
+      "expect": {
+        "def": "to master; to dominate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:angenehm",
+      "level": "B1",
+      "en": "pleasant",
+      "pos": "adjective",
+      "expect": {
+        "def": "pleasant, pleasing"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vornehm",
+      "level": "B1",
+      "en": "distinguished, refined",
+      "pos": "adjective",
+      "expect": {
+        "def": "elegant; posh; high-class; distinguished"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kündigungsfrist",
+      "level": "B1",
+      "en": "notice period",
+      "pos": "noun",
+      "expect": {
+        "def": "notice period; cancellation period"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Unternehmen",
+      "level": "B1",
+      "en": "company, enterprise",
+      "pos": "noun",
+      "expect": {
+        "def": "business, enterprise, company"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verarbeiten",
+      "level": "B1",
+      "en": "to process",
+      "pos": "verb",
+      "expect": {
+        "def": "to process, to handle, to manufacture"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Nachfrage",
+      "level": "B1",
+      "en": "demand; inquiry",
+      "pos": "noun",
+      "expect": {
+        "def": "request, inquiry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verwaltung",
+      "level": "B1",
+      "en": "administration",
+      "pos": "noun",
+      "expect": {
+        "def": "administration, management, administering, managing"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Zusammenfassung",
+      "level": "B1",
+      "en": "summary",
+      "pos": "noun",
+      "expect": {
+        "def": "summary, compilation, summing up, recapitulation"
+      },
+      "def": ""
+    }
+  ]
+}

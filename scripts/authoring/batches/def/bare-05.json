@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:der Fachkräftemangel",
+      "level": "B2",
+      "en": "shortage of skilled workers",
+      "pos": "noun",
+      "expect": {
+        "def": "skills shortage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Verzicht",
+      "level": "B2",
+      "en": "renunciation, doing without",
+      "pos": "noun",
+      "expect": {
+        "def": "abstention"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Bruttoinlandsprodukt",
+      "level": "B2",
+      "en": "gross domestic product (GDP)",
+      "pos": "noun",
+      "expect": {
+        "def": "gross domestic product"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:explodieren",
+      "level": "B2",
+      "en": "to explode; to skyrocket (prices)",
+      "pos": "verb",
+      "expect": {
+        "def": "to explode"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Wohnungsbesichtigung",
+      "level": "B2",
+      "en": "flat viewing",
+      "pos": "noun",
+      "expect": {
+        "def": "inspecting an apartment"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Benutzeroberfläche",
+      "level": "B2",
+      "en": "user interface",
+      "pos": "noun",
+      "expect": {
+        "def": "graphical user interface"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Protokoll",
+      "level": "B2",
+      "en": "minutes, record",
+      "pos": "noun",
+      "expect": {
+        "def": "protocol"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Lebensraum",
+      "level": "B2",
+      "en": "habitat",
+      "pos": "noun",
+      "expect": {
+        "def": "living space"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:nein",
+      "level": "A1",
+      "en": "no",
+      "pos": "particle",
+      "expect": {
+        "def": "a no"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Kunst",
+      "level": "A1",
+      "en": "art",
+      "pos": "noun",
+      "expect": {
+        "def": "Gesamtheit ästhetischer Werke"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Essen",
+      "level": "A1",
+      "en": "food",
+      "pos": "noun",
+      "expect": {
+        "def": "meal"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:fern",
+      "level": "A1",
+      "en": "distant",
+      "pos": "adjective",
+      "expect": {
+        "def": "remote"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:ich",
+      "level": "A1",
+      "en": "I",
+      "pos": "pronoun",
+      "expect": {
+        "def": "ego"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:täglich",
+      "level": "A1",
+      "en": "daily, every day",
+      "pos": "adjective",
+      "expect": {
+        "def": "daily"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:es",
+      "level": "A1",
+      "en": "it",
+      "pos": "pronoun",
+      "expect": {
+        "def": "id"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:oben",
+      "level": "A1",
+      "en": "above / up",
+      "pos": "adverb",
+      "expect": {
+        "def": "above"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:unten",
+      "level": "A1",
+      "en": "below / down",
+      "pos": "adverb",
+      "expect": {
+        "def": "below"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:innen",
+      "level": "A2",
+      "en": "inside",
+      "pos": "adverb",
+      "expect": {
+        "def": "within"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:an",
+      "level": "A1",
+      "en": "at / on",
+      "pos": "preposition",
+      "expect": {
+        "def": "on"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:bis",
+      "level": "A1",
+      "en": "until, up to",
+      "pos": "preposition",
+      "expect": {
+        "def": "B-sharp"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:draußen",
+      "level": "A1",
+      "en": "outside, outdoors",
+      "pos": "adverb",
+      "expect": {
+        "def": "outside"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:weit",
+      "level": "A1",
+      "en": "far, distant",
+      "pos": "adjective",
+      "expect": {
+        "def": "wide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Mitte",
+      "level": "A1",
+      "en": "the middle, center",
+      "pos": "noun",
+      "expect": {
+        "def": "middle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:entfernt",
+      "level": "A2",
+      "en": "away, distant",
+      "pos": "adjective",
+      "expect": {
+        "def": "distant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hellgrün",
+      "level": "A2",
+      "en": "light green",
+      "pos": "adjective",
+      "expect": {
+        "def": "bright green"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hellgrau",
+      "level": "A2",
+      "en": "light grey",
+      "pos": "adjective",
+      "expect": {
+        "def": "light gray"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Farbe",
+      "level": "A1",
+      "en": "color",
+      "pos": "noun",
+      "expect": {
+        "def": "colour"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:leuchten",
+      "level": "A2",
+      "en": "to glow, to shine",
+      "pos": "verb",
+      "expect": {
+        "def": "to shine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:marine",
+      "level": "A2",
+      "en": "navy blue",
+      "pos": "adjective",
+      "expect": {
+        "def": "navy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wechselstube",
+      "level": "B1",
+      "en": "currency exchange",
+      "pos": "noun",
+      "expect": {
+        "def": "bureau de change"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ermäßigung",
+      "level": "B1",
+      "en": "discount, reduction",
+      "pos": "noun",
+      "expect": {
+        "def": "Preisnachlass"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Tankstelle",
+      "level": "B1",
+      "en": "petrol station, gas station",
+      "pos": "noun",
+      "expect": {
+        "def": "gas station"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Notaufnahme",
+      "level": "B1",
+      "en": "emergency room, A&E",
+      "pos": "noun",
+      "expect": {
+        "def": "emergency room"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Regenschauer",
+      "level": "B1",
+      "en": "rain shower",
+      "pos": "noun",
+      "expect": {
+        "def": "downpour"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Tau",
+      "level": "B2",
+      "en": "dew",
+      "pos": "noun",
+      "expect": {
+        "def": "Tao people"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Gewölk",
+      "level": "B2",
+      "en": "cloud cover, clouds",
+      "pos": "noun",
+      "expect": {
+        "def": "cloud mass"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bewölken",
+      "level": "B1",
+      "en": "to cloud over",
+      "pos": "verb",
+      "expect": {
+        "def": "to cloud up"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:modisch",
+      "level": "B1",
+      "en": "fashionable, stylish",
+      "pos": "adjective",
+      "expect": {
+        "def": "fashionable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mutig",
+      "level": "B1",
+      "en": "brave, courageous",
+      "pos": "adjective",
+      "expect": {
+        "def": "courageous"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:reizend",
+      "level": "B1",
+      "en": "charming, delightful",
+      "pos": "adjective",
+      "expect": {
+        "def": "lovely"
+      },
+      "def": ""
+    }
+  ]
+}

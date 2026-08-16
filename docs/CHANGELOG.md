@@ -11,6 +11,42 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — A1 has a definition on every card
+
+The definition programme, starting where it matters most. A card with no `def` renders
+no definition block at all below B2, and the recorded figure for that was wrong in the
+bad direction: **not 286 but 455**, measured today — the corpus grew and the number did
+not follow it. A1 held 67 of them.
+
+**All 67 are authored and applied. A1 is at zero, and the total is 455 → 388.**
+
+The number that matters more is the one that *didn't* move: the flagged-definition
+total was 1,213 before and 1,213 after. Adding sixty-seven definitions added no
+enumerations, no bare synonyms, no repeats — the new content did not become the next
+batch's defect, which is the only way this programme is worth running.
+
+**The largest bucket had no authoring path, which is why it was the largest.**
+`corpus:definitions` reported the missing cards "as a queue" and emitted batches only
+for the flagged classes — so the worst group was the one nobody could work on. It now
+emits `missing-<LEVEL>-NN.json`, lowest level first, and each row carries `defDe` and
+the card's first example as **sense evidence**: a German definition tells an author
+which homograph the card is about, which is exactly what a bare gloss cannot.
+
+**Three of my own definitions were rejected by the corpus's own gate, all the same
+way.** An English definition that quotes a *bare German article* reads as German to
+`isGermanDefinition` — so "in the plural, die Daten, …" on `das Datum`, and "the
+grammatical gender of der words" on `männlich` and `weiblich`, are hard errors. They
+are, by the check's own rule, and the rule is a good one: that field having drifted into
+German once is why it exists. Rewritten as "the masculine article", "the feminine
+article", and the plural sense stated without quoting it. The gate caught all three
+before they reached anyone.
+
+`das Datum` is the nicest of the set to have written, because yesterday's merge earned
+it: the card now glosses "date; data", and the definition can finally say that the sense
+moves with the number.
+
+866 tests green · `corpus:validate` PASS.
+
 ### Shipped 2026-08-16 — blind spots stop punishing you for practising
 
 BACKLOG #10. The list that tells a learner what to work on ranked by **raw miss

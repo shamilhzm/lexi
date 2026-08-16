@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:der Geist",
+      "level": "B1",
+      "en": "spirit",
+      "pos": "noun",
+      "expect": {
+        "def": "spirit; the Holy Spirit; Holy Ghost"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Rache",
+      "level": "B1",
+      "en": "revenge",
+      "pos": "noun",
+      "expect": {
+        "def": "revenge; vengeance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Software",
+      "level": "B1",
+      "en": "software",
+      "pos": "noun",
+      "expect": {
+        "def": "software; piece of software, a program"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ablenken",
+      "level": "B2",
+      "en": "to divert",
+      "pos": "verb",
+      "expect": {
+        "def": "to divert; to distract"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:anschließen",
+      "level": "B2",
+      "en": "to connect, to attach",
+      "pos": "verb",
+      "expect": {
+        "def": "to connect, to attach; to join"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:arrangieren",
+      "level": "B2",
+      "en": "to arrange",
+      "pos": "verb",
+      "expect": {
+        "def": "to arrange; to come to an agreement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:auslösen",
+      "level": "B2",
+      "en": "to trigger, to initiate, to cause",
+      "pos": "verb",
+      "expect": {
+        "def": "to trigger, to initiate, to cause; to ransom"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:bedauern",
+      "level": "B2",
+      "en": "to regret",
+      "pos": "verb",
+      "expect": {
+        "def": "to regret; to pity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:bemerken",
+      "level": "B2",
+      "en": "to notice, to perceive",
+      "pos": "verb",
+      "expect": {
+        "def": "to notice, to perceive; to remark, to mention, to note"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gehorchen",
+      "level": "B2",
+      "en": "to obey",
+      "pos": "verb",
+      "expect": {
+        "def": "to obey; to listen to reason, hearken"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:schmeißen",
+      "level": "B2",
+      "en": "to throw",
+      "pos": "verb",
+      "expect": {
+        "def": "to throw; to fling; to hurl; to drop accidentally"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:sprengen",
+      "level": "B2",
+      "en": "to blow up, to blast",
+      "pos": "verb",
+      "expect": {
+        "def": "to blow up, to blast; to sprinkle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zurücklassen",
+      "level": "B2",
+      "en": "to leave behind",
+      "pos": "verb",
+      "expect": {
+        "def": "to leave behind; to let return"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zurückziehen",
+      "level": "B2",
+      "en": "to pull back, to withdraw",
+      "pos": "verb",
+      "expect": {
+        "def": "to pull back, to withdraw; to retreat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:überfahren",
+      "level": "B2",
+      "en": "to run over, to run down",
+      "pos": "verb",
+      "expect": {
+        "def": "to run over, to run down; to go through, to overshoot"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:übertrieben",
+      "level": "B2",
+      "en": "exaggerated",
+      "pos": "adjective",
+      "expect": {
+        "def": "very, inordinately"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:beklagen",
+      "level": "B2",
+      "en": "to pity, to lament",
+      "pos": "verb",
+      "expect": {
+        "def": "to pity, to lament; to complain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:blockieren",
+      "level": "B2",
+      "en": "to block",
+      "pos": "verb",
+      "expect": {
+        "def": "to block; to lock"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:durchmachen",
+      "level": "B2",
+      "en": "to go through, to endure, to suffer",
+      "pos": "verb",
+      "expect": {
+        "def": "to go through, to endure, to suffer; to undergo"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ernähren",
+      "level": "B2",
+      "en": "to nourish, to feed",
+      "pos": "verb",
+      "expect": {
+        "def": "to nourish, to feed; to eat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erobern",
+      "level": "B2",
+      "en": "to conquer, to capture",
+      "pos": "verb",
+      "expect": {
+        "def": "to conquer, to capture; to win"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hacken",
+      "level": "B2",
+      "en": "to chop, to hack",
+      "pos": "verb",
+      "expect": {
+        "def": "to chop, to hack; to be choppy, to not work properly, to not run smoothly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hindern",
+      "level": "B2",
+      "en": "to impede, hinder",
+      "pos": "verb",
+      "expect": {
+        "def": "to impede, hinder; to prevent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:umsehen",
+      "level": "B2",
+      "en": "to look around",
+      "pos": "verb",
+      "expect": {
+        "def": "to look around; to look back, to look round"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verurteilen",
+      "level": "B2",
+      "en": "to convict, condemn, sentence",
+      "pos": "verb",
+      "expect": {
+        "def": "to convict, condemn, sentence; to condemn, strongly denounce"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Handynummer",
+      "level": "A1",
+      "en": "mobile number",
+      "pos": "noun",
+      "expect": {
+        "def": "mobile number; mobile phone number"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:einzeln",
+      "level": "A2",
+      "en": "single",
+      "pos": "adjective",
+      "expect": {
+        "def": "single; lone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Grippe",
+      "level": "A2",
+      "en": "flu",
+      "pos": "noun",
+      "expect": {
+        "def": "flu; influenza; grippe."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Hafen",
+      "level": "A2",
+      "en": "harbour/harbor",
+      "pos": "noun",
+      "expect": {
+        "def": "harbour/harbor; port; haven"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Ruhetag",
+      "level": "A2",
+      "en": "day off",
+      "pos": "noun",
+      "expect": {
+        "def": "day off; day of rest, rest day"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Lyrik",
+      "level": "B2",
+      "en": "poetry, verse",
+      "pos": "noun",
+      "expect": {
+        "def": "poetry, verse; lyric poetry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ausreichen",
+      "level": "A2",
+      "en": "to suffice",
+      "pos": "verb",
+      "expect": {
+        "def": "to suffice; to last"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:eintreten",
+      "level": "A2",
+      "en": "to enter, to come into",
+      "pos": "verb",
+      "expect": {
+        "def": "to enter, to come into; to occur, to eventuate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Gemeinsamkeit",
+      "level": "A2",
+      "en": "common ground",
+      "pos": "noun",
+      "expect": {
+        "def": "common ground; commonality, commonness, similarity, thing in common, common feature, shared characteristic"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lenken",
+      "level": "A2",
+      "en": "to steer, drive",
+      "pos": "verb",
+      "expect": {
+        "def": "to steer, drive; to navigate, guide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lohnen",
+      "level": "A2",
+      "en": "to be worthwhile",
+      "pos": "verb",
+      "expect": {
+        "def": "to be worthwhile; to pay off"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vorbeigehen",
+      "level": "A2",
+      "en": "to go past, to go by",
+      "pos": "verb",
+      "expect": {
+        "def": "to go past, to go by; to drop by"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zurücknehmen",
+      "level": "A2",
+      "en": "to withdraw, retract",
+      "pos": "verb",
+      "expect": {
+        "def": "to withdraw, retract; to redeem"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ambulant",
+      "level": "B1",
+      "en": "ambulant",
+      "pos": "adjective",
+      "expect": {
+        "def": "ambulant; outpatient"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aneignen",
+      "level": "B1",
+      "en": "to appropriate",
+      "pos": "verb",
+      "expect": {
+        "def": "to appropriate; to acquire"
+      },
+      "def": ""
+    }
+  ]
+}

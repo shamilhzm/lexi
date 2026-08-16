@@ -1,0 +1,22 @@
+{
+  "_README": [
+    "1 definition(s) classified \"echo\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:Rad fahren",
+      "level": "A1",
+      "en": "to cycle; to ride a bike",
+      "pos": "phrase",
+      "expect": {
+        "def": "to cycle, to ride a bike"
+      },
+      "def": ""
+    }
+  ]
+}

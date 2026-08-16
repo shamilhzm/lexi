@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:der Stellplatz",
+      "level": "A2",
+      "en": "pitch (camping), parking spot",
+      "pos": "noun",
+      "expect": {
+        "def": "parking place"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:faulenzen",
+      "level": "A2",
+      "en": "to laze around",
+      "pos": "verb",
+      "expect": {
+        "def": "to laze"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:absolut",
+      "level": "A2",
+      "en": "absolute(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "absolute"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:familiär",
+      "level": "A2",
+      "en": "family-like, informal",
+      "pos": "adjective",
+      "expect": {
+        "def": "familial"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Mülltrennung",
+      "level": "B1",
+      "en": "waste separation, recycling",
+      "pos": "noun",
+      "expect": {
+        "def": "waste sorting"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verschmutzung",
+      "level": "B1",
+      "en": "pollution",
+      "pos": "noun",
+      "expect": {
+        "def": "soiling"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Anwendung",
+      "level": "B1",
+      "en": "application; use",
+      "pos": "noun",
+      "expect": {
+        "def": "application"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Arbeitsplatz",
+      "level": "A1",
+      "en": "workplace; job",
+      "pos": "noun",
+      "expect": {
+        "def": "workplace"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Genehmigung",
+      "level": "B1",
+      "en": "permit, approval; permission / approval",
+      "pos": "noun",
+      "expect": {
+        "def": "permit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ernährung",
+      "level": "B1",
+      "en": "nutrition, diet",
+      "pos": "noun",
+      "expect": {
+        "def": "nutrition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bewegung",
+      "level": "B1",
+      "en": "movement, exercise",
+      "pos": "noun",
+      "expect": {
+        "def": "motion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Entwicklung",
+      "level": "B1",
+      "en": "development",
+      "pos": "noun",
+      "expect": {
+        "def": "evolution"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Folge",
+      "level": "B1",
+      "en": "consequence; episode",
+      "pos": "noun",
+      "expect": {
+        "def": "sequence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wirkung",
+      "level": "B1",
+      "en": "effect, impact",
+      "pos": "noun",
+      "expect": {
+        "def": "effect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beeinflussen",
+      "level": "B1",
+      "en": "to influence, to affect",
+      "pos": "verb",
+      "expect": {
+        "def": "to influence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:selbstständig",
+      "level": "A1",
+      "en": "independent; self-employed",
+      "pos": "adjective",
+      "expect": {
+        "def": "independent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Regierung",
+      "level": "B1",
+      "en": "government",
+      "pos": "noun",
+      "expect": {
+        "def": "government/administration"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Verkehrsmittel",
+      "level": "B1",
+      "en": "means of transport",
+      "pos": "noun",
+      "expect": {
+        "def": "transport"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Grenze",
+      "level": "B1",
+      "en": "border; limit",
+      "pos": "noun",
+      "expect": {
+        "def": "border"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Umgangsform",
+      "level": "B1",
+      "en": "manners, etiquette",
+      "pos": "noun",
+      "expect": {
+        "def": "manners"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Epoche",
+      "level": "B1",
+      "en": "era, epoch; era, period",
+      "pos": "noun",
+      "expect": {
+        "def": "epoch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Hochdeutsch",
+      "level": "B1",
+      "en": "standard German",
+      "pos": "noun",
+      "expect": {
+        "def": "High German"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Radweg",
+      "level": "B1",
+      "en": "bike path; cycle path",
+      "pos": "noun",
+      "expect": {
+        "def": "bicycle lane"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Verkehrszeichen",
+      "level": "B1",
+      "en": "traffic sign",
+      "pos": "noun",
+      "expect": {
+        "def": "road sign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Ballungsraum",
+      "level": "B1",
+      "en": "metropolitan area",
+      "pos": "noun",
+      "expect": {
+        "def": "synonym of Ballungsgebiet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umweltfreundlich",
+      "level": "B1",
+      "en": "eco-friendly",
+      "pos": "adjective",
+      "expect": {
+        "def": "environmentally friendly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aufnahme",
+      "level": "B1",
+      "en": "admission; recording",
+      "pos": "noun",
+      "expect": {
+        "def": "reception"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Studiengebühr",
+      "level": "B1",
+      "en": "tuition fee",
+      "pos": "noun",
+      "expect": {
+        "def": "tuition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Versorgung",
+      "level": "B1",
+      "en": "supply, provision; care, provision",
+      "pos": "noun",
+      "expect": {
+        "def": "supply"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fassade",
+      "level": "B1",
+      "en": "façade",
+      "pos": "noun",
+      "expect": {
+        "def": "facade"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Motiv",
+      "level": "B1",
+      "en": "motif, subject; motive",
+      "pos": "noun",
+      "expect": {
+        "def": "motive"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Rundfahrt",
+      "level": "B1",
+      "en": "sightseeing tour",
+      "pos": "noun",
+      "expect": {
+        "def": "tour"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Menge",
+      "level": "B1",
+      "en": "amount, quantity; crowd",
+      "pos": "noun",
+      "expect": {
+        "def": "quantity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unternehmen",
+      "level": "B1",
+      "en": "to undertake, do (an activity)",
+      "pos": "verb",
+      "expect": {
+        "def": "to undertake"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Einschreiben",
+      "level": "B1",
+      "en": "registered letter",
+      "pos": "noun",
+      "expect": {
+        "def": "registered mail"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:rechtzeitig",
+      "level": "B1",
+      "en": "on time, in good time",
+      "pos": "adjective",
+      "expect": {
+        "def": "punctual"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aufnahmeprüfung",
+      "level": "B1",
+      "en": "entrance exam",
+      "pos": "noun",
+      "expect": {
+        "def": "entrance examination"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fakultät",
+      "level": "B1",
+      "en": "faculty",
+      "pos": "noun",
+      "expect": {
+        "def": "factorial"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:forschen",
+      "level": "B1",
+      "en": "to do research",
+      "pos": "verb",
+      "expect": {
+        "def": "to research"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Berufsaussicht",
+      "level": "B1",
+      "en": "career prospect",
+      "pos": "noun",
+      "expect": {
+        "def": "job perspective"
+      },
+      "def": ""
+    }
+  ]
+}

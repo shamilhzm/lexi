@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:gründlich",
+      "level": "B1",
+      "en": "thorough",
+      "pos": "adjective",
+      "expect": {
+        "def": "thorough, in-depth"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bevor",
+      "level": "B1",
+      "en": "before",
+      "pos": "conjunction",
+      "expect": {
+        "def": "subordinating temporal; verb at the end"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Nachteil",
+      "level": "B1",
+      "en": "disadvantage",
+      "pos": "noun",
+      "expect": {
+        "def": "disadvantage, demerit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fähigkeit",
+      "level": "B1",
+      "en": "ability, skill",
+      "pos": "noun",
+      "expect": {
+        "def": "ability, capability"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Fortschritt",
+      "level": "B1",
+      "en": "progress",
+      "pos": "noun",
+      "expect": {
+        "def": "progress, advancement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bildung",
+      "level": "B1",
+      "en": "education",
+      "pos": "noun",
+      "expect": {
+        "def": "cultivation, refinement, education, culture"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Auswirkung",
+      "level": "B1",
+      "en": "effect, impact",
+      "pos": "noun",
+      "expect": {
+        "def": "implication, effect, consequence, ramification, repercussion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überzeugen",
+      "level": "B1",
+      "en": "to convince",
+      "pos": "verb",
+      "expect": {
+        "def": "to convince; to convince oneself"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verursachen",
+      "level": "B1",
+      "en": "to cause",
+      "pos": "verb",
+      "expect": {
+        "def": "to cause, to induce"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bühne",
+      "level": "B1",
+      "en": "stage",
+      "pos": "noun",
+      "expect": {
+        "def": "a stage; a scaffolding"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Reiseführer",
+      "level": "A1",
+      "en": "guidebook; tour guide",
+      "pos": "noun",
+      "expect": {
+        "def": "tourist guide, tour guide; travel guide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Verein",
+      "level": "A1",
+      "en": "club, association",
+      "pos": "noun",
+      "expect": {
+        "def": "association, club, society"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fahrgemeinschaft",
+      "level": "B1",
+      "en": "carpool",
+      "pos": "noun",
+      "expect": {
+        "def": "carpool, rideshare"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:empfehlenswert",
+      "level": "B1",
+      "en": "recommendable, worth recommending",
+      "pos": "adjective",
+      "expect": {
+        "def": "advisable, recommendable, commendable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Päckchen",
+      "level": "B1",
+      "en": "small parcel",
+      "pos": "noun",
+      "expect": {
+        "def": "packet, pack, package"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Studiengang",
+      "level": "B1",
+      "en": "degree programme",
+      "pos": "noun",
+      "expect": {
+        "def": "major, academic course"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Missverständnis",
+      "level": "B1",
+      "en": "misunderstanding",
+      "pos": "noun",
+      "expect": {
+        "def": "misunderstanding, misinterpretation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:peinlich",
+      "level": "B1",
+      "en": "embarrassing",
+      "pos": "adjective",
+      "expect": {
+        "def": "woeful, hurtful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Smalltalk",
+      "level": "B1",
+      "en": "small talk",
+      "pos": "noun",
+      "expect": {
+        "def": "small talk; a conversation involving small talk"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Standort",
+      "level": "B1",
+      "en": "location, site",
+      "pos": "noun",
+      "expect": {
+        "def": "location, place, site"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:geteilt",
+      "level": "B1",
+      "en": "divided",
+      "pos": "adjective",
+      "expect": {
+        "def": "shared, split"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Neuanfang",
+      "level": "B1",
+      "en": "fresh start, new beginning",
+      "pos": "noun",
+      "expect": {
+        "def": "new beginning, new start, fresh start"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Erwartung",
+      "level": "B1",
+      "en": "expectation",
+      "pos": "noun",
+      "expect": {
+        "def": "expectation, expectancy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wahl",
+      "level": "B1",
+      "en": "election; choice",
+      "pos": "noun",
+      "expect": {
+        "def": "choice, selection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Redewendung",
+      "level": "B1",
+      "en": "idiom, set phrase",
+      "pos": "noun",
+      "expect": {
+        "def": "expression, figure of speech, idiom, phrase, turn of phrase"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:übersetzen",
+      "level": "B1",
+      "en": "to translate",
+      "pos": "verb",
+      "expect": {
+        "def": "to translate, to interpret; to compile"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mehrdeutig",
+      "level": "B1",
+      "en": "ambiguous",
+      "pos": "adjective",
+      "expect": {
+        "def": "equivocal, ambiguous"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Fahrzeug",
+      "level": "B1",
+      "en": "vehicle",
+      "pos": "noun",
+      "expect": {
+        "def": "vehicle; motor vehicle, automobile, car"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Mitfahrgelegenheit",
+      "level": "B1",
+      "en": "ride share, lift",
+      "pos": "noun",
+      "expect": {
+        "def": "lift, ride"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vorfahrt",
+      "level": "B1",
+      "en": "right of way",
+      "pos": "noun",
+      "expect": {
+        "def": "priority, right of way"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bremse",
+      "level": "B1",
+      "en": "brake",
+      "pos": "noun",
+      "expect": {
+        "def": "brake, device for causing deceleration"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Sicherheitsgurt",
+      "level": "B1",
+      "en": "seat belt",
+      "pos": "noun",
+      "expect": {
+        "def": "seat belt, safety belt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Arbeitsmarkt",
+      "level": "B1",
+      "en": "labour market",
+      "pos": "noun",
+      "expect": {
+        "def": "labor market, job market"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Arbeitskraft",
+      "level": "B1",
+      "en": "worker; workforce",
+      "pos": "noun",
+      "expect": {
+        "def": "worker, employee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Hektik",
+      "level": "B1",
+      "en": "hustle, hecticness",
+      "pos": "noun",
+      "expect": {
+        "def": "hecticness, bustle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:anpassen",
+      "level": "B1",
+      "en": "to adapt, adjust",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas passend machen, angleichen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verfolgen",
+      "level": "B1",
+      "en": "to pursue, follow",
+      "pos": "verb",
+      "expect": {
+        "def": "to pursue, to follow, to hunt; to chase"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umfassen",
+      "level": "B1",
+      "en": "to comprise, encompass",
+      "pos": "verb",
+      "expect": {
+        "def": "etwas umgreifen, umfangen, umgeben"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hervorragend",
+      "level": "B1",
+      "en": "outstanding, excellent",
+      "pos": "adjective",
+      "expect": {
+        "def": "outstanding, superb"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Anblick",
+      "level": "B1",
+      "en": "sight, view",
+      "pos": "noun",
+      "expect": {
+        "def": "view, sight, look"
+      },
+      "def": ""
+    }
+  ]
+}

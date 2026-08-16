@@ -1,0 +1,522 @@
+{
+  "_README": [
+    "40 A2 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:das Blatt",
+      "level": "A2",
+      "term": "das Blatt",
+      "en": "sheet (of paper); leaf",
+      "pos": "noun",
+      "example": "Schreiben Sie bitte auf dieses Blatt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Erlebnis",
+      "level": "A2",
+      "term": "das Erlebnis",
+      "en": "experience (event); event",
+      "pos": "noun",
+      "defDe": "ein bemerkenswertes Ereignis, das jemand erlebt hat",
+      "example": "Die Reise war ein tolles Erlebnis.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Frühstücksbüfett",
+      "level": "A2",
+      "term": "das Frühstücksbüfett",
+      "en": "breakfast buffet",
+      "pos": "noun",
+      "defDe": "zum Frühstück zur Selbstbedienung aufgebaute Speisen und Getränke in einem Restaurant, Hotel oder dergleichen",
+      "example": "Das Hotel hat ein großes Frühstücksbüfett.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Geschirr",
+      "level": "A2",
+      "term": "das Geschirr",
+      "en": "crockery, dishes",
+      "pos": "noun",
+      "example": "Ich wasche das Geschirr ab.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Mineralwasser",
+      "level": "A2",
+      "term": "das Mineralwasser",
+      "en": "mineral water",
+      "pos": "noun",
+      "defDe": "Trinkwasser, das mit Mineralien und teilweise mit Kohlensäure versetzt ist",
+      "example": "Ich trinke lieber Mineralwasser als Limo.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Paar",
+      "level": "A2",
+      "term": "das Paar",
+      "en": "couple",
+      "pos": "noun",
+      "defDe": "zwei durch eine (wie auch immer geartete) Beziehung miteinander verbundene Menschen (Lebewesen); speziell: zwei Menschen in einer engen, persönlichen (intimen) Verbindung",
+      "example": "Das Paar tanzt sehr elegant.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Paket",
+      "level": "A2",
+      "term": "das Paket",
+      "en": "package, parcel",
+      "pos": "noun",
+      "defDe": "Verpackung eines oder mehrerer Gegenstände zum Schutz, zu Zwecken der Bündelung, der Steigerung des Überraschungseffekts, des Scherzeffektes",
+      "example": "Das Paket kommt morgen an.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Parfüm",
+      "level": "A2",
+      "term": "das Parfüm",
+      "en": "perfume",
+      "pos": "noun",
+      "example": "Im Erdgeschoss gibt es Parfüm und Schmuck.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Projekt",
+      "level": "A2",
+      "term": "das Projekt",
+      "en": "project",
+      "pos": "noun",
+      "example": "Das Projekt dauert drei Monate.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Schlafzimmer",
+      "level": "A2",
+      "term": "das Schlafzimmer",
+      "en": "bedroom",
+      "pos": "noun",
+      "defDe": "Raum in einem Haus oder einer Wohnung, der zum Schlafen gedacht ist",
+      "example": "Das Schlafzimmer ist hell und ruhig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Spielzeug",
+      "level": "A2",
+      "term": "das Spielzeug",
+      "en": "toy, toys",
+      "pos": "noun",
+      "example": "Die Kinder räumen ihr Spielzeug auf.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Tennis",
+      "level": "A2",
+      "term": "das Tennis",
+      "en": "tennis",
+      "pos": "noun",
+      "example": "Am Samstag spiele ich Tennis.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Wohnmobil",
+      "level": "A2",
+      "term": "das Wohnmobil",
+      "en": "campervan",
+      "pos": "noun",
+      "defDe": "Kraftfahrzeug mit einer zum Wohnen geeigneten Ausstattung, um darin bei Reisen übernachten zu können",
+      "example": "Wir reisen mit dem Wohnmobil.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Aktivurlaub",
+      "level": "A2",
+      "term": "der Aktivurlaub",
+      "en": "activity holiday",
+      "pos": "noun",
+      "defDe": "Urlaub, bei dem sportliche Betätigung (zum Beispiel Wandern, Radfahren oder Wassersport) im Vordergrund steht, oft in der Natur oder im Freien",
+      "example": "Wir mögen Aktivurlaub in den Bergen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Aufenthaltsraum",
+      "level": "A2",
+      "term": "der Aufenthaltsraum",
+      "en": "common room, lounge",
+      "pos": "noun",
+      "defDe": "Raum in einem Betrieb, einer Behörde oder dergleichen, wo Berechtigte/Mitarbeiter sich vorübergehend aufhalten können",
+      "example": "Im Aufenthaltsraum gibt es einen Fernseher.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Ferienjob",
+      "level": "A2",
+      "term": "der Ferienjob",
+      "en": "holiday job",
+      "pos": "noun",
+      "defDe": "kurzzeitige Anstellung für Schüler und Studenten während der Ferien",
+      "example": "Ich suche einen Ferienjob.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Gasthof",
+      "level": "A2",
+      "term": "der Gasthof",
+      "en": "inn",
+      "pos": "noun",
+      "defDe": "Gasthaus (meist auf dem Lande), das neben Restaurantbetrieb in kleinerem Umfang auch Schlafgelegenheiten bietet",
+      "example": "Wir übernachten in einem Gasthof.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Gutschein",
+      "level": "A2",
+      "term": "der Gutschein",
+      "en": "voucher",
+      "pos": "noun",
+      "example": "Zum Geburtstag schenken wir ihr einen Gutschein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Hamster",
+      "level": "A2",
+      "term": "der Hamster",
+      "en": "hamster",
+      "pos": "noun",
+      "defDe": "maus- (Zwerghamster) bis fast kaninchengroßes (Feldhamster), dämmerungsaktives Nagetier, mit dichtem Fell und kurzem bis stummelartigem Schwanz (Familie Cricetidae)",
+      "example": "Mein Hamster läuft nachts im Rad.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Hof",
+      "level": "A2",
+      "term": "der Hof",
+      "en": "courtyard",
+      "pos": "noun",
+      "defDe": "umgrenzter Platz, Wirtschafts- und Verkehrsfläche auf einem Grundstück, in der Regel von Gebäuden umschlossen oder hinter, vor oder zwischen Gebäuden gelegen",
+      "example": "Die Kinder spielen im Hof.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kasten",
+      "level": "A2",
+      "term": "der Kasten",
+      "en": "box; crate",
+      "pos": "noun",
+      "example": "Die Wörter stehen im Kasten.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Lohn",
+      "level": "A2",
+      "term": "der Lohn",
+      "en": "wage, pay",
+      "pos": "noun",
+      "defDe": "Vergütung für eine geleistete Arbeit der Arbeiter",
+      "example": "Sein Lohn wird wöchentlich ausgezahlt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Luftballon",
+      "level": "A2",
+      "term": "der Luftballon",
+      "en": "balloon",
+      "pos": "noun",
+      "defDe": "Hülle aus Gummi, die mit Luft oder Helium aufgeblasen werden kann, oft in Form eines bunten, meist runden Kinderspielzeugs an einem Faden oder Draht",
+      "example": "Die Kinder spielen mit einem Luftballon.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Rest",
+      "level": "A2",
+      "term": "der Rest",
+      "en": "rest, remainder",
+      "pos": "noun",
+      "example": "Den Rest erkläre ich dir morgen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Somit",
+      "level": "A2",
+      "term": "der Somit",
+      "en": "somite",
+      "pos": "noun",
+      "example": "Er war neu im Dorf und somit niemandem bekannt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Strandkorb",
+      "level": "A2",
+      "term": "der Strandkorb",
+      "en": "roofed beach chair",
+      "pos": "noun",
+      "defDe": "schwerer beweglicher Sonnen- und Windschutz am Strand, der außen geflochten und innen gepolstert ist",
+      "example": "Wir sitzen im Strandkorb.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Treffpunkt",
+      "level": "A2",
+      "term": "der Treffpunkt",
+      "en": "meeting point",
+      "pos": "noun",
+      "defDe": "ein zuvor vereinbarter Punkt oder Ort, an dem man sich treffen möchte",
+      "example": "Der Treffpunkt ist am Bahnhof.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Übersetzer",
+      "level": "A2",
+      "term": "der Übersetzer",
+      "en": "translator",
+      "pos": "noun",
+      "defDe": "jemand, der Texte schriftlich von der einen in die andere Sprache überträgt",
+      "example": "Der Übersetzer arbeitet zu Hause.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Alpen",
+      "level": "A2",
+      "term": "die Alpen",
+      "en": "the Alps",
+      "pos": "noun",
+      "defDe": "ein mitteleuropäisches Gebirge, an dem Deutschland, Österreich, die Schweiz, Liechtenstein, Slowenien, Italien und Frankreich Anteil haben; das höchste und nach Ausdehnung größte Gebirge Europas",
+      "example": "Im Sommer fahren wir in die Alpen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Fernreise",
+      "level": "A2",
+      "term": "die Fernreise",
+      "en": "long-distance journey",
+      "pos": "noun",
+      "defDe": "Reise in die Ferne, weit weg von der Heimat",
+      "example": "Wir planen eine Fernreise nach Asien.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Luft",
+      "level": "A2",
+      "term": "die Luft",
+      "en": "air",
+      "pos": "noun",
+      "defDe": "überwiegend aus Stickstoff und Sauerstoff bestehendes Gasgemisch, das Lebewesen zum Atmen benötigen",
+      "example": "Die Luft ist heute frisch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Lust",
+      "level": "A2",
+      "term": "die Lust",
+      "en": "desire, inclination",
+      "pos": "noun",
+      "example": "Ich habe heute keine Lust auf Sport.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Metropole",
+      "level": "A2",
+      "term": "die Metropole",
+      "en": "metropolis",
+      "pos": "noun",
+      "defDe": "sehr große und/oder bedeutende Stadt/Stelle, weil sie die betreffende Region dominiert, Zentrum eines Ballungsraums ist oder zum Beispiel auch viele Kulturen beherbergt",
+      "example": "Berlin ist eine große Metropole.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die PIN eingeben",
+      "level": "A2",
+      "term": "die PIN eingeben",
+      "en": "to enter the PIN",
+      "pos": "phrase",
+      "defDe": "die Handlung des Eingebens; Hinzuführen von Information",
+      "example": "Geben Sie bitte Ihre PIN ein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Präsentation",
+      "level": "A2",
+      "term": "die Präsentation",
+      "en": "presentation",
+      "pos": "noun",
+      "defDe": "Darstellung oder Darbringung von Informationen, Planungen oder Waren gegenüber einem Publikum",
+      "example": "Ich halte morgen eine Präsentation.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Produktion",
+      "level": "A2",
+      "term": "die Produktion",
+      "en": "production",
+      "pos": "noun",
+      "defDe": "Erstellung von Gütern, Dienstleistungen, Informationen oder Energien; neben der Beschaffung und dem Absatz die dritte betriebliche Grundfunktion",
+      "example": "Die Produktion läuft gut.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Schlange",
+      "level": "A2",
+      "term": "die Schlange",
+      "en": "snake; queue",
+      "pos": "noun",
+      "defDe": "Unterordnung von fußlosen Tieren (Serpentes)",
+      "example": "Im Zoo gibt es viele Schlangen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Semesterferien",
+      "level": "A2",
+      "term": "die Semesterferien",
+      "en": "semester break",
+      "pos": "noun",
+      "defDe": "Zeit im Übergang von einem Semester zum nächsten, in der in der Regel keine Lehrveranstaltungen stattfinden",
+      "example": "In den Semesterferien arbeite ich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sportkleidung",
+      "level": "A2",
+      "term": "die Sportkleidung",
+      "en": "sportswear",
+      "pos": "noun",
+      "defDe": "Kleidung, die beim Sport getragen wird",
+      "example": "Ich kaufe neue Sportkleidung für das Training.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sporttasche",
+      "level": "A2",
+      "term": "die Sporttasche",
+      "en": "sports bag, gym bag",
+      "pos": "noun",
+      "defDe": "geräumige Tasche für die Utensilien, die beim Sport benötigt werden",
+      "example": "Meine Sporttasche liegt noch im Auto.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

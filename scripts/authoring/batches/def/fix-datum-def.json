@@ -1,0 +1,16 @@
+{
+  "_README": [
+    "One correction: the first version quoted the German plural inside the English",
+    "definition, which corpus:validate correctly reads as German in the `def` field.",
+    "The plural already lives in the card’s own `plural` field."
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:das Datum",
+      "expect": {
+        "def": "The calendar day on which something falls; in the plural, die Daten, collected facts and figures."
+      },
+      "def": "The calendar day on which something falls; in the plural, collected facts and figures gathered for study."
+    }
+  ]
+}

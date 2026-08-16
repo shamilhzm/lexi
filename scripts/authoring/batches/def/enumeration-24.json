@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:die Größe",
+      "level": "A1",
+      "en": "size",
+      "pos": "noun",
+      "expect": {
+        "def": "size, height"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:günstig",
+      "level": "A1",
+      "en": "cheap, good-value",
+      "pos": "adjective",
+      "expect": {
+        "def": "favourable, propitious, opportune"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Webseite",
+      "level": "A2",
+      "en": "website",
+      "pos": "noun",
+      "expect": {
+        "def": "web page; web site"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Möbel",
+      "level": "A2",
+      "en": "furniture",
+      "pos": "noun",
+      "expect": {
+        "def": "piece of furniture; furniture"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:erklären",
+      "level": "A1",
+      "en": "to explain",
+      "pos": "verb",
+      "expect": {
+        "def": "to explain, to make clear; to declare, assert"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fleißig",
+      "level": "A2",
+      "en": "hard-working, diligent",
+      "pos": "adjective",
+      "expect": {
+        "def": "diligent, hard-working, industrious, busy, assiduous, sedulous"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:faul",
+      "level": "A2",
+      "en": "lazy",
+      "pos": "adjective",
+      "expect": {
+        "def": "foul, rotten, rancid"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:bequem",
+      "level": "A2",
+      "en": "comfortable",
+      "pos": "adjective",
+      "expect": {
+        "def": "comfortable, convenient"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:gefährlich",
+      "level": "A2",
+      "en": "dangerous",
+      "pos": "adjective",
+      "expect": {
+        "def": "mit Gefahr, Risiko verbunden"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wahrscheinlich",
+      "level": "A2",
+      "en": "probably",
+      "pos": "adverb",
+      "expect": {
+        "def": "probably, likely"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:trotzdem",
+      "level": "A2",
+      "en": "nevertheless, anyway",
+      "pos": "adverb",
+      "expect": {
+        "def": "anyhow, nevertheless"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Gewitter",
+      "level": "A2",
+      "en": "thunderstorm",
+      "pos": "noun",
+      "expect": {
+        "def": "thunderstorm, lightning storm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Nebel",
+      "level": "A2",
+      "en": "fog, mist",
+      "pos": "noun",
+      "expect": {
+        "def": "fog, mist, haze"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schatten",
+      "level": "A2",
+      "en": "shadow, shade",
+      "pos": "noun",
+      "expect": {
+        "def": "shade, shadow"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Notfall",
+      "level": "A2",
+      "en": "emergency",
+      "pos": "noun",
+      "expect": {
+        "def": "emergency, distress"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Krankenwagen",
+      "level": "A2",
+      "en": "ambulance",
+      "pos": "noun",
+      "expect": {
+        "def": "ambulance, ambulance car, ambulance van"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Versicherung",
+      "level": "A2",
+      "en": "insurance",
+      "pos": "noun",
+      "expect": {
+        "def": "insurance; an insurance policy; an insurance company"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Beziehung",
+      "level": "A2",
+      "en": "relationship",
+      "pos": "noun",
+      "expect": {
+        "def": "relation, relationship, connection; interpersonal relationship, terms, relations"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:lustig",
+      "level": "A1",
+      "en": "funny, cheerful",
+      "pos": "adjective",
+      "expect": {
+        "def": "funny, humorous"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:lachen",
+      "level": "A1",
+      "en": "to laugh",
+      "pos": "verb",
+      "expect": {
+        "def": "to laugh; to smile"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:weinen",
+      "level": "A2",
+      "en": "to cry",
+      "pos": "verb",
+      "expect": {
+        "def": "to weep, cry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Konto",
+      "level": "A1",
+      "en": "bank account",
+      "pos": "noun",
+      "expect": {
+        "def": "account; bank account"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:überweisen",
+      "level": "A1",
+      "en": "to transfer (money)",
+      "pos": "verb",
+      "expect": {
+        "def": "to transfer, to wire"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Steuer",
+      "level": "A2",
+      "en": "tax",
+      "pos": "noun",
+      "expect": {
+        "def": "helm, rudder"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:leihen",
+      "level": "A2",
+      "en": "to lend; to borrow",
+      "pos": "verb",
+      "expect": {
+        "def": "to borrow; to lend, loan"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Soße",
+      "level": "A2",
+      "en": "sauce",
+      "pos": "noun",
+      "expect": {
+        "def": "sauce, gravy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:backen",
+      "level": "A2",
+      "en": "to bake",
+      "pos": "verb",
+      "expect": {
+        "def": "to bake; to roast; to fry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:braten",
+      "level": "A2",
+      "en": "to fry, to roast",
+      "pos": "verb",
+      "expect": {
+        "def": "to pan-fry; to roast; to grill; to broil"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schneiden",
+      "level": "A2",
+      "en": "to cut",
+      "pos": "verb",
+      "expect": {
+        "def": "to cut; to carve; to slice; to pare; to clip; to mow; to prune; to trim"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:sauer",
+      "level": "A2",
+      "en": "sour; cross",
+      "pos": "adjective",
+      "expect": {
+        "def": "sour; acid; acidic"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:bekannt",
+      "level": "A1",
+      "en": "well-known, familiar",
+      "pos": "adjective",
+      "expect": {
+        "def": "known, familiar"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:berühmt",
+      "level": "A2",
+      "en": "famous",
+      "pos": "adjective",
+      "expect": {
+        "def": "famous, well-known, renowned, celebrated, noted"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:deutlich",
+      "level": "A2",
+      "en": "clear, distinct",
+      "pos": "adjective",
+      "expect": {
+        "def": "articulate, clear"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:neugierig",
+      "level": "A2",
+      "en": "curious",
+      "pos": "adjective",
+      "expect": {
+        "def": "nosy, curious, inquisitive, prying"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ähnlich",
+      "level": "A2",
+      "en": "similar",
+      "pos": "adjective",
+      "expect": {
+        "def": "similar, alike, resembling"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:gemeinsam",
+      "level": "A2",
+      "en": "together, joint; common / joint",
+      "pos": "adjective",
+      "expect": {
+        "def": "common, mutual, shared"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Zukunft",
+      "level": "A2",
+      "en": "future",
+      "pos": "noun",
+      "expect": {
+        "def": "future; future tense"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Möglichkeit",
+      "level": "A2",
+      "en": "possibility, option",
+      "pos": "noun",
+      "expect": {
+        "def": "possibility, likelihood"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Reise",
+      "level": "A2",
+      "en": "journey, trip",
+      "pos": "noun",
+      "expect": {
+        "def": "journey, travel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Ordnung",
+      "level": "A1",
+      "en": "order, tidiness",
+      "pos": "noun",
+      "expect": {
+        "def": "arrangement, regulation"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:übergeben",
+      "level": "B1",
+      "en": "to hand over",
+      "pos": "verb",
+      "expect": {
+        "def": "to hand over; to vomit, to throw up"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:äußern",
+      "level": "B2",
+      "en": "to utter",
+      "pos": "verb",
+      "expect": {
+        "def": "to utter; to say; to express"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:produzieren",
+      "level": "A2",
+      "en": "to produce",
+      "pos": "verb",
+      "expect": {
+        "def": "to produce; to show off"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:weitergehen",
+      "level": "A2",
+      "en": "to proceed, progress, continue",
+      "pos": "verb",
+      "expect": {
+        "def": "to proceed, progress, continue; to keep moving"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Weltmeisterschaft",
+      "level": "A2",
+      "en": "World Cup",
+      "pos": "noun",
+      "expect": {
+        "def": "World Cup; World Championship"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:entfernen",
+      "level": "B1",
+      "en": "to remove",
+      "pos": "verb",
+      "expect": {
+        "def": "to remove; to gradually move away; to recede; to retreat; to diverge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erstellen",
+      "level": "B1",
+      "en": "to create",
+      "pos": "verb",
+      "expect": {
+        "def": "to create; to construct"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erzeugen",
+      "level": "B1",
+      "en": "to produce",
+      "pos": "verb",
+      "expect": {
+        "def": "to produce; to generate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:fassen",
+      "level": "B1",
+      "en": "to gird, to surround, to confine into a form",
+      "pos": "verb",
+      "expect": {
+        "def": "to gird, to surround, to confine into a form; to grasp, to catch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:feststellen",
+      "level": "B1",
+      "en": "to determine, to ascertain, to establish, to find, to see",
+      "pos": "verb",
+      "expect": {
+        "def": "to determine, to ascertain, to establish, to find, to see; to notice, to realize, to observe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:fürchten",
+      "level": "B1",
+      "en": "to fear",
+      "pos": "verb",
+      "expect": {
+        "def": "to fear; to be afraid"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sinken",
+      "level": "B1",
+      "en": "to sink",
+      "pos": "verb",
+      "expect": {
+        "def": "to sink; to submerge; to set; to fall from the sky; to fall; to drop; to decline"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:steigern",
+      "level": "B1",
+      "en": "to increase, to raise",
+      "pos": "verb",
+      "expect": {
+        "def": "to increase, to raise; to boost, to improve, to enhance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verlaufen",
+      "level": "B1",
+      "en": "to get lost, stray",
+      "pos": "verb",
+      "expect": {
+        "def": "to get lost, stray; to disperse, scatter"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:versorgen",
+      "level": "B1",
+      "en": "to look after",
+      "pos": "verb",
+      "expect": {
+        "def": "to look after; to treat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verstärken",
+      "level": "B1",
+      "en": "to reinforce",
+      "pos": "verb",
+      "expect": {
+        "def": "to reinforce; to amplify"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verteilen",
+      "level": "B1",
+      "en": "to distribute",
+      "pos": "verb",
+      "expect": {
+        "def": "to distribute; to spread"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:derart",
+      "level": "B2",
+      "en": "so, thus, in such a manner",
+      "pos": "adverb",
+      "expect": {
+        "def": "so, thus, in such a manner; to such an extent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:eintreffen",
+      "level": "B2",
+      "en": "to arrive",
+      "pos": "verb",
+      "expect": {
+        "def": "to arrive; to come true"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erleichtern",
+      "level": "B2",
+      "en": "to facilitate, make easier",
+      "pos": "verb",
+      "expect": {
+        "def": "to facilitate, make easier; to ease"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Erweiterung",
+      "level": "B2",
+      "en": "extension, expansion",
+      "pos": "noun",
+      "expect": {
+        "def": "extension, expansion; addon/add-on"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:mutmaßlich",
+      "level": "B2",
+      "en": "alleged",
+      "pos": "adjective",
+      "expect": {
+        "def": "alleged; suspected; presumed"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verfügen",
+      "level": "B2",
+      "en": "to decree, to order",
+      "pos": "verb",
+      "expect": {
+        "def": "to decree, to order; to have at one's disposal, to employ, to have control over"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wahren",
+      "level": "B2",
+      "en": "to protect, to safeguard",
+      "pos": "verb",
+      "expect": {
+        "def": "to protect, to safeguard; to maintain, to preserve"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Wahrscheinlichkeit",
+      "level": "B2",
+      "en": "probability",
+      "pos": "noun",
+      "expect": {
+        "def": "probability; likelihood"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:brechen",
+      "level": "A2",
+      "en": "to break",
+      "pos": "verb",
+      "expect": {
+        "def": "to break; to refract"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:eh",
+      "level": "A2",
+      "en": "before",
+      "pos": "conjunction",
+      "expect": {
+        "def": "anyway, in any case"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:füllen",
+      "level": "A2",
+      "en": "to fill",
+      "pos": "verb",
+      "expect": {
+        "def": "to fill; to stuff"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Landstraße",
+      "level": "A2",
+      "en": "state road",
+      "pos": "noun",
+      "expect": {
+        "def": "state road; country road, rural road"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schade",
+      "level": "A2",
+      "en": "a pity, a shame",
+      "pos": "adjective",
+      "expect": {
+        "def": "a pity, a shame; bummer; unfortunate; disappointing"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beinahe",
+      "level": "B1",
+      "en": "almost",
+      "pos": "adverb",
+      "expect": {
+        "def": "almost; nearly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Beobachtung",
+      "level": "B1",
+      "en": "monitoring",
+      "pos": "noun",
+      "expect": {
+        "def": "monitoring; surveillance; supervision"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:locken",
+      "level": "B1",
+      "en": "to lure, to entice, to tempt",
+      "pos": "verb",
+      "expect": {
+        "def": "to lure, to entice, to tempt; to be lured"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:stoßen",
+      "level": "B1",
+      "en": "to push",
+      "pos": "verb",
+      "expect": {
+        "def": "to push; to shove; to thrust; to bump; to knock; to strike; to hurt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zerstören",
+      "level": "B1",
+      "en": "to destroy, demolish, devastate, eliminate",
+      "pos": "verb",
+      "expect": {
+        "def": "to destroy, demolish, devastate, eliminate; to dispel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:entlasten",
+      "level": "B2",
+      "en": "to relieve, ease",
+      "pos": "verb",
+      "expect": {
+        "def": "to relieve, ease; to discharge, release"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gemäß",
+      "level": "B2",
+      "en": "corresponding to",
+      "pos": "adjective",
+      "expect": {
+        "def": "corresponding to; matching to"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:jenseits",
+      "level": "B2",
+      "en": "beyond, on the other side of",
+      "pos": "preposition",
+      "expect": {
+        "def": "beyond, on the other side"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:böse",
+      "level": "A2",
+      "en": "evil",
+      "pos": "adjective",
+      "expect": {
+        "def": "evil; malicious; wicked"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hassen",
+      "level": "A2",
+      "en": "to hate",
+      "pos": "verb",
+      "expect": {
+        "def": "to hate; to mob"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:unsicher",
+      "level": "B1",
+      "en": "insecure, uncertain",
+      "pos": "adjective",
+      "expect": {
+        "def": "uncertain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:liebevoll",
+      "level": "B1",
+      "en": "loving, affectionate",
+      "pos": "adjective",
+      "expect": {
+        "def": "loving"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gelassen",
+      "level": "B1",
+      "en": "composed, serene",
+      "pos": "adjective",
+      "expect": {
+        "def": "calm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:reif",
+      "level": "B1",
+      "en": "mature",
+      "pos": "adjective",
+      "expect": {
+        "def": "ripe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unreif",
+      "level": "B1",
+      "en": "immature",
+      "pos": "adjective",
+      "expect": {
+        "def": "unripe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:humorvoll",
+      "level": "B1",
+      "en": "humorous, funny",
+      "pos": "adjective",
+      "expect": {
+        "def": "humorous"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unangenehm",
+      "level": "B1",
+      "en": "unpleasant, awkward",
+      "pos": "adjective",
+      "expect": {
+        "def": "unpleasant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hirsch",
+      "level": "B1",
+      "en": "deer / stag",
+      "pos": "noun",
+      "expect": {
+        "def": "deer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fledermaus",
+      "level": "B1",
+      "en": "bat",
+      "pos": "noun",
+      "expect": {
+        "def": "microbat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:würzen",
+      "level": "B1",
+      "en": "to season / spice",
+      "pos": "verb",
+      "expect": {
+        "def": "to season"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Aufschnitt",
+      "level": "B1",
+      "en": "cold cuts / sliced meats",
+      "pos": "noun",
+      "expect": {
+        "def": "cold cuts"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Limonade",
+      "level": "A2",
+      "en": "lemonade / fizzy drink",
+      "pos": "noun",
+      "expect": {
+        "def": "lemonade"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Japan",
+      "level": "B1",
+      "en": "japan",
+      "pos": "noun",
+      "expect": {
+        "def": "Inselstaat in Ostasien"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:Kenia",
+      "level": "B1",
+      "en": "Kenya",
+      "pos": "noun",
+      "expect": {
+        "def": "ellipsis of Kenia-Koalition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Halbbruder",
+      "level": "B1",
+      "en": "half-brother",
+      "pos": "noun",
+      "expect": {
+        "def": "half brother"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Erschöpfung",
+      "level": "B1",
+      "en": "exhaustion",
+      "pos": "noun",
+      "expect": {
+        "def": "depletion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Trauma",
+      "level": "B1",
+      "en": "trauma",
+      "pos": "noun",
+      "expect": {
+        "def": "starke seelische Erschütterung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Überforderung",
+      "level": "B2",
+      "en": "overwhelm, overload",
+      "pos": "noun",
+      "expect": {
+        "def": "overexertion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Frustration",
+      "level": "B1",
+      "en": "frustration",
+      "pos": "noun",
+      "expect": {
+        "def": "schwerwiegende Enttäuschung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verzweiflung",
+      "level": "B2",
+      "en": "despair",
+      "pos": "noun",
+      "expect": {
+        "def": "desperation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Unsicherheit",
+      "level": "B1",
+      "en": "insecurity, uncertainty",
+      "pos": "noun",
+      "expect": {
+        "def": "uncertainty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schuld",
+      "level": "B1",
+      "en": "guilt",
+      "pos": "noun",
+      "expect": {
+        "def": "debt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Kummer",
+      "level": "B1",
+      "en": "sorrow, distress",
+      "pos": "noun",
+      "expect": {
+        "def": "Sorgegefühl beziehungsweise Niedergeschlagenheit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Mitgefühl",
+      "level": "B2",
+      "en": "compassion, empathy",
+      "pos": "noun",
+      "expect": {
+        "def": "compassion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:belastend",
+      "level": "B2",
+      "en": "burdensome, distressing",
+      "pos": "adjective",
+      "expect": {
+        "def": "burdening"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schnupfen",
+      "level": "A2",
+      "en": "cold / runny nose",
+      "pos": "noun",
+      "expect": {
+        "def": "nasal congestion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Sprechstunde",
+      "level": "B1",
+      "en": "office hours / consultation",
+      "pos": "noun",
+      "expect": {
+        "def": "office hours"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kalorie",
+      "level": "B1",
+      "en": "calorie",
+      "pos": "noun",
+      "expect": {
+        "def": "kilocalorie"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:exakt",
+      "level": "B1",
+      "en": "exact, precise",
+      "pos": "adjective",
+      "expect": {
+        "def": "exact"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Versuch",
+      "level": "B1",
+      "en": "attempt, experiment",
+      "pos": "noun",
+      "expect": {
+        "def": "attempt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schulden",
+      "level": "B1",
+      "en": "debts",
+      "pos": "noun",
+      "expect": {
+        "def": "debt"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verschuldet",
+      "level": "B1",
+      "en": "indebted, in debt",
+      "pos": "adjective",
+      "expect": {
+        "def": "indebted"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Klingel",
+      "level": "B1",
+      "en": "doorbell",
+      "pos": "noun",
+      "expect": {
+        "def": "Gerät zum Klingeln"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Brunnen",
+      "level": "B1",
+      "en": "fountain, well",
+      "pos": "noun",
+      "expect": {
+        "def": "well"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:städtisch",
+      "level": "B1",
+      "en": "urban, municipal",
+      "pos": "adjective",
+      "expect": {
+        "def": "urban"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Meinungsfreiheit",
+      "level": "B1",
+      "en": "freedom of speech",
+      "pos": "noun",
+      "expect": {
+        "def": "freedom of opinion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Politik",
+      "level": "A2",
+      "en": "politics; policy",
+      "pos": "noun",
+      "expect": {
+        "def": "politics"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Gerechtigkeit",
+      "level": "B1",
+      "en": "justice, fairness",
+      "pos": "noun",
+      "expect": {
+        "def": "justice"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Abstimmung",
+      "level": "B1",
+      "en": "vote, ballot",
+      "pos": "noun",
+      "expect": {
+        "def": "vote"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:rechtlich",
+      "level": "B1",
+      "en": "legal, lawful",
+      "pos": "adjective",
+      "expect": {
+        "def": "legal"
+      },
+      "def": ""
+    }
+  ]
+}

@@ -171,4 +171,47 @@ for (const k of ORDER) {
     console.log(`  wrote ${name}  (${slice.length} rows)`);
   }
 }
+// The cards with **no** definition at all — the biggest bucket and, until now, the
+// only one with nowhere to go. It was reported as "a queue" and never emitted as
+// one, so the largest group of defective cards had no authoring path: measured
+// 2026-08-16, 455 cards against 1,213 merely flagged.
+//
+// Ordered by level, lowest first, because a card with no definition renders no
+// definition block at all and an A1 learner meets the most cards. `defDe` and the
+// first example ride along as *sense evidence* — a German definition says which
+// homograph this card is about, which is exactly what an author needs and what a
+// bare gloss cannot supply.
+const missingRows = [...missing].sort((a, b) =>
+  LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level) || a.term.localeCompare(b.term));
+for (const lv of LEVELS) {
+  const rows = missingRows.filter((w) => w.level === lv);
+  let seq = 1;
+  for (let i = 0; i < rows.length; i += BATCH_SIZE) {
+    const slice = rows.slice(i, i + BATCH_SIZE);
+    let name = `${OUT_DIR}/missing-${lv}-${String(seq).padStart(2, '0')}.json`;
+    while (existsSync(name)) name = `${OUT_DIR}/missing-${lv}-${String(++seq).padStart(2, '0')}.json`;
+    seq++;
+    writeFileSync(name, JSON.stringify({
+      _README: [
+        `${slice.length} ${lv} card(s) with no English definition at all.`,
+        'Author "def": what the thing IS, in one learner-facing clause — not a list',
+        'of other translations, which the `en` gloss already gives.',
+        '`defDe` and `example` are sense evidence, not text to translate: use them to',
+        'confirm which homograph the card is about, then write the English yourself.',
+        '"expect" is what the corpus holds now; fix-authored.ts refuses a stale row.',
+        'Then: node scripts/authoring/fix-authored.ts <this file> --dry',
+      ],
+      rows: slice.map((w) => ({
+        id: w.id, level: w.level, term: w.term, en: w.en, pos: w.pos,
+        ...(w.defDe ? { defDe: w.defDe } : {}),
+        ...(w.ex?.[0]?.de ? { example: w.ex[0].de } : {}),
+        expect: { def: w.def ?? '' },
+        def: '',
+      })),
+    }, null, 2) + '\n');
+    files++;
+    console.log(`  wrote ${name}  (${slice.length} rows)`);
+  }
+}
+
 console.log(`\n✓ ${files} batch file(s) in ${OUT_DIR}. Nothing in public/data was touched.\n`);

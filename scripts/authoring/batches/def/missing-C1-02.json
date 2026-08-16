@@ -1,0 +1,427 @@
+{
+  "_README": [
+    "34 C1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:C1:die Konfession",
+      "level": "C1",
+      "term": "die Konfession",
+      "en": "religious denomination",
+      "pos": "noun",
+      "example": "Erwartet wird die Zugehörigkeit zu einer Konfession.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Legitimität",
+      "level": "C1",
+      "term": "die Legitimität",
+      "en": "legitimacy",
+      "pos": "noun",
+      "defDe": "Eigenschaft, anerkennungswürdig (legitim) zu sein, weil gewisse moralische, aber auch gesetzliche Normen und Wertvorstellungen eingehalten sind",
+      "example": "Ohne freie Wahlen fehlt einer Regierung jede Legitimität.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Leinwand",
+      "level": "C1",
+      "term": "die Leinwand",
+      "en": "canvas; screen",
+      "pos": "noun",
+      "example": "Man verbringt viele Stunden nah an einer Leinwand.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Ökonomie",
+      "level": "C1",
+      "term": "die Ökonomie",
+      "en": "economy; economics",
+      "pos": "noun",
+      "example": "Die Ökonomie öffentlicher Debatten begünstigt das Reichliche.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Replikation",
+      "level": "C1",
+      "term": "die Replikation",
+      "en": "replication (of study)",
+      "pos": "noun",
+      "defDe": "zelluläre Synthese; Erzeugen einer Kopie durch Verdoppelung genetischen Materials (DNA/RNA), zum Beispiel eines Chromosoms oder Virus",
+      "example": "Nachdem das Virus in die Wirtszelle eingedrungen ist, wird die Replikation eingeleitet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Restaurierung",
+      "level": "C1",
+      "term": "die Restaurierung",
+      "en": "restoration (of art or buildings)",
+      "pos": "noun",
+      "example": "Die meisten Schäden stammen von früheren Restaurierungen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Semantik",
+      "level": "C1",
+      "term": "die Semantik",
+      "en": "semantics",
+      "pos": "noun",
+      "defDe": "Disziplin der die Lehre von der Bedeutung von einfachen und komplexen sprachlichen Zeichen, also Morphemen, Wörtern, Sätzen und so weiter",
+      "example": "Unter Semantik werden in der Linguistik unterschiedliche Ansätze verstanden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Trägheit",
+      "level": "C1",
+      "term": "die Trägheit",
+      "en": "inertia, sluggishness",
+      "pos": "noun",
+      "example": "Manche Eigentümer handeln aus schlichter Trägheit nicht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Verdrängung",
+      "level": "C1",
+      "term": "die Verdrängung",
+      "en": "displacement, repression",
+      "pos": "noun",
+      "example": "In vielen Vierteln führt der Umbau zur Verdrängung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Verlagerung",
+      "level": "C1",
+      "term": "die Verlagerung",
+      "en": "shift, relocation",
+      "pos": "noun",
+      "example": "Das ist keine Leistungseinbuße, sondern eine Verlagerung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Verlegenheit",
+      "level": "C1",
+      "term": "die Verlegenheit",
+      "en": "embarrassment, awkward position",
+      "pos": "noun",
+      "example": "Die Frage brachte ihn in Verlegenheit.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Verschiebung",
+      "level": "C1",
+      "term": "die Verschiebung",
+      "en": "postponement, shift",
+      "pos": "noun",
+      "example": "Die Verschiebung des Termins war nötig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:die Vorgabe",
+      "level": "C1",
+      "term": "die Vorgabe",
+      "en": "requirement, specification",
+      "pos": "noun",
+      "example": "Die Vorgaben der Ordnung sind eindeutig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:differenzieren",
+      "level": "C1",
+      "term": "differenzieren",
+      "en": "to differentiate, to draw distinctions",
+      "pos": "verb",
+      "example": "Hier muss man differenzieren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:entziehen",
+      "level": "C1",
+      "term": "entziehen",
+      "en": "to withdraw, to take away",
+      "pos": "verb",
+      "example": "Man entzog ihm den Führerschein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:ergreifen",
+      "level": "C1",
+      "term": "ergreifen",
+      "en": "to seize, to take (a measure)",
+      "pos": "verb",
+      "example": "Die Regierung ergreift strenge Maßnahmen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:ernüchternd",
+      "level": "C1",
+      "term": "ernüchternd",
+      "en": "sobering",
+      "pos": "adjective",
+      "example": "Das Ergebnis ist ernüchternd.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:hartnäckig",
+      "level": "C1",
+      "term": "hartnäckig",
+      "en": "persistent, stubborn",
+      "pos": "adjective",
+      "example": "Dieses Missverständnis hält sich hartnäckig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:hinfällig",
+      "level": "C1",
+      "term": "hinfällig",
+      "en": "invalid, no longer applicable",
+      "pos": "adjective",
+      "example": "Dann wäre mein Argument hinfällig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:kognitiv",
+      "level": "C1",
+      "term": "kognitiv",
+      "en": "cognitive",
+      "pos": "adjective",
+      "defDe": "auf das Wissen, Verstehen, Denken eines Lebewesens bezogen",
+      "example": "Mit dem Alter lassen die kognitiven Fähigkeiten langsam nach.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:konstruktiv",
+      "level": "C1",
+      "term": "konstruktiv",
+      "en": "constructive",
+      "pos": "adjective",
+      "defDe": "auf die Konstruktion bezogen",
+      "example": "Konstruktiv gesehen kann das Gebäude als gelungen betrachtet werden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:kontextuell",
+      "level": "C1",
+      "term": "kontextuell",
+      "en": "contextual",
+      "pos": "adjective",
+      "defDe": "Linguistik: den Kontext betreffend, zum Kontext gehörend, auf dem Kontext beruhend",
+      "example": "Die Bedeutung des Wortes ist rein kontextuell.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:legitim",
+      "level": "C1",
+      "term": "legitim",
+      "en": "legitimate",
+      "pos": "adjective",
+      "example": "Das ist ein legitimer Wunsch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:lesbar",
+      "level": "C1",
+      "term": "lesbar",
+      "en": "legible, readable",
+      "pos": "adjective",
+      "example": "Wir entscheiden, welchen Zustand wir für lesbar halten.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:nachgeben",
+      "level": "C1",
+      "term": "nachgeben",
+      "en": "to give way, to yield",
+      "pos": "verb",
+      "example": "In einem Punkt möchte ich nachgeben.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:pragmatisch",
+      "level": "C1",
+      "term": "pragmatisch",
+      "en": "pragmatic",
+      "pos": "adjective",
+      "example": "Die Antwort fällt pragmatisch aus.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:stagnieren",
+      "level": "C1",
+      "term": "stagnieren",
+      "en": "to stagnate",
+      "pos": "verb",
+      "example": "Ein Etat wächst, während der andere stagniert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:tadellos",
+      "level": "C1",
+      "term": "tadellos",
+      "en": "impeccable, flawless",
+      "pos": "adjective",
+      "example": "Die Technik funktioniert tadellos.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:umkehrbar",
+      "level": "C1",
+      "term": "umkehrbar",
+      "en": "reversible",
+      "pos": "adjective",
+      "example": "Jeder Eingriff muss umkehrbar sein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:unterdurchschnittlich",
+      "level": "C1",
+      "term": "unterdurchschnittlich",
+      "en": "below average",
+      "pos": "adjective",
+      "example": "Sie wird dafür unterdurchschnittlich entlohnt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:verheerend",
+      "level": "C1",
+      "term": "verheerend",
+      "en": "devastating, disastrous",
+      "pos": "adjective",
+      "example": "Betriebswirtschaftlich vernünftig, stadtplanerisch verheerend.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:vermehren",
+      "level": "C1",
+      "term": "vermehren",
+      "en": "to multiply, to increase",
+      "pos": "verb",
+      "example": "Anerkennung lässt sich kostenlos vermehren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:zumutbar",
+      "level": "C1",
+      "term": "zumutbar",
+      "en": "reasonable, acceptable to expect",
+      "pos": "adjective",
+      "example": "Die Frage war, ob das zumutbar sei.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:C1:zutreffend",
+      "level": "C1",
+      "term": "zutreffend",
+      "en": "accurate, applicable",
+      "pos": "adjective",
+      "example": "Die Aussage ist in der Sache zutreffend.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

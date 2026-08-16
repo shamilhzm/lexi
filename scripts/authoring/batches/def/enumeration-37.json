@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:die Gefahr",
+      "level": "B1",
+      "en": "danger",
+      "pos": "noun",
+      "expect": {
+        "def": "danger, hazard, peril, risk"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beweisen",
+      "level": "B1",
+      "en": "to prove",
+      "pos": "verb",
+      "expect": {
+        "def": "to prove; to display, to show, to demonstrate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nützlich",
+      "level": "B1",
+      "en": "useful",
+      "pos": "adjective",
+      "expect": {
+        "def": "useful; helpful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:damit",
+      "level": "B1",
+      "en": "so that",
+      "pos": "conjunction",
+      "expect": {
+        "def": "therefore, as a result"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Bereich",
+      "level": "B2",
+      "en": "area / field",
+      "pos": "noun",
+      "expect": {
+        "def": "area, realm, range, scope"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Behauptung",
+      "level": "B2",
+      "en": "claim",
+      "pos": "noun",
+      "expect": {
+        "def": "claim, assertion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Widerspruch",
+      "level": "B2",
+      "en": "contradiction",
+      "pos": "noun",
+      "expect": {
+        "def": "objection, protest"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Auseinandersetzung",
+      "level": "B2",
+      "en": "dispute / debate; engagement, examination",
+      "pos": "noun",
+      "expect": {
+        "def": "altercation; controversy; argument, dispute, debate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Einschätzung",
+      "level": "B2",
+      "en": "assessment",
+      "pos": "noun",
+      "expect": {
+        "def": "assessment, estimation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Überzeugung",
+      "level": "B2",
+      "en": "conviction",
+      "pos": "noun",
+      "expect": {
+        "def": "conviction, belief"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Einstellung",
+      "level": "B2",
+      "en": "attitude",
+      "pos": "noun",
+      "expect": {
+        "def": "attitude, mindset, disposition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Belastung",
+      "level": "B2",
+      "en": "burden / strain",
+      "pos": "noun",
+      "expect": {
+        "def": "load, weight, pressure, strain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Rückgang",
+      "level": "B2",
+      "en": "decline",
+      "pos": "noun",
+      "expect": {
+        "def": "decline, diminution"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Anstieg",
+      "level": "B2",
+      "en": "rise",
+      "pos": "noun",
+      "expect": {
+        "def": "increase, rise, surge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verpflichtung",
+      "level": "B2",
+      "en": "obligation",
+      "pos": "noun",
+      "expect": {
+        "def": "obligation, responsibility"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Begründung",
+      "level": "B2",
+      "en": "justification",
+      "pos": "noun",
+      "expect": {
+        "def": "reason, rationale, grounds"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Überschuss",
+      "level": "B2",
+      "en": "surplus",
+      "pos": "noun",
+      "expect": {
+        "def": "surplus, excess"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Knappheit",
+      "level": "B2",
+      "en": "scarcity",
+      "pos": "noun",
+      "expect": {
+        "def": "scarcity, shortage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausschließen",
+      "level": "B2",
+      "en": "to exclude",
+      "pos": "verb",
+      "expect": {
+        "def": "to exclude, to debar; to rule out, to preclude"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:betonen",
+      "level": "B2",
+      "en": "to emphasise",
+      "pos": "verb",
+      "expect": {
+        "def": "to emphasize; to stress"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einschränken",
+      "level": "B2",
+      "en": "to restrict",
+      "pos": "verb",
+      "expect": {
+        "def": "to constrain; to economize"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gewährleisten",
+      "level": "B2",
+      "en": "to ensure",
+      "pos": "verb",
+      "expect": {
+        "def": "to ensure; to guarantee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hervorheben",
+      "level": "B2",
+      "en": "to highlight; to emphasise",
+      "pos": "verb",
+      "expect": {
+        "def": "to emphasize, highlight"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:scheitern",
+      "level": "B2",
+      "en": "to fail",
+      "pos": "verb",
+      "expect": {
+        "def": "to fail, to conclude unsuccessfully; to flounder"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:umsetzen",
+      "level": "B2",
+      "en": "to implement",
+      "pos": "verb",
+      "expect": {
+        "def": "to implement, to realize; to transform, translate, convert, transpose"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:veranlassen",
+      "level": "B2",
+      "en": "to prompt / cause",
+      "pos": "verb",
+      "expect": {
+        "def": "to cause, to prompt, to arrange for, to bring about"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zusammenfassen",
+      "level": "B2",
+      "en": "to summarise",
+      "pos": "verb",
+      "expect": {
+        "def": "to summarize, to sum up; to consolidate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausführlich",
+      "level": "B2",
+      "en": "detailed",
+      "pos": "adjective",
+      "expect": {
+        "def": "detailed, elaborate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:eindeutig",
+      "level": "B2",
+      "en": "unambiguous",
+      "pos": "adjective",
+      "expect": {
+        "def": "unambiguous, unequivocal, explicit, unique"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erheblich",
+      "level": "B2",
+      "en": "considerable",
+      "pos": "adjective",
+      "expect": {
+        "def": "considerable, substantial, significant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gravierend",
+      "level": "B2",
+      "en": "serious; grave",
+      "pos": "adjective",
+      "expect": {
+        "def": "grave, serious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:umfangreich",
+      "level": "B2",
+      "en": "extensive",
+      "pos": "adjective",
+      "expect": {
+        "def": "extensive, wide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:unverzichtbar",
+      "level": "B2",
+      "en": "indispensable",
+      "pos": "adjective",
+      "expect": {
+        "def": "indispensable, essential"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zunehmend",
+      "level": "B2",
+      "en": "increasingly",
+      "pos": "adverb",
+      "expect": {
+        "def": "increasing, growing, mounting"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:endgültig",
+      "level": "B2",
+      "en": "final",
+      "pos": "adjective",
+      "expect": {
+        "def": "final, ultimate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:unverändert",
+      "level": "B2",
+      "en": "unchanged",
+      "pos": "adjective",
+      "expect": {
+        "def": "unchanged, unaltered, unmodified"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:allerdings",
+      "level": "B2",
+      "en": "however",
+      "pos": "adverb",
+      "expect": {
+        "def": "but, however"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:dennoch",
+      "level": "B2",
+      "en": "nevertheless",
+      "pos": "adverb",
+      "expect": {
+        "def": "anyhow, however"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:folglich",
+      "level": "B2",
+      "en": "consequently",
+      "pos": "adverb",
+      "expect": {
+        "def": "thus, therefore, consequently, hence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ohnehin",
+      "level": "B2",
+      "en": "anyway",
+      "pos": "adverb",
+      "expect": {
+        "def": "in any case, anyway, either way"
+      },
+      "def": ""
+    }
+  ]
+}

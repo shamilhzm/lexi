@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:erfolgen",
+      "level": "B1",
+      "en": "to take place, ensue",
+      "pos": "verb",
+      "expect": {
+        "def": "to happen, occur, take place; to follow, ensue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Macht",
+      "level": "B1",
+      "en": "power",
+      "pos": "noun",
+      "expect": {
+        "def": "power, authority"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Bundestag",
+      "level": "B1",
+      "en": "German federal parliament",
+      "pos": "noun",
+      "expect": {
+        "def": "Bundestag; federal/state parliament"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:fliehen",
+      "level": "B1",
+      "en": "to flee",
+      "pos": "verb",
+      "expect": {
+        "def": "to flee; to escape; to diverge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:tatsächlich",
+      "level": "B1",
+      "en": "actual(ly), real(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "actual, real, factual"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fachkraft",
+      "level": "B1",
+      "en": "skilled worker",
+      "pos": "noun",
+      "expect": {
+        "def": "expert; trained professional"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gewerbe",
+      "level": "B1",
+      "en": "trade, business",
+      "pos": "noun",
+      "expect": {
+        "def": "business, commercial enterprise, industry, trade"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:festgefahren",
+      "level": "B1",
+      "en": "stuck, deadlocked",
+      "pos": "adjective",
+      "expect": {
+        "def": "entrenched, stuck, bogged down"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umfassend",
+      "level": "B1",
+      "en": "comprehensive",
+      "pos": "adjective",
+      "expect": {
+        "def": "viele, beinahe alle Teilgebiete betreffend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Bund",
+      "level": "B1",
+      "en": "federation, federal level",
+      "pos": "noun",
+      "expect": {
+        "def": "alliance, federation, league"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Landesregierung",
+      "level": "B1",
+      "en": "state government",
+      "pos": "noun",
+      "expect": {
+        "def": "state government; federal government"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Fraktion",
+      "level": "B1",
+      "en": "parliamentary group",
+      "pos": "noun",
+      "expect": {
+        "def": "faction, parliamentary group"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Wahlzettel",
+      "level": "B1",
+      "en": "ballot paper",
+      "pos": "noun",
+      "expect": {
+        "def": "ballot paper, ballot"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:gültig",
+      "level": "A1",
+      "en": "valid",
+      "pos": "adjective",
+      "expect": {
+        "def": "valid, validated, legal"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:konservativ",
+      "level": "B1",
+      "en": "conservative",
+      "pos": "adjective",
+      "expect": {
+        "def": "althergebracht, herkömmlich, wie bisher üblich, auf alte Werte besinnend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kompetenz",
+      "level": "B1",
+      "en": "competence",
+      "pos": "noun",
+      "expect": {
+        "def": "competence, power, authority"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bestätigen",
+      "level": "B1",
+      "en": "to confirm",
+      "pos": "verb",
+      "expect": {
+        "def": "to confirm, to corroborate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ungerecht",
+      "level": "B1",
+      "en": "unjust",
+      "pos": "adjective",
+      "expect": {
+        "def": "unjust, unfair"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Gerät",
+      "level": "A1",
+      "en": "device",
+      "pos": "noun",
+      "expect": {
+        "def": "device, tool, appliance, machine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:verdienen",
+      "level": "A1",
+      "en": "to earn; to deserve",
+      "pos": "verb",
+      "expect": {
+        "def": "to make money, to earn; to deserve"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:gemütlich",
+      "level": "A1",
+      "en": "cosy",
+      "pos": "adjective",
+      "expect": {
+        "def": "cosy, gemütlich"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:passen",
+      "level": "A1",
+      "en": "to fit; to suit; to pass (a turn)",
+      "pos": "verb",
+      "expect": {
+        "def": "to fit; to suit, to be suitable for"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Kreuzung",
+      "level": "A1",
+      "en": "crossroads",
+      "pos": "noun",
+      "expect": {
+        "def": "crossing, intersection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gehören zu + D",
+      "level": "B1",
+      "en": "to belong to",
+      "pos": "verb",
+      "expect": {
+        "def": "Abkürzung für N-Methyl-D-Aspartat, ein synaptischer Agonist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:seit Langem",
+      "level": "B1",
+      "en": "for a long time",
+      "pos": "adverb",
+      "expect": {
+        "def": "schon lange, seit langem, seit langer/längerer Zeit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:irgendwann",
+      "level": "B1",
+      "en": "sometime, eventually",
+      "pos": "adverb",
+      "expect": {
+        "def": "sometime, somewhen, anytime"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schließlich",
+      "level": "B1",
+      "en": "finally, after all",
+      "pos": "adverb",
+      "expect": {
+        "def": "in the end, finally, eventually"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überhaupt",
+      "level": "B1",
+      "en": "at all; in general",
+      "pos": "adverb",
+      "expect": {
+        "def": "overall, in general"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vor Kurzem",
+      "level": "B1",
+      "en": "recently",
+      "pos": "adverb",
+      "expect": {
+        "def": "recently, a short time ago, not long ago, a short while ago, a little while ago"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:anfangs",
+      "level": "B1",
+      "en": "at first",
+      "pos": "adverb",
+      "expect": {
+        "def": "initially, at the beginning"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:woanders",
+      "level": "B1",
+      "en": "elsewhere",
+      "pos": "adverb",
+      "expect": {
+        "def": "elsewhere, somewhere else"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ein Problem lösen",
+      "level": "A2",
+      "en": "to solve a problem",
+      "pos": "phrase",
+      "expect": {
+        "def": "schwierige, noch ungelöste Aufgabe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Voraussetzung",
+      "level": "A2",
+      "en": "prerequisite",
+      "pos": "noun",
+      "expect": {
+        "def": "requirement, prerequisite"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ebenso",
+      "level": "A2",
+      "en": "likewise, just as",
+      "pos": "adverb",
+      "expect": {
+        "def": "equally, as much"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Werbung",
+      "level": "A2",
+      "en": "advertising",
+      "pos": "noun",
+      "expect": {
+        "def": "promotion, solicitation, recruitment"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:außerdem",
+      "level": "A2",
+      "en": "besides, moreover",
+      "pos": "adverb",
+      "expect": {
+        "def": "in addition; furthermore, besides"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:voraussichtlich",
+      "level": "A2",
+      "en": "expected, probably",
+      "pos": "adverb",
+      "expect": {
+        "def": "presumably, probably"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zudem",
+      "level": "A2",
+      "en": "in addition",
+      "pos": "adverb",
+      "expect": {
+        "def": "moreover, furthermore"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:genauso",
+      "level": "A2",
+      "en": "just the same",
+      "pos": "adverb",
+      "expect": {
+        "def": "just as, just the same"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Kleidung",
+      "level": "A1",
+      "en": "clothing",
+      "pos": "noun",
+      "expect": {
+        "def": "clothing; apparel"
+      },
+      "def": ""
+    }
+  ]
+}

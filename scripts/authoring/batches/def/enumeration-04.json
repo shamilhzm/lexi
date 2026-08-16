@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:der Schaden",
+      "level": "A2",
+      "en": "damage",
+      "pos": "noun",
+      "expect": {
+        "def": "unerwünschte, negative Auswirkung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Brieftasche",
+      "level": "A2",
+      "en": "wallet",
+      "pos": "noun",
+      "expect": {
+        "def": "wallet, purse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Lage",
+      "level": "A2",
+      "en": "location; situation",
+      "pos": "noun",
+      "expect": {
+        "def": "location, position"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kneipe",
+      "level": "A2",
+      "en": "pub",
+      "pos": "noun",
+      "expect": {
+        "def": "einfache, schlichte Schankwirtschaft"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:übernachten",
+      "level": "A1",
+      "en": "to stay overnight",
+      "pos": "verb",
+      "expect": {
+        "def": "to stay overnight, to overnight, stay the night, sleep over"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Fundbüro",
+      "level": "A2",
+      "en": "lost-and-found office",
+      "pos": "noun",
+      "expect": {
+        "def": "lost and found, lost property, lost articles"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Einbauküche",
+      "level": "A2",
+      "en": "fitted kitchen",
+      "pos": "noun",
+      "expect": {
+        "def": "built-in kitchen, fitted kitchen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Lehre",
+      "level": "A2",
+      "en": "apprenticeship; teaching",
+      "pos": "noun",
+      "expect": {
+        "def": "teaching, tenet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Praktikant",
+      "level": "A2",
+      "en": "intern",
+      "pos": "noun",
+      "expect": {
+        "def": "trainee, intern"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Stärke",
+      "level": "A2",
+      "en": "strength",
+      "pos": "noun",
+      "expect": {
+        "def": "Kraft, Macht, Potenz, Vermögen, insbesondere"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Gipfel",
+      "level": "A2",
+      "en": "summit, peak",
+      "pos": "noun",
+      "expect": {
+        "def": "peak, pinnacle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Gebäude",
+      "level": "A2",
+      "en": "building",
+      "pos": "noun",
+      "expect": {
+        "def": "building, edifice, structure"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Stadtplan",
+      "level": "A2",
+      "en": "city map",
+      "pos": "noun",
+      "expect": {
+        "def": "street map, city map"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Gasse",
+      "level": "A2",
+      "en": "alley, lane",
+      "pos": "noun",
+      "expect": {
+        "def": "alley, ginnel, twitchel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Einkaufszentrum",
+      "level": "A2",
+      "en": "shopping centre, mall",
+      "pos": "noun",
+      "expect": {
+        "def": "shopping center, shopping mall"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:entlassen",
+      "level": "A2",
+      "en": "to dismiss, release",
+      "pos": "verb",
+      "expect": {
+        "def": "to release; to dismiss"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Weihnachtsmann",
+      "level": "A2",
+      "en": "Santa Claus",
+      "pos": "noun",
+      "expect": {
+        "def": "Santa Claus, Father Christmas"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schmücken",
+      "level": "A2",
+      "en": "to decorate, adorn",
+      "pos": "verb",
+      "expect": {
+        "def": "to adorn, to decorate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Festessen",
+      "level": "A2",
+      "en": "festive meal",
+      "pos": "noun",
+      "expect": {
+        "def": "besonders gutes, aufwendiges, festliches Essen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Absage",
+      "level": "A2",
+      "en": "cancellation, refusal",
+      "pos": "noun",
+      "expect": {
+        "def": "refusal, rejection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Ausblick",
+      "level": "A2",
+      "en": "view, outlook",
+      "pos": "noun",
+      "expect": {
+        "def": "outlook, view, vista"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Nebenkosten",
+      "level": "A2",
+      "en": "utility costs; additional costs, utilities",
+      "pos": "noun",
+      "expect": {
+        "def": "side costs, additional costs"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Mietvertrag",
+      "level": "A2",
+      "en": "rental contract",
+      "pos": "noun",
+      "expect": {
+        "def": "lease agreement; rental agreement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Abstellraum",
+      "level": "A2",
+      "en": "storage room",
+      "pos": "noun",
+      "expect": {
+        "def": "storeroom, storage room"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Couch",
+      "level": "A2",
+      "en": "couch, sofa",
+      "pos": "noun",
+      "expect": {
+        "def": "sofa, couch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hängen",
+      "level": "A2",
+      "en": "to hang",
+      "pos": "verb",
+      "expect": {
+        "def": "to hang, to be suspended; to be attached to; to be fond of; to be devoted to; to cling to"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:legen",
+      "level": "A1",
+      "en": "to lay, put (down flat)",
+      "pos": "verb",
+      "expect": {
+        "def": "to lie down; to castrate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vereinbaren",
+      "level": "A2",
+      "en": "to arrange, agree on",
+      "pos": "verb",
+      "expect": {
+        "def": "to agree upon; to arrange"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:scheußlich",
+      "level": "A2",
+      "en": "hideous, dreadful",
+      "pos": "adjective",
+      "expect": {
+        "def": "hideous, atrocious, abominable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Färbung",
+      "level": "A2",
+      "en": "colouring; tinge (of accent)",
+      "pos": "noun",
+      "expect": {
+        "def": "tinge, hue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kommunikation",
+      "level": "A2",
+      "en": "communication",
+      "pos": "noun",
+      "expect": {
+        "def": "communication, exchange of signs"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Wintersemester",
+      "level": "A2",
+      "en": "winter semester",
+      "pos": "noun",
+      "expect": {
+        "def": "fall semester, autumn semester, winter semester"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Besucher",
+      "level": "A2",
+      "en": "visitor",
+      "pos": "noun",
+      "expect": {
+        "def": "visitor; the visitor design pattern"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:erkennen",
+      "level": "A2",
+      "en": "to recognise",
+      "pos": "verb",
+      "expect": {
+        "def": "to recognize, perceive; to realize, detect, see, know, identify, discover, understand"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:attraktiv",
+      "level": "A2",
+      "en": "attractive",
+      "pos": "adjective",
+      "expect": {
+        "def": "attractive, fetching; handsome"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:lebendig",
+      "level": "A2",
+      "en": "lively, alive",
+      "pos": "adjective",
+      "expect": {
+        "def": "living, alive, animate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Geldautomat",
+      "level": "A2",
+      "en": "ATM, cash machine",
+      "pos": "noun",
+      "expect": {
+        "def": "ATM, automated teller machine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Münze",
+      "level": "A2",
+      "en": "coin",
+      "pos": "noun",
+      "expect": {
+        "def": "money, in its senses as"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Bericht",
+      "level": "A2",
+      "en": "report",
+      "pos": "noun",
+      "expect": {
+        "def": "report, account, news story"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:beraten",
+      "level": "A2",
+      "en": "to advise",
+      "pos": "verb",
+      "expect": {
+        "def": "to discuss; to advise"
+      },
+      "def": ""
+    }
+  ]
+}

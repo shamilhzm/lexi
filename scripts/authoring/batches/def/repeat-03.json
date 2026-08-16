@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"repeat\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:der Gang",
+      "level": "B1",
+      "en": "aisle",
+      "pos": "noun",
+      "expect": {
+        "def": "motion, movement, progress, way, going; in gear, progressing, working, going"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:leben",
+      "level": "A1",
+      "en": "to live",
+      "pos": "verb",
+      "expect": {
+        "def": "life; being alive; life; way of life (a particular manner of behaving and passing one’s time, whether real or ideal, and whether self-chosen or not)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ändern",
+      "level": "A2",
+      "en": "to change",
+      "pos": "verb",
+      "expect": {
+        "def": "to change, to alter; to change, to vary"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:schwierig",
+      "level": "A1",
+      "en": "difficult",
+      "pos": "adjective",
+      "expect": {
+        "def": "difficult, hard, challenging, tough; difficult, prickly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:entscheiden",
+      "level": "B1",
+      "en": "to decide",
+      "pos": "verb",
+      "expect": {
+        "def": "to decide, to make a decision; to opt, to decide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:durchsetzen",
+      "level": "B2",
+      "en": "to assert / push through",
+      "pos": "verb",
+      "expect": {
+        "def": "to establish; to enforce; to cause to become prevalent, accepted, or effective; to establish oneself; to become prevalent, accepted, or effective"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:ganz",
+      "level": "A1",
+      "en": "entire, whole, complete",
+      "pos": "adjective",
+      "expect": {
+        "def": "entire, whole, complete; whole, intact"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:so",
+      "level": "A1",
+      "en": "so, such, that",
+      "pos": "adverb",
+      "expect": {
+        "def": "so, such, that; so, thus, like this/that, in this/that way, in this/that manner"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:direkt",
+      "level": "A2",
+      "en": "direct, straight, without deviation or interruption",
+      "pos": "adjective",
+      "expect": {
+        "def": "direct, straight, without deviation or interruption; direct, candid, forthright (of a person, conversation)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:durchaus",
+      "level": "A2",
+      "en": "absolutely, fully, entirely",
+      "pos": "adverb",
+      "expect": {
+        "def": "absolutely, fully, entirely; absolutely, definitely, certainly, in any case"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:klar",
+      "level": "A1",
+      "en": "clear",
+      "pos": "adjective",
+      "expect": {
+        "def": "clear; transparent; bright; clear; unambiguous; understood"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:nun",
+      "level": "A2",
+      "en": "now, at this moment",
+      "pos": "adverb",
+      "expect": {
+        "def": "now, at this moment; now, then; expressing a logical or temporal consequence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Rolle",
+      "level": "A2",
+      "en": "roll, reel, spool",
+      "pos": "noun",
+      "expect": {
+        "def": "roll, reel, spool; roll, tube"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:eben",
+      "level": "B1",
+      "en": "just, simply, indicating that something is generally known or cannot be changed, and is therefore to be accepted",
+      "pos": "adverb",
+      "expect": {
+        "def": "just, simply, indicating that something is generally known or cannot be changed, and is therefore to be accepted; often equivalent to a shrug; just, quickly, indicating that something is done fast or without much complication"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erhalten",
+      "level": "B1",
+      "en": "to receive",
+      "pos": "verb",
+      "expect": {
+        "def": "to receive (something given, sent, won, etc.); to receive (a rebuke, punishment, fine, prison sentence, etc.)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gar",
+      "level": "B1",
+      "en": "at all",
+      "pos": "adverb",
+      "expect": {
+        "def": "at all; even; even; expressing a climax"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:innerhalb",
+      "level": "B1",
+      "en": "within, inside",
+      "pos": "preposition",
+      "expect": {
+        "def": "within, inside (spatial); within, in the space of (temporal)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schaffen",
+      "level": "B1",
+      "en": "to create, to call into being",
+      "pos": "verb",
+      "expect": {
+        "def": "to create, to call into being; to create, make, form, shape"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Artikel",
+      "level": "A2",
+      "en": "article",
+      "pos": "noun",
+      "expect": {
+        "def": "article; article, item, ware"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:raus",
+      "level": "A2",
+      "en": "out, out of there, outta there",
+      "pos": "adverb",
+      "expect": {
+        "def": "out, out of there, outta there; out, out of here, outta here"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Sache",
+      "level": "A2",
+      "en": "matter, affair, case, question, issue",
+      "pos": "noun",
+      "expect": {
+        "def": "matter, affair, case, question, issue; subject, matter, business"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:tot",
+      "level": "A1",
+      "en": "dead, deceased",
+      "pos": "adjective",
+      "expect": {
+        "def": "dead, deceased; dead, in most of the senses also present in English"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Zeichen",
+      "level": "A2",
+      "en": "sign, token",
+      "pos": "noun",
+      "expect": {
+        "def": "sign, token (object representing something); sign, indication (fact that reveals an underlying state)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:außerhalb",
+      "level": "B1",
+      "en": "outside, beyond",
+      "pos": "preposition",
+      "expect": {
+        "def": "outside, beyond; outside"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:greifen",
+      "level": "B1",
+      "en": "to grab",
+      "pos": "verb",
+      "expect": {
+        "def": "to grab; to grasp; to grip (something); to grab; to seize; to snatch (in an aggressive way)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Leitung",
+      "level": "B1",
+      "en": "cable, line, wire",
+      "pos": "noun",
+      "expect": {
+        "def": "cable, line, wire; line"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Alkohol",
+      "level": "A2",
+      "en": "alcohol, ethanol",
+      "pos": "noun",
+      "expect": {
+        "def": "alcohol, ethanol (substance); alcohol, liquor (beverage containing the former substance)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Manager",
+      "level": "A2",
+      "en": "manager",
+      "pos": "noun",
+      "expect": {
+        "def": "manager (see usage notes below) (male or of unspecified sex, sometimes female); agent of an artist or sportsperson (male or of unspecified sex, sometimes female)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schlagen",
+      "level": "A2",
+      "en": "to beat",
+      "pos": "verb",
+      "expect": {
+        "def": "to beat; to hit; to knock; to strike; to punch; to hammer; to pound; to beat; to win against; to defeat"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wachsen",
+      "level": "A2",
+      "en": "to grow",
+      "pos": "verb",
+      "expect": {
+        "def": "to grow; to grow, to increase"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dienen",
+      "level": "B1",
+      "en": "to serve",
+      "pos": "verb",
+      "expect": {
+        "def": "to serve; to serve, to be a servant (e.g. a butler or maid)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ursprünglich",
+      "level": "B1",
+      "en": "original, initial, first",
+      "pos": "adjective",
+      "expect": {
+        "def": "original, initial, first; original, authentic, genuine, unadulterated"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Verlängerung",
+      "level": "B1",
+      "en": "prolongation",
+      "pos": "noun",
+      "expect": {
+        "def": "prolongation; lengthening (process of making something longer, in space or duration); lengthening (process of becoming longer, in space or duration)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gelangen",
+      "level": "B2",
+      "en": "to reach, get to, end up in",
+      "pos": "verb",
+      "expect": {
+        "def": "to reach, get to, end up in (a place, location); to reach, arrive at (a destination)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wahr",
+      "level": "A2",
+      "en": "true, real",
+      "pos": "adjective",
+      "expect": {
+        "def": "true, real; true, truthful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:betrachten",
+      "level": "B1",
+      "en": "to look at, to consider, to behold",
+      "pos": "verb",
+      "expect": {
+        "def": "to look at, to consider, to behold; to regard, to consider, look upon (something in a certain way)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dicht",
+      "level": "B1",
+      "en": "thick, tight, dense",
+      "pos": "adjective",
+      "expect": {
+        "def": "thick, tight, dense; tight, intoxicated"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:durchführen",
+      "level": "B1",
+      "en": "to perform, to conduct",
+      "pos": "verb",
+      "expect": {
+        "def": "to perform, to conduct (a study, a ceremony, an operation, etc.); to implement, to carry out, to execute, to put into action (a decision, measures, etc.)"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Meldung",
+      "level": "B1",
+      "en": "report, notification",
+      "pos": "noun",
+      "expect": {
+        "def": "report, notification; report, news item"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:richten",
+      "level": "B1",
+      "en": "to direct, to point",
+      "pos": "verb",
+      "expect": {
+        "def": "to direct, to point; to direct, to address"
+      },
+      "def": ""
+    }
+  ]
+}

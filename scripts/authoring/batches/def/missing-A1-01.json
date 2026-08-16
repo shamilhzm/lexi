@@ -1,0 +1,495 @@
+{
+  "_README": [
+    "40 A1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:bitten",
+      "level": "A1",
+      "term": "bitten",
+      "en": "to ask (for)",
+      "pos": "verb",
+      "example": "Darf ich Sie um Hilfe bitten?",
+      "expect": {
+        "def": ""
+      },
+      "def": "To ask someone politely for something you want or need — unlike fragen, which is to ask a question."
+    },
+    {
+      "id": "voc:A1:bitter",
+      "level": "A1",
+      "term": "bitter",
+      "en": "bitter",
+      "pos": "adjective",
+      "example": "Der Kaffee ist mir zu bitter.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Having a sharp, harsh taste, like strong coffee or dark chocolate."
+    },
+    {
+      "id": "voc:A1:das Alter",
+      "level": "A1",
+      "term": "das Alter",
+      "en": "age",
+      "pos": "noun",
+      "example": "Bitte schreiben Sie Ihr Alter in das Formular.",
+      "expect": {
+        "def": ""
+      },
+      "def": "How old a person or thing is, counted in years."
+    },
+    {
+      "id": "voc:A1:das Beispiel",
+      "level": "A1",
+      "term": "das Beispiel",
+      "en": "example",
+      "pos": "noun",
+      "example": "Können Sie mir ein Beispiel geben?",
+      "expect": {
+        "def": ""
+      },
+      "def": "One particular case given to show what a general thing is like."
+    },
+    {
+      "id": "voc:A1:das Café",
+      "level": "A1",
+      "term": "das Café",
+      "en": "café",
+      "pos": "noun",
+      "example": "Wir treffen uns im Café.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A small place that serves coffee, cake and light meals."
+    },
+    {
+      "id": "voc:A1:das Datum",
+      "level": "A1",
+      "term": "das Datum",
+      "en": "date; data",
+      "pos": "noun",
+      "defDe": "Angabe des Kalendertages",
+      "example": "Welches Datum ist heute?",
+      "expect": {
+        "def": ""
+      },
+      "def": "The calendar day on which something falls; in the plural, die Daten, collected facts and figures."
+    },
+    {
+      "id": "voc:A1:das Ergebnis",
+      "level": "A1",
+      "term": "das Ergebnis",
+      "en": "result",
+      "pos": "noun",
+      "defDe": "das, was bei einem Vorgang herauskommt",
+      "example": "Das Ergebnis seiner Bemühungen war gleich null.",
+      "expect": {
+        "def": ""
+      },
+      "def": "What comes out at the end of a process, a test or a match."
+    },
+    {
+      "id": "voc:A1:das Fax",
+      "level": "A1",
+      "term": "das Fax",
+      "en": "fax",
+      "pos": "noun",
+      "example": "Ich habe Ihnen ein Fax geschickt.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A document sent along a telephone line and printed by the machine at the other end."
+    },
+    {
+      "id": "voc:A1:das Licht",
+      "level": "A1",
+      "term": "das Licht",
+      "en": "light",
+      "pos": "noun",
+      "example": "Mach bitte das Licht an!",
+      "expect": {
+        "def": ""
+      },
+      "def": "The brightness that lets you see, or the lamp that produces it."
+    },
+    {
+      "id": "voc:A1:das Prozent",
+      "level": "A1",
+      "term": "das Prozent",
+      "en": "percent",
+      "pos": "noun",
+      "example": "Heute bekommen Sie zehn Prozent Rabatt.",
+      "expect": {
+        "def": ""
+      },
+      "def": "One hundredth part of an amount, used to state a share or a rate."
+    },
+    {
+      "id": "voc:A1:das Reisebüro",
+      "level": "A1",
+      "term": "das Reisebüro",
+      "en": "travel agency",
+      "pos": "noun",
+      "example": "Meine Frau arbeitet in einem Reisebüro.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A shop that arranges trips, flights and hotels for its customers."
+    },
+    {
+      "id": "voc:A1:das Schild",
+      "level": "A1",
+      "term": "das Schild",
+      "en": "sign",
+      "pos": "noun",
+      "example": "Auf dem Schild steht „Ausgang“.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A flat board in a public place carrying a name, a word or an instruction."
+    },
+    {
+      "id": "voc:A1:das Ticket",
+      "level": "A1",
+      "term": "das Ticket",
+      "en": "ticket",
+      "pos": "noun",
+      "example": "Ich habe das Ticket online gekauft.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A printed or digital pass that lets you travel or enter an event."
+    },
+    {
+      "id": "voc:A1:der Anfang",
+      "level": "A1",
+      "term": "der Anfang",
+      "en": "beginning",
+      "pos": "noun",
+      "example": "Am Anfang war alles neu für mich.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The first part of something, or the point at which it starts."
+    },
+    {
+      "id": "voc:A1:der Appetit",
+      "level": "A1",
+      "term": "der Appetit",
+      "en": "appetite",
+      "pos": "noun",
+      "example": "Guten Appetit!",
+      "expect": {
+        "def": ""
+      },
+      "def": "The desire to eat — the pleasant hunger you feel before a meal."
+    },
+    {
+      "id": "voc:A1:der Automat",
+      "level": "A1",
+      "term": "der Automat",
+      "en": "machine, vending machine",
+      "pos": "noun",
+      "example": "Der Automat nimmt keine Karten.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A machine that serves goods or performs a task once you insert money or press a button."
+    },
+    {
+      "id": "voc:A1:der Bleistift",
+      "level": "A1",
+      "term": "der Bleistift",
+      "en": "pencil",
+      "pos": "noun",
+      "example": "Schreiben Sie bitte nicht mit Bleistift.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A wooden writing stick with grey lead inside, whose marks can be rubbed out."
+    },
+    {
+      "id": "voc:A1:der Blick",
+      "level": "A1",
+      "term": "der Blick",
+      "en": "view; look",
+      "pos": "noun",
+      "example": "Das Zimmer hat einen schönen Blick.",
+      "expect": {
+        "def": ""
+      },
+      "def": "What can be seen from a place, or a short act of looking at something."
+    },
+    {
+      "id": "voc:A1:der Buchstabe",
+      "level": "A1",
+      "term": "der Buchstabe",
+      "en": "letter (of the alphabet)",
+      "pos": "noun",
+      "example": "Mein Name hat sechs Buchstaben.",
+      "expect": {
+        "def": ""
+      },
+      "def": "One of the written signs that spell a word — a, b, c."
+    },
+    {
+      "id": "voc:A1:der Cent",
+      "level": "A1",
+      "term": "der Cent",
+      "en": "cent",
+      "pos": "noun",
+      "example": "Der Kaffee kostet ein Euro fünfzig Cent.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The small unit of the euro; one hundred of them make one euro."
+    },
+    {
+      "id": "voc:A1:der Drucker",
+      "level": "A1",
+      "term": "der Drucker",
+      "en": "printer",
+      "pos": "noun",
+      "example": "Der Drucker im Büro ist kaputt.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A machine that puts a document from a computer onto paper."
+    },
+    {
+      "id": "voc:A1:der Euro",
+      "level": "A1",
+      "term": "der Euro",
+      "en": "euro",
+      "pos": "noun",
+      "example": "Das Brot kostet zwei Euro.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The currency of Germany, Austria and most other EU countries."
+    },
+    {
+      "id": "voc:A1:der Fahrer",
+      "level": "A1",
+      "term": "der Fahrer",
+      "en": "driver",
+      "pos": "noun",
+      "example": "Der Fahrer hat mir geholfen.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A person who drives a vehicle, especially as their job."
+    },
+    {
+      "id": "voc:A1:der Familienname",
+      "level": "A1",
+      "term": "der Familienname",
+      "en": "surname",
+      "pos": "noun",
+      "example": "Bitte schreiben Sie hier Ihren Familiennamen.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The name shared with your family, written after your first name."
+    },
+    {
+      "id": "voc:A1:der Familienstand",
+      "level": "A1",
+      "term": "der Familienstand",
+      "en": "marital status",
+      "pos": "noun",
+      "example": "Im Formular fehlt noch der Familienstand.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Whether a person is single, married, divorced or widowed — a standard question on official forms."
+    },
+    {
+      "id": "voc:A1:der Fußball",
+      "level": "A1",
+      "term": "der Fußball",
+      "en": "football",
+      "pos": "noun",
+      "example": "Mein Sohn spielt gern Fußball.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The game played by two teams of eleven, or the ball it is played with."
+    },
+    {
+      "id": "voc:A1:der Geburtsort",
+      "level": "A1",
+      "term": "der Geburtsort",
+      "en": "place of birth",
+      "pos": "noun",
+      "example": "Mein Geburtsort ist Isfahan.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The town or city where a person was born, as entered on official documents."
+    },
+    {
+      "id": "voc:A1:der Glückwunsch",
+      "level": "A1",
+      "term": "der Glückwunsch",
+      "en": "congratulations",
+      "pos": "noun",
+      "example": "Herzlichen Glückwunsch zum Geburtstag!",
+      "expect": {
+        "def": ""
+      },
+      "def": "The words you offer to wish someone well on a birthday, a wedding or a success."
+    },
+    {
+      "id": "voc:A1:der Herr",
+      "level": "A1",
+      "term": "der Herr",
+      "en": "gentleman; Mr",
+      "pos": "noun",
+      "example": "Guten Tag, Herr Müller!",
+      "expect": {
+        "def": ""
+      },
+      "def": "A polite form of address for a man, used before his surname."
+    },
+    {
+      "id": "voc:A1:der Kilometer",
+      "level": "A1",
+      "term": "der Kilometer",
+      "en": "kilometre",
+      "pos": "noun",
+      "example": "Bis zum Bahnhof sind es zwei Kilometer.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A unit of distance: one thousand metres."
+    },
+    {
+      "id": "voc:A1:der Kindergarten",
+      "level": "A1",
+      "term": "der Kindergarten",
+      "en": "nursery school",
+      "pos": "noun",
+      "example": "Meine Tochter geht in den Kindergarten.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A place where small children play and learn together before school begins."
+    },
+    {
+      "id": "voc:A1:der Kiosk",
+      "level": "A1",
+      "term": "der Kiosk",
+      "en": "kiosk, newsstand",
+      "pos": "noun",
+      "example": "Am Kiosk kaufe ich eine Zeitung.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A small street stall selling newspapers, drinks and tobacco."
+    },
+    {
+      "id": "voc:A1:der Kugelschreiber",
+      "level": "A1",
+      "term": "der Kugelschreiber",
+      "en": "ballpoint pen",
+      "pos": "noun",
+      "example": "Mein Kugelschreiber schreibt nicht mehr.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A pen that writes with a small rolling ball, in ink that cannot be rubbed out."
+    },
+    {
+      "id": "voc:A1:der Meter",
+      "level": "A1",
+      "term": "der Meter",
+      "en": "metre",
+      "pos": "noun",
+      "example": "Das Zimmer ist vier Meter lang.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The basic unit of length: one hundred centimetres."
+    },
+    {
+      "id": "voc:A1:der Ort",
+      "level": "A1",
+      "term": "der Ort",
+      "en": "place, town",
+      "pos": "noun",
+      "example": "An welchem Ort wohnen Sie?",
+      "expect": {
+        "def": ""
+      },
+      "def": "A particular spot or position, or the town where someone lives."
+    },
+    {
+      "id": "voc:A1:der Papa",
+      "level": "A1",
+      "term": "der Papa",
+      "en": "dad",
+      "pos": "noun",
+      "example": "Mein Papa holt mich um vier ab.",
+      "expect": {
+        "def": ""
+      },
+      "def": "An informal, affectionate word a child uses for their father."
+    },
+    {
+      "id": "voc:A1:der Prospekt",
+      "level": "A1",
+      "term": "der Prospekt",
+      "en": "brochure",
+      "pos": "noun",
+      "example": "Schicken Sie mir bitte einen Prospekt.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A printed booklet setting out what a company or a place has to offer."
+    },
+    {
+      "id": "voc:A1:der Schinken",
+      "level": "A1",
+      "term": "der Schinken",
+      "en": "ham",
+      "pos": "noun",
+      "example": "Ich möchte ein Brötchen mit Schinken.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Meat from the leg of a pig, salted or smoked and eaten in thin slices."
+    },
+    {
+      "id": "voc:A1:der Teil",
+      "level": "A1",
+      "term": "der Teil",
+      "en": "part",
+      "pos": "noun",
+      "example": "Der erste Teil war einfach.",
+      "expect": {
+        "def": ""
+      },
+      "def": "One piece of something larger, not the whole of it."
+    },
+    {
+      "id": "voc:A1:der Text",
+      "level": "A1",
+      "term": "der Text",
+      "en": "text",
+      "pos": "noun",
+      "example": "Lesen Sie bitte den Text.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A piece of writing taken as a whole — an article, a passage, the words of a song."
+    }
+  ]
+}

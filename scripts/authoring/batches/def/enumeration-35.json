@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:niedergeschlagen",
+      "level": "B2",
+      "en": "dejected, downcast",
+      "pos": "adjective",
+      "expect": {
+        "def": "downhearted, low-spirited"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:seelisch",
+      "level": "B1",
+      "en": "mental, emotional, of the soul",
+      "pos": "adjective",
+      "expect": {
+        "def": "mental, psychological"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wunde",
+      "level": "B1",
+      "en": "wound",
+      "pos": "noun",
+      "expect": {
+        "def": "sore, wound"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Übergewicht",
+      "level": "B1",
+      "en": "excess weight / obesity",
+      "pos": "noun",
+      "expect": {
+        "def": "overweight, obesity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Eiweiß",
+      "level": "B1",
+      "en": "protein",
+      "pos": "noun",
+      "expect": {
+        "def": "albumen, egg white"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Fett",
+      "level": "B1",
+      "en": "fat",
+      "pos": "noun",
+      "expect": {
+        "def": "fat, grease"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erholen",
+      "level": "B1",
+      "en": "to recover / recuperate",
+      "pos": "verb",
+      "expect": {
+        "def": "to relax, to recover, to recuperate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schwerkraft",
+      "level": "B1",
+      "en": "gravity",
+      "pos": "noun",
+      "expect": {
+        "def": "gravitation, gravity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aktie",
+      "level": "B1",
+      "en": "share / stock",
+      "pos": "noun",
+      "expect": {
+        "def": "share, stock"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Einnahme",
+      "level": "B1",
+      "en": "income, revenue",
+      "pos": "noun",
+      "expect": {
+        "def": "receipt, revenue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:finanzieren",
+      "level": "B1",
+      "en": "to finance, to fund",
+      "pos": "verb",
+      "expect": {
+        "def": "to pay for, to finance, to fund"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Flur",
+      "level": "B1",
+      "en": "hallway, corridor",
+      "pos": "noun",
+      "expect": {
+        "def": "hall, hallway, corridor, stairwell"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einrichten",
+      "level": "B1",
+      "en": "to furnish, set up",
+      "pos": "verb",
+      "expect": {
+        "def": "to establish; to furnish"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:streichen",
+      "level": "B1",
+      "en": "to paint (walls)",
+      "pos": "verb",
+      "expect": {
+        "def": "to stroke; to cancel; to discard; to delete; to strike out; to cross out"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Kleiderhaken",
+      "level": "B1",
+      "en": "coat hook",
+      "pos": "noun",
+      "expect": {
+        "def": "coat peg, coathook, clothes hook"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Stadtzentrum",
+      "level": "B1",
+      "en": "city center",
+      "pos": "noun",
+      "expect": {
+        "def": "city centre; downtown, city hub"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Parkplatz",
+      "level": "B1",
+      "en": "parking space, car park",
+      "pos": "noun",
+      "expect": {
+        "def": "parking lot, outdoor car park; parking space, parking spot"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Polizei",
+      "level": "A1",
+      "en": "police",
+      "pos": "noun",
+      "expect": {
+        "def": "police; law enforcement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:staatlich",
+      "level": "B1",
+      "en": "state-run; public",
+      "pos": "adjective",
+      "expect": {
+        "def": "state, government"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verhandeln",
+      "level": "B1",
+      "en": "to negotiate",
+      "pos": "verb",
+      "expect": {
+        "def": "to negotiate, to debate; to bargain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vereinbarung",
+      "level": "B1",
+      "en": "agreement; deal",
+      "pos": "noun",
+      "expect": {
+        "def": "agreement, arrangement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aufklärung",
+      "level": "B1",
+      "en": "the Enlightenment",
+      "pos": "noun",
+      "expect": {
+        "def": "Information über Sachverhalte, Zusammenhänge oder Gefahren"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Recht",
+      "level": "B1",
+      "en": "law; right",
+      "pos": "noun",
+      "expect": {
+        "def": "right, privilege"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vertrag",
+      "level": "B1",
+      "en": "treaty, contract",
+      "pos": "noun",
+      "expect": {
+        "def": "contract, agreement"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Kochen",
+      "level": "B1",
+      "en": "cooking",
+      "pos": "noun",
+      "expect": {
+        "def": "cooking, cookery"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Zeichnen",
+      "level": "B1",
+      "en": "drawing",
+      "pos": "noun",
+      "expect": {
+        "def": "to draw, to sketch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schachspiel",
+      "level": "B1",
+      "en": "chess",
+      "pos": "noun",
+      "expect": {
+        "def": "chess; chess set"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Freizeitbeschäftigung",
+      "level": "B1",
+      "en": "leisure activity",
+      "pos": "noun",
+      "expect": {
+        "def": "leisure activity, hobby"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:kräftig",
+      "level": "B1",
+      "en": "strong / powerful",
+      "pos": "adjective",
+      "expect": {
+        "def": "bold, intense, powerful, robust, strong, sturdy, vigorous, vivid"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Abkühlen",
+      "level": "B1",
+      "en": "cool-down",
+      "pos": "noun",
+      "expect": {
+        "def": "cooling, quenching"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wiederholung",
+      "level": "B1",
+      "en": "repetition, rep",
+      "pos": "noun",
+      "expect": {
+        "def": "repetition, reiteration"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Sportverein",
+      "level": "A2",
+      "en": "sports club",
+      "pos": "noun",
+      "expect": {
+        "def": "sports team, sports club"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Atmung",
+      "level": "B1",
+      "en": "breathing, respiration",
+      "pos": "noun",
+      "expect": {
+        "def": "respiration, breathing"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Körperhaltung",
+      "level": "B1",
+      "en": "posture",
+      "pos": "noun",
+      "expect": {
+        "def": "posture, position of the body"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:springen",
+      "level": "A2",
+      "en": "to jump",
+      "pos": "verb",
+      "expect": {
+        "def": "to spring; to leap; to bounce; to dive; to jump; to vault"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:heben",
+      "level": "B1",
+      "en": "to lift",
+      "pos": "verb",
+      "expect": {
+        "def": "to lift; to raise; to heave; to hoist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Dirigent",
+      "level": "B1",
+      "en": "conductor",
+      "pos": "noun",
+      "expect": {
+        "def": "director, conductor, maestro, choirmaster"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:darstellen",
+      "level": "B1",
+      "en": "to portray; to depict",
+      "pos": "verb",
+      "expect": {
+        "def": "to depict; represent; to personate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ausstellen",
+      "level": "B1",
+      "en": "to exhibit; to display",
+      "pos": "verb",
+      "expect": {
+        "def": "to exhibit, display; to issue, certificate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Unterstützung",
+      "level": "B1",
+      "en": "support",
+      "pos": "noun",
+      "expect": {
+        "def": "support, assistance, backing, also endorsement"
+      },
+      "def": ""
+    }
+  ]
+}

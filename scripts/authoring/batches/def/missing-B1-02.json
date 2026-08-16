@@ -1,0 +1,527 @@
+{
+  "_README": [
+    "40 B1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:der Gesellschaftsvertrag",
+      "level": "B1",
+      "term": "der Gesellschaftsvertrag",
+      "en": "social contract",
+      "pos": "noun",
+      "defDe": "freiwillige Übereinkunft, durch die der Wille des Einzelnen dem der Mehrheit untergeordnet wird.",
+      "example": "Der Gesellschaftsvertrag spielt sowohl für Rawls als auch für Hobbes eine zentrale Rolle in ihrer Staatsphilosophie.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Handschlag",
+      "level": "B1",
+      "term": "der Handschlag",
+      "en": "handshake",
+      "pos": "noun",
+      "defDe": "wechselseitiges Sich-die-Hand-Geben zur Begrüßung, Verabschiedung oder zur Besiegelung einer Abmachung, eines Geschäfts",
+      "example": "Sie begrüßten sich mit einem Handschlag.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Hort",
+      "level": "B1",
+      "term": "der Hort",
+      "en": "after-school care",
+      "pos": "noun",
+      "example": "Ich hole meine Tochter aus dem Hort ab.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Klimaschutz",
+      "level": "B1",
+      "term": "der Klimaschutz",
+      "en": "climate protection",
+      "pos": "noun",
+      "defDe": "Maßnahme gegen nachhaltige Veränderungen des Klimas",
+      "example": "Klimaschutz beginnt im Alltag.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Klimawandel",
+      "level": "B1",
+      "term": "der Klimawandel",
+      "en": "climate change",
+      "pos": "noun",
+      "defDe": "Klimaveränderung: die Veränderung des Klimas der Erde innerhalb eines großen Zeitabschnitts",
+      "example": "Der Klimawandel ist ein großes Problem.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Nachtzug",
+      "level": "B1",
+      "term": "der Nachtzug",
+      "en": "night train",
+      "pos": "noun",
+      "example": "Wir nehmen den Nachtzug nach Wien.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Nacken",
+      "level": "B1",
+      "term": "der Nacken",
+      "en": "nape of neck",
+      "pos": "noun",
+      "defDe": "der dorsale (rückseitige) Teil des Halses, das Genick",
+      "example": "Nach dem langen Sitzen schmerzt der Nacken.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Papagei",
+      "level": "B1",
+      "term": "der Papagei",
+      "en": "parrot",
+      "pos": "noun",
+      "defDe": "vorwiegend in den Tropen beheimatete, oft auffällig farbiger Vogel mit stark nach unten gekrümmtem Schnabel und Kletterfuß, kann oft menschliche Sprache oder andere Geräusche nachahmen",
+      "example": "Der Papagei kann einige Wörter sprechen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Prozess",
+      "level": "B1",
+      "term": "der Prozess",
+      "en": "process; trial",
+      "pos": "noun",
+      "defDe": "eine durch ein Ereignis ausgelöste Folge von Aktivitäten oder Zuständen, die in einen Endzustand mündet",
+      "example": "Lernen ist ein langer Prozess.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Rasenmäher",
+      "level": "B1",
+      "term": "der Rasenmäher",
+      "en": "lawnmower",
+      "pos": "noun",
+      "example": "Der Rasenmäher am Sonntag stört die Nachbarn.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Respekt",
+      "level": "B1",
+      "term": "der Respekt",
+      "en": "respect",
+      "pos": "noun",
+      "defDe": "Achtung und Wertschätzung gegenüber jemandem/etwas; meist bezogen auf eine andere Person, aber auch Tiere, Gruppen, Institutionen, Länder, Kulturen und Weltanschauungen",
+      "example": "Ich habe großen Respekt vor ihr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Rückspiegel",
+      "level": "B1",
+      "term": "der Rückspiegel",
+      "en": "rear-view mirror",
+      "pos": "noun",
+      "defDe": "Auto: Der Spiegel im Auto, um das rückwärtige Verkehrsgeschehen zu beobachten",
+      "example": "Schau in den Rückspiegel, bevor du bremst.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Schlepplift",
+      "level": "B1",
+      "term": "der Schlepplift",
+      "en": "T-bar lift, drag lift",
+      "pos": "noun",
+      "defDe": "Anlage, die Wintersportler auf ihren Sportgeräten (Skier, Snowboards …) auf Schnee einen Hang hinaufbefördert",
+      "example": "Der Schlepplift zieht die Anfänger den Hang hinauf.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Schlips",
+      "level": "B1",
+      "term": "der Schlips",
+      "en": "necktie",
+      "pos": "noun",
+      "defDe": "Krawatte; ein schmaler Streifen aus Stoff, der um den Hals gebunden und typischerweise zu Hemd und Anzug getragen wird",
+      "example": "Er hat seinen Schlips vergessen und sieht daher formlos aus.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Spielzug",
+      "level": "B1",
+      "term": "der Spielzug",
+      "en": "game move",
+      "pos": "noun",
+      "defDe": "das Durchführen einer (erlaubten) Handlung bei einem rundenbasierten Spiel während der dem Spieler zustehenden Aktivitätsperiode",
+      "example": "Mit einem klugen Spielzug gewann sie die Partie.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Stahl",
+      "level": "B1",
+      "term": "der Stahl",
+      "en": "steel",
+      "pos": "noun",
+      "defDe": "metallische Legierung, deren Hauptbestandteil Eisen ist; der Kohlenstoffgehalt liegt zwischen 0,02% und 2,06%.",
+      "example": "Die Brücke ist aus Stahl.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Ursprung",
+      "level": "B1",
+      "term": "der Ursprung",
+      "en": "origin",
+      "pos": "noun",
+      "defDe": "Zeitpunkt, Ort oder Material, aus dem etwas hervorgegangen ist",
+      "example": "Das Wort hat einen lateinischen Ursprung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Verlust",
+      "level": "B1",
+      "term": "der Verlust",
+      "en": "loss",
+      "pos": "noun",
+      "defDe": "die Handlung des Verlierens",
+      "example": "Der Verlust war groß.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vorort",
+      "level": "B1",
+      "term": "der Vorort",
+      "en": "suburb",
+      "pos": "noun",
+      "defDe": "eine Siedlung der Peripherie einer Stadt",
+      "example": "Sie wohnen in einem grünen Vorort der Stadt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Wettkampf",
+      "level": "B1",
+      "term": "der Wettkampf",
+      "en": "competition",
+      "pos": "noun",
+      "defDe": "Kampf um die beste Leistung unter mehreren Personen oder Gruppen",
+      "example": "Beim Wettkampf gab sie ihr Bestes.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Zustand",
+      "level": "B1",
+      "term": "der Zustand",
+      "en": "condition, state",
+      "pos": "noun",
+      "example": "Das Fahrrad ist in gutem Zustand.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Alp",
+      "level": "B1",
+      "term": "die Alp",
+      "en": "alpine pasture",
+      "pos": "noun",
+      "defDe": "gespenstisches Wesen, das Menschen besonders in der Nacht plagt",
+      "example": "Im Sommer treiben die Bauern das Vieh auf die Alp.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ameise",
+      "level": "B1",
+      "term": "die Ameise",
+      "en": "ant",
+      "pos": "noun",
+      "defDe": "staatenbildendes Insekt der Familie Formicidae",
+      "example": "Ameisen leben in großen Kolonien.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aufführung",
+      "level": "B1",
+      "term": "die Aufführung",
+      "en": "performance",
+      "pos": "noun",
+      "defDe": "Darstellung eines Bühnenwerkes oder Konzerts vor einem Publikum",
+      "example": "Die Aufführung beginnt um acht Uhr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Auswanderung",
+      "level": "B1",
+      "term": "die Auswanderung",
+      "en": "emigration",
+      "pos": "noun",
+      "defDe": "dauerhaftes Verlassen des Heimatlandes",
+      "example": "Die Auswanderung nach Amerika war damals üblich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Begrüßung",
+      "level": "B1",
+      "term": "die Begrüßung",
+      "en": "greeting",
+      "pos": "noun",
+      "defDe": "Ritual (Wörter und/oder Gesten), um einer Person Respekt zu erweisen und sie willkommen zu heißen",
+      "example": "Zur Begrüßung gab man sich die Hand.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bezahlung",
+      "level": "B1",
+      "term": "die Bezahlung",
+      "en": "payment, pay",
+      "pos": "noun",
+      "example": "Über die Bezahlung möchte ich nicht sprechen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Erholung",
+      "level": "B1",
+      "term": "die Erholung",
+      "en": "recovery, rest",
+      "pos": "noun",
+      "defDe": "derjenige Vorgang, bei dem sich ein biologischer Organismus nach einer anstrengenden Tätigkeit, aber auch nach Verletzungen oder Krankheiten durch eine Ruhephase wieder regeneriert und Kräfte sammelt",
+      "example": "Der Urlaub am Meer war reine Erholung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Erlaubnis",
+      "level": "B1",
+      "term": "die Erlaubnis",
+      "en": "permission",
+      "pos": "noun",
+      "defDe": "Genehmigung von etwas, Einverständnis mit etwas; Bestätigung, dass etwas Bestimmtes getan werden darf",
+      "example": "Ich brauche deine Erlaubnis.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Ernte",
+      "level": "B1",
+      "term": "die Ernte",
+      "en": "harvest",
+      "pos": "noun",
+      "defDe": "sämtliche Arbeiten, die zum Einbringen landwirtschaftlicher Gewächse und Früchte notwendig sind",
+      "example": "Die Ernte war dieses Jahr gut.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Geschäftsführung",
+      "level": "B1",
+      "term": "die Geschäftsführung",
+      "en": "management",
+      "pos": "noun",
+      "defDe": "Eine oder mehrere Personen, die ein Unternehmen / eine Firma leiten",
+      "example": "Die Geschäftsführung trifft die Entscheidung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Geschwindigkeit",
+      "level": "B1",
+      "term": "die Geschwindigkeit",
+      "en": "speed",
+      "pos": "noun",
+      "defDe": "Verhältnis von zurückgelegter Strecke zur dafür benötigten Zeit (Geschwindigkeit = Strecke/Zeit)",
+      "example": "Hier gilt eine Geschwindigkeit von 30 km/h.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Geste",
+      "level": "B1",
+      "term": "die Geste",
+      "en": "gesture",
+      "pos": "noun",
+      "defDe": "bildhaftes oder konventionelles Zeichen durch Bewegungen der Hände, Arme, Schultern, Fingern, des Kopfes, Gesichts, Oberkörpers und bestimmten Fingerkonfigurationen zwecks Kommunikation, oft nur einzeln ausgeführt gleichwertig einer Interjektion oder satzähnlich angereiht",
+      "example": "Er machte eine freundliche Geste.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die GmbH",
+      "level": "B1",
+      "term": "die GmbH",
+      "en": "limited liability company",
+      "pos": "noun",
+      "defDe": "initialism of Gesellschaft mit beschränkter Haftung",
+      "example": "Er gründet eine GmbH.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Großstadt",
+      "level": "B1",
+      "term": "die Großstadt",
+      "en": "city, large city",
+      "pos": "noun",
+      "example": "In der Großstadt ist die Miete hoch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Herrschaft",
+      "level": "B1",
+      "term": "die Herrschaft",
+      "en": "rule, reign; rule, dominion",
+      "pos": "noun",
+      "defDe": "Bezeichnung für Regierende, Personen mit Leitungsfunktion",
+      "example": "Unter seiner Herrschaft ging es dem Land gut.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Hochschulreife",
+      "level": "B1",
+      "term": "die Hochschulreife",
+      "en": "higher-education entrance qualification",
+      "pos": "noun",
+      "defDe": "Ausbildungsstand, der zur Aufnahme eines Hochschulstudiums berechtigt",
+      "example": "Mit der Hochschulreife darf man studieren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Klimaanlage",
+      "level": "B1",
+      "term": "die Klimaanlage",
+      "en": "air conditioning",
+      "pos": "noun",
+      "defDe": "elektrisches Gerät, das die Lufteigenschaften wie Wärme, Luftfeuchtigkeit oder Ähnliches an die Bedürfnisse anpasst",
+      "example": "Die Klimaanlage macht das Zimmer angenehm kühl.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Kuh",
+      "level": "B1",
+      "term": "die Kuh",
+      "en": "cow",
+      "pos": "noun",
+      "defDe": "Muttertier des Hausrinds",
+      "example": "Die Kuh gibt viel Milch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Lippe",
+      "level": "B1",
+      "term": "die Lippe",
+      "en": "lip",
+      "pos": "noun",
+      "defDe": "Organ am Rand des Mundes; Teil und Abschluss des Mundes nach außen",
+      "example": "Vor Aufregung biss sie sich auf die Lippe.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

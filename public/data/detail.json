@@ -802,6 +802,7 @@
     ]
   },
   "voc:A1:Wie geht es Ihnen?": {
+    "def": "The formal way of asking after someone’s health or wellbeing, used with people you address as Sie.",
     "defDe": "Interrogativsatz (Fragesatz): Frage nach dem Wohlbefinden oder dem Gesundheitszustand einer befreundeten oder gut bekannten Person",
     "ex": [
       {
@@ -2260,6 +2261,7 @@
     ]
   },
   "voc:A1:bitten": {
+    "def": "To ask someone politely for something you want or need — unlike fragen, which is to ask a question.",
     "ex": [
       {
         "de": "Darf ich Sie um Hilfe bitten?",
@@ -2274,6 +2276,7 @@
     ]
   },
   "voc:A1:bitter": {
+    "def": "Having a sharp, harsh taste, like strong coffee or dark chocolate.",
     "ex": [
       {
         "de": "Der Kaffee ist mir zu bitter.",
@@ -2591,6 +2594,7 @@
     ]
   },
   "voc:A1:das Alter": {
+    "def": "How old a person or thing is, counted in years.",
     "ex": [
       {
         "de": "Bitte schreiben Sie Ihr Alter in das Formular.",
@@ -2840,6 +2844,7 @@
     ]
   },
   "voc:A1:das Beispiel": {
+    "def": "One particular case given to show what a general thing is like.",
     "ex": [
       {
         "de": "Können Sie mir ein Beispiel geben?",
@@ -3029,6 +3034,7 @@
     ]
   },
   "voc:A1:das Café": {
+    "def": "A small place that serves coffee, cake and light meals.",
     "ex": [
       {
         "de": "Wir treffen uns im Café.",
@@ -3043,6 +3049,7 @@
     ]
   },
   "voc:A1:das Datum": {
+    "def": "The calendar day on which something falls; in the plural, collected facts and figures gathered for study.",
     "defDe": "Angabe des Kalendertages",
     "ex": [
       {
@@ -3193,6 +3200,7 @@
     ]
   },
   "voc:A1:das Ergebnis": {
+    "def": "What comes out at the end of a process, a test or a match.",
     "defDe": "das, was bei einem Vorgang herauskommt",
     "ex": [
       {
@@ -3238,6 +3246,7 @@
     ]
   },
   "voc:A1:das Fax": {
+    "def": "A document sent along a telephone line and printed by the machine at the other end.",
     "ex": [
       {
         "de": "Ich habe Ihnen ein Fax geschickt.",
@@ -4471,6 +4480,7 @@
     ]
   },
   "voc:A1:das Licht": {
+    "def": "The brightness that lets you see, or the lamp that produces it.",
     "ex": [
       {
         "de": "Mach bitte das Licht an!",
@@ -4975,6 +4985,7 @@
     ]
   },
   "voc:A1:das Prozent": {
+    "def": "One hundredth part of an amount, used to state a share or a rate.",
     "ex": [
       {
         "de": "Heute bekommen Sie zehn Prozent Rabatt.",
@@ -5059,6 +5070,7 @@
     ]
   },
   "voc:A1:das Reisebüro": {
+    "def": "A shop that arranges trips, flights and hotels for its customers.",
     "ex": [
       {
         "de": "Meine Frau arbeitet in einem Reisebüro.",
@@ -5159,6 +5171,7 @@
     ]
   },
   "voc:A1:das Schild": {
+    "def": "A flat board in a public place carrying a name, a word or an instruction.",
     "ex": [
       {
         "de": "Auf dem Schild steht „Ausgang“.",
@@ -5624,6 +5637,7 @@
     ]
   },
   "voc:A1:das Ticket": {
+    "def": "A printed or digital pass that lets you travel or enter an event.",
     "ex": [
       {
         "de": "Ich habe das Ticket online gekauft.",
@@ -6220,6 +6234,7 @@
     ]
   },
   "voc:A1:der Anfang": {
+    "def": "The first part of something, or the point at which it starts.",
     "ex": [
       {
         "de": "Am Anfang war alles neu für mich.",
@@ -6330,6 +6345,7 @@
     ]
   },
   "voc:A1:der Appetit": {
+    "def": "The desire to eat — the pleasant hunger you feel before a meal.",
     "ex": [
       {
         "de": "Guten Appetit!",
@@ -6585,6 +6601,7 @@
     ]
   },
   "voc:A1:der Automat": {
+    "def": "A machine that serves goods or performs a task once you insert money or press a button.",
     "ex": [
       {
         "de": "Der Automat nimmt keine Karten.",
@@ -6884,6 +6901,7 @@
     ]
   },
   "voc:A1:der Bleistift": {
+    "def": "A wooden writing stick with grey lead inside, whose marks can be rubbed out.",
     "ex": [
       {
         "de": "Schreiben Sie bitte nicht mit Bleistift.",
@@ -6898,6 +6916,7 @@
     ]
   },
   "voc:A1:der Blick": {
+    "def": "What can be seen from a place, or a short act of looking at something.",
     "ex": [
       {
         "de": "Das Zimmer hat einen schönen Blick.",
@@ -7003,6 +7022,7 @@
     ]
   },
   "voc:A1:der Buchstabe": {
+    "def": "One of the written signs that spell a word — a, b, c.",
     "ex": [
       {
         "de": "Mein Name hat sechs Buchstaben.",
@@ -7062,6 +7082,7 @@
     ]
   },
   "voc:A1:der Cent": {
+    "def": "The small unit of the euro; one hundred of them make one euro.",
     "ex": [
       {
         "de": "Der Kaffee kostet ein Euro fünfzig Cent.",
@@ -7231,6 +7252,7 @@
     ]
   },
   "voc:A1:der Drucker": {
+    "def": "A machine that puts a document from a computer onto paper.",
     "ex": [
       {
         "de": "Der Drucker im Büro ist kaputt.",
@@ -7445,6 +7467,7 @@
     ]
   },
   "voc:A1:der Euro": {
+    "def": "The currency of Germany, Austria and most other EU countries.",
     "ex": [
       {
         "de": "Das Brot kostet zwei Euro.",
@@ -7459,6 +7482,7 @@
     ]
   },
   "voc:A1:der Fahrer": {
+    "def": "A person who drives a vehicle, especially as their job.",
     "ex": [
       {
         "de": "Der Fahrer hat mir geholfen.",
@@ -7488,6 +7512,7 @@
     ]
   },
   "voc:A1:der Familienname": {
+    "def": "The name shared with your family, written after your first name.",
     "ex": [
       {
         "de": "Bitte schreiben Sie hier Ihren Familiennamen.",
@@ -7502,6 +7527,7 @@
     ]
   },
   "voc:A1:der Familienstand": {
+    "def": "Whether a person is single, married, divorced or widowed — a standard question on official forms.",
     "ex": [
       {
         "de": "Im Formular fehlt noch der Familienstand.",
@@ -7924,6 +7950,7 @@
     ]
   },
   "voc:A1:der Fußball": {
+    "def": "The game played by two teams of eleven, or the ball it is played with.",
     "ex": [
       {
         "de": "Mein Sohn spielt gern Fußball.",
@@ -8008,6 +8035,7 @@
     ]
   },
   "voc:A1:der Geburtsort": {
+    "def": "The town or city where a person was born, as entered on official documents.",
     "ex": [
       {
         "de": "Mein Geburtsort ist Isfahan.",
@@ -8072,6 +8100,7 @@
     ]
   },
   "voc:A1:der Glückwunsch": {
+    "def": "The words you offer to wish someone well on a birthday, a wedding or a success.",
     "ex": [
       {
         "de": "Herzlichen Glückwunsch zum Geburtstag!",
@@ -8379,6 +8408,7 @@
     ]
   },
   "voc:A1:der Herr": {
+    "def": "A polite form of address for a man, used before his surname.",
     "ex": [
       {
         "de": "Guten Tag, Herr Müller!",
@@ -8844,6 +8874,7 @@
     ]
   },
   "voc:A1:der Kilometer": {
+    "def": "A unit of distance: one thousand metres.",
     "ex": [
       {
         "de": "Bis zum Bahnhof sind es zwei Kilometer.",
@@ -8858,6 +8889,7 @@
     ]
   },
   "voc:A1:der Kindergarten": {
+    "def": "A place where small children play and learn together before school begins.",
     "ex": [
       {
         "de": "Meine Tochter geht in den Kindergarten.",
@@ -8872,6 +8904,7 @@
     ]
   },
   "voc:A1:der Kiosk": {
+    "def": "A small street stall selling newspapers, drinks and tobacco.",
     "ex": [
       {
         "de": "Am Kiosk kaufe ich eine Zeitung.",
@@ -9077,6 +9110,7 @@
     ]
   },
   "voc:A1:der Kugelschreiber": {
+    "def": "A pen that writes with a small rolling ball, in ink that cannot be rubbed out.",
     "ex": [
       {
         "de": "Mein Kugelschreiber schreibt nicht mehr.",
@@ -9524,6 +9558,7 @@
     ]
   },
   "voc:A1:der Meter": {
+    "def": "The basic unit of length: one hundred centimetres.",
     "ex": [
       {
         "de": "Das Zimmer ist vier Meter lang.",
@@ -10060,6 +10095,7 @@
     ]
   },
   "voc:A1:der Ort": {
+    "def": "A particular spot or position, or the town where someone lives.",
     "ex": [
       {
         "de": "An welchem Ort wohnen Sie?",
@@ -10094,6 +10130,7 @@
     ]
   },
   "voc:A1:der Papa": {
+    "def": "An informal, affectionate word a child uses for their father.",
     "ex": [
       {
         "de": "Mein Papa holt mich um vier ab.",
@@ -10369,6 +10406,7 @@
     ]
   },
   "voc:A1:der Prospekt": {
+    "def": "A printed booklet setting out what a company or a place has to offer.",
     "ex": [
       {
         "de": "Schicken Sie mir bitte einen Prospekt.",
@@ -10873,6 +10911,7 @@
     ]
   },
   "voc:A1:der Schinken": {
+    "def": "Meat from the leg of a pig, salted or smoked and eaten in thin slices.",
     "ex": [
       {
         "de": "Ich möchte ein Brötchen mit Schinken.",
@@ -11686,6 +11725,7 @@
     ]
   },
   "voc:A1:der Teil": {
+    "def": "One piece of something larger, not the whole of it.",
     "ex": [
       {
         "de": "Der erste Teil war einfach.",
@@ -11790,6 +11830,7 @@
     ]
   },
   "voc:A1:der Text": {
+    "def": "A piece of writing taken as a whole — an article, a passage, the words of a song.",
     "ex": [
       {
         "de": "Lesen Sie bitte den Text.",
@@ -12064,6 +12105,7 @@
     ]
   },
   "voc:A1:der Vormittag": {
+    "def": "The part of the day between early morning and midday.",
     "defDe": "Tageszeit: Zeitraum zwischen dem Morgen und dem Mittag",
     "ex": [
       {
@@ -12084,6 +12126,7 @@
     ]
   },
   "voc:A1:der Vorname": {
+    "def": "The personal name chosen by your parents, placed before the family name.",
     "defDe": "ein von den Eltern individuell ausgesuchter Name",
     "ex": [
       {
@@ -12309,6 +12352,7 @@
     ]
   },
   "voc:A1:der Westen": {
+    "def": "The compass direction where the sun sets, or the region lying that way.",
     "ex": [
       {
         "de": "Meine Familie wohnt im Westen von Deutschland.",
@@ -12538,6 +12582,7 @@
     ]
   },
   "voc:A1:der Zentimeter": {
+    "def": "A unit of length: one hundredth of a metre.",
     "ex": [
       {
         "de": "Das Bild ist dreißig Zentimeter breit.",
@@ -12918,6 +12963,7 @@
     ]
   },
   "voc:A1:die Ansage": {
+    "def": "Spoken information given out over a loudspeaker, for example at a station.",
     "ex": [
       {
         "de": "Hören Sie die Ansage am Bahnhof.",
@@ -13342,6 +13388,7 @@
     ]
   },
   "voc:A1:die Birne": {
+    "def": "A sweet, soft fruit, narrow at the stalk and round at the base.",
     "ex": [
       {
         "de": "Ein Kilo Birnen, bitte.",
@@ -13356,6 +13403,7 @@
     ]
   },
   "voc:A1:die Bitte": {
+    "def": "A polite way of asking for something you would like someone to do.",
     "defDe": "höfliche Ausdrucksform eines Wunsches, einer Aufforderung, eines Ersuchens",
     "ex": [
       {
@@ -13406,6 +13454,7 @@
     ]
   },
   "voc:A1:die Bluse": {
+    "def": "A light garment for the upper body, worn chiefly by women.",
     "defDe": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen",
     "ex": [
       {
@@ -13606,6 +13655,7 @@
     ]
   },
   "voc:A1:die Durchsage": {
+    "def": "A message read out to everyone present in a shop, station or building.",
     "ex": [
       {
         "de": "Im Supermarkt kommt eine Durchsage.",
@@ -13691,6 +13741,7 @@
     ]
   },
   "voc:A1:die Ecke": {
+    "def": "The point where two edges or two streets meet.",
     "defDe": "Punkt, in welchem zwei begrenzende Linien einer Fläche beziehungsweise drei oder mehr Grenzflächen eines Körpers zusammenstoßen",
     "ex": [
       {
@@ -14072,6 +14123,7 @@
     ]
   },
   "voc:A1:die Früh": {
+    "def": "The first hours of the day — southern German and Austrian for the morning.",
     "defDe": "Beginn des Tages, Morgen",
     "ex": [
       {
@@ -14404,6 +14456,7 @@
     ]
   },
   "voc:A1:die Hausaufgabe": {
+    "def": "Work a teacher sets to be done at home rather than in class.",
     "ex": [
       {
         "de": "Die Kinder machen ihre Hausaufgaben.",
@@ -15318,6 +15371,7 @@
     ]
   },
   "voc:A1:die Liste": {
+    "def": "Items written down one after another in a set order.",
     "defDe": "ein schriftliches Verzeichnis, in dem mehrere Punkte in einer bestimmten Reihenfolge aufgeführt sind",
     "ex": [
       {
@@ -15978,6 +16032,7 @@
     ]
   },
   "voc:A1:die Oma": {
+    "def": "An informal, affectionate word for your grandmother.",
     "ex": [
       {
         "de": "Meine Oma wohnt in Hamburg.",
@@ -16478,6 +16533,7 @@
     ]
   },
   "voc:A1:die S-Bahn": {
+    "def": "The fast city railway that links a German city with its suburbs.",
     "ex": [
       {
         "de": "Ich nehme lieber die S-Bahn.",
@@ -18164,6 +18220,7 @@
     ]
   },
   "voc:A1:drucken": {
+    "def": "To produce text or pictures on paper with a machine — not to be confused with drücken, to press.",
     "ex": [
       {
         "de": "Ich drucke das Formular gleich.",
@@ -18623,6 +18680,7 @@
     ]
   },
   "voc:A1:enden": {
+    "def": "To come to a stop, reaching the point where something is over.",
     "ex": [
       {
         "de": "Der Kurs endet im Juli.",
@@ -19608,6 +19666,7 @@
     ]
   },
   "voc:A1:geboren": {
+    "def": "Having come into the world at a given time or place.",
     "ex": [
       {
         "de": "Ich bin in Isfahan geboren.",
@@ -19792,6 +19851,7 @@
     ]
   },
   "voc:A1:genug": {
+    "def": "As much as is needed, and no more required.",
     "ex": [
       {
         "de": "Wir haben genug Zeit.",
@@ -21362,6 +21422,7 @@
     ]
   },
   "voc:A1:kriegen": {
+    "def": "To receive or obtain something — an everyday, informal alternative to bekommen.",
     "ex": [
       {
         "de": "Ich kriege morgen mein Zeugnis.",
@@ -22322,6 +22383,7 @@
     ]
   },
   "voc:A1:männlich": {
+    "def": "Of the male sex — the box you tick on a form, and the grammatical gender that takes a masculine article.",
     "ex": [
       {
         "de": "Kreuzen Sie bitte an: weiblich oder männlich.",
@@ -24780,6 +24842,7 @@
     ]
   },
   "voc:A1:türkis": {
+    "def": "Of a blue-green colour, like shallow tropical sea.",
     "defDe": "in einer Farbe zwischen blau und grün (für Textilien verwendet, sonst umgangssprachlich)",
     "ex": [
       {
@@ -24986,6 +25049,7 @@
     ]
   },
   "voc:A1:verboten": {
+    "def": "Not allowed by a rule or a law.",
     "ex": [
       {
         "de": "Hier ist Rauchen verboten.",
@@ -25125,6 +25189,7 @@
     ]
   },
   "voc:A1:vermieten": {
+    "def": "To let someone use a room or a property for a period in return for payment — what the landlord does, where mieten is what the tenant does.",
     "defDe": "etwas gegen Bezahlung für eine bestimmte Zeit zur Benutzung überlassen",
     "ex": [
       {
@@ -25551,6 +25616,7 @@
     ]
   },
   "voc:A1:weiblich": {
+    "def": "Of the female sex — the box you tick on a form, and the grammatical gender that takes a feminine article.",
     "ex": [
       {
         "de": "Bitte kreuzen Sie weiblich an.",
@@ -26163,6 +26229,7 @@
     ]
   },
   "voc:A1:zurück": {
+    "def": "Towards the place you started from, or in the opposite direction.",
     "ex": [
       {
         "de": "Einmal Frankfurt und zurück, bitte.",

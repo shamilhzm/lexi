@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:erleben",
+      "level": "A2",
+      "en": "to experience",
+      "pos": "verb",
+      "expect": {
+        "def": "eine Erfahrung machen, bei etwas dabei sein"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:aufmerksam",
+      "level": "A2",
+      "en": "attentive",
+      "pos": "adjective",
+      "expect": {
+        "def": "attentive, alert, observant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ungewöhnlich",
+      "level": "A2",
+      "en": "unusual",
+      "pos": "adjective",
+      "expect": {
+        "def": "uncommon, unusual, unordinary"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Darm",
+      "level": "A2",
+      "en": "intestine",
+      "pos": "noun",
+      "expect": {
+        "def": "intestine, gut"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Magen",
+      "level": "A2",
+      "en": "stomach",
+      "pos": "noun",
+      "expect": {
+        "def": "stomach, maw"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Symptom",
+      "level": "A2",
+      "en": "symptom",
+      "pos": "noun",
+      "expect": {
+        "def": "symptom, sign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:blitzen",
+      "level": "A2",
+      "en": "to flash (lightning)",
+      "pos": "verb",
+      "expect": {
+        "def": "to lighten; to flash"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:scheinen",
+      "level": "A1",
+      "en": "to shine; to seem",
+      "pos": "verb",
+      "expect": {
+        "def": "to shine; to gleam; to seem; to appear; to look"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Bekleidung",
+      "level": "A2",
+      "en": "clothing",
+      "pos": "noun",
+      "expect": {
+        "def": "clothing, garb, apparel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:aussuchen",
+      "level": "A2",
+      "en": "to pick out",
+      "pos": "verb",
+      "expect": {
+        "def": "to select, to choose, to pick"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:einfarbig",
+      "level": "A2",
+      "en": "plain, single-coloured",
+      "pos": "adjective",
+      "expect": {
+        "def": "monocolor/monocolour, unicolor/unicolour, unicolored, monochromatic, monochrome"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hübsch",
+      "level": "A2",
+      "en": "pretty",
+      "pos": "adjective",
+      "expect": {
+        "def": "pretty, handsome"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Umsatz",
+      "level": "A2",
+      "en": "turnover, sales; revenue, turnover",
+      "pos": "noun",
+      "expect": {
+        "def": "turnover, revenue, sales"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Bedeutung",
+      "level": "A2",
+      "en": "meaning, significance; meaning / importance",
+      "pos": "noun",
+      "expect": {
+        "def": "Sinn einer Information, Handlung oder Sache"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Betrag",
+      "level": "A2",
+      "en": "amount (money)",
+      "pos": "noun",
+      "expect": {
+        "def": "amount, sum"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:ausleihen",
+      "level": "A2",
+      "en": "to lend out, borrow",
+      "pos": "verb",
+      "expect": {
+        "def": "to borrow; to lend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:besitzen",
+      "level": "A2",
+      "en": "to own",
+      "pos": "verb",
+      "expect": {
+        "def": "to own, to possess; to have"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:kaputt",
+      "level": "A1",
+      "en": "broken",
+      "pos": "adjective",
+      "expect": {
+        "def": "destroyed, broken, out of order"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:riesig",
+      "level": "A2",
+      "en": "huge",
+      "pos": "adjective",
+      "expect": {
+        "def": "gigantic, huge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:unglaublich",
+      "level": "A2",
+      "en": "unbelievable; incredible; incredibly",
+      "pos": "adjective",
+      "expect": {
+        "def": "unbelievable, incredible"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Inszenierung",
+      "level": "A2",
+      "en": "staging, production",
+      "pos": "noun",
+      "expect": {
+        "def": "production, staging, orchestration, showmanship"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Drehbuch",
+      "level": "A2",
+      "en": "screenplay",
+      "pos": "noun",
+      "expect": {
+        "def": "script, screenplay"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kurzfilm",
+      "level": "A2",
+      "en": "short film",
+      "pos": "noun",
+      "expect": {
+        "def": "short film; clip"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Zeichentrickfilm",
+      "level": "A2",
+      "en": "animated film",
+      "pos": "noun",
+      "expect": {
+        "def": "animated cartoon, animated film, cartoon film"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:überqueren",
+      "level": "A2",
+      "en": "to cross (a street)",
+      "pos": "verb",
+      "expect": {
+        "def": "to cross, to traverse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:probieren",
+      "level": "A2",
+      "en": "to try",
+      "pos": "verb",
+      "expect": {
+        "def": "versuchen; testen; eine Probe machen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:recherchieren",
+      "level": "A2",
+      "en": "to research",
+      "pos": "verb",
+      "expect": {
+        "def": "to research, to investigate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Grundschule",
+      "level": "A2",
+      "en": "primary school",
+      "pos": "noun",
+      "expect": {
+        "def": "elementary school, primary school"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Klasse",
+      "level": "A1",
+      "en": "class, grade",
+      "pos": "noun",
+      "expect": {
+        "def": "a class; a grouping; class; excellence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Schuljahr",
+      "level": "A2",
+      "en": "school year",
+      "pos": "noun",
+      "expect": {
+        "def": "academic year, school year"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Mechaniker",
+      "level": "A2",
+      "en": "mechanic",
+      "pos": "noun",
+      "expect": {
+        "def": "mechanic, repairman, fitter, mechanician, machinist; ellipsis of Automechaniker; auto mechanic"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Berufserfahrung",
+      "level": "A2",
+      "en": "professional experience",
+      "pos": "noun",
+      "expect": {
+        "def": "work experience, professional experience"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:wechseln",
+      "level": "A2",
+      "en": "to change, switch; to switch, alternate",
+      "pos": "verb",
+      "expect": {
+        "def": "to change, to exchange; to switch"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Beachtung",
+      "level": "A2",
+      "en": "attention, consideration",
+      "pos": "noun",
+      "expect": {
+        "def": "regard, heed, attention"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Überprüfung",
+      "level": "A2",
+      "en": "check, verification",
+      "pos": "noun",
+      "expect": {
+        "def": "check, examination, inspection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:beachten",
+      "level": "A2",
+      "en": "to observe, heed",
+      "pos": "verb",
+      "expect": {
+        "def": "to note, notice, observe; to mind, heed"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:gestalten",
+      "level": "A2",
+      "en": "to design, shape; to create",
+      "pos": "verb",
+      "expect": {
+        "def": "to form, to shape, to create; to organise, to structure, to arrange"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:gleichzeitig",
+      "level": "A2",
+      "en": "simultaneous(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "simultaneous, concurrent, coincident, concomitant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Arbeitswelt",
+      "level": "A2",
+      "en": "world of work",
+      "pos": "noun",
+      "expect": {
+        "def": "workplace, working environment"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Buchhaltung",
+      "level": "A2",
+      "en": "accounting",
+      "pos": "noun",
+      "expect": {
+        "def": "accounting, bookkeeping"
+      },
+      "def": ""
+    }
+  ]
+}

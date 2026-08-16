@@ -1,0 +1,504 @@
+{
+  "_README": [
+    "40 B2 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:der Treibhauseffekt",
+      "level": "B2",
+      "term": "der Treibhauseffekt",
+      "en": "greenhouse effect",
+      "pos": "noun",
+      "defDe": "Klimatologie, Meteorologie: das Ansteigen der weltweiten Durchschnittstemperatur, bedingt durch die Abgabe und Anreicherung sog. Treibhausgase, vor allem Kohlendioxid, in die Erdatmosphäre",
+      "example": "Das von Fahrzeugen und Industrien ausgestoßene Kohlendioxid hat über die vergangenen 100 Jahre den Treibhauseffekt verstärkt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Umbau",
+      "level": "B2",
+      "term": "der Umbau",
+      "en": "conversion, renovation work",
+      "pos": "noun",
+      "example": "Der Umbau nebenan ist in drei Wochen fertig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Umfang",
+      "level": "B2",
+      "term": "der Umfang",
+      "en": "extent, scope",
+      "pos": "noun",
+      "example": "Beide können nicht in vollem Umfang recht behalten.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Vorwurf",
+      "level": "B2",
+      "term": "der Vorwurf",
+      "en": "accusation, reproach",
+      "pos": "noun",
+      "example": "Der Vorwurf ist berechtigt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Zusatz",
+      "level": "B2",
+      "term": "der Zusatz",
+      "en": "addition, supplement",
+      "pos": "noun",
+      "example": "Freiwilligkeit ist kein Zusatz zum System.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Ablenkung",
+      "level": "B2",
+      "term": "die Ablenkung",
+      "en": "distraction",
+      "pos": "noun",
+      "example": "Alles andere ist nur Ablenkung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Absprache",
+      "level": "B2",
+      "term": "die Absprache",
+      "en": "arrangement, agreement",
+      "pos": "noun",
+      "example": "Ohne die Absprachen am Morgen geht bei uns nichts.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Angabe",
+      "level": "B2",
+      "term": "die Angabe",
+      "en": "detail, piece of information",
+      "pos": "noun",
+      "example": "Bitte prüfen Sie Ihre Angaben noch einmal.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Anregung",
+      "level": "B2",
+      "term": "die Anregung",
+      "en": "suggestion, stimulus",
+      "pos": "noun",
+      "example": "Danke für die Anregung!",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Beförderung",
+      "level": "B2",
+      "term": "die Beförderung",
+      "en": "promotion",
+      "pos": "noun",
+      "defDe": "das Befördern oder das Transportieren von Gütern oder Personen",
+      "example": "Die Beförderung der Reisenden erfolgt bei Zugausfällen durch einen Ersatzverkehr mit Bussen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Begrünung",
+      "level": "B2",
+      "term": "die Begrünung",
+      "en": "planting, greening",
+      "pos": "noun",
+      "defDe": "Bepflanzen mit Sträuchern oder Bäumen, beispielsweise bei Bauwerken an Fassaden und auf Dächern oder in Grünanlagen",
+      "example": "Die Begrünung der Dächer senkt die Temperatur in der Stadt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Benutzung",
+      "level": "B2",
+      "term": "die Benutzung",
+      "en": "use, usage",
+      "pos": "noun",
+      "example": "Die Benutzung der Bibliothek ist kostenlos.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Beschädigung",
+      "level": "B2",
+      "term": "die Beschädigung",
+      "en": "damage",
+      "pos": "noun",
+      "example": "Bei Beschädigung müssen Sie den Schaden ersetzen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Bohrmaschine",
+      "level": "B2",
+      "term": "die Bohrmaschine",
+      "en": "drill",
+      "pos": "noun",
+      "example": "Kannst du mir deine Bohrmaschine leihen?",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Disziplin",
+      "level": "B2",
+      "term": "die Disziplin",
+      "en": "discipline",
+      "pos": "noun",
+      "example": "Dafür braucht man viel Disziplin.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Einleitung",
+      "level": "B2",
+      "term": "die Einleitung",
+      "en": "introduction (of a text or talk)",
+      "pos": "noun",
+      "example": "Denken Sie an eine Einleitung und einen Schluss.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Elektromobilität",
+      "level": "B2",
+      "term": "die Elektromobilität",
+      "en": "electric mobility",
+      "pos": "noun",
+      "defDe": "Teil des Verkehrs, bei dem Elektrofahrzeuge eingesetzt werden",
+      "example": "Die Elektromobilität soll den Verkehr sauberer machen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Klimazone",
+      "level": "B2",
+      "term": "die Klimazone",
+      "en": "climate zone",
+      "pos": "noun",
+      "defDe": "ein Gebiet, das anhand unterschiedlicher grundlegender klimatischer Verhältnisse abgegrenzt ist",
+      "example": "Die tatsächlichen Verhältnisse am Boden werden charakterisiert durch die physischen Klimazonen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Kundschaft",
+      "level": "B2",
+      "term": "die Kundschaft",
+      "en": "customers, clientele",
+      "pos": "noun",
+      "example": "Die Kundschaft fährt inzwischen ins Zentrum am Stadtrand.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Lehrkraft",
+      "level": "B2",
+      "term": "die Lehrkraft",
+      "en": "teacher, teaching staff member",
+      "pos": "noun",
+      "example": "Die Schule sucht eine neue Lehrkraft für Mathematik.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Mietpreisbremse",
+      "level": "B2",
+      "term": "die Mietpreisbremse",
+      "en": "rent cap",
+      "pos": "noun",
+      "defDe": "politische Maßnahme, um extreme Mieterhöhungen zu verhindern",
+      "example": "Die Mietpreisbremse soll den Anstieg der Mieten begrenzen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Nische",
+      "level": "B2",
+      "term": "die Nische",
+      "en": "niche, alcove",
+      "pos": "noun",
+      "example": "In der Nische steht ein kleines Regal.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Öffentlichkeit",
+      "level": "B2",
+      "term": "die Öffentlichkeit",
+      "en": "the public",
+      "pos": "noun",
+      "example": "Die Öffentlichkeit reagiert bislang gelassen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Produktivität",
+      "level": "B2",
+      "term": "die Produktivität",
+      "en": "productivity",
+      "pos": "noun",
+      "example": "Über Produktivität wird ständig geredet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Selbstfürsorge",
+      "level": "B2",
+      "term": "die Selbstfürsorge",
+      "en": "self-care",
+      "pos": "noun",
+      "defDe": "der Zustand einer Person, in dem die Fähigkeit zur Selbstpflege/Selbstfürsorge herabgesetzt ist",
+      "example": "Ein Beispiel für Pflegeabhängigkeit ist, wenn jemand (teilweise) nicht in der Lage ist, sich zu waschen, weil er einen gebrochenen Arm hat.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Sperrung",
+      "level": "B2",
+      "term": "die Sperrung",
+      "en": "closure (of a road)",
+      "pos": "noun",
+      "example": "Die Sperrung der Straße gilt ab Montag.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Unterbrechung",
+      "level": "B2",
+      "term": "die Unterbrechung",
+      "en": "interruption",
+      "pos": "noun",
+      "example": "Nach einer Unterbrechung dauert es lange, wieder hineinzufinden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verarbeitung",
+      "level": "B2",
+      "term": "die Verarbeitung",
+      "en": "processing",
+      "pos": "noun",
+      "example": "Die Verarbeitung findet auf dem Gerät selbst statt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verdichtung",
+      "level": "B2",
+      "term": "die Verdichtung",
+      "en": "densification; condensation",
+      "pos": "noun",
+      "defDe": "Veränderung: das Sichverdichten; das Verdichten von Komprimierbarem",
+      "example": "Die bauliche Verdichtung spart Fläche, aber kostet Grün.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Zersiedelung",
+      "level": "B2",
+      "term": "die Zersiedelung",
+      "en": "urban sprawl",
+      "pos": "noun",
+      "defDe": "Bewirken/Vorhandensein von übermäßiger, gestreuter Bebauung",
+      "example": "Die Zersiedelung frisst wertvolles Ackerland.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:dokumentieren",
+      "level": "B2",
+      "term": "dokumentieren",
+      "en": "to document",
+      "pos": "verb",
+      "example": "Wir dokumentieren jeden Schritt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ehren",
+      "level": "B2",
+      "term": "ehren",
+      "en": "to honour, to pay tribute to",
+      "pos": "verb",
+      "example": "Die Stadt ehrt ihn mit einer Ausstellung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einschätzen",
+      "level": "B2",
+      "term": "einschätzen",
+      "en": "to assess, to judge",
+      "pos": "verb",
+      "example": "Wie schätzen Sie die Lage ein?",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einschlafen",
+      "level": "B2",
+      "term": "einschlafen",
+      "en": "to fall asleep",
+      "pos": "verb",
+      "defDe": "to fall asleep; to pass away, die (peacefully)",
+      "example": "Sie ist eingeschlafen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:expandieren",
+      "level": "B2",
+      "term": "expandieren",
+      "en": "to expand",
+      "pos": "verb",
+      "defDe": "sich oder etwas ausbauen beziehungsweise vergrößern",
+      "example": "Unser Unternehmen expandiert weltweit.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:fachlich",
+      "level": "B2",
+      "term": "fachlich",
+      "en": "professional, technical (in subject terms)",
+      "pos": "adjective",
+      "example": "Fachlich funktioniert die Zusammenarbeit tadellos.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:freigeben",
+      "level": "B2",
+      "term": "freigeben",
+      "en": "to release, to make available",
+      "pos": "verb",
+      "example": "Die Stadt gibt die Straße morgen wieder frei.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gelegentlich",
+      "level": "B2",
+      "term": "gelegentlich",
+      "en": "occasional; occasionally",
+      "pos": "adjective",
+      "example": "Der Aufwand wird gelegentlich bezweifelt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gleichgültig",
+      "level": "B2",
+      "term": "gleichgültig",
+      "en": "indifferent; immaterial",
+      "pos": "adjective",
+      "example": "Für die Händlerin ist es gleichgültig, woher die Kundschaft kommt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gleichmäßig",
+      "level": "B2",
+      "term": "gleichmäßig",
+      "en": "even, regular, steady",
+      "pos": "adjective",
+      "example": "Das Geräusch ist gleichmäßig und stört kaum.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

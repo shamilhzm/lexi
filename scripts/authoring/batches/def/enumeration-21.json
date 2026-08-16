@@ -1,0 +1,152 @@
+{
+  "_README": [
+    "14 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:ausbreiten",
+      "level": "B1",
+      "en": "to spread, spread out",
+      "pos": "verb",
+      "expect": {
+        "def": "to spread, spread out; to extend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gurgeln",
+      "level": "B1",
+      "en": "to gargle",
+      "pos": "verb",
+      "expect": {
+        "def": "to gargle; to gurgle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Hausmittel",
+      "level": "B1",
+      "en": "home remedy",
+      "pos": "noun",
+      "expect": {
+        "def": "home remedy; nostrum; quick fix"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Pickel",
+      "level": "B1",
+      "en": "pickaxe, icepick",
+      "pos": "noun",
+      "expect": {
+        "def": "pimple, pustule"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vernetzen",
+      "level": "B1",
+      "en": "to network",
+      "pos": "verb",
+      "expect": {
+        "def": "to network; to cross-link"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zusagen",
+      "level": "B1",
+      "en": "to accept, to promise to come",
+      "pos": "verb",
+      "expect": {
+        "def": "to accept, to promise to come; to pledge, to promise"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:überwiegen",
+      "level": "B2",
+      "en": "to weigh too much",
+      "pos": "verb",
+      "expect": {
+        "def": "to outweigh, preponderate; to prevail, predominate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Videoclip",
+      "level": "B1",
+      "en": "video clip",
+      "pos": "noun",
+      "expect": {
+        "def": "a short video, e.g. a music video"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schrift",
+      "level": "B1",
+      "en": "writing, script",
+      "pos": "noun",
+      "expect": {
+        "def": "a system of written characters; also handwriting"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Dienstleistung",
+      "level": "A2",
+      "en": "service",
+      "pos": "noun",
+      "expect": {
+        "def": "work done for customers, e.g. by a bank"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Traum",
+      "level": "A2",
+      "en": "dream",
+      "pos": "noun",
+      "expect": {
+        "def": "images in your sleep; also a strong wish"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Rad",
+      "level": "B1",
+      "en": "bike; wheel",
+      "pos": "noun",
+      "expect": {
+        "def": "a bicycle; also a wheel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Aggression",
+      "level": "B1",
+      "en": "aggression",
+      "pos": "noun",
+      "expect": {
+        "def": "angry, hostile behaviour"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einseitig",
+      "level": "B1",
+      "en": "one-sided, unbalanced",
+      "pos": "adjective",
+      "expect": {
+        "def": "considering only one side; not varied"
+      },
+      "def": ""
+    }
+  ]
+}

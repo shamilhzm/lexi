@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:dankbar",
+      "level": "B1",
+      "en": "grateful",
+      "pos": "adjective",
+      "expect": {
+        "def": "grateful, thankful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verlegen",
+      "level": "B1",
+      "en": "embarrassed",
+      "pos": "adjective",
+      "expect": {
+        "def": "abashed, embarrassed, confused, disconcerted, self-conscious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schüchtern",
+      "level": "B1",
+      "en": "shy, timid",
+      "pos": "adjective",
+      "expect": {
+        "def": "shy, timid, bashful"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:empfindlich",
+      "level": "B1",
+      "en": "sensitive, delicate",
+      "pos": "adjective",
+      "expect": {
+        "def": "sensitive, tender"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einsam",
+      "level": "B1",
+      "en": "lonely",
+      "pos": "adjective",
+      "expect": {
+        "def": "lonely, lone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zerstreut",
+      "level": "B1",
+      "en": "absent-minded, distracted",
+      "pos": "adjective",
+      "expect": {
+        "def": "distracted, absent-minded"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:feige",
+      "level": "B1",
+      "en": "cowardly",
+      "pos": "adjective",
+      "expect": {
+        "def": "cowardly, yellow"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachlässig",
+      "level": "B1",
+      "en": "careless, negligent",
+      "pos": "adjective",
+      "expect": {
+        "def": "negligent, careless"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:hilfsbereit",
+      "level": "B1",
+      "en": "helpful, obliging",
+      "pos": "adjective",
+      "expect": {
+        "def": "bereit, jemandem zu helfen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:launisch",
+      "level": "B1",
+      "en": "moody, temperamental",
+      "pos": "adjective",
+      "expect": {
+        "def": "moody, capricious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:angespannt",
+      "level": "B1",
+      "en": "tense, stressed",
+      "pos": "adjective",
+      "expect": {
+        "def": "taut, tense"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erschrocken",
+      "level": "B1",
+      "en": "frightened, startled",
+      "pos": "adjective",
+      "expect": {
+        "def": "shocked, taken aback, startled"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verletzt",
+      "level": "B1",
+      "en": "hurt, offended",
+      "pos": "adjective",
+      "expect": {
+        "def": "hurt, injured"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:klug",
+      "level": "A2",
+      "en": "smart, clever",
+      "pos": "adjective",
+      "expect": {
+        "def": "intelligent, prudent, wise, smart, clever"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ernst",
+      "level": "B1",
+      "en": "serious, grave",
+      "pos": "adjective",
+      "expect": {
+        "def": "ohne Spaß, ohne Scherz, ohne Humor, ohne Ironie"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:spannend",
+      "level": "A2",
+      "en": "exciting, gripping; gripping, suspenseful",
+      "pos": "adjective",
+      "expect": {
+        "def": "thrilling, exciting, gripping, enthralling, spellbinding"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unsympathisch",
+      "level": "B1",
+      "en": "unlikeable, unpleasant",
+      "pos": "adjective",
+      "expect": {
+        "def": "unlikable, unpleasant, disagreeable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:aufrichtig",
+      "level": "B1",
+      "en": "sincere, genuine",
+      "pos": "adjective",
+      "expect": {
+        "def": "candid, frank, sincere, genuine, honest"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schwein",
+      "level": "B1",
+      "en": "pig",
+      "pos": "noun",
+      "expect": {
+        "def": "swine, pig"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schnecke",
+      "level": "B1",
+      "en": "snail",
+      "pos": "noun",
+      "expect": {
+        "def": "snail, slug"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Wildschwein",
+      "level": "B1",
+      "en": "wild boar",
+      "pos": "noun",
+      "expect": {
+        "def": "razorback, wild boar, wild hog"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Essiggurke",
+      "level": "B1",
+      "en": "pickle",
+      "pos": "noun",
+      "expect": {
+        "def": "gherkin, pickle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gewürz",
+      "level": "B1",
+      "en": "spice / seasoning",
+      "pos": "noun",
+      "expect": {
+        "def": "spice, condiment, seasoning"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Weintraube",
+      "level": "B1",
+      "en": "grape",
+      "pos": "noun",
+      "expect": {
+        "def": "grape; wine-grape"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Müsli",
+      "level": "B1",
+      "en": "muesli / granola",
+      "pos": "noun",
+      "expect": {
+        "def": "muesli, granola"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:salzig",
+      "level": "B1",
+      "en": "salty",
+      "pos": "adjective",
+      "expect": {
+        "def": "briny, salty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Hüfte",
+      "level": "B1",
+      "en": "hip",
+      "pos": "noun",
+      "expect": {
+        "def": "hip; hips"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Wirbelsäule",
+      "level": "B2",
+      "en": "spine, backbone",
+      "pos": "noun",
+      "expect": {
+        "def": "vertebral column, backbone, spine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erziehen",
+      "level": "B1",
+      "en": "to raise, to bring up",
+      "pos": "verb",
+      "expect": {
+        "def": "to nurture; to educate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:neidisch",
+      "level": "B1",
+      "en": "jealous, envious",
+      "pos": "adjective",
+      "expect": {
+        "def": "envious, jealous"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:verliebt",
+      "level": "A2",
+      "en": "in love",
+      "pos": "adjective",
+      "expect": {
+        "def": "in love, enamored"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Freude",
+      "level": "B1",
+      "en": "joy, delight",
+      "pos": "noun",
+      "expect": {
+        "def": "joy, delight, glee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Wut",
+      "level": "B1",
+      "en": "anger, rage",
+      "pos": "noun",
+      "expect": {
+        "def": "rage; fury; outrage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Enttäuschung",
+      "level": "B1",
+      "en": "disappointment",
+      "pos": "noun",
+      "expect": {
+        "def": "disappointment, let-down, bummer, frustration"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schlaflosigkeit",
+      "level": "B1",
+      "en": "insomnia",
+      "pos": "noun",
+      "expect": {
+        "def": "sleeplessness, insomnia"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Achtsamkeit",
+      "level": "B1",
+      "en": "mindfulness",
+      "pos": "noun",
+      "expect": {
+        "def": "mindfulness, wariness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überwinden",
+      "level": "B1",
+      "en": "to overcome",
+      "pos": "verb",
+      "expect": {
+        "def": "to overcome, to get over"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beruhigen",
+      "level": "B1",
+      "en": "to calm (down)",
+      "pos": "verb",
+      "expect": {
+        "def": "to calm down, to quiet; to become calm"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:belasten",
+      "level": "B2",
+      "en": "to burden, put strain on",
+      "pos": "verb",
+      "expect": {
+        "def": "to burden; to incriminate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:trauern",
+      "level": "B1",
+      "en": "to grieve, mourn",
+      "pos": "verb",
+      "expect": {
+        "def": "to mourn; to be sad"
+      },
+      "def": ""
+    }
+  ]
+}

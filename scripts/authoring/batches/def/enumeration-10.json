@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:anfangen",
+      "level": "A1",
+      "en": "to begin",
+      "pos": "verb",
+      "expect": {
+        "def": "to begin; to commence; to start"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:erlauben",
+      "level": "A1",
+      "en": "to allow",
+      "pos": "verb",
+      "expect": {
+        "def": "to allow; to permit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:stattfinden",
+      "level": "A1",
+      "en": "to take place",
+      "pos": "verb",
+      "expect": {
+        "def": "to take place, to happen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:Auf keinen Fall.",
+      "level": "A1",
+      "en": "No way. / Definitely not.",
+      "pos": "phrase",
+      "expect": {
+        "def": "unter keinen Umständen, unter keiner Bedingung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das Thema",
+      "level": "A1",
+      "en": "topic",
+      "pos": "noun",
+      "expect": {
+        "def": "topic, subject, issue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:beantragen",
+      "level": "A1",
+      "en": "to apply for",
+      "pos": "verb",
+      "expect": {
+        "def": "to apply for; to request, to propose"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:endlich",
+      "level": "A1",
+      "en": "finally",
+      "pos": "adverb",
+      "expect": {
+        "def": "eventually, at last, finally"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Angst",
+      "level": "A1",
+      "en": "fear",
+      "pos": "noun",
+      "expect": {
+        "def": "fear; fright; anxiety"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Selbstständigkeit",
+      "level": "B2",
+      "en": "self-employment",
+      "pos": "noun",
+      "expect": {
+        "def": "independence, autonomy, self-reliance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:aufsteigen",
+      "level": "B2",
+      "en": "to rise, get promoted",
+      "pos": "verb",
+      "expect": {
+        "def": "to get on, to mount; to advance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:sachlich",
+      "level": "B2",
+      "en": "factual, objective",
+      "pos": "adjective",
+      "expect": {
+        "def": "objective, factual"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:posten",
+      "level": "B2",
+      "en": "to post (online)",
+      "pos": "verb",
+      "expect": {
+        "def": "post, station"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:teilen",
+      "level": "B2",
+      "en": "to share",
+      "pos": "verb",
+      "expect": {
+        "def": "to split, to share; to divide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Glaubwürdigkeit",
+      "level": "B2",
+      "en": "credibility",
+      "pos": "noun",
+      "expect": {
+        "def": "credibility, believability"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Voreingenommenheit",
+      "level": "B2",
+      "en": "bias",
+      "pos": "noun",
+      "expect": {
+        "def": "prejudice, bias"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:hinterfragen",
+      "level": "B2",
+      "en": "to question, scrutinise",
+      "pos": "verb",
+      "expect": {
+        "def": "to question, to scrutinise, to challenge"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Geburtenrückgang",
+      "level": "B2",
+      "en": "declining birth rate",
+      "pos": "noun",
+      "expect": {
+        "def": "falling birthrate, baby bust"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:schrumpfen",
+      "level": "B2",
+      "en": "to shrink",
+      "pos": "verb",
+      "expect": {
+        "def": "to shrink, become smaller; to shrivel, wrinkle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausgrenzen",
+      "level": "B2",
+      "en": "to exclude, marginalise",
+      "pos": "verb",
+      "expect": {
+        "def": "to ostracize, to shun, to segregate, to exclude, to marginalize"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gerecht",
+      "level": "B2",
+      "en": "fair, just",
+      "pos": "adjective",
+      "expect": {
+        "def": "just, fair"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:einsparen",
+      "level": "B2",
+      "en": "to save, conserve",
+      "pos": "verb",
+      "expect": {
+        "def": "to save on; to reduce, cut down on"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:erneuerbar",
+      "level": "B2",
+      "en": "renewable",
+      "pos": "adjective",
+      "expect": {
+        "def": "renewable, sustainable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wiederverwenden",
+      "level": "B2",
+      "en": "to reuse",
+      "pos": "verb",
+      "expect": {
+        "def": "to reuse; to recycle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verschwenderisch",
+      "level": "B2",
+      "en": "wasteful",
+      "pos": "adjective",
+      "expect": {
+        "def": "lavish, extravagant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Lehrplan",
+      "level": "B2",
+      "en": "curriculum",
+      "pos": "noun",
+      "expect": {
+        "def": "curriculum, syllabus"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:vertiefen",
+      "level": "B2",
+      "en": "to deepen, consolidate",
+      "pos": "verb",
+      "expect": {
+        "def": "to deepen; to delve"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gesetzlich",
+      "level": "B2",
+      "en": "statutory, public",
+      "pos": "adjective",
+      "expect": {
+        "def": "lawful, legal, legitimate"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:stornieren",
+      "level": "B2",
+      "en": "to cancel (a booking)",
+      "pos": "verb",
+      "expect": {
+        "def": "to cancel, to reverse"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Verständigung",
+      "level": "B2",
+      "en": "communication, making oneself understood; mutual understanding",
+      "pos": "noun",
+      "expect": {
+        "def": "comprehension, understanding"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ergreifend",
+      "level": "B2",
+      "en": "moving, poignant",
+      "pos": "adjective",
+      "expect": {
+        "def": "moving, stirring, gripping, poignant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:anspruchsvoll",
+      "level": "B2",
+      "en": "demanding, sophisticated",
+      "pos": "adjective",
+      "expect": {
+        "def": "sophisticated, fastidious"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Gewinn",
+      "level": "B2",
+      "en": "profit",
+      "pos": "noun",
+      "expect": {
+        "def": "profit, gain, yield"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:florieren",
+      "level": "B2",
+      "en": "to flourish, thrive",
+      "pos": "verb",
+      "expect": {
+        "def": "to flourish; prosper"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Vermögen",
+      "level": "B2",
+      "en": "assets, wealth",
+      "pos": "noun",
+      "expect": {
+        "def": "ability, capacity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Konzern",
+      "level": "B2",
+      "en": "corporation, conglomerate",
+      "pos": "noun",
+      "expect": {
+        "def": "business group, corporate group"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Wirtschaftskrise",
+      "level": "B2",
+      "en": "economic crisis",
+      "pos": "noun",
+      "expect": {
+        "def": "economic crisis; slump, depression"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verdrängen",
+      "level": "B2",
+      "en": "to displace, push out",
+      "pos": "verb",
+      "expect": {
+        "def": "to displace; to replace, supersede, oust"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:lebenswert",
+      "level": "B2",
+      "en": "liveable, worth living in",
+      "pos": "adjective",
+      "expect": {
+        "def": "es wert sein, gelebt zu werden"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausschreiben",
+      "level": "B2",
+      "en": "to advertise (a position)",
+      "pos": "verb",
+      "expect": {
+        "def": "to advertise; to advertise for bids"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:anstreben",
+      "level": "B2",
+      "en": "to aspire to, aim for",
+      "pos": "verb",
+      "expect": {
+        "def": "to strive, to seek, to target, to pursue"
+      },
+      "def": ""
+    }
+  ]
+}

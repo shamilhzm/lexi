@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:alle",
+      "level": "A1",
+      "en": "finished",
+      "pos": "adjective",
+      "expect": {
+        "def": "finished; gone"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Aktion",
+      "level": "A2",
+      "en": "operation, campaign, measure, organized course of action",
+      "pos": "noun",
+      "expect": {
+        "def": "operation, campaign, measure, organized course of action; sales campaign"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fast",
+      "level": "A2",
+      "en": "almost",
+      "pos": "adverb",
+      "expect": {
+        "def": "almost; nearly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:her",
+      "level": "A2",
+      "en": "hither, to this place, to here, to me/us",
+      "pos": "adverb",
+      "expect": {
+        "def": "hither, to this place, to here, to me/us; along, on this way"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:rechnen",
+      "level": "A2",
+      "en": "to count, reckon, calculate, compute",
+      "pos": "verb",
+      "expect": {
+        "def": "to count, reckon, calculate, compute; to count on, expect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:teilweise",
+      "level": "A2",
+      "en": "partially, to some extent",
+      "pos": "adverb",
+      "expect": {
+        "def": "partially, to some extent; in part, in some cases"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Trainer",
+      "level": "A2",
+      "en": "trainer, coach",
+      "pos": "noun",
+      "expect": {
+        "def": "trainer, coach; animal trainer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zeugen",
+      "level": "A2",
+      "en": "to beget, father, procreate",
+      "pos": "verb",
+      "expect": {
+        "def": "to beget, father, procreate; to testify, bear witness, declare"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dabei",
+      "level": "B1",
+      "en": "pronominal adverb of bei",
+      "pos": "adverb",
+      "expect": {
+        "def": "with one, on one"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:führen",
+      "level": "B1",
+      "en": "to lead",
+      "pos": "verb",
+      "expect": {
+        "def": "to lead; to carry, to sell"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Sicht",
+      "level": "B1",
+      "en": "view",
+      "pos": "noun",
+      "expect": {
+        "def": "view; point of view, aspect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:zuletzt",
+      "level": "B1",
+      "en": "finally",
+      "pos": "adverb",
+      "expect": {
+        "def": "finally; lastly; in the end"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:jeweils",
+      "level": "B2",
+      "en": "in each case",
+      "pos": "adverb",
+      "expect": {
+        "def": "in each case; each"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:bauen",
+      "level": "A2",
+      "en": "to build, to construct",
+      "pos": "verb",
+      "expect": {
+        "def": "to build, to construct; to rely"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:egal",
+      "level": "A2",
+      "en": "all the same, unimportant",
+      "pos": "adjective",
+      "expect": {
+        "def": "all the same, unimportant; the same, identical, alike, matching"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:passieren",
+      "level": "A2",
+      "en": "to happen",
+      "pos": "verb",
+      "expect": {
+        "def": "to happen; to move beyond; pass"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zuerst",
+      "level": "A2",
+      "en": "first, firstly",
+      "pos": "adverb",
+      "expect": {
+        "def": "first, firstly; at first"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bilden",
+      "level": "B1",
+      "en": "to form, to train",
+      "pos": "verb",
+      "expect": {
+        "def": "to form, to train; to educate oneself"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:dank",
+      "level": "B1",
+      "en": "thanks to, because of, courtesy of",
+      "pos": "preposition",
+      "expect": {
+        "def": "thanks, gratitude, appreciation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:entstehen",
+      "level": "B1",
+      "en": "to come into being, to arise, to be produced",
+      "pos": "verb",
+      "expect": {
+        "def": "to come into being, to arise, to be produced; to develop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erhöhen",
+      "level": "B1",
+      "en": "to heighten, raise",
+      "pos": "verb",
+      "expect": {
+        "def": "to heighten, raise; to increase"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:fordern",
+      "level": "B1",
+      "en": "to demand, ask",
+      "pos": "verb",
+      "expect": {
+        "def": "to demand, ask; to claim"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gelten",
+      "level": "B1",
+      "en": "to be valid",
+      "pos": "verb",
+      "expect": {
+        "def": "to be valid; to count; to hold true; to be effective; to be in force"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:präsentieren",
+      "level": "B1",
+      "en": "to present, to showcase",
+      "pos": "verb",
+      "expect": {
+        "def": "to present, to showcase; to introduce"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sichern",
+      "level": "B1",
+      "en": "to secure",
+      "pos": "verb",
+      "expect": {
+        "def": "to secure; to guarantee"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Vertreter",
+      "level": "B1",
+      "en": "agent noun of vertreten",
+      "pos": "noun",
+      "expect": {
+        "def": "representative, agent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wiederum",
+      "level": "B1",
+      "en": "in turn, then again, on the other hand, to the contrary",
+      "pos": "adverb",
+      "expect": {
+        "def": "in turn, then again, on the other hand, to the contrary; again, once more"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ergeben",
+      "level": "B2",
+      "en": "to yield, produce",
+      "pos": "verb",
+      "expect": {
+        "def": "to yield, produce; to surrender"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:gleichen",
+      "level": "B2",
+      "en": "to be like, to equal to, to resemble",
+      "pos": "verb",
+      "expect": {
+        "def": "to be like, to equal to, to resemble; to be alike"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:profitieren",
+      "level": "B2",
+      "en": "to benefit",
+      "pos": "verb",
+      "expect": {
+        "def": "to benefit; to profit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Stürmer",
+      "level": "B2",
+      "en": "forward",
+      "pos": "noun",
+      "expect": {
+        "def": "forward; striker; attacker; rusher"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:nochmal",
+      "level": "A2",
+      "en": "once again",
+      "pos": "adverb",
+      "expect": {
+        "def": "once again; again, one more time"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:öfter",
+      "level": "A2",
+      "en": "comparative degree of oft",
+      "pos": "adverb",
+      "expect": {
+        "def": "ofttimes, from time to time"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:ausfallen",
+      "level": "B1",
+      "en": "to sortie, to sally",
+      "pos": "verb",
+      "expect": {
+        "def": "to sortie, to sally; to fail, malfunction, to go off"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:einsetzen",
+      "level": "B1",
+      "en": "to put in",
+      "pos": "verb",
+      "expect": {
+        "def": "to put in; set in; insert; to implant"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erscheinen",
+      "level": "B1",
+      "en": "to appear",
+      "pos": "verb",
+      "expect": {
+        "def": "to appear; to come out, be released"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Rettung",
+      "level": "B1",
+      "en": "rescue",
+      "pos": "noun",
+      "expect": {
+        "def": "rescue; rescue service; emergency service"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterschiedlich",
+      "level": "B1",
+      "en": "different",
+      "pos": "adjective",
+      "expect": {
+        "def": "different; differing, varying"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Verbrechen",
+      "level": "B1",
+      "en": "a felony, indictable offence",
+      "pos": "noun",
+      "expect": {
+        "def": "a felony, indictable offence; a crime; any criminal offence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wirken",
+      "level": "B1",
+      "en": "to function, to be effective, to work",
+      "pos": "verb",
+      "expect": {
+        "def": "to function, to be effective, to work; to appear, to seem"
+      },
+      "def": ""
+    }
+  ]
+}

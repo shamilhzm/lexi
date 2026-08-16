@@ -1,0 +1,347 @@
+{
+  "_README": [
+    "27 A1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A1:der Vormittag",
+      "level": "A1",
+      "term": "der Vormittag",
+      "en": "morning (before noon)",
+      "pos": "noun",
+      "defDe": "Tageszeit: Zeitraum zwischen dem Morgen und dem Mittag",
+      "example": "Am Vormittag habe ich einen Termin.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The part of the day between early morning and midday."
+    },
+    {
+      "id": "voc:A1:der Vorname",
+      "level": "A1",
+      "term": "der Vorname",
+      "en": "first name",
+      "pos": "noun",
+      "defDe": "ein von den Eltern individuell ausgesuchter Name",
+      "example": "Mein Vorname ist Anna.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The personal name chosen by your parents, placed before the family name."
+    },
+    {
+      "id": "voc:A1:der Westen",
+      "level": "A1",
+      "term": "der Westen",
+      "en": "west",
+      "pos": "noun",
+      "example": "Meine Familie wohnt im Westen von Deutschland.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The compass direction where the sun sets, or the region lying that way."
+    },
+    {
+      "id": "voc:A1:der Zentimeter",
+      "level": "A1",
+      "term": "der Zentimeter",
+      "en": "centimetre",
+      "pos": "noun",
+      "example": "Das Bild ist dreißig Zentimeter breit.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A unit of length: one hundredth of a metre."
+    },
+    {
+      "id": "voc:A1:die Ansage",
+      "level": "A1",
+      "term": "die Ansage",
+      "en": "announcement",
+      "pos": "noun",
+      "example": "Hören Sie die Ansage am Bahnhof.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Spoken information given out over a loudspeaker, for example at a station."
+    },
+    {
+      "id": "voc:A1:die Birne",
+      "level": "A1",
+      "term": "die Birne",
+      "en": "pear",
+      "pos": "noun",
+      "example": "Ein Kilo Birnen, bitte.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A sweet, soft fruit, narrow at the stalk and round at the base."
+    },
+    {
+      "id": "voc:A1:die Bitte",
+      "level": "A1",
+      "term": "die Bitte",
+      "en": "request",
+      "pos": "noun",
+      "defDe": "höfliche Ausdrucksform eines Wunsches, einer Aufforderung, eines Ersuchens",
+      "example": "Ich habe eine Bitte an dich.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A polite way of asking for something you would like someone to do."
+    },
+    {
+      "id": "voc:A1:die Bluse",
+      "level": "A1",
+      "term": "die Bluse",
+      "en": "blouse",
+      "pos": "noun",
+      "defDe": "den Oberkörper bedeckendes, leichtes Kleidungsstück, vor allem für Damen",
+      "example": "Sie trägt eine weiße Bluse.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A light garment for the upper body, worn chiefly by women."
+    },
+    {
+      "id": "voc:A1:die Durchsage",
+      "level": "A1",
+      "term": "die Durchsage",
+      "en": "public announcement",
+      "pos": "noun",
+      "example": "Im Supermarkt kommt eine Durchsage.",
+      "expect": {
+        "def": ""
+      },
+      "def": "A message read out to everyone present in a shop, station or building."
+    },
+    {
+      "id": "voc:A1:die Ecke",
+      "level": "A1",
+      "term": "die Ecke",
+      "en": "the corner",
+      "pos": "noun",
+      "defDe": "Punkt, in welchem zwei begrenzende Linien einer Fläche beziehungsweise drei oder mehr Grenzflächen eines Körpers zusammenstoßen",
+      "example": "Der Bäcker ist gleich um die Ecke.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The point where two edges or two streets meet."
+    },
+    {
+      "id": "voc:A1:die Früh",
+      "level": "A1",
+      "term": "die Früh",
+      "en": "early morning",
+      "pos": "noun",
+      "defDe": "Beginn des Tages, Morgen",
+      "example": "In der Früh trinke ich einen Kaffee.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The first hours of the day — southern German and Austrian for the morning."
+    },
+    {
+      "id": "voc:A1:die Hausaufgabe",
+      "level": "A1",
+      "term": "die Hausaufgabe",
+      "en": "homework",
+      "pos": "noun",
+      "example": "Die Kinder machen ihre Hausaufgaben.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Work a teacher sets to be done at home rather than in class."
+    },
+    {
+      "id": "voc:A1:die Liste",
+      "level": "A1",
+      "term": "die Liste",
+      "en": "list",
+      "pos": "noun",
+      "defDe": "ein schriftliches Verzeichnis, in dem mehrere Punkte in einer bestimmten Reihenfolge aufgeführt sind",
+      "example": "Ich schreibe eine Liste.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Items written down one after another in a set order."
+    },
+    {
+      "id": "voc:A1:die Oma",
+      "level": "A1",
+      "term": "die Oma",
+      "en": "grandma",
+      "pos": "noun",
+      "example": "Meine Oma wohnt in Hamburg.",
+      "expect": {
+        "def": ""
+      },
+      "def": "An informal, affectionate word for your grandmother."
+    },
+    {
+      "id": "voc:A1:die S-Bahn",
+      "level": "A1",
+      "term": "die S-Bahn",
+      "en": "suburban train",
+      "pos": "noun",
+      "example": "Ich nehme lieber die S-Bahn.",
+      "expect": {
+        "def": ""
+      },
+      "def": "The fast city railway that links a German city with its suburbs."
+    },
+    {
+      "id": "voc:A1:drucken",
+      "level": "A1",
+      "term": "drucken",
+      "en": "to print",
+      "pos": "verb",
+      "example": "Ich drucke das Formular gleich.",
+      "expect": {
+        "def": ""
+      },
+      "def": "To produce text or pictures on paper with a machine — not to be confused with drücken, to press."
+    },
+    {
+      "id": "voc:A1:enden",
+      "level": "A1",
+      "term": "enden",
+      "en": "to end",
+      "pos": "verb",
+      "example": "Der Kurs endet im Juli.",
+      "expect": {
+        "def": ""
+      },
+      "def": "To come to a stop, reaching the point where something is over."
+    },
+    {
+      "id": "voc:A1:geboren",
+      "level": "A1",
+      "term": "geboren",
+      "en": "born",
+      "pos": "adjective",
+      "example": "Ich bin in Isfahan geboren.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Having come into the world at a given time or place."
+    },
+    {
+      "id": "voc:A1:genug",
+      "level": "A1",
+      "term": "genug",
+      "en": "enough",
+      "pos": "adverb",
+      "example": "Wir haben genug Zeit.",
+      "expect": {
+        "def": ""
+      },
+      "def": "As much as is needed, and no more required."
+    },
+    {
+      "id": "voc:A1:kriegen",
+      "level": "A1",
+      "term": "kriegen",
+      "en": "to get",
+      "pos": "verb",
+      "example": "Ich kriege morgen mein Zeugnis.",
+      "expect": {
+        "def": ""
+      },
+      "def": "To receive or obtain something — an everyday, informal alternative to bekommen."
+    },
+    {
+      "id": "voc:A1:männlich",
+      "level": "A1",
+      "term": "männlich",
+      "en": "male",
+      "pos": "adjective",
+      "example": "Kreuzen Sie bitte an: weiblich oder männlich.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Of the male sex — the box you tick on a form, and the grammatical gender of der words."
+    },
+    {
+      "id": "voc:A1:türkis",
+      "level": "A1",
+      "term": "türkis",
+      "en": "turquoise",
+      "pos": "adjective",
+      "defDe": "in einer Farbe zwischen blau und grün (für Textilien verwendet, sonst umgangssprachlich)",
+      "example": "Das Meer ist türkis.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Of a blue-green colour, like shallow tropical sea."
+    },
+    {
+      "id": "voc:A1:verboten",
+      "level": "A1",
+      "term": "verboten",
+      "en": "forbidden",
+      "pos": "adjective",
+      "example": "Hier ist Rauchen verboten.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Not allowed by a rule or a law."
+    },
+    {
+      "id": "voc:A1:vermieten",
+      "level": "A1",
+      "term": "vermieten",
+      "en": "to rent out, let",
+      "pos": "verb",
+      "defDe": "etwas gegen Bezahlung für eine bestimmte Zeit zur Benutzung überlassen",
+      "example": "Sie vermieten das Zimmer an Studenten.",
+      "expect": {
+        "def": ""
+      },
+      "def": "To let someone use a room or a property for a period in return for payment — what the landlord does, where mieten is what the tenant does."
+    },
+    {
+      "id": "voc:A1:weiblich",
+      "level": "A1",
+      "term": "weiblich",
+      "en": "female",
+      "pos": "adjective",
+      "example": "Bitte kreuzen Sie weiblich an.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Of the female sex — the box you tick on a form, and the grammatical gender of die words."
+    },
+    {
+      "id": "voc:A1:Wie geht es Ihnen?",
+      "level": "A1",
+      "term": "Wie geht es Ihnen?",
+      "en": "how are you? (formal)",
+      "pos": "phrase",
+      "defDe": "Interrogativsatz (Fragesatz): Frage nach dem Wohlbefinden oder dem Gesundheitszustand einer befreundeten oder gut bekannten Person",
+      "example": "Guten Tag, wie geht es Ihnen?",
+      "expect": {
+        "def": ""
+      },
+      "def": "The formal way of asking after someone’s health or wellbeing, used with people you address as Sie."
+    },
+    {
+      "id": "voc:A1:zurück",
+      "level": "A1",
+      "term": "zurück",
+      "en": "back",
+      "pos": "adverb",
+      "example": "Einmal Frankfurt und zurück, bitte.",
+      "expect": {
+        "def": ""
+      },
+      "def": "Towards the place you started from, or in the opposite direction."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "_README": [
+    "5 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:Verzeihung",
+      "level": "A2",
+      "en": "Used to get someone's attention. excuse me, pardon me",
+      "pos": "interjection",
+      "expect": {
+        "def": "forgiveness"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:europäisch",
+      "level": "A1",
+      "en": "European",
+      "pos": "adjective",
+      "expect": {
+        "def": "relating to Europe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:das WC",
+      "level": "A1",
+      "en": "toilet, WC",
+      "pos": "noun",
+      "expect": {
+        "def": "a toilet"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Herrenhose",
+      "level": "A1",
+      "en": "men's trousers",
+      "pos": "noun",
+      "expect": {
+        "def": "trousers for men"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:roh",
+      "level": "B1",
+      "en": "raw",
+      "pos": "adjective",
+      "expect": {
+        "def": "not cooked"
+      },
+      "def": ""
+    }
+  ]
+}

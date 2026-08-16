@@ -1,0 +1,292 @@
+{
+  "_README": [
+    "23 B2 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:hinterlegen",
+      "level": "B2",
+      "term": "hinterlegen",
+      "en": "to deposit, to leave (with someone)",
+      "pos": "verb",
+      "example": "Bitte hinterlegen Sie den Schlüssel bei der Nachbarin.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:kommentieren",
+      "level": "B2",
+      "term": "kommentieren",
+      "en": "to comment on",
+      "pos": "verb",
+      "defDe": "einen Sachverhalt von einem bestimmten Standpunkt aus näher erläutern, einen Kommentar abgeben",
+      "example": "Tausende Nutzer haben den Artikel kommentiert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:konkurrenzfähig",
+      "level": "B2",
+      "term": "konkurrenzfähig",
+      "en": "competitive",
+      "pos": "adjective",
+      "defDe": "in der Lage, mit anderen zu konkurrieren",
+      "example": "Um konkurrenzfähig zu bleiben, senkt die Firma die Preise.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:messbar",
+      "level": "B2",
+      "term": "messbar",
+      "en": "measurable",
+      "pos": "adjective",
+      "example": "Er schläft messbar besser.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:mühsam",
+      "level": "B2",
+      "term": "mühsam",
+      "en": "laborious, painstaking",
+      "pos": "adjective",
+      "example": "Die Reise war lang und mühsam.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:örtlich",
+      "level": "B2",
+      "term": "örtlich",
+      "en": "local",
+      "pos": "adjective",
+      "example": "Örtlich fällt morgen Regen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:spontan",
+      "level": "B2",
+      "term": "spontan",
+      "en": "spontaneous, spontaneously",
+      "pos": "adjective",
+      "example": "Spontan würde ich Ja sagen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:strukturieren",
+      "level": "B2",
+      "term": "strukturieren",
+      "en": "to structure, to organise",
+      "pos": "verb",
+      "example": "Strukturieren Sie Ihren Vortrag klar.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:übereinstimmen",
+      "level": "B2",
+      "term": "übereinstimmen",
+      "en": "to agree, to correspond",
+      "pos": "verb",
+      "example": "Die Aussage soll mit dem Textinhalt übereinstimmen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:überflüssig",
+      "level": "B2",
+      "term": "überflüssig",
+      "en": "superfluous, unnecessary",
+      "pos": "adjective",
+      "example": "Diese zweite Sitzung war überflüssig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:überschreiten",
+      "level": "B2",
+      "term": "überschreiten",
+      "en": "to exceed, to cross",
+      "pos": "verb",
+      "example": "Der Lärm überschreitet den Grenzwert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:unverbindlich",
+      "level": "B2",
+      "term": "unverbindlich",
+      "en": "without obligation",
+      "pos": "adjective",
+      "example": "Die Beratung ist kostenlos und unverbindlich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verfallen",
+      "level": "B2",
+      "term": "verfallen",
+      "en": "to lapse, to expire",
+      "pos": "verb",
+      "example": "Die Karten verfallen am Monatsende.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:vergleichbar",
+      "level": "B2",
+      "term": "vergleichbar",
+      "en": "comparable",
+      "pos": "adjective",
+      "example": "Das ist vergleichbar mit einer Telefonnummer.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verlagern",
+      "level": "B2",
+      "term": "verlagern",
+      "en": "to shift, to relocate",
+      "pos": "verb",
+      "example": "Die Firma verlagert ihre Produktion ins Ausland.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verwalten",
+      "level": "B2",
+      "term": "verwalten",
+      "en": "to administer, to manage",
+      "pos": "verb",
+      "example": "Die Politik verwaltet die Knappheit, statt sie zu beenden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:verzögern",
+      "level": "B2",
+      "term": "verzögern",
+      "en": "to delay",
+      "pos": "verb",
+      "example": "Die Sanierung verzögert sich um ein Jahr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:vorziehen",
+      "level": "B2",
+      "term": "vorziehen",
+      "en": "to prefer; to bring forward",
+      "pos": "verb",
+      "example": "Manche Eigentümer würden eine leere Fläche vorziehen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wirksam",
+      "level": "B2",
+      "term": "wirksam",
+      "en": "effective",
+      "pos": "adjective",
+      "example": "Tempo dreißig ist besonders wirksam.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wirtschaftlich",
+      "level": "B2",
+      "term": "wirtschaftlich",
+      "en": "economic; economical",
+      "pos": "adjective",
+      "defDe": "die Wirtschaft, eine Volks- oder Betriebswirtschaft betreffend; ökonomisch",
+      "example": "Das Ministerium ist für wirtschaftliche Fragen zuständig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zitieren",
+      "level": "B2",
+      "term": "zitieren",
+      "en": "to quote, to cite",
+      "pos": "verb",
+      "example": "Diese Sätze werden regelmäßig zitiert.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zurechtkommen",
+      "level": "B2",
+      "term": "zurechtkommen",
+      "en": "to cope, to manage",
+      "pos": "verb",
+      "example": "Ohne Hilfe wird sie damit nicht zurechtkommen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:zurückhaltend",
+      "level": "B2",
+      "term": "zurückhaltend",
+      "en": "reserved, cautious",
+      "pos": "adjective",
+      "example": "Wer das begriffen hat, wird zurückhaltend.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

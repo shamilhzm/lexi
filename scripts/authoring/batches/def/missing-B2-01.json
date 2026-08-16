@@ -1,0 +1,499 @@
+{
+  "_README": [
+    "40 B2 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B2:abschalten",
+      "level": "B2",
+      "term": "abschalten",
+      "en": "to switch off; to switch off mentally",
+      "pos": "verb",
+      "example": "Bitte schalte den Computer ab.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:abstellen",
+      "level": "B2",
+      "term": "abstellen",
+      "en": "to switch off; to park; to remedy",
+      "pos": "verb",
+      "example": "Wer die Rechnung sehen will, muss den Applaus abstellen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:abstreiten",
+      "level": "B2",
+      "term": "abstreiten",
+      "en": "to deny, to dispute",
+      "pos": "verb",
+      "example": "Er streitet den Vorwurf ab.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:argumentieren",
+      "level": "B2",
+      "term": "argumentieren",
+      "en": "to argue, to make a case",
+      "pos": "verb",
+      "example": "Sie argumentiert sehr überzeugend.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ästhetisch",
+      "level": "B2",
+      "term": "ästhetisch",
+      "en": "aesthetic",
+      "pos": "adjective",
+      "defDe": "auf die Sinne des Betrachters harmonisch wirkend",
+      "example": "Doch gerade dieser sechsstöckige Bau ist seiner Spitze wegen der ästhetisch auffälligste in diesem Ensemble.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:auffällig",
+      "level": "B2",
+      "term": "auffällig",
+      "en": "striking, noticeable",
+      "pos": "adjective",
+      "example": "Auffällig ist vor allem der große Unterschied.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:befassen",
+      "level": "B2",
+      "term": "befassen",
+      "en": "to deal with, to occupy oneself with",
+      "pos": "verb",
+      "example": "Ich befasse mich seit Jahren mit diesem Thema.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:benennen",
+      "level": "B2",
+      "term": "benennen",
+      "en": "to name, to state explicitly",
+      "pos": "verb",
+      "example": "Man sollte das Problem klar benennen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Archiv",
+      "level": "B2",
+      "term": "das Archiv",
+      "en": "archive",
+      "pos": "noun",
+      "example": "Die Unterlagen liegen im Archiv.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Homeoffice",
+      "level": "B2",
+      "term": "das Homeoffice",
+      "en": "working from home, home office",
+      "pos": "noun",
+      "defDe": "digitaler Arbeitsplatz in der persönlichen Wohnstätte",
+      "example": "Im ehemaligen Kinderzimmer habe ich mir ein Homeoffice eingerichtet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Inhaltsverzeichnis",
+      "level": "B2",
+      "term": "das Inhaltsverzeichnis",
+      "en": "table of contents",
+      "pos": "noun",
+      "example": "Die Überschriften stehen im Inhaltsverzeichnis.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Kriterium",
+      "level": "B2",
+      "term": "das Kriterium",
+      "en": "criterion",
+      "pos": "noun",
+      "example": "Das wichtigste Kriterium ist der Preis.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Kulturgut",
+      "level": "B2",
+      "term": "das Kulturgut",
+      "en": "cultural heritage item",
+      "pos": "noun",
+      "defDe": "Werk oder Errungenschaft, das/die innerhalb einer Kultur einen Wert hat und deshalb bewahrt wird",
+      "example": "Das Asylrecht ist ein hohes Kulturgut.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Lob",
+      "level": "B2",
+      "term": "das Lob",
+      "en": "praise",
+      "pos": "noun",
+      "example": "Das Lob besetzt alles, was gesagt werden könnte.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Prinzip",
+      "level": "B2",
+      "term": "das Prinzip",
+      "en": "principle",
+      "pos": "noun",
+      "example": "Das mache ich aus Prinzip nicht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Ritual",
+      "level": "B2",
+      "term": "das Ritual",
+      "en": "ritual",
+      "pos": "noun",
+      "example": "Der Sonntagsspaziergang ist bei uns ein Ritual.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Umland",
+      "level": "B2",
+      "term": "das Umland",
+      "en": "surrounding area, hinterland",
+      "pos": "noun",
+      "example": "Viele Familien ziehen ins Umland.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:das Zertifikat",
+      "level": "B2",
+      "term": "das Zertifikat",
+      "en": "certificate",
+      "pos": "noun",
+      "example": "Nach der Prüfung bekommst du ein Zertifikat.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Ablauf",
+      "level": "B2",
+      "term": "der Ablauf",
+      "en": "sequence of events, procedure",
+      "pos": "noun",
+      "example": "Wie ist der Ablauf der Prüfung?",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Absatz",
+      "level": "B2",
+      "term": "der Absatz",
+      "en": "sales figures; paragraph",
+      "pos": "noun",
+      "example": "Der Absatz ist im vergangenen Jahr gestiegen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Algorithmus",
+      "level": "B2",
+      "term": "der Algorithmus",
+      "en": "algorithm",
+      "pos": "noun",
+      "defDe": "eine exakt beschriebene Vorgehensweise zum Lösen eines Problems in endlich vielen und eindeutig beschriebenen Schritten",
+      "example": "Der Algorithmus entscheidet, welche Beiträge du siehst.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Anschlusszug",
+      "level": "B2",
+      "term": "der Anschlusszug",
+      "en": "connecting train",
+      "pos": "noun",
+      "example": "Wir haben den Anschlusszug verpasst.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Assistent",
+      "level": "B2",
+      "term": "der Assistent",
+      "en": "assistant",
+      "pos": "noun",
+      "example": "Der Assistent bereitet die Sitzung vor.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Auftraggeber",
+      "level": "B2",
+      "term": "der Auftraggeber",
+      "en": "client, commissioning party",
+      "pos": "noun",
+      "example": "Der Auftraggeber will etwas anderes als eine Restaurierung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Ausfall",
+      "level": "B2",
+      "term": "der Ausfall",
+      "en": "cancellation, failure, outage",
+      "pos": "noun",
+      "example": "Wegen des Ausfalls warteten wir zwei Stunden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Ausgleich",
+      "level": "B2",
+      "term": "der Ausgleich",
+      "en": "balance, counterbalance",
+      "pos": "noun",
+      "example": "Sport ist für mich ein guter Ausgleich.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Ausschnitt",
+      "level": "B2",
+      "term": "der Ausschnitt",
+      "en": "excerpt, extract",
+      "pos": "noun",
+      "example": "Sie hören einen Ausschnitt aus einer Radiosendung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Brand",
+      "level": "B2",
+      "term": "der Brand",
+      "en": "fire, blaze",
+      "pos": "noun",
+      "example": "Der Brand wurde schnell gelöscht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Bruch",
+      "level": "B2",
+      "term": "der Bruch",
+      "en": "break, fracture; rupture",
+      "pos": "noun",
+      "example": "Der Arzt stellte einen Bruch fest.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Charakter",
+      "level": "B2",
+      "term": "der Charakter",
+      "en": "character, personality",
+      "pos": "noun",
+      "example": "Sie hat einen starken Charakter.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Dachs",
+      "level": "B2",
+      "term": "der Dachs",
+      "en": "badger",
+      "pos": "noun",
+      "defDe": "ein Säugetier mit grauem Fell und markanter weiß-schwarzer Fellzeichnung am Kopf, das in den europäischen Wäldern anzutreffen ist; der Europäische Dachs",
+      "example": "Der Dachs ist nachtaktiv und lebt in einem weitverzweigten Bau.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Ersatz",
+      "level": "B2",
+      "term": "der Ersatz",
+      "en": "replacement, substitute",
+      "pos": "noun",
+      "example": "Ein Mittagsschlaf ist kein Ersatz für die Nacht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Faden",
+      "level": "B2",
+      "term": "der Faden",
+      "en": "thread",
+      "pos": "noun",
+      "example": "Der Faden ist gerissen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Lesesaal",
+      "level": "B2",
+      "term": "der Lesesaal",
+      "en": "reading room",
+      "pos": "noun",
+      "example": "Im Lesesaal muss man leise sein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Neubau",
+      "level": "B2",
+      "term": "der Neubau",
+      "en": "new building, new construction",
+      "pos": "noun",
+      "example": "Neubau wirkt frühestens in fünf Jahren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Prüfer",
+      "level": "B2",
+      "term": "der Prüfer",
+      "en": "examiner",
+      "pos": "noun",
+      "example": "Der Prüfer stellt noch eine letzte Frage.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Redner",
+      "level": "B2",
+      "term": "der Redner",
+      "en": "speaker (giving a talk)",
+      "pos": "noun",
+      "example": "Der Redner spricht über bessere Arbeitstechniken.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Ressourcenverbrauch",
+      "level": "B2",
+      "term": "der Ressourcenverbrauch",
+      "en": "resource consumption",
+      "pos": "noun",
+      "defDe": "Verwendung von Rohstoffen, Materialien, Energie, Wasser; auch zusätzlich: Überbauung/Nutzung von Land (anstatt naturbelassenem Land), Einsatz von Arbeitskraft/-zeit",
+      "example": "Mehr Menschen bedeuten auch einen höheren Ressourcenverbrauch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Rhythmus",
+      "level": "B2",
+      "term": "der Rhythmus",
+      "en": "rhythm",
+      "pos": "noun",
+      "example": "Ich mag diesen Rhythmus im Alltag.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Speisewagen",
+      "level": "B2",
+      "term": "der Speisewagen",
+      "en": "dining car",
+      "pos": "noun",
+      "example": "Der Speisewagen befindet sich in der Mitte des Zuges.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

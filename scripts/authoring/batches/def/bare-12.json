@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:der Einstieg",
+      "level": "B1",
+      "en": "entry, start",
+      "pos": "noun",
+      "expect": {
+        "def": "entrance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Bürgerinitiative",
+      "level": "B1",
+      "en": "citizens’ initiative",
+      "pos": "noun",
+      "expect": {
+        "def": "citizen action group"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Dünger",
+      "level": "B1",
+      "en": "fertiliser",
+      "pos": "noun",
+      "expect": {
+        "def": "fertilizer"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Achtung",
+      "level": "B1",
+      "en": "respect; attention",
+      "pos": "noun",
+      "expect": {
+        "def": "attention"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:denkbar",
+      "level": "B1",
+      "en": "conceivable",
+      "pos": "adjective",
+      "expect": {
+        "def": "cogitable"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:winzig",
+      "level": "B1",
+      "en": "tiny",
+      "pos": "adjective",
+      "expect": {
+        "def": "sehr klein"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Machtübernahme",
+      "level": "B1",
+      "en": "seizure of power",
+      "pos": "noun",
+      "expect": {
+        "def": "takeover of power"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Opfer",
+      "level": "B1",
+      "en": "victim; sacrifice",
+      "pos": "noun",
+      "expect": {
+        "def": "sacrifice"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Krise",
+      "level": "B1",
+      "en": "crisis",
+      "pos": "noun",
+      "expect": {
+        "def": "instabiler Zustand"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Lehrgang",
+      "level": "B1",
+      "en": "training course",
+      "pos": "noun",
+      "expect": {
+        "def": "educational course"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beruflich",
+      "level": "B1",
+      "en": "professional(ly)",
+      "pos": "adjective",
+      "expect": {
+        "def": "professional"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Absicherung",
+      "level": "B1",
+      "en": "safeguarding, security",
+      "pos": "noun",
+      "expect": {
+        "def": "coverage"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Chance",
+      "level": "B1",
+      "en": "chance, opportunity",
+      "pos": "noun",
+      "expect": {
+        "def": "chance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Vermutung",
+      "level": "B1",
+      "en": "assumption, conjecture",
+      "pos": "noun",
+      "expect": {
+        "def": "guess"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Zuversicht",
+      "level": "B1",
+      "en": "confidence, optimism",
+      "pos": "noun",
+      "expect": {
+        "def": "confidence"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Minister",
+      "level": "B1",
+      "en": "minister",
+      "pos": "noun",
+      "expect": {
+        "def": "Leiter eines Ministeriums"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:betroffen",
+      "level": "B1",
+      "en": "affected; dismayed",
+      "pos": "adjective",
+      "expect": {
+        "def": "shocked"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Vorstellungsgespräch",
+      "level": "A2",
+      "en": "job interview",
+      "pos": "noun",
+      "expect": {
+        "def": "a job interview"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:zurzeit",
+      "level": "A1",
+      "en": "at the moment",
+      "pos": "adverb",
+      "expect": {
+        "def": "currently"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:brutto",
+      "level": "B1",
+      "en": "gross (pay)",
+      "pos": "adverb",
+      "expect": {
+        "def": "mit Verpackung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Operation",
+      "level": "A2",
+      "en": "operation, surgery",
+      "pos": "noun",
+      "expect": {
+        "def": "operation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:pünktlich",
+      "level": "A1",
+      "en": "punctual, on time",
+      "pos": "adjective",
+      "expect": {
+        "def": "zur vereinbarten Zeit"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Anmeldung",
+      "level": "A1",
+      "en": "registration",
+      "pos": "noun",
+      "expect": {
+        "def": "application"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:der Mieter",
+      "level": "A1",
+      "en": "tenant",
+      "pos": "noun",
+      "expect": {
+        "def": "renter"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Einarbeitung",
+      "level": "B2",
+      "en": "onboarding, induction",
+      "pos": "noun",
+      "expect": {
+        "def": "induction"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Zuständigkeit",
+      "level": "B2",
+      "en": "area of responsibility",
+      "pos": "noun",
+      "expect": {
+        "def": "responsibility"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Werdegang",
+      "level": "B2",
+      "en": "career path",
+      "pos": "noun",
+      "expect": {
+        "def": "career"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:der Datenschutz",
+      "level": "B2",
+      "en": "data protection, privacy",
+      "pos": "noun",
+      "expect": {
+        "def": "data privacy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:voreingenommen",
+      "level": "B2",
+      "en": "biased, prejudiced",
+      "pos": "adjective",
+      "expect": {
+        "def": "prejudicial"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Teilhabe",
+      "level": "B2",
+      "en": "participation, inclusion",
+      "pos": "noun",
+      "expect": {
+        "def": "participation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Wegwerfgesellschaft",
+      "level": "B2",
+      "en": "throwaway society",
+      "pos": "noun",
+      "expect": {
+        "def": "throw-away society"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:umweltbewusst",
+      "level": "B2",
+      "en": "environmentally conscious",
+      "pos": "adjective",
+      "expect": {
+        "def": "environmentally-friendly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:klimaneutral",
+      "level": "B2",
+      "en": "climate-neutral",
+      "pos": "adjective",
+      "expect": {
+        "def": "carbon neutral"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:wissbegierig",
+      "level": "B2",
+      "en": "eager to learn",
+      "pos": "adjective",
+      "expect": {
+        "def": "inquisitive"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:ausgeglichen",
+      "level": "B2",
+      "en": "balanced, even-tempered",
+      "pos": "adjective",
+      "expect": {
+        "def": "balanced"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Orientierung",
+      "level": "B2",
+      "en": "orientation, finding one’s way",
+      "pos": "noun",
+      "expect": {
+        "def": "orientation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:weltoffen",
+      "level": "B2",
+      "en": "cosmopolitan, open-minded",
+      "pos": "adjective",
+      "expect": {
+        "def": "liberal-minded"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Führungsposition",
+      "level": "B2",
+      "en": "management position",
+      "pos": "noun",
+      "expect": {
+        "def": "leading position"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:die Quelle",
+      "level": "B2",
+      "en": "source",
+      "pos": "noun",
+      "expect": {
+        "def": "spring"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:glaubwürdig",
+      "level": "B2",
+      "en": "credible, trustworthy",
+      "pos": "adjective",
+      "expect": {
+        "def": "credible"
+      },
+      "def": ""
+    }
+  ]
+}

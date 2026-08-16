@@ -1,0 +1,517 @@
+{
+  "_README": [
+    "40 B1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:auswendig",
+      "level": "B1",
+      "term": "auswendig",
+      "en": "by heart, from memory",
+      "pos": "adverb",
+      "example": "Ich kann das Gedicht auswendig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beeindruckt",
+      "level": "B1",
+      "term": "beeindruckt",
+      "en": "impressed",
+      "pos": "adjective",
+      "defDe": "von etwas stark fasziniert oder positiv berührt",
+      "example": "Ich war sehr beeindruckt von ihrer Leistung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:befehlen",
+      "level": "B1",
+      "term": "befehlen",
+      "en": "to command, to order",
+      "pos": "verb",
+      "defDe": "einen bindenden Auftrag erteilen, etwas Bestimmtes genau befolgend auszuführen",
+      "example": "Der General befahl den Rückzug.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bemerkenswert",
+      "level": "B1",
+      "term": "bemerkenswert",
+      "en": "remarkable",
+      "pos": "adjective",
+      "defDe": "Aufmerksamkeit verdienend; so beschaffen, dass es bemerkt werden sollte",
+      "example": "Das ist eine bemerkenswerte Leistung.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:berufstätig",
+      "level": "B1",
+      "term": "berufstätig",
+      "en": "working, in employment",
+      "pos": "adjective",
+      "example": "Beide Eltern sind berufstätig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:betreten",
+      "level": "B1",
+      "term": "betreten",
+      "en": "to enter, to go or come into",
+      "pos": "verb",
+      "defDe": "to enter, to go or come into; to step onto, especially die Bühne - the stage, meant figuratively",
+      "example": "Rasen betreten verboten.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bezahlbar",
+      "level": "B1",
+      "term": "bezahlbar",
+      "en": "affordable",
+      "pos": "adjective",
+      "example": "Die Mieten sind hier noch bezahlbar.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:bremsen",
+      "level": "B1",
+      "term": "bremsen",
+      "en": "to brake; to slow down",
+      "pos": "verb",
+      "defDe": "die Geschwindigkeit, das Tempo verringern, vermindern, verlangsamen",
+      "example": "Er musste plötzlich stark bremsen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Altenheim",
+      "level": "B1",
+      "term": "das Altenheim",
+      "en": "retirement home",
+      "pos": "noun",
+      "defDe": "Einrichtung, in der Menschen im Alter wohnen und je nach Bedarf betreut und gepflegt werden",
+      "example": "Meine Oma wohnt im Altenheim.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Buffet",
+      "level": "B1",
+      "term": "das Buffet",
+      "en": "buffet",
+      "pos": "noun",
+      "example": "Das Frühstück ist ein Buffet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Display",
+      "level": "B1",
+      "term": "das Display",
+      "en": "display, screen",
+      "pos": "noun",
+      "example": "Das Display ist gesprungen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Ehrenamt",
+      "level": "B1",
+      "term": "das Ehrenamt",
+      "en": "voluntary office, volunteer role; voluntary position",
+      "pos": "noun",
+      "defDe": "freiwilliges unentgeltliches Engagement in gesellschaftlich relevanten Bereichen, im engeren Sinne eine in den Statuten einer Organisation vorgesehene unbezahlte Position",
+      "example": "Sie übt ihr Ehrenamt mit großer Hingabe aus.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Frühstücksbuffet",
+      "level": "B1",
+      "term": "das Frühstücksbuffet",
+      "en": "breakfast buffet",
+      "pos": "noun",
+      "defDe": "zum Frühstück zur Selbstbedienung aufgebaute Speisen und Getränke in einem Restaurant, Hotel oder dergleichen",
+      "example": "Das Frühstücksbuffet beginnt um sieben Uhr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Geräusch",
+      "level": "B1",
+      "term": "das Geräusch",
+      "en": "noise, sound",
+      "pos": "noun",
+      "example": "Ein gleichmäßiges Geräusch stört weniger.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Gesetz",
+      "level": "B1",
+      "term": "das Gesetz",
+      "en": "law",
+      "pos": "noun",
+      "defDe": "Regel, die ein Gesetzgeber in einem bestimmten Verfahren erlässt und die die jeweilig Untergebenen zu befolgen haben",
+      "example": "Das neue Gesetz gilt ab Januar.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Hallenbad",
+      "level": "B1",
+      "term": "das Hallenbad",
+      "en": "indoor swimming pool",
+      "pos": "noun",
+      "example": "Im Winter schwimme ich im Hallenbad.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Handgelenk",
+      "level": "B1",
+      "term": "das Handgelenk",
+      "en": "wrist",
+      "pos": "noun",
+      "defDe": "Anatomie: dasjenige Gelenk, das Hand und Unterarm verbindet",
+      "example": "Sie trug eine Uhr am Handgelenk.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Handgepäck",
+      "level": "B1",
+      "term": "das Handgepäck",
+      "en": "hand luggage",
+      "pos": "noun",
+      "defDe": "Gepäckstück, das ein Reisender bei sich hat, Kabinengepäck, Bordgepäck",
+      "example": "Während des Fluges muss das Handgepäck im Gepäckfach oder unter dem Sitz verstaut werden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Mikrofon",
+      "level": "B1",
+      "term": "das Mikrofon",
+      "en": "microphone",
+      "pos": "noun",
+      "example": "Ein Mikrofon im Wohnzimmer stört viele Menschen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Niveau",
+      "level": "B1",
+      "term": "das Niveau",
+      "en": "level, standard",
+      "pos": "noun",
+      "example": "Die Zahlen liegen auf dem Niveau des Vorjahres.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schicksal",
+      "level": "B1",
+      "term": "das Schicksal",
+      "en": "fate",
+      "pos": "noun",
+      "defDe": "höhere Macht, welche die Zukunft der/eines Menschen beliebig beeinflusst und lenkt",
+      "example": "Das Schicksal meinte es gut mit ihr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schlafsofa",
+      "level": "B1",
+      "term": "das Schlafsofa",
+      "en": "sofa bed",
+      "pos": "noun",
+      "defDe": "Sofa, auf dem man schlafen kann",
+      "example": "Für Gäste haben wir ein Schlafsofa im Wohnzimmer.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schloss",
+      "level": "B1",
+      "term": "das Schloss",
+      "en": "castle; lock",
+      "pos": "noun",
+      "defDe": "an einen Zugang montierte Schließvorrichtung",
+      "example": "Wir haben ein altes Schloss besichtigt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Semester",
+      "level": "B1",
+      "term": "das Semester",
+      "en": "semester, term",
+      "pos": "noun",
+      "example": "Das Semester beginnt im Oktober.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Seminar",
+      "level": "B1",
+      "term": "das Seminar",
+      "en": "seminar",
+      "pos": "noun",
+      "defDe": "Veranstaltungsform an Bildungseinrichtungen, die durch Aktivität der Teilnehmer gekennzeichnet ist",
+      "example": "Ich habe mich für ein Seminar über Literatur angemeldet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Spielen",
+      "level": "B1",
+      "term": "das Spielen",
+      "en": "playing",
+      "pos": "noun",
+      "defDe": "Handlung, bei der ein Instrument, ein Spiel oder dergleichen gespielt wird",
+      "example": "Das Spielen kommt bei den vielen Hausaufgaben oft zu kurz.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Tempo",
+      "level": "B1",
+      "term": "das Tempo",
+      "en": "pace, speed",
+      "pos": "noun",
+      "example": "Das Tempo ist hier auf dreißig begrenzt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Zielland",
+      "level": "B1",
+      "term": "das Zielland",
+      "en": "destination country",
+      "pos": "noun",
+      "defDe": "Land, das das Ziel von etwas oder jemanden ist",
+      "example": "Das Zielland vieler Auswanderer war Kanada.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Abgeordnete",
+      "level": "B1",
+      "term": "der Abgeordnete",
+      "en": "member of parliament",
+      "pos": "noun",
+      "defDe": "gewähltes, weibliches Mitglied einer parlamentarischen Versammlung",
+      "example": "Der Abgeordnete hält eine Rede im Bundestag.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Anrufbeantworter",
+      "level": "B1",
+      "term": "der Anrufbeantworter",
+      "en": "answering machine",
+      "pos": "noun",
+      "example": "Sprich mir bitte auf den Anrufbeantworter.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Arbeitstag",
+      "level": "B1",
+      "term": "der Arbeitstag",
+      "en": "working day",
+      "pos": "noun",
+      "example": "Mein Arbeitstag beginnt um acht Uhr.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Aufenthalt",
+      "level": "B1",
+      "term": "der Aufenthalt",
+      "en": "stay; residence",
+      "pos": "noun",
+      "defDe": "das Anwesendsein, das Verweilen",
+      "example": "Mein Aufenthalt in Berlin war kurz.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Aufruf",
+      "level": "B1",
+      "term": "der Aufruf",
+      "en": "call, appeal",
+      "pos": "noun",
+      "example": "Letzter Aufruf für den Flug nach Wien.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Begriff",
+      "level": "B1",
+      "term": "der Begriff",
+      "en": "term, concept",
+      "pos": "noun",
+      "defDe": "gedankliche oder semantische Einheit als Konzept, das alle Merkmale eines Gegenstandes oder Sachverhaltes vereint; zum Zusammenhang: man bezeichnet durch ein Symbol (Wort oder Wortgruppe) einen Begriff, mit dem man über eine Realität (Ding oder Idee) spricht",
+      "example": "Diesen Begriff kenne ich nicht.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Bergbau",
+      "level": "B1",
+      "term": "der Bergbau",
+      "en": "mining",
+      "pos": "noun",
+      "defDe": "Gewinnung von mineralischen Rohstoffen aus einem Gesteinskörper der oberen Erdkruste",
+      "example": "Im Ruhrgebiet gab es früher viel Bergbau.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Blutdruck",
+      "level": "B1",
+      "term": "der Blutdruck",
+      "en": "blood pressure",
+      "pos": "noun",
+      "defDe": "Medizin: Druck des Blutes in einem arteriellen oder venösen Blutgefäß",
+      "example": "Er hat einen viel zu hohen Blutdruck.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Code",
+      "level": "B1",
+      "term": "der Code",
+      "en": "code",
+      "pos": "noun",
+      "example": "Gib bitte den Code ein.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Couchtisch",
+      "level": "B1",
+      "term": "der Couchtisch",
+      "en": "coffee table",
+      "pos": "noun",
+      "defDe": "Tisch, der an/vor einer Couch oder einem Sofa platziert wird und entsprechend eine relativ niedrige Tischplatte hat",
+      "example": "Die Zeitschriften liegen auf dem Couchtisch.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Frost",
+      "level": "B1",
+      "term": "der Frost",
+      "en": "frost",
+      "pos": "noun",
+      "defDe": "äußere, sowohl strenge als auch milde Kälte, die bei Temperaturen im Bereich unter null Grad Celsius, also unterhalb des Gefrierpunktes von Wasser, eintritt",
+      "example": "In der Nacht gab es strengen Frost.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Geruch",
+      "level": "B1",
+      "term": "der Geruch",
+      "en": "smell, odour",
+      "pos": "noun",
+      "example": "Der Geruch stört die Beschäftigten weniger als die Uhrzeit.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

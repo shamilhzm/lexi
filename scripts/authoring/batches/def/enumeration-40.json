@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"enumeration\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:rüber",
+      "level": "A2",
+      "en": "over here",
+      "pos": "adverb",
+      "expect": {
+        "def": "over here; over there"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:schreien",
+      "level": "A2",
+      "en": "to shout",
+      "pos": "verb",
+      "expect": {
+        "def": "to shout; to yell; to cry; to scream; to howl"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:besorgen",
+      "level": "B1",
+      "en": "to deal, to manage, to procure",
+      "pos": "verb",
+      "expect": {
+        "def": "to deal, to manage, to procure; to get, to obtain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:das Schätzchen",
+      "level": "B1",
+      "en": "diminutive of Schatz",
+      "pos": "noun",
+      "expect": {
+        "def": "darling, honey"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:stehlen",
+      "level": "B1",
+      "en": "to steal",
+      "pos": "verb",
+      "expect": {
+        "def": "to steal; to skulk, to move secretly"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umbringen",
+      "level": "B1",
+      "en": "to kill, to murder, to do away with",
+      "pos": "verb",
+      "expect": {
+        "def": "to kill, to murder, to do away with; to commit suicide"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unterhalten",
+      "level": "B1",
+      "en": "to maintain",
+      "pos": "verb",
+      "expect": {
+        "def": "to maintain; to entertain"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vorwärts",
+      "level": "B1",
+      "en": "forwards, forward",
+      "pos": "adverb",
+      "expect": {
+        "def": "forwards, forward; onwards, onward"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:worum",
+      "level": "B1",
+      "en": "about what",
+      "pos": "adverb",
+      "expect": {
+        "def": "about what; around what"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wozu",
+      "level": "B1",
+      "en": "for what reason, to what purpose, what for, why?",
+      "pos": "adverb",
+      "expect": {
+        "def": "for what reason, to what purpose, what for, why?; to what, for what, etc."
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überleben",
+      "level": "B1",
+      "en": "to survive",
+      "pos": "verb",
+      "expect": {
+        "def": "to survive; to outlive"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:fressen",
+      "level": "A2",
+      "en": "to eat",
+      "pos": "verb",
+      "expect": {
+        "def": "to eat; to feed on; to devour; to stuff oneself; to gorge oneself; to eat like a pig"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:zusehen",
+      "level": "A2",
+      "en": "to watch",
+      "pos": "verb",
+      "expect": {
+        "def": "to watch; to watch out, to take care; to make sure, to see to it"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:erschaffen",
+      "level": "B1",
+      "en": "to create",
+      "pos": "verb",
+      "expect": {
+        "def": "to create; to produce; to make"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:geil",
+      "level": "B1",
+      "en": "salacious",
+      "pos": "adjective",
+      "expect": {
+        "def": "salacious; lustful; horny"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:heil",
+      "level": "B1",
+      "en": "whole",
+      "pos": "adjective",
+      "expect": {
+        "def": "whole; intact; unhurt; safe"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:loswerden",
+      "level": "B1",
+      "en": "to get rid of",
+      "pos": "verb",
+      "expect": {
+        "def": "to get rid of; to get off one's chest"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Schnauze",
+      "level": "B1",
+      "en": "snout",
+      "pos": "noun",
+      "expect": {
+        "def": "snout; muzzle"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schweigen",
+      "level": "B1",
+      "en": "to be silent",
+      "pos": "verb",
+      "expect": {
+        "def": "to be silent; to keep quiet; to stop talking; to shut up"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Hauptsache",
+      "level": "A2",
+      "en": "main thing, most important thing",
+      "pos": "noun",
+      "expect": {
+        "def": "main thing, most important thing; main issue"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:die Asche",
+      "level": "B1",
+      "en": "ash",
+      "pos": "noun",
+      "expect": {
+        "def": "ash; ashes"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:berühren",
+      "level": "B1",
+      "en": "to touch",
+      "pos": "verb",
+      "expect": {
+        "def": "to touch; to be tangent to"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:gewöhnlich",
+      "level": "B1",
+      "en": "usually",
+      "pos": "adverb",
+      "expect": {
+        "def": "usual, normal, ordinary, everyday"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Zauber",
+      "level": "B1",
+      "en": "charm, spell, an instance of magic action",
+      "pos": "noun",
+      "expect": {
+        "def": "charm, spell, an instance of magic action; magic"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überfallen",
+      "level": "B1",
+      "en": "to attack, to assault",
+      "pos": "verb",
+      "expect": {
+        "def": "to attack, to assault; to raid"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:meinetwegen",
+      "level": "B2",
+      "en": "because of me",
+      "pos": "adverb",
+      "expect": {
+        "def": "because of me; for my sake"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B2:rächen",
+      "level": "B2",
+      "en": "to revenge",
+      "pos": "verb",
+      "expect": {
+        "def": "to revenge; to avenge; to take revenge; to avenge oneself"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:ausmachen",
+      "level": "A1",
+      "en": "to turn off, switch off",
+      "pos": "verb",
+      "expect": {
+        "def": "to turn off, switch off; to put out, to extinguish"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:hinlegen",
+      "level": "A2",
+      "en": "to put down, lay down",
+      "pos": "verb",
+      "expect": {
+        "def": "to put down, lay down; to lie down"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:vorbeikommen",
+      "level": "A2",
+      "en": "to come over",
+      "pos": "verb",
+      "expect": {
+        "def": "to come over; to drop by; to get past, to go by"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:begreifen",
+      "level": "B1",
+      "en": "to grasp fully",
+      "pos": "verb",
+      "expect": {
+        "def": "to grasp fully; to comprehend; to conceive, to fathom; to understand intellectually"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:beißen",
+      "level": "B1",
+      "en": "to bite",
+      "pos": "verb",
+      "expect": {
+        "def": "to bite; to sting; to burn; to be sharp; to be spicy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schalten",
+      "level": "B1",
+      "en": "to switch",
+      "pos": "verb",
+      "expect": {
+        "def": "to switch; to shift gears"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schieben",
+      "level": "B1",
+      "en": "to push",
+      "pos": "verb",
+      "expect": {
+        "def": "to push; to shove; to slide; to slip; to put"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schwören",
+      "level": "B1",
+      "en": "to swear",
+      "pos": "verb",
+      "expect": {
+        "def": "to swear; to take an oath; to swear by; to be convinced of; to like"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:täuschen",
+      "level": "B1",
+      "en": "to deceive",
+      "pos": "verb",
+      "expect": {
+        "def": "to deceive; to be wrong, to be mistaken"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verschieben",
+      "level": "B1",
+      "en": "to move, to shift",
+      "pos": "verb",
+      "expect": {
+        "def": "to move, to shift; to postpone, to adjourn"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:überwachen",
+      "level": "B1",
+      "en": "to control, to monitor, to supervise",
+      "pos": "verb",
+      "expect": {
+        "def": "to control, to monitor, to supervise; to keep under surveillance"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schluss",
+      "level": "A2",
+      "en": "end, ending, conclusion, finish",
+      "pos": "noun",
+      "expect": {
+        "def": "end, ending, conclusion, finish; logical conclusion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:der Blödsinn",
+      "level": "B1",
+      "en": "rubbish, nonsense",
+      "pos": "noun",
+      "expect": {
+        "def": "rubbish, nonsense; bunkum, bunk"
+      },
+      "def": ""
+    }
+  ]
+}

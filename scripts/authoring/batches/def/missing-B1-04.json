@@ -1,0 +1,444 @@
+{
+  "_README": [
+    "34 B1 card(s) with no English definition at all.",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives.",
+    "`defDe` and `example` are sense evidence, not text to translate: use them to",
+    "confirm which homograph the card is about, then write the English yourself.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:B1:klappen",
+      "level": "B1",
+      "term": "klappen",
+      "en": "to work out",
+      "pos": "verb",
+      "example": "Leider hat es nicht geklappt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:komfortabel",
+      "level": "B1",
+      "term": "komfortabel",
+      "en": "comfortable",
+      "pos": "adjective",
+      "defDe": "mit Annehmlichkeiten, Komfort, guter technischer Ausrüstung",
+      "example": "Das Arbeitszimmer ist sehr komfortabel eingerichtet.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:mähen",
+      "level": "B1",
+      "term": "mähen",
+      "en": "to mow",
+      "pos": "verb",
+      "example": "Am Samstag mähe ich den Rasen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:merken",
+      "level": "B1",
+      "term": "merken",
+      "en": "to notice, realize",
+      "pos": "verb",
+      "defDe": "etwas mit den Sinnen wahrnehmen, sich einer Sache bewusst werden",
+      "example": "Ich habe sofort gemerkt, dass etwas nicht stimmt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:militärisch",
+      "level": "B1",
+      "term": "militärisch",
+      "en": "military (adj.)",
+      "pos": "adjective",
+      "defDe": "das Militär betreffend",
+      "example": "Es war eine militärische Operation.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nachholen",
+      "level": "B1",
+      "term": "nachholen",
+      "en": "to catch up on, to make up for",
+      "pos": "verb",
+      "example": "Ich muss die Prüfung nachholen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:notieren",
+      "level": "B1",
+      "term": "notieren",
+      "en": "to note down, to write down",
+      "pos": "verb",
+      "example": "Bitte notieren Sie die Nummer.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:nützen",
+      "level": "B1",
+      "term": "nützen",
+      "en": "to be of use, to help",
+      "pos": "verb",
+      "example": "Das nützt mir leider nichts.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:packen",
+      "level": "B1",
+      "term": "packen",
+      "en": "to pack",
+      "pos": "verb",
+      "defDe": "aufeinander liegende gleichartige Dinge, die auch zusammengebunden sein können",
+      "example": "Ich muss noch für die Reise packen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:profitieren von + D",
+      "level": "B1",
+      "term": "profitieren von + D",
+      "en": "to profit from",
+      "pos": "verb",
+      "defDe": "fachlicher Bereich, dem bestimmte Themen zugeordnet werden",
+      "example": "Kleine Firmen profitieren besonders von der neuen Regel.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:promovieren",
+      "level": "B1",
+      "term": "promovieren",
+      "en": "to do a doctorate",
+      "pos": "verb",
+      "defDe": "die Doktorwürde oder Lehrberechtigung an Hochschulen erlangen beziehungsweise erwerben",
+      "example": "Sie möchte in Biologie promovieren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:prüfen",
+      "level": "B1",
+      "term": "prüfen",
+      "en": "to check, examine",
+      "pos": "verb",
+      "defDe": "feststellen, inwiefern einer Bedingung genügt wird",
+      "example": "Der Arzt prüft seine Reflexe.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:psychisch",
+      "level": "B1",
+      "term": "psychisch",
+      "en": "psychological, mental",
+      "pos": "adjective",
+      "defDe": "die Psyche betreffend",
+      "example": "Psychische Gesundheit ist genauso wichtig wie körperliche.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:schützen",
+      "level": "B1",
+      "term": "schützen",
+      "en": "to protect",
+      "pos": "verb",
+      "defDe": "jemanden/etwas vor … schützen",
+      "example": "Wir müssen die Natur schützen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:selbstbewusst",
+      "level": "B1",
+      "term": "selbstbewusst",
+      "en": "self-confident",
+      "pos": "adjective",
+      "defDe": "voller Selbstwertgefühl, ohne am eigenen Tun und Wirken zu zweifeln",
+      "example": "Ein selbstbewusster Auftritt ist im Vorstellungsgespräch wichtig.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:selbstverständlich",
+      "level": "B1",
+      "term": "selbstverständlich",
+      "en": "self-evident, of course",
+      "pos": "adjective",
+      "defDe": "ohne Weiteres verständlich, sich aus dem Zusammenhang ergebend",
+      "example": "Selbstverständlich helfe ich dir.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:seltener",
+      "level": "B1",
+      "term": "seltener",
+      "en": "more rarely",
+      "pos": "adverb",
+      "example": "Seltener als früher gehe ich ins Kino.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:seltsam",
+      "level": "B1",
+      "term": "seltsam",
+      "en": "strange, odd",
+      "pos": "adjective",
+      "defDe": "nicht normal; merkwürdig, sonderbar",
+      "example": "Das ist eine seltsame Geschichte.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sinnvoll",
+      "level": "B1",
+      "term": "sinnvoll",
+      "en": "sensible, meaningful",
+      "pos": "adjective",
+      "defDe": "geistig rege, mit einem großen Verstand",
+      "example": "Das ist eine sinnvolle Idee.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sorgen für + A",
+      "level": "B1",
+      "term": "sorgen für + A",
+      "en": "to take care of, ensure",
+      "pos": "verb",
+      "defDe": "sich ernsthaft Gedanken machen zu etwas/jemandem, etwas befürchten, was jemanden betrifft",
+      "example": "Die Eltern sorgen für ihre Kinder.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:sorgfältig",
+      "level": "B1",
+      "term": "sorgfältig",
+      "en": "careful, thorough",
+      "pos": "adjective",
+      "defDe": "mit großer Achtsamkeit und Sorgfalt",
+      "example": "Sie arbeitet sehr sorgfältig und genau.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:transportieren",
+      "level": "B1",
+      "term": "transportieren",
+      "en": "to transport, to carry",
+      "pos": "verb",
+      "example": "Wir transportieren das Material mit dem Lastwagen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umgehen mit + D",
+      "level": "B1",
+      "term": "umgehen mit + D",
+      "en": "to deal with",
+      "pos": "verb",
+      "defDe": "reinigende Arbeiten in der Küche verrichten, die mit der Verwendung von Wasser zu tun haben",
+      "example": "Sie kann gut mit schwierigen Kunden umgehen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:umkommen",
+      "level": "B1",
+      "term": "umkommen",
+      "en": "to perish",
+      "pos": "verb",
+      "defDe": "auf ungewöhnliche Weise das Leben verlieren",
+      "example": "Bei dem Unglück kamen viele um.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:unregelmäßig",
+      "level": "B1",
+      "term": "unregelmäßig",
+      "en": "irregular",
+      "pos": "adjective",
+      "example": "Das Geräusch ist unregelmäßig und stört dauerhaft.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verlässlich",
+      "level": "B1",
+      "term": "verlässlich",
+      "en": "reliable, dependable",
+      "pos": "adjective",
+      "defDe": "so, dass man sich darauf verlassen kann",
+      "example": "Sie ist eine sehr verlässliche Person.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:verlieren",
+      "level": "B1",
+      "term": "verlieren",
+      "en": "to lose",
+      "pos": "verb",
+      "defDe": "etwas irgendwo hinlegen und es später nicht mehr wiederfinden",
+      "example": "Ich habe meinen Autoschlüssel verloren.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vermeiden",
+      "level": "B1",
+      "term": "vermeiden",
+      "en": "to avoid",
+      "pos": "verb",
+      "defDe": "etwas wenn möglich nicht tun; so handeln, dass etwas möglichst nicht passiert",
+      "example": "Ich versuche, Stress zu vermeiden.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vernetzt",
+      "level": "B1",
+      "term": "vernetzt",
+      "en": "interconnected, networked; connected, networked",
+      "pos": "adjective",
+      "defDe": "in ein Netzwerk eingebunden; zu einem Netzwerk verknüpft",
+      "example": "Heute ist alles digital vernetzt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:versagen",
+      "level": "B1",
+      "term": "versagen",
+      "en": "to fail, to fall short",
+      "pos": "verb",
+      "defDe": "nicht so funktionieren, wie es geplant war oder üblich ist",
+      "example": "In der Prüfung hat er völlig versagt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:vorkommen",
+      "level": "B1",
+      "term": "vorkommen",
+      "en": "to occur, to happen",
+      "pos": "verb",
+      "example": "So etwas kommt selten vor.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wegziehen",
+      "level": "B1",
+      "term": "wegziehen",
+      "en": "to move away",
+      "pos": "verb",
+      "example": "Wer die Miete nicht zahlen kann, muss wegziehen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:weiterempfehlen",
+      "level": "B1",
+      "term": "weiterempfehlen",
+      "en": "to recommend (to others)",
+      "pos": "verb",
+      "example": "Ich kann dieses Lokal wirklich weiterempfehlen.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:B1:wiedererkennen",
+      "level": "B1",
+      "term": "wiedererkennen",
+      "en": "to recognise (again)",
+      "pos": "verb",
+      "defDe": "etwas oder jemanden aus der Erinnerung richtig zuordnen können",
+      "example": "Ich habe dich sofort wiedererkannt.",
+      "expect": {
+        "def": ""
+      },
+      "def": ""
+    }
+  ]
+}

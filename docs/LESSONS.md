@@ -53,7 +53,14 @@ until `freq.json` was found holding 47 dead ones.
 Docs age against a codebase that moves weekly.
 
 **…generate content in bulk.** A generator bug is four hundred bad items. Spot-check
-before writing.
+before writing. **And check the count that must *not* move**: 67 definitions were added
+and the flagged-definition total stayed at 1,213, which is what proves the new content
+did not become the next batch's defect.
+
+**…write English prose about German.** Quoting a bare German article inside an English
+definition makes `corpus:validate` read the whole field as German — correctly, by its
+own rule. Say "the masculine article", never `der`. *(Three of the first 67 definitions
+tripped this.)*
 
 **…animate anything that content depends on.** An entrance that doesn't run leaves the
 thing invisible or mis-sized. See DESIGN §7.

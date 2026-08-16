@@ -1,0 +1,412 @@
+{
+  "_README": [
+    "40 definition(s) classified \"bare\".",
+    "Author \"def\": what the thing IS, in one learner-facing clause — not a list",
+    "of other translations, which the `en` gloss already gives. Match the sense",
+    "in `en`; never drift to another homograph.",
+    "\"expect\" is what the corpus holds now; fix-authored.ts refuses a stale row.",
+    "Then: node scripts/authoring/fix-authored.ts <this file> --dry"
+  ],
+  "rows": [
+    {
+      "id": "voc:A2:aufgeregt",
+      "level": "A2",
+      "en": "excited, nervous",
+      "pos": "adjective",
+      "expect": {
+        "def": "excited"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Besichtigung",
+      "level": "A2",
+      "en": "viewing, tour; sightseeing",
+      "pos": "noun",
+      "expect": {
+        "def": "inspection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Umkleidekabine",
+      "level": "A2",
+      "en": "fitting room",
+      "pos": "noun",
+      "expect": {
+        "def": "synonym of Ankleidekabine"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kleiderbügel",
+      "level": "A2",
+      "en": "clothes hanger",
+      "pos": "noun",
+      "expect": {
+        "def": "coat hanger"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Innenstadt",
+      "level": "A2",
+      "en": "city centre",
+      "pos": "noun",
+      "expect": {
+        "def": "inner city"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Führung",
+      "level": "A1",
+      "en": "guided tour; leadership",
+      "pos": "noun",
+      "expect": {
+        "def": "lead"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Gegenwart",
+      "level": "A2",
+      "en": "present (time)",
+      "pos": "noun",
+      "expect": {
+        "def": "the present"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:einfach",
+      "level": "A1",
+      "en": "simple, easy; simply",
+      "pos": "adjective",
+      "expect": {
+        "def": "easy"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Brauch",
+      "level": "A2",
+      "en": "custom, tradition",
+      "pos": "noun",
+      "expect": {
+        "def": "custom"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Feier",
+      "level": "A2",
+      "en": "party, celebration",
+      "pos": "noun",
+      "expect": {
+        "def": "celebration"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schulfreund",
+      "level": "A2",
+      "en": "school friend",
+      "pos": "noun",
+      "expect": {
+        "def": "schoolfriend"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:annehmen",
+      "level": "A2",
+      "en": "to accept; to assume",
+      "pos": "verb",
+      "expect": {
+        "def": "eine Vermutung anstellen"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Hausordnung",
+      "level": "A2",
+      "en": "house rules",
+      "pos": "noun",
+      "expect": {
+        "def": "house regulations"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kaution",
+      "level": "A2",
+      "en": "deposit",
+      "pos": "noun",
+      "expect": {
+        "def": "bail"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kaltmiete",
+      "level": "A2",
+      "en": "rent excluding utilities; base (\"cold\") rent",
+      "pos": "noun",
+      "expect": {
+        "def": "base rent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:unbefristet",
+      "level": "A2",
+      "en": "unlimited, open-ended",
+      "pos": "adjective",
+      "expect": {
+        "def": "permanent"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Steckdose",
+      "level": "A2",
+      "en": "power socket",
+      "pos": "noun",
+      "expect": {
+        "def": "socket"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Fastnacht",
+      "level": "A2",
+      "en": "Shrovetide, carnival",
+      "pos": "noun",
+      "expect": {
+        "def": "carnival"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Mundart",
+      "level": "A2",
+      "en": "dialect, vernacular",
+      "pos": "noun",
+      "expect": {
+        "def": "dialect"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:verschieden",
+      "level": "A2",
+      "en": "different, various",
+      "pos": "adjective",
+      "expect": {
+        "def": "deceased"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A1:die Aussage",
+      "level": "A1",
+      "en": "statement",
+      "pos": "noun",
+      "expect": {
+        "def": "proposition"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schatz",
+      "level": "A2",
+      "en": "treasure; darling",
+      "pos": "noun",
+      "expect": {
+        "def": "treasure"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Schmuck",
+      "level": "A2",
+      "en": "jewellery",
+      "pos": "noun",
+      "expect": {
+        "def": "jewelry"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Ader",
+      "level": "A2",
+      "en": "vein",
+      "pos": "noun",
+      "expect": {
+        "def": "blood vessel"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Krankenkasse",
+      "level": "A2",
+      "en": "health insurance fund",
+      "pos": "noun",
+      "expect": {
+        "def": "health insurance company"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Tropfen",
+      "level": "A2",
+      "en": "drop (medicine)",
+      "pos": "noun",
+      "expect": {
+        "def": "drop"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Muster",
+      "level": "A2",
+      "en": "pattern",
+      "pos": "noun",
+      "expect": {
+        "def": "example"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:kariert",
+      "level": "A2",
+      "en": "checked (pattern)",
+      "pos": "adjective",
+      "expect": {
+        "def": "checkered"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:das Bildungssystem",
+      "level": "A2",
+      "en": "education system",
+      "pos": "noun",
+      "expect": {
+        "def": "educational system"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Schulpflicht",
+      "level": "A2",
+      "en": "compulsory schooling",
+      "pos": "noun",
+      "expect": {
+        "def": "compulsory education"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:der Kraftfahrer",
+      "level": "A2",
+      "en": "driver (professional)",
+      "pos": "noun",
+      "expect": {
+        "def": "motorist"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Beratung",
+      "level": "A2",
+      "en": "consultation, advice; counseling, consultation",
+      "pos": "noun",
+      "expect": {
+        "def": "discussion"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:analysieren",
+      "level": "A2",
+      "en": "to analyse",
+      "pos": "verb",
+      "expect": {
+        "def": "to analyze"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Abkürzung",
+      "level": "A2",
+      "en": "abbreviation",
+      "pos": "noun",
+      "expect": {
+        "def": "kürzerer Weg"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die EDV",
+      "level": "A2",
+      "en": "electronic data processing, IT",
+      "pos": "noun",
+      "expect": {
+        "def": "elektronische Datenverarbeitung"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Kontrolle",
+      "level": "A2",
+      "en": "control, check",
+      "pos": "noun",
+      "expect": {
+        "def": "inspection"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Pflicht",
+      "level": "A2",
+      "en": "duty, obligation",
+      "pos": "noun",
+      "expect": {
+        "def": "duty"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Regelung",
+      "level": "A2",
+      "en": "regulation, arrangement",
+      "pos": "noun",
+      "expect": {
+        "def": "regulation"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:die Tätigkeit",
+      "level": "A2",
+      "en": "activity, occupation",
+      "pos": "noun",
+      "expect": {
+        "def": "activity"
+      },
+      "def": ""
+    },
+    {
+      "id": "voc:A2:üblich",
+      "level": "A2",
+      "en": "usual, customary",
+      "pos": "adjective",
+      "expect": {
+        "def": "usual"
+      },
+      "def": ""
+    }
+  ]
+}

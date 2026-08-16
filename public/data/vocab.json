@@ -16844,7 +16844,7 @@
     "gender": "die",
     "plural": "die Blusen",
     "ipa": "ˈbluːzə",
-    "def": null,
+    "def": "A light garment for the upper body, worn chiefly by women.",
     "syn": [],
     "ant": [
       "Hemd"
@@ -17504,7 +17504,7 @@
     "gender": "der",
     "plural": "die Vornamen",
     "ipa": "ˈfoːɐ̯ˌnaːmə",
-    "def": null,
+    "def": "The personal name chosen by your parents, placed before the family name.",
     "syn": [
       "Rufname"
     ],
@@ -17950,7 +17950,7 @@
     "gender": "der",
     "plural": "die Vormittage",
     "ipa": "ˈfoːɐ̯ˌmɪtaːk",
-    "def": null,
+    "def": "The part of the day between early morning and midday.",
     "syn": [
       "Morgen"
     ],
@@ -18025,7 +18025,7 @@
     "gender": "das",
     "plural": "die Daten",
     "ipa": "ˈdaːtʊm",
-    "def": null,
+    "def": "The calendar day on which something falls; in the plural, collected facts and figures gathered for study.",
     "syn": [
       "Kalendertag"
     ],
@@ -22938,7 +22938,7 @@
     "gender": null,
     "plural": null,
     "ipa": "tʏʁˈkiːs",
-    "def": null,
+    "def": "Of a blue-green colour, like shallow tropical sea.",
     "syn": [
       "blaugrün",
       "petrol",
@@ -23353,7 +23353,7 @@
     "gender": "die",
     "plural": "die Bitten",
     "ipa": "ˈbɪtə",
-    "def": null,
+    "def": "A polite way of asking for something you would like someone to do.",
     "syn": [
       "Anliegen",
       "Aufforderung",
@@ -23653,7 +23653,7 @@
     "gender": "die",
     "plural": "die Listen",
     "ipa": "ˈlɪstə",
-    "def": null,
+    "def": "Items written down one after another in a set order.",
     "syn": [
       "Aufstellung",
       "Aufzählung",
@@ -99779,7 +99779,7 @@
     "gender": "die",
     "plural": null,
     "ipa": "fʁyː",
-    "def": null,
+    "def": "The first hours of the day — southern German and Austrian for the morning.",
     "syn": [
       "Morgen"
     ],
@@ -100669,7 +100669,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˌviː ˈɡeːt əs ˌdiːɐ̯",
-    "def": null,
+    "def": "The formal way of asking after someone’s health or wellbeing, used with people you address as Sie.",
     "syn": [
       "wie gehts?"
     ],
@@ -102201,7 +102201,7 @@
     "gender": "die",
     "plural": "die Ecken",
     "ipa": "ˈɛkə",
-    "def": null,
+    "def": "The point where two edges or two streets meet.",
     "syn": [
       "Eck",
       "Straßenecke",
@@ -116090,7 +116090,7 @@
     "gender": "das",
     "plural": "die Ergebnisse",
     "ipa": "ɛɐ̯ˈɡeːpnɪs",
-    "def": null,
+    "def": "What comes out at the end of a process, a test or a match.",
     "syn": [
       "Ausbeute",
       "Ausfluss",
@@ -117978,7 +117978,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈmiːtn̩",
-    "def": null,
+    "def": "To let someone use a room or a property for a period in return for payment — what the landlord does, where mieten is what the tenant does.",
     "syn": [],
     "ant": [
       "mieten"
@@ -200148,7 +200148,7 @@
     "gender": "der",
     "plural": null,
     "ipa": "ˈɔɪ̯ʁo",
-    "def": null,
+    "def": "The currency of Germany, Austria and most other EU countries.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200175,7 +200175,7 @@
     "gender": "der",
     "plural": null,
     "ipa": "t͡sɛnt",
-    "def": null,
+    "def": "The small unit of the euro; one hundred of them make one euro.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200202,7 +200202,7 @@
     "gender": "das",
     "plural": "die Prozente",
     "ipa": "pʁoˈt͡sɛnt",
-    "def": null,
+    "def": "One hundredth part of an amount, used to state a share or a rate.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200229,7 +200229,7 @@
     "gender": "der",
     "plural": "die Meter",
     "ipa": "ˈmeːtɐ",
-    "def": null,
+    "def": "The basic unit of length: one hundred centimetres.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200256,7 +200256,7 @@
     "gender": "der",
     "plural": "die Zentimeter",
     "ipa": "ˌt͡sɛntiˈmeːtɐ",
-    "def": null,
+    "def": "A unit of length: one hundredth of a metre.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200283,7 +200283,7 @@
     "gender": "der",
     "plural": "die Kilometer",
     "ipa": "ˌkiloˈmeːtɐ",
-    "def": null,
+    "def": "A unit of distance: one thousand metres.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200310,7 +200310,7 @@
     "gender": "der",
     "plural": "die Familiennamen",
     "ipa": "faˈmiːli̯ənˌnaːmə",
-    "def": null,
+    "def": "The name shared with your family, written after your first name.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200337,7 +200337,7 @@
     "gender": "der",
     "plural": "die Familienstände",
     "ipa": "faˈmiːliənʃtant",
-    "def": null,
+    "def": "Whether a person is single, married, divorced or widowed — a standard question on official forms.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200364,7 +200364,7 @@
     "gender": "der",
     "plural": "die Geburtsorte",
     "ipa": "ɡəˈbuːɐ̯t͡sˌʔɔʁt",
-    "def": null,
+    "def": "The town or city where a person was born, as entered on official documents.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200391,7 +200391,7 @@
     "gender": "der",
     "plural": null,
     "ipa": "ɔʁt",
-    "def": null,
+    "def": "A particular spot or position, or the town where someone lives.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200418,7 +200418,7 @@
     "gender": "das",
     "plural": "die Tickets",
     "ipa": "ˈtɪkət",
-    "def": null,
+    "def": "A printed or digital pass that lets you travel or enter an event.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200445,7 +200445,7 @@
     "gender": "die",
     "plural": "die S-Bahnen",
     "ipa": "ˈɛsˌbaːn",
-    "def": null,
+    "def": "The fast city railway that links a German city with its suburbs.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200472,7 +200472,7 @@
     "gender": "das",
     "plural": "die Reisebüros",
     "ipa": "ˈʁaɪ̯zəbyˌʁoː",
-    "def": null,
+    "def": "A shop that arranges trips, flights and hotels for its customers.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200499,7 +200499,7 @@
     "gender": "der",
     "plural": "die Fahrer",
     "ipa": "ˈfaːʁɐ",
-    "def": null,
+    "def": "A person who drives a vehicle, especially as their job.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200526,7 +200526,7 @@
     "gender": "der",
     "plural": null,
     "ipa": "ˈvɛstn̩",
-    "def": null,
+    "def": "The compass direction where the sun sets, or the region lying that way.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200553,7 +200553,7 @@
     "gender": "der",
     "plural": "die Kioske",
     "ipa": "ˈkiːɔsk",
-    "def": null,
+    "def": "A small street stall selling newspapers, drinks and tobacco.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200580,7 +200580,7 @@
     "gender": "der",
     "plural": "die Prospekte",
     "ipa": "pʁoˈspɛkt",
-    "def": null,
+    "def": "A printed booklet setting out what a company or a place has to offer.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200607,7 +200607,7 @@
     "gender": "der",
     "plural": "die Automaten",
     "ipa": "aʊ̯toˈmaːt",
-    "def": null,
+    "def": "A machine that serves goods or performs a task once you insert money or press a button.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200634,7 +200634,7 @@
     "gender": "der",
     "plural": "die Bleistifte",
     "ipa": "ˈblaɪ̯ˌʃtɪft",
-    "def": null,
+    "def": "A wooden writing stick with grey lead inside, whose marks can be rubbed out.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200661,7 +200661,7 @@
     "gender": "der",
     "plural": "die Kugelschreiber",
     "ipa": "ˈkuːɡl̩ˌʃʁaɪ̯bɐ",
-    "def": null,
+    "def": "A pen that writes with a small rolling ball, in ink that cannot be rubbed out.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200688,7 +200688,7 @@
     "gender": "der",
     "plural": "die Drucker",
     "ipa": "ˈdʁʊkɐ",
-    "def": null,
+    "def": "A machine that puts a document from a computer onto paper.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200715,7 +200715,7 @@
     "gender": "das",
     "plural": "die Faxe",
     "ipa": "faks",
-    "def": null,
+    "def": "A document sent along a telephone line and printed by the machine at the other end.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200742,7 +200742,7 @@
     "gender": "der",
     "plural": "die Texte",
     "ipa": "tɛkst",
-    "def": null,
+    "def": "A piece of writing taken as a whole — an article, a passage, the words of a song.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200769,7 +200769,7 @@
     "gender": "der",
     "plural": "die Buchstaben",
     "ipa": "ˈbuːxˌʃtaːbə",
-    "def": null,
+    "def": "One of the written signs that spell a word — a, b, c.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200796,7 +200796,7 @@
     "gender": "die",
     "plural": "die Ansagen",
     "ipa": "ˈanzaːɡə",
-    "def": null,
+    "def": "Spoken information given out over a loudspeaker, for example at a station.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200823,7 +200823,7 @@
     "gender": "die",
     "plural": "die Durchsagen",
     "ipa": "ˈdʊʁçˌzaːɡə",
-    "def": null,
+    "def": "A message read out to everyone present in a shop, station or building.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200850,7 +200850,7 @@
     "gender": "das",
     "plural": null,
     "ipa": "ʃɪlt",
-    "def": null,
+    "def": "A flat board in a public place carrying a name, a word or an instruction.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200877,7 +200877,7 @@
     "gender": "die",
     "plural": "die Hausaufgaben",
     "ipa": "ˈhaʊ̯sʔaʊ̯fˌɡaːbə",
-    "def": null,
+    "def": "Work a teacher sets to be done at home rather than in class.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200904,7 +200904,7 @@
     "gender": "der",
     "plural": "die Kindergärten",
     "ipa": "ˈkɪndɐˌɡaʁtn̩",
-    "def": null,
+    "def": "A place where small children play and learn together before school begins.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200931,7 +200931,7 @@
     "gender": "das",
     "plural": "die Beispiele",
     "ipa": "ˈbaɪ̯ˌʃpiːl",
-    "def": null,
+    "def": "One particular case given to show what a general thing is like.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200958,7 +200958,7 @@
     "gender": "die",
     "plural": "die Birnen",
     "ipa": "ˈbɪʁnə",
-    "def": null,
+    "def": "A sweet, soft fruit, narrow at the stalk and round at the base.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -200985,7 +200985,7 @@
     "gender": "der",
     "plural": "die Schinken",
     "ipa": "ˈʃɪŋkn̩",
-    "def": null,
+    "def": "Meat from the leg of a pig, salted or smoked and eaten in thin slices.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201012,7 +201012,7 @@
     "gender": "der",
     "plural": null,
     "ipa": "apeˈtiːt",
-    "def": null,
+    "def": "The desire to eat — the pleasant hunger you feel before a meal.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201039,7 +201039,7 @@
     "gender": "die",
     "plural": "die Omas",
     "ipa": "ˈoːma",
-    "def": null,
+    "def": "An informal, affectionate word for your grandmother.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201066,7 +201066,7 @@
     "gender": "der",
     "plural": "die Herren",
     "ipa": "hɛʁ",
-    "def": null,
+    "def": "A polite form of address for a man, used before his surname.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201093,7 +201093,7 @@
     "gender": "der",
     "plural": "die Glückwünsche",
     "ipa": "ˈɡlʏkˌvʊnʃ",
-    "def": null,
+    "def": "The words you offer to wish someone well on a birthday, a wedding or a success.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201120,7 +201120,7 @@
     "gender": "der",
     "plural": "die Anfänge",
     "ipa": "ˈanˌfaŋ",
-    "def": null,
+    "def": "The first part of something, or the point at which it starts.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201147,7 +201147,7 @@
     "gender": "das",
     "plural": "die Alter",
     "ipa": "ˈaltɐ",
-    "def": null,
+    "def": "How old a person or thing is, counted in years.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201174,7 +201174,7 @@
     "gender": "der",
     "plural": "die Fußbälle",
     "ipa": "ˈfuːsˌbal",
-    "def": null,
+    "def": "The game played by two teams of eleven, or the ball it is played with.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201201,7 +201201,7 @@
     "gender": "das",
     "plural": null,
     "ipa": "lɪçt",
-    "def": null,
+    "def": "The brightness that lets you see, or the lamp that produces it.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201228,7 +201228,7 @@
     "gender": "der",
     "plural": "die Teile",
     "ipa": "taɪ̯l",
-    "def": null,
+    "def": "One piece of something larger, not the whole of it.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201255,7 +201255,7 @@
     "gender": "der",
     "plural": "die Blicke",
     "ipa": "blɪk",
-    "def": null,
+    "def": "What can be seen from a place, or a short act of looking at something.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201282,7 +201282,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈdʁʊkn̩",
-    "def": null,
+    "def": "To produce text or pictures on paper with a machine — not to be confused with drücken, to press.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201309,7 +201309,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈbɪtn̩",
-    "def": null,
+    "def": "To ask someone politely for something you want or need — unlike fragen, which is to ask a question.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201336,7 +201336,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈkʁiːɡn̩",
-    "def": null,
+    "def": "To receive or obtain something — an everyday, informal alternative to bekommen.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201363,7 +201363,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈɛndn̩",
-    "def": null,
+    "def": "To come to a stop, reaching the point where something is over.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201390,7 +201390,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈboːʁən",
-    "def": null,
+    "def": "Having come into the world at a given time or place.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201417,7 +201417,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈmɛnlɪç",
-    "def": null,
+    "def": "Of the male sex — the box you tick on a form, and the grammatical gender that takes a masculine article.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201444,7 +201444,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈvaɪ̯plɪç",
-    "def": null,
+    "def": "Of the female sex — the box you tick on a form, and the grammatical gender that takes a feminine article.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201471,7 +201471,7 @@
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈboːtn̩",
-    "def": null,
+    "def": "Not allowed by a rule or a law.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201498,7 +201498,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈbɪtɐ",
-    "def": null,
+    "def": "Having a sharp, harsh taste, like strong coffee or dark chocolate.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201525,7 +201525,7 @@
     "gender": null,
     "plural": null,
     "ipa": "t͡suˈʁʏk",
-    "def": null,
+    "def": "Towards the place you started from, or in the opposite direction.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201579,7 +201579,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈnuːk",
-    "def": null,
+    "def": "As much as is needed, and no more required.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201633,7 +201633,7 @@
     "gender": "das",
     "plural": "die Cafés",
     "ipa": "kaˈfeː",
-    "def": null,
+    "def": "A small place that serves coffee, cake and light meals.",
     "syn": [],
     "ant": [],
     "ex": [
@@ -201876,7 +201876,7 @@
     "gender": "der",
     "plural": "die Papas",
     "ipa": "ˈpapa",
-    "def": null,
+    "def": "An informal, affectionate word a child uses for their father.",
     "syn": [],
     "ant": [],
     "ex": [
