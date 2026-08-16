@@ -69,6 +69,12 @@ pane — every rect collapsed and the minimum-size filter discarded every elemen
 it was tested. **A check whose subject list is empty passes silently**; make it abort
 instead. Same shape as the frozen `document.timeline` below.
 
+**…call something blocked on state you don't have.** Check whether the state is just
+storage first. Today's goal line was recorded as unverifiable without "a seeded
+multi-day store"; it is three localStorage keys and one IndexedDB write. *(And when you
+seed, seed every tier: visits are mirrored to IDB and rehydrated over localStorage at
+boot, so the localStorage-only seed looked applied and vanished on reload.)*
+
 **…attribute an overflow to layout.** `scrollWidth > clientWidth` also fires on
 deliberate negative margins (`-mx-2` for optical alignment) and on decorative
 overflowing pseudo-elements. If the overflow is *the same number of pixels at every

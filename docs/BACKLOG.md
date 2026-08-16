@@ -898,12 +898,21 @@ which is why they group into one pass rather than fifteen tickets.
   wrap — the DOM read said unclipped and the screenshot said otherwise, which is the
   argument for looking. It has its own 19px line instead. **First tile 390 → 401**;
   net against the pre-#30 465.
-- **The goal line is styled as a footnote (#23 · XS · P1)** — the most motivating
-  sentence in the app, at `text-xs text-dim` between two large cards. *Still open, and
-  not attempted 2026-08-16 for a stated reason:* it renders only for a learner past
-  week 1 with a goal set, so verifying any change needs a seeded multi-day store, and
-  shipping an unverified typographic promotion of the app's most motivating sentence
-  is the wrong trade.
+- ~~**The goal line is styled as a footnote (#23 · XS · P1)**~~ ✅ **Fixed 2026-08-16.**
+  Measured before: one `text-xs` paragraph — **13px, `--color-dim`**, in a 56px card —
+  carrying the only sentence on Today that says what the learner is *for*. The
+  commitment now rides its own line at 15px/600 in full-strength ink and the pace is a
+  supporting line beneath it; card 56 → 68px, no clipping at 375 or 1280. Still a small
+  card on purpose: promoting it to a hero would put it in competition with "cards
+  queued", which is the thing you are meant to act on. Hierarchy, not volume.
+  > **"Needs a seeded multi-day store" was not a blocker, and calling it one was
+  > wrong.** Every input is a storage key. The recipe, for the next item that renders
+  > only for an established learner: write `lexi.visits.v1` (≥8 distinct days clears
+  > `week1`), `lexi.goal.v1` (`{level, date}`) and `lexi.snap.v1` (two rows with an
+  > older date, or `projectedPct` stays null) — **then write `lexi.visits.v1` into
+  > IndexedDB as well** (`db 'lexi'`, store `'kv'`, same key) and reload, because the
+  > store mirrors visits to IDB and rehydrates over localStorage at boot. Seeding
+  > localStorage alone looks like it worked and is silently undone by the reload.
 - ~~**"+ 4 drills targeting your blind spots" is red (#24 · XS · P1)**~~ — ✅ **stale,
   verified 2026-08-16.** `Today.tsx:290` renders it `text-amber`, and `--color-amber`
   is Atlas blue (`#1d6a8c` light / `#63b3d4` dark). Nothing on that line is red. Fixed

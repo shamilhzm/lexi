@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-16 — the goal line stops being a caption
+
+BACKLOG #23, which the previous entry had recorded as blocked on "a seeded multi-day
+store". **That was wrong, and the correction is the more useful half of this entry.**
+Every input to that surface is a storage key: `lexi.visits.v1` (≥8 distinct days clears
+Today's `week1` shape), `lexi.goal.v1`, and `lexi.snap.v1` with an older row so
+`projectedPct` can be computed at all. The one real trap is that the store mirrors
+visits into IndexedDB and rehydrates over localStorage at boot — so a localStorage-only
+seed appears to work and is silently undone by the reload that was supposed to apply it.
+Seed both tiers and the surface is fully reachable.
+
+With it reachable, the finding measured out: the goal line was **one `text-xs`
+paragraph, 13px, `--color-dim`, in a 56px card** — the only sentence on Today that says
+what the learner is *for* (a date they chose, and whether they will make it), set at
+caption size between two cards that both shout.
+
+It is two lines now. The commitment — "A2 by 25. Sept." — takes its own line at 15px/600
+in full-strength ink; the pace stays beneath it at 13px dim, keeping the green
+on-track treatment it already had. Card 56 → 68px, no clipping at 375 or 1280.
+
+Still a small card, deliberately. Promoting it into a hero would put it in competition
+with "cards queued", which is the number the surface exists to get you to act on. The
+defect was hierarchy, not size.
+
+859 tests green.
+
 ### Shipped 2026-08-16 — the clip sweep: one real cut, one artifact, two broken instruments
 
 BACKLOG #5 carried three measured clips. Swept all ten hash routes at 1280 and 375 —

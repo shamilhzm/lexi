@@ -223,16 +223,30 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
         const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
         const onTrack = gp.projectedPct !== null && gp.projectedPct >= 90;
         return (
-          <Card pad="none" className="flex items-center gap-2.5 px-4 py-3 mb-4">
-            <TargetIcon size={16} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
-            <p className="text-xs text-dim">
-              <span className="text-txt font-semibold">{gp.goal.level} by {when}</span>
-              {' · '}{gp.pct}% recognised
-              {gp.projectedPct !== null && (
-                <> · at your pace: <span className={onTrack ? 'text-green font-semibold' : 'text-txt font-semibold'}>~{gp.projectedPct}%</span> by then</>
-              )}
-              {gp.projectedPct === null && ' · pace appears after a day or two of study'}
-            </p>
+          // Two lines, not one 13px run of dim grey (BACKLOG #23). This is the
+          // only sentence on Today that says what the learner is *for* — a date
+          // they chose and whether they will make it — and it was set at the same
+          // size and colour as a caption, between two cards that both shout.
+          // Measured before: one `text-xs` paragraph, 13px, `--color-dim`, in a
+          // 56px card. The claim rides its own line at the size of a heading; the
+          // pace stays a supporting line, because it is the *commitment* that
+          // motivates and the projection that qualifies it.
+          //
+          // Deliberately still a small card and still one card: promoting it into
+          // a hero would put it in competition with "cards queued", which is the
+          // thing you are meant to act on. Hierarchy, not volume.
+          <Card pad="none" className="flex items-center gap-3 px-4 py-3.5 mb-4">
+            <TargetIcon size={18} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
+            <div className="min-w-0">
+              <p className="text-base font-semibold leading-tight">{gp.goal.level} by {when}</p>
+              <p className="text-xs text-dim mt-1">
+                {gp.pct}% recognised
+                {gp.projectedPct !== null && (
+                  <> · at your pace <span className={onTrack ? 'text-green font-semibold' : 'text-txt font-semibold'}>~{gp.projectedPct}%</span> by then</>
+                )}
+                {gp.projectedPct === null && ' · pace appears after a day or two of study'}
+              </p>
+            </div>
           </Card>
         );
       })()}
