@@ -71,7 +71,7 @@ function buildBatches(): Probe[][] {
 
 export default function Placement({ onDone }: { onDone: () => void }) {
   // Pre-sample a batch per level; we only consume as far as the learner climbs.
-  const batches = useMemo(buildBatches, []);
+  const batches = useMemo(() => buildBatches(), []);
   const [li, setLi] = useState(0);          // current level index
   const [qi, setQi] = useState(0);          // index within the level batch
   const [levelKnown, setLevelKnown] = useState(0);   // real words claimed at this level
