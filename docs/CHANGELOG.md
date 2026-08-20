@@ -11,6 +11,62 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-21 — the plural drill asked 191 questions that had no answer
+
+The full pass begins ([AUDIT.md](AUDIT.md) is its ledger). The cloze leak fixed earlier
+today was a *shape* defect — the answer looked different from its distractors — so the
+first thing the corpus track asked was whether any other drill has the same shape. One
+does, and worse.
+
+**`plural` was gated on `w.plural` being truthy, and that field holds five shapes.**
+Audited over all 3,200 noun cards carrying a plural: **399 were broken**, every one of
+them hand-verified.
+
+| shape | n | what the learner was asked |
+|---|---|---|
+| `"nur Singular"` / `"nur Plural"` | 114 | *choose the plural* of `das Obst` — the answer states there isn't one |
+| `"—"` | 75 | *choose the plural* — the answer is a dash |
+| `"-en"`, `"-s"`, `"-n"` | 201 | taught `"-s"`, never `die Handys` |
+| `"die –"` | 2 | malformed |
+| bare stem `"Themen"` | 7 | missing its article |
+
+And because a non-full plural falls back to drawing distractors from **other nouns'**
+plurals — overwhelmingly full `die …` forms — the answer was in every case the only
+option of its shape. `das Obst` offered **"nur Singular"** against *die Namen · die
+Berufe · die Länder*. Guessable without reading a word of German, and **191 of the 399
+were asking a question with no answer at all**.
+
+Fixed at the gate rather than in the item. `askablePlural()` admits only a full `die …`
+form, and is now the single predicate behind the pool, the eligibility check and the
+item — so the fallback branch that produced the mismatched shapes is gone, and "no
+plural" stays true on the card face where it belongs without becoming a question.
+
+**Then the 208 that really do have a plural were expanded, so they return through the
+front door.** 177 mechanically (`die Verabredung` + `-en` → `die Verabredungen`) and
+**31 by hand**, because they cannot be done by rule: the umlaut falls on a compound's
+*final* stem vowel (`der Abschluss` + `¨-e` → **die Abschlüsse**, not *Äbschluss*), the
+tail-replacement shorthands each name a different ending (`-träge`, `-wörter`, `-güter`),
+`das Dilemma` takes a Greek plural, and an attributive adjective must decline —
+`die erneuerbare Energie` → **die erneuerbaren Energien**, which the mechanical pass got
+wrong and hand-checking caught. The expect-guard refused 17 rows where the level in the
+id was guessed, which is exactly its job. Askable plurals **2,801 → 3,009**;
+`corpus:validate` PASS, 0 errors.
+
+**And the instrument that measures all this was itself broken.** The reader probe
+reported the adjective rate falling 0.955 → 0.945 on a change that touched no adjective.
+`sample()` is a full Fisher–Yates shuffle drawing `population − 1` values, and all three
+probe classes shared **one** seeded stream — so growing the noun population by 208 spent
+208 extra draws and silently re-rolled which 200 adjectives were tested. Each class now
+carries its own seed. Verified by running the new probe against both corpora: verb and
+adjective come out bit-identical, and only plural moves — 0.98 → 0.97, which is real,
+because 208 cards that the probe's `/^die\s/` filter had always excluded are now inside
+it. **Every probe delta recorded here before today shares that flaw**; LESSONS Class 2
+carries the rule.
+
+922 tests, 0 lint errors, typecheck and build green.
+
+---
+
 ### Shipped 2026-08-21 — a drill that could be solved without German, and three findings withdrawn
 
 The real-device pass (BACKLOG Now #1) run on a booted iPhone 17 Pro / iOS 26.5 against

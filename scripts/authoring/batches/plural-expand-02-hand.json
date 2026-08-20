@@ -1,0 +1,250 @@
+[
+ {
+  "id": "voc:A2:der Hof",
+  "expect": {
+   "plural": "¨-e"
+  },
+  "plural": "die Höfe",
+  "src": "umlaut shorthand \"¨-e\" already in vocab.json, expanded by hand: the stressed stem vowel takes the umlaut"
+ },
+ {
+  "id": "voc:A2:der Abschluss (Schule)",
+  "expect": {
+   "plural": "¨-e"
+  },
+  "plural": "die Abschlüsse",
+  "src": "umlaut shorthand \"¨-e\"; umlaut falls on the compound's final stem vowel (schluss), not the first"
+ },
+ {
+  "id": "voc:A2:das Schloss (Gebäude)",
+  "expect": {
+   "plural": "¨-er"
+  },
+  "plural": "die Schlösser",
+  "src": "umlaut shorthand \"¨-er\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Mantel",
+  "expect": {
+   "plural": "¨-"
+  },
+  "plural": "die Mäntel",
+  "src": "umlaut shorthand \"¨-\": umlaut only, no suffix"
+ },
+ {
+  "id": "voc:A1:der Rock",
+  "expect": {
+   "plural": "¨-e"
+  },
+  "plural": "die Röcke",
+  "src": "umlaut shorthand \"¨-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Angst",
+  "expect": {
+   "plural": "¨-e"
+  },
+  "plural": "die Ängste",
+  "src": "umlaut shorthand \"¨-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Vorschlag",
+  "expect": {
+   "plural": "¨-e"
+  },
+  "plural": "die Vorschläge",
+  "src": "umlaut shorthand \"¨-e\"; umlaut on the final stem vowel (schlag)"
+ },
+ {
+  "id": "voc:B2:der Werdegang",
+  "expect": {
+   "plural": "-gänge"
+  },
+  "plural": "die Werdegänge",
+  "src": "tail-replacement shorthand \"-gänge\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Lehrplan",
+  "expect": {
+   "plural": "-pläne"
+  },
+  "plural": "die Lehrpläne",
+  "src": "tail-replacement shorthand \"-pläne\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Umbruch",
+  "expect": {
+   "plural": "-brüche"
+  },
+  "plural": "die Umbrüche",
+  "src": "tail-replacement shorthand \"-brüche\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Einwand",
+  "expect": {
+   "plural": "-wände"
+  },
+  "plural": "die Einwände",
+  "src": "tail-replacement shorthand \"-wände\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Führungskraft",
+  "expect": {
+   "plural": "-kräfte"
+  },
+  "plural": "die Führungskräfte",
+  "src": "tail-replacement shorthand \"-kräfte\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Dilemma",
+  "expect": {
+   "plural": "-ta"
+  },
+  "plural": "die Dilemmata",
+  "src": "Greek plural shorthand \"-ta\" already in vocab.json (Dilemmas also occurs; the corpus specifies -ta)"
+ },
+ {
+  "id": "voc:C1:das Entwicklungsland",
+  "expect": {
+   "plural": "-länder"
+  },
+  "plural": "die Entwicklungsländer",
+  "src": "tail-replacement shorthand \"-länder\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Sündenbock",
+  "expect": {
+   "plural": "-böcke"
+  },
+  "plural": "die Sündenböcke",
+  "src": "tail-replacement shorthand \"-böcke\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Missstand",
+  "expect": {
+   "plural": "-stände"
+  },
+  "plural": "die Missstände",
+  "src": "tail-replacement shorthand \"-stände\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Datensatz",
+  "expect": {
+   "plural": "-sätze"
+  },
+  "plural": "die Datensätze",
+  "src": "tail-replacement shorthand \"-sätze\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Vortrag",
+  "expect": {
+   "plural": "-träge"
+  },
+  "plural": "die Vorträge",
+  "src": "tail-replacement shorthand \"-träge\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Tatbestand",
+  "expect": {
+   "plural": "-stände"
+  },
+  "plural": "die Tatbestände",
+  "src": "tail-replacement shorthand \"-stände\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:das Schlagwort",
+  "expect": {
+   "plural": "-wörter"
+  },
+  "plural": "die Schlagwörter",
+  "src": "tail-replacement shorthand \"-wörter\" already in vocab.json (Wörter, not Worte: discrete items)"
+ },
+ {
+  "id": "voc:C2:das Sprichwort",
+  "expect": {
+   "plural": "-wörter"
+  },
+  "plural": "die Sprichwörter",
+  "src": "tail-replacement shorthand \"-wörter\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Beiklang",
+  "expect": {
+   "plural": "-klänge"
+  },
+  "plural": "die Beiklänge",
+  "src": "tail-replacement shorthand \"-klänge\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Unterton",
+  "expect": {
+   "plural": "-töne"
+  },
+  "plural": "die Untertöne",
+  "src": "tail-replacement shorthand \"-töne\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:das Kulturgut",
+  "expect": {
+   "plural": "-güter"
+  },
+  "plural": "die Kulturgüter",
+  "src": "tail-replacement shorthand \"-güter\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Aktienmarkt",
+  "expect": {
+   "plural": "-märkte"
+  },
+  "plural": "die Aktienmärkte",
+  "src": "tail-replacement shorthand \"-märkte\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Lieferengpass",
+  "expect": {
+   "plural": "-engpässe"
+  },
+  "plural": "die Lieferengpässe",
+  "src": "tail-replacement shorthand \"-engpässe\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Wohnungsmarkt",
+  "expect": {
+   "plural": "-märkte"
+  },
+  "plural": "die Wohnungsmärkte",
+  "src": "tail-replacement shorthand \"-märkte\" already in vocab.json"
+ },
+ {
+  "id": "voc:B1:der Beitrag",
+  "expect": {
+   "plural": "-träge"
+  },
+  "plural": "die Beiträge",
+  "src": "tail-replacement shorthand \"-träge\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:das soziale Netzwerk",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die sozialen Netzwerke",
+  "src": "shorthand \"-e\" on the noun; the attributive adjective takes the weak plural ending -en after the definite article"
+ },
+ {
+  "id": "voc:C1:das neuronale Netz",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die neuronalen Netze",
+  "src": "shorthand \"-e\" on the noun; attributive adjective takes -en in the definite plural"
+ },
+ {
+  "id": "voc:B2:die erneuerbare Energie",
+  "expect": {
+   "plural": "erneuerbare Energien"
+  },
+  "plural": "die erneuerbaren Energien",
+  "src": "bare stem already in vocab.json; adjective corrected to the weak plural ending -en after the definite article"
+ }
+]

@@ -1,0 +1,1418 @@
+[
+ {
+  "id": "voc:A1:das Handy",
+  "expect": {
+   "plural": "-s"
+  },
+  "plural": "die Handys",
+  "src": "expanded from the shorthand \"-s\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Gerät",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Geräte",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Speisekarte",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Speisekarten",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Verabredung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Verabredungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Jahreszeit",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Jahreszeiten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Besprechung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Besprechungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Hobby",
+  "expect": {
+   "plural": "-s"
+  },
+  "plural": "die Hobbys",
+  "src": "expanded from the shorthand \"-s\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Teppich",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Teppiche",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Jacke",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Jacken",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Kreuzung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Kreuzungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Sehenswürdigkeit",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Sehenswürdigkeiten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:das Vorstellungsgespräch",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Vorstellungsgespräche",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Abteilung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Abteilungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Stimmung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Stimmungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Prüfung (Uni)",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Prüfungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:das Fundbüro (Amt)",
+  "expect": {
+   "plural": "-s"
+  },
+  "plural": "die Fundbüros",
+  "src": "expanded from the shorthand \"-s\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Behandlung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Behandlungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Operation",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Operationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Wiese (Festwiese)",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Wiesen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Vorstellung (Theater)",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Vorstellungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Karriere",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Karrieren",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:die Voraussetzung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Voraussetzungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A2:das Ereignis",
+  "expect": {
+   "plural": "-se"
+  },
+  "plural": "die Ereignisse",
+  "src": "expanded from the shorthand \"-se\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Gespräch",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Gespräche",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Muttersprache (L1)",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Muttersprachen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Gericht (Essen)",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Gerichte",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Vorspeise",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Vorspeisen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Trinkgeld",
+  "expect": {
+   "plural": "-er"
+  },
+  "plural": "die Trinkgelder",
+  "src": "expanded from the shorthand \"-er\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Kreditkarte",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Kreditkarten",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Öl",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Öle",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Kunde",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Kunden",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Angebot (Laden)",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Angebote",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Vorlesung (Uni)",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Vorlesungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Patient",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Patienten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Ziel",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Ziele",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Anmeldung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Anmeldungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Rabatt",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Rabatte",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Gefühl",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Gefühle",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:der Vorteil",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Vorteile",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Nachricht (SMS)",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Nachrichten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:das Thema",
+  "expect": {
+   "plural": "Themen"
+  },
+  "plural": "die Themen",
+  "src": "bare stem \"Themen\" already in vocab.json, article restored"
+ },
+ {
+  "id": "voc:A1:der Schal",
+  "expect": {
+   "plural": "-s"
+  },
+  "plural": "die Schals",
+  "src": "expanded from the shorthand \"-s\" already in vocab.json"
+ },
+ {
+  "id": "voc:A1:die Lösung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Lösungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:das Arbeitszeugnis",
+  "expect": {
+   "plural": "-se"
+  },
+  "plural": "die Arbeitszeugnisse",
+  "src": "expanded from the shorthand \"-se\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Zuständigkeit",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Zuständigkeiten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Arbeitsbelastung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Arbeitsbelastungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Aufstieg",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Aufstiege",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Schlagzeile",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Schlagzeilen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Tageszeitung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Tageszeitungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Manipulation",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Manipulationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Diskriminierung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Diskriminierungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Naturkatastrophe",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Naturkatastrophen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Ganztagsschule",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Ganztagsschulen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Bildungsweg",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Bildungswege",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Bewerbungsfrist",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Bewerbungsfristen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Umschulung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Umschulungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Entzündung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Entzündungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Reiseroute",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Reiserouten",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Buchung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Buchungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Komponist",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Komponisten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Handlung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Handlungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Drehbuchautor",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Drehbuchautoren",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Verfilmung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Verfilmungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Gewinn",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Gewinne",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Rendite",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Renditen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Konzern",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Konzerne",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Lieferkette",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Lieferketten",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Wirtschaftskrise",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Wirtschaftskrisen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Anbindung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Anbindungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Grünfläche",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Grünflächen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Fragestellung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Fragestellungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die These",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Thesen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Stichprobe",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Stichproben",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Auswertung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Auswertungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Erkenntnis",
+  "expect": {
+   "plural": "-se"
+  },
+  "plural": "die Erkenntnisse",
+  "src": "expanded from the shorthand \"-se\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Quellenangabe",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Quellenangaben",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Plagiat",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Plagiate",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Verzerrung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Verzerrungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Interessenkonflikt",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Interessenkonflikte",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Laie",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Laien",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Andeutung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Andeutungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Anspielung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Anspielungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Amtssprache",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Amtssprachen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Anglizismus",
+  "expect": {
+   "plural": "Anglizismen"
+  },
+  "plural": "die Anglizismen",
+  "src": "bare stem \"Anglizismen\" already in vocab.json, article restored"
+ },
+ {
+  "id": "voc:C1:die Lebensweise",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Lebensweisen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Kluft",
+  "expect": {
+   "plural": "Klüfte"
+  },
+  "plural": "die Klüfte",
+  "src": "bare stem \"Klüfte\" already in vocab.json, article restored"
+ },
+ {
+  "id": "voc:C1:der Protest",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Proteste",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Zugeständnis",
+  "expect": {
+   "plural": "-se"
+  },
+  "plural": "die Zugeständnisse",
+  "src": "expanded from the shorthand \"-se\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Grenzwert",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Grenzwerte",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Auflage",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Auflagen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Rechtfertigung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Rechtfertigungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Standortvorteil",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Standortvorteile",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Abhängigkeit",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Abhängigkeiten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Weltanschauung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Weltanschauungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Hilfsorganisation",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Hilfsorganisationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Spaltung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Spaltungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Verschwörungstheorie",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Verschwörungstheorien",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Grundrecht",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Grundrechte",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Selbstverpflichtung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Selbstverpflichtungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Bilanz",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Bilanzen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Schnittstelle",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Schnittstellen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Prognose",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Prognosen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Vision",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Visionen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Wurzel",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Wurzeln",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Prägung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Prägungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Verkehrssprache",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Verkehrssprachen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Akzent",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Akzente",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Sprachbiografie",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Sprachbiografien",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Sprachrohr",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Sprachrohre",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Konnotation",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Konnotationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Argumentation",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Argumentationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Prämisse",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Prämissen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Beleg",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Belege",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Metapher",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Metaphern",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Übertreibung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Übertreibungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Pointe",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Pointen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Tugend",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Tugenden",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Perspektive",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Perspektiven",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Rückblick",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Rückblicke",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:das Symbol",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Symbole",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Stilebene",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Stilebenen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Autorität",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Autoritäten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:der Euphemismus",
+  "expect": {
+   "plural": "Euphemismen"
+  },
+  "plural": "die Euphemismen",
+  "src": "bare stem \"Euphemismen\" already in vocab.json, article restored"
+ },
+ {
+  "id": "voc:C2:die Parole",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Parolen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Suggestion",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Suggestionen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:das Paradigma",
+  "expect": {
+   "plural": "Paradigmen"
+  },
+  "plural": "die Paradigmen",
+  "src": "bare stem \"Paradigmen\" already in vocab.json, article restored"
+ },
+ {
+  "id": "voc:C2:die Gegenthese",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Gegenthesen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Floskel",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Floskeln",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Nuance",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Nuancen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:das Werturteil",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Werturteile",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Umwälzung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Umwälzungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:das Vermächtnis",
+  "expect": {
+   "plural": "-se"
+  },
+  "plural": "die Vermächtnisse",
+  "src": "expanded from the shorthand \"-se\" already in vocab.json"
+ },
+ {
+  "id": "voc:C2:die Hochrechnung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Hochrechnungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Unternehmenskultur",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Unternehmenskulturen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Führungsposition",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Führungspositionen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Beförderung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Beförderungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Berichterstattung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Berichterstattungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Falschmeldung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Falschmeldungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Quelle",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Quellen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Filterblase",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Filterblasen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Algorithmus",
+  "expect": {
+   "plural": "Algorithmen"
+  },
+  "plural": "die Algorithmen",
+  "src": "bare stem \"Algorithmen\" already in vocab.json, article restored"
+ },
+ {
+  "id": "voc:B2:die Reichweite",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Reichweiten",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:das Abonnement",
+  "expect": {
+   "plural": "-s"
+  },
+  "plural": "die Abonnements",
+  "src": "expanded from the shorthand \"-s\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Integration",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Integrationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Norm",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Normen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Emission",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Emissionen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Krankenversicherung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Krankenversicherungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Gepflogenheit",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Gepflogenheiten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:das Kunstwerk",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Kunstwerke",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Rezension",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Rezensionen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Regisseur",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Regisseure",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:das Urteil",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Urteile",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:der Leitzins",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Leitzinsen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Infrastruktur",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Infrastrukturen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Pendlerin",
+  "expect": {
+   "plural": "-nen"
+  },
+  "plural": "die Pendlerinnen",
+  "src": "expanded from the shorthand \"-nen\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Befund",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Befunde",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Replikation",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Replikationen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Forschungsfeld",
+  "expect": {
+   "plural": "-er"
+  },
+  "plural": "die Forschungsfelder",
+  "src": "expanded from the shorthand \"-er\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Modalpartikel",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Modalpartikeln",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Spracherwerbsprozess",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Spracherwerbsprozesse",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Polarisierung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Polarisierungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Stellungnahme",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Stellungnahmen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Absichtserklärung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Absichtserklärungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Verflechtung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Verflechtungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Volksabstimmung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Volksabstimmungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Fehlbild",
+  "expect": {
+   "plural": "-er"
+  },
+  "plural": "die Fehlbilder",
+  "src": "expanded from the shorthand \"-er\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Wertschöpfungskette",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Wertschöpfungsketten",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Routinetätigkeit",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Routinetätigkeiten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Identität",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Identitäten",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:das Selbstbild",
+  "expect": {
+   "plural": "-er"
+  },
+  "plural": "die Selbstbilder",
+  "src": "expanded from the shorthand \"-er\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:die Hegemonie",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Hegemonien",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:C1:der Diskurs",
+  "expect": {
+   "plural": "-e"
+  },
+  "plural": "die Diskurse",
+  "src": "expanded from the shorthand \"-e\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Annahme",
+  "expect": {
+   "plural": "-n"
+  },
+  "plural": "die Annahmen",
+  "src": "expanded from the shorthand \"-n\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Schlussfolgerung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Schlussfolgerungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Wahrnehmung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Wahrnehmungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Überzeugung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Überzeugungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ },
+ {
+  "id": "voc:B2:die Verpflichtung",
+  "expect": {
+   "plural": "-en"
+  },
+  "plural": "die Verpflichtungen",
+  "src": "expanded from the shorthand \"-en\" already in vocab.json"
+ }
+]

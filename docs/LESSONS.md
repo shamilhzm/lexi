@@ -162,6 +162,21 @@ costs a day and closes the ticket.
 three hits are hand-verified. Write the counter-example into the check's own header when
 it turns out to be wrong.**
 
+- **The measuring instrument moved when the thing measured did not.** *(2026-08-21.)*
+  Expanding 208 shorthand plurals into full `die …` forms, `corpus:validate`'s reader
+  probe reported the **adjective** rate falling 0.955 → 0.945 — for a change that touched
+  no adjective card at all. Not a regression, and not noise: `sample()` is a full
+  Fisher–Yates shuffle, so it draws `population − 1` values, and all three probe classes
+  shared **one** seeded stream in order verb → noun → adjective. Growing the noun
+  population by 208 consumed 208 extra draws and re-rolled which 200 adjectives were
+  tested. Fixed by giving each class its own seed; verified by running the new probe
+  against the old corpus and the new one and watching verb and adjective come out
+  **bit-identical** while plural moved, which is the only number that should have.
+  **Rule: before believing a delta, ask whether the instrument's sample is the same
+  sample. A shared RNG stream couples measurements that look independent — and the
+  dangerous direction is the other one, where a lucky re-roll hides a real regression.**
+  Every probe delta recorded in CHANGELOG before this date shares that flaw.
+
 - **The A1 coverage probe** reported "an A1 learner reaches 41% of core A1 vocabulary;
   Wohnen 1 of 13" — alarming enough to reorder BACKLOG. It built a `Map` by iterating
   the corpus, so for any term on more than one card it kept whichever copy came *last*.

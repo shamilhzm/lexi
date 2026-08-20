@@ -2,7 +2,7 @@
 // weeks in, and each fix is small enough that it would be easy to undo by accident.
 import { describe, it, expect } from 'vitest';
 import { parseList, matchList } from '../components/ClassListPicker.tsx';
-import { clozeExample, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
+import { askablePlural, clozeExample, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
 import { CAN_DO, coverageNote } from './candos.ts';
 import { previewInterval, emptyCard, Rating, schedule } from '../srs.ts';
 import { registerWords } from '../data/index.ts';
@@ -169,6 +169,48 @@ describe('cloze options do not leak the answer through capitalisation', () => {
   it('survives the degenerate inputs rather than throwing mid-drill', () => {
     expect(matchInitialCase('', 'nur', 'dann')).toBe('dann');
     expect(matchInitialCase('Nur', 'nur', '')).toBe('');
+  });
+});
+
+// `plural` is a display field holding five shapes, and the drill's gate used to be
+// "is it truthy". So «choose the plural» was asked of `das Obst` with the answer
+// "nur Singular", against three real `die …` phrases — pickable on shape alone.
+// 399 of 3,200 noun cards. Only a full form is a question.
+describe('only a real plural is askable', () => {
+  const noun = (term: string, plural: string | null): Word =>
+    ({ ...w('voc:A1:x', term), plural });
+
+  it('accepts a full "die …" form', () => {
+    expect(askablePlural(noun('der Hund', 'die Hunde'))).toBe('die Hunde');
+    expect(askablePlural(noun('das Kind', 'die Kinder'))).toBe('die Kinder');
+  });
+
+  it('refuses a marker, which states there is no plural to ask for', () => {
+    expect(askablePlural(noun('das Obst', 'nur Singular'))).toBeNull();
+    expect(askablePlural(noun('die Eltern', 'nur Plural'))).toBeNull();
+    expect(askablePlural(noun('Ostern', '—'))).toBeNull();
+    expect(askablePlural(noun('das Umland', 'die –'))).toBeNull();
+  });
+
+  it('refuses shorthand — "-s" is not what the learner has to produce', () => {
+    expect(askablePlural(noun('das Handy', '-s'))).toBeNull();
+    expect(askablePlural(noun('die Speisekarte', '-n'))).toBeNull();
+    expect(askablePlural(noun('der Baum', '¨-e'))).toBeNull();
+  });
+
+  it('refuses a bare stem missing its article', () => {
+    expect(askablePlural(noun('das Thema', 'Themen'))).toBeNull();
+  });
+
+  it('refuses absent and empty, without throwing', () => {
+    expect(askablePlural(noun('der Mut', null))).toBeNull();
+    expect(askablePlural(noun('der Mut', '   '))).toBeNull();
+  });
+
+  it('is the gate eligibility uses, so the pool and the item cannot disagree', () => {
+    expect(eligibleModes(noun('der Hund', 'die Hunde'))).toContain('plural');
+    expect(eligibleModes(noun('das Obst', 'nur Singular'))).not.toContain('plural');
+    expect(eligibleModes(noun('das Handy', '-s'))).not.toContain('plural');
   });
 });
 

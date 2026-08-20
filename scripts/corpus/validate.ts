@@ -218,8 +218,23 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
 
 async function probe(full: Word[]) {
   const matcher = await primeApp(full);
-  const rng = mulberry32(99);
   const words = full.filter((w) => w.kind === 'word');
+
+  // One seed per class, not one stream for all three.
+  //
+  // `sample` is a full Fisher–Yates shuffle, so it draws `population - 1` values.
+  // With a single shared `rng` the three samples were chained: verbs, then nouns,
+  // then adjectives. Any change to an *upstream* population shifted the stream
+  // position for everything after it, so a corpus edit that touched only nouns
+  // silently re-rolled which 200 adjectives got tested.
+  //
+  // Caught 2026-08-21 expanding 208 shorthand plurals into full `die …` forms. The
+  // plural population grew 2,801 → 3,009, consuming 208 extra draws, and the
+  // adjective rate "moved" 0.955 → 0.945 without a single adjective card changing.
+  // The reverse is the dangerous direction: a real regression hidden by a lucky
+  // re-roll. Separate seeds make each class's sample stable unless that class's own
+  // population changes, which is the only thing that should move its number.
+  const seeds = { verb: 99, noun: 4519, adj: 7717 };
 
   const run = (cards: Word[], form: (w: Word) => string | null) => {
     let n = 0, hit = 0;
@@ -233,7 +248,7 @@ async function probe(full: Word[]) {
     return { n, hit, rate: n ? +(hit / n).toFixed(3) : 1 };
   };
 
-  const verbs = sample(words.filter((w) => w.pos === 'verb'), 200, rng);
+  const verbs = sample(words.filter((w) => w.pos === 'verb'), 200, mulberry32(seeds.verb));
   const verbRes = run(verbs, (w) => {
     const inf = stripArticle(w.term);
     if (!canConjugate(inf)) return null;
@@ -244,9 +259,9 @@ async function probe(full: Word[]) {
   });
   // Only probe real plural forms ("die Spiele"), not the placeholder notes some
   // existing cards carry ("nur Singular"/"nur Plural").
-  const nouns = sample(words.filter((w) => w.pos === 'noun' && w.plural && /^die\s/i.test(w.plural)), 200, rng);
+  const nouns = sample(words.filter((w) => w.pos === 'noun' && w.plural && /^die\s/i.test(w.plural)), 200, mulberry32(seeds.noun));
   const nounRes = run(nouns, (w) => stripArticle(w.plural!));
-  const adjs = sample(words.filter((w) => w.pos === 'adjective'), 200, rng);
+  const adjs = sample(words.filter((w) => w.pos === 'adjective'), 200, mulberry32(seeds.adj));
   const adjRes = run(adjs, (w) => stripArticle(w.term).toLowerCase() + 'e');
 
   // Closed-class inflections should resolve to their lemma card (EXTRA_CLOSED_FORMS).

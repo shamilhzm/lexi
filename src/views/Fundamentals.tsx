@@ -49,10 +49,41 @@ const norm = (s: string) => s.trim().toLowerCase()
   .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
   .replace(/\s+/g, ' ');
 
+/** A plural the drill may actually ask for: a full "die …" form, or nothing.
+ *
+ *  `w.plural` is a *display* field and holds five shapes, only one of which is a
+ *  question. The drill's gate was `w.plural` being truthy, so all five were asked —
+ *  audited 2026-08-21 over the shipped corpus, **399 of 3,200 noun cards with a
+ *  plural**, and every one of them broken twice over:
+ *
+ *  | shape | n | what the learner was asked |
+ *  |---|---|---|
+ *  | `"nur Singular"` / `"nur Plural"` | 114 | *choose the plural* of `das Obst` — the answer says there isn't one |
+ *  | `"—"` | 75 | *choose the plural* — the answer is a dash |
+ *  | `"-en"`, `"-s"`, `"-n"` | 201 | taught `"-s"`, never `die Handys` |
+ *  | `"die –"` | 2 | malformed |
+ *  | bare stem `"Themen"` | 7 | missing its article |
+ *
+ *  And because the distractors for a non-full plural are drawn from *other nouns'*
+ *  plurals — overwhelmingly full `die …` forms — the answer was in every case the
+ *  only option of its shape. `das Obst` offered **"nur Singular"** against
+ *  *die Namen · die Berufe · die Länder*: solvable without reading any German, and
+ *  191 of the 399 were asking a question that has no answer at all.
+ *
+ *  Gating here rather than special-casing in `PluralItem` keeps the data honest —
+ *  "no plural" is a true fact worth showing on the card face, it is simply not a
+ *  question — and collapses the item's fallback branch, which is what produced the
+ *  mismatched shapes. Cards whose plural is real but stored in shorthand are being
+ *  expanded in the corpus, which returns them to the drill through the front door. */
+export function askablePlural(w: Word): string | null {
+  const p = (w.plural ?? '').trim();
+  return /^(der|die|das)\s+[A-Za-zÄÖÜäöüß]/.test(p) ? p : null;
+}
+
 // ---- pools (lazy, level-filtered at use) ---------------------------------
 function inLevels(w: Word) { return levels().has(w.level); }
 const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && inLevels(w));
-const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && w.plural && inLevels(w));
+const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && askablePlural(w) && inLevels(w));
 const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canConjugate(w.term));
 const clozePool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && clozeExample(w));
 const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderExample(w));
@@ -702,7 +733,7 @@ export const gymId = id;
 export function eligibleModes(w: Word): Mode[] {
   const out: Mode[] = [];
   if (w.kind === 'word' && w.gender) out.push('gender');
-  if (w.kind === 'word' && w.plural) out.push('plural');
+  if (w.kind === 'word' && askablePlural(w)) out.push('plural');
   if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
   if (w.kind === 'word' && clozeExample(w)) out.push('cloze');
   if (w.kind === 'word' && orderExample(w)) out.push('order');
@@ -1073,22 +1104,19 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
 }
 
 export function PluralItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
-  const correct = word.plural!;
+  // Always a full "die …" form: `askablePlural` is the pool's and eligibility's
+  // gate, so the item can no longer be reached with a marker or a shorthand.
+  const correct = askablePlural(word)!;
   const singular = stripArticle(word.term);
   const mc = useMemo(() => {
-    // For a full "die …" plural, fabricate near-miss plurals of the *same* noun.
-    // Shorthand/marker plurals ("-en", "nur Singular", "—") fall back to other
-    // nouns' plurals (unchanged behaviour), since there’s no stem to inflect.
-    const isFull = /^(der|die|das)\s+[A-Za-zÄÖÜäöüß]/.test(correct);
-    let distract: string[];
-    if (isFull) {
-      distract = pickN(pluralVariants(singular), 3, new Set([norm(stripArticle(correct))])).map((n) => `die ${n}`);
-      if (distract.length < 3) {
-        const pad = pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!);
-        distract = distract.concat(pickN(pad, 3 - distract.length, new Set([norm(correct), ...distract.map(norm)])));
-      }
-    } else {
-      distract = pickN(pluralPool().filter((w) => w.id !== word.id).map((w) => w.plural!), 3, new Set([norm(correct)]));
+    // Near-miss plurals of the *same* noun, so every option is a `die …` form of
+    // the word being asked about. The old fallback — other nouns' plurals — is
+    // what let a "-s" or a "—" answer sit among three `die …` phrases and be
+    // picked on shape alone; there is now no shape to pick on.
+    let distract = pickN(pluralVariants(singular), 3, new Set([norm(stripArticle(correct))])).map((n) => `die ${n}`);
+    if (distract.length < 3) {
+      const pad = pluralPool().filter((w) => w.id !== word.id).map((w) => askablePlural(w)!);
+      distract = distract.concat(pickN(pad, 3 - distract.length, new Set([norm(correct), ...distract.map(norm)])));
     }
     return buildMC(correct, distract);
   }, [word.id]);

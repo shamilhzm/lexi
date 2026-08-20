@@ -32,6 +32,7 @@ should be deleted — git history is what history is for.
 | [BACKLOG.md](BACKLOG.md) | Open work only, prioritised, with effort and acceptance criteria. | Picking up work. |
 | [CHANGELOG.md](CHANGELOG.md) | Shipped work, newest first, with the reasoning kept. | Asking "why is it like this?" |
 | [LESSONS.md](LESSONS.md) | **Append-only.** Mistakes caught and the rule each produced, grouped into eight recurring classes, with a pre-work checklist at the top. | **Before starting work** — and the moment you catch a mistake, before fixing it. |
+| [AUDIT.md](AUDIT.md) | Coverage ledger for the full multi-session pass: which corpus checks have run over all 6,627 cards, which surfaces have been walked by hand, what was withdrawn. Holds no findings of its own — those go to the three files above. | Resuming the pass, or asking "has this already been looked at?" |
 
 ### Systems — how one part works, or is proposed to
 
