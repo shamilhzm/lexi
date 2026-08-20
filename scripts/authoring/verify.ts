@@ -65,6 +65,30 @@ export interface Verdict {
 }
 
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
+
+/** The page the dictionary actually has, which is not always the term.
+ *
+ *  The corpus deliberately writes more than a lemma into a headword. Government
+ *  notation — `warten auf + A`, `sich verlieben in + A`, `gehören zu + D` — is
+ *  there because the preposition *and its case* are the thing being taught, and a
+ *  learner who has met `warten` alone has not met the pattern. Reflexive `sich` is
+ *  in the term for the same reason.
+ *
+ *  de.wiktionary has no page under either string. Looking the term up verbatim
+ *  therefore rejected two whole card classes on the first character of a
+ *  preposition: 38 `verb + prep + case` cards and 90 `sich` cards are already
+ *  shipped, and this gate could not have admitted a single one of them. That is
+ *  not the dictionary disagreeing — it is the lookup asking the wrong question,
+ *  which is the failure this file is least entitled to make.
+ *
+ *  Facts are still checked against the lemma's own page; only the *lookup key* is
+ *  normalised. The term keeps its notation, and the gloss and example checks below
+ *  keep comparing against the term, not this. */
+const lemmaOf = (t: string) => stripArticle(t)
+  .replace(/\s+\S+\s*\+\s*[ADGN]$/i, '')
+  .replace(/^sich\s+/i, '')
+  .trim();
+
 const GENUS: Record<string, 'der' | 'die' | 'das'> = { m: 'der', f: 'die', n: 'das' };
 
 // ---- the authority ---------------------------------------------------------
@@ -193,20 +217,22 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   const reasons: string[] = [];
   const notes: string[] = [];
   const head = stripArticle(c.term);
+  const lemma = lemmaOf(c.term);
 
   if (existing.has(c.term.toLowerCase())) {
     return { term: c.term, ok: false, reasons: ['already in the corpus'], notes };
   }
 
   let wt: string | null;
-  try { wt = await wikitext(head); }
+  try { wt = await wikitext(lemma); }
   catch (e) {
     // Unreachable is not the same as unattested, and must not silently reject.
     return { term: c.term, ok: false, reasons: [(e as Error).message], notes };
   }
   if (!wt) {
-    return { term: c.term, ok: false, reasons: [`no de.wiktionary entry for "${head}"`], notes };
+    return { term: c.term, ok: false, reasons: [`no de.wiktionary entry for "${lemma}"`], notes };
   }
+  if (lemma !== head) notes.push(`facts checked against lemma "${lemma}"`);
   const facts = parseFacts(wt);
 
   // --- part of speech ---

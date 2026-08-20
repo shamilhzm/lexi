@@ -136,6 +136,86 @@ so an invariant cannot survive as a sentence the way the Visum one did.
 > rows deserve a proper classification pass before anyone claims a number. **What is
 > settled is that this no longer blocks Now #2 Phase 1.**
 
+**Two hand-verified instances, 2026-08-20 — the authoring gate is where this now bites.**
+Writing `auflösen` through `authoring:new`, the verifier rejected both examples because
+the matcher could not prove the headword was present:
+
+| Sentence | Form | Matcher |
+|---|---|---|
+| Vor dem Umzug hat sie ihre Wohnung **aufgelöst**. | separable participle | no match |
+| Sie **löst** ihre Wohnung **auf**. | separated finite | no match |
+| Wer auswandert, muss die Wohnung **auflösen**. | infinitive | matches |
+
+Not a new defect — it is the same separable-verb gap the re-measure above sampled as
+*`Rad fahren` / «fahre ich Rad»*. What is new is the cost: **the gate silently pushes
+every separable verb's examples toward the infinitive**, which is the one frame a learner
+least needs to see, because it is the frame where the prefix never moves. Any fix here
+should be checked against the shipped examples for separable verbs, not just the probe.
+
+### 🟢 Pattern cards are invisible to the matcher — fixed 2026-08-20, 0 → 88.6%
+
+> ✅ **Shipped the same day it was filed.** `government()` in `matcher.ts` now splits a
+> governed term into lemma + required preposition, conjugates the lemma, and matches only
+> when the preposition is genuinely in the clause. **39 of 44 (88.6%)**, up from 0 of 44.
+> The reader probe's verb rate went **0.936 → 0.941**; plural, adjective and closed-class
+> unchanged; `corpus:validate` PASS, 0 errors.
+>
+> Three causes had to be fixed, not one, and only the first was obvious: the lookup key,
+> then contractions (*«hängt **vom** Anlass ab»* carries `von` but no token spells it),
+> then the search window — a separable particle only ever lands *after* its verb, but a
+> governed preposition precedes it in every Perfekt and every modal clause
+> (*«hat sich **in** sie verliebt»*). The pattern check also had to be ranked **above** the
+> separable check, or plain `abhängen` won *hängt* on the particle alone.
+>
+> **The 5 that remain are multiword lemmas** — `Rücksicht nehmen auf + A`,
+> `Heimweh haben nach + D`, `typisch sein für + A`, `einverstanden sein mit + D`,
+> `fasziniert sein von + D`. Which of the two words carries the inflection is not
+> decidable from the string, so `government()` declines them by design rather than
+> guessing. Fixing them properly means a real multiword index, not a regex.
+>
+> **Content follow-up, XS, not done.** Five *plain* cards turned out to carry examples
+> that are pattern sentences — `verzichten` [B1] teaches «verzichtet sie **auf** Fleisch»,
+> and likewise `bitten`, `teilnehmen`, `gelangen`, `verfügen`. Their examples now
+> correctly highlight the pattern card instead of themselves. Either give the plain card
+> a non-pattern example or accept the overlap deliberately; right now it is neither.
+
+### 🔴 ~~Pattern cards are invisible to the matcher~~ — 0 of 44, measured 2026-08-20
+
+A term is not always a lemma. The corpus deliberately writes government notation into
+the headword — `warten auf + A`, `sich verlieben in + A`, `gehören zu + D` — because the
+preposition *and its case* are what is being taught. `matcher.ts` derives its verb forms
+from `stripArticle(w.term)` (l. 215, 262, 359), so for these cards it conjugates the
+string *"verzichten auf + A"*, which yields nothing.
+
+Probed over the shipped corpus — *does a card resolve in its own example?*
+
+| class | resolves | rate |
+|---|---|---|
+| `verb + prep + case` | **0 / 44** | **0.0%** |
+| reflexive `sich …` | 54 / 78 | 69.2% |
+| everything else (control) | 6,105 / 6,387 | 95.6% |
+
+The control rate is what makes this readable as a real defect rather than a broken
+probe: a probe that could not resolve words would not resolve 95.6% of them. **These 44
+cards do not highlight their own headword on their own card**, and are uncountable by
+the comprehension meter.
+
+**The decision this needs, before any code.** Indexing the bare lemma is the one-line
+fix and it is probably wrong: `warten` and `denken` already exist as A1 cards, so the
+bare token would be contested by two cards, and letting *«Ich warte»* resolve to
+`warten auf + A` would count a learner as knowing a pattern they have not met. The
+honest fix is a **discontinuous multiword match** — verb *and* its preposition present
+in the same clause — which is real work. Until then the class should probably be
+excluded from the meter's denominator rather than counted as known.
+
+**Blocked on this:** `denken an + A` and `warten auf + A` (this page's own examples,
+alongside the already-shipped `sich verlieben in + A`) cannot pass `authoring:new`,
+because the gate correctly refuses a card whose example it cannot prove contains the
+headword. The batch is parked at `scripts/authoring/batches/b2-mittelfeld-verbprep.json`.
+*(Both written 2026-08-20 once the fix above landed.)*
+
+*M · `src/lib/matcher.ts`, then re-run the probe above.*
+
 
 **The finding that matters most, because it lands on Now #2.** The matcher fails to
 resolve the headword in **3,611 of 16,681 example rows (21.6%)**. Verified by hand,

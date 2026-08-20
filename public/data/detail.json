@@ -188,6 +188,9 @@
   "gram:B1:Relativpronomen (der, die, das)": {
     "def": "A relative pronoun agrees with its noun in gender/number but takes its case from its role in the relative clause: der Mann, der dort steht (nom.); den ich kenne (acc.); dem ich helfe (dat.); dessen Auto … (gen.). Plural dative/genitive: denen, deren. The conjugated verb moves to the end."
   },
+  "gram:B1:Wortstellung: Pronomen im Mittelfeld": {
+    "def": "A personal pronoun does not wait for its ordinary object slot: it moves to the front of the Mittelfeld, straight after the finite verb, in front of every noun — including a noun subject. Two nouns keep the dative first; two pronouns put the accusative first; and with one of each, the pronoun goes first whatever its case. Position 1 still holds exactly one element, with the finite verb second."
+  },
   "gram:B1:Zweiteilige Konnektoren": {
     "def": "sowohl A als auch B (both), nicht nur A, sondern auch B (not only … but also), weder A noch B (neither … nor), entweder A oder B (either … or), je + Komparativ, desto + Komparativ (the more … the more)."
   },
@@ -220,6 +223,9 @@
   },
   "gram:B2:Konnektoren (deshalb/trotzdem)": {
     "def": "deshalb, deswegen, trotzdem, außerdem stand in position 1, so the verb stays in position 2. e.g. Es regnet, deshalb bleibe ich zu Hause."
+  },
+  "gram:B2:Mittelfeld: Ergänzungen & Angaben": {
+    "def": "The Mittelfeld is everything between the finite verb and the closing bracket, and it has a default order rather than a fixed one. Adverbials (Angaben) run temporal – kausal – modal – lokal: te–ka–mo–lo. Complements (Ergänzungen) slot around them: a Dativ noun goes in front of the Angaben, an Akkusativ noun goes after them but before the lokal Angabe, and a prepositional object closes the Mittelfeld. Any one element can move to position 1 for emphasis; the rest keep their order."
   },
   "gram:B2:Modalpartikeln II: eigentlich, eben, halt, wohl": {
     "def": "Modal particles colour a statement without changing its facts and are never stressed. eigentlich softens or adds \"actually / by the way\" (Was machst du eigentlich?); eben and halt express resignation, \"just the way it is\" (eben more neutral/northern, halt southern: Das ist halt so); wohl marks a guess, \"probably\" (Er ist wohl krank). They sit in the middle field, after the finite verb and any pronouns."
@@ -61025,6 +61031,21 @@
       }
     ]
   },
+  "voc:B1:denken an + A": {
+    "def": "To have someone or something in your mind.",
+    "ex": [
+      {
+        "de": "Ich denke oft an meine Familie in Australien.",
+        "en": "I often think of my family in Australia.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat den ganzen Tag an ihn gedacht.",
+        "en": "She thought about him all day.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Abgeordnete": {
     "def": "An elected member of a parliament.",
     "ex": [
@@ -90528,6 +90549,21 @@
       }
     ]
   },
+  "voc:B1:warten auf + A": {
+    "def": "To stay where you are until someone or something comes.",
+    "ex": [
+      {
+        "de": "Sie wartet seit Monaten auf ihr Visum.",
+        "en": "She has been waiting for her visa for months.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben lange auf eine Antwort gewartet.",
+        "en": "We waited a long time for an answer.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:weder": {
     "def": "Used with 'noch' to mean 'neither ... nor'.",
     "ex": [
@@ -92249,6 +92285,21 @@
       }
     ]
   },
+  "voc:B2:abenteuerlich": {
+    "def": "Full of risk and excitement, or fond of exactly that.",
+    "ex": [
+      {
+        "de": "Er ist ein abenteuerlicher Typ und reist am liebsten allein.",
+        "en": "He is an adventurous type and prefers to travel alone.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Fahrt über den Pass war ziemlich abenteuerlich.",
+        "en": "The drive over the pass was quite hair-raising.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:abermals": {
     "def": "Yet again; one more time.",
     "ex": [
@@ -92735,6 +92786,21 @@
       {
         "de": "Nach der Nachricht war sie den ganzen Tag aufgewühlt.",
         "en": "After the news she was agitated all day.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:auflösen": {
+    "def": "To clear out and give up a home, or to make something come apart.",
+    "ex": [
+      {
+        "de": "Vor dem Umzug nach Kanada musste sie ihre Wohnung auflösen.",
+        "en": "Before moving to Canada she had to give up her flat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wer auswandert, muss oft die ganze Wohnung auflösen.",
+        "en": "Anyone who emigrates often has to clear out the whole flat.",
         "lvl": "B2"
       }
     ]
@@ -94631,6 +94697,21 @@
       }
     ]
   },
+  "voc:B2:der Abschied": {
+    "def": "The moment of leaving people or a place behind.",
+    "ex": [
+      {
+        "de": "Der Abschied von meiner Familie fiel mir sehr schwer.",
+        "en": "Saying goodbye to my family was very hard for me.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zum Abschied haben wir alle noch einmal zusammen gegessen.",
+        "en": "As a farewell we all ate together one more time.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Abstieg": {
     "def": "The act of going down; also being moved to a lower league.",
     "ex": [
@@ -95564,6 +95645,21 @@
       {
         "de": "Ich hatte einen Herzinfarkt.",
         "en": "I had a heart attack.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Horizont": {
+    "def": "The line where sky meets land, or the range of what someone knows.",
+    "ex": [
+      {
+        "de": "Ein Jahr im Ausland erweitert den Horizont.",
+        "en": "A year abroad broadens your horizons.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Sonne verschwand langsam am Horizont.",
+        "en": "The sun slowly disappeared on the horizon.",
         "lvl": "B2"
       }
     ]
@@ -97261,6 +97357,21 @@
       {
         "de": "Um die Arbeitsbelastung zu senken, wurden zwei Stellen geschaffen.",
         "en": "To reduce the workload, two positions were created.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Arbeitserlaubnis": {
+    "def": "Official permission for a foreigner to take a job in a country.",
+    "ex": [
+      {
+        "de": "Ohne Arbeitserlaubnis darf man hier nicht arbeiten.",
+        "en": "Without a work permit you are not allowed to work here.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es hat drei Monate gedauert, bis ich meine Arbeitserlaubnis bekommen habe.",
+        "en": "It took three months until I got my work permit.",
         "lvl": "B2"
       }
     ]
@@ -100184,6 +100295,21 @@
       }
     ]
   },
+  "voc:B2:die Sehnsucht": {
+    "def": "A strong, aching wish for someone or something far away.",
+    "ex": [
+      {
+        "de": "Nach zwei Jahren im Ausland hatte er große Sehnsucht nach seiner Familie.",
+        "en": "After two years abroad he badly missed his family.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Sehnsucht nach der alten Heimat wurde immer stärker.",
+        "en": "The longing for his old home grew stronger and stronger.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Selbstdisziplin": {
     "def": "The ability to control one's own behaviour and keep to goals.",
     "ex": [
@@ -102693,6 +102819,21 @@
       }
     ]
   },
+  "voc:B2:gewohnt": {
+    "def": "Familiar because you have always had or done it that way.",
+    "ex": [
+      {
+        "de": "Sie hat ihr gewohntes Leben aufgegeben und ist ausgewandert.",
+        "en": "She gave up her accustomed life and emigrated.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Umzug fehlte ihm die gewohnte Umgebung.",
+        "en": "After the move he missed his familiar surroundings.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:gewährleisten": {
     "def": "to ensure; to guarantee",
     "ex": [
@@ -103364,6 +103505,21 @@
       {
         "de": "Das Werk soll in zehn Jahren klimaneutral produzieren.",
         "en": "The plant is to produce in a climate-neutral way in ten years.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:knüpfen": {
+    "def": "To form a connection with people, or to tie something into a knot.",
+    "ex": [
+      {
+        "de": "Auf der Konferenz habe ich viele neue Kontakte geknüpft.",
+        "en": "I made a lot of new contacts at the conference.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In einer fremden Stadt Kontakte zu knüpfen fällt mir schwer.",
+        "en": "I find it hard to make contacts in an unfamiliar city.",
         "lvl": "B2"
       }
     ]
@@ -104331,6 +104487,21 @@
       {
         "de": "Rauchen ist schädlich für die Lunge.",
         "en": "Smoking is harmful to the lungs.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:sehnsüchtig": {
+    "def": "Showing a strong wish for something or someone you miss.",
+    "ex": [
+      {
+        "de": "Sie wartete sehnsüchtig auf einen Brief von zu Hause.",
+        "en": "She waited longingly for a letter from home.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er dachte sehnsüchtig an seine alte Heimat.",
+        "en": "He thought wistfully of his old home.",
         "lvl": "B2"
       }
     ]
@@ -105806,6 +105977,21 @@
       {
         "de": "Tom wohnt vorübergehend hier.",
         "en": "Tom is living here temporarily.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:wagen": {
+    "def": "To do something despite the risk it carries.",
+    "ex": [
+      {
+        "de": "Ich habe es gewagt und bin nach Australien ausgewandert.",
+        "en": "I took the risk and emigrated to Australia.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach langem Zögern wagte er den Schritt in die Selbstständigkeit.",
+        "en": "After hesitating for a long time he took the step into self-employment.",
         "lvl": "B2"
       }
     ]

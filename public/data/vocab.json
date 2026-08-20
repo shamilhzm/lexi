@@ -207050,5 +207050,361 @@
     ],
     "field": "Legal Terms",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:auflösen",
+    "term": "auflösen",
+    "en": "to dissolve; to break up (a household)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌløːzn̩",
+    "def": "To clear out and give up a home, or to make something come apart.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Vor dem Umzug nach Kanada musste sie ihre Wohnung auflösen.",
+        "en": "Before moving to Canada she had to give up her flat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wer auswandert, muss oft die ganze Wohnung auflösen.",
+        "en": "Anyone who emigrates often has to clear out the whole flat.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Real Estate & Moving",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:knüpfen",
+    "term": "knüpfen",
+    "en": "to tie; to make (contacts)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈknʏp͡fn̩",
+    "def": "To form a connection with people, or to tie something into a knot.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auf der Konferenz habe ich viele neue Kontakte geknüpft.",
+        "en": "I made a lot of new contacts at the conference.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In einer fremden Stadt Kontakte zu knüpfen fällt mir schwer.",
+        "en": "I find it hard to make contacts in an unfamiliar city.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Contact & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:wagen",
+    "term": "wagen",
+    "en": "to dare, to venture",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaːɡn̩",
+    "def": "To do something despite the risk it carries.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe es gewagt und bin nach Australien ausgewandert.",
+        "en": "I took the risk and emigrated to Australia.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach langem Zögern wagte er den Schritt in die Selbstständigkeit.",
+        "en": "After hesitating for a long time he took the step into self-employment.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Decisions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:abenteuerlich",
+    "term": "abenteuerlich",
+    "en": "adventurous; hair-raising",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaːbn̩ˌtɔɪ̯ɐlɪç",
+    "def": "Full of risk and excitement, or fond of exactly that.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist ein abenteuerlicher Typ und reist am liebsten allein.",
+        "en": "He is an adventurous type and prefers to travel alone.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Fahrt über den Pass war ziemlich abenteuerlich.",
+        "en": "The drive over the pass was quite hair-raising.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Abschied",
+    "term": "der Abschied",
+    "en": "farewell, parting",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Abschiede",
+    "ipa": "ˈapˌʃiːt",
+    "def": "The moment of leaving people or a place behind.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Abschied von meiner Familie fiel mir sehr schwer.",
+        "en": "Saying goodbye to my family was very hard for me.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zum Abschied haben wir alle noch einmal zusammen gegessen.",
+        "en": "As a farewell we all ate together one more time.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emigration & immigration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Arbeitserlaubnis",
+    "term": "die Arbeitserlaubnis",
+    "en": "work permit",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Arbeitserlaubnisse",
+    "ipa": "ˈaʁbaɪ̯t͡sʔɛɐ̯ˌlaʊ̯pnɪs",
+    "def": "Official permission for a foreigner to take a job in a country.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne Arbeitserlaubnis darf man hier nicht arbeiten.",
+        "en": "Without a work permit you are not allowed to work here.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es hat drei Monate gedauert, bis ich meine Arbeitserlaubnis bekommen habe.",
+        "en": "It took three months until I got my work permit.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emigration & immigration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Horizont",
+    "term": "der Horizont",
+    "en": "horizon",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Horizonte",
+    "ipa": "hoʁiˈt͡sɔnt",
+    "def": "The line where sky meets land, or the range of what someone knows.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Jahr im Ausland erweitert den Horizont.",
+        "en": "A year abroad broadens your horizons.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Sonne verschwand langsam am Horizont.",
+        "en": "The sun slowly disappeared on the horizon.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Sehnsucht",
+    "term": "die Sehnsucht",
+    "en": "longing, yearning",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Sehnsüchte",
+    "ipa": "ˈzeːnˌzʊxt",
+    "def": "A strong, aching wish for someone or something far away.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach zwei Jahren im Ausland hatte er große Sehnsucht nach seiner Familie.",
+        "en": "After two years abroad he badly missed his family.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Sehnsucht nach der alten Heimat wurde immer stärker.",
+        "en": "The longing for his old home grew stronger and stronger.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:sehnsüchtig",
+    "term": "sehnsüchtig",
+    "en": "longing, wistful",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzeːnˌzʏçtɪç",
+    "def": "Showing a strong wish for something or someone you miss.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie wartete sehnsüchtig auf einen Brief von zu Hause.",
+        "en": "She waited longingly for a letter from home.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er dachte sehnsüchtig an seine alte Heimat.",
+        "en": "He thought wistfully of his old home.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:gewohnt",
+    "term": "gewohnt",
+    "en": "usual, accustomed",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈvoːnt",
+    "def": "Familiar because you have always had or done it that way.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat ihr gewohntes Leben aufgegeben und ist ausgewandert.",
+        "en": "She gave up her accustomed life and emigrated.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Umzug fehlte ihm die gewohnte Umgebung.",
+        "en": "After the move he missed his familiar surroundings.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Everyday Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:denken an + A",
+    "term": "denken an + A",
+    "en": "to think of/about",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdɛŋkn̩",
+    "def": "To have someone or something in your mind.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich denke oft an meine Familie in Australien.",
+        "en": "I often think of my family in Australia.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat den ganzen Tag an ihn gedacht.",
+        "en": "She thought about him all day.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:warten auf + A",
+    "term": "warten auf + A",
+    "en": "to wait for",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaʁtn̩",
+    "def": "To stay where you are until someone or something comes.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie wartet seit Monaten auf ihr Visum.",
+        "en": "She has been waiting for her visa for months.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben lange auf eine Antwort gewartet.",
+        "en": "We waited a long time for an answer.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Everyday Life",
+    "kind": "word"
+  },
+  {
+    "id": "gram:B2:Mittelfeld: Ergänzungen & Angaben",
+    "term": "Mittelfeld: Ergänzungen & Angaben",
+    "en": "Dativ before the Angaben, Akkusativ after them — and te–ka–mo–lo between.",
+    "pos": "grammar",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "The Mittelfeld is everything between the finite verb and the closing bracket, and it has a default order rather than a fixed one. Adverbials (Angaben) run temporal – kausal – modal – lokal: te–ka–mo–lo. Complements (Ergänzungen) slot around them: a Dativ noun goes in front of the Angaben, an Akkusativ noun goes after them but before the lokal Angabe, and a prepositional object closes the Mittelfeld. Any one element can move to position 1 for emphasis; the rest keep their order.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
+  },
+  {
+    "id": "gram:B1:Wortstellung: Pronomen im Mittelfeld",
+    "term": "Wortstellung: Pronomen im Mittelfeld",
+    "en": "Pronouns run to the front — and Akkusativ before Dativ.",
+    "pos": "grammar",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "A personal pronoun does not wait for its ordinary object slot: it moves to the front of the Mittelfeld, straight after the finite verb, in front of every noun — including a noun subject. Two nouns keep the dative first; two pronouns put the accusative first; and with one of each, the pronoun goes first whatever its case. Position 1 still holds exactly one element, with the finite verb second.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
   }
 ]

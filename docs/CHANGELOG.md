@@ -11,6 +11,136 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-20 — pronoun order lands at B1, and the B2 Akkusativ rule was too flat
+
+Working the *Neue Heimat* Modul 1 exercises by hand — the page the B2 point below was
+built from — turned up one gap and one defect.
+
+**The gap: B1 had nothing on word order.** Between A1's `Wortstellung & Fragen`
+(verb-second) and the B2 Mittelfeld point there was nothing, so a learner with the level
+filter at B1 got no word-order drills at all — at exactly the level the courses teach
+them. New point `Wortstellung: Pronomen im Mittelfeld` (B1, 12 exercises, 5 rule
+sections), and it is not a thinner copy of B2: it teaches the move a **pronoun** makes,
+which no point in the bank stated. A2's `Dativ: Pronomen & Stellung` gives the two-object
+rule with the subject always a pronoun, so the learner never meets the case that breaks
+it — a pronoun runs to the front of the Mittelfeld **past a noun subject too**:
+*«Gestern hat mir mein Freund geholfen»*. Nouns keep Dativ first, pronouns flip to
+Akkusativ first, and a pronoun beats a noun whatever the cases.
+
+**The defect: the B2 rule said an Akkusativ noun stands behind the Angaben, flat.** Only
+an indefinite one does. A definite Akkusativ is known information and may cross the
+Angabe — *«Ich habe die Rechnung gestern in die Filiale geschickt»* — which is one of the
+two model answers Dreyer §22 prints for its own worked example. The flat version does not
+just omit a case: it marks a correct sentence wrong. Rule 482 → 624 chars, a
+`known information moves left` section, and three exercises including the one that would
+have failed. Recorded in LESSONS Class 6, with a new checklist line: *before shipping a
+teaching rule, write the sentence it would reject.*
+
+`GRAMMAR_COUNTS` 137 → 138 points, 6,144 → 6,159 exercises. `corpus:validate` PASS.
+
+---
+
+### Shipped 2026-08-20 — pattern cards can be read, and the Mittelfeld is taught at B2
+
+The second *Neue Heimat* page is grammar, not vocabulary — Modul 1's Mittelfeld word
+order. Checked the same way, and the vocabulary was almost entirely covered already
+(19 of 31; most of the rest is metalanguage that lives in the grammar layer as
+`pos: grammar` cards, not as nouns). Two things came out of it.
+
+**The matcher can now read a pattern card — 0 of 44 → 39 of 44 (88.6%).** A governed term
+is not a lemma, and `matcher.ts` had been conjugating the string *"verzichten auf + A"*.
+`government()` now splits it into lemma + required preposition and matches only when the
+preposition is genuinely in the clause, so *«Sie wartet auf ihr Visum»* is the pattern and
+*«Sie wartet»* stays the plain A1 `warten`. Three causes, and only the first was obvious:
+the lookup key; then contractions, because *«hängt **vom** Anlass ab»* carries `von` and
+no token spells it; then the search window, because a separable particle only ever lands
+*after* its verb while a governed preposition precedes it in every Perfekt clause. The
+pattern check also had to outrank the separable check, or plain `abhängen` won *hängt* on
+the particle alone. Reader probe verb rate 0.936 → 0.941, everything else flat, PASS.
+
+The five that remain are multiword lemmas (`Rücksicht nehmen auf + A`,
+`Heimweh haben nach + D`, …) and are declined by design: which word carries the
+inflection is not decidable from the string, and a wrong match is worse than a miss.
+
+A five-card "regression" in the control class turned out to be the fix working — the
+plain `verzichten` card's own example is a `verzichten auf` sentence, so the more
+specific card now claims it. Recorded in LESSONS Class 2, because the probe could not
+tell a wrong answer from a better one.
+
+With that in place `denken an + A` and `warten auf + A` passed the gate and were
+written: **6,623 → 6,625**.
+
+**Mittelfeld order is now taught at B2, where the courses teach it.** `TeKaMoLo &
+Satzklammer` stays at C1 — its id carries FSRS progress and the bracket is the harder
+half — and the new B2 point `Mittelfeld: Ergänzungen & Angaben` (14 exercises, 6 rule
+sections) covers what C1 genuinely does not: the **Ergänzungen**. C1 states the *pronoun*
+rule ("es ihm"); the noun rule runs the other way — Dativ in front of the Angaben,
+Akkusativ behind them, prepositional object last — and a learner holding only the pronoun
+rule orders every noun pair wrong while believing they know the system. Introduce at B2,
+consolidate at C1: a spiral, not a duplicate. `GRAMMAR_COUNTS` 136 → 137 points,
+6,130 → 6,144 exercises, which the grammar test caught before it could drift.
+
+---
+
+### Shipped 2026-08-20 — the authoring gate could not admit two whole card classes
+
+Reading the *Neue Heimat* Modul 1 grammar page (Mittelfeld word order) turned up two
+cards worth adding — `denken an + A`, `warten auf + A` — and the gate rejected both with
+*"no de.wiktionary entry for denken an + A"*. It was looking the **term** up as a
+dictionary page.
+
+A term is not always a lemma. The corpus writes government notation into the headword on
+purpose, because the preposition and its case are the thing being taught, and reflexive
+`sich` for the same reason. de.wiktionary has a page for neither string. So the gate
+could not have admitted **any** of the 38 `verb + prep + case` cards or the 90 `sich`
+cards already shipped — not the dictionary disagreeing, but the lookup asking the wrong
+question, which is the failure that file is least entitled to make.
+
+`verify.ts` now derives a `lemmaOf()` for the **lookup key only** — strip the article,
+the `prep + Case` tail, the reflexive pronoun — and notes in the report when facts were
+checked against a lemma that differs from the term. The term keeps its notation; the
+gloss and example checks still compare against the term.
+
+That exposed the larger defect underneath, now measured and filed 🔴 in BACKLOG:
+`matcher.ts` derives verb forms from the same un-normalised term, so it conjugates the
+string *"verzichten auf + A"*. **0 of 44 pattern cards resolve in their own example**,
+against a 95.6% control. Deliberately not fixed in this pass — the one-line fix
+(index the bare lemma) would let *«Ich warte»* count as knowing `warten auf + A`, and
+would contest the existing A1 `warten` card. The two new cards stay parked until that
+is decided.
+
+---
+
+### Shipped 2026-08-20 — a B2 textbook page, checked against the corpus before writing a word
+
+A *Neue Heimat* chapter opener (emigration: the leaving checklist, then a blog about a
+move to Australia) was read for vocabulary Lexi should teach. **Fifty-one candidate
+headwords were checked against `vocab.json` first, and thirty-seven were already there** —
+which is the point of checking: the cheap failure mode here is authoring a second
+`die Beziehung`.
+
+Four more of the fourteen "gaps" were a bug in my own probe, which stripped reflexive
+`sich` from the candidate but not from the corpus key, so `sich verlieben`,
+`sich kümmern`, `sich einleben` and `sich verabschieden` all read as missing while
+sitting in the file. Recorded in LESSONS Class 2.
+
+**Ten cards written, `6,613 → 6,623`**, all ten through `authoring:new`'s machine gate —
+gender, plural and IPA taken from de.wiktionary rather than generated, and every example
+proved to contain a real inflection of its headword: *auflösen · knüpfen · wagen ·
+abenteuerlich · der Abschied · die Arbeitserlaubnis · der Horizont · die Sehnsucht ·
+sehnsüchtig · gewohnt*. Two candidates were declined rather than written —
+*netterweise* and *der Grafiker* — as page-specific rather than teachable.
+
+`auflösen` was rejected twice before it landed, and the reason is worth keeping: the
+matcher cannot see the headword in *aufgelöst* or in *löst … auf*, only in the bare
+infinitive. That is the known separable-verb gap, but the gate turns it into a content
+bias — it pushes every separable verb's examples toward the one frame where the prefix
+never moves. Written up under the matcher item in BACKLOG.
+
+Batch kept at `scripts/authoring/batches/b2-neue-heimat.json`. `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-16 — three composition findings, measured instead of built
 
 Atlas pass 2's remaining headline items were next on the list. All three were

@@ -18,6 +18,43 @@ import type { Word } from '../types.ts';
 
 const stripArticle = (term: string) => term.replace(/^(der|die|das)\s+/i, '');
 
+/** A term carrying government notation — `warten auf + A`, `sich verlieben in + A`,
+ *  `gehören zu + D` — is a **pattern**, not a lemma, and the distinction is the
+ *  whole content of the card: a learner who has met `warten` has not met
+ *  `warten auf`. The corpus writes the preposition and its case into the headword
+ *  for exactly that reason.
+ *
+ *  Everything downstream nonetheless read the term as a lemma. `conjugate` was
+ *  handed the string *"verzichten auf + A"*, produced nothing, and **0 of 44 such
+ *  cards resolved in their own example** against a 95.6% control — they did not
+ *  highlight on their own card and were invisible to the reader.
+ *
+ *  Returns the lemma to conjugate and the preposition that must be present for the
+ *  pattern to count. `null` for an ordinary term. Multiword lemmas
+ *  (`Rücksicht nehmen auf + A`, `Heimweh haben nach + D`) are deliberately not
+ *  claimed: which of the two words carries the inflection is not decidable from the
+ *  string, and a wrong match is worse than a miss. */
+export function government(term: string): { lemma: string; prep: string } | null {
+  const m = /^(.*?)\s+(\S+)\s*\+\s*[ADGN]$/i.exec(stripArticle(term).trim());
+  if (!m) return null;
+  const lemma = m[1].replace(/^sich\s+/i, '').trim();
+  if (!lemma || lemma.includes(' ')) return null;
+  return { lemma, prep: m[2].toLowerCase() };
+}
+
+/** Preposition + article, written as one word. German does this constantly and a
+ *  governed preposition is hit by it hard: *«Das hängt **vom** Anlass ab»* carries
+ *  `von`, but no token in that sentence spells it. Looking for the bare preposition
+ *  alone missed every contracted object. */
+const CONTRACTED: Record<string, string> = {
+  am: 'an', ans: 'an', aufs: 'auf', beim: 'bei', durchs: 'durch', fürs: 'für',
+  im: 'in', ins: 'in', überm: 'über', übers: 'über', ums: 'um', unterm: 'unter',
+  unters: 'unter', vom: 'von', vorm: 'vor', vors: 'vor', zum: 'zu', zur: 'zu',
+};
+/** Does this clause contain `prep`, spelled plainly or contracted with an article? */
+const hasPrep = (toks: string[], prep: string) =>
+  toks.some((t) => t === prep || CONTRACTED[t] === prep);
+
 /** Closed-class words (articles, pronouns, prepositions, conjunctions,
  *  contractions) that aren't learnable vocab. */
 export const FUNCTION_WORDS = new Set<string>([
@@ -212,7 +249,10 @@ export interface Matcher {
  *  index of surface forms (terms, article-stripped terms, plurals, and every
  *  conjugated verb form) so inflections resolve to their lemma card. */
 export function buildMatcher(corpus: Word[]): Matcher {
-  setKnownVerbs(corpus.filter((w) => w.pos === 'verb').map((w) => w.term));
+  // A governed verb's root is its lemma, not its term. Priming the conjugator with
+  // "verzichten auf + A" taught it a root that appears in no German sentence.
+  setKnownVerbs(corpus.filter((w) => w.pos === 'verb')
+    .map((w) => government(w.term)?.lemma ?? w.term));
 
   const index = new Map<string, Word>();
   const adjIndex = new Map<string, Word>(); // adjective lemma -> Word, for de-inflection
@@ -235,6 +275,22 @@ export function buildMatcher(corpus: Word[]): Matcher {
     const list = sepIndex.get(stem) ?? [];
     if (!list.some((e) => e.word.id === w.id)) list.push({ word: w, particle });
     sepIndex.set(stem, list);
+  };
+
+  // Governed verbs (`warten auf + A`), keyed by an inflected form of the lemma with
+  // the required preposition recorded beside it — the same shape as `sepIndex`, and
+  // for the same reason: the evidence for the card is two tokens, not one.
+  //
+  // Deliberately kept out of `index` and `verbIndex`. `warten` and `denken` are
+  // already A1 cards in their own right, and letting a bare *«Ich warte»* resolve to
+  // `warten auf + A` would credit a learner with a pattern they have not met and
+  // inflate the comprehension meter — the one number the app exists to state honestly.
+  const patIndex = new Map<string, { word: Word; prep: string }[]>();
+  const addPat = (form: string, prep: string, w: Word) => {
+    if (!form || !prep) return;
+    const list = patIndex.get(form) ?? [];
+    if (!list.some((e) => e.word.id === w.id)) list.push({ word: w, prep });
+    patIndex.set(form, list);
   };
 
   // Base forms first, so a lemma always wins over another word's inflection.
@@ -342,6 +398,37 @@ export function buildMatcher(corpus: Word[]): Matcher {
     } catch { /* skip unconjugable */ }
   }
 
+  // Governed terms: conjugate the lemma, key every form by the preposition it needs.
+  for (const w of corpus) {
+    const g = government(w.term);
+    if (!g) continue;
+    const forms = new Set<string>([g.lemma.toLowerCase()]);
+    // `arbeiten als + N` and `gelten als + N` are tagged `phrase`, not `verb`, and
+    // gating on pos alone left them with an uninflected lemma — so the card missed
+    // its own «Sie *arbeitet* als Krankenschwester». The lemma either conjugates or
+    // it does not; that is the better question to ask. Adjectives (`abhängig von`)
+    // and the genitive prepositions keep the bare form, as they should.
+    if ((w.pos === 'verb' || w.pos === 'phrase') && canConjugate(g.lemma)) {
+      try {
+        const c = conjugate(g.lemma);
+        for (const f of [...c.praesens, ...c.praeteritum, c.partizip]) {
+          const lcf = f.toLowerCase();
+          const space = lcf.indexOf(' ');
+          if (space < 0) { forms.add(lcf); continue; }
+          // Governed *and* separable — `abhängen von + D`, `sich einsetzen für + A`.
+          // The conjugator hands back "hängt ab"; the text has the stem here and the
+          // particle at the clause end. Key the stem, as `sepIndex` does, and the
+          // joined form a Nebensatz produces ("…, weil das vom Wetter abhängt").
+          forms.add(lcf.slice(0, space));
+          forms.add(lcf.slice(space + 1) + lcf.slice(0, space));
+        }
+        const du = c.praesens[1];
+        if (du && !du.includes(' ')) forms.add(du.replace(/st$/, '').toLowerCase());
+      } catch { /* fall back to the lemma alone */ }
+    }
+    for (const f of forms) addPat(f, g.prep, w);
+  }
+
   // Present tense of the verbs the conjugator refuses to drill.
   //
   // `canConjugate` is a gate on *teaching*, and the loop above used it as a gate
@@ -412,15 +499,30 @@ export function buildMatcher(corpus: Word[]): Matcher {
    *  used only to confirm a separable verb's particle actually landed.
    *  @param prev the immediately preceding token, lowercased.
    *  @param pos 0-based position of this token within its own sentence. */
-  const matchWord = (tok: string, after: string[] = [], prev = '', pos = -1): Word | null => {
+  const matchWord = (tok: string, after: string[] = [], prev = '', pos = -1, before: string[] = []): Word | null => {
     const lc = tok.toLowerCase();
 
-    // 1. A separable verb, but only when the particle is genuinely present later in
+    // 1. A governed verb, when the preposition the card teaches is really in the
+    //    clause. *«Sie wartet auf ihr Visum»* is the pattern; *«Sie wartet»* is the
+    //    plain A1 `warten` and falls through to it below.
+    //
+    //    **Ranked above the separable check, which is not obvious and was measured.**
+    //    `abhängen von + D` and plain `abhängen` both claim *hängt* in
+    //    *«Das hängt vom Anlass ab»*; with `sepIndex` first the plain card won every
+    //    time on the particle alone, and the pattern card — the more specific of the
+    //    two, and the one carrying the teaching — could never be reached. A hit here
+    //    requires the preposition, so it is strictly the stronger evidence.
+    const pat = patIndex.get(lc);
+    if (pat) {
+      const clause = before.concat(after);
+      const hit = pat.find((e) => hasPrep(clause, e.prep));
+      if (hit) return hit.word;
+    }
+
+    // 2. A separable verb, but only when the particle is genuinely present later in
     //    the clause. German puts it at the end ("Ich *rufe* dich später *an*"), so
     //    requiring it *after* the verb both matches the grammar and stops a
-    //    preposition earlier in the sentence from being read as a particle. Both
-    //    halves observed is stronger evidence than any single-token lookup, so this
-    //    runs first.
+    //    preposition earlier in the sentence from being read as a particle.
     const sep = sepIndex.get(lc);
     if (sep) {
       const hit = sep.find((e) => after.includes(e.particle));
@@ -428,7 +530,7 @@ export function buildMatcher(corpus: Word[]): Matcher {
     }
 
     const direct = index.get(lc);
-    // 2. A token that is both a lemma of some other class and a finite verb form —
+    // 3. A token that is both a lemma of some other class and a finite verb form —
     //    *weiß* is the colour and it is `wissen`'s 1st/3rd singular.
     //
     //    German is verb-**second**, and that word "second" is load-bearing. A first
@@ -443,7 +545,7 @@ export function buildMatcher(corpus: Word[]): Matcher {
       const verb = verbIndex.get(lc);
       if (verb) return verb;
     }
-    // 3. `die Rufe` (noun plural) and `ich rufe` (verb) collide. German capitalises
+    // 4. `die Rufe` (noun plural) and `ich rufe` (verb) collide. German capitalises
     //    nouns, so a *lowercase* token whose only claim in the primary index is a
     //    noun's plural is far likelier to be the verb. Sentence-initial words are
     //    capitalised regardless of class, which is why the test is on the token
@@ -453,7 +555,7 @@ export function buildMatcher(corpus: Word[]): Matcher {
       if (verb) return verb;
     }
     if (direct) return direct;
-    // 3. A verb form that lost the first-wins race to an unrelated lemma.
+    // 5. A verb form that lost the first-wins race to an unrelated lemma.
     const verb = verbIndex.get(lc);
     if (verb) return verb;
     // Dative plural adds -n (Wählern → Wähler). Accept only a noun match.
@@ -577,6 +679,15 @@ export function buildMatcher(corpus: Word[]): Matcher {
       }
       return toks.length;
     };
+    /** Mirror of `sentenceEnd`, walking back — bounds the governed-preposition
+     *  search so a preposition in the previous sentence cannot be claimed. */
+    const sentenceStart = (i: number) => {
+      for (let j = i; j > 0; j--) {
+        const between = text.slice(toks[j - 1].start + toks[j - 1].text.length, toks[j].start);
+        if (/[.!?;]/.test(between)) return j;
+      }
+      return 0;
+    };
 
     const out: Segment[] = [];
     let last = 0;
@@ -586,7 +697,13 @@ export function buildMatcher(corpus: Word[]): Matcher {
       if (start > last) out.push({ text: text.slice(last, start), word: null, isWord: false });
       const after = toks.slice(i + 1, sentenceEnd(i)).map((t) => t.text.toLowerCase());
       const prev = i > 0 ? toks[i - 1].text.toLowerCase() : '';
-      out.push({ text: tok, word: tok.length >= 2 ? matchWord(tok, after, prev, posInSentence) : null, isWord: true });
+      // Tokens before this one, back to the last sentence boundary. A separable
+      // particle only ever lands *after* its verb, but a governed preposition does
+      // not: German puts the prepositional object in front of the closing bracket,
+      // so *«hat sich in sie verliebt»* and *«mit Geld umgehen»* carry it before the
+      // verb form. Looking only forward missed every Perfekt and every modal.
+      const before = toks.slice(sentenceStart(i), i).map((t) => t.text.toLowerCase());
+      out.push({ text: tok, word: tok.length >= 2 ? matchWord(tok, after, prev, posInSentence, before) : null, isWord: true });
       last = start + tok.length;
       // Reset at a sentence boundary so "second position" means second in *this*
       // clause, not the paragraph.

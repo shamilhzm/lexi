@@ -65109,6 +65109,201 @@
           "explain": "Purely phonetic glue — and unpredictable enough that compounds are worth learning whole."
         }
       ]
+    },
+    {
+      "title": "Wortstellung: Pronomen im Mittelfeld",
+      "summary": "Pronouns run to the front — and Akkusativ before Dativ.",
+      "rule": "A personal pronoun does not wait for its ordinary object slot: it moves to the front of the Mittelfeld, straight after the finite verb, in front of every noun — including a noun subject. Two nouns keep the dative first; two pronouns put the accusative first; and with one of each, the pronoun goes first whatever its case. Position 1 still holds exactly one element, with the finite verb second.",
+      "sections": [
+        {
+          "label": "two nouns — dative first",
+          "examples": [
+            {
+              "de": "Ich schenke meinem Bruder das Buch.",
+              "en": "the person, then the thing"
+            }
+          ]
+        },
+        {
+          "label": "two pronouns — accusative first",
+          "examples": [
+            {
+              "de": "Ich schenke es ihm.",
+              "en": "the thing, then the person — the mirror image"
+            }
+          ]
+        },
+        {
+          "label": "one of each — the pronoun leads",
+          "pairs": [
+            {
+              "from": "Ich schenke ihm das Buch.",
+              "to": "dative pronoun before accusative noun"
+            },
+            {
+              "from": "Ich schenke es meinem Bruder.",
+              "to": "accusative pronoun before dative noun"
+            }
+          ]
+        },
+        {
+          "label": "in front of a noun subject too",
+          "body": "The pronoun overtakes a subject that is a noun. The other order is heard, but this is the neutral one.",
+          "examples": [
+            {
+              "de": "Gestern hat mir mein Freund geholfen.",
+              "en": "pronoun in front of the subject"
+            },
+            {
+              "de": "Am Flughafen hat uns der Beamte alles erklärt.",
+              "en": "the same move after a fronted element"
+            }
+          ]
+        },
+        {
+          "label": "position 1 holds one element",
+          "body": "Any single element can open the sentence — a time phrase, a place, an object — and the finite verb still stands second, with the subject immediately behind it.",
+          "examples": [
+            {
+              "de": "Letzten Monat sind wir ganz spontan zu Ella geflogen.",
+              "en": "time in position 1, subject after the verb"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Maria und Paul wandern aus. Zum Abschied schenken wir ___ einen Fluggutschein.",
+          "options": [
+            "ihnen",
+            "sie",
+            "ihre"
+          ],
+          "answer": 0,
+          "explain": "The two of them receive it, so dative plural — and the pronoun stands directly after the verb and subject."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Paul wollte Informationen über China. Das Reisebüro hat ___ gegeben.",
+          "options": [
+            "sie ihm",
+            "ihm sie",
+            "sie ihn"
+          ],
+          "answer": 0,
+          "explain": "Two pronouns: accusative (the information) before dative (Paul)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Maria hat ein Visum beantragt. Das Konsulat hat ___ dann zugeschickt.",
+          "options": [
+            "es ihr",
+            "ihr es",
+            "es sie"
+          ],
+          "answer": 0,
+          "explain": "Accusative pronoun first, dative second — the opposite of the noun order."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich habe ihr ihn noch nicht vorgestellt.",
+          "answer": 2,
+          "fix": "Ich habe ihn ihr noch nicht vorgestellt.",
+          "explain": "With two pronouns the accusative comes first, so the flatmate precedes the mother."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Das Subjekt ist ein Nomen — wo steht das Pronomen?",
+          "options": [
+            "davor — „Gestern hat mir mein Freund geholfen.“",
+            "dahinter — „Gestern hat mein Freund mir geholfen.“",
+            "am Ende des Mittelfelds"
+          ],
+          "answer": 0,
+          "explain": "A pronoun runs to the front of the Mittelfeld, and that is in front of a noun subject too. The other order occurs, but this one is neutral."
+        },
+        {
+          "kind": "order",
+          "prompt": "Beginnen Sie mit der Zeitangabe: „We flew to Ella last month, quite spontaneously.“",
+          "tiles": [
+            "Letzten",
+            "Monat",
+            "sind",
+            "wir",
+            "ganz",
+            "spontan",
+            "zu",
+            "Ella",
+            "geflogen"
+          ],
+          "explain": "Position 1 takes the time phrase; the finite verb stays second and the subject follows it."
+        },
+        {
+          "kind": "type",
+          "prompt": "Hast du Hannah den Schlüssel gebracht? — Ja, ich habe ___ schon gebracht. (both as pronouns)",
+          "accept": [
+            "ihn ihr"
+          ],
+          "hints": [
+            "two pronouns — accusative first",
+            "the key is masculine accusative",
+            "ihn … ihr"
+          ],
+          "explain": "The key is the accusative (ihn) and Hannah the dative (ihr), so the thing leads."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Für den Umzug habe ich ___ von einem Freund geliehen.",
+          "options": [
+            "mir gestern den Kleinbus",
+            "gestern den Kleinbus mir",
+            "gestern mir den Kleinbus"
+          ],
+          "answer": 0,
+          "explain": "The pronoun moves to the front of the Mittelfeld, in front of the time phrase and the accusative noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Vermieter hat ___ geschickt.",
+          "options": [
+            "uns erst letzte Woche den neuen Mietvertrag",
+            "erst letzte Woche uns den neuen Mietvertrag",
+            "erst letzte Woche den neuen Mietvertrag uns"
+          ],
+          "answer": 0,
+          "explain": "Same move: the dative pronoun leads, then the Angabe, then the accusative noun."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Zwei Nomen — welche Reihenfolge ist neutral?",
+          "options": [
+            "Dativ vor Akkusativ — „Ich gebe dem Kind den Ball.“",
+            "Akkusativ vor Dativ — „Ich gebe den Ball dem Kind.“",
+            "Beide sind gleich häufig."
+          ],
+          "answer": 0,
+          "explain": "Nouns keep the dative first. Only pronouns flip it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ihre neue Stadt ist toll, und im Sommer zeigen sie ___.",
+          "options": [
+            "sie mir",
+            "mir sie",
+            "mich ihr"
+          ],
+          "answer": 0,
+          "explain": "The city is the accusative and stands first; I am the dative and follow."
+        },
+        {
+          "kind": "error",
+          "prompt": "Zum Abschied habe ich gestern Blumen meiner Freundin geschenkt.",
+          "answer": 5,
+          "fix": "Zum Abschied habe ich gestern meiner Freundin Blumen geschenkt.",
+          "explain": "Two nouns, so the dative comes first — and an indefinite accusative is new information and stays behind it."
+        }
+      ]
     }
   ],
   "B2": [
@@ -73000,6 +73195,265 @@
           ],
           "answer": 0,
           "explain": "darauf, daran, darüber — but damit, davon, dafür."
+        }
+      ]
+    },
+    {
+      "title": "Mittelfeld: Ergänzungen & Angaben",
+      "summary": "Dativ before the Angaben, a new Akkusativ after them — te–ka–mo–lo between.",
+      "rule": "The Mittelfeld is everything between the finite verb and the closing bracket, and it has a default order rather than a fixed one. Adverbials (Angaben) run temporal – kausal – modal – lokal: te–ka–mo–lo. Complements (Ergänzungen) slot around them: a Dativ noun goes in front of the Angaben, a new (indefinite) Akkusativ noun goes after them but before the lokal Angabe, and a prepositional object closes the Mittelfeld. Known information moves left, so a definite Akkusativ noun may also stand in front of the Angaben, and a pronoun always does. Any one element can move to position 1 for emphasis; the rest keep their order.",
+      "sections": [
+        {
+          "label": "the default order",
+          "body": "Dativ – temporal – kausal – modal – Akkusativ – lokal – Präpositionalergänzung.",
+          "examples": [
+            {
+              "de": "Ella hat ihren Eltern gestern aus Freude spontan eine E-Mail geschrieben.",
+              "en": "Dativ (ihren Eltern) first, Akkusativ (eine E-Mail) after the Angaben"
+            }
+          ]
+        },
+        {
+          "label": "te – ka – mo – lo",
+          "body": "temporal (wann?) – kausal (warum?) – modal (wie?) – lokal (wo/wohin/woher?).",
+          "examples": [
+            {
+              "de": "Ich bin letztes Jahr aus Liebe ziemlich spontan nach Australien ausgewandert.",
+              "en": "all four slots, in order"
+            }
+          ]
+        },
+        {
+          "label": "Dativ before, a new Akkusativ after",
+          "pairs": [
+            {
+              "from": "Ein Bekannter hat Ella letztes Jahr geholfen.",
+              "to": "Dativ-Ergänzung → in front of the Angabe"
+            },
+            {
+              "from": "Ella hat täglich E-Mails nach Deutschland geschickt.",
+              "to": "indefinite Akkusativ → after the Angabe, before the lokal"
+            }
+          ]
+        },
+        {
+          "label": "known information moves left",
+          "body": "The slot is decided by what is new, not by the case alone. A definite Akkusativ names something already in play and may cross the Angabe; an indefinite one is the news of the sentence and stays behind it.",
+          "examples": [
+            {
+              "de": "Ich habe gestern dem Kunden die Rechnung in die Filiale geschickt.",
+              "en": "neutral"
+            },
+            {
+              "de": "Ich habe dem Kunden die Rechnung gestern in die Filiale geschickt.",
+              "en": "also neutral — the invoice is known, so it may move in front of the Angabe"
+            },
+            {
+              "de": "Ich habe gestern eine Rechnung in die Filiale geschickt.",
+              "en": "indefinite: this one cannot move left"
+            }
+          ]
+        },
+        {
+          "label": "but pronouns run the other way",
+          "body": "Pronouns move to the front of the Mittelfeld, and among them the Akkusativ comes first: Er hat es ihr gestern gegeben. The noun rule and the pronoun rule are genuinely opposite — see TeKaMoLo & Satzklammer at C1."
+        },
+        {
+          "label": "the prepositional object closes it",
+          "examples": [
+            {
+              "de": "Ella wartet seit Monaten sehnsüchtig auf den Besuch ihrer Freundin.",
+              "en": "auf + Akkusativ stands last, right before the bracket"
+            }
+          ]
+        },
+        {
+          "label": "emphasis",
+          "body": "Moving one element to position 1 pushes the subject behind the verb and leaves everything else as it was: Aus Liebe bin ich letztes Jahr ziemlich spontan ausgewandert."
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "type",
+          "prompt": "The Angaben order, as four syllables: ___ – ka – mo – lo",
+          "accept": [
+            "te",
+            "Te"
+          ],
+          "explain": "temporal first — te–ka–mo–lo."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wofür steht „lo“ in te–ka–mo–lo?",
+          "options": [
+            "lokal — wo? wohin? woher?",
+            "logisch — in welcher Reihenfolge?",
+            "lokativ — nur „wo?“"
+          ],
+          "answer": 0,
+          "explain": "lokal covers all three directional questions, and comes last."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich fahre ___ nach Bonn.",
+          "options": [
+            "morgen wegen des Termins mit dem Zug",
+            "mit dem Zug morgen wegen des Termins",
+            "wegen des Termins mit dem Zug morgen"
+          ],
+          "answer": 0,
+          "explain": "te (morgen) – ka (wegen des Termins) – mo (mit dem Zug) – lo (nach Bonn)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ein Bekannter hat ___ bei der Wohnungssuche geholfen.",
+          "options": [
+            "Ella letztes Jahr netterweise",
+            "letztes Jahr netterweise Ella",
+            "netterweise letztes Jahr Ella"
+          ],
+          "answer": 0,
+          "explain": "helfen takes the Dativ, and a Dativ noun stands in front of the Angaben."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ella hat ___ geschickt.",
+          "options": [
+            "täglich mehrere E-Mails nach Deutschland",
+            "mehrere E-Mails täglich nach Deutschland",
+            "nach Deutschland täglich mehrere E-Mails"
+          ],
+          "answer": 0,
+          "explain": "Akkusativ noun after the temporal Angabe, before the lokal one."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht die Dativergänzung normalerweise?",
+          "options": [
+            "vor den temporalen, kausalen und modalen Angaben",
+            "hinter allen Angaben",
+            "immer am Ende des Mittelfelds"
+          ],
+          "answer": 0,
+          "explain": "Dativ in front, Akkusativ behind — that is the whole rule for nouns."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ella hat sich während eines Urlaubs ___ verliebt.",
+          "options": [
+            "in David",
+            "David in",
+            "in David sehr"
+          ],
+          "answer": 0,
+          "explain": "The prepositional object stands last in the Mittelfeld, right before the participle."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie wartet seit Monaten ___.",
+          "options": [
+            "sehnsüchtig auf den Besuch",
+            "auf den Besuch sehnsüchtig",
+            "auf sehnsüchtig den Besuch"
+          ],
+          "answer": 0,
+          "explain": "The modal Angabe precedes; the Präpositionalergänzung closes the Mittelfeld."
+        },
+        {
+          "kind": "order",
+          "prompt": "Arrange neutrally (Dativ – Angaben – Akkusativ):",
+          "tiles": [
+            "Er",
+            "hat",
+            "seiner",
+            "Schwester",
+            "gestern",
+            "schnell",
+            "einen",
+            "Brief",
+            "geschrieben"
+          ],
+          "explain": "Dativ (seiner Schwester) – te (gestern) – mo (schnell) – Akkusativ (einen Brief)."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich habe eine E-Mail meiner Mutter gestern geschrieben.",
+          "answer": 2,
+          "fix": "Ich habe meiner Mutter gestern eine E-Mail geschrieben.",
+          "explain": "The Dativ noun belongs in front of the Angabe and the Akkusativ noun behind it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Pronouns: „Er hat ___ gestern gegeben.“",
+          "options": [
+            "es ihr",
+            "ihr es",
+            "gestern es ihr"
+          ],
+          "answer": 0,
+          "explain": "Pronouns move to the front, and Akkusativ precedes Dativ — the mirror image of the noun rule."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum ist „Aus Liebe bin ich spontan ausgewandert“ richtig?",
+          "options": [
+            "Position 1 kann jedes Element tragen; das Subjekt rückt hinter das Verb.",
+            "Kausale Angaben müssen immer auf Position 1 stehen.",
+            "Nach „aus“ folgt immer das Verb."
+          ],
+          "answer": 0,
+          "explain": "Fronting is for emphasis. Verb stays second, subject follows it, the remaining order is unchanged."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wer auswandert, muss ___ auflösen.",
+          "options": [
+            "vor dem Umzug oft die ganze Wohnung",
+            "die ganze Wohnung vor dem Umzug oft",
+            "oft die ganze Wohnung vor dem Umzug"
+          ],
+          "answer": 0,
+          "explain": "Temporal before the Akkusativ noun; the separable prefix closes the bracket."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was steht am Ende des Mittelfelds?",
+          "options": [
+            "die Präpositionalergänzung",
+            "die temporale Angabe",
+            "die Dativergänzung"
+          ],
+          "answer": 0,
+          "explain": "It sits last, immediately before the closing bracket."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum sind „Ich habe gestern die Rechnung geschickt“ und „Ich habe die Rechnung gestern geschickt“ beide richtig?",
+          "options": [
+            "Die Rechnung ist bekannt, und Bekanntes darf vor die Angabe rücken.",
+            "Die Zeitangabe ist im Mittelfeld frei beweglich.",
+            "Die zweite Variante ist nur umgangssprachlich."
+          ],
+          "answer": 0,
+          "explain": "The slot follows information structure: a definite Akkusativ may cross the Angabe, an indefinite one may not."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich habe eine Rechnung gestern in die Filiale geschickt.",
+          "answer": 2,
+          "fix": "Ich habe gestern eine Rechnung in die Filiale geschickt.",
+          "explain": "An indefinite Akkusativ is the new information and stays behind the temporal Angabe."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz ist NICHT möglich?",
+          "options": [
+            "Ich habe eine Rechnung gestern geschickt.",
+            "Ich habe gestern eine Rechnung geschickt.",
+            "Ich habe die Rechnung gestern geschickt."
+          ],
+          "answer": 0,
+          "explain": "Only the indefinite one is blocked in front of the Angabe — it is the news of the sentence, and news comes last."
         }
       ]
     }

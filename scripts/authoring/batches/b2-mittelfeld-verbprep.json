@@ -1,0 +1,38 @@
+[
+ {
+  "term": "denken an + A",
+  "en": "to think of/about",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Emotions",
+  "def": "To have someone or something in your mind.",
+  "ex": [
+   {
+    "de": "Ich denke oft an meine Familie in Australien.",
+    "en": "I often think of my family in Australia."
+   },
+   {
+    "de": "Sie hat den ganzen Tag an ihn gedacht.",
+    "en": "She thought about him all day."
+   }
+  ]
+ },
+ {
+  "term": "warten auf + A",
+  "en": "to wait for",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Everyday Life",
+  "def": "To stay where you are until someone or something comes.",
+  "ex": [
+   {
+    "de": "Sie wartet seit Monaten auf ihr Visum.",
+    "en": "She has been waiting for her visa for months."
+   },
+   {
+    "de": "Wir haben lange auf eine Antwort gewartet.",
+    "en": "We waited a long time for an answer."
+   }
+  ]
+ }
+]

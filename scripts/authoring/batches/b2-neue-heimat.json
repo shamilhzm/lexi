@@ -1,0 +1,182 @@
+[
+ {
+  "term": "auflösen",
+  "en": "to dissolve; to break up (a household)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Real Estate & Moving",
+  "def": "To clear out and give up a home, or to make something come apart.",
+  "ex": [
+   {
+    "de": "Vor dem Umzug nach Kanada musste sie ihre Wohnung auflösen.",
+    "en": "Before moving to Canada she had to give up her flat."
+   },
+   {
+    "de": "Wer auswandert, muss oft die ganze Wohnung auflösen.",
+    "en": "Anyone who emigrates often has to clear out the whole flat."
+   }
+  ]
+ },
+ {
+  "term": "knüpfen",
+  "en": "to tie; to make (contacts)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Contact & Communication",
+  "def": "To form a connection with people, or to tie something into a knot.",
+  "ex": [
+   {
+    "de": "Auf der Konferenz habe ich viele neue Kontakte geknüpft.",
+    "en": "I made a lot of new contacts at the conference."
+   },
+   {
+    "de": "In einer fremden Stadt Kontakte zu knüpfen fällt mir schwer.",
+    "en": "I find it hard to make contacts in an unfamiliar city."
+   }
+  ]
+ },
+ {
+  "term": "wagen",
+  "en": "to dare, to venture",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Decisions",
+  "def": "To do something despite the risk it carries.",
+  "ex": [
+   {
+    "de": "Ich habe es gewagt und bin nach Australien ausgewandert.",
+    "en": "I took the risk and emigrated to Australia."
+   },
+   {
+    "de": "Nach langem Zögern wagte er den Schritt in die Selbstständigkeit.",
+    "en": "After hesitating for a long time he took the step into self-employment."
+   }
+  ]
+ },
+ {
+  "term": "abenteuerlich",
+  "en": "adventurous; hair-raising",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Travel",
+  "def": "Full of risk and excitement, or fond of exactly that.",
+  "ex": [
+   {
+    "de": "Er ist ein abenteuerlicher Typ und reist am liebsten allein.",
+    "en": "He is an adventurous type and prefers to travel alone."
+   },
+   {
+    "de": "Die Fahrt über den Pass war ziemlich abenteuerlich.",
+    "en": "The drive over the pass was quite hair-raising."
+   }
+  ]
+ },
+ {
+  "term": "der Abschied",
+  "en": "farewell, parting",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emigration & immigration",
+  "def": "The moment of leaving people or a place behind.",
+  "ex": [
+   {
+    "de": "Der Abschied von meiner Familie fiel mir sehr schwer.",
+    "en": "Saying goodbye to my family was very hard for me."
+   },
+   {
+    "de": "Zum Abschied haben wir alle noch einmal zusammen gegessen.",
+    "en": "As a farewell we all ate together one more time."
+   }
+  ]
+ },
+ {
+  "term": "die Arbeitserlaubnis",
+  "en": "work permit",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emigration & immigration",
+  "def": "Official permission for a foreigner to take a job in a country.",
+  "ex": [
+   {
+    "de": "Ohne Arbeitserlaubnis darf man hier nicht arbeiten.",
+    "en": "Without a work permit you are not allowed to work here."
+   },
+   {
+    "de": "Es hat drei Monate gedauert, bis ich meine Arbeitserlaubnis bekommen habe.",
+    "en": "It took three months until I got my work permit."
+   }
+  ]
+ },
+ {
+  "term": "der Horizont",
+  "en": "horizon",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Abstract",
+  "def": "The line where sky meets land, or the range of what someone knows.",
+  "ex": [
+   {
+    "de": "Ein Jahr im Ausland erweitert den Horizont.",
+    "en": "A year abroad broadens your horizons."
+   },
+   {
+    "de": "Die Sonne verschwand langsam am Horizont.",
+    "en": "The sun slowly disappeared on the horizon."
+   }
+  ]
+ },
+ {
+  "term": "die Sehnsucht",
+  "en": "longing, yearning",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emotions",
+  "def": "A strong, aching wish for someone or something far away.",
+  "ex": [
+   {
+    "de": "Nach zwei Jahren im Ausland hatte er große Sehnsucht nach seiner Familie.",
+    "en": "After two years abroad he badly missed his family."
+   },
+   {
+    "de": "Die Sehnsucht nach der alten Heimat wurde immer stärker.",
+    "en": "The longing for his old home grew stronger and stronger."
+   }
+  ]
+ },
+ {
+  "term": "sehnsüchtig",
+  "en": "longing, wistful",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "def": "Showing a strong wish for something or someone you miss.",
+  "ex": [
+   {
+    "de": "Sie wartete sehnsüchtig auf einen Brief von zu Hause.",
+    "en": "She waited longingly for a letter from home."
+   },
+   {
+    "de": "Er dachte sehnsüchtig an seine alte Heimat.",
+    "en": "He thought wistfully of his old home."
+   }
+  ]
+ },
+ {
+  "term": "gewohnt",
+  "en": "usual, accustomed",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Everyday Life",
+  "def": "Familiar because you have always had or done it that way.",
+  "ex": [
+   {
+    "de": "Sie hat ihr gewohntes Leben aufgegeben und ist ausgewandert.",
+    "en": "She gave up her accustomed life and emigrated."
+   },
+   {
+    "de": "Nach dem Umzug fehlte ihm die gewohnte Umgebung.",
+    "en": "After the move he missed his familiar surroundings."
+   }
+  ]
+ }
+]

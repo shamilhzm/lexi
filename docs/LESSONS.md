@@ -57,6 +57,11 @@ before writing. **And check the count that must *not* move**: 67 definitions wer
 and the flagged-definition total stayed at 1,213, which is what proves the new content
 did not become the next batch's defect.
 
+**…state a grammar rule as absolute.** Find the sentence the rule would mark wrong.
+A teaching rule that over-generalises does not merely omit a case — it hands the learner
+a test they will fail a correct sentence with. *(The B2 Mittelfeld rule said an
+Akkusativ noun stands behind the Angaben, flat; a definite one may stand in front.)*
+
 **…write English prose about German.** Quoting a bare German article inside an English
 definition makes `corpus:validate` read the whole field as German — correctly, by its
 own rule. Say "the masculine article", never `der`. *(Three of the first 67 definitions
@@ -244,6 +249,25 @@ it turns out to be wrong.**
   have attached wrong grammar to hundreds of cards and a drill on it would teach
   *"trinken bei"*. **The estimate in the backlog was wrong, and the only thing that
   showed it was measuring 12 samples by hand before writing the script.**
+- **A coverage check normalised one side and not the other.** *(2026-08-20.)* Checking a
+  B2 textbook page's vocabulary against the corpus, the probe stripped the article *and*
+  the reflexive `sich` from each **candidate**, but keyed the **corpus** on `term` with
+  only the article stripped. So `sich verlieben` became `verlieben`, found nothing, and
+  was reported missing — along with `sich kümmern`, `sich einleben` and
+  `sich verabschieden`, all four of which the corpus has held all along. Four of
+  fourteen "gaps" were the probe's own asymmetry. **Rule: a normalisation applied to the
+  query must be applied to the index, in the same function. If the two sides are
+  normalised in two places, they will drift.**
+- **A probe called a correct answer a regression.** *(2026-08-20.)* After teaching the
+  matcher to resolve `verzichten auf + A`, the control class dropped by five and it was
+  read as a regression to be undone. It was not. The corpus holds *both* a plain
+  `verzichten` card and the pattern card, and the plain card's own example —
+  «Aus Umweltgründen verzichtet sie **auf** Fleisch» — is a pattern sentence. The token
+  now resolves to the more specific card, which is right. The probe asked *"does this
+  card resolve in its own example?"* and scored every other answer as a miss, including
+  the better one. **Rule: when a change makes a token resolve elsewhere, print where it
+  went before calling it a regression.** A count of misses cannot tell a wrong answer
+  from a better one, and the fix for the two looks opposite.
 
 ---
 
@@ -352,6 +376,18 @@ members* — a script can guarantee the facts but not that a category is interes
 The same principle is why `authoring:new` refuses to write a card it cannot verify:
 facts are looked up in de.wiktionary and never generated, and every example must contain
 a real inflection proved by the app's own matcher rather than a substring test.
+
+**An authored rule over-generalised, and over-generalising is worse than omitting.**
+*(2026-08-20.)* `Mittelfeld: Ergänzungen & Angaben` shipped the noun rule as *"a Dativ
+noun goes in front of the Angaben, an Akkusativ noun goes after them"*. The second half
+is only true of an **indefinite** Akkusativ. A definite one is known information and may
+cross the Angabe: *«Ich habe die Rechnung gestern in die Filiale geschickt»* is as
+neutral as *«Ich habe gestern die Rechnung …»* — and Dreyer §22, the source the point was
+built from, prints both as model answers on the same line. A learner holding the flat
+rule marks a correct sentence wrong and, worse, trusts the verdict. **Rule: before
+shipping a teaching rule, write the sentence it would reject. If that sentence is good
+German, the rule is a default and must say so.** Omitting the case would have left a gap;
+stating it flat built a wrong test. Caught while doing the same textbook page by hand.
 
 ---
 
