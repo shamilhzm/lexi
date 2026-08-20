@@ -2,7 +2,7 @@
 // weeks in, and each fix is small enough that it would be easy to undo by accident.
 import { describe, it, expect } from 'vitest';
 import { parseList, matchList } from '../components/ClassListPicker.tsx';
-import { clozeExample, drillExample, eligibleModes } from '../views/Fundamentals.tsx';
+import { clozeExample, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
 import { CAN_DO, coverageNote } from './candos.ts';
 import { previewInterval, emptyCard, Rating, schedule } from '../srs.ts';
 import { registerWords } from '../data/index.ts';
@@ -142,6 +142,33 @@ describe('drill example selection', () => {
       { de: 'Wir kaufen einen neuen Tisch.', en: 'b', lvl: 'A1' },
     ]);
     expect(eligibleModes(c).includes('cloze')).toBe(clozeExample(c) !== null);
+  });
+});
+
+// A cloze whose blank is sentence-initial capitalises its answer, while the
+// distractors are citation forms — so «_____ Mut.» offered dann / hier / auch /
+// **Nur** and the only capital letter on screen was the answer. Found by playing
+// the app on an iPhone; 261 of 5,684 cloze-eligible cards were affected, 70 of
+// them at A1.
+describe('cloze options do not leak the answer through capitalisation', () => {
+  it('raises the distractors when the sentence raised the answer', () => {
+    expect(matchInitialCase('Nur', 'nur', 'dann')).toBe('Dann');
+    expect(matchInitialCase('Wo', 'wo', 'hier')).toBe('Hier');
+  });
+
+  it('leaves them alone mid-sentence, where nothing was raised', () => {
+    expect(matchInitialCase('nur', 'nur', 'dann')).toBe('dann');
+  });
+
+  it('leaves nouns alone — their citation form is already capitalised', () => {
+    // `der Mut` → citation "Mut", surface "Mut": nothing moved, so nothing to match.
+    expect(matchInitialCase('Mut', 'Mut', 'Wut')).toBe('Wut');
+    expect(matchInitialCase('Hund', 'Hund', 'Katze')).toBe('Katze');
+  });
+
+  it('survives the degenerate inputs rather than throwing mid-drill', () => {
+    expect(matchInitialCase('', 'nur', 'dann')).toBe('dann');
+    expect(matchInitialCase('Nur', 'nur', '')).toBe('');
   });
 });
 

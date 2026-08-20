@@ -405,6 +405,34 @@ deleting them.**
   nothing in the simulator, twice. Synthetic swipes and iOS's real touch-axis
   arbitration are not the same thing, so a speculative fix to the *grading gesture* was
   not worth the risk. Confirm on hardware first. *(2026-08-05)*
+  - ✅ **Settled 2026-08-21, and the caution above was right.** A third simulator run
+    reproduced it with a matched control — a 6-point vertical `touch_path` starting on
+    the card moved nothing in either direction, the identical path starting 30pt above
+    it scrolled fine — and I wrote that the card "swallows vertical scroll." **That was
+    wrong.** Instrumenting the page settles it: the card's `touch-action` resolves to
+    **`pan-y`** (Motion sets it inline from `drag="x"`), and across a synthetic vertical
+    pointer gesture **`preventDefault` is never called** and `defaultPrevented` is
+    `false` on every move. The instrument was itself controlled — the same rig run
+    *horizontally* did reach Motion and translated the card — so the vertical result
+    means what it says. No code path blocks a native vertical pan there; the simulator
+    result is an artefact of injected touches, which never engage the compositor path
+    that honours `touch-action`. **Rule: a device pass driven by synthetic input cannot
+    tell "the app blocked this gesture" from "the harness cannot produce this gesture."
+    When a gesture looks blocked, stop measuring outcomes and instrument the mechanism —
+    what a library does to an event is decidable on any machine; what a finger does
+    is not.**
+- **A floating button measured at one scroll position is not a finding.** *(2026-08-21.)*
+  I reported that the session FAB "sits on interactive content", with numbers: 28.1% of
+  the *People & Health* treemap tile, 10.7% of the Library's A1 concepts button. Both
+  measurements were accurate and the conclusion was still wrong — they were taken at one
+  arbitrary mid-scroll position, and mid-scroll overlap is what a floating action button
+  *is*. `App.tsx` already carries a `pb-20` gutter whose comment names finding #31 and
+  states the real invariant: every tile stays *reachable by scrolling*. Testing that
+  instead — scroll each route to the bottom at 320px, then ask what interactive elements
+  remain under the FAB — returns **none, on all three routes**. **Rule: for anything that
+  floats, the finding is never "does it overlap" but "is there something that cannot be
+  moved out from under it." Measure the invariant the code claims, not the snapshot you
+  happened to take.**
 - **A regex over a file is not a count of an export.** *(2026-08-13.)* I reported
   "214 Redemittel across 27 groups" from `grep`-ing `de:` out of the speaking modules.
   The real figure is **129**: the same pattern also matches the *model answers*, which

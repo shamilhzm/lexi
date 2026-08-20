@@ -1,0 +1,16 @@
+[
+  {
+    "id": "voc:A1:alle",
+    "at": 0,
+    "expect": { "de": "Alle lügen.", "en": "Everybody lies." },
+    "de": "Die Milch ist alle.",
+    "en": "The milk is all gone."
+  },
+  {
+    "id": "voc:A1:alle",
+    "at": 1,
+    "expect": { "de": "Alle reden.", "en": "Everybody's talking." },
+    "de": "Der Kaffee ist alle, ich kaufe morgen neuen.",
+    "en": "The coffee is all gone, I'll buy some more tomorrow."
+  }
+]

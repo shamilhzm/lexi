@@ -1018,13 +1018,13 @@
     "def": "finished; gone",
     "ex": [
       {
-        "de": "Alle lügen.",
-        "en": "Everybody lies.",
+        "de": "Die Milch ist alle.",
+        "en": "The milk is all gone.",
         "lvl": "A1"
       },
       {
-        "de": "Alle reden.",
-        "en": "Everybody's talking.",
+        "de": "Der Kaffee ist alle, ich kaufe morgen neuen.",
+        "en": "The coffee is all gone, I'll buy some more tomorrow.",
         "lvl": "A1"
       }
     ]

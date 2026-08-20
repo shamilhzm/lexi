@@ -953,6 +953,27 @@ function buildMC(correct: string, distractors: string[]): { options: string[]; c
   return { options: opts, correct: opts.indexOf(correct) };
 }
 
+/** Give a distractor the same initial case the answer picked up from the sentence.
+ *
+ *  A cloze takes its answer from the surface *as it appears* — so a sentence-initial
+ *  blank yields "Nur" — while distractors are drawn as citation forms, which for
+ *  everything except nouns are lowercase. The answer was therefore the only
+ *  capitalised option, and «_____ Mut.» could be solved by a learner who reads no
+ *  German at all. Measured over the shipped corpus with this file's own
+ *  `drillExample` and `wholeWordRe`: **261 of 5,684 cloze-eligible cards (4.6%)**,
+ *  and concentrated exactly where it does most damage — 70 at A1, including the
+ *  whole question-word paradigm (wer, was, wo, wann, wie, warum).
+ *
+ *  Raising the distractors rather than lowering the answer, because the answer has
+ *  to be the string that actually goes in the blank: "nur Mut" is not a sentence.
+ *  Nouns are unaffected — their citation form is already capitalised, so `target`
+ *  and `citation` agree and nothing moves. */
+export function matchInitialCase(target: string, citation: string, distractor: string): string {
+  if (!target || !citation || !distractor) return distractor;
+  const raised = target[0] !== citation[0] && target[0] === target[0].toUpperCase();
+  return raised ? distractor[0].toUpperCase() + distractor.slice(1) : distractor;
+}
+
 // Umlaut the first stem vowel (a/o/u/au), preserving case and skipping the 'eu'
 // diphthong — used to fabricate believable-but-wrong plural forms.
 function umlaut(s: string): string {
@@ -1150,7 +1171,8 @@ export function ClozeItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     } else {
       base = WORDS.filter((w) => w.id !== word.id && inLevels(w));
     }
-    const distract = pickN(base.map((w) => stripArticle(w.term)), 3, new Set([norm(target)]));
+    const distract = pickN(base.map((w) => matchInitialCase(target, surface, stripArticle(w.term))), 3,
+      new Set([norm(target)]));
     return buildMC(target, distract);
   }, [word.id]);
   return <MCItem prompt={blanked} sub="Choose the missing word" hint={ex.en || word.en} bigPrompt={false}

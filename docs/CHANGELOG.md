@@ -11,6 +11,63 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-21 — a drill that could be solved without German, and three findings withdrawn
+
+The real-device pass (BACKLOG Now #1) run on a booted iPhone 17 Pro / iOS 26.5 against
+the deployed build. Two defects came out of *playing* it that no amount of reading had
+found — and three of the pass's own findings had to be withdrawn, which is most of what
+this entry is for.
+
+**The cloze answer was the only capitalised option — 261 cards.** Card 7 of a real
+session asked «\_\_\_\_\_ Mut.» and offered *dann · hier · auch · **Nur***. `ClozeItem`
+takes its answer from the surface **as it appears in the sentence**, so a
+sentence-initial blank yields `Nur`, while the distractors are drawn as citation forms,
+which for everything but nouns are lowercase. The item was solvable by a learner who
+reads no German at all — and the function's own comment says the distractors exist "so
+the options read as genuine candidates rather than the one word that fits". A capital
+letter defeated it. Measured over the shipped corpus using this file's own
+`drillExample` and `wholeWordRe` copied verbatim: **261 of 5,684 cloze-eligible cards
+(4.6%)**, and worst where it matters most — **70 at A1**, including the entire
+question-word paradigm (*wer, was, wo, wann, wie, warum*) and *morgen · gestern · hier*.
+`matchInitialCase()` raises the distractors to the register the sentence imposed, rather
+than lowering the answer, because the answer has to be the string that actually goes in
+the blank: *"nur Mut"* is not a sentence. Nouns are untouched — their citation form is
+already capitalised, so nothing moves. Four tests pin it.
+
+**`alle` taught one word and illustrated another — in the first ten cards a new user
+sees.** The A1 card glosses *finished*, defines it *"finished; gone"*, and carries
+synonyms *aus · auf · leer* — all correct for colloquial «Die Milch ist alle». Both of
+its examples were «Alle lügen.» / «Alle reden.» — the **indefinite pronoun**, a
+different lexeme. Neither example contained the word the card teaches. The authoring
+gate passed it because `alle` *is* literally present, and presence is not sameness of
+sense; this is the homograph gap filed in BACKLOG showing up as a content defect rather
+than a matcher one. Fixed by replacing the two examples, not the facts, because the
+pronoun reading is **already taught** — `gram:A1:Richtungsangaben & Indefinitpronomen`
+states it outright ("Indefinite: man, etwas/nichts, alle"), so the word card should
+carry the sense the grammar layer does not. Through `fix-authored.ts`, expect-guarded,
+0 refused; exactly one entry moved in `detail.json`; `corpus:validate` PASS, reader
+probe unchanged.
+
+**The one lint error is gone**, so a config written to fail the build on a11y can mean
+something again. 0 errors, 916 tests.
+
+**Three findings withdrawn, and they are the reason this pass was worth running.** The
+card does **not** swallow vertical scroll: its `touch-action` is `pan-y` and Motion never
+calls `preventDefault` on a vertical gesture — proved with a controlled instrument, after
+a matched-control simulator run had convinced me otherwise. The FAB does **not** trap
+content: `pb-20` already guarantees it, and at full scroll nothing interactive remains
+beneath it on any route. And a probe claiming 665 gloss/example mismatches was a broken
+stemmer — twelve hand-checks, twelve false positives. Recorded in LESSONS Class 7 with
+the two rules they produced: *synthetic input cannot distinguish a blocked gesture from
+an unproducible one — instrument the mechanism*, and *for anything that floats, measure
+the invariant the code claims, not the snapshot you took*.
+
+Still open and now stated rather than assumed: the UmlautBar behind the keyboard was
+never reached (a cloze is multiple-choice, not typed), and standalone-PWA safe areas,
+landscape and Dynamic Type remain untested.
+
+---
+
 ### Shipped 2026-08-20 — pronoun order lands at B1, and the B2 Akkusativ rule was too flat
 
 Working the *Neue Heimat* Modul 1 exercises by hand — the page the B2 point below was
