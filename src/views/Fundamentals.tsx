@@ -49,6 +49,41 @@ const norm = (s: string) => s.trim().toLowerCase()
   .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
   .replace(/\s+/g, ' ');
 
+/** A verb the conjugation drill may render verbatim, printing no invented German.
+ *
+ *  The gate was `canConjugate(w.term)`, which asks whether the *engine* can inflect a
+ *  string — not whether the string is a lemma it is entitled to inflect. Audited
+ *  2026-08-21 over the 1,108 conj-eligible verb cards, two classes came out:
+ *
+ *  **Three terms are phrases, and the answer printed was invented German.** The corpus
+ *  writes government notation and placeholder objects into the headword on purpose, so
+ *  `gelten als + N` conjugated to **«gelten als + t»**, `sich etwas vorstellen` to
+ *  **«geetwas vorstellt»**, and `sich wenden an` to **«gewenden at»** — each shown to
+ *  the learner as the correct Partizip II. Same root cause as the pattern-card defect
+ *  `matcher.ts` fixed on 2026-08-20 (a term is not always a lemma); the fix reached the
+ *  matcher and never reached the drill.
+ *
+ *  **Fifty-seven reflexives were rendered without their pronoun.** `conjugate` strips
+ *  `sich` before inflecting, so `sich fühlen` at *ich* returned the bare «fühle» —
+ *  real German, but not what the learner has to produce. This project already ruled on
+ *  exactly that: `canTransform` excludes reflexives because "the finite form alone drops
+ *  the pronoun's *mich*… grounded means never showing a sentence fragment that is
+ *  actually wrong." The ruling was applied to the transform drill and not to this one.
+ *  `ReflexiveItem` exists to put the pronoun back and is where these belong.
+ *
+ *  ⚠️ Nine to eleven **separable** reflexives (`sich vorstellen`, `sich ausruhen`, …)
+ *  now have neither drill, because `isReflexive` additionally requires `!separable`.
+ *  Filed in BACKLOG rather than left as a silent hole — a card losing coverage is a
+ *  smaller harm than a card teaching wrong German, but it is not nothing. */
+export function conjDrillable(term: string): boolean {
+  const t = stripArticle(term).trim();
+  // After `sich`, anything still carrying a space is a phrase — notation, a
+  // placeholder object, a stranded preposition — and not something to inflect.
+  if (/\s/.test(t.replace(/^sich\s+/i, ''))) return false;
+  if (!canConjugate(t)) return false;
+  try { return !conjugate(t).reflexive; } catch { return false; }
+}
+
 /** A plural the drill may actually ask for: a full "die …" form, or nothing.
  *
  *  `w.plural` is a *display* field and holds five shapes, only one of which is a
@@ -84,7 +119,7 @@ export function askablePlural(w: Word): string | null {
 function inLevels(w: Word) { return levels().has(w.level); }
 const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && inLevels(w));
 const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && askablePlural(w) && inLevels(w));
-const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canConjugate(w.term));
+const conjPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && conjDrillable(w.term));
 const clozePool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && clozeExample(w));
 const orderPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && orderExample(w));
 const transformPool = () => WORDS.filter((w) => w.pos === 'verb' && inLevels(w) && canTransform(w.term));
@@ -734,7 +769,7 @@ export function eligibleModes(w: Word): Mode[] {
   const out: Mode[] = [];
   if (w.kind === 'word' && w.gender) out.push('gender');
   if (w.kind === 'word' && askablePlural(w)) out.push('plural');
-  if (w.pos === 'verb' && canConjugate(w.term)) out.push('conj');
+  if (w.pos === 'verb' && conjDrillable(w.term)) out.push('conj');
   if (w.kind === 'word' && clozeExample(w)) out.push('cloze');
   if (w.kind === 'word' && orderExample(w)) out.push('order');
   if (w.pos === 'verb' && canTransform(w.term)) out.push('transform');

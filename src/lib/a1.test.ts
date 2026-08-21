@@ -2,7 +2,7 @@
 // weeks in, and each fix is small enough that it would be easy to undo by accident.
 import { describe, it, expect } from 'vitest';
 import { parseList, matchList } from '../components/ClassListPicker.tsx';
-import { askablePlural, clozeExample, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
+import { askablePlural, clozeExample, conjDrillable, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
 import { CAN_DO, coverageNote } from './candos.ts';
 import { previewInterval, emptyCard, Rating, schedule } from '../srs.ts';
 import { registerWords } from '../data/index.ts';
@@ -211,6 +211,37 @@ describe('only a real plural is askable', () => {
     expect(eligibleModes(noun('der Hund', 'die Hunde'))).toContain('plural');
     expect(eligibleModes(noun('das Obst', 'nur Singular'))).not.toContain('plural');
     expect(eligibleModes(noun('das Handy', '-s'))).not.toContain('plural');
+  });
+});
+
+// The conjugation drill printed invented German as the correct answer, because
+// `canConjugate` asks whether the engine *can* inflect a string, not whether the
+// string is a lemma it is entitled to inflect. A term is not always a lemma —
+// the same root cause matcher.ts fixed for pattern cards on 2026-08-20.
+describe('the conjugation drill only takes a lemma it can print verbatim', () => {
+  it('takes an ordinary infinitive', () => {
+    expect(conjDrillable('machen')).toBe(true);
+    expect(conjDrillable('gehen')).toBe(true);
+  });
+
+  it('refuses a phrase — this is the class that printed «gelten als + t»', () => {
+    expect(conjDrillable('gelten als + N')).toBe(false);
+    expect(conjDrillable('sich etwas vorstellen')).toBe(false);   // «geetwas vorstellt»
+    expect(conjDrillable('sich wenden an')).toBe(false);          // «gewenden at»
+  });
+
+  it('refuses a reflexive, whose pronoun is obligatory and would be dropped', () => {
+    // `conjugate` strips `sich`, so this returned the bare «fühle» at ich —
+    // real German, but not what the learner has to produce. ReflexiveItem owns these.
+    expect(conjDrillable('sich fühlen')).toBe(false);
+    expect(conjDrillable('sich erinnern')).toBe(false);
+  });
+
+  it('is the gate eligibility uses, so the pool and the item cannot disagree', () => {
+    const verb = (term: string): Word => ({ ...w('voc:A1:v', term), pos: 'verb', gender: null });
+    expect(eligibleModes(verb('machen'))).toContain('conj');
+    expect(eligibleModes(verb('sich fühlen'))).not.toContain('conj');
+    expect(eligibleModes(verb('gelten als + N'))).not.toContain('conj');
   });
 });
 

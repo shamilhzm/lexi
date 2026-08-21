@@ -1389,6 +1389,23 @@ user; none of it is built.*
   slope. Daily is too granular, "since forever" too coarse.
 
 **Content and pedagogy.**
+- **🟠 Separable reflexives now have no drill at all · S.** *Created deliberately
+  2026-08-21, by the conj fix — filed rather than left silent.* `conjDrillable` excludes
+  reflexives from the conjugation drill, because `conjugate` strips `sich` and the drill
+  was printing the bare finite form («fühle» for *sich fühlen*) as the answer. That is
+  right, and `ReflexiveItem` is where reflexives belong — except `isReflexive` also
+  requires `!c.separable`, so the **nine to eleven separable ones** (`sich vorstellen`,
+  `sich ausruhen`, `sich aufregen`, `sich einleben`, `sich einschreiben`, `sich einsetzen`,
+  `sich anpassen`, `sich zurechtfinden`, …) fall through both gates. *A card losing
+  coverage is a smaller harm than a card teaching wrong German, which is why the trade was
+  taken — but it is not nothing.* **Do:** relax `isReflexive`'s `!separable` and teach
+  `buildReflexive` the split frame — «ich stelle **mich** vor», «ich ruhe **mich** aus» —
+  which is the pronoun *and* the moving prefix in one item, and is arguably the better
+  drill than either half. **Two conjugator bugs sit underneath it and must be fixed
+  first:** `conjugate('wohlfühlen')` and `conjugate('vorbereiten')` both return
+  `separable: null`, so they would render «wohlfühle» rather than «fühle … wohl».
+  *(`sich umarmen` returning null is **correct** — it is genuinely inseparable.)*
+  *M · `src/views/Fundamentals.tsx`, `src/lib/conjugate.ts`.*
 - **370 word cards carry an empty `pos` · XS–S.** Invisible today, but it is the same
   latent gap that produced the capitalisation mess: a card with no part of speech
   cannot be classified by any rule, so it silently opts out of the drills, the family

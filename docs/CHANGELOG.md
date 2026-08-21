@@ -11,6 +11,54 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-21 — the conjugation drill printed «gelten als + t» as the answer
+
+Third drill audited, third defect, and this one had already been fixed once — somewhere
+else. `matcher.ts` learned on 2026-08-20 that *a term is not always a lemma*: the corpus
+writes government notation into the headword on purpose. The conjugation drill never got
+the memo.
+
+**Three cards printed invented German as the correct answer**, all hand-verified:
+
+| card | *ich* form | Partizip II |
+|---|---|---|
+| `gelten als + N` | «gelten als + e» | **«gelten als + t»** |
+| `sich etwas vorstellen` | «etwas vorstelle» | **«geetwas vorstellt»** |
+| `sich wenden an` | «wenden ae» | **«gewenden at»** |
+
+**And 57 reflexives were rendered without their pronoun.** `conjugate` strips `sich`
+before inflecting, so `sich fühlen` at *ich* returned the bare «fühle» — real German, but
+not what a learner has to produce. This project had already ruled on exactly that:
+`canTransform` excludes reflexives because *"the finite form alone drops the pronoun's
+`mich`… grounded means never showing a sentence fragment that is actually wrong."* The
+ruling was applied to the transform drill and not to this one, while `ReflexiveItem` sat
+there doing it properly.
+
+`conjDrillable()` is now the single gate behind the pool and eligibility, on one
+decidable rule — *after stripping `sich`, a term still carrying a space is a phrase, not
+a lemma* — plus the project's own reflexive ruling. **A hole it opens is filed, not
+hidden:** nine to eleven *separable* reflexives (`sich vorstellen`, `sich ausruhen`) now
+have neither drill, because `isReflexive` additionally requires `!separable`. That trade
+was taken deliberately — a card losing coverage is a smaller harm than a card teaching
+wrong German — and BACKLOG carries the fix, along with two conjugator bugs found beneath
+it (`wohlfühlen` and `vorbereiten` both return `separable: null`).
+
+**What the audit found clean is worth recording too.** Simulating all **34,348**
+conjugation items over 1,108 verbs: **zero** with fewer than four options, **zero** where
+a distractor is also correct, and **zero** where the answer is the only option of its
+word-count — which verifies the claim in `ConjItem`'s own comment that a phrasal answer
+(Perfekt, Futur I, Konjunktiv II) is not given away by being the only multi-word choice.
+Gender is clean by construction: three fixed buttons, no pool to leak.
+
+Both audit numbers arrived wrong first. The thin-option count read 1,588 until the
+simulation included the *pad* the real item runs; the corruption count read 2 until a
+heuristic was replaced by the decidable rule above. Recorded in [AUDIT.md](AUDIT.md),
+which is the ledger for this pass.
+
+926 tests, 0 lint errors, typecheck and build green.
+
+---
+
 ### Shipped 2026-08-21 — the plural drill asked 191 questions that had no answer
 
 The full pass begins ([AUDIT.md](AUDIT.md) is its ledger). The cloze leak fixed earlier

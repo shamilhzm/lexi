@@ -44,16 +44,21 @@ out five times — see the withdrawals below. A count in this file that is not m
 | Plural drill asks unanswerable / shape-leaking questions | 3,200 nouns with a plural | **399 found → 0**, all hand-verified, fixed | CHANGELOG 2026-08-21 |
 | Gender drill distractors | all gendered nouns | **clean by construction** — three fixed buttons, no pool | — |
 | Gloss/example describe different lexemes | 6,516 word cards | **1 confirmed (`alle`), class size unknown** | see Open, below |
+| Conjugation drill: thin option sets, ambiguous items, shape leaks | 34,348 simulated items over 1,108 verbs | **0 / 0 / 0** — clean once the pad is simulated | — |
+| Conjugation drill: is the engine handed a lemma? | 1,108 conj-eligible verbs | **3 printing invented German + 57 pronoun-less**, hand-verified, fixed | CHANGELOG 2026-08-21 |
 
 ### Next, in priority order
 
-1. **The remaining eight drill generators**, for the same three leak classes the cloze and
-   plural drills both had — *shape*, *case*, *length*. `conj`, `case`, `order`,
-   `transform`, `separable`, `reflexive`, `recall`, `dictation`. `ConjItem` draws
-   distractors from other persons of the same tense, which is sound in principle; it has
-   not been measured.
-2. **A distractor that is also correct.** Not a leak but worse — an item with two right
-   answers marks a correct answer wrong. Decidable per mode.
+1. **The remaining seven drill generators**, for the leak classes the cloze and plural
+   drills had — *shape*, *case*, *length* — plus the two the conj audit added:
+   *fewer than four options* and *a distractor that is also correct*. Still to do:
+   `case`, `order`, `transform`, `separable`, `reflexive`, `recall`, `dictation`.
+   The conj audit's harness is the template; note it had to simulate the **pad**
+   fallback before its numbers meant anything (first run reported 1,588 thin items;
+   the true figure is 0).
+2. **The conjugator itself.** `conjugate('wohlfühlen')` and `conjugate('vorbereiten')`
+   return `separable: null` and would render «wohlfühle». Found underneath the conj gate
+   fix; filed in BACKLOG under the separable-reflexive item.
 3. **Sense/example mismatch at scale.** The `alle` class. No cheap heuristic exists
    (a broken one is recorded in LESSONS); needs either a real sense inventory or a
    sampled hand-audit with a stated confidence interval, not a fabricated count.
@@ -120,6 +125,12 @@ Kept here because a ledger that only records finds is a ledger that flatters its
   beginning with a lowercase adjective are genuinely raised sentence-initially.
 - **A phantom adjective regression** (0.955 → 0.945) caused by the reader probe's three
   samples sharing one RNG stream. Fixed; each class now has its own seed.
+- **"1,588 conjugation items render fewer than four options."** They do not. The
+  simulation stopped before the *pad* fallback the real item runs when same-tense persons
+  dedup below three. With the pad: **0**.
+- **"2 conjugation cards print invented German."** Three do. The corruption heuristic
+  missed `sich wenden an` → «gewenden at`». Replaced with a decidable rule — *after
+  stripping `sich`, does the term still contain a space* — which needs no judgement.
 
 ---
 
