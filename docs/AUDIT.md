@@ -46,24 +46,27 @@ out five times — see the withdrawals below. A count in this file that is not m
 | Gloss/example describe different lexemes | 6,516 word cards | **1 confirmed (`alle`), class size unknown** | see Open, below |
 | Conjugation drill: thin option sets, ambiguous items, shape leaks | 34,348 simulated items over 1,108 verbs | **0 / 0 / 0** — clean once the pad is simulated | — |
 | Conjugation drill: is the engine handed a lemma? | 1,108 conj-eligible verbs | **3 printing invented German + 57 pronoun-less**, hand-verified, fixed | CHANGELOG 2026-08-21 |
+| Conjugator Partizip II vs. the forms the corpus attests | 262 verbs with a Perfekt example | **262 agree · 0 disagree** | — |
+| `case` drill distractors | all `caseSafe` nouns | **clean by construction** — four distinct articles per gender from a fixed table | — |
+| `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**, class real and larger than any probe | BACKLOG 🟠 |
+| Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
+
+**All eleven drill modes have now been swept.** Two were clean by construction (`gender`,
+`case`), three were broken and are fixed (`cloze`, `plural`, `conj`), five type-in modes
+grade soundly, and one (`order`) has a real defect that needs a design decision.
 
 ### Next, in priority order
 
-1. **The remaining seven drill generators**, for the leak classes the cloze and plural
-   drills had — *shape*, *case*, *length* — plus the two the conj audit added:
-   *fewer than four options* and *a distractor that is also correct*. Still to do:
-   `case`, `order`, `transform`, `separable`, `reflexive`, `recall`, `dictation`.
-   The conj audit's harness is the template; note it had to simulate the **pad**
-   fallback before its numbers meant anything (first run reported 1,588 thin items;
-   the true figure is 0).
-2. **The conjugator itself · 🔴.** It builds an impossible Partizip II for some prefixed
-   verbs — `auflösen` → «geauflöst», `gegenüberstellen` → «gegenüberstellt» — and both
-   are shipped *and* conj-eligible, so the drill prints them as the correct answer today.
-   Five instances hand-verified with five controls; **class size unknown and a regex
-   cannot find it** (see LESSONS). Filed in BACKLOG. Blocks two held-back cards.
-3. **Adjectival nouns.** `voc:B1:der Vorsitzender` has its headword and plural inverted,
+1. **`order`, the last open drill defect · 🟠.** It accepts one word order; German permits
+   more, so it marks correct German wrong. Needs a ruling, not a patch — see BACKLOG.
+2. **Adjectival nouns.** `voc:B1:der Vorsitzender` has its headword and plural inverted,
    and `Bekannter` resolves to the adjective `bekannt` rather than to its own card. The
    class (`der Bekannte`, `der/die Verwandte`, `der Beamte`) wants one pass.
+3. **Re-run the two held-back cards.** `überreichen` and `aushändigen` were kept out of a
+   batch on a false premise — the reliability gate already refuses them a conjugation
+   drill, so they can be carded.
+4. **Sense/example mismatch at scale** — the `alle` class. Still needs a real sense
+   inventory or a sampled hand-audit with a stated interval, not a fabricated count.
 
 ### Source pages ingested
 
@@ -141,6 +144,14 @@ Kept here because a ledger that only records finds is a ledger that flatters its
   beginning with a lowercase adjective are genuinely raised sentence-initially.
 - **A phantom adjective regression** (0.955 → 0.945) caused by the reader probe's three
   samples sharing one RNG stream. Fixed; each class now has its own seed.
+- **"`auflösen` prints «geauflöst» in the drill."** It does not. Every measurement behind
+  that ran the conjugator **unprimed**, and `splitPrefix` needs a root lexicon seeded from
+  the corpus at boot. One of the five reported instances (`gegenüberstellen`) was real.
+  The same error made the reliability gate look broken when it was working — so two good
+  cards were held out of a batch for no reason.
+- **"64 order drills have a valid alternative the drill rejects."** Six of ten hand-checks
+  were genuine; the other four were the probe mangling the sentence. The finding survives
+  and is in fact *larger* than 64 — but that number is not it.
 - **"1,588 conjugation items render fewer than four options."** They do not. The
   simulation stopped before the *pad* fallback the real item runs when same-tense persons
   dedup below three. With the pad: **0**.

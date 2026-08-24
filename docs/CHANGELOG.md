@@ -59,6 +59,54 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-24 — all eleven drill modes swept, and I had measured the wrong engine
+
+**`gegenüber` and `wohl` were missing from `SEPARABLE`.** `splitPrefix` never fired, the
+weak generator inflected the whole compound as a simplex, and — the part that mattered —
+it still returned `reliable: true`, so instead of being gated out the wrong form was
+offered to a learner. `gegenüberstellen` (C1, shipped) produced **gegenüberstellt** for
+*gegenübergestellt*. Both prefixes added, `fühlen` added to `SEED_ROOTS` because Lexi
+does not card it, and four tests pin it — including one asserting that `aushändigen` and
+`überreichen` stay **unreliable**, since that is the only reason their nonsense forms
+never reached anyone.
+
+**The claim that sent me here was mostly wrong, and the correction is the more useful
+finding.** Yesterday's entry says `auflösen` prints «geauflöst» in the drill. It does
+not. Every measurement behind that ran the conjugator from a bare `node` script, and
+`splitPrefix` only splits a verb whose **root** is known — a lexicon seeded from the
+corpus at boot. Primed the way the app primes it, `auflösen` returns **aufgelöst**.
+One of the five reported instances was real. The same mistake made the reliability gate
+look broken when it was working correctly, so two perfectly good cards were held out of
+an authoring batch for no reason. Struck through in place above; LESSONS Class 2 carries
+the rule — *a pure function with a seeded table is not pure until the table is seeded.*
+
+**One sound instrument did come out of it:** checking the conjugator's Partizip II against
+the forms **the corpus itself attests** in its example sentences — real German as the
+reference rather than a regex over spelling. **262 verbs agree, 0 disagree.** It only
+sees verbs whose examples contain a Perfekt, but it is a real floor under the engine.
+
+**And the drill sweep is complete — all eleven modes.** Two are clean by construction
+(`gender`: three fixed buttons; `case`: four distinct articles from a fixed table per
+gender). Three were broken and are fixed (`cloze`, `plural`, `conj`). The five type-in
+modes grade soundly: `canon` → `norm` (folds ä→ae, ß→ss, so *schoen* matches *schön*) →
+edit-distance-1, with a *near-miss* state that says "right word, spelling drifted"
+instead of marking it wrong. That leaves one real defect:
+
+**🟠 `order` accepts exactly one word order, and German permits more.** The check is
+`built.join(' ') === target.join(' ')` — the original sentence and nothing else. But the
+finite verb goes second and *any* constituent may hold first position, so «Ich fahre
+morgen nach Berlin» and «Morgen fahre ich nach Berlin» are both correct and the drill
+marks the second wrong. **That is this project's worst error class.** A narrow probe
+flagged 64 of 6,023; six of ten hand-checks were genuine and four were the probe mangling
+the sentence — so 64 is not the number, and the true class is *larger*, since that probe
+tests one pattern out of many. Filed rather than patched: enumerating valid orders needs
+a parser, and the tractable fixes (restrict the pool, or pin position 1 in the prompt) are
+a design decision.
+
+929 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-21 — a homework page on negation, and the half of it Lexi never taught
 
 Three photographed pages — a B2 coursebook module („Missverständliches“) and Dreyer §14
@@ -107,13 +155,24 @@ refuse a gloss that silently repeats its headword.
 
 **The gate's refusals turned up a live defect in shipped content.** `conjugate` fails to
 identify the prefix on some verbs and glues `ge-` onto the front of the whole word:
-**`auflösen` → «geauflöst»** and **`gegenüberstellen` → «gegenüberstellt»** are both in
+~~**`auflösen` → «geauflöst»** and~~ **`gegenüberstellen` → «gegenüberstellt»** are both in
 the corpus, both conj-eligible, and both currently printed as the correct Partizip II in
 the conjugation drill. Five instances hand-verified against five hand-verified controls
 (`abschreiben`, `ankommen`, `vorbereiten`, `gehen`, `geben` all correct), and filed
 **without a count** — a check keyed on prefix *spelling* flagged 29 and was wrong about
 nearly all of them, because `ge` is not a prefix in *gehen* and `teil` is not one in
 *teilen*. LESSONS carries the rule: morphology is not string prefixes.
+
+> ⚠️ **Corrected 2026-08-24: `auflösen` was never broken, and the paragraph above
+> overstates the blast radius.** Every measurement behind it ran the conjugator
+> **unprimed**. `splitPrefix` only splits a verb whose *root* is known, and the root
+> lexicon is seeded from the corpus at boot — so a bare `node` script sees a different
+> engine from the one the app runs. Primed, `auflösen` returns **aufgelöst**, because
+> `lösen` is a card. `aushändigen` and `überreichen` are wrong in both states but come
+> back `reliable: false`, and `canConjugate` is exactly `conjugate(v).reliable`, so the
+> drill never offered them — the gate was doing its job and the two cards did not need
+> to be held back. **One card was genuinely affected: `gegenüberstellen` (C1).** Fixed
+> below; the strike-through is left in place rather than deleted, per LESSONS Class 7.
 
 926 tests, 0 lint errors, `corpus:validate` PASS.
 

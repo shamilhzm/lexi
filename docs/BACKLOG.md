@@ -1404,33 +1404,57 @@ user; none of it is built.*
   drill than either half. **The conjugator bug below sits underneath it and must be
   fixed first**, or the new drill would teach the wrong forms.
   *M · `src/views/Fundamentals.tsx`, `src/lib/conjugate.ts`.*
-- **🔴 The conjugator builds an impossible Partizip II for some prefixed verbs — two
-  shipped cards print one as the correct answer · S.** *(2026-08-21.)* `conjugate`
-  fails to identify the prefix on certain verbs, returns `separable: null`, and then
-  glues `ge-` onto the front of the whole word, where German puts it inside or omits
-  it. **Five hand-verified, with five hand-verified controls so this reads as a real
-  class and not a broken probe:**
+- ~~**🔴 The conjugator builds an impossible Partizip II for some prefixed verbs — two
+  shipped cards print one as the correct answer**~~ — **✅ fixed 2026-08-24, and the
+  original claim was half wrong.** `gegenüber` and `wohl` were simply missing from
+  `SEPARABLE`, so `splitPrefix` never fired and the weak generator inflected the whole
+  compound as a simplex — while still returning `reliable: true`, which is how the wrong
+  form reached the drill rather than being gated out. Both added; `fühlen` added to
+  `SEED_ROOTS` because Lexi does not card it. Pinned by tests.
 
-  | verb | conjugator | correct | in the corpus? |
+  **What the original entry got wrong.** Every measurement behind it ran the conjugator
+  **unprimed**, and `splitPrefix` only splits a verb whose *root* is known — a lexicon
+  seeded from the corpus at boot. A bare `node` script therefore sees a different engine
+  from the one the app runs:
+
+  | verb | unprimed | **primed (the app)** | outcome |
   |---|---|---|---|
-  | `auflösen` | **geauflöst** | aufgelöst | ✅ **and conj-eligible today** |
-  | `gegenüberstellen` | **gegenüberstellt** | gegenübergestellt | ✅ **and conj-eligible today** |
-  | `wohlfühlen` | **gewohlfühlt** | wohlgefühlt | ✅ (reflexive, so no longer drilled) |
-  | `aushändigen` | **geaushändigt** | ausgehändigt | not yet — held out of a batch because of this |
-  | `überreichen` | **geüberreicht** | überreicht | not yet — same |
+  | `auflösen` | geauflöst | **aufgelöst** ✓ | never broken — `lösen` is a card |
+  | `gegenüberstellen` | ✗ | **✗ reliable=true** | the one real defect · now fixed |
+  | `wohlfühlen` | ✗ | ✗ reliable=true | fixed (was already un-drilled: reflexive) |
+  | `aushändigen` · `überreichen` | ✗ | ✗ but **reliable=false** | gate held; never shown |
 
-  *Controls, all correct:* `abschreiben` → abgeschrieben · `ankommen` → angekommen ·
-  `vorbereiten` → vorbereitet · `gehen` → gegangen · `geben` → gegeben. **So it is not
-  a blanket failure of prefixed verbs**, which is what makes it worth isolating rather
-  than rewriting the engine.
+  So **one** card was affected, not two, and the two held out of the authoring batch did
+  not need to be — `canConjugate` is exactly `conjugate(v).reliable`, and it was already
+  refusing them. *Do:* re-run `überreichen` and `aushändigen` through `authoring:new`;
+  they can be carded, they simply will not offer a conjugation drill.
 
-  ⚠️ **The class size is unknown and a regex will not find it.** A prefix-shaped string
-  is not a prefix: a check keyed on `/^(ab|an|auf|…)/` flags `antworten`, `teilen`,
-  `herrschen`, `einigen`, `beißen` and every verb whose *stem* merely starts with those
-  letters, and one keyed on `/^(be|ge|ver|über|…)/` flags `gehen`, `geben`, `gewinnen`.
-  Sizing this needs a real morphological source, not string matching — see LESSONS.
-  *Do:* fix detection, then re-run the two held-back cards through `authoring:new`.
-  *S · `src/lib/conjugate.ts`.*
+  **Class size, honestly.** Still not sizeable by regex — a prefix-shaped string is not a
+  prefix (`ge` is not one in *gehen*, `teil` not one in *teilen*). But there is now one
+  sound instrument: **checking the conjugator's participle against the forms the corpus
+  itself attests in its example sentences — 262 verbs confirmed, 0 disagreements.** That
+  is a real floor under the engine, and it only sees verbs whose examples contain a
+  Perfekt. *S · `src/lib/conjugate.ts`.*
+- **🟠 The sentence-builder accepts exactly one word order, and German permits more · M.**
+  *(2026-08-24.)* `OrderItem`'s check is
+  `built.map(i => target[i]).join(' ') === target.join(' ')` — the original sentence's
+  order and nothing else. But German puts the finite verb second and lets *any*
+  constituent hold the first position, so «Ich fahre morgen nach Berlin» and «Morgen
+  fahre ich nach Berlin» are both correct and the drill marks the second one wrong.
+  **That is this project's worst error class: a drill that marks correct German wrong.**
+
+  A narrow probe (subject-pronoun opening + a frontable time adverb) flagged 64 of 6,023;
+  hand-checking ten, **six were genuine** — «Wir gehen heute ins Kino», «Ich gehe morgen
+  zum Arzt», «Ich habe heute schlecht geschlafen» — and four were the probe mangling the
+  sentence (*jeden Morgen* is the noun; *dass es morgen regnet* is a subordinate clause;
+  *für morgen* is a prepositional object). So 64 is not the number, and the real class is
+  **larger**, not smaller: that probe only tests one pattern out of many.
+
+  *Do:* not enumerate valid orders — that needs a parser. The tractable options are to
+  restrict the pool to sentences with one licit order (subordinate clauses, short SVO
+  with no movable adverbial), or to pin position 1 in the prompt so the task is
+  well-posed. **A design decision, deliberately not taken unilaterally.**
+  *M · `src/views/GrammarDrill.tsx` `OrderItem`, `src/views/Fundamentals.tsx` `orderPool`.*
 - **`der Vorsitzender` is a malformed adjectival-noun headword · XS.** *(2026-08-21.)*
   The card is `voc:B1:der Vorsitzender` with `plural: "die Vorsitzende"` — both halves
   inverted. *Vorsitzender* is the strong form used **without** an article (*ein

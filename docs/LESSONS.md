@@ -162,6 +162,21 @@ costs a day and closes the ticket.
 three hits are hand-verified. Write the counter-example into the check's own header when
 it turns out to be wrong.**
 
+- **I measured an engine the app never runs.** *(2026-08-24.)* Reporting that
+  `conjugate('auflösen')` builds **geauflöst** and that a shipped card prints it as the
+  correct answer — twice, in a CHANGELOG entry and a 🔴 backlog item — I ran the
+  conjugator from a bare `node` script. But `splitPrefix` only splits a verb whose
+  **root** is known, and that root lexicon is *seeded from the corpus at boot*. Primed
+  the way the app primes it, `auflösen` returns **aufgelöst**, because `lösen` is a card.
+  One of the five reported instances was real. Worse, the same mistake made the *gate*
+  look broken: `aushändigen` and `überreichen` do build nonsense, but come back
+  `reliable: false`, and `canConjugate` is literally `conjugate(v).reliable` — so the
+  drill never offered them and I held two good cards out of a batch for no reason.
+  **Rule: before measuring a module, check what its callers do to it first. A pure
+  function with a seeded table is not pure until the table is seeded — reproduce the
+  app's boot path (`primeApp`, `registerWords`, `setKnownVerbs`) or state plainly that
+  the number is from an unprimed engine.** The tell was there to be noticed: the very
+  gate I was accusing of failing is one line long and reads `return conjugate(v).reliable`.
 - **A prefix-shaped string is not a prefix.** *(2026-08-21.)* Hunting for verbs whose
   Partizip II comes out wrong, I keyed the check on the *spelling* of the German
   prefixes — `/^(ab|an|auf|aus|ein|teil|…)/` for separable, `/^(be|ge|ver|über|…)/` for

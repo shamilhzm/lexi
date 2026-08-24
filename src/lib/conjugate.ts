@@ -349,6 +349,9 @@ const SEED_ROOTS = [
   'klären', 'grenzen', 'decken', 'lehnen', 'weisen', 'schränken', 'dämmen',
   'wachen', 'ruhen', 'zünden', 'regen', 'beugen', 'heitern', 'hellen', 'kurbeln',
   'hetzen', 'tönen', 'winken', 'checken', 'probieren',
+  // `fühlen` is a genuine weak verb that Lexi happens not to card, so `wohlfühlen`
+  // and `mitfühlen` had no root to split on. Added 2026-08-24 with `wohl`.
+  'fühlen',
   // very common bases that anchor many prefixed forms
   'machen', 'kaufen', 'hören', 'sagen', 'führen', 'setzen', 'stellen', 'legen',
   'schalten', 'holen', 'zeigen', 'danken', 'wohnen', 'lernen', 'leben', 'spielen',
@@ -410,6 +413,12 @@ const SEPARABLE = [
   'hinein', 'hinunter', 'hinweg', 'hinzu', 'los', 'mit', 'nach', 'nieder', 'statt', 'teil', 'überein',
   'vor', 'voran', 'voraus',
   'vorbei', 'weg', 'weiter', 'zu', 'zurecht', 'zurück', 'zusammen',
+  // Added 2026-08-24. Missing from the list, so `splitPrefix` never fired and the
+  // weak generator treated the whole compound as a simplex — while still reporting
+  // `reliable: true`, which is how a wrong form reached the drill rather than being
+  // gated out. `gegenüberstellen` came out **gegenüberstellt** (C1, and offered by
+  // the conjugation drill today); `wohlfühlen` came out **gewohlfühlt**.
+  'gegenüber', 'wohl',
 ];
 
 // Auxiliary for prefixed verbs whose Perfekt aux differs from their base verb.

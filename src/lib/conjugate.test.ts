@@ -65,6 +65,35 @@ describe('conjugate — separable & reflexive', () => {
     expect(c.reflexive).toBe(true);
     expect(c.perfekt[0]).toBe('habe mich gefreut');
   });
+
+  // `gegenüber` and `wohl` were missing from SEPARABLE, so `splitPrefix` never
+  // fired and the weak generator inflected the whole compound as a simplex —
+  // while still reporting `reliable: true`, which is how a wrong form reached the
+  // drill instead of being gated out of it. `gegenüberstellen` is a shipped C1
+  // card and was offered by the conjugation drill.
+  it('gegenüberstellen: the ge- goes inside, not in front', () => {
+    const c = conjugate('gegenüberstellen');
+    expect(c.partizip).toBe('gegenübergestellt');   // never "gegenüberstellt"
+    expect(c.separable).toBe('gegenüber');
+  });
+
+  it('wohlfühlen: same, and its root is seeded because Lexi does not card fühlen', () => {
+    const c = conjugate('wohlfühlen');
+    expect(c.partizip).toBe('wohlgefühlt');         // never "gewohlfühlt"
+    expect(c.separable).toBe('wohl');
+  });
+
+  // The other half of the contract, and the reason the two above were the *only*
+  // ones that reached a learner: when the prefix cannot be resolved the verb must
+  // come back unreliable, so `canConjugate` keeps it out of the drill. These two
+  // still build nonsense forms, and that is tolerable only because nothing shows
+  // them. If this test ever fails, a wrong participle has become drillable.
+  it('marks a verb unreliable rather than drilling a form it cannot build', () => {
+    for (const v of ['aushändigen', 'überreichen']) {
+      expect(conjugate(v).reliable, `${v} must not be drillable`).toBe(false);
+      expect(canConjugate(v)).toBe(false);
+    }
+  });
 });
 
 describe('conjugate — Futur I (werden + infinitive)', () => {
