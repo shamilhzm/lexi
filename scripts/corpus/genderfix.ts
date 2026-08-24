@@ -41,8 +41,13 @@ import { rebuildSectors } from './sectors.ts';
 interface Fix {
   id: string;
   /** What the card must currently say, or the run aborts. */
-  expect: { gender?: 'der' | 'die' | 'das'; plural?: string | null };
-  set: { gender?: 'der' | 'die' | 'das'; plural?: string };
+  expect: { gender?: 'der' | 'die' | 'das'; plural?: string | null; term?: string };
+  /** `term` corrects the **noun form**, where `gender` corrects the article. Both
+   *  move the id, so both take the one migration path below. Added 2026-08-24 for
+   *  the adjectival nouns: `Vorsitzender` is the *strong* form — the one that
+   *  stands after *ein* — and after *der* only the weak `Vorsitzende` is correct.
+   *  No gender change can express that, because the article was never wrong. */
+  set: { gender?: 'der' | 'die' | 'das'; plural?: string; term?: string };
   /** Declare when the corrected term is already a card. The Visum collision
    *  (2026-08-14) proved a gender fix can silently create a duplicate, so an
    *  undeclared collision still aborts — this is how you say you meant it. The
@@ -169,6 +174,30 @@ const FIXES: Fix[] = [
       + 'was empty where `die Möbel` says „nur Plural“, so the intent was implicit and the '
       + 'audit had no way to tell it apart from a mistake. Saying it out loud is the fix.',
   },
+  // ---- adjectival nouns, 2026-08-24 -----------------------------------------
+  // These decline like adjectives, so the form depends on what precedes them:
+  // strong `ein Vorsitzender`, weak `der Vorsitzende`. The corpus already has a
+  // settled convention for the class — nine cards read `der/die X` with plural
+  // `die Xen` — and these two were outside it.
+  {
+    id: 'voc:B1:der Vorsitzender',
+    expect: { term: 'der Vorsitzender', plural: 'die Vorsitzende' },
+    set: { term: 'der/die Vorsitzende', plural: 'die Vorsitzenden' },
+    why: 'Both halves were inverted. „Vorsitzender“ is the strong form, which is what stands '
+      + 'after *ein*; after *der* only the weak „der Vorsitzende“ is correct, so the headword '
+      + 'as it stood was not German. The plural then had the singular form („die Vorsitzende“ '
+      + 'is the *feminine singular*) where it needed „die Vorsitzenden“. Brought into the '
+      + 'der/die convention the other nine members of the class already use.',
+  },
+  {
+    id: 'voc:C1:der Einzelne',
+    expect: { plural: null },
+    set: { plural: 'die Einzelnen' },
+    why: 'Weak plural after the definite article, like every adjectival noun. Left as „der“ '
+      + 'rather than „der/die“: unlike Bekannte or Reisende this one is overwhelmingly used '
+      + 'generically („der Einzelne und die Gesellschaft“), so the rename is a judgement the '
+      + 'plural fix does not need to wait on.',
+  },
 ];
 
 const write = process.argv.includes('--write');
@@ -204,7 +233,10 @@ for (const f of FIXES) {
     problems.push(`${f.id}: no such card, and the id map does not say where it went`);
     continue;
   }
-  if (f.set.plural !== undefined && !f.set.gender && card.plural === f.set.plural) { alreadyApplied++; continue; }
+  // A plural-only fix is finished when the value is already there. It is only
+  // "plural-only" if nothing else moves the id — a term fix does, so it must not
+  // short-circuit here or the rename would be skipped once the plural landed.
+  if (f.set.plural !== undefined && !f.set.gender && !f.set.term && card.plural === f.set.plural) { alreadyApplied++; continue; }
   for (const [k, v] of Object.entries(f.expect) as [keyof Fix['expect'], unknown][]) {
     if (card[k] !== v) problems.push(`${f.id}: expected ${k}=${JSON.stringify(v)}, found ${JSON.stringify(card[k])}`);
   }
@@ -231,9 +263,14 @@ const crossLevel: string[] = [];
 for (const f of pending) {
   const card = byId.get(f.id)!;
   if (f.set.plural !== undefined) card.plural = f.set.plural;
-  if (f.set.gender) {
-    card.gender = f.set.gender;
-    const term = retermed(card.term, f.set.gender);
+  if (f.set.gender) card.gender = f.set.gender;
+  // Two things move a term: a corrected article (gender) and a corrected noun form
+  // (term). Everything after this point — the collision guard, the ID_MAP
+  // migration, absorbing a retired card's examples — is about the *term* moving and
+  // does not care which caused it, so it is reached from either.
+  const newTerm = f.set.term ?? (f.set.gender ? retermed(card.term, f.set.gender) : null);
+  if (newTerm) {
+    const term = newTerm;
     const id = f.id.replace(/:[^:]*$/, `:${term}`);
     if (id !== card.id) {
       const keeper = byId.get(id);

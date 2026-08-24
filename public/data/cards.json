@@ -37840,7 +37840,7 @@
     "pos": "noun",
     "level": "C1",
     "gender": "der",
-    "plural": null,
+    "plural": "die Einzelnen",
     "ipa": "ˈaɪ̯nt͡sl̩nə",
     "syn": [],
     "ant": [],
@@ -89117,13 +89117,13 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Vorsitzender",
-    "term": "der Vorsitzender",
+    "id": "voc:B1:der/die Vorsitzende",
+    "term": "der/die Vorsitzende",
     "en": "chairman, chairperson, chair, board chairman",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
-    "plural": "die Vorsitzende",
+    "plural": "die Vorsitzenden",
     "ipa": "ˈfoːɐ̯ˌzɪt͡sn̩dɐ",
     "syn": [
       "Präsident",

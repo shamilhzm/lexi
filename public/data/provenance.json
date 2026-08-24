@@ -9053,7 +9053,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:der Vorsitzender",
+    "id": "voc:B1:der/die Vorsitzende",
     "lemma": "Vorsitzender",
     "level": "B1",
     "levelSource": "reference",

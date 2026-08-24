@@ -50,6 +50,7 @@ out five times — see the withdrawals below. A count in this file that is not m
 | `case` drill distractors | all `caseSafe` nouns | **clean by construction** — four distinct articles per gender from a fixed table | — |
 | `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**, class real and larger than any probe | BACKLOG 🟠 |
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
+| Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
 
 **All eleven drill modes have now been swept.** Two were clean by construction (`gender`,
 `case`), three were broken and are fixed (`cloze`, `plural`, `conj`), five type-in modes
@@ -59,9 +60,9 @@ grade soundly, and one (`order`) has a real defect that needs a design decision.
 
 1. **`order`, the last open drill defect · 🟠.** It accepts one word order; German permits
    more, so it marks correct German wrong. Needs a ruling, not a patch — see BACKLOG.
-2. **Adjectival nouns.** `voc:B1:der Vorsitzender` has its headword and plural inverted,
-   and `Bekannter` resolves to the adjective `bekannt` rather than to its own card. The
-   class (`der Bekannte`, `der/die Verwandte`, `der Beamte`) wants one pass.
+2. **Four adjectival nouns are carded twice · 🟠.** Found while fixing the headwords; the
+   `der/die X` card is canonical and correct in each case, the second is a stray. A
+   *merge*, not a rename — `corpus:dupes` owns it. See BACKLOG.
 3. **Re-run the two held-back cards.** `überreichen` and `aushändigen` were kept out of a
    batch on a false premise — the reliability gate already refuses them a conjugation
    drill, so they can be carded.

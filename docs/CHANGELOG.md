@@ -59,6 +59,38 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-24 — a headword that was not German, and four words carded twice
+
+`voc:B1:der Vorsitzender` had **both halves inverted**. Adjectival nouns decline like
+adjectives, so the form depends on what precedes them: strong *ein Vorsitzender*, weak
+*der Vorsitzende*. The headword as it stood — *der* plus the strong form — is not German
+in any context. Its plural then held the **feminine singular** (*die Vorsitzende*) where
+it needed *die Vorsitzenden*. Fixed, along with `der Einzelne`'s missing plural.
+
+**The class already had a settled convention, which is what made the two stand out:**
+nine cards read `der/die X` with plural `die Xen` — Bekannte, Verwandte, Angestellte,
+Reisende, Abgeordnete, Vorgesetzte, Beschäftigte, Geflüchtete, Wahlberechtigte. So the
+fix was to join it, not to invent something. `der Beamte` deliberately stays outside:
+its feminine is *die Beamtin*, a separate word, so the der/die form would be wrong there.
+
+**`genderfix.ts` gained `set.term`.** It could already move an id when a corrected
+*article* changed the term; it could not when the corrected *noun form* did, and the two
+need exactly the same machinery — collision guard, cumulative `ID_MAP`, absorbing a
+retired card's examples. The rename block moved out of the gender-only branch and now
+runs from either cause. `ID_MAP` 1,397 → 1,398, so no learner's schedule is reset.
+
+**And the class turned out to hold four duplicates**, which is the larger finding and is
+filed rather than fixed: *Bekannte* is carded **three times** (`A1:der/die Bekannte`
+plus a male and a female card at B1), and *Verwandte*, *Abgeordnete* and *Vorgesetzte*
+twice each — two of those **at the same level**. One word, several ids, several FSRS
+schedules. That is a merge, and `corpus:dupes` owns merges; `genderfix` aborts on an
+undeclared collision precisely so one cannot be smuggled in as a rename.
+
+929 tests, 0 lint errors, `corpus:validate` PASS — warnings 809 → 808, and the plural
+probe 0.98 → 0.99 off its own population changing.
+
+---
+
 ### Shipped 2026-08-24 — all eleven drill modes swept, and I had measured the wrong engine
 
 **`gegenüber` and `wohl` were missing from `SEPARABLE`.** `splitPrefix` never fired, the

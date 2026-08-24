@@ -1455,15 +1455,31 @@ user; none of it is built.*
   with no movable adverbial), or to pin position 1 in the prompt so the task is
   well-posed. **A design decision, deliberately not taken unilaterally.**
   *M · `src/views/GrammarDrill.tsx` `OrderItem`, `src/views/Fundamentals.tsx` `orderPool`.*
-- **`der Vorsitzender` is a malformed adjectival-noun headword · XS.** *(2026-08-21.)*
-  The card is `voc:B1:der Vorsitzender` with `plural: "die Vorsitzende"` — both halves
-  inverted. *Vorsitzender* is the strong form used **without** an article (*ein
-  Vorsitzender*); with the definite article it is *der Vorsitzende*, and the plural is
-  *die Vorsitzenden*. Found because `authoring:new` refused a `der Vorsitzende`
-  candidate as a near-duplicate of it. The whole adjectival-noun class deserves one
-  pass — `der Bekannte`, `der/die Verwandte`, `der Beamte` share the pattern, and
-  `Bekannter` already resolves to the adjective `bekannt` rather than to its own card.
-  *XS · `fix-authored.ts` sense row, then check the class.*
+- ~~**`der Vorsitzender` is a malformed adjectival-noun headword**~~ — **✅ fixed
+  2026-08-24**, together with `der Einzelne`'s missing plural. The class turned out to
+  have a settled convention already: **nine cards read `der/die X` with plural
+  `die Xen`**, and these two were simply outside it. `genderfix.ts` gained a
+  `set.term` so a corrected *noun form* takes the same id-migration path a corrected
+  *article* already did. `der Beamte` deliberately stays singular-article: its feminine
+  is *die Beamtin*, a separate word, so the convention does not apply to it.
+- **🟠 Four adjectival nouns are carded twice — same word, two headwords · S.**
+  *(Found 2026-08-24 while fixing the two above.)* The `der/die X` card is canonical in
+  every case and already correct; the second card is a stray.
+
+  | word | canonical | stray |
+  |---|---|---|
+  | Bekannte | `voc:A1:der/die Bekannte` | `voc:B1:der Bekannte` **and** `voc:B1:die Bekannte` |
+  | Verwandte | `voc:A1:der/die Verwandte` | `voc:A1:der Verwandte` — **same level** |
+  | Abgeordnete | `voc:B1:der/die Abgeordnete` | `voc:B1:der Abgeordnete` — **same level** |
+  | Vorgesetzte | `voc:B1:der/die Vorgesetzte` | `voc:B2:der Vorgesetzte` |
+
+  Not a rename — the corpus holds two live cards for one word, so a learner can meet
+  *Bekannte* three times under three ids, each with its own FSRS schedule. **This is a
+  merge, and `corpus:dupes` + `dup-rulings.tsv` own it**; `genderfix` refuses an
+  undeclared collision precisely so a merge cannot be smuggled in as a rename. The two
+  same-level pairs are the straightforward ones; Bekannte needs a ruling on whether the
+  gendered pair (*male* / *female* glosses) is worth keeping as a distinction or folding
+  into the neutral card. *S · `corpus:dupes`.*
 - **370 word cards carry an empty `pos` · XS–S.** Invisible today, but it is the same
   latent gap that produced the capitalisation mess: a card with no part of speech
   cannot be classified by any rule, so it silently opts out of the drills, the family

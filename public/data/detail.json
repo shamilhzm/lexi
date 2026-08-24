@@ -67546,21 +67546,6 @@
       }
     ]
   },
-  "voc:B1:der Vorsitzender": {
-    "def": "chairman, chairperson, chair, board chairman (male or of unspecified gender); president (male or of unspecified gender)",
-    "ex": [
-      {
-        "de": "Tom ist der Vorsitzende.",
-        "en": "Tom is the chairman.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Herr Jordan ist Vorsitzender.",
-        "en": "Mr Jordan is chairperson.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:der Vorsprung": {
     "def": "A distance ahead of others; also a part that sticks out.",
     "ex": [
@@ -68274,6 +68259,21 @@
         "de": "Ein guter Vorgesetzter fördert, statt nur zu fordern.",
         "en": "A good superior develops people instead of only demanding.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der/die Vorsitzende": {
+    "def": "chairman, chairperson, chair, board chairman (male or of unspecified gender); president (male or of unspecified gender)",
+    "ex": [
+      {
+        "de": "Tom ist der Vorsitzende.",
+        "en": "Tom is the chairman.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Herr Jordan ist Vorsitzender.",
+        "en": "Mr Jordan is chairperson.",
+        "lvl": "B1"
       }
     ]
   },

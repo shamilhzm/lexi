@@ -306,9 +306,10 @@
   },
   {
     "name": "Contact & Communication",
-    "count": 1,
+    "count": 2,
     "levels": [
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Education & Language"
   },
@@ -644,15 +645,16 @@
   },
   {
     "name": "Decisions",
-    "count": 1,
+    "count": 2,
     "levels": [
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Feelings & Relationships"
   },
   {
     "name": "Emotions",
-    "count": 70,
+    "count": 73,
     "levels": [
       "A1",
       "A2",
@@ -959,7 +961,7 @@
   },
   {
     "name": "Everyday Life",
-    "count": 21,
+    "count": 23,
     "levels": [
       "A2",
       "B1",
@@ -989,7 +991,7 @@
   },
   {
     "name": "Home",
-    "count": 158,
+    "count": 160,
     "levels": [
       "A1",
       "A2",
@@ -1045,7 +1047,7 @@
   },
   {
     "name": "Real Estate & Moving",
-    "count": 13,
+    "count": 14,
     "levels": [
       "B1",
       "B2",
@@ -1083,7 +1085,7 @@
   },
   {
     "name": "Abstract",
-    "count": 66,
+    "count": 67,
     "levels": [
       "A1",
       "A2",
@@ -1095,7 +1097,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 515,
+    "count": 520,
     "levels": [
       "A1",
       "A2",
@@ -1315,7 +1317,7 @@
   },
   {
     "name": "Environment",
-    "count": 29,
+    "count": 31,
     "levels": [
       "A2",
       "B1",
@@ -1565,9 +1567,10 @@
   },
   {
     "name": "Emigration & immigration",
-    "count": 11,
+    "count": 13,
     "levels": [
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Society & Politics"
   },
@@ -1739,7 +1742,7 @@
   },
   {
     "name": "Politics",
-    "count": 87,
+    "count": 88,
     "levels": [
       "A2",
       "B1",
@@ -1876,7 +1879,7 @@
   },
   {
     "name": "Society & Politics",
-    "count": 36,
+    "count": 37,
     "levels": [
       "B2",
       "C1"
@@ -2173,7 +2176,7 @@
   },
   {
     "name": "Transport & Mobility",
-    "count": 30,
+    "count": 31,
     "levels": [
       "A2",
       "B1",
@@ -2184,7 +2187,7 @@
   },
   {
     "name": "Travel",
-    "count": 29,
+    "count": 30,
     "levels": [
       "A1",
       "A2",
