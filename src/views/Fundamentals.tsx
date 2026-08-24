@@ -372,7 +372,12 @@ export const CASE_POINT: Record<Kase, string> = {
   gen: 'gram:B1:Genitiv',
 };
 const CASE_PREPS: Record<Exclude<Kase, 'nom'>, string[]> = {
-  akk: ['für', 'ohne', 'gegen', 'durch'],
+  // no "durch", removed 2026-08-24 for the same reason "während" was never here:
+  // it needs a noun you can pass *through*. Paired with the corpus at large it
+  // produced „durch den Mittag“ and „durch den neuen Mittag“, which are not German
+  // — reported from a real session. für/ohne/gegen read plausibly with almost any
+  // noun, and gegen even keeps its temporal sense („gegen den Mittag“).
+  akk: ['für', 'ohne', 'gegen'],
   dat: ['mit', 'von', 'bei'],
   // no "während": it only takes temporal nouns ("während der Lampe" is nonsense);
   // wegen/trotz read plausibly with almost any noun.
@@ -450,12 +455,30 @@ export function caseSafe(w: Word): boolean {
 
 /** `kase` rides along so the item can open the rule for the case it actually
  *  asked about rather than the mode's default. */
-export interface CaseItemData { prompt: string; sub: string; options: string[]; correct: number; why: string; answer: string; kase: Kase; }
+export interface CaseItemData {
+  prompt: string; sub: string; options: string[]; correct: number; why: string; answer: string; kase: Kase;
+  /** Present only on an adjective-ending item, and the reason it is present is
+   *  that the rule panel was opening the wrong page. `CASE_POINT` keys on the
+   *  *case*, so «Hier ist der ___ König» — an adjective ending — opened
+   *  `Personalpronomen (Nominativ)`, whose text reads "the subject pronoun decides
+   *  the **verb** ending". Right case, wrong system, and it contradicted the very
+   *  question. Reported from a real session 2026-08-24. Exactly the defect the
+   *  `CASE_POINT` map itself was introduced to fix at tense level (a Futur I card
+   *  opening the Perfekt rule) — the same mistake one level finer. */
+  decl?: Declension;
+}
 /** Which declension the item is asking for — named on the card, because "adjective
  *  ending" is three different systems and the learner needs to know which one. */
 export type Declension = 'weak' | 'mixed' | 'strong';
 const DECL_LABEL: Record<Declension, string> = {
   weak: 'after the definite article', mixed: 'after ein/eine', strong: 'no article',
+};
+/** The point that actually teaches each declension, so an adjective-ending item
+ *  opens the adjective rule rather than whatever else shares its case. */
+export const DECL_POINT: Record<Declension, string> = {
+  weak: 'gram:A2:Adjektivdeklination: nach bestimmtem Artikel (schwach)',
+  mixed: 'gram:B1:Adjektivdeklination: nach unbestimmtem Artikel (gemischt)',
+  strong: 'gram:B1:Adjektivdeklination: ohne Artikel (stark)',
 };
 /** Build one Kasus item: article choice or weak adjective ending, in a frame
  *  that forces the case. `rnd` injectable for tests. */
@@ -505,7 +528,7 @@ export function buildCaseItem(w: Word, rnd: () => number = Math.random): CaseIte
     sub: `Adjective ending · ${CASE_LABEL[kase]}`,
     options, correct: options.indexOf(correct),
     why: `${why} · ${DECL_LABEL[decl]}`, answer: correct,
-    kase,
+    kase, decl,
   };
 }
 
@@ -1267,7 +1290,13 @@ export function CaseItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     extra={<><GenderTerm term={word.term} gender={word.gender} /> · {d.why} → {d.answer}</>}
     // The case is the question; the article is only how it is spelled here.
     askedLabel={d.kase}
-    rulePoint={CASE_POINT[d.kase]} ruleLabel={CASE_LABEL[d.kase]} mode="case" onGrade={onGrade} />;
+    // Open the rule for what the item *asks*, not merely for its case. An
+    // adjective-ending item shares its case with the pronoun and preposition
+    // points, and linking on case alone sent «Hier ist der ___ König» to
+    // `Personalpronomen (Nominativ)` — a page about verb endings.
+    rulePoint={d.decl ? DECL_POINT[d.decl] : CASE_POINT[d.kase]}
+    ruleLabel={d.decl ? `Adjektivdeklination · ${DECL_LABEL[d.decl]}` : CASE_LABEL[d.kase]}
+    mode="case" onGrade={onGrade} />;
 }
 
 /** Tense transformation, typed: „ich mache“ → Perfekt. Production, not

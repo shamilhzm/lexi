@@ -629,6 +629,47 @@ describe('Kasus drill (case & endings)', () => {
     expect(strong.options[strong.correct]).toBe('altes');     // strong nom neut → -es
   });
 
+  // Reported from a real session: «Hier ist der ___ König» — an *adjective ending* —
+  // opened `Personalpronomen (Nominativ)`, whose text reads "the subject pronoun
+  // decides the verb ending". Right case, wrong system, and it contradicted the very
+  // question it was attached to. The item now says which declension it asked for, so
+  // the panel can open the page that teaches it.
+  it('names the declension so the rule panel can open the adjective page', async () => {
+    const { fundamentals } = await fresh();
+    const pin = (v: number[]) => { const q = [...v]; return () => q.shift() ?? 0; };
+    expect(fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0])).decl).toBe('weak');
+    expect(fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0.6])).decl).toBe('mixed');
+    expect(fundamentals.buildCaseItem(noun('Wasser', 'das'), pin([0, 0.9, 0, 0.9])).decl).toBe('strong');
+    // An article item asks about the case itself, so it carries no declension and
+    // keeps the case-level rule link.
+    expect(fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0).decl).toBeUndefined();
+  });
+
+  it('links every rule point it can produce to a page that exists', async () => {
+    // A rule link that resolves nowhere fails silently — the panel simply does not
+    // open — so both maps are checked against the shipped lexicon rather than
+    // trusted. Same guard the WORD_POINT / MODE_REMEDY test above applies to
+    // session.ts, pointed at the Kasus drill's two maps.
+    const fs = await import('node:fs');
+    const { fundamentals } = await fresh();
+    const vocab = JSON.parse(fs.readFileSync('public/data/vocab.json', 'utf8')) as Word[];
+    const ids = new Set(vocab.filter((w) => w.kind === 'grammar').map((w) => w.id));
+    for (const id of Object.values(fundamentals.DECL_POINT) as string[]) expect(ids.has(id), id).toBe(true);
+    for (const id of Object.values(fundamentals.CASE_POINT) as string[]) expect(ids.has(id), id).toBe(true);
+  });
+
+  // „durch“ needs a noun you can pass *through*, and the drill pairs a preposition
+  // with any noun in the corpus — which produced „durch den Mittag“ and, with the
+  // adjective flavour, „durch den neuen Mittag“. Removed for the reason „während“
+  // was never in the list at all.
+  it('never builds an Akkusativ frame with durch', async () => {
+    const { fundamentals } = await fresh();
+    for (let i = 0; i < 300; i++) {
+      const d = fundamentals.buildCaseItem(noun('Mittag', 'der'));
+      expect(d.prompt, d.prompt).not.toMatch(/\bdurch\b/);
+    }
+  });
+
   it('never declines a countable noun strong, which would be ungrammatical', async () => {
     const { fundamentals } = await fresh();
     // "alter Tisch" is not German — a countable singular needs an article. Roll

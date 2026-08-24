@@ -59,6 +59,42 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-24 — the rule panel contradicted the question it was attached to
+
+Both from playing a real session, and reported with screenshots.
+
+**«Hier ist der ___ König» opened a page about verb endings.** The item asks for an
+*adjective ending*; the panel underneath it opened `Personalpronomen (Nominativ)`, whose
+text reads *"The subject pronoun decides the verb ending."* Right case, wrong system —
+and worse than merely unhelpful, because it answers a question the learner was not asked
+and quietly implies the two are the same thing.
+
+The cause is that `CASE_POINT` keys on the **case**, and the Kasus drill builds two very
+different items under one case: *which article?* and *which adjective ending?* Only the
+first is really about the case. `buildCaseItem` already knew which declension it had
+chosen — weak, mixed or strong — it simply did not return it, so the item had nothing to
+link on. It does now, and an adjective item opens the page that teaches that declension:
+`Adjektivdeklination: nach bestimmtem Artikel (schwach)` and its two siblings. The label
+names it too, so the panel header says *Adjektivdeklination · after the definite article*
+rather than just *Nominativ*.
+
+This is the same defect `CASE_POINT` was introduced to fix one level up — its own comment
+says it exists "because a Futur I card opened the Perfekt rule". Same mistake, one grain
+finer. Both maps are now checked against the shipped lexicon by a test, because a rule
+link that resolves nowhere fails silently: the panel just does not open.
+
+**«durch den ___ Mittag» is not German.** `durch` needs a noun you can pass *through*,
+and the drill pairs a preposition with any noun in the corpus, so it produced that and —
+with the adjective flavour — «durch den neuen Mittag». Removed from the Akkusativ
+prepositions for exactly the reason `während` was never in the list, which the code
+already says out loud: *"it only takes temporal nouns («während der Lampe» is nonsense)"*.
+`für`, `ohne` and `gegen` read plausibly with almost any noun, and `gegen` even keeps its
+temporal sense («gegen den Mittag»).
+
+947 tests, 0 lint errors.
+
+---
+
 ### Shipped 2026-08-24 — the builder was spelling its own answer, and the Vorfeld is now taught
 
 Two rulings from the maintainer, and both changed the shape of the work.
