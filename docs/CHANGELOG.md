@@ -59,6 +59,41 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-24 — fix the engine, not the sentence
+
+Two cards from the negation homework — `überreichen` and `aushändigen` — were held back
+because the authoring gate refused their examples. The easy way out was to rewrite the
+examples into the bare-infinitive frame, which is the one frame the matcher always
+handles. **That is the content bias BACKLOG already warns about**: it pushes every
+separable verb's examples toward the one shape where the prefix never moves, which is
+the shape a learner least needs to see. So the engine was fixed instead, and both cards
+went in with the sentences the homework actually used.
+
+- **`überreichen`** was unsplittable because `über` sits in neither prefix list — German
+  uses it both ways, and the file resolves that ambiguity by data rather than by rule.
+  It gets a table row like `übersetzen`, `überlegen` and `überzeugen` before it:
+  inseparable, so **überreicht** with no `ge-`.
+- **`aushändigen`** splits on `händigen`, a bound root — modern German has only
+  *aushändigen* and *einhändigen*, never the bare verb — so it was missing from
+  `SEED_ROOTS` and the whole compound came out as **geaushändigt**. Added; `einhändigen`
+  is fixed by the same row.
+
+Both now conjugate correctly and both cards passed the gate **with their original
+examples**: «Der Präsident überreichte dem Sieger die Medaille» and «Das Geld darf nur
+dem Kontoinhaber ausgehändigt werden». **6,640 → 6,642.**
+
+**And the gate's own guarantee is now measured: 60 of the corpus's 1,212 verbs are
+declined by the engine** — almost all of them pattern cards whose headword deliberately
+carries government notation (`verzichten auf + A`, `gehören zu + D`) or a disambiguator
+(`ansprechen (Person)`). Every one produces nonsense if inflected, and every one is
+`reliable: false`, so the drill never sees them. That is the property which meant the two
+verbs above were never *wrong* on screen, only missing — and it is now pinned by a test
+using real shipped cards rather than an invented word.
+
+931 tests, 0 lint errors, `corpus:validate` PASS · verb probe 0.937 → 0.942.
+
+---
+
 ### Shipped 2026-08-24 — a headword that was not German, and four words carded twice
 
 `voc:B1:der Vorsitzender` had **both halves inverted**. Adjectival nouns decline like

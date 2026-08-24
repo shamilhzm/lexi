@@ -106761,6 +106761,21 @@
       }
     ]
   },
+  "voc:B2:überreichen": {
+    "def": "To hand something to someone on a formal occasion.",
+    "ex": [
+      {
+        "de": "Der Präsident überreichte dem Sieger die Medaille.",
+        "en": "The president presented the medal to the winner.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Man überreichte ihr zum Abschied einen Blumenstrauß.",
+        "en": "She was presented with a bouquet as a farewell.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:überschreiten": {
     "def": "To go over a limit, a line or a border.",
     "ex": [
@@ -107357,6 +107372,21 @@
       {
         "de": "Bei kleinen Kindern ist der Nachahmungstrieb besonders ausgeprägt.",
         "en": "In small children the urge to imitate is especially pronounced.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:aushändigen": {
+    "def": "To give a document or sum of money to the person entitled to it.",
+    "ex": [
+      {
+        "de": "Das Geld darf nur dem Kontoinhaber ausgehändigt werden.",
+        "en": "The money may only be handed over to the account holder.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Beamte händigte ihm den neuen Pass aus.",
+        "en": "The official handed him the new passport.",
         "lvl": "C1"
       }
     ]

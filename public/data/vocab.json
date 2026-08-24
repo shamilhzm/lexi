@@ -207746,5 +207746,59 @@
     ],
     "field": "Home",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:überreichen",
+    "term": "überreichen",
+    "en": "to present, to hand over formally",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌyːbɐˈʁaɪ̯çn̩",
+    "def": "To hand something to someone on a formal occasion.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Präsident überreichte dem Sieger die Medaille.",
+        "en": "The president presented the medal to the winner.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Man überreichte ihr zum Abschied einen Blumenstrauß.",
+        "en": "She was presented with a bouquet as a farewell.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:aushändigen",
+    "term": "aushändigen",
+    "en": "to hand over, to issue",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sˌhɛndɪɡn̩",
+    "def": "To give a document or sum of money to the person entitled to it.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Geld darf nur dem Kontoinhaber ausgehändigt werden.",
+        "en": "The money may only be handed over to the account holder.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Beamte händigte ihm den neuen Pass aus.",
+        "en": "The official handed him the new passport.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "At the bank",
+    "kind": "word"
   }
 ]

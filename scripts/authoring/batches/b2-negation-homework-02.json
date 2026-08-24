@@ -1,0 +1,38 @@
+[
+ {
+  "term": "überreichen",
+  "en": "to present, to hand over formally",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work",
+  "def": "To hand something to someone on a formal occasion.",
+  "ex": [
+   {
+    "de": "Der Präsident überreichte dem Sieger die Medaille.",
+    "en": "The president presented the medal to the winner."
+   },
+   {
+    "de": "Man überreichte ihr zum Abschied einen Blumenstrauß.",
+    "en": "She was presented with a bouquet as a farewell."
+   }
+  ]
+ },
+ {
+  "term": "aushändigen",
+  "en": "to hand over, to issue",
+  "pos": "verb",
+  "level": "C1",
+  "field": "At the bank",
+  "def": "To give a document or sum of money to the person entitled to it.",
+  "ex": [
+   {
+    "de": "Das Geld darf nur dem Kontoinhaber ausgehändigt werden.",
+    "en": "The money may only be handed over to the account holder."
+   },
+   {
+    "de": "Der Beamte händigte ihm den neuen Pass aus.",
+    "en": "The official handed him the new passport."
+   }
+  ]
+ }
+]

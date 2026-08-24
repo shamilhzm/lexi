@@ -51,6 +51,7 @@ out five times — see the withdrawals below. A count in this file that is not m
 | `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**, class real and larger than any probe | BACKLOG 🟠 |
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
 | Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
+| Verbs the conjugator declines to inflect | 1,212 verb cards | **60 (4.9%)** — pattern cards and disambiguated terms, all correctly `reliable: false` and never drilled | CHANGELOG 2026-08-24 |
 
 **All eleven drill modes have now been swept.** Two were clean by construction (`gender`,
 `case`), three were broken and are fixed (`cloze`, `plural`, `conj`), five type-in modes
@@ -63,11 +64,10 @@ grade soundly, and one (`order`) has a real defect that needs a design decision.
 2. **Four adjectival nouns are carded twice · 🟠.** Found while fixing the headwords; the
    `der/die X` card is canonical and correct in each case, the second is a stray. A
    *merge*, not a rename — `corpus:dupes` owns it. See BACKLOG.
-3. **Re-run the two held-back cards.** `überreichen` and `aushändigen` were kept out of a
-   batch on a false premise — the reliability gate already refuses them a conjugation
-   drill, so they can be carded.
-4. **Sense/example mismatch at scale** — the `alle` class. Still needs a real sense
+3. **Sense/example mismatch at scale** — the `alle` class. Still needs a real sense
    inventory or a sampled hand-audit with a stated interval, not a fabricated count.
+4. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
+   scripts nor the drill audit can reach. Entirely unwalked.
 
 ### Source pages ingested
 

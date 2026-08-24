@@ -83,15 +83,34 @@ describe('conjugate — separable & reflexive', () => {
     expect(c.separable).toBe('wohl');
   });
 
-  // The other half of the contract, and the reason the two above were the *only*
-  // ones that reached a learner: when the prefix cannot be resolved the verb must
-  // come back unreliable, so `canConjugate` keeps it out of the drill. These two
-  // still build nonsense forms, and that is tolerable only because nothing shows
-  // them. If this test ever fails, a wrong participle has become drillable.
-  it('marks a verb unreliable rather than drilling a form it cannot build', () => {
-    for (const v of ['aushändigen', 'überreichen']) {
-      expect(conjugate(v).reliable, `${v} must not be drillable`).toBe(false);
-      expect(canConjugate(v)).toBe(false);
+  // Both were previously unreliable, and the gate was right to refuse them — but
+  // that also kept two good cards out of the corpus. Fixed at the source instead
+  // of by writing round it: `überreichen` is inseparable (überréichen), so it gets
+  // a table row like the other ambiguous-prefix verbs; `aushändigen` splits on the
+  // bound root `händigen`, which modern German only ever uses prefixed.
+  it('überreichen: inseparable, so no ge- at all', () => {
+    const c = conjugate('überreichen');
+    expect(c.partizip).toBe('überreicht');          // never "geüberreicht"
+    expect(c.praeteritum[2]).toBe('überreichte');
+    expect(canConjugate('überreichen')).toBe(true);
+  });
+
+  it('aushändigen: splits on a bound root, and einhändigen comes with it', () => {
+    expect(conjugate('aushändigen').partizip).toBe('ausgehändigt');   // never "geaushändigt"
+    expect(conjugate('aushändigen').praesens[0]).toBe('händige aus');
+    expect(conjugate('einhändigen').partizip).toBe('eingehändigt');
+  });
+
+  // The other half of the contract, and the property that meant the two above were
+  // never *wrong* on screen — only absent: a term the engine cannot resolve to a
+  // lemma must come back unreliable, so `canConjugate` keeps it out of the drill
+  // instead of showing what the generator made of it. 60 of the corpus's 1,212
+  // verbs are declined this way, almost all of them pattern cards whose headword
+  // deliberately carries government notation.
+  it('declines a term that is not a lemma rather than inflecting it', () => {
+    for (const term of ['verzichten auf + A', 'gehören zu + D']) {
+      expect(conjugate(term).reliable, `${term} must not be drillable`).toBe(false);
+      expect(canConjugate(term)).toBe(false);
     }
   });
 });

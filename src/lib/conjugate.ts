@@ -303,6 +303,11 @@ const TABLE: Record<string, Entry> = {
   untersuchen:    { praesens: six('untersuche','untersuchst','untersucht','untersuchen','untersucht','untersuchen'), praeteritum: six('untersuchte','untersuchtest','untersuchte','untersuchten','untersuchtet','untersuchten'), partizip: 'untersucht', aux: 'haben' },
   überzeugen:     { praesens: six('überzeuge','überzeugst','überzeugt','überzeugen','überzeugt','überzeugen'), praeteritum: six('überzeugte','überzeugtest','überzeugte','überzeugten','überzeugtet','überzeugten'), partizip: 'überzeugt', aux: 'haben' },
   umtauschen:     { praesens: six('tausche um','tauschst um','tauscht um','tauschen um','tauscht um','tauschen um'), praeteritum: six('tauschte um','tauschtest um','tauschte um','tauschten um','tauschtet um','tauschten um'), partizip: 'umgetauscht', aux: 'haben' },
+  // Inseparable (überréichen, to present formally), so no `ge-`. Added 2026-08-24:
+  // the gate was correctly refusing it — unsplittable and therefore unreliable —
+  // which kept **geüberreicht** off the screen but also kept the card out of the
+  // corpus. A table row is the file's own answer for an ambiguous prefix.
+  überreichen:    { praesens: six('überreiche','überreichst','überreicht','überreichen','überreicht','überreichen'), praeteritum: six('überreichte','überreichtest','überreichte','überreichten','überreichtet','überreichten'), partizip: 'überreicht', aux: 'haben' },
   // Separable, but the participle takes no `ge-`: it attaches to *bereitet*, whose
   // own unstressed `be-` already suppresses it. The generator produced
   // **gevorbereitet**, which is why `bereiten` is not in SEED_ROOTS.
@@ -352,6 +357,11 @@ const SEED_ROOTS = [
   // `fühlen` is a genuine weak verb that Lexi happens not to card, so `wohlfühlen`
   // and `mitfühlen` had no root to split on. Added 2026-08-24 with `wohl`.
   'fühlen',
+  // `händigen` is a bound root — modern German has only *aushändigen* and
+  // *einhändigen*, never the bare verb — but it is exactly what those two split on,
+  // and without it both came out as **geaushändigt**. Listing it can only confirm a
+  // split the prefix already licensed, per the note above; it cannot invent one.
+  'händigen',
   // very common bases that anchor many prefixed forms
   'machen', 'kaufen', 'hören', 'sagen', 'führen', 'setzen', 'stellen', 'legen',
   'schalten', 'holen', 'zeigen', 'danken', 'wohnen', 'lernen', 'leben', 'spielen',

@@ -102519,5 +102519,33 @@
     "ant": [],
     "field": "Home",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:überreichen",
+    "term": "überreichen",
+    "en": "to present, to hand over formally",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌyːbɐˈʁaɪ̯çn̩",
+    "syn": [],
+    "ant": [],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:aushändigen",
+    "term": "aushändigen",
+    "en": "to hand over, to issue",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sˌhɛndɪɡn̩",
+    "syn": [],
+    "ant": [],
+    "field": "At the bank",
+    "kind": "word"
   }
 ]
