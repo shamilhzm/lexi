@@ -189,6 +189,61 @@ const FIXES: Fix[] = [
       + 'is the *feminine singular*) where it needed „die Vorsitzenden“. Brought into the '
       + 'der/die convention the other nine members of the class already use.',
   },
+  // ---- and the duplicates the class was hiding ------------------------------
+  // Four words carded twice, once as `der X` and once as the canonical `der/die X`.
+  // `corpus:dupes` groups by *identical* term, so these were structurally invisible
+  // to it — the same blind spot the singular/plural pairs had. Normalising the term
+  // here makes them identical, and the two that land at another level are then
+  // handed on to `corpus:dupes`, which keeps the lower one and unions the content.
+  // Every one declares `merge: true`, because a rename onto a term that already
+  // exists is a merge and the tool is right to abort otherwise.
+  {
+    id: 'voc:A1:der Verwandte',
+    expect: { term: 'der Verwandte' },
+    set: { term: 'der/die Verwandte' },
+    merge: true,
+    why: 'Same word, same level, two cards — merges into voc:A1:der/die Verwandte.',
+  },
+  {
+    id: 'voc:B1:der Abgeordnete',
+    expect: { term: 'der Abgeordnete' },
+    set: { term: 'der/die Abgeordnete' },
+    merge: true,
+    why: 'Same word, same level, two cards — merges into voc:B1:der/die Abgeordnete.',
+  },
+  {
+    id: 'voc:B1:der Bekannte',
+    expect: { term: 'der Bekannte' },
+    set: { term: 'der/die Bekannte' },
+    merge: true,
+    why: 'Bekannte was carded three times: the canonical der/die at A1, plus a male and a '
+      + 'female card at B1. The gendered pair is not a distinction worth three FSRS '
+      + 'schedules — the form is identical and only the article differs, which is exactly '
+      + 'what the der/die convention exists to say. Lands at B1 and is then folded into A1 '
+      + 'by corpus:dupes.',
+  },
+  {
+    id: 'voc:B2:der Vorgesetzte',
+    expect: { term: 'der Vorgesetzte' },
+    set: { term: 'der/die Vorgesetzte' },
+    merge: true,
+    why: 'Duplicate of voc:B1:der/die Vorgesetzte, which also carries the plural this one '
+      + 'lacks. Lands at B2 and is folded down to B1 by corpus:dupes.',
+  },
+  {
+    // Deliberately a second pass. `byId` is built once, before the apply loop, so two
+    // rows renaming onto the *same* target in one run would both write that id and
+    // leave two cards holding it. The ledger is re-run safe, so the female card lands
+    // after `der Bekannte` has already become voc:B1:der/die Bekannte — which makes
+    // this an ordinary same-level merge instead of a collision.
+    id: 'voc:B1:die Bekannte',
+    expect: { term: 'die Bekannte' },
+    set: { term: 'der/die Bekannte' },
+    merge: true,
+    why: 'The third Bekannte card. Same form, same plural, same gloss but for the gendered '
+      + 'parenthesis — der/die is precisely the notation for a word whose only variation '
+      + 'is the article.',
+  },
   {
     id: 'voc:C1:der Einzelne',
     expect: { plural: null },

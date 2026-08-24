@@ -48,25 +48,31 @@ out five times — see the withdrawals below. A count in this file that is not m
 | Conjugation drill: is the engine handed a lemma? | 1,108 conj-eligible verbs | **3 printing invented German + 57 pronoun-less**, hand-verified, fixed | CHANGELOG 2026-08-21 |
 | Conjugator Partizip II vs. the forms the corpus attests | 262 verbs with a Perfekt example | **262 agree · 0 disagree** | — |
 | `case` drill distractors | all `caseSafe` nouns | **clean by construction** — four distinct articles per gender from a fixed table | — |
-| `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**, class real and larger than any probe | BACKLOG 🟠 |
+| `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**; ruled *not* to narrow the drill, flexibility taught instead | BACKLOG 🟠 |
+| `order` drill: do the tiles give away position 1? | 6,020 order drills | **3,912 (65%) did** — first tile capitalised only for being first; fixed | CHANGELOG 2026-08-24 |
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
 | Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
 | Verbs the conjugator declines to inflect | 1,212 verb cards | **60 (4.9%)** — pattern cards and disambiguated terms, all correctly `reliable: false` and never drilled | CHANGELOG 2026-08-24 |
 
 **All eleven drill modes have now been swept.** Two were clean by construction (`gender`,
-`case`), three were broken and are fixed (`cloze`, `plural`, `conj`), five type-in modes
-grade soundly, and one (`order`) has a real defect that needs a design decision.
+`case`), four were broken and are fixed (`cloze`, `plural`, `conj`, and `order`'s casing
+leak), five type-in modes grade soundly. `order` keeps one open half — accepting a valid
+alternative arrangement — which was ruled a thing to *teach* rather than design around.
 
 ### Next, in priority order
 
-1. **`order`, the last open drill defect · 🟠.** It accepts one word order; German permits
-   more, so it marks correct German wrong. Needs a ruling, not a patch — see BACKLOG.
-2. **Four adjectival nouns are carded twice · 🟠.** Found while fixing the headwords; the
-   `der/die X` card is canonical and correct in each case, the second is a stray. A
-   *merge*, not a rename — `corpus:dupes` owns it. See BACKLOG.
-3. **Sense/example mismatch at scale** — the `alle` class. Still needs a real sense
-   inventory or a sampled hand-audit with a stated interval, not a fabricated count.
-4. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
+1. **`order`, still partly open · 🟠.** The casing leak is fixed and `Das Vorfeld` now
+   teaches the freedom, but the general builder still accepts one arrangement. A
+   conservative fronting chunker was prototyped and rejected (3 of 8 suggestions valid).
+   Doing it properly needs constituent parsing, or the corpus recording frontable
+   constituents at authoring time — see BACKLOG.
+2. **Sense/example mismatch at scale** — the `alle` class. No cheap heuristic exists (a
+   broken one is recorded in LESSONS); needs either a real sense inventory or a sampled
+   hand-audit with a stated confidence interval, not a fabricated count.
+3. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
+4. **Definitions** — 806 warnings currently, dominated by *noun without plural* (472)
+   and *no ipa* (275).
+5. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
    scripts nor the drill audit can reach. Entirely unwalked.
 
 ### Source pages ingested
@@ -79,12 +85,6 @@ writing anything is what stops a second `die Beziehung` being authored.
 |---|---|---|---|
 | *Neue Heimat* B2, Modul 1 (chapter opener + Mittelfeld) | 51 headwords | 37 | 12 cards · 2 grammar points · the `government()` matcher fix |
 | B2 „Missverständliches“ + Dreyer §14 *Negation mit nicht* | 66 headwords | **40** | 12 cards · `Die Stellung von „nicht“` +10 exercises and 4 new rules · new B2 point `Verneinung durch Wortbildung` |
-3. **Sense/example mismatch at scale.** The `alle` class. No cheap heuristic exists
-   (a broken one is recorded in LESSONS); needs either a real sense inventory or a
-   sampled hand-audit with a stated confidence interval, not a fabricated count.
-4. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
-5. **Definitions** — 809 warnings currently, dominated by *noun without plural* (472)
-   and *no ipa* (275).
 
 ---
 
@@ -145,6 +145,12 @@ Kept here because a ledger that only records finds is a ledger that flatters its
   beginning with a lowercase adjective are genuinely raised sentence-initially.
 - **A phantom adjective regression** (0.955 → 0.945) caused by the reader probe's three
   samples sharing one RNG stream. Fixed; each class now has its own seed.
+- **A fronting chunker, prototyped and thrown away.** It was meant to compute the valid
+  alternative word orders so the builder could accept them; on eight sampled sentences
+  only three of its suggestions were grammatical. It fronted constituents out of
+  W-questions, across a coordinating *und*, and out of the middle of a prepositional
+  phrase. Each sample batch found a new invalid class — and accepting a wrong order is
+  worse than rejecting a right one, so it is not shipped and not counted.
 - **"`auflösen` prints «geauflöst» in the drill."** It does not. Every measurement behind
   that ran the conjugator **unprimed**, and `splitPrefix` needs a root lexicon seeded from
   the corpus at boot. One of the five reported instances (`gegenüberstellen`) was real.

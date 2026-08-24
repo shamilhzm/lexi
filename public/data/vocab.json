@@ -20640,6 +20640,21 @@
         "de": "Manche Verwandte sieht man nur bei Feiern.",
         "en": "Some relatives you only see at celebrations.",
         "lvl": "B1"
+      },
+      {
+        "de": "Wir besuchen Verwandte.",
+        "en": "We are visiting relatives.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zur Hochzeit kamen viele Verwandte aus dem Ausland.",
+        "en": "Many relatives came from abroad to the wedding.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit einigen Verwandten habe ich seit Jahren keinen Kontakt mehr.",
+        "en": "I have had no contact with some relatives for years.",
+        "lvl": "B2"
       }
     ],
     "field": "People",
@@ -23304,6 +23319,11 @@
       {
         "de": "Ich habe eine Bekannte im Büro getroffen.",
         "en": "I met an acquaintance in the office.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist ein Bekannter aus der Arbeit.",
+        "en": "He is an acquaintance from work.",
         "lvl": "B1"
       }
     ],
@@ -30503,38 +30523,6 @@
       }
     ],
     "field": "Body & health",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A1:der Verwandte",
-    "term": "der Verwandte",
-    "en": "relative",
-    "pos": "noun",
-    "level": "A1",
-    "gender": "der",
-    "plural": "die Verwandten",
-    "ipa": "fɛɐ̯ˈvantə",
-    "def": "A person who belongs to your family.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Wir besuchen Verwandte.",
-        "en": "We are visiting relatives.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Zur Hochzeit kamen viele Verwandte aus dem Ausland.",
-        "en": "Many relatives came from abroad to the wedding.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Mit einigen Verwandten habe ich seit Jahren keinen Kontakt mehr.",
-        "en": "I have had no contact with some relatives for years.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "People",
     "kind": "word"
   },
   {
@@ -64752,7 +64740,9 @@
     "plural": "die Vorgesetzten",
     "ipa": "ˈfoːɐ̯ɡəˌzɛt͡stə",
     "def": "A person who is in charge of others at work.",
-    "syn": [],
+    "syn": [
+      "Chef"
+    ],
     "ant": [
       "der/die Untergebene"
     ],
@@ -64771,6 +64761,16 @@
         "de": "Ein guter Vorgesetzter fördert, statt nur zu fordern.",
         "en": "A good superior develops people instead of only demanding.",
         "lvl": "C1"
+      },
+      {
+        "de": "Sie hat das Problem mit ihrem Vorgesetzten besprochen.",
+        "en": "She discussed the problem with her superior.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sprach das Problem offen mit ihrem Vorgesetzten an.",
+        "en": "She openly raised the problem with her superior.",
+        "lvl": "B2"
       }
     ],
     "field": "Work & profession",
@@ -68885,6 +68885,16 @@
         "de": "Ein Abgeordneter ist seinem Gewissen verpflichtet, nicht nur der Partei.",
         "en": "An MP is bound to their conscience, not only the party.",
         "lvl": "C1"
+      },
+      {
+        "de": "Der Abgeordnete hält eine Rede im Bundestag.",
+        "en": "The member of parliament is giving a speech in the Bundestag.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jeder Abgeordnete vertritt einen Wahlkreis.",
+        "en": "Every member of parliament represents a constituency.",
+        "lvl": "B2"
       }
     ],
     "field": "Politics",
@@ -97471,35 +97481,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:der Vorgesetzte",
-    "term": "der Vorgesetzte",
-    "en": "superior, boss",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "der",
-    "plural": null,
-    "ipa": "ˈfoːɐ̯ɡəzɛt͡stə",
-    "def": "A person who is in charge of others at work.",
-    "syn": [
-      "Chef"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Sie hat das Problem mit ihrem Vorgesetzten besprochen.",
-        "en": "She discussed the problem with her superior.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Sie sprach das Problem offen mit ihrem Vorgesetzten an.",
-        "en": "She openly raised the problem with her superior.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Business & Workplace",
-    "kind": "word"
-  },
-  {
     "id": "voc:B2:die Dienstreise",
     "term": "die Dienstreise",
     "en": "business trip",
@@ -119501,38 +119482,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Abgeordnete",
-    "term": "der Abgeordnete",
-    "en": "member of parliament",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "der",
-    "plural": "die Abgeordneten",
-    "ipa": "ˈapɡəˌʔɔʁdnətə",
-    "def": "An elected member of a parliament.",
-    "syn": [
-      "Deputierte",
-      "Volksvertreterin",
-      "Parlamentarierin"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Der Abgeordnete hält eine Rede im Bundestag.",
-        "en": "The member of parliament is giving a speech in the Bundestag.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Jeder Abgeordnete vertritt einen Wahlkreis.",
-        "en": "Every member of parliament represents a constituency.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Politics",
-    "kind": "word",
-    "defDe": null
-  },
-  {
     "id": "voc:A2:wählen",
     "term": "wählen",
     "en": "to vote; to elect; to choose",
@@ -123436,60 +123385,6 @@
       {
         "de": "Er stellte mir seine Partnerin vor.",
         "en": "He introduced his partner to me.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Relationships",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:der Bekannte",
-    "term": "der Bekannte",
-    "en": "acquaintance (male)",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "der",
-    "plural": "die Bekannten",
-    "ipa": "bəˈkantə",
-    "def": "A man you know slightly but who is not a close friend.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Er ist ein Bekannter aus der Arbeit.",
-        "en": "He is an acquaintance from work.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ein Bekannter hat uns das Restaurant empfohlen.",
-        "en": "An acquaintance recommended the restaurant to us.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Relationships",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Bekannte",
-    "term": "die Bekannte",
-    "en": "acquaintance (female)",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Bekannten",
-    "ipa": "bəˈkantə",
-    "def": "A woman you know slightly but who is not a close friend.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Eine Bekannte hat mir die Wohnung empfohlen.",
-        "en": "An acquaintance recommended the flat to me.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Meine Bekannte arbeitet im selben Büro.",
-        "en": "My acquaintance works in the same office.",
         "lvl": "B1"
       }
     ],
@@ -207800,5 +207695,21 @@
     ],
     "field": "At the bank",
     "kind": "word"
+  },
+  {
+    "id": "gram:A2:Das Vorfeld: was vor dem Verb steht",
+    "term": "Das Vorfeld: was vor dem Verb steht",
+    "en": "One element before the verb — and you choose which.",
+    "pos": "grammar",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "German fixes the finite verb in second position and leaves the first almost free. Exactly one element stands there, and swapping it changes nothing about the grammar and everything about what the sentence is about. This is why German word order feels loose and is in fact strict: one slot, one occupant, verb immediately after.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
   }
 ]

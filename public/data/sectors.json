@@ -711,7 +711,7 @@
   },
   {
     "name": "People",
-    "count": 24,
+    "count": 23,
     "levels": [
       "A1",
       "A2",
@@ -721,7 +721,7 @@
   },
   {
     "name": "Relationships",
-    "count": 50,
+    "count": 48,
     "levels": [
       "A1",
       "A2",
@@ -781,7 +781,7 @@
   },
   {
     "name": "Grammar",
-    "count": 112,
+    "count": 113,
     "levels": [
       "A1",
       "A2",
@@ -1742,7 +1742,7 @@
   },
   {
     "name": "Politics",
-    "count": 88,
+    "count": 87,
     "levels": [
       "A2",
       "B1",
@@ -2260,10 +2260,11 @@
   },
   {
     "name": "At the bank",
-    "count": 14,
+    "count": 15,
     "levels": [
       "A2",
-      "B1"
+      "B1",
+      "C1"
     ],
     "group": "Work & Economy"
   },
@@ -2277,7 +2278,7 @@
   },
   {
     "name": "Business & Workplace",
-    "count": 25,
+    "count": 24,
     "levels": [
       "A2",
       "B1",
@@ -2465,7 +2466,7 @@
   },
   {
     "name": "Work",
-    "count": 119,
+    "count": 120,
     "levels": [
       "A1",
       "A2",

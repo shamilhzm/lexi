@@ -80,6 +80,9 @@
   "gram:A2:Akkusativ": {
     "def": "der → den, ein → einen (masculine). die / das / eine stay the same. e.g. Ich sehe den Mann, die Frau, das Kind."
   },
+  "gram:A2:Das Vorfeld: was vor dem Verb steht": {
+    "def": "German fixes the finite verb in second position and leaves the first almost free. Exactly one element stands there, and swapping it changes nothing about the grammar and everything about what the sentence is about. This is why German word order feels loose and is in fact strict: one slot, one occupant, verb immediately after."
+  },
   "gram:A2:Dativ: Pronomen & Stellung": {
     "def": "Dative pronouns: mir, dir, ihm (er/es), ihr (sie), uns, euch, ihnen/Ihnen. Order: noun objects → dative before accusative (Ich gebe dem Kind den Ball); if the accusative is a pronoun, it jumps first (Ich gebe ihn dem Kind)."
   },
@@ -12058,26 +12061,6 @@
       }
     ]
   },
-  "voc:A1:der Verwandte": {
-    "def": "A person who belongs to your family.",
-    "ex": [
-      {
-        "de": "Wir besuchen Verwandte.",
-        "en": "We are visiting relatives.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Zur Hochzeit kamen viele Verwandte aus dem Ausland.",
-        "en": "Many relatives came from abroad to the wedding.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Mit einigen Verwandten habe ich seit Jahren keinen Kontakt mehr.",
-        "en": "I have had no contact with some relatives for years.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:A1:der Vogel": {
     "def": "a bird; a kite (an aeroplane or any aircraft)",
     "ex": [
@@ -12717,6 +12700,11 @@
         "de": "Ich habe eine Bekannte im Büro getroffen.",
         "en": "I met an acquaintance in the office.",
         "lvl": "B1"
+      },
+      {
+        "de": "Er ist ein Bekannter aus der Arbeit.",
+        "en": "He is an acquaintance from work.",
+        "lvl": "B1"
       }
     ]
   },
@@ -12737,6 +12725,21 @@
         "de": "Manche Verwandte sieht man nur bei Feiern.",
         "en": "Some relatives you only see at celebrations.",
         "lvl": "B1"
+      },
+      {
+        "de": "Wir besuchen Verwandte.",
+        "en": "We are visiting relatives.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zur Hochzeit kamen viele Verwandte aus dem Ausland.",
+        "en": "Many relatives came from abroad to the wedding.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit einigen Verwandten habe ich seit Jahren keinen Kontakt mehr.",
+        "en": "I have had no contact with some relatives for years.",
+        "lvl": "B2"
       }
     ]
   },
@@ -61079,21 +61082,6 @@
       }
     ]
   },
-  "voc:B1:der Abgeordnete": {
-    "def": "An elected member of a parliament.",
-    "ex": [
-      {
-        "de": "Der Abgeordnete hält eine Rede im Bundestag.",
-        "en": "The member of parliament is giving a speech in the Bundestag.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Jeder Abgeordnete vertritt einen Wahlkreis.",
-        "en": "Every member of parliament represents a constituency.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B1:der Abschnitt": {
     "def": "section (cutting)",
     "ex": [
@@ -61788,21 +61776,6 @@
         "de": "Ihr Beitrag über den Klimawandel wurde vielfach geteilt.",
         "en": "Her article on climate change was widely shared.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B1:der Bekannte": {
-    "def": "A man you know slightly but who is not a close friend.",
-    "ex": [
-      {
-        "de": "Er ist ein Bekannter aus der Arbeit.",
-        "en": "He is an acquaintance from work.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ein Bekannter hat uns das Restaurant empfohlen.",
-        "en": "An acquaintance recommended the restaurant to us.",
-        "lvl": "B1"
       }
     ]
   },
@@ -68199,6 +68172,16 @@
         "de": "Ein Abgeordneter ist seinem Gewissen verpflichtet, nicht nur der Partei.",
         "en": "An MP is bound to their conscience, not only the party.",
         "lvl": "C1"
+      },
+      {
+        "de": "Der Abgeordnete hält eine Rede im Bundestag.",
+        "en": "The member of parliament is giving a speech in the Bundestag.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jeder Abgeordnete vertritt einen Wahlkreis.",
+        "en": "Every member of parliament represents a constituency.",
+        "lvl": "B2"
       }
     ]
   },
@@ -68259,6 +68242,16 @@
         "de": "Ein guter Vorgesetzter fördert, statt nur zu fordern.",
         "en": "A good superior develops people instead of only demanding.",
         "lvl": "C1"
+      },
+      {
+        "de": "Sie hat das Problem mit ihrem Vorgesetzten besprochen.",
+        "en": "She discussed the problem with her superior.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sprach das Problem offen mit ihrem Vorgesetzten an.",
+        "en": "She openly raised the problem with her superior.",
+        "lvl": "B2"
       }
     ]
   },
@@ -69507,21 +69500,6 @@
       {
         "de": "Wie viele Menschen mit Behinderungen kennst du?",
         "en": "How many people do you know with disabilities?",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:die Bekannte": {
-    "def": "A woman you know slightly but who is not a close friend.",
-    "ex": [
-      {
-        "de": "Eine Bekannte hat mir die Wohnung empfohlen.",
-        "en": "An acquaintance recommended the flat to me.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Meine Bekannte arbeitet im selben Büro.",
-        "en": "My acquaintance works in the same office.",
         "lvl": "B1"
       }
     ]
@@ -96750,21 +96728,6 @@
       {
         "de": "Der freiwillige Verzicht auf das Auto fällt vielen schwer.",
         "en": "Voluntarily doing without the car is hard for many.",
-        "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:der Vorgesetzte": {
-    "def": "A person who is in charge of others at work.",
-    "ex": [
-      {
-        "de": "Sie hat das Problem mit ihrem Vorgesetzten besprochen.",
-        "en": "She discussed the problem with her superior.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Sie sprach das Problem offen mit ihrem Vorgesetzten an.",
-        "en": "She openly raised the problem with her superior.",
         "lvl": "B2"
       }
     ]

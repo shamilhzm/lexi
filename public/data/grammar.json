@@ -43341,6 +43341,170 @@
           "explain": "The starting edge of a period, not its end."
         }
       ]
+    },
+    {
+      "title": "Das Vorfeld: was vor dem Verb steht",
+      "summary": "One element before the verb — and you choose which.",
+      "rule": "German fixes the finite verb in second position and leaves the first almost free. Exactly one element stands there, and swapping it changes nothing about the grammar and everything about what the sentence is about. This is why German word order feels loose and is in fact strict: one slot, one occupant, verb immediately after.",
+      "sections": [
+        {
+          "label": "One sentence, four openers — all correct",
+          "examples": [
+            {
+              "de": "Ich fahre morgen mit dem Zug nach Köln.",
+              "en": "neutral: the subject opens"
+            },
+            {
+              "de": "Morgen fahre ich mit dem Zug nach Köln.",
+              "en": "the time is the point — tomorrow, as opposed to today"
+            },
+            {
+              "de": "Mit dem Zug fahre ich morgen nach Köln.",
+              "en": "the means is the point — by train, not by car"
+            },
+            {
+              "de": "Nach Köln fahre ich morgen mit dem Zug.",
+              "en": "the destination is the point"
+            }
+          ]
+        },
+        {
+          "label": "The verb does not move — everything else does",
+          "body": "In all four the finite verb is the second element and the subject falls in behind it the moment something else takes first place. That inversion is not an extra rule to learn; it is what \"verb second\" means once the first slot is occupied by something other than the subject."
+        },
+        {
+          "label": "Exactly one element — the classic error",
+          "body": "Position 1 holds one constituent, not two. «Morgen ich fahre nach Köln» puts *morgen* and *ich* both in front of the verb, which is English order in German words, and it is the single most common word-order mistake an English speaker makes. Count what stands before the verb: if it is more than one thing, the sentence is wrong."
+        },
+        {
+          "label": "A whole phrase counts as one element",
+          "examples": [
+            {
+              "de": "Mit dem Zug fahre ich gern.",
+              "en": "three words, one element"
+            },
+            {
+              "de": "Jeden Montagmorgen stehe ich früh auf.",
+              "en": "three words, still one element"
+            },
+            {
+              "de": "Weil es regnet, bleiben wir zu Hause.",
+              "en": "a whole clause can hold the slot"
+            }
+          ]
+        },
+        {
+          "label": "What position 1 is for",
+          "body": "It is the sentence's topic — the hook to what came before. In a paragraph about tomorrow you open with *morgen*; answering \"how are you getting there?\" you open with *mit dem Zug*. Writing every sentence subject-first is grammatical and reads like a list, which is why this is a rhetorical tool and not only a rule."
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "order",
+          "prompt": "Start with „Morgen“: „I am going to the cinema tomorrow.“",
+          "tiles": [
+            "Morgen",
+            "gehe",
+            "ich",
+            "ins",
+            "Kino"
+          ],
+          "explain": "The time takes position 1, so the verb stays second and the subject follows it."
+        },
+        {
+          "kind": "order",
+          "prompt": "Start with „Am Wochenende“: „I visit my parents at the weekend.“",
+          "tiles": [
+            "Am",
+            "Wochenende",
+            "besuche",
+            "ich",
+            "meine",
+            "Eltern"
+          ],
+          "explain": "„Am Wochenende“ is three words but one element, so the verb is still second."
+        },
+        {
+          "kind": "order",
+          "prompt": "Start with „Ich“: the same sentence, neutral.",
+          "tiles": [
+            "Ich",
+            "besuche",
+            "meine",
+            "Eltern",
+            "am",
+            "Wochenende"
+          ],
+          "explain": "Subject first is the neutral order — same grammar, different emphasis."
+        },
+        {
+          "kind": "error",
+          "prompt": "Morgen ich fahre nach Köln.",
+          "answer": 1,
+          "fix": "Morgen fahre ich nach Köln.",
+          "explain": "Two elements before the verb. Once *morgen* takes position 1, the verb must come next and *ich* falls in behind it."
+        },
+        {
+          "kind": "error",
+          "prompt": "Am Samstag wir gehen ins Schwimmbad.",
+          "answer": 2,
+          "fix": "Am Samstag gehen wir ins Schwimmbad.",
+          "explain": "Same error: „Am Samstag“ already fills the slot, so the verb is next."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum heißt es „Morgen fahre ich“ und nicht „Morgen ich fahre“?",
+          "options": [
+            "Weil nur ein Element vor dem Verb stehen darf",
+            "Weil Zeitangaben immer eine Inversion verlangen",
+            "Weil „morgen“ ein Adverb ist"
+          ],
+          "answer": 0,
+          "explain": "The slot holds one constituent. Whatever occupies it, the finite verb comes immediately after."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welcher Satz betont, womit man fährt?",
+          "options": [
+            "Mit dem Zug fahre ich nach Köln.",
+            "Ich fahre mit dem Zug nach Köln.",
+            "Nach Köln fahre ich mit dem Zug."
+          ],
+          "answer": 0,
+          "explain": "Position 1 is what the sentence is about — put the means there and the means is the point."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie viele Elemente stehen in „Jeden Montagmorgen stehe ich früh auf“ vor dem Verb?",
+          "options": [
+            "eins",
+            "zwei",
+            "drei"
+          ],
+          "answer": 0,
+          "explain": "„Jeden Montagmorgen“ is one time phrase, however many words it runs to."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Heute ___ wir zu Hause.",
+          "options": [
+            "bleiben",
+            "wir bleiben",
+            "bleiben wir wir"
+          ],
+          "answer": 0,
+          "explain": "The verb follows the Vorfeld directly; the subject comes after it."
+        },
+        {
+          "kind": "type",
+          "prompt": "Schreiben Sie neu, beginnend mit „Im Sommer“: „Wir fahren im Sommer ans Meer.“ → ___ fahren wir ans Meer.",
+          "accept": [
+            "Im Sommer",
+            "im Sommer"
+          ],
+          "explain": "The time phrase moves to position 1 and the subject drops in behind the verb."
+        }
+      ]
     }
   ],
   "B1": [

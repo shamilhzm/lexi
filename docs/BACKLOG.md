@@ -1450,11 +1450,31 @@ user; none of it is built.*
   *für morgen* is a prepositional object). So 64 is not the number, and the real class is
   **larger**, not smaller: that probe only tests one pattern out of many.
 
-  *Do:* not enumerate valid orders — that needs a parser. The tractable options are to
-  restrict the pool to sentences with one licit order (subordinate clauses, short SVO
-  with no movable adverbial), or to pin position 1 in the prompt so the task is
-  well-posed. **A design decision, deliberately not taken unilaterally.**
-  *M · `src/views/GrammarDrill.tsx` `OrderItem`, `src/views/Fundamentals.tsx` `orderPool`.*
+  **Ruled 2026-08-24: do not narrow the drill.** The proposed fixes were to restrict the
+  pool to sentences with one licit order, or to pin position 1 in every prompt. Both
+  make the check honest by *hiding the flexibility*, and that flexibility is one of the
+  characteristic things about the language — the ruling was that losing it is the worse
+  trade. What shipped instead:
+
+  - **The casing leak is fixed** (see CHANGELOG): the tiles now render in citation case
+    and grading ignores case. That was a bigger defect than the one this item names —
+    **3,912 of 6,020 drills (65%)** opened with a word that is lowercase everywhere else,
+    so its capital announced position 1 and the drill could be solved without German.
+  - **`Das Vorfeld` now teaches the freedom** (A2, 10 exercises) — the same sentence in
+    four arrangements, what each one puts in focus, and the one-element constraint that
+    makes «Morgen ich fahre» wrong. Its own `order` exercises name the opener in the
+    prompt, which is well-posed *because* the point is about that choice.
+
+  **Still open: accepting a valid alternative in the general builder.** A conservative
+  fronting chunker was prototyped and **rejected** — on eight sampled sentences only
+  three of its suggested frontings were valid. It offered them for W-questions («Was
+  sind Sie von Beruf» → «Von Beruf sind Sie was»), across a coordinating conjunction,
+  and for adverbs nested inside a PP («seit **heute** Morgen»). Each sample batch turned
+  up another invalid class, which is the signature of an approach that cannot be patched
+  into soundness — and accepting a wrong order teaches bad German, which is worse than
+  rejecting a good one. Doing this properly needs constituent parsing, or the corpus
+  recording the frontable constituents per sentence at authoring time.
+  *M · `src/views/GrammarDrill.tsx` `OrderItem`.*
 - ~~**`der Vorsitzender` is a malformed adjectival-noun headword**~~ — **✅ fixed
   2026-08-24**, together with `der Einzelne`'s missing plural. The class turned out to
   have a settled convention already: **nine cards read `der/die X` with plural

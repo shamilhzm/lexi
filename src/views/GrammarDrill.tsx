@@ -10,6 +10,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { lookupSurface } from '../lib/reader.ts';
 import { loadGrammar, flatten, type GItem, type RevealData } from '../lib/grammar.ts';
+import { citationTiles, sentenceCase, sameOrder } from '../lib/wordorder.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 import { RevealBlock, Derivation, Paradigm, useChoiceKeys } from '../components/Reveal.tsx';
 import WhyLink, { RuleToggle, DrillHeader, NoHelpCtx } from '../components/RulePanel.tsx';
@@ -404,13 +405,21 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel, promptLang = 'de',
 export function OrderItem({ ex, onGrade, rulePoint, ruleLabel }: {
   ex: GItem['ex']; onGrade: (ok: boolean) => void; rulePoint?: string | null; ruleLabel?: string;
 }) {
-  const target = ex.tiles ?? [];
+  const target = useMemo(() => ex.tiles ?? [], [ex]);
+  // The tiles the learner sees, in the case each word carries mid-sentence. The
+  // pool used to spell the answer: 65% of these sentences open with a word that is
+  // lowercase everywhere else — ich, mein, heute, der — so its capital announced
+  // position 1 and nothing more. `target` is kept as authored for the answer line.
+  const shown = useMemo(() => citationTiles(target), [target]);
   const [pool, setPool] = useState<number[]>(() => shuffle(target.map((_, i) => i)));
   const [built, setBuilt] = useState<number[]>([]);
   const [result, setResult] = useState<boolean | null>(null);
   const add = (idx: number) => { if (result !== null) return; setBuilt([...built, idx]); setPool(pool.filter((p) => p !== idx)); };
   const removeAt = (pos: number) => { if (result !== null) return; const idx = built[pos]; setBuilt(built.filter((_, i) => i !== pos)); setPool([...pool, idx]); };
-  const check = () => setResult(built.map((i) => target[i]).join(' ') === target.join(' '));
+  // Case-insensitive, because case is not something the builder lets the learner
+  // choose — the tiles arrive with whatever case they were given. Grading it is
+  // what forced the pool to spell position 1 in the first place.
+  const check = () => setResult(sameOrder(built.map((i) => shown[i]), shown));
   return (
     <>
       {ruleLabel && <DrillHeader pointRef={rulePoint ?? null} label={ruleLabel} />}
@@ -418,16 +427,16 @@ export function OrderItem({ ex, onGrade, rulePoint, ruleLabel }: {
       <p className="text-xl sm:text-2xl font-semibold text-center mb-4">{ex.prompt}</p>
       <div className="min-h-[52px] border border-dashed border-line rounded-md p-2 flex flex-wrap gap-2 mb-3">
         {built.map((idx, pos) => (
-          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-base">{target[idx]}</button>
+          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-base">{shown[idx]}</button>
         ))}
         {built.length === 0 && <span className="text-dim text-xs self-center px-1">Tap tiles to build the sentence…</span>}
       </div>
       <div className="flex flex-wrap gap-2 mb-2">
         {pool.map((idx) => (
-          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-base hover:border-amber">{target[idx]}</button>
+          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-base hover:border-amber">{shown[idx]}</button>
         ))}
       </div>
-      {result !== null && <Explain text={ex.explain} ok={result} answer={target.join(' ')} rulePoint={rulePoint} />}
+      {result !== null && <Explain text={ex.explain} ok={result} answer={sentenceCase(shown.join(' '))} rulePoint={rulePoint} />}
       {result === null
         ? <div className="mt-5 flex justify-center"><Button onClick={check} disabled={built.length !== target.length}>Check</Button></div>
         : <NextBtn onClick={() => onGrade(result)} />}

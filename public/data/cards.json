@@ -12830,20 +12830,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:der Verwandte",
-    "term": "der Verwandte",
-    "en": "relative",
-    "pos": "noun",
-    "level": "A1",
-    "gender": "der",
-    "plural": "die Verwandten",
-    "ipa": "fɛɐ̯ˈvantə",
-    "syn": [],
-    "ant": [],
-    "field": "People",
-    "kind": "word"
-  },
-  {
     "id": "voc:A1:die Hochzeit",
     "term": "die Hochzeit",
     "en": "wedding",
@@ -27542,7 +27528,9 @@
     "gender": "der",
     "plural": "die Vorgesetzten",
     "ipa": "ˈfoːɐ̯ɡəˌzɛt͡stə",
-    "syn": [],
+    "syn": [
+      "Chef"
+    ],
     "ant": [
       "der/die Untergebene"
     ],
@@ -43796,22 +43784,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:der Vorgesetzte",
-    "term": "der Vorgesetzte",
-    "en": "superior, boss",
-    "pos": "noun",
-    "level": "B2",
-    "gender": "der",
-    "plural": null,
-    "ipa": "ˈfoːɐ̯ɡəzɛt͡stə",
-    "syn": [
-      "Chef"
-    ],
-    "ant": [],
-    "field": "Business & Workplace",
-    "kind": "word"
-  },
-  {
     "id": "voc:B2:die Dienstreise",
     "term": "die Dienstreise",
     "en": "business trip",
@@ -55309,24 +55281,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Abgeordnete",
-    "term": "der Abgeordnete",
-    "en": "member of parliament",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "der",
-    "plural": "die Abgeordneten",
-    "ipa": "ˈapɡəˌʔɔʁdnətə",
-    "syn": [
-      "Deputierte",
-      "Volksvertreterin",
-      "Parlamentarierin"
-    ],
-    "ant": [],
-    "field": "Politics",
-    "kind": "word"
-  },
-  {
     "id": "voc:A2:wählen",
     "term": "wählen",
     "en": "to vote; to elect; to choose",
@@ -57309,34 +57263,6 @@
     "gender": "die",
     "plural": "die Partnerinnen",
     "ipa": "ˈpaʁtnəʁɪn",
-    "syn": [],
-    "ant": [],
-    "field": "Relationships",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:der Bekannte",
-    "term": "der Bekannte",
-    "en": "acquaintance (male)",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "der",
-    "plural": "die Bekannten",
-    "ipa": "bəˈkantə",
-    "syn": [],
-    "ant": [],
-    "field": "Relationships",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:die Bekannte",
-    "term": "die Bekannte",
-    "en": "acquaintance (female)",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "die",
-    "plural": "die Bekannten",
-    "ipa": "bəˈkantə",
     "syn": [],
     "ant": [],
     "field": "Relationships",
@@ -102547,5 +102473,19 @@
     "ant": [],
     "field": "At the bank",
     "kind": "word"
+  },
+  {
+    "id": "gram:A2:Das Vorfeld: was vor dem Verb steht",
+    "term": "Das Vorfeld: was vor dem Verb steht",
+    "en": "One element before the verb — and you choose which.",
+    "pos": "grammar",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "syn": [],
+    "ant": [],
+    "field": "Grammar",
+    "kind": "grammar"
   }
 ]

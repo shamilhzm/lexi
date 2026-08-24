@@ -59,6 +59,59 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-24 — the builder was spelling its own answer, and the Vorfeld is now taught
+
+Two rulings from the maintainer, and both changed the shape of the work.
+
+**"Don't narrow the drill."** The sentence-builder accepts one word order where German
+permits several, and the two fixes on the table were to restrict the pool or to pin
+position 1 in every prompt. Both make the check honest by *hiding* the flexibility — and
+that flexibility is one of the characteristic things about the language. So the drill
+keeps its whole pool, and the freedom became content instead.
+
+**New A2 point: `Das Vorfeld: was vor dem Verb steht`** (10 exercises). The bank
+mentioned this three times and never showed it: A1 closes with "the verb placement is
+fixed — the rest can move", B1 gives it one section and one example, C1 ends with
+"emphasis can front one element". **The word *Vorfeld* did not appear in the bank at
+all.** The point puts one sentence on the page four ways — *Ich fahre morgen mit dem Zug
+nach Köln* / *Morgen fahre ich…* / *Mit dem Zug fahre ich…* / *Nach Köln fahre ich…* —
+says what each one puts in focus, and drills the constraint that makes «Morgen ich fahre
+nach Köln» wrong: one element before the verb, not two, which is the commonest word-order
+error an English speaker makes. `GRAMMAR_COUNTS` 139 → 140 points, 6,183 → 6,193.
+
+**And the builder was giving the answer away — a bigger defect than the one that started
+this.** German capitalises the first word of a sentence *and* every noun, so a tile's
+capital carried two different things: *I am a noun*, which the learner needs, and *I was
+first*, which is the whole answer. **3,912 of 6,020 order drills (65%)** open with a word
+that is lowercase everywhere else — ich, mein, heute, der, was — so «Ich · treffe ·
+meine · Freunde · am · Wochenende» could be solved without reading any German. Tiles now
+render in **citation case** and grading ignores case, since case was never something the
+builder let the learner choose. `sie`/`ihr` are deliberately excluded from the fold: the
+formal *Sie* is capitalised everywhere and no token distinguishes it.
+
+**A fronting chunker was prototyped and rejected**, which is the honest reason the
+general builder still accepts one order. Over eight sampled sentences only three of its
+suggested frontings were valid: it offered them for W-questions («Was sind Sie von Beruf»
+→ «Von Beruf sind Sie was»), across a coordinating *und*, and for adverbs nested inside a
+prepositional phrase («seit **heute** Morgen»). Every sample batch surfaced another
+invalid class — the signature of an approach that cannot be patched into soundness — and
+accepting a wrong order teaches bad German, which is worse than rejecting a good one.
+
+**"Duplicates aren't acceptable."** Four adjectival nouns were carded twice, *Bekannte*
+three times. `corpus:dupes` groups by identical term and `der/die Bekannte` ≠ `der
+Bekannte` as strings, so they were structurally invisible to it — the same blind spot the
+singular/plural pairs had. The `set.term` added earlier today makes them expressible:
+normalise the headword, and the two that land at another level are handed on to
+`corpus:dupes`, which keeps the lower one and unions the content. Done in two passes,
+because `byId` is built once and two rows renaming onto the same target in one run would
+both write that id. **6,642 → 6,637**, content absorbed rather than lost — *Verwandte*
+3→6 examples, *Bekannte* 5→6, *Vorgesetzte* 3→5, *Abgeordnete* 3→5 — and `ID_MAP`
+1,398 → 1,404 so no schedule is stranded.
+
+942 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-24 — fix the engine, not the sentence
 
 Two cards from the negation homework — `überreichen` and `aushändigen` — were held back
