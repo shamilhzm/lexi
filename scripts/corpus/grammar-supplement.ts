@@ -803,6 +803,128 @@ const POINTS: NewPoint[] = [
       { kind: 'mc', prompt: 'Welcher Satz ist NICHT möglich?', options: ['Ich habe eine Rechnung gestern geschickt.', 'Ich habe gestern eine Rechnung geschickt.', 'Ich habe die Rechnung gestern geschickt.'], answer: 0, explain: 'Only the indefinite one is blocked in front of the Angabe — it is the news of the sentence, and news comes last.' },
     ],
   },
+
+  // `Die Stellung von „nicht“`, deepened from a Dreyer §14 page worked by hand.
+  //
+  // The point taught four "before" cases and two "after" cases. Dreyer's list is
+  // longer in exactly the place a B2 learner lives: **everything the verb still
+  // needs to its right** takes nicht in front of it — the prepositional object
+  // („Er interessiert sich nicht für Politik“), the place the verb requires („Sie
+  // wohnt nicht in Münster“), the bare noun that completes it („Er wird nicht
+  // Arzt“) and the noun of a Funktionsverbgefüge („nicht in Betrieb nehmen“).
+  // None of those four was stated.
+  //
+  // One of them was already being *tested*: exercise „Sie wohnt ___ in München.“
+  // has shipped since the point was written, and the rule never covered it — the
+  // existing „before a directional phrase“ is *wohin*, and Münster is *wo*. A drill
+  // on a rule the panel does not state is the same defect as the flat Akkusativ
+  // rule above, pointing the other way: there the learner was taught something
+  // untrue, here they are tested on something untaught.
+  //
+  // The exercises also drifted from the title. Of the nineteen, **fourteen were
+  // `choose` between nicht / kein / nichts** — which is *which negator*, the job of
+  // A1's `Negation: nicht vs. kein`, not *where it goes*. Position is a word-order
+  // fact, so the ten added here are mostly `order` and `error`: build the sentence,
+  // or find the nicht that is in the wrong slot. Merging is by prompt, so the
+  // originals survive untouched.
+  {
+    level: 'B2', title: 'Die Stellung von „nicht“', upgrade: true,
+    summary: 'Where nicht stands decides how much of the sentence it denies.',
+    rule: 'A1 settles which negator to use — kein for nouns, nicht for everything else. This settles where nicht goes, because its position is what decides how much it denies. Ask two questions in order: is the whole sentence denied, or one element in it? And then — what does the verb still need to its right?',
+    sections: [
+      { label: 'Satznegation — nicht goes as late as it can', body: 'Denying the whole sentence, nicht stands after the case objects (Akkusativ, Dativ, Genitiv) and after most Angaben — time, cause, condition: „Der Präsident überreichte gestern dem Sieger die Goldmedaille wegen Dopingverdachts nicht.“ Everything below is a reason it has to stop earlier.' },
+      { label: '…but before the second half of the verb', examples: [
+        { de: 'Er schreibt den Text nicht ab.', en: 'before a separable prefix' },
+        { de: 'Er kann den Text nicht lesen.', en: 'before an infinitive' },
+        { de: 'Er hat den Text nicht verstanden.', en: 'before a Partizip II' },
+        { de: 'Der Text ist nicht korrigiert worden.', en: 'before the passive participle' },
+        { de: 'Sie war im vergangenen Jahr nicht krank.', en: 'before a predicate adjective' },
+      ] },
+      { label: '…and before whatever completes the verb', examples: [
+        { de: 'Er interessiert sich nicht für Politik.', en: 'prepositional object — also „nicht dafür“' },
+        { de: 'Er erinnert sich nicht an mich.', en: 'prepositional object' },
+        { de: 'Sie wohnt nicht in Münster.', en: 'wo? — a place the verb requires' },
+        { de: 'Er fährt nicht nach Hamburg.', en: 'wohin? — a direction the verb requires' },
+        { de: 'Er wird nicht Arzt.', en: 'a bare noun completing the verb (also „kein Arzt“)' },
+        { de: 'Man kann die Maschine nicht in Betrieb nehmen.', en: 'the noun of a Funktionsverbgefüge' },
+      ] },
+      { label: 'Teilnegation — deny one element, then correct it', body: 'nicht stands immediately before the element it denies, and sondern supplies the correction. Move nicht and the meaning moves with it: „Nicht mein Bruder hat das Wörterbuch gekauft, sondern meine Schwester“ · „nicht gestern …, sondern vorgestern“ · „nicht das Wörterbuch …, sondern einen Krimi“.' },
+      { label: 'A Modal-Angabe is always Teilnegation', examples: [
+        { de: 'Sie schreibt den Brief nicht mit der Hand.', en: 'wie? — she writes it, just not by hand' },
+        { de: 'Sie schreibt den Brief nicht fehlerfrei.', en: 'wie? — she writes it, just not faultlessly' },
+      ] },
+      { label: 'Often only the context separates the two', body: '„Mein Bruder hat gestern das Wörterbuch nicht gekauft“ can deny the whole sentence, or only gekauft — waiting for „sondern ausgeliehen“. Satznegation and Teilnegation share this position, so nothing in the word order tells them apart.' },
+    ],
+    exercises: [
+      { kind: 'order', prompt: 'Build: „He is not interested in politics.“', tiles: ['Er', 'interessiert', 'sich', 'nicht', 'für', 'Politik'], explain: 'A prepositional object completes the verb, so nicht stands in front of it — never after Politik.' },
+      { kind: 'order', prompt: 'Build: „She does not live in Münster.“', tiles: ['Sie', 'wohnt', 'nicht', 'in', 'Münster'], explain: 'wohnen requires a place (wo?). nicht precedes it, exactly as with a direction.' },
+      { kind: 'order', prompt: 'Build: „The machine cannot be put into operation.“', tiles: ['Man', 'kann', 'die', 'Maschine', 'nicht', 'in', 'Betrieb', 'nehmen'], explain: 'in Betrieb nehmen is a Funktionsverbgefüge — nicht goes before its noun, not before the infinitive.' },
+      { kind: 'order', prompt: 'Build: „The text has not been corrected.“', tiles: ['Der', 'Text', 'ist', 'nicht', 'korrigiert', 'worden'], explain: 'The passive participle is the second half of the verb, so nicht stands in front of the whole of it.' },
+      { kind: 'error', prompt: 'Er erinnert sich an mich nicht.', answer: 5, fix: 'Er erinnert sich nicht an mich.', explain: 'sich erinnern an is a prepositional object: nicht goes before the preposition, not at the end.' },
+      { kind: 'error', prompt: 'Sie wohnt in Münster nicht.', answer: 4, fix: 'Sie wohnt nicht in Münster.', explain: 'The place completes wohnen, so nicht precedes it.' },
+      { kind: 'error', prompt: 'Er wird Arzt nicht.', answer: 3, fix: 'Er wird nicht Arzt.', explain: 'A bare noun completing werden takes nicht in front of it. „Er wird kein Arzt“ is equally good.' },
+      { kind: 'mc', prompt: 'Wohin gehört „nicht“ bei einem Präpositionalobjekt?', options: ['vor die Präposition: Er interessiert sich nicht für Politik.', 'hinter das Objekt: Er interessiert sich für Politik nicht.', 'vor das konjugierte Verb: Er nicht interessiert sich für Politik.'], answer: 0, explain: 'The prepositional object is an Ergänzung, and nicht stands before every Ergänzung the verb still needs.' },
+      { kind: 'mc', prompt: 'Welcher Satz verneint nur die Art und Weise?', options: ['Sie schreibt den Brief nicht mit der Hand.', 'Sie schreibt den Brief mit der Hand nicht.', 'Sie schreibt nicht den Brief mit der Hand.'], answer: 0, explain: 'Before a Modal-Angabe the negation is always partial: she writes it, just not by hand.' },
+      { kind: 'type', prompt: 'Nur die Zeit verneinen: „Mein Bruder hat gestern das Wörterbuch gekauft.“ → Mein Bruder hat das Wörterbuch ___ gestern gekauft, sondern vorgestern.', accept: ['nicht'], explain: 'Teilnegation: nicht stands immediately before the denied element, and sondern corrects it.' },
+    ],
+  },
+
+  // The other half of negation, and the half Lexi had almost nothing on.
+  //
+  // A2's `Wortbildung: Adjektive` teaches the suffixes plus un-, which is right for
+  // A2. It cannot cover the part that actually costs a B2 learner marks: **which**
+  // negator a given word takes, and the fact that miss- is not a negator at all.
+  // `missverständlich` does not mean "not understandable" — that is
+  // `unverständlich`. It means *liable to be misunderstood*, which is a different
+  // claim, and the pair is the cleanest way to show it.
+  //
+  // in-/il-/im-/ir- is the one genuinely rule-governed piece here: it attaches only
+  // to Latin and Greek loanwords, and assimilates to the consonant after it. So a
+  // learner who knows the word is a loan can predict the prefix, and otherwise
+  // cannot — which is worth saying out loud rather than leaving them to guess.
+  //
+  // Written from a B2 coursebook page (Aspekte Modul 3, „Missverständliches“) whose
+  // exercise 5a is exactly this system: „Jemand, der keine Geduld hat, ist ___“.
+  // The exercises keep that frame, because defining the person and asking for the
+  // adjective is a production task, not a recognition one.
+  {
+    level: 'B2', title: 'Verneinung durch Wortbildung: un-, miss-, in-',
+    summary: 'German negates inside the word too — and which negator is lexical.',
+    rule: 'Beside nicht and kein, German negates by building the negation into the word. Four devices do almost all of it, and choosing between them is mostly a matter of the word rather than a rule — with one reliable exception, in-, which attaches only to loanwords.',
+    sections: [
+      { label: 'un- — the default, and it stays stressed', examples: [
+        { de: 'geduldig → ungeduldig', en: 'the plain opposite' },
+        { de: 'vernünftig → unvernünftig', en: 'unreasonable' },
+        { de: 'interessant → uninteressant', en: 'uninteresting' },
+        { de: 'verständlich → unverständlich', en: 'incomprehensible — cannot be understood' },
+      ] },
+      { label: 'miss- — not "not", but wrongly or in vain', body: 'miss- does not deny the word, it spoils it. „missverständlich“ is not the opposite of „verständlich“ — that is „unverständlich“. It means *easily misunderstood*, which is a claim about how a thing goes wrong, not about whether it works at all. The same shape gives misslingen (to fail), missachten (to disregard) and das Missverständnis.' },
+      { label: 'in- / il- / im- / ir- — loanwords only, and it assimilates', examples: [
+        { de: 'tolerant → intolerant', en: 'the base form' },
+        { de: 'legal → illegal', en: 'before l- it becomes il-' },
+        { de: 'mobil → immobil', en: 'before m- and b- it becomes im-' },
+        { de: 'reparabel → irreparabel', en: 'before r- it becomes ir-' },
+      ] },
+      { label: '-los vs. -frei — both mean "without", not the same way', body: '-los is neutral or a lack: arbeitslos, hilflos, sinnlos. -frei says the missing thing is unwanted, so it reads as an improvement: fehlerfrei, stressfrei, zuckerfrei. The pair schuldlos (blameless) and schuldenfrei (free of debt) shows both at once.' },
+      { label: 'Which one a word takes is lexical', body: 'There is no rule deriving unmöglich rather than *inmöglich*, or arbeitslos rather than *unarbeitsam*. Only the loanword pattern is predictable. Learn the negated form as its own word — which is why they are carded separately here.' },
+    ],
+    exercises: [
+      { kind: 'type', prompt: 'Jemand, der keine Geduld hat, ist ___.', accept: ['ungeduldig'], explain: 'geduldig + un-.' },
+      { kind: 'type', prompt: 'Jemand, der nicht vernünftig ist, ist ___.', accept: ['unvernünftig'], explain: 'vernünftig + un-.' },
+      { kind: 'type', prompt: 'Jemand, der keine Arbeit hat, ist ___.', accept: ['arbeitslos'], explain: '-los = without. Not un-: *unarbeitsam is not a word.' },
+      { kind: 'type', prompt: 'Etwas, das mich nicht interessiert, finde ich ___.', accept: ['uninteressant'], explain: 'interessant + un-.' },
+      { kind: 'type', prompt: 'Jemand, der andere Gewohnheiten nicht toleriert, ist ___.', accept: ['intolerant'], explain: 'tolerant is a loanword, so it takes in-, not un-.' },
+      { kind: 'type', prompt: 'Etwas, das nicht repariert werden kann, ist ___.', accept: ['irreparabel'], explain: 'reparabel is a loanword and begins with r-, so in- assimilates to ir-.' },
+      { kind: 'mc', prompt: 'Eine Aussage, die leicht falsch verstanden wird, ist …', options: ['missverständlich', 'unverständlich', 'verständnislos'], answer: 0, explain: 'miss- = goes wrong. unverständlich would mean it cannot be understood at all.' },
+      { kind: 'mc', prompt: 'Was ist der Unterschied zwischen „unverständlich“ und „missverständlich“?', options: ['unverständlich = gar nicht zu verstehen; missverständlich = leicht falsch zu verstehen', 'Es gibt keinen — beide verneinen „verständlich“', 'unverständlich ist gehoben, missverständlich umgangssprachlich'], answer: 0, explain: 'miss- is not a negator. It says the understanding goes wrong, not that it fails.' },
+      { kind: 'choose', prompt: 'Das Gegenteil von „legal“ ist ___.', options: ['illegal', 'unlegal', 'misslegal'], answer: 0, explain: 'A loanword takes in-, and before l- it assimilates to il-.' },
+      { kind: 'choose', prompt: 'Ein Text ohne einen einzigen Fehler ist ___.', options: ['fehlerfrei', 'fehlerlos', 'unfehlerhaft'], answer: 0, explain: '-frei, because the absence of errors is a good thing. (fehlerlos exists but is rarer.)' },
+      { kind: 'mc', prompt: 'Warum „arbeitslos“ und nicht „unarbeitsam“?', options: ['Weil die Wahl der Verneinung lexikalisch ist und gelernt werden muss', 'Weil un- nie an Nomen-Ableitungen steht', 'Weil -los immer bei Personen steht'], answer: 0, explain: 'Only the loanword pattern (in-) is predictable; the rest is learned word by word.' },
+      { kind: 'error', prompt: 'Sein Verhalten war sehr intolerant und unmoralisch, aber nicht inmöglich.', answer: 8, fix: 'Sein Verhalten war sehr intolerant und unmoralisch, aber nicht unmöglich.', explain: 'möglich is a native word, so it takes un-. in- is only for loanwords.' },
+      { kind: 'choose', prompt: 'Ein Leben ohne Schulden ist ___.', options: ['schuldenfrei', 'schuldlos', 'unschuldig'], answer: 0, explain: 'schuldenfrei = free of debt. schuldlos and unschuldig are about blame, not money.' },
+      { kind: 'type', prompt: 'Bilden Sie das Gegenteil mit einer Vorsilbe: „mobil“ → ___', accept: ['immobil'], explain: 'A loanword beginning with m-, so in- assimilates to im-.' },
+    ],
+  },
 ];
 
 function toCard(p: NewPoint): Word {

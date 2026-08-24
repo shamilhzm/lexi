@@ -254,6 +254,9 @@
   "gram:B2:Verben mit Präpositionen": {
     "def": "Learn verb + preposition + case as one unit: denken an + A, sich interessieren für + A, teilnehmen an + D, abhängen von + D. Questions: Worauf? Woran? — people: Auf wen?"
   },
+  "gram:B2:Verneinung durch Wortbildung: un-, miss-, in-": {
+    "def": "Beside nicht and kein, German negates by building the negation into the word. Four devices do almost all of it, and choosing between them is mostly a matter of the word rather than a rule — with one reliable exception, in-, which attaches only to loanwords."
+  },
   "gram:B2:Zustandspassiv: „ist geschlossen“": {
     "def": "German separates the action from the state it leaves behind. werden + Partizip II reports something happening; sein + Partizip II reports the result that now holds."
   },
@@ -39763,6 +39766,21 @@
       }
     ]
   },
+  "voc:A2:die Haustür": {
+    "def": "The main door into a house or block of flats.",
+    "ex": [
+      {
+        "de": "Er hat den Schlüssel für die Haustür vergessen.",
+        "en": "He forgot the key for the front door.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Vor der Haustür stand ein großes Paket.",
+        "en": "A large parcel was standing in front of the door.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Haut": {
     "def": "skin, hide of a person, animal or (part of a) plant; a creature, especially a person",
     "ex": [
@@ -54802,6 +54820,21 @@
         "de": "In der Not muss man auf Freunde zählen können.",
         "en": "In an emergency you need to be able to count on friends.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:aufbewahren": {
+    "def": "To put something somewhere so it stays safe and can be found again.",
+    "ex": [
+      {
+        "de": "Seine Zeugnisse hatte er sorgfältig aufbewahrt.",
+        "en": "He had kept his certificates carefully.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wo bewahrst du die Dokumente auf?",
+        "en": "Where do you keep the documents?",
+        "lvl": "B1"
       }
     ]
   },
@@ -88874,6 +88907,21 @@
       }
     ]
   },
+  "voc:B1:uninteressant": {
+    "def": "Not worth paying attention to.",
+    "ex": [
+      {
+        "de": "Der Vortrag war leider völlig uninteressant.",
+        "en": "Unfortunately the talk was completely uninteresting.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Etwas, das mich nicht interessiert, finde ich uninteressant.",
+        "en": "Something that does not interest me I find uninteresting.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:unnötig": {
     "def": "Not needed.",
     "ex": [
@@ -89160,6 +89208,21 @@
       {
         "de": "Tom war unverletzt.",
         "en": "Tom was unharmed.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:unvernünftig": {
+    "def": "Acting against good sense.",
+    "ex": [
+      {
+        "de": "Es wäre unvernünftig, bei diesem Wetter zu fahren.",
+        "en": "It would be unreasonable to drive in this weather.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jemand, der nicht vernünftig ist, ist unvernünftig.",
+        "en": "Someone who is not sensible is unreasonable.",
         "lvl": "B1"
       }
     ]
@@ -93115,6 +93178,21 @@
       }
     ]
   },
+  "voc:B2:authentisch": {
+    "def": "True to the real thing, not staged or imitated.",
+    "ex": [
+      {
+        "de": "Die Schauspieler haben die Konflikte sehr authentisch dargestellt.",
+        "en": "The actors portrayed the conflicts very authentically.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Restaurant kocht authentisch italienisch.",
+        "en": "The restaurant cooks authentically Italian.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:bedauern": {
     "def": "to regret; to pity",
     "ex": [
@@ -97056,6 +97134,21 @@
       }
     ]
   },
+  "voc:B2:die Abholzung": {
+    "def": "The cutting down of forests over a large area.",
+    "ex": [
+      {
+        "de": "Die Abholzung des Waldes ist eine Ursache für die Erosion.",
+        "en": "The deforestation of the woodland is one cause of erosion.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Gegen die Abholzung des Regenwaldes gibt es weltweit Proteste.",
+        "en": "There are protests worldwide against the deforestation of the rainforest.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Ablehnung": {
     "def": "The act of refusing or turning something down.",
     "ex": [
@@ -98498,6 +98591,21 @@
       }
     ]
   },
+  "voc:B2:die Erosion": {
+    "def": "The gradual wearing away of soil or rock by wind and water.",
+    "ex": [
+      {
+        "de": "Ohne Bäume beschleunigt sich die Erosion des Bodens.",
+        "en": "Without trees the erosion of the soil accelerates.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Erosion hat den Hang unbewohnbar gemacht.",
+        "en": "Erosion has made the slope uninhabitable.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Errichtung": {
     "def": "The building or setting up of something.",
     "ex": [
@@ -98749,6 +98857,21 @@
       {
         "de": "Die Polizei führte eine Geiselverhandlung, um die Freilassung der Geiseln zu erreichen.",
         "en": "The police led a hostage negotiation in order to secure the release of the hostages.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Fälschung": {
+    "def": "A copy made to pass as the genuine article.",
+    "ex": [
+      {
+        "de": "Echte Münzen von Fälschungen zu unterscheiden ist manchmal schwierig.",
+        "en": "Telling genuine coins from forgeries is sometimes difficult.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Gemälde entpuppte sich als Fälschung.",
+        "en": "The painting turned out to be a forgery.",
         "lvl": "B2"
       }
     ]
@@ -100396,6 +100519,21 @@
       {
         "de": "Solarenergie ist inzwischen überraschend günstig.",
         "en": "Solar energy is now surprisingly cheap.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Spedition": {
+    "def": "A company that transports goods for other people.",
+    "ex": [
+      {
+        "de": "Die Spedition hat den Container bis vor die Haustür befördert.",
+        "en": "The haulage firm delivered the container right to the front door.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für den Umzug haben wir eine Spedition beauftragt.",
+        "en": "We hired a removal firm for the move.",
         "lvl": "B2"
       }
     ]
@@ -102434,6 +102572,21 @@
       }
     ]
   },
+  "voc:B2:fehlerfrei": {
+    "def": "Containing no mistakes at all.",
+    "ex": [
+      {
+        "de": "Sie schreibt den Brief nicht fehlerfrei.",
+        "en": "She does not write the letter faultlessly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Prüfung war fehlerfrei.",
+        "en": "His exam was faultless.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:fesseln": {
     "def": "to chain, to bind; to rivet (someone's attention), to captivate",
     "ex": [
@@ -103326,6 +103479,21 @@
         "de": "Den Vertrag kann man auch ganz anders interpretieren.",
         "en": "The contract can also be interpreted quite differently.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B2:intolerant": {
+    "def": "Unwilling to accept ways of living or thinking that differ from one's own.",
+    "ex": [
+      {
+        "de": "Wer andere Gewohnheiten nicht akzeptiert, ist intolerant.",
+        "en": "Anyone who does not accept other habits is intolerant.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Bemerkungen waren ausgesprochen intolerant.",
+        "en": "His remarks were decidedly intolerant.",
+        "lvl": "B2"
       }
     ]
   },
@@ -104982,6 +105150,21 @@
       {
         "de": "Eine tolerante Gesellschaft erträgt auch Widerspruch.",
         "en": "A tolerant society also tolerates disagreement.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:tolerieren": {
+    "def": "To allow something you do not agree with to continue.",
+    "ex": [
+      {
+        "de": "Diese Regeln toleriert die Schule nicht.",
+        "en": "The school does not tolerate these rules being broken.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir müssen andere Meinungen tolerieren, auch wenn sie uns stören.",
+        "en": "We have to tolerate other opinions, even when they bother us.",
         "lvl": "B2"
       }
     ]

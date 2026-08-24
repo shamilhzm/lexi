@@ -1401,11 +1401,45 @@ user; none of it is built.*
   taken — but it is not nothing.* **Do:** relax `isReflexive`'s `!separable` and teach
   `buildReflexive` the split frame — «ich stelle **mich** vor», «ich ruhe **mich** aus» —
   which is the pronoun *and* the moving prefix in one item, and is arguably the better
-  drill than either half. **Two conjugator bugs sit underneath it and must be fixed
-  first:** `conjugate('wohlfühlen')` and `conjugate('vorbereiten')` both return
-  `separable: null`, so they would render «wohlfühle» rather than «fühle … wohl».
-  *(`sich umarmen` returning null is **correct** — it is genuinely inseparable.)*
+  drill than either half. **The conjugator bug below sits underneath it and must be
+  fixed first**, or the new drill would teach the wrong forms.
   *M · `src/views/Fundamentals.tsx`, `src/lib/conjugate.ts`.*
+- **🔴 The conjugator builds an impossible Partizip II for some prefixed verbs — two
+  shipped cards print one as the correct answer · S.** *(2026-08-21.)* `conjugate`
+  fails to identify the prefix on certain verbs, returns `separable: null`, and then
+  glues `ge-` onto the front of the whole word, where German puts it inside or omits
+  it. **Five hand-verified, with five hand-verified controls so this reads as a real
+  class and not a broken probe:**
+
+  | verb | conjugator | correct | in the corpus? |
+  |---|---|---|---|
+  | `auflösen` | **geauflöst** | aufgelöst | ✅ **and conj-eligible today** |
+  | `gegenüberstellen` | **gegenüberstellt** | gegenübergestellt | ✅ **and conj-eligible today** |
+  | `wohlfühlen` | **gewohlfühlt** | wohlgefühlt | ✅ (reflexive, so no longer drilled) |
+  | `aushändigen` | **geaushändigt** | ausgehändigt | not yet — held out of a batch because of this |
+  | `überreichen` | **geüberreicht** | überreicht | not yet — same |
+
+  *Controls, all correct:* `abschreiben` → abgeschrieben · `ankommen` → angekommen ·
+  `vorbereiten` → vorbereitet · `gehen` → gegangen · `geben` → gegeben. **So it is not
+  a blanket failure of prefixed verbs**, which is what makes it worth isolating rather
+  than rewriting the engine.
+
+  ⚠️ **The class size is unknown and a regex will not find it.** A prefix-shaped string
+  is not a prefix: a check keyed on `/^(ab|an|auf|…)/` flags `antworten`, `teilen`,
+  `herrschen`, `einigen`, `beißen` and every verb whose *stem* merely starts with those
+  letters, and one keyed on `/^(be|ge|ver|über|…)/` flags `gehen`, `geben`, `gewinnen`.
+  Sizing this needs a real morphological source, not string matching — see LESSONS.
+  *Do:* fix detection, then re-run the two held-back cards through `authoring:new`.
+  *S · `src/lib/conjugate.ts`.*
+- **`der Vorsitzender` is a malformed adjectival-noun headword · XS.** *(2026-08-21.)*
+  The card is `voc:B1:der Vorsitzender` with `plural: "die Vorsitzende"` — both halves
+  inverted. *Vorsitzender* is the strong form used **without** an article (*ein
+  Vorsitzender*); with the definite article it is *der Vorsitzende*, and the plural is
+  *die Vorsitzenden*. Found because `authoring:new` refused a `der Vorsitzende`
+  candidate as a near-duplicate of it. The whole adjectival-noun class deserves one
+  pass — `der Bekannte`, `der/die Verwandte`, `der Beamte` share the pattern, and
+  `Bekannter` already resolves to the adjective `bekannt` rather than to its own card.
+  *XS · `fix-authored.ts` sense row, then check the class.*
 - **370 word cards carry an empty `pos` · XS–S.** Invisible today, but it is the same
   latent gap that produced the capitalisation mess: a card with no part of speech
   cannot be classified by any rule, so it silently opts out of the drills, the family

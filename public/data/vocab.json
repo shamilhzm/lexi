@@ -207406,5 +207406,345 @@
     "ex": [],
     "field": "Grammar",
     "kind": "grammar"
+  },
+  {
+    "id": "gram:B2:Verneinung durch Wortbildung: un-, miss-, in-",
+    "term": "Verneinung durch Wortbildung: un-, miss-, in-",
+    "en": "German negates inside the word too — and which negator is lexical.",
+    "pos": "grammar",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "Beside nicht and kein, German negates by building the negation into the word. Four devices do almost all of it, and choosing between them is mostly a matter of the word rather than a rule — with one reliable exception, in-, which attaches only to loanwords.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
+  },
+  {
+    "id": "voc:B1:uninteressant",
+    "term": "uninteressant",
+    "en": "uninteresting, of no interest",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnʔɪntəʁɛˌsant",
+    "def": "Not worth paying attention to.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Vortrag war leider völlig uninteressant.",
+        "en": "Unfortunately the talk was completely uninteresting.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Etwas, das mich nicht interessiert, finde ich uninteressant.",
+        "en": "Something that does not interest me I find uninteresting.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:unvernünftig",
+    "term": "unvernünftig",
+    "en": "unreasonable, foolish",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnfɛɐ̯nʏnftɪç",
+    "def": "Acting against good sense.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es wäre unvernünftig, bei diesem Wetter zu fahren.",
+        "en": "It would be unreasonable to drive in this weather.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jemand, der nicht vernünftig ist, ist unvernünftig.",
+        "en": "Someone who is not sensible is unreasonable.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:intolerant",
+    "term": "intolerant",
+    "en": "intolerant",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɪntoleʁant",
+    "def": "Unwilling to accept ways of living or thinking that differ from one's own.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer andere Gewohnheiten nicht akzeptiert, ist intolerant.",
+        "en": "Anyone who does not accept other habits is intolerant.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Bemerkungen waren ausgesprochen intolerant.",
+        "en": "His remarks were decidedly intolerant.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:tolerieren",
+    "term": "tolerieren",
+    "en": "to tolerate, to put up with",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "toləˈʁiːʁən",
+    "def": "To allow something you do not agree with to continue.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Diese Regeln toleriert die Schule nicht.",
+        "en": "The school does not tolerate these rules being broken.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir müssen andere Meinungen tolerieren, auch wenn sie uns stören.",
+        "en": "We have to tolerate other opinions, even when they bother us.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Society & Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:authentisch",
+    "term": "authentisch",
+    "en": "authentic, genuine",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "aʊ̯ˈtɛntɪʃ",
+    "def": "True to the real thing, not staged or imitated.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Schauspieler haben die Konflikte sehr authentisch dargestellt.",
+        "en": "The actors portrayed the conflicts very authentically.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Restaurant kocht authentisch italienisch.",
+        "en": "The restaurant cooks authentically Italian.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:fehlerfrei",
+    "term": "fehlerfrei",
+    "en": "faultless, error-free",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfeːlɐˌfʁaɪ̯",
+    "def": "Containing no mistakes at all.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie schreibt den Brief nicht fehlerfrei.",
+        "en": "She does not write the letter faultlessly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Prüfung war fehlerfrei.",
+        "en": "His exam was faultless.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:aufbewahren",
+    "term": "aufbewahren",
+    "en": "to keep, to store safely",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fbəˌvaːʁən",
+    "def": "To put something somewhere so it stays safe and can be found again.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seine Zeugnisse hatte er sorgfältig aufbewahrt.",
+        "en": "He had kept his certificates carefully.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wo bewahrst du die Dokumente auf?",
+        "en": "Where do you keep the documents?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Fälschung",
+    "term": "die Fälschung",
+    "en": "forgery, fake",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Fälschungen",
+    "ipa": "ˈfɛlʃʊŋ",
+    "def": "A copy made to pass as the genuine article.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Echte Münzen von Fälschungen zu unterscheiden ist manchmal schwierig.",
+        "en": "Telling genuine coins from forgeries is sometimes difficult.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Gemälde entpuppte sich als Fälschung.",
+        "en": "The painting turned out to be a forgery.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Abholzung",
+    "term": "die Abholzung",
+    "en": "deforestation, felling",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Abholzungen",
+    "ipa": "ˈapˌhɔlt͡sʊŋ",
+    "def": "The cutting down of forests over a large area.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Abholzung des Waldes ist eine Ursache für die Erosion.",
+        "en": "The deforestation of the woodland is one cause of erosion.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Gegen die Abholzung des Regenwaldes gibt es weltweit Proteste.",
+        "en": "There are protests worldwide against the deforestation of the rainforest.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Environment",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Erosion",
+    "term": "die Erosion",
+    "en": "erosion",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Erosionen",
+    "ipa": "eʁoˈzi̯oːn",
+    "def": "The gradual wearing away of soil or rock by wind and water.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne Bäume beschleunigt sich die Erosion des Bodens.",
+        "en": "Without trees the erosion of the soil accelerates.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Erosion hat den Hang unbewohnbar gemacht.",
+        "en": "Erosion has made the slope uninhabitable.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Environment",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Spedition",
+    "term": "die Spedition",
+    "en": "haulage firm, shipping company",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Speditionen",
+    "ipa": "ʃpediˈt͡si̯oːn",
+    "def": "A company that transports goods for other people.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Spedition hat den Container bis vor die Haustür befördert.",
+        "en": "The haulage firm delivered the container right to the front door.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für den Umzug haben wir eine Spedition beauftragt.",
+        "en": "We hired a removal firm for the move.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Haustür",
+    "term": "die Haustür",
+    "en": "front door",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Haustüren",
+    "ipa": "ˈhaʊ̯sˌtyːɐ̯",
+    "def": "The main door into a house or block of flats.",
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat den Schlüssel für die Haustür vergessen.",
+        "en": "He forgot the key for the front door.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Vor der Haustür stand ein großes Paket.",
+        "en": "A large parcel was standing in front of the door.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
   }
 ]

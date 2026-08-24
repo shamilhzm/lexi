@@ -59,6 +59,66 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-21 — a homework page on negation, and the half of it Lexi never taught
+
+Three photographed pages — a B2 coursebook module („Missverständliches“) and Dreyer §14
+*Negation mit nicht (Stellungsregeln)* with its eighteen practice sentences. Checked
+against the corpus before anything was written, which is the point of checking:
+**forty of the sixty-six candidate headwords were already there.**
+
+**`Die Stellung von „nicht“` taught six placement rules; Dreyer lists ten.** The four
+missing ones are a single idea the point never states — **nicht stands before anything
+the verb still needs to its right**: the prepositional object («Er interessiert sich
+nicht für Politik»), the place the verb requires («Sie wohnt nicht in Münster»), the bare
+noun that completes it («Er wird nicht Arzt»), and the noun of a Funktionsverbgefüge
+(«die Maschine nicht in Betrieb nehmen»). Also added: the Satznegation frame it hangs on
+(nicht goes after the case objects and most Angaben, as late as the rules allow), the
+Modal-Angabe as an always-partial negation, and Dreyer's closing note that word order
+alone cannot separate Satz- from Teilnegation.
+
+**One of those four was already being tested.** The exercise «Sie wohnt ___ in München.»
+has shipped since the point was written, and no rule section covered it — the existing
+*"before a directional phrase"* is **wohin**, and Münster is **wo**. That is the mirror
+of the Akkusativ defect fixed the day before: there a learner was taught something
+untrue, here they were tested on something untaught.
+
+**And the exercises had drifted from the title.** Of the nineteen, **fourteen were
+`choose` between nicht / kein / nichts** — which is *which negator*, the job of A1's
+`Negation: nicht vs. kein`, not *where it goes*. Position is a word-order fact, so the
+ten added are mostly `order` (build the sentence) and `error` (find the misplaced
+nicht). Merging is by prompt, so the originals survive.
+
+**New B2 point: `Verneinung durch Wortbildung: un-, miss-, in-`** (14 exercises), because
+the coursebook page's exercise 5a is entirely negation *inside* the word and A2's
+`Wortbildung: Adjektive` stops at `un-` and `-los`. What it adds is the part that costs
+marks: **miss- is not a negator.** `missverständlich` is not the opposite of
+`verständlich` — that is `unverständlich` — it means *liable to be misunderstood*, a
+different claim. Plus the one genuinely predictable rule in the system: `in-` attaches
+only to loanwords and assimilates to what follows (intolerant · illegal · immobil ·
+irreparabel), and `-frei` vs `-los` (schuldenfrei vs schuldlos). `GRAMMAR_COUNTS`
+138 → 139 points, 6,159 → 6,183 exercises.
+
+**Twelve cards written, 6,628 → 6,640**, all through the machine gate. Three candidates
+were held back rather than forced: `überreichen` and `aushändigen` because the
+conjugator builds an impossible participle for them (see below), and `der Vorsitzende`
+because a malformed card for it already exists. Two more needed `sameAsGerman` declared
+— *intolerant* and *Erosion* genuinely are the English word, and the gate is right to
+refuse a gloss that silently repeats its headword.
+
+**The gate's refusals turned up a live defect in shipped content.** `conjugate` fails to
+identify the prefix on some verbs and glues `ge-` onto the front of the whole word:
+**`auflösen` → «geauflöst»** and **`gegenüberstellen` → «gegenüberstellt»** are both in
+the corpus, both conj-eligible, and both currently printed as the correct Partizip II in
+the conjugation drill. Five instances hand-verified against five hand-verified controls
+(`abschreiben`, `ankommen`, `vorbereiten`, `gehen`, `geben` all correct), and filed
+**without a count** — a check keyed on prefix *spelling* flagged 29 and was wrong about
+nearly all of them, because `ge` is not a prefix in *gehen* and `teil` is not one in
+*teilen*. LESSONS carries the rule: morphology is not string prefixes.
+
+926 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-21 — the plural drill asked 191 questions that had no answer
 
 The full pass begins ([AUDIT.md](AUDIT.md) is its ledger). The cloze leak fixed earlier

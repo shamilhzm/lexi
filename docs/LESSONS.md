@@ -162,6 +162,21 @@ costs a day and closes the ticket.
 three hits are hand-verified. Write the counter-example into the check's own header when
 it turns out to be wrong.**
 
+- **A prefix-shaped string is not a prefix.** *(2026-08-21.)* Hunting for verbs whose
+  Partizip II comes out wrong, I keyed the check on the *spelling* of the German
+  prefixes — `/^(ab|an|auf|aus|ein|teil|…)/` for separable, `/^(be|ge|ver|über|…)/` for
+  inseparable — and got **29 hits**. Hand-checking the first dozen, nearly all were
+  correct German: *gehen* → gegangen, *geben* → gegeben, *gewinnen* → gewonnen,
+  *antworten* → geantwortet, *teilen* → geteilt, *beißen* → gebissen. `ge` is not a
+  prefix in *gehen*; `an` is not a prefix in *antworten*; `teil` is not a prefix in
+  *teilen*. The check was matching the start of a **stem** and calling it morphology.
+  The five genuine failures (*auflösen* → «geauflöst», *gegenüberstellen*, *wohlfühlen*,
+  *aushändigen*, *überreichen*) were found by hand and are recorded as instances, with
+  matching correct **controls**, and deliberately **without a count** — because I have
+  no instrument that can produce an honest one. **Rule: morphology is not string
+  prefixes. If a check needs to know whether a substring is a morpheme, it needs a
+  lexicon, not a regex — and if there is no lexicon, ship the hand-verified instances
+  and say the class size is unknown rather than inventing a number for it.**
 - **The measuring instrument moved when the thing measured did not.** *(2026-08-21.)*
   Expanding 208 shorthand plurals into full `die …` forms, `corpus:validate`'s reader
   probe reported the **adjective** rate falling 0.955 → 0.945 — for a change that touched

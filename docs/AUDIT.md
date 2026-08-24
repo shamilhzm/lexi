@@ -56,9 +56,25 @@ out five times — see the withdrawals below. A count in this file that is not m
    The conj audit's harness is the template; note it had to simulate the **pad**
    fallback before its numbers meant anything (first run reported 1,588 thin items;
    the true figure is 0).
-2. **The conjugator itself.** `conjugate('wohlfühlen')` and `conjugate('vorbereiten')`
-   return `separable: null` and would render «wohlfühle». Found underneath the conj gate
-   fix; filed in BACKLOG under the separable-reflexive item.
+2. **The conjugator itself · 🔴.** It builds an impossible Partizip II for some prefixed
+   verbs — `auflösen` → «geauflöst», `gegenüberstellen` → «gegenüberstellt» — and both
+   are shipped *and* conj-eligible, so the drill prints them as the correct answer today.
+   Five instances hand-verified with five controls; **class size unknown and a regex
+   cannot find it** (see LESSONS). Filed in BACKLOG. Blocks two held-back cards.
+3. **Adjectival nouns.** `voc:B1:der Vorsitzender` has its headword and plural inverted,
+   and `Bekannter` resolves to the adjective `bekannt` rather than to its own card. The
+   class (`der Bekannte`, `der/die Verwandte`, `der Beamte`) wants one pass.
+
+### Source pages ingested
+
+Textbook and reference pages worked through by hand, with what each one changed. Kept
+because the useful unit is the *page*: checking its vocabulary against the corpus before
+writing anything is what stops a second `die Beziehung` being authored.
+
+| source | checked | already had | outcome |
+|---|---|---|---|
+| *Neue Heimat* B2, Modul 1 (chapter opener + Mittelfeld) | 51 headwords | 37 | 12 cards · 2 grammar points · the `government()` matcher fix |
+| B2 „Missverständliches“ + Dreyer §14 *Negation mit nicht* | 66 headwords | **40** | 12 cards · `Die Stellung von „nicht“` +10 exercises and 4 new rules · new B2 point `Verneinung durch Wortbildung` |
 3. **Sense/example mismatch at scale.** The `alle` class. No cheap heuristic exists
    (a broken one is recorded in LESSONS); needs either a real sense inventory or a
    sampled hand-audit with a stated confidence interval, not a fabricated count.
