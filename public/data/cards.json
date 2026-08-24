@@ -68449,7 +68449,7 @@
   {
     "id": "voc:B1:das Mittel",
     "term": "das Mittel",
-    "en": "agent, appliance",
+    "en": "means, resources; remedy, agent",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -70238,7 +70238,7 @@
   {
     "id": "voc:B1:ausfallen",
     "term": "ausfallen",
-    "en": "to sortie, to sally",
+    "en": "to be cancelled; to fail, break down",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -81627,7 +81627,7 @@
   {
     "id": "voc:B1:abhauen",
     "term": "abhauen",
-    "en": "to cut off",
+    "en": "to clear off, take off (colloquial)",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -89883,7 +89883,7 @@
   {
     "id": "voc:B2:vertreiben",
     "term": "vertreiben",
-    "en": "to force to leave, to drive away",
+    "en": "to drive away, expel; to dispel, to pass (the time)",
     "pos": "verb",
     "level": "B2",
     "gender": null,
@@ -92701,7 +92701,7 @@
   {
     "id": "voc:A2:abbauen",
     "term": "abbauen",
-    "en": "to dismantle, disassemble",
+    "en": "to dismantle; to reduce, relieve",
     "pos": "verb",
     "level": "A2",
     "gender": null,
@@ -92720,7 +92720,7 @@
   {
     "id": "voc:A2:abhängen",
     "term": "abhängen",
-    "en": "to depend",
+    "en": "to depend; to hang out (colloquial)",
     "pos": "verb",
     "level": "A2",
     "gender": null,
@@ -94368,7 +94368,7 @@
   {
     "id": "voc:B1:ambulant",
     "term": "ambulant",
-    "en": "ambulant",
+    "en": "outpatient",
     "pos": "adjective",
     "level": "B1",
     "gender": null,

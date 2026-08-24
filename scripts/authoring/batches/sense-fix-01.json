@@ -1,0 +1,44 @@
+[
+  {
+    "id": "voc:B1:ausfallen",
+    "expect": { "en": "to sortie, to sally" },
+    "en": "to be cancelled; to fail, break down",
+    "src": "Both examples are the everyday sense — «Der Server war ausgefallen», «Die Heizung ist ausgefallen». „to sortie, to sally\" is a military reading that no B1 learner will ever need and that neither example shows."
+  },
+  {
+    "id": "voc:B1:das Mittel",
+    "expect": { "en": "agent, appliance" },
+    "en": "means, resources; remedy, agent",
+    "src": "The examples are both the plural *Mittel* = funds — «Er hat unendliche Mittel», «Tom gehen die Mittel aus». „appliance\" is not a sense of Mittel at all."
+  },
+  {
+    "id": "voc:B1:ambulant",
+    "expect": { "en": "ambulant" },
+    "en": "outpatient",
+    "src": "A false friend left unglossed. German *ambulant* is the medical *outpatient* — which both examples show — while English *ambulant* means able to walk. Glossing it with its own cognate taught the trap instead of the word."
+  },
+  {
+    "id": "voc:A2:abbauen",
+    "expect": { "en": "to dismantle, disassemble" },
+    "en": "to dismantle; to reduce, relieve",
+    "src": "Both examples are «Stress abbauen» = relieve stress, which the gloss did not cover. The dismantling sense is kept because it is the literal one and the synonyms already carry it."
+  },
+  {
+    "id": "voc:A2:abhängen",
+    "expect": { "en": "to depend" },
+    "en": "to depend; to hang out (colloquial)",
+    "src": "Both examples are «mit uns abhängen» = hang out, a sense the gloss omitted although the card's own synonyms already list herumhängen and rumhängen."
+  },
+  {
+    "id": "voc:B1:abhauen",
+    "expect": { "en": "to cut off" },
+    "en": "to clear off, take off (colloquial)",
+    "src": "Both examples are «Ich muss abhauen» = I have to leave, and the card's synonyms are davonlaufen / davonmachen. The literal chopping sense is the rarer one and was the only one glossed."
+  },
+  {
+    "id": "voc:B2:vertreiben",
+    "expect": { "en": "to force to leave, to drive away" },
+    "en": "to drive away, expel; to dispel, to pass (the time)",
+    "src": "Neither example is expulsion: «Heimweh vertreiben» is dispelling homesickness and «sich die Zeit vertreiben» is passing the time. Both senses added rather than replacing, since driving away is genuine."
+  }
+]

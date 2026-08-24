@@ -59,6 +59,56 @@ which is the ledger for this pass.
 
 ---
 
+### Shipped 2026-08-24 — the `alle` class, sized honestly and seven of it fixed
+
+`alle` — glossed *finished*, illustrated twice with the pronoun *everybody* — was found
+by playing the app and fixed on the 21st, and the class it belonged to was left open with
+"size unknown". An earlier attempt to size it reported 665 and was wrong about all twelve
+hits checked, because a shell-escaped stemmer regex silently stripped nothing. So this
+pass starts with a **stemmer self-test that refuses to rank anything if it fails** — and
+it did fail, twice, before a single card was scored.
+
+**The instrument is a reading order, not a detector.** `npm run corpus:sense` scores each
+card on how much its English gloss overlaps its examples' translations, and ranks the
+lowest first. A card can score zero and be perfectly fine, because a good translation
+paraphrases — *auflösen* "to dissolve" against «Before moving to Canada she had to give
+up her flat» shares no word at all. So the score only decides what to read, and every
+number below was read.
+
+**What that yields, and the number the class actually needed:**
+
+| | population | hand-read | defects | yield |
+|---|---|---|---|---|
+| zero-overlap band | 698 (10.8%) | 33 | **12** | ~36% |
+| unbiased random draw | all 6,452 | 18 | **0** | ~0% |
+
+So the class is real and much larger than the one card previously confirmed — and it is
+**concentrated rather than diffuse**. The band is worth working; the corpus at large is
+not obviously rotten. With 0 of 18 the prevalence is bounded loosely, not counted, and it
+is left that way.
+
+**Seven fixed, by correcting the gloss.** In each the examples are good German and the
+gloss simply did not describe them: `ausfallen` was glossed **"to sortie, to sally"**
+while both examples are «Der Server war ausgefallen»; `das Mittel` "agent, appliance"
+against «Er hat unendliche Mittel» — funds; `abbauen` "to dismantle" against «Stress
+abbauen»; `abhauen` "to cut off" against «Ich muss abhauen»; `abhängen` "to depend"
+against «mit uns abhängen»; `vertreiben` "to force to leave" against «sich die Zeit
+vertreiben». And `ambulant` was glossed **"ambulant"** — its own English cognate, and a
+false friend: German *ambulant* is medical *outpatient*, English *ambulant* means able to
+walk. Glossing a false friend with itself teaches the trap instead of the word.
+
+**Five filed rather than fixed**, because there the *examples* are wrong, not the gloss —
+`die Braut` illustrated with «Er **braut** Bier» (the verb *brauen*), `wild` with «Seid
+ihr **Wilde**?» (the noun), `das Durcheinander` with «Tom ist **durcheinander**» (the
+adverb), and `aber` — A1, glossed "but" — whose two examples are both the modal particle
+and never the conjunction. The first three are `alle` exactly: the letters are present so
+the authoring gate's matcher is satisfied, but the word in the sentence is another
+lexeme. Also filed: `voc:B1:aneignen` duplicates `voc:B2:sich aneignen`.
+
+947 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-24 — the rule panel contradicted the question it was attached to
 
 Both from playing a real session, and reported with screenshots.

@@ -1389,6 +1389,29 @@ user; none of it is built.*
   slope. Daily is too granular, "since forever" too coarse.
 
 **Content and pedagogy.**
+- **🟠 Five cards whose examples teach a different word than the gloss · S.**
+  *(Hand-verified 2026-08-24 with `npm run corpus:sense`; seven sibling cards were
+  fixed the same day by correcting the gloss instead — see CHANGELOG.)* These five
+  cannot be fixed that way, because the **examples** are what is wrong:
+
+  | card | gloss | what the examples actually show |
+  |---|---|---|
+  | `voc:B1:die Braut` | bride | «Er **braut** Bier» — the *verb* brauen, to brew |
+  | `voc:A2:wild` | wild | «Seid ihr **Wilde**?» — the noun *der Wilde*, savage |
+  | `voc:B2:das Durcheinander` | mess, chaos | «Tom ist **durcheinander**» — the adverb, flustered |
+  | `voc:A1:aber` | but | both examples are the *modal particle* («Das ist aber teuer»), never the conjunction |
+
+  The first three are the `alle` class exactly: the headword's letters are present, so
+  the authoring gate's matcher is satisfied, but the word in the sentence is a different
+  lexeme. `aber` is milder and arguably worse placed — it is A1, "but" is the sense a
+  beginner needs, and neither example shows it. **Do:** new examples through
+  `authoring:new`, which will prove the headword is genuinely present. *S.*
+- **`voc:B1:aneignen` duplicates `voc:B2:sich aneignen` · XS.** *(2026-08-24.)* The B2
+  card is glossed "to acquire, learn" and is right; the B1 one says "to appropriate"
+  while its examples are «sich eine Sprache aneignen» — acquiring. One verb, two cards,
+  two schedules, and the reflexive is not optional. A merge, so `corpus:dupes` owns it —
+  and the two differ by the `sich`, which is the same shape `corpus:dupes` cannot see
+  that the adjectival nouns had. *XS.*
 - **🟠 Separable reflexives now have no drill at all · S.** *Created deliberately
   2026-08-21, by the conj fix — filed rather than left silent.* `conjDrillable` excludes
   reflexives from the conjugation drill, because `conjugate` strips `sich` and the drill

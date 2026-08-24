@@ -43,7 +43,7 @@ out five times — see the withdrawals below. A count in this file that is not m
 | Cloze answer leaks through capitalisation | 5,684 cloze-eligible | **261 found → 0**, hand-verified, fixed | CHANGELOG 2026-08-21 |
 | Plural drill asks unanswerable / shape-leaking questions | 3,200 nouns with a plural | **399 found → 0**, all hand-verified, fixed | CHANGELOG 2026-08-21 |
 | Gender drill distractors | all gendered nouns | **clean by construction** — three fixed buttons, no pool | — |
-| Gloss/example describe different lexemes | 6,516 word cards | **1 confirmed (`alle`), class size unknown** | see Open, below |
+| Gloss/example describe different lexemes | 6,452 cards with examples | **12 hand-verified: 7 fixed, 5 filed.** Concentrated, not diffuse — 36% yield in the zero-overlap band vs 0/18 at random | CHANGELOG 2026-08-24 |
 | Conjugation drill: thin option sets, ambiguous items, shape leaks | 34,348 simulated items over 1,108 verbs | **0 / 0 / 0** — clean once the pad is simulated | — |
 | Conjugation drill: is the engine handed a lemma? | 1,108 conj-eligible verbs | **3 printing invented German + 57 pronoun-less**, hand-verified, fixed | CHANGELOG 2026-08-21 |
 | Conjugator Partizip II vs. the forms the corpus attests | 262 verbs with a Perfekt example | **262 agree · 0 disagree** | — |
@@ -66,9 +66,11 @@ alternative arrangement — which was ruled a thing to *teach* rather than desig
    conservative fronting chunker was prototyped and rejected (3 of 8 suggestions valid).
    Doing it properly needs constituent parsing, or the corpus recording frontable
    constituents at authoring time — see BACKLOG.
-2. **Sense/example mismatch at scale** — the `alle` class. No cheap heuristic exists (a
-   broken one is recorded in LESSONS); needs either a real sense inventory or a sampled
-   hand-audit with a stated confidence interval, not a fabricated count.
+2. **Work the sense band down · 🟠.** `npm run corpus:sense` ranks the 698 cards whose
+   gloss shares no word with any of its example translations. It is a *reading order*,
+   not a detector — but it yields ~36% against ~0% at random, so it is the instrument
+   this class needed. 33 read so far; the rest are unread. Five verified defects are
+   filed in BACKLOG because they need new **examples** rather than a new gloss.
 3. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
 4. **Definitions** — 806 warnings currently, dominated by *noun without plural* (472)
    and *no ipa* (275).

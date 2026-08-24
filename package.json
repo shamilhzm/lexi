@@ -35,6 +35,7 @@
     "corpus:posfix": "node scripts/corpus/posfix.ts",
     "corpus:split": "node scripts/corpus/split.ts",
     "corpus:audit": "node scripts/corpus/audit.ts",
+    "corpus:sense": "node scripts/corpus/sense-audit.ts",
     "corpus:freq": "node scripts/corpus/freq.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts",
     "brain:mesh": "node scripts/brain/mesh.ts",
