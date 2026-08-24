@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, exampleKey, PREMODERN_TYPOGRAPHY, LEVELS, type Word } from './lib.ts';
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import type { Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
@@ -86,6 +86,8 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
       // subtly different copy that was missing the trailing word boundary, so it
       // reported "Thunfisch" — tuna — as 19th-century spelling.
       if (ARCHAIC_SPELLING.test(de)) warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
+      // Characters, not spellings — see PREMODERN_TYPOGRAPHY in lib.ts.
+      if (PREMODERN_TYPOGRAPHY.test(de)) errors.push({ id, msg: `${where} is set in pre-modern typography (long s / double hyphen)` });
       if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });
     });
     if (w.gender != null && !['der', 'die', 'das'].includes(w.gender)) errors.push({ id, msg: `bad gender ${w.gender}` });
@@ -96,6 +98,16 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     // a thin connection between word and use, so it only warns.
     if (w.kind === 'word' && (!w.ex || !w.ex.length)) errors.push({ id, msg: 'no example' });
     else if (w.kind === 'word' && w.ex.length < 2) warnings.push({ id, msg: 'fewer than two examples' });
+    // …and two examples that are the same sentence do not make two. See lib.ts.
+    if (w.kind === 'word') {
+      const seen = new Map<string, number>();
+      for (const [i, e] of (w.ex ?? []).entries()) {
+        const k = exampleKey(e?.de ?? '');
+        if (!k) continue;
+        if (seen.has(k)) errors.push({ id, msg: `ex[${i}] repeats ex[${seen.get(k)}] — same sentence, different punctuation` });
+        else seen.set(k, i);
+      }
+    }
     // Miscapitalised headwords are caught in dupeCheck, where the lowercase-twin
     // set already exists to tell a duplicate from a lone miscapitalisation.
     if (w.kind === 'word' && w.pos && !ALLOWED_POS.has(w.pos)) warnings.push({ id, msg: `pos "${w.pos}" outside new-card set` });

@@ -153,6 +153,32 @@ export function headwordEvidence(matcher: Matcher, card: Word, de: string): Evid
   return { ok: false, why: 'miscased', token: mine[0].text };
 }
 
+// ---- two examples that are one example ------------------------------------
+//
+// A card must carry two examples (`corpus:validate` warns under two), and 18 cards
+// satisfied that by carrying the *same sentence twice*, differing only in a full
+// stop against an exclamation mark: «Gerne.» / «Gerne!», «Aha!» / «Aha.», «Schreien
+// Sie.» / «Schreien Sie!». The standard was met and its purpose was not — the
+// learner sees one sentence, and the second review of that card teaches nothing new.
+//
+// Decidable, so it is a hard error. The *near*-twins are not: 86 further cards have
+// a pair above 0.90 character similarity, and 147 have two examples with identical
+// English — but that band holds deliberate minimal pairs worth keeping (`der Kopf`
+// «Mein Kopf tut weh» / «Mir tut der Kopf weh» teaches the dative construction;
+// `der Berliner` «Ich bin Berliner» / «Ich bin ein Berliner» is the joke). Those are
+// a reading list in BACKLOG, not a check. See LESSONS, class 2.
+export const exampleKey = (de: string): string => (de ?? '')
+  .toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss')
+  .replace(/[^\p{L}\p{N}\s]/gu, '').replace(/\s+/g, ' ').trim();
+
+// ---- typography no modern German text has ---------------------------------
+// Long s and the double hyphen are 16th–19th century printing, and two scraped
+// examples shipped with them — one on an **A1** card, «Alſo auff der andern ſeiten
+// / gegen mitter⸗nacht…», which is not readable by anyone the card is for.
+// `ARCHAIC_SPELLING` below is about *spelling* (daß, muß) and cannot see these,
+// because they are characters rather than words.
+export const PREMODERN_TYPOGRAPHY = /[ſ⸗]/u;
+
 // ---- pre-1996 orthography -------------------------------------------------
 // The reform kept ß only after a long vowel or diphthong, so Fuß / Gruß / groß /
 // süß / Straße / weiß are all still correct and must not be flagged — only these

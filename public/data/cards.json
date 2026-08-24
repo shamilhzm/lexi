@@ -66642,7 +66642,7 @@
   {
     "id": "voc:B1:knapp",
     "term": "knapp",
-    "en": "scarce",
+    "en": "scarce, in short supply; narrow, close",
     "pos": "adjective",
     "level": "B1",
     "gender": null,
@@ -74513,7 +74513,7 @@
   {
     "id": "voc:B1:solange",
     "term": "solange",
-    "en": "meanwhile",
+    "en": "as long as; meanwhile",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
@@ -80211,7 +80211,7 @@
   {
     "id": "voc:A2:Verzeihung",
     "term": "Verzeihung",
-    "en": "Used to get someone's attention. excuse me, pardon me",
+    "en": "excuse me, pardon me",
     "pos": "interjection",
     "level": "A2",
     "gender": null,
@@ -80397,7 +80397,7 @@
   {
     "id": "voc:B1:drüber",
     "term": "drüber",
-    "en": "contraction of darüber",
+    "en": "over it, above it",
     "pos": "adverb",
     "level": "B1",
     "gender": null,

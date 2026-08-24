@@ -1399,6 +1399,20 @@ user; none of it is built.*
   five filed here. The rule is now `headwordEvidence` in `scripts/corpus/lib.ts` and
   gates `corpus:validate`, `fix-authored` and `authoring:new`; the entry that
   described the item's original five is in the CHANGELOG.
+- **🟡 Cards whose two examples are nearly the same sentence · M, needs reading not
+  building.** *(Measured 2026-08-24, after the 18 exact twins were fixed.)* **86 cards**
+  have an example pair above 0.90 character similarity; **311** above 0.80; **143** have
+  two examples whose English translations are byte-identical. **This is not a defect
+  count and must not be turned into a check.** A real share of that band is deliberate
+  and is the best thing on the card: `der Kopf` carries «Mein Kopf tut weh» beside «Mir
+  tut der Kopf weh», which is exactly the dative construction an English speaker needs
+  to meet twice; `der Berliner` carries «Ich bin Berliner» / «Ich bin ein Berliner»;
+  `das Museum` «am Montag geschlossen» beside «montags geschlossen», which teaches the
+  adverbial -s. Others are pure waste — `veröffentlicht` differs by *es* against *er*,
+  `die Kreditkarte` by *bezahlen* against *zahlen*, `unterdessen` by *du* against *ihr*.
+  **Do:** read the 0.90 band, rewrite the waste, and leave the minimal pairs — ideally
+  marking them, so the next reader does not re-litigate them. **Done-when:** each of the
+  86 is rewritten or ruled deliberate on the record. *`scripts/corpus/sense-audit.ts`.*
 - **🟡 The other 88 — a capitalised token on a verb or adjective card · S–M, needs
   reading not building.** *(Measured 2026-08-24, after the noun half was fixed.)* The
   same instrument written wide also flags a **verb or adjective** proved only by a

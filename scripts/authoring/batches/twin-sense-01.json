@@ -1,0 +1,31 @@
+[
+  {
+    "id": "voc:B1:solange",
+    "expect": { "en": "meanwhile" },
+    "en": "as long as; meanwhile",
+    "src": "Both examples are the subordinating conjunction — «Bleib, solange du willst» — which the gloss did not carry at all, while the card's own definition («During the time that; on condition that») did. The adverbial *meanwhile* is a real sense and is kept, second."
+  },
+  {
+    "id": "voc:B1:drüber",
+    "expect": { "en": "contraction of darüber" },
+    "en": "over it, above it",
+    "src": "Not an English gloss but a note about where the word comes from, sitting in the field recall mode grades against. The contraction is worth knowing and belongs in the definition, which already says it."
+  },
+  {
+    "id": "voc:A2:Verzeihung",
+    "expect": { "en": "Used to get someone's attention. excuse me, pardon me" },
+    "en": "excuse me, pardon me",
+    "src": "A usage note fused onto the front of the gloss, ending in a full stop mid-field. The note itself is right and moves into the definition."
+  },
+  {
+    "id": "voc:A2:Verzeihung",
+    "expect": { "def": "forgiveness" },
+    "def": "Said to get someone's attention, or to apologise for something small. Literally the noun for forgiveness, used on its own."
+  },
+  {
+    "id": "voc:B1:knapp",
+    "expect": { "en": "scarce" },
+    "en": "scarce, in short supply; narrow, close",
+    "src": "«Das war knapp!» — a close call — is the sense both examples showed and the one the gloss omitted, while the definition carried both all along."
+  }
+]

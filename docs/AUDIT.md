@@ -52,6 +52,8 @@ out five times — see the withdrawals below. A count in this file that is not m
 | `order` drill: do the tiles give away position 1? | 6,020 order drills | **4,565 (75.8%) fixed**; the residual 23.7% are open classes (imperatives, full verbs, adjectives) and are left leaking knowingly | CHANGELOG 2026-08-24 |
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
 | Noun cards proved only by a **lowercase** token | 6,525 cards with examples · 17,023 examples | **49 found → 0**, on 32 cards, 17 of which had no correct example at all; all hand-read, all defects. The mirror case (88 verbs/adjectives) deliberately not gated | CHANGELOG 2026-08-24 |
+| A card's two examples are the same sentence | 6,525 cards with examples · 17,277 pairs | **18 found → 0**, all hand-read; 20 examples rewritten, 4 deleted. The near-twin band (86 above 0.90 similarity, 143 with identical English) deliberately **not** gated — it holds deliberate minimal pairs | CHANGELOG 2026-08-24 |
+| Examples set in pre-modern typography (ſ ⸗) | all 17,023 examples | **2 found → 0**, one of them on an A1 card | CHANGELOG 2026-08-24 |
 | Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
 | Verbs the conjugator declines to inflect | 1,212 verb cards | **60 (4.9%)** — pattern cards and disambiguated terms, all correctly `reliable: false` and never drilled | CHANGELOG 2026-08-24 |
 
@@ -72,16 +74,20 @@ alternative arrangement — which was ruled a thing to *teach* rather than desig
    not a detector — but it yields ~36% against ~0% at random, so it is the instrument
    this class needed. 33 read so far; the rest are unread.
 
-   > The five defects it filed for new **examples** are fixed (2026-08-24), and reading
-   > them together is what produced the decidable noun-case rule in the table above —
-   > which then found 49. **The lesson for the rest of the band: read the filed items
-   > as a set before fixing them one at a time.** A shape that three of five share is
-   > worth more than the five.
+   > **Two sessions in, the band has yielded twice, and neither time was it a gloss
+   > problem.** Reading the filed five as a set produced the noun-case rule (49 fixed);
+   > reading the top 60 as a set produced the twin-example rule (18 fixed) — while the
+   > glosses in that 60 were mostly fine. **The band's value is as a reading order that
+   > surfaces *shapes*, not as a list of bad glosses.** Read it in batches and ask what
+   > the batch has in common; do not fix it one card at a time.
 3. **The 88 remaining case hits · 🟡 — a reading list, not a fix list.** Verb and
    adjective cards proved only by a capitalised token mid-sentence. Most are ordinary
    nominalisations («beim Tanzen», «bei Rot») and must be left alone; a few are genuine
    drift (`wild` → «Seid ihr Wilde?»). Nothing mechanical separates them, which is why
    this half is not gated. Filed in BACKLOG.
+   Alongside it, the **near-twin example band** (86 cards above 0.90 similarity, 143
+   with identical English) — same shape, same reason it is not gated: the band contains
+   the corpus's best deliberate minimal pairs. Both are filed in BACKLOG.
 4. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
 5. **Definitions** — 806 warnings currently, dominated by *noun without plural* (472)
    and *no ipa* (275).

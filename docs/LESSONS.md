@@ -38,7 +38,15 @@ three notations one failure at a time.)*
 **…finish a pass that drives something to zero.** Write the check that keeps it there, in
 the same commit. Then prove the check fires — inject the defect and watch it fail — before
 trusting the PASS. *(`corpus:validate` passed on a duplicate for as long as the invariant
-lived only in a CHANGELOG sentence.)*
+lived only in a CHANGELOG sentence.)* **Inject into a copy, not into the shipped file.**
+Injecting two defects into `vocab.json` and reverting with `git checkout` also reverted
+the session's own 25 fixes, because the last commit is not the last state. The batches
+replayed byte-identically — which is what `fix-authored`'s expect-guard is for — so it
+cost nothing this time, and it will not cost nothing the day the fix was made by hand.
+
+**…revert a data file to undo something.** `git checkout` reverts to the last *commit*,
+not to the last *good state*. In a session that has already written to the file, undo
+with the tool that wrote it or with a saved copy.
 
 **…look a term up in a corpus with known duplicates.** Ask "does a row matching X
 exist?", never "what does the map say X is?" — a first-wins/last-wins `Map` silently

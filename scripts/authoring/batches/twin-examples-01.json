@@ -1,0 +1,238 @@
+[
+  {
+    "id": "voc:A1:gerne",
+    "at": 1,
+    "expect": {
+      "de": "Gerne!",
+      "en": "You're welcome."
+    },
+    "de": "Ich helfe dir gerne beim Umzug.",
+    "en": "I'm glad to help you with the move."
+  },
+  {
+    "id": "voc:A1:die Welt",
+    "at": 0,
+    "expect": {
+      "de": "Hallo Welt!",
+      "en": "Hello world!"
+    },
+    "de": "Er möchte die ganze Welt sehen.",
+    "en": "He wants to see the whole world."
+  },
+  {
+    "id": "voc:A1:die Welt",
+    "at": 1,
+    "expect": {
+      "de": "Hallo, Welt!",
+      "en": "Hello, world!"
+    },
+    "de": "Menschen auf der ganzen Welt lernen Deutsch.",
+    "en": "People all over the world learn German."
+  },
+  {
+    "id": "voc:A1:einmal",
+    "at": 1,
+    "expect": {
+      "de": "Noch einmal.",
+      "en": "Once again."
+    },
+    "de": "Ich war einmal in Berlin.",
+    "en": "I was in Berlin once."
+  },
+  {
+    "id": "voc:A1:klar",
+    "at": 0,
+    "expect": {
+      "de": "Ja, klar!",
+      "en": "As if!"
+    },
+    "de": "Das Wasser im See ist ganz klar.",
+    "en": "The water in the lake is completely clear."
+  },
+  {
+    "id": "voc:A1:klar",
+    "at": 1,
+    "expect": {
+      "de": "Ja, klar.",
+      "en": "Yes, of course."
+    },
+    "de": "Ist dir alles klar?",
+    "en": "Is everything clear to you?"
+  },
+  {
+    "id": "voc:B1:dafür",
+    "at": 1,
+    "expect": {
+      "de": "Danke dafür.",
+      "en": "Thanks for this."
+    },
+    "de": "Ich bin dafür, dass wir früher anfangen.",
+    "en": "I am in favour of us starting earlier."
+  },
+  {
+    "id": "voc:A1:die Hilfe",
+    "at": 1,
+    "expect": {
+      "de": "Hol Hilfe.",
+      "en": "Bring help."
+    },
+    "de": "Vielen Dank für deine Hilfe!",
+    "en": "Many thanks for your help!"
+  },
+  {
+    "id": "voc:B1:knapp",
+    "at": 1,
+    "expect": {
+      "de": "Das war knapp.",
+      "en": "I had a close shave."
+    },
+    "de": "Das Geld wird langsam knapp.",
+    "en": "Money is slowly running short."
+  },
+  {
+    "id": "voc:C1:zufolge",
+    "at": 1,
+    "expect": {
+      "de": "Ihr zufolge, kommt er nicht.",
+      "en": "He is not coming, according to her."
+    },
+    "de": "Dem Bericht zufolge sind die Preise gestiegen.",
+    "en": "According to the report, prices have risen."
+  },
+  {
+    "id": "voc:A2:egal",
+    "at": 1,
+    "expect": {
+      "de": "Egal.",
+      "en": "I don't care."
+    },
+    "de": "Es ist mir egal, wer gewinnt.",
+    "en": "I don't care who wins."
+  },
+  {
+    "id": "voc:A2:unmöglich",
+    "at": 1,
+    "expect": {
+      "de": "Unmöglich!",
+      "en": "No way!"
+    },
+    "de": "Es ist unmöglich, alles an einem Tag zu schaffen.",
+    "en": "It is impossible to manage everything in one day."
+  },
+  {
+    "id": "voc:B1:solange",
+    "at": 1,
+    "expect": {
+      "de": "Bleib, solange du willst.",
+      "en": "Stay as long as you want to."
+    },
+    "de": "Solange es regnet, bleiben wir zu Hause.",
+    "en": "As long as it is raining, we will stay at home."
+  },
+  {
+    "id": "voc:A2:aha",
+    "at": 1,
+    "expect": {
+      "de": "Aha.",
+      "en": "I see."
+    },
+    "de": "Aha, jetzt verstehe ich das Problem.",
+    "en": "Aha, now I understand the problem."
+  },
+  {
+    "id": "voc:A2:schreien",
+    "at": 0,
+    "expect": {
+      "de": "Schreien Sie.",
+      "en": "Scream."
+    },
+    "de": "Das Baby schreit die ganze Nacht.",
+    "en": "The baby cries all night."
+  },
+  {
+    "id": "voc:A2:schreien",
+    "at": 1,
+    "expect": {
+      "de": "Schreien Sie!",
+      "en": "Scream!"
+    },
+    "de": "Er schrie vor Schmerzen.",
+    "en": "He screamed in pain."
+  },
+  {
+    "id": "voc:A2:stören",
+    "at": 1,
+    "expect": {
+      "de": "Du störst.",
+      "en": "You're annoying."
+    },
+    "de": "Der Lärm stört mich beim Arbeiten.",
+    "en": "The noise disturbs me while I am working."
+  },
+  {
+    "id": "voc:A2:Verzeihung",
+    "at": 1,
+    "expect": {
+      "de": "Verzeihung.",
+      "en": "Excuse me."
+    },
+    "de": "Verzeihung, ist dieser Platz noch frei?",
+    "en": "Excuse me, is this seat still free?"
+  },
+  {
+    "id": "voc:B1:drüber",
+    "at": 1,
+    "expect": {
+      "de": "Spring drüber.",
+      "en": "Jump across."
+    },
+    "de": "Der Ball flog knapp drüber.",
+    "en": "The ball flew just over it."
+  },
+  {
+    "id": "voc:A1:die Mitternacht",
+    "at": 1,
+    "expect": {
+      "de": "Alſo auff der andern ſeiten / gegen mitter⸗nacht ſollen auch zwenzig bret ſtehen",
+      "en": "And for the second side of the tabernacle on the north side there shall be twenty boards"
+    },
+    "de": "Kurz vor Mitternacht wurde es endlich still.",
+    "en": "Shortly before midnight it finally went quiet."
+  },
+  {
+    "id": "voc:A2:der Erfolg",
+    "at": 3,
+    "expect": {
+      "de": "Ich wünsche dir viel Erfolg!",
+      "en": "I wish you much success!"
+    },
+    "delete": true
+  },
+  {
+    "id": "voc:A2:die Ware",
+    "at": 0,
+    "expect": {
+      "de": "Wo waren Sie?",
+      "en": "Where have you been?"
+    },
+    "delete": true
+  },
+  {
+    "id": "voc:A2:die Ware",
+    "at": 1,
+    "expect": {
+      "de": "Wo waren sie?",
+      "en": "Where were they?"
+    },
+    "delete": true
+  },
+  {
+    "id": "voc:B1:augenscheinlich",
+    "at": 4,
+    "expect": {
+      "de": "„Pineiß ſah den Spiegel mißtrauiſch an und ſagte: »Wärſt Du wohl im Stande, Bürſchchen! mir den Schatz ein wenig nachzuweiſen und augenſcheinlich zu machen?«“",
+      "en": "„Pineiss looked at the mirror suspiciously and said: 'Would you be able, my lad, to point out the treasure to me a little and make it evident to the eye?'“"
+    },
+    "delete": true
+  }
+]

@@ -14562,8 +14562,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Hol Hilfe.",
-        "en": "Bring help.",
+        "de": "Vielen Dank für deine Hilfe!",
+        "en": "Many thanks for your help!",
         "lvl": "B1"
       }
     ]
@@ -15679,8 +15679,8 @@
         "lvl": "A1"
       },
       {
-        "de": "Alſo auff der andern ſeiten / gegen mitter⸗nacht ſollen auch zwenzig bret ſtehen",
-        "en": "And for the second side of the tabernacle on the north side there shall be twenty boards",
+        "de": "Kurz vor Mitternacht wurde es endlich still.",
+        "en": "Shortly before midnight it finally went quiet.",
         "lvl": "A1"
       }
     ]
@@ -17803,13 +17803,13 @@
     "def": "The Earth, along with all its people and everything on it.",
     "ex": [
       {
-        "de": "Hallo Welt!",
-        "en": "Hello world!",
+        "de": "Er möchte die ganze Welt sehen.",
+        "en": "He wants to see the whole world.",
         "lvl": "A1"
       },
       {
-        "de": "Hallo, Welt!",
-        "en": "Hello, world!",
+        "de": "Menschen auf der ganzen Welt lernen Deutsch.",
+        "en": "People all over the world learn German.",
         "lvl": "A1"
       }
     ]
@@ -18530,8 +18530,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Noch einmal.",
-        "en": "Once again.",
+        "de": "Ich war einmal in Berlin.",
+        "en": "I was in Berlin once.",
         "lvl": "A2"
       }
     ]
@@ -19951,8 +19951,8 @@
         "lvl": "A1"
       },
       {
-        "de": "Gerne!",
-        "en": "You're welcome.",
+        "de": "Ich helfe dir gerne beim Umzug.",
+        "en": "I'm glad to help you with the move.",
         "lvl": "A1"
       }
     ]
@@ -21231,13 +21231,13 @@
     "def": "clear; transparent; bright; clear; unambiguous; understood",
     "ex": [
       {
-        "de": "Ja, klar!",
-        "en": "As if!",
+        "de": "Das Wasser im See ist ganz klar.",
+        "en": "The water in the lake is completely clear.",
         "lvl": "A2"
       },
       {
-        "de": "Ja, klar.",
-        "en": "Yes, of course.",
+        "de": "Ist dir alles klar?",
+        "en": "Is everything clear to you?",
         "lvl": "A2"
       }
     ]
@@ -26611,7 +26611,7 @@
     ]
   },
   "voc:A2:Verzeihung": {
-    "def": "forgiveness",
+    "def": "Said to get someone's attention, or to apologise for something small. Literally the noun for forgiveness, used on its own.",
     "ex": [
       {
         "de": "Verzeihung?",
@@ -26619,8 +26619,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Verzeihung.",
-        "en": "Excuse me.",
+        "de": "Verzeihung, ist dieser Platz noch frei?",
+        "en": "Excuse me, is this seat still free?",
         "lvl": "A2"
       }
     ]
@@ -26799,8 +26799,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Aha.",
-        "en": "I see.",
+        "de": "Aha, jetzt verstehe ich das Problem.",
+        "en": "Aha, now I understand the problem.",
         "lvl": "A2"
       }
     ]
@@ -32845,11 +32845,6 @@
         "de": "Wahrer Erfolg misst sich nicht allein am Geld, das man verdient.",
         "en": "True success is not measured by money alone.",
         "lvl": "B2"
-      },
-      {
-        "de": "Ich wünsche dir viel Erfolg!",
-        "en": "I wish you much success!",
-        "lvl": "B1"
       },
       {
         "de": "Der Erfolg des Projekts hängt von guter Planung ab.",
@@ -44147,16 +44142,6 @@
     "def": "Things that are made or bought in order to be sold.",
     "ex": [
       {
-        "de": "Wo waren Sie?",
-        "en": "Where have you been?",
-        "lvl": "A2"
-      },
-      {
-        "de": "Wo waren sie?",
-        "en": "Where were they?",
-        "lvl": "A2"
-      },
-      {
         "de": "Die Ware ist teuer.",
         "en": "The goods are expensive.",
         "lvl": "B1"
@@ -44984,8 +44969,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Egal.",
-        "en": "I don't care.",
+        "de": "Es ist mir egal, wer gewinnt.",
+        "en": "I don't care who wins.",
         "lvl": "A2"
       }
     ]
@@ -49464,13 +49449,13 @@
     "def": "to shout; to yell; to cry; to scream; to howl",
     "ex": [
       {
-        "de": "Schreien Sie.",
-        "en": "Scream.",
+        "de": "Das Baby schreit die ganze Nacht.",
+        "en": "The baby cries all night.",
         "lvl": "A2"
       },
       {
-        "de": "Schreien Sie!",
-        "en": "Scream!",
+        "de": "Er schrie vor Schmerzen.",
+        "en": "He screamed in pain.",
         "lvl": "A2"
       }
     ]
@@ -50655,8 +50640,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Du störst.",
-        "en": "You're annoying.",
+        "de": "Der Lärm stört mich beim Arbeiten.",
+        "en": "The noise disturbs me while I am working.",
         "lvl": "A2"
       }
     ]
@@ -51246,8 +51231,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Unmöglich!",
-        "en": "No way!",
+        "de": "Es ist unmöglich, alles an einem Tag zu schaffen.",
+        "en": "It is impossible to manage everything in one day.",
         "lvl": "A2"
       }
     ]
@@ -55068,11 +55053,6 @@
         "de": "Augenscheinlich hatte niemand die Anleitung gelesen.",
         "en": "Apparently nobody had read the instructions.",
         "lvl": "C1"
-      },
-      {
-        "de": "„Pineiß ſah den Spiegel mißtrauiſch an und ſagte: »Wärſt Du wohl im Stande, Bürſchchen! mir den Schatz ein wenig nachzuweiſen und augenſcheinlich zu machen?«“",
-        "en": "„Pineiss looked at the mirror suspiciously and said: 'Would you be able, my lad, to point out the treasure to me a little and make it evident to the eye?'“",
-        "lvl": "C1"
       }
     ]
   },
@@ -56849,8 +56829,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Danke dafür.",
-        "en": "Thanks for this.",
+        "de": "Ich bin dafür, dass wir früher anfangen.",
+        "en": "I am in favour of us starting earlier.",
         "lvl": "B1"
       }
     ]
@@ -80415,8 +80395,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Spring drüber.",
-        "en": "Jump across.",
+        "de": "Der Ball flog knapp drüber.",
+        "en": "The ball flew just over it.",
         "lvl": "B1"
       }
     ]
@@ -84043,8 +84023,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Das war knapp.",
-        "en": "I had a close shave.",
+        "de": "Das Geld wird langsam knapp.",
+        "en": "Money is slowly running short.",
         "lvl": "B1"
       }
     ]
@@ -87767,8 +87747,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Bleib, solange du willst.",
-        "en": "Stay as long as you want to.",
+        "de": "Solange es regnet, bleiben wir zu Hause.",
+        "en": "As long as it is raining, we will stay at home.",
         "lvl": "B1"
       }
     ]
@@ -115368,8 +115348,8 @@
         "lvl": "C1"
       },
       {
-        "de": "Ihr zufolge, kommt er nicht.",
-        "en": "He is not coming, according to her.",
+        "de": "Dem Bericht zufolge sind die Preise gestiegen.",
+        "en": "According to the report, prices have risen.",
         "lvl": "C1"
       }
     ]

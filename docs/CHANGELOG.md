@@ -11,6 +11,67 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-24 — eighteen cards carried the same sentence twice
+
+Second session on the sense band, and it did not find what it went looking for.
+`corpus:sense` ranks cards by how little their gloss overlaps their examples'
+translations; reading the top 60 as a set — rather than one at a time, which is the
+whole lesson from the noun-case pass — the *glosses* were mostly fine. What kept
+recurring was the pair underneath them:
+
+| card | ex[0] | ex[1] |
+|---|---|---|
+| `gerne` | «Gerne.» | «Gerne!» |
+| `aha` | «Aha!» | «Aha.» |
+| `schreien` | «Schreien Sie.» | «Schreien Sie!» |
+| `die Welt` | «Hallo Welt!» | «Hallo, Welt!» |
+| `zufolge` | «Ihr zufolge kommt er nicht.» | «Ihr zufolge, kommt er nicht.» |
+| `solange` | «Bleib, solange du willst!» | «Bleib, solange du willst.» |
+
+**18 cards, and the rule they break is the two-example rule.** `corpus:validate` has
+always warned under two examples; these satisfied it with one sentence and a different
+final punctuation mark. The card looks stocked, the second review teaches nothing, and
+on twelve of the eighteen the "two" examples were a single word («Egal!» / «Egal.»).
+
+**20 examples rewritten, 4 deleted.** The deletions are the cards that had spare good
+examples: `der Erfolg` carried six with a duplicate among them, and `die Ware`'s first
+two were «Wo waren Sie?» / «Wo waren sie?» — where *waren* is the preterite of *sein*
+and the card's own word appears in neither, so both went and three real ones remain.
+
+**Four glosses came off the same reading**, all the shape the last pass named — a
+dictionary's note sitting where the English belongs, or a gloss that contradicts the
+card's own definition. `drüber` was glossed **"contraction of darüber"**; `Verzeihung`
+**"Used to get someone's attention. excuse me, pardon me"**, a usage note fused onto
+the front with a full stop mid-field, over a definition that read only "forgiveness";
+`solange` **"meanwhile"** while both examples are the conjunction *as long as* and the
+definition said so; `knapp` **"scarce"** while both examples are *that was close*.
+
+**Two examples were set in 16th-century type** and are gone: `die Mitternacht` — an
+**A1** card — carried «Alſo auff der andern ſeiten / gegen mitter⸗nacht ſollen auch
+zwenzig bret ſtehen», and `augenscheinlich` a Gottfried Keller quotation in the same
+printing. `ARCHAIC_SPELLING` could never have caught either, because it matches
+*spellings* (daß, muß) and these are *characters*.
+
+**Both new rules gate now**, in `corpus:validate`, and both were proved by injection
+before being trusted — a twin and a long-s pushed into the corpus, watched to fail,
+reverted. Eleven tests pin them.
+
+**What is deliberately not gated, and the number that would have been wrong.** Widen
+"the same sentence twice" by a hair and it stops being decidable: **86 cards** have an
+example pair above 0.90 character similarity and **143** have two examples with
+byte-identical English. Reading that band, a real share are *deliberate and good* —
+`der Kopf` teaches «Mein Kopf tut weh» beside «Mir tut der Kopf weh», which is the
+dative construction and the entire reason to have two; `der Berliner` has «Ich bin
+Berliner» / «Ich bin ein Berliner»; `das Museum` has «am Montag» beside «montags». A
+check over that band would delete the best pairs in the corpus. It is filed as a
+reading list instead. Same shape as the 88 from this morning: one half of an idea is
+decidable and the other half is judgement. See LESSONS, class 2.
+
+958 tests, 0 lint errors, `corpus:validate` 20 errors → **0**, `corpus:audit` 0 errors,
+reader probe unchanged (verb 0.942 · plural 0.985 · adj 0.960).
+
+---
+
 ### Shipped 2026-08-24 — «Er braut Bier» was teaching the word *bride*
 
 The `alle` pass ended by filing five cards it could not fix by correcting the gloss,
