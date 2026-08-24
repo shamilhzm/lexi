@@ -104,6 +104,55 @@ export function primeApp(corpus: Word[]): Matcher {
   return buildMatcher(corpus);
 }
 
+// ---- does the example actually contain the headword? ----------------------
+//
+// The matcher's index is keyed on lowercased surface forms, which is right for
+// reading — a learner meeting «BRAUT» at the start of a headline still knows the
+// word. It is wrong as *evidence*, and that is a different question: the authoring
+// gate and the audits ask "does this sentence teach this card", and answered yes
+// for «Er braut Bier» on `die Braut`, «Wer schritt ein?» on `der Schritt`, and
+// «Das Ende naht!» on `die Naht`. The letters are there; the word is not.
+//
+// German settles it without judgement. **A noun is capitalised** — always, not
+// usually — so a lowercase token cannot be the noun, whatever its spelling. That
+// is an orthographic rule, not a heuristic, which is why this gate is a hard error.
+//
+// The mirror rule is deliberately NOT enforced. A capitalised token on a verb or
+// adjective card is usually a *nominalisation of that very word* — «beim Tanzen»,
+// «bei Rot», «im Wesentlichen» — which is ordinary German and teaches the word
+// fine. It is occasionally a different lexeme (`wild` illustrated with «Seid ihr
+// Wilde?»), and nothing mechanical separates the two. Measured: the noun half
+// fires 49 times and every one is a defect; the non-noun half fires 88 and most
+// are not. So only the decidable half gates, and the rest is left to the reading
+// order in `corpus:sense`. See LESSONS, class 2.
+export type Evidence =
+  | { ok: true; token: string }
+  | { ok: false; why: 'absent' }
+  | { ok: false; why: 'miscased'; token: string };
+
+/** Nouns that are correctly written lowercase, with the phrase that does it.
+ *
+ *  Empty, and measured empty: of the 49 lowercase-noun matches in the corpus on
+ *  2026-08-24, none was correct German. The door exists because the class is real
+ *  — German lexicalises a few nouns into lowercase predicates (*schuld sein*,
+ *  *leid tun*, *recht haben*, *pleite sein*) — and the next author who meets one
+ *  should add a row here rather than weaken the rule for everybody. */
+export const LOWERCASE_NOUN_OK = new Set<string>([]);
+
+/** Does `de` prove that it teaches `card` — and does the proof survive German
+ *  capitalisation? Returns the token that carries the proof. */
+export function headwordEvidence(matcher: Matcher, card: Word, de: string): Evidence {
+  const mine = matcher.annotate(de).filter((s) => s.isWord && s.word?.id === card.id);
+  if (!mine.length) return { ok: false, why: 'absent' };
+  for (const s of mine) {
+    if (card.pos !== 'noun') return { ok: true, token: s.text };
+    const first = s.text[0];
+    const capitalised = first === first.toUpperCase() && first !== first.toLowerCase();
+    if (capitalised || LOWERCASE_NOUN_OK.has(s.text.toLowerCase())) return { ok: true, token: s.text };
+  }
+  return { ok: false, why: 'miscased', token: mine[0].text };
+}
+
 // ---- pre-1996 orthography -------------------------------------------------
 // The reform kept ß only after a long vowel or diphthong, so Fuß / Gruß / groß /
 // süß / Straße / weiß are all still correct and must not be flagged — only these

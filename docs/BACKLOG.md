@@ -1389,23 +1389,38 @@ user; none of it is built.*
   slope. Daily is too granular, "since forever" too coarse.
 
 **Content and pedagogy.**
-- **🟠 Five cards whose examples teach a different word than the gloss · S.**
-  *(Hand-verified 2026-08-24 with `npm run corpus:sense`; seven sibling cards were
-  fixed the same day by correcting the gloss instead — see CHANGELOG.)* These five
-  cannot be fixed that way, because the **examples** are what is wrong:
-
-  | card | gloss | what the examples actually show |
-  |---|---|---|
-  | `voc:B1:die Braut` | bride | «Er **braut** Bier» — the *verb* brauen, to brew |
-  | `voc:A2:wild` | wild | «Seid ihr **Wilde**?» — the noun *der Wilde*, savage |
-  | `voc:B2:das Durcheinander` | mess, chaos | «Tom ist **durcheinander**» — the adverb, flustered |
-  | `voc:A1:aber` | but | both examples are the *modal particle* («Das ist aber teuer»), never the conjunction |
-
-  The first three are the `alle` class exactly: the headword's letters are present, so
-  the authoring gate's matcher is satisfied, but the word in the sentence is a different
-  lexeme. `aber` is milder and arguably worse placed — it is A1, "but" is the sense a
-  beginner needs, and neither example shows it. **Do:** new examples through
-  `authoring:new`, which will prove the headword is genuinely present. *S.*
+- ~~**🟠 Five cards whose examples teach a different word than the gloss · S.**~~
+  ✅ **Fixed 2026-08-24, and the class was ten times bigger than the five.** Read for a
+  pattern rather than one at a time, three of the five fell to a rule German gives
+  away for nothing: **a noun is always capitalised**, so a noun card whose example only
+  matches through a *lowercase* token is matching the homograph. That found **49
+  examples on 32 cards — on 17 of them, every example on the card** — and every one
+  was hand-read and was a defect. 57 examples on 34 cards rewritten, including all
+  five filed here. The rule is now `headwordEvidence` in `scripts/corpus/lib.ts` and
+  gates `corpus:validate`, `fix-authored` and `authoring:new`; the entry that
+  described the item's original five is in the CHANGELOG.
+- **🟡 The other 88 — a capitalised token on a verb or adjective card · S–M, needs
+  reading not building.** *(Measured 2026-08-24, after the noun half was fixed.)* The
+  same instrument written wide also flags a **verb or adjective** proved only by a
+  capitalised token mid-sentence, and fires **88 times**. It is deliberately not gated,
+  because most of those are ordinary German — «beim Tanzen», «bei Rot», «im
+  Wesentlichen» are nominalisations of the very word being taught, and rewriting them
+  would make the cards worse. But a few are genuine drift: `wild` was illustrated with
+  «Seid ihr **Wilde**?», the noun *der Wilde*, savage. Nothing mechanical separates the
+  two, so this is a **reading list**, not a fix list, and it belongs with the sense band
+  in [AUDIT.md](AUDIT.md). **Do:** read the 88, fix the drifted ones, and leave the
+  nominalisations alone. **Done-when:** each of the 88 is either rewritten or ruled
+  fine on the record. *`scripts/corpus/sense-audit.ts`.*
+- **🟡 Three cards the case pass read, and could not defend · XS each.** *(2026-08-24 —
+  filed rather than fixed, because each is a question about whether the **card** should
+  exist as filed, which is not what an example rewrite decides.)* `voc:A1:die Früh` is
+  a southern/Austrian regionalism at A1, where the learner needs the adverb `früh`
+  (which exists, as a separate A1 card). `voc:A2:der Leisten` is a shoemaker's last at
+  **A2**, glossed with the single English word "last", which without the definition
+  beside it is unreadable. `voc:A1:die Tausend` is the numeral filed as a noun: no
+  `tausend` card exists, so an A1 learner meets *thousand* only as *die Tausend*, and
+  its examples had to be written around «bis Tausend» and «mehrere Tausend» because the
+  bare noun barely occurs. **Do:** relevel or retire, with `ID_MAP` entries. *XS each.*
 - **`voc:B1:aneignen` duplicates `voc:B2:sich aneignen` · XS.** *(2026-08-24.)* The B2
   card is glossed "to acquire, learn" and is right; the B1 one says "to appropriate"
   while its examples are «sich eine Sprache aneignen» — acquiring. One verb, two cards,

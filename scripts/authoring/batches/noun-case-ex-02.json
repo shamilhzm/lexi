@@ -1,0 +1,9 @@
+[
+  {
+    "id": "voc:A2:der Schritt",
+    "at": 0,
+    "expect": { "de": "Machen Sie bitte einen Schritt nach vorn.", "en": "Please take a step forward." },
+    "de": "Bitte machen Sie einen Schritt nach vorn.",
+    "en": "Please take a step forward."
+  }
+]

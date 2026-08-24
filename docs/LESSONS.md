@@ -162,6 +162,25 @@ costs a day and closes the ticket.
 three hits are hand-verified. Write the counter-example into the check's own header when
 it turns out to be wrong.**
 
+- **The same signal was decisive in one direction and worthless in the other.**
+  *(2026-08-24.)* Hunting for examples that teach a *different word* than the card, I
+  wrote one check over both halves of the idea: a **noun** whose example only matches
+  through a lowercase token, and a **verb or adjective** whose example only matches
+  through a capitalised one. One check, one report, **137 hits**. The noun half was
+  49 hits and every one was a defect — `die Braut` illustrated with «Er braut Bier»,
+  `der Schritt` with «Wer schritt ein?», `die Naht` with «Das Ende naht!». The other
+  half was 88 hits and most were **ordinary German**: «beim Tanzen», «bei Rot», «im
+  Wesentlichen» are nominalisations of the very word the card teaches. Had I reported
+  137 as a class size the fix list would have been two-thirds noise, and the fix
+  itself — rewriting «Beim Malen vergisst er die Zeit» — would have made cards worse.
+  The asymmetry is not a tuning problem, it is the grammar: *a noun is always
+  capitalised*, so lowercase **disproves** a noun; but capitalisation is available to
+  every part of speech through nominalisation, so it **proves** nothing about a verb.
+  **Rule: before generalising a signal to the mirror case, ask what makes it decisive
+  in the first case. A rule with no exceptions in one direction usually has nothing to
+  say in the other, and shipping both halves under one number buys the bad half the
+  good half's credibility.** Only the noun half gates; the rest is left to the reading
+  order in `corpus:sense`.
 - **I measured an engine the app never runs.** *(2026-08-24.)* Reporting that
   `conjugate('auflösen')` builds **geauflöst** and that a shipped card prints it as the
   correct answer — twice, in a CHANGELOG entry and a 🔴 backlog item — I ran the

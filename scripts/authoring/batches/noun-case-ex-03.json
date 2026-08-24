@@ -1,0 +1,35 @@
+[
+  {
+    "id": "voc:A2:wild",
+    "at": 0,
+    "expect": { "de": "Seid ihr Wilde?", "en": "Are you savages?" },
+    "de": "Im Wald leben viele wilde Tiere.",
+    "en": "Many wild animals live in the forest."
+  },
+  {
+    "id": "voc:A2:wild",
+    "at": 1,
+    "expect": { "de": "Das sind Wilde.", "en": "They are savages." },
+    "de": "Die Party gestern war ziemlich wild.",
+    "en": "The party yesterday was pretty wild."
+  },
+  {
+    "id": "voc:A1:aber",
+    "at": 0,
+    "expect": { "de": "Das ist aber teuer.", "en": "That's rather expensive. ≈ That's more expensive than I would’ve thought." },
+    "de": "Ich bin müde, aber ich muss noch arbeiten.",
+    "en": "I am tired, but I still have to work."
+  },
+  {
+    "id": "voc:A1:aber",
+    "at": 1,
+    "expect": { "de": "Du bist aber groß geworden!", "en": "Look how tall you’ve become! (said to a child)" },
+    "de": "Das Zimmer ist klein, aber sehr hell.",
+    "en": "The room is small but very bright."
+  },
+  {
+    "id": "voc:A1:aber",
+    "expect": { "def": "rather; quite; unusually; used with adjectives to express a surprising degree, whether this surprise be real or for effect" },
+    "def": "Joins two statements that pull against each other — but. The same word is also one of the commonest flavouring particles, where it adds a note of surprise to a statement rather than joining anything."
+  }
+]

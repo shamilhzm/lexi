@@ -1,0 +1,532 @@
+[
+  {
+    "id": "voc:A1:die Früh",
+    "at": 1,
+    "expect": {
+      "de": "Er geht früh ins Bett.",
+      "en": "He goes to bed early."
+    },
+    "de": "Der Bus fährt schon in der Früh um sechs.",
+    "en": "The bus leaves as early as six in the morning."
+  },
+  {
+    "id": "voc:A2:der Leisten",
+    "at": 0,
+    "expect": {
+      "de": "Wir leisten Beiträge.",
+      "en": "We're contributing."
+    },
+    "de": "Der Schuster zieht den Schuh über den Leisten.",
+    "en": "The cobbler pulls the shoe over the last."
+  },
+  {
+    "id": "voc:A2:der Leisten",
+    "at": 1,
+    "expect": {
+      "de": "Sie leisten Beiträge.",
+      "en": "You're contributing."
+    },
+    "de": "Schuster, bleib bei deinem Leisten!",
+    "en": "Cobbler, stick to your last!"
+  },
+  {
+    "id": "voc:A2:das Rennen",
+    "at": 0,
+    "expect": {
+      "de": "Pferde rennen.",
+      "en": "Horses run."
+    },
+    "de": "Wer hat das Rennen gewonnen?",
+    "en": "Who won the race?"
+  },
+  {
+    "id": "voc:A2:das Rennen",
+    "at": 1,
+    "expect": {
+      "de": "Er kann rennen.",
+      "en": "He can run."
+    },
+    "de": "Das Rennen beginnt um drei Uhr.",
+    "en": "The race starts at three o'clock."
+  },
+  {
+    "id": "voc:A2:die Weise",
+    "at": 0,
+    "expect": {
+      "de": "Weise Worte!",
+      "en": "Wise words!"
+    },
+    "de": "Auf diese Weise sparen wir viel Zeit.",
+    "en": "This way we save a lot of time."
+  },
+  {
+    "id": "voc:A2:die Weise",
+    "at": 1,
+    "expect": {
+      "de": "Tom ist weise.",
+      "en": "Tom is wise."
+    },
+    "de": "Jeder lernt auf seine eigene Weise.",
+    "en": "Everyone learns in their own way."
+  },
+  {
+    "id": "voc:B1:der Rahmen",
+    "at": 0,
+    "expect": {
+      "de": "Können Sie das Bild rahmen?",
+      "en": "Can you frame this picture?"
+    },
+    "de": "Das Bild hängt in einem goldenen Rahmen.",
+    "en": "The picture hangs in a golden frame."
+  },
+  {
+    "id": "voc:B1:der Rahmen",
+    "at": 1,
+    "expect": {
+      "de": "Sie ließ sich ihr Bild rahmen.",
+      "en": "She got her painting framed."
+    },
+    "de": "Im Rahmen des Projekts arbeiten wir mit zwei Schulen zusammen.",
+    "en": "As part of the project we are working with two schools."
+  },
+  {
+    "id": "voc:B1:die Zusammenarbeit",
+    "at": 0,
+    "expect": {
+      "de": "Lass uns zusammenarbeiten.",
+      "en": "Let's work together."
+    },
+    "de": "Die Zusammenarbeit mit dem Team hat gut funktioniert.",
+    "en": "The collaboration with the team worked well."
+  },
+  {
+    "id": "voc:B1:die Zusammenarbeit",
+    "at": 1,
+    "expect": {
+      "de": "Ihr müsst zusammenarbeiten.",
+      "en": "You need to work together."
+    },
+    "de": "Wir hoffen auf eine enge Zusammenarbeit.",
+    "en": "We hope for close cooperation."
+  },
+  {
+    "id": "voc:B2:die Gerade",
+    "at": 0,
+    "expect": {
+      "de": "Sitz gerade!",
+      "en": "Sit up straight."
+    },
+    "de": "Durch zwei Punkte verläuft genau eine Gerade.",
+    "en": "Exactly one straight line passes through two points."
+  },
+  {
+    "id": "voc:B2:die Gerade",
+    "at": 1,
+    "expect": {
+      "de": "Tom aß gerade.",
+      "en": "Tom was eating."
+    },
+    "de": "Auf der letzten Geraden zog sie am Favoriten vorbei.",
+    "en": "On the final straight she pulled past the favourite."
+  },
+  {
+    "id": "voc:B1:der Wechsel",
+    "at": 0,
+    "expect": {
+      "de": "Bitte wechsel diese Banknoten in Münzen.",
+      "en": "Please change these bills into coins."
+    },
+    "de": "Der Wechsel von der Schule zur Uni war nicht leicht.",
+    "en": "The change from school to university was not easy."
+  },
+  {
+    "id": "voc:B2:das Verfahren",
+    "at": 0,
+    "expect": {
+      "de": "Wir haben uns verfahren.",
+      "en": "We are lost."
+    },
+    "de": "Das neue Verfahren spart viel Energie.",
+    "en": "The new process saves a lot of energy."
+  },
+  {
+    "id": "voc:B2:die Klage",
+    "at": 0,
+    "expect": {
+      "de": "Wir wollen klagen.",
+      "en": "We want to litigate."
+    },
+    "de": "Der Nachbar hat eine Klage eingereicht.",
+    "en": "The neighbour has filed a lawsuit."
+  },
+  {
+    "id": "voc:B2:die Klage",
+    "at": 1,
+    "expect": {
+      "de": "Klagen nützt nichts.",
+      "en": "It's no use complaining."
+    },
+    "de": "Über den Lärm gab es viele Klagen.",
+    "en": "There were many complaints about the noise."
+  },
+  {
+    "id": "voc:B2:das Los",
+    "at": 0,
+    "expect": {
+      "de": "Muss los!",
+      "en": "Must dash."
+    },
+    "de": "Ich habe ein Los gekauft, aber nichts gewonnen.",
+    "en": "I bought a lottery ticket but won nothing."
+  },
+  {
+    "id": "voc:B2:das Los",
+    "at": 1,
+    "expect": {
+      "de": "Legt los.",
+      "en": "Get started."
+    },
+    "de": "Das Los entscheidet, wer anfängt.",
+    "en": "The draw decides who starts."
+  },
+  {
+    "id": "voc:B1:die Presse",
+    "at": 0,
+    "expect": {
+      "de": "Ich presse eine Orange aus.",
+      "en": "I am squeezing an orange."
+    },
+    "de": "Die Presse berichtete ausführlich über den Unfall.",
+    "en": "The press reported on the accident at length."
+  },
+  {
+    "id": "voc:B1:die Tiefe",
+    "at": 0,
+    "expect": {
+      "de": "Er hat eine tiefe Stimme.",
+      "en": "He has a deep voice."
+    },
+    "de": "Der See hat eine Tiefe von dreißig Metern.",
+    "en": "The lake has a depth of thirty metres."
+  },
+  {
+    "id": "voc:B1:die Tiefe",
+    "at": 1,
+    "expect": {
+      "de": "Tom hat eine tiefe Stimme.",
+      "en": "Tom has a low-pitched voice."
+    },
+    "de": "In der Tiefe des Waldes war es ganz still.",
+    "en": "In the depths of the forest it was completely silent."
+  },
+  {
+    "id": "voc:B2:das Geschehen",
+    "at": 0,
+    "expect": {
+      "de": "Gern geschehen.",
+      "en": "Don't mention it."
+    },
+    "de": "Er verfolgte das Geschehen auf dem Platz.",
+    "en": "He followed the events on the square."
+  },
+  {
+    "id": "voc:B2:das Geschehen",
+    "at": 1,
+    "expect": {
+      "de": "Es ist geschehen.",
+      "en": "It's happened."
+    },
+    "de": "Sie hatte keinen Einfluss auf das Geschehen.",
+    "en": "She had no influence on what was happening."
+  },
+  {
+    "id": "voc:B2:das Vorhaben",
+    "at": 1,
+    "expect": {
+      "de": "Ich weiß, was Sie vorhaben.",
+      "en": "I know what you're planning to do."
+    },
+    "de": "Das Vorhaben scheiterte am Geld.",
+    "en": "The project failed because of money."
+  },
+  {
+    "id": "voc:C1:der Souverän",
+    "at": 0,
+    "expect": {
+      "de": "Der Vatikan ist der kleinste souveräne Staat der Welt.",
+      "en": "The Vatican is the world's smallest sovereign state."
+    },
+    "de": "Der Souverän kann seine Macht nicht dauerhaft abgeben.",
+    "en": "The sovereign cannot give away its power for good."
+  },
+  {
+    "id": "voc:A1:die Tausend",
+    "at": 0,
+    "expect": {
+      "de": "Reichen tausend Yen?",
+      "en": "Is one thousand yen enough?"
+    },
+    "de": "Er zählte langsam bis Tausend.",
+    "en": "He slowly counted to a thousand."
+  },
+  {
+    "id": "voc:A1:die Tausend",
+    "at": 1,
+    "expect": {
+      "de": "Sind tausend Yen genug?",
+      "en": "Is one thousand yen enough?"
+    },
+    "de": "Im Saal saßen mehrere Tausend Menschen.",
+    "en": "Several thousand people were sitting in the hall."
+  },
+  {
+    "id": "voc:B1:das Beben",
+    "at": 0,
+    "expect": {
+      "de": "Ich fühlte die Erde beben.",
+      "en": "I felt the earth shake."
+    },
+    "de": "Das Beben zerstörte viele Häuser.",
+    "en": "The quake destroyed many houses."
+  },
+  {
+    "id": "voc:B1:das Beben",
+    "at": 1,
+    "expect": {
+      "de": "Ich spürte den Boden beben.",
+      "en": "I felt the floor shake."
+    },
+    "de": "Nach dem Beben blieb die Stadt tagelang ohne Strom.",
+    "en": "After the quake the city was without power for days."
+  },
+  {
+    "id": "voc:B2:das Ideal",
+    "at": 0,
+    "expect": {
+      "de": "Das war ideal.",
+      "en": "That was ideal."
+    },
+    "de": "Sie hält an ihrem Ideal fest.",
+    "en": "She holds on to her ideal."
+  },
+  {
+    "id": "voc:B2:das Ideal",
+    "at": 1,
+    "expect": {
+      "de": "Das wäre ideal.",
+      "en": "That would be ideal."
+    },
+    "de": "Das Ideal der Gleichheit prägt die Verfassung.",
+    "en": "The ideal of equality shapes the constitution."
+  },
+  {
+    "id": "voc:B2:die Nachfolge",
+    "at": 0,
+    "expect": {
+      "de": "Wir werden Tom nachfolgen.",
+      "en": "We'll follow Tom."
+    },
+    "de": "Die Nachfolge im Betrieb ist noch nicht geregelt.",
+    "en": "The succession in the company has not been settled yet."
+  },
+  {
+    "id": "voc:B2:die Nachfolge",
+    "at": 1,
+    "expect": {
+      "de": "Tom wird nicht nachfolgen.",
+      "en": "Tom won't succeed."
+    },
+    "de": "Sie trat die Nachfolge ihres Vaters an.",
+    "en": "She took over from her father."
+  },
+  {
+    "id": "voc:B1:der Scherz",
+    "at": 0,
+    "expect": {
+      "de": "Ich scherze nur.",
+      "en": "I'm just teasing."
+    },
+    "de": "Das war doch nur ein Scherz.",
+    "en": "That was only a joke."
+  },
+  {
+    "id": "voc:B1:die Wette",
+    "at": 0,
+    "expect": {
+      "de": "Ich wette nie.",
+      "en": "I never bet."
+    },
+    "de": "Ich habe die Wette leider verloren.",
+    "en": "Unfortunately I lost the bet."
+  },
+  {
+    "id": "voc:B2:das Durcheinander",
+    "at": 0,
+    "expect": {
+      "de": "Tom ist durcheinander.",
+      "en": "Tom is flustered."
+    },
+    "de": "Nach der Party herrschte ein großes Durcheinander.",
+    "en": "After the party there was a big mess."
+  },
+  {
+    "id": "voc:B2:das Durcheinander",
+    "at": 1,
+    "expect": {
+      "de": "Ich bin zu durcheinander!",
+      "en": "I'm too confused!"
+    },
+    "de": "In dem Durcheinander fand er seinen Schlüssel nicht.",
+    "en": "In the chaos he could not find his key."
+  },
+  {
+    "id": "voc:B1:die Angel",
+    "at": 0,
+    "expect": {
+      "de": "Ich angel gern.",
+      "en": "I like to fish."
+    },
+    "de": "Er nahm die Angel und ging zum See.",
+    "en": "He took the fishing rod and went to the lake."
+  },
+  {
+    "id": "voc:B1:die Angel",
+    "at": 1,
+    "expect": {
+      "de": "Er ging angeln.",
+      "en": "He went out fishing."
+    },
+    "de": "Meine Angel ist im Wasser gebrochen.",
+    "en": "My fishing rod broke in the water."
+  },
+  {
+    "id": "voc:B2:die Flotte",
+    "at": 0,
+    "expect": {
+      "de": "Ich habe flotten Otto.",
+      "en": "I have the shits."
+    },
+    "de": "Die Flotte lief am Morgen aus dem Hafen aus.",
+    "en": "The fleet left the harbour in the morning."
+  },
+  {
+    "id": "voc:A2:der Schritt",
+    "at": 0,
+    "expect": {
+      "de": "Wer schritt ein?",
+      "en": "Who intervened?"
+    },
+    "de": "Machen Sie bitte einen Schritt nach vorn.",
+    "en": "Please take a step forward."
+  },
+  {
+    "id": "voc:A2:der Schritt",
+    "at": 1,
+    "expect": {
+      "de": "Tom schritt ein.",
+      "en": "Tom intervened."
+    },
+    "de": "Das ist ein wichtiger Schritt.",
+    "en": "That is an important step."
+  },
+  {
+    "id": "voc:B1:der Bedarf",
+    "at": 0,
+    "expect": {
+      "de": "Es bedarf der Übung.",
+      "en": "It needs exercise."
+    },
+    "de": "Bei Bedarf können Sie uns jederzeit anrufen.",
+    "en": "If needed you can call us at any time."
+  },
+  {
+    "id": "voc:B1:der Bedarf",
+    "at": 1,
+    "expect": {
+      "de": "Es bedarf einiger Übung.",
+      "en": "It takes some practice."
+    },
+    "de": "Der Bedarf an bezahlbaren Wohnungen ist groß.",
+    "en": "The demand for affordable flats is great."
+  },
+  {
+    "id": "voc:B1:die Braut",
+    "at": 0,
+    "expect": {
+      "de": "Er braut Bier.",
+      "en": "He brews beer."
+    },
+    "de": "Die Braut trug ein weißes Kleid.",
+    "en": "The bride wore a white dress."
+  },
+  {
+    "id": "voc:B1:die Braut",
+    "at": 1,
+    "expect": {
+      "de": "Tom braut Bier.",
+      "en": "Tom brews beer."
+    },
+    "de": "Der Bräutigam wartete nervös auf die Braut.",
+    "en": "The groom waited nervously for the bride."
+  },
+  {
+    "id": "voc:B1:der Samt",
+    "at": 1,
+    "expect": {
+      "de": "Maria staunte, als Tom eine Orange samt Schale aß.",
+      "en": "Mary was amazed when Tom ate an orange, peel and all."
+    },
+    "de": "Der Vorhang ist aus rotem Samt.",
+    "en": "The curtain is made of red velvet."
+  },
+  {
+    "id": "voc:B1:der Schnitt",
+    "at": 0,
+    "expect": {
+      "de": "Er schnitt Grimassen.",
+      "en": "He grimaced."
+    },
+    "de": "Der Schnitt am Finger blutete stark.",
+    "en": "The cut on his finger bled heavily."
+  },
+  {
+    "id": "voc:B1:der Schnitt",
+    "at": 1,
+    "expect": {
+      "de": "Tom schnitt Grimassen.",
+      "en": "Tom grimaced."
+    },
+    "de": "Im Schnitt braucht man zwanzig Minuten.",
+    "en": "On average it takes twenty minutes."
+  },
+  {
+    "id": "voc:C1:die Naht",
+    "at": 0,
+    "expect": {
+      "de": "Das Ende naht!",
+      "en": "The end is nigh!"
+    },
+    "de": "Die Naht an der Hose ist aufgegangen.",
+    "en": "The seam on the trousers has come apart."
+  },
+  {
+    "id": "voc:C1:die Naht",
+    "at": 1,
+    "expect": {
+      "de": "Weihnachten naht.",
+      "en": "Christmas is coming."
+    },
+    "de": "Der Arzt entfernte die Nähte nach zehn Tagen.",
+    "en": "The doctor removed the stitches after ten days."
+  },
+  {
+    "id": "voc:A2:der Tod",
+    "at": 1,
+    "expect": {
+      "de": "Sie war fast tod.",
+      "en": "She was almost dead."
+    },
+    "de": "Nach dem Tod ihres Mannes zog sie aufs Land.",
+    "en": "After the death of her husband she moved to the country."
+  }
+]

@@ -13,8 +13,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, LEVELS, type Word } from './lib.ts';
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
+import type { Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
 const mulberry32 = (seed: number) => () => {
@@ -216,8 +217,7 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
   return { errors, warnings };
 }
 
-async function probe(full: Word[]) {
-  const matcher = await primeApp(full);
+async function probe(matcher: Matcher, full: Word[]) {
   const words = full.filter((w) => w.kind === 'word');
 
   // One seed per class, not one stream for all three.
@@ -283,6 +283,7 @@ async function main() {
   const sectors = loadSectors(PATHS.sectors);
   const words = full.filter((w) => w.kind === 'word');
 
+  const matcher = primeApp(full);
   const schema = schemaCheck(full);
   const dupe = dupeCheck(full);
   const allErrors = [...schema.errors, ...dupe.errors];
@@ -303,7 +304,7 @@ async function main() {
   const plRate = rate(nouns.filter((w) => w.plural).length, nouns.length);
 
   // Reader-matching probe.
-  const { verbRes, nounRes, adjRes, closedRes } = await probe(full);
+  const { verbRes, nounRes, adjRes, closedRes } = await probe(matcher, full);
   // Regression FLOORS, not quality targets. The reader resolves an inflected form
   // to whatever lemma owns it, so legitimate homographs (plural "Morgen" → adverb
   // "morgen") count as probe misses even though matching is correct. Baselines on
@@ -347,6 +348,30 @@ async function main() {
   // Phrases* exactly where they belong. Narrowed to nouns in the four sectors that
   // are reserved for other parts of speech, it finds the two real ones and nothing
   // else. *Numbers is deliberately not in the list*: it holds `die Zahl` on purpose.
+  // A noun card whose example only proves itself through a **lowercase** token.
+  //
+  // German capitalises every noun, so a lowercase match is the homograph and not
+  // the headword: `die Braut` illustrated with «Er braut Bier», `der Schritt` with
+  // «Wer schritt ein?», `die Naht` with «Das Ende naht!». All three shipped, and
+  // all three satisfied the authoring gate, because the matcher indexes lowercased
+  // surface forms — correct for reading, wrong as evidence. 49 of these existed
+  // when the check was written and every one was hand-read; see CHANGELOG
+  // 2026-08-24. `LOWERCASE_NOUN_OK` in lib.ts is the door for the lexicalised
+  // exceptions (*schuld sein*), and is empty because the corpus had none.
+  //
+  // The mirror check on verbs and adjectives is deliberately absent — «beim
+  // Tanzen» is ordinary German. The reasoning is in lib.ts beside the rule.
+  for (const w of words) {
+    if (w.pos !== 'noun') continue;
+    for (const [i, e] of (w.ex ?? []).entries()) {
+      if (!e?.de?.trim()) continue;
+      const ev = headwordEvidence(matcher, w, e.de);
+      if (!ev.ok && ev.why === 'miscased') {
+        allErrors.push({ id: w.id, msg: `ex[${i}] proves the noun with the lowercase «${ev.token}» — that is the homograph, not the headword` });
+      }
+    }
+  }
+
   const NON_NOUN_SECTORS = new Set(['Core verbs', 'Adverbs', 'Adjectives', 'Connectors']);
   for (const w of words) {
     if (w.pos === 'noun' && NON_NOUN_SECTORS.has(w.field)) {

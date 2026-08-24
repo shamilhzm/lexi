@@ -28,6 +28,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildMatcher } from '../../src/lib/matcher.ts';
+import { headwordEvidence } from '../corpus/lib.ts';
 import type { CEFR, Word } from '../../src/types.ts';
 
 const CACHE = join('scripts', 'corpus', 'data', 'wiktionary');
@@ -206,8 +207,14 @@ export function exampleTeachesWord(card: Word, de: string, corpus: Word[] = []):
   //
   // The identity check stays on `card.id`, so a sentence that merely contains
   // some *other* corpus word still fails: the draft has to be what lights up.
+  //
+  // "Contains" also means *correctly cased*. A German noun is always capitalised,
+  // so a lowercase token that happens to spell it is the homograph and not the
+  // word: this gate passed «Er braut Bier» for `die Braut` and «Wer schritt ein?»
+  // for `der Schritt`, and both shipped. `headwordEvidence` is the shared rule,
+  // used by `corpus:validate` and by `fix-authored` for the same reason.
   const m = buildMatcher([...corpus, card]);
-  return m.annotate(de).some((s) => s.isWord && s.word?.id === card.id);
+  return headwordEvidence(m, card, de).ok;
 }
 
 const GLOSS_MAX = 80;

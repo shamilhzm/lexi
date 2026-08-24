@@ -11,6 +11,83 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-24 — «Er braut Bier» was teaching the word *bride*
+
+The `alle` pass ended by filing five cards it could not fix by correcting the gloss,
+because on those it is the **examples** that are wrong. Reading them for a pattern
+turned up something better than five fixes: three of them fail the same *decidable*
+test, and German supplies it for free.
+
+**A German noun is always capitalised.** So if the only token in a sentence that
+resolves to a noun card is lowercase, that token is the homograph and the headword is
+genuinely absent — no judgement required. `matcher.ts` indexes lowercased surface
+forms, which is right for reading (a learner meeting «BRAUT» in a headline still knows
+the word) and wrong as *evidence*, and the authoring gate had been asking the matcher
+the evidence question all along.
+
+**49 examples on 32 cards, and on 17 of them every example was like that** — the card
+taught nothing correct at all:
+
+| card | shipped example | what the sentence actually contains |
+|---|---|---|
+| `die Braut` — bride | «Er braut Bier.» ×2 | *brauen*, to brew |
+| `der Schritt` — step | «Wer schritt ein?» ×2 | the preterite of *einschreiten* |
+| `die Naht` — seam | «Das Ende naht!» | *nahen*, to draw near |
+| `der Bedarf` — need | «Es bedarf der Übung.» ×2 | *bedürfen*, 3sg |
+| `das Rennen` — race | «Pferde rennen.» | *rennen*, to run |
+| `der Rahmen` — frame | «Können Sie das Bild rahmen?» | *rahmen*, to frame |
+| `die Tiefe` — depth | «Er hat eine tiefe Stimme.» ×2 | the adjective *tief* |
+| `der Samt` — velvet | «…eine Orange samt Schale» | the preposition *samt* |
+| `das Los` — lottery ticket | «Muss los!» | the particle *los* |
+| `der Tod` — death | «Sie war fast tod.» | the adjective — and misspelled, it is *tot* |
+
+Every one hand-read; all 49 were defects. **57 examples on 34 cards are rewritten**,
+which is the 49 plus four the reading found beside them that the rule cannot see —
+`die Weise` led with «Weise Worte!» (the adjective, capitalised only because it is
+sentence-initial), `der Schnitt` with «Er schnitt Grimassen», `die Klage` with «Klagen
+nützt nichts» (singular *nützt*, so it is the nominalised infinitive, not the plural
+noun), `die Angel` with «Er ging angeln» — and the two remaining cards from the filed
+five: `wild`, illustrated only as the noun *der Wilde*, and `aber`, an A1 card glossed
+*but* whose two examples were both the modal particle and whose **definition described
+the particle too**, so gloss and definition disagreed on which word the card was for.
+
+**The rule is now a gate in three places, which is the point of the entry.** The
+defect existed because `exampleTeachesWord` — the check that "refuses to write a card
+it cannot verify" — asked only whether *some* token resolved. `headwordEvidence` in
+`scripts/corpus/lib.ts` is the shared rule now: `corpus:validate` errors on it,
+`fix-authored` refuses a replacement that has it, and `authoring:new` cannot write one.
+Proved by injection before it was trusted — fed «Tom braut jeden Samstag Bier» for
+`die Braut` and a sentence with no *Schritt* in it, and watched both come back refused
+with different reasons. Five tests pin it.
+
+**The mirror check is deliberately not enforced, and that is the lesson.** Written wide,
+the same idea also flagged verbs and adjectives proved by a capitalised token, and
+reported **137**. The extra 88 are mostly ordinary German — «beim Tanzen», «bei Rot»,
+«im Wesentlichen» are nominalisations of the very word being taught — and "fixing" them
+would have made cards worse. Lowercase *disproves* a noun; capitalisation proves
+nothing about a verb, because nominalisation is available to everything. The 88 stay
+open under the reading order in `corpus:sense`, where at least one (`wild` → «Seid ihr
+Wilde?») was a genuine defect and nothing mechanical separates it from the rest. See
+LESSONS, class 2.
+
+Two glosses were repaired on the way past, both broken fields rather than judgements:
+`das Vorhaben` was glossed **"gerund of vorhaben"** — a dictionary's grammatical note
+sitting where the English goes, and the string recall mode grades against — and
+`die Angel` **"tackle, fishing rod, line, and rod)"**, its own definition truncated
+mid-parenthesis into four senses, two of which are parts of the object.
+
+One new sentence was rewritten a second time before it landed: «Machen Sie bitte einen
+Schritt nach vorn» opens with an imperative, which the word-order builder leaves
+capitalised — the acknowledged 23.7% residue of the tile-casing fix — so it became
+«Bitte machen Sie…» and stopped announcing position 1. Checked mechanically against
+`citationTiles`, not by eye.
+
+952 tests, 0 lint errors, typecheck and build green, `corpus:validate` 49 errors → **0**.
+The reader probe came out bit-identical (verb 0.942 · plural 0.985 · adj 0.960), which
+is what should happen when 57 sentences change and no indexed form does.
+
+---
+
 ### Shipped 2026-08-21 — the conjugation drill printed «gelten als + t» as the answer
 
 Third drill audited, third defect, and this one had already been fixed once — somewhere

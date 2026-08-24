@@ -910,16 +910,16 @@
     ]
   },
   "voc:A1:aber": {
-    "def": "rather; quite; unusually; used with adjectives to express a surprising degree, whether this surprise be real or for effect",
+    "def": "Joins two statements that pull against each other — but. The same word is also one of the commonest flavouring particles, where it adds a note of surprise to a statement rather than joining anything.",
     "ex": [
       {
-        "de": "Das ist aber teuer.",
-        "en": "That's rather expensive. ≈ That's more expensive than I would’ve thought.",
+        "de": "Ich bin müde, aber ich muss noch arbeiten.",
+        "en": "I am tired, but I still have to work.",
         "lvl": "A1"
       },
       {
-        "de": "Du bist aber groß geworden!",
-        "en": "Look how tall you’ve become! (said to a child)",
+        "de": "Das Zimmer ist klein, aber sehr hell.",
+        "en": "The room is small but very bright.",
         "lvl": "A1"
       }
     ]
@@ -14144,8 +14144,8 @@
         "lvl": "A1"
       },
       {
-        "de": "Er geht früh ins Bett.",
-        "en": "He goes to bed early.",
+        "de": "Der Bus fährt schon in der Früh um sechs.",
+        "en": "The bus leaves as early as six in the morning.",
         "lvl": "A1"
       }
     ]
@@ -17229,13 +17229,13 @@
     "def": "thousand (the number)",
     "ex": [
       {
-        "de": "Reichen tausend Yen?",
-        "en": "Is one thousand yen enough?",
+        "de": "Er zählte langsam bis Tausend.",
+        "en": "He slowly counted to a thousand.",
         "lvl": "A1"
       },
       {
-        "de": "Sind tausend Yen genug?",
-        "en": "Is one thousand yen enough?",
+        "de": "Im Saal saßen mehrere Tausend Menschen.",
+        "en": "Several thousand people were sitting in the hall.",
         "lvl": "A1"
       }
     ]
@@ -30720,13 +30720,13 @@
     "def": "race (a contest where the goal is to be the first to reach some objective)",
     "ex": [
       {
-        "de": "Pferde rennen.",
-        "en": "Horses run.",
+        "de": "Wer hat das Rennen gewonnen?",
+        "en": "Who won the race?",
         "lvl": "A2"
       },
       {
-        "de": "Er kann rennen.",
-        "en": "He can run.",
+        "de": "Das Rennen beginnt um drei Uhr.",
+        "en": "The race starts at three o'clock.",
         "lvl": "A2"
       }
     ]
@@ -34277,13 +34277,13 @@
     "def": "last (tool for shaping or preserving the shape of shoes)",
     "ex": [
       {
-        "de": "Wir leisten Beiträge.",
-        "en": "We're contributing.",
+        "de": "Der Schuster zieht den Schuh über den Leisten.",
+        "en": "The cobbler pulls the shoe over the last.",
         "lvl": "A2"
       },
       {
-        "de": "Sie leisten Beiträge.",
-        "en": "You're contributing.",
+        "de": "Schuster, bleib bei deinem Leisten!",
+        "en": "Cobbler, stick to your last!",
         "lvl": "A2"
       }
     ]
@@ -35481,13 +35481,13 @@
     "def": "step, footstep (a single instance of walking); any imaginary measure that is likened in its partitioning to the distance traveled by a leg moving forward in its single footsteps",
     "ex": [
       {
-        "de": "Wer schritt ein?",
-        "en": "Who intervened?",
+        "de": "Bitte machen Sie einen Schritt nach vorn.",
+        "en": "Please take a step forward.",
         "lvl": "A2"
       },
       {
-        "de": "Tom schritt ein.",
-        "en": "Tom intervened.",
+        "de": "Das ist ein wichtiger Schritt.",
+        "en": "That is an important step.",
         "lvl": "A2"
       }
     ]
@@ -36169,8 +36169,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Sie war fast tod.",
-        "en": "She was almost dead.",
+        "de": "Nach dem Tod ihres Mannes zog sie aufs Land.",
+        "en": "After the death of her husband she moved to the country.",
         "lvl": "A2"
       }
     ]
@@ -44232,13 +44232,13 @@
     "def": "The particular way in which something is done.",
     "ex": [
       {
-        "de": "Weise Worte!",
-        "en": "Wise words!",
+        "de": "Auf diese Weise sparen wir viel Zeit.",
+        "en": "This way we save a lot of time.",
         "lvl": "A2"
       },
       {
-        "de": "Tom ist weise.",
-        "en": "Tom is wise.",
+        "de": "Jeder lernt auf seine eigene Weise.",
+        "en": "Everyone learns in their own way.",
         "lvl": "A2"
       }
     ]
@@ -52513,13 +52513,13 @@
     "def": "wild (of animals, etc.); wild, unrestrained, raucous (of behavior, parties, etc.)",
     "ex": [
       {
-        "de": "Seid ihr Wilde?",
-        "en": "Are you savages?",
+        "de": "Im Wald leben viele wilde Tiere.",
+        "en": "Many wild animals live in the forest.",
         "lvl": "A2"
       },
       {
-        "de": "Das sind Wilde.",
-        "en": "They are savages.",
+        "de": "Die Party gestern war ziemlich wild.",
+        "en": "The party yesterday was pretty wild.",
         "lvl": "A2"
       }
     ]
@@ -57280,13 +57280,13 @@
     "def": "A shaking or trembling of the ground.",
     "ex": [
       {
-        "de": "Ich fühlte die Erde beben.",
-        "en": "I felt the earth shake.",
+        "de": "Das Beben zerstörte viele Häuser.",
+        "en": "The quake destroyed many houses.",
         "lvl": "B1"
       },
       {
-        "de": "Ich spürte den Boden beben.",
-        "en": "I felt the floor shake.",
+        "de": "Nach dem Beben blieb die Stadt tagelang ohne Strom.",
+        "en": "After the quake the city was without power for days.",
         "lvl": "B1"
       }
     ]
@@ -61697,13 +61697,13 @@
     "def": "need (that which is desired or required); demand (amount of input that is required for something to function)",
     "ex": [
       {
-        "de": "Es bedarf der Übung.",
-        "en": "It needs exercise.",
+        "de": "Bei Bedarf können Sie uns jederzeit anrufen.",
+        "en": "If needed you can call us at any time.",
         "lvl": "B1"
       },
       {
-        "de": "Es bedarf einiger Übung.",
-        "en": "It takes some practice.",
+        "de": "Der Bedarf an bezahlbaren Wohnungen ist groß.",
+        "en": "The demand for affordable flats is great.",
         "lvl": "B1"
       }
     ]
@@ -65544,13 +65544,13 @@
     "def": "A structure around a picture; also the limits of something.",
     "ex": [
       {
-        "de": "Können Sie das Bild rahmen?",
-        "en": "Can you frame this picture?",
+        "de": "Das Bild hängt in einem goldenen Rahmen.",
+        "en": "The picture hangs in a golden frame.",
         "lvl": "B1"
       },
       {
-        "de": "Sie ließ sich ihr Bild rahmen.",
-        "en": "She got her painting framed.",
+        "de": "Im Rahmen des Projekts arbeiten wir mit zwei Schulen zusammen.",
+        "en": "As part of the project we are working with two schools.",
         "lvl": "B1"
       }
     ]
@@ -65876,8 +65876,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Maria staunte, als Tom eine Orange samt Schale aß.",
-        "en": "Mary was amazed when Tom ate an orange, peel and all.",
+        "de": "Der Vorhang ist aus rotem Samt.",
+        "en": "The curtain is made of red velvet.",
         "lvl": "B1"
       }
     ]
@@ -65936,8 +65936,8 @@
     "def": "Something said or done to make people laugh.",
     "ex": [
       {
-        "de": "Ich scherze nur.",
-        "en": "I'm just teasing.",
+        "de": "Das war doch nur ein Scherz.",
+        "en": "That was only a joke.",
         "lvl": "B1"
       },
       {
@@ -66063,13 +66063,13 @@
     "def": "The result of cutting; also an average or a style of cutting.",
     "ex": [
       {
-        "de": "Er schnitt Grimassen.",
-        "en": "He grimaced.",
+        "de": "Der Schnitt am Finger blutete stark.",
+        "en": "The cut on his finger bled heavily.",
         "lvl": "B1"
       },
       {
-        "de": "Tom schnitt Grimassen.",
-        "en": "Tom grimaced.",
+        "de": "Im Schnitt braucht man zwanzig Minuten.",
+        "en": "On average it takes twenty minutes.",
         "lvl": "B1"
       }
     ]
@@ -67603,8 +67603,8 @@
     "def": "A move from one thing to another; also small change.",
     "ex": [
       {
-        "de": "Bitte wechsel diese Banknoten in Münzen.",
-        "en": "Please change these bills into coins.",
+        "de": "Der Wechsel von der Schule zur Uni war nicht leicht.",
+        "en": "The change from school to university was not easy.",
         "lvl": "B1"
       },
       {
@@ -68605,13 +68605,13 @@
     "def": "tackle, fishing rod (angler's tool consisting of hook (Haken), line (Schnur), and rod (Rute))",
     "ex": [
       {
-        "de": "Ich angel gern.",
-        "en": "I like to fish.",
+        "de": "Er nahm die Angel und ging zum See.",
+        "en": "He took the fishing rod and went to the lake.",
         "lvl": "B1"
       },
       {
-        "de": "Er ging angeln.",
-        "en": "He went out fishing.",
+        "de": "Meine Angel ist im Wasser gebrochen.",
+        "en": "My fishing rod broke in the water.",
         "lvl": "B1"
       }
     ]
@@ -69928,13 +69928,13 @@
     "def": "bride; a woman taking part in a marriage; a girlfriend, young woman, broad",
     "ex": [
       {
-        "de": "Er braut Bier.",
-        "en": "He brews beer.",
+        "de": "Die Braut trug ein weißes Kleid.",
+        "en": "The bride wore a white dress.",
         "lvl": "B1"
       },
       {
-        "de": "Tom braut Bier.",
-        "en": "Tom brews beer.",
+        "de": "Der Bräutigam wartete nervös auf die Braut.",
+        "en": "The groom waited nervously for the bride.",
         "lvl": "B1"
       }
     ]
@@ -75970,8 +75970,8 @@
     "def": "press (device used to apply pressure); press (printed media)",
     "ex": [
       {
-        "de": "Ich presse eine Orange aus.",
-        "en": "I am squeezing an orange.",
+        "de": "Die Presse berichtete ausführlich über den Unfall.",
+        "en": "The press reported on the accident at length.",
         "lvl": "B1"
       },
       {
@@ -78131,13 +78131,13 @@
     "def": "How deep something is.",
     "ex": [
       {
-        "de": "Er hat eine tiefe Stimme.",
-        "en": "He has a deep voice.",
+        "de": "Der See hat eine Tiefe von dreißig Metern.",
+        "en": "The lake has a depth of thirty metres.",
         "lvl": "B1"
       },
       {
-        "de": "Tom hat eine tiefe Stimme.",
-        "en": "Tom has a low-pitched voice.",
+        "de": "In der Tiefe des Waldes war es ganz still.",
+        "en": "In the depths of the forest it was completely silent.",
         "lvl": "B1"
       }
     ]
@@ -79510,8 +79510,8 @@
     "def": "An agreement to risk money on the outcome of an event.",
     "ex": [
       {
-        "de": "Ich wette nie.",
-        "en": "I never bet.",
+        "de": "Ich habe die Wette leider verloren.",
+        "en": "Unfortunately I lost the bet.",
         "lvl": "B1"
       },
       {
@@ -80063,13 +80063,13 @@
     "def": "The act of working together toward a shared goal.",
     "ex": [
       {
-        "de": "Lass uns zusammenarbeiten.",
-        "en": "Let's work together.",
+        "de": "Die Zusammenarbeit mit dem Team hat gut funktioniert.",
+        "en": "The collaboration with the team worked well.",
         "lvl": "B1"
       },
       {
-        "de": "Ihr müsst zusammenarbeiten.",
-        "en": "You need to work together.",
+        "de": "Wir hoffen auf eine enge Zusammenarbeit.",
+        "en": "We hope for close cooperation.",
         "lvl": "B1"
       }
     ]
@@ -93875,13 +93875,13 @@
     "def": "A state of confusion and disorder.",
     "ex": [
       {
-        "de": "Tom ist durcheinander.",
-        "en": "Tom is flustered.",
+        "de": "Nach der Party herrschte ein großes Durcheinander.",
+        "en": "After the party there was a big mess.",
         "lvl": "B2"
       },
       {
-        "de": "Ich bin zu durcheinander!",
-        "en": "I'm too confused!",
+        "de": "In dem Durcheinander fand er seinen Schlüssel nicht.",
+        "en": "In the chaos he could not find his key.",
         "lvl": "B2"
       }
     ]
@@ -93950,13 +93950,13 @@
     "def": "The things that are happening; the course of events.",
     "ex": [
       {
-        "de": "Gern geschehen.",
-        "en": "Don't mention it.",
+        "de": "Er verfolgte das Geschehen auf dem Platz.",
+        "en": "He followed the events on the square.",
         "lvl": "B2"
       },
       {
-        "de": "Es ist geschehen.",
-        "en": "It's happened.",
+        "de": "Sie hatte keinen Einfluss auf das Geschehen.",
+        "en": "She had no influence on what was happening.",
         "lvl": "B2"
       }
     ]
@@ -94101,13 +94101,13 @@
     "def": "ideal (perfect standard, standard of excellence); ideal",
     "ex": [
       {
-        "de": "Das war ideal.",
-        "en": "That was ideal.",
+        "de": "Sie hält an ihrem Ideal fest.",
+        "en": "She holds on to her ideal.",
         "lvl": "B2"
       },
       {
-        "de": "Das wäre ideal.",
-        "en": "That would be ideal.",
+        "de": "Das Ideal der Gleichheit prägt die Verfassung.",
+        "en": "The ideal of equality shapes the constitution.",
         "lvl": "B2"
       }
     ]
@@ -94282,13 +94282,13 @@
     "def": "A ticket in a draw; also a person's fate or lot.",
     "ex": [
       {
-        "de": "Muss los!",
-        "en": "Must dash.",
+        "de": "Ich habe ein Los gekauft, aber nichts gewonnen.",
+        "en": "I bought a lottery ticket but won nothing.",
         "lvl": "B2"
       },
       {
-        "de": "Legt los.",
-        "en": "Get started.",
+        "de": "Das Los entscheidet, wer anfängt.",
+        "en": "The draw decides who starts.",
         "lvl": "B2"
       }
     ]
@@ -94532,8 +94532,8 @@
     "def": "A set way of doing something; also a legal case.",
     "ex": [
       {
-        "de": "Wir haben uns verfahren.",
-        "en": "We are lost.",
+        "de": "Das neue Verfahren spart viel Energie.",
+        "en": "The new process saves a lot of energy.",
         "lvl": "B2"
       },
       {
@@ -94582,8 +94582,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Ich weiß, was Sie vorhaben.",
-        "en": "I know what you're planning to do.",
+        "de": "Das Vorhaben scheiterte am Geld.",
+        "en": "The project failed because of money.",
         "lvl": "B2"
       }
     ]
@@ -98783,8 +98783,8 @@
     "def": "A group of ships or vehicles under one command.",
     "ex": [
       {
-        "de": "Ich habe flotten Otto.",
-        "en": "I have the shits.",
+        "de": "Die Flotte lief am Morgen aus dem Hafen aus.",
+        "en": "The fleet left the harbour in the morning.",
         "lvl": "B2"
       },
       {
@@ -98993,13 +98993,13 @@
     "def": "line (infinite one-dimensional figure)",
     "ex": [
       {
-        "de": "Sitz gerade!",
-        "en": "Sit up straight.",
+        "de": "Durch zwei Punkte verläuft genau eine Gerade.",
+        "en": "Exactly one straight line passes through two points.",
         "lvl": "B2"
       },
       {
-        "de": "Tom aß gerade.",
-        "en": "Tom was eating.",
+        "de": "Auf der letzten Geraden zog sie am Favoriten vorbei.",
+        "en": "On the final straight she pulled past the favourite.",
         "lvl": "B2"
       }
     ]
@@ -99378,13 +99378,13 @@
     "def": "A statement of grievance; also a legal action in court.",
     "ex": [
       {
-        "de": "Wir wollen klagen.",
-        "en": "We want to litigate.",
+        "de": "Der Nachbar hat eine Klage eingereicht.",
+        "en": "The neighbour has filed a lawsuit.",
         "lvl": "B2"
       },
       {
-        "de": "Klagen nützt nichts.",
-        "en": "It's no use complaining.",
+        "de": "Über den Lärm gab es viele Klagen.",
+        "en": "There were many complaints about the noise.",
         "lvl": "B2"
       }
     ]
@@ -99855,13 +99855,13 @@
     "def": "The act of following on and taking over a role.",
     "ex": [
       {
-        "de": "Wir werden Tom nachfolgen.",
-        "en": "We'll follow Tom.",
+        "de": "Die Nachfolge im Betrieb ist noch nicht geregelt.",
+        "en": "The succession in the company has not been settled yet.",
         "lvl": "B2"
       },
       {
-        "de": "Tom wird nicht nachfolgen.",
-        "en": "Tom won't succeed.",
+        "de": "Sie trat die Nachfolge ihres Vaters an.",
+        "en": "She took over from her father.",
         "lvl": "B2"
       }
     ]
@@ -109084,8 +109084,8 @@
     "def": "The supreme ruler; in a democracy, the people as holders of power.",
     "ex": [
       {
-        "de": "Der Vatikan ist der kleinste souveräne Staat der Welt.",
-        "en": "The Vatican is the world's smallest sovereign state.",
+        "de": "Der Souverän kann seine Macht nicht dauerhaft abgeben.",
+        "en": "The sovereign cannot give away its power for good.",
         "lvl": "C1"
       },
       {
@@ -111025,13 +111025,13 @@
     "def": "A line where two pieces of fabric are sewn together.",
     "ex": [
       {
-        "de": "Das Ende naht!",
-        "en": "The end is nigh!",
+        "de": "Die Naht an der Hose ist aufgegangen.",
+        "en": "The seam on the trousers has come apart.",
         "lvl": "C1"
       },
       {
-        "de": "Weihnachten naht.",
-        "en": "Christmas is coming.",
+        "de": "Der Arzt entfernte die Nähte nach zehn Tagen.",
+        "en": "The doctor removed the stitches after ten days.",
         "lvl": "C1"
       }
     ]

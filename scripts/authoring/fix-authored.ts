@@ -16,7 +16,7 @@
 //   node scripts/authoring/fix-authored.ts <batch.json>
 import { readFileSync } from 'node:fs';
 import { PATHS } from '../corpus/config.ts';
-import { readJSON, writeJSON } from '../corpus/lib.ts';
+import { readJSON, writeJSON, primeApp, headwordEvidence } from '../corpus/lib.ts';
 import { cleanExample } from '../../src/lib/examples.ts';
 import type { Word } from '../../src/types.ts';
 
@@ -91,6 +91,13 @@ const vocab = readJSON<Word[]>(PATHS.vocab);
 const byId = new Map(vocab.map((c) => [c.id, c]));
 
 const norm = (s: string) => (s ?? '').replace(/\s+/g, ' ').trim();
+
+// Built on first use and reused. Priming costs a second over 6.5k cards, and a
+// definition- or plural-only batch should not pay it — but a matcher built over
+// the *shipped* corpus is the only thing that can say whether a sentence teaches
+// the card, so an example batch always does.
+let _matcher: ReturnType<typeof primeApp> | null = null;
+const matcher = () => (_matcher ??= primeApp(vocab));
 let applied = 0, deleted = 0, pending = 0;
 const refused: string[] = [];
 const refuse = (row: Row, why: string) =>
@@ -184,6 +191,19 @@ for (const row of rows) {
   const checked = cleanExample(next);
   if (!checked || checked.de !== next.de || checked.en !== next.en) {
     refuse(row, 'replacement would itself be sanitized (newline, citation text, or duplicated translation)');
+    continue;
+  }
+  // …and to the standard `authoring:new` holds a brand-new card to: the sentence
+  // must actually contain the headword, proved by the app's own matcher, and the
+  // token that proves it must obey German capitalisation. Without this, the tool
+  // written to *repair* «Er braut Bier» on `die Braut` would happily accept
+  // another sentence with the same defect — which is exactly how 49 of them
+  // reached the corpus in the first place.
+  const ev = headwordEvidence(matcher(), card, next.de);
+  if (!ev.ok) {
+    refuse(row, ev.why === 'absent'
+      ? `replacement does not contain "${card.term}" — the matcher finds no form of it`
+      : `replacement proves "${card.term}" only with the lowercase «${ev.token}», which is the homograph, not the noun`);
     continue;
   }
   card.ex[row.at] = next;

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "voc:B2:das Vorhaben",
+    "expect": { "en": "gerund of vorhaben" },
+    "en": "plan, project, undertaking",
+    "src": "Not a gloss at all — a dictionary's grammatical note about the noun's origin, shipped where the English translation belongs, and the string a learner is graded against in recall mode. The definition already on the card («Something that a person plans to do») is what it should have said."
+  },
+  {
+    "id": "voc:B1:die Angel",
+    "expect": { "en": "tackle, fishing rod, line, and rod)" },
+    "en": "fishing rod",
+    "src": "A truncation of the card's own definition — «tackle, fishing rod (angler's tool consisting of hook (Haken), line (Schnur), and rod (Rute))» — with the parenthesis lost, so the gloss reads as four senses of which two are parts of the thing and one is an unmatched bracket."
+  }
+]

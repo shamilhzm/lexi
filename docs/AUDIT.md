@@ -51,6 +51,7 @@ out five times — see the withdrawals below. A count in this file that is not m
 | `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**; ruled *not* to narrow the drill, flexibility taught instead | BACKLOG 🟠 |
 | `order` drill: do the tiles give away position 1? | 6,020 order drills | **4,565 (75.8%) fixed**; the residual 23.7% are open classes (imperatives, full verbs, adjectives) and are left leaking knowingly | CHANGELOG 2026-08-24 |
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
+| Noun cards proved only by a **lowercase** token | 6,525 cards with examples · 17,023 examples | **49 found → 0**, on 32 cards, 17 of which had no correct example at all; all hand-read, all defects. The mirror case (88 verbs/adjectives) deliberately not gated | CHANGELOG 2026-08-24 |
 | Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
 | Verbs the conjugator declines to inflect | 1,212 verb cards | **60 (4.9%)** — pattern cards and disambiguated terms, all correctly `reliable: false` and never drilled | CHANGELOG 2026-08-24 |
 
@@ -69,12 +70,22 @@ alternative arrangement — which was ruled a thing to *teach* rather than desig
 2. **Work the sense band down · 🟠.** `npm run corpus:sense` ranks the 698 cards whose
    gloss shares no word with any of its example translations. It is a *reading order*,
    not a detector — but it yields ~36% against ~0% at random, so it is the instrument
-   this class needed. 33 read so far; the rest are unread. Five verified defects are
-   filed in BACKLOG because they need new **examples** rather than a new gloss.
-3. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
-4. **Definitions** — 806 warnings currently, dominated by *noun without plural* (472)
+   this class needed. 33 read so far; the rest are unread.
+
+   > The five defects it filed for new **examples** are fixed (2026-08-24), and reading
+   > them together is what produced the decidable noun-case rule in the table above —
+   > which then found 49. **The lesson for the rest of the band: read the filed items
+   > as a set before fixing them one at a time.** A shape that three of five share is
+   > worth more than the five.
+3. **The 88 remaining case hits · 🟡 — a reading list, not a fix list.** Verb and
+   adjective cards proved only by a capitalised token mid-sentence. Most are ordinary
+   nominalisations («beim Tanzen», «bei Rot») and must be left alone; a few are genuine
+   drift (`wild` → «Seid ihr Wilde?»). Nothing mechanical separates them, which is why
+   this half is not gated. Filed in BACKLOG.
+4. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
+5. **Definitions** — 806 warnings currently, dominated by *noun without plural* (472)
    and *no ipa* (275).
-5. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
+6. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
    scripts nor the drill audit can reach. Entirely unwalked.
 
 ### Source pages ingested
@@ -164,6 +175,11 @@ Kept here because a ledger that only records finds is a ledger that flatters its
 - **"1,588 conjugation items render fewer than four options."** They do not. The
   simulation stopped before the *pad* fallback the real item runs when same-tense persons
   dedup below three. With the pad: **0**.
+- **"137 examples teach a different word than their card."** 49 do. The check was
+  written over both halves of one idea and only one half is decidable: lowercase
+  *disproves* a noun, but capitalisation proves nothing about a verb, because
+  nominalisation is available to every part of speech. The 88-hit half is mostly
+  correct German. See LESSONS, class 2.
 - **"2 conjugation cards print invented German."** Three do. The corruption heuristic
   missed `sich wenden an` → «gewenden at`». Replaced with a decidable rule — *after
   stripping `sich`, does the term still contain a space* — which needs no judgement.
