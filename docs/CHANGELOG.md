@@ -82,12 +82,22 @@ error an English speaker makes. `GRAMMAR_COUNTS` 139 → 140 points, 6,183 → 6
 **And the builder was giving the answer away — a bigger defect than the one that started
 this.** German capitalises the first word of a sentence *and* every noun, so a tile's
 capital carried two different things: *I am a noun*, which the learner needs, and *I was
-first*, which is the whole answer. **3,912 of 6,020 order drills (65%)** open with a word
-that is lowercase everywhere else — ich, mein, heute, der, was — so «Ich · treffe ·
-meine · Freunde · am · Wochenende» could be solved without reading any German. Tiles now
-render in **citation case** and grading ignores case, since case was never something the
-builder let the learner choose. `sie`/`ihr` are deliberately excluded from the fold: the
-formal *Sie* is capitalised everywhere and no token distinguishes it.
+first*, which is the whole answer. «Ich · treffe · meine · Freunde · am · Wochenende»
+could be solved without reading any German. Tiles now render in **citation case** and
+grading ignores case, since case was never something the builder let the learner choose.
+
+**4,565 of 6,020 drills (75.8%) are corrected.** The first pass covered function words —
+ich, mein, heute, der, was — and playing the drill afterwards found the next group:
+«Habt ihr Hilfe angeboten?» still showed *Habt* capitalised among lowercase tiles.
+Auxiliaries and modals are a closed class, so they could be added. **The remaining 23.7%
+are left leaking on purpose**, and each is an *open* class — imperatives (Mach, Öffne),
+full finite verbs (Kommst), adjectives (Nächste). Enumerating those is the
+pattern-instead-of-lexicon mistake LESSONS records, and the obvious lexicon does not help:
+`lookupSurface` is case-sensitive by design — its own comment is *"`Essen` stays the noun
+and `Morgen` stays the morning"* — so asking it about a capitalised first token resolves
+*Können* to the noun *das Können*, and acting on that would lowercase a real noun. `sie`
+and `ihr` are excluded deliberately: the formal *Sie* is capitalised everywhere and no
+token distinguishes it.
 
 **A fronting chunker was prototyped and rejected**, which is the honest reason the
 general builder still accepts one order. Over eight sampled sentences only three of its
@@ -108,7 +118,7 @@ both write that id. **6,642 → 6,637**, content absorbed rather than lost — *
 3→6 examples, *Bekannte* 5→6, *Vorgesetzte* 3→5, *Abgeordnete* 3→5 — and `ID_MAP`
 1,398 → 1,404 so no schedule is stranded.
 
-942 tests, 0 lint errors, `corpus:validate` PASS.
+944 tests, 0 lint errors, `corpus:validate` PASS.
 
 ---
 

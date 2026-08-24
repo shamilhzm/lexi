@@ -3,15 +3,20 @@
 // German capitalises the first word of a sentence *and* every noun. So when the
 // builder shuffles a sentence into tiles, a capital carries two very different
 // kinds of information — "I am a noun", which the learner must know, and "I was
-// first", which is the whole answer. Measured over the shipped corpus: **3,912 of
-// 6,020 order drills (65%) open with a word that is lowercase everywhere else** —
-// ich, mein, heute, der, was — so its capital says nothing except *start here*.
-// «Ich · treffe · meine · Freunde · am · Wochenende» can be solved without reading
-// a word of it, exactly like the cloze answer that was the only capitalised option.
+// first", which is the whole answer. «Ich · treffe · meine · Freunde · am ·
+// Wochenende» can be solved without reading a word of it, exactly like the cloze
+// answer that was the only capitalised option.
 //
 // The fix is to show the tiles in **citation case**: the case each word carries in
 // the middle of a sentence. Nouns keep their capital because they always have one;
 // a positional capital is dropped because it was never about the word.
+//
+// **4,565 of 6,020 order drills (75.8%) are corrected.** The 23.7% that remain open
+// with something this list cannot name, and each is an *open* class: imperatives
+// (Mach, Öffne, Setz), full finite verbs (Kommst), adjectives (Nächste). They still
+// leak. Enumerating them is the pattern-instead-of-lexicon mistake LESSONS records,
+// and the obvious lexicon does not work here — see the note on `lookupSurface`
+// below. `Sie` is in the remainder deliberately and is *not* a defect.
 //
 // This also makes the builder honest about something more interesting than the
 // leak. German lets any single element hold first position, so a sentence usually
@@ -50,6 +55,25 @@ const POSITIONAL_OPENERS = new Set([
   'und', 'aber', 'oder', 'denn', 'wenn', 'weil', 'dass', 'ob', 'als', 'obwohl', 'damit',
   // particles
   'nicht', 'sehr', 'ganz', 'nur', 'auch', 'schon', 'noch', 'leider', 'vielleicht', 'natürlich',
+  // Finite auxiliaries and modals — what opens a German yes/no question, and the
+  // largest group still leaking after the list above. 219 of the drills are
+  // questions: «Habt ihr Hilfe angeboten?» rendered *Habt* capitalised among
+  // lowercase tiles, which is the answer. A closed class, so it can be listed;
+  // full verbs are open and are deliberately left alone.
+  //
+  // Not extended to a lexicon lookup on purpose. `lookupSurface` is case-sensitive
+  // by design — its own comment is "`Essen` stays the noun and `Morgen` stays the
+  // morning" — so asking it about a capitalised first token resolves *Können* to
+  // the noun *das Können*, and acting on that would lowercase a real noun.
+  'bin', 'bist', 'ist', 'sind', 'seid', 'war', 'warst', 'waren', 'wart',
+  'habe', 'hast', 'hat', 'haben', 'habt', 'hatte', 'hattest', 'hatten', 'hattet',
+  'werde', 'wirst', 'wird', 'werden', 'werdet', 'wurde', 'wurden',
+  'kann', 'kannst', 'können', 'könnt', 'konnte', 'konnten',
+  'muss', 'musst', 'müssen', 'müsst', 'musste', 'mussten',
+  'will', 'willst', 'wollen', 'wollt', 'wollte', 'wollten',
+  'soll', 'sollst', 'sollen', 'sollt', 'sollte', 'sollten',
+  'darf', 'darfst', 'dürfen', 'dürft', 'durfte', 'durften',
+  'mag', 'magst', 'mögen', 'mögt', 'möchte', 'möchtest', 'möchten', 'möchtet',
 ]);
 
 /** Tiles as the learner should see them: the case each word carries mid-sentence.

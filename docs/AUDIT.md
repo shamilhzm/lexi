@@ -49,7 +49,7 @@ out five times — see the withdrawals below. A count in this file that is not m
 | Conjugator Partizip II vs. the forms the corpus attests | 262 verbs with a Perfekt example | **262 agree · 0 disagree** | — |
 | `case` drill distractors | all `caseSafe` nouns | **clean by construction** — four distinct articles per gender from a fixed table | — |
 | `order` drill: is the required order the only correct one? | 6,023 order drills | **no — it accepts exactly one**; ruled *not* to narrow the drill, flexibility taught instead | BACKLOG 🟠 |
-| `order` drill: do the tiles give away position 1? | 6,020 order drills | **3,912 (65%) did** — first tile capitalised only for being first; fixed | CHANGELOG 2026-08-24 |
+| `order` drill: do the tiles give away position 1? | 6,020 order drills | **4,565 (75.8%) fixed**; the residual 23.7% are open classes (imperatives, full verbs, adjectives) and are left leaking knowingly | CHANGELOG 2026-08-24 |
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
 | Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
 | Verbs the conjugator declines to inflect | 1,212 verb cards | **60 (4.9%)** — pattern cards and disambiguated terms, all correctly `reliable: false` and never drilled | CHANGELOG 2026-08-24 |

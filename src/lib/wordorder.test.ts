@@ -39,6 +39,27 @@ describe('citation case removes the positional capital', () => {
       .toEqual(['Das', 'Konzert', 'fällt', 'aus.', '–', 'Das', 'ist', 'schade']);
   });
 
+  it('lowercases the auxiliary or modal that opens a question', () => {
+    // Found by playing the drill: «Habt ihr Hilfe angeboten?» rendered *Habt*
+    // capitalised among lowercase tiles, which is the whole answer.
+    expect(citationTiles(['Habt', 'ihr', 'Hilfe', 'angeboten']))
+      .toEqual(['habt', 'ihr', 'Hilfe', 'angeboten']);
+    expect(citationTiles(['Können', 'Sie', 'mir', 'helfen']))
+      .toEqual(['können', 'Sie', 'mir', 'helfen']);
+    expect(citationTiles(['Möchtest', 'du', 'einen', 'Kaffee']))
+      .toEqual(['möchtest', 'du', 'einen', 'Kaffee']);
+  });
+
+  it('leaves a full verb alone — an open class this list cannot name', () => {
+    // 23.7% of drills still open with something unnameable: imperatives, full
+    // finite verbs, adjectives. Left leaking rather than guessed at, because
+    // lowercasing a noun by mistake writes bad German.
+    expect(citationTiles(['Kommst', 'du', 'morgen', 'mit']))
+      .toEqual(['Kommst', 'du', 'morgen', 'mit']);
+    expect(citationTiles(['Mach', 'bitte', 'die', 'Tür', 'zu']))
+      .toEqual(['Mach', 'bitte', 'die', 'Tür', 'zu']);
+  });
+
   it('survives the degenerate inputs', () => {
     expect(citationTiles([])).toEqual([]);
     expect(citationTiles(['ich', 'gehe'])).toEqual(['ich', 'gehe']);   // already lowercase
