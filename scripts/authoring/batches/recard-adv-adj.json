@@ -1,0 +1,123 @@
+[
+  {
+    "id": "voc:A1:natürlich",
+    "expect": {
+      "term": "natürlich",
+      "level": "A1",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:A2:eigentlich",
+    "expect": {
+      "term": "eigentlich",
+      "level": "A2",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:B1:gegenseitig",
+    "expect": {
+      "term": "gegenseitig",
+      "level": "B1",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:A2:plötzlich",
+    "expect": {
+      "term": "plötzlich",
+      "level": "A2",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Time",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:B2:zunehmend",
+    "expect": {
+      "term": "zunehmend",
+      "level": "B2",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Core Vocabulary",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:B2:künftig",
+    "expect": {
+      "term": "künftig",
+      "level": "B2",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:B1:unabhängig",
+    "expect": {
+      "term": "unabhängig",
+      "level": "B1",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:A2:furchtbar",
+    "expect": {
+      "term": "furchtbar",
+      "level": "A2",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:A2:einzig",
+    "expect": {
+      "term": "einzig",
+      "level": "A2",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:B1:gewöhnlich",
+    "expect": {
+      "term": "gewöhnlich",
+      "level": "B1",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  },
+  {
+    "id": "voc:C1:systematisch",
+    "expect": {
+      "term": "systematisch",
+      "level": "C1",
+      "pos": "adverb"
+    },
+    "pos": "adjective",
+    "field": "Adjectives",
+    "why": "A German adjective used adverbially is the same word uninflected, so carding it as an adverb is not wrong about the word — it is wrong about what the app can then do with it. Only adjective cards get de-inflection, so «ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to nothing at all, and an example written that way is refused by the authoring gate."
+  }
+]

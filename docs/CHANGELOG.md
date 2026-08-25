@@ -11,6 +11,41 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — eleven adjectives that could not be read
+
+With `authoring:recard` built, the obvious next question was whether `normal` was alone.
+It was not.
+
+German's adverbs are, overwhelmingly, adjectives used uninflected — so carding one as an
+adverb is not wrong about the **word**. It is wrong about what the app can do with it:
+only adjective cards reach `adjIndex` and the de-inflection path, so on an adverb card
+«ein plötzlicher Regen», «die gegenseitige Hilfe» and «unabhängige Medien» resolved to
+**nothing at all**. A learner reading real German got no credit for a word they know, and
+an example written that way was refused by the authoring gate.
+
+**Eleven re-posed**: `natürlich`, `eigentlich`, `gegenseitig`, `plötzlich`, `zunehmend`,
+`künftig`, `unabhängig`, `furchtbar`, `einzig`, `gewöhnlich`, `systematisch`. Six of them
+were glossed with only the adverbial reading — "suddenly", "actually" — and now name both,
+adjective first, because that is the form that inflects.
+
+**Two deliberately left as adverbs.** `ziemlich` and `letztendlich` *can* be adjectives,
+and their cards teach the intensifier, which is the reading a learner needs. Re-posing
+everything that could be an adjective would be the pattern-instead-of-lexicon mistake.
+
+The check needed narrowing twice before it was believed. "An adverb card whose inflected
+form appears anywhere in the corpus" fires 31 times and most are a different word
+entirely — `nicht` → *die Nichte*, `mal` → *malen*, `eben` → *die Ebene*, `schon` →
+*schonen*. Excluding forms that are themselves cards, and requiring an adjective-shaped
+ending, leaves 13, of which 11 survive reading.
+
+Measured: the reader probe's adjective rate 0.94 → **0.95**, which is the eleven new
+adjectives entering its population and de-inflecting correctly. Six tests over the
+shipped corpus pin the sentences that used to resolve to nothing.
+
+1,000 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-25 — the tool six items were waiting on, and the A1 numeral it freed
 
 Six filed items were blocked on the same missing thing, and it was not a hard thing:

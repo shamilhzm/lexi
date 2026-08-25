@@ -6382,7 +6382,7 @@
     "id": "voc:A1:natürlich",
     "term": "natürlich",
     "en": "of course, naturally",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "A1",
     "gender": null,
     "plural": null,
@@ -6392,7 +6392,7 @@
       "selbstverständlich"
     ],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -12397,15 +12397,15 @@
   {
     "id": "voc:A2:eigentlich",
     "term": "eigentlich",
-    "en": "actually",
-    "pos": "adverb",
+    "en": "actual; actually",
+    "pos": "adjective",
     "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈaɪ̯ɡn̩tlɪç",
     "syn": [],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -31243,7 +31243,7 @@
     "id": "voc:B1:gegenseitig",
     "term": "gegenseitig",
     "en": "mutual(ly)",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -31257,7 +31257,7 @@
     "ant": [
       "einseitig"
     ],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -32156,8 +32156,8 @@
   {
     "id": "voc:A2:plötzlich",
     "term": "plötzlich",
-    "en": "suddenly",
-    "pos": "adverb",
+    "en": "sudden; suddenly",
+    "pos": "adjective",
     "level": "A2",
     "gender": null,
     "plural": null,
@@ -60816,8 +60816,8 @@
   {
     "id": "voc:B2:zunehmend",
     "term": "zunehmend",
-    "en": "increasingly",
-    "pos": "adverb",
+    "en": "increasing; increasingly",
+    "pos": "adjective",
     "level": "B2",
     "gender": null,
     "plural": null,
@@ -67018,14 +67018,14 @@
     "id": "voc:B2:künftig",
     "term": "künftig",
     "en": "henceforth, in the future",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "B2",
     "gender": null,
     "plural": null,
     "ipa": "ˈkʏnftɪç",
     "syn": [],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -68706,14 +68706,14 @@
     "id": "voc:B1:unabhängig",
     "term": "unabhängig",
     "en": "independently, irrespectively, regardless",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "B1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʊn.apˌhɛŋɪç",
     "syn": [],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -79753,8 +79753,8 @@
   {
     "id": "voc:A2:furchtbar",
     "term": "furchtbar",
-    "en": "terribly, awfully",
-    "pos": "adverb",
+    "en": "terrible, awful; terribly",
+    "pos": "adjective",
     "level": "A2",
     "gender": null,
     "plural": null,
@@ -79766,7 +79766,7 @@
       "schrecklich"
     ],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -82329,7 +82329,7 @@
     "id": "voc:A2:einzig",
     "term": "einzig",
     "en": "only",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "A2",
     "gender": null,
     "plural": null,
@@ -82341,7 +82341,7 @@
       "lediglich"
     ],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -83000,8 +83000,8 @@
   {
     "id": "voc:B1:gewöhnlich",
     "term": "gewöhnlich",
-    "en": "usually",
-    "pos": "adverb",
+    "en": "usual, ordinary; usually",
+    "pos": "adjective",
     "level": "B1",
     "gender": null,
     "plural": null,
@@ -83013,7 +83013,7 @@
       "geläufig"
     ],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -88424,8 +88424,8 @@
   {
     "id": "voc:C1:systematisch",
     "term": "systematisch",
-    "en": "systematically",
-    "pos": "adverb",
+    "en": "systematic; systematically",
+    "pos": "adjective",
     "level": "C1",
     "gender": null,
     "plural": null,
@@ -88435,7 +88435,7 @@
       "methodisch"
     ],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {

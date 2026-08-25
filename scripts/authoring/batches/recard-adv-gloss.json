@@ -1,0 +1,50 @@
+[
+  {
+    "id": "voc:A2:plötzlich",
+    "expect": {
+      "en": "suddenly"
+    },
+    "en": "sudden; suddenly",
+    "src": "The card is an adjective now, and the gloss named only the adverbial reading. Both are the same German word; the adjective is listed first because that is the form that inflects."
+  },
+  {
+    "id": "voc:A2:eigentlich",
+    "expect": {
+      "en": "actually"
+    },
+    "en": "actual; actually",
+    "src": "The card is an adjective now, and the gloss named only the adverbial reading. Both are the same German word; the adjective is listed first because that is the form that inflects."
+  },
+  {
+    "id": "voc:C1:systematisch",
+    "expect": {
+      "en": "systematically"
+    },
+    "en": "systematic; systematically",
+    "src": "The card is an adjective now, and the gloss named only the adverbial reading. Both are the same German word; the adjective is listed first because that is the form that inflects."
+  },
+  {
+    "id": "voc:B1:gewöhnlich",
+    "expect": {
+      "en": "usually"
+    },
+    "en": "usual, ordinary; usually",
+    "src": "The card is an adjective now, and the gloss named only the adverbial reading. Both are the same German word; the adjective is listed first because that is the form that inflects."
+  },
+  {
+    "id": "voc:B2:zunehmend",
+    "expect": {
+      "en": "increasingly"
+    },
+    "en": "increasing; increasingly",
+    "src": "The card is an adjective now, and the gloss named only the adverbial reading. Both are the same German word; the adjective is listed first because that is the form that inflects."
+  },
+  {
+    "id": "voc:A2:furchtbar",
+    "expect": {
+      "en": "terribly, awfully"
+    },
+    "en": "terrible, awful; terribly",
+    "src": "The card is an adjective now, and the gloss named only the adverbial reading. Both are the same German word; the adjective is listed first because that is the form that inflects."
+  }
+]
