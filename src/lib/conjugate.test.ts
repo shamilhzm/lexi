@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { conjugate, canConjugate, setKnownVerbs } from './conjugate.ts';
 
 describe('conjugate — irregular table', () => {
@@ -357,5 +357,54 @@ describe('ambiguous prefixes follow the card, not the dictionary headword', () =
     // Wiktionary's Flexion page shows the rarer separable readings for both.
     expect(conjugate('überfahren').partizip).toBe('überfahren');
     expect(conjugate('überholen').praeteritum[2]).toBe('überholte');
+  });
+});
+
+// A separable prefix on an **inseparably prefixed root** takes no ge-: the ge-
+// slot belongs to the root, and the root has already spent it. Found 2026-08-25
+// when seeding `versetzen` made *sich hineinversetzen* conjugatable and
+// immediately wrong — «hineingeversetzt». A fix that only splits is not a fix.
+describe('separable prefix over an inseparable root', () => {
+  // These roots are seeded, not carded, so the split needs the same priming the
+  // app does at boot (LESSONS class 2: a pure function with a seeded table is not
+  // pure until the table is seeded). In `beforeEach`, not in the describe body:
+  // `setKnownVerbs` *replaces* the set, describe bodies all run at collection
+  // time, and the two calls above would otherwise be whichever ran last.
+  beforeEach(() => {
+    setKnownVerbs(['versetzen', 'bewahren', 'eignen', 'kühlen', 'wirken', 'machen', 'geben', 'stellen', 'ruhen', 'kennen']);
+  });
+
+  it('drops the ge- where the root already carries a prefix', () => {
+    expect(conjugate('hineinversetzen').partizip).toBe('hineinversetzt');
+    expect(conjugate('aufbewahren').partizip).toBe('aufbewahrt');
+  });
+
+  it('keeps the ge- for an ordinary separable verb', () => {
+    expect(conjugate('aufmachen').partizip).toBe('aufgemacht');
+    expect(conjugate('abkühlen').partizip).toBe('abgekühlt');
+    expect(conjugate('aneignen').partizip).toBe('angeeignet');
+  });
+
+  it('leaves genuinely ent- prefixed verbs alone', () => {
+    // The counter-examples for the `entgegen` entry below.
+    expect(conjugate('entfernen').partizip).toBe('entfernt');
+    expect(conjugate('entscheiden').partizip).toBe('entschieden');
+    expect(conjugate('entwickeln').partizip).toBe('entwickelt');
+  });
+
+  it('reads entgegen as one separable prefix, not ent- plus gegen', () => {
+    // «entgegenwirkt» shipped reliable. German is entgegengewirkt.
+    const c = conjugate('entgegenwirken');
+    expect(c.separable).toBe('entgegen');
+    expect(c.partizip).toBe('entgegengewirkt');
+  });
+
+  it('tables anerkennen, which splitPrefix cannot reach in one level', () => {
+    // an + erkennen, and *erkennen* is itself er + kennen — two levels, so the
+    // weak generator took it and produced «anerkennt», marked reliable.
+    const c = conjugate('anerkennen');
+    expect(c.partizip).toBe('anerkannt');
+    expect(c.praesens[0]).toBe('erkenne an');
+    expect(c.reliable).toBe(true);
   });
 });

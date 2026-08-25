@@ -210,6 +210,12 @@ const TABLE: Record<string, Entry> = {
   verwenden: { praesens: six('verwende','verwendest','verwendet','verwenden','verwendet','verwenden'), praeteritum: six('verwendete','verwendetest','verwendete','verwendeten','verwendetet','verwendeten'), partizip: 'verwendet', aux: 'haben' },
   vorhersagen: { praesens: six('sage vorher','sagst vorher','sagt vorher','sagen vorher','sagt vorher','sagen vorher'), praeteritum: six('sagte vorher','sagtest vorher','sagte vorher','sagten vorher','sagtet vorher','sagten vorher'), partizip: 'vorhergesagt', aux: 'haben' },
   widerlegen: { praesens: six('widerlege','widerlegst','widerlegt','widerlegen','widerlegt','widerlegen'), praeteritum: six('widerlegte','widerlegtest','widerlegte','widerlegten','widerlegtet','widerlegten'), partizip: 'widerlegt', aux: 'haben' },
+  // `splitPrefix` only goes one level: it looks for TABLE[inf minus prefix], and
+  // *erkennen* is not tabled — it resolves through its own er- split. So
+  // *anerkennen* found no strong entry and the weak generator produced
+  // **«anerkennt»**, marked reliable. Tabled here for the same reason
+  // *wiedererkennen* below is: a two-prefix verb needs its own row.
+  anerkennen: { praesens: six('erkenne an','erkennst an','erkennt an','erkennen an','erkennt an','erkennen an'), praeteritum: six('erkannte an','erkanntest an','erkannte an','erkannten an','erkanntet an','erkannten an'), partizip: 'anerkannt', aux: 'haben' },
   wiedererkennen: { praesens: six('erkenne wieder','erkennst wieder','erkennt wieder','erkennen wieder','erkennt wieder','erkennen wieder'), praeteritum: six('erkannte wieder','erkanntest wieder','erkannte wieder','erkannten wieder','erkanntet wieder','erkannten wieder'), partizip: 'wiedererkannt', aux: 'haben' },
   wiederverwenden: { praesens: six('verwende wieder','verwendest wieder','verwendet wieder','verwenden wieder','verwendet wieder','verwenden wieder'), praeteritum: six('verwendete wieder','verwendetest wieder','verwendete wieder','verwendeten wieder','verwendetet wieder','verwendeten wieder'), partizip: 'wiederverwendet', aux: 'haben' },
   zuwinken: { praesens: six('winke zu','winkst zu','winkt zu','winken zu','winkt zu','winken zu'), praeteritum: six('winkte zu','winktest zu','winkte zu','winkten zu','winktet zu','winkten zu'), partizip: 'zugewinkt', aux: 'haben' },
@@ -354,6 +360,17 @@ const SEED_ROOTS = [
   'klären', 'grenzen', 'decken', 'lehnen', 'weisen', 'schränken', 'dämmen',
   'wachen', 'ruhen', 'zünden', 'regen', 'beugen', 'heitern', 'hellen', 'kurbeln',
   'hetzen', 'tönen', 'winken', 'checken', 'probieren',
+  // Three roots the corpus stopped carding, or never did — added 2026-08-25 when
+  // the reflexive drill gate opened and three cards came out unconjugatable:
+  // *sich aneignen* built **«aneigne» / «geaneignet»**, *sich abkühlen* and
+  // *sich hineinversetzen* the same shape.
+  //
+  // `eignen` is the one worth remembering: it **was** a card that morning, and a
+  // merge retired it into `sich eignen für + A`. `setKnownVerbs` is seeded from
+  // the corpus, so retiring a card silently removed the root a *different* card's
+  // prefix split depended on. A merge is a schedule migration and also, it turns
+  // out, a conjugation change. See LESSONS.
+  'eignen', 'kühlen', 'versetzen',
   // `fühlen` is a genuine weak verb that Lexi happens not to card, so `wohlfühlen`
   // and `mitfühlen` had no root to split on. Added 2026-08-24 with `wohl`.
   'fühlen',
@@ -421,6 +438,12 @@ const SEPARABLE = [
   'ab', 'an', 'auf', 'aus', 'bei', 'dar', 'ein', 'empor', 'fern', 'fest', 'fort', 'her', 'herab', 'heran',
   'frei', 'herauf', 'heraus', 'herbei', 'herein', 'herum', 'herunter', 'hervor', 'hin', 'hinauf', 'hinaus',
   'hinein', 'hinunter', 'hinweg', 'hinzu', 'los', 'mit', 'nach', 'nieder', 'statt', 'teil', 'überein',
+  // `entgegen` must be listed, and listed as a whole: without it *entgegenwirken*
+  // matched the **inseparable** `ent` instead, and came back «entgegenwirkt» —
+  // reliable, and missing its ge-. German is *entgegengewirkt*. The lists are
+  // scanned longest-first below, so this cannot shadow `ent` for a verb that
+  // really is ent-prefixed.
+  'entgegen',
   'vor', 'voran', 'voraus',
   'vorbei', 'weg', 'weiter', 'zu', 'zurecht', 'zurück', 'zusammen',
   // Added 2026-08-24. Missing from the list, so `splitPrefix` never fired and the
@@ -513,6 +536,16 @@ function regularPartizip(inf: string, sep: string | null, inseparable: boolean):
   // the conjugation drill, which asks for Partizip II on any reliable verb.
   if (root.endsWith('ieren')) return (sep ?? '') + stem + end;  // studieren -> studiert, ausprobieren -> ausprobiert
   if (inseparable) return stemOf(inf) + end;             // verkaufen -> verkauft (keep prefix)
+  // A separable prefix on an **inseparably prefixed root** takes no `ge-` either:
+  // the ge- slot belongs to the root, and the root has already spent it.
+  // *hineinversetzen* is hinein + versetzen -> **hineinversetzt**, not
+  // «hineingeversetzt»; the same governs *anerkennen* -> anerkannt and
+  // *aufbewahren* -> aufbewahrt. Found 2026-08-25 when seeding `versetzen` as a
+  // root made `sich hineinversetzen` conjugatable and immediately wrong — the
+  // fix that only splits is not a fix.
+  if (sep && INSEPARABLE.some((p) => root.startsWith(p) && root.length > p.length + 2)) {
+    return sep + stem + end;                             // hineinversetzen -> hineinversetzt
+  }
   if (sep) return sep + 'ge' + stem + end;               // aufmachen -> aufgemacht
   return 'ge' + stem + end;                              // machen -> gemacht
 }

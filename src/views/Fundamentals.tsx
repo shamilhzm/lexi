@@ -306,7 +306,30 @@ export function isSeparable(verb: string): boolean {
  *  reason: its bare finite form drops the pronoun the verb cannot do without. */
 export function isReflexive(verb: string): boolean {
   const c = conjugate(verb);
-  return c.reliable && c.reflexive && !c.separable;
+  // `!c.separable` was here until 2026-08-25 and left **14 cards with no drill at
+  // all** — `sich vorstellen` among them, which is A1 and one of the first verbs
+  // anybody meets. They fell through both gates: `conjDrillable` excludes every
+  // reflexive (right — the conjugation drill would print the bare finite form),
+  // and this one excluded every separable. The exclusion was a placeholder for
+  // "buildReflexive cannot write the split frame yet", and now it can.
+  return c.reliable && c.reflexive;
+}
+
+/** The Präsens of a reflexive, with the pronoun where German puts it.
+ *
+ *  A plain reflexive appends it — *fühle mich*. A **separable** one brackets the
+ *  clause: the stem goes to position 2, the particle to the end, and the pronoun
+ *  sits between them — *stelle **mich** vor*, *ruhe **mich** aus*. `conjugate`
+ *  returns "stelle vor" for those, so appending would have produced «stelle vor
+ *  mich», which is why the drill refused them rather than guess.
+ *
+ *  The Perfekt needs no help: the conjugator already returns "habe mich
+ *  vorgestellt" with the pronoun in place. */
+export function reflexivePraesens(praesens: string, refl: string): string {
+  const space = praesens.indexOf(' ');
+  return space > 0
+    ? `${praesens.slice(0, space)} ${refl} ${praesens.slice(space + 1)}`
+    : `${praesens} ${refl}`;
 }
 
 // The reflexive pronouns, in PERSONS_I order. `conjugate` strips "sich" before
@@ -321,24 +344,29 @@ export function buildReflexive(verb: string, shape: 'praesens' | 'perfekt', pIdx
   const c = conjugate(verb);
   const pronoun = PRONOUN[PERSONS_I[pIdx]].split('/')[0];
   const refl = REFLEX[pIdx];
-  const form = shape === 'perfekt' ? c.perfekt[pIdx] : `${c.praesens[pIdx]} ${refl}`;
+  const form = shape === 'perfekt' ? c.perfekt[pIdx] : reflexivePraesens(c.praesens[pIdx], refl);
   const label = shape === 'perfekt' ? 'Perfekt' : 'Präsens';
+  const sep = c.separable;
   return {
     prompt: `„sich ${c.infinitive}“ → ${label} · ${pronoun}`,
     accept: [`${pronoun} ${form}`, form],
     hints: shape === 'perfekt'
       ? [`${c.aux} + „${refl}“ + the Partizip II`, `${pronoun} ${c.perfekt[pIdx].split(' ')[0]} ${refl} …`, hintText(`${pronoun} ${form}`, 3)]
-      : [`The verb, then „${refl}“ — the pronoun changes with the person`,
+      : [sep
+           ? `Three pieces: the verb, „${refl}“, and „${sep}“ at the very end`
+           : `The verb, then „${refl}“ — the pronoun changes with the person`,
          REFLEX.map((r, i) => `${PRONOUN[PERSONS_I[i]].split('/')[0]} ${r}`).join(' · '),
          hintText(`${pronoun} ${form}`, 3)],
     reveal: {
       derivation: form.split(' '),
-      note: `„${refl}“ is not optional — the verb means nothing without it.`,
+      note: sep && shape === 'praesens'
+        ? `Two things move: „${sep}“ goes to the end of the clause and „${refl}“ sits in front of it. The pronoun is not optional — the verb means nothing without it.`
+        : `„${refl}“ is not optional — the verb means nothing without it.`,
       paradigm: {
         label: `${label} · all persons`,
         rows: PERSONS_I.map((p, i) => [
           PRONOUN[p].split('/')[0],
-          shape === 'perfekt' ? c.perfekt[i] : `${c.praesens[i]} ${REFLEX[i]}`,
+          shape === 'perfekt' ? c.perfekt[i] : reflexivePraesens(c.praesens[i], REFLEX[i]),
         ]) as [string, string][],
       },
     },
