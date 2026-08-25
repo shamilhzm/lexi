@@ -2286,8 +2286,8 @@
     "def": "To ask someone politely for something you want or need — unlike fragen, which is to ask a question.",
     "ex": [
       {
-        "de": "Darf ich Sie um Hilfe bitten?",
-        "en": "May I ask you for help?",
+        "de": "Er bat mich, kurz zu warten.",
+        "en": "He asked me to wait a moment.",
         "lvl": "A1"
       },
       {
@@ -6153,8 +6153,8 @@
     "def": "To form thoughts, or to hold an opinion.",
     "ex": [
       {
-        "de": "Ich denke an dich.",
-        "en": "I am thinking of you.",
+        "de": "Ich denke, das ist eine gute Idee.",
+        "en": "I think that is a good idea.",
         "lvl": "A1"
       },
       {
@@ -19602,9 +19602,19 @@
       }
     ]
   },
-  "voc:A1:füllen in + A": {
-    "def": "To pour or put a substance into a container.",
+  "voc:A1:füllen": {
+    "def": "to fill; to stuff",
     "ex": [
+      {
+        "de": "Tom füllt das Glas mit Wasser.",
+        "en": "Tom fills the glass with water.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom füllte den Kessel.",
+        "en": "Tom filled the kettle.",
+        "lvl": "A2"
+      },
       {
         "de": "Füll das Wasser bitte in die Flasche.",
         "en": "Please pour the water into the bottle.",
@@ -25536,8 +25546,8 @@
     "def": "to wait (for); to maintain (chiefly a machine, e.g. a car or heating)",
     "ex": [
       {
-        "de": "Ich warte auf den Bus.",
-        "en": "I am waiting for the bus.",
+        "de": "Warte kurz, ich komme sofort.",
+        "en": "Wait a moment, I am coming right away.",
         "lvl": "A1"
       },
       {
@@ -45069,21 +45079,6 @@
       }
     ]
   },
-  "voc:A2:eignen": {
-    "def": "To be right or suitable for a purpose.",
-    "ex": [
-      {
-        "de": "Würde sich das eignen?",
-        "en": "Would that be suitable?",
-        "lvl": "A2"
-      },
-      {
-        "de": "Das ist nicht zum Verzehr geeignet.",
-        "en": "It's not fit to be eaten.",
-        "lvl": "A2"
-      }
-    ]
-  },
   "voc:A2:ein Problem lösen": {
     "def": "schwierige, noch ungelöste Aufgabe",
     "ex": [
@@ -46207,21 +46202,6 @@
         "de": "Begabte Schüler sollten gezielt gefördert werden.",
         "en": "Gifted pupils should be supported in a targeted way.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:A2:füllen": {
-    "def": "to fill; to stuff",
-    "ex": [
-      {
-        "de": "Füllt die Lücken aus.",
-        "en": "Fill in the blanks.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Tom füllte den Kessel.",
-        "en": "Tom filled the kettle.",
-        "lvl": "A2"
       }
     ]
   },
@@ -48098,21 +48078,6 @@
       }
     ]
   },
-  "voc:A2:nachdenken": {
-    "def": "To think carefully about something.",
-    "ex": [
-      {
-        "de": "Ich muss nachdenken.",
-        "en": "I have to think.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Tom muss nachdenken.",
-        "en": "Tom needs to think.",
-        "lvl": "A2"
-      }
-    ]
-  },
   "voc:A2:nachdenken über + A": {
     "def": "To consider something carefully in your mind.",
     "ex": [
@@ -48124,6 +48089,16 @@
       {
         "de": "Denk gut über deine Entscheidung nach.",
         "en": "Think carefully about your decision.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich muss nachdenken.",
+        "en": "I have to think.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom muss nachdenken.",
+        "en": "Tom needs to think.",
         "lvl": "A2"
       }
     ]
@@ -49724,6 +49699,31 @@
       }
     ]
   },
+  "voc:A2:sich eignen für + A": {
+    "def": "To be right or suitable for a purpose.",
+    "ex": [
+      {
+        "de": "Dieses Werkzeug eignet sich gut für feine Arbeiten.",
+        "en": "This tool is well suited for fine work.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Raum eignet sich gut für Feiern.",
+        "en": "The room is well suited for celebrations.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Würde sich das eignen?",
+        "en": "Would that be suitable?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das ist nicht zum Verzehr geeignet.",
+        "en": "It's not fit to be eaten.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:sich entscheiden": {
     "def": "reflexive: ich entscheide mich für …",
     "ex": [
@@ -49789,9 +49789,19 @@
       }
     ]
   },
-  "voc:A2:sich erinnern": {
-    "def": "reflexive: ich erinnere mich an …",
+  "voc:A2:sich erinnern an + A": {
+    "def": "To keep or bring something back into your mind.",
     "ex": [
+      {
+        "de": "Ich erinnere mich an das Fest.",
+        "en": "I remember the party.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Erinnerst du dich an unseren ersten Urlaub?",
+        "en": "Do you remember our first holiday?",
+        "lvl": "A2"
+      },
       {
         "de": "Ich erinnere mich an dich.",
         "en": "I remember you.",
@@ -49806,21 +49816,6 @@
         "de": "An die Einzelheiten kann ich mich beim besten Willen nicht mehr erinnern.",
         "en": "For the life of me I can no longer remember the details.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:A2:sich erinnern an + A": {
-    "def": "To keep or bring something back into your mind.",
-    "ex": [
-      {
-        "de": "Ich erinnere mich an das Fest.",
-        "en": "I remember the party.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Erinnerst du dich an unseren ersten Urlaub?",
-        "en": "Do you remember our first holiday?",
-        "lvl": "A2"
       }
     ]
   },
@@ -50736,26 +50731,6 @@
       }
     ]
   },
-  "voc:A2:teilnehmen": {
-    "def": "separable: ich nehme an … teil",
-    "ex": [
-      {
-        "de": "Ich nehme am Kurs teil.",
-        "en": "I am taking part in the course.",
-        "lvl": "A2"
-      },
-      {
-        "de": "An dem Wettbewerb nehmen viele Schüler teil.",
-        "en": "Many pupils take part in the competition.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Wer an der Sitzung nicht teilnehmen kann, sollte sich rechtzeitig abmelden.",
-        "en": "Those who cannot attend the meeting should excuse themselves in time.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:A2:teilnehmen an + D": {
     "def": "To join in an activity together with others.",
     "ex": [
@@ -50768,6 +50743,16 @@
         "de": "Viele Länder nehmen an dem Wettbewerb teil.",
         "en": "Many countries take part in the competition.",
         "lvl": "B1"
+      },
+      {
+        "de": "An dem Wettbewerb nehmen viele Schüler teil.",
+        "en": "Many pupils take part in the competition.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wer an der Sitzung nicht teilnehmen kann, sollte sich rechtzeitig abmelden.",
+        "en": "Those who cannot attend the meeting should excuse themselves in time.",
+        "lvl": "B2"
       }
     ]
   },
@@ -55227,12 +55212,7 @@
         "de": "Wer auswandert, lässt mehr zurück als nur einen Wohnort.",
         "en": "Whoever emigrates leaves behind more than just a place to live.",
         "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:auswandern aus + D": {
-    "def": "To leave a country to settle permanently elsewhere.",
-    "ex": [
+      },
       {
         "de": "Ihre Familie wanderte aus Polen aus.",
         "en": "Her family emigrated from Poland.",
@@ -55739,6 +55719,11 @@
         "de": "Sport trägt zur Gesundheit bei.",
         "en": "Exercise contributes to health.",
         "lvl": "B1"
+      },
+      {
+        "de": "wesentlich dazu beitragen.",
+        "en": "to significantly contribute to.",
+        "lvl": "B2"
       }
     ]
   },
@@ -81248,8 +81233,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich erinnere mich gut an unseren Urlaub.",
-        "en": "I remember our holiday well.",
+        "de": "Die alten Fotos erinnern sie an ihre Schulzeit.",
+        "en": "The old photos remind her of her school days.",
         "lvl": "B1"
       }
     ]
@@ -82443,6 +82428,16 @@
         "de": "Wie gelangt man am schnellsten zum Bahnhof?",
         "en": "What's the quickest way to get to the station?",
         "lvl": "B1"
+      },
+      {
+        "de": "Ich muss zu Tom gelangen.",
+        "en": "I have to get to Tom.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tolstoi gelangte zu Weltruhm.",
+        "en": "Tolstoy achieved worldwide fame.",
+        "lvl": "B2"
       }
     ]
   },
@@ -84097,21 +84092,6 @@
       }
     ]
   },
-  "voc:B1:konzentrieren": {
-    "def": "to concentrate, to focus (one's mind or attention); to concentrate (something)",
-    "ex": [
-      {
-        "de": "Konzentriere dich!",
-        "en": "Stay focused.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Konzentriert euch!",
-        "en": "Stay focused.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:korrupt": {
     "def": "corrupt (inclined to bribery); corrupt (morally or ethically rotten)",
     "ex": [
@@ -85711,6 +85691,16 @@
         "de": "Auch Kunden profitieren von niedrigeren Preisen.",
         "en": "Customers also benefit from lower prices.",
         "lvl": "B1"
+      },
+      {
+        "de": "Wer profitiert davon?",
+        "en": "Who benefits?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Schwerindustrie profitiert immer vom Krieg.",
+        "en": "Heavy industry always benefits from war.",
+        "lvl": "B2"
       }
     ]
   },
@@ -87055,21 +87045,6 @@
       }
     ]
   },
-  "voc:B1:sich eignen für + A": {
-    "def": "To be right or suitable for a purpose.",
-    "ex": [
-      {
-        "de": "Dieses Werkzeug eignet sich gut für feine Arbeiten.",
-        "en": "This tool is well suited for fine work.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Der Raum eignet sich gut für Feiern.",
-        "en": "The room is well suited for celebrations.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:sich einleben": {
     "def": "To get used to a new place and feel at home there.",
     "ex": [
@@ -87336,6 +87311,16 @@
       {
         "de": "Konzentrier dich bitte auf deine Aufgabe.",
         "en": "Please concentrate on your task.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Konzentriere dich!",
+        "en": "Stay focused.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Konzentriert euch!",
+        "en": "Stay focused.",
         "lvl": "B1"
       }
     ]
@@ -90242,21 +90227,6 @@
       }
     ]
   },
-  "voc:B1:verzichten": {
-    "def": "to give up, to go without, to live without, to make do without, to do without, to forgo, to dispense with; to refrain from, to abstain, to renounce, to forswear",
-    "ex": [
-      {
-        "de": "Aus Umweltgründen verzichtet sie auf Fleisch.",
-        "en": "For environmental reasons she does without meat.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ich verzichte abends auf Kaffee.",
-        "en": "I go without coffee in the evening.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:verzichten auf + A": {
     "def": "To give up or go without something.",
     "ex": [
@@ -90268,6 +90238,16 @@
       {
         "de": "Beim Abnehmen verzichtet er auf Süßigkeiten.",
         "en": "While losing weight he does without sweets.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Aus Umweltgründen verzichtet sie auf Fleisch.",
+        "en": "For environmental reasons she does without meat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich verzichte abends auf Kaffee.",
+        "en": "I go without coffee in the evening.",
         "lvl": "B1"
       }
     ]
@@ -93224,21 +93204,6 @@
       {
         "de": "Sie beging Selbstmord.",
         "en": "She committed suicide.",
-        "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:beitragen": {
-    "def": "to contribute to (to give something, that is or becomes part of a larger whole)",
-    "ex": [
-      {
-        "de": "Jeder kann zum Umweltschutz beitragen.",
-        "en": "Everyone can contribute to protecting the environment.",
-        "lvl": "B2"
-      },
-      {
-        "de": "wesentlich dazu beitragen.",
-        "en": "to significantly contribute to.",
         "lvl": "B2"
       }
     ]
@@ -102796,21 +102761,6 @@
       }
     ]
   },
-  "voc:B2:gelangen": {
-    "def": "to reach, get to, end up in (a place, location); to reach, arrive at (a destination)",
-    "ex": [
-      {
-        "de": "Ich muss zu Tom gelangen.",
-        "en": "I have to get to Tom.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Tolstoi gelangte zu Weltruhm.",
-        "en": "Tolstoy achieved worldwide fame.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B2:gelegentlich": {
     "def": "Happening now and then rather than regularly.",
     "ex": [
@@ -104336,21 +104286,6 @@
       }
     ]
   },
-  "voc:B2:profitieren": {
-    "def": "to benefit; to profit",
-    "ex": [
-      {
-        "de": "Wer profitiert davon?",
-        "en": "Who benefits?",
-        "lvl": "B2"
-      },
-      {
-        "de": "Die Schwerindustrie profitiert immer vom Krieg.",
-        "en": "Heavy industry always benefits from war.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B2:prägen": {
     "def": "(Druckwesen, Münzwesen, Textilindustrie:",
     "ex": [
@@ -105530,8 +105465,8 @@
     "def": "to decree, to order; to have at one's disposal, to employ, to have control over",
     "ex": [
       {
-        "de": "Wir verfügen über keinen Beweis.",
-        "en": "We don't have any proof.",
+        "de": "Das Gericht verfügte die sofortige Schließung.",
+        "en": "The court ordered the immediate closure.",
         "lvl": "B2"
       },
       {

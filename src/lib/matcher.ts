@@ -285,13 +285,38 @@ export function buildMatcher(corpus: Word[]): Matcher {
   // already A1 cards in their own right, and letting a bare *«Ich warte»* resolve to
   // `warten auf + A` would credit a learner with a pattern they have not met and
   // inflate the comprehension meter — the one number the app exists to state honestly.
-  const patIndex = new Map<string, { word: Word; prep: string }[]>();
-  const addPat = (form: string, prep: string, w: Word) => {
+  //
+  // A *reflexive* governed pattern carries two more things, because the
+  // preposition alone is not enough evidence for one. `sich erinnern an + A` was
+  // claiming «Das Lied erinnert mich an meine Kindheit» — a transitive sentence
+  // with no reflexive in it — because *erinnert* is a form of the lemma and *an*
+  // is in the clause. That credits a learner with a reflexive pattern card on a
+  // sentence that does not contain it, which is the same inflation the comment
+  // above exists to prevent, and it also made the plain `erinnern` card
+  // unillustratable: every example written for it resolved to the reflexive.
+  //
+  // The decidable test is **person agreement**, not "is there a pronoun": *mich*
+  // is reflexive after *ich erinnere* and an ordinary object after *das Lied
+  // erinnert*. So each indexed form remembers which persons it can be, and a
+  // reflexive pattern requires the matching pronoun.
+  const patIndex = new Map<string, { word: Word; prep: string; refl: boolean; persons: Set<number> | null; participle: boolean }[]>();
+  const addPat = (form: string, prep: string, w: Word, refl: boolean, persons: Set<number> | null, participle = false) => {
     if (!form || !prep) return;
     const list = patIndex.get(form) ?? [];
-    if (!list.some((e) => e.word.id === w.id)) list.push({ word: w, prep });
+    if (list.some((e) => e.word.id === w.id)) return;
+    list.push({ word: w, prep, refl, persons: persons ? new Set(persons) : null, participle });
     patIndex.set(form, list);
   };
+
+  /** Finite forms of haben and sein — the tell that a participle reading is live. */
+  const AUX = new Set(['habe', 'hast', 'hat', 'haben', 'habt', 'hatte', 'hattest', 'hatten', 'hattet',
+    'bin', 'bist', 'ist', 'sind', 'seid', 'war', 'warst', 'waren', 'wart', 'wird', 'werde', 'werden', 'wirst', 'werdet']);
+
+  /** The reflexive pronoun each person takes. Index matches `conjugate()`'s. */
+  const REFL_PRONOUN: string[][] = [
+    ['mich', 'mir'], ['dich', 'dir'], ['sich'], ['uns'], ['euch'], ['sich'],
+  ];
+  const ALL_REFL = new Set(REFL_PRONOUN.flat());
 
   // Base forms first, so a lemma always wins over another word's inflection.
   for (const w of corpus) {
@@ -403,6 +428,22 @@ export function buildMatcher(corpus: Word[]): Matcher {
     const g = government(w.term);
     if (!g) continue;
     const forms = new Set<string>([g.lemma.toLowerCase()]);
+    /** form → the persons it can be, or null once a form is reachable by a
+     *  person the conjugator does not label (the Partizip II, the imperative). */
+    const formPersons = new Map<string, Set<number> | null>();
+    const participles = new Set<string>();
+    const addForm = (f: string, person: number | null) => {
+      if (!f) return;
+      forms.add(f);
+      // The Partizip II is not a person, and for every weak verb it is spelled
+      // exactly like the 3rd singular — *erinnert*, *gefragt*, *bedankt*. Merging
+      // it into the person set as "unknown" threw away the agreement information
+      // for precisely the commonest form, so it is tracked on its own.
+      if (person == null) { participles.add(f); return; }
+      const cur = formPersons.get(f);
+      if (cur) cur.add(person);
+      else formPersons.set(f, new Set([person]));
+    };
     // `arbeiten als + N` and `gelten als + N` are tagged `phrase`, not `verb`, and
     // gating on pos alone left them with an uninflected lemma — so the card missed
     // its own «Sie *arbeitet* als Krankenschwester». The lemma either conjugates or
@@ -411,22 +452,30 @@ export function buildMatcher(corpus: Word[]): Matcher {
     if ((w.pos === 'verb' || w.pos === 'phrase') && canConjugate(g.lemma)) {
       try {
         const c = conjugate(g.lemma);
-        for (const f of [...c.praesens, ...c.praeteritum, c.partizip]) {
+        const withPerson: [string, number | null][] = [
+          ...c.praesens.map((f, i) => [f, i] as [string, number]),
+          ...c.praeteritum.map((f, i) => [f, i] as [string, number]),
+          [c.partizip, null] as [string, null],
+        ];
+        for (const [f, person] of withPerson) {
           const lcf = f.toLowerCase();
           const space = lcf.indexOf(' ');
-          if (space < 0) { forms.add(lcf); continue; }
+          if (space < 0) { addForm(lcf, person); continue; }
           // Governed *and* separable — `abhängen von + D`, `sich einsetzen für + A`.
           // The conjugator hands back "hängt ab"; the text has the stem here and the
           // particle at the clause end. Key the stem, as `sepIndex` does, and the
           // joined form a Nebensatz produces ("…, weil das vom Wetter abhängt").
-          forms.add(lcf.slice(0, space));
-          forms.add(lcf.slice(space + 1) + lcf.slice(0, space));
+          addForm(lcf.slice(0, space), person);
+          addForm(lcf.slice(space + 1) + lcf.slice(0, space), person);
         }
         const du = c.praesens[1];
-        if (du && !du.includes(' ')) forms.add(du.replace(/st$/, '').toLowerCase());
+        if (du && !du.includes(' ')) addForm(du.replace(/st$/, '').toLowerCase(), 1);
       } catch { /* fall back to the lemma alone */ }
     }
-    for (const f of forms) addPat(f, g.prep, w);
+    const refl = /^sich\s/i.test(w.term);
+    for (const f of forms) {
+      addPat(f, g.prep, w, refl, formPersons.get(f) ?? null, participles.has(f));
+    }
   }
 
   // Present tense of the verbs the conjugator refuses to drill.
@@ -515,7 +564,25 @@ export function buildMatcher(corpus: Word[]): Matcher {
     const pat = patIndex.get(lc);
     if (pat) {
       const clause = before.concat(after);
-      const hit = pat.find((e) => hasPrep(clause, e.prep));
+      const hit = pat.find((e) => {
+        if (!hasPrep(clause, e.prep)) return false;
+        if (!e.refl) return true;
+        // A reflexive pattern needs its pronoun, agreeing with the person of the
+        // form that was matched. Where the person is unknown (Partizip II,
+        // imperative) any reflexive pronoun will do — a participle in a clause
+        // with the right preposition and *some* reflexive is evidence enough.
+        const lower = clause.map((t) => t.toLowerCase());
+        // As a participle the form carries no person, so any reflexive pronoun is
+        // evidence — but only where an auxiliary makes that reading available.
+        // Without the auxiliary guard, «Das Lied erinnert mich …» matched on the
+        // participle branch and the transitive verb lost its own sentence.
+        if (e.participle && lower.some((t) => AUX.has(t))) {
+          return lower.some((t) => ALL_REFL.has(t));
+        }
+        const persons = e.persons ? [...e.persons] : [0, 1, 2, 3, 4, 5];
+        const want = new Set(persons.flatMap((n) => REFL_PRONOUN[n] ?? []));
+        return lower.some((t) => want.has(t));
+      });
       if (hit) return hit.word;
     }
 

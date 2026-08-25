@@ -1415,5 +1415,18 @@ export const ID_MAP: Record<string, string> = {
   "voc:B1:erholen": "voc:A2:sich erholen",
   "voc:B1:benehmen": "voc:B1:sich benehmen",
   "voc:A2:ausruhen": "voc:A2:sich ausruhen",
-  "voc:B1:sich besichtigen": "voc:A1:besichtigen"
+  "voc:B1:sich besichtigen": "voc:A1:besichtigen",
+  "voc:A2:teilnehmen": "voc:A2:teilnehmen an + D",
+  "voc:B1:verzichten": "voc:B1:verzichten auf + A",
+  "voc:B1:auswandern aus + D": "voc:B1:auswandern",
+  "voc:B2:beitragen": "voc:B1:beitragen zu + D",
+  "voc:A2:sich erinnern": "voc:A2:sich erinnern an + A",
+  "voc:A2:nachdenken": "voc:A2:nachdenken über + A",
+  "voc:B2:gelangen": "voc:B1:gelangen zu + D",
+  "voc:B2:profitieren": "voc:B1:profitieren von + D",
+  "voc:B1:konzentrieren": "voc:B1:sich konzentrieren auf + A",
+  "voc:B1:sich eignen für + A": "voc:A2:sich eignen für + A",
+  "voc:A2:eignen": "voc:A2:sich eignen für + A",
+  "voc:A2:füllen": "voc:A1:füllen",
+  "voc:A1:füllen in + A": "voc:A1:füllen"
 };

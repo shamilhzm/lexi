@@ -27,7 +27,7 @@
 //
 // Pure by design: `merge-forms.ts` applies it and `validate.ts` gates on it, so
 // nothing here may read a file or touch the corpus at import time.
-import { pluralForm } from '../../src/lib/matcher.ts';
+import { government, pluralForm } from '../../src/lib/matcher.ts';
 import type { Word } from '../../src/types.ts';
 
 const strip = (term: string) => term.replace(/^(der|die|das)\s+/i, '').trim();
@@ -43,7 +43,7 @@ export interface FormCollision {
    *  (`der`/`die Stiefel`) *and* where a gender variant does (`der`/`das Joghurt`).
    *  Telling those apart is a judgement, so it is the ruling's job, not this
    *  function's. */
-  shape: 'plural' | 'article' | 'reflexive';
+  shape: 'plural' | 'article' | 'reflexive' | 'governed';
 }
 
 /** Order-insensitive key for a collision, so a ruling matches however the pair was
@@ -121,6 +121,39 @@ export function findFormCollisions(cards: Word[]): FormCollision[] {
     if (!t.startsWith('sich ')) continue;
     const plain = byTerm.get(t.slice(5));
     if (plain) add(plain, w, 'reflexive');
+  }
+
+  // ---- shape 4: a verb and its governed twin -------------------------------
+  //
+  // Added 2026-08-25. The corpus writes a verb's fixed preposition into the
+  // headword on purpose — `warten auf + A` — which is the right call, because the
+  // preposition is the fact a learner has to memorise and it cannot be derived.
+  // The side effect is that `corpus:dupes` and every shape above are blind to it:
+  // `beitragen` and `beitragen zu + D` are two different strings carrying one
+  // verb, and they shipped with the *same example sentence*.
+  //
+  // Found because it has a second cost the others do not. `buildMatcher` keeps
+  // governed verbs in their own `patIndex`, out of the plain index — deliberately,
+  // so a bare «Ich warte» cannot credit the learner with a pattern they have not
+  // met — but the pattern card still claims the forms it does index. The plain
+  // card is then unillustratable: every example written for `voc:B1:erinnern` was
+  // refused by the authoring gate because the matcher attributed the token to
+  // `sich erinnern an + A`.
+  //
+  // As with the reflexive shape, a majority are two real senses — `bestehen` (pass
+  // an exam) against `bestehen aus` (consist of), `gehören` (belong to somebody)
+  // against `gehören zu` (be one of).
+  const lemmaOf = (w: Word) => (government(w.term)?.lemma ?? w.term).toLowerCase().trim();
+  const byLemma = new Map<string, Word[]>();
+  for (const w of verbs) {
+    const k = lemmaOf(w);
+    (byLemma.get(k) ?? byLemma.set(k, []).get(k)!).push(w);
+  }
+  for (const group of byLemma.values()) {
+    if (group.length < 2) continue;
+    for (let i = 0; i < group.length; i++) {
+      for (let j = i + 1; j < group.length; j++) add(group[i], group[j], 'governed');
+    }
   }
   return out;
 }
@@ -446,5 +479,126 @@ export const FORM_RULINGS: FormRuling[] = [
     rule: 'keep', form: 'voc:A1:entspannen', lemma: 'voc:B1:sich entspannen',
     why: 'entspannen relaxes something — Muskeln, eine Lage — and is also used intransitively; '
       + 'sich entspannen is a person relaxing. Kept, though the two glosses could separate better.',
+  },
+
+  // ---- shape 4: a verb and its governed twin -------------------------------
+  //
+  // Ruled by hand 2026-08-25. **11 merges, 16 keeps.** The test is the same one
+  // the reflexive shape needed: does the plain card teach anything the pattern
+  // card does not? Where its own example is already the governed pattern —
+  // `beitragen` and `beitragen zu + D` shipped the *identical* sentence — there is
+  // one verb on two schedules and the pattern card is the one worth keeping,
+  // because the preposition is the fact.
+  {
+    rule: 'merge', form: 'voc:A2:teilnehmen', lemma: 'voc:A2:teilnehmen an + D', level: 'A2',
+    why: 'Both cards carry the identical example «Ich nehme am Kurs teil», which is the governed pattern. The preposition is the fact worth teaching and teilnehmen is not used without it.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:verzichten', lemma: 'voc:B1:verzichten auf + A', level: 'B1',
+    why: 'Same gloss on both, and both examples are «verzichten auf». The plain card teaches nothing the pattern card does not.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:auswandern aus + D', lemma: 'voc:B1:auswandern', level: 'B1',
+    why: 'Here the *pattern* card is the stray: auswandern is complete on its own and takes nach as readily as aus — the plain card\'s own example is «Viele Menschen wanderten nach Amerika aus». Pinning one preposition into the headword would teach a restriction the verb does not have.',
+  },
+  {
+    rule: 'merge', form: 'voc:B2:beitragen', lemma: 'voc:B1:beitragen zu + D', level: 'B1',
+    why: 'The same sentence appears on both cards: «Jeder kann zum Umweltschutz beitragen». One verb, two levels, two schedules. Keeper takes B1, the lower.',
+  },
+  {
+    rule: 'merge', form: 'voc:A2:sich erinnern', lemma: 'voc:A2:sich erinnern an + A', level: 'A2',
+    why: 'One card twice at one level, with near-identical examples — «Erinnerst du dich noch an unseren ersten Urlaub?» against «Erinnerst du dich an unseren ersten Urlaub?». The an is not optional, so the pattern card is the keeper.',
+  },
+  {
+    rule: 'merge', form: 'voc:A2:nachdenken', lemma: 'voc:A2:nachdenken über + A', level: 'A2',
+    why: 'Same verb, same level. «Ich muss nachdenken» is a real sentence, but it is the pattern card\'s verb without its complement rather than a second word, and the pattern card\'s gloss covers both readings.',
+  },
+  {
+    rule: 'merge', form: 'voc:B2:gelangen', lemma: 'voc:B1:gelangen zu + D', level: 'B1',
+    why: 'Two glosses saying the same thing about the same verb. Keeper takes B1, the lower level.',
+  },
+  {
+    rule: 'merge', form: 'voc:B2:profitieren', lemma: 'voc:B1:profitieren von + D', level: 'B1',
+    why: 'profitieren takes von and nothing else; the B2 card is the same verb with the preposition dropped from the headword.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:konzentrieren', lemma: 'voc:B1:sich konzentrieren auf + A', level: 'B1',
+    why: 'Plain konzentrieren is a chemist\'s word (eine Lösung konzentrieren). The card glossed "to concentrate, to focus" is the reflexive, and its example «Konzentriere dich!» proves it.',
+  },
+  {
+    rule: 'merge', form: 'voc:A2:eignen', lemma: 'voc:B1:sich eignen für + A', level: 'A2',
+    why: 'There is no plain eignen in modern German. The A2 card\'s own example is «Würde sich das eignen?». Keeper takes A2, the lower level.',
+  },
+  {
+    rule: 'merge', form: 'voc:A1:füllen in + A', lemma: 'voc:A2:füllen', level: 'A1',
+    why: 'The pattern card is the stray again: füllen in is not a fixed government, it is the verb plus an ordinary directional phrase. füllen is the lemma and keeps A1, the lower level.',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:denken', lemma: 'voc:B1:denken an + A',
+    why: 'denken introduces a thought — «Ich denke, dass …» — while denken an is directed at a person or a thing. Both are needed. (The A1 card\'s example was the governed pattern and is fixed separately.)',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:warten', lemma: 'voc:B1:warten auf + A',
+    why: 'warten alone is intransitive — «Warte kurz!» — and warten auf takes an accusative object. The pattern is the B1 fact; the bare verb is A1. (The A1 example was the pattern and is fixed separately.)',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:vorbereiten', lemma: 'voc:A2:sich vorbereiten auf + A',
+    why: 'etwas vorbereiten prepares a thing; sich vorbereiten auf prepares yourself for an event. Transitive against reflexive-plus-preposition.',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:bestehen', lemma: 'voc:B1:bestehen aus + D',
+    why: 'eine Prüfung bestehen passes an exam; bestehen aus is what a thing is made of. Unrelated senses that happen to share a lemma.',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:gehören', lemma: 'voc:B1:gehören zu + D',
+    why: 'Das Buch gehört mir — ownership, bare dative. Der Wolf gehört zu den Raubtieren — membership, with zu. Different constructions and different meanings.',
+  },
+  {
+    rule: 'keep', form: 'voc:B2:umgehen', lemma: 'voc:B1:umgehen mit + D',
+    why: 'umgehen mit handles or deals with something; plain umgehen avoids or bypasses it — and the two even stress differently. Merging them would be the umfahren mistake this file already warns about.',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:orientieren', lemma: 'voc:B1:sich orientieren an + D',
+    why: 'sich orientieren finds your bearings; sich orientieren an takes its lead from something — «Der Preis orientiert sich an der Qualität». The preposition changes the meaning, not just the frame.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:einsetzen', lemma: 'voc:B1:sich einsetzen für + A',
+    why: 'einsetzen deploys or inserts; sich einsetzen für campaigns for a cause.',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:rechnen', lemma: 'voc:B1:rechnen mit + D',
+    why: 'rechnen calculates; rechnen mit expects. A learner who conflates them writes «Ich rechne mit 12» for arithmetic.',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:abhängen', lemma: 'voc:B1:abhängen von + D',
+    why: 'abhängen von depends on; plain abhängen is the colloquial hang out, and also to unhook something. Three senses, and only one takes von.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:beschäftigen', lemma: 'voc:B1:sich beschäftigen mit + D',
+    why: 'jemanden beschäftigen employs or keeps somebody busy; sich beschäftigen mit occupies yourself with a subject.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:ziehen', lemma: 'voc:B1:ziehen nach + D',
+    why: 'ziehen pulls; ziehen nach moves house. The second is idiomatic and unguessable from the first.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:gelten', lemma: 'voc:B1:gelten als + N',
+    why: 'gelten is to be valid; gelten als is to be regarded as. The pattern card also carries a nominative complement, which is rare enough to be worth its own card.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:erinnern', lemma: 'voc:A2:sich erinnern an + A',
+    why: 'erinnern reminds somebody of something; sich erinnern an remembers. Different subjects and different objects — the pair that made this whole shape visible.',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:bitten', lemma: 'voc:A2:bitten um + A',
+    why: 'bitten also takes a person plus a zu-infinitive — «Ich bitte dich, kurz zu warten» — which the um-pattern does not cover. (The A1 example was the um-pattern and is fixed separately.)',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:stammen', lemma: 'voc:A2:stammen aus + D',
+    why: 'stammen aus is an origin in place or time; stammen von is descent from a person or a source, which is the B1 card\'s sense. Two prepositions, two meanings.',
+  },
+  {
+    rule: 'keep', form: 'voc:B2:verfügen', lemma: 'voc:A2:verfügen über + A',
+    why: 'verfügen über has something at your disposal; plain verfügen decrees. (The B2 card\'s example is the über-pattern and is fixed separately.)',
   },
 ];

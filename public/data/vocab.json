@@ -5624,8 +5624,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Ich denke an dich.",
-        "en": "I am thinking of you.",
+        "de": "Ich denke, das ist eine gute Idee.",
+        "en": "I think that is a good idea.",
         "lvl": "A1"
       },
       {
@@ -11969,8 +11969,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Ich warte auf den Bus.",
-        "en": "I am waiting for the bus.",
+        "de": "Warte kurz, ich komme sofort.",
+        "en": "Wait a moment, I am coming right away.",
         "lvl": "A1"
       },
       {
@@ -28901,40 +28901,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:sich erinnern",
-    "term": "sich erinnern",
-    "en": "to remember",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛɐ̯ˈʔɪnɐn",
-    "def": "reflexive: ich erinnere mich an …",
-    "syn": [],
-    "ant": [
-      "vergessen"
-    ],
-    "ex": [
-      {
-        "de": "Ich erinnere mich an dich.",
-        "en": "I remember you.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Erinnerst du dich noch an unseren ersten Urlaub?",
-        "en": "Do you still remember our first holiday?",
-        "lvl": "B1"
-      },
-      {
-        "de": "An die Einzelheiten kann ich mich beim besten Willen nicht mehr erinnern.",
-        "en": "For the life of me I can no longer remember the details.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:A2:sich interessieren",
     "term": "sich interessieren",
     "en": "to be interested (in)",
@@ -33043,38 +33009,6 @@
       {
         "de": "Seit du weg bist, fehlst du mir wirklich sehr.",
         "en": "Since you left, I really miss you a lot.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:teilnehmen",
-    "term": "teilnehmen",
-    "en": "to take part, to participate",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈtaɪ̯lˌneːmən",
-    "def": "separable: ich nehme an … teil",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ich nehme am Kurs teil.",
-        "en": "I am taking part in the course.",
-        "lvl": "A2"
-      },
-      {
-        "de": "An dem Wettbewerb nehmen viele Schüler teil.",
-        "en": "Many pupils take part in the competition.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Wer an der Sitzung nicht teilnehmen kann, sollte sich rechtzeitig abmelden.",
-        "en": "Those who cannot attend the meeting should excuse themselves in time.",
         "lvl": "B2"
       }
     ],
@@ -56609,7 +56543,8 @@
       "emigrieren"
     ],
     "ant": [
-      "einwandern"
+      "einwandern",
+      "einwandern in + A"
     ],
     "ex": [
       {
@@ -56626,6 +56561,16 @@
         "de": "Wer auswandert, lässt mehr zurück als nur einen Wohnort.",
         "en": "Whoever emigrates leaves behind more than just a place to live.",
         "lvl": "C1"
+      },
+      {
+        "de": "Ihre Familie wanderte aus Polen aus.",
+        "en": "Her family emigrated from Poland.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele wanderten aus Not aus ihrem Land aus.",
+        "en": "Many emigrated from their country out of need.",
+        "lvl": "B2"
       }
     ],
     "field": "Society",
@@ -72324,6 +72269,16 @@
         "de": "Beim Abnehmen verzichtet er auf Süßigkeiten.",
         "en": "While losing weight he does without sweets.",
         "lvl": "B1"
+      },
+      {
+        "de": "Aus Umweltgründen verzichtet sie auf Fleisch.",
+        "en": "For environmental reasons she does without meat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich verzichte abends auf Kaffee.",
+        "en": "I go without coffee in the evening.",
+        "lvl": "B1"
       }
     ],
     "field": "Core verbs",
@@ -72437,6 +72392,16 @@
         "de": "Auch Kunden profitieren von niedrigeren Preisen.",
         "en": "Customers also benefit from lower prices.",
         "lvl": "B1"
+      },
+      {
+        "de": "Wer profitiert davon?",
+        "en": "Who benefits?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Schwerindustrie profitiert immer vom Krieg.",
+        "en": "Heavy industry always benefits from war.",
+        "lvl": "B2"
       }
     ],
     "field": "Personal finance",
@@ -72519,6 +72484,16 @@
       {
         "de": "Konzentrier dich bitte auf deine Aufgabe.",
         "en": "Please concentrate on your task.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Konzentriere dich!",
+        "en": "Stay focused.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Konzentriert euch!",
+        "en": "Stay focused.",
         "lvl": "B1"
       }
     ],
@@ -72969,16 +72944,18 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:sich eignen für + A",
+    "id": "voc:A2:sich eignen für + A",
     "term": "sich eignen für + A",
     "en": "to be suited for",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "zɪç ˈaɪ̯ɡnən fyːɐ̯",
     "def": "To be right or suitable for a purpose.",
-    "syn": [],
+    "syn": [
+      "eigen sein"
+    ],
     "ant": [],
     "ex": [
       {
@@ -72990,6 +72967,16 @@
         "de": "Der Raum eignet sich gut für Feiern.",
         "en": "The room is well suited for celebrations.",
         "lvl": "B1"
+      },
+      {
+        "de": "Würde sich das eignen?",
+        "en": "Would that be suitable?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das ist nicht zum Verzehr geeignet.",
+        "en": "It's not fit to be eaten.",
+        "lvl": "A2"
       }
     ],
     "field": "Core verbs",
@@ -73432,6 +73419,11 @@
         "de": "Sport trägt zur Gesundheit bei.",
         "en": "Exercise contributes to health.",
         "lvl": "B1"
+      },
+      {
+        "de": "wesentlich dazu beitragen.",
+        "en": "to significantly contribute to.",
+        "lvl": "B2"
       }
     ],
     "field": "Core verbs",
@@ -73779,35 +73771,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:auswandern aus + D",
-    "term": "auswandern aus + D",
-    "en": "to emigrate from",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈaʊ̯svandɐn aʊ̯s",
-    "def": "To leave a country to settle permanently elsewhere.",
-    "syn": [],
-    "ant": [
-      "einwandern in + A"
-    ],
-    "ex": [
-      {
-        "de": "Ihre Familie wanderte aus Polen aus.",
-        "en": "Her family emigrated from Poland.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Viele wanderten aus Not aus ihrem Land aus.",
-        "en": "Many emigrated from their country out of need.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Emigration & immigration",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:Heimweh haben nach + D",
     "term": "Heimweh haben nach + D",
     "en": "to be homesick for",
@@ -73856,6 +73819,16 @@
         "de": "Wie gelangt man am schnellsten zum Bahnhof?",
         "en": "What's the quickest way to get to the station?",
         "lvl": "B1"
+      },
+      {
+        "de": "Ich muss zu Tom gelangen.",
+        "en": "I have to get to Tom.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Tolstoi gelangte zu Weltruhm.",
+        "en": "Tolstoy achieved worldwide fame.",
+        "lvl": "B2"
       }
     ],
     "field": "Core verbs",
@@ -74386,7 +74359,9 @@
     "ipa": "zɪç ɛɐ̯ˈʔɪnɐn an",
     "def": "To keep or bring something back into your mind.",
     "syn": [],
-    "ant": [],
+    "ant": [
+      "vergessen"
+    ],
     "ex": [
       {
         "de": "Ich erinnere mich an das Fest.",
@@ -74397,6 +74372,21 @@
         "de": "Erinnerst du dich an unseren ersten Urlaub?",
         "en": "Do you remember our first holiday?",
         "lvl": "A2"
+      },
+      {
+        "de": "Ich erinnere mich an dich.",
+        "en": "I remember you.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Erinnerst du dich noch an unseren ersten Urlaub?",
+        "en": "Do you still remember our first holiday?",
+        "lvl": "B1"
+      },
+      {
+        "de": "An die Einzelheiten kann ich mich beim besten Willen nicht mehr erinnern.",
+        "en": "For the life of me I can no longer remember the details.",
+        "lvl": "B2"
       }
     ],
     "field": "Emotions",
@@ -75580,6 +75570,16 @@
         "de": "Denk gut über deine Entscheidung nach.",
         "en": "Think carefully about your decision.",
         "lvl": "A2"
+      },
+      {
+        "de": "Ich muss nachdenken.",
+        "en": "I have to think.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Tom muss nachdenken.",
+        "en": "Tom needs to think.",
+        "lvl": "A2"
       }
     ],
     "field": "Academic Work",
@@ -76333,6 +76333,16 @@
         "de": "Viele Länder nehmen an dem Wettbewerb teil.",
         "en": "Many countries take part in the competition.",
         "lvl": "B1"
+      },
+      {
+        "de": "An dem Wettbewerb nehmen viele Schüler teil.",
+        "en": "Many pupils take part in the competition.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wer an der Sitzung nicht teilnehmen kann, sollte sich rechtzeitig abmelden.",
+        "en": "Those who cannot attend the meeting should excuse themselves in time.",
+        "lvl": "B2"
       }
     ],
     "field": "Social life",
@@ -79674,35 +79684,6 @@
       {
         "de": "Ich sortiere die Wäsche nach Farben.",
         "en": "I sort the laundry by colour.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Laundry",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A1:füllen in + A",
-    "term": "füllen in + A",
-    "en": "to fill into",
-    "pos": "verb",
-    "level": "A1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈfʏlən ɪn",
-    "def": "To pour or put a substance into a container.",
-    "syn": [
-      "einfüllen"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Füll das Wasser bitte in die Flasche.",
-        "en": "Please pour the water into the bottle.",
-        "lvl": "A1"
-      },
-      {
-        "de": "Sie füllt den Saft in die Gläser.",
-        "en": "She fills the juice into the glasses.",
         "lvl": "A2"
       }
     ],
@@ -103409,8 +103390,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich erinnere mich gut an unseren Urlaub.",
-        "en": "I remember our holiday well.",
+        "de": "Die alten Fotos erinnern sie an ihre Schulzeit.",
+        "en": "The old photos remind her of her school days.",
         "lvl": "B1"
       }
     ],
@@ -128668,33 +128649,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:verzichten",
-    "term": "verzichten",
-    "en": "to do without",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "fɛɐ̯ˈt͡sɪçtn̩",
-    "def": "to give up, to go without, to live without, to make do without, to do without, to forgo, to dispense with; to refrain from, to abstain, to renounce, to forswear",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Aus Umweltgründen verzichtet sie auf Fleisch.",
-        "en": "For environmental reasons she does without meat.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Ich verzichte abends auf Kaffee.",
-        "en": "I go without coffee in the evening.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Core Vocabulary",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:nützlich",
     "term": "nützlich",
     "en": "useful",
@@ -129804,33 +129758,6 @@
       {
         "de": "Wir werden Ihre Wünsche gern berücksichtigen.",
         "en": "We will gladly take your wishes into account.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Core Vocabulary",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:beitragen",
-    "term": "beitragen",
-    "en": "to contribute",
-    "pos": "verb",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈbaɪ̯tʁaːɡn̩",
-    "def": "to contribute to (to give something, that is or becomes part of a larger whole)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Jeder kann zum Umweltschutz beitragen.",
-        "en": "Everyone can contribute to protecting the environment.",
-        "lvl": "B2"
-      },
-      {
-        "de": "wesentlich dazu beitragen.",
-        "en": "to significantly contribute to.",
         "lvl": "B2"
       }
     ],
@@ -145241,33 +145168,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:profitieren",
-    "term": "profitieren",
-    "en": "to benefit",
-    "pos": "verb",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "pʁofiˈtiːʁən",
-    "def": "to benefit; to profit",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Wer profitiert davon?",
-        "en": "Who benefits?",
-        "lvl": "B2"
-      },
-      {
-        "de": "Die Schwerindustrie profitiert immer vom Krieg.",
-        "en": "Heavy industry always benefits from war.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:B2:die Redaktion",
     "term": "die Redaktion",
     "en": "editing",
@@ -147543,33 +147443,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:konzentrieren",
-    "term": "konzentrieren",
-    "en": "to concentrate, to focus",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "kɔntsɛnˈtʁiːʁən",
-    "def": "to concentrate, to focus (one's mind or attention); to concentrate (something)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Konzentriere dich!",
-        "en": "Stay focused.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Konzentriert euch!",
-        "en": "Stay focused.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:die Krone",
     "term": "die Krone",
     "en": "crown",
@@ -149180,33 +149053,6 @@
       }
     ],
     "field": "Science concepts",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:gelangen",
-    "term": "gelangen",
-    "en": "to reach, get to, end up in",
-    "pos": "verb",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɡəˈlaŋən",
-    "def": "to reach, get to, end up in (a place, location); to reach, arrive at (a destination)",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ich muss zu Tom gelangen.",
-        "en": "I have to get to Tom.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Tolstoi gelangte zu Weltruhm.",
-        "en": "Tolstoy achieved worldwide fame.",
-        "lvl": "B2"
-      }
-    ],
-    "field": "Core verbs",
     "kind": "word"
   },
   {
@@ -158051,8 +157897,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Wir verfügen über keinen Beweis.",
-        "en": "We don't have any proof.",
+        "de": "Das Gericht verfügte die sofortige Schließung.",
+        "en": "The court ordered the immediate closure.",
         "lvl": "B2"
       },
       {
@@ -158889,26 +158735,38 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:füllen",
+    "id": "voc:A1:füllen",
     "term": "füllen",
     "en": "to fill",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈfʏlən",
     "def": "to fill; to stuff",
-    "syn": [],
+    "syn": [
+      "einfüllen"
+    ],
     "ant": [],
     "ex": [
       {
-        "de": "Füllt die Lücken aus.",
-        "en": "Fill in the blanks.",
+        "de": "Tom füllt das Glas mit Wasser.",
+        "en": "Tom fills the glass with water.",
         "lvl": "A2"
       },
       {
         "de": "Tom füllte den Kessel.",
         "en": "Tom filled the kettle.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Füll das Wasser bitte in die Flasche.",
+        "en": "Please pour the water into the bottle.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie füllt den Saft in die Gläser.",
+        "en": "She fills the juice into the glasses.",
         "lvl": "A2"
       }
     ],
@@ -165096,33 +164954,6 @@
       }
     ],
     "field": "Useful Phrases",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:nachdenken",
-    "term": "nachdenken",
-    "en": "to think, to reflect, to ponder",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈnaːxˌdɛŋkŋ̩",
-    "def": "To think carefully about something.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Ich muss nachdenken.",
-        "en": "I have to think.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Tom muss nachdenken.",
-        "en": "Tom needs to think.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Core verbs",
     "kind": "word"
   },
   {
@@ -188853,35 +188684,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:eignen",
-    "term": "eignen",
-    "en": "to suit, to be apt for",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈaɪ̯ɡnən",
-    "def": "To be right or suitable for a purpose.",
-    "syn": [
-      "eigen sein"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Würde sich das eignen?",
-        "en": "Would that be suitable?",
-        "lvl": "A2"
-      },
-      {
-        "de": "Das ist nicht zum Verzehr geeignet.",
-        "en": "It's not fit to be eaten.",
-        "lvl": "A2"
-      }
-    ],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:A2:der Eintrag",
     "term": "der Eintrag",
     "en": "entry",
@@ -201049,8 +200851,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Darf ich Sie um Hilfe bitten?",
-        "en": "May I ask you for help?",
+        "de": "Er bat mich, kurz zu warten.",
+        "en": "He asked me to wait a moment.",
         "lvl": "A1"
       },
       {

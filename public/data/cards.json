@@ -12143,22 +12143,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:sich erinnern",
-    "term": "sich erinnern",
-    "en": "to remember",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛɐ̯ˈʔɪnɐn",
-    "syn": [],
-    "ant": [
-      "vergessen"
-    ],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:A2:sich interessieren",
     "term": "sich interessieren",
     "en": "to be interested (in)",
@@ -13851,20 +13835,6 @@
     "syn": [
       "verfehlen"
     ],
-    "ant": [],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:teilnehmen",
-    "term": "teilnehmen",
-    "en": "to take part, to participate",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈtaɪ̯lˌneːmən",
-    "syn": [],
     "ant": [],
     "field": "Core verbs",
     "kind": "word"
@@ -23910,7 +23880,8 @@
       "emigrieren"
     ],
     "ant": [
-      "einwandern"
+      "einwandern",
+      "einwandern in + A"
     ],
     "field": "Society",
     "kind": "word"
@@ -31141,15 +31112,17 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:sich eignen für + A",
+    "id": "voc:A2:sich eignen für + A",
     "term": "sich eignen für + A",
     "en": "to be suited for",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "zɪç ˈaɪ̯ɡnən fyːɐ̯",
-    "syn": [],
+    "syn": [
+      "eigen sein"
+    ],
     "ant": [],
     "field": "Core verbs",
     "kind": "word"
@@ -31572,22 +31545,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:auswandern aus + D",
-    "term": "auswandern aus + D",
-    "en": "to emigrate from",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈaʊ̯svandɐn aʊ̯s",
-    "syn": [],
-    "ant": [
-      "einwandern in + A"
-    ],
-    "field": "Emigration & immigration",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:Heimweh haben nach + D",
     "term": "Heimweh haben nach + D",
     "en": "to be homesick for",
@@ -31890,7 +31847,9 @@
     "plural": null,
     "ipa": "zɪç ɛɐ̯ˈʔɪnɐn an",
     "syn": [],
-    "ant": [],
+    "ant": [
+      "vergessen"
+    ],
     "field": "Emotions",
     "kind": "word"
   },
@@ -34277,22 +34236,6 @@
     "ipa": "zɔʁˈtiːʁən",
     "syn": [
       "ordnen"
-    ],
-    "ant": [],
-    "field": "Laundry",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A1:füllen in + A",
-    "term": "füllen in + A",
-    "en": "to fill into",
-    "pos": "verb",
-    "level": "A1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈfʏlən ɪn",
-    "syn": [
-      "einfüllen"
     ],
     "ant": [],
     "field": "Laundry",
@@ -60025,20 +59968,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:verzichten",
-    "term": "verzichten",
-    "en": "to do without",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "fɛɐ̯ˈt͡sɪçtn̩",
-    "syn": [],
-    "ant": [],
-    "field": "Core Vocabulary",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:nützlich",
     "term": "nützlich",
     "en": "useful",
@@ -60604,20 +60533,6 @@
     "syn": [
       "beachten"
     ],
-    "ant": [],
-    "field": "Core Vocabulary",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:beitragen",
-    "term": "beitragen",
-    "en": "to contribute",
-    "pos": "verb",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈbaɪ̯tʁaːɡn̩",
-    "syn": [],
     "ant": [],
     "field": "Core Vocabulary",
     "kind": "word"
@@ -69370,20 +69285,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:profitieren",
-    "term": "profitieren",
-    "en": "to benefit",
-    "pos": "verb",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "pʁofiˈtiːʁən",
-    "syn": [],
-    "ant": [],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:B2:die Redaktion",
     "term": "die Redaktion",
     "en": "editing",
@@ -70604,20 +70505,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:konzentrieren",
-    "term": "konzentrieren",
-    "en": "to concentrate, to focus",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "kɔntsɛnˈtʁiːʁən",
-    "syn": [],
-    "ant": [],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:die Krone",
     "term": "die Krone",
     "en": "crown",
@@ -71474,20 +71361,6 @@
     "syn": [],
     "ant": [],
     "field": "Science concepts",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B2:gelangen",
-    "term": "gelangen",
-    "en": "to reach, get to, end up in",
-    "pos": "verb",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɡəˈlaŋən",
-    "syn": [],
-    "ant": [],
-    "field": "Core verbs",
     "kind": "word"
   },
   {
@@ -76676,15 +76549,17 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:füllen",
+    "id": "voc:A1:füllen",
     "term": "füllen",
     "en": "to fill",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈfʏlən",
-    "syn": [],
+    "syn": [
+      "einfüllen"
+    ],
     "ant": [],
     "field": "Core verbs",
     "kind": "word"
@@ -80002,20 +79877,6 @@
     "syn": [],
     "ant": [],
     "field": "Useful Phrases",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:nachdenken",
-    "term": "nachdenken",
-    "en": "to think, to reflect, to ponder",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈnaːxˌdɛŋkŋ̩",
-    "syn": [],
-    "ant": [],
-    "field": "Core verbs",
     "kind": "word"
   },
   {
@@ -92901,22 +92762,6 @@
     "syn": [],
     "ant": [],
     "field": "Emotions",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:eignen",
-    "term": "eignen",
-    "en": "to suit, to be apt for",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈaɪ̯ɡnən",
-    "syn": [
-      "eigen sein"
-    ],
-    "ant": [],
-    "field": "Core verbs",
     "kind": "word"
   },
   {

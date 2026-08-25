@@ -1,0 +1,62 @@
+[
+  {
+    "id": "voc:B1:erinnern",
+    "at": 1,
+    "expect": {
+      "de": "Ich erinnere mich gut an unseren Urlaub.",
+      "en": "I remember our holiday well."
+    },
+    "de": "Die alten Fotos erinnern sie an ihre Schulzeit.",
+    "en": "The old photos remind her of her school days."
+  },
+  {
+    "id": "voc:A1:denken",
+    "at": 0,
+    "expect": {
+      "de": "Ich denke an dich.",
+      "en": "I am thinking of you."
+    },
+    "de": "Ich denke, das ist eine gute Idee.",
+    "en": "I think that is a good idea."
+  },
+  {
+    "id": "voc:A1:warten",
+    "at": 0,
+    "expect": {
+      "de": "Ich warte auf den Bus.",
+      "en": "I am waiting for the bus."
+    },
+    "de": "Warte kurz, ich komme sofort.",
+    "en": "Wait a moment, I am coming right away."
+  },
+  {
+    "id": "voc:A1:bitten",
+    "at": 0,
+    "expect": {
+      "de": "Darf ich Sie um Hilfe bitten?",
+      "en": "May I ask you for help?"
+    },
+    "de": "Er bat mich, kurz zu warten.",
+    "en": "He asked me to wait a moment."
+  },
+  {
+    "id": "voc:B2:verfügen",
+    "at": 0,
+    "expect": {
+      "de": "Wir verfügen über keinen Beweis.",
+      "en": "We don't have any proof."
+    },
+    "de": "Das Gericht verfügte die sofortige Schließung.",
+    "en": "The court ordered the immediate closure."
+  },
+  {
+    "id": "voc:A1:füllen",
+    "at": 0,
+    "expect": {
+      "de": "Füllt die Lücken aus.",
+      "en": "Fill in the blanks."
+    },
+    "de": "Tom füllt das Glas mit Wasser.",
+    "en": "Tom fills the glass with water."
+  }
+]

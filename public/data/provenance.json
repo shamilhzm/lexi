@@ -4191,7 +4191,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:eignen",
+    "id": "voc:A2:sich eignen für + A",
     "lemma": "eignen",
     "level": "A2",
     "levelSource": "reference",
@@ -4422,9 +4422,9 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:A2:füllen",
+    "id": "voc:A1:füllen",
     "lemma": "füllen",
-    "level": "A2",
+    "level": "A1",
     "levelSource": "reference",
     "freqRank": 5584,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -4972,7 +4972,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:nachdenken",
+    "id": "voc:A2:nachdenken über + A",
     "lemma": "nachdenken",
     "level": "A2",
     "levelSource": "reference",
@@ -12804,7 +12804,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:konzentrieren",
+    "id": "voc:B1:sich konzentrieren auf + A",
     "lemma": "konzentrieren",
     "level": "B1",
     "levelSource": "reference",
@@ -18700,9 +18700,9 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:gelangen",
+    "id": "voc:B1:gelangen zu + D",
     "lemma": "gelangen",
-    "level": "B2",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 2714,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -19316,9 +19316,9 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:profitieren",
+    "id": "voc:B1:profitieren von + D",
     "lemma": "profitieren",
-    "level": "B2",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 1628,
     "glossSource": "wiktextract:kaikki-de.jsonl",
