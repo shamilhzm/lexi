@@ -1516,8 +1516,35 @@ user; none of it is built.*
   **Do:** read the 0.90 band, rewrite the waste, and leave the minimal pairs — ideally
   marking them, so the next reader does not re-litigate them. **Done-when:** each of the
   86 is rewritten or ruled deliberate on the record. *`scripts/corpus/sense-audit.ts`.*
-- **🟡 The other 88 — a capitalised token on a verb or adjective card · S–M, needs
-  reading not building.** *(Measured 2026-08-24, after the noun half was fixed.)* The
+- **🟠 The other 88 — read 2026-08-25, and I was wrong about what was in it.** ✅ **18
+  cards fixed, 86 → 58.** Filed as "mostly ordinary German … a few are genuine drift".
+  Reading all 86, **about half were genuine drift**, and not the subtle kind — the
+  example contained a *completely different word*:
+
+  | card | gloss | what the example actually contained |
+  |---|---|---|
+  | `bieten` | to offer | «Ich bin kein **Bot**» — an internet bot |
+  | `zeugen` | to beget | «Ich bin **Zeuge**» — a witness |
+  | `matt` | dull | «auf der **Matte**» — a mat |
+  | `dicht` | dense | «Allan ist **Dichter**» — a poet |
+  | `betragen` | to amount to | «Das ist **Betrug**!» — fraud |
+  | `locken` | to lure | «Ich mag **Locken**» — curls |
+  | `speisen` | to dine | «Welche **Speisen**…» — dishes |
+  | `orten` | to locate | «diese **Orte**» — places |
+  | `deutsch` · `englisch` · `französisch` · `vegan` | the adjective | only ever the noun — «Ist er **Deutscher**?» |
+
+  On eight of them **both** examples were the wrong word, so the card taught nothing.
+  The lesson is the estimate, not the fix: the band was characterised from the *top*
+  of the list, which is sorted by nothing in particular, and the top happened to be
+  colour and nominalised-infinitive cards. **Do not characterise a band from its
+  first screen.**
+
+  **Still open: `silber` and `gold` are mis-posed, not mis-illustrated.** Both are
+  carded as adjectives, but German's adjectives are *silbern* and *golden*; every
+  example uses the noun because the noun is what the word is. Fixing the examples
+  would paper over it. Needs a re-pos or a re-term, and there is no tool for either
+  — same gap as the three undefendable cards above. *XS once a tool exists.*
+- **🟡 The remaining 58 · S, reading not building.** *(Measured 2026-08-24, after the noun half was fixed.)* The
   same instrument written wide also flags a **verb or adjective** proved only by a
   capitalised token mid-sentence, and fires **88 times**. It is deliberately not gated,
   because most of those are ordinary German — «beim Tanzen», «bei Rot», «im
