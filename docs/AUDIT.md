@@ -53,6 +53,7 @@ out five times — see the withdrawals below. A count in this file that is not m
 | Type-in drills (`transform`, `separable`, `reflexive`, `recall`, `dictation`) | grading path | **no defect** — `canon` → `norm` (folds ä→ae, ß→ss) → edit-distance-1, with a supportive near-miss state | — |
 | Noun cards proved only by a **lowercase** token | 6,525 cards with examples · 17,023 examples | **49 found → 0**, on 32 cards, 17 of which had no correct example at all; all hand-read, all defects. The mirror case (88 verbs/adjectives) deliberately not gated | CHANGELOG 2026-08-24 |
 | A card's two examples are the same sentence | 6,525 cards with examples · 17,277 pairs | **18 found → 0**, all hand-read; 20 examples rewritten, 4 deleted. The near-twin band (86 above 0.90 similarity, 143 with identical English) deliberately **not** gated — it holds deliberate minimal pairs | CHANGELOG 2026-08-24 |
+| Generated tense items that contradict their own rule | 4,320 generated exercises | **7 found → 0**, hand-verified, repaired in place (ids are positions); the check was narrowed twice before it was believed | CHANGELOG 2026-08-25 |
 | Examples set in pre-modern typography (ſ ⸗) | all 17,023 examples | **2 found → 0**, one of them on an A1 card | CHANGELOG 2026-08-24 |
 | Adjectival nouns: headword and plural | the 12 in the corpus | **2 malformed → fixed · 4 duplicated → filed**; the rest follow the `der/die X` convention | CHANGELOG 2026-08-24 |
 | Verbs the conjugator declines to inflect | 1,212 verb cards | **60 (4.9%)** — pattern cards and disambiguated terms, all correctly `reliable: false` and never drilled | CHANGELOG 2026-08-24 |
@@ -102,6 +103,7 @@ writing anything is what stops a second `die Beziehung` being authored.
 
 | source | checked | already had | outcome |
 |---|---|---|---|
+| *Sicher!* B2 L1 M4 „Zu Hause in Deutschland“ (3 texts + the paired planning task) | 80 headwords | **61** | 8 cards · 20 authored Konjunktiv II items · 7 generated items repaired · `corpus:gex` widened to all five kinds · `fix-exercises.ts` |
 | *Neue Heimat* B2, Modul 1 (chapter opener + Mittelfeld) | 51 headwords | 37 | 12 cards · 2 grammar points · the `government()` matcher fix |
 | B2 „Missverständliches“ + Dreyer §14 *Negation mit nicht* | 66 headwords | **40** | 12 cards · `Die Stellung von „nicht“` +10 exercises and 4 new rules · new B2 point `Verneinung durch Wortbildung` |
 
@@ -141,7 +143,19 @@ below.
 
 ## Pedagogy track
 
-Not started. The intent is to name the principle first and then ask what the app does
+**Opened 2026-08-25, by accident and from the outside.** A real B2 coursebook page was
+used as the probe instead of a named principle, and it worked better than the plan
+below: asking *what does this page demand, and can Lexi supply it?* found things no
+corpus check could — a grammar point that drills the paradigm and never the **function**
+(Konjunktiv II as a proposal), and a Redemittel repertoire that exists but cannot be
+studied because it is not made of cards. Both are filed in BACKLOG.
+
+**The method is worth repeating with other pages**, and it is cheap: transcribe the
+headwords, resolve them with the app's own matcher, then ask what grammar and what
+*moves* the tasks require. The vocabulary answer is mechanical; the other two are where
+the findings are.
+
+The original intent stands for the rest. The intent is to name the principle first and then ask what the app does
 about it, rather than reverse-engineering a rationale from what exists. Candidates:
 retrieval practice, spacing, interleaving, desirable difficulty, the generation effect,
 the testing effect, dual coding, and Swain's output hypothesis (already the frame for

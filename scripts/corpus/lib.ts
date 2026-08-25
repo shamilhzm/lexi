@@ -153,6 +153,59 @@ export function headwordEvidence(matcher: Matcher, card: Word, de: string): Evid
   return { ok: false, why: 'miscased', token: mine[0].text };
 }
 
+// ---- generated exercises that contradict their own rule --------------------
+//
+// `corpus:genex` builds conjugation items from `conjugate()`, which is a fact
+// engine and does not know two things a teaching item has to know.
+//
+// **Some verbs have their own Konjunktiv II** — haben, sein and the modals — and
+// the würde-form the generator reaches for is not merely clumsy but wrong. Four
+// shipped: «ihr ___ sein» marked *würdet sein* correct where German is **wärt**,
+// with the point's own rule sitting on the same screen saying so. That is the
+// same defect class as the rule panel that contradicted its question (2026-08-24),
+// one layer down: here the *question* contradicts the rule.
+//
+// **Some verbs have no personal subject at all.** Weather verbs take es and only
+// es, so «ich würde regnen» and «ich werde hageln» are not sentences. Three of
+// those shipped too.
+//
+// Seven in a bank of 4,320 generated items — small, and each one is a learner
+// being taught a form that is wrong. Hand-verified, repaired in place (never
+// deleted: exercise ids are positions and FSRS schedules are keyed on them).
+// `werden` is deliberately absent: «ihr würdet Ärzte werden» is ordinary German,
+// because there werden is the full verb and würde is the auxiliary.
+export const OWN_KONJUNKTIV2 = new Set(
+  ['haben', 'sein', 'wissen', 'dürfen', 'können', 'müssen', 'mögen', 'sollen', 'wollen']);
+/** Verbs whose only possible subject is `es`.
+ *
+ *  **Narrowed after the check's first run, which is the standing rule here.** The
+ *  obvious list is "weather verbs", and it is wrong: *tauen*, *blitzen*, *donnern*
+ *  and *dämmern* all take ordinary personal subjects — «der Schnee taut», «ihre
+ *  Augen blitzten», «der Zug donnerte über die Brücke», «der Morgen dämmert» — so
+ *  including them fired on three items that were correct German. What is left is
+ *  the set that genuinely has no personal subject: precipitation. */
+export const IMPERSONAL_VERBS = new Set(
+  ['regnen', 'schneien', 'hageln', 'nieseln', 'graupeln']);
+
+/** A generated tense item, parsed: who the subject is and which verb is asked. */
+export function parseTenseItem(prompt: string): { person: string; verb: string; tag: string } | null {
+  const m = /^(ich|du|er|sie|es|wir|ihr|sie \(Pl\.\))\s+___\s+(\S+?)\.\s*\(([^)]+)\)\s*$/i.exec((prompt ?? '').trim());
+  return m ? { person: m[1].toLowerCase(), verb: m[2], tag: m[3] } : null;
+}
+
+/** Why this generated item may not ship, or null if it is fine. */
+export function tenseItemDefect(prompt: string): string | null {
+  const p = parseTenseItem(prompt);
+  if (!p) return null;
+  if (IMPERSONAL_VERBS.has(p.verb)) {
+    return `${p.verb} is impersonal — its subject can only be "es", never "${p.person}"`;
+  }
+  if (/konjunktiv\s*(ii|2)/i.test(p.tag) && OWN_KONJUNKTIV2.has(p.verb)) {
+    return `${p.verb} has its own Konjunktiv II form — a würde-form is wrong here`;
+  }
+  return null;
+}
+
 // ---- two examples that are one example ------------------------------------
 //
 // A card must carry two examples (`corpus:validate` warns under two), and 18 cards

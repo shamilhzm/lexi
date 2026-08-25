@@ -170,6 +170,19 @@ costs a day and closes the ticket.
 three hits are hand-verified. Write the counter-example into the check's own header when
 it turns out to be wrong.**
 
+- **"Weather verbs are impersonal" is false about half of them.** *(2026-08-25.)*
+  Gating generated exercises that pair a personal subject with a verb that cannot
+  have one, I wrote the obvious list — `regnen, schneien, hageln, donnern, blitzen,
+  dämmern, nieseln, tauen` — and it fired on **three items that were correct
+  German**: «der Schnee taut», «ihre Augen blitzten», «der Zug donnerte über die
+  Brücke», «der Morgen dämmert» are all ordinary. Only precipitation is genuinely
+  subjectless. The narrowed set found the four real defects and nothing else.
+  **Rule: a semantic class ("weather verbs", "modal verbs", "verbs of motion") is a
+  label, not a test. Before putting one in a check, find the member that behaves
+  differently — there is almost always one, and it is usually the second word you
+  think of.** The same pass had already narrowed `OWN_KONJUNKTIV2` for the same
+  reason: `werden` looks like it belongs, but «ihr würdet Ärzte werden» is fine,
+  because there *werden* is the full verb and *würde* is the auxiliary.
 - **The same signal was decisive in one direction and worthless in the other.**
   *(2026-08-24.)* Hunting for examples that teach a *different word* than the card, I
   wrote one check over both halves of the idea: a **noun** whose example only matches

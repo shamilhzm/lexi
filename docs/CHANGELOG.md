@@ -11,6 +11,90 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — a B2 homework page, and the drill that taught «ihr würdet sein»
+
+A real Sicher! B2 page (Lektion 1, Modul 4) was handed over with one question: **could
+a learner get to this from Lexi alone?** Three reading texts about migration and
+identity, then a paired TELC task — plan a multicultural school festival with your
+partner, propose, agree, counter-propose. Answering that honestly meant measuring
+three things rather than one.
+
+**Vocabulary — 80 headwords from the page, checked against the corpus with the app's
+own matcher.** 61 had a card, 6 resolved through a compound or a relative
+(*Autohersteller* → *Hersteller*), 13 had nothing. Eight are now authored through
+`authoring:new` — `der Ausländer`, `multikulturell`, `zerrissen`, `der Schulabschluss`,
+`die Informatik`, `der Kommilitone`, `wiedergeben`, `inmitten` — taking the page to
+**69 of 80 direct**. The five still missing are one text's description of somebody's
+hair and clothing; *flechten*, *der Zopf*, *farbenfroh* and *der Keks* are not what
+stands between a learner and this page.
+
+**Grammar — everything the page needs exists.** Konjunktiv II at three levels,
+Plusquamperfekt with *nachdem*, Passiv Präteritum, Relativsätze, *Adjektive als Nomen*
+for «die Fremden». That is the good news, and it is not the finding.
+
+**The finding: the B2 Konjunktiv II point has 156 exercises and six of them teach.**
+The other 150 are `er ___ festlegen.` → *er würde festlegen*, a conjugation table with
+a vocabulary list poured through it. The same shape covers **968 items across 10
+points** — B1 Konjunktiv II, B1 Plusquamperfekt, B1 Futur I and B2 Konjunktiv II are
+each **6 authored of 156**; A2 Konjunktiv II and A1 Perfekt are 10 of 160. `GrammarDrill`
+already spends authored items first and caps a sitting at 25, so they are not crowded
+out of *order* — they are crowded out of *supply*: 19 of every 25 items in a sitting on
+Konjunktiv II are table-filling, for a form whose difficulty at B2 was never the form.
+
+**And seven of those generated items teach German that is wrong.** Four ask for a
+würde-form of a verb that has its own Konjunktiv II — «ihr ___ sein.» marks *würdet
+sein* correct where German is **wärt** — with the point's own rule, on the same screen,
+saying so. Three pair a weather verb with a personal subject: «ich würde regnen», «ich
+werde hageln». This is the rule-panel contradiction of 2026-08-24 one layer down: there
+the panel disagreed with the question, here the question disagrees with the panel.
+
+All seven are **repaired in place, never deleted** — exercise ids are positions
+(`gex:<level>:<point>:<index>`) and every learner's FSRS schedule is keyed on them, so
+removing one silently re-points every later schedule. That needed a tool the authoring
+family did not have: `fix-exercises.ts`, expect-guarded like `fix-authored`, which
+refuses any batch that would change a point's exercise count and checks that invariant
+after writing rather than trusting it. The repairs turn each defect into the lesson it
+should always have been: «ihr ___ jetzt bestimmt lieber zu Hause. (sein)» → **wärt**.
+
+**A gate so the generator cannot make them again**, in `corpus:validate`. It was too
+wide on its first run and is narrower now: *tauen*, *blitzen*, *donnern* and *dämmern*
+all take ordinary personal subjects — «der Schnee taut», «ihre Augen blitzten» — so the
+obvious "weather verbs" list flagged three correct items. Only precipitation is
+genuinely subjectless. See LESSONS, class 2.
+
+**Twenty exercises that drill the move rather than the form.** Nothing at any level
+drilled Konjunktiv II *as a proposal*, which is the only thing the page's speaking task
+uses it for. Six at A2, six at B1, eight at B2, covering making a suggestion, accepting
+one, and countering without contradicting — including the item that closes the
+negotiation: «Gut, dann ___ wir uns ja einig» takes the indicative, because knowing when
+to *stop* using the Konjunktiv is part of the form.
+
+Adding them needed `corpus:gex` widened. It refused `type`, `order` and `error` outright
+— a limitation of its checker, not a ruling, since the bank has always held all five
+kinds and the authored items in a typical point are exactly the ones four options cannot
+express. Refusing them meant every appended exercise had to be multiple choice, which is
+a large part of how the tense points came to read like tables. Each kind is now checked
+on its own terms.
+
+**Two things the authoring gate refused, and it was right both times.** `verheiraten`'s
+second example was «Er ist seit zehn Jahren mit ihr verheiratet» — the adjective, not
+the verb, the same class as `die Braut`/«braut». And the card itself is **dropped, not
+fixed**: `verheiratet` already exists at A1, so adding the verb would grow the
+verb/participle-adjective collision that BACKLOG still lists as unruled. `wiedergeben`'s
+«Sie gab das Gespräch fast wörtlich wieder» was rejected because the matcher cannot
+resolve a separated separable verb — the third hand-verified instance of a gap already
+filed, and now costing a real card a real example.
+
+Bank 6,193 → 6,213 exercises; corpus 6,638 → 6,646 cards. 958 tests, 0 lint errors,
+`corpus:validate` and `corpus:audit` both 0 errors.
+
+> The reader probe moved — verb 0.942 → 0.933, adj 0.960 → 0.945, plural 0.985 → 0.990 —
+> and that is the per-class seeding working, not a regression: eight new cards grew the
+> verb, adjective *and* noun populations, so all three re-rolled their own samples. Every
+> class stays far above its floor.
+
+---
+
 ### Shipped 2026-08-24 — eighteen cards carried the same sentence twice
 
 Second session on the sense band, and it did not find what it went looking for.

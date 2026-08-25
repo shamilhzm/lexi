@@ -38,8 +38,40 @@ const grammar = readJSON<GrammarByLevel>(PATHS.grammar);
 function problems(e: GExercise, where: string): string[] {
   const out: string[] = [];
   if (!e.prompt?.trim()) out.push(`${where}: no prompt`);
+  // `type`, `order` and `error` were refused outright until 2026-08-25, which was a
+  // limitation of this checker and not a ruling: the bank has always held all five
+  // kinds, and the six *authored* items in a typical point are exactly the ones a
+  // four-option shape cannot express. Refusing them meant every appended exercise
+  // had to be multiple choice, which is a large part of why the tense points read
+  // like conjugation tables. Each kind is checked on its own terms below.
+  if (e.kind === 'type') {
+    if (!e.accept?.length) out.push(`${where}: a "type" exercise needs at least one accepted answer`);
+    else if (e.accept.some((a) => !a?.trim())) out.push(`${where}: an empty accepted answer`);
+    else if (new Set(e.accept).size !== e.accept.length) out.push(`${where}: duplicate accepted answers`);
+    if (!/_{2,}|…|\.\.\./.test(e.prompt)) out.push(`${where}: a "type" prompt with no gap marker`);
+    if (!e.explain?.trim()) out.push(`${where}: no explanation`);
+    return out;
+  }
+  if (e.kind === 'order') {
+    const t = e.tiles ?? [];
+    if (t.length < 3) out.push(`${where}: an "order" exercise needs at least three tiles`);
+    if (t.some((x) => !x?.trim())) out.push(`${where}: an empty tile`);
+    if (!e.explain?.trim()) out.push(`${where}: no explanation`);
+    return out;
+  }
+  if (e.kind === 'error') {
+    // `answer` indexes the whitespace tokens of the prompt — see GrammarDrill.
+    const tokens = e.prompt.trim().split(/\s+/);
+    if (e.answer == null || e.answer < 0 || e.answer >= tokens.length) {
+      out.push(`${where}: answer ${e.answer} is outside the prompt's ${tokens.length} tokens`);
+    }
+    if (!e.fix?.trim()) out.push(`${where}: an "error" exercise needs the corrected sentence`);
+    else if (e.fix.trim() === e.prompt.trim()) out.push(`${where}: the fix is identical to the prompt`);
+    if (!e.explain?.trim()) out.push(`${where}: no explanation`);
+    return out;
+  }
   if (e.kind !== 'choose' && e.kind !== 'mc') {
-    out.push(`${where}: kind "${e.kind}" — this tool only adds the four-option kinds`);
+    out.push(`${where}: unknown kind "${e.kind}"`);
     return out;
   }
   if (!e.options?.length) out.push(`${where}: no options`);

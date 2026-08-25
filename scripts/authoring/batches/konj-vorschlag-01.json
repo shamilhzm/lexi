@@ -1,0 +1,37 @@
+[
+  {
+    "level": "A2", "title": "Konjunktiv II: Wünsche & Vorschläge",
+    "exercises": [
+      { "kind": "choose", "prompt": "Wir ___ das Fest doch zusammen planen.", "options": ["könnten", "konnten", "kannten", "können"], "answer": 0, "explain": "könnten + Infinitiv makes a suggestion. Without the umlaut, konnten is the plain past — you would be saying you were able to." },
+      { "kind": "choose", "prompt": "Wie ___ es, wenn wir uns um sechs treffen?", "options": ["wäre", "war", "wird", "würde"], "answer": 0, "explain": "„Wie wäre es, wenn …?“ is the standard opener for a suggestion. It is always wäre, never würde." },
+      { "kind": "type", "prompt": "Make it a suggestion: „Wir gehen ins Kino.“ → „Wir ___ ins Kino gehen.“ (können)", "accept": ["könnten"], "explain": "können → könnten. The Konjunktiv is what leaves the other person room to say no.", "hints": ["Same verb, one umlaut and one ending different.", "It starts with kö…"] },
+      { "kind": "mc", "prompt": "Which one leaves your partner room to disagree?", "options": ["Wir könnten den Salat mitbringen.", "Wir bringen den Salat mit.", "Bring den Salat mit."], "answer": 0, "explain": "The second states a decision, the third gives an order. Only the Konjunktiv is a proposal." },
+      { "kind": "choose", "prompt": "___ du mir beim Aufbau helfen?", "options": ["Würdest", "Wirst", "Wurdest", "Sollst"], "answer": 0, "explain": "würdest + Infinitiv is the ordinary polite way to ask for help. Wirst is a plain future and sounds like an assumption." },
+      { "kind": "error", "prompt": "Wir konnten doch am Samstag grillen.", "answer": 1, "fix": "Wir könnten doch am Samstag grillen.", "explain": "One umlaut decides it: konnten is the past, könnten is the suggestion." }
+    ]
+  },
+  {
+    "level": "B1", "title": "Konjunktiv II (würde)",
+    "exercises": [
+      { "kind": "choose", "prompt": "___ wir nicht lieber am Sonntag anfangen?", "options": ["Sollten", "Sollen", "Sollte", "Wollten"], "answer": 0, "explain": "sollten + wir opens a counter-proposal: it suggests a change without insisting on one." },
+      { "kind": "choose", "prompt": "Ich ___ es besser finden, wenn wir früher anfangen.", "options": ["würde", "werde", "wurde", "wäre"], "answer": 0, "explain": "würde + Infinitiv turns a disagreement into a proposal. „Ich finde es besser“ states that the other person is wrong." },
+      { "kind": "mc", "prompt": "Which reply is a counter-proposal rather than a refusal?", "options": ["Keine schlechte Idee — wie wäre es, wenn wir stattdessen grillen?", "Nein, das machen wir nicht.", "Das geht leider nicht."], "answer": 0, "explain": "A counter-proposal keeps the plan moving. In a paired task, a bare refusal costs marks even when the German is correct." },
+      { "kind": "order", "prompt": "Build the opener for a different idea:", "tiles": ["Ich", "hätte", "da", "einen", "anderen", "Vorschlag"], "explain": "hätte offers the idea instead of announcing it. „Ich habe einen anderen Vorschlag“ is not wrong, only blunter." },
+      { "kind": "choose", "prompt": "Meinst du nicht, wir ___ lieber zwei Termine anbieten?", "options": ["sollten", "sollen", "sollte", "werden"], "answer": 0, "explain": "Wrapping the proposal in a question with sollten is how German disagrees without contradicting." },
+      { "kind": "type", "prompt": "Soften the flat statement: „Das ist zu spät.“ → „Ich ___ lieber um vier anfangen.“ (werden, Konjunktiv II)", "accept": ["würde"], "explain": "werden → würde.", "hints": ["Konjunktiv II of werden.", "It starts with wü…"] }
+    ]
+  },
+  {
+    "level": "B2", "title": "Konjunktiv II (Gegenwart)",
+    "exercises": [
+      { "kind": "mc", "prompt": "Which sounds like a proposal rather than a decision already taken?", "options": ["Wir könnten die Getränke vorher bestellen.", "Wir bestellen die Getränke vorher.", "Die Getränke werden vorher bestellt."], "answer": 0, "explain": "In a planning task the examiner is listening for negotiation. The indicative and the passive both close the question instead of opening it." },
+      { "kind": "choose", "prompt": "Ich ___ mir vorstellen, dass wir die Aufgaben vorher verteilen.", "options": ["könnte", "kann", "konnte", "werde"], "answer": 0, "explain": "„Ich könnte mir vorstellen, dass …“ floats an idea without committing to it — one of the most useful frames at B2." },
+      { "kind": "choose", "prompt": "Ich ___ es besser finden, wenn jeder eine feste Aufgabe hätte.", "options": ["würde", "werde", "wurde", "wäre"], "answer": 0, "explain": "würde + Infinitiv, with the condition in the Konjunktiv too: this is the polite shape of a counter-proposal." },
+      { "kind": "type", "prompt": "Turn the rejection into a counter-proposal: „Das ist zu teuer.“ → „___ wir nicht lieber etwas Günstigeres nehmen?“ (sollen, Konjunktiv II)", "accept": ["Sollten", "sollten"], "explain": "sollen → sollten, and the question mark does the rest of the work.", "hints": ["A modal with its own Konjunktiv II form.", "It starts with So…"] },
+      { "kind": "error", "prompt": "Wenn wir mehr Zeit haben würden, würden wir mehr Programm anbieten.", "answer": 4, "fix": "Wenn wir mehr Zeit hätten, würden wir mehr Programm anbieten.", "explain": "haben has its own Konjunktiv II — hätten. Two würde-forms in one sentence is the commonest B2 slip in this construction." },
+      { "kind": "mc", "prompt": "Your partner proposes something you like. Which reply accepts and moves the plan on?", "options": ["Das klingt gut — dann würde ich die Einladungen übernehmen.", "Das klingt gut.", "Meinetwegen."], "answer": 0, "explain": "Accepting is worth little on its own. The mark in a paired task is for accepting and adding the next step." },
+      { "kind": "order", "prompt": "Build the counter-proposal:", "tiles": ["Meinst", "du", "nicht,", "wir", "sollten", "lieber", "früher", "anfangen?"], "explain": "Opening a counter-proposal as a question is why it does not land as contradiction." },
+      { "kind": "choose", "prompt": "Gut, dann ___ wir uns ja einig.", "options": ["sind", "wären", "werden", "waren"], "answer": 0, "explain": "Once you have agreed, drop the Konjunktiv. wären would reopen the question you have just closed — knowing when to stop is part of the form." }
+    ]
+  }
+]

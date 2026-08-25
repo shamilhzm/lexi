@@ -93,6 +93,12 @@ shapes:
 > are this session's numbers on this session's probe, not the 236/173 above — a
 > different definition, so compare the delta and not the level.
 
+> **A near-miss worth recording, 2026-08-25.** `verheiraten` was about to be authored
+> for a B2 page and was **dropped instead**, because `verheiratet` already exists at A1 —
+> writing the verb would have added a fresh instance of the very verb/participle shape
+> below before its ruling exists. Growing an open class while it is open is how the
+> other three got large.
+
 **Three shapes are still open**, and they are the reason this item is not closed: the
 verb/participle-adjective pairs (*erlauben*/*erlaubt*, *verbieten*/*verboten*), the
 noun/verb-of-one-stem pairs, and the reflexive variants. *Not* all of these should
@@ -135,6 +141,11 @@ so an invariant cannot survive as a sentence the way the Visum one did.
 > Left standing as 🟠 rather than closed: the remaining verb (424) and phrase (307)
 > rows deserve a proper classification pass before anyone claims a number. **What is
 > settled is that this no longer blocks Now #2 Phase 1.**
+
+**A third instance, 2026-08-25.** Authoring `wiedergeben` for a B2 page, the gate
+rejected «Sie gab das Gespräch fast wörtlich wieder» — a separated separable verb in an
+ordinary Präteritum sentence. The example was rewritten to an infinitive to get the card
+written, which is the gate pushing an author toward a worse sentence, exactly as below.
 
 **Two hand-verified instances, 2026-08-20 — the authoring gate is where this now bites.**
 Writing `auflösen` through `authoring:new`, the verifier rejected both examples because
@@ -1399,6 +1410,36 @@ user; none of it is built.*
   five filed here. The rule is now `headwordEvidence` in `scripts/corpus/lib.ts` and
   gates `corpus:validate`, `fix-authored` and `authoring:new`; the entry that
   described the item's original five is in the CHANGELOG.
+- **🟠 Seven tense points are 96% conjugation table · M.** *(Measured 2026-08-25 while
+  checking a B2 homework page.)* Of 4,320 generated exercises in the bank, **968 are the
+  shape `er ___ festlegen. (Konjunktiv II)`**, and they sit in only 10 points — which
+  are the points that carry every tense a B2 task needs. B1 Konjunktiv II, B1
+  Plusquamperfekt, B1 Futur I and B2 Konjunktiv II each hold **6 authored items and 150
+  generated**; A2 Konjunktiv II and A1 Perfekt hold 10 and 150. `GrammarDrill` spends
+  authored first and caps at 25, so this is a **supply** problem, not an ordering one:
+  19 of every 25 items in a sitting are table-filling. B2 Konjunktiv II gained 8 authored
+  items on 2026-08-25 and needs perhaps 20; the other six points are untouched.
+  **Do:** author function-level items per point — the tense *doing a job*, not the tense
+  as a paradigm. The paradigm is already drilled better by the session's own conjugation
+  mode, which `TENSE_POINT` routes to these very points. **Done-when:** no point in the
+  bank is more than two-thirds one generated template. *`corpus:gex`, `scripts/authoring/`.*
+- **🟡 Redemittel are not studiable · S.** *(2026-08-25.)* Lexi has a genuinely good
+  Redemittel repertoire — `Einen Vortrag gliedern`, `Abwägen`, `Widersprechen ohne
+  unhöflich zu werden`, `Vorschlagen und planen` — and every phrase of it lives inside
+  `src/data/exams/*-speaking.ts`, reachable only by walking into one exam paper's
+  speaking part. **They are not cards, so FSRS never schedules one.** A learner can read
+  them and cannot *study* them. The corpus has 152 phrase cards and not one is a
+  negotiating move. **Do:** decide whether Redemittel become phrase cards (schedulable,
+  but they duplicate the exam surface and are level-bound in a way vocabulary is not) or
+  whether the speaking surface grows its own review loop. This is a design decision
+  before it is work. **Touches:** `src/lib/exam.ts`, `src/session.ts`, `public/data/`.
+- **🟡 The paired-planning task type stops at B1 · S.** *(2026-08-25.)* «Gemeinsam etwas
+  planen» — propose, react, agree — exists as TELC B1 Teil 3 with two full dialogue
+  models. At B2 the speaking surface offers *Vortrag* and *Diskussion*, whose Redemittel
+  are for arguing a position. A learner working at B2 therefore meets the arguing
+  repertoire and never the negotiating one at their own level, though B2 course material
+  uses it constantly. **Do:** a B2 planning topic with models, or an explicit note that
+  the B1 one is the reference. *`src/data/exams/goethe-b2-speaking.ts`.*
 - **🟡 Cards whose two examples are nearly the same sentence · M, needs reading not
   building.** *(Measured 2026-08-24, after the 18 exact twins were fixed.)* **86 cards**
   have an example pair above 0.90 character similarity; **311** above 0.80; **143** have

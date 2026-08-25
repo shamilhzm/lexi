@@ -1,0 +1,142 @@
+[
+  {
+    "term": "der Ausländer",
+    "en": "foreigner",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "field": "Migration & Integration",
+    "ex": [
+      {
+        "de": "Als Ausländer musste er viele Formulare ausfüllen.",
+        "en": "As a foreigner he had to fill in a lot of forms."
+      },
+      {
+        "de": "In dieser Firma arbeiten viele Ausländer.",
+        "en": "A lot of foreigners work at this company."
+      }
+    ]
+  },
+  {
+    "term": "multikulturell",
+    "en": "multicultural",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Cultural Identity",
+    "ex": [
+      {
+        "de": "Unsere Schule ist wirklich multikulturell.",
+        "en": "Our school is genuinely multicultural."
+      },
+      {
+        "de": "Sie sind in einem multikulturellen Viertel aufgewachsen.",
+        "en": "They grew up in a multicultural neighbourhood."
+      }
+    ]
+  },
+  {
+    "term": "zerrissen",
+    "en": "torn, conflicted",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Cultural Identity",
+    "ex": [
+      {
+        "de": "Zwischen zwei Kulturen fühlt sie sich oft zerrissen.",
+        "en": "Between two cultures she often feels torn."
+      },
+      {
+        "de": "Er war innerlich zerrissen und konnte sich nicht entscheiden.",
+        "en": "He was inwardly torn and could not decide."
+      }
+    ]
+  },
+  {
+    "term": "der Schulabschluss",
+    "en": "school-leaving qualification",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "field": "School & Education System",
+    "ex": [
+      {
+        "de": "Ohne Schulabschluss ist die Suche nach einer Lehrstelle schwer.",
+        "en": "Without a school-leaving qualification, looking for an apprenticeship is hard."
+      },
+      {
+        "de": "Ihr Schulabschluss wurde in Deutschland nicht anerkannt.",
+        "en": "Her school-leaving qualification was not recognised in Germany."
+      }
+    ]
+  },
+  {
+    "term": "die Informatik",
+    "en": "computer science",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "field": "University & Studies",
+    "ex": [
+      {
+        "de": "Sie studiert Informatik in Berlin.",
+        "en": "She is studying computer science in Berlin."
+      },
+      {
+        "de": "In der Informatik fehlen zurzeit viele Fachkräfte.",
+        "en": "Computer science is currently short of a lot of skilled workers."
+      }
+    ]
+  },
+  {
+    "term": "der Kommilitone",
+    "en": "fellow student",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "field": "University & Studies",
+    "ex": [
+      {
+        "de": "Mit zwei Kommilitonen gründete er eine kleine Firma.",
+        "en": "With two fellow students he founded a small company."
+      },
+      {
+        "de": "Mein Kommilitone hat mir die Notizen geschickt.",
+        "en": "My fellow student sent me the notes."
+      }
+    ]
+  },
+  {
+    "term": "wiedergeben",
+    "en": "to reproduce, to convey",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Pragmatics & Communication",
+    "ex": [
+      {
+        "de": "Können Sie den Inhalt des Textes kurz wiedergeben?",
+        "en": "Can you briefly summarise the content of the text?"
+      },
+      {
+        "de": "Der Bericht soll die Fakten korrekt wiedergeben.",
+        "en": "The report is supposed to convey the facts accurately."
+      }
+    ]
+  },
+  {
+    "term": "inmitten",
+    "en": "in the middle of, amid",
+    "pos": "preposition",
+    "level": "B2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Inmitten der grauen Häuser fiel das rote Dach sofort auf.",
+        "en": "Amid the grey houses the red roof stood out at once."
+      },
+      {
+        "de": "Sie wohnt inmitten der Altstadt.",
+        "en": "She lives right in the middle of the old town."
+      }
+    ]
+  }
+]

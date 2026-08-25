@@ -207691,5 +207691,221 @@
     "ex": [],
     "field": "Grammar",
     "kind": "grammar"
+  },
+  {
+    "id": "voc:A2:der Ausländer",
+    "term": "der Ausländer",
+    "en": "foreigner",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Ausländer",
+    "ipa": "ˈaʊ̯sˌlɛndɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Als Ausländer musste er viele Formulare ausfüllen.",
+        "en": "As a foreigner he had to fill in a lot of forms.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In dieser Firma arbeiten viele Ausländer.",
+        "en": "A lot of foreigners work at this company.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:multikulturell",
+    "term": "multikulturell",
+    "en": "multicultural",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "mʊltikʊltuˈʁɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Unsere Schule ist wirklich multikulturell.",
+        "en": "Our school is genuinely multicultural.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sind in einem multikulturellen Viertel aufgewachsen.",
+        "en": "They grew up in a multicultural neighbourhood.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:zerrissen",
+    "term": "zerrissen",
+    "en": "torn, conflicted",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡sɛɐ̯ˈʁɪsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zwischen zwei Kulturen fühlt sie sich oft zerrissen.",
+        "en": "Between two cultures she often feels torn.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er war innerlich zerrissen und konnte sich nicht entscheiden.",
+        "en": "He was inwardly torn and could not decide.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Schulabschluss",
+    "term": "der Schulabschluss",
+    "en": "school-leaving qualification",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Schulabschlüsse",
+    "ipa": "ˈʃuːlʔapˌʃlʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne Schulabschluss ist die Suche nach einer Lehrstelle schwer.",
+        "en": "Without a school-leaving qualification, looking for an apprenticeship is hard.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihr Schulabschluss wurde in Deutschland nicht anerkannt.",
+        "en": "Her school-leaving qualification was not recognised in Germany.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Informatik",
+    "term": "die Informatik",
+    "en": "computer science",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ɪnfɔʁˈmaːtɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie studiert Informatik in Berlin.",
+        "en": "She is studying computer science in Berlin.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der Informatik fehlen zurzeit viele Fachkräfte.",
+        "en": "Computer science is currently short of a lot of skilled workers.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "University & Studies",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Kommilitone",
+    "term": "der Kommilitone",
+    "en": "fellow student",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Kommilitonen",
+    "ipa": "ˌkɔmiliˈtoːnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit zwei Kommilitonen gründete er eine kleine Firma.",
+        "en": "With two fellow students he founded a small company.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mein Kommilitone hat mir die Notizen geschickt.",
+        "en": "My fellow student sent me the notes.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "University & Studies",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:wiedergeben",
+    "term": "wiedergeben",
+    "en": "to reproduce, to convey",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈviːdɐˌɡeːbm̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie den Inhalt des Textes kurz wiedergeben?",
+        "en": "Can you briefly summarise the content of the text?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Bericht soll die Fakten korrekt wiedergeben.",
+        "en": "The report is supposed to convey the facts accurately.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Pragmatics & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:inmitten",
+    "term": "inmitten",
+    "en": "in the middle of, amid",
+    "pos": "preposition",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪnˈmɪtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Inmitten der grauen Häuser fiel das rote Dach sofort auf.",
+        "en": "Amid the grey houses the red roof stood out at once.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie wohnt inmitten der Altstadt.",
+        "en": "She lives right in the middle of the old town.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
   }
 ]

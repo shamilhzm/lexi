@@ -1,0 +1,65 @@
+[
+  {
+    "level": "A2", "title": "Konjunktiv II: Wünsche & Vorschläge", "at": 71,
+    "expect": { "prompt": "sie (Pl.) ___ haben. (Konjunktiv II)" },
+    "prompt": "sie (Pl.) ___ gern mehr Zeit. (haben, Konjunktiv II)",
+    "options": ["hätten", "würden haben", "hatten", "haben würden"],
+    "answer": 0,
+    "explain": "haben has its own Konjunktiv II form: sie hätten. A würde-form is only for verbs that have none.",
+    "why": "The item asked for a würde-form of haben and marked «würden haben» correct — which the point's own rule, on the same screen, says is wrong: haben, sein and the modals use their own forms."
+  },
+  {
+    "level": "A2", "title": "Konjunktiv II: Wünsche & Vorschläge", "at": 74,
+    "expect": { "prompt": "ihr ___ dürfen. (Konjunktiv II)" },
+    "prompt": "ihr ___ heute früher gehen. (dürfen, Konjunktiv II)",
+    "options": ["dürftet", "würdet dürfen", "durftet", "dürfen würdet"],
+    "answer": 0,
+    "explain": "Modal verbs form Konjunktiv II themselves: ihr dürftet. Note the umlaut — durftet is the plain past.",
+    "why": "Same defect: a modal verb asked for a würde-form, against the rule printed above it."
+  },
+  {
+    "level": "A2", "title": "Konjunktiv II: Wünsche & Vorschläge", "at": 80,
+    "expect": { "prompt": "ihr ___ mögen. (Konjunktiv II)" },
+    "prompt": "___ ihr noch einen Kaffee? (mögen, Konjunktiv II)",
+    "options": ["Möchtet", "Würdet", "Mochtet", "Mögt"],
+    "answer": 0,
+    "explain": "The Konjunktiv II of mögen is möchte- — the ordinary polite way to offer something.",
+    "why": "Same defect, and the wrong answer here is the commonest polite form in the language: möchtet, not würdet mögen."
+  },
+  {
+    "level": "A2", "title": "Konjunktiv II: Wünsche & Vorschläge", "at": 99,
+    "expect": { "prompt": "ihr ___ sein. (Konjunktiv II)" },
+    "prompt": "ihr ___ jetzt bestimmt lieber zu Hause. (sein, Konjunktiv II)",
+    "options": ["wärt", "würdet sein", "wart", "seid"],
+    "answer": 0,
+    "explain": "sein has its own Konjunktiv II: ihr wärt. The point's rule lists wäre first for exactly this reason.",
+    "why": "Same defect on the verb the rule names first."
+  },
+  {
+    "level": "A2", "title": "Konjunktiv II: Wünsche & Vorschläge", "at": 152,
+    "expect": { "prompt": "ich ___ regnen. (Konjunktiv II)" },
+    "prompt": "Bei den Wolken ___ es jetzt eigentlich regnen. (Konjunktiv II)",
+    "options": ["würde", "würden", "wird", "wurde"],
+    "answer": 0,
+    "explain": "regnen is impersonal: its subject is always es, never a person.",
+    "why": "«ich würde regnen» is not German. The generator paired an impersonal weather verb with a personal subject."
+  },
+  {
+    "level": "B1", "title": "Futur I", "at": 80,
+    "expect": { "prompt": "ich ___ hageln. (Futur I)" },
+    "prompt": "Heute Abend ___ es hageln. (Futur I)",
+    "options": ["wird", "werde", "werden", "wirst"],
+    "answer": 0,
+    "explain": "hageln is impersonal — es hagelt — so Futur I is es wird hageln.",
+    "why": "«ich werde hageln» is not German. Same impersonal-verb defect."
+  },
+  {
+    "level": "B2", "title": "Konjunktiv II (Gegenwart)", "at": 93,
+    "expect": { "prompt": "er ___ hageln. (Konjunktiv II)" },
+    "prompt": "Wenn es kälter wäre, ___ es jetzt hageln. (Konjunktiv II)",
+    "options": ["würde", "würden", "wird", "wäre"],
+    "answer": 0,
+    "explain": "Impersonal verb, so es — and the irreale Bedingung takes würde + Infinitiv.",
+    "why": "«er würde hageln» is not German. Same impersonal-verb defect, at B2."
+  }
+]

@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
-import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, exampleKey, PREMODERN_TYPOGRAPHY, LEVELS, type Word } from './lib.ts';
+import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, exampleKey, PREMODERN_TYPOGRAPHY, tenseItemDefect, LEVELS, type Word } from './lib.ts';
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import type { Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
@@ -332,6 +332,17 @@ async function main() {
   // rendered `whitespace-pre-line` the whole time, waiting for newlines that never
   // came. The sections are authored now; this is what stops the next batch
   // regressing to a wall of prose nobody reads on a phone.
+  // A generated tense item that contradicts the rule it sits under. See lib.ts.
+  for (const [lv, points] of Object.entries(readJSON<Record<string, { title: string; exercises?: { prompt: string }[] }[]>>(
+    join(PATHS.repoRoot, 'public', 'data', 'grammar.json')))) {
+    for (const p of points) {
+      for (const [i, e] of (p.exercises ?? []).entries()) {
+        const why = tenseItemDefect(e.prompt ?? '');
+        if (why) allErrors.push({ id: `gex:${lv}:${p.title}:${i}`, msg: `generated item teaches wrong German — ${why}` });
+      }
+    }
+  }
+
   const RULE_PROSE_MAX = 280;
   // Deliberately not wrapped in a catch: the first version was, and it swallowed a
   // missing import so the gate silently passed while reporting PASS — a check that
