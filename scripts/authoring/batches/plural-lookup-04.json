@@ -1,0 +1,130 @@
+[
+  {
+    "id": "voc:B1:der Knoblauch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Knoblauch"
+  },
+  {
+    "id": "voc:B1:der Aufschnitt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Aufschnitt"
+  },
+  {
+    "id": "voc:B1:die Schweiz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schweizen",
+    "src": "de.wiktionary.org/wiki/Schweiz"
+  },
+  {
+    "id": "voc:B1:die USA",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die USA",
+    "src": "de.wiktionary.org/wiki/USA"
+  },
+  {
+    "id": "voc:B1:die Türkei",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Türkei"
+  },
+  {
+    "id": "voc:B1:die Niederlande",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Niederlande",
+    "src": "de.wiktionary.org/wiki/Niederlande"
+  },
+  {
+    "id": "voc:B1:die Slowakei",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Slowakei"
+  },
+  {
+    "id": "voc:B1:die Ukraine",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ukraine"
+  },
+  {
+    "id": "voc:B1:die Wut",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wut"
+  },
+  {
+    "id": "voc:B1:das Wohlbefinden",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wohlbefinden"
+  },
+  {
+    "id": "voc:B1:die Schlaflosigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schlaflosigkeit"
+  },
+  {
+    "id": "voc:B1:das Selbstwertgefühl",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Selbstwertgefühle",
+    "src": "de.wiktionary.org/wiki/Selbstwertgefühl"
+  },
+  {
+    "id": "voc:B1:die Trauer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Trauer"
+  },
+  {
+    "id": "voc:B1:die Zufriedenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zufriedenheit"
+  },
+  {
+    "id": "voc:B1:die Scham",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Scham"
+  },
+  {
+    "id": "voc:B1:der Kummer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kummer"
+  }
+]

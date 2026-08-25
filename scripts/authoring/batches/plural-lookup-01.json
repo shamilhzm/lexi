@@ -1,0 +1,146 @@
+[
+  {
+    "id": "voc:B2:der Datenschutz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Datenschutz"
+  },
+  {
+    "id": "voc:B2:der Generationenvertrag",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Generationenverträge",
+    "src": "de.wiktionary.org/wiki/Generationenvertrag"
+  },
+  {
+    "id": "voc:B2:der Zusammenhalt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zusammenhalt"
+  },
+  {
+    "id": "voc:B2:die Solarenergie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Solarenergien",
+    "src": "de.wiktionary.org/wiki/Solarenergie"
+  },
+  {
+    "id": "voc:B2:die Windkraft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Windkraft"
+  },
+  {
+    "id": "voc:B2:der Stromverbrauch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stromverbräuche",
+    "src": "de.wiktionary.org/wiki/Stromverbrauch"
+  },
+  {
+    "id": "voc:B2:die Neugier",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Neugier"
+  },
+  {
+    "id": "voc:B2:die Work-Life-Balance",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Work-Life-Balance"
+  },
+  {
+    "id": "voc:B2:die Mietpreisbremse",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Mietpreisbremsen",
+    "src": "de.wiktionary.org/wiki/Mietpreisbremse"
+  },
+  {
+    "id": "voc:B2:das Carsharing",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Carsharing"
+  },
+  {
+    "id": "voc:C1:die Integrität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Integrität"
+  },
+  {
+    "id": "voc:C1:die Skepsis",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Skepsis"
+  },
+  {
+    "id": "voc:C1:die Verständlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Verständlichkeit"
+  },
+  {
+    "id": "voc:C1:der Tonfall",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tonfälle",
+    "src": "de.wiktionary.org/wiki/Tonfall"
+  },
+  {
+    "id": "voc:C1:die Sprachpflege",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sprachpflege"
+  },
+  {
+    "id": "voc:C1:der Sprachverfall",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sprachverfall"
+  },
+  {
+    "id": "voc:C1:der Zeitgeist",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zeitgeist"
+  },
+  {
+    "id": "voc:C1:die Überzeugungskraft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Überzeugungskraft"
+  }
+]

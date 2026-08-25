@@ -11,6 +11,51 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — 267 plurals, none of them guessed
+
+`corpus:validate` warned *noun without plural* on **471** cards. The shortcut is
+obvious and wrong: 160 of them end in a suffix whose plural is morphologically
+decidable — `-ung`, `-heit`, `-keit`, `-ion` all take `-en` without exception — so a
+rule could fill them in one pass. It would be wrong on most of them. German *permits*
+«die Höflichkeiten» and «die Transparenzen»; they are not what a learner should be
+taught, and both mean something else than the singular on the card. **Morphology is
+decidable; whether a noun has a plural in use is lexical**, and lexical questions get
+looked up.
+
+`authoring/fetch-plurals.ts` reads de.wiktionary through the same cached fetcher the
+authoring gate uses and proposes one of three things per card: an attested Nominativ
+Plural, "nur Singular" where the entry is a Singularetantum, or nothing. **471 → 204**,
+and every batch was read before it was applied.
+
+**The instrument got narrower four times, each time because a hand-check caught it.**
+
+- *`die Teilhabe` → «die –».* The parser strips an em-dash and not an en-dash, so a
+  punctuation mark was proposed as a plural form.
+- *`das Erbe` → «die Erben».* That is the plural of **der** Erbe, the heir. German
+  wiktionary puts both genders on one page and the neuter card got the masculine's
+  plural. Now: where the attested genders do not include the card's own, the lookup is
+  reported rather than believed.
+- *`die Transparenz` → «die Transparenzen»* (overhead transparencies), *`die
+  Höflichkeit` → «die Höflichkeiten»* (pleasantries). Attested, same spelling, different
+  word. Nouns in the abstract suffixes are now reported for a ruling, never proposed.
+- *`die Schweiz` → «die Schweizen».* A country has no plural. **This one was applied
+  before it was caught**, because I ran two batches without reading them — the only
+  time all day I skipped that step, and it was the batch that had the defect in it.
+  Fixed, and `Countries` is now settled by sector before the lookup runs at all.
+
+Also **51 proper nouns were removed from the warning entirely**: Deutschland, Österreich,
+Kenia carried *noun without plural* permanently, and a warning nobody can ever clear is
+one everybody learns to scroll past. The corpus writes every ordinary noun with its
+article, so "no article in the term" is the test.
+
+`fix-authored`'s plural guard was widened to accept "nur Singular" and "—". It insisted
+on a `die …` form, which meant the nouns that genuinely *have* no plural had no way to
+say so — 420 cards could not be resolved in either direction.
+
+Total warnings 805 → 538. 989 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-25 — the fourth collision shape, and the matcher bug it was hiding
 
 Closing the governed-verb shape filed the same day, and fixing what finding it exposed.

@@ -119,7 +119,18 @@ for (const row of rows) {
     const next = norm(row.plural ?? '');
     if (!next) { pending++; continue; }
     if (card.pos !== 'noun') { refuse(row, 'not a noun'); continue; }
-    if (!/^(die|der|das)\s/.test(next)) { refuse(row, 'plural must be written with its article'); continue; }
+    // A real plural is written with its article. The corpus also records two
+    // *absences* — "nur Singular" for a mass or abstract noun and "—" where the
+    // question does not arise — and both are legitimate values the plural drill
+    // already gates on (`askablePlural` asks only for a full `die …` form). The
+    // guard refused them until 2026-08-25, which meant the 420 plural-less nouns
+    // could never be resolved either way: the ones that *have* no plural had no
+    // way to say so.
+    const NO_PLURAL = new Set(['nur Singular', '—']);
+    if (!NO_PLURAL.has(next) && !/^(die|der|das)\s/.test(next)) {
+      refuse(row, 'plural must be written with its article, or be "nur Singular" / "—"');
+      continue;
+    }
     if (!row.src?.trim()) { refuse(row, 'no source given for the plural'); continue; }
     card.plural = next;
     applied++;

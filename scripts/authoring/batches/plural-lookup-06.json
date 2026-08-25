@@ -1,0 +1,610 @@
+[
+  {
+    "id": "voc:C1:die Kohärenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kohärenz"
+  },
+  {
+    "id": "voc:C1:die Legitimität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Legitimität"
+  },
+  {
+    "id": "voc:C1:der Spielraum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Spielräume",
+    "src": "de.wiktionary.org/wiki/Spielraum"
+  },
+  {
+    "id": "voc:C1:der Stellenwert",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stellenwerte",
+    "src": "de.wiktionary.org/wiki/Stellenwert"
+  },
+  {
+    "id": "voc:C1:die Tragweite",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tragweiten",
+    "src": "de.wiktionary.org/wiki/Tragweite"
+  },
+  {
+    "id": "voc:C1:das Ausmaß",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ausmaße",
+    "src": "de.wiktionary.org/wiki/Ausmaß"
+  },
+  {
+    "id": "voc:C1:die Vorgehensweise",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vorgehensweisen",
+    "src": "de.wiktionary.org/wiki/Vorgehensweise"
+  },
+  {
+    "id": "voc:C1:die Herangehensweise",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Herangehensweisen",
+    "src": "de.wiktionary.org/wiki/Herangehensweise"
+  },
+  {
+    "id": "voc:C1:die Grauzone",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Grauzonen",
+    "src": "de.wiktionary.org/wiki/Grauzone"
+  },
+  {
+    "id": "voc:C1:die Gelassenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gelassenheit"
+  },
+  {
+    "id": "voc:C1:die Beharrlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Beharrlichkeit"
+  },
+  {
+    "id": "voc:C2:die Kontingenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kontingenz"
+  },
+  {
+    "id": "voc:C2:die Hermeneutik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Hermeneutik"
+  },
+  {
+    "id": "voc:C2:die Dialektik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Dialektik"
+  },
+  {
+    "id": "voc:C2:die Empirie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Empirie"
+  },
+  {
+    "id": "voc:C2:der Topos",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Topoi",
+    "src": "de.wiktionary.org/wiki/Topos"
+  },
+  {
+    "id": "voc:C2:der Gemeinplatz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gemeinplätze",
+    "src": "de.wiktionary.org/wiki/Gemeinplatz"
+  },
+  {
+    "id": "voc:C2:die Chiffre",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Chiffren",
+    "src": "de.wiktionary.org/wiki/Chiffre"
+  },
+  {
+    "id": "voc:C2:die Hyperbel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hyperbeln",
+    "src": "de.wiktionary.org/wiki/Hyperbel"
+  },
+  {
+    "id": "voc:C2:die Vehemenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vehemenz"
+  },
+  {
+    "id": "voc:C2:die Akribie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Akribie"
+  },
+  {
+    "id": "voc:C2:die Stringenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Stringenz"
+  },
+  {
+    "id": "voc:B1:die Kanone",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kanonen",
+    "src": "de.wiktionary.org/wiki/Kanone"
+  },
+  {
+    "id": "voc:A1:der Süden",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Süden"
+  },
+  {
+    "id": "voc:A1:die Vorsicht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vorsicht"
+  },
+  {
+    "id": "voc:B1:der Blödsinn",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Blödsinn"
+  },
+  {
+    "id": "voc:B1:die Jugend",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Jugend"
+  },
+  {
+    "id": "voc:B1:der Quatsch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Quatsch"
+  },
+  {
+    "id": "voc:B1:die Rache",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rache"
+  },
+  {
+    "id": "voc:B1:die Schande",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schande"
+  },
+  {
+    "id": "voc:B1:der Wahnsinn",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wahnsinn"
+  },
+  {
+    "id": "voc:B2:die Anwesenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Anwesenheit"
+  },
+  {
+    "id": "voc:B2:das Phänomen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Phänomene",
+    "src": "de.wiktionary.org/wiki/Phänomen"
+  },
+  {
+    "id": "voc:C1:die Gier",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gier"
+  },
+  {
+    "id": "voc:C1:das Mittelalter",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mittelalter"
+  },
+  {
+    "id": "voc:C2:die Hingabe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Hingabe"
+  },
+  {
+    "id": "voc:B1:das Chaos",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Chaos"
+  },
+  {
+    "id": "voc:B1:der Dreck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Dreck"
+  },
+  {
+    "id": "voc:B1:die Pflege",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Pflege"
+  },
+  {
+    "id": "voc:B2:der Straßenverkehr",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Straßenverkehr"
+  },
+  {
+    "id": "voc:B2:der Trost",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Trost"
+  },
+  {
+    "id": "voc:C1:der Komfort",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Komfort"
+  },
+  {
+    "id": "voc:C1:der Nordwesten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Nordwesten"
+  },
+  {
+    "id": "voc:C1:die Notwehr",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Notwehr"
+  },
+  {
+    "id": "voc:C1:die Novelle",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Novellen",
+    "src": "de.wiktionary.org/wiki/Novelle"
+  },
+  {
+    "id": "voc:A1:die Mathematik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mathematik"
+  },
+  {
+    "id": "voc:A2:das Hackfleisch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Hackfleisch"
+  },
+  {
+    "id": "voc:B1:die Elektrotechnik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Elektrotechnik"
+  },
+  {
+    "id": "voc:B1:die Germanistik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Germanistik"
+  },
+  {
+    "id": "voc:B1:die Kohlensäure",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kohlensäure"
+  },
+  {
+    "id": "voc:B1:der Nobelpreis",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Nobelpreise",
+    "src": "de.wiktionary.org/wiki/Nobelpreis"
+  },
+  {
+    "id": "voc:B1:der Restmüll",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Restmüll"
+  },
+  {
+    "id": "voc:B2:die Lyrik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Lyrik"
+  },
+  {
+    "id": "voc:A1:das Ausland",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ausland"
+  },
+  {
+    "id": "voc:A2:das Marketing",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Marketing"
+  },
+  {
+    "id": "voc:B1:der Einzelhandel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Einzelhandel"
+  },
+  {
+    "id": "voc:B1:das Rheuma",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rheuma"
+  },
+  {
+    "id": "voc:B1:der Vollmond",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vollmonde",
+    "src": "de.wiktionary.org/wiki/Vollmond"
+  },
+  {
+    "id": "voc:B1:die Mehrsprachigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mehrsprachigkeit"
+  },
+  {
+    "id": "voc:B1:das Zusammenleben",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zusammenleben"
+  },
+  {
+    "id": "voc:B1:der Schmutz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schmutz"
+  },
+  {
+    "id": "voc:B1:das Betriebsklima",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Betriebsklima"
+  },
+  {
+    "id": "voc:B1:der Konsum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Konsum"
+  },
+  {
+    "id": "voc:B1:das Benehmen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Benehmen"
+  },
+  {
+    "id": "voc:B1:der Tierschutz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Tierschutz"
+  },
+  {
+    "id": "voc:B1:die Vielfalt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vielfalt"
+  },
+  {
+    "id": "voc:B1:die Europäische Union",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Europäische Union"
+  },
+  {
+    "id": "voc:A1:das Bügeln",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Bügeln"
+  },
+  {
+    "id": "voc:B1:die Herrenmode",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Herrenmoden",
+    "src": "de.wiktionary.org/wiki/Herrenmode"
+  },
+  {
+    "id": "voc:B1:das Regenwetter",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Regenwetter"
+  },
+  {
+    "id": "voc:A1:der Westen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Westen"
+  },
+  {
+    "id": "voc:A1:der Appetit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Appetit"
+  },
+  {
+    "id": "voc:A2:das Tennis",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Tennis"
+  },
+  {
+    "id": "voc:B2:die Produktivität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Produktivität"
+  },
+  {
+    "id": "voc:C1:das Prestige",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Prestige"
+  },
+  {
+    "id": "voc:B1:die Informatik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Informatik"
+  }
+]

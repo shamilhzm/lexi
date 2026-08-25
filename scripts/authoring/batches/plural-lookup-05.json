@@ -1,0 +1,410 @@
+[
+  {
+    "id": "voc:B1:der Irak",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "A country name has no plural."
+  },
+  {
+    "id": "voc:B1:der Iran",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "A country name has no plural."
+  },
+  {
+    "id": "voc:B2:das Mitgefühl",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mitgefühl"
+  },
+  {
+    "id": "voc:B1:die Fitness",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Fitness"
+  },
+  {
+    "id": "voc:B1:die Hygiene",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Hygiene"
+  },
+  {
+    "id": "voc:B1:die Physik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Physik"
+  },
+  {
+    "id": "voc:B2:die Müllabfuhr",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Müllabfuhren",
+    "src": "de.wiktionary.org/wiki/Müllabfuhr"
+  },
+  {
+    "id": "voc:B1:das Recycling",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Recyclings",
+    "src": "de.wiktionary.org/wiki/Recycling"
+  },
+  {
+    "id": "voc:B1:der Faschismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Faschismus"
+  },
+  {
+    "id": "voc:B1:der Kolonialismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kolonialismus"
+  },
+  {
+    "id": "voc:B1:das Reisen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Reisen"
+  },
+  {
+    "id": "voc:B1:das Kochen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kochen"
+  },
+  {
+    "id": "voc:B1:das Lesen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Lesen"
+  },
+  {
+    "id": "voc:B1:das Zeichnen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zeichnen"
+  },
+  {
+    "id": "voc:B1:das Wandern",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wandern"
+  },
+  {
+    "id": "voc:B1:das Schwimmen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schwimmen"
+  },
+  {
+    "id": "voc:B1:das Radfahren",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Radfahren"
+  },
+  {
+    "id": "voc:B1:das Tanzen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Tanzen"
+  },
+  {
+    "id": "voc:B1:das Spielen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Spielen"
+  },
+  {
+    "id": "voc:B1:das Singen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Singen"
+  },
+  {
+    "id": "voc:B1:das Sammeln",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sammeln"
+  },
+  {
+    "id": "voc:B1:das Surfen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Surfen"
+  },
+  {
+    "id": "voc:B1:das Turnen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Turnen"
+  },
+  {
+    "id": "voc:B1:die Ausdauer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ausdauer"
+  },
+  {
+    "id": "voc:A2:die Sporttasche",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sporttaschen",
+    "src": "de.wiktionary.org/wiki/Sporttasche"
+  },
+  {
+    "id": "voc:B1:die Eifersucht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Eifersucht"
+  },
+  {
+    "id": "voc:B2:die Vertrautheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vertrautheit"
+  },
+  {
+    "id": "voc:B1:die Fürsorge",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fürsorgen",
+    "src": "de.wiktionary.org/wiki/Fürsorge"
+  },
+  {
+    "id": "voc:B1:der Frieden",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Frieden",
+    "src": "de.wiktionary.org/wiki/Frieden"
+  },
+  {
+    "id": "voc:A2:der Skischuh",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Skischuhe",
+    "src": "de.wiktionary.org/wiki/Skischuh"
+  },
+  {
+    "id": "voc:A2:der Snowboarder",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Snowboarder",
+    "src": "de.wiktionary.org/wiki/Snowboarder"
+  },
+  {
+    "id": "voc:B1:das Après-Ski",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Après-Ski"
+  },
+  {
+    "id": "voc:B1:der Pulverschnee",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Pulverschnee"
+  },
+  {
+    "id": "voc:B1:das Arbeitsrecht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Arbeitsrechte",
+    "src": "de.wiktionary.org/wiki/Arbeitsrecht"
+  },
+  {
+    "id": "voc:B1:die Heckenschere",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Heckenscheren",
+    "src": "de.wiktionary.org/wiki/Heckenschere"
+  },
+  {
+    "id": "voc:B1:der Wille",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Willen",
+    "src": "de.wiktionary.org/wiki/Wille"
+  },
+  {
+    "id": "voc:B1:der Eindruck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Eindrücke",
+    "src": "de.wiktionary.org/wiki/Eindruck"
+  },
+  {
+    "id": "voc:B1:der Gedanke",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gedanken",
+    "src": "de.wiktionary.org/wiki/Gedanke"
+  },
+  {
+    "id": "voc:B1:das Verhalten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Verhalten",
+    "src": "de.wiktionary.org/wiki/Verhalten"
+  },
+  {
+    "id": "voc:B1:die Gefahr",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gefahren",
+    "src": "de.wiktionary.org/wiki/Gefahr"
+  },
+  {
+    "id": "voc:B2:der Aspekt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Aspekte",
+    "src": "de.wiktionary.org/wiki/Aspekt"
+  },
+  {
+    "id": "voc:B2:der Widerspruch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Widersprüche",
+    "src": "de.wiktionary.org/wiki/Widerspruch"
+  },
+  {
+    "id": "voc:B2:der Aufwand",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Aufwände",
+    "src": "de.wiktionary.org/wiki/Aufwand"
+  },
+  {
+    "id": "voc:B2:der Nutzen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Nutzen",
+    "src": "de.wiktionary.org/wiki/Nutzen"
+  },
+  {
+    "id": "voc:B2:die Zunahme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Zunahmen",
+    "src": "de.wiktionary.org/wiki/Zunahme"
+  },
+  {
+    "id": "voc:B2:die Abnahme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Abnahmen",
+    "src": "de.wiktionary.org/wiki/Abnahme"
+  },
+  {
+    "id": "voc:B2:der Rückgang",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rückgänge",
+    "src": "de.wiktionary.org/wiki/Rückgang"
+  },
+  {
+    "id": "voc:B2:der Anstieg",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Anstiege",
+    "src": "de.wiktionary.org/wiki/Anstieg"
+  },
+  {
+    "id": "voc:B2:der Durchschnitt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Durchschnitte",
+    "src": "de.wiktionary.org/wiki/Durchschnitt"
+  },
+  {
+    "id": "voc:B2:die Ausnahme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ausnahmen",
+    "src": "de.wiktionary.org/wiki/Ausnahme"
+  },
+  {
+    "id": "voc:B2:der Überschuss",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Überschüsse",
+    "src": "de.wiktionary.org/wiki/Überschuss"
+  }
+]

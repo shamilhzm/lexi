@@ -1,0 +1,154 @@
+[
+  {
+    "id": "voc:C1:der Vermögenswert",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vermögenswerte",
+    "src": "de.wiktionary.org/wiki/Vermögenswert"
+  },
+  {
+    "id": "voc:C1:das Grundbuch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Grundbücher",
+    "src": "de.wiktionary.org/wiki/Grundbuch"
+  },
+  {
+    "id": "voc:C1:das Sprachmodell",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sprachmodelle",
+    "src": "de.wiktionary.org/wiki/Sprachmodell"
+  },
+  {
+    "id": "voc:C1:der Quellcode",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Quellcodes",
+    "src": "de.wiktionary.org/wiki/Quellcode"
+  },
+  {
+    "id": "voc:B2:die Datenmenge",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Datenmengen",
+    "src": "de.wiktionary.org/wiki/Datenmenge"
+  },
+  {
+    "id": "voc:C1:der Gesetzentwurf",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gesetzentwürfe",
+    "src": "de.wiktionary.org/wiki/Gesetzentwurf"
+  },
+  {
+    "id": "voc:C1:der CO₂-Ausstoß",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die CO₂-Ausstöße",
+    "src": "de.wiktionary.org/wiki/CO₂-Ausstoß"
+  },
+  {
+    "id": "voc:C1:die Verkehrswende",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Verkehrswenden",
+    "src": "de.wiktionary.org/wiki/Verkehrswende"
+  },
+  {
+    "id": "voc:C1:der Sachverhalt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sachverhalte",
+    "src": "de.wiktionary.org/wiki/Sachverhalt"
+  },
+  {
+    "id": "voc:C1:die Staatsgewalt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Staatsgewalten",
+    "src": "de.wiktionary.org/wiki/Staatsgewalt"
+  },
+  {
+    "id": "voc:C1:die Amtszeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Amtszeiten",
+    "src": "de.wiktionary.org/wiki/Amtszeit"
+  },
+  {
+    "id": "voc:C2:der Trugschluss",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Trugschlüsse",
+    "src": "de.wiktionary.org/wiki/Trugschluss"
+  },
+  {
+    "id": "voc:C2:die Stichhaltigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Stichhaltigkeit"
+  },
+  {
+    "id": "voc:B1:das Handgepäck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Handgepäck"
+  },
+  {
+    "id": "voc:B1:die Kälte",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kälte"
+  },
+  {
+    "id": "voc:B2:die Klimazone",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Klimazonen",
+    "src": "de.wiktionary.org/wiki/Klimazone"
+  },
+  {
+    "id": "voc:B1:die Sahne",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sahne"
+  },
+  {
+    "id": "voc:B1:das Rindfleisch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rindfleisch"
+  },
+  {
+    "id": "voc:B1:das Schweinefleisch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schweinefleisch"
+  }
+]

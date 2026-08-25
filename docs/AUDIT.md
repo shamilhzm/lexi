@@ -92,7 +92,12 @@ alternative arrangement — which was ruled a thing to *teach* rather than desig
 4. **IPA** — 274 cards absent (4.2%), and whether the present ones are right.
 5. ~~**Definitions**~~ ✅ **Effectively done — 8 word cards lack an English definition**
    (2026-08-25), not the 286 the backlog carried. Struck.
-6. **Noun plurals · 🟡 — 420 cards, and it is *not* a bulk fill.** Sampled 24 at random
+6. **Noun plurals · 🟢 — 471 → 204, by lookup, 2026-08-25.** `npm run authoring:plurals`
+   reads de.wiktionary through the same cached fetcher the authoring gate uses and
+   proposes a plural or "nur Singular"; every batch was read before it was applied.
+   **The 204 that remain are unresolvable by lookup** and need hand rulings: compounds
+   with no wiktionary entry, abstract nouns whose attested plural is a different sense,
+   and pages that cover two genders. Original reasoning, which the run confirmed: Sampled 24 at random
    2026-08-25: **about 17% genuinely lack a plural they should have** (`die Skijacke`,
    `die Behauptung`, `das Phänomen`); the rest are mass and abstract nouns where the
    right value is "nur Singular" — *der Konsum*, *das Verhalten*, *die Haftung*.

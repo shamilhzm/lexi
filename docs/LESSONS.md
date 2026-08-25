@@ -199,6 +199,16 @@ it turns out to be wrong.**
   merging their metadata. A union is lossy exactly where it matters most.** The participle
   is tracked separately now, and only admits a match where an auxiliary makes that reading
   available.
+- **The one batch I did not read was the one with the defect in it.** *(2026-08-25.)*
+  Filling 471 noun plurals from de.wiktionary, I read every proposal in five batches and
+  hand-caught four distinct instrument bugs — an en-dash proposed as a plural form, a
+  page covering two genders donating «die Erben» to *das Erbe*, and two abstract nouns
+  whose attested plural is a different word. Then, for two batches, I applied without
+  reading. One of those contained **«die Schweiz» → «die Schweizen»**, which shipped.
+  **Rule: the check that has caught something every time is the check you are most
+  tempted to skip, because it feels like it has already done its job. A lookup is not a
+  fact until somebody has read it — and "the last four were fine" is the argument that
+  precedes every one of these.**
 - **I characterised two bands from their first screen, and was wrong about both.**
   *(2026-08-25.)* Filing the 88 case hits I wrote "mostly ordinary German — a few are
   genuine drift"; reading all 86, **about half** were drift, and the blunt kind — `bieten`

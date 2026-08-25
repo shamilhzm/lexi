@@ -1,0 +1,10 @@
+[
+  {
+    "id": "voc:B1:die Schweiz",
+    "expect": {
+      "plural": "die Schweizen"
+    },
+    "plural": "nur Singular",
+    "src": "A country name has no plural. de.wiktionary lists «Schweizen» as a rare regional form of a different sense; proposing it for the country card was the lookup believed without being read."
+  }
+]

@@ -1,0 +1,290 @@
+[
+  {
+    "id": "voc:C1:der Strukturwandel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Strukturwandel",
+    "src": "de.wiktionary.org/wiki/Strukturwandel"
+  },
+  {
+    "id": "voc:C1:der Weltmarkt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Weltmärkte",
+    "src": "de.wiktionary.org/wiki/Weltmarkt"
+  },
+  {
+    "id": "voc:C1:die Anpassungsfähigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Anpassungsfähigkeit"
+  },
+  {
+    "id": "voc:C1:das Fingerspitzengefühl",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Fingerspitzengefühl"
+  },
+  {
+    "id": "voc:C1:die Befangenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Befangenheit"
+  },
+  {
+    "id": "voc:C1:der Wohlstand",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wohlstand"
+  },
+  {
+    "id": "voc:C1:die Rechtsstaatlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rechtsstaatlichkeit"
+  },
+  {
+    "id": "voc:C1:die Hetze",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hetzen",
+    "src": "de.wiktionary.org/wiki/Hetze"
+  },
+  {
+    "id": "voc:C1:der Widerstand",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Widerstände",
+    "src": "de.wiktionary.org/wiki/Widerstand"
+  },
+  {
+    "id": "voc:C1:die Rechenschaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rechenschaft"
+  },
+  {
+    "id": "voc:C1:der Arbeitsplatzverlust",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Arbeitsplatzverluste",
+    "src": "de.wiktionary.org/wiki/Arbeitsplatzverlust"
+  },
+  {
+    "id": "voc:C1:die Cloud",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Clouds",
+    "src": "de.wiktionary.org/wiki/Cloud"
+  },
+  {
+    "id": "voc:C1:das Zugehörigkeitsgefühl",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Zugehörigkeitsgefühle",
+    "src": "de.wiktionary.org/wiki/Zugehörigkeitsgefühl"
+  },
+  {
+    "id": "voc:C1:die Zweisprachigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zweisprachigkeit"
+  },
+  {
+    "id": "voc:C1:der Sprachwechsel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sprachwechsel",
+    "src": "de.wiktionary.org/wiki/Sprachwechsel"
+  },
+  {
+    "id": "voc:C2:die Eindringlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Eindringlichkeit"
+  },
+  {
+    "id": "voc:C2:der Redefluss",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Redefluss"
+  },
+  {
+    "id": "voc:C2:die Vernunft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vernunft"
+  },
+  {
+    "id": "voc:C2:das Dasein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Dasein"
+  },
+  {
+    "id": "voc:C2:die Willensfreiheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Willensfreiheit"
+  },
+  {
+    "id": "voc:C2:die Bildsprache",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Bildsprachen",
+    "src": "de.wiktionary.org/wiki/Bildsprache"
+  },
+  {
+    "id": "voc:C2:die Zurechnungsfähigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zurechnungsfähigkeit"
+  },
+  {
+    "id": "voc:C2:die Propaganda",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Propaganda"
+  },
+  {
+    "id": "voc:C2:der Kitsch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kitsch"
+  },
+  {
+    "id": "voc:C2:der Mainstream",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mainstream"
+  },
+  {
+    "id": "voc:C2:die Avantgarde",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Avantgarden",
+    "src": "de.wiktionary.org/wiki/Avantgarde"
+  },
+  {
+    "id": "voc:C2:die Ressourcenknappheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ressourcenknappheit"
+  },
+  {
+    "id": "voc:B2:die Nachhaltigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Nachhaltigkeit"
+  },
+  {
+    "id": "voc:B2:der Ressourcenverbrauch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ressourcenverbräuche",
+    "src": "de.wiktionary.org/wiki/Ressourcenverbrauch"
+  },
+  {
+    "id": "voc:B2:die Artenvielfalt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Artenvielfalt"
+  },
+  {
+    "id": "voc:C1:die Syntax",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Syntaxen",
+    "src": "de.wiktionary.org/wiki/Syntax"
+  },
+  {
+    "id": "voc:C1:das Gemeinwohl",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gemeinwohl"
+  },
+  {
+    "id": "voc:C1:die Compliance",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Compliance"
+  },
+  {
+    "id": "voc:C1:der Populismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Populismus"
+  },
+  {
+    "id": "voc:C1:die Zivilcourage",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zivilcourage"
+  },
+  {
+    "id": "voc:C1:die Liquidität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Liquidität"
+  }
+]
