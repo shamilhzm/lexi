@@ -11,6 +11,73 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — the fourth collision shape, and the matcher bug it was hiding
+
+Closing the governed-verb shape filed the same day, and fixing what finding it exposed.
+
+**27 pairs ruled: 11 merges, 16 keeps.** The corpus writes a verb's fixed preposition into
+the headword on purpose — `warten auf + A` — because the preposition is the fact a learner
+has to memorise and cannot derive. The side effect is that every duplicate check is blind
+to it: `beitragen` and `beitragen zu + D` shipped the **same example sentence**, and `sich
+erinnern` and `sich erinnern an + A` were one card twice at one level. As with the
+reflexive shape, the majority are two real senses — `bestehen` (pass an exam) against
+`bestehen aus` (consist of), `gehören` (belong to somebody) against `gehören zu` (be one
+of). Two merges run the other way, where the *pattern* card was the stray: `auswandern aus
++ D` pins a preposition the verb does not require, and `füllen in + A` is not a government
+at all.
+
+**The matcher defect underneath it.** A reflexive governed pattern was matching on its
+preposition alone, so `sich erinnern an + A` claimed «Das Lied erinnert mich an meine
+Kindheit» — a transitive sentence with no reflexive in it. Two costs, and the second is
+what made it visible: it credits a learner with a pattern card the sentence does not
+contain, which is the inflation `patIndex` exists to prevent; and it made the plain
+`erinnern` card **unillustratable**, because the authoring gate refused every example
+written for it on the grounds that the matcher attributed the token elsewhere.
+
+The decidable test is **person agreement**, not "is there a pronoun": *mich* is reflexive
+after *ich erinnere* and an ordinary accusative object after *das Lied erinnert*.
+`patIndex` now records which persons each indexed form can be, and a reflexive pattern
+requires the matching pronoun.
+
+**The Partizip II had to be separated out**, and that is the part worth remembering: for
+every weak verb it is spelled exactly like the 3rd singular — *erinnert*, *gefragt*,
+*bedankt* — so folding it into the person set as "unknown" threw the agreement away for
+precisely the commonest form, and the first version of the fix changed nothing. It is
+tracked on its own now and admits any reflexive pronoun only where an auxiliary makes the
+participle reading live.
+
+Reader probe **bit-identical** across the change (verb 0.958 · plural 0.990 · adj 0.945),
+which is what should happen when nothing it samples is a governed reflexive. Five tests
+pin the behaviour, including that a bare «Ich warte» still does not credit `warten auf + A`.
+
+**Six plain-card examples fixed**, every one the governed pattern sitting on the bare
+verb's card: `denken` illustrated «Ich denke an dich», `warten` with «Ich warte auf den
+Bus», `bitten` with the um-pattern, and `verfügen` — glossed "to decree" — with the
+über-pattern. `erinnern`'s could only be written *after* the matcher fix, which is the
+end-to-end proof that the fix was the right one.
+
+**The recap now names drill work separately.** Flips and drills were one `done` figure, so
+the interleaved drills — the harder half of a session, and the half a learner has to be
+talked into — were invisible in the only place the app says what the session was. It
+reports right-of-total rather than a bare count, and the delta rides on the undo history
+entry so *Previous card* cannot drift the display from the truth.
+
+**A stale item struck.** *Grade from the front face without flipping* (#13) is already
+built and the code says so — `grade()` is commented "no reveal required", the key handler
+has no `flipped` guard, and a swipe grades from the front face. The fourth item this week
+found already done.
+
+**A gate bug found in passing:** `POS_MAP` mapped de.wiktionary's *Numerale* to
+`'numeral'`, which matches no card and no `ALLOWED_POS` entry — so `authoring:new` could
+not write a single numeral. Caught trying to add `tausend`, which the corpus is still
+missing because the noun `die Tausend` claims the surface form. Now filed with a measured
+cost rather than as "a card hard to defend".
+
+Corpus 6,639 → 6,628 cards. 970 tests, 0 lint errors, `corpus:validate` and `corpus:audit`
+both 0 errors.
+
+---
+
 ### Shipped 2026-08-25 — the reflexive shape, and half a codemod that would have broken 273 classes
 
 Ten backlog items driven through. Seven fixed, two declined on the record, and **two

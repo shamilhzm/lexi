@@ -135,10 +135,17 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   const [done, setDone] = useState(0);
   const [again, setAgain] = useState(0);       // lapses this session
   const [newLearned, setNewLearned] = useState(0); // cards that left the New state
+  // Drills, counted apart from flips. The recap reported one `done` figure for
+  // both, so the interleaved drills — the harder half of a session, and the half
+  // a learner has to be talked into — were invisible in the only place the app
+  // says what the session was. Right/total rather than a bare count, because
+  // "9 drills" says nothing about whether they went well.
+  const [drills, setDrills] = useState(0);
+  const [drillsOk, setDrillsOk] = useState(0);
   const [gmap, setGmap] = useState<Map<string, GPoint> | null>(null); // grammar point → exercises
   // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
   // or a skip, and rewind counters + position exactly.
-  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number }[]>([]);
+  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number }[]>([]);
   // Which way the outgoing card flies: +1 knew it, -1 didn’t, 0 neutral (skip/
   // prev). Set by every grade path, so swipes, buttons and arrow keys all share
   // one physical vocabulary: right = knew, left = missed.
@@ -216,7 +223,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
     setI(restored?.position ?? 0);
-    setDone(0); setAgain(0); setNewLearned(0); setFlipped(false); history.current = [];
+    setDone(0); setAgain(0); setNewLearned(0); setDrills(0); setDrillsOk(0); setFlipped(false); history.current = [];
     setComeback(null); missRun.current = 0; setBreather(false); breatherShown.current = false;
     sessionMisses.current.clear();
     metWords.current = [];
@@ -251,10 +258,10 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
 
   // Record the pre-review FSRS state + the exact counter deltas this grade
   // applied, so prev/undo can reverse it precisely.
-  const pushGrade = (dAgain: number, dNew: number) => {
+  const pushGrade = (dAgain: number, dNew: number, dDrill = 0, dDrillOk = 0) => {
     if (!item) return;
     const snap = cardOf(item.srsId);
-    history.current.push({ i, kind: 'grade', srsId: item.srsId, prevCard: snap ? { ...snap } : undefined, dAgain, dNew });
+    history.current.push({ i, kind: 'grade', srsId: item.srsId, prevCard: snap ? { ...snap } : undefined, dAgain, dNew, dDrill, dDrillOk });
   };
 
   // Grade a flip card directly — no reveal required. Flipping stays optional
@@ -284,7 +291,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   const gradeDrill = useCallback<DrillGrade>((ok, detail) => {
     if (!item || item.type === 'flip') return;
     const dAgain = ok ? 0 : 1;
-    pushGrade(dAgain, 0);
+    pushGrade(dAgain, 0, 1, ok ? 1 : 0);
     exitDir.current = ok ? 1 : -1;
     noteResult(ok);
     noteMet(item.word);
@@ -297,6 +304,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     if (!ok) noteMiss(MODE_TAG[item.type], item.word.term, detail);
     setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
+    setDrills((d) => d + 1);
+    setDrillsOk((d) => d + (ok ? 1 : 0));
     setFlipped(false);
     setI((n) => n + 1);
   }, [item, i]);
@@ -307,7 +316,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     const wasNew = statusOf(item.srsId) === 'new';
     const dAgain = ok ? 0 : 1;
     const dNew = ok && wasNew ? 1 : 0;
-    pushGrade(dAgain, dNew);
+    pushGrade(dAgain, dNew, 1, ok ? 1 : 0);
     exitDir.current = ok ? 1 : -1;
     noteResult(ok);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
@@ -317,6 +326,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     setAgain((a) => a + dAgain);
     setNewLearned((n) => n + dNew);
     setDone((d) => d + 1);
+    setDrills((d) => d + 1);
+    setDrillsOk((d) => d + (ok ? 1 : 0));
     setFlipped(false);
     setI((n) => n + 1);
   }, [item, i]);
@@ -348,6 +359,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
       setDone((d) => Math.max(0, d - 1));
       setAgain((a) => Math.max(0, a - (e.dAgain ?? 0)));
       setNewLearned((n) => Math.max(0, n - (e.dNew ?? 0)));
+      setDrills((d) => Math.max(0, d - (e.dDrill ?? 0)));
+      setDrillsOk((d) => Math.max(0, d - (e.dDrillOk ?? 0)));
     }
     setFlipped(false);
     setI(e.i);
@@ -390,7 +403,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     );
   }
   if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current} onPlacement={onPlacement}
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
     onExit={onExit} onPick={onPick} />;
@@ -947,8 +960,8 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick, onPlacement }:
-  { done: number; again: number; newLearned: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
+function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick, onPlacement }:
+  { done: number; again: number; newLearned: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
     composition?: RecapData['composition']; met: Word[]; exam?: boolean; onExit: () => void; onPick: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
@@ -974,6 +987,15 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
         {finished.length > 0 && (
           <p className="text-sm mb-5">
             You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span> — every card in it is yours.
+          </p>
+        )}
+        {/* Drills, said separately. Folded into `done` they were invisible, and
+            they are the half of a session a learner has to be talked into. */}
+        {drills > 0 && (
+          <p className="text-sm mb-5">
+            {drills} of those were <span className="font-semibold">drills</span>, not flips —
+            you got <span className={`font-mono font-bold ${drillsOk === drills ? 'text-green' : 'text-accent'}`}>{drillsOk}/{drills}</span>{' '}
+            right. That is the half that makes you produce the German rather than recognise it.
           </p>
         )}
         {comeback && (

@@ -110,7 +110,10 @@ shapes:
 > was the only German there was to write. One runs the other way: `sich besichtigen`
 > is not a verb, only `lassen + sich + Infinitiv` mistaken for one.
 
-### 🟠 A fourth shape — a verb and its governed twin · M
+### ✅ A fourth shape — a verb and its governed twin — **done 2026-08-25**
+
+> **27 pairs ruled: 11 merges, 16 keeps.** And it was hiding a matcher defect — see
+> the CHANGELOG. Original finding:
 
 *(Measured 2026-08-25, found because the reflexive pass could not explain why
 `erinnern` refused every example written for it.)* **27 verb lemmas sit on more than
@@ -1400,8 +1403,10 @@ user; none of it is built.*
 - **Undo should be reachable after the card leaves · XS** (#12). *Previous card* exists
   at 43×43 in the chrome; nobody finds it in the half-second they want it. (The undo
   *logic* bug — a rewound review still feeding `reviewedToday()` — is fixed.)
-- **Grade from the front face without flipping · XS** (#13). A power user who knows the
-  word shouldn't need the flip round-trip.
+- ~~**Grade from the front face without flipping · XS** (#13).~~ ✅ **Stale, verified
+  2026-08-25 — already built, and the code says so.** `grade()` carries the comment
+  *"Grade a flip card directly — no reveal required"*, the key handler has no `flipped`
+  guard on 1–4 or ←/→, and a swipe grades from the front face on touch.
 - ~~**Typed answers need mobile keyboard hints · XS · 📱** (#16).~~ ✅ **Done
   2026-08-25, and three quarters of it was already done.** Race, Read and the exam
   letter already carried the attributes; the **drill answer input — the one the item
@@ -1432,9 +1437,12 @@ user; none of it is built.*
   it names.
 - **Name the session's best moment on the card, not just the recap · XS** (#46).
   "Comeback of the day" exists and fires where nobody is looking.
-- **The recap doesn't celebrate drill work distinctly · XS** (UX-PATHS H2). Flips and
-  recall are reported; the interleaved drills — the harder half of the session — are
-  folded into the same count. *Folded in from UX-PATHS.md when it was retired 08-13.*
+- ~~**The recap doesn't celebrate drill work distinctly · XS** (UX-PATHS H2).~~ ✅ **Done
+  2026-08-25.** The recap now says how many of the session's items were drills rather than
+  flips, and how many went right — `9 of those were drills … you got 7/9 right`.
+  Right-of-total rather than a bare count, because "9 drills" says nothing about how it
+  went. Counted in both drill grade paths and rewound by `prev`, with the delta carried on
+  the history entry so undo cannot drift from the display.
 - **The first-run hero doesn't acknowledge a retry · XS** (UX-PATHS S2). Abandoning the
   guided first run mid-placement correctly returns to the hero next launch, but it
   reads as a fresh start rather than "pick up where you left off." *Same source.*
@@ -1520,7 +1528,16 @@ user; none of it is built.*
   in [AUDIT.md](AUDIT.md). **Do:** read the 88, fix the drifted ones, and leave the
   nominalisations alone. **Done-when:** each of the 88 is either rewritten or ruled
   fine on the record. *`scripts/corpus/sense-audit.ts`.*
-- **🟡 Three cards the case pass read, and could not defend · XS each.** *(2026-08-24 —
+- **🟡 Three cards the case pass read, and could not defend · XS each — and one now has a
+  measured cost.** *(Sharpened 2026-08-25.)* **`voc:A1:die Tausend` blocks the A1 numeral.**
+  `hundert` is an A1 `number` card; `tausend` is not a card at all, because the noun `die
+  Tausend` claims the lowercase surface form and the authoring gate therefore refuses
+  every example written for the numeral. An A1 learner meets *thousand* only as a noun
+  whose own examples had to be written around «bis Tausend» and «mehrere Tausend».
+  **Do:** rule the noun/numeral pair, then author `tausend`. Note there is **no relevel
+  tool for vocabulary** — `corpus:relevel` moves grammar points — so all three of these
+  need one built, or a `FORM_RULINGS` shape that can relevel without merging.
+  Original text: *(2026-08-24 —
   filed rather than fixed, because each is a question about whether the **card** should
   exist as filed, which is not what an example rewrite decides.)* `voc:A1:die Früh` is
   a southern/Austrian regionalism at A1, where the learner needs the adverb `früh`

@@ -1,0 +1,8 @@
+[
+  { "term": "tausend", "en": "thousand", "pos": "number", "level": "A1",
+    "field": "Numbers",
+    "ex": [
+      { "de": "Das Fahrrad kostet fast tausend Euro.", "en": "The bicycle costs almost a thousand euros." },
+      { "de": "In der Stadt wohnen über tausend Menschen.", "en": "More than a thousand people live in the town." }
+    ] }
+]

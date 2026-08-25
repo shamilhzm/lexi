@@ -189,6 +189,16 @@ it turns out to be wrong.**
   think of.** The same pass had already narrowed `OWN_KONJUNKTIV2` for the same
   reason: `werden` looks like it belongs, but «ihr würdet Ärzte werden» is fine,
   because there *werden* is the full verb and *würde* is the auxiliary.
+- **The commonest form was the one carrying no information.** *(2026-08-25.)* Making a
+  reflexive governed pattern require an agreeing pronoun, I indexed each verb form with the
+  persons it can be and treated the Partizip II as "person unknown", merging it into the
+  same set. The fix then changed nothing — because for every **weak** verb the participle
+  is spelled exactly like the 3rd singular (*erinnert*, *gefragt*, *bedankt*), so the merge
+  erased the agreement for the form that appears most. **Rule: when one lookup key can be
+  reached by two derivations, check whether they collide on the *frequent* case before
+  merging their metadata. A union is lossy exactly where it matters most.** The participle
+  is tracked separately now, and only admits a match where an auxiliary makes that reading
+  available.
 - **The same signal was decisive in one direction and worthless in the other.**
   *(2026-08-24.)* Hunting for examples that teach a *different word* than the card, I
   wrote one check over both halves of the idea: a **noun** whose example only matches

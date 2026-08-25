@@ -182,7 +182,11 @@ export function parseFacts(wt: string): Facts {
 const POS_MAP: Record<string, string> = {
   Substantiv: 'noun', Verb: 'verb', Adjektiv: 'adjective', Adverb: 'adverb',
   Pronomen: 'pronoun', Präposition: 'preposition', Konjunktion: 'conjunction',
-  Numerale: 'numeral', Interjektion: 'interjection', Partikel: 'particle',
+  // de.wiktionary's category is *Numerale*; the corpus has always written `number`
+  // (17 cards, `null` through `zwölf`). The map said 'numeral', which matches no
+  // card and no `ALLOWED_POS` entry, so the gate could not author a single
+  // numeral — caught trying to add `tausend`, which the corpus is missing.
+  Numerale: 'number', Zahlwort: 'number', Interjektion: 'interjection', Partikel: 'particle',
   Subjunktion: 'conjunction', Artikel: 'article',
 };
 
