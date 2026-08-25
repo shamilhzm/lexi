@@ -1890,3 +1890,18 @@ user; none of it is built.*
 
 *Maintenance: when an item ships, move it to [CHANGELOG.md](CHANGELOG.md) with the
 reasoning intact — this file holds only what is still open.*
+
+---
+
+## Found while working, 2026-08-25 — filed, not fixed
+
+- **`voc:C1:quelloffene Software` is a phrase carded as a noun · XS.** Adjective plus
+  noun, no article, so it fails every noun rule and is the one non-country card in the
+  articleless set. Re-pos to `phrase`, or re-term to `die quelloffene Software`.
+- **`voc:A1:normal` is carded as an adverb but used as an adjective · XS.** Its examples
+  are «Das ist völlig normal» — predicative adjective. Because the card is an adverb it
+  gets no adjective de-inflection, so «ein normaler Tag» does not resolve to it, and an
+  example written that way is refused by the authoring gate.
+- **`silber` and `gold` are mis-posed · XS.** Carded as adjectives, but German's are
+  *silbern* and *golden*; every example uses the noun because the noun is what the word
+  is. Needs a re-pos or re-term tool — see the three undefendable cards above, same gap.

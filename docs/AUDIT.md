@@ -89,10 +89,23 @@ alternative arrangement — which was ruled a thing to *teach* rather than desig
    Alongside it, the **near-twin example band** (86 cards above 0.90 similarity, 143
    with identical English) — same shape, same reason it is not gated: the band contains
    the corpus's best deliberate minimal pairs. Both are filed in BACKLOG.
-4. **IPA** — 95.8% present; the 4.2% absent, and whether the present ones are right.
-5. **Definitions** — 806 warnings currently, dominated by *noun without plural* (472)
-   and *no ipa* (275).
-6. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
+4. **IPA** — 274 cards absent (4.2%), and whether the present ones are right.
+5. ~~**Definitions**~~ ✅ **Effectively done — 8 word cards lack an English definition**
+   (2026-08-25), not the 286 the backlog carried. Struck.
+6. **Noun plurals · 🟡 — 420 cards, and it is *not* a bulk fill.** Sampled 24 at random
+   2026-08-25: **about 17% genuinely lack a plural they should have** (`die Skijacke`,
+   `die Behauptung`, `das Phänomen`); the rest are mass and abstract nouns where the
+   right value is "nur Singular" — *der Konsum*, *das Verhalten*, *die Haftung*.
+   **The obvious shortcut does not work.** 160 of the 420 end in a suffix whose plural
+   is morphologically decidable (`-ung`, `-heit`, `-keit`, `-ion`), and filling them
+   from the rule would be wrong on most: German *permits* «die Höflichkeiten» and
+   «die Transparenzen», but they are not what a learner should be taught, and several
+   mean something else. Morphology is decidable; whether a noun has a plural **in use**
+   is lexical. Needs de.wiktionary per card, through `authoring:fix`'s `PlRow`, which
+   already requires a `src` for exactly this reason.
+   *(51 proper nouns were removed from the warning on 2026-08-25 — a country cannot
+   have a plural, and the warning could never be cleared.)*
+7. **The `exam` surface** — six papers A1–C2, and the largest thing neither the corpus
    scripts nor the drill audit can reach. Entirely unwalked.
 
 ### Source pages ingested

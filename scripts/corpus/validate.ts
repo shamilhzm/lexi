@@ -92,7 +92,15 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     });
     if (w.gender != null && !['der', 'die', 'das'].includes(w.gender)) errors.push({ id, msg: `bad gender ${w.gender}` });
     if (w.kind === 'word' && w.pos === 'noun' && !w.gender) warnings.push({ id, msg: 'noun without gender' });
-    if (w.kind === 'word' && w.pos === 'noun' && !w.plural) warnings.push({ id, msg: 'noun without plural' });
+    // …except a proper noun, which cannot have one. 50 country cards — Deutschland,
+    // Österreich, Kenia — carried this warning permanently, and a warning nobody can
+    // ever clear is one everybody learns to scroll past (LESSONS). The corpus writes
+    // every ordinary noun with its article, so "no article in the term" is the test.
+    // `der/die Verwandte` and its ten siblings are unaffected: they all have plurals.
+    const properNoun = w.pos === 'noun' && !/^(der|die|das)[\s/]/i.test(w.term);
+    if (w.kind === 'word' && w.pos === 'noun' && !w.plural && !properNoun) {
+      warnings.push({ id, msg: 'noun without plural' });
+    }
     if (w.kind === 'word' && !w.ipa) warnings.push({ id, msg: 'no ipa' });
     // An example-less card is a bare gloss, so it fails outright; one example is
     // a thin connection between word and use, so it only warns.
