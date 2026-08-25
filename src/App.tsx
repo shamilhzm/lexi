@@ -220,7 +220,7 @@ export default function App() {
           single view change before reaching any content. */}
       <a href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100]
-          focus:bg-amber focus:text-bg focus:font-bold focus:rounded-md focus:px-4 focus:py-2.5">
+          focus:bg-accent focus:text-bg focus:font-bold focus:rounded-md focus:px-4 focus:py-2.5">
         Skip to content
       </a>
 

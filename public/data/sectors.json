@@ -107,7 +107,7 @@
   },
   {
     "name": "Intermediate everyday verbs",
-    "count": 47,
+    "count": 46,
     "levels": [
       "A2",
       "B1"
@@ -227,7 +227,7 @@
   },
   {
     "name": "Core Vocabulary",
-    "count": 441,
+    "count": 442,
     "levels": [
       "A1",
       "A2",
@@ -495,8 +495,9 @@
   },
   {
     "name": "Pragmatics & Communication",
-    "count": 11,
+    "count": 12,
     "levels": [
+      "B2",
       "C1"
     ],
     "group": "Education & Language"
@@ -548,7 +549,7 @@
   },
   {
     "name": "School & Education System",
-    "count": 9,
+    "count": 10,
     "levels": [
       "A2",
       "B1",
@@ -607,11 +608,12 @@
   },
   {
     "name": "University & Studies",
-    "count": 11,
+    "count": 13,
     "levels": [
       "A1",
       "A2",
-      "B1"
+      "B1",
+      "B2"
     ],
     "group": "Education & Language"
   },
@@ -820,7 +822,7 @@
   },
   {
     "name": "Body & health",
-    "count": 66,
+    "count": 65,
     "levels": [
       "A1",
       "A2",
@@ -1161,7 +1163,7 @@
   },
   {
     "name": "Core verbs",
-    "count": 562,
+    "count": 559,
     "levels": [
       "A1",
       "A2",
@@ -1522,10 +1524,11 @@
   },
   {
     "name": "Cultural Identity",
-    "count": 28,
+    "count": 30,
     "levels": [
       "A2",
       "B1",
+      "B2",
       "C1"
     ],
     "group": "Society & Politics"
@@ -1688,8 +1691,9 @@
   },
   {
     "name": "Migration & Integration",
-    "count": 11,
+    "count": 12,
     "levels": [
+      "A2",
       "B1",
       "B2",
       "C1"
@@ -2131,7 +2135,7 @@
   },
   {
     "name": "Intermediate travel and daily life",
-    "count": 52,
+    "count": 50,
     "levels": [
       "A1",
       "A2",

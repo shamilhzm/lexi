@@ -1,0 +1,108 @@
+[
+  {
+    "id": "voc:B1:erinnern",
+    "at": 1,
+    "expect": {
+      "de": "Ich erinnere mich gut an unseren Urlaub.",
+      "en": "I remember our holiday well."
+    },
+    "de": "Bitte erinnere mich morgen an den Termin.",
+    "en": "Please remind me about the appointment tomorrow."
+  },
+  {
+    "id": "voc:B1:verletzen",
+    "at": 0,
+    "expect": {
+      "de": "Beim Sport hat er sich am Knie verletzt.",
+      "en": "He injured his knee during exercise."
+    },
+    "de": "Ein unachtsamer Wurf kann andere Spieler verletzen.",
+    "en": "A careless throw can injure other players."
+  },
+  {
+    "id": "voc:B1:verletzen",
+    "at": 1,
+    "expect": {
+      "de": "Er hat sich bei einem Sturz verletzt.",
+      "en": "He had a tumble and hurt himself."
+    },
+    "de": "Solche Bemerkungen verletzen mehr, als er denkt.",
+    "en": "Remarks like that hurt more than he thinks."
+  },
+  {
+    "id": "voc:B2:aufregen",
+    "at": 0,
+    "expect": {
+      "de": "Ich wette, er wird sich aufregen.",
+      "en": "I bet he will get mad."
+    },
+    "de": "Diese Nachricht wird meine Mutter sehr aufregen.",
+    "en": "This news is going to upset my mother a great deal."
+  },
+  {
+    "id": "voc:B2:aufregen",
+    "at": 1,
+    "expect": {
+      "de": "Ich wusste, dass du dich aufregen würdest!",
+      "en": "I knew you'd be mad."
+    },
+    "de": "Solche Kommentare können mich wirklich aufregen.",
+    "en": "Comments like that can really annoy me."
+  },
+  {
+    "id": "voc:B1:anpassen",
+    "at": 0,
+    "expect": {
+      "de": "Man muss sich an die neue Kultur anpassen.",
+      "en": "You have to adapt to the new culture."
+    },
+    "de": "Wir passen den Vertrag an die neuen Regeln an.",
+    "en": "We are adapting the contract to the new rules."
+  },
+  {
+    "id": "voc:B1:anpassen",
+    "at": 2,
+    "expect": {
+      "de": "Wer sich nur anpasst, verändert selten etwas.",
+      "en": "Whoever merely adapts rarely changes anything."
+    },
+    "de": "Der Schneider hat das Kleid perfekt angepasst.",
+    "en": "The tailor adjusted the dress perfectly."
+  },
+  {
+    "id": "voc:B1:streiten",
+    "at": 1,
+    "expect": {
+      "de": "Ich sagte der Lehrerin, dass sich Gerold und Jürgen wieder (miteinander) gestritten haben.",
+      "en": "I told the teacher that Gerald and George were again fighting each other."
+    },
+    "de": "Die Parteien streiten über den richtigen Weg.",
+    "en": "The parties are arguing about the right way."
+  },
+  {
+    "id": "voc:A1:entspannen",
+    "at": 2,
+    "expect": {
+      "de": "Nach der stressigen Woche musste sie sich erst entspannen.",
+      "en": "After the stressful week she first had to relax."
+    },
+    "de": "Ein warmes Bad kann die Muskeln entspannen.",
+    "en": "A warm bath can relax the muscles."
+  },
+  {
+    "id": "voc:B1:erinnern",
+    "expect": {
+      "en": "to remember"
+    },
+    "en": "to remind (someone of something)",
+    "src": "Both the gloss and one example belonged to the reflexive sich erinnern, which is a separate A2 card. Plain erinnern is what one person does to another: «Das Lied erinnert mich an meine Kindheit» is on the card already and is the sense."
+  },
+  {
+    "id": "voc:B2:aufregen",
+    "expect": {
+      "en": "to excite"
+    },
+    "en": "to upset, to annoy (someone)",
+    "src": "„to excite\" reads as pleasant anticipation; jemanden aufregen is the opposite, and both the card's examples were about somebody getting angry. The pleasant sense belongs to sich freuen or spannend."
+  }
+]

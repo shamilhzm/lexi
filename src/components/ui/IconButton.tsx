@@ -29,7 +29,7 @@ export default function IconButton({
       title={label}
       aria-label={label}
       className={`grid place-items-center w-11 h-11 rounded-md transition-colors flex-shrink-0
-        ${active ? 'text-amber' : 'text-dim hover:text-amber'}
+        ${active ? 'text-accent' : 'text-dim hover:text-accent'}
         disabled:opacity-30 disabled:hover:text-dim disabled:pointer-events-none
         ${pull ? '-m-2' : ''} ${className}`}
       {...rest}

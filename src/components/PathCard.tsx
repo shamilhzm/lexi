@@ -101,8 +101,8 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
           <div className="space-y-1.5">
             {next.map((n) => (
               <Card as="button" key={n.label} tone="sunken" nested pad="none" onClick={n.onGo}
-                className="w-full flex items-center gap-3 px-3 py-2.5 text-left hover:border-amber transition-colors">
-                <n.icon size={15} className="text-amber flex-shrink-0" />
+                className="w-full flex items-center gap-3 px-3 py-2.5 text-left hover:border-accent transition-colors">
+                <n.icon size={15} className="text-accent flex-shrink-0" />
                 <span className="flex-1 min-w-0">
                   <span className="block text-sm font-semibold truncate">{n.label}</span>
                   <span className="block text-2xs text-dim truncate">{n.detail}</span>

@@ -179,7 +179,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             {/* color-mix keeps the glow on the accent token, so it follows the
                 theme instead of re-encoding Glacier cyan as a literal. */}
             <div className="pointer-events-none absolute inset-0"
-              style={{ background: 'radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--color-amber) 6%, transparent), transparent 70%)' }} />
+              style={{ background: 'radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--color-accent) 6%, transparent), transparent 70%)' }} />
             {tiles.length === 0 && (
               <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
             )}
@@ -207,7 +207,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                 layoutId={`zoom-${zoom}`}
                 aria-hidden
                 className="absolute inset-0 pointer-events-none rounded-sm z-0"
-                style={{ outline: '2px solid var(--color-amber)', outlineOffset: -2 }}
+                style={{ outline: '2px solid var(--color-accent)', outlineOffset: -2 }}
                 transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
               />
             )}
@@ -240,7 +240,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                   // acknowledged the pointer on the way in and went dead under it.
                   // Brightness rather than scale — tiles are laid edge to edge, and
                   // scaling one opens a gap to its neighbours.
-                  className={`tile ${shifted ? '' : 'tile-in'} absolute overflow-hidden border border-bg hover:brightness-105 active:brightness-90 hover:outline hover:outline-2 hover:outline-amber hover:z-10 text-left`}
+                  className={`tile ${shifted ? '' : 'tile-in'} absolute overflow-hidden border border-bg hover:brightness-105 active:brightness-90 hover:outline hover:outline-2 hover:outline-accent hover:z-10 text-left`}
                   style={{
                     left: t.x, top: t.y, width: t.w, height: t.h,
                     // The old colour for exactly one paint, then the real one.
@@ -281,12 +281,12 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               <Card tone="card" nested pad="none" accent
                 className="fixed z-50 pointer-events-none px-3 py-2.5 text-xs shadow-2xl"
                 style={{ left: Math.min(hover.x + 14, (typeof window !== 'undefined' ? window.innerWidth : 1280) - 250), top: hover.y + 14, width: 230 }}>
-                <h4 className="text-xs font-semibold mb-1.5 flex items-center gap-1.5"><Illustration sector={hover.c.name} size={15} className="text-amber flex-shrink-0" /> {hover.c.name}</h4>
+                <h4 className="text-xs font-semibold mb-1.5 flex items-center gap-1.5"><Illustration sector={hover.c.name} size={15} className="text-accent flex-shrink-0" /> {hover.c.name}</h4>
                 <Row k="Cards" val={`${fmt(hover.c.count)} · ${hover.c.sub}`} />
                 <Row k="Known" val={`${fmt(hover.c.known)}`} />
                 <Row k="Coverage" val={`${Math.round(hover.c.coverage * 100)}%`} valColor={heatText(hover.c.coverage)} />
                 <Row k="Due today" val={`${fmt(hover.c.due)}`} />
-                <div className="mt-1.5 text-amber">{zoom ? '▸ click = study · right-click = study' : '▸ click = open sectors · right-click = study'}</div>
+                <div className="mt-1.5 text-accent">{zoom ? '▸ click = study · right-click = study' : '▸ click = open sectors · right-click = study'}</div>
               </Card>
             )}
           </div>
@@ -312,7 +312,7 @@ export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
               re-show it here without deleting that one: this legend sits below a
               487px map and is off-screen on a phone. */}
           <span className="ml-auto hidden sm:inline">{zoom ? 'Tap a sector to study it' : 'Tap a group to drill in · long-press to study it directly'}</span>
-          {zoom && <button onClick={() => onOpenGroup(zoom)} className="text-amber hover:underline sm:ml-3">All decks →</button>}
+          {zoom && <button onClick={() => onOpenGroup(zoom)} className="text-accent hover:underline sm:ml-3">All decks →</button>}
         </div>
       </Card>
     </div>
@@ -325,9 +325,9 @@ function Toggle({ list, onChange }: { list: boolean; onChange: (v: boolean) => v
       {/* The labels used to be hidden below sm, leaving two unlabelled icons on
           exactly the screens where the list view matters most. */}
       <button onClick={() => onChange(false)} aria-label="Treemap view" aria-pressed={!list}
-        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Markt</button>
+        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Markt</button>
       <button onClick={() => onChange(true)} aria-label="List view" aria-pressed={list}
-        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt'}`}><List size={13} /> Liste</button>
+        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt'}`}><List size={13} /> Liste</button>
     </div>
   );
 }
@@ -344,7 +344,7 @@ function ListView({ cells, zoom, onTap, onStudy }: { cells: Cell[]; zoom: boolea
           <div key={c.name} className="flex items-center gap-3 px-3 sm:px-4 py-2.5 hover:bg-panel2">
             <button onClick={() => onTap(c)} className="flex-1 min-w-0 text-left" title={zoom ? 'Study sector' : 'Open sectors'}>
               <div className="flex items-baseline gap-2">
-                <Illustration sector={c.name} size={16} className="text-amber flex-shrink-0" />
+                <Illustration sector={c.name} size={16} className="text-accent flex-shrink-0" />
                 <span className="text-sm font-semibold truncate">{c.name}</span>
                 <span className="text-2xs text-dim font-mono flex-shrink-0">{c.sub}</span>
               </div>

@@ -1407,5 +1407,13 @@ export const ID_MAP: Record<string, string> = {
   "voc:B1:der Bekannte": "voc:A1:der/die Bekannte",
   "voc:B2:der Vorgesetzte": "voc:B1:der/die Vorgesetzte",
   "voc:B1:die Bekannte": "voc:A1:der/die Bekannte",
-  "voc:B2:der/die Vorgesetzte": "voc:B1:der/die Vorgesetzte"
+  "voc:B2:der/die Vorgesetzte": "voc:B1:der/die Vorgesetzte",
+  "voc:B2:sich aneignen": "voc:B1:sich aneignen",
+  "voc:B1:aneignen": "voc:B1:sich aneignen",
+  "voc:B1:beschweren": "voc:B1:sich beschweren",
+  "voc:B1:bewerben": "voc:A2:sich bewerben",
+  "voc:B1:erholen": "voc:A2:sich erholen",
+  "voc:B1:benehmen": "voc:B1:sich benehmen",
+  "voc:A2:ausruhen": "voc:A2:sich ausruhen",
+  "voc:B1:sich besichtigen": "voc:A1:besichtigen"
 };

@@ -69,7 +69,7 @@ export default function Writing({ task, letter, onLetter, marks, onMarks, locked
                   })}
                   aria-pressed={on}
                   className={`tap-44 w-full flex items-start gap-2.5 rounded-md border px-3 py-2 text-left text-sm
-                    transition-colors ${on ? 'border-green bg-green-d' : 'border-line bg-panel2 hover:border-amber'}`}>
+                    transition-colors ${on ? 'border-green bg-green-d' : 'border-line bg-panel2 hover:border-accent'}`}>
                   <span className={`grid place-items-center w-4 h-4 rounded-sm border flex-shrink-0 mt-0.5
                     ${on ? 'border-green text-green' : 'border-dim'}`}>
                     {on && <Check size={12} />}
@@ -108,7 +108,7 @@ export default function Writing({ task, letter, onLetter, marks, onMarks, locked
           lang="de"
           placeholder="Liebe Katja,&#10;&#10;…"
           className="w-full rounded-lg border border-line bg-card p-4 text-sm leading-relaxed
-            focus:outline-none focus:border-amber disabled:opacity-60"
+            focus:outline-none focus:border-accent disabled:opacity-60"
         />
         <p className="text-2xs text-dim mt-1.5 leading-relaxed">
           Written on paper in the real exam, and worth practising that way at least once — handwriting
@@ -139,7 +139,7 @@ export default function Writing({ task, letter, onLetter, marks, onMarks, locked
 const BAND_TONE: Record<CEFR, string> = {
   A1: 'var(--color-a1)',
   A2: 'var(--color-green)',
-  B1: 'var(--color-amber)',
+  B1: 'var(--color-accent)',
   B2: 'var(--color-b2)',
   C1: 'var(--color-c1)',
   C2: 'var(--color-c2)',
@@ -171,14 +171,14 @@ function ModelLetter({ model }: { model: Model }) {
                   {showEn && <p className="text-xs text-dim leading-relaxed mt-0.5">{l.en}</p>}
                 </div>
                 <button onClick={() => speak(l.de)} aria-label="Diesen Satz hören"
-                  className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber flex-shrink-0">
+                  className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-accent flex-shrink-0">
                   <Volume2 size={14} />
                 </button>
               </div>
             ))}
           </div>
           <button onClick={() => setShowEn((s) => !s)}
-            className="tap-44 mt-1 text-2xs font-mono uppercase tracking-widest text-dim hover:text-amber">
+            className="tap-44 mt-1 text-2xs font-mono uppercase tracking-widest text-dim hover:text-accent">
             {showEn ? 'Hide English' : 'Show English'}
           </button>
         </>
@@ -241,9 +241,9 @@ function WritingMarksPanel({ value, onChange }: {
                 <button key={k} onClick={() => set({ [k]: !cur[k] })} disabled={extrasBlocked} aria-pressed={on}
                   className={`tap-44 w-full flex items-start gap-2.5 rounded-md border px-3 py-2 text-left text-sm
                     transition-colors disabled:opacity-40 disabled:pointer-events-none
-                    ${on ? 'border-amber bg-panel2' : 'border-line bg-panel2 hover:border-amber'}`}>
+                    ${on ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}>
                   <span className={`grid place-items-center w-4 h-4 rounded-sm border flex-shrink-0 mt-0.5
-                    ${on ? 'border-amber text-amber' : 'border-dim'}`}>
+                    ${on ? 'border-accent text-accent' : 'border-dim'}`}>
                     {on && <Check size={12} />}
                   </span>
                   <span className="flex-1 min-w-0">{label}</span>

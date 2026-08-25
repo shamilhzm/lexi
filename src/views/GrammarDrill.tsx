@@ -237,7 +237,7 @@ function Explain({ text, ok, answer, note, rulePoint, reveal }: {
     <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 text-center" role="status" aria-live="polite">
       {ok ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
           : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> {answer && <>Answer: <span className="text-green font-bold">{answer}</span></>}</p>}
-      {note && <p className="text-amber text-xs mt-1">{note}</p>}
+      {note && <p className="text-accent text-xs mt-1">{note}</p>}
       {text && <p className="text-dim text-xs mt-1.5">{text}</p>}
       {teach && (
         // Left-aligned inside a centred block on purpose: a formula and a
@@ -286,7 +286,7 @@ function ChooseItem({ ex, onGrade }: { ex: GItem['ex']; onGrade: (ok: boolean) =
               className={`rounded-md py-3.5 px-4 border text-base text-left transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-panel2 border-line hover:border-amber'}`}>
+                : 'bg-panel2 border-line hover:border-accent'}`}>
               <kbd aria-hidden className="hidden sm:inline-block font-mono text-2xs text-dim mr-2 tabular-nums">{idx + 1}</kbd>
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
@@ -353,13 +353,17 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel, promptLang = 'de',
     <Card>
       <p lang={promptLang} className="headword text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>
       <label className="sr-only" htmlFor="drill-answer">Your answer</label>
-      <input id="drill-answer" lang="de" ref={ref} value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
+      <input id="drill-answer" lang="de" ref={ref}
+        // iOS autocapitalises and autocorrects German by default, then the drill
+        // marks the learner wrong for the phone's edit. Grading lowercases, so the
+        // capital was only ever noise; the autocorrect was changing words.
+        autoCapitalize="none" autoCorrect="off" autoComplete="off" spellCheck={false} enterKeyHint="done" value={val} disabled={result !== null} onChange={(e) => setVal(e.target.value)}
         onKeyDown={(e) => { if (e.key === 'Enter') { if (result === null) submit(); else onGrade(result); } }}
         placeholder="Type your answer…"
         className={`w-full bg-panel2 border rounded-md px-4 py-3 text-xl outline-none text-center ${
-          result === null ? 'border-line focus:border-amber' : result ? 'border-green text-green' : 'border-red'}`} />
+          result === null ? 'border-line focus:border-accent' : result ? 'border-green text-green' : 'border-red'}`} />
       {result === null && <div className="mt-2 flex justify-center"><UmlautBar targetRef={ref} value={val} onChange={setVal} /></div>}
-      {result === null && hint > 0 && <p className="text-amber text-xs mt-2 text-center leading-relaxed">Hint: {rung(hint)}</p>}
+      {result === null && hint > 0 && <p className="text-accent text-xs mt-2 text-center leading-relaxed">Hint: {rung(hint)}</p>}
       {/* Read back what they typed, wrapped and in full — the input above clips it
           and stays clipped once disabled. Only on a miss: after a correct answer
           there is nothing to compare. */}
@@ -389,7 +393,7 @@ export function TypeItem({ ex, onGrade, rulePoint, ruleLabel, promptLang = 'de',
         ? <div className="mt-5 flex items-center justify-center gap-3">
             <Button onClick={submit} disabled={!val.trim()}>Check</Button>
             {canonical && hint < rungs && !noHelp && (
-              <button onClick={() => setHint((h) => h + 1)} className="text-dim text-xs underline underline-offset-2 hover:text-amber">
+              <button onClick={() => setHint((h) => h + 1)} className="text-dim text-xs underline underline-offset-2 hover:text-accent">
                 {hint === 0 ? 'Hint' : 'More'}
               </button>
             )}
@@ -427,13 +431,13 @@ export function OrderItem({ ex, onGrade, rulePoint, ruleLabel }: {
       <p className="text-xl sm:text-2xl font-semibold text-center mb-4">{ex.prompt}</p>
       <div className="min-h-[52px] border border-dashed border-line rounded-md p-2 flex flex-wrap gap-2 mb-3">
         {built.map((idx, pos) => (
-          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-amber/50 rounded-md px-3 py-1.5 text-base">{shown[idx]}</button>
+          <button key={pos} onClick={() => removeAt(pos)} className="bg-panel border border-accent/50 rounded-md px-3 py-1.5 text-base">{shown[idx]}</button>
         ))}
         {built.length === 0 && <span className="text-dim text-xs self-center px-1">Tap tiles to build the sentence…</span>}
       </div>
       <div className="flex flex-wrap gap-2 mb-2">
         {pool.map((idx) => (
-          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-base hover:border-amber">{shown[idx]}</button>
+          <button key={idx} onClick={() => add(idx)} className="bg-panel2 border border-line rounded-md px-3 py-1.5 text-base hover:border-accent">{shown[idx]}</button>
         ))}
       </div>
       {result !== null && <Explain text={ex.explain} ok={result} answer={sentenceCase(shown.join(' '))} rulePoint={rulePoint} />}

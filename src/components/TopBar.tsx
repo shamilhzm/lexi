@@ -91,7 +91,7 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
             <button key={n.id} onClick={() => onGo(n.id)}
               aria-current={active ? 'page' : undefined}
               className={`tap-44 flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                active ? 'bg-panel2 text-amber' : 'text-dim hover:text-txt hover:bg-panel2'}`}>
+                active ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt hover:bg-panel2'}`}>
               <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
               {n.label}
             </button>
@@ -104,7 +104,7 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
       {/* The action, held apart from the places. Label hidden on the narrowest
           phones, where the bottom bar carries its own floating start button. */}
       <button onClick={onStartSession} title="Start today’s session"
-        className="tap-44 hidden sm:flex items-center gap-2 bg-amber text-bg font-bold rounded-md
+        className="tap-44 hidden sm:flex items-center gap-2 bg-accent text-bg font-bold rounded-md
           py-2 px-3.5 hover:brightness-105 transition">
         <Play size={15} /> <span className="text-sm">Start session</span>
       </button>
@@ -113,12 +113,12 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
         aria-current={view === 'profile' ? 'page' : undefined}
         className={`tap-44 flex items-center gap-2 ml-1 sm:ml-2 px-1.5 sm:px-2 py-1.5 rounded-md
           hover:bg-panel2 transition-colors ${view === 'profile' ? 'bg-panel2' : ''}`}>
-        <span className="grid place-items-center w-8 h-8 rounded-full bg-panel2 text-amber text-xs font-bold flex-shrink-0">{initial}</span>
+        <span className="grid place-items-center w-8 h-8 rounded-full bg-panel2 text-accent text-xs font-bold flex-shrink-0">{initial}</span>
         <span className="hidden md:block min-w-0 text-left">
           <span className="block text-xs font-semibold truncate max-w-[9rem]">{name || 'Your profile'}</span>
           <span className="flex items-center gap-1 text-2xs text-dim">
             {level && <span>{level} ·</span>}
-            <Flame size={11} className="text-amber" /> {streak}
+            <Flame size={11} className="text-accent" /> {streak}
           </span>
         </span>
       </button>

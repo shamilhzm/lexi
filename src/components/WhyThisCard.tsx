@@ -100,7 +100,7 @@ export default function WhyThisCard({ reason }: { reason?: SessionReason }) {
   return (
     <div className="w-full max-w-[580px] mb-2.5 flex flex-col items-center gap-1">
       <p className="flex items-start gap-1.5 text-2xs text-dim text-center leading-relaxed">
-        <Icon size={12} className="text-amber flex-shrink-0 mt-[0.15rem]" aria-hidden />
+        <Icon size={12} className="text-accent flex-shrink-0 mt-[0.15rem]" aria-hidden />
         <span>
           {line.lead}
           {line.em && <b lang={line.emLang} className="text-txt font-semibold">{line.em}</b>}

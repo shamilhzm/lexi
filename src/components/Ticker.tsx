@@ -31,7 +31,7 @@ export default function Ticker({ onPick }: { onPick: (group: string) => void }) 
   // reachable properly via Explore → Decks. Mouse users keep the shortcut.
   const row = (dupe: boolean) => items.map((it) => (
     <button key={(dupe ? 'b' : 'a') + it.key} onClick={() => onPick(it.name)} tabIndex={-1}
-      title={`Study ${it.name}`} className="text-dim hover:text-amber transition-colors cursor-pointer">
+      title={`Study ${it.name}`} className="text-dim hover:text-accent transition-colors cursor-pointer">
       <b className="text-txt">{it.sym}</b> <span className={it.cls}>{it.pctVal}%</span>
     </button>
   ));

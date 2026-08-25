@@ -14,11 +14,11 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const VARIANT: Record<ButtonVariant, string> = {
   // The single call to action on a surface.
-  primary: 'bg-amber text-bg font-bold hover:brightness-105',
+  primary: 'bg-accent text-bg font-bold hover:brightness-105',
   // Everything else that is still a real action.
-  secondary: 'bg-panel2 border border-line font-semibold hover:border-amber',
+  secondary: 'bg-panel2 border border-line font-semibold hover:border-accent',
   // Tertiary — present, but never competing.
-  quiet: 'border border-line text-dim font-semibold hover:border-amber hover:text-amber',
+  quiet: 'border border-line text-dim font-semibold hover:border-accent hover:text-accent',
 };
 
 const SIZE: Record<ButtonSize, string> = {

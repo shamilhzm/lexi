@@ -42,7 +42,7 @@ export default function InstallNudge({ onBackup }: { onBackup: () => void }) {
 
   return (
     <Card pad="none" className="px-4 py-3.5 mb-4 flex items-start gap-3">
-      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
       <div className="flex-1 min-w-0">
         <p className="text-base font-semibold">Install Lexi to protect your progress</p>
         <p className="text-xs text-dim mt-0.5">
@@ -52,12 +52,12 @@ export default function InstallNudge({ onBackup }: { onBackup: () => void }) {
         <div className="flex items-center gap-3 mt-2.5 flex-wrap">
           {ios ? (
             <span className="inline-flex items-center gap-1.5 text-xs text-txt">
-              <Share size={14} className="text-amber" /> Share&nbsp;→&nbsp;<b>Add to Home Screen</b>
+              <Share size={14} className="text-accent" /> Share&nbsp;→&nbsp;<b>Add to Home Screen</b>
             </span>
           ) : (
             <Button size="sm" onClick={() => deferredPrompt?.prompt()}>Install</Button>
           )}
-          <button onClick={onBackup} className="text-xs text-dim underline underline-offset-2 hover:text-amber">
+          <button onClick={onBackup} className="text-xs text-dim underline underline-offset-2 hover:text-accent">
             or export a backup
           </button>
         </div>

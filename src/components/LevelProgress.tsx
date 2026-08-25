@@ -33,7 +33,7 @@ export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => vo
       {canAdvance && (
         <div className="flex justify-end mb-2.5">
           <button onClick={() => focusUpTo(edgeIdx + 1)}
-            className="flex items-center gap-1 text-2xs text-amber hover:underline">
+            className="flex items-center gap-1 text-2xs text-accent hover:underline">
             {edge} is {Math.round(edgeKr * 100)}% recognised — add {ALL_LEVELS[edgeIdx + 1]} <ChevronRight size={12} />
           </button>
         </div>
@@ -45,8 +45,8 @@ export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => vo
           const pct = Math.round(kr * 100);
           return (
             <button key={s.level} onClick={() => focusUpTo(i)} title={`${s.known}/${s.count} known · ${s.learned} seen`}
-              className={`flex-1 rounded-md px-1 py-2 border transition-colors ${active ? 'border-amber bg-panel2' : 'border-line hover:border-dim'}`}>
-              <div className={`font-mono text-xs font-bold text-center ${active ? 'text-amber' : 'text-dim'}`}>{s.level}</div>
+              className={`flex-1 rounded-md px-1 py-2 border transition-colors ${active ? 'border-accent bg-panel2' : 'border-line hover:border-dim'}`}>
+              <div className={`font-mono text-xs font-bold text-center ${active ? 'text-accent' : 'text-dim'}`}>{s.level}</div>
               <div className="h-1.5 rounded-full bg-bg mt-1.5 overflow-hidden">
                 <div className="h-full transition-[width] duration-500" style={{ width: `${Math.max(pct, 2)}%`, background: heat(kr) }} />
               </div>
@@ -74,7 +74,7 @@ export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => vo
           <ul className="space-y-0.5 mb-2">
             {CAN_DO[edge].map((c) => (
               <li key={c} className="text-xs text-dim leading-relaxed flex gap-1.5">
-                <span aria-hidden className="text-amber flex-shrink-0">·</span>{c}
+                <span aria-hidden className="text-accent flex-shrink-0">·</span>{c}
               </li>
             ))}
           </ul>
@@ -84,7 +84,7 @@ export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => vo
           {/* A level as somewhere you can finish, not just a filter setting. */}
           {onStudy && edgeStat.count > edgeStat.known && (
             <button onClick={() => { focusUpTo(edgeIdx); onStudy({ kind: 'all', name: `All ${edge}` }); }}
-              className="mt-2 inline-flex items-center gap-1 text-2xs text-amber hover:underline">
+              className="mt-2 inline-flex items-center gap-1 text-2xs text-accent hover:underline">
               Work through {edge} <ChevronRight size={12} />
             </button>
           )}

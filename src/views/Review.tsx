@@ -58,7 +58,7 @@ const SWIPE_PX = 90; // horizontal travel that commits a grade
  *  The button count follows whether recall actually happened. */
 const SCALE: { rating: Grade; label: string; firstSight?: string; hover: string }[] = [
   { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning', hover: 'hover:border-red hover:text-red' },
-  { rating: Rating.Hard, label: 'Hard', hover: 'hover:border-amber hover:text-amber' },
+  { rating: Rating.Hard, label: 'Hard', hover: 'hover:border-accent hover:text-accent' },
   { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it', hover: 'hover:border-green hover:text-green' },
   { rating: Rating.Easy, label: 'Easy', hover: 'hover:border-green hover:text-green' },
 ];
@@ -468,7 +468,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
         <div className="h-0.5 bg-panel2" role="progressbar" aria-label="Session progress"
           aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}
           aria-valuetext={`${i} of ${queue.length} done`}>
-          <div className="relative h-full bg-amber transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
+          <div className="relative h-full bg-accent transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
             {/* The cursor rides the tip of the bar — it writes your session. */}
             {i > 0 && <span aria-hidden key={ack?.n ?? 0} className={ack?.ok ? 'tip tip-hit' : 'tip'} />}
           </div>
@@ -534,7 +534,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                   label names it again underneath. Two labels, one of them
                   overlapping a third. */}
               {!item.teach && (
-                <span className="absolute -top-2.5 right-3 z-10 text-2xs text-amber bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
+                <span className="absolute -top-2.5 right-3 z-10 text-2xs text-accent bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
               )}
               {/* First encounter with this kind of exercise: teach, then test.
                   The rule has always been one tap away, behind a link nobody taps
@@ -587,10 +587,10 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
               <div className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">
-                  {isNew && <span className="text-amber">New · </span>}
+                  {isNew && <span className="text-accent">New · </span>}
                   {grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
                 </span>
-                {!grammar && <Illustration word={card} size={68} className="text-amber select-none" />}
+                {!grammar && <Illustration word={card} size={68} className="text-accent select-none" />}
                 {/* lang="de" on every German string: without it a screen reader
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
@@ -602,7 +602,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                 )}
                 {!grammar && (
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
-                    className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-amber hover:bg-panel2 active:scale-95" title="Pronunciation">
+                    className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-accent hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
                   </button>
                 )}
@@ -627,7 +627,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                     className="text-dim italic text-base leading-relaxed max-w-[90%] hover:text-txt transition-colors cursor-pointer">
                     {card.ex[0].de}
                     {hasHumanAudio(card.id) && (
-                      <Volume2 size={13} aria-hidden className="inline-block ml-1.5 -mt-0.5 text-amber" />
+                      <Volume2 size={13} aria-hidden className="inline-block ml-1.5 -mt-0.5 text-accent" />
                     )}
                   </button>
                 )}
@@ -705,7 +705,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                     headword string where nothing could read it. Never shows a
                     case it had to guess — see lib/valency.ts. */}
                 {!grammar && valency && (
-                  <p lang="de" className="text-sm text-amber font-mono mb-2">{valencyLabel(valency)}</p>
+                  <p lang="de" className="text-sm text-accent font-mono mb-2">{valencyLabel(valency)}</p>
                 )}
                 {!grammar && card.ex.length > 0 && (
                   <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
@@ -890,7 +890,7 @@ function CoachMarks() {
       </span>
       <span aria-hidden className="hidden sm:inline">·</span>
       <span><b className="text-txt font-semibold">Skip</b> is always free</span>
-      <button onClick={dismiss} className="tap-hit ml-auto text-amber font-semibold hover:brightness-110">Got it</button>
+      <button onClick={dismiss} className="tap-hit ml-auto text-accent font-semibold hover:brightness-110">Got it</button>
     </Card>
   );
 }
@@ -914,14 +914,14 @@ function PocketList({ words }: { words: Word[] }) {
     <div className="mt-4">
       {!open ? (
         <button onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-1.5 text-xs text-dim hover:text-amber underline underline-offset-2">
+          className="inline-flex items-center gap-1.5 text-xs text-dim hover:text-accent underline underline-offset-2">
           <ClipboardList size={13} /> Today’s words, to take with you
         </button>
       ) : (
         <Card tone="sunken" nested pad="none" className="p-4 text-left">
           <div className="flex items-center gap-2 mb-2">
             <Kicker tone="accent">{words.length} words today</Kicker>
-            <button onClick={() => setOpen(false)} className="ml-auto text-2xs text-dim hover:text-amber">Hide</button>
+            <button onClick={() => setOpen(false)} className="ml-auto text-2xs text-dim hover:text-accent">Hide</button>
           </div>
           {/* One line per word, no controls inside: this is meant to be a picture. */}
           <ul className="space-y-1">
@@ -942,7 +942,7 @@ function PocketList({ words }: { words: Word[] }) {
 /** Unobtrusive mastery dot on the card front: dim = new, amber = learning, green = known. */
 function StatusPip({ id }: { id: string }) {
   const st = statusOf(id);
-  const color = st === 'known' ? 'var(--color-green)' : st === 'learning' ? 'var(--color-amber)' : 'var(--color-dim)';
+  const color = st === 'known' ? 'var(--color-green)' : st === 'learning' ? 'var(--color-accent)' : 'var(--color-dim)';
   const label = st === 'known' ? 'Known' : st === 'learning' ? 'Learning' : 'New';
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
@@ -987,7 +987,7 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
             exam. */}
         {exam && done > 0 && (
           <p className="text-sm mb-4">
-            You scored <span className={`font-mono font-bold ${recall >= 60 ? 'text-green' : 'text-amber'}`}>{recall}%</span>{' '}
+            You scored <span className={`font-mono font-bold ${recall >= 60 ? 'text-green' : 'text-accent'}`}>{recall}%</span>{' '}
             with no hints and no rules.
             <span className="block text-dim text-xs mt-1">
               Goethe and telc set their pass mark at 60%. This isn’t their exam — it’s your vocabulary
@@ -1022,7 +1022,7 @@ function DoneState({ done, again, newLearned, minedCount, comeback, firstRun, we
             screenshot. Word-of-mouth is a local-first app’s only channel. */}
         {!firstRun && (
           <button onClick={() => shareProgress()}
-            className="mt-3 mx-auto flex items-center gap-1.5 text-xs text-dim hover:text-amber underline underline-offset-2">
+            className="mt-3 mx-auto flex items-center gap-1.5 text-xs text-dim hover:text-accent underline underline-offset-2">
             <Share2 size={13} /> Share your progress
           </button>
         )}

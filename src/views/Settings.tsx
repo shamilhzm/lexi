@@ -25,7 +25,7 @@ const toggle = (on: boolean) =>
   // size, pace and tense focus were all 33px, and Settings is the surface most
   // likely to be used one-handed on a phone.
   `tap-44 flex items-center gap-2 text-xs rounded-md px-3.5 py-2 border transition-colors ${
-    on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:border-amber'}`;
+    on ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:border-accent'}`;
 
 /** The tenses a learner can lean on. Keys match TENSE_POINT, so a focus always
  *  names something the drills can actually target and the rule behind it exists. */
@@ -155,7 +155,7 @@ export default function Settings() {
 
       {/* Appearance */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-amber" /><h3 className="text-base font-semibold">Appearance</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-accent" /><h3 className="text-base font-semibold">Appearance</h3></div>
         <p className="text-dim text-xs mb-3">Lexi runs light by default — it’s a thing you read. Pick a fixed theme or follow your system.</p>
         <div className="flex flex-wrap gap-2">
           {THEMES.map(({ id, label, icon: Icon }) => (
@@ -169,7 +169,7 @@ export default function Settings() {
       {/* Text size — the rem ramp scales from the root. "Standard" defers to the
           browser/OS preference (incl. iOS Dynamic Type); a choice overrides it. */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Type size={16} className="text-amber" /><h3 className="text-base font-semibold">Text size</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Type size={16} className="text-accent" /><h3 className="text-base font-semibold">Text size</h3></div>
         <p className="text-dim text-xs mb-3">Standard follows your device’s text-size setting.</p>
         <div className="flex flex-wrap gap-2">
           {[{ v: 0.875, label: 'Compact' }, { v: 1, label: 'Standard' }, { v: 1.125, label: 'Large' }, { v: 1.25, label: 'Larger' }].map(({ v, label }) => (
@@ -182,7 +182,7 @@ export default function Settings() {
 
       {/* Sound — feedback cues, on by default; also mutable from the session header. */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-amber" /><h3 className="text-base font-semibold">Sound</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-accent" /><h3 className="text-base font-semibold">Sound</h3></div>
         <p className="text-dim text-xs mb-3">Soft cues as you answer — a tick when you’re right, a quieter falling note when you’re not, and a chime at the end of a session. You can also mute mid-session from the header.</p>
         <button onClick={() => setSound(!sound())} aria-pressed={sound()} className={toggle(sound())}>
           {sound() ? 'Sound on' : 'Sound off'}
@@ -191,7 +191,7 @@ export default function Settings() {
 
       {/* Review intensity (FSRS desired retention) */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Gauge size={16} className="text-amber" /><h3 className="text-base font-semibold">Review intensity</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Gauge size={16} className="text-accent" /><h3 className="text-base font-semibold">Review intensity</h3></div>
         <p className="text-dim text-xs mb-3">
           How hard the scheduler pushes. Higher retention means shorter intervals and
           more reviews per day, but you forget less. 90% is the recommended balance.
@@ -199,8 +199,8 @@ export default function Settings() {
         <div className="flex flex-wrap gap-2">
           {RETENTIONS.map(({ v, label, hint }) => (
             <button key={v} onClick={() => pickRet(v)} aria-pressed={ret === v}
-              className={`flex flex-col items-start gap-0.5 text-left rounded-md px-3.5 py-2.5 border transition-colors min-w-[132px] ${ret === v ? 'border-amber bg-panel2' : 'border-line hover:border-amber'}`}>
-              <span className={`text-base font-semibold ${ret === v ? 'text-amber' : ''}`}>{label}</span>
+              className={`flex flex-col items-start gap-0.5 text-left rounded-md px-3.5 py-2.5 border transition-colors min-w-[132px] ${ret === v ? 'border-accent bg-panel2' : 'border-line hover:border-accent'}`}>
+              <span className={`text-base font-semibold ${ret === v ? 'text-accent' : ''}`}>{label}</span>
               <span className="text-2xs text-dim leading-tight">{hint}</span>
             </button>
           ))}
@@ -209,7 +209,7 @@ export default function Settings() {
 
       {/* HD voice */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-amber" /><h3 className="text-base font-semibold">German voice</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-accent" /><h3 className="text-base font-semibold">German voice</h3></div>
         <p className="text-dim text-xs mb-3">
           The HD voice is a native-German neural voice (Piper “Thorsten”) that runs on your device.
           It downloads once (~25 MB), then works offline — far better than the built-in browser voice.
@@ -225,7 +225,7 @@ export default function Settings() {
         {hdVoice() ? (
           <div className="flex items-center gap-3 flex-wrap">
             <span className="flex items-center gap-1.5 text-green text-xs"><Check size={15} /> HD voice on</span>
-            <button onClick={() => speak('Guten Tag! Wie geht es dir heute?')} className="text-xs text-dim hover:text-amber">Test</button>
+            <button onClick={() => speak('Guten Tag! Wie geht es dir heute?')} className="text-xs text-dim hover:text-accent">Test</button>
             <button onClick={() => setHdVoice(false)} className="text-xs text-dim hover:text-red-txt ml-auto">Turn off</button>
           </div>
         ) : hdPhase !== null ? (
@@ -241,7 +241,7 @@ export default function Settings() {
 
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">
-        <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-amber" /><h3 className="text-base font-semibold">Your data</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-accent" /><h3 className="text-base font-semibold">Your data</h3></div>
         <p className="text-dim text-xs mb-3">
           Everything lives on this device. Export a backup to keep your cards, streak,
           and progress safe — or to move to another device. Importing replaces what’s
@@ -250,7 +250,7 @@ export default function Settings() {
         <div className="flex flex-wrap gap-2 items-center">
           <Button onClick={doExport}><Download size={15} /> Export backup</Button>
           <Button variant="secondary" onClick={() => fileRef.current?.click()}>
-            <Upload size={14} className="text-amber" /> Import backup
+            <Upload size={14} className="text-accent" /> Import backup
           </Button>
           {/* A backup is only readable by Lexi. This is the same knowledge in a
               format a spreadsheet, Anki or a printout can open. */}
@@ -269,7 +269,7 @@ export default function Settings() {
           were choosing their tense at random, so a learner spending a month on the
           Perfekt met it a quarter of the time and had no way to say so. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Crosshair size={16} className="text-amber" /> This week I’m working on</h3>
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Crosshair size={16} className="text-accent" /> This week I’m working on</h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           Weights which tense the conjugation and transformation drills ask for. A lean, not a
           filter — the others keep coming round, or you’d quietly lose them.
@@ -293,7 +293,7 @@ export default function Settings() {
           identical. The stamp says what is running; the check asks the server what
           is deployed and compares. See lib/build.ts. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Info size={16} className="text-amber" /> Version</h3>
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Info size={16} className="text-accent" /> Version</h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           What this device is running. If you’ve just been sent a fix, check here before
           deciding whether it worked.
@@ -312,7 +312,7 @@ export default function Settings() {
           )}
         </div>
         {update && (
-          <p className={`text-xs mt-2.5 ${update.kind === 'current' ? 'text-green' : update.kind === 'stale' ? 'text-amber' : 'text-dim'}`}>
+          <p className={`text-xs mt-2.5 ${update.kind === 'current' ? 'text-green' : update.kind === 'stale' ? 'text-accent' : 'text-dim'}`}>
             {update.kind === 'current' && 'You’re on the latest version.'}
             {update.kind === 'stale' && (
               <>A newer version is available ({update.sha}
@@ -334,7 +334,7 @@ export default function Settings() {
           Governs *sessions only*: opening a drill from Fundamentals still drills
           it, because there you asked for it by name. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-amber" /> What’s in a session</h3>
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-accent" /> What’s in a session</h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           Flip cards are always there. These are the drills woven between them — switch any of
           them off and they stop appearing in sessions. Turn them all off to just flick through
@@ -362,7 +362,7 @@ export default function Settings() {
       {/* Daily pace. The caps were good defaults and also a ceiling with no
           override — an exam in three weeks could not ask for more. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-amber" /> Daily pace</h3>
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-accent" /> Daily pace</h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           How many new words a day, and how much of a backlog one day serves. The scheduler
           is unaffected — FSRS tolerates delay by design, and a bigger budget only front-loads
@@ -382,14 +382,14 @@ export default function Settings() {
           honest bridge, and it costs no backend. Export lives on each deck in
           Progress; this is the receiving end. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Users size={16} className="text-amber" /> Word packs</h3>
+        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Users size={16} className="text-accent" /> Word packs</h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           A pack is a deck someone shared with you — a file, no account. Importing adds its
           cards to your lexicon; it never changes your progress. Export a deck from
           Progress → Decks to share one back.
         </p>
         <Button variant="secondary" onClick={() => packRef.current?.click()}>
-          <Upload size={14} className="text-amber" /> Import a word pack
+          <Upload size={14} className="text-accent" /> Import a word pack
         </Button>
         <input ref={packRef} type="file" accept="application/json,.json" aria-label="Choose a Lexi word pack to import"
           onChange={onPackFile} className="hidden" tabIndex={-1} />

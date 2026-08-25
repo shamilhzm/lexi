@@ -19,7 +19,7 @@ export default class ErrorBoundary extends Component<Props, State> {
     return (
       <div className="grid place-items-center min-h-[440px]" role="alert">
         <Card pad="none" className="px-8 py-10 max-w-md text-center">
-          <TriangleAlert size={28} className="text-amber mx-auto mb-3" />
+          <TriangleAlert size={28} className="text-accent mx-auto mb-3" />
           <h2 className="text-lg font-bold mb-1">This view hit an error</h2>
           <p className="text-dim text-xs mb-4">The rest of Lexi is fine — try again, or switch tabs and come back.</p>
           <pre className="text-left text-2xs text-red-txt bg-panel2 border border-line rounded-md p-3 overflow-auto max-h-40 whitespace-pre-wrap">{this.state.error.message}</pre>

@@ -43,7 +43,7 @@ export interface FormCollision {
    *  (`der`/`die Stiefel`) *and* where a gender variant does (`der`/`das Joghurt`).
    *  Telling those apart is a judgement, so it is the ruling's job, not this
    *  function's. */
-  shape: 'plural' | 'article';
+  shape: 'plural' | 'article' | 'reflexive';
 }
 
 /** Order-insensitive key for a collision, so a ruling matches however the pair was
@@ -97,6 +97,31 @@ export function findFormCollisions(cards: Word[]): FormCollision[] {
       add(other, w, 'article');
     }
   }
+
+  // ---- shape 3: a verb carded both plain and reflexive ---------------------
+  //
+  // Added 2026-08-25, the third of the shapes BACKLOG left open. Unlike the two
+  // above, neither headword is an *inflection* of the other — they differ by a
+  // pronoun — so this branch does not go through `byForm`.
+  //
+  // **The detector deliberately has no opinion, because this shape is the one
+  // where a mechanical answer would be most wrong.** Most of these pairs are two
+  // genuinely different verbs — `vorstellen` introduces somebody and `sich
+  // vorstellen` introduces yourself or imagines; `unterhalten` maintains and `sich
+  // unterhalten` chats; `verabschieden` passes a law. Merging those would delete
+  // real vocabulary. A minority are one verb filed twice, and the tell is that the
+  // plain card's own gloss and examples are reflexive: `beschweren` glossed "to
+  // complain" (the plain verb means to weigh down) illustrated with «Er hat **sich**
+  // … beschwert». Every pair carries a written ruling below.
+  const verbs = cards.filter((w) => w.kind === 'word' && w.pos === 'verb');
+  const byTerm = new Map<string, Word>();
+  for (const w of verbs) if (!byTerm.has(w.term.toLowerCase())) byTerm.set(w.term.toLowerCase(), w);
+  for (const w of verbs) {
+    const t = w.term.toLowerCase();
+    if (!t.startsWith('sich ')) continue;
+    const plain = byTerm.get(t.slice(5));
+    if (plain) add(plain, w, 'reflexive');
+  }
   return out;
 }
 
@@ -127,6 +152,17 @@ export interface FormRuling {
   /** merge only. Leave the retired card's synonyms behind — they describe a word
    *  the keeper is not. */
   dropSyn?: true;
+  /** A `keep` that a *later* pass overrode, with the reason it no longer holds.
+   *
+   *  A keep is only meaningful while both cards exist, so `merge-forms` treats a
+   *  dangling one as a stale table and refuses to run — which is right, and which
+   *  fired for real on 2026-08-25: `der Bekannte` × `die Bekannte` were ruled two
+   *  cards on purpose in August, and the adjectival-noun dedupe later folded both
+   *  into the neutral `der/die Bekannte`. The ruling was not wrong when it was
+   *  made and the merge was not wrong either; what would be wrong is deleting the
+   *  row, because then nobody could see that the question had been asked twice and
+   *  answered differently. So it stays, marked, and the checker reads the mark. */
+  superseded?: string;
   why: string;
 }
 
@@ -227,6 +263,10 @@ export const FORM_RULINGS: FormRuling[] = [
   },
   {
     rule: 'keep', form: 'voc:B1:die Bekannte', lemma: 'voc:B1:der Bekannte',
+    superseded: 'Both cards were folded into voc:A1:der/die Bekannte by the adjectival-noun '
+      + 'dedupe. The gendered pair was worth keeping against *one* neutral card that did not '
+      + 'exist yet; once the der/die card was the canonical one, three cards for one word was '
+      + 'not a distinction, it was three schedules.',
     why: 'Not one word twice: a nominalised adjective whose article names the referent. The '
       + 'cards gloss themselves "acquaintance (male)" and "acquaintance (female)" and their '
       + 'examples follow — the same pair as der Lehrer / die Lehrerin, which BACKLOG wants '
@@ -265,5 +305,146 @@ export const FORM_RULINGS: FormRuling[] = [
     rule: 'keep', form: 'voc:A2:die Alpen', lemma: 'voc:B1:die Alp',
     why: 'die Alpen is a proper name. die Alp is an alpine pasture (and, separately, a '
       + 'nightmare); the mountain range is not its plural in any useful sense.',
+  },
+
+  // ---- shape 3: a verb carded both plain and reflexive ---------------------
+  //
+  // Ruled by hand 2026-08-25, by reading both cards' gloss, definition and every
+  // example. **Seven merges, sixteen keeps** — and the ratio is the finding: this
+  // shape looks like the plural one and behaves nothing like it. A plural filed as
+  // its own noun is almost always a duplicate; a reflexive filed beside its plain
+  // verb is usually two words, because German uses the pronoun to change what the
+  // verb *means*, not merely who it acts on.
+  //
+  // The test that decides a merge: **does the plain verb exist, with that meaning,
+  // without the pronoun?** Where the answer is no, the plain card's own gloss and
+  // examples give it away — they are reflexive, because that is the only German
+  // there was to write.
+  {
+    rule: 'merge', form: 'voc:B1:aneignen', lemma: 'voc:B2:sich aneignen', level: 'B1',
+    why: 'Plain aneignen is not the word: the B1 card is glossed "to appropriate" and then '
+      + 'illustrated «Mit Hilfe von Beispielsätzen kann man **sich** eine Sprache schneller '
+      + 'aneignen» — acquiring, reflexively. One verb, two schedules, and the pronoun is not '
+      + 'optional. Keeper takes B1, the lower level.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:beschweren', lemma: 'voc:B1:sich beschweren', level: 'B1',
+    why: 'Plain beschweren means to weigh something down. The B1 card is glossed "to complain" '
+      + 'and illustrated «Er hat **sich** beim Manager über den Lärm beschwert» — so it is the '
+      + 'reflexive verb, carded a second time without its pronoun. Same level, straight absorb.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:bewerben', lemma: 'voc:A2:sich bewerben', level: 'A2',
+    why: 'Plain bewerben means to advertise or promote something. The B1 card is glossed "to '
+      + 'apply (for)" and its own example is «Sie bewirbt **sich** um die Stelle». Keeper takes '
+      + 'A2 — merging upward would take a word off a learner who already has it.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:erholen', lemma: 'voc:A2:sich erholen', level: 'A2',
+    why: 'There is no plain erholen in modern German; the verb is reflexive. The B1 card proves '
+      + 'it against itself — «Ich muss **mich** nach der Krankheit erholen».',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:benehmen', lemma: 'voc:B1:sich benehmen', level: 'B1',
+    why: 'Plain benehmen survives only in an archaic sense of taking something away. The card '
+      + 'glossed "to behave" is the reflexive verb, and its example is the reflexive imperative '
+      + '«Benehmt **euch**».',
+  },
+  {
+    rule: 'merge', form: 'voc:A2:ausruhen', lemma: 'voc:A2:sich ausruhen', level: 'A2',
+    why: 'Two cards at the same level with the same gloss. Plain ausruhen is heard, but the '
+      + 'reflexive is the form dictionaries lemmatise and the one a learner has to produce; '
+      + 'the plain card adds a second schedule for the same word and its «Ich kann ausruhen» is '
+      + 'the thinner sentence of the two.',
+  },
+  {
+    // The one pair where the *reflexive* card is the stray.
+    rule: 'merge', form: 'voc:B1:sich besichtigen', lemma: 'voc:A1:besichtigen', level: 'A1',
+    why: 'sich besichtigen is not a verb. Its only example — «Das Museum lässt **sich** in einer '
+      + 'Stunde besichtigen» — is lassen + sich + Infinitiv, the passive substitute (C2 point '
+      + '„Passiversatzformen“), where the pronoun belongs to *lassen* and not to besichtigen. '
+      + 'The card was minted from a construction rather than a lemma.',
+  },
+  // The sixteen kept. Each is two verbs, and the gloss pair says why.
+  {
+    rule: 'keep', form: 'voc:A2:vorstellen', lemma: 'voc:A1:sich vorstellen',
+    why: 'vorstellen introduces somebody else; sich vorstellen introduces yourself, and also '
+      + 'means to imagine. Three senses, and the pronoun is what selects between them.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:erinnern', lemma: 'voc:A2:sich erinnern',
+    why: 'erinnern reminds somebody of something; sich erinnern remembers. Different subjects, '
+      + 'different objects. (The B1 card was glossed "to remember", which is the reflexive\'s '
+      + 'meaning — fixed separately as a gloss defect, not as a merge.)',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:verletzen', lemma: 'voc:A2:sich verletzen',
+    why: 'verletzen injures somebody else, and figuratively breaks a rule or a feeling; sich '
+      + 'verletzen is injuring yourself.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:streiten', lemma: 'voc:A2:sich streiten',
+    why: 'Both are current and both are needed: man streitet **über** eine Frage, but man '
+      + 'streitet **sich mit** jemandem. The two glosses currently say the same thing, which is '
+      + 'a gloss defect on the pair and not a reason to delete one of them.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:entscheiden', lemma: 'voc:A2:sich entscheiden',
+    why: 'etwas entscheiden settles a question; sich entscheiden is making up your own mind. '
+      + 'A learner needs both and confuses them constantly.',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:verstehen', lemma: 'voc:A2:sich verstehen',
+    why: 'verstehen understands; sich verstehen gets along with somebody. Only the pronoun '
+      + 'separates «Ich verstehe dich» from «Wir verstehen uns».',
+  },
+  {
+    rule: 'keep', form: 'voc:B2:aufregen', lemma: 'voc:B1:sich aufregen',
+    why: 'aufregen upsets somebody; sich aufregen is getting upset. Transitive against '
+      + 'inchoative, the commonest German reflexive pattern.',
+  },
+  {
+    rule: 'keep', form: 'voc:B2:auflösen', lemma: 'voc:B1:sich auflösen',
+    why: 'etwas auflösen dissolves or winds something up; sich auflösen is the thing dissolving '
+      + 'by itself. Same transitive/inchoative pair.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:einsetzen', lemma: 'voc:B1:sich einsetzen',
+    why: 'einsetzen deploys or inserts something; sich einsetzen für campaigns for a cause. '
+      + 'The reflexive has a fixed preposition the plain verb does not take.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:abstimmen', lemma: 'voc:B2:sich abstimmen',
+    why: 'abstimmen votes; sich abstimmen coordinates with somebody. Unrelated in use.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:anpassen', lemma: 'voc:B2:sich anpassen',
+    why: 'etwas anpassen adjusts a thing; sich anpassen adapts yourself to a place or a rule. '
+      + 'The second is the word the integration texts use.',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:treffen', lemma: 'voc:A2:sich treffen',
+    why: 'jemanden treffen meets somebody, by arrangement or by chance; sich treffen is two '
+      + 'people meeting up. Also treffen = to hit a target, which the reflexive never means.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:unterhalten', lemma: 'voc:B1:sich unterhalten',
+    why: 'unterhalten maintains or supports; sich unterhalten holds a conversation. Same level, '
+      + 'and still two words.',
+  },
+  {
+    rule: 'keep', form: 'voc:C1:verabschieden', lemma: 'voc:B1:sich verabschieden',
+    why: 'ein Gesetz verabschieden passes a law — a C1 word from parliamentary German; sich '
+      + 'verabschieden says goodbye. The four-level gap is the evidence.',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:vorbereiten', lemma: 'voc:B1:sich vorbereiten',
+    why: 'etwas vorbereiten prepares a thing; sich vorbereiten auf prepares yourself for an '
+      + 'exam. Both are ordinary and the plain card\'s example is genuinely transitive.',
+  },
+  {
+    rule: 'keep', form: 'voc:A1:entspannen', lemma: 'voc:B1:sich entspannen',
+    why: 'entspannen relaxes something — Muskeln, eine Lage — and is also used intransitively; '
+      + 'sich entspannen is a person relaxing. Kept, though the two glosses could separate better.',
   },
 ];

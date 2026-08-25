@@ -68,7 +68,7 @@ export default function Results({ paper, result, onReview, onGrammar }: {
       {result.provisional && (
         <Card accent pad="sm" className="mb-4">
           <div className="flex items-start gap-2.5">
-            <AlertTriangle size={16} className="text-amber flex-shrink-0 mt-0.5" />
+            <AlertTriangle size={16} className="text-accent flex-shrink-0 mt-0.5" />
             <p className="text-sm leading-relaxed">
               <span className="font-semibold">Provisional.</span> The letter and the oral are not marked
               yet, so everything below is a <em>floor</em>, not a score. Assess them against the criteria

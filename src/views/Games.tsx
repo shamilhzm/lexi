@@ -44,7 +44,7 @@ export default function Games() {
             <button key={l} onClick={() => setLevel(l as CEFR)} aria-pressed={level === l}
               className={`tap-44-sq inline-flex items-center justify-center font-mono text-2xs px-2 py-1
                 rounded-md border transition-colors ${
-                  level === l ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>
+                  level === l ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:text-txt'}`}>
               {l}
             </button>
           ))}
@@ -53,9 +53,9 @@ export default function Games() {
 
       <button onClick={() => setPlaying(true)}
         className="tap-44 w-full text-left group">
-        <Card pad="md" className="hover:border-amber transition-colors">
+        <Card pad="md" className="hover:border-accent transition-colors">
           <div className="flex items-start gap-3">
-            <span className="grid place-items-center w-10 h-10 rounded-md bg-panel2 text-amber flex-shrink-0">
+            <span className="grid place-items-center w-10 h-10 rounded-md bg-panel2 text-accent flex-shrink-0">
               <Keyboard size={20} />
             </span>
             <span className="flex-1 min-w-0">

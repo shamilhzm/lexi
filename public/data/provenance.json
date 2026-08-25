@@ -814,7 +814,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:ausruhen",
+    "id": "voc:A2:sich ausruhen",
     "lemma": "ausruhen",
     "level": "A2",
     "levelSource": "reference",
@@ -6512,7 +6512,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:aneignen",
+    "id": "voc:B1:sich aneignen",
     "lemma": "aneignen",
     "level": "B1",
     "levelSource": "reference",
@@ -6886,7 +6886,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:benehmen",
+    "id": "voc:B1:sich benehmen",
     "lemma": "benehmen",
     "level": "B1",
     "levelSource": "reference",

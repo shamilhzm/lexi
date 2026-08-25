@@ -1017,7 +1017,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
               className={`rounded-md py-4 font-bold text-xl border transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-panel2 border-line hover:border-amber'}`}
+                : 'bg-panel2 border-line hover:border-accent'}`}
               style={state === 'idle' ? { color } : undefined}>
               {g}
             </button>
@@ -1129,7 +1129,7 @@ function MCItem({ prompt, sub, hint, options, correct, extra, bigPrompt = true, 
               className={`rounded-md py-3.5 px-4 border text-base text-center transition-colors ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-panel2 border-line hover:border-amber'}`}>
+                : 'bg-panel2 border-line hover:border-accent'}`}>
               {/* The key that picks this option, shown so the shortcut is
                   discoverable rather than folklore. Hidden on touch, where there
                   is no keyboard to hint at. */}
@@ -1423,7 +1423,7 @@ export function DictationItem({ word, onGrade }: { word: Word; onGrade: Grade })
       <DrillHeader pointRef={null} label={MODE_TAG.dictation} />
       <div className="flex flex-col items-center gap-2 mb-3">
         <button onClick={() => speak(sentence)}
-          className="grid place-items-center w-16 h-16 rounded-full bg-panel border border-line text-amber
+          className="grid place-items-center w-16 h-16 rounded-full bg-panel border border-line text-accent
             hover:bg-panel2 active:scale-95 transition-transform"
           aria-label="Play the sentence again">
           <Volume2 size={26} />
@@ -1431,7 +1431,7 @@ export function DictationItem({ word, onGrade }: { word: Word; onGrade: Grade })
         <p className="text-2xs text-dim">Play as often as you like — that’s the exercise</p>
         {gaveUp
           ? <p lang="de" className="text-sm text-txt mt-1">{sentence}</p>
-          : <button onClick={() => setGaveUp(true)} className="text-2xs text-dim hover:text-amber underline underline-offset-2">
+          : <button onClick={() => setGaveUp(true)} className="text-2xs text-dim hover:text-accent underline underline-offset-2">
               Can’t hear it? Show the sentence
             </button>}
       </div>
@@ -1449,7 +1449,7 @@ function Card({ children }: { children: React.ReactNode }) {
 function Prompt({ children, small, gloss, big = true }: { children: React.ReactNode; small?: string; gloss?: string; big?: boolean }) {
   return (
     <div className="text-center mb-5">
-      {small && <div className="text-2xs text-amber font-mono uppercase tracking-widest mb-2 font-semibold">{small}</div>}
+      {small && <div className="text-2xs text-accent font-mono uppercase tracking-widest mb-2 font-semibold">{small}</div>}
       {/* `.headword` (Fraunces) was scoped to the flip faces — two lines per screen,
           on the app's only warm typeface. The German being *tested* is a headword
           too, so an exercise prompt now reads as the subject of the app rather than

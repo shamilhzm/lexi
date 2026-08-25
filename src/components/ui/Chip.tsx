@@ -9,7 +9,7 @@ import type { ComponentProps, ReactNode } from 'react';
 export type ChipTone = 'accent' | 'dim' | 'good' | 'bad';
 
 const TONE: Record<ChipTone, string> = {
-  accent: 'text-amber border-line',
+  accent: 'text-accent border-line',
   dim: 'text-dim border-line',
   good: 'text-green border-green/40',
   bad: 'text-red-txt border-red/40',

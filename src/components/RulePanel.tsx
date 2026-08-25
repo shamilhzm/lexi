@@ -58,7 +58,7 @@ export function RuleSectionBlock({ s }: { s: RuleSection }) {
           {s.pairs.map((p, i) => (
             <Fragment key={i}>
               <span className="text-dim text-right">{p.from}</span>
-              <span aria-hidden className="text-amber">→</span>
+              <span aria-hidden className="text-accent">→</span>
               <span className="text-txt">{p.to}</span>
             </Fragment>
           ))}
@@ -93,7 +93,7 @@ export function RuleCard({ point, level, onClose, worked = false }: {
       transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
       className="p-4 text-left">
       <div className="flex items-start gap-2 mb-2">
-        <BookOpen size={15} className="text-amber flex-shrink-0 mt-0.5" />
+        <BookOpen size={15} className="text-accent flex-shrink-0 mt-0.5" />
         <span className="flex-1 min-w-0">
           <span className="block text-sm font-semibold">{point.title}</span>
           <Kicker tone="accent" className="block">{level}</Kicker>
@@ -168,7 +168,7 @@ export function RuleToggle({ pointRef, label }: {
   return (
     <div className="w-full">
       <button onClick={() => setOpen((o) => !o)} aria-expanded={open}
-        className="inline-flex items-center gap-1.5 text-2xs text-amber font-mono uppercase tracking-widest font-semibold hover:underline">
+        className="inline-flex items-center gap-1.5 text-2xs text-accent font-mono uppercase tracking-widest font-semibold hover:underline">
         {label ?? `${found.level} · ${found.point.title}`}
         <HelpCircle size={12} className="flex-shrink-0" />
       </button>
@@ -283,7 +283,7 @@ export function DrillHeader({ pointRef, label }: {
     <div className="text-center mb-4">
       {intro && (
         <div className="mb-3 text-left">
-          <p className="text-2xs text-amber font-mono uppercase tracking-widest text-center mb-2 font-semibold">
+          <p className="text-2xs text-accent font-mono uppercase tracking-widest text-center mb-2 font-semibold">
             New here — have a read first
           </p>
           <RuleCard point={intro.point} level={intro.level} worked />
@@ -314,7 +314,7 @@ export default function WhyLink({ pointRef }: { pointRef: { level: CEFR; title: 
     <div className="mt-2">
       {!open && (
         <button onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-1 text-xs text-amber hover:underline">
+          className="inline-flex items-center gap-1 text-xs text-accent hover:underline">
           <HelpCircle size={13} /> Why? Read the rule
         </button>
       )}

@@ -33,7 +33,7 @@ export default function BackupNudge({ onBackup }: { onBackup: () => void }) {
 
   return (
     <Card pad="none" className="px-4 py-3.5 mb-4 flex items-start gap-3">
-      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0 mt-0.5">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0 mt-0.5">
         <Archive size={18} aria-hidden />
       </span>
       <div className="flex-1 min-w-0">

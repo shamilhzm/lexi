@@ -97,7 +97,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
           <div className="flex gap-1 text-xs">
             {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
               <button key={s} onClick={() => setSort(s)}
-                className={`tap-44 inline-flex items-center px-2.5 py-1 rounded-md ${sort === s ? 'text-amber bg-panel2' : 'text-dim hover:text-txt'}`}>
+                className={`tap-44 inline-flex items-center px-2.5 py-1 rounded-md ${sort === s ? 'text-accent bg-panel2' : 'text-dim hover:text-txt'}`}>
                 {s === 'attention' ? 'Urgent' : s === 'size' ? 'Size' : 'Progress'}
               </button>
             ))}
@@ -111,7 +111,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
         <div className="flex gap-1 text-xs">
           {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
             <button key={s} onClick={() => setSort(s)}
-              className={`tap-44 inline-flex items-center px-2.5 py-1 rounded-md ${sort === s ? 'text-amber bg-panel2' : 'text-dim hover:text-txt'}`}>
+              className={`tap-44 inline-flex items-center px-2.5 py-1 rounded-md ${sort === s ? 'text-accent bg-panel2' : 'text-dim hover:text-txt'}`}>
               {s === 'attention' ? 'Urgent' : s === 'size' ? 'Size' : 'Progress'}
             </button>
           ))}
@@ -127,7 +127,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 p-4">
         {decks.map((d) => (
           <Card key={d.name} tone="sunken" nested pad="none"
-            className={`group p-3.5 transition-colors ${done.has(d.name) ? 'border-green/40 hover:border-green' : 'hover:border-amber'}`}>
+            className={`group p-3.5 transition-colors ${done.has(d.name) ? 'border-green/40 hover:border-green' : 'hover:border-accent'}`}>
             <div className="flex items-start justify-between gap-2">
               <h3 className="text-base font-semibold leading-tight flex items-center gap-1.5 min-w-0">
                 {/* Somewhere you've been all the way through, marked as such. */}
@@ -187,6 +187,6 @@ function FilterChip({ on, onClick, children }: { on: boolean; onClick: () => voi
   return (
     <button onClick={onClick} aria-pressed={on}
       className={`tap-44 inline-flex items-center whitespace-nowrap text-xs px-2.5 py-1 rounded-full border transition-colors ${
-        on ? 'border-amber text-amber bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{children}</button>
+        on ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:text-txt'}`}>{children}</button>
   );
 }

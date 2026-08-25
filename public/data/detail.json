@@ -2104,6 +2104,16 @@
         "de": "Die Besucher konnten sogar Räume besichtigen, die sonst geschlossen sind.",
         "en": "Visitors could even view rooms that are otherwise closed.",
         "lvl": "B2"
+      },
+      {
+        "de": "Das Museum lässt sich in einer Stunde besichtigen.",
+        "en": "The museum can be toured in an hour.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Burg lässt sich nur mit Führung besichtigen.",
+        "en": "The castle can only be visited with a guided tour.",
+        "lvl": "B1"
       }
     ]
   },
@@ -18820,8 +18830,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Nach der stressigen Woche musste sie sich erst entspannen.",
-        "en": "After the stressful week she first had to relax.",
+        "de": "Ein warmes Bad kann die Muskeln entspannen.",
+        "en": "A warm bath can relax the muscles.",
         "lvl": "B1"
       },
       {
@@ -27482,21 +27492,6 @@
       {
         "de": "Diese Entschuldigung wird nicht ausreichen.",
         "en": "That excuse will not do.",
-        "lvl": "A2"
-      }
-    ]
-  },
-  "voc:A2:ausruhen": {
-    "def": "to rest, to recover (through rest and relaxation); to rest (one's eyes, etc.)",
-    "ex": [
-      {
-        "de": "Ich kann ausruhen.",
-        "en": "I can rest.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Du kannst ausruhen.",
-        "en": "You can rest.",
         "lvl": "A2"
       }
     ]
@@ -49626,6 +49621,16 @@
         "de": "Der Arzt riet ihr, sich nach der Operation gründlich auszuruhen.",
         "en": "The doctor advised her to rest thoroughly after the operation.",
         "lvl": "B2"
+      },
+      {
+        "de": "Ich kann ausruhen.",
+        "en": "I can rest.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du kannst ausruhen.",
+        "en": "You can rest.",
+        "lvl": "A2"
       }
     ]
   },
@@ -54535,21 +54540,6 @@
       }
     ]
   },
-  "voc:B1:aneignen": {
-    "def": "to appropriate; to acquire",
-    "ex": [
-      {
-        "de": "Mit Hilfe von Beispielsätzen kann man sich eine Sprache schneller aneignen.",
-        "en": "Using examples speeds up language acquisition.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er hat sich diese Fähigkeiten selbst angeeignet.",
-        "en": "He taught himself these skills.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:anfangs": {
     "def": "initially, at the beginning",
     "ex": [
@@ -54669,8 +54659,8 @@
     "def": "etwas passend machen, angleichen",
     "ex": [
       {
-        "de": "Man muss sich an die neue Kultur anpassen.",
-        "en": "You have to adapt to the new culture.",
+        "de": "Wir passen den Vertrag an die neuen Regeln an.",
+        "en": "We are adapting the contract to the new rules.",
         "lvl": "B1"
       },
       {
@@ -54679,8 +54669,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Wer sich nur anpasst, verändert selten etwas.",
-        "en": "Whoever merely adapts rarely changes anything.",
+        "de": "Der Schneider hat das Kleid perfekt angepasst.",
+        "en": "The tailor adjusted the dress perfectly.",
         "lvl": "C1"
       }
     ]
@@ -55833,21 +55823,6 @@
       }
     ]
   },
-  "voc:B1:benehmen": {
-    "def": "to behave, to act, to conduct oneself (in a certain way - specifically in a good/appropriate way if not otherwise specified)",
-    "ex": [
-      {
-        "de": "Benehmt euch.",
-        "en": "Behave yourself.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er benahm sich.",
-        "en": "He behaved himself.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:beobachten": {
     "def": "to watch, to observe",
     "ex": [
@@ -56020,21 +55995,6 @@
         "de": "Kurzerhand beschloss sie, das Angebot doch nicht anzunehmen.",
         "en": "On the spur of the moment she decided not to accept the offer after all.",
         "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:beschweren": {
-    "def": "to weight, to weight down; to complain",
-    "ex": [
-      {
-        "de": "Er hat sich beim Manager über den Lärm beschwert.",
-        "en": "He complained to the manager about the noise.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Gäste beschwerten sich über das laute Zimmer.",
-        "en": "The guests complained about the noisy room.",
-        "lvl": "B1"
       }
     ]
   },
@@ -56424,21 +56384,6 @@
       {
         "de": "(etwas) einwandfrei beweisen.",
         "en": "to undeniably prove (sth).",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:bewerben": {
-    "def": "to apply (submit oneself as a candidate); to try to win (someone's) favour/favor; to court",
-    "ex": [
-      {
-        "de": "Sie bewirbt sich um die Stelle.",
-        "en": "She is applying for the position.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Nach ihrem Abschluss an der Universität bewarb sie sich sofort bei einem Autokonzern um/für eine Stelle als Ingenieurin.",
-        "en": "After having received her university degree, she immediately applied to a big car company for a job as an engineer.",
         "lvl": "B1"
       }
     ]
@@ -81264,21 +81209,6 @@
       }
     ]
   },
-  "voc:B1:erholen": {
-    "def": "to relax, to recover, to recuperate",
-    "ex": [
-      {
-        "de": "Ich muss mich nach der Krankheit erholen.",
-        "en": "I need to recover after the illness.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Am Meer erholt man sich am besten.",
-        "en": "You recover best by the sea.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:erhältlich": {
     "def": "Able to be bought or obtained.",
     "ex": [
@@ -86935,6 +86865,31 @@
       }
     ]
   },
+  "voc:B1:sich aneignen": {
+    "def": "To gain a skill or knowledge through effort.",
+    "ex": [
+      {
+        "de": "Er hat sich das Programmieren selbst angeeignet.",
+        "en": "He taught himself programming.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat sich die Sprache im Ausland angeeignet.",
+        "en": "She acquired the language abroad.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit Hilfe von Beispielsätzen kann man sich eine Sprache schneller aneignen.",
+        "en": "Using examples speeds up language acquisition.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat sich diese Fähigkeiten selbst angeeignet.",
+        "en": "He taught himself these skills.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:sich auflösen": {
     "def": "To break up and come to an end; also to disappear.",
     "ex": [
@@ -87007,6 +86962,16 @@
         "de": "Man muss sich als Gast höflich benehmen.",
         "en": "As a guest you have to behave politely.",
         "lvl": "B1"
+      },
+      {
+        "de": "Benehmt euch.",
+        "en": "Behave yourself.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er benahm sich.",
+        "en": "He behaved himself.",
+        "lvl": "B1"
       }
     ]
   },
@@ -87027,6 +86992,16 @@
         "de": "Statt sich lautstark zu beschweren, schlug er gleich eine Lösung vor.",
         "en": "Instead of complaining loudly, he immediately proposed a solution.",
         "lvl": "C1"
+      },
+      {
+        "de": "Er hat sich beim Manager über den Lärm beschwert.",
+        "en": "He complained to the manager about the noise.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Gäste beschwerten sich über das laute Zimmer.",
+        "en": "The guests complained about the noisy room.",
+        "lvl": "B1"
       }
     ]
   },
@@ -87041,21 +87016,6 @@
       {
         "de": "Wissenschaftler beschäftigen sich mit diesem Problem.",
         "en": "Scientists are dealing with this problem.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:sich besichtigen": {
-    "def": "To look around a place such as a building or sight.",
-    "ex": [
-      {
-        "de": "Das Museum lässt sich in einer Stunde besichtigen.",
-        "en": "The museum can be toured in an hour.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Burg lässt sich nur mit Führung besichtigen.",
-        "en": "The castle can only be visited with a guided tour.",
         "lvl": "B1"
       }
     ]
@@ -88130,8 +88090,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich sagte der Lehrerin, dass sich Gerold und Jürgen wieder (miteinander) gestritten haben.",
-        "en": "I told the teacher that Gerald and George were again fighting each other.",
+        "de": "Die Parteien streiten über den richtigen Weg.",
+        "en": "The parties are arguing about the right way.",
         "lvl": "B1"
       }
     ]
@@ -89646,13 +89606,13 @@
     "def": "to hurt, to injure (cause bodily harm to someone); to hurt oneself, to sustain an injury (in the process of an activity)",
     "ex": [
       {
-        "de": "Beim Sport hat er sich am Knie verletzt.",
-        "en": "He injured his knee during exercise.",
+        "de": "Ein unachtsamer Wurf kann andere Spieler verletzen.",
+        "en": "A careless throw can injure other players.",
         "lvl": "B1"
       },
       {
-        "de": "Er hat sich bei einem Sturz verletzt.",
-        "en": "He had a tumble and hurt himself.",
+        "de": "Solche Bemerkungen verletzen mehr, als er denkt.",
+        "en": "Remarks like that hurt more than he thinks.",
         "lvl": "B1"
       }
     ]
@@ -92872,13 +92832,13 @@
     "def": "to excite; to upset; to get upset, to get worked up about something",
     "ex": [
       {
-        "de": "Ich wette, er wird sich aufregen.",
-        "en": "I bet he will get mad.",
+        "de": "Diese Nachricht wird meine Mutter sehr aufregen.",
+        "en": "This news is going to upset my mother a great deal.",
         "lvl": "B2"
       },
       {
-        "de": "Ich wusste, dass du dich aufregen würdest!",
-        "en": "I knew you'd be mad.",
+        "de": "Solche Kommentare können mich wirklich aufregen.",
+        "en": "Comments like that can really annoy me.",
         "lvl": "B2"
       }
     ]
@@ -104727,21 +104687,6 @@
       {
         "de": "Vor der Präsentation stimmen wir uns kurz ab.",
         "en": "Before the presentation we quickly coordinate.",
-        "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:sich aneignen": {
-    "def": "To gain a skill or knowledge through effort.",
-    "ex": [
-      {
-        "de": "Er hat sich das Programmieren selbst angeeignet.",
-        "en": "He taught himself programming.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Sie hat sich die Sprache im Ausland angeeignet.",
-        "en": "She acquired the language abroad.",
         "lvl": "B2"
       }
     ]

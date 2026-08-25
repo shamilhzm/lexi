@@ -76,7 +76,7 @@ export default function Quiz({ preset, items, level, onExit, onRetry, onNew }: {
           </span>
         </span>
         <button onClick={onExit}
-          className="tap-44 rounded-md border border-line px-3 py-2 text-xs font-semibold text-dim hover:border-amber hover:text-amber transition-colors">
+          className="tap-44 rounded-md border border-line px-3 py-2 text-xs font-semibold text-dim hover:border-accent hover:text-accent transition-colors">
           Beenden
         </button>
       </div>
@@ -84,7 +84,7 @@ export default function Quiz({ preset, items, level, onExit, onRetry, onNew }: {
       {/* A rail, not a percentage: the question a learner has mid-quiz is "how
           much longer", and a bar answers it without arithmetic. */}
       <div className="h-1 rounded-full bg-panel2 overflow-hidden mb-5">
-        <div className="h-full bg-amber transition-[width] duration-300"
+        <div className="h-full bg-accent transition-[width] duration-300"
           style={{ width: `${(i / items.length) * 100}%` }} />
       </div>
 
@@ -104,7 +104,7 @@ export default function Quiz({ preset, items, level, onExit, onRetry, onNew }: {
                 disabled:pointer-events-none
                 ${isKey ? 'border-green bg-green-d text-green font-semibold'
                   : isMiss ? 'border-red bg-red-d text-red-txt'
-                  : 'border-line bg-panel2 hover:border-amber'}`}>
+                  : 'border-line bg-panel2 hover:border-accent'}`}>
               <span className="flex items-center gap-2.5">
                 {isKey && <Check size={16} className="flex-shrink-0" />}
                 {isMiss && <X size={16} className="flex-shrink-0" />}
@@ -123,7 +123,7 @@ export default function Quiz({ preset, items, level, onExit, onRetry, onNew }: {
                 is already here. Only offered for the German-bearing kinds. */}
             {item.kind !== 'en-de' && (
               <button onClick={() => speak(germanOf(item))}
-                className="tap-44 mt-1 text-2xs font-mono uppercase tracking-widest text-dim hover:text-amber">
+                className="tap-44 mt-1 text-2xs font-mono uppercase tracking-widest text-dim hover:text-accent">
                 Vorlesen
               </button>
             )}

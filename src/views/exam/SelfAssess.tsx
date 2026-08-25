@@ -46,11 +46,11 @@ export function CriterionRow({ c, value, onPick }: {
             <button
               key={b} role="radio" aria-checked={picked} onClick={() => onPick(b)}
               className={`tap-44 w-full flex items-start gap-2.5 rounded-md border px-3 py-2 text-left text-sm
-                transition-colors ${picked ? 'border-amber bg-panel2' : 'border-line bg-panel2 hover:border-amber'}`}
+                transition-colors ${picked ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}
             >
-              <span className={`font-mono font-bold flex-shrink-0 w-4 ${picked ? 'text-amber' : 'text-dim'}`}>{b}</span>
+              <span className={`font-mono font-bold flex-shrink-0 w-4 ${picked ? 'text-accent' : 'text-dim'}`}>{b}</span>
               <span className="flex-1 min-w-0">{c.levels[i]}</span>
-              <span className={`font-mono text-2xs tabular-nums flex-shrink-0 pt-0.5 ${picked ? 'text-amber' : 'text-dim'}`}>
+              <span className={`font-mono text-2xs tabular-nums flex-shrink-0 pt-0.5 ${picked ? 'text-accent' : 'text-dim'}`}>
                 {c.points[i]}
               </span>
             </button>

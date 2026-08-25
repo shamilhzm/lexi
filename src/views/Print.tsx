@@ -84,7 +84,7 @@ export default function Print({ onExit }: { onExit: () => void }) {
       {/* ---- controls: screen only ---- */}
       <div className="no-print">
         <div className="flex items-center gap-2 mb-4">
-          <button onClick={onExit} className="tap-44 flex items-center gap-1.5 text-xs text-dim hover:text-amber">
+          <button onClick={onExit} className="tap-44 flex items-center gap-1.5 text-xs text-dim hover:text-accent">
             <ArrowLeft size={15} /> Back
           </button>
         </div>
@@ -98,7 +98,7 @@ export default function Print({ onExit }: { onExit: () => void }) {
           {SOURCES.map((s) => (
             <Card as="button" key={s.id} nested pad="none" onClick={() => setSource(s.id)}
               aria-pressed={source === s.id}
-              className={`text-left px-3 py-2.5 transition-colors ${source === s.id ? 'border-amber' : 'hover:border-amber'}`}>
+              className={`text-left px-3 py-2.5 transition-colors ${source === s.id ? 'border-accent' : 'hover:border-accent'}`}>
               <span className="block text-xs font-semibold mb-0.5">{s.label}</span>
               <span className="block text-2xs text-dim leading-snug">{s.desc}</span>
             </Card>
@@ -155,7 +155,7 @@ export default function Print({ onExit }: { onExit: () => void }) {
         </Card>
 
         <div className="flex items-center gap-2 mb-2">
-          <FileText size={14} className="text-amber" />
+          <FileText size={14} className="text-accent" />
           <Kicker tone="accent">Preview</Kicker>
         </div>
       </div>

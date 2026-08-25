@@ -66,7 +66,7 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
       // reveal's typography around. The target reaches 44px, the ink does not
       // move. These never sit adjacent to another control, so the enlarged area
       // cannot overlap a neighbour's.
-      className="tap-hit grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-amber
+      className="tap-hit grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-accent
         active:scale-95 transition-colors flex-shrink-0 align-middle">
       <Volume2 size={14} />
     </button>
@@ -145,7 +145,7 @@ export function FalseFriendNote({ term }: { term: string }) {
   return (
     <RevealBlock label="False friend">
       <p className="text-sm leading-relaxed flex gap-2">
-        <TriangleAlert size={14} className="text-amber flex-shrink-0 mt-0.5" aria-hidden />
+        <TriangleAlert size={14} className="text-accent flex-shrink-0 mt-0.5" aria-hidden />
         <span>
           Looks like <span className="text-txt font-semibold">“{ff.looksLike}”</span> — it means{' '}
           <span className="text-txt font-semibold">{ff.actually}</span>.
@@ -184,7 +184,7 @@ export function CardSource({ id }: { id: string }) {
   if (!open) {
     return (
       <button onClick={() => setOpen(true)}
-        className="tap-hit mt-3 self-start inline-flex items-center gap-1 text-2xs text-dim hover:text-amber transition-colors">
+        className="tap-hit mt-3 self-start inline-flex items-center gap-1 text-2xs text-dim hover:text-accent transition-colors">
         <Info size={12} /> Where this came from
       </button>
     );
@@ -215,7 +215,7 @@ export function CardSource({ id }: { id: string }) {
             Example from{' '}
             {cite.url
               ? <a href={cite.url} target="_blank" rel="noopener noreferrer"
-                  className="text-amber hover:underline">{cite.label}</a>
+                  className="text-accent hover:underline">{cite.label}</a>
               : cite.label}.
           </p>
         )}

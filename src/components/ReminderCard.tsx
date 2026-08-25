@@ -31,7 +31,7 @@ export default function ReminderCard() {
   return (
     <Card className="mb-3">
       <div className="flex items-center gap-2 mb-1">
-        <Clock size={16} className="text-amber" />
+        <Clock size={16} className="text-accent" />
         <h2 className="text-base font-semibold">Study time</h2>
       </div>
       <p className="text-xs text-dim mb-3">
@@ -40,7 +40,7 @@ export default function ReminderCard() {
 
       <div className="flex items-center gap-2.5 flex-wrap mb-3">
         <input type="time" value={time} onChange={(e) => setTime(e.target.value)} aria-label="Daily study time"
-          className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-amber" />
+          className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-accent" />
         {dirty && (
           <Button size="sm" onClick={() => setReminderTime(time)}>
             <Check size={13} /> Save
@@ -49,14 +49,14 @@ export default function ReminderCard() {
         {saved && !dirty && <span className="text-2xs text-green font-mono">saved · {saved}</span>}
         {saved && (
           <button onClick={() => { setReminderTime(null); setTime('19:00'); }}
-            className="text-2xs text-dim hover:text-amber ml-auto">clear</button>
+            className="text-2xs text-dim hover:text-accent ml-auto">clear</button>
         )}
       </div>
 
       <div className="grid sm:grid-cols-2 gap-2">
         <Card as="button" tone="sunken" nested pad="none" onClick={() => downloadReminderIcs(time)}
-          className="flex items-start gap-2.5 px-3 py-2.5 text-left hover:border-amber transition-colors">
-          <CalendarPlus size={15} className="text-amber flex-shrink-0 mt-0.5" />
+          className="flex items-start gap-2.5 px-3 py-2.5 text-left hover:border-accent transition-colors">
+          <CalendarPlus size={15} className="text-accent flex-shrink-0 mt-0.5" />
           <span>
             <span className="block text-xs font-semibold">Add to calendar</span>
             <span className="block text-2xs text-dim">Repeats daily. Works with Lexi closed, on every device you sync.</span>
@@ -65,8 +65,8 @@ export default function ReminderCard() {
 
         <Card as="button" tone="sunken" nested pad="none"
           onClick={enableNotifications} disabled={perm === 'granted' || perm === 'unsupported'}
-          className="flex items-start gap-2.5 px-3 py-2.5 text-left hover:border-amber transition-colors disabled:opacity-60 disabled:hover:border-line">
-          <Bell size={15} className="text-amber flex-shrink-0 mt-0.5" />
+          className="flex items-start gap-2.5 px-3 py-2.5 text-left hover:border-accent transition-colors disabled:opacity-60 disabled:hover:border-line">
+          <Bell size={15} className="text-accent flex-shrink-0 mt-0.5" />
           <span>
             <span className="block text-xs font-semibold">
               {perm === 'granted' ? 'Notifications on'

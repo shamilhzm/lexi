@@ -73,7 +73,7 @@ export default function ClassListPicker({ onStudy }: { onStudy?: (t: Target) => 
     return (
       <Card pad="none" className="p-4">
         <h3 className="text-base font-semibold flex items-center gap-2 mb-1">
-          <ClipboardList size={16} className="text-amber" /> My class list
+          <ClipboardList size={16} className="text-accent" /> My class list
         </h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           Paste the words from this week’s lesson and Lexi will match them to its cards, so you can
@@ -104,19 +104,20 @@ export default function ClassListPicker({ onStudy }: { onStudy?: (t: Target) => 
   return (
     <Card pad="none" className="p-4">
       <h3 className="text-base font-semibold flex items-center gap-2 mb-3">
-        <ClipboardList size={16} className="text-amber" /> My class list
+        <ClipboardList size={16} className="text-accent" /> My class list
       </h3>
       <label className="block text-xs text-dim mb-1" htmlFor="cl-name">What is this list?</label>
       <input id="cl-name" value={name} onChange={(e) => setName(e.target.value)}
         placeholder="Lektion 5"
-        className="w-full bg-panel2 border border-line rounded-md px-3 py-2 text-sm mb-3 outline-none focus:border-amber" />
+        className="w-full bg-panel2 border border-line rounded-md px-3 py-2 text-sm mb-3 outline-none focus:border-accent" />
 
       <label className="block text-xs text-dim mb-1" htmlFor="cl-words">
         The words — one per line, or separated by commas
       </label>
-      <textarea id="cl-words" value={text} onChange={(e) => setText(e.target.value)} rows={7}
+      <textarea id="cl-words"
+        autoCapitalize="none" autoCorrect="off" spellCheck={false} value={text} onChange={(e) => setText(e.target.value)} rows={7}
         lang="de" placeholder={'der Hund\ndie Katze – cat\naufstehen'}
-        className="w-full bg-panel2 border border-line rounded-md px-3 py-2 text-sm outline-none focus:border-amber resize-y" />
+        className="w-full bg-panel2 border border-line rounded-md px-3 py-2 text-sm outline-none focus:border-accent resize-y" />
 
       {result && (
         <div className="mt-3 text-xs">

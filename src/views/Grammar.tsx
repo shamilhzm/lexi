@@ -105,7 +105,7 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
       {onPrint && <PrintCard onPrint={onPrint} />}
 
       <div className="flex items-center gap-2.5 mb-1">
-        <GraduationCap size={20} className="text-amber" />
+        <GraduationCap size={20} className="text-accent" />
         <h2 className="text-lg font-bold">Grammar</h2>
       </div>
       <p className="text-dim text-xs mb-4">
@@ -129,8 +129,8 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
           {/* The mixed bank stays reachable: the syllabus is for finding a
               concept, this is for "just give me what’s due across everything". */}
           <Card as="button" pad="none" onClick={() => onRoute({ kind: 'bank' })}
-            className="w-full flex items-center gap-3 px-4 py-3 mt-4 text-left hover:border-amber transition-colors">
-            <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpen size={18} /></span>
+            className="w-full flex items-center gap-3 px-4 py-3 mt-4 text-left hover:border-accent transition-colors">
+            <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><BookOpen size={18} /></span>
             <span className="flex-1">
               <span className="block text-base font-semibold">Mixed exercise session</span>
               <span className="block text-2xs text-dim">Whatever is due across your levels — {fmt(GRAMMAR_COUNTS.exercises)} exercises in the bank.</span>
@@ -151,8 +151,8 @@ function RedemittelCardEntry({ onStudy }: { onStudy: () => void }) {
   useEffect(() => { loadRedemittel().then((c) => setN(c.length)).catch(() => setN(null)); }, []);
   return (
     <Card as="button" pad="none" onClick={onStudy}
-      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
-      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><MessagesSquare size={18} /></span>
+      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-accent transition-colors">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><MessagesSquare size={18} /></span>
       <span className="flex-1 min-w-0">
         <span className="flex items-center gap-2 flex-wrap">
           <span className="text-base font-semibold">Redemittel</span>
@@ -171,8 +171,8 @@ function RedemittelCardEntry({ onStudy }: { onStudy: () => void }) {
 function PrintCard({ onPrint }: { onPrint: () => void }) {
   return (
     <Card as="button" pad="none" onClick={onPrint}
-      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
-      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Printer size={18} /></span>
+      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-accent transition-colors">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><Printer size={18} /></span>
       <span className="flex-1 min-w-0">
         <span className="text-base font-semibold block">Worksheets</span>
         <span className="block text-2xs text-dim">
@@ -189,8 +189,8 @@ function ExamCard({ onExam }: { onExam: () => void }) {
   const running = examInProgress();
   return (
     <Card as="button" pad="none" accent onClick={onExam}
-      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-amber transition-colors">
-      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><ClipboardList size={18} /></span>
+      className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:border-accent transition-colors">
+      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><ClipboardList size={18} /></span>
       <span className="flex-1 min-w-0">
         <span className="flex items-center gap-2 flex-wrap">
           <span className="text-base font-semibold">Exam practice</span>
@@ -213,8 +213,8 @@ function QuickDrills({ onPick }: { onPick: (m: Mode) => void }) {
   return (
     <div className="mb-4">
       <Card as="button" pad="none" onClick={() => setOpen((o) => !o)} aria-expanded={open}
-        className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
-        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Play size={16} /></span>
+        className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><Play size={16} /></span>
         <span className="flex-1">
           <span className="block text-base font-semibold">Quick drills</span>
           <span className="block text-2xs text-dim">Gender, plurals, conjugation and cases, generated from your own vocabulary.</span>
@@ -228,8 +228,8 @@ function QuickDrills({ onPick }: { onPick: (m: Mode) => void }) {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
               {MODES.map(({ m, label, icon: Icon }) => (
                 <Card as="button" key={m} nested pad="none" onClick={() => onPick(m)}
-                  className="flex items-center gap-2 px-2.5 py-2.5 text-left hover:border-amber transition-colors">
-                  <Icon size={15} className="text-amber flex-shrink-0" />
+                  className="flex items-center gap-2 px-2.5 py-2.5 text-left hover:border-accent transition-colors">
+                  <Icon size={15} className="text-accent flex-shrink-0" />
                   <span className="text-xs font-semibold truncate">{label}</span>
                 </Card>
               ))}
@@ -256,9 +256,9 @@ function LevelSection({ level, points, isHome, open, onToggle, onPractise }: {
     <div className="mb-2.5">
       <Card as="button" pad="none" accent={isHome} onClick={onToggle} aria-expanded={open}
         className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-          isHome ? 'hover:border-amber' : 'hover:border-dim'}`}>
+          isHome ? 'hover:border-accent' : 'hover:border-dim'}`}>
         <span className={`grid place-items-center w-10 h-10 rounded-md font-mono font-bold text-sm flex-shrink-0 ${
-          isHome ? 'bg-panel2 text-amber' : 'bg-panel2 text-dim'}`}>{level}</span>
+          isHome ? 'bg-panel2 text-accent' : 'bg-panel2 text-dim'}`}>{level}</span>
         <span className="flex-1 min-w-0">
           <span className="block text-base font-semibold">
             {points.length} concept{points.length === 1 ? '' : 's'}

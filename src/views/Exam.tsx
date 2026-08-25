@@ -110,7 +110,7 @@ function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () =
         {ALL_LEVELS.map((l) => (
           <button key={l} onClick={() => setLevel(l)} aria-pressed={level === l}
             className={`tap-44-sq rounded-md border px-3 py-2 font-mono text-sm font-bold transition-colors
-              ${level === l ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
+              ${level === l ? 'border-accent text-accent' : 'border-line text-dim hover:border-accent'}`}>
             {l}
           </button>
         ))}
@@ -129,7 +129,7 @@ function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () =
           return (
             <Card as="button" key={p.key} nested pad="none"
               onClick={() => setQuiz({ preset: p, seed: Math.floor(Math.random() * 1e9) })}
-              className="tap-44 w-full px-3 py-2.5 text-left hover:border-amber transition-colors">
+              className="tap-44 w-full px-3 py-2.5 text-left hover:border-accent transition-colors">
               <span className="flex items-center gap-2 flex-wrap">
                 <span className="text-sm font-semibold">{p.label}</span>
                 <Chip tone="dim">{p.n} · {p.minutes} min</Chip>
@@ -173,8 +173,8 @@ function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () =
             </div>
 
             <button onClick={() => setLab(meta.id)}
-              className="tap-44 w-full flex items-center gap-3 rounded-md border border-line bg-panel2 px-3 py-2.5 text-left hover:border-amber transition-colors">
-              <span className="grid place-items-center w-8 h-8 rounded-md bg-panel text-amber flex-shrink-0">
+              className="tap-44 w-full flex items-center gap-3 rounded-md border border-line bg-panel2 px-3 py-2.5 text-left hover:border-accent transition-colors">
+              <span className="grid place-items-center w-8 h-8 rounded-md bg-panel text-accent flex-shrink-0">
                 <MessagesSquare size={16} />
               </span>
               <span className="flex-1 min-w-0">
@@ -298,7 +298,7 @@ function ReadinessCard({ level, bank, paperId, onAction }: {
       <div className="space-y-1.5">
         {r.actions.slice(0, 3).map((a, i) => (
           <button key={i} onClick={() => onAction(a)}
-            className="tap-44 w-full flex items-start gap-2.5 rounded-md border border-line bg-panel2 px-3 py-2.5 text-left hover:border-amber transition-colors">
+            className="tap-44 w-full flex items-start gap-2.5 rounded-md border border-line bg-panel2 px-3 py-2.5 text-left hover:border-accent transition-colors">
             <span className="grid place-items-center w-5 h-5 rounded-full bg-panel font-mono text-2xs font-bold flex-shrink-0 mt-0.5">{i + 1}</span>
             <span className="flex-1 min-w-0">
               <span className="block text-sm font-semibold">{a.label}</span>
@@ -317,9 +317,9 @@ function ModeCard({ title, sub, onClick, primary = false }: {
 }) {
   return (
     <Card as="button" nested pad="none" accent={primary} onClick={onClick}
-      className="tap-44 w-full px-3 py-2.5 text-left hover:border-amber transition-colors">
+      className="tap-44 w-full px-3 py-2.5 text-left hover:border-accent transition-colors">
       <span className="flex items-center gap-2">
-        <Play size={13} className={primary ? 'text-amber' : 'text-dim'} />
+        <Play size={13} className={primary ? 'text-accent' : 'text-dim'} />
         <span className="text-sm font-semibold">{title}</span>
       </span>
       <span className="block text-2xs text-dim leading-relaxed mt-1">{sub}</span>
@@ -358,7 +358,7 @@ function History({ onGrammar }: { onGrammar: () => void }) {
         })}
       </div>
       <button onClick={onGrammar}
-        className="tap-44 mt-2 text-2xs font-mono uppercase tracking-widest text-dim hover:text-amber">
+        className="tap-44 mt-2 text-2xs font-mono uppercase tracking-widest text-dim hover:text-accent">
         Zur Grammatik-Bibliothek
       </button>
     </div>
@@ -373,7 +373,7 @@ function SpeakingLab({ paperId, onExit }: { paperId: string; onExit: () => void 
   const paper = usePaper(paperId);
   return (
     <div className="w-full max-w-[820px] mx-auto">
-      <button onClick={onExit} className="tap-44 inline-flex items-center gap-1.5 text-xs text-dim hover:text-amber mb-3">
+      <button onClick={onExit} className="tap-44 inline-flex items-center gap-1.5 text-xs text-dim hover:text-accent mb-3">
         <ArrowLeft size={14} /> Exam practice
       </button>
       {!paper ? <Spinner /> : <SpeakingView topics={paper.speaking} redemittel={paper.redemittel} />}
@@ -498,7 +498,7 @@ function Runner({ attempt, onExit, onGrammar }: {
         </span>
         {block && <BlockClock key={block} paper={paper} attempt={attempt} block={block} />}
         <button onClick={leave} aria-label="Prüfung verlassen"
-          className="tap-44 inline-flex items-center gap-1.5 rounded-md border border-line px-3 py-2 text-xs font-semibold text-dim hover:border-amber hover:text-amber transition-colors">
+          className="tap-44 inline-flex items-center gap-1.5 rounded-md border border-line px-3 py-2 text-xs font-semibold text-dim hover:border-accent hover:text-accent transition-colors">
           <LogOut size={13} /> {submitted ? 'Fertig' : 'Verlassen'}
         </button>
       </div>
@@ -512,8 +512,8 @@ function Runner({ attempt, onExit, onGrammar }: {
           return (
             <button key={s.key} onClick={() => setIx(i)} aria-current={on ? 'step' : undefined}
               className={`flex-shrink-0 rounded-md border px-2.5 py-1.5 font-mono text-2xs font-bold uppercase tracking-wider
-                transition-colors ${on ? 'border-amber text-amber bg-panel2'
-                  : done ? 'border-green/40 text-green' : 'border-line text-dim hover:border-amber'}`}>
+                transition-colors ${on ? 'border-accent text-accent bg-panel2'
+                  : done ? 'border-green/40 text-green' : 'border-line text-dim hover:border-accent'}`}>
               {s.short}
             </button>
           );
@@ -664,7 +664,7 @@ function BlockClock({ paper, attempt, block }: {
   const low = left <= 300;
   return (
     <span className={`inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 font-mono text-sm tabular-nums
-      ${left === 0 ? 'border-red text-red-txt' : low ? 'border-amber text-amber' : 'border-line text-dim'}`}
+      ${left === 0 ? 'border-red text-red-txt' : low ? 'border-accent text-accent' : 'border-line text-dim'}`}
       title={`${block} · ${meta?.minutes} Minuten`}>
       <Clock size={13} />{m}:{String(s).padStart(2, '0')}
     </span>
@@ -716,7 +716,7 @@ function Brief({ paper, mode }: { paper: ExamPaper; mode: ex.Mode }) {
 
       <Card tone="sunken" pad="sm">
         <div className="flex items-start gap-2.5">
-          <FileText size={15} className="text-amber flex-shrink-0 mt-0.5" />
+          <FileText size={15} className="text-accent flex-shrink-0 mt-0.5" />
           <p className="text-xs leading-relaxed">
             This paper follows telc's published structure, item counts, playback rules and mark scheme
             exactly. The texts themselves are written for Lexi — no telc material is reproduced here,

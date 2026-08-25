@@ -151,7 +151,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
           <Kicker tone="accent" className="block mb-1">Your level</Kicker>
           <motion.div initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 480, damping: 16, delay: 0.08 }}
-            className="font-mono font-bold text-6xl leading-none text-amber mb-3">{result}</motion.div>
+            className="font-mono font-bold text-6xl leading-none text-accent mb-3">{result}</motion.div>
           <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="text-dim text-base mb-6">
             {seeded > 0
@@ -180,10 +180,10 @@ export default function Placement({ onDone }: { onDone: () => void }) {
     <div className="w-full max-w-[520px] mx-auto">
       <div className="flex items-center justify-between mb-3">
         <h1 className="text-xl font-bold">Placement test</h1>
-        <button onClick={onDone} className="tap-hit text-xs text-dim hover:text-amber">skip</button>
+        <button onClick={onDone} className="tap-hit text-xs text-dim hover:text-accent">skip</button>
       </div>
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">
-        <div className="h-full bg-amber transition-[width] duration-300" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
+        <div className="h-full bg-accent transition-[width] duration-300" style={{ width: `${(totalAsked / totalMax) * 100}%` }} />
       </div>
       {/* The bar alone reads as empty on the first word, which makes a test with
           no stated length feel open-ended. The count is the reassurance: the test

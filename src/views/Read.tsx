@@ -37,21 +37,21 @@ function stateOf(w: Word): WordState {
 }
 
 // Matched to Lesen rather than invented: `ReadingList` already marks a word the
-// learner has not met as `text-amber underline decoration-dotted`, and this is the
+// learner has not met as `text-accent underline decoration-dotted`, and this is the
 // same idea on a longer text. Known words stay plain ink — the gaps are what the
 // eye should catch, and a passage where every readable word is coloured is a
-// passage nobody reads. There is no `--color-blue` in this theme; `--color-amber`
+// passage nobody reads. There is no `--color-blue` in this theme; `--color-accent`
 // *is* the Atlas blue.
 const TINT: Record<string, string> = {
   known: 'text-txt',
-  learning: 'text-amber font-semibold',
-  new: 'text-amber underline decoration-dotted underline-offset-4',
+  learning: 'text-accent font-semibold',
+  new: 'text-accent underline decoration-dotted underline-offset-4',
   absent: 'text-dim line-through decoration-dim/50',
 };
 
 const BAND_COPY = {
   independent: { label: 'You can read this on your own', tone: 'text-green' },
-  assisted: { label: 'Readable with a dictionary nearby', tone: 'text-amber' },
+  assisted: { label: 'Readable with a dictionary nearby', tone: 'text-accent' },
   frustrational: { label: 'Too many gaps to read comfortably yet', tone: 'text-dim' },
 } as const;
 
@@ -83,7 +83,7 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
   return (
     <div className="mx-auto w-full max-w-[720px] flex flex-col gap-4">
       <div className="flex items-center gap-2">
-        <button onClick={onExit} className="tap-hit text-dim hover:text-amber transition-colors" aria-label="Back">
+        <button onClick={onExit} className="tap-hit text-dim hover:text-accent transition-colors" aria-label="Back">
           <ArrowLeft size={18} />
         </button>
         {/* A real heading, not just a Kicker: this is a route, and every other one
@@ -105,7 +105,7 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
           spellCheck={false}
           lang="de"
           className="w-full rounded-md bg-panel2 border border-line p-3 text-sm leading-relaxed
-                     focus:border-amber focus:outline-none"
+                     focus:border-accent focus:outline-none"
           placeholder="Die Bundesregierung hat heute ein neues Gesetz beschlossen …"
         />
         <div className="mt-3 flex items-center gap-2">
@@ -176,7 +176,7 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
                     <button
                       onClick={() => setSelected(u.word)}
                       className="tap-44 flex items-center gap-2 rounded-md border border-line bg-panel2
-                                 px-3 py-2 text-sm hover:border-amber transition-colors">
+                                 px-3 py-2 text-sm hover:border-accent transition-colors">
                       <span lang="de" className="font-semibold">{u.word.term}</span>
                       {u.occurrences > 1 && <span className="text-2xs text-dim">×{u.occurrences}</span>}
                     </button>
@@ -251,7 +251,7 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
                 <button
                   onClick={() => { setText(t.body); setSubmitted(t.body); setSelected(null); setSaved(true); }}
                   className="tap-44 flex-1 flex items-center gap-3 rounded-md border border-line bg-panel2
-                             px-3 py-2 text-left hover:border-amber transition-colors">
+                             px-3 py-2 text-left hover:border-accent transition-colors">
                   <span className={`font-mono text-sm font-bold w-12 flex-shrink-0 ${BAND_COPY[c.band].tone}`}>
                     {Math.round(c.ratio * 100)}%
                   </span>

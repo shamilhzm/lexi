@@ -96,8 +96,8 @@ function LetterGrid({ keys, value, answer, reveal, disabled, onPick, label }: {
               transition-colors disabled:pointer-events-none
               ${isKey ? 'border-green bg-green-d text-green'
                 : isMiss ? 'border-red bg-red-d text-red-txt'
-                : picked ? 'border-amber bg-amber text-bg'
-                : 'border-line bg-panel2 text-dim hover:border-amber hover:text-amber'}`}
+                : picked ? 'border-accent bg-accent text-bg'
+                : 'border-line bg-panel2 text-dim hover:border-accent hover:text-accent'}`}
           >
             {k}
           </button>
@@ -151,7 +151,7 @@ function MatchView({ part, responses, onAnswer, reveal, locked }: PartProps & { 
         <ol className="space-y-1.5">
           {part.options.map((o) => (
             <li key={o.k} className="flex gap-2.5 text-sm">
-              <span className={`font-mono font-bold flex-shrink-0 w-4 ${used.has(o.k) ? 'text-amber' : 'text-dim'}`}>{o.k}</span>
+              <span className={`font-mono font-bold flex-shrink-0 w-4 ${used.has(o.k) ? 'text-accent' : 'text-dim'}`}>{o.k}</span>
               <span className={used.has(o.k) ? 'text-dim' : ''}>{o.text}</span>
             </li>
           ))}
@@ -247,10 +247,10 @@ function OptionRow({ opt, picked, isKey, isMiss, disabled, onPick }: {
         transition-colors disabled:pointer-events-none
         ${isKey ? 'border-green bg-green-d'
           : isMiss ? 'border-red bg-red-d'
-          : picked ? 'border-amber bg-panel2'
-          : 'border-line bg-panel2 hover:border-amber'}`}
+          : picked ? 'border-accent bg-panel2'
+          : 'border-line bg-panel2 hover:border-accent'}`}
     >
-      <span className={`font-mono font-bold flex-shrink-0 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-amber' : 'text-dim'}`}>
+      <span className={`font-mono font-bold flex-shrink-0 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-accent' : 'text-dim'}`}>
         {opt.k})
       </span>
       <span className="min-w-0">{opt.text}</span>
@@ -359,8 +359,8 @@ function ClozeView({ part, responses, onAnswer, reveal, locked }: PartProps & { 
                           className={`tap-44 rounded-md border px-3 py-2 text-sm transition-colors disabled:pointer-events-none
                             ${isKey ? 'border-green bg-green-d'
                               : isMiss ? 'border-red bg-red-d'
-                              : picked ? 'border-amber bg-panel2' : 'border-line bg-panel2 hover:border-amber'}`}>
-                          <span className={`font-mono mr-1.5 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-amber' : 'text-dim'}`}>{o.k})</span>
+                              : picked ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}>
+                          <span className={`font-mono mr-1.5 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-accent' : 'text-dim'}`}>{o.k})</span>
                           {o.text}
                         </button>
                       );
@@ -385,7 +385,7 @@ function ClozeView({ part, responses, onAnswer, reveal, locked }: PartProps & { 
 function GapChip({ n, shown }: { n: number; shown?: string }) {
   return (
     <span className={`inline-flex items-baseline gap-1 mx-0.5 px-1.5 rounded border-b-2 align-baseline
-      ${shown ? 'border-amber bg-panel2' : 'border-dim'}`}>
+      ${shown ? 'border-accent bg-panel2' : 'border-dim'}`}>
       <span className="font-mono text-2xs text-dim">{n}</span>
       <span className="font-semibold text-sm">{shown ?? '     '}</span>
     </span>
@@ -420,7 +420,7 @@ function AudioBar({ audio, reveal }: { audio: AudioBlock; reveal: boolean }) {
   return (
     <Card pad="sm" className="mb-4">
       <div className="flex flex-wrap items-center gap-2.5">
-        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Ear size={18} /></span>
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><Ear size={18} /></span>
         <div className="flex-1 min-w-[10rem]">
           <p className="text-sm font-semibold">
             {audio.plays === 1 ? 'Sie hören diesen Teil nur einmal.' : 'Sie hören diesen Teil zweimal.'}
@@ -436,7 +436,7 @@ function AudioBar({ audio, reveal }: { audio: AudioBlock; reveal: boolean }) {
             </Button>}
         <button onClick={() => setSlow((v) => !v)} aria-pressed={slow}
           className={`tap-44 rounded-md border px-3 py-2 text-xs font-semibold transition-colors
-            ${slow ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
+            ${slow ? 'border-accent text-accent' : 'border-line text-dim hover:border-accent'}`}>
           <Volume2 size={13} className="inline mr-1" />langsam
         </button>
       </div>
@@ -517,7 +517,7 @@ function TfView({ part, responses, onAnswer, reveal, locked }: PartProps & { par
                       className={`tap-44 flex-1 rounded-md border px-3 py-2 text-sm font-semibold transition-colors disabled:pointer-events-none
                         ${isKey ? 'border-green bg-green-d text-green'
                           : isMiss ? 'border-red bg-red-d text-red-txt'
-                          : picked ? 'border-amber bg-amber text-bg' : 'border-line bg-panel2 hover:border-amber'}`}>
+                          : picked ? 'border-accent bg-accent text-bg' : 'border-line bg-panel2 hover:border-accent'}`}>
                       {label}
                     </button>
                   );

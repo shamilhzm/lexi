@@ -88,7 +88,7 @@ function Sentence({ s, onStudy }: { s: Readable; onStudy: (t: Target) => void })
             <button key={i} onClick={() => setShown(shown === t.word!.id ? null : t.word!.id)}
               aria-expanded={shown === t.word.id}
               aria-label={`${t.text} — show meaning`}
-              className="text-amber underline decoration-dotted underline-offset-4 hover:brightness-125">
+              className="text-accent underline decoration-dotted underline-offset-4 hover:brightness-125">
               {t.text}
             </button>
           ) : <span key={i}>{t.text}</span>)}
@@ -105,7 +105,7 @@ function Sentence({ s, onStudy }: { s: Readable; onStudy: (t: Target) => void })
           <Kicker>{w.level}</Kicker>
           {statusOf(w.id) === 'new' && (
             <button onClick={() => onStudy({ kind: 'custom', name: w.term, ids: [w.id] })}
-              className="inline-flex items-center gap-1 text-2xs text-amber hover:underline">
+              className="inline-flex items-center gap-1 text-2xs text-accent hover:underline">
               <Plus size={12} /> Study this
             </button>
           )}
@@ -118,7 +118,7 @@ function Sentence({ s, onStudy }: { s: Readable; onStudy: (t: Target) => void })
           {revealed
             ? <p className="text-dim text-xs italic">{s.en}</p>
             : <button onClick={() => setRevealed(true)}
-                className="text-2xs text-dim hover:text-amber inline-flex items-center gap-1">
+                className="text-2xs text-dim hover:text-accent inline-flex items-center gap-1">
                 <Check size={11} /> Check my understanding
               </button>}
         </div>

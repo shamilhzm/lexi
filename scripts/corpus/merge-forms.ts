@@ -77,6 +77,7 @@ const problems: string[] = [];
 const pending: { ruling: FormRuling; form: Word; lemma: Word }[] = [];
 let alreadyApplied = 0;
 let ruledKeep = 0;
+let supersededRows = 0;
 
 for (const r of FORM_RULINGS) {
   const form = byId.get(r.form);
@@ -84,7 +85,11 @@ for (const r of FORM_RULINGS) {
   if (r.rule === 'keep') {
     // A keep is only meaningful while both cards exist; if one is gone, something
     // else retired it and the ruling is stale rather than satisfied.
-    if (!form || !lemma) problems.push(`${r.form} × ${r.lemma}: ruled keep, but ${!form ? r.form : r.lemma} no longer exists`);
+    if (!form || !lemma) {
+      // …unless the row says so itself. See `superseded` in form-rulings.ts.
+      if (r.superseded) { supersededRows++; continue; }
+      problems.push(`${r.form} × ${r.lemma}: ruled keep, but ${!form ? r.form : r.lemma} no longer exists`);
+    }
     else ruledKeep++;
     continue;
   }
@@ -150,8 +155,18 @@ for (const { ruling, form, lemma } of pending) {
 }
 for (const r of FORM_RULINGS) {
   if (r.rule !== 'keep') continue;
-  rows.push([byId.get(r.lemma)!.term, `${byId.get(r.lemma)!.level}`, byId.get(r.form)!.term,
-    `${byId.get(r.form)!.level}`, '—', 'KEPT — two cards on purpose', r.why.replace(/\s+/g, ' ')].join('\t'));
+  const lemma = byId.get(r.lemma);
+  const form = byId.get(r.form);
+  if (!lemma || !form) {
+    // A superseded keep — a later pass retired one of the two. The guard above has
+    // already accepted it; the record says so rather than dereferencing a card
+    // that is gone.
+    rows.push([r.lemma, '—', r.form, '—', '—', 'SUPERSEDED — see form-rulings.ts',
+      (r.superseded ?? r.why).replace(/\s+/g, ' ')].join('\t'));
+    continue;
+  }
+  rows.push([lemma.term, `${lemma.level}`, form.term, `${form.level}`, '—',
+    'KEPT — two cards on purpose', r.why.replace(/\s+/g, ' ')].join('\t'));
 }
 
 const retired = new Set(pending.map((p) => p.form.id));

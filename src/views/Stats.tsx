@@ -36,7 +36,7 @@ export default function Stats() {
     // the heatmap above them answers spatially.
     <section aria-labelledby="trend-heading">
       <div className="flex items-center gap-2.5 mb-1">
-        <BarChart3 size={18} className="text-amber" />
+        <BarChart3 size={18} className="text-accent" />
         <h2 id="trend-heading" className="text-lg font-bold">Trend</h2>
       </div>
       <p className="text-dim text-xs mb-3">
@@ -48,7 +48,7 @@ export default function Stats() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
         <Panel title="Reviews per day" sub="last 14 days">
           {anyReviews
-            ? <Bars values={perDay} labels={days.map(dayLabel)} color="var(--color-amber)" />
+            ? <Bars values={perDay} labels={days.map(dayLabel)} color="var(--color-accent)" />
             : <Empty text="Starts counting from today — study a session and come back." />}
         </Panel>
 
@@ -62,7 +62,7 @@ export default function Stats() {
         <Panel title="Due forecast" sub="scheduled reviews, next 7 days">
           <Bars values={forecast}
             labels={forecast.map((_, i) => i === 0 ? 'today' : dayLabel(dayKey(-i)))}
-            color="var(--color-amber)" />
+            color="var(--color-accent)" />
         </Panel>
 
         <Panel title="Known growth" sub={`daily totals · ${history.length < 3 ? 'accrues one point per study day' : `${history.length} days`}`}>

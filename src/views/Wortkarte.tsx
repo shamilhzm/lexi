@@ -22,7 +22,7 @@ import type { Target } from '../types.ts';
 
 const STATUS_COLOR: Record<string, string> = {
   new: 'var(--color-dim)',
-  learning: 'var(--color-amber)',
+  learning: 'var(--color-accent)',
   known: 'var(--color-green)',
 };
 const STATUS_LABEL: Record<string, string> = { new: 'new', learning: 'learning', known: 'known' };
@@ -101,7 +101,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
         <h2 className="text-base font-semibold">Word Map</h2>
         <label className="sr-only" htmlFor="wortkarte-sector">Sector</label>
         <select id="wortkarte-sector" value={sel} onChange={(e) => { setSel(e.target.value); setActive(null); }}
-          className="bg-panel2 border border-line rounded-md text-xs px-2 py-1.5 text-txt outline-none focus:border-amber max-w-[200px] sm:max-w-[260px]">
+          className="bg-panel2 border border-line rounded-md text-xs px-2 py-1.5 text-txt outline-none focus:border-accent max-w-[200px] sm:max-w-[260px]">
           {sorted.map((s) => <option key={s.name} value={s.name}>{s.name} ({s.count})</option>)}
         </select>
         <span className="ml-auto text-2xs text-dim flex items-center gap-2 sm:gap-3 flex-wrap">
@@ -114,7 +114,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
               </span>
             ))}
           </span>
-          <button onClick={() => onStudy({ kind: 'sector', name: sel })} className="text-amber hover:underline">Study sector →</button>
+          <button onClick={() => onStudy({ kind: 'sector', name: sel })} className="text-accent hover:underline">Study sector →</button>
         </span>
       </div>
 
@@ -125,9 +125,9 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
         {nodes.map((n) => <line key={'h' + n.w.id} x1={hub.x} y1={hub.y} x2={n.x} y2={n.y} stroke="var(--color-line)" strokeWidth={1} opacity={0.5} />)}
 
         <g>
-          <circle cx={hub.x} cy={hub.y} r={L.hub} fill="var(--color-panel2)" stroke="var(--color-amber)" strokeWidth={1.5} />
-          {SHOW_ILLUSTRATIONS && <g transform={`translate(${hub.x - 11} ${hub.y - 30}) scale(0.92)`} fill="none" stroke="var(--color-amber)" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: conceptPaths(conceptForSector(sel)) }} />}
-          <text x={hub.x} y={hub.y + 6} textAnchor="middle" fill="var(--color-amber)" fontSize={L.hubTerm} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
+          <circle cx={hub.x} cy={hub.y} r={L.hub} fill="var(--color-panel2)" stroke="var(--color-accent)" strokeWidth={1.5} />
+          {SHOW_ILLUSTRATIONS && <g transform={`translate(${hub.x - 11} ${hub.y - 30}) scale(0.92)`} fill="none" stroke="var(--color-accent)" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: conceptPaths(conceptForSector(sel)) }} />}
+          <text x={hub.x} y={hub.y + 6} textAnchor="middle" fill="var(--color-accent)" fontSize={L.hubTerm} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
           <text x={hub.x} y={hub.y + 6 + L.hubSub + 2} textAnchor="middle" fill="var(--color-dim)" fontSize={L.hubSub} fontFamily="var(--font-mono)">{nodes.length} words</text>
         </g>
 
@@ -154,7 +154,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
 
       <div className="px-4 py-2.5 border-t border-line text-2xs text-dim flex items-center gap-2" role="status" aria-live="polite">
         {active ? <ActiveInfo id={active} /> : <span>Node = word · line to centre = sector · line between nodes = synonym. Tap a node to hear it.</span>}
-        <Volume2 size={13} className="ml-auto text-amber flex-shrink-0" />
+        <Volume2 size={13} className="ml-auto text-accent flex-shrink-0" />
       </div>
     </Card>
   );
@@ -163,7 +163,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
 function ActiveInfo({ id }: { id: string }) {
   const w = useMemo(() => [...WORDS_BY_SECTOR.values()].flat().find((x) => x.id === id), [id]);
   if (!w) return null;
-  return <span className="text-txt"><b lang="de" className="text-amber">{w.term}</b> — {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de">„{w.ex[0].de}“</span></> : ''}</span>;
+  return <span className="text-txt"><b lang="de" className="text-accent">{w.term}</b> — {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de">„{w.ex[0].de}“</span></> : ''}</span>;
 }
 const Dot = ({ c }: { c: string }) => <span className="inline-block w-2 h-2 rounded-full align-middle" style={{ background: c }} />;
 const short = (t: string) => t.replace(/^(der|die|das)\s+/i, '').slice(0, 12);

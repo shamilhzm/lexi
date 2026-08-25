@@ -4,7 +4,7 @@
 import type { ComponentProps, ReactNode } from 'react';
 
 const TONE = {
-  accent: 'text-amber font-semibold',
+  accent: 'text-accent font-semibold',
   dim: 'text-dim',
   // The reveal's own kicker. Green is the reward colour, and this is the one place
   // it belongs on a study card — as a *mark* on the answer, not as the ground

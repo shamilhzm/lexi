@@ -139,7 +139,7 @@ export default function Race({ level, onExit }: { level: CEFR; onExit: () => voi
       />
       <div className="flex items-center justify-between gap-3 mb-3">
         <button onClick={onExit}
-          className="tap-44 flex items-center gap-1.5 text-2xs font-mono uppercase tracking-widest text-dim hover:text-amber">
+          className="tap-44 flex items-center gap-1.5 text-2xs font-mono uppercase tracking-widest text-dim hover:text-accent">
           <ArrowLeft size={13} /> Zurück
         </button>
         <span className="font-mono text-2xs uppercase tracking-widest text-dim">
@@ -164,7 +164,7 @@ export default function Race({ level, onExit }: { level: CEFR; onExit: () => voi
             <span key={i}
               className={
                 i < typed.at ? 'text-green'
-                  : i === typed.at ? 'bg-amber text-bg rounded-[2px]'
+                  : i === typed.at ? 'bg-accent text-bg rounded-[2px]'
                     : 'text-dim'}>
               {ch}
             </span>

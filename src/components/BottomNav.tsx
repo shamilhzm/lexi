@@ -36,7 +36,7 @@ export default function BottomNav({ view, onGo, onStartSession }: {
           transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 520, damping: 30 }}
           whileTap={reduce ? undefined : { scale: 0.92 }}
           className="absolute right-4 bottom-[calc(100%+0.75rem)] z-10 grid place-items-center
-            w-14 h-14 rounded-full bg-amber text-bg shadow-lg">
+            w-14 h-14 rounded-full bg-accent text-bg shadow-lg">
           <Play size={22} />
         </motion.button>
       )}
@@ -48,14 +48,14 @@ export default function BottomNav({ view, onGo, onStartSession }: {
             return (
               <button key={n.id} onClick={() => onGo(n.id)} aria-current={active ? 'page' : undefined}
                 className={`relative flex-1 flex flex-col items-center justify-center gap-0.5 h-full min-w-0 transition-colors ${
-                  active ? 'text-amber' : 'text-dim active:text-txt'}`}>
+                  active ? 'text-accent' : 'text-dim active:text-txt'}`}>
                 {/* The active tab was signalled by colour and stroke weight alone.
                     A shared-layout rule slides between tabs, so the change reads
                     as one object moving rather than two colour flips. */}
                 {active && (
                   <motion.span layoutId="bottomnav-active" aria-hidden
                     transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 480, damping: 38 }}
-                    className="absolute top-0 h-0.5 w-8 rounded-full bg-amber" />
+                    className="absolute top-0 h-0.5 w-8 rounded-full bg-accent" />
                 )}
                 <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
                 <span className="text-2xs leading-none truncate max-w-full px-0.5">{n.label}</span>

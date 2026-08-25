@@ -27,7 +27,7 @@ export default function VoiceOffer({ onClose }: { onClose: () => void }) {
   return (
     <div className="mx-auto max-w-[46ch] rounded-lg border border-line bg-panel px-4 py-3 text-left">
       <div className="flex items-start gap-2">
-        <Volume2 size={16} className="text-amber mt-0.5 shrink-0" aria-hidden />
+        <Volume2 size={16} className="text-accent mt-0.5 shrink-0" aria-hidden />
         <div className="min-w-0 flex-1">
           {done && !error ? (
             <p className="text-xs text-green">That’s the HD voice — every word from here on uses it.</p>

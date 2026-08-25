@@ -110,16 +110,16 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
               time they finish one. */}
           {t.recalled > 0 && (
             <span className="text-dim text-xs">
-              · <span className="font-mono font-bold text-amber tabular-nums">{t.recalled}</span> recalled
+              · <span className="font-mono font-bold text-accent tabular-nums">{t.recalled}</span> recalled
             </span>
           )}
-          <span className="flex items-center gap-1 text-amber font-mono font-bold text-base ml-1">
+          <span className="flex items-center gap-1 text-accent font-mono font-bold text-base ml-1">
             <Flame size={15} /> {streak()}
           </span>
         </button>
       </div>
       {comeback && (
-        <p className="text-amber text-xs mt-2">
+        <p className="text-accent text-xs mt-2">
           {gap} days away — nothing lost. Your best streak ({best} days) still stands; today starts the next one.
         </p>
       )}
@@ -182,7 +182,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           threat before there’s anything to lose. */}
       {streak() > 0 && !reviewedToday() && total > 0 && (
         <Card accent pad="none" className="flex items-center gap-3 px-4 py-3 mb-4">
-          <Flame size={18} className="text-amber flex-shrink-0" />
+          <Flame size={18} className="text-accent flex-shrink-0" />
           <p className="text-xs text-dim flex-1">
             <span className="text-txt font-semibold">{streak()}-day streak, nothing reviewed yet today.</span>
             {reminderTime() ? ` Your study time is ${reminderTime()}.` : ' Quick 5 keeps it alive.'}
@@ -199,7 +199,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
       {!placed && (
         <Card as="button" accent pad="none" onClick={onPlacement}
           className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:brightness-110 transition-[filter]">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><GraduationCap size={18} /></span>
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><GraduationCap size={18} /></span>
           <span className="flex-1">
             <span className="block text-base font-semibold">
               {t.learned > 0 ? 'Two minutes to find your level' : 'New here? Take the 2-minute placement test'}
@@ -210,7 +210,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                 : 'Find your level and skip the words you already know.'}
             </span>
           </span>
-          <Play size={14} className="text-amber flex-shrink-0" />
+          <Play size={14} className="text-accent flex-shrink-0" />
         </Card>
       )}
 
@@ -236,7 +236,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           // a hero would put it in competition with "cards queued", which is the
           // thing you are meant to act on. Hierarchy, not volume.
           <Card pad="none" className="flex items-center gap-3 px-4 py-3.5 mb-4">
-            <TargetIcon size={18} className={onTrack ? 'text-green flex-shrink-0' : 'text-amber flex-shrink-0'} />
+            <TargetIcon size={18} className={onTrack ? 'text-green flex-shrink-0' : 'text-accent flex-shrink-0'} />
             <div className="min-w-0">
               <p className="text-base font-semibold leading-tight">{gp.goal.level} by {when}</p>
               <p className="text-xs text-dim mt-1">
@@ -301,7 +301,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                 </div>
               )}
               {blindDrills > 0 && (
-                <p className="text-amber text-xs mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
+                <p className="text-accent text-xs mt-1">+ {blindDrills} drill{blindDrills === 1 ? '' : 's'} targeting your blind spots</p>
               )}
               {/* The scheduler's reasoning, before the decision to start rather
                   than three cards into it. See components/SessionWhy.tsx. */}
@@ -333,7 +333,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                         cap: itemsForMinutes(m),
                       })}
                       className="tap-44 inline-flex items-center font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
-                        hover:border-amber hover:text-amber transition-colors">
+                        hover:border-accent hover:text-accent transition-colors">
                       {m} min
                     </button>
                   ))}
@@ -345,7 +345,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
               {!week1 && t.known >= 40 && (
                 <button onClick={onExam}
                   className="font-mono text-2xs text-dim border border-line rounded-sm px-2 py-1
-                    hover:border-amber hover:text-amber transition-colors self-start sm:self-end">
+                    hover:border-accent hover:text-accent transition-colors self-start sm:self-end">
                   Exam conditions
                 </button>
               )}
@@ -372,8 +372,8 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           The sentence scan runs only when this opens, so Home stays cheap. */}
       <div className="mb-4">
         <Card as="button" pad="none" onClick={() => setReadOpen((o) => !o)} aria-expanded={readOpen}
-          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><BookOpenText size={18} /></span>
+          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><BookOpenText size={18} /></span>
           <span className="flex-1">
             <span className="block text-base font-semibold">Lesen</span>
             <span className="block text-xs text-dim">Sentences you can almost read</span>
@@ -390,7 +390,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
                     the learner brings. Same section on purpose — one reading
                     place, not two. */}
                 <Card as="button" tone="sunken" pad="none" onClick={onRead}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
+                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
                   <span className="grid place-items-center w-9 h-9 rounded-md bg-panel text-blue flex-shrink-0"><Gauge size={18} /></span>
                   <span className="flex-1">
                     <span className="block text-sm font-semibold">Can I read this?</span>
@@ -407,8 +407,8 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           The bank is fetched only when this opens, so Home stays cheap. */}
       <div className="mb-4">
         <Card as="button" pad="none" onClick={() => setDrillsOpen((o) => !o)} aria-expanded={drillsOpen}
-          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><Cog size={18} /></span>
+          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><Cog size={18} /></span>
           <span className="flex-1 text-base font-semibold">Grammar</span>
           {drillsDue > 0 && <Chip>{fmt(drillsDue)} due</Chip>}
           <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${drillsOpen ? 'rotate-180' : ''}`} />

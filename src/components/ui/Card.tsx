@@ -53,7 +53,7 @@ export default function Card<T extends ElementType = 'div'>({
   const El = (as ?? 'div') as ElementType;
   // Border is resolved here rather than by the caller, so an accent card can't
   // end up with two competing border-colour utilities and a coin-flip winner.
-  const border = bare ? '' : accent ? 'border border-amber/40' : 'border border-line';
+  const border = bare ? '' : accent ? 'border border-accent/40' : 'border border-line';
   return (
     <El
       className={`${TONE[tone]} ${border} ${nested ? 'rounded-md' : 'rounded-lg'} ${PAD[pad]} ${className}`}

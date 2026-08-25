@@ -21810,7 +21810,9 @@
     "gender": null,
     "plural": null,
     "ipa": "bəˈʃveːʁən",
-    "syn": [],
+    "syn": [
+      "beklagen"
+    ],
     "ant": [],
     "field": "Emotions",
     "kind": "word"
@@ -30674,7 +30676,9 @@
     "gender": null,
     "plural": null,
     "ipa": "zɪç bəˈvɛʁbn̩",
-    "syn": [],
+    "syn": [
+      "werben"
+    ],
     "ant": [],
     "field": "Application & CV",
     "kind": "word"
@@ -35580,16 +35584,17 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:sich aneignen",
+    "id": "voc:B1:sich aneignen",
     "term": "sich aneignen",
     "en": "to acquire, learn",
     "pos": "verb",
-    "level": "B2",
+    "level": "B1",
     "gender": null,
     "plural": null,
     "ipa": "ˈanʔaɪ̯ɡnən",
     "syn": [
-      "erlernen"
+      "erlernen",
+      "appropriieren"
     ],
     "ant": [],
     "field": "Lifelong Learning",
@@ -46804,7 +46809,7 @@
   {
     "id": "voc:B1:erinnern",
     "term": "erinnern",
-    "en": "to remember",
+    "en": "to remind (someone of something)",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -46839,22 +46844,6 @@
     "plural": null,
     "ipa": "bəˈʔoːbaxtn̩",
     "syn": [],
-    "ant": [],
-    "field": "Intermediate everyday verbs",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:bewerben",
-    "term": "bewerben",
-    "en": "to apply (for)",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "bəˈvɛʁbn̩",
-    "syn": [
-      "werben"
-    ],
     "ant": [],
     "field": "Intermediate everyday verbs",
     "kind": "word"
@@ -47534,22 +47523,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:beschweren",
-    "term": "beschweren",
-    "en": "to complain",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "bəˈʃveːʁən",
-    "syn": [
-      "beklagen"
-    ],
-    "ant": [],
-    "field": "Intermediate travel and daily life",
-    "kind": "word"
-  },
-  {
     "id": "voc:A1:empfehlen",
     "term": "empfehlen",
     "en": "to recommend",
@@ -47561,20 +47534,6 @@
     "syn": [
       "verabschieden"
     ],
-    "ant": [],
-    "field": "Intermediate travel and daily life",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:sich besichtigen",
-    "term": "sich besichtigen",
-    "en": "to visit, to tour",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "zɪç bəˈzɪçtɪɡn̩",
-    "syn": [],
     "ant": [],
     "field": "Intermediate travel and daily life",
     "kind": "word"
@@ -53403,20 +53362,6 @@
     "gender": "das",
     "plural": "die Vitamine",
     "ipa": "(ˌ)vitaˈmiːn",
-    "syn": [],
-    "ant": [],
-    "field": "Body & health",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:erholen",
-    "term": "erholen",
-    "en": "to recover / recuperate",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ɛɐ̯ˈhoːlən",
     "syn": [],
     "ant": [],
     "field": "Body & health",
@@ -81754,25 +81699,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:benehmen",
-    "term": "benehmen",
-    "en": "to behave, to act, to conduct oneself",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "bəˈneːmn̩",
-    "syn": [
-      "betragen",
-      "verhalten",
-      "nehmen",
-      "rauben"
-    ],
-    "ant": [],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:der Champagner",
     "term": "der Champagner",
     "en": "champagne",
@@ -82506,20 +82432,6 @@
     ],
     "ant": [],
     "field": "Health",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:ausruhen",
-    "term": "ausruhen",
-    "en": "to rest, to recover",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": null,
-    "syn": [],
-    "ant": [],
-    "field": "Core verbs",
     "kind": "word"
   },
   {
@@ -89094,7 +89006,7 @@
   {
     "id": "voc:B2:aufregen",
     "term": "aufregen",
-    "en": "to excite",
+    "en": "to upset, to annoy (someone)",
     "pos": "verb",
     "level": "B2",
     "gender": null,
@@ -94380,22 +94292,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:aneignen",
-    "term": "aneignen",
-    "en": "to appropriate",
-    "pos": "verb",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈanˌʔaɪ̯ɡnən",
-    "syn": [
-      "appropriieren"
-    ],
-    "ant": [],
-    "field": "Core verbs",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:der Aschermittwoch",
     "term": "der Aschermittwoch",
     "en": "Ash Wednesday",
@@ -96166,7 +96062,12 @@
     "gender": null,
     "plural": null,
     "ipa": "zɪç bəˈneːmən",
-    "syn": [],
+    "syn": [
+      "betragen",
+      "verhalten",
+      "nehmen",
+      "rauben"
+    ],
     "ant": [],
     "field": "Rules & Etiquette",
     "kind": "word"

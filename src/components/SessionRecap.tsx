@@ -38,8 +38,8 @@ export default function SessionRecap({ data, title = 'Session complete', childre
   { data: RecapData; title?: string; children?: ReactNode }) {
   const tiles: Tile[] = [];
   if (data.reviewed !== undefined) tiles.push({ label: 'Reviewed', num: data.reviewed, tone: 'text-txt' });
-  if (data.recall !== undefined) tiles.push({ label: 'Recall', num: data.recall, suffix: '%', tone: data.recall >= 80 ? 'text-green' : 'text-amber' });
-  if (data.newLearned !== undefined) tiles.push({ label: 'New learned', num: data.newLearned, tone: 'text-amber' });
+  if (data.recall !== undefined) tiles.push({ label: 'Recall', num: data.recall, suffix: '%', tone: data.recall >= 80 ? 'text-green' : 'text-accent' });
+  if (data.newLearned !== undefined) tiles.push({ label: 'New learned', num: data.newLearned, tone: 'text-accent' });
   if (data.drills !== undefined) tiles.push({ label: 'Drilled', num: data.drills, tone: 'text-txt' });
   if (data.drills !== undefined && data.drillsCorrect !== undefined)
     tiles.push({ label: 'Correct', num: data.drills ? Math.round((data.drillsCorrect / data.drills) * 100) : 0, suffix: '%', tone: 'text-green' });
@@ -55,15 +55,15 @@ export default function SessionRecap({ data, title = 'Session complete', childre
         streak secured
         <motion.span initial={{ scale: 0.5, rotate: -14 }} animate={{ scale: 1, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 500, damping: 13 }} className="inline-flex">
-          <Flame size={14} className="text-amber" />
+          <Flame size={14} className="text-accent" />
         </motion.span>
         <motion.span initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 480, damping: 16, delay: 0.05 }}
-          className="font-mono font-bold text-amber tabular-nums">{data.streak}</motion.span>
+          className="font-mono font-bold text-accent tabular-nums">{data.streak}</motion.span>
       </p>
       {data.milestone && (
         <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="flex items-center justify-center gap-1.5 mb-5 text-amber">
+          className="flex items-center justify-center gap-1.5 mb-5 text-accent">
           <Trophy size={15} /> <span className="font-semibold text-xs">New milestone · {data.milestone}</span>
         </motion.div>
       )}
@@ -126,7 +126,7 @@ function Tomorrow({ weakest }: { weakest?: string }) {
   return (
     <div className="border-t border-line pt-4 mb-5 text-left space-y-2">
       <p className="text-xs text-dim flex items-start gap-2">
-        <CalendarClock size={14} className="text-amber flex-shrink-0 mt-0.5" />
+        <CalendarClock size={14} className="text-accent flex-shrink-0 mt-0.5" />
         <span>
           {back > 0
             ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} come back tomorrow.</span> That’s the system working — showing up is the whole trick.</>
@@ -144,7 +144,7 @@ function Tomorrow({ weakest }: { weakest?: string }) {
       {/* Only offered to learners who haven’t set an anchor yet. */}
       {!time && !asked && (
         <button onClick={() => { setReminderTime(DEFAULT_TIME); setAsked(true); }}
-          className="flex items-center gap-1.5 text-xs text-amber hover:underline">
+          className="flex items-center gap-1.5 text-xs text-accent hover:underline">
           <Bell size={13} /> Remind me daily at {DEFAULT_TIME}
         </button>
       )}

@@ -46,7 +46,7 @@ export default function Speaking({ topics, redemittel, marks, onMarks }: {
     <div className="w-full">
       <div className="mb-4">
         <div className="flex items-center gap-2.5 mb-1">
-          <MessagesSquare size={20} className="text-amber" />
+          <MessagesSquare size={20} className="text-accent" />
           <h2 className="text-lg sm:text-xl font-bold">Mündliche Prüfung</h2>
         </div>
         <p className="text-dim text-xs leading-relaxed">
@@ -62,8 +62,8 @@ export default function Speaking({ topics, redemittel, marks, onMarks }: {
           <Card as="button" key={t} nested pad="none" accent={teil === t}
             onClick={() => { setTeil(t); setTopicId(topics.find((x) => x.teil === t)?.id ?? ''); }}
             aria-pressed={teil === t}
-            className={`tap-44 px-2.5 py-2 text-left transition-colors ${teil === t ? '' : 'hover:border-amber'}`}>
-            <span className={`block font-mono text-2xs ${teil === t ? 'text-amber' : 'text-dim'}`}>TEIL {t}</span>
+            className={`tap-44 px-2.5 py-2 text-left transition-colors ${teil === t ? '' : 'hover:border-accent'}`}>
+            <span className={`block font-mono text-2xs ${teil === t ? 'text-accent' : 'text-dim'}`}>TEIL {t}</span>
             <span className="block text-xs font-semibold leading-tight mt-0.5">{TEIL_NAME[t]}</span>
             <span className="block font-mono text-2xs text-dim mt-0.5">{SPEAK_MAX[t]} Punkte</span>
           </Card>
@@ -75,7 +75,7 @@ export default function Speaking({ topics, redemittel, marks, onMarks }: {
           {forTeil.map((t) => (
             <button key={t.id} onClick={() => setTopicId(t.id)} aria-pressed={t.id === topic?.id}
               className={`tap-44 rounded-md border px-3 py-2 text-xs font-semibold transition-colors
-                ${t.id === topic?.id ? 'border-amber text-amber' : 'border-line text-dim hover:border-amber'}`}>
+                ${t.id === topic?.id ? 'border-accent text-accent' : 'border-line text-dim hover:border-accent'}`}>
               {t.title}
             </button>
           ))}
@@ -111,7 +111,7 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
             </Kicker>
             <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1">
               {topic.notes.map((n, i) => (
-                <li key={i} className="text-sm flex gap-2"><span className="text-amber">–</span><span>{n}</span></li>
+                <li key={i} className="text-sm flex gap-2"><span className="text-accent">–</span><span>{n}</span></li>
               ))}
             </ul>
           </div>
@@ -144,7 +144,7 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
 const BAND_TONE: Record<CEFR, string> = {
   A1: 'var(--color-a1)',
   A2: 'var(--color-green)',
-  B1: 'var(--color-amber)',
+  B1: 'var(--color-accent)',
   B2: 'var(--color-b2)',
   C1: 'var(--color-c1)',
   C2: 'var(--color-c2)',
@@ -178,14 +178,14 @@ function PromptCard({ prompt }: { prompt: SpeakingTopic['prompts'][number] }) {
         {prompt.models.map((m) => (
           <button key={m.band} onClick={() => setBand(m.band)} aria-pressed={m.band === band}
             className={`tap-44 rounded-md border px-3 py-2 text-xs font-semibold transition-colors
-              ${m.band === band ? 'bg-panel2' : 'border-line text-dim hover:border-amber'}`}
+              ${m.band === band ? 'bg-panel2' : 'border-line text-dim hover:border-accent'}`}
             style={m.band === band ? { borderColor: BAND_TONE[m.band], color: BAND_TONE[m.band] } : undefined}>
             {m.label} <span className="font-mono opacity-70">{m.band}</span>
           </button>
         ))}
         <span className="flex-1" />
         <button onClick={playing ? () => { stopTrack(); setPlaying(false); } : playAll}
-          className="tap-44 rounded-md border border-line px-3 py-2 text-xs font-semibold text-dim hover:border-amber hover:text-amber transition-colors">
+          className="tap-44 rounded-md border border-line px-3 py-2 text-xs font-semibold text-dim hover:border-accent hover:text-accent transition-colors">
           <Play size={13} className="inline mr-1" />{playing ? 'Stopp' : 'Vorlesen'}
         </button>
       </div>
@@ -205,7 +205,7 @@ function PromptCard({ prompt }: { prompt: SpeakingTopic['prompts'][number] }) {
               {showEn && <p className="text-xs text-dim leading-relaxed mt-0.5">{l.en}</p>}
             </div>
             <button onClick={() => speak(l.de)} aria-label="Diesen Satz hören"
-              className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber flex-shrink-0">
+              className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-accent flex-shrink-0">
               <Volume2 size={15} />
             </button>
           </div>
@@ -213,7 +213,7 @@ function PromptCard({ prompt }: { prompt: SpeakingTopic['prompts'][number] }) {
       </div>
 
       <button onClick={() => setShowEn((s) => !s)}
-        className="tap-44 mt-2 text-2xs font-mono uppercase tracking-widest text-dim hover:text-amber">
+        className="tap-44 mt-2 text-2xs font-mono uppercase tracking-widest text-dim hover:text-accent">
         {showEn ? 'Hide English' : 'Show English'}
       </button>
     </Card>
@@ -225,8 +225,8 @@ function Redemittelbank({ groups }: { groups: Redemittel[] }) {
   return (
     <div className="mt-5">
       <Card as="button" pad="none" onClick={() => setOpen((o) => !o)} aria-expanded={open}
-        className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-amber transition-colors">
-        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-amber flex-shrink-0"><MessagesSquare size={16} /></span>
+        className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><MessagesSquare size={16} /></span>
         <span className="flex-1">
           <span className="block text-base font-semibold">Redemittel</span>
           <span className="block text-2xs text-dim">
@@ -247,7 +247,7 @@ function Redemittelbank({ groups }: { groups: Redemittel[] }) {
                       <span className="block text-2xs text-dim">{p.en}</span>
                     </span>
                     <button onClick={() => speak(p.de)} aria-label={`„${p.de}" hören`}
-                      className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-amber flex-shrink-0">
+                      className="grid place-items-center w-11 h-11 -m-2 text-dim hover:text-accent flex-shrink-0">
                       <Volume2 size={14} />
                     </button>
                   </li>

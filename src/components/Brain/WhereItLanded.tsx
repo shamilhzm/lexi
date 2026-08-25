@@ -51,7 +51,7 @@ export default function WhereItLanded({ onOpen }: { onOpen?: () => void }) {
       onClick={onOpen}
       className="tap-44 w-full text-left text-xs text-dim leading-relaxed rounded-md px-2 py-2 -mx-2
         hover:bg-panel2 transition-colors">
-      {body} <span className="text-amber">See the map →</span>
+      {body} <span className="text-accent">See the map →</span>
     </button>
   ) : (
     <p className="text-xs text-dim leading-relaxed">{body}</p>
