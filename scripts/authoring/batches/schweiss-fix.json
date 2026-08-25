@@ -1,0 +1,21 @@
+[
+  {
+    "id": "voc:B1:der Schweiß",
+    "at": 3,
+    "expect": {
+      "de": "Der Schweiss lief ihm über die Stirn.",
+      "en": "The sweat ran down his forehead."
+    },
+    "delete": true
+  },
+  {
+    "id": "voc:B1:der Schweiß",
+    "at": 2,
+    "expect": {
+      "de": "Nach dem Laufen bin ich voller Schweiss.",
+      "en": "After running I'm covered in sweat."
+    },
+    "de": "Nach dem Laufen bin ich voller Schweiß.",
+    "en": "After running I am covered in sweat."
+  }
+]

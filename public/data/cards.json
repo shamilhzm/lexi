@@ -56500,20 +56500,6 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der Schweiss",
-    "term": "der Schweiss",
-    "en": "sweat",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "der",
-    "plural": null,
-    "ipa": "ʃvaɪ̯s",
-    "syn": [],
-    "ant": [],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:die Herzfrequenz",
     "term": "die Herzfrequenz",
     "en": "heart rate",
@@ -56677,20 +56663,6 @@
       "Fahrradfahren",
       "Radeln"
     ],
-    "ant": [],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:regelmässig",
-    "term": "regelmässig",
-    "en": "regular, regularly",
-    "pos": "adjective",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈʁeːɡl̩mɛsɪç",
-    "syn": [],
     "ant": [],
     "field": "Fitness and training",
     "kind": "word"
@@ -88394,11 +88366,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:C1:der Schweiß",
+    "id": "voc:B1:der Schweiß",
     "term": "der Schweiß",
     "en": "sweat",
     "pos": "noun",
-    "level": "C1",
+    "level": "B1",
     "gender": "der",
     "plural": "die Schweiße",
     "ipa": "ʃvaɪ̯s",
@@ -91107,7 +91079,7 @@
   {
     "id": "voc:A1:normal",
     "term": "normal",
-    "en": "ordinarily, normally, in a normal fashion",
+    "en": "normal; normally",
     "pos": "adjective",
     "level": "A1",
     "gender": null,

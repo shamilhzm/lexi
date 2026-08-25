@@ -43,7 +43,7 @@ export interface FormCollision {
    *  (`der`/`die Stiefel`) *and* where a gender variant does (`der`/`das Joghurt`).
    *  Telling those apart is a judgement, so it is the ruling's job, not this
    *  function's. */
-  shape: 'plural' | 'article' | 'reflexive' | 'governed';
+  shape: 'plural' | 'article' | 'reflexive' | 'governed' | 'spelling';
 }
 
 /** Order-insensitive key for a collision, so a ruling matches however the pair was
@@ -143,6 +143,31 @@ export function findFormCollisions(cards: Word[]): FormCollision[] {
   // As with the reflexive shape, a majority are two real senses — `bestehen` (pass
   // an exam) against `bestehen aus` (consist of), `gehören` (belong to somebody)
   // against `gehören zu` (be one of).
+  // ---- shape 5: one word, two spellings ------------------------------------
+  //
+  // The 1996 reform kept ß only after a long vowel or a diphthong, so *Schweiß*
+  // and *regelmäßig* are correct and *Schweiss* and *regelmässig* are not — and
+  // the corpus carried both spellings of both, as separate cards with separate
+  // schedules. `corpus:dupes` groups by identical term and cannot see them;
+  // `ARCHAIC_SPELLING` scans example *text* and never looks at a headword.
+  //
+  // Same part of speech is required, or this folds the whole
+  // verb/nominalised-infinitive family together — *essen* and *das Essen* differ
+  // by case alone once the article is stripped.
+  const spellKey = (w: Word) => strip(w.term).toLowerCase().replace(/ß/g, 'ss');
+  const bySpelling = new Map<string, Word[]>();
+  for (const w of cards) {
+    if (w.kind !== 'word') continue;
+    const k = `${w.pos ?? '?'}|${spellKey(w)}`;
+    (bySpelling.get(k) ?? bySpelling.set(k, []).get(k)!).push(w);
+  }
+  for (const group of bySpelling.values()) {
+    if (group.length < 2 || new Set(group.map((w) => w.term)).size < 2) continue;
+    for (let i = 0; i < group.length; i++) {
+      for (let j = i + 1; j < group.length; j++) add(group[i], group[j], 'spelling');
+    }
+  }
+
   const lemmaOf = (w: Word) => (government(w.term)?.lemma ?? w.term).toLowerCase().trim();
   const byLemma = new Map<string, Word[]>();
   for (const w of verbs) {
@@ -406,6 +431,10 @@ export const FORM_RULINGS: FormRuling[] = [
   },
   {
     rule: 'keep', form: 'voc:B1:erinnern', lemma: 'voc:A2:sich erinnern',
+    superseded: 'voc:A2:sich erinnern was itself retired later the same day, into '
+      + 'voc:A2:sich erinnern an + A — one card twice at one level, which the governed '
+      + 'shape found. The keep still holds and is restated against the surviving card '
+      + 'in the governed block below; this row is the record of it being asked first.',
     why: 'erinnern reminds somebody of something; sich erinnern remembers. Different subjects, '
       + 'different objects. (The B1 card was glossed "to remember", which is the reflexive\'s '
       + 'meaning — fixed separately as a gloss defect, not as a merge.)',
@@ -600,5 +629,23 @@ export const FORM_RULINGS: FormRuling[] = [
   {
     rule: 'keep', form: 'voc:B2:verfügen', lemma: 'voc:A2:verfügen über + A',
     why: 'verfügen über has something at your disposal; plain verfügen decrees. (The B2 card\'s example is the über-pattern and is fixed separately.)',
+  },
+
+  // ---- shape 5: one word, two spellings ------------------------------------
+  //
+  // Both found 2026-08-25, both the same defect: a pre-1996 `ss` where the reform
+  // requires `ß`, carded beside the correct spelling as a separate word with its
+  // own schedule. Neither is a judgement — the misspelling retires.
+  {
+    rule: 'merge', form: 'voc:B1:regelmässig', lemma: 'voc:A2:regelmäßig', level: 'A2',
+    why: 'regelmässig is the pre-1996 spelling of regelmäßig, which the corpus already '
+      + 'cards correctly at A2 — and the B1 card taught the old spelling in its example too '
+      + '(«Regelmässiges Training …»). Keeper stays at A2, the lower level.',
+  },
+  {
+    rule: 'merge', form: 'voc:B1:der Schweiss', lemma: 'voc:C1:der Schweiß', level: 'B1',
+    why: 'Same defect: Schweiss for Schweiß. Here the misspelled card is the *lower* one, '
+      + 'so the correct spelling takes B1 — a merge never takes a word away from the learner '
+      + 'who had it.',
   },
 ];

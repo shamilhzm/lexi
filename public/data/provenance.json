@@ -20768,9 +20768,9 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:der Schweiß",
+    "id": "voc:B1:der Schweiß",
     "lemma": "Schweiß",
-    "level": "C1",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 13209,
     "glossSource": "wiktextract:kaikki-de.jsonl",

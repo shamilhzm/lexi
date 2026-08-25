@@ -48889,6 +48889,11 @@
         "de": "Nimm die Tabletten regelmäßig ein.",
         "en": "Take the tablets regularly.",
         "lvl": "B1"
+      },
+      {
+        "de": "Regelmäßiges Training ist besser als einmal pro Woche viel zu machen.",
+        "en": "Regular training is better than doing a lot once a week.",
+        "lvl": "B1"
       }
     ]
   },
@@ -66000,17 +66005,22 @@
       }
     ]
   },
-  "voc:B1:der Schweiss": {
-    "def": "The salty liquid the skin gives off when hot or exercising.",
+  "voc:B1:der Schweiß": {
+    "def": "The salty liquid the skin gives off when hot or exerting itself.",
     "ex": [
       {
-        "de": "Nach dem Laufen bin ich voller Schweiss.",
-        "en": "After running I'm covered in sweat.",
-        "lvl": "B1"
+        "de": "Ohne Schweiß kein Preis.",
+        "en": "No pain, no gain.",
+        "lvl": "C1"
       },
       {
-        "de": "Der Schweiss lief ihm über die Stirn.",
-        "en": "The sweat ran down his forehead.",
+        "de": "Der Schweiß lief ihm über die Stirn.",
+        "en": "Sweat ran down his forehead.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Laufen bin ich voller Schweiß.",
+        "en": "After running I am covered in sweat.",
         "lvl": "B1"
       }
     ]
@@ -85968,21 +85978,6 @@
         "de": "Nach jedem Projekt reflektieren wir gemeinsam den Verlauf.",
         "en": "After every project we reflect together on how it went.",
         "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:regelmässig": {
-    "def": "Happening again and again at even intervals.",
-    "ex": [
-      {
-        "de": "Regelmässiges Training ist besser als einmal pro Woche viel zu machen.",
-        "en": "Regular training is better than doing a lot once a week.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er geht regelmässig ins Fitnessstudio.",
-        "en": "He goes to the gym regularly.",
-        "lvl": "B1"
       }
     ]
   },
@@ -109047,21 +109042,6 @@
       {
         "de": "Der Schichtdienst belastet den Schlaf.",
         "en": "Shift work takes a toll on sleep.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:der Schweiß": {
-    "def": "The salty liquid the skin gives off when hot or exerting itself.",
-    "ex": [
-      {
-        "de": "Ohne Schweiß kein Preis.",
-        "en": "No pain, no gain.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Der Schweiß lief ihm über die Stirn.",
-        "en": "Sweat ran down his forehead.",
         "lvl": "C1"
       }
     ]

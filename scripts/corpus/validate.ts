@@ -86,6 +86,20 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
       // subtly different copy that was missing the trailing word boundary, so it
       // reported "Thunfisch" — tuna — as 19th-century spelling.
       if (ARCHAIC_SPELLING.test(de)) warnings.push({ id, msg: `${where} uses pre-1996 orthography` });
+      // The card's own headword, misspelled in its own example. Decidable and
+      // narrow: where the headword carries ß, the `ss` variant of it is the
+      // pre-1996 spelling and nothing else. Found when merging `der Schweiss` into
+      // `der Schweiß` carried the retired card's misspelled examples across with
+      // it — a merge moves the text, and the text can be wrong.
+      {
+        const head = stripArticle(w.term).replace(/^sich\s+/i, '').trim();
+        if (head.includes('ß') && !/\s/.test(head)) {
+          const wrong = head.replace(/ß/g, 'ss').toLowerCase();
+          if (de.toLowerCase().includes(wrong)) {
+            errors.push({ id, msg: `${where} spells the headword "${head}" with ss — that is the pre-1996 form` });
+          }
+        }
+      }
       // Characters, not spellings — see PREMODERN_TYPOGRAPHY in lib.ts.
       if (PREMODERN_TYPOGRAPHY.test(de)) errors.push({ id, msg: `${where} is set in pre-modern typography (long s / double hyphen)` });
       if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });

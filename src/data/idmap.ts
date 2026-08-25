@@ -1433,5 +1433,8 @@ export const ID_MAP: Record<string, string> = {
   "voc:A2:gold": "voc:A2:golden",
   "voc:A1:die Früh": "voc:B1:die Früh",
   "voc:A2:der Leisten": "voc:C1:der Leisten",
-  "voc:A1:die Tausend": "voc:B1:die Tausend"
+  "voc:A1:die Tausend": "voc:B1:die Tausend",
+  "voc:B1:regelmässig": "voc:A2:regelmäßig",
+  "voc:C1:der Schweiß": "voc:B1:der Schweiß",
+  "voc:B1:der Schweiss": "voc:B1:der Schweiß"
 };

@@ -11,6 +11,40 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — two cards were teaching a misspelling
+
+A fifth form-collision shape, and the smallest: **one word carded under two
+spellings.** The 1996 reform kept ß only after a long vowel or a diphthong, so
+*Schweiß* and *regelmäßig* are right and *Schweiss* and *regelmässig* are not — and
+the corpus carried both of both, as separate cards with separate schedules.
+
+Nothing could see them. `corpus:dupes` groups by identical term; `ARCHAIC_SPELLING`
+scans example *text* and never looks at a headword; the four existing collision shapes
+are about morphology, not orthography. The new shape folds ß to ss and requires the
+same part of speech — without that it folds the whole verb/nominalised-infinitive
+family together, since *essen* and *das Essen* differ by case alone once the article is
+stripped. **Two pairs, both merged**, and `der Schweiß` takes B1 because the misspelled
+card was the lower one and a merge never takes a word off the learner who had it.
+
+**Then the merge produced two more defects, and two gates caught them.** The retired
+cards' examples come across with them — and those examples carried the misspelling too.
+The twin check written this morning fired first («Der Schweiss lief ihm über die Stirn»
+now duplicated the keeper's «Der Schweiß lief…»), and a new check written for the second
+one caught it on its first run: **an example may not spell the card's own headword with
+ss where the headword has ß.** Decidable, narrow, and it found `regelmäßig`'s
+«Regelmässiges Training» immediately.
+
+That is the part worth keeping: a merge moves text, and the text can be wrong. The
+mechanism had been treating absorbed examples as if they were already vetted.
+
+Also fixed en route: a stale `keep` ruling on `erinnern × sich erinnern`, whose second
+card was retired later the same day by the governed shape. Marked `superseded` rather
+than deleted, so the record shows the question was asked before the answer changed.
+
+1,000 tests, 0 lint errors, `corpus:validate` PASS. Corpus 6,629 → 6,627.
+
+---
+
 ### Shipped 2026-08-25 — eleven adjectives that could not be read
 
 With `authoring:recard` built, the obvious next question was whether `normal` was alone.

@@ -42662,6 +42662,11 @@
         "de": "Nimm die Tabletten regelmäßig ein.",
         "en": "Take the tablets regularly.",
         "lvl": "B1"
+      },
+      {
+        "de": "Regelmäßiges Training ist besser als einmal pro Woche viel zu machen.",
+        "en": "Regular training is better than doing a lot once a week.",
+        "lvl": "B1"
       }
     ],
     "field": "Body & health",
@@ -122000,33 +122005,6 @@
     "defDe": "Kleidung, die beim Sport getragen wird"
   },
   {
-    "id": "voc:B1:der Schweiss",
-    "term": "der Schweiss",
-    "en": "sweat",
-    "pos": "noun",
-    "level": "B1",
-    "gender": "der",
-    "plural": null,
-    "ipa": "ʃvaɪ̯s",
-    "def": "The salty liquid the skin gives off when hot or exercising.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Nach dem Laufen bin ich voller Schweiss.",
-        "en": "After running I'm covered in sweat.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Der Schweiss lief ihm über die Stirn.",
-        "en": "The sweat ran down his forehead.",
-        "lvl": "B1"
-      }
-    ],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
     "id": "voc:B1:die Herzfrequenz",
     "term": "die Herzfrequenz",
     "en": "heart rate",
@@ -122337,33 +122315,6 @@
         "de": "Am Sonntag fahren wir zusammen Rad.",
         "en": "On Sunday we ride our bikes together.",
         "lvl": "A2"
-      }
-    ],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
-    "id": "voc:B1:regelmässig",
-    "term": "regelmässig",
-    "en": "regular, regularly",
-    "pos": "adjective",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈʁeːɡl̩mɛsɪç",
-    "def": "Happening again and again at even intervals.",
-    "syn": [],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Regelmässiges Training ist besser als einmal pro Woche viel zu machen.",
-        "en": "Regular training is better than doing a lot once a week.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er geht regelmässig ins Fitnessstudio.",
-        "en": "He goes to the gym regularly.",
-        "lvl": "B1"
       }
     ],
     "field": "Fitness and training",
@@ -180474,11 +180425,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:C1:der Schweiß",
+    "id": "voc:B1:der Schweiß",
     "term": "der Schweiß",
     "en": "sweat",
     "pos": "noun",
-    "level": "C1",
+    "level": "B1",
     "gender": "der",
     "plural": "die Schweiße",
     "ipa": "ʃvaɪ̯s",
@@ -180495,6 +180446,11 @@
         "de": "Der Schweiß lief ihm über die Stirn.",
         "en": "Sweat ran down his forehead.",
         "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Laufen bin ich voller Schweiß.",
+        "en": "After running I am covered in sweat.",
+        "lvl": "B1"
       }
     ],
     "field": "Body & health",
@@ -185591,7 +185547,7 @@
   {
     "id": "voc:A1:normal",
     "term": "normal",
-    "en": "ordinarily, normally, in a normal fashion",
+    "en": "normal; normally",
     "pos": "adjective",
     "level": "A1",
     "gender": null,

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "voc:A2:regelmäßig",
+    "at": 5,
+    "expect": {
+      "de": "Regelmässiges Training ist besser als einmal pro Woche viel zu machen.",
+      "en": "Regular training is better than doing a lot once a week."
+    },
+    "de": "Regelmäßiges Training ist besser als einmal pro Woche viel zu machen.",
+    "en": "Regular training is better than doing a lot once a week."
+  }
+]
