@@ -4,6 +4,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { buildMatcher, type Matcher } from '../../src/lib/matcher.ts';
+import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 import type { Word, SectorMeta, CEFR } from '../../src/types.ts';
 
 export const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -139,11 +140,46 @@ export type Evidence =
  *  should add a row here rather than weaken the rule for everybody. */
 export const LOWERCASE_NOUN_OK = new Set<string>([]);
 
+/** Finite forms of haben / sein / werden — the tell that a Partizip II is live. */
+const AUX_FORMS = new Set(['habe', 'hast', 'hat', 'haben', 'habt', 'hatte', 'hattest', 'hatten', 'hattet',
+  'bin', 'bist', 'ist', 'sind', 'seid', 'war', 'warst', 'waren', 'wart',
+  'werde', 'wirst', 'wird', 'werden', 'werdet', 'wurde', 'wurden', 'worden']);
+
 /** Does `de` prove that it teaches `card` — and does the proof survive German
  *  capitalisation? Returns the token that carries the proof. */
 export function headwordEvidence(matcher: Matcher, card: Word, de: string): Evidence {
   const mine = matcher.annotate(de).filter((s) => s.isWord && s.word?.id === card.id);
-  if (!mine.length) return { ok: false, why: 'absent' };
+  if (!mine.length) {
+    // **A verb's own Perfekt, when an adjective card owns the participle.**
+    //
+    // 48 verb cards have a Partizip II that is also an adjective card in its own
+    // right — `wohnen`/`gewohnt`, `schicken`/`geschickt`, `öffnen`/`geöffnet` —
+    // and that is correct: the adjective has lexicalised and a learner meeting
+    // «Das Geschäft ist geöffnet» needs the adjective, not the verb. `matcher.ts`
+    // gives the adjective its own term on purpose.
+    //
+    // The cost falls entirely on *authoring*: a Perfekt example written for the
+    // verb card resolves to the adjective, so this gate refused it and pushed the
+    // author toward a worse sentence. It blocked three cards on 2026-08-25 alone
+    // (`verletzen`, `aufregen`, `entspannen`). A participle beside an auxiliary is
+    // unambiguous evidence for the verb, so it is accepted here — and only here,
+    // never in the matcher, where the adjective must keep winning.
+    if (card.pos === 'verb') {
+      const inf = stripArticle(card.term).replace(/^sich\s+/i, '').trim();
+      if (canConjugate(inf)) {
+        try {
+          const pp = conjugate(inf).partizip.toLowerCase();
+          if (pp && !pp.includes(' ')) {
+            const toks: string[] = de.toLowerCase().match(/\p{L}[\p{L}-]*/gu) ?? [];
+            if (toks.includes(pp) && toks.some((t) => AUX_FORMS.has(t))) {
+              return { ok: true, token: pp };
+            }
+          }
+        } catch { /* an unreliable verb proves nothing */ }
+      }
+    }
+    return { ok: false, why: 'absent' };
+  }
   for (const s of mine) {
     if (card.pos !== 'noun') return { ok: true, token: s.text };
     const first = s.text[0];

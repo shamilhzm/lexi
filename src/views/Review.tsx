@@ -191,14 +191,22 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   // and it is the one acknowledgment that survives being seen sixty times a
   // session without curdling. Drills have no per-card interval, so they get the
   // mark alone.
-  const [ack, setAck] = useState<{ n: number; ok: boolean; interval?: string } | null>(null);
+  const [ack, setAck] = useState<{ n: number; ok: boolean; interval?: string; comeback?: number } | null>(null);
   const ackSeq = useRef(0);
   const noteResult = (ok: boolean, srsIdBefore?: SrsCard, term?: string, interval?: string) => {
-    setAck({ n: ++ackSeq.current, ok, interval });
+    const lapses = srsIdBefore?.lapses ?? 0;
+    // A comeback — a word you had missed at least twice and have now got — was
+    // computed here and shown only in the recap, minutes later and out of context
+    // (#46). It is the one moment in a session that says *you are getting better
+    // at this specific word*, and it was firing where nobody was looking. It rides
+    // the acknowledgment that already exists for every grade, so it costs no new
+    // chrome and inherits the rule that mark is built on: state the machinery, do
+    // not praise.
+    const isComeback = ok && !!term && lapses >= 2;
+    setAck({ n: ++ackSeq.current, ok, interval, comeback: isComeback ? lapses : undefined });
     if (ok) {
       missRun.current = 0;
       tick('good');
-      const lapses = srsIdBefore?.lapses ?? 0;
       if (term && lapses >= 2) setComeback((c) => (!c || lapses > c.lapses ? { term, lapses } : c));
       return;
     }
@@ -212,7 +220,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   // entrances: nothing the learner needs may hang off a frame callback.
   useEffect(() => {
     if (!ack) return;
-    const t = setTimeout(() => setAck((a) => (a && a.n === ack.n ? null : a)), 1600);
+    // A comeback is a sentence rather than two words, so it gets longer on screen.
+    const t = setTimeout(() => setAck((a) => (a && a.n === ack.n ? null : a)), ack.comeback ? 2600 : 1600);
     return () => clearTimeout(t);
   }, [ack?.n]);
 
@@ -499,6 +508,9 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
               className={`ack-in inline-flex items-center gap-1.5 text-2xs font-mono ${ack.ok ? 'text-green' : 'text-dim'}`}>
               {ack.ok ? <Check size={11} /> : <X size={11} />}
               {ack.interval ? `back in ${ack.interval}` : ack.ok ? 'right' : 'not yet'}
+              {ack.comeback != null && (
+                <span className="text-green">· missed {ack.comeback}× before</span>
+              )}
             </span>
           )}
         </div>

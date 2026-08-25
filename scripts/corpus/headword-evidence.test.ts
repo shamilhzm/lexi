@@ -60,3 +60,34 @@ describe('headwordEvidence', () => {
     expect(headwordEvidence(m, TANZEN, 'Wir tanzen jeden Freitag.').ok).toBe(true);
   });
 });
+
+// A verb's own Perfekt, where an adjective card owns the participle.
+//
+// 48 verb cards have a Partizip II that is also an adjective card — wohnen/gewohnt,
+// schicken/geschickt, öffnen/geöffnet — and the matcher gives the adjective its own
+// term on purpose: a learner meeting «Das Geschäft ist geöffnet» needs the
+// adjective. The cost fell on authoring, where a Perfekt example written for the
+// verb resolved to the adjective and was refused, pushing the author toward a
+// worse sentence. It blocked three cards on 2026-08-25 alone.
+describe('headwordEvidence — a verb proved by its own Perfekt', () => {
+  const VERLETZEN = card({ term: 'verletzen', pos: 'verb', en: 'to injure' });
+  const VERLETZT = card({ term: 'verletzt', pos: 'adjective', en: 'hurt, offended' });
+  const m2 = buildMatcher([VERLETZEN, VERLETZT]);
+
+  it('accepts the participle when an auxiliary makes it a Perfekt', () => {
+    // Refused before the widening; the adjective card owns the token.
+    expect(headwordEvidence(m2, VERLETZEN, 'Der Hund hat das Kind am Arm verletzt.').ok).toBe(true);
+    expect(headwordEvidence(m2, VERLETZEN, 'Sie ist beim Sport verletzt worden.').ok).toBe(true);
+  });
+
+  it('still refuses the participle with no auxiliary — that is the adjective', () => {
+    // «Er wirkt verletzt» is the adjective, and the verb card must not claim it.
+    expect(headwordEvidence(m2, VERLETZEN, 'Er wirkt verletzt und still.')).toEqual({ ok: false, why: 'absent' });
+  });
+
+  it('does not widen anything for nouns', () => {
+    // The noun rule is untouched: a lowercase token still disproves a noun.
+    expect(headwordEvidence(m, BRAUT, 'Er braut Bier.')).toEqual({ ok: false, why: 'miscased', token: 'braut' });
+    expect(headwordEvidence(m, BRAUT, 'Der Mann trank ein Bier.')).toEqual({ ok: false, why: 'absent' });
+  });
+});

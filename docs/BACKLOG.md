@@ -135,9 +135,26 @@ authoring gate refuses every replacement written for it on the grounds that the
 matcher attributes the token elsewhere. **Do:** widen `findFormCollisions` a fourth
 time, rule all 27. **Touches.** `scripts/corpus/form-rulings.ts`, `merge-forms.ts`.
 
-**Two shapes are still open** (the reflexive one closed 2026-08-25, and a fourth was
-found): the verb/participle-adjective pairs (*erlauben*/*erlaubt*,
-*verbieten*/*verboten*) and the noun/verb-of-one-stem pairs. *Not* all of these should
+**One shape is still open**: the noun/verb-of-one-stem pairs.
+
+> ✅ **The verb/participle-adjective shape, ruled 2026-08-25 — and the ruling is
+> "keep them all".** 48 verb cards have a Partizip II that is also an adjective card.
+> Read through, this shape is the **opposite** of the other three: the adjectives have
+> genuinely lexicalised and mean something the verb does not. `gewohnt` is *accustomed*
+> and `wohnen` is *to live*; `geschickt` is *adept* and `schicken` is *to send*;
+> `gelassen` is *composed* and `lassen` is *to allow*. Even the transparent ones —
+> `geöffnet`, `geschlossen`, `verboten`, `erlaubt` — are the Zustandspassiv a learner
+> reads on every shop door. Merging any of them would delete a word.
+>
+> **The cost was never duplication; it was that the verb card could not be
+> illustrated.** The adjective card owns the participle in the matcher — correctly,
+> because «Das Geschäft ist geöffnet» needs the adjective — so a Perfekt example
+> written for the verb resolved to the adjective and the authoring gate refused it,
+> pushing the author toward a worse sentence. That blocked three cards on 2026-08-25
+> alone. `headwordEvidence` now accepts a verb's own Partizip II **where an auxiliary
+> is present**, and only there: the matcher is untouched, so the adjective keeps
+> winning where it should. Three tests, including that «Er wirkt verletzt» — no
+> auxiliary — is still not evidence for the verb. *Not* all of these should
 merge — a participle that has become an adjective in its own right is arguably a card
 worth having, where a plural filed as a separate noun almost never is. **Each shape
 needs its own ruling**, which is why this was never one `corpus:dupes` run. The
