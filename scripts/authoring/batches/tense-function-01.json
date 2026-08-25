@@ -1,0 +1,440 @@
+[
+  {
+    "level": "A1",
+    "title": "Perfekt",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "Which past tense do Germans actually say out loud about yesterday?",
+        "options": [
+          "Ich habe gestern Fußball gespielt.",
+          "Ich spielte gestern Fußball.",
+          "Both are equally common in speech."
+        ],
+        "answer": 0,
+        "explain": "In spoken German the Perfekt is the ordinary past. The Präteritum survives in writing, and in speech for sein, haben and the modals."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Er ___ letzte Woche nach Hamburg gefahren.",
+        "options": [
+          "ist",
+          "hat",
+          "war",
+          "wird"
+        ],
+        "answer": 0,
+        "explain": "Verbs of movement from A to B take sein. fahren, gehen, kommen, fliegen, reisen — all sein."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Ich ___ die ganze Nacht geschlafen.",
+        "options": [
+          "habe",
+          "bin",
+          "war",
+          "werde"
+        ],
+        "answer": 0,
+        "explain": "No movement and no change of state, so haben — even though English says \"I was asleep\"."
+      },
+      {
+        "kind": "error",
+        "prompt": "Ich habe gestern gekauft ein Buch.",
+        "answer": 3,
+        "fix": "Ich habe gestern ein Buch gekauft.",
+        "explain": "The Partizip II goes to the very end of the clause. Everything else — object, time, place — comes before it."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Wir haben das Zimmer ___. (aufräumen)",
+        "options": [
+          "aufgeräumt",
+          "geaufräumt",
+          "aufräumt",
+          "geräumt auf"
+        ],
+        "answer": 0,
+        "explain": "A separable verb puts the ge- *inside*: auf + ge + räumt. Never in front."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie hat lange in Berlin ___. (studieren)",
+        "options": [
+          "studiert",
+          "gestudiert",
+          "gestudieren",
+          "studieren"
+        ],
+        "answer": 0,
+        "explain": "Verbs ending in -ieren take no ge- at all: studiert, telefoniert, funktioniert."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Plusquamperfekt & nachdem/bevor",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "What is the Plusquamperfekt actually for?",
+        "options": [
+          "Marking the earlier of two past events.",
+          "Making a past event sound more formal.",
+          "Talking about the very distant past."
+        ],
+        "answer": 0,
+        "explain": "It is relative, not remote: it only means \"before that other past thing\". On its own, in a sentence with no second past event, it has nothing to be earlier than."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Nachdem wir gegessen ___, sind wir spazieren gegangen.",
+        "options": [
+          "hatten",
+          "haben",
+          "hätten",
+          "waren"
+        ],
+        "answer": 0,
+        "explain": "nachdem takes the earlier event, so Plusquamperfekt: hatten gegessen. The main clause then goes Perfekt or Präteritum."
+      },
+      {
+        "kind": "choose",
+        "prompt": "___ ich das Haus verließ, hatte ich schon gefrühstückt.",
+        "options": [
+          "Bevor",
+          "Nachdem",
+          "Während",
+          "Seitdem"
+        ],
+        "answer": 0,
+        "explain": "The breakfast came first, so the clause with the *later* event takes bevor. Swap the conjunction and you swap which event was earlier."
+      },
+      {
+        "kind": "error",
+        "prompt": "Nachdem er ankam, ging er sofort ins Bett.",
+        "answer": 2,
+        "fix": "Nachdem er angekommen war, ging er sofort ins Bett.",
+        "explain": "nachdem needs the Plusquamperfekt. With a plain Präteritum the sentence loses the ordering that nachdem exists to state."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Sie ___ schon gegangen, als ich ankam.",
+        "options": [
+          "war",
+          "hatte",
+          "ist",
+          "wäre"
+        ],
+        "answer": 0,
+        "explain": "gehen takes sein, so the Plusquamperfekt is war gegangen — the same auxiliary the Perfekt would use, one tense further back."
+      },
+      {
+        "kind": "order",
+        "prompt": "Build the earlier event:",
+        "tiles": [
+          "Nachdem",
+          "sie",
+          "die",
+          "E-Mail",
+          "gelesen",
+          "hatte,",
+          "rief",
+          "sie",
+          "an"
+        ],
+        "explain": "Nebensatz first: the finite hatte goes to the end of its own clause, and the main clause then starts with its verb."
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Futur I",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "How do Germans usually talk about tomorrow?",
+        "options": [
+          "Präsens plus a time word: „Ich fahre morgen nach Köln.“",
+          "Futur I, always: „Ich werde morgen nach Köln fahren.“",
+          "Either — they are used equally often."
+        ],
+        "answer": 0,
+        "explain": "This is the fact English speakers most often miss. The present tense with a time expression *is* the normal German future; Futur I is for prediction, promise or emphasis."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Es ___ morgen bestimmt regnen.",
+        "options": [
+          "wird",
+          "will",
+          "werde",
+          "wurde"
+        ],
+        "answer": 0,
+        "explain": "A prediction — that is exactly what Futur I is for. Note it is wird, not will: German *will* means *wants*."
+      },
+      {
+        "kind": "error",
+        "prompt": "Ich will dich morgen anrufen, versprochen.",
+        "answer": 1,
+        "fix": "Ich werde dich morgen anrufen, versprochen.",
+        "explain": "The commonest false friend in the language. „Ich will“ is „I want to“; the English *will* is werden."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Nächstes Jahr ___ wir nach Wien ziehen.",
+        "options": [
+          "werden",
+          "wird",
+          "werde",
+          "wurden"
+        ],
+        "answer": 0,
+        "explain": "wir → werden, with the infinitive at the end of the clause."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Which sentence is a guess about *now*, not the future?",
+        "options": [
+          "Er wird wohl im Stau stehen.",
+          "Er wird morgen im Stau stehen.",
+          "Er stand im Stau."
+        ],
+        "answer": 0,
+        "explain": "Futur I plus wohl expresses present probability — \"he is probably stuck in traffic\". The tense is future; the meaning is not."
+      },
+      {
+        "kind": "order",
+        "prompt": "Build the promise:",
+        "tiles": [
+          "Ich",
+          "werde",
+          "dir",
+          "morgen",
+          "alles",
+          "erklären"
+        ],
+        "explain": "werden takes position two and the infinitive goes to the end. Everything else sits in the middle."
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "title": "Passiv Präsens",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "What is the passive actually for?",
+        "options": [
+          "Saying what happens when who does it does not matter.",
+          "Making a sentence more polite.",
+          "Talking about the past."
+        ],
+        "answer": 0,
+        "explain": "It moves the action to the front and the doer out of the way — which is why notices, recipes and instructions are full of it."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Hier ___ Deutsch gesprochen.",
+        "options": [
+          "wird",
+          "ist",
+          "hat",
+          "werden"
+        ],
+        "answer": 0,
+        "explain": "werden + Partizip II. „ist gesprochen“ would describe a state, not what happens here."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Die Formulare ___ am Eingang ausgefüllt.",
+        "options": [
+          "werden",
+          "wird",
+          "sind",
+          "haben"
+        ],
+        "answer": 0,
+        "explain": "The subject is plural — die Formulare — so werden. The Partizip never changes."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Das Haus wird ___ einem Architekten geplant.",
+        "options": [
+          "von",
+          "durch",
+          "mit",
+          "bei"
+        ],
+        "answer": 0,
+        "explain": "von names the person or agent doing it; durch names the means or cause — „durch ein Erdbeben zerstört“."
+      },
+      {
+        "kind": "error",
+        "prompt": "Das Zimmer wird jeden Tag putzen.",
+        "answer": 5,
+        "fix": "Das Zimmer wird jeden Tag geputzt.",
+        "explain": "werden takes the Partizip II, not the infinitive. With the infinitive the sentence reads as a future active — \"the room will clean\"."
+      },
+      {
+        "kind": "type",
+        "prompt": "Make it passive: „Man repariert das Auto.“ → „Das Auto ___ repariert.“",
+        "accept": [
+          "wird"
+        ],
+        "explain": "man-sentences are the easiest to convert: drop man, and the object becomes the subject.",
+        "hints": [
+          "One word, present tense.",
+          "It starts with wi…"
+        ]
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "title": "Passiv: Perfekt & Modalverben",
+    "exercises": [
+      {
+        "kind": "choose",
+        "prompt": "Die Brücke ist letztes Jahr renoviert ___.",
+        "options": [
+          "worden",
+          "geworden",
+          "gewesen",
+          "werden"
+        ],
+        "answer": 0,
+        "explain": "In the passive the Partizip of werden is worden, never geworden. geworden belongs to the full verb — „Er ist Arzt geworden“."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Der Vertrag muss heute noch unterschrieben ___.",
+        "options": [
+          "werden",
+          "worden",
+          "wird",
+          "sein"
+        ],
+        "answer": 0,
+        "explain": "With a modal the passive ends in the bare infinitive werden, and the modal carries the person."
+      },
+      {
+        "kind": "error",
+        "prompt": "Das Fenster ist gestern repariert geworden.",
+        "answer": 5,
+        "fix": "Das Fenster ist gestern repariert worden.",
+        "explain": "The single commonest passive slip at B1. Passive → worden; becoming something → geworden."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Which one says the window *is currently in a repaired state*?",
+        "options": [
+          "Das Fenster ist repariert.",
+          "Das Fenster ist repariert worden.",
+          "Das Fenster wird repariert."
+        ],
+        "answer": 0,
+        "explain": "sein + Partizip is the Zustandspassiv — the result. The second reports the event, the third reports it happening now."
+      },
+      {
+        "kind": "order",
+        "prompt": "Build the passive with a modal:",
+        "tiles": [
+          "Das",
+          "Formular",
+          "muss",
+          "bis",
+          "Freitag",
+          "abgegeben",
+          "werden"
+        ],
+        "explain": "Modal at position two, then Partizip, then werden right at the end — two verbs stacked at the clause end."
+      },
+      {
+        "kind": "type",
+        "prompt": "Perfekt passive: „Der Brief wird geschrieben.“ → „Der Brief ist geschrieben ___.“",
+        "accept": [
+          "worden"
+        ],
+        "explain": "wird → ist … worden.",
+        "hints": [
+          "Not geworden.",
+          "It starts with wo…"
+        ]
+      }
+    ]
+  },
+  {
+    "level": "B2",
+    "title": "Passiv",
+    "exercises": [
+      {
+        "kind": "mc",
+        "prompt": "A German notice says „Der Laden ist geschlossen.“ What does it tell you?",
+        "options": [
+          "The shop is shut right now — a state.",
+          "Somebody is in the act of closing it.",
+          "The shop was closed down permanently."
+        ],
+        "answer": 0,
+        "explain": "sein + Partizip is the Zustandspassiv: the result, not the event. „wird geschlossen“ would be the closing happening."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Das Problem ___ sich leicht lösen.",
+        "options": [
+          "lässt",
+          "wird",
+          "ist",
+          "hat"
+        ],
+        "answer": 0,
+        "explain": "sich lassen + Infinitiv is one of the standard passive substitutes — „can be solved“ — and it is far more idiomatic here than „kann gelöst werden“."
+      },
+      {
+        "kind": "mc",
+        "prompt": "Why would a report write „Die Entscheidung wurde getroffen“ rather than naming who?",
+        "options": [
+          "To move the action to the front and leave the agent out.",
+          "Because the passive is more formal by nature.",
+          "Because German has no word for the agent here."
+        ],
+        "answer": 0,
+        "explain": "That is the whole function, and it is also why the passive is worth reading critically: leaving the agent out is a choice."
+      },
+      {
+        "kind": "choose",
+        "prompt": "Die Stadt wurde ___ ein Erdbeben zerstört.",
+        "options": [
+          "durch",
+          "von",
+          "mit",
+          "bei"
+        ],
+        "answer": 0,
+        "explain": "durch for a cause or a means; von for a person or an agent acting deliberately."
+      },
+      {
+        "kind": "error",
+        "prompt": "Das Essen wird von dem Koch gekocht worden.",
+        "answer": 2,
+        "fix": "Das Essen ist von dem Koch gekocht worden.",
+        "explain": "worden belongs to the Perfekt, which takes sein — ist … worden. wird … worden mixes the present and the perfect."
+      },
+      {
+        "kind": "order",
+        "prompt": "Build the passive substitute:",
+        "tiles": [
+          "Dieser",
+          "Fehler",
+          "ist",
+          "leicht",
+          "zu",
+          "vermeiden"
+        ],
+        "explain": "sein + zu + Infinitiv — „can be avoided“. A third passive substitute beside sich lassen and -bar."
+      }
+    ]
+  }
+]

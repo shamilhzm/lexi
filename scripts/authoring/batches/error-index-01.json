@@ -1,0 +1,62 @@
+[
+  {
+    "level": "A1",
+    "title": "Ortsangaben mit Dativ",
+    "at": 2,
+    "expect": {
+      "prompt": "Der Stuhl steht neben den Tisch."
+    },
+    "answer": 4,
+    "why": "The answer pointed at 'neben', but the token the fix changes is 'den'. A learner clicking the genuinely wrong word was marked wrong."
+  },
+  {
+    "level": "B2",
+    "title": "Verneinung durch Wortbildung: un-, miss-, in-",
+    "at": 11,
+    "expect": {
+      "prompt": "Sein Verhalten war sehr intolerant und unmoralisch, aber nicht inmöglich."
+    },
+    "answer": 9,
+    "why": "The answer pointed at 'nicht', but the token the fix changes is 'inmöglich.'. A learner clicking the genuinely wrong word was marked wrong."
+  },
+  {
+    "level": "C1",
+    "title": "Partizipialattribute",
+    "at": 5,
+    "expect": {
+      "prompt": "Das ist ein sehr überzeugtes Argument."
+    },
+    "answer": 4,
+    "why": "The answer pointed at 'sehr', but the token the fix changes is 'überzeugtes'. A learner clicking the genuinely wrong word was marked wrong."
+  },
+  {
+    "level": "C1",
+    "title": "Nominalisierung ↔ Verbalstil",
+    "at": 5,
+    "expect": {
+      "prompt": "Trotz er reich war, lebte er bescheiden."
+    },
+    "answer": 0,
+    "why": "The answer pointed at 'er', but the token the fix changes is 'Trotz'. A learner clicking the genuinely wrong word was marked wrong."
+  },
+  {
+    "level": "C1",
+    "title": "Konjunktiv II Vergangenheit",
+    "at": 5,
+    "expect": {
+      "prompt": "Wenn ich Zeit gehabt hätte, würde ich gekommen."
+    },
+    "answer": 5,
+    "why": "The answer pointed at 'gekommen.', but the token the fix changes is 'würde'. A learner clicking the genuinely wrong word was marked wrong."
+  },
+  {
+    "level": "C1",
+    "title": "Futur II",
+    "at": 5,
+    "expect": {
+      "prompt": "Sie wird das Buch gelesen hat."
+    },
+    "answer": 5,
+    "why": "The answer pointed at 'gelesen', but the token the fix changes is 'hat.'. A learner clicking the genuinely wrong word was marked wrong."
+  }
+]

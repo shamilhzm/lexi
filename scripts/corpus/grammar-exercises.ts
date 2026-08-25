@@ -67,6 +67,28 @@ function problems(e: GExercise, where: string): string[] {
     }
     if (!e.fix?.trim()) out.push(`${where}: an "error" exercise needs the corrected sentence`);
     else if (e.fix.trim() === e.prompt.trim()) out.push(`${where}: the fix is identical to the prompt`);
+    else {
+      // `answer` must point at the token the `fix` actually changes. Get it wrong
+      // and the learner clicks the genuinely wrong word and is marked wrong — a
+      // silent defect no reviewer catches by reading, because the prompt and the
+      // fix are each correct on their own. Three of six authored on 2026-08-25
+      // had it off by one or more.
+      //
+      // **Only checkable when `fix` is a full-sentence rewrite.** The bank writes
+      // it both ways: most items give just the corrected *word* ("hätte",
+      // "größer", "durch"), and comparing that against the prompt token-by-token
+      // is meaningless — the first version of this check "found" 49 defects in
+      // the shipped bank and every one was a single-word fix. Restricted to a
+      // rewrite of the same length differing in exactly one place, it finds the
+      // real ones and nothing else.
+      const fixed = e.fix.trim().split(/\s+/);
+      if (fixed.length === tokens.length) {
+        const diff = tokens.map((t, n) => (t === fixed[n] ? -1 : n)).filter((n) => n >= 0);
+        if (diff.length === 1 && e.answer !== diff[0]) {
+          out.push(`${where}: answer ${e.answer} ("${tokens[e.answer ?? 0]}") is not the token the fix changes ("${tokens[diff[0]]}" at ${diff[0]})`);
+        }
+      }
+    }
     if (!e.explain?.trim()) out.push(`${where}: no explanation`);
     return out;
   }

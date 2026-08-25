@@ -798,3 +798,42 @@ describe('generated exercises', () => {
     expect(dupes).toBeLessThanOrEqual(KNOWN_AUTHORED_DUPES);
   });
 });
+
+// An `error` exercise shows a wrong sentence and asks the learner to click the
+// wrong word. `answer` is the index of that word in `prompt.split(' ')`. Point it
+// at the wrong token and the learner clicks the genuinely wrong word and is
+// marked wrong — the most demoralising failure the app can produce, and one no
+// reviewer catches by reading, because the prompt and the fix are each correct.
+//
+// Six shipped that way: «Der Stuhl steht neben **den** Tisch» pointed at *neben*,
+// «Sie wird das Buch gelesen **hat**» pointed at *gelesen*.
+//
+// Only checkable where `fix` is a full-sentence rewrite. The bank writes it both
+// ways, and most items give just the corrected word ("hätte", "größer", "durch");
+// comparing *that* against the prompt token-by-token "found" 49 defects, all of
+// them false. Same-length, exactly-one-token-different is the decidable slice.
+describe('error exercises point at the token they claim', () => {
+  it('holds across the whole shipped bank', () => {
+    const bank = JSON.parse(readFileSync('public/data/grammar.json', 'utf8')) as
+      Record<string, { title: string; exercises?: { kind: string; prompt: string; fix?: string; answer?: number }[] }[]>;
+    const wrong: string[] = [];
+    for (const [lv, points] of Object.entries(bank)) {
+      for (const p of points) {
+        for (const [i, e] of (p.exercises ?? []).entries()) {
+          if (e.kind !== 'error' || !e.fix) continue;
+          const toks = e.prompt.trim().split(/\s+/);
+          const fixed = e.fix.trim().split(/\s+/);
+          // Whatever the shape, the index must at least be inside the sentence.
+          expect(e.answer, `${lv} ${p.title} #${i}`).toBeGreaterThanOrEqual(0);
+          expect(e.answer, `${lv} ${p.title} #${i}`).toBeLessThan(toks.length);
+          if (fixed.length !== toks.length) continue;
+          const diff = toks.map((t, n) => (t === fixed[n] ? -1 : n)).filter((n) => n >= 0);
+          if (diff.length === 1 && e.answer !== diff[0]) {
+            wrong.push(`${lv} · ${p.title} #${i}: points at "${toks[e.answer!]}", fix changes "${toks[diff[0]]}"`);
+          }
+        }
+      }
+    }
+    expect(wrong).toEqual([]);
+  });
+});
