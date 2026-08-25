@@ -1,0 +1,32 @@
+[
+  {
+    "id": "voc:B2:die Gabe",
+    "at": 0,
+    "expect": {
+      "de": "Sie gaben auf.",
+      "en": "They gave up."
+    },
+    "de": "Sie hat die Gabe, Menschen zuzuhören.",
+    "en": "She has a gift for listening to people."
+  },
+  {
+    "id": "voc:B2:die Gabe",
+    "at": 1,
+    "expect": {
+      "de": "Die gaben auf.",
+      "en": "They gave up."
+    },
+    "de": "Das Museum lebt von den Gaben seiner Förderer.",
+    "en": "The museum lives on the donations of its patrons."
+  },
+  {
+    "id": "voc:C1:der Schweiß",
+    "at": 1,
+    "expect": {
+      "de": "Ohne Schweiß keinen Preis.",
+      "en": "No pain, no gain."
+    },
+    "de": "Der Schweiß lief ihm über die Stirn.",
+    "en": "Sweat ran down his forehead."
+  }
+]

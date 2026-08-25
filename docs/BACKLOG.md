@@ -1502,8 +1502,26 @@ user; none of it is built.*
   repertoire and never the negotiating one at their own level, though B2 course material
   uses it constantly. **Do:** a B2 planning topic with models, or an explicit note that
   the B1 one is the reference. *`src/data/exams/goethe-b2-speaking.ts`.*
-- **🟡 Cards whose two examples are nearly the same sentence · M, needs reading not
-  building.** *(Measured 2026-08-24, after the 18 exact twins were fixed.)* **86 cards**
+- **🟠 Cards whose two examples are nearly the same sentence — partly worked 2026-08-25,
+  and I was wrong about this band too.** ✅ **19 cards fixed, 0.90 band 86 → 70.** Filed
+  as holding "the corpus's best deliberate minimal pairs". Reading it through, the
+  minimal pairs are a *small minority*: most of the band is a du/ihr imperative swap, an
+  er/Tom subject swap, or a one-word paraphrase.
+  - **15 cards differed only by a du/ihr verb ending** — «Bleib dabei!» / «Bleibt dabei!»,
+    «Atme normal.» / «Atmet normal.», «Beschütze ihn!» / «Beschützt ihn!». Decidable, and
+    all 15 rewritten.
+  - **Two were outright defects.** `die Gabe` was illustrated «Sie gaben auf» / «Die gaben
+    auf» — the verb *aufgeben*, twice, with the noun in neither. `der Schweiß` carried
+    «Ohne Schweiß keinen Preis», which is not grammatical.
+  - **Five carried pre-1996 spellings** the guard could not see — «Laß mich ausreden!»,
+    «Ißt du oft auswärts?», «Hiß die Flagge!». `ARCHAIC_STEMS` covers `-e/-en/-te`
+    endings and not the `-t` these take; five stems added.
+
+  **Still open: the ~55 that are one-word paraphrases** — «Es ist teuer, außerdem…» beside
+  «Es ist teuer, und außerdem…», «Im Sommer frühstücken wir oft auf dem Balkon» beside the
+  same without *oft*. Each is a judgement about whether a second example earns its place,
+  which is why they are not a check. *M.*
+- **🟡 The 0.80 band (294 cards) · L, reading not building.** *(Measured 2026-08-24, after the 18 exact twins were fixed.)* **86 cards**
   have an example pair above 0.90 character similarity; **311** above 0.80; **143** have
   two examples whose English translations are byte-identical. **This is not a defect
   count and must not be turned into a check.** A real share of that band is deliberate

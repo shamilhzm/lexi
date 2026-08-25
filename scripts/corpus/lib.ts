@@ -249,6 +249,10 @@ const ARCHAIC_STEMS = [
   'müßtest', 'müßten', 'müßtet', 'müßte', 'müßt',
   'wüßtest', 'wüßten', 'wüßte', 'wußten', 'wußte', 'gewußt',
   'daß', 'Kuß', 'Fluß', 'Schluß', 'Nuß', 'Riß', 'Haß', 'Biß',
+  // Added 2026-08-25: five more that shipped in examples and that the list above
+  // could not reach, because the optional-ending group covers `-e/-en/-te` and not
+  // the `-t` these take. «Laß mich ausreden!», «Ißt du oft auswärts?».
+  'läßt', 'laßt', 'laß', 'ißt', 'hißt',
   'häßlich', 'numeriert', 'Weiber', 'itzt', 'beyder', 'seyn', 'thun', 'gerechtfertiget',
 ];
 export const ARCHAIC_SPELLING = new RegExp(

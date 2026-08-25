@@ -1,0 +1,12 @@
+[
+  {
+    "id": "voc:A1:normal",
+    "at": 1,
+    "expect": {
+      "de": "Atmet normal.",
+      "en": "Breathe normally."
+    },
+    "de": "Das ist völlig normal.",
+    "en": "That is completely normal."
+  }
+]

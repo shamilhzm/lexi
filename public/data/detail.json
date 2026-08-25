@@ -1745,8 +1745,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Badet!",
-        "en": "Take a bath.",
+        "de": "Im Sommer baden wir jeden Tag im See.",
+        "en": "In summer we bathe in the lake every day.",
         "lvl": "A2"
       }
     ]
@@ -5902,8 +5902,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Sagt „Auf Wiedersehen!“!",
-        "en": "Say goodbye.",
+        "de": "Auf Wiedersehen und bis morgen!",
+        "en": "Goodbye, and see you tomorrow!",
         "lvl": "A2"
       }
     ]
@@ -22793,8 +22793,8 @@
         "lvl": "A1"
       },
       {
-        "de": "Atmet normal.",
-        "en": "Breathe normally.",
+        "de": "Das ist völlig normal.",
+        "en": "That is completely normal.",
         "lvl": "A1"
       }
     ]
@@ -27485,8 +27485,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Laß mich ausreden!",
-        "en": "Let me finish what I'm saying.",
+        "de": "Lass mich bitte ausreden!",
+        "en": "Please let me finish speaking!",
         "lvl": "A2"
       }
     ]
@@ -39142,13 +39142,13 @@
     "def": "A piece of cloth with a pattern that stands for a country or group.",
     "ex": [
       {
-        "de": "Hiß die Flagge!",
-        "en": "Hoist the flag.",
+        "de": "Vor dem Rathaus weht die Flagge.",
+        "en": "The flag flies in front of the town hall.",
         "lvl": "A2"
       },
       {
-        "de": "Hißt die Flagge!",
-        "en": "Hoist the flag.",
+        "de": "Zum Nationalfeiertag hängen überall Flaggen.",
+        "en": "On the national holiday there are flags everywhere.",
         "lvl": "A2"
       }
     ]
@@ -46825,8 +46825,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Fragt herum.",
-        "en": "Ask around.",
+        "de": "Er ging nervös im Zimmer herum.",
+        "en": "He walked nervously around the room.",
         "lvl": "A2"
       }
     ]
@@ -46980,8 +46980,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Geht hinunter!",
-        "en": "Go downstairs.",
+        "de": "Die Straße führt steil hinunter ins Tal.",
+        "en": "The road leads steeply down into the valley.",
         "lvl": "A2"
       }
     ]
@@ -49323,8 +49323,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Schlagt Tom!",
-        "en": "Hit Tom.",
+        "de": "Die Uhr schlägt gerade zwölf.",
+        "en": "The clock is just striking twelve.",
         "lvl": "A2"
       }
     ]
@@ -50725,8 +50725,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Tauscht es aus.",
-        "en": "Replace it.",
+        "de": "Wollen wir die Plätze tauschen?",
+        "en": "Shall we swap seats?",
         "lvl": "A2"
       }
     ]
@@ -55264,8 +55264,8 @@
     "def": "out of town; outside the place in question; outside one’s house; out",
     "ex": [
       {
-        "de": "Ißt du oft auswärts?",
-        "en": "Do you eat out often?",
+        "de": "Isst du oft auswärts?",
+        "en": "Do you often eat out?",
         "lvl": "B1"
       },
       {
@@ -56037,8 +56037,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Beschützt ihn!",
-        "en": "Protect him.",
+        "de": "Eltern wollen ihre Kinder beschützen.",
+        "en": "Parents want to protect their children.",
         "lvl": "B1"
       }
     ]
@@ -56758,8 +56758,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Bleibt dabei!",
-        "en": "Stick to it!",
+        "de": "Was hast du dir dabei gedacht?",
+        "en": "What were you thinking?",
         "lvl": "B1"
       }
     ]
@@ -77693,8 +77693,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Haltet die Stellung, bis ich wieder da bin.",
-        "en": "Hold the fort until I get back.",
+        "de": "Sie hat eine gute Stellung bei einer Bank.",
+        "en": "She has a good position at a bank.",
         "lvl": "B1"
       }
     ]
@@ -96401,13 +96401,13 @@
     "def": "status (standing); status (notification in social networking)",
     "ex": [
       {
-        "de": "Laß uns den Status quo aufrechterhalten.",
-        "en": "Let's maintain the status quo.",
+        "de": "Der Status des Projekts ist noch unklar.",
+        "en": "The status of the project is still unclear.",
         "lvl": "B2"
       },
       {
-        "de": "Laßt uns den Status quo aufrechterhalten.",
-        "en": "Let's maintain the status quo.",
+        "de": "Sie fragte nach dem Status ihrer Bewerbung.",
+        "en": "She asked about the status of her application.",
         "lvl": "B2"
       }
     ]
@@ -98819,13 +98819,13 @@
     "def": "Something given; also a natural talent.",
     "ex": [
       {
-        "de": "Sie gaben auf.",
-        "en": "They gave up.",
+        "de": "Sie hat die Gabe, Menschen zuzuhören.",
+        "en": "She has a gift for listening to people.",
         "lvl": "B2"
       },
       {
-        "de": "Die gaben auf.",
-        "en": "They gave up.",
+        "de": "Das Museum lebt von den Gaben seiner Förderer.",
+        "en": "The museum lives on the donations of its patrons.",
         "lvl": "B2"
       }
     ]
@@ -105130,8 +105130,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Bitte antwortet umgehend!",
-        "en": "Please reply immediately.",
+        "de": "Wir bitten um umgehende Rückmeldung.",
+        "en": "We ask for immediate feedback.",
         "lvl": "B2"
       }
     ]
@@ -105275,8 +105275,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Bestellt doch unterdessen ein Taxi!",
-        "en": "Call a taxi in the meantime.",
+        "de": "Unterdessen hatte sich die Lage völlig verändert.",
+        "en": "Meanwhile the situation had changed completely.",
         "lvl": "B2"
       }
     ]
@@ -109046,8 +109046,8 @@
         "lvl": "C1"
       },
       {
-        "de": "Ohne Schweiß keinen Preis.",
-        "en": "No pain, no gain.",
+        "de": "Der Schweiß lief ihm über die Stirn.",
+        "en": "Sweat ran down his forehead.",
         "lvl": "C1"
       }
     ]
@@ -114070,8 +114070,8 @@
         "lvl": "C1"
       },
       {
-        "de": "Laßt euch nicht provozieren!",
-        "en": "Don't let yourselves be provoked.",
+        "de": "Lasst euch nicht provozieren!",
+        "en": "Do not let yourselves be provoked!",
         "lvl": "C1"
       }
     ]

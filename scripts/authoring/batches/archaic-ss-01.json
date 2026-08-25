@@ -1,0 +1,32 @@
+[
+  {
+    "id": "voc:B1:auswärts",
+    "at": 0,
+    "expect": {
+      "de": "Ißt du oft auswärts?",
+      "en": "Do you eat out often?"
+    },
+    "de": "Isst du oft auswärts?",
+    "en": "Do you often eat out?"
+  },
+  {
+    "id": "voc:A2:ausreden",
+    "at": 1,
+    "expect": {
+      "de": "Laß mich ausreden!",
+      "en": "Let me finish what I'm saying."
+    },
+    "de": "Lass mich bitte ausreden!",
+    "en": "Please let me finish speaking!"
+  },
+  {
+    "id": "voc:C1:provozieren",
+    "at": 1,
+    "expect": {
+      "de": "Laßt euch nicht provozieren!",
+      "en": "Don't let yourselves be provoked."
+    },
+    "de": "Lasst euch nicht provozieren!",
+    "en": "Do not let yourselves be provoked!"
+  }
+]

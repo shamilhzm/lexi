@@ -1,0 +1,162 @@
+[
+  {
+    "id": "voc:B1:dabei",
+    "at": 1,
+    "expect": {
+      "de": "Bleibt dabei!",
+      "en": "Stick to it!"
+    },
+    "de": "Was hast du dir dabei gedacht?",
+    "en": "What were you thinking?"
+  },
+  {
+    "id": "voc:A2:herum",
+    "at": 1,
+    "expect": {
+      "de": "Fragt herum.",
+      "en": "Ask around."
+    },
+    "de": "Er ging nervös im Zimmer herum.",
+    "en": "He walked nervously around the room."
+  },
+  {
+    "id": "voc:A2:schlagen",
+    "at": 1,
+    "expect": {
+      "de": "Schlagt Tom!",
+      "en": "Hit Tom."
+    },
+    "de": "Die Uhr schlägt gerade zwölf.",
+    "en": "The clock is just striking twelve."
+  },
+  {
+    "id": "voc:B1:die Stellung",
+    "at": 1,
+    "expect": {
+      "de": "Haltet die Stellung, bis ich wieder da bin.",
+      "en": "Hold the fort until I get back."
+    },
+    "de": "Sie hat eine gute Stellung bei einer Bank.",
+    "en": "She has a good position at a bank."
+  },
+  {
+    "id": "voc:B2:umgehend",
+    "at": 1,
+    "expect": {
+      "de": "Bitte antwortet umgehend!",
+      "en": "Please reply immediately."
+    },
+    "de": "Wir bitten um umgehende Rückmeldung.",
+    "en": "We ask for immediate feedback."
+  },
+  {
+    "id": "voc:B2:unterdessen",
+    "at": 1,
+    "expect": {
+      "de": "Bestellt doch unterdessen ein Taxi!",
+      "en": "Call a taxi in the meantime."
+    },
+    "de": "Unterdessen hatte sich die Lage völlig verändert.",
+    "en": "Meanwhile the situation had changed completely."
+  },
+  {
+    "id": "voc:A1:baden",
+    "at": 1,
+    "expect": {
+      "de": "Badet!",
+      "en": "Take a bath."
+    },
+    "de": "Im Sommer baden wir jeden Tag im See.",
+    "en": "In summer we bathe in the lake every day."
+  },
+  {
+    "id": "voc:A2:die Flagge",
+    "at": 0,
+    "expect": {
+      "de": "Hiß die Flagge!",
+      "en": "Hoist the flag."
+    },
+    "de": "Vor dem Rathaus weht die Flagge.",
+    "en": "The flag flies in front of the town hall."
+  },
+  {
+    "id": "voc:A2:die Flagge",
+    "at": 1,
+    "expect": {
+      "de": "Hißt die Flagge!",
+      "en": "Hoist the flag."
+    },
+    "de": "Zum Nationalfeiertag hängen überall Flaggen.",
+    "en": "On the national holiday there are flags everywhere."
+  },
+  {
+    "id": "voc:A1:das Wiedersehen",
+    "at": 1,
+    "expect": {
+      "de": "Sagt „Auf Wiedersehen!“!",
+      "en": "Say goodbye."
+    },
+    "de": "Auf Wiedersehen und bis morgen!",
+    "en": "Goodbye, and see you tomorrow!"
+  },
+  {
+    "id": "voc:B1:beschützen",
+    "at": 1,
+    "expect": {
+      "de": "Beschützt ihn!",
+      "en": "Protect him."
+    },
+    "de": "Eltern wollen ihre Kinder beschützen.",
+    "en": "Parents want to protect their children."
+  },
+  {
+    "id": "voc:A2:tauschen",
+    "at": 1,
+    "expect": {
+      "de": "Tauscht es aus.",
+      "en": "Replace it."
+    },
+    "de": "Wollen wir die Plätze tauschen?",
+    "en": "Shall we swap seats?"
+  },
+  {
+    "id": "voc:B2:der Status",
+    "at": 0,
+    "expect": {
+      "de": "Laß uns den Status quo aufrechterhalten.",
+      "en": "Let's maintain the status quo."
+    },
+    "de": "Der Status des Projekts ist noch unklar.",
+    "en": "The status of the project is still unclear."
+  },
+  {
+    "id": "voc:B2:der Status",
+    "at": 1,
+    "expect": {
+      "de": "Laßt uns den Status quo aufrechterhalten.",
+      "en": "Let's maintain the status quo."
+    },
+    "de": "Sie fragte nach dem Status ihrer Bewerbung.",
+    "en": "She asked about the status of her application."
+  },
+  {
+    "id": "voc:A1:normal",
+    "at": 1,
+    "expect": {
+      "de": "Atmet normal.",
+      "en": "Breathe normally."
+    },
+    "de": "Heute war ein ganz normaler Tag.",
+    "en": "Today was a completely normal day."
+  },
+  {
+    "id": "voc:A2:hinunter",
+    "at": 1,
+    "expect": {
+      "de": "Geht hinunter!",
+      "en": "Go downstairs."
+    },
+    "de": "Die Straße führt steil hinunter ins Tal.",
+    "en": "The road leads steeply down into the valley."
+  }
+]

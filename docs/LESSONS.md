@@ -199,6 +199,19 @@ it turns out to be wrong.**
   merging their metadata. A union is lossy exactly where it matters most.** The participle
   is tracked separately now, and only admits a match where an auxiliary makes that reading
   available.
+- **I characterised two bands from their first screen, and was wrong about both.**
+  *(2026-08-25.)* Filing the 88 case hits I wrote "mostly ordinary German — a few are
+  genuine drift"; reading all 86, **about half** were drift, and the blunt kind — `bieten`
+  "to offer" illustrated «Ich bin kein **Bot**», `matt` "dull" with «auf der **Matte**».
+  Filing the near-twin band I wrote that it held "the corpus's best deliberate minimal
+  pairs"; reading it, the minimal pairs are a small minority and most of it is a du/ihr
+  imperative swap. Both times the first screen was unrepresentative — the case band's top
+  was colour adjectives and nominalised infinitives, which are exactly the benign half.
+  **Rule: a band sorted by a score is not sorted by *kind*. Describing what is in it from
+  the first screen is guessing with extra steps — read a sample from the middle and the
+  end before you write the characterisation, and write "unread" if you have not.** The
+  cost is not the wasted description: a band written down as benign does not get read
+  again for weeks.
 - **The same signal was decisive in one direction and worthless in the other.**
   *(2026-08-24.)* Hunting for examples that teach a *different word* than the card, I
   wrote one check over both halves of the idea: a **noun** whose example only matches
