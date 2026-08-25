@@ -97127,7 +97127,7 @@
     "id": "voc:C1:quelloffene Software",
     "term": "quelloffene Software",
     "en": "open-source software",
-    "pos": "noun",
+    "pos": "phrase",
     "level": "C1",
     "gender": null,
     "plural": null,
@@ -99768,11 +99768,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:die Früh",
+    "id": "voc:B1:die Früh",
     "term": "die Früh",
     "en": "early morning",
     "pos": "noun",
-    "level": "A1",
+    "level": "B1",
     "gender": "die",
     "plural": null,
     "ipa": "fʁyː",
@@ -102409,8 +102409,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:silber",
-    "term": "silber",
+    "id": "voc:A2:silbern",
+    "term": "silbern",
     "en": "silver",
     "pos": "adjective",
     "level": "A2",
@@ -102427,8 +102427,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Bronze, Silber und Gold hab ich nie gewollt",
-        "en": "I never wanted bronze, silver and gold (medals)",
+        "de": "Sie trug silberne Ohrringe.",
+        "en": "She wore silver earrings.",
         "lvl": "A2"
       }
     ],
@@ -102436,8 +102436,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:gold",
-    "term": "gold",
+    "id": "voc:A2:golden",
+    "term": "golden",
     "en": "gold",
     "pos": "adjective",
     "level": "A2",
@@ -102449,13 +102449,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Die Uhr glänzt gold.",
-        "en": "The watch gleams gold.",
+        "de": "An der Wand hängt ein goldener Rahmen.",
+        "en": "A golden frame hangs on the wall.",
         "lvl": "A2"
       },
       {
-        "de": "Bronze, Silber und Gold habe ich nie gewollt.",
-        "en": "I never wanted bronze, silver and gold (medals).",
+        "de": "Die goldene Uhr war ein Geschenk.",
+        "en": "The gold watch was a present.",
         "lvl": "A2"
       }
     ],
@@ -138229,11 +138229,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Leisten",
+    "id": "voc:C1:der Leisten",
     "term": "der Leisten",
-    "en": "last",
+    "en": "shoemaker's last",
     "pos": "noun",
-    "level": "A2",
+    "level": "C1",
     "gender": "der",
     "plural": "die Leisten",
     "ipa": "ˈlaɪ̯stən",
@@ -158325,11 +158325,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:die Tausend",
+    "id": "voc:B1:die Tausend",
     "term": "die Tausend",
     "en": "thousand",
     "pos": "noun",
-    "level": "A1",
+    "level": "B1",
     "gender": "die",
     "plural": "die Tausenden",
     "ipa": "ˈtaʊ̯zənt",
@@ -185592,7 +185592,7 @@
     "id": "voc:A1:normal",
     "term": "normal",
     "en": "ordinarily, normally, in a normal fashion",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "A1",
     "gender": null,
     "plural": null,
@@ -185615,7 +185615,7 @@
         "lvl": "A1"
       }
     ],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -207568,6 +207568,33 @@
       }
     ],
     "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:tausend",
+    "term": "tausend",
+    "en": "thousand",
+    "pos": "number",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtaʊ̯zn̩t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Fahrrad kostet fast tausend Euro.",
+        "en": "The bicycle costs almost a thousand euros.",
+        "lvl": "A1"
+      },
+      {
+        "de": "In der Stadt wohnen über tausend Menschen.",
+        "en": "More than a thousand people live in the town.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Numbers",
     "kind": "word"
   }
 ]

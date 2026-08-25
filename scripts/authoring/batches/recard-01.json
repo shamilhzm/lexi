@@ -1,0 +1,37 @@
+[
+  {
+    "id": "voc:A2:silber", "expect": { "term": "silber", "level": "A2", "pos": "adjective" },
+    "term": "silbern",
+    "why": "German's adjective is silbern; bare *silber* is attributive colloquial at best, which is why every example on the card used the noun instead. Re-termed rather than re-posed: the card is about the colour word, and the colour word is silbern."
+  },
+  {
+    "id": "voc:A2:gold", "expect": { "term": "gold", "level": "A2", "pos": "adjective" },
+    "term": "golden",
+    "why": "Same as silber: the adjective is golden. «Die Uhr glänzt gold» is colloquial and the card's other example was the noun."
+  },
+  {
+    "id": "voc:A1:normal", "expect": { "term": "normal", "level": "A1", "pos": "adverb" },
+    "pos": "adjective", "field": "Adjectives",
+    "why": "normal is both, but carding it as an adverb costs a real capability: only adjective cards get de-inflection, so «ein normaler Tag» resolved to nothing and an example written that way was refused by the authoring gate. As an adjective it still reads adverbially — German adverbs are uninflected adjectives."
+  },
+  {
+    "id": "voc:C1:quelloffene Software", "expect": { "term": "quelloffene Software", "level": "C1", "pos": "noun" },
+    "pos": "phrase",
+    "why": "Adjective plus noun with no article, so it failed every noun rule and was the one articleless card outside Countries. It is a phrase and is now carded as one."
+  },
+  {
+    "id": "voc:A1:die Früh", "expect": { "term": "die Früh", "level": "A1", "pos": "noun" },
+    "level": "B1",
+    "why": "A southern German and Austrian regionalism sitting at A1, where it competed for the surface form with the A1 adverb *früh* that every beginner needs. The word is not hard, it is marked — B1 is where a learner meets a regional variant knowingly."
+  },
+  {
+    "id": "voc:A2:der Leisten", "expect": { "term": "der Leisten", "level": "A2", "pos": "noun" },
+    "level": "C1",
+    "why": "A shoemaker's last at A2. The word survives mainly in one idiom («Schuster, bleib bei deinem Leisten»), which is C1 territory, not second-semester vocabulary."
+  },
+  {
+    "id": "voc:A1:die Tausend", "expect": { "term": "die Tausend", "level": "A1", "pos": "noun" },
+    "level": "B1",
+    "why": "The noun *die Tausend* held the A1 slot for *thousand* while the numeral tausend — which is what an A1 learner needs, and what `hundert` already is — could not be authored, because this card claimed the surface form. Moved to B1 so the numeral can take A1."
+  }
+]

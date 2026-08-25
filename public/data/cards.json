@@ -43541,7 +43541,7 @@
     "id": "voc:C1:quelloffene Software",
     "term": "quelloffene Software",
     "en": "open-source software",
-    "pos": "noun",
+    "pos": "phrase",
     "level": "C1",
     "gender": null,
     "plural": null,
@@ -44889,11 +44889,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:die Früh",
+    "id": "voc:B1:die Früh",
     "term": "die Früh",
     "en": "early morning",
     "pos": "noun",
-    "level": "A1",
+    "level": "B1",
     "gender": "die",
     "plural": null,
     "ipa": "fʁyː",
@@ -46246,8 +46246,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:silber",
-    "term": "silber",
+    "id": "voc:A2:silbern",
+    "term": "silbern",
     "en": "silver",
     "pos": "adjective",
     "level": "A2",
@@ -46260,8 +46260,8 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:gold",
-    "term": "gold",
+    "id": "voc:A2:golden",
+    "term": "golden",
     "en": "gold",
     "pos": "adjective",
     "level": "A2",
@@ -65532,11 +65532,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Leisten",
+    "id": "voc:C1:der Leisten",
     "term": "der Leisten",
-    "en": "last",
+    "en": "shoemaker's last",
     "pos": "noun",
-    "level": "A2",
+    "level": "C1",
     "gender": "der",
     "plural": "die Leisten",
     "ipa": "ˈlaɪ̯stən",
@@ -76336,11 +76336,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A1:die Tausend",
+    "id": "voc:B1:die Tausend",
     "term": "die Tausend",
     "en": "thousand",
     "pos": "noun",
-    "level": "A1",
+    "level": "B1",
     "gender": "die",
     "plural": "die Tausenden",
     "ipa": "ˈtaʊ̯zənt",
@@ -91108,7 +91108,7 @@
     "id": "voc:A1:normal",
     "term": "normal",
     "en": "ordinarily, normally, in a normal fashion",
-    "pos": "adverb",
+    "pos": "adjective",
     "level": "A1",
     "gender": null,
     "plural": null,
@@ -91118,7 +91118,7 @@
       "gewöhnlich"
     ],
     "ant": [],
-    "field": "Adverbs",
+    "field": "Adjectives",
     "kind": "word"
   },
   {
@@ -102344,6 +102344,20 @@
     "syn": [],
     "ant": [],
     "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:tausend",
+    "term": "tausend",
+    "en": "thousand",
+    "pos": "number",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtaʊ̯zn̩t",
+    "syn": [],
+    "ant": [],
+    "field": "Numbers",
     "kind": "word"
   }
 ]

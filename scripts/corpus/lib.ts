@@ -164,6 +164,32 @@ export function headwordEvidence(matcher: Matcher, card: Word, de: string): Evid
     // (`verletzen`, `aufregen`, `entspannen`). A participle beside an auxiliary is
     // unambiguous evidence for the verb, so it is accepted here — and only here,
     // never in the matcher, where the adjective must keep winning.
+    // **The mirror of the noun rule, and it follows from the same fact.** A German
+    // noun is always capitalised, so a *lowercase* token cannot be the noun — which
+    // is why a lowercase match disproves a noun card above. The same fact says
+    // something here: where the matcher has handed a lowercase token to a noun and
+    // this card is *not* a noun, the noun cannot be what that token is, and this
+    // card can.
+    //
+    // Found authoring the A1 numeral `tausend`: the noun `die Tausend` owns the
+    // key (the index is lowercased, correctly, for reading) so every example
+    // written for the numeral was refused, and `hundert` is an A1 number card
+    // while `tausend` could not be written at all. The matcher is deliberately
+    // untouched — for *reading*, first-wins on a shared surface form is a separate
+    // question with its own trade-offs — but a gate that cannot tell a numeral
+    // from a noun blocks work it has no business blocking.
+    if (card.pos !== 'noun') {
+      const own = stripArticle(card.term).replace(/^sich\s+/i, '').trim().toLowerCase();
+      if (own && !/\s/.test(own)) {
+        for (const seg of matcher.annotate(de)) {
+          if (!seg.isWord || seg.text.toLowerCase() !== own) continue;
+          const first = seg.text[0];
+          const lower = first === first.toLowerCase() && first !== first.toUpperCase();
+          if (lower && seg.word?.pos === 'noun') return { ok: true, token: seg.text };
+        }
+      }
+    }
+
     if (card.pos === 'verb') {
       const inf = stripArticle(card.term).replace(/^sich\s+/i, '').trim();
       if (canConjugate(inf)) {

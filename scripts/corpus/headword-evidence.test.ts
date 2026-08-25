@@ -91,3 +91,38 @@ describe('headwordEvidence — a verb proved by its own Perfekt', () => {
     expect(headwordEvidence(m, BRAUT, 'Der Mann trank ein Bier.')).toEqual({ ok: false, why: 'absent' });
   });
 });
+
+// The mirror of the noun rule, from the same fact.
+//
+// A German noun is always capitalised, so a lowercase match *disproves* a noun —
+// that is the rule above. The same fact says something in the other direction:
+// where the matcher hands a lowercase token to a noun card and the card being
+// checked is not a noun, the noun cannot be what that token is.
+//
+// Found authoring the A1 numeral `tausend`. `hundert` has been an A1 number card
+// for as long as the corpus has existed; `tausend` could not be written at all,
+// because the noun `die Tausend` owns the lowercased index key and every example
+// written for the numeral was refused as "does not contain tausend".
+describe('headwordEvidence — a lowercase token cannot be the noun that claims it', () => {
+  const TAUSEND_N = card({ term: 'die Tausend', pos: 'noun', gender: 'die', en: 'thousand' });
+  const TAUSEND_NUM = card({ term: 'tausend', pos: 'number', en: 'thousand' });
+  const m3 = buildMatcher([TAUSEND_N, TAUSEND_NUM]);
+
+  it('credits the numeral for a lowercase token the noun claims', () => {
+    expect(headwordEvidence(m3, TAUSEND_NUM, 'Das Fahrrad kostet fast tausend Euro.').ok).toBe(true);
+  });
+
+  it('still refuses the noun for that same lowercase token', () => {
+    expect(headwordEvidence(m3, TAUSEND_N, 'Das Fahrrad kostet fast tausend Euro.'))
+      .toEqual({ ok: false, why: 'miscased', token: 'tausend' });
+  });
+
+  it('credits the noun where the token is capitalised', () => {
+    expect(headwordEvidence(m3, TAUSEND_N, 'Er zählte langsam bis Tausend.').ok).toBe(true);
+  });
+
+  it('does not invent evidence from a word that is simply absent', () => {
+    expect(headwordEvidence(m3, TAUSEND_NUM, 'Das Fahrrad kostet fast hundert Euro.'))
+      .toEqual({ ok: false, why: 'absent' });
+  });
+});

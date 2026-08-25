@@ -1,0 +1,40 @@
+[
+  {
+    "id": "voc:A2:silbern",
+    "at": 1,
+    "expect": {
+      "de": "Bronze, Silber und Gold hab ich nie gewollt",
+      "en": "I never wanted bronze, silver and gold (medals)"
+    },
+    "de": "Sie trug silberne Ohrringe.",
+    "en": "She wore silver earrings."
+  },
+  {
+    "id": "voc:A2:golden",
+    "at": 0,
+    "expect": {
+      "de": "Die Uhr glänzt gold.",
+      "en": "The watch gleams gold."
+    },
+    "de": "An der Wand hängt ein goldener Rahmen.",
+    "en": "A golden frame hangs on the wall."
+  },
+  {
+    "id": "voc:A2:golden",
+    "at": 1,
+    "expect": {
+      "de": "Bronze, Silber und Gold habe ich nie gewollt.",
+      "en": "I never wanted bronze, silver and gold (medals)."
+    },
+    "de": "Die goldene Uhr war ein Geschenk.",
+    "en": "The gold watch was a present."
+  },
+  {
+    "id": "voc:C1:der Leisten",
+    "expect": {
+      "en": "last"
+    },
+    "en": "shoemaker's last",
+    "src": "One English word that means a dozen things, on a card whose sense is a cobbler's wooden form. Recall mode grades against this string, and \"last\" is unguessable and unverifiable."
+  }
+]

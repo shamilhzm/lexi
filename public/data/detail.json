@@ -14144,22 +14144,6 @@
       }
     ]
   },
-  "voc:A1:die Früh": {
-    "def": "The first hours of the day — southern German and Austrian for the morning.",
-    "defDe": "Beginn des Tages, Morgen",
-    "ex": [
-      {
-        "de": "In der Früh trinke ich einen Kaffee.",
-        "en": "In the early morning I have a coffee.",
-        "lvl": "A1"
-      },
-      {
-        "de": "Der Bus fährt schon in der Früh um sechs.",
-        "en": "The bus leaves as early as six in the morning.",
-        "lvl": "A1"
-      }
-    ]
-  },
   "voc:A1:die Führung": {
     "def": "lead",
     "ex": [
@@ -17232,21 +17216,6 @@
         "de": "Am Morgen trinke ich gleich zwei Tassen Kaffee.",
         "en": "In the morning I drink two cups of coffee right away.",
         "lvl": "B1"
-      }
-    ]
-  },
-  "voc:A1:die Tausend": {
-    "def": "thousand (the number)",
-    "ex": [
-      {
-        "de": "Er zählte langsam bis Tausend.",
-        "en": "He slowly counted to a thousand.",
-        "lvl": "A1"
-      },
-      {
-        "de": "Im Saal saßen mehrere Tausend Menschen.",
-        "en": "Several thousand people were sitting in the hall.",
-        "lvl": "A1"
       }
     ]
   },
@@ -24540,6 +24509,20 @@
         "de": "Beim Tauchen entdeckt man eine ganz andere Welt.",
         "en": "When diving you discover a whole other world.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:tausend": {
+    "ex": [
+      {
+        "de": "Das Fahrrad kostet fast tausend Euro.",
+        "en": "The bicycle costs almost a thousand euros.",
+        "lvl": "A1"
+      },
+      {
+        "de": "In der Stadt wohnen über tausend Menschen.",
+        "en": "More than a thousand people live in the town.",
+        "lvl": "A1"
       }
     ]
   },
@@ -34283,21 +34266,6 @@
       {
         "de": "Der Leberkäse war die beste Spezialität.",
         "en": "The Leberkäse was the best speciality.",
-        "lvl": "A2"
-      }
-    ]
-  },
-  "voc:A2:der Leisten": {
-    "def": "last (tool for shaping or preserving the shape of shoes)",
-    "ex": [
-      {
-        "de": "Der Schuster zieht den Schuh über den Leisten.",
-        "en": "The cobbler pulls the shoe over the last.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Schuster, bleib bei deinem Leisten!",
-        "en": "Cobbler, stick to your last!",
         "lvl": "A2"
       }
     ]
@@ -46511,17 +46479,17 @@
       }
     ]
   },
-  "voc:A2:gold": {
+  "voc:A2:golden": {
     "def": "gold (chemical element, Au)",
     "ex": [
       {
-        "de": "Die Uhr glänzt gold.",
-        "en": "The watch gleams gold.",
+        "de": "An der Wand hängt ein goldener Rahmen.",
+        "en": "A golden frame hangs on the wall.",
         "lvl": "A2"
       },
       {
-        "de": "Bronze, Silber und Gold habe ich nie gewollt.",
-        "en": "I never wanted bronze, silver and gold (medals).",
+        "de": "Die goldene Uhr war ein Geschenk.",
+        "en": "The gold watch was a present.",
         "lvl": "A2"
       }
     ]
@@ -50204,7 +50172,7 @@
       }
     ]
   },
-  "voc:A2:silber": {
+  "voc:A2:silbern": {
     "def": "silver (chemical element with the symbol Ag)",
     "ex": [
       {
@@ -50213,8 +50181,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Bronze, Silber und Gold hab ich nie gewollt",
-        "en": "I never wanted bronze, silver and gold (medals)",
+        "de": "Sie trug silberne Ohrringe.",
+        "en": "She wore silver earrings.",
         "lvl": "A2"
       }
     ]
@@ -71915,6 +71883,22 @@
       }
     ]
   },
+  "voc:B1:die Früh": {
+    "def": "The first hours of the day — southern German and Austrian for the morning.",
+    "defDe": "Beginn des Tages, Morgen",
+    "ex": [
+      {
+        "de": "In der Früh trinke ich einen Kaffee.",
+        "en": "In the early morning I have a coffee.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Bus fährt schon in der Früh um sechs.",
+        "en": "The bus leaves as early as six in the morning.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:B1:die Frühschicht": {
     "def": "A period of work that starts early in the morning.",
     "ex": [
@@ -78026,6 +78010,21 @@
         "de": "Wer blind auf der Tastatur schreibt, arbeitet deutlich schneller.",
         "en": "Those who touch-type on the keyboard work noticeably faster.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Tausend": {
+    "def": "thousand (the number)",
+    "ex": [
+      {
+        "de": "Er zählte langsam bis Tausend.",
+        "en": "He slowly counted to a thousand.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Saal saßen mehrere Tausend Menschen.",
+        "en": "Several thousand people were sitting in the hall.",
+        "lvl": "A1"
       }
     ]
   },
@@ -108884,6 +108883,21 @@
         "de": "Als medizinischer Laie sollte man solche Symptome nicht selbst deuten.",
         "en": "As a medical layperson you shouldn't interpret such symptoms yourself.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Leisten": {
+    "def": "last (tool for shaping or preserving the shape of shoes)",
+    "ex": [
+      {
+        "de": "Der Schuster zieht den Schuh über den Leisten.",
+        "en": "The cobbler pulls the shoe over the last.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Schuster, bleib bei deinem Leisten!",
+        "en": "Cobbler, stick to your last!",
+        "lvl": "A2"
       }
     ]
   },

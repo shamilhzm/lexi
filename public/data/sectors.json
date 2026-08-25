@@ -1099,7 +1099,7 @@
   },
   {
     "name": "Adjectives",
-    "count": 520,
+    "count": 521,
     "levels": [
       "A1",
       "A2",
@@ -1111,7 +1111,7 @@
   },
   {
     "name": "Adverbs",
-    "count": 268,
+    "count": 267,
     "levels": [
       "A1",
       "A2",
@@ -1127,7 +1127,8 @@
     "count": 17,
     "levels": [
       "A1",
-      "A2"
+      "A2",
+      "B1"
     ],
     "group": "Language Building Blocks"
   },

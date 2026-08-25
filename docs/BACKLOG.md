@@ -1590,8 +1590,15 @@ user; none of it is built.*
   in [AUDIT.md](AUDIT.md). **Do:** read the 88, fix the drifted ones, and leave the
   nominalisations alone. **Done-when:** each of the 88 is either rewritten or ruled
   fine on the record. *`scripts/corpus/sense-audit.ts`.*
-- **🟡 Three cards the case pass read, and could not defend · XS each — and one now has a
-  measured cost.** *(Sharpened 2026-08-25.)* **`voc:A1:die Tausend` blocks the A1 numeral.**
+- ~~**🟡 Three cards the case pass read, and could not defend · XS each.**~~ ✅ **Done
+  2026-08-25.** `die Früh` A1 → B1 (a southern regionalism was competing at A1 with the
+  adverb *früh* every beginner needs), `der Leisten` A2 → C1 with its one-word gloss
+  "last" replaced by "shoemaker's last", `die Tausend` A1 → B1 — **and the A1 numeral
+  `tausend` now exists**, which is what the third one was really about: `hundert` had
+  been an A1 number card all along while *thousand* was reachable only as a noun.
+  Writing it needed the mirror of the noun-capitalisation rule in the authoring gate —
+  a lowercase token cannot be the noun that claims it, so it can be the numeral.
+  Original text: *(Sharpened 2026-08-25.)* **`voc:A1:die Tausend` blocks the A1 numeral.**
   `hundert` is an A1 `number` card; `tausend` is not a card at all, because the noun `die
   Tausend` claims the lowercase surface form and the authoring gate therefore refuses
   every example written for the numeral. An A1 learner meets *thousand* only as a noun
@@ -1893,15 +1900,21 @@ reasoning intact — this file holds only what is still open.*
 
 ---
 
-## Found while working, 2026-08-25 — filed, not fixed
+## Found while working, 2026-08-25 — ✅ all three fixed 2026-08-25 by `authoring:recard`
 
-- **`voc:C1:quelloffene Software` is a phrase carded as a noun · XS.** Adjective plus
+*The tool these were blocked on now exists: `npm run authoring:recard` changes a card's
+level, part of speech, headword, gender or sector, carries `ID_MAP`, moves the
+provenance row **and its level**, and refuses a change that would collide with a live
+card (that is a merge, not a re-card). Six filed items were waiting on it and on
+nothing else.*
+
+- ~~**`voc:C1:quelloffene Software` is a phrase carded as a noun · XS.**~~ Adjective plus
   noun, no article, so it fails every noun rule and is the one non-country card in the
   articleless set. Re-pos to `phrase`, or re-term to `die quelloffene Software`.
-- **`voc:A1:normal` is carded as an adverb but used as an adjective · XS.** Its examples
+- ~~**`voc:A1:normal` is carded as an adverb but used as an adjective · XS.**~~ ✅ Its examples
   are «Das ist völlig normal» — predicative adjective. Because the card is an adverb it
   gets no adjective de-inflection, so «ein normaler Tag» does not resolve to it, and an
   example written that way is refused by the authoring gate.
-- **`silber` and `gold` are mis-posed · XS.** Carded as adjectives, but German's are
+- ~~**`silber` and `gold` are mis-posed · XS.**~~ ✅ **Re-termed to `silbern` and `golden`**, which is what German's adjectives are. Carded as adjectives, but German's are
   *silbern* and *golden*; every example uses the noun because the noun is what the word
   is. Needs a re-pos or re-term tool — see the three undefendable cards above, same gap.

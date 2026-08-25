@@ -352,9 +352,9 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A1:die Tausend",
+    "id": "voc:B1:die Tausend",
     "lemma": "Tausend",
-    "level": "A1",
+    "level": "B1",
     "levelSource": "reference",
     "freqRank": 5353,
     "glossSource": "wiktextract:kaikki-de.jsonl",
@@ -2134,9 +2134,9 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:der Leisten",
+    "id": "voc:C1:der Leisten",
     "lemma": "Leisten",
-    "level": "A2",
+    "level": "C1",
     "levelSource": "frequency",
     "freqRank": 970,
     "glossSource": "wiktextract:kaikki-de.jsonl",

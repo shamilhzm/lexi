@@ -81,8 +81,8 @@ export const ID_MAP: Record<string, string> = {
   "voc:A2:Außen": "voc:A2:außen",
   "voc:A2:nah": "voc:A1:nah",
   "voc:A2:Orange": "voc:A2:orange",
-  "voc:A2:Silber": "voc:A2:silber",
-  "voc:A2:Gold": "voc:A2:gold",
+  "voc:A2:Silber": "voc:A2:silbern",
+  "voc:A2:Gold": "voc:A2:golden",
   "voc:B1:Packen": "voc:B1:packen",
   "voc:B1:Auspacken": "voc:B1:auspacken",
   "voc:B1:Einchecken": "voc:B1:einchecken",
@@ -1428,5 +1428,10 @@ export const ID_MAP: Record<string, string> = {
   "voc:B1:sich eignen für + A": "voc:A2:sich eignen für + A",
   "voc:A2:eignen": "voc:A2:sich eignen für + A",
   "voc:A2:füllen": "voc:A1:füllen",
-  "voc:A1:füllen in + A": "voc:A1:füllen"
+  "voc:A1:füllen in + A": "voc:A1:füllen",
+  "voc:A2:silber": "voc:A2:silbern",
+  "voc:A2:gold": "voc:A2:golden",
+  "voc:A1:die Früh": "voc:B1:die Früh",
+  "voc:A2:der Leisten": "voc:C1:der Leisten",
+  "voc:A1:die Tausend": "voc:B1:die Tausend"
 };

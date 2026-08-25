@@ -11,6 +11,53 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — the tool six items were waiting on, and the A1 numeral it freed
+
+Six filed items were blocked on the same missing thing, and it was not a hard thing:
+nothing could change a vocabulary card's **level, part of speech or headword**.
+`corpus:relevel` moves grammar points; `fix-authored` refuses `term`, `level` and `pos`
+by design, because changing them is not a field edit — a card id is
+`voc:<level>:<term>`, so changing either is a schedule migration.
+
+`authoring:recard` does it properly: expect-guarded like the rest of the family,
+carries `ID_MAP`, moves the provenance row **and its level** (provenance stores both,
+so a relevel that moves only the id leaves the sourcing disagreeing with the card),
+strips a gender and plural off anything that stops being a noun, and refuses a change
+that would land on a live id — that is a merge, not a re-card, and it has its own tool.
+
+**Seven cards re-carded**, five of them id changes:
+
+| card | change | why |
+|---|---|---|
+| `silber` → **`silbern`** | headword | German's adjective is *silbern*; every example on the card used the noun because bare *silber* is barely an adjective |
+| `gold` → **`golden`** | headword | same |
+| `normal` | adverb → **adjective** | only adjective cards get de-inflection, so «ein normaler Tag» resolved to nothing and the gate refused it |
+| `quelloffene Software` | noun → **phrase** | adjective plus noun, no article, failing every noun rule |
+| `die Früh` | A1 → **B1** | a southern regionalism competing at A1 with the adverb *früh* every beginner needs |
+| `der Leisten` | A2 → **C1** | a shoemaker's last at A2, and its gloss was the single word "last" |
+| `die Tausend` | A1 → **B1** | it held the A1 slot for *thousand* |
+
+**And the A1 numeral `tausend` now exists** — which is what the last of those was really
+about. `hundert` has been an A1 `number` card for as long as the corpus has; *thousand*
+was reachable only as a noun. Two things had to move first: `POS_MAP` mapped
+de.wiktionary's *Numerale* to `'numeral'`, which matches no card and no `ALLOWED_POS`
+entry, so the gate could not write a numeral at all (fixed earlier today); and the noun
+owned the lowercased index key, so every example written for the numeral was refused as
+"does not contain tausend".
+
+That second one is fixed by **the mirror of the noun-capitalisation rule**, and it
+follows from the same fact. A German noun is always capitalised, so a lowercase match
+*disproves* a noun — that is the rule that found 49 defects this morning. The same fact
+says something in the other direction: where the matcher hands a lowercase token to a
+noun and the card being checked is not a noun, **the noun cannot be what that token
+is**. The matcher itself is deliberately untouched; for *reading*, first-wins on a
+shared surface form is a separate question with its own trade-offs. But a gate that
+cannot tell a numeral from a noun was blocking work it had no business blocking.
+
+993 tests, 0 lint errors, `corpus:validate` PASS, reader probe plural now 200/200.
+
+---
+
 ### Shipped 2026-08-25 — 266 pronunciations, and the field where a lookup can be trusted
 
 The same machinery as the plural pass, pointed at IPA — and this is the field it was
