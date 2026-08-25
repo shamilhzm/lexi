@@ -11,6 +11,36 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — 266 pronunciations, and the field where a lookup can be trusted
+
+The same machinery as the plural pass, pointed at IPA — and this is the field it was
+made for. A plural carries a judgement the lookup cannot make (*does this noun have a
+plural a learner should meet?*); a transcription does not. The only question is whether
+the page is about the right word, and the plural pass had already earned the three
+guards that answer it: the page must attest the card's part of speech, a page covering
+two genders is not trusted for a gendered card, and a headword carrying government
+notation is not a page title.
+
+**274 → 8.** IPA presence 95.8% → **99.9%**. The eight left have no de.wiktionary entry
+at all — `Einbauschrank`, `Skijacke`, `Snowboardfahren`, five more, every one a compound.
+
+Every batch was read before it was applied, and the transcriptions are right where they
+are hardest: `die Regie` /ʁeˈʒiː/ keeps its French, `skeptisch` is /ˈskɛptɪʃ/ and not
+/ʃk/ because it is a Greek loan, `halb` is /halp/ with final devoicing, `mailen` is
+/ˈmɛɪ̯lən/ and `das Apartment` /aˈpaʁtmənt/.
+
+`fix-authored` gained an `IpaRow` — the fifth row type — with the same expect-guard and
+`src` requirement as the rest, plus two checks the field needs: a transcription may not
+carry its own `/…/` delimiters (the card renders those, and a stored one comes out
+doubled), and a value with no IPA-only character is refused, because that is what a
+plain-letter fallback looks like.
+
+**Total warnings across the corpus: 805 → 272**, over this pass and the plural one.
+
+989 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-25 — 267 plurals, none of them guessed
 
 `corpus:validate` warned *noun without plural* on **471** cards. The shortcut is

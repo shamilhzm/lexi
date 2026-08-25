@@ -1,0 +1,298 @@
+[
+  {
+    "id": "voc:C1:bergen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈbɛʁɡn̩",
+    "src": "de.wiktionary.org/wiki/bergen"
+  },
+  {
+    "id": "voc:B2:die Dividende",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "diviˈdɛndə",
+    "src": "de.wiktionary.org/wiki/Dividende"
+  },
+  {
+    "id": "voc:B2:aufgewühlt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯fɡəˌvyːlt",
+    "src": "de.wiktionary.org/wiki/aufgewühlt"
+  },
+  {
+    "id": "voc:B2:gerührt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈʁyːɐ̯t",
+    "src": "de.wiktionary.org/wiki/gerührt"
+  },
+  {
+    "id": "voc:B2:misstrauisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmɪstʁaʊ̯ɪʃ",
+    "src": "de.wiktionary.org/wiki/misstrauisch"
+  },
+  {
+    "id": "voc:B2:sich sehnen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈzeːnən",
+    "src": "de.wiktionary.org/wiki/sehnen"
+  },
+  {
+    "id": "voc:B2:die Überforderung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌyːbɐˈfɔʁdəʁʊŋ",
+    "src": "de.wiktionary.org/wiki/Überforderung"
+  },
+  {
+    "id": "voc:B2:überwältigt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "yːbɐˈvɛltɪçt",
+    "src": "de.wiktionary.org/wiki/überwältigt"
+  },
+  {
+    "id": "voc:B2:die Müllabfuhr",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmʏlʔapˌfuːɐ̯",
+    "src": "de.wiktionary.org/wiki/Müllabfuhr"
+  },
+  {
+    "id": "voc:A2:der Sportverein",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃpɔʁtfɛɐ̯ˌʔaɪ̯n",
+    "src": "de.wiktionary.org/wiki/Sportverein"
+  },
+  {
+    "id": "voc:A2:die Nachbarin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈnaxbaːʁɪn",
+    "src": "de.wiktionary.org/wiki/Nachbarin"
+  },
+  {
+    "id": "voc:B2:strategisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʃtʁaˈteːɡɪʃ",
+    "src": "de.wiktionary.org/wiki/strategisch"
+  },
+  {
+    "id": "voc:A2:die Skischule",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃiːˌʃuːlə",
+    "src": "de.wiktionary.org/wiki/Skischule"
+  },
+  {
+    "id": "voc:A2:der Skischuh",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃiːˌʃuː",
+    "src": "de.wiktionary.org/wiki/Skischuh"
+  },
+  {
+    "id": "voc:A2:der Snowboarder",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈsnoːˌboːɐ̯dɐ",
+    "src": "de.wiktionary.org/wiki/Snowboarder"
+  },
+  {
+    "id": "voc:A1:für",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fyːɐ̯",
+    "src": "de.wiktionary.org/wiki/für"
+  },
+  {
+    "id": "voc:A1:gegen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɡeːɡn̩",
+    "src": "de.wiktionary.org/wiki/gegen"
+  },
+  {
+    "id": "voc:A1:unter",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊntɐ",
+    "src": "de.wiktionary.org/wiki/unter"
+  },
+  {
+    "id": "voc:A1:vor",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "foːɐ̯",
+    "src": "de.wiktionary.org/wiki/vor"
+  },
+  {
+    "id": "voc:A2:angekündigt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanɡəˌkʏndɪçt",
+    "src": "de.wiktionary.org/wiki/angekündigt"
+  },
+  {
+    "id": "voc:A2:dadurch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "daˈdʊʁç",
+    "src": "de.wiktionary.org/wiki/dadurch"
+  },
+  {
+    "id": "voc:A2:geführt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈfyːɐ̯t",
+    "src": "de.wiktionary.org/wiki/geführt"
+  },
+  {
+    "id": "voc:A2:pro",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pʁoː",
+    "src": "de.wiktionary.org/wiki/pro"
+  },
+  {
+    "id": "voc:A2:somit",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "zoˈmɪt",
+    "src": "de.wiktionary.org/wiki/somit"
+  },
+  {
+    "id": "voc:A2:unklar",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊnˌklaːɐ̯",
+    "src": "de.wiktionary.org/wiki/unklar"
+  },
+  {
+    "id": "voc:B1:die Zusammenarbeit",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "t͡suˈzamənˌʔaʁbaɪ̯t",
+    "src": "de.wiktionary.org/wiki/Zusammenarbeit"
+  },
+  {
+    "id": "voc:B2:betont",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈtoːnt",
+    "src": "de.wiktionary.org/wiki/betont"
+  },
+  {
+    "id": "voc:B2:erstmals",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈeːɐ̯stmaːls",
+    "src": "de.wiktionary.org/wiki/erstmals"
+  },
+  {
+    "id": "voc:A2:der Autofahrer",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯toˌfaːʁɐ",
+    "src": "de.wiktionary.org/wiki/Autofahrer"
+  },
+  {
+    "id": "voc:A2:besondere",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈzɔndəʁə",
+    "src": "de.wiktionary.org/wiki/besondere"
+  },
+  {
+    "id": "voc:A2:diesmal",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈdiːsmaːl",
+    "src": "de.wiktionary.org/wiki/diesmal"
+  },
+  {
+    "id": "voc:B1:die Teilnahme",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈtaɪ̯lˌnaːmə",
+    "src": "de.wiktionary.org/wiki/Teilnahme"
+  },
+  {
+    "id": "voc:B1:teils",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "taɪ̯ls",
+    "src": "de.wiktionary.org/wiki/teils"
+  },
+  {
+    "id": "voc:B1:vermutlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈmuːtlɪç",
+    "src": "de.wiktionary.org/wiki/vermutlich"
+  },
+  {
+    "id": "voc:B2:die Anfrage",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanˌfʁaːɡə",
+    "src": "de.wiktionary.org/wiki/Anfrage"
+  },
+  {
+    "id": "voc:B2:die Anklage",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanˌklaːɡə",
+    "src": "de.wiktionary.org/wiki/Anklage"
+  },
+  {
+    "id": "voc:B2:ausschließlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sʃliːslɪç",
+    "src": "de.wiktionary.org/wiki/ausschließlich"
+  }
+]

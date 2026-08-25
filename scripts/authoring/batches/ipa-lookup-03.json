@@ -1,0 +1,898 @@
+[
+  {
+    "id": "voc:B1:woran",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "voˈʁan",
+    "src": "de.wiktionary.org/wiki/woran"
+  },
+  {
+    "id": "voc:A2:erwachsen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛɐ̯ˈvaksn̩",
+    "src": "de.wiktionary.org/wiki/erwachsen"
+  },
+  {
+    "id": "voc:A2:hingehen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈhɪnˌɡeːən",
+    "src": "de.wiktionary.org/wiki/hingehen"
+  },
+  {
+    "id": "voc:A1:die Ärztin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɛːɐ̯t͡stɪn",
+    "src": "de.wiktionary.org/wiki/Ärztin"
+  },
+  {
+    "id": "voc:A2:die Patientin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "paˈt͡si̯ɛntɪn",
+    "src": "de.wiktionary.org/wiki/Patientin"
+  },
+  {
+    "id": "voc:A2:rausfinden",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁaʊ̯sˌfɪndn̩",
+    "src": "de.wiktionary.org/wiki/rausfinden"
+  },
+  {
+    "id": "voc:A2:die Sekretärin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "zekʁeˈtɛːʁɪn",
+    "src": "de.wiktionary.org/wiki/Sekretärin"
+  },
+  {
+    "id": "voc:B1:drum",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "dʁʊm",
+    "src": "de.wiktionary.org/wiki/drum"
+  },
+  {
+    "id": "voc:B1:irgend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɪʁɡn̩t",
+    "src": "de.wiktionary.org/wiki/irgend"
+  },
+  {
+    "id": "voc:B1:rausholen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁaʊ̯sˌhoːlən",
+    "src": "de.wiktionary.org/wiki/rausholen"
+  },
+  {
+    "id": "voc:A2:bedanken",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈdaŋkn̩",
+    "src": "de.wiktionary.org/wiki/bedanken"
+  },
+  {
+    "id": "voc:A2:romantisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʁoˈmantɪʃ",
+    "src": "de.wiktionary.org/wiki/romantisch"
+  },
+  {
+    "id": "voc:A2:vorbeikommen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "foːɐ̯ˈbaɪ̯ˌkɔmən",
+    "src": "de.wiktionary.org/wiki/vorbeikommen"
+  },
+  {
+    "id": "voc:A2:zurückrufen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "t͡suˈʁʏkˌʁuːfn̩",
+    "src": "de.wiktionary.org/wiki/zurückrufen"
+  },
+  {
+    "id": "voc:B1:unsichtbar",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊnˌzɪçtbaːɐ̯",
+    "src": "de.wiktionary.org/wiki/unsichtbar"
+  },
+  {
+    "id": "voc:B2:faszinierend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fast͡siˈniːʁənt",
+    "src": "de.wiktionary.org/wiki/faszinierend"
+  },
+  {
+    "id": "voc:A2:das Drittel",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈdʁɪtl̩",
+    "src": "de.wiktionary.org/wiki/Drittel"
+  },
+  {
+    "id": "voc:B2:angebracht",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanɡəˌbʁaxt",
+    "src": "de.wiktionary.org/wiki/angebracht"
+  },
+  {
+    "id": "voc:B2:beleidigen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈlaɪ̯dɪɡn̩",
+    "src": "de.wiktionary.org/wiki/beleidigen"
+  },
+  {
+    "id": "voc:B2:einsperren",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nˌʃpɛʁən",
+    "src": "de.wiktionary.org/wiki/einsperren"
+  },
+  {
+    "id": "voc:B2:keinesfalls",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈkaɪ̯nəsˌfals",
+    "src": "de.wiktionary.org/wiki/keinesfalls"
+  },
+  {
+    "id": "voc:B2:der Kofferraum",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈkɔfɐˌʁaʊ̯m",
+    "src": "de.wiktionary.org/wiki/Kofferraum"
+  },
+  {
+    "id": "voc:B2:das Koma",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈkoːma",
+    "src": "de.wiktionary.org/wiki/Koma"
+  },
+  {
+    "id": "voc:B2:reserviert",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʁezɛʁˈviːɐ̯t",
+    "src": "de.wiktionary.org/wiki/reserviert"
+  },
+  {
+    "id": "voc:B2:der Rettungswagen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁɛtʊŋsˌvaːɡn̩",
+    "src": "de.wiktionary.org/wiki/Rettungswagen"
+  },
+  {
+    "id": "voc:B2:umwerfend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊmˌvɛʁfn̩t",
+    "src": "de.wiktionary.org/wiki/umwerfend"
+  },
+  {
+    "id": "voc:B2:vereint",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈʔaɪ̯nt",
+    "src": "de.wiktionary.org/wiki/vereint"
+  },
+  {
+    "id": "voc:B2:vergangen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈɡaŋən",
+    "src": "de.wiktionary.org/wiki/vergangen"
+  },
+  {
+    "id": "voc:B2:verängstigt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈʔɛŋstɪçt",
+    "src": "de.wiktionary.org/wiki/verängstigt"
+  },
+  {
+    "id": "voc:B2:die Villa",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈvɪla",
+    "src": "de.wiktionary.org/wiki/Villa"
+  },
+  {
+    "id": "voc:C1:bisweilen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bɪsˈvaɪ̯lən",
+    "src": "de.wiktionary.org/wiki/bisweilen"
+  },
+  {
+    "id": "voc:C1:der Ehrgeiz",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈeːɐ̯ˌɡaɪ̯t͡s",
+    "src": "de.wiktionary.org/wiki/Ehrgeiz"
+  },
+  {
+    "id": "voc:C1:eingebildet",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nɡəˌbɪldət",
+    "src": "de.wiktionary.org/wiki/eingebildet"
+  },
+  {
+    "id": "voc:C1:einigermaßen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nɪɡɐˌmaːsn̩",
+    "src": "de.wiktionary.org/wiki/einigermaßen"
+  },
+  {
+    "id": "voc:C1:erfordern",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛɐ̯ˈfɔʁdɐn",
+    "src": "de.wiktionary.org/wiki/erfordern"
+  },
+  {
+    "id": "voc:C1:geltend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɡɛltn̩t",
+    "src": "de.wiktionary.org/wiki/geltend"
+  },
+  {
+    "id": "voc:C1:hinreißend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈhɪnˌʁaɪ̯sənt",
+    "src": "de.wiktionary.org/wiki/hinreißend"
+  },
+  {
+    "id": "voc:C1:intakt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɪnˈtakt",
+    "src": "de.wiktionary.org/wiki/intakt"
+  },
+  {
+    "id": "voc:C1:nacheinander",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "naːxʔaɪ̯ˈnandɐ",
+    "src": "de.wiktionary.org/wiki/nacheinander"
+  },
+  {
+    "id": "voc:C1:verdeckt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈdɛkt",
+    "src": "de.wiktionary.org/wiki/verdeckt"
+  },
+  {
+    "id": "voc:C2:wahrlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈvaːɐ̯lɪç",
+    "src": "de.wiktionary.org/wiki/wahrlich"
+  },
+  {
+    "id": "voc:B1:der Vorsprung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfoːɐ̯ˌʃpʁʊŋ",
+    "src": "de.wiktionary.org/wiki/Vorsprung"
+  },
+  {
+    "id": "voc:B2:demonstrieren",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "demɔnˈstʁiːʁən",
+    "src": "de.wiktionary.org/wiki/demonstrieren"
+  },
+  {
+    "id": "voc:B2:das Ehepaar",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈeːəˌpaːɐ̯",
+    "src": "de.wiktionary.org/wiki/Ehepaar"
+  },
+  {
+    "id": "voc:B2:kommunizieren",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kɔmuniˈt͡siːʁən",
+    "src": "de.wiktionary.org/wiki/kommunizieren"
+  },
+  {
+    "id": "voc:B2:das Kompliment",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌkɔmpliˈmɛnt",
+    "src": "de.wiktionary.org/wiki/Kompliment"
+  },
+  {
+    "id": "voc:C1:die Abhilfe",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaphɪlfə",
+    "src": "de.wiktionary.org/wiki/Abhilfe"
+  },
+  {
+    "id": "voc:C1:ausflippen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sˌflɪpn̩",
+    "src": "de.wiktionary.org/wiki/ausflippen"
+  },
+  {
+    "id": "voc:C1:ausgelassen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sɡəlasn̩",
+    "src": "de.wiktionary.org/wiki/ausgelassen"
+  },
+  {
+    "id": "voc:C1:barrierefrei",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "baˈʁi̯eːʁəˌfʁaɪ̯",
+    "src": "de.wiktionary.org/wiki/barrierefrei"
+  },
+  {
+    "id": "voc:C1:das Betriebssystem",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈtʁiːpszʏsˌteːm",
+    "src": "de.wiktionary.org/wiki/Betriebssystem"
+  },
+  {
+    "id": "voc:C1:die Europameisterschaft",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɔɪ̯ˈʁoːpaˌmaɪ̯stɐʃaft",
+    "src": "de.wiktionary.org/wiki/Europameisterschaft"
+  },
+  {
+    "id": "voc:C1:europaweit",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɔɪ̯ˈʁoːpaˌvaɪ̯t",
+    "src": "de.wiktionary.org/wiki/europaweit"
+  },
+  {
+    "id": "voc:C1:ironisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "iˈʁoːnɪʃ",
+    "src": "de.wiktionary.org/wiki/ironisch"
+  },
+  {
+    "id": "voc:C1:irrelevant",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɪʁɛləˌvant",
+    "src": "de.wiktionary.org/wiki/irrelevant"
+  },
+  {
+    "id": "voc:C1:kombinieren",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kɔmbiˈniːʁən",
+    "src": "de.wiktionary.org/wiki/kombinieren"
+  },
+  {
+    "id": "voc:C1:die Konstellation",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌkɔnstɛlaˈt͡si̯oːn",
+    "src": "de.wiktionary.org/wiki/Konstellation"
+  },
+  {
+    "id": "voc:C1:die Mittelschule",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmɪtl̩ˌʃuːlə",
+    "src": "de.wiktionary.org/wiki/Mittelschule"
+  },
+  {
+    "id": "voc:C1:der Nordwesten",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "nɔʁtˈvɛstn̩",
+    "src": "de.wiktionary.org/wiki/Nordwesten"
+  },
+  {
+    "id": "voc:C1:der Prediger",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈpʁeːdɪɡɐ",
+    "src": "de.wiktionary.org/wiki/Prediger"
+  },
+  {
+    "id": "voc:C1:die Resolution",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌʁezoluˈt͡si̯oːn",
+    "src": "de.wiktionary.org/wiki/Resolution"
+  },
+  {
+    "id": "voc:C1:stabilisieren",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʃtabiliˈziːʁən",
+    "src": "de.wiktionary.org/wiki/stabilisieren"
+  },
+  {
+    "id": "voc:C1:tagelang",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈtaːɡəˌlaŋ",
+    "src": "de.wiktionary.org/wiki/tagelang"
+  },
+  {
+    "id": "voc:C1:die Wiederwahl",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈviːdɐˌvaːl",
+    "src": "de.wiktionary.org/wiki/Wiederwahl"
+  },
+  {
+    "id": "voc:A1:der Espresso",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌɛsˈpʁɛso",
+    "src": "de.wiktionary.org/wiki/Espresso"
+  },
+  {
+    "id": "voc:A1:die Handynummer",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈhɛndiˌnʊmɐ",
+    "src": "de.wiktionary.org/wiki/Handynummer"
+  },
+  {
+    "id": "voc:A1:die Verkäuferin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈkɔɪ̯fəʁɪn",
+    "src": "de.wiktionary.org/wiki/Verkäuferin"
+  },
+  {
+    "id": "voc:A1:das Apartment",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "aˈpaʁtmənt",
+    "src": "de.wiktionary.org/wiki/Apartment"
+  },
+  {
+    "id": "voc:A1:grillen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɡʁɪlən",
+    "src": "de.wiktionary.org/wiki/grillen"
+  },
+  {
+    "id": "voc:A2:die Kassiererin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kaˈsiːʁəʁɪn",
+    "src": "de.wiktionary.org/wiki/Kassiererin"
+  },
+  {
+    "id": "voc:A2:mailen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmɛɪ̯lən",
+    "src": "de.wiktionary.org/wiki/mailen"
+  },
+  {
+    "id": "voc:A2:passend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈpasn̩t",
+    "src": "de.wiktionary.org/wiki/passend"
+  },
+  {
+    "id": "voc:A2:die Schriftstellerin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃʁɪftˌʃtɛləʁɪn",
+    "src": "de.wiktionary.org/wiki/Schriftstellerin"
+  },
+  {
+    "id": "voc:A2:die Sporthalle",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃpɔʁtˌhalə",
+    "src": "de.wiktionary.org/wiki/Sporthalle"
+  },
+  {
+    "id": "voc:A2:das Studentenwohnheim",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʃtuˈdɛntn̩ˌvoːnhaɪ̯m",
+    "src": "de.wiktionary.org/wiki/Studentenwohnheim"
+  },
+  {
+    "id": "voc:A2:der Urgroßvater",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈuːɐ̯ɡʁoːsˌfaːtɐ",
+    "src": "de.wiktionary.org/wiki/Urgroßvater"
+  },
+  {
+    "id": "voc:A1:die Vorwahl",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfoːɐ̯ˌvaːl",
+    "src": "de.wiktionary.org/wiki/Vorwahl"
+  },
+  {
+    "id": "voc:B1:abwechselnd",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈapˌvɛksl̩nt",
+    "src": "de.wiktionary.org/wiki/abwechselnd"
+  },
+  {
+    "id": "voc:B1:die Aufforderung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯fˌfɔʁdəʁʊŋ",
+    "src": "de.wiktionary.org/wiki/Aufforderung"
+  },
+  {
+    "id": "voc:B1:die Elektrotechnik",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "eˌlɛktʁoˈtɛçnɪk",
+    "src": "de.wiktionary.org/wiki/Elektrotechnik"
+  },
+  {
+    "id": "voc:B1:innovativ",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɪnovaˈtiːf",
+    "src": "de.wiktionary.org/wiki/innovativ"
+  },
+  {
+    "id": "voc:B1:der Interessent",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɪntəʁɛˈsɛnt",
+    "src": "de.wiktionary.org/wiki/Interessent"
+  },
+  {
+    "id": "voc:B1:die Kassette",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kaˈsɛtə",
+    "src": "de.wiktionary.org/wiki/Kassette"
+  },
+  {
+    "id": "voc:B1:professionell",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pʁofɛsi̯oˈnɛl",
+    "src": "de.wiktionary.org/wiki/professionell"
+  },
+  {
+    "id": "voc:B1:das Unterhemd",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊntɐˌhɛmt",
+    "src": "de.wiktionary.org/wiki/Unterhemd"
+  },
+  {
+    "id": "voc:B1:zeitlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈt͡saɪ̯tlɪç",
+    "src": "de.wiktionary.org/wiki/zeitlich"
+  },
+  {
+    "id": "voc:B2:die Diskette",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "dɪsˈkɛtə",
+    "src": "de.wiktionary.org/wiki/Diskette"
+  },
+  {
+    "id": "voc:B2:die Lyrik",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈlyːʁɪk",
+    "src": "de.wiktionary.org/wiki/Lyrik"
+  },
+  {
+    "id": "voc:A2:auskennen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sˌkɛnən",
+    "src": "de.wiktionary.org/wiki/auskennen"
+  },
+  {
+    "id": "voc:A1:bar",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "baːɐ̯",
+    "src": "de.wiktionary.org/wiki/bar"
+  },
+  {
+    "id": "voc:A2:die Bürgerin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈbʏʁɡəʁɪn",
+    "src": "de.wiktionary.org/wiki/Bürgerin"
+  },
+  {
+    "id": "voc:A2:dauernd",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈdaʊ̯ɐnt",
+    "src": "de.wiktionary.org/wiki/dauernd"
+  },
+  {
+    "id": "voc:A2:die Gemeinsamkeit",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈmaɪ̯nzaːmkaɪ̯t",
+    "src": "de.wiktionary.org/wiki/Gemeinsamkeit"
+  },
+  {
+    "id": "voc:A2:die Grafik",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɡʁaːfɪk",
+    "src": "de.wiktionary.org/wiki/Grafik"
+  },
+  {
+    "id": "voc:A2:das Kochbuch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈkɔxˌbuːx",
+    "src": "de.wiktionary.org/wiki/Kochbuch"
+  },
+  {
+    "id": "voc:A2:das Marketing",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmaʁkətɪŋ",
+    "src": "de.wiktionary.org/wiki/Marketing"
+  },
+  {
+    "id": "voc:A2:das Motto",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmɔto",
+    "src": "de.wiktionary.org/wiki/Motto"
+  },
+  {
+    "id": "voc:A2:die Mülltonne",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmʏlˌtɔnə",
+    "src": "de.wiktionary.org/wiki/Mülltonne"
+  },
+  {
+    "id": "voc:A2:die Nachtschicht",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈnaxtˌʃɪçt",
+    "src": "de.wiktionary.org/wiki/Nachtschicht"
+  },
+  {
+    "id": "voc:A2:der Personalausweis",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pɛʁzoˈnaːlʔaʊ̯sˌvaɪ̯s",
+    "src": "de.wiktionary.org/wiki/Personalausweis"
+  },
+  {
+    "id": "voc:A2:das Riesenrad",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁiːzn̩ˌʁaːt",
+    "src": "de.wiktionary.org/wiki/Riesenrad"
+  },
+  {
+    "id": "voc:A2:verwitwet",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈvɪtvət",
+    "src": "de.wiktionary.org/wiki/verwitwet"
+  },
+  {
+    "id": "voc:B1:die Akupunktur",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "akupʊŋkˈtuːɐ̯",
+    "src": "de.wiktionary.org/wiki/Akupunktur"
+  },
+  {
+    "id": "voc:B1:handwerklich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈhantˌvɛʁklɪç",
+    "src": "de.wiktionary.org/wiki/handwerklich"
+  },
+  {
+    "id": "voc:B1:interaktiv",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌɪntɐʔakˈtiːf",
+    "src": "de.wiktionary.org/wiki/interaktiv"
+  },
+  {
+    "id": "voc:B1:der Schenkel",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃɛŋkl̩",
+    "src": "de.wiktionary.org/wiki/Schenkel"
+  },
+  {
+    "id": "voc:B1:die Transaktion",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "tʁansʔakˈt͡si̯oːn",
+    "src": "de.wiktionary.org/wiki/Transaktion"
+  },
+  {
+    "id": "voc:B1:der Vollmond",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfɔlˌmoːnt",
+    "src": "de.wiktionary.org/wiki/Vollmond"
+  },
+  {
+    "id": "voc:B1:der Western",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈvɛstɐn",
+    "src": "de.wiktionary.org/wiki/Western"
+  },
+  {
+    "id": "voc:B1:die Zuordnung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈt͡suːˌʔɔʁdnʊŋ",
+    "src": "de.wiktionary.org/wiki/Zuordnung"
+  },
+  {
+    "id": "voc:B1:der Äquator",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛˈkvaːtoːɐ̯",
+    "src": "de.wiktionary.org/wiki/Äquator"
+  },
+  {
+    "id": "voc:B2:der Finderlohn",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfɪndɐˌloːn",
+    "src": "de.wiktionary.org/wiki/Finderlohn"
+  }
+]

@@ -51,6 +51,19 @@ interface PlRow {
   plural?: string;
   src: string;
 }
+/** An IPA row: the card's transcription. Same guard, same `src` requirement.
+ *
+ *  A pronunciation is the purest fact in the corpus — there is no judgement in it
+ *  the way there is in "does this noun have a plural a learner should meet" — so
+ *  it is the one field where a lookup can be trusted straight through. It still
+ *  carries `src`, because a transcription nobody can point at is how a wrong
+ *  stress mark survives for a year. */
+interface IpaRow {
+  id: string;
+  expect: { ipa: string | null };
+  ipa?: string;
+  src: string;
+}
 /** A sense row: the English gloss, and the synonyms that belong to it.
  *
  *  The two travel together because they answer the same question — *which word is
@@ -70,9 +83,10 @@ interface SenseRow {
   src?: string;
 }
 
-type Row = ExRow | DefRow | PlRow | SenseRow;
+type Row = ExRow | DefRow | PlRow | SenseRow | IpaRow;
 const isDefRow = (r: Row): r is DefRow => 'expect' in r && r.expect != null && 'def' in r.expect;
 const isPlRow = (r: Row): r is PlRow => 'expect' in r && r.expect != null && 'plural' in r.expect;
+const isIpaRow = (r: Row): r is IpaRow => 'expect' in r && r.expect != null && 'ipa' in r.expect;
 // An ExRow's `expect` also carries an `en`, so the discriminator is the absence of
 // `de` — the field only an example has.
 const isSenseRow = (r: Row): r is SenseRow =>
@@ -101,7 +115,7 @@ const matcher = () => (_matcher ??= primeApp(vocab));
 let applied = 0, deleted = 0, pending = 0;
 const refused: string[] = [];
 const refuse = (row: Row, why: string) =>
-  refused.push(`${row.id}${isDefRow(row) || isPlRow(row) || isSenseRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
+  refused.push(`${row.id}${isDefRow(row) || isPlRow(row) || isSenseRow(row) || isIpaRow(row) ? '' : `#${(row as ExRow).at}`}: ${why}`);
 
 // Deletions are applied last and in descending index order, so removing ex[1]
 // can't shift the meaning of a later row that targets ex[2] of the same card.
@@ -110,6 +124,29 @@ const deletions: ExRow[] = [];
 for (const row of rows) {
   const card = byId.get(row.id);
   if (!card) { refuse(row, 'no such card id'); continue; }
+
+  if (isIpaRow(row)) {
+    if ((card.ipa ?? null) !== (row.expect?.ipa ?? null)) {
+      refuse(row, 'expect no longer matches the corpus (already fixed, or a stale batch)');
+      continue;
+    }
+    const next = norm(row.ipa ?? '');
+    if (!next) { pending++; continue; }
+    if (!row.src?.trim()) { refuse(row, 'no source given for the transcription'); continue; }
+    // Slashes and brackets are the notation *around* a transcription, not part of
+    // it — the app renders the delimiters itself, and a stored "/ˈhaʊ̯s/" comes out
+    // as "//ˈhaʊ̯s//" on the card.
+    if (/[/[\]]/.test(next)) { refuse(row, 'transcription must not carry its own delimiters'); continue; }
+    // A transcription with no IPA-only character is almost always a plain-letter
+    // fallback that would teach the spelling back to the learner.
+    if (!/[ˈˌːəɐɪʊʏœøɛɔaeiouyÿ̯͡ʁçʃʒŋpbtdkɡfvszmnlrhj]/u.test(next)) {
+      refuse(row, 'does not look like a transcription');
+      continue;
+    }
+    card.ipa = next;
+    applied++;
+    continue;
+  }
 
   if (isPlRow(row)) {
     if ((card.plural ?? null) !== (row.expect?.plural ?? null)) {

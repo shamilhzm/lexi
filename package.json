@@ -51,7 +51,8 @@
     "corpus:gex": "node scripts/corpus/grammar-exercises.ts",
     "corpus:papervocab": "node scripts/corpus/paper-vocab.ts",
     "corpus:genex": "node scripts/corpus/gen-exercises.ts",
-    "authoring:plurals": "node scripts/authoring/fetch-plurals.ts"
+    "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
+    "authoring:ipa": "node scripts/authoring/fetch-ipa.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

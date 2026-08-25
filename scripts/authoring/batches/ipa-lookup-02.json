@@ -1,0 +1,938 @@
+[
+  {
+    "id": "voc:B2:daraufhin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "daʁaʊ̯fˈhɪn",
+    "src": "de.wiktionary.org/wiki/daraufhin"
+  },
+  {
+    "id": "voc:B2:entsprechend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛntˈʃpʁɛçn̩t",
+    "src": "de.wiktionary.org/wiki/entsprechend"
+  },
+  {
+    "id": "voc:B2:die Finanzierung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "finanˈt͡siːʁʊŋ",
+    "src": "de.wiktionary.org/wiki/Finanzierung"
+  },
+  {
+    "id": "voc:B2:die Initiative",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "init͡si̯aˈtiːvə",
+    "src": "de.wiktionary.org/wiki/Initiative"
+  },
+  {
+    "id": "voc:B2:das Personal",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pɛʁzoˈnaːl",
+    "src": "de.wiktionary.org/wiki/Personal"
+  },
+  {
+    "id": "voc:B2:die Redaktion",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʁedakˈt͡si̯oːn",
+    "src": "de.wiktionary.org/wiki/Redaktion"
+  },
+  {
+    "id": "voc:B2:die Sitzung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈzɪt͡sʊŋ",
+    "src": "de.wiktionary.org/wiki/Sitzung"
+  },
+  {
+    "id": "voc:A1:automatisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌaʊ̯toˈmaːtɪʃ",
+    "src": "de.wiktionary.org/wiki/automatisch"
+  },
+  {
+    "id": "voc:A2:dran",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "dʁan",
+    "src": "de.wiktionary.org/wiki/dran"
+  },
+  {
+    "id": "voc:A2:international",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌɪntɐnat͡si̯oˈnaːl",
+    "src": "de.wiktionary.org/wiki/international"
+  },
+  {
+    "id": "voc:A2:der Ukrainer",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "uˈkʁaɪ̯nɐ",
+    "src": "de.wiktionary.org/wiki/Ukrainer"
+  },
+  {
+    "id": "voc:A2:der Weltmeister",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈvɛltˌmaɪ̯stɐ",
+    "src": "de.wiktionary.org/wiki/Weltmeister"
+  },
+  {
+    "id": "voc:B1:erhältlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛɐ̯ˈhɛltlɪç",
+    "src": "de.wiktionary.org/wiki/erhältlich"
+  },
+  {
+    "id": "voc:B1:geeignet",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈʔaɪ̯ɡnət",
+    "src": "de.wiktionary.org/wiki/geeignet"
+  },
+  {
+    "id": "voc:B1:genügend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈnyːɡn̩t",
+    "src": "de.wiktionary.org/wiki/genügend"
+  },
+  {
+    "id": "voc:B1:geschickt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈʃɪkt",
+    "src": "de.wiktionary.org/wiki/geschickt"
+  },
+  {
+    "id": "voc:B1:die Kategorie",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌkateɡoˈʁiː",
+    "src": "de.wiktionary.org/wiki/Kategorie"
+  },
+  {
+    "id": "voc:B1:die Meisterschaft",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmaɪ̯stɐˌʃaft",
+    "src": "de.wiktionary.org/wiki/Meisterschaft"
+  },
+  {
+    "id": "voc:B1:rasch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʁaʃ",
+    "src": "de.wiktionary.org/wiki/rasch"
+  },
+  {
+    "id": "voc:B1:die Spielzeit",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃpiːlt͡saɪ̯t",
+    "src": "de.wiktionary.org/wiki/Spielzeit"
+  },
+  {
+    "id": "voc:B1:via",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈviːa",
+    "src": "de.wiktionary.org/wiki/via"
+  },
+  {
+    "id": "voc:B2:ausgerechnet",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sɡəˌʁɛçnət",
+    "src": "de.wiktionary.org/wiki/ausgerechnet"
+  },
+  {
+    "id": "voc:B2:die Beteiligung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈtaɪ̯lɪɡʊŋ",
+    "src": "de.wiktionary.org/wiki/Beteiligung"
+  },
+  {
+    "id": "voc:B2:bundesweit",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈbʊndəsˌvaɪ̯t",
+    "src": "de.wiktionary.org/wiki/bundesweit"
+  },
+  {
+    "id": "voc:B2:die Einigung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nɪɡʊŋ",
+    "src": "de.wiktionary.org/wiki/Einigung"
+  },
+  {
+    "id": "voc:B2:hierzulande",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈhiːɐ̯t͡suˈlandə",
+    "src": "de.wiktionary.org/wiki/hierzulande"
+  },
+  {
+    "id": "voc:B2:die Klage",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈklaːɡə",
+    "src": "de.wiktionary.org/wiki/Klage"
+  },
+  {
+    "id": "voc:B2:namens",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈnaːməns",
+    "src": "de.wiktionary.org/wiki/namens"
+  },
+  {
+    "id": "voc:B2:die Sanierung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "zaˈniːʁʊŋ",
+    "src": "de.wiktionary.org/wiki/Sanierung"
+  },
+  {
+    "id": "voc:B2:die Stadtverwaltung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃtatfɛɐ̯ˌvaltʊŋ",
+    "src": "de.wiktionary.org/wiki/Stadtverwaltung"
+  },
+  {
+    "id": "voc:B2:die Veröffentlichung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈʔœfn̩tlɪçʊŋ",
+    "src": "de.wiktionary.org/wiki/Veröffentlichung"
+  },
+  {
+    "id": "voc:C1:seitens",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈzaɪ̯tn̩s",
+    "src": "de.wiktionary.org/wiki/seitens"
+  },
+  {
+    "id": "voc:A2:der Lastwagen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈlastˌvaːɡn̩",
+    "src": "de.wiktionary.org/wiki/Lastwagen"
+  },
+  {
+    "id": "voc:A2:der Motorradfahrer",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "moˈtoːɐ̯ʁaːtˌfaːʁɐ",
+    "src": "de.wiktionary.org/wiki/Motorradfahrer"
+  },
+  {
+    "id": "voc:A2:die Unterhaltung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʊntɐˈhaltʊŋ",
+    "src": "de.wiktionary.org/wiki/Unterhaltung"
+  },
+  {
+    "id": "voc:A2:die Weltmeisterschaft",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈvɛltˌmaɪ̯stɐʃaft",
+    "src": "de.wiktionary.org/wiki/Weltmeisterschaft"
+  },
+  {
+    "id": "voc:B1:die Anpassung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanˌpasʊŋ",
+    "src": "de.wiktionary.org/wiki/Anpassung"
+  },
+  {
+    "id": "voc:B1:aufeinander",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "aʊ̯fʔaɪ̯ˈnandɐ",
+    "src": "de.wiktionary.org/wiki/aufeinander"
+  },
+  {
+    "id": "voc:B1:bekämpfen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈkɛmp͡fn̩",
+    "src": "de.wiktionary.org/wiki/bekämpfen"
+  },
+  {
+    "id": "voc:B1:demnächst",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˌdeːmˈnɛːçst",
+    "src": "de.wiktionary.org/wiki/demnächst"
+  },
+  {
+    "id": "voc:B1:die Innovation",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɪnovaˈt͡si̯oːn",
+    "src": "de.wiktionary.org/wiki/Innovation"
+  },
+  {
+    "id": "voc:B1:jahrelang",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈjaːʁəˌlaŋ",
+    "src": "de.wiktionary.org/wiki/jahrelang"
+  },
+  {
+    "id": "voc:B1:jemals",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈjeːmals",
+    "src": "de.wiktionary.org/wiki/jemals"
+  },
+  {
+    "id": "voc:B1:der Klassiker",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈklasɪkɐ",
+    "src": "de.wiktionary.org/wiki/Klassiker"
+  },
+  {
+    "id": "voc:B1:locker",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈlɔkɐ",
+    "src": "de.wiktionary.org/wiki/locker"
+  },
+  {
+    "id": "voc:B1:oftmals",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɔftmaːls",
+    "src": "de.wiktionary.org/wiki/oftmals"
+  },
+  {
+    "id": "voc:B1:steigern",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃtaɪ̯ɡɐn",
+    "src": "de.wiktionary.org/wiki/steigern"
+  },
+  {
+    "id": "voc:B1:verstärken",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈʃtɛʁkn̩",
+    "src": "de.wiktionary.org/wiki/verstärken"
+  },
+  {
+    "id": "voc:B1:vielmehr",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfiːlmeːɐ̯",
+    "src": "de.wiktionary.org/wiki/vielmehr"
+  },
+  {
+    "id": "voc:B1:wodurch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "voˈdʊʁç",
+    "src": "de.wiktionary.org/wiki/wodurch"
+  },
+  {
+    "id": "voc:B2:die Anerkennung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanʔɛɐ̯ˌkɛnʊŋ",
+    "src": "de.wiktionary.org/wiki/Anerkennung"
+  },
+  {
+    "id": "voc:B2:angesehen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanɡəˌzeːən",
+    "src": "de.wiktionary.org/wiki/angesehen"
+  },
+  {
+    "id": "voc:B2:anlässlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanˌlɛslɪç",
+    "src": "de.wiktionary.org/wiki/anlässlich"
+  },
+  {
+    "id": "voc:B2:ausdrücklich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sˌdʁʏklɪç",
+    "src": "de.wiktionary.org/wiki/ausdrücklich"
+  },
+  {
+    "id": "voc:B2:die Bedrohung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈdʁoːʊŋ",
+    "src": "de.wiktionary.org/wiki/Bedrohung"
+  },
+  {
+    "id": "voc:B2:die Bereitschaft",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈʁaɪ̯tʃaft",
+    "src": "de.wiktionary.org/wiki/Bereitschaft"
+  },
+  {
+    "id": "voc:B2:derart",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈdeːɐ̯ˌʔaːɐ̯t",
+    "src": "de.wiktionary.org/wiki/derart"
+  },
+  {
+    "id": "voc:B2:die Entlastung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛntˈlastʊŋ",
+    "src": "de.wiktionary.org/wiki/Entlastung"
+  },
+  {
+    "id": "voc:B2:erkennbar",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛɐ̯ˈkɛnbaːɐ̯",
+    "src": "de.wiktionary.org/wiki/erkennbar"
+  },
+  {
+    "id": "voc:B2:die Festnahme",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfɛstˌnaːmə",
+    "src": "de.wiktionary.org/wiki/Festnahme"
+  },
+  {
+    "id": "voc:B2:infolge",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɪnˈfɔlɡə",
+    "src": "de.wiktionary.org/wiki/infolge"
+  },
+  {
+    "id": "voc:B2:die Insolvenz",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɪnzɔlvɛnt͡s",
+    "src": "de.wiktionary.org/wiki/Insolvenz"
+  },
+  {
+    "id": "voc:B2:das Kabinett",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kabiˈnɛt",
+    "src": "de.wiktionary.org/wiki/Kabinett"
+  },
+  {
+    "id": "voc:B2:die Kommune",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kɔˈmuːnə",
+    "src": "de.wiktionary.org/wiki/Kommune"
+  },
+  {
+    "id": "voc:B2:orten",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɔʁtn̩",
+    "src": "de.wiktionary.org/wiki/orten"
+  },
+  {
+    "id": "voc:B2:die Regie",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʁeˈʒiː",
+    "src": "de.wiktionary.org/wiki/Regie"
+  },
+  {
+    "id": "voc:B2:die Richterin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁɪçtəʁɪn",
+    "src": "de.wiktionary.org/wiki/Richterin"
+  },
+  {
+    "id": "voc:B2:sofern",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "zoˈfɛʁn",
+    "src": "de.wiktionary.org/wiki/sofern"
+  },
+  {
+    "id": "voc:B2:die Stärkung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃtɛʁkʊŋ",
+    "src": "de.wiktionary.org/wiki/Stärkung"
+  },
+  {
+    "id": "voc:B2:die Unterbringung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊntɐˌbʁɪŋʊŋ",
+    "src": "de.wiktionary.org/wiki/Unterbringung"
+  },
+  {
+    "id": "voc:B2:verdächtigen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈdɛçtɪɡn̩",
+    "src": "de.wiktionary.org/wiki/verdächtigen"
+  },
+  {
+    "id": "voc:B2:vereinzelt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈʔaɪ̯nt͡sl̩t",
+    "src": "de.wiktionary.org/wiki/vereinzelt"
+  },
+  {
+    "id": "voc:B2:die Verfolgung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈfɔlɡʊŋ",
+    "src": "de.wiktionary.org/wiki/Verfolgung"
+  },
+  {
+    "id": "voc:B2:vergleichsweise",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈɡlaɪ̯çsˌvaɪ̯zə",
+    "src": "de.wiktionary.org/wiki/vergleichsweise"
+  },
+  {
+    "id": "voc:A1:halb",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "halp",
+    "src": "de.wiktionary.org/wiki/halb"
+  },
+  {
+    "id": "voc:A2:beides",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈbaɪ̯dəs",
+    "src": "de.wiktionary.org/wiki/beides"
+  },
+  {
+    "id": "voc:A2:die Chefin",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃɛfɪn",
+    "src": "de.wiktionary.org/wiki/Chefin"
+  },
+  {
+    "id": "voc:A2:getrennt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡəˈtʁɛnt",
+    "src": "de.wiktionary.org/wiki/getrennt"
+  },
+  {
+    "id": "voc:A2:die Internetseite",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɪntɐnɛtˌzaɪ̯tə",
+    "src": "de.wiktionary.org/wiki/Internetseite"
+  },
+  {
+    "id": "voc:A2:kompliziert",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kɔmpliˈt͡siːɐ̯t",
+    "src": "de.wiktionary.org/wiki/kompliziert"
+  },
+  {
+    "id": "voc:A2:zweieinhalb",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈt͡svaɪ̯ʔaɪ̯nˈhalp",
+    "src": "de.wiktionary.org/wiki/zweieinhalb"
+  },
+  {
+    "id": "voc:B1:angesagt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈanɡəˌzaːkt",
+    "src": "de.wiktionary.org/wiki/angesagt"
+  },
+  {
+    "id": "voc:B1:das Endspiel",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɛntˌʃpiːl",
+    "src": "de.wiktionary.org/wiki/Endspiel"
+  },
+  {
+    "id": "voc:B1:die Entlassung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛntˈlasʊŋ",
+    "src": "de.wiktionary.org/wiki/Entlassung"
+  },
+  {
+    "id": "voc:B1:kommend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈkɔmənt",
+    "src": "de.wiktionary.org/wiki/kommend"
+  },
+  {
+    "id": "voc:B1:die Mitgliedschaft",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmɪtˌɡliːtʃaft",
+    "src": "de.wiktionary.org/wiki/Mitgliedschaft"
+  },
+  {
+    "id": "voc:B1:das Pixel",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈpɪksl̩",
+    "src": "de.wiktionary.org/wiki/Pixel"
+  },
+  {
+    "id": "voc:B1:problemlos",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pʁoˈbleːmloːs",
+    "src": "de.wiktionary.org/wiki/problemlos"
+  },
+  {
+    "id": "voc:B1:die Reserve",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ʁeˈzɛʁvə",
+    "src": "de.wiktionary.org/wiki/Reserve"
+  },
+  {
+    "id": "voc:B1:verringern",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈʁɪŋɐn",
+    "src": "de.wiktionary.org/wiki/verringern"
+  },
+  {
+    "id": "voc:B1:worauf",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "voˈʁaʊ̯f",
+    "src": "de.wiktionary.org/wiki/worauf"
+  },
+  {
+    "id": "voc:B2:abermals",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaːbɐmaːls",
+    "src": "de.wiktionary.org/wiki/abermals"
+  },
+  {
+    "id": "voc:B2:abschließend",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈapˌʃliːsn̩t",
+    "src": "de.wiktionary.org/wiki/abschließend"
+  },
+  {
+    "id": "voc:B2:die Ausrichtung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sˌʁɪçtʊŋ",
+    "src": "de.wiktionary.org/wiki/Ausrichtung"
+  },
+  {
+    "id": "voc:B2:die Ausschreibung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sˌʃʁaɪ̯bʊŋ",
+    "src": "de.wiktionary.org/wiki/Ausschreibung"
+  },
+  {
+    "id": "voc:B2:bemerkbar",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈmɛʁkbaːɐ̯",
+    "src": "de.wiktionary.org/wiki/bemerkbar"
+  },
+  {
+    "id": "voc:B2:die Effizienz",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛfiˈt͡si̯ɛnt͡s",
+    "src": "de.wiktionary.org/wiki/Effizienz"
+  },
+  {
+    "id": "voc:B2:einbringen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nˌbʁɪŋən",
+    "src": "de.wiktionary.org/wiki/einbringen"
+  },
+  {
+    "id": "voc:B2:die Errichtung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɛɐ̯ˈʁɪçtʊŋ",
+    "src": "de.wiktionary.org/wiki/Errichtung"
+  },
+  {
+    "id": "voc:B2:etabliert",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "etaˈbliːɐ̯t",
+    "src": "de.wiktionary.org/wiki/etabliert"
+  },
+  {
+    "id": "voc:B2:die Fertigstellung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfɛʁtɪçˌʃtɛlʊŋ",
+    "src": "de.wiktionary.org/wiki/Fertigstellung"
+  },
+  {
+    "id": "voc:B2:die Freilassung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfʁaɪ̯ˌlasʊŋ",
+    "src": "de.wiktionary.org/wiki/Freilassung"
+  },
+  {
+    "id": "voc:B2:der Gouverneur",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ɡuvɛʁˈnøːɐ̯",
+    "src": "de.wiktionary.org/wiki/Gouverneur"
+  },
+  {
+    "id": "voc:B2:die Haftstrafe",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈhaftˌʃtʁaːfə",
+    "src": "de.wiktionary.org/wiki/Haftstrafe"
+  },
+  {
+    "id": "voc:B2:das Ideal",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ideˈʔaːl",
+    "src": "de.wiktionary.org/wiki/Ideal"
+  },
+  {
+    "id": "voc:B2:die Kandidatur",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "kandidaˈtuːɐ̯",
+    "src": "de.wiktionary.org/wiki/Kandidatur"
+  },
+  {
+    "id": "voc:B2:lebensgefährlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈleːbn̩sɡəˌfɛːɐ̯lɪç",
+    "src": "de.wiktionary.org/wiki/lebensgefährlich"
+  },
+  {
+    "id": "voc:B2:mehrheitlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈmeːɐ̯haɪ̯tlɪç",
+    "src": "de.wiktionary.org/wiki/mehrheitlich"
+  },
+  {
+    "id": "voc:B2:die Modernisierung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "modɛʁniˈziːʁʊŋ",
+    "src": "de.wiktionary.org/wiki/Modernisierung"
+  },
+  {
+    "id": "voc:B2:sichtlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈzɪçtlɪç",
+    "src": "de.wiktionary.org/wiki/sichtlich"
+  },
+  {
+    "id": "voc:B2:skeptisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈskɛptɪʃ",
+    "src": "de.wiktionary.org/wiki/skeptisch"
+  },
+  {
+    "id": "voc:B2:stetig",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃteːtɪç",
+    "src": "de.wiktionary.org/wiki/stetig"
+  },
+  {
+    "id": "voc:B2:die Tribüne",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "tʁiˈbyːnə",
+    "src": "de.wiktionary.org/wiki/Tribüne"
+  },
+  {
+    "id": "voc:B2:das Versehen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "fɛɐ̯ˈzeːən",
+    "src": "de.wiktionary.org/wiki/Versehen"
+  },
+  {
+    "id": "voc:B2:vielerorts",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfiːlɐˈʔɔʁt͡s",
+    "src": "de.wiktionary.org/wiki/vielerorts"
+  },
+  {
+    "id": "voc:B2:vollkommen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfɔlkɔmən",
+    "src": "de.wiktionary.org/wiki/vollkommen"
+  },
+  {
+    "id": "voc:B1:besorgen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "bəˈzɔʁɡn̩",
+    "src": "de.wiktionary.org/wiki/besorgen"
+  }
+]

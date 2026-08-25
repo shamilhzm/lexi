@@ -89,7 +89,10 @@ alternative arrangement — which was ruled a thing to *teach* rather than desig
    Alongside it, the **near-twin example band** (86 cards above 0.90 similarity, 143
    with identical English) — same shape, same reason it is not gated: the band contains
    the corpus's best deliberate minimal pairs. Both are filed in BACKLOG.
-4. **IPA** — 274 cards absent (4.2%), and whether the present ones are right.
+4. ~~**IPA**~~ ✅ **274 absent → 8, by lookup, 2026-08-25** (`npm run authoring:ipa`).
+   99.9% present. The 8 left have no de.wiktionary entry — `Einbauschrank`,
+   `Skijacke`, `Snowboardfahren` and five like them, all compounds. **Whether the
+   *present* ones are right is still unmeasured** and is the open half of this item.
 5. ~~**Definitions**~~ ✅ **Effectively done — 8 word cards lack an English definition**
    (2026-08-25), not the 286 the backlog carried. Struck.
 6. **Noun plurals · 🟢 — 471 → 204, by lookup, 2026-08-25.** `npm run authoring:plurals`
