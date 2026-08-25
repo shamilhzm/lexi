@@ -64382,11 +64382,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:C1:Partizipialattribute",
+    "id": "gram:B2:Partizipialattribute",
     "term": "Partizipialattribute",
     "en": "Participles used as adjectives before a noun.",
     "pos": "grammar",
-    "level": "C1",
+    "level": "B2",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -64410,11 +64410,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:C1:Passiv-Ersatzformen",
+    "id": "gram:B2:Passiv-Ersatzformen",
     "term": "Passiv-Ersatzformen",
     "en": "sich lassen, sein + zu, -bar — passive meaning without werden.",
     "pos": "grammar",
-    "level": "C1",
+    "level": "B2",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -64452,11 +64452,11 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:C1:Subjektive Modalverben",
+    "id": "gram:B2:Subjektive Modalverben",
     "term": "Subjektive Modalverben",
     "en": "sollen/wollen/dürfte/müsste expressing hearsay, claims and probability.",
     "pos": "grammar",
-    "level": "C1",
+    "level": "B2",
     "gender": null,
     "plural": null,
     "ipa": null,
@@ -98052,20 +98052,6 @@
     "id": "gram:C2:Idiomatik: wörtlich vs. übertragen",
     "term": "Idiomatik: wörtlich vs. übertragen",
     "en": "An idiom means nothing like its parts — and it is fixed word for word.",
-    "pos": "grammar",
-    "level": "C2",
-    "gender": null,
-    "plural": null,
-    "ipa": null,
-    "syn": [],
-    "ant": [],
-    "field": "Grammar",
-    "kind": "grammar"
-  },
-  {
-    "id": "gram:C2:Passiversatzformen (sein + zu, sich lassen, -bar)",
-    "term": "Passiversatzformen (sein + zu, sich lassen, -bar)",
-    "en": "Three ways to say \"can be done\" without ever using werden.",
     "pos": "grammar",
     "level": "C2",
     "gender": null,

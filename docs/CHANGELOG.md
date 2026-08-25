@@ -11,6 +11,52 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — the three topics B2 was missing
+
+The other half of the *B2 is mostly revision* 🔴. Having merged the six duplicates, what
+was left was the real question: **B2 is thin in its own layer, and three topics it needs
+were filed a level up.**
+
+**`Passiv-Ersatzformen` was carded at C1 *and* C2**, under two different titles —
+`Passiv-Ersatzformen` and `Passiversatzformen (sein + zu, sich lassen, -bar)` — which is
+exactly why yesterday's identical-title sweep could not see it. Both teach *sich lassen*,
+*sein + zu* and *-bar*. Merged into the C1 keeper, taking the C2 copy's text, which was
+the better written of the two: it explains *why* formal German reaches for them rather
+than just listing them. The keeper gained sections showing each substitution as a pair —
+«kann gelöst werden» → «lässt sich lösen» — and the trap that *sein + zu* carries
+obligation as readily as possibility.
+
+**Then three moved to B2**: that point, `Partizipialattribute` and `Subjektive
+Modalverben`. Each is on the record in `corpus:relevel`'s `MOVES` with its reason —
+*sich lassen* is what B2 Schreiben is marked on; a learner who cannot parse a participle
+before a noun cannot read a B2 text whatever their vocabulary; and *er soll reich sein*
+is met as reading long before it is produced.
+
+**Moving down is strictly additive**, which is the same argument the four A1 moves of
+2026-08-06 rest on: the level filter is cumulative, so a C1 learner still meets
+everything they met before. Only the B2 learner gains — and B2 is the certificate that
+gates university admission.
+
+**B2 20 → 23 points; C1 12 → 9.** The nine left are a defensible C1 layer: Konjunktiv I,
+Funktionsverbgefüge, Nominalisierung, Konjunktiv II Vergangenheit, Genitivpräpositionen,
+indem/sodass/folglich, wo(r)-/wessen, Futur II, TeKaMoLo.
+
+`corpus:relevel` emits its id-map entries rather than writing them — deliberately, since
+`idmap.ts` is a permanent record and belongs under review. They were carried in through
+`carryIdMap`, which also **re-pointed the 16 entries from the merge an hour earlier**:
+those pointed at `gram:C1:Passiv-Ersatzformen`, and that card had since moved to B2.
+Hand-editing would have left them dangling.
+
+**Two more same-topic pairs found and filed rather than merged** — C1
+`Nominalisierung ↔ Verbalstil` against C2 `Nominalstil`, and the two C2 `Idiomatik`
+points. Neither is the clear-cut "same rule restated" case the six were: the first pair
+is production against comprehension, and a case can be made either way. That is a
+decision, not a script.
+
+133 points · 6,217 exercises · 1,000 tests · 0 lint errors · `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-25 — n-Deklination was taught three times
 
 BACKLOG's oldest 🔴 says *B2 is mostly revision of B1*, and it has sat there since

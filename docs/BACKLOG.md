@@ -464,6 +464,15 @@ kinds (choose 404 · type 147 · error 106 · mc 93 · order 55).*
 > rule-length guard doing its job. **140 → 134 points; no title now appears at two
 > levels.**
 >
+> ✅ **The three B2 was missing are now at B2** (2026-08-25). `Passiv-Ersatzformen`
+> — which was carded at **C1 *and* C2** under two different titles, so the
+> identical-title sweep missed it, merged first — plus `Partizipialattribute` and
+> `Subjektive Modalverben`. Moving *down* is strictly additive in exposure: the
+> level filter is cumulative, so a C1 learner still meets everything they met
+> before and only the B2 learner gains. **B2 20 → 23 points; C1 12 → 9**, and the
+> nine left are a defensible C1 layer — Konjunktiv I, Funktionsverbgefüge,
+> Nominalisierung, Konjunktiv II Vergangenheit, Futur II, TeKaMoLo.
+>
 > **The other half is a judgement and stays open.** B2 still has 20 points of which
 > roughly half spiral a lower level — `Passiv`, `Adjektivdeklination`, `Relativsätze`,
 > `Plusquamperfekt`, `Konjunktiv II`. That is **not** automatically wrong: a spiral
@@ -1955,3 +1964,23 @@ nothing else.*
 - ~~**`silber` and `gold` are mis-posed · XS.**~~ ✅ **Re-termed to `silbern` and `golden`**, which is what German's adjectives are. Carded as adjectives, but German's are
   *silbern* and *golden*; every example uses the noun because the noun is what the word
   is. Needs a re-pos or re-term tool — see the three undefendable cards above, same gap.
+
+---
+
+## Two more same-topic pairs, filed rather than merged — 2026-08-25
+
+*Both are the shape that hid `Passiversatzformen`: one topic under two titles, so the
+identical-title sweep cannot see them. Neither is the clear-cut "same rule restated"
+case the six merged ones were, which is why they are a decision and not a script.*
+
+- **C1 `Nominalisierung ↔ Verbalstil` vs C2 `Nominalstil` · XS.** The C1 point teaches
+  the *transformation* and its mechanics — weil → wegen + G, obwohl → trotz + G, wenn →
+  bei + D — which is a production skill. The C2 one teaches *why* formal German reaches
+  for a noun and how to unpack one when reading. Two angles on one phenomenon, and a
+  case can be made either way. **Do:** decide whether that is one point with two
+  sections or two points.
+- **C2 `Idiomatik & feste Wendungen` vs C2 `Idiomatik: wörtlich vs. übertragen` · XS.**
+  Same level, 31 exercises between them. The first is a list of idioms to learn; the
+  second is the principle that idioms are non-compositional and frozen. The principle
+  reads like the introduction the list should have. **Do:** likely merge, with the
+  principle becoming the keeper's first section.

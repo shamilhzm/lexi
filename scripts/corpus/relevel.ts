@@ -38,6 +38,22 @@ const MOVES: { title: string; from: CEFR; to: CEFR; why: string }[] = [
   { title: 'Trennbare Verben', from: 'A2', to: 'A1', why: 'aufstehen, einkaufen, ankommen are A1 vocabulary — the split is met before it is named' },
   { title: 'Imperativ', from: 'A2', to: 'A1', why: 'Start Deutsch 1 examines Mach! / Machen Sie!' },
   { title: 'Perfekt', from: 'A2', to: 'A1', why: 'the spoken past is A1 in Netzwerk and Menschen, and Goethe A1 tests it; the point stays at haben/sein + participle' },
+  // ---- 2026-08-25: the three B2 was missing --------------------------------
+  //
+  // BACKLOG's 🔴 *B2 is mostly revision of B1* has two halves. The duplicate half
+  // is fixed (six identical-title points merged); this is the other half — B2 is
+  // thin in *real* layers, and three topics it needs were filed a level up.
+  //
+  // Moving **down** is strictly additive in exposure, which is the same argument
+  // the four A1 moves above rest on: the level filter is cumulative (A1..placement),
+  // so a C1 learner still meets everything they met before. Only the B2 learner
+  // gains — and B2 is the certificate that gates university admission.
+  { title: 'Passiv-Ersatzformen', from: 'C1', to: 'B2',
+    why: 'sich lassen / sein + zu / -bar is a Sicher! B2 topic and is exactly what B2 Schreiben is marked on — register variety without the heavy modal passive. It was filed at C1 *and* C2 until the two were merged the same day' },
+  { title: 'Partizipialattribute', from: 'C1', to: 'B2',
+    why: 'B2 reading is full of them — «in Zöpfchen geflochten», «selbstgebackene Kekse», «die gestrichene Strecke». A learner who cannot parse a participle before a noun cannot read a B2 text, whatever their vocabulary' },
+  { title: 'Subjektive Modalverben', from: 'C1', to: 'B2',
+    why: 'Er soll reich sein / sie dürfte zu Hause sein — hearsay and probability. Sicher! B2 teaches it and B2 Lesen tests recognising it; producing it is C1, but the point is met first as reading' },
 ];
 
 // `grammar-sections.ts` hardcodes this path too; PATHS has no entry for it.

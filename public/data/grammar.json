@@ -74296,204 +74296,412 @@
           "explain": "A loanword beginning with m-, so in- assimilates to im-."
         }
       ]
-    }
-  ],
-  "C1": [
+    },
     {
-      "title": "Konjunktiv I (indirekte Rede)",
-      "summary": "Reported speech in formal/written German.",
-      "rule": "Subjunctive I reports a statement neutrally: er sei, er habe, er komme. If K I looks like the indicative, switch to K II. e.g. Er sagte, er sei krank.",
+      "title": "Passiv-Ersatzformen",
+      "summary": "Three ways to say \"can be done\" without ever using werden.",
+      "rule": "Formal German usually avoids a modal passive. Instead of «das kann gemacht werden» it writes «das ist zu machen», «das lässt sich machen» or «das ist machbar» — and sein + zu can carry obligation as well as possibility, which only the context decides.",
       "exercises": [
         {
-          "kind": "choose",
-          "prompt": "Er sagt, er ___ keine Zeit.",
+          "kind": "mc",
+          "prompt": "„Das Problem kann gelöst werden\" =",
           "options": [
-            "hat",
-            "habe",
-            "hätte"
-          ],
-          "answer": 1,
-          "explain": "indirekte Rede → habe (K I)."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie meinte, sie ___ morgen.",
-          "options": [
-            "kommt",
-            "komme",
-            "käme"
-          ],
-          "answer": 1,
-          "explain": "K I → komme."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Minister erklärte, die Lage ___ ernst.",
-          "options": [
-            "sei",
-            "ist",
-            "wäre"
+            "Das Problem lässt sich lösen.",
+            "Das Problem lässt lösen.",
+            "Das Problem ist lösen."
           ],
           "answer": 0,
-          "explain": "sein → sei (K I is distinct here)."
+          "explain": "sich lassen + Infinitiv."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Antrag ist bis Freitag ___.",
+          "options": [
+            "einzureichen",
+            "eingereicht",
+            "einreichen"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv = muss/kann."
         },
         {
           "kind": "type",
-          "prompt": "Sie behauptet, sie ___ das Buch gelesen. (haben, K I)",
+          "prompt": "„kann getrunken werden\" → ein Wort: ___",
           "accept": [
-            "habe"
+            "trinkbar"
           ],
-          "explain": "Vergangenheit der indirekten Rede: habe + Partizip II."
+          "explain": "-bar adjective = passive possibility."
         },
         {
           "kind": "mc",
-          "prompt": "K I = indicative — what do you use? „Sie sagten, sie ___ Zeit.\"",
+          "prompt": "„Die Schrift ist kaum zu lesen\" means:",
           "options": [
-            "hätten (K II)",
-            "haben (K I)",
-            "hatten (Präteritum)"
+            "Sie kann kaum gelesen werden.",
+            "Sie muss kaum gelesen werden.",
+            "Man liest sie selten."
           ],
           "answer": 0,
-          "explain": "Plural „haben\" looks indicative → switch to K II hätten."
+          "explain": "sein + zu = possibility here."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Frage ___ sich nicht leicht beantworten.",
+          "options": [
+            "lässt",
+            "kann",
+            "wird"
+          ],
+          "answer": 0,
+          "explain": "sich lassen construction."
         },
         {
           "kind": "error",
-          "prompt": "Der Sprecher sagte, die Regierung hat alles geprüft.",
-          "answer": 5,
-          "fix": "Der Sprecher sagte, die Regierung habe alles geprüft.",
-          "explain": "Reported speech in formal register → habe."
+          "prompt": "Der Text ist bis morgen zu übersetzt.",
+          "answer": 6,
+          "fix": "Der Text ist bis morgen zu übersetzen.",
+          "explain": "sein + zu + INFINITIV (übersetzen)."
         },
         {
           "kind": "choose",
-          "prompt": "Er sagt, er ___ krank.",
+          "prompt": "Das Problem ___ sich leicht lösen.",
           "options": [
-            "sei",
-            "ist",
-            "wäre"
-          ],
-          "answer": 0,
-          "explain": "Indirect speech takes Konjunktiv I: sein → er sei. „ist“ would be direct speech; „wäre“ is Konjunktiv II, kept in reserve for when Konjunktiv I looks like the indicative."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie behauptet, sie ___ das Buch schon gelesen.",
-          "options": [
-            "habe",
-            "hat",
-            "hätte"
-          ],
-          "answer": 0,
-          "explain": "The perfect in reported speech uses the Konjunktiv I of haben: sie habe … gelesen."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Minister erklärte, die Lage ___ sich verbessert.",
-          "options": [
-            "habe",
-            "hat",
-            "haben"
-          ],
-          "answer": 0,
-          "explain": "Third person singular, so Konjunktiv I of haben is „habe“ — unchanged by the past tense of the reporting verb."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie sagten, sie ___ keine Zeit.",
-          "options": [
-            "hätten",
-            "haben",
-            "habe"
-          ],
-          "answer": 0,
-          "explain": "Konjunktiv I of haben in the third person plural is „haben“ — identical to the indicative, so it carries no signal. That is exactly when German switches to Konjunktiv II: hätten."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er meint, er ___ morgen.",
-          "options": [
-            "komme",
-            "kommt",
-            "käme"
-          ],
-          "answer": 0,
-          "explain": "kommen → er komme. Regular Konjunktiv I: the stem plus -e."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Zeugin gab an, sie ___ nichts gesehen.",
-          "options": [
-            "habe",
-            "hat",
-            "hatte"
-          ],
-          "answer": 0,
-          "explain": "Reported perfect again: habe + Partizip II. „hatte“ is the indicative pluperfect and reports nothing."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie schrieb, sie ___ bald zurückkommen.",
-          "options": [
-            "werde",
+            "lässt",
             "wird",
-            "würde"
+            "ist"
           ],
           "answer": 0,
-          "explain": "The future in reported speech: Konjunktiv I of werden, er/sie werde."
+          "explain": "sich lassen + Infinitiv = kann gelöst werden. One of the three standard replacements."
         },
         {
           "kind": "choose",
-          "prompt": "Der Sprecher betonte, man ___ die Frist einhalten.",
+          "prompt": "Der Text ist gut ___.",
           "options": [
-            "müsse",
-            "muss",
-            "müsste"
+            "lesbar",
+            "zu lesbar",
+            "gelesen"
           ],
           "answer": 0,
-          "explain": "Modal verbs form Konjunktiv I regularly: müssen → er/man müsse."
+          "explain": "The -bar adjective carries the passive-modal meaning: kann gelesen werden."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Die Rechnung ist bis Freitag zu bezahlen“ bedeutet:",
+          "options": [
+            "Sie muss bis Freitag bezahlt werden.",
+            "Sie kann bis Freitag bezahlt werden.",
+            "Sie ist schon bezahlt."
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv is usually obligation; context decides between müssen and können."
         },
         {
           "kind": "choose",
-          "prompt": "Sie sagt, die Kinder ___ schon zu Hause.",
+          "prompt": "Dieser Fehler ___ sich kaum vermeiden.",
           "options": [
-            "seien",
-            "sind",
-            "wären"
-          ],
-          "answer": 0,
-          "explain": "sein is the one verb whose Konjunktiv I is distinct in every person: sie seien. No fallback to Konjunktiv II is needed."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er fragte, ob ich Zeit ___.",
-          "options": [
-            "hätte",
-            "habe",
-            "haben"
-          ],
-          "answer": 0,
-          "explain": "First person singular Konjunktiv I of haben is „habe“, identical to the indicative — so Konjunktiv II takes over: hätte."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Zeitung meldet, der Vertrag ___ unterzeichnet worden.",
-          "options": [
-            "sei",
-            "ist",
-            "wäre"
-          ],
-          "answer": 0,
-          "explain": "Passive in reported speech: sei + Partizip II + worden."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er behauptet, er ___ nichts davon gewusst.",
-          "options": [
-            "habe",
-            "hätte",
+            "lässt",
+            "wird",
             "hat"
           ],
           "answer": 0,
-          "explain": "Third person singular has a distinct Konjunktiv I („habe“), so there is no reason to reach for Konjunktiv II."
+          "explain": "sich lassen again — the most idiomatic of the replacements in speech."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Tür ___ sich nicht öffnen.",
+          "options": [
+            "lässt",
+            "ist",
+            "wird"
+          ],
+          "answer": 0,
+          "explain": "sich lassen + Infinitiv: the door cannot be opened. Possibility, without ever saying werden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Antrag ist bis Freitag ___ stellen.",
+          "options": [
+            "zu",
+            "zum",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv carries obligation: the application must be submitted by Friday."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Aufgabe ist nicht ___.",
+          "options": [
+            "lösbar",
+            "lösend",
+            "gelöst"
+          ],
+          "answer": 0,
+          "explain": "-bar on a transitive verb means „can be …ed“. „gelöst“ would say it is finished, not that it is possible."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Hier ___ man nicht rauchen.",
+          "options": [
+            "darf",
+            "ist",
+            "lässt"
+          ],
+          "answer": 0,
+          "explain": "man + modal is the fourth substitute, and the commonest in speech: „hier darf man nicht rauchen“ for „hier darf nicht geraucht werden“."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Regel ist leicht ___ merken.",
+          "options": [
+            "zu",
+            "zum",
+            "am"
+          ],
+          "answer": 0,
+          "explain": "sein + zu again — here possibility rather than obligation. Context decides which."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Schaden ___ sich reparieren.",
+          "options": [
+            "lässt",
+            "ist",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "sich lassen + Infinitiv."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Das Problem lässt sich lösen“ heißt:",
+          "options": [
+            "Das Problem kann gelöst werden.",
+            "Das Problem wurde gelöst.",
+            "Das Problem löst sich selbst."
+          ],
+          "answer": 0,
+          "explain": "sich lassen is possibility. The third reading — that it solves itself — is what „sich lösen“ alone would mean, without lassen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum vermeidet gutes Deutsch oft das werden-Passiv?",
+          "options": [
+            "die Ersatzformen sind kürzer und weniger behördlich",
+            "das Passiv ist grammatisch falsch",
+            "die Ersatzformen sind höflicher"
+          ],
+          "answer": 0,
+          "explain": "A register choice. All four constructions are correct; the substitutes simply sound less like a form letter."
+        },
+        {
+          "kind": "choose",
+          "prompt": "„Das Problem kann gelöst werden.\" → ",
+          "options": [
+            "Das Problem lässt sich lösen.",
+            "Das Problem lässt sich zu lösen.",
+            "Das Problem ist sich lösen."
+          ],
+          "answer": 0,
+          "explain": "sich lassen + infinitive."
+        },
+        {
+          "kind": "choose",
+          "prompt": "„Die Rechnung muss bis Freitag bezahlt werden.\" → ",
+          "options": [
+            "Die Rechnung ist bis Freitag zu bezahlen.",
+            "Die Rechnung ist bis Freitag bezahlbar.",
+            "Die Rechnung lässt sich bis Freitag bezahlen."
+          ],
+          "answer": 0,
+          "explain": "Obligation → sein + zu. bezahlbar would mean \"affordable\"."
+        },
+        {
+          "kind": "type",
+          "prompt": "„Das kann man machen.\" mit -bar: Das ist ___.",
+          "accept": [
+            "machbar"
+          ],
+          "explain": "machen → machbar."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Which does NOT express possibility?",
+          "options": [
+            "Der Antrag ist zu unterschreiben.",
+            "Der Antrag lässt sich unterschreiben.",
+            "Der Antrag ist unterschreibbar."
+          ],
+          "answer": 0,
+          "explain": "Here sein + zu reads as obligation: it must be signed."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Why does formal German prefer these to \"kann … werden\"?",
+          "options": [
+            "they are shorter and more idiomatic in writing",
+            "the passive is ungrammatical",
+            "they mean something different"
+          ],
+          "answer": 0,
+          "explain": "The full modal passive is correct but heavy."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Problem ___ sich lösen.",
+          "options": [
+            "lässt",
+            "lasst",
+            "ließ"
+          ],
+          "answer": 0,
+          "explain": "sich lassen + Infinitiv means it can be done: the problem can be solved."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Aufgabe ist bis morgen ___ erledigen.",
+          "options": [
+            "zu",
+            "zum",
+            "am"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv: it must (or can) be done by tomorrow."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Das ist zu erledigen“ bedeutet:",
+          "options": [
+            "Das muss erledigt werden.",
+            "Das wird gerade erledigt.",
+            "Das ist schon erledigt."
+          ],
+          "answer": 0,
+          "explain": "sein + zu carries necessity or possibility, not a completed action."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Text ist leicht ___.",
+          "options": [
+            "verständlich",
+            "verstehen",
+            "verstanden"
+          ],
+          "answer": 0,
+          "explain": "The -lich / -bar adjectives are the third passive substitute: leicht verständlich = kann leicht verstanden werden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Gerät ist leicht ___.",
+          "options": [
+            "bedienbar",
+            "bedienend",
+            "bedient"
+          ],
+          "answer": 0,
+          "explain": "-bar on a transitive verb means „can be …ed“: bedienbar."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Fehler lässt sich ___.",
+          "options": [
+            "beheben",
+            "behoben",
+            "behebt"
+          ],
+          "answer": 0,
+          "explain": "sich lassen is followed by a bare infinitive."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Diese Frage ist schwer ___ beantworten.",
+          "options": [
+            "zu",
+            "zum",
+            "für"
+          ],
+          "answer": 0,
+          "explain": "sein + zu + Infinitiv again, here expressing difficulty rather than obligation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Termin ___ sich nicht verschieben.",
+          "options": [
+            "lässt",
+            "ist",
+            "wird"
+          ],
+          "answer": 0,
+          "explain": "The negated sich-lassen form: the appointment cannot be moved."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Form ist KEINE Passiversatzform?",
+          "options": [
+            "werden + Partizip II",
+            "sich lassen + Infinitiv",
+            "sein + zu + Infinitiv"
+          ],
+          "answer": 0,
+          "explain": "werden + Partizip II *is* the passive. The other two are the ways German avoids it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Warum benutzt man Passiversatzformen?",
+          "options": [
+            "sie klingen leichter und weniger behördlich als das Passiv",
+            "sie sind grammatisch korrekter",
+            "sie ändern die Bedeutung"
+          ],
+          "answer": 0,
+          "explain": "A stylistic choice, not a grammatical one — which is exactly why they belong at C2."
+        }
+      ],
+      "sections": [
+        {
+          "label": "sich lassen + Infinitiv",
+          "body": "The commonest of the three, and the most neutral in register.",
+          "pairs": [
+            {
+              "from": "kann gelöst werden",
+              "to": "lässt sich lösen"
+            },
+            {
+              "from": "kann nicht erklärt werden",
+              "to": "lässt sich nicht erklären"
+            }
+          ]
+        },
+        {
+          "label": "sein + zu + Infinitiv",
+          "body": "Ambiguous by design: possibility or obligation, and only the context says which.",
+          "pairs": [
+            {
+              "from": "kann erledigt werden",
+              "to": "ist zu erledigen"
+            },
+            {
+              "from": "muss beachtet werden",
+              "to": "ist zu beachten"
+            }
+          ]
+        },
+        {
+          "label": "-bar",
+          "body": "An adjective, so it declines. Only some verbs take it — there is no rule, it is learned per word.",
+          "pairs": [
+            {
+              "from": "kann gelöst werden",
+              "to": "lösbar"
+            },
+            {
+              "from": "kann gemacht werden",
+              "to": "machbar"
+            },
+            {
+              "from": "kann getragen werden",
+              "to": "tragbar"
+            }
+          ]
         }
       ]
     },
@@ -74692,6 +74900,404 @@
           ],
           "answer": 0,
           "explain": "„zu“ plus Partizip I is the Gerundivum: it means something that must or can be done — the documents to be checked."
+        }
+      ]
+    },
+    {
+      "title": "Subjektive Modalverben",
+      "summary": "sollen/wollen/dürfte/müsste expressing hearsay, claims and probability.",
+      "rule": "Er soll reich sein (people say). Er will alles gesehen haben (he claims). Sie dürfte zu Hause sein (probably). Das muss ein Irrtum sein (certainly). Past: soll gewesen sein.",
+      "exercises": [
+        {
+          "kind": "mc",
+          "prompt": "„Man sagt, er ist sehr reich\" with a modal:",
+          "options": [
+            "Er soll sehr reich sein.",
+            "Er will sehr reich sein.",
+            "Er muss sehr reich sein."
+          ],
+          "answer": 0,
+          "explain": "hearsay → sollen."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Sie behauptet, sie hat nichts gehört\" with a modal:",
+          "options": [
+            "Sie will nichts gehört haben.",
+            "Sie soll nichts gehört haben.",
+            "Sie darf nichts gehört haben."
+          ],
+          "answer": 0,
+          "explain": "own claim → wollen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Es ist 23 Uhr — sie ___ schon schlafen. (probably)",
+          "options": [
+            "dürfte",
+            "will",
+            "soll"
+          ],
+          "answer": 0,
+          "explain": "probability → dürfte."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ ein Missverständnis sein — ich bin sicher.",
+          "options": [
+            "muss",
+            "soll",
+            "mag"
+          ],
+          "answer": 0,
+          "explain": "logical certainty → müssen."
+        },
+        {
+          "kind": "type",
+          "prompt": "Der Zeuge ___ den Unfall gesehen haben. (hearsay)",
+          "accept": [
+            "soll"
+          ],
+          "explain": "reported claim → soll + Infinitiv Perfekt."
+        },
+        {
+          "kind": "error",
+          "prompt": "Er soll gestern krank gewesen ist.",
+          "answer": 5,
+          "fix": "Er soll gestern krank gewesen sein.",
+          "explain": "Modal + Infinitiv Perfekt: gewesen sein."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er soll sehr reich sein.“ bedeutet:",
+          "options": [
+            "Man sagt, dass er reich ist.",
+            "Er hat den Auftrag, reich zu sein.",
+            "Er möchte reich sein."
+          ],
+          "answer": 0,
+          "explain": "Subjective sollen reports hearsay — what people say, without the speaker vouching for it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Sie will das nicht gewusst haben.“ bedeutet:",
+          "options": [
+            "Sie behauptet, es nicht gewusst zu haben.",
+            "Sie wollte es nicht wissen.",
+            "Sie darf es nicht wissen."
+          ],
+          "answer": 0,
+          "explain": "Subjective wollen = the subject *claims* it, and the speaker is signalling doubt."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ krank sein — er sieht wirklich blass aus.",
+          "options": [
+            "dürfte",
+            "will",
+            "soll"
+          ],
+          "answer": 0,
+          "explain": "dürfte + Infinitiv is a careful assumption: “he is probably ill”."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ stimmen, aber ich bin mir nicht sicher.",
+          "options": [
+            "mag",
+            "will",
+            "soll"
+          ],
+          "answer": 0,
+          "explain": "mögen as a subjective modal concedes possibility: “that may well be true”."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ sehr reich sein. (Man sagt das.)",
+          "options": [
+            "soll",
+            "will",
+            "muss"
+          ],
+          "answer": 0,
+          "explain": "sollen reports hearsay: people say he is rich. The speaker takes no position."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ das Buch selbst geschrieben haben. (Sie behauptet es.)",
+          "options": [
+            "will",
+            "soll",
+            "darf"
+          ],
+          "answer": 0,
+          "explain": "wollen reports the *subject's own* claim — and quietly signals the speaker doubts it."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ___ stimmen. (Ich bin ziemlich sicher.)",
+          "options": [
+            "dürfte",
+            "darf",
+            "will"
+          ],
+          "answer": 0,
+          "explain": "dürfte is a confident estimate, not permission. Konjunktiv II is what makes it subjective."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ krank sein — er sieht schrecklich aus.",
+          "options": [
+            "muss",
+            "will",
+            "soll"
+          ],
+          "answer": 0,
+          "explain": "müssen is the strongest inference: the evidence leaves no other reading."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ schon zu Hause sein. (Möglich, aber unsicher.)",
+          "options": [
+            "könnte",
+            "kann",
+            "will"
+          ],
+          "answer": 0,
+          "explain": "könnte is the weakest of the certainty scale — possible, no more."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Minister ___ zurückgetreten sein. (Laut Zeitung.)",
+          "options": [
+            "soll",
+            "will",
+            "müsste"
+          ],
+          "answer": 0,
+          "explain": "Reported by someone else: sollen. This is the everyday journalistic use."
+        },
+        {
+          "kind": "mc",
+          "prompt": "„Er will nichts gewusst haben“ bedeutet:",
+          "options": [
+            "Er behauptet, nichts gewusst zu haben.",
+            "Er wollte es nicht wissen.",
+            "Man sagt, er habe nichts gewusst."
+          ],
+          "answer": 0,
+          "explain": "The subject's own assertion. The third option would be „Er soll nichts gewusst haben“ — the same sentence with a different source."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welches Modalverb drückt Hörensagen aus?",
+          "options": [
+            "sollen",
+            "wollen",
+            "können"
+          ],
+          "answer": 0,
+          "explain": "sollen = someone else says so; wollen = the subject says so. Getting these two the wrong way round is the classic C1 error."
+        }
+      ]
+    }
+  ],
+  "C1": [
+    {
+      "title": "Konjunktiv I (indirekte Rede)",
+      "summary": "Reported speech in formal/written German.",
+      "rule": "Subjunctive I reports a statement neutrally: er sei, er habe, er komme. If K I looks like the indicative, switch to K II. e.g. Er sagte, er sei krank.",
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Er sagt, er ___ keine Zeit.",
+          "options": [
+            "hat",
+            "habe",
+            "hätte"
+          ],
+          "answer": 1,
+          "explain": "indirekte Rede → habe (K I)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie meinte, sie ___ morgen.",
+          "options": [
+            "kommt",
+            "komme",
+            "käme"
+          ],
+          "answer": 1,
+          "explain": "K I → komme."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Minister erklärte, die Lage ___ ernst.",
+          "options": [
+            "sei",
+            "ist",
+            "wäre"
+          ],
+          "answer": 0,
+          "explain": "sein → sei (K I is distinct here)."
+        },
+        {
+          "kind": "type",
+          "prompt": "Sie behauptet, sie ___ das Buch gelesen. (haben, K I)",
+          "accept": [
+            "habe"
+          ],
+          "explain": "Vergangenheit der indirekten Rede: habe + Partizip II."
+        },
+        {
+          "kind": "mc",
+          "prompt": "K I = indicative — what do you use? „Sie sagten, sie ___ Zeit.\"",
+          "options": [
+            "hätten (K II)",
+            "haben (K I)",
+            "hatten (Präteritum)"
+          ],
+          "answer": 0,
+          "explain": "Plural „haben\" looks indicative → switch to K II hätten."
+        },
+        {
+          "kind": "error",
+          "prompt": "Der Sprecher sagte, die Regierung hat alles geprüft.",
+          "answer": 5,
+          "fix": "Der Sprecher sagte, die Regierung habe alles geprüft.",
+          "explain": "Reported speech in formal register → habe."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er sagt, er ___ krank.",
+          "options": [
+            "sei",
+            "ist",
+            "wäre"
+          ],
+          "answer": 0,
+          "explain": "Indirect speech takes Konjunktiv I: sein → er sei. „ist“ would be direct speech; „wäre“ is Konjunktiv II, kept in reserve for when Konjunktiv I looks like the indicative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie behauptet, sie ___ das Buch schon gelesen.",
+          "options": [
+            "habe",
+            "hat",
+            "hätte"
+          ],
+          "answer": 0,
+          "explain": "The perfect in reported speech uses the Konjunktiv I of haben: sie habe … gelesen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Minister erklärte, die Lage ___ sich verbessert.",
+          "options": [
+            "habe",
+            "hat",
+            "haben"
+          ],
+          "answer": 0,
+          "explain": "Third person singular, so Konjunktiv I of haben is „habe“ — unchanged by the past tense of the reporting verb."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie sagten, sie ___ keine Zeit.",
+          "options": [
+            "hätten",
+            "haben",
+            "habe"
+          ],
+          "answer": 0,
+          "explain": "Konjunktiv I of haben in the third person plural is „haben“ — identical to the indicative, so it carries no signal. That is exactly when German switches to Konjunktiv II: hätten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er meint, er ___ morgen.",
+          "options": [
+            "komme",
+            "kommt",
+            "käme"
+          ],
+          "answer": 0,
+          "explain": "kommen → er komme. Regular Konjunktiv I: the stem plus -e."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Zeugin gab an, sie ___ nichts gesehen.",
+          "options": [
+            "habe",
+            "hat",
+            "hatte"
+          ],
+          "answer": 0,
+          "explain": "Reported perfect again: habe + Partizip II. „hatte“ is the indicative pluperfect and reports nothing."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie schrieb, sie ___ bald zurückkommen.",
+          "options": [
+            "werde",
+            "wird",
+            "würde"
+          ],
+          "answer": 0,
+          "explain": "The future in reported speech: Konjunktiv I of werden, er/sie werde."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Sprecher betonte, man ___ die Frist einhalten.",
+          "options": [
+            "müsse",
+            "muss",
+            "müsste"
+          ],
+          "answer": 0,
+          "explain": "Modal verbs form Konjunktiv I regularly: müssen → er/man müsse."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie sagt, die Kinder ___ schon zu Hause.",
+          "options": [
+            "seien",
+            "sind",
+            "wären"
+          ],
+          "answer": 0,
+          "explain": "sein is the one verb whose Konjunktiv I is distinct in every person: sie seien. No fallback to Konjunktiv II is needed."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er fragte, ob ich Zeit ___.",
+          "options": [
+            "hätte",
+            "habe",
+            "haben"
+          ],
+          "answer": 0,
+          "explain": "First person singular Konjunktiv I of haben is „habe“, identical to the indicative — so Konjunktiv II takes over: hätte."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Zeitung meldet, der Vertrag ___ unterzeichnet worden.",
+          "options": [
+            "sei",
+            "ist",
+            "wäre"
+          ],
+          "answer": 0,
+          "explain": "Passive in reported speech: sei + Partizip II + worden."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er behauptet, er ___ nichts davon gewusst.",
+          "options": [
+            "habe",
+            "hätte",
+            "hat"
+          ],
+          "answer": 0,
+          "explain": "Third person singular has a distinct Konjunktiv I („habe“), so there is no reason to reach for Konjunktiv II."
         }
       ]
     },
@@ -74945,204 +75551,6 @@
         },
         {
           "body": "Never machen. It is the default in English (\"make a decision\") and it is wrong in nearly every German pairing here."
-        }
-      ]
-    },
-    {
-      "title": "Passiv-Ersatzformen",
-      "summary": "sich lassen, sein + zu, -bar — passive meaning without werden.",
-      "rule": "Das Problem lässt sich lösen = kann gelöst werden. Die Aufgabe ist zu erledigen = muss erledigt werden. lösbar = kann gelöst werden. Essential for C1 Schreiben register variety.",
-      "exercises": [
-        {
-          "kind": "mc",
-          "prompt": "„Das Problem kann gelöst werden\" =",
-          "options": [
-            "Das Problem lässt sich lösen.",
-            "Das Problem lässt lösen.",
-            "Das Problem ist lösen."
-          ],
-          "answer": 0,
-          "explain": "sich lassen + Infinitiv."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Antrag ist bis Freitag ___.",
-          "options": [
-            "einzureichen",
-            "eingereicht",
-            "einreichen"
-          ],
-          "answer": 0,
-          "explain": "sein + zu + Infinitiv = muss/kann."
-        },
-        {
-          "kind": "type",
-          "prompt": "„kann getrunken werden\" → ein Wort: ___",
-          "accept": [
-            "trinkbar"
-          ],
-          "explain": "-bar adjective = passive possibility."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Die Schrift ist kaum zu lesen\" means:",
-          "options": [
-            "Sie kann kaum gelesen werden.",
-            "Sie muss kaum gelesen werden.",
-            "Man liest sie selten."
-          ],
-          "answer": 0,
-          "explain": "sein + zu = possibility here."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Diese Frage ___ sich nicht leicht beantworten.",
-          "options": [
-            "lässt",
-            "kann",
-            "wird"
-          ],
-          "answer": 0,
-          "explain": "sich lassen construction."
-        },
-        {
-          "kind": "error",
-          "prompt": "Der Text ist bis morgen zu übersetzt.",
-          "answer": 6,
-          "fix": "Der Text ist bis morgen zu übersetzen.",
-          "explain": "sein + zu + INFINITIV (übersetzen)."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Problem ___ sich leicht lösen.",
-          "options": [
-            "lässt",
-            "wird",
-            "ist"
-          ],
-          "answer": 0,
-          "explain": "sich lassen + Infinitiv = kann gelöst werden. One of the three standard replacements."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Text ist gut ___.",
-          "options": [
-            "lesbar",
-            "zu lesbar",
-            "gelesen"
-          ],
-          "answer": 0,
-          "explain": "The -bar adjective carries the passive-modal meaning: kann gelesen werden."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Die Rechnung ist bis Freitag zu bezahlen“ bedeutet:",
-          "options": [
-            "Sie muss bis Freitag bezahlt werden.",
-            "Sie kann bis Freitag bezahlt werden.",
-            "Sie ist schon bezahlt."
-          ],
-          "answer": 0,
-          "explain": "sein + zu + Infinitiv is usually obligation; context decides between müssen and können."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Dieser Fehler ___ sich kaum vermeiden.",
-          "options": [
-            "lässt",
-            "wird",
-            "hat"
-          ],
-          "answer": 0,
-          "explain": "sich lassen again — the most idiomatic of the replacements in speech."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Diese Tür ___ sich nicht öffnen.",
-          "options": [
-            "lässt",
-            "ist",
-            "wird"
-          ],
-          "answer": 0,
-          "explain": "sich lassen + Infinitiv: the door cannot be opened. Possibility, without ever saying werden."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Antrag ist bis Freitag ___ stellen.",
-          "options": [
-            "zu",
-            "zum",
-            "für"
-          ],
-          "answer": 0,
-          "explain": "sein + zu + Infinitiv carries obligation: the application must be submitted by Friday."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Diese Aufgabe ist nicht ___.",
-          "options": [
-            "lösbar",
-            "lösend",
-            "gelöst"
-          ],
-          "answer": 0,
-          "explain": "-bar on a transitive verb means „can be …ed“. „gelöst“ would say it is finished, not that it is possible."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Hier ___ man nicht rauchen.",
-          "options": [
-            "darf",
-            "ist",
-            "lässt"
-          ],
-          "answer": 0,
-          "explain": "man + modal is the fourth substitute, and the commonest in speech: „hier darf man nicht rauchen“ for „hier darf nicht geraucht werden“."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Regel ist leicht ___ merken.",
-          "options": [
-            "zu",
-            "zum",
-            "am"
-          ],
-          "answer": 0,
-          "explain": "sein + zu again — here possibility rather than obligation. Context decides which."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Schaden ___ sich reparieren.",
-          "options": [
-            "lässt",
-            "ist",
-            "hat"
-          ],
-          "answer": 0,
-          "explain": "sich lassen + Infinitiv."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Das Problem lässt sich lösen“ heißt:",
-          "options": [
-            "Das Problem kann gelöst werden.",
-            "Das Problem wurde gelöst.",
-            "Das Problem löst sich selbst."
-          ],
-          "answer": 0,
-          "explain": "sich lassen is possibility. The third reading — that it solves itself — is what „sich lösen“ alone would mean, without lassen."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Warum vermeidet gutes Deutsch oft das werden-Passiv?",
-          "options": [
-            "die Ersatzformen sind kürzer und weniger behördlich",
-            "das Passiv ist grammatisch falsch",
-            "die Ersatzformen sind höflicher"
-          ],
-          "answer": 0,
-          "explain": "A register choice. All four constructions are correct; the substitutes simply sound less like a form letter."
         }
       ]
     },
@@ -75521,204 +75929,6 @@
           ],
           "answer": 0,
           "explain": "The wenn can be dropped if the conditional clause starts with its verb; the main clause is unchanged."
-        }
-      ]
-    },
-    {
-      "title": "Subjektive Modalverben",
-      "summary": "sollen/wollen/dürfte/müsste expressing hearsay, claims and probability.",
-      "rule": "Er soll reich sein (people say). Er will alles gesehen haben (he claims). Sie dürfte zu Hause sein (probably). Das muss ein Irrtum sein (certainly). Past: soll gewesen sein.",
-      "exercises": [
-        {
-          "kind": "mc",
-          "prompt": "„Man sagt, er ist sehr reich\" with a modal:",
-          "options": [
-            "Er soll sehr reich sein.",
-            "Er will sehr reich sein.",
-            "Er muss sehr reich sein."
-          ],
-          "answer": 0,
-          "explain": "hearsay → sollen."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Sie behauptet, sie hat nichts gehört\" with a modal:",
-          "options": [
-            "Sie will nichts gehört haben.",
-            "Sie soll nichts gehört haben.",
-            "Sie darf nichts gehört haben."
-          ],
-          "answer": 0,
-          "explain": "own claim → wollen."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Es ist 23 Uhr — sie ___ schon schlafen. (probably)",
-          "options": [
-            "dürfte",
-            "will",
-            "soll"
-          ],
-          "answer": 0,
-          "explain": "probability → dürfte."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das ___ ein Missverständnis sein — ich bin sicher.",
-          "options": [
-            "muss",
-            "soll",
-            "mag"
-          ],
-          "answer": 0,
-          "explain": "logical certainty → müssen."
-        },
-        {
-          "kind": "type",
-          "prompt": "Der Zeuge ___ den Unfall gesehen haben. (hearsay)",
-          "accept": [
-            "soll"
-          ],
-          "explain": "reported claim → soll + Infinitiv Perfekt."
-        },
-        {
-          "kind": "error",
-          "prompt": "Er soll gestern krank gewesen ist.",
-          "answer": 5,
-          "fix": "Er soll gestern krank gewesen sein.",
-          "explain": "Modal + Infinitiv Perfekt: gewesen sein."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Er soll sehr reich sein.“ bedeutet:",
-          "options": [
-            "Man sagt, dass er reich ist.",
-            "Er hat den Auftrag, reich zu sein.",
-            "Er möchte reich sein."
-          ],
-          "answer": 0,
-          "explain": "Subjective sollen reports hearsay — what people say, without the speaker vouching for it."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Sie will das nicht gewusst haben.“ bedeutet:",
-          "options": [
-            "Sie behauptet, es nicht gewusst zu haben.",
-            "Sie wollte es nicht wissen.",
-            "Sie darf es nicht wissen."
-          ],
-          "answer": 0,
-          "explain": "Subjective wollen = the subject *claims* it, and the speaker is signalling doubt."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er ___ krank sein — er sieht wirklich blass aus.",
-          "options": [
-            "dürfte",
-            "will",
-            "soll"
-          ],
-          "answer": 0,
-          "explain": "dürfte + Infinitiv is a careful assumption: “he is probably ill”."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das ___ stimmen, aber ich bin mir nicht sicher.",
-          "options": [
-            "mag",
-            "will",
-            "soll"
-          ],
-          "answer": 0,
-          "explain": "mögen as a subjective modal concedes possibility: “that may well be true”."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er ___ sehr reich sein. (Man sagt das.)",
-          "options": [
-            "soll",
-            "will",
-            "muss"
-          ],
-          "answer": 0,
-          "explain": "sollen reports hearsay: people say he is rich. The speaker takes no position."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ___ das Buch selbst geschrieben haben. (Sie behauptet es.)",
-          "options": [
-            "will",
-            "soll",
-            "darf"
-          ],
-          "answer": 0,
-          "explain": "wollen reports the *subject's own* claim — and quietly signals the speaker doubts it."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das ___ stimmen. (Ich bin ziemlich sicher.)",
-          "options": [
-            "dürfte",
-            "darf",
-            "will"
-          ],
-          "answer": 0,
-          "explain": "dürfte is a confident estimate, not permission. Konjunktiv II is what makes it subjective."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er ___ krank sein — er sieht schrecklich aus.",
-          "options": [
-            "muss",
-            "will",
-            "soll"
-          ],
-          "answer": 0,
-          "explain": "müssen is the strongest inference: the evidence leaves no other reading."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ___ schon zu Hause sein. (Möglich, aber unsicher.)",
-          "options": [
-            "könnte",
-            "kann",
-            "will"
-          ],
-          "answer": 0,
-          "explain": "könnte is the weakest of the certainty scale — possible, no more."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Minister ___ zurückgetreten sein. (Laut Zeitung.)",
-          "options": [
-            "soll",
-            "will",
-            "müsste"
-          ],
-          "answer": 0,
-          "explain": "Reported by someone else: sollen. This is the everyday journalistic use."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Er will nichts gewusst haben“ bedeutet:",
-          "options": [
-            "Er behauptet, nichts gewusst zu haben.",
-            "Er wollte es nicht wissen.",
-            "Man sagt, er habe nichts gewusst."
-          ],
-          "answer": 0,
-          "explain": "The subject's own assertion. The third option would be „Er soll nichts gewusst haben“ — the same sentence with a different source."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Welches Modalverb drückt Hörensagen aus?",
-          "options": [
-            "sollen",
-            "wollen",
-            "können"
-          ],
-          "answer": 0,
-          "explain": "sollen = someone else says so; wollen = the subject says so. Getting these two the wrong way round is the classic C1 error."
         }
       ]
     },
@@ -78547,201 +78757,6 @@
           ],
           "answer": 0,
           "explain": "Context alone. Both readings are grammatical, which is why an idiom taken literally produces a sentence that is correct and absurd."
-        }
-      ]
-    },
-    {
-      "title": "Passiversatzformen (sein + zu, sich lassen, -bar)",
-      "summary": "Three ways to say \"can be done\" without ever using werden.",
-      "rule": "Formal German usually avoids a modal passive. Instead of \"das kann gemacht werden\" it writes \"das ist zu machen\", \"das lässt sich machen\" or \"das ist machbar\". All three mean roughly the same thing and all three sound more idiomatic in writing than the full passive; sein + zu can also carry obligation rather than possibility, which the context decides.",
-      "sections": [
-        {
-          "label": "Passive with modal → the three replacements",
-          "pairs": [
-            {
-              "from": "Das kann gemacht werden.",
-              "to": "Das ist zu machen."
-            },
-            {
-              "from": "Das kann gemacht werden.",
-              "to": "Das lässt sich machen."
-            },
-            {
-              "from": "Das kann gemacht werden.",
-              "to": "Das ist machbar."
-            },
-            {
-              "from": "Der Antrag muss unterschrieben werden.",
-              "to": "Der Antrag ist zu unterschreiben."
-            }
-          ]
-        },
-        {
-          "body": "sein + zu is possibility or obligation; sich lassen is possibility only; -bar makes an adjective and not every verb allows one."
-        }
-      ],
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "„Das Problem kann gelöst werden.\" → ",
-          "options": [
-            "Das Problem lässt sich lösen.",
-            "Das Problem lässt sich zu lösen.",
-            "Das Problem ist sich lösen."
-          ],
-          "answer": 0,
-          "explain": "sich lassen + infinitive."
-        },
-        {
-          "kind": "choose",
-          "prompt": "„Die Rechnung muss bis Freitag bezahlt werden.\" → ",
-          "options": [
-            "Die Rechnung ist bis Freitag zu bezahlen.",
-            "Die Rechnung ist bis Freitag bezahlbar.",
-            "Die Rechnung lässt sich bis Freitag bezahlen."
-          ],
-          "answer": 0,
-          "explain": "Obligation → sein + zu. bezahlbar would mean \"affordable\"."
-        },
-        {
-          "kind": "type",
-          "prompt": "„Das kann man machen.\" mit -bar: Das ist ___.",
-          "accept": [
-            "machbar"
-          ],
-          "explain": "machen → machbar."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Which does NOT express possibility?",
-          "options": [
-            "Der Antrag ist zu unterschreiben.",
-            "Der Antrag lässt sich unterschreiben.",
-            "Der Antrag ist unterschreibbar."
-          ],
-          "answer": 0,
-          "explain": "Here sein + zu reads as obligation: it must be signed."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Why does formal German prefer these to \"kann … werden\"?",
-          "options": [
-            "they are shorter and more idiomatic in writing",
-            "the passive is ungrammatical",
-            "they mean something different"
-          ],
-          "answer": 0,
-          "explain": "The full modal passive is correct but heavy."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Problem ___ sich lösen.",
-          "options": [
-            "lässt",
-            "lasst",
-            "ließ"
-          ],
-          "answer": 0,
-          "explain": "sich lassen + Infinitiv means it can be done: the problem can be solved."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Aufgabe ist bis morgen ___ erledigen.",
-          "options": [
-            "zu",
-            "zum",
-            "am"
-          ],
-          "answer": 0,
-          "explain": "sein + zu + Infinitiv: it must (or can) be done by tomorrow."
-        },
-        {
-          "kind": "mc",
-          "prompt": "„Das ist zu erledigen“ bedeutet:",
-          "options": [
-            "Das muss erledigt werden.",
-            "Das wird gerade erledigt.",
-            "Das ist schon erledigt."
-          ],
-          "answer": 0,
-          "explain": "sein + zu carries necessity or possibility, not a completed action."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Text ist leicht ___.",
-          "options": [
-            "verständlich",
-            "verstehen",
-            "verstanden"
-          ],
-          "answer": 0,
-          "explain": "The -lich / -bar adjectives are the third passive substitute: leicht verständlich = kann leicht verstanden werden."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Gerät ist leicht ___.",
-          "options": [
-            "bedienbar",
-            "bedienend",
-            "bedient"
-          ],
-          "answer": 0,
-          "explain": "-bar on a transitive verb means „can be …ed“: bedienbar."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Fehler lässt sich ___.",
-          "options": [
-            "beheben",
-            "behoben",
-            "behebt"
-          ],
-          "answer": 0,
-          "explain": "sich lassen is followed by a bare infinitive."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Diese Frage ist schwer ___ beantworten.",
-          "options": [
-            "zu",
-            "zum",
-            "für"
-          ],
-          "answer": 0,
-          "explain": "sein + zu + Infinitiv again, here expressing difficulty rather than obligation."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Termin ___ sich nicht verschieben.",
-          "options": [
-            "lässt",
-            "ist",
-            "wird"
-          ],
-          "answer": 0,
-          "explain": "The negated sich-lassen form: the appointment cannot be moved."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Welche Form ist KEINE Passiversatzform?",
-          "options": [
-            "werden + Partizip II",
-            "sich lassen + Infinitiv",
-            "sein + zu + Infinitiv"
-          ],
-          "answer": 0,
-          "explain": "werden + Partizip II *is* the passive. The other two are the ways German avoids it."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Warum benutzt man Passiversatzformen?",
-          "options": [
-            "sie klingen leichter und weniger behördlich als das Passiv",
-            "sie sind grammatisch korrekter",
-            "sie ändern die Bedeutung"
-          ],
-          "answer": 0,
-          "explain": "A stylistic choice, not a grammatical one — which is exactly why they belong at C2."
         }
       ]
     }

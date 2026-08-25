@@ -1,0 +1,9 @@
+[
+  {
+    "from": { "level": "C2", "title": "Passiversatzformen (sein + zu, sich lassen, -bar)" },
+    "into": { "level": "C1", "title": "Passiv-Ersatzformen" },
+    "summary": "Three ways to say \"can be done\" without ever using werden.",
+    "rule": "Formal German usually avoids a modal passive. Instead of «das kann gemacht werden» it writes «das ist zu machen», «das lässt sich machen» or «das ist machbar» — and sein + zu can carry obligation as well as possibility, which only the context decides.",
+    "why": "The same topic twice under two titles, which is why the identical-title sweep missed it: both teach sich lassen, sein + zu and -bar as ways of expressing a passive without werden. The C2 copy is the better written of the two — it explains *why* formal German reaches for them and it already has sections — so the C1 keeper takes its text."
+  }
+]

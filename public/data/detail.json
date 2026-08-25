@@ -227,11 +227,17 @@
   "gram:B2:Modalpartikeln II: eigentlich, eben, halt, wohl": {
     "def": "Modal particles colour a statement without changing its facts and are never stressed. eigentlich softens or adds \"actually / by the way\" (Was machst du eigentlich?); eben and halt express resignation, \"just the way it is\" (eben more neutral/northern, halt southern: Das ist halt so); wohl marks a guess, \"probably\" (Er ist wohl krank). They sit in the middle field, after the finite verb and any pronouns."
   },
+  "gram:B2:Partizipialattribute": {
+    "def": "Partizip I (-end) = active/ongoing: das lachende Kind. Partizip II = passive/completed: das gekochte Ei. Both take normal adjective endings."
+  },
   "gram:B2:Passiv": {
     "def": "Vorgangspassiv: werden + Partizip II. e.g. Das Haus wird gebaut. Past: wurde gebaut. With a modal: muss gebaut werden. Perfekt: ist gebaut worden."
   },
   "gram:B2:Passiv Perfekt: „ist … worden“": {
     "def": "The passive is werden + past participle: Das Haus wird gebaut. In the perfect, the auxiliary werden becomes worden (not geworden): Das Haus ist gebaut worden. Only the full verb werden (\"to become\") uses geworden: Er ist Arzt geworden."
+  },
+  "gram:B2:Passiv-Ersatzformen": {
+    "def": "Das Problem lässt sich lösen = kann gelöst werden. Die Aufgabe ist zu erledigen = muss erledigt werden. lösbar = kann gelöst werden. Essential for C1 Schreiben register variety."
   },
   "gram:B2:Plusquamperfekt": {
     "def": "For an action completed before another past action: hatte gegessen, war gegangen. Typically with nachdem/bevor. e.g. Nachdem er gegangen war, kam sie."
@@ -241,6 +247,9 @@
   },
   "gram:B2:Relativsätze": {
     "def": "The relative pronoun matches the noun’s gender/number; its case comes from its role in the clause (der/die/das, dative dem/der/denen). e.g. Der Mann, der dort steht. Das Buch, das ich lese."
+  },
+  "gram:B2:Subjektive Modalverben": {
+    "def": "Er soll reich sein (people say). Er will alles gesehen haben (he claims). Sie dürfte zu Hause sein (probably). Das muss ein Irrtum sein (certainly). Past: soll gewesen sein."
   },
   "gram:B2:Temporale Nebensätze (als/wenn/nachdem/bevor)": {
     "def": "als = one completed past event; wenn = repeated events or present/future. nachdem usually takes Plusquamperfekt for the earlier action. The conjugated verb goes to the end of the Nebensatz.\nThree easily confused nachdem-words: nachdem is a conjunction joining two clauses (Nachdem wir gegessen hatten, gingen wir spazieren — verb at the end of the Nebensatz); nach is a preposition + Dativ in front of a noun (nach dem Essen, nach der Arbeit); danach is an adverb standing alone, pointing back to something already mentioned (Wir haben gegessen. Danach gingen wir spazieren.). They are not interchangeable."
@@ -278,17 +287,8 @@
   "gram:C1:Nominalisierung ↔ Verbalstil": {
     "def": "Nebensatz → Nominalphrase: weil die Kosten stiegen → wegen des Kostenanstiegs. obwohl → trotz + G, wenn → bei + D, nachdem → nach + D, um zu → zur/zum."
   },
-  "gram:C1:Partizipialattribute": {
-    "def": "Partizip I (-end) = active/ongoing: das lachende Kind. Partizip II = passive/completed: das gekochte Ei. Both take normal adjective endings."
-  },
-  "gram:C1:Passiv-Ersatzformen": {
-    "def": "Das Problem lässt sich lösen = kann gelöst werden. Die Aufgabe ist zu erledigen = muss erledigt werden. lösbar = kann gelöst werden. Essential for C1 Schreiben register variety."
-  },
   "gram:C1:Relativsätze mit wo(r)- & wessen": {
     "def": "After indefinite antecedents (alles, das, etwas, nichts) and whole clauses: was/worauf/womit. Possession: wessen + noun (no article). e.g. alles, was ich weiß; der Mann, dessen Auto…"
-  },
-  "gram:C1:Subjektive Modalverben": {
-    "def": "Er soll reich sein (people say). Er will alles gesehen haben (he claims). Sie dürfte zu Hause sein (probably). Das muss ein Irrtum sein (certainly). Past: soll gewesen sein."
   },
   "gram:C1:TeKaMoLo & Satzklammer": {
     "def": "Default order of adverbials: Te (wann) – Ka (warum) – Mo (wie) – Lo (wo[hin]). e.g. Ich fahre morgen wegen des Termins mit dem Zug nach Bonn. Emphasis can front one element to position 1."
@@ -316,9 +316,6 @@
   },
   "gram:C2:Nominalstil": {
     "def": "Verbal clauses become nominal phrases, often with a preposition + Genitiv. e.g. “weil die Preise stiegen” → “wegen des Anstiegs der Preise”."
-  },
-  "gram:C2:Passiversatzformen (sein + zu, sich lassen, -bar)": {
-    "def": "Formal German usually avoids a modal passive. Instead of \"das kann gemacht werden\" it writes \"das ist zu machen\", \"das lässt sich machen\" or \"das ist machbar\". All three mean roughly the same thing and all three sound more idiomatic in writing than the full passive; sein + zu can also carry obligation rather than possibility, which the context decides."
   },
   "gram:C2:Stilebenen: gehoben, neutral, umgangssprachlich": {
     "def": "At this level the remaining vocabulary problem is not meaning but register. Words that a dictionary lists as synonyms sit at different heights, and choosing the wrong height is the clearest marker of a non-native writer: an academic paper that says \"kriegen\" or a text message that says \"erwerben\" is wrong in a way no grammar check catches."

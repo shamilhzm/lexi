@@ -133,7 +133,7 @@ export function searchPoints(bank: GrammarByLevel, q: string, levels: readonly C
   return hits.sort((a, b) => a.rank - b.rank).map(({ level, pi, point }) => ({ level, pi, point }));
 }
 
-export const GRAMMAR_COUNTS = { points: 134, exercises: 6217 } as const;
+export const GRAMMAR_COUNTS = { points: 133, exercises: 6217 } as const;
 
 /** Split a `gram:<level>:<title>` vocab-card id into its parts. Titles contain
  *  colons ("Konzessivsätze: obwohl"), so only the first two segments are fixed. */
