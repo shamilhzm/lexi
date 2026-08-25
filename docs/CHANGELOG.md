@@ -11,6 +11,86 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — the reflexive shape, and half a codemod that would have broken 273 classes
+
+Ten backlog items driven through. Seven fixed, two declined on the record, and **two
+turned out to be already done** — which is the standing rule paying out again: the four
+adjectival nouns carded twice are down to zero, and the 370 cards with an empty `pos`
+are also zero. Neither entry had been struck. Re-measure before building.
+
+**The reflexive form-collision shape, ruled and merged.** BACKLOG has carried three open
+shapes since August; this closes one. `findFormCollisions` now sees a verb carded both
+plain and with `sich`, and every one of the **23 pairs** it finds carries a written
+ruling: **7 merges, 16 keeps.**
+
+The ratio is the finding. This shape *looks* like the singular/plural one and behaves
+nothing like it, because German uses the pronoun to change what the verb **means**, not
+merely who it acts on. `vorstellen` introduces somebody and `sich vorstellen` introduces
+yourself; `unterhalten` maintains and `sich unterhalten` chats; `verabschieden` passes a
+law. Merging those would have deleted real vocabulary. The seven that merged are one verb
+filed twice, and the plain card gives itself away every time — `beschweren` glossed "to
+complain" (the plain verb weighs things down) illustrated with «Er hat **sich** beim
+Manager … beschwert». One merge runs the other way: **`sich besichtigen` is not a verb**,
+and its only example was «Das Museum lässt **sich** … besichtigen» — `lassen + sich +
+Infinitiv`, the passive substitute, with the pronoun belonging to *lassen*. A card minted
+from a construction rather than a lemma.
+
+`merge-forms` refused to run at first, and was right to: an August `keep` on `der
+Bekannte` × `die Bekannte` pointed at two cards the adjectival-noun dedupe had since
+folded into one. Rulings now carry a `superseded` field, so the record of a question
+asked twice and answered differently survives instead of the row being quietly deleted.
+
+**Ten content defects came out of reading those 23 pairs.** `erinnern` was glossed "to
+remember", which is the *reflexive's* meaning — plain erinnern reminds somebody of
+something. `aufregen` was glossed "to excite" against two examples about people getting
+angry. And four plain cards had nothing but reflexive examples.
+
+**The amber codemod, both halves.** `--color-amber` held Atlas blue and was down as an
+XS rename. It is not: the token lives in `@theme`, so Tailwind auto-generates
+`text-amber`, `border-amber` and `bg-amber` from it, and there were **273 usages across
+50 files**. Renaming the token alone compiles, passes the typecheck, and silently points
+every one of them at a variable that no longer exists. 18 token occurrences plus 273
+utility classes, leaving BrainRoom's four genuine `amber-300` alone — and verified by
+grepping the *built* CSS for `.text-accent{color:var(--color-accent)}`, not by trusting
+the build to go green.
+
+**Concept search (#38).** Re-confirmed absent, then built. A search box on Library
+filters all 140 points across every level into a flat, level-badged list. It searches the
+rule text as well as the title, because a learner mostly does not know the German name of
+what they are looking for — "polite" reaches Konjunktiv II, "reported speech" reaches
+Konjunktiv I — with title matches ranked first so the point that *is* the word is not
+buried under the points that merely mention it. The predicate was **moved out of the
+component into `lib/grammar.ts` so it could be tested**: the preview pane in this
+environment reports `innerWidth: 0`, which makes every rect a lie (LESSONS: a check whose
+subject list is empty passes silently), so the verification is seven tests against the
+shipped bank rather than a screenshot I could not trust. One of them proves each hit's
+index still routes to the point it names, which is the failure that would matter.
+
+**Mobile keyboard hints (#16) — three quarters already done.** Race, Read and the exam
+letter carried the attributes; the drill answer input, which the item names, did not.
+
+**Two items declined, with reasons.** *Tokenizer: split fused paste artifacts* says to
+gate the rule behind a per-language interface rather than hardcode German — and there is
+no per-language interface in `src/`, so the only way to build it today is the thing the
+item forbids. It unblocks when the second language pair lands. *The FAB overlaps the
+treemap* says in its own text that it needs a ruling on which trade to spend, not a
+script; a speculative fix to the app's primary action is what this file has been burned
+by before.
+
+**And a fourth collision shape, found and filed rather than half-attempted.** The
+reflexive pass could not explain why `erinnern` refused every example written for it. It
+is because **27 verb lemmas sit on more than one card once government notation is
+stripped**, and `erinnern` sits on three. The governed card claims every surface form of
+the verb, so the plain card cannot be illustrated at all — `voc:B1:erinnern` still
+carries a reflexive example under a corrected gloss, because the authoring gate refuses
+every replacement on the grounds that the matcher attributes the token elsewhere. That is
+filed with the measurement.
+
+Corpus 6,646 → 6,639 cards. 965 tests, 0 lint errors, `corpus:validate` and
+`corpus:audit` both 0 errors.
+
+---
+
 ### Shipped 2026-08-25 — a B2 homework page, and the drill that taught «ihr würdet sein»
 
 A real Sicher! B2 page (Lektion 1, Modul 4) was handed over with one question: **could

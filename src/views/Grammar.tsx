@@ -15,13 +15,13 @@
 // drills", demoted to what they are — practice, not curriculum.
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, MessagesSquare, Play, Printer } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, MessagesSquare, Play, Printer, Search, X } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
 import { current as examInProgress } from '../lib/exam-store.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
 import { loadRedemittel } from '../lib/redemittel.ts';
-import { loadGrammar, findPoint, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
+import { loadGrammar, findPoint, searchPoints, GRAMMAR_COUNTS, type GrammarByLevel, type GPoint } from '../lib/grammar.ts';
 import GrammarDrill, { type PointScope } from './GrammarDrill.tsx';
 import { RuleSectionBlock } from '../components/RulePanel.tsx';
 import { Drill, MODES, type Mode } from './Fundamentals.tsx';
@@ -87,6 +87,19 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
   const [open, setOpen] = useState<CEFR | null>(home);
   useEffect(() => { setOpen(home); }, [home]);
 
+  // Finding a concept by name (#38). Before this, reaching *Konjunktiv II* meant
+  // knowing which of six levels it was filed under, expanding that level and
+  // scrolling — for a bank of 140 points, on a surface whose whole job is
+  // look-up.
+  //
+  // Searches the rule text as well as the title, because a learner mostly does
+  // not know the German name of the thing they are looking for: "polite" has to
+  // find Konjunktiv II and "reported speech" has to find Konjunktiv I. Title
+  // matches still rank first, or every point whose rule mentions the word buries
+  // the point that *is* the word.
+  const [q, setQ] = useState('');
+  const results = useMemo(() => (bank ? searchPoints(bank, q, ALL_LEVELS) : null), [q, bank]);
+
   return (
     <div className="w-full max-w-[820px] mx-auto">
       {/* Library is the destination — the place you go to look something up
@@ -115,16 +128,40 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
 
       <QuickDrills onPick={(m) => onRoute({ kind: 'mode', mode: m })} />
 
+      <div className="relative mb-4">
+        <label className="sr-only" htmlFor="gram-search">Search grammar concepts</label>
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-dim pointer-events-none" />
+        <input
+          id="gram-search" type="search" value={q} onChange={(e) => setQ(e.target.value)}
+          autoCapitalize="none" autoCorrect="off" spellCheck={false} enterKeyHint="search"
+          placeholder="Find a concept — Konjunktiv, passive, word order…"
+          className="w-full tap-44 rounded-md bg-panel2 border border-line pl-9 pr-9 py-2.5 text-sm
+                     outline-none focus:border-accent" />
+        {q && (
+          <button onClick={() => setQ('')} aria-label="Clear search"
+            className="absolute right-1 top-1/2 -translate-y-1/2 tap-44 grid place-items-center text-dim hover:text-fg">
+            <X size={16} />
+          </button>
+        )}
+      </div>
+
       {!bank ? (
         <div className="grid place-items-center min-h-[240px] text-dim"><Loader2 className="animate-spin" /></div>
       ) : (
         <>
+          {results ? (
+            <SearchResults hits={results} q={q}
+              onPractise={(level, pi, point) => onRoute({ kind: 'point', scope: { level, pi, title: point.title } })} />
+          ) : (
+          <>
           {ALL_LEVELS.map((level) => (
             <LevelSection key={level} level={level} points={bank[level] ?? []}
               isHome={level === home} open={open === level}
               onToggle={() => setOpen((o) => (o === level ? null : level))}
               onPractise={(pi, point) => onRoute({ kind: 'point', scope: { level, pi, title: point.title } })} />
           ))}
+          </>
+          )}
 
           {/* The mixed bank stays reachable: the syllabus is for finding a
               concept, this is for "just give me what’s due across everything". */}
@@ -356,5 +393,42 @@ function PointRow({ point, stat, onPractise }: {
         )}
       </AnimatePresence>
     </Card>
+  );
+}
+
+/** Flat, cross-level results for the concept search.
+ *
+ *  Deliberately not the accordion with non-matches hidden: a search result is a
+ *  different thing from a syllabus entry, and it has to say which level the point
+ *  belongs to — that is half of what the learner came to find out. */
+function SearchResults({ hits, q, onPractise }: {
+  hits: { level: CEFR; pi: number; point: GPoint }[];
+  q: string;
+  onPractise: (level: CEFR, pi: number, point: GPoint) => void;
+}) {
+  if (!hits.length) {
+    return (
+      <Card className="px-4 py-6 text-center">
+        <p className="text-sm text-dim">Nothing matches “{q}”.</p>
+        <p className="text-2xs text-dim mt-1">Try the English name — “passive”, “relative clause”, “word order”.</p>
+      </Card>
+    );
+  }
+  return (
+    <div className="space-y-2">
+      <p className="text-2xs text-dim">{hits.length} concept{hits.length === 1 ? '' : 's'} match “{q}”.</p>
+      {hits.map(({ level, pi, point }) => (
+        <Card key={`${level}:${pi}`} as="button" pad="none"
+          onClick={() => onPractise(level, pi, point)}
+          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent text-2xs font-bold flex-shrink-0">{level}</span>
+          <span className="flex-1 min-w-0">
+            <span className="block text-base font-semibold truncate">{point.title}</span>
+            <span className="block text-2xs text-dim truncate">{point.summary}</span>
+          </span>
+          <ChevronRight size={16} className="text-dim flex-shrink-0" />
+        </Card>
+      ))}
+    </div>
   );
 }

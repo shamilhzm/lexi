@@ -107,6 +107,32 @@ export function grammarCounts(g: GrammarByLevel): { points: number; exercises: n
 /** The same counts for copy that must render before (or without) the fetch —
  *  Today's drills accordion. grammar.test.ts asserts these against the shipped
  *  file, so the numbers cannot drift out of sync again. */
+/** Concept search (#38): find a grammar point by name, or by what its rule says.
+ *
+ *  Searches the rule text as well as the title because a learner mostly does not
+ *  know the German name of the thing they want — "polite" has to reach Konjunktiv
+ *  II and "reported speech" has to reach Konjunktiv I. Title matches rank first,
+ *  or the point that *is* the word gets buried under every point that mentions it.
+ *
+ *  Two characters minimum: one letter matches most of the bank and the result is
+ *  a list nobody can use.
+ */
+export function searchPoints(bank: GrammarByLevel, q: string, levels: readonly CEFR[]):
+  { level: CEFR; pi: number; point: GPoint }[] | null {
+  const needle = q.trim().toLowerCase();
+  if (needle.length < 2) return null;
+  const hits: { level: CEFR; pi: number; point: GPoint; rank: number }[] = [];
+  levels.forEach((level, li) => {
+    (bank[level] ?? []).forEach((point, pi) => {
+      const rank = point.title.toLowerCase().includes(needle) ? 0 : 1;
+      if (rank === 0 || `${point.summary ?? ''} ${point.rule ?? ''}`.toLowerCase().includes(needle)) {
+        hits.push({ level, pi, point, rank: rank * 100 + li });
+      }
+    });
+  });
+  return hits.sort((a, b) => a.rank - b.rank).map(({ level, pi, point }) => ({ level, pi, point }));
+}
+
 export const GRAMMAR_COUNTS = { points: 140, exercises: 6213 } as const;
 
 /** Split a `gram:<level>:<title>` vocab-card id into its parts. Titles contain

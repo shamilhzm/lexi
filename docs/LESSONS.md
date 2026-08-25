@@ -78,6 +78,12 @@ build on *"To die in an accident"*, because `die` is an English verb as well as 
 article and the rule's two-signal test was satisfied twice over by that one word. The
 first instinct — reword around it — would have left the bug for every future author.
 
+**…rename a design token.** Check whether a framework generates anything *from* its
+name. `--color-amber` sat in Tailwind's `@theme`, which auto-generates `text-amber` and
+`border-amber` — 273 usages that a token-only rename would have pointed at a variable
+that no longer existed, with the typecheck and the build both green. **Grep the built
+output, not the source, to prove a rename landed.**
+
 **…animate anything that content depends on.** An entrance that doesn't run leaves the
 thing invisible or mis-sized. See DESIGN §7.
 

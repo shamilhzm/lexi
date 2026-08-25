@@ -99,9 +99,42 @@ shapes:
 > below before its ruling exists. Growing an open class while it is open is how the
 > other three got large.
 
-**Three shapes are still open**, and they are the reason this item is not closed: the
-verb/participle-adjective pairs (*erlauben*/*erlaubt*, *verbieten*/*verboten*), the
-noun/verb-of-one-stem pairs, and the reflexive variants. *Not* all of these should
+> ✅ **The reflexive shape is ruled and merged, 2026-08-25.** `findFormCollisions`
+> now sees a verb carded both plain and with `sich`. **23 pairs, 7 merged, 16 kept**
+> — and the ratio is the finding: this shape looks like the plural one and behaves
+> nothing like it, because German uses the pronoun to change what the verb *means*.
+> `vorstellen`/`sich vorstellen`, `unterhalten`/`sich unterhalten`,
+> `verabschieden`/`sich verabschieden` are pairs of different verbs and merging them
+> would delete real vocabulary. The seven merged are one verb filed twice, and the
+> plain card gives itself away — its gloss and examples are reflexive because that
+> was the only German there was to write. One runs the other way: `sich besichtigen`
+> is not a verb, only `lassen + sich + Infinitiv` mistaken for one.
+
+### 🟠 A fourth shape — a verb and its governed twin · M
+
+*(Measured 2026-08-25, found because the reflexive pass could not explain why
+`erinnern` refused every example written for it.)* **27 verb lemmas sit on more than
+one card once `government()` notation is stripped from the headword**, and
+`erinnern` sits on three: `voc:A2:sich erinnern`, `voc:A2:sich erinnern an + A` and
+`voc:B1:erinnern`. The first two are the same card twice, at the same level, with
+near-identical examples.
+
+Like the reflexive shape, it is **not uniformly duplicate**: `gelten als + N` (to be
+considered) against `gelten` (to be valid), and `ziehen nach + D` against `ziehen`
+(to pull), are genuinely two senses and must stay. But `beitragen zu + D` and
+`beitragen` carry the *same example sentence*, and `nachdenken über + A` and
+`nachdenken` are one word at one level.
+
+**It has a cost beyond the duplication.** The governed card claims every surface form
+of the verb, so the plain card cannot be illustrated at all — `voc:B1:erinnern` still
+carries a reflexive example under a gloss corrected to "to remind", because the
+authoring gate refuses every replacement written for it on the grounds that the
+matcher attributes the token elsewhere. **Do:** widen `findFormCollisions` a fourth
+time, rule all 27. **Touches.** `scripts/corpus/form-rulings.ts`, `merge-forms.ts`.
+
+**Two shapes are still open** (the reflexive one closed 2026-08-25, and a fourth was
+found): the verb/participle-adjective pairs (*erlauben*/*erlaubt*,
+*verbieten*/*verboten*) and the noun/verb-of-one-stem pairs. *Not* all of these should
 merge — a participle that has become an adjective in its own right is arguably a card
 worth having, where a plural filed as a separate noun almost never is. **Each shape
 needs its own ruling**, which is why this was never one `corpus:dupes` run. The
@@ -1106,8 +1139,13 @@ re-measured.**
 **Also here, cheaply.**
 - **Category hue per theme group (#20 · M).** Fill encodes magnitude; hue should
   encode identity, consistently across map, decks, cards and stats.
-- **Retire the `--color-amber` misnomer (#27 · XS).** A token named amber holding
-  Atlas blue, having previously held cyan. Rename with a codemod.
+- ~~**Retire the `--color-amber` misnomer (#27 · XS).**~~ ✅ **Done 2026-08-25 —
+  `--color-accent`.** And it was not one codemod but two: the token lives in
+  `@theme`, so Tailwind auto-generates `text-amber`/`border-amber` from it and
+  **273 usages across 50 files** would have kept resolving to a variable that no
+  longer existed. Renaming only the token is the silent-regression version of this
+  ticket. BrainRoom's four genuine `amber-300` (real Tailwind palette) are
+  untouched; verified in the built CSS.
 - **Gender ink and CEFR ink share values — the contrast pass is done, and it is five
   collisions, not one.** This item recorded `--color-der` == `--color-a1`. Measured
   2026-08-16 by `src/lib/palette.test.ts`, which parses `index.css` and compares the
@@ -1364,7 +1402,12 @@ user; none of it is built.*
   *logic* bug — a rewound review still feeding `reviewedToday()` — is fixed.)
 - **Grade from the front face without flipping · XS** (#13). A power user who knows the
   word shouldn't need the flip round-trip.
-- **Typed answers need mobile keyboard hints · XS · 📱** (#16). No `autocapitalize`,
+- ~~**Typed answers need mobile keyboard hints · XS · 📱** (#16).~~ ✅ **Done
+  2026-08-25, and three quarters of it was already done.** Race, Read and the exam
+  letter already carried the attributes; the **drill answer input — the one the item
+  names — did not**, and neither did the class-list paste box. Both now set
+  `autoCapitalize/autoCorrect/autoComplete/spellCheck`, plus `enterKeyHint` on the
+  drill. Original text: No `autocapitalize`,
   `autocorrect`, `spellcheck` or `enterkeyhint` on the answer input. iOS will
   autocapitalise and autocorrect German, then mark the learner wrong for it. *Fold into
   item 1.*
@@ -1378,8 +1421,15 @@ user; none of it is built.*
   `WhyThisCard` is the app's genuine moat and its strongest word-of-mouth asset, and it
   is invisible unless you are three cards deep. The single cheapest thing on this list
   that changes how the product is *described*. Confirmed still session-only 2026-08-04.
-- **Search across the 128 concepts · S · P1** (#38). No way to find *Konjunktiv* without
-  expanding levels and scrolling. Confirmed still absent 2026-08-04.
+- ~~**Search across the 128 concepts · S · P1** (#38).~~ ✅ **Built 2026-08-25** —
+  re-confirmed absent first. A search box on Library filters all **140** points
+  across every level into a flat, level-badged list. It searches the *rule text* as
+  well as the title, because a learner mostly does not know the German name of what
+  they want — "polite" reaches Konjunktiv II, "reported speech" reaches Konjunktiv I
+  — with title matches ranked first so the point that *is* the word is not buried
+  under every point that mentions it. `searchPoints` lives in `lib/grammar.ts` and
+  has seven tests, one of which proves every hit's index still routes to the point
+  it names.
 - **Name the session's best moment on the card, not just the recap · XS** (#46).
   "Comeback of the day" exists and fires where nobody is looking.
 - **The recap doesn't celebrate drill work distinctly · XS** (UX-PATHS H2). Flips and
@@ -1388,7 +1438,11 @@ user; none of it is built.*
 - **The first-run hero doesn't acknowledge a retry · XS** (UX-PATHS S2). Abandoning the
   guided first run mid-placement correctly returns to the hero next launch, but it
   reads as a fresh start rather than "pick up where you left off." *Same source.*
-- **Tokenizer: split fused paste artifacts · XS.** Pasted headlines and HTML sometimes
+- **Tokenizer: split fused paste artifacts · XS — blocked, and the item says so.**
+  *(Checked 2026-08-25: there is no per-language interface in `src/`, so the only way
+  to build this today is to hardcode a German rule in the shared tokenizer, which is
+  exactly what the item forbids. Left undone deliberately; it unblocks when the second
+  language pair lands.)* Pasted headlines and HTML sometimes
   concatenate two words with no separator ("TriumphBei"). A camelCase-boundary split
   (lower→Upper) is near-zero risk in German, which has no intra-word case transitions —
   and it becomes wrong the moment a second language pair lands, so gate it behind the
@@ -1575,7 +1629,10 @@ user; none of it is built.*
   `set.term` so a corrected *noun form* takes the same id-migration path a corrected
   *article* already did. `der Beamte` deliberately stays singular-article: its feminine
   is *die Beamtin*, a separate word, so the convention does not apply to it.
-- **🟠 Four adjectival nouns are carded twice — same word, two headwords · S.**
+- ~~**🟠 Four adjectival nouns are carded twice — same word, two headwords · S.**~~
+  ✅ **Stale, verified 2026-08-25.** All four strays are gone; only the canonical
+  `der/die X` card remains for each. Retired by an earlier pass without this entry
+  being struck. Kept as a row rather than deleted, because the *original*
   *(Found 2026-08-24 while fixing the two above.)* The `der/die X` card is canonical in
   every case and already correct; the second card is a stray.
 
@@ -1593,7 +1650,8 @@ user; none of it is built.*
   same-level pairs are the straightforward ones; Bekannte needs a ruling on whether the
   gendered pair (*male* / *female* glosses) is worth keeping as a distinction or folding
   into the neutral card. *S · `corpus:dupes`.*
-- **370 word cards carry an empty `pos` · XS–S.** Invisible today, but it is the same
+- ~~**370 word cards carry an empty `pos` · XS–S.**~~ ✅ **Stale, verified 2026-08-25 —
+  the count is now 0.** Original text: Invisible today, but it is the same
   latent gap that produced the capitalisation mess: a card with no part of speech
   cannot be classified by any rule, so it silently opts out of the drills, the family
   index and half the validators. *Do:* infer where the article makes it unambiguous, rule
