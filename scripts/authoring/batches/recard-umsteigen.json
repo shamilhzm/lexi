@@ -1,0 +1,13 @@
+[
+  {
+    "id": "voc:B1:die Umsteigen",
+    "expect": {
+      "term": "die Umsteigen",
+      "level": "B1",
+      "pos": "noun"
+    },
+    "term": "das Umsteigen",
+    "gender": "das",
+    "why": "A nominalised infinitive is always neuter — das Umsteigen, das Lesen, das Kochen. The card carried «die», which is not a form the word has, and its own second example is «Beim Umsteigen …»."
+  }
+]

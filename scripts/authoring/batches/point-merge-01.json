@@ -1,0 +1,31 @@
+[
+  {
+    "from": { "level": "B2", "title": "n-Deklination" },
+    "into": { "level": "A2", "title": "n-Deklination" },
+    "why": "The same rule a third time. A2, B1 and B2 all say weak masculine nouns take -(e)n in every case but the nominative, and all three name the same nouns — Junge, Kollege, Student, Mensch, Herr. Three points, three schedules, one rule."
+  },
+  {
+    "from": { "level": "B1", "title": "n-Deklination" },
+    "into": { "level": "A2", "title": "n-Deklination" },
+    "summary": "Some masculine nouns add -(e)n in every case except the nominative.",
+    "rule": "A small class of masculine nouns — mostly people and animals ending in -e (der Junge, der Kollege, der Kunde, der Neffe), plus der Herr, der Mensch, der Nachbar, der Student, der Praktikant — take -(e)n in the accusative, dative and genitive: Ich frage den Kollegen. Sie dankt dem Studenten. Two are irregular: der Herr → den Herrn, and der Name → des Namens, which adds -s in the genitive on top of the -n.",
+    "why": "The B1 copy adds Nachbar and Praktikant to the list and the genitive des Namens; the A2 rule now carries both, so nothing is lost by retiring it. Keeper stays at A2 — merging upward would take the point away from a learner who has it."
+  },
+  {
+    "from": { "level": "B2", "title": "Genitiv" },
+    "into": { "level": "B1", "title": "Genitiv" },
+    "why": "Both describe des + -(e)s for masculine and neuter, der for feminine and plural, and the same wegen/während/trotz prepositions. B1 already carries 156 exercises against B2's 16."
+  },
+  {
+    "from": { "level": "B2", "title": "Zweiteilige Konnektoren" },
+    "into": { "level": "B1", "title": "Zweiteilige Konnektoren" },
+    "summary": "sowohl … als auch · weder … noch · entweder … oder · je … desto · zwar … aber.",
+    "rule": "Paired connectors link two things and both halves are fixed: sowohl A als auch B (both … and), nicht nur A, sondern auch B (not only … but also), weder A noch B (neither … nor), entweder A oder B (either … or), zwar A, aber B (admittedly … but), and je + Komparativ …, desto + Komparativ (the more … the more). Note that weder … noch is already negative — no nicht anywhere else in the clause.",
+    "why": "One list, twice. The B2 copy contributed zwar…aber and the B1 one nicht nur…sondern auch, so the keeper's rule now names all six pairs and the negation trap that comes with weder…noch."
+  },
+  {
+    "from": { "level": "B1", "title": "Komparativ & Superlativ" },
+    "into": { "level": "A2", "title": "Komparativ & Superlativ" },
+    "why": "Identical rule, and the B1 restatement is the thinner of the two — it lists four adjectives where A2 also gives the umlaut rule and the gern → lieber → am liebsten irregular. Keeper stays at A2."
+  }
+]

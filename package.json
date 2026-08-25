@@ -53,7 +53,8 @@
     "corpus:genex": "node scripts/corpus/gen-exercises.ts",
     "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
     "authoring:ipa": "node scripts/authoring/fetch-ipa.ts",
-    "authoring:recard": "node scripts/authoring/recard.ts"
+    "authoring:recard": "node scripts/authoring/recard.ts",
+    "authoring:merge-points": "node scripts/authoring/merge-points.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

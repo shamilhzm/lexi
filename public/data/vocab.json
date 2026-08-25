@@ -98663,7 +98663,7 @@
   {
     "id": "voc:A1:die Entschuldigung",
     "term": "die Entschuldigung",
-    "en": "sorry",
+    "en": "apology; note of excuse",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -98676,13 +98676,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Entschuldigung, wo ist der Bahnhof?",
-        "en": "Excuse me, where is the station?",
+        "de": "Er ging ohne eine Entschuldigung.",
+        "en": "He left without an apology.",
         "lvl": "A1"
       },
       {
-        "de": "Entschuldigung, dürfte ich vorbei?",
-        "en": "Excuse me, may I get past?",
+        "de": "Die Schülerin brachte eine Entschuldigung von ihren Eltern mit.",
+        "en": "The pupil brought a note of excuse from her parents.",
         "lvl": "A1"
       }
     ],
@@ -104819,12 +104819,12 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Umsteigen",
-    "term": "die Umsteigen",
+    "id": "voc:B1:das Umsteigen",
+    "term": "das Umsteigen",
     "en": "transfer, changing trains",
     "pos": "noun",
     "level": "B1",
-    "gender": "die",
+    "gender": "das",
     "plural": null,
     "ipa": "ˈʊmʃtaɪ̯ɡn̩",
     "def": "The act of changing from one train or bus to another.",
@@ -136084,22 +136084,6 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:B1:Komparativ & Superlativ",
-    "term": "Komparativ & Superlativ",
-    "en": "More / most: -er and am …-sten; many short adjectives take an umlaut.",
-    "pos": "grammar",
-    "level": "B1",
-    "gender": null,
-    "plural": null,
-    "ipa": null,
-    "def": "klein → kleiner → am kleinsten; groß → größer → am größten; gut → besser → am besten; viel → mehr → am meisten.",
-    "syn": [],
-    "ant": [],
-    "ex": [],
-    "field": "Grammar",
-    "kind": "grammar"
-  },
-  {
     "id": "gram:B1:Passiv: Perfekt & Modalverben",
     "term": "Passiv: Perfekt & Modalverben",
     "en": "ist gebaut worden · muss gebaut werden.",
@@ -136340,38 +136324,6 @@
     "kind": "grammar"
   },
   {
-    "id": "gram:B2:n-Deklination",
-    "term": "n-Deklination",
-    "en": "Masculine nouns that take -(e)n in every case except nominative.",
-    "pos": "grammar",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": null,
-    "def": "Weak masc nouns (der Junge, Kollege, Student, Mensch, Herr, Name…) add -(e)n in Akkusativ, Dativ, Genitiv: den Studenten, dem Herrn, des Namens.",
-    "syn": [],
-    "ant": [],
-    "ex": [],
-    "field": "Grammar",
-    "kind": "grammar"
-  },
-  {
-    "id": "gram:B2:Genitiv",
-    "term": "Genitiv",
-    "en": "Possession and fixed prepositions: des Mannes, wegen des Wetters.",
-    "pos": "grammar",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": null,
-    "def": "Masc/neut singular: des + noun + -(e)s; fem/plural: der. Prepositions with Genitiv: wegen, trotz, während, statt. e.g. das Auto des Nachbarn, trotz des Regens.",
-    "syn": [],
-    "ant": [],
-    "ex": [],
-    "field": "Grammar",
-    "kind": "grammar"
-  },
-  {
     "id": "gram:B2:Verben mit Präpositionen",
     "term": "Verben mit Präpositionen",
     "en": "Fixed verb + preposition + case: warten auf + A, sich freuen über + A.",
@@ -136397,22 +136349,6 @@
     "plural": null,
     "ipa": null,
     "def": "For an action completed before another past action: hatte gegessen, war gegangen. Typically with nachdem/bevor. e.g. Nachdem er gegangen war, kam sie.",
-    "syn": [],
-    "ant": [],
-    "ex": [],
-    "field": "Grammar",
-    "kind": "grammar"
-  },
-  {
-    "id": "gram:B2:Zweiteilige Konnektoren",
-    "term": "Zweiteilige Konnektoren",
-    "en": "entweder…oder, sowohl…als auch, weder…noch, je…desto, zwar…aber.",
-    "pos": "grammar",
-    "level": "B2",
-    "gender": null,
-    "plural": null,
-    "ipa": null,
-    "def": "Paired connectors link alternatives and contrasts: entweder…oder (either/or), weder…noch (neither/nor), sowohl…als auch (both/and), je + Komparativ … desto + Komparativ, zwar…aber.",
     "syn": [],
     "ant": [],
     "ex": [],

@@ -23120,7 +23120,7 @@
     {
       "title": "n-Deklination",
       "summary": "Some masculine nouns add -(e)n in every case except the nominative.",
-      "rule": "Typically masculine persons/animals ending in -e (der Junge, der Kollege, der Kunde) plus a few others (der Herr, der Mensch, der Student): Ich frage den Kollegen. Sie dankt dem Studenten.",
+      "rule": "A small class of masculine nouns takes -(e)n in every case except the nominative.",
       "exercises": [
         {
           "kind": "choose",
@@ -23283,6 +23283,378 @@
           ],
           "answer": 0,
           "explain": "The group is almost entirely masculine nouns ending in -e, plus -ent/-ist/-ent/-oge. der Tisch is an ordinary masculine noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich frage den ___.",
+          "options": [
+            "Studenten",
+            "Student",
+            "Studente"
+          ],
+          "answer": 0,
+          "explain": "Akkusativ → Studenten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Auto gehört dem ___.",
+          "options": [
+            "Kollegen",
+            "Kollege",
+            "Kolleg"
+          ],
+          "answer": 0,
+          "explain": "Dativ → Kollegen."
+        },
+        {
+          "kind": "type",
+          "prompt": "Kennst du Herrn Müller? — Ja, ich kenne ___ Müller gut. (Herr)",
+          "accept": [
+            "Herrn"
+          ],
+          "explain": "Akkusativ of Herr → Herrn."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which noun is NOT n-Deklination?",
+          "options": [
+            "der Tisch",
+            "der Junge",
+            "der Mensch"
+          ],
+          "answer": 0,
+          "explain": "Tisch is a regular strong noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die Meinung des ___",
+          "options": [
+            "Experten",
+            "Experte",
+            "Expertes"
+          ],
+          "answer": 0,
+          "explain": "Genitiv → des Experten."
+        },
+        {
+          "kind": "error",
+          "prompt": "Wir helfen dem Junge bei den Hausaufgaben.",
+          "answer": 3,
+          "fix": "Wir helfen dem Jungen bei den Hausaufgaben.",
+          "explain": "Dativ of der Junge → dem Jungen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die Meinung des ___ (der Experte)",
+          "options": [
+            "Experten",
+            "Expertes",
+            "Experts"
+          ],
+          "answer": 0,
+          "explain": "Genitive of an n-Deklination noun is -en, never -s. This is where the group most often catches learners out at B2."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe mit dem ___ gesprochen. (der Journalist)",
+          "options": [
+            "Journalisten",
+            "Journalist",
+            "Journalists"
+          ],
+          "answer": 0,
+          "explain": "Dative -en."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Vortrag des ___ war gut. (der Kollege)",
+          "options": [
+            "Kollegen",
+            "Kolleges",
+            "Kollege"
+          ],
+          "answer": 0,
+          "explain": "Genitive -en."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir empfangen den ___. (der Herr)",
+          "options": [
+            "Herrn",
+            "Herr",
+            "Herren"
+          ],
+          "answer": 0,
+          "explain": "der Herr is irregular: -n in the singular, -en in the plural."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Rolle des ___ in der Gesellschaft. (der Mensch)",
+          "options": [
+            "Menschen",
+            "Menschs",
+            "Mensch"
+          ],
+          "answer": 0,
+          "explain": "des Menschen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Name des ___. (der Zeuge)",
+          "options": [
+            "Zeugen",
+            "Zeuges",
+            "Zeuge"
+          ],
+          "answer": 0,
+          "explain": "Masculine nouns in -e are almost all in this group."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Gehalt des ___. (der Praktikant)",
+          "options": [
+            "Praktikanten",
+            "Praktikants",
+            "Praktikant"
+          ],
+          "answer": 0,
+          "explain": "-ant marks the group reliably."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Wunsch des ___. (der Kunde)",
+          "options": [
+            "Kunden",
+            "Kundes",
+            "Kunde"
+          ],
+          "answer": 0,
+          "explain": "des Kunden."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Nomen sind gemischt (n-Deklination + Genitiv-s)?",
+          "options": [
+            "der Name, der Gedanke, der Wille",
+            "der Kunde, der Kollege",
+            "der Tisch, der Stuhl"
+          ],
+          "answer": 0,
+          "explain": "des Namens, des Gedankens — they take the -n *and* an -s. A small group, and worth knowing by name."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Woran erkennt man ein n-Deklination-Nomen im Wörterbuch?",
+          "options": [
+            "am Eintrag „-n, -n“ oder „-en, -en“",
+            "am Artikel",
+            "an der Länge"
+          ],
+          "answer": 0,
+          "explain": "The dictionary prints the genitive and plural; identical -n endings give it away."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe den ___. (Kollege)",
+          "options": [
+            "Kollegen",
+            "Kollege",
+            "Kolleg"
+          ],
+          "answer": 0,
+          "explain": "Accusative → den Kollegen."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich helfe dem ___. (Nachbar)",
+          "options": [
+            "Nachbarn",
+            "Nachbar",
+            "Nachbars"
+          ],
+          "answer": 0,
+          "explain": "Dative → dem Nachbarn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Kennst du den ___? (Student)",
+          "options": [
+            "Studenten",
+            "Student",
+            "Studente"
+          ],
+          "answer": 0,
+          "explain": "Accusative → den Studenten."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich spreche mit dem ___. (Praktikant, Dativ)",
+          "accept": [
+            "Praktikanten"
+          ],
+          "explain": "n-Deklination → dem Praktikanten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der ___ ist nett. (Kollege, Nominativ)",
+          "options": [
+            "Kollege",
+            "Kollegen",
+            "Kollegs"
+          ],
+          "answer": 0,
+          "explain": "Nominative singular keeps the base form: der Kollege."
+        },
+        {
+          "kind": "error",
+          "prompt": "Ich frage den Herr.",
+          "answer": 2,
+          "fix": "Herrn",
+          "explain": "n-Deklination: den Herrn (Herr adds -n)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe mit dem ___ gesprochen. (der Kollege)",
+          "options": [
+            "Kollegen",
+            "Kollege",
+            "Kollegs"
+          ],
+          "answer": 0,
+          "explain": "n-Deklination: -n everywhere except the nominative singular."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Brief des ___. (der Präsident)",
+          "options": [
+            "Präsidenten",
+            "Präsidents",
+            "Präsident"
+          ],
+          "answer": 0,
+          "explain": "Genitive takes -en, not -s — the one place learners over-apply the ordinary rule."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich sehe einen ___. (der Polizist)",
+          "options": [
+            "Polizisten",
+            "Polizist",
+            "Polizistes"
+          ],
+          "answer": 0,
+          "explain": "Nouns in -ist belong to this group."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Auto des ___. (der Nachbar)",
+          "options": [
+            "Nachbarn",
+            "Nachbars",
+            "Nachbar"
+          ],
+          "answer": 0,
+          "explain": "der Nachbar → des Nachbarn."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Wir helfen dem ___. (der Praktikant)",
+          "options": [
+            "Praktikanten",
+            "Praktikant",
+            "Praktikants"
+          ],
+          "answer": 0,
+          "explain": "-ant is another reliable signal."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Meinung des ___. (der Experte)",
+          "options": [
+            "Experten",
+            "Expertes",
+            "Experte"
+          ],
+          "answer": 0,
+          "explain": "Masculine nouns ending in -e are almost all n-Deklination."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich kenne diesen ___. (der Herr)",
+          "options": [
+            "Herrn",
+            "Herr",
+            "Herren"
+          ],
+          "answer": 0,
+          "explain": "der Herr is irregular: -n in the singular, -en in the plural."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Endungen zeigen n-Deklination an?",
+          "options": [
+            "-e, -ent, -ist, -ant, -oge",
+            "-ung, -heit, -keit",
+            "-chen, -lein"
+          ],
+          "answer": 0,
+          "explain": "The second group is feminine and the third neuter — neither can be n-Deklination, which is masculine only."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wo steht die Grundform ohne Endung?",
+          "options": [
+            "nur im Nominativ Singular",
+            "im Nominativ und Akkusativ",
+            "im Genitiv"
+          ],
+          "answer": 0,
+          "explain": "One bare slot, three inflected ones — so if you are not in the nominative singular, add the -n."
+        }
+      ],
+      "sections": [
+        {
+          "label": "which nouns",
+          "body": "Mostly people and animals whose nominative ends in -e, plus a short list that does not.",
+          "examples": [
+            {
+              "de": "der Junge · der Kollege · der Kunde · der Neffe"
+            },
+            {
+              "de": "der Herr · der Mensch · der Nachbar · der Student · der Praktikant"
+            }
+          ]
+        },
+        {
+          "label": "Akkusativ / Dativ / Genitiv",
+          "pairs": [
+            {
+              "from": "der Kollege",
+              "to": "Ich frage den Kollegen."
+            },
+            {
+              "from": "der Student",
+              "to": "Sie dankt dem Studenten."
+            },
+            {
+              "from": "der Mensch",
+              "to": "die Rechte des Menschen"
+            }
+          ]
+        },
+        {
+          "label": "the two that misbehave",
+          "body": "der Herr drops the -e before the -n, and der Name adds a genitive -s on top of the -n.",
+          "pairs": [
+            {
+              "from": "der Herr",
+              "to": "den Herrn"
+            },
+            {
+              "from": "der Name",
+              "to": "des Namens"
+            }
+          ]
         }
       ]
     },
@@ -25938,8 +26310,8 @@
     },
     {
       "title": "Präteritum",
-      "summary": "The written past: machte, ging, brachte, konnte.",
-      "rule": "Regular: stem + -te (machen → machte, du machtest). Irregular: vowel change, no -te (gehen → ging, kommen → kam). Mixed: vowel change + -te (bringen → brachte, denken → dachte). Modals: konnte, musste, wollte, durfte.",
+      "summary": "The written past, and the spoken past of sein, haben and the modals.",
+      "rule": "Two jobs. In writing — narration, reports, anything told rather than said — the Präteritum is the ordinary past tense. In speech it survives for a short list: sein, haben and the modal verbs, where «ich war» and «ich musste» are what people actually say and the Perfekt sounds heavy.",
       "exercises": [
         {
           "kind": "type",
@@ -27947,6 +28319,1709 @@
           "answer": 2,
           "explain": "ihr hörtet — the Präteritum of hören.",
           "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ___ das Auto vor der Tür. (lassen)",
+          "options": [
+            "ließ",
+            "lasste",
+            "liesste"
+          ],
+          "answer": 0,
+          "explain": "lassen is irregular → ließ."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ___ mir ein Geschenk zum Geburtstag. (bringen)",
+          "options": [
+            "brachte",
+            "bringte",
+            "brang"
+          ],
+          "answer": 0,
+          "explain": "bringen is mixed → brachte."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich ___ das Auto und fuhr los. (tanken, Präteritum)",
+          "accept": [
+            "tankte"
+          ],
+          "explain": "Regular verb: tank + -te → tankte."
+        },
+        {
+          "kind": "type",
+          "prompt": "Wir ___ gestern spät nach Hause. (kommen, Präteritum)",
+          "accept": [
+            "kamen"
+          ],
+          "explain": "kommen → kam; plural wir kamen."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: „Letztes Jahr spielte er oft Fußball.“",
+          "tiles": [
+            "Letztes",
+            "Jahr",
+            "spielte",
+            "er",
+            "oft",
+            "Fußball."
+          ],
+          "explain": "Time phrase – verb (spielte) in position 2 – subject."
+        },
+        {
+          "kind": "error",
+          "prompt": "Er gehte gestern ins Kino.",
+          "answer": 1,
+          "fix": "ging",
+          "explain": "gehen is irregular in the Präteritum → ging."
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (siezen, Präteritum)",
+          "options": [
+            "siezte",
+            "sieztet",
+            "siezten",
+            "sieztest"
+          ],
+          "answer": 2,
+          "explain": "sie (Pl.) siezten — the Präteritum of siezen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (freuen, Präteritum)",
+          "options": [
+            "freute",
+            "freutest",
+            "freutet",
+            "freuten"
+          ],
+          "answer": 0,
+          "explain": "er freute — the Präteritum of freuen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (betrachten, Präteritum)",
+          "options": [
+            "betrachteten",
+            "betrachtete",
+            "betrachtetest",
+            "betrachtetet"
+          ],
+          "answer": 0,
+          "explain": "wir betrachteten — the Präteritum of betrachten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (spüren, Präteritum)",
+          "options": [
+            "spürtet",
+            "spürtest",
+            "spürte",
+            "spürten"
+          ],
+          "answer": 3,
+          "explain": "sie (Pl.) spürten — the Präteritum of spüren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (installieren, Präteritum)",
+          "options": [
+            "installiertet",
+            "installiertest",
+            "installierten",
+            "installierte"
+          ],
+          "answer": 2,
+          "explain": "sie (Pl.) installierten — the Präteritum of installieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (üben, Präteritum)",
+          "options": [
+            "übten",
+            "übte",
+            "übtet",
+            "übtest"
+          ],
+          "answer": 2,
+          "explain": "ihr übtet — the Präteritum of üben.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (verzichten, Präteritum)",
+          "options": [
+            "verzichteten",
+            "verzichtetest",
+            "verzichtete",
+            "verzichtetet"
+          ],
+          "answer": 1,
+          "explain": "du verzichtetest — the Präteritum of verzichten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (ahnen, Präteritum)",
+          "options": [
+            "ahntet",
+            "ahntest",
+            "ahnten",
+            "ahnte"
+          ],
+          "answer": 1,
+          "explain": "du ahntest — the Präteritum of ahnen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (finanzieren, Präteritum)",
+          "options": [
+            "finanzierten",
+            "finanziertest",
+            "finanziertet",
+            "finanzierte"
+          ],
+          "answer": 3,
+          "explain": "ich finanzierte — the Präteritum of finanzieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (versorgen, Präteritum)",
+          "options": [
+            "versorgten",
+            "versorgte",
+            "versorgtest",
+            "versorgtet"
+          ],
+          "answer": 1,
+          "explain": "ich versorgte — the Präteritum of versorgen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (nützen, Präteritum)",
+          "options": [
+            "nützte",
+            "nütztet",
+            "nütztest",
+            "nützten"
+          ],
+          "answer": 0,
+          "explain": "ich nützte — the Präteritum of nützen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (melken, Präteritum)",
+          "options": [
+            "melktest",
+            "melkte",
+            "melktet",
+            "melkten"
+          ],
+          "answer": 3,
+          "explain": "sie (Pl.) melkten — the Präteritum of melken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (erholen, Präteritum)",
+          "options": [
+            "erholten",
+            "erholtest",
+            "erholte",
+            "erholtet"
+          ],
+          "answer": 2,
+          "explain": "ich erholte — the Präteritum of erholen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (verpassen, Präteritum)",
+          "options": [
+            "verpasstest",
+            "verpassten",
+            "verpasstet",
+            "verpasste"
+          ],
+          "answer": 3,
+          "explain": "er verpasste — the Präteritum of verpassen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (handeln, Präteritum)",
+          "options": [
+            "handeltest",
+            "handelte",
+            "handeltet",
+            "handelten"
+          ],
+          "answer": 0,
+          "explain": "du handeltest — the Präteritum of handeln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (beschädigen, Präteritum)",
+          "options": [
+            "beschädigten",
+            "beschädigtest",
+            "beschädigtet",
+            "beschädigte"
+          ],
+          "answer": 0,
+          "explain": "wir beschädigten — the Präteritum of beschädigen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (stoppen, Präteritum)",
+          "options": [
+            "stoppte",
+            "stoppten",
+            "stopptet",
+            "stopptest"
+          ],
+          "answer": 2,
+          "explain": "ihr stopptet — the Präteritum of stoppen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (tanken, Präteritum)",
+          "options": [
+            "tanktet",
+            "tanktest",
+            "tankten",
+            "tankte"
+          ],
+          "answer": 0,
+          "explain": "ihr tanktet — the Präteritum of tanken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (tauen, Präteritum)",
+          "options": [
+            "taute",
+            "tauten",
+            "tautest",
+            "tautet"
+          ],
+          "answer": 0,
+          "explain": "er taute — the Präteritum of tauen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (merken, Präteritum)",
+          "options": [
+            "merkte",
+            "merkten",
+            "merktest",
+            "merktet"
+          ],
+          "answer": 1,
+          "explain": "sie (Pl.) merkten — the Präteritum of merken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (versagen, Präteritum)",
+          "options": [
+            "versagtet",
+            "versagtest",
+            "versagte",
+            "versagten"
+          ],
+          "answer": 0,
+          "explain": "ihr versagtet — the Präteritum of versagen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (tippen, Präteritum)",
+          "options": [
+            "tippte",
+            "tipptest",
+            "tipptet",
+            "tippten"
+          ],
+          "answer": 1,
+          "explain": "du tipptest — the Präteritum of tippen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (flirten, Präteritum)",
+          "options": [
+            "flirteten",
+            "flirtetest",
+            "flirtetet",
+            "flirtete"
+          ],
+          "answer": 1,
+          "explain": "du flirtetest — the Präteritum of flirten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (füttern, Präteritum)",
+          "options": [
+            "füttertet",
+            "fütterten",
+            "fütterte",
+            "füttertest"
+          ],
+          "answer": 2,
+          "explain": "er fütterte — the Präteritum of füttern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (reingehen, Präteritum)",
+          "options": [
+            "reingehte",
+            "reingehtet",
+            "reingehten",
+            "reingehtest"
+          ],
+          "answer": 0,
+          "explain": "er reingehte — the Präteritum of reingehen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (bilden, Präteritum)",
+          "options": [
+            "bildetet",
+            "bildete",
+            "bildeten",
+            "bildetest"
+          ],
+          "answer": 2,
+          "explain": "wir bildeten — the Präteritum of bilden.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (verhandeln, Präteritum)",
+          "options": [
+            "verhandeltet",
+            "verhandelten",
+            "verhandelte",
+            "verhandeltest"
+          ],
+          "answer": 2,
+          "explain": "er verhandelte — the Präteritum of verhandeln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (enttäuschen, Präteritum)",
+          "options": [
+            "enttäuschtest",
+            "enttäuschte",
+            "enttäuschtet",
+            "enttäuschten"
+          ],
+          "answer": 2,
+          "explain": "ihr enttäuschtet — the Präteritum of enttäuschen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (krankmelden, Präteritum)",
+          "options": [
+            "krankmeldeten",
+            "krankmeldete",
+            "krankmeldetest",
+            "krankmeldetet"
+          ],
+          "answer": 2,
+          "explain": "du krankmeldetest — the Präteritum of krankmelden.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (schnappen, Präteritum)",
+          "options": [
+            "schnappten",
+            "schnapptet",
+            "schnappte",
+            "schnapptest"
+          ],
+          "answer": 0,
+          "explain": "sie (Pl.) schnappten — the Präteritum of schnappen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (landen, Präteritum)",
+          "options": [
+            "landeten",
+            "landetet",
+            "landete",
+            "landetest"
+          ],
+          "answer": 3,
+          "explain": "du landetest — the Präteritum of landen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (kündigen, Präteritum)",
+          "options": [
+            "kündigtet",
+            "kündigtest",
+            "kündigten",
+            "kündigte"
+          ],
+          "answer": 1,
+          "explain": "du kündigtest — the Präteritum of kündigen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (verletzen, Präteritum)",
+          "options": [
+            "verletztet",
+            "verletztest",
+            "verletzte",
+            "verletzten"
+          ],
+          "answer": 0,
+          "explain": "ihr verletztet — the Präteritum of verletzen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (forschen, Präteritum)",
+          "options": [
+            "forschte",
+            "forschtest",
+            "forschtet",
+            "forschten"
+          ],
+          "answer": 3,
+          "explain": "sie (Pl.) forschten — the Präteritum of forschen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (verwandeln, Präteritum)",
+          "options": [
+            "verwandelte",
+            "verwandeltet",
+            "verwandelten",
+            "verwandeltest"
+          ],
+          "answer": 2,
+          "explain": "sie (Pl.) verwandelten — the Präteritum of verwandeln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (ermöglichen, Präteritum)",
+          "options": [
+            "ermöglichtest",
+            "ermöglichten",
+            "ermöglichte",
+            "ermöglichtet"
+          ],
+          "answer": 0,
+          "explain": "du ermöglichtest — the Präteritum of ermöglichen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (verhalten, Präteritum)",
+          "options": [
+            "verhielten",
+            "verhieltet",
+            "verhieltest",
+            "verhielt"
+          ],
+          "answer": 3,
+          "explain": "ich verhielt — the Präteritum of verhalten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (verhaften, Präteritum)",
+          "options": [
+            "verhaftete",
+            "verhaftetet",
+            "verhafteten",
+            "verhaftetest"
+          ],
+          "answer": 0,
+          "explain": "ich verhaftete — the Präteritum of verhaften.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (symbolisieren, Präteritum)",
+          "options": [
+            "symbolisierte",
+            "symbolisiertest",
+            "symbolisierten",
+            "symbolisiertet"
+          ],
+          "answer": 0,
+          "explain": "er symbolisierte — the Präteritum of symbolisieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (färben, Präteritum)",
+          "options": [
+            "färbtet",
+            "färbte",
+            "färbtest",
+            "färbten"
+          ],
+          "answer": 1,
+          "explain": "er färbte — the Präteritum of färben.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (räumen, Präteritum)",
+          "options": [
+            "räumtest",
+            "räumten",
+            "räumte",
+            "räumtet"
+          ],
+          "answer": 3,
+          "explain": "ihr räumtet — the Präteritum of räumen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (klappen, Präteritum)",
+          "options": [
+            "klapptest",
+            "klappten",
+            "klappte",
+            "klapptet"
+          ],
+          "answer": 2,
+          "explain": "ich klappte — the Präteritum of klappen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (warnen, Präteritum)",
+          "options": [
+            "warnten",
+            "warnte",
+            "warntet",
+            "warntest"
+          ],
+          "answer": 1,
+          "explain": "er warnte — the Präteritum of warnen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (würfeln, Präteritum)",
+          "options": [
+            "würfeltest",
+            "würfelten",
+            "würfelte",
+            "würfeltet"
+          ],
+          "answer": 1,
+          "explain": "sie (Pl.) würfelten — the Präteritum of würfeln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (fühlen, Präteritum)",
+          "options": [
+            "fühlten",
+            "fühlte",
+            "fühltest",
+            "fühltet"
+          ],
+          "answer": 1,
+          "explain": "er fühlte — the Präteritum of fühlen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (bestimmen, Präteritum)",
+          "options": [
+            "bestimmtet",
+            "bestimmtest",
+            "bestimmten",
+            "bestimmte"
+          ],
+          "answer": 1,
+          "explain": "du bestimmtest — the Präteritum of bestimmen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (regieren, Präteritum)",
+          "options": [
+            "regierte",
+            "regiertet",
+            "regierten",
+            "regiertest"
+          ],
+          "answer": 0,
+          "explain": "er regierte — the Präteritum of regieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (erzielen, Präteritum)",
+          "options": [
+            "erzieltet",
+            "erzielte",
+            "erzieltest",
+            "erzielten"
+          ],
+          "answer": 3,
+          "explain": "sie (Pl.) erzielten — the Präteritum of erzielen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (beraten, Präteritum)",
+          "options": [
+            "berieten",
+            "berietest",
+            "beriet",
+            "berietet"
+          ],
+          "answer": 3,
+          "explain": "ihr berietet — the Präteritum of beraten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (beherrschen, Präteritum)",
+          "options": [
+            "beherrschtet",
+            "beherrschtest",
+            "beherrschten",
+            "beherrschte"
+          ],
+          "answer": 3,
+          "explain": "ich beherrschte — the Präteritum of beherrschen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (kämpfen, Präteritum)",
+          "options": [
+            "kämpftet",
+            "kämpften",
+            "kämpfte",
+            "kämpftest"
+          ],
+          "answer": 0,
+          "explain": "ihr kämpftet — the Präteritum of kämpfen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (kaputtgehen, Präteritum)",
+          "options": [
+            "kaputtgehtest",
+            "kaputtgehten",
+            "kaputtgehte",
+            "kaputtgehtet"
+          ],
+          "answer": 1,
+          "explain": "wir kaputtgehten — the Präteritum of kaputtgehen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (leuchten, Präteritum)",
+          "options": [
+            "leuchtetet",
+            "leuchtetest",
+            "leuchteten",
+            "leuchtete"
+          ],
+          "answer": 2,
+          "explain": "sie (Pl.) leuchteten — the Präteritum of leuchten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (klopfen, Präteritum)",
+          "options": [
+            "klopften",
+            "klopftet",
+            "klopfte",
+            "klopftest"
+          ],
+          "answer": 1,
+          "explain": "ihr klopftet — the Präteritum of klopfen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (exportieren, Präteritum)",
+          "options": [
+            "exportierten",
+            "exportiertest",
+            "exportierte",
+            "exportiertet"
+          ],
+          "answer": 2,
+          "explain": "er exportierte — the Präteritum of exportieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (verlieren, Präteritum)",
+          "options": [
+            "verloren",
+            "verlort",
+            "verlor",
+            "verlorst"
+          ],
+          "answer": 0,
+          "explain": "wir verloren — the Präteritum of verlieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (notieren, Präteritum)",
+          "options": [
+            "notierten",
+            "notiertet",
+            "notierte",
+            "notiertest"
+          ],
+          "answer": 0,
+          "explain": "sie (Pl.) notierten — the Präteritum of notieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (überwachen, Präteritum)",
+          "options": [
+            "überwachtest",
+            "überwachte",
+            "überwachtet",
+            "überwachten"
+          ],
+          "answer": 2,
+          "explain": "ihr überwachtet — the Präteritum of überwachen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (erwähnen, Präteritum)",
+          "options": [
+            "erwähntet",
+            "erwähntest",
+            "erwähnten",
+            "erwähnte"
+          ],
+          "answer": 0,
+          "explain": "ihr erwähntet — the Präteritum of erwähnen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (bewölken, Präteritum)",
+          "options": [
+            "bewölktest",
+            "bewölktet",
+            "bewölkte",
+            "bewölkten"
+          ],
+          "answer": 3,
+          "explain": "sie (Pl.) bewölkten — the Präteritum of bewölken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (meditieren, Präteritum)",
+          "options": [
+            "meditierte",
+            "meditierten",
+            "meditiertest",
+            "meditiertet"
+          ],
+          "answer": 1,
+          "explain": "wir meditierten — the Präteritum of meditieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (wählen, Präteritum)",
+          "options": [
+            "wählte",
+            "wählten",
+            "wähltest",
+            "wähltet"
+          ],
+          "answer": 2,
+          "explain": "du wähltest — the Präteritum of wählen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (veröffentlichen, Präteritum)",
+          "options": [
+            "veröffentlichten",
+            "veröffentlichte",
+            "veröffentlichtet",
+            "veröffentlichtest"
+          ],
+          "answer": 2,
+          "explain": "ihr veröffentlichtet — the Präteritum of veröffentlichen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (vernebeln, Präteritum)",
+          "options": [
+            "vernebeltest",
+            "vernebeltet",
+            "vernebelte",
+            "vernebelten"
+          ],
+          "answer": 1,
+          "explain": "ihr vernebeltet — the Präteritum of vernebeln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (mähen, Präteritum)",
+          "options": [
+            "mähtet",
+            "mähte",
+            "mähten",
+            "mähtest"
+          ],
+          "answer": 2,
+          "explain": "sie (Pl.) mähten — the Präteritum of mähen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (verbeugen, Präteritum)",
+          "options": [
+            "verbeugtest",
+            "verbeugte",
+            "verbeugtet",
+            "verbeugten"
+          ],
+          "answer": 1,
+          "explain": "ich verbeugte — the Präteritum of verbeugen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (schütteln, Präteritum)",
+          "options": [
+            "schüttelten",
+            "schütteltest",
+            "schütteltet",
+            "schüttelte"
+          ],
+          "answer": 3,
+          "explain": "ich schüttelte — the Präteritum of schütteln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (verhindern, Präteritum)",
+          "options": [
+            "verhinderten",
+            "verhinderte",
+            "verhindertet",
+            "verhindertest"
+          ],
+          "answer": 2,
+          "explain": "ihr verhindertet — the Präteritum of verhindern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (transportieren, Präteritum)",
+          "options": [
+            "transportierten",
+            "transportiertet",
+            "transportiertest",
+            "transportierte"
+          ],
+          "answer": 0,
+          "explain": "wir transportierten — the Präteritum of transportieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (weinen, Präteritum)",
+          "options": [
+            "weintet",
+            "weinten",
+            "weintest",
+            "weinte"
+          ],
+          "answer": 1,
+          "explain": "wir weinten — the Präteritum of weinen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (bremsen, Präteritum)",
+          "options": [
+            "bremste",
+            "bremsten",
+            "bremstest",
+            "bremstet"
+          ],
+          "answer": 1,
+          "explain": "wir bremsten — the Präteritum of bremsen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (vergeben, Präteritum)",
+          "options": [
+            "vergaben",
+            "vergabst",
+            "vergab",
+            "vergabt"
+          ],
+          "answer": 0,
+          "explain": "wir vergaben — the Präteritum of vergeben.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (bekämpfen, Präteritum)",
+          "options": [
+            "bekämpften",
+            "bekämpfte",
+            "bekämpftet",
+            "bekämpftest"
+          ],
+          "answer": 0,
+          "explain": "wir bekämpften — the Präteritum of bekämpfen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (erstellen, Präteritum)",
+          "options": [
+            "erstelltet",
+            "erstellte",
+            "erstellten",
+            "erstelltest"
+          ],
+          "answer": 3,
+          "explain": "du erstelltest — the Präteritum of erstellen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (bewerten, Präteritum)",
+          "options": [
+            "bewertetest",
+            "bewertete",
+            "bewertetet",
+            "bewerteten"
+          ],
+          "answer": 0,
+          "explain": "du bewertetest — the Präteritum of bewerten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (verändern, Präteritum)",
+          "options": [
+            "veränderten",
+            "verändertest",
+            "veränderte",
+            "verändertet"
+          ],
+          "answer": 0,
+          "explain": "wir veränderten — the Präteritum of verändern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (berühren, Präteritum)",
+          "options": [
+            "berührtest",
+            "berührte",
+            "berührtet",
+            "berührten"
+          ],
+          "answer": 3,
+          "explain": "wir berührten — the Präteritum of berühren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (verbringen, Präteritum)",
+          "options": [
+            "verbrachten",
+            "verbrachtest",
+            "verbrachtet",
+            "verbrachte"
+          ],
+          "answer": 0,
+          "explain": "sie (Pl.) verbrachten — the Präteritum of verbringen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (verstärken, Präteritum)",
+          "options": [
+            "verstärkten",
+            "verstärktet",
+            "verstärkte",
+            "verstärktest"
+          ],
+          "answer": 3,
+          "explain": "du verstärktest — the Präteritum of verstärken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (wehen, Präteritum)",
+          "options": [
+            "wehtet",
+            "wehtest",
+            "wehten",
+            "wehte"
+          ],
+          "answer": 3,
+          "explain": "er wehte — the Präteritum of wehen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (begründen, Präteritum)",
+          "options": [
+            "begründetest",
+            "begründetet",
+            "begründete",
+            "begründeten"
+          ],
+          "answer": 2,
+          "explain": "er begründete — the Präteritum of begründen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (schauen, Präteritum)",
+          "options": [
+            "schauten",
+            "schautest",
+            "schautet",
+            "schaute"
+          ],
+          "answer": 3,
+          "explain": "ich schaute — the Präteritum of schauen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (schenken, Präteritum)",
+          "options": [
+            "schenktest",
+            "schenkte",
+            "schenkten",
+            "schenktet"
+          ],
+          "answer": 1,
+          "explain": "ich schenkte — the Präteritum of schenken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (surfen, Präteritum)",
+          "options": [
+            "surfte",
+            "surftest",
+            "surften",
+            "surftet"
+          ],
+          "answer": 3,
+          "explain": "ihr surftet — the Präteritum of surfen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (bezeichnen, Präteritum)",
+          "options": [
+            "bezeichnetet",
+            "bezeichnetest",
+            "bezeichnete",
+            "bezeichneten"
+          ],
+          "answer": 0,
+          "explain": "ihr bezeichnetet — the Präteritum of bezeichnen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (verbieten, Präteritum)",
+          "options": [
+            "verbotet",
+            "verboten",
+            "verbot",
+            "verbotest"
+          ],
+          "answer": 3,
+          "explain": "du verbotest — the Präteritum of verbieten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (besiegen, Präteritum)",
+          "options": [
+            "besiegtet",
+            "besiegte",
+            "besiegten",
+            "besiegtest"
+          ],
+          "answer": 2,
+          "explain": "sie (Pl.) besiegten — the Präteritum of besiegen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (grüßen, Präteritum)",
+          "options": [
+            "grüßtet",
+            "grüßten",
+            "grüßtest",
+            "grüßte"
+          ],
+          "answer": 3,
+          "explain": "er grüßte — the Präteritum of grüßen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (schützen, Präteritum)",
+          "options": [
+            "schützten",
+            "schütztest",
+            "schütztet",
+            "schützte"
+          ],
+          "answer": 2,
+          "explain": "ihr schütztet — the Präteritum of schützen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (beobachten, Präteritum)",
+          "options": [
+            "beobachtete",
+            "beobachtetet",
+            "beobachtetest",
+            "beobachteten"
+          ],
+          "answer": 0,
+          "explain": "er beobachtete — the Präteritum of beobachten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (hupen, Präteritum)",
+          "options": [
+            "hupten",
+            "huptest",
+            "hupte",
+            "huptet"
+          ],
+          "answer": 0,
+          "explain": "sie (Pl.) hupten — the Präteritum of hupen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (bewundern, Präteritum)",
+          "options": [
+            "bewunderten",
+            "bewunderte",
+            "bewundertet",
+            "bewundertest"
+          ],
+          "answer": 0,
+          "explain": "wir bewunderten — the Präteritum of bewundern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (klettern, Präteritum)",
+          "options": [
+            "klettertest",
+            "klettertet",
+            "kletterten",
+            "kletterte"
+          ],
+          "answer": 3,
+          "explain": "ich kletterte — the Präteritum of klettern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (verraten, Präteritum)",
+          "options": [
+            "verrietest",
+            "verrietet",
+            "verriet",
+            "verrieten"
+          ],
+          "answer": 1,
+          "explain": "ihr verrietet — the Präteritum of verraten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (prüfen, Präteritum)",
+          "options": [
+            "prüftest",
+            "prüftet",
+            "prüfte",
+            "prüften"
+          ],
+          "answer": 1,
+          "explain": "ihr prüftet — the Präteritum of prüfen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (beruhigen, Präteritum)",
+          "options": [
+            "beruhigtet",
+            "beruhigten",
+            "beruhigte",
+            "beruhigtest"
+          ],
+          "answer": 2,
+          "explain": "er beruhigte — the Präteritum of beruhigen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (zweifeln, Präteritum)",
+          "options": [
+            "zweifelten",
+            "zweifelte",
+            "zweifeltet",
+            "zweifeltest"
+          ],
+          "answer": 0,
+          "explain": "sie (Pl.) zweifelten — the Präteritum of zweifeln.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (beschäftigen, Präteritum)",
+          "options": [
+            "beschäftigten",
+            "beschäftigte",
+            "beschäftigtest",
+            "beschäftigtet"
+          ],
+          "answer": 2,
+          "explain": "du beschäftigtest — the Präteritum of beschäftigen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (radfahren, Präteritum)",
+          "options": [
+            "radfahrtet",
+            "radfahrtest",
+            "radfahrten",
+            "radfahrte"
+          ],
+          "answer": 0,
+          "explain": "ihr radfahrtet — the Präteritum of radfahren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (entfernen, Präteritum)",
+          "options": [
+            "entferntest",
+            "entfernte",
+            "entfernten",
+            "entferntet"
+          ],
+          "answer": 1,
+          "explain": "er entfernte — the Präteritum of entfernen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (dienen, Präteritum)",
+          "options": [
+            "diente",
+            "dientet",
+            "dienten",
+            "dientest"
+          ],
+          "answer": 0,
+          "explain": "er diente — the Präteritum of dienen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (bauen, Präteritum)",
+          "options": [
+            "baute",
+            "bauten",
+            "bautet",
+            "bautest"
+          ],
+          "answer": 0,
+          "explain": "er baute — the Präteritum of bauen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "sie (Pl.) ___ (reflektieren, Präteritum)",
+          "options": [
+            "reflektiertet",
+            "reflektierte",
+            "reflektiertest",
+            "reflektierten"
+          ],
+          "answer": 3,
+          "explain": "sie (Pl.) reflektierten — the Präteritum of reflektieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (setzen, Präteritum)",
+          "options": [
+            "setztet",
+            "setzte",
+            "setzten",
+            "setztest"
+          ],
+          "answer": 0,
+          "explain": "ihr setztet — the Präteritum of setzen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (vertrauen, Präteritum)",
+          "options": [
+            "vertraute",
+            "vertrautet",
+            "vertrauten",
+            "vertrautest"
+          ],
+          "answer": 3,
+          "explain": "du vertrautest — the Präteritum of vertrauen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (liefern, Präteritum)",
+          "options": [
+            "liefertest",
+            "liefertet",
+            "lieferte",
+            "lieferten"
+          ],
+          "answer": 2,
+          "explain": "ich lieferte — the Präteritum of liefern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (kandidieren, Präteritum)",
+          "options": [
+            "kandidierte",
+            "kandidierten",
+            "kandidiertet",
+            "kandidiertest"
+          ],
+          "answer": 3,
+          "explain": "du kandidiertest — the Präteritum of kandidieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (reinkommen, Präteritum)",
+          "options": [
+            "reinkommtet",
+            "reinkommtest",
+            "reinkommten",
+            "reinkommte"
+          ],
+          "answer": 3,
+          "explain": "ich reinkommte — the Präteritum of reinkommen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (fangen, Präteritum)",
+          "options": [
+            "fingen",
+            "fing",
+            "fingst",
+            "fingt"
+          ],
+          "answer": 3,
+          "explain": "ihr fingt — the Präteritum of fangen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (formulieren, Präteritum)",
+          "options": [
+            "formuliertet",
+            "formuliertest",
+            "formulierte",
+            "formulierten"
+          ],
+          "answer": 1,
+          "explain": "du formuliertest — the Präteritum of formulieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (beeindrucken, Präteritum)",
+          "options": [
+            "beeindrucktet",
+            "beeindruckten",
+            "beeindruckte",
+            "beeindrucktest"
+          ],
+          "answer": 0,
+          "explain": "ihr beeindrucktet — the Präteritum of beeindrucken.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (bewegen, Präteritum)",
+          "options": [
+            "bewegtet",
+            "bewegtest",
+            "bewegten",
+            "bewegte"
+          ],
+          "answer": 3,
+          "explain": "ich bewegte — the Präteritum of bewegen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (bemühen, Präteritum)",
+          "options": [
+            "bemühtest",
+            "bemühten",
+            "bemühte",
+            "bemühtet"
+          ],
+          "answer": 3,
+          "explain": "ihr bemühtet — the Präteritum of bemühen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (verringern, Präteritum)",
+          "options": [
+            "verringertest",
+            "verringerten",
+            "verringertet",
+            "verringerte"
+          ],
+          "answer": 1,
+          "explain": "wir verringerten — the Präteritum of verringern.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ihr ___ (punkten, Präteritum)",
+          "options": [
+            "punktetet",
+            "punkteten",
+            "punktetest",
+            "punktete"
+          ],
+          "answer": 0,
+          "explain": "ihr punktetet — the Präteritum of punkten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "wir ___ (erwarten, Präteritum)",
+          "options": [
+            "erwartetet",
+            "erwartete",
+            "erwartetest",
+            "erwarteten"
+          ],
+          "answer": 3,
+          "explain": "wir erwarteten — the Präteritum of erwarten.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (atmen, Präteritum)",
+          "options": [
+            "atmeten",
+            "atmetest",
+            "atmetet",
+            "atmete"
+          ],
+          "answer": 3,
+          "explain": "ich atmete — the Präteritum of atmen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (beschließen, Präteritum)",
+          "options": [
+            "beschlosst",
+            "beschlossest",
+            "beschlossen",
+            "beschloss"
+          ],
+          "answer": 3,
+          "explain": "er beschloss — the Präteritum of beschließen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "ich ___ (vernetzen, Präteritum)",
+          "options": [
+            "vernetzten",
+            "vernetztet",
+            "vernetztest",
+            "vernetzte"
+          ],
+          "answer": 3,
+          "explain": "ich vernetzte — the Präteritum of vernetzen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (verzeihen, Präteritum)",
+          "options": [
+            "verzeihten",
+            "verzeihtet",
+            "verzeihtest",
+            "verzeihte"
+          ],
+          "answer": 2,
+          "explain": "du verzeihtest — the Präteritum of verzeihen.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "er ___ (engagieren, Präteritum)",
+          "options": [
+            "engagierten",
+            "engagiertest",
+            "engagierte",
+            "engagiertet"
+          ],
+          "answer": 2,
+          "explain": "er engagierte — the Präteritum of engagieren.",
+          "gen": true
+        },
+        {
+          "kind": "choose",
+          "prompt": "du ___ (lohnen, Präteritum)",
+          "options": [
+            "lohnten",
+            "lohntet",
+            "lohntest",
+            "lohnte"
+          ],
+          "answer": 2,
+          "explain": "du lohntest — the Präteritum of lohnen.",
+          "gen": true
+        }
+      ],
+      "sections": [
+        {
+          "label": "regular",
+          "pairs": [
+            {
+              "from": "machen",
+              "to": "ich machte, du machtest"
+            },
+            {
+              "from": "tanken",
+              "to": "ich tankte"
+            }
+          ]
+        },
+        {
+          "label": "irregular",
+          "body": "The stem vowel changes and there is no -te at all.",
+          "pairs": [
+            {
+              "from": "gehen",
+              "to": "ich ging"
+            },
+            {
+              "from": "kommen",
+              "to": "ich kam"
+            },
+            {
+              "from": "lassen",
+              "to": "ich ließ"
+            }
+          ]
+        },
+        {
+          "label": "mixed",
+          "body": "Both at once: a new stem vowel and the -te ending.",
+          "pairs": [
+            {
+              "from": "bringen",
+              "to": "ich brachte"
+            },
+            {
+              "from": "denken",
+              "to": "ich dachte"
+            }
+          ]
+        },
+        {
+          "label": "the ones you say out loud",
+          "body": "These are the exception to „Präteritum is for writing“ — in speech the Perfekt of these sounds heavy.",
+          "examples": [
+            {
+              "de": "ich war · ich hatte"
+            },
+            {
+              "de": "ich konnte · ich musste · ich wollte · ich durfte"
+            }
+          ]
         }
       ]
     },
@@ -38107,6 +40182,158 @@
           ],
           "answer": 0,
           "explain": "The four irregulars worth memorising: gut, viel, gern, hoch."
+        },
+        {
+          "kind": "type",
+          "prompt": "Comparative of schnell: Das Auto ist ___ als das Rad.",
+          "accept": [
+            "schneller"
+          ],
+          "explain": "schnell → schneller."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Berlin ist ___ als Köln.",
+          "options": [
+            "größer",
+            "groß",
+            "am größten"
+          ],
+          "answer": 0,
+          "explain": "comparative → größer … als."
+        },
+        {
+          "kind": "type",
+          "prompt": "Superlative of schnell: Der ICE ist am ___.",
+          "accept": [
+            "schnellsten"
+          ],
+          "explain": "am schnellsten."
+        },
+        {
+          "kind": "type",
+          "prompt": "gut → besser → am ___",
+          "accept": [
+            "besten"
+          ],
+          "explain": "irregular: am besten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Dieser Weg ist ___ als der andere.",
+          "options": [
+            "kürzer",
+            "kurzer",
+            "am kürzesten"
+          ],
+          "answer": 0,
+          "explain": "Umlaut: kürzer."
+        },
+        {
+          "kind": "error",
+          "prompt": "Das ist der schönste Tag wie immer.",
+          "answer": 5,
+          "fix": "Das ist der schönste Tag überhaupt.",
+          "explain": "Superlativ takes no wie-comparison."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist die ___ Lösung. (gut)",
+          "options": [
+            "beste",
+            "gutste",
+            "bessere"
+          ],
+          "answer": 0,
+          "explain": "gut – besser – best-. Irregular and very frequent."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er hat ___ Geld als ich. (viel)",
+          "options": [
+            "mehr",
+            "vieler",
+            "mehrere"
+          ],
+          "answer": 0,
+          "explain": "viel – mehr – meist-. „mehr“ never takes an ending."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist der ___ Berg. (hoch)",
+          "options": [
+            "höchste",
+            "hochste",
+            "höhere"
+          ],
+          "answer": 0,
+          "explain": "hoch loses its -c- in the comparative (höher) and regains it in the superlative (höchst-)."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich trinke ___ Tee als Kaffee. (gern)",
+          "options": [
+            "lieber",
+            "gerner",
+            "liebster"
+          ],
+          "answer": 0,
+          "explain": "gern – lieber – am liebsten."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist die ___ Schülerin der Klasse. (fleißig)",
+          "options": [
+            "fleißigste",
+            "fleißiger",
+            "am fleißigsten"
+          ],
+          "answer": 0,
+          "explain": "Before a noun the superlative declines: die fleißigste."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Von allen läuft er ___. (schnell)",
+          "options": [
+            "am schnellsten",
+            "der schnellste",
+            "schneller"
+          ],
+          "answer": 0,
+          "explain": "With no noun following, the am-form is used."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Je älter er wird, desto ___ wird er. (ruhig)",
+          "options": [
+            "ruhiger",
+            "am ruhigsten",
+            "ruhigste"
+          ],
+          "answer": 0,
+          "explain": "Both halves of je … desto need a comparative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Wetter wird ___. (schlecht)",
+          "options": [
+            "schlechter",
+            "am schlechtesten",
+            "schlechteste"
+          ],
+          "answer": 0,
+          "explain": "A simple comparative with no comparison partner: it is getting worse."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wann bekommt der Superlativ „am …sten“?",
+          "options": [
+            "wenn kein Nomen folgt",
+            "immer",
+            "nie"
+          ],
+          "answer": 0,
+          "explain": "„der schnellste Läufer“ before a noun, „er läuft am schnellsten“ without one."
         }
       ]
     },
@@ -49978,165 +52205,176 @@
           "answer": 3,
           "explain": "Feminine nouns take der in the Genitiv and add no -s.",
           "gen": true
-        }
-      ]
-    },
-    {
-      "title": "Komparativ & Superlativ",
-      "summary": "More / most: -er and am …-sten; many short adjectives take an umlaut.",
-      "rule": "klein → kleiner → am kleinsten; groß → größer → am größten; gut → besser → am besten; viel → mehr → am meisten.",
-      "exercises": [
-        {
-          "kind": "type",
-          "prompt": "Comparative of schnell: Das Auto ist ___ als das Rad.",
-          "accept": [
-            "schneller"
-          ],
-          "explain": "schnell → schneller."
         },
         {
           "kind": "choose",
-          "prompt": "Berlin ist ___ als Köln.",
+          "prompt": "das Haus ___ Lehrers",
           "options": [
-            "größer",
-            "groß",
-            "am größten"
+            "des",
+            "dem",
+            "der"
           ],
           "answer": 0,
-          "explain": "comparative → größer … als."
+          "explain": "masc Genitiv → des + -s."
+        },
+        {
+          "kind": "choose",
+          "prompt": "die Tasche ___ Frau",
+          "options": [
+            "der",
+            "des",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "fem Genitiv → der."
         },
         {
           "kind": "type",
-          "prompt": "Superlative of schnell: Der ICE ist am ___.",
+          "prompt": "wegen ___ Wetters (das Wetter, schlecht)",
           "accept": [
-            "schnellsten"
+            "des schlechten",
+            "des schlechten Wetters"
           ],
-          "explain": "am schnellsten."
-        },
-        {
-          "kind": "type",
-          "prompt": "gut → besser → am ___",
-          "accept": [
-            "besten"
-          ],
-          "explain": "irregular: am besten."
+          "explain": "wegen + Genitiv: des schlechten Wetters."
         },
         {
           "kind": "choose",
-          "prompt": "Dieser Weg ist ___ als der andere.",
+          "prompt": "___ des Regens machten wir ein Picknick.",
           "options": [
-            "kürzer",
-            "kurzer",
-            "am kürzesten"
+            "Trotz",
+            "Wegen",
+            "Während"
           ],
           "answer": 0,
-          "explain": "Umlaut: kürzer."
-        },
-        {
-          "kind": "error",
-          "prompt": "Das ist der schönste Tag wie immer.",
-          "answer": 5,
-          "fix": "Das ist der schönste Tag überhaupt.",
-          "explain": "Superlativ takes no wie-comparison."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das ist die ___ Lösung. (gut)",
-          "options": [
-            "beste",
-            "gutste",
-            "bessere"
-          ],
-          "answer": 0,
-          "explain": "gut – besser – best-. Irregular and very frequent."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er hat ___ Geld als ich. (viel)",
-          "options": [
-            "mehr",
-            "vieler",
-            "mehrere"
-          ],
-          "answer": 0,
-          "explain": "viel – mehr – meist-. „mehr“ never takes an ending."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das ist der ___ Berg. (hoch)",
-          "options": [
-            "höchste",
-            "hochste",
-            "höhere"
-          ],
-          "answer": 0,
-          "explain": "hoch loses its -c- in the comparative (höher) and regains it in the superlative (höchst-)."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich trinke ___ Tee als Kaffee. (gern)",
-          "options": [
-            "lieber",
-            "gerner",
-            "liebster"
-          ],
-          "answer": 0,
-          "explain": "gern – lieber – am liebsten."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ist die ___ Schülerin der Klasse. (fleißig)",
-          "options": [
-            "fleißigste",
-            "fleißiger",
-            "am fleißigsten"
-          ],
-          "answer": 0,
-          "explain": "Before a noun the superlative declines: die fleißigste."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Von allen läuft er ___. (schnell)",
-          "options": [
-            "am schnellsten",
-            "der schnellste",
-            "schneller"
-          ],
-          "answer": 0,
-          "explain": "With no noun following, the am-form is used."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Je älter er wird, desto ___ wird er. (ruhig)",
-          "options": [
-            "ruhiger",
-            "am ruhigsten",
-            "ruhigste"
-          ],
-          "answer": 0,
-          "explain": "Both halves of je … desto need a comparative."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Wetter wird ___. (schlecht)",
-          "options": [
-            "schlechter",
-            "am schlechtesten",
-            "schlechteste"
-          ],
-          "answer": 0,
-          "explain": "A simple comparative with no comparison partner: it is getting worse."
+          "explain": "concession → trotz + Genitiv."
         },
         {
           "kind": "mc",
-          "prompt": "Wann bekommt der Superlativ „am …sten“?",
+          "prompt": "Which is correct?",
           "options": [
-            "wenn kein Nomen folgt",
-            "immer",
-            "nie"
+            "während der Ferien",
+            "während die Ferien",
+            "während den Ferien"
           ],
           "answer": 0,
-          "explain": "„der schnellste Läufer“ before a noun, „er läuft am schnellsten“ without one."
+          "explain": "während + Genitiv Plural → der."
+        },
+        {
+          "kind": "error",
+          "prompt": "Das ist das Büro meines Chef.",
+          "answer": 5,
+          "fix": "Das ist das Büro meines Chefs.",
+          "explain": "Masc Genitiv adds -s: des/meines Chefs."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das ist das Auto ___ Vaters.",
+          "options": [
+            "meines",
+            "meinem",
+            "mein"
+          ],
+          "answer": 0,
+          "explain": "Masculine genitive: meines Vaters, with -s on the noun as well."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Farbe ___ Hauses gefällt mir.",
+          "options": [
+            "des",
+            "dem",
+            "das"
+          ],
+          "answer": 0,
+          "explain": "Neuter genitive: des Hauses."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Meinung ___ Kollegin ist wichtig.",
+          "options": [
+            "meiner",
+            "meine",
+            "meinem"
+          ],
+          "answer": 0,
+          "explain": "Feminine genitive takes -er and the noun stays unchanged."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Rechte ___ Arbeitnehmer sind geschützt.",
+          "options": [
+            "der",
+            "den",
+            "die"
+          ],
+          "answer": 0,
+          "explain": "Genitive plural is der, with no -s on the noun."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Der Titel ___ Films ist lang.",
+          "options": [
+            "des",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "des Films — one-syllable masculines often take -es (des Kindes), longer ones -s."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Das Ende ___ Geschichte war überraschend.",
+          "options": [
+            "der",
+            "des",
+            "dem"
+          ],
+          "answer": 0,
+          "explain": "die Geschichte → der Geschichte."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Ansicht ___ Präsidenten.",
+          "options": [
+            "des",
+            "dem",
+            "der"
+          ],
+          "answer": 0,
+          "explain": "An n-Deklination noun in the genitive: des Präsidenten — -en, not -s."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie ersetzt die Umgangssprache den Genitiv?",
+          "options": [
+            "mit „von“ + Dativ — „das Auto von meinem Vater“",
+            "mit dem Akkusativ",
+            "gar nicht"
+          ],
+          "answer": 0,
+          "explain": "Both are understood; written and formal German expects the genitive, which is why B2 exams test it."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Welche Endung hat ein maskulines Nomen im Genitiv?",
+          "options": [
+            "-s oder -es",
+            "-n",
+            "keine"
+          ],
+          "answer": 0,
+          "explain": "des Mannes, des Autos — unless the noun is n-Deklination, where it is -en."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Bei welchem Genus bleibt das Nomen im Genitiv unverändert?",
+          "options": [
+            "feminin und Plural",
+            "maskulin",
+            "neutrum"
+          ],
+          "answer": 0,
+          "explain": "der Frau, der Kinder — only the article changes."
         }
       ]
     },
@@ -55543,8 +57781,8 @@
     },
     {
       "title": "Zweiteilige Konnektoren",
-      "summary": "sowohl … als auch · weder … noch · je … desto.",
-      "rule": "sowohl A als auch B (both), nicht nur A, sondern auch B (not only … but also), weder A noch B (neither … nor), entweder A oder B (either … or), je + Komparativ, desto + Komparativ (the more … the more).",
+      "summary": "sowohl … als auch · weder … noch · entweder … oder · je … desto · zwar … aber.",
+      "rule": "Paired connectors link two things, and both halves are fixed — you cannot use one without the other.",
       "exercises": [
         {
           "kind": "choose",
@@ -55667,6 +57905,236 @@
             "als"
           ],
           "explain": "sowohl … als auch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ Tee ___ Kaffee — ich trinke beides gern. ",
+          "options": [
+            "Sowohl … als auch",
+            "Entweder … oder",
+            "Weder … noch"
+          ],
+          "answer": 0,
+          "explain": "both → sowohl … als auch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er spricht ___ Englisch ___ Französisch. (neither/nor)",
+          "options": [
+            "weder … noch",
+            "entweder … oder",
+            "zwar … aber"
+          ],
+          "answer": 0,
+          "explain": "negation of both → weder … noch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Je mehr ich lerne, ___ besser verstehe ich.",
+          "options": [
+            "desto",
+            "umso mehr",
+            "sondern"
+          ],
+          "answer": 0,
+          "explain": "je … desto + Komparativ."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which is correct?",
+          "options": [
+            "Je länger ich warte, desto nervöser werde ich.",
+            "Je länger ich warte, desto nervös ich werde.",
+            "Je lang ich warte, desto nervöser werde ich."
+          ],
+          "answer": 0,
+          "explain": "Komparativ on both sides; verb second after desto."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build: either … or",
+          "tiles": [
+            "Entweder",
+            "wir",
+            "fahren",
+            "ans",
+            "Meer,",
+            "oder",
+            "wir",
+            "bleiben",
+            "hier"
+          ],
+          "explain": "entweder pos 0 (verb can follow subject), oder joins the alternative."
+        },
+        {
+          "kind": "error",
+          "prompt": "Zwar ist das Hotel teuer, sondern es ist sehr gut.",
+          "answer": 5,
+          "fix": "Zwar ist das Hotel teuer, aber es ist sehr gut.",
+          "explain": "zwar pairs with aber, not sondern."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er spricht ___ Deutsch als auch Französisch.",
+          "options": [
+            "sowohl",
+            "entweder",
+            "weder"
+          ],
+          "answer": 0,
+          "explain": "sowohl … als auch = both … and."
+        },
+        {
+          "kind": "choose",
+          "prompt": "___ kommst du mit, oder du bleibst hier.",
+          "options": [
+            "Entweder",
+            "Weder",
+            "Sowohl"
+          ],
+          "answer": 0,
+          "explain": "entweder … oder = either … or."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Ich habe ___ Zeit noch Geld.",
+          "options": [
+            "weder",
+            "entweder",
+            "sowohl"
+          ],
+          "answer": 0,
+          "explain": "weder … noch = neither … nor, and it needs no further negation."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Er ist ___ nur klug, sondern auch fleißig.",
+          "options": [
+            "nicht",
+            "kein",
+            "weder"
+          ],
+          "answer": 0,
+          "explain": "nicht nur … sondern auch."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Sie ist zwar müde, ___ arbeitet sie weiter.",
+          "options": [
+            "aber",
+            "sondern",
+            "noch"
+          ],
+          "answer": 0,
+          "explain": "zwar … aber concedes and then contrasts."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Je mehr er übte, ___ besser wurde er.",
+          "options": [
+            "desto",
+            "als",
+            "wie"
+          ],
+          "answer": 0,
+          "explain": "je … desto, with a comparative in both halves."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Weder er ___ sie war da.",
+          "options": [
+            "noch",
+            "oder",
+            "und"
+          ],
+          "answer": 0,
+          "explain": "noch is the second half of weder."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Braucht „weder … noch“ eine zusätzliche Verneinung?",
+          "options": [
+            "nein, es ist bereits verneint",
+            "ja, immer „nicht“",
+            "ja, „kein“"
+          ],
+          "answer": 0,
+          "explain": "„Ich habe weder Zeit noch Geld“ — adding nicht would negate twice."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Was folgt auf „nicht nur“?",
+          "options": [
+            "sondern auch",
+            "aber auch",
+            "und auch"
+          ],
+          "answer": 0,
+          "explain": "The frame is fixed, and it is one of the most reliable ways to lift a B2 written text."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Wie verhält sich „zwar … aber“?",
+          "options": [
+            "es räumt etwas ein und schränkt dann ein",
+            "es nennt zwei Gründe",
+            "es verneint beide Teile"
+          ],
+          "answer": 0,
+          "explain": "Concede, then push back — the standard shape of a balanced B2 argument."
+        }
+      ],
+      "sections": [
+        {
+          "label": "adding",
+          "pairs": [
+            {
+              "from": "sowohl … als auch",
+              "to": "Sie spricht sowohl Spanisch als auch Russisch."
+            },
+            {
+              "from": "nicht nur …, sondern auch",
+              "to": "Er kocht nicht nur gern, sondern auch gut."
+            }
+          ]
+        },
+        {
+          "label": "choosing",
+          "pairs": [
+            {
+              "from": "entweder … oder",
+              "to": "Wir fahren entweder im Mai oder im Juni."
+            }
+          ]
+        },
+        {
+          "label": "excluding",
+          "body": "weder … noch is already negative. Do not add nicht or kein anywhere else in the clause.",
+          "pairs": [
+            {
+              "from": "weder … noch",
+              "to": "Er trinkt weder Kaffee noch Tee."
+            }
+          ]
+        },
+        {
+          "label": "conceding",
+          "pairs": [
+            {
+              "from": "zwar …, aber",
+              "to": "Das Hotel war zwar teuer, aber sehr ruhig."
+            }
+          ]
+        },
+        {
+          "label": "scaling",
+          "body": "Both halves take a comparative, and the je-clause is a Nebensatz — its verb goes last.",
+          "pairs": [
+            {
+              "from": "je …, desto …",
+              "to": "Je früher wir losfahren, desto besser."
+            }
+          ]
         }
       ]
     },
@@ -60901,2021 +63369,6 @@
       ]
     },
     {
-      "title": "Präteritum",
-      "summary": "Written past tense: regular -te, irregular vowel change.",
-      "rule": "The Präteritum is the past tense of written narration and of sein/haben/modals. Regular verbs add -te (tanken → tankte). Irregular verbs change the stem vowel (lassen → ließ, kommen → kam) and mixed verbs do both (bringen → brachte).",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "Er ___ das Auto vor der Tür. (lassen)",
-          "options": [
-            "ließ",
-            "lasste",
-            "liesste"
-          ],
-          "answer": 0,
-          "explain": "lassen is irregular → ließ."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ___ mir ein Geschenk zum Geburtstag. (bringen)",
-          "options": [
-            "brachte",
-            "bringte",
-            "brang"
-          ],
-          "answer": 0,
-          "explain": "bringen is mixed → brachte."
-        },
-        {
-          "kind": "type",
-          "prompt": "Ich ___ das Auto und fuhr los. (tanken, Präteritum)",
-          "accept": [
-            "tankte"
-          ],
-          "explain": "Regular verb: tank + -te → tankte."
-        },
-        {
-          "kind": "type",
-          "prompt": "Wir ___ gestern spät nach Hause. (kommen, Präteritum)",
-          "accept": [
-            "kamen"
-          ],
-          "explain": "kommen → kam; plural wir kamen."
-        },
-        {
-          "kind": "order",
-          "prompt": "Build: „Letztes Jahr spielte er oft Fußball.“",
-          "tiles": [
-            "Letztes",
-            "Jahr",
-            "spielte",
-            "er",
-            "oft",
-            "Fußball."
-          ],
-          "explain": "Time phrase – verb (spielte) in position 2 – subject."
-        },
-        {
-          "kind": "error",
-          "prompt": "Er gehte gestern ins Kino.",
-          "answer": 1,
-          "fix": "ging",
-          "explain": "gehen is irregular in the Präteritum → ging."
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (siezen, Präteritum)",
-          "options": [
-            "siezte",
-            "sieztet",
-            "siezten",
-            "sieztest"
-          ],
-          "answer": 2,
-          "explain": "sie (Pl.) siezten — the Präteritum of siezen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (freuen, Präteritum)",
-          "options": [
-            "freute",
-            "freutest",
-            "freutet",
-            "freuten"
-          ],
-          "answer": 0,
-          "explain": "er freute — the Präteritum of freuen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (betrachten, Präteritum)",
-          "options": [
-            "betrachteten",
-            "betrachtete",
-            "betrachtetest",
-            "betrachtetet"
-          ],
-          "answer": 0,
-          "explain": "wir betrachteten — the Präteritum of betrachten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (spüren, Präteritum)",
-          "options": [
-            "spürtet",
-            "spürtest",
-            "spürte",
-            "spürten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) spürten — the Präteritum of spüren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (installieren, Präteritum)",
-          "options": [
-            "installiertet",
-            "installiertest",
-            "installierten",
-            "installierte"
-          ],
-          "answer": 2,
-          "explain": "sie (Pl.) installierten — the Präteritum of installieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (üben, Präteritum)",
-          "options": [
-            "übten",
-            "übte",
-            "übtet",
-            "übtest"
-          ],
-          "answer": 2,
-          "explain": "ihr übtet — the Präteritum of üben.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (verzichten, Präteritum)",
-          "options": [
-            "verzichteten",
-            "verzichtetest",
-            "verzichtete",
-            "verzichtetet"
-          ],
-          "answer": 1,
-          "explain": "du verzichtetest — the Präteritum of verzichten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (ahnen, Präteritum)",
-          "options": [
-            "ahntet",
-            "ahntest",
-            "ahnten",
-            "ahnte"
-          ],
-          "answer": 1,
-          "explain": "du ahntest — the Präteritum of ahnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (finanzieren, Präteritum)",
-          "options": [
-            "finanzierten",
-            "finanziertest",
-            "finanziertet",
-            "finanzierte"
-          ],
-          "answer": 3,
-          "explain": "ich finanzierte — the Präteritum of finanzieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (versorgen, Präteritum)",
-          "options": [
-            "versorgten",
-            "versorgte",
-            "versorgtest",
-            "versorgtet"
-          ],
-          "answer": 1,
-          "explain": "ich versorgte — the Präteritum of versorgen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (nützen, Präteritum)",
-          "options": [
-            "nützte",
-            "nütztet",
-            "nütztest",
-            "nützten"
-          ],
-          "answer": 0,
-          "explain": "ich nützte — the Präteritum of nützen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (melken, Präteritum)",
-          "options": [
-            "melktest",
-            "melkte",
-            "melktet",
-            "melkten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) melkten — the Präteritum of melken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (erholen, Präteritum)",
-          "options": [
-            "erholten",
-            "erholtest",
-            "erholte",
-            "erholtet"
-          ],
-          "answer": 2,
-          "explain": "ich erholte — the Präteritum of erholen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (entspannen, Präteritum)",
-          "options": [
-            "entspannten",
-            "entspannte",
-            "entspanntet",
-            "entspanntest"
-          ],
-          "answer": 0,
-          "explain": "wir entspannten — the Präteritum of entspannen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (verpassen, Präteritum)",
-          "options": [
-            "verpasstest",
-            "verpassten",
-            "verpasstet",
-            "verpasste"
-          ],
-          "answer": 3,
-          "explain": "er verpasste — the Präteritum of verpassen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (handeln, Präteritum)",
-          "options": [
-            "handeltest",
-            "handelte",
-            "handeltet",
-            "handelten"
-          ],
-          "answer": 0,
-          "explain": "du handeltest — the Präteritum of handeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (beschädigen, Präteritum)",
-          "options": [
-            "beschädigten",
-            "beschädigtest",
-            "beschädigtet",
-            "beschädigte"
-          ],
-          "answer": 0,
-          "explain": "wir beschädigten — the Präteritum of beschädigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (stoppen, Präteritum)",
-          "options": [
-            "stoppte",
-            "stoppten",
-            "stopptet",
-            "stopptest"
-          ],
-          "answer": 2,
-          "explain": "ihr stopptet — the Präteritum of stoppen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (tanken, Präteritum)",
-          "options": [
-            "tanktet",
-            "tanktest",
-            "tankten",
-            "tankte"
-          ],
-          "answer": 0,
-          "explain": "ihr tanktet — the Präteritum of tanken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (drehen, Präteritum)",
-          "options": [
-            "drehte",
-            "drehten",
-            "drehtest",
-            "drehtet"
-          ],
-          "answer": 1,
-          "explain": "sie (Pl.) drehten — the Präteritum of drehen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (zeigen, Präteritum)",
-          "options": [
-            "zeigte",
-            "zeigtest",
-            "zeigtet",
-            "zeigten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) zeigten — the Präteritum of zeigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (tauen, Präteritum)",
-          "options": [
-            "taute",
-            "tauten",
-            "tautest",
-            "tautet"
-          ],
-          "answer": 0,
-          "explain": "er taute — the Präteritum of tauen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (löschen, Präteritum)",
-          "options": [
-            "löschtest",
-            "löschtet",
-            "löschte",
-            "löschten"
-          ],
-          "answer": 2,
-          "explain": "ich löschte — the Präteritum of löschen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (merken, Präteritum)",
-          "options": [
-            "merkte",
-            "merkten",
-            "merktest",
-            "merktet"
-          ],
-          "answer": 1,
-          "explain": "sie (Pl.) merkten — the Präteritum of merken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (versagen, Präteritum)",
-          "options": [
-            "versagtet",
-            "versagtest",
-            "versagte",
-            "versagten"
-          ],
-          "answer": 0,
-          "explain": "ihr versagtet — the Präteritum of versagen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (tippen, Präteritum)",
-          "options": [
-            "tippte",
-            "tipptest",
-            "tipptet",
-            "tippten"
-          ],
-          "answer": 1,
-          "explain": "du tipptest — the Präteritum of tippen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (flirten, Präteritum)",
-          "options": [
-            "flirteten",
-            "flirtetest",
-            "flirtetet",
-            "flirtete"
-          ],
-          "answer": 1,
-          "explain": "du flirtetest — the Präteritum of flirten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (füttern, Präteritum)",
-          "options": [
-            "füttertet",
-            "fütterten",
-            "fütterte",
-            "füttertest"
-          ],
-          "answer": 2,
-          "explain": "er fütterte — the Präteritum of füttern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (reingehen, Präteritum)",
-          "options": [
-            "reingehte",
-            "reingehtet",
-            "reingehten",
-            "reingehtest"
-          ],
-          "answer": 0,
-          "explain": "er reingehte — the Präteritum of reingehen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (verwöhnen, Präteritum)",
-          "options": [
-            "verwöhnte",
-            "verwöhnten",
-            "verwöhntet",
-            "verwöhntest"
-          ],
-          "answer": 2,
-          "explain": "ihr verwöhntet — the Präteritum of verwöhnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (fallen, Präteritum)",
-          "options": [
-            "fielst",
-            "fielen",
-            "fiel",
-            "fielt"
-          ],
-          "answer": 0,
-          "explain": "du fielst — the Präteritum of fallen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (verreisen, Präteritum)",
-          "options": [
-            "verreistet",
-            "verreisten",
-            "verreistest",
-            "verreiste"
-          ],
-          "answer": 0,
-          "explain": "ihr verreistet — the Präteritum of verreisen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (bilden, Präteritum)",
-          "options": [
-            "bildetet",
-            "bildete",
-            "bildeten",
-            "bildetest"
-          ],
-          "answer": 2,
-          "explain": "wir bildeten — the Präteritum of bilden.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (verhandeln, Präteritum)",
-          "options": [
-            "verhandeltet",
-            "verhandelten",
-            "verhandelte",
-            "verhandeltest"
-          ],
-          "answer": 2,
-          "explain": "er verhandelte — the Präteritum of verhandeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (enttäuschen, Präteritum)",
-          "options": [
-            "enttäuschtest",
-            "enttäuschte",
-            "enttäuschtet",
-            "enttäuschten"
-          ],
-          "answer": 2,
-          "explain": "ihr enttäuschtet — the Präteritum of enttäuschen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (krankmelden, Präteritum)",
-          "options": [
-            "krankmeldeten",
-            "krankmeldete",
-            "krankmeldetest",
-            "krankmeldetet"
-          ],
-          "answer": 2,
-          "explain": "du krankmeldetest — the Präteritum of krankmelden.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (schnappen, Präteritum)",
-          "options": [
-            "schnappten",
-            "schnapptet",
-            "schnappte",
-            "schnapptest"
-          ],
-          "answer": 0,
-          "explain": "sie (Pl.) schnappten — the Präteritum of schnappen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (landen, Präteritum)",
-          "options": [
-            "landeten",
-            "landetet",
-            "landete",
-            "landetest"
-          ],
-          "answer": 3,
-          "explain": "du landetest — the Präteritum of landen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (kündigen, Präteritum)",
-          "options": [
-            "kündigtet",
-            "kündigtest",
-            "kündigten",
-            "kündigte"
-          ],
-          "answer": 1,
-          "explain": "du kündigtest — the Präteritum of kündigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (verletzen, Präteritum)",
-          "options": [
-            "verletztet",
-            "verletztest",
-            "verletzte",
-            "verletzten"
-          ],
-          "answer": 0,
-          "explain": "ihr verletztet — the Präteritum of verletzen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (forschen, Präteritum)",
-          "options": [
-            "forschte",
-            "forschtest",
-            "forschtet",
-            "forschten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) forschten — the Präteritum of forschen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (rausfinden, Präteritum)",
-          "options": [
-            "rausfindetet",
-            "rausfindetest",
-            "rausfindeten",
-            "rausfindete"
-          ],
-          "answer": 3,
-          "explain": "ich rausfindete — the Präteritum of rausfinden.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (verwandeln, Präteritum)",
-          "options": [
-            "verwandelte",
-            "verwandeltet",
-            "verwandelten",
-            "verwandeltest"
-          ],
-          "answer": 2,
-          "explain": "sie (Pl.) verwandelten — the Präteritum of verwandeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (ermöglichen, Präteritum)",
-          "options": [
-            "ermöglichtest",
-            "ermöglichten",
-            "ermöglichte",
-            "ermöglichtet"
-          ],
-          "answer": 0,
-          "explain": "du ermöglichtest — the Präteritum of ermöglichen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (passieren, Präteritum)",
-          "options": [
-            "passierte",
-            "passierten",
-            "passiertet",
-            "passiertest"
-          ],
-          "answer": 1,
-          "explain": "wir passierten — the Präteritum of passieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (verhalten, Präteritum)",
-          "options": [
-            "verhielten",
-            "verhieltet",
-            "verhieltest",
-            "verhielt"
-          ],
-          "answer": 3,
-          "explain": "ich verhielt — the Präteritum of verhalten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (verhaften, Präteritum)",
-          "options": [
-            "verhaftete",
-            "verhaftetet",
-            "verhafteten",
-            "verhaftetest"
-          ],
-          "answer": 0,
-          "explain": "ich verhaftete — the Präteritum of verhaften.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (symbolisieren, Präteritum)",
-          "options": [
-            "symbolisierte",
-            "symbolisiertest",
-            "symbolisierten",
-            "symbolisiertet"
-          ],
-          "answer": 0,
-          "explain": "er symbolisierte — the Präteritum of symbolisieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (färben, Präteritum)",
-          "options": [
-            "färbtet",
-            "färbte",
-            "färbtest",
-            "färbten"
-          ],
-          "answer": 1,
-          "explain": "er färbte — the Präteritum of färben.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (beenden, Präteritum)",
-          "options": [
-            "beendetet",
-            "beendeten",
-            "beendetest",
-            "beendete"
-          ],
-          "answer": 3,
-          "explain": "ich beendete — the Präteritum of beenden.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (räumen, Präteritum)",
-          "options": [
-            "räumtest",
-            "räumten",
-            "räumte",
-            "räumtet"
-          ],
-          "answer": 3,
-          "explain": "ihr räumtet — the Präteritum of räumen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (klappen, Präteritum)",
-          "options": [
-            "klapptest",
-            "klappten",
-            "klappte",
-            "klapptet"
-          ],
-          "answer": 2,
-          "explain": "ich klappte — the Präteritum of klappen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (vergleichen, Präteritum)",
-          "options": [
-            "verglichen",
-            "verglich",
-            "verglicht",
-            "verglichst"
-          ],
-          "answer": 0,
-          "explain": "sie (Pl.) verglichen — the Präteritum of vergleichen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (warnen, Präteritum)",
-          "options": [
-            "warnten",
-            "warnte",
-            "warntet",
-            "warntest"
-          ],
-          "answer": 1,
-          "explain": "er warnte — the Präteritum of warnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (würfeln, Präteritum)",
-          "options": [
-            "würfeltest",
-            "würfelten",
-            "würfelte",
-            "würfeltet"
-          ],
-          "answer": 1,
-          "explain": "sie (Pl.) würfelten — the Präteritum of würfeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (fühlen, Präteritum)",
-          "options": [
-            "fühlten",
-            "fühlte",
-            "fühltest",
-            "fühltet"
-          ],
-          "answer": 1,
-          "explain": "er fühlte — the Präteritum of fühlen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (faulenzen, Präteritum)",
-          "options": [
-            "faulenzte",
-            "faulenztet",
-            "faulenzten",
-            "faulenztest"
-          ],
-          "answer": 2,
-          "explain": "wir faulenzten — the Präteritum of faulenzen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (bestimmen, Präteritum)",
-          "options": [
-            "bestimmtet",
-            "bestimmtest",
-            "bestimmten",
-            "bestimmte"
-          ],
-          "answer": 1,
-          "explain": "du bestimmtest — the Präteritum of bestimmen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (regieren, Präteritum)",
-          "options": [
-            "regierte",
-            "regiertet",
-            "regierten",
-            "regiertest"
-          ],
-          "answer": 0,
-          "explain": "er regierte — the Präteritum of regieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (erzielen, Präteritum)",
-          "options": [
-            "erzieltet",
-            "erzielte",
-            "erzieltest",
-            "erzielten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) erzielten — the Präteritum of erzielen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (beraten, Präteritum)",
-          "options": [
-            "berieten",
-            "berietest",
-            "beriet",
-            "berietet"
-          ],
-          "answer": 3,
-          "explain": "ihr berietet — the Präteritum of beraten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (überqueren, Präteritum)",
-          "options": [
-            "überquertet",
-            "überquertest",
-            "überquerten",
-            "überquerte"
-          ],
-          "answer": 3,
-          "explain": "ich überquerte — the Präteritum of überqueren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (beherrschen, Präteritum)",
-          "options": [
-            "beherrschtet",
-            "beherrschtest",
-            "beherrschten",
-            "beherrschte"
-          ],
-          "answer": 3,
-          "explain": "ich beherrschte — the Präteritum of beherrschen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (besichtigen, Präteritum)",
-          "options": [
-            "besichtigte",
-            "besichtigtet",
-            "besichtigtest",
-            "besichtigten"
-          ],
-          "answer": 1,
-          "explain": "ihr besichtigtet — the Präteritum of besichtigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (kämpfen, Präteritum)",
-          "options": [
-            "kämpftet",
-            "kämpften",
-            "kämpfte",
-            "kämpftest"
-          ],
-          "answer": 0,
-          "explain": "ihr kämpftet — the Präteritum of kämpfen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (kaputtgehen, Präteritum)",
-          "options": [
-            "kaputtgehtest",
-            "kaputtgehten",
-            "kaputtgehte",
-            "kaputtgehtet"
-          ],
-          "answer": 1,
-          "explain": "wir kaputtgehten — the Präteritum of kaputtgehen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (leuchten, Präteritum)",
-          "options": [
-            "leuchtetet",
-            "leuchtetest",
-            "leuchteten",
-            "leuchtete"
-          ],
-          "answer": 2,
-          "explain": "sie (Pl.) leuchteten — the Präteritum of leuchten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (klopfen, Präteritum)",
-          "options": [
-            "klopften",
-            "klopftet",
-            "klopfte",
-            "klopftest"
-          ],
-          "answer": 1,
-          "explain": "ihr klopftet — the Präteritum of klopfen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (exportieren, Präteritum)",
-          "options": [
-            "exportierten",
-            "exportiertest",
-            "exportierte",
-            "exportiertet"
-          ],
-          "answer": 2,
-          "explain": "er exportierte — the Präteritum of exportieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (verlieren, Präteritum)",
-          "options": [
-            "verloren",
-            "verlort",
-            "verlor",
-            "verlorst"
-          ],
-          "answer": 0,
-          "explain": "wir verloren — the Präteritum of verlieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (segeln, Präteritum)",
-          "options": [
-            "segeltet",
-            "segeltest",
-            "segelte",
-            "segelten"
-          ],
-          "answer": 1,
-          "explain": "du segeltest — the Präteritum of segeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (notieren, Präteritum)",
-          "options": [
-            "notierten",
-            "notiertet",
-            "notierte",
-            "notiertest"
-          ],
-          "answer": 0,
-          "explain": "sie (Pl.) notierten — the Präteritum of notieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (überwachen, Präteritum)",
-          "options": [
-            "überwachtest",
-            "überwachte",
-            "überwachtet",
-            "überwachten"
-          ],
-          "answer": 2,
-          "explain": "ihr überwachtet — the Präteritum of überwachen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (erwähnen, Präteritum)",
-          "options": [
-            "erwähntet",
-            "erwähntest",
-            "erwähnten",
-            "erwähnte"
-          ],
-          "answer": 0,
-          "explain": "ihr erwähntet — the Präteritum of erwähnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (bewölken, Präteritum)",
-          "options": [
-            "bewölktest",
-            "bewölktet",
-            "bewölkte",
-            "bewölkten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) bewölkten — the Präteritum of bewölken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (meditieren, Präteritum)",
-          "options": [
-            "meditierte",
-            "meditierten",
-            "meditiertest",
-            "meditiertet"
-          ],
-          "answer": 1,
-          "explain": "wir meditierten — the Präteritum of meditieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (wählen, Präteritum)",
-          "options": [
-            "wählte",
-            "wählten",
-            "wähltest",
-            "wähltet"
-          ],
-          "answer": 2,
-          "explain": "du wähltest — the Präteritum of wählen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (veröffentlichen, Präteritum)",
-          "options": [
-            "veröffentlichten",
-            "veröffentlichte",
-            "veröffentlichtet",
-            "veröffentlichtest"
-          ],
-          "answer": 2,
-          "explain": "ihr veröffentlichtet — the Präteritum of veröffentlichen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (vernebeln, Präteritum)",
-          "options": [
-            "vernebeltest",
-            "vernebeltet",
-            "vernebelte",
-            "vernebelten"
-          ],
-          "answer": 1,
-          "explain": "ihr vernebeltet — the Präteritum of vernebeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (entscheiden, Präteritum)",
-          "options": [
-            "entschied",
-            "entschiedest",
-            "entschiedet",
-            "entschieden"
-          ],
-          "answer": 3,
-          "explain": "wir entschieden — the Präteritum of entscheiden.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (mähen, Präteritum)",
-          "options": [
-            "mähtet",
-            "mähte",
-            "mähten",
-            "mähtest"
-          ],
-          "answer": 2,
-          "explain": "sie (Pl.) mähten — the Präteritum of mähen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (verbeugen, Präteritum)",
-          "options": [
-            "verbeugtest",
-            "verbeugte",
-            "verbeugtet",
-            "verbeugten"
-          ],
-          "answer": 1,
-          "explain": "ich verbeugte — the Präteritum of verbeugen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (schütteln, Präteritum)",
-          "options": [
-            "schüttelten",
-            "schütteltest",
-            "schütteltet",
-            "schüttelte"
-          ],
-          "answer": 3,
-          "explain": "ich schüttelte — the Präteritum of schütteln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (verhindern, Präteritum)",
-          "options": [
-            "verhinderten",
-            "verhinderte",
-            "verhindertet",
-            "verhindertest"
-          ],
-          "answer": 2,
-          "explain": "ihr verhindertet — the Präteritum of verhindern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (transportieren, Präteritum)",
-          "options": [
-            "transportierten",
-            "transportiertet",
-            "transportiertest",
-            "transportierte"
-          ],
-          "answer": 0,
-          "explain": "wir transportierten — the Präteritum of transportieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (weinen, Präteritum)",
-          "options": [
-            "weintet",
-            "weinten",
-            "weintest",
-            "weinte"
-          ],
-          "answer": 1,
-          "explain": "wir weinten — the Präteritum of weinen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (bremsen, Präteritum)",
-          "options": [
-            "bremste",
-            "bremsten",
-            "bremstest",
-            "bremstet"
-          ],
-          "answer": 1,
-          "explain": "wir bremsten — the Präteritum of bremsen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (vergeben, Präteritum)",
-          "options": [
-            "vergaben",
-            "vergabst",
-            "vergab",
-            "vergabt"
-          ],
-          "answer": 0,
-          "explain": "wir vergaben — the Präteritum of vergeben.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (bekämpfen, Präteritum)",
-          "options": [
-            "bekämpften",
-            "bekämpfte",
-            "bekämpftet",
-            "bekämpftest"
-          ],
-          "answer": 0,
-          "explain": "wir bekämpften — the Präteritum of bekämpfen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (heilen, Präteritum)",
-          "options": [
-            "heiltet",
-            "heilte",
-            "heilten",
-            "heiltest"
-          ],
-          "answer": 0,
-          "explain": "ihr heiltet — the Präteritum of heilen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (erstellen, Präteritum)",
-          "options": [
-            "erstelltet",
-            "erstellte",
-            "erstellten",
-            "erstelltest"
-          ],
-          "answer": 3,
-          "explain": "du erstelltest — the Präteritum of erstellen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (bewerten, Präteritum)",
-          "options": [
-            "bewertetest",
-            "bewertete",
-            "bewertetet",
-            "bewerteten"
-          ],
-          "answer": 0,
-          "explain": "du bewertetest — the Präteritum of bewerten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (lassen, Präteritum)",
-          "options": [
-            "ließ",
-            "ließest",
-            "ließen",
-            "ließt"
-          ],
-          "answer": 2,
-          "explain": "wir ließen — the Präteritum of lassen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (realisieren, Präteritum)",
-          "options": [
-            "realisiertet",
-            "realisierten",
-            "realisierte",
-            "realisiertest"
-          ],
-          "answer": 2,
-          "explain": "ich realisierte — the Präteritum of realisieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (verändern, Präteritum)",
-          "options": [
-            "veränderten",
-            "verändertest",
-            "veränderte",
-            "verändertet"
-          ],
-          "answer": 0,
-          "explain": "wir veränderten — the Präteritum of verändern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (berühren, Präteritum)",
-          "options": [
-            "berührtest",
-            "berührte",
-            "berührtet",
-            "berührten"
-          ],
-          "answer": 3,
-          "explain": "wir berührten — the Präteritum of berühren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (verbringen, Präteritum)",
-          "options": [
-            "verbrachten",
-            "verbrachtest",
-            "verbrachtet",
-            "verbrachte"
-          ],
-          "answer": 0,
-          "explain": "sie (Pl.) verbrachten — the Präteritum of verbringen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (wohlfühlen, Präteritum)",
-          "options": [
-            "wohlfühltest",
-            "wohlfühlte",
-            "wohlfühltet",
-            "wohlfühlten"
-          ],
-          "answer": 1,
-          "explain": "er wohlfühlte — the Präteritum of wohlfühlen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (erkennen, Präteritum)",
-          "options": [
-            "erkanntet",
-            "erkanntest",
-            "erkannte",
-            "erkannten"
-          ],
-          "answer": 3,
-          "explain": "wir erkannten — the Präteritum of erkennen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (verstärken, Präteritum)",
-          "options": [
-            "verstärkten",
-            "verstärktet",
-            "verstärkte",
-            "verstärktest"
-          ],
-          "answer": 3,
-          "explain": "du verstärktest — the Präteritum of verstärken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (wehen, Präteritum)",
-          "options": [
-            "wehtet",
-            "wehtest",
-            "wehten",
-            "wehte"
-          ],
-          "answer": 3,
-          "explain": "er wehte — the Präteritum of wehen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (begründen, Präteritum)",
-          "options": [
-            "begründetest",
-            "begründetet",
-            "begründete",
-            "begründeten"
-          ],
-          "answer": 2,
-          "explain": "er begründete — the Präteritum of begründen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (schauen, Präteritum)",
-          "options": [
-            "schauten",
-            "schautest",
-            "schautet",
-            "schaute"
-          ],
-          "answer": 3,
-          "explain": "ich schaute — the Präteritum of schauen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (schenken, Präteritum)",
-          "options": [
-            "schenktest",
-            "schenkte",
-            "schenkten",
-            "schenktet"
-          ],
-          "answer": 1,
-          "explain": "ich schenkte — the Präteritum of schenken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (surfen, Präteritum)",
-          "options": [
-            "surfte",
-            "surftest",
-            "surften",
-            "surftet"
-          ],
-          "answer": 3,
-          "explain": "ihr surftet — the Präteritum of surfen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (bezeichnen, Präteritum)",
-          "options": [
-            "bezeichnetet",
-            "bezeichnetest",
-            "bezeichnete",
-            "bezeichneten"
-          ],
-          "answer": 0,
-          "explain": "ihr bezeichnetet — the Präteritum of bezeichnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (verbieten, Präteritum)",
-          "options": [
-            "verbotet",
-            "verboten",
-            "verbot",
-            "verbotest"
-          ],
-          "answer": 3,
-          "explain": "du verbotest — the Präteritum of verbieten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (besiegen, Präteritum)",
-          "options": [
-            "besiegtet",
-            "besiegte",
-            "besiegten",
-            "besiegtest"
-          ],
-          "answer": 2,
-          "explain": "sie (Pl.) besiegten — the Präteritum of besiegen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (grüßen, Präteritum)",
-          "options": [
-            "grüßtet",
-            "grüßten",
-            "grüßtest",
-            "grüßte"
-          ],
-          "answer": 3,
-          "explain": "er grüßte — the Präteritum of grüßen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (schützen, Präteritum)",
-          "options": [
-            "schützten",
-            "schütztest",
-            "schütztet",
-            "schützte"
-          ],
-          "answer": 2,
-          "explain": "ihr schütztet — the Präteritum of schützen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (beobachten, Präteritum)",
-          "options": [
-            "beobachtete",
-            "beobachtetet",
-            "beobachtetest",
-            "beobachteten"
-          ],
-          "answer": 0,
-          "explain": "er beobachtete — the Präteritum of beobachten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (hupen, Präteritum)",
-          "options": [
-            "hupten",
-            "huptest",
-            "hupte",
-            "huptet"
-          ],
-          "answer": 0,
-          "explain": "sie (Pl.) hupten — the Präteritum of hupen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (bewundern, Präteritum)",
-          "options": [
-            "bewunderten",
-            "bewunderte",
-            "bewundertet",
-            "bewundertest"
-          ],
-          "answer": 0,
-          "explain": "wir bewunderten — the Präteritum of bewundern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (klettern, Präteritum)",
-          "options": [
-            "klettertest",
-            "klettertet",
-            "kletterten",
-            "kletterte"
-          ],
-          "answer": 3,
-          "explain": "ich kletterte — the Präteritum of klettern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (verraten, Präteritum)",
-          "options": [
-            "verrietest",
-            "verrietet",
-            "verriet",
-            "verrieten"
-          ],
-          "answer": 1,
-          "explain": "ihr verrietet — the Präteritum of verraten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (prüfen, Präteritum)",
-          "options": [
-            "prüftest",
-            "prüftet",
-            "prüfte",
-            "prüften"
-          ],
-          "answer": 1,
-          "explain": "ihr prüftet — the Präteritum of prüfen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (beruhigen, Präteritum)",
-          "options": [
-            "beruhigtet",
-            "beruhigten",
-            "beruhigte",
-            "beruhigtest"
-          ],
-          "answer": 2,
-          "explain": "er beruhigte — the Präteritum of beruhigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (zweifeln, Präteritum)",
-          "options": [
-            "zweifelten",
-            "zweifelte",
-            "zweifeltet",
-            "zweifeltest"
-          ],
-          "answer": 0,
-          "explain": "sie (Pl.) zweifelten — the Präteritum of zweifeln.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (beschäftigen, Präteritum)",
-          "options": [
-            "beschäftigten",
-            "beschäftigte",
-            "beschäftigtest",
-            "beschäftigtet"
-          ],
-          "answer": 2,
-          "explain": "du beschäftigtest — the Präteritum of beschäftigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (radfahren, Präteritum)",
-          "options": [
-            "radfahrtet",
-            "radfahrtest",
-            "radfahrten",
-            "radfahrte"
-          ],
-          "answer": 0,
-          "explain": "ihr radfahrtet — the Präteritum of radfahren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (entfernen, Präteritum)",
-          "options": [
-            "entferntest",
-            "entfernte",
-            "entfernten",
-            "entferntet"
-          ],
-          "answer": 1,
-          "explain": "er entfernte — the Präteritum of entfernen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (dienen, Präteritum)",
-          "options": [
-            "diente",
-            "dientet",
-            "dienten",
-            "dientest"
-          ],
-          "answer": 0,
-          "explain": "er diente — the Präteritum of dienen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (bauen, Präteritum)",
-          "options": [
-            "baute",
-            "bauten",
-            "bautet",
-            "bautest"
-          ],
-          "answer": 0,
-          "explain": "er baute — the Präteritum of bauen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (reflektieren, Präteritum)",
-          "options": [
-            "reflektiertet",
-            "reflektierte",
-            "reflektiertest",
-            "reflektierten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) reflektierten — the Präteritum of reflektieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (setzen, Präteritum)",
-          "options": [
-            "setztet",
-            "setzte",
-            "setzten",
-            "setztest"
-          ],
-          "answer": 0,
-          "explain": "ihr setztet — the Präteritum of setzen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (vertrauen, Präteritum)",
-          "options": [
-            "vertraute",
-            "vertrautet",
-            "vertrauten",
-            "vertrautest"
-          ],
-          "answer": 3,
-          "explain": "du vertrautest — the Präteritum of vertrauen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (liefern, Präteritum)",
-          "options": [
-            "liefertest",
-            "liefertet",
-            "lieferte",
-            "lieferten"
-          ],
-          "answer": 2,
-          "explain": "ich lieferte — the Präteritum of liefern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (dekorieren, Präteritum)",
-          "options": [
-            "dekorierte",
-            "dekorierten",
-            "dekoriertet",
-            "dekoriertest"
-          ],
-          "answer": 1,
-          "explain": "wir dekorierten — the Präteritum of dekorieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (schmücken, Präteritum)",
-          "options": [
-            "schmückte",
-            "schmückten",
-            "schmücktet",
-            "schmücktest"
-          ],
-          "answer": 1,
-          "explain": "wir schmückten — the Präteritum of schmücken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (kandidieren, Präteritum)",
-          "options": [
-            "kandidierte",
-            "kandidierten",
-            "kandidiertet",
-            "kandidiertest"
-          ],
-          "answer": 3,
-          "explain": "du kandidiertest — the Präteritum of kandidieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (befestigen, Präteritum)",
-          "options": [
-            "befestigten",
-            "befestigtest",
-            "befestigte",
-            "befestigtet"
-          ],
-          "answer": 1,
-          "explain": "du befestigtest — the Präteritum of befestigen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (reinkommen, Präteritum)",
-          "options": [
-            "reinkommtet",
-            "reinkommtest",
-            "reinkommten",
-            "reinkommte"
-          ],
-          "answer": 3,
-          "explain": "ich reinkommte — the Präteritum of reinkommen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (fangen, Präteritum)",
-          "options": [
-            "fingen",
-            "fing",
-            "fingst",
-            "fingt"
-          ],
-          "answer": 3,
-          "explain": "ihr fingt — the Präteritum of fangen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (möblieren, Präteritum)",
-          "options": [
-            "möblierte",
-            "möbliertet",
-            "möbliertest",
-            "möblierten"
-          ],
-          "answer": 2,
-          "explain": "du möbliertest — the Präteritum of möblieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (formulieren, Präteritum)",
-          "options": [
-            "formuliertet",
-            "formuliertest",
-            "formulierte",
-            "formulierten"
-          ],
-          "answer": 1,
-          "explain": "du formuliertest — the Präteritum of formulieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (testen, Präteritum)",
-          "options": [
-            "testete",
-            "testeten",
-            "testetet",
-            "testetest"
-          ],
-          "answer": 2,
-          "explain": "ihr testetet — the Präteritum of testen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (beeindrucken, Präteritum)",
-          "options": [
-            "beeindrucktet",
-            "beeindruckten",
-            "beeindruckte",
-            "beeindrucktest"
-          ],
-          "answer": 0,
-          "explain": "ihr beeindrucktet — the Präteritum of beeindrucken.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "sie (Pl.) ___ (eröffnen, Präteritum)",
-          "options": [
-            "eröffnete",
-            "eröffnetest",
-            "eröffnetet",
-            "eröffneten"
-          ],
-          "answer": 3,
-          "explain": "sie (Pl.) eröffneten — the Präteritum of eröffnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (bewegen, Präteritum)",
-          "options": [
-            "bewegtet",
-            "bewegtest",
-            "bewegten",
-            "bewegte"
-          ],
-          "answer": 3,
-          "explain": "ich bewegte — the Präteritum of bewegen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (bemühen, Präteritum)",
-          "options": [
-            "bemühtest",
-            "bemühten",
-            "bemühte",
-            "bemühtet"
-          ],
-          "answer": 3,
-          "explain": "ihr bemühtet — the Präteritum of bemühen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (verringern, Präteritum)",
-          "options": [
-            "verringertest",
-            "verringerten",
-            "verringertet",
-            "verringerte"
-          ],
-          "answer": 1,
-          "explain": "wir verringerten — the Präteritum of verringern.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ihr ___ (punkten, Präteritum)",
-          "options": [
-            "punktetet",
-            "punkteten",
-            "punktetest",
-            "punktete"
-          ],
-          "answer": 0,
-          "explain": "ihr punktetet — the Präteritum of punkten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (erwarten, Präteritum)",
-          "options": [
-            "erwartetet",
-            "erwartete",
-            "erwartetest",
-            "erwarteten"
-          ],
-          "answer": 3,
-          "explain": "wir erwarteten — the Präteritum of erwarten.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (atmen, Präteritum)",
-          "options": [
-            "atmeten",
-            "atmetest",
-            "atmetet",
-            "atmete"
-          ],
-          "answer": 3,
-          "explain": "ich atmete — the Präteritum of atmen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (beschließen, Präteritum)",
-          "options": [
-            "beschlosst",
-            "beschlossest",
-            "beschlossen",
-            "beschloss"
-          ],
-          "answer": 3,
-          "explain": "er beschloss — the Präteritum of beschließen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "ich ___ (vernetzen, Präteritum)",
-          "options": [
-            "vernetzten",
-            "vernetztet",
-            "vernetztest",
-            "vernetzte"
-          ],
-          "answer": 3,
-          "explain": "ich vernetzte — the Präteritum of vernetzen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (verzeihen, Präteritum)",
-          "options": [
-            "verzeihten",
-            "verzeihtet",
-            "verzeihtest",
-            "verzeihte"
-          ],
-          "answer": 2,
-          "explain": "du verzeihtest — the Präteritum of verzeihen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "er ___ (engagieren, Präteritum)",
-          "options": [
-            "engagierten",
-            "engagiertest",
-            "engagierte",
-            "engagiertet"
-          ],
-          "answer": 2,
-          "explain": "er engagierte — the Präteritum of engagieren.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "du ___ (lohnen, Präteritum)",
-          "options": [
-            "lohnten",
-            "lohntet",
-            "lohntest",
-            "lohnte"
-          ],
-          "answer": 2,
-          "explain": "du lohntest — the Präteritum of lohnen.",
-          "gen": true
-        },
-        {
-          "kind": "choose",
-          "prompt": "wir ___ (besitzen, Präteritum)",
-          "options": [
-            "besaßen",
-            "besaßt",
-            "besaß",
-            "besaßest"
-          ],
-          "answer": 0,
-          "explain": "wir besaßen — the Präteritum of besitzen.",
-          "gen": true
-        }
-      ]
-    },
-    {
       "title": "Temporale Konjunktion: als",
       "summary": "„als“ for a single past event; „wenn“ for repeated ones.",
       "rule": "Use als for one completed event in the past (Als ich klein war, …). Use wenn for repeated or habitual actions (Immer wenn …) and for the present/future. Both are subordinating: the verb goes to the end.",
@@ -64271,171 +64724,6 @@
           ],
           "answer": 0,
           "explain": "etwas Gutes, nichts Besonderes, viel Interessantes."
-        }
-      ]
-    },
-    {
-      "title": "n-Deklination",
-      "summary": "Some masculine nouns add -(e)n in all cases but the nominative.",
-      "rule": "Weak masculine nouns take -(e)n in accusative, dative and genitive: der Kollege → den/dem Kollegen. Also der Mensch, Nachbar, Praktikant, Herr (den Herrn), Junge, Kunde, Student, Name.",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "Ich sehe den ___. (Kollege)",
-          "options": [
-            "Kollegen",
-            "Kollege",
-            "Kolleg"
-          ],
-          "answer": 0,
-          "explain": "Accusative → den Kollegen."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich helfe dem ___. (Nachbar)",
-          "options": [
-            "Nachbarn",
-            "Nachbar",
-            "Nachbars"
-          ],
-          "answer": 0,
-          "explain": "Dative → dem Nachbarn."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Kennst du den ___? (Student)",
-          "options": [
-            "Studenten",
-            "Student",
-            "Studente"
-          ],
-          "answer": 0,
-          "explain": "Accusative → den Studenten."
-        },
-        {
-          "kind": "type",
-          "prompt": "Ich spreche mit dem ___. (Praktikant, Dativ)",
-          "accept": [
-            "Praktikanten"
-          ],
-          "explain": "n-Deklination → dem Praktikanten."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der ___ ist nett. (Kollege, Nominativ)",
-          "options": [
-            "Kollege",
-            "Kollegen",
-            "Kollegs"
-          ],
-          "answer": 0,
-          "explain": "Nominative singular keeps the base form: der Kollege."
-        },
-        {
-          "kind": "error",
-          "prompt": "Ich frage den Herr.",
-          "answer": 2,
-          "fix": "Herrn",
-          "explain": "n-Deklination: den Herrn (Herr adds -n)."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich habe mit dem ___ gesprochen. (der Kollege)",
-          "options": [
-            "Kollegen",
-            "Kollege",
-            "Kollegs"
-          ],
-          "answer": 0,
-          "explain": "n-Deklination: -n everywhere except the nominative singular."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Brief des ___. (der Präsident)",
-          "options": [
-            "Präsidenten",
-            "Präsidents",
-            "Präsident"
-          ],
-          "answer": 0,
-          "explain": "Genitive takes -en, not -s — the one place learners over-apply the ordinary rule."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich sehe einen ___. (der Polizist)",
-          "options": [
-            "Polizisten",
-            "Polizist",
-            "Polizistes"
-          ],
-          "answer": 0,
-          "explain": "Nouns in -ist belong to this group."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Auto des ___. (der Nachbar)",
-          "options": [
-            "Nachbarn",
-            "Nachbars",
-            "Nachbar"
-          ],
-          "answer": 0,
-          "explain": "der Nachbar → des Nachbarn."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Wir helfen dem ___. (der Praktikant)",
-          "options": [
-            "Praktikanten",
-            "Praktikant",
-            "Praktikants"
-          ],
-          "answer": 0,
-          "explain": "-ant is another reliable signal."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Meinung des ___. (der Experte)",
-          "options": [
-            "Experten",
-            "Expertes",
-            "Experte"
-          ],
-          "answer": 0,
-          "explain": "Masculine nouns ending in -e are almost all n-Deklination."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich kenne diesen ___. (der Herr)",
-          "options": [
-            "Herrn",
-            "Herr",
-            "Herren"
-          ],
-          "answer": 0,
-          "explain": "der Herr is irregular: -n in the singular, -en in the plural."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Welche Endungen zeigen n-Deklination an?",
-          "options": [
-            "-e, -ent, -ist, -ant, -oge",
-            "-ung, -heit, -keit",
-            "-chen, -lein"
-          ],
-          "answer": 0,
-          "explain": "The second group is feminine and the third neuter — neither can be n-Deklination, which is masculine only."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Wo steht die Grundform ohne Endung?",
-          "options": [
-            "nur im Nominativ Singular",
-            "im Nominativ und Akkusativ",
-            "im Genitiv"
-          ],
-          "answer": 0,
-          "explain": "One bare slot, three inflected ones — so if you are not in the nominative singular, add the -n."
         }
       ]
     },
@@ -68841,359 +69129,6 @@
       ]
     },
     {
-      "title": "n-Deklination",
-      "summary": "Masculine nouns that take -(e)n in every case except nominative.",
-      "rule": "Weak masc nouns (der Junge, Kollege, Student, Mensch, Herr, Name…) add -(e)n in Akkusativ, Dativ, Genitiv: den Studenten, dem Herrn, des Namens.",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "Ich frage den ___.",
-          "options": [
-            "Studenten",
-            "Student",
-            "Studente"
-          ],
-          "answer": 0,
-          "explain": "Akkusativ → Studenten."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Auto gehört dem ___.",
-          "options": [
-            "Kollegen",
-            "Kollege",
-            "Kolleg"
-          ],
-          "answer": 0,
-          "explain": "Dativ → Kollegen."
-        },
-        {
-          "kind": "type",
-          "prompt": "Kennst du Herrn Müller? — Ja, ich kenne ___ Müller gut. (Herr)",
-          "accept": [
-            "Herrn"
-          ],
-          "explain": "Akkusativ of Herr → Herrn."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Which noun is NOT n-Deklination?",
-          "options": [
-            "der Tisch",
-            "der Junge",
-            "der Mensch"
-          ],
-          "answer": 0,
-          "explain": "Tisch is a regular strong noun."
-        },
-        {
-          "kind": "choose",
-          "prompt": "die Meinung des ___",
-          "options": [
-            "Experten",
-            "Experte",
-            "Expertes"
-          ],
-          "answer": 0,
-          "explain": "Genitiv → des Experten."
-        },
-        {
-          "kind": "error",
-          "prompt": "Wir helfen dem Junge bei den Hausaufgaben.",
-          "answer": 3,
-          "fix": "Wir helfen dem Jungen bei den Hausaufgaben.",
-          "explain": "Dativ of der Junge → dem Jungen."
-        },
-        {
-          "kind": "choose",
-          "prompt": "die Meinung des ___ (der Experte)",
-          "options": [
-            "Experten",
-            "Expertes",
-            "Experts"
-          ],
-          "answer": 0,
-          "explain": "Genitive of an n-Deklination noun is -en, never -s. This is where the group most often catches learners out at B2."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich habe mit dem ___ gesprochen. (der Journalist)",
-          "options": [
-            "Journalisten",
-            "Journalist",
-            "Journalists"
-          ],
-          "answer": 0,
-          "explain": "Dative -en."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Vortrag des ___ war gut. (der Kollege)",
-          "options": [
-            "Kollegen",
-            "Kolleges",
-            "Kollege"
-          ],
-          "answer": 0,
-          "explain": "Genitive -en."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Wir empfangen den ___. (der Herr)",
-          "options": [
-            "Herrn",
-            "Herr",
-            "Herren"
-          ],
-          "answer": 0,
-          "explain": "der Herr is irregular: -n in the singular, -en in the plural."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Rolle des ___ in der Gesellschaft. (der Mensch)",
-          "options": [
-            "Menschen",
-            "Menschs",
-            "Mensch"
-          ],
-          "answer": 0,
-          "explain": "des Menschen."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Name des ___. (der Zeuge)",
-          "options": [
-            "Zeugen",
-            "Zeuges",
-            "Zeuge"
-          ],
-          "answer": 0,
-          "explain": "Masculine nouns in -e are almost all in this group."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Gehalt des ___. (der Praktikant)",
-          "options": [
-            "Praktikanten",
-            "Praktikants",
-            "Praktikant"
-          ],
-          "answer": 0,
-          "explain": "-ant marks the group reliably."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Wunsch des ___. (der Kunde)",
-          "options": [
-            "Kunden",
-            "Kundes",
-            "Kunde"
-          ],
-          "answer": 0,
-          "explain": "des Kunden."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Welche Nomen sind gemischt (n-Deklination + Genitiv-s)?",
-          "options": [
-            "der Name, der Gedanke, der Wille",
-            "der Kunde, der Kollege",
-            "der Tisch, der Stuhl"
-          ],
-          "answer": 0,
-          "explain": "des Namens, des Gedankens — they take the -n *and* an -s. A small group, and worth knowing by name."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Woran erkennt man ein n-Deklination-Nomen im Wörterbuch?",
-          "options": [
-            "am Eintrag „-n, -n“ oder „-en, -en“",
-            "am Artikel",
-            "an der Länge"
-          ],
-          "answer": 0,
-          "explain": "The dictionary prints the genitive and plural; identical -n endings give it away."
-        }
-      ]
-    },
-    {
-      "title": "Genitiv",
-      "summary": "Possession and fixed prepositions: des Mannes, wegen des Wetters.",
-      "rule": "Masc/neut singular: des + noun + -(e)s; fem/plural: der. Prepositions with Genitiv: wegen, trotz, während, statt. e.g. das Auto des Nachbarn, trotz des Regens.",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "das Haus ___ Lehrers",
-          "options": [
-            "des",
-            "dem",
-            "der"
-          ],
-          "answer": 0,
-          "explain": "masc Genitiv → des + -s."
-        },
-        {
-          "kind": "choose",
-          "prompt": "die Tasche ___ Frau",
-          "options": [
-            "der",
-            "des",
-            "dem"
-          ],
-          "answer": 0,
-          "explain": "fem Genitiv → der."
-        },
-        {
-          "kind": "type",
-          "prompt": "wegen ___ Wetters (das Wetter, schlecht)",
-          "accept": [
-            "des schlechten",
-            "des schlechten Wetters"
-          ],
-          "explain": "wegen + Genitiv: des schlechten Wetters."
-        },
-        {
-          "kind": "choose",
-          "prompt": "___ des Regens machten wir ein Picknick.",
-          "options": [
-            "Trotz",
-            "Wegen",
-            "Während"
-          ],
-          "answer": 0,
-          "explain": "concession → trotz + Genitiv."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Which is correct?",
-          "options": [
-            "während der Ferien",
-            "während die Ferien",
-            "während den Ferien"
-          ],
-          "answer": 0,
-          "explain": "während + Genitiv Plural → der."
-        },
-        {
-          "kind": "error",
-          "prompt": "Das ist das Büro meines Chef.",
-          "answer": 5,
-          "fix": "Das ist das Büro meines Chefs.",
-          "explain": "Masc Genitiv adds -s: des/meines Chefs."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das ist das Auto ___ Vaters.",
-          "options": [
-            "meines",
-            "meinem",
-            "mein"
-          ],
-          "answer": 0,
-          "explain": "Masculine genitive: meines Vaters, with -s on the noun as well."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Farbe ___ Hauses gefällt mir.",
-          "options": [
-            "des",
-            "dem",
-            "das"
-          ],
-          "answer": 0,
-          "explain": "Neuter genitive: des Hauses."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Meinung ___ Kollegin ist wichtig.",
-          "options": [
-            "meiner",
-            "meine",
-            "meinem"
-          ],
-          "answer": 0,
-          "explain": "Feminine genitive takes -er and the noun stays unchanged."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Rechte ___ Arbeitnehmer sind geschützt.",
-          "options": [
-            "der",
-            "den",
-            "die"
-          ],
-          "answer": 0,
-          "explain": "Genitive plural is der, with no -s on the noun."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Der Titel ___ Films ist lang.",
-          "options": [
-            "des",
-            "dem",
-            "der"
-          ],
-          "answer": 0,
-          "explain": "des Films — one-syllable masculines often take -es (des Kindes), longer ones -s."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Das Ende ___ Geschichte war überraschend.",
-          "options": [
-            "der",
-            "des",
-            "dem"
-          ],
-          "answer": 0,
-          "explain": "die Geschichte → der Geschichte."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Die Ansicht ___ Präsidenten.",
-          "options": [
-            "des",
-            "dem",
-            "der"
-          ],
-          "answer": 0,
-          "explain": "An n-Deklination noun in the genitive: des Präsidenten — -en, not -s."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Wie ersetzt die Umgangssprache den Genitiv?",
-          "options": [
-            "mit „von“ + Dativ — „das Auto von meinem Vater“",
-            "mit dem Akkusativ",
-            "gar nicht"
-          ],
-          "answer": 0,
-          "explain": "Both are understood; written and formal German expects the genitive, which is why B2 exams test it."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Welche Endung hat ein maskulines Nomen im Genitiv?",
-          "options": [
-            "-s oder -es",
-            "-n",
-            "keine"
-          ],
-          "answer": 0,
-          "explain": "des Mannes, des Autos — unless the noun is n-Deklination, where it is -en."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Bei welchem Genus bleibt das Nomen im Genitiv unverändert?",
-          "options": [
-            "feminin und Plural",
-            "maskulin",
-            "neutrum"
-          ],
-          "answer": 0,
-          "explain": "der Frau, der Kinder — only the article changes."
-        }
-      ]
-    },
-    {
       "title": "Verben mit Präpositionen",
       "summary": "The preposition belongs to the verb and cannot be reasoned out.",
       "rule": "Many German verbs govern a fixed preposition, and that preposition also fixes the case. The pairing is arbitrary — it is learned with the verb, not derived from meaning, and English almost never matches: warten AUF is \"wait FOR\", sich freuen ÜBER is \"be pleased ABOUT\". Get the preposition wrong and the sentence is wrong however good the rest is.",
@@ -69642,190 +69577,6 @@
           ],
           "answer": 0,
           "explain": "If it is „ist gegangen“, it is „war gegangen“. No new rule to learn."
-        }
-      ]
-    },
-    {
-      "title": "Zweiteilige Konnektoren",
-      "summary": "entweder…oder, sowohl…als auch, weder…noch, je…desto, zwar…aber.",
-      "rule": "Paired connectors link alternatives and contrasts: entweder…oder (either/or), weder…noch (neither/nor), sowohl…als auch (both/and), je + Komparativ … desto + Komparativ, zwar…aber.",
-      "exercises": [
-        {
-          "kind": "choose",
-          "prompt": "___ Tee ___ Kaffee — ich trinke beides gern. ",
-          "options": [
-            "Sowohl … als auch",
-            "Entweder … oder",
-            "Weder … noch"
-          ],
-          "answer": 0,
-          "explain": "both → sowohl … als auch."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er spricht ___ Englisch ___ Französisch. (neither/nor)",
-          "options": [
-            "weder … noch",
-            "entweder … oder",
-            "zwar … aber"
-          ],
-          "answer": 0,
-          "explain": "negation of both → weder … noch."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Je mehr ich lerne, ___ besser verstehe ich.",
-          "options": [
-            "desto",
-            "umso mehr",
-            "sondern"
-          ],
-          "answer": 0,
-          "explain": "je … desto + Komparativ."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Which is correct?",
-          "options": [
-            "Je länger ich warte, desto nervöser werde ich.",
-            "Je länger ich warte, desto nervös ich werde.",
-            "Je lang ich warte, desto nervöser werde ich."
-          ],
-          "answer": 0,
-          "explain": "Komparativ on both sides; verb second after desto."
-        },
-        {
-          "kind": "order",
-          "prompt": "Build: either … or",
-          "tiles": [
-            "Entweder",
-            "wir",
-            "fahren",
-            "ans",
-            "Meer,",
-            "oder",
-            "wir",
-            "bleiben",
-            "hier"
-          ],
-          "explain": "entweder pos 0 (verb can follow subject), oder joins the alternative."
-        },
-        {
-          "kind": "error",
-          "prompt": "Zwar ist das Hotel teuer, sondern es ist sehr gut.",
-          "answer": 5,
-          "fix": "Zwar ist das Hotel teuer, aber es ist sehr gut.",
-          "explain": "zwar pairs with aber, not sondern."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er spricht ___ Deutsch als auch Französisch.",
-          "options": [
-            "sowohl",
-            "entweder",
-            "weder"
-          ],
-          "answer": 0,
-          "explain": "sowohl … als auch = both … and."
-        },
-        {
-          "kind": "choose",
-          "prompt": "___ kommst du mit, oder du bleibst hier.",
-          "options": [
-            "Entweder",
-            "Weder",
-            "Sowohl"
-          ],
-          "answer": 0,
-          "explain": "entweder … oder = either … or."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Ich habe ___ Zeit noch Geld.",
-          "options": [
-            "weder",
-            "entweder",
-            "sowohl"
-          ],
-          "answer": 0,
-          "explain": "weder … noch = neither … nor, and it needs no further negation."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Er ist ___ nur klug, sondern auch fleißig.",
-          "options": [
-            "nicht",
-            "kein",
-            "weder"
-          ],
-          "answer": 0,
-          "explain": "nicht nur … sondern auch."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Sie ist zwar müde, ___ arbeitet sie weiter.",
-          "options": [
-            "aber",
-            "sondern",
-            "noch"
-          ],
-          "answer": 0,
-          "explain": "zwar … aber concedes and then contrasts."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Je mehr er übte, ___ besser wurde er.",
-          "options": [
-            "desto",
-            "als",
-            "wie"
-          ],
-          "answer": 0,
-          "explain": "je … desto, with a comparative in both halves."
-        },
-        {
-          "kind": "choose",
-          "prompt": "Weder er ___ sie war da.",
-          "options": [
-            "noch",
-            "oder",
-            "und"
-          ],
-          "answer": 0,
-          "explain": "noch is the second half of weder."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Braucht „weder … noch“ eine zusätzliche Verneinung?",
-          "options": [
-            "nein, es ist bereits verneint",
-            "ja, immer „nicht“",
-            "ja, „kein“"
-          ],
-          "answer": 0,
-          "explain": "„Ich habe weder Zeit noch Geld“ — adding nicht would negate twice."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Was folgt auf „nicht nur“?",
-          "options": [
-            "sondern auch",
-            "aber auch",
-            "und auch"
-          ],
-          "answer": 0,
-          "explain": "The frame is fixed, and it is one of the most reliable ways to lift a B2 written text."
-        },
-        {
-          "kind": "mc",
-          "prompt": "Wie verhält sich „zwar … aber“?",
-          "options": [
-            "es räumt etwas ein und schränkt dann ein",
-            "es nennt zwei Gründe",
-            "es verneint beide Teile"
-          ],
-          "answer": 0,
-          "explain": "Concede, then push back — the standard shape of a balanced B2 argument."
         }
       ]
     },

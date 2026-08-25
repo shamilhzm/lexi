@@ -158,9 +158,6 @@
   "gram:B1:Irreale Konditionalsätze": {
     "def": "Unreal conditions take Konjunktiv II in both clauses: Wenn ich reich wäre, würde ich weniger arbeiten. Without wenn, the verb leads: Hätte ich Zeit, käme ich mit."
   },
-  "gram:B1:Komparativ & Superlativ": {
-    "def": "klein → kleiner → am kleinsten; groß → größer → am größten; gut → besser → am besten; viel → mehr → am meisten."
-  },
   "gram:B1:Konjunktionen: sondern vs. aber, sowie": {
     "def": "sondern corrects a negated statement and means \"but rather\": Das ist nicht rot, sondern blau. Use aber for a plain contrast that does not replace a negated element: Es ist klein, aber gemütlich. sowie links items like und, mostly in writing: Getränke sowie Snacks. All three are coordinating — the verb does not move."
   },
@@ -215,9 +212,6 @@
   "gram:B2:Finalsätze (um … zu / damit)": {
     "def": "Same subject in both clauses → um + … + zu + Infinitiv. Different subjects → damit + Nebensatz. e.g. Ich lerne, um zu bestehen. Ich erkläre es, damit du es verstehst."
   },
-  "gram:B2:Genitiv": {
-    "def": "Masc/neut singular: des + noun + -(e)s; fem/plural: der. Prepositions with Genitiv: wegen, trotz, während, statt. e.g. das Auto des Nachbarn, trotz des Regens."
-  },
   "gram:B2:Infinitiv mit zu": {
     "def": "After verbs like vorhaben, versuchen, vergessen, empfehlen, after es ist + Adjektiv, and nouns like Lust/Zeit: Ich habe vor, morgen zu kommen. Separable verbs: einzukaufen. No zu after Modalverben."
   },
@@ -262,12 +256,6 @@
   },
   "gram:B2:Zustandspassiv: „ist geschlossen“": {
     "def": "German separates the action from the state it leaves behind. werden + Partizip II reports something happening; sein + Partizip II reports the result that now holds."
-  },
-  "gram:B2:Zweiteilige Konnektoren": {
-    "def": "Paired connectors link alternatives and contrasts: entweder…oder (either/or), weder…noch (neither/nor), sowohl…als auch (both/and), je + Komparativ … desto + Komparativ, zwar…aber."
-  },
-  "gram:B2:n-Deklination": {
-    "def": "Weak masc nouns (der Junge, Kollege, Student, Mensch, Herr, Name…) add -(e)n in Akkusativ, Dativ, Genitiv: den Studenten, dem Herrn, des Namens."
   },
   "gram:C1:Funktionsverbgefüge": {
     "def": "The verb carries little meaning; the noun does the work. e.g. in Betracht ziehen (consider), zur Verfügung stehen (be available), in Frage stellen (call into question)."
@@ -13847,13 +13835,13 @@
     "def": "apology (expression of remorse or regret)",
     "ex": [
       {
-        "de": "Entschuldigung, wo ist der Bahnhof?",
-        "en": "Excuse me, where is the station?",
+        "de": "Er ging ohne eine Entschuldigung.",
+        "en": "He left without an apology.",
         "lvl": "A1"
       },
       {
-        "de": "Entschuldigung, dürfte ich vorbei?",
-        "en": "Excuse me, may I get past?",
+        "de": "Die Schülerin brachte eine Entschuldigung von ihren Eltern mit.",
+        "en": "The pupil brought a note of excuse from her parents.",
         "lvl": "A1"
       }
     ]
@@ -60218,6 +60206,21 @@
       }
     ]
   },
+  "voc:B1:das Umsteigen": {
+    "def": "The act of changing from one train or bus to another.",
+    "ex": [
+      {
+        "de": "Sie müssen in Frankfurt umsteigen.",
+        "en": "You have to change trains in Frankfurt.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beim Umsteigen bleiben nur fünf Minuten Zeit.",
+        "en": "When changing trains there are only five minutes.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Universum": {
     "def": "All of space and everything that exists in it.",
     "ex": [
@@ -78362,21 +78365,6 @@
         "de": "Umgangsformen verraten oft mehr über einen Menschen als seine Worte.",
         "en": "Manners often reveal more about a person than their words.",
         "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:die Umsteigen": {
-    "def": "The act of changing from one train or bus to another.",
-    "ex": [
-      {
-        "de": "Sie müssen in Frankfurt umsteigen.",
-        "en": "You have to change trains in Frankfurt.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Beim Umsteigen bleiben nur fünf Minuten Zeit.",
-        "en": "When changing trains there are only five minutes.",
-        "lvl": "B1"
       }
     ]
   },

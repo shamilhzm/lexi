@@ -1,0 +1,30 @@
+[
+  {
+    "id": "voc:A1:die Entschuldigung",
+    "at": 0,
+    "expect": {
+      "de": "Entschuldigung, wo ist der Bahnhof?",
+      "en": "Excuse me, where is the station?"
+    },
+    "de": "Er ging ohne eine Entschuldigung.",
+    "en": "He left without an apology."
+  },
+  {
+    "id": "voc:A1:die Entschuldigung",
+    "at": 1,
+    "expect": {
+      "de": "Entschuldigung, dürfte ich vorbei?",
+      "en": "Excuse me, may I get past?"
+    },
+    "de": "Die Schülerin brachte eine Entschuldigung von ihren Eltern mit.",
+    "en": "The pupil brought a note of excuse from her parents."
+  },
+  {
+    "id": "voc:A1:die Entschuldigung",
+    "expect": {
+      "en": "sorry"
+    },
+    "en": "apology; note of excuse",
+    "src": "The noun card was glossed \"sorry\" and both its examples were the interjection — «Entschuldigung, wo ist der Bahnhof?» — which is the separate A1 phrase card `Entschuldigung`. The noun is the thing you offer or hand in."
+  }
+]

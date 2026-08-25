@@ -11,6 +11,53 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-25 — n-Deklination was taught three times
+
+BACKLOG's oldest 🔴 says *B2 is mostly revision of B1*, and it has sat there since
+06 August because it reads as a judgement call. Measured, it is two claims wearing one
+hat, and one of them is not a judgement at all: **six topics were carded under an
+identical title at two or three levels, teaching the same rule in different words.**
+
+`n-Deklination` existed at **A2, B1 and B2** — three points, three FSRS schedules, and
+all three saying weak masculine nouns take -(e)n everywhere but the nominative, naming
+the same nouns. `Präteritum` sat at A2 and B1 with **156 exercises each**. Also
+`Genitiv` (B1/B2), `Komparativ & Superlativ` (A2/B1), `Zweiteilige Konnektoren` (B1/B2).
+
+**All six merged.** `authoring:merge-points` is the fifth tool in the authoring family
+and the first that touches the grammar bank: it retires a point into another level's,
+absorbs the exercises the keeper does not already have by prompt, carries **both** id
+families — the exercises' `gex:<level>:<title>:<xi>` and the concept card's
+`gram:<level>:<title>` in `vocab.json` — and refuses to strand a pointer. The keeper is
+always the lower level, because merging upward takes a point away from a learner who
+has it.
+
+**Every keeper's rule was rewritten to carry what the retired copy had and it lacked**,
+which is the part a script cannot do: the B1 `Präteritum`'s register point (that the
+tense is for written narration, and for *sein*/*haben*/modals in speech), the B2
+`Zweiteilige Konnektoren`' *zwar…aber* and the warning that *weder…noch* is already
+negative, the B1 `n-Deklination`'s *des Namens* and *den Herrn*. Three keepers crossed
+the 280-character prose limit as a result and gained `sections` — the rule-length guard
+catching its own consequence.
+
+**140 → 134 points, 6,245 → 6,217 exercises** (28 generated prompts were identical
+across the two `Präteritum` points and deduped). No title now appears at two levels.
+
+**And a ⚠️ item is struck as stale.** *Grammar points can only ever be appended* warned
+that `gexId` was positional, so inserting or moving a point would silently re-point
+schedules. The correct fix — the first of the two it proposed — has since been done:
+ids are keyed on the **title**, with `migrateGexIds()` carrying the one-time migration.
+That is what made these six merges possible at all.
+
+The judgement half of the 🔴 stays open, restated honestly: B2 still spirals a lower
+level in about half its 20 points, and a spiral is how syllabi work — A1 *Perfekt* → B1
+*Passiv Perfekt* is correct pedagogy, not duplication. What B2 genuinely lacks is a
+short list the bank has filed higher: **Passiversatzformen** (at C1 *and* C2, and a
+Sicher! B2 topic), **Partizipialattribute**, **subjektive Modalverben**.
+
+1,000 tests, 0 lint errors, `corpus:validate` and `corpus:audit` both 0 errors.
+
+---
+
 ### Shipped 2026-08-25 — two cards were teaching a misspelling
 
 A fifth form-collision shape, and the smallest: **one word carded under two

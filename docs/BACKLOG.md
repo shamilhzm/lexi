@@ -446,7 +446,36 @@ kinds (choose 404 · type 147 · error 106 · mc 93 · order 55).*
 > the audit and is now stale; the *shape* of the finding — B2 is where the money is
 > and it was the thinnest real layer — is what stands.
 
-### 🔴 B2 is mostly revision of B1, and B2 is where the money is
+### 🟠 B2 is mostly revision of B1 — the duplicate half fixed 2026-08-25
+
+> **Re-measured 2026-08-25, and the item was two claims wearing one hat.**
+>
+> **The indefensible half is now zero.** Six points were carded under an *identical
+> title* at two or three levels, teaching the same rule in different words —
+> `n-Deklination` existed at **A2, B1 and B2**, all three saying weak masculine
+> nouns take -(e)n everywhere but the nominative, all three naming the same nouns.
+> Also `Präteritum` (A2/B1, 156 exercises each), `Genitiv` (B1/B2),
+> `Komparativ & Superlativ` (A2/B1) and `Zweiteilige Konnektoren` (B1/B2). **All
+> six merged** through the new `authoring:merge-points`, keeper always at the lower
+> level, and every keeper's rule rewritten to carry whatever the retired copy had
+> that it lacked — the B1 `Präteritum`'s register point, the B2 `Zweiteilige
+> Konnektoren`' *zwar…aber*, the B1 `n-Deklination`'s *des Namens*. Two keepers
+> crossed the 280-char prose limit as a result and gained `sections`, which is the
+> rule-length guard doing its job. **140 → 134 points; no title now appears at two
+> levels.**
+>
+> **The other half is a judgement and stays open.** B2 still has 20 points of which
+> roughly half spiral a lower level — `Passiv`, `Adjektivdeklination`, `Relativsätze`,
+> `Plusquamperfekt`, `Konjunktiv II`. That is **not** automatically wrong: a spiral
+> is how syllabi work, and A1 *Perfekt* → B1 *Passiv Perfekt* is correct pedagogy,
+> not duplication. The question worth asking is whether each B2 revisit **adds a B2
+> layer** — and answering it is reading, not a script. What B2 genuinely lacks and
+> the bank has filed higher is a shorter list: **Passiversatzformen** (at C1 *and*
+> C2, and a Sicher! B2 topic), **Partizipialattribute** (C1, needed for B2 reading),
+> and **subjektive Modalverben** (C1). Moving a point between levels is now safe —
+> exercise ids are title-keyed — so this is authoring, not migration.
+
+Original finding, 2026-08-06:
 
 **11 of 16 B2 points re-tread a topic already taught at A2 or B1**, several under a
 near-identical title:
@@ -470,7 +499,15 @@ is the certificate that gates university admission and many jobs; it is the seco
 most-taken exam in the category, and it is the thinnest real layer in the bank.
 *M, human-gated.*
 
-### ⚠️ Grammar points can only ever be appended — and nothing says so
+### ✅ ~~Grammar points can only ever be appended~~ — **stale, verified 2026-08-25**
+
+> **The correct fix — the first of the two this item proposed — has been done.**
+> `lib/grammar.ts:170` mints `gexId` as **`gex:<level>:<title>:<xi>`**, keyed on the
+> point's title and not its array position, with `store.ts`'s `migrateGexIds()`
+> carrying the one-time migration off the positional form through `data/gexmap.ts`.
+> So a point can now be inserted mid-level, reordered, or moved between levels
+> without silently re-pointing anybody's schedule — which is what made the six
+> point merges above possible at all. Original text:
 
 *Found 2026-08-06 while costing the A1 reassignment below, which is what turned
 that item from XS into a migration.*
