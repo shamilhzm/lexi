@@ -11,6 +11,18 @@ Where a number appears (1,021 duplicate cards, 1,493 flagged definitions) it cam
 from a script in `scripts/corpus/`, not an estimate. Re-run the script before
 trusting it — the last four times a count was guessed here it was wrong by a third.
 
+> **An item whose number cannot be re-derived will rot, and stating the rule was not
+> enough.** That sentence has been here since August and on **2026-08-25 four items
+> turned out to be already done** — found only because somebody happened to
+> re-measure. The mechanism is cheap to see once named: 17 probes were written that
+> day and none were committed, so re-measuring meant *rewriting the probe*, so it was
+> expensive, so it was skipped.
+>
+> **So a number here now cites the check that reproduces it** —
+> `*(npm run corpus:audit · check-name)*` — and the checks live in
+> `scripts/corpus/audit.ts` beside the ledger of the ones that were tried and thrown
+> away. A finding without a committed instrument is a finding with an expiry date.
+
 > **Consolidated 2026-08-04.** Four parallel branches were merged into one history
 > (see the CHANGELOG entry). This file was rebuilt from both surviving backlogs —
 > the Atlas/personas list on `main` and the open-work list on the stranded branch —
@@ -138,7 +150,9 @@ time, rule all 27. **Touches.** `scripts/corpus/form-rulings.ts`, `merge-forms.t
 **One shape is still open**: the noun/verb-of-one-stem pairs.
 
 > ✅ **The verb/participle-adjective shape, ruled 2026-08-25 — and the ruling is
-> "keep them all".** 48 verb cards have a Partizip II that is also an adjective card.
+> "keep them all".** 48 verb cards have a Partizip II that is also an adjective card
+> (`npm run corpus:audit` · **`participle-adjective-pair`**, which counts them so that *growth*
+> is visible — a new pair is a new card needing the same reading).
 > Read through, this shape is the **opposite** of the other three: the adjectives have
 > genuinely lexicalised and mean something the verb does not. `gewohnt` is *accustomed*
 > and `wohnen` is *to live*; `geschickt` is *adept* and `schicken` is *to send*;
@@ -1535,7 +1549,7 @@ user; none of it is built.*
   five filed here. The rule is now `headwordEvidence` in `scripts/corpus/lib.ts` and
   gates `corpus:validate`, `fix-authored` and `authoring:new`; the entry that
   described the item's original five is in the CHANGELOG.
-- **🟠 Seven tense points are 96% conjugation table · M.** *(Measured 2026-08-25 while
+- **🟠 Tense points that are mostly one generated template · M.** *(`npm run corpus:audit` · **`generated-tense-share`** — 8 points on 2026-08-26, down from 10 when filed, because six gained authored items on 2026-08-25 and two crossed back under the threshold. The count moves as the work is done, which is the point of counting it rather than writing it down.)* *(Originally measured 2026-08-25 while
   checking a B2 homework page.)* Of 4,320 generated exercises in the bank, **968 are the
   shape `er ___ festlegen. (Konjunktiv II)`**, and they sit in only 10 points — which
   are the points that carry every tense a B2 task needs. B1 Konjunktiv II, B1
@@ -1566,7 +1580,7 @@ user; none of it is built.*
   uses it constantly. **Do:** a B2 planning topic with models, or an explicit note that
   the B1 one is the reference. *`src/data/exams/goethe-b2-speaking.ts`.*
 - **🟠 Cards whose two examples are nearly the same sentence — partly worked 2026-08-25,
-  and I was wrong about this band too.** ✅ **19 cards fixed, 0.90 band 86 → 70.** Filed
+  and I was wrong about this band too.** ✅ **19 cards fixed, 0.90 band 86 → 70** (`npm run corpus:audit` · **`example-near-twin`**). Filed
   as holding "the corpus's best deliberate minimal pairs". Reading it through, the
   minimal pairs are a *small minority*: most of the band is a du/ihr imperative swap, an
   er/Tom subject swap, or a one-word paraphrase.
@@ -1584,7 +1598,7 @@ user; none of it is built.*
   «Es ist teuer, und außerdem…», «Im Sommer frühstücken wir oft auf dem Balkon» beside the
   same without *oft*. Each is a judgement about whether a second example earns its place,
   which is why they are not a check. *M.*
-- **🟡 The 0.80 band (294 cards) · L, reading not building.** *(Measured 2026-08-24, after the 18 exact twins were fixed.)* **86 cards**
+- **🟡 The weak near-twin band · L, and UNREAD.** *(`npm run corpus:audit` · **`example-near-twin-weak`** — 223 on 2026-08-26.) This band has never been read.* It is labelled unread rather than described because the two bands above it were each characterised from their first screen and the characterisation was wrong both times. Related: **`example-same-translation`** (125) counts cards whose two examples share one English gloss — which includes the deliberate minimal pairs (`der Kopf`, `der Berliner`), so it is a reading list and must never become a check. Formerly stated as **86 cards**
   have an example pair above 0.90 character similarity; **311** above 0.80; **143** have
   two examples whose English translations are byte-identical. **This is not a defect
   count and must not be turned into a check.** A real share of that band is deliberate
@@ -1625,7 +1639,7 @@ user; none of it is built.*
   example uses the noun because the noun is what the word is. Fixing the examples
   would paper over it. Needs a re-pos or a re-term, and there is no tool for either
   — same gap as the three undefendable cards above. *XS once a tool exists.*
-- **🟡 The remaining 58 · S, reading not building.** *(Measured 2026-08-24, after the noun half was fixed.)* The
+- **🟡 The rest of the case band · S, reading not building.** *(`npm run corpus:audit` · **`case-band-nonnoun`** — 55 on 2026-08-26, 58 when filed. Re-run before trusting either.)* The
   same instrument written wide also flags a **verb or adjective** proved only by a
   capitalised token mid-sentence, and fires **88 times**. It is deliberately not gated,
   because most of those are ordinary German — «beim Tanzen», «bei Rot», «im

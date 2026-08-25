@@ -27,6 +27,12 @@ So the pass runs on three tracks, and only one of them is by hand:
 | **Surfaces** | iOS Simulator + browser, by hand | layout, gesture, copy, reachability | 100% (~12 routes) |
 | **Pedagogy** | named principles vs. the built behaviour | whether a design serves learning | per principle |
 
+**Every number in this file and in BACKLOG now cites a check that reproduces it.**
+Added 2026-08-26, after four items were found already done in a single session. The
+probes that produce those numbers live in `scripts/corpus/audit.ts` — before that they
+were written into a scratchpad and thrown away, which is why re-measuring cost enough to
+get skipped. A finding without a committed instrument has an expiry date.
+
 **The standing rule, from LESSONS:** any check that fires on thousands of rows is assumed
 to be a bug in the check until three hits are hand-verified. This session that rule paid
 out five times — see the withdrawals below. A count in this file that is not marked

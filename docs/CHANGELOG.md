@@ -11,6 +11,58 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — the measurements were disposable
+
+Prompted by a question about Musk's five-step algorithm, and the answer turned out to be
+about step 5 rather than the four we already follow. *Automate last* holds for **fixes** —
+every tool built here was built after doing the thing by hand, and `fetch-plurals` was
+narrowed four times by hand-checks. It is exactly backwards for **measurement**.
+
+**On 2026-08-25 I wrote 17 probes and committed none of them.** The findings went into
+BACKLOG; the instruments went into a scratchpad and vanished. So the items carrying that
+day's numbers — 58, 70, 294, 143, 48 — cited `sense-audit.ts`, which is the *ranking*
+script and not the probe that produced any of them. Nobody could re-derive them, and that
+is the mechanism by which an item rots: re-measuring means rewriting the probe, so it is
+expensive, so it is skipped. **Four items that day turned out to be already done.**
+
+BACKLOG's header has said *"re-run the script before trusting it"* since August. Stating
+the rule was not enough — which is this project's own signature, and its own answer:
+turn the rule into a check.
+
+**Five probes are now named checks in `corpus:audit`**, which already was the
+whole-corpus sweep and already kept a ledger of checks tried and removed:
+`case-band-nonnoun` (55), `example-near-twin` (70), `example-near-twin-weak` (223),
+`example-same-translation` (125), `participle-adjective-pair` (48), and
+`generated-tense-share` (8 points). All are **warnings** — they are reading lists, not
+defect lists, and one is an invariant guard where growth is the signal. Backlog items now
+cite the check rather than a bare number.
+
+**Re-running them against yesterday's figures is what the exercise was for, and it found
+a bug in one of the checks.** Four counts matched or moved for a nameable reason —
+`example-same-translation` fell 143 → 125 because the du/ihr twin fixes rewrote the
+examples; `generated-tense-share` fell from 10 points to 8 because six gained authored
+items. But `participle-adjective-pair` came out **41 against yesterday's 48**, and the
+seven missing were all `sich`-prefixed: the check tested `multiword` *before* stripping
+`sich`, so every reflexive verb was excluded. `sich verletzen`'s participle is *verletzt*,
+which is an adjective card, and that is the same shape. Fixed; back to 48.
+
+That is the whole argument for this change in one number. Written down, 48 was inert. Made
+re-derivable, it disagreed with itself and the disagreement was a defect.
+
+**A fifth entry joins the ledger of checks tried and removed**: the
+participle-vs-corpus-attestation probe written and discarded on 2026-08-25. It flagged 69
+disagreements and every one read was a sentence with no Perfekt in it — the auxiliary test
+fired on any *ist* anywhere, and the stem test was a loose substring.
+
+The **0.80–0.90 near-twin band is labelled UNREAD** rather than described. The two bands
+above it were each characterised from their first screen and the characterisation was
+wrong both times.
+
+`corpus:audit` 0 errors · 1,005 warnings (476 before; the new checks are reading lists).
+1,000 tests, 0 lint errors, `corpus:validate` PASS.
+
+---
+
 ### Shipped 2026-08-25 — the three topics B2 was missing
 
 The other half of the *B2 is mostly revision* 🔴. Having merged the six duplicates, what

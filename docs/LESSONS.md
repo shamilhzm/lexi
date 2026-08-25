@@ -17,6 +17,13 @@ class, not by date, because you scan this before working, not after.
 
 ## The checklist — before you…
 
+**…write a finding down.** Commit the instrument that produced it, in the same pass. A
+number nobody can re-derive is a number that expires: 17 probes were written on
+2026-08-25 and none committed, and four backlog items were found already done that day
+because re-measuring meant rewriting the probe first. *(And when the numbers were finally
+made re-derivable, one of them disagreed with itself — the participle check excluded every
+reflexive verb — so the instrument is also how you find out the finding was wrong.)*
+
 **…state a number.** Get it from a script or a query, this session. Do not carry a
 number forward from a doc. *(Four counts in the README were stale by up to 6×.)*
 
