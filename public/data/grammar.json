@@ -4224,6 +4224,46 @@
           "answer": 0,
           "explain": "„Kommst du mit?“ — no question word, so the verb opens the sentence."
         }
+      ],
+      "sections": [
+        {
+          "body": "German word order is freer than English in one way and stricter in another. The conjugated verb is nailed to a position; almost everything else can move around it, and moving it is how you choose what the sentence is about."
+        },
+        {
+          "label": "The three shapes",
+          "pairs": [
+            {
+              "from": "statement",
+              "to": "Ich lerne Deutsch. — verb second"
+            },
+            {
+              "from": "W-question",
+              "to": "Was lernst du? — W-word first, verb second"
+            },
+            {
+              "from": "yes/no question",
+              "to": "Lernst du Deutsch? — verb first"
+            }
+          ]
+        },
+        {
+          "label": "Position 2 means the second *slot*, not the second word",
+          "body": "This is the rule English speakers misread. A slot can be one word or six; whatever you put in front, the verb still comes straight after it, and the subject then moves behind the verb.",
+          "examples": [
+            {
+              "de": "Heute lerne ich Deutsch.",
+              "en": "Today I am learning German. — not «Heute ich lerne»."
+            },
+            {
+              "de": "Am Montag um acht fahre ich nach Berlin.",
+              "en": "On Monday at eight I travel to Berlin — six words in slot one, verb still second."
+            }
+          ]
+        },
+        {
+          "label": "Why you would move anything",
+          "body": "Fronting is emphasis. «Ich lerne heute Deutsch» is neutral; «Heute lerne ich Deutsch» answers when. German uses position where English uses stress in the voice."
+        }
       ]
     },
     {
@@ -4399,6 +4439,71 @@
           ],
           "answer": 0,
           "explain": "ein → einen. Feminine and neuter are identical in nominative and accusative, which is why the masculine is the one to watch."
+        }
+      ],
+      "sections": [
+        {
+          "body": "Three families of word sit in front of a noun and agree with it: the definite article, the indefinite article, and kein. Learn them together — kein is simply ein with a k, and everything that follows works the same way."
+        },
+        {
+          "label": "Nominative — the dictionary shape",
+          "pairs": [
+            {
+              "from": "masculine",
+              "to": "der / ein / kein Mann"
+            },
+            {
+              "from": "feminine",
+              "to": "die / eine / keine Frau"
+            },
+            {
+              "from": "neuter",
+              "to": "das / ein / kein Kind"
+            },
+            {
+              "from": "plural",
+              "to": "die / — / keine Kinder"
+            }
+          ]
+        },
+        {
+          "label": "Accusative — one change, and only one",
+          "body": "The direct-object form differs from the nominative in the masculine and nowhere else. That is the single most useful fact at A1: three of the four boxes do not move.",
+          "pairs": [
+            {
+              "from": "der Mann",
+              "to": "Ich sehe den Mann."
+            },
+            {
+              "from": "ein Mann",
+              "to": "Ich sehe einen Mann."
+            },
+            {
+              "from": "kein Mann",
+              "to": "Ich sehe keinen Mann."
+            }
+          ]
+        },
+        {
+          "label": "ein has no plural — that is what kein is for",
+          "body": "There is no plural of ein, so a plural indefinite noun simply has no article: «Ich habe Bücher». To negate it you need keine, which does have a plural.",
+          "examples": [
+            {
+              "de": "Ich habe Bücher. — Ich habe keine Bücher.",
+              "en": "I have books. — I have no books."
+            }
+          ]
+        },
+        {
+          "label": "Negate a noun with kein, not with nicht ein",
+          "body": "English negates with \"not a\". German has a dedicated word, and «nicht ein» sounds broken.",
+          "examples": [
+            {
+              "de": "Ich habe kein Auto.",
+              "en": "I do not have a car."
+            }
+          ],
+          "limit": "«nicht ein» is possible when you are contrasting a *number*: «Ich habe nicht ein Auto, sondern zwei» — not one car, but two. Rare at A1, but it is why the form exists at all."
         }
       ]
     },
@@ -6417,6 +6522,73 @@
           "explain": "Possessives take ein-endings: Dativ, feminin → deiner.",
           "gen": true
         }
+      ],
+      "sections": [
+        {
+          "body": "Two things happen in a possessive at once, and separating them makes the whole set easy: the **stem** says who owns it, and the **ending** agrees with the thing owned. The endings are exactly ein/kein’s."
+        },
+        {
+          "label": "The stems",
+          "pairs": [
+            {
+              "from": "ich → mein",
+              "to": "du → dein"
+            },
+            {
+              "from": "er / es → sein",
+              "to": "sie → ihr"
+            },
+            {
+              "from": "wir → unser",
+              "to": "ihr → euer"
+            },
+            {
+              "from": "sie → ihr",
+              "to": "Sie → Ihr (capital, always)"
+            }
+          ]
+        },
+        {
+          "label": "The endings are ein-endings",
+          "pairs": [
+            {
+              "from": "nominative",
+              "to": "mein Vater · meine Mutter · mein Kind · meine Eltern"
+            },
+            {
+              "from": "accusative",
+              "to": "meinen Vater — masculine only"
+            },
+            {
+              "from": "dative",
+              "to": "meinem Vater · meiner Mutter · meinem Kind"
+            }
+          ]
+        },
+        {
+          "label": "sein and ihr are the ones that bite",
+          "body": "English picks the possessive from the owner’s sex. German picks the *stem* from the owner’s grammatical gender and the *ending* from the thing owned — so «ihr Bruder» is her brother and «sein Schwester» is simply wrong twice over.",
+          "examples": [
+            {
+              "de": "Anna und ihr Bruder",
+              "en": "Anna and her brother"
+            },
+            {
+              "de": "Thomas und seine Schwester",
+              "en": "Thomas and his sister"
+            }
+          ]
+        },
+        {
+          "label": "euer loses its e",
+          "body": "When euer takes an ending, the -e- in the stem drops out. Written «euere» it looks wrong because it is.",
+          "pairs": [
+            {
+              "from": "euer Vater",
+              "to": "eure Mutter, eure Eltern"
+            }
+          ]
+        }
       ]
     },
     {
@@ -6589,6 +6761,83 @@
           ],
           "answer": 0,
           "explain": "ich war / er war, ich hatte / er hatte — no ending on the first and third person singular."
+        }
+      ],
+      "sections": [
+        {
+          "body": "German has two past tenses and mostly speaks in the Perfekt — but not for these two. «Ich war» and «ich hatte» are what you will hear and what you should say; the Perfekt versions exist and sound stilted in conversation."
+        },
+        {
+          "label": "war — was / were",
+          "pairs": [
+            {
+              "from": "ich",
+              "to": "war"
+            },
+            {
+              "from": "du",
+              "to": "warst"
+            },
+            {
+              "from": "er/sie/es",
+              "to": "war"
+            },
+            {
+              "from": "wir",
+              "to": "waren"
+            },
+            {
+              "from": "ihr",
+              "to": "wart"
+            },
+            {
+              "from": "sie/Sie",
+              "to": "waren"
+            }
+          ]
+        },
+        {
+          "label": "hatte — had",
+          "pairs": [
+            {
+              "from": "ich",
+              "to": "hatte"
+            },
+            {
+              "from": "du",
+              "to": "hattest"
+            },
+            {
+              "from": "er/sie/es",
+              "to": "hatte"
+            },
+            {
+              "from": "wir",
+              "to": "hatten"
+            },
+            {
+              "from": "ihr",
+              "to": "hattet"
+            },
+            {
+              "from": "sie/Sie",
+              "to": "hatten"
+            }
+          ]
+        },
+        {
+          "label": "Notice the shape you will see again",
+          "body": "ich and er/sie/es are identical and bare — no ending at all. That is true of the Präteritum of every German verb, and of the modals in the present. Three paradigms, one pattern.",
+          "examples": [
+            {
+              "de": "Gestern war ich müde.",
+              "en": "Yesterday I was tired."
+            },
+            {
+              "de": "Wir hatten keine Zeit.",
+              "en": "We had no time."
+            }
+          ]
         }
       ]
     },
@@ -6763,6 +7012,76 @@
           "answer": 0,
           "explain": "Only the masculine and the first/second persons change shape — which is why *ihn* and *mich* are where the errors live."
         }
+      ],
+      "sections": [
+        {
+          "body": "When a pronoun is the direct object it changes shape — as it does in English, which is the good news: you already say \"I see **him**\", not \"I see he\"."
+        },
+        {
+          "label": "Nominative → accusative",
+          "pairs": [
+            {
+              "from": "ich",
+              "to": "mich"
+            },
+            {
+              "from": "du",
+              "to": "dich"
+            },
+            {
+              "from": "er",
+              "to": "ihn"
+            },
+            {
+              "from": "sie",
+              "to": "sie"
+            },
+            {
+              "from": "es",
+              "to": "es"
+            },
+            {
+              "from": "wir",
+              "to": "uns"
+            },
+            {
+              "from": "ihr",
+              "to": "euch"
+            },
+            {
+              "from": "sie / Sie",
+              "to": "sie / Sie"
+            }
+          ]
+        },
+        {
+          "label": "Only three actually change",
+          "body": "ich → mich, du → dich, er → ihn. Everything else keeps its form, so there are three items to learn rather than eight.",
+          "examples": [
+            {
+              "de": "Ich sehe ihn morgen.",
+              "en": "I am seeing him tomorrow."
+            },
+            {
+              "de": "Kennst du mich noch?",
+              "en": "Do you still know me?"
+            }
+          ]
+        },
+        {
+          "label": "The pronoun follows the noun’s gender, not the thing’s",
+          "body": "A masculine object is «ihn» even when it is a table, and a neuter person is «es». This is the same trap as er/sie/es in the nominative and it costs beginners the same mistake twice.",
+          "examples": [
+            {
+              "de": "Der Tisch? Ich kaufe ihn.",
+              "en": "The table? I am buying it."
+            },
+            {
+              "de": "Das Buch? Ich lese es.",
+              "en": "The book? I am reading it."
+            }
+          ]
+        }
       ]
     },
     {
@@ -6932,6 +7251,56 @@
           ],
           "answer": 0,
           "explain": "um acht, um Viertel nach drei."
+        }
+      ],
+      "sections": [
+        {
+          "body": "Time expressions are one of the few areas where German is genuinely tidier than English: the preposition is fixed by the *kind* of time, not by habit. Learn four and you can say most of what you need."
+        },
+        {
+          "label": "The four",
+          "pairs": [
+            {
+              "from": "am + day, part of day",
+              "to": "am Dienstag, am Wochenende, am Abend"
+            },
+            {
+              "from": "um + clock time",
+              "to": "um acht, um halb neun"
+            },
+            {
+              "from": "im + month, season, year-phrase",
+              "to": "im Juli, im Winter, im Jahr 2026"
+            },
+            {
+              "from": "von … bis + span",
+              "to": "von Montag bis Freitag"
+            }
+          ]
+        },
+        {
+          "label": "Two that take no preposition at all",
+          "body": "A bare year, and the words for today/tomorrow/yesterday, stand on their own. English needs \"in\" for the year; German does not.",
+          "examples": [
+            {
+              "de": "Ich bin 1998 geboren.",
+              "en": "I was born in 1998 — «in 1998» is a common and audible learner error."
+            },
+            {
+              "de": "Morgen habe ich frei.",
+              "en": "Tomorrow I am off."
+            }
+          ]
+        },
+        {
+          "label": "in der Nacht is the odd one out",
+          "body": "The parts of the day take am — am Morgen, am Mittag, am Nachmittag, am Abend. The night does not.",
+          "examples": [
+            {
+              "de": "in der Nacht",
+              "en": "at night — not «am Nacht»."
+            }
+          ]
         }
       ]
     },
@@ -7270,6 +7639,55 @@
           "answer": 0,
           "explain": "er wäscht — waschen, Präsens.",
           "gen": true
+        }
+      ],
+      "sections": [
+        {
+          "body": "A group of common verbs change their stem vowel in the du and er/sie/es forms of the present. Everything else is the regular present you already know, which makes this a small patch rather than a new paradigm.",
+          "limit": "The present is not the only place the change shows up: e → i / ie verbs carry it into the imperative too («Nimm!», «Lies!»), which is the last section on this page. a → ä verbs do not."
+        },
+        {
+          "label": "Only du and er/sie/es change",
+          "pairs": [
+            {
+              "from": "a → ä",
+              "to": "fahren: du fährst, er fährt"
+            },
+            {
+              "from": "a → ä",
+              "to": "schlafen: du schläfst, er schläft"
+            },
+            {
+              "from": "e → i",
+              "to": "essen: du isst, er isst"
+            },
+            {
+              "from": "e → i",
+              "to": "nehmen: du nimmst, er nimmt"
+            },
+            {
+              "from": "e → ie",
+              "to": "sehen: du siehst, er sieht"
+            },
+            {
+              "from": "e → ie",
+              "to": "lesen: du liest, er liest"
+            }
+          ]
+        },
+        {
+          "label": "ich, wir, ihr and sie are untouched",
+          "body": "The infinitive vowel comes straight back. If you can say «ich fahre» you have not lost anything — the change is a two-cell exception, not a rewrite.",
+          "examples": [
+            {
+              "de": "Ich fahre, du fährst, wir fahren.",
+              "en": "I drive, you drive, we drive."
+            }
+          ]
+        },
+        {
+          "label": "The vowel change and the imperative point in opposite directions",
+          "body": "e → i / ie verbs keep the change when you give an order — «Nimm!», «Lies!» — while a → ä verbs drop the umlaut: «Fahr!», not «Fähr!». The two groups behave the same in the present and differently in the imperative, which is why they are worth learning as two lists rather than one."
         }
       ]
     },
@@ -9283,6 +9701,77 @@
           "explain": "nach always takes the Dativ, and der Wunsch is masculine → dem.",
           "gen": true
         }
+      ],
+      "sections": [
+        {
+          "body": "Nine prepositions can answer either **wo?** (where something is) or **wohin?** (where it is going). Answering *wo* puts the noun in the dative. This is the first place a case does real work — it changes the meaning rather than just the ending."
+        },
+        {
+          "label": "The dative articles",
+          "pairs": [
+            {
+              "from": "masculine",
+              "to": "dem Tisch"
+            },
+            {
+              "from": "feminine",
+              "to": "der Küche"
+            },
+            {
+              "from": "neuter",
+              "to": "dem Bett"
+            },
+            {
+              "from": "plural",
+              "to": "den Kindern — plus an -n on the noun"
+            }
+          ]
+        },
+        {
+          "label": "Location, with a static verb",
+          "examples": [
+            {
+              "de": "Das Buch liegt auf dem Tisch.",
+              "en": "The book is lying on the table."
+            },
+            {
+              "de": "Die Lampe hängt über dem Bett.",
+              "en": "The lamp is hanging above the bed."
+            },
+            {
+              "de": "Wir sind in der Küche.",
+              "en": "We are in the kitchen."
+            }
+          ]
+        },
+        {
+          "label": "The same preposition with movement takes the accusative",
+          "body": "The preposition does not choose the case — the question does. «auf dem Tisch» is on the table; «auf den Tisch» is onto it. Verbs of position (liegen, stehen, hängen, sein) go with the dative; verbs of movement (legen, stellen, hängen, gehen) with the accusative.",
+          "pairs": [
+            {
+              "from": "wo? — dative",
+              "to": "Das Buch liegt auf dem Tisch."
+            },
+            {
+              "from": "wohin? — accusative",
+              "to": "Ich lege das Buch auf den Tisch."
+            }
+          ]
+        },
+        {
+          "label": "The plural -n is easy to forget",
+          "body": "Dative plural adds -n to the noun itself unless it already ends in -n or -s.",
+          "pairs": [
+            {
+              "from": "die Kinder",
+              "to": "mit den Kindern"
+            },
+            {
+              "from": "die Autos",
+              "to": "mit den Autos — already -s"
+            }
+          ]
+        }
       ]
     },
     {
@@ -9462,6 +9951,70 @@
           ],
           "answer": 0,
           "explain": "nach Deutschland, nach Frankreich — but in die Schweiz, in den Iran, in die Niederlande."
+        }
+      ],
+      "sections": [
+        {
+          "body": "Two small topics that share a page: how to say where you are going, and the handful of words for \"someone, something, nothing, people in general\"."
+        },
+        {
+          "label": "Going somewhere",
+          "pairs": [
+            {
+              "from": "zu + dative — people, places",
+              "to": "zum Arzt, zur Post, zu meiner Schwester"
+            },
+            {
+              "from": "nach — cities, countries, home",
+              "to": "nach Bern, nach Italien, nach Hause"
+            },
+            {
+              "from": "in + accusative — inside it",
+              "to": "ins Museum, in die Stadt"
+            }
+          ],
+          "limit": "nach is for countries **without** an article. Those that have one take in + accusative: «in die Schweiz», «in die Türkei», «in die USA». Say «nach Schweiz» and you will be understood and corrected."
+        },
+        {
+          "label": "zu Hause and nach Hause",
+          "body": "One of the few pairs worth memorising as a unit: nach Hause is going home, zu Hause is being there.",
+          "examples": [
+            {
+              "de": "Ich gehe nach Hause. Ich bin zu Hause.",
+              "en": "I am going home. I am at home."
+            }
+          ]
+        },
+        {
+          "label": "man — the missing English word",
+          "body": "man means people-in-general and takes the er/sie/es form. English has no good equivalent, so it comes out as \"you\", \"one\", or a passive — and learners reach for «du», which sounds like you mean the listener personally.",
+          "examples": [
+            {
+              "de": "In Deutschland isst man viel Brot.",
+              "en": "In Germany people eat a lot of bread."
+            },
+            {
+              "de": "Hier darf man nicht parken.",
+              "en": "You may not park here."
+            }
+          ]
+        },
+        {
+          "label": "etwas, nichts, alle, jemand, niemand",
+          "pairs": [
+            {
+              "from": "etwas / nichts",
+              "to": "something / nothing"
+            },
+            {
+              "from": "jemand / niemand",
+              "to": "someone / no one"
+            },
+            {
+              "from": "alle / alles",
+              "to": "everyone / everything"
+            }
+          ]
         }
       ]
     },
@@ -9646,6 +10199,63 @@
           "answer": 0,
           "explain": "Leave them out and the sentence still means the same — it just sounds abrupt or foreign. That is why they are invisible to a learner and audible to everyone else."
         }
+      ],
+      "sections": [
+        {
+          "body": "Modal particles are the most German thing at A1 and the least teachable by rule. They carry no information — remove one and the facts are unchanged — but they carry the *attitude*, and speech without them sounds abrupt and slightly hostile."
+        },
+        {
+          "label": "What each one does",
+          "pairs": [
+            {
+              "from": "denn",
+              "to": "softens a question — friendly interest rather than interrogation"
+            },
+            {
+              "from": "ja",
+              "to": "marks something as obvious or as a shared surprise"
+            },
+            {
+              "from": "doch",
+              "to": "pushes back gently, or urges"
+            },
+            {
+              "from": "mal",
+              "to": "makes a request small and casual"
+            }
+          ]
+        },
+        {
+          "label": "Same sentence, different person",
+          "pairs": [
+            {
+              "from": "Was machst du?",
+              "to": "Was machst du denn? — curious, not accusing"
+            },
+            {
+              "from": "Komm her.",
+              "to": "Komm doch mal her. — an invitation, not an order"
+            },
+            {
+              "from": "Das ist teuer.",
+              "to": "Das ist ja teuer! — I had not expected that"
+            }
+          ]
+        },
+        {
+          "label": "They are never stressed",
+          "body": "A particle leans on the word before it and takes no emphasis of its own. Stressing one is the clearest sign of a non-native speaker who has learned them from a list."
+        },
+        {
+          "label": "doch has a second, louder job",
+          "body": "Standing alone, doch contradicts a negative question or statement — the \"yes I do\" that English needs a whole phrase for.",
+          "examples": [
+            {
+              "de": "Du kommst nicht mit? — Doch!",
+              "en": "You are not coming? — Yes I am!"
+            }
+          ]
+        }
       ]
     },
     {
@@ -9803,6 +10413,73 @@
           ],
           "answer": 0,
           "explain": "Learn one table, get four words: dieser, jener, jeder and welcher all take the same endings."
+        }
+      ],
+      "sections": [
+        {
+          "body": "A small family that takes the endings of der/die/das. Learn the definite article and the endings come free, which is why these are grouped as \"der-words\" rather than learned one at a time."
+        },
+        {
+          "label": "The family",
+          "pairs": [
+            {
+              "from": "dieser",
+              "to": "this"
+            },
+            {
+              "from": "jeder",
+              "to": "every, each"
+            },
+            {
+              "from": "welcher",
+              "to": "which"
+            },
+            {
+              "from": "jener",
+              "to": "that — mostly written"
+            }
+          ]
+        },
+        {
+          "label": "The endings are the article’s endings",
+          "pairs": [
+            {
+              "from": "nominative",
+              "to": "dieser Mann · diese Frau · dieses Kind · diese Kinder"
+            },
+            {
+              "from": "accusative",
+              "to": "diesen Mann — masculine only, as always"
+            },
+            {
+              "from": "dative",
+              "to": "diesem Mann · dieser Frau · diesem Kind · diesen Kindern"
+            }
+          ]
+        },
+        {
+          "label": "German has no everyday word for \"that\"",
+          "body": "jener is the textbook translation and native speakers hardly use it. Real German points with «der/die/das» plus «da», or just uses dieser for both.",
+          "examples": [
+            {
+              "de": "Der Mann da ist mein Nachbar.",
+              "en": "That man over there is my neighbour."
+            },
+            {
+              "de": "Ich nehme dieses hier.",
+              "en": "I will take this one."
+            }
+          ]
+        },
+        {
+          "label": "jeder is singular",
+          "body": "Where English says \"all my friends\", German often says «jeder» with a singular verb. jeder has no plural form; «alle» does that job.",
+          "examples": [
+            {
+              "de": "Jeder Student bekommt ein Buch.",
+              "en": "Every student gets a book."
+            }
+          ]
         }
       ]
     },
@@ -11995,6 +12672,82 @@
           ],
           "answer": 0,
           "explain": "The one rule worth memorising: if the positive sentence has ein or no article, negate with kein. Everything else takes nicht."
+        }
+      ],
+      "sections": [
+        {
+          "body": "German splits negation in two. Which word you need is decided by *what* you are negating, and the test is quick: if the positive sentence would have ein or no article, use kein. Otherwise use nicht."
+        },
+        {
+          "label": "The test",
+          "pairs": [
+            {
+              "from": "Ich habe ein Auto.",
+              "to": "Ich habe kein Auto."
+            },
+            {
+              "from": "Ich trinke Kaffee.",
+              "to": "Ich trinke keinen Kaffee."
+            },
+            {
+              "from": "Ich kenne den Mann.",
+              "to": "Ich kenne den Mann nicht."
+            },
+            {
+              "from": "Das ist mein Buch.",
+              "to": "Das ist nicht mein Buch."
+            }
+          ]
+        },
+        {
+          "label": "kein declines like ein and mein",
+          "body": "Nothing new to learn: if you can do ein-endings, kein is free.",
+          "pairs": [
+            {
+              "from": "accusative m.",
+              "to": "keinen"
+            },
+            {
+              "from": "dative",
+              "to": "keinem / keiner"
+            },
+            {
+              "from": "plural",
+              "to": "keine"
+            }
+          ]
+        },
+        {
+          "label": "Where nicht goes",
+          "body": "Late — usually at the end of the clause, but in front of the thing it is actually denying. Negating the whole sentence sends it to the end; negating one element puts it directly before that element.",
+          "examples": [
+            {
+              "de": "Ich komme heute nicht.",
+              "en": "I am not coming today. — the whole thing is denied."
+            },
+            {
+              "de": "Ich komme nicht heute, sondern morgen.",
+              "en": "I am not coming today, but tomorrow — only the day is denied."
+            }
+          ]
+        },
+        {
+          "label": "It still goes before these",
+          "body": "A few things sit after nicht whatever else happens: an adjective completing sein, a separable prefix, and an infinitive or participle at the end of the bracket.",
+          "pairs": [
+            {
+              "from": "Das ist nicht gut.",
+              "to": "adjective"
+            },
+            {
+              "from": "Ich rufe dich nicht an.",
+              "to": "separable prefix"
+            },
+            {
+              "from": "Ich habe ihn nicht gesehen.",
+              "to": "participle"
+            }
+          ]
         }
       ]
     },
