@@ -1159,7 +1159,12 @@ re-measured.**
   buttons now clear the SE fold by 7px. *Still true at 667:* the subordinate
   first-sight line below the buttons is off-screen, and the session scrolls 42px.
 - **The FAB overlaps the treemap (#31 · XS · P1)** — **re-confirmed 2026-08-16 and
-  deliberately not fixed.** It is real: the 56px *Start today's session* button is
+  deliberately not fixed. Now lands on a second surface, 2026-08-26:** on **Words** it
+  sits over the trailing rows of the search results and the theme grid, covering a
+  *Study* button rather than a tile label. Same ruling, same reason — every fix on the
+  table trades something already decided — but the ruling now costs more than it did
+  when it applied to one page, and Words is the surface where the overlapped control is
+  the row's only action. Still needs a decision, not a script. It is real: the 56px *Start today's session* button is
   viewport-anchored above the bottom nav and sits on the map, truncating the tile
   label under it. But every fix on the table trades something the app has already
   ruled on. *Hiding it on Progress* (the rule Today uses) removes the only one-tap
@@ -1175,6 +1180,14 @@ re-measured.**
   against the sidebar edge on desktop; 3.5 items and a mid-word cut at 375px.
 - **Empty and first-run states (#29 · S).** First-run Today spends ~60% of a desktop
   viewport on nothing — the one screen where density would reassure.
+  ⚠️ **Partly addressed 2026-08-26, and partly made worse before it was made better.**
+  The IA pass took the two accordions, the class-list picker and the observatory off
+  Today, which on a *week-one* surface left the greeting, the session card and nothing
+  else. Three quiet doors (Lesen · Üben · Wortschatz) now sit at the foot of Today at
+  every stage including week one — `week1` exists to suppress *statistics that need
+  history*, and orientation is the opposite of a statistic. **First run itself is
+  unchanged and this item still stands for it**: the guided hero plus two paragraphs,
+  measured at neither width this session.
 
 **Continuity and affordance.**
 - ~~**Shared-element continuity, tile → sector (#9 · M · P1).**~~ **Shipped
@@ -1426,6 +1439,18 @@ load size still acceptable.
 
 **Games, and the navigation that has to come first.** *Decided 2026-08-12 with the
 user; none of it is built.*
+- ~~**The destination set · M**~~ ✅ **Shipped 2026-08-26 — and it went the other
+  way from this heading's assumption.** Games is no longer a destination: *Library*
+  and *Games* merged into **Practice**, because a tab spending itself on one card is
+  not a place, and a Konjunktiv II exercise and a typing race are the same answer to
+  "drill me on something". The set is five — Today · Words · Practice · Read ·
+  Progress. What forced it was a count rather than a feeling: **the comprehension
+  meter, this file's own Now #2 flagship, was three taps deep inside a collapsed
+  accordion on Today**, the 6,622-card lexicon was reachable only at
+  `#/progress/decks/<group>`, and there was **no word search in the app at all**.
+  Today went from twelve stacked cards to five. DESIGN §8a rewritten (it said
+  *three* for a year and had been running at four since Games arrived); every retired
+  hash aliased. See the CHANGELOG.
 - ~~**Top-bar navigation · S**~~ **Shipped 2026-08-12.** `TopBar.tsx` replaces the
   240px rail with a 55px bar; the content column gained 240px on a laptop. The
   mobile drawer went with it — its focus trap, Escape handler and `inert` dance no

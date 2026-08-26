@@ -28,7 +28,7 @@ export default function Profile() {
 
   return (
     <div className="w-full max-w-[640px] mx-auto">
-      <h1 className="text-xl font-bold mb-4">Profile</h1>
+      <h1 className="display text-3xl sm:text-4xl mb-4">Profile</h1>
 
       <Card className="mb-3 flex items-center gap-4">
         <div className="grid place-items-center w-14 h-14 rounded-full bg-panel2 text-accent text-2xl font-bold flex-shrink-0">{initial}</div>

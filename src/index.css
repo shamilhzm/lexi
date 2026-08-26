@@ -70,13 +70,37 @@
   /* "amber" is the legacy token NAME for the accent (kept so every
      text-accent/bg-accent/border-accent utility doesn't churn); its value has been
      Glacier cyan and is now Atlas blue. Rename is tracked in the backlog. */
-  --color-bg:      #e7ecee;   /* page — cool paper, biased toward the accent */
-  --color-panel:   #f7f9fa;   /* chrome surfaces */
-  --color-panel2:  #dbe3e6;   /* sunken fills, nested rows */
+  /* Warmed to paper 2026-08-26. These were a cool grey-blue "biased toward the
+     accent", which is a screen colour: it made the instrument read as a
+     dashboard, and a dashboard is the one thing §1 spent a whole section
+     retiring. Two of the three traditions this palette descends from — the
+     printed lexicon and cartography — are ink on *paper*, and paper is warm.
+
+     Not the cream that was rejected in the `.paper` case study below. That
+     failure was a *nested scope* carrying its own accent, which swung the brand
+     hue 153° on entering a card. This is the global ground, the accent is
+     byte-identical (#1d6a8c, hue 198°), and no scope overrides anything.
+
+     Measured before it shipped, which is the only reason it did: every text
+     pair clears 4.5, and `dim` — the value that was closest to failing —
+     *improves* on every ground (bg 5.18 → 5.85, panel2 4.74 → 5.38). The
+     elevation ramp is preserved: bg→panel 1.14, panel→card 1.05, against the
+     documented 1.12 / 1.05. Warmer and more legible, not warmer at a cost.
+
+     `panel2` is #e6e1d8 and not the #e3ded4 this started at, because the first
+     value put **accent on panel2 at 4.49** — under AA by a hundredth, on the
+     sunken fill every nested row uses. Nothing caught that by eye and the
+     hand-rolled script that designed the palette did not test the pair; the new
+     guard in `palette.test.ts` failed on its first run and named it. #e6e1d8
+     restores the accent to 4.62, which is exactly what the cool palette scored,
+     so the warm ground costs nothing on the pair it was worst at. */
+  --color-bg:      #eeeae3;   /* page — paper */
+  --color-panel:   #fbf9f6;   /* chrome surfaces */
+  --color-panel2:  #e6e1d8;   /* sunken fills, nested rows */
   --color-card:    #ffffff;   /* the study surface — pure white, reserved */
-  --color-line:    #c9d5d9;   /* hairlines */
-  --color-txt:     #16232a;   /* primary ink */
-  --color-dim:     #52646d;   /* secondary ink — AA on paper and on white */
+  --color-line:    #d2cabc;   /* hairlines */
+  --color-txt:     #1e2226;   /* primary ink */
+  --color-dim:     #5b5952;   /* secondary ink — AA on paper and on white */
   --color-accent:   #1d6a8c;   /* brand / accent / focus (Atlas blue) */
   --color-green:   #3f7a3a;   /* gains / mastered */
   --color-green-d: #dfeddc;
@@ -204,6 +228,30 @@
   font-family: var(--font-display);
   font-optical-sizing: auto;
   letter-spacing: -0.01em;
+}
+
+/* The page title — Fraunces at display size, one per surface.
+ *
+ * §4 used to say the display serif was "the one place" it is used, scoped to the
+ * German being *tested*. That was the right instinct applied too narrowly: the
+ * third tradition in §1 is **the printed lexicon**, and a lexicon sets its
+ * running heads in the same serif as its headwords. Every page title in this app
+ * was system sans, which is the register of an admin panel.
+ *
+ * It does not dilute the "Fraunces means German" rule, because §9 already
+ * requires surfaces to be named with German nouns — *Wortschatz*, *Üben*,
+ * *Lesen*, *Heute*. The face still marks German; it now also does the job it was
+ * bought for. Section headings (h2) stay sans: serif is the app speaking, sans is
+ * the app labelling.
+ *
+ * `opsz` is the whole reason Fraunces is here — at 26–34px it draws with
+ * noticeably higher contrast and tighter joins than the same face at caption
+ * size, which is what makes a title look set rather than scaled. */
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 /* ============================================================
@@ -367,7 +415,7 @@ body {
      sheet under daylight rather than a trading floor in the dark. */
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(231,236,238,0) 55%),
+    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(238,234,227,0) 55%),
     radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: auto, 24px 24px;
   background-attachment: fixed;
@@ -529,6 +577,16 @@ body {
    was a near-black bar. The only hardcoded colours left in the stylesheet. */
 *:hover::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 6px; }
 *::-webkit-scrollbar-track { background: transparent; }
+
+/* `type="search"` earns the right keyboard on iOS and the right semantics for a
+   screen reader, and in exchange WebKit draws its own clear button inside the
+   field. Both search boxes in the app already render one — a 44px target with a
+   real accessible name, which the native glyph is not — so the field showed two
+   ✕ side by side and the smaller, unlabelled one was the easier tap. Suppressed
+   here rather than by dropping to `type="text"`, which would trade the keyboard
+   and the semantics to fix a paint. */
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
 
 /* ticker marquee */
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }

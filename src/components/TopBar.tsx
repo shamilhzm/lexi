@@ -12,9 +12,11 @@
 //
 // ## One navigation, two shapes
 //
-// The bar is the whole navigation on sm+. On a phone it keeps only the identity
-// and the profile, and the destinations stay in `BottomNav` where a thumb can
-// reach them — which is also what let the drawer go entirely. The old sidebar
+// The bar is the whole navigation from `md` up. Below that it keeps only the
+// identity and the profile, and the destinations stay in `BottomNav` where a
+// thumb can reach them. The breakpoint moved sm→md when the set went to five:
+// five labels plus the mark plus Start session plus the avatar do not fit 640px,
+// and a nav that wraps is worse than one that delegates — which is also what let the drawer go entirely. The old sidebar
 // doubled as a mobile drawer, with a focus trap, an Escape handler and an
 // `inert` dance to keep its seven controls out of the tab order when closed.
 // None of that has to be right any more, because none of it exists: the
@@ -28,7 +30,7 @@
 // the bottom bar already learned that lesson once when it was a fifth item
 // raised out of the row. Same rule here — places on the left, the action on the
 // right, the person at the end.
-import { Play, Sunrise, TrendingUp, Library, Gamepad2, Flame } from 'lucide-react';
+import { Play, Sunrise, TrendingUp, LayoutGrid, Dumbbell, BookOpenText, Flame } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { View } from '../App.tsx';
 
@@ -46,22 +48,41 @@ export function LexiMark({ size = 28, className = '' }: { size?: number; classNa
 /** The primary destinations, shared with the mobile bottom bar so the two
  *  navigations can’t drift apart.
  *
- *  Three, not five. The old set — Home / Explore / Grammar / Stats — plus the
- *  Decks and Wortkarte surfaces underneath Explore was nine places answering
- *  four questions, and mirrored `store.ts` rather than a learner’s day. These
- *  are the questions:
- *    Today    — what do I do now?
- *    Progress — how am I doing? (absorbs Explore, Stats, KPIs, Blind Spots)
- *    Library  — what does this mean / how does this work?
- *    Games    — I do not want to study today, and I am still here.
+ *  **Five, changed 2026-08-26.** The set was three, then four, and the third
+ *  version is the one that matches how the app is actually used. The rule has
+ *  not changed — *one destination per question a learner asks* — but the
+ *  previous set answered five questions with four doors and paid for it by
+ *  hiding things:
  *
- *  The fourth is what the bar was chosen for: four labels fit across the top
- *  where a 240px rail would still have been a column. */
+ *    - *Lesen* and the comprehension meter lived inside a **collapsed accordion
+ *      on Today**, two taps from view, while the backlog calls the meter the
+ *      flagship.
+ *    - The lexicon — 6,600 cards, 274 sectors — was browsable only at
+ *      `#/progress/decks/<group>`. Looking a word up meant going to *Progress*,
+ *      which is a claim about self-assessment, not about looking things up.
+ *    - *Games* was an entire tab spending itself on one card.
+ *    - *Grammar* rendered twice: an accordion on Today and the Library tab.
+ *
+ *  So the doors now match the questions:
+ *
+ *    Today    — what do I do now?
+ *    Words    — what words are there / what does this one mean?
+ *    Practice — drill me on something specific
+ *    Read     — give me real German to read
+ *    Progress — how am I doing?
+ *
+ *  Five is also what a bottom bar holds comfortably: at 375px each tab gets
+ *  75px, which fits a 19px icon over a `text-2xs` label with room to spare. The
+ *  labels are chosen one word long for exactly that reason.
+ *
+ *  Profile is still not here. It is reachable from the avatar at every width,
+ *  which is what let the mobile drawer go in the first place. */
 export const NAV: { id: View; label: string; icon: LucideIcon }[] = [
   { id: 'today', label: 'Today', icon: Sunrise },
+  { id: 'words', label: 'Words', icon: LayoutGrid },
+  { id: 'practice', label: 'Practice', icon: Dumbbell },
+  { id: 'read', label: 'Read', icon: BookOpenText },
   { id: 'progress', label: 'Progress', icon: TrendingUp },
-  { id: 'library', label: 'Library', icon: Library },
-  { id: 'games', label: 'Games', icon: Gamepad2 },
 ];
 
 export default function TopBar({ view, onGo, onStartSession, onProfile, name, level, streak }: {
@@ -84,13 +105,13 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
 
       {/* Destinations. `sm:flex` because on a phone they live in the bottom bar,
           where the thumb is — the bar keeps only identity and the profile. */}
-      <nav aria-label="Primary" className="hidden sm:flex items-center gap-0.5 ml-1">
+      <nav aria-label="Primary" className="hidden md:flex items-center gap-0.5 ml-1">
         {NAV.map((n) => {
           const active = view === n.id;
           return (
             <button key={n.id} onClick={() => onGo(n.id)}
               aria-current={active ? 'page' : undefined}
-              className={`tap-44 flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+              className={`tap-44 flex items-center gap-1.5 px-2.5 py-2 rounded-md text-sm transition-colors ${
                 active ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt hover:bg-panel2'}`}>
               <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
               {n.label}
@@ -104,7 +125,7 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
       {/* The action, held apart from the places. Label hidden on the narrowest
           phones, where the bottom bar carries its own floating start button. */}
       <button onClick={onStartSession} title="Start today’s session"
-        className="tap-44 hidden sm:flex items-center gap-2 bg-accent text-bg font-bold rounded-md
+        className="tap-44 hidden md:flex items-center gap-2 bg-accent text-bg font-bold rounded-md
           py-2 px-3.5 hover:brightness-105 transition">
         <Play size={15} /> <span className="text-sm">Start session</span>
       </button>

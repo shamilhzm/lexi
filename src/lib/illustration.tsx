@@ -104,7 +104,23 @@ const WORD_CONCEPT: Record<string, Concept> = {
 };
 
 // Semantic group → emblem, so a word with no concrete concept still gets a picture.
+//
+// Two sets of keys, and both are needed. The corpus authors **15 fine groups**;
+// `data/index.ts` then coarsens them into the **9 the app actually displays**
+// (GROUP_SUPER). This map only ever held the fine names, so every lookup by a
+// displayed group name — which is what the browse surface has — fell through to
+// `star`. Nine identical stars is not an illustration system. Added 2026-08-26.
 const GROUP_EMBLEM: Record<string, Concept> = {
+  // The 9 coarse groups, as displayed.
+  'Building Blocks': 'pencil',
+  'Travel & Nature': 'plane',
+  'Daily Life': 'house',
+  'People & Health': 'heart',
+  'Arts & Leisure': 'music',
+  // (Core Vocabulary, Society & Politics, Work & Economy, Education & Language
+  //  and Miscellaneous keep the fine-group entries below — same string.)
+
+  // The 15 fine groups, as authored.
   'Food & Drink': 'bread',
   'Nature & Environment': 'leaf',
   'Travel & Transport': 'plane',

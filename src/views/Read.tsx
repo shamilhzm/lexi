@@ -1,4 +1,19 @@
-// The comprehension meter — BACKLOG Now #2 Phase 1, the surface half.
+// Lesen — the input half of the app, and now a destination.
+//
+// ## Why it is a tab
+//
+// Everything else in Lexi asks the learner a question. This is the one surface
+// that just hands them German. It shipped in two halves that had never met:
+// `ReadingList` (sentences from your own cards, picked by the matcher) lived
+// inside a **collapsed accordion on Today**, and the comprehension meter — which
+// BACKLOG calls the flagship — was a second card *inside that accordion*, opening
+// a route with a back arrow. Two taps and a guess to reach the feature the
+// roadmap leads with.
+//
+// They are one place now, in the order a learner meets them: sentences you can
+// already almost read, then a text of your own to measure.
+//
+// ## The meter — BACKLOG Now #2 Phase 1, the surface half.
 //
 // Paste anything German and it answers one question: *can I read this yet?* The
 // arithmetic lives in `lib/coverage.ts`; this file is about not lying with it.
@@ -15,7 +30,7 @@
 // amount of studying moves it past 90%. Saying so is the difference between an
 // honest meter and one that offers a study set that cannot deliver what it implies.
 import { useMemo, useState } from 'react';
-import { BookOpen, ArrowLeft, Sparkle, Bookmark, X } from 'lucide-react';
+import { Sparkle, Bookmark, X } from 'lucide-react';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
@@ -23,6 +38,7 @@ import { coverageOf, unlocksToReach, ASSISTED, INDEPENDENT, type Coverage, type 
 import { cardOf, savedTexts, saveText, removeText } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { State } from '../srs.ts';
+import ReadingList from '../components/ReadingList.tsx';
 import type { Target, Word } from '../types.ts';
 
 /** FSRS state → the three buckets the meter reasons about.
@@ -55,7 +71,7 @@ const BAND_COPY = {
   frustrational: { label: 'Too many gaps to read comfortably yet', tone: 'text-dim' },
 } as const;
 
-export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy: (t: Target) => void }) {
+export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
   const v = useStore();
   const [text, setText] = useState('');
   const [submitted, setSubmitted] = useState('');
@@ -82,17 +98,29 @@ export default function Read({ onExit, onStudy }: { onExit: () => void; onStudy:
 
   return (
     <div className="mx-auto w-full max-w-[720px] flex flex-col gap-4">
-      <div className="flex items-center gap-2">
-        <button onClick={onExit} className="tap-hit text-dim hover:text-accent transition-colors" aria-label="Back">
-          <ArrowLeft size={18} />
-        </button>
-        {/* A real heading, not just a Kicker: this is a route, and every other one
-            has an h1. Screen-reader users navigate by heading, and a styled span
-            is not one. */}
-        <h1 className="sr-only">Can I read this?</h1>
-        <Kicker aria-hidden><BookOpen size={12} /> Can I read this?</Kicker>
+      <div>
+        <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Lesen</h1>
+        <p className="text-dim text-xs">
+          The half of the app that doesn’t test you. Sentences built from words you already have,
+          and a meter for anything you bring.
+        </p>
       </div>
 
+      {/* Sentences first. They need nothing from the learner — no paste, no
+          decision — and they are the honest answer to "can I read German yet?"
+          on a day when the answer is *some of it*. The scan runs on mount; it
+          used to be deferred behind an accordion, which is the only reason it
+          was deferred at all.
+
+          Two sections, two headings. The page has real structure now, so a
+          screen reader can jump between the halves and an eye scrolling past
+          four sentences meets a heading rather than a wall. */}
+      <section aria-labelledby="lesen-sentences">
+        <h2 id="lesen-sentences" className="text-lg font-bold mb-2">Sentences you can almost read</h2>
+        <ReadingList onStudy={onStudy} limit={4} />
+      </section>
+
+      <h2 id="lesen-meter" className="text-lg font-bold -mb-1">Can I read this?</h2>
       <Card tone="panel" pad="md">
         <label htmlFor="read-input" className="block text-sm text-dim mb-2">
           Paste any German text — an article, an email, a page of a book.

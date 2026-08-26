@@ -5,6 +5,31 @@ rules new work is held to. If the code and this file disagree, one of them is a
 bug — say which and fix it. Nothing here is settled by seniority; the useful
 version of this document is one you can argue with.
 
+> **And "argue with" includes losing.** *Added 2026-08-26, after this file was
+> used to refuse a good idea.*
+>
+> Shown a folder of screenshots of a well-made vocabulary app, the first response
+> was that §1 "forbids borrowing a look from another domain twice" — so nothing
+> of its craft could be taken. That is a misreading, and the kind this document is
+> most at risk of producing: **a rule written to prevent one specific failure,
+> quoted later as a general prohibition.** §1 forbids *pastiche* — wearing another
+> identity as a costume. It has never forbidden learning how someone else solved a
+> problem well.
+>
+> The test for whether an outside idea is allowed is not where it came from. It is:
+>
+> 1. **Does it serve an identity this app already claims?** Warm paper and a serif
+>    running head are not borrowed from a vocabulary app; they are what §1's own
+>    third tradition — *the printed lexicon* — has been asking for since it was
+>    written and not getting.
+> 2. **Does it survive measurement?** Taste proposes; contrast ratios dispose.
+> 3. **Is it the principle or the costume?** "Recognise a topic by a coloured mark
+>    before reading its label" is the principle. Isometric two-tone halftone
+>    illustration is the costume. Take the first, never the second.
+>
+> A rule in this file that cannot be restated as *what it prevents* has stopped
+> being a rule and become a habit.
+
 Its ancestor — `archive/DESIGN-REVIEW-2026-07.md`, deleted in the 2026-08-13 docs pass
 and recoverable from git history — was a dated critique that mixed a design system with
 a go-to-market strategy and framed itself as coming from inside a famous design org.
@@ -96,11 +121,53 @@ each. Only luminance inverts.
 
 | | light (primary) | dark |
 |---|---|---|
-| `bg` | `#e7ecee` | `#101619` |
-| `panel` | `#f7f9fa` | `#192327` |
+| `bg` | `#eeeae3` | `#101619` |
+| `panel` | `#fbf9f6` | `#192327` |
+| `panel2` | `#e6e1d8` | `#0b1013` |
 | `card` | `#ffffff` | `#1f2b30` |
 
-Measured: bg→panel **1.12 / 1.12**, panel→card **1.05 / 1.07**.
+Measured: bg→panel **1.14 / 1.12**, panel→card **1.05 / 1.07**.
+
+### The ground is paper *(changed 2026-08-26)*
+
+The light neutrals were a cool grey-blue — `#e7ecee`, commented "biased toward the
+accent". That is a screen colour, and it made the instrument read as a dashboard,
+which is the exact thing §1 spent a section retiring. Two of the three traditions
+this palette descends from are **ink on paper**, and paper is warm.
+
+**This is not the cream that §2 rejected.** That failure was a nested `.paper`
+*scope* carrying its own accent, which swung the brand hue 153° on entering a
+card. Here the accent is byte-identical (`#1d6a8c`, hue 198°), it is the global
+ground, and no scope overrides anything. The rule that case study produced — *a
+nested scope may never change the brand hue* — is untouched and still correct.
+
+It shipped because it measured better, not because it looked nicer:
+
+| pair | cool (was) | paper (is) |
+|---|---|---|
+| `dim` on `bg` | 5.18 | **5.85** |
+| `dim` on `panel` | 5.84 | **6.67** |
+| `dim` on `panel2` | 4.74 | **5.38** |
+| `dim` on `card` | 6.17 | **7.01** |
+| `accent` on `panel2` | 4.62 | 4.62 |
+| `accent` on `bg` | 5.05 | 5.01 |
+| `txt` on everything | 12.3–16.1 | 12.3–16.0 |
+
+`dim` on `panel2` was the closest pair in the app to failing AA. It is now the
+warm palette's comfortable one.
+
+Two pairs move *down* by a rounding error — `accent` on `bg` by 0.04, `txt` by up
+to 0.13 while sitting at three times the requirement. They are in the table because
+"every other pair: pass" was the first draft of this row and it was true in the way
+that hides something. Neither is perceptible; neither approaches the floor. The
+guard's tolerance is 0.1 for exactly this reason, and that number is argued in the
+test rather than picked.
+
+**One value in this table exists because a test caught it.** The first `panel2`
+tried was `#e3ded4`, which put *accent on panel2* at **4.49** — under AA by a
+hundredth, on the fill every nested row in the app uses. It was invisible by eye,
+and the throwaway script used to design the palette had not tested that pair.
+`palette.test.ts` failed on its first run and named it.
 
 Pure white is **reserved for the study surface** in light. Panel and card were
 both `#ffffff` for a while, which gave the card exactly 1.00 contrast against the
@@ -118,8 +185,16 @@ inverted cyan→brown on entering a card, and for those seconds it was not the s
 product. It also only worked in one theme: 18.4 contrast against the dark room,
 **1.07** against the light one, where it read as a stain rather than an object.
 
-Every text pair must clear **4.5:1**. There is a contrast check in the
-verification notes at the bottom of this file; run it when you touch a token.
+Every text pair must clear **4.5:1**, and this is now **enforced by
+`src/lib/palette.test.ts`**, not by a snippet at the bottom of this file.
+
+That matters more than it sounds. The rule has been stated here since the file was
+written and was checked by *pasting JavaScript into a browser console* — which
+means nothing ran it, it could not fail a build, and it survived at least one
+whole palette inversion unverified. The test covers `txt` / `dim` / `accent`
+against `bg` / `panel` / `panel2` / `card` in **both** themes, and separately pins
+the elevation ramp as monotonic so a card can never again sit at 1.00 against the
+panel it is on. Both halves are mutation-checked.
 
 ## 3. The card is a material, not a colour
 
@@ -173,13 +248,37 @@ Roboto Mono on Android — the terminal look only actually existed on a Mac.
 | Role | Face | Where |
 |---|---|---|
 | Data | **IBM Plex Mono** (400/700) | every stat, kicker, CEFR badge, numeral, interval |
-| UI | system sans | everything else — fast, familiar, zero bytes |
+| UI | system sans | body, labels, controls, **section headings** |
 | The German | **Fraunces** variable | `.headword` — the flip faces **and the exercise prompt** |
+| The page title | **Fraunces** variable | `.display` — one per surface |
 
 `.headword` was scoped to the flip faces alone: two lines per screen, on the app's
 only warm typeface, while the German being *tested* was set in system sans. The
 prompt is a headword too. Fraunces is what makes German read as the subject of the
 app rather than as data inside it, so it goes wherever the German is the point.
+
+### `.display` — the running head *(added 2026-08-26)*
+
+Every page title in the app was **system sans at 20px**, which is the register of
+an admin panel. §1's third tradition is *the printed lexicon*, and a lexicon sets
+its running heads in the same serif as its headwords — so the app was claiming an
+identity in prose that its own type never expressed.
+
+Page titles are now Fraunces at `text-3xl`/`4xl`. The rule, and its boundary:
+
+> **Serif is the app speaking. Sans is the app labelling.**
+> `h1` page titles and the German get Fraunces. `h2` section headings, rows,
+> chips and controls stay sans.
+
+**It does not dilute "Fraunces means German."** §9 already requires surfaces to be
+named with German nouns — *Wortschatz*, *Üben*, *Lesen*, *Heute*, *Drucken*, *Dein
+Wortschatz* — so the face still lands on German almost everywhere it appears. The
+three English exceptions (*Progress*, *Profile*, *Tests*) are the ones §9 has not
+got to yet, which is a naming question, not a type one.
+
+`font-optical-sizing: auto` is the point of the variable face and applies here for
+the same reason it does on the headword: at 26–34px Fraunces draws with higher
+contrast and tighter joins than the same face scaled up from caption size.
 
 **Mono means data.** If it isn't a measurement, it isn't mono.
 
@@ -360,7 +459,7 @@ One aesthetic cannot serve two opposite activities.
 
 | | The instrument | The desk |
 |---|---|---|
-| Where | Today, Progress, Library | a session |
+| Where | Today, Words, Practice, Read, Progress | a session |
 | Wants | density, comparison, scanning | calm, focus, one object |
 | Gets | the terminal: mono, cool, hairlines, nav, ticker | full-bleed, no chrome at all |
 
@@ -371,31 +470,92 @@ ticker, no streak counter competing with the word.
 The terminal metaphor is *earned* in the instrument. It is not a licence to talk
 about markets while someone is trying to remember a word.
 
-## 8a. Three destinations
+## 8a. Five destinations
 
-The IA used to mirror `store.ts`: Home / Explore / Grammar / Stats, plus Decks
-and Wortkarte underneath Explore and a KPI strip riding on one of them. Nine
-places answering four questions, and `Explore.tsx` had to hand-roll a back-stack
-because the router didn't model the depth.
+> **Changed 2026-08-26.** This section said **three** for a year, then quietly ran at
+> four when Games arrived. It now says five, and the change is a correction to the
+> earlier one rather than a drift away from it.
+
+### What the three-destination rule got right, and where it went wrong
+
+The rule is unchanged and still the only one that matters:
+
+> **One destination per question a learner actually asks. Not one per module in
+> `store.ts`.**
+
+The IA it replaced deserved replacing — Home / Explore / Grammar / Stats, with Decks and
+Wortkarte underneath Explore and a KPI strip riding on one of them, was nine places
+answering four questions, and `Explore.tsx` had to hand-roll a back-stack because the
+router didn't model the depth.
+
+**But three doors did not make the app three places.** It made it three doors with
+everything else *behind* them, and the measure of that is what a learner had to guess:
+
+| What | Where it actually lived | Taps from cold |
+|---|---|---|
+| The comprehension meter — *the flagship*, BACKLOG Now #2 | a card inside a **collapsed accordion** on Today | 3 |
+| Lesen, the reading list | the same accordion | 2 |
+| The lexicon — 6,622 cards, 274 decks | `#/progress/decks/<group>` | 2, via the page that measures you |
+| Looking a word up | **did not exist** | — |
+| Grammar | an accordion on Today **and** the Library tab | 2 / 1 |
+| One typing game | its own tab, alone | 1 |
+
+Today carried **twelve stacked cards**, two of which were disclosure triangles hiding a
+whole feature each. That is not density; density is Progress, where everything visible is
+information. An accordion on the home screen is a destination the designer could not
+place, and the cost lands on the learner who does not know it is there.
+
+### The five, and the question each answers
 
 | Destination | The question | Absorbs |
 |---|---|---|
-| **Today** | what do I do now? | the daily briefing, the one Start button |
-| **Progress** | how am I doing? | the heatmap, decks, the word map, trend charts, blind spots |
-| **Library** | what does this mean / how does this work? | the grammar syllabus |
+| **Today** | what do I do now? | the briefing, the path, the goal, the one Start button |
+| **Words** | what words are there / what does this one mean? | search, the theme index, decks, the word map, class lists |
+| **Practice** | drill me on something specific | the grammar syllabus, quick drills, Redemittel, the exam paper, worksheets, Tipprennen |
+| **Read** | give me real German | the reading list and the comprehension meter, side by side |
+| **Progress** | how am I doing? | the heatmap, trends, blind spots, finished sectors, the observatory |
 
-Depth inside Progress is real routing — `#/progress/decks/<group>`,
-`#/progress/map/<sector>` — so Back works and a deck is a linkable thing.
+Five is also what the furniture holds: at 375px each tab gets 75px, which fits a 19px
+icon over a `text-2xs` label — verified rendered, not computed. The nav labels are one
+word each for that reason. Above `md` the same five sit in the top bar beside the mark,
+*Start session* and the avatar; the breakpoint moved `sm`→`md` when the set grew, because
+a navigation that wraps is worse than one that delegates to the bottom bar.
 
-Two decisions this forced, both worth knowing:
+### The rules that came out of it
 
-- **The KPI strip is gone.** Putting the heatmap and the stats page on one
-  surface made it obvious they were showing the same four numbers twice. The
-  Known headline says it once.
-- **The bottom bar has no embedded FAB.** With three destinations the old
-  split-around-a-raised-button layout stops working, and embedding an *action*
-  among *places* was always a category error. Start is a floating button above
-  the bar, and it hides on Today, where the surface already leads with one.
+> **A destination is a place, not a resume.** Tapping *Words* goes to the index, never to
+> whatever deck you were last inside. `go()` resets the sub-route.
+
+> **Browsing is not self-assessment.** A learner opening *Essen* wants to see what it
+> teaches. Filing the corpus under Progress made the only route to it run through the
+> page that measures you, and left Progress answering two questions under one name.
+
+> **Nothing on Today is behind a disclosure triangle.** If it needs hiding, it belongs on
+> another surface. If it belongs on Today, it is visible.
+
+Depth is real routing everywhere: `#/words/g/<group>`, `#/words/map/<sector>`. Every
+retired hash is aliased rather than 404'd — `#/library` and `#/games` resolve to Practice,
+`#/progress/decks/<group>` to `#/words/g/<group>` — so a bookmark, a PWA shortcut or a
+shared deck link from before the move still lands where it meant to. A cold load
+canonicalises the URL; an in-session hash edit is left alone.
+
+Two decisions the earlier merge forced, both still right:
+
+- **The KPI strip is gone.** Putting the heatmap and the stats page on one surface made
+  it obvious they were showing the same four numbers twice. The Known headline says it
+  once.
+- **The bottom bar has no embedded FAB.** Embedding an *action* among *places* is a
+  category error. Start is a floating button above the bar, and it hides on Today, where
+  the surface already leads with one.
+
+### What is still not a destination
+
+Session, placement, interests, profile, brain, exam and print. Each is opened
+deliberately from one place and each has a URL that survives a reload — a sitting in
+progress is the one piece of state worth restoring. The observatory moved from Today to
+Progress in this pass: it is a picture of what you have built, which is that surface's
+subject, and it had been sitting *above the greeting* — the first thing a learner saw
+before being told what to do.
 
 ## 8b. The scheduler shows its work
 
@@ -465,16 +625,12 @@ Non-negotiable, and enforced by `eslint-plugin-jsx-a11y` (`npm run lint`):
 npm run typecheck && npm run lint && npm test && npm run build
 ```
 
-Then check the pairs. Any text pair below 4.5 is a bug:
+`npm test` is the contrast check now — `src/lib/palette.test.ts` parses this
+file's tokens out of `index.css` and fails the build on any text pair under 4.5,
+in either theme, plus a non-monotonic elevation ramp. The browser-console snippet
+that used to live here is gone: it was a check nobody ran.
 
-```js
-// paste in the browser console
-const cs = getComputedStyle(document.documentElement);
-const t = n => cs.getPropertyValue(n).trim();
-// compare e.g. t('--color-dim') against t('--color-panel')
-```
-
-And check the two things that regress silently:
+Two things still regress silently and still need an eye:
 
 1. **The accent must not change between chrome and card.** Sample the computed
    accent colour on a panel and inside a card, in both themes. The hue must match.

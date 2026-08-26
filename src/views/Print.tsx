@@ -88,7 +88,7 @@ export default function Print({ onExit }: { onExit: () => void }) {
             <ArrowLeft size={15} /> Back
           </button>
         </div>
-        <h1 className="text-xl sm:text-2xl font-bold mb-1">Drucken</h1>
+        <h1 className="display text-3xl sm:text-4xl mb-1">Drucken</h1>
         <p className="text-dim text-xs mb-5 leading-relaxed max-w-[46rem]">
           A worksheet and an answer key, on paper. Nothing is uploaded and nothing is
           collected — this is generated on your device and printed by you.

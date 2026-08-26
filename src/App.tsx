@@ -2,8 +2,9 @@
 //
 // Two rooms, not one app with a modal in it.
 //
-//   The instrument — Today, Progress, Library. Nav rail or bottom bar, the live
-//   ticker, a bounded content column. Dense and scannable: the map room.
+//   The instrument — Today, Words, Practice, Read, Progress. Nav bar plus bottom
+//   bar, the live ticker, a bounded content column. Dense and scannable: the map
+//   room.
 //
 //   The desk — a session. Full-bleed, no navigation, no ticker, no streak
 //   counter competing with the word. You go there; you don't render it inside
@@ -19,10 +20,11 @@ import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import Review from './views/Review.tsx';
 import Today from './views/Today.tsx';
+import Words from './views/Words.tsx';
 import Progress from './views/Progress.tsx';
-import Grammar, { type GrammarInit } from './views/Grammar.tsx';
-import Games from './views/Games.tsx';
+import Practice, { type PracticeInit } from './views/Practice.tsx';
 import { MODE_TAG, type Mode as DrillMode } from './views/Fundamentals.tsx';
+import Read from './views/Read.tsx';
 import Placement from './views/Placement.tsx';
 import Interests from './views/Interests.tsx';
 import Profile from './views/Profile.tsx';
@@ -36,7 +38,6 @@ const Exam = lazy(() => import('./views/Exam.tsx'));
 // Paper. Lazy like Exam: a worksheet is opened deliberately and rarely, and the
 // A4 rendering has no business on the boot path.
 const Print = lazy(() => import('./views/Print.tsx'));
-const Read = lazy(() => import('./views/Read.tsx'));
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
@@ -45,10 +46,10 @@ import { loadAudioManifest } from './lib/audio.ts';
 import { loadDetail } from './data/detail.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { registerRedemittel } from './lib/redemittel.ts';
-import { parseHash, toHash, type ProgressRoute } from './route.ts';
+import { parseHash, toHash, type WordsRoute } from './route.ts';
 import type { Target } from './types.ts';
 
-export type View = 'today' | 'progress' | 'library' | 'games' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam' | 'print' | 'read';
+export type View = 'today' | 'words' | 'practice' | 'read' | 'progress' | 'session' | 'placement' | 'interests' | 'profile' | 'brain' | 'exam' | 'print';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 
 export default function App() {
@@ -56,8 +57,8 @@ export default function App() {
   const boot = parseHash();
   const [view, setView] = useState<View>(boot.view);
   const [target, setTarget] = useState<Target>(boot.target ?? ALL);
-  const [progress, setProgress] = useState<ProgressRoute>(boot.progress);
-  const [drillInit, setDrillInit] = useState<GrammarInit>(null);
+  const [words, setWords] = useState<WordsRoute>(boot.words);
+  const [drillInit, setDrillInit] = useState<PracticeInit>(null);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [exam, setExam] = useState(false);      // a sitting under exam conditions
 
@@ -84,7 +85,7 @@ export default function App() {
       fromHash.current = true;
       const r = parseHash();
       setView(r.view);
-      setProgress(r.progress);
+      setWords(r.words);
       if (r.target) setTarget(r.target);
     };
     window.addEventListener('hashchange', onHash);
@@ -92,20 +93,22 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const next = toHash(view, target, progress);
+    const next = toHash(view, target, words);
     if (fromHash.current) { fromHash.current = false; return; }
     if (location.hash === next) return;
     // Today replaces rather than pushes, so Back from Today leaves the app once
     // instead of walking a trail of identical entries.
     if (view === 'today') location.replace(next);
     else location.hash = next;
-  }, [view, target, progress]);
+  }, [view, target, words]);
 
   const study = (t: Target) => { setExam(false); setTarget(t); setView('session'); };
   const go = (v: View) => {
     if (v === 'session') setTarget(ALL);
-    if (v === 'library') setDrillInit(null);
-    if (v === 'progress') setProgress({ level: 'overview' });
+    if (v === 'practice') setDrillInit(null);
+    // Tapping *Words* in the navigation means the index, never whatever deck you
+    // were last inside — a destination in a tab bar is a place, not a resume.
+    if (v === 'words') setWords({ level: 'index' });
     // Leaving the guided chain by the navigation is still leaving it. Without
     // this the first-run hero came back on the next visit, as though placement
     // and the first session had never happened.
@@ -163,18 +166,19 @@ export default function App() {
   const drillFor = (tag?: string) => {
     const mode = Object.entries(MODE_TAG).find(([, t]) => t === tag)?.[0] as DrillMode | undefined;
     setDrillInit(mode ?? (tag ? { point: tag } : 'grammar'));
-    setView('library');
+    setView('practice');
   };
   const exitSession = () => { if (guided) endGuided(); else setView('today'); };
 
   // ---- the observatory ------------------------------------------------------
   // A second early return, for the same reason as the desk below: the brain is
   // its own room, unconditionally dark, and the instrument's chrome has no
-  // business in it. Not in NAV — DESIGN.md §8a keeps three destinations.
+  // business in it. Not in NAV — it is a picture, opened from Progress.
   if (view === 'brain') {
     return (
       <ErrorBoundary resetKey="brain">
-        <BrainRoom onExit={() => go('today')} onStudy={study} />
+        {/* Back to where it is now opened from, not to Today. */}
+        <BrainRoom onExit={() => go('progress')} onStudy={study} />
       </ErrorBoundary>
     );
   }
@@ -202,8 +206,8 @@ export default function App() {
               // scratch and drops the learner at card 1 of a session they just
               // finished — on the most fragile learner in the app.
               onPlacement={() => { location.replace('#/placement'); setView('placement'); }}
-              onPick={() => { setProgress({ level: 'decks' }); setView('progress'); }}
-              onDrills={() => { setDrillInit(null); setView('library'); }}
+              onPick={() => { setWords({ level: 'index' }); setView('words'); }}
+              onDrills={() => { setDrillInit(null); setView('practice'); }}
             />
           </ErrorBoundary>
         </main>
@@ -256,23 +260,26 @@ export default function App() {
           <div key={view}
             className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onDecks={() => { setProgress({ level: 'decks' }); setView('progress'); }} onBackup={() => go('profile')} onGrammar={() => go('library')} onProgress={() => go('progress')} onBrain={() => go('brain')} onRead={() => go('read')} />}
-                {view === 'progress' && <Progress route={progress} onNavigate={setProgress} onStudy={study} onBlindDrill={drillFor} />}
-                {view === 'library' && <Grammar initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} onRedemittel={startRedemittel} />}
-                {view === 'games' && <Games />}
+                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onWords={() => go('words')} onBackup={() => go('profile')} onGrammar={() => go('practice')} onProgress={() => go('progress')} onRead={() => go('read')} />}
+                {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} />}
+                {view === 'practice' && <Practice initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} onRedemittel={startRedemittel} />}
+                {view === 'read' && <Read onStudy={study} />}
+                {/* The heatmap is a map *of the corpus*, so its drill-down lands in
+                    the corpus rather than one level further into a stats page. An
+                    empty group name means "the index" — the browse-everything row
+                    at the foot of Progress. */}
+                {view === 'progress' && (
+                  <Progress onStudy={study} onBlindDrill={drillFor} onBrain={() => go('brain')}
+                    onOpenGroup={(g) => { setWords(g ? { level: 'group', group: g } : { level: 'index' }); setView('words'); }} />
+                )}
                 {view === 'exam' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
-                    <Exam onExit={() => go('library')} onGrammar={() => go('library')} onSession={startSession} />
+                    <Exam onExit={() => go('practice')} onGrammar={() => go('practice')} onSession={startSession} />
                   </Suspense>
                 )}
                 {view === 'print' && (
                   <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
-                    <Print onExit={() => go('library')} />
-                  </Suspense>
-                )}
-                {view === 'read' && (
-                  <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
-                    <Read onExit={() => go('today')} onStudy={study} />
+                    <Print onExit={() => go('practice')} />
                   </Suspense>
                 )}
                 {view === 'placement' && <Placement onDone={() => { if (guided) setView('interests'); else setView('today'); }} />}

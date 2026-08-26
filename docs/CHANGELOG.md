@@ -11,6 +11,177 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — paper, a running head, and an emblem per topic
+
+The aesthetic half of the same pass, and it exists because **DESIGN.md was used to
+refuse a good idea and the refusal was wrong.** Shown the reference screenshots, the
+first answer was that §1 "forbids borrowing a look from another domain twice." §1
+forbids *pastiche*. It has never forbidden learning how someone else solved a problem
+well, and a rule quoted as a general prohibition when it was written to prevent one
+specific failure is a habit, not a rule. The doc now says so in its opening, with the
+three-part test an outside idea has to pass.
+
+Everything below passes it — each one serves an identity Lexi already claims and
+survives measurement.
+
+**The ground is paper.** The light neutrals were a cool grey-blue commented "biased
+toward the accent" — a screen colour, and the reason the instrument read as a
+dashboard, which is the exact thing §1 spent a section retiring. Two of the three
+traditions this palette descends from are ink on paper.
+
+Not the cream the `.paper` case study rejected: that failure was a *nested scope*
+carrying its own accent, swinging the brand hue 153° on entering a card. This is the
+global ground, the accent is byte-identical (`#1d6a8c`, hue 198°), and no scope
+overrides anything. It shipped because it **measured better**:
+
+| pair | cool (was) | paper (is) |
+|---|---|---|
+| `dim` on `bg` | 5.18 | **5.85** |
+| `dim` on `panel2` | 4.74 | **5.38** |
+
+`dim` on `panel2` was the closest pair in the app to failing AA and is now the
+comfortable one.
+
+**One value in that palette exists only because a test caught it.** The first `panel2`
+put *accent on panel2* at **4.49** — under AA by a hundredth, on the fill every nested
+row uses. Invisible by eye; the throwaway script that designed the palette had not
+tested that pair. The new guard failed on its first run and named it.
+
+**The 4.5:1 rule is now enforced rather than asserted.** DESIGN has stated it since it
+was written and checked it *by pasting JavaScript into a browser console* — so nothing
+ran it, it could not fail a build, and it survived a whole palette inversion
+unverified. `palette.test.ts` now covers `txt`/`dim`/`accent` against
+`bg`/`panel`/`panel2`/`card` in both themes, and pins the elevation ramp as monotonic
+so a card can never again sit at 1.00 against its panel. Both halves mutation-checked;
+the console snippet is deleted.
+
+**Page titles are set, not scaled.** Every `h1` was system sans at 20px — the register
+of an admin panel — while §1 claimed *the printed lexicon* as a founding tradition and
+a lexicon sets its running heads in its headword serif. New `.display` class: Fraunces
+at `text-3xl`/`4xl`, `font-optical-sizing: auto`. The rule and its boundary: **serif is
+the app speaking, sans is the app labelling** — `h1` and the German get Fraunces, `h2`
+and below stay sans. It does not dilute "Fraunces means German", because §9 already
+requires surfaces to carry German names: *Wortschatz*, *Üben*, *Lesen*, *Heute*,
+*Drucken*, *Dein Wortschatz*.
+
+**Every theme group has an emblem.** `GROUP_EMBLEM` was keyed on the **15 fine corpus
+groups**, but `data/index.ts` coarsens those into the **9 the app displays** — so every
+lookup by a displayed name fell through to `star`. Nine identical stars is not an
+illustration system. The nine coarse names are mapped, and the browse index draws each
+group's mark on an accent-tinted tile.
+
+`SHOW_ILLUSTRATIONS` stays **false**. That flag governs the word card, the market and
+the word map — three surfaces where an emblem decorates something that already has a
+subject. A browse index is the one place it is not decoration: nine cards of identical
+grey text is a list you read, nine cards with a mark each is a grid you *scan*, and
+scanning is the whole job of that surface. So Words opts in on its own, through the
+export the module provides for exactly this, rather than flipping a global whose other
+three surfaces nobody has looked at.
+
+**What was deliberately not taken.** The reference's isometric two-tone halftone
+illustration, its cream-and-mint palette, its full-round pill buttons (which would
+break §5's radius hierarchy, where 16px means *a surface you read* and 10px means *a
+control you press*). Those are the costume. "Recognise a topic by a coloured mark
+before reading its label" is the principle, and the principle is what shipped.
+
+**Verified:** typecheck clean · lint 0 errors · **1,029 tests in 58 files** ·
+`corpus:validate` PASS · build clean · both
+themes walked at 375×812 and 1280×860; the session desk is byte-identical, which is
+the point — the desk was already right.
+
+---
+
+### Shipped 2026-08-26 — five destinations, and a search box
+
+The IA had four tabs and roughly twenty-four places. This closes the gap, and the
+prompt for it was an outside one: a folder of screenshots of a vocabulary app whose
+navigation a stranger can predict on first open. Nothing of its *aesthetic* was taken —
+the Atlas stands, and DESIGN §1 forbids borrowing a look from another domain twice. What
+was taken is the discipline underneath it: **five tabs, one noun each, and nothing behind
+a disclosure triangle.**
+
+**The measurement that justified it.** Not "the app feels cluttered" — a count of what a
+learner had to guess:
+
+| What | Where it was | Taps |
+|---|---|---|
+| The comprehension meter — the flagship, BACKLOG Now #2 | a card inside a **collapsed accordion** on Today | 3 |
+| Lesen, the reading list | the same accordion | 2 |
+| The lexicon — 6,622 cards, 274 decks | `#/progress/decks/<group>` | 2, via the page that measures you |
+| **Looking a word up** | **did not exist** | — |
+| Grammar | an accordion on Today *and* the Library tab | 2 / 1 |
+| One typing game | its own tab, alone | 1 |
+
+Today carried **twelve stacked cards**, two of them accordions hiding a whole feature
+each. It now carries five blocks and fits in ~1.5 viewports where it took four.
+
+**The set.** Today (what do I do now) · Words (what words are there) · Practice (drill me)
+· Read (give me real German) · Progress (how am I doing). *Library* and *Games* merged
+into Practice — a Konjunktiv II exercise and a typing race are the same answer to the same
+question, and a tab holding one card is not a destination. The full argument, and the
+three rules that came out of it, are in DESIGN §8a, which said *three* for a year and had
+been quietly running at four since Games arrived.
+
+**Words is new, and the reason it exists is a gap nobody had written down.** Lexi has
+shipped 6,622 cards since day one and **had no way to look one up** — `Grammar.tsx`
+searched 140 grammar points; the vocabulary had nothing. The search takes German or
+English, folds umlauts and ß (a learner on an English keyboard cannot type *Übung*), and
+ranks exact → prefix → contains with the German side first. Around it: the nine theme
+groups with your coverage on each, then Decks and the Wortkarte, which moved here from
+under Progress.
+
+**Why the corpus left Progress.** `#/progress/decks/<group>` asserted that browsing is a
+kind of self-assessment. It is not — a learner opening *Essen* wants to see what it
+teaches. It also left Progress answering two questions under one name. Progress keeps the
+heatmap, trends, blind spots and finished sectors, and gains the observatory, which had
+been sitting **above the greeting on Today** — the first thing a learner saw, before being
+told what to do.
+
+**Read is a destination because the flagship was behind a triangle.** Both halves are now
+visible on one surface under two headings: four sentences you can almost read, then the
+meter. Four, not six — at ~225px each, six put the second heading 1,350px down, findable
+only by someone who already knew it was there.
+
+**Every retired hash is aliased, not 404'd.** `#/library` and `#/games` resolve to
+Practice; `#/progress/decks/<group>` to `#/words/g/<group>`; `#/progress/map/<sector>` to
+`#/words/map/<sector>`. A cold load canonicalises the URL — which the existing boot sync
+already did for free — and an in-session hash edit is left alone. Bookmarks, PWA shortcuts
+and shared deck links all still land.
+
+**Two bugs found by looking, not by reading** — both now LESSONS class 9:
+
+- The search ranked `das Haus` **fourth** for "haus", behind *Autohaus*, *Gasthaus* and
+  *Gehäuse*. `term` carries the article, so `=== f` and `.startsWith(f)` were unreachable
+  for every noun in the corpus and all of them fell through to "contains", then sorted
+  alphabetically. The comparator was right; its input was the wrong shape. Now matches
+  the article-stripped form too, and breaks ties on headword length so a base word beats
+  its compounds.
+- `type="search"` makes WebKit draw its own clear button, so both search fields showed
+  **two ✕** — and the smaller, unlabelled, sub-44px one was the easier tap. Suppressed in
+  `index.css` rather than dropping to `type="text"`, which would trade the iOS keyboard
+  and the semantics to fix a paint. The grammar search had carried it since it was
+  written.
+
+**Furniture.** Five labels do not fit beside the mark, *Start session* and the avatar at
+640px, so the top bar's destinations moved `sm:`→`md:` and the bottom bar took the range
+back. Verified rendered at 375×812: five tabs at 75px each, no truncation on *Progress* or
+*Practice*.
+
+**Not changed, on purpose.** The Atlas identity, the two-rooms split, the token
+architecture, the motion scale. The desk is still an early return with no chrome. The
+bottom bar still has no embedded FAB — with five destinations that category error would
+be worse, not better. And Today keeps its `week1` suppression for everything statistical;
+the three doors at its foot are exempt, because orientation is the opposite of a
+statistic and the learner who most needs telling that the app has more in it than one
+button is the one who arrived on Tuesday.
+
+**Verified:** `npm run typecheck` clean · `npm run lint` 0 errors · `npm test` green ·
+`npm run build` clean · all five destinations plus both legacy hashes walked in the
+running app at 375×812 and 1280×860. (Counts are stated once, in the entry above, so
+there is one number to keep true rather than two.)
+
+---
+
 ### Shipped 2026-08-26 — the measurements were disposable
 
 Prompted by a question about Musk's five-step algorithm, and the answer turned out to be

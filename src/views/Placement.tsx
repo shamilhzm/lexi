@@ -179,7 +179,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
   return (
     <div className="w-full max-w-[520px] mx-auto">
       <div className="flex items-center justify-between mb-3">
-        <h1 className="text-xl font-bold">Placement test</h1>
+        <h1 className="display text-2xl sm:text-3xl">Placement test</h1>
         <button onClick={onDone} className="tap-hit text-xs text-dim hover:text-accent">skip</button>
       </div>
       <div className="h-1.5 bg-panel2 rounded-full overflow-hidden mb-1">

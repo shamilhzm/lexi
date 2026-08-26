@@ -139,3 +139,114 @@ describe.each(['light', 'dark'] as const)('palette — %s', (theme) => {
     expect(failures).toEqual([]);
   });
 });
+
+/** The core text pairs, both themes.
+ *
+ *  DESIGN §2 has stated "every text pair must clear 4.5:1" since it was written,
+ *  and enforced it with *a snippet you paste into the browser console*. That is
+ *  not a check — nothing runs it, and it cannot fail a build. It went unguarded
+ *  through at least one full palette (the terminal → Atlas inversion) and was
+ *  still unguarded when the light ground was warmed to paper on 2026-08-26,
+ *  which is the change that finally paid for this test.
+ *
+ *  `panel2` is included deliberately. It is the sunken fill under nested rows,
+ *  it is the darkest light-theme ground, and `dim` on `panel2` was the pair
+ *  closest to failing before the warm palette (4.74) — i.e. exactly the pair a
+ *  console check performed on the two obvious grounds would have missed. */
+describe('the core text pairs clear AA', () => {
+  // Every ink that carries prose or a number, against every ground it is drawn
+  // on. Enumerated rather than inferred: a ground the app never uses would
+  // weaken the check, and an ink nobody reads would produce a false failure.
+  const INKS = ['txt', 'dim', 'accent'];
+  const GROUNDS = ['bg', 'panel', 'panel2', 'card'];
+
+  for (const theme of ['light', 'dark'] as const) {
+    it(`${theme}: every ink on every ground`, () => {
+      const p = palette(theme);
+      const failures: string[] = [];
+      for (const ink of INKS) {
+        for (const ground of GROUNDS) {
+          // `card` is only re-declared in dark; in light it is inherited from the
+          // same block, so both themes resolve all four.
+          if (!p[ink] || !p[ground]) { failures.push(`${theme}: missing ${ink} or ${ground}`); continue; }
+          const c = contrast(p[ink], p[ground]);
+          if (c < 4.5) failures.push(`${theme}: ${ink} ${p[ink]} on ${ground} ${p[ground]} = ${c.toFixed(2)}:1`);
+        }
+      }
+      expect(failures).toEqual([]);
+    });
+  }
+
+  /** §2: "Both themes use the same three-step ramp, so 'raised' means the same
+   *  thing in each. Only luminance inverts." A ramp that stops being monotonic
+   *  is a card that no longer reads as raised — the defect the pure-white
+   *  panel/card pair caused once already, at 1.00 contrast. */
+  it('keeps the elevation ramp monotonic in both directions', () => {
+    const light = palette('light');
+    const dark = palette('dark');
+    // Light rises bg → panel → card; dark rises the same way in *token* terms,
+    // which means luminance also rises (a dark card is lighter than a dark page).
+    for (const [name, p] of [['light', light], ['dark', dark]] as const) {
+      const bg = lum(p.bg), panel = lum(p.panel), card = lum(p.card);
+      expect(panel, `${name}: panel must sit above bg`).toBeGreaterThan(bg);
+      expect(card, `${name}: card must sit above panel`).toBeGreaterThan(panel);
+    }
+  });
+});
+
+/** The claim the warm ground shipped on, made re-derivable.
+ *
+ *  DESIGN §2 and the CHANGELOG both state that moving the light neutrals from
+ *  cool grey-blue to paper *improved* contrast — "dim on bg 5.18 → 5.85", "dim on
+ *  panel2 4.74 → 5.38". Those figures came out of a throwaway script that was
+ *  never committed, which is precisely the failure LESSONS' newest checklist rule
+ *  names: **commit the instrument that produced the finding, in the same pass. A
+ *  number nobody can re-derive is a number that expires.**
+ *
+ *  So the superseded palette is pinned here as data. This is not nostalgia — it
+ *  is the only thing that keeps two published numbers honest, and it turns "we
+ *  made it warmer" into "we made it warmer and it got more legible, and here is
+ *  the assertion that says so". If a future palette regresses past the cool one
+ *  on these pairs, this fails and the docs stop being true out loud rather than
+ *  quietly. */
+describe('the warm ground beats the palette it replaced', () => {
+  // The light theme as it stood before 2026-08-26. Frozen on purpose.
+  const COOL = { bg: '#e7ecee', panel: '#f7f9fa', panel2: '#dbe3e6', card: '#ffffff',
+                 txt: '#16232a', dim: '#52646d', accent: '#1d6a8c' };
+
+  it('is no worse on any core pair, and better where it mattered', () => {
+    const now = palette('light');
+    const regressions: string[] = [];
+    for (const ink of ['txt', 'dim', 'accent']) {
+      for (const ground of ['bg', 'panel', 'panel2', 'card']) {
+        const before = contrast(COOL[ink as keyof typeof COOL], COOL[ground as keyof typeof COOL]);
+        const after = contrast(now[ink], now[ground]);
+        // Tolerance is 0.1, not zero, and the number is argued rather than
+        // picked. Two pairs move down by a rounding error — `txt` on the warmer
+        // grounds (13.48 → 13.35, at three times the requirement) and `accent`
+        // on `bg` (5.05 → 5.01). Neither is perceptible, neither approaches the
+        // floor, and a zero-tolerance assertion here would forbid every future
+        // ground adjustment in the app on the strength of a hundredth of a
+        // point. What the test is actually for is a *meaningful* loss on a pair
+        // that was already tight — which is what 4.74 → 4.49 was, and it caught
+        // that one on its first run.
+        if (before < 7 && after < before - 0.1) {
+          regressions.push(`${ink} on ${ground}: ${before.toFixed(2)} → ${after.toFixed(2)}`);
+        }
+      }
+    }
+    expect(regressions).toEqual([]);
+  });
+
+  it('re-derives the two figures the docs publish', () => {
+    const now = palette('light');
+    // DESIGN §2's table. If either side of an arrow moves, the doc is wrong.
+    expect(contrast(COOL.dim, COOL.bg)).toBeCloseTo(5.18, 1);
+    expect(contrast(now.dim, now.bg)).toBeCloseTo(5.85, 1);
+    expect(contrast(COOL.dim, COOL.panel2)).toBeCloseTo(4.74, 1);
+    expect(contrast(now.dim, now.panel2)).toBeCloseTo(5.38, 1);
+    // And the pair that the guard caught at 4.49 before panel2 was corrected:
+    // the shipped value must match what the cool palette scored, not beat it.
+    expect(contrast(now.accent, now.panel2)).toBeCloseTo(4.62, 1);
+  });
+});

@@ -24,7 +24,7 @@ what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
 
 Measured against the shipped corpus on 2026-08-15, not estimated.
 
-- **6,613 cards** — 6,504 vocabulary and 109 grammar points, across all six CEFR levels.
+- **6,622 cards** — 6,514 vocabulary and 108 grammar points, across all six CEFR levels.
   Vocabulary by level: **A1 1,161 · A2 1,386 · B1 2,281 · B2 917 · C1 574 · C2 185**.
 - **136 grammar points · 6,130 exercises** (A1 1,654 · A2 1,748 · B1 1,725 · B2 625 ·
   C1 204 · C2 174), each point carrying a plain-English summary and rule, and each
@@ -44,31 +44,38 @@ Measured against the shipped corpus on 2026-08-15, not estimated.
 
 ## Surfaces
 
-Two rooms: the **instrument** — a top bar plus a bottom bar on phones, over four
+Two rooms: the **instrument** — a top bar, plus a bottom bar below `md`, over five
 destinations — and the **session**, which renders with its own chrome because one
 aesthetic cannot serve both scanning a heatmap and studying a single word.
 
-- **Today** — what to do now. One **Start session** button, the day's shape, and the
+Each destination answers one question, and nothing is hidden behind a disclosure
+triangle on the way to it.
+
+- **Today** — *what do I do now?* One **Start session** button, the day's shape, and the
   things that only appear when they apply: a comeback greeting after a gap, an honest
-  backlog burn-down, blind spots that expand inline into one-tap drills, and **Lesen**
-  (sentences you can almost read). First run leads with a ten-card session, then offers
-  the placement test.
-- **Progress** — how it is going. The knowledge heatmap (treemap by theme group, area =
-  cards, colour = how much you know) drilling into sectors; review and recall history,
-  the 7-day due forecast, the known-growth curve, and **Decks**. A CEFR **level filter**
-  rescopes the whole app. Opening a sector shows its **Wortkarte** — a semantic map with
-  synonym links and node colour by learning status.
-- **Library** — what things mean and how they work. The full grammar syllabus A1–C2 with
-  each concept's rule and a Practise button into its exercises, plus the **Fundamentals**
-  drills: ten modes, each on its own spaced-repetition track — gender, plurals,
+  backlog burn-down, the level path, and a goal line. First run leads with a ten-card
+  session, then offers the placement test.
+- **Words** — *what words are there?* A search over all 6,622 cards (German or English,
+  umlauts optional), the nine theme groups with your coverage on each, **Decks**, and the
+  **Wortkarte** — a semantic map of a sector with synonym links and node colour by
+  learning status. Paste a class list and Lexi matches it to its own cards.
+- **Practice** — *drill me on something specific.* The full grammar syllabus A1–C2 with
+  each concept's rule and a Practise button into its exercises; the **Fundamentals**
+  drills (ten modes, each on its own spaced-repetition track — gender, plurals,
   conjugation, cloze, sentence builder, tense transformation, Kasus, separable verbs,
-  reflexive verbs and Diktat.
-- **Games** — short rounds for the days a full session is too much. **Tipprennen**, a
-  typing race over your own cards, strict about the two things German actually punishes:
-  capitalisation and umlauts.
-- **Exam** — a full paper per level, with the oral rehearsed against model answers at
-  three strengths and the written parts self-assessed against the examiners' own
-  published criteria. It refuses to machine-mark what a machine cannot mark.
+  reflexive verbs, Diktat); **Redemittel**; printable worksheets; **Exam** — a full paper
+  per level, with the oral rehearsed against model answers at three strengths and the
+  written parts self-assessed against the examiners' own published criteria, refusing to
+  machine-mark what a machine cannot mark; and **Tipprennen**, a typing race over your
+  own cards, strict about the two things German actually punishes: capitalisation and
+  umlauts.
+- **Read** — *give me real German.* Sentences built from words you already have, and the
+  comprehension meter: paste any German text and it says how much of it you can read,
+  with the count beside the percentage and the words that would get you over the line.
+- **Progress** — *how is it going?* The knowledge heatmap (treemap by theme group,
+  area = cards, colour = how much you know); review and recall history, the 7-day due
+  forecast, the known-growth curve; blind spots that expand inline into one-tap drills;
+  finished sectors; and the observatory. A CEFR **level filter** rescopes the whole app.
 - **Profile** — name, level, streak, goal, topics, flagged cards, and **Settings**:
   theme, text size, review intensity (FSRS desired retention), daily pace, the HD German
   voice, class packs, and backup / restore.

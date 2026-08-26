@@ -89,7 +89,7 @@ export default function BrainRoom({ onExit, onStudy }: { onExit: () => void; onS
 
         <div className="absolute top-0 left-0 right-0 flex items-start gap-3 p-4 sm:p-5 pointer-events-none safe-top">
           <div className="pointer-events-auto">
-            <h1 className="text-xl sm:text-2xl font-bold text-white leading-none">Dein Wortschatz</h1>
+            <h1 lang="de" className="display text-2xl sm:text-3xl text-white leading-none">Dein Wortschatz</h1>
             <p className="text-white/55 text-xs mt-2 max-w-[46ch] leading-relaxed">
               {fmt(total.known)} of {fmt(total.all)} words consolidated. Each point is one card,
               placed where the literature puts its meaning. New words sit in the hippocampus at the

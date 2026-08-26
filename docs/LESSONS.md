@@ -65,6 +65,19 @@ entries or you silently re-point a learner's FSRS state. **Four** files hold a c
 until `freq.json` was found holding 47 dead ones.
 
 **…claim a fact about the product in a doc.** Check it against `src/` at that moment.
+
+**…cite a rule in this repo's docs to refuse something.** Restate the rule as *what
+it prevents*, and check the thing in front of you actually does that. A rule you can
+only quote, not restate, has stopped being a rule. *(DESIGN §1's ban on pastiche was
+quoted to refuse taking any craft from a well-made reference app — including three
+changes that served identities Lexi already claimed and measured better than what
+shipped.)*
+
+**…ship a ranking, a sort or a form control.** Look at it rendered, with real data, before
+you believe it. A ranking is a claim about output, and reading the comparator proves
+nothing about what comes out of it. *(A lexicon search ranked exact matches first and put
+`das Haus` fourth for "haus" — `term` carries the article, so no noun could ever be an
+exact or a prefix hit. The code read correctly. The screen did not.)*
 Docs age against a codebase that moves weekly.
 
 **…generate content in bulk.** A generator bug is four hundred bad items. Spot-check
@@ -399,6 +412,53 @@ it turns out to be wrong.**
   the better one. **Rule: when a change makes a token resolve elsewhere, print where it
   went before calling it a regression.** A count of misses cannot tell a wrong answer
   from a better one, and the fix for the two looks opposite.
+- **A design rule was quoted past its scope, to refuse good work.** *(2026-08-26.)*
+  Handed a folder of screenshots of a well-made vocabulary app and asked to reorganise
+  around it, I took the IA lessons and then wrote: *"I took none of its aesthetic — the
+  Atlas identity stands, and DESIGN.md §1 forbids borrowing a look from another domain
+  twice."* The user's correction — *"you should take from its aesthetic and design.md
+  should be flexible to better ideas"* — was right on both halves.
+  **What §1 actually says** is that the risk is *pastiche*, and the defence is to take
+  "the *principles* … not a 1972 costume". It forbids wearing another identity. It says
+  nothing about learning how someone else solved a problem. I had compressed a rule
+  about *costumes* into a rule about *sources*, and then used it to decline work.
+  **The tell I should have caught:** the same document's first paragraph says "nothing
+  here is settled by seniority; the useful version of this document is one you can
+  argue with." I was quoting a living doc as if it were a spec, in a repo whose whole
+  documentation culture is built on the opposite.
+  **What it cost:** three changes that were sitting there. The light ground was a cool
+  grey-blue while §1 claimed *the printed lexicon* as a founding tradition; page titles
+  were system sans on an app that ships a variable display serif; and `GROUP_EMBLEM`
+  was keyed on the 15 fine corpus groups while the app displays 9 coarse ones, so every
+  emblem in the browse index silently fell through to the same star. None of those are
+  borrowed — they are things Lexi already claimed and had not done. It took an outside
+  reference to *see* them, which is what an outside reference is for.
+  **Rule: a repo rule is a claim about what goes wrong. Before citing one, say the
+  failure out loud and check the work in front of you produces it.** If you cannot
+  restate the rule as its failure mode, you are quoting a habit.
+  *Corollary, and the reason this cost nothing in the end:* every one of the three was
+  then required to survive measurement, and one did not — the first warm `panel2` put
+  accent contrast at 4.49, under AA. **Being open to an outside idea is not the same as
+  accepting it; it is agreeing to test it.**
+
+- **A test passed for a reason unrelated to what it claimed to test.** *(2026-08-26.)*
+  `route.ts` rejoins the tail of a hash (`parts.slice(2).join('/')`) instead of taking
+  `parts[2]`, so a sector name containing a slash survives. I wrote a test for it,
+  asserted the right name, watched it go green — and then, following this file's own
+  "inject the defect and watch it fail" rule, swapped the rejoin for `parts[2]` and
+  **the suite stayed green**. The test used `%2F`. `split('/')` does not split on an
+  encoded slash, so `parts[2]` already held the whole name and the rejoin was never
+  reached. The case the rejoin actually defends is an **unencoded** slash — a hand-typed
+  URL, or a link written before `encodeURIComponent` was applied — which the test now
+  uses, and which does fail under the mutation.
+  **Rule: when a test covers an escaping, encoding or splitting rule, write the input in
+  the form that exercises the rule, not the form the app happens to emit.** The app's own
+  output is already canonical, so a test built from it can only ever prove the
+  round-trip.
+  *The general version, and the reason this entry is here rather than in a commit
+  message:* the mutation check is not a formality you perform on tests you already
+  trust. It is the only thing that distinguishes a test from a test-shaped assertion,
+  and it caught this one on the first try.
 
 ---
 
@@ -636,6 +696,47 @@ which is more expensive than not doing it, because it closes the ticket.
 Related: the B2B "teacher needs to see progress" problem was read as *needs a backend*
 for months. Asked directly, six teachers wanted **paper** — and one argued against a
 dashboard while wanting the outcome.
+
+---
+
+## Class 9 — a string that is right for display and wrong for matching
+
+**The rule: a field shaped for a card is not a field shaped for a query. Before matching
+against a corpus field, print three real values of it.**
+
+Caught 2026-08-26, building the lexicon search on Words.
+
+**What was believed.** `Word.term` is the German headword, so ranking exact matches
+first, then prefixes, then substrings, puts the word you typed at the top.
+
+**What was true.** `term` carries the article for every noun — `das Haus`, not `Haus`,
+which is correct on a flashcard and is the whole point of the field. So `fold(term) === f`
+and `fold(term).startsWith(f)` were both **unreachable for ~40% of the corpus**. Every
+noun fell through to the "contains" rung and was then sorted alphabetically, which is how
+searching *haus* returned **`das Autohaus`, `das Gasthaus`, `das Gehäuse`, `das Haus`** in
+that order. The comparator was correct. The input to it was the wrong shape.
+
+**How it was caught, and how it was not.** Not by reading the function — it reads fine,
+and I had already read it twice. By taking a screenshot of the results and noticing that
+the word I typed was fourth. The fix matches both the full term and the article-stripped
+one, and breaks ties on headword length so a base word beats its compounds.
+
+**The same class, same session, same cause — looking rather than reading.** The search
+field is `type="search"`, which makes WebKit draw its own clear button; the component
+already rendered a labelled 44px one. Two ✕ side by side, the smaller and unlabelled one
+being the easier tap. Invisible in the JSX, obvious in a screenshot. There were **two**
+such fields — the grammar search had carried it since it was written.
+
+**Related, and worth stating separately: seed data is data, and a wrong seed reports as
+an app bug.** Seeding `lexi.snap.v1` by hand to test an established-learner surface, I
+wrote rows without a `groups` key. `groupDeltas` calls `Object.keys(base.groups)`, so
+Progress died into its error boundary — and for several minutes that read as a regression
+in the pass I was making. It was not. *But the diagnosis is a real finding anyway*: one
+malformed row in the only copy of a local-first learner's history takes out the heatmap
+permanently, and `lastSeen()` twenty lines above already validates its shape. Filed.
+**Rule: when seeded state produces a crash, prove the seed is well-formed before you
+believe you broke something — and then ask whether real data could ever reach that
+shape.**
 
 ---
 

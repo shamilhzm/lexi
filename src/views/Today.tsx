@@ -1,48 +1,56 @@
-// Heute — the daily briefing ("markets open"). One tap assembles today’s
-// session from what’s due (FSRS) plus fresh cards from your weakest sectors,
-// to a streak-safe minimum. Shows streak, level progress, grammar drills, and
-// blind spots. The market (children) mounts below it on the merged home.
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Play, Flame, GraduationCap, Cog, ChevronDown, ChevronRight, Zap, Target as TargetIcon, Check, BookOpenText, Gauge } from 'lucide-react';
-import { buildBriefing, totals, streak, placementLevel, gymDue, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, pointStats, reviewedToday, reminderTime, visitCount, lastSeen, markTodaySeen } from '../store.ts';
+// Heute — the daily briefing. One tap assembles today’s session from what’s due
+// (FSRS) plus fresh cards from your weakest sectors, to a streak-safe minimum.
+//
+// ## What this surface is *not*, as of 2026-08-26
+//
+// It had grown to twelve stacked cards, two of them accordions holding whole
+// features: *Lesen* (the reading list **and**, nested inside it, the
+// comprehension meter) and *Grammar* (a second rendering of the syllabus that
+// already had a tab). Plus the class-list picker, plus the observatory above the
+// greeting. A learner looking for the meter had to guess that it lived behind a
+// closed disclosure on the page about today.
+//
+// Everything with a home elsewhere went to it:
+//
+//   Lesen accordion   → the Read destination (both halves, uncollapsed)
+//   Grammar accordion → Practice, where the syllabus already was
+//   My class list     → Words, because a list of words is vocabulary
+//   Brain hero        → Progress, which is the surface about what you\'ve built
+//
+// What stays is the one question this page answers: **what do I do now?** The
+// greeting, the things that put today at risk (streak, no placement), the path,
+// the goal, and the session. Nothing here is behind a disclosure triangle.
+import { useEffect, useMemo, useRef } from 'react';
+import { Play, Flame, GraduationCap, ChevronRight, Zap, Target as TargetIcon, Check } from 'lucide-react';
+import { buildBriefing, totals, streak, placementLevel, onboarded, longestStreak, lastGapDays, backlogPeak, noteBacklog, goalProgress, reviewedToday, reminderTime, visitCount, lastSeen, markTodaySeen } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
-import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import PathCard from '../components/PathCard.tsx';
 import CountUp from '../components/CountUp.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import BackupNudge from '../components/BackupNudge.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
-import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { blindSpotDrills, estimateMinutes, wordsForMinutes, itemsForMinutes } from '../session.ts';
-import ReadingList from '../components/ReadingList.tsx';
-import ClassListPicker from '../components/ClassListPicker.tsx';
 import SessionWhy from '../components/SessionWhy.tsx';
-import BrainHero from '../components/Brain/BrainHero.tsx';
 import { BY_ID, WORDS } from '../data/index.ts';
-import type { CEFR, Target, Word } from '../types.ts';
+import type { Target, Word } from '../types.ts';
 
 /** The short-session budgets offered beside the full one. A commute, a queue, a
  *  gap between classes — the three shapes a real day actually has. */
 const SHORT_MINUTES = [3, 5, 10];
 
-export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onDecks, onBackup, onGrammar, onProgress, onBrain, onRead }:
+export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onWords, onBackup, onGrammar, onProgress, onRead }:
   { onStart: (t: Target) => void; onExam: () => void; onPlacement: () => void; onGuidedStart: () => void;
-    onBlindDrill: (tag?: string) => void; onDecks: () => void;
-    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onBrain: () => void;
-    onRead: () => void }) {
+    onBlindDrill: (tag?: string) => void; onWords: () => void;
+    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onRead: () => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
-  const drillsDue = useMemo(() => gymDue(), [v]);
   const blindDrills = useMemo(() => {
     const ws = briefing.ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w);
     return blindSpotDrills(ws).length;
   }, [briefing, v]);
-  const [drillsOpen, setDrillsOpen] = useState(false);
-  const [readOpen, setReadOpen] = useState(false);
   const t = totals();
   const placed = placementLevel();
   // Read once, on mount, *before* the effect below overwrites it — otherwise the
@@ -78,7 +86,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
     <div className="mb-4">
       <div className="flex items-baseline justify-between flex-wrap gap-2">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold leading-none">{comeback ? 'Willkommen zurück' : 'Guten Tag'}</h1>
+          <h1 lang="de" className="display text-3xl sm:text-4xl leading-none">{comeback ? 'Willkommen zurück' : 'Guten Tag'}</h1>
           <p className="text-dim text-xs mt-1.5 capitalize">{today}</p>
         </div>
         {/* Known is the app's currency, so it belongs in the identity line even
@@ -168,12 +176,6 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
     // Wider on large desktops so the daily briefing doesn’t sit in a narrow
     // column with a field of empty terminal either side of it.
     <div className="w-full max-w-[920px] xl:max-w-[1040px] mx-auto">
-      {/* Above the greeting on purpose. Today's other cards all answer "what do
-          I do now?"; this one answers "what have I built?", and it is the only
-          thing on the screen that rewards yesterday rather than demanding
-          today. */}
-      <BrainHero onOpen={onBrain} />
-
       {greeting}
 
       {/* Streak at risk. Only once there’s a streak worth protecting and the
@@ -268,7 +270,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
               <h2 className="text-xl font-bold mb-1 cursor-blink">All clear</h2>
               <p className="text-dim text-base mb-1.5">Every review served, the new-card budget spent. The system holds until tomorrow.</p>
               <Kicker className="block mb-4">streak safe · next reviews tomorrow</Kicker>
-              <Button variant="secondary" onClick={onDecks}>Open decks</Button>
+              <Button variant="secondary" onClick={onWords}>Browse the lexicon</Button>
             </div>
           </div>
         ) : (
@@ -364,101 +366,43 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           different mood from starting a session. The session still rehearses
           them either way — that's the "+ N drills" line above. */}
 
-      {/* The learner's own course, if they have given us one. */}
-      <div className="mb-4"><ClassListPicker onStudy={onStart} /></div>
+      {/* Where the rest of the app is.
+          Not a menu — the bottom bar and the top bar are the navigation, and a
+          third copy of them would be the kind of thing this pass exists to
+          remove. This is the *next* thing, once today's session is done, said in
+          one line each. It replaces two accordions that hid a whole destination
+          apiece.
 
-      {/* Lesen — the input half. Everything else on this screen asks the learner
-          a question; this is the one thing that just gives them German to read.
-          The sentence scan runs only when this opens, so Home stays cheap. */}
-      <div className="mb-4">
-        <Card as="button" pad="none" onClick={() => setReadOpen((o) => !o)} aria-expanded={readOpen}
-          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><BookOpenText size={18} /></span>
-          <span className="flex-1">
-            <span className="block text-base font-semibold">Lesen</span>
-            <span className="block text-xs text-dim">Sentences you can almost read</span>
-          </span>
-          <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${readOpen ? 'rotate-180' : ''}`} />
-        </Card>
-        <AnimatePresence initial={false}>
-          {readOpen && (
-            <motion.div key="read" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
-              <div className="pt-2.5 flex flex-col gap-2.5">
-                <ReadingList onStudy={onStart} />
-                {/* The other half of Lesen: sentences Lexi picked, and now a text
-                    the learner brings. Same section on purpose — one reading
-                    place, not two. */}
-                <Card as="button" tone="sunken" pad="none" onClick={onRead}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
-                  <span className="grid place-items-center w-9 h-9 rounded-md bg-panel text-blue flex-shrink-0"><Gauge size={18} /></span>
-                  <span className="flex-1">
-                    <span className="block text-sm font-semibold">Can I read this?</span>
-                    <span className="block text-xs text-dim">Paste a text — see what you’d understand</span>
-                  </span>
-                </Card>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Grammar — the concepts at your level, not a menu of exercise types.
-          The bank is fetched only when this opens, so Home stays cheap. */}
-      <div className="mb-4">
-        <Card as="button" pad="none" onClick={() => setDrillsOpen((o) => !o)} aria-expanded={drillsOpen}
-          className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><Cog size={18} /></span>
-          <span className="flex-1 text-base font-semibold">Grammar</span>
-          {drillsDue > 0 && <Chip>{fmt(drillsDue)} due</Chip>}
-          <ChevronDown size={16} className={`text-dim flex-shrink-0 transition-transform ${drillsOpen ? 'rotate-180' : ''}`} />
-        </Card>
-        <AnimatePresence initial={false}>
-          {drillsOpen && (
-            <motion.div key="drills" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="overflow-hidden">
-              <div className="pt-2.5"><LevelGrammar level={placed ?? 'A1'} onOpen={onGrammar} /></div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          Shown in week one too, unlike everything else `week1` suppresses. That
+          rule exists so a learner three days in is not handed a goal line, a
+          backlog burn-down and a blind-spot audit — *statistics that mean
+          nothing without history*. Three quiet doors are the opposite of that:
+          they are orientation, and the learner who most needs to be told the app
+          has more in it than one button is the one who arrived on Tuesday. */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-6">
+        <NextThing label="Lesen" sub="German to read, at your level" onClick={onRead} />
+        <NextThing label="Üben" sub={`${placed ?? 'A1'} grammar, drills and papers`} onClick={onGrammar} />
+        <NextThing label="Wortschatz" sub="Look a word up, browse a deck" onClick={onWords} />
       </div>
     </div>
   );
 }
 
-/** The learner’s own level, as concepts with English summaries — the short
- *  version of the Grammar syllabus, so the daily loop can reach a rule without
- *  a page jump. Loads the bank lazily (only when the accordion opens). */
-function LevelGrammar({ level, onOpen }: { level: CEFR; onOpen: () => void }) {
-  useStore();
-  const [bank, setBank] = useState<GPoint[] | null>(null);
-  useEffect(() => { loadGrammar().then((g) => setBank(g[level] ?? [])); }, [level]);
-  if (!bank) return <p className="text-2xs text-dim font-mono px-1 py-2">Loading…</p>;
-
-  const rows = bank.map((p, pi) => ({ p, pi, s: pointStats(level, p.title, p.exercises.length) }));
-  // Unstarted first, then whatever has reviews waiting: "what should I look at
-  // next" rather than an alphabetical index.
-  const next = [...rows].sort((a, b) =>
-    Number(a.s.started) - Number(b.s.started) || b.s.due - a.s.due).slice(0, 4);
-  const started = rows.filter((r) => r.s.started).length;
-
+/** One of the three doors off Today. Deliberately identical to each other and
+ *  quieter than everything above: they are what you do *after*, and a card that
+ *  competes with Start session for attention is a card that costs sessions. */
+function NextThing({ label, sub, onClick }: { label: string; sub: string; onClick: () => void }) {
+  // `lang="de"` on the label: these are the German surface names (DESIGN §9), and
+  // §10 wants every German string marked or a screen reader reads the lexicon of a
+  // German app in an English voice. The subtitle stays English — it is UI copy.
   return (
-    <div className="space-y-1.5">
-      {next.map(({ p, pi, s }) => (
-        <Card key={p.title + pi} nested pad="none" className="flex items-center gap-3 px-3.5 py-2.5">
-          <span className="flex-1 min-w-0">
-            <span className="block text-sm font-semibold truncate">{p.title}</span>
-            <span className="block text-xs text-dim truncate">{p.summary}</span>
-          </span>
-          <span className="text-2xs font-mono text-dim tabular-nums flex-shrink-0">
-            {s.started ? `${s.known}/${s.count}` : 'new'}
-          </span>
-        </Card>
-      ))}
-      <Button variant="quiet" size="sm" block onClick={onOpen}>
-        All {bank.length} {level} concepts · {started} started <ChevronRight size={13} />
-      </Button>
-    </div>
+    <Card as="button" pad="none" onClick={onClick}
+      className="w-full flex items-center gap-2 px-4 py-3 text-left hover:border-accent transition-colors">
+      <span className="flex-1 min-w-0">
+        <span lang="de" className="block text-base font-semibold">{label}</span>
+        <span className="block text-2xs text-dim">{sub}</span>
+      </span>
+      <ChevronRight size={15} className="text-dim flex-shrink-0" />
+    </Card>
   );
 }
-

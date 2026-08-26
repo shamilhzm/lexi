@@ -1,22 +1,40 @@
-// Grammar — the syllabus. Replaces the old "Fundamentals" landing, which
-// bucketed work by exercise *mechanic* (der/die/das, Plurals, Cloze, Kasus…)
-// and never stated what the grammar of a level actually consists of. A learner
-// arriving at A1 could be asked to choose between den/dem/der/des without the
-// app ever having said what Nominativ is.
+// Üben — the practice room. Everything that drills you on one thing.
 //
-// So this page leads with the concepts: every authored point at every CEFR
-// level, with its plain-English summary, its rule, and how far through it you
-// are. The `summary` and `rule` fields have shipped in grammar.json since the
-// bank was written and were rendered nowhere — this is their surface.
+// ## What merged, and why
+//
+// This was *Library* (the grammar syllabus, the exam paper, worksheets,
+// Redemittel, quick drills) with *Games* sitting beside it as a fourth
+// destination holding **one card**. Two tabs, one question: "drill me on
+// something specific". A typing race and a Konjunktiv II exercise are the same
+// answer to it — the difference is mood, not kind, and mood is what sections
+// are for.
+//
+// The syllabus itself is unchanged and still the centre of the page. It replaced
+// the old "Fundamentals" landing, which bucketed work by exercise *mechanic*
+// (der/die/das, Plurals, Cloze, Kasus…) and never stated what the grammar of a
+// level actually consists of — a learner arriving at A1 could be asked to choose
+// between den/dem/der/des without the app ever having said what Nominativ is. So
+// it leads with the concepts: every authored point at every CEFR level, with its
+// plain-English summary, its rule, and how far through it you are.
 //
 // Nothing is locked. Levels you haven’t reached are collapsed, not gated: the
 // FSRS scheduler decides what’s due, and a learner who wants to read ahead
 // should be able to. The generated word-drills keep a home here as "Quick
 // drills", demoted to what they are — practice, not curriculum.
+//
+// ## Ordered by commitment, not by importance
+//
+//   Grammar      the syllabus — the reason most people open this tab
+//   Quick drills generated from your own vocabulary, thirty seconds each
+//   Exam         a full certificate paper, an hour, a date in the diary
+//   Redemittel · Worksheets · Tipprennen — the rest, one row each
+//
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Loader2, MessagesSquare, Play, Printer, Search, X } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, ClipboardList, GraduationCap, Keyboard, Loader2, MessagesSquare, Play, Printer, Search, Trophy, X } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
+import { raceBests } from '../lib/exam-store.ts';
+import Race from './games/Race.tsx';
 import { current as examInProgress } from '../lib/exam-store.ts';
 import { useStore } from '../useStore.ts';
 import { heat, fmt } from '../lib/ui.ts';
@@ -31,13 +49,14 @@ import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 
-type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope } | { kind: 'bank' } | null;
+type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope } | { kind: 'bank' }
+  | { kind: 'race'; level: CEFR } | null;
 
 /** How the page can be entered: a word-drill mode, the mixed bank, or a named
  *  concept (a grammar blind spot, which is logged by point title alone). */
-export type GrammarInit = Mode | 'grammar' | { point: string } | null;
+export type PracticeInit = Mode | 'grammar' | { point: string } | null;
 
-export default function Grammar({ initial = null, onExam, onPrint, onRedemittel }: { initial?: GrammarInit; onExam?: () => void; onPrint?: () => void; onRedemittel?: () => void }) {
+export default function Practice({ initial = null, onExam, onPrint, onRedemittel }: { initial?: PracticeInit; onExam?: () => void; onPrint?: () => void; onRedemittel?: () => void }) {
   const [route, setRoute] = useState<Route>(
     initial === 'grammar' ? { kind: 'bank' }
       : typeof initial === 'string' ? { kind: 'mode', mode: initial }
@@ -69,6 +88,7 @@ export default function Grammar({ initial = null, onExam, onPrint, onRedemittel 
   if (route?.kind === 'mode') return <Drill mode={route.mode} onExit={back} />;
   if (route?.kind === 'point') return <GrammarDrill scope={route.scope} onExit={back} />;
   if (route?.kind === 'bank') return <GrammarDrill onExit={back} />;
+  if (route?.kind === 'race') return <Race level={route.level} onExit={back} />;
   return <Syllabus onRoute={setRoute} onExam={onExam} onPrint={onPrint} onRedemittel={onRedemittel} />;
 }
 
@@ -102,20 +122,17 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
 
   return (
     <div className="w-full max-w-[820px] mx-auto">
-      {/* Library is the destination — the place you go to look something up
-          rather than to be tested. Grammar is what's in it today; word-level
-          reference is not built, so this doesn't promise it. */}
-      <h1 className="text-xl sm:text-2xl font-bold mb-4">Library</h1>
+      <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Üben</h1>
+      <p className="text-dim text-xs mb-4">
+        Drill one thing on purpose — a grammar concept, your own vocabulary, a full exam paper.
+        The daily session on <span className="text-txt">Today</span> decides for you; this is where you decide.
+      </p>
 
       {/* Exam practice sits above the syllabus rather than inside it: a
           certificate paper is not a grammar concept, and for a learner with a
-          date in the diary it is the reason they opened the Library at all. */}
+          date in the diary it is the reason they opened this tab at all. It is
+          the one row here that keeps its place above the heading. */}
       {onExam && <ExamCard onExam={onExam} />}
-      {/* Paper sits beside the paper exam, which is where a teacher looks — and
-          where a learner who has just been told what they keep getting wrong can
-          take it to a lesson. */}
-      {onRedemittel && <RedemittelCardEntry onStudy={onRedemittel} />}
-      {onPrint && <PrintCard onPrint={onPrint} />}
 
       <div className="flex items-center gap-2.5 mb-1">
         <GraduationCap size={20} className="text-accent" />
@@ -176,7 +193,64 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
           </Card>
         </>
       )}
+
+      {/* The rest. One heading rather than three loose rows above the fold:
+          these are the things you come here *knowing* you want, so they do not
+          need to compete with the syllabus for a first glance. */}
+      <section aria-labelledby="more-practice" className="mt-8">
+        <h2 id="more-practice" className="text-lg font-bold mb-1">Also here</h2>
+        <p className="text-dim text-xs mb-3">Speaking phrases, paper, and one game.</p>
+        {onRedemittel && <RedemittelCardEntry onStudy={onRedemittel} />}
+        {onPrint && <PrintCard onPrint={onPrint} />}
+        <RaceCard onPlay={(level) => onRoute({ kind: 'race', level })} />
+      </section>
     </div>
+  );
+}
+
+/** Tipprennen — the one game, and formerly an entire destination.
+ *
+ *  `Games.tsx` was a tab holding a single card, a level picker and a paragraph
+ *  of German explaining that WPM is not a measure of your German. All three
+ *  survive; the tab does not. The level picker stays *local* for the reason it
+ *  always was: choosing to race at A2 for fun must not silently re-scope the
+ *  study session waiting on Today. */
+function RaceCard({ onPlay }: { onPlay: (level: CEFR) => void }) {
+  useStore();
+  const start = (placementLevel() as CEFR | null) ?? (studyLevel() as CEFR | null) ?? 'A1';
+  const [level, setLevel] = useState<CEFR>(start);
+  const best = useMemo(() => raceBests()[level], [level]);
+
+  return (
+    <Card pad="none" className="px-4 py-3.5">
+      <div className="flex items-start gap-3">
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0">
+          <Keyboard size={18} />
+        </span>
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 mb-0.5">
+            <span lang="de" className="text-base font-semibold">Tipprennen</span>
+            {best && <Chip tone="good"><Trophy size={11} /> {best.wpm} WPM</Chip>}
+          </div>
+          <p className="text-2xs text-dim leading-relaxed">
+            Three sentences from your own cards, against two opponents at a fixed pace. Capitals,
+            umlauts and ß all count — which is exactly what costs marks in the exam. Typing speed is
+            not a measure of your German; the number is only there to bring you back.
+          </p>
+          <div className="flex items-center gap-1 flex-wrap mt-2.5">
+            {ALL_LEVELS.map((l) => (
+              <button key={l} onClick={() => setLevel(l as CEFR)} aria-pressed={level === l}
+                className={`tap-44-sq inline-flex items-center justify-center font-mono text-2xs px-2 py-1
+                  rounded-md border transition-colors ${
+                    level === l ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:text-txt'}`}>
+                {l}
+              </button>
+            ))}
+            <Button size="sm" className="ml-auto" onClick={() => onPlay(level)}><Play size={13} /> Race</Button>
+          </div>
+        </div>
+      </div>
+    </Card>
   );
 }
 
@@ -192,7 +266,7 @@ function RedemittelCardEntry({ onStudy }: { onStudy: () => void }) {
       <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><MessagesSquare size={18} /></span>
       <span className="flex-1 min-w-0">
         <span className="flex items-center gap-2 flex-wrap">
-          <span className="text-base font-semibold">Redemittel</span>
+          <span lang="de" className="text-base font-semibold">Redemittel</span>
           {n !== null && <Chip>{n} phrases</Chip>}
         </span>
         <span className="block text-2xs text-dim">

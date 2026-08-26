@@ -4,7 +4,8 @@
 // habit app that is the wrong shape — the surface people actually study on hid
 // everything except the thing already on screen.
 //
-// Desktop puts the destinations in the top bar; this is `sm:hidden`. The two
+// Desktop puts the destinations in the top bar; this is `md:hidden` (it was
+// `sm:hidden` until the set went to five — see TopBar). The two
 // share `TopBar`'s NAV array so a destination can never exist in one and not the
 // other. Profile is reachable from the avatar in the bar at every width, which is
 // what let the drawer go entirely.
@@ -26,7 +27,7 @@ export default function BottomNav({ view, onGo, onStartSession }: {
   const reduce = useReducedMotion();
 
   return (
-    <div className="sm:hidden flex-shrink-0 relative no-print">
+    <div className="md:hidden flex-shrink-0 relative no-print">
       {view !== 'today' && (
         <motion.button
           onClick={onStartSession}
@@ -47,7 +48,7 @@ export default function BottomNav({ view, onGo, onStartSession }: {
             const active = view === n.id;
             return (
               <button key={n.id} onClick={() => onGo(n.id)} aria-current={active ? 'page' : undefined}
-                className={`relative flex-1 flex flex-col items-center justify-center gap-0.5 h-full min-w-0 transition-colors ${
+                className={`relative flex-1 flex flex-col items-center justify-center gap-0.5 h-full min-w-0 px-0.5 transition-colors ${
                   active ? 'text-accent' : 'text-dim active:text-txt'}`}>
                 {/* The active tab was signalled by colour and stroke weight alone.
                     A shared-layout rule slides between tabs, so the change reads
@@ -58,7 +59,9 @@ export default function BottomNav({ view, onGo, onStartSession }: {
                     className="absolute top-0 h-0.5 w-8 rounded-full bg-accent" />
                 )}
                 <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
-                <span className="text-2xs leading-none truncate max-w-full px-0.5">{n.label}</span>
+                {/* Five tabs at 375px is 75px each. `px-0` and a tracking-tight label keep
+                    *Progress* and *Practice* — the two longest — off the truncation. */}
+                <span className="text-2xs leading-none tracking-tight truncate max-w-full">{n.label}</span>
               </button>
             );
           })}

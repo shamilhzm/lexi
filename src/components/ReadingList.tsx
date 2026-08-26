@@ -19,7 +19,14 @@ import Card from './ui/Card.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Target, Word } from '../types.ts';
 
-export default function ReadingList({ onStudy }: { onStudy: (t: Target) => void }) {
+export default function ReadingList({ onStudy, limit }: {
+  onStudy: (t: Target) => void;
+  /** How many to show. Lesen caps it at four: the surface carries a second
+   *  section under its own heading, and six sentences at ~225px each put that
+   *  heading 1,350px down — findable only by someone who already knew it was
+   *  there, which is the fault this whole pass exists to fix. */
+  limit?: number;
+}) {
   const v = useStore();
   const lv = levels();
 
@@ -44,13 +51,14 @@ export default function ReadingList({ onStudy }: { onStudy: (t: Target) => void 
 
   const sentences = useMemo(
     () => (!ready ? [] : pickReadable({
+      ...(limit ? { limit } : {}),
       // A word you are *currently* studying is exactly the one you want to meet in
       // a sentence, so "learning" counts as familiar; only never-seen words are new.
       familiar: (w: Word) => statusOf(w.id) !== 'new',
       inScope: (w: Word) => lv.has(w.level),
     })),
     // eslint-disable-next-line react-hooks/exhaustive-deps -- lvKey stands in for lv
-    [v, lvKey, ready],
+    [v, lvKey, ready, limit],
   );
 
   if (sentences.length === 0) {
@@ -67,7 +75,7 @@ export default function ReadingList({ onStudy }: { onStudy: (t: Target) => void 
   return (
     <div className="space-y-2">
       <p className="text-dim text-xs px-1">
-        Sentences where you know every word but one. Tap the highlighted word for its meaning.
+        You know every word but one. Tap the highlighted word for its meaning.
       </p>
       {sentences.map((s, k) => <Sentence key={`${s.source.id}-${k}`} s={s} onStudy={onStudy} />)}
     </div>

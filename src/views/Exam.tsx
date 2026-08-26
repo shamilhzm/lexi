@@ -100,7 +100,7 @@ function Room({ onGrammar, onSession }: { onGrammar: () => void; onSession: () =
 
   return (
     <div className="w-full max-w-[820px] mx-auto">
-      <h1 className="text-xl sm:text-2xl font-bold mb-1">Tests</h1>
+      <h1 className="display text-3xl sm:text-4xl mb-1">Tests</h1>
       <p className="text-dim text-xs mb-4 leading-relaxed">
         Where you stand at a level, short tests you can take now, and the full certificate paper
         when you have the afternoon.
