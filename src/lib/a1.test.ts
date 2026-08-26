@@ -1,7 +1,6 @@
 // The A1 report, pinned. Each of these is a specific complaint from a learner three
 // weeks in, and each fix is small enough that it would be easy to undo by accident.
 import { describe, it, expect } from 'vitest';
-import { parseList, matchList } from '../components/ClassListPicker.tsx';
 import { askablePlural, clozeExample, conjDrillable, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
 import { CAN_DO, coverageNote } from './candos.ts';
 import { previewInterval, emptyCard, Rating, schedule } from '../srs.ts';
@@ -20,44 +19,6 @@ registerWords([
   w('voc:A1:aufstehen', 'aufstehen', { pos: 'verb', gender: null }),
 ]);
 resetSurfaceIndex();
-
-// "No way to say: I'm in an A1 class, here's this week's chapter."
-describe('class list', () => {
-  it('takes a list however a worksheet happens to be pasted', () => {
-    expect(parseList('der Hund\ndie Katze\naufstehen')).toEqual(['der Hund', 'die Katze', 'aufstehen']);
-    expect(parseList('der Hund, die Katze; aufstehen')).toEqual(['der Hund', 'die Katze', 'aufstehen']);
-    expect(parseList('1. der Hund\n2) die Katze\n- aufstehen')).toEqual(['der Hund', 'die Katze', 'aufstehen']);
-  });
-
-  it('strips the translation the learner wrote next to the word', () => {
-    expect(parseList('der Hund – dog\ndie Katze — cat\naufstehen = to get up'))
-      .toEqual(['der Hund', 'die Katze', 'aufstehen']);
-    expect(parseList('der Hund\tdog')).toEqual(['der Hund']);
-  });
-
-  it('ignores blank lines and stray punctuation', () => {
-    expect(parseList('\n\n der Hund \n\n—\n')).toEqual(['der Hund']);
-  });
-
-  it('matches through the article and through inflection', () => {
-    expect(matchList(['der Hund']).words.map((x) => x.id)).toEqual(['voc:A1:der Hund']);
-    expect(matchList(['Hund']).words.map((x) => x.id)).toEqual(['voc:A1:der Hund']);
-    // A plural pasted off a worksheet still finds its card.
-    expect(matchList(['die Hunde']).words.map((x) => x.id)).toEqual(['voc:A1:der Hund']);
-  });
-
-  it('keeps the learner’s order and de-duplicates', () => {
-    const r = matchList(['die Katze', 'der Hund', 'Katze']);
-    expect(r.words.map((x) => x.term)).toEqual(['die Katze', 'der Hund']);
-  });
-
-  it('names what it could not find rather than dropping it silently', () => {
-    const r = matchList(['der Hund', 'Quatschwort', 'Blafasel']);
-    expect(r.words).toHaveLength(1);
-    // A list that quietly loses a third of its words is worse than one that says so.
-    expect(r.missed).toEqual(['Quatschwort', 'Blafasel']);
-  });
-});
 
 // "18 days on my second-ever review is mathematically right and psychologically
 // wrong." The fix is not to cap a true number — it is to stop claiming a precision

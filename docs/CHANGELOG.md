@@ -11,6 +11,66 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — the syllabus is a path, and the class list is gone
+
+**Practice's centre was six collapsed accordions**, one per CEFR level — a filing
+cabinet that answers "where is Konjunktiv II" and nothing else. It opened as six closed
+grey rows, one of which you were expected to know was yours.
+
+It is now a **journey**: chapter = CEFR level, node = one grammar concept, in the order
+the bank authors them. That mapping was not invented for the redesign — a level *is* the
+unit a learner moves through, the concepts inside it *are* ordered, and neither fact had
+ever been rendered. Each chapter carries its number, the level, the Council of Europe's
+own can-do line from `candos.ts`, and an `n/N finished` count; each node carries its
+state (finished · in progress · not started · **the one to resume**) and its title.
+
+A `ContinueCard` at the top names the next step — *KAPITEL 2 · A2 · SCHRITT 1 ·
+Akkusativ · [Üben]* — which is the single most useful control on the surface, because it
+removes the choice on the day you do not want to make one.
+
+**Three rules came out of building it**, all in DESIGN §8a:
+
+- **Geometry gets one source of truth.** Nodes and connectors are computed from the same
+  `nodeX/nodeY` pair, in pixels, in a ribbon that is 300px at every viewport. A
+  percentage layout with an SVG overlay needs `preserveAspectRatio="none"`, which
+  distorts stroke width and lets the connector disagree with the nodes at *some* widths.
+- **Connectors are stubs, not a ribbon.** The first version drew one curve through every
+  node centre — the obvious thing, and wrong, because Lexi's nodes carry captions and the
+  curve ran through the words. Found by looking at the screen ("sein & haben" had a 3px
+  line through it), not by reasoning about it. Each stub now clears the caption.
+- **A node may not be unlabelled.** The reference's nodes are bare tiles and can be,
+  because *its* chapters are the content. Lexi's nodes are concepts, and stripping their
+  labels would undo the thing this surface exists for — its own header comment: "a
+  learner arriving at A1 could be asked to choose between den/dem/der/des without the app
+  ever having said what Nominativ is." Every chapter also keeps a *read the rules* list
+  under its path, so reading a rule still never requires starting a drill.
+
+**Nothing is locked**, unchanged: every node at every level is tappable, and the marked
+one is a suggestion. The path is deliberately long — six chapters, ~140 nodes — because
+that is the honest shape of a language's grammar. It is made navigable by a chapter jump
+bar, which scrolls and deliberately does *not* also report which chapter you are scrolled
+into: the scrollbar already answers that, and a second answer would lag it.
+
+**A bug the journey surfaced, fixed.** Practice holds its drill in local state (a scoped
+exercise set is not a linkable thing), so tapping *Practice* while inside a drill did
+**nothing at all** — there was no way back to the syllabus except the browser's Back.
+`go()` now bumps a nonce in the route container's key, so tapping the tab you are already
+on returns that destination to its root. That is how a tab bar is expected to behave and
+it was never true here.
+
+**"My class list" is removed** at the user's request — the paste-your-homework box, its
+`lexi.classlist.v1` key, the store API, and the pinned parser tests that came with it.
+It had moved from Today to Words in the IA pass; now it is gone. **Worth knowing if it
+ever comes back:** `parseList` handled six ways a worksheet gets pasted (commas,
+numbering, dashes, tab-separated glosses) and those cases were pinned in `a1.test.ts`
+from a real learner's report. They went with the feature; git history has them.
+
+**Verified:** typecheck clean · lint 0 errors · 1,023 tests in 58 files · build clean ·
+both themes at 375×812 and 1280×860; node → drill, the jump bar, and all four node
+states walked in the running app.
+
+---
+
 ### Shipped 2026-08-26 — paper, a running head, and an emblem per topic
 
 The aesthetic half of the same pass, and it exists because **DESIGN.md was used to

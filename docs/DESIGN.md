@@ -510,8 +510,8 @@ place, and the cost lands on the learner who does not know it is there.
 | Destination | The question | Absorbs |
 |---|---|---|
 | **Today** | what do I do now? | the briefing, the path, the goal, the one Start button |
-| **Words** | what words are there / what does this one mean? | search, the theme index, decks, the word map, class lists |
-| **Practice** | drill me on something specific | the grammar syllabus, quick drills, Redemittel, the exam paper, worksheets, Tipprennen |
+| **Words** | what words are there / what does this one mean? | search, the theme index, decks, the word map |
+| **Practice** | drill me on something specific | **the journey** — six chapters, one node per grammar concept — plus quick drills, Redemittel, the exam paper, worksheets, Tipprennen |
 | **Read** | give me real German | the reading list and the comprehension meter, side by side |
 | **Progress** | how am I doing? | the heatmap, trends, blind spots, finished sectors, the observatory |
 
@@ -532,6 +532,53 @@ a navigation that wraps is worse than one that delegates to the bottom bar.
 
 > **Nothing on Today is behind a disclosure triangle.** If it needs hiding, it belongs on
 > another surface. If it belongs on Today, it is visible.
+
+### The syllabus is a path *(changed 2026-08-26)*
+
+Practice's centre was six collapsed accordions, one per CEFR level. That is a
+**filing cabinet**: it answers "where is Konjunktiv II" and says nothing about
+where you are, what you finished, or what to do next — and it opened as six closed
+grey rows, one of which you were expected to know was yours.
+
+It is now a journey. **Chapter = CEFR level, node = one grammar concept**, in the
+order the bank authors them. That mapping is not a metaphor imposed on the data;
+it is what the data already was. A level *is* the unit a learner moves through and
+the concepts inside it *are* ordered, and neither fact was rendered anywhere.
+
+Three rules came out of building it:
+
+> **Geometry gets one source of truth.** Node positions and the connectors are
+> computed from the same `nodeX/nodeY` pair, in pixels, inside a 300px ribbon that
+> is 300px at every viewport. A percentage layout with an SVG overlay needs
+> `preserveAspectRatio="none"`, which distorts stroke width and lets the connector
+> disagree with the nodes at *some* widths — a defect you find on one device.
+
+> **Connectors are stubs, not a ribbon.** The first version drew one curve through
+> every node centre, which is the obvious thing and was wrong: Lexi's nodes carry
+> captions, so the curve ran through the words. Found by looking at it — "sein &
+> haben" had a 3px line through it — not by reasoning. Each stub now starts below
+> one caption and ends at the next tile, which is also what the reference draws.
+
+> **A node may not be unlabelled.** The reference's nodes are bare tiles and can be,
+> because *its* chapters are the content and its nodes are just games. Lexi's nodes
+> are concepts, and stripping the labels would undo the one thing this surface was
+> built for — its own header comment: "a learner arriving at A1 could be asked to
+> choose between den/dem/der/des without the app ever having said what Nominativ
+> is." Every node carries its title, and every chapter keeps a *read the rules*
+> list beneath the path.
+
+**Nothing is locked**, exactly as before. Every node on every chapter is tappable
+at any level; the marked one is a suggestion, not a gate. And the path is
+deliberately long — six chapters and ~140 nodes — because that is the honest shape
+of "the grammar of a language". Length is made navigable by anchors, not by
+hiding: the chapter jump bar scrolls, and it does not try to also report which
+chapter you are scrolled into, because the scrollbar already answers that.
+
+> **Tapping the tab you are already on returns it to its root.** Practice holds a
+> drill in local state — a scoped exercise set is not a linkable thing — so before
+> this, tapping *Practice* from inside a drill did nothing at all. `go()` bumps a
+> nonce in the route container's key, so every destination remounts on a
+> same-tab tap.
 
 Depth is real routing everywhere: `#/words/g/<group>`, `#/words/map/<sector>`. Every
 retired hash is aliased rather than 404'd — `#/library` and `#/games` resolve to Practice,

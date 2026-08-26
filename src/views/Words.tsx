@@ -15,7 +15,7 @@
 //
 // ## Three depths, all real routes
 //
-//   #/words              the index — search, your own lists, the nine groups
+//   #/words              the index — search, then the nine theme groups
 //   #/words/g/<group>    that group's decks
 //   #/words/map/<sector> the sector's word map
 //
@@ -33,7 +33,6 @@ import { speak } from '../lib/tts.ts';
 import { conceptForSector, conceptPaths } from '../lib/illustration.tsx';
 import Decks from './Decks.tsx';
 import Wortkarte from './Wortkarte.tsx';
-import ClassListPicker from '../components/ClassListPicker.tsx';
 import Card from '../components/ui/Card.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
@@ -173,11 +172,6 @@ function Index({ onOpenGroup, onStudy }: { onOpenGroup: (g: string) => void; onS
         ? <Results hits={hits} q={q} onStudy={onStudy} />
         : (
           <>
-            {/* The learner's own course, if they have given us one. It used to sit
-                on Today, where it competed with the session for the one thing that
-                surface is meant to make you do. A list of words you were set in
-                class is vocabulary; this is where vocabulary lives. */}
-            <div className="mb-6"><ClassListPicker onStudy={onStudy} /></div>
             <Taxonomy onOpenGroup={onOpenGroup} />
           </>
         )}

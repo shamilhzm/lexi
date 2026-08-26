@@ -58,9 +58,12 @@ triangle on the way to it.
 - **Words** — *what words are there?* A search over all 6,622 cards (German or English,
   umlauts optional), the nine theme groups with your coverage on each, **Decks**, and the
   **Wortkarte** — a semantic map of a sector with synonym links and node colour by
-  learning status. Paste a class list and Lexi matches it to its own cards.
-- **Practice** — *drill me on something specific.* The full grammar syllabus A1–C2 with
-  each concept's rule and a Practise button into its exercises; the **Fundamentals**
+  learning status.
+- **Practice** — *drill me on something specific.* A **journey** through the grammar:
+  six chapters (A1–C2), one node per concept, in the order the bank teaches them — each
+  showing whether you've finished it, and which one to resume. Every chapter keeps a
+  *read the rules* list, so reading what a concept **is** never requires starting a
+  drill. Alongside it: the **Fundamentals**
   drills (ten modes, each on its own spaced-repetition track — gender, plurals,
   conjugation, cloze, sentence builder, tense transformation, Kasus, separable verbs,
   reflexive verbs, Diktat); **Redemittel**; printable worksheets; **Exam** — a full paper

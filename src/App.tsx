@@ -59,6 +59,13 @@ export default function App() {
   const [target, setTarget] = useState<Target>(boot.target ?? ALL);
   const [words, setWords] = useState<WordsRoute>(boot.words);
   const [drillInit, setDrillInit] = useState<PracticeInit>(null);
+  // Bumped by every `go()`. It is part of the route container's key, so tapping
+  // the tab you are already on remounts that destination — which is how a tab bar
+  // is expected to behave and how you get *out* of a drill without a Back button.
+  // Practice holds its drill in local state (a scoped exercise set is not a
+  // linkable thing), so before this, tapping "Practice" from inside a drill did
+  // nothing at all.
+  const [navTick, setNavTick] = useState(0);
   const [guided, setGuided] = useState(false);   // first-run: placement → first session → recap
   const [exam, setExam] = useState(false);      // a sitting under exam conditions
 
@@ -113,7 +120,7 @@ export default function App() {
     // this the first-run hero came back on the next visit, as though placement
     // and the first session had never happened.
     if (guided) setOnboarded();
-    setGuided(false); setView(v);
+    setGuided(false); setView(v); setNavTick((t) => t + 1);
   };
   /** The primary CTA — assemble and launch today's session. */
   const startSession = () => { setGuided(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
@@ -257,7 +264,7 @@ export default function App() {
               the page. This is the same rule `.bar-grow` and `.node-in` already
               follow; it had never been applied to the layer every navigation
               passes through. See docs/DESIGN.md §7. */}
-          <div key={view}
+          <div key={`${view}:${navTick}`}
             className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
                 {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onWords={() => go('words')} onBackup={() => go('profile')} onGrammar={() => go('practice')} onProgress={() => go('progress')} onRead={() => go('read')} />}
