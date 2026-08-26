@@ -1391,6 +1391,942 @@ LESSONS['A2::Präpositionen: von … an, über, ohne'] = [
   },
 ];
 
+// ---- B1 -------------------------------------------------------------------
+
+LESSONS['B1::Dativ'] = [
+  {
+    body: 'The third case, and the one that turns up in the most places. It marks the indirect object, it is demanded outright by a set of verbs and prepositions, and it answers *wo?* after the two-way prepositions.',
+  },
+  {
+    label: 'The articles',
+    pairs: [
+      { from: 'der → dem', to: 'dem Mann' },
+      { from: 'die → der', to: 'der Frau' },
+      { from: 'das → dem', to: 'dem Kind' },
+      { from: 'die (pl.) → den', to: 'den Kindern — plus -n on the noun' },
+    ],
+  },
+  {
+    label: 'Four jobs',
+    pairs: [
+      { from: 'indirect object', to: 'Ich gebe dem Mann das Buch.' },
+      { from: 'dative verbs', to: 'Ich helfe dem Kind.' },
+      { from: 'dative prepositions', to: 'Wir fahren mit dem Bus.' },
+      { from: 'wo? after a two-way preposition', to: 'Das Buch liegt auf dem Tisch.' },
+    ],
+  },
+  {
+    label: 'The prepositions that always take it',
+    body: 'aus, bei, mit, nach, seit, von, zu — plus gegenüber and ab. Worth learning as a chant: the case is settled the moment you choose the word, whatever the verb is doing.',
+  },
+  {
+    label: 'The plural -n',
+    body: 'Dative plural adds -n to the noun unless it already ends in -n or -s. It is the one ending that marks the noun rather than the article, and the one most often dropped.',
+    pairs: [
+      { from: 'die Kinder', to: 'mit den Kindern' },
+      { from: 'die Freunde', to: 'mit den Freunden' },
+      { from: 'die Autos', to: 'mit den Autos — already -s' },
+    ],
+  },
+];
+
+LESSONS['B1::Nebensätze (weil/dass)'] = [
+  {
+    body: 'A subordinating conjunction sends the conjugated verb to the very end of its clause. This is the structural fact that most separates German from English, and it is worth over-practising until it stops requiring thought.',
+  },
+  {
+    label: 'The common ones',
+    pairs: [
+      { from: 'weil', to: 'because' }, { from: 'dass', to: 'that' },
+      { from: 'wenn / als', to: 'when, if' }, { from: 'obwohl', to: 'although' },
+      { from: 'damit', to: 'so that' }, { from: 'ob', to: 'whether' },
+    ],
+  },
+  {
+    label: 'The verb goes last',
+    examples: [
+      { de: 'Ich bleibe zu Hause, weil ich krank bin.', en: 'I am staying home because I am ill.' },
+      { de: 'Ich glaube, dass er morgen kommt.', en: 'I think he is coming tomorrow.' },
+    ],
+  },
+  {
+    label: 'Put the clause first and the two verbs meet',
+    body: 'A leading subordinate clause fills slot one of the main clause, so the main verb follows the comma immediately. The result is two verbs side by side, which looks wrong to an English eye and is the shape you want.',
+    examples: [{ de: 'Weil ich krank bin, bleibe ich zu Hause.', en: 'Note «bin, bleibe» across the comma.' }],
+  },
+  {
+    label: 'What goes to the end when there are two verbs',
+    body: 'The **conjugated** one. A participle or infinitive that was already at the end stays put and the finite verb tucks in behind it.',
+    pairs: [
+      { from: 'Ich habe ihn gesehen.', to: '…, weil ich ihn gesehen habe.' },
+      { from: 'Ich muss arbeiten.', to: '…, weil ich arbeiten muss.' },
+    ],
+  },
+  {
+    label: 'What you will hear instead',
+    body: 'Spoken German very often keeps main-clause order after weil — «weil ich bin krank». It is everywhere in casual speech and it is not accepted in writing or exams.',
+    limit: 'Treat it as something to understand, not to produce. In the Prüfung it is marked wrong; among friends nobody will notice either way.',
+  },
+];
+
+LESSONS['B1::Konjunktiv II (würde)'] = [
+  {
+    body: 'The mood for things that are not the case — wishes, polite requests, advice, hypotheses. German splits it between one short form for a handful of verbs and a helper for the rest.',
+  },
+  {
+    label: 'The short forms — use these',
+    pairs: [
+      { from: 'sein', to: 'wäre' }, { from: 'haben', to: 'hätte' },
+      { from: 'können', to: 'könnte' }, { from: 'müssen', to: 'müsste' },
+      { from: 'dürfen', to: 'dürfte' }, { from: 'sollen', to: 'sollte' },
+    ],
+  },
+  {
+    label: 'Everything else: würde + infinitive',
+    examples: [
+      { de: 'Ich würde gern kommen.', en: 'I would like to come.' },
+      { de: 'Was würdest du machen?', en: 'What would you do?' },
+    ],
+  },
+  {
+    label: 'Giving advice',
+    body: '«An deiner Stelle …» — in your place — is the standard opener, and it is followed by Konjunktiv II because the situation is hypothetical.',
+    examples: [{ de: 'An deiner Stelle wäre ich vorsichtig.', en: 'If I were you I would be careful.' }],
+  },
+  {
+    label: 'The synthetic forms exist and you should not use them',
+    body: 'Strong verbs have one-word Konjunktiv II forms — käme, ginge, gäbe, führe. They are correct, they appear in literature and set phrases, and using them in conversation sounds like a costume.',
+    limit: 'Two exceptions worth having: «käme» and «ginge» are still current in careful speech, and «wüsste» from wissen is the normal form — «würde wissen» sounds wrong. So the rule is *würde for most*, not *würde for all*.',
+  },
+];
+
+LESSONS['B1::Genitiv'] = [
+  {
+    body: 'The possessive case. It is the one case that is genuinely retreating from spoken German, so the useful skill at B1 is reading it confidently and producing it in writing.',
+  },
+  {
+    label: 'The forms',
+    pairs: [
+      { from: 'der / das → des', to: 'des Mannes, des Kindes — plus -s or -es on the noun' },
+      { from: 'die → der', to: 'der Frau' },
+      { from: 'plural → der', to: 'der Kinder' },
+    ],
+  },
+  {
+    label: 'When the noun takes -es rather than -s',
+    body: 'One-syllable nouns and anything ending in -s, -ß, -z, -tz take -es because -s alone would be unsayable. Longer nouns take a bare -s.',
+    pairs: [
+      { from: 'das Kind', to: 'des Kindes' },
+      { from: 'der Platz', to: 'des Platzes' },
+      { from: 'der Lehrer', to: 'des Lehrers' },
+    ],
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'die Würde des Menschen', en: 'the dignity of man — the opening of the Grundgesetz.' },
+      { de: 'das Auto meiner Schwester', en: 'my sister’s car' },
+    ],
+  },
+  {
+    label: 'Speech prefers von + Dativ',
+    body: 'Conversational German largely replaces the genitive: «das Auto von meiner Schwester». This is normal, not sloppy, and you will hear it constantly.',
+    limit: 'Writing, formal registers, fixed phrases and the genitive prepositions keep the real thing — and the B1 written exam expects it. Read the genitive; write the genitive; do not be surprised when nobody says it.',
+  },
+];
+
+LESSONS['B1::Genitiv-Präpositionen (wegen, während, trotz, außerhalb, innerhalb)'] = [
+  {
+    body: 'A small group of prepositions that govern the genitive. They are the place the case is most alive, which is why they are worth a page of their own.',
+  },
+  {
+    label: 'The set',
+    pairs: [
+      { from: 'wegen', to: 'because of — wegen des Wetters' },
+      { from: 'während', to: 'during — während der Woche' },
+      { from: 'trotz', to: 'despite — trotz des Regens' },
+      { from: 'außerhalb / innerhalb', to: 'outside / within — innerhalb einer Woche' },
+      { from: '(an)statt', to: 'instead of — statt des Autos' },
+    ],
+  },
+  {
+    label: 'The endings are the genitive’s',
+    pairs: [
+      { from: 'der / das', to: 'des Wetters, des Regens' },
+      { from: 'die', to: 'der Woche' },
+      { from: 'plural', to: 'der Ferien' },
+    ],
+  },
+  {
+    label: 'You will hear the dative instead',
+    body: '«wegen dem Wetter» is extremely common in speech and is the form most Germans use without thinking.',
+    limit: 'It is still non-standard: Duden marks it colloquial, and it is wrong in the written exam. Two more things to know — «wegen» may follow its noun in a fixed phrase («des Wetters wegen»), and «trotz» historically took the dative, which is why «trotz allem» is correct and not a mistake.',
+  },
+];
+
+LESSONS['B1::Passiv: Perfekt & Modalverben'] = [
+  {
+    body: 'The passive beyond the present tense. Two constructions, and each has one detail that is easy to get almost right.',
+  },
+  {
+    label: 'Perfekt passive — sein + Partizip + worden',
+    body: 'The participle of werden here is **worden**, not geworden. The ge- drops whenever werden is the passive helper rather than a verb in its own right.',
+    examples: [
+      { de: 'Das Haus ist 1900 gebaut worden.', en: 'The house was built in 1900.' },
+      { de: 'Der Brief ist gestern geschickt worden.', en: 'The letter was sent yesterday.' },
+    ],
+  },
+  {
+    label: 'geworden versus worden',
+    pairs: [
+      { from: 'Er ist Arzt geworden.', to: 'werden as a full verb — he became a doctor' },
+      { from: 'Er ist operiert worden.', to: 'werden as the passive helper — he was operated on' },
+    ],
+  },
+  {
+    label: 'With a modal — modal + Partizip + werden',
+    examples: [
+      { de: 'Der Wagen muss repariert werden.', en: 'The car has to be repaired.' },
+      { de: 'Der Wagen musste repariert werden.', en: 'The car had to be repaired.' },
+    ],
+  },
+  {
+    label: 'Why German reaches for it so often',
+    body: 'Signs, instructions, regulations and anything institutional. The passive removes the doer, and in official German the doer is usually nobody in particular — which is exactly the effect wanted.',
+  },
+];
+
+LESSONS['B1::Infinitivsätze (zu + Infinitiv)'] = [
+  {
+    body: 'A clause with no subject of its own, hanging off a verb or an expression in the main clause. English does the same thing with "to": *I am trying **to** come*.',
+  },
+  {
+    label: 'What triggers it',
+    pairs: [
+      { from: 'verbs', to: 'versuchen, vorhaben, vergessen, anfangen, hoffen, beginnen' },
+      { from: 'expressions', to: 'es ist wichtig, es macht Spaß, Lust haben, Zeit haben' },
+    ],
+  },
+  {
+    label: 'zu goes at the end, with the infinitive',
+    examples: [
+      { de: 'Ich habe vor, nächstes Jahr nach Wien zu ziehen.', en: 'I plan to move to Vienna next year.' },
+      { de: 'Es ist wichtig, jeden Tag zu üben.', en: 'It is important to practise every day.' },
+    ],
+  },
+  {
+    label: 'Separable verbs swallow the zu',
+    body: 'The zu goes **inside**, between the prefix and the stem, and the whole thing is one word.',
+    pairs: [
+      { from: 'aufstehen', to: 'früh aufzustehen' },
+      { from: 'einkaufen', to: 'einzukaufen' },
+      { from: 'anrufen', to: 'dich anzurufen' },
+    ],
+  },
+  {
+    label: 'No zu after a modal',
+    body: 'Modals take a bare infinitive, and so do sehen, hören, lassen and gehen in this construction.',
+    pairs: [
+      { from: 'Ich muss arbeiten.', to: 'no zu' },
+      { from: 'Ich versuche zu arbeiten.', to: 'zu' },
+    ],
+  },
+  {
+    label: 'The comma is not always required any more',
+    body: 'Since the 1996 spelling reform a plain zu-infinitive may stand without a comma.',
+    limit: 'It is still required in three cases: after um / ohne / statt / anstatt / außer / als, when the main clause announces the infinitive with a word like «es» or «darauf», and when the clause is added as an afterthought. Setting the comma is never wrong, so if in doubt, set it.',
+  },
+];
+
+LESSONS['B1::Irreale Konditionalsätze'] = [
+  {
+    body: 'Conditions that are not true, and may not become true. Both halves go into Konjunktiv II, which is what tells the listener you are speculating rather than planning.',
+  },
+  {
+    label: 'Real versus unreal',
+    pairs: [
+      { from: 'real — indicative', to: 'Wenn ich Zeit habe, komme ich mit.' },
+      { from: 'unreal — Konjunktiv II', to: 'Wenn ich Zeit hätte, würde ich mitkommen.' },
+    ],
+  },
+  {
+    label: 'Both clauses take the mood',
+    body: 'This is where English and German agree in principle and diverge in habit: English speakers often leave the main clause in the indicative. German wants Konjunktiv II on both sides.',
+    examples: [
+      { de: 'Wenn ich reich wäre, würde ich weniger arbeiten.', en: 'If I were rich I would work less.' },
+    ],
+  },
+  {
+    label: 'Drop the wenn and the verb leads',
+    body: 'A more formal, slightly literary alternative. The conditional clause simply starts with its conjugated verb — the same trick English does with "Had I known…".',
+    pairs: [
+      { from: 'Wenn ich Zeit hätte, käme ich mit.', to: 'Hätte ich Zeit, käme ich mit.' },
+    ],
+  },
+  {
+    label: 'Past unreal — one form for everything',
+    body: 'For a condition that already failed, use hätte or wäre plus the participle. There is no separate past subjunctive to learn.',
+    examples: [
+      { de: 'Wenn ich das gewusst hätte, wäre ich nicht gekommen.', en: 'If I had known that, I would not have come.' },
+    ],
+  },
+];
+
+LESSONS['B1::Finalsätze: damit & um … zu'] = [
+  {
+    body: 'Two ways to say what something is *for*. The choice is decided by whether the purpose belongs to the same person.',
+  },
+  {
+    label: 'Same subject — um … zu',
+    examples: [
+      { de: 'Ich lerne Deutsch, um in Köln zu studieren.', en: 'I am learning German in order to study in Cologne — I learn, I study.' },
+    ],
+  },
+  {
+    label: 'Different subjects — damit',
+    examples: [
+      { de: 'Ich spreche langsam, damit du mich verstehst.', en: 'I speak slowly so that you understand me — I speak, you understand.' },
+    ],
+  },
+  {
+    label: 'The rule runs one way only',
+    body: 'um … zu has no subject of its own, so it *requires* the subjects to match. damit carries a full clause with its own subject and verb at the end.',
+    limit: 'The reverse is not true, and this is the half that gets taught as a law. damit is perfectly correct with the same subject — «Ich lerne Deutsch, damit ich in Köln studieren kann» is good German, just wordier. So: different subjects **must** take damit; matching subjects **may** take either, and um … zu is the lighter choice.',
+  },
+  {
+    label: 'Two relatives worth having',
+    pairs: [
+      { from: 'ohne … zu', to: 'Er ging, ohne etwas zu sagen. — without saying anything' },
+      { from: '(an)statt … zu', to: 'Statt zu arbeiten, schlief er. — instead of working' },
+    ],
+  },
+];
+
+LESSONS['B1::Konsekutivsätze: sodass'] = [
+  {
+    body: 'Result clauses — what followed from what. Two shapes, and the difference between them is whether you are emphasising the cause.',
+  },
+  {
+    label: 'sodass — plain result',
+    examples: [
+      { de: 'Es regnete stark, sodass wir zu Hause blieben.', en: 'It rained hard, so we stayed home.' },
+    ],
+  },
+  {
+    label: 'so + adjective … dass — the cause is intensified',
+    body: 'Splitting the pair puts the weight on *how much*, which is what makes the result inevitable.',
+    examples: [
+      { de: 'Der Vortrag war so langweilig, dass ich einschlief.', en: 'The talk was so boring that I fell asleep.' },
+      { de: 'Ich war so müde, dass ich sofort ins Bett ging.', en: 'I was so tired that I went straight to bed.' },
+    ],
+  },
+  {
+    label: 'Both send the verb to the end',
+    body: 'sodass and dass are subordinating conjunctions, so their clause ends with the conjugated verb.',
+  },
+  {
+    label: 'Do not confuse it with also',
+    body: 'German «also» means therefore, not "also". It is an adverb, so the verb stays in position two — «Es regnete. Also blieben wir zu Hause.»',
+  },
+];
+
+LESSONS['B1::Lassen & Modalverben im Perfekt'] = [
+  {
+    body: 'What happens when a verb that governs an infinitive goes into the perfect. German produces a shape English has no equivalent for: two infinitives at the end, where you expected a participle.',
+  },
+  {
+    label: 'The double infinitive',
+    pairs: [
+      { from: 'Ich lasse das Rad reparieren.', to: 'Ich habe das Rad reparieren lassen.' },
+      { from: 'Ich kann kommen.', to: 'Ich habe kommen können.' },
+      { from: 'Ich muss arbeiten.', to: 'Ich habe arbeiten müssen.' },
+    ],
+  },
+  {
+    label: 'Not gelassen, not gekonnt',
+    body: 'The participle you would expect — gelassen, gekonnt, gemusst — is replaced by the plain infinitive whenever a second verb is present. The participle comes back when the modal stands alone.',
+    limit: 'The neighbouring verbs are looser. sehen and hören take either — «Ich habe ihn kommen sehen» and «… kommen gesehen» are both current, with the double infinitive preferred. Only the modals and lassen are strict about it.',
+    pairs: [
+      { from: 'Ich habe es nicht gekonnt.', to: 'modal alone — participle' },
+      { from: 'Ich habe es nicht machen können.', to: 'with a second verb — infinitive' },
+    ],
+  },
+  {
+    label: 'lassen + Infinitiv — have it done',
+    examples: [
+      { de: 'Ich lasse mir die Haare schneiden.', en: 'I am getting my hair cut.' },
+      { de: 'Wir haben das Auto waschen lassen.', en: 'We had the car washed.' },
+    ],
+  },
+  {
+    label: 'In a subordinate clause the helper jumps in front',
+    body: 'A double infinitive will not let the conjugated verb sit behind it, so haben moves ahead of both. This is the one place a German subordinate clause does not end with its finite verb.',
+    examples: [{ de: '…, weil ich das Rad habe reparieren lassen.', en: 'Note «habe» before the two infinitives.' }],
+  },
+];
+
+LESSONS['B1::Plusquamperfekt & nachdem/bevor'] = [
+  {
+    body: 'The tense for the earlier of two past events. It exists to keep an order straight, and at B1 it is mostly met in a fixed pairing with nachdem.',
+  },
+  {
+    label: 'Building it',
+    body: 'The Präteritum of haben or sein, plus the participle. Whichever helper the Perfekt takes, the Plusquamperfekt takes too.',
+    pairs: [
+      { from: 'Ich habe gegessen.', to: 'Ich hatte gegessen.' },
+      { from: 'Ich bin gegangen.', to: 'Ich war gegangen.' },
+    ],
+  },
+  {
+    label: 'nachdem — the earlier clause steps back a tense',
+    examples: [
+      { de: 'Nachdem ich gegessen hatte, ging ich los.', en: 'After I had eaten, I set off.' },
+    ],
+  },
+  {
+    label: 'The tense pairing',
+    pairs: [
+      { from: 'nachdem + Plusquamperfekt', to: 'main clause in Präteritum or Perfekt' },
+      { from: 'nachdem + Perfekt', to: 'main clause in Präsens' },
+    ],
+  },
+  {
+    label: 'bevor and während do not shift',
+    body: 'bevor introduces the *later* event and während a simultaneous one, so neither needs the step back. Both clauses simply stay in the same tense.',
+    examples: [
+      { de: 'Bevor ich gehe, rufe ich dich an.', en: 'Before I go I will call you.' },
+      { de: 'Während ich kochte, hat er gelesen.', en: 'While I was cooking he read.' },
+    ],
+  },
+];
+
+LESSONS['B1::Futur I'] = [
+  {
+    body: 'German has a future tense and mostly does not use it. Knowing when it *is* used is more useful than knowing how to build it.',
+  },
+  {
+    label: 'werden + infinitive',
+    examples: [
+      { de: 'Ich werde nächstes Jahr die B1-Prüfung machen.', en: 'I am going to take the B1 exam next year.' },
+    ],
+  },
+  {
+    label: 'The present usually does the job',
+    body: 'With a time word, the present is the ordinary way to talk about the future, and Futur I would sound heavy.',
+    pairs: [
+      { from: 'Morgen fahre ich nach Berlin.', to: 'normal' },
+      { from: 'Morgen werde ich nach Berlin fahren.', to: 'correct, but emphatic' },
+    ],
+  },
+  {
+    label: 'What Futur I adds',
+    pairs: [
+      { from: 'prediction', to: 'Es wird regnen.' },
+      { from: 'a promise or resolution', to: 'Ich werde dir helfen.' },
+      { from: 'an assumption about now', to: 'Er wird wohl krank sein. — he is probably ill' },
+    ],
+  },
+  {
+    label: 'The last one is not about the future at all',
+    body: 'werden + wohl / wahrscheinlich expresses a guess about the present. It is a common B1 exam item precisely because the form and the meaning point in different directions.',
+  },
+];
+
+LESSONS['B1::welcher & was für ein'] = [
+  {
+    body: 'Two ways of asking "which" — and German separates a question about *choice* from a question about *kind*, where English uses "which" and "what" loosely.',
+  },
+  {
+    label: 'welch- — one out of a known set',
+    pairs: [
+      { from: 'Welches Buch liest du?', to: 'which of these books' },
+      { from: 'Welche Farbe magst du?', to: 'which colour' },
+    ],
+  },
+  {
+    label: 'was für ein — what type',
+    pairs: [
+      { from: 'Was für ein Auto ist das?', to: 'what kind of car' },
+      { from: 'Was für Bücher magst du?', to: 'plural — drop the ein entirely' },
+    ],
+  },
+  {
+    label: 'The für does not govern the case',
+    body: 'This is the trap. «für» normally takes the accusative, but in this phrase it is welded into the question word and the ein takes whatever case the sentence needs.',
+    pairs: [
+      { from: 'nominative', to: 'Was für ein Auto ist das?' },
+      { from: 'accusative', to: 'Was für einen Wagen hast du?' },
+      { from: 'dative', to: 'Mit was für einem Auto fährst du?' },
+    ],
+  },
+];
+
+LESSONS['B1::Temporale Konjunktion: als'] = [
+  {
+    body: 'English "when" splits three ways in German, and this page is the whole set. The als/wenn pair was introduced at A2; what B1 adds is the third member — and the fact that als does a second, unrelated job.',
+  },
+  {
+    label: 'The three-way split',
+    pairs: [
+      { from: 'als', to: 'one completed event in the past — Als ich klein war, …' },
+      { from: 'wenn', to: 'repeated, or present and future — Immer wenn …, Wenn es regnet, …' },
+      { from: 'wann', to: 'the question word — Wann kommst du? · Ich weiß nicht, wann er kommt.' },
+    ],
+  },
+  {
+    label: 'wann is not a conjunction',
+    body: 'It belongs to questions — direct or embedded. Using it for "when I was young" is the error the three-way split exists to prevent.',
+    pairs: [
+      { from: 'Als ich jung war, …', to: 'correct' },
+      { from: 'Wann ich jung war, …', to: 'wrong — that is a question' },
+    ],
+  },
+  {
+    label: 'als also means "than", and "as"',
+    body: 'The same word carries the comparative and a role or capacity. Context separates them easily; the point is not to assume an als is temporal.',
+    pairs: [
+      { from: 'comparative', to: 'Berlin ist größer als Köln.' },
+      { from: 'in the role of', to: 'Er arbeitet als Lehrer.' },
+      { from: 'temporal', to: 'Als er ankam, regnete es.' },
+    ],
+  },
+];
+
+LESSONS['B1::Verben & Ausdrücke mit „es“'] = [
+  {
+    body: 'German will not leave a sentence without a subject, so where there is nothing to be the subject it uses «es». Some of these are idioms to learn whole; others are a structural placeholder that appears and disappears.',
+  },
+  {
+    label: 'es gibt — and it takes the accusative',
+    body: 'The single most useful one, and the case is the thing to remember: whatever exists is the *object* of geben, not the subject.',
+    examples: [
+      { de: 'Es gibt einen Bahnhof in der Nähe.', en: 'There is a station nearby — «einen», not «ein».' },
+      { de: 'Gibt es hier ein Café?', en: 'Is there a café here?' },
+    ],
+  },
+  {
+    label: 'Weather and time',
+    body: 'Nothing is doing the raining, so es stands in as the subject the grammar insists on.',
+    examples: [
+      { de: 'Es regnet. Es schneit.', en: 'It is raining. It is snowing.' },
+      { de: 'Es ist kalt. Es wird spät.', en: 'It is cold. It is getting late.' },
+      { de: 'Es ist acht Uhr.', en: 'It is eight o’clock.' },
+    ],
+  },
+  {
+    label: 'Evaluations, pointing forward to an infinitive',
+    examples: [
+      { de: 'Es ist wichtig, jeden Tag zu üben.', en: 'It is important to practise every day.' },
+      { de: 'Es macht Spaß, mit euch zu arbeiten.', en: 'It is fun working with you.' },
+    ],
+  },
+  {
+    label: 'The placeholder es disappears when something takes its slot',
+    body: 'A structural es is there to fill position one. Front anything else and it is simply gone — which is why it looks inconsistent until you see what it is for.',
+    pairs: [
+      { from: 'Es kommen viele Gäste.', to: 'Heute kommen viele Gäste.' },
+      { from: 'Es wurde viel gelacht.', to: 'Gestern wurde viel gelacht.' },
+    ],
+  },
+  {
+    label: 'Idioms worth memorising',
+    pairs: [
+      { from: 'es geht um', to: 'it is about — Es geht um deine Zukunft.' },
+      { from: 'es lohnt sich', to: 'it is worth it' },
+      { from: 'es kommt darauf an', to: 'it depends' },
+    ],
+  },
+];
+
+LESSONS['B1::statt / ohne … zu + Infinitiv'] = [
+  {
+    body: 'Two infinitive constructions that behave like um … zu — no subject of their own, so they borrow the main clause’s.',
+  },
+  {
+    label: 'ohne … zu — without doing',
+    examples: [
+      { de: 'Er ging weg, ohne sich zu verabschieden.', en: 'He left without saying goodbye.' },
+      { de: 'Sie hat bestanden, ohne viel zu lernen.', en: 'She passed without studying much.' },
+    ],
+  },
+  {
+    label: '(an)statt … zu — instead of doing',
+    examples: [
+      { de: 'Statt zu arbeiten, hat er geschlafen.', en: 'Instead of working he slept.' },
+    ],
+  },
+  {
+    label: 'Different subjects need a full clause',
+    body: 'When the two halves belong to different people the infinitive construction has no way to say so, and dass steps in.',
+    pairs: [
+      { from: 'same subject', to: 'Er ging, ohne sich zu verabschieden.' },
+      { from: 'different subjects', to: 'Er ging, ohne dass ich es merkte.' },
+    ],
+  },
+  {
+    label: 'The comma stays',
+    body: 'These are among the cases the spelling reform left alone: an infinitive clause introduced by um, ohne, statt, anstatt, außer or als keeps its comma.',
+  },
+];
+
+LESSONS['B1::Konjunktiv II der Vergangenheit (irreale Wünsche)'] = [
+  {
+    body: 'One form covers unreal statements about the past: hätte or wäre plus the participle. There is no second past subjunctive to learn, which makes this smaller than it looks.',
+    limit: 'Add a modal and the shape changes — you get hätte plus two infinitives, not a participle: «Ich hätte kommen können», not «gekonnt». Same double-infinitive rule as the ordinary Perfekt.',
+  },
+  {
+    label: 'Building it',
+    pairs: [
+      { from: 'Ich habe Zeit gehabt.', to: 'Ich hätte Zeit gehabt.' },
+      { from: 'Ich bin gekommen.', to: 'Ich wäre gekommen.' },
+    ],
+  },
+  {
+    label: 'Conditions that already failed',
+    examples: [
+      { de: 'Wenn ich Zeit gehabt hätte, wäre ich gekommen.', en: 'If I had had time I would have come.' },
+    ],
+  },
+  {
+    label: 'Regrets — and the little words that carry them',
+    body: 'Drop the wenn, lead with the verb, and add bloß, nur or doch. That combination is how German sounds rueful.',
+    examples: [
+      { de: 'Hätte ich bloß nichts gesagt!', en: 'If only I had said nothing!' },
+      { de: 'Wäre ich doch früher gegangen!', en: 'If only I had left earlier!' },
+    ],
+  },
+  {
+    label: 'The helper follows the Perfekt’s rule',
+    body: 'Whichever of haben or sein the verb takes in the Perfekt, it takes here — so verbs of motion and change of state go with wäre.',
+  },
+];
+
+LESSONS['B1::Konjunktion: falls'] = [
+  {
+    body: 'A conditional conjunction: if, or in case. It is subordinating, so the verb goes to the end.',
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'Falls es regnet, bleiben wir zu Hause.', en: 'If it rains we will stay home.' },
+      { de: 'Wir sind jetzt per Du, falls dich das interessiert.', en: 'We are on first-name terms now, in case that interests you.' },
+    ],
+  },
+  {
+    label: 'falls against wenn',
+    body: 'Both translate as "if". falls leans towards a possibility you are not counting on, and it is slightly more formal. wenn covers conditions **and** time; falls covers conditions alone.',
+    pairs: [
+      { from: 'Wenn ich Zeit habe, komme ich.', to: 'condition — either word works' },
+      { from: 'Wenn ich Zeit hatte, kam ich immer.', to: 'time — only wenn' },
+    ],
+  },
+  {
+    label: 'Why it is worth having',
+    body: 'Because wenn is overloaded. Choosing falls for a genuine condition removes the ambiguity between "if" and "whenever" that wenn carries.',
+  },
+];
+
+LESSONS['B1::Zweiteilige Konjunktion: je … desto/umso'] = [
+  {
+    body: 'The more … the more. Two comparatives locked together, and the word order differs between the halves — which is the whole difficulty.',
+  },
+  {
+    label: 'The shape',
+    pairs: [
+      { from: 'je + comparative …', to: 'subordinate clause — verb at the end' },
+      { from: 'desto / umso + comparative', to: 'main clause — verb straight after, then the subject' },
+    ],
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'Je länger man wartet, desto schlechter wird die Stimmung.', en: 'The longer you wait, the worse the mood gets.' },
+      { de: 'Je mehr ich lerne, umso besser verstehe ich.', en: 'The more I learn, the better I understand.' },
+    ],
+  },
+  {
+    label: 'desto and umso are interchangeable',
+    body: 'No difference in meaning or register. Pick either; do not mix them inside one sentence.',
+  },
+  {
+    label: 'The je-clause comes first',
+    body: 'It is the condition, and German puts it in slot one. Reversing the halves is possible but unusual and reads as a stylistic choice rather than a neutral sentence.',
+  },
+];
+
+LESSONS['B1::Adjektive als Nomen (der/die Bekannte)'] = [
+  {
+    body: 'German turns adjectives into nouns freely — capitalise it and it is a noun. The catch is that it keeps its **adjective** endings, so the same word looks different after der than after ein.',
+  },
+  {
+    label: 'The same word, two shapes',
+    pairs: [
+      { from: 'der Bekannte', to: 'ein Bekannter' },
+      { from: 'die Bekannte', to: 'eine Bekannte' },
+      { from: 'die Bekannten', to: 'Bekannte — no article, strong ending' },
+    ],
+  },
+  {
+    label: 'Why it changes',
+    body: 'Exactly the rule from adjective declension: der shows the gender so the ending relaxes to -e; ein does not, so the ending has to do it and becomes -er. Nothing new — the same system, applied to a word standing on its own.',
+  },
+  {
+    label: 'The common ones',
+    pairs: [
+      { from: 'der/die Deutsche', to: 'a German person' },
+      { from: 'der/die Jugendliche', to: 'a young person' },
+      { from: 'der/die Erwachsene', to: 'an adult' },
+      { from: 'der/die Angestellte', to: 'an employee' },
+    ],
+  },
+  {
+    label: 'Neuter for abstractions',
+    body: 'With das, the nominalised adjective means the quality or the thing in general — and after etwas, nichts, viel and wenig it takes -es.',
+    examples: [
+      { de: 'Ich wünsche dir alles Gute.', en: 'I wish you all the best.' },
+      { de: 'Gibt es etwas Neues?', en: 'Is there anything new?' },
+    ],
+  },
+];
+
+LESSONS['B1::Relativsätze mit Präpositionen, wo & was'] = [
+  {
+    body: 'Relative clauses beyond the basic der/die/das — what happens when a preposition is involved, and the two special pronouns that replace them.',
+  },
+  {
+    label: 'The preposition decides the case',
+    body: 'Gender and number come from the noun being described; the case comes from the preposition in front of the pronoun. Two different sources, one word.',
+    examples: [
+      { de: 'Der Mann, mit dem ich gesprochen habe, …', en: 'The man I spoke to — mit takes the dative.' },
+      { de: 'Die Freunde, von denen ich erzählt habe, …', en: 'The friends I told you about — dative plural is denen.' },
+    ],
+  },
+  {
+    label: 'German cannot strand the preposition',
+    body: 'English happily says "the man I spoke **to**". German puts the preposition in front of the pronoun, and a sentence that leaves it stranded at the end is not standard.',
+    limit: 'Two things look like exceptions and are not. For a *thing* rather than a person, German prefers a wo(r)- compound — «das Thema, worüber wir gesprochen haben». And spoken northern German does split «da» from its preposition: «da habe ich nichts von gehört». The first is standard and worth using; the second is regional and stays out of writing.'
+  },
+  {
+    label: 'wo for places',
+    examples: [
+      { de: 'Die Stadt, wo ich geboren bin, …', en: 'The town where I was born.' },
+    ],
+  },
+  {
+    label: 'was after an indefinite, or after a whole clause',
+    body: 'Use was where there is no noun to agree with: after das, alles, nichts, etwas, viel, or referring back to the entire preceding sentence.',
+    examples: [
+      { de: 'Das, was du suchst, liegt dort.', en: 'What you are looking for is over there.' },
+      { de: 'Er kam zu spät, was mich geärgert hat.', en: 'He arrived late, which annoyed me.' },
+    ],
+  },
+];
+
+LESSONS['B1::Konjunktion: als ob (irreal)'] = [
+  {
+    body: 'As if — and the clause after it is by definition not true, which is why it takes Konjunktiv II.',
+  },
+  {
+    label: 'als ob + Konjunktiv II, verb at the end',
+    examples: [
+      { de: 'Du tust so, als ob ich keine Ahnung hätte.', en: 'You act as if I had no idea.' },
+      { de: 'Er sieht aus, als ob er krank wäre.', en: 'He looks as if he were ill.' },
+    ],
+  },
+  {
+    label: 'Drop the ob and the verb moves up',
+    body: 'A common variant: bare als, with the verb immediately after it. Same meaning, and it is the more elegant of the two.',
+    pairs: [
+      { from: 'als ob er krank wäre', to: 'als wäre er krank' },
+      { from: 'als ob sie schliefe', to: 'als schliefe sie' },
+    ],
+  },
+  {
+    label: 'It usually answers a verb of appearing',
+    body: 'aussehen, tun, scheinen, klingen, sich fühlen — the construction describes an impression, and the Konjunktiv is what says the impression is false.',
+  },
+];
+
+LESSONS['B1::Temporale Konjunktionen: während, bis, seit/seitdem'] = [
+  {
+    body: 'Three subordinating conjunctions for placing one event against another. Each sends the verb to the end; what differs is the relationship in time.',
+  },
+  {
+    label: 'What each one places',
+    pairs: [
+      { from: 'während', to: 'at the same time — while' },
+      { from: 'bis', to: 'up to the end point — until' },
+      { from: 'seit / seitdem', to: 'from a past start that still holds — since' },
+    ],
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'Während ich koche, hört er Musik.', en: 'While I cook he listens to music.' },
+      { de: 'Ich warte, bis du kommst.', en: 'I will wait until you come.' },
+      { de: 'Ich bin Mitglied, seit ich 16 bin.', en: 'I have been a member since I was 16.' },
+    ],
+  },
+  {
+    label: 'seit keeps the present tense',
+    body: 'The situation is still going, so German uses the present where English needs a perfect. «seit ich 16 bin», not «war».',
+  },
+  {
+    label: 'während has a second, non-temporal use',
+    body: 'It also means whereas, drawing a contrast rather than placing a time. The clause structure is identical, so the sense is what tells them apart.',
+    examples: [{ de: 'Er mag Kaffee, während sie lieber Tee trinkt.', en: 'He likes coffee, whereas she prefers tea.' }],
+  },
+];
+
+LESSONS['B1::Konjunktionen: da (kausal) & indem'] = [
+  {
+    body: 'Two subordinating conjunctions that fill gaps weil does not cover: a reason the listener already knows, and a means rather than a cause.',
+  },
+  {
+    label: 'da — a reason taken as given',
+    body: 'Where weil delivers new information, da presents the reason as shared background. It very often comes first in the sentence, which weil rarely does.',
+    examples: [
+      { de: 'Da ich spät dran bin, nehme ich ein Taxi.', en: 'As I am running late, I will take a taxi.' },
+    ],
+  },
+  {
+    label: 'da against weil',
+    pairs: [
+      { from: 'weil', to: 'answers "why?" — new information, usually second' },
+      { from: 'da', to: 'sets up known context — usually first, slightly more formal' },
+    ],
+  },
+  {
+    label: 'indem — by doing',
+    body: 'It names the method. English uses "by" plus an -ing form, which is why learners reach for «bei» — a preposition that does not do this job.',
+    examples: [
+      { de: 'Sie können helfen, indem Sie Geld spenden.', en: 'You can help by donating money.' },
+      { de: 'Man lernt Sprachen, indem man sie spricht.', en: 'You learn languages by speaking them.' },
+    ],
+  },
+  {
+    label: 'Both send the verb to the end',
+    body: 'Neither is an adverb, so neither behaves like deshalb or trotzdem. Verb last, in both.',
+  },
+];
+
+LESSONS['B1::Partizip Präsens als Adjektiv'] = [
+  {
+    body: 'Infinitive plus -d gives an adjective meaning *doing that thing*. It is easy to build and easy to misuse, because it looks like the English -ing form and is not one.',
+  },
+  {
+    label: 'Building it',
+    pairs: [
+      { from: 'hupen', to: 'hupend — ein hupendes Auto' },
+      { from: 'leuchten', to: 'leuchtend — die leuchtenden Schuhe' },
+      { from: 'wohltun', to: 'wohltuend — der wohltuende Tee' },
+      { from: 'lachen', to: 'lachend — ein lachendes Kind' },
+    ],
+  },
+  {
+    label: 'It takes ordinary adjective endings',
+    body: 'Once formed it is simply an adjective and declines like any other in front of a noun.',
+  },
+  {
+    label: 'This is not the English progressive',
+    body: 'German has no continuous tense. «I am working» is «Ich arbeite» — never «Ich bin arbeitend». The present participle describes a noun; it never builds a tense.',
+    limit: 'It also barely works as a standalone predicate. «Der Tee ist wohltuend» is fine because wohltuend has become a normal adjective, but most present participles resist that use — say «Das Kind lacht», not «Das Kind ist lachend».',
+  },
+];
+
+LESSONS['B1::Passiv Perfekt & Präteritum'] = [
+  {
+    body: 'The past tenses of the passive. The pattern from the present carries straight over: werden conjugates, the participle stays at the end.',
+  },
+  {
+    label: 'Präteritum passive — wurde',
+    body: 'The written and narrative past. This is the form you will meet most often in reading.',
+    examples: [
+      { de: 'Sie wurde gewählt.', en: 'She was elected.' },
+      { de: 'Die Brücke wurde 1970 gebaut.', en: 'The bridge was built in 1970.' },
+    ],
+  },
+  {
+    label: 'Perfekt passive — ist … worden',
+    examples: [
+      { de: '1975 ist ein Verein gegründet worden.', en: 'A club was founded in 1975.' },
+    ],
+  },
+  {
+    label: 'worden, never geworden',
+    body: 'The passive helper loses its ge-. If you see geworden, werden is a full verb meaning "became" and there is no passive in the sentence.',
+    pairs: [
+      { from: 'Sie ist Ärztin geworden.', to: 'she became a doctor' },
+      { from: 'Sie ist gewählt worden.', to: 'she was elected' },
+    ],
+  },
+  {
+    label: 'Which past to use',
+    body: 'The passive leans towards Präteritum even in speech, where the active would take the Perfekt. «Die Brücke wurde gebaut» sounds normal spoken; «ist gebaut worden» is heavier.',
+  },
+];
+
+LESSONS['B1::Präposition: außer + Dativ'] = [
+  {
+    body: 'Except, apart from. It takes the dative, and it is one of the prepositions that is easy to use and easy to place wrongly.',
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'Alle außer meiner Schwester waren da.', en: 'Everyone except my sister was there.' },
+      { de: 'Außer dem Kollegen war niemand da.', en: 'Apart from the colleague nobody was there.' },
+    ],
+  },
+  {
+    label: 'It also means "besides"',
+    body: 'With «noch», außer adds rather than subtracts — the opposite meaning, decided by the rest of the sentence.',
+    examples: [{ de: 'Außer Deutsch spricht sie noch Französisch.', en: 'Besides German she also speaks French.' }],
+  },
+  {
+    label: 'Fixed phrases drop the article and the case',
+    body: 'A set of idioms use außer with a bare noun, where no ending is visible at all.',
+    pairs: [
+      { from: 'außer Haus', to: 'out of the house' },
+      { from: 'außer Betrieb', to: 'out of order' },
+      { from: 'außer Atem', to: 'out of breath' },
+    ],
+  },
+];
+
+LESSONS['B1::Wortbildung: Komposita (Nomen)'] = [
+  {
+    body: 'German builds long nouns by stacking short ones. The reading rule is simple and worth internalising: the **last** element is what the word actually is; everything before it narrows the meaning.',
+  },
+  {
+    label: 'The last noun decides the gender',
+    pairs: [
+      { from: 'das Volk + das Fest', to: 'das Volksfest' },
+      { from: 'der Bahnhof + die Straße', to: 'die Bahnhofstraße' },
+      { from: 'die Hand + der Schuh', to: 'der Handschuh' },
+    ],
+  },
+  {
+    label: 'What can join',
+    pairs: [
+      { from: 'Nomen + Nomen', to: 'die Haustür' },
+      { from: 'Adjektiv + Nomen', to: 'die Weißwurst' },
+      { from: 'Verb + Nomen', to: 'die Bratwurst — brat- from braten' },
+    ],
+  },
+  {
+    label: 'The linking letters',
+    body: 'A -s-, -n- or -en- often appears at the seam. It carries no meaning and is not a genitive; it is there because the join would be hard to say without it, and it has to be learned per word.',
+    pairs: [
+      { from: 'Arbeit + Kollege', to: 'der Arbeitskollege' },
+      { from: 'Sonne + Schein', to: 'der Sonnenschein' },
+    ],
+  },
+  {
+    label: 'Read them backwards',
+    body: 'Faced with an unfamiliar compound, find the final noun first — that is the thing. «Geschwindigkeitsbegrenzung» is a Begrenzung, a limit, of Geschwindigkeit, speed. The strategy scales to any length.',
+  },
+];
+
 /** Fixes to a point's fallback `rule` text, expect-guarded.
  *
  *  `rule` is what renders when a point has no authored lesson, and it is also the
@@ -1505,6 +2441,28 @@ function checkOverlap(out: Problem[]) {
   }
 }
 
+/** A section has to render. `grammar.test.ts` has asserted this since it was
+ *  written — and it caught an empty `pairs` right-hand side here, *after* the
+ *  authoring had already been written into `grammar.json*. The test was doing its
+ *  job; the feedback simply arrived a step too late.
+ *
+ *  Same check, moved left: a lesson that would not render is refused before it is
+ *  applied rather than reported afterwards. Duplicating an assertion is worth it
+ *  when it changes a bad write into a blocked one. */
+function checkRenderable(key: string, sec: RuleSection, out: Problem[]) {
+  const where = `${key} · ${sec.label ?? 'intro'}`;
+  const has = !!(sec.label || sec.body || sec.pairs?.length || sec.examples?.length);
+  if (!has) { out.push({ key: where, kind: 'empty-section', detail: 'nothing to render' }); return; }
+  for (const pr of sec.pairs ?? []) {
+    if (!pr.from?.trim() || !pr.to?.trim()) {
+      out.push({ key: where, kind: 'half-pair', detail: `“${pr.from}” → “${pr.to}” — the arrow column needs both sides. Use \`examples\` for a list that is not a transformation.` });
+    }
+  }
+  for (const ex of sec.examples ?? []) {
+    if (!ex.de?.trim()) out.push({ key: where, kind: 'empty-example', detail: 'an example with no German in it' });
+  }
+}
+
 async function lint(bank: Record<CEFR, GPoint[]>): Promise<Problem[]> {
   const out: Problem[] = [];
   checkOverlap(out);
@@ -1536,6 +2494,7 @@ async function lint(bank: Record<CEFR, GPoint[]>): Promise<Problem[]> {
     const point = (bank[level] ?? []).find((p) => p.title === title);
     if (!point) { out.push({ key, kind: 'no-such-point', detail: 'no point in the bank with this level+title' }); continue; }
     for (const sec of secs) {
+      checkRenderable(key, sec, out);
       checkAbsolutes(key, sec, out);
       const spec = sec.label ? PARADIGM_VERB[sec.label] : undefined;
       if (spec) await checkParadigm(key, sec, spec, out);

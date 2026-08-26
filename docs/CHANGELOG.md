@@ -11,6 +11,50 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — B1 complete, and an old test caught the new author
+
+**29 more lessons. A1, A2 and B1 are all done — 108 of 133 points, 24 explicit limits.**
+B1 is the level the certificate gates university admission on, and it was the largest
+gap in the bank.
+
+**A guard written months ago caught my authoring.** `grammar.test.ts` has asserted that
+every section renders since it was written, and it failed on a `pairs` entry with an
+empty right-hand side — the arrow column would have pointed at nothing. The test did its
+job. The problem was *when*: the bad data was already written into `grammar.json` by
+then. The same check now runs inside `corpus:lessons`, so a lesson that would not render
+is **refused before it is applied** rather than reported after. Duplicating an assertion
+is worth it when it turns a bad write into a blocked one.
+
+**Two claims that were genuinely too flat**, both caught by the absolutes lint:
+
+- *"One form covers every unreal statement about the past"* — not with a modal, where
+  you get **hätte plus two infinitives**: «Ich hätte kommen können», not «gekonnt».
+- *"German puts the preposition in front of the pronoun, always"* — true for people, but
+  German actually prefers a **wo(r)- compound** for things («das Thema, worüber wir
+  gesprochen haben»), and spoken northern German splits «da» from its preposition («da
+  habe ich nichts von gehört»). One is standard and worth using; the other is regional
+  and stays out of writing.
+
+**Other limits worth having:** spoken German very often keeps main-clause order after
+*weil* — everywhere in speech, wrong in the exam. *wegen dem Wetter* is what most Germans
+say and is still marked colloquial. The synthetic Konjunktiv II is literary, **except**
+*wüsste*, where «würde wissen» is the odd one. And *um … zu* requires matching subjects
+while *damit* merely permits them — the rule taught as symmetrical runs one way only.
+
+**Two duplicates in the bank, differentiated rather than repeated.** B1 carries
+*Temporale Konjunktion: als* alongside A2's *Nebensätze: wenn & als*, and *Passiv Perfekt
+& Präteritum* alongside its own *Passiv: Perfekt & Modalverben*. Rather than write the
+same lesson twice, the B1 pages take what B1 actually adds — the three-way als/wenn/**wann**
+split, and the Präteritum passive. The overlap is a corpus question, not a lesson one, and
+is left for a relevel pass.
+
+**Verified:** typecheck clean · lint 0 errors · 1,032 tests · `corpus:validate` PASS ·
+lessons gate clean at 70 entries · build clean.
+
+**Remaining: B2 12, C1 8, C2 5.**
+
+---
+
 ### Shipped 2026-08-26 — A1 and A2 are taught, not just drilled
 
 **53 lessons, both beginner levels complete.** 79 of 133 points now carry structure,
