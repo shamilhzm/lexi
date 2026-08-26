@@ -32,14 +32,14 @@ export function useBrainField(simulate: number | null = null) {
   const v = useStore();
 
   // The field is static: it depends on the lexicon, not on progress. Rebuilding
-  // it on every review would recompute 7,394 surface projections for nothing.
+  // it on every review would recompute one surface projection per card for nothing.
   const field = useMemo(
     () => buildField(WORDS, (s) => SECTOR_FINEGROUP.get(s)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [WORDS.length],
   );
 
-  // Recomputed on the store version, not per frame: 7,394 log() calls every
+  // Recomputed on the store version, not per frame: one log() per card every
   // frame would be most of the budget, and the values only move when a card is
   // graded. Same shape as the `useMemo(..., [v])` pattern the rest of the app
   // uses for store-derived data.

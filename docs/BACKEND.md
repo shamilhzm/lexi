@@ -107,7 +107,7 @@ The store already separates these, which makes the boundary easy to draw honestl
 
 **Syncs — settings worth carrying to a second device:**
 `placement`, `levels`, `retention`, `pace`, `goal`, `interests`, `focus`,
-`profile.name`, `flags`, `classlist`. These are already enumerated as
+`profile.name`, `flags`. These are already enumerated as
 `SETTING_KEYS` in `store.ts:1232` for the backup export, which is the same
 boundary — the export has been answering "what is worth keeping" correctly for
 months and should be reused rather than re-derived.

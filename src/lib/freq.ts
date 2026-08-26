@@ -14,7 +14,7 @@
 //
 // ## The honest limit
 //
-// It covers 1,986 of 7,389 cards (27%). The rest predate the provenance log. That
+// It covers 1,986 of 6,622 cards (30%). The rest predate the provenance log. That
 // is not a random 27%: those cards were *discovered through the frequency list*, so
 // having a rank correlates with being common. Ordering ranked-before-unranked is
 // therefore mildly self-fulfilling, and it is still the right call — a card known to

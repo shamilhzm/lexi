@@ -1,10 +1,10 @@
-// Lexi lexicon — 7,389 A1–C2 cards (vocabulary + grammar). Loaded at runtime
+// Lexi lexicon — 6,622 A1–C2 cards (vocabulary + grammar). Loaded at runtime
 // from /public/data so the corpus is a separately-cached fetch rather than parsed
 // inside the JS bundle. Exports are live `let` bindings, populated by initData()
 // before the app renders.
 //
 // What boots here is `cards.json` — the corpus minus examples and definitions,
-// 308 KB gzipped against 1,126 KB for the whole thing. The other 70% arrives
+// 286 KB gzipped against 1,107 KB for cards + detail together (measured 2026-08-26). The other 70% arrives
 // after first paint via `data/detail.ts`. `vocab.json` remains the canonical file
 // that every `scripts/corpus/*` tool reads and writes; both shipped files are
 // projections of it. See scripts/corpus/split.ts.
@@ -128,7 +128,7 @@ export async function initData(): Promise<void> {
   primeFreq(freq);
 
   // `cards.json` omits ex/def/defDe (see scripts/corpus/split.ts), so materialise
-  // the defaults here. Deliberately not emitted into the file — 7,389 × `"ex": [],`
+  // the defaults here. Deliberately not emitted into the file — 6,622 × `"ex": [],`
   // is bytes for nothing — and deliberately not solved by making the fields optional
   // on `Word`, which would ripple into `classpack.validCard` and every consumer's
   // types. Every read site already guards for empty (`card.ex[0] &&`, `card.def &&`),
@@ -136,7 +136,7 @@ export async function initData(): Promise<void> {
   // when `data/detail.ts` attaches them.
   //
   // The example-cleaning pass that used to live here has moved to build time. It
-  // scanned all 7,389 cards on every launch on every device to fix nine of them;
+  // scanned every card on every launch on every device to fix nine of them;
   // `corpus:split` now ships bytes that are already clean, and `data/split.test.ts`
   // asserts they stay that way.
   for (const w of words) {

@@ -4035,7 +4035,7 @@
         },
         {
           "label": "er/sie/es follows the noun, not the thing",
-          "body": "Because gender belongs to the word, a table is «er» and a girl is «es». It stops feeling strange faster than you expect, but it does have to be learned deliberately — English speakers reach for «es» for every object.",
+          "body": "Because gender belongs to the word, a table is «er» and a girl is «es». It stops feeling strange faster than you expect, but it does have to be learned deliberately — English speakers tend to reach for «es» whenever the thing is an object.",
           "examples": [
             {
               "de": "Wo ist der Tisch? — Er ist dort.",
@@ -17627,7 +17627,7 @@
     {
       "title": "Imperativ",
       "summary": "Commands. The du-form drops -st and the pronoun.",
-      "rule": "du: Mach! Geh! Mahl(e)! · ihr: Macht! · Sie: Machen Sie! · sein → Sei! / Seien Sie!",
+      "rule": "du: Mach! Geh! Mal(e)! · ihr: Macht! · Sie: Machen Sie! · sein → Sei! / Seien Sie!",
       "exercises": [
         {
           "kind": "type",
@@ -19378,7 +19378,7 @@
         },
         {
           "label": "When the du-form needs an -e",
-          "body": "A stem ending in -d, -t, or a consonant + -n / -m cannot be said without one. Elsewhere the -e is optional and usually dropped in speech.",
+          "body": "A stem ending in -d, -t, or a consonant + -n / -m takes the -e in standard German — try the form without it and you will hear why. Elsewhere the -e is optional and usually dropped in speech.",
           "pairs": [
             {
               "from": "warten",
@@ -19392,11 +19392,12 @@
               "from": "entschuldigen",
               "to": "Entschuldige!"
             }
-          ]
+          ],
+          "limit": "Casual speech drops it anyway — «Wart mal!» is everywhere and nobody hears it as an error. Write «Warte!»; do not be surprised by «Wart!»."
         },
         {
           "label": "Stem-changing verbs: the half that trips everyone",
-          "body": "Verbs that change e → i or e → ie keep the change in the imperative, and never take the -e. Verbs that change a → ä lose the umlaut instead. Two vowel changes, opposite behaviour.",
+          "body": "Verbs that change e → i or e → ie keep the change in the imperative, and drop the -e with it. Verbs that change a → ä lose the umlaut instead. Two vowel changes, opposite behaviour.",
           "pairs": [
             {
               "from": "geben (du gibst)",
@@ -19418,7 +19419,8 @@
               "from": "schlafen (du schläfst)",
               "to": "Schlaf! — not «Schläf»"
             }
-          ]
+          ],
+          "limit": "One survivor: «siehe» keeps its -e in written cross-references — «siehe Seite 12», «siehe oben». It is a fixed form, not a live option, so «Sieh mal!» is still what you say out loud."
         },
         {
           "label": "sein is its own thing",

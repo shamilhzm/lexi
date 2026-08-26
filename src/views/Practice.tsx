@@ -113,8 +113,15 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
   // anyone unplaced — now the ordinary state, since the first session comes
   // before the placement test. See store.studyLevel.
   const home: CEFR = studyLevel();
+  // Which chapter's "read the rules" list is expanded, following the learner's own
+  // level. This was a `useEffect(() => setOpen(home), [home])`, which is the
+  // derived-state-in-an-effect antipattern: it renders once with the stale value,
+  // then again after the effect, and the lint has been calling it a cascading
+  // render. React's own answer for "adjust state when an input changes" is to do it
+  // during render against a remembered copy — no effect, one render, same behaviour.
   const [open, setOpen] = useState<CEFR | null>(home);
-  useEffect(() => { setOpen(home); }, [home]);
+  const [lastHome, setLastHome] = useState(home);
+  if (home !== lastHome) { setLastHome(home); setOpen(home); }
 
   // Finding a concept by name (#38). Before this, reaching *Konjunktiv II* meant
   // knowing which of six levels it was filed under, expanding that level and
@@ -145,7 +152,7 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
           this card — CHAPTER · STEP, the thing itself, and a Play button — and it
           is the single most useful control on the surface: it removes the choice
           on the day you do not want to make one. */}
-      {bank && <ContinueCard bank={bank} home={home}
+      {bank && <ContinueCard next={next}
         onGo={(level, pi, point) => onRoute({ kind: 'lesson', level, pi, point })} />}
 
       <div className="relative mb-6">
@@ -460,13 +467,17 @@ function nextStep(bank: GrammarByLevel, home: CEFR): { level: CEFR; pi: number; 
   return null;
 }
 
-/** The resume card. */
-function ContinueCard({ bank, home, onGo }: {
-  bank: GrammarByLevel; home: CEFR;
+/** The resume card.
+ *
+ *  `next` is passed in rather than computed here. `nextStep` walks every point at
+ *  every level and calls `pointStats` on each — roughly 5,000 map lookups — and this
+ *  component and its parent were each doing that independently on every store
+ *  change, i.e. after every graded card. One computation, one answer, and the card
+ *  and the marked node can no longer disagree about where you are. */
+function ContinueCard({ next, onGo }: {
+  next: { level: CEFR; pi: number; point: GPoint } | null;
   onGo: (level: CEFR, pi: number, point: GPoint) => void;
 }) {
-  const v = useStore();
-  const next = useMemo(() => nextStep(bank, home), [bank, home, v]);
   if (!next) {
     return (
       <Card pad="none" className="flex items-center gap-3 px-4 py-3.5 mb-4">
@@ -508,18 +519,18 @@ function ChapterJump({ home, bank }: { home: CEFR; bank: GrammarByLevel }) {
         const n = (bank[l] ?? []).length;
         if (!n) return null;
         return (
-          <a key={l} href={`#kapitel-${l}`}
-            onClick={(e) => {
-              // The app is hash-routed, so a bare `#kapitel-A1` href would be
-              // parsed as a route and land the learner on Today. Scroll by hand
-              // and leave the URL alone.
-              e.preventDefault();
-              document.getElementById(`kapitel-${l}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+          // A button, not an anchor. The app is hash-routed, so `href="#kapitel-A1"`
+          // is a URL this router owns and would parse as an unknown view — and
+          // `preventDefault` only covers a plain click. Cmd-click, middle-click or
+          // "open in new tab" bypass the handler entirely and would land someone on
+          // Today with no explanation. This scrolls; it does not navigate, so it
+          // should not have been a link.
+          <button key={l} type="button"
+            onClick={() => document.getElementById(`kapitel-${l}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
             className={`tap-44 inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 font-mono text-2xs transition-colors ${
               l === home ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:text-txt'}`}>
             <span className="opacity-60">{i + 1}</span> {l}
-          </a>
+          </button>
         );
       })}
     </nav>

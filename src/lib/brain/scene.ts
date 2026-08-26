@@ -9,7 +9,7 @@
 //
 // Two `THREE.Points` clouds, one draw call each:
 //   substrate — the tissue, lit and curvature-shaded, up to 130k points
-//   lexicon   — one point per card, coloured by region, unlit, ≤7,394
+//   lexicon   — one point per card, coloured by region, unlit, ≤6,622
 //
 // Glow is a radial falloff in the fragment shader over additive blending, not
 // `EffectComposer` + `UnrealBloomPass`. Those live in `three/examples`, would
@@ -127,7 +127,7 @@ const FRAG = /* glsl */ `
     // A hard little core with a tight halo, rather than the other way round.
     //
     // The first version was a wide smoothstep halo carrying most
-    // of the energy, and 7,394 wide halos overlapping is not a constellation,
+    // of the energy, and one wide halo per card overlapping is not a constellation,
     // it is fog. The core is now the bright part and the halo is a hint, which
     // is what makes a point of light look like a point of light.
     float d = length(gl_PointCoord - vec2(0.5));

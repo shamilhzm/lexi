@@ -566,8 +566,29 @@ export function markTodaySeen(known: number) {
 
 const SNAP_KEY = 'lexi.snap.v1';
 interface Snapshot { date: string; groups: Record<string, number>; known?: number; }
+/** Snapshots, validated on the way in.
+ *
+ *  `Array.isArray` was the whole check, so a row missing `groups` reached
+ *  `groupDeltas`, which does `Object.keys(base.groups)` — and `Object.keys(undefined)`
+ *  throws. The exception propagates out of `<Markt>` and **the entire Progress
+ *  surface renders its error boundary instead of the heatmap**, permanently, with no
+ *  way for the learner to recover it from the UI. In a local-first app that holds the
+ *  only copy of a year's history, one malformed row is not a cosmetic problem.
+ *
+ *  Hit for real while seeding a test store by hand, which is the only reason it was
+ *  found — and `lastSeen()` twenty lines below has validated its own shape since it
+ *  was written. Same standard here: a row that is not the shape we store is dropped,
+ *  not trusted. `known` stays optional because it genuinely is (rows written before
+ *  the goal line existed have no `known`). */
 function loadSnaps(): Snapshot[] {
-  try { const a = JSON.parse(localStorage.getItem(SNAP_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; }
+  try {
+    const a = JSON.parse(localStorage.getItem(SNAP_KEY) || '[]');
+    if (!Array.isArray(a)) return [];
+    return a.filter((s): s is Snapshot =>
+      !!s && typeof s === 'object'
+      && typeof s.date === 'string'
+      && !!s.groups && typeof s.groups === 'object' && !Array.isArray(s.groups));
+  } catch { return []; }
 }
 /** Record today's learned count per theme group (unfiltered), once per day. */
 export function recordSnapshot() {

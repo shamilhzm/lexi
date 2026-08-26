@@ -412,6 +412,28 @@ it turns out to be wrong.**
   the better one. **Rule: when a change makes a token resolve elsewhere, print where it
   went before calling it a regression.** A count of misses cannot tell a wrong answer
   from a better one, and the fix for the two looks opposite.
+- **My own exemption hid the two findings my own check had just made.** *(2026-08-26.)*
+  `corpus:lessons` lints for teaching rules phrased as absolutes with no stated limit —
+  the check that exists because class 6's *Mittelfeld* rule shipped flat and wrong. It
+  fired on three points. I looked at one, judged it a false positive, and wrote an
+  `EXEMPT` entry **keyed on the point**. The point had five sections. Two of the other
+  four were real:
+  - *"a stem ending in -d/-t **cannot** be said without an -e"* — spoken German says
+    «Wart mal!» constantly and hears nothing wrong with it.
+  - *"e→i verbs **never** take the -e"* — «siehe oben» is standard written German.
+  Both are exactly the failure the check was built to catch, both were caught, and both
+  were then silenced by a line I wrote to quiet a different one.
+  **Rule: an exemption must be as narrow as the thing it excuses.** A waiver keyed on a
+  container waives everything the container holds, including the parts you never read.
+  This is LESSONS' own *a guard that enumerates its subjects is only as strong as the
+  enumeration* — arriving from the other direction, as an over-broad exclusion rather
+  than an under-broad inclusion, and it is the more dangerous of the two because the
+  output goes green.
+  *Also worth keeping:* the exemption's stated reason was itself wrong. I justified it
+  as "carries its own limit on the du-form" — which described a section that was not
+  either of the two being waived. **A reason that does not name the specific claim it
+  excuses is not a reason.**
+
 - **A design rule was quoted past its scope, to refuse good work.** *(2026-08-26.)*
   Handed a folder of screenshots of a well-made vocabulary app and asked to reorganise
   around it, I took the IA lessons and then wrote: *"I took none of its aesthetic — the

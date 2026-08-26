@@ -11,6 +11,61 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — ten fixes, and the gate catching its own author twice more
+
+A pass over what was actually outstanding rather than what was next.
+
+**The heatmap could be broken permanently by one bad row.** `loadSnaps()` validated
+`Array.isArray` and nothing else, so a snapshot missing `groups` reached `groupDeltas`,
+where `Object.keys(undefined)` throws — the exception leaves `<Markt>` and the **whole
+Progress surface renders its error boundary instead of the map**, for good, with no way
+to clear it from the UI. Lexi is local-first and holds the only copy. Reachable from a
+quota-truncated write, a schema older than the field, or a hand-edited backup —
+`lexi.snap.v1` is in `SETTING_KEYS`, so it travels in exports. Rows are now validated
+the way `lastSeen()` twenty lines below has validated its own since it was written.
+`store-snaps.test.ts` pins it: 9 tests, and reverting the guard fails 4.
+
+**The lessons gate caught its author twice more, and the second was the worse one.** It
+flagged three absolutes; I judged one a false positive and wrote an `EXEMPT` entry keyed
+on the **point**. The point had five sections, and two of the others were real: *"a stem
+ending in -d/-t cannot be said without an -e"* (spoken German says «Wart mal!» all day)
+and *"e→i verbs never take the -e"* («siehe oben» is standard written German). Both are
+precisely what the check exists to find; both were then silenced by a line written to
+quiet a different one. Exemptions are now per **section**, the two claims carry their
+limits, and the whole thing is LESSONS class 9: *an exemption must be as narrow as the
+thing it excuses.*
+
+**Two grammar scripts write `point.sections`** — `grammar-sections.ts` and `lessons.ts` —
+and nothing stopped both claiming a point, where whichever ran second would win silently
+while the loser's authoring sat in its file looking applied. Guarded, and the guard is
+mutation-checked.
+
+**`Mahle!`** — the imperative of *mahlen*, to grind — was illustrating the optional -e in
+the A1 Imperativ rule. Almost certainly a slip for *malen*. Fixed through an
+expect-guarded map in `lessons.ts`, so a rule someone has since rewritten is reported
+rather than overwritten; the drift guard is proven to fire.
+
+**Nine stale corpus counts across six files.** The code claimed 7,389 / 7,394 cards and
+284 sectors; the corpus ships **6,622** and **274**. Every replacement was measured this
+session, including the byte figures in `data/index.ts` (cards.json is 286 KB gzipped, not
+308). Three `7,394`s survive on purpose — they are dated records of what a slider showed
+during a past bug, not live claims.
+
+**Also:** `nextStep` walked all 133 points twice per store change (~10,000 map lookups
+after every graded card) — hoisted, so the resume card and the marked node can no longer
+disagree. The chapter jump bar was an `<a href="#kapitel-A1">` into a hash **this router
+owns**, so cmd-click or "open in new tab" bypassed `preventDefault` and landed on Today;
+it scrolls rather than navigates, so it is a button now. A `useEffect(() => setOpen(home))`
+cascading render replaced with React's own adjust-during-render pattern. And `BACKEND.md`
+still listed `classlist` among the keys a future sync would carry, three commits after the
+feature was deleted.
+
+**Verified:** typecheck clean · lint 0 errors (71 → 69 warnings) · **1,032 tests in 59
+files** · `corpus:validate` PASS · lessons gate clean · build clean · Imperativ walked in
+the running app with both recovered limits rendering.
+
+---
+
 ### Shipped 2026-08-26 — a node is a lesson now, and the gate that lets it be
 
 The journey made the real gap impossible to miss: **every node promised a concept and

@@ -35,7 +35,7 @@ describe('the corpus projection is in step with the corpus', () => {
 
   it('carries none of the heavy fields in the boot file', () => {
     // The whole point. A single card keeping its examples would be invisible;
-    // all 7,389 keeping them would silently restore the 1.1 MB boot.
+    // all 6,622 keeping them would silently restore the multi-megabyte boot.
     const leaked = cards.filter((c) => HEAVY.some((k) => k in c));
     expect(leaked.map((c) => c.id)).toEqual([]);
   });

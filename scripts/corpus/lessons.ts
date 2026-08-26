@@ -56,15 +56,24 @@ const checkOnly = process.argv.includes('--check');
  *  and no `limit` is the exact shape of the rule that shipped wrong. */
 const ABSOLUTES = /\b(always|never|every|all|only|must|cannot|no exceptions?)\b/i;
 
-/** A body may state an absolute without a limit when the absolute is *about the
- *  form itself* rather than about when to use it — "the ending is always -en" is a
- *  fact about a paradigm, not a usage default. Flagged phrases that are known to
- *  be genuinely exceptionless are listed here with their reason, so the exemption
- *  is reviewable rather than a silent regex hole. */
+/** A body may state an absolute without a limit when the claim is *genuinely*
+ *  exceptionless. Listed with a reason so the exemption is reviewable rather than a
+ *  silent hole in the check.
+ *
+ *  **Keyed per section, not per point — and the first version was per point.**
+ *  Exempting `A1::Imperativ` for one thing waived *every* section in it, and two
+ *  others were quietly hiding behind it: "a stem ending in -d/-t **cannot** be said
+ *  without an -e" (colloquial German says «Wart mal» all day) and "e→i verbs
+ *  **never** take the -e" («siehe oben» is standard written German). Both were real
+ *  over-generalisations, both were caught by the lint, and both were then hidden by
+ *  my own exemption. That is the failure mode LESSONS names: *a guard that
+ *  enumerates its subjects is only as strong as the enumeration* — and a
+ *  coarse-grained exemption is the same bug wearing a different hat.
+ *
+ *  Key is `<level>::<title>::<label or "intro">`. */
 const EXEMPT: Record<string, string> = {
-  'A1::Artikel & Genus': 'the three-article inventory is closed — there is no fourth',
-  'A1::Personalpronomen (Nominativ)': 'the pronoun paradigm is closed',
-  'A1::Imperativ': 'carries its own limit on the du-form',
+  'A1::Artikel & Genus::intro':
+    'every noun really does carry a gender — the inventory is closed and there is no fourth article',
 };
 
 export const LESSONS: Record<string, RuleSection[]> = {};
@@ -187,7 +196,7 @@ LESSONS['A1::Personalpronomen (Nominativ)'] = [
   },
   {
     label: 'er/sie/es follows the noun, not the thing',
-    body: 'Because gender belongs to the word, a table is «er» and a girl is «es». It stops feeling strange faster than you expect, but it does have to be learned deliberately — English speakers reach for «es» for every object.',
+    body: 'Because gender belongs to the word, a table is «er» and a girl is «es». It stops feeling strange faster than you expect, but it does have to be learned deliberately — English speakers tend to reach for «es» whenever the thing is an object.',
     examples: [
       { de: 'Wo ist der Tisch? — Er ist dort.', en: 'Where is the table? — It (he) is there.' },
       { de: 'Das Mädchen? Es kommt später.', en: 'The girl? She (it) is coming later — «Mädchen» is neuter.' },
@@ -209,16 +218,17 @@ LESSONS['A1::Imperativ'] = [
   },
   {
     label: 'When the du-form needs an -e',
-    body: 'A stem ending in -d, -t, or a consonant + -n / -m cannot be said without one. Elsewhere the -e is optional and usually dropped in speech.',
+    body: 'A stem ending in -d, -t, or a consonant + -n / -m takes the -e in standard German — try the form without it and you will hear why. Elsewhere the -e is optional and usually dropped in speech.',
     pairs: [
       { from: 'warten', to: 'Warte!' },
       { from: 'öffnen', to: 'Öffne!' },
       { from: 'entschuldigen', to: 'Entschuldige!' },
     ],
+    limit: 'Casual speech drops it anyway — «Wart mal!» is everywhere and nobody hears it as an error. Write «Warte!»; do not be surprised by «Wart!».',
   },
   {
     label: 'Stem-changing verbs: the half that trips everyone',
-    body: 'Verbs that change e → i or e → ie keep the change in the imperative, and never take the -e. Verbs that change a → ä lose the umlaut instead. Two vowel changes, opposite behaviour.',
+    body: 'Verbs that change e → i or e → ie keep the change in the imperative, and drop the -e with it. Verbs that change a → ä lose the umlaut instead. Two vowel changes, opposite behaviour.',
     pairs: [
       { from: 'geben (du gibst)', to: 'Gib!' },
       { from: 'lesen (du liest)', to: 'Lies!' },
@@ -226,6 +236,7 @@ LESSONS['A1::Imperativ'] = [
       { from: 'fahren (du fährst)', to: 'Fahr! — not «Fähr»' },
       { from: 'schlafen (du schläfst)', to: 'Schlaf! — not «Schläf»' },
     ],
+    limit: 'One survivor: «siehe» keeps its -e in written cross-references — «siehe Seite 12», «siehe oben». It is a fixed form, not a live option, so «Sieh mal!» is still what you say out loud.',
   },
   {
     label: 'sein is its own thing',
@@ -346,6 +357,26 @@ LESSONS['A1::Perfekt'] = [
   },
 ];
 
+/** Fixes to a point's fallback `rule` text, expect-guarded.
+ *
+ *  `rule` is what renders when a point has no authored lesson, and it is also the
+ *  accessible full text, so a bad example in it survives even after a lesson lands
+ *  on top. Guarded the way `authoring/fix-authored.ts` guards its edits: the current
+ *  value has to match `from` exactly, so a rule someone has since rewritten is
+ *  reported rather than silently overwritten.
+ *
+ *  Not a general-purpose rule editor — three entries and a hard match. Rewriting
+ *  rules wholesale belongs in an authoring batch, not in a fix map. */
+const RULE_FIXES: Record<string, { from: string; to: string; why: string }> = {
+  'A1::Imperativ': {
+    from: 'du: Mach! Geh! Mahl(e)! · ihr: Macht! · Sie: Machen Sie! · sein → Sei! / Seien Sie!',
+    to: 'du: Mach! Geh! Mal(e)! · ihr: Macht! · Sie: Machen Sie! · sein → Sei! / Seien Sie!',
+    why: '«Mahle!» is the imperative of *mahlen*, to grind — a real form, but a strange '
+      + 'word to meet at A1 and almost certainly a slip for *malen*, to paint. The slot it '
+      + 'sits in is illustrating the optional -e, which «Mal(e)!» does with an A1 verb.',
+  },
+};
+
 // ---------------------------------------------------------------------------
 // The gate.
 // ---------------------------------------------------------------------------
@@ -387,13 +418,31 @@ function checkAbsolutes(key: string, sec: RuleSection, out: Problem[]) {
   const text = `${sec.body ?? ''}`;
   if (!ABSOLUTES.test(text)) return;
   if (sec.limit) return;
-  if (EXEMPT[key]) return;
+  if (EXEMPT[`${key}::${sec.label ?? 'intro'}`]) return;
   const hit = text.match(ABSOLUTES)?.[0];
-  out.push({ key, kind: 'absolute-without-limit', detail: `“…${hit}…” — state where it stops, or soften it` });
+  // Name the section, not just the point: a point can hold several bodies and two
+  // identical-looking errors are two trips back to the file to work out which is which.
+  out.push({ key: `${key} · ${sec.label ?? 'intro'}`, kind: 'absolute-without-limit', detail: `“…${hit}…” — state where it stops, or soften it` });
+}
+
+/** `grammar-sections.ts` also writes `point.sections`. Nothing stopped both files
+ *  claiming the same point, and whichever ran second would win — silently, with the
+ *  loser's authoring still sitting in its source file looking applied. They do not
+ *  overlap today; this is what keeps that true. */
+function checkOverlap(out: Problem[]) {
+  const other = readFileSync('scripts/corpus/grammar-sections.ts', 'utf8');
+  const claimed = new Set<string>();
+  for (const m of other.matchAll(/^\s*'([A-C][12]::[^']+)':/gm)) claimed.add(m[1]);
+  for (const key of Object.keys(LESSONS)) {
+    if (claimed.has(key)) {
+      out.push({ key, kind: 'double-claimed', detail: 'grammar-sections.ts authors this point too — one of the two must give it up' });
+    }
+  }
 }
 
 async function lint(bank: Record<CEFR, GPoint[]>): Promise<Problem[]> {
   const out: Problem[] = [];
+  checkOverlap(out);
   // Which verb a paradigm is about, per section label. Written here rather than
   // parsed out of the label, because guessing it from prose is the kind of clever
   // that fails silently on the one section that words it differently.
@@ -403,6 +452,16 @@ async function lint(bank: Record<CEFR, GPoint[]>): Promise<Problem[]> {
     'spielen → spiel- + ending': 'spielen',
     'können — the shape they all share': 'können',
   };
+
+  for (const [key, fix] of Object.entries(RULE_FIXES)) {
+    const [level, title] = key.split('::') as [CEFR, string];
+    const point = (bank[level] ?? []).find((p) => p.title === title);
+    if (!point) { out.push({ key, kind: 'no-such-point', detail: 'rule fix targets a point that does not exist' }); continue; }
+    // Already applied is fine and silent — this has to be idempotent.
+    if (point.rule !== fix.from && point.rule !== fix.to) {
+      out.push({ key, kind: 'rule-drifted', detail: `expected to find:\n      ${fix.from}\n      but the bank holds:\n      ${point.rule}` });
+    }
+  }
 
   for (const [key, secs] of Object.entries(LESSONS)) {
     const [level, title] = key.split('::') as [CEFR, string];
@@ -434,6 +493,17 @@ if (checkOnly) process.exit(0);
 
 // ---- apply ----------------------------------------------------------------
 let changed = 0;
+for (const [key, fix] of Object.entries(RULE_FIXES)) {
+  const [level, title] = key.split('::') as [CEFR, string];
+  const point = (bank[level] ?? []).find((p) => p.title === title)!;
+  if (point.rule !== fix.from) continue;   // already applied
+  changed++;
+  console.log(`\n${key} — rule`);
+  console.log(`  ${fix.why}`);
+  console.log(`  - ${fix.from}`);
+  console.log(`  + ${fix.to}`);
+  if (write) point.rule = fix.to;
+}
 for (const [key, secs] of Object.entries(LESSONS)) {
   const [level, title] = key.split('::') as [CEFR, string];
   const point = (bank[level] ?? []).find((p) => p.title === title)!;
