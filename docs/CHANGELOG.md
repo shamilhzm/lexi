@@ -11,6 +11,48 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — every grammar point in the bank is a lesson
+
+**133 of 133.** B2, C1 and C2 finish the set: 602 sections, **35 explicit limits**, and
+every node in the journey now opens something written before it opens a drill.
+
+**B2 largely revises B1** — a finding this backlog already carried. Rather than write the
+same lesson twice, each B2 page takes what B2 adds: the *Zustandspassiv* against the
+*Vorgangspassiv* and the four ways German avoids the passive altogether; adjective
+declension consolidated into its three types with the one idea underneath them (*the
+gender is marked once, and whoever can mark it does*); the three word classes that all
+mean "because" and each put the verb somewhere else.
+
+**Three claims of mine were genuinely too flat**, all caught by the absolutes lint:
+
+- *"Konjunktiv II is always distinct"* — the fallback rule for Konjunktiv I. **False for
+  weak verbs**, where K II is identical to the Präteritum, so «sie machten» is ambiguous
+  in exactly the way the rule exists to prevent. The chain goes one further to *würde*.
+- *"The information is identical; only the packaging differs"* — of nominalisation. Not
+  identical: a nominal phrase **drops tense, mood and the agent**. «nach Beendigung der
+  Verhandlungen» does not say who ended them, and that vagueness is often why the
+  construction was chosen.
+- *"the single most common passive error in German"* — an empirical superlative I have no
+  way to support. The claim did not need it.
+
+**And a presentation bug the lint could not see.** The lessons were authored with
+`**strong**` and `*em*`; the renderer had no notion of either, so **62 fields across 49
+points shipped literal asterisks on screen**. Found by looking at a C2 lesson.
+
+`RuleSectionBlock` now renders those two marks — as React nodes, not
+`dangerouslySetInnerHTML`, because a field that grows by 133 lessons is a standing
+invitation. It is deliberately **not** a markdown parser: DESIGN's `RuleSection` is built
+on *structure rather than markup*, which is why `pairs` and `examples` are typed fields,
+and two inline marks is the whole of the concession. `corpus:lessons` now rejects
+backticks, lists, links, headings, underscores, unclosed asterisks, and any mark at all in
+`pairs` or `examples` — which caught two of mine that would have printed verbatim.
+
+**Verified:** typecheck clean · lint 0 errors · 1,032 tests · `corpus:validate` PASS ·
+lessons gate clean at 95 entries · build clean · zero literal asterisks in the rendered
+DOM, confirmed in the running app.
+
+---
+
 ### Shipped 2026-08-26 — B1 complete, and an old test caught the new author
 
 **29 more lessons. A1, A2 and B1 are all done — 108 of 133 points, 24 explicit limits.**

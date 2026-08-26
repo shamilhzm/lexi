@@ -975,8 +975,8 @@ LESSONS['A2::Adjektivdeklination: indefiniter Artikel'] = [
     label: 'Where ein hides the gender, the adjective shows it',
     body: 'ein is the same word for masculine and neuter, so it tells you nothing. In exactly those three slots the adjective takes the strong ending instead.',
     pairs: [
-      { from: 'Nom. m.', to: 'ein neu**er** Laden' },
-      { from: 'Nom./Akk. n.', to: 'ein schön**es** Licht' },
+      { from: 'Nom. m.', to: 'ein neuer Laden — strong -er' },
+      { from: 'Nom./Akk. n.', to: 'ein schönes Licht — strong -es' },
       { from: 'everything else', to: 'the weak ending -en, or -e' },
     ],
   },
@@ -2327,6 +2327,821 @@ LESSONS['B1::Wortbildung: Komposita (Nomen)'] = [
   },
 ];
 
+// ---- B2 -------------------------------------------------------------------
+// Several of these points duplicate B1 or A2 (see the CHANGELOG). Rather than
+// write the same lesson twice, each takes what B2 genuinely adds.
+
+LESSONS['B2::Passiv'] = [
+  {
+    body: 'The passive was built at A2 and extended through the tenses at B1. What B2 adds is the *other* passive — and the fact that German usually avoids both.',
+  },
+  {
+    label: 'Two passives, and they mean different things',
+    pairs: [
+      { from: 'Vorgangspassiv — werden', to: 'Das Fenster wird geöffnet. — it is being opened' },
+      { from: 'Zustandspassiv — sein', to: 'Das Fenster ist geöffnet. — it is open' },
+    ],
+  },
+  {
+    label: 'Why the distinction matters',
+    body: 'English uses "is opened" for both and relies on context. German separates the process from the resulting state, so choosing sein where you meant werden reports a finished condition instead of an event.',
+  },
+  {
+    label: 'The alternatives German actually prefers',
+    body: 'Written German uses the passive heavily; spoken German dodges it. These four say the same thing without it, and recognising them is worth more at B2 than producing another werden-form.',
+    pairs: [
+      { from: 'man', to: 'Man repariert das Auto.' },
+      { from: 'sich lassen + Infinitiv', to: 'Das lässt sich reparieren. — that can be fixed' },
+      { from: 'sein + zu + Infinitiv', to: 'Das ist zu reparieren. — that is to be fixed' },
+      { from: '-bar', to: 'Das ist reparierbar.' },
+    ],
+  },
+  {
+    label: 'Not every verb has a passive',
+    body: 'The passive needs an accusative object to promote. Verbs that take the dative — helfen, danken, gratulieren — cannot make a normal personal passive.',
+    limit: 'They form an *impersonal* one instead, with es or nothing in slot one: «Mir wurde geholfen» or «Es wurde mir geholfen». What you may not say is «Ich wurde geholfen» — the commonest B2 passive error, and it comes straight from English.',
+  },
+];
+
+LESSONS['B2::Adjektivdeklination'] = [
+  {
+    body: 'A1 and A2 taught the ein- and no-article cases separately. This is the consolidation: **three declension types, chosen by what stands in front.** German has one governing idea, and once you have it the tables stop needing memorising.',
+  },
+  {
+    label: 'The idea',
+    body: 'Gender and case have to be marked once in the phrase. Whoever can mark it, does — and whoever comes second relaxes.',
+  },
+  {
+    label: 'The three types',
+    pairs: [
+      { from: 'after der-words (weak)', to: 'the article marks it → -e or -en' },
+      { from: 'after ein-words (mixed)', to: 'ein marks nothing in three slots → the adjective steps in there' },
+      { from: 'no article (strong)', to: 'nothing else can → the adjective takes the article’s own endings' },
+    ],
+  },
+  {
+    label: 'The same adjective, three ways',
+    pairs: [
+      { from: 'weak', to: 'der gute Mann · dem guten Mann' },
+      { from: 'mixed', to: 'ein guter Mann · einem guten Mann' },
+      { from: 'strong', to: 'guter Mann · gutem Mann' },
+    ],
+  },
+  {
+    label: 'The weak table is almost all -en',
+    body: 'After a der-word there are exactly five -e endings — the nominative singulars and the feminine and neuter accusative. Everything else in the whole table is -en. Learn the five; default the rest.',
+  },
+  {
+    label: 'Two adjectives both take the ending',
+    body: 'Stacked adjectives decline in parallel; the second does not somehow become weak.',
+    examples: [{ de: 'ein guter alter Freund', en: 'a good old friend — both -er.' }],
+  },
+];
+
+LESSONS['B2::Konnektoren (deshalb/trotzdem)'] = [
+  {
+    body: 'The same meanings can be expressed by three different word classes, and each puts the verb somewhere else. B2 is where you are expected to move between them rather than pick one and stay.',
+  },
+  {
+    label: 'Three ways to say "because"',
+    pairs: [
+      { from: 'coordinating — denn', to: 'Ich bleibe zu Hause, denn es regnet. — verb second, nothing moves' },
+      { from: 'subordinating — weil', to: 'Ich bleibe zu Hause, weil es regnet. — verb last' },
+      { from: 'adverb — deshalb', to: 'Es regnet, deshalb bleibe ich zu Hause. — verb second, subject after it' },
+    ],
+  },
+  {
+    label: 'The adverbs',
+    pairs: [
+      { from: 'deshalb, deswegen, darum', to: 'therefore' },
+      { from: 'trotzdem, dennoch', to: 'nevertheless' },
+      { from: 'außerdem, zudem', to: 'moreover' },
+      { from: 'sonst', to: 'otherwise' },
+    ],
+  },
+  {
+    label: 'Why the class matters more than the meaning',
+    body: 'trotzdem and obwohl both concede. But trotzdem is an adverb and takes slot one of a main clause; obwohl is a conjunction and sends its verb to the end. Choosing the word decides the syntax, so it has to be chosen deliberately.',
+    pairs: [
+      { from: 'Obwohl es regnete, gingen wir.', to: 'conjunction — verb last' },
+      { from: 'Es regnete. Trotzdem gingen wir.', to: 'adverb — verb second' },
+    ],
+  },
+  {
+    label: 'denn is not weil',
+    body: 'denn coordinates: it joins two full main clauses, does not start a sentence and does not move. weil subordinates and can go either first or second. When in doubt, weil is the flexible one.',
+  },
+];
+
+LESSONS['B2::Relativsätze'] = [
+  {
+    body: 'The core relative pronoun system. Two sources feed one word, and keeping them apart is the whole skill: **gender and number come from the noun outside; case comes from the job inside.**',
+  },
+  {
+    label: 'The paradigm',
+    pairs: [
+      { from: 'nominative', to: 'der · die · das · die' },
+      { from: 'accusative', to: 'den · die · das · die' },
+      { from: 'dative', to: 'dem · der · dem · denen' },
+      { from: 'genitive', to: 'dessen · deren · dessen · deren' },
+    ],
+  },
+  {
+    label: 'Two sources, one pronoun',
+    examples: [
+      { de: 'Der Mann, der dort steht, …', en: 'masculine from Mann; nominative because he is the one standing.' },
+      { de: 'Der Mann, den ich kenne, …', en: 'masculine from Mann; accusative because I know him.' },
+      { de: 'Der Mann, dem ich helfe, …', en: 'masculine from Mann; dative because helfen takes it.' },
+    ],
+  },
+  {
+    label: 'Only two forms are new',
+    body: 'The table is the definite article with two changes: dative plural is **denen**, and the genitive is **dessen / deren**. Everything else you already know.',
+  },
+  {
+    label: 'dessen and deren replace the possessive',
+    body: 'They agree with the *owner*, not with the thing owned, and the noun after them takes no article and no ending.',
+    examples: [
+      { de: 'Der Mann, dessen Auto gestohlen wurde, …', en: 'The man whose car was stolen.' },
+      { de: 'Die Frau, deren Kinder hier spielen, …', en: 'The woman whose children play here.' },
+    ],
+  },
+  {
+    label: 'The comma is not optional',
+    body: 'English drops the relative pronoun and the comma freely — "the man I know". German keeps both, and a relative clause is set off by commas on either side.',
+  },
+];
+
+LESSONS['B2::Temporale Nebensätze (als/wenn/nachdem/bevor)'] = [
+  {
+    body: 'The temporal conjunctions collected in one place, with the tense each one wants. At B2 the choice of conjunction is assumed; what is tested is getting the tense pairing right.',
+  },
+  {
+    label: 'Which word',
+    pairs: [
+      { from: 'als', to: 'one completed past event' },
+      { from: 'wenn', to: 'repeated, or present and future' },
+      { from: 'nachdem', to: 'the earlier of two events' },
+      { from: 'bevor', to: 'the later of two events' },
+      { from: 'während', to: 'simultaneous' },
+      { from: 'sobald', to: 'as soon as' },
+    ],
+  },
+  {
+    label: 'The tense pairing after nachdem',
+    body: 'This is the part that is actually marked. nachdem forces a step back in tense, because its clause is by definition earlier.',
+    pairs: [
+      { from: 'nachdem + Plusquamperfekt', to: 'main clause: Präteritum or Perfekt' },
+      { from: 'nachdem + Perfekt', to: 'main clause: Präsens' },
+    ],
+  },
+  {
+    label: 'bevor and während do not shift',
+    body: 'Neither is earlier than the main clause, so both keep the same tense on either side. Applying nachdem’s rule to them is over-generalising a pattern.',
+    examples: [
+      { de: 'Nachdem er gegangen war, kam sie.', en: 'After he had left, she came.' },
+      { de: 'Bevor er ging, rief er an.', en: 'Before he left he called.' },
+    ],
+  },
+];
+
+LESSONS['B2::Finalsätze (um … zu / damit)'] = [
+  {
+    body: 'Purpose clauses, and at B2 the addition is the nominal register — the way purpose is expressed in formal writing without a clause at all.',
+  },
+  {
+    label: 'The clause forms',
+    pairs: [
+      { from: 'same subject', to: 'Ich lerne, um zu bestehen.' },
+      { from: 'different subjects', to: 'Ich erkläre es, damit du es verstehst.' },
+    ],
+  },
+  {
+    label: 'The rule is not symmetrical',
+    body: 'um … zu has no subject, so it requires the subjects to match. damit does not require them to differ.',
+    limit: 'Different subjects **must** take damit. Matching subjects **may** take either — «Ich lerne, damit ich bestehe» is correct, just heavier. Taught as a two-way rule, it is a one-way one.',
+  },
+  {
+    label: 'The nominal register',
+    body: 'Formal German compresses the clause into a prepositional phrase. This is what B2 writing is rewarded for and what B2 reading is full of.',
+    pairs: [
+      { from: 'um zu informieren', to: 'zur Information' },
+      { from: 'um zu verbessern', to: 'zur Verbesserung' },
+      { from: 'damit die Sicherheit steigt', to: 'zwecks Erhöhung der Sicherheit' },
+    ],
+  },
+];
+
+LESSONS['B2::Plusquamperfekt'] = [
+  {
+    body: 'The past before the past. Its mechanics were covered at B1; what matters at B2 is knowing that it is rarer than learners think and why.',
+  },
+  {
+    label: 'Building it',
+    pairs: [
+      { from: 'Perfekt: ich habe gegessen', to: 'Plusquamperfekt: ich hatte gegessen' },
+      { from: 'Perfekt: ich bin gegangen', to: 'Plusquamperfekt: ich war gegangen' },
+    ],
+  },
+  {
+    label: 'It needs a second past event to be before',
+    body: 'The tense exists to order two things. On its own it has nothing to be earlier than, and a Plusquamperfekt with no reference point simply reads as an error.',
+    examples: [
+      { de: 'Nachdem er gegangen war, kam sie.', en: 'Two events, ordered.' },
+    ],
+  },
+  {
+    label: 'Where you actually meet it',
+    body: 'Overwhelmingly with nachdem, and in narrative prose filling in what happened before the story’s present. In conversation it is uncommon — German is content to let the Perfekt and a time word do the ordering.',
+  },
+];
+
+LESSONS['B2::Infinitiv mit zu'] = [
+  {
+    body: 'Covered at B1 as a construction. What B2 adds is the list of verbs that take a **bare** infinitive, because the errors here are mostly about zu turning up where it should not.',
+  },
+  {
+    label: 'No zu after these',
+    pairs: [
+      { from: 'modals', to: 'Ich muss arbeiten.' },
+      { from: 'sehen, hören, spüren', to: 'Ich sehe ihn kommen.' },
+      { from: 'lassen', to: 'Ich lasse das Auto reparieren.' },
+      { from: 'gehen, fahren, kommen', to: 'Ich gehe schwimmen.' },
+      { from: 'bleiben, lernen, helfen', to: 'Er bleibt stehen.' },
+    ],
+  },
+  {
+    label: 'zu after almost everything else',
+    examples: [
+      { de: 'Ich habe vor, morgen zu kommen.', en: 'I plan to come tomorrow.' },
+      { de: 'Er hat vergessen, mich anzurufen.', en: 'He forgot to call me — the zu goes inside the separable verb.' },
+    ],
+  },
+  {
+    label: 'brauchen is the one that changed',
+    body: 'With a negative, brauchen behaves like a modal and prescriptively takes no zu — «Du brauchst nicht zu kommen» is the careful form, and «Du brauchst nicht kommen» is what most people say.',
+    limit: 'Both are current and Duden lists the zu-less version as colloquial rather than wrong. Write the zu; do not correct a German who leaves it out.',
+  },
+];
+
+LESSONS['B2::Konjunktiv II (Gegenwart)'] = [
+  {
+    body: 'Consolidation. The forms were introduced at B1; at B2 the expectation is that you choose between the short form and würde correctly, and use the mood for more than politeness.',
+  },
+  {
+    label: 'Short form for these, würde for the rest',
+    pairs: [
+      { from: 'sein → wäre', to: 'haben → hätte' },
+      { from: 'können → könnte', to: 'müssen → müsste' },
+      { from: 'dürfen → dürfte', to: 'sollen → sollte' },
+      { from: 'wissen → wüsste', to: 'werden → würde' },
+    ],
+  },
+  {
+    label: 'The four jobs',
+    pairs: [
+      { from: 'unreal condition', to: 'Wenn ich Zeit hätte, würde ich reisen.' },
+      { from: 'politeness', to: 'Könnten Sie mir helfen?' },
+      { from: 'advice', to: 'An deiner Stelle würde ich warten.' },
+      { from: 'cautious assertion', to: 'Das wäre eine Möglichkeit.' },
+    ],
+  },
+  {
+    label: 'Do not stack würde onto a verb that has its own form',
+    body: '«würde haben» and «würde sein» are the marks of a learner. The eight verbs above use their own Konjunktiv II and always have.',
+    limit: 'For strong verbs the reverse holds and the synthetic form is the marked one: käme, ginge and gäbe are correct but literary, and würde + infinitive is the neutral spoken choice.',
+  },
+];
+
+LESSONS['B2::Passiv Perfekt: „ist … worden“'] = [
+  {
+    body: 'One detail, isolated because it persists well past the level it is taught at: the participle of werden in a passive is **worden**, not geworden.',
+  },
+  {
+    label: 'The two participles',
+    pairs: [
+      { from: 'werden as a full verb', to: 'Er ist Arzt geworden. — he became a doctor' },
+      { from: 'werden as the passive helper', to: 'Er ist operiert worden. — he was operated on' },
+    ],
+  },
+  {
+    label: 'Why the ge- drops',
+    body: 'A helper verb does not carry its own participle marking when another participle is already present. The same instinct is behind the double infinitive with modals — German avoids marking the same thing twice in one bracket.',
+  },
+  {
+    label: 'The test',
+    body: 'Is there another participle in the sentence? Then it is a passive and you want worden. Is werden carrying the meaning by itself? Then it means become and you want geworden.',
+    examples: [
+      { de: 'Das Haus ist gebaut worden.', en: 'gebaut is already there → worden.' },
+      { de: 'Das Haus ist alt geworden.', en: 'no second participle → geworden.' },
+    ],
+  },
+];
+
+LESSONS['B2::Partizipialattribute'] = [
+  {
+    body: 'A participle used as an adjective in front of a noun. German packs into one phrase what English needs a relative clause for, and B2 reading is dense with it.',
+  },
+  {
+    label: 'Partizip I — active and ongoing',
+    pairs: [
+      { from: 'das lachende Kind', to: 'the child who is laughing' },
+      { from: 'die steigenden Preise', to: 'the prices that are rising' },
+    ],
+  },
+  {
+    label: 'Partizip II — completed, and usually passive',
+    pairs: [
+      { from: 'das gekochte Ei', to: 'the egg that has been boiled' },
+      { from: 'die eingeladenen Gäste', to: 'the guests who have been invited' },
+    ],
+  },
+  {
+    label: 'Both take ordinary adjective endings',
+    body: 'Once in front of a noun, a participle is an adjective and declines like one. Nothing new is needed.',
+  },
+  {
+    label: 'Partizip II is not always passive',
+    body: 'With verbs that take sein in the Perfekt, the Partizip II is **active** and simply means finished.',
+    limit: 'Compare «der eingeladene Gast» (the guest who was invited — passive, haben-verb) with «der angekommene Zug» (the train that has arrived — active, sein-verb). Reading every Partizip II as passive will invert the meaning of the second.',
+  },
+  {
+    label: 'Unpacking one when reading',
+    body: 'Find the noun at the end, then read the participle back as a relative clause. «die von der Regierung beschlossenen Maßnahmen» → die Maßnahmen, die von der Regierung beschlossen wurden.',
+  },
+];
+
+LESSONS['B2::Subjektive Modalverben'] = [
+  {
+    body: 'The modals, used to say how sure you are rather than what is possible. Same six words, a completely different job — and the meaning is invisible unless you know the construction exists.',
+  },
+  {
+    label: 'Objective against subjective',
+    pairs: [
+      { from: 'Er muss arbeiten.', to: 'he has to work — objective' },
+      { from: 'Das muss ein Irrtum sein.', to: 'that must be a mistake — subjective, near certainty' },
+    ],
+  },
+  {
+    label: 'The scale',
+    pairs: [
+      { from: 'muss', to: 'I am certain' },
+      { from: 'dürfte', to: 'probably' },
+      { from: 'könnte / kann', to: 'possibly' },
+      { from: 'soll', to: 'people say — hearsay, source unnamed' },
+      { from: 'will', to: 'he claims — and I am sceptical' },
+    ],
+  },
+  {
+    label: 'soll and will report other people',
+    body: 'These two are not about probability at all. soll passes on what is said; will passes on what the subject asserts about themselves, usually with a raised eyebrow.',
+    examples: [
+      { de: 'Er soll reich sein.', en: 'He is said to be rich.' },
+      { de: 'Er will alles gesehen haben.', en: 'He claims to have seen everything.' },
+    ],
+  },
+  {
+    label: 'For the past, the infinitive changes, not the modal',
+    body: 'The modal stays in the present; the perfect infinitive carries the time. This is the form that makes the construction unmistakable.',
+    pairs: [
+      { from: 'Er soll reich sein.', to: 'Er soll reich gewesen sein.' },
+      { from: 'Sie dürfte zu Hause sein.', to: 'Sie dürfte zu Hause gewesen sein.' },
+    ],
+  },
+];
+
+// ---- C1 -------------------------------------------------------------------
+
+LESSONS['C1::Konjunktiv I (indirekte Rede)'] = [
+  {
+    body: 'The reporting mood. German journalism runs on it: Konjunktiv I signals *this is what was said*, without the writer endorsing or doubting it. English has no equivalent and reaches for "allegedly" or "he claimed" — German changes the verb.',
+  },
+  {
+    label: 'Building it — from the infinitive stem',
+    pairs: [
+      { from: 'sein', to: 'er sei, sie seien — the irregular one, and the commonest' },
+      { from: 'haben', to: 'er habe' },
+      { from: 'kommen', to: 'er komme' },
+      { from: 'können', to: 'er könne' },
+      { from: 'werden', to: 'er werde' },
+    ],
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'Er sagte, er sei krank.', en: 'He said he was ill — reported, not endorsed.' },
+      { de: 'Die Sprecherin erklärte, die Zahlen seien korrekt.', en: 'The spokeswoman said the figures were correct.' },
+    ],
+  },
+  {
+    label: 'When Konjunktiv I is invisible, switch to II',
+    body: 'For most verbs the third person plural of Konjunktiv I is identical to the indicative — «sie haben» either way — so it would report nothing. The rule is to fall back to Konjunktiv II.',
+    limit: 'Konjunktiv II is not automatically distinct either: for **weak** verbs it is identical to the Präteritum, so «sie machten» is ambiguous in exactly the same way. There the chain goes one step further to würde + infinitive — «sie würden machen». Strong verbs are fine, because kämen and gäben differ from kamen and gaben.',
+    pairs: [
+      { from: 'sie haben (indicative = K I)', to: 'sie hätten' },
+      { from: 'sie kommen', to: 'sie kämen' },
+    ],
+  },
+  {
+    label: 'The neutrality is the point',
+    body: 'Konjunktiv I does not mean the writer disbelieves the statement. It marks the sentence as *someone else’s*. Reaching for Konjunktiv II instead — when a K I form is available — reads as scepticism, which is a real editorial difference.',
+  },
+  {
+    label: 'It is a written register',
+    body: 'Spoken German reports with «Er hat gesagt, dass …» plus the indicative. Konjunktiv I in conversation sounds like a news bulletin.',
+    limit: '«sei» is the exception that survives everywhere, including speech. If you learn one form of Konjunktiv I, learn that one.',
+  },
+];
+
+LESSONS['C1::Nominalisierung ↔ Verbalstil'] = [
+  {
+    body: 'The single most characteristic move of formal written German: a subordinate clause compressed into a noun phrase. C1 reading is full of it, and C1 writing is assessed on being able to go both ways.',
+  },
+  {
+    label: 'The standard conversions',
+    pairs: [
+      { from: 'weil die Kosten stiegen', to: 'wegen des Kostenanstiegs' },
+      { from: 'obwohl es regnete', to: 'trotz des Regens' },
+      { from: 'wenn man sie richtig anwendet', to: 'bei richtiger Anwendung' },
+      { from: 'nachdem er zurückgekehrt war', to: 'nach seiner Rückkehr' },
+      { from: 'um zu informieren', to: 'zur Information' },
+    ],
+  },
+  {
+    label: 'Reading: go backwards',
+    body: 'Faced with a dense nominal phrase, find the noun built from a verb and rebuild the clause. «nach Beendigung der Verhandlungen» → «nachdem die Verhandlungen beendet worden waren».',
+    limit: 'The two are not quite equivalent, and this is why the style is contested. A nominal phrase drops tense, mood and — most consequentially — the agent: «nach Beendigung der Verhandlungen» does not say who ended them. That vagueness is sometimes the reason the construction was chosen.',
+  },
+  {
+    label: 'The preposition tells you the conjunction',
+    pairs: [
+      { from: 'wegen, aufgrund, infolge + G', to: 'weil — cause' },
+      { from: 'trotz + G', to: 'obwohl — concession' },
+      { from: 'bei + D', to: 'wenn — condition' },
+      { from: 'nach / vor + D', to: 'nachdem / bevor — time' },
+      { from: 'durch + A', to: 'indem — means' },
+    ],
+  },
+  {
+    label: 'Denser is not automatically better',
+    body: 'The nominal style is the register of administration and academic prose. Used everywhere it produces the airless German that Germans themselves complain about — *Behördendeutsch*. C1 asks you to command it, not to default to it.',
+  },
+];
+
+LESSONS['C1::Konjunktiv II Vergangenheit'] = [
+  {
+    body: 'The past unreal, at the level where it has to be produced accurately rather than recognised. One helper, one participle — until a modal appears.',
+  },
+  {
+    label: 'The plain form',
+    examples: [
+      { de: 'Wenn ich das gewusst hätte, wäre ich gekommen.', en: 'Had I known that, I would have come.' },
+    ],
+  },
+  {
+    label: 'With a modal — two infinitives, no participle',
+    pairs: [
+      { from: 'Ich hätte kommen müssen.', to: 'I would have had to come' },
+      { from: 'Er hätte es wissen können.', to: 'he could have known' },
+      { from: 'Das hätte nicht passieren dürfen.', to: 'that should not have been allowed to happen' },
+    ],
+  },
+  {
+    label: 'Regret and reproach',
+    body: 'Lead with the verb, drop the wenn, and add doch, bloß or nur. This is how German expresses the thing English does with "if only".',
+    examples: [
+      { de: 'Hätte ich doch mehr gelernt!', en: 'If only I had studied more!' },
+      { de: 'Du hättest mir das sagen können.', en: 'You could have told me.' },
+    ],
+  },
+  {
+    label: 'In a subordinate clause the helper moves forward',
+    body: 'A double infinitive will not take the conjugated verb behind it, so hätte jumps in front of both — the same displacement as the ordinary Perfekt with modals.',
+    examples: [{ de: '…, weil ich hätte kommen müssen.', en: 'hätte first, then the two infinitives.' }],
+  },
+];
+
+LESSONS['C1::Genitivpräpositionen (C1)'] = [
+  {
+    body: 'The formal register’s prepositions. These are the words that mark a text as official, academic or legal, and at C1 they are largely a reading skill — recognising the relation each one signals.',
+  },
+  {
+    label: 'The set',
+    pairs: [
+      { from: 'angesichts + G', to: 'in view of — angesichts der Lage' },
+      { from: 'infolge + G', to: 'as a result of — infolge des Unfalls' },
+      { from: 'anhand + G', to: 'on the basis of — anhand der Daten' },
+      { from: 'hinsichtlich + G', to: 'regarding — hinsichtlich der Kosten' },
+      { from: 'mangels + G', to: 'for lack of — mangels Beweisen' },
+      { from: 'zugunsten + G', to: 'in favour of' },
+    ],
+  },
+  {
+    label: 'What each one signals',
+    body: 'These are not interchangeable. angesichts frames a situation, infolge asserts causation, anhand names evidence, hinsichtlich narrows a topic. Choosing by sound rather than by relation is the C1 writing error.',
+  },
+  {
+    label: 'They fall back to the dative on a bare plural',
+    body: 'A plural noun with no article shows no genitive, so German uses the dative instead — «mangels Beweisen», not «Beweise». The preposition has not changed its case; there is simply nothing to mark it on.',
+    limit: 'This is a general rule for genitive prepositions with unaccompanied nouns, not a quirk of mangels. «trotz Regens» is fine because -s is visible; «trotz Regen» is also accepted precisely because it is not.',
+  },
+];
+
+LESSONS['C1::Konnektoren (indem/sodass/folglich)'] = [
+  {
+    body: 'Connectors at C1 are sorted by *what relation they express* and *what syntax they force*. Both have to be right, and the second is what separates a C1 text from a B2 one.',
+  },
+  {
+    label: 'Three classes, three word orders',
+    pairs: [
+      { from: 'subordinating — indem, sodass', to: 'verb to the end' },
+      { from: 'adverb — folglich, demnach, somit', to: 'verb stays second' },
+      { from: 'coordinating — denn, aber, sondern', to: 'nothing moves' },
+    ],
+  },
+  {
+    label: 'indem — the means',
+    examples: [
+      { de: 'Man lernt, indem man übt.', en: 'You learn by practising.' },
+      { de: 'Sie senkten die Kosten, indem sie die Produktion verlagerten.', en: 'They cut costs by relocating production.' },
+    ],
+  },
+  {
+    label: 'sodass — the result',
+    examples: [
+      { de: 'Die Nachfrage stieg, sodass die Preise anzogen.', en: 'Demand rose, so prices went up.' },
+    ],
+  },
+  {
+    label: 'folglich, demnach, somit — consequently',
+    body: 'Adverbs, so they take slot one and push the subject behind the verb. They are the formal register’s version of deshalb.',
+    examples: [{ de: 'Die Frist ist abgelaufen. Folglich ist der Antrag ungültig.', en: 'The deadline has passed. The application is therefore invalid.' }],
+  },
+  {
+    label: 'je nachdem — depending on',
+    body: 'Takes a following question word or ob, and the whole thing is subordinating.',
+    examples: [{ de: 'Je nachdem, wie das Wetter wird, fahren wir.', en: 'Depending on how the weather turns out, we will drive.' }],
+  },
+];
+
+LESSONS['C1::Relativsätze mit wo(r)- & wessen'] = [
+  {
+    body: 'The relative clauses that have no noun to agree with, and the possessive question word. Both are C1 markers in writing.',
+  },
+  {
+    label: 'was — after an indefinite, or a whole clause',
+    pairs: [
+      { from: 'alles, was ich weiß', to: 'everything I know' },
+      { from: 'das Beste, was passieren konnte', to: 'after a superlative' },
+      { from: 'Er kam zu spät, was mich ärgerte.', to: 'referring to the whole preceding clause' },
+    ],
+  },
+  {
+    label: 'wo(r)- + preposition, for things',
+    body: 'When the antecedent is a thing rather than a person, German fuses the preposition onto wo — and inserts -r- before a vowel.',
+    pairs: [
+      { from: 'worüber', to: 'das Thema, worüber wir sprachen' },
+      { from: 'womit', to: 'das Werkzeug, womit er arbeitet' },
+      { from: 'worauf', to: 'der Moment, worauf alle warteten' },
+    ],
+  },
+  {
+    label: 'dessen, deren, wessen',
+    pairs: [
+      { from: 'dessen / deren', to: 'relative — der Mann, dessen Auto …' },
+      { from: 'wessen', to: 'interrogative — Wessen Auto ist das?' },
+    ],
+  },
+  {
+    label: 'The noun after dessen takes nothing',
+    body: 'No article, no adjective ending change — dessen has already done the marking. «der Mann, dessen neues Auto» keeps the adjective strong.',
+  },
+];
+
+LESSONS['C1::Futur II'] = [
+  {
+    body: 'Two meanings, and the second is far commoner than the first. Futur II is built from werden + Partizip + haben/sein, and most of the time it is not about the future at all.',
+  },
+  {
+    label: 'Completed by a point in the future',
+    examples: [
+      { de: 'Bis Freitag werde ich den Bericht geschrieben haben.', en: 'By Friday I will have written the report.' },
+    ],
+  },
+  {
+    label: 'A supposition about the past — the common use',
+    body: 'werden + a perfect infinitive expresses a confident guess about something already over. English needs "probably" or "must have".',
+    examples: [
+      { de: 'Er wird den Zug verpasst haben.', en: 'He will have missed the train — I assume he did.' },
+      { de: 'Sie wird es vergessen haben.', en: 'She must have forgotten.' },
+    ],
+  },
+  {
+    label: 'The pattern it belongs to',
+    body: 'Futur I does the same thing for the present — «Er wird wohl krank sein». Futur II does it for the past. Both are German using a future form to mark an inference, which is the opposite of what the name suggests.',
+  },
+  {
+    label: 'The first meaning is rare',
+    body: 'For genuine future completion, German usually says «Bis Freitag habe ich den Bericht geschrieben» — Perfekt plus a time phrase. Producing Futur II for that is correct and heavy.',
+  },
+];
+
+LESSONS['C1::TeKaMoLo & Satzklammer'] = [
+  {
+    body: 'The default order of the middle field. German lets you move almost anything, which means a neutral sentence has a default — and departing from it is how emphasis is made. At C1 both halves matter.',
+  },
+  {
+    label: 'The default sequence',
+    pairs: [
+      { from: 'Te — temporal', to: 'wann?  morgen' },
+      { from: 'Ka — kausal', to: 'warum?  wegen des Termins' },
+      { from: 'Mo — modal', to: 'wie?  mit dem Zug' },
+      { from: 'Lo — lokal', to: 'wo / wohin?  nach Bonn' },
+    ],
+  },
+  {
+    label: 'All four at once',
+    examples: [
+      { de: 'Ich fahre morgen wegen des Termins mit dem Zug nach Bonn.', en: 'Te — Ka — Mo — Lo, in order.' },
+    ],
+  },
+  {
+    label: 'The bracket around it',
+    body: 'The middle field sits inside the Satzklammer: the conjugated verb at position two, and the non-finite part at the very end. Modals, the Perfekt, the passive and the futures build one and the same frame.',
+    examples: [{ de: 'Ich werde morgen mit dem Zug nach Bonn fahren.', en: 'werde … fahren, everything else between them.' }],
+  },
+  {
+    label: 'It is a default, not a rule',
+    body: 'Any of the four can be fronted into slot one for emphasis, and pronouns break the order entirely by moving to the front of the middle field.',
+    limit: 'Known information drifts left and new information right, and that pressure outranks TeKaMoLo. «Ich fahre morgen nach Bonn mit dem Zug» is good German if the point is *how* you are travelling. Treat the sequence as the neutral baseline, and never as grounds for calling a native sentence wrong.',
+  },
+];
+
+// ---- C2 -------------------------------------------------------------------
+
+LESSONS['C2::Modalpartikeln'] = [
+  {
+    body: 'The particles were introduced at A1 as tone. At C2 they are a precision instrument: each one narrows the range of attitudes a sentence can be read with, and using them accurately is one of the clearest markers of a near-native speaker.',
+  },
+  {
+    label: 'The core inventory',
+    pairs: [
+      { from: 'doch', to: 'contradicts an expectation, or urges' },
+      { from: 'ja', to: 'appeals to shared knowledge, or marks surprise' },
+      { from: 'eben / halt', to: 'resignation — that is simply how it is' },
+      { from: 'wohl', to: 'a guess, or a concession' },
+      { from: 'mal', to: 'reduces a request to something trivial' },
+      { from: 'schon', to: 'concedes then qualifies — yes, but' },
+    ],
+  },
+  {
+    label: 'The same words are also ordinary adverbs',
+    body: 'These particles each have a full lexical twin, and position and stress separate them. Stressed and in slot one it is an adverb; unstressed in the middle field it is a particle.',
+    pairs: [
+      { from: 'Schon gut.', to: 'adverb — already, fine' },
+      { from: 'Das ist schon richtig, aber …', to: 'particle — granted, but' },
+      { from: 'Er ist wohl zu Hause.', to: 'particle — probably' },
+      { from: 'Ich fühle mich wohl.', to: 'adjective — comfortable' },
+    ],
+  },
+  {
+    label: 'Stacking them',
+    body: 'Particles combine in a fixed order and the combination is not the sum of the parts. «doch mal» softens an imperative; «ja nicht» is a sharp warning, not a mild one.',
+    examples: [
+      { de: 'Komm doch mal vorbei!', en: 'Do drop by sometime — friendly.' },
+      { de: 'Mach das ja nicht!', en: 'Don’t you dare do that — emphatic.' },
+    ],
+  },
+  {
+    label: 'They resist translation, and that is the skill',
+    body: 'A particle rarely has an English word; it has an English *intonation*. Learning them means learning which contour a sentence is meant to be said with, which is why they are the last thing to arrive.',
+  },
+];
+
+LESSONS['C2::Irreale Vergleiche (als ob)'] = [
+  {
+    body: 'Unreal comparison, at the level where the tense of the subjunctive is expected to be right rather than merely present.',
+  },
+  {
+    label: 'Three shapes, one meaning',
+    pairs: [
+      { from: 'als ob + K II, verb last', to: 'Er tut so, als ob er alles wüsste.' },
+      { from: 'als + K II, verb second', to: 'Er tut so, als wüsste er alles.' },
+      { from: 'als wenn', to: 'possible, and old-fashioned' },
+    ],
+  },
+  {
+    label: 'The bare als form is the elevated one',
+    body: 'Dropping ob and raising the verb is the literary and careful-speech choice. It is the form C2 writing is expected to produce.',
+  },
+  {
+    label: 'The tense carries the timing',
+    pairs: [
+      { from: 'simultaneous', to: 'als wüsste er es — as if he knew, now' },
+      { from: 'anterior', to: 'als hätte er es gewusst — as if he had known' },
+    ],
+  },
+  {
+    label: 'Konjunktiv I appears here too',
+    body: 'In careful written German als ob can take Konjunktiv I when the comparison is reported rather than dismissed — «als sei er krank». It is rarer and marks a difference in stance rather than in time.',
+    limit: 'The default remains Konjunktiv II, because the construction is about unreality. Reach for K I only where the surrounding text is already in reported speech.',
+  },
+];
+
+LESSONS['C2::Gerundivum (das zu lösende Problem)'] = [
+  {
+    body: 'A passive obligation folded into a single adjective. It is dense, entirely regular, and everywhere in technical and legal German.',
+  },
+  {
+    label: 'Building it',
+    body: 'zu + Partizip I, declined like any adjective. It means *that has to be, or can be, done* — the passive plus necessity, in one word.',
+    pairs: [
+      { from: 'das Problem, das gelöst werden muss', to: 'das zu lösende Problem' },
+      { from: 'die Fragen, die beantwortet werden müssen', to: 'die zu beantwortenden Fragen' },
+      { from: 'der Betrag, der zu zahlen ist', to: 'der zu zahlende Betrag' },
+    ],
+  },
+  {
+    label: 'Separable verbs take the zu inside',
+    pairs: [{ from: 'durchführen', to: 'die durchzuführenden Maßnahmen' }],
+  },
+  {
+    label: 'Against the plain Partizip I',
+    body: 'Without zu the participle is active and ongoing; with zu it is passive and obligatory. One syllable inverts the voice.',
+    pairs: [
+      { from: 'das lösende Problem', to: 'wrong — a problem that solves' },
+      { from: 'das zu lösende Problem', to: 'the problem to be solved' },
+    ],
+  },
+  {
+    label: 'Reading it',
+    body: 'Unpack to a relative clause with müssen or können. «die noch zu klärenden Punkte» → die Punkte, die noch geklärt werden müssen.',
+  },
+];
+
+LESSONS['C2::Gehobene Konnektoren'] = [
+  {
+    body: 'The connectors that mark a text as literary, legal or academic. At C2 the skill is knowing the relation *and* the register — several of these would be absurd in conversation.',
+  },
+  {
+    label: 'The set',
+    pairs: [
+      { from: 'gleichwohl', to: 'nevertheless — adverb, verb stays second' },
+      { from: 'indes(sen)', to: 'however, meanwhile' },
+      { from: 'sofern', to: 'provided that — subordinating, verb last' },
+      { from: 'zumal', to: 'especially since — subordinating' },
+      { from: 'ungeachtet + G', to: 'notwithstanding — preposition' },
+      { from: 'mithin', to: 'consequently' },
+    ],
+  },
+  {
+    label: 'They are not all the same word class',
+    body: 'This is the trap. gleichwohl and indessen are adverbs and keep the verb in second position; sofern and zumal are conjunctions and send it to the end; ungeachtet is a preposition and takes the genitive. Register does not exempt you from syntax.',
+    examples: [
+      { de: 'Die Kosten stiegen; gleichwohl blieb die Nachfrage stabil.', en: 'adverb — verb second.' },
+      { de: 'Wir kommen, sofern es das Wetter erlaubt.', en: 'conjunction — verb last.' },
+    ],
+  },
+  {
+    label: 'zumal adds weight to a reason already given',
+    body: 'It does not simply mean weil. It marks the following reason as the *decisive* one on top of others.',
+    examples: [{ de: 'Wir sollten früher aufbrechen, zumal es schneien soll.', en: 'especially as it is supposed to snow.' }],
+  },
+  {
+    label: 'Register is a choice, and it can be wrong',
+    body: 'Using these in speech sounds like reading aloud from a contract. C2 is judged on matching the register to the situation, and reaching for the most elevated option regardless is itself an error.',
+  },
+];
+
+LESSONS['C2::Idiomatik & feste Wendungen'] = [
+  {
+    body: 'Idiomatic range is explicitly rewarded in the C2 Sprechen and Schreiben. What is being assessed is not how many idioms you know but whether you place them where a native would.',
+  },
+  {
+    label: 'A working handful',
+    pairs: [
+      { from: 'etw. auf die lange Bank schieben', to: 'to put something off' },
+      { from: 'jmdm. reinen Wein einschenken', to: 'to tell someone the truth' },
+      { from: 'ins Gewicht fallen', to: 'to matter, to carry weight' },
+      { from: 'den Nagel auf den Kopf treffen', to: 'to hit the nail on the head' },
+      { from: 'aus dem Rahmen fallen', to: 'to be out of the ordinary' },
+      { from: 'mit etw. hinter dem Berg halten', to: 'to keep something back' },
+    ],
+  },
+  {
+    label: 'They are fixed — that is what makes them idioms',
+    body: 'The words do not take synonyms and the grammar does not rearrange. «auf die kurze Bank schieben» is not a variation, it is a mistake, and the same goes for changing the article or the case.',
+  },
+  {
+    label: 'Register varies enormously',
+    body: 'These are not one class of expression. Some are neutral and usable in a report; others are colloquial and would jar in formal writing. Learn each with a note on where it belongs.',
+  },
+  {
+    label: 'Density is the giveaway',
+    body: 'The examiner is listening for idiom used the way a native uses it — occasionally, and to make a point. Three in a paragraph reads as a list being recited, and marks *down* rather than up.',
+  },
+];
+
 /** Fixes to a point's fallback `rule` text, expect-guarded.
  *
  *  `rule` is what renders when a point has no authored lesson, and it is also the
@@ -2449,6 +3264,37 @@ function checkOverlap(out: Problem[]) {
  *  Same check, moved left: a lesson that would not render is refused before it is
  *  applied rather than reported afterwards. Duplicating an assertion is worth it
  *  when it changes a bad write into a blocked one. */
+/** The renderer supports `**strong**` and `*em*` in a body or a limit, and nothing
+ *  else. Anything further is a structure question and belongs in a typed field —
+ *  which is the whole premise of `RuleSection`. Rejected here so the concession
+ *  cannot quietly widen into "the lessons are markdown now".
+ *
+ *  Also catches an unclosed mark, which is how the literal asterisks would come
+ *  back one at a time. */
+const UNSUPPORTED_MARKUP = /(`|~~|^\s*[-*+]\s|^\s*#{1,6}\s|\[[^\]]*\]\(|<[a-z]+>|_[^_]+_)/m;
+
+function checkMarkup(key: string, sec: RuleSection, out: Problem[]) {
+  for (const field of ['body', 'limit'] as const) {
+    const v = sec[field];
+    if (!v) continue;
+    const where = `${key} · ${sec.label ?? 'intro'}`;
+    if (UNSUPPORTED_MARKUP.test(v)) {
+      out.push({ key: where, kind: 'unsupported-markup', detail: `${field}: only **strong** and *em* render — everything else prints literally` });
+    }
+    // An odd number of unpaired asterisks means one will reach the screen.
+    const stripped = v.replace(/\*\*[^*]+\*\*/g, '').replace(/\*[^*]+\*/g, '');
+    if (stripped.includes('*')) {
+      out.push({ key: where, kind: 'stray-asterisk', detail: `${field}: an unclosed * would render as a literal asterisk` });
+    }
+  }
+  // Fields the renderer prints verbatim must contain no marks at all.
+  for (const raw of [...(sec.pairs ?? []).flatMap((p) => [p.from, p.to]), ...(sec.examples ?? []).flatMap((e) => [e.de, e.en])]) {
+    if (raw && /\*/.test(raw)) {
+      out.push({ key: `${key} · ${sec.label ?? 'intro'}`, kind: 'markup-in-verbatim', detail: 'pairs and examples are printed as-is — an asterisk there is an asterisk on screen' });
+    }
+  }
+}
+
 function checkRenderable(key: string, sec: RuleSection, out: Problem[]) {
   const where = `${key} · ${sec.label ?? 'intro'}`;
   const has = !!(sec.label || sec.body || sec.pairs?.length || sec.examples?.length);
@@ -2495,6 +3341,7 @@ async function lint(bank: Record<CEFR, GPoint[]>): Promise<Problem[]> {
     if (!point) { out.push({ key, kind: 'no-such-point', detail: 'no point in the bank with this level+title' }); continue; }
     for (const sec of secs) {
       checkRenderable(key, sec, out);
+      checkMarkup(key, sec, out);
       checkAbsolutes(key, sec, out);
       const spec = sec.label ? PARADIGM_VERB[sec.label] : undefined;
       if (spec) await checkParadigm(key, sec, spec, out);

@@ -9,7 +9,7 @@
 // header ("what am I even practising?"), and a "Why?" link on a wrong answer
 // ("I got that wrong, explain it"). Neither interrupts the session — the panel
 // opens in place and the queue is untouched.
-import { Fragment, createContext, useContext, useEffect, useState } from 'react';
+import { Fragment, createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, HelpCircle, X } from 'lucide-react';
 import { loadGrammar, findPoint, parsePointId, type GPoint, type RuleSection } from '../lib/grammar.ts';
@@ -48,11 +48,42 @@ export function usePoint(ref: { level: CEFR; title: string } | string | null) {
  *  rendered only `point.rule` — so every point carrying authored sections fell back
  *  to its paragraph on the one surface built for *reading* a rule. Two renderers,
  *  one of which had never heard of the feature. */
+/** Inline emphasis in a lesson body — `**strong**` and `*em*`, and nothing else.
+ *
+ *  The lessons were authored with emphasis because a teaching rule usually turns on
+ *  one word, and marking it is the difference between a paragraph you skim and one
+ *  you read. The renderer had no notion of it, so **62 fields across 49 points**
+ *  shipped literal asterisks on screen — caught by looking at a C2 lesson, not by
+ *  any check.
+ *
+ *  Two decisions worth recording. It returns React nodes rather than HTML: the text
+ *  is authored in-repo and not user input, but `dangerouslySetInnerHTML` on a field
+ *  that grows by 133 lessons is a standing invitation, and this costs nothing.
+ *
+ *  And it is deliberately not a markdown parser. DESIGN §RuleSection is built on
+ *  *structure rather than markup* — that is why `pairs` and `examples` are typed
+ *  fields instead of a formatting convention — so supporting two inline marks is
+ *  the whole of the concession. Anything else (links, code, headings, lists) is a
+ *  structure question and belongs in a field. `corpus:lessons` rejects the rest so
+ *  the line stays where it is. */
+export function renderInline(text: string): ReactNode[] {
+  // One pass, longest delimiter first, so `**x**` is never read as two `*x*`.
+  return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+      return <strong key={i} className="font-semibold text-txt">{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    return part;
+  });
+}
+
 export function RuleSectionBlock({ s }: { s: RuleSection }) {
   return (
     <div className="pt-2.5 mt-2.5 border-t border-line first:border-0 first:pt-0 first:mt-0">
       {s.label && <Kicker tone="accent" className="block mb-1">{s.label}</Kicker>}
-      {s.body && <p className="text-sm text-txt leading-relaxed">{s.body}</p>}
+      {s.body && <p className="text-sm text-txt leading-relaxed">{renderInline(s.body)}</p>}
       {s.pairs && s.pairs.length > 0 && (
         <div lang="de" className={`grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-x-2 gap-y-1 text-sm ${s.body ? 'mt-1.5' : ''}`}>
           {s.pairs.map((p, i) => (
@@ -79,7 +110,7 @@ export function RuleSectionBlock({ s }: { s: RuleSection }) {
           to hold to avoid marking their own correct German wrong. */}
       {s.limit && (
         <p className="mt-2 text-xs leading-relaxed border-l-2 border-accent/50 pl-2.5 text-dim">
-          <span className="font-semibold text-txt">But: </span>{s.limit}
+          <span className="font-semibold text-txt">But: </span>{renderInline(s.limit)}
         </p>
       )}
     </div>
