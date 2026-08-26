@@ -74,6 +74,14 @@ export function RuleSectionBlock({ s }: { s: RuleSection }) {
           ))}
         </ul>
       )}
+      {/* Where the rule stops. Set apart on purpose: a caveat that reads like
+          body text is a caveat nobody reads, and this is the half a learner has
+          to hold to avoid marking their own correct German wrong. */}
+      {s.limit && (
+        <p className="mt-2 text-xs leading-relaxed border-l-2 border-accent/50 pl-2.5 text-dim">
+          <span className="font-semibold text-txt">But: </span>{s.limit}
+        </p>
+      )}
     </div>
   );
 }

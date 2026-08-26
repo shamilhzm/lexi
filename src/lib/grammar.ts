@@ -66,6 +66,23 @@ export interface RuleSection {
   pairs?: { from: string; to: string }[];
   /** Standalone German examples, each optionally glossed. */
   examples?: { de: string; en?: string }[];
+  /** **Where this section's rule stops being true.**
+   *
+   *  A first-class field rather than a sentence inside `body`, because it is the
+   *  one thing this project has already been burned by and the only part of a
+   *  lesson a machine can nag about. LESSONS class 6: *Mittelfeld* shipped the
+   *  flat rule "an Akkusativ noun goes after the Angaben", which is only true of
+   *  an **indefinite** one — so a learner holding it marks correct German wrong
+   *  and trusts the verdict. The rule that came out of it is the rule here:
+   *
+   *  > Before shipping a teaching rule, write the sentence it would reject. If
+   *  > that sentence is good German, the rule is a default and must say so.
+   *
+   *  `corpus:lessons` lints for absolutes ("always", "never", "only", "all")
+   *  in a `body` that carries no `limit`, so the check is mechanical even though
+   *  the judgement is not. Rendered as a distinct block — a caveat that reads
+   *  like body text is a caveat nobody reads. */
+  limit?: string;
 }
 
 export interface GPoint {

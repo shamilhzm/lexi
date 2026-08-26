@@ -99,3 +99,24 @@ to trust it before committing a batch.
   it only ever adds genuinely new terms and never touches user (`usr:`) or grammar
   (`gram:`) cards.
 - Add fixtures + assertions to `selftest.ts` when you add a source or rule.
+
+## `lessons.ts` — grammar lessons (`npm run corpus:lessons`)
+
+Authored lessons for the Journey's nodes, applied to `grammar.json` idempotently.
+Sibling to `grammar-sections.ts`: that one broke the *longest* rules into structure,
+this one fills in the *thinnest*.
+
+Two gates, and the difference between them matters:
+
+- **factual, hard reject** — every six-person paradigm is checked against
+  `src/lib/conjugate.ts`. A claimed form the engine does not produce fails.
+- **a lint** — a body stating an absolute (*always / never / only / …*) with no
+  `limit` field fails. This cannot prove a grammar claim is true; it catches the
+  *phrasing* that produced the one wrong rule this project has shipped
+  (LESSONS class 6).
+
+```
+node scripts/corpus/lessons.ts            # dry run: lint + diff
+node scripts/corpus/lessons.ts --check    # lint only, non-zero on failure
+node scripts/corpus/lessons.ts --write    # apply
+```

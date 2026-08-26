@@ -11,6 +11,70 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — a node is a lesson now, and the gate that lets it be
+
+The journey made the real gap impossible to miss: **every node promised a concept and
+delivered a paragraph.** Measured — the bank's median rule is **193 characters**, 95 of
+133 points have no structure at all, and *Imperativ* shipped **83 characters of
+explanation against 134 exercises**. The drilling was never the thin part.
+
+**A node now opens a lesson, and the lesson opens the drill.** Read, then practise, in
+that order, with the Üben button at the bottom where finishing the reading puts you. The
+rule text is untouched and still the fallback, so a point with no authored lesson renders
+exactly as its `?` toggle always did — nothing lost anything on the day this shipped.
+
+**`RuleSection.limit` is a new first-class field**, and it exists because of the one thing
+this project has already been burned by. LESSONS class 6: *Mittelfeld* shipped the flat
+rule "an Akkusativ noun goes after the Angaben" — true only of an **indefinite** one — so
+a learner holding it marks correct German wrong and trusts the verdict. The rule that
+came out of that is the rule this field enforces:
+
+> Before shipping a teaching rule, write the sentence it would reject. If that sentence is
+> good German, the rule is a default and must say so.
+
+It renders as a set-apart **But:** block, because a caveat that reads like body text is a
+caveat nobody reads.
+
+**`npm run corpus:lessons` is the gate.** Two checks, and it is honest about which is
+which:
+
+- **Factual, and a hard reject.** A six-person paradigm is a claim about a verb, and the
+  app owns an engine that can settle it. Every conjugation table is checked against
+  `conjugate()`; a disagreement fails the build. Same standard `authoring:new` holds
+  cards to.
+- **A lint, not a proof.** A body containing *always / never / only / every / must /
+  cannot* with no `limit` fails. A machine cannot tell whether a grammar claim is true.
+  It can tell when a claim is *phrased* the way the one that shipped wrong was phrased.
+
+Both halves mutation-checked: a wrong `ihr seid → seit`, a plausible-but-wrong `du
+spielest`, and an unlimited absolute each fail on injection.
+
+**The gate caught me twice, on its first two runs.** I wrote "«Ich habe Hunger» is the
+**only** natural way to say you are hungry" — which is flat, and wrong: «Ich bin hungrig»
+is good German. That is precisely the class-6 failure, committed by the author who had
+just finished reading class 6. It now ships with a limit saying *prefer haben; do not
+mark sein wrong*. The second was a stray "English cannot do this", rephrased rather than
+exempted, because exemptions weaken a lint and rephrasing costs nothing.
+
+**Eight lessons authored, deliberately — not 133.** A1's four foundational points plus
+the four with the worst explanation-to-drilling ratio (Imperativ, Modalverben, Trennbare
+Verben, Perfekt). Class 6's standing instruction is *spot-check a sample before writing*,
+and a generator bug is four hundred bad items rather than one. The machine and the format
+are proven; scaling is now an authoring decision with a gate under it rather than a
+gamble.
+
+**Worth knowing about the limits that shipped**, because they are the substance:
+*Verbs of movement take sein* holds only with no direct object — «Ich bin gefahren» but
+«Ich habe das Auto gefahren». Stem-changing imperatives split two ways: e→i keeps the
+change (*Gib!*), a→ä loses the umlaut (*Fahr!*, never *Fähr!*). And a modal often has no
+infinitive at all — «Ich muss nach Hause» — which the old one-line rule implied was
+impossible.
+
+**Verified:** typecheck clean · lint 0 errors · 1,023 tests · `corpus:validate` PASS ·
+build clean · lesson → drill walked in the running app in both themes.
+
+---
+
 ### Shipped 2026-08-26 — the syllabus is a path, and the class list is gone
 
 **Practice's centre was six collapsed accordions**, one per CEFR level — a filing

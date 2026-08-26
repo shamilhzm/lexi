@@ -31,7 +31,7 @@
 //
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Check, ChevronDown, ChevronRight, ClipboardList, Keyboard, Loader2, MessagesSquare, Play, Printer, Search, Trophy, X } from 'lucide-react';
+import { ArrowLeft, BookOpen, Check, ChevronDown, ChevronRight, ClipboardList, Keyboard, Loader2, MessagesSquare, Play, Printer, Search, Trophy, X } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
 import { raceBests } from '../lib/exam-store.ts';
 import Race from './games/Race.tsx';
@@ -47,10 +47,12 @@ import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 import { CAN_DO } from '../lib/candos.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 
 type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope } | { kind: 'bank' }
+  | { kind: 'lesson'; level: CEFR; pi: number; point: GPoint }
   | { kind: 'race'; level: CEFR } | null;
 
 /** How the page can be entered: a word-drill mode, the mixed bank, or a named
@@ -90,6 +92,12 @@ export default function Practice({ initial = null, onExam, onPrint, onRedemittel
   if (route?.kind === 'point') return <GrammarDrill scope={route.scope} onExit={back} />;
   if (route?.kind === 'bank') return <GrammarDrill onExit={back} />;
   if (route?.kind === 'race') return <Race level={route.level} onExit={back} />;
+  if (route?.kind === 'lesson') {
+    return (
+      <Lesson level={route.level} pi={route.pi} point={route.point} onExit={back}
+        onPractise={() => setRoute({ kind: 'point', scope: { level: route.level, pi: route.pi, title: route.point.title } })} />
+    );
+  }
   return <Syllabus onRoute={setRoute} onExam={onExam} onPrint={onPrint} onRedemittel={onRedemittel} />;
 }
 
@@ -138,7 +146,7 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
           is the single most useful control on the surface: it removes the choice
           on the day you do not want to make one. */}
       {bank && <ContinueCard bank={bank} home={home}
-        onGo={(level, pi, point) => onRoute({ kind: 'point', scope: { level, pi, title: point.title } })} />}
+        onGo={(level, pi, point) => onRoute({ kind: 'lesson', level, pi, point })} />}
 
       <div className="relative mb-6">
         <label className="sr-only" htmlFor="gram-search">Search grammar concepts</label>
@@ -178,7 +186,7 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
               next={next && next.level === level ? next.pi : null}
               open={open === level}
               onToggleRules={() => setOpen((o) => (o === level ? null : level))}
-              onGo={(pi, point) => onRoute({ kind: 'point', scope: { level, pi, title: point.title } })} />
+              onGo={(pi, point) => onRoute({ kind: 'lesson', level, pi, point })} />
           ))}
         </>
       )}
@@ -726,6 +734,66 @@ function SearchResults({ hits, q, onPractise }: {
           <ChevronRight size={16} className="text-dim flex-shrink-0" />
         </Card>
       ))}
+    </div>
+  );
+}
+
+/** A lesson — the layer the journey was missing.
+ *
+ * ## Why a node no longer opens exercises
+ *
+ * Tapping a concept used to drop the learner straight into its drill, with the
+ * rule available behind a `?` toggle. That is a test with an optional textbook,
+ * and it is exactly backwards for a concept you have not met: the bank's median
+ * rule is **193 characters**, and *Imperativ* — one of the harder things an
+ * English speaker meets at A1 — shipped **83 characters of explanation against
+ * 134 exercises**. The drilling was never the thin part.
+ *
+ * So the node opens the lesson and the lesson opens the drill. Read, then
+ * practise, in that order, with the practise button at the bottom where finishing
+ * the reading puts you.
+ *
+ * The rule text is unchanged and still the fallback: a point with no authored
+ * `sections` renders its prose exactly as the `?` toggle always did, so this is
+ * additive and no concept lost anything on the day it shipped.
+ */
+function Lesson({ level, pi, point, onExit, onPractise }: {
+  level: CEFR; pi: number; point: GPoint; onExit: () => void; onPractise: () => void;
+}) {
+  useStore();
+  const stat = pointStats(level, point.title, point.exercises.length);
+  const chapter = ALL_LEVELS.indexOf(level) + 1;
+
+  return (
+    <div className="w-full max-w-[640px] mx-auto">
+      <div className="flex items-center gap-1.5 mb-3">
+        <IconButton label="Back to the journey" pull onClick={onExit}><ArrowLeft size={18} /></IconButton>
+        <Kicker className="ml-1.5">Kapitel {chapter} · {level} · Schritt {pi + 1}</Kicker>
+      </div>
+
+      <h1 lang="de" className="display text-2xl sm:text-3xl mb-1">{point.title}</h1>
+      <p className="text-dim text-sm mb-5">{point.summary}</p>
+
+      <Card pad="md" className="mb-4">
+        {point.sections?.length
+          ? point.sections.map((sec, i) => <RuleSectionBlock key={i} s={sec} />)
+          : <p className="text-sm text-txt whitespace-pre-line leading-relaxed">{point.rule}</p>}
+      </Card>
+
+      {/* The practise step. `known/count` rather than a percentage, for the reason
+          `PointRow` already gives: one correct answer puts a card in FSRS
+          *Learning*, not *Review*, so a percentage would read as a score of zero
+          for work you just did. */}
+      <div className="flex items-center gap-3 flex-wrap">
+        <Button size="lg" onClick={onPractise}>
+          <Play size={16} /> {stat.started ? 'Weiter üben' : 'Üben'}
+        </Button>
+        <span className="font-mono text-2xs text-dim tabular-nums">
+          {point.exercises.length} exercise{point.exercises.length === 1 ? '' : 's'}
+          {stat.started && ` · ${stat.known}/${stat.count} consolidated`}
+          {stat.due > 0 && ` · ${stat.due} due`}
+        </span>
+      </div>
     </div>
   );
 }
