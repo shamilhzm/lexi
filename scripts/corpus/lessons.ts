@@ -749,6 +749,648 @@ LESSONS['A1::Negation: nicht vs. kein'] = [
   },
 ];
 
+// ---- A2 -------------------------------------------------------------------
+
+LESSONS['A2::Akkusativ'] = [
+  {
+    body: 'The case for the direct object — the thing the verb acts on. German marks it, English does not, and the good news is how little actually changes.',
+  },
+  {
+    label: 'One box moves',
+    pairs: [
+      { from: 'masculine', to: 'der / ein → den / einen' },
+      { from: 'feminine', to: 'die / eine — unchanged' },
+      { from: 'neuter', to: 'das / ein — unchanged' },
+      { from: 'plural', to: 'die — unchanged' },
+    ],
+  },
+  {
+    label: 'In use',
+    examples: [
+      { de: 'Ich sehe den Mann, die Frau und das Kind.', en: 'I see the man, the woman and the child.' },
+      { de: 'Wir kaufen einen Tisch.', en: 'We are buying a table.' },
+    ],
+  },
+  {
+    label: 'It is not only about objects',
+    body: 'A group of prepositions takes the accusative whatever the verb is doing: durch, für, gegen, ohne, um. The case follows the preposition, not the meaning.',
+    examples: [{ de: 'Ich mache das für meinen Bruder.', en: 'I am doing this for my brother.' }],
+  },
+];
+
+LESSONS['A2::Personalpronomen (Akkusativ & Dativ)'] = [
+  {
+    body: 'Both object pronoun sets side by side. English collapsed these into one — "him" does both jobs — so the split is new work rather than a relabelling.',
+  },
+  {
+    label: 'Accusative and dative',
+    pairs: [
+      { from: 'ich', to: 'mich · mir' }, { from: 'du', to: 'dich · dir' },
+      { from: 'er / es', to: 'ihn / es · ihm' }, { from: 'sie', to: 'sie · ihr' },
+      { from: 'wir', to: 'uns · uns' }, { from: 'ihr', to: 'euch · euch' },
+      { from: 'sie / Sie', to: 'sie / Sie · ihnen / Ihnen' },
+    ],
+  },
+  {
+    label: 'Some verbs simply take the dative',
+    body: 'helfen, danken, gefallen, gehören, antworten, passen. There is no logic to derive — the verb carries the case as part of its meaning, so learn it with the verb.',
+    examples: [
+      { de: 'Ich helfe dir.', en: 'I am helping you — not «dich».' },
+      { de: 'Das Buch gehört mir.', en: 'The book belongs to me.' },
+    ],
+  },
+  {
+    label: 'gefallen turns the sentence around',
+    body: 'The thing that pleases is the subject and the person is the dative object — so the German sentence is built back-to-front against the English one.',
+    examples: [{ de: 'Der Film gefällt mir.', en: 'I like the film — literally, the film pleases me.' }],
+  },
+];
+
+LESSONS['A2::Dativ: Pronomen & Stellung'] = [
+  {
+    body: 'Where two objects meet, German has a fixed order — and one rule that overrides it. Getting this right is most of what makes a sentence sound arranged rather than assembled.',
+  },
+  {
+    label: 'Two nouns: dative first',
+    examples: [{ de: 'Ich gebe dem Kind den Ball.', en: 'I give the child the ball.' }],
+  },
+  {
+    label: 'A pronoun jumps in front',
+    body: 'Short and known information goes early. If either object is a pronoun it moves ahead of the noun; if the accusative is a pronoun it goes first.',
+    pairs: [
+      { from: 'Ich gebe dem Kind den Ball.', to: 'two nouns — dative first' },
+      { from: 'Ich gebe ihm den Ball.', to: 'dative pronoun, still first' },
+      { from: 'Ich gebe ihn dem Kind.', to: 'accusative pronoun — now first' },
+      { from: 'Ich gebe ihn ihm.', to: 'two pronouns — accusative first' },
+    ],
+  },
+  {
+    label: 'The shortcut worth memorising',
+    body: 'Pronouns before nouns; and between two pronouns, accusative before dative. That single line accounts for each row above.',
+  },
+];
+
+LESSONS['A2::Wechselpräpositionen'] = [
+  {
+    body: 'Nine prepositions that take either case, and the case is the meaning. This is the clearest example in German of grammar carrying information rather than decorating it.',
+  },
+  {
+    label: 'The nine',
+    pairs: [{ from: 'in, an, auf', to: 'über, unter, vor, hinter, neben, zwischen' }],
+  },
+  {
+    label: 'wo? → dative · wohin? → accusative',
+    pairs: [
+      { from: 'Die Lampe hängt über dem Tisch.', to: 'where it is — dative' },
+      { from: 'Ich hänge die Lampe über den Tisch.', to: 'where it goes — accusative' },
+      { from: 'Das Buch liegt auf dem Tisch.', to: 'dative' },
+      { from: 'Ich lege das Buch auf den Tisch.', to: 'accusative' },
+    ],
+  },
+  {
+    label: 'The verbs come in pairs too',
+    body: 'German splits the English verbs that do both jobs. Position verbs take the dative, placement verbs take the accusative, and they are irregular/regular in matching pairs.',
+    pairs: [
+      { from: 'liegen (lie) — dative', to: 'legen (lay) — accusative' },
+      { from: 'stehen (stand) — dative', to: 'stellen (stand it up) — accusative' },
+      { from: 'sitzen (sit) — dative', to: 'setzen (set) — accusative' },
+      { from: 'hängen (hang) — dative', to: 'hängen (hang it) — accusative' },
+    ],
+  },
+  {
+    label: 'Not every use is physical',
+    body: 'Fixed expressions keep a case that no longer answers a spatial question, and they have to be learned as phrases.',
+    examples: [
+      { de: 'Ich warte auf den Bus.', en: 'I am waiting for the bus — accusative, no movement anywhere.' },
+      { de: 'Ich denke an dich.', en: 'I am thinking of you — accusative again.' },
+    ],
+  },
+];
+
+LESSONS['A2::Reflexive Verben'] = [
+  {
+    body: 'Verbs whose object is the subject. German uses them far more than English does, and many have no reflexive translation at all — «sich freuen» is simply "to be glad".',
+  },
+  {
+    label: 'The pronouns',
+    pairs: [
+      { from: 'ich', to: 'mich · mir' }, { from: 'du', to: 'dich · dir' },
+      { from: 'er/sie/es', to: 'sich' }, { from: 'wir', to: 'uns' },
+      { from: 'ihr', to: 'euch' }, { from: 'sie/Sie', to: 'sich' },
+    ],
+  },
+  {
+    label: 'Accusative by default',
+    examples: [
+      { de: 'Ich freue mich auf das Wochenende.', en: 'I am looking forward to the weekend.' },
+      { de: 'Beeil dich!', en: 'Hurry up!' },
+    ],
+  },
+  {
+    label: 'Dative when something else is the object',
+    body: 'Add a direct object and the reflexive steps down to the dative — it is no longer the thing being acted on, it is who it is done for.',
+    pairs: [
+      { from: 'Ich wasche mich.', to: 'I wash — accusative' },
+      { from: 'Ich wasche mir die Hände.', to: 'I wash my hands — dative, because die Hände is now the object' },
+    ],
+  },
+  {
+    label: 'German does not say "my hands"',
+    body: 'With body parts and clothing the dative pronoun already says whose, so the possessive would be redundant and sounds wrong.',
+    examples: [{ de: 'Ich putze mir die Zähne.', en: 'I brush my teeth — not «meine Zähne».' }],
+  },
+];
+
+LESSONS['A2::Vergleiche: so … wie / als'] = [
+  {
+    body: 'Two patterns, and the trap is that English uses "than" for one and "as" for the other while German splits them the opposite way round from what learners expect.',
+  },
+  {
+    label: 'Equal — so … wie',
+    examples: [
+      { de: 'Köln ist so schön wie Bonn.', en: 'Cologne is as nice as Bonn.' },
+      { de: 'Sie ist nicht so groß wie ihr Bruder.', en: 'She is not as tall as her brother.' },
+    ],
+  },
+  {
+    label: 'Unequal — comparative + als',
+    examples: [
+      { de: 'Berlin ist größer als Köln.', en: 'Berlin is bigger than Cologne.' },
+      { de: 'Heute ist es kälter als gestern.', en: 'Today it is colder than yesterday.' },
+    ],
+  },
+  {
+    label: 'The one error everyone makes',
+    body: 'A comparative takes als, not wie. «größer wie» is the single most recognisable learner mistake in German — and you will hear native speakers say it in some regions, which does not make it standard.',
+    limit: 'Regionally, «größer wie» is genuinely common in southern Germany and Austria in speech. It is still marked wrong in every exam and every piece of writing, so treat it as dialect you may hear rather than a variant you may use.',
+  },
+];
+
+LESSONS['A2::Komparativ & Superlativ'] = [
+  {
+    body: 'German comparatives are regular in a way English is not: there is no "more beautiful" construction, and the -er ending goes on adjectives of any length.',
+    limit: 'Regular in *form*, not universal in *use*: adjectives that are already absolute — tot, schwanger, einzig — have no comparative, because there is nothing to grade. The ending would build fine; the sentence would not mean anything.',
+  },
+  {
+    label: 'The pattern',
+    pairs: [
+      { from: 'schön', to: 'schöner — am schönsten' },
+      { from: 'interessant', to: 'interessanter — am interessantesten' },
+      { from: 'klein', to: 'kleiner — am kleinsten' },
+    ],
+  },
+  {
+    label: 'Short words often take an umlaut',
+    pairs: [
+      { from: 'groß', to: 'größer — am größten' },
+      { from: 'lang', to: 'länger — am längsten' },
+      { from: 'alt', to: 'älter — am ältesten' },
+      { from: 'jung', to: 'jünger — am jüngsten' },
+    ],
+  },
+  {
+    label: 'The four irregulars',
+    pairs: [
+      { from: 'gut', to: 'besser — am besten' },
+      { from: 'viel', to: 'mehr — am meisten' },
+      { from: 'gern', to: 'lieber — am liebsten' },
+      { from: 'hoch', to: 'höher — am höchsten' },
+    ],
+  },
+  {
+    label: 'Two superlatives, two jobs',
+    body: 'After a verb, use «am …-sten». In front of a noun, the superlative is an adjective and takes an article and an ending.',
+    pairs: [
+      { from: 'Dieser Berg ist am höchsten.', to: 'after the verb' },
+      { from: 'Das ist der höchste Berg.', to: 'before the noun' },
+    ],
+  },
+];
+
+LESSONS['A2::Adjektivdeklination: indefiniter Artikel'] = [
+  {
+    body: 'When an adjective sits between an article and a noun it takes an ending, and the whole system rests on one idea: **the gender has to be visible once.** If the article shows it, the adjective relaxes. If the article does not, the adjective does the work.',
+  },
+  {
+    label: 'Where ein hides the gender, the adjective shows it',
+    body: 'ein is the same word for masculine and neuter, so it tells you nothing. In exactly those three slots the adjective takes the strong ending instead.',
+    pairs: [
+      { from: 'Nom. m.', to: 'ein neu**er** Laden' },
+      { from: 'Nom./Akk. n.', to: 'ein schön**es** Licht' },
+      { from: 'everything else', to: 'the weak ending -en, or -e' },
+    ],
+  },
+  {
+    label: 'The full picture',
+    pairs: [
+      { from: 'Nom. m.', to: 'ein neuer Laden' },
+      { from: 'Akk. m.', to: 'einen neuen Laden' },
+      { from: 'Nom./Akk. f.', to: 'eine schöne Wohnung' },
+      { from: 'Nom./Akk. n.', to: 'ein schönes Licht' },
+      { from: 'Dativ', to: 'in einem neuen Laden · in einer schönen Wohnung' },
+      { from: 'Plural (kein/mein)', to: 'keine neuen Läden' },
+    ],
+  },
+  {
+    label: 'The shortcut',
+    body: 'Three endings differ from -en: the masculine nominative -er, the neuter -es, and the feminine -e. Learn those three and default everything else to -en.',
+  },
+];
+
+LESSONS['A2::Adjektivdeklination: ohne Artikel'] = [
+  {
+    body: 'With no article at all, nothing is left to mark the gender — so the adjective takes the ending the article would have had. Same principle as the ein-words, taken to its conclusion.',
+  },
+  {
+    label: 'The adjective becomes the article',
+    pairs: [
+      { from: 'der → Nom. m.', to: 'schöner Blick' },
+      { from: 'das → Nom./Akk. n.', to: 'leckeres Frühstück' },
+      { from: 'die → Nom./Akk. f.', to: 'schöne Lage' },
+      { from: 'die → plural', to: 'regionale Produkte' },
+      { from: 'dem → Dativ', to: 'mit günstigen Zimmern' },
+    ],
+  },
+  {
+    label: 'Where you actually meet it',
+    body: 'Uncountables, plurals without a determiner, and — above all — advertising and menus, which drop articles to save space. Recognising the pattern matters more than producing it at A2.',
+    examples: [
+      { de: 'Wir trinken kalten Kaffee.', en: 'We are drinking cold coffee.' },
+      { de: 'Zimmer mit schöner Aussicht', en: 'Room with a lovely view — a listing, not a sentence.' },
+    ],
+  },
+];
+
+LESSONS['A2::Nebensätze: wenn & als'] = [
+  {
+    body: 'English has one word — "when" — and German splits it by how often and by when. Choosing wrongly is not ambiguous, it is simply wrong, so this is worth getting straight early.',
+  },
+  {
+    label: 'als — one completed thing in the past',
+    examples: [
+      { de: 'Als ich 18 war, bin ich nach Berlin gezogen.', en: 'When I was 18, I moved to Berlin.' },
+      { de: 'Als wir ankamen, hat es geregnet.', en: 'When we arrived, it was raining.' },
+    ],
+  },
+  {
+    label: 'wenn — repeated, or present and future',
+    examples: [
+      { de: 'Immer wenn ich müde bin, trinke ich Kaffee.', en: 'Whenever I am tired, I drink coffee.' },
+      { de: 'Wenn es regnet, bleiben wir hier.', en: 'If / when it rains, we will stay here.' },
+    ],
+  },
+  {
+    label: 'The test',
+    body: 'Past **and** once → als. Anything else → wenn.',
+  },
+  {
+    label: 'Both send the verb to the end',
+    body: 'A subordinate clause puts its conjugated verb last. If the subordinate clause comes first, the whole clause fills slot one — so the main verb follows immediately, and two verbs end up side by side.',
+    examples: [{ de: 'Wenn es regnet, bleiben wir hier.', en: 'Note «regnet, bleiben» — comma, then the two verbs meet.' }],
+  },
+];
+
+LESSONS['A2::Passiv Präsens'] = [
+  {
+    body: 'The passive moves the action to the front and the doer out of the way. German uses it far more than English in signs, instructions and anything institutional — which is where you will meet it first.',
+  },
+  {
+    label: 'werden + Partizip II',
+    pairs: [
+      { from: 'active', to: 'Man spricht hier Deutsch.' },
+      { from: 'passive', to: 'Hier wird Deutsch gesprochen.' },
+      { from: 'active', to: 'Der Techniker repariert das Gerät.' },
+      { from: 'passive', to: 'Das Gerät wird repariert.' },
+    ],
+  },
+  {
+    label: 'werden conjugates, the participle sits at the end',
+    body: 'Same bracket as the modals and the Perfekt: the finite verb takes position two, the non-finite part goes last. Third structure, same frame.',
+    examples: [{ de: 'Die Formulare werden am Eingang ausgeteilt.', en: 'The forms are handed out at the entrance.' }],
+  },
+  {
+    label: 'Naming the doer, when you must',
+    body: 'von for a person or agent, durch for a means. Most passive sentences name nobody, which is usually the reason for choosing the passive at all.',
+    examples: [{ de: 'Das Haus wurde von einem Architekten geplant.', en: 'The house was designed by an architect.' }],
+  },
+  {
+    label: 'werden also means "to become"',
+    body: 'On its own werden is a full verb with its own meaning, and it is the participle at the end that tells you which one you are looking at.',
+    pairs: [
+      { from: 'Er wird Arzt.', to: 'He is becoming a doctor.' },
+      { from: 'Er wird operiert.', to: 'He is being operated on.' },
+    ],
+  },
+];
+
+LESSONS['A2::Temporalsätze: seit(dem) & bis'] = [
+  {
+    body: 'Two subordinating conjunctions that mark the ends of a stretch of time — where it began, and where it stops.',
+  },
+  {
+    label: 'seit(dem) — the starting point of something still going',
+    examples: [
+      { de: 'Seitdem ich in Köln wohne, fahre ich Rad.', en: 'Since I have been living in Cologne, I cycle.' },
+    ],
+  },
+  {
+    label: 'bis — the end point',
+    examples: [
+      { de: 'Ich warte, bis du kommst.', en: 'I will wait until you come.' },
+    ],
+  },
+  {
+    label: 'German keeps the present tense here',
+    body: 'This is the tense mismatch English speakers carry over. A situation that started in the past and is still true takes the **present** in German, where English needs a perfect.',
+    pairs: [
+      { from: 'Ich wohne seit drei Jahren hier.', to: 'I have been living here for three years.' },
+      { from: 'Ich lerne seit Januar Deutsch.', to: 'I have been learning German since January.' },
+    ],
+  },
+  {
+    label: 'seit the preposition, seitdem the conjunction',
+    body: 'seit + a noun phrase in the dative; seitdem + a whole clause with its verb at the end. Both translate as "since", and mixing them is the usual slip.',
+    pairs: [
+      { from: 'seit + noun', to: 'seit drei Jahren' },
+      { from: 'seitdem + clause', to: 'seitdem ich hier wohne' },
+    ],
+  },
+];
+
+LESSONS['A2::Frageartikel & Demonstrativartikel'] = [
+  {
+    body: 'Two der-words that work as a pair in conversation: one asks which of several, the other answers by pointing.',
+  },
+  {
+    label: 'The endings are the article’s',
+    pairs: [
+      { from: 'masculine', to: 'welcher / dieser' },
+      { from: 'feminine', to: 'welche / diese' },
+      { from: 'neuter', to: 'welches / dieses' },
+      { from: 'accusative m.', to: 'welchen / diesen' },
+    ],
+  },
+  {
+    label: 'Asking and answering',
+    examples: [
+      { de: 'Welches Hemd nimmst du? — Dieses hier.', en: 'Which shirt are you taking? — This one.' },
+      { de: 'In welcher Straße wohnst du?', en: 'Which street do you live on?' },
+    ],
+  },
+  {
+    label: 'German has no separate word for "one"',
+    body: 'English props the demonstrative up with "one" — this one, which ones. German lets the ending carry it, and adding a word for "one" is a recognisable English intrusion.',
+    examples: [{ de: 'Welche möchten Sie? — Diese.', en: 'Which ones would you like? — These.' }],
+  },
+];
+
+LESSONS['A2::Indirekte Fragesätze'] = [
+  {
+    body: 'A question folded inside another sentence. It is the standard way to be polite in German — «Wo ist der Bahnhof?» is fine, but «Können Sie mir sagen, wo der Bahnhof ist?» is what you actually say to a stranger.',
+  },
+  {
+    label: 'W-questions keep their W-word',
+    pairs: [
+      { from: 'Wann fährt der Zug?', to: 'Wissen Sie, wann der Zug fährt?' },
+      { from: 'Wo ist die Post?', to: 'Können Sie mir sagen, wo die Post ist?' },
+    ],
+  },
+  {
+    label: 'Yes/no questions need ob',
+    body: 'There is no W-word to reuse, so ob does the job. English uses "if" or "whether"; German uses ob for this, and «wenn» is the conditional — a different word for a different job.',
+    pairs: [
+      { from: 'Kommt er?', to: 'Ich weiß nicht, ob er kommt.' },
+    ],
+  },
+  {
+    label: 'The verb goes to the end',
+    body: 'The embedded question is a subordinate clause, so it loses the question word order entirely — no inversion, verb last. Keeping the inversion is the commonest mistake.',
+    examples: [
+      { de: 'Wissen Sie, wann der Zug fährt?', en: 'Do you know when the train leaves? — not «wann fährt der Zug».' },
+    ],
+  },
+];
+
+LESSONS['A2::Konjunktiv II: Wünsche & Vorschläge'] = [
+  {
+    body: 'The polite register. At A2 you need four forms and two jobs — wishing for something, and suggesting something without pushing.',
+  },
+  {
+    label: 'The four you need',
+    pairs: [
+      { from: 'sein', to: 'wäre' }, { from: 'haben', to: 'hätte' },
+      { from: 'können', to: 'könnte' }, { from: 'anything else', to: 'würde + infinitive' },
+    ],
+  },
+  {
+    label: 'Wishes — hätte / wäre, usually with gern',
+    examples: [
+      { de: 'Ich hätte gern ein bisschen Ruhe.', en: 'I would like a bit of quiet.' },
+      { de: 'Das wäre schön.', en: 'That would be nice.' },
+    ],
+  },
+  {
+    label: 'Suggestions — könnte, würde',
+    examples: [
+      { de: 'Wir könnten ins Kino gehen.', en: 'We could go to the cinema.' },
+      { de: 'Würden Sie mir bitte helfen?', en: 'Would you help me, please?' },
+    ],
+  },
+  {
+    label: 'It is politeness, not tense',
+    body: 'The forms look like a past tense and are not one. «Ich hätte gern» is a request happening now — the distance is social, not temporal, exactly as English "I would like" is not about the past.',
+  },
+  {
+    label: 'Say hätte, not würde haben',
+    body: 'sein, haben and the modals have their own one-word Konjunktiv II and use it. Building «würde haben» is understood and marks you out immediately.',
+    limit: 'For nearly every other verb, würde + infinitive is the normal spoken form and the synthetic one (führe, gäbe, käme) sounds literary. So the rule is the reverse of what it looks like: the short form for these six, würde for the rest.',
+  },
+];
+
+LESSONS['A2::Verbindungsadverbien: trotzdem & deshalb'] = [
+  {
+    body: 'These join two **main** clauses, and that is the whole difficulty: they look like conjunctions and behave like adverbs, so the verb does not go to the end.',
+  },
+  {
+    label: 'What each one means',
+    pairs: [
+      { from: 'deshalb / deswegen / darum', to: 'that is why — consequence' },
+      { from: 'trotzdem', to: 'even so — concession' },
+    ],
+  },
+  {
+    label: 'In slot one, they push the subject behind the verb',
+    examples: [
+      { de: 'Tommy mag Tiger. Deshalb möchte er in den Zoo gehen.', en: 'Tommy likes tigers. That is why he wants to go to the zoo.' },
+      { de: 'Es hat geregnet. Trotzdem sind wir spazieren gegangen.', en: 'It rained. We went for a walk even so.' },
+    ],
+  },
+  {
+    label: 'Compare with weil and obwohl',
+    body: 'Same meanings, different machinery. weil and obwohl are subordinating conjunctions and send the verb to the end; deshalb and trotzdem are adverbs and keep it in position two. Knowing which word you have chosen tells you where the verb goes.',
+    pairs: [
+      { from: 'Er geht in den Zoo, weil er Tiger mag.', to: 'verb last' },
+      { from: 'Er mag Tiger. Deshalb geht er in den Zoo.', to: 'verb second' },
+    ],
+  },
+];
+
+LESSONS['A2::Lokale Präpositionen: Wegbeschreibung'] = [
+  {
+    body: 'The vocabulary for giving and following directions. Each preposition carries a fixed case, and the case does not shift with meaning here — so these can be learned as set phrases.',
+  },
+  {
+    label: 'Accusative',
+    pairs: [
+      { from: 'durch', to: 'durch den Park — through' },
+      { from: 'über', to: 'über die Straße — across' },
+      { from: '… entlang', to: 'die Straße entlang — along, and it follows its noun' },
+    ],
+  },
+  {
+    label: 'Dative',
+    pairs: [
+      { from: 'an … vorbei', to: 'am See vorbei — past' },
+      { from: 'gegenüber', to: 'gegenüber der Post — opposite' },
+      { from: 'bis zu', to: 'bis zur Ampel — as far as' },
+    ],
+  },
+  {
+    label: 'Where you came from',
+    body: 'aus for coming out of an enclosed space, von for coming from a point or a person.',
+    pairs: [
+      { from: 'aus dem Hotel', to: 'out of the hotel' },
+      { from: 'vom Arzt', to: 'from the doctor’s' },
+    ],
+  },
+  {
+    label: 'entlang and vorbei come after',
+    body: 'Two of these are postpositions — they sit behind the noun rather than in front of it, which is why a sentence built the English way round sounds wrong even with the right case.',
+    examples: [{ de: 'Gehen Sie die Straße entlang und am Kino vorbei.', en: 'Go along the street and past the cinema.' }],
+  },
+];
+
+LESSONS['A2::Verb: lassen'] = [
+  {
+    body: 'One verb, three everyday meanings, and the useful one at A2 is the one English needs a whole construction for: having something done by somebody else.',
+  },
+  {
+    label: 'The forms — note the umlaut',
+    pairs: [
+      { from: 'ich', to: 'lasse' }, { from: 'du', to: 'lässt' }, { from: 'er/sie/es', to: 'lässt' },
+      { from: 'wir', to: 'lassen' }, { from: 'ihr', to: 'lasst' }, { from: 'sie/Sie', to: 'lassen' },
+    ],
+  },
+  {
+    label: 'lassen + infinitive — have it done',
+    examples: [
+      { de: 'Sie lässt ihr Konto prüfen.', en: 'She is having her account checked — by someone else.' },
+      { de: 'Sie sollten die Reifen wechseln lassen.', en: 'You should have the tyres changed.' },
+    ],
+  },
+  {
+    label: 'lassen + infinitive — let someone do it',
+    body: 'Same construction, and context decides which reading. German does not distinguish them the way English does with "have" and "let".',
+    examples: [{ de: 'Lass mich das machen.', en: 'Let me do that.' }],
+  },
+  {
+    label: 'lassen on its own — leave behind',
+    examples: [{ de: 'Ich habe meinen Schlüssel zu Hause gelassen.', en: 'I left my key at home.' }],
+  },
+];
+
+LESSONS['A2::Wortbildung: Adjektive'] = [
+  {
+    body: 'German builds new adjectives out of old ones rather than borrowing, which means a suffix you recognise turns an unknown word into a guessable one. This is the cheapest vocabulary you will ever gain.',
+  },
+  {
+    label: 'The productive suffixes',
+    pairs: [
+      { from: '-los', to: 'without — arbeitslos, hoffnungslos' },
+      { from: '-bar', to: 'able to be — benutzbar, essbar' },
+      { from: '-ig', to: 'having the quality of — eisig, sonnig' },
+      { from: '-isch', to: 'of that kind — stürmisch, kindisch' },
+    ],
+  },
+  {
+    label: 'un- reverses',
+    pairs: [
+      { from: 'interessant', to: 'uninteressant' },
+      { from: 'angenehm', to: 'unangenehm' },
+      { from: 'freundlich', to: 'unfreundlich' },
+    ],
+    limit: 'un- is not the reverser for every adjective. The opposite of «schön» is «hässlich», not «unschön» — and where both exist they differ: «unschön» means unfortunate or unpleasant, not ugly. Recognise un-; do not manufacture it.',
+  },
+  {
+    label: '-isch can be neutral or rude',
+    body: 'On a nationality it is plain — spanisch, dänisch. On a person it usually carries judgement: kindisch is childish, not childlike, and kindlich is the neutral word.',
+  },
+];
+
+LESSONS['A2::Wortbildung: Nomen & Diminutiv'] = [
+  {
+    body: 'Three patterns that produce a large share of German nouns — and each one hands you the gender for free, which is the real prize.',
+  },
+  {
+    label: '-ung: a verb becomes a thing, and it is die',
+    pairs: [
+      { from: 'senden', to: 'die Sendung' },
+      { from: 'wohnen', to: 'die Wohnung' },
+      { from: 'meinen', to: 'die Meinung' },
+    ],
+  },
+  {
+    label: '-er / -in: the person doing it',
+    pairs: [
+      { from: 'arbeiten', to: 'der Arbeiter / die Arbeiterin' },
+      { from: 'lehren', to: 'der Lehrer / die Lehrerin' },
+    ],
+  },
+  {
+    label: 'Compounds take the gender of the last noun',
+    body: 'German stacks nouns into one word, and the final element decides the article — so an arbitrarily long compound is as easy as its last piece.',
+    pairs: [
+      { from: 'die Arbeit + der Kollege', to: 'der Arbeitskollege' },
+      { from: 'der Bahnhof + die Straße', to: 'die Bahnhofstraße' },
+    ],
+  },
+  {
+    label: '-chen makes it small, and neuter',
+    body: 'The diminutive umlauts the stem where it can and turns the noun neuter whatever it was before. This is why «das Mädchen» is neuter — it is a diminutive, not a statement about girls.',
+    pairs: [
+      { from: 'der Bär', to: 'das Bärchen' },
+      { from: 'die Katze', to: 'das Kätzchen' },
+      { from: 'das Brot', to: 'das Brötchen' },
+    ],
+  },
+];
+
+LESSONS['A2::Präpositionen: von … an, über, ohne'] = [
+  {
+    body: 'Three prepositions doing jobs that are not their usual ones — which is why they are grouped here rather than filed under place.',
+  },
+  {
+    label: 'von … an + Dativ — from a point onward',
+    examples: [
+      { de: 'Von Oktober an wohne ich in Wien.', en: 'From October on I will be living in Vienna.' },
+      { de: 'Von morgen an mache ich Sport.', en: 'From tomorrow on I am doing sport.' },
+    ],
+  },
+  {
+    label: 'über + Akkusativ — for a duration',
+    body: 'The spatial über means above. With a length of time it means more than, or right through.',
+    examples: [{ de: 'über eine Stunde Aufenthalt', en: 'over an hour’s stopover' }],
+  },
+  {
+    label: 'ohne + Akkusativ — and no article',
+    body: 'ohne usually drops the indefinite article, where English keeps it.',
+    examples: [
+      { de: 'ohne lauten Verkehr', en: 'without loud traffic' },
+      { de: 'Ich trinke Kaffee ohne Zucker.', en: 'I drink coffee without sugar — not «ohne einen Zucker».' },
+    ],
+  },
+];
+
 /** Fixes to a point's fallback `rule` text, expect-guarded.
  *
  *  `rule` is what renders when a point has no authored lesson, and it is also the
@@ -828,8 +1470,17 @@ async function checkParadigm(key: string, sec: RuleSection, spec: ParadigmSpec, 
  *  check ends up with more waivers than teeth. */
 const stripQuoted = (t: string) => t.replace(/«[^»]*»/g, ' ').replace(/"[^"]*"/g, ' ').replace(/“[^”]*”/g, ' ');
 
+/** Fixed English phrases where the trigger word is not a quantifier. "no article at
+ *  all" is an intensifier; "above all" means chiefly; "first of all" is an ordinal.
+ *  None of them makes a claim that could reject a German sentence.
+ *
+ *  Kept to an explicit, short list rather than anything clever — this is a hole in
+ *  the check and every hole should be legible. If it grows past a dozen, the lint is
+ *  probably testing the wrong thing. */
+const IDIOMS = /\b(?:at all|above all|first of all|after all|all the same|all in all|not at all)\b/gi;
+
 function checkAbsolutes(key: string, sec: RuleSection, out: Problem[]) {
-  const text = stripQuoted(sec.body ?? '');
+  const text = stripQuoted(sec.body ?? '').replace(IDIOMS, ' ');
   if (!ABSOLUTES.test(text)) return;
   if (sec.limit) return;
   if (EXEMPT[`${key}::${sec.label ?? 'intro'}`]) return;
@@ -867,6 +1518,7 @@ async function lint(bank: Record<CEFR, GPoint[]>): Promise<Problem[]> {
     'können — the shape they all share': { verb: 'können', tense: 'praesens' },
     'war — was / were': { verb: 'sein', tense: 'praeteritum' },
     'hatte — had': { verb: 'haben', tense: 'praeteritum' },
+    'The forms — note the umlaut': { verb: 'lassen', tense: 'praesens' },
   };
 
   for (const [key, fix] of Object.entries(RULE_FIXES)) {

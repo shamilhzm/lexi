@@ -11,6 +11,54 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — A1 and A2 are taught, not just drilled
+
+**53 lessons, both beginner levels complete.** 79 of 133 points now carry structure,
+up from 46. Every A1 and A2 node opens something worth reading before it opens a drill.
+
+**The gate was wrong once, and that was the important one.** It reported twelve wrong
+Präteritum forms for war/hatte. The forms were correct — `checkParadigm` only ever
+compared against `praesens`, so registering a past-tense table produced twelve confident
+errors against good German. A gate that cries wolf gets its output skimmed, and the next
+real failure rides through with it, so this was worse than a missed check. Paradigms now
+declare their tense.
+
+**And it caught a lesson contradicting itself.** The *Verben mit Vokalwechsel* intro said
+the vowel changes in "only two places" while section four of the same page explains that
+e→i verbs carry the change into the imperative. Nobody reading top to bottom would have
+believed both.
+
+**Two systematic false-positive classes, fixed in the lint rather than waived.** With 109
+lessons still to write, an exemption per false positive is how a check ends up with more
+waivers than teeth.
+
+- **Quoted material is cited, not claimed.** `Where English says "all my friends", German
+  often says «jeder»` is not an absolute about German. «…» and "…" spans are stripped
+  before the test.
+- **Fixed English idioms are not quantifiers.** "no article at all", "above all", "first
+  of all". An explicit seven-phrase list, kept short so the hole stays legible.
+
+Both are mutation-checked to confirm they did not blunt anything: a real quantifier still
+fails, including one placed directly beside an idiom.
+
+**Real limits that shipped**, which are the part worth having:
+- *«größer wie»* is genuinely common in southern Germany and Austria in speech — and
+  still marked wrong in every exam. Dialect you will hear, not a variant you may use.
+- The -er comparative is regular in **form**, not universal in **use**: *tot*, *schwanger*
+  and *einzig* have no comparative because there is nothing to grade.
+- *un-* is not the general reverser. The opposite of *schön* is *hässlich*; *unschön*
+  exists and means something else. Recognise un-, do not manufacture it.
+- Konjunktiv II runs backwards from how it looks: the short form (*hätte*, *wäre*,
+  *könnte*) for six verbs, *würde* for everything else, where the synthetic forms sound
+  literary.
+
+**Verified:** typecheck clean · lint 0 errors · 1,032 tests · `corpus:validate` PASS ·
+lessons gate clean at 41 authored entries · build clean · walked in the running app.
+
+**Remaining: B1 29, B2 12, C1 8, C2 5.**
+
+---
+
 ### Shipped 2026-08-26 — ten fixes, and the gate catching its own author twice more
 
 A pass over what was actually outstanding rather than what was next.
