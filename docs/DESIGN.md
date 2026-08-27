@@ -591,9 +591,12 @@ Two decisions the earlier merge forced, both still right:
 - **The KPI strip is gone.** Putting the heatmap and the stats page on one surface made
   it obvious they were showing the same four numbers twice. The Known headline says it
   once.
-- **The bottom bar has no embedded FAB.** Embedding an *action* among *places* is a
-  category error. Start is a floating button above the bar, and it hides on Today, where
-  the surface already leads with one.
+- **The bottom bar holds places and nothing else.** Embedding an *action* among *places*
+  is a category error — and so, it turned out, was floating the action just above them.
+  *(Changed 2026-08-26.)* The float was a viewport-anchored 56px circle over scrollable
+  content; with five destinations it sat on top of real controls. **Start session lives in
+  the top bar at every width**, which is where §TopBar has always said actions belong:
+  places on the left, the action on the right, the person at the end. See BACKLOG #31.
 
 ### What is still not a destination
 

@@ -25,11 +25,14 @@
 //
 // ## Start session is not a destination
 //
-// It sits to the right of the bar, visually separated from the three
-// destinations, for the same reason it is not in `NAV`: it is an *action*, and
-// the bottom bar already learned that lesson once when it was a fifth item
-// raised out of the row. Same rule here — places on the left, the action on the
-// right, the person at the end.
+// It sits to the right of the bar, visually separated from the destinations, for
+// the same reason it is not in `NAV`: it is an *action*, and the bottom bar
+// already learned that lesson once when it was a fifth item raised out of the
+// row. Places on the left, the action on the right, the person at the end.
+//
+// **The bar now follows that rule at every width** (2026-08-26). It used to hold
+// the action only from `md`, which left a phone with a floating button over its
+// content — see the comment on the button itself, and BACKLOG #31.
 import { Play, Sunrise, TrendingUp, LayoutGrid, Dumbbell, BookOpenText, Flame } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { View } from '../App.tsx';
@@ -122,12 +125,37 @@ export default function TopBar({ view, onGo, onStartSession, onProfile, name, le
 
       <div className="flex-1" />
 
-      {/* The action, held apart from the places. Label hidden on the narrowest
-          phones, where the bottom bar carries its own floating start button. */}
+      {/* The action, held apart from the places — **at every width, as of
+          2026-08-26.** It used to appear only from `md`, and a phone got a
+          floating button above the bottom bar instead.
+
+          That FAB is gone. BACKLOG #31 had it as a real defect twice
+          re-confirmed and deliberately unfixed, because all four fixes on the
+          table cost something already ruled on: hiding it per-surface removes
+          the one-tap route to the *scheduled* session, docking it into the
+          bottom bar is the category error `BottomNav` rejects in its own header,
+          shrinking the map contradicts the complaint that produced the map, and
+          auto-hide leaves the overlap at rest.
+
+          The fifth option was not on the list: **put the action where the app
+          already says actions go.** `TopBar`'s own rule is "places on the left,
+          the action on the right, the person at the end" — a rule it was only
+          following above `md`. Following it at every width removes a
+          viewport-anchored 56px circle from on top of scrollable content, which
+          is what the defect actually was.
+
+          It also mattered more than when the ruling was made. The FAB covered a
+          tile *label* on one surface then; with five destinations it sits over
+          **tappable controls** on three — a Study button on Words, a path node in
+          the journey, a heatmap tile on Progress. A 56px target underneath a
+          56px circle is not a cosmetic problem.
+
+          The label goes below `sm`, where the icon alone carries it. */}
       <button onClick={onStartSession} title="Start today’s session"
-        className="tap-44 hidden md:flex items-center gap-2 bg-accent text-bg font-bold rounded-md
-          py-2 px-3.5 hover:brightness-105 transition">
-        <Play size={15} /> <span className="text-sm">Start session</span>
+        aria-label="Start today’s session"
+        className="tap-44 flex items-center gap-2 bg-accent text-bg font-bold rounded-md
+          py-2 px-2.5 sm:px-3.5 hover:brightness-105 transition">
+        <Play size={15} /> <span className="hidden sm:inline text-sm">Start session</span>
       </button>
 
       <button onClick={onProfile} title="Profile"

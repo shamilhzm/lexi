@@ -245,14 +245,14 @@ export default function App() {
         <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
 
         <main id="main" tabIndex={-1}
-          // `pb-20` on phones only: the bottom nav carries a 56px floating
-          // "start session" button 12px above it, and without a gutter the last
-          // row of content is permanently pinned underneath it — on Progress
-          // that meant a treemap tile whose label could not be read and whose
-          // tap went to the button instead (finding #31). The float still
-          // overlaps mid-scroll, which is what a floating action button is; the
-          // gutter is what makes every tile reachable by scrolling.
-          className="flex-1 overflow-y-auto bg-bg min-h-0 pb-20 sm:pb-0">
+          // The 80px phone gutter that used to be here is gone with the button
+          // it was for. It existed because a 56px floating "start session"
+          // button sat 12px above the bottom bar and pinned the last row of
+          // content underneath it (finding #31). Start session moved into the
+          // top bar, the float was deleted, and the bar is an ordinary sibling
+          // below this element rather than something overlaying it — so the
+          // route container's own `py-4` is the whole gutter now.
+          className="flex-1 overflow-y-auto bg-bg min-h-0">
           {/* The route entrance is CSS, not Framer, and deliberately so.
               It used to be `initial={{ opacity: 0 }}` inside an AnimatePresence,
               which strands the whole destination at opacity 0 whenever the
@@ -296,7 +296,7 @@ export default function App() {
           </div>
         </main>
 
-        <BottomNav view={view} onGo={go} onStartSession={startSession} />
+        <BottomNav view={view} onGo={go} />
       </div>
     </div>
   );

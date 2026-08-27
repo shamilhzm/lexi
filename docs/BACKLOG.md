@@ -1158,13 +1158,27 @@ re-measured.**
   win eight pixels trades away the finding the block exists to deliver. Grade
   buttons now clear the SE fold by 7px. *Still true at 667:* the subordinate
   first-sight line below the buttons is off-screen, and the session scrolls 42px.
-- **The FAB overlaps the treemap (#31 · XS · P1)** — **re-confirmed 2026-08-16 and
-  deliberately not fixed. Now lands on a second surface, 2026-08-26:** on **Words** it
-  sits over the trailing rows of the search results and the theme grid, covering a
-  *Study* button rather than a tile label. Same ruling, same reason — every fix on the
-  table trades something already decided — but the ruling now costs more than it did
-  when it applied to one page, and Words is the surface where the overlapped control is
-  the row's only action. Still needs a decision, not a script. It is real: the 56px *Start today's session* button is
+- ~~**The FAB overlaps the treemap (#31 · XS · P1)**~~ ✅ **Settled 2026-08-26 — by an
+  option that was never on the list.** Twice re-confirmed and twice left alone, because
+  all four candidate fixes traded something already ruled on: hiding it per-surface
+  removes the one-tap route to the *scheduled* session, docking it into the bottom bar is
+  the category error `BottomNav` rejects in its own header, shrinking the map contradicts
+  the complaint that produced the map, and auto-hide leaves the overlap at rest.
+
+  The fifth option is **put the action where this app already says actions go.**
+  `TopBar`'s own rule is *places on the left, the action on the right, the person at the
+  end* — and it was following that rule only above `md`. Start session is now in the bar
+  at every width and the floating button is deleted, which removes a viewport-anchored
+  56px circle from on top of scrollable content. That was the defect; nothing else was.
+
+  **It had also got worse than the ruling assumed.** With three destinations it covered a
+  tile *label* on one surface. With five it sat over **tappable controls** on three — a
+  *Study* button on Words, a path node in the journey, a heatmap tile on Progress. A 56px
+  target underneath a 56px circle is not cosmetic.
+
+  Verified at 320, 375 and 1280: the header does not wrap (the label drops below `sm`,
+  the icon carries it), and zero controls sit under the bottom bar on Progress. The 80px
+  phone gutter that existed only to clear the float went with it. It is real: the 56px *Start today's session* button is
   viewport-anchored above the bottom nav and sits on the map, truncating the tile
   label under it. But every fix on the table trades something the app has already
   ruled on. *Hiding it on Progress* (the rule Today uses) removes the only one-tap

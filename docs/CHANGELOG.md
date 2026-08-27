@@ -11,6 +11,68 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — the two things I kept flagging instead of fixing
+
+Both were rulings deferred rather than made.
+
+## The FAB, settled by an option that was never on the list
+
+BACKLOG #31 was twice re-confirmed and twice left alone, because all four candidate
+fixes traded something already decided: hiding it per-surface removes the one-tap route
+to the *scheduled* session, docking it into the bottom bar is the category error
+`BottomNav` rejects in its own header, shrinking the map contradicts the complaint that
+produced the map, auto-hide leaves the overlap at rest.
+
+The fifth option is **put the action where this app already says actions go.**
+`TopBar`'s own rule is *places on the left, the action on the right, the person at the
+end* — and it was following that rule only above `md`. Start session is now in the bar at
+every width, the floating button is deleted, and the 80px phone gutter that existed only
+to clear it went too.
+
+**The problem had also outgrown the ruling.** With three destinations the float covered a
+tile *label* on one surface. With five it sat over **tappable controls** on three — a
+Study button on Words, a path node in the journey, a heatmap tile on Progress. A 56px
+target under a 56px circle is not cosmetic. Verified at 320, 375 and 1280: the header does
+not wrap, and zero controls sit under the bottom bar.
+
+## Duplicate grammar points: measured and ruled, deliberately not merged
+
+Writing 133 lessons made the overlap obvious. **Merging would silently destroy a
+learner's schedule** — `gex` ids are keyed on the point *title*, so retiring a point
+orphans every FSRS record pointing at it, there is no title→title migration, and
+`gexmap.ts` is marked "do not regenerate". LESSONS is unambiguous that this class is a
+schedule migration.
+
+So `corpus:dupe-points` measures and rules instead: **38 candidate pairs, 38 hand-verified
+verdicts, 17 confirmed duplicates**, recorded in `dupe-points.tsv` the way
+`dupe-rulings.tsv` and `form-rulings.tsv` already do for cards. A *new* duplicate fails
+the check — proven by injecting one.
+
+**The detector was wrong before it was right, twice.**
+
+- Its first tokeniser dropped anything under four characters, which scored **Futur I
+  against Futur II at 1.00** — the roman numeral was the only thing telling them apart.
+  Two different tenses reported as identical. Hand-verifying three hits before trusting
+  the count is exactly what LESSONS' checklist asks for and it caught this on the first.
+- Comparing summaries as well as titles then surfaced twelve more, including the two
+  worst: **A1 carries `Possessivartikel` twice** under two spellings of one title, and
+  **present Konjunktiv II is taught at A2, B1 and B2**.
+
+**And two of my own verdicts were wrong in kind.** I filed
+`B1::Relativsätze mit Präpositionen` against `B2::Relativsätze` as a duplicate. It is not
+— the content differs, the **order** is inverted, with advanced constructions taught a
+level before the basic paradigm. That is a sequencing finding, and filing it in a
+duplicate table would have made the check appear to cover a problem it cannot see. Both
+were removed; every ruling in the table is now a pair the detector actually raises.
+
+**Verified:** typecheck clean · lint 0 errors · 1,032 tests · `corpus:validate` PASS ·
+lessons gate clean · dupe-points 38/38 ruled · build clean.
+
+**Left open, deliberately:** the 17 duplicates need a pedagogic ruling on which level
+keeps each, plus a title→title migration before anything is retired. Neither is a script.
+
+---
+
 ### Shipped 2026-08-26 — every grammar point in the bank is a lesson
 
 **133 of 133.** B2, C1 and C2 finish the set: 602 sections, **35 explicit limits**, and

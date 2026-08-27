@@ -10,38 +10,29 @@
 // other. Profile is reachable from the avatar in the bar at every width, which is
 // what let the drawer go entirely.
 //
-// The start button used to be a fifth item raised out of the bar, splitting two
-// destinations either side. With three destinations that split no longer works,
-// and embedding an *action* among *places* was always a category error. It's now
-// a floating button above the bar — and it hides on Today, where the surface
-// already leads with a full-width Start session and a second one would just be
-// the same button twice.
+// ## There is no start button here, and no longer one floating above it
+//
+// It was a fifth item raised out of the row once — embedding an *action* among
+// *places*, which is a category error. The fix at the time was to float it above
+// the bar instead. That was still wrong, just wrong somewhere else: a
+// viewport-anchored 56px circle sat on top of scrollable content, and with five
+// destinations it landed on **tappable controls** — a Study button on Words, a
+// path node in the journey, a heatmap tile on Progress.
+//
+// Start session now lives in `TopBar` at every width, which is where that file
+// has always said actions belong. This component holds places and nothing else.
+// See BACKLOG #31.
 import { motion, useReducedMotion } from 'motion/react';
-import { Play } from 'lucide-react';
 import { NAV } from './TopBar.tsx';
 import type { View } from '../App.tsx';
 
-export default function BottomNav({ view, onGo, onStartSession }: {
-  view: View; onGo: (v: View) => void; onStartSession: () => void;
+export default function BottomNav({ view, onGo }: {
+  view: View; onGo: (v: View) => void;
 }) {
   const reduce = useReducedMotion();
 
   return (
-    <div className="md:hidden flex-shrink-0 relative no-print">
-      {view !== 'today' && (
-        <motion.button
-          onClick={onStartSession}
-          aria-label="Start today’s session"
-          initial={reduce ? false : { scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 520, damping: 30 }}
-          whileTap={reduce ? undefined : { scale: 0.92 }}
-          className="absolute right-4 bottom-[calc(100%+0.75rem)] z-10 grid place-items-center
-            w-14 h-14 rounded-full bg-accent text-bg shadow-lg">
-          <Play size={22} />
-        </motion.button>
-      )}
-
+    <div className="md:hidden flex-shrink-0 no-print">
       <nav aria-label="Main" className="bg-panel border-t border-line safe-bottom">
         <div className="flex items-stretch h-[56px]">
           {NAV.map((n) => {

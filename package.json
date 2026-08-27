@@ -50,6 +50,7 @@
     "authoring:new": "node scripts/authoring/new-cards.ts",
     "corpus:gex": "node scripts/corpus/grammar-exercises.ts",
     "corpus:lessons": "node scripts/corpus/lessons.ts",
+    "corpus:dupe-points": "node scripts/corpus/dupe-points.ts",
     "corpus:papervocab": "node scripts/corpus/paper-vocab.ts",
     "corpus:genex": "node scripts/corpus/gen-exercises.ts",
     "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
