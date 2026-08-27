@@ -726,6 +726,16 @@
         "de": "Als Kind bin ich jeden Tag Rad gefahren.",
         "en": "As a child I rode my bike every day.",
         "lvl": "A2"
+      },
+      {
+        "de": "Im Sommer fahre ich jeden Tag Rad.",
+        "en": "In summer I cycle every day.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Sonntag fahren wir zusammen Rad.",
+        "en": "On Sunday we ride our bikes together.",
+        "lvl": "A2"
       }
     ]
   },
@@ -48659,21 +48669,6 @@
       {
         "de": "Er trank ein Glas puren Whisky.",
         "en": "He took a drink of whiskey neat.",
-        "lvl": "A2"
-      }
-    ]
-  },
-  "voc:A2:radfahren": {
-    "def": "cycling",
-    "ex": [
-      {
-        "de": "Im Sommer fahre ich jeden Tag Rad.",
-        "en": "In summer I cycle every day.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Am Sonntag fahren wir zusammen Rad.",
-        "en": "On Sunday we ride our bikes together.",
         "lvl": "A2"
       }
     ]

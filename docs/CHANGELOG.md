@@ -11,6 +11,49 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — everything the drill is willing to print
+
+A sweep of what the app *generates* as German, rather than what it stores. Three defects,
+each one only reachable by fixing the one before it.
+
+**A pattern card is not an infinitive.** 47 verb cards carry notation in the headword —
+`gelten als + N`, `verzichten auf + A`, `ansprechen (Person)`. Forty-six came out
+unreliable *by accident*, through a bad ending or a strong core, which is not the same as
+being refused. `gelten als + N` did not: `reliable: true`, generating «du gelten als + st»,
+which `conjDrillable` would have accepted and shown to a learner. Now refused on the shape
+of the string.
+
+**And so is a two-word verb.** The first version of that guard deliberately allowed spaces,
+reasoning that «Rad fahren» and «spazieren gehen» are real verbs and refusing them would be
+a different bug. Measuring settled it the other way: the generator appends endings to the
+whole string, so «spazieren gehen» becomes «ich spazieren gehe» and «gespazieren geht» —
+reliable, and not German. Refusing them is not a lost feature; it is the difference between
+skipping a card and printing something that does not exist.
+
+**`rad` was my own bad fix, and removing it was not the answer either.** Yesterday's prefix
+batch included `rad` so that `radfahren` would conjugate. It did — as «ich fahre rad», lower
+case, because the generator treats a prefix as a particle. *Rad* is a **noun**; `kennen` and
+`wahr` fuse into one word, a noun object never does. Taking `rad` out restored the original
+`geradfahrt`, which meant the fault was never in the prefix list at all: **the card carried
+a pre-1996 spelling.**
+
+Re-carding it to «Rad fahren» through `authoring:recard` then failed `corpus:validate` —
+because **`voc:A1:Rad fahren` already existed**. The same verb had been in the corpus twice
+under two spellings, invisible to a merge tool that matches on term equality. Correcting the
+spelling is what made it visible; `corpus:dupes` merged it on the next run. The id map
+collapses both hops, so a learner's schedule on the A2 card lands directly on the A1 keeper.
+
+**Also filed, not fixed:** relative clauses are taught in inverted order — B1 puts a
+relative pronoun after a preposition, B2 then teaches the pronoun table. Not duplication,
+which is why `corpus:dupe-points` cannot see it; moving a point between levels is a schedule
+migration and needs a pedagogic ruling first. It is in the BACKLOG now, which is where I
+said it belonged last time and did not put it.
+
+**Verified:** typecheck clean · lint 0 errors · **1,038 tests** · `corpus:validate` PASS ·
+build clean · full corpus sweep: **1,135 drillable verbs, zero rendering impossible German.**
+
+---
+
 ### Shipped 2026-08-26 — a B2 homework page, and the conjugator bug it uncovered
 
 Two pages of a B2 course book on **Vergleichssätze**. Checking whether Lexi could teach

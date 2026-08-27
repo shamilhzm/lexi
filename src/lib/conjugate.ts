@@ -464,7 +464,16 @@ const SEPARABLE = [
   // Verb-first compounds. `kennen` unlocks *kennenlernen* (lernst kennen,
   // kennengelernt); `wahr` unlocks *wahrnehmen* (nimmst wahr, wahrgenommen),
   // which is on the B2 course page this pass came from.
-  'kennen', 'wahr', 'rad',
+  //
+  // **`rad` was here for an hour and was wrong.** It made `radfahren` drillable
+  // and generated «ich fahre rad» — lower case, because the generator treats a
+  // prefix as a particle. *Rad* is a **noun**, not a prefix: post-1996 the verb is
+  // written «Rad fahren», two words, and the capital is part of it. The card's
+  // one-word spelling is itself pre-reform (filed in BACKLOG); with `rad` gone the
+  // verb is unreliable again and the drill skips it, which is the right answer
+  // until the card is respelled. The distinction that matters: `kennen` and `wahr`
+  // genuinely fuse into one word, a noun object never does.
+  'kennen', 'wahr',
   // Added 2026-08-24. Missing from the list, so `splitPrefix` never fired and the
   // weak generator treated the whole compound as a simplex — while still reporting
   // `reliable: true`, which is how a wrong form reached the drill rather than being
@@ -698,7 +707,29 @@ export function conjugate(rawVerb: string): Conjugation {
       if (inf.startsWith(p) && inf.length > p.length + 2 && /(en|n)$/.test(inf.slice(p.length))) { unstrippedSeparable = true; break; }
     }
   }
-  const reliable = !looksStrong && goodEnding && !unstrippedSeparable && !ambiguousPrefix;
+  // A headword carrying **notation** is a pattern card, not an infinitive:
+  // `gelten als + N`, `verzichten auf + A`, `ansprechen (Person)`. The corpus has
+  // 47 of them and 46 already came out unreliable by accident — through a bad
+  // ending or a strong core — which is not the same as being *rejected*. The one
+  // that did not, `gelten als + N`, was `reliable: true` and generated
+  // «du gelten als + st», so `conjDrillable` would have accepted it and the drill
+  // would have printed that to a learner.
+  //
+  // Rejected on the shape of the string rather than on the accident of what the
+  // generator does with it: `+`, `(`, `)` and `/` never appear in a German
+  // infinitive.
+  //
+  // **A space is on the list too, and the first version of this guard said it
+  // should not be.** The reasoning then was that «Rad fahren» and «spazieren
+  // gehen» are real verbs written as two words, so refusing them would be a
+  // different bug. Measuring it settled the question the other way: the generator
+  // appends endings to the *whole string*, so «spazieren gehen» comes out as
+  // «ich spazieren gehe» and «gespazieren geht» — and reports `reliable: true`
+  // while doing it. Until the generator can split a two-word verb, refusing it is
+  // not a lost feature, it is the difference between skipping a card and printing
+  // German that does not exist.
+  const isNotation = /[+()/\s]/.test(base);
+  const reliable = !isNotation && !looksStrong && goodEnding && !unstrippedSeparable && !ambiguousPrefix;
 
   return {
     infinitive: base, reflexive, aux, praesens, praeteritum, partizip,

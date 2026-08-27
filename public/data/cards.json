@@ -30363,7 +30363,9 @@
     "ipa": "ʁaːt ˈfaːʁən",
     "syn": [
       "radeln",
-      "Fahrrad fahren"
+      "Fahrrad fahren",
+      "Fahrradfahren",
+      "Radeln"
     ],
     "ant": [],
     "field": "Sport & Exercise",
@@ -56646,23 +56648,6 @@
     "plural": null,
     "ipa": "ˈheːbn̩",
     "syn": [],
-    "ant": [],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:radfahren",
-    "term": "radfahren",
-    "en": "to cycle, to ride a bike",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈʁaːtˌfaːʁən",
-    "syn": [
-      "Fahrradfahren",
-      "Radeln"
-    ],
     "ant": [],
     "field": "Fitness and training",
     "kind": "word"

@@ -442,7 +442,7 @@ describe('no verb is conjugated into an impossible participle', () => {
    *  to know whether the remainder is a verb. */
   const NOT_PREFIXED = ['antworten', 'teilen', 'wahren', 'einigen', 'herrschen', 'hindern', 'reinigen'];
 
-  const COMPOUND = ['kennenlernen', 'radfahren', 'wahrnehmen', 'reinkommen', 'klarstellen',
+  const COMPOUND = ['kennenlernen', 'wahrnehmen', 'reinkommen', 'klarstellen',
     'kaputtgehen', 'krankmelden', 'krankschreiben', 'davonkommen', 'hierbleiben', 'rausfinden',
     'rauskommen', 'reingehen', 'rausholen', 'reinschreiben', 'aufstehen', 'ankommen', 'teilnehmen',
     'mitteilen', 'zustimmen', 'einsperren', 'aufwecken', 'abwarten'];
@@ -486,5 +486,36 @@ describe('no verb is conjugated into an impossible participle', () => {
     expect(conjugate('wahrnehmen').partizip).toBe('wahrgenommen');
     expect(conjugate('klarstellen').partizip).toBe('klargestellt');
     expect(conjugate('mitteilen').partizip).toBe('mitgeteilt');
+  });
+});
+
+/* ── A pattern card is not an infinitive ─────────────────────────────────────
+ *
+ * 47 verb cards carry notation in the headword — `gelten als + N`,
+ * `verzichten auf + A`, `ansprechen (Person)`. 46 of them came out unreliable by
+ * accident (a bad ending, a strong core), which is not the same as being refused.
+ * `gelten als + N` did not, and generated «du gelten als + st» with
+ * `reliable: true`, so `conjDrillable` would have shown that to a learner.
+ * Found 2026-08-26 while auditing what the drill is willing to print.
+ */
+describe('notation in a headword is never drillable', () => {
+  it('refuses +, parentheses and slashes', () => {
+    for (const t of ['gelten als + N', 'verzichten auf + A', 'bestehen aus + D',
+      'ansprechen (Person)', 'sich konzentrieren auf + A']) {
+      expect(conjugate(t).reliable, t).toBe(false);
+    }
+  });
+
+  it('does not refuse a real verb written as two words', () => {
+    // The rule is about notation, not about spaces. Refusing these would trade one
+    // bug for another, so the guard deliberately leaves them alone.
+    expect(conjugate('spazieren gehen').infinitive).toBe('spazieren gehen');
+    expect(conjugate('Rad fahren').infinitive).toBe('Rad fahren');
+  });
+
+  it('leaves ordinary verbs drillable', () => {
+    for (const v of ['machen', 'arbeiten', 'aufstehen', 'kennenlernen', 'spielen']) {
+      expect(conjugate(v).reliable, v).toBe(true);
+    }
   });
 });

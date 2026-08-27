@@ -463,6 +463,24 @@ it turns out to be wrong.**
   accent contrast at 4.49, under AA. **Being open to an outside idea is not the same as
   accepting it; it is agreeing to test it.**
 
+- **My own fix was wrong in kind, and the second measurement caught it.** *(2026-08-26.)*
+  Having found that fourteen verbs generated impossible participles, I added the missing
+  separable prefixes — including **`rad`**, for `radfahren`. It made the verb drillable
+  and produced «ich fahre rad»: lower case, because the generator treats a prefix as a
+  particle. *Rad* is a **noun**. `kennen` and `wahr` genuinely fuse into one word; a noun
+  object never does, and post-1996 the verb is «Rad fahren», two words, capital included.
+  **Rule: after fixing a class, print what the fix now produces for every member.** The
+  first check asked "is the participle impossible?" and `radgefahren` is not impossible,
+  only wrong — a question one step narrower than the defect.
+  *And it kept going.* Removing `rad` restored the original bug for that one card, so the
+  real fault was never the prefix list: the **card** carried a pre-reform spelling.
+  Re-carding it to «Rad fahren» then failed `corpus:validate` — because
+  `voc:A1:Rad fahren` **already existed**. A duplicate had been sitting in the corpus
+  under two spellings of one verb, invisible to a merge tool that matches on term
+  equality. Correcting the spelling is what made it visible, and `corpus:dupes` merged it
+  on the next run. **Three defects in one thread, and each was only reachable by fixing
+  the one in front of it.**
+
 - **The module was stateful and my probe never configured it.** *(2026-08-26.)*
   Scanning every corpus verb through `conjugate()` for participles that cannot exist
   (`ge` + a separable prefix + stem) returned **sixteen**. Two of them —

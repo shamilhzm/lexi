@@ -1734,5 +1734,6 @@ export const ID_MAP: Record<string, string> = {
   "gex:C1:Subjektive Modalverben:14": "gex:B2:Subjektive Modalverben:14",
   "gex:C1:Subjektive Modalverben:15": "gex:B2:Subjektive Modalverben:15",
   "gex:C1:Subjektive Modalverben:16": "gex:B2:Subjektive Modalverben:16",
-  "gex:C1:Subjektive Modalverben:17": "gex:B2:Subjektive Modalverben:17"
+  "gex:C1:Subjektive Modalverben:17": "gex:B2:Subjektive Modalverben:17",
+  "voc:A2:radfahren": "voc:A1:Rad fahren"
 };

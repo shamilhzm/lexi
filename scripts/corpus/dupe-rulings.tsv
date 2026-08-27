@@ -3,6 +3,7 @@
 # Cumulative across every pass: a merged duplicate cannot be re-derived, so rows are never dropped.
 # kept	kept level/sector	retired	absorbed	note
 Rad fahren	A1/Sport & Exercise	A2/Everyday life basics	syn+ex+en	sector differs — resector?
+Rad fahren	A1/Sport & Exercise	A2/Fitness and training	syn+ex	sector differs — resector?
 abholen	A1/Core verbs	A2/Core verbs	ex	re-sectored from Miscellaneous
 absagen	A1/University & Appointments	A2/Communication	ex	sector differs — resector?
 absolvieren	B1/University & study	B2/Studies & Training	ex	sector differs — resector?

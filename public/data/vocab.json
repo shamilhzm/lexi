@@ -71239,7 +71239,9 @@
     "def": "to cycle, to ride a bike",
     "syn": [
       "radeln",
-      "Fahrrad fahren"
+      "Fahrrad fahren",
+      "Fahrradfahren",
+      "Radeln"
     ],
     "ant": [],
     "ex": [
@@ -71261,6 +71263,16 @@
       {
         "de": "Als Kind bin ich jeden Tag Rad gefahren.",
         "en": "As a child I rode my bike every day.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Sommer fahre ich jeden Tag Rad.",
+        "en": "In summer I cycle every day.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Sonntag fahren wir zusammen Rad.",
+        "en": "On Sunday we ride our bikes together.",
         "lvl": "A2"
       }
     ],
@@ -122285,36 +122297,6 @@
         "de": "Hebe die Kiste mit geradem Rücken.",
         "en": "Lift the box with a straight back.",
         "lvl": "B1"
-      }
-    ],
-    "field": "Fitness and training",
-    "kind": "word"
-  },
-  {
-    "id": "voc:A2:radfahren",
-    "term": "radfahren",
-    "en": "to cycle, to ride a bike",
-    "pos": "verb",
-    "level": "A2",
-    "gender": null,
-    "plural": null,
-    "ipa": "ˈʁaːtˌfaːʁən",
-    "def": "cycling",
-    "syn": [
-      "Fahrradfahren",
-      "Radeln"
-    ],
-    "ant": [],
-    "ex": [
-      {
-        "de": "Im Sommer fahre ich jeden Tag Rad.",
-        "en": "In summer I cycle every day.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Am Sonntag fahren wir zusammen Rad.",
-        "en": "On Sunday we ride our bikes together.",
-        "lvl": "A2"
       }
     ],
     "field": "Fitness and training",

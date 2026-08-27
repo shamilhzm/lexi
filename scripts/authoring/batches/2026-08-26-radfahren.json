@@ -1,0 +1,8 @@
+[
+  {
+    "id": "voc:A2:radfahren",
+    "expect": { "term": "radfahren", "level": "A2", "pos": "verb" },
+    "term": "Rad fahren",
+    "why": "Pre-1996 spelling. Duden has written this as two words with a capital Rad since the reform, because Rad is a noun object and not a prefix. The one-word form also made the conjugator generate «du radfahrst» and «geradfahrt» — impossible German — with reliable:true, so the drill would have printed it. As «Rad fahren» the space guard marks it unreliable and the drill skips it, which is correct until the generator can split a two-word verb."
+  }
+]

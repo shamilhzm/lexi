@@ -776,6 +776,38 @@ Four things a learner hit on an iPhone in one sitting. Two were the same bug.
   > diagnosis — plausible, documented, and not it. `primeAudio()` stays as a precaution
   > and earned no evidence. See LESSONS: instrument before fixing the likeliest cause.
 
+## Found 2026-08-26 — filed, not fixed
+
+### 🟠 Relative clauses are taught in inverted order · S · needs a relevel ruling
+
+Three points, and the middle one is the foundation:
+
+| level | point | teaches |
+|---|---|---|
+| **B1** | Relativsätze mit Präpositionen, wo & was | preposition + relative pronoun, `wo`, `was` |
+| **B2** | Relativsätze | **the paradigm itself** — der/die/das, denen, dessen/deren |
+| **C1** | Relativsätze mit wo(r)- & wessen | `worauf`, `womit`, `wessen` |
+
+A B1 learner is asked to put a relative pronoun after a preposition a level before
+being taught the pronoun table. B1→C1 is a sensible progression; **B2 is sitting in
+the wrong place inside it.**
+
+This is *not* duplication and was briefly mis-filed as such — the content genuinely
+differs, only the order is wrong. `corpus:dupe-points` cannot see it, and a ruling
+that put it there would have made that check appear to cover a problem it has no
+way to detect.
+
+**Why it is filed rather than fixed.** Moving a point between levels changes its
+`gex:<level>:<title>:<n>` ids, which is a schedule migration — the same reason the
+17 confirmed duplicates are unmerged. It also needs a pedagogic call about which
+level the paradigm belongs at, which is not a script's decision.
+
+**Do:** decide whether the B2 core moves to B1 (ahead of the prepositional point) or
+the B1 point moves to B2 (behind the core), then ship it through `corpus:relevel`
+with `ID_MAP` entries for every affected exercise id.
+
+---
+
 ## Now
 
 Ordered. The reasoning for the order is in each *Why*; the short version is that
