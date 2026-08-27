@@ -39,6 +39,21 @@ export const stripArticle = (term: string): string => term.replace(/^(der|die|da
 /** Case-insensitive, article-stripped headword — the identity used for dedupe. */
 export const lemmaKey = (term: string): string => stripArticle(term).toLowerCase();
 
+/** The headword as a *lookup key* — what to ask a dictionary for.
+ *
+ *  `term` is shaped for a flashcard: it carries the article, and where two cards
+ *  share a lemma it carries a sense parenthetical too (`die Decke (Bett)` vs the
+ *  ceiling). Sent to de.wiktionary that is a 404, and a 404 reports as "this word
+ *  is missing from the source" rather than as "you asked the wrong question"
+ *  (LESSONS class 9). Strip both, plus a reflexive `sich`.
+ *
+ *  Callers must still guard the homograph: looking up the bare lemma can return
+ *  facts for the *other* sense. `fetch-plurals` refuses any page attesting more
+ *  than one gender or more than one plural, which is what makes this safe —
+ *  `die Bank` (Bänke / Banken) is reported for a ruling, never proposed. */
+export const lookupLemma = (term: string): string =>
+  stripArticle(term).replace(/\s*\([^)]*\)\s*$/, '').replace(/^sich\s+/i, '').trim();
+
 /** The corpus id scheme (`voc:LEVEL:term`). Mirrors existing built-in cards and
  *  never collides with user words (`usr:`) or grammar (`gram:`). */
 export const cardId = (level: string, term: string): string => `voc:${level}:${term}`;

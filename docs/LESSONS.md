@@ -579,6 +579,34 @@ that is a latent version of this bug.**
 
 ---
 
+### 2026-08-27 — the guard that refused 111 correct answers
+
+`fetch-plurals` would not propose a plural for any noun ending `-ung`, `-heit`, `-keit`,
+`-ion`, `-ie`, `-ik` and nine more suffixes. The reason was sound and is written in its
+header: wiktionary attests «die Transparenzen» (overhead slides) for *Transparenz* and
+«die Höflichkeiten» (pleasantries) for *Höflichkeit*, and neither is the plural of the
+word on the card. Two real defects, correctly diagnosed.
+
+The fix generalised from two words to a suffix, and the suffix has **thousands** of
+members. `die Erinnerung → die Erinnerungen`, `die Gelegenheit → die Gelegenheiten`,
+`die Veränderung → die Veränderungen`, `die Behauptung → die Behauptungen` — all
+refused, all perfectly ordinary. 111 nouns sat unresolved behind a guard built from
+two counter-examples, and the report called every one of them *"needs a ruling on
+whether a learner should meet it"*, which reads like a considered position rather
+than a regex firing.
+
+**The discriminator was never morphological.** A card carries a plural when the plural
+means more than one of the thing the gloss names, and says `nur Singular` when the noun
+names a mass, a process, a field or a quality. That is a question about *this word's
+meaning*, so it cannot be answered by its ending — and the 199 rulings that closed it
+split roughly half and half across the very suffixes the guard treated as uniform.
+
+**Rule: when a guard's justification names two examples and the guard matches two
+thousand rows, the guard is wrong even though the examples are right.** Count what a
+new refusal actually catches before trusting the shape of it — and be most suspicious
+when the refusal message is *"needs a human ruling"*, because that phrasing makes an
+unexamined pile look like a considered one.
+
 ## Class 5 — a document asserting something the code contradicts
 
 **The rule: when two docs disagree about a fact, that is a bug with a severity, not a
@@ -792,6 +820,22 @@ permanently, and `lastSeen()` twenty lines above already validates its shape. Fi
 **Rule: when seeded state produces a crash, prove the seed is well-formed before you
 believe you broke something — and then ask whether real data could ever reach that
 shape.**
+
+**The third instance, 2026-08-27 — the same field, feeding a *network* query.** The
+authoring lookups build their de.wiktionary URL from `term`. `stripArticle` removes
+`die`, and nothing removes the sense parenthetical, so `die Decke (Bett)` was fetched
+as **`Decke (Bett)`** — a page that does not exist. Four cards reported as "no
+de.wiktionary entry" when the entry was fine and the *key* was wrong. Worse in
+`fetch-ipa`, which skips any term containing a space so as not to ask for the
+pronunciation of a phrase: the parenthetical supplies the space, so those cards were
+never even attempted. **One badly-shaped key starved two different fields, and both
+failures reported as an absence in the source rather than a defect in the caller.**
+
+That is the tell worth keeping: *this class does not report as a bug, it reports as
+missing data.* A wrong query returns nothing, and nothing looks exactly like a gap.
+The search version returned bad rankings and the IPA version returned an empty
+column; neither ever threw. **Rule, sharpened: when a lookup reports that a source is
+missing a lot of entries, print the keys it actually sent before believing the source.**
 
 ---
 

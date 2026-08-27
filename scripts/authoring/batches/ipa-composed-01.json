@@ -1,0 +1,50 @@
+[
+  {
+    "id": "voc:B2:der Einbauschrank",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nbaʊ̯ˌʃʁaŋk",
+    "src": "Einbau /ˈaɪ̯nˌbaʊ̯/ + Schrank /ʃʁaŋk/"
+  },
+  {
+    "id": "voc:A2:die Skijacke",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃiːˌjakə",
+    "src": "Ski /ʃiː/ + Jacke /ˈjakə/"
+  },
+  {
+    "id": "voc:A2:das Snowboardfahren",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈsnoːboːɐ̯tˌfaːʁən",
+    "src": "Snowboard /ˈsnoːˌboːɐ̯t/ + fahren /ˈfaːʁən/"
+  },
+  {
+    "id": "voc:A2:reinkommen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁaɪ̯nˌkɔmən",
+    "src": "rein /ʁaɪ̯n/ + kommen /ˈkɔmən/"
+  },
+  {
+    "id": "voc:A2:reingehen",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁaɪ̯nˌɡeːən",
+    "src": "rein /ʁaɪ̯n/ + gehen /ˈɡeːən/"
+  },
+  {
+    "id": "voc:A2:unpraktisch",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊnˌpʁaktɪʃ",
+    "src": "un- /ʊn/ + praktisch /ˈpʁaktɪʃ/"
+  }
+]

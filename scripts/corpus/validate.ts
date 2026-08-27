@@ -105,13 +105,27 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
       if (/\[(?:…|\.\.\.)\]/.test(de)) warnings.push({ id, msg: `${where} contains an elided passage` });
     });
     if (w.gender != null && !['der', 'die', 'das'].includes(w.gender)) errors.push({ id, msg: `bad gender ${w.gender}` });
-    if (w.kind === 'word' && w.pos === 'noun' && !w.gender) warnings.push({ id, msg: 'noun without gender' });
-    // …except a proper noun, which cannot have one. 50 country cards — Deutschland,
-    // Österreich, Kenia — carried this warning permanently, and a warning nobody can
-    // ever clear is one everybody learns to scroll past (LESSONS). The corpus writes
-    // every ordinary noun with its article, so "no article in the term" is the test.
-    // `der/die Verwandte` and its ten siblings are unaffected: they all have plurals.
+    // A proper noun has neither a gender nor a plural to state. 50 country cards —
+    // Deutschland, Österreich, Kenia — carried these warnings permanently, and a
+    // warning nobody can ever clear is one everybody learns to scroll past
+    // (LESSONS). The corpus writes every ordinary noun with its article, so "no
+    // article in the term" is the test. `der/die Verwandte` and its ten siblings
+    // are unaffected: they all carry an article.
+    //
+    // **The guard was written for the gender warning and wired to the plural one**
+    // — the evidence in this very comment is 50 *genderless* country cards, and
+    // gender went on warning about all 50 anyway. Applied to both now. Fixed
+    // 2026-08-26 while triaging why `corpus:validate` emits 273 warnings that
+    // contain no defects.
     const properNoun = w.pos === 'noun' && !/^(der|die|das)[\s/]/i.test(w.term);
+    // `der/die Angestellte` is a nominalised adjective and takes whichever article
+    // the person needs. `gender` holds one of three strings and cannot say "both",
+    // so it is null — but the term itself already says it, in the only place a
+    // learner reads. Null here is an answer, not an omission.
+    const dualGender = /^(der|die|das)\/(der|die|das)[\s/]/i.test(w.term);
+    if (w.kind === 'word' && w.pos === 'noun' && !w.gender && !properNoun && !dualGender) {
+      warnings.push({ id, msg: 'noun without gender' });
+    }
     if (w.kind === 'word' && w.pos === 'noun' && !w.plural && !properNoun) {
       warnings.push({ id, msg: 'noun without plural' });
     }
@@ -185,7 +199,16 @@ function dupeCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     const kg = w.term.toLowerCase();
     if (byTerm.has(kg)) errors.push({ id: w.id, msg: `same term as ${byTerm.get(kg)} at another level — merge with corpus:dupes` });
     else byTerm.set(kg, w.id);
-    const kl = `${w.level} ${lemmaKey(w.term)}`;
+    // Keyed on part of speech as well, because German makes pairs like this on
+    // purpose and all six the check found were correct: `morgen` (tomorrow) beside
+    // `der Morgen` (morning), `essen` beside `das Essen`, `bitte` beside `die Bitte`,
+    // `vertrauen` beside `das Vertrauen`. Those are two words, not one word twice,
+    // and warning about them taught the reader to scroll past the class — which is
+    // the failure mode this file already names for the country cards above.
+    //
+    // The net that matters is untouched: `byTerm` above still *errors* on two cards
+    // sharing a term at any level, so a genuine duplicate is caught regardless.
+    const kl = `${w.level} ${w.pos} ${lemmaKey(w.term)}`;
     if (byLevelLemma.has(kl)) warnings.push({ id: w.id, msg: `near-duplicate lemma with ${byLevelLemma.get(kl)}` });
     else byLevelLemma.set(kl, w.id);
   }

@@ -163,9 +163,16 @@ for (const row of rows) {
     // guard refused them until 2026-08-25, which meant the 420 plural-less nouns
     // could never be resolved either way: the ones that *have* no plural had no
     // way to say so.
-    const NO_PLURAL = new Set(['nur Singular', '—']);
+    //
+    // "nur Plural" was missing from that set until 2026-08-27, though the corpus
+    // carries it on 12 cards and `validate.ts` names it as a value cards legitimately
+    // hold. So a pluraletantum — `die Öffnungszeiten`, `die Unterkunftskosten`,
+    // `die Trainingsdaten` — was the one shape the tool could not record: it has no
+    // singular to inflect from and no plural distinct from its headword, and the
+    // guard read that as a malformed answer rather than a true one.
+    const NO_PLURAL = new Set(['nur Singular', 'nur Plural', '—']);
     if (!NO_PLURAL.has(next) && !/^(die|der|das)\s/.test(next)) {
-      refuse(row, 'plural must be written with its article, or be "nur Singular" / "—"');
+      refuse(row, 'plural must be written with its article, or be "nur Singular" / "nur Plural" / "—"');
       continue;
     }
     if (!row.src?.trim()) { refuse(row, 'no source given for the plural'); continue; }

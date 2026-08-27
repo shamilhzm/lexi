@@ -11,6 +11,49 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-27 — the corpus stops warning about correct German
+
+`corpus:validate` emitted **273 warnings** and **0 errors**, and had for long enough
+that the number was furniture. CI never ran it, so nothing pushed back. Triaged the
+whole pile; almost none of it was a defect in the corpus, and most of it was a defect
+in something else.
+
+- **The proper-noun exemption was wired to the wrong check.** A comment above the
+  plural warning explains that 50 country cards — *Deutschland*, *Österreich* — carry a
+  warning nobody can ever clear. That is evidence about **gender**, and gender went on
+  warning about all 50 anyway. Applied to both. 51 → 1.
+- **The lookups were asking the wrong question.** `fetch-plurals` and `fetch-ipa` built
+  their de.wiktionary URL out of `term`, which carries the sense disambiguator, so
+  `die Decke (Bett)` was fetched as `Decke (Bett)` — a 404, filed as *"no entry in the
+  source"*. `fetch-ipa` was worse: it skips terms containing a space, and the
+  parenthetical is a space, so those cards were never attempted. One badly-shaped key
+  starved two fields and **both failures reported as missing data rather than as
+  errors**. Now a shared `lookupLemma`, with tests.
+- **A dash is an assertion, not a gap.** `plural: "–"` in a Flexionstabelle means *this
+  noun has no plural*; it was being reported as malformed source data.
+- **199 plural rulings.** The abstract-suffix guard had refused 111 correct plurals on
+  the strength of two real counter-examples (see LESSONS). Ruled every one by hand on
+  the actual question — does the plural mean more than one of what the gloss names —
+  and the answer split near evenly, which is why no regex could have found it.
+- **`nur Plural` could not be written.** `fix-authored` accepted `nur Singular` and `—`
+  but not `nur Plural`, though the corpus carries it on 12 cards. A pluraletantum was
+  the one shape the tool could not record.
+- **Six compounds got a transcription without one being invented.** `Einbauschrank`,
+  `Skijacke`, `reinkommen` and three more have no wiktionary entry, because
+  dictionaries do not list every compound a language can form. `compose-ipa.ts` derives
+  each from parts that *are* attested, under a stress rule read off Lexi's own data
+  (`ˈkʁaŋkn̩ˌhaʊ̯s`, `ˈʁaʊ̯sˌkɔmən`), and refuses any split that does not spell its
+  headword exactly. Facts still never generated.
+- **Two warnings were correct silence.** `morgen`/`der Morgen` and five other pairs are
+  two words, not one word twice — the near-duplicate check now keys on part of speech.
+  `der/die Angestellte` has no single gender to record and says so in its own term.
+
+**273 → 0**, errors 0 throughout. `corpus:validate --strict` passes for the first time,
+so CI now runs it: the next warning to appear will be a real one and will stop the
+build, instead of joining a pile nobody reads.
+
+---
+
 ### Shipped 2026-08-26 — everything the drill is willing to print
 
 A sweep of what the app *generates* as German, rather than what it stores. Three defects,

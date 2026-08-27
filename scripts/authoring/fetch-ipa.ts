@@ -13,7 +13,7 @@
 //   node scripts/authoring/fetch-ipa.ts [--limit N] [--out batch.json]
 import { writeFileSync } from 'node:fs';
 import { PATHS } from '../corpus/config.ts';
-import { loadCorpus, stripArticle } from '../corpus/lib.ts';
+import { loadCorpus, lookupLemma } from '../corpus/lib.ts';
 import { wikitext, parseFacts } from './verify.ts';
 import type { Word } from '../../src/types.ts';
 
@@ -27,18 +27,24 @@ const OUT = arg('--out') ?? 'scripts/authoring/batches/ipa-lookup-01.json';
 const corpus = loadCorpus(PATHS.vocab) as Word[];
 const todo = corpus.filter((w) =>
   w.kind === 'word' && !(w.ipa ?? '').trim()
-  // A headword carrying government notation or a disambiguator is not a page
-  // title — `verzichten auf + A`, `die Heimat (Region)`.
-  && !/[+()]/.test(w.term)
+  // Government notation is not a page title — `verzichten auf + A`. A *sense*
+  // disambiguator used to be excluded here too, on the same line and for the same
+  // stated reason, which is why fixing `lookupLemma` below changed nothing on the
+  // first run: two filters read the display string and I had only fixed one.
+  // `lookupLemma` strips the parenthetical, so the page title is recoverable.
+  && !/\+/.test(w.term)
   // A multiword phrase has no single transcription on a dictionary page.
-  && !/\s/.test(stripArticle(w.term).replace(/^sich\s+/i, ''))).slice(0, LIMIT);
+  // The space test is meant to skip *phrases*, whose pronunciation is not one
+  // lookup. It ran on the display string, so a sense parenthetical counted as a
+  // phrase and `die Decke (Bett)` was never attempted (LESSONS class 9).
+  && !/\s/.test(lookupLemma(w.term))).slice(0, LIMIT);
 
 interface IpaRow { id: string; expect: { ipa: string | null }; ipa?: string; src: string }
 const rows: IpaRow[] = [];
 const unresolved: string[] = [];
 
 for (const w of todo) {
-  const lemma = stripArticle(w.term).replace(/^sich\s+/i, '').trim();
+  const lemma = lookupLemma(w.term);
   let wt: string | null = null;
   try { wt = await wikitext(lemma); } catch { unresolved.push(`${w.id} — de.wiktionary unreachable`); continue; }
   if (!wt) { unresolved.push(`${w.id} — no entry for "${lemma}"`); continue; }

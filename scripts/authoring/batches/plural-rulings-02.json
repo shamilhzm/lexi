@@ -1,0 +1,26 @@
+[
+  {
+    "id": "voc:C1:die Trainingsdaten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Plural",
+    "src": "ruling: the headword is already plural"
+  },
+  {
+    "id": "voc:B1:die Unterkunftskosten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Plural",
+    "src": "ruling: the headword is already plural"
+  },
+  {
+    "id": "voc:B1:die Öffnungszeiten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Plural",
+    "src": "ruling: the headword is already plural"
+  }
+]

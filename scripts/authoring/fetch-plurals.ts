@@ -21,7 +21,7 @@
 //   node scripts/authoring/fetch-plurals.ts [--limit N] [--out batch.json]
 import { writeFileSync } from 'node:fs';
 import { PATHS } from '../corpus/config.ts';
-import { loadCorpus, stripArticle } from '../corpus/lib.ts';
+import { loadCorpus, lookupLemma } from '../corpus/lib.ts';
 import { wikitext, parseFacts } from './verify.ts';
 import type { Word } from '../../src/types.ts';
 
@@ -33,6 +33,7 @@ const arg = (n: string): string | undefined => {
   return i >= 0 ? process.argv[i + 1] : undefined;
 };
 const LIMIT = Number(arg('--limit') ?? '80');
+const ALL = process.argv.includes('--all');
 const OUT = arg('--out') ?? 'scripts/authoring/batches/plural-lookup-01.json';
 
 const corpus = loadCorpus(PATHS.vocab) as Word[];
@@ -48,7 +49,7 @@ const unresolved: string[] = [];
 let attested = 0, singulare = 0;
 
 for (const w of todo) {
-  const lemma = stripArticle(w.term);
+  const lemma = lookupLemma(w.term);
   let wt: string | null = null;
   try { wt = await wikitext(lemma); } catch { unresolved.push(`${w.id} — de.wiktionary unreachable`); continue; }
   if (!wt) { unresolved.push(`${w.id} — no de.wiktionary entry for "${lemma}"`); continue; }
@@ -99,6 +100,16 @@ for (const w of todo) {
     // The parser strips an em-dash but not an en-dash, and `die –` would have
     // shipped as a plural. Anything that is not a word is not a plural.
     if (!/^\p{L}/u.test(form)) {
+      // A dash in the Flexionstabelle is not missing data — it is wiktionary
+      // *asserting* there is no plural, the same claim `Singularetantum` makes in
+      // words. Reporting it as "not a form" filed three correct answers
+      // (`die Teilhabe`, `das Greenwashing`, `das Musizieren`) as broken source
+      // data. Only the dashes; anything else non-alphabetic really is junk.
+      if (/^[–—―-]+$/.test(form)) {
+        rows.push({ id: w.id, expect: { plural: null }, plural: 'nur Singular', src });
+        singulare++;
+        continue;
+      }
       unresolved.push(`${w.id} — wiktionary's plural field is "${form}", not a form`);
       continue;
     }
@@ -124,5 +135,30 @@ for (const w of todo) {
 writeFileSync(OUT, JSON.stringify(rows, null, 2) + '\n');
 console.log(`\nlooked up ${todo.length} · proposed ${rows.length} (${attested} attested plural, ${singulare} nur Singular)`);
 console.log(`unresolved ${unresolved.length}`);
-for (const u of unresolved.slice(0, 20)) console.log(`   ${u}`);
+
+// A 201-row list printed 20 rows at a time tells you nothing about its shape, and
+// the shape is the whole question: "no entry in the source" is a gap somebody has
+// to fill by hand, while "attested but misleading" is a pedagogic ruling. Counting
+// them is what turns the list into a finding. (LESSONS class 1 — the numbers in the
+// report have to come from a run, not from reading the first screenful.)
+const CLASSES: [RegExp, string][] = [
+  [/no de\.wiktionary entry/, 'no entry in the source — needs authoring by hand'],
+  [/needs a ruling on whether a learner should meet it/, 'attested plural, but misleading for a learner — pedagogic ruling'],
+  [/states no plural either way/, 'entry is silent — probably "nur Singular", unconfirmed'],
+  [/wiktionary lists \d+:/, 'several attested plurals that mean different things — ruling'],
+  [/not a form/, "plural field is a dash, not a word"],
+  [/different word|belong to the other one/, 'the page covers another gender — cannot be trusted'],
+  [/unreachable/, 'network'],
+];
+const tally = new Map<string, string[]>();
+for (const u of unresolved) {
+  const hit = CLASSES.find(([re]) => re.test(u));
+  const key = hit ? hit[1] : 'unclassified';
+  (tally.get(key) ?? tally.set(key, []).get(key)!).push(u);
+}
+for (const [k, rows] of [...tally].sort((a, b) => b[1].length - a[1].length)) {
+  console.log(`\n  ${String(rows.length).padStart(4)}  ${k}`);
+  for (const u of rows.slice(0, ALL ? rows.length : 3)) console.log(`         ${u}`);
+  if (!ALL && rows.length > 3) console.log(`         … ${rows.length - 3} more (--all to list)`);
+}
 console.log(`\n✓ wrote ${OUT}\n  Next: node scripts/authoring/fix-authored.ts ${OUT} --dry\n`);

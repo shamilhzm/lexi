@@ -1,4 +1,4 @@
-# CI — typecheck, tests, build.
+# CI — typecheck, tests, build, corpus.
 #
 # This replaces `deploy.yml`, a GitHub Pages workflow that had failed on every
 # push since it was added. Its *build* job was always green; the deploy step
@@ -39,3 +39,10 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      # The corpus is data, and until 2026-08-27 nothing in CI looked at it — so
+      # `corpus:validate` had drifted to 273 warnings, none of which was a defect
+      # and all of which were noise. `--strict` fails on any warning at all, which
+      # was unusable while the baseline was 273 and is exactly right at zero: the
+      # next warning to appear will be a real one, and it will stop the build
+      # instead of joining a pile nobody reads.
+      - run: npm run corpus:validate -- --strict

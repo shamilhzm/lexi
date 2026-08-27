@@ -1,0 +1,1594 @@
+[
+  {
+    "id": "voc:A2:die Heimat (Region)",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:A2:die Forschung (Medizin)",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:die Voreingenommenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Transparenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Höflichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Selbstverwirklichung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Mitbestimmung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Motivation",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Wertschätzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Klimapolitik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Eigenverantwortung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Arbeitsteilung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Ausbeutung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Korruption",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Flexibilisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Entgrenzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Autonomie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Entfremdung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Deutungshoheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Ausgrenzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Beeinflussung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Quellenkritik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Ironie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:das Bewusstsein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Rechtsprechung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Sittlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Haftung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Ästhetik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Weitsicht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:die Überalterung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Grundlagenforschung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Pragmatik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Semantik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Individualisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Entwicklungspolitik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Unternehmensführung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Gewinnmaximierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Digitalisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Zugehörigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Volatilität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Rechenleistung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Wahlbeteiligung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Hinsicht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Gesetzgebung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Luftfeuchtigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:die Überforderung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:A2:die Sportkleidung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Dämmerung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Einwanderung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Sicherheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:die Knappheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Plausibilität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Beliebigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Hartnäckigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Kausalität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Marginalisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Stigmatisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:die Instrumentalisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:A2:die Gastronomie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Rücksichtslosigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:der Wertewandel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:der CO2-Ausstoß",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:der Stressabbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Wissenschaftskommunikation",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Sprachvielfalt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:das Traditionsbewusstsein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Generationengerechtigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:der Systemwandel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Stimmungsmache",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Mitverantwortung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Geschäftsethik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Gemeinwohlorientierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:das maschinelle Lernen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Vernetzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C2:das Erhabene",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:die Emissionsfreiheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Klimagerechtigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Globalisierungskritik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:das CSR",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Datensicherheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Zinswende",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Bürgerbeteiligung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Umsteigen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:die Stadtentwicklung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Fotografieren",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Klettern",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Joggen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Fitness-Tracking",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Aufwärmen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Abkühlen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Kulturerbe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Ski fahren",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:A2:das Snowboardfahren",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:die Zwangsläufigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:der Fernsehkonsum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Gesundheitsvorsorge",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Nachbarschaftshilfe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:A1:die Sommermode",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:C1:das Erbe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:die Früh",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:der Tau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:der Quark",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Yoga",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Tempo",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B2:das Lob",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Trinkwasser",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Angeln",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:der Eiserne Vorhang",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:B1:das Malen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "ruling: names a mass, process, field or quality — not counted"
+  },
+  {
+    "id": "voc:A2:die Freiheit (Wert)",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Freiheiten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Förderung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Förderungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Sprachkompetenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sprachkompetenzen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Auslagerung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Auslagerungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Rationalisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rationalisierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Verschlüsselung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Verschlüsselungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Mehrdeutigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Mehrdeutigkeiten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Ungewissheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ungewissheiten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Harmonie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Harmonien",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Burnout",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Burnouts",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Methodik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Methodiken",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Zivilgesellschaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Zivilgesellschaften",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Ungleichheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ungleichheiten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:der Abschwung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Abschwünge",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Hausverwaltung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hausverwaltungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Genossenschaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Genossenschaften",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Subvention",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Subventionen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Gliederung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gliederungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Erwiderung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Erwiderungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Beweisführung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Beweisführungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Zuspitzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Zuspitzungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B1:die Erinnerung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Erinnerungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B1:die Gelegenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gelegenheiten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B1:die Veränderung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Veränderungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B1:die Anstrengung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Anstrengungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Tendenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tendenzen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Grundlage",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Grundlagen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Voraussage",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Voraussagen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Behauptung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Behauptungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Auseinandersetzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Auseinandersetzungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Einschätzung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Einschätzungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Belastung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Belastungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Erleichterung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Erleichterungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Begründung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Begründungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Errungenschaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Errungenschaften",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Beeinträchtigung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Beeinträchtigungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Diskrepanz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Diskrepanzen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Ambivalenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ambivalenzen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Wechselwirkung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Wechselwirkungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Rahmenbedingung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rahmenbedingungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Gratwanderung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gratwanderungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Quintessenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Quintessenzen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Implikation",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Implikationen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Dichotomie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Dichotomien",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Antinomie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Antinomien",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Heuristik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Heuristiken",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Allegorie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Allegorien",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Ambiguität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ambiguitäten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Subtilität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Subtilitäten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Differenzierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Differenzierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A2:die Technologie",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Technologien",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B1:die Innovation",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Innovationen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Notwendigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Notwendigkeiten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Smart City",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Smart Cities",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die CO2-Steuer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die CO2-Steuern",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Qualifizierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Qualifizierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Falsifizierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Falsifizierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Peer Review",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Peer Reviews",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die interkulturelle Kompetenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die interkulturellen Kompetenzen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Ummeldung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ummeldungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Wohnungsgeberbestätigung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Wohnungsgeberbestätigungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:die Gehaltsverhandlung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gehaltsverhandlungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Einbauschrank",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Einbauschränke",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A2:die Skijacke",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Skijacken",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Diskursanalyse",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Diskursanalysen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Disruption",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Disruptionen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Pauschalisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Pauschalisierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Relativierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Relativierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Kontextualisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kontextualisierungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:die Engführung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Engführungen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Mangel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Mängel",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C2:das Narrativ",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Narrative",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A1:der Euro",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Euro",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A1:der Ort",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Orte",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A1:das Schild",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schilder",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Bruch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Brüche",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A1:der Cent",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Cent",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A1:das Licht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Lichter",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A2:der Kasten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kästen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:das Ritual",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rituale",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:das Prinzip",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Prinzipien",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Umbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Umbauten",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:das Fazit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fazits",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Speisewagen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Speisewagen",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der Faden",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fäden",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:A1:das Schwarze Brett",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schwarzen Bretter",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:B2:der ökologische Fußabdruck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die ökologischen Fußabdrücke",
+    "src": "ruling: the plural denotes more than one of the glossed thing"
+  },
+  {
+    "id": "voc:C1:die Trainingsdaten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Plural",
+    "src": "ruling: the headword is already plural"
+  },
+  {
+    "id": "voc:B1:die Unterkunftskosten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Plural",
+    "src": "ruling: the headword is already plural"
+  },
+  {
+    "id": "voc:B1:die Öffnungszeiten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Plural",
+    "src": "ruling: the headword is already plural"
+  }
+]

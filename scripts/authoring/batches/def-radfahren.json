@@ -1,0 +1,8 @@
+[
+  {
+    "id": "voc:A1:Rad fahren",
+    "expect": { "def": "to cycle, to ride a bike" },
+    "def": "To ride a bicycle. It is written as two words with Rad capitalised, because Rad is still the noun: you say ich fahre Rad, never ich radfahre. The one-word spelling radfahren was correct before the 1996 reform and is now wrong.",
+    "src": "ruling: the gloss already says \"to cycle\"; the definition should carry what the gloss cannot — the spelling and the word order"
+  }
+]
