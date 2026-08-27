@@ -463,6 +463,21 @@ it turns out to be wrong.**
   accent contrast at 4.49, under AA. **Being open to an outside idea is not the same as
   accepting it; it is agreeing to test it.**
 
+- **The module was stateful and my probe never configured it.** *(2026-08-26.)*
+  Scanning every corpus verb through `conjugate()` for participles that cannot exist
+  (`ge` + a separable prefix + stem) returned **sixteen**. Two of them —
+  `mitteilen → gemitteilt`, `zustimmen → gezustimmt` — were the probe, not the code.
+  `conjugate` splits a prefix only when the remainder is a verb it *knows*, and what it
+  knows is `SEED_ROOTS` until `setKnownVerbs()` hands it the corpus at boot. The app
+  makes that call. My script did not, so the module answered as a stranger to its own
+  vocabulary.
+  **Rule: before measuring a module, do what the app does to it first.** A pure function
+  can be called cold; one with an init step reports on a configuration nobody ships.
+  *What saved the number:* the same test then failed on `zusammen → gezusammt` — the
+  fixture was feeding a bare prefix in as a verb — and re-measuring properly, before and
+  after, gave **14 → 0**. Fourteen of the sixteen were real. The correction cost nothing
+  because it happened before the finding was written down anywhere but a terminal.
+
 - **A test passed for a reason unrelated to what it claimed to test.** *(2026-08-26.)*
   `route.ts` rejoins the tail of a hash (`parts.slice(2).join('/')`) instead of taking
   `parts[2]`, so a sector name containing a slash survives. I wrote a test for it,

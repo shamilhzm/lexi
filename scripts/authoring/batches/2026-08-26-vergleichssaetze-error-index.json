@@ -1,0 +1,10 @@
+[
+  {
+    "level": "B2",
+    "title": "Vergleichssätze mit als und wie",
+    "at": 6,
+    "expect": { "prompt": "Körpersprache richtig zu deuten ist schwieriger, wie man denkt." },
+    "answer": 6,
+    "why": "The error-token index pointed at \"schwieriger,\" (5) when the word the fix changes is \"wie\" (6). Tapping the comparative would have been marked wrong for finding the right idea in the wrong place. Caught by grammar.test.ts's shipped-bank check."
+  }
+]

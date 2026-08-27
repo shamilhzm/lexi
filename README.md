@@ -24,7 +24,7 @@ what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
 
 Measured against the shipped corpus on 2026-08-15, not estimated.
 
-- **6,622 cards** — 6,514 vocabulary and 108 grammar points, across all six CEFR levels.
+- **6,631 cards** — 6,521 vocabulary and 110 grammar points, across all six CEFR levels.
   Vocabulary by level: **A1 1,161 · A2 1,386 · B1 2,281 · B2 917 · C1 574 · C2 185**.
 - **136 grammar points · 6,130 exercises** (A1 1,654 · A2 1,748 · B1 1,725 · B2 625 ·
   C1 204 · C2 174), each point carrying a plain-English summary and rule, and each
@@ -55,7 +55,7 @@ triangle on the way to it.
   things that only appear when they apply: a comeback greeting after a gap, an honest
   backlog burn-down, the level path, and a goal line. First run leads with a ten-card
   session, then offers the placement test.
-- **Words** — *what words are there?* A search over all 6,622 cards (German or English,
+- **Words** — *what words are there?* A search over all 6,631 cards (German or English,
   umlauts optional), the nine theme groups with your coverage on each, **Decks**, and the
   **Wortkarte** — a semantic map of a sector with synonym links and node colour by
   learning status.

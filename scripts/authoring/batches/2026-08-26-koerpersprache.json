@@ -1,0 +1,37 @@
+[
+  { "term": "die Körpersprache", "en": "body language", "pos": "noun", "level": "B2", "field": "Communication",
+    "ex": [
+      { "de": "Die Körpersprache verrät oft mehr, als wir meinen.", "en": "Body language often gives away more than we think." },
+      { "de": "Im Unterricht wird die Körpersprache selten behandelt.", "en": "Body language is rarely covered in class." }
+    ] },
+  { "term": "die Gestik", "en": "gestures, gesticulation", "pos": "noun", "level": "B2", "field": "Communication",
+    "ex": [
+      { "de": "Seine Gestik wirkte auf mich sehr lebhaft.", "en": "His gestures struck me as very lively." },
+      { "de": "Die Gestik hat in anderen Kulturen oft eine andere Bedeutung.", "en": "Gestures often mean something different in other cultures." }
+    ] },
+  { "term": "die Mimik", "en": "facial expression", "pos": "noun", "level": "B2", "field": "Communication",
+    "ex": [
+      { "de": "An seiner Mimik konnte ich die Enttäuschung ablesen.", "en": "I could read the disappointment in his face." },
+      { "de": "Ich habe deine Mimik anders gedeutet, als du meinst.", "en": "I read your expression differently from how you mean it." }
+    ] },
+  { "term": "die Emotion", "en": "emotion", "pos": "noun", "level": "B1", "field": "Communication", "sameAsGerman": true,
+    "ex": [
+      { "de": "Je länger sie sprach, desto deutlicher zeigte sie ihre Emotionen.", "en": "The longer she spoke, the more clearly she showed her emotions." },
+      { "de": "Er versucht, seine Emotionen zu verbergen.", "en": "He tries to hide his emotions." }
+    ] },
+  { "term": "wahrnehmen", "en": "to perceive, to notice", "pos": "verb", "level": "B2", "field": "Communication",
+    "ex": [
+      { "de": "Botschaften der Körpersprache nehmen wir sehr schnell wahr.", "en": "We perceive body-language messages very quickly." },
+      { "de": "Ich habe den Unterschied kaum wahrgenommen.", "en": "I barely noticed the difference." }
+    ] },
+  { "term": "das Allgemeinwissen", "en": "general knowledge", "pos": "noun", "level": "B2", "field": "Education",
+    "ex": [
+      { "de": "Je mehr man liest, desto größer wird das Allgemeinwissen.", "en": "The more you read, the greater your general knowledge becomes." },
+      { "de": "Sein Allgemeinwissen hat mich wirklich beeindruckt.", "en": "His general knowledge really impressed me." }
+    ] },
+  { "term": "nonverbal", "en": "non-verbal", "pos": "adjective", "level": "B2", "field": "Communication",
+    "ex": [
+      { "de": "Man sollte die nonverbale Kommunikation stärker berücksichtigen.", "en": "Non-verbal communication should be taken into account more." },
+      { "de": "Ein großer Teil unserer Verständigung ist nonverbal.", "en": "A large part of our communication is non-verbal." }
+    ] }
+]

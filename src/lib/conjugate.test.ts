@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, beforeAll } from 'vitest';
 import { conjugate, canConjugate, setKnownVerbs } from './conjugate.ts';
 
 describe('conjugate — irregular table', () => {
@@ -406,5 +406,85 @@ describe('separable prefix over an inseparable root', () => {
     expect(c.partizip).toBe('anerkannt');
     expect(c.praesens[0]).toBe('erkenne an');
     expect(c.reliable).toBe(true);
+  });
+});
+
+/* ── ge- + a separable prefix is not a possible German word ──────────────────
+ *
+ * The ge- of a separable verb goes *inside*, after the prefix: aufgestanden, not
+ * geaufstehen. So a generated participle matching `ge` + <separable prefix> +
+ * stem is proof the prefix was never recognised and the compound was conjugated
+ * as a simplex.
+ *
+ * Found 2026-08-26 by running `conjugate` over every verb in the shipped corpus —
+ * fourteen produced one, and two of those (`kennenlernen`, `radfahren`) came back
+ * `reliable: true`, which means `conjDrillable` would have accepted them and the
+ * drill would have *printed* «du kennenlernst». VISION forbids exactly that: a
+ * drill that renders wrong German is worse than no drill.
+ *
+ * This is the third time the SEPARABLE list has been found short (see its own
+ * comments for 08-24 and this batch), which is LESSONS' standing warning about
+ * checks and indexes that enumerate their cases. The list will go short again;
+ * this makes it fail loudly instead of silently.
+ */
+describe('no verb is conjugated into an impossible participle', () => {
+  // Separable prefixes as a *test* fixture, written independently of the module's
+  // own list on purpose: asserting against the same array the code reads would
+  // only prove it equals itself.
+  const SEP = ['ab', 'an', 'auf', 'aus', 'bei', 'davon', 'ein', 'entgegen', 'fern', 'fest', 'fort',
+    'her', 'heraus', 'herein', 'hier', 'hin', 'hinein', 'kaputt', 'kennen', 'klar', 'krank', 'los',
+    'mit', 'nach', 'rad', 'raus', 'rein', 'statt', 'teil', 'vor', 'vorbei', 'wahr', 'weg', 'weiter',
+    'zu', 'zurück', 'zusammen'];
+
+  /** Verbs that merely begin with the letters of a prefix. `antworten` is not
+   *  `an` + `tworten`, and «geantwortet» is correct — so these must keep their
+   *  ge-. Listed rather than inferred, because the only way to tell them apart is
+   *  to know whether the remainder is a verb. */
+  const NOT_PREFIXED = ['antworten', 'teilen', 'wahren', 'einigen', 'herrschen', 'hindern', 'reinigen'];
+
+  const COMPOUND = ['kennenlernen', 'radfahren', 'wahrnehmen', 'reinkommen', 'klarstellen',
+    'kaputtgehen', 'krankmelden', 'krankschreiben', 'davonkommen', 'hierbleiben', 'rausfinden',
+    'rauskommen', 'reingehen', 'rausholen', 'reinschreiben', 'aufstehen', 'ankommen', 'teilnehmen',
+    'mitteilen', 'zustimmen', 'einsperren', 'aufwecken', 'abwarten'];
+
+  // **The module is stateful, and the first version of this test forgot it.**
+  // `conjugate` splits a prefix only when the remainder is a verb it knows, and
+  // what it knows is SEED_ROOTS until `setKnownVerbs` supplies the corpus at boot.
+  // Measuring without that call reported `mitteilen → gemitteilt` and
+  // `zustimmen → gezustimmt` as broken; with it, both are correct and always were.
+  // Fourteen of the sixteen "findings" survived the correction — the other two
+  // were the probe. Configure the module the way the app configures it.
+  beforeAll(() => setKnownVerbs(COMPOUND.concat(NOT_PREFIXED, [
+    'teilen', 'stimmen', 'lernen', 'nehmen', 'kommen', 'gehen', 'fahren', 'bleiben', 'finden',
+    'holen', 'stellen', 'melden', 'schreiben', 'sperren', 'wecken', 'warten',
+  ])));
+
+  it('never stacks ge- on top of a separable prefix', () => {
+    const wrong: string[] = [];
+    for (const v of COMPOUND) {
+      const p = conjugate(v).partizip;
+      if (!p.startsWith('ge')) continue;
+      if (SEP.some((s) => v.startsWith(s) && p.slice(2).startsWith(s))) wrong.push(`${v} → ${p}`);
+    }
+    expect(wrong).toEqual([]);
+  });
+
+  it('leaves verbs that only look prefixed alone', () => {
+    // The other half of the rule. Over-eager splitting would break these, and
+    // «geantwortet» becoming «antgeworted» is the failure mode.
+    expect(conjugate('antworten').partizip).toBe('geantwortet');
+    expect(conjugate('teilen').partizip).toBe('geteilt');
+    expect(conjugate('reinigen').partizip).toBe('gereinigt');
+    expect(conjugate('wahren').partizip).toBe('gewahrt');
+    for (const v of NOT_PREFIXED) expect(conjugate(v).separable, v).toBeNull();
+  });
+
+  it('splits the ones that are genuinely compound', () => {
+    expect(conjugate('kennenlernen').praesens[1]).toBe('lernst kennen');
+    expect(conjugate('kennenlernen').partizip).toBe('kennengelernt');
+    expect(conjugate('wahrnehmen').praesens[2]).toBe('nimmt wahr');
+    expect(conjugate('wahrnehmen').partizip).toBe('wahrgenommen');
+    expect(conjugate('klarstellen').partizip).toBe('klargestellt');
+    expect(conjugate('mitteilen').partizip).toBe('mitgeteilt');
   });
 });

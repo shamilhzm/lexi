@@ -207472,5 +207472,226 @@
     ],
     "field": "Numbers",
     "kind": "word"
+  },
+  {
+    "id": "gram:B2:Vergleichssätze mit als und wie",
+    "term": "Vergleichssätze mit als und wie",
+    "en": "Comparison as a full clause: verb to the end, wie for equality, als for difference.",
+    "pos": "grammar",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "Vergleichssätze are subordinate clauses and depend on an adjective, so the conjugated verb goes to the END. Equality: so/genauso + Grundform + wie. Inequality: Komparativ + als. Also anders + als and etwas/nichts anderes + als. A comma separates the clause.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
+  },
+  {
+    "id": "gram:B1:Zweiteilige Konjunktion: je … desto/umso",
+    "term": "Zweiteilige Konjunktion: je … desto/umso",
+    "en": "Two comparatives: je + Komparativ …, desto/umso + Komparativ.",
+    "pos": "grammar",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": null,
+    "def": "je + Komparativ opens a subordinate clause with the verb at the END; desto or umso + Komparativ opens the main clause, verb straight after, then the subject. A comparative is obligatory in both halves. The pair carries a conditional meaning: Je länger eine Person spricht = Wenn eine Person lange spricht.",
+    "syn": [],
+    "ant": [],
+    "ex": [],
+    "field": "Grammar",
+    "kind": "grammar"
+  },
+  {
+    "id": "voc:B2:die Körpersprache",
+    "term": "die Körpersprache",
+    "en": "body language",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈkœʁpɐˌʃpʁaːxə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Körpersprache verrät oft mehr, als wir meinen.",
+        "en": "Body language often gives away more than we think.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Unterricht wird die Körpersprache selten behandelt.",
+        "en": "Body language is rarely covered in class.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Gestik",
+    "term": "die Gestik",
+    "en": "gestures, gesticulation",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈɡeːstɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seine Gestik wirkte auf mich sehr lebhaft.",
+        "en": "His gestures struck me as very lively.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Gestik hat in anderen Kulturen oft eine andere Bedeutung.",
+        "en": "Gestures often mean something different in other cultures.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Mimik",
+    "term": "die Mimik",
+    "en": "facial expression",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈmiːmɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "An seiner Mimik konnte ich die Enttäuschung ablesen.",
+        "en": "I could read the disappointment in his face.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe deine Mimik anders gedeutet, als du meinst.",
+        "en": "I read your expression differently from how you mean it.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Emotion",
+    "term": "die Emotion",
+    "en": "emotion",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Emotionen",
+    "ipa": "emoˈt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Je länger sie sprach, desto deutlicher zeigte sie ihre Emotionen.",
+        "en": "The longer she spoke, the more clearly she showed her emotions.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er versucht, seine Emotionen zu verbergen.",
+        "en": "He tries to hide his emotions.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:wahrnehmen",
+    "term": "wahrnehmen",
+    "en": "to perceive, to notice",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaːɐ̯ˌneːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Botschaften der Körpersprache nehmen wir sehr schnell wahr.",
+        "en": "We perceive body-language messages very quickly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe den Unterschied kaum wahrgenommen.",
+        "en": "I barely noticed the difference.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Allgemeinwissen",
+    "term": "das Allgemeinwissen",
+    "en": "general knowledge",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "alɡəˈmaɪ̯nˌvɪsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Je mehr man liest, desto größer wird das Allgemeinwissen.",
+        "en": "The more you read, the greater your general knowledge becomes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sein Allgemeinwissen hat mich wirklich beeindruckt.",
+        "en": "His general knowledge really impressed me.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:nonverbal",
+    "term": "nonverbal",
+    "en": "non-verbal",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈnɔnvɛʁˌbaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man sollte die nonverbale Kommunikation stärker berücksichtigen.",
+        "en": "Non-verbal communication should be taken into account more.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein großer Teil unserer Verständigung ist nonverbal.",
+        "en": "A large part of our communication is non-verbal.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
   }
 ]

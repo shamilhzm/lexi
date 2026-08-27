@@ -67881,7 +67881,7 @@
     {
       "title": "Zweiteilige Konjunktion: je … desto/umso",
       "summary": "Two comparatives: je + Komparativ …, desto/umso + Komparativ.",
-      "rule": "je + comparative (verb at the end), then desto or umso + comparative + verb + subject: Je länger man wartet, desto/umso schlechter wird die Stimmung.",
+      "rule": "je + Komparativ opens a subordinate clause with the verb at the END; desto or umso + Komparativ opens the main clause, verb straight after, then the subject. A comparative is obligatory in both halves. The pair carries a conditional meaning: Je länger eine Person spricht = Wenn eine Person lange spricht.",
       "exercises": [
         {
           "kind": "choose",
@@ -68034,6 +68034,58 @@
           ],
           "answer": 0,
           "explain": "je mehr … desto besser, je länger … desto schwieriger."
+        },
+        {
+          "kind": "type",
+          "prompt": "Je eindeutiger die Signale sind, desto ___ verstehen wir sie. (klar)",
+          "accept": [
+            "klarer"
+          ],
+          "explain": "desto always takes a comparative."
+        },
+        {
+          "kind": "type",
+          "prompt": "Je ___ ein Gespräch dauert, umso deutlicher wird die Bedeutung der Körpersignale. (lange)",
+          "accept": [
+            "länger"
+          ],
+          "explain": "je always takes a comparative — lange → länger."
+        },
+        {
+          "kind": "error",
+          "prompt": "Je viel man liest, desto größer wird der Wortschatz.",
+          "answer": 1,
+          "fix": "Je mehr man liest, desto größer wird der Wortschatz.",
+          "explain": "je needs a comparative: viel → mehr."
+        },
+        {
+          "kind": "error",
+          "prompt": "Je öfter man Wörter wiederholt, desto fester man sie sich einprägt.",
+          "answer": 8,
+          "fix": "Je öfter man Wörter wiederholt, desto fester prägt man sie sich ein.",
+          "explain": "The desto-half is a main clause: verb straight after desto + Komparativ, then the subject."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build the je-clause.",
+          "tiles": [
+            "Je",
+            "deutlicher",
+            "du",
+            "sprichst,"
+          ],
+          "explain": "je + comparative, and the verb ends the clause."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which rewrites «Je länger eine Person spricht, desto mehr verrät sie»?",
+          "options": [
+            "Wenn eine Person lange spricht, verrät sie mehr.",
+            "Obwohl eine Person lange spricht, verrät sie mehr.",
+            "Damit eine Person lange spricht, verrät sie mehr."
+          ],
+          "answer": 0,
+          "explain": "je … desto carries a conditional meaning."
         }
       ],
       "sections": [
@@ -68044,12 +68096,12 @@
           "label": "The shape",
           "pairs": [
             {
-              "from": "je + comparative …",
-              "to": "subordinate clause — verb at the end"
+              "from": "je + Komparativ …",
+              "to": "Nebensatz — verb at the end"
             },
             {
-              "from": "desto / umso + comparative",
-              "to": "main clause — verb straight after, then the subject"
+              "from": "desto / umso + Komparativ",
+              "to": "Hauptsatz — verb straight after, then the subject"
             }
           ]
         },
@@ -68063,6 +68115,45 @@
             {
               "de": "Je mehr ich lerne, umso besser verstehe ich.",
               "en": "The more I learn, the better I understand."
+            }
+          ]
+        },
+        {
+          "label": "A comparative is obligatory in both halves",
+          "body": "This is the rule to check your sentence against. je and desto/umso cannot be followed by a plain adjective — if you cannot form a comparative, you cannot use this construction.",
+          "pairs": [
+            {
+              "from": "Je eindeutiger die Signale sind,",
+              "to": "desto klarer verstehen wir sie."
+            },
+            {
+              "from": "Je länger ein Gespräch dauert,",
+              "to": "umso deutlicher wird die Bedeutung der Körpersignale."
+            }
+          ],
+          "limit": "The comparative can be an adverb or a quantity rather than an adjective — «je mehr», «je weniger», «je öfter» are all normal. What is not allowed is the plain form: «je lang» is not a sentence."
+        },
+        {
+          "label": "It means a condition",
+          "body": "A je-clause is a wenn-clause in disguise, and rewriting it that way is the quickest check that you have understood the sentence.",
+          "pairs": [
+            {
+              "from": "Je länger eine Person spricht, desto deutlicher verrät sie ihre Emotionen.",
+              "to": "Wenn eine Person lange spricht, (dann) verrät sie ihre Emotionen."
+            }
+          ]
+        },
+        {
+          "label": "Building one from two sentences",
+          "body": "Take the adjective out of each sentence, make both comparative, and drop everything the two share.",
+          "pairs": [
+            {
+              "from": "Der Test ist schwierig. Die Freude wird groß sein.",
+              "to": "Je schwieriger der Test ist, umso größer wird die Freude sein."
+            },
+            {
+              "from": "Man liest viel. Der Wortschatz wird groß.",
+              "to": "Je mehr man liest, desto größer wird der Wortschatz."
             }
           ]
         },
@@ -79657,6 +79748,199 @@
               "to": "Sie dürfte zu Hause gewesen sein."
             }
           ]
+        }
+      ]
+    },
+    {
+      "title": "Vergleichssätze mit als und wie",
+      "summary": "Comparison as a full clause: verb to the end, wie for equality, als for difference.",
+      "rule": "Vergleichssätze are subordinate clauses and depend on an adjective, so the conjugated verb goes to the END. Equality: so/genauso + Grundform + wie. Inequality: Komparativ + als. Also anders + als and etwas/nichts anderes + als. A comma separates the clause.",
+      "sections": [
+        {
+          "body": "A comparison can be a phrase — «größer als Köln» — or a whole clause. This is the clause version, and it is the one a B2 text is built from: whatever follows als or wie carries **its own subject and verb, and the verb goes last**."
+        },
+        {
+          "label": "It hangs on an adjective",
+          "body": "A Vergleichssatz always depends on an adjective or adverb in the main clause. Find that word and the rest follows: its form decides which conjunction you need.",
+          "pairs": [
+            {
+              "from": "so / genauso + Grundform",
+              "to": "+ wie — equality"
+            },
+            {
+              "from": "Komparativ",
+              "to": "+ als — inequality"
+            },
+            {
+              "from": "anders",
+              "to": "+ als"
+            },
+            {
+              "from": "etwas / nichts anderes",
+              "to": "+ als"
+            }
+          ]
+        },
+        {
+          "label": "Equality — wie, and the plain adjective",
+          "examples": [
+            {
+              "de": "Botschaften der Körpersprache nehmen wir so schnell wahr, wie wir gesprochene Sprache aufnehmen.",
+              "en": "We register body-language messages as fast as we take in spoken language."
+            },
+            {
+              "de": "Die Gestik ist genauso wichtig, wie von Experten behauptet wird.",
+              "en": "Gesture is exactly as important as experts claim."
+            }
+          ]
+        },
+        {
+          "label": "Inequality — als, after a comparative",
+          "examples": [
+            {
+              "de": "Wir achten viel mehr auf die Sprache des Körpers, als wir meinen.",
+              "en": "We pay far more attention to the language of the body than we think."
+            },
+            {
+              "de": "Die Körpersprache spielt eine größere Rolle, als ich gedacht habe.",
+              "en": "Body language plays a bigger role than I had thought."
+            }
+          ]
+        },
+        {
+          "label": "anders als, and nichts anderes als",
+          "body": "Two more triggers for als that have no comparative in them at all — the word anders is doing the comparing.",
+          "examples": [
+            {
+              "de": "Körpersignale bedeuten oft etwas anderes, als man denkt.",
+              "en": "Body signals often mean something other than people think."
+            },
+            {
+              "de": "Ich habe deine Mimik anders gedeutet, als du meinst.",
+              "en": "I read your expression differently from how you mean it."
+            }
+          ]
+        },
+        {
+          "label": "The verb goes to the end — this is the whole difference",
+          "body": "In the phrase version there is no verb to place. In the clause version there is, and it goes last. English keeps normal order after \"than\", which is why this is the error to watch.",
+          "pairs": [
+            {
+              "from": "…, als ich gedacht habe.",
+              "to": "correct — verb last"
+            },
+            {
+              "from": "…, als ich habe gedacht.",
+              "to": "wrong"
+            },
+            {
+              "from": "…, als man das bisher getan hat.",
+              "to": "correct, with a perfect"
+            }
+          ],
+          "limit": "A comparison with no verb after it is still a phrase and needs no comma and no reordering: «größer als Köln», «so schnell wie möglich». Only add the comma when a real clause follows."
+        }
+      ],
+      "exercises": [
+        {
+          "kind": "choose",
+          "prompt": "Die Körpersprache spielt eine größere Rolle, ___ ich gedacht habe.",
+          "options": [
+            "als",
+            "wie",
+            "denn"
+          ],
+          "answer": 0,
+          "explain": "größere is a comparative → als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Gestik zu verstehen ist so wichtig, ___ von Experten behauptet wird.",
+          "options": [
+            "wie",
+            "als",
+            "dass"
+          ],
+          "answer": 0,
+          "explain": "so + plain adjective → wie."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Die Gestik hat oft eine andere Bedeutung, ___ man annimmt.",
+          "options": [
+            "als",
+            "wie",
+            "ob"
+          ],
+          "answer": 0,
+          "explain": "ander(e)s always takes als, even with no comparative."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Man sollte die nonverbale Kommunikation stärker berücksichtigen, ___ man das bisher getan hat.",
+          "options": [
+            "als",
+            "wie",
+            "sodass"
+          ],
+          "answer": 0,
+          "explain": "stärker is a comparative → als."
+        },
+        {
+          "kind": "choose",
+          "prompt": "Auf diese Weise würde die Kommunikation noch besser klappen, ___ man vermutet.",
+          "options": [
+            "als",
+            "wie",
+            "damit"
+          ],
+          "answer": 0,
+          "explain": "besser is a comparative → als."
+        },
+        {
+          "kind": "error",
+          "prompt": "Diese Geste ist genauso unhöflich, wie ich habe erwartet.",
+          "answer": 6,
+          "fix": "Diese Geste ist genauso unhöflich, wie ich erwartet habe.",
+          "explain": "A Vergleichssatz is a subordinate clause: the conjugated verb goes last."
+        },
+        {
+          "kind": "error",
+          "prompt": "Körpersprache richtig zu deuten ist schwieriger, wie man denkt.",
+          "answer": 6,
+          "fix": "Körpersprache richtig zu deuten ist schwieriger, als man denkt.",
+          "explain": "After a comparative → als, never wie."
+        },
+        {
+          "kind": "type",
+          "prompt": "Ich habe deine Mimik anders gedeutet, ___ du meinst. (als / wie)",
+          "accept": [
+            "als"
+          ],
+          "explain": "anders + als."
+        },
+        {
+          "kind": "order",
+          "prompt": "Build the comparison clause.",
+          "tiles": [
+            "als",
+            "wir",
+            "gesprochene",
+            "Sprache",
+            "aufnehmen"
+          ],
+          "explain": "Conjunction first, conjugated verb last."
+        },
+        {
+          "kind": "mc",
+          "prompt": "Which needs no comma?",
+          "options": [
+            "so schnell wie möglich",
+            "schneller, als ich dachte",
+            "so gut, wie er kann"
+          ],
+          "answer": 0,
+          "explain": "No verb follows, so it is a phrase, not a clause."
         }
       ]
     }

@@ -446,6 +446,25 @@ const SEPARABLE = [
   'entgegen',
   'vor', 'voran', 'voraus',
   'vorbei', 'weg', 'weiter', 'zu', 'zurecht', 'zurück', 'zusammen',
+  // Added 2026-08-26, same failure as the 08-24 batch below and found the same way
+  // — by conjugating every verb in the corpus and looking for a participle that
+  // cannot exist. `ge` + a separable prefix + stem is not a possible German word:
+  // the ge- of a separable verb goes *inside*, after the prefix. Fourteen shipped
+  // cards produced one — «gekennenlernt», «geklarstellt», «gereingeht»,
+  // «gekaputtgeht» — and two of them, `kennenlernen` and `radfahren`, came back
+  // `reliable: true`, so the drill would have printed wrong German rather than
+  // skipping the verb.
+  //
+  // The colloquial directionals are the bulk of it: German writes these as one
+  // word and they separate exactly like `hinein`/`heraus`, which were already here.
+  'rein', 'raus', 'davon', 'hier',
+  // Adjective and noun first elements. Same behaviour, different part of speech:
+  // *klarstellen* → stellt klar, *krankmelden* → meldet sich krank.
+  'klar', 'kaputt', 'krank',
+  // Verb-first compounds. `kennen` unlocks *kennenlernen* (lernst kennen,
+  // kennengelernt); `wahr` unlocks *wahrnehmen* (nimmst wahr, wahrgenommen),
+  // which is on the B2 course page this pass came from.
+  'kennen', 'wahr', 'rad',
   // Added 2026-08-24. Missing from the list, so `splitPrefix` never fired and the
   // weak generator treated the whole compound as a simplex — while still reporting
   // `reliable: true`, which is how a wrong form reached the drill rather than being

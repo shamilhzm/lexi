@@ -11,6 +11,69 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-26 — a B2 homework page, and the conjugator bug it uncovered
+
+Two pages of a B2 course book on **Vergleichssätze**. Checking whether Lexi could teach
+them turned up a gap in the bank, a gap in the corpus, and a bug that had nothing to do
+with either.
+
+## The bank taught comparison as a phrase, not a clause
+
+`A2::Vergleiche: so … wie / als` covers «Köln ist so schön wie Bonn» — a *phrase*. The
+course page is entirely the **clause** form, where what follows als/wie is a full
+subordinate clause with its verb at the end: «…, als wir meinen», «…, wie wir gesprochene
+Sprache aufnehmen». A learner holding only the phrase rule cannot build a single sentence
+on that page.
+
+New at B2: **`Vergleichssätze mit als und wie`** — the adjective the clause hangs on,
+so/genauso + Grundform + wie, Komparativ + als, `anders als` and `etwas/nichts anderes
+als`, verb-final, and the limit that a comparison with no verb after it is still a phrase
+and needs no comma. Ten exercises, drawn from the page's own sentences.
+`B1::Zweiteilige Konjunktion: je … desto/umso` was **upgraded** (keeping its title, and
+therefore its FSRS progress) with the obligatory-comparative rule, the conditional
+reading, and the two-sentences-into-one transformation the workbook drills.
+
+## A script that would have resurrected a merged point
+
+`corpus:grammar` is append-only, which protects existing points — and means a point that
+was deliberately **retired** comes straight back. Its array still carried
+`C2::Passiversatzformen`, merged into `B2::Passiv-Ersatzformen` on 2026-08-25 at the cost
+of a schedule migration. A `--write` for any unrelated reason would have re-created the
+duplicate that merge existed to remove, silently, because adding a point is what the
+script is *for*. It now refuses any title whose ids appear in `ID_MAP` — derived from the
+record the merge already wrote, not a second hand-kept list that could drift.
+
+## The conjugator printed German that does not exist
+
+`ge` + a separable prefix + stem is not a possible word — the ge- of a separable verb goes
+*inside*. **Fourteen shipped verbs produced one**, and two of them, `kennenlernen` and
+`radfahren`, came back `reliable: true`, which means `conjDrillable` accepted them and the
+drill would have printed **«du kennenlernst»**. VISION forbids precisely that.
+
+The cause is the third short enumeration the SEPARABLE list has had: the colloquial
+directionals (`rein`, `raus`, `davon`, `hier`), the adjective/noun first elements (`klar`,
+`kaputt`, `krank`), and the verb-first compounds (`kennen`, `wahr`, `rad`). Measured
+before and after, the way the app runs: **14 → 0**. Pinned by a test that also asserts the
+other half — `antworten` is not `an` + `tworten` and must keep its ge-.
+
+**My first measurement was wrong and is now LESSONS class 2.** It reported sixteen. Two
+were the probe: `conjugate` splits a prefix only when the remainder is a verb it *knows*,
+and it knows nothing but `SEED_ROOTS` until `setKnownVerbs()` supplies the corpus at boot.
+The app makes that call; my script did not.
+
+## Seven words the page needs
+
+Körpersprache, Gestik, Mimik, Emotion, wahrnehmen, Allgemeinwissen, nonverbal — all seven
+verified against de.wiktionary by `authoring:new`, every gender, plural and IPA looked up
+rather than written. It rejected all seven on the first run (one example each where the
+floor is two; a gloss repeating its term; and `wahrnehmen`, whose example the matcher
+could not resolve **because of the conjugator bug above**). Corpus 6,622 → 6,631.
+
+**Verified:** typecheck clean · lint 0 errors · **1,035 tests** · `corpus:validate` PASS ·
+lessons gate 95 · dupe-points 38/38 · build clean.
+
+---
+
 ### Shipped 2026-08-26 — the two things I kept flagging instead of fixing
 
 Both were rulings deferred rather than made.

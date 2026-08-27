@@ -191,6 +191,9 @@
   "gram:B1:Wortstellung: Pronomen im Mittelfeld": {
     "def": "A personal pronoun does not wait for its ordinary object slot: it moves to the front of the Mittelfeld, straight after the finite verb, in front of every noun — including a noun subject. Two nouns keep the dative first; two pronouns put the accusative first; and with one of each, the pronoun goes first whatever its case. Position 1 still holds exactly one element, with the finite verb second."
   },
+  "gram:B1:Zweiteilige Konjunktion: je … desto/umso": {
+    "def": "je + Komparativ opens a subordinate clause with the verb at the END; desto or umso + Komparativ opens the main clause, verb straight after, then the subject. A comparative is obligatory in both halves. The pair carries a conditional meaning: Je länger eine Person spricht = Wenn eine Person lange spricht."
+  },
   "gram:B1:Zweiteilige Konnektoren": {
     "def": "sowohl A als auch B (both), nicht nur A, sondern auch B (not only … but also), weder A noch B (neither … nor), entweder A oder B (either … or), je + Komparativ, desto + Komparativ (the more … the more)."
   },
@@ -259,6 +262,9 @@
   },
   "gram:B2:Verben mit Präpositionen": {
     "def": "Learn verb + preposition + case as one unit: denken an + A, sich interessieren für + A, teilnehmen an + D, abhängen von + D. Questions: Worauf? Woran? — people: Auf wen?"
+  },
+  "gram:B2:Vergleichssätze mit als und wie": {
+    "def": "Vergleichssätze are subordinate clauses and depend on an adjective, so the conjugated verb goes to the END. Equality: so/genauso + Grundform + wie. Inequality: Komparativ + als. Also anders + als and etwas/nichts anderes + als. A comma separates the clause."
   },
   "gram:B2:Verneinung durch Wortbildung: un-, miss-, in-": {
     "def": "Beside nicht and kein, German negates by building the negation into the word. Four devices do almost all of it, and choosing between them is mostly a matter of the word rather than a rule — with one reliable exception, in-, which attaches only to loanwords."
@@ -70695,6 +70701,20 @@
       }
     ]
   },
+  "voc:B1:die Emotion": {
+    "ex": [
+      {
+        "de": "Je länger sie sprach, desto deutlicher zeigte sie ihre Emotionen.",
+        "en": "The longer she spoke, the more clearly she showed her emotions.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er versucht, seine Emotionen zu verbergen.",
+        "en": "He tries to hide his emotions.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Empfehlung": {
     "def": "Advice suggesting that something is good or worth doing.",
     "ex": [
@@ -93677,6 +93697,20 @@
       }
     ]
   },
+  "voc:B2:das Allgemeinwissen": {
+    "ex": [
+      {
+        "de": "Je mehr man liest, desto größer wird das Allgemeinwissen.",
+        "en": "The more you read, the greater your general knowledge becomes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sein Allgemeinwissen hat mich wirklich beeindruckt.",
+        "en": "His general knowledge really impressed me.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Anzeichen": {
     "def": "Something that shows that a condition or event exists.",
     "ex": [
@@ -98944,6 +98978,20 @@
       }
     ]
   },
+  "voc:B2:die Gestik": {
+    "ex": [
+      {
+        "de": "Seine Gestik wirkte auf mich sehr lebhaft.",
+        "en": "His gestures struck me as very lively.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Gestik hat in anderen Kulturen oft eine andere Bedeutung.",
+        "en": "Gestures often mean something different in other cultures.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Gewerkschaft": {
     "def": "An organisation that protects workers' rights.",
     "ex": [
@@ -99510,6 +99558,20 @@
       }
     ]
   },
+  "voc:B2:die Körpersprache": {
+    "ex": [
+      {
+        "de": "Die Körpersprache verrät oft mehr, als wir meinen.",
+        "en": "Body language often gives away more than we think.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Unterricht wird die Körpersprache selten behandelt.",
+        "en": "Body language is rarely covered in class.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Körperverletzung": {
     "def": "bodily injury, bodily harm, battery (crime)",
     "ex": [
@@ -99727,6 +99789,20 @@
       {
         "de": "Migration bringt Herausforderungen und Chancen.",
         "en": "Migration brings challenges and opportunities.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Mimik": {
+    "ex": [
+      {
+        "de": "An seiner Mimik konnte ich die Enttäuschung ablesen.",
+        "en": "I could read the disappointment in his face.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe deine Mimik anders gedeutet, als du meinst.",
+        "en": "I read your expression differently from how you mean it.",
         "lvl": "B2"
       }
     ]
@@ -104085,6 +104161,20 @@
       }
     ]
   },
+  "voc:B2:nonverbal": {
+    "ex": [
+      {
+        "de": "Man sollte die nonverbale Kommunikation stärker berücksichtigen.",
+        "en": "Non-verbal communication should be taken into account more.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein großer Teil unserer Verständigung ist nonverbal.",
+        "en": "A large part of our communication is non-verbal.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:nämlich": {
     "def": "namely, specifically; used to further specify what exactly one was talking about just before; because, after all; used to follow up a statement with a second one that justifies the former, treated as a revealing of new information",
     "ex": [
@@ -106076,6 +106166,20 @@
       {
         "de": "Sie wahrte Abstand.",
         "en": "She kept her distance.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:wahrnehmen": {
+    "ex": [
+      {
+        "de": "Botschaften der Körpersprache nehmen wir sehr schnell wahr.",
+        "en": "We perceive body-language messages very quickly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe den Unterschied kaum wahrgenommen.",
+        "en": "I barely noticed the difference.",
         "lvl": "B2"
       }
     ]

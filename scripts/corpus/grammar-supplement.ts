@@ -11,6 +11,33 @@ import { PATHS } from './config.ts';
 import { readJSON, writeJSON, LEVELS, type Word, type SectorMeta } from './lib.ts';
 import type { GExercise, GPoint, GrammarByLevel, RuleSection } from '../../src/lib/grammar.ts';
 import type { CEFR } from '../../src/types.ts';
+import { ID_MAP } from '../../src/data/idmap.ts';
+
+/** Titles this script must never re-create.
+ *
+ *  **Append-only is not the same as safe.** This file "only ever appends", which
+ *  protects existing points — and means a point that was deliberately *retired*
+ *  comes straight back the next time it runs. Caught 2026-08-26: the array still
+ *  carried `C2::Passiversatzformen (sein + zu, sich lassen, -bar)`, merged into
+ *  `B2::Passiv-Ersatzformen` on 2026-08-25 at the cost of a schedule migration.
+ *  A `--write` for an unrelated reason would have resurrected it, re-creating the
+ *  cross-level duplicate that merge existed to remove — silently, because adding
+ *  a point is exactly what this script is supposed to do.
+ *
+ *  The retirement is already on the record: merging rewrote every
+ *  `gex:<level>:<title>:<n>` into `ID_MAP`. So the authority is derived rather
+ *  than a second hand-kept list that could drift from the first. */
+const RETIRED: ReadonlySet<string> = new Set(
+  Object.keys(ID_MAP)
+    .filter((id) => id.startsWith('gex:') || id.startsWith('gram:'))
+    .map((id) => {
+      const rest = id.slice(id.indexOf(':') + 1);           // <level>:<title>[:<n>]
+      const level = rest.slice(0, rest.indexOf(':'));
+      let title = rest.slice(rest.indexOf(':') + 1);
+      if (id.startsWith('gex:')) title = title.slice(0, title.lastIndexOf(':'));
+      return `${level}::${title}`;
+    }),
+);
 
 // `sections` is optional but not decorative: corpus:validate fails a rule over
 // 280 characters that has none, so anything list-shaped ships structured from the
@@ -30,6 +57,144 @@ interface NewPoint {
 }
 
 const POINTS: NewPoint[] = [
+  // ---- Vergleichssätze, added 2026-08-26 from a B2 course page -------------
+  //
+  // The bank taught comparison as a *phrase* only — «Köln ist so schön wie Bonn».
+  // A B2 course book's whole page on Vergleichssätze is the **clause** form, where
+  // what follows als/wie is a full subordinate clause with its verb at the end:
+  // «…, als wir meinen», «…, wie wir gesprochene Sprache aufnehmen». A learner
+  // holding the phrase rule cannot build any sentence on that page.
+  //
+  // A new point rather than an upgrade of `A2::Vergleiche: so … wie / als`,
+  // because the A2 page is correct for A2 and the clause form is genuinely later
+  // grammar. `corpus:dupe-points` raises the pair; it is ruled `progression`.
+  {
+    level: 'B2', title: 'Vergleichssätze mit als und wie',
+    summary: 'Comparison as a full clause: verb to the end, wie for equality, als for difference.',
+    rule: 'Vergleichssätze are subordinate clauses and depend on an adjective, so the conjugated verb goes to the END. Equality: so/genauso + Grundform + wie. Inequality: Komparativ + als. Also anders + als and etwas/nichts anderes + als. A comma separates the clause.',
+    sections: [
+      {
+        body: 'A comparison can be a phrase — «größer als Köln» — or a whole clause. This is the clause version, and it is the one a B2 text is built from: whatever follows als or wie carries **its own subject and verb, and the verb goes last**.',
+      },
+      {
+        label: 'It hangs on an adjective',
+        body: 'A Vergleichssatz always depends on an adjective or adverb in the main clause. Find that word and the rest follows: its form decides which conjunction you need.',
+        pairs: [
+          { from: 'so / genauso + Grundform', to: '+ wie — equality' },
+          { from: 'Komparativ', to: '+ als — inequality' },
+          { from: 'anders', to: '+ als' },
+          { from: 'etwas / nichts anderes', to: '+ als' },
+        ],
+      },
+      {
+        label: 'Equality — wie, and the plain adjective',
+        examples: [
+          { de: 'Botschaften der Körpersprache nehmen wir so schnell wahr, wie wir gesprochene Sprache aufnehmen.', en: 'We register body-language messages as fast as we take in spoken language.' },
+          { de: 'Die Gestik ist genauso wichtig, wie von Experten behauptet wird.', en: 'Gesture is exactly as important as experts claim.' },
+        ],
+      },
+      {
+        label: 'Inequality — als, after a comparative',
+        examples: [
+          { de: 'Wir achten viel mehr auf die Sprache des Körpers, als wir meinen.', en: 'We pay far more attention to the language of the body than we think.' },
+          { de: 'Die Körpersprache spielt eine größere Rolle, als ich gedacht habe.', en: 'Body language plays a bigger role than I had thought.' },
+        ],
+      },
+      {
+        label: 'anders als, and nichts anderes als',
+        body: 'Two more triggers for als that have no comparative in them at all — the word anders is doing the comparing.',
+        examples: [
+          { de: 'Körpersignale bedeuten oft etwas anderes, als man denkt.', en: 'Body signals often mean something other than people think.' },
+          { de: 'Ich habe deine Mimik anders gedeutet, als du meinst.', en: 'I read your expression differently from how you mean it.' },
+        ],
+      },
+      {
+        label: 'The verb goes to the end — this is the whole difference',
+        body: 'In the phrase version there is no verb to place. In the clause version there is, and it goes last. English keeps normal order after "than", which is why this is the error to watch.',
+        pairs: [
+          { from: '…, als ich gedacht habe.', to: 'correct — verb last' },
+          { from: '…, als ich habe gedacht.', to: 'wrong' },
+          { from: '…, als man das bisher getan hat.', to: 'correct, with a perfect' },
+        ],
+        limit: 'A comparison with no verb after it is still a phrase and needs no comma and no reordering: «größer als Köln», «so schnell wie möglich». Only add the comma when a real clause follows.',
+      },
+    ],
+    exercises: [
+      { kind: 'choose', prompt: 'Die Körpersprache spielt eine größere Rolle, ___ ich gedacht habe.', options: ['als', 'wie', 'denn'], answer: 0, explain: 'größere is a comparative → als.' },
+      { kind: 'choose', prompt: 'Die Gestik zu verstehen ist so wichtig, ___ von Experten behauptet wird.', options: ['wie', 'als', 'dass'], answer: 0, explain: 'so + plain adjective → wie.' },
+      { kind: 'choose', prompt: 'Die Gestik hat oft eine andere Bedeutung, ___ man annimmt.', options: ['als', 'wie', 'ob'], answer: 0, explain: 'ander(e)s always takes als, even with no comparative.' },
+      { kind: 'choose', prompt: 'Man sollte die nonverbale Kommunikation stärker berücksichtigen, ___ man das bisher getan hat.', options: ['als', 'wie', 'sodass'], answer: 0, explain: 'stärker is a comparative → als.' },
+      { kind: 'choose', prompt: 'Auf diese Weise würde die Kommunikation noch besser klappen, ___ man vermutet.', options: ['als', 'wie', 'damit'], answer: 0, explain: 'besser is a comparative → als.' },
+      { kind: 'error', prompt: 'Diese Geste ist genauso unhöflich, wie ich habe erwartet.', answer: 7, fix: 'Diese Geste ist genauso unhöflich, wie ich erwartet habe.', explain: 'A Vergleichssatz is a subordinate clause: the conjugated verb goes last.' },
+      { kind: 'error', prompt: 'Körpersprache richtig zu deuten ist schwieriger, wie man denkt.', answer: 6, fix: 'Körpersprache richtig zu deuten ist schwieriger, als man denkt.', explain: 'After a comparative → als, never wie.' },
+      { kind: 'type', prompt: 'Ich habe deine Mimik anders gedeutet, ___ du meinst. (als / wie)', accept: ['als'], explain: 'anders + als.' },
+      { kind: 'order', prompt: 'Build the comparison clause.', tiles: ['als', 'wir', 'gesprochene', 'Sprache', 'aufnehmen'], explain: 'Conjunction first, conjugated verb last.' },
+      { kind: 'mc', prompt: 'Which needs no comma?', options: ['so schnell wie möglich', 'schneller, als ich dachte', 'so gut, wie er kann'], answer: 0, explain: 'No verb follows, so it is a phrase, not a clause.' },
+    ],
+  },
+
+  // Deepened from the same course page. `upgrade` keeps the title — and with it the
+  // `gram:` card id and any FSRS progress — and merges exercises by prompt.
+  {
+    level: 'B1', title: 'Zweiteilige Konjunktion: je … desto/umso', upgrade: true,
+    summary: 'Two comparatives: je + Komparativ …, desto/umso + Komparativ.',
+    rule: 'je + Komparativ opens a subordinate clause with the verb at the END; desto or umso + Komparativ opens the main clause, verb straight after, then the subject. A comparative is obligatory in both halves. The pair carries a conditional meaning: Je länger eine Person spricht = Wenn eine Person lange spricht.',
+    sections: [
+      { body: 'The more … the more. Two comparatives locked together, and the word order differs between the halves — which is the whole difficulty.' },
+      {
+        label: 'The shape',
+        pairs: [
+          { from: 'je + Komparativ …', to: 'Nebensatz — verb at the end' },
+          { from: 'desto / umso + Komparativ', to: 'Hauptsatz — verb straight after, then the subject' },
+        ],
+      },
+      {
+        label: 'In use',
+        examples: [
+          { de: 'Je länger man wartet, desto schlechter wird die Stimmung.', en: 'The longer you wait, the worse the mood gets.' },
+          { de: 'Je mehr ich lerne, umso besser verstehe ich.', en: 'The more I learn, the better I understand.' },
+        ],
+      },
+      {
+        label: 'A comparative is obligatory in both halves',
+        body: 'This is the rule to check your sentence against. je and desto/umso cannot be followed by a plain adjective — if you cannot form a comparative, you cannot use this construction.',
+        pairs: [
+          { from: 'Je eindeutiger die Signale sind,', to: 'desto klarer verstehen wir sie.' },
+          { from: 'Je länger ein Gespräch dauert,', to: 'umso deutlicher wird die Bedeutung der Körpersignale.' },
+        ],
+        limit: 'The comparative can be an adverb or a quantity rather than an adjective — «je mehr», «je weniger», «je öfter» are all normal. What is not allowed is the plain form: «je lang» is not a sentence.',
+      },
+      {
+        label: 'It means a condition',
+        body: 'A je-clause is a wenn-clause in disguise, and rewriting it that way is the quickest check that you have understood the sentence.',
+        pairs: [
+          { from: 'Je länger eine Person spricht, desto deutlicher verrät sie ihre Emotionen.', to: 'Wenn eine Person lange spricht, (dann) verrät sie ihre Emotionen.' },
+        ],
+      },
+      {
+        label: 'Building one from two sentences',
+        body: 'Take the adjective out of each sentence, make both comparative, and drop everything the two share.',
+        pairs: [
+          { from: 'Der Test ist schwierig. Die Freude wird groß sein.', to: 'Je schwieriger der Test ist, umso größer wird die Freude sein.' },
+          { from: 'Man liest viel. Der Wortschatz wird groß.', to: 'Je mehr man liest, desto größer wird der Wortschatz.' },
+        ],
+      },
+      { label: 'desto and umso are interchangeable', body: 'No difference in meaning or register. Pick either; do not mix them inside one sentence.' },
+      {
+        label: 'The je-clause comes first',
+        body: 'It is the condition, and German puts it in slot one. Reversing the halves is possible but unusual and reads as a stylistic choice rather than a neutral sentence.',
+      },
+    ],
+    exercises: [
+      { kind: 'type', prompt: 'Je eindeutiger die Signale sind, desto ___ verstehen wir sie. (klar)', accept: ['klarer'], explain: 'desto always takes a comparative.' },
+      { kind: 'type', prompt: 'Je ___ ein Gespräch dauert, umso deutlicher wird die Bedeutung der Körpersignale. (lange)', accept: ['länger'], explain: 'je always takes a comparative — lange → länger.' },
+      { kind: 'error', prompt: 'Je viel man liest, desto größer wird der Wortschatz.', answer: 1, fix: 'Je mehr man liest, desto größer wird der Wortschatz.', explain: 'je needs a comparative: viel → mehr.' },
+      { kind: 'error', prompt: 'Je öfter man Wörter wiederholt, desto fester man sie sich einprägt.', answer: 7, fix: 'Je öfter man Wörter wiederholt, desto fester prägt man sie sich ein.', explain: 'The desto-half is a main clause: verb straight after desto + Komparativ, then the subject.' },
+      { kind: 'order', prompt: 'Build the je-clause.', tiles: ['Je', 'deutlicher', 'du', 'sprichst,'], explain: 'je + comparative, and the verb ends the clause.' },
+      { kind: 'mc', prompt: 'Which rewrites «Je länger eine Person spricht, desto mehr verrät sie»?', options: ['Wenn eine Person lange spricht, verrät sie mehr.', 'Obwohl eine Person lange spricht, verrät sie mehr.', 'Damit eine Person lange spricht, verrät sie mehr.'], answer: 0, explain: 'je … desto carries a conditional meaning.' },
+    ],
+  },
+
   {
     level: 'A1', title: 'dieser-Wörter (Demonstrativa)',
     summary: 'dieser/diese/dieses decline like der/die/das.',
@@ -513,6 +678,9 @@ const POINTS: NewPoint[] = [
       { kind: 'mc', prompt: 'Why can an idiom not be translated word for word?', options: ['its meaning is not the sum of its parts', 'the words are archaic', 'it has no grammar'], answer: 0, explain: 'That non-compositionality is what makes it an idiom.' },
     ],
   },
+  // RETIRED 2026-08-25 — merged into `B2::Passiv-Ersatzformen`. Kept here, and
+  // kept failing the RETIRED guard below, because deleting it would lose the
+  // record of why a C2 point that once existed must not come back.
   {
     level: 'C2', title: 'Passiversatzformen (sein + zu, sich lassen, -bar)',
     summary: 'Three ways to say "can be done" without ever using werden.',
@@ -997,10 +1165,17 @@ function main() {
   const haveCard = new Set(vocab.map((w) => w.id));
 
   const addedPoints: string[] = [];
+  const blocked: string[] = [];
   for (const p of POINTS) {
     const level = p.level;
     grammar[level] ??= [];
     const current = grammar[level].find((g: GPoint) => g.title === p.title);
+    // A point whose ids were migrated away has been retired on purpose. Adding it
+    // back would undo a merge that cost a schedule migration — see RETIRED above.
+    if (!current && RETIRED.has(`${level}::${p.title}`)) {
+      blocked.push(`${level} · ${p.title}`);
+      continue;
+    }
     if (!current) {
       grammar[level].push({ title: p.title, summary: p.summary, rule: p.rule, ...(p.sections ? { sections: p.sections } : {}), exercises: p.exercises });
       addedPoints.push(`${level} · ${p.title} (${p.exercises.length} exercises)`);
@@ -1026,6 +1201,11 @@ function main() {
   const sectorsChanged = !!gsec && (gsec.count !== grammarCards.length || gsec.levels.join() !== levels.join());
   if (gsec) { gsec.count = grammarCards.length; gsec.levels = levels; }
 
+  if (blocked.length) {
+    console.log(`Refused ${blocked.length} retired point(s) — merged away, and not coming back:`);
+    for (const b of blocked) console.log(`  ✗ ${b}`);
+    console.log('');
+  }
   console.log(addedPoints.length ? `Would add ${addedPoints.length} grammar point(s):` : 'Nothing to add — all points already present.');
   for (const a of addedPoints) console.log(`  + ${a}`);
   if (sectorsChanged) console.log(`Grammar sector count → ${grammarCards.length}.`);
