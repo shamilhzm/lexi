@@ -1,7 +1,7 @@
 {
-  "name": "Lexi — German Vocab Terminal",
+  "name": "Lexi — an atlas of your German",
   "short_name": "Lexi",
-  "description": "A German vocabulary terminal (A1–C2). Spaced repetition over a live knowledge heatmap.",
+  "description": "Learn German A1–C2 with honest spaced repetition over a live map of what you actually know. Local-first: your progress never leaves your device.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",

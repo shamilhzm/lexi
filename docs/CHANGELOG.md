@@ -49,6 +49,17 @@ the section that still endorsed them.
 - **A changelog note had leaked into the product.** Words described itself as
   offering "a search box, which this app went a year without."
 
+**Three more found by loading production rather than the dev server**, which boots
+before its splash can paint:
+
+- The boot screen — the first thing anyone sees — said **GERMAN VOCAB TERMINAL**,
+  under a blinking console cursor after the wordmark, while the `<title>` two lines
+  above it said *an atlas of your German*. Now **AN ATLAS OF YOUR GERMAN**, no cursor.
+- `manifest.webmanifest` named the app **"Lexi — German Vocab Terminal"**. That is the
+  name on the home screen of anyone who installs it. Every `<meta>` and `og:` tag had
+  already been moved to the atlas; the manifest was the one file missed, and it is the
+  one that names the app on the device.
+
 Verified in light, dark, 1280px and 375px. §8 and BACKLOG #28 updated to match.
 
 ---
