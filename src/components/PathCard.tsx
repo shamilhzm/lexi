@@ -11,14 +11,14 @@
 // Start-session button below it remains the primary action.
 import { useEffect, useState } from 'react';
 import { BookOpen, ChevronRight, Layers, TrendingDown } from 'lucide-react';
-import { levelStats, studyLevel, weakestSectors, missStats, pointStats } from '../store.ts';
+import { levelStats, levels, studyLevel, weakestSectors, missStats, pointStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { heatText } from '../lib/ui.ts';
 import { loadGrammar, type GPoint } from '../lib/grammar.ts';
 import LevelProgress from './LevelProgress.tsx';
 import Card from './ui/Card.tsx';
 import Kicker from './ui/Kicker.tsx';
-import { type CEFR, type Target } from '../types.ts';
+import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
 
 interface NextItem {
   icon: typeof BookOpen;
@@ -39,6 +39,12 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
 
   const stat = levelStats().find((s) => s.level === level);
   const known = stat && stat.count ? stat.known / stat.count : 0;
+
+  // The levels the filter is scoped to, as a range — "A1–B1", or just "A1" when
+  // it is one. Same source the strip below highlights from, so the label and the
+  // lit tiles cannot drift apart.
+  const inFocus = ALL_LEVELS.filter((l) => levels().has(l));
+  const span = inFocus.length ? (inFocus.length === 1 ? inFocus[0] : `${inFocus[0]}–${inFocus[inFocus.length - 1]}`) : level;
 
   // The bank is only needed for the grammar counts, so it loads after paint —
   // Home must not wait on a 266 KB fetch to render its primary action.
@@ -85,8 +91,15 @@ export default function PathCard({ onGrammar, onStudy, onBlind }: {
     <Card pad="sm" className="mb-4">
       <div className="flex items-baseline justify-between gap-3 mb-2.5 px-1">
         <Kicker tone="accent">Your path</Kicker>
+        {/* This read `A2 · 0% of words` — the learner's placed level — directly
+            above a strip with A1, A2 *and* B1 lit and a paragraph beginning
+            "B1 means being able to…". Three true facts (your level, your study
+            scope, your working edge) rendered as one undifferentiated row, which
+            reads as the card contradicting itself. The placed level is already in
+            the top bar; what nothing explained was why three tiles are lit. So
+            this now names the scope, which is what the strip beneath it shows. */}
         <span className="text-2xs text-dim font-mono tabular-nums">
-          {level} · {Math.round(known * 100)}% of words
+          Studying {span}
           {gstats && ` · ${started}/${gstats.length} grammar`}
         </span>
       </div>

@@ -2,7 +2,7 @@
 //
 // Previously the same visual element carried five different horizontal paddings
 // (px-1.5 / px-2 / px-3) and two verticals across Review, Decks, Today, Grammar
-// and Markt — small enough that no single instance looked wrong, and collectively
+// and Karte — small enough that no single instance looked wrong, and collectively
 // the reason the app read as slightly unresolved at close range.
 import type { ComponentProps, ReactNode } from 'react';
 

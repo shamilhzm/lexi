@@ -142,6 +142,12 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
 
   return (
     <div className="w-full max-w-[820px] mx-auto">
+      {/* The nav says "Practice"; the page said "Üben". Four of the five primary
+          surfaces are titled in German — which is right for an app whose subject is
+          German, and which taught nothing while the label that got you here was a
+          different word in a different language. The eyebrow is the pairing, using
+          the kicker treatment already above every section on these pages. */}
+      <Kicker className="block mb-0.5">Practice</Kicker>
       <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Üben</h1>
       <p className="text-dim text-xs mb-4">
         Drill one thing on purpose — a grammar concept, your own vocabulary, a full exam paper.

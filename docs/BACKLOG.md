@@ -1222,8 +1222,16 @@ re-measured.**
   the state the screenshot was taken in. **What it needs is a ruling on which of
   those to spend, not a script** — and a speculative fix to the app's primary action
   is the kind this file has been burned by (see the swipe-gesture note in Now #1).
-- **The ticker is clipped, and on mobile it is noise (#28 · S · P2).** Partial "7%"
+- ~~**The ticker is clipped, and on mobile it is noise (#28 · S · P2).**~~ Partial "7%"
   against the sidebar edge on desktop; 3.5 items and a mid-word cut at 375px.
+  ✅ **Resolved 2026-08-27 by removing the ticker**, not by fixing the clipping. The
+  measurements here were right and were the least of it: every label was truncated to
+  six characters (*SOCIET*, *EDUCAT*, *BUILDI*), its eighteen buttons were clickable
+  but `aria-hidden` and untabbable, it animated forever beside text meant to be read,
+  and it showed what the Progress heatmap shows properly. It was also the last of the
+  market-terminal identity §1 retired in July — the component's own header said it
+  streamed symbols "the way a market terminal" does. Fixing the clip would have kept
+  all of that.
 - **Empty and first-run states (#29 · S).** First-run Today spends ~60% of a desktop
   viewport on nothing — the one screen where density would reassure.
   ⚠️ **Partly addressed 2026-08-26, and partly made worse before it was made better.**

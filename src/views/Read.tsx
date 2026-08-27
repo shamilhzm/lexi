@@ -99,6 +99,12 @@ export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
   return (
     <div className="mx-auto w-full max-w-[720px] flex flex-col gap-4">
       <div>
+        {/* The nav says "Read"; the page said "Lesen". Four of the five primary
+            surfaces are titled in German — which is right for an app whose subject is
+            German, and which taught nothing while the label that got you here was a
+            different word in a different language. The eyebrow is the pairing, using
+            the kicker treatment already above every section on these pages. */}
+        <Kicker className="block mb-0.5">Read</Kicker>
         <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Lesen</h1>
         <p className="text-dim text-xs">
           The half of the app that doesn’t test you. Sentences built from words you already have,

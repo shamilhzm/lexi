@@ -17,7 +17,7 @@
 // borders, and it is one tap away from the same control. From `sm:` up nothing
 // changes: the chips are always shown, because the room is there.
 //
-// Deliberately not hidden behind an icon. The labels on the Markt/Liste toggle
+// Deliberately not hidden behind an icon. The labels on the Karte/Liste toggle
 // were hidden below `sm` once and restored, because unlabelled controls are worst
 // exactly where the screen is smallest; the summary keeps a word on screen.
 import { useState } from 'react';

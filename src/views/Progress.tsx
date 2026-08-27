@@ -1,7 +1,7 @@
 // Progress — "how am I doing?", answered once.
 //
 // This replaced four sibling destinations that were four views of one dataset:
-// the Markt heatmap, the Decks list, the Wortkarte map and the Stats page, plus
+// the Karte heatmap, the Decks list, the Wortkarte map and the Stats page, plus
 // a KPI strip on one of them and Blind Spots buried in an accordion on Today.
 //
 // ## The 2026-08-26 correction
@@ -25,7 +25,7 @@ import { Check, ChevronRight, LayoutGrid } from 'lucide-react';
 import { totals, streak, goalProgress, completions, lastSeen } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heatText } from '../lib/ui.ts';
-import Markt from './Markt.tsx';
+import Karte from './Karte.tsx';
 import Stats from './Stats.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import CountUp from '../components/CountUp.tsx';
@@ -47,17 +47,22 @@ export default function Progress({ onStudy, onBlindDrill, onOpenGroup, onBrain }
   // ---- the overview ---------------------------------------------------------
   return (
     <div className="w-full max-w-[1100px] mx-auto">
-      <h1 className="display text-3xl sm:text-4xl mb-3">Progress</h1>
+      {/* The only one of the five primary surfaces still titled in English —
+          Wortschatz, Üben and Lesen were already German, so this read as an
+          oversight rather than a choice. `Fortschritt` is a B1 word the learner
+          meets on the way past this screen anyway. */}
+      <Kicker className="block mb-0.5">Progress</Kicker>
+      <h1 lang="de" className="display text-3xl sm:text-4xl mb-3">Fortschritt</h1>
 
-      {/* The KPI strip used to sit here (it rode on top of the Markt view).
+      {/* The KPI strip used to sit here (it rode on top of the Karte view).
           Composing the two surfaces made it obvious they were the same four
           numbers twice over — Known, coverage, seen, due, streak — separated
           only by having lived on different screens. The headline says it once. */}
       <Headline />
 
-      {/* Where you are thin, spatially. Markt supplies its own heading. */}
+      {/* Where you are thin, spatially. Karte supplies its own heading. */}
       <section aria-label="Knowledge heatmap" className="mb-6">
-        <Markt
+        <Karte
           onStudy={onStudy}
           onStudyGroup={(g) => onStudy({ kind: 'group', name: g })}
           onStudyAll={() => onStudy({ kind: 'all', name: 'All sectors' })}
@@ -142,7 +147,7 @@ function Headline() {
   const t = totals();
   const gp = goalProgress();
   const pct = Math.round(t.coverage * 100);
-  // Read once, on mount, before Markt's own effect records the new state —
+  // Read once, on mount, before Karte's own effect records the new state —
   // both surfaces animate from the same baseline, so the number and the map
   // agree about what changed.
   const seen = useRef(lastSeen()).current;

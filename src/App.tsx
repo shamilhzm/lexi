@@ -3,19 +3,25 @@
 // Two rooms, not one app with a modal in it.
 //
 //   The instrument — Today, Words, Practice, Read, Progress. Nav bar plus bottom
-//   bar, the live ticker, a bounded content column. Dense and scannable: the map
-//   room.
+//   bar, a bounded content column. Dense and scannable: the map room.
 //
-//   The desk — a session. Full-bleed, no navigation, no ticker, no streak
-//   counter competing with the word. You go there; you don't render it inside
-//   the chrome.
+//   The desk — a session. Full-bleed, no navigation, no streak counter competing
+//   with the word. You go there; you don't render it inside the chrome.
+//
+// A scrolling ticker of group coverage ran across the top of the instrument
+// until 2026-08-27. DESIGN.md §1 retired the market-terminal identity in July and
+// the ticker was the last of it still on screen — the component's own header said
+// it streamed symbols "the way a market terminal" does. It also truncated every
+// label to six characters (SOCIET, EDUCAT, BUILDI), carried eighteen clickable
+// buttons that were `aria-hidden` and untabbable, animated forever in the corner
+// of a room built for reading, and showed a number the Progress heatmap shows
+// properly. Removed rather than fixed: none of those is the reason it was wrong.
 //
 // One aesthetic cannot serve both — scanning a heatmap and studying a single
 // word want opposite things. See docs/DESIGN.md.
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 // No `motion` import here any more: both entrances in this file are CSS
 // keyframes without a fill-mode, so a stalled animation cannot hide a room.
-import Ticker from './components/Ticker.tsx';
 import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import Review from './views/Review.tsx';
@@ -242,8 +248,6 @@ export default function App() {
       />
 
       <div className="flex-1 flex flex-col min-w-0 min-h-0">
-        <Ticker onPick={(g) => study({ kind: 'group', name: g })} />
-
         <main id="main" tabIndex={-1}
           // The 80px phone gutter that used to be here is gone with the button
           // it was for. It existed because a 56px floating "start session"

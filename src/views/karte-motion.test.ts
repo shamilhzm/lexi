@@ -18,10 +18,10 @@ import { fileURLToPath } from 'node:url';
 //      projection misplaces decoration, not a 44px touch target
 //   2. a **timer backstop** clears the transform past the duration, because
 //      timers keep running when rAF does not (the trick `CountUp` already uses)
-const raw = readFileSync(fileURLToPath(new URL('./Markt.tsx', import.meta.url)), 'utf8');
+const raw = readFileSync(fileURLToPath(new URL('./Karte.tsx', import.meta.url)), 'utf8');
 const src = raw.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
 
-describe('Markt — the drill-down transition cannot strand a control', () => {
+describe('Karte — the drill-down transition cannot strand a control', () => {
   it('puts the shared element on something inert, not on the tile button', () => {
     // Every `layoutId` in the file must sit on an element that is both
     // `aria-hidden` and `pointer-events-none`. If a future edit moves one onto

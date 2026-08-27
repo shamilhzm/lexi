@@ -1,9 +1,16 @@
-// Die Wörterbörse — the dictionary market as a drill-down treemap. Level 1 is the
-// theme GROUPS; tap a tile to zoom into that group’s SECTORS (level 2), with an
-// in-place back. Every tile: AREA = cards in it, COLOUR = % known (slate→green),
-// and the % is the primary glyph so it reads on a phone. A Markt/Liste toggle
-// swaps the treemap for a plain ranked list on the smallest screens; the CEFR
-// filter rescopes the whole terminal.
+// Die Karte — your vocabulary as territory, drawn as a drill-down treemap. Level 1
+// is the theme GROUPS; tap a tile to zoom into that group’s SECTORS (level 2), with
+// an in-place back. Every tile: AREA = cards in it, COLOUR = % known (slate→green),
+// and the % is the primary glyph so it reads on a phone. A Karte/Liste toggle swaps
+// the map for a plain ranked list on the smallest screens; the CEFR filter rescopes
+// the whole map.
+//
+// It carried the other name — `Markt`, "die Wörterbörse", the dictionary *exchange* —
+// until 2026-08-27, and said the CEFR filter rescoped "the whole terminal".
+// DESIGN.md §1 retired the market-terminal identity in July 2026, on the grounds
+// that a trading floor is built for extracting value from other people's data under
+// time pressure, which is the opposite of what this view is for. The name outlived
+// the ruling by a month. A treemap of what you know is a map, and this is an atlas.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Play, ArrowLeft, LayoutGrid, List } from 'lucide-react';
@@ -20,11 +27,11 @@ import IconButton from '../components/ui/IconButton.tsx';
 
 interface Cell { name: string; count: number; known: number; due: number; coverage: number; sub: string; }
 
-export default function Markt({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }:
+export default function Karte({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }:
   { onStudy: (t: Target) => void; onStudyGroup: (g: string) => void; onStudyAll: () => void; onOpenGroup: (g: string) => void }) {
   const v = useStore();
   const [zoom, setZoom] = useState<string | null>(null);   // the group being drilled into
-  const [list, setList] = useState(false);                  // Markt (treemap) / Liste (list)
+  const [list, setList] = useState(false);                  // Karte (treemap) / Liste (list)
   const boxRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 1200, h: 560 });
   const [hover, setHover] = useState<{ c: Cell; x: number; y: number } | null>(null);
@@ -325,7 +332,7 @@ function Toggle({ list, onChange }: { list: boolean; onChange: (v: boolean) => v
       {/* The labels used to be hidden below sm, leaving two unlabelled icons on
           exactly the screens where the list view matters most. */}
       <button onClick={() => onChange(false)} aria-label="Treemap view" aria-pressed={!list}
-        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Markt</button>
+        className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs ${!list ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt'}`}><LayoutGrid size={13} /> Karte</button>
       <button onClick={() => onChange(true)} aria-label="List view" aria-pressed={list}
         className={`tap-44 flex items-center gap-1 px-2 py-1.5 text-xs border-l border-line ${list ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt'}`}><List size={13} /> Liste</button>
     </div>

@@ -588,11 +588,6 @@ body {
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
 
-/* ticker marquee */
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.ticker-track { animation: ticker 42s linear infinite; }
-.ticker-track:hover { animation-play-state: paused; }
-
 /* The observatory: the brain room and the Today hero.
  *
  * Always dark, whatever the theme — see the --brain-* block above for why. The
@@ -616,7 +611,7 @@ input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appe
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track, .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,
+  .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,
   .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
   .tile { transition: none; }
   .tile-in, .route-in, .desk-in, .card-in, .ack-in { opacity: 1; transform: none; }
@@ -661,8 +656,8 @@ input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appe
   }
 
   /* Chrome, in both senses.
-     `.no-print` is carried explicitly by the three chrome components (TopBar,
-     BottomNav, Ticker) and by this view's own controls — explicit because the
+     `.no-print` is carried explicitly by the chrome components (TopBar,
+     BottomNav) and by this view's own controls — explicit because the
      first version of this rule matched `header[class*="fixed"]`, and the top bar
      is not fixed, so the whole nav printed. The bare `nav`/`header` selectors
      stay underneath as a backstop for anything added later that forgets. */

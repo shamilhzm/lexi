@@ -66,7 +66,12 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
       // reveal's typography around. The target reaches 44px, the ink does not
       // move. These never sit adjacent to another control, so the enlarged area
       // cannot overlap a neighbour's.
-      className="tap-hit grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-accent
+      // `inline-grid`, not `grid`: this sits *inside* the sentence paragraph in
+      // Lesen, and a block-level grid box breaks to its own line — so every
+      // near-miss sentence card carried an orphaned speaker icon on a line of its
+      // own, and the `align-middle` two lines down had nothing to act on. The
+      // comment above already said "inline"; only the class disagreed.
+      className="tap-hit inline-grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-accent
         active:scale-95 transition-colors flex-shrink-0 align-middle">
       <Volume2 size={14} />
     </button>

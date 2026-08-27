@@ -11,6 +11,48 @@ it is already built.
 
 ---
 
+### Shipped 2026-08-27 — the last of the trading floor
+
+A visual pass over all five primary surfaces, done by looking at them. Almost
+everything it found was the **market-terminal identity that §1 retired on
+2026-07-28** still running, because §8 of the same document promised the instrument
+*"the terminal: mono, cool, hairlines, nav, ticker"* and nothing reconciled the two.
+The contradiction was load-bearing — two features survived a month by pointing at
+the section that still endorsed them.
+
+- **The ticker is gone.** A strip of group-coverage percentages scrolled across the
+  top of every instrument screen, forever. Its own header said it streamed symbols
+  *"the way a market terminal"* does. It truncated every label to six characters, so
+  it displayed **SOCIET, EDUCAT, BUILDI** — a ticker symbol is a designed
+  abbreviation, and `.slice(0, 6)` is not one. Its eighteen buttons were clickable
+  but `aria-hidden` with `tabIndex={-1}`, so the shortcut existed for mice and for
+  nothing else. On a 375px screen it spent ~70px to show three and a half words, one
+  cut mid-number. And it duplicated the Progress heatmap. Backlog #28 asked for the
+  clipping to be fixed; fixing the clipping would have kept all the rest.
+- **`Markt` → `Karte`.** The treemap view was "die Wörterbörse" — the dictionary
+  *exchange* — and its file, component and visible toggle all said so. A treemap of
+  what you know is a map, and this app is an atlas.
+- **The path card stopped contradicting itself.** It read `A2 · 0% of words` directly
+  above a strip with A1, A2 *and* B1 lit, and a paragraph starting "B1 means being
+  able to…". Three true facts — placed level, study scope, working edge — rendered as
+  one undifferentiated row. The placed level is already in the top bar; what nothing
+  explained was why three tiles are lit, so the kicker now reads **Studying A1–B1**.
+- **Progress is `Fortschritt`.** Four of the five primary surfaces were titled in
+  German — §9's own rule — and Progress alone was not. Each now carries its English
+  nav label as a kicker above the German title, so a learner is *taught* the pairing
+  instead of having to infer that Words and Wortschatz are the same place.
+- **The speaker button sits inline again.** `Reveal.tsx` set `grid` where its own
+  comment said the icon "sits inline beside a sentence", so a block-level grid box
+  broke to its own line and every near-miss sentence in Lesen carried an orphaned
+  speaker on a line of its own. `inline-grid` — which is also what the `align-middle`
+  beside it had been waiting for.
+- **A changelog note had leaked into the product.** Words described itself as
+  offering "a search box, which this app went a year without."
+
+Verified in light, dark, 1280px and 375px. §8 and BACKLOG #28 updated to match.
+
+---
+
 ### Shipped 2026-08-27 — the corpus stops warning about correct German
 
 `corpus:validate` emitted **273 warnings** and **0 errors**, and had for long enough

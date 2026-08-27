@@ -461,14 +461,25 @@ One aesthetic cannot serve two opposite activities.
 |---|---|---|
 | Where | Today, Words, Practice, Read, Progress | a session |
 | Wants | density, comparison, scanning | calm, focus, one object |
-| Gets | the terminal: mono, cool, hairlines, nav, ticker | full-bleed, no chrome at all |
+| Gets | mono, cool, hairlines, nav, a bounded column | full-bleed, no chrome at all |
 
 The desk is an **early return** in `App.tsx`, not a view rendered inside the
 shell. Nothing from the instrument follows you in: no sidebar, no bottom bar, no
-ticker, no streak counter competing with the word.
+streak counter competing with the word.
 
-The terminal metaphor is *earned* in the instrument. It is not a licence to talk
-about markets while someone is trying to remember a word.
+> **Corrected 2026-08-27.** This passage read *"the terminal metaphor is earned in
+> the instrument"*, and the table above promised the instrument **"the terminal:
+> mono, cool, hairlines, nav, ticker."* §1 retired the market terminal on
+> 2026-07-28 as borrowed from the wrong domain. **The document contradicted itself
+> for a month, and the contradiction was load-bearing:** a scrolling ticker of
+> coverage percentages — whose own header said it streamed symbols "the way a
+> market terminal" does — and a treemap view named `Markt`, "die Wörterbörse",
+> both survived by pointing at §8 while §1 said they should not exist. Both are
+> gone; the treemap is `Karte`.
+>
+> What §8 was reaching for is real and survives without the word: the instrument is
+> **dense, mono, cool and comparative**, because scanning wants that. That is a
+> description of a *room*, not a licence to borrow a trading floor's furniture.
 
 ## 8a. Five destinations
 
@@ -634,8 +645,12 @@ levels so narrowing the CEFR filter can't manufacture one.
 
 ## 9. Voice
 
-- **German nouns for surfaces, English for actions.** *Markt*, *Wortkarte*,
-  *Üben* name places; buttons say *Study*, *Open decks*, *Practise*.
+- **German nouns for surfaces, English for actions.** *Karte*, *Wortkarte*,
+  *Üben*, *Lesen*, *Wortschatz*, *Fortschritt* name places; buttons say *Study*,
+  *Open decks*, *Practise*. Each primary surface carries its English nav label as a
+  kicker above the German title, so the pairing is taught rather than assumed —
+  *Progress* over **Fortschritt**. Added 2026-08-27, when Progress was found to be
+  the one primary surface still titled in English.
 - Curly apostrophes (`’`). Consistently.
 - No emoji in UI strings. The illustration layer exists for this
   (`src/lib/illustration.tsx`).
