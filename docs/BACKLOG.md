@@ -2105,6 +2105,79 @@ Filed from a B2 course-book page, not from Schritte 6.
 
 ---
 
+## Growing the corpus past de.wiktionary — measured 2026-08-29
+
+The authoring gate refuses a card whose facts de.wiktionary cannot confirm. That is the
+right instinct and it has a false-negative mode that cost two cards in the Schritte 6
+batch: **a missing page is not a missing word.** `die Arbeitsatmosphäre` is ordinary
+German and the dictionary has never heard of it. `npm run corpus:second-authority`
+measures the shape of the gap; every number below is from that script.
+
+### The question was Duden. The answer is that Duden is not available, and mostly not needed
+
+Duden's public API (`api.duden.io`) is **spellcheck and synonyms only** — it exposes no
+gender, no plural, no part of speech, so it could not have admitted a single one of the
+refused cards even if it were free. The dictionary itself is © Cornelsen; in Germany a
+database additionally carries the sui-generis right (§87b UrhG) against systematic
+extraction of substantial parts, which is a stronger bar than US law. Reading duden.de to
+settle a card by hand is fine and always was. Harvesting it into a corpus this repo
+redistributes under MIT is not. **Filed as declined, on licensing, not on quality.**
+
+### 🟢 Most of the gap is a rule Lexi already teaches · S — do this first
+
+Of the **65 pages de.wiktionary does not have**:
+
+| | | closed by |
+|---|---|---|
+| 21 | 32% | a derivational suffix — `-ung`, `-heit`, `-keit`, `-ität`, `-ion`, `-chen` … |
+| 5 | 8% | the nominalised-infinitive rule (`das Fotografieren`, no plural) |
+| 10 | 15% | a compound head that is **already a card** |
+| 29 | 45% | would need a second source |
+
+The first and third are not heuristics. The course book prints the suffix rule as a TIPP
+on LWS 53 — *"Alle Wörter mit -ung, -schaft, -heit und -ität sind die"* — and Lexi teaches
+the compound rule at B1: *compound nouns take the gender of the last noun*. **The app
+teaches both rules and the authoring gate does not use either.**
+
+The compound rule measures at **741 of 746 (99.33%)** across the corpus, counting only
+nouns that decompose into a head *and* a modifier both already carded. All five
+mismatches were hand-checked: three are bad splits (`Aufwand` is not `auf` + `Wand`),
+one is a plural-only card (`die Lebensmittel`), and exactly one is a real lexical
+exception — `der Teil` → `das Gegenteil`. *Do:* let `verify.ts` fall back to the head's
+gender and the suffix table when the dictionary has no page, and say so in the report
+line, so a rule-derived fact is never mistaken for an attested one.
+
+⚠️ **Requiring both halves is the whole measurement.** Matching on the head alone
+"decomposed" `Morgen` into `Gen`, `Distanz` into `Tanz` and `Antwort` into `Wort`, and
+produced a confident 95.46% with 53 counter-examples that were not compounds at all.
+
+### 🟠 For the remainder, the open second source is Wikidata — not Duden · M
+
+Probed against the 56 plain headwords de.wiktionary lacks: **Wikidata lexemes cover 42
+(75%), with gender stated for 32.** `die Arbeitsatmosphäre` is L846803 — feminine, eight
+forms, plural `Arbeitsatmosphären`, and a sourcing statement attached. Licence is **CC0**:
+no attribution, no share-alike, nothing for ATTRIBUTIONS to carry. English Wiktionary
+covered **0 of 6** on the same words and is not worth wiring up. DWDS covers 5 of 6 but
+publishes a machine-readable TDM reservation (`tdm-reservation: 1`) whose policy requires
+`obtainConsent` — worth an email to dwds@bbaw.de, not worth assuming.
+
+Two hazards, both already known to this codebase in another form:
+
+- `wbsearchentities` matches a label in **every language**. `Disruption` returns the
+  English lexeme first; `Diskursanalyse` returns Swedish, Norwegian and Danish. Filter on
+  `language === Q188`, exactly as `verify.ts` reads only the `{{Sprache|Deutsch}}` section.
+- Wikidata's noun **forms are frequently generated, not attested** — it hands back
+  `die Datensicherheiten` and `die Mitverantwortungen` without hesitation. That is the
+  mass-noun plural trap [LESSONS](LESSONS.md) already records. A plural from Wikidata is a
+  candidate for a human ruling, never a fact.
+
+*Do:* add Wikidata as a **second** authority in `verify.ts`, consulted only when
+de.wiktionary has no page, contributing gender and part of speech but never a plural
+unguarded. Keep the two-source disagreement rule the file already has: a contradiction is
+a hard reject, not a vote.
+
+---
+
 ## Later / needs a decision before it can be built
 
 - **Extended production · L, part research** (#40, Swain). Diktat is the only writing,
