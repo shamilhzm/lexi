@@ -52,6 +52,8 @@
     "corpus:lessons": "node scripts/corpus/lessons.ts",
     "corpus:dupe-points": "node scripts/corpus/dupe-points.ts",
     "corpus:papervocab": "node scripts/corpus/paper-vocab.ts",
+    "corpus:schritte6": "node scripts/corpus/schritte6.ts",
+    "corpus:matcher-gaps": "node scripts/corpus/matcher-gaps.ts",
     "corpus:genex": "node scripts/corpus/gen-exercises.ts",
     "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
     "authoring:ipa": "node scripts/authoring/fetch-ipa.ts",

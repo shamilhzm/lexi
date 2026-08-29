@@ -1,4 +1,4 @@
-// Redemittel: the 214 phrases the app already ships and never scheduled.
+// Redemittel: the phrases the app ships, and the two ways the inventory was wrong.
 import { describe, it, expect } from 'vitest';
 import {
   flattenRedemittel, dedupe, toWords, byGroup, redemittelId, loadRedemittel,
@@ -100,13 +100,35 @@ describe('byGroup', () => {
 describe('against the shipped papers', () => {
   it('loads every level and finds the phrases that were never scheduled', async () => {
     const all = await loadRedemittel();
-    // 129 across 27 groups, counted from the REDEMITTEL exports themselves on
-    // 2026-08-13 — an earlier regex over the whole file said 214 because it also
-    // matched the model answers. A drop here means a paper stopped exporting its
-    // Redemittel, which would otherwise be silent.
-    expect(all.length).toBeGreaterThanOrEqual(120);
+    // 167 across 32 groups, counted from the exports themselves on 2026-08-29 —
+    // 129/27 from the six papers, plus 38 in the five Alltag groups. (An earlier
+    // regex over the whole file said 214 because it also matched the model
+    // answers.) A drop here means a source stopped exporting its Redemittel,
+    // which would otherwise be silent.
+    expect(all.length).toBeGreaterThanOrEqual(160);
     expect(new Set(all.map((c) => c.id)).size).toBe(all.length);
     expect(new Set(all.map((c) => c.level)).size).toBeGreaterThanOrEqual(5);
+  });
+
+  it('carries the transactional groups, not only exam discourse', async () => {
+    // The defect this guards is not a crash — it is the inventory quietly going
+    // back to being uniformly exam-shaped, which is invisible from a total.
+    const groups = new Set(byGroup(await loadRedemittel()).map((g) => g.group));
+    for (const g of [
+      'Sich beschweren und reklamieren',
+      'Höflich ablehnen',
+      'Ein Problem beschreiben und sich beraten lassen',
+      'Verbesserungsvorschläge machen',
+      'Über Pannen und Missgeschicke sprechen',
+    ]) expect(groups).toContain(g);
+  });
+
+  it('keeps a service-desk complaint in Sie', async () => {
+    // A learner taught to reklamieren in du has been taught something actively
+    // harmful, so the register is a correctness property, not a style one.
+    const complaint = (await loadRedemittel()).filter((c) => c.group === 'Sich beschweren und reklamieren');
+    expect(complaint.length).toBeGreaterThan(0);
+    for (const c of complaint) expect(c.de).not.toMatch(/\b(du|dich|dir|dein|deine|kannst|könntest)\b/i);
   });
 
   it('produces cards the lexicon would accept', async () => {

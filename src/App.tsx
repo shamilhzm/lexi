@@ -132,13 +132,15 @@ export default function App() {
   const startSession = () => { setGuided(false); study({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids }); };
   /** Study the Redemittel.
    *
-   *  They ship inside the exam speaking labs and no scheduler had ever seen them
-   *  — 129 phrases read once and never reviewed. Registering them into the live
-   *  lexicon makes them ordinary cards, so FSRS, the session builder, decks and
-   *  the worksheet all pick them up without a second system.
+   *  They shipped inside the exam speaking labs and no scheduler had ever seen
+   *  them — read once and never reviewed. Registering them into the live lexicon
+   *  makes them ordinary cards, so FSRS, the session builder, decks and the
+   *  worksheet all pick them up without a second system.
    *
    *  A `custom` target rather than a sector, because they span six levels and
-   *  twenty-seven functions; the learner asked for "the phrases", not a level. */
+   *  thirty-two functions — argument *and*, since 2026-08-29, the counter: how to
+   *  complain, refuse, ask advice, propose a fix, own up to a mishap. The learner
+   *  asked for "the phrases", not a level. */
   const startRedemittel = () => {
     setGuided(false);
     registerRedemittel().then((cards) => {

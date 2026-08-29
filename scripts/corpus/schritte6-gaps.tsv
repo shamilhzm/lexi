@@ -1,0 +1,4 @@
+# Schritte plus Neu 6 headwords with no card in Lexi. Regenerate: npm run corpus:schritte6 -- --tsv
+# lektion	term	pos
+8	die Arbeitsatmosphäre	noun
+10	die Fachleute	noun

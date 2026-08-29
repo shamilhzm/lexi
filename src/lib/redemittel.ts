@@ -9,11 +9,24 @@
 //
 // [PEDAGOGY](../../docs/PEDAGOGY.md) said Lexi had almost none — "152 phrase
 // cards, 2.3% of the corpus". That measured the *card corpus* and missed where
-// the content actually lives: **129 Redemittel across 27 groups already ship**,
+// the content actually lives: **129 Redemittel across 27 groups already shipped**,
 // authored to a high standard, inside the exam speaking labs. *"Widersprechen,
 // ohne unhöflich zu werden"*, *"Nachgeben, ohne einzuknicken"*, *"Zahlen deuten,
 // nicht vorlesen"* — this is better functional material than most textbooks
 // print.
+//
+// ## And then corrected again, in the other direction
+//
+// Every one of those 27 groups was **exam discourse**, because every source was a
+// speaking paper. Measured against *Schritte plus Neu 6* on 2026-08-29, the app
+// could argue a position and could not return a kettle: nothing for complaining,
+// refusing a request, asking for advice, proposing an improvement, or telling the
+// story of a mishap — four of that book's seven Lektionen. `data/redemittel/
+// alltag-b1.ts` closes it, and the inventory is now **167 phrases across 32
+// groups** (counted by `loadRedemittel` in the test below, 2026-08-29).
+//
+// The lesson generalises past this file: a source list that happens to be uniform
+// stops looking like a choice, and the gap it leaves is invisible from inside.
 //
 // The real defect is what happens to it: **nothing schedules it.** `redemittel`
 // appears in the exam data, `Speaking.tsx` and `Exam.tsx`, and nowhere else — no
@@ -45,12 +58,22 @@ export interface RedemittelCard {
 }
 
 /** Where the phrases live. Loaded on demand, because the speaking modules also
- *  carry the topics and model answers, and nothing on the boot path wants those. */
+ *  carry the topics and model answers, and nothing on the boot path wants those.
+ *
+ *  **Not every source is a paper.** For six levels it was, and that was the defect
+ *  the Schritte plus Neu 6 audit found on 2026-08-29: 27 groups, all of them exam
+ *  discourse, and nothing at all for complaining, refusing or asking advice. A
+ *  source only has to export `Redemittel[]`, so `alltag-b1` sits in the list on
+ *  equal terms — see `data/redemittel/alltag-b1.ts` for why it is not in `exams/`.
+ *
+ *  Order matters: `dedupe` keeps the first sighting, so a level's paper is listed
+ *  before its non-exam companion and wins a collision. */
 const SOURCES: { level: CEFR; load: () => Promise<Redemittel[]> }[] = [
   { level: 'A1', load: () => import('../data/exams/goethe-a1-speaking.ts').then((m) => m.A1_REDEMITTEL) },
   { level: 'A2', load: () => import('../data/exams/goethe-a2-speaking.ts').then((m) => m.A2_REDEMITTEL) },
   // telc's module predates the per-level naming and exports the bare name.
   { level: 'B1', load: () => import('../data/exams/telc-b1-speaking.ts').then((m) => m.REDEMITTEL) },
+  { level: 'B1', load: () => import('../data/redemittel/alltag-b1.ts').then((m) => m.ALLTAG_B1_REDEMITTEL) },
   { level: 'B2', load: () => import('../data/exams/goethe-b2-speaking.ts').then((m) => m.B2_REDEMITTEL) },
   { level: 'C1', load: () => import('../data/exams/goethe-c1-speaking.ts').then((m) => m.C1_REDEMITTEL) },
   { level: 'C2', load: () => import('../data/exams/goethe-c2-speaking.ts').then((m) => m.C2_REDEMITTEL) },

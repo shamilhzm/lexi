@@ -1,0 +1,1179 @@
+[
+ {
+  "term": "der Chat",
+  "en": "chat, online conversation",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Contact & Communication",
+  "ex": [
+   {
+    "de": "Wir haben das im Chat schon besprochen.",
+    "en": "We already discussed that in the chat."
+   },
+   {
+    "de": "Sie liest die alten Chats noch einmal durch.",
+    "en": "She is reading through the old chats again."
+   }
+  ]
+ },
+ {
+  "term": "der Kuli",
+  "en": "biro, ballpoint pen",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Office & Communication",
+  "ex": [
+   {
+    "de": "Hast du einen Kuli für mich?",
+    "en": "Do you have a pen for me?"
+   },
+   {
+    "de": "Auf dem Tisch liegen drei Kulis.",
+    "en": "There are three pens lying on the table."
+   }
+  ]
+ },
+ {
+  "term": "morgig",
+  "en": "tomorrow's, of tomorrow",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Ich bereite die morgige Reise vor.",
+    "en": "I am preparing tomorrow's trip."
+   },
+   {
+    "de": "Der morgige Termin fällt leider aus.",
+    "en": "Tomorrow's appointment is unfortunately cancelled."
+   }
+  ]
+ },
+ {
+  "term": "der Elternabend",
+  "en": "parents' evening at a school",
+  "pos": "noun",
+  "level": "B1",
+  "field": "School & Education System",
+  "ex": [
+   {
+    "de": "Der Elternabend beginnt um halb acht.",
+    "en": "The parents' evening starts at half past seven."
+   },
+   {
+    "de": "Zu den Elternabenden kommen fast alle Eltern.",
+    "en": "Almost all the parents come to the parents' evenings."
+   }
+  ]
+ },
+ {
+  "term": "virtuell",
+  "en": "virtual, existing only online",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Digital World & Technology",
+  "ex": [
+   {
+    "de": "Wir treffen uns in einem virtuellen Raum.",
+    "en": "We meet in a virtual room."
+   },
+   {
+    "de": "Das Museum bietet auch einen virtuellen Rundgang an.",
+    "en": "The museum also offers a virtual tour."
+   }
+  ]
+ },
+ {
+  "term": "das Virus",
+  "en": "virus (in a body or on a computer)",
+  "pos": "noun",
+  "level": "B1",
+  "gender": "das",
+  "field": "Digital World & Technology",
+  "ex": [
+   {
+    "de": "Mein Rechner hat sich ein Virus eingefangen.",
+    "en": "My computer has picked up a virus."
+   },
+   {
+    "de": "Gegen dieses Virus gibt es noch kein Mittel.",
+    "en": "There is no remedy for this virus yet."
+   }
+  ]
+ },
+ {
+  "term": "der Monitor",
+  "en": "monitor, computer screen",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Der Monitor ist mir zu klein.",
+    "en": "The monitor is too small for me."
+   },
+   {
+    "de": "Im Büro stehen zwei Monitore auf jedem Tisch.",
+    "en": "In the office there are two monitors on every desk."
+   }
+  ]
+ },
+ {
+  "term": "der Gott",
+  "en": "god",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Sie glaubt an einen Gott.",
+    "en": "She believes in a god."
+   },
+   {
+    "de": "Die alten Griechen hatten viele Götter.",
+    "en": "The ancient Greeks had many gods."
+   }
+  ]
+ },
+ {
+  "term": "der Unsinn",
+  "en": "nonsense, rubbish",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Red doch keinen Unsinn!",
+    "en": "Do not talk nonsense!"
+   },
+   {
+    "de": "Was in der Zeitung steht, ist völliger Unsinn.",
+    "en": "What the paper says is complete nonsense."
+   }
+  ]
+ },
+ {
+  "term": "die Erfindung",
+  "en": "invention",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Das Rad war eine wichtige Erfindung.",
+    "en": "The wheel was an important invention."
+   },
+   {
+    "de": "Viele Erfindungen entstehen durch Zufall.",
+    "en": "Many inventions come about by chance."
+   }
+  ]
+ },
+ {
+  "term": "der Kursleiter",
+  "en": "course tutor, class teacher",
+  "pos": "noun",
+  "level": "B1",
+  "field": "School & Education System",
+  "ex": [
+   {
+    "de": "Unser Kursleiter erklärt die Grammatik sehr gut.",
+    "en": "Our course tutor explains the grammar very well."
+   },
+   {
+    "de": "Die Kursleiter treffen sich einmal im Monat.",
+    "en": "The course tutors meet once a month."
+   }
+  ]
+ },
+ {
+  "term": "die Kursleiterin",
+  "en": "course tutor, class teacher (female)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "School & Education System",
+  "ex": [
+   {
+    "de": "Die Kursleiterin hat uns die Aufgabe erklärt.",
+    "en": "The course tutor explained the task to us."
+   },
+   {
+    "de": "Wir haben zwei Kursleiterinnen im Sprachkurs.",
+    "en": "We have two course tutors in the language class."
+   }
+  ]
+ },
+ {
+  "term": "der Wohnblock",
+  "en": "block of flats",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Housing & Room Search",
+  "ex": [
+   {
+    "de": "Sie wohnt in einem großen Wohnblock am Stadtrand.",
+    "en": "She lives in a large block of flats on the edge of town."
+   },
+   {
+    "de": "Hinter dem Bahnhof stehen mehrere Wohnblöcke.",
+    "en": "There are several blocks of flats behind the station."
+   }
+  ],
+  "plural": "die Wohnblöcke"
+ },
+ {
+  "term": "der Salon",
+  "en": "salon, sitting room",
+  "pos": "noun",
+  "level": "B1",
+  "field": "The Building",
+  "ex": [
+   {
+    "de": "Der Salon liegt gleich neben dem Eingang.",
+    "en": "The salon is right next to the entrance."
+   },
+   {
+    "de": "In der Altstadt gibt es zwei kleine Salons.",
+    "en": "There are two small salons in the old town."
+   }
+  ]
+ },
+ {
+  "term": "sämtlich",
+  "en": "all, every single one",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Fine Distinctions",
+  "ex": [
+   {
+    "de": "Sie hat sämtliche Unterlagen mitgebracht.",
+    "en": "She brought all the documents with her."
+   },
+   {
+    "de": "Der Sturm hat sämtliche Bäume im Park beschädigt.",
+    "en": "The storm damaged every tree in the park."
+   }
+  ]
+ },
+ {
+  "term": "fort",
+  "en": "away, gone from here",
+  "pos": "adverb",
+  "level": "B1",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Er ist schon seit einer Stunde fort.",
+    "en": "He has been gone for an hour already."
+   },
+   {
+    "de": "Meine Schlüssel sind einfach fort.",
+    "en": "My keys are simply gone."
+   }
+  ]
+ },
+ {
+  "term": "der Moderator",
+  "en": "presenter, host of a programme",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Der Moderator stellt die Gäste kurz vor.",
+    "en": "The presenter briefly introduces the guests."
+   },
+   {
+    "de": "Beide Moderatoren sprechen sehr deutlich.",
+    "en": "Both presenters speak very clearly."
+   }
+  ]
+ },
+ {
+  "term": "die Moderatorin",
+  "en": "presenter, host of a programme (female)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Die Moderatorin führt durch den Abend.",
+    "en": "The presenter guides us through the evening."
+   },
+   {
+    "de": "Zwei Moderatorinnen leiten die Diskussion.",
+    "en": "Two presenters are chairing the discussion."
+   }
+  ]
+ },
+ {
+  "term": "vorig",
+  "en": "previous, last",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Vorige Woche war ich krank.",
+    "en": "Last week I was ill."
+   },
+   {
+    "de": "Im vorigen Jahr haben wir hier gewohnt.",
+    "en": "Last year we lived here."
+   }
+  ]
+ },
+ {
+  "term": "das Zelt",
+  "en": "tent",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Wir haben das Zelt am See aufgebaut.",
+    "en": "We put up the tent by the lake."
+   },
+   {
+    "de": "Auf dem Platz stehen schon viele Zelte.",
+    "en": "There are already a lot of tents on the site."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Fotoapparat",
+  "en": "camera",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Mein Fotoapparat ist leider kaputt.",
+    "en": "My camera is unfortunately broken."
+   },
+   {
+    "de": "Im Schrank liegen noch zwei alte Fotoapparate.",
+    "en": "There are still two old cameras in the cupboard."
+   }
+  ]
+ },
+ {
+  "term": "der Umtausch",
+  "en": "exchange of goods in a shop",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Der Umtausch ist nur mit Beleg möglich.",
+    "en": "An exchange is only possible with a receipt."
+   },
+   {
+    "de": "Beim Umtausch war die Verkäuferin sehr freundlich.",
+    "en": "The shop assistant was very friendly about the exchange."
+   }
+  ]
+ },
+ {
+  "term": "sich anstellen",
+  "en": "to queue, to join a line",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Shopping & Quantities",
+  "ex": [
+   {
+    "de": "Wir mussten uns lange an der Kasse anstellen.",
+    "en": "We had to queue at the till for a long time."
+   },
+   {
+    "de": "Stell dich bitte hinten an.",
+    "en": "Please join the queue at the back."
+   }
+  ]
+ },
+ {
+  "term": "reinigen",
+  "en": "to clean thoroughly",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Ich reinige die Fenster einmal im Monat.",
+    "en": "I clean the windows once a month."
+   },
+   {
+    "de": "Er reinigt seine Schuhe jeden Abend.",
+    "en": "He cleans his shoes every evening."
+   }
+  ]
+ },
+ {
+  "term": "die Pflaume",
+  "en": "plum",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Die Pflaume schmeckt sehr süß.",
+    "en": "The plum tastes very sweet."
+   },
+   {
+    "de": "Im September kaufe ich immer Pflaumen.",
+    "en": "In September I always buy plums."
+   }
+  ]
+ },
+ {
+  "term": "die Aprikose",
+  "en": "apricot",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Ich esse jeden Morgen eine Aprikose.",
+    "en": "I eat an apricot every morning."
+   },
+   {
+    "de": "Aus den Aprikosen macht sie Marmelade.",
+    "en": "She makes jam out of the apricots."
+   }
+  ]
+ },
+ {
+  "term": "der Fachmann",
+  "en": "expert, specialist",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Da müssen wir einen Fachmann fragen.",
+    "en": "We will have to ask an expert about that."
+   },
+   {
+    "de": "Der Fachmann hat den Fehler sofort gefunden.",
+    "en": "The expert found the fault straight away."
+   }
+  ]
+ },
+ {
+  "term": "die Fachfrau",
+  "en": "expert, specialist (female)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Unsere Fachfrau für Steuern ist heute nicht da.",
+    "en": "Our tax specialist is not here today."
+   },
+   {
+    "de": "Als Fachfrau kennt sie jede Vorschrift.",
+    "en": "As a specialist she knows every regulation."
+   }
+  ]
+ },
+ {
+  "term": "anzeigen",
+  "en": "to report to the police; to display",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Er zeigt den Diebstahl bei der Polizei an.",
+    "en": "He is reporting the theft to the police."
+   },
+   {
+    "de": "Das Display zeigt die Temperatur an.",
+    "en": "The display shows the temperature."
+   }
+  ]
+ },
+ {
+  "term": "das Gebiet",
+  "en": "area, region; field of work",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "In diesem Gebiet darf man nicht parken.",
+    "en": "You are not allowed to park in this area."
+   },
+   {
+    "de": "Das Gebiet um den See steht unter Naturschutz.",
+    "en": "The area around the lake is a nature reserve."
+   }
+  ]
+ },
+ {
+  "term": "behindern",
+  "en": "to obstruct, to get in the way of",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Der Lkw behindert den ganzen Verkehr.",
+    "en": "The lorry is obstructing all the traffic."
+   },
+   {
+    "de": "Bitte behindern Sie den Ausgang nicht.",
+    "en": "Please do not block the exit."
+   }
+  ]
+ },
+ {
+  "term": "die Flöte",
+  "en": "flute, recorder",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Meine Tochter spielt seit zwei Jahren Flöte.",
+    "en": "My daughter has been playing the flute for two years."
+   },
+   {
+    "de": "Im Schrank liegen zwei alte Flöten.",
+    "en": "There are two old flutes in the cupboard."
+   }
+  ]
+ },
+ {
+  "term": "sich vornehmen",
+  "en": "to resolve to do something",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Decisions",
+  "ex": [
+   {
+    "de": "Ich habe mir vorgenommen, weniger Kaffee zu trinken.",
+    "en": "I have resolved to drink less coffee."
+   },
+   {
+    "de": "Jedes Jahr nimmt er sich dasselbe vor.",
+    "en": "Every year he resolves to do the same thing."
+   }
+  ]
+ },
+ {
+  "term": "realistisch",
+  "en": "realistic",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Dein Plan ist leider nicht realistisch.",
+    "en": "Your plan is unfortunately not realistic."
+   },
+   {
+    "de": "Wir brauchen ein realistisches Ziel.",
+    "en": "We need a realistic goal."
+   }
+  ]
+ },
+ {
+  "term": "sich verspäten",
+  "en": "to be late, to run late",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der Zug hat sich um zwanzig Minuten verspätet.",
+    "en": "The train was twenty minutes late."
+   },
+   {
+    "de": "Entschuldigung, ich verspäte mich ein wenig.",
+    "en": "Sorry, I am running a little late."
+   }
+  ]
+ },
+ {
+  "term": "der ICE",
+  "en": "German high-speed intercity train",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der ICE nach Hamburg fährt von Gleis sieben.",
+    "en": "The high-speed train to Hamburg leaves from platform seven."
+   },
+   {
+    "de": "Im ICE kann man sehr gut arbeiten.",
+    "en": "You can work very well on the high-speed train."
+   }
+  ]
+ },
+ {
+  "term": "minutenlang",
+  "en": "for minutes on end",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Nach dem Konzert gab es minutenlangen Applaus.",
+    "en": "After the concert there was applause for minutes on end."
+   },
+   {
+    "de": "Er hat minutenlang kein Wort gesagt.",
+    "en": "For minutes on end he did not say a word."
+   }
+  ]
+ },
+ {
+  "term": "sich weigern",
+  "en": "to refuse to do something",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Er weigert sich, das Formular zu unterschreiben.",
+    "en": "He refuses to sign the form."
+   },
+   {
+    "de": "Das Kind hat sich geweigert, ins Bett zu gehen.",
+    "en": "The child refused to go to bed."
+   }
+  ]
+ },
+ {
+  "term": "zuschauen",
+  "en": "to watch, to look on",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Beim Training schaue ich gern zu.",
+    "en": "I like watching at training."
+   },
+   {
+    "de": "Die Kinder haben den Handwerkern lange zugeschaut.",
+    "en": "The children watched the workmen for a long time."
+   }
+  ]
+ },
+ {
+  "term": "unerträglich",
+  "en": "unbearable, impossible to put up with",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Hitze im Zug war unerträglich.",
+    "en": "The heat on the train was unbearable."
+   },
+   {
+    "de": "Er hat einen unerträglichen Ton am Telefon.",
+    "en": "He has an unbearable tone on the phone."
+   }
+  ]
+ },
+ {
+  "term": "die Geschwindigkeitsbeschränkung",
+  "en": "speed limit",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Hier gilt eine Geschwindigkeitsbeschränkung von dreißig.",
+    "en": "There is a thirty-kilometre speed limit here."
+   },
+   {
+    "de": "In der Stadt gibt es viele Geschwindigkeitsbeschränkungen.",
+    "en": "There are many speed limits in town."
+   }
+  ]
+ },
+ {
+  "term": "das Herkunftsland",
+  "en": "country of origin",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "In meinem Herkunftsland isst man später zu Abend.",
+    "en": "In my country of origin people eat dinner later."
+   },
+   {
+    "de": "Die Herkunftsländer der Teilnehmer sind sehr verschieden.",
+    "en": "The participants' countries of origin are very different."
+   }
+  ]
+ },
+ {
+  "term": "verständlich",
+  "en": "understandable, easy to follow",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Die Lehrerin spricht sehr verständlich.",
+    "en": "The teacher speaks very clearly."
+   },
+   {
+    "de": "Deine Reaktion ist völlig verständlich.",
+    "en": "Your reaction is entirely understandable."
+   }
+  ]
+ },
+ {
+  "term": "loben",
+  "en": "to praise",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Der Chef hat unser Team gelobt.",
+    "en": "The boss praised our team."
+   },
+   {
+    "de": "Sie lobt ihre Schüler oft.",
+    "en": "She often praises her pupils."
+   }
+  ]
+ },
+ {
+  "term": "die Anzahl",
+  "en": "number, quantity of something",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Die Anzahl der Teilnehmer ist gestiegen.",
+    "en": "The number of participants has risen."
+   },
+   {
+    "de": "Wir brauchen eine genaue Anzahl bis Freitag.",
+    "en": "We need an exact number by Friday."
+   }
+  ]
+ },
+ {
+  "term": "missverstehen",
+  "en": "to misunderstand",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Du missverstehst mich völlig.",
+    "en": "You are completely misunderstanding me."
+   },
+   {
+    "de": "Bitte missverstehen Sie mich nicht.",
+    "en": "Please do not misunderstand me."
+   }
+  ]
+ },
+ {
+  "term": "sonstig",
+  "en": "other, remaining",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Fine Distinctions",
+  "ex": [
+   {
+    "de": "Sonstige Fragen besprechen wir am Ende.",
+    "en": "We will discuss other questions at the end."
+   },
+   {
+    "de": "Für sonstige Kosten gibt es ein eigenes Feld.",
+    "en": "There is a separate field for other costs."
+   }
+  ]
+ },
+ {
+  "term": "die Tagesmutter",
+  "en": "childminder",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Unsere Tagesmutter holt die Kinder um vier ab.",
+    "en": "Our childminder picks the children up at four."
+   },
+   {
+    "de": "In diesem Viertel gibt es zu wenige Tagesmütter.",
+    "en": "There are too few childminders in this district."
+   }
+  ]
+ },
+ {
+  "term": "die Vermittlung",
+  "en": "placement service; mediation",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Die Vermittlung von Praktika dauert einige Wochen.",
+    "en": "Placing people in internships takes a few weeks."
+   },
+   {
+    "de": "Beide Seiten haben einer Vermittlung zugestimmt.",
+    "en": "Both sides agreed to mediation."
+   }
+  ]
+ },
+ {
+  "term": "der Dienst",
+  "en": "service; a shift or duty",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Working Life",
+  "ex": [
+   {
+    "de": "Mein Dienst beginnt um sechs Uhr.",
+    "en": "My shift starts at six o'clock."
+   },
+   {
+    "de": "Am Wochenende haben wir zwei Dienste.",
+    "en": "At the weekend we have two shifts."
+   }
+  ]
+ },
+ {
+  "term": "jahrzehntelang",
+  "en": "for decades",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Er hat jahrzehntelang in derselben Firma gearbeitet.",
+    "en": "He worked at the same company for decades."
+   },
+   {
+    "de": "Das war das Ergebnis jahrzehntelanger Forschung.",
+    "en": "That was the result of decades of research."
+   }
+  ]
+ },
+ {
+  "term": "das Verfallsdatum",
+  "en": "expiry date, use-by date",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Das Verfallsdatum steht auf dem Deckel.",
+    "en": "The use-by date is on the lid."
+   },
+   {
+    "de": "Bitte prüfen Sie die Verfallsdaten der Medikamente.",
+    "en": "Please check the expiry dates on the medicines."
+   }
+  ]
+ },
+ {
+  "term": "die Lüge",
+  "en": "lie, untruth",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Ethical Concepts",
+  "ex": [
+   {
+    "de": "Das war eine glatte Lüge.",
+    "en": "That was an outright lie."
+   },
+   {
+    "de": "Eine kleine Lüge kann viel kaputtmachen.",
+    "en": "A small lie can break a great deal."
+   }
+  ]
+ },
+ {
+  "term": "zubereiten",
+  "en": "to prepare food",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Man kann das Gericht in zehn Minuten zubereiten.",
+    "en": "You can prepare the dish in ten minutes."
+   },
+   {
+    "de": "Wie hast du die Soße zubereitet?",
+    "en": "How did you prepare the sauce?"
+   }
+  ]
+ },
+ {
+  "term": "die Reportage",
+  "en": "report, feature story",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Im Radio lief eine lange Reportage über Berlin.",
+    "en": "There was a long feature about Berlin on the radio."
+   },
+   {
+    "de": "Ihre Reportagen sind immer sehr genau.",
+    "en": "Her reports are always very precise."
+   }
+  ]
+ },
+ {
+  "term": "töten",
+  "en": "to kill",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Das Gift tötet die Insekten sofort.",
+    "en": "The poison kills the insects immediately."
+   },
+   {
+    "de": "Im Krieg wurden viele Menschen getötet.",
+    "en": "Many people were killed in the war."
+   }
+  ]
+ },
+ {
+  "term": "feucht",
+  "en": "damp, moist",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Weather conditions",
+  "ex": [
+   {
+    "de": "Die Wäsche ist noch feucht.",
+    "en": "The washing is still damp."
+   },
+   {
+    "de": "Im Keller ist die Luft sehr feucht.",
+    "en": "The air in the cellar is very damp."
+   }
+  ]
+ },
+ {
+  "term": "die Bäuerin",
+  "en": "farmer (female)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Farm",
+  "ex": [
+   {
+    "de": "Die Bäuerin verkauft ihre Eier auf dem Markt.",
+    "en": "The farmer sells her eggs at the market."
+   },
+   {
+    "de": "Zwei Bäuerinnen aus dem Dorf waren dabei.",
+    "en": "Two farmers from the village were there."
+   }
+  ]
+ },
+ {
+  "term": "protestieren",
+  "en": "to protest",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Viele Menschen protestieren gegen das neue Gesetz.",
+    "en": "Many people are protesting against the new law."
+   },
+   {
+    "de": "Die Studenten haben friedlich protestiert.",
+    "en": "The students protested peacefully."
+   }
+  ]
+ },
+ {
+  "term": "der Streik",
+  "en": "strike, industrial action",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Working Life",
+  "ex": [
+   {
+    "de": "Wegen des Streiks fahren heute keine Busse.",
+    "en": "Because of the strike there are no buses today."
+   },
+   {
+    "de": "In diesem Jahr gab es mehrere Streiks.",
+    "en": "There were several strikes this year."
+   }
+  ]
+ },
+ {
+  "term": "folgend",
+  "en": "following, the next one",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Fine Distinctions",
+  "ex": [
+   {
+    "de": "Beantworten Sie bitte die folgenden Fragen.",
+    "en": "Please answer the following questions."
+   },
+   {
+    "de": "Am folgenden Tag war das Wetter besser.",
+    "en": "The following day the weather was better."
+   }
+  ]
+ },
+ {
+  "term": "das Gebäck",
+  "en": "biscuits, small baked goods",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Zum Kaffee gibt es frisches Gebäck.",
+    "en": "There are fresh biscuits with the coffee."
+   },
+   {
+    "de": "Sie hat das Gebäck selbst gemacht.",
+    "en": "She made the biscuits herself."
+   }
+  ]
+ },
+ {
+  "term": "rühren",
+  "en": "to stir",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Rühren Sie die Soße langsam um.",
+    "en": "Stir the sauce slowly."
+   },
+   {
+    "de": "Ich rühre den Zucker in den Teig.",
+    "en": "I am stirring the sugar into the dough."
+   }
+  ]
+ },
+ {
+  "term": "das Zuhause",
+  "en": "home, the place you live",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Diese Wohnung ist jetzt mein Zuhause.",
+    "en": "This flat is my home now."
+   },
+   {
+    "de": "Nach zehn Jahren hat sie hier ein Zuhause gefunden.",
+    "en": "After ten years she has found a home here."
+   }
+  ]
+ },
+ {
+  "term": "ordnen",
+  "en": "to sort, to put in order",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Everyday Life",
+  "ex": [
+   {
+    "de": "Ich ordne die Fotos nach Jahren.",
+    "en": "I am sorting the photos by year."
+   },
+   {
+    "de": "Sie hat ihre Papiere endlich geordnet.",
+    "en": "She has finally put her papers in order."
+   }
+  ]
+ },
+ {
+  "term": "der Kontinent",
+  "en": "continent",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Afrika ist ein sehr großer Kontinent.",
+    "en": "Africa is a very large continent."
+   },
+   {
+    "de": "Sie hat schon auf vier Kontinenten gelebt.",
+    "en": "She has already lived on four continents."
+   }
+  ]
+ },
+ {
+  "term": "der Zuwanderer",
+  "en": "immigrant, incomer",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Der Zuwanderer sucht zuerst eine Wohnung.",
+    "en": "The immigrant looks for a flat first."
+   },
+   {
+    "de": "Viele Zuwanderer lernen abends Deutsch.",
+    "en": "Many immigrants learn German in the evenings."
+   }
+  ]
+ },
+ {
+  "term": "pensioniert",
+  "en": "retired, on a pension",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Mein Nachbar ist seit zwei Jahren pensioniert.",
+    "en": "My neighbour has been retired for two years."
+   },
+   {
+    "de": "Eine pensionierte Lehrerin gibt den Kurs.",
+    "en": "A retired teacher runs the course."
+   }
+  ]
+ },
+ {
+  "term": "die EU",
+  "en": "the European Union",
+  "pos": "noun",
+  "level": "B1",
+  "gender": "die",
+  "field": "Home & Europe",
+  "ex": [
+   {
+    "de": "Die EU hat siebenundzwanzig Mitgliedsstaaten.",
+    "en": "The European Union has twenty-seven member states."
+   },
+   {
+    "de": "In der EU kann man ohne Visum reisen.",
+    "en": "You can travel without a visa within the European Union."
+   }
+  ]
+ }
+]

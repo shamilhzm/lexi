@@ -1,0 +1,12 @@
+[
+ {"id":"voc:A2:der Monitor","expect":{"plural":null},"plural":"die Monitore","src":"de.wiktionary — Monitore is the plural for the screen sense; Monitoren belongs to the other senses"},
+ {"id":"voc:B1:der Unsinn","expect":{"plural":null},"plural":"nur Singular","src":"abstract mass noun — no countable plural of the sense glossed"},
+ {"id":"voc:B1:der Umtausch","expect":{"plural":null},"plural":"nur Singular","src":"names a process; the attested plurals are not the sense taught"},
+ {"id":"voc:B1:der Fachmann","expect":{"plural":null},"plural":"die Fachleute","src":"de.wiktionary attests Fachmänner / Fachleute; Fachleute is the ordinary plural"},
+ {"id":"voc:B1:der ICE","expect":{"plural":null},"plural":"die ICEs","src":"de.wiktionary — ICEs alongside the uninflected ICE"},
+ {"id":"voc:B1:der Streik","expect":{"plural":null},"plural":"die Streiks","src":"de.wiktionary attests Streiks / Streike; Streiks is the current form"},
+ {"id":"voc:B1:das Zuhause","expect":{"plural":null},"plural":"nur Singular","src":"de.wiktionary states no plural"},
+ {"id":"voc:B1:die EU","expect":{"plural":null},"plural":"nur Singular","src":"a single named institution"},
+ {"id":"voc:B1:die Anzahl","expect":{"plural":"die Anzahlen"},"plural":"nur Singular","src":"Anzahlen is attested but rare and technical; the sense glossed is a quantity, not a countable thing"},
+ {"id":"voc:B1:das Gebäck","expect":{"plural":"die Gebäcke"},"plural":"nur Singular","src":"collective noun; die Gebäcke means types of baked goods, not the sense glossed"}
+]

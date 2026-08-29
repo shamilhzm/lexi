@@ -607,6 +607,32 @@ new refusal actually catches before trusting the shape of it — and be most sus
 when the refusal message is *"needs a human ruling"*, because that phrasing makes an
 unexamined pile look like a considered one.
 
+### 2026-08-29 — the text layer was complete, and it was missing five words
+
+Extracting the *Schritte plus Neu 6* Lernwortschatz (LWS 31–53, PDF pages 178–201) with
+PyMuPDF returned clean two-column output: headword on the left, example sentence on the
+right, section markers (`A2`, `B3`, `D1`) in place. 354 headwords, every page accounted
+for, no gaps, no errors. Nothing about the output said *incomplete*.
+
+It was incomplete. Rendering the same pages as images and reading them showed that
+LWS 47 carried **die Philosophie, die Klinik, die Maßnahme** and the prefix **über-**
+against markers D1 and D2 — and the text layer had emitted those two markers with
+*nothing beside them*. LWS 51 was missing **das Gebäck**. Five entries, 1.4% of the
+list, and the only visible symptom was a section marker with no word next to it, which
+looks exactly like a page where the book prints an example and no new vocabulary.
+
+The tell was there and it was not an error message. A scanned book's text layer is an
+**OCR guess presented in the same shape as ground truth**: it cannot report a word it
+did not see, so its failure mode is silence, and a silent omission in a two-column
+extraction is indistinguishable from a genuinely empty cell.
+
+**Rule: when the instrument is OCR, the extraction is a hypothesis. Verify it against
+the pixels before any count leaves the session** — and treat a structurally empty slot
+(a numbered section with no content) as a *suspected* miss, not as data. Had the audit
+been published from the text layer alone it would have reported 349 headwords and
+79 gaps, both wrong, and the five words it silently dropped were exactly the ones no
+later check could have re-found.
+
 ## Class 5 — a document asserting something the code contradicts
 
 **The rule: when two docs disagree about a fact, that is a bug with a severity, not a
@@ -836,6 +862,28 @@ missing data.* A wrong query returns nothing, and nothing looks exactly like a g
 The search version returned bad rankings and the IPA version returned an empty
 column; neither ever threw. **Rule, sharpened: when a lookup reports that a source is
 missing a lot of entries, print the keys it actually sent before believing the source.**
+
+- **A separator that also lives inside the data.** `schritte6-grammar.tsv` maps one
+  book item to one or more `grammar.json` titles, and the first version separated
+  multiple titles with `" + "`. Two of the titles it has to carry are *Präposition:
+  außer **+** Dativ* and *statt / ohne … zu **+** Infinitiv*, so the split cut them in
+  half and the audit reported both as **not taught** — in a session that had already
+  read both topics and confirmed they exist. The checklist rule caught it (*a new check
+  that fires is a bug in the check until hand-verified*) within one run.
+  **Before choosing a delimiter, grep the column it will split for that delimiter.**
+  *(Caught 2026-08-29.)*
+
+- **A rate is a gate, not a diagnosis.** `corpus:validate` had been printing *"Reader
+  probe — plural 196/200"* for months, and the four failures read as four odd words. They
+  were not: run over the whole corpus instead of a 200-card sample, the same check finds
+  **214 failures in 7,426 forms, 200 of which resolve to a different card** — a single
+  systematic hole where a capitalised noun form loses to a lowercase verb. The rate was
+  correct every time it printed, and it could not have told anyone that, because a
+  ratio discards the one column that carries the diagnosis: *what won instead.*
+  **When a passing rate has a numerator you have never looked at, look at it once before
+  deciding the remainder is noise.** *(Caught 2026-08-29, when the authoring gate refused
+  four correct sentences in one batch and the sample-based rate had been green
+  throughout.)*
 
 ---
 

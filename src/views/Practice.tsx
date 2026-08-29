@@ -293,8 +293,9 @@ function RedemittelCardEntry({ onStudy }: { onStudy: () => void }) {
           {n !== null && <Chip>{n} phrases</Chip>}
         </span>
         <span className="block text-2xs text-dim">
-          The phrases that start a sentence — agreeing, objecting, weighing up. Grouped by what
-          they <em>do</em>, and now scheduled like everything else.
+          The phrases that start a sentence — objecting and weighing up, and the ones the counter
+          needs: complaining, turning something down, asking advice. Grouped by what they{' '}
+          <em>do</em>, and scheduled like everything else.
         </span>
       </span>
       <ChevronRight size={16} className="text-dim flex-shrink-0" />

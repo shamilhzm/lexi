@@ -1977,6 +1977,134 @@ user; none of it is built.*
 
 ---
 
+## The 2026-08-29 Schritte plus Neu 6 audit — the grammar is there, the everyday words are not
+
+Full pass over *Schritte plus Neu 6* (Hueber, Niveau B1/2, Lektionen 8–14), the B1.2
+half of the DTZ course most of Lexi's target learners actually sit in. Method: the
+book's own Lernwortschatz (LWS 31–53) read **from rendered page images, not the OCR
+text layer** — see [LESSONS](LESSONS.md) 2026-08-29 for why that distinction cost the
+audit five words — and its Grammatikübersicht (GR 5–8) matched item by item against
+`grammar.json`. Instrument: `npm run corpus:schritte6`, with the book's two indexes committed
+beside it as `schritte6-lernwortschatz.tsv` and `schritte6-grammar.tsv`. Every number
+below is from that script, run 2026-08-29.
+
+### ✅ Grammar — 23 of the 24 Grammatikübersicht items covered, and not by accident
+
+Every conjunction the book teaches (`falls` · `während/nachdem/bevor` · `als ob` · `da` ·
+`seit/seitdem` · `bis` · `indem` · `ohne dass / ohne … zu` · `je … desto/umso` ·
+`sowohl … als auch` · `weder … noch`), both passive tenses, Futur I, `außer` + Dativ,
+n-Deklination, Adjektiv als Nomen, Partizip Präsens als Adjektiv, Relativsätze mit
+Präpositionen and with `wo`/`was`, Präpositionaladverbien and the Komposita/Fugen-s
+Wortbildung all have a B1 topic with a rule and exercises. B1's `Wortbildung: Komposita
+(Nomen)` even drills *Volksfest, Weißwurst, Bratwurst, Oktoberfest, Betriebsklima* — the
+book's own five examples. Nothing to do here; **do not "improve" this by adding topics
+that already exist under another title.**
+
+### 🟠 The one grammar gap · S — Adjektivdeklination mit Komparativ und Superlativ
+
+Schritte 6 L13 teaches the *declined* comparative and superlative as its own paradigm:
+`der größere / größte Teil` · `ein größerer Teil` · `einen größeren Teil` · `dem
+größeren Problem`. Lexi teaches Komparativ & Superlativ (A2) and adjective endings
+(three B1 topics, one B2) and **never the combination**. A2's topic prompts attributive
+superlatives after a definite article (*„Das ist der ___ Berg"*) and no attributive
+comparative at all. This is a genuine B1.2 hurdle: the learner has both halves and no
+rule that joins them. *Do:* one B1 topic, `Adjektivdeklination mit Komparativ &
+Superlativ`, following the existing three-table shape.
+
+### ✅ Vocabulary — 79.7% → **99.4%**, done 2026-08-29
+
+69 cards authored and written through `authoring:new`, which verified gender, plural,
+part of speech and IPA against de.wiktionary and proved every example contains a real
+inflection of its headword. **6,630 → 6,699 cards.** `corpus:validate` is at 0 errors and
+0 warnings (the eight "noun without plural" warnings were the new nouns, closed by an
+expect-guarded `fix-authored` batch), and the reader probe's verb score moved 0.937 →
+0.959.
+
+Two headwords remain uncarded and both were **refused by the machine gate, correctly**:
+
+- **`die Arbeitsatmosphäre`** — no de.wiktionary page. A transparent compound of two words
+  the corpus already teaches, so the loss is small; authoring it would mean asserting a
+  gender no dictionary attests, which is the one thing the gate exists to stop.
+- **`die Fachleute`** — plural-only, so the dictionary states no gender. It is now carried
+  where it belongs: as the plural of `der Fachmann`, which is the ordinary plural of that
+  noun and a better card than a headword with no singular.
+
+**One card was authored, written, and then withdrawn.** `hinweisen` was a false gap: the
+corpus already ships `hinweisen auf + A` at A2, and the audit's normaliser did not strip
+government notation, so the two never met. `corpus:validate` refused the duplicate —
+*after* it had been written. The normaliser is fixed and the rule is in
+[LESSONS](LESSONS.md); it was one hit in 72, and it would have been silent if the
+validator had not been run.
+
+### ✅ Redemittel had no service counter — five groups added 2026-08-29
+
+27 Redemittel groups ship across six papers and **every one is exam-discourse**:
+Meinung sagen, widersprechen, abwägen, einen Vortrag gliedern, Zeit gewinnen. Schritte 6
+spends four of its seven Lektionen on transactional functions that appear nowhere in
+Lexi: **sich beschweren / etwas reklamieren** (L10), **einen Arbeitsauftrag höflich
+ablehnen** (L8), **ein Problem beschreiben und sich beraten lassen** (L12),
+**Verbesserungsvorschläge machen** (L13), **über Pannen und Missgeschicke sprechen**
+(L10). These are DTZ speaking-test content and everyday survival language, and Lexi —
+which already owned a good Redemittel model with stable content-keyed ids — had none of
+it. Bigger than the word gaps and worth more.
+
+**Done.** `src/data/redemittel/alltag-b1.ts` adds 38 phrases in those five groups, and
+`SOURCES` now takes a source that is not a paper: **167 phrases across 32 groups**, up
+from 129 across 27. Register is chosen per group and guarded by a test — a complaint at a
+service desk stays in *Sie*, because a learner taught to reklamieren in *du* has been
+taught something actively harmful. The guard was proved to fire before it was trusted.
+
+The general lesson is filed with it: **a source list that happens to be uniform stops
+looking like a choice, and the gap it leaves is invisible from inside.** Every Redemittel
+source was a speaking paper, so every Redemittel was exam discourse, and nothing in the
+app could have said so.
+
+### 🟠 The matcher prefers a lowercase verb to a capitalised noun · M — found 2026-08-29
+
+Found while authoring the Schritte 6 batch, because the authoring gate refused four
+correct example sentences. `npm run corpus:matcher-gaps -- --dative` measures it over the
+whole corpus rather than the reader probe's 200-card sample:
+
+**214 inflected forms of 7,426 do not resolve to their own card (2.88%).** 200 of them
+resolve to a *different* card; only 14 resolve to nothing. So this is overwhelmingly not
+a conjugator hole — it is the matcher preferring the wrong candidate.
+
+| shape | n | example |
+|---|---|---|
+| dative plural | 112 | `Angeboten` → `anbieten`, not `das Angebot` |
+| plural | 53 | `Zahlen` → `zahlen`, not `die Zahl` |
+| adjective + `-e` | 49 | `überraschte` → `überraschen`, not `überrascht` |
+
+**The dative plural is the big one and it looks tractable.** Every hit in that class is a
+*capitalised* noun form losing to a *lowercase* verb infinitive — `Morgen`, `Zahlen`,
+`Spielen`, `Wünschen`, `Gründen`, `Erfolgen`, `Unterschieden`, `Vergleichen`,
+`Berichten`. German capitalises its nouns, and `headwordEvidence` already knows this in
+the other direction: it refuses a *lowercase* token for a noun card, which is how «Er
+braut Bier» stopped passing for `die Braut`. The signal is there and the ranking does not
+use it. The adjective class is genuinely ambiguous (`überraschte` really is both a
+declined participle and a preterite verb) and should be left alone until the noun case is
+done.
+
+Two costs, and the quiet one is larger. For an author, the gate refuses correct German
+and invites a worse sentence — LESSONS names that the worst kind of gate failure, and it
+happened four times in one batch. For a learner, the reader and the comprehension meter
+under-report every noun whose plural spells a verb, silently, on cards as ordinary as
+`die Frage` and `das Haus`.
+
+### 🟡 „es" — the object half is missing · S
+
+B1's `Verben & Ausdrücke mit „es"` covers subject-`es` well: `es gibt` + Akkusativ,
+weather and time, evaluations with `zu` + Infinitiv, and the placeholder that vanishes
+when something else takes position 1. It has nothing on **object-`es`** — *Ich habe es
+eilig · Sie meint es ernst · Meine Kollegin hat es schwer · Sie haben es gut* — nor on
+**`es` as Korrelat for a dass-clause or an infinitive construction in an object slot**:
+*Viele lehnen es ab, ein nichtssagendes Gespräch zu beginnen* ↔ *Ein nichtssagendes
+Gespräch zu beginnen, lehnen viele ab.* The rule that governs both (an object `es` never
+stands in position 1, and drops when its clause moves there) is not stated anywhere.
+Filed from a B2 course-book page, not from Schritte 6.
+
+---
+
 ## Later / needs a decision before it can be built
 
 - **Extended production · L, part research** (#40, Swain). Diktat is the only writing,

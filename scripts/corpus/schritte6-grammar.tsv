@@ -1,0 +1,30 @@
+# Schritte plus Neu 6, Grammatikübersicht (GR 5-8, PDF pages 202-205), every item the
+# book indexes, mapped to the grammar.json topic that teaches it. "-" = nothing teaches
+# it. Multiple topics are separated by " ; " — not by " + ", which occurs inside two titles.
+# Transcribed 2026-08-29 from rendered page images.
+#
+# lektion<TAB>book item<TAB>grammar.json topic(s) as level:title
+8	n-Deklination	A2:n-Deklination
+8	Adjektiv als Nomen	B1:Adjektive als Nomen (der/die Bekannte)
+10	Partizip Präsens als Adjektiv	B1:Partizip Präsens als Adjektiv
+13	Adjektivdeklination mit Komparativ und Superlativ	-
+11	Futur I	B1:Futur I
+13	Passiv Perfekt	B1:Passiv Perfekt & Präteritum
+13	Passiv Präteritum	B1:Passiv Perfekt & Präteritum
+14	Verben mit Präpositionen	B2:Verben mit Präpositionen
+14	Präpositionaladverbien	B1:Präpositionaladverbien: da(r)- & wo(r)-
+12	Präposition: außer + Dativ	B1:Präposition: außer + Dativ
+8	Konjunktion: falls	B1:Konjunktion: falls
+9	Konjunktionen: während, nachdem, bevor	B1:Temporale Konjunktionen: während, bis, seit/seitdem ; B1:Plusquamperfekt & nachdem/bevor
+9	Konjunktion: als ob	B1:Konjunktion: als ob (irreal)
+11	Konjunktion: da	B1:Konjunktionen: da (kausal) & indem
+12	Konjunktion: seit/seitdem	B1:Temporale Konjunktionen: während, bis, seit/seitdem
+12	Konjunktion: bis	B1:Temporale Konjunktionen: während, bis, seit/seitdem
+12	Konjunktion: indem	B1:Konjunktionen: da (kausal) & indem
+12	Konjunktionen: ohne dass / ohne … zu	B1:statt / ohne … zu + Infinitiv
+8	Zweiteilige Konjunktion: je … desto/umso	B1:Zweiteilige Konjunktion: je … desto/umso
+10	Zweiteilige Konjunktion: sowohl … als auch	B1:Zweiteilige Konnektoren
+10	Zweiteilige Konjunktion: weder … noch	B1:Zweiteilige Konnektoren
+8	Relativsatz mit Präpositionen	B1:Relativsätze mit Präpositionen, wo & was
+10	Relativsatz mit wo und was	B1:Relativsätze mit Präpositionen, wo & was
+14	Wiederholung: Wortbildung Nomen	B1:Wortbildung: Komposita (Nomen)

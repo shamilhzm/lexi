@@ -1,0 +1,367 @@
+# Schritte plus Neu 6 (Hueber, Niveau B1/2) — the book's own Lernwortschatz, LWS 31-53.
+# Lektionen 8-14. Transcribed 2026-08-29 from rendered page images of PDF pages
+# 178-201, NOT from the PDF's OCR text layer: that layer silently dropped five
+# entries (die Philosophie, die Klinik, die Maßnahme, über-, das Gebäck). See
+# docs/LESSONS.md 2026-08-29.
+#
+# This is a reference index of headwords for a coverage measurement — it is not
+# course content and nothing here is redistributed into the app. Nouns carry the
+# article as the book prints it; reflexives are normalised to Lexi's "sich X"
+# form; adjectives the book prints with a trailing hyphen (morgig-) keep it.
+#
+# lektion<TAB>headword<TAB>pos
+8	der Sportler	noun
+8	die Sportlerin	noun
+8	falls	conjunction
+8	der Chat	noun
+8	die Grenze	noun
+8	eventuell	adverb
+8	die Konsequenz	noun
+8	wirken	verb
+8	zusagen	verb
+8	nachher	adverb
+8	tauschen	verb
+8	der Kuli	noun
+8	morgig-	adjective
+8	worum	adverb
+8	je	conjunction
+8	desto	conjunction
+8	je ... desto	grammar
+8	der Einfluss	noun
+8	das Klima	noun
+8	die Karriere	noun
+8	eng	adjective
+8	die Studie	noun
+8	die Freundschaft	noun
+8	die Atmosphäre	noun
+8	warnen	verb
+8	die Distanz	noun
+8	die Zusammenarbeit	noun
+8	die Beziehung	noun
+8	beeinflussen	verb
+8	sinnvoll	adjective
+8	monatelang	adjective
+8	das Gedicht	noun
+8	treu	adjective
+8	das Orchester	noun
+8	duzen	verb
+8	der Elternabend	noun
+8	recht	adverb
+8	die Werbung	noun
+8	der Vergleich	noun
+8	die Gemeinschaft	noun
+8	derselbe	pronoun
+8	außer	preposition
+8	die Form	noun
+8	der Eindruck	noun
+8	das Betriebsklima	noun
+8	die Arbeitsatmosphäre	noun
+9	virtuell	adjective
+9	der Ordner	noun
+9	die Festplatte	noun
+9	die Datei	noun
+9	der Virus	noun
+9	der Monitor	noun
+9	herunterladen	verb
+9	anschließen	verb
+9	löschen	verb
+9	die Tastatur	noun
+9	anklicken	verb
+9	der Gott	noun
+9	tagelang	adjective
+9	bevor	conjunction
+9	der Unsinn	noun
+9	die Erfindung	noun
+9	der Akku	noun
+9	nachdem	conjunction
+9	der Rechner	noun
+9	installieren	verb
+9	der Kursleiter	noun
+9	die Kursleiterin	noun
+9	als ob	conjunction
+9	klasse	adjective
+9	herrlich	adjective
+9	der Manager	noun
+9	die Managerin	noun
+9	der Wohnblock	noun
+9	beschreiben	verb
+9	beschließen	verb
+9	der Salon	noun
+9	der Knopf	noun
+9	Verzeihung	interjection
+9	erstellen	verb
+9	das Passwort	noun
+9	das Symbol	noun
+9	süchtig	adjective
+9	vorn	adverb
+9	sämtlich-	adjective
+9	das Mountainbike	noun
+9	sowieso	adverb
+9	fort	adverb
+9	wieso	adverb
+9	aufregen	verb
+9	sich verändern	verb
+9	digital	adjective
+9	die Diskussion	noun
+9	diskutieren	verb
+9	der Moderator	noun
+9	die Moderatorin	noun
+9	der Standpunkt	noun
+9	sich ändern	verb
+9	der Computer	noun
+10	die Haut	noun
+10	das Gesicht	noun
+10	der Nachteil	noun
+10	verbieten	verb
+10	live	adverb
+10	der Sieger	noun
+10	die Siegerin	noun
+10	gerecht	adjective
+10	behandeln	verb
+10	vorig-	adjective
+10	schalten	verb
+10	sowohl ... als auch	grammar
+10	weder ... noch	grammar
+10	die Limonade	noun
+10	die Lieferung	noun
+10	das Zelt	noun
+10	wegwerfen	verb
+10	die Bedingung	noun
+10	streichen	verb
+10	der Fotoapparat	noun
+10	der Beleg	noun
+10	der Umtausch	noun
+10	benötigen	verb
+10	gratis	adjective
+10	schauen	verb
+10	die Schlange	noun
+10	die Handtasche	noun
+10	sich anstellen	verb
+10	einfallen	verb
+10	schief	adjective
+10	das Missgeschick	noun
+10	das Fahrzeug	noun
+10	ausgezeichnet	adjective
+10	korrigieren	verb
+10	reinigen	verb
+10	wachsen	verb
+10	sich drehen	verb
+10	die Entwicklung	noun
+10	hinterher	adverb
+10	abstimmen	verb
+10	der Snack	noun
+10	einerseits	adverb
+10	die Forschung	noun
+10	der Verbraucher	noun
+10	die Verbraucherin	noun
+10	das Projekt	noun
+10	die Pflaume	noun
+10	die Aprikose	noun
+10	der Kampf	noun
+10	neulich	adverb
+10	der Griff	noun
+10	weitermachen	verb
+10	der Dieb	noun
+10	die Diebin	noun
+10	entschlossen	adjective
+10	schütteln	verb
+10	das Handtuch	noun
+10	aufhalten	verb
+10	der Rest	noun
+10	schlagen	verb
+10	schweigen	verb
+10	bestellen	verb
+10	die Beratung	noun
+10	der Fachmann	noun
+10	die Fachfrau	noun
+10	die Fachleute	noun
+11	betrügen	verb
+11	illegal	adjective
+11	anzeigen	verb
+11	bestrafen	verb
+11	der Kasten	noun
+11	zerstören	verb
+11	das Vertrauen	noun
+11	stehlen	verb
+11	weggehen	verb
+11	das Gebiet	noun
+11	der Tropfen	noun
+11	behindern	verb
+11	die Aufforderung	noun
+11	endgültig	adjective
+11	aufgeben	verb
+11	sich bemühen	verb
+11	die Erkältung	noun
+11	die Flöte	noun
+11	das Instrument	noun
+11	fest	adjective
+11	sich vornehmen	verb
+11	realistisch	adjective
+11	bereit	adjective
+11	die Generation	noun
+11	der Hauptbahnhof	noun
+11	sich verspäten	verb
+11	die Runde	noun
+11	der ICE	noun
+11	der Speisewagen	noun
+11	minutenlang	adjective
+11	sich weigern	verb
+11	zuschauen	verb
+11	unerträglich	adjective
+11	die Ausnahme	noun
+11	absolut	adverb
+11	eindeutig	adjective
+11	die Geschwindigkeitsbeschränkung	noun
+11	eilig	adjective
+11	überqueren	verb
+11	vorkommen	verb
+11	das Missverständnis	noun
+11	kulturell	adjective
+11	das Herkunftsland	noun
+11	die Flucht	noun
+11	der Autor	noun
+11	die Autorin	noun
+11	sich verhalten	verb
+11	beleidigen	verb
+11	behaupten	verb
+11	beweisen	verb
+11	neugierig	adjective
+11	verständlich	adjective
+11	loben	verb
+11	der Geschmack	noun
+11	zählen	verb
+11	die Anzahl	noun
+11	das Plakat	noun
+11	notwendig	adjective
+11	missverstehen	verb
+12	die Biene	noun
+12	verantwortlich	adjective
+12	die Organisation	noun
+12	die Schwierigkeit	noun
+12	unterstützen	verb
+12	der Zirkus	noun
+12	das Publikum	noun
+12	aufführen	verb
+12	sonstig-	adjective
+12	die Tagesmutter	noun
+12	die Vermittlung	noun
+12	pensioniert	adjective
+12	der Augenblick	noun
+12	der Kreis	noun
+12	der Dienst	noun
+12	vorlesen	verb
+12	zukünftig	adjective
+12	die Betreuung	noun
+12	wöchentlich	adjective
+12	die Geduld	noun
+12	vernünftig	adjective
+12	die Jugend	noun
+12	die Feuerwehr	noun
+12	beinahe	adverb
+12	eintreten	verb
+12	klettern	verb
+12	jahrzehntelang	adjective
+12	solange	conjunction
+12	versorgen	verb
+12	die Integration	noun
+12	hinweisen	verb
+12	die Bürgerinitiative	noun
+12	der Babysitter	noun
+12	die Babysitterin	noun
+12	das Verfallsdatum	noun
+12	verteilen	verb
+12	die Kälte	noun
+12	ökologisch	adjective
+12	das Altenheim	noun
+12	die Einrichtung	noun
+12	egoistisch	adjective
+12	die Gesellschaft	noun
+12	sich einsetzen	verb
+12	der Umweltschutz	noun
+12	die Philosophie	noun
+12	die Klinik	noun
+12	die Maßnahme	noun
+12	tolerant	adjective
+12	das Gewissen	noun
+12	vorgestern	adverb
+12	die Wolle	noun
+12	die Lüge	noun
+12	heimlich	adjective
+12	der Verein	noun
+12	die Wahrheit	noun
+12	die Hitze	noun
+13	sich weiterbilden	verb
+13	zubereiten	verb
+13	passen	verb
+13	die Reportage	noun
+13	körperlich	adjective
+13	das Ereignis	noun
+13	geschehen	verb
+13	der Krieg	noun
+13	die Bombe	noun
+13	töten	verb
+13	feucht	adjective
+13	kämpfen	verb
+13	empfangen	verb
+13	fördern	verb
+13	örtlich	adjective
+13	der Bürgermeister	noun
+13	die Bürgermeisterin	noun
+13	der Fortschritt	noun
+13	sich leisten	verb
+13	das Gesetz	noun
+13	die Geschwindigkeit	noun
+13	die Ansicht	noun
+13	der Zusammenhang	noun
+13	der Gegensatz	noun
+13	die Demonstration	noun
+13	das Zeichen	noun
+13	politisch	adjective
+13	fair	adjective
+13	der Bauer	noun
+13	die Bäuerin	noun
+13	protestieren	verb
+13	die Landwirtschaft	noun
+13	städtisch	adjective
+13	der Streik	noun
+13	der Bundeskanzler	noun
+13	die Bundeskanzlerin	noun
+13	die Macht	noun
+13	die Zone	noun
+13	offiziell	adjective
+13	national	adjective
+13	folgend-	adjective
+13	wählen	verb
+13	die Regierung	noun
+14	diesmal	adverb
+14	traditionell	adjective
+14	das Gebäck	noun
+14	speziell	adjective
+14	braten	verb
+14	rühren	verb
+14	trocknen	verb
+14	das Zuhause	noun
+14	die Tradition	noun
+14	die Gegend	noun
+14	die Mobilität	noun
+14	die Migration	noun
+14	ursprünglich	adjective
+14	das Volk	noun
+14	die Staatsangehörigkeit	noun
+14	der Profi	noun
+14	integrieren	verb
+14	ordnen	verb
+14	die Fläche	noun
+14	der Einwohner	noun
+14	der Kontinent	noun
+14	die EU	noun
+14	die Freiheit	noun
+14	die Demokratie	noun
+14	der Zuwanderer	noun
+14	das Gewürz	noun
+14	das Rezept	noun
+14	die Zutat	noun
+14	das Gericht	noun
+14	backen	verb
+14	kochen	verb
+
