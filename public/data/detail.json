@@ -69092,6 +69092,20 @@
       }
     ]
   },
+  "voc:B1:die Arbeitsatmosphäre": {
+    "ex": [
+      {
+        "de": "In unserem Büro ist die Arbeitsatmosphäre sehr gut.",
+        "en": "The working atmosphere in our office is very good.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Eine schlechte Arbeitsatmosphäre macht viele Leute krank.",
+        "en": "A bad working atmosphere makes a lot of people ill.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Arbeitskraft": {
     "def": "worker, employee",
     "ex": [

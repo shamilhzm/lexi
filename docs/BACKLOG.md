@@ -2123,7 +2123,7 @@ extraction of substantial parts, which is a stronger bar than US law. Reading du
 settle a card by hand is fine and always was. Harvesting it into a corpus this repo
 redistributes under MIT is not. **Filed as declined, on licensing, not on quality.**
 
-### 🟢 Most of the gap is a rule Lexi already teaches · S — do this first
+### ✅ Most of the gap is a rule Lexi already teaches — wired in 2026-08-29
 
 Of the **65 pages de.wiktionary does not have**:
 
@@ -2143,15 +2143,25 @@ The compound rule measures at **741 of 746 (99.33%)** across the corpus, countin
 nouns that decompose into a head *and* a modifier both already carded. All five
 mismatches were hand-checked: three are bad splits (`Aufwand` is not `auf` + `Wand`),
 one is a plural-only card (`die Lebensmittel`), and exactly one is a real lexical
-exception — `der Teil` → `das Gegenteil`. *Do:* let `verify.ts` fall back to the head's
-gender and the suffix table when the dictionary has no page, and say so in the report
-line, so a rule-derived fact is never mistaken for an attested one.
+exception — `der Teil` → `das Gegenteil`.
+
+**Done.** `scripts/authoring/derive.ts` holds both rules and `verify.ts` consults them
+when — and only when — nothing attests the fact: no page at all, or a page that states
+no gender. A derived fact is labelled `DERIVED` in the report beside the rule that
+produced it, so it can never be read as attested. `die Arbeitsatmosphäre` now verifies
+and is written, which takes the Schritte 6 Lernwortschatz to **353/354 (99.7%)**.
+
+The transcription came free and then didn't: a compound with no page still has attested
+parts, so `compose()` builds one — but it concatenates the constituents and the **linking
+element belongs to neither**, so `Arbeit` + `Atmosphäre` produced */ˈaʁbaɪ̯tatmoˌsfɛːʁə/*
+for a word spelled and said with an *s*. Caught by reading the output. All six existing
+compositions happened to have no Fugen, so nothing had ever exercised it.
 
 ⚠️ **Requiring both halves is the whole measurement.** Matching on the head alone
 "decomposed" `Morgen` into `Gen`, `Distanz` into `Tanz` and `Antwort` into `Wort`, and
 produced a confident 95.46% with 53 counter-examples that were not compounds at all.
 
-### 🟠 For the remainder, the open second source is Wikidata — not Duden · M
+### ✅ The open second source is Wikidata — verified 2026-08-29
 
 Probed against the 56 plain headwords de.wiktionary lacks: **Wikidata lexemes cover 42
 (75%), with gender stated for 32.** `die Arbeitsatmosphäre` is L846803 — feminine, eight
@@ -2171,10 +2181,26 @@ Two hazards, both already known to this codebase in another form:
   mass-noun plural trap [LESSONS](LESSONS.md) already records. A plural from Wikidata is a
   candidate for a human ruling, never a fact.
 
-*Do:* add Wikidata as a **second** authority in `verify.ts`, consulted only when
-de.wiktionary has no page, contributing gender and part of speech but never a plural
-unguarded. Keep the two-source disagreement rule the file already has: a contradiction is
-a hard reject, not a vote.
+**Verified, and it also answered an older question.** ATTRIBUTIONS had listed Wikidata
+Lexemes as *"not yet verified — SPARQL returned 502 on 2026-08-15"*. That 502 was partly
+self-inflicted: a `FILTER(STR(?lem) = ?lemma)` forces a scan, where `VALUES ?lem {
+"Haus"@de }` against `wikibase:lemma` is an index lookup. Re-probed, the German set is
+**188,949 noun lexemes (96% with gender), 20,428 verbs and 26,862 adjectives, 91–95% of
+them carrying inflected forms** — so yes, the verb paradigms the old note wondered about
+are populated.
+
+**And it validates what already ships.** `npm run corpus:wikidata -- --check` matched
+**3,506 of Lexi's 3,615 single-word nouns (97.0%)** and agreed on gender **3,503 times
+(99.91%)**. All three disagreements are the same artefact — `die Lebensmittel`,
+`die Möbel`, `die Gartenmöbel` are carded in the plural, where *die* is the plural article
+and not a gender, so the two sources are describing different forms. **Zero genuine gender
+defects**, confirmed against an independent source, which is the first time anything but
+de.wiktionary has had an opinion on it.
+
+*Still to do:* use it as a lookup in `verify.ts` for the words no rule covers
+(`-- --gaps` already lists them), contributing gender and part of speech but never a
+plural unguarded. Keep the two-source disagreement rule the file already has: a
+contradiction is a hard reject, not a vote.
 
 ---
 

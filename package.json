@@ -55,6 +55,7 @@
     "corpus:schritte6": "node scripts/corpus/schritte6.ts",
     "corpus:matcher-gaps": "node scripts/corpus/matcher-gaps.ts",
     "corpus:second-authority": "node scripts/corpus/second-authority.ts",
+    "corpus:wikidata": "node scripts/corpus/wikidata.ts",
     "corpus:genex": "node scripts/corpus/gen-exercises.ts",
     "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
     "authoring:ipa": "node scripts/authoring/fetch-ipa.ts",

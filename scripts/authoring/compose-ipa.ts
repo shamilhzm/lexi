@@ -44,15 +44,11 @@ const arg = (n: string): string | undefined => {
 };
 const OUT = arg('--out') ?? 'scripts/authoring/batches/ipa-composed-01.json';
 
-/** One primary stress, on the first constituent; secondary on the rest. */
-export function compose(parts: string[]): string {
-  return parts.map((raw, i) => {
-    const s = raw.replace(/ˌ/g, '');
-    if (i === 0) return /ˈ/.test(s) ? s : `ˈ${s}`;
-    const demoted = s.replace(/ˈ/g, 'ˌ');
-    return /ˌ/.test(demoted) ? demoted : `ˌ${demoted}`;
-  }).join('');
-}
+// `compose` moved to derive.ts on 2026-08-29 so that verify.ts could use it
+// without importing this file, which imports verify.ts. Re-exported here because
+// the rule belongs to this script's story and its test imports it from here.
+export { compose } from './derive.ts';
+import { compose } from './derive.ts';
 
 /** A prefix is written with its hyphen (`un-`); the spelling check drops it. */
 const spell = (p: string) => p.replace(/-$/, '');

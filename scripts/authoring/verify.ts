@@ -29,6 +29,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildMatcher } from '../../src/lib/matcher.ts';
 import { headwordEvidence } from '../corpus/lib.ts';
+import { buildIndex, compose, deriveNoun, fugenIpa, type Derivation } from './derive.ts';
 import type { CEFR, Word } from '../../src/types.ts';
 
 const CACHE = join('scripts', 'corpus', 'data', 'wiktionary');
@@ -240,11 +241,20 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
     // Unreachable is not the same as unattested, and must not silently reject.
     return { term: c.term, ok: false, reasons: [(e as Error).message], notes };
   }
-  if (!wt) {
+
+  // A missing page is not a missing word. No dictionary lists every compound a
+  // language can form, and `die Arbeitsatmosphäre` was refused here for being
+  // ordinary German. Where the page is absent — or present and silent on gender,
+  // which is how `die Fachleute` was refused — German's own rules are consulted
+  // instead. See `derive.ts` for what those rules will and will not say.
+  const derived = c.pos === 'noun' ? deriveNoun(head, buildIndex(corpus)) : null;
+
+  if (!wt && !derived) {
     return { term: c.term, ok: false, reasons: [`no de.wiktionary entry for "${lemma}"`], notes };
   }
-  if (lemma !== head) notes.push(`facts checked against lemma "${lemma}"`);
-  const facts = parseFacts(wt);
+  if (!wt) notes.push(`no de.wiktionary page — facts derived, not attested`);
+  if (wt && lemma !== head) notes.push(`facts checked against lemma "${lemma}"`);
+  const facts = wt ? parseFacts(wt) : { genders: new Set<'der' | 'die' | 'das'>(), plurals: [], ipa: null, pos: new Set<string>() };
 
   // --- part of speech ---
   const attested = new Set([...facts.pos].map((p) => POS_MAP[p]).filter(Boolean));
@@ -255,7 +265,17 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   // --- gender: the field the human gate existed for ---
   let gender = c.gender ?? null;
   if (c.pos === 'noun') {
-    if (!facts.genders.size) reasons.push('dictionary states no gender');
+    if (!facts.genders.size && derived) {
+      // The rule fills the fact, and never overrides one: this branch is only
+      // reached when the dictionary attests no gender at all.
+      if (gender && gender !== derived.gender) {
+        reasons.push(`gender ${gender} contradicted by the ${derived.why}, which gives ${derived.gender}`);
+      } else {
+        gender = derived.gender;
+        notes.push(`gender ${gender} DERIVED — ${derived.why}`);
+      }
+    }
+    else if (!facts.genders.size) reasons.push('dictionary states no gender');
     else if (gender && !facts.genders.has(gender)) {
       reasons.push(`gender ${gender} contradicted — dictionary attests ${[...facts.genders].join('/')}`);
     } else if (!gender) {
@@ -276,6 +296,10 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
 
   // --- plural ---
   let plural = c.plural ?? null;
+  if (c.pos === 'noun' && !facts.plurals.length && !plural && derived?.plural) {
+    plural = derived.plural;
+    notes.push(`plural "${plural}" DERIVED from the head — ${derived.why}`);
+  }
   if (c.pos === 'noun' && facts.plurals.length) {
     const attestedPl = facts.plurals.map((p) => p.toLowerCase());
     if (plural && !attestedPl.includes(stripArticle(plural).toLowerCase())) {
@@ -291,6 +315,26 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   // --- ipa ---
   let ipa = c.ipa ?? null;
   if (!ipa && facts.ipa) { ipa = facts.ipa; notes.push('IPA from dictionary'); }
+  // A compound with no page of its own still has attested parts. `compose` puts one
+  // primary stress on the first constituent, which is what a German compound has —
+  // the naive concatenation produces two. The parts must each be attested; one miss
+  // leaves the card without a transcription rather than with a guessed one.
+  if (!ipa && derived?.parts) {
+    const got: string[] = [];
+    for (const part of derived.parts) {
+      let pwt: string | null = null;
+      try { pwt = await wikitext(part); } catch { break; }
+      const pi = pwt ? parseFacts(pwt).ipa : null;
+      if (!pi) break;
+      got.push(pi);
+    }
+    if (got.length === derived.parts.length) {
+      // The linking element is in neither constituent's entry and is in the word.
+      got[0] += fugenIpa(derived.fugen);
+      ipa = compose(got);
+      notes.push(`IPA COMPOSED from ${derived.parts.map((p, i) => `${p} /${got[i]}/`).join(' + ')}`);
+    }
+  }
 
   // --- gloss sanity ---
   const gloss = (c.en || '').trim();

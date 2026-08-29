@@ -33,13 +33,53 @@ cheap the first time and invisible the second.
 - **If it is ever wanted:** ask BBAW via their contact form first, and record the
   answer here. Do not wire it in on the strength of the endpoint being reachable.
 
-### Candidates not yet verified
-- **Wikidata Lexemes** — CC0, and explicitly built for automated use, which would
-  make it the cleanest possible fit. The SPARQL endpoint returned **502** when
-  probed on 2026-08-15, so whether German verb paradigms are actually populated
-  there is **unconfirmed**. Worth one more attempt before any work is planned on it.
-- **UniMorph** (CC BY-SA) — morphological paradigms released for computational use.
-  Not probed.
+### Candidates verified 2026-08-29 — both usable
+
+- **Wikidata Lexemes** — **verified, CC0, in use.** The 502 of 2026-08-15 was
+  transient *and* partly self-inflicted: a query that binds a plain string and
+  compares with `FILTER(STR(?lem) = ?lemma)` forces a scan and times out, where
+  `VALUES ?lem { "Haus"@de }` against `wikibase:lemma` is an index lookup that
+  answers in a second. Re-probed with the second form, the German lexeme set is
+  large and populated — and the specific open question, whether **verb paradigms**
+  are filled, is answered yes:
+
+  | | lexemes | with inflected forms | |
+  |---|---|---|---|
+  | noun | 188,949 | 95% | gender stated for 96% |
+  | verb | 20,428 | 94% | |
+  | adjective | 26,862 | 91% | |
+  | adverb | 2,656 | 100% | |
+
+  Roughly twenty-eight times Lexi's whole corpus in nouns alone. **CC0** imposes
+  nothing — no attribution, no share-alike — so it is the only source here that adds
+  no obligation to the shipped data. Used two ways, both in `scripts/corpus/wikidata.ts`:
+  as a **second opinion** on every gender already in the corpus, and as a **lookup**
+  for words de.wiktionary has no page for.
+
+  ⚠️ Two hazards. `wbsearchentities` matches a label in *every* language — `Disruption`
+  returns the English lexeme first — so always bind `dct:language wd:Q188`. And the
+  noun **forms are frequently generated rather than attested**: it offers
+  *die Datensicherheiten* and *die Mitverantwortungen* without hesitation. Take gender
+  and part of speech; treat a plural as a candidate for a human ruling.
+
+- **UniMorph German** (`github.com/unimorph/deu`) — **verified, CC BY-SA 3.0**, stated
+  in the README although GitHub's licence detector reports none. 519,143 inflected
+  forms over 39,373 lemmas, tagged for case, number and gender
+  (`Hirschhornsalz  Hirschhornsalzes  N;GEN;NEUT;SG`). A **static file**, which is its
+  real advantage over the SPARQL endpoint: no rate limit, no availability risk, works
+  on a maintainer's machine offline. Smaller than Wikidata and last updated 2024-07.
+  Share-alike is already Lexi's position for the corpus, so it costs nothing extra.
+  **Not yet wired in** — worth it if the Wikidata endpoint's flakiness becomes a
+  problem, or as a cross-check of the cross-check.
+
+### Sources rejected on licence, not on quality
+- **Duden** — checked 2026-08-29. The public API (`api.duden.io`) is spellcheck and
+  synonyms only and exposes **no gender, plural or part of speech**, so it could not
+  have settled a single card even if it were free. The dictionary is © Cornelsen, and
+  in Germany a database additionally carries the sui-generis right (§87b UrhG) against
+  systematic extraction of substantial parts. Reading duden.de to settle a card by
+  hand is fine and always was; harvesting it into a corpus this repo redistributes is
+  not.
 
 ## Sources
 

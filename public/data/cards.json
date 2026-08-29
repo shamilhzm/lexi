@@ -103338,5 +103338,19 @@
     "ant": [],
     "field": "Home & Europe",
     "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Arbeitsatmosphäre",
+    "term": "die Arbeitsatmosphäre",
+    "en": "working atmosphere",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "—",
+    "ipa": "ˈaʁbaɪ̯tsatmoˌsfɛːʁə",
+    "syn": [],
+    "ant": [],
+    "field": "Work & Colleagues",
+    "kind": "word"
   }
 ]
