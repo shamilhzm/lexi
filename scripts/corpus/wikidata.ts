@@ -42,7 +42,8 @@
 // Run: `npm run corpus:wikidata -- --check`  ·  `-- --gaps`
 import { PATHS } from './config.ts';
 import { loadCorpus } from './lib.ts';
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { join } from 'node:path';
 import type { Word } from '../../src/types.ts';
 
@@ -146,4 +147,36 @@ async function gaps() {
   console.log('  from here is a candidate for a human ruling, never a fact.');
 }
 
-await (MODE === 'gaps' ? gaps() : check());
+// Importing this file must not query anything. `compose-ipa` learned the same
+// lesson the hard way — a module that does its work at import time has no safe
+// consumer — and `verify.ts` now imports `wikidataGender` from here.
+if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+  await (MODE === 'gaps' ? gaps() : check());
+}
+
+// ---- the per-card lookup, for the authoring gate ---------------------------
+
+const LEX_CACHE = join('scripts', 'corpus', 'data', 'wikidata');
+/** A lemma the query ran for and found nothing under. Cached like a `missingtitle`
+ *  from wiktionary, and for the same reason: "no lexeme" is a durable fact, where a
+ *  network failure is not and must never be written down as one. */
+const NONE = '\0NONE';
+
+/** The genders Wikidata attests for a German noun lemma, or `null` if it has no
+ *  German noun lexeme. Throws if the endpoint cannot be reached — unreachable is
+ *  not the same as unattested, which is the distinction `verify.ts` already draws
+ *  for wiktionary and the one worth getting right in both places. */
+export async function wikidataGender(lemma: string): Promise<string[] | null> {
+  mkdirSync(LEX_CACHE, { recursive: true });
+  const file = join(LEX_CACHE, `${encodeURIComponent(lemma)}.txt`);
+  if (existsSync(file)) {
+    const raw = readFileSync(file, 'utf8');
+    return raw === NONE ? null : raw.split(',').filter(Boolean);
+  }
+  const rows = await sparql(
+    `SELECT ?g WHERE { VALUES ?lem { "${lemma.replace(/["\\]/g, '')}"@de } ` +
+    `?l wikibase:lemma ?lem ; dct:language wd:Q188 ; wikibase:lexicalCategory wd:Q1084 ; wdt:P5185 ?g . }`, 3);
+  const genders = [...new Set(rows.map((r) => GENDER[qid(r.g.value)]).filter(Boolean))];
+  writeFileSync(file, genders.length ? genders.join(',') : NONE);
+  return genders.length ? genders : null;
+}

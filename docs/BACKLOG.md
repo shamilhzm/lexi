@@ -2059,7 +2059,7 @@ looking like a choice, and the gap it leaves is invisible from inside.** Every R
 source was a speaking paper, so every Redemittel was exam discourse, and nothing in the
 app could have said so.
 
-### 🟠 The matcher prefers a lowercase verb to a capitalised noun · M — found 2026-08-29
+### ✅ The matcher preferred a lowercase verb to a capitalised noun — fixed 2026-08-29
 
 Found while authoring the Schritte 6 batch, because the authoring gate refused four
 correct example sentences. `npm run corpus:matcher-gaps -- --dative` measures it over the
@@ -2090,6 +2090,28 @@ and invites a worse sentence — LESSONS names that the worst kind of gate failu
 happened four times in one batch. For a learner, the reader and the comprehension meter
 under-report every noun whose plural spells a verb, silently, on cards as ordinary as
 `die Frage` and `das Haus`.
+
+**Fixed.** The matcher already had rule 4 for this collision and it only worked in one
+direction: `pluralOnly` is set when the *noun* wins the first-wins race for an index key,
+and where the *verb* won it there was no path back. Rule 4b is the mirror — a
+`nounFormIndex` of plural and dative-plural forms, consulted when the token is
+capitalised and the winner is not a noun.
+
+**214 → 117 unresolved (2.88% → 1.58%)**; the dative-plural class went 112 → 35 and
+`corpus:validate`'s own reader probe moved **196/200 → 199/200**. The 49 adjective misses
+are untouched on purpose: `überraschte` really is both a declined participle and a
+preterite verb, and no casing signal separates them.
+
+The guard is the interesting half. A **sentence-initial** word is capitalised whatever
+its class, so «Zahlen Sie bitte» must stay the verb — the rule takes `pos > 0`, and
+allows `after.length === 0` so that a citation form still reads as the noun, because a
+German noun quoted alone is written with its capital and a verb is not. The guard was
+proved to fire by removing it and watching the test fail.
+
+*Known, pre-existing, not caused by this:* «Fragen Sie mich!» still resolves to
+`die Frage`, because there the noun holds the index key and rule 4's lowercase test
+cannot fire either. Sentence-initial noun/verb ambiguity needs agreement analysis, not
+casing.
 
 ### 🟡 „es" — the object half is missing · S
 
@@ -2197,10 +2219,16 @@ and not a gender, so the two sources are describing different forms. **Zero genu
 defects**, confirmed against an independent source, which is the first time anything but
 de.wiktionary has had an opinion on it.
 
-*Still to do:* use it as a lookup in `verify.ts` for the words no rule covers
-(`-- --gaps` already lists them), contributing gender and part of speech but never a
-plural unguarded. Keep the two-source disagreement rule the file already has: a
-contradiction is a hard reject, not a vote.
+**Wired in.** `verify.ts` now consults three authorities in order: de.wiktionary for what
+it attests, `derive.ts` for what German's own rules settle, and Wikidata for what neither
+can say. Gender only — Wikidata's noun forms are frequently generated and a plural from
+there stays a candidate for a human ruling.
+
+It is also consulted for **every** noun, not only the ones wiktionary misses, because
+authoring time is the cheapest moment a wrong gender can be caught. A disagreement is a
+hard reject with the plural-only case named in the message, since that is the one shape
+that trips it honestly. Proved by seeding both caches for a fabricated word: the suffix
+rule and Wikidata each rejected the wrong gender independently.
 
 ---
 

@@ -266,6 +266,19 @@ export function buildMatcher(corpus: Word[]): Matcher {
   /** Keys whose only reason to be in `index` is a noun's plural form. */
   const pluralOnly = new Set<string>();
 
+  // A noun form's own index, and the exact mirror of `verbIndex` above.
+  //
+  // `pluralOnly` only helps where the **noun** won the first-wins race for the
+  // index key; where the verb won it there was no way back to the noun at all, and
+  // `corpus:matcher-gaps` measured that as **200 of 214** unresolved forms — every
+  // one a capitalised noun losing to a lowercase verb infinitive. `Angeboten` went
+  // to `anbieten`, `Zahlen` to `zahlen`, `Lügen` to `lügen`, and `die Frage` has
+  // shipped since A1 unable to be lit up by its own plural.
+  const nounFormIndex = new Map<string, Word>();
+  const addNounForm = (k: string, w: Word) => { if (k && !nounFormIndex.has(k)) nounFormIndex.set(k, w); };
+  /** The dative plural adds -n unless the plural already ends in -n or -s. */
+  const dativePlural = (pl: string) => (/[ns]$/i.test(pl) ? pl : `${pl}n`);
+
   // Separable verbs, keyed by the *stem* token with the particle recorded beside it.
   // `conjugate('anrufen')` yields "rufe an" — a two-token string that single-token
   // lookup could never reach, which is why every separable verb missed entirely.
@@ -327,6 +340,10 @@ export function buildMatcher(corpus: Word[]): Matcher {
       const k = pl.toLowerCase();
       if (!index.has(k)) pluralOnly.add(k);
       add(k, w);
+      if (w.pos === 'noun') {
+        addNounForm(k, w);
+        addNounForm(dativePlural(pl).toLowerCase(), w);
+      }
     }
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adjIndex.has(k)) adjIndex.set(k, w); }
   }
@@ -620,6 +637,23 @@ export function buildMatcher(corpus: Word[]): Matcher {
     if (direct && pluralOnly.has(lc) && tok[0] === tok[0].toLowerCase()) {
       const verb = verbIndex.get(lc);
       if (verb) return verb;
+    }
+    // 4b. The same collision from the other side. Rule 4 can only reach the case
+    //     where the noun holds the index key; when the *verb* holds it — `lügen`
+    //     is a lemma, `Lügen` is only a plural — there was no path back, and that
+    //     is where 200 of the 214 forms in `corpus:matcher-gaps` were going.
+    //
+    //     German capitalises its nouns, so a capitalised token spelling a noun form
+    //     is that noun. The exception rule 4's comment names is real and is excluded
+    //     here rather than worked around: a **sentence-initial** word is capitalised
+    //     whatever its class, so «Fragen Sie mich!» must stay the verb. `pos > 0`
+    //     says "not sentence-initial"; `!after.length` lets a citation form through,
+    //     because a German noun quoted alone *is* written with its capital and a
+    //     verb quoted alone is not.
+    if (direct && direct.pos !== 'noun' && tok[0] !== tok[0].toLowerCase()
+        && (pos > 0 || after.length === 0)) {
+      const noun = nounFormIndex.get(lc);
+      if (noun) return noun;
     }
     if (direct) return direct;
     // 5. A verb form that lost the first-wins race to an unrelated lemma.

@@ -267,3 +267,50 @@ describe('plural notations — every one the corpus actually uses', () => {
     expect(mm.annotate('Vorschläge')[0]?.word?.term).toBe('der Vorschlag');
   });
 });
+
+describe('a capitalised noun form does not lose to a lowercase verb', () => {
+  // The collision is real in both directions and only one of them had a rule.
+  // `lügen` is a verb lemma; `Lügen` is only ever `die Lüge`'s plural. Whichever
+  // card reaches the index first owns the key, so `pluralOnly` (rule 4) helps only
+  // when the noun won that race — and where the verb won it there was no way back.
+  // `corpus:matcher-gaps` measured 200 of 214 unresolved forms in that state.
+  const both = buildMatcher([
+    w({ id: 'v:luegen', term: 'lügen', pos: 'verb' }),
+    w({ id: 'v:luege', term: 'die Lüge', pos: 'noun', gender: 'die', plural: 'die Lügen' }),
+    w({ id: 'v:zahlen', term: 'zahlen', pos: 'verb' }),
+    w({ id: 'v:zahl', term: 'die Zahl', pos: 'noun', gender: 'die', plural: 'die Zahlen' }),
+    w({ id: 'v:haus', term: 'das Haus', pos: 'noun', gender: 'das', plural: 'die Häuser' }),
+    w({ id: 'v:kommen', term: 'kommen', pos: 'verb' }),
+    w({ id: 'v:sein', term: 'sein', pos: 'verb' }),
+  ]);
+  const at = (text: string, tok: string) =>
+    both.annotate(text).find((s) => s.text === tok)?.word?.term ?? null;
+
+  it('reads a capitalised plural mid-sentence as the noun', () => {
+    expect(at('Mit Lügen kommt man nicht weit.', 'Lügen')).toBe('die Lüge');
+    expect(at('Ihre Zahlen sind falsch.', 'Zahlen')).toBe('die Zahl');
+  });
+
+  it('reads a capitalised dative plural as the noun', () => {
+    // The class that was worst: 112 of the 214, every one of this shape.
+    expect(at('In diesen Häusern wohnt niemand.', 'Häusern')).toBe('das Haus');
+  });
+
+  it('reads a citation form as the noun, and its lowercase twin as the verb', () => {
+    // Quoted alone there is no sentence to be initial in, and German writes the
+    // noun with its capital and the verb without one. That is the whole signal.
+    expect(both.annotate('Lügen')[0]?.word?.term).toBe('die Lüge');
+    expect(both.annotate('lügen')[0]?.word?.term).toBe('lügen');
+  });
+
+  it('still lets the verb win sentence-initially, where the capital means nothing', () => {
+    // «Zahlen Sie bitte» is an imperative. A sentence-initial word is capitalised
+    // whatever its class, so the rule must not fire there — this is the guard, and
+    // without it the fix would trade 200 quiet errors for a noisier set.
+    expect(at('Zahlen Sie bitte an der Kasse.', 'Zahlen')).toBe('zahlen');
+  });
+
+  it('still lets a lowercase form win, which is rule 4 and must not regress', () => {
+    expect(at('Sie lügen doch alle.', 'lügen')).toBe('lügen');
+  });
+});

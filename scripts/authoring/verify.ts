@@ -30,6 +30,7 @@ import { join } from 'node:path';
 import { buildMatcher } from '../../src/lib/matcher.ts';
 import { headwordEvidence } from '../corpus/lib.ts';
 import { buildIndex, compose, deriveNoun, fugenIpa, type Derivation } from './derive.ts';
+import { wikidataGender } from '../corpus/wikidata.ts';
 import type { CEFR, Word } from '../../src/types.ts';
 
 const CACHE = join('scripts', 'corpus', 'data', 'wiktionary');
@@ -262,6 +263,22 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
     reasons.push(`pos "${c.pos}" not attested (dictionary has ${[...attested].join(', ') || 'none mapped'})`);
   }
 
+  // --- a third opinion, from a source that is neither a dictionary nor a rule ---
+  //
+  // Wikidata lexemes are CC0 and cover 97% of the corpus's nouns; cross-checked in
+  // bulk on 2026-08-29 they agreed with Lexi on gender 3,503 times out of 3,506.
+  // Consulted for **every** noun, not only the ones wiktionary misses, because the
+  // moment a card is authored is the cheapest moment a wrong gender can be caught —
+  // and a corpus with one authority cannot be wrong out loud.
+  //
+  // Unreachable is not unattested: a network failure leaves this `null` and changes
+  // nothing, exactly as it does for wiktionary above.
+  let wdGenders: string[] | null = null;
+  if (c.pos === 'noun') {
+    try { wdGenders = await wikidataGender(head); }
+    catch { notes.push('wikidata unreachable — not consulted'); }
+  }
+
   // --- gender: the field the human gate existed for ---
   let gender = c.gender ?? null;
   if (c.pos === 'noun') {
@@ -274,6 +291,17 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
         gender = derived.gender;
         notes.push(`gender ${gender} DERIVED — ${derived.why}`);
       }
+    }
+    else if (!facts.genders.size && wdGenders?.length === 1) {
+      if (gender && gender !== wdGenders[0]) {
+        reasons.push(`gender ${gender} contradicted — wikidata attests ${wdGenders[0]}`);
+      } else {
+        gender = wdGenders[0] as 'der' | 'die' | 'das';
+        notes.push(`gender ${gender} from wikidata (no wiktionary page, no rule applies)`);
+      }
+    }
+    else if (!facts.genders.size && wdGenders && wdGenders.length > 1) {
+      reasons.push(`wikidata attests ${wdGenders.join('/')} — state the gender explicitly`);
     }
     else if (!facts.genders.size) reasons.push('dictionary states no gender');
     else if (gender && !facts.genders.has(gender)) {
@@ -289,6 +317,17 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
     } else notes.push(`gender ${gender} confirmed (page also attests ${[...facts.genders].join('/')})`);
     if (gender && !new RegExp(`^${gender}\\s`, 'i').test(c.term)) {
       reasons.push(`term "${c.term}" does not carry its article "${gender}"`);
+    }
+    // The cross-check, run last so it sees the gender whatever settled it. A
+    // disagreement between two independent sources is a reason to stop, not to hold
+    // a vote — the same rule this file already applies to the candidate and the
+    // dictionary. The one shape that trips it honestly is a plural-only card, where
+    // Lexi's «die» is the plural article and wikidata is describing the singular.
+    if (gender && wdGenders?.length && !wdGenders.includes(gender)) {
+      reasons.push(`gender ${gender} contradicted by wikidata, which attests ${wdGenders.join('/')}`
+        + ' — if this card is plural-only, say so in the plural field rather than the gender');
+    } else if (gender && wdGenders?.includes(gender)) {
+      notes.push('gender confirmed by wikidata');
     }
   } else if (gender) {
     reasons.push('non-noun carries a gender');
