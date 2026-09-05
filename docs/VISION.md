@@ -41,6 +41,20 @@ rules, and teaching them well is a different product with a different shape.
 | | Kept | Cut |
 |---|---|---|
 | **Drills** | gender · plural · recall (English→German, typed) | conj · cloze · word order · transform · Kasus · separable · reflexive · dictation |
+
+> **Widened 2026-09-06, and the ruling is what widened it.** Most words offered a
+> *single* exercise, because the three kept above are noun facts and a verb has none
+> of them until it is known. Six more now sit behind the graduation cap — `reverse`,
+> `cloze`, `usage`, `conjugate`, `degree`, `synonym` — and every one passes the same
+> test: it asks about **this word**. Adjective declension and Kasus stay retired
+> because they are identical for every word, so drilling them teaches German grammar
+> rather than this vocabulary. Conjugation is the boundary case and lands *inside*:
+> which verb is strong is a fact about the verb and nothing else.
+>
+> The split matters. `practiceModes` is that bank, reached only when a learner asks
+> for it; `eligibleModes` — what the scheduler weaves into a session unasked — is
+> still the original three, because `reverse` and `cloze` apply to every card and
+> merging the two turned a forty-item day into mostly drills.
 | **Rooms** | the feed · Themen · Üben · Fortschritt | the grammar syllabus · the exam room · the observatory · the typing race · the worksheet printer · the reading list |
 | **Data** | `cards.json` · `detail.json` · `sectors.json` · `freq.json` · `provenance.json` · `audio.json` | `grammar.json` (2.3 MB) · `brain-mesh.bin` (934 KB) · the 110 `kind: 'grammar'` cards, filtered at load |
 
@@ -390,3 +404,47 @@ knowing their date.
 (retired), COMPETITIVE-RESEARCH §5–6, BACKLOG's "decisions required", and the README.
 Rewritten 2026-09-05 around the vocabulary ruling. Argue with it here, dated, rather
 than in a commit message.*
+
+---
+
+## Two layers, and they never wear the same chrome *(2026-09-05)*
+
+Lexi **teaches** 6,700 cards and **answers** 93,046 dictionary headwords. The first
+number is the product; the second is a service the product can afford to offer
+because the data was already on disk.
+
+They are different kinds of claim and the UI must keep them apart. A card is
+machine-verified by `authoring:new` — gender, plural, part of speech and IPA looked
+up and a disagreement a hard reject — and can be studied, drilled and scheduled. An
+entry is an unverified Wiktionary gloss with one action: *note this word*, which
+feeds the authoring queue.
+
+**The moment an unverified gloss can be drilled, the thing that makes the corpus
+worth trusting is gone.** Separate section, separate surface, different words on
+screen. See `docs/DICTIONARY.md` for the measurement that decided the split: 11.7%
+of dictionary nouns are compounds the matcher already decomposes, and 79.2% are
+things a dictionary should hold and a trainer should never teach.
+
+**Refused, on the record:** growing the corpus toward Duden's 148,000 headwords.
+Nobody can review 148,000 cards — at 30 new a day that is 13.5 years — and the gate
+that makes the corpus trustworthy does not survive being run that many times. The
+corpus stops around 12,000; the lexicon answers the rest.
+
+## The gesture grammar *(2026-09-06)*
+
+Horizontal is **one axis with the word at the centre**:
+
+    [ the entry ]        [ THE WORD ]        [ practice ]
+                          the feed
+
+You drag toward what you want, and the opposite drag always returns, because the
+word never moved. Layers slide *inside* the shell, under the bars — the chrome
+never disappears.
+
+**Refused:** extending the strip to the tabs. Nesting a second horizontal axis
+inside the word-level one is how a gesture grammar stops being learnable. Tabs stay
+taps.
+
+**Refused:** letting the feed grade. Unchanged and load-bearing. What the feed may
+record is an *exposure* — a dwell, counted, never an FSRS write — used only to rank
+which fresh word is introduced next.

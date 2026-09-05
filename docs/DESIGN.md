@@ -818,3 +818,60 @@ Two things still regress silently and still need an eye:
    accent colour on a panel and inside a card, in both themes. The hue must match.
 2. **The card must still separate.** Panel→card is only ~1.05; confirm grain,
    radius and shadow are all still doing their share.
+
+---
+
+## 12. The shell is the frame; everything else moves inside it *(2026-09-06)*
+
+### 12·1 Layers, not sheets
+
+A word's entry and its practice were `fixed inset-0 z-[200]` portals to
+`document.body`. They covered the bars, so opening one took away the search, the
+streak, the tab bar and any sense of place — to show a page of text on a phone with
+room to spare.
+
+They render into `#layer-root` **inside the shell** now, at `z-40` under the bars at
+`z-50`, padded by `--bar-t` / `--bar-b`. `aria-modal` is gone with the full-screen
+sheet, deliberately: the navigation behind is still live and still usable, and
+claiming otherwise told a screen reader the opposite of the truth.
+
+### 12·2 One horizontal axis
+
+    [ the entry ]        [ THE WORD ]        [ practice ]
+
+Drag the strip toward what you want; the opposite drag returns. The back control is
+an **arrow pointing at the word**, not an ×: nothing is being destroyed, you are
+moving one step along a strip. It points where the word is (right from the entry,
+left from practice) even though the thumb travels the other way — which is how every
+carousel already works.
+
+Two things this got wrong first, both found on a phone and neither visible in the
+source: the drag surface wrapped the *content column* rather than the slot, so a
+drag starting above the headword hit nothing; and the panels had **no exit animation
+at all** — they entered from 40px and left by unmounting. `AnimatePresence` in the
+caller is what makes an exit possible.
+
+### 12·3 `Card` has one job
+
+It was the default wrapper for everything, which is why every surface looked like
+every other surface and none of them looked like the feed. A card drawn inside a
+page that is itself a surface is a box in a box: it spends a border, a radius and two
+gutters to say "these things belong together", which a hairline says for free.
+
+`Card` keeps the **study surface** — where the metaphor is literal and the object is
+meant to feel picked up. Everything that was only ever grouping uses
+`components/ui/Band`: full-bleed rows, hairline separated, the negative margin
+cancelling the page gutter so a rule runs edge to edge while the text still aligns
+with the heading above it.
+
+### 12·4 Vertical space is not what the browser pane says it is
+
+The session card's height was `clamp(330px, 100dvh - bars - 470px, 460px)`, where 470
+was the rest of the column measured once. Any notice added above it broke that — and
+notices were added. It takes the space actually left now (`flex-1`, floor 260, ceiling
+460).
+
+The floor is 260 and not 300 because **the pane reported zero overflow on a layout
+that clipped the grade buttons on a real iPhone**: it has no status bar (~59pt) and no
+Safari toolbar (~50pt). Grade buttons off screen are not survivable — they are the
+primary action of the primary loop.

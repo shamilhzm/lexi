@@ -17,6 +17,14 @@ class, not by date, because you scan this before working, not after.
 
 ## The checklist — before you…
 
+**…report a visual or interaction defect.** Check it on the iPhone simulator, not the
+browser pane: the pane runs hidden (no IntersectionObserver, no rAF) and has neither a
+status bar nor a browser toolbar. Four false findings in one session came from this.
+
+**…widen a shared predicate.** Grep its callers first and ask whether they are asking
+the same question. `eligibleModes` served both the practice sheet and the session
+builder, and widening it for one flooded the other.
+
 **…write a finding down.** Commit the instrument that produced it, in the same pass. A
 number nobody can re-derive is a number that expires: 17 probes were written on
 2026-08-25 and none committed, and four backlog items were found already done that day
@@ -1011,3 +1019,85 @@ about what the product does when something goes wrong underneath it.**
 *Maintenance: append, don't rewrite. An entry stays after its bug is fixed — the rule is
 the point, and a fixed bug is the evidence the rule is real. If a rule turns out to be
 wrong, add a dated correction under it rather than deleting it.*
+
+---
+
+## The harness is not the product *(added 2026-09-06)*
+
+Four false findings in one session, all from the same root: **the tool you observe
+through has properties the product does not.** Each was briefly diagnosed as a bug
+before being caught.
+
+**The browser pane runs hidden.** `document.hidden` is `true`, so
+IntersectionObserver never fires and rAF is suspended. Every gesture test reported
+"nothing opened" and the dwell counter reported zero exposures after eight seconds —
+on code that works. *Rule: anything driven by scroll position, intersection or a
+drag must be verified on the iPhone simulator. The pane is for reading the DOM.*
+
+**The pane has no status bar and no browser toolbar.** At 402×874 it reported
+**zero overflow** on a layout that clipped the second row of grade buttons on a real
+iPhone, which loses ~59pt to the status bar and ~50 more to Safari's toolbar.
+*Rule: a layout measurement from the pane is a lower bound on the space the phone
+actually has. Confirm the tight ones on device.*
+
+**HMR can leave a stale stylesheet.** The welcome CTA measured **1.23:1** contrast in
+dev after a long editing run — invisible text on the primary button of the first
+screen. Production measured 5.01. *Rule: before reporting a visual defect from the
+dev server, hard-reload, and check the same element in production.*
+
+**`content-visibility: auto` hides text from `innerText`.** A feed slot returned an
+empty string while rendering perfectly; `textContent` had it all. *Rule: read feed
+slots with `textContent`.*
+
+And one that is a genuine product-adjacent trap: **repeated seeding wedges Safari's
+storage for an origin.** Symptom is a mixed persona state — localStorage from the
+new seed, IndexedDB from the old — which reads exactly like `importData` merging
+instead of replacing. It does not; `idbSet(CARDS_KEY, …)` replaces the whole blob.
+*Rule: start a second dev server on another port for a clean origin rather than
+diagnosing it again.*
+
+## A test that accepts any answer cannot catch a wrong one *(added 2026-09-06)*
+
+`lexicon.test.ts` asserted "either the word is here, or an arrow points somewhere".
+For `Häuser` the first branch was true — the umlaut-folded key collided with the
+surname *Hauser* — so the suite was green while looking up the plural of *Haus*
+answered **"housekeeper"**.
+
+Rewritten to name the expected lemma, it immediately found two more defects: a
+self-referential pointer, and chains (*Grusse* → *Gruss* → *Gruß*) the client's
+single hop could not follow.
+
+**Rule: an assertion whose predicate is a disjunction over "something exists" is a
+smoke test, not a guard. Name the answer.** The same shape appeared twice more this
+session — a session-cap test that would have passed on an empty queue, and a
+persona-fix test whose corpus sweep would have passed with zero cards loaded. Both
+now assert that the thing being bounded was actually over the bound first.
+
+## Widening a shared predicate has two consumers *(added 2026-09-06)*
+
+`eligibleModes` answered "what drills does this word qualify for" and was used by
+*both* the per-word practice sheet and `buildMixedSession`. Adding `reverse` and
+`cloze` — which apply to every card — was correct for the sheet and turned a
+forty-item day into mostly drills.
+
+**Rule: before widening a predicate, grep its callers and ask whether they are
+asking the same question.** They were asking two: *what should ride along in
+today's queue* and *what can I do with this word right now*. Split into
+`eligibleModes` and `practiceModes`.
+
+A smaller sibling from the same hour: `[...first, ...middle, ...last].slice(0, N)`
+drops the pinned *last* element first, so a run capped at four silently lost the
+`recall` it had just been told to end with. **Trim the middle, never the ends.**
+
+## A mechanic with no observable output cannot be evaluated *(added 2026-09-06)*
+
+The bookmark was doing real work — `buildBriefing` served saved words ahead of its
+own picks — and `savedWords()` had exactly one caller in the entire app, inside the
+store. No surface listed them. The owner's read was "I don't see its value", and
+that was the correct read of what was on screen.
+
+**Rule: when a feature is questioned, first check whether its output is visible
+anywhere. A promise about a future session is not feedback.** The fix was not to
+argue for the mechanic or delete it; it was to give the counter that already
+advertised it somewhere to go.
+

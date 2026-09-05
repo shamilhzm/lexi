@@ -11,6 +11,129 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-06 — the strip, the bank, and the boxes
+
+Four days of work in one session, driven almost entirely by *sitting in the app as
+ten personas and then on an actual iPhone*. Most of what follows was found that
+way and could not have been found any other way.
+
+#### One horizontal axis, with the word at the centre
+
+    [ the entry ]        [ THE WORD ]        [ practice ]
+                          the feed
+
+Drag the strip toward what you want; **the opposite drag always takes you back**,
+because the word never moved. That property is the whole point and it fell out of
+choosing the geometry rather than bolting a dismiss gesture onto a sheet.
+
+A word's entry and its practice used to be `fixed inset-0 z-[200]` portals to
+`document.body` — opening either took away the search, the streak, the tab bar and
+any sense of where you were, to show one page of text on a screen with room to
+spare. They are layers inside the shell now (`#layer-root`, `z-40`, under the bars
+at `z-50`). The frame never moves, which is most of what makes four surfaces feel
+like one app.
+
+The × became an arrow pointing at the word. A cross says "destroy this"; nothing is
+being destroyed.
+
+**Two fixes that only a phone could have surfaced.** The drag surface wrapped the
+*content column* — capped at 560px and only as tall as the headword, its gloss and
+the icon row — so a drag beginning in the empty space above or below hit the
+section behind and did nothing. And the panels entered from 40px away and left by
+*unmounting*: there was no exit animation to be twitchy, there was no exit
+animation at all. `AnimatePresence` in the caller is what makes one possible.
+
+#### `Card` now has exactly one job
+
+It was the default wrapper for everything, which is why every surface looked like
+every other surface and none of them looked like the feed. It keeps the study
+surface — where "card" is the literal metaphor — and everything that was only ever
+*grouping* moved to `components/ui/Band`: full-bleed rows separated by hairlines,
+the negative margin cancelling the page gutter so a rule runs edge to edge while
+the text still lines up with the heading above it.
+
+Themen, Fortschritt and Üben all lost their boxes. Removing the session chrome's
+box alone recovered ~80 vertical points, which on an iPhone was most of the
+difference between the grade buttons being on screen and being under the tab bar.
+
+#### Depth: one exercise became four, from a bank of nine
+
+Most words offered a *single* multiple-choice question, because the drill list only
+knew gender, plural and recall — and a verb has none of them until it is known.
+Five more, each testing a property of **the word**: `reverse`, `cloze`, `usage`,
+`conjugate`, `degree`, `synonym`.
+
+The VISION ruling holds rather than bends. Adjective declension and Kasus stay
+retired because they are identical for every word; conjugation lands inside because
+*which* verb is strong is a fact about that verb and nothing else.
+
+Three findings changed the design:
+
+- **Merging the banks flooded the session.** `reverse` and `cloze` apply to every
+  card, so weaving them into `buildMixedSession` grew a drill onto every flip.
+  `practiceModes` is now separate from `eligibleModes`.
+- **The run slice cut off `recall`.** `[...first, ...middle, ...last].slice(0, RUN)`
+  removes the pinned end first. Trim the middle.
+- **212 cards cannot have a sentence gap** — phrases and separable verbs whose
+  headword is not one contiguous token (*aus Holz*, *sich abwechseln*). `usage`
+  exists for them, and is what makes the floor of three universal rather than 97%.
+
+#### Seven fixes from driving the personas
+
+- **A session is bounded.** `DAILY_DUE_CAP` bounds the flips at 60 and the builder
+  weaves drills on top, so an uncapped day was however many items 60 words happened
+  to generate: day two 30, three weeks in 35, and the learner returning from a month
+  away — 189 due — was served **70**. The largest session in the app was landing on
+  the person most likely to close it. `SESSION_CEILING` is 40. Pricing it in minutes
+  was the first attempt and bounded nothing: the per-item estimates work out at ten
+  seconds, so even 25 minutes allowed 150.
+- **Coming back after a month says something.** It said nothing — 189 due, a 70-item
+  session, and a "1-day streak" where a 30-day one used to be. `lastGapDays()` had
+  been in the store with no caller. The copy for this lived on `Today.tsx`, deleted
+  in the vocabulary refocus, so this is ground that was dropped rather than new.
+- **Caught up is a state the app can say.** With nothing due, the learner was served
+  29 fresh cards indistinguishable from owed reviews. `EmptyState` only appears once
+  the *fresh* words run out too — inside a 6,700-word corpus, never.
+- **Narrowing a level filter no longer looks like data loss.** Studying B2–C1, the
+  C1 persona read "Words you know **0** of 1,659 · **0 seen**" beside a 120-day
+  streak and an A1 bar at 39%. All true, and together nonsense.
+- **The feed leads with words you have not met**, and no longer opens on the same
+  one. It opened on *so* every time. Shuffling the briefing's fresh picks fixed
+  nothing: once the due slice reaches `MIN_DAILY` the briefing returns **zero** fresh
+  words and the feed falls to `rest[0]` — the most frequent unseen word, forever.
+  `rest` is shuffled within bands of twenty; across bands the ranking is untouched.
+- **One swipe grammar per surface.** The session coach marks taught "swipe … to
+  grade" as a global rule while the feed one screen away uses right for the entry.
+- **Six hearted words are reachable again.** Removing the ♡ preserved the rows, as it
+  should; nothing told the learner they were still there.
+
+#### The bookmark, justified
+
+`savedWords()` had **exactly one caller in the whole app and it was inside the
+store**. You saved a word, an icon filled, a counter moved, and the word vanished
+into an invisible reordering of a session you had not opened. A mechanic whose only
+feedback is a promise about the future is one nobody can evaluate — which is the
+honest reason it felt like decoration, not the concept.
+
+The counter is a button now and it opens the list, which ends in a session made of
+exactly those words. That is why the graduation cap is not a substitute: the cap
+means "teach me this now", which is the wrong answer on a bus.
+
+#### The corpus and its two new layers
+
+- **Phase 0 — the lookup layer.** 93,046 headwords across 232 shards of ~81 KB,
+  nothing loaded at boot, one file per lookup. 68.9% of the Wiktionary extract is
+  not a word — 253,151 inflected forms against 93,046 lemmas — so the forms became
+  arrows taken from the structured `form_of` field.
+- **Phase 2 — attested inflections.** 21,998 forms for 5,214 cards, 370 KB fetched
+  after first paint. Coverage 87.5% → **88.4%** lit up without adding a card;
+  `hab`, `hause` and `jungs` left the top-25 dark list.
+- **Phase 1 — 180 new cards**, 6,520 → **6,700**, every one through `authoring:new`.
+  A new `corpus:candidates` ranks what to author next by *news* frequency, because
+  ranking on the merged list put a dubbing studio's vocabulary at the top.
+
+`npm test` 662 passed · 51 files.
+
 ### Shipped 2026-09-05 — Lexi is a vocabulary app
 
 The largest single deletion in the project's history, and the reason for it fits in one

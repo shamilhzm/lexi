@@ -9,8 +9,10 @@ Planning, strategy and reference. Code and product truth live in `src/` and the 
   commitments and what each one forbids, the refusals, the settled decisions, and the
   three things that are genuinely still open. When two docs disagree, this one decides.
 - **[BACKLOG.md](BACKLOG.md)** — the single prioritised list of **open** work. If you
-- [DICTIONARY.md](DICTIONARY.md) — the plan for lookup coverage: why the corpus stops at ~12,000 cards and a second, lightly-gated lexicon layer answers ~150,000 headwords instead.
   want to know what to do next, it is here and nothing else is.
+- **[DICTIONARY.md](DICTIONARY.md)** — the two-layer plan: why the taught corpus stops
+  around 12,000 cards and a separate, lightly-gated lexicon answers ~93,000 headwords
+  instead. Phases 0 and 2 shipped; phase 1 is the long one and is 180 cards in.
 - **[CHANGELOG.md](CHANGELOG.md)** — what shipped and *why*. Check it before building
   something that sounds obvious: several entries exist because the obvious thing was
   tried and reverted.

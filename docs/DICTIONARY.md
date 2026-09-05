@@ -136,7 +136,23 @@ section, different affordance, different words on screen.
 
 ---
 
-## Phase 1 — the teaching corpus to ~95%
+## Phase 1 — the teaching corpus to ~95%  *(started 2026-09-05 · 180 of ~3,000)*
+
+> **Batches 1–5 shipped**, 6,520 → 6,700 cards. `npm run corpus:candidates` now ranks
+> what to author next; it exists because ranking on the merged news+subtitle frequency
+> put a dubbing studio's vocabulary at the top (`Ach, Scheiße, Dad, Mom, new, Boss,
+> Colonel, Madame`). Ranking on the **news** count itself gives `Saison, Tor, wert,
+> Staatsanwaltschaft, Liga, Strom, Zugang, Konzept, Auftrag`.
+>
+> **The gloss must still be written by hand.** Wiktionary's first sense is regularly
+> the rare one — `Strom` glossed "a large river" when it means electricity, `Star`
+> "starling", `Ansatz` "addition", `Auftakt` "anacrusis". A pipeline that copied them
+> would teach the wrong word with a correct-looking gender attached.
+>
+> **Realistic batch size is ~40, not ~200.** Every card needs two example sentences
+> that contain a real inflection of the headword, proved by the matcher. That is the
+> bottleneck, and it is the reason the plan's "25–30 batches" arithmetic is optimistic.
+
 
 Target **~12,000 cards**, not 148,000. Two ranked inputs, both already computable:
 

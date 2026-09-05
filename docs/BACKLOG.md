@@ -21,6 +21,39 @@
 > - the `--color-der` / `--color-a1` hue collision (one hex, two unrelated meanings)
 > - the `amber` → `accent` token rename
 >
+> ---
+>
+> ## What is open after 2026-09-06
+>
+> The session that added the lookup layer, the exercise bank and the layer/strip UI
+> closed a lot of the below. What it *left* open, in rough priority:
+>
+> - **Phase 1 of `docs/DICTIONARY.md`: ~2,800 more cards** to reach 95% of running
+>   text. 180 are done in five batches; `npm run corpus:candidates` ranks the next
+>   ones. The bottleneck is two hand-written example sentences per card that pass the
+>   matcher gate, so batches are ~40, not the ~120 the plan's arithmetic assumed.
+> - **`Bitte` capitalised resolves to the *bitte* card, not *die Bitte*.** German
+>   capitalises nouns and the matcher enforces only the converse rule (a lowercase
+>   token cannot be a noun). Predates the attested-inflection work and is unaffected
+>   by it. Small, self-contained, real.
+> - **`sich konzentrieren auf + A` carries a standing merge ruling** into a plain
+>   `konzentrieren` card that does not exist. Adding that card makes `corpus:validate`
+>   fail until the merge is run; the merge is a corpus-wide decision, not something an
+>   authoring batch gets to make.
+> - **The compound splitter's wrong answers are marked but not fixed.**
+>   *Schadenfreude* still resolves to *die Freude* — now flagged `viaCompound` so
+>   nothing claims it as known or offers it as an unlock, but a lexicalised-compound
+>   list would be better than a flag.
+> - **Phase 0's shards are 18.4 MB in the repo.** Fine for a CDN and for git today; if
+>   it becomes a problem, dropping `pos: name` entries or moving the shards to a
+>   release asset are the two levers.
+> - **The favourites migration is a one-shot.** `StrandedFavourites` shows once and
+>   disappears when the list empties. Delete the component and `lexi.faves.v1` once
+>   nobody can plausibly still have rows.
+> - **The dictionary layer has no offline story beyond "shards you have opened".**
+>   The service worker caches `/data/` on demand, which is honest but means a lookup
+>   on a plane fails for a word you have not seen.
+>
 > **What the refocus opened,** and is not yet written up as an item:
 >
 > - **~1,000 genuinely missing common words.** Measured 2026-09-05: Lexi carries
