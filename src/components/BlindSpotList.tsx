@@ -1,16 +1,21 @@
-// Ranked recurring mistakes with one-tap drilling. Every wrong answer in a drill
-// is logged under a structural tag (grammar point, drill type); this ranks them so
-// you fix what actually trips you up. Rendered inline in Today’s Blind Spots
-// accordion (expands in place — no page jump).
+// Ranked recurring mistakes, with one tap into the drill that fixes each one.
+//
+// Every wrong answer is logged under the drill's own label, so this is the one
+// surface that can say *what* you keep getting wrong rather than only how much.
+// A row is only a button when the label maps back to a live drill: a legacy tag
+// from a retired mode still counts toward the picture and is not clickable,
+// because sending a learner to a drill that no longer exists is worse than
+// showing them a fact they can read.
 import { useMemo } from 'react';
 import { Target } from 'lucide-react';
 import { missStats, missTotal } from '../store.ts';
 import { useStore } from '../useStore.ts';
+import { modeForTag } from './PathCard.tsx';
 import Card from './ui/Card.tsx';
-import Button from './ui/Button.tsx';
+import type { Mode } from '../views/drills.tsx';
 
 export default function BlindSpotList({ onDrill, days = 30 }:
-  { onDrill: (tag?: string) => void; days?: number }) {
+  { onDrill: (m: Mode) => void; days?: number }) {
   const v = useStore();
   const stats = useMemo(() => missStats(days), [days, v]);
   const total = missTotal(days);
@@ -27,7 +32,7 @@ export default function BlindSpotList({ onDrill, days = 30 }:
           <Target className="text-green" size={18} />
         </div>
         <h3 className="text-base font-bold mb-1">No blind spots yet</h3>
-        <p className="text-dim text-xs">Do some drills — every miss is tracked here so you can target your weak points.</p>
+        <p className="text-dim text-xs">Every miss in a session is tracked here — genders, plurals, spelling, the German you couldn’t produce — so you can go straight at the weak one.</p>
       </Card>
     );
   }
@@ -39,9 +44,13 @@ export default function BlindSpotList({ onDrill, days = 30 }:
         <span className="text-dim text-xs">misses across {stats.length} area{stats.length === 1 ? '' : 's'} · last {days} days</span>
       </div>
       <div className="space-y-2.5">
-        {stats.map((s) => (
-          <button key={s.tag} onClick={() => onDrill(s.tag)}
-            className="block w-full text-left rounded-md px-1.5 py-1 -mx-1.5 hover:bg-panel2 transition-colors" title="Drill this weakness">
+        {stats.map((s) => {
+          const mode = modeForTag(s.tag);
+          const Row = mode ? 'button' : 'div';
+          return (
+          <Row key={s.tag} {...(mode ? { onClick: () => onDrill(mode), title: 'Drill this weakness' } : {})}
+            className={`block w-full text-left rounded-md px-1.5 py-1 -mx-1.5 ${
+              mode ? 'hover:bg-panel2 transition-colors' : ''}`}>
             <div className="flex justify-between text-xs mb-1">
               <span className="truncate pr-2">{s.tag}</span>
               {/* The rate is what the list is now *ordered* by, so it is what the
@@ -64,7 +73,7 @@ export default function BlindSpotList({ onDrill, days = 30 }:
               <div className={`h-full ${s.rate !== null ? 'bg-red' : 'bg-line'}`}
                 style={{ width: `${Math.max(8, (s.rate !== null ? s.rate / worstRate : s.count / max) * 100)}%` }} />
             </div>
-            {/* "Verb conjugation 15×" is true and unactionable. The words it
+            {/* "Noun plurals 15×" is true and unactionable. The words it
                 actually happened on are what you'd go and drill — and the log
                 knew them all along. Only worth showing when one stands out. */}
             {s.terms.length > 0 && s.terms[0].count > 1 && (
@@ -80,7 +89,7 @@ export default function BlindSpotList({ onDrill, days = 30 }:
               </p>
             )}
             {/* The substitution, which is the only line here a teacher would
-                call a diagnosis. "Kasus 15×" names a category and "most often
+                call a diagnosis. "Gender 15×" names a category and "most often
                 *der Tisch*" names a word; neither says what the learner
                 actually does — and what they do is reach for the accusative
                 when the frame wants a dative, every time, which is one lesson.
@@ -95,14 +104,13 @@ export default function BlindSpotList({ onDrill, days = 30 }:
                 <span className="text-dim font-mono"> {s.confusions[0].count}×</span>
               </p>
             )}
-          </button>
-        ))}
+          </Row>
+          );
+        })}
       </div>
-      {/* Target, not Sparkles: this button drills the exact weaknesses listed
-          above it, and the icon should say so. */}
-      <Button size="sm" className="mt-4" onClick={() => onDrill()}>
-        <Target size={14} /> Drill grammar
-      </Button>
+      {/* No "drill everything" button. The whole point of a ranked list is that
+          the rows are not equivalent — one of them is the thing to fix — and a
+          catch-all under it makes the ranking decorative. Tap the row. */}
     </Card>
   );
 }

@@ -1,27 +1,36 @@
-// Mixed study sessions: vocabulary flips interleaved with grammar drills
-// (gender / plural / conjugation / cloze) for the same words. Interleaved
-// retrieval in varied formats beats blocked practice, so a word you just
-// flipped resurfaces a few items later as a drill. Drill items reuse the
-// Gym's namespaced FSRS cards (gym:<mode>:<wordId>) — both surfaces share
-// one schedule and past Gym progress carries over.
+// The session — vocabulary flips interleaved with word-fact drills (gender,
+// plural, recall, dictation) for the same words. Interleaved retrieval in varied
+// formats beats blocked practice, so a word you just flipped resurfaces a few
+// items later asked the other way round.
+//
+// Drills use their own namespaced FSRS cards (gym:<mode>:<wordId>), which is how
+// *recognising* a word and *producing* it can be scheduled apart — the same word
+// on two clocks.
+//
+// **What left on 2026-09-05.** Two of the five decisions this builder used to
+// make were grammar: a function word pulled its authored grammar point into the
+// queue, and repeated misses pulled in the rule behind them. Both were good
+// machinery pointed at a syllabus this app no longer teaches, and both went with
+// it. Three decisions remain, all of them about words: what is due, what is
+// fresh, and which word-fact you keep getting wrong.
 import type { Word, Target } from './types.ts';
 import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue, State } from './srs.ts';
-import { eligibleModes, gymId, MODE_TAG, MODE_REMEDY, type Mode } from './views/Fundamentals.tsx';
+import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
 
 /** Why an item is in this session.
  *
- *  This builder makes five distinct pedagogical decisions per session and used
- *  to splice every one of them in silently. Learning "obwohl" pulls its
- *  Konzessivsätze exercise into the queue a few cards later — genuinely ahead of
- *  what the big consumer apps do, and the learner had no way to know it happened.
- *  The scheduling *is* the product; an honest scheduler that can show its work is
- *  the only durable edge over apps with far bigger content budgets.
+ *  The builder makes several decisions per session and used to splice every one
+ *  of them in silently. A word you flipped four cards ago coming back as "type
+ *  it in German" is not randomness, and neither is a gender drill on the day you
+ *  have missed four genders — but the learner had no way to know either happened.
+ *  The scheduling *is* the product; a scheduler that can show its work is the
+ *  only durable edge over apps with far bigger content budgets.
  *
- *  Note that none of this needs new data. The causal links already existed —
- *  `WORD_POINT`, `MODE_REMEDY`, the `missStats` rows — they were just discarded
- *  once they had done their job of positioning an item. This carries them. */
+ *  None of it needs new data. The causal links already existed in the
+ *  `missStats` rows and in the queue itself; they were discarded once they had
+ *  done their job of positioning an item. This carries them. */
 export type SessionReason =
   /** A scheduled review that has come due. `overdueDays` is how long it waited. */
   | { kind: 'due'; overdueDays: number }
@@ -29,10 +38,6 @@ export type SessionReason =
   | { kind: 'fresh' }
   /** A drill for a word whose flip is in this same queue, ~GAP items earlier. */
   | { kind: 'drill'; mode: Mode; parent: Word }
-  /** A grammar point pulled in by a function word the learner just met. */
-  | { kind: 'linked'; trigger: Word }
-  /** The rule for a system the learner keeps getting wrong. */
-  | { kind: 'remedy'; mode: Mode; tag: string; misses: number }
   /** A drill in one of the modes the learner misses most. */
   | { kind: 'blindspot'; mode: Mode; tag: string; misses: number }
   /** A due drill for an in-scope word whose flip is *not* in today's queue. */
@@ -80,22 +85,19 @@ function flipReason(w: Word, now = Date.now()): SessionReason {
 const GAP = 3;               // a word's drill surfaces ~3 items after its flip
 const MAX_FRESH_DRILLS = 10; // cap first-time drills so sessions stay bounded
 const MAX_BLIND_SPOTS = 4;   // cap blind-spot drills woven into a session
-const MAX_LINKED = 2;        // cap word-linked grammar points per session
-const MAX_REMEDY = 1;        // cap miss-triggered remediation points per session
-const REMEDY_MIN_MISSES = 3; // misses (30d) in a mode before remediation fires
 // Orphan drills were previously uncapped — harmless only because the branch was
 // unreachable on the primary path (see buildMixedSession). Now that it fires, a
-// learner returning to a large Gym backlog needs a bound like everything else.
+// learner returning to a large drill backlog needs a bound like everything else.
 const MAX_ORPHANS = 6;
 
 // ---- resuming an interrupted session --------------------------------------
 // Same-day resume was described as "emergent": grades persist immediately and a
 // graded card leaves its pool, so reopening rebuilds the *remainder* and nothing
-// is lost. True for the cards — and not for the session. This builder makes five
+// is lost. True for the cards — and not for the session. This builder makes
 // randomised decisions per session (which drill mode rides along with which word,
-// where blind spots land, which remediation point fires), so the rebuilt queue is
-// a different queue: the position resets, the count jumps, and the run of cards
-// the learner was halfway through simply isn't there any more.
+// where blind spots land), so the rebuilt queue is a different queue: the
+// position resets, the count jumps, and the run of cards the learner was halfway
+// through simply isn't there any more.
 //
 // So the queue is stored, not re-derived. Only identities are stored — an item is
 // a type, an FSRS id, a word id and a reason — and the Words are looked up again
@@ -111,8 +113,6 @@ type PackedReason =
   | { k: 'due'; d: number }
   | { k: 'orphan'; d: number; m: Mode }
   | { k: 'drill'; m: Mode; p: string }
-  | { k: 'linked'; t: string }
-  | { k: 'remedy'; m: Mode; g: string; n: number }
   | { k: 'blindspot'; m: Mode; g: string; n: number }
   | { k: 'unlock'; x: string };
 
@@ -129,8 +129,6 @@ function packReason(r: SessionReason): PackedReason {
     case 'due': return { k: 'due', d: r.overdueDays };
     case 'orphan': return { k: 'orphan', d: r.overdueDays, m: r.mode };
     case 'drill': return { k: 'drill', m: r.mode, p: r.parent.id };
-    case 'linked': return { k: 'linked', t: r.trigger.id };
-    case 'remedy': return { k: 'remedy', m: r.mode, g: r.tag, n: r.misses };
     case 'blindspot': return { k: 'blindspot', m: r.mode, g: r.tag, n: r.misses };
     case 'unlock': return { k: 'unlock', x: r.text };
   }
@@ -148,11 +146,6 @@ function unpackReason(r: PackedReason): SessionReason | null {
       const parent = BY_ID.get(r.p);
       return parent ? { kind: 'drill', mode: r.m, parent } : null;
     }
-    case 'linked': {
-      const trigger = BY_ID.get(r.t);
-      return trigger ? { kind: 'linked', trigger } : null;
-    }
-    case 'remedy': return { kind: 'remedy', mode: r.m, tag: r.g, misses: r.n };
     case 'blindspot': return { kind: 'blindspot', mode: r.m, tag: r.g, misses: r.n };
     default: return null;
   }
@@ -243,90 +236,13 @@ export function wordsForMinutes(minutes: number): number {
 
 /** How many *items* fit a time budget — the value to pass as a `custom` target's
  *  `cap`. Slicing the id list only bounds the flips; the builder then weaves in
- *  drills, blind spots, linked points and a remedy on top, which is how a
- *  five-card button came to serve twelve items. `wordsForMinutes` already prices
+ *  drills and blind spots on top, which is how a five-card button came to serve
+ *  twelve items. `wordsForMinutes` already prices
  *  in `DRILLS_PER_WORD` drills per word, so the honest item count is the words
  *  plus exactly those drills — anything past that is time the learner was not
  *  offered. */
 export function itemsForMinutes(minutes: number): number {
   return Math.max(1, Math.round(wordsForMinutes(minutes) * (1 + DRILLS_PER_WORD)));
-}
-
-// ---- the vocabulary→grammar loop -----------------------------------------
-// Vocabulary is the trigger, grammar the remediation. Two edges:
-//  1. WORD_POINT — learning a function word pulls its grammar point into the
-//     session (learn "obwohl" → the Konzessivsätze exercise rides along).
-//     Deliberately ignores the CEFR filter: the word in your queue is the
-//     license for its structure, whatever the point's nominal level.
-//  2. MODE_REMEDY — repeated misses in a word-drill mode pull in the point
-//     that teaches the underlying system (keep missing genders → Artikel &
-//     Genus). Candidates are ordered easiest-first (Processability: canonical
-//     forms before complex ones); the first not-comfortably-scheduled one wins.
-// Both stop firing on their own: once the point card is reviewed, FSRS
-// schedules it out and it is no longer "due or unseen".
-// Ids are `gram:<level>:<title>` from vocab.json; a test validates them.
-const WORD_POINT: Record<string, string> = {
-  obwohl: 'gram:B1:Konzessivsätze: obwohl',
-  weil: 'gram:B1:Nebensätze (weil/dass)',
-  dass: 'gram:B1:Nebensätze (weil/dass)',
-  damit: 'gram:B1:Finalsätze: damit & um … zu',
-  sodass: 'gram:B1:Konsekutivsätze: sodass',
-  nachdem: 'gram:B1:Plusquamperfekt & nachdem/bevor',
-  bevor: 'gram:B1:Plusquamperfekt & nachdem/bevor',
-  sondern: 'gram:B1:Konjunktionen: sondern vs. aber, sowie',
-  sogar: 'gram:B1:Fokuspartikeln: nur, auch, sogar, selbst',
-  trotzdem: 'gram:B2:Konnektoren (deshalb/trotzdem)',
-  deshalb: 'gram:B2:Konnektoren (deshalb/trotzdem)',
-  lassen: 'gram:B1:Lassen & Modalverben im Perfekt',
-};
-/** A grammar point card that should (re-)enter study: unseen or due. */
-function pointNeedsStudy(id: string): boolean {
-  const c = cardOf(id);
-  return !c || isDue(c);
-}
-
-/** Grammar points linked to function words in this queue (learn the word →
- *  its structure rides along). Capped; exported for Today's preview + tests. */
-export function linkedGrammar(words: Word[], cap = MAX_LINKED): SessionItem[] {
-  const out: SessionItem[] = [];
-  for (const w of words) {
-    if (out.length >= cap) break;
-    if (w.kind !== 'word') continue;
-    const pid = WORD_POINT[w.term.toLowerCase()];
-    if (!pid || !pointNeedsStudy(pid)) continue;
-    const point = BY_ID.get(pid);
-    if (!point || out.some((it) => it.srsId === pid)) continue;
-    // The trigger rides along. buildMixedSession used to re-derive it with a
-    // second `words.find(…)` purely to position the item, then drop it.
-    out.push({ type: 'flip', word: point, srsId: pid, reason: { kind: 'linked', trigger: w } });
-  }
-  return out;
-}
-
-/** Miss-triggered remediation: for the mode you miss most (≥ threshold in 30
- *  days), the first candidate point that is unseen or due. Capped at one per
- *  session so remediation never crowds out the day's vocabulary. */
-export function remedyGrammar(cap = MAX_REMEDY): SessionItem[] {
-  const byTag = new Map<string, Mode>();
-  (Object.entries(MODE_TAG) as [Mode, string][]).forEach(([m, tag]) => byTag.set(tag, m));
-  const out: SessionItem[] = [];
-  for (const s of missStats(30)) {
-    if (out.length >= cap) break;
-    if (s.count < REMEDY_MIN_MISSES) continue;
-    const mode = byTag.get(s.tag);
-    if (!mode) continue;
-    for (const pid of MODE_REMEDY[mode]) {
-      if (!pointNeedsStudy(pid)) continue;
-      const point = BY_ID.get(pid);
-      if (!point || out.some((it) => it.srsId === pid)) continue;
-      out.push({
-        type: 'flip', word: point, srsId: pid,
-        reason: { kind: 'remedy', mode, tag: s.tag, misses: s.count },
-      });
-      break;
-    }
-  }
-  return out;
 }
 
 /** Drill modes ranked by how often you miss them (last 30 days), worst first.
@@ -369,19 +285,13 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
 /** Flip queue from the store, woven with at most one drill per word:
  *  due drills always ride along; unseen drills fill up to the cap.
  *
- *  `teachOnly` strips every drill and grammar point out, leaving pure
- *  vocabulary. The very first session is the one place where a learner has been
- *  taught nothing yet, and interleaving put a Kasus item ("Hier ist ___ Beruf",
- *  den/dem/der/des) six cards in — a case they had never seen named, let alone
- *  explained. Drills start from session two, once there is something to
- *  interleave *with*. */
+ *  `teachOnly` strips every drill out, leaving pure vocabulary. The very first
+ *  session is the one place where a learner has been taught nothing yet, and
+ *  asking them to *produce* a word six cards in is a retrieval attempt on
+ *  something not yet encoded. Drills start from session two, once there is
+ *  something to interleave *with*. */
 export function buildMixedSession(target: Target, teachOnly = false): SessionItem[] {
-  // Grammar points are scheduled cards in their own right, not drills woven
-  // between flips — so the mode filter above cannot reach them, and a learner who
-  // asked for "flip cards only" still met grammar exercises. Verified by driving a
-  // real session: twelve flips, then two grammar cards. They are muted by the same
-  // switch, under the `grammar` key.
-  const words = buildSession(target).filter((w) => w.kind !== 'grammar' || modeEnabled('grammar'));
+  const words = buildSession(target);
   const now = Date.now();
   // A session assembled by the comprehension meter has a better answer to "why is
   // this card here?" than `fresh` — the learner picked a text and these are the
@@ -402,10 +312,10 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   const taught = new Set<string>();
 
   words.forEach((w, idx) => {
-    if (w.kind === 'grammar') return; // rule cards have no word drills
-    // `eligibleModes` answers what the *word* can carry; `modeEnabled` answers what
-    // the learner asked for. Filtering here rather than inside eligibleModes keeps
-    // the Fundamentals gym honest: opening Kasus by name still drills Kasus.
+    // `eligibleModes` answers what the *word* can carry; `modeEnabled` answers
+    // what the learner asked for. Filtering here rather than inside
+    // `eligibleModes` keeps the standalone drill honest: opening Plurals by name
+    // still drills plurals.
     const modes = eligibleModes(w).filter((m) => modeEnabled(m));
     if (modes.length === 0) return;
     const due = modes.filter((m) => { const c = cardOf(gymId(m, w)); return c && isDue(c); });
@@ -438,18 +348,16 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
     if (d) out.push(d);
   }
 
-  // Orphan due drills: gym cards due for in-scope words whose flip is NOT in
-  // this queue. Spread them randomly so Study fully absorbs the Gym's dues.
+  // Orphan due drills: drill cards due for in-scope words whose flip is NOT in
+  // this queue. Spread them randomly, so the day's session absorbs the whole
+  // drill backlog rather than leaving it somewhere else to be cleared.
   //
   // The scope has to be wider than the queue or this branch is unreachable. For
-  // a `custom` target — which is what BOTH "Start session" and "Quick 5" build —
+  // a `custom` target — which is what every "Start session" builds —
   // `buildSession` returns the whole id list and `wordsFor` returns the same
   // list, so `scope` and `inQueue` were identical sets and the `!inQueue` guard
-  // rejected every candidate. The result was that the primary CTA, the path
-  // ~all sessions take, could never absorb a due drill: the "N due" chip on
-  // Today's Grammar row was only clearable by navigating to Fundamentals, which
-  // is the opposite of what this block is for. A curated day stands for the
-  // learner's whole current scope, so that is what it draws orphans from.
+  // rejected every candidate. A curated day stands for the learner's whole
+  // current scope, so that is what it draws orphans from.
   const inQueue = new Set(words.map((w) => w.id));
   const scope = target.kind === 'custom'
     ? new Set(wordsFor({ kind: 'all', name: 'All sectors' }).map((w) => w.id))
@@ -460,8 +368,8 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
     const parts = rawId.split(':');
     const mode = parts[1] as Mode;
     const wordId = parts.slice(2).join(':'); // user words contain ':' (usr:…)
-    // A muted mode is muted here too, or a learner who switched Kasus off would
-    // still meet Kasus items as orphans — the one path that reaches past the
+    // A muted mode is muted here too, or a learner who switched Diktat off would
+    // still meet Diktat items as orphans — the one path that reaches past the
     // queue's own weave.
     if (!(mode in MODE_TAG) || !modeEnabled(mode) || inQueue.has(wordId) || !scope.has(wordId)) continue;
     const w = BY_ID.get(wordId);
@@ -482,21 +390,6 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   for (const d of blindSpotDrills(words)) {
     if (out.some((it) => it.srsId === d.srsId)) continue;
     out.splice(Math.floor(Math.random() * (out.length + 1)), 0, d);
-  }
-
-  // The vocabulary→grammar loop. Linked points land GAP items after the word
-  // that triggered them (structure right after its word); remediation points
-  // are spread randomly like blind spots. Both de-duped against the queue.
-  for (const g of linkedGrammar(words)) {
-    if (out.some((it) => it.srsId === g.srsId)) continue;
-    // The trigger now comes with the item rather than being searched for again.
-    const trigger = g.reason.kind === 'linked' ? g.reason.trigger : undefined;
-    const at = trigger ? out.findIndex((it) => it.type === 'flip' && it.srsId === trigger.id) : -1;
-    out.splice(at >= 0 ? Math.min(at + 1 + GAP, out.length) : out.length, 0, g);
-  }
-  for (const g of remedyGrammar()) {
-    if (out.some((it) => it.srsId === g.srsId)) continue;
-    out.splice(Math.floor(Math.random() * (out.length + 1)), 0, g);
   }
 
   // A capped target keeps its promise. Applied here, after every splice, because

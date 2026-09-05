@@ -2,7 +2,7 @@
 // from placement, streak from visits) with an editable display name. Settings and
 // data backup live inside it (reached from the sidebar’s profile button).
 import { useState } from 'react';
-import { Flame, Pencil, Check, Heart, Compass, Target } from 'lucide-react';
+import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight } from 'lucide-react';
 import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
@@ -10,13 +10,14 @@ import { ALL_LEVELS, type CEFR } from '../types.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
 import ReminderCard from '../components/ReminderCard.tsx';
 import FlaggedCards from '../components/FlaggedCards.tsx';
-import Settings from './Settings.tsx';
+import WantedWords from '../components/WantedWords.tsx';
+
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 
-export default function Profile() {
+export default function Profile({ onSettings }: { onSettings: () => void }) {
   useStore();
   const name = profileName();
   const level = placementLevel();
@@ -79,10 +80,26 @@ export default function Profile() {
       </Card>
 
       <ReminderCard />
+      <WantedWords />
       <FlaggedCards />
 
-      {/* Settings + data backup live inside the profile. */}
-      <Settings />
+      {/* Settings is a *page*, not the rest of this one.
+          It used to render inline here, which put fourteen headings and 3.7
+          screens of scroll behind one tab — the profile and the whole settings
+          surface, indistinguishable, with "Your goal" and "Daily pace" at the
+          same level. A row is the honest shape: settings are things you go and
+          change, not things you read on the way past. */}
+      <Card as="button" pad="none" onClick={onSettings}
+        className="w-full flex items-center gap-3 px-4 py-3.5 mb-3 text-left hover:border-accent transition-colors">
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0">
+          <SlidersHorizontal size={17} />
+        </span>
+        <span className="flex-1 min-w-0">
+          <span className="block text-base font-semibold">Settings</span>
+          <span className="block text-2xs text-dim">Appearance, pace, drills, voice, backup</span>
+        </span>
+        <ChevronRight size={16} className="text-dim flex-shrink-0" />
+      </Card>
 
       <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
         className="tap-44 mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-accent">

@@ -14,14 +14,48 @@ export const LEDGER_STORE = 'reviews';
 
 let dbp: Promise<IDBDatabase> | null = null;
 
+/** How long to wait for `indexedDB.open` before giving up on it.
+ *
+ *  **This exists because an open request is not guaranteed to settle.** Every
+ *  other failure here is an event we already handle — `onerror`, a synchronous
+ *  `SecurityError` — but a request can also simply *never fire anything*:
+ *  `onblocked` while another tab holds an older version and never closes it, a
+ *  browser or embedding context that denies storage by policy, some private-mode
+ *  implementations.
+ *
+ *  Caught 2026-09-05, in an embedded browser that denies IndexedDB: `hydrate()`
+ *  awaits `idbGet`, `idbGet` awaits `open()`, and `open()` awaited an event that
+ *  never came — so `main.tsx`'s `Promise.all` never settled and the app sat on
+ *  its boot splash **forever**, with no error, no timeout and no reload prompt.
+ *  The localStorage fallback three lines below was the correct answer the whole
+ *  time and was simply never reached.
+ *
+ *  A local-first app that cannot start is worse than one that starts without its
+ *  history: the history is still on disk, and the learner can at least see that
+ *  something is wrong. Two seconds is well past any real open (single-digit
+ *  milliseconds) and well short of the point where a person reloads. */
+const OPEN_TIMEOUT_MS = 2000;
+
 export function open(): Promise<IDBDatabase> {
   if (dbp) return dbp;
-  dbp = new Promise((resolve, reject) => {
+  dbp = new Promise<IDBDatabase>((resolve, reject) => {
     if (typeof indexedDB === 'undefined') { reject(new Error('no-indexeddb')); return; }
-    // v2 adds the ledger. `onupgradeneeded` runs for v1 databases too, and both
-    // creates are guarded, so an existing learner keeps their `kv` contents and
-    // simply gains an empty ledger.
-    const req = indexedDB.open(DB_NAME, 2);
+    // Never let the timer outlive the request, and never let a late event
+    // resolve a promise the timeout already rejected.
+    let settled = false;
+    const done = (fn: () => void) => { if (settled) return; settled = true; clearTimeout(timer); fn(); };
+    const timer = setTimeout(() => done(() => reject(new Error('indexeddb-timeout'))), OPEN_TIMEOUT_MS);
+
+    let req: IDBOpenDBRequest;
+    // `indexedDB.open` itself throws a SecurityError in some denied contexts,
+    // rather than returning a request that errors.
+    try {
+      // v2 adds the ledger. `onupgradeneeded` runs for v1 databases too, and both
+      // creates are guarded, so an existing learner keeps their `kv` contents and
+      // simply gains an empty ledger.
+      req = indexedDB.open(DB_NAME, 2);
+    } catch (err) { done(() => reject(err as Error)); return; }
+
     req.onupgradeneeded = () => {
       const db = req.result;
       if (!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE);
@@ -29,9 +63,16 @@ export function open(): Promise<IDBDatabase> {
         db.createObjectStore(LEDGER_STORE, { autoIncrement: true });
       }
     };
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
+    req.onsuccess = () => done(() => resolve(req.result));
+    req.onerror = () => done(() => reject(req.error ?? new Error('indexeddb-error')));
+    // Another tab is holding an older version open. It may close in a moment, so
+    // this is not resolved immediately — but the timeout above now bounds it.
+    req.onblocked = () => { /* the timer decides */ };
   });
+  // A failed open must not be memoised as a permanently broken database: the tab
+  // holding the old version may close, and the next read should try again rather
+  // than fall back to localStorage for the life of the page.
+  dbp.catch(() => { dbp = null; });
   return dbp;
 }
 

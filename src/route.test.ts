@@ -20,8 +20,8 @@ import { parseHash, toHash, DEFAULT_ROUTE } from './route.ts';
  *  opened from somewhere but must survive a reload. Enumerated from `VIEWS` in
  *  route.ts — LESSONS' checklist: a sweep is only as wide as its list. */
 const LIVE = [
-  '#/today', '#/words', '#/practice', '#/read', '#/progress',
-  '#/session', '#/placement', '#/interests', '#/profile', '#/brain', '#/exam', '#/print',
+  '#/feed', '#/words', '#/progress',
+  '#/session', '#/placement', '#/interests', '#/profile', '#/text',
 ] as const;
 
 describe('parseHash / toHash round-trip', () => {
@@ -85,11 +85,30 @@ describe('Words depth', () => {
 });
 
 describe('retired hashes still land', () => {
-  // Shipped as destinations before 2026-08-26. A learner who installed the PWA and
-  // pinned one of these must not get Today with no explanation.
-  it('sends #/library and #/games to Practice', () => {
-    expect(parseHash('#/library').view).toBe('practice');
-    expect(parseHash('#/games').view).toBe('practice');
+  // Shipped as destinations before the 2026-08-26 merge and the 2026-09-05
+  // refocus. A learner who installed the PWA and pinned one of these must not get
+  // Today with no explanation of where their link went.
+  it('sends the retired drill rooms to Progress, where weaknesses now live', () => {
+    for (const h of ['#/library', '#/games', '#/practice', '#/exam', '#/print', '#/brain']) {
+      expect(parseHash(h).view, h).toBe('progress');
+    }
+  });
+
+  it('sends #/read to the text scanner, which is what survived of it', () => {
+    expect(parseHash('#/read').view).toBe('text');
+  });
+
+  // The one most likely to be pinned: `#/today` was the root, the PWA shortcut
+  // and the default hash for a year. Its Start button always went to a card, so
+  // the hash does too.
+  it('sends #/today to the feed, which is the root now', () => {
+    expect(parseHash('#/today').view).toBe('feed');
+  });
+
+  it('opens on the feed, not on a test', () => {
+    expect(parseHash('').view).toBe('feed');
+    expect(parseHash('#/').view).toBe('feed');
+    expect(parseHash('#/nonsense').view).toBe('feed');
   });
 
   it('sends the old Progress depth into Words', () => {

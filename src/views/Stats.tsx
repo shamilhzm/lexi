@@ -43,9 +43,13 @@ export default function Stats() {
         {fmt(t.known)} known · {fmt(t.learned)} learning · {fmt(t.due)} due now
       </p>
 
-      {/* Two-up from sm, but the panels get roomy on a wide desktop, so let the
-          grid stay at two and widen instead of stretching four thin. */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+      {/* **Two-up at every width.** It was one column on a phone, which made four
+          sparklines four full-width panels and turned a glanceable section into a
+          screen and a half of scrolling. These are 120px sparklines with a label
+          and one number: at 440px, two of them side by side are still legible and
+          the whole trend reads in one look, which is the only thing a trend
+          section is for. */}
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4">
         <Panel title="Reviews per day" sub="last 14 days">
           {anyReviews
             ? <Bars values={perDay} labels={days.map(dayLabel)} color="var(--color-accent)" />
@@ -65,10 +69,23 @@ export default function Stats() {
             color="var(--color-accent)" />
         </Panel>
 
+        {/* The one panel whose series can be *shorter than two*, because it
+            accrues one point per study day rather than filling a fixed window.
+            Found on a real device with a one-point history: `Bars` divides its
+            viewBox by the number of values, so a single point rendered as a
+            **solid green slab** filling the panel, labelled "Known growth" — the
+            most confident-looking chart in the app, drawn from one number.
+            Every learner's first study day looked like that.
+            Two points is the floor for a *growth* chart: one point is a value,
+            and growth is a difference. */}
         <Panel title="Known growth" sub={`daily totals · ${history.length < 3 ? 'accrues one point per study day' : `${history.length} days`}`}>
-          <Bars values={history.slice(-14).map((h) => h.known)}
-            labels={history.slice(-14).map((h) => dayLabel(h.date))}
-            color="var(--color-green)" />
+          {history.length >= 2
+            ? <Bars values={history.slice(-14).map((h) => h.known)}
+                labels={history.slice(-14).map((h) => dayLabel(h.date))}
+                color="var(--color-green)" />
+            : <Empty text={history.length === 1
+                ? `${fmt(history[0].known)} known today. The curve needs a second study day to have a shape.`
+                : 'Appears after your first two study days.'} />}
         </Panel>
       </div>
     </section>
@@ -93,11 +110,20 @@ function Empty({ text }: { text: string }) {
  *  Bars grow from the baseline on mount (see `.bar-grow` in index.css) — the one
  *  chart-shaped surface in the app had no entrance at all while the recap had
  *  five. */
+/** Minimum columns the viewBox is divided into.
+ *
+ *  Without it `bw = 100 / n`, so two values are two 35-unit-wide bars and one is
+ *  a slab — a chart whose *bar width* encodes how little data it has, which is
+ *  the opposite of what a bar width should mean. Bars are left-aligned in the
+ *  reserved grid, so a short series reads as a series that has not filled up
+ *  rather than as a series of enormous values. */
+const MIN_COLUMNS = 7;
+
 function Bars({ values, labels, color, max, muted, suffix = '' }:
   { values: number[]; labels: string[]; color: string; max?: number; muted?: boolean[]; suffix?: string }) {
   const top = max ?? Math.max(1, ...values);
   const n = values.length;
-  const bw = 100 / n;
+  const bw = 100 / Math.max(n, MIN_COLUMNS);
   const last = values[n - 1];
   return (
     <div>

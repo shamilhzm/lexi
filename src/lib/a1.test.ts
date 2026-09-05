@@ -1,11 +1,11 @@
 // The A1 report, pinned. Each of these is a specific complaint from a learner three
 // weeks in, and each fix is small enough that it would be easy to undo by accident.
 import { describe, it, expect } from 'vitest';
-import { askablePlural, clozeExample, conjDrillable, drillExample, eligibleModes, matchInitialCase } from '../views/Fundamentals.tsx';
+import { askablePlural, dictatable, drillExample, eligibleModes } from '../views/drills.tsx';
 import { CAN_DO, coverageNote } from './candos.ts';
 import { previewInterval, emptyCard, Rating, schedule } from '../srs.ts';
 import { registerWords } from '../data/index.ts';
-import { resetSurfaceIndex } from './reader.ts';
+import { resetSurfaceIndex } from './surface.ts';
 import type { Word } from '../types.ts';
 
 const w = (id: string, term: string, extra: Partial<Word> = {}): Word => ({
@@ -60,76 +60,48 @@ describe('interval preview precision', () => {
   });
 });
 
-// B1. "Word order drills rebuild the card's own example sentence — once I've seen
-// it, it's memory, not syntax." The flip face always shows ex[0], and an
-// interleaved drill lands about three items later, so the sentence being
-// reconstructed was the one just read.
+// "Drills rebuild the card's own example sentence — once I've seen it, it's
+// memory, not the thing being tested." The flip face always shows ex[0], and an
+// interleaved drill lands about three items later, so the sentence being used
+// was the one just read.
 describe('drill example selection', () => {
   const card = (ex: { de: string; en: string; lvl: string }[]): Word =>
     ({ ...w('voc:A1:x', 'der Tisch'), ex });
+  const sayable = (de: string) => de.includes('Tisch');
 
   it('prefers a sentence the flip face did not just show', () => {
     const c = card([
       { de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' },
       { de: 'Wir kaufen einen neuen Tisch.', en: 'b', lvl: 'A1' },
     ]);
-    expect(clozeExample(c)?.de).toBe('Wir kaufen einen neuen Tisch.');
+    expect(drillExample(c, sayable)?.de).toBe('Wir kaufen einen neuen Tisch.');
   });
 
   it('falls back to the first when it is the only usable one', () => {
     const c = card([{ de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' }]);
-    expect(clozeExample(c)?.de).toBe('Der Tisch ist alt.');
+    expect(drillExample(c, sayable)?.de).toBe('Der Tisch ist alt.');
   });
 
   it('skips a later example that does not satisfy the drill', () => {
-    // ex[1] never says "Tisch", so a cloze cannot be built from it.
     const c = card([
       { de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' },
       { de: 'Das ist sehr schön.', en: 'b', lvl: 'A1' },
     ]);
-    expect(clozeExample(c)?.de).toBe('Der Tisch ist alt.');
+    expect(drillExample(c, sayable)?.de).toBe('Der Tisch ist alt.');
   });
 
   it('returns null when nothing qualifies, so eligibility and rendering agree', () => {
     const c = card([{ de: 'Das ist sehr schön.', en: 'b', lvl: 'A1' }]);
-    expect(clozeExample(c)).toBeNull();
     expect(drillExample(c, () => false)).toBeNull();
   });
 
-  it('is the same choice eligibility makes', () => {
-    // If these could differ, a word could be declared drillable and render nothing.
-    const c = card([
-      { de: 'Der Tisch ist alt.', en: 'a', lvl: 'A1' },
-      { de: 'Wir kaufen einen neuen Tisch.', en: 'b', lvl: 'A1' },
-    ]);
-    expect(eligibleModes(c).includes('cloze')).toBe(clozeExample(c) !== null);
-  });
-});
-
-// A cloze whose blank is sentence-initial capitalises its answer, while the
-// distractors are citation forms — so «_____ Mut.» offered dann / hier / auch /
-// **Nur** and the only capital letter on screen was the answer. Found by playing
-// the app on an iPhone; 261 of 5,684 cloze-eligible cards were affected, 70 of
-// them at A1.
-describe('cloze options do not leak the answer through capitalisation', () => {
-  it('raises the distractors when the sentence raised the answer', () => {
-    expect(matchInitialCase('Nur', 'nur', 'dann')).toBe('Dann');
-    expect(matchInitialCase('Wo', 'wo', 'hier')).toBe('Hier');
-  });
-
-  it('leaves them alone mid-sentence, where nothing was raised', () => {
-    expect(matchInitialCase('nur', 'nur', 'dann')).toBe('dann');
-  });
-
-  it('leaves nouns alone — their citation form is already capitalised', () => {
-    // `der Mut` → citation "Mut", surface "Mut": nothing moved, so nothing to match.
-    expect(matchInitialCase('Mut', 'Mut', 'Wut')).toBe('Wut');
-    expect(matchInitialCase('Hund', 'Hund', 'Katze')).toBe('Katze');
-  });
-
-  it('survives the degenerate inputs rather than throwing mid-drill', () => {
-    expect(matchInitialCase('', 'nur', 'dann')).toBe('dann');
-    expect(matchInitialCase('Nur', 'nur', '')).toBe('');
+  it('still gates a sentence the same way, with the drill that used it gone', () => {
+    // `dictatable` outlived the Diktat drill (2026-09-05) because it is the only
+    // written-down definition of "a sentence a learner could reproduce from
+    // hearing it once", and it is what the drill's return would be rebuilt on.
+    expect(dictatable('Ich lerne jeden Tag ein neues Wort.')).toBe(true);
+    expect(dictatable('Ja.')).toBe(false);                       // too short
+    expect(dictatable('Die EU hat 27 Mitglieder (Stand 2024).')).toBe(false); // digits, caps, parens
   });
 });
 
@@ -179,33 +151,6 @@ describe('only a real plural is askable', () => {
 // `canConjugate` asks whether the engine *can* inflect a string, not whether the
 // string is a lemma it is entitled to inflect. A term is not always a lemma —
 // the same root cause matcher.ts fixed for pattern cards on 2026-08-20.
-describe('the conjugation drill only takes a lemma it can print verbatim', () => {
-  it('takes an ordinary infinitive', () => {
-    expect(conjDrillable('machen')).toBe(true);
-    expect(conjDrillable('gehen')).toBe(true);
-  });
-
-  it('refuses a phrase — this is the class that printed «gelten als + t»', () => {
-    expect(conjDrillable('gelten als + N')).toBe(false);
-    expect(conjDrillable('sich etwas vorstellen')).toBe(false);   // «geetwas vorstellt»
-    expect(conjDrillable('sich wenden an')).toBe(false);          // «gewenden at»
-  });
-
-  it('refuses a reflexive, whose pronoun is obligatory and would be dropped', () => {
-    // `conjugate` strips `sich`, so this returned the bare «fühle» at ich —
-    // real German, but not what the learner has to produce. ReflexiveItem owns these.
-    expect(conjDrillable('sich fühlen')).toBe(false);
-    expect(conjDrillable('sich erinnern')).toBe(false);
-  });
-
-  it('is the gate eligibility uses, so the pool and the item cannot disagree', () => {
-    const verb = (term: string): Word => ({ ...w('voc:A1:v', term), pos: 'verb', gender: null });
-    expect(eligibleModes(verb('machen'))).toContain('conj');
-    expect(eligibleModes(verb('sich fühlen'))).not.toContain('conj');
-    expect(eligibleModes(verb('gelten als + N'))).not.toContain('conj');
-  });
-});
-
 // "Progress shows what I know, never what I can do." The descriptors say what a
 // level *is*; the copy must never claim the learner has got there on a word count.
 describe('can-do descriptors', () => {

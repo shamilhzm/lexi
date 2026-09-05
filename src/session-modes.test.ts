@@ -22,7 +22,7 @@ async function fresh() {
   const data = await import('./data/index.ts');
   const store = await import('./store.ts');
   const session = await import('./session.ts');
-  const fundamentals = await import('./views/Fundamentals.tsx');
+  const fundamentals = await import('./views/drills.tsx');
   return { data, store, session, fundamentals };
 }
 
@@ -94,24 +94,6 @@ describe('what a session is made of', () => {
     store.setAllDrillModes(ALL, true);
     const mixed = session.buildMixedSession(target);
     expect(mixed.some((it) => it.type !== 'flip')).toBe(true);
-  });
-
-  it('mutes grammar cards too — they are not drills, and the filter missed them', async () => {
-    // Found by driving a real session with everything off: twelve flips, then two
-    // grammar exercises. Grammar points are scheduled cards in their own right, so
-    // the per-drill filter never saw them.
-    const { data, store, session } = await fresh();
-    data.registerWords([
-      word('a'), word('b'),
-      { ...word('g'), kind: 'grammar' as const, term: 'Wortstellung', pos: 'grammar' },
-    ]);
-    store.setAllDrillModes(ALL, false);
-    const items = session.buildMixedSession({ kind: 'all', name: 'All sectors' });
-    expect(items.some((it) => it.word.kind === 'grammar')).toBe(false);
-
-    store.setAllDrillModes(ALL, true);
-    const withGrammar = session.buildMixedSession({ kind: 'all', name: 'All sectors' });
-    expect(withGrammar.some((it) => it.word.kind === 'grammar')).toBe(true);
   });
 
   it('never serves a muted mode, even as an orphaned due drill', async () => {

@@ -4,8 +4,6 @@
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
 import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
-import { GEX_POINT_ORDER } from './data/gexmap.ts';
-import { gexId } from './lib/grammar.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import { logReview, dropLastReview } from './lib/ledger.ts';
@@ -182,45 +180,15 @@ function migrateIds(): void {
     if (!cur || old.reps > cur.reps) live.set(to, old);
     moved++;
   }
-  moved += migrateGexIds();
   if (moved) persistCards();
 }
 
-/** Carry grammar-exercise schedules off positional ids.
- *
- *  `gex:<level>:<pointIndex>:<xi>` keyed a learner's schedule to an *array slot*,
- *  so any insertion or reorder in the bank would have re-attached it to a
- *  different exercise. Ids are keyed on the point's title now (see `gexId`), and
- *  this walks a learner's stored cards across that change once, using the frozen
- *  index→title snapshot in `data/gexmap.ts`.
- *
- *  An index with no entry in the snapshot is dropped rather than guessed: it can
- *  only come from a bank newer than the snapshot, where the index means something
- *  this code cannot know. Losing one exercise's schedule is recoverable; silently
- *  attaching it to the wrong concept is the bug being fixed. */
-function migrateGexIds(): number {
-  let moved = 0;
-  for (const id of [...live.keys()]) {
-    if (!id.startsWith('gex:')) continue;
-    // gex : level : pointIndex : exerciseIndex — positional ids have a numeric
-    // third field, which is what distinguishes them from the title-keyed form.
-    const parts = id.split(':');
-    if (parts.length !== 4 || !/^\d+$/.test(parts[2])) continue;
-    const [, level, pi, xi] = parts;
-    const old = live.get(id);
-    if (!old) continue;
-    const title = GEX_POINT_ORDER[`${level}:${pi}`];
-    // Read the card *before* removing it — an earlier draft deleted first and then
-    // read, so every migrated schedule was silently dropped instead of moved.
-    live.delete(id);
-    if (!title) continue;
-    const next = gexId(level as CEFR, title, Number(xi));
-    const cur = live.get(next);
-    if (!cur || old.reps > cur.reps) live.set(next, old);
-    moved++;
-  }
-  return moved;
-}
+// **`gex:*` and `gram:*` cards are left where they are.** The 2026-09-05 refocus
+// removed the grammar syllabus, so nothing reads those schedules any more — but a
+// local-first app holds the only copy of what a learner built, and deleting rows
+// because a feature moved is exactly the betrayal commitment 2 forbids. They are
+// inert, they cost a few kilobytes, and if the syllabus ever returns they are
+// still correct. Nothing here writes to them.
 
 let hydrated = false;
 /** Hydrate progress state from IndexedDB (with one-time localStorage migration).
@@ -452,10 +420,27 @@ export function buildBriefing(): Briefing {
   const want = Math.min(PACE[pace()].fresh, Math.max(0, MIN_DAILY - served.length));
   const freshIds: string[] = [];
   const weak: string[] = [];
+
+  // Saved words first. This is the whole point of the bookmark in the feed: the
+  // learner scrolled past four hundred words, stopped on six, and said *these*.
+  // A scheduler that then taught them something else would be telling them their
+  // attention does not count. Still bounded by the same `want` budget — saving
+  // twenty words does not buy a twenty-word session, it buys the front of the
+  // queue for as long as the queue lasts.
+  const saved = new Set(savedWords());
+  if (saved.size) {
+    for (const w of inScope) {
+      if (freshIds.length >= want) break;
+      if (!saved.has(w.id) || statusOf(w.id) !== 'new') continue;
+      freshIds.push(w.id);
+    }
+    if (freshIds.length) weak.push('your saved words');
+  }
+
   for (const s of weakestSectors(6)) {
     if (freshIds.length >= want) break;
     const newCards = (WORDS_BY_SECTOR.get(s.name) ?? [])
-      .filter((w) => inLevels(w) && statusOf(w.id) === 'new')
+      .filter((w) => inLevels(w) && statusOf(w.id) === 'new' && !freshIds.includes(w.id))
       // Within a sector, teach the commonest words first. Same reasoning as
       // firstRunIds: the sector and the level are both coarse, and this is the one
       // ordering signal that says which of two equally-eligible A2 nouns the
@@ -933,6 +918,144 @@ export function unflagCard(id: string) {
   emit();
 }
 
+
+// ---- the two lists the feed writes to --------------------------------------
+// Scrolling a feed produces no evidence about what a learner knows, so the feed
+// deliberately does not touch FSRS: no grade, no interval, no `learned`. What it
+// *can* honestly produce is what the learner deliberately did — they stopped on a
+// word and pressed something.
+//
+// Two things, kept apart because they mean different things:
+//
+//   **Saved** is an instruction to the scheduler: *teach me this one next.*
+//     `buildBriefing` serves saved words ahead of the ones it would have picked
+//     from your weakest topics, so bookmarking is how you steer the session.
+//   **Favourite** is a keepsake: a word you liked. It changes nothing about what
+//     you are taught, and it should not — a list you curate for pleasure stops
+//     being pleasant the moment it starts assigning you homework.
+//
+// Both are plain id lists in localStorage and both ride the backup.
+const SAVED_KEY = 'lexi.saved.v1';
+const FAVES_KEY = 'lexi.faves.v1';
+
+/** How many saves make a day. Small on purpose: the number exists to be reachable
+ *  on a bus, and a goal you miss on an ordinary day is a goal that teaches you to
+ *  ignore it. */
+export const DAILY_SAVE_GOAL = 5;
+
+interface SaveEvent { id: string; at: number }
+
+function readList(key: string): SaveEvent[] {
+  try {
+    const a = JSON.parse(localStorage.getItem(key) || '[]');
+    return Array.isArray(a) ? a.filter((r) => r && typeof r.id === 'string') : [];
+  } catch { return []; }
+}
+function writeList(key: string, rows: SaveEvent[]) {
+  try { localStorage.setItem(key, JSON.stringify(rows.slice(-2000))); } catch { /* quota */ }
+  emit();
+}
+
+/** Ids the learner asked to be taught, newest first. */
+export function savedWords(): string[] { return readList(SAVED_KEY).map((r) => r.id).reverse(); }
+export function isSaved(id: string): boolean { return readList(SAVED_KEY).some((r) => r.id === id); }
+/** Returns the state it moved to, so a caller can say "Saved" or "Removed". */
+export function toggleSaved(id: string): boolean {
+  const cur = readList(SAVED_KEY);
+  const at = cur.findIndex((r) => r.id === id);
+  if (at >= 0) { cur.splice(at, 1); writeList(SAVED_KEY, cur); return false; }
+  cur.push({ id, at: Date.now() });
+  writeList(SAVED_KEY, cur);
+  return true;
+}
+
+export function favourites(): string[] { return readList(FAVES_KEY).map((r) => r.id).reverse(); }
+export function isFavourite(id: string): boolean { return readList(FAVES_KEY).some((r) => r.id === id); }
+export function toggleFavourite(id: string): boolean {
+  const cur = readList(FAVES_KEY);
+  const at = cur.findIndex((r) => r.id === id);
+  if (at >= 0) { cur.splice(at, 1); writeList(FAVES_KEY, cur); return false; }
+  cur.push({ id, at: Date.now() });
+  writeList(FAVES_KEY, cur);
+  return true;
+}
+
+/** Saves made today, for the goal pill. Local midnight, like every other daily
+ *  boundary in this file — a learner's day ends when their day ends. */
+export function savedToday(): number {
+  const start = new Date(); start.setHours(0, 0, 0, 0);
+  const from = start.getTime();
+  return readList(SAVED_KEY).filter((r) => r.at >= from).length;
+}
+
+
+// ---- words the corpus does not have ----------------------------------------
+// The search box answers "what does this word mean?" — and the interesting case
+// is the one where it cannot. A learner who looks up *Gepflogenheit* and gets
+// nothing has just told us something no analytics package could: that word was
+// worth reaching for a phone over, and it is not in the corpus.
+//
+// So the miss is recorded rather than shrugged at. Locally, like everything
+// else; exportable on its own like `exportFlags`, so it can be handed to
+// `authoring:new` — which is machine-gated and will refuse anything it cannot
+// verify, so a wanted word is a *candidate*, never a card.
+//
+// Deliberately not a promise. The UI says the word was noted, never that it will
+// be added: commitment 3 forbids claims the evidence does not support, and
+// whether a word becomes a card is decided by a de.wiktionary lookup on a
+// maintainer's machine, not by wanting it.
+const WANTED_KEY = 'lexi.wanted.v1';
+
+export interface WantedWord {
+  /** Exactly what the learner typed, trimmed. Not normalised — the spelling they
+   *  reached for is itself evidence, and "Gepflogenheit" vs "gepflogenheit" tells
+   *  a maintainer whether they met it as a noun. */
+  term: string;
+  at: number;
+  /** How many times it has been asked for. The whole point of a log. */
+  n: number;
+}
+
+export function wantedWords(): WantedWord[] {
+  try {
+    const a = JSON.parse(localStorage.getItem(WANTED_KEY) || '[]');
+    return Array.isArray(a) ? (a as WantedWord[]).filter((r) => r && typeof r.term === 'string') : [];
+  } catch { return []; }
+}
+
+const sameWord = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
+
+export function isWanted(term: string): boolean {
+  return wantedWords().some((w) => sameWord(w.term, term));
+}
+
+/** Note a word the corpus does not carry. Idempotent on the term, counting
+ *  repeats: asking twice is a stronger signal than asking once, and the count is
+ *  the only ranking a maintainer needs. */
+export function noteWanted(term: string): void {
+  const t = term.trim();
+  if (!t) return;
+  const cur = wantedWords();
+  const at = cur.findIndex((w) => sameWord(w.term, t));
+  if (at >= 0) cur[at] = { ...cur[at], n: cur[at].n + 1, at: Date.now() };
+  else cur.push({ term: t, at: Date.now(), n: 1 });
+  try { localStorage.setItem(WANTED_KEY, JSON.stringify(cur.slice(-500))); } catch { /* quota */ }
+  emit();
+}
+
+export function unwantWord(term: string): void {
+  const next = wantedWords().filter((w) => !sameWord(w.term, term));
+  try { localStorage.setItem(WANTED_KEY, JSON.stringify(next)); } catch { /* quota */ }
+  emit();
+}
+
+/** The wanted list alone, as a file small enough to send — same reasoning as
+ *  `exportFlags`: reporting a gap should not mean sending your whole history. */
+export function exportWanted(): string {
+  const rows = [...wantedWords()].sort((a, b) => b.n - a.n || b.at - a.at);
+  return JSON.stringify({ app: 'lexi-wanted', v: 1, exportedAt: new Date().toISOString(), words: rows }, null, 2);
+}
+
 // ---- text size -------------------------------------------------------------
 // The whole type ramp is rem-based, so scaling the root scales everything.
 // Default (1) leaves <html> untouched so the browser/OS preference (incl. iOS
@@ -1095,60 +1218,6 @@ export function levelStats(): LevelStat[] {
   });
 }
 
-// ---- grammar points ------------------------------------------------------
-// Progress through one authored grammar point, over the FSRS cards its
-// exercises are scheduled under (`gex:<level>:<pointIndex>:<exerciseIndex>` —
-// the ids flatten() mints in lib/grammar.ts). Deliberately takes the exercise
-// *count* rather than the point object, so the store stays independent of the
-// grammar bank's shape and doesn't have to wait on its fetch.
-export interface PointStat {
-  count: number;      // exercises in the point
-  seen: number;       // exercises answered at least once
-  known: number;      // exercises in FSRS Review state
-  due: number;        // exercises due right now
-  mastery: number;    // known / count, 0..1
-  started: boolean;
-  /** Met through the session's vocabulary→grammar loop rather than by drilling
-   *  it here — the concept's own card has been graded, its exercises haven't. */
-  metInSession: boolean;
-}
-/** Progress on one grammar point.
- *
- *  A concept can be met two ways, and for a long time only one of them counted.
- *  Drilling it in the Library grades `gex:<level>:<point>:<exercise>` cards, one
- *  per exercise. But the session's vocabulary→grammar loop — learn *obwohl*, get
- *  the Konzessivsätze card a few items later — grades the point's own
- *  `gram:<level>:<title>` card instead. Two namespaces that never met, so a
- *  learner forty days in, who had seen a dozen concepts arrive mid-session,
- *  still read **0/40 started**. The loop taught the concept and the Library
- *  denied it had happened.
- *
- *  Takes the title rather than the point's index, because that is what exercise
- *  cards are keyed on now — see `gexId`. Both halves of the concept therefore
- *  address the same stable name. */
-export function pointStats(level: CEFR, title: string, exerciseCount: number): PointStat {
-  const now = Date.now();
-  let seen = 0, known = 0, due = 0;
-  for (let xi = 0; xi < exerciseCount; xi++) {
-    const c = live.get(gexId(level, title, xi));
-    if (!c) continue;
-    seen++;
-    if (c.state === State.Review) known++;
-    if (isDue(c, now)) due++;
-  }
-  // The concept's own card, as the session grades it.
-  const card = live.get(`gram:${level}:${title}`);
-  return {
-    count: exerciseCount, seen, known, due,
-    // Mastery stays a measure of the *exercises*: meeting a concept once in a
-    // session is not the same as having drilled it, and inflating this number
-    // would make the Library lie in the other direction.
-    mastery: exerciseCount ? known / exerciseCount : 0,
-    started: seen > 0 || !!card,
-    metInSession: !!card && seen === 0,
-  };
-}
-
 // ---- placement -----------------------------------------------------------
 const PLACEMENT_KEY = 'lexi.placement.v1';
 export function placementLevel(): CEFR | null {
@@ -1157,7 +1226,7 @@ export function placementLevel(): CEFR | null {
 }
 /** The level to teach at when nobody has been placed yet.
  *
- *  `PathCard` and `Grammar` both used to fall back to
+ *  `PathCard` used to fall back to
  *  `[...ALL_LEVELS].reverse().find((l) => filter.has(l))` — the *highest* level in
  *  the filter. The filter defaults to all six, so an unplaced learner was offered
  *  **C2** grammar and a C2 syllabus. It was masked because the first-run chain put
@@ -1518,6 +1587,23 @@ const SETTING_KEYS = [
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
   'lexi.focus.v1', 'lexi.pace.v1',
+  // Four keys that were never in the backup, all found on 2026-09-05 by auditing
+  // this array against the key declarations above it rather than by anything
+  // failing. Commitment 2 is the rule: **the backup is the only copy, so anything
+  // the learner authored belongs in it.**
+  //
+  //   saved / faves   the feed's two lists — the words they *chose*
+  //   drillmodes      which drills they switched off
+  //   texts           the passages they pasted into the text scanner, which is
+  //                   the most obviously *theirs* thing in the whole app and the
+  //                   one nobody would think to look for
+  //
+  // A learner restoring on a new phone got their entire FSRS history back and
+  // none of these.
+  'lexi.saved.v1', 'lexi.faves.v1', 'lexi.drillmodes.v1', 'lexi.texts.v1',
+  // Words looked up and not found. Authored by the learner in the strongest
+  // sense — they went looking.
+  'lexi.wanted.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
 ];
@@ -1563,4 +1649,18 @@ export async function importData(json: string): Promise<void> {
       if (typeof val === 'string') localStorage.setItem(k, val);
     }
   }
+  // Two settings are cached in module-level variables that were initialised the
+  // moment this file was first imported — long before a restore writes over the
+  // keys they came from. Without this the restored **CEFR filter** and **muted
+  // drills** are on disk and not in memory, so the app keeps scoping to whatever
+  // the previous state was.
+  //
+  // Masked in the product until now because `Settings` reloads the page straight
+  // after restoring, and its comment says so. That made the function correct
+  // *only if the caller reloads*, which is a rule that holds until the next
+  // caller — and the next caller turned out to be the persona seeder, which
+  // restored a B2–C1 learner and got a feed full of A1 words.
+  levelFilter = loadLevels();
+  offModes = loadOffModes();
+  emit();
 }

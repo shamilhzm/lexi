@@ -1,4 +1,4 @@
-// Lexi lexicon — 6,622 A1–C2 cards (vocabulary + grammar). Loaded at runtime
+// Lexi lexicon — the A1–C2 vocabulary, loaded at runtime
 // from /public/data so the corpus is a separately-cached fetch rather than parsed
 // inside the JS bundle. Exports are live `let` bindings, populated by initData()
 // before the app renders.
@@ -26,6 +26,9 @@ export let SECTOR_FINEGROUP = new Map<string, string>();
 
 export const LEVELS: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
+/** The one sector the app does not load — see `initData`. */
+const GRAMMAR_SECTOR = 'Grammar';
+
 // Words mined or enriched by the learner live here. They join the lexicon under
 // a dedicated "Mein Wortschatz" group so they appear in stats, decks and review
 // exactly like built-in cards. Persistence is owned by the store.
@@ -39,7 +42,6 @@ export const USER_GROUP = 'Mein Wortschatz';
 // (e.g. the user's "Mein Wortschatz") passes through unchanged.
 const GROUP_SUPER: Record<string, string> = {
   'Language Building Blocks': 'Building Blocks',
-  'Grammar': 'Building Blocks',
   'Core Vocabulary': 'Core Vocabulary',
   'Society & Politics': 'Society & Politics',
   'Work & Economy': 'Work & Economy',
@@ -145,8 +147,18 @@ export async function initData(): Promise<void> {
     w.defDe = null;
   }
 
-  WORDS = words;
-  SECTORS = sectors;
+  // Grammar cards do not enter the lexicon. 110 of the 6,630 rows in
+  // `cards.json` are `kind: 'grammar'` — authored rule cards that fed the
+  // grammar syllabus, the rule panels and the linked/remedy machinery, all of
+  // which the 2026-09-05 refocus removed (docs/VISION.md, "the vocabulary
+  // ruling"). They are filtered here rather than cut from the corpus because
+  // the corpus is canonical and never hand-edited: this is a shipping decision
+  // about the app, and reversing it is one line.
+  //
+  // The sector goes with them, or the browse index would carry a "Grammar" tile
+  // holding nothing.
+  WORDS = words.filter((w) => w.kind !== 'grammar');
+  SECTORS = sectors.filter((s) => s.name !== GRAMMAR_SECTOR);
 
   // Snapshot the fine (16-group) taxonomy before coarsening — interest topics use it.
   SECTOR_FINEGROUP = new Map(SECTORS.map((s) => [s.name, s.group]));

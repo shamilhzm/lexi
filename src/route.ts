@@ -8,21 +8,23 @@
 // The hash (rather than the History API) keeps this working on the project's
 // `/lexi/` GitHub-Pages base with no server rewrites.
 //
-// Sessions assembled from an explicit id list (today's briefing, Quick 5) are
-// deliberately NOT encoded — the ids are a snapshot of one moment's scheduling,
-// and a stale list restored tomorrow would be a lie. `#/session` re-derives the
-// day's session instead, which is the honest reading of "back to my session".
+// Sessions assembled from an explicit id list (the day's queue, a text's unlock
+// list) are deliberately NOT encoded — the ids are a snapshot of one moment's
+// scheduling, and a stale list restored tomorrow would be a lie. Bare
+// `#/session` re-derives the day's queue instead, which is the honest reading of
+// "back to my session".
 //
-// ## The 2026-08-26 re-root
+// **The root is `#/feed`** (2026-09-05): opening Lexi is opening a German word,
+// and the session is a place you go from there.
 //
-// The lexicon moved out from under Progress. `#/progress/decks/<group>` said
-// *browsing the corpus is a kind of self-assessment*, which is not a thing a
-// learner believes: they open a deck to find words, not to be measured. Decks
-// and the word map now hang off `#/words`, and Progress keeps only the surfaces
-// that answer "how am I doing".
+// ## Retired hashes
 //
-// Every retired hash is aliased rather than 404'd — a PWA shortcut, a bookmark
-// or a shared deck link from before the move still lands where it meant to.
+// Nothing 404s. A PWA shortcut, a bookmark or a link shared before a move still
+// lands somewhere sensible — `#/progress/decks/<group>` from before the lexicon
+// moved out from under Progress, and the whole grammar/exam/reader wing that the
+// 2026-09-05 refocus removed. The rooms that are gone alias to the nearest room
+// that still exists rather than dumping the learner on Today with no
+// explanation of where their link went.
 import type { Target } from './types.ts';
 import type { View } from './App.tsx';
 
@@ -45,26 +47,32 @@ export interface Route {
   target?: Target;
 }
 
-// `brain` is a View but deliberately not a nav destination — the same pattern as
-// session, placement, interests and profile. The observatory is somewhere you
-// open from Progress, not a sixth thing competing for the bottom bar. `exam` and
-// `print` follow the same rule: both are opened from Practice, and a `#/exam`
-// link has to survive a reload because a sitting in progress is the one thing in
-// the app worth restoring.
-const VIEWS: View[] = ['today', 'words', 'practice', 'read', 'progress', 'session', 'placement', 'interests', 'profile', 'brain', 'exam', 'print'];
+// Three of these are nav destinations; the rest are places you open from one of
+// them. All are linkable, and none of the last four is a fourth thing competing
+// for the bottom bar.
+const VIEWS: View[] = ['feed', 'session', 'words', 'progress', 'placement', 'interests', 'profile', 'settings', 'text'];
 
-/** Hashes that used to name a destination, and what they mean now.
+/** Hashes that used to name a destination, and where they land now.
  *
- *  `library` and `games` merged into Practice: a syllabus you look things up in
- *  and a typing race are the same answer to "drill me on something", and Games
- *  was a whole tab spending itself on one card. */
-const ALIAS: Record<string, View> = { library: 'practice', games: 'practice' };
+ *  The first two are the 2026-08-26 merge (a syllabus and a typing race were the
+ *  same answer to "drill me on something"). The rest are the 2026-09-05 refocus:
+ *  the grammar room, the exam room, the worksheet printer and the observatory
+ *  are gone. `read` keeps its meaning — the text scanner is what was useful in
+ *  it — and the drill rooms point at Progress, which is where the app now says
+ *  what you keep getting wrong. */
+const ALIAS: Record<string, View> = {
+  library: 'progress', games: 'progress', practice: 'progress',
+  exam: 'progress', print: 'progress', brain: 'progress',
+  read: 'text',
+  // The daily briefing. Its job was to get you to a word, so it now *is* one.
+  today: 'feed',
+};
 
-export const DEFAULT_ROUTE: Route = { view: 'today', words: { level: 'index' } };
+export const DEFAULT_ROUTE: Route = { view: 'feed', words: { level: 'index' } };
 
 const INDEX: WordsRoute = { level: 'index' };
 
-/** Read the current hash into a route. Unknown hashes fall back to Today. */
+/** Read the current hash into a route. Unknown hashes fall back to the feed. */
 export function parseHash(hash = location.hash): Route {
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
   const head = parts[0];
@@ -82,7 +90,7 @@ export function parseHash(hash = location.hash): Route {
 
   if (view === 'progress') {
     // The retired depth. `#/progress/decks/<group>` and `#/progress/map/<sector>`
-    // are now Words routes; anything else on Progress is the overview.
+    // are Words routes; anything else on Progress is the overview.
     const rest = parts.slice(2).join('/');
     if (parts[1] === 'decks') {
       return { view: 'words', words: rest ? { level: 'group', group: rest } : INDEX };

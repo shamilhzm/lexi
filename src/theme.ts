@@ -28,10 +28,15 @@ export function applyTheme() {
   el.classList.toggle('light', t === 'light');
   el.classList.toggle('dark', t === 'dark');
   // These must match --color-bg in index.css for each theme, the pre-paint script
-  // in index.html, and theme_color in the manifest — otherwise the mobile status
-  // bar sits at a slightly different shade than the page under it.
+  // in index.html, and background_color/theme_color in the manifest — otherwise
+  // the mobile status bar sits at a different shade than the page under it.
+  //
+  // They had drifted: the ground went to warm paper on 2026-08-26 in index.css
+  // alone, so the status bar stayed cool grey-blue (#e7ecee) above a warm page
+  // and the installed app's splash was still the retired terminal black
+  // (#080b11). Four files, one value each, now all #eeeae3 / #101619.
   document.querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', t === 'light' ? '#e7ecee' : '#101619');
+    ?.setAttribute('content', t === 'light' ? '#eeeae3' : '#101619');
 }
 
 export function setThemePref(p: ThemePref) {

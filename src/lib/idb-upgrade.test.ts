@@ -60,3 +60,47 @@ describe('upgrading a v1 database', () => {
     expect(await l.loadLedger()).toEqual([{ id: 'voc:A1:Haus', g: Rating.Good, at: 42 }]);
   });
 });
+
+// A boot that cannot finish is the worst failure a local-first app has: the
+// learner's history is on disk and unreachable, and the splash says nothing.
+// Found 2026-09-05 in an embedded browser that denies IndexedDB by policy —
+// `indexedDB.open` returned a request that fired no event at all, so `open()`
+// awaited forever, `idbGet` awaited `open()`, `hydrate()` awaited `idbGet`, and
+// `main.tsx`'s `Promise.all` never settled. The localStorage fallback was right
+// there and was never reached.
+describe('a denied or blocked IndexedDB cannot hang the boot', () => {
+  it('falls back to localStorage when open never fires an event', async () => {
+    vi.resetModules();
+    vi.useFakeTimers();
+    const real = globalThis.indexedDB;
+    // A request that resolves never — exactly what the denied context returned.
+    (globalThis as { indexedDB: unknown }).indexedDB = {
+      open: () => ({ onsuccess: null, onerror: null, onblocked: null, onupgradeneeded: null }),
+    };
+    localStorage.setItem('boot-probe', JSON.stringify({ hi: 1 }));
+
+    const { idbGet } = await import('./idb.ts');
+    const read = idbGet<{ hi: number }>('boot-probe');
+    await vi.advanceTimersByTimeAsync(2500);
+    expect(await read).toEqual({ hi: 1 });
+
+    vi.useRealTimers();
+    (globalThis as { indexedDB: unknown }).indexedDB = real;
+    vi.resetModules();
+  });
+
+  it('gives up rather than throwing when open raises SecurityError', async () => {
+    vi.resetModules();
+    const real = globalThis.indexedDB;
+    (globalThis as { indexedDB: unknown }).indexedDB = {
+      open: () => { throw new DOMException('denied', 'SecurityError'); },
+    };
+    localStorage.setItem('boot-probe-2', JSON.stringify({ hi: 2 }));
+
+    const { idbGet } = await import('./idb.ts');
+    expect(await idbGet<{ hi: number }>('boot-probe-2')).toEqual({ hi: 2 });
+
+    (globalThis as { indexedDB: unknown }).indexedDB = real;
+    vi.resetModules();
+  });
+});

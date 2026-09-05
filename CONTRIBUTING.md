@@ -76,6 +76,14 @@ without network access.
 Not because the ideas are bad — because they were argued and declined on the record.
 [`docs/VISION.md`](docs/VISION.md) has the reasoning for each:
 
+- **Grammar teaching.** *Ruled 2026-09-05, and the most likely thing to be proposed:* a
+  drill earns its place if it tests a property of the **word** — gender, plural,
+  spelling, the German you have to produce — and goes if it tests a **rule of the
+  language**. The 140-point syllabus, the exam room and seven drill modes were removed
+  under that rule. Reversing it is allowed; doing it without arguing with the ruling
+  first is not.
+- **A home screen.** The app opens on a card. A surface whose job is to get the learner
+  to a session is a session you have not started yet.
 - An AI conversation tutor, or anything requiring a backend or API keys at runtime
 - Machine-marked writing or speaking, or ASR pronunciation scoring
 - Leagues, streak-shaming, or social pressure mechanics

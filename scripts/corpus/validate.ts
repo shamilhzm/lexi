@@ -372,36 +372,14 @@ async function main() {
     (verbRes.n && verbRes.rate < T.verb) || (nounRes.n && nounRes.rate < T.noun) ||
     (adjRes.n && adjRes.rate < T.adj) || (closedRes.n > 0 && closedRes.hit < closedRes.n);
 
-  // A rule long enough to need structure must have it. 127 of 128 rules shipped as
-  // single unbroken paragraphs — up to 547 characters — into a RuleCard that has
-  // rendered `whitespace-pre-line` the whole time, waiting for newlines that never
-  // came. The sections are authored now; this is what stops the next batch
-  // regressing to a wall of prose nobody reads on a phone.
-  // A generated tense item that contradicts the rule it sits under. See lib.ts.
-  for (const [lv, points] of Object.entries(readJSON<Record<string, { title: string; exercises?: { prompt: string }[] }[]>>(
-    join(PATHS.repoRoot, 'public', 'data', 'grammar.json')))) {
-    for (const p of points) {
-      for (const [i, e] of (p.exercises ?? []).entries()) {
-        const why = tenseItemDefect(e.prompt ?? '');
-        if (why) allErrors.push({ id: `gex:${lv}:${p.title}:${i}`, msg: `generated item teaches wrong German — ${why}` });
-      }
-    }
-  }
-
-  const RULE_PROSE_MAX = 280;
-  // Deliberately not wrapped in a catch: the first version was, and it swallowed a
-  // missing import so the gate silently passed while reporting PASS — a check that
-  // cannot fail is worse than no check, because it is trusted.
-  const bank = readJSON<Record<string, { title: string; rule?: string; sections?: unknown[] }[]>>(
-    join(PATHS.repoRoot, 'public', 'data', 'grammar.json'));
-  for (const [lv, points] of Object.entries(bank)) {
-    for (const p of points) {
-      const len = (p.rule ?? '').length;
-      if (len > RULE_PROSE_MAX && !p.sections?.length) {
-        allErrors.push({ id: `gram:${lv}:${p.title}`, msg: `rule is ${len} chars with no sections (max ${RULE_PROSE_MAX} as prose)` });
-      }
-    }
-  }
+  // The grammar bank's two guards — the generated-tense-item check and the
+  // rule-prose-length check — were removed on 2026-09-05 with `grammar.json`
+  // itself. The app no longer teaches grammar (docs/VISION.md § the refocus), the
+  // file is no longer built and no longer shipped, and a check that reads a file
+  // nobody writes is a check that will fail for the wrong reason.
+  //
+  // The 110 `kind: 'grammar'` cards are still in `vocab.json` and still validated
+  // as cards by everything above; they are filtered at load in `src/data/index.ts`.
 
   // A noun filed in a sector reserved for another part of speech. This is the
   // signal that would have caught `der Somit` — a card glossed "somite" with a
@@ -470,7 +448,7 @@ async function main() {
 
   // Report.
   console.log(`\n=== Lexi corpus validation ===`);
-  console.log(`Cards: ${full.length} (words ${words.length}, grammar ${full.length - words.length})`);
+  console.log(`Cards: ${full.length} (words ${words.length}, grammar ${full.length - words.length} — filtered at load, see src/data/index.ts)`);
   console.log(`Level: ${LEVELS.map((l) => `${l} ${byLevel[l] ?? 0}`).join(' · ')}`);
   console.log(`Groups: ${Object.entries(byGroup).sort((a, b) => b[1] - a[1]).map(([g, n]) => `${g} ${n}`).join(' · ')}`);
   console.log(`Presence — IPA ${ipaRate} · example ${exRate} · noun plural ${plRate}`);

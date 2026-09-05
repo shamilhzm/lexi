@@ -2,20 +2,50 @@
 // click a level to focus the filter on A1..that level, with an advance nudge once
 // the highest focused level passes ~80%.
 import { ChevronRight } from 'lucide-react';
-import { levelStats, levels, setLevels } from '../store.ts';
+import { levelStats, levels, setLevels, studyLevel } from '../store.ts';
 import { CAN_DO, coverageNote } from '../lib/candos.ts';
 import { useStore } from '../useStore.ts';
 import { heat } from '../lib/ui.ts';
-import { ALL_LEVELS, type Target } from '../types.ts';
+import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
 
 const ADVANCE = 0.8;
+
+/** Which level the "… means being able to" panel describes.
+ *
+ *  It used to be the **highest** level in the filter, full stop. The filter
+ *  defaults to all six, so an unplaced learner — which is now the ordinary state,
+ *  since the first session comes before the placement test — opened Fortschritt
+ *  and was told what **C2** means, above a row of six 0% bars. That is the exact
+ *  defect `store.studyLevel` was written to fix; it reached `PathCard` and never
+ *  reached this component, which is the one that renders the sentence.
+ *
+ *  The rule now: the highest focused level you have actually *started* is your
+ *  working edge, because a level you have touched is a level you are working on.
+ *  With nothing started, fall back to `studyLevel()` — your placement, or the
+ *  lowest level in focus — clamped into the focus set so the lit tile and the
+ *  panel can never disagree.
+ *
+ *  Exported for the test that pins the unplaced case. */
+export function workingEdge(
+  stats: { level: CEFR; learned: number }[],
+  focus: Set<CEFR>,
+  fallback: CEFR,
+): number {
+  const inFocus = (i: number) => focus.has(ALL_LEVELS[i]);
+  for (let i = ALL_LEVELS.length - 1; i >= 0; i--) {
+    if (inFocus(i) && (stats[i]?.learned ?? 0) > 0) return i;
+  }
+  const want = ALL_LEVELS.indexOf(fallback);
+  if (want >= 0 && inFocus(want)) return want;
+  const lowest = ALL_LEVELS.findIndex((_, i) => inFocus(i));
+  return lowest;
+}
 
 export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => void } = {}) {
   useStore();
   const stats = levelStats();
   const focus = levels();
-  // the highest level currently in focus = your working edge
-  const edgeIdx = Math.max(...ALL_LEVELS.map((l, i) => (focus.has(l) ? i : -1)));
+  const edgeIdx = workingEdge(stats, focus, studyLevel());
   const edge = ALL_LEVELS[edgeIdx] ?? null;
   const edgeStat = stats[edgeIdx];
   const knownRatio = (s: { known: number; count: number }) => (s.count ? s.known / s.count : 0);

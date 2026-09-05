@@ -1,5 +1,68 @@
 # Lexi — Backlog
 
+> ## ⚠ Read this before anything below it — 2026-09-05
+>
+> **The refocus deleted six features, and this file has not been reconciled against it.**
+> Lexi is now a vocabulary trainer: the grammar syllabus, the exam room, the observatory,
+> the typing race, the worksheet printer and the reading room are gone, along with seven
+> of the eleven drill modes. See `docs/VISION.md` § the refocus and the CHANGELOG entry.
+>
+> **Every item below that touches one of those is dead, not deferred.** They are left in
+> place rather than deleted because several carry measurements and rulings that are still
+> true about the corpus, and deleting a measured finding to tidy a list is how this
+> project loses work. Read anything below with the question *does the thing this is about
+> still exist?* first.
+>
+> **What is definitely still open,** because it is about the corpus or the vocabulary
+> core:
+>
+> - the duplicate/inflection merges and every `corpus:*` audit finding
+> - the example, definition, IPA, plural and gender coverage gaps
+> - the `--color-der` / `--color-a1` hue collision (one hex, two unrelated meanings)
+> - the `amber` → `accent` token rename
+>
+> **What the refocus opened,** and is not yet written up as an item:
+>
+> - **~1,000 genuinely missing common words.** Measured 2026-09-05: Lexi carries
+>   **88.5%** of open-class running text and **95.4%** of the commonest thousand,
+>   against the Routledge frequency dictionary. Of the 1,483 open-class lemmas it
+>   lacks in that list's top 5,009, most are inflections it lemmatises or proper
+>   nouns it excludes on purpose; the real target is words like *der Fall, der
+>   Wert, der Sinn, das Element, fühlen, freuen, sorgen, interessieren,
+>   beteiligen*. `authoring:new` is the mechanism and it is machine-gated. See
+>   VISION § open decisions 2a for the full breakdown.
+> - **An iOS lock-screen widget is not buildable as a web app.** WidgetKit needs a
+>   native target; there is no web API, and Safari supports neither Periodic
+>   Background Sync nor server-less scheduled push. The two honest paths are a
+>   thin native wrapper with a WidgetKit extension (a real project, and the first
+>   thing in Lexi that would need the App Store), or web push for installed PWAs —
+>   which needs a **server**, and so collides with the local-first ruling that is
+>   itself still open (§1). Decide §1 first; this is downstream of it.
+> - **A published frequency ranking, handed over and not merged.** A copy of the
+>   *Routledge Frequency Dictionary of German* as an Anki deck (`reference/`, 5,009
+>   notes: rank, headword with principal parts, IPA, up to three senses each with POS,
+>   gloss and a bilingual example, plus raw frequency with dispersion). Measured against
+>   the corpus by article-stripped headword: **Lexi holds 90% of its top 1,000 and 69% of
+>   all 5,009**, and the 1,557 misses are overwhelmingly the closed-class words —
+>   *der, ein, als, dies, kein, sondern, welch, ob* — that `corpus/build.ts` excludes on
+>   purpose. **The gap is mostly a decision, not a hole.** The blocker is licensing, not
+>   usefulness: those glosses and examples are a copyrighted dictionary's expression. See
+>   VISION § open decisions 2a.
+>
+> - **Learner-added words.** Both reference apps have it — the Goethe-Institut's
+>   *Vokabeltrainer* and *Vocabulary* — and Lexi has the machinery (`addUserWords`, the
+>   `usr:` namespace, `registerWords`, and the recap already counts mined words) with
+>   **no route into it** since the class-pack importer went. It is not a five-minute job:
+>   a hand-typed German noun arrives with no gender, plural or IPA, and commitment 5
+>   forbids generating them. VISION § open decisions #2 lists the three honest shapes.
+> - **The main bundle is still 706 KB (210 KB gzipped)** for an app with three screens.
+>   Nothing in this pass went looking for that; `motion` and the lucide set are the
+>   obvious first places to measure.
+>
+> *Reconciling the rest is its own session, and it should re-measure rather than
+> re-read — the rule at the top of this file applies to this banner too.*
+
+
 The one prioritised list of **open** work, reconciled against the actual `src/`, so
 it overrides anything in the older strategy docs. Shipped work and the reasoning
 behind it live in [CHANGELOG.md](CHANGELOG.md).

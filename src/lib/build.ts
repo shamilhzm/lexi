@@ -16,6 +16,25 @@
 // Comparing the two is the only honest way to say "you are up to date", and it is
 // why the stamp is emitted as a file rather than committed as a constant.
 
+/** The production deployment immediately before the 2026-09-05 redesign — the
+ *  app as it ran with the flip-card front door, five tabs and the grammar room.
+ *
+ *  A Vercel deployment URL is immutable: this one will keep serving that build
+ *  for as long as the project exists, whatever ships to the alias afterwards. So
+ *  "revert to the previous version" does not need a feature flag, two UIs in one
+ *  bundle, or a rollback — it needs a link, and Settings has one.
+ *
+ *  **It is a different origin, and that is the whole caveat.** Browser storage is
+ *  per-origin, so the old build opens with no progress in it: it is a place to
+ *  compare the *experience*, not a way back to your history. Settings says so
+ *  next to the link, and points at Backup/Restore for anyone who wants a
+ *  like-for-like comparison with real data. */
+export const PREVIOUS_BUILD = {
+  url: 'https://lexi-2kn080aor-shamil-s-projects6.vercel.app',
+  /** What that build was, in one line, so the link is not a mystery door. */
+  label: 'before the 2026-09-05 redesign — flip-card home, five tabs, grammar drills',
+};
+
 /** The build this code was compiled into. */
 export const BUILD = {
   sha: typeof __BUILD_SHA__ === 'string' ? __BUILD_SHA__ : 'dev',

@@ -6,7 +6,7 @@
          and a strange thing to do in an app that ships its own text-size ramp
          precisely because small text is hard to read. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#e7ecee" />
+    <meta name="theme-color" content="#eeeae3" />
     <!-- Apply the saved light/dark preference before first paint (avoids a flash). -->
     <script>
       (function () {
@@ -23,7 +23,7 @@
         }
       })();
     </script>
-    <meta name="description" content="Lexi — an atlas of your German (A1–C2). Spaced repetition over a live map of what you actually know." />
+    <meta name="description" content="Lexi — a German vocabulary trainer for English speakers. 6,500 words A1–C2, spaced repetition, and a live map of what you actually know." />
     <!-- Social cards. The app renders a designed 1200×630 progress image and
          offers navigator.share, but a shared *link* still unfurled as a bare
          URL because none of this existed.
@@ -33,15 +33,15 @@
          than pointing at one that does. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Lexi" />
-    <meta property="og:title" content="Lexi — an atlas of your German" />
-    <meta property="og:description" content="Learn German A1–C2 with honest spaced repetition over a live map of what you actually know. Local-first: your progress never leaves your device." />
+    <meta property="og:title" content="Lexi — your German vocabulary" />
+    <meta property="og:description" content="Learn German words A1–C2 with honest spaced repetition and a live map of what you actually know. Local-first: your progress never leaves your device." />
     <meta property="og:image" content="/icon-512.png" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content="The Lexi app mark: a blue L on a light square." />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Lexi — an atlas of your German" />
-    <meta name="twitter:description" content="Learn German A1–C2 with honest spaced repetition over a live map of what you actually know." />
+    <meta name="twitter:title" content="Lexi — your German vocabulary" />
+    <meta name="twitter:description" content="Learn German words A1–C2 with honest spaced repetition and a live map of what you actually know." />
     <meta name="twitter:image" content="/icon-512.png" />
     <!-- PWA -->
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -54,24 +54,37 @@
          This used to be a render-blocking Google Fonts stylesheet for a font
          that was never actually painted, on an app that has to work offline —
          and sw.js skips cross-origin requests, so it was never cached either. -->
-    <title>Lexi — an atlas of your German</title>
+    <title>Lexi — your German vocabulary</title>
     <style>
       /* Boot splash — shown instantly while the JS bundle + lexicon load.
          React replaces #root's contents on first render. */
+      /* The ground is the app's own `--color-bg`. It was #e7ecee — the *cool*
+         grey the palette left behind when it went to warm paper on 2026-08-26 —
+         so the splash flashed cool and the app resolved warm, on every launch. */
       #boot {
         position: fixed; inset: 0; display: grid; place-items: center;
-        background: radial-gradient(120% 90% at 50% 0%, #ffffff 0%, #e7ecee 60%);
-        color: #16232a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: radial-gradient(120% 90% at 50% 0%, #fbf9f6 0%, #eeeae3 60%);
+        color: #1e2226; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
+      /* Flex column, not `text-align: center`.
+         `.mark` (56px) and `.bar` (132px) are *block* elements, and text-align
+         does not centre a block — both sat flush against the left edge of a box
+         whose width was set by the widest line (the 3px-tracked tag). The mark
+         read as off-centre under the wordmark and the bar visibly hung left.
+         Centring the box does what the old rule was trying to say. */
+      #boot .stack { display: flex; flex-direction: column; align-items: center; }
       #boot .mark {
-        width: 56px; height: 56px; display: grid; place-items: center;
+        width: 56px; height: 56px;
         filter: drop-shadow(0 12px 40px rgba(29, 106, 140, .20));
         animation: bootpulse 1.6s ease-in-out infinite;
       }
       #boot .mark svg { width: 56px; height: 56px; display: block; }
+      /* Optical, not metric: the tag's 3px tracking adds a trailing space to its
+         last letter, which pushes the *ink* left of centre even when the box is
+         centred. Half the tracking back. */
       #boot .wm { margin-top: 18px; font-weight: 700; letter-spacing: .5px; font-size: 18px; }
-      #boot .tag { margin-top: 4px; color: #52646d; font-size: 11px; letter-spacing: 3px; }
-      #boot .bar { margin-top: 18px; width: 132px; height: 3px; border-radius: 3px; background: #c9d5d9; overflow: hidden; }
+      #boot .tag { margin-top: 5px; color: #5b5952; font-size: 11px; letter-spacing: 3px; text-indent: 3px; }
+      #boot .bar { margin-top: 20px; width: 132px; height: 3px; border-radius: 3px; background: #d2cabc; overflow: hidden; }
       #boot .bar i { display: block; height: 100%; width: 40%; border-radius: 3px; background: var(--boot-accent, #1d6a8c);
         animation: bootbar 1.1s ease-in-out infinite; }
       @keyframes bootpulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
@@ -81,12 +94,18 @@
         --boot-accent: #63b3d4; }
       html.dark #boot .tag { color: #93a5ac; }
       html.dark #boot .bar { background: #2c3b41; }
+      /* The splash outlives its welcome only when something is wrong, and a
+         pulsing logo says nothing about that. Respect the setting either way. */
+      @media (prefers-reduced-motion: reduce) {
+        #boot .mark { animation: none; }
+        #boot .bar i { animation: none; width: 100%; opacity: .5; }
+      }
     </style>
   </head>
   <body>
     <div id="root">
       <div id="boot">
-        <div style="text-align:center">
+        <div class="stack">
           <div class="mark">
             <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
               <rect width="150" height="150" rx="34" fill="#0e1722"/>
@@ -96,12 +115,13 @@
             </svg>
           </div>
           <div class="wm">Lexi</div>
-          <!-- Was "GERMAN VOCAB TERMINAL", under a blinking console cursor after the
-               wordmark. DESIGN.md §1 retired the market-terminal identity on
-               2026-07-28; this is the boot screen, so it was the first thing anyone
-               saw of an app whose <title> above says "an atlas of your German".
+          <!-- Was "GERMAN VOCAB TERMINAL", under a blinking console cursor, then
+               "AN ATLAS OF YOUR GERMAN". §1 retired the terminal on 2026-07-28 and
+               the 2026-09-05 refocus retired the atlas line with the rooms it
+               described — this is the boot screen, so it is the first thing anyone
+               sees, and it should say the thing the app does.
                Only production shows it — dev boots before it can paint. -->
-          <div class="tag">AN ATLAS OF YOUR GERMAN</div>
+          <div class="tag">GERMAN VOCABULARY</div>
           <div class="bar"><i></i></div>
         </div>
       </div>

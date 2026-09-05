@@ -67,7 +67,7 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
       // move. These never sit adjacent to another control, so the enlarged area
       // cannot overlap a neighbour's.
       // `inline-grid`, not `grid`: this sits *inside* the sentence paragraph in
-      // Lesen, and a block-level grid box breaks to its own line — so every
+      // a sentence in running text, and a block-level grid box breaks to its own line — so every
       // near-miss sentence card carried an orphaned speaker icon on a line of its
       // own, and the `align-middle` two lines down had nothing to act on. The
       // comment above already said "inline"; only the class disagreed.
@@ -245,47 +245,8 @@ export function TermList({ label, terms, tone = 'txt' }: {
   );
 }
 
-/** How the answer is built, as a formula: `wirst + müssen`.
- *
- *  This is the beat that was missing everywhere. A drill would state a verdict —
- *  "Answer: du wirst müssen" — which tells a learner *what* without ever telling
- *  them *why*, on the one screen where they are already paying full attention. */
-export function Derivation({ parts, note }: { parts: string[]; note?: string }) {
-  return (
-    <div>
-      <p lang="de" className="font-mono text-sm text-txt flex flex-wrap items-center gap-x-1.5 gap-y-1">
-        {parts.map((p, i) => (
-          <span key={i} className="flex items-center gap-1.5">
-            {i > 0 && <span aria-hidden className="text-dim">+</span>}
-            <span>{p}</span>
-          </span>
-        ))}
-      </p>
-      {note && <p className="text-dim text-xs mt-1">{note}</p>}
-    </div>
-  );
-}
-
-/** The full six-person paradigm, laid out the way a German table is —
- *  singular in the left column, plural in the right.
- *
- *  `conjugate()` has computed all six forms all along and the drills used exactly
- *  one of them, then threw the rest away. Showing them at the moment of a miss is
- *  the difference between being corrected and being taught. */
-export function Paradigm({ rows }: { rows: [string, string][] }) {
-  const order = [0, 3, 1, 4, 2, 5]; // ich·wir / du·ihr / er·sie
-  return (
-    <div lang="de" className="grid grid-cols-2 gap-x-5 gap-y-1 font-mono text-xs">
-      {order.map((i) => {
-        const r = rows[i];
-        if (!r) return null;
-        return (
-          <p key={i} className="flex gap-1.5 min-w-0">
-            <span className="text-dim flex-shrink-0 w-8">{r[0]}</span>
-            <span className="text-txt truncate">{r[1]}</span>
-          </p>
-        );
-      })}
-    </div>
-  );
-}
+// `Derivation` and `Paradigm` lived here until 2026-09-05 — a formula for how a
+// form is built, and the full six-person conjugation table shown on a miss. They
+// were the reveal layer of the tense, Kasus and separable drills, all of which
+// went with the grammar syllabus. Nothing left in the app has six persons to show.
+// Git history holds them; they were good.

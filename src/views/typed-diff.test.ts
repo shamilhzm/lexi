@@ -7,7 +7,7 @@
 // attempt with the answer. *"I can't even see what I wrote to know which part I
 // wrote incorrectly."*
 import { describe, it, expect } from 'vitest';
-import { typedDiff } from './GrammarDrill.tsx';
+import { typedDiff } from './drills.tsx';
 
 const wrong = (typed: string, answer: string) =>
   typedDiff(typed, answer).filter((s) => !s.ok).map((s) => s.text);

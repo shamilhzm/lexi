@@ -159,10 +159,15 @@
   --text-5xl: 2.75rem;    --text-5xl--line-height: normal;
   --text-6xl: 3.5rem;     --text-6xl--line-height: normal;
 
-  /* Radius scale — three steps + full. sm chips · md buttons · lg cards. */
+  /* Radius scale — three steps + full. sm chips · md buttons · lg cards.
+     `xl` arrived with the glass chrome (2026-09-05): a floating bar wants a
+     radius that reads as an *object resting on the page* rather than a panel
+     let into it, and 16px at 430px wide does not. Concentric by construction —
+     a 10px control inset 6px inside a 22px container shares its centre. */
   --radius-sm: 8px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-xl: 22px;
 
   /* Uppercase-kicker tracking (used with text-2xs). */
   --tracking-wider: 0.08em;
@@ -194,18 +199,6 @@
   --heat-3: #4a89a8;  --heat-ink-3: #ffffff;
   --heat-4: #1d6a8c;  --heat-ink-4: #ffffff;
 
-  /* The observatory. Declared here for exactly the reason above — these are not
-     --color-* tokens, so inside @theme Tailwind would drop them silently.
-
-     Unconditionally dark in both themes. That is a real exception to §2's hue
-     discipline, taken on the same grounds §8 uses to strip every piece of
-     chrome off the session desk: a different room for a different activity. A
-     field of bioluminescent points needs black to be luminous, and the light
-     version of this surface is not a weaker version of the idea, it is a
-     different and worse one. Numeric values live in lib/brain/palette.ts, which
-     WebGL reads; these mirror them for the region rail. */
-  --brain-void: #04070d;
-  --brain-ink: #ffffff;
 }
 
 /* The German headword — the one place the display serif is used.
@@ -588,33 +581,130 @@ body {
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
 
-/* The observatory: the brain room and the Today hero.
- *
- * Always dark, whatever the theme — see the --brain-* block above for why. The
- * hero is a *button* holding a 210px canvas, so it must not be scaled by any
- * entrance (DESIGN.md §7's corollary): a stalled 0.985 scale would shrink a
- * touch target, which is exactly the defect `.desk-in` was caught committing. */
-.brain-room, .brain-hero {
-  background: var(--brain-void);
-  color: var(--brain-ink);
-  color-scheme: dark;
+
+/* ── Liquid Glass — the chrome material ──────────────────────────────────────
+   *Added 2026-09-05, following Apple's iOS 26 material.*
+
+   **The rule this material comes with: glass is for chrome, paper is for
+   content.** iOS 26 makes the *floating* layer translucent — bars, tab bars,
+   pills, sheets — and leaves the layer you read opaque, because a definition set
+   over a moving background is a definition you read twice. So `.glass` is worn
+   by the top bar, the tab bar, the IPA pill and the word sheet, and never by
+   `ui/Card`. §2's hue discipline is untouched: nothing here introduces a colour,
+   it introduces a *transparency* of the panel colour already in the token block.
+
+   Three parts, and the third is the one people forget:
+
+     1. `color-mix` of the panel colour with transparency — so it inherits the
+        theme rather than being a second grey nobody maintains.
+     2. `backdrop-filter: blur() saturate()` — the saturation is what makes it
+        read as glass rather than as fog: it lifts the colour of whatever is
+        behind, which is exactly what a lens does.
+     3. A **specular rim**: a hairline of light on the top edge and a whisper of
+        shadow below it. Without it the element is a blurry rectangle; with it,
+        it is an object with a thickness.
+
+   Radii are capsules (`rounded-full`) wherever the shape allows, and concentric
+   otherwise: a control nested in glass takes the parent radius minus its inset,
+   so the curves share a centre instead of racing each other. `--radius-xl` (22px)
+   is the container step this added.
+   ============================================================================ */
+:root {
+  /* 78% is the measured floor, not a taste: below it `--color-dim` on a scrolled
+     headword drops under AA on the light theme. Checked with the palette guard's
+     own contrast helper against the two grounds the bars ever sit on. */
+  --glass: color-mix(in srgb, var(--color-panel) 78%, transparent);
+  --glass-rim: rgb(255 255 255 / 0.62);
+  --glass-edge: color-mix(in srgb, var(--color-line) 62%, transparent);
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -8px rgb(0 0 0 / 0.10);
+  --glass-blur: 22px;
 }
-.brain-hero { border: 1px solid rgb(255 255 255 / 0.08); }
-.brain-hero:hover { border-color: rgb(255 255 255 / 0.16); }
-/* Sits above the void so the canvas never reads as a hole punched in the page. */
-.brain-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(120% 80% at 50% 120%, rgb(99 200 255 / 0.10), transparent 70%);
+html.dark {
+  /* Darker and a touch more opaque: a dark ground has less luminance to lend,
+     so the same alpha reads as a smear rather than a pane. The rim inverts to a
+     low-alpha white — on dark glass the specular highlight is the *only* thing
+     separating the bar from the page. */
+  --glass: color-mix(in srgb, var(--color-panel) 82%, transparent);
+  --glass-rim: rgb(255 255 255 / 0.10);
+  --glass-edge: color-mix(in srgb, var(--color-line) 78%, transparent);
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.30), 0 10px 30px -10px rgb(0 0 0 / 0.45);
 }
 
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-rim), var(--glass-shadow);
+}
+
+/* Two honest fallbacks, in this order.
+   1. No `backdrop-filter` (older Firefox, some embedded webviews): the bar goes
+      opaque rather than showing a headword through a flat wash. A translucent
+      panel with nothing blurring behind it is not a weaker version of glass, it
+      is unreadable text over a moving word.
+   2. `prefers-reduced-transparency`, which is a real accessibility setting and
+      not a taste — some people cannot read type over a busy backdrop at all. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--color-panel); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--color-panel);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* ── The feed ────────────────────────────────────────────────────────────────
+   One word per screenful, scrolled. Snap is mandatory rather than proximity: the
+   whole premise is that a word owns the screen, and a rest position halfway
+   between two of them is a screen with two half-words on it.
+
+   `snap-always` on the slot is what stops a fast flick from skating past four
+   words — on a feed whose unit is "a word you met", overshooting is the same
+   defect as skipping cards.
+
+   Hiding the scrollbar is not decoration here: the track would report the length
+   of a list the learner is not meant to be measuring, and on a 6,500-slot feed it
+   renders as a 2px sliver that says "you have made no progress". */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { width: 0; height: 0; }
+
+/* Centred, until centring would hide something.
+ *
+ *  `justify-content: center` on a scrollable flex column clips overflow at
+ *  **both** ends — the top is unreachable, because the overflow is split above
+ *  and below the scroll origin. The flip card's front face has been
+ *  `overflow-y-auto` and centred since it shipped, and only stopped getting away
+ *  with it when the card started sizing itself against a phone's bars: a
+ *  first-sight card lost its kicker and its example translation at once.
+ *
+ *  The `safe` keyword is exactly this: centre when it fits, fall back to
+ *  flex-start when it does not. Declared here rather than as a Tailwind
+ *  arbitrary value because `justify-[safe_center]` does not compile — it emits an
+ *  invalid declaration, the browser drops it, and the element silently falls back
+ *  to `normal`. That *looked* like it worked, which is worse than not working.
+ *
+ *  Older engines ignore the second declaration and keep plain `center`, i.e.
+ *  today's behaviour. Safari 16.4+ and Chrome 115+ take the safe one. */
+.justify-safe-center {
+  justify-content: center;
+  justify-content: safe center;
+}
+
+/* The word sheet. Rises, transform-only and fill-mode-free like every other
+   entrance in this file (§7): a stalled animation must leave the sheet readable,
+   not stranded off-screen — and this one is modal, so a stranded sheet is an app
+   the learner cannot get out of. */
+@keyframes sheetin { from { transform: translateY(12px); } }
+.sheet-in { animation: sheetin .22s cubic-bezier(.32,.72,0,1); }
+
 @media (prefers-reduced-motion: reduce) {
-  .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,
+  .tile-in, .route-in, .desk-in, .card-in, .ack-in, .sheet-in, .tip-hit,
   .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
   .tile { transition: none; }
-  .tile-in, .route-in, .desk-in, .card-in, .ack-in { opacity: 1; transform: none; }
+  .tile-in, .route-in, .desk-in, .card-in, .ack-in, .sheet-in { opacity: 1; transform: none; }
   * { scroll-behavior: auto; }
 }
 

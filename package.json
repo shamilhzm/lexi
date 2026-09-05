@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Lexi — a free, open-source app for English speakers learning German (A1–C2). FSRS spaced repetition over a deep lexicon, grammar drills woven in, and a scheduler that shows its work. Local-first: no account, no backend, no tracking.",
+  "description": "Lexi — a free, open-source German vocabulary trainer for English speakers (A1–C2). FSRS spaced repetition over a deep lexicon, with the word-facts (gender, plural, spelling, production) drilled alongside the meaning. Local-first: no account, no backend, no tracking.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -21,7 +21,6 @@
     "corpus:frontfix": "node scripts/corpus/frontfix.ts",
     "corpus:build": "node scripts/corpus/build.ts",
     "corpus:audio": "node scripts/corpus/audio.ts",
-    "corpus:grammar": "node scripts/corpus/grammar-supplement.ts",
     "corpus:resector": "node scripts/corpus/resector.ts",
     "corpus:sector-merge": "node scripts/corpus/sector-merge.ts",
     "corpus:misc-sector": "node scripts/corpus/misc-sector.ts",
@@ -38,7 +37,6 @@
     "corpus:sense": "node scripts/corpus/sense-audit.ts",
     "corpus:freq": "node scripts/corpus/freq.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts",
-    "brain:mesh": "node scripts/brain/mesh.ts",
     "corpus:enrich": "node scripts/corpus/enrich-fields.ts",
     "authoring:input": "node scripts/authoring/make-input.ts",
     "authoring:apply": "node scripts/authoring/apply-authored.ts",
@@ -48,15 +46,9 @@
     "corpus:dupes": "node scripts/corpus/merge-dupes.ts",
     "corpus:forms": "node scripts/corpus/merge-forms.ts",
     "authoring:new": "node scripts/authoring/new-cards.ts",
-    "corpus:gex": "node scripts/corpus/grammar-exercises.ts",
-    "corpus:lessons": "node scripts/corpus/lessons.ts",
-    "corpus:dupe-points": "node scripts/corpus/dupe-points.ts",
-    "corpus:papervocab": "node scripts/corpus/paper-vocab.ts",
-    "corpus:genex": "node scripts/corpus/gen-exercises.ts",
     "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
     "authoring:ipa": "node scripts/authoring/fetch-ipa.ts",
-    "authoring:recard": "node scripts/authoring/recard.ts",
-    "authoring:merge-points": "node scripts/authoring/merge-points.ts"
+    "authoring:recard": "node scripts/authoring/recard.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
@@ -66,7 +58,6 @@
     "@types/node": "^26.1.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@types/three": "^0.185.4",
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.39.5",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -83,7 +74,6 @@
     "motion": "^12.23.24",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
-    "three": "^0.180.0",
     "ts-fsrs": "^5.4.1"
   }
 }

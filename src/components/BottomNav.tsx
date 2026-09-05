@@ -4,20 +4,19 @@
 // habit app that is the wrong shape — the surface people actually study on hid
 // everything except the thing already on screen.
 //
-// Desktop puts the destinations in the top bar; this is `md:hidden` (it was
-// `sm:hidden` until the set went to five — see TopBar). The two
+// Desktop puts the destinations in the top bar; this is `md:hidden`. The two
 // share `TopBar`'s NAV array so a destination can never exist in one and not the
 // other. Profile is reachable from the avatar in the bar at every width, which is
 // what let the drawer go entirely.
 //
 // ## There is no start button here, and no longer one floating above it
 //
-// It was a fifth item raised out of the row once — embedding an *action* among
+// It was an item raised out of the row once — embedding an *action* among
 // *places*, which is a category error. The fix at the time was to float it above
 // the bar instead. That was still wrong, just wrong somewhere else: a
-// viewport-anchored 56px circle sat on top of scrollable content, and with five
-// destinations it landed on **tappable controls** — a Study button on Words, a
-// path node in the journey, a heatmap tile on Progress.
+// viewport-anchored 56px circle sat on top of scrollable content, and it landed
+// on **tappable controls** — a Study button on Words, a heatmap tile on
+// Progress.
 //
 // Start session now lives in `TopBar` at every width, which is where that file
 // has always said actions belong. This component holds places and nothing else.
@@ -32,9 +31,18 @@ export default function BottomNav({ view, onGo }: {
   const reduce = useReducedMotion();
 
   return (
-    <div className="md:hidden flex-shrink-0 no-print">
-      <nav aria-label="Main" className="bg-panel border-t border-line safe-bottom">
-        <div className="flex items-stretch h-[56px]">
+    // **A floating capsule, in glass.** *2026-09-05.* It was a full-width opaque
+    // bar welded to the bottom edge; iOS 26's tab bar is an object resting on the
+    // page, with the page visible around and behind it. Inset from all three
+    // edges so it reads as one, and `absolute` so there is something behind it —
+    // a translucent bar with nothing under it is just a grey rectangle.
+    //
+    // `pb-[env(safe-area-inset-bottom)]` on the *wrapper*, not the capsule: the
+    // home indicator on a 16 Pro Max should push the capsule up, not stretch it
+    // into a shape with 34px of dead glass along the bottom.
+    <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pointer-events-none">
+      <nav aria-label="Main" className="glass rounded-full pointer-events-auto overflow-hidden">
+        <div className="flex items-stretch h-[58px]">
           {NAV.map((n) => {
             const active = view === n.id;
             return (
@@ -44,15 +52,25 @@ export default function BottomNav({ view, onGo }: {
                 {/* The active tab was signalled by colour and stroke weight alone.
                     A shared-layout rule slides between tabs, so the change reads
                     as one object moving rather than two colour flips. */}
+                {/* The active pill, not a bar across the top edge. A capsule has
+                    no top edge to hang a rule off — and iOS 26 signals the
+                    selected tab by seating it in its own recessed capsule, which
+                    is also the honest thing here: it is a *place you are*, not a
+                    boundary. Shared-layout, so it slides between tabs as one
+                    object rather than two colour flips. */}
                 {active && (
                   <motion.span layoutId="bottomnav-active" aria-hidden
                     transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 480, damping: 38 }}
-                    className="absolute top-0 h-0.5 w-8 rounded-full bg-accent" />
+                    className="absolute inset-y-1.5 inset-x-1 rounded-full bg-panel2/80" />
                 )}
+                <span className="relative flex flex-col items-center gap-0.5">
                 <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
-                {/* Five tabs at 375px is 75px each. `px-0` and a tracking-tight label keep
-                    *Progress* and *Practice* — the two longest — off the truncation. */}
-                <span className="text-2xs leading-none tracking-tight truncate max-w-full">{n.label}</span>
+                {/* Four tabs at 375px is ~94px each — *Fortschritt* is the long
+                    one and fits at `text-2xs` with room to spare, which is why
+                    the labels can be the German surface names in full rather
+                    than one clipped English word. */}
+                <span lang="de" className="text-2xs leading-none tracking-tight truncate max-w-full">{n.label}</span>
+                </span>
               </button>
             );
           })}

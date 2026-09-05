@@ -1,17 +1,28 @@
 # Lexi
 
-**An atlas of your German (A1–C2).** A free, open-source, local-first app for **English
-speakers learning German** — spaced repetition over a deep lexicon, grammar drills woven
-in for the words you are actually seeing, and a scheduler that tells you *why* each card
-is in front of you.
+**Your German vocabulary, A1–C2.** A free, open-source, local-first app for **English
+speakers learning German words** — spaced repetition over a deep lexicon, the word-facts
+that make a German word actually yours drilled alongside the meaning, and a scheduler
+that tells you *why* each card is in front of you.
 
 No account, no sign-in, no tracking, and nothing to cancel. It runs entirely on your
 device and works offline.
 
+**Opening the app is a German word.** There is no home screen to get past: the front
+door is a feed you scroll, one word per screen, with the pronunciation, the meaning and
+an example all present.
+
 > **Scope, stated so the promise never runs ahead of the corpus:** every gloss,
-> definition, rule and exercise prompt is in English. That is a deliberate choice — see
+> definition and example translation is in English. That is a deliberate choice — see
 > [`docs/VISION.md`](docs/VISION.md). Other language pairs are an architectural goal,
 > not a shipped feature.
+>
+> **Lexi does not teach grammar.** *Ruled 2026-09-05, and the ruling is the point:* a
+> drill earns its place if it tests a property of the **word** — gender, plural,
+> spelling, the German you have to produce — and goes if it tests a **rule of the
+> language**. The 140-point grammar syllabus, the exam room and the reading room were
+> all removed. [`docs/VISION.md`](docs/VISION.md) carries the whole argument, including
+> what it would take to reverse it.
 
 ## Docs
 
@@ -22,72 +33,77 @@ what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
 
 ## What's inside
 
-Measured against the shipped corpus on 2026-08-15, not estimated.
+Measured against the shipped corpus on 2026-09-05, not estimated.
 
-- **6,631 cards** — 6,521 vocabulary and 110 grammar points, across all six CEFR levels.
-  Vocabulary by level: **A1 1,161 · A2 1,386 · B1 2,281 · B2 917 · C1 574 · C2 185**.
-- **136 grammar points · 6,130 exercises** (A1 1,654 · A2 1,748 · B1 1,725 · B2 625 ·
-  C1 204 · C2 174), each point carrying a plain-English summary and rule, and each
-  exercise an explanation shown when you get it wrong.
+- **6,520 vocabulary cards** across all six CEFR levels — **A1 1,159 · A2 1,381 ·
+  B1 2,278 · B2 942 · C1 575 · C2 185**.
 - **Every card carries at least two usage examples**, German and English, graded at or
   just below the card's level.
-- Cards carry IPA, gloss, gender + plural, synonyms/antonyms and example sentences
-  where available.
-- **274 fine sectors** rolled up into **15 theme groups**, which the market view
-  coarsens further so the treemap reads on a phone.
-- **Six full exam papers**, one per level — telc B1 and Goethe A1, A2, B2, C1, C2 — in
-  their own formats and weightings.
-- **FSRS** scheduling via `ts-fsrs`. Every drill mode is its own track, so recognising
-  a word and producing a form are scheduled separately.
+- Cards carry IPA, gloss, gender + plural, synonyms/antonyms, word family and — from B2 —
+  a German-language definition.
+- **273 fine sectors** rolled up into **nine theme groups**, which the heatmap uses so
+  the treemap reads on a phone.
+- **FSRS** scheduling via `ts-fsrs`. Every drill mode is its own track, so *recognising*
+  a word and *producing* it are scheduled separately — that split is what makes the
+  recall drill honest.
 - **Local-first**: progress lives in IndexedDB with export/import for backup and moving
   between machines.
 
 ## Surfaces
 
-Two rooms: the **instrument** — a top bar, plus a bottom bar below `md`, over five
-destinations — and the **session**, which renders with its own chrome because one
-aesthetic cannot serve both scanning a heatmap and studying a single word.
+Four destinations, and the first one is where the app opens.
 
-Each destination answers one question, and nothing is hidden behind a disclosure
-triangle on the way to it.
+- **Wörter** — *the feed.* One German word per screen, scrolled: the headword with its
+  article inked by gender, the IPA as a pill you press to hear it, the meaning, and one
+  example sentence. Three actions — ⓘ opens everything the corpus knows, ♥ favourites,
+  and **🔖 saves the word to your next session.** The feed does not grade you: scrolling
+  is not evidence, so nothing here touches your schedule. The order is the scheduler's,
+  though — what's due, then unseen words from your thinnest topics, then the rest by
+  frequency.
+- **Themen** — *what words are there?* A search over all 6,520 cards (German or English,
+  umlauts optional), the nine theme groups with your coverage on each, **Decks**, the
+  **Wortkarte** (a semantic map of a sector, with synonym links and node colour by
+  learning status), and **Wörter aus einem Text** — paste any German you want to read
+  and it says how much of it you can read, which words are in the way, and builds a
+  session out of them.
+- **Üben** — *test me.* Flip cards interleaved with the three word-fact drills, on one
+  FSRS queue that opens with the words you bookmarked. Interval previews on the grade
+  buttons, German text-to-speech on every string, a hint ladder and near-miss tolerance
+  on typed answers, and a line under each item saying *why it is here* ("you flipped
+  *anbieten* a few cards ago — now produce it"). Silence when there is nothing
+  non-obvious to say.
+- **Fortschritt** — *how is it going?* Words you know, the two-minute placement test, the
+  A1→C2 level path (which is also the control that decides what you are shown), your
+  goal, the knowledge heatmap, review and recall history, the 7-day due forecast,
+  finished sectors, and **blind spots** — what you keep getting wrong, ranked by rate,
+  each row a tap into a run of that drill.
+- **Profile**, off the avatar — name, level, streak, goal, topics, flagged cards, and
+  **Settings**: theme, text size, review intensity (FSRS desired retention), daily pace,
+  which drills are in a session, the HD German voice, and backup / restore.
 
-- **Today** — *what do I do now?* One **Start session** button, the day's shape, and the
-  things that only appear when they apply: a comeback greeting after a gap, an honest
-  backlog burn-down, the level path, and a goal line. First run leads with a ten-card
-  session, then offers the placement test.
-- **Words** — *what words are there?* A search over all 6,631 cards (German or English,
-  umlauts optional), the nine theme groups with your coverage on each, **Decks**, and the
-  **Wortkarte** — a semantic map of a sector with synonym links and node colour by
-  learning status.
-- **Practice** — *drill me on something specific.* A **journey** through the grammar:
-  six chapters (A1–C2), one node per concept, in the order the bank teaches them — each
-  showing whether you've finished it, and which one to resume. Every chapter keeps a
-  *read the rules* list, so reading what a concept **is** never requires starting a
-  drill. Alongside it: the **Fundamentals**
-  drills (ten modes, each on its own spaced-repetition track — gender, plurals,
-  conjugation, cloze, sentence builder, tense transformation, Kasus, separable verbs,
-  reflexive verbs, Diktat); **Redemittel**; printable worksheets; **Exam** — a full paper
-  per level, with the oral rehearsed against model answers at three strengths and the
-  written parts self-assessed against the examiners' own published criteria, refusing to
-  machine-mark what a machine cannot mark; and **Tipprennen**, a typing race over your
-  own cards, strict about the two things German actually punishes: capitalisation and
-  umlauts.
-- **Read** — *give me real German.* Sentences built from words you already have, and the
-  comprehension meter: paste any German text and it says how much of it you can read,
-  with the count beside the percentage and the words that would get you over the line.
-- **Progress** — *how is it going?* The knowledge heatmap (treemap by theme group,
-  area = cards, colour = how much you know); review and recall history, the 7-day due
-  forecast, the known-growth curve; blind spots that expand inline into one-tap drills;
-  finished sectors; and the observatory. A CEFR **level filter** rescopes the whole app.
-- **Profile** — name, level, streak, goal, topics, flagged cards, and **Settings**:
-  theme, text size, review intensity (FSRS desired retention), daily pace, the HD German
-  voice, class packs, and backup / restore.
+### The loop
 
-**The session** — flip cards and ten drill types on one queue. Interval previews on the
-grade buttons, German text-to-speech on every string, a hint ladder on typed answers,
-near-miss tolerance for a slipped finger, and a line under each item saying *why it is
-here* ("because you just learned obwohl", "you've missed Kasus 4× this month"). Silence
-when there is nothing non-obvious to say.
+> **browse freely → save what catches you → Üben teaches you what you chose.**
+
+Bookmarking is the one thing a feed can honestly record, and it is an instruction to the
+scheduler rather than a wishlist: `buildBriefing` serves saved words ahead of the ones it
+would have picked itself. Favourites are separate and change nothing about what you are
+taught.
+
+### The three drills
+
+Each is generated from the lexicon and scheduled on its own FSRS track under
+`gym:<mode>:<wordId>`.
+
+| | Asks | Why it is vocabulary and not grammar |
+|---|---|---|
+| **der / die / das** | the article of a noun | a German noun without its gender is a half-learned word |
+| **Plurals** | `die Tische`, not `die Tischen` | same |
+| **Recall** | English in, German out — typed, with the article | the productive half of knowing a word, which recognition never proves |
+
+Recall is gated: a word becomes eligible only once its flip card has reached FSRS
+`Review`, because asking someone to produce a word they have only just met is a
+retrieval attempt on something not yet encoded.
 
 ## Stack
 
@@ -109,7 +125,7 @@ Vercel.
 ```bash
 npm run build      # production bundle to dist/
 npm run typecheck  # tsc --noEmit
-npm test           # vitest — 650 tests over the pure logic and the shipped corpus
+npm test           # vitest — 600 tests over the pure logic and the shipped corpus
 npm run lint       # eslint, including jsx-a11y
 ```
 
@@ -123,7 +139,8 @@ npm run corpus:validate && npm run corpus:selftest
 
 ```
 src/            the app — views/, components/ (+ ui/ primitives), lib/, data/
-public/data/    the shipped corpus: vocab.json, grammar.json, sectors.json, provenance.json
+public/data/    the shipped corpus: cards.json, detail.json, sectors.json, freq.json,
+                provenance.json, audio.json (vocab.json is canonical, not deployed)
 scripts/corpus/     build-time ingestion, audits and one-shot corpus fixes (npm run corpus:*)
 scripts/authoring/  the verified card-authoring loop: batch in, machine-gated, audit trail
 docs/           VISION (the anchor) · BACKLOG (open) · CHANGELOG (shipped, with reasoning)
@@ -142,6 +159,10 @@ app shell paints immediately and the service worker caches the data for offline 
 To extend coverage, use the reproducible pipeline in
 [`scripts/corpus/`](scripts/corpus/README.md): `npm run corpus:coverage` to see the gap,
 `corpus:build` to grow it from open sources.
+
+`vocab.json` still carries 110 `kind: 'grammar'` cards. They are filtered out at load in
+`src/data/index.ts` rather than cut from the corpus, because the corpus is canonical and
+reversing the decision should be one line.
 
 ## Install as an app (PWA)
 

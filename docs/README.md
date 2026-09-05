@@ -31,15 +31,14 @@ should be deleted — git history is what history is for.
 |---|---|---|
 | [BACKLOG.md](BACKLOG.md) | Open work only, prioritised, with effort and acceptance criteria. | Picking up work. |
 | [CHANGELOG.md](CHANGELOG.md) | Shipped work, newest first, with the reasoning kept. | Asking "why is it like this?" |
-| [LESSONS.md](LESSONS.md) | **Append-only.** Mistakes caught and the rule each produced, grouped into eight recurring classes, with a pre-work checklist at the top. | **Before starting work** — and the moment you catch a mistake, before fixing it. |
-| [AUDIT.md](AUDIT.md) | Coverage ledger for the full multi-session pass: which corpus checks have run over all 6,627 cards, which surfaces have been walked by hand, what was withdrawn. Holds no findings of its own — those go to the three files above. | Resuming the pass, or asking "has this already been looked at?" |
+| [LESSONS.md](LESSONS.md) | **Append-only.** Mistakes caught and the rule each produced, grouped into recurring classes, with a pre-work checklist at the top. | **Before starting work** — and the moment you catch a mistake, before fixing it. |
+| [AUDIT.md](AUDIT.md) | Coverage ledger for the full multi-session pass: which corpus checks have run, which surfaces have been walked by hand, what was withdrawn. Holds no findings of its own — those go to the three files above. Its surface walks predate the 2026-09-05 refocus and cover rooms that no longer exist. | Resuming the pass, or asking "has this already been looked at?" |
 
 ### Systems — how one part works, or is proposed to
 
 | Doc | What it is | Use it when |
 |---|---|---|
 | [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost time. Living — argue with it. | Touching anything visual. |
-| [BRAIN.md](BRAIN.md) | What the brain map at `#/brain` claims and what it does not: the sector→region atlas, its confidence tiers, and the sources. | Touching `lib/brain/*`, or asked whether the map is real. |
 | [BACKEND.md](BACKEND.md) | **Proposal, not policy.** The accounts + sync design: what would sync, what deliberately would not, how two offline devices merge. No code written, and it contradicts the current shipping behaviour — see VISION § open decisions. | Before touching auth, sync or push. |
 | [../ATTRIBUTIONS.md](../ATTRIBUTIONS.md) | Every corpus source, its licence, what is redistributed and what is only cached. | Adding a data source. Forking. |
 
@@ -50,8 +49,12 @@ should be deleted — git history is what history is for.
 | [PEDAGOGY.md](PEDAGOGY.md) | **Does it teach?** Six learners and six teachers across A1–C2 and across the contexts German is actually taught in. Carries the wishlist and the eight items struck from it. | Deciding what to build for *learning*; before touching the session, the corpus shape, or what "known" means. |
 | [PERSONAS.md](PERSONAS.md) | **Does it look and move like a thing worth using?** Twelve personas run against the running app, two per CEFR level, desktop + mobile. The only *design* persona doc. | Judging the design; before touching the aesthetic. |
 | [CRITIQUE.md](CRITIQUE.md) | **Is this a business?** The hostile read, written as an investor who has shipped consumer language apps. Names the fact that no real learner has used the product. | Deciding what to build next, or why. |
-| [COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md) | **Who else is in this market?** The four camps, what Lexi genuinely beats them at, the honest weakness list, and the case for the comprehension meter. | Sizing a feature against the market. |
-| [SCHOOL-PITCH.md](SCHOOL-PITCH.md) | **Would a Sprachschule buy it?** ROI arithmetic, the gap list, a signable guarantee. Forward-looking; most of the gap list isn't built. | A school / B2B conversation. |
+| [COMPETITIVE-RESEARCH.md](COMPETITIVE-RESEARCH.md) | **Who else is in this market?** The four camps, what Lexi genuinely beats them at, and the honest weakness list. | Sizing a feature against the market. |
+
+> **The four critiques were written against the seven-product app.** Parts of each now
+> describe rooms that no longer exist — an exam trainer, a grammar syllabus, a reading
+> feed. Their *lenses* are still the right four and their findings about the vocabulary
+> core are still live. Read them knowing their date, and argue with them in the file.
 
 ## Pipeline docs
 
@@ -64,6 +67,10 @@ for the card-authoring contract.
 
 Recoverable from git history only. Each was deleted because it had finished its job, not
 because it was wrong.
+
+**2026-09-05 refocus** — `BRAIN.md` (the observatory it documented was removed) and
+`SCHOOL-PITCH.md` (its whole mechanism was print, class packs and exam papers, all three
+removed). Both deleted with the features they described. See VISION § the refocus.
 
 **2026-08-13 docs pass** — `ROADMAP.md` (its ten Pro features assumed an AI tutor and a
 mining flow that were cut or re-scoped; the multilingual section survives in VISION, the

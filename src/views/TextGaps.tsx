@@ -1,44 +1,28 @@
-// Lesen — the input half of the app, and now a destination.
+// „Wörter aus einem Text" — paste German, see which words are in your way.
 //
-// ## Why it is a tab
+// This is the surviving half of the old *Lesen* room, and it survived because it
+// is not about reading at all: it is the app's best answer to **which words
+// should I learn next**, asked by the learner rather than by the scheduler. The
+// i+1 sentence list that used to sit above it went with the room — that was
+// reading practice, and reading practice is a different product.
 //
-// Everything else in Lexi asks the learner a question. This is the one surface
-// that just hands them German. It shipped in two halves that had never met:
-// `ReadingList` (sentences from your own cards, picked by the matcher) lived
-// inside a **collapsed accordion on Today**, and the comprehension meter — which
-// BACKLOG calls the flagship — was a second card *inside that accordion*, opening
-// a route with a back arrow. Two taps and a guess to reach the feature the
-// roadmap leads with.
+// The meter is honest in three directions at once, which is why it earns a
+// surface: it says what fraction you know, it says how many more words reach the
+// 95% mark, and it says when the corpus itself cannot get you there. That last
+// line is the one nothing else in the app says.
 //
-// They are one place now, in the order a learner meets them: sentences you can
-// already almost read, then a text of your own to measure.
-//
-// ## The meter — BACKLOG Now #2 Phase 1, the surface half.
-//
-// Paste anything German and it answers one question: *can I read this yet?* The
-// arithmetic lives in `lib/coverage.ts`; this file is about not lying with it.
-//
-// ## Why the count sits next to the percentage
-//
-// "87%" is a grade. "142 of 163 words — 13 more to reach 95%" is a plan. The
-// backlog's phrasing is "honestly and with the count, not just a percentage", and
-// the count is what turns the number into the unlock list underneath it.
-//
-// ## Why the ceiling is shown at all
-//
-// A text can be unreachable: if a tenth of it is words Lexi has never heard of, no
-// amount of studying moves it past 90%. Saying so is the difference between an
-// honest meter and one that offers a study set that cannot deliver what it implies.
+// Opened from Wortschatz, not from the nav: it is one of the two ways to choose
+// words, and the other one is the deck list it sits under.
 import { useMemo, useState } from 'react';
-import { Sparkle, Bookmark, X } from 'lucide-react';
+import { ArrowLeft, Sparkle, Bookmark, X } from 'lucide-react';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 import { coverageOf, unlocksToReach, ASSISTED, INDEPENDENT, type Coverage, type WordState } from '../lib/coverage.ts';
 import { cardOf, savedTexts, saveText, removeText } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { State } from '../srs.ts';
-import ReadingList from '../components/ReadingList.tsx';
 import type { Target, Word } from '../types.ts';
 
 /** FSRS state → the three buckets the meter reasons about.
@@ -52,12 +36,9 @@ function stateOf(w: Word): WordState {
   return c.state === State.Review ? 'known' : 'learning';
 }
 
-// Matched to Lesen rather than invented: `ReadingList` already marks a word the
-// learner has not met as `text-accent underline decoration-dotted`, and this is the
-// same idea on a longer text. Known words stay plain ink — the gaps are what the
-// eye should catch, and a passage where every readable word is coloured is a
-// passage nobody reads. There is no `--color-blue` in this theme; `--color-accent`
-// *is* the Atlas blue.
+// Known words stay plain ink — the gaps are what the eye should catch, and a
+// passage where every readable word is coloured is a passage nobody reads. There
+// is no `--color-blue` in this theme; `--color-accent` *is* the Atlas blue.
 const TINT: Record<string, string> = {
   known: 'text-txt',
   learning: 'text-accent font-semibold',
@@ -71,7 +52,7 @@ const BAND_COPY = {
   frustrational: { label: 'Too many gaps to read comfortably yet', tone: 'text-dim' },
 } as const;
 
-export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
+export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => void; onExit: () => void }) {
   const v = useStore();
   const [text, setText] = useState('');
   const [submitted, setSubmitted] = useState('');
@@ -98,38 +79,23 @@ export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
 
   return (
     <div className="mx-auto w-full max-w-[720px] flex flex-col gap-4">
-      <div>
-        {/* The nav says "Read"; the page said "Lesen". Four of the five primary
-            surfaces are titled in German — which is right for an app whose subject is
-            German, and which taught nothing while the label that got you here was a
-            different word in a different language. The eyebrow is the pairing, using
-            the kicker treatment already above every section on these pages. */}
-        <Kicker className="block mb-0.5">Read</Kicker>
-        <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Lesen</h1>
-        <p className="text-dim text-xs">
-          The half of the app that doesn’t test you. Sentences built from words you already have,
-          and a meter for anything you bring.
-        </p>
+      <div className="flex items-start gap-1.5">
+        <IconButton label="Back to Wortschatz" pull onClick={onExit} className="mt-1">
+          <ArrowLeft size={18} />
+        </IconButton>
+        <div className="ml-1.5">
+          <Kicker className="block mb-0.5">From a text</Kicker>
+          <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Wörter aus einem Text</h1>
+          <p className="text-dim text-xs max-w-[56ch]">
+            Paste German you actually want to read. Lexi marks what you already know, counts the
+            gap, and can build a session out of the words standing in the way.
+          </p>
+        </div>
       </div>
 
-      {/* Sentences first. They need nothing from the learner — no paste, no
-          decision — and they are the honest answer to "can I read German yet?"
-          on a day when the answer is *some of it*. The scan runs on mount; it
-          used to be deferred behind an accordion, which is the only reason it
-          was deferred at all.
-
-          Two sections, two headings. The page has real structure now, so a
-          screen reader can jump between the halves and an eye scrolling past
-          four sentences meets a heading rather than a wall. */}
-      <section aria-labelledby="lesen-sentences">
-        <h2 id="lesen-sentences" className="text-lg font-bold mb-2">Sentences you can almost read</h2>
-        <ReadingList onStudy={onStudy} limit={4} />
-      </section>
-
-      <h2 id="lesen-meter" className="text-lg font-bold -mb-1">Can I read this?</h2>
       <Card tone="panel" pad="md">
         <label htmlFor="read-input" className="block text-sm text-dim mb-2">
-          Paste any German text — an article, an email, a page of a book.
+          An article, an email, a page of a book, a message from a friend.
         </label>
         <textarea
           id="read-input"
@@ -144,7 +110,7 @@ export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
         />
         <div className="mt-3 flex items-center gap-2">
           <Button onClick={() => { setSubmitted(text); setSelected(null); }} disabled={!text.trim()}>
-            Measure it
+            Check it
           </Button>
           {submitted && (
             <Button variant="quiet" size="sm" onClick={() => { setText(''); setSubmitted(''); setSelected(null); setSaved(false); }}>
@@ -232,7 +198,7 @@ export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
           )}
 
           <Card tone="panel" pad="md">
-            <Kicker>Your reading of it</Kicker>
+            <Kicker>The text, marked</Kicker>
             <p lang="de" className="mt-2 text-base leading-loose">
               {cov.tokens.map((t, i) =>
                 t.isWord && t.counted
@@ -278,7 +244,7 @@ export default function Read({ onStudy }: { onStudy: (t: Target) => void }) {
       {shelf.length > 0 && (
         <Card tone="panel" pad="md">
           <Kicker><Bookmark size={12} /> Your texts</Kicker>
-          <p className="mt-1 text-xs text-dim">These move on their own as you study.</p>
+          <p className="mt-1 text-xs text-dim">These move on their own as you study — nothing to re-paste.</p>
           <ul className="mt-3 flex flex-col gap-2">
             {shelf.map(({ text: t, cov: c }) => (
               <li key={t.id} className="flex items-center gap-3">

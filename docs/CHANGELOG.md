@@ -11,6 +11,328 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-05 — Lexi is a vocabulary app
+
+The largest single deletion in the project's history, and the reason for it fits in one
+line: **Lexi had become seven products sharing a scheduler**, and they competed with
+each other for the twenty minutes a day anybody actually has. `docs/VISION.md` carries
+the ruling; this is what it cost and what it bought.
+
+#### The ruling
+
+> **A drill earns its place if it tests a property of the word. It goes if it tests a
+> rule of the language.**
+
+Not a compromise and not "grammar is unimportant": in German a noun without its gender
+and plural is a *half-learned word*, so `der Tisch → die Tische` is vocabulary. Kasus,
+word order, the Perfekt and the Konjunktiv II are the language's rules, and teaching them
+well is a different product.
+
+**Kept:** gender · plural · recall (English→German, typed) · dictation.
+**Cut:** conj · cloze · word order · transform · Kasus · separable · reflexive.
+
+`recall` — the only drill that asks the learner to *produce* German — went from one of
+eleven modes to one of four. PEDAGOGY's standing headline was that the app "measures the
+receptive half of what it has already built the machinery to measure"; this is the pass
+that acted on it.
+
+#### What was removed
+
+| | |
+|---|---|
+| The grammar room | `Practice.tsx`, `GrammarDrill.tsx`, `lib/grammar.ts`, `RulePanel.tsx`, `data/gexmap.ts`, `lib/redemittel.ts`, `public/data/grammar.json` (2.3 MB) |
+| The exam room | `Exam.tsx` + 6 surfaces, 12 certificate papers, `lib/exam*.ts`, `lib/quiz.ts`, `lib/readiness.ts` |
+| The observatory | `BrainRoom.tsx`, `components/Brain/*`, `lib/brain/*`, `public/data/brain-mesh.bin` (934 KB), `scripts/brain/*`, the `three` dependency |
+| The rest | the typing race, the worksheet printer, class packs, the reading list, the tense-focus setting |
+
+`views/Fundamentals.tsx` (1,504 lines, eleven modes) became `views/drills.tsx` (four
+modes), absorbing the typed-answer widget and its grading from the deleted grammar drill
+so the two surviving typed drills keep their umlaut folding, their guarded typo
+tolerance and their hint ladder.
+
+#### And the front door is a feed
+
+*The reference apps' lesson — Monkey Taps' **Vocabulary**, and the Goethe-Institut's
+**Vokabeltrainer** — and the sharper half of the pass.*
+
+**Heute** was a greeting, a date, a streak, a placement nudge, a level strip, a goal
+line, a backlog burn-down, a queued count, three short-session budgets, a preview of the
+scheduler's reasoning and a Start button. Every one of those was true. Together they were
+**a page whose entire job was to get you to a card** — so it was deleted by going there.
+
+But not to a card. To **`views/Feed.tsx`**: one German word per screen, scrolled, with
+the headword (article inked by gender), the IPA as a pressable pill, the meaning and one
+example all present. The flip card is the right shape for a *test* and the wrong shape
+for a *front door* — it demands a verdict from somebody who has not yet decided to study.
+
+- **The feed does not grade.** Scrolling is not evidence, and a feed that marked words
+  *seen* would hand the scheduler its strongest signal from the app's weakest event.
+  Nothing in the feed writes an FSRS card.
+- **Bookmark is the instruction.** `buildBriefing` now serves saved words ahead of its
+  own weakest-sector picks — bounded by the same daily budget, so saving twenty words
+  buys the front of the queue, not a longer one. Six tests pin it.
+- **Favourites are separate and inert.** A list you curate for pleasure stops being
+  pleasant the moment it starts assigning you homework.
+- **The order is the scheduler's**: due, then unseen from your thinnest topics, then the
+  rest of the level-filtered lexicon by frequency. The reference app shuffles; Lexi does
+  not have to.
+- **The welcome is the feed's first slot**, not a page in front of it. Scroll past it and
+  it is gone.
+- The numbers went to **Fortschritt** (level path, goal, backlog, placement nudge); the
+  nudges went to the **end-of-session recap**.
+- **There is no Start button anywhere in the app.**
+- Five destinations → four, named in German in both bars: **Wörter · Themen · Üben ·
+  Fortschritt**. *Wörter* and *Üben* are two halves of one loop and deliberately not one
+  tab — browsing asks nothing and testing asks everything.
+- This retired DESIGN §8's *two rooms* — the session as a full-bleed early return with no
+  navigation. Right about density, wrong about chrome: **a room the app can drop you into
+  cannot be a room you have to know how to leave.** §8 is now *Two moods, one room*.
+
+#### Diktat went too
+
+Same rule, one notch finer. Hear a sentence, type it — the only drill whose unit was a
+**sentence** rather than a word, and the only one that failed silently on a device whose
+speech synthesis was unavailable. `dictatable` and `TypeItem` stay (the thresholds are
+the only written-down definition of a dictatable sentence, and recall types into the same
+widget), so its return is one item component and one line in three lists.
+
+#### Liquid Glass
+
+*Apple's iOS 26 material, on an iPhone 16 Pro Max.* DESIGN §8·1 carries the full rule;
+the short version is **glass is for chrome, paper is for content** — the floating layer
+is translucent, the layer you read is not.
+
+- **`.glass`**, one utility: a `color-mix` of `--color-panel` with transparency,
+  `backdrop-filter: blur(22px) saturate(180%)`, and a specular rim (`inset 0 1px 0` of
+  light plus a soft shadow). No new colour — a transparency of a token that existed.
+- **The bars became overlays**, and that is the load-bearing half. They were flex
+  siblings of the content, so there was nothing behind them to refract: a translucent bar
+  over nothing is a grey rectangle. `absolute` now, with `--bar-t` / `--bar-b` on the
+  shell paying for them in scroll padding, so a headword passes *under* the glass.
+- **The tab bar is a floating capsule**, inset from all three edges, with the home
+  indicator pushing it up rather than stretching 34px of dead glass along its bottom. Its
+  selected state moved from a 2px rule across the top edge — a capsule has no top edge —
+  to a recessed capsule under the active tab, which is the honest signal anyway: *a place
+  you are*, not a boundary.
+- **`--radius-xl` (22px)**, the container step. A floating bar wants a radius that reads
+  as an object resting on the page; 16px at 430px wide does not. Nested controls are
+  concentric.
+- **Two alphas, both measured** — light 78%, dark 82%, because a dark ground has less
+  luminance to lend and the same alpha reads as a smear. `palette.test.ts` composites
+  each over both grounds a bar sits on and asserts `dim`, `txt` and `accent` clear AA on
+  all four. **The alpha is a contrast decision wearing a taste decision's clothes.**
+- **Two fallbacks:** no `backdrop-filter` → opaque; `prefers-reduced-transparency:
+  reduce` → opaque. A translucent panel with nothing blurring behind it is not a weaker
+  glass, it is unreadable type over a moving word.
+
+#### A boot that could never finish
+
+Found by running the app in an embedded browser that denies IndexedDB by policy:
+`indexedDB.open` returned a request that fired **no event at all**, so `open()` awaited
+forever, `idbGet` awaited `open()`, `hydrate()` awaited `idbGet`, and `main.tsx`'s
+`Promise.all` never settled. The app sat on its boot splash indefinitely — no error, no
+timeout, no reload prompt — while the localStorage fallback three lines away was the
+correct answer the whole time and was never reached.
+
+`open()` now races a 2s timeout, handles `onblocked`, catches the synchronous
+`SecurityError` some denied contexts throw, and does not memoise a failed open (the tab
+holding the old version may close). Two tests, both driving a fake `indexedDB` that never
+settles. **A local-first app that cannot start is worse than one that starts without its
+history** — the history is still on disk, and the learner can at least see something is
+wrong.
+
+#### Four defects found by driving it, not by the type checker
+
+Each is the same shape — *a thing that was correct only because of something that no
+longer exists* — and all four are in LESSONS with the rule each produced.
+
+1. **The drill lost its name.** The mode pill was suppressed on a first encounter
+   because the rule panel above already named the system. The rule panel went; the
+   suppression stayed. A Diktat opened as a speaker button and an empty text box on the
+   one card where the learner has never seen the exercise.
+2. **A caption describing a different exercise.** The drill why-line ended "— now produce
+   it" on all four modes. False on a Diktat, wrong about a gender item. Now per-mode,
+   with a test that all four tails differ.
+3. **`workingEdge`.** `store.studyLevel` exists because "highest level in the filter"
+   resolves to **C2** for an unplaced learner. It reached `PathCard` and never reached
+   `LevelProgress`, which renders the sentence — so an unplaced beginner's first view of
+   Fortschritt was *"C2 means being able to…"* over six 0% bars. The working edge is now
+   the highest focused level with any progress, falling back to the placement, clamped
+   into the focus set. Five tests.
+4. **Four files hold one colour, three had drifted.** The ground moved to warm paper on
+   2026-08-26 in `index.css` alone, so the mobile status bar sat at the retired cool grey
+   above a warm page and the installed PWA's splash was still **terminal black** — the
+   identity §1 retired in July. All four now say `#eeeae3` / `#101619`.
+
+#### Two more things went because their premise did
+
+`SessionWhy` rendered *"what Lexi picked for you"* — the scheduler's reasoning, in the
+scheduler's own words, **before you pressed Start**. There is no "before" any more. The
+per-card `whyLine` it shared copy with is untouched and still the strongest sentence in
+the app; it just says it in context now instead of twice.
+
+`Reveal.Derivation` and `Reveal.Paradigm` — a formula for how a form is built, and the
+six-person conjugation table shown on a miss — were the reveal layer of the tense, Kasus
+and separable drills. Nothing left in the app has six persons to show.
+
+#### What was deliberately *not* done
+
+- **The corpus was not edited.** Its 110 `kind: 'grammar'` cards are filtered at load in
+  one line of `data/index.ts`. The corpus stays canonical; reversing the decision is one
+  line.
+- **No learner's FSRS rows were deleted.** The `gex:*` and `gram:*` schedules are left in
+  place, inert. The *migration walk* that carried them across an id change was removed;
+  the data was not. Deleting a learner's schedules because a feature moved is the
+  betrayal commitment 2 forbids.
+- **Every retired hash still lands somewhere true.** `#/today` → the card (where its
+  Start button always went); `#/read` → the text scanner (what survived of it);
+  `#/practice`, `#/exam`, `#/print`, `#/brain`, `#/library`, `#/games` → Fortschritt,
+  which is where the app now says what you keep getting wrong. Tested.
+
+#### What survived because it was never about grammar
+
+**The text scanner** — paste German you want to read, see what fraction you know, which
+words are in the way, and study them — moved out of the deleted reading room into
+Wortschatz as *„Wörter aus einem Text"*. It is not a reading feature: it is the app's
+best answer to *which words should I learn next*, asked by the learner rather than the
+scheduler. `lib/reader.ts` split: the i+1 sentence picker went with the room, the surface
+index became `lib/surface.ts`, which is what keeps the typo guard from forgiving a real
+German word.
+
+#### Ten seeded learners on a real iPhone
+
+*The same day, in Mobile Safari on an iPhone 17 Pro Max simulator — the closest
+available to the 16 Pro Max this is built for.* `src/lib/devseed.ts` (dev-only,
+`?seed=<persona>`, provably absent from the production bundle) constructs ten
+learner states from a cold visitor to a C1 with a narrow filter, because the
+surfaces that only exist in those states — the backlog burn-down, blind spots,
+the recall track, "All clear" — are two thousand grades away by hand and had
+never been *looked at*.
+
+Six defects, none of which any desktop check would have found. All fixed, all in
+LESSONS with the rule each produced.
+
+1. **The grade buttons were under the tab bar.** The session card was
+   `clamp(340px, 52vh, 460px)`, and `vh` does not know about floating chrome —
+   1,008px of page in a 956pt viewport, primary action below the fold. Now sized
+   against `100dvh - var(--bar-t) - var(--bar-b)` minus the measured 470px of
+   everything-that-is-not-the-card.
+2. **The flip card's front face clipped its own content**, top *and* bottom —
+   `overflow-y-auto` with `justify-center`, the exact defect the back face's
+   comment records and fixes. Now `.justify-safe-center`.
+3. **…and the first fix for that silently did nothing.**
+   `justify-[safe_center]` does not compile; the browser dropped it and fell back
+   to `normal`, which stopped the clipping by accident and looked like a fix.
+   Caught by reading `getComputedStyle`. It is a real class in `index.css` now.
+4. **`9/5`.** The daily goal pill printed a fraction past its own goal, over a
+   full bar. Past the goal it is `✓ 9` — the goal is not raised to meet the count
+   and the count is not capped to meet the goal; both would be lies.
+5. **A one-point chart drew a solid green slab.** `Bars` sets column width to
+   `100 / n`, and "Known growth" accrues one point per study day — so **every
+   learner's first study day** got the most confident-looking chart in the app,
+   drawn from one number. Two points is now the floor, with a `MIN_COLUMNS` grid
+   so a short series reads as short rather than enormous.
+6. **A restore restored the cards and not the scope.** `importData` wrote the
+   CEFR filter to storage while `levelFilter` stayed on the value it was
+   initialised with at import time. Invisible because Settings reloads
+   immediately afterwards — correct only if the caller reloads. It now re-reads
+   its own settings, with two tests.
+
+Auditing (6) turned up **four keys that were never in the backup at all**: the
+feed's saved and favourite lists, the muted drills, and `lexi.texts.v1` — **the
+passages the learner pasted into the text scanner**, the most obviously *theirs*
+thing in the app. Commitment 2: the backup is the only copy.
+
+And two guards that came out of the harness wedging Safari's storage: `initData`
+and `hydrate` are now both **budgeted**, so a store that never answers produces
+the app or an error screen rather than a boot splash forever. The error screen
+has a Reload button, which it did not.
+
+#### Search became a door, not a room
+
+"What does this word mean?" is asked in the middle of a book, a chat, a lecture —
+from wherever you already are. Lexi could only answer it from inside one tab,
+which is a tap too many against a translator that is one tap from everywhere, and
+losing that race loses the moment the learner was most curious.
+
+- A **magnifier in the top bar on every surface**, opening a sheet rather than a
+  route: you asked from wherever you were, and closing it puts you back exactly
+  there — mid-scroll in the feed, mid-card in a session.
+- `lib/search.ts` is now the one ranking, called by both doors. It used to live
+  inside `views/Words.tsx`.
+- **It took the Start button's old slot**, and passes the test Start failed: an
+  action that is asked from everywhere cannot be a destination.
+
+**The interesting case is the miss.** A learner who looks something up and gets
+nothing has told us what no analytics package could: that word was worth
+interrupting themselves for, and the corpus does not carry it. `noteWanted`
+records it, Profile lists it ranked by how often it was asked for, and it exports
+on its own — like flags, so reporting a gap never means handing over your
+history. The export feeds `authoring:new`, which is machine-gated. **The copy
+says the word was *noted*, never that it will be added**: whether it becomes a
+card is decided by a de.wiktionary lookup, not by wanting it.
+
+#### The declutter pass
+
+Measured before and after, in screens of scroll at 440×956:
+
+| | before | after |
+|---|---|---|
+| Profile | **3.7 screens · 14 headings** | **1.5 · 4** |
+| Fortschritt | 3.1 | 2.7 |
+| Themen | 1.6 | 1.5 |
+
+- **Settings left Profile.** It rendered *inline*, so one tab held the profile and
+  the entire settings surface indistinguishably — "Your goal" and "Daily pace" at
+  the same level, fourteen headings deep. It is its own page now, reached by one
+  row. Settings are things you go and change, not things you read on the way past.
+- **Themen lost its search field.** With a magnifier in the bar on every surface,
+  two entry points to one search on one screen is the definition of what this pass
+  removes. The page is now what its tab says: themes.
+- **The trend charts are two-up at every width.** One column on a phone turned four
+  120px sparklines into a screen and a half; the whole point of a trend section is
+  that it reads in one look.
+
+#### The boot splash
+
+`.mark` (56px) and `.bar` (132px) are **block** elements inside a
+`text-align: center` box, and text-align does not centre a block — both sat flush
+against the left edge of a box sized by the widest line. The mark read as
+off-centre under the wordmark and the bar visibly hung left. A flex column does
+what the old rule was trying to say. The ground was also still `#e7ecee` — the
+*cool* grey the palette left behind when it went to warm paper in August — so
+every launch flashed cool and resolved warm.
+
+#### Compare with the previous version
+
+A Vercel deployment URL is immutable, so "let me see how it used to work" needs a
+link, not a feature flag, two UIs in one bundle, or a rollback. Settings → Version
+now opens the last production build from **before** this redesign.
+
+The caveat is stated rather than discovered: it is a different origin, so browser
+storage does not follow and that build opens **empty**. It is a place to compare
+the *experience*; Backup and Restore, a few centimetres above it, is how to
+compare with real data.
+
+#### Measured
+
+`npm run build`, `npm test`, `git diff --stat`:
+
+| | before | after |
+|---|---|---|
+| main bundle | 863 KB (261 KB gz) | **714 KB (212 KB gz)** |
+| separate chunks | +487 KB `three`, +440 KB papers | — |
+| data not shipped | — | **3.2 MB** (`grammar.json`, `brain-mesh.bin`) |
+| `src/` | 41,960 lines · 183 files | **21,062 lines · 115 files** |
+| tests | 1,052 | **600** — every removed test covered a removed feature |
+
+Docs: `VISION.md` rewritten around the ruling; `DESIGN.md` §8 and §8a rewritten;
+`BRAIN.md` and `SCHOOL-PITCH.md` deleted with the features they documented (the school
+offer's whole mechanism was print, class packs and exam papers); `README.md` and
+`CLAUDE.md` rewritten; four entries appended to `LESSONS.md`.
+
+---
+
 ### Shipped 2026-08-27 — the last of the trading floor
 
 A visual pass over all five primary surfaces, done by looking at them. Almost

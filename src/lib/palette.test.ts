@@ -250,3 +250,57 @@ describe('the warm ground beats the palette it replaced', () => {
     expect(contrast(now.accent, now.panel2)).toBeCloseTo(4.62, 1);
   });
 });
+
+// ── The glass chrome ────────────────────────────────────────────────────────
+// `.glass` composites `--color-panel` at a fixed alpha over whatever is behind
+// it. On the bars that is almost always the page — and the *page* is the ground
+// the type is then read against, not the panel the token names. So the alpha is
+// a contrast decision wearing a taste decision's clothes, and it needs the same
+// guard every other pair here gets.
+//
+// Worst case is a bar with nothing but the page behind it, which is what the top
+// bar looks like on every surface except a mid-scroll feed. Anything behind that
+// is *lighter* than the page (a card, a white feed pill) only helps in light and
+// only hurts in dark, which is why both directions are checked.
+describe('text stays legible through the glass', () => {
+  /** `color-mix(in srgb, panel A%, transparent)` painted over `behind`. */
+  const composite = (panel: string, behind: string, alpha: number): string => {
+    const [pr, pg, pb] = hex(panel);
+    const [br, bg, bb] = hex(behind);
+    const mix = (p: number, b: number) => Math.round(p * alpha + b * (1 - alpha));
+    return '#' + [mix(pr, br), mix(pg, bg), mix(pb, bb)]
+      .map((v) => v.toString(16).padStart(2, '0')).join('');
+  };
+
+  /** The alphas `.glass` declares, read out of the stylesheet rather than
+   *  retyped — a guard that hardcodes the value it is guarding tests nothing. */
+  const alphas = [...css.matchAll(/--glass:\s*color-mix\(in srgb, var\(--color-panel\) (\d+)%/g)]
+    .map((m) => Number(m[1]) / 100);
+
+  it('reads both alphas out of the stylesheet', () => {
+    expect(alphas).toHaveLength(2);        // light, then dark
+    for (const a of alphas) expect(a).toBeGreaterThan(0.5);
+  });
+
+  for (const [i, theme] of (['light', 'dark'] as const).entries()) {
+    it(`keeps dim and txt above AA on ${theme} glass`, () => {
+      const p = palette(theme);
+      const ground = composite(p.panel, p.bg, alphas[i]);
+      // 4.5 is AA for body text. `dim` is the one that has ever been close —
+      // it is the value the warm-paper change nearly broke on `panel2`.
+      expect(contrast(p.dim, ground), `dim on ${theme} glass (${ground})`).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(p.txt, ground), `txt on ${theme} glass`).toBeGreaterThanOrEqual(4.5);
+      // The accent is the goal pill's bar and the active tab's label.
+      expect(contrast(p.accent, ground), `accent on ${theme} glass`).toBeGreaterThanOrEqual(4.5);
+    });
+
+    it(`keeps them above AA on ${theme} glass over a card, too`, () => {
+      // A feed pill sits over the page; a sheet's close button can sit over the
+      // white study surface. Both grounds, one rule.
+      const p = palette(theme);
+      const ground = composite(p.panel, p.card, alphas[i]);
+      expect(contrast(p.dim, ground), `dim on ${theme} glass over card`).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(p.accent, ground), `accent on ${theme} glass over card`).toBeGreaterThanOrEqual(4.5);
+    });
+  }
+});

@@ -837,6 +837,175 @@ The search version returned bad rankings and the IPA version returned an empty
 column; neither ever threw. **Rule, sharpened: when a lookup reports that a source is
 missing a lot of entries, print the keys it actually sent before believing the source.**
 
+
+---
+
+## Removing a feature is a change to everything that leaned on it
+
+*Added 2026-09-05, during the refocus that deleted the grammar syllabus, the exam
+room, the observatory, the reading room, the typing race and the worksheet printer.*
+Every one of these was caught **by driving the running app**, not by the type checker,
+and each is the same shape: *a thing that was correct only because of something that
+no longer exists.*
+
+- **The drill lost its name.** The mode pill on an interleaved drill was suppressed on a
+  learner's *first* encounter with that mode, with a good reason: on a teach card the
+  rule panel above already named the system, and at 375px the two labels overlapped
+  (measured, with coordinates, in the comment). The rule panel went with the grammar
+  syllabus. The suppression stayed. Result: a Diktat opens as a speaker button and an
+  empty text box, on the one card where the learner has never seen the exercise before —
+  *exactly backwards*, and produced by a fix that was right when it was written.
+  **Rule: when you delete a component, grep for what was hidden *because* it existed.**
+  A conditional whose justification names a deleted thing is now unjustified.
+
+- **A caption that describes a different exercise.** `whyLine`'s drill case ended
+  "— now produce it". True of the recall drill it was written for; false of the Diktat
+  (you are spelling a sentence you heard), and wrong about what a gender item asks. With
+  eleven modes it was one sentence stretched over many; with four it was 75% wrong on a
+  surface the learner reads every few cards. Now per-mode, with a test that all four
+  tails differ. **Rule: copy written for one member of a set, over a set, is a bug that
+  reports as vagueness.**
+
+- **The C2 problem, one component late.** `store.studyLevel` exists because "highest
+  level in the CEFR filter" resolves to **C2** for an unplaced learner, and the filter
+  defaults to all six. It was adopted by `PathCard` and never by `LevelProgress`, which
+  is the component that renders the actual sentence — so the descriptor panel still read
+  *"C2 means being able to…"*. Invisible while the level strip lived on a page hidden in
+  week one; the first thing an unplaced beginner saw once Fortschritt became a primary
+  tab. **Rule: a fix applied to a caller is not applied to the thing that renders. Grep
+  for the *symptom* (`Math.max(...ALL_LEVELS...)`), not for the fix.**
+
+- **Four files hold one colour, and three of them drifted.** `theme.ts` names the rule —
+  the status-bar colour must match `--color-bg` in `index.css`, the pre-paint script in
+  `index.html`, and the manifest. The ground moved to warm paper on 2026-08-26 **in
+  index.css only**, so the mobile status bar sat at the retired cool grey (#e7ecee) above
+  a warm page, and the installed PWA's splash was still terminal black (#080b11) — the
+  identity §1 retired in *July*. **Rule: a comment that lists the other places a value
+  lives is a test that was never written.** Nobody reads a four-way invariant on the day
+  they change one of the four.
+
+- **What did *not* go wrong, and why.** The learner's `gex:*` and `gram:*` FSRS rows were
+  left exactly where they are rather than migrated or deleted. The migration walk that
+  moved them across an id change was removed; the rows were not. Deleting a learner's
+  schedules because a *feature* moved is the betrayal commitment 2 forbids, and "the
+  code that reads them is gone" is not the same claim as "the data is worthless".
+
+---
+
+## A promise that neither resolves nor rejects is worse than one that throws
+
+*Added 2026-09-05.* Running the app in an embedded browser that denies IndexedDB by
+policy, the boot splash never went away. No error, no console warning, no timeout. The
+chain was four `await`s deep and every link was written correctly:
+
+    main.tsx  Promise.all([initData(), hydrate()])
+      store   hydrate()  → await idbGet(...)
+      idb     idbGet()   → await open()
+      idb     open()     → new Promise(res => { req.onsuccess = ... })
+
+`idbGet` has a `try/catch` whose `catch` falls back to localStorage, and **that fallback
+was the correct answer the whole time**. It was never reached, because the denied context
+returned an `IDBOpenDBRequest` that fired *no event at all* — not `onerror`, not
+`onblocked`, nothing. A promise that never settles does not throw; it just stops.
+
+Three things worth keeping:
+
+- **Rule: every promise wrapping an event-driven browser API needs a timeout.** The whole
+  class — `IDBOpenDBRequest`, `getUserMedia` in some webviews, `serviceWorker.ready`,
+  permission prompts — is specified in terms of events that *may* fire. "The spec says it
+  errors" is not the same as "the browser fires an error". `open()` now races 2s, handles
+  `onblocked`, catches the synchronous `SecurityError` some contexts throw *instead* of
+  returning a request, and does not memoise a failed open.
+- **The tell:** an error path that exists, is correct, and is provably never taken. If a
+  fallback never runs, ask whether the thing it falls back *from* can fail to fail.
+- **And the honest framing, which is what made this worth fixing rather than working
+  around:** a local-first app that cannot start is worse than one that starts without its
+  history. The history is still on disk, and the learner can at least see something is
+  wrong.
+
+*Found by accident, in a tool's sandbox rather than on a learner's phone. It would have
+reached the real thing eventually — Safari private mode, a second tab holding an old
+version open, an enterprise storage policy — and reached it as a support message saying
+"it just doesn't load", which is the report you cannot act on.*
+
+---
+
+## Ten seeded learners on a real phone, and what only they could find
+
+*Added 2026-09-05, after driving the app in Mobile Safari on an iPhone Simulator
+as ten personas — from a cold visitor to a C1 with a narrow level filter.*
+
+The method is the finding as much as the bugs are. **The app's interesting states
+are earned**: a B1 with a 400-card backlog and a gender blind spot is two
+thousand grades and thirty days away, so the surfaces that only exist in those
+states had never been *looked at* — only reasoned about. A dev-only seeder
+(`lib/devseed.ts`, `?seed=<persona>`, provably stripped from production) made
+them a URL away, and six real defects fell out in an hour.
+
+**Every one was invisible in a desktop browser at a desktop size.** Not one would
+have been caught by the suite, the type checker, or the pane I had been using all
+session.
+
+- **The primary action was under the tab bar.** The session player was designed
+  for a full-bleed room with no navigation, and its card was
+  `h-[clamp(340px,52vh,460px)]`. `vh` does not know that ~52px of the viewport is
+  an app bar and ~74px is a floating tab bar, so on a 956pt phone the page came
+  to 1,008px and the **grade buttons sat below the fold** — on a page that does
+  not look scrollable. *Rule: when chrome starts floating over content, every
+  `vh` in the app is now a lie. Grep for the unit, not for the symptom.*
+
+- **Fixing that exposed a five-year-old clipping bug.** The flip card's front face
+  is `overflow-y-auto` with `justify-center`, which clips at **both** ends —
+  the exact defect the *back* face's own comment records and fixes. The front got
+  away with it only because it had always been tall enough. *Rule: a bug fixed on
+  one of two symmetrical things is fixed on one of two symmetrical things.*
+
+- **And the fix for *that* silently did nothing.** `justify-[safe_center]` is not
+  a Tailwind arbitrary value that compiles; it emits an invalid declaration, the
+  browser drops it, and `justify-content` falls back to `normal` — which
+  happens to stop the clipping, so it **looked like it worked**. Caught only by
+  reading `getComputedStyle`. *Rule: after writing a CSS rule you have not used
+  before, read it back off the element. "The layout changed" is not evidence that
+  your rule is what changed it.*
+
+- **`9/5`.** Nine words saved against a daily goal of five. Arithmetic that reads
+  as a bug, above a progress bar already pinned full. A goal that has been beaten
+  is not a ratio. *Rule: every `n/total` needs an answer for `n > total`, and the
+  answer is usually to stop being a fraction.*
+
+- **A one-point chart drew a solid slab.** `Bars` sets column width to `100 / n`,
+  so a single data point filled the whole panel — and "Known growth" accrues one
+  point per study day, which means **every learner's first study day** saw the
+  most confident-looking chart in the app drawn from one number. The panel's
+  subtitle already said "accrues one point per study day", so the short case was
+  known about and answered in *copy* while the chart kept drawing. *Rule: a
+  caption acknowledging an edge case is not handling of that edge case.*
+
+- **A restore restored the cards and not the scope.** `importData` writes the
+  CEFR filter to localStorage, but `levelFilter` is a module-level variable read
+  once at import — long before. The restored B2–C1 learner got a feed full of A1
+  words. It had been invisible because the *one* caller, Settings, reloads the
+  page right afterwards and says so in a comment. **That made the function
+  correct only if the caller reloads, which is a rule that holds until the next
+  caller.** *Rule: a function that needs the caller to do something afterwards is
+  a function with a bug and a note about it.*
+
+- **And auditing that array found four keys that were never backed up at all** —
+  the feed's saved and favourite lists, the muted drills, and `lexi.texts.v1`,
+  **the passages the learner pasted into the text scanner**. The most obviously
+  *theirs* thing in the app, and the one nobody would think to check. Found by
+  reading `SETTING_KEYS` against the key declarations above it, which took two
+  minutes and had never been done. *Rule: an allow-list is a place things are
+  forgotten. Read it against what it is supposed to cover, on a schedule.*
+
+**One methodological trap worth naming.** Repeated seeding wedged Safari's
+storage for an origin, and the app sat on its boot splash — which I twice began
+diagnosing as a product bug. It was my harness. But it was *also* the thing that
+made me add a budget to the boot, and that guard is real: `initData` and
+`hydrate` are now both bounded, so a wedged store shows the app or an error
+rather than a logo forever. **A test harness's own failure is still evidence
+about what the product does when something goes wrong underneath it.**
+
 ---
 
 *Maintenance: append, don't rewrite. An entry stays after its bug is fixed — the rule is

@@ -20,7 +20,7 @@ export interface RecapData {
   reviewed?: number;       // flip cards graded
   recall?: number;         // % Good+ over reviewed; undefined if reviewed === 0
   newLearned?: number;     // cards that entered `learning` this session
-  drills?: number;         // grammar/gym items answered
+  drills?: number;         // word-fact drill items answered
   drillsCorrect?: number;  // correct drills; % shown against `drills`
   streak: number;          // always present
   minedCount?: number;     // Phase 5.5
@@ -29,7 +29,7 @@ export interface RecapData {
   /** What the scheduler actually did, counted from each item's `reason`.
    *  A recap that only reports a score describes the learner; this describes
    *  the machine working on their behalf, which is the thing they can't see. */
-  composition?: { blindspot: number; linked: number; remedy: number; overdue: number };
+  composition?: { blindspot: number; overdue: number };
 }
 
 interface Tile { label: string; num: number; suffix?: string; tone: string }
@@ -100,8 +100,6 @@ function Composition({ c }: { c?: RecapData['composition'] }) {
   if (!c) return null;
   const parts: string[] = [];
   if (c.blindspot) parts.push(`${c.blindspot} rehearsed a weak spot`);
-  if (c.linked) parts.push(`${c.linked} grammar ${c.linked === 1 ? 'point' : 'points'} rode along with a word you learned`);
-  if (c.remedy) parts.push(`${c.remedy} explained something you keep missing`);
   if (c.overdue) parts.push(`${c.overdue} had been waiting over a week`);
   if (parts.length === 0) return null;
 

@@ -3,39 +3,28 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, Users, CalendarClock, List, Crosshair, Layers, RefreshCw, Info } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, CalendarClock, List, Layers, RefreshCw, Info, History, ArrowLeft } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, addUserWords, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
-import { MODE_TAG, type Mode } from './Fundamentals.tsx';
+import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
+import { MODE_TAG, MODES, type Mode } from './drills.tsx';
 import { WORDS } from '../data/index.ts';
-import { parsePack } from '../lib/classpack.ts';
-import { focusTense, setFocusTense } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
 import { useHdVoice } from '../lib/useHdVoice.ts';
 import { themePref, setThemePref, type ThemePref } from '../theme.ts';
-import { BUILD, buildLabel, checkForUpdate, updateNow, type UpdateState } from '../lib/build.ts';
+import { BUILD, PREVIOUS_BUILD, buildLabel, checkForUpdate, updateNow, type UpdateState } from '../lib/build.ts';
 import Card from '../components/ui/Card.tsx';
-import Button from '../components/ui/Button.tsx';
+import Button, { buttonClass } from '../components/ui/Button.tsx';
+import IconButton from '../components/ui/IconButton.tsx';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
 const toggle = (on: boolean) =>
   // `tap-44` here reaches every toggle group on the page at once — theme, text
-  // size, pace and tense focus were all 33px, and Settings is the surface most
-  // likely to be used one-handed on a phone.
+  // size and pace were all 33px, and Settings is the surface most likely to be
+  // used one-handed on a phone.
   `tap-44 flex items-center gap-2 text-xs rounded-md px-3.5 py-2 border transition-colors ${
     on ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:border-accent'}`;
-
-/** The tenses a learner can lean on. Keys match TENSE_POINT, so a focus always
- *  names something the drills can actually target and the rule behind it exists. */
-export const FOCUS_CHOICES: { key: string; label: string }[] = [
-  { key: 'praesens', label: 'Präsens' },
-  { key: 'perfekt', label: 'Perfekt' },
-  { key: 'praeteritum', label: 'Präteritum' },
-  { key: 'futur1', label: 'Futur I' },
-  { key: 'konjunktiv2', label: 'Konjunktiv II' },
-];
 
 const THEMES: { id: ThemePref; label: string; icon: LucideIcon }[] = [
   { id: 'system', label: 'System', icon: Monitor },
@@ -49,17 +38,11 @@ const RETENTIONS: { v: number; label: string; hint: string }[] = [
   { v: 0.95, label: '95% · Intensive', hint: 'More reviews, minimal forgetting.' },
 ];
 
-/** Every drill a mixed session can weave in. `cloze` and the rest are included:
- *  the learner's judgement about what they want to practise is not ours to
- *  pre-filter. Order is the one MODE_TAG declares. */
-const DRILL_MODES: string[] = ['gender', 'plural', 'conj', 'cloze', 'order', 'transform', 'case', 'separable', 'reflexive', 'dictation', 'recall', 'grammar'];
+/** Every drill a session can weave in. `MODES` is the source of truth, so this
+ *  list cannot fall behind the drills that exist. */
+const DRILL_MODES: Mode[] = MODES.map((m) => m.m);
 
-/** `grammar` is not a `Mode` — grammar points are scheduled cards of their own,
- *  not drills woven between flips — but it belongs on this list because it is the
- *  same question for the learner: is this in my session or not? */
-const MODE_LABEL = (m: string) => (m === 'grammar' ? 'Grammar exercises' : MODE_TAG[m as Mode]);
-
-export default function Settings() {
+export default function Settings({ onExit }: { onExit: () => void }) {
   useStore();
   const muted = mutedModes();
   const [update, setUpdate] = useState<UpdateState | null>(null);
@@ -76,8 +59,6 @@ export default function Settings() {
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
 
   const [pc, setPc] = useState<Pace>(pace());
-  const [focus, setFocus] = useState<string | null>(focusTense());
-  const pickFocus = (k: string | null) => { setFocusTense(k); setFocus(k); };
   const pickPace = (p: Pace) => { setPace(p); setPc(p); };
 
   // A plain word list, for the tools Lexi is not: a spreadsheet, Anki, a printout
@@ -126,32 +107,15 @@ export default function Settings() {
     }
   };
 
-  // A word pack is someone else's deck, not a backup: it *adds* cards and never
-  // touches progress, so unlike a restore it needs no confirmation and no reload.
-  const packRef = useRef<HTMLInputElement>(null);
-  const [packMsg, setPackMsg] = useState('');
-  const [packErr, setPackErr] = useState('');
-  const onPackFile = async (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    e.target.value = '';
-    if (!file) return;
-    setPackErr(''); setPackMsg('');
-    const { pack, error, dropped } = parsePack(await file.text());
-    if (!pack) { setPackErr(error ?? 'Could not read that pack.'); return; }
-    const added = addUserWords(pack.cards);
-    const already = pack.cards.length - added.length;
-    setPackMsg(
-      `Added ${added.length} card${added.length === 1 ? '' : 's'} from “${pack.name}”`
-      + (pack.from ? ` by ${pack.from}` : '') + '.'
-      + (already ? ` ${already} you already had.` : '')
-      + (dropped ? ` ${dropped} couldn’t be read.` : ''));
-  };
-
   return (
     <div className="w-full max-w-[640px] mx-auto">
-      {/* h2, not h1: Settings only ever renders inside Profile, which owns the
-          page’s h1. Two h1s on one page breaks heading navigation. */}
-      <h2 className="text-xl font-bold mb-4 mt-6">Settings</h2>
+      {/* Its own page since 2026-09-05, so its own h1 — it used to render inside
+          Profile, which owned the heading and left this an h2 in the middle of
+          somebody else's document. */}
+      <div className="flex items-center gap-1.5 mb-4">
+        <IconButton label="Back to profile" pull onClick={onExit}><ArrowLeft size={18} /></IconButton>
+        <h1 className="text-xl font-bold ml-1.5">Settings</h1>
+      </div>
 
       {/* Appearance */}
       <Card as="section" className="mb-4">
@@ -265,27 +229,6 @@ export default function Settings() {
         {restoreErr && <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5"><X size={14} /> {restoreErr}</p>}
       </Card>
 
-      {/* This week's focus. A course moves through one thing at a time; the drills
-          were choosing their tense at random, so a learner spending a month on the
-          Perfekt met it a quarter of the time and had no way to say so. */}
-      <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Crosshair size={16} className="text-accent" /> This week I’m working on</h3>
-        <p className="text-dim text-xs mb-3 max-w-[60ch]">
-          Weights which tense the conjugation and transformation drills ask for. A lean, not a
-          filter — the others keep coming round, or you’d quietly lose them.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <button onClick={() => pickFocus(null)} aria-pressed={focus === null} className={toggle(focus === null)}>
-            No focus
-          </button>
-          {FOCUS_CHOICES.map((f) => (
-            <button key={f.key} onClick={() => pickFocus(f.key)} aria-pressed={focus === f.key} className={toggle(focus === f.key)}>
-              {f.label}
-            </button>
-          ))}
-        </div>
-      </Card>
-
       {/* Which build is on this device.
           An offline-first service worker serves the shell from cache, so "is the
           phone running the fix that just shipped?" could only be answered by
@@ -302,6 +245,27 @@ export default function Settings() {
           <div className="flex gap-2"><dt className="text-dim w-16">built</dt><dd>{buildLabel()}</dd></div>
           <div className="flex gap-2"><dt className="text-dim w-16">commit</dt><dd>{BUILD.sha}</dd></div>
         </dl>
+
+        {/* The version before the redesign, kept openable.
+            A Vercel deployment URL is immutable, so "let me see how it used to
+            work" costs a link rather than a feature flag, two UIs in one bundle,
+            or a rollback nobody can undo.
+            The caveat is stated rather than discovered: it is a different origin,
+            so browser storage does not follow — that build opens empty. It is a
+            place to compare the *experience*. Anyone who wants the comparison
+            with real data has Backup and Restore a few centimetres above. */}
+        <div className="border-t border-line pt-3 mt-1">
+          <p className="text-xs font-semibold mb-1">Compare with the previous version</p>
+          <p className="text-dim text-2xs mb-2.5 max-w-[56ch] leading-relaxed">
+            The build from {PREVIOUS_BUILD.label}. It opens in a new tab and — because browser
+            storage belongs to one address — it starts empty: your progress stays here. To compare
+            like for like, back up above and restore into it.
+          </p>
+          <a href={PREVIOUS_BUILD.url} target="_blank" rel="noopener noreferrer"
+            className={`${buttonClass('secondary', 'sm')} no-underline`}>
+            <History size={14} /> Open the old version
+          </a>
+        </div>
         <div className="flex flex-wrap items-center gap-2">
           <Button size="sm" variant="secondary" onClick={check} disabled={checking}>
             {checking ? <Loader2 size={14} className="animate-spin" /> : <RefreshCw size={14} />}
@@ -331,14 +295,15 @@ export default function Settings() {
           browsing. Switching them all off leaves a pure flip session, which is a
           real way to study and not a degenerate case.
 
-          Governs *sessions only*: opening a drill from Fundamentals still drills
-          it, because there you asked for it by name. */}
+          Governs *sessions only*: opening a drill by name from Blind spots still
+          drills it, because there you asked for it. */}
       <Card pad="none" className="p-4">
         <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-accent" /> What’s in a session</h3>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
-          Flip cards are always there. These are the drills woven between them — switch any of
-          them off and they stop appearing in sessions. Turn them all off to just flick through
-          words. You can still practise any of them directly from Grammar.
+          Flip cards are always there. These are the drills woven between them — the same word
+          asked the other way round. Switch any off and it stops appearing in sessions; turn them
+          all off to just flick through words. Blind spots on Fortschritt still runs any of them
+          on request.
         </p>
         <div className="flex flex-wrap gap-2 mb-3">
           <button onClick={() => setAllDrillModes(DRILL_MODES, true)} className={toggle(muted.size === 0)}
@@ -352,7 +317,7 @@ export default function Settings() {
             return (
               <button key={m} onClick={() => toggleDrillMode(m)} aria-pressed={on} className={toggle(on)}>
                 {on && <Check size={13} aria-hidden className="inline-block mr-1 -mt-0.5" />}
-                {MODE_LABEL(m)}
+                {MODE_TAG[m]}
               </button>
             );
           })}
@@ -378,24 +343,6 @@ export default function Settings() {
         </div>
       </Card>
 
-      {/* Class packs. Local-first means there is no class to join — a file is the
-          honest bridge, and it costs no backend. Export lives on each deck in
-          Progress; this is the receiving end. */}
-      <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Users size={16} className="text-accent" /> Word packs</h3>
-        <p className="text-dim text-xs mb-3 max-w-[60ch]">
-          A pack is a deck someone shared with you — a file, no account. Importing adds its
-          cards to your lexicon; it never changes your progress. Export a deck from
-          Progress → Decks to share one back.
-        </p>
-        <Button variant="secondary" onClick={() => packRef.current?.click()}>
-          <Upload size={14} className="text-accent" /> Import a word pack
-        </Button>
-        <input ref={packRef} type="file" accept="application/json,.json" aria-label="Choose a Lexi word pack to import"
-          onChange={onPackFile} className="hidden" tabIndex={-1} />
-        {packMsg && <p className="text-green text-xs mt-2 flex items-center gap-1.5"><Check size={14} /> {packMsg}</p>}
-        {packErr && <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5"><X size={14} /> {packErr}</p>}
-      </Card>
     </div>
   );
 }

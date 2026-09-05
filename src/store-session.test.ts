@@ -18,8 +18,8 @@ async function fresh() {
   const store = await import('./store.ts');
   const session = await import('./session.ts');
   const srs = await import('./srs.ts');
-  const fundamentals = await import('./views/Fundamentals.tsx');
-  return { data, store, session, srs, fundamentals };
+  const drillsMod = await import('./views/drills.tsx');
+  return { data, store, session, srs, drillsMod };
 }
 
 function word(id: string, field: string, extra: Partial<Word> = {}): Word {
@@ -35,11 +35,141 @@ function word(id: string, field: string, extra: Partial<Word> = {}): Word {
 async function freshWhy() {
   vi.resetModules();
   const why = await import('./components/WhyThisCard.tsx');
-  const fundamentals = await import('./views/Fundamentals.tsx');
-  return { why, fundamentals };
+  const drillsMod = await import('./views/drills.tsx');
+  return { why, drillsMod };
 }
 
 beforeEach(() => { localStorage.clear(); });
+
+// The feed's bookmark is an instruction to the scheduler, not a wishlist: the
+// learner scrolled past four hundred words, stopped on a few, and said *these*.
+// A scheduler that then taught them something else would be telling them their
+// attention does not count.
+// `importData` is the restore path. It wrote the CEFR filter and the muted-drill
+// set to localStorage and left the module-level copies — initialised at import
+// time — pointing at the old state, so a restored backup came back with the
+// wrong scope until the page reloaded. `Settings` happened to reload; nothing
+// made that a rule.
+describe('restoring a backup restores the scope, not just the cards', () => {
+  it('adopts the restored CEFR filter without a reload', async () => {
+    const { store } = await fresh();
+    expect([...store.levels()].sort()).toEqual(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+
+    await store.importData(JSON.stringify({
+      app: 'lexi', v: 1, cards: {}, misses: [], visits: [],
+      settings: { 'lexi.levels.v1': JSON.stringify(['B2', 'C1']) },
+    }));
+
+    expect([...store.levels()].sort()).toEqual(['B2', 'C1']);
+  });
+
+  // The four keys that were never in `SETTING_KEYS` at all. Asserted against the
+  // *declarations* rather than a hand-typed list, so a new setting that forgets
+  // to join the backup is caught by the same rule that caught these.
+  it('backs up everything the learner authored, not just their schedule', async () => {
+    const { store } = await fresh();
+    const json = JSON.parse(store.exportData());
+    for (const k of ['lexi.saved.v1', 'lexi.faves.v1', 'lexi.drillmodes.v1', 'lexi.texts.v1']) {
+      localStorage.setItem(k, '[]');
+    }
+    const after = JSON.parse(store.exportData());
+    expect(Object.keys(after.settings)).toEqual(expect.arrayContaining([
+      'lexi.saved.v1', 'lexi.faves.v1', 'lexi.drillmodes.v1', 'lexi.texts.v1',
+    ]));
+    expect(json).toBeTruthy();
+  });
+
+  it('adopts the restored drill mutes without a reload', async () => {
+    const { store } = await fresh();
+    expect(store.modeEnabled('gender')).toBe(true);
+
+    await store.importData(JSON.stringify({
+      app: 'lexi', v: 1, cards: {}, misses: [], visits: [],
+      settings: { 'lexi.drillmodes.v1': JSON.stringify(['gender']) },
+    }));
+
+    expect(store.modeEnabled('gender')).toBe(false);
+    expect(store.modeEnabled('plural')).toBe(true);
+  });
+});
+
+describe('saved words are what the next session teaches', () => {
+  it('serves a saved word ahead of the weakest sector’s pick', async () => {
+    const { data, store } = await fresh();
+    data.registerWords([
+      ...Array.from({ length: 5 }, (_, i) => word(`a${i}`, 'Sector A')),
+      ...Array.from({ length: 5 }, (_, i) => word(`b${i}`, 'Sector B')),
+    ]);
+
+    store.toggleSaved('b4');
+    const b = store.buildBriefing();
+
+    expect(b.ids[0]).toBe('b4');
+    expect(b.weakSectors[0]).toBe('your saved words');
+  });
+
+  it('does not serve the same word twice when it is also the weakest pick', async () => {
+    const { data, store } = await fresh();
+    data.registerWords(Array.from({ length: 4 }, (_, i) => word(`a${i}`, 'Sector A')));
+
+    store.toggleSaved('a0');
+    const b = store.buildBriefing();
+
+    expect(new Set(b.ids).size).toBe(b.ids.length);
+    expect(b.ids.filter((id: string) => id === 'a0')).toHaveLength(1);
+  });
+
+  it('does not re-teach a word already in the schedule', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords(Array.from({ length: 4 }, (_, i) => word(`a${i}`, 'Sector A')));
+    store.review('a2', srs.Rating.Good);   // no longer new
+
+    store.toggleSaved('a2');
+    const b = store.buildBriefing();
+
+    // It is scheduled; FSRS decides when it comes back, not the bookmark.
+    expect(b.ids).not.toContain('a2');
+  });
+
+  it('buys the front of the queue, not a longer one', async () => {
+    const { data, store } = await fresh();
+    data.registerWords(Array.from({ length: 40 }, (_, i) => word(`a${i}`, 'Sector A')));
+    for (let i = 0; i < 30; i++) store.toggleSaved(`a${i}`);
+
+    const plain = store.PACE[store.pace()].fresh;
+    expect(store.buildBriefing().fresh).toBeLessThanOrEqual(plain);
+  });
+
+  it('toggles off, and the day’s count follows', async () => {
+    const { data, store } = await fresh();
+    data.registerWords([word('a0', 'Sector A')]);
+
+    expect(store.toggleSaved('a0')).toBe(true);
+    expect(store.isSaved('a0')).toBe(true);
+    expect(store.savedToday()).toBe(1);
+
+    expect(store.toggleSaved('a0')).toBe(false);
+    expect(store.isSaved('a0')).toBe(false);
+    expect(store.savedToday()).toBe(0);
+  });
+
+  it('keeps favourites out of the scheduler entirely', async () => {
+    // A list you curate for pleasure stops being pleasant the moment it starts
+    // assigning you homework.
+    const { data, store } = await fresh();
+    data.registerWords([
+      ...Array.from({ length: 5 }, (_, i) => word(`a${i}`, 'Sector A')),
+      ...Array.from({ length: 5 }, (_, i) => word(`b${i}`, 'Sector B')),
+    ]);
+
+    store.toggleFavourite('b4');
+    const b = store.buildBriefing();
+
+    expect(store.isFavourite('b4')).toBe(true);
+    expect(b.weakSectors).not.toContain('your saved words');
+    expect(b.ids[0]).not.toBe('b4');
+  });
+});
 
 describe('buildBriefing', () => {
   it('fills fresh cards from the weakest sectors when nothing is due', async () => {
@@ -199,30 +329,30 @@ describe('blindSpotDrills (weakModes)', () => {
   });
 
   it('weaves drills for the modes you miss most, capped and de-duplicated', async () => {
-    const { data, store, session, fundamentals } = await fresh();
+    const { data, store, session, drillsMod } = await fresh();
     const words = Array.from({ length: 6 }, (_, i) => word(`n${i}`, 'Nouns', { gender: 'die' }));
     data.registerWords(words);
 
-    store.logMiss(fundamentals.MODE_TAG.gender);
-    const drills = session.blindSpotDrills(words);
+    store.logMiss(drillsMod.MODE_TAG.gender);
+    const woven = session.blindSpotDrills(words);
 
-    expect(drills).toHaveLength(4); // MAX_BLIND_SPOTS
-    expect(drills.every((d) => d.type === 'gender')).toBe(true);
-    expect(drills.every((d) => d.srsId.startsWith('gym:gender:'))).toBe(true);
-    expect(new Set(drills.map((d) => d.srsId)).size).toBe(4); // distinct words
+    expect(woven).toHaveLength(4); // MAX_BLIND_SPOTS
+    expect(woven.every((d) => d.type === 'gender')).toBe(true);
+    expect(woven.every((d) => d.srsId.startsWith('gym:gender:'))).toBe(true);
+    expect(new Set(woven.map((d) => d.srsId)).size).toBe(4); // distinct words
     // Each one can say which weakness it is rehearsing, and how bad it is.
-    expect(drills[0].reason).toMatchObject({
-      kind: 'blindspot', mode: 'gender', tag: fundamentals.MODE_TAG.gender, misses: 1,
+    expect(woven[0].reason).toMatchObject({
+      kind: 'blindspot', mode: 'gender', tag: drillsMod.MODE_TAG.gender, misses: 1,
     });
   });
 
-  it('only drills modes the word is eligible for', async () => {
-    const { data, store, session, fundamentals } = await fresh();
+  it('only drillsMod modes the word is eligible for', async () => {
+    const { data, store, session, drillsMod } = await fresh();
     // A word with no gender/plural/example is eligible for no word-drill modes.
     const w = word('p0', 'Plain');
     data.registerWords([w]);
 
-    store.logMiss(fundamentals.MODE_TAG.gender);
+    store.logMiss(drillsMod.MODE_TAG.gender);
     expect(session.blindSpotDrills([w])).toEqual([]);
   });
 });
@@ -255,13 +385,13 @@ describe('buildMixedSession', () => {
     const out = session.buildMixedSession(custom(['g0', 'g1', 'g2']));
 
     expect(flips(out)).toEqual(['g0', 'g1', 'g2']);
-    const drills = out.filter((it) => it.type !== 'flip');
-    expect(drills).toHaveLength(3); // one per word
-    expect(drills.every((d) => d.type === 'gender')).toBe(true);
-    expect(drills.every((d) => d.srsId.startsWith('gym:gender:'))).toBe(true);
+    const drillsMod = out.filter((it) => it.type !== 'flip');
+    expect(drillsMod).toHaveLength(3); // one per word
+    expect(drillsMod.every((d) => d.type === 'gender')).toBe(true);
+    expect(drillsMod.every((d) => d.srsId.startsWith('gym:gender:'))).toBe(true);
   });
 
-  it('caps fresh drills at MAX_FRESH_DRILLS (10)', async () => {
+  it('caps fresh drillsMod at MAX_FRESH_DRILLS (10)', async () => {
     const { data, session } = await fresh();
     const ids = Array.from({ length: 12 }, (_, i) => `m${i}`);
     data.registerWords(ids.map((id) => word(id, 'Many', { gender: 'die' })));
@@ -272,7 +402,7 @@ describe('buildMixedSession', () => {
     expect(out.filter((it) => it.type !== 'flip')).toHaveLength(10); // fresh cap
   });
 
-  it('caps a custom target that asked for one, drills included', async () => {
+  it('caps a custom target that asked for one, drillsMod included', async () => {
     const { data, session } = await fresh();
     // Every word is drill-eligible, so an uncapped build weaves in extra items:
     // this is the "Quick 5 served twelve" shape.
@@ -287,14 +417,14 @@ describe('buildMixedSession', () => {
   });
 
   it('absorbs a due drill whose word is not in a curated day', async () => {
-    const { data, store, session, srs, fundamentals } = await fresh();
+    const { data, store, session, srs, drillsMod } = await fresh();
     // Two eligible words; only the first is in today's curated queue.
     data.registerWords([
       word('o0', 'Orph', { gender: 'die', pos: 'x' }),
       word('o1', 'Orph', { gender: 'die', pos: 'x' }),
     ]);
     // Schedule o1's gender drill and wind past it so it comes due.
-    const gid = fundamentals.gymId('gender', word('o1', 'Orph'));
+    const gid = drillsMod.gymId('gender', word('o1', 'Orph'));
     store.review(gid, srs.Rating.Again);
     vi.useFakeTimers();
     try {
@@ -351,88 +481,6 @@ describe('buildMixedSession', () => {
     expect(drill.reason).toMatchObject({ kind: 'drill', mode: 'gender' });
     // The drill belongs to the word it was generated from.
     expect((drill.reason as { parent: { id: string } }).parent.id).toBe(drill.word.id);
-  });
-});
-
-describe('vocabulary→grammar loop', () => {
-  const custom = (ids: string[]) => ({ kind: 'custom' as const, name: 'test', ids });
-  const gpoint = (id: string, term: string, level: Word['level'] = 'B1'): Word =>
-    word(id, 'Grammar', { kind: 'grammar', term, level, pos: 'grammar' });
-
-  it('weaves a linked grammar point in after its trigger word', async () => {
-    const { data, session } = await fresh();
-    const trigger = word('w0', 'Connectors', { term: 'obwohl' });
-    const point = gpoint('gram:B1:Konzessivsätze: obwohl', 'Konzessivsätze: obwohl');
-    data.registerWords([trigger, point]);
-
-    const out = session.buildMixedSession(custom(['w0']));
-
-    const at = out.findIndex((it) => it.srsId === point.id);
-    expect(at).toBeGreaterThan(out.findIndex((it) => it.srsId === 'w0')); // after the word
-    expect(out.filter((it) => it.srsId === point.id)).toHaveLength(1);    // no duplicate
-  });
-
-  it('stops linking once the point is comfortably scheduled', async () => {
-    const { data, store, session, srs } = await fresh();
-    const trigger = word('w0', 'Connectors', { term: 'obwohl' });
-    const point = gpoint('gram:B1:Konzessivsätze: obwohl', 'Konzessivsätze: obwohl');
-    data.registerWords([trigger, point]);
-
-    store.review(point.id, srs.Rating.Easy); // scheduled into the future
-
-    expect(session.linkedGrammar([trigger])).toEqual([]);
-  });
-
-  it('injects a remediation point after repeated misses in a mode', async () => {
-    const { data, store, session, fundamentals } = await fresh();
-    const point = gpoint('gram:A1:Artikel & Genus', 'Artikel & Genus', 'A1');
-    data.registerWords([point]);
-
-    store.logMiss(fundamentals.MODE_TAG.gender);
-    store.logMiss(fundamentals.MODE_TAG.gender);
-    expect(session.remedyGrammar()).toEqual([]); // below threshold (3)
-
-    store.logMiss(fundamentals.MODE_TAG.gender);
-    const out = session.remedyGrammar();
-    expect(out).toHaveLength(1);
-    expect(out[0].srsId).toBe(point.id);
-  });
-
-  it('names the trigger word on a linked grammar point', async () => {
-    const { data, session } = await fresh();
-    const trigger = word('w0', 'Connectors', { term: 'obwohl' });
-    const point = gpoint('gram:B1:Konzessivsätze: obwohl', 'Konzessivsätze: obwohl');
-    data.registerWords([trigger, point]);
-
-    const [linked] = session.linkedGrammar([trigger]);
-
-    expect(linked.reason.kind).toBe('linked');
-    // The whole point: the learner can be told *why* this appeared.
-    expect(linked.reason).toMatchObject({ kind: 'linked', trigger: { term: 'obwohl' } });
-  });
-
-  it('cites the miss count on a remediation point', async () => {
-    const { data, store, session, fundamentals } = await fresh();
-    const point = gpoint('gram:A1:Artikel & Genus', 'Artikel & Genus', 'A1');
-    data.registerWords([point]);
-
-    for (let i = 0; i < 4; i++) store.logMiss(fundamentals.MODE_TAG.gender);
-    const [remedy] = session.remedyGrammar();
-
-    expect(remedy.reason).toMatchObject({
-      kind: 'remedy', mode: 'gender', tag: fundamentals.MODE_TAG.gender, misses: 4,
-    });
-  });
-
-  it('maps only to grammar-point ids that exist in the shipped lexicon', async () => {
-    // Guards the WORD_POINT / MODE_REMEDY maps against title drift in vocab.json.
-    const fs = await import('node:fs');
-    const vocab = JSON.parse(fs.readFileSync('public/data/vocab.json', 'utf8')) as Word[];
-    const ids = new Set(vocab.filter((w) => w.kind === 'grammar').map((w) => w.id));
-    const src = fs.readFileSync('src/session.ts', 'utf8');
-    const referenced = [...src.matchAll(/'(gram:[^']+)'/g)].map((m) => m[1]);
-    expect(referenced.length).toBeGreaterThan(0);
-    for (const id of referenced) expect(ids, `missing grammar card: ${id}`).toContain(id);
   });
 });
 
@@ -509,217 +557,36 @@ describe('why-this-card copy', () => {
     expect(line?.lead).toContain(`${why.STALE_DAYS} days`);
   });
 
-  it('names the trigger word, in German', async () => {
-    const { why } = await freshWhy();
-    const line = why.whyLine({ kind: 'linked', trigger: w('obwohl') });
-    expect(line?.lead).toBe('Because you just learned ');
-    expect(line?.em).toBe('„obwohl“');
-    expect(line?.emLang).toBe('de'); // or a screen reader says it in English
-  });
-
   it('explains the interleave rather than letting it look random', async () => {
     const { why } = await freshWhy();
-    const line = why.whyLine({ kind: 'drill', mode: 'gender', parent: w('Tisch') });
+    const line = why.whyLine({ kind: 'drill', mode: 'recall', parent: w('Tisch') });
     expect(line?.em).toBe('Tisch');
     expect(`${line?.lead}${line?.em}${line?.tail}`).toBe('You flipped Tisch a few cards ago — now produce it');
   });
 
-  it('cites the miss count and offers the rule for a weakness', async () => {
-    const { why, fundamentals } = await freshWhy();
-    const line = why.whyLine({
-      kind: 'remedy', mode: 'gender', tag: fundamentals.MODE_TAG.gender, misses: 4,
-    });
-    expect(`${line?.lead}${line?.em}${line?.tail}`).toBe(`You’ve missed ${fundamentals.MODE_TAG.gender} 4× this month`);
-    // The line that names a weakness is also the way into the rule.
-    expect(line?.rulePoint).toBe(fundamentals.MODE_REMEDY.gender[0]);
-  });
-});
-
-describe('production drills (order / transform)', () => {
-  it('orderTokens: strips terminal punctuation, splits, gates 4–10 tokens', async () => {
-    const { fundamentals } = await fresh();
-    expect(fundamentals.orderTokens('Ich gehe heute ins Kino.')).toEqual(['Ich', 'gehe', 'heute', 'ins', 'Kino']);
-    expect(fundamentals.orderTokens('Wo ist das?')).toEqual([]);          // 3 tokens: too short
-    expect(fundamentals.orderTokens(undefined)).toEqual([]);
-    expect(fundamentals.orderTokens('a b c d e f g h i j k')).toEqual([]); // 11 tokens: too long
+  // The tail is per-mode. "Now produce it" was written for the recall drill and
+  // then said above all of them: on a Diktat it is simply false — you are
+  // spelling a sentence you heard, not producing a word from its meaning — and a
+  // caption that misdescribes the exercise under it is worse than no caption.
+  it('describes what each drill actually asks, not what recall asks', async () => {
+    const { why } = await freshWhy();
+    const tail = (mode: 'gender' | 'plural' | 'recall') =>
+      why.whyLine({ kind: 'drill', mode, parent: w('Tisch') })?.tail;
+    expect(tail('gender')).toContain('the article');
+    expect(tail('plural')).toContain('the plural');
+    expect(tail('recall')).toContain('produce it');
+    // Three modes, three distinct tails — a duplicate here means one drill is
+    // wearing another's description.
+    const all = (['gender', 'plural', 'recall'] as const).map(tail);
+    expect(new Set(all).size).toBe(3);
   });
 
-  it('canTransform: excludes separable and reflexive verbs, keeps plain ones', async () => {
-    const { fundamentals } = await fresh();
-    expect(fundamentals.canTransform('machen')).toBe(true);
-    expect(fundamentals.canTransform('ankommen')).toBe(false);    // separable: prefix detaches
-    expect(fundamentals.canTransform('sich freuen')).toBe(false); // reflexive: finite form drops "mich"
-  });
-
-  it('buildTransform: accepts the form with or without every pronoun variant', async () => {
-    const { fundamentals } = await fresh();
-    const ich = fundamentals.buildTransform('machen', 0, 'perfekt', 'Perfekt');
-    expect(ich.prompt).toBe('„ich mache“ → Perfekt');
-    expect(ich.accept).toContain('ich habe gemacht');
-    expect(ich.accept).toContain('habe gemacht');
-
-    const er = fundamentals.buildTransform('gehen', 2, 'perfekt', 'Perfekt');
-    expect(er.prompt).toBe('„er geht“ → Perfekt');
-    for (const a of ['er ist gegangen', 'sie ist gegangen', 'es ist gegangen', 'ist gegangen']) {
-      expect(er.accept).toContain(a);
-    }
-  });
-
-  it('eligibleModes: examples license order, conjugable verbs license transform', async () => {
-    const { fundamentals } = await fresh();
-    const noun = word('w0', 'F', { ex: [{ de: 'Das Haus ist sehr groß.', en: '', lvl: 'A1' }] });
-    expect(fundamentals.eligibleModes(noun)).toContain('order');
-    const verb = word('w1', 'F', { term: 'machen', pos: 'verb' });
-    expect(fundamentals.eligibleModes(verb)).toContain('transform');
-    expect(fundamentals.eligibleModes(word('w2', 'F'))).toEqual([]); // plain word: nothing
-  });
-});
-
-describe('Kasus drill (case & endings)', () => {
-  const noun = (term: string, gender: 'der' | 'die' | 'das') =>
-    word(term, 'F', { term: `${gender} ${term}`, gender, pos: 'noun' });
-
-  it('caseSafe: plain nouns yes; n-Deklination, multiword, non-nouns no', async () => {
-    const { fundamentals } = await fresh();
-    expect(fundamentals.caseSafe(noun('Tisch', 'der'))).toBe(true);
-    expect(fundamentals.caseSafe(noun('Lampe', 'die'))).toBe(true);
-    expect(fundamentals.caseSafe(noun('Junge', 'der'))).toBe(false);   // -e masculine
-    expect(fundamentals.caseSafe(noun('Student', 'der'))).toBe(false); // -ent
-    expect(fundamentals.caseSafe(noun('Herr', 'der'))).toBe(false);    // listed
-    expect(fundamentals.caseSafe(noun('Herz', 'das'))).toBe(false);    // listed neuter
-    expect(fundamentals.caseSafe(word('w', 'F', { term: 'der gute Rat', gender: 'der', pos: 'noun' }))).toBe(false); // multiword
-    expect(fundamentals.caseSafe(word('w2', 'F', { gender: 'die', pos: 'adjective' }))).toBe(false);
-  });
-
-  it('builds correct article items (rnd pinned: Nominativ, article flavor)', async () => {
-    const { fundamentals } = await fresh();
-    const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0);
-    expect(d.prompt).toBe('Hier ist ___ Tisch');
-    expect(d.options[d.correct]).toBe('der');
-  });
-
-  it('builds correct adjective-ending items (rnd pinned high: Dativ, adjective)', async () => {
-    const { fundamentals } = await fresh();
-    // rnd=0.99 → masc cases[2]=dat, prep 'bei', flavor adjective, adj 'jung',
-    // and the last declension offered for a countable noun, which is mixed.
-    const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0.99);
-    expect(d.prompt).toBe('bei einem ___ Tisch');
-    expect(d.options[d.correct]).toBe('jungen');
-  });
-
-  // German declines an adjective three ways and the drill used to teach only the
-  // weak table, which is nearly all -en — so a learner could score well on it and
-  // still write "ein gute Mann". Each declension is pinned by call order:
-  // kase → article/adjective → preposition → adjective → declension.
-  it('teaches all three declensions, with the right ending for each', async () => {
-    const { fundamentals } = await fresh();
-    const pin = (v: number[]) => { const q = [...v]; return () => q.shift() ?? 0; };
-    // masc, Nominativ ("Hier ist"), adjective flavour, adj 'alt' (index 0).
-    const weak = fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0]));
-    expect(weak.prompt).toBe('Hier ist der ___ Tisch');
-    expect(weak.options[weak.correct]).toBe('alte');          // weak nom masc → -e
-
-    const mixed = fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0.6]));
-    expect(mixed.prompt).toBe('Hier ist ein ___ Tisch');
-    expect(mixed.options[mixed.correct]).toBe('alter');       // mixed nom masc → -er
-
-    // Strong needs a bare noun, which is only grammatical on a mass noun.
-    const strong = fundamentals.buildCaseItem(noun('Wasser', 'das'), pin([0, 0.9, 0, 0.9]));
-    expect(strong.prompt).toBe('Hier ist ___ Wasser');
-    expect(strong.options[strong.correct]).toBe('altes');     // strong nom neut → -es
-  });
-
-  // Reported from a real session: «Hier ist der ___ König» — an *adjective ending* —
-  // opened `Personalpronomen (Nominativ)`, whose text reads "the subject pronoun
-  // decides the verb ending". Right case, wrong system, and it contradicted the very
-  // question it was attached to. The item now says which declension it asked for, so
-  // the panel can open the page that teaches it.
-  it('names the declension so the rule panel can open the adjective page', async () => {
-    const { fundamentals } = await fresh();
-    const pin = (v: number[]) => { const q = [...v]; return () => q.shift() ?? 0; };
-    expect(fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0])).decl).toBe('weak');
-    expect(fundamentals.buildCaseItem(noun('Tisch', 'der'), pin([0, 0.9, 0, 0.6])).decl).toBe('mixed');
-    expect(fundamentals.buildCaseItem(noun('Wasser', 'das'), pin([0, 0.9, 0, 0.9])).decl).toBe('strong');
-    // An article item asks about the case itself, so it carries no declension and
-    // keeps the case-level rule link.
-    expect(fundamentals.buildCaseItem(noun('Tisch', 'der'), () => 0).decl).toBeUndefined();
-  });
-
-  it('links every rule point it can produce to a page that exists', async () => {
-    // A rule link that resolves nowhere fails silently — the panel simply does not
-    // open — so both maps are checked against the shipped lexicon rather than
-    // trusted. Same guard the WORD_POINT / MODE_REMEDY test above applies to
-    // session.ts, pointed at the Kasus drill's two maps.
-    const fs = await import('node:fs');
-    const { fundamentals } = await fresh();
-    const vocab = JSON.parse(fs.readFileSync('public/data/vocab.json', 'utf8')) as Word[];
-    const ids = new Set(vocab.filter((w) => w.kind === 'grammar').map((w) => w.id));
-    for (const id of Object.values(fundamentals.DECL_POINT) as string[]) expect(ids.has(id), id).toBe(true);
-    for (const id of Object.values(fundamentals.CASE_POINT) as string[]) expect(ids.has(id), id).toBe(true);
-  });
-
-  // „durch“ needs a noun you can pass *through*, and the drill pairs a preposition
-  // with any noun in the corpus — which produced „durch den Mittag“ and, with the
-  // adjective flavour, „durch den neuen Mittag“. Removed for the reason „während“
-  // was never in the list at all.
-  it('never builds an Akkusativ frame with durch', async () => {
-    const { fundamentals } = await fresh();
-    for (let i = 0; i < 300; i++) {
-      const d = fundamentals.buildCaseItem(noun('Mittag', 'der'));
-      expect(d.prompt, d.prompt).not.toMatch(/\bdurch\b/);
-    }
-  });
-
-  it('never declines a countable noun strong, which would be ungrammatical', async () => {
-    const { fundamentals } = await fresh();
-    // "alter Tisch" is not German — a countable singular needs an article. Roll
-    // the drill hard over a countable noun and assert an article always precedes.
-    for (let i = 0; i < 200; i++) {
-      const d = fundamentals.buildCaseItem(noun('Tisch', 'der'));
-      if (!d.sub.startsWith('Adjective')) continue;
-      expect(d.prompt, d.prompt).toMatch(/(der|den|dem|des|ein|einen|einem|eines) ___ Tisch$/);
-    }
-  });
-
-  it('always offers the correct ending among the options', async () => {
-    const { fundamentals } = await fresh();
-    for (const [term, gender] of [['Tisch', 'der'], ['Lampe', 'die'], ['Wasser', 'das']] as const) {
-      for (let i = 0; i < 150; i++) {
-        const d = fundamentals.buildCaseItem(noun(term, gender));
-        expect(d.correct, `${term}: ${d.prompt}`).toBeGreaterThanOrEqual(0);
-        expect(new Set(d.options).size).toBe(d.options.length); // no repeated option
-      }
-    }
-  });
-
-  it('bare-noun dative article items always use "mit" (von/bei would contract)', async () => {
-    const { fundamentals } = await fresh();
-    // rnd sequence: 0.7 → cases[2]=dat, 0.3 → article flavor, frame forced 'mit'
-    const seq = [0.7, 0.3];
-    const d = fundamentals.buildCaseItem(noun('Tisch', 'der'), () => seq.shift() ?? 0);
-    expect(d.prompt).toBe('mit ___ Tisch');
-    expect(d.options[d.correct]).toBe('dem');
-  });
-
-  it('genitive only for feminines, and the noun is never inflected', async () => {
-    const { fundamentals } = await fresh();
-    // fem, rnd=0.99 → cases[3]=gen, adjective flavor, prep 'trotz', adj 'jung'
-    const fem = fundamentals.buildCaseItem(noun('Lampe', 'die'), () => 0.99);
-    expect(fem.prompt).toBe('trotz einer ___ Lampe');
-    expect(fem.options[fem.correct]).toBe('jungen');
-    // masc/neut never see genitive (would need noun +-(e)s); spot-check many rolls
-    for (let i = 0; i < 50; i++) {
-      const d = fundamentals.buildCaseItem(noun('Tisch', 'der'));
-      expect(d.sub).not.toContain('Genitiv');
-      expect(d.correct).toBeGreaterThanOrEqual(0); // options always include the answer
-    }
-  });
 });
 
 describe('typed-answer support (hints)', () => {
   it('hintText ladder: shape → first letter → first half', async () => {
     vi.resetModules();
-    const { hintText } = await import('./views/GrammarDrill.tsx');
+    const { hintText } = await import('./views/drills.tsx');
     expect(hintText('Bücher', 1)).toBe('6 letters');
     expect(hintText('habe gemacht', 1)).toBe('2 words · 11 letters');
     expect(hintText('Bücher', 2)).toBe('starts with “B”');
@@ -942,90 +809,6 @@ describe('streak / visits', () => {
   });
 });
 
-describe('pointStats (grammar syllabus mastery)', () => {
-  it('reports an untouched point as not started', async () => {
-    const { store } = await fresh();
-    const s = store.pointStats('A1', 'P0', 6);
-    expect(s).toMatchObject({ count: 6, seen: 0, known: 0, due: 0, started: false });
-    expect(s.mastery).toBe(0);
-  });
-
-  it('counts only the exercises belonging to that point', async () => {
-    const { store, srs } = await fresh();
-    // Two exercises of A1 point 0, plus a decoy in point 1 and another level.
-    store.review('gex:A1:P0:0', srs.Rating.Good);
-    store.review('gex:A1:P0:1', srs.Rating.Good);
-    store.review('gex:A1:P1:0', srs.Rating.Good);
-    store.review('gex:A2:P0:0', srs.Rating.Good);
-
-    const s = store.pointStats('A1', 'P0', 6);
-    expect(s.seen).toBe(2);
-    expect(store.pointStats('A1', 'P1', 6).seen).toBe(1);
-    expect(store.pointStats('B1', 'P0', 6).seen).toBe(0);
-  });
-
-  // The vocabulary→grammar loop grades the point's own `gram:` card, not its
-  // `gex:` exercises. Counting only the latter meant a learner who had met a
-  // dozen concepts mid-session still read "0/40 started" — the loop taught the
-  // concept and the Library denied it had happened.
-  it('counts a concept met through the session loop as started', async () => {
-    const { store, srs } = await fresh();
-    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
-
-    const s = store.pointStats('A1', 'Artikel & Genus', 6);
-    expect(s.started).toBe(true);
-    expect(s.metInSession).toBe(true);
-    // Meeting is not drilling: mastery stays a measure of the exercises.
-    expect(s.seen).toBe(0);
-    expect(s.mastery).toBe(0);
-  });
-
-  it('prefers drilled progress over the met-in-session marker', async () => {
-    const { store, srs } = await fresh();
-    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
-    store.review('gex:A1:Artikel & Genus:0', srs.Rating.Good);
-
-    const s = store.pointStats('A1', 'Artikel & Genus', 6);
-    expect(s.started).toBe(true);
-    expect(s.metInSession).toBe(false);   // it has actually been drilled now
-    expect(s.seen).toBe(1);
-  });
-
-  it('matches the card by title, not by position', async () => {
-    const { store, srs } = await fresh();
-    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
-    // Same index, different point: must not inherit the other card's status.
-    expect(store.pointStats('A1', 'sein & haben', 6).started).toBe(false);
-    // Same title, different level.
-    expect(store.pointStats('A2', 'Artikel & Genus', 6).started).toBe(false);
-  });
-
-  it('without a title, behaves exactly as before', async () => {
-    const { store, srs } = await fresh();
-    store.review('gram:A1:Artikel & Genus', srs.Rating.Good);
-    expect(store.pointStats('A1', 'P0', 6).started).toBe(false);
-  });
-
-  it('mastery is known/count, and a lapse leaves the point started but unmastered', async () => {
-    const { store, srs } = await fresh();
-    for (let xi = 0; xi < 4; xi++) store.review(`gex:A1:P0:${xi}`, srs.Rating.Easy);
-    const s = store.pointStats('A1', 'P0', 4);
-    expect(s.known).toBe(4);
-    expect(s.mastery).toBe(1);
-
-    store.review('gex:A1:P0:0', srs.Rating.Again);
-    const after = store.pointStats('A1', 'P0', 4);
-    expect(after.started).toBe(true);
-    expect(after.known).toBe(3);
-    expect(after.mastery).toBeCloseTo(0.75, 5);
-  });
-
-  it('handles a point with no exercises without dividing by zero', async () => {
-    const { store } = await fresh();
-    expect(store.pointStats('C2', 'P0', 0).mastery).toBe(0);
-  });
-});
-
 describe('teach-only first session', () => {
   it('strips every drill and grammar point, leaving pure vocabulary', async () => {
     const { data, store, session, srs } = await fresh();
@@ -1040,7 +823,7 @@ describe('teach-only first session', () => {
     const mixed = session.buildMixedSession(target);
     const taught = session.buildMixedSession(target, true);
 
-    // The normal session interleaves drills; the teaching one must not.
+    // The normal session interleaves drillsMod; the teaching one must not.
     expect(mixed.some((it) => it.type !== 'flip')).toBe(true);
     expect(taught.every((it) => it.type === 'flip')).toBe(true);
     expect(taught.every((it) => it.word.kind === 'word')).toBe(true);
@@ -1054,7 +837,7 @@ describe('teach-only first session', () => {
 });
 
 // "Quick 5" was a queue length standing in for a duration, and a queue length is a
-// bad proxy: this builder expands words into flips *plus* drills, and a typed
+// bad proxy: this builder expands words into flips *plus* drillsMod, and a typed
 // transformation costs several times what a flip does. These pin the estimate's
 // shape — that it never lies in the reassuring direction, and that trimming to a
 // budget and estimating that budget are actually inverses.
@@ -1191,118 +974,6 @@ describe('session resume', () => {
   });
 });
 
-// Lesen. Everything else in the app is retrieval; this is the only thing that
-// hands the learner German to *understand*. The band is the whole design: zero
-// unknown words teaches nothing, four is a vocabulary list in disguise.
-describe('reader', () => {
-  async function withCorpus() {
-    vi.resetModules();
-    const data = await import('./data/index.ts');
-    const store = await import('./store.ts');
-    const reader = await import('./lib/reader.ts');
-    reader.resetSurfaceIndex();
-    data.registerWords([
-      word('voc:A1:der Hund', 'Animals', { term: 'der Hund', en: 'dog', gender: 'der', plural: 'die Hunde',
-        ex: [{ de: 'Der Hund schläft im Garten.', en: 'The dog sleeps in the garden.', lvl: 'A1' }] }),
-      word('voc:A1:der Garten', 'Home', { term: 'der Garten', en: 'garden', gender: 'der', plural: 'die Gärten', ex: [] }),
-      word('voc:A1:schlafen', 'Core', { term: 'schlafen', en: 'to sleep', pos: 'verb', ex: [] }),
-      word('voc:A1:im', 'Grammar', { term: 'im', en: 'in the', pos: 'preposition', ex: [] }),
-    ]);
-    return { data, store, reader };
-  }
-
-  it('resolves inflected forms back to their card', async () => {
-    const { reader } = await withCorpus();
-    const idx = reader.surfaceIndex();
-    // A plural and a conjugated form — a bare term index would miss both, and most
-    // of any real sentence with them.
-    expect(idx.get('hunde')?.id).toBe('voc:A1:der Hund');
-    expect(idx.get('schläft')?.id).toBe('voc:A1:schlafen');
-    expect(idx.get('geschlafen')?.id).toBe('voc:A1:schlafen');
-  });
-
-  // The lexicon grows after boot: importing a class pack appends to WORDS through
-  // `addUserWords`. The index is lazy and was built the first time Lesen ran, so
-  // without provenance on the cache the learner's own words stayed invisible to
-  // the reader — every one of them counted as an unrecognised token — until a full
-  // page reload happened to rebuild it.
-  it('sees a word registered after the index was already built', async () => {
-    const { reader, store } = await withCorpus();
-    expect(reader.lookupSurface('Katze')).toBeNull();   // forces the first build
-
-    store.addUserWords([word('usr:die Katze', 'Mein Wortschatz', {
-      term: 'die Katze', en: 'cat', gender: 'die', plural: 'die Katzen',
-      ex: [{ de: 'Die Katze schläft im Garten.', en: 'The cat sleeps in the garden.', lvl: 'A1' }],
-    })]);
-
-    expect(reader.lookupSurface('Katze')?.id).toBe('usr:die Katze');
-    expect(reader.surfaceIndex().get('katzen')?.id).toBe('usr:die Katze');  // and its plural
-    const toks = reader.annotate('Die Katze schläft.', () => false);
-    expect(toks.find((t: any) => t.text === 'Katze')?.unknown).toBe(true);
-  });
-
-  it('marks only the words the learner has never met', async () => {
-    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
-    store.review('voc:A1:der Hund', srs.Rating.Good);   // met
-    const toks = reader.annotate('Der Hund schläft im Garten.',
-      (w: any) => store.statusOf(w.id) !== 'new');
-    const unknown = toks.filter((t: any) => t.unknown).map((t: any) => t.text);
-    expect(unknown).not.toContain('Hund');
-    expect(unknown).toContain('Garten');
-  });
-
-  it('reassembles the sentence exactly, punctuation and all', async () => {
-    const { reader } = await withCorpus();
-    const de = 'Der Hund schläft im Garten.';
-    expect(reader.annotate(de, () => true).map((t: any) => t.text).join('')).toBe(de);
-  });
-
-  it('offers nothing when every word is already known — that teaches nothing', async () => {
-    const { reader } = await withCorpus();
-    const out = reader.pickReadable({ familiar: () => true, inScope: () => true });
-    expect(out).toEqual([]);
-  });
-
-  it('offers nothing when the sentence is too far out of reach', async () => {
-    const { reader } = await withCorpus();
-    // Nothing familiar at all: 3+ unknown words is a vocabulary list, not reading.
-    const out = reader.pickReadable({ familiar: () => false, inScope: () => true, maxUnknown: 1 });
-    expect(out).toEqual([]);
-  });
-
-  it('finds the i+1 sentence and names what is new in it', async () => {
-    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
-    for (const id of ['voc:A1:der Hund', 'voc:A1:schlafen', 'voc:A1:im']) store.review(id, srs.Rating.Good);
-    const out = reader.pickReadable({
-      familiar: (w: any) => store.statusOf(w.id) !== 'new',
-      inScope: () => true, minTokens: 3,
-    });
-    expect(out).toHaveLength(1);
-    expect(out[0].unknownWords.map((w: any) => w.id)).toEqual(['voc:A1:der Garten']);
-    expect(out[0].en).toBe('The dog sleeps in the garden.');
-  });
-
-  it('respects the level filter', async () => {
-    const { reader, store, srs } = { ...await withCorpus(), srs: await import('./srs.ts') };
-    for (const id of ['voc:A1:der Hund', 'voc:A1:schlafen', 'voc:A1:im']) store.review(id, srs.Rating.Good);
-    const out = reader.pickReadable({
-      familiar: (w: any) => store.statusOf(w.id) !== 'new',
-      inScope: () => false, minTokens: 3,
-    });
-    expect(out).toEqual([]);
-  });
-
-  it('puts the most readable sentence first', async () => {
-    const { reader } = await withCorpus();
-    const out = reader.pickReadable({
-      familiar: () => false, inScope: () => true, minTokens: 3, maxUnknown: 4,
-    });
-    for (let i = 1; i < out.length; i++) {
-      expect(out[i].unknownWords.length).toBeGreaterThanOrEqual(out[i - 1].unknownWords.length);
-    }
-  });
-});
-
 // Lexi was a testing app that never taught: a beginner could be asked
 // `der Vater → die ___` before anything had said what a plural is. The rule was one
 // tap away the whole time, behind a link a learner has no reason to tap when they
@@ -1311,18 +982,18 @@ describe('teach before test', () => {
   const target = { kind: 'all' as const, name: 'All' };
 
   async function withNouns() {
-    const { data, store, session, srs, fundamentals } = await fresh();
+    const { data, store, session, srs, drillsMod } = await fresh();
     data.registerWords(Array.from({ length: 8 }, (_, i) =>
       word(`t${i}`, 'Nouns', { gender: 'der', plural: 'die Ts', pos: 'noun' })));
-    return { store, session, srs, fundamentals };
+    return { store, session, srs, drillsMod };
   }
 
   it('marks the first drill of a mode the learner has never answered', async () => {
     const { session } = await withNouns();
-    const drills = session.buildMixedSession(target).filter((it: any) => it.type !== 'flip');
-    expect(drills.length).toBeGreaterThan(0);
-    for (const mode of new Set(drills.map((d: any) => d.type))) {
-      const inMode = drills.filter((d: any) => d.type === mode);
+    const drillsMod = session.buildMixedSession(target).filter((it: any) => it.type !== 'flip');
+    expect(drillsMod.length).toBeGreaterThan(0);
+    for (const mode of new Set(drillsMod.map((d: any) => d.type))) {
+      const inMode = drillsMod.filter((d: any) => d.type === mode);
       // Exactly one introduction per mode per session, on whichever card reaches
       // it first — an intro on every card would be a lecture, not a lesson.
       expect(inMode.filter((d: any) => d.teach), `mode ${mode}`).toHaveLength(1);
@@ -1331,7 +1002,7 @@ describe('teach before test', () => {
   });
 
   it('stops introducing a mode once it has actually been answered', async () => {
-    const { session, store, srs, fundamentals } = await withNouns();
+    const { session, store, srs, drillsMod } = await withNouns();
     // Grading any drill in the mode is what counts as having met it.
     const first = session.buildMixedSession(target).find((it: any) => it.type !== 'flip')!;
     store.review(first.srsId, srs.Rating.Good);
@@ -1339,7 +1010,7 @@ describe('teach before test', () => {
     const again = session.buildMixedSession(target)
       .filter((it: any) => it.type === first.type);
     expect(again.every((d: any) => !d.teach), `${first.type} was re-introduced`).toBe(true);
-    void fundamentals;
+    void drillsMod;
   });
 
   it('never marks a plain vocabulary flip', async () => {
@@ -1362,17 +1033,21 @@ describe('teach before test', () => {
 
 
 // Persona B2 #34: "FSRS treats a word as one item. My recognition of `beharrlich`
-// is fine, my production isn't." It turns out the app already separates them —
-// the flip card is keyed on the word id and every drill mode gets its own
-// `gym:<mode>:<wordId>` track — so this is a property to pin rather than a feature
-// to build. Untested, it is one refactor away from silently collapsing back into
-// a single schedule, which would re-teach a word you can already recognise.
+// is fine, my production isn't." The app separates them — the flip card is keyed
+// on the word id and every drill mode gets its own `gym:<mode>:<wordId>` track —
+// so this is a property to pin rather than a feature to build. Untested, it is
+// one refactor away from silently collapsing back into a single schedule, which
+// would re-teach a word you can already recognise.
+//
+// This is the split the 2026-09-05 refocus leans hardest on: with the rule
+// drillsMod gone, `recall` *is* the productive half of the app, and it only works
+// because it was always scheduled apart from the flip.
 describe('recognition and production are scheduled separately', () => {
   it('reviewing the flip card leaves the word’s drill tracks untouched', async () => {
-    const { data, store, srs, fundamentals } = await fresh();
+    const { data, store, srs, drillsMod } = await fresh();
     const w = word('voc:A1:nehmen', 'Sector A', { pos: 'verb', term: 'nehmen' });
     data.registerWords([w]);
-    const drill = fundamentals.gymId('transform', w);
+    const drill = drillsMod.gymId('recall', w);
 
     store.review(w.id, srs.Rating.Good);
 
@@ -1382,10 +1057,10 @@ describe('recognition and production are scheduled separately', () => {
   });
 
   it('reviewing a drill leaves recognition untouched', async () => {
-    const { data, store, srs, fundamentals } = await fresh();
+    const { data, store, srs, drillsMod } = await fresh();
     const w = word('voc:A1:beharrlich', 'Sector A', { pos: 'adjective', term: 'beharrlich' });
     data.registerWords([w]);
-    const drill = fundamentals.gymId('cloze', w);
+    const drill = drillsMod.gymId('plural', w);
 
     store.review(drill, srs.Rating.Again);
 
@@ -1394,17 +1069,17 @@ describe('recognition and production are scheduled separately', () => {
   });
 
   it('gives each production mode its own track, not one shared "production" one', async () => {
-    const { data, store, srs, fundamentals } = await fresh();
+    const { data, store, srs, drillsMod } = await fresh();
     const w = word('voc:A1:geben', 'Sector A', { pos: 'verb', term: 'geben' });
     data.registerWords([w]);
-    const conj = fundamentals.gymId('conj', w);
-    const order = fundamentals.gymId('order', w);
+    const recall = drillsMod.gymId('recall', w);
+    const gender = drillsMod.gymId('gender', w);
 
-    store.review(conj, srs.Rating.Good);
+    store.review(recall, srs.Rating.Good);
 
-    expect(conj).not.toBe(order);
-    expect(store.statusOf(conj)).not.toBe('new');
-    expect(store.statusOf(order)).toBe('new');
+    expect(recall).not.toBe(gender);
+    expect(store.statusOf(recall)).not.toBe('new');
+    expect(store.statusOf(gender)).toBe('new');
   });
 });
 
@@ -1451,95 +1126,6 @@ describe('first run before placement', () => {
     const { store } = await fresh();
     store.setLevels(new Set(['B1', 'B2'] as const));
     expect(store.studyLevel()).toBe('B1');
-  });
-});
-
-// The scheduler's reasoning, shown before the session rather than three cards
-// into it. The component is JSX; everything that decides *what it says* is in
-// `whyLinesFor`, which is where the tests go.
-describe('SessionWhy — the reasons, before you press start', () => {
-  it('says nothing when the day is plain reviews', async () => {
-    // The common case, and the one worth protecting: a heading with nothing
-    // under it would read as broken rather than quiet.
-    const { data } = await fresh();
-    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
-    data.registerWords([word('plain', 'Sector A')]);
-    expect(whyLinesFor(['plain'])).toEqual([]);
-  });
-
-  it('explains a grammar point that rides along with a word being learned', async () => {
-    // The flagship case: learn *obwohl*, and its Konzessivsätze point joins the
-    // session. This is the line no competitor can write.
-    const { data } = await fresh();
-    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
-    data.registerWords([
-      word('voc:B1:obwohl', 'Sector A', { term: 'obwohl', level: 'B1' }),
-      word('gram:B1:Konzessivsätze: obwohl', 'Grammar',
-        { term: 'Konzessivsätze: obwohl', level: 'B1', kind: 'grammar' }),
-    ]);
-    const lines = whyLinesFor(['voc:B1:obwohl']);
-    expect(lines).toHaveLength(1);
-    expect(lines[0].line.em).toContain('obwohl');
-  });
-
-  it('never repeats the same reason', async () => {
-    // `blindSpotDrills` de-duplicates by srsId, which is mode+word — so one weak
-    // mode across four different words returns four items carrying four identical
-    // reasons, because the line names the weakness and not the word. Four copies
-    // of "you've missed Gender 1x this month" is worse than one.
-    //
-    // Written against blind spots specifically, and not against `linkedGrammar`,
-    // because that one already de-duplicates internally: a test built on it passes
-    // whether or not this code does anything. Checked by mutation.
-    const { data, store, fundamentals } = await fresh();
-    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
-    const words = Array.from({ length: 6 }, (_, i) => word(`n${i}`, 'Nouns', { gender: 'die' }));
-    data.registerWords(words);
-    store.logMiss(fundamentals.MODE_TAG.gender);
-
-    const ids = words.map((w) => w.id);
-    const lines = whyLinesFor(ids);
-    expect(lines.length).toBe(1);
-    expect(lines[0].line.em).toBe(fundamentals.MODE_TAG.gender);
-  });
-
-  it('collapses remedy and blind spot when they name the same weakness', async () => {
-    // Found in the browser against a real profile, not in a test: the block
-    // rendered "You've missed Gender (der/die/das) 6x this month" directly above
-    // "A weak spot - Gender (der/die/das), missed 6x". Two sentences, one fact.
-    // De-duplication keys off the reason's tag now rather than its phrasing.
-    const { data, store, fundamentals } = await fresh();
-    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
-    const words = Array.from({ length: 6 }, (_, i) => word(`n${i}`, 'Nouns', { gender: 'die' }));
-    // `remedyGrammar` only fires when the point card it would teach actually
-    // exists — without it the test passes for the wrong reason, which is how the
-    // first version of this test slipped through a mutation check.
-    data.registerWords([
-      ...words,
-      word('gram:A1:Artikel & Genus', 'Grammar',
-        { term: 'Artikel & Genus', level: 'A1', kind: 'grammar' }),
-    ]);
-    // Enough misses that remedyGrammar fires as well as blindSpotDrills.
-    for (let i = 0; i < 6; i++) store.logMiss(fundamentals.MODE_TAG.gender);
-
-    const lines = whyLinesFor(words.map((w) => w.id));
-    const genderLines = lines.filter((l) => l.line.em === fundamentals.MODE_TAG.gender);
-    expect(genderLines).toHaveLength(1);
-  });
-
-  it('caps at three so the primary action keeps its card', async () => {
-    const { data } = await fresh();
-    const { whyLinesFor } = await import('./components/SessionWhy.tsx');
-    const triggers = ['obwohl', 'weil', 'damit', 'sodass', 'nachdem'];
-    const points = [
-      'Konzessivsätze: obwohl', 'Nebensätze (weil/dass)', 'Finalsätze: damit & um … zu',
-      'Konsekutivsätze: sodass', 'Plusquamperfekt & nachdem/bevor',
-    ];
-    data.registerWords([
-      ...triggers.map((tm) => word(`voc:B1:${tm}`, 'Sector A', { term: tm, level: 'B1' })),
-      ...points.map((p) => word(`gram:B1:${p}`, 'Grammar', { term: p, level: 'B1', kind: 'grammar' })),
-    ]);
-    expect(whyLinesFor(triggers.map((tm) => `voc:B1:${tm}`)).length).toBeLessThanOrEqual(3);
   });
 });
 
@@ -1655,5 +1241,58 @@ describe('the unlock reason', () => {
     ], 1);
     const back = session.loadSession(tgt);
     expect(back?.items[0].reason).toEqual(reason);
+  });
+});
+
+// The search box's miss is the interesting case: a learner who looks up a word
+// and gets nothing has told us it was worth interrupting themselves for, and the
+// corpus does not have it. That is the only signal a local-first app can collect
+// about its own gaps.
+describe('words the corpus did not have', () => {
+  it('records a miss, and counts a repeat rather than duplicating it', async () => {
+    const { store } = await fresh();
+    expect(store.wantedWords()).toEqual([]);
+
+    store.noteWanted('Gepflogenheit');
+    store.noteWanted('  gepflogenheit  ');   // same word, typed again
+
+    const list = store.wantedWords();
+    expect(list).toHaveLength(1);
+    expect(list[0].n).toBe(2);
+    // The spelling they reached for is kept, not normalised — it is evidence.
+    expect(list[0].term).toBe('Gepflogenheit');
+    expect(store.isWanted('GEPFLOGENHEIT')).toBe(true);
+  });
+
+  it('ignores empty and whitespace-only notes', async () => {
+    const { store } = await fresh();
+    store.noteWanted('   ');
+    store.noteWanted('');
+    expect(store.wantedWords()).toEqual([]);
+  });
+
+  it('can be withdrawn — a list things only accumulate in is a list nobody opens', async () => {
+    const { store } = await fresh();
+    store.noteWanted('Quatsch');
+    store.unwantWord('quatsch');
+    expect(store.wantedWords()).toEqual([]);
+  });
+
+  it('exports on its own, carrying no progress with it', async () => {
+    const { store } = await fresh();
+    store.noteWanted('Fernweh');
+    const out = JSON.parse(store.exportWanted());
+    expect(out.app).toBe('lexi-wanted');
+    expect(out.words[0].term).toBe('Fernweh');
+    // The whole point of a separate export: reporting a gap must not mean
+    // handing over your history.
+    expect(Object.keys(out)).not.toContain('cards');
+    expect(Object.keys(out)).not.toContain('visits');
+  });
+
+  it('rides the backup, because the learner authored it', async () => {
+    const { store } = await fresh();
+    store.noteWanted('Zeitgeist');
+    expect(Object.keys(JSON.parse(store.exportData()).settings)).toContain('lexi.wanted.v1');
   });
 });

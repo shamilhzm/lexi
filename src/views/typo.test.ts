@@ -7,8 +7,8 @@
 // which is what the tolerance must *refuse*.
 import { describe, it, expect, beforeAll } from 'vitest';
 import { registerWords } from '../data/index.ts';
-import { resetSurfaceIndex } from '../lib/reader.ts';
-import { isTypoFor } from './GrammarDrill.tsx';
+import { resetSurfaceIndex } from '../lib/surface.ts';
+import { isTypoFor } from './drills.tsx';
 import type { Word } from '../types.ts';
 
 const word = (term: string, en = ''): Word => ({

@@ -1,48 +1,58 @@
-// Progress — "how am I doing?", answered once.
+// Fortschritt — "how am I doing?", answered once.
 //
 // This replaced four sibling destinations that were four views of one dataset:
 // the Karte heatmap, the Decks list, the Wortkarte map and the Stats page, plus
-// a KPI strip on one of them and Blind Spots buried in an accordion on Today.
+// a KPI strip on one of them and Blind Spots buried in an accordion.
 //
-// ## The 2026-08-26 correction
+// ## What arrived here on 2026-09-05
 //
-// That merge went one surface too far. **Decks and the word map are not
-// self-assessment** — they are the lexicon, and a learner opening *Essen* wants
-// to see what it teaches, not to be told how much of it they have missed. Filing
-// browse under Progress meant the only route to 6,622 cards ran through the page
-// that measures you, and it left this surface answering two questions with one
-// name. Both moved to `#/words`; every old `#/progress/decks/…` hash still
-// resolves there (see route.ts).
+// The daily briefing was deleted (the app opens on a card now — see App.tsx), and
+// four of its parts were not detours to a card at all. They were answers to *this*
+// page's question and were only living there because that page came first:
+//
+//   the level strip     which words you are shown, and how far through each level
+//   the goal line       the date you chose, and whether your pace reaches it
+//   the placement nudge the two minutes that make every other number here honest
+//   the backlog         how much of the mountain you have cleared
+//
+// Read top to bottom the page now goes: what you know → what you are studying →
+// where you are thin → how you're trending → what you keep missing.
 //
 // What is left answers exactly one question, read top to bottom:
 //   the number → where you are thin → how you're trending → what you keep missing
 //
-// The observatory hangs off the bottom rather than off Today, for the same
-// reason: it is a picture of what you have built, which is this surface\'s
-// subject and not the daily briefing\'s.
+// The last of those is the only place in the app that says "you keep getting
+// this wrong", so it is the only place that has earned the right to offer a run
+// of one drill by name. Everything else here is read, not acted on.
 import { useRef } from 'react';
-import { Check, ChevronRight, LayoutGrid } from 'lucide-react';
-import { totals, streak, goalProgress, completions, lastSeen } from '../store.ts';
+import { useMemo } from 'react';
+import { Check, ChevronRight, LayoutGrid, GraduationCap, Target as TargetIcon } from 'lucide-react';
+import { totals, streak, goalProgress, completions, lastSeen, placementLevel, buildBriefing, backlogPeak } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heatText } from '../lib/ui.ts';
+import PathCard from '../components/PathCard.tsx';
 import Karte from './Karte.tsx';
 import Stats from './Stats.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import CountUp from '../components/CountUp.tsx';
-import BrainHero from '../components/Brain/BrainHero.tsx';
 import Card from '../components/ui/Card.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import type { Target } from '../types.ts';
+import type { Mode } from './drills.tsx';
 
-export default function Progress({ onStudy, onBlindDrill, onOpenGroup, onBrain }: {
+export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }: {
   onStudy: (t: Target) => void;
-  onBlindDrill: (tag?: string) => void;
-  /** Into the lexicon, which now lives on Words. The heatmap is a *map of* the
+  /** Straight into a run of the drill the learner keeps missing. */
+  onDrill: (m: Mode) => void;
+  /** Into the lexicon, which lives on Words. The heatmap is a *map of* the
    *  corpus, so tapping a region has to land in the corpus. */
   onOpenGroup: (group: string) => void;
-  onBrain: () => void;
+  /** The two-minute test. Nudged here because this is the page whose every
+   *  number is more honest once it has been taken. */
+  onPlacement: () => void;
 }) {
   useStore();
+  const placed = placementLevel();
 
   // ---- the overview ---------------------------------------------------------
   return (
@@ -59,6 +69,27 @@ export default function Progress({ onStudy, onBlindDrill, onOpenGroup, onBrain }
           numbers twice over — Known, coverage, seen, due, streak — separated
           only by having lived on different screens. The headline says it once. */}
       <Headline />
+
+      {/* The two minutes that calibrate everything above and below it. Shown
+          until taken, and never again after. */}
+      {!placed && (
+        <Card as="button" accent pad="none" onClick={onPlacement}
+          className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:brightness-110 transition-[filter]">
+          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><GraduationCap size={18} /></span>
+          <span className="flex-1">
+            <span className="block text-base font-semibold">Two minutes to find your level</span>
+            <span className="block text-xs text-dim">Lexi will skip the words you already know and start you where you actually are.</span>
+          </span>
+          <ChevronRight size={16} className="text-accent flex-shrink-0" />
+        </Card>
+      )}
+
+      <Goal />
+
+      {/* Which levels you are studying, and how far through each. This is the
+          control that decides what the session serves you, so it is on the page
+          that explains the session's results rather than buried in settings. */}
+      <PathCard onStudy={onStudy} onDrill={onDrill} />
 
       {/* Where you are thin, spatially. Karte supplies its own heading. */}
       <section aria-label="Knowledge heatmap" className="mb-6">
@@ -79,15 +110,7 @@ export default function Progress({ onStudy, onBlindDrill, onOpenGroup, onBrain }
           which is the wrong surface for it — Today is for doing, not auditing. */}
       <section aria-labelledby="blind-heading" className="mb-6">
         <h2 id="blind-heading" className="text-lg font-bold mb-3">Blind spots</h2>
-        <BlindSpotList onDrill={onBlindDrill} />
-      </section>
-
-      {/* The observatory. It used to open the daily briefing, above the
-          greeting — the first thing a learner saw before being told what to do.
-          It is a picture of accumulated knowledge, which is this page\'s
-          subject; Today\'s is the next twenty minutes. */}
-      <section aria-label="Your brain" className="mb-6">
-        <BrainHero onOpen={onBrain} />
+        <BlindSpotList onDrill={onDrill} />
       </section>
 
       {/* Every "you are thin here" on this page ends in the same question:
@@ -101,6 +124,29 @@ export default function Progress({ onStudy, onBlindDrill, onOpenGroup, onBrain }
         </span>
         <ChevronRight size={16} className="text-dim flex-shrink-0" />
       </Card>
+    </div>
+  );
+}
+
+/** The backlog, burnt down.
+ *
+ *  Only after a real gap, and only while it is still shrinking: a mountain of
+ *  overdue reviews reads as failure, and the one thing that makes it bearable is
+ *  seeing that it is *finite and moving*. Silent when the peak is the current
+ *  total, which is the state where this would only be bad news repeated. */
+function Backlog() {
+  const due = useMemo(() => buildBriefing().dueTotal, []);
+  const peak = backlogPeak();
+  if (peak <= due || due === 0) return null;
+  return (
+    <div className="mt-3 max-w-[320px]">
+      <div className="h-1 bg-panel2 rounded-full overflow-hidden">
+        <div className="h-full bg-green rounded-full transition-[width] duration-500"
+          style={{ width: `${Math.round(((peak - due) / peak) * 100)}%` }} />
+      </div>
+      <p className="text-2xs text-dim mt-1 font-mono">
+        {fmt(peak - due)} of {fmt(peak)} backlog cleared · {fmt(due)} still waiting
+      </p>
     </div>
   );
 }
@@ -136,6 +182,34 @@ function Finished() {
   );
 }
 
+/** The date you chose, and whether your pace reaches it. Silent without a goal.
+ *
+ *  Two lines, not one 13px run of dim grey: this is the only sentence in the app
+ *  that says what the learner is *for*. The claim rides its own line at the size
+ *  of a heading; the pace stays a supporting line, because it is the commitment
+ *  that motivates and the projection that qualifies it. */
+function Goal() {
+  const gp = goalProgress();
+  if (!gp) return null;
+  const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
+  const onTrack = gp.projectedPct !== null && gp.projectedPct >= 90;
+  return (
+    <Card pad="none" className="flex items-center gap-3 px-4 py-3.5 mb-4">
+      <TargetIcon size={18} className={onTrack ? 'text-green flex-shrink-0' : 'text-accent flex-shrink-0'} />
+      <div className="min-w-0">
+        <p className="text-base font-semibold leading-tight">{gp.goal.level} by {when}</p>
+        <p className="text-xs text-dim mt-1">
+          {gp.pct}% recognised
+          {gp.projectedPct !== null && (
+            <> · at your pace <span className={onTrack ? 'text-green font-semibold' : 'text-txt font-semibold'}>~{gp.projectedPct}%</span> by then</>
+          )}
+          {gp.projectedPct === null && ' · pace appears after a day or two of study'}
+        </p>
+      </div>
+    </Card>
+  );
+}
+
 /** The number the whole app is for.
  *
  *  DESIGN-REVIEW argued *Known* should be the app's currency and it never
@@ -145,7 +219,6 @@ function Finished() {
  *  answers how far you've come. */
 function Headline() {
   const t = totals();
-  const gp = goalProgress();
   const pct = Math.round(t.coverage * 100);
   // Read once, on mount, before Karte's own effect records the new state —
   // both surfaces animate from the same baseline, so the number and the map
@@ -171,8 +244,9 @@ function Headline() {
       </div>
       <p className="text-dim text-xs mt-2.5">
         {fmt(t.learned)} seen · {fmt(t.due)} due now · {streak()}-day streak
-        {gp && <> · goal {gp.goal.level} at {gp.pct}%</>}
+        {t.recalled > 0 && <> · {fmt(t.recalled)} you can also produce</>}
       </p>
+      <Backlog />
     </Card>
   );
 }

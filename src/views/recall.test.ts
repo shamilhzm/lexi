@@ -7,7 +7,7 @@
 // delete one of these deliberately.
 import { describe, it, expect } from 'vitest';
 import { registerWords, WORDS } from '../data/index.ts';
-import { recallSafe, recallHints, articleMiss, eligibleModes, MODE_TAG, MODE_REMEDY } from './Fundamentals.tsx';
+import { recallSafe, recallHints, articleMiss, eligibleModes, MODE_TAG } from './drills.tsx';
 import type { Word } from '../types.ts';
 
 const w = (id: string, term: string, en: string, extra: Partial<Word> = {}): Word => ({
@@ -121,10 +121,7 @@ describe('articleMiss — naming a gender error instead of just saying no', () =
 });
 
 describe('mode registration', () => {
-  it('is named and carries no remedy point, because production has no single rule', () => {
+  it('is named, so a miss lands in the blind-spot table under something readable', () => {
     expect(MODE_TAG.recall).toBe('Recall (English → German)');
-    // Every other mode either teaches a grammatical system or explicitly has none.
-    // Recall's one system is gender, which RecallItem opens per-card.
-    expect(MODE_REMEDY.recall).toEqual([]);
   });
 });

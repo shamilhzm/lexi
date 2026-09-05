@@ -1,21 +1,26 @@
-// Üben — the unified session player. Interleaves FSRS flip cards (swipe right
-// = knew it, swipe left = didn’t know) with grammar drills (gender / plural /
-// conjugation / cloze) for the same words. Handles vocabulary and grammar cards.
+// The session player — the desk.
+//
+// FSRS flip cards (swipe right = knew it, swipe left = didn’t know) interleaved
+// with the word-fact drills for the same words: the gender, the plural, the
+// German you have to *produce*, the spelling you have to hear. One surface, one
+// grade scale, one queue.
+//
+// The 2026-09-05 refocus took the grammar half out of here — the authored
+// exercise renderer, the rule panels, the seven rule drills and the "exam
+// conditions" mode that existed to strip the scaffolding off a certificate
+// paper. What is left is a vocabulary player, which is what this app is.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, type MissDetail } from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail } from '../store.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession } from '../session.ts';
 import { loadDetail, detailLoaded } from '../data/detail.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
 // `Grade` is the honest name.
-import { GenderItem, PluralItem, ConjItem, ClozeItem, OrderWordItem, TransformItem, CaseItem, SeparableItem, ReflexiveItem, DictationItem, RecallItem, MODE_TAG, type Grade as DrillGrade } from './Fundamentals.tsx';
-import { GrammarExercise } from './GrammarDrill.tsx';
-import { RuleShownCtx, NoHelpCtx } from '../components/RulePanel.tsx';
-import { loadGrammar, type GPoint } from '../lib/grammar.ts';
+import { GenderItem, PluralItem, RecallItem, MODE_TAG, type Grade as DrillGrade } from './drills.tsx';
 import { useStore } from '../useStore.ts';
 import { useMedia } from '../lib/useMedia.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
@@ -29,7 +34,8 @@ import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
-import WhereItLanded from '../components/Brain/WhereItLanded.tsx';
+import InstallNudge from '../components/InstallNudge.tsx';
+import BackupNudge from '../components/BackupNudge.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
 import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
@@ -40,7 +46,7 @@ import Kicker from '../components/ui/Kicker.tsx';
 import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
 
-const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', conj: 'Conjugation', cloze: 'Cloze', order: 'Word order', transform: 'Transform', case: 'Kasus', separable: 'Trennbar', reflexive: 'Reflexiv', dictation: 'Diktat', recall: 'Recall' };
+const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', recall: 'Recall' };
 const SWIPE_PX = 90; // horizontal travel that commits a grade
 
 /** The grade scale.
@@ -63,13 +69,6 @@ const SCALE: { rating: Grade; label: string; firstSight?: string; hover: string 
   { rating: Rating.Easy, label: 'Easy', hover: 'hover:border-green hover:text-green' },
 ];
 
-/** Stable per-card pick from a grammar point’s exercises (same card → same drill). */
-function pickExercise(point: GPoint, seed: string) {
-  let h = 0;
-  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
-  return point.exercises[Math.abs(h) % point.exercises.length];
-}
-
 /** Does this learner get the monolingual layer? A German definition is the right
  *  thing to show from B2 up and the wrong thing below it, so the gate is the
  *  learner's own level rather than the card's — it is a fact about who is reading.
@@ -78,14 +77,22 @@ export function showsGermanDefs(placed: CEFR | null): boolean {
   return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
 }
 
-export default function Review({ target, onExit, onPick, onDrills, onPlacement, firstRun = false, exam = false }:
-  { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void;
+export default function Review({ target, onDone, onPick, onProfile, onPlacement, firstRun = false }:
+  { target: Target;
+    /** Leave the guided chain — the recap's "Got it". */
+    onDone: () => void;
+    /** Into the lexicon: another deck, or a word to look up. */
+    onPick: () => void;
+    /** Backup, reminders, settings — offered from the recap's nudges. */
+    onProfile: () => void;
     /** Offered from the first-run recap — see DoneState. */
-    onPlacement?: () => void; firstRun?: boolean;
-    /** Exam conditions: no hints, no rules, no "why?" — see NoHelpCtx. */
-    exam?: boolean }) {
+    onPlacement?: () => void; firstRun?: boolean }) {
   useStore(); // re-render when the CEFR filter changes
   const lvKey = [...levels()].sort().join('');
+  // A scoped session — a deck, a sector, the words behind a text — was opened
+  // from somewhere and has a way back. The day's queue is the app's root and has
+  // none.
+  const scoped = target.kind !== 'custom' || target.name !== 'Today’s session';
   const germanDefs = showsGermanDefs(placementLevel());
   // An interrupted session is resumed rather than rebuilt: the builder is
   // randomised, so a rebuild is a *different* queue and the learner's place in it
@@ -108,7 +115,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     return () => { live = false; };
   }, [detailReady]);
 
-  const restored = useMemo(() => (firstRun || exam ? null : loadSession(target)), [target, lvKey, firstRun, exam]);
+  const restored = useMemo(() => (firstRun ? null : loadSession(target)), [target, lvKey, firstRun]);
   const queue = useMemo(
     () => (detailReady ? (restored?.items ?? buildMixedSession(target, firstRun)) : []),
     [restored, target, lvKey, firstRun, detailReady]);
@@ -118,12 +125,10 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   const composition = useMemo(() => queue.reduce(
     (acc, it) => {
       if (it.reason.kind === 'blindspot') acc.blindspot++;
-      else if (it.reason.kind === 'linked') acc.linked++;
-      else if (it.reason.kind === 'remedy') acc.remedy++;
       else if ((it.reason.kind === 'due' || it.reason.kind === 'orphan') && it.reason.overdueDays >= 7) acc.overdue++;
       return acc;
     },
-    { blindspot: 0, linked: 0, remedy: 0, overdue: 0 },
+    { blindspot: 0, overdue: 0 },
   ), [queue]);
   // Above every early return — this is a hook. `hover: none` means the primary
   // input is touch, which is the honest test for "is there a Space key"; the
@@ -142,7 +147,6 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   // "9 drills" says nothing about whether they went well.
   const [drills, setDrills] = useState(0);
   const [drillsOk, setDrillsOk] = useState(0);
-  const [gmap, setGmap] = useState<Map<string, GPoint> | null>(null); // grammar point → exercises
   // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
   // or a skip, and rewind counters + position exactly.
   const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number }[]>([]);
@@ -241,16 +245,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
   // Remember the place. Writes only while a session is genuinely in progress —
   // saveSession clears the slot at 0 and at the end, so finishing leaves nothing
   // behind to resume into.
-  useEffect(() => { if (!exam) saveSession(target, queue, i); }, [target, queue, i, exam]);
-
-  // Load the exercise bank once, so grammar cards can render as drills.
-  useEffect(() => {
-    loadGrammar().then((g) => {
-      const m = new Map<string, GPoint>();
-      Object.entries(g).forEach(([lv, pts]) => (pts as GPoint[]).forEach((p) => m.set(`${lv}::${p.title}`, p)));
-      setGmap(m);
-    }).catch(() => { /* fall back to rule cards */ });
-  }, []);
+  useEffect(() => { saveSession(target, queue, i); }, [target, queue, i]);
 
   const item = queue[i];
   const flip = useCallback(() => setFlipped((f) => !f), []);
@@ -312,28 +307,6 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
     logAttempt(MODE_TAG[item.type]);
     if (!ok) noteMiss(MODE_TAG[item.type], item.word.term, detail);
     setAgain((a) => a + dAgain);
-    setDone((d) => d + 1);
-    setDrills((d) => d + 1);
-    setDrillsOk((d) => d + (ok ? 1 : 0));
-    setFlipped(false);
-    setI((n) => n + 1);
-  }, [item, i]);
-
-  // Grammar cards are graded like drills (answer, not flip).
-  const gradeGrammar = useCallback((ok: boolean) => {
-    if (!item) return;
-    const wasNew = statusOf(item.srsId) === 'new';
-    const dAgain = ok ? 0 : 1;
-    const dNew = ok && wasNew ? 1 : 0;
-    pushGrade(dAgain, dNew, 1, ok ? 1 : 0);
-    exitDir.current = ok ? 1 : -1;
-    noteResult(ok);
-    review(item.srsId, ok ? Rating.Good : Rating.Again);
-    haptic(ok ? 'grade' : 'wrong');
-    logAttempt(item.word.term);
-    if (!ok) noteMiss(item.word.term);
-    setAgain((a) => a + dAgain);
-    setNewLearned((n) => n + dNew);
     setDone((d) => d + 1);
     setDrills((d) => d + 1);
     setDrillsOk((d) => d + (ok ? 1 : 0));
@@ -411,24 +384,19 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
       </div>
     );
   }
-  if (queue.length === 0) return <EmptyState target={target} onExit={onExit} onPick={onPick} onDrills={onDrills} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} exam={exam} met={metWords.current} onPlacement={onPlacement}
+  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} />;
+  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
-    onExit={onExit} onPick={onPick} />;
+    onDone={onDone} onPick={onPick} onProfile={onProfile} />;
 
   const card = item.word;
   const drill = item.type !== 'flip';
-  const grammar = card.kind === 'grammar';
   // No memo: familyOf keeps its own reverse index, so this is a Map lookup.
-  const family = grammar ? [] : familyOf(card, WORDS);
+  const family = familyOf(card, WORDS);
   // Cheap: a regex over one short string, and only for verbs.
-  const valency = grammar ? null : valencyOf(card);
+  const valency = valencyOf(card);
   const isNew = statusOf(item.srsId) === 'new';
-  // A grammar card renders as a practical exercise when its point is in the bank.
-  const gpoint = grammar && gmap ? gmap.get(`${card.level}::${card.term}`) : undefined;
-  const grammarEx = gpoint && gpoint.exercises.length ? pickExercise(gpoint, item.srsId) : null;
-  const asExercise = drill || !!grammarEx;
 
   return (
     <div className="mx-auto w-full max-w-[640px] flex-1 flex flex-col justify-center">
@@ -454,9 +422,11 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
             four controls no longer fit beside it, the cluster wraps to its own
             line instead of truncating the deck name to two characters. */}
         <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
-          <IconButton label="Back to Today" pull onClick={onExit}><ArrowLeft size={16} /></IconButton>
+          {/* A scoped session was opened from somewhere and has a way back. The
+              day's queue is the app's root and has none — a back arrow on the
+              screen the app opens into is an arrow pointing at nothing. */}
+          {scoped && <IconButton label="Back to Wortschatz" pull onClick={onPick}><ArrowLeft size={16} /></IconButton>}
           <h1 className="text-base font-semibold truncate flex-1 min-w-[7rem]">{target.name}</h1>
-          {exam && <Kicker tone="reward" className="flex-shrink-0">Exam conditions</Kicker>}
           {/* Position out of a total, not a raw countdown. "92 left" on a first
               session reads as a backlog with no floor; "7 / 92" is the same fact
               as somewhere you are inside something finite, and it moves forward
@@ -517,9 +487,12 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
 
         {/* The card swaps in place, so nothing here is ever re-announced without
             a live region — Placement and the drills each got one, and the
-            primary loop was the surface that didn’t. */}
-        <NoHelpCtx.Provider value={exam}>
-        <div className="flex flex-col items-center justify-center py-6 sm:py-8 px-3 sm:px-6 min-h-[400px]"
+            primary loop was the surface that didn’t.
+
+            The `min-h-[400px]` that used to be here is gone: the card below sizes
+            itself against the space the bars leave (see SwipeCard), so a floor
+            here could only fight it. */}
+        <div className="flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6"
           role="region" aria-live="polite" aria-label="Current card">
           {/* The card swap is React state, not an animation lifecycle.
               It used to be `AnimatePresence mode="wait"`, which keeps the
@@ -539,60 +512,27 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
               transform-only, no fill-mode, so it cannot gate anything. */}
           <div key={item.srsId} className="card-in w-full flex flex-col items-center"
             style={{ '--dir': exitDir.current } as React.CSSProperties}>
-          {/* The payoff of carrying provenance: the scheduler shows its work.
-              Gated on `!exam` like the teach card below: this component's own
-              prop doc promises exam conditions mean "no hints, no rules, no
-              'why?'", and the why-line is exactly the third of those. It had
-              been rendering unconditionally since it shipped. */}
-          {!exam && <WhyThisCard reason={item.reason} />}
+          {/* What kind of exercise this is, and why it is here — one caption
+              block above the item, in that order.
 
-          {asExercise ? (
-            <div className="relative w-full max-w-[580px]">
-              {/* The drill-type pill notches the card's top-right corner — but on a
-                  *teach* card the block above the card is the rule, and the pill
-                  landed on top of its "New here — have a read first" line.
-                  Measured at 375px: pill x 226–329 / y 181–201 against that line's
-                  25–341 / 191–205.
+              The mode label used to be an absolutely-positioned pill notching the
+              card's top-right corner, which is a nicer object and was wrong for a
+              reason positioning could not fix: it anchored to the exercise
+              *container*, and only three of the four items render a card as their
+              first child. The Diktat renders a speaker button and two lines of
+              instruction first, so the pill floated in the middle of them.
+              In flow, it cannot collide with anything, and it reads in the order
+              the learner needs it — *what am I being asked*, then *why*. */}
+          {drill && (
+            <Kicker tone="accent" className="block mb-1.5">{DRILL_TAG[item.type] ?? 'Drill'}</Kicker>
+          )}
+          <WhyThisCard reason={item.reason} />
 
-                  Hidden rather than moved, because on a teach card it is also
-                  redundant: the rule card names the system in full, and the drill
-                  label names it again underneath. Two labels, one of them
-                  overlapping a third. */}
-              {!item.teach && (
-                <span className="absolute -top-2.5 right-3 z-10 text-2xs text-accent bg-panel2 border border-line rounded-full px-2 py-0.5 font-mono uppercase tracking-widest">{grammarEx ? 'Grammar' : (DRILL_TAG[item.type] ?? 'Drill')}</span>
-              )}
-              {/* First encounter with this kind of exercise: teach, then test.
-                  The rule has always been one tap away, behind a link nobody taps
-                  because they don't yet know they need it — so it opens itself.
-
-                  It is rendered by `DrillHeader` now, not here. Keyed on
-                  `item.type` this could only ever name the *mode*, and it showed
-                  `MODE_REMEDY[mode][0]`: an adjective ending in the Dativ was
-                  taught Akkusativ, and a modal question was taught W-Fragen. The
-                  item knows its own target; this layer never did. Same reasoning as
-                  the header comment below, and the same bug. */}
-              {/* A drill can arrive mid-session without the learner ever having
-                  chosen the concept — this is the screen where a beginner meets
-                  "Nominativ" cold. Name it, and make the name open the rule.
-                  That header is now the *item's* (see DrillHeader): deriving it
-                  here from `item.type` could only ever name the mode, and three
-                  of the seven modes pick a different grammatical target on every
-                  card — so a Futur I prompt offered the Perfekt rule. */}
-              <RuleShownCtx.Provider value={!!item.teach}>
-              {grammarEx
-                ? <GrammarExercise key={item.srsId} ex={grammarEx} onGrade={gradeGrammar} point={{ level: card.level, title: card.term }} />
-                : item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
+          {drill ? (
+            <div className="w-full max-w-[580px]">
+              {item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
                 : item.type === 'plural' ? <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'conj' ? <ConjItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'order' ? <OrderWordItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'transform' ? <TransformItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'case' ? <CaseItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'separable' ? <SeparableItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'reflexive' ? <ReflexiveItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'dictation' ? <DictationItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'recall' ? <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : <ClozeItem key={item.srsId} word={card} onGrade={gradeDrill} />}
-              </RuleShownCtx.Provider>
+                : <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
           <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade} behind={Math.min(2, queue.length - i - 1)}>
@@ -609,23 +549,38 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                   material: grain, the larger radius, a deeper lift, and the
                   serif headword. The earlier warm-cream version changed the
                   brand hue by 153° on entry, which is why it read as foreign. */}
-              <div className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
+              {/* `justify-[safe_center]`, not `justify-center`.
+                  This face is `overflow-y-auto`, and centred flex content that
+                  overflows is clipped at **both** ends — the exact defect the
+                  back face's comment below records and fixes, left un-fixed here
+                  because the card used to be tall enough to hide it. It stopped
+                  being tall enough the moment the card started sizing itself
+                  against a phone's bars: a first-sight card (kicker, headword,
+                  IPA, gloss, speaker, example, translation) lost its top line and
+                  its last line at once.
+                  `.justify-safe-center` (index.css) centres when it fits and
+                  falls back to flex-start when it does not. It is a real class
+                  and not a Tailwind arbitrary value on purpose:
+                  `justify-[safe_center]` does not compile — it emits an invalid
+                  declaration, the browser drops it, and the face silently falls
+                  back to `normal`. Which happened, and looked like a fix. */}
+              <div className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-safe-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">
                   {isNew && <span className="text-accent">New · </span>}
-                  {grammar ? 'Grammar' : (card.pos || 'word')} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
+                  {card.pos || 'word'} · {card.level}{card.field ? ` · ${card.field}` : ''}
                 </span>
-                {!grammar && <Illustration word={card} size={68} className="text-accent select-none" />}
+                <Illustration word={card} size={68} className="text-accent select-none" />
                 {/* lang="de" on every German string: without it a screen reader
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
                 <GenderTerm term={card.term} gender={card.gender}
-                  className={`headword font-bold leading-tight break-words max-w-full px-2 ${grammar ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'}`} />
+                  className="headword font-bold leading-tight break-words max-w-full px-2 text-4xl sm:text-5xl" />
                 {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
-                {isNew && !grammar && (
+                {isNew && (
                   <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
                 )}
-                {!grammar && (
+                {(
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-accent hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
@@ -686,8 +641,8 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                               flex flex-col items-stretch text-left p-5 sm:p-7 overflow-y-auto"
                    style={{ borderLeftColor: 'var(--color-green)' }}>
                 <div className="flex items-center gap-2 mb-2.5">
-                  <Kicker tone="reward">{grammar ? 'Rule' : 'Answer'}</Kicker>
-                  {!grammar && (
+                  <Kicker tone="reward">Answer</Kicker>
+                  {(
                     <>
                       {/* The German stays in view at the reveal: seeing the pair
                           together is the encoding, and the front's term vanished
@@ -704,12 +659,12 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                     <SpeakButton text={card.term} label={`Hear “${card.term}” in German`} />
                   </span>
                 </div>
-                <span className={`headword font-bold text-green leading-tight break-words ${grammar ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'}`}>{card.en}</span>
+                <span className="headword font-bold text-green leading-tight break-words text-3xl sm:text-4xl">{card.en}</span>
                 <Kicker className="block mt-1.5">
-                  {grammar ? 'Grammar' : card.pos} · {card.level}{!grammar && card.field ? ` · ${card.field}` : ''}
+                  {card.pos} · {card.level}{card.field ? ` · ${card.field}` : ''}
                 </Kicker>
                 {card.def && (
-                  <RevealBlock label={grammar ? 'How it works' : 'Definition'}>
+                  <RevealBlock label="Definition">
                     <p className="text-txt text-sm leading-relaxed whitespace-pre-line">{card.def}</p>
                   </RevealBlock>
                 )}
@@ -718,21 +673,21 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                     this in English" and becomes "how would a German explain it".
                     Gated on the *learner's* level rather than the card's, because
                     it is a fact about who is reading. */}
-                {!grammar && card.defDe && germanDefs && (
+                {card.defDe && germanDefs && (
                   <RevealBlock label="Auf Deutsch">
                     <p lang="de" className="text-txt text-sm leading-relaxed">{card.defDe}</p>
                   </RevealBlock>
                 )}
-                {!grammar && <FalseFriendNote term={card.term} />}
+                <FalseFriendNote term={card.term} />
                 {/* Government, where the card carries it. A learner who knows
                     *warten* and not *warten auf + Akkusativ* cannot build the
                     sentence, and the corpus has been holding this inside the
                     headword string where nothing could read it. Never shows a
                     case it had to guess — see lib/valency.ts. */}
-                {!grammar && valency && (
+                {valency && (
                   <p lang="de" className="text-sm text-accent font-mono mb-2">{valencyLabel(valency)}</p>
                 )}
-                {!grammar && card.ex.length > 0 && (
+                {card.ex.length > 0 && (
                   <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
                 )}
                 {(card.syn.length > 0 || card.ant.length > 0) && (
@@ -750,7 +705,7 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                     <TermList label="Family" terms={family} />
                   </RevealBlock>
                 )}
-                {!grammar && <CardSource id={card.id} />}
+                <CardSource id={card.id} />
               </div>
             </div>
           </SwipeCard>
@@ -790,17 +745,16 @@ export default function Review({ target, onExit, onPick, onDrills, onPlacement, 
                 identifies a touch primary input more reliably than width does:
                 a tablet is wide and still has no keyboard. */}
             <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
-              {isNew && !grammar
+              {isNew
                 ? 'First time seeing this — take it in, then say how it landed'
                 : keyboard
                   ? 'Space to flip · 1–4 to grade'
-                  : `Tap the card to flip and check the ${grammar ? 'rule' : 'translation'}`}
+                  : 'Tap the card to flip and check the translation'}
             </span>
           </div>
           </>)}
           </div>
         </div>
-        </NoHelpCtx.Provider>
       </Card>
     </div>
   );
@@ -824,7 +778,26 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
   const reduce = useReducedMotion();
   const dragged = useRef(false);
   return (
-    <div className="relative w-full max-w-[580px] h-[clamp(340px,52vh,460px)]">
+    // **The height knows about the bars.** *2026-09-05, measured on an iPhone.*
+    // This was `clamp(340px, 52vh, 460px)`, and `vh` is the whole viewport — it
+    // does not know that ~52px of it is an app bar and ~74px is a floating tab
+    // bar. On a 956pt screen the page came to 1,008px and the **grade buttons
+    // sat under the tab bar**: the primary action of the primary loop, below the
+    // fold, on a page that does not look scrollable.
+    //
+    // 470px is the rest of the player measured rather than estimated — header,
+    // why-line, grade row, hint line and gaps, everything in this column that is
+    // not the card. Desktop is unaffected (it still clamps to 460).
+    //
+    // The 330px floor is the height a *first-sight* card needs — the one that
+    // shows the most: kicker, headword, IPA, gloss, speaker, example and its
+    // translation. Below that the face scrolls internally, which is survivable
+    // (see the `safe` alignment note on the face) but not what anybody wants. On
+    // a screen too short for 330 + the chrome, the page scrolls the difference,
+    // which is the right trade: a card that looks broken is worse than a page
+    // that moves.
+    <div className="relative w-full max-w-[580px]
+      h-[clamp(330px,calc(100dvh_-_var(--bar-t)_-_var(--bar-b)_-_470px),460px)]">
       {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
           content. Rendered outermost-first so the nearest sits on top. */}
       {Array.from({ length: behind }, (_, k) => behind - 1 - k).map((depth) => (
@@ -972,9 +945,9 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, exam, onExit, onPick, onPlacement }:
+function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onProfile, onPlacement }:
   { done: number; again: number; newLearned: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
-    composition?: RecapData['composition']; met: Word[]; exam?: boolean; onExit: () => void; onPick: () => void;
+    composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void; onProfile: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
   const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
@@ -992,10 +965,6 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
   return (
     <div className="grid place-items-center min-h-[440px]">
       <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
-        {/* Where the session landed on the map, before the numbers. The brain
-            is not a separate toy if the recap names it every night. */}
-        <div className="mb-5"><WhereItLanded /></div>
-
         {finished.length > 0 && (
           <p className="text-sm mb-5">
             You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span> — every card in it is yours.
@@ -1015,20 +984,6 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
           </p>
         )}
-        {/* An exam's number is its point, so it is said plainly. 60% is the usual
-            Goethe/telc pass mark — quoted as the standard's, not as Lexi's verdict,
-            because this is a vocabulary drill under exam conditions and not the
-            exam. */}
-        {exam && done > 0 && (
-          <p className="text-sm mb-4">
-            You scored <span className={`font-mono font-bold ${recall >= 60 ? 'text-green' : 'text-accent'}`}>{recall}%</span>{' '}
-            with no hints and no rules.
-            <span className="block text-dim text-xs mt-1">
-              Goethe and telc set their pass mark at 60%. This isn’t their exam — it’s your vocabulary
-              and grammar without the scaffolding.
-            </span>
-          </p>
-        )}
         <PocketList words={met} />
         {firstRun && newLearned > 0 && (
           <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
@@ -1038,8 +993,9 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
             app they had not yet seen work. Asking now costs the same two minutes
             and buys them something they can already picture, and it leads with
             what they just earned rather than with a test. Only shown while there
-            is no placement; `Today`'s nudge catches anyone who declines. */}
-        {firstRun && onPlacement && !placementLevel() && (
+            is no placement; the same card is offered on every later recap until
+            they take it, since there is no briefing page left to nudge from. */}
+        {onPlacement && !placementLevel() && (
           <Card accent pad="none" className="px-4 py-3.5 mb-5 text-left">
             <p className="text-sm mb-2.5">
               Those {newLearned > 0 ? newLearned : done} are yours. Two minutes more and Lexi
@@ -1048,9 +1004,20 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
             <Button size="sm" onClick={onPlacement}>Find my level</Button>
           </Card>
         )}
+        {/* Local-first means device-bound. These used to live on the daily
+            briefing; the recap is the better home for them anyway — it is the one
+            moment in the app where the learner has just been reminded that they
+            have something worth keeping. */}
+        {!firstRun && (
+          <div className="text-left mb-4">
+            <InstallNudge onBackup={onProfile} />
+            <BackupNudge onBackup={onProfile} />
+          </div>
+        )}
         <div className="flex gap-2.5 justify-center flex-wrap">
-          {!firstRun && <Button variant="secondary" onClick={onPick}>Another deck</Button>}
-          <Button onClick={onExit}>{firstRun ? 'Got it' : 'Back to Today'}</Button>
+          {firstRun
+            ? <Button onClick={onDone}>Got it</Button>
+            : <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>}
         </div>
         {/* The pride moment — the market as a designed image, not a cropped
             screenshot. Word-of-mouth is a local-first app’s only channel. */}
@@ -1064,18 +1031,35 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
     </div>
   );
 }
-function EmptyState({ target, onExit, onPick, onDrills }: { target: Target; onExit: () => void; onPick: () => void; onDrills: () => void }) {
+/** Nothing to study.
+ *
+ *  This is a real destination now, not a dead end: it is what the app opens into
+ *  on the second visit of a day that is already finished. So it is written as an
+ *  achievement rather than an absence — "the system holds until tomorrow" is the
+ *  true thing to say to somebody who has served every review and spent the whole
+ *  new-card budget. */
+function EmptyState({ target, scoped, onPick }: { target: Target; scoped: boolean; onPick: () => void }) {
+  const t = totals();
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <Card pad="none" className="text-center px-10 py-12 max-w-md">
-        <h2 className="text-xl font-bold mb-1">Nothing due in {target.name}</h2>
-        <p className="text-dim mb-6">No reviews are due and the new-card budget is used up. Try targeted drills, another deck, or a different CEFR level.</p>
-        <div className="flex gap-2.5 justify-center flex-wrap">
-          <Button variant="secondary" onClick={onDrills}>Targeted drills</Button>
-          <Button variant="secondary" onClick={onPick}>Open decks</Button>
-          <Button onClick={onExit}>Done</Button>
-        </div>
+      <Card pad="none" className="text-center px-8 sm:px-10 py-12 max-w-md">
+        <span className="grid place-items-center w-12 h-12 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
+          <Check size={22} className="text-green" />
+        </span>
+        <h2 className="text-xl font-bold mb-1.5">
+          {scoped ? `Nothing due in ${target.name}` : 'All clear'}
+        </h2>
+        <p className="text-dim mb-1.5">
+          {scoped
+            ? 'Every card in this deck is either scheduled ahead or outside the levels you’re studying.'
+            : 'Every review served, the new-card budget spent. The system holds until tomorrow.'}
+        </p>
+        <Kicker className="block mb-6">
+          {t.known > 0 ? `${t.known} words recognised · streak safe` : 'streak safe'}
+        </Kicker>
+        <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
       </Card>
     </div>
   );
 }
+

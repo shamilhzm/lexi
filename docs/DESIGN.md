@@ -453,19 +453,110 @@ remaining half of this rule.
 - Motion should explain, not decorate. The graded card leaves in the direction it
   was judged; that is the standard to match.
 
-## 8. Two rooms
+## 8. Two moods, one room
+
+> **Rewritten 2026-09-05.** This section was called *Two rooms* and its rule was that
+> the session is an **early return** in `App.tsx` — full-bleed, no navigation, nothing
+> from the instrument following you in.
+>
+> **That rule died the day the session became the app's front door.** The default route
+> is the card now (see VISION § the refocus): a learner opens Lexi and lands there, and
+> **a room the app opens into cannot be a room you have to know how to leave.** The
+> early return would have shipped a first screen with no navigation on it at all.
+>
+> The observation underneath the rule was right, and it survives — it was just about
+> *density*, not about chrome:
 
 One aesthetic cannot serve two opposite activities.
 
-| | The instrument | The desk |
+| | Scanning | Meeting a word |
 |---|---|---|
-| Where | Today, Words, Practice, Read, Progress | a session |
-| Wants | density, comparison, scanning | calm, focus, one object |
-| Gets | mono, cool, hairlines, nav, a bounded column | full-bleed, no chrome at all |
+| Where | Themen, Fortschritt | the feed, the session |
+| Wants | density, comparison, many things at once | calm, focus, one object |
+| Gets | mono, hairlines, tiles, tabular numerals, a wide column | one 100%-height slot, generous air, the serif headword |
 
-The desk is an **early return** in `App.tsx`, not a view rendered inside the
-shell. Nothing from the instrument follows you in: no sidebar, no bottom bar, no
-streak counter competing with the word.
+All of it renders inside the same shell, and the difference is carried by **the content
+column and the type**, not by the presence or absence of navigation. The bars cost ~52px
+at the top and ~56px at the bottom on a phone, and every good vocabulary app pays that
+willingly, because the alternative is a dead end.
+
+What does *not* change: **nothing competes with the word.** The streak and the day's goal
+sit in the top bar at the size of a caption, the word owns the vertical centre of the
+viewport, and no number on either study surface is bigger than the German on it.
+
+### 8·1 Liquid Glass — the chrome material
+
+*Added 2026-09-05, following Apple's iOS 26 material, on an iPhone 16 Pro Max.*
+
+**The rule the material comes with: glass is for chrome, paper is for content.**
+iOS 26 makes the *floating* layer translucent — bars, tab bars, pills, sheets — and
+leaves the layer you read opaque. A definition set over a moving background is a
+definition you read twice. So `.glass` is worn by the top bar, the tab bar, the IPA
+pill and the sheet's close button, and **never by `ui/Card`**.
+
+It introduces no colour. `--glass` is a `color-mix` of `--color-panel` with
+transparency, so §2's hue discipline is untouched: what is new is a *transparency* of a
+token that already existed.
+
+Three parts, and the third is the one people skip:
+
+1. **`color-mix` of the panel colour**, so it inherits the theme rather than being a
+   second grey nobody maintains.
+2. **`backdrop-filter: blur(22px) saturate(180%)`.** The saturation is what makes it read
+   as glass rather than fog — it lifts the colour of what is behind, which is what a lens
+   does.
+3. **A specular rim**: `inset 0 1px 0` of light on the top edge, and a soft shadow below.
+   Without it the element is a blurry rectangle; with it, it is an object with thickness.
+
+**The bars had to become overlays for any of this to be real.** They were flex siblings
+of the content, which means a translucent bar with *nothing behind it* — a grey
+rectangle. They are `absolute` now and the content pays for them in scroll padding, so a
+headword passes **under** the glass instead of stopping at it. `--bar-t` / `--bar-b` on
+the shell are the two numbers that keep the bars, the padding and the feed's slot height
+agreeing.
+
+**Two alphas, both measured, neither chosen by eye.** Light 78%, dark 82% — dark needs
+more because a dark ground has less luminance to lend and the same alpha reads as a
+smear. `palette.test.ts` composites each alpha over both grounds a bar ever sits on (the
+page, and a card) and asserts `dim`, `txt` and `accent` clear AA on all four. **The alpha
+is a contrast decision wearing a taste decision's clothes**, and it gets the same guard
+every other pair in that file gets.
+
+**Two fallbacks, in order.** No `backdrop-filter` (older Firefox, some webviews) → the
+bar goes opaque, because a translucent panel with nothing blurring behind it is not a
+weaker glass, it is unreadable type over a moving word. Then
+`prefers-reduced-transparency: reduce` → opaque as well, because that is a real
+accessibility setting and not a preference about taste.
+
+**Radii are capsules where the shape allows and concentric otherwise.** `--radius-xl`
+(22px) is the container step this added: a floating bar wants a radius that reads as *an
+object resting on the page* rather than a panel let into it, and 16px at 430px wide does
+not. A 10px control inset 6px inside a 22px container shares its centre.
+
+The tab bar's selected state moved with the material: it was a 2px rule across the top
+edge, and a capsule has no top edge. The active tab now sits in its own recessed capsule
+— which is also the honest signal, because it is *a place you are*, not a boundary.
+
+### 8·2 The feed has no chrome of its own
+
+The reference app floats three round controls and a goal pill over its feed. Lexi does
+not, and the reason is that Lexi *has* an app bar and that app bar is 52px: a second row
+of floating controls over the word would be two rows of chrome for one word, which is
+the density this surface exists to refuse. The day's goal lives in `TopBar`, where it is
+the only thing in the bar that changes; the level filter lives on Fortschritt beside the
+level strip it belongs to.
+
+The rules the feed does own:
+
+- **`snap-y snap-mandatory` with `snap-always`.** The premise is that a word owns the
+  screen, so a rest position halfway between two of them is a screen with two half-words
+  on it — and `snap-always` is what stops a fast flick skating past four words, which on
+  a feed whose unit is "a word you met" is the same defect as skipping cards.
+- **`content-visibility: auto` on every slot,** with a real `contain-intrinsic-size`. A
+  6,500-slot feed is otherwise 6,500 layout boxes for one visible word.
+- **No scrollbar.** Not decoration: the track reports the length of a list nobody is
+  meant to be measuring, and on 6,500 slots it renders as a sliver saying *you have made
+  no progress*.
 
 > **Corrected 2026-08-27.** This passage read *"the terminal metaphor is earned in
 > the instrument"*, and the table above promised the instrument **"the terminal:
@@ -481,11 +572,37 @@ streak counter competing with the word.
 > **dense, mono, cool and comparative**, because scanning wants that. That is a
 > description of a *room*, not a licence to borrow a trading floor's furniture.
 
-## 8a. Five destinations
+## 8a. Four destinations, and the first one is a feed
 
-> **Changed 2026-08-26.** This section said **three** for a year, then quietly ran at
-> four when Games arrived. It now says five, and the change is a correction to the
-> earlier one rather than a drift away from it.
+> **Changed 2026-09-05.** This section said three, then four, then five, and now four
+> again — and the set is not any of the old ones. The rule never changed; what changed
+> is what the app is for (VISION § the refocus), and therefore which questions count.
+>
+> | | Answers |
+> |---|---|
+> | **Wörter** | show me German words. The feed, and the default route. |
+> | **Themen** | what words are there / what does this one mean? |
+> | **Üben** | test me on what I've met. |
+> | **Fortschritt** | how far have I come, and what do I keep missing? |
+>
+> **Wörter and Üben are two halves of one loop and are deliberately not one tab.**
+> Browsing asks nothing of you and testing asks everything, and a single door onto both
+> would have to guess which mood you are in. The bookmark is what connects them.
+>
+> **There is no Start button anywhere in the app**, and that is the strongest form of
+> the rule below: a destination whose job was to launch a session is a session you have
+> not started yet. `Heute` — a greeting, a date, a streak, a level strip, a goal line, a
+> backlog bar, a queued count, three time budgets and a Start button — was deleted by
+> going where its button went.
+>
+> Four tabs at 375px is ~94px each, which is why the labels can be the German surface
+> names in full (*Wörter · Themen · Üben · Fortschritt*) rather than one clipped English
+> word. The five-tab set had *Words* in the bar and *Wortschatz* on the page it opened,
+> which taught nothing and matched nothing.
+>
+> *The 2026-08-26 note that used to head this section — arguing the set up from three to
+> five — is preserved below, because the reasoning is still the right reasoning and it
+> is worth seeing it reach a different answer under a different goal.*
 
 ### What the three-destination rule got right, and where it went wrong
 

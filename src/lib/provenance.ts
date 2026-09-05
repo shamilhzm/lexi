@@ -7,7 +7,7 @@
 // learner asking "is this word actually used?", and a teacher asking "where did
 // this sentence come from, and what does B1 mean here?".
 //
-// Loaded lazily, exactly like the grammar bank: the file is already deployed, so
+// Loaded lazily, like the detail sidecar: the file is already deployed, so
 // this costs nothing until a learner opens the detail, and nothing at all for the
 // ones who never do. Folding the fields into vocab.json instead would have made
 // every learner pay for a maintainer's answer on every session.
