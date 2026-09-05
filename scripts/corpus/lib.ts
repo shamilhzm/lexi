@@ -2,7 +2,7 @@
 // ordering, provenance tracking, and priming the real app matcher so coverage
 // and validation measure exactly what the reader would light up.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { dirname } from 'node:path';
+import { dirname, join } from 'node:path';
 import { buildMatcher, type Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 import type { Word, SectorMeta, CEFR } from '../../src/types.ts';
@@ -117,7 +117,15 @@ export class ProvenanceLog {
 // former dependency on the app's since-removed src/lib/mining.ts; the matcher is
 // self-contained and imports only still-present app modules (conjugate, types).
 export function primeApp(corpus: Word[]): Matcher {
-  return buildMatcher(corpus);
+  // Load the attested table if it has been built, so a script measures the same
+  // matcher the app runs. Optional by construction: `corpus:inflections` writes
+  // it and everything here worked before it existed.
+  let attested: Record<string, string[]> | null = null;
+  try {
+    const p = join(process.cwd(), 'public', 'data', 'inflections.json');
+    if (existsSync(p)) attested = JSON.parse(readFileSync(p, 'utf8'));
+  } catch { /* generated forms only */ }
+  return buildMatcher(corpus, attested);
 }
 
 // ---- does the example actually contain the headword? ----------------------

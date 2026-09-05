@@ -270,8 +270,15 @@ export interface Matcher {
 
 /** Build a matcher over the given corpus. Primes the conjugation engine and an
  *  index of surface forms (terms, article-stripped terms, plurals, and every
- *  conjugated verb form) so inflections resolve to their lemma card. */
-export function buildMatcher(corpus: Word[]): Matcher {
+ *  conjugated verb form) so inflections resolve to their lemma card.
+ *
+ *  `attested` is the optional Wiktionary table — cardId → forms, from
+ *  `scripts/corpus/inflections.ts`. **Three sources, each doing what it is good
+ *  at:** the rules below generate what is regular, the table attests what is
+ *  irregular, and `EXTRA_CLOSED_FORMS` / `SUPPLETIVE` hand-write the closed
+ *  class. Omitting it is fully supported — the matcher is then exactly what it
+ *  was before the table existed, which is why the rules are not deleted. */
+export function buildMatcher(corpus: Word[], attested?: Record<string, string[]> | null): Matcher {
   // A governed verb's root is its lemma, not its term. Priming the conjugator with
   // "verzichten auf + A" taught it a root that appears in no German sentence.
   setKnownVerbs(corpus.filter((w) => w.pos === 'verb')
@@ -353,6 +360,35 @@ export function buildMatcher(corpus: Word[]): Matcher {
     }
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adjIndex.has(k)) adjIndex.set(k, w); }
   }
+  // Attested inflections, before anything generated.
+  //
+  // Placed here on purpose: after the lemmas, so a real headword always outranks
+  // another word's inflection, and before the generated forms, so a fact beats a
+  // guess wherever the two disagree.
+  //
+  // Nouns mark `pluralOnly` exactly as the base loop does for a generated plural.
+  // These are declension forms — genitives, datives, plurals — and they lose the
+  // same argument to a verb reading that a plural does: without it, *besuchen*
+  // (dative plural of *der Besuch*, and a real German word twice over) would
+  // take the token from the verb.
+  if (attested) {
+    for (const w of corpus) {
+      const forms = attested[w.id];
+      if (!forms) continue;
+      for (const f of forms) {
+        if (w.pos === 'noun' && !index.has(f)) pluralOnly.add(f);
+        add(f, w);
+        if (w.pos === 'verb') addVerb(f, w);
+        // *gut → besser, besten*. Into `adjIndex` rather than only `index`, so
+        // suffix-stripping reaches the declined comparatives too: `bessere`
+        // strips to `besser`, which is now a stem it knows. That is the whole
+        // reason the extractor keeps degree stems and drops the 56 rows of
+        // regular positive declension.
+        if (w.pos === 'adjective' && !adjIndex.has(f)) adjIndex.set(f, w);
+      }
+    }
+  }
+
   // Closed-class inflections → their lemma card.
   for (const w of corpus) {
     const forms = EXTRA_CLOSED_FORMS[stripArticle(w.term).toLowerCase()];

@@ -15,22 +15,28 @@
 // `registerWords` appends — so the cache carries its own provenance and rebuilds
 // itself rather than relying on every writer to remember to invalidate it.
 import { buildMatcher, type Matcher } from './matcher.ts';
+import { inflections, inflectionsVersion } from './inflections.ts';
 import { WORDS } from '../data/index.ts';
 import type { Word } from '../types.ts';
 
 let cached: Matcher | null = null;
 let builtFrom: Word[] | null = null;
 let builtLen = 0;
+let builtWith = -1;
 
 export function appMatcher(): Matcher {
-  if (!cached || builtFrom !== WORDS || builtLen !== WORDS.length) {
-    cached = buildMatcher(WORDS);
+  // The attested-forms table arrives after first paint, so an index built before
+  // it is stale in exactly the way a lexicon that grew after boot is: not wrong,
+  // just poorer. Same self-invalidating cache, one more piece of provenance.
+  if (!cached || builtFrom !== WORDS || builtLen !== WORDS.length || builtWith !== inflectionsVersion()) {
+    cached = buildMatcher(WORDS, inflections());
     builtFrom = WORDS;
     builtLen = WORDS.length;
+    builtWith = inflectionsVersion();
   }
   return cached;
 }
 
 /** Force the next call to rebuild. Production growth is picked up on its own; a
  *  test can swap the lexicon for one of the same length, which identity misses. */
-export function resetAppMatcher() { cached = null; builtFrom = null; builtLen = 0; }
+export function resetAppMatcher() { cached = null; builtFrom = null; builtLen = 0; builtWith = -1; }

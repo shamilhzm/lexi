@@ -103,3 +103,15 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
     navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {});
   });
 }
+
+// The attested inflection table, after first paint and never before it.
+//
+// Nothing on the feed uses the matcher, so this is 370 KB the common session
+// does not have to wait for; the matcher rebuilds itself when it lands. Fired on
+// `load` rather than immediately for the same reason the service worker is —
+// whatever is still fetching for the first screen should finish first.
+if (typeof window !== 'undefined') {
+  const kick = () => { void import('./lib/inflections.ts').then((m) => m.loadInflections()); };
+  if (document.readyState === 'complete') kick();
+  else window.addEventListener('load', kick, { once: true });
+}

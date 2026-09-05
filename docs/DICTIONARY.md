@@ -156,17 +156,57 @@ relitigates it in six months.
 
 ---
 
-## Phase 2 — spend the same download on the matcher
+## Phase 2 — spend the same download on the matcher ✅ *shipped 2026-09-05*
 
-The kaikki `forms` arrays are full inflection tables — `Gott` carries 31 forms,
-`Wimper` 12. The matcher currently de-inflects with hand-written heuristics, and
-this session found the seam: the dative `-e` rule requires a capitalised token,
-so a lowercased `hause` misses although `das Haus` is a card.
+`npm run corpus:inflections` → `public/data/inflections.json`, 370 KB, fetched
+after first paint. Measured with `corpus:tokencov`, before and after, **without
+adding a single card**:
 
-Replacing heuristics with attested forms **raises coverage without adding a
-single card**, and it makes the reading meter honest at the same time. Cheapest
-percentage point in the plan; do it before Phase 1's later batches so the
-coverage numbers driving them are correct.
+| | before | after |
+|---|---|---|
+| matched to a card | 79.7% | **80.4%** |
+| lit up in total | 87.5% | **88.1%** |
+| dark | 12.5% | **11.9%** |
+| distinct missing forms | 53,560 | **52,169** |
+
+`hab`, `hause` and `jungs` dropped out of the top-25 dark list. `hause` was the
+seam that named the problem: the generated dative-`e` rule requires a capitalised
+token, so a lowercased *hause* missed although *das Haus* is an A1 card.
+
+**Three sources of forms, ranked, each doing what it is good at.** Lemmas first,
+so a real headword always beats another word's inflection. Then the attested
+table, because a fact beats a guess. Then the generated rules, which still carry
+the 15% of cards Wiktionary does not cover and every card added since the
+extract was downloaded — which is why none of them were deleted.
+
+Four things had to be *excluded*, and finding them was most of the work:
+
+- **The closed class entirely.** Wiktionary's function-word tables are paradigm
+  tables: `er`'s lists *du, es, euch, dein*; `bei`'s lists *dabei, wobei,
+  hierbei*. Taking them produced 566 forms that were another card's headword.
+  `matcher.ts` already hand-writes these, correctly.
+- **Gender derivations.** *Arzt* lists *Ärztin* under `["feminine"]`. A separate
+  card, not a form. Requiring a case or number tag drops them and keeps every
+  real declension.
+- **Auxiliary rows.** `können`'s table lists *haben*. Indexing it would resolve
+  every "haben" in a text to *können*.
+- **Regular adjective declension.** 56 of an adjective's 58 rows are
+  *guter/gute/gutes/gutem/guten*, which suffix-stripping already handles — 44% of
+  the file to teach the matcher what it knew. Only the irregular degrees stay
+  (*gut → besser, besten*), indexed into `adjIndex` so the declined comparatives
+  resolve through them.
+
+327 collisions remain and all of them are genuine German homographs — *bitte* is
+the imperative of *bitten* **and** the noun; *Besuchen* is the dative plural of
+*der Besuch* **and** the verb. The index is first-wins with lemmas added first,
+so the lemma keeps the token.
+
+### What this surfaced and did not fix
+
+`Bitte` capitalised resolves to the *bitte* card rather than *die Bitte*, on
+corpus order. German capitalises nouns, and the matcher enforces the converse
+rule — a lowercase token cannot be a noun — but not this one. It predates the
+attested table and is unaffected by it. Worth a look; it is not a Phase 2 job.
 
 ---
 
