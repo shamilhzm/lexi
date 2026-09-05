@@ -1,0 +1,660 @@
+[
+ {
+  "term": "die Saison",
+  "en": "season (sporting or tourist)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Die Saison beginnt im August.",
+    "en": "The season starts in August."
+   },
+   {
+    "de": "In der letzten Saison hat er zwanzig Tore geschossen.",
+    "en": "He scored twenty goals last season."
+   }
+  ]
+ },
+ {
+  "term": "das Tor",
+  "en": "goal (in sport); gate",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er hat kurz vor Schluss ein Tor geschossen.",
+    "en": "He scored a goal just before the end."
+   },
+   {
+    "de": "Der Ball flog knapp am Tor vorbei.",
+    "en": "The ball flew just past the goal."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "wert",
+  "en": "worth, worthwhile",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das Buch ist wirklich wert, gelesen zu werden.",
+    "en": "The book is really worth reading."
+   },
+   {
+    "de": "Die Reise war jeden Cent wert.",
+    "en": "The trip was worth every cent."
+   }
+  ]
+ },
+ {
+  "term": "die Staatsanwaltschaft",
+  "en": "public prosecutor's office",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Die Staatsanwaltschaft ermittelt seit Montag.",
+    "en": "The public prosecutor's office has been investigating since Monday."
+   },
+   {
+    "de": "Nach Angaben der Staatsanwaltschaft gibt es keine Hinweise auf ein Verbrechen.",
+    "en": "According to the public prosecutor's office there is no evidence of a crime."
+   }
+  ]
+ },
+ {
+  "term": "der Dollar",
+  "en": "dollar",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Bank & Money",
+  "ex": [
+   {
+    "de": "Ein Dollar ist im Moment fast so viel wert wie ein Euro.",
+    "en": "A dollar is currently worth almost as much as a euro."
+   },
+   {
+    "de": "Er hat mir zwanzig Dollar geliehen.",
+    "en": "He lent me twenty dollars."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Ball",
+  "en": "ball",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Ball liegt im Garten.",
+    "en": "The ball is lying in the garden."
+   },
+   {
+    "de": "Die Kinder spielen mit einem alten Ball.",
+    "en": "The children are playing with an old ball."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "die Liga",
+  "en": "league (in sport)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Verein spielt seit drei Jahren in der zweiten Liga.",
+    "en": "The club has played in the second league for three years."
+   },
+   {
+    "de": "Beide Ligen starten am selben Wochenende.",
+    "en": "Both leagues start on the same weekend."
+   }
+  ]
+ },
+ {
+  "term": "das Vorjahr",
+  "en": "the previous year",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Der Umsatz liegt deutlich über dem Vorjahr.",
+    "en": "Revenue is well above the previous year."
+   },
+   {
+    "de": "Im Vorjahr war die Zahl noch halb so hoch.",
+    "en": "In the previous year the figure was only half as high."
+   }
+  ]
+ },
+ {
+  "term": "der Strom",
+  "en": "electricity; electric current",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Energy & Resources",
+  "ex": [
+   {
+    "de": "Der Strom ist heute Morgen ausgefallen.",
+    "en": "The electricity went out this morning."
+   },
+   {
+    "de": "Wir beziehen unseren Strom aus Wind und Sonne.",
+    "en": "We get our electricity from wind and sun."
+   }
+  ]
+ },
+ {
+  "term": "der Spaß",
+  "en": "fun, enjoyment",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Das Spiel macht wirklich Spaß.",
+    "en": "The game is really fun."
+   },
+   {
+    "de": "Wir hatten viel Spaß am Wochenende.",
+    "en": "We had a lot of fun at the weekend."
+   }
+  ]
+ },
+ {
+  "term": "positiv",
+  "en": "positive",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das Ergebnis war überraschend positiv.",
+    "en": "The result was surprisingly positive."
+   },
+   {
+    "de": "Sie hat eine sehr positive Einstellung zur Arbeit.",
+    "en": "She has a very positive attitude to work."
+   }
+  ]
+ },
+ {
+  "term": "der Zugang",
+  "en": "access",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Nicht jeder hat Zugang zu diesen Daten.",
+    "en": "Not everyone has access to this data."
+   },
+   {
+    "de": "Die beiden Zugänge zum Gebäude sind gesperrt.",
+    "en": "Both entrances to the building are closed."
+   }
+  ]
+ },
+ {
+  "term": "der Ausbau",
+  "en": "expansion, development (of a network or building)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Urban Planning & Future",
+  "ex": [
+   {
+    "de": "Der Ausbau der Radwege dauert noch zwei Jahre.",
+    "en": "The expansion of the cycle paths will take another two years."
+   },
+   {
+    "de": "Über den Ausbau des Netzes wird seit Jahren gestritten.",
+    "en": "The expansion of the network has been argued over for years."
+   }
+  ]
+ },
+ {
+  "term": "die App",
+  "en": "app",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Die App funktioniert auch ohne Internet.",
+    "en": "The app works without the internet too."
+   },
+   {
+    "de": "Ich habe zu viele Apps auf dem Handy.",
+    "en": "I have too many apps on my phone."
+   }
+  ],
+  "gender": "die",
+  "sameAsGerman": true
+ },
+ {
+  "term": "das Update",
+  "en": "update",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Das Update kommt nächste Woche.",
+    "en": "The update is coming next week."
+   },
+   {
+    "de": "Nach dem letzten Update läuft alles schneller.",
+    "en": "Everything runs faster after the last update."
+   }
+  ],
+  "gender": "das",
+  "sameAsGerman": true
+ },
+ {
+  "term": "das Konzept",
+  "en": "concept, plan",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Academic Work",
+  "ex": [
+   {
+    "de": "Das Konzept überzeugt mich nicht.",
+    "en": "The concept does not convince me."
+   },
+   {
+    "de": "Sie hat drei verschiedene Konzepte vorgestellt.",
+    "en": "She presented three different concepts."
+   }
+  ]
+ },
+ {
+  "term": "der Auftrag",
+  "en": "order, commission, assignment",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Der Auftrag muss bis Freitag fertig sein.",
+    "en": "The order has to be finished by Friday."
+   },
+   {
+    "de": "Die Firma hat in diesem Jahr weniger Aufträge bekommen.",
+    "en": "The company received fewer orders this year."
+   }
+  ]
+ },
+ {
+  "term": "der Club",
+  "en": "club (association)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Der Club hat über tausend Mitglieder.",
+    "en": "The club has over a thousand members."
+   },
+   {
+    "de": "Beide Clubs spielen am Samstag gegeneinander.",
+    "en": "Both clubs play against each other on Saturday."
+   }
+  ]
+ },
+ {
+  "term": "die Anzahl",
+  "en": "number, quantity",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Die Anzahl der Teilnehmer ist gestiegen.",
+    "en": "The number of participants has risen."
+   },
+   {
+    "de": "Eine große Anzahl von Menschen wartete draußen.",
+    "en": "A large number of people waited outside."
+   }
+  ]
+ },
+ {
+  "term": "das Gold",
+  "en": "gold",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Materials",
+  "ex": [
+   {
+    "de": "Der Ring ist aus Gold.",
+    "en": "The ring is made of gold."
+   },
+   {
+    "de": "Der Preis für Gold steigt seit Monaten.",
+    "en": "The price of gold has been rising for months."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "das Wachstum",
+  "en": "growth",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Das Wachstum hat sich im Sommer verlangsamt.",
+    "en": "Growth slowed down in the summer."
+   },
+   {
+    "de": "Ohne Wachstum wird es schwierig, die Schulden zu bezahlen.",
+    "en": "Without growth it will be difficult to pay the debts."
+   }
+  ]
+ },
+ {
+  "term": "massiv",
+  "en": "severe, massive",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Es gab massive Kritik an dem Plan.",
+    "en": "There was severe criticism of the plan."
+   },
+   {
+    "de": "Der Widerstand war massiv.",
+    "en": "The resistance was massive."
+   }
+  ]
+ },
+ {
+  "term": "das Umfeld",
+  "en": "environment, surroundings (social or professional)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Im beruflichen Umfeld spricht man anders.",
+    "en": "People speak differently in a professional environment."
+   },
+   {
+    "de": "Sie kommt aus einem sehr musikalischen Umfeld.",
+    "en": "She comes from a very musical background."
+   }
+  ]
+ },
+ {
+  "term": "der Stadtrat",
+  "en": "city council; city councillor",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Stadtrat hat gestern Abend entschieden.",
+    "en": "The city council decided yesterday evening."
+   },
+   {
+    "de": "Zwei Stadträte haben gegen den Plan gestimmt.",
+    "en": "Two city councillors voted against the plan."
+   }
+  ]
+ },
+ {
+  "term": "der Sinn",
+  "en": "sense, meaning, point",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Das ergibt keinen Sinn.",
+    "en": "That makes no sense."
+   },
+   {
+    "de": "Der Mensch hat fünf Sinne.",
+    "en": "A human being has five senses."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "das Heimspiel",
+  "en": "home game",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Das Heimspiel findet am Sonntag statt.",
+    "en": "The home game takes place on Sunday."
+   },
+   {
+    "de": "Sie haben alle drei Heimspiele gewonnen.",
+    "en": "They won all three home games."
+   }
+  ]
+ },
+ {
+  "term": "bedroht",
+  "en": "threatened, endangered",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Viele Arten sind vom Aussterben bedroht.",
+    "en": "Many species are threatened with extinction."
+   },
+   {
+    "de": "Er fühlte sich bedroht und rief die Polizei.",
+    "en": "He felt threatened and called the police."
+   }
+  ]
+ },
+ {
+  "term": "der LKW",
+  "en": "lorry, truck",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der LKW stand mitten auf der Straße.",
+    "en": "The lorry was standing in the middle of the road."
+   },
+   {
+    "de": "Auf der Autobahn fahren nachts viele LKW.",
+    "en": "Many lorries drive on the motorway at night."
+   }
+  ]
+ },
+ {
+  "term": "der Beschluss",
+  "en": "decision, resolution (formal)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Beschluss gilt ab dem ersten Januar.",
+    "en": "The resolution applies from the first of January."
+   },
+   {
+    "de": "Die Beschlüsse wurden einstimmig gefasst.",
+    "en": "The resolutions were passed unanimously."
+   }
+  ]
+ },
+ {
+  "term": "das Institut",
+  "en": "institute",
+  "pos": "noun",
+  "level": "B2",
+  "field": "At the University",
+  "ex": [
+   {
+    "de": "Das Institut liegt direkt neben der Bibliothek.",
+    "en": "The institute is right next to the library."
+   },
+   {
+    "de": "Beide Institute arbeiten an demselben Projekt.",
+    "en": "Both institutes are working on the same project."
+   }
+  ]
+ },
+ {
+  "term": "das Album",
+  "en": "album",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Ihr neues Album erscheint im Herbst.",
+    "en": "Her new album comes out in the autumn."
+   },
+   {
+    "de": "Er hat alle Alben der Band zu Hause.",
+    "en": "He has all of the band's albums at home."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Streik",
+  "en": "strike (industrial action)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Der Streik dauert schon eine Woche.",
+    "en": "The strike has already lasted a week."
+   },
+   {
+    "de": "Wegen der Streiks fahren heute keine Busse.",
+    "en": "Because of the strikes no buses are running today."
+   }
+  ]
+ },
+ {
+  "term": "der Wasserstoff",
+  "en": "hydrogen",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science",
+  "ex": [
+   {
+    "de": "Wasserstoff gilt als Energieträger der Zukunft.",
+    "en": "Hydrogen is regarded as the energy carrier of the future."
+   },
+   {
+    "de": "Der Bus fährt mit Wasserstoff.",
+    "en": "The bus runs on hydrogen."
+   }
+  ]
+ },
+ {
+  "term": "das Jubiläum",
+  "en": "anniversary, jubilee",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Die Firma feiert nächstes Jahr ihr Jubiläum.",
+    "en": "The company celebrates its anniversary next year."
+   },
+   {
+    "de": "Zu solchen Jubiläen kommen immer viele Gäste.",
+    "en": "Many guests always come to anniversaries like these."
+   }
+  ]
+ },
+ {
+  "term": "das Management",
+  "en": "management",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Leadership & Teamwork",
+  "ex": [
+   {
+    "de": "Das Management hat den Plan abgelehnt.",
+    "en": "Management rejected the plan."
+   },
+   {
+    "de": "Ohne gutes Management funktioniert kein Team.",
+    "en": "No team works without good management."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "die Justiz",
+  "en": "the judiciary, the justice system",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "ex": [
+   {
+    "de": "Die Justiz arbeitet unabhängig von der Regierung.",
+    "en": "The judiciary works independently of the government."
+   },
+   {
+    "de": "Er hat großes Vertrauen in die Justiz.",
+    "en": "He has great trust in the justice system."
+   }
+  ]
+ },
+ {
+  "term": "der Ansatz",
+  "en": "approach (to a problem)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Work",
+  "ex": [
+   {
+    "de": "Der Ansatz ist neu und überzeugt viele Forscher.",
+    "en": "The approach is new and convinces many researchers."
+   },
+   {
+    "de": "Es gibt mehrere Ansätze, das Problem zu lösen.",
+    "en": "There are several approaches to solving the problem."
+   }
+  ]
+ },
+ {
+  "term": "das Event",
+  "en": "event (organised occasion)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Entertainment & Media",
+  "ex": [
+   {
+    "de": "Das Event war schon nach einer Stunde ausverkauft.",
+    "en": "The event was sold out after just an hour."
+   },
+   {
+    "de": "Sie organisiert Events für große Firmen.",
+    "en": "She organises events for large companies."
+   }
+  ],
+  "gender": "das"
+ }
+]

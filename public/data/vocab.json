@@ -207675,5 +207675,4838 @@
     ],
     "field": "Communication",
     "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Saison",
+    "term": "die Saison",
+    "en": "season (sporting or tourist)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "zɛˈzɔ̃ː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Saison beginnt im August.",
+        "en": "The season starts in August.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der letzten Saison hat er zwanzig Tore geschossen.",
+        "en": "He scored twenty goals last season.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Tor",
+    "term": "das Tor",
+    "en": "goal (in sport); gate",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "toːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat kurz vor Schluss ein Tor geschossen.",
+        "en": "He scored a goal just before the end.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Ball flog knapp am Tor vorbei.",
+        "en": "The ball flew just past the goal.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:wert",
+    "term": "wert",
+    "en": "worth, worthwhile",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "veːɐ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Buch ist wirklich wert, gelesen zu werden.",
+        "en": "The book is really worth reading.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Reise war jeden Cent wert.",
+        "en": "The trip was worth every cent.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Staatsanwaltschaft",
+    "term": "die Staatsanwaltschaft",
+    "en": "public prosecutor's office",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Staatsanwaltschaften",
+    "ipa": "ˈʃtaːt͡sʔanˌvaltʃaft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Staatsanwaltschaft ermittelt seit Montag.",
+        "en": "The public prosecutor's office has been investigating since Monday.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach Angaben der Staatsanwaltschaft gibt es keine Hinweise auf ein Verbrechen.",
+        "en": "According to the public prosecutor's office there is no evidence of a crime.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Dollar",
+    "term": "der Dollar",
+    "en": "dollar",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈdɔlaʁ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Dollar ist im Moment fast so viel wert wie ein Euro.",
+        "en": "A dollar is currently worth almost as much as a euro.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er hat mir zwanzig Dollar geliehen.",
+        "en": "He lent me twenty dollars.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Bank & Money",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Ball",
+    "term": "der Ball",
+    "en": "ball",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Bälle",
+    "ipa": "bal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ball liegt im Garten.",
+        "en": "The ball is lying in the garden.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Kinder spielen mit einem alten Ball.",
+        "en": "The children are playing with an old ball.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Liga",
+    "term": "die Liga",
+    "en": "league (in sport)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Ligen",
+    "ipa": "ˈliːɡa",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Verein spielt seit drei Jahren in der zweiten Liga.",
+        "en": "The club has played in the second league for three years.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beide Ligen starten am selben Wochenende.",
+        "en": "Both leagues start on the same weekend.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Vorjahr",
+    "term": "das Vorjahr",
+    "en": "the previous year",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Vorjahre",
+    "ipa": "ˈfoːɐ̯ˌjaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Umsatz liegt deutlich über dem Vorjahr.",
+        "en": "Revenue is well above the previous year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Vorjahr war die Zahl noch halb so hoch.",
+        "en": "In the previous year the figure was only half as high.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Strom",
+    "term": "der Strom",
+    "en": "electricity; electric current",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Ströme",
+    "ipa": "ʃtʁoːm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Strom ist heute Morgen ausgefallen.",
+        "en": "The electricity went out this morning.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir beziehen unseren Strom aus Wind und Sonne.",
+        "en": "We get our electricity from wind and sun.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Energy & Resources",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Spaß",
+    "term": "der Spaß",
+    "en": "fun, enjoyment",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Späße",
+    "ipa": "ʃpaːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Spiel macht wirklich Spaß.",
+        "en": "The game is really fun.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir hatten viel Spaß am Wochenende.",
+        "en": "We had a lot of fun at the weekend.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:positiv",
+    "term": "positiv",
+    "en": "positive",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈpoːzitiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Ergebnis war überraschend positiv.",
+        "en": "The result was surprisingly positive.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat eine sehr positive Einstellung zur Arbeit.",
+        "en": "She has a very positive attitude to work.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Zugang",
+    "term": "der Zugang",
+    "en": "access",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Zugänge",
+    "ipa": "ˈt͡suːˌɡaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nicht jeder hat Zugang zu diesen Daten.",
+        "en": "Not everyone has access to this data.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die beiden Zugänge zum Gebäude sind gesperrt.",
+        "en": "Both entrances to the building are closed.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Ausbau",
+    "term": "der Ausbau",
+    "en": "expansion, development (of a network or building)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈaʊ̯sˌbaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ausbau der Radwege dauert noch zwei Jahre.",
+        "en": "The expansion of the cycle paths will take another two years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über den Ausbau des Netzes wird seit Jahren gestritten.",
+        "en": "The expansion of the network has been argued over for years.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Urban Planning & Future",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die App",
+    "term": "die App",
+    "en": "app",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Apps",
+    "ipa": "ɛp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die App funktioniert auch ohne Internet.",
+        "en": "The app works without the internet too.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe zu viele Apps auf dem Handy.",
+        "en": "I have too many apps on my phone.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Update",
+    "term": "das Update",
+    "en": "update",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Updates",
+    "ipa": "ˈapˌdɛɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Update kommt nächste Woche.",
+        "en": "The update is coming next week.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach dem letzten Update läuft alles schneller.",
+        "en": "Everything runs faster after the last update.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Konzept",
+    "term": "das Konzept",
+    "en": "concept, plan",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Konzepte",
+    "ipa": "kɔnˈt͡sɛpt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Konzept überzeugt mich nicht.",
+        "en": "The concept does not convince me.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat drei verschiedene Konzepte vorgestellt.",
+        "en": "She presented three different concepts.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Academic Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Auftrag",
+    "term": "der Auftrag",
+    "en": "order, commission, assignment",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Aufträge",
+    "ipa": "ˈaʊ̯fˌtʁaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Auftrag muss bis Freitag fertig sein.",
+        "en": "The order has to be finished by Friday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Firma hat in diesem Jahr weniger Aufträge bekommen.",
+        "en": "The company received fewer orders this year.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Club",
+    "term": "der Club",
+    "en": "club (association)",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Clubs",
+    "ipa": "klʊp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Club hat über tausend Mitglieder.",
+        "en": "The club has over a thousand members.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Beide Clubs spielen am Samstag gegeneinander.",
+        "en": "Both clubs play against each other on Saturday.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Anzahl",
+    "term": "die Anzahl",
+    "en": "number, quantity",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Anzahlen",
+    "ipa": "ˈanˌt͡saːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Anzahl der Teilnehmer ist gestiegen.",
+        "en": "The number of participants has risen.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Eine große Anzahl von Menschen wartete draußen.",
+        "en": "A large number of people waited outside.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Gold",
+    "term": "das Gold",
+    "en": "gold",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ɡɔlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ring ist aus Gold.",
+        "en": "The ring is made of gold.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Preis für Gold steigt seit Monaten.",
+        "en": "The price of gold has been rising for months.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Wachstum",
+    "term": "das Wachstum",
+    "en": "growth",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈvakstuːm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Wachstum hat sich im Sommer verlangsamt.",
+        "en": "Growth slowed down in the summer.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Wachstum wird es schwierig, die Schulden zu bezahlen.",
+        "en": "Without growth it will be difficult to pay the debts.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:massiv",
+    "term": "massiv",
+    "en": "severe, massive",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "maˈsiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es gab massive Kritik an dem Plan.",
+        "en": "There was severe criticism of the plan.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Widerstand war massiv.",
+        "en": "The resistance was massive.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Umfeld",
+    "term": "das Umfeld",
+    "en": "environment, surroundings (social or professional)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Umfelder",
+    "ipa": "ˈʊmˌfɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im beruflichen Umfeld spricht man anders.",
+        "en": "People speak differently in a professional environment.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie kommt aus einem sehr musikalischen Umfeld.",
+        "en": "She comes from a very musical background.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Stadtrat",
+    "term": "der Stadtrat",
+    "en": "city council; city councillor",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Stadträte",
+    "ipa": "ˈʃtatˌʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Stadtrat hat gestern Abend entschieden.",
+        "en": "The city council decided yesterday evening.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zwei Stadträte haben gegen den Plan gestimmt.",
+        "en": "Two city councillors voted against the plan.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Sinn",
+    "term": "der Sinn",
+    "en": "sense, meaning, point",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Sinne",
+    "ipa": "zɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ergibt keinen Sinn.",
+        "en": "That makes no sense.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Mensch hat fünf Sinne.",
+        "en": "A human being has five senses.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Heimspiel",
+    "term": "das Heimspiel",
+    "en": "home game",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Heimspiele",
+    "ipa": "ˈhaɪ̯mˌʃpiːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Heimspiel findet am Sonntag statt.",
+        "en": "The home game takes place on Sunday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie haben alle drei Heimspiele gewonnen.",
+        "en": "They won all three home games.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:bedroht",
+    "term": "bedroht",
+    "en": "threatened, endangered",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈdʁoːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Arten sind vom Aussterben bedroht.",
+        "en": "Many species are threatened with extinction.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er fühlte sich bedroht und rief die Polizei.",
+        "en": "He felt threatened and called the police.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der LKW",
+    "term": "der LKW",
+    "en": "lorry, truck",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈɛlkaveː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der LKW stand mitten auf der Straße.",
+        "en": "The lorry was standing in the middle of the road.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf der Autobahn fahren nachts viele LKW.",
+        "en": "Many lorries drive on the motorway at night.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Beschluss",
+    "term": "der Beschluss",
+    "en": "decision, resolution (formal)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Beschlüsse",
+    "ipa": "bəˈʃlʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Beschluss gilt ab dem ersten Januar.",
+        "en": "The resolution applies from the first of January.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Beschlüsse wurden einstimmig gefasst.",
+        "en": "The resolutions were passed unanimously.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Institut",
+    "term": "das Institut",
+    "en": "institute",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Institute",
+    "ipa": "ɪnstiˈtuːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Institut liegt direkt neben der Bibliothek.",
+        "en": "The institute is right next to the library.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Institute arbeiten an demselben Projekt.",
+        "en": "Both institutes are working on the same project.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "At the University",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Album",
+    "term": "das Album",
+    "en": "album",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Alben",
+    "ipa": "ˈalbʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihr neues Album erscheint im Herbst.",
+        "en": "Her new album comes out in the autumn.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er hat alle Alben der Band zu Hause.",
+        "en": "He has all of the band's albums at home.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Streik",
+    "term": "der Streik",
+    "en": "strike (industrial action)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ʃtʁaɪ̯k",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Streik dauert schon eine Woche.",
+        "en": "The strike has already lasted a week.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wegen der Streiks fahren heute keine Busse.",
+        "en": "Because of the strikes no buses are running today.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Wasserstoff",
+    "term": "der Wasserstoff",
+    "en": "hydrogen",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈvasɐˌʃtɔf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wasserstoff gilt als Energieträger der Zukunft.",
+        "en": "Hydrogen is regarded as the energy carrier of the future.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Bus fährt mit Wasserstoff.",
+        "en": "The bus runs on hydrogen.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Jubiläum",
+    "term": "das Jubiläum",
+    "en": "anniversary, jubilee",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Jubiläen",
+    "ipa": "jubiˈlɛːʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma feiert nächstes Jahr ihr Jubiläum.",
+        "en": "The company celebrates its anniversary next year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Zu solchen Jubiläen kommen immer viele Gäste.",
+        "en": "Many guests always come to anniversaries like these.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Festivals & customs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Management",
+    "term": "das Management",
+    "en": "management",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Managements",
+    "ipa": "ˈmɛnɪt͡ʃmənt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Management hat den Plan abgelehnt.",
+        "en": "Management rejected the plan.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne gutes Management funktioniert kein Team.",
+        "en": "No team works without good management.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Leadership & Teamwork",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Justiz",
+    "term": "die Justiz",
+    "en": "the judiciary, the justice system",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "jʊsˈtiːt͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Justiz arbeitet unabhängig von der Regierung.",
+        "en": "The judiciary works independently of the government.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat großes Vertrauen in die Justiz.",
+        "en": "He has great trust in the justice system.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Ansatz",
+    "term": "der Ansatz",
+    "en": "approach (to a problem)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Ansätze",
+    "ipa": "ˈanˌzat͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ansatz ist neu und überzeugt viele Forscher.",
+        "en": "The approach is new and convinces many researchers.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gibt mehrere Ansätze, das Problem zu lösen.",
+        "en": "There are several approaches to solving the problem.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Event",
+    "term": "das Event",
+    "en": "event (organised occasion)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Events",
+    "ipa": "iˈvɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Event war schon nach einer Stunde ausverkauft.",
+        "en": "The event was sold out after just an hour.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie organisiert Events für große Firmen.",
+        "en": "She organises events for large companies.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Entertainment & Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:gezielt",
+    "term": "gezielt",
+    "en": "targeted, deliberate",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈt͡siːlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Polizei sucht gezielt nach Zeugen.",
+        "en": "The police are searching specifically for witnesses.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war eine ganz gezielte Frage.",
+        "en": "That was a very deliberate question.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Comeback",
+    "term": "das Comeback",
+    "en": "comeback",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Comebacks",
+    "ipa": "ˌkamˈbɛk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach zwei Jahren feiert sie ihr Comeback.",
+        "en": "After two years she is making her comeback.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Comebacks gelingen selten.",
+        "en": "Comebacks like that rarely succeed.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Lager",
+    "term": "das Lager",
+    "en": "warehouse, store; camp",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈlaːɡɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Ware liegt noch im Lager.",
+        "en": "The goods are still in the warehouse.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Lager sind fast leer.",
+        "en": "Both warehouses are almost empty.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Torhüter",
+    "term": "der Torhüter",
+    "en": "goalkeeper",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Torhüter",
+    "ipa": "ˈtoːɐ̯ˌhyːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Torhüter hielt den Ball sicher fest.",
+        "en": "The goalkeeper held on to the ball safely.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Torhüter spielten stark.",
+        "en": "Both goalkeepers played strongly.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Saal",
+    "term": "der Saal",
+    "en": "hall, large room",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Säle",
+    "ipa": "zaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Saal war bis auf den letzten Platz besetzt.",
+        "en": "The hall was full to the last seat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im großen Saal finden die Konzerte statt.",
+        "en": "The concerts take place in the large hall.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Art & Sights",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Einzug",
+    "term": "der Einzug",
+    "en": "moving in (to a home)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Einzüge",
+    "ipa": "ˈaɪ̯nˌt͡suːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Vor dem Einzug muss die Wohnung gestrichen werden.",
+        "en": "The flat has to be painted before the move-in.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Einzug ist für Mai geplant.",
+        "en": "The move-in is planned for May.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Real Estate & Moving",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Tourismus",
+    "term": "der Tourismus",
+    "en": "tourism",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "tuˈʁɪsmʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Tourismus ist die wichtigste Einnahmequelle der Region.",
+        "en": "Tourism is the region's most important source of income.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Vom Tourismus leben hier viele Familien.",
+        "en": "Many families here live off tourism.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Vordergrund",
+    "term": "der Vordergrund",
+    "en": "foreground; the centre of attention",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Vordergründe",
+    "ipa": "ˈfɔʁdɐˌɡʁʊnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Vordergrund steht die Sicherheit der Gäste.",
+        "en": "The safety of the guests is the priority.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Vordergrund des Bildes ist sehr dunkel.",
+        "en": "The foreground of the picture is very dark.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Stil",
+    "term": "der Stil",
+    "en": "style",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Stile",
+    "ipa": "ʃtiːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sein Stil hat sich stark verändert.",
+        "en": "His style has changed a lot.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die beiden Stile passen gut zusammen.",
+        "en": "The two styles go well together.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Aesthetic Concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Rücktritt",
+    "term": "der Rücktritt",
+    "en": "resignation (from office)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Rücktritte",
+    "ipa": "ˈʁʏkˌtʁɪt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sein Rücktritt kam für alle überraschend.",
+        "en": "His resignation came as a surprise to everyone.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Opposition fordert den Rücktritt der Ministerin.",
+        "en": "The opposition is demanding the minister's resignation.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Senat",
+    "term": "der Senat",
+    "en": "senate",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Senate",
+    "ipa": "zeˈnaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Senat hat dem Gesetz zugestimmt.",
+        "en": "The senate approved the law.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Senat sitzen Vertreter aller Bezirke.",
+        "en": "Representatives of all districts sit in the senate.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Deal",
+    "term": "der Deal",
+    "en": "deal",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Deals",
+    "ipa": "diːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Deal wurde in letzter Minute abgesagt.",
+        "en": "The deal was called off at the last minute.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Deals sind selten transparent.",
+        "en": "Deals like that are rarely transparent.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:bedenken",
+    "term": "bedenken",
+    "en": "to consider, to bear in mind",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈdɛŋkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man muss bedenken, dass er noch sehr jung ist.",
+        "en": "One has to bear in mind that he is still very young.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir sollten die Folgen genau bedenken.",
+        "en": "We should consider the consequences carefully.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Moderator",
+    "term": "der Moderator",
+    "en": "presenter, host (of a programme)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Moderatoren",
+    "ipa": "modeˈʁaːtoːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Moderator stellte eine unangenehme Frage.",
+        "en": "The presenter asked an awkward question.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Moderatoren arbeiten seit Jahren zusammen.",
+        "en": "Both presenters have worked together for years.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Podcast",
+    "term": "der Podcast",
+    "en": "podcast",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Podcasts",
+    "ipa": "ˈpɔtˌkaːst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich höre den Podcast immer im Zug.",
+        "en": "I always listen to the podcast on the train.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat schon über hundert Podcasts aufgenommen.",
+        "en": "She has already recorded over a hundred podcasts.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Einbruch",
+    "term": "der Einbruch",
+    "en": "burglary, break-in",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Einbrüche",
+    "ipa": "ˈaɪ̯nˌbʁʊx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Einbruch wurde erst am Morgen bemerkt.",
+        "en": "The burglary was only noticed in the morning.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In diesem Viertel gab es mehrere Einbrüche.",
+        "en": "There were several burglaries in this district.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Duo",
+    "term": "das Duo",
+    "en": "duo",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Duos",
+    "ipa": "ˈduːo",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Duo spielt seit zehn Jahren zusammen.",
+        "en": "The duo has played together for ten years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beide Duos treten am Samstag auf.",
+        "en": "Both duos are performing on Saturday.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Kaiser",
+    "term": "der Kaiser",
+    "en": "emperor",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Kaiser",
+    "ipa": "ˈkaɪ̯zɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kaiser wohnte damals in diesem Schloss.",
+        "en": "The emperor lived in this palace at the time.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Kaiser regierten hier über dreihundert Jahre.",
+        "en": "The emperors ruled here for over three hundred years.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "History of Berlin",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Torwart",
+    "term": "der Torwart",
+    "en": "goalkeeper",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Torwarte",
+    "ipa": "ˈtoːɐ̯ˌvaʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Torwart wurde zum Spieler des Spiels gewählt.",
+        "en": "The goalkeeper was voted player of the match.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne einen guten Torwart gewinnt man kein Spiel.",
+        "en": "You do not win a match without a good goalkeeper.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Weihnachtsmarkt",
+    "term": "der Weihnachtsmarkt",
+    "en": "Christmas market",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Weihnachtsmärkte",
+    "ipa": "ˈvaɪ̯naxt͡sˌmaʁkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Weihnachtsmarkt öffnet Ende November.",
+        "en": "The Christmas market opens at the end of November.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der Stadt gibt es drei Weihnachtsmärkte.",
+        "en": "There are three Christmas markets in the city.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Festivals & customs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Ring",
+    "term": "der Ring",
+    "en": "ring",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Ringe",
+    "ipa": "ʁɪŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ring war ein Geschenk ihrer Großmutter.",
+        "en": "The ring was a present from her grandmother.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie trägt an beiden Händen Ringe.",
+        "en": "She wears rings on both hands.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Clothing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Ruhestand",
+    "term": "der Ruhestand",
+    "en": "retirement",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʁuːəˌʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er geht nächstes Jahr in den Ruhestand.",
+        "en": "He is retiring next year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Ruhestand hat sie endlich Zeit zum Malen.",
+        "en": "In retirement she finally has time to paint.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Life Stages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Papst",
+    "term": "der Papst",
+    "en": "pope",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Päpste",
+    "ipa": "paːpst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Papst sprach vor tausenden Menschen.",
+        "en": "The pope spoke in front of thousands of people.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zwei Päpste lebten damals gleichzeitig.",
+        "en": "Two popes were alive at the same time back then.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Kritiker",
+    "term": "der Kritiker",
+    "en": "critic",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Kritiker",
+    "ipa": "ˈkʁiːtɪkɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kritiker fand den Film enttäuschend.",
+        "en": "The critic found the film disappointing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Kritiker waren sich diesmal einig.",
+        "en": "The critics agreed this time.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Highlight",
+    "term": "das Highlight",
+    "en": "highlight",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Highlights",
+    "ipa": "ˈhaɪ̯laɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Highlight des Abends war das letzte Lied.",
+        "en": "The highlight of the evening was the last song.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Highlights kann man online nachsehen.",
+        "en": "You can watch the highlights online.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Entertainment & Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Schock",
+    "term": "der Schock",
+    "en": "shock",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ʃɔk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Nachricht war ein großer Schock für sie.",
+        "en": "The news was a great shock for her.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er stand noch unter Schock.",
+        "en": "He was still in shock.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Studio",
+    "term": "das Studio",
+    "en": "studio",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Studios",
+    "ipa": "ˈʃtuːdi̯o",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Studio liegt im dritten Stock.",
+        "en": "The studio is on the third floor.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beide Studios sind heute belegt.",
+        "en": "Both studios are booked today.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Unglück",
+    "term": "das Unglück",
+    "en": "accident, disaster; misfortune",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Unglücke",
+    "ipa": "ˈʊnˌɡlʏk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bei dem Unglück wurde niemand verletzt.",
+        "en": "Nobody was injured in the accident.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Solche Unglücke lassen sich nicht ganz verhindern.",
+        "en": "Accidents like that cannot be entirely prevented.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Landrat",
+    "term": "der Landrat",
+    "en": "district administrator (head of a rural district)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Landräte",
+    "ipa": "ˈlantˌʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Landrat hat den Notstand ausgerufen.",
+        "en": "The district administrator declared a state of emergency.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mehrere Landräte forderten mehr Geld vom Bund.",
+        "en": "Several district administrators demanded more money from the federal government.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Fonds",
+    "term": "der Fonds",
+    "en": "fund (financial)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Fonds",
+    "ipa": "fɔ̃ː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Fonds investiert vor allem in Europa.",
+        "en": "The fund invests mainly in Europe.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Fonds haben im letzten Jahr verloren.",
+        "en": "Many funds lost money last year.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Zähler",
+    "term": "der Zähler",
+    "en": "meter (for electricity, gas or water)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Zähler",
+    "ipa": "ˈt͡sɛːlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Zähler steht im Keller.",
+        "en": "The meter is in the cellar.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Einmal im Jahr werden die Zähler abgelesen.",
+        "en": "The meters are read once a year.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Derby",
+    "term": "das Derby",
+    "en": "derby",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Derbys",
+    "ipa": "ˈdɛʁbi",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Derby endete ohne Tore.",
+        "en": "The derby ended goalless.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Derbys sind immer ausverkauft.",
+        "en": "Derbies like that are always sold out.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:registriert",
+    "term": "registriert",
+    "en": "registered",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʁeɡɪsˈtʁiːɐ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nur registrierte Nutzer dürfen schreiben.",
+        "en": "Only registered users may post.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Auto ist noch in Österreich registriert.",
+        "en": "His car is still registered in Austria.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:minus",
+    "term": "minus",
+    "en": "minus",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmiːnʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Heute Nacht wird es minus fünf Grad.",
+        "en": "Tonight it will be minus five degrees.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zehn minus drei ist sieben.",
+        "en": "Ten minus three is seven.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Republikaner",
+    "term": "der Republikaner",
+    "en": "Republican (member of the US party)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Republikaner",
+    "ipa": "ʁepubliˈkaːnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Republikaner gewann den Bundesstaat knapp.",
+        "en": "The Republican narrowly won the state.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Republikaner stellen im Senat die Mehrheit.",
+        "en": "The Republicans hold the majority in the senate.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Elections",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Abseits",
+    "term": "das Abseits",
+    "en": "offside (in football)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Abseits",
+    "ipa": "ˈapˌzaɪ̯t͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Schiedsrichter entschied auf Abseits.",
+        "en": "The referee gave offside.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Tor zählte nicht, weil er im Abseits stand.",
+        "en": "The goal did not count because he was offside.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Montagmorgen",
+    "term": "der Montagmorgen",
+    "en": "Monday morning",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Montagmorgen",
+    "ipa": "ˈmoːntaːkˌmɔʁɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Montagmorgen ist immer besonders stressig.",
+        "en": "Monday morning is always particularly stressful.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Montagmorgen fährt der Bus früher.",
+        "en": "On Monday morning the bus leaves earlier.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Days & dates",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Analyst",
+    "term": "der Analyst",
+    "en": "analyst",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "anaˈlʏst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Analyst rechnet mit steigenden Preisen.",
+        "en": "The analyst expects rising prices.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Kein Analyst hatte das vorhergesagt.",
+        "en": "No analyst had predicted that.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Beute",
+    "term": "die Beute",
+    "en": "loot, haul (from a robbery); prey",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Beuten",
+    "ipa": "ˈbɔɪ̯tə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Beute war über zehntausend Euro wert.",
+        "en": "The haul was worth over ten thousand euros.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit der Beute flüchteten sie zu Fuß.",
+        "en": "They fled on foot with the loot.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Elfmeter",
+    "term": "der Elfmeter",
+    "en": "penalty kick",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Elfmeter",
+    "ipa": "ɛlfˈmeːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Elfmeter war eine klare Entscheidung.",
+        "en": "The penalty was a clear decision.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Elfmeter wurden verwandelt.",
+        "en": "Both penalties were converted.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Ausbruch",
+    "term": "der Ausbruch",
+    "en": "outbreak (of a war or disease); eruption",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Ausbrüche",
+    "ipa": "ˈaʊ̯sˌbʁʊx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seit dem Ausbruch der Krankheit sind zwei Jahre vergangen.",
+        "en": "Two years have passed since the outbreak of the disease.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Ausbruch des Vulkans war weithin zu sehen.",
+        "en": "The eruption of the volcano could be seen from far away.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Health & Prevention",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Talent",
+    "term": "das Talent",
+    "en": "talent",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Talente",
+    "ipa": "taˈlɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat großes Talent für Sprachen.",
+        "en": "She has great talent for languages.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Verein sucht junge Talente.",
+        "en": "The club is looking for young talents.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Hinspiel",
+    "term": "das Hinspiel",
+    "en": "first leg (of a two-match tie)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Hinspiele",
+    "ipa": "ˈhɪnˌʃpiːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Hinspiel endete unentschieden.",
+        "en": "The first leg ended in a draw.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Hinspiel führen sie mit einem Tor.",
+        "en": "After the first leg they lead by one goal.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Jahresbeginn",
+    "term": "der Jahresbeginn",
+    "en": "the start of the year",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Jahresbeginne",
+    "ipa": "ˈjaːʁəsbəˌɡɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zum Jahresbeginn steigen die Preise.",
+        "en": "Prices rise at the start of the year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Jahresbeginn war für die Firma schwierig.",
+        "en": "The start of the year was difficult for the company.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Basic time concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Ensemble",
+    "term": "das Ensemble",
+    "en": "ensemble",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Ensembles",
+    "ipa": "ɑ̃ˈsɑ̃ːbl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Ensemble probt seit Wochen.",
+        "en": "The ensemble has been rehearsing for weeks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie gehört seit zehn Jahren zum Ensemble.",
+        "en": "She has belonged to the ensemble for ten years.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Trikot",
+    "term": "das Trikot",
+    "en": "jersey, sports shirt",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Trikots",
+    "ipa": "tʁiˈkoː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Trikot hängt noch im Schrank.",
+        "en": "The jersey is still hanging in the wardrobe.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die neuen Trikots sind dunkelblau.",
+        "en": "The new jerseys are dark blue.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Agenda",
+    "term": "die Agenda",
+    "en": "agenda",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Agenden",
+    "ipa": "aˈɡɛnda",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Thema steht nicht auf der Agenda.",
+        "en": "The topic is not on the agenda.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Agenda für das Treffen kommt morgen.",
+        "en": "The agenda for the meeting is coming tomorrow.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business Correspondence",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Sand",
+    "term": "der Sand",
+    "en": "sand",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "zant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Sand ist hier sehr fein.",
+        "en": "The sand is very fine here.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Kinder spielten im warmen Sand.",
+        "en": "The children played in the warm sand.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Landscape & nature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Fund",
+    "term": "der Fund",
+    "en": "find, discovery",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "fʊnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Fund stammt aus der Römerzeit.",
+        "en": "The find dates from Roman times.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Funde sind äußerst selten.",
+        "en": "Finds like that are extremely rare.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Loch",
+    "term": "das Loch",
+    "en": "hole",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "lɔx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Hose ist ein Loch.",
+        "en": "There is a hole in the trousers.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er hat ein Loch in die Wand gebohrt.",
+        "en": "He drilled a hole in the wall.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Objects & Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Kontext",
+    "term": "der Kontext",
+    "en": "context",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Kontexte",
+    "ipa": "ˈkɔnˌtɛkst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne den Kontext versteht man den Satz nicht.",
+        "en": "Without the context you cannot understand the sentence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In diesem Kontext bedeutet das Wort etwas anderes.",
+        "en": "In this context the word means something different.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Writing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Tunnel",
+    "term": "der Tunnel",
+    "en": "tunnel",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈtʊnl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Tunnel ist über drei Kilometer lang.",
+        "en": "The tunnel is over three kilometres long.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beide Tunnel wurden gesperrt.",
+        "en": "Both tunnels were closed.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Unmut",
+    "term": "der Unmut",
+    "en": "displeasure, discontent",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʊnˌmuːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Entscheidung sorgte für großen Unmut.",
+        "en": "The decision caused great displeasure.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Unmut war deutlich zu hören.",
+        "en": "His displeasure was clearly audible.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Südwesten",
+    "term": "der Südwesten",
+    "en": "the south-west",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "zyːtˈvɛstn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Südwesten des Landes ist sehr trocken.",
+        "en": "The south-west of the country is very dry.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Südwesten regnet es morgen.",
+        "en": "It will rain in the south-west tomorrow.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Spatial relations",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zeitnah",
+    "term": "zeitnah",
+    "en": "promptly, in good time",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡saɪ̯tˌnaː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir melden uns zeitnah bei Ihnen.",
+        "en": "We will get back to you promptly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Eine zeitnahe Antwort wäre hilfreich.",
+        "en": "A prompt reply would be helpful.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Portal",
+    "term": "das Portal",
+    "en": "portal",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Portale",
+    "ipa": "pɔʁˈtaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Portal ist seit heute Morgen offline.",
+        "en": "The portal has been offline since this morning.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Über das Portal kann man Termine buchen.",
+        "en": "You can book appointments through the portal.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Digital World & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Achtelfinale",
+    "term": "das Achtelfinale",
+    "en": "round of sixteen",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈaxtl̩fiˌnaːlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Achtelfinale treffen sie auf Spanien.",
+        "en": "In the round of sixteen they face Spain.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Achtelfinale wird am Dienstag gespielt.",
+        "en": "The round of sixteen is played on Tuesday.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Debüt",
+    "term": "das Debüt",
+    "en": "debut",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Debüts",
+    "ipa": "deˈbyː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihr Debüt war ein großer Erfolg.",
+        "en": "Her debut was a great success.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gab sein Debüt mit siebzehn Jahren.",
+        "en": "He made his debut at seventeen.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Nahverkehr",
+    "term": "der Nahverkehr",
+    "en": "local public transport",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Nahverkehre",
+    "ipa": "ˈnaːfɛɐ̯ˌkeːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Nahverkehr wird ab Januar teurer.",
+        "en": "Local public transport will get more expensive from January.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Nahverkehr gilt ein anderes Ticket.",
+        "en": "A different ticket applies on local public transport.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Transfer",
+    "term": "der Transfer",
+    "en": "transfer",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Transfers",
+    "ipa": "tʁansˈfeːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Transfer wurde am Montag bestätigt.",
+        "en": "The transfer was confirmed on Monday.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Transfers kosten Millionen.",
+        "en": "Transfers like that cost millions.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Spanier",
+    "term": "der Spanier",
+    "en": "Spaniard, Spanish man",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Spanier",
+    "ipa": "ˈʃpaːni̯ɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Spanier spricht sehr gut Deutsch.",
+        "en": "The Spaniard speaks German very well.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zwei Spanier arbeiten in unserem Büro.",
+        "en": "Two Spaniards work in our office.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Countries & Nationalities",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Umstellung",
+    "term": "die Umstellung",
+    "en": "changeover, switch, adjustment",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Umstellungen",
+    "ipa": "ˈʊmˌʃtɛlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Umstellung auf das neue System dauert Monate.",
+        "en": "The changeover to the new system takes months.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für ihn war die Umstellung schwer.",
+        "en": "The adjustment was hard for him.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Digitalisation & Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Abgang",
+    "term": "der Abgang",
+    "en": "departure (from a club or post)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Abgänge",
+    "ipa": "ˈapˌɡaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sein Abgang kam völlig überraschend.",
+        "en": "His departure came as a complete surprise.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach mehreren Abgängen fehlt der Mannschaft Erfahrung.",
+        "en": "After several departures the team lacks experience.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Pokal",
+    "term": "der Pokal",
+    "en": "cup, trophy",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Pokale",
+    "ipa": "poˈkaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Pokal steht im Vereinsheim.",
+        "en": "The cup is in the clubhouse.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie haben schon drei Pokale gewonnen.",
+        "en": "They have already won three cups.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Superstar",
+    "term": "der Superstar",
+    "en": "superstar",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Superstars",
+    "ipa": "ˈzuːpɐˌstaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Superstar kam eine Stunde zu spät.",
+        "en": "The superstar arrived an hour late.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Superstars sieht man selten von Nahem.",
+        "en": "You rarely see superstars like that up close.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Entertainment & Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Präsent",
+    "term": "das Präsent",
+    "en": "gift, present",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Präsente",
+    "ipa": "pʁɛˈzɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zum Abschied gab es ein kleines Präsent.",
+        "en": "There was a small gift as a farewell.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Präsente wurden persönlich überreicht.",
+        "en": "The gifts were handed over in person.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Festivals & customs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Sonntagmorgen",
+    "term": "der Sonntagmorgen",
+    "en": "Sunday morning",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Sonntagmorgen",
+    "ipa": "ˈzɔntaːkˌmɔʁɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Sonntagmorgen gehört mir allein.",
+        "en": "Sunday morning belongs to me alone.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Sonntagmorgen ist die Stadt sehr ruhig.",
+        "en": "On Sunday morning the city is very quiet.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Days & dates",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Startelf",
+    "term": "die Startelf",
+    "en": "starting eleven",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Startelfen",
+    "ipa": "ˈʃtaʁtˌʔɛlf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er steht zum ersten Mal in der Startelf.",
+        "en": "He is in the starting eleven for the first time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Startelf wird eine Stunde vorher bekannt gegeben.",
+        "en": "The starting eleven is announced an hour beforehand.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Neuzugang",
+    "term": "der Neuzugang",
+    "en": "new signing; new arrival",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Neuzugänge",
+    "ipa": "ˈnɔɪ̯ˌt͡suːɡaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Neuzugang spielte von Anfang an.",
+        "en": "The new signing played from the start.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über den Neuzugang wird viel geredet.",
+        "en": "There is a lot of talk about the new signing.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Hinblick",
+    "term": "der Hinblick",
+    "en": "regard, respect (in the phrase 'im Hinblick auf')",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈhɪnˌblɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Hinblick auf die Kosten ist das keine gute Idee.",
+        "en": "With regard to the costs that is not a good idea.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Hinblick auf ihre Erfahrung war die Wahl klar.",
+        "en": "In view of her experience the choice was clear.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Writing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Polizist",
+    "term": "der Polizist",
+    "en": "police officer",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Polizisten",
+    "ipa": "poliˈt͡sɪst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Polizist wollte meinen Ausweis sehen.",
+        "en": "The police officer wanted to see my ID.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zwei Polizisten standen vor der Tür.",
+        "en": "Two police officers were standing at the door.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Bach",
+    "term": "der Bach",
+    "en": "stream, brook",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Bäche",
+    "ipa": "bax",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hinter dem Haus fließt ein kleiner Bach.",
+        "en": "A small stream flows behind the house.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Bach ist im Sommer fast trocken.",
+        "en": "The stream is almost dry in summer.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Landscape & nature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Trio",
+    "term": "das Trio",
+    "en": "trio",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Trios",
+    "ipa": "ˈtʁiːo",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Trio spielt heute Abend im Park.",
+        "en": "The trio is playing in the park this evening.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie gehört seit Jahren zum Trio.",
+        "en": "She has been part of the trio for years.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Entwarnung",
+    "term": "die Entwarnung",
+    "en": "the all-clear",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Entwarnungen",
+    "ipa": "ɛntˈvaʁnʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Abend gab die Polizei Entwarnung.",
+        "en": "In the evening the police gave the all-clear.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Entwarnung kam erst nach zwei Stunden.",
+        "en": "The all-clear only came after two hours.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Health & Prevention",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Freibad",
+    "term": "das Freibad",
+    "en": "outdoor swimming pool",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Freibäder",
+    "ipa": "ˈfʁaɪ̯ˌbaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Freibad öffnet im Mai.",
+        "en": "The outdoor pool opens in May.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Freibad war heute sehr viel los.",
+        "en": "The outdoor pool was very busy today.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Stoff",
+    "term": "der Stoff",
+    "en": "fabric, material; subject matter",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Stoffe",
+    "ipa": "ʃtɔf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Stoff fühlt sich sehr weich an.",
+        "en": "The fabric feels very soft.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Aus diesem Stoff näht sie Kleider.",
+        "en": "She sews dresses from this fabric.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Frust",
+    "term": "der Frust",
+    "en": "frustration",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "fʁʊst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Niederlage war der Frust groß.",
+        "en": "After the defeat the frustration was great.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Frust ist gut zu verstehen.",
+        "en": "His frustration is easy to understand.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Notarzt",
+    "term": "der Notarzt",
+    "en": "emergency doctor",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Notärzte",
+    "ipa": "ˈnoːtˌʔaʁt͡st",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Notarzt war nach fünf Minuten da.",
+        "en": "The emergency doctor was there after five minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne den Notarzt hätte er nicht überlebt.",
+        "en": "He would not have survived without the emergency doctor.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Doctor & Pharmacy",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:bekanntlich",
+    "term": "bekanntlich",
+    "en": "as is well known",
+    "pos": "adverb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈkantlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Geld macht bekanntlich nicht glücklich.",
+        "en": "Money, as is well known, does not make you happy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie ist bekanntlich keine Freundin von Kompromissen.",
+        "en": "She is, as is well known, no friend of compromises.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Homepage",
+    "term": "die Homepage",
+    "en": "homepage",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Homepages",
+    "ipa": "ˈhɔʊ̯mpɛɪ̯t͡ʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Homepage wurde komplett neu gestaltet.",
+        "en": "The homepage was completely redesigned.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf der Homepage stehen alle Termine.",
+        "en": "All the dates are on the homepage.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Digital World & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Menschheit",
+    "term": "die Menschheit",
+    "en": "humanity, mankind",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈmɛnʃhaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Menschheit steht vor großen Aufgaben.",
+        "en": "Humanity faces great tasks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das ist ein Gewinn für die ganze Menschheit.",
+        "en": "That is a gain for all of humanity.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Ethical Concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:pleite",
+    "term": "pleite",
+    "en": "broke, bankrupt",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈplaɪ̯tə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Monatsende bin ich immer pleite.",
+        "en": "At the end of the month I am always broke.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma ist seit gestern pleite.",
+        "en": "The company has been bankrupt since yesterday.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Ära",
+    "term": "die Ära",
+    "en": "era",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Ären",
+    "ipa": "ˈɛːʁa",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit ihm endet eine ganze Ära.",
+        "en": "A whole era ends with him.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Ära des billigen Gases ist vorbei.",
+        "en": "The era of cheap gas is over.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Basic time concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Samstagmorgen",
+    "term": "der Samstagmorgen",
+    "en": "Saturday morning",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Samstagmorgen",
+    "ipa": "ˈzamstaːkˌmɔʁɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Samstagmorgen ist zum Ausschlafen da.",
+        "en": "Saturday morning is for sleeping in.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Samstagmorgen gehen wir auf den Markt.",
+        "en": "On Saturday morning we go to the market.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Days & dates",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Schwung",
+    "term": "der Schwung",
+    "en": "momentum, verve",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Schwünge",
+    "ipa": "ʃvʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Mannschaft hat ihren Schwung verloren.",
+        "en": "The team has lost its momentum.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit neuem Schwung ging es in die zweite Hälfte.",
+        "en": "They went into the second half with new momentum.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Meilenstein",
+    "term": "der Meilenstein",
+    "en": "milestone",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Meilensteine",
+    "ipa": "ˈmaɪ̯lənˌʃtaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Vertrag ist ein Meilenstein für die Firma.",
+        "en": "The contract is a milestone for the company.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Projekt hat mehrere Meilensteine.",
+        "en": "The project has several milestones.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Index",
+    "term": "der Index",
+    "en": "index",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈɪndɛks",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Index ist um zwei Prozent gefallen.",
+        "en": "The index fell by two per cent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Am Index lässt sich die Stimmung gut ablesen.",
+        "en": "The mood can be read well from the index.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Regime",
+    "term": "das Regime",
+    "en": "regime",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ʁeˈʒiːm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Regime hat die Wahlen abgesagt.",
+        "en": "The regime cancelled the elections.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Unter dem Regime durfte niemand frei reden.",
+        "en": "Under the regime nobody was allowed to speak freely.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Gottesdienst",
+    "term": "der Gottesdienst",
+    "en": "church service",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Gottesdienste",
+    "ipa": "ˈɡɔtəsˌdiːnst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Gottesdienst beginnt um zehn Uhr.",
+        "en": "The church service begins at ten o'clock.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Gottesdienst gab es Kaffee.",
+        "en": "There was coffee after the church service.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Festivals & customs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Anlauf",
+    "term": "der Anlauf",
+    "en": "attempt; run-up",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Anläufe",
+    "ipa": "ˈanˌlaʊ̯f",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im dritten Anlauf hat es endlich geklappt.",
+        "en": "It finally worked on the third attempt.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Anlauf war zu kurz für einen weiten Sprung.",
+        "en": "The run-up was too short for a long jump.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Kreativität",
+    "term": "die Kreativität",
+    "en": "creativity",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˌkʁeativiˈtɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für diese Arbeit braucht man viel Kreativität.",
+        "en": "You need a lot of creativity for this work.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihre Kreativität hat mich sehr beeindruckt.",
+        "en": "Her creativity impressed me a great deal.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Aesthetic Concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zeitgleich",
+    "term": "zeitgleich",
+    "en": "at the same time, simultaneously",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡saɪ̯tˌɡlaɪ̯ç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Beide Konzerte finden zeitgleich statt.",
+        "en": "Both concerts take place at the same time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Zeitgleich stieg auch der Preis für Strom.",
+        "en": "At the same time the price of electricity also rose.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Sonnenschein",
+    "term": "der Sonnenschein",
+    "en": "sunshine",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈzɔnənˌʃaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bei Sonnenschein sitzen wir draußen.",
+        "en": "When there is sunshine we sit outside.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sonnenschein hielt den ganzen Tag an.",
+        "en": "The sunshine lasted all day.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Weather",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Vorstoß",
+    "term": "der Vorstoß",
+    "en": "initiative, push (a proposal)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Vorstöße",
+    "ipa": "ˈfoːɐ̯ˌʃtoːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Vorstoß der Regierung kam zu spät.",
+        "en": "The government's initiative came too late.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegen diesen Vorstoß gab es sofort Kritik.",
+        "en": "There was immediate criticism of this initiative.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Krönung",
+    "term": "die Krönung",
+    "en": "coronation; crowning achievement",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Krönungen",
+    "ipa": "ˈkʁøːnʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Krönung fand vor sechzig Jahren statt.",
+        "en": "The coronation took place sixty years ago.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Titel war die Krönung seiner Karriere.",
+        "en": "The title was the crowning achievement of his career.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:drastisch",
+    "term": "drastisch",
+    "en": "drastic, drastically",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʁastɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Preise sind drastisch gestiegen.",
+        "en": "Prices have risen drastically.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wählte sehr drastische Worte.",
+        "en": "He chose very drastic words.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Stillstand",
+    "term": "der Stillstand",
+    "en": "standstill",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Stillstände",
+    "ipa": "ˈʃtɪlˌʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Verhandlungen sind zum Stillstand gekommen.",
+        "en": "The negotiations have come to a standstill.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Stillstand wäre für alle teuer.",
+        "en": "A standstill would be expensive for everyone.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Unfallort",
+    "term": "der Unfallort",
+    "en": "the scene of the accident",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Unfallorte",
+    "ipa": "ˈʊnfalˌʔɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Unfallort waren drei Rettungswagen.",
+        "en": "There were three ambulances at the scene of the accident.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Unfallort wurde weiträumig abgesperrt.",
+        "en": "The scene of the accident was cordoned off over a wide area.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Ausweitung",
+    "term": "die Ausweitung",
+    "en": "extension, expansion (of a scheme)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Ausweitungen",
+    "ipa": "ˈaʊ̯svaɪ̯tʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Ausweitung der Kontrollen war umstritten.",
+        "en": "The extension of the checks was controversial.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über eine Ausweitung wird noch verhandelt.",
+        "en": "An extension is still being negotiated.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Horn",
+    "term": "das Horn",
+    "en": "horn (instrument or of an animal)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Hörner",
+    "ipa": "hɔʁn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er spielt seit zehn Jahren Horn.",
+        "en": "He has played the horn for ten years.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Horn klingt tiefer als die Trompete.",
+        "en": "The horn sounds lower than the trumpet.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:explizit",
+    "term": "explizit",
+    "en": "explicit, explicitly",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛkspliˈt͡siːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das steht so nicht explizit im Vertrag.",
+        "en": "That is not explicitly stated in the contract.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat explizit nach dir gefragt.",
+        "en": "She asked for you explicitly.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Jubel",
+    "term": "der Jubel",
+    "en": "cheering, jubilation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈjuːbl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach dem Tor brach großer Jubel aus.",
+        "en": "Great cheering broke out after the goal.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Jubel war im ganzen Stadion zu hören.",
+        "en": "The cheering could be heard throughout the stadium.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:parat",
+    "term": "parat",
+    "en": "ready, at hand",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "paˈʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hatte sofort eine Antwort parat.",
+        "en": "He had an answer ready at once.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Halten Sie bitte Ihren Ausweis parat.",
+        "en": "Please have your ID ready.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Flexibilität",
+    "term": "die Flexibilität",
+    "en": "flexibility",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "flɛksibiliˈtɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Job verlangt viel Flexibilität.",
+        "en": "The job demands a lot of flexibility.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihre Flexibilität hat das Projekt gerettet.",
+        "en": "Her flexibility saved the project.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Campus",
+    "term": "der Campus",
+    "en": "campus",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈkampʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Campus liegt etwas außerhalb der Stadt.",
+        "en": "The campus is a little outside the city.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf dem Campus gibt es drei Mensen.",
+        "en": "There are three canteens on the campus.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "At the University",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Zuwanderung",
+    "term": "die Zuwanderung",
+    "en": "immigration",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Zuwanderungen",
+    "ipa": "ˈt͡suːˌvandəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Über die Zuwanderung wird heftig gestritten.",
+        "en": "Immigration is fiercely debated.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ohne Zuwanderung würde die Bevölkerung schrumpfen.",
+        "en": "Without immigration the population would shrink.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emigration & immigration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Zelt",
+    "term": "das Zelt",
+    "en": "tent",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Zelte",
+    "ipa": "t͡sɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Zelt stand direkt am See.",
+        "en": "The tent stood right by the lake.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben zwei Zelte mitgenommen.",
+        "en": "We took two tents with us.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Accommodation",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:exklusiv",
+    "term": "exklusiv",
+    "en": "exclusive",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛkskluˈziːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Interview erschien exklusiv in dieser Zeitung.",
+        "en": "The interview appeared exclusively in this newspaper.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Club ist sehr exklusiv.",
+        "en": "The club is very exclusive.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:deutschlandweit",
+    "term": "deutschlandweit",
+    "en": "nationwide (in Germany)",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdɔɪ̯t͡ʃlantˌvaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Aktion läuft deutschlandweit.",
+        "en": "The campaign is running nationwide.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er ist deutschlandweit bekannt.",
+        "en": "He is known throughout Germany.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Image",
+    "term": "das Image",
+    "en": "image",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Images",
+    "ipa": "ˈɪmɪt͡ʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Image der Marke hat gelitten.",
+        "en": "The brand's image has suffered.",
+        "lvl": "C1"
+      },
+      {
+        "de": "An ihrem Image arbeitet sie hart.",
+        "en": "She works hard on her image.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Advertising & Consumption",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Asyl",
+    "term": "das Asyl",
+    "en": "asylum (protection for refugees)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Asyle",
+    "ipa": "aˈzyːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat in Deutschland Asyl beantragt.",
+        "en": "He applied for asylum in Germany.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Asyl wurde nach zwei Jahren gewährt.",
+        "en": "The asylum was granted after two years.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emigration & immigration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Zuwachs",
+    "term": "der Zuwachs",
+    "en": "increase, growth",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Zuwächse",
+    "ipa": "ˈt͡suːˌvaks",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Zuwachs lag bei drei Prozent.",
+        "en": "The increase was three per cent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Einen solchen Zuwachs hatte niemand erwartet.",
+        "en": "Nobody had expected such an increase.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Abbau",
+    "term": "der Abbau",
+    "en": "reduction, cutting back; mining",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈapˌbaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Abbau von Stellen geht weiter.",
+        "en": "The cutting of jobs continues.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beim Abbau der Kohle arbeiteten tausende Menschen.",
+        "en": "Thousands of people worked mining the coal.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Anpfiff",
+    "term": "der Anpfiff",
+    "en": "kick-off (start of a match)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Anpfiffe",
+    "ipa": "ˈanˌp͡fɪf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Anpfiff ist um halb vier.",
+        "en": "Kick-off is at half past three.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Kurz nach dem Anpfiff fiel das erste Tor.",
+        "en": "The first goal came shortly after kick-off.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:vergeblich",
+    "term": "vergeblich",
+    "en": "in vain, futile",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈɡeːplɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alle Versuche waren vergeblich.",
+        "en": "All attempts were in vain.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir haben vergeblich auf ihn gewartet.",
+        "en": "We waited for him in vain.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:kurzzeitig",
+    "term": "kurzzeitig",
+    "en": "briefly, for a short time",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʊʁt͡sˌt͡saɪ̯tɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Straße war kurzzeitig gesperrt.",
+        "en": "The road was briefly closed.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gab eine kurzzeitige Unterbrechung.",
+        "en": "There was a brief interruption.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Graf",
+    "term": "der Graf",
+    "en": "count, earl",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Grafen",
+    "ipa": "ɡʁaːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Graf lebte in diesem Schloss.",
+        "en": "The count lived in this castle.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Zwei Grafen stritten um das Land.",
+        "en": "Two counts quarrelled over the land.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Volumen",
+    "term": "das Volumen",
+    "en": "volume (capacity or amount)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "voˈluːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Volumen des Behälters beträgt zwei Liter.",
+        "en": "The volume of the container is two litres.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Volumen der Aufträge ist gestiegen.",
+        "en": "The volume of orders has risen.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Podium",
+    "term": "das Podium",
+    "en": "podium",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Podien",
+    "ipa": "ˈpoːdi̯ʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie stand zum ersten Mal auf dem Podium.",
+        "en": "She stood on the podium for the first time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Podium war für die Gäste reserviert.",
+        "en": "The podium was reserved for the guests.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Eigentum",
+    "term": "das Eigentum",
+    "en": "property, ownership",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Eigentume",
+    "ipa": "ˈaɪ̯ɡn̩tuːm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Haus ist ihr Eigentum.",
+        "en": "The house is her property.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Fremdes Eigentum darf man nicht beschädigen.",
+        "en": "You must not damage other people's property.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Real Estate & Moving",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:gegenwärtig",
+    "term": "gegenwärtig",
+    "en": "current, at present",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɡeːɡn̩ˌvɛʁtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die gegenwärtige Lage ist schwierig.",
+        "en": "The current situation is difficult.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegenwärtig arbeiten dort zwanzig Menschen.",
+        "en": "At present twenty people work there.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Beliebtheit",
+    "term": "die Beliebtheit",
+    "en": "popularity",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "bəˈliːpthaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Beliebtheit der Sendung nimmt ab.",
+        "en": "The popularity of the programme is decreasing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Seine Beliebtheit hat ihn selbst überrascht.",
+        "en": "His popularity surprised even him.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Vorgang",
+    "term": "der Vorgang",
+    "en": "process; incident, case",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Vorgänge",
+    "ipa": "ˈfoːɐ̯ˌɡaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der ganze Vorgang dauert nur wenige Minuten.",
+        "en": "The whole process only takes a few minutes.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Solche Vorgänge müssen dokumentiert werden.",
+        "en": "Processes like that have to be documented.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Parteitag",
+    "term": "der Parteitag",
+    "en": "party conference",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Parteitage",
+    "ipa": "paʁˈtaɪ̯ˌtaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Parteitag findet im März statt.",
+        "en": "The party conference takes place in March.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Auf dem Parteitag wurde heftig diskutiert.",
+        "en": "There was heated discussion at the party conference.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Elections",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Kriminalität",
+    "term": "die Kriminalität",
+    "en": "crime (as a phenomenon)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "kʁiminaliˈtɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Kriminalität ist im letzten Jahr gesunken.",
+        "en": "Crime fell last year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegen die Kriminalität hilft nur Prävention.",
+        "en": "Only prevention helps against crime.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:weitaus",
+    "term": "weitaus",
+    "en": "by far",
+    "pos": "adverb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯tˈʔaʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist weitaus besser als erwartet.",
+        "en": "That is far better than expected.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat weitaus mehr Erfahrung als er.",
+        "en": "She has far more experience than he does.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:potenziell",
+    "term": "potenziell",
+    "en": "potential, potentially",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "potɛnˈt͡si̯ɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist ein potenziell gefährlicher Stoff.",
+        "en": "That is a potentially dangerous substance.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir sprechen mit potenziellen Kunden.",
+        "en": "We are talking to potential customers.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Terror",
+    "term": "der Terror",
+    "en": "terror",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈtɛʁoːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Terror hat das Land jahrelang gelähmt.",
+        "en": "Terror paralysed the country for years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gegen den Terror hilft kein einfaches Rezept.",
+        "en": "There is no simple recipe against terror.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Global Challenges",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Herzog",
+    "term": "der Herzog",
+    "en": "duke",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈhɛʁt͡soːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Herzog ließ die Kirche bauen.",
+        "en": "The duke had the church built.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Titel Herzog wird bis heute geführt.",
+        "en": "The title of duke is still used today.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Verlag",
+    "term": "der Verlag",
+    "en": "publishing house",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "fɛɐ̯ˈlaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Verlag sitzt in München.",
+        "en": "The publishing house is based in Munich.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie arbeitet seit Jahren in einem kleinen Verlag.",
+        "en": "She has worked in a small publishing house for years.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Literature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Abo",
+    "term": "das Abo",
+    "en": "subscription",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Abos",
+    "ipa": "ˈabo",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Abo läuft am Monatsende aus.",
+        "en": "The subscription runs out at the end of the month.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe zu viele Abos.",
+        "en": "I have too many subscriptions.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Delegation",
+    "term": "die Delegation",
+    "en": "delegation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Delegationen",
+    "ipa": "deleɡaˈt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Delegation kam am Morgen an.",
+        "en": "The delegation arrived in the morning.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beide Delegationen sprachen von Fortschritten.",
+        "en": "Both delegations spoke of progress.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Global Challenges",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:intern",
+    "term": "intern",
+    "en": "internal, internally",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪnˈtɛʁn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine rein interne Angelegenheit.",
+        "en": "That is a purely internal matter.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Intern wird die Entscheidung längst kritisiert.",
+        "en": "Internally the decision has long been criticised.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Rückschlag",
+    "term": "der Rückschlag",
+    "en": "setback",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Rückschläge",
+    "ipa": "ˈʁʏkˌʃlaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Rückschlag hat ihn nicht aufgehalten.",
+        "en": "The setback did not stop him.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach mehreren Rückschlägen gab sie auf.",
+        "en": "After several setbacks she gave up.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:unerwartet",
+    "term": "unerwartet",
+    "en": "unexpected, unexpectedly",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnɛɐ̯ˌvaʁtət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Besuch kam völlig unerwartet.",
+        "en": "The visit came completely unexpectedly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es gab ein unerwartetes Problem.",
+        "en": "There was an unexpected problem.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Rundfunk",
+    "term": "der Rundfunk",
+    "en": "broadcasting",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʁʊntˌfʊŋk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der öffentliche Rundfunk wird aus Beiträgen finanziert.",
+        "en": "Public broadcasting is financed by fees.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Rundfunk wurde die Nachricht sofort gemeldet.",
+        "en": "The news was reported on the radio immediately.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Foul",
+    "term": "das Foul",
+    "en": "foul",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Fouls",
+    "ipa": "faʊ̯l",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Foul war eindeutig.",
+        "en": "The foul was obvious.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für dieses Foul gab es die rote Karte.",
+        "en": "There was a red card for this foul.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Profil",
+    "term": "das Profil",
+    "en": "profile",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Profile",
+    "ipa": "pʁoˈfiːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sein Profil ist öffentlich sichtbar.",
+        "en": "His profile is publicly visible.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Profile wurden gelöscht.",
+        "en": "Both profiles were deleted.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Social Networks",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Geschlecht",
+    "term": "das Geschlecht",
+    "en": "gender, sex",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Geschlechter",
+    "ipa": "ɡəˈʃlɛçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Geschlecht spielt bei der Bewerbung keine Rolle.",
+        "en": "Gender plays no role in the application.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beide Geschlechter sind gleich vertreten.",
+        "en": "Both genders are equally represented.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Identity",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Demo",
+    "term": "die Demo",
+    "en": "demonstration, protest march",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Demos",
+    "ipa": "ˈdeːmo",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Demo beginnt um zwei Uhr am Marktplatz.",
+        "en": "The demonstration starts at two o'clock in the market square.",
+        "lvl": "B2"
+      },
+      {
+        "de": "An der Demo nahmen tausende Menschen teil.",
+        "en": "Thousands of people took part in the demonstration.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Civic Engagement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:erfolglos",
+    "term": "erfolglos",
+    "en": "unsuccessful",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈfɔlkloːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Suche blieb erfolglos.",
+        "en": "The search remained unsuccessful.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach mehreren erfolglosen Versuchen gab er auf.",
+        "en": "After several unsuccessful attempts he gave up.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
   }
 ]

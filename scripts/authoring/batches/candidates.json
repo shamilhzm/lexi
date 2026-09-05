@@ -1,0 +1,9618 @@
+[
+ {
+  "term": "new",
+  "pos": "adjective",
+  "gloss": [
+   "obsolete spelling of neu"
+  ],
+  "freq": 1623
+ },
+ {
+  "term": "All",
+  "pos": "noun",
+  "gloss": [
+   "cosmos"
+  ],
+  "freq": 1243,
+  "gender": "das",
+  "ipa": "ʔal"
+ },
+ {
+  "term": "Müller",
+  "pos": "noun",
+  "gloss": [
+   "miller"
+  ],
+  "freq": 1175,
+  "gender": "der",
+  "plural": "die Müller",
+  "ipa": "ˈmʏlɐ"
+ },
+ {
+  "term": "Münchner",
+  "pos": "noun",
+  "gloss": [
+   "a resident or inhabitant of Munich"
+  ],
+  "freq": 1100,
+  "gender": "der",
+  "plural": "die Münchner",
+  "ipa": "ˈmʏnçnɐ"
+ },
+ {
+  "term": "heuer",
+  "pos": "adverb",
+  "gloss": [
+   "this year",
+   "synonym of heutzutage (“nowadays”)"
+  ],
+  "freq": 993,
+  "ipa": "ˈhɔʏ̯ɐ"
+ },
+ {
+  "term": "Gemeinderat",
+  "pos": "noun",
+  "gloss": [
+   "a local authority in Germany, Austria, Switzerland or East Belgium",
+   "a member of such a local authority"
+  ],
+  "freq": 946,
+  "gender": "der",
+  "plural": "die Gemeinderäte",
+  "ipa": "ɡəˈmaɪ̯ndəˌʁaːt"
+ },
+ {
+  "term": "Eintracht",
+  "pos": "noun",
+  "gloss": [
+   "concord",
+   "harmony",
+   "unity"
+  ],
+  "freq": 928,
+  "gender": "die",
+  "ipa": "ˈaɪ̯nˌtʁaxt"
+ },
+ {
+  "term": "Show",
+  "pos": "noun",
+  "gloss": [
+   "show, spectacle"
+  ],
+  "freq": 887,
+  "gender": "die",
+  "plural": "die Shows",
+  "ipa": "ʃɔʊ̯"
+ },
+ {
+  "term": "City",
+  "pos": "noun",
+  "gloss": [
+   "city center, downtown, central business district"
+  ],
+  "freq": 846,
+  "gender": "die",
+  "plural": "die Citys",
+  "ipa": "ˈsɪti"
+ },
+ {
+  "term": "Star",
+  "pos": "noun",
+  "gloss": [
+   "starling"
+  ],
+  "freq": 838,
+  "gender": "der",
+  "plural": "die Stare",
+  "ipa": "ʃtaːr"
+ },
+ {
+  "term": "frank",
+  "pos": "adjective",
+  "gloss": [
+   "frank"
+  ],
+  "freq": 833,
+  "ipa": "fʁaŋk"
+ },
+ {
+  "term": "Kiel",
+  "pos": "noun",
+  "gloss": [
+   "keel (beam at the underside of a ship)"
+  ],
+  "freq": 788,
+  "gender": "der",
+  "plural": "die Kiele",
+  "ipa": "kiːl"
+ },
+ {
+  "term": "Johannes",
+  "pos": "noun",
+  "gloss": [
+   "penis; cock"
+  ],
+  "freq": 767,
+  "gender": "der",
+  "plural": "die Johannesse",
+  "ipa": "joˈhanəs"
+ },
+ {
+  "term": "Vorfeld",
+  "pos": "noun",
+  "gloss": [
+   "run-up (period of time just before an important event)",
+   "apron (paved area of an airport)",
+   "prefield (the first field in the Feldermodell)"
+  ],
+  "freq": 753,
+  "gender": "das",
+  "plural": "die Vorfelder"
+ },
+ {
+  "term": "Auftakt",
+  "pos": "noun",
+  "gloss": [
+   "anacrusis (an unstressed syllable at the start of a verse)",
+   "anacrusis",
+   "kick-off (opening sequence of any event)"
+  ],
+  "freq": 753,
+  "gender": "der",
+  "plural": "die Auftakte"
+ },
+ {
+  "term": "vorgesehen",
+  "pos": "adjective",
+  "gloss": [
+   "envisaged, planned, scheduled"
+  ],
+  "freq": 740
+ },
+ {
+  "term": "Fischer",
+  "pos": "noun",
+  "gloss": [
+   "fisher, fisherman (male or of unspecified gender)",
+   "component part in various compound nouns, e.g. Amazonasfischer (“Amazon kingfisher”), Austernfischer (“oystercatcher”)",
+   "component part in various compounds for different kinds of fishing boats, e.g. Grundschleppnetzfischer (“trawler”)"
+  ],
+  "freq": 722,
+  "gender": "der",
+  "plural": "die Fischer",
+  "ipa": "ˈfɪʃɐ"
+ },
+ {
+  "term": "dar",
+  "pos": "adverb",
+  "gloss": [
+   "only used in darstellen etc."
+  ],
+  "freq": 702,
+  "ipa": "daːɐ̯"
+ },
+ {
+  "term": "Corona",
+  "pos": "noun",
+  "gloss": [
+   "Obsolete spelling of Korona which was deprecated in 1902 following the Second Orthographic Conference of 1901."
+  ],
+  "freq": 673,
+  "gender": "die",
+  "plural": "die Coronen",
+  "ipa": "koˈʁoːna"
+ },
+ {
+  "term": "Wagner",
+  "pos": "noun",
+  "gloss": [
+   "cartwright, wainwright, wheelwright"
+  ],
+  "freq": 670,
+  "gender": "der",
+  "plural": "die Wagner",
+  "ipa": "ˈvaːɡnəʁ"
+ },
+ {
+  "term": "Bord",
+  "pos": "noun",
+  "gloss": [
+   "shelf (board fixed to the wall)",
+   "bordure",
+   "embankment, slope, sloped verge by a road"
+  ],
+  "freq": 668,
+  "gender": "das",
+  "plural": "die Borde",
+  "ipa": "bɔʁt"
+ },
+ {
+  "term": "Kader",
+  "pos": "noun",
+  "gloss": [
+   "squad (body of the players of a team or club)",
+   "cadre (body of officers forming a new regiment)",
+   "cadre (the ideologically trained elite, which is to fill all public and economic leadership positions)"
+  ],
+  "freq": 658,
+  "gender": "der",
+  "plural": "die Kader",
+  "ipa": "ˈkaːdɐ"
+ },
+ {
+  "term": "Jürgen",
+  "pos": "noun",
+  "gloss": [
+   "willy, peter, johnson"
+  ],
+  "freq": 634,
+  "gender": "der",
+  "plural": "die Jürgen",
+  "ipa": "ˈjʏrɡən"
+ },
+ {
+  "term": "Merz",
+  "pos": "noun",
+  "gloss": [
+   "Obsolete spelling of März which was deprecated in 1902 following the Second Orthographic Conference of 1901."
+  ],
+  "freq": 629,
+  "gender": "der",
+  "plural": "die Merze",
+  "ipa": "mɛʁt͡s"
+ },
+ {
+  "term": "Sachschaden",
+  "pos": "noun",
+  "gloss": [
+   "material damage"
+  ],
+  "freq": 613,
+  "gender": "der",
+  "plural": "die Sachschäden",
+  "ipa": "ˈzaxˌʃaːdn̩"
+ },
+ {
+  "term": "verpflichtet",
+  "pos": "adjective",
+  "gloss": [
+   "committed, bound, obliged, indebted, beholden"
+  ],
+  "freq": 610
+ },
+ {
+  "term": "Schuss",
+  "pos": "noun",
+  "gloss": [
+   "shot",
+   "ammunition",
+   "(mild) craziness"
+  ],
+  "freq": 606,
+  "gender": "der",
+  "plural": "die Schüsse",
+  "ipa": "ʃʊs"
+ },
+ {
+  "term": "flammen",
+  "pos": "verb",
+  "gloss": [
+   "to flame (burn with a flame, also figuratively)"
+  ],
+  "freq": 603,
+  "ipa": "flamən"
+ },
+ {
+  "term": "Haft",
+  "pos": "noun",
+  "gloss": [
+   "arrest, custody, imprisonment (the state of being confined by order of a government or ruler)",
+   "captivity (any confinement, e.g. by criminals)"
+  ],
+  "freq": 601,
+  "gender": "die",
+  "plural": "die Haften",
+  "ipa": "haft"
+ },
+ {
+  "term": "Mercedes",
+  "pos": "noun",
+  "gloss": [
+   "Mercedes (car manufactured by Mercedes-Benz)",
+   "cream of the crop"
+  ],
+  "freq": 589,
+  "gender": "der",
+  "plural": "die Mercedesse",
+  "ipa": "mɛʁˈt͡seːdəs"
+ },
+ {
+  "term": "Kölner",
+  "pos": "noun",
+  "gloss": [
+   "inhabitant or native of Cologne"
+  ],
+  "freq": 589,
+  "gender": "der",
+  "plural": "die Kölner",
+  "ipa": "ˈkœlnɐ"
+ },
+ {
+  "term": "aufgerufen",
+  "pos": "adjective",
+  "gloss": [
+   "invoked, accessed, called"
+  ],
+  "freq": 583
+ },
+ {
+  "term": "Schmidt",
+  "pos": "noun",
+  "gloss": [
+   "archaic form of Schmied (“smith”)"
+  ],
+  "freq": 574,
+  "gender": "der",
+  "plural": "die Schmiede",
+  "ipa": "ʃmɪt"
+ },
+ {
+  "term": "antreten",
+  "pos": "verb",
+  "gloss": [
+   "to arrive; to present oneself",
+   "to line up; to stand for a muster or report",
+   "to arrive; to present oneself"
+  ],
+  "freq": 557,
+  "ipa": "ˈanˌtʁeːtən"
+ },
+ {
+  "term": "Vorsitzender",
+  "pos": "noun",
+  "gloss": [
+   "chairman, chairperson, chair, board chairman (male or of unspecified gender)",
+   "president (male or of unspecified gender)"
+  ],
+  "freq": 550,
+  "gender": "der",
+  "plural": "die Vorsitzende",
+  "ipa": "ˈfoːɐ̯ˌzɪt͡sn̩dɐ"
+ },
+ {
+  "term": "Bayer",
+  "pos": "noun",
+  "gloss": [
+   "Bavarian (native or inhabitant of the state of Bavaria, Germany) (usually male)"
+  ],
+  "freq": 547,
+  "gender": "der",
+  "plural": "die Bayern"
+ },
+ {
+  "term": "fort",
+  "pos": "adverb",
+  "gloss": [
+   "away",
+   "gone",
+   "going on, continuing"
+  ],
+  "freq": 546,
+  "ipa": "fɔɐ̯t"
+ },
+ {
+  "term": "Jänner",
+  "pos": "noun",
+  "gloss": [
+   "synonym of Januar (“January”)"
+  ],
+  "freq": 540,
+  "gender": "der",
+  "plural": "die Jänner",
+  "ipa": "ˈjɛnːɐ"
+ },
+ {
+  "term": "Van",
+  "pos": "noun",
+  "gloss": [
+   "van"
+  ],
+  "freq": 538,
+  "gender": "der",
+  "plural": "die Vans",
+  "ipa": "væn"
+ },
+ {
+  "term": "Benjamin",
+  "pos": "noun",
+  "gloss": [
+   "youngest child"
+  ],
+  "freq": 534,
+  "gender": "der",
+  "plural": "die Benjamine",
+  "ipa": "ˈbɛnjaˌmiːn"
+ },
+ {
+  "term": "Spieltag",
+  "pos": "noun",
+  "gloss": [
+   "matchday"
+  ],
+  "freq": 533,
+  "gender": "der",
+  "plural": "die Spieltage"
+ },
+ {
+  "term": "Rückstand",
+  "pos": "noun",
+  "gloss": [
+   "residue",
+   "backlog",
+   "arrears"
+  ],
+  "freq": 532,
+  "gender": "der",
+  "plural": "die Rückstände",
+  "ipa": "ˈʁʏkˌʃtant"
+ },
+ {
+  "term": "teilnehmen",
+  "pos": "verb",
+  "gloss": [
+   "to participate (in)"
+  ],
+  "freq": 531,
+  "ipa": "ˈtaɪ̯lneːmən"
+ },
+ {
+  "term": "Hektar",
+  "pos": "noun",
+  "gloss": [
+   "hectare"
+  ],
+  "freq": 527,
+  "gender": "das",
+  "plural": "die Hektare",
+  "ipa": "ˈhɛktaːɐ̯"
+ },
+ {
+  "term": "angewiesen",
+  "pos": "adjective",
+  "gloss": [
+   "dependent (on), reliant (on)"
+  ],
+  "freq": 509,
+  "ipa": "ˈanɡəˌviːzn̩"
+ },
+ {
+  "term": "Nachwuchs",
+  "pos": "noun",
+  "gloss": [
+   "the act of regrowing",
+   "that which regrows; regrowth",
+   "offspring, progeny (collective of biological descendants)"
+  ],
+  "freq": 507,
+  "gender": "der",
+  "plural": "die Nachwüchse",
+  "ipa": "ˈnaːxˌvuːks"
+ },
+ {
+  "term": "Werder",
+  "pos": "noun",
+  "gloss": [
+   "river island, eyot, holm"
+  ],
+  "freq": 504,
+  "gender": "der",
+  "plural": "die Werder"
+ },
+ {
+  "term": "zuhause",
+  "pos": "adverb",
+  "gloss": [
+   "alternative spelling of zu Hause"
+  ],
+  "freq": 501,
+  "ipa": "t͡suˈhaʊ̯zə"
+ },
+ {
+  "term": "Leipziger",
+  "pos": "noun",
+  "gloss": [
+   "Leipziger (native or inhabitant of the city of Leipzig, Saxony, Germany) (usually male)"
+  ],
+  "freq": 499,
+  "gender": "der",
+  "plural": "die Leipziger"
+ },
+ {
+  "term": "hunderte",
+  "pos": "noun",
+  "gloss": [
+   "alternative letter-case form of Hunderte"
+  ],
+  "freq": 495,
+  "gender": "das"
+ },
+ {
+  "term": "ausgesetzt",
+  "pos": "adjective",
+  "gloss": [
+   "exposed",
+   "deferred, suspended",
+   "abandoned"
+  ],
+  "freq": 492
+ },
+ {
+  "term": "russen",
+  "pos": "verb",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of rußen"
+  ],
+  "freq": 491
+ },
+ {
+  "term": "ausgestattet",
+  "pos": "adjective",
+  "gloss": [
+   "equipped, endowed, provided, furnished"
+  ],
+  "freq": 488
+ },
+ {
+  "term": "hinweg",
+  "pos": "adverb",
+  "gloss": [
+   "away",
+   "over, across"
+  ],
+  "freq": 486,
+  "ipa": "hɪnˈvɛk"
+ },
+ {
+  "term": "Bauarbeiten",
+  "pos": "noun",
+  "gloss": [
+   "construction works"
+  ],
+  "freq": 485,
+  "gender": "die",
+  "plural": "die Bauarbeiten"
+ },
+ {
+  "term": "Design",
+  "pos": "noun",
+  "gloss": [
+   "design (creative profession or art)"
+  ],
+  "freq": 466,
+  "gender": "das",
+  "plural": "die Designs",
+  "ipa": "diˈzaɪn"
+ },
+ {
+  "term": "top",
+  "pos": "adjective",
+  "gloss": [
+   "top (of the highest quality or rank)"
+  ],
+  "freq": 460,
+  "ipa": "tɔp"
+ },
+ {
+  "term": "Arena",
+  "pos": "noun",
+  "gloss": [
+   "arena (sand-covered centre of an amphitheatre in Antiquity)",
+   "arena (a sports or concert hall, stadium)"
+  ],
+  "freq": 457,
+  "gender": "die",
+  "plural": "die Arenen",
+  "ipa": "aˈʁeːna"
+ },
+ {
+  "term": "Gott",
+  "pos": "noun",
+  "gloss": [
+   "god"
+  ],
+  "freq": 456,
+  "gender": "der",
+  "plural": "die Götter",
+  "ipa": "ɡɔt"
+ },
+ {
+  "term": "Aufbau",
+  "pos": "noun",
+  "gloss": [
+   "construction (the manner in which or process by which something is built)",
+   "buildup"
+  ],
+  "freq": 454,
+  "gender": "der",
+  "plural": "die Aufbauten",
+  "ipa": "ˈaʊ̯fˌbaʊ̯"
+ },
+ {
+  "term": "Manchester",
+  "pos": "noun",
+  "gloss": [
+   "synonym of Cord (“corduroy”)"
+  ],
+  "freq": 451,
+  "gender": "der",
+  "ipa": "ˈmɛnt͡ʃɛstɐ"
+ },
+ {
+  "term": "super",
+  "pos": "adjective",
+  "gloss": [
+   "super, great, awesome"
+  ],
+  "freq": 449,
+  "ipa": "ˈzuːpɐ"
+ },
+ {
+  "term": "Media",
+  "pos": "noun",
+  "gloss": [
+   "media"
+  ],
+  "freq": 449,
+  "gender": "die",
+  "plural": "die Medien",
+  "ipa": "ˈmeːdi̯a"
+ },
+ {
+  "term": "Münster",
+  "pos": "noun",
+  "gloss": [
+   "minster (large, originally monastic church)"
+  ],
+  "freq": 449,
+  "gender": "der",
+  "plural": "die Münster",
+  "ipa": "ˈmʏnstɐ"
+ },
+ {
+  "term": "West",
+  "pos": "noun",
+  "gloss": [
+   "the west (used without article; a short form of Westen)",
+   "a wind coming from the west (used with article)"
+  ],
+  "freq": 443,
+  "gender": "der",
+  "ipa": "ˈvɛst"
+ },
+ {
+  "term": "Jury",
+  "pos": "noun",
+  "gloss": [
+   "panel of judges, jury in a competition",
+   "panel of jurors, jury in a trial (nonexistent in Germany, rare in other German-speaking countries)"
+  ],
+  "freq": 442,
+  "gender": "die",
+  "plural": "die Jurys",
+  "ipa": "ˈʒyːʁi"
+ },
+ {
+  "term": "Mark",
+  "pos": "noun",
+  "gloss": [
+   "mark (any of various European monetary units)",
+   "ellipsis of Deutsche Mark",
+   "ellipsis of Mark der DDR"
+  ],
+  "freq": 439,
+  "gender": "die",
+  "plural": "die Mark",
+  "ipa": "maʁk"
+ },
+ {
+  "term": "Drogen",
+  "pos": "noun",
+  "gloss": [
+   "drugs"
+  ],
+  "freq": 439
+ },
+ {
+  "term": "konzentrieren",
+  "pos": "verb",
+  "gloss": [
+   "to concentrate, to focus (one's mind or attention)",
+   "to concentrate (something)"
+  ],
+  "freq": 438,
+  "ipa": "kɔntsɛnˈtʁiːʁən"
+ },
+ {
+  "term": "not",
+  "pos": "adverb",
+  "gloss": [
+   "only used in nottun"
+  ],
+  "freq": 433,
+  "ipa": "noːt"
+ },
+ {
+  "term": "Schneider",
+  "pos": "noun",
+  "gloss": [
+   "tailor (male or of unspecified gender)",
+   "daddy-longlegs, harvestman, water strider, cranefly, etc. (any long-legged arachnid or insect)"
+  ],
+  "freq": 426,
+  "gender": "der",
+  "plural": "die Schneider",
+  "ipa": "ˈʃnaɪ̯dɐ"
+ },
+ {
+  "term": "Stuttgarter",
+  "pos": "noun",
+  "gloss": [
+   "Stuttgarter (native or inhabitant of the city of Stuttgart, capital of Baden-Württemberg, Germany) (usually male)"
+  ],
+  "freq": 420,
+  "gender": "der",
+  "plural": "die Stuttgarter",
+  "ipa": "ˈʃtʊtɡaʁtɐ"
+ },
+ {
+  "term": "vorgenommen",
+  "pos": "adjective",
+  "gloss": [
+   "undertaken, performed"
+  ],
+  "freq": 412
+ },
+ {
+  "term": "Kai",
+  "pos": "noun",
+  "gloss": [
+   "wharf, quay"
+  ],
+  "freq": 411,
+  "gender": "der",
+  "plural": "die Kais",
+  "ipa": "kaɪ̯"
+ },
+ {
+  "term": "Thüringer",
+  "pos": "noun",
+  "gloss": [
+   "Thuringian (a native or inhabitant of Thuringia)",
+   "Thuringian (a member of an ancient Germanic tribe inhabiting central Germany)"
+  ],
+  "freq": 411,
+  "gender": "der",
+  "plural": "die Thüringer",
+  "ipa": "ˈtyːʁɪŋəʁ"
+ },
+ {
+  "term": "Tesla",
+  "pos": "noun",
+  "gloss": [
+   "tesla"
+  ],
+  "freq": 408,
+  "gender": "das",
+  "plural": "die Tesla"
+ },
+ {
+  "term": "Weber",
+  "pos": "noun",
+  "gloss": [
+   "weaver (male or of unspecified gender) (someone who weaves); webster",
+   "weaver (as a component part of multiple compound names, mainly various bird (or other animal) species)"
+  ],
+  "freq": 406,
+  "gender": "der",
+  "plural": "die Weber",
+  "ipa": "ˈveːbɐ"
+ },
+ {
+  "term": "Düsseldorfer",
+  "pos": "noun",
+  "gloss": [
+   "Düsseldorfer (native or inhabitant of the city of Düsseldorf, capital of North Rhine-Westphalia, Germany) (usually male)"
+  ],
+  "freq": 405,
+  "gender": "der",
+  "plural": "die Düsseldorfer",
+  "ipa": "ˈdʏsl̩ˌdɔʁfɐ"
+ },
+ {
+  "term": "Nord",
+  "pos": "noun",
+  "gloss": [
+   "the north (used without article; a short form of Norden)",
+   "a wind coming from the north (used with article)"
+  ],
+  "freq": 404,
+  "gender": "der",
+  "ipa": "nɔʁt"
+ },
+ {
+  "term": "News",
+  "pos": "noun",
+  "gloss": [
+   "news"
+  ],
+  "freq": 401,
+  "plural": "die News",
+  "ipa": "njuːs"
+ },
+ {
+  "term": "verkündet",
+  "pos": "adjective",
+  "gloss": [
+   "proclaimed"
+  ],
+  "freq": 396
+ },
+ {
+  "term": "Aussendung",
+  "pos": "noun",
+  "gloss": [
+   "emission (of radiation)",
+   "mission (of the Apostles)",
+   "circular, decree, announcement"
+  ],
+  "freq": 395,
+  "gender": "die",
+  "plural": "die Aussendungen"
+ },
+ {
+  "term": "Einstufung",
+  "pos": "noun",
+  "gloss": [
+   "classification, ranking, grading"
+  ],
+  "freq": 388,
+  "gender": "die",
+  "plural": "die Einstufungen",
+  "ipa": "ˈʔaɪ̯nʃtuːfʊŋ"
+ },
+ {
+  "term": "Aufsteiger",
+  "pos": "noun",
+  "gloss": [
+   "climber (student who makes quick progress)",
+   "promoted team",
+   "parvenu; social climber (someone who rapidly advances in social standing)"
+  ],
+  "freq": 388,
+  "gender": "der",
+  "plural": "die Aufsteiger",
+  "ipa": "ˈʔaʊ̯fˌʃtaɪ̯ɡɐ"
+ },
+ {
+  "term": "verlegt",
+  "pos": "adjective",
+  "gloss": [
+   "installed, transferred",
+   "relocated, transferred",
+   "misplaced, mislaid"
+  ],
+  "freq": 386,
+  "ipa": "fɛɐ̯ˈleːkt"
+ },
+ {
+  "term": "Rom",
+  "pos": "noun",
+  "gloss": [
+   "Rom (member of the Roma people), Romani"
+  ],
+  "freq": 384,
+  "gender": "der",
+  "plural": "die Roma",
+  "ipa": "ʁɔm"
+ },
+ {
+  "term": "Bernd",
+  "pos": "noun",
+  "gloss": [
+   "an anon"
+  ],
+  "freq": 382,
+  "gender": "der",
+  "plural": "die Bernds",
+  "ipa": "bɛʁnt"
+ },
+ {
+  "term": "Macron",
+  "pos": "noun",
+  "gloss": [
+   "alternative form of Makron"
+  ],
+  "freq": 379,
+  "gender": "das",
+  "plural": "die Macra",
+  "ipa": "ˈmakʁɔn"
+ },
+ {
+  "term": "Palästinenser",
+  "pos": "noun",
+  "gloss": [
+   "Palestinian (inhabitant of Palestine or Arab of Palestinian descent)"
+  ],
+  "freq": 373,
+  "gender": "der",
+  "plural": "die Palästinenser",
+  "ipa": "palɛstiˈnɛnzɐ"
+ },
+ {
+  "term": "Teuerung",
+  "pos": "noun",
+  "gloss": [
+   "rising prices, inflation",
+   "famine, dearth"
+  ],
+  "freq": 370,
+  "gender": "die",
+  "plural": "die Teuerungen"
+ },
+ {
+  "term": "Kreml",
+  "pos": "noun",
+  "gloss": [
+   "kremlin (kind of fortified area in various Russian cities)"
+  ],
+  "freq": 361,
+  "gender": "der",
+  "plural": "die Kreml",
+  "ipa": "ˈkrɛməl"
+ },
+ {
+  "term": "Tiroler",
+  "pos": "noun",
+  "gloss": [
+   "Tyrolean (native or inhabitant of Tyrol)"
+  ],
+  "freq": 360,
+  "gender": "der",
+  "plural": "die Tiroler",
+  "ipa": "tiˈʁoːlɐ"
+ },
+ {
+  "term": "Leiterin",
+  "pos": "noun",
+  "gloss": [
+   "feminine equivalent of Leiter m (“leader”)"
+  ],
+  "freq": 352,
+  "gender": "die",
+  "plural": "die Leiterinnen",
+  "ipa": "ˈlaɪ̯təʁɪn"
+ },
+ {
+  "term": "Augsburger",
+  "pos": "noun",
+  "gloss": [
+   "native or inhabitant of the city of Augsburg, Bavaria, Germany (usually male)"
+  ],
+  "freq": 352,
+  "gender": "der",
+  "plural": "die Augsburger",
+  "ipa": "ˈaʊ̯ksˌbʊʁɡɐ"
+ },
+ {
+  "term": "Samsung",
+  "pos": "noun",
+  "gloss": [
+   "Samsung (device produced by that company)"
+  ],
+  "freq": 342,
+  "gender": "der",
+  "plural": "die Samsungs",
+  "ipa": "ˈzamzʊŋ"
+ },
+ {
+  "term": "konzentriert",
+  "pos": "adjective",
+  "gloss": [
+   "concentrated",
+   "focused"
+  ],
+  "freq": 341,
+  "ipa": "kɔnt͡sɛnˈtʁiːɐ̯t"
+ },
+ {
+  "term": "Tierheim",
+  "pos": "noun",
+  "gloss": [
+   "animal shelter, dog pound (US), rescue dog (UK)"
+  ],
+  "freq": 339,
+  "gender": "das",
+  "plural": "die Tierheime",
+  "ipa": "ˈtiːɐ̯ˌhaɪ̯m"
+ },
+ {
+  "term": "Zweier",
+  "pos": "noun",
+  "gloss": [
+   "two-cent coin, two-euro coin",
+   "double; pair",
+   "two (digit, figure)"
+  ],
+  "freq": 339,
+  "gender": "der",
+  "plural": "die Zweier",
+  "ipa": "ˈtsvaiɐ"
+ },
+ {
+  "term": "Premier",
+  "pos": "noun",
+  "gloss": [
+   "premier, prime minister"
+  ],
+  "freq": 337,
+  "gender": "der",
+  "plural": "die Premiers",
+  "ipa": "pʁəˈmjeː"
+ },
+ {
+  "term": "Klassenerhalt",
+  "pos": "noun",
+  "gloss": [
+   "avoidance of relegation, staying up (in the same league or class)"
+  ],
+  "freq": 337,
+  "gender": "der",
+  "plural": "die Klassenerhalte",
+  "ipa": "ˈklasən.erˌhalt"
+ },
+ {
+  "term": "Lenker",
+  "pos": "noun",
+  "gloss": [
+   "handlebar, rod, control lever"
+  ],
+  "freq": 334,
+  "gender": "der",
+  "plural": "die Lenker",
+  "ipa": "ˈlɛŋkɐ"
+ },
+ {
+  "term": "Performance",
+  "pos": "noun",
+  "gloss": [
+   "performance",
+   "performance (the execution of a task or the yield of an investment)"
+  ],
+  "freq": 333,
+  "gender": "die",
+  "plural": "die Performances"
+ },
+ {
+  "term": "zwischenzeitlich",
+  "pos": "adjective",
+  "gloss": [
+   "interim"
+  ],
+  "freq": 332,
+  "ipa": "ˈt͡svɪʃn̩ˌt͡saɪ̯tlɪç"
+ },
+ {
+  "term": "Zugriff",
+  "pos": "noun",
+  "gloss": [
+   "access",
+   "grasp",
+   "raid, intervention"
+  ],
+  "freq": 332,
+  "gender": "der",
+  "plural": "die Zugriffe",
+  "ipa": "ˈt͡suːɡʁɪf"
+ },
+ {
+  "term": "Aufsehen",
+  "pos": "noun",
+  "gloss": [
+   "sensation, furore, attention, stir"
+  ],
+  "freq": 332,
+  "gender": "das",
+  "ipa": "ˈaʊ̯fˌzeː.ən"
+ },
+ {
+  "term": "Radio",
+  "pos": "noun",
+  "gloss": [
+   "radio (technology that allows broadcasters to transmit audio programs; such programs)",
+   "radio (device for receiving such programs)"
+  ],
+  "freq": 330,
+  "gender": "das",
+  "plural": "die Radios",
+  "ipa": "ˈraːdi̯o"
+ },
+ {
+  "term": "Untersuchungshaft",
+  "pos": "noun",
+  "gloss": [
+   "remand"
+  ],
+  "freq": 326,
+  "gender": "die"
+ },
+ {
+  "term": "Visier",
+  "pos": "noun",
+  "gloss": [
+   "visor",
+   "sight"
+  ],
+  "freq": 325,
+  "gender": "das",
+  "plural": "die Visiere",
+  "ipa": "viˈziːr"
+ },
+ {
+  "term": "Strafraum",
+  "pos": "noun",
+  "gloss": [
+   "penalty area"
+  ],
+  "freq": 325,
+  "gender": "der",
+  "plural": "die Strafräume",
+  "ipa": "ˈʃtʁaːfˌʁaʊ̯m"
+ },
+ {
+  "term": "Ton",
+  "pos": "noun",
+  "gloss": [
+   "clay"
+  ],
+  "freq": 324,
+  "gender": "der",
+  "plural": "die Tone",
+  "ipa": "toːn"
+ },
+ {
+  "term": "Model",
+  "pos": "noun",
+  "gloss": [
+   "model"
+  ],
+  "freq": 323,
+  "gender": "das",
+  "plural": "die Models",
+  "ipa": "ˈmɔ.dl̩"
+ },
+ {
+  "term": "Horst",
+  "pos": "noun",
+  "gloss": [
+   "the nest of a bird of prey, an eyrie",
+   "bush; thicket; small forest",
+   "military airport; air force base"
+  ],
+  "freq": 323,
+  "gender": "der",
+  "plural": "die Horste",
+  "ipa": "hɔʁst"
+ },
+ {
+  "term": "Release",
+  "pos": "noun",
+  "gloss": [
+   "release",
+   "release"
+  ],
+  "freq": 323,
+  "gender": "der",
+  "plural": "die Releases",
+  "ipa": "ʁiˈliːs"
+ },
+ {
+  "term": "Dortmunder",
+  "pos": "noun",
+  "gloss": [
+   "Dortmunder (native or inhabitant of the city of Dortmund, North Rhine-Westphalia, Germany) (usually male)"
+  ],
+  "freq": 321,
+  "gender": "der",
+  "plural": "die Dortmunder"
+ },
+ {
+  "term": "Stabilität",
+  "pos": "noun",
+  "gloss": [
+   "stability"
+  ],
+  "freq": 320,
+  "gender": "die",
+  "ipa": "ʃtabiliˈtɛːt"
+ },
+ {
+  "term": "Audi",
+  "pos": "noun",
+  "gloss": [
+   "A car of that brand."
+  ],
+  "freq": 319,
+  "gender": "der",
+  "plural": "die Audis",
+  "ipa": "aʊ̯di"
+ },
+ {
+  "term": "Kita",
+  "pos": "noun",
+  "gloss": [
+   "day care center"
+  ],
+  "freq": 318,
+  "gender": "die",
+  "plural": "die Kitas",
+  "ipa": "ˈkiːta"
+ },
+ {
+  "term": "Mord",
+  "pos": "noun",
+  "gloss": [
+   "murder"
+  ],
+  "freq": 317,
+  "gender": "der",
+  "plural": "die Morde",
+  "ipa": "mɔrt"
+ },
+ {
+  "term": "Notruf",
+  "pos": "noun",
+  "gloss": [
+   "emergency call"
+  ],
+  "freq": 315,
+  "gender": "der",
+  "plural": "die Notrufe"
+ },
+ {
+  "term": "grossen",
+  "pos": "adjective",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of großen"
+  ],
+  "freq": 315
+ },
+ {
+  "term": "Promille",
+  "pos": "noun",
+  "gloss": [
+   "permille",
+   "permille"
+  ],
+  "freq": 314,
+  "gender": "das",
+  "plural": "die Promille",
+  "ipa": "pʁoˈmɪlə"
+ },
+ {
+  "term": "Faktor",
+  "pos": "noun",
+  "gloss": [
+   "factor (integral part)",
+   "factor"
+  ],
+  "freq": 313,
+  "gender": "der",
+  "plural": "die Faktoren",
+  "ipa": "ˈfaktoːɐ̯"
+ },
+ {
+  "term": "Transformation",
+  "pos": "noun",
+  "gloss": [
+   "transformation"
+  ],
+  "freq": 312,
+  "gender": "die",
+  "plural": "die Transformationen",
+  "ipa": "tʁansfɔʁmaˈt͡si̯oːn"
+ },
+ {
+  "term": "Sex",
+  "pos": "noun",
+  "gloss": [
+   "sex (sexual intercourse)",
+   "sexuality",
+   "sex appeal"
+  ],
+  "freq": 312,
+  "gender": "der",
+  "ipa": "sɛks"
+ },
+ {
+  "term": "Statement",
+  "pos": "noun",
+  "gloss": [
+   "statement",
+   "command"
+  ],
+  "freq": 312,
+  "gender": "das",
+  "plural": "die Statements",
+  "ipa": "ˈstɛɪ̯tmənt"
+ },
+ {
+  "term": "Porsche",
+  "pos": "noun",
+  "gloss": [
+   "archaic form of Porst"
+  ],
+  "freq": 309,
+  "gender": "die",
+  "ipa": "ˈpɔʁʃə"
+ },
+ {
+  "term": "Dialog",
+  "pos": "noun",
+  "gloss": [
+   "dialogue"
+  ],
+  "freq": 308,
+  "gender": "der",
+  "plural": "die Dialoge",
+  "ipa": "diaˈloːk"
+ },
+ {
+  "term": "Silber",
+  "pos": "noun",
+  "gloss": [
+   "silver (chemical element with the symbol Ag)",
+   "argent"
+  ],
+  "freq": 308,
+  "gender": "das",
+  "ipa": "ˈzɪlbɐ"
+ },
+ {
+  "term": "tränen",
+  "pos": "verb",
+  "gloss": [
+   "to water (due to irritation, pain, etc.)"
+  ],
+  "freq": 308,
+  "ipa": "ˈtʁɛnən"
+ },
+ {
+  "term": "Bremer",
+  "pos": "noun",
+  "gloss": [
+   "Bremer (person)",
+   "fishburger, a sandwich filled with a fishcake"
+  ],
+  "freq": 303,
+  "gender": "der",
+  "plural": "die Bremer",
+  "ipa": "ˈbʁeːmɐ"
+ },
+ {
+  "term": "Vortag",
+  "pos": "noun",
+  "gloss": [
+   "day before"
+  ],
+  "freq": 303,
+  "gender": "der",
+  "plural": "die Vortage"
+ },
+ {
+  "term": "Kieler",
+  "pos": "noun",
+  "gloss": [
+   "Kieler (native or inhabitant of the city of Kiel, capital of Schleswig-Holstein, Germany) (usually male)"
+  ],
+  "freq": 303,
+  "gender": "der",
+  "plural": "die Kieler",
+  "ipa": "ˈkiːlɐ"
+ },
+ {
+  "term": "Stadtgebiet",
+  "pos": "noun",
+  "gloss": [
+   "municipal area, city area"
+  ],
+  "freq": 302,
+  "gender": "das",
+  "plural": "die Stadtgebiete",
+  "ipa": "ˈʃtatɡəˌbiːt"
+ },
+ {
+  "term": "Community",
+  "pos": "noun",
+  "gloss": [
+   "community"
+  ],
+  "freq": 302,
+  "gender": "die",
+  "plural": "die Communitys",
+  "ipa": "kɔˈmjuːnɪti"
+ },
+ {
+  "term": "Fritz",
+  "pos": "noun",
+  "gloss": [
+   "a Fritz, a German"
+  ],
+  "freq": 301,
+  "gender": "der",
+  "plural": "die Fritze",
+  "ipa": "fʁɪt͡s"
+ },
+ {
+  "term": "Dresdner",
+  "pos": "noun",
+  "gloss": [
+   "Dresdner (native or inhabitant of the city of Dresden, capital of Saxony, Germany) (usually male)"
+  ],
+  "freq": 300,
+  "gender": "der",
+  "plural": "die Dresdner",
+  "ipa": "ˈdʁeːsdnɐ"
+ },
+ {
+  "term": "Match",
+  "pos": "noun",
+  "gloss": [
+   "match"
+  ],
+  "freq": 298,
+  "gender": "der",
+  "plural": "die Matches",
+  "ipa": "mɛt͡ʃ"
+ },
+ {
+  "term": "Center",
+  "pos": "noun",
+  "gloss": [
+   "centre / center",
+   "shopping centre"
+  ],
+  "freq": 297,
+  "gender": "das",
+  "plural": "die Center"
+ },
+ {
+  "term": "Gegenzug",
+  "pos": "noun",
+  "gloss": [
+   "countermove",
+   "exchange, trade",
+   "opposing train, oncoming train"
+  ],
+  "freq": 296,
+  "gender": "der",
+  "plural": "die Gegenzüge",
+  "ipa": "ˈɡeːɡŋ̩ˌtsuːk"
+ },
+ {
+  "term": "Mama",
+  "pos": "noun",
+  "gloss": [
+   "mum, mummy, mom, mommy"
+  ],
+  "freq": 294,
+  "gender": "die",
+  "plural": "die Mamas",
+  "ipa": "ˈmama"
+ },
+ {
+  "term": "Tabellenführer",
+  "pos": "noun",
+  "gloss": [
+   "top of the table, league leader"
+  ],
+  "freq": 291,
+  "gender": "der",
+  "plural": "die Tabellenführer"
+ },
+ {
+  "term": "Berner",
+  "pos": "noun",
+  "gloss": [
+   "Bernese (native or inhabitant of Bern)"
+  ],
+  "freq": 285,
+  "gender": "der",
+  "plural": "die Berner",
+  "ipa": "ˈbɛʁnɐ"
+ },
+ {
+  "term": "Obmann",
+  "pos": "noun",
+  "gloss": [
+   "chairman",
+   "representative",
+   "head referee, official, judge"
+  ],
+  "freq": 274,
+  "gender": "der",
+  "plural": "die Obmänner",
+  "ipa": "ˈɔpˌman"
+ },
+ {
+  "term": "uni",
+  "pos": "adjective",
+  "gloss": [
+   "unicolour, single-colour"
+  ],
+  "freq": 273,
+  "ipa": "ˈʏni"
+ },
+ {
+  "term": "Game",
+  "pos": "noun",
+  "gloss": [
+   "video game"
+  ],
+  "freq": 273,
+  "gender": "das",
+  "plural": "die Games",
+  "ipa": "ɡɛɪ̯m"
+ },
+ {
+  "term": "Hermann",
+  "pos": "noun",
+  "gloss": [
+   "clipping of Hermannteig if not vice versa, Herman cake, or rather the dough from which it is made"
+  ],
+  "freq": 270,
+  "gender": "der",
+  "plural": "die Hermänner",
+  "ipa": "ˈhɛʁ.man"
+ },
+ {
+  "term": "eingestuft",
+  "pos": "adjective",
+  "gloss": [
+   "classified, classed, rated, categorized"
+  ],
+  "freq": 269
+ },
+ {
+  "term": "Watt",
+  "pos": "noun",
+  "gloss": [
+   "intertidal zone, foreshore, especially the vast mudflats at the North Sea coast"
+  ],
+  "freq": 268,
+  "gender": "das",
+  "plural": "die Watten",
+  "ipa": "vat"
+ },
+ {
+  "term": "Telekom",
+  "pos": "noun",
+  "gloss": [
+   "telecommunications company"
+  ],
+  "freq": 266,
+  "gender": "die"
+ },
+ {
+  "term": "Heinz",
+  "pos": "noun",
+  "gloss": [
+   "ellipsis of Stiefelheinz (“bootjack”)",
+   "ellipsis of Heuheinz (“[wooden] rack for drying hay, etc.”)"
+  ],
+  "freq": 259,
+  "gender": "der",
+  "plural": "die Heinzen",
+  "ipa": "haɪ̯nt͡s"
+ },
+ {
+  "term": "Süd",
+  "pos": "noun",
+  "gloss": [
+   "the south",
+   "a wind coming from the south"
+  ],
+  "freq": 259,
+  "gender": "der",
+  "ipa": "zyːt"
+ },
+ {
+  "term": "geladen",
+  "pos": "adjective",
+  "gloss": [
+   "charged, loaded, laden",
+   "angry"
+  ],
+  "freq": 258
+ },
+ {
+  "term": "Spital",
+  "pos": "noun",
+  "gloss": [
+   "hospital",
+   "nursing home",
+   "poorhouse"
+  ],
+  "freq": 258,
+  "gender": "das",
+  "plural": "die Spitäler",
+  "ipa": "ʃpiˈtaːl"
+ },
+ {
+  "term": "Cannabis",
+  "pos": "noun",
+  "gloss": [
+   "cannabis"
+  ],
+  "freq": 256,
+  "gender": "der",
+  "ipa": "ˈkanabɪs"
+ },
+ {
+  "term": "Silvester",
+  "pos": "noun",
+  "gloss": [
+   "New Year's Eve"
+  ],
+  "freq": 253,
+  "gender": "der",
+  "plural": "die Silvester",
+  "ipa": "zɪlˈvɛstɐ"
+ },
+ {
+  "term": "Karlsruher",
+  "pos": "noun",
+  "gloss": [
+   "Native or inhabitant of Karlsruhe"
+  ],
+  "freq": 252,
+  "gender": "der",
+  "plural": "die Karlsruher",
+  "ipa": "ˈkaʁlsˌʁuːɐ"
+ },
+ {
+  "term": "Future",
+  "pos": "noun",
+  "gloss": [
+   "futures contract"
+  ],
+  "freq": 250,
+  "gender": "der",
+  "plural": "die Futures",
+  "ipa": "ˈfjuːt͡ʃɐ"
+ },
+ {
+  "term": "Sony",
+  "pos": "noun",
+  "gloss": [
+   "Sony (a device produced by Sony)"
+  ],
+  "freq": 249,
+  "gender": "der",
+  "plural": "die Sonys",
+  "ipa": "ˈzoːni"
+ },
+ {
+  "term": "basiert",
+  "pos": "adjective",
+  "gloss": [
+   "based"
+  ],
+  "freq": 247,
+  "ipa": "baˈziːɐ̯t"
+ },
+ {
+  "term": "Green",
+  "pos": "noun",
+  "gloss": [
+   "green, putting green"
+  ],
+  "freq": 246,
+  "gender": "das",
+  "plural": "die Greens",
+  "ipa": "ɡʁiːn"
+ },
+ {
+  "term": "Siemens",
+  "pos": "noun",
+  "gloss": [
+   "siemens"
+  ],
+  "freq": 246,
+  "gender": "das",
+  "ipa": "ˈziːmn̩s"
+ },
+ {
+  "term": "Zürcher",
+  "pos": "noun",
+  "gloss": [
+   "someone from Zürich (male or unspecified)"
+  ],
+  "freq": 244,
+  "gender": "der",
+  "plural": "die Zürcher",
+  "ipa": "ˈt͡sʏʁçɐ"
+ },
+ {
+  "term": "nieder",
+  "pos": "adjective",
+  "gloss": [
+   "low",
+   "mean",
+   "menial"
+  ],
+  "freq": 243,
+  "ipa": "ˈniː.dɐ"
+ },
+ {
+  "term": "Roth",
+  "pos": "noun",
+  "gloss": [
+   "obsolete spelling of Rot (“red”)"
+  ],
+  "freq": 241,
+  "gender": "das",
+  "plural": "die Roths",
+  "ipa": "ʁoːt"
+ },
+ {
+  "term": "Energy",
+  "pos": "noun",
+  "gloss": [
+   "a serving of an energy drink"
+  ],
+  "freq": 239,
+  "gender": "der",
+  "plural": "die Energys",
+  "ipa": "ˈʔɛn.ɛɐ̯.d͡ʒi"
+ },
+ {
+  "term": "Basler",
+  "pos": "noun",
+  "gloss": [
+   "Basler (a native or inhabitant of Basel)"
+  ],
+  "freq": 237,
+  "gender": "der",
+  "plural": "die Basler",
+  "ipa": "ˈbaːzlɐ"
+ },
+ {
+  "term": "Pariser",
+  "pos": "noun",
+  "gloss": [
+   "Parisian"
+  ],
+  "freq": 235,
+  "gender": "der",
+  "plural": "die Pariser",
+  "ipa": "paˈʁiːzɐ"
+ },
+ {
+  "term": "Volkswagen",
+  "pos": "noun",
+  "gloss": [
+   "A car made by the German car manufacturer."
+  ],
+  "freq": 234,
+  "gender": "der",
+  "plural": "die Volkswagen",
+  "ipa": "ˈfɔlksˌvaːɡən"
+ },
+ {
+  "term": "Virus",
+  "pos": "noun",
+  "gloss": [
+   "virus",
+   "computer virus"
+  ],
+  "freq": 233,
+  "gender": "der",
+  "plural": "die Viren",
+  "ipa": "ˈviːʁʊs"
+ },
+ {
+  "term": "ausgewählt",
+  "pos": "adjective",
+  "gloss": [
+   "chosen, selected"
+  ],
+  "freq": 233
+ },
+ {
+  "term": "definiert",
+  "pos": "adjective",
+  "gloss": [
+   "defined"
+  ],
+  "freq": 231
+ },
+ {
+  "term": "Landeshauptmann",
+  "pos": "noun",
+  "gloss": [
+   "Landeshauptmann (male [also female] or of unspecified sex; cf. Herr / Frau Landeshauptmann)"
+  ],
+  "freq": 231,
+  "gender": "der",
+  "plural": "die Landeshauptleute",
+  "ipa": "ˈlandəsˌhaʊ̯ptman"
+ },
+ {
+  "term": "Marie",
+  "pos": "noun",
+  "gloss": [
+   "money"
+  ],
+  "freq": 227,
+  "gender": "die",
+  "ipa": "maˈʁiː"
+ },
+ {
+  "term": "abgerissen",
+  "pos": "adjective",
+  "gloss": [
+   "ragged, tattered",
+   "seedy",
+   "demolished"
+  ],
+  "freq": 226
+ },
+ {
+  "term": "Keeper",
+  "pos": "noun",
+  "gloss": [
+   "keeper, goalkeeper"
+  ],
+  "freq": 226,
+  "gender": "der",
+  "plural": "die Keeper",
+  "ipa": "ˈkiːpɐ"
+ },
+ {
+  "term": "Level",
+  "pos": "noun",
+  "gloss": [
+   "level (degree or amount)",
+   "level (one of several discrete segments of a game)"
+  ],
+  "freq": 225,
+  "gender": "der",
+  "plural": "die Levels",
+  "ipa": "ˈlɛvl̩"
+ },
+ {
+  "term": "Mainzer",
+  "pos": "noun",
+  "gloss": [
+   "Mainzer (native or inhabitant of the city of Mainz, capital of Rhineland-Palatinate, Germany) (usually male)"
+  ],
+  "freq": 224,
+  "gender": "der",
+  "plural": "die Mainzer",
+  "ipa": "ˈmaɪ̯ntsər"
+ },
+ {
+  "term": "Essener",
+  "pos": "noun",
+  "gloss": [
+   "A native or inhabitant of Essen"
+  ],
+  "freq": 223,
+  "gender": "der",
+  "plural": "die Essener"
+ },
+ {
+  "term": "power",
+  "pos": "adjective",
+  "gloss": [
+   "poor, miserable"
+  ],
+  "freq": 222,
+  "ipa": "ˈpoːvər"
+ },
+ {
+  "term": "hammer",
+  "pos": "verb",
+  "gloss": [
+   "contraction of haben + wir"
+  ],
+  "freq": 222,
+  "ipa": "ˈhamɐ"
+ },
+ {
+  "term": "Celsius",
+  "pos": "noun",
+  "gloss": [
+   "Celsius"
+  ],
+  "freq": 220,
+  "gender": "das",
+  "plural": "die Celsius",
+  "ipa": "ˈt͡sɛlzi̯ʊs"
+ },
+ {
+  "term": "Business",
+  "pos": "noun",
+  "gloss": [
+   "business"
+  ],
+  "freq": 219,
+  "gender": "das"
+ },
+ {
+  "term": "Nürnberger",
+  "pos": "noun",
+  "gloss": [
+   "Native or resident of Nuremberg"
+  ],
+  "freq": 217,
+  "gender": "der",
+  "plural": "die Nürnberger",
+  "ipa": "ˈnʏʁnbɛʁɡɐ"
+ },
+ {
+  "term": "versetzt",
+  "pos": "adjective",
+  "gloss": [
+   "offset",
+   "shifted, displaced"
+  ],
+  "freq": 216
+ },
+ {
+  "term": "Stream",
+  "pos": "noun",
+  "gloss": [
+   "stream"
+  ],
+  "freq": 215,
+  "gender": "der",
+  "plural": "die Streams"
+ },
+ {
+  "term": "Bonner",
+  "pos": "noun",
+  "gloss": [
+   "Bonner (native or inhabitant of the city of Bonn, North Rhine-Westphalia, Germany) (usually male)"
+  ],
+  "freq": 213,
+  "gender": "der",
+  "plural": "die Bonner",
+  "ipa": "ˈbɔnɐ"
+ },
+ {
+  "term": "angeordnet",
+  "pos": "adjective",
+  "gloss": [
+   "arranged, ordered"
+  ],
+  "freq": 212
+ },
+ {
+  "term": "Cup",
+  "pos": "noun",
+  "gloss": [
+   "cup (trophy)",
+   "cup (of a bra)"
+  ],
+  "freq": 212,
+  "gender": "der",
+  "plural": "die Cups",
+  "ipa": "kap"
+ },
+ {
+  "term": "wüst",
+  "pos": "adjective",
+  "gloss": [
+   "desert, desolate",
+   "messy, chaotic",
+   "fierce, severe, savage, wild, unrestrained"
+  ],
+  "freq": 211,
+  "ipa": "vyːst"
+ },
+ {
+  "term": "Asylbewerber",
+  "pos": "noun",
+  "gloss": [
+   "person seeking political asylum, asylum seeker"
+  ],
+  "freq": 211,
+  "gender": "der",
+  "plural": "die Asylbewerber",
+  "ipa": "aˈzyːlbəvɛrbɐ"
+ },
+ {
+  "term": "Queen",
+  "pos": "noun",
+  "gloss": [
+   "The Queen of England (and various political superstructures which contain England) or Scotland",
+   "woman who, in a certain environment, enjoys special attention",
+   "queen; effeminate homosexual man"
+  ],
+  "freq": 211,
+  "gender": "die",
+  "plural": "die Queens",
+  "ipa": "kviːn"
+ },
+ {
+  "term": "Golf",
+  "pos": "noun",
+  "gloss": [
+   "bay, gulf"
+  ],
+  "freq": 209,
+  "gender": "der",
+  "plural": "die Golfe",
+  "ipa": "ɡɔlf"
+ },
+ {
+  "term": "Wall",
+  "pos": "noun",
+  "gloss": [
+   "rampart, parapet, earthwork",
+   "levee, embankment",
+   "ridge"
+  ],
+  "freq": 209,
+  "gender": "der",
+  "plural": "die Wälle",
+  "ipa": "val"
+ },
+ {
+  "term": "Ali",
+  "pos": "noun",
+  "gloss": [
+   "a Muslim, especially Turkish, immigrant (or descendant of immigrants)"
+  ],
+  "freq": 208,
+  "gender": "der",
+  "plural": "die Alis",
+  "ipa": "ˈaːli"
+ },
+ {
+  "term": "Mobile",
+  "pos": "noun",
+  "gloss": [
+   "mobile"
+  ],
+  "freq": 208,
+  "gender": "das",
+  "plural": "die Mobiles",
+  "ipa": "ˈmoːbilə"
+ },
+ {
+  "term": "Iris",
+  "pos": "noun",
+  "gloss": [
+   "iris"
+  ],
+  "freq": 205,
+  "gender": "die",
+  "plural": "die Iris",
+  "ipa": "ˈiːʁɪs"
+ },
+ {
+  "term": "Träger",
+  "pos": "noun",
+  "gloss": [
+   "girder, beam",
+   "strap (of a dress)",
+   "support"
+  ],
+  "freq": 205,
+  "gender": "der",
+  "plural": "die Träger",
+  "ipa": "ˈtʁɛːɡɐ"
+ },
+ {
+  "term": "Aachener",
+  "pos": "noun",
+  "gloss": [
+   "Aachener (native or inhabitant of the city of Aachen, North Rhine-Westphalia, Germany) (usually male)"
+  ],
+  "freq": 204,
+  "gender": "der",
+  "plural": "die Aachener",
+  "ipa": "ˈaːxənɐ"
+ },
+ {
+  "term": "entwendet",
+  "pos": "adjective",
+  "gloss": [
+   "stolen"
+  ],
+  "freq": 202
+ },
+ {
+  "term": "umgebaut",
+  "pos": "adjective",
+  "gloss": [
+   "converted",
+   "rebuilt, reconstructed"
+  ],
+  "freq": 202
+ },
+ {
+  "term": "Leopard",
+  "pos": "noun",
+  "gloss": [
+   "leopard"
+  ],
+  "freq": 201,
+  "gender": "der",
+  "plural": "die Leoparden",
+  "ipa": "leoˈpaʁt"
+ },
+ {
+  "term": "Absturz",
+  "pos": "noun",
+  "gloss": [
+   "crash",
+   "downfall, ruin",
+   "crash"
+  ],
+  "freq": 201,
+  "gender": "der",
+  "plural": "die Abstürze",
+  "ipa": "ˈapʃtʊʁts"
+ },
+ {
+  "term": "Akzeptanz",
+  "pos": "noun",
+  "gloss": [
+   "acceptance, accepting"
+  ],
+  "freq": 201,
+  "gender": "die"
+ },
+ {
+  "term": "Appell",
+  "pos": "noun",
+  "gloss": [
+   "parade, muster",
+   "appeal, roll call"
+  ],
+  "freq": 201,
+  "gender": "der",
+  "plural": "die Appelle"
+ },
+ {
+  "term": "Jahrestag",
+  "pos": "noun",
+  "gloss": [
+   "anniversary (day an exact number of years since an event)"
+  ],
+  "freq": 200,
+  "gender": "der",
+  "plural": "die Jahrestage",
+  "ipa": "ˈjaːʁəsˌtaːk"
+ },
+ {
+  "term": "agieren",
+  "pos": "verb",
+  "gloss": [
+   "to act, to perform a task",
+   "to act, to behave (like something or in a certain way)"
+  ],
+  "freq": 200,
+  "ipa": "aˈɡiːɐ̯n"
+ },
+ {
+  "term": "Ost",
+  "pos": "noun",
+  "gloss": [
+   "clipping of Osten: the east",
+   "a wind coming from the east (used with article)"
+  ],
+  "freq": 199,
+  "gender": "der",
+  "ipa": "ɔst"
+ },
+ {
+  "term": "Grazer",
+  "pos": "noun",
+  "gloss": [
+   "Grazer (native or inhabitant of Graz)"
+  ],
+  "freq": 199,
+  "gender": "der",
+  "plural": "die Grazer",
+  "ipa": "ˈɡʁaːtsɐ"
+ },
+ {
+  "term": "Wärmepumpe",
+  "pos": "noun",
+  "gloss": [
+   "heat pump"
+  ],
+  "freq": 199,
+  "gender": "die",
+  "plural": "die Wärmepumpen",
+  "ipa": "ˈvɛʁməˌpʊmpə"
+ },
+ {
+  "term": "dato",
+  "pos": "adverb",
+  "gloss": [
+   "the given date"
+  ],
+  "freq": 198,
+  "ipa": "ˈdaːto"
+ },
+ {
+  "term": "ausgetauscht",
+  "pos": "adjective",
+  "gloss": [
+   "exchanged, interchanged"
+  ],
+  "freq": 198
+ },
+ {
+  "term": "Sound",
+  "pos": "noun",
+  "gloss": [
+   "sound"
+  ],
+  "freq": 197,
+  "gender": "der",
+  "plural": "die Sounds",
+  "ipa": "saʊ̯nt"
+ },
+ {
+  "term": "Wucht",
+  "pos": "noun",
+  "gloss": [
+   "weight",
+   "massiveness, bulkiness, bulk",
+   "force, momentum of a moving mass"
+  ],
+  "freq": 196,
+  "gender": "die",
+  "plural": "die Wuchten",
+  "ipa": "vʊxt"
+ },
+ {
+  "term": "beschränkt",
+  "pos": "adjective",
+  "gloss": [
+   "limited, restricted, confined",
+   "narrow-minded",
+   "bounded"
+  ],
+  "freq": 196,
+  "ipa": "bəˈʃʁɛŋkt"
+ },
+ {
+  "term": "Anhebung",
+  "pos": "noun",
+  "gloss": [
+   "elevation, raising, uplift",
+   "increase, accentuation"
+  ],
+  "freq": 196,
+  "gender": "die",
+  "plural": "die Anhebungen"
+ },
+ {
+  "term": "Pascal",
+  "pos": "noun",
+  "gloss": [
+   "pascal (unit)"
+  ],
+  "freq": 195,
+  "gender": "das",
+  "plural": "die Pascal",
+  "ipa": "pasˈkal"
+ },
+ {
+  "term": "bedingt",
+  "pos": "adjective",
+  "gloss": [
+   "conditional, provisory",
+   "conditioned, induced",
+   "(prison sentence) suspension of sentence on probation"
+  ],
+  "freq": 195
+ },
+ {
+  "term": "begeben",
+  "pos": "verb",
+  "gloss": [
+   "to go; to make one's way; to repair",
+   "to happen",
+   "to issue"
+  ],
+  "freq": 195,
+  "ipa": "bəˈɡeːbm̩"
+ },
+ {
+  "term": "Gerichtshof",
+  "pos": "noun",
+  "gloss": [
+   "law court; court of justice"
+  ],
+  "freq": 195,
+  "gender": "der",
+  "plural": "die Gerichtshöfe",
+  "ipa": "ɡəˈʁɪçt͡sˌhoːf"
+ },
+ {
+  "term": "Londoner",
+  "pos": "noun",
+  "gloss": [
+   "A Londoner, a person from, or an inhabitant of, London (male or of unspecified gender)."
+  ],
+  "freq": 193,
+  "gender": "der",
+  "plural": "die Londoner",
+  "ipa": "ˈlɔndɔnɐ"
+ },
+ {
+  "term": "remis",
+  "pos": "adverb",
+  "gloss": [
+   "in a draw; the result being a draw"
+  ],
+  "freq": 193,
+  "ipa": "reˈmiː"
+ },
+ {
+  "term": "Fakt",
+  "pos": "noun",
+  "gloss": [
+   "fact"
+  ],
+  "freq": 193,
+  "gender": "der",
+  "plural": "die Fakten"
+ },
+ {
+  "term": "realistisch",
+  "pos": "adjective",
+  "gloss": [
+   "realistic"
+  ],
+  "freq": 193
+ },
+ {
+  "term": "Aufsichtsrat",
+  "pos": "noun",
+  "gloss": [
+   "supervisory board",
+   "a member of the supervisory board"
+  ],
+  "freq": 193,
+  "gender": "der",
+  "plural": "die Aufsichtsräte",
+  "ipa": "ˈʔaʊ̯fzɪçtsˌʁaːt"
+ },
+ {
+  "term": "ausgerichtet",
+  "pos": "adjective",
+  "gloss": [
+   "justified, oriented, aligned"
+  ],
+  "freq": 193
+ },
+ {
+  "term": "Startschuss",
+  "pos": "noun",
+  "gloss": [
+   "shot fired from a starting gun, starting a race; starting signal",
+   "go-ahead; kick-off"
+  ],
+  "freq": 193,
+  "gender": "der",
+  "plural": "die Startschüsse",
+  "ipa": "ˈʃtaʁtˌʃʊs"
+ },
+ {
+  "term": "Expertise",
+  "pos": "noun",
+  "gloss": [
+   "expertise",
+   "opinion (report) of an expert with regard to a specific matter"
+  ],
+  "freq": 192,
+  "gender": "die",
+  "plural": "die Expertisen",
+  "ipa": "ɛkspɛʁˈtiːzə"
+ },
+ {
+  "term": "Mediziner",
+  "pos": "noun",
+  "gloss": [
+   "doctor, physician (male or of unspecified gender)"
+  ],
+  "freq": 192,
+  "gender": "der",
+  "plural": "die Mediziner",
+  "ipa": "ˌmediˈt͡siːnɐ"
+ },
+ {
+  "term": "Resultat",
+  "pos": "noun",
+  "gloss": [
+   "result (that which results)"
+  ],
+  "freq": 192,
+  "gender": "das",
+  "plural": "die Resultate",
+  "ipa": "ʁezʊlˈtaːt"
+ },
+ {
+  "term": "Wiederaufbau",
+  "pos": "noun",
+  "gloss": [
+   "reconstruction, rebuilding",
+   "redevelopment"
+  ],
+  "freq": 192,
+  "gender": "der",
+  "ipa": "ˈviːdɐʔaʊ̯fˌbaʊ̯"
+ },
+ {
+  "term": "Vorarlberger",
+  "pos": "noun",
+  "gloss": [
+   "a native or inhabitant of Vorarlberg, a state of Austria."
+  ],
+  "freq": 192,
+  "gender": "der",
+  "plural": "die Vorarlberger",
+  "ipa": "ˈfoːɐ̯ˌʔaʁlbɛʁɡɐ"
+ },
+ {
+  "term": "Android",
+  "pos": "noun",
+  "gloss": [
+   "android"
+  ],
+  "freq": 191,
+  "gender": "der",
+  "plural": "die Androiden",
+  "ipa": "andʁoˈiːt"
+ },
+ {
+  "term": "Journalist",
+  "pos": "noun",
+  "gloss": [
+   "journalist (male or of unspecified gender)"
+  ],
+  "freq": 191,
+  "gender": "der",
+  "plural": "die Journalisten",
+  "ipa": "ˌʒʊʁnaˈlɪst"
+ },
+ {
+  "term": "Michel",
+  "pos": "noun",
+  "gloss": [
+   "the average German",
+   "a good-natured simpleton, naive person"
+  ],
+  "freq": 191,
+  "gender": "der",
+  "plural": "die Michel",
+  "ipa": "ˈmɪçəl"
+ },
+ {
+  "term": "Schuster",
+  "pos": "noun",
+  "gloss": [
+   "shoemaker, cobbler (of male or unspecified sex)"
+  ],
+  "freq": 191,
+  "gender": "der",
+  "plural": "die Schuster",
+  "ipa": "ˈʃuːstər"
+ },
+ {
+  "term": "explizit",
+  "pos": "adjective",
+  "gloss": [
+   "explicit"
+  ],
+  "freq": 191,
+  "ipa": "ˈɛksplitsɪt"
+ },
+ {
+  "term": "Jubel",
+  "pos": "noun",
+  "gloss": [
+   "jubilation, exultation, rejoicing; cheering"
+  ],
+  "freq": 191,
+  "gender": "der",
+  "ipa": "ˈjuː.bl̩"
+ },
+ {
+  "term": "parat",
+  "pos": "adjective",
+  "gloss": [
+   "at hand",
+   "ready"
+  ],
+  "freq": 190,
+  "ipa": "paˈʁaːt"
+ },
+ {
+  "term": "Flexibilität",
+  "pos": "noun",
+  "gloss": [
+   "flexibility"
+  ],
+  "freq": 190,
+  "gender": "die",
+  "ipa": "flɛksibiliˈtɛːt"
+ },
+ {
+  "term": "Campus",
+  "pos": "noun",
+  "gloss": [
+   "campus (central premises of an educational institution)"
+  ],
+  "freq": 190,
+  "gender": "der",
+  "plural": "die Campusse",
+  "ipa": "ˈkampʊs"
+ },
+ {
+  "term": "Holding",
+  "pos": "noun",
+  "gloss": [
+   "holding company"
+  ],
+  "freq": 190,
+  "gender": "die",
+  "plural": "die Holdings"
+ },
+ {
+  "term": "stemmen",
+  "pos": "verb",
+  "gloss": [
+   "to heave, to lift (a heavy load, weights, oneself)",
+   "to brace, to press (a body part against a firm surface)",
+   "to push, to brace oneself (against an obstacle or opposing force)"
+  ],
+  "freq": 189,
+  "ipa": "ˈʃtɛmən"
+ },
+ {
+  "term": "Zuwanderung",
+  "pos": "noun",
+  "gloss": [
+   "immigration"
+  ],
+  "freq": 189,
+  "gender": "die",
+  "plural": "die Zuwanderungen",
+  "ipa": "ˈt͡suːˌvandəʁʊŋ"
+ },
+ {
+  "term": "Räumung",
+  "pos": "noun",
+  "gloss": [
+   "clearance (the act of clearing)",
+   "eviction"
+  ],
+  "freq": 189,
+  "gender": "die",
+  "plural": "die Räumungen",
+  "ipa": "ˈʁɔɪ̯mʊŋ"
+ },
+ {
+  "term": "erfolglos",
+  "pos": "adjective",
+  "gloss": [
+   "unsuccessful"
+  ],
+  "freq": 188
+ },
+ {
+  "term": "Zelt",
+  "pos": "noun",
+  "gloss": [
+   "tent, marquee"
+  ],
+  "freq": 188,
+  "gender": "das",
+  "plural": "die Zelte",
+  "ipa": "t͡sɛlt"
+ },
+ {
+  "term": "exklusiv",
+  "pos": "adjective",
+  "gloss": [
+   "exclusive (of high quality and/or renown)"
+  ],
+  "freq": 188
+ },
+ {
+  "term": "deutschlandweit",
+  "pos": "adjective",
+  "gloss": [
+   "Germany-wide; in all of Germany"
+  ],
+  "freq": 188
+ },
+ {
+  "term": "logo",
+  "pos": "adverb",
+  "gloss": [
+   "of course, absolutely, certainly"
+  ],
+  "freq": 187,
+  "ipa": "ˈloːɡo"
+ },
+ {
+  "term": "Image",
+  "pos": "noun",
+  "gloss": [
+   "image (characteristic of a person, group or company etc., style, manner of dress, how one is, or wishes to be, perceived by others)"
+  ],
+  "freq": 187,
+  "gender": "das",
+  "plural": "die Images",
+  "ipa": "ˈɪmɪt͡ʃ"
+ },
+ {
+  "term": "Set",
+  "pos": "noun",
+  "gloss": [
+   "place mat, setting",
+   "set, combination, collection",
+   "set, match"
+  ],
+  "freq": 187,
+  "gender": "der",
+  "plural": "die Sets",
+  "ipa": "sɛt"
+ },
+ {
+  "term": "Asyl",
+  "pos": "noun",
+  "gloss": [
+   "asylum (shelter, refuge)",
+   "political asylum, right of asylum"
+  ],
+  "freq": 187,
+  "gender": "das",
+  "plural": "die Asyle"
+ },
+ {
+  "term": "Zuwachs",
+  "pos": "noun",
+  "gloss": [
+   "growth, increase, increment",
+   "children"
+  ],
+  "freq": 187,
+  "gender": "der",
+  "plural": "die Zuwächse",
+  "ipa": "ˈtsuːvaks"
+ },
+ {
+  "term": "Abbau",
+  "pos": "noun",
+  "gloss": [
+   "dismantling, demolition",
+   "mining",
+   "decomposition, separation, analysis"
+  ],
+  "freq": 187,
+  "gender": "der",
+  "plural": "die Abbaue",
+  "ipa": "ˈapˌbaʊ̯"
+ },
+ {
+  "term": "Beschuss",
+  "pos": "noun",
+  "gloss": [
+   "bombardment, fire"
+  ],
+  "freq": 187,
+  "gender": "der",
+  "ipa": "bəˈʃʊs"
+ },
+ {
+  "term": "kapital",
+  "pos": "adjective",
+  "gloss": [
+   "magnificent, marvelous to look at",
+   "significant, important, archetypical"
+  ],
+  "freq": 186,
+  "ipa": "kapiˈtaːl"
+ },
+ {
+  "term": "Anpfiff",
+  "pos": "noun",
+  "gloss": [
+   "starting whistle"
+  ],
+  "freq": 186,
+  "gender": "der",
+  "plural": "die Anpfiffe",
+  "ipa": "ˈʔanpfɪf"
+ },
+ {
+  "term": "Eck",
+  "pos": "noun",
+  "gloss": [
+   "synonym of Ecke f (“corner”)"
+  ],
+  "freq": 186,
+  "gender": "das",
+  "plural": "die Ecke",
+  "ipa": "ɛk"
+ },
+ {
+  "term": "aufgefunden",
+  "pos": "adjective",
+  "gloss": [
+   "found, located"
+  ],
+  "freq": 186,
+  "ipa": "ˈʔaʊ̯fɡəfʊndn̩"
+ },
+ {
+  "term": "vergeblich",
+  "pos": "adjective",
+  "gloss": [
+   "unavailing, in vain, futile, useless"
+  ],
+  "freq": 185,
+  "ipa": "fɛʁˈɡeːplɪç"
+ },
+ {
+  "term": "kurzzeitig",
+  "pos": "adjective",
+  "gloss": [
+   "temporary",
+   "brief, momentary",
+   "short-term"
+  ],
+  "freq": 185
+ },
+ {
+  "term": "Aufarbeitung",
+  "pos": "noun",
+  "gloss": [
+   "reprocessing",
+   "renovation, reconditioning",
+   "workup"
+  ],
+  "freq": 185,
+  "gender": "die",
+  "plural": "die Aufarbeitungen",
+  "ipa": "ˈaʊ̯fʔaʁˌbaɪ̯tʊŋ"
+ },
+ {
+  "term": "Lübecker",
+  "pos": "noun",
+  "gloss": [
+   "a native or inhabitant of Lübeck"
+  ],
+  "freq": 185,
+  "gender": "der",
+  "plural": "die Lübecker",
+  "ipa": "ˈlyːbɛkɐ"
+ },
+ {
+  "term": "frontal",
+  "pos": "adjective",
+  "gloss": [
+   "frontal"
+  ],
+  "freq": 184,
+  "ipa": "fʁɔnˈtaːl"
+ },
+ {
+  "term": "Till",
+  "pos": "noun",
+  "gloss": [
+   "obsolete form of Dill (“dill”)"
+  ],
+  "freq": 184,
+  "gender": "der",
+  "plural": "die Tille",
+  "ipa": "tɪl"
+ },
+ {
+  "term": "Graf",
+  "pos": "noun",
+  "gloss": [
+   "count (a member of the German nobility)",
+   "earl (a British or Irish nobleman next in rank above a viscount and below a marquess)"
+  ],
+  "freq": 183,
+  "gender": "der",
+  "plural": "die Grafen",
+  "ipa": "ɡraːf"
+ },
+ {
+  "term": "ausgeliefert",
+  "pos": "verb",
+  "gloss": [
+   "at the mercy of"
+  ],
+  "freq": 183
+ },
+ {
+  "term": "Volumen",
+  "pos": "noun",
+  "gloss": [
+   "volume"
+  ],
+  "freq": 182,
+  "gender": "das",
+  "plural": "die Volumen",
+  "ipa": "voˈluːmən"
+ },
+ {
+  "term": "Podium",
+  "pos": "noun",
+  "gloss": [
+   "podium"
+  ],
+  "freq": 182,
+  "gender": "das",
+  "plural": "die Podien",
+  "ipa": "ˈpoːdi̯ʊm"
+ },
+ {
+  "term": "platziert",
+  "pos": "adjective",
+  "gloss": [
+   "placed, seated"
+  ],
+  "freq": 181
+ },
+ {
+  "term": "Eigentum",
+  "pos": "noun",
+  "gloss": [
+   "ownership",
+   "an item of owned property, e.g. estate, belonging, etc."
+  ],
+  "freq": 180,
+  "gender": "das",
+  "plural": "die Eigentümer",
+  "ipa": "ˈaɪɡəntuːm"
+ },
+ {
+  "term": "gegenwärtig",
+  "pos": "adjective",
+  "gloss": [
+   "current, contemporary, present, existing"
+  ],
+  "freq": 180,
+  "ipa": "ˈɡeːɡənˌvɛʁtɪç"
+ },
+ {
+  "term": "Beliebtheit",
+  "pos": "noun",
+  "gloss": [
+   "popularity"
+  ],
+  "freq": 180,
+  "gender": "die",
+  "ipa": "bəˈliːpthaɪ̯t"
+ },
+ {
+  "term": "First",
+  "pos": "noun",
+  "gloss": [
+   "ridge (of a roof)"
+  ],
+  "freq": 179,
+  "gender": "der",
+  "plural": "die Firste",
+  "ipa": "fɪʁst"
+ },
+ {
+  "term": "Kate",
+  "pos": "noun",
+  "gloss": [
+   "hut, cot, cottage"
+  ],
+  "freq": 179,
+  "gender": "die",
+  "plural": "die Katen",
+  "ipa": "ˈkaːtə"
+ },
+ {
+  "term": "Vorgang",
+  "pos": "noun",
+  "gloss": [
+   "process",
+   "event",
+   "sequence of events"
+  ],
+  "freq": 179,
+  "gender": "der",
+  "plural": "die Vorgänge",
+  "ipa": "ˈfoːɐ̯ˌɡaŋ"
+ },
+ {
+  "term": "Parteitag",
+  "pos": "noun",
+  "gloss": [
+   "party conference (political convention)"
+  ],
+  "freq": 179,
+  "gender": "der",
+  "plural": "die Parteitage",
+  "ipa": "paʁˈtaɪ̯ˌtaːk"
+ },
+ {
+  "term": "Kriminalität",
+  "pos": "noun",
+  "gloss": [
+   "crime (practice or habit of committing crimes; criminal acts collectively)",
+   "criminality, criminalness (state of being criminal)"
+  ],
+  "freq": 179,
+  "gender": "die",
+  "ipa": "kʁiminaliˈtɛːt"
+ },
+ {
+  "term": "Erfurter",
+  "pos": "noun",
+  "gloss": [
+   "Erfurter (native or inhabitant of the city of Erfurt, capital of Thuringia, Germany) (usually male)"
+  ],
+  "freq": 179,
+  "gender": "der",
+  "plural": "die Erfurter",
+  "ipa": "ˈɛʁfʊʁtɐ"
+ },
+ {
+  "term": "weitaus",
+  "pos": "adverb",
+  "gloss": [
+   "by far"
+  ],
+  "freq": 178,
+  "ipa": "ˈvaɪ̯tʔaʊ̯s"
+ },
+ {
+  "term": "potenziell",
+  "pos": "adjective",
+  "gloss": [
+   "potential"
+  ],
+  "freq": 178,
+  "ipa": "potɛnˈt͡si̯ɛl"
+ },
+ {
+  "term": "eingebunden",
+  "pos": "adjective",
+  "gloss": [
+   "integrated (into)",
+   "involved (with)"
+  ],
+  "freq": 178
+ },
+ {
+  "term": "Livestream",
+  "pos": "noun",
+  "gloss": [
+   "live stream"
+  ],
+  "freq": 178,
+  "gender": "der",
+  "plural": "die Livestreams",
+  "ipa": "ˈlaɪ̯fstriːm"
+ },
+ {
+  "term": "zurecht",
+  "pos": "adverb",
+  "gloss": [
+   "only used in zurechtweisen etc.",
+   "alternative form of zu Recht"
+  ],
+  "freq": 178,
+  "ipa": "t͡suːˈʁɛçt"
+ },
+ {
+  "term": "Terror",
+  "pos": "noun",
+  "gloss": [
+   "terror"
+  ],
+  "freq": 177,
+  "gender": "der",
+  "ipa": "ˈtɛʁoːɐ̯"
+ },
+ {
+  "term": "Herzog",
+  "pos": "noun",
+  "gloss": [
+   "duke"
+  ],
+  "freq": 177,
+  "gender": "der",
+  "plural": "die Herzöge",
+  "ipa": "ˈhɛrˌtsoːk"
+ },
+ {
+  "term": "Verlag",
+  "pos": "noun",
+  "gloss": [
+   "publishing house, publisher (a company that produces and sells books, booklets, magazines)"
+  ],
+  "freq": 177,
+  "gender": "der",
+  "plural": "die Verlage",
+  "ipa": "fɛɐ̯ˈlaːk"
+ },
+ {
+  "term": "gemäss",
+  "pos": "adjective",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of gemäß"
+  ],
+  "freq": 177
+ },
+ {
+  "term": "voneinander",
+  "pos": "adverb",
+  "gloss": [
+   "from / of one another, from / of each other"
+  ],
+  "freq": 177
+ },
+ {
+  "term": "Store",
+  "pos": "noun",
+  "gloss": [
+   "net curtain",
+   "Venetian blind, roller blind",
+   "awning"
+  ],
+  "freq": 177,
+  "gender": "der",
+  "plural": "die Stores"
+ },
+ {
+  "term": "Abo",
+  "pos": "noun",
+  "gloss": [
+   "clipping of Abonnement (“subscription”)"
+  ],
+  "freq": 176,
+  "gender": "das",
+  "plural": "die Abos",
+  "ipa": "ˈabo"
+ },
+ {
+  "term": "Delegation",
+  "pos": "noun",
+  "gloss": [
+   "delegation"
+  ],
+  "freq": 176,
+  "gender": "die",
+  "plural": "die Delegationen"
+ },
+ {
+  "term": "intern",
+  "pos": "adjective",
+  "gloss": [
+   "internal"
+  ],
+  "freq": 176,
+  "ipa": "ɪnˈtɛʁn"
+ },
+ {
+  "term": "Rückschlag",
+  "pos": "noun",
+  "gloss": [
+   "setback",
+   "kickback",
+   "recoil"
+  ],
+  "freq": 176,
+  "gender": "der",
+  "plural": "die Rückschläge",
+  "ipa": "ˈʁʏkˌʃlaːk"
+ },
+ {
+  "term": "eignen",
+  "pos": "verb",
+  "gloss": [
+   "to suit, to be apt for",
+   "[with dative] to be own to someone, to be characteristic"
+  ],
+  "freq": 176,
+  "ipa": "ˈaɪ̯ɡnən"
+ },
+ {
+  "term": "Opel",
+  "pos": "noun",
+  "gloss": [
+   "A car of that brand."
+  ],
+  "freq": 176,
+  "gender": "der",
+  "plural": "die Opels",
+  "ipa": "ˈoːpl̩"
+ },
+ {
+  "term": "Interne",
+  "pos": "noun",
+  "gloss": [
+   "department of internal medicine at a hospital"
+  ],
+  "freq": 176,
+  "gender": "die",
+  "plural": "die Interne"
+ },
+ {
+  "term": "unerwartet",
+  "pos": "adjective",
+  "gloss": [
+   "unexpected"
+  ],
+  "freq": 175
+ },
+ {
+  "term": "Rundfunk",
+  "pos": "noun",
+  "gloss": [
+   "broadcasting (The business or profession of radio and television.)",
+   "radio (technical means)"
+  ],
+  "freq": 175,
+  "gender": "der",
+  "ipa": "ˈʁʊntfʊŋk"
+ },
+ {
+  "term": "Foul",
+  "pos": "noun",
+  "gloss": [
+   "foul (breach of the rules of a game, especially one involving inappropriate contact with an opposing player in order to gain an advantage)"
+  ],
+  "freq": 174,
+  "gender": "das",
+  "plural": "die Fouls",
+  "ipa": "faʊ̯l"
+ },
+ {
+  "term": "Profil",
+  "pos": "noun",
+  "gloss": [
+   "profile"
+  ],
+  "freq": 174,
+  "gender": "das",
+  "plural": "die Profile",
+  "ipa": "pʁoˈfiːl"
+ },
+ {
+  "term": "Geschlecht",
+  "pos": "noun",
+  "gloss": [
+   "sex",
+   "gender",
+   "sex organ"
+  ],
+  "freq": 174,
+  "gender": "das",
+  "plural": "die Geschlechter",
+  "ipa": "ɡəˈʃlɛçt"
+ },
+ {
+  "term": "Beifahrer",
+  "pos": "noun",
+  "gloss": [
+   "front passenger",
+   "driver's mate",
+   "codriver"
+  ],
+  "freq": 174,
+  "gender": "der",
+  "plural": "die Beifahrer",
+  "ipa": "ˈbaɪ̯ˌfaːʁɐ"
+ },
+ {
+  "term": "Demo",
+  "pos": "noun",
+  "gloss": [
+   "clipping of Demonstration (“demonstration, rally”)"
+  ],
+  "freq": 174,
+  "gender": "die",
+  "plural": "die Demos",
+  "ipa": "ˈdeːmo"
+ },
+ {
+  "term": "Bischof",
+  "pos": "noun",
+  "gloss": [
+   "bishop (male or of unspecified gender)"
+  ],
+  "freq": 173,
+  "gender": "der",
+  "plural": "die Bischöfe",
+  "ipa": "ˈbɪʃɔf"
+ },
+ {
+  "term": "verständlich",
+  "pos": "adjective",
+  "gloss": [
+   "understandable, comprehensible"
+  ],
+  "freq": 173
+ },
+ {
+  "term": "belaufen",
+  "pos": "verb",
+  "gloss": [
+   "to walk on (a way, an area, etc.)",
+   "to be, to amount (to), to add up (to) [auxiliary haben]",
+   "to steam up, to fog up"
+  ],
+  "freq": 173,
+  "ipa": "bəˈlaufən"
+ },
+ {
+  "term": "umgerechnet",
+  "pos": "adjective",
+  "gloss": [
+   "equivalent (in another currency)"
+  ],
+  "freq": 173
+ },
+ {
+  "term": "bekanntgegeben",
+  "pos": "adjective",
+  "gloss": [
+   "announced"
+  ],
+  "freq": 173
+ },
+ {
+  "term": "Pech",
+  "pos": "noun",
+  "gloss": [
+   "pitch (sticky substance)",
+   "bad luck, misfortune"
+  ],
+  "freq": 172,
+  "gender": "das",
+  "plural": "die Peche",
+  "ipa": "pɛç"
+ },
+ {
+  "term": "solide",
+  "pos": "adjective",
+  "gloss": [
+   "alternative form of solid"
+  ],
+  "freq": 172
+ },
+ {
+  "term": "umgekehrt",
+  "pos": "adjective",
+  "gloss": [
+   "reverse"
+  ],
+  "freq": 172,
+  "ipa": "ˈʊmɡəˌkeːɐ̯t"
+ },
+ {
+  "term": "bekräftigt",
+  "pos": "adjective",
+  "gloss": [
+   "confirmed, corroborated"
+  ],
+  "freq": 172
+ },
+ {
+  "term": "Block",
+  "pos": "noun",
+  "gloss": [
+   "bloc",
+   "block (thick, roughly cuboid object, e.g. cake of soap, block of ice, wood, etc.)",
+   "block (large building or group of such)"
+  ],
+  "freq": 171,
+  "gender": "der",
+  "plural": "die Blöcke",
+  "ipa": "blɔk"
+ },
+ {
+  "term": "Kicker",
+  "pos": "noun",
+  "gloss": [
+   "soccer player/football player",
+   "placekicker"
+  ],
+  "freq": 171,
+  "gender": "der",
+  "plural": "die Kicker",
+  "ipa": "kɪkər"
+ },
+ {
+  "term": "musikalisch",
+  "pos": "adjective",
+  "gloss": [
+   "musical"
+  ],
+  "freq": 171,
+  "ipa": "muziˈkaːlɪʃ"
+ },
+ {
+  "term": "inter",
+  "pos": "adjective",
+  "gloss": [
+   "intersex"
+  ],
+  "freq": 170
+ },
+ {
+  "term": "Single",
+  "pos": "noun",
+  "gloss": [
+   "single (45rpm vinyl record)",
+   "single (song from an album, released individually)"
+  ],
+  "freq": 170,
+  "gender": "die",
+  "plural": "die Singles",
+  "ipa": "ˈsɪŋəl"
+ },
+ {
+  "term": "Anreise",
+  "pos": "noun",
+  "gloss": [
+   "arrival, journey"
+  ],
+  "freq": 170,
+  "gender": "die",
+  "plural": "die Anreisen",
+  "ipa": "ˈanˌʀaɪ̯zə"
+ },
+ {
+  "term": "Verleihung",
+  "pos": "noun",
+  "gloss": [
+   "awarding, conference, conferral, bestowing (of an award, honor, etc)",
+   "lending (of something to someone, for a finite period of time)"
+  ],
+  "freq": 170,
+  "gender": "die",
+  "plural": "die Verleihungen"
+ },
+ {
+  "term": "Verbleib",
+  "pos": "noun",
+  "gloss": [
+   "whereabouts",
+   "disposition"
+  ],
+  "freq": 170,
+  "gender": "der",
+  "ipa": "fɛʁˈblaɪ̯p"
+ },
+ {
+  "term": "Vierbeiner",
+  "pos": "noun",
+  "gloss": [
+   "quadruped; four-legged animal, especially of dogs and cats"
+  ],
+  "freq": 170,
+  "gender": "der",
+  "plural": "die Vierbeiner",
+  "ipa": "ˈfiːɐ̯ˌbaɪ̯nɐ"
+ },
+ {
+  "term": "Element",
+  "pos": "noun",
+  "gloss": [
+   "element",
+   "element; essential component",
+   "force of nature; the elements"
+  ],
+  "freq": 169,
+  "gender": "das",
+  "plural": "die Elemente",
+  "ipa": "e.leˈmɛnt"
+ },
+ {
+  "term": "Kahn",
+  "pos": "noun",
+  "gloss": [
+   "a small flat-bottomed boat such as a punt, used on inland waters",
+   "a ship, especially when old or in need of repair"
+  ],
+  "freq": 169,
+  "gender": "der",
+  "plural": "die Kähne",
+  "ipa": "kaːn"
+ },
+ {
+  "term": "etablieren",
+  "pos": "verb",
+  "gloss": [
+   "to establish (make widely regarded, give a firm position to)",
+   "to establish, found, open (a business, institution etc.)"
+  ],
+  "freq": 169,
+  "ipa": "etaˈbliːrən"
+ },
+ {
+  "term": "sexuell",
+  "pos": "adjective",
+  "gloss": [
+   "sexual"
+  ],
+  "freq": 169,
+  "ipa": "ˌzɛksuˈɛl"
+ },
+ {
+  "term": "Sicherung",
+  "pos": "noun",
+  "gloss": [
+   "fuse (device preventing overloading of a circuit)",
+   "securing, safeguarding"
+  ],
+  "freq": 168,
+  "gender": "die",
+  "plural": "die Sicherungen",
+  "ipa": "ˈzɪçəʁʊŋ"
+ },
+ {
+  "term": "Bitcoin",
+  "pos": "noun",
+  "gloss": [
+   "bitcoin"
+  ],
+  "freq": 168,
+  "gender": "der",
+  "plural": "die Bitcoins",
+  "ipa": "ˈbɪtˌkɔɪ̯n"
+ },
+ {
+  "term": "Franzose",
+  "pos": "noun",
+  "gloss": [
+   "Frenchman (person of French birth or nationality)",
+   "A French car",
+   "monkey wrench"
+  ],
+  "freq": 167,
+  "gender": "der",
+  "plural": "die Franzosen",
+  "ipa": "fʁanˈtsoːzə"
+ },
+ {
+  "term": "problematisch",
+  "pos": "adjective",
+  "gloss": [
+   "problematic, problematical"
+  ],
+  "freq": 167,
+  "ipa": "pʁobleˈmaːtɪʃ"
+ },
+ {
+  "term": "Demenz",
+  "pos": "noun",
+  "gloss": [
+   "dementia"
+  ],
+  "freq": 167,
+  "gender": "die",
+  "plural": "die Demenzen",
+  "ipa": "deˈmɛnt͡s"
+ },
+ {
+  "term": "Kubikmeter",
+  "pos": "noun",
+  "gloss": [
+   "cubic meter"
+  ],
+  "freq": 167,
+  "gender": "der",
+  "plural": "die Kubikmeter"
+ },
+ {
+  "term": "flüchten",
+  "pos": "verb",
+  "gloss": [
+   "to flee (to run away; to escape) [with vor (+ dative) ‘from a threat’]",
+   "to flee, to seek refuge or shelter [with adverbial of direction ‘(to) somewhere’]",
+   "to flee, to seek refuge or shelter [with adverbial of direction ‘(to) somewhere’]"
+  ],
+  "freq": 167,
+  "ipa": "ˈflʏç.tən"
+ },
+ {
+  "term": "flexibel",
+  "pos": "adjective",
+  "gloss": [
+   "flexible (easily bent without breaking)"
+  ],
+  "freq": 167,
+  "ipa": "flɛˈksiːbl̩"
+ },
+ {
+  "term": "Verstoß",
+  "pos": "noun",
+  "gloss": [
+   "violation, breach, offense, infringement"
+  ],
+  "freq": 167,
+  "gender": "der",
+  "plural": "die Verstöße"
+ },
+ {
+  "term": "Historiker",
+  "pos": "noun",
+  "gloss": [
+   "historian (writer of history; a chronicler)"
+  ],
+  "freq": 167,
+  "gender": "der",
+  "plural": "die Historiker",
+  "ipa": "hɪsˈtoːʁikɐ"
+ },
+ {
+  "term": "Server",
+  "pos": "noun",
+  "gloss": [
+   "server (a computer or software that provides services to other programs or users)"
+  ],
+  "freq": 167,
+  "gender": "der",
+  "plural": "die Server",
+  "ipa": "ˈsœːvə(r)"
+ },
+ {
+  "term": "bereitgestellt",
+  "pos": "adjective",
+  "gloss": [
+   "provided",
+   "earmarked",
+   "appropriated"
+  ],
+  "freq": 167
+ },
+ {
+  "term": "ausgestrahlt",
+  "pos": "adjective",
+  "gloss": [
+   "radiated, emanated",
+   "broadcast"
+  ],
+  "freq": 167
+ },
+ {
+  "term": "eingeklemmt",
+  "pos": "adjective",
+  "gloss": [
+   "stuck; hemmed in"
+  ],
+  "freq": 167
+ },
+ {
+  "term": "rechtskräftig",
+  "pos": "adjective",
+  "gloss": [
+   "legally valid, final"
+  ],
+  "freq": 167,
+  "ipa": "ˈʁɛçt͡sˌkʁɛftɪç"
+ },
+ {
+  "term": "Terrororganisation",
+  "pos": "noun",
+  "gloss": [
+   "terrorist organization"
+  ],
+  "freq": 167,
+  "gender": "die",
+  "plural": "die Terrororganisationen",
+  "ipa": "ˈtɛʁoːɐ̯ʔɔʁɡanizatsi̯oːn"
+ },
+ {
+  "term": "gießen",
+  "pos": "verb",
+  "gloss": [
+   "to pour; usually only of liquids, especially of large quantities",
+   "to pour; to cast; to found (shape molten metal or glass by pouring)",
+   "to water by pouring (e.g. with a can)"
+  ],
+  "freq": 166,
+  "ipa": "ˈɡiːsən"
+ },
+ {
+  "term": "historisch",
+  "pos": "adjective",
+  "gloss": [
+   "historical, historic"
+  ],
+  "freq": 166,
+  "ipa": "hɪsˈtoːʁɪʃ"
+ },
+ {
+  "term": "Mindestlohn",
+  "pos": "noun",
+  "gloss": [
+   "minimum wage"
+  ],
+  "freq": 166,
+  "gender": "der",
+  "plural": "die Mindestlöhne"
+ },
+ {
+  "term": "Aufschrift",
+  "pos": "noun",
+  "gloss": [
+   "label",
+   "inscription"
+  ],
+  "freq": 166,
+  "gender": "die",
+  "plural": "die Aufschriften",
+  "ipa": "ˈaʊ̯fˌʃʁɪft"
+ },
+ {
+  "term": "Ansprache",
+  "pos": "noun",
+  "gloss": [
+   "speech, address (an oration on a specific topic for a specific audience)",
+   "toast (speech involved)"
+  ],
+  "freq": 166,
+  "gender": "die",
+  "plural": "die Ansprachen"
+ },
+ {
+  "term": "Bergung",
+  "pos": "noun",
+  "gloss": [
+   "recovering",
+   "salvaging"
+  ],
+  "freq": 166,
+  "gender": "die",
+  "plural": "die Bergungen",
+  "ipa": "ˈbɛʁɡʊŋ"
+ },
+ {
+  "term": "Hardware",
+  "pos": "noun",
+  "gloss": [
+   "hardware"
+  ],
+  "freq": 165,
+  "gender": "die",
+  "plural": "die Hardwares",
+  "ipa": "ˈhaːɐ̯tvɛːɐ̯"
+ },
+ {
+  "term": "drängen",
+  "pos": "verb",
+  "gloss": [
+   "to push, press (living beings, vehicles etc. in some direction)",
+   "to push, press (one another), to throng, crowd; intransitive use is only possible when a direction is given",
+   "to press, pressure (someone to do something), to urge, railroad (into)"
+  ],
+  "freq": 165,
+  "ipa": "ˈdʁɛŋən"
+ },
+ {
+  "term": "Ried",
+  "pos": "noun",
+  "gloss": [
+   "reed"
+  ],
+  "freq": 165,
+  "gender": "das",
+  "plural": "die Riede",
+  "ipa": "ʁiːt"
+ },
+ {
+  "term": "Journalistin",
+  "pos": "noun",
+  "gloss": [
+   "journalist (female)"
+  ],
+  "freq": 165,
+  "gender": "die",
+  "plural": "die Journalistinnen",
+  "ipa": "ˌʒʊʁnaˈlɪstɪn"
+ },
+ {
+  "term": "zukommen",
+  "pos": "verb",
+  "gloss": [
+   "to come towards, come up to; to approach",
+   "to become, befit"
+  ],
+  "freq": 165,
+  "ipa": "ˈtsuːˌkɔmən"
+ },
+ {
+  "term": "offensiv",
+  "pos": "adjective",
+  "gloss": [
+   "offensive, attacking, aggressive (but not in the sense of “insulting”)",
+   "assertive, forthright, active, direct"
+  ],
+  "freq": 165,
+  "ipa": "ˈɔ.fɛnˌziːf"
+ },
+ {
+  "term": "Elektrische",
+  "pos": "noun",
+  "gloss": [
+   "synonym of Straßenbahn"
+  ],
+  "freq": 165,
+  "gender": "die",
+  "plural": "die Elektrische",
+  "ipa": "eˈlɛktʁɪʃə"
+ },
+ {
+  "term": "Jazz",
+  "pos": "noun",
+  "gloss": [
+   "jazz (musical art form)"
+  ],
+  "freq": 164,
+  "gender": "der",
+  "ipa": "d͡ʒɛ(ː)s"
+ },
+ {
+  "term": "konstant",
+  "pos": "adjective",
+  "gloss": [
+   "constant, consistent, stable (proceeding regularly, without interruption, without ups and downs)",
+   "constant"
+  ],
+  "freq": 164,
+  "ipa": "kɔnˈstant"
+ },
+ {
+  "term": "heiligen",
+  "pos": "verb",
+  "gloss": [
+   "to hallow; to make holy",
+   "to regard or respect as holy"
+  ],
+  "freq": 164,
+  "ipa": "ˈhaɪ̯lɪɡən"
+ },
+ {
+  "term": "Arsenal",
+  "pos": "noun",
+  "gloss": [
+   "arsenal"
+  ],
+  "freq": 164,
+  "gender": "das",
+  "plural": "die Arsenale"
+ },
+ {
+  "term": "Sortiment",
+  "pos": "noun",
+  "gloss": [
+   "range (the entirety or a particular grouping of the articles produced by a company or sold by a shop)"
+  ],
+  "freq": 164,
+  "gender": "das",
+  "plural": "die Sortimente",
+  "ipa": "ˌzɔʁtiˈmɛnt"
+ },
+ {
+  "term": "zugute",
+  "pos": "adverb",
+  "gloss": [
+   "indicates something is for the benefit of the dative object of the verb"
+  ],
+  "freq": 164,
+  "ipa": "ˌt͡suˈɡuːtə"
+ },
+ {
+  "term": "Start-up",
+  "pos": "noun",
+  "gloss": [
+   "startup (fast-growing company)"
+  ],
+  "freq": 164,
+  "gender": "der",
+  "plural": "die Start-ups",
+  "ipa": "ˈstartap"
+ },
+ {
+  "term": "royal",
+  "pos": "adjective",
+  "gloss": [
+   "royal"
+  ],
+  "freq": 163,
+  "ipa": "rɔˈjaːl"
+ },
+ {
+  "term": "Nikolaus",
+  "pos": "noun",
+  "gloss": [
+   "a representation of St. Nicholas (e.g. an actor or a figurine)",
+   "the day of 6th December"
+  ],
+  "freq": 163,
+  "gender": "der",
+  "plural": "die Nikoläuse",
+  "ipa": "ˈnɪkoˌlaʊ̯s"
+ },
+ {
+  "term": "Optimismus",
+  "pos": "noun",
+  "gloss": [
+   "optimism"
+  ],
+  "freq": 163,
+  "gender": "der"
+ },
+ {
+  "term": "Dokument",
+  "pos": "noun",
+  "gloss": [
+   "document"
+  ],
+  "freq": 163,
+  "gender": "das",
+  "plural": "die Dokumente",
+  "ipa": "ˌdokuˈmɛnt"
+ },
+ {
+  "term": "protestieren",
+  "pos": "verb",
+  "gloss": [
+   "to protest (to make a strong objection)",
+   "to protest (to make a strong objection)",
+   "to protest (to hold a rally or public protest against something)"
+  ],
+  "freq": 163,
+  "ipa": "pʁotɛsˈtiːʁən"
+ },
+ {
+  "term": "zumeist",
+  "pos": "adverb",
+  "gloss": [
+   "mostly"
+  ],
+  "freq": 163
+ },
+ {
+  "term": "Feedback",
+  "pos": "noun",
+  "gloss": [
+   "feedback"
+  ],
+  "freq": 163,
+  "gender": "das",
+  "plural": "die Feedbacks",
+  "ipa": "ˈfiːdbɛk"
+ },
+ {
+  "term": "Follower",
+  "pos": "noun",
+  "gloss": [
+   "follower"
+  ],
+  "freq": 163,
+  "gender": "der",
+  "plural": "die Follower",
+  "ipa": "ˈfɔloʊɐ"
+ },
+ {
+  "term": "Rucksack",
+  "pos": "noun",
+  "gloss": [
+   "backpack",
+   "rucksack (large, rugged backpack)"
+  ],
+  "freq": 162,
+  "gender": "der",
+  "plural": "die Rucksäcke",
+  "ipa": "ˈʁʊkzak"
+ },
+ {
+  "term": "Schiene",
+  "pos": "noun",
+  "gloss": [
+   "a staff on which something moves",
+   "rail",
+   "a staff on which something moves"
+  ],
+  "freq": 162,
+  "gender": "die",
+  "plural": "die Schienen",
+  "ipa": "ˈʃiːnə"
+ },
+ {
+  "term": "Reduzierung",
+  "pos": "noun",
+  "gloss": [
+   "reduction"
+  ],
+  "freq": 162,
+  "gender": "die",
+  "plural": "die Reduzierungen",
+  "ipa": "ʁeduˈt͡siːʁʊŋ"
+ },
+ {
+  "term": "viermal",
+  "pos": "adverb",
+  "gloss": [
+   "four times",
+   "quadruply"
+  ],
+  "freq": 162,
+  "ipa": "ˈfiːɐ̯maːl"
+ },
+ {
+  "term": "Reinigung",
+  "pos": "noun",
+  "gloss": [
+   "cleaning, cleansing, purification",
+   "dry cleaner"
+  ],
+  "freq": 162,
+  "gender": "die",
+  "plural": "die Reinigungen",
+  "ipa": "ˈʁaɪ̯niɡʊŋ"
+ },
+ {
+  "term": "Nordosten",
+  "pos": "noun",
+  "gloss": [
+   "northeast"
+  ],
+  "freq": 162,
+  "gender": "der"
+ },
+ {
+  "term": "Musical",
+  "pos": "noun",
+  "gloss": [
+   "a musical"
+  ],
+  "freq": 161,
+  "gender": "das",
+  "plural": "die Musicals"
+ },
+ {
+  "term": "Batterie",
+  "pos": "noun",
+  "gloss": [
+   "battery (unit of artillery)",
+   "a row (an array of similar things)",
+   "a set of small cages (farming)"
+  ],
+  "freq": 161,
+  "gender": "die",
+  "plural": "die Batterien",
+  "ipa": "batəˈʁiː"
+ },
+ {
+  "term": "Beleuchtung",
+  "pos": "noun",
+  "gloss": [
+   "lighting, illumination"
+  ],
+  "freq": 161,
+  "gender": "die",
+  "plural": "die Beleuchtungen",
+  "ipa": "bəˈlɔɪ̯çtʊŋ"
+ },
+ {
+  "term": "mithalten",
+  "pos": "verb",
+  "gloss": [
+   "to keep up with (stay even or ahead)"
+  ],
+  "freq": 161,
+  "ipa": "ˈmɪtˌhaltn̩"
+ },
+ {
+  "term": "Institution",
+  "pos": "noun",
+  "gloss": [
+   "institution"
+  ],
+  "freq": 161,
+  "gender": "die",
+  "plural": "die Institutionen",
+  "ipa": "ʔɪnstituˈtsi̯oːn"
+ },
+ {
+  "term": "Football",
+  "pos": "noun",
+  "gloss": [
+   "the kind of ball used in American football",
+   "the game of American football"
+  ],
+  "freq": 161,
+  "gender": "der",
+  "plural": "die Footballs",
+  "ipa": "ˈfʊtbɔ(ː)l"
+ },
+ {
+  "term": "Vorsitz",
+  "pos": "noun",
+  "gloss": [
+   "chair, chairmanship"
+  ],
+  "freq": 161,
+  "gender": "der",
+  "plural": "die Vorsitze",
+  "ipa": "ˈfoːɐ̯ˌzɪts"
+ },
+ {
+  "term": "Transporter",
+  "pos": "noun",
+  "gloss": [
+   "transporter, carrier, van"
+  ],
+  "freq": 161,
+  "gender": "der",
+  "plural": "die Transporter",
+  "ipa": "tʁansˈpɔʁtɐ"
+ },
+ {
+  "term": "Portfolio",
+  "pos": "noun",
+  "gloss": [
+   "portfolio"
+  ],
+  "freq": 161,
+  "gender": "das",
+  "plural": "die Portfolios",
+  "ipa": "ˌpoɐ̯tˈfoːli̯o"
+ },
+ {
+  "term": "Auffassung",
+  "pos": "noun",
+  "gloss": [
+   "notion, conception, view"
+  ],
+  "freq": 160,
+  "gender": "die",
+  "plural": "die Auffassungen",
+  "ipa": "ˈaʊ̯fˌfasʊŋ"
+ },
+ {
+  "term": "jubeln",
+  "pos": "verb",
+  "gloss": [
+   "to cheer, to exult, to rejoice loudly"
+  ],
+  "freq": 160,
+  "ipa": "ˈjuːbl̩n"
+ },
+ {
+  "term": "Hit",
+  "pos": "noun",
+  "gloss": [
+   "hit (A success, especially in the entertainment industry.)",
+   "hit (A dose of an illegal or addictive drug.)",
+   "hit"
+  ],
+  "freq": 160,
+  "gender": "der",
+  "plural": "die Hits",
+  "ipa": "hɪt"
+ },
+ {
+  "term": "gross",
+  "pos": "adjective",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of groß"
+  ],
+  "freq": 159
+ },
+ {
+  "term": "Latte",
+  "pos": "noun",
+  "gloss": [
+   "batten; lath; slat (narrow board or strip, usually of wood)",
+   "boner, erection",
+   "beanpole (tall, thin person)"
+  ],
+  "freq": 159,
+  "gender": "die",
+  "plural": "die Latten",
+  "ipa": "ˈlatə"
+ },
+ {
+  "term": "Mars",
+  "pos": "noun",
+  "gloss": [
+   "crow's nest"
+  ],
+  "freq": 159,
+  "gender": "der",
+  "plural": "die Marse"
+ },
+ {
+  "term": "Millimeter",
+  "pos": "noun",
+  "gloss": [
+   "millimetre (one thousandth of a metre)"
+  ],
+  "freq": 159,
+  "gender": "der",
+  "plural": "die Millimeter",
+  "ipa": "ˈmɪliˌmeːtɐ"
+ },
+ {
+  "term": "verpflichten",
+  "pos": "verb",
+  "gloss": [
+   "to oblige someone, make someone promise",
+   "to commit, to oblige",
+   "to oblige, to swear, to be sworn"
+  ],
+  "freq": 159,
+  "ipa": "fɛɐ̯ˈpflɪçtn̩"
+ },
+ {
+  "term": "gegeneinander",
+  "pos": "adverb",
+  "gloss": [
+   "against each other / one another"
+  ],
+  "freq": 159
+ },
+ {
+  "term": "Henry",
+  "pos": "noun",
+  "gloss": [
+   "henry (unit of electrical inductance)"
+  ],
+  "freq": 158,
+  "gender": "das",
+  "plural": "die Henry"
+ },
+ {
+  "term": "Senior",
+  "pos": "noun",
+  "gloss": [
+   "father, senior, the elder (older of two close male relatives, especially with the same name)",
+   "senior citizen, elderly person, older adult",
+   "adult"
+  ],
+  "freq": 158,
+  "gender": "der",
+  "plural": "die Senioren",
+  "ipa": "ˈzeːni̯oːr"
+ },
+ {
+  "term": "Vorverkauf",
+  "pos": "noun",
+  "gloss": [
+   "presale"
+  ],
+  "freq": 158,
+  "gender": "der",
+  "plural": "die Vorverkäufe"
+ },
+ {
+  "term": "Intensität",
+  "pos": "noun",
+  "gloss": [
+   "intensity (intensity)"
+  ],
+  "freq": 158,
+  "gender": "die",
+  "plural": "die Intensitäten",
+  "ipa": "ɪntɛnziˈtɛːt"
+ },
+ {
+  "term": "erschwert",
+  "pos": "adjective",
+  "gloss": [
+   "aggravated",
+   "complicated, difficult"
+  ],
+  "freq": 158
+ },
+ {
+  "term": "vorantreiben",
+  "pos": "verb",
+  "gloss": [
+   "to advance, to promote, to push"
+  ],
+  "freq": 158,
+  "ipa": "foːˈʁanˌtʁaɪ̯bn̩"
+ },
+ {
+  "term": "Switch",
+  "pos": "noun",
+  "gloss": [
+   "switch"
+  ],
+  "freq": 158,
+  "gender": "der",
+  "plural": "die Switchs",
+  "ipa": "svɪt͡ʃ"
+ },
+ {
+  "term": "fix",
+  "pos": "adjective",
+  "gloss": [
+   "fixed (costs, salary)",
+   "fixed, constant, stationary",
+   "fixed, permanent"
+  ],
+  "freq": 157,
+  "ipa": "fɪks"
+ },
+ {
+  "term": "Leo",
+  "pos": "noun",
+  "gloss": [
+   "base (a safe zone in the children's game of tag)",
+   "any kind of safe zone"
+  ],
+  "freq": 157,
+  "gender": "das",
+  "plural": "die Leos",
+  "ipa": "ˈleːo"
+ },
+ {
+  "term": "Download",
+  "pos": "noun",
+  "gloss": [
+   "a download"
+  ],
+  "freq": 157,
+  "gender": "der",
+  "plural": "die Downloads"
+ },
+ {
+  "term": "Fernwärme",
+  "pos": "noun",
+  "gloss": [
+   "district heating, teleheating"
+  ],
+  "freq": 157,
+  "gender": "die",
+  "ipa": "ˈfɛʁnˌvɛʁmə"
+ },
+ {
+  "term": "vorwiegend",
+  "pos": "adverb",
+  "gloss": [
+   "predominantly"
+  ],
+  "freq": 157,
+  "ipa": "ˈfoːɐ̯viːɡənt"
+ },
+ {
+  "term": "Schlager",
+  "pos": "noun",
+  "gloss": [
+   "schlager (European music genre)",
+   "hit (music or entertainment success)"
+  ],
+  "freq": 157,
+  "gender": "der",
+  "plural": "die Schlager",
+  "ipa": "ˈʃlaːɡɐ"
+ },
+ {
+  "term": "verbraucht",
+  "pos": "adjective",
+  "gloss": [
+   "depleted",
+   "consumed, exhausted",
+   "dissipated"
+  ],
+  "freq": 157,
+  "ipa": "fɐˈbʁaʊxt"
+ },
+ {
+  "term": "Dreier",
+  "pos": "noun",
+  "gloss": [
+   "three",
+   "threesome",
+   "alternative form of Drei (“digit, school mark”)"
+  ],
+  "freq": 157,
+  "gender": "der",
+  "plural": "die Dreier",
+  "ipa": "ˈdraɪ̯ɐ"
+ },
+ {
+  "term": "untereinander",
+  "pos": "adverb",
+  "gloss": [
+   "among ourselves / themselves",
+   "one under the other"
+  ],
+  "freq": 157,
+  "ipa": "ʊntəʁaɪ̯nandəʁ"
+ },
+ {
+  "term": "Konstanz",
+  "pos": "noun",
+  "gloss": [
+   "constancy, consistency, permanence, stability (of a development or regular occurrence)"
+  ],
+  "freq": 157,
+  "gender": "die",
+  "ipa": "kɔnˈstant͡s"
+ },
+ {
+  "term": "ausrücken",
+  "pos": "verb",
+  "gloss": [
+   "to march out; to go on a mission",
+   "to be deployed",
+   "to disengage"
+  ],
+  "freq": 157,
+  "ipa": "ˈaʊ̯sˌʁʏkn̩"
+ },
+ {
+  "term": "Advent",
+  "pos": "noun",
+  "gloss": [
+   "Advent",
+   "Sunday in Advent"
+  ],
+  "freq": 156,
+  "gender": "der",
+  "plural": "die Advente",
+  "ipa": "ʔatˈvɛnt"
+ },
+ {
+  "term": "Atem",
+  "pos": "noun",
+  "gloss": [
+   "breath"
+  ],
+  "freq": 156,
+  "gender": "der",
+  "ipa": "ˈaːtəm"
+ },
+ {
+  "term": "Bock",
+  "pos": "noun",
+  "gloss": [
+   "buck, ram; the male of certain animals, especially goat, sheep, and roedeer",
+   "a stubborn person",
+   "a man who is lecherous or sexually active"
+  ],
+  "freq": 156,
+  "gender": "der",
+  "plural": "die Böcke",
+  "ipa": "bɔk"
+ },
+ {
+  "term": "Lupe",
+  "pos": "noun",
+  "gloss": [
+   "magnifying glass"
+  ],
+  "freq": 156,
+  "gender": "die",
+  "plural": "die Lupen",
+  "ipa": "ˈluːpə"
+ },
+ {
+  "term": "Nagel",
+  "pos": "noun",
+  "gloss": [
+   "A nail, the horny plate on fingers and toes of humans and certain animals which mostly consists of keratin.",
+   "A nail, a man-made pointed fastener used for joining different materials by penetrating them."
+  ],
+  "freq": 156,
+  "gender": "der",
+  "plural": "die Nägel",
+  "ipa": "ˈnaːɡl̩"
+ },
+ {
+  "term": "rasant",
+  "pos": "adjective",
+  "gloss": [
+   "having a flat trajectory",
+   "rapid, turbulent, tempestuous (at great and possibly uncontrolled speed)"
+  ],
+  "freq": 156,
+  "ipa": "ʁaˈzant"
+ },
+ {
+  "term": "Abriss",
+  "pos": "noun",
+  "gloss": [
+   "demolition",
+   "summary, outline",
+   "stub"
+  ],
+  "freq": 156,
+  "gender": "der",
+  "plural": "die Abrisse"
+ },
+ {
+  "term": "diesbezüglich",
+  "pos": "adverb",
+  "gloss": [
+   "referring to this, in this regard"
+  ],
+  "freq": 156,
+  "ipa": "ˈdiːsbəˌt͡syːklɪç"
+ },
+ {
+  "term": "Limit",
+  "pos": "noun",
+  "gloss": [
+   "limit (restriction)"
+  ],
+  "freq": 156,
+  "gender": "das",
+  "plural": "die Limits",
+  "ipa": "ˈlɪmɪt"
+ },
+ {
+  "term": "erarbeiten",
+  "pos": "verb",
+  "gloss": [
+   "to work something out",
+   "to obtain by hard work",
+   "to develop"
+  ],
+  "freq": 156,
+  "ipa": "ʔɛʁˈʔaʁbaɪ̯tn̩"
+ },
+ {
+  "term": "Pop",
+  "pos": "noun",
+  "gloss": [
+   "pop music"
+  ],
+  "freq": 155,
+  "gender": "der",
+  "ipa": "pɔp"
+ },
+ {
+  "term": "Triumph",
+  "pos": "noun",
+  "gloss": [
+   "triumph"
+  ],
+  "freq": 155,
+  "gender": "der",
+  "plural": "die Triumphe",
+  "ipa": "triˈum(p)f"
+ },
+ {
+  "term": "Hürde",
+  "pos": "noun",
+  "gloss": [
+   "hurdle",
+   "obstacle for athletes",
+   "hurdle"
+  ],
+  "freq": 155,
+  "gender": "die",
+  "plural": "die Hürden",
+  "ipa": "ˈhʏrdə"
+ },
+ {
+  "term": "Spektrum",
+  "pos": "noun",
+  "gloss": [
+   "spectrum (range of colours, frequencies etc.)",
+   "spectrum (the full range of anything)",
+   "spectre (apparition, phantom)"
+  ],
+  "freq": 155,
+  "gender": "das",
+  "plural": "die Spektren",
+  "ipa": "ˈʃpɛktrʊm"
+ },
+ {
+  "term": "Öffnung",
+  "pos": "noun",
+  "gloss": [
+   "opening",
+   "orifice"
+  ],
+  "freq": 155,
+  "gender": "die",
+  "plural": "die Öffnungen",
+  "ipa": "ˈœfnʊŋ"
+ },
+ {
+  "term": "Abbruch",
+  "pos": "noun",
+  "gloss": [
+   "demolition",
+   "termination, discontinuation",
+   "abort"
+  ],
+  "freq": 155,
+  "gender": "der",
+  "plural": "die Abbrüche",
+  "ipa": "ˈapbʁʊχ"
+ },
+ {
+  "term": "Regulierung",
+  "pos": "noun",
+  "gloss": [
+   "regulation"
+  ],
+  "freq": 155,
+  "gender": "die",
+  "plural": "die Regulierungen",
+  "ipa": "ʁeɡuˈliːʁʊŋ"
+ },
+ {
+  "term": "Gewahrsam",
+  "pos": "noun",
+  "gloss": [
+   "custody (effective control of a physical object, possessio naturalis)",
+   "custody of a person (control of a person to avert danger to them or others)",
+   "detention center"
+  ],
+  "freq": 155,
+  "gender": "der",
+  "plural": "die Gewahrsame",
+  "ipa": "ɡəˈvaːɐ̯zaːm"
+ },
+ {
+  "term": "zurückgreifen",
+  "pos": "verb",
+  "gloss": [
+   "to fall back (on)",
+   "to go back (to)",
+   "to resort (to)"
+  ],
+  "freq": 155,
+  "ipa": "tsuˈʁʏkˌɡʁaɪfən"
+ },
+ {
+  "term": "Tötung",
+  "pos": "noun",
+  "gloss": [
+   "kill, killing, homicide"
+  ],
+  "freq": 155,
+  "gender": "die",
+  "plural": "die Tötungen",
+  "ipa": "ˈtøːtʊŋ"
+ },
+ {
+  "term": "Inklusion",
+  "pos": "noun",
+  "gloss": [
+   "participation, integration",
+   "inclusion",
+   "subset relation"
+  ],
+  "freq": 155,
+  "gender": "die",
+  "plural": "die Inklusionen",
+  "ipa": "ɪnkluˈzi̯oːn"
+ },
+ {
+  "term": "Sprint",
+  "pos": "noun",
+  "gloss": [
+   "sprint (race)",
+   "sprint (act of sprinting)"
+  ],
+  "freq": 155,
+  "gender": "der",
+  "plural": "die Sprints",
+  "ipa": "ʃpʁɪnt"
+ },
+ {
+  "term": "Retter",
+  "pos": "noun",
+  "gloss": [
+   "rescuer",
+   "saviour, savior"
+  ],
+  "freq": 154,
+  "gender": "der",
+  "plural": "die Retter",
+  "ipa": "ˈʁɛtɐ"
+ },
+ {
+  "term": "allerlei",
+  "pos": "adjective",
+  "gloss": [
+   "all kinds of",
+   "various"
+  ],
+  "freq": 154,
+  "ipa": "ˈalɐlaɪ̯"
+ },
+ {
+  "term": "Durchsuchung",
+  "pos": "noun",
+  "gloss": [
+   "search, searching"
+  ],
+  "freq": 154,
+  "gender": "die",
+  "plural": "die Durchsuchungen",
+  "ipa": "ˌdʊʁçˈzuːχʊŋ"
+ },
+ {
+  "term": "Spektakel",
+  "pos": "noun",
+  "gloss": [
+   "spectacle (exciting or extraordinary exhibition, performance or event)"
+  ],
+  "freq": 154,
+  "gender": "das",
+  "plural": "die Spektakel",
+  "ipa": "ʃpɛkˈtaːkl̩"
+ },
+ {
+  "term": "überaus",
+  "pos": "adverb",
+  "gloss": [
+   "extremely"
+  ],
+  "freq": 154,
+  "ipa": "ˈyːbɐʔaʊ̯s"
+ },
+ {
+  "term": "Einzelfall",
+  "pos": "noun",
+  "gloss": [
+   "individual case; isolated case"
+  ],
+  "freq": 154,
+  "gender": "der",
+  "plural": "die Einzelfälle"
+ },
+ {
+  "term": "Anordnung",
+  "pos": "noun",
+  "gloss": [
+   "arrangement, array",
+   "order",
+   "layout"
+  ],
+  "freq": 154,
+  "gender": "die",
+  "plural": "die Anordnungen",
+  "ipa": "ˈanˌɔʁdnʊŋ"
+ },
+ {
+  "term": "Mannheimer",
+  "pos": "noun",
+  "gloss": [
+   "Mannheimer (native or inhabitant of the city of Mannheim, Baden-Württemberg, Germany) (usually male)"
+  ],
+  "freq": 154,
+  "gender": "der",
+  "plural": "die Mannheimer",
+  "ipa": "ˈmanˌhaɪ̯mɐ"
+ },
+ {
+  "term": "Kriegsbeginn",
+  "pos": "noun",
+  "gloss": [
+   "start of the war"
+  ],
+  "freq": 154,
+  "gender": "der",
+  "ipa": "ˈkʁiːksbəˌɡɪn"
+ },
+ {
+  "term": "Vergewaltigung",
+  "pos": "noun",
+  "gloss": [
+   "rape (the act of forcing sexual activity)"
+  ],
+  "freq": 153,
+  "gender": "die",
+  "plural": "die Vergewaltigungen",
+  "ipa": "fɛʁɡəˈvaltiɡʊŋ"
+ },
+ {
+  "term": "Umleitung",
+  "pos": "noun",
+  "gloss": [
+   "redirection, rerouting, detour, diversion"
+  ],
+  "freq": 153,
+  "gender": "die",
+  "plural": "die Umleitungen",
+  "ipa": "ˈʊmˌlaɪ̯tʊŋ"
+ },
+ {
+  "term": "woraufhin",
+  "pos": "adverb",
+  "gloss": [
+   "whereupon"
+  ],
+  "freq": 153
+ },
+ {
+  "term": "Vergabe",
+  "pos": "noun",
+  "gloss": [
+   "awarding, allocation (awarding of a contract etc)"
+  ],
+  "freq": 153,
+  "gender": "die",
+  "plural": "die Vergaben",
+  "ipa": "fɛɐ̯ˈɡaːbə"
+ },
+ {
+  "term": "Tool",
+  "pos": "noun",
+  "gloss": [
+   "tool",
+   "tool, utensil"
+  ],
+  "freq": 153,
+  "gender": "das",
+  "plural": "die Tools",
+  "ipa": "tuːl"
+ },
+ {
+  "term": "Nachhinein",
+  "pos": "noun",
+  "gloss": [
+   "only used in im Nachhinein"
+  ],
+  "freq": 153,
+  "gender": "das",
+  "ipa": "ˈnaːxhɪˌnaɪ̯n"
+ },
+ {
+  "term": "Kammer",
+  "pos": "noun",
+  "gloss": [
+   "chamber; room"
+  ],
+  "freq": 152,
+  "gender": "die",
+  "plural": "die Kammern",
+  "ipa": "ˈkamɐ"
+ },
+ {
+  "term": "Kloster",
+  "pos": "noun",
+  "gloss": [
+   "convent, monastery, cloister"
+  ],
+  "freq": 152,
+  "gender": "das",
+  "plural": "die Klöster",
+  "ipa": "ˈkloːstɐ"
+ },
+ {
+  "term": "Quartier",
+  "pos": "noun",
+  "gloss": [
+   "accommodation, quarters",
+   "quarter, district, quartal, neighborhood of a city"
+  ],
+  "freq": 152,
+  "gender": "das",
+  "plural": "die Quartiere",
+  "ipa": "kvaʁˈtiːɐ̯"
+ },
+ {
+  "term": "berechtigt",
+  "pos": "adjective",
+  "gloss": [
+   "entitled, eligible",
+   "authorized",
+   "justified"
+  ],
+  "freq": 152,
+  "ipa": "bəˈʁɛçtɪçt"
+ },
+ {
+  "term": "allmählich",
+  "pos": "adjective",
+  "gloss": [
+   "gradual"
+  ],
+  "freq": 152,
+  "ipa": "ʔalˈmɛːlɪç"
+ },
+ {
+  "term": "Mix",
+  "pos": "noun",
+  "gloss": [
+   "mix"
+  ],
+  "freq": 152,
+  "gender": "der",
+  "plural": "die Mixe",
+  "ipa": "mɪks"
+ },
+ {
+  "term": "Unruhe",
+  "pos": "noun",
+  "gloss": [
+   "turbulence, perturbation, moving more than biding, budging more than considered pleasant",
+   "restlessness, nervousness, lacking calmness of the inner disposition of a human or other animal",
+   "turmoil, unrest, upheaval, fights in a country"
+  ],
+  "freq": 152,
+  "gender": "die",
+  "plural": "die Unruhen",
+  "ipa": "ˈʊnˌruːə"
+ },
+ {
+  "term": "Machthaber",
+  "pos": "noun",
+  "gloss": [
+   "ruler, ruling power, ruling class",
+   "potentate"
+  ],
+  "freq": 152,
+  "gender": "der",
+  "plural": "die Machthaber",
+  "ipa": "ˈmaχtˌhaːbɐ"
+ },
+ {
+  "term": "Weihnachtszeit",
+  "pos": "noun",
+  "gloss": [
+   "Christmas season, Christmastime, Yuletide (The period from Advent Sunday through the end of the year; specifically the days before and after Christmas. In some regions, this period is extended through Epiphany.)"
+  ],
+  "freq": 152,
+  "gender": "die",
+  "plural": "die Weihnachtszeiten",
+  "ipa": "ˈvaɪ̯naxt͡sˌt͡saɪ̯t"
+ },
+ {
+  "term": "relevant",
+  "pos": "adjective",
+  "gloss": [
+   "relevant"
+  ],
+  "freq": 151
+ },
+ {
+  "term": "schlussendlich",
+  "pos": "adverb",
+  "gloss": [
+   "finally, ultimately"
+  ],
+  "freq": 151,
+  "ipa": "ˈʃlʊsəntlɪç"
+ },
+ {
+  "term": "Kanzleramt",
+  "pos": "noun",
+  "gloss": [
+   "chancellery",
+   "chancellorship"
+  ],
+  "freq": 151,
+  "gender": "das",
+  "plural": "die Kanzlerämter",
+  "ipa": "ˈkant͡slɐˌʔamt"
+ },
+ {
+  "term": "Potsdamer",
+  "pos": "noun",
+  "gloss": [
+   "Potsdamer (native or inhabitant of the city of Potsdam, capital of Brandenburg, Germany) (usually male)"
+  ],
+  "freq": 151,
+  "gender": "der",
+  "plural": "die Potsdamer"
+ },
+ {
+  "term": "Pizza",
+  "pos": "noun",
+  "gloss": [
+   "pizza"
+  ],
+  "freq": 150,
+  "gender": "die",
+  "plural": "die Pizzen",
+  "ipa": "ˈpɪtsa"
+ },
+ {
+  "term": "Tonne",
+  "pos": "noun",
+  "gloss": [
+   "barrel, vat, tun, drum",
+   "for collecting waste or surplus, such as a bin, dumpster/skip, water butt",
+   "barrel, vat, tun, drum"
+  ],
+  "freq": 150,
+  "gender": "die",
+  "plural": "die Tonnen",
+  "ipa": "ˈtɔnə"
+ },
+ {
+  "term": "Verfügbarkeit",
+  "pos": "noun",
+  "gloss": [
+   "availability, the being there to be utilized",
+   "disposability, the quality of being something that can be waived or encumbered"
+  ],
+  "freq": 150,
+  "gender": "die",
+  "plural": "die Verfügbarkeiten",
+  "ipa": "fɛɐ̯ˈfyːkbaːɐ̯kaɪ̯t"
+ },
+ {
+  "term": "gepflegt",
+  "pos": "adjective",
+  "gloss": [
+   "neat, trim, groomed"
+  ],
+  "freq": 150,
+  "ipa": "ɡəˈpfleːkt"
+ },
+ {
+  "term": "Torschütze",
+  "pos": "noun",
+  "gloss": [
+   "scorer, goal scorer"
+  ],
+  "freq": 150,
+  "gender": "der",
+  "plural": "die Torschützen",
+  "ipa": "ˈtoːɐ̯ˌʃʏtsə"
+ },
+ {
+  "term": "unweit",
+  "pos": "adverb",
+  "gloss": [
+   "not far"
+  ],
+  "freq": 150,
+  "ipa": "ˈʊnvaɪ̯t"
+ },
+ {
+  "term": "landesweit",
+  "pos": "adjective",
+  "gloss": [
+   "nationwide, national",
+   "statewide, on the level of Bundesland"
+  ],
+  "freq": 150
+ },
+ {
+  "term": "zulegen",
+  "pos": "verb",
+  "gloss": [
+   "to add to, to put on",
+   "to put on, to gain (some unit of weight)",
+   "to get (oneself), to acquire"
+  ],
+  "freq": 150,
+  "ipa": "ˈtsuːˌleːɡən"
+ },
+ {
+  "term": "Hall",
+  "pos": "noun",
+  "gloss": [
+   "echo, resonance, reverberation"
+  ],
+  "freq": 149,
+  "gender": "der",
+  "plural": "die Halle",
+  "ipa": "hal"
+ },
+ {
+  "term": "Verzögerung",
+  "pos": "noun",
+  "gloss": [
+   "delay"
+  ],
+  "freq": 149,
+  "gender": "die",
+  "plural": "die Verzögerungen"
+ },
+ {
+  "term": "vormals",
+  "pos": "adverb",
+  "gloss": [
+   "formerly"
+  ],
+  "freq": 149
+ },
+ {
+  "term": "Tweet",
+  "pos": "noun",
+  "gloss": [
+   "tweet (post to Twitter)"
+  ],
+  "freq": 149,
+  "gender": "der",
+  "plural": "die Tweets",
+  "ipa": "tviːt"
+ },
+ {
+  "term": "Beck",
+  "pos": "noun",
+  "gloss": [
+   "baker"
+  ],
+  "freq": 148,
+  "gender": "der",
+  "plural": "die Becken"
+ },
+ {
+  "term": "Asphalt",
+  "pos": "noun",
+  "gloss": [
+   "asphalt, asphalt concrete, tarmac"
+  ],
+  "freq": 148,
+  "gender": "der",
+  "plural": "die Asphalte",
+  "ipa": "asˈfalt"
+ },
+ {
+  "term": "Bekenntnis",
+  "pos": "noun",
+  "gloss": [
+   "confession",
+   "creed"
+  ],
+  "freq": 148,
+  "gender": "das",
+  "plural": "die Bekenntnisse",
+  "ipa": "bəˈkɛntnɪs"
+ },
+ {
+  "term": "aufkommen",
+  "pos": "verb",
+  "gloss": [
+   "to arise, to appear (in a somewhat spontaneous manner without a specified origin; of wind, but also of moods, feelings, ideas within a group or person)",
+   "to arise, to appear (in a somewhat spontaneous manner without a specified origin; of wind, but also of moods, feelings, ideas within a group or person)",
+   "to come up (in conversation)"
+  ],
+  "freq": 148,
+  "ipa": "ˈʔaʊ̯fkɔmən"
+ },
+ {
+  "term": "Vizepräsident",
+  "pos": "noun",
+  "gloss": [
+   "vice president"
+  ],
+  "freq": 148,
+  "gender": "der",
+  "plural": "die Vizepräsidenten",
+  "ipa": "ˈfiːt͡səpʁɛ(ː)ziˌdɛnt"
+ },
+ {
+  "term": "Neustart",
+  "pos": "noun",
+  "gloss": [
+   "restart, fresh start",
+   "reboot"
+  ],
+  "freq": 148,
+  "gender": "der",
+  "plural": "die Neustarts",
+  "ipa": "ˈnɔɪ̯ˌʃtaʁt"
+ },
+ {
+  "term": "inhaltlich",
+  "pos": "adjective",
+  "gloss": [
+   "content",
+   "contextual",
+   "substantial (relating to substance)"
+  ],
+  "freq": 148
+ },
+ {
+  "term": "Flut",
+  "pos": "noun",
+  "gloss": [
+   "flow, flood, high tide (rising movement of the tide; the time around when it reaches its peak)",
+   "flood(s), great masses of water, usually of the sea",
+   "flooding, flood, overflow of a body of water; usually only when very violent and disastrous"
+  ],
+  "freq": 147,
+  "gender": "die",
+  "plural": "die Fluten",
+  "ipa": "fluːt"
+ },
+ {
+  "term": "Journal",
+  "pos": "noun",
+  "gloss": [
+   "magazine (non-academic publication, usually heavily illustrated)",
+   "an evening TV programme which summarises and discusses the news of the day",
+   "journal, diary, daybook"
+  ],
+  "freq": 147,
+  "gender": "das",
+  "plural": "die Journale",
+  "ipa": "ʒʊrˈnaːl"
+ },
+ {
+  "term": "Schrecken",
+  "pos": "noun",
+  "gloss": [
+   "fright",
+   "terror"
+  ],
+  "freq": 147,
+  "gender": "der",
+  "plural": "die Schrecken"
+ },
+ {
+  "term": "Besonderheit",
+  "pos": "noun",
+  "gloss": [
+   "feature"
+  ],
+  "freq": 147,
+  "gender": "die",
+  "plural": "die Besonderheiten",
+  "ipa": "bəˈzɔndɐhaɪ̯t"
+ },
+ {
+  "term": "eingelegt",
+  "pos": "adjective",
+  "gloss": [
+   "pickled, soused"
+  ],
+  "freq": 147
+ },
+ {
+  "term": "widmen",
+  "pos": "verb",
+  "gloss": [
+   "to dedicate, to devote",
+   "to attend"
+  ],
+  "freq": 147,
+  "ipa": "ˈvɪtmən"
+ },
+ {
+  "term": "Discounter",
+  "pos": "noun",
+  "gloss": [
+   "discount shop, cut-price store"
+  ],
+  "freq": 147,
+  "gender": "der",
+  "plural": "die Discounter"
+ },
+ {
+  "term": "Mehrkosten",
+  "pos": "noun",
+  "gloss": [
+   "cost overrun"
+  ],
+  "freq": 147,
+  "plural": "die Mehrkosten",
+  "ipa": "ˈmeːɐ̯ˌkɔstn̩"
+ },
+ {
+  "term": "Act",
+  "pos": "noun",
+  "gloss": [
+   "Former spelling of Akt which is no longer standard."
+  ],
+  "freq": 147,
+  "gender": "der",
+  "plural": "die Acte"
+ },
+ {
+  "term": "Torjäger",
+  "pos": "noun",
+  "gloss": [
+   "goalgetter"
+  ],
+  "freq": 147,
+  "gender": "der",
+  "plural": "die Torjäger",
+  "ipa": "ˈtoːɐ̯ˌjeːɡɐ"
+ },
+ {
+  "term": "Charlotte",
+  "pos": "noun",
+  "gloss": [
+   "charlotte (dessert consisting of sponge cake filled with fruit)"
+  ],
+  "freq": 146,
+  "gender": "die",
+  "plural": "die Charlotten",
+  "ipa": "ʃaʁˈlɔtə"
+ },
+ {
+  "term": "Verbrauch",
+  "pos": "noun",
+  "gloss": [
+   "consumption",
+   "usage",
+   "wastage"
+  ],
+  "freq": 146,
+  "gender": "der",
+  "plural": "die Verbräuche",
+  "ipa": "fɛɐ̯ˈbʁaʊ̯x"
+ },
+ {
+  "term": "Massaker",
+  "pos": "noun",
+  "gloss": [
+   "massacre"
+  ],
+  "freq": 146,
+  "gender": "das",
+  "plural": "die Massaker",
+  "ipa": "ˈmasakɐ"
+ },
+ {
+  "term": "Razzia",
+  "pos": "noun",
+  "gloss": [
+   "police raid"
+  ],
+  "freq": 146,
+  "gender": "die",
+  "plural": "die Razzien",
+  "ipa": "ˈratsi̯a"
+ },
+ {
+  "term": "Logistik",
+  "pos": "noun",
+  "gloss": [
+   "logistics"
+  ],
+  "freq": 146,
+  "gender": "die",
+  "ipa": "loˈɡɪstɪk"
+ },
+ {
+  "term": "Komödie",
+  "pos": "noun",
+  "gloss": [
+   "comedy"
+  ],
+  "freq": 146,
+  "gender": "die",
+  "plural": "die Komödien",
+  "ipa": "koˈmøːdi̯ə"
+ },
+ {
+  "term": "entfallen",
+  "pos": "verb",
+  "gloss": [
+   "to drop or be dropped",
+   "to lapse or be cancelled",
+   "to slip one's memory"
+  ],
+  "freq": 146,
+  "ipa": "ʔɛntˈfalən"
+ },
+ {
+  "term": "Staatssekretär",
+  "pos": "noun",
+  "gloss": [
+   "Secretary of State"
+  ],
+  "freq": 146,
+  "gender": "der",
+  "plural": "die Staatssekretäre"
+ },
+ {
+  "term": "Zuhörer",
+  "pos": "noun",
+  "gloss": [
+   "audience"
+  ],
+  "freq": 146,
+  "gender": "der",
+  "plural": "die Zuhörer",
+  "ipa": "ˈt͡suːˌhøːʁɐ"
+ },
+ {
+  "term": "gewaltsam",
+  "pos": "adjective",
+  "gloss": [
+   "violent, forcible"
+  ],
+  "freq": 146,
+  "ipa": "ɡəˈvalt.zaːm"
+ },
+ {
+  "term": "Hype",
+  "pos": "noun",
+  "gloss": [
+   "hype"
+  ],
+  "freq": 146,
+  "gender": "der",
+  "plural": "die Hypes",
+  "ipa": "haɪ̯p"
+ },
+ {
+  "term": "Heck",
+  "pos": "noun",
+  "gloss": [
+   "stern (of a ship)",
+   "tail (of an aeroplane)",
+   "back (of a car)"
+  ],
+  "freq": 145,
+  "gender": "das",
+  "plural": "die Hecks",
+  "ipa": "hɛk"
+ },
+ {
+  "term": "Staub",
+  "pos": "noun",
+  "gloss": [
+   "dust"
+  ],
+  "freq": 145,
+  "gender": "der",
+  "plural": "die Stäube",
+  "ipa": "ʃtaʊ̯p"
+ },
+ {
+  "term": "Look",
+  "pos": "noun",
+  "gloss": [
+   "look"
+  ],
+  "freq": 145,
+  "gender": "der",
+  "plural": "die Looks",
+  "ipa": "lʊk"
+ },
+ {
+  "term": "Schaffung",
+  "pos": "noun",
+  "gloss": [
+   "creation, generation, establishment, origin"
+  ],
+  "freq": 145,
+  "gender": "die",
+  "plural": "die Schaffungen",
+  "ipa": "ˈʃafʊŋ"
+ },
+ {
+  "term": "Südosten",
+  "pos": "noun",
+  "gloss": [
+   "southeast"
+  ],
+  "freq": 145,
+  "gender": "der"
+ },
+ {
+  "term": "Modus",
+  "pos": "noun",
+  "gloss": [
+   "mode (predesigned set of states or rules)",
+   "mode",
+   "mood"
+  ],
+  "freq": 145,
+  "gender": "der",
+  "plural": "die Modi",
+  "ipa": "ˈmoːdʊs"
+ },
+ {
+  "term": "spielerisch",
+  "pos": "adjective",
+  "gloss": [
+   "whimsical, playful"
+  ],
+  "freq": 145,
+  "ipa": "ˈʃpiːləʁɪʃ"
+ },
+ {
+  "term": "Wanderer",
+  "pos": "noun",
+  "gloss": [
+   "hiker, wayfarer (one who travels on foot)"
+  ],
+  "freq": 144,
+  "gender": "der",
+  "plural": "die Wanderer",
+  "ipa": "ˈvandəʁɐ"
+ },
+ {
+  "term": "Platte",
+  "pos": "noun",
+  "gloss": [
+   "flat, thin, regularly (not necessarily circular) shaped object",
+   "A flat, fairly large serving plate, or (by extension) the food served on it.",
+   "Various short forms:"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Platten",
+  "ipa": "ˈplatə"
+ },
+ {
+  "term": "Gaststätte",
+  "pos": "noun",
+  "gloss": [
+   "restaurant"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Gaststätten",
+  "ipa": "ˈɡastʃtɛtə"
+ },
+ {
+  "term": "Zeremonie",
+  "pos": "noun",
+  "gloss": [
+   "ceremony"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Zeremonien",
+  "ipa": "tseʁemoˈniː"
+ },
+ {
+  "term": "Entschädigung",
+  "pos": "noun",
+  "gloss": [
+   "compensation, indemnification"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Entschädigungen",
+  "ipa": "ʔɛntˈʃɛːdɪɡʊŋ"
+ },
+ {
+  "term": "Ortschaft",
+  "pos": "noun",
+  "gloss": [
+   "village, small town",
+   "place"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Ortschaften",
+  "ipa": "ˈɔʁtʃaft"
+ },
+ {
+  "term": "Resonanz",
+  "pos": "noun",
+  "gloss": [
+   "resonance"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Resonanzen",
+  "ipa": "ʁezoˈnant͡s"
+ },
+ {
+  "term": "Hauptversammlung",
+  "pos": "noun",
+  "gloss": [
+   "annual general meeting"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Hauptversammlungen"
+ },
+ {
+  "term": "Wohnungsbau",
+  "pos": "noun",
+  "gloss": [
+   "housing",
+   "house building"
+  ],
+  "freq": 144,
+  "gender": "der",
+  "plural": "die Wohnungsbauten"
+ },
+ {
+  "term": "Straftat",
+  "pos": "noun",
+  "gloss": [
+   "criminal offence"
+  ],
+  "freq": 144,
+  "gender": "die",
+  "plural": "die Straftaten",
+  "ipa": "ˈʃtʁaːfˌtaːt"
+ },
+ {
+  "term": "Konter",
+  "pos": "noun",
+  "gloss": [
+   "counter-attack",
+   "repartee; comeback (witty answer)"
+  ],
+  "freq": 144,
+  "gender": "der",
+  "plural": "die Konter",
+  "ipa": "ˈkɔntɐ"
+ },
+ {
+  "term": "Akt",
+  "pos": "noun",
+  "gloss": [
+   "act, deed",
+   "act",
+   "nude; artwork of a naked person"
+  ],
+  "freq": 143,
+  "gender": "der",
+  "plural": "die Akte",
+  "ipa": "akt"
+ },
+ {
+  "term": "Steuerung",
+  "pos": "noun",
+  "gloss": [
+   "control",
+   "steering"
+  ],
+  "freq": 143,
+  "gender": "die",
+  "plural": "die Steuerungen",
+  "ipa": "ˈʃtɔɪ̯əʁʊŋ"
+ },
+ {
+  "term": "mäßig",
+  "pos": "adjective",
+  "gloss": [
+   "moderate, modest",
+   "meh, so-so"
+  ],
+  "freq": 143,
+  "ipa": "ˈmɛːsɪç"
+ },
+ {
+  "term": "Prävention",
+  "pos": "noun",
+  "gloss": [
+   "prevention (the act of preventing or hindering)"
+  ],
+  "freq": 143,
+  "gender": "die",
+  "plural": "die Präventionen",
+  "ipa": "pʁɛvɛnˈt͡si̯oːn"
+ },
+ {
+  "term": "Meier",
+  "pos": "noun",
+  "gloss": [
+   "administrator or leaseholder of a manor",
+   "independent peasant or tenant",
+   "any plant of the genus Asperula"
+  ],
+  "freq": 143,
+  "gender": "der",
+  "plural": "die Meier",
+  "ipa": "ˈmaɪ̯ɐ"
+ },
+ {
+  "term": "Zeugin",
+  "pos": "noun",
+  "gloss": [
+   "witness (female)"
+  ],
+  "freq": 143,
+  "gender": "die",
+  "plural": "die Zeuginnen",
+  "ipa": "ˈtsɔʏ̯ɡɪn"
+ },
+ {
+  "term": "verfehlt",
+  "pos": "adjective",
+  "gloss": [
+   "failed, unsuccessful"
+  ],
+  "freq": 143
+ },
+ {
+  "term": "verwickelt",
+  "pos": "adjective",
+  "gloss": [
+   "involved, embroiled",
+   "tangled"
+  ],
+  "freq": 143
+ },
+ {
+  "term": "Fünftel",
+  "pos": "noun",
+  "gloss": [
+   "fifth"
+  ],
+  "freq": 143,
+  "gender": "der",
+  "plural": "die Fünftel"
+ },
+ {
+  "term": "Fahne",
+  "pos": "noun",
+  "gloss": [
+   "flag, banner (any cloth or fabric used as a symbol)",
+   "idea, ideal",
+   "the noticeable smell of alcohol on one's breath"
+  ],
+  "freq": 142,
+  "gender": "die",
+  "plural": "die Fahnen",
+  "ipa": "ˈfaːnə"
+ },
+ {
+  "term": "Heim",
+  "pos": "noun",
+  "gloss": [
+   "home, one’s dwelling, the place where one is at home",
+   "a home, asylum, hostel (residence for some specified group)",
+   "a home, asylum, hostel (residence for some specified group)"
+  ],
+  "freq": 142,
+  "gender": "das",
+  "plural": "die Heime",
+  "ipa": "haɪ̯m"
+ },
+ {
+  "term": "Wirbel",
+  "pos": "noun",
+  "gloss": [
+   "whirl",
+   "whorl",
+   "vortex"
+  ],
+  "freq": 142,
+  "gender": "der",
+  "plural": "die Wirbel",
+  "ipa": "ˈvɪʁbl̩"
+ },
+ {
+  "term": "Siedlung",
+  "pos": "noun",
+  "gloss": [
+   "settlement (the act of settling)",
+   "settlement (place that has been settled)",
+   "ellipsis of Wohnsiedlung (“housing estate”)"
+  ],
+  "freq": 142,
+  "gender": "die",
+  "plural": "die Siedlungen",
+  "ipa": "ˈziːdlʊŋ"
+ },
+ {
+  "term": "Macher",
+  "pos": "noun",
+  "gloss": [
+   "mover and shaker"
+  ],
+  "freq": 142,
+  "gender": "der",
+  "plural": "die Macher",
+  "ipa": "ˈmaxəʁ"
+ },
+ {
+  "term": "anderswo",
+  "pos": "adverb",
+  "gloss": [
+   "elsewhere"
+  ],
+  "freq": 142,
+  "ipa": "ˈandɐsvoː"
+ },
+ {
+  "term": "Jugendlicher",
+  "pos": "noun",
+  "gloss": [
+   "youth, teenager, adolescent (male or of unspecified gender)"
+  ],
+  "freq": 142,
+  "gender": "der",
+  "plural": "die Jugendliche",
+  "ipa": "ˈjuːɡəntlɪçɐ"
+ },
+ {
+  "term": "Europäer",
+  "pos": "noun",
+  "gloss": [
+   "European (person)"
+  ],
+  "freq": 142,
+  "gender": "der",
+  "plural": "die Europäer",
+  "ipa": "ˌɔɪ̯ʁoˈpɛːɐ"
+ },
+ {
+  "term": "indirekt",
+  "pos": "adjective",
+  "gloss": [
+   "indirect",
+   "implied, implicit",
+   "vicarious"
+  ],
+  "freq": 142,
+  "ipa": "ˈɪndiˌʁɛkt"
+ },
+ {
+  "term": "zutiefst",
+  "pos": "adverb",
+  "gloss": [
+   "deeply"
+  ],
+  "freq": 142,
+  "ipa": "tsuˈtiːfst"
+ },
+ {
+  "term": "hintereinander",
+  "pos": "adverb",
+  "gloss": [
+   "consecutively",
+   "in tandem, in succession, one after another"
+  ],
+  "freq": 142
+ },
+ {
+  "term": "Muslime",
+  "pos": "noun",
+  "gloss": [
+   "Muslimah"
+  ],
+  "freq": 142,
+  "gender": "die",
+  "plural": "die Muslimen"
+ },
+ {
+  "term": "Kretschmer",
+  "pos": "noun",
+  "gloss": [
+   "innkeeper, tavernkeeper, pubkeeper (male or of unspecified gender)"
+  ],
+  "freq": 142,
+  "gender": "der",
+  "plural": "die Kretschmer",
+  "ipa": "ˈkrɛt͡ʃmɐ"
+ },
+ {
+  "term": "Abschuss",
+  "pos": "noun",
+  "gloss": [
+   "launch",
+   "firing",
+   "shootdown"
+  ],
+  "freq": 142,
+  "gender": "der",
+  "plural": "die Abschüsse",
+  "ipa": "ˈapˌʃʊs"
+ },
+ {
+  "term": "Klimaneutralität",
+  "pos": "noun",
+  "gloss": [
+   "carbon neutrality"
+  ],
+  "freq": 142,
+  "gender": "die"
+ },
+ {
+  "term": "Zivilbevölkerung",
+  "pos": "noun",
+  "gloss": [
+   "civilian population"
+  ],
+  "freq": 142,
+  "gender": "die",
+  "plural": "die Zivilbevölkerungen"
+ },
+ {
+  "term": "Dimension",
+  "pos": "noun",
+  "gloss": [
+   "dimension"
+  ],
+  "freq": 141,
+  "gender": "die",
+  "plural": "die Dimensionen"
+ },
+ {
+  "term": "Monitor",
+  "pos": "noun",
+  "gloss": [
+   "monitor (display)"
+  ],
+  "freq": 141,
+  "gender": "der",
+  "plural": "die Monitoren",
+  "ipa": "ˈmoːnitoːɐ̯"
+ },
+ {
+  "term": "Becken",
+  "pos": "noun",
+  "gloss": [
+   "basin, wide bowl",
+   "a swimming pool or other artificial pool",
+   "a basin, large hollow, enclosed valley"
+  ],
+  "freq": 141,
+  "gender": "das",
+  "plural": "die Becken",
+  "ipa": "ˈbɛkən"
+ },
+ {
+  "term": "Homburg",
+  "pos": "noun",
+  "gloss": [
+   "Homburg (men’s felt fedora)"
+  ],
+  "freq": 141,
+  "gender": "der",
+  "plural": "die Homburgs",
+  "ipa": "ˈhɔmbʊʁk"
+ },
+ {
+  "term": "ungewiss",
+  "pos": "adjective",
+  "gloss": [
+   "uncertain"
+  ],
+  "freq": 141,
+  "ipa": "ˈʔʊnɡəvɪs"
+ },
+ {
+  "term": "ausüben",
+  "pos": "verb",
+  "gloss": [
+   "to practice / practise, to exert"
+  ],
+  "freq": 141,
+  "ipa": "ˈʔaʊ̯sʔyːbm̩"
+ },
+ {
+  "term": "optimieren",
+  "pos": "verb",
+  "gloss": [
+   "to optimize"
+  ],
+  "freq": 141,
+  "ipa": "ɔptiˈmiːʁən"
+ },
+ {
+  "term": "Landung",
+  "pos": "noun",
+  "gloss": [
+   "landing"
+  ],
+  "freq": 141,
+  "gender": "die",
+  "plural": "die Landungen",
+  "ipa": "ˈlandʊŋ"
+ },
+ {
+  "term": "eingreifen",
+  "pos": "verb",
+  "gloss": [
+   "to intervene, to interfere"
+  ],
+  "freq": 141,
+  "ipa": "ˈaɪ̯nˌɡʁaɪ̯fən"
+ },
+ {
+  "term": "gewaltig",
+  "pos": "adjective",
+  "gloss": [
+   "enormous, huge",
+   "massive, mighty"
+  ],
+  "freq": 141,
+  "ipa": "ɡəˈvaltɪç"
+ },
+ {
+  "term": "Zuspruch",
+  "pos": "noun",
+  "gloss": [
+   "encouragement",
+   "popularity"
+  ],
+  "freq": 141,
+  "gender": "der",
+  "ipa": "ˈt͡suːˌʃpʁʊx"
+ },
+ {
+  "term": "einfahren",
+  "pos": "verb",
+  "gloss": [
+   "to drive in",
+   "to arrive, to pull in",
+   "to bring in (harvest)"
+  ],
+  "freq": 141,
+  "ipa": "ˈʔaɪ̯nfaːɐ̯n"
+ },
+ {
+  "term": "Buschmann",
+  "pos": "noun",
+  "gloss": [
+   "Bushman, San"
+  ],
+  "freq": 141,
+  "gender": "der",
+  "plural": "die Buschleute",
+  "ipa": "ˈbʊʃˌman"
+ },
+ {
+  "term": "Action",
+  "pos": "noun",
+  "gloss": [
+   "action (fast-paced, often violent activity or events)",
+   "a genre characterised by such activity",
+   "liveliness, activity"
+  ],
+  "freq": 141,
+  "gender": "die",
+  "plural": "die Actions",
+  "ipa": "ˈɛk.(t)ʃən"
+ },
+ {
+  "term": "Doku",
+  "pos": "noun",
+  "gloss": [
+   "clipping of Dokumentation",
+   "documentary",
+   "clipping of Dokumentation"
+  ],
+  "freq": 141,
+  "gender": "die",
+  "plural": "die Dokus",
+  "ipa": "ˈdoːku"
+ },
+ {
+  "term": "Vizebürgermeister",
+  "pos": "noun",
+  "gloss": [
+   "deputy mayor; vice-mayor"
+  ],
+  "freq": 141,
+  "gender": "der",
+  "plural": "die Vizebürgermeister"
+ },
+ {
+  "term": "Pole",
+  "pos": "noun",
+  "gloss": [
+   "Pole"
+  ],
+  "freq": 140,
+  "gender": "der",
+  "plural": "die Polen",
+  "ipa": "ˈpoːlə"
+ },
+ {
+  "term": "Streife",
+  "pos": "noun",
+  "gloss": [
+   "patrol (-man)"
+  ],
+  "freq": 140,
+  "gender": "die",
+  "plural": "die Streifen",
+  "ipa": "ˈʃtʁaɪ̯fə"
+ },
+ {
+  "term": "Bandbreite",
+  "pos": "noun",
+  "gloss": [
+   "bandwidth"
+  ],
+  "freq": 140,
+  "gender": "die",
+  "plural": "die Bandbreiten",
+  "ipa": "ˈbantˌbʁaɪ̯tə"
+ },
+ {
+  "term": "Rückseite",
+  "pos": "noun",
+  "gloss": [
+   "back, reverse side"
+  ],
+  "freq": 140,
+  "gender": "die",
+  "plural": "die Rückseiten",
+  "ipa": "ˈʁʏkˌsaɪ̯tə"
+ },
+ {
+  "term": "Zufahrt",
+  "pos": "noun",
+  "gloss": [
+   "a driveway to a property or building."
+  ],
+  "freq": 140,
+  "gender": "die",
+  "plural": "die Zufahrten",
+  "ipa": "ˈt͡suːˌfaːɐ̯t"
+ },
+ {
+  "term": "fortan",
+  "pos": "adverb",
+  "gloss": [
+   "henceforth"
+  ],
+  "freq": 140
+ },
+ {
+  "term": "Schätzung",
+  "pos": "noun",
+  "gloss": [
+   "estimate, estimation, guess",
+   "appraisal, assessment, valuation"
+  ],
+  "freq": 140,
+  "gender": "die",
+  "plural": "die Schätzungen",
+  "ipa": "ˈʃɛtsʊŋ"
+ },
+ {
+  "term": "verfasst",
+  "pos": "adjective",
+  "gloss": [
+   "drafted, composed, written"
+  ],
+  "freq": 140
+ },
+ {
+  "term": "fündig",
+  "pos": "adjective",
+  "gloss": [
+   "abundant, rich with mineral resources"
+  ],
+  "freq": 140,
+  "ipa": "ˈfʏndɪç"
+ },
+ {
+  "term": "Influencer",
+  "pos": "noun",
+  "gloss": [
+   "influencer (person on social media using their influence for marketing)"
+  ],
+  "freq": 140,
+  "gender": "der",
+  "plural": "die Influencer",
+  "ipa": "ˈɪnfluɛnsɐ"
+ },
+ {
+  "term": "überarbeitet",
+  "pos": "adjective",
+  "gloss": [
+   "edited",
+   "over-stressed (of work)"
+  ],
+  "freq": 140
+ },
+ {
+  "term": "Hacker",
+  "pos": "noun",
+  "gloss": [
+   "hacker"
+  ],
+  "freq": 139,
+  "gender": "der",
+  "plural": "die Hacker",
+  "ipa": "ˈhɛkɐ"
+ },
+ {
+  "term": "Lee",
+  "pos": "noun",
+  "gloss": [
+   "leeward side of a ship (the side away from the wind direction)"
+  ],
+  "freq": 139,
+  "gender": "die",
+  "ipa": "leː"
+ },
+ {
+  "term": "verstoßen",
+  "pos": "verb",
+  "gloss": [
+   "to cast out (of a community), to disown",
+   "to infringe, to break, to violate, to be contrary to",
+   "to obturate, to occlude by propping something into"
+  ],
+  "freq": 139,
+  "ipa": "fɛɐ̯ˈʃtoːsn̩"
+ },
+ {
+  "term": "Glühwein",
+  "pos": "noun",
+  "gloss": [
+   "mulled wine"
+  ],
+  "freq": 139,
+  "gender": "der",
+  "plural": "die Glühweine",
+  "ipa": "ˈɡlyːvaɪ̯n"
+ },
+ {
+  "term": "Traktor",
+  "pos": "noun",
+  "gloss": [
+   "tractor (a vehicle used in farms)"
+  ],
+  "freq": 139,
+  "gender": "der",
+  "plural": "die Traktoren",
+  "ipa": "ˈtʁaktoːɐ̯"
+ },
+ {
+  "term": "Substanz",
+  "pos": "noun",
+  "gloss": [
+   "substance, matter, material",
+   "substance (concrete arguments or points being presented)",
+   "stock (that which has already been built up or stockpiled)"
+  ],
+  "freq": 139,
+  "gender": "die",
+  "plural": "die Substanzen"
+ },
+ {
+  "term": "Besserung",
+  "pos": "noun",
+  "gloss": [
+   "amelioration",
+   "improvement"
+  ],
+  "freq": 139,
+  "gender": "die",
+  "ipa": "ˈbɛsəʁʊŋ"
+ },
+ {
+  "term": "Fassung",
+  "pos": "noun",
+  "gloss": [
+   "a device which holds something else, e.g. a socket for a lightbulb, the setting of a jewel etc.",
+   "version",
+   "composure, self-control"
+  ],
+  "freq": 139,
+  "gender": "die",
+  "plural": "die Fassungen",
+  "ipa": "ˈfasʊŋ"
+ },
+ {
+  "term": "hierzu",
+  "pos": "adverb",
+  "gloss": [
+   "hereto"
+  ],
+  "freq": 139
+ },
+ {
+  "term": "zugreifen",
+  "pos": "verb",
+  "gloss": [
+   "to grab, to seize, to snap",
+   "to serve oneself, to help oneself",
+   "to access, to read"
+  ],
+  "freq": 139,
+  "ipa": "ˈtsuːˌɡʁaɪ̯fən"
+ },
+ {
+  "term": "Fusion",
+  "pos": "noun",
+  "gloss": [
+   "merger (legal union of two or more corporations into a single entity)",
+   "more generally, fusion in some other technical contexts"
+  ],
+  "freq": 138,
+  "gender": "die",
+  "plural": "die Fusionen",
+  "ipa": "fuˈzi̯oːn"
+ },
+ {
+  "term": "Kokain",
+  "pos": "noun",
+  "gloss": [
+   "cocaine"
+  ],
+  "freq": 138,
+  "gender": "das",
+  "ipa": "ko.kaˈiːn"
+ },
+ {
+  "term": "qualitativ",
+  "pos": "adjective",
+  "gloss": [
+   "qualitative"
+  ],
+  "freq": 138
+ },
+ {
+  "term": "Willi",
+  "pos": "noun",
+  "gloss": [
+   "willy, penis"
+  ],
+  "freq": 138,
+  "gender": "der",
+  "plural": "die Willis",
+  "ipa": "ˈvɪli"
+ },
+ {
+  "term": "Erfüllung",
+  "pos": "noun",
+  "gloss": [
+   "fulfillment"
+  ],
+  "freq": 138,
+  "gender": "die",
+  "plural": "die Erfüllungen",
+  "ipa": "ɛɐ̯ˈfʏlʊŋ"
+ },
+ {
+  "term": "Vormonat",
+  "pos": "noun",
+  "gloss": [
+   "previous month"
+  ],
+  "freq": 138,
+  "gender": "der",
+  "plural": "die Vormonate",
+  "ipa": "ˈfoːɐ̯ˌmoːnat"
+ },
+ {
+  "term": "Deckel",
+  "pos": "noun",
+  "gloss": [
+   "lid, cap (the cover of a container)",
+   "ellipsis of Bierdeckel (“beer mat”)",
+   "headwear, hat"
+  ],
+  "freq": 138,
+  "gender": "der",
+  "plural": "die Deckel",
+  "ipa": "ˈdɛkəl"
+ },
+ {
+  "term": "Schulze",
+  "pos": "noun",
+  "gloss": [
+   "village headman, sheriff"
+  ],
+  "freq": 138,
+  "gender": "der",
+  "plural": "die Schulzen",
+  "ipa": "ˈʃʊl(t)sə"
+ },
+ {
+  "term": "Einklang",
+  "pos": "noun",
+  "gloss": [
+   "harmony",
+   "conformity, compliance, line, keeping"
+  ],
+  "freq": 138,
+  "gender": "der",
+  "plural": "die Einklänge",
+  "ipa": "ˈaɪ̯nˌklaŋ"
+ },
+ {
+  "term": "effizient",
+  "pos": "adjective",
+  "gloss": [
+   "efficient"
+  ],
+  "freq": 137,
+  "ipa": "efit͡si̯ənt"
+ },
+ {
+  "term": "außergewöhnlich",
+  "pos": "adjective",
+  "gloss": [
+   "exceptional, extraordinary"
+  ],
+  "freq": 137,
+  "ipa": "ˈaʊ̯.sɐ.ɡəˌvøːn.lɪç"
+ },
+ {
+  "term": "gewähren",
+  "pos": "verb",
+  "gloss": [
+   "to grant, to allow"
+  ],
+  "freq": 137,
+  "ipa": "ɡəˈvɛːʁən"
+ },
+ {
+  "term": "zulässig",
+  "pos": "adjective",
+  "gloss": [
+   "admissible, permissible"
+  ],
+  "freq": 137,
+  "ipa": "ˈtsuːlɛsɪç"
+ },
+ {
+  "term": "Zutritt",
+  "pos": "noun",
+  "gloss": [
+   "access, admittance",
+   "entrance, entry"
+  ],
+  "freq": 137,
+  "gender": "der",
+  "ipa": "ˈt͡suːtʁɪt"
+ },
+ {
+  "term": "mitbekommen",
+  "pos": "verb",
+  "gloss": [
+   "to get or be given something when leaving",
+   "to notice, learn, find out (become aware, become informed, come to know)",
+   "to understand"
+  ],
+  "freq": 137,
+  "ipa": "ˈmɪtbəˌkɔmən"
+ },
+ {
+  "term": "Support",
+  "pos": "noun",
+  "gloss": [
+   "support"
+  ],
+  "freq": 137,
+  "gender": "der",
+  "plural": "die Supports"
+ },
+ {
+  "term": "Läufer",
+  "pos": "noun",
+  "gloss": [
+   "runner (strip of fabric; narrow long carpet)",
+   "bishop",
+   "ground beetle (Carabidae)"
+  ],
+  "freq": 136,
+  "gender": "der",
+  "plural": "die Läufer",
+  "ipa": "ˈlɔʏ̯fɐ"
+ },
+ {
+  "term": "Kriminelle",
+  "pos": "noun",
+  "gloss": [
+   "criminal (female)"
+  ],
+  "freq": 136,
+  "gender": "die",
+  "plural": "die Kriminelle"
+ },
+ {
+  "term": "mittelfristig",
+  "pos": "adjective",
+  "gloss": [
+   "medium-term (not immediate, but in the foreseeable future)"
+  ],
+  "freq": 136,
+  "ipa": "ˈmɪtl̩ˌfʁɪstɪç"
+ },
+ {
+  "term": "Feature",
+  "pos": "noun",
+  "gloss": [
+   "feature (beneficial capability)",
+   "documentary"
+  ],
+  "freq": 136,
+  "gender": "das",
+  "plural": "die Features",
+  "ipa": "ˈfiːt͡ʃɐ"
+ },
+ {
+  "term": "Mitspieler",
+  "pos": "noun",
+  "gloss": [
+   "teammate, coplayer",
+   "fellow actor, costar"
+  ],
+  "freq": 136,
+  "gender": "der",
+  "plural": "die Mitspieler",
+  "ipa": "ˈmɪtˌʃpiːlɐ"
+ },
+ {
+  "term": "final",
+  "pos": "adjective",
+  "gloss": [
+   "final, expressing purpose",
+   "final, conclusive, irrevocable (that which will not or cannot be changed anymore, sometimes implying death)",
+   "final, last"
+  ],
+  "freq": 135,
+  "ipa": "fiˈnaːl"
+ },
+ {
+  "term": "House",
+  "pos": "noun",
+  "gloss": [
+   "house music, house"
+  ],
+  "freq": 135,
+  "gender": "der",
+  "ipa": "haʊ̯s"
+ },
+ {
+  "term": "Pool",
+  "pos": "noun",
+  "gloss": [
+   "ellipsis of Swimmingpool",
+   "pool"
+  ],
+  "freq": 135,
+  "gender": "der",
+  "plural": "die Pools",
+  "ipa": "puːl"
+ },
+ {
+  "term": "weiss",
+  "pos": "adjective",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of weiß"
+  ],
+  "freq": 135
+ },
+ {
+  "term": "grundlegend",
+  "pos": "adjective",
+  "gloss": [
+   "fundamental, basic"
+  ],
+  "freq": 135
+ },
+ {
+  "term": "Defizit",
+  "pos": "noun",
+  "gloss": [
+   "deficit",
+   "deficiency"
+  ],
+  "freq": 135,
+  "gender": "das",
+  "plural": "die Defizite",
+  "ipa": "ˈdeːfit͡siːt"
+ },
+ {
+  "term": "Erziehung",
+  "pos": "noun",
+  "gloss": [
+   "education; upbringing; character formation (process of imparting basic knowledge, judgment, morals, and manners, especially to a child)",
+   "training (of a pet)"
+  ],
+  "freq": 135,
+  "gender": "die",
+  "ipa": "ɛɐ̯ˈtsiːʊŋ"
+ },
+ {
+  "term": "Boss",
+  "pos": "noun",
+  "gloss": [
+   "boss (person in charge, supervisor)",
+   "boss"
+  ],
+  "freq": 135,
+  "gender": "der",
+  "plural": "die Bosse",
+  "ipa": "bɔs"
+ },
+ {
+  "term": "Neuauflage",
+  "pos": "noun",
+  "gloss": [
+   "reprint (book, pamphlet, or other printed matter that has been published once before but is now being released again)",
+   "rerun, rehash"
+  ],
+  "freq": 135,
+  "gender": "die",
+  "plural": "die Neuauflagen",
+  "ipa": "ˈnɔɪaʊfˌlaːɡə"
+ },
+ {
+  "term": "Gefährdung",
+  "pos": "noun",
+  "gloss": [
+   "threat, hazard, danger"
+  ],
+  "freq": 135,
+  "gender": "die",
+  "plural": "die Gefährdungen",
+  "ipa": "ɡəˈfɛːɐ̯dʊŋ"
+ },
+ {
+  "term": "Umgestaltung",
+  "pos": "noun",
+  "gloss": [
+   "transfiguration"
+  ],
+  "freq": 135,
+  "gender": "die",
+  "plural": "die Umgestaltungen"
+ },
+ {
+  "term": "Coronapandemie",
+  "pos": "noun",
+  "gloss": [
+   "alternative form of Corona-Pandemie"
+  ],
+  "freq": 135,
+  "gender": "die",
+  "plural": "die Coronapandemien"
+ },
+ {
+  "term": "inne",
+  "pos": "adverb",
+  "gloss": [
+   "only used in inne sein, innehalten, innewerden etc.; inside"
+  ],
+  "freq": 134,
+  "ipa": "ɪnə"
+ },
+ {
+  "term": "Lake",
+  "pos": "noun",
+  "gloss": [
+   "brine (saltwater used for pickling)"
+  ],
+  "freq": 134,
+  "gender": "die",
+  "plural": "die Laken",
+  "ipa": "ˈlaːkə"
+ },
+ {
+  "term": "Silicon",
+  "pos": "noun",
+  "gloss": [
+   "silicone"
+  ],
+  "freq": 134,
+  "gender": "das",
+  "plural": "die Silicone"
+ },
+ {
+  "term": "angeführt",
+  "pos": "adjective",
+  "gloss": [
+   "quoted, cited"
+  ],
+  "freq": 134
+ },
+ {
+  "term": "Finanzministerium",
+  "pos": "noun",
+  "gloss": [
+   "ministry of finance"
+  ],
+  "freq": 134,
+  "gender": "das",
+  "plural": "die Finanzministerien"
+ },
+ {
+  "term": "alias",
+  "pos": "adverb",
+  "gloss": [
+   "alias, also known as"
+  ],
+  "freq": 133,
+  "ipa": "ˈaːli̯as"
+ },
+ {
+  "term": "Recherche",
+  "pos": "noun",
+  "gloss": [
+   "research, investigation (many contexts, but especially journalism)"
+  ],
+  "freq": 133,
+  "gender": "die",
+  "plural": "die Recherchen",
+  "ipa": "reˈʃɛrʃə"
+ },
+ {
+  "term": "Manöver",
+  "pos": "noun",
+  "gloss": [
+   "maneuver"
+  ],
+  "freq": 133,
+  "gender": "das",
+  "plural": "die Manöver",
+  "ipa": "maˈnøːvər"
+ },
+ {
+  "term": "Kläger",
+  "pos": "noun",
+  "gloss": [
+   "plaintiff (party bringing a suit in civil law against a defendant)"
+  ],
+  "freq": 133,
+  "gender": "der",
+  "plural": "die Kläger",
+  "ipa": "ˈklɛːɡɐ"
+ },
+ {
+  "term": "Streifenwagen",
+  "pos": "noun",
+  "gloss": [
+   "police car (vehicle used by a police officer)"
+  ],
+  "freq": 133,
+  "gender": "der",
+  "plural": "die Streifenwagen",
+  "ipa": "ˈʃtʁaɪ̯fn̩ˌvaːɡn̩"
+ },
+ {
+  "term": "Coronavirus",
+  "pos": "noun",
+  "gloss": [
+   "coronavirus"
+  ],
+  "freq": 133,
+  "gender": "das",
+  "plural": "die Coronaviren",
+  "ipa": "koˈʁoːnaˌviːʁʊs"
+ },
+ {
+  "term": "Erlös",
+  "pos": "noun",
+  "gloss": [
+   "proceeds"
+  ],
+  "freq": 133,
+  "gender": "der",
+  "plural": "die Erlöse",
+  "ipa": "ɛɐ̯ˈløːs"
+ },
+ {
+  "term": "Barbie",
+  "pos": "noun",
+  "gloss": [
+   "a surname"
+  ],
+  "freq": 132
+ },
+ {
+  "term": "Vermittlung",
+  "pos": "noun",
+  "gloss": [
+   "intermediation",
+   "agency",
+   "switching"
+  ],
+  "freq": 132,
+  "gender": "die",
+  "plural": "die Vermittlungen",
+  "ipa": "fɛʁˈmɪtlʊŋ"
+ },
+ {
+  "term": "Berechnung",
+  "pos": "noun",
+  "gloss": [
+   "calculation",
+   "computation"
+  ],
+  "freq": 132,
+  "gender": "die",
+  "plural": "die Berechnungen"
+ },
+ {
+  "term": "unglücklich",
+  "pos": "adjective",
+  "gloss": [
+   "unhappy, unjoyous, unjoyful, misfortunate, miserable",
+   "unfortunate, unlucky, inauspicious, unauspicious, untoward, hapless"
+  ],
+  "freq": 132,
+  "ipa": "ˈʊnˌɡlʏklɪç"
+ },
+ {
+  "term": "Verfolger",
+  "pos": "noun",
+  "gloss": [
+   "chaser, haunter, persecutor, pursuer, follower (tail), tracker"
+  ],
+  "freq": 132,
+  "gender": "der",
+  "plural": "die Verfolger"
+ },
+ {
+  "term": "Kilowattstunde",
+  "pos": "noun",
+  "gloss": [
+   "kilowatt-hour (kWh)"
+  ],
+  "freq": 132,
+  "gender": "die",
+  "plural": "die Kilowattstunden"
+ },
+ {
+  "term": "übertroffen",
+  "pos": "adjective",
+  "gloss": [
+   "surpassed, exceeded",
+   "excelled, outdone"
+  ],
+  "freq": 132
+ },
+ {
+  "term": "lautstark",
+  "pos": "adjective",
+  "gloss": [
+   "noisy, loud (especially of ongoing sources of noise, like arguments, protesting, machinery, etc.)"
+  ],
+  "freq": 132,
+  "ipa": "ˈlaʊ̯tˌʃtaʁk"
+ },
+ {
+  "term": "gedeckt",
+  "pos": "adjective",
+  "gloss": [
+   "covered",
+   "laid (of a table)",
+   "sober (of a color)"
+  ],
+  "freq": 131,
+  "ipa": "ɡəˈdɛkt"
+ },
+ {
+  "term": "ausrichten",
+  "pos": "verb",
+  "gloss": [
+   "to align",
+   "to justify or orient",
+   "to rectify; to achieve (something by changing a situation)"
+  ],
+  "freq": 131,
+  "ipa": "ˈʔaʊ̯sʁɪçtn̩"
+ },
+ {
+  "term": "vorsorglich",
+  "pos": "adjective",
+  "gloss": [
+   "precautionary, preventative",
+   "provident"
+  ],
+  "freq": 131
+ },
+ {
+  "term": "andauern",
+  "pos": "verb",
+  "gloss": [
+   "continue, go on, last"
+  ],
+  "freq": 131
+ },
+ {
+  "term": "Ausstrahlung",
+  "pos": "noun",
+  "gloss": [
+   "broadcast",
+   "emission, radiance",
+   "charm, charisma, vibes"
+  ],
+  "freq": 131,
+  "gender": "die",
+  "plural": "die Ausstrahlungen",
+  "ipa": "ˈaʊ̯sˌʃtʁaːlʊŋ"
+ },
+ {
+  "term": "happy",
+  "pos": "adjective",
+  "gloss": [
+   "glad; satisfied; momentarily happy"
+  ],
+  "freq": 130,
+  "ipa": "ˈhɛpi"
+ },
+ {
+  "term": "Taktik",
+  "pos": "noun",
+  "gloss": [
+   "tactics, strategy (art of anticipation and planning)",
+   "tactic, strategy, policy (plan, approach)"
+  ],
+  "freq": 130,
+  "gender": "die",
+  "plural": "die Taktiken",
+  "ipa": "ˈtaktɪk"
+ },
+ {
+  "term": "heizen",
+  "pos": "verb",
+  "gloss": [
+   "to heat"
+  ],
+  "freq": 130,
+  "ipa": "ˈhaɪ̯tsn̩"
+ },
+ {
+  "term": "nachdenken",
+  "pos": "verb",
+  "gloss": [
+   "to think, to reflect, to ponder"
+  ],
+  "freq": 130,
+  "ipa": "ˈnaːxˌdɛŋkŋ̩"
+ },
+ {
+  "term": "Beitritt",
+  "pos": "noun",
+  "gloss": [
+   "the joining, entry into, becoming a member of (a club, organization, etc.)"
+  ],
+  "freq": 130,
+  "gender": "der",
+  "plural": "die Beitritte",
+  "ipa": "ˈbaɪ̯ˌtʁɪt"
+ },
+ {
+  "term": "aufweisen",
+  "pos": "verb",
+  "gloss": [
+   "to feature; ascribe the greatest importance to"
+  ],
+  "freq": 130,
+  "ipa": "ˈʔaʊ̯fvaɪ̯zn̩"
+ },
+ {
+  "term": "Abzug",
+  "pos": "noun",
+  "gloss": [
+   "trigger (of a gun)",
+   "hood, fume hood (covering of a vent to suck away smoke or fumes)",
+   "print, copy"
+  ],
+  "freq": 130,
+  "gender": "der",
+  "plural": "die Abzüge",
+  "ipa": "ˈapˌt͡suːk"
+ },
+ {
+  "term": "Baustein",
+  "pos": "noun",
+  "gloss": [
+   "brick",
+   "building block, module, component",
+   "device"
+  ],
+  "freq": 130,
+  "gender": "der",
+  "plural": "die Bausteine",
+  "ipa": "ˈbaʊ̯ʃtaɪ̯n"
+ },
+ {
+  "term": "Airport",
+  "pos": "noun",
+  "gloss": [
+   "airport"
+  ],
+  "freq": 130,
+  "gender": "der",
+  "plural": "die Airports"
+ },
+ {
+  "term": "Revision",
+  "pos": "noun",
+  "gloss": [
+   "revision, change",
+   "appeal",
+   "audit"
+  ],
+  "freq": 130,
+  "gender": "die",
+  "plural": "die Revisionen"
+ },
+ {
+  "term": "Challenge",
+  "pos": "noun",
+  "gloss": [
+   "social media challenge (fun, sometimes dangerous challenge, sometimes associated with high-profile fundraising)"
+  ],
+  "freq": 130,
+  "gender": "die",
+  "plural": "die Challenges",
+  "ipa": "ˈt͡ʃɛlənt͡ʃ"
+ },
+ {
+  "term": "Taliban",
+  "pos": "noun",
+  "gloss": [
+   "Taliban, a member of the Taliban movement"
+  ],
+  "freq": 129,
+  "gender": "der",
+  "plural": "die Taliban",
+  "ipa": "ˈta(ː)liˌbaːn"
+ },
+ {
+  "term": "eindrucksvoll",
+  "pos": "adjective",
+  "gloss": [
+   "impressive"
+  ],
+  "freq": 129,
+  "ipa": "ˈaɪ̯ndʁʊksˌfɔl"
+ },
+ {
+  "term": "Ausfahrt",
+  "pos": "noun",
+  "gloss": [
+   "exit"
+  ],
+  "freq": 129,
+  "gender": "die",
+  "plural": "die Ausfahrten"
+ },
+ {
+  "term": "Aufprall",
+  "pos": "noun",
+  "gloss": [
+   "impact (the force or energy of a collision of two objects)"
+  ],
+  "freq": 129,
+  "gender": "der",
+  "plural": "die Aufpralle"
+ },
+ {
+  "term": "Erstellung",
+  "pos": "noun",
+  "gloss": [
+   "creation",
+   "preparation, generation",
+   "building, construction"
+  ],
+  "freq": 129,
+  "gender": "die",
+  "plural": "die Erstellungen"
+ },
+ {
+  "term": "weiden",
+  "pos": "verb",
+  "gloss": [
+   "to browse, to graze",
+   "to gloat"
+  ],
+  "freq": 129,
+  "ipa": "ˈvaɪdn̩"
+ },
+ {
+  "term": "Telefonat",
+  "pos": "noun",
+  "gloss": [
+   "phone call"
+  ],
+  "freq": 129,
+  "gender": "das",
+  "plural": "die Telefonate"
+ },
+ {
+  "term": "Karner",
+  "pos": "noun",
+  "gloss": [
+   "bonehouse with a chapel"
+  ],
+  "freq": 129,
+  "gender": "der",
+  "plural": "die Karner",
+  "ipa": "ˈkaʁnɐ"
+ },
+ {
+  "term": "Jasmin",
+  "pos": "noun",
+  "gloss": [
+   "jasmine"
+  ],
+  "freq": 128,
+  "gender": "der",
+  "plural": "die Jasmine",
+  "ipa": "jasˈmiːn"
+ },
+ {
+  "term": "Winzer",
+  "pos": "noun",
+  "gloss": [
+   "vintner, winemaker, manufacturer of wine"
+  ],
+  "freq": 128,
+  "gender": "der",
+  "plural": "die Winzer",
+  "ipa": "ˈvɪntsər"
+ },
+ {
+  "term": "Drohung",
+  "pos": "noun",
+  "gloss": [
+   "threat (expression of intent to injure or punish another)"
+  ],
+  "freq": 128,
+  "gender": "die",
+  "plural": "die Drohungen",
+  "ipa": "ˈdʁoːʊŋ"
+ },
+ {
+  "term": "Antrieb",
+  "pos": "noun",
+  "gloss": [
+   "motive, incentive, motivation, drive",
+   "drive (device for moving a machine, vehicle, etc)",
+   "propulsion"
+  ],
+  "freq": 128,
+  "gender": "der",
+  "plural": "die Antriebe",
+  "ipa": "ˈanˌtʁiːp"
+ },
+ {
+  "term": "Brite",
+  "pos": "noun",
+  "gloss": [
+   "Briton (inhabitant of Great Britain)"
+  ],
+  "freq": 128,
+  "gender": "der",
+  "plural": "die Briten",
+  "ipa": "ˈbʁɪtə"
+ },
+ {
+  "term": "angeschlagen",
+  "pos": "adjective",
+  "gloss": [
+   "chipped",
+   "beleaguered",
+   "ailing, groggy, under the weather"
+  ],
+  "freq": 128,
+  "ipa": "ˈʔanʃlaːɡŋ̩"
+ },
+ {
+  "term": "nachträglich",
+  "pos": "adjective",
+  "gloss": [
+   "subsequent",
+   "additional",
+   "belated"
+  ],
+  "freq": 128,
+  "ipa": "ˈnaːχˌtʁeːklɪç"
+ },
+ {
+  "term": "Einfamilienhaus",
+  "pos": "noun",
+  "gloss": [
+   "family house, family home (house designed to hold a single family)"
+  ],
+  "freq": 128,
+  "gender": "das",
+  "plural": "die Einfamilienhäuser",
+  "ipa": "ˈaɪ̯nfamiːli̯ənˌhaʊ̯s"
+ },
+ {
+  "term": "Ausbreitung",
+  "pos": "noun",
+  "gloss": [
+   "expansion",
+   "spread (of something)"
+  ],
+  "freq": 128,
+  "gender": "die",
+  "plural": "die Ausbreitungen",
+  "ipa": "ˈaʊ̯sˌbʁaɪ̯tʊŋ"
+ },
+ {
+  "term": "Weltcup",
+  "pos": "noun",
+  "gloss": [
+   "world cup"
+  ],
+  "freq": 128,
+  "gender": "der",
+  "plural": "die Weltcups",
+  "ipa": "ˈvɛltkap"
+ },
+ {
+  "term": "ass",
+  "pos": "verb",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of aß"
+  ],
+  "freq": 127
+ },
+ {
+  "term": "Holocaust",
+  "pos": "noun",
+  "gloss": [
+   "a holocaust"
+  ],
+  "freq": 127,
+  "gender": "der",
+  "plural": "die Holocausts",
+  "ipa": "ˈhoːloˌkaʊ̯st"
+ },
+ {
+  "term": "Kontinent",
+  "pos": "noun",
+  "gloss": [
+   "continent"
+  ],
+  "freq": 127,
+  "gender": "der",
+  "plural": "die Kontinente",
+  "ipa": "ˈkɔntinɛnt"
+ },
+ {
+  "term": "Brauerei",
+  "pos": "noun",
+  "gloss": [
+   "brewery"
+  ],
+  "freq": 127,
+  "gender": "die",
+  "plural": "die Brauereien",
+  "ipa": "bʁaʊ̯əˈʁaɪ̯"
+ },
+ {
+  "term": "vernehmen",
+  "pos": "verb",
+  "gloss": [
+   "to hear",
+   "to question, to examine",
+   "to comprehend, to understand"
+  ],
+  "freq": 127,
+  "ipa": "fɛʁˈneːmən"
+ },
+ {
+  "term": "Berücksichtigung",
+  "pos": "noun",
+  "gloss": [
+   "consideration, provision, allowance"
+  ],
+  "freq": 127,
+  "gender": "die",
+  "plural": "die Berücksichtigungen",
+  "ipa": "bəˈʁʏkzɪçtɪɡʊŋ"
+ },
+ {
+  "term": "Verabschiedung",
+  "pos": "noun",
+  "gloss": [
+   "dismissal",
+   "seeing off",
+   "enactment, passage, adoption"
+  ],
+  "freq": 127,
+  "gender": "die",
+  "plural": "die Verabschiedungen"
+ },
+ {
+  "term": "gewandt",
+  "pos": "adjective",
+  "gloss": [
+   "dexterous, versatile, skilled, smart",
+   "eloquent"
+  ],
+  "freq": 127,
+  "ipa": "ɡəˈvant"
+ },
+ {
+  "term": "schnellstmöglich",
+  "pos": "adjective",
+  "gloss": [
+   "as soon as possible"
+  ],
+  "freq": 127,
+  "ipa": "ˈʃnɛlstˌmøːklɪç"
+ },
+ {
+  "term": "Funk",
+  "pos": "noun",
+  "gloss": [
+   "radio (technology)"
+  ],
+  "freq": 126,
+  "gender": "der",
+  "ipa": "fʊŋk"
+ },
+ {
+  "term": "primär",
+  "pos": "adjective",
+  "gloss": [
+   "primary (of first rank, great importance)",
+   "primary, original (direct, not derived)"
+  ],
+  "freq": 126,
+  "ipa": "priˈmɛːr"
+ },
+ {
+  "term": "Konsole",
+  "pos": "noun",
+  "gloss": [
+   "console",
+   "corbel",
+   "shelf bracket"
+  ],
+  "freq": 126,
+  "gender": "die",
+  "plural": "die Konsolen",
+  "ipa": "ˌkɔnˈzoːlə"
+ },
+ {
+  "term": "schriftlich",
+  "pos": "adjective",
+  "gloss": [
+   "written"
+  ],
+  "freq": 126,
+  "ipa": "ˈʃʁɪftlɪç"
+ },
+ {
+  "term": "nutzbar",
+  "pos": "adjective",
+  "gloss": [
+   "available, usable, utilizable"
+  ],
+  "freq": 126
+ },
+ {
+  "term": "Kreistag",
+  "pos": "noun",
+  "gloss": [
+   "county council (or equivalent body)"
+  ],
+  "freq": 126,
+  "gender": "der",
+  "plural": "die Kreistage"
+ },
+ {
+  "term": "Mehrwert",
+  "pos": "noun",
+  "gloss": [
+   "value added",
+   "surplus value",
+   "profit"
+  ],
+  "freq": 126,
+  "gender": "der",
+  "ipa": "ˈmeːɐ̯ˌveːɐ̯t"
+ },
+ {
+  "term": "liess",
+  "pos": "verb",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of ließ"
+  ],
+  "freq": 126
+ },
+ {
+  "term": "präzise",
+  "pos": "adjective",
+  "gloss": [
+   "precise"
+  ],
+  "freq": 125,
+  "ipa": "pʁɛ(ː)ˈt͡siːzə"
+ },
+ {
+  "term": "aufrecht",
+  "pos": "adjective",
+  "gloss": [
+   "upright, erect, tall",
+   "yet present, not yet brought to fall",
+   "unbowed, brave, resolute"
+  ],
+  "freq": 125,
+  "ipa": "ˈaʊ̯fˌʁɛçt"
+ },
+ {
+  "term": "Relevanz",
+  "pos": "noun",
+  "gloss": [
+   "relevance"
+  ],
+  "freq": 125,
+  "gender": "die",
+  "plural": "die Relevanzen"
+ },
+ {
+  "term": "Konkurrent",
+  "pos": "noun",
+  "gloss": [
+   "competitor"
+  ],
+  "freq": 125,
+  "gender": "der",
+  "plural": "die Konkurrenten"
+ },
+ {
+  "term": "Unterstrich",
+  "pos": "noun",
+  "gloss": [
+   "underscore"
+  ],
+  "freq": 125,
+  "gender": "der",
+  "plural": "die Unterstriche",
+  "ipa": "ˈʊntɐˌʃtʁɪç"
+ },
+ {
+  "term": "Routinier",
+  "pos": "noun",
+  "gloss": [
+   "old hand"
+  ],
+  "freq": 125,
+  "gender": "der",
+  "plural": "die Routiniers"
+ },
+ {
+  "term": "optisch",
+  "pos": "adjective",
+  "gloss": [
+   "optical, optic",
+   "visual",
+   "outward, apparent, at first glance"
+  ],
+  "freq": 125,
+  "ipa": "ˈɔptɪʃ"
+ },
+ {
+  "term": "stationiert",
+  "pos": "adjective",
+  "gloss": [
+   "stationed, deployed, positioned"
+  ],
+  "freq": 125
+ },
+ {
+  "term": "Oberlandesgericht",
+  "pos": "noun",
+  "gloss": [
+   "regional appeal court"
+  ],
+  "freq": 125,
+  "gender": "das",
+  "plural": "die Oberlandesgerichte"
+ },
+ {
+  "term": "zugrunde",
+  "pos": "adverb",
+  "gloss": [
+   "to destruction",
+   "as basis"
+  ],
+  "freq": 125,
+  "ipa": "t͡suˈɡʁʊndə"
+ },
+ {
+  "term": "gedenken",
+  "pos": "verb",
+  "gloss": [
+   "to remember, to commemorate",
+   "to intend"
+  ],
+  "freq": 124,
+  "ipa": "ɡəˈdɛŋkŋ̩"
+ },
+ {
+  "term": "Marsch",
+  "pos": "noun",
+  "gloss": [
+   "march",
+   "march"
+  ],
+  "freq": 124,
+  "gender": "der",
+  "plural": "die Märsche",
+  "ipa": "maʁʃ"
+ },
+ {
+  "term": "herunter",
+  "pos": "adverb",
+  "gloss": [
+   "down, downwards (to the own location downwards)"
+  ],
+  "freq": 124
+ },
+ {
+  "term": "Flieger",
+  "pos": "noun",
+  "gloss": [
+   "aviator"
+  ],
+  "freq": 124,
+  "gender": "der",
+  "plural": "die Flieger",
+  "ipa": "ˈfliːɡɐ"
+ },
+ {
+  "term": "eingeplant",
+  "pos": "adjective",
+  "gloss": [
+   "scheduled"
+  ],
+  "freq": 124
+ },
+ {
+  "term": "Investment",
+  "pos": "noun",
+  "gloss": [
+   "investment"
+  ],
+  "freq": 124,
+  "gender": "das",
+  "plural": "die Investments",
+  "ipa": "ɪnˈvɛstmənt"
+ },
+ {
+  "term": "Balance",
+  "pos": "noun",
+  "gloss": [
+   "balance"
+  ],
+  "freq": 123,
+  "gender": "die",
+  "plural": "die Balancen",
+  "ipa": "baˈlɑ̃ːs"
+ },
+ {
+  "term": "Titan",
+  "pos": "noun",
+  "gloss": [
+   "Titan",
+   "titan"
+  ],
+  "freq": 123,
+  "gender": "der",
+  "plural": "die Titanen",
+  "ipa": "tiˈtaːn"
+ },
+ {
+  "term": "Neutralität",
+  "pos": "noun",
+  "gloss": [
+   "neutrality",
+   "contingency"
+  ],
+  "freq": 123,
+  "gender": "die",
+  "plural": "die Neutralitäten",
+  "ipa": "nɔɪ̯tʁaliˈtɛːt"
+ },
+ {
+  "term": "Rollstuhl",
+  "pos": "noun",
+  "gloss": [
+   "wheelchair"
+  ],
+  "freq": 123,
+  "gender": "der",
+  "plural": "die Rollstühle",
+  "ipa": "ˈʁɔlʃtuːl"
+ },
+ {
+  "term": "Ruhr",
+  "pos": "noun",
+  "gloss": [
+   "dysentery"
+  ],
+  "freq": 123,
+  "gender": "die",
+  "plural": "die Ruhren"
+ },
+ {
+  "term": "inspirieren",
+  "pos": "verb",
+  "gloss": [
+   "to inspire"
+  ],
+  "freq": 123,
+  "ipa": "ɪnspiˈʁiːʁən"
+ },
+ {
+  "term": "gesteuert",
+  "pos": "adjective",
+  "gloss": [
+   "controlled, steered, guided"
+  ],
+  "freq": 123
+ },
+ {
+  "term": "Halloween",
+  "pos": "noun",
+  "gloss": [
+   "Halloween (October 31st)"
+  ],
+  "freq": 122,
+  "gender": "das",
+  "plural": "die Halloweens",
+  "ipa": "ˈhɛ.loˌwiːn"
+ },
+ {
+  "term": "Norweger",
+  "pos": "noun",
+  "gloss": [
+   "Norwegian (male or of unspecified gender) (native or inhabitant of Norway)"
+  ],
+  "freq": 122,
+  "gender": "der",
+  "plural": "die Norweger",
+  "ipa": "ˈnɔʁveːɡəʁ"
+ },
+ {
+  "term": "Anhörung",
+  "pos": "noun",
+  "gloss": [
+   "hearing (proceeding at which discussions are heard)"
+  ],
+  "freq": 122,
+  "gender": "die",
+  "plural": "die Anhörungen",
+  "ipa": "ˈanˌhøːʁʊŋ"
+ },
+ {
+  "term": "Außenseiter",
+  "pos": "noun",
+  "gloss": [
+   "outsider (who is not part of a particular group)",
+   "loner, outsider (who is socially awkward)",
+   "outcast, leper, castaway, pariah (one that has been excluded from a society or system, a pariah)"
+  ],
+  "freq": 122,
+  "gender": "der",
+  "plural": "die Außenseiter",
+  "ipa": "ˈaʊ̯sənˌzaɪ̯tɐ"
+ },
+ {
+  "term": "Euphorie",
+  "pos": "noun",
+  "gloss": [
+   "euphoria (an excited state of joy)"
+  ],
+  "freq": 122,
+  "gender": "die",
+  "plural": "die Euphorien",
+  "ipa": "ɔɪ̯foˈʁiː"
+ },
+ {
+  "term": "Zwischenfall",
+  "pos": "noun",
+  "gloss": [
+   "incident"
+  ],
+  "freq": 122,
+  "gender": "der",
+  "plural": "die Zwischenfälle",
+  "ipa": "ˈt͡svɪʃn̩ˌfal"
+ },
+ {
+  "term": "aneinander",
+  "pos": "adverb",
+  "gloss": [
+   "together",
+   "against each other"
+  ],
+  "freq": 122
+ },
+ {
+  "term": "Erneuerung",
+  "pos": "noun",
+  "gloss": [
+   "renewal, replacement",
+   "innovation",
+   "renovation"
+  ],
+  "freq": 122,
+  "gender": "die",
+  "plural": "die Erneuerungen",
+  "ipa": "ˌɛɐ̯ˈnɔɪ̯əʁʊŋ"
+ },
+ {
+  "term": "apropos",
+  "pos": "adverb",
+  "gloss": [
+   "speaking of, apropos"
+  ],
+  "freq": 121,
+  "ipa": "a.pʁoˈpoː"
+ },
+ {
+  "term": "Fotograf",
+  "pos": "noun",
+  "gloss": [
+   "photographer"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Fotografen",
+  "ipa": "fotoˈɡʀaːf"
+ },
+ {
+  "term": "lehnen",
+  "pos": "verb",
+  "gloss": [
+   "to lean",
+   "to lean something"
+  ],
+  "freq": 121,
+  "ipa": "ˈleːnən"
+ },
+ {
+  "term": "Geheimdienst",
+  "pos": "noun",
+  "gloss": [
+   "intelligence agency, secret agency, intelligence service"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Geheimdienste",
+  "ipa": "ɡəˈhaɪ̯mˌdiːnst"
+ },
+ {
+  "term": "Bagger",
+  "pos": "noun",
+  "gloss": [
+   "excavator (vehicle), digger (machinery)"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Bagger",
+  "ipa": "ˈbaɡɐ"
+ },
+ {
+  "term": "begrenzen",
+  "pos": "verb",
+  "gloss": [
+   "to limit, to restrict, to confine",
+   "to delimit, to mark the boundary of"
+  ],
+  "freq": 121,
+  "ipa": "bəˈɡʁɛntsn̩"
+ },
+ {
+  "term": "Kapelle",
+  "pos": "noun",
+  "gloss": [
+   "chapel"
+  ],
+  "freq": 121,
+  "gender": "die",
+  "plural": "die Kapellen",
+  "ipa": "kaˈpɛlə"
+ },
+ {
+  "term": "Reduktion",
+  "pos": "noun",
+  "gloss": [
+   "reduction"
+  ],
+  "freq": 121,
+  "gender": "die",
+  "plural": "die Reduktionen"
+ },
+ {
+  "term": "Anwesen",
+  "pos": "noun",
+  "gloss": [
+   "property (piece of land with an owner)"
+  ],
+  "freq": 121,
+  "gender": "das",
+  "plural": "die Anwesen",
+  "ipa": "ˈanˌveːzn̩"
+ },
+ {
+  "term": "Erwerb",
+  "pos": "noun",
+  "gloss": [
+   "acquisition",
+   "earnings"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Erwerbe",
+  "ipa": "ɛɐ̯ˈvɛʁp"
+ },
+ {
+  "term": "Beleidigung",
+  "pos": "noun",
+  "gloss": [
+   "insult (action or speech deliberately intended to be rude)"
+  ],
+  "freq": 121,
+  "gender": "die",
+  "plural": "die Beleidigungen",
+  "ipa": "bəˈlaɪ̯dɪɡʊŋ"
+ },
+ {
+  "term": "Camp",
+  "pos": "noun",
+  "gloss": [
+   "camp (accommodation in tents)"
+  ],
+  "freq": 121,
+  "gender": "das",
+  "plural": "die Camps",
+  "ipa": "kɛmp"
+ },
+ {
+  "term": "Verschärfung",
+  "pos": "noun",
+  "gloss": [
+   "tightening, intensification",
+   "Holtzmann's law: a sound change whereby Proto-Germanic *jj became ddj in Gothic and ggj in Old Norse, while *ww became ggw in both Gothic and Old Norse."
+  ],
+  "freq": 121,
+  "gender": "die",
+  "plural": "die Verschärfungen",
+  "ipa": "fɛʁˈʃɛʁfʊŋ"
+ },
+ {
+  "term": "Halter",
+  "pos": "noun",
+  "gloss": [
+   "agent noun of halten:",
+   "holder, owner",
+   "agent noun of halten:"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Halter",
+  "ipa": "ˈhaltɐ"
+ },
+ {
+  "term": "Hofer",
+  "pos": "noun",
+  "gloss": [
+   "a native or inhabitant of Hof (placename)"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Hofer",
+  "ipa": "ˈhoːfɐ"
+ },
+ {
+  "term": "auflaufen",
+  "pos": "verb",
+  "gloss": [
+   "to collide with",
+   "to run aground"
+  ],
+  "freq": 121,
+  "ipa": "ˈaʊ̯fˌlaʊ̯fn̩"
+ },
+ {
+  "term": "Doppelpack",
+  "pos": "noun",
+  "gloss": [
+   "a packet (e.g. of a food item) containing two",
+   "two goals scored by the same player in one match; a brace"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Doppelpacks"
+ },
+ {
+  "term": "Airline",
+  "pos": "noun",
+  "gloss": [
+   "airline"
+  ],
+  "freq": 121,
+  "gender": "die",
+  "plural": "die Airlines",
+  "ipa": "ˈɛːɐ̯laɪ̯n"
+ },
+ {
+  "term": "Weimarer",
+  "pos": "noun",
+  "gloss": [
+   "native or inhabitant of Weimar"
+  ],
+  "freq": 121,
+  "gender": "der",
+  "plural": "die Weimarer",
+  "ipa": "ˈvaɪ̯maʁɐ"
+ },
+ {
+  "term": "prompt",
+  "pos": "adjective",
+  "gloss": [
+   "immediate, swift, expeditious, prompt"
+  ],
+  "freq": 120,
+  "ipa": "pʁɔmpt"
+ },
+ {
+  "term": "Gras",
+  "pos": "noun",
+  "gloss": [
+   "grass (plant)",
+   "weed, marijuana"
+  ],
+  "freq": 120,
+  "gender": "das",
+  "plural": "die Gräser",
+  "ipa": "ɡʁaːs"
+ },
+ {
+  "term": "Segment",
+  "pos": "noun",
+  "gloss": [
+   "segment"
+  ],
+  "freq": 120,
+  "gender": "das",
+  "plural": "die Segmente",
+  "ipa": "zɛˈɡmɛnt"
+ },
+ {
+  "term": "Glanz",
+  "pos": "noun",
+  "gloss": [
+   "gleam, sparkle, glitter",
+   "splendor, glory"
+  ],
+  "freq": 120,
+  "gender": "der",
+  "ipa": "ɡlants"
+ },
+ {
+  "term": "Radler",
+  "pos": "noun",
+  "gloss": [
+   "shandy (beer mixed with lemonade)"
+  ],
+  "freq": 120,
+  "gender": "der",
+  "plural": "die Radler",
+  "ipa": "ˈʁaːdlɐ"
+ },
+ {
+  "term": "Abpfiff",
+  "pos": "noun",
+  "gloss": [
+   "final whistle"
+  ],
+  "freq": 120,
+  "gender": "der",
+  "plural": "die Abpfiffe",
+  "ipa": "ˈʔappfɪf"
+ },
+ {
+  "term": "Pyrotechnik",
+  "pos": "noun",
+  "gloss": [
+   "pyrotechnics"
+  ],
+  "freq": 120,
+  "gender": "die"
+ },
+ {
+  "term": "Zusammensetzung",
+  "pos": "noun",
+  "gloss": [
+   "composition",
+   "compound (word)",
+   "composition (of a substance, of matter)"
+  ],
+  "freq": 120,
+  "gender": "die",
+  "plural": "die Zusammensetzungen",
+  "ipa": "tsuˈzamənˌzɛtsʊŋ"
+ },
+ {
+  "term": "Schriftzug",
+  "pos": "noun",
+  "gloss": [
+   "logo, lettering",
+   "legend (inscription)"
+  ],
+  "freq": 120,
+  "gender": "der",
+  "plural": "die Schriftzüge",
+  "ipa": "ˈʃʁɪftˌt͡suːk"
+ },
+ {
+  "term": "Landeskriminalamt",
+  "pos": "noun",
+  "gloss": [
+   "state office of criminal investigations"
+  ],
+  "freq": 120,
+  "gender": "das",
+  "plural": "die Landeskriminalämter",
+  "ipa": "ˈlandəskʁimiˌnaːlʔamt"
+ },
+ {
+  "term": "Sang",
+  "pos": "noun",
+  "gloss": [
+   "song, chant"
+  ],
+  "freq": 120,
+  "gender": "der",
+  "plural": "die Sänge",
+  "ipa": "zaŋ"
+ },
+ {
+  "term": "SMS",
+  "pos": "noun",
+  "gloss": [
+   "SMS (text message)"
+  ],
+  "freq": 119,
+  "gender": "die",
+  "plural": "die SMS",
+  "ipa": "ˌɛsʔɛmˈʔɛs"
+ },
+ {
+  "term": "fake",
+  "pos": "adjective",
+  "gloss": [
+   "fake, sham, counterfeit"
+  ],
+  "freq": 119,
+  "ipa": "fɛɪ̯k"
+ },
+ {
+  "term": "Kater",
+  "pos": "noun",
+  "gloss": [
+   "tomcat, tom, male cat"
+  ],
+  "freq": 119,
+  "gender": "der",
+  "plural": "die Kater",
+  "ipa": "ˈkaː.tɐ"
+ },
+ {
+  "term": "Charme",
+  "pos": "noun",
+  "gloss": [
+   "charm (ability to attract, delight, or enchant)"
+  ],
+  "freq": 119,
+  "gender": "der",
+  "ipa": "ʃarm"
+ },
+ {
+  "term": "Fernsehsender",
+  "pos": "noun",
+  "gloss": [
+   "TV station, television station"
+  ],
+  "freq": 119,
+  "gender": "der",
+  "plural": "die Fernsehsender",
+  "ipa": "ˈfɛʁnzeːˌzɛndɐ"
+ },
+ {
+  "term": "Kommandant",
+  "pos": "noun",
+  "gloss": [
+   "commander (of small or medium-sized units)",
+   "commander (of any unit)"
+  ],
+  "freq": 119,
+  "gender": "der",
+  "plural": "die Kommandanten",
+  "ipa": "kɔmanˈdant"
+ },
+ {
+  "term": "Ambiente",
+  "pos": "noun",
+  "gloss": [
+   "ambiance"
+  ],
+  "freq": 119,
+  "gender": "das",
+  "ipa": "ˌamˈbi̯ɛntə"
+ },
+ {
+  "term": "Dienstleister",
+  "pos": "noun",
+  "gloss": [
+   "service provider"
+  ],
+  "freq": 119,
+  "gender": "der",
+  "plural": "die Dienstleister",
+  "ipa": "ˈdiːnstˌlaɪ̯stɐ"
+ },
+ {
+  "term": "Vizekanzler",
+  "pos": "noun",
+  "gloss": [
+   "vice-chancellor"
+  ],
+  "freq": 119,
+  "gender": "der",
+  "plural": "die Vizekanzler",
+  "ipa": "ˈfiːt͡səˌkant͡slɐ"
+ },
+ {
+  "term": "Olympiastadion",
+  "pos": "noun",
+  "gloss": [
+   "Olympic stadium"
+  ],
+  "freq": 119,
+  "gender": "das",
+  "plural": "die Olympiastadien"
+ },
+ {
+  "term": "Toyota",
+  "pos": "noun",
+  "gloss": [
+   "Toyota (car of that company)"
+  ],
+  "freq": 118,
+  "gender": "der",
+  "plural": "die Toyotas",
+  "ipa": "toˈjoːta"
+ },
+ {
+  "term": "Dynamo",
+  "pos": "noun",
+  "gloss": [
+   "dynamo"
+  ],
+  "freq": 118,
+  "gender": "der",
+  "plural": "die Dynamos",
+  "ipa": "dyˈnaːmo"
+ },
+ {
+  "term": "Singer",
+  "pos": "noun",
+  "gloss": [
+   "singer"
+  ],
+  "freq": 118,
+  "gender": "der",
+  "plural": "die Singer"
+ },
+ {
+  "term": "Funke",
+  "pos": "noun",
+  "gloss": [
+   "spark"
+  ],
+  "freq": 118,
+  "gender": "der",
+  "plural": "die Funken",
+  "ipa": "ˈfʊŋkə"
+ },
+ {
+  "term": "Abwechslung",
+  "pos": "noun",
+  "gloss": [
+   "alternation",
+   "diversion, change"
+  ],
+  "freq": 118,
+  "gender": "die",
+  "plural": "die Abwechslungen",
+  "ipa": "ˈapˌvɛks.lʊŋ"
+ },
+ {
+  "term": "Abwesenheit",
+  "pos": "noun",
+  "gloss": [
+   "absence (state of being absent)"
+  ],
+  "freq": 118,
+  "gender": "die",
+  "plural": "die Abwesenheiten"
+ },
+ {
+  "term": "Unrecht",
+  "pos": "noun",
+  "gloss": [
+   "injustice",
+   "wrongdoing"
+  ],
+  "freq": 118,
+  "gender": "das",
+  "ipa": "ˈʊnʁɛçt"
+ },
+ {
+  "term": "Verursacher",
+  "pos": "noun",
+  "gloss": [
+   "agent noun of verursachen",
+   "causer (someone or something which causes)",
+   "agent noun of verursachen"
+  ],
+  "freq": 118,
+  "gender": "der",
+  "plural": "die Verursacher",
+  "ipa": "fɛʁˈʔuːɐ̯zaxɐ"
+ },
+ {
+  "term": "Strasse",
+  "pos": "noun",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of Straße"
+  ],
+  "freq": 118,
+  "gender": "die",
+  "plural": "die Strassen",
+  "ipa": "ˈʃtʁaːsə"
+ },
+ {
+  "term": "ODESSA",
+  "pos": "noun",
+  "gloss": [
+   "ODESSA"
+  ],
+  "freq": 118,
+  "gender": "die"
+ },
+ {
+  "term": "Senkung",
+  "pos": "noun",
+  "gloss": [
+   "dip, reduction, lowering, drop, fall, descent",
+   "prolapse",
+   "crustal shortening"
+  ],
+  "freq": 118,
+  "gender": "die",
+  "plural": "die Senkungen",
+  "ipa": "ˈzɛŋkʊŋ"
+ },
+ {
+  "term": "abgesichert",
+  "pos": "adjective",
+  "gloss": [
+   "secured, protected"
+  ],
+  "freq": 118
+ },
+ {
+  "term": "Andrang",
+  "pos": "noun",
+  "gloss": [
+   "rush"
+  ],
+  "freq": 118,
+  "gender": "der",
+  "ipa": "ˈandʁaŋ"
+ },
+ {
+  "term": "high",
+  "pos": "adjective",
+  "gloss": [
+   "high (intoxicated with a drug other than alcohol)"
+  ],
+  "freq": 117,
+  "ipa": "haɪ̯"
+ },
+ {
+  "term": "Spruch",
+  "pos": "noun",
+  "gloss": [
+   "short saying, expression or dictum that is remembered or is meaningful in itself",
+   "stock phrase",
+   "short saying, expression or dictum that is remembered or is meaningful in itself"
+  ],
+  "freq": 117,
+  "gender": "der",
+  "plural": "die Sprüche",
+  "ipa": "ˈʃpʁʊx"
+ },
+ {
+  "term": "ausgewiesen",
+  "pos": "adjective",
+  "gloss": [
+   "proven, confirmed"
+  ],
+  "freq": 117,
+  "ipa": "ˈaʊ̯sɡəˌviːzn̩"
+ },
+ {
+  "term": "Vogt",
+  "pos": "noun",
+  "gloss": [
+   "steward"
+  ],
+  "freq": 117,
+  "gender": "der",
+  "plural": "die Vögte",
+  "ipa": "foːkt"
+ },
+ {
+  "term": "Erscheinung",
+  "pos": "noun",
+  "gloss": [
+   "appearance (way of being perceived by others)",
+   "apparition, vision (act or instance of becoming perceptible, especially of something transcendent)",
+   "phenomenon (something that happens widely or repeatedly)"
+  ],
+  "freq": 117,
+  "gender": "die",
+  "plural": "die Erscheinungen",
+  "ipa": "ɛɐ̯ˈʃaɪ̯nʊŋ"
+ },
+ {
+  "term": "ihrerseits",
+  "pos": "adverb",
+  "gloss": [
+   "from her; on her behalf; as for her",
+   "from them; on their behalf; as for them"
+  ],
+  "freq": 117,
+  "ipa": "ˈiːʁɐˌzaɪ̯t͡s"
+ },
+ {
+  "term": "Grenzübergang",
+  "pos": "noun",
+  "gloss": [
+   "border crossing"
+  ],
+  "freq": 117,
+  "gender": "der",
+  "plural": "die Grenzübergänge"
+ },
+ {
+  "term": "Innsbrucker",
+  "pos": "noun",
+  "gloss": [
+   "native or inhabitant of Innsbruck"
+  ],
+  "freq": 117,
+  "gender": "der",
+  "plural": "die Innsbrucker"
+ },
+ {
+  "term": "Vorsaison",
+  "pos": "noun",
+  "gloss": [
+   "preseason"
+  ],
+  "freq": 117,
+  "gender": "die",
+  "plural": "die Vorsaisons"
+ },
+ {
+  "term": "anonym",
+  "pos": "adjective",
+  "gloss": [
+   "anonymous"
+  ],
+  "freq": 116,
+  "ipa": "ˌanoˈnyːm"
+ },
+ {
+  "term": "Knall",
+  "pos": "noun",
+  "gloss": [
+   "crack",
+   "bang",
+   "snap, jounce"
+  ],
+  "freq": 116,
+  "gender": "der",
+  "plural": "die Knalle",
+  "ipa": "knal"
+ },
+ {
+  "term": "Palast",
+  "pos": "noun",
+  "gloss": [
+   "palace"
+  ],
+  "freq": 116,
+  "gender": "der",
+  "plural": "die Paläste",
+  "ipa": "paˈlast"
+ },
+ {
+  "term": "Aktivität",
+  "pos": "noun",
+  "gloss": [
+   "activity"
+  ],
+  "freq": 116,
+  "gender": "die",
+  "plural": "die Aktivitäten",
+  "ipa": "aktiviˈtɛːt"
+ },
+ {
+  "term": "Krause",
+  "pos": "noun",
+  "gloss": [
+   "curliness",
+   "ruff (neckwear)"
+  ],
+  "freq": 116,
+  "gender": "die",
+  "plural": "die Krausen",
+  "ipa": "ˈkraʊ̯zə"
+ },
+ {
+  "term": "Einbau",
+  "pos": "noun",
+  "gloss": [
+   "installation, fitting, fixture, assembly"
+  ],
+  "freq": 116,
+  "gender": "der",
+  "plural": "die Einbauten"
+ },
+ {
+  "term": "Aussteller",
+  "pos": "noun",
+  "gloss": [
+   "exhibitor",
+   "drawer (of a cheque)",
+   "issuer"
+  ],
+  "freq": 116,
+  "gender": "der",
+  "plural": "die Aussteller"
+ },
+ {
+  "term": "Session",
+  "pos": "noun",
+  "gloss": [
+   "session, term",
+   "parliamentary session"
+  ],
+  "freq": 116,
+  "gender": "die",
+  "plural": "die Sessionen",
+  "ipa": "zɛˈsi̯oːn"
+ },
+ {
+  "term": "Podest",
+  "pos": "noun",
+  "gloss": [
+   "podium"
+  ],
+  "freq": 116,
+  "gender": "das",
+  "plural": "die Podeste",
+  "ipa": "poˈdɛst"
+ },
+ {
+  "term": "Gegentor",
+  "pos": "noun",
+  "gloss": [
+   "goal against"
+  ],
+  "freq": 116,
+  "gender": "das",
+  "plural": "die Gegentore",
+  "ipa": "ˈɡeːɡn̩ˌtoːɐ̯"
+ },
+ {
+  "term": "Räuber",
+  "pos": "noun",
+  "gloss": [
+   "agent noun of rauben",
+   "robber, thief",
+   "agent noun of rauben"
+  ],
+  "freq": 115,
+  "gender": "der",
+  "plural": "die Räuber",
+  "ipa": "ˈʁɔʏ̯bɐ"
+ },
+ {
+  "term": "Basketball",
+  "pos": "noun",
+  "gloss": [
+   "basketball"
+  ],
+  "freq": 115,
+  "gender": "der",
+  "plural": "die Basketbälle",
+  "ipa": "ˈbaːskətˌbal"
+ },
+ {
+  "term": "Leib",
+  "pos": "noun",
+  "gloss": [
+   "body",
+   "by semantic narrowing more specifically",
+   "trunk, torso"
+  ],
+  "freq": 115,
+  "gender": "der",
+  "plural": "die Leiber",
+  "ipa": "laɪ̯p"
+ },
+ {
+  "term": "kassieren",
+  "pos": "verb",
+  "gloss": [
+   "to collect (money), to demand and enregister (a payment), to act as cashier",
+   "to earn, cash in (money)",
+   "to receive, get, earn"
+  ],
+  "freq": 115,
+  "ipa": "kaˈsiːʁən"
+ },
+ {
+  "term": "versehentlich",
+  "pos": "adjective",
+  "gloss": [
+   "due to a mistake, mistaken, accidental, unintentional"
+  ],
+  "freq": 115
+ },
+ {
+  "term": "einlegen",
+  "pos": "verb",
+  "gloss": [
+   "to insert",
+   "to put in",
+   "to inlay"
+  ],
+  "freq": 115,
+  "ipa": "ˈaɪ̯nˌleːɡən"
+ },
+ {
+  "term": "Ausschluss",
+  "pos": "noun",
+  "gloss": [
+   "exclusion, expulsion",
+   "statute of repose"
+  ],
+  "freq": 115,
+  "gender": "der",
+  "plural": "die Ausschlüsse",
+  "ipa": "ˈʔaʊ̯sʃlʊs"
+ },
+ {
+  "term": "fünfmal",
+  "pos": "adverb",
+  "gloss": [
+   "fivefold"
+  ],
+  "freq": 115,
+  "ipa": "ˈfʏnfmaːl"
+ },
+ {
+  "term": "Causa",
+  "pos": "noun",
+  "gloss": [
+   "case (a dispute or controversy, often of a legal nature, especially one of public notoriety)",
+   "the obligation which allows one to keep something obtained according to unjust enrichment rules"
+  ],
+  "freq": 115,
+  "gender": "die",
+  "plural": "die Causae",
+  "ipa": "ˈkaʊ̯za"
+ },
+ {
+  "term": "transparent",
+  "pos": "adjective",
+  "gloss": [
+   "translucent (allowing light to pass through)",
+   "fully transparent; see-through",
+   "transparent"
+  ],
+  "freq": 114,
+  "ipa": "ˌtʁanspaˈʁɛnt"
+ },
+ {
+  "term": "Don",
+  "pos": "noun",
+  "gloss": [
+   "don (honorific title, especially in Spain and Italy)"
+  ],
+  "freq": 114,
+  "gender": "der"
+ },
+ {
+  "term": "Foyer",
+  "pos": "noun",
+  "gloss": [
+   "foyer, lobby"
+  ],
+  "freq": 114,
+  "gender": "das",
+  "plural": "die Foyers",
+  "ipa": "fo̯aˈjeː"
+ },
+ {
+  "term": "Jude",
+  "pos": "noun",
+  "gloss": [
+   "Jew"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Juden",
+  "ipa": "ˈjuːdə"
+ },
+ {
+  "term": "Teig",
+  "pos": "noun",
+  "gloss": [
+   "dough, paste, pastry, batter (soft, at least partially cohesive mixture of ingredients, often including flour, intended to be baked, fried or cooked)"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Teige",
+  "ipa": "taɪ̯k"
+ },
+ {
+  "term": "Elbe",
+  "pos": "noun",
+  "gloss": [
+   "alternative form of Elb (“elf”)"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Elben",
+  "ipa": "ˈɛlbə"
+ },
+ {
+  "term": "Roller",
+  "pos": "noun",
+  "gloss": [
+   "anything that rolls, roller",
+   "scooter",
+   "a human-powered vehicle on two wheels propelled by pushing off the ground, a kick scooter or push scooter"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Roller",
+  "ipa": "ˈʁɔlɐ"
+ },
+ {
+  "term": "Innenhof",
+  "pos": "noun",
+  "gloss": [
+   "inner courtyard"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Innenhöfe",
+  "ipa": "ˈɪnənˌhoːf"
+ },
+ {
+  "term": "Maurer",
+  "pos": "noun",
+  "gloss": [
+   "bricklayer, mason (craftsperson who builds in stone; male or unspecified sex)"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Maurer",
+  "ipa": "ˈmaʊ̯ʁɐ"
+ },
+ {
+  "term": "Anstoß",
+  "pos": "noun",
+  "gloss": [
+   "impetus, initiation, trigger",
+   "offense",
+   "kick-off"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Anstöße",
+  "ipa": "ˈanʃtoːs"
+ },
+ {
+  "term": "auseinandersetzen",
+  "pos": "verb",
+  "gloss": [
+   "to deal with, to occupy oneself with, to look into, to think about",
+   "to explain, to make understandable",
+   "to disassemble, to take apart"
+  ],
+  "freq": 114
+ },
+ {
+  "term": "beheben",
+  "pos": "verb",
+  "gloss": [
+   "to resolve, to fix (a problem, a mistake)",
+   "to withdraw (money)",
+   "to pick something up"
+  ],
+  "freq": 114,
+  "ipa": "bəˈheːbən"
+ },
+ {
+  "term": "Maßstab",
+  "pos": "noun",
+  "gloss": [
+   "measuring rod, yardstick, rule",
+   "scale (of a map, model)",
+   "measure, standard, criterion, yardstick"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Maßstäbe",
+  "ipa": "ˈmaːsˌʃtaːp"
+ },
+ {
+  "term": "behindert",
+  "pos": "adjective",
+  "gloss": [
+   "disabled; handicapped",
+   "retarded; stupid, dumb",
+   "retarded; bad; messed up; uncool, general derogative"
+  ],
+  "freq": 114,
+  "ipa": "bəˈhɪndɐt"
+ },
+ {
+  "term": "Gesetzgeber",
+  "pos": "noun",
+  "gloss": [
+   "legislator"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Gesetzgeber",
+  "ipa": "ɡəˈzɛtsˌɡeːbɐ"
+ },
+ {
+  "term": "Klärung",
+  "pos": "noun",
+  "gloss": [
+   "clarification",
+   "treatment"
+  ],
+  "freq": 114,
+  "gender": "die",
+  "plural": "die Klärungen",
+  "ipa": "ˈklɛːʁʊŋ"
+ },
+ {
+  "term": "Portion",
+  "pos": "noun",
+  "gloss": [
+   "portion, an allocated amount, (chiefly) a portion of food, a serving, helping",
+   "an amount (of some size)"
+  ],
+  "freq": 114,
+  "gender": "die",
+  "plural": "die Portionen",
+  "ipa": "pɔrˈtsjoːn"
+ },
+ {
+  "term": "befahrbar",
+  "pos": "adjective",
+  "gloss": [
+   "driveable, navigable, passable, open to traffic"
+  ],
+  "freq": 114
+ },
+ {
+  "term": "Luzerner",
+  "pos": "noun",
+  "gloss": [
+   "a native or inhabitant of Lucerne"
+  ],
+  "freq": 114,
+  "gender": "der",
+  "plural": "die Luzerner",
+  "ipa": "luˈt͡sɛʁnɐ"
+ },
+ {
+  "term": "Strafanzeige",
+  "pos": "noun",
+  "gloss": [
+   "criminal charge"
+  ],
+  "freq": 114,
+  "gender": "die",
+  "plural": "die Strafanzeigen",
+  "ipa": "ˈʃtʁaːfʔanˌt͡saɪ̯ɡə"
+ },
+ {
+  "term": "trans",
+  "pos": "adjective",
+  "gloss": [
+   "trans, transgender"
+  ],
+  "freq": 113,
+  "ipa": "tʁans"
+ },
+ {
+  "term": "Definition",
+  "pos": "noun",
+  "gloss": [
+   "definition"
+  ],
+  "freq": 113,
+  "gender": "die",
+  "plural": "die Definitionen",
+  "ipa": "definiˈtsjoːn"
+ },
+ {
+  "term": "Boom",
+  "pos": "noun",
+  "gloss": [
+   "boom"
+  ],
+  "freq": 113,
+  "gender": "der",
+  "plural": "die Booms",
+  "ipa": "buːm"
+ },
+ {
+  "term": "Damm",
+  "pos": "noun",
+  "gloss": [
+   "embankment",
+   "perineum"
+  ],
+  "freq": 113,
+  "gender": "der",
+  "plural": "die Dämme",
+  "ipa": "dam"
+ },
+ {
+  "term": "Exil",
+  "pos": "noun",
+  "gloss": [
+   "exile (the state of being banished from one's home or country)"
+  ],
+  "freq": 113,
+  "gender": "das",
+  "plural": "die Exile",
+  "ipa": "ɛˈksiːl"
+ },
+ {
+  "term": "Beifall",
+  "pos": "noun",
+  "gloss": [
+   "applause"
+  ],
+  "freq": 113,
+  "gender": "der",
+  "ipa": "ˈbaɪ̯fal"
+ },
+ {
+  "term": "Parade",
+  "pos": "noun",
+  "gloss": [
+   "parade (intentional, planned march)",
+   "parade, march",
+   "parry"
+  ],
+  "freq": 113,
+  "gender": "die",
+  "plural": "die Paraden",
+  "ipa": "paˈʁaːdə"
+ },
+ {
+  "term": "basieren",
+  "pos": "verb",
+  "gloss": [
+   "to base",
+   "to be based"
+  ],
+  "freq": 113,
+  "ipa": "baˈziːʁən"
+ },
+ {
+  "term": "gefertigt",
+  "pos": "adjective",
+  "gloss": [
+   "wrought, manufactured"
+  ],
+  "freq": 113
+ },
+ {
+  "term": "jeher",
+  "pos": "adverb",
+  "gloss": [
+   "always"
+  ],
+  "freq": 113,
+  "ipa": "ˈjeːheːɐ̯"
+ },
+ {
+  "term": "schlichtweg",
+  "pos": "adverb",
+  "gloss": [
+   "synonym of schlechterdings (“simply”)"
+  ],
+  "freq": 113,
+  "ipa": "ˈʃlɪçtˌvɛk"
+ },
+ {
+  "term": "Leitplanke",
+  "pos": "noun",
+  "gloss": [
+   "crash barrier"
+  ],
+  "freq": 113,
+  "gender": "die",
+  "plural": "die Leitplanken",
+  "ipa": "ˈlaɪ̯tˌplaŋkə"
+ },
+ {
+  "term": "Chatbot",
+  "pos": "noun",
+  "gloss": [
+   "chatbot"
+  ],
+  "freq": 113,
+  "gender": "der",
+  "plural": "die Chatbots",
+  "ipa": "ˈt͡ʃɛtˌbɔt"
+ },
+ {
+  "term": "Handballer",
+  "pos": "noun",
+  "gloss": [
+   "handball player, handballer (male or of unspecified sex)"
+  ],
+  "freq": 113,
+  "gender": "der",
+  "plural": "die Handballer",
+  "ipa": "ˈhantˌbalɐ"
+ },
+ {
+  "term": "Fahrzeugführer",
+  "pos": "noun",
+  "gloss": [
+   "driver, motorist"
+  ],
+  "freq": 113,
+  "gender": "der",
+  "plural": "die Fahrzeugführer",
+  "ipa": "ˈfaːrtsɔʏ̯kˌfyːrər"
+ },
+ {
+  "term": "premium",
+  "pos": "adjective",
+  "gloss": [
+   "premium"
+  ],
+  "freq": 112,
+  "ipa": "ˈpʁeːmi̯ʊm"
+ },
+ {
+  "term": "Inspiration",
+  "pos": "noun",
+  "gloss": [
+   "inspiration (exercising an elevating or stimulating influence upon the intellect or emotions)"
+  ],
+  "freq": 112,
+  "gender": "die",
+  "plural": "die Inspirationen",
+  "ipa": "ʔɪnspiʁaˈtsi̯oːn"
+ },
+ {
+  "term": "Sensation",
+  "pos": "noun",
+  "gloss": [
+   "sensation (widespread reaction of interest or excitement)"
+  ],
+  "freq": 112,
+  "gender": "die",
+  "plural": "die Sensationen",
+  "ipa": "ˌzɛnzaˈt͡si̯oːn"
+ },
+ {
+  "term": "Bußgeld",
+  "pos": "noun",
+  "gloss": [
+   "a fine for a non-criminal act (e.g. speeding, breaking a contract, etc.)"
+  ],
+  "freq": 112,
+  "gender": "das",
+  "plural": "die Bußgelder",
+  "ipa": "ˈbuːsɡɛlt"
+ },
+ {
+  "term": "verkünden",
+  "pos": "verb",
+  "gloss": [
+   "to proclaim, pronounce (to officially declare)"
+  ],
+  "freq": 112,
+  "ipa": "fɛɐ̯ˈkʏndn̩"
+ },
+ {
+  "term": "Report",
+  "pos": "noun",
+  "gloss": [
+   "report (all senses)"
+  ],
+  "freq": 112,
+  "gender": "der",
+  "plural": "die Reporte"
+ },
+ {
+  "term": "Instanz",
+  "pos": "noun",
+  "gloss": [
+   "legal authority",
+   "legal authority",
+   "authority, entity (any agency, person or level in a hierarchy considered to have authority over a situation)"
+  ],
+  "freq": 112,
+  "gender": "die",
+  "plural": "die Instanzen"
+ },
+ {
+  "term": "Normalität",
+  "pos": "noun",
+  "gloss": [
+   "normality, normalcy"
+  ],
+  "freq": 112,
+  "gender": "die",
+  "ipa": "nɔʁmaliˈtɛːt"
+ },
+ {
+  "term": "Crash",
+  "pos": "noun",
+  "gloss": [
+   "crash",
+   "crash (malfunction of computer software)"
+  ],
+  "freq": 112,
+  "gender": "der",
+  "plural": "die Crashes",
+  "ipa": "kʁɛʃ"
+ },
+ {
+  "term": "Account",
+  "pos": "noun",
+  "gloss": [
+   "user account"
+  ],
+  "freq": 112,
+  "gender": "der",
+  "plural": "die Accounts",
+  "ipa": "əˈkaʊ̯nt"
+ },
+ {
+  "term": "Luxus",
+  "pos": "noun",
+  "gloss": [
+   "luxury"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "ipa": "ˈlʊksʊs"
+ },
+ {
+  "term": "Beschleunigung",
+  "pos": "noun",
+  "gloss": [
+   "acceleration"
+  ],
+  "freq": 111,
+  "gender": "die",
+  "plural": "die Beschleunigungen",
+  "ipa": "bəˈʃlɔɪ̯nɪˌɡʊŋ"
+ },
+ {
+  "term": "Aufhebung",
+  "pos": "noun",
+  "gloss": [
+   "abolition, nullification, abrogation",
+   "annulment"
+  ],
+  "freq": 111,
+  "gender": "die",
+  "plural": "die Aufhebungen",
+  "ipa": "ˈaʊ̯fˌheːbʊŋ"
+ },
+ {
+  "term": "Schnäppchen",
+  "pos": "noun",
+  "gloss": [
+   "bargain; a cheap thing yet in good quality; something luckily seized/caught (see schnappen)."
+  ],
+  "freq": 111,
+  "gender": "das",
+  "plural": "die Schnäppchen",
+  "ipa": "ˈʃnɛpçən"
+ },
+ {
+  "term": "Exekutive",
+  "pos": "noun",
+  "gloss": [
+   "executive branch"
+  ],
+  "freq": 111,
+  "gender": "die",
+  "plural": "die Exekutiven",
+  "ipa": "ɛksekuˈtiːvə"
+ },
+ {
+  "term": "Schulleiter",
+  "pos": "noun",
+  "gloss": [
+   "rector, principal (headmaster of an educational institution)"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "plural": "die Schulleiter",
+  "ipa": "ˈʃuː(l)ˌlaɪ̯tər"
+ },
+ {
+  "term": "verkörpert",
+  "pos": "adjective",
+  "gloss": [
+   "embodied, epitomized, impersonated"
+  ],
+  "freq": 111
+ },
+ {
+  "term": "Bewältigung",
+  "pos": "noun",
+  "gloss": [
+   "coping, handling, mastering"
+  ],
+  "freq": 111,
+  "gender": "die",
+  "plural": "die Bewältigungen"
+ },
+ {
+  "term": "Aufschwung",
+  "pos": "noun",
+  "gloss": [
+   "stimulus",
+   "improvement",
+   "economic upswing, boom"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "plural": "die Aufschwünge",
+  "ipa": "ˈaʊ̯fʃvʊŋ"
+ },
+ {
+  "term": "gereinigt",
+  "pos": "adjective",
+  "gloss": [
+   "purified, refined"
+  ],
+  "freq": 111
+ },
+ {
+  "term": "losgehen",
+  "pos": "verb",
+  "gloss": [
+   "to leave",
+   "to start",
+   "to go off"
+  ],
+  "freq": 111,
+  "ipa": "ˈloːsˌɡeːən"
+ },
+ {
+  "term": "Gutachter",
+  "pos": "noun",
+  "gloss": [
+   "expert witness",
+   "surveyor, assessor"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "plural": "die Gutachter"
+ },
+ {
+  "term": "Votum",
+  "pos": "noun",
+  "gloss": [
+   "say",
+   "vote"
+  ],
+  "freq": 111,
+  "gender": "das",
+  "plural": "die Vota"
+ },
+ {
+  "term": "Call",
+  "pos": "noun",
+  "gloss": [
+   "call",
+   "call (decision, judgement)"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "plural": "die Calls",
+  "ipa": "kɔl"
+ },
+ {
+  "term": "Pegel",
+  "pos": "noun",
+  "gloss": [
+   "level (measurement of how high something is filled)"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "plural": "die Pegel",
+  "ipa": "ˈpeːɡl̩"
+ },
+ {
+  "term": "Vorrunde",
+  "pos": "noun",
+  "gloss": [
+   "preliminary round, qualifying round"
+  ],
+  "freq": 111,
+  "gender": "die",
+  "plural": "die Vorrunden",
+  "ipa": "ˈfoːɐ̯ˌʁʊndə"
+ },
+ {
+  "term": "Verwaltungsrat",
+  "pos": "noun",
+  "gloss": [
+   "board of directors (the governing body of a corporation or organization, particularly in Switzerland or for public-law entities in Germany)"
+  ],
+  "freq": 111,
+  "gender": "der",
+  "plural": "die Verwaltungsrate",
+  "ipa": "fɛɐ̯ˈvaltʊŋsˌʁaːt"
+ },
+ {
+  "term": "Coup",
+  "pos": "noun",
+  "gloss": [
+   "coup (quick, brilliant, successful act)",
+   "coup d'état"
+  ],
+  "freq": 110,
+  "gender": "der",
+  "plural": "die Coups",
+  "ipa": "kuː"
+ },
+ {
+  "term": "Psychiatrie",
+  "pos": "noun",
+  "gloss": [
+   "psychiatry",
+   "mental hospital"
+  ],
+  "freq": 110,
+  "gender": "die",
+  "plural": "die Psychiatrien",
+  "ipa": "psyçi̯aˈtʁiː"
+ },
+ {
+  "term": "Nachweis",
+  "pos": "noun",
+  "gloss": [
+   "proof, verification, confirmation"
+  ],
+  "freq": 110,
+  "gender": "der",
+  "plural": "die Nachweise",
+  "ipa": "ˈnaːχˌvaɪ̯s"
+ },
+ {
+  "term": "abgelaufen",
+  "pos": "adjective",
+  "gloss": [
+   "expired, lapsed, out of date"
+  ],
+  "freq": 110
+ },
+ {
+  "term": "Inbetriebnahme",
+  "pos": "noun",
+  "gloss": [
+   "start-up, start, activation, launch, commissioning (of a machine, facility etc.)"
+  ],
+  "freq": 110,
+  "gender": "die",
+  "plural": "die Inbetriebnahmen",
+  "ipa": "ˌɪn.bəˈtʁiːpˌnaː.mə"
+ },
+ {
+  "term": "Gesamtjahr",
+  "pos": "noun",
+  "gloss": [
+   "full year"
+  ],
+  "freq": 110,
+  "gender": "das",
+  "plural": "die Gesamtjahre"
+ },
+ {
+  "term": "Stichtag",
+  "pos": "noun",
+  "gloss": [
+   "deadline; cutoff date"
+  ],
+  "freq": 110,
+  "gender": "der",
+  "plural": "die Stichtage",
+  "ipa": "ˈʃtɪçˌtaːk"
+ },
+ {
+  "term": "Vorstandsvorsitzender",
+  "pos": "noun",
+  "gloss": [
+   "CEO (male or of unspecified gender)",
+   "chairman (male or of unspecified gender)"
+  ],
+  "freq": 110,
+  "gender": "der",
+  "plural": "die Vorstandsvorsitzende",
+  "ipa": "ˈfoːɐ̯ʃtant͡sˌfoːɐ̯zɪt͡sn̩dɐ"
+ },
+ {
+  "term": "Privatleben",
+  "pos": "noun",
+  "gloss": [
+   "personal life, private life"
+  ],
+  "freq": 110,
+  "gender": "das",
+  "ipa": "priˈvaːtleːbm̩"
+ },
+ {
+  "term": "Syrer",
+  "pos": "noun",
+  "gloss": [
+   "Syrian"
+  ],
+  "freq": 110,
+  "gender": "der",
+  "plural": "die Syrer",
+  "ipa": "ˈzyːʁɐ"
+ },
+ {
+  "term": "Turner",
+  "pos": "noun",
+  "gloss": [
+   "a male gymnast"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "plural": "die Turner",
+  "ipa": "ˈtʊʁnɐ"
+ },
+ {
+  "term": "Nationalsozialismus",
+  "pos": "noun",
+  "gloss": [
+   "National Socialism"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "ipa": "natsi̯oˈnaːlzotsi̯aˌlɪsmʊs"
+ },
+ {
+  "term": "Söldner",
+  "pos": "noun",
+  "gloss": [
+   "mercenary, sellsword"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "plural": "die Söldner",
+  "ipa": "ˈzœldnər"
+ },
+ {
+  "term": "Bauwerk",
+  "pos": "noun",
+  "gloss": [
+   "building, edifice"
+  ],
+  "freq": 109,
+  "gender": "das",
+  "plural": "die Bauwerke"
+ },
+ {
+  "term": "Gala",
+  "pos": "noun",
+  "gloss": [
+   "gala"
+  ],
+  "freq": 109,
+  "gender": "die",
+  "plural": "die Galas",
+  "ipa": "ɡaːla"
+ },
+ {
+  "term": "schliesslich",
+  "pos": "adverb",
+  "gloss": [
+   "Switzerland and Liechtenstein standard spelling of schließlich"
+  ],
+  "freq": 109
+ },
+ {
+  "term": "abgelöst",
+  "pos": "adjective",
+  "gloss": [
+   "detached",
+   "replaced",
+   "ousted"
+  ],
+  "freq": 109,
+  "ipa": "ˈʔapɡəlœst"
+ },
+ {
+  "term": "Hauptsitz",
+  "pos": "noun",
+  "gloss": [
+   "headquarters, head office"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "plural": "die Hauptsitze"
+ },
+ {
+  "term": "Amtsantritt",
+  "pos": "noun",
+  "gloss": [
+   "inauguration (especially political)"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "plural": "die Amtsantritte",
+  "ipa": "ˈamt͡sʔanˌtʁɪt"
+ },
+ {
+  "term": "Beendigung",
+  "pos": "noun",
+  "gloss": [
+   "cessation, termination, ending, conclusion",
+   "completion"
+  ],
+  "freq": 109,
+  "gender": "die",
+  "plural": "die Beendigungen",
+  "ipa": "bəˈʔɛndɪɡʊŋ"
+ },
+ {
+  "term": "Versicherer",
+  "pos": "noun",
+  "gloss": [
+   "insurer",
+   "underwriter"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "plural": "die Versicherer"
+ },
+ {
+  "term": "Regierungsrat",
+  "pos": "noun",
+  "gloss": [
+   "governing council (often regional or local)",
+   "Conseil d'État (council constituting the cantonal government)",
+   "a member of the Conseil d'État"
+  ],
+  "freq": 109,
+  "gender": "der",
+  "plural": "die Regierungsräte",
+  "ipa": "ʁəˈɡiːʁʊŋsˌʁaːt"
+ },
+ {
+  "term": "Data",
+  "pos": "noun",
+  "gloss": [
+   "archaic form of Daten"
+  ],
+  "freq": 109,
+  "gender": "das",
+  "plural": "die Data"
+ },
+ {
+  "term": "ausfindig",
+  "pos": "adverb",
+  "gloss": [
+   "only used in ausfindig machen"
+  ],
+  "freq": 109,
+  "ipa": "ˈaʊ̯sfɪndɪç"
+ },
+ {
+  "term": "Busfahrer",
+  "pos": "noun",
+  "gloss": [
+   "bus driver (male or of unspecified gender)"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Busfahrer",
+  "ipa": "ˈbʊsˌfaːʁɐ"
+ },
+ {
+  "term": "Ofen",
+  "pos": "noun",
+  "gloss": [
+   "clipping of Backofen (“oven”)",
+   "stove",
+   "furnace"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Öfen",
+  "ipa": "ˈoːfən"
+ },
+ {
+  "term": "beschränken",
+  "pos": "verb",
+  "gloss": [
+   "to limit; to restrict",
+   "to limit oneself"
+  ],
+  "freq": 108,
+  "ipa": "ˈbəˌʃʁɛŋkn̩"
+ },
+ {
+  "term": "Bernstein",
+  "pos": "noun",
+  "gloss": [
+   "amber"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Bernsteine",
+  "ipa": "ˈbɛrnˌʃtaɪ̯n"
+ },
+ {
+  "term": "Anwender",
+  "pos": "noun",
+  "gloss": [
+   "user (person who uses an application, who applies something)"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Anwender",
+  "ipa": "ˈʔanvɛndɐ"
+ },
+ {
+  "term": "Defekt",
+  "pos": "noun",
+  "gloss": [
+   "defect"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Defekte",
+  "ipa": "deˈfɛkt"
+ },
+ {
+  "term": "Wels",
+  "pos": "noun",
+  "gloss": [
+   "wels catfish (Silurus glanis)",
+   "catfish, any fish of the order Siluriformes"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Welse",
+  "ipa": "vɛls"
+ },
+ {
+  "term": "Römer",
+  "pos": "noun",
+  "gloss": [
+   "Roman"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Römer",
+  "ipa": "ˈrøːmər"
+ },
+ {
+  "term": "Neuerung",
+  "pos": "noun",
+  "gloss": [
+   "innovation"
+  ],
+  "freq": 108,
+  "gender": "die",
+  "plural": "die Neuerungen",
+  "ipa": "ˈnɔɪ̯əʁʊŋ"
+ },
+ {
+  "term": "zugeordnet",
+  "pos": "adjective",
+  "gloss": [
+   "assigned"
+  ],
+  "freq": 108
+ },
+ {
+  "term": "zusammenkommen",
+  "pos": "verb",
+  "gloss": [
+   "to come/get together"
+  ],
+  "freq": 108,
+  "ipa": "tsuˈzamənˌkɔmən"
+ },
+ {
+  "term": "Bedienung",
+  "pos": "noun",
+  "gloss": [
+   "service",
+   "waiter, waitress",
+   "operation"
+  ],
+  "freq": 108,
+  "gender": "die",
+  "plural": "die Bedienungen",
+  "ipa": "bəˈdiːnʊŋ"
+ },
+ {
+  "term": "häufen",
+  "pos": "verb",
+  "gloss": [
+   "to heap (up), to pile up",
+   "to amass, accumulate, aggregate",
+   "to pile up, to accrete"
+  ],
+  "freq": 108,
+  "ipa": "ˈhɔʏ̯fən"
+ },
+ {
+  "term": "Geiger",
+  "pos": "noun",
+  "gloss": [
+   "fiddler, violinist"
+  ],
+  "freq": 108,
+  "gender": "der",
+  "plural": "die Geiger",
+  "ipa": "ˈɡaɪ̯ɡɐ"
+ },
+ {
+  "term": "Heizöl",
+  "pos": "noun",
+  "gloss": [
+   "heating oil"
+  ],
+  "freq": 108,
+  "gender": "das",
+  "plural": "die Heizöle"
+ },
+ {
+  "term": "Griechische",
+  "pos": "noun",
+  "gloss": [
+   "alternative form of Griechisch"
+  ],
+  "freq": 108,
+  "gender": "das"
+ }
+]

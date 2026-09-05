@@ -1,0 +1,562 @@
+[
+ {
+  "term": "der Montagmorgen",
+  "en": "Monday morning",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Days & dates",
+  "ex": [
+   {
+    "de": "Der Montagmorgen ist immer besonders stressig.",
+    "en": "Monday morning is always particularly stressful."
+   },
+   {
+    "de": "Am Montagmorgen fährt der Bus früher.",
+    "en": "On Monday morning the bus leaves earlier."
+   }
+  ]
+ },
+ {
+  "term": "der Analyst",
+  "en": "analyst",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Analyst rechnet mit steigenden Preisen.",
+    "en": "The analyst expects rising prices."
+   },
+   {
+    "de": "Kein Analyst hatte das vorhergesagt.",
+    "en": "No analyst had predicted that."
+   }
+  ]
+ },
+ {
+  "term": "die Beute",
+  "en": "loot, haul (from a robbery); prey",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Die Beute war über zehntausend Euro wert.",
+    "en": "The haul was worth over ten thousand euros."
+   },
+   {
+    "de": "Mit der Beute flüchteten sie zu Fuß.",
+    "en": "They fled on foot with the loot."
+   }
+  ]
+ },
+ {
+  "term": "der Elfmeter",
+  "en": "penalty kick",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Elfmeter war eine klare Entscheidung.",
+    "en": "The penalty was a clear decision."
+   },
+   {
+    "de": "Beide Elfmeter wurden verwandelt.",
+    "en": "Both penalties were converted."
+   }
+  ]
+ },
+ {
+  "term": "der Ausbruch",
+  "en": "outbreak (of a war or disease); eruption",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Seit dem Ausbruch der Krankheit sind zwei Jahre vergangen.",
+    "en": "Two years have passed since the outbreak of the disease."
+   },
+   {
+    "de": "Der Ausbruch des Vulkans war weithin zu sehen.",
+    "en": "The eruption of the volcano could be seen from far away."
+   }
+  ]
+ },
+ {
+  "term": "das Talent",
+  "en": "talent",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Career & Advancement",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Sie hat großes Talent für Sprachen.",
+    "en": "She has great talent for languages."
+   },
+   {
+    "de": "Der Verein sucht junge Talente.",
+    "en": "The club is looking for young talents."
+   }
+  ]
+ },
+ {
+  "term": "das Hinspiel",
+  "en": "first leg (of a two-match tie)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Das Hinspiel endete unentschieden.",
+    "en": "The first leg ended in a draw."
+   },
+   {
+    "de": "Nach dem Hinspiel führen sie mit einem Tor.",
+    "en": "After the first leg they lead by one goal."
+   }
+  ]
+ },
+ {
+  "term": "der Jahresbeginn",
+  "en": "the start of the year",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Zum Jahresbeginn steigen die Preise.",
+    "en": "Prices rise at the start of the year."
+   },
+   {
+    "de": "Der Jahresbeginn war für die Firma schwierig.",
+    "en": "The start of the year was difficult for the company."
+   }
+  ]
+ },
+ {
+  "term": "das Ensemble",
+  "en": "ensemble",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Music & Theatre",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Ensemble probt seit Wochen.",
+    "en": "The ensemble has been rehearsing for weeks."
+   },
+   {
+    "de": "Sie gehört seit zehn Jahren zum Ensemble.",
+    "en": "She has belonged to the ensemble for ten years."
+   }
+  ]
+ },
+ {
+  "term": "das Trikot",
+  "en": "jersey, sports shirt",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "gender": "das",
+  "ex": [
+   {
+    "de": "Das Trikot hängt noch im Schrank.",
+    "en": "The jersey is still hanging in the wardrobe."
+   },
+   {
+    "de": "Die neuen Trikots sind dunkelblau.",
+    "en": "The new jerseys are dark blue."
+   }
+  ]
+ },
+ {
+  "term": "die Agenda",
+  "en": "agenda",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business Correspondence",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Thema steht nicht auf der Agenda.",
+    "en": "The topic is not on the agenda."
+   },
+   {
+    "de": "Die Agenda für das Treffen kommt morgen.",
+    "en": "The agenda for the meeting is coming tomorrow."
+   }
+  ]
+ },
+ {
+  "term": "der Sand",
+  "en": "sand",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Landscape & nature",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Sand ist hier sehr fein.",
+    "en": "The sand is very fine here."
+   },
+   {
+    "de": "Die Kinder spielten im warmen Sand.",
+    "en": "The children played in the warm sand."
+   }
+  ]
+ },
+ {
+  "term": "der Fund",
+  "en": "find, discovery",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science",
+  "ex": [
+   {
+    "de": "Der Fund stammt aus der Römerzeit.",
+    "en": "The find dates from Roman times."
+   },
+   {
+    "de": "Solche Funde sind äußerst selten.",
+    "en": "Finds like that are extremely rare."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "das Loch",
+  "en": "hole",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "In der Hose ist ein Loch.",
+    "en": "There is a hole in the trousers."
+   },
+   {
+    "de": "Er hat ein Loch in die Wand gebohrt.",
+    "en": "He drilled a hole in the wall."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Kontext",
+  "en": "context",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Ohne den Kontext versteht man den Satz nicht.",
+    "en": "Without the context you cannot understand the sentence."
+   },
+   {
+    "de": "In diesem Kontext bedeutet das Wort etwas anderes.",
+    "en": "In this context the word means something different."
+   }
+  ]
+ },
+ {
+  "term": "der Tunnel",
+  "en": "tunnel",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Tunnel ist über drei Kilometer lang.",
+    "en": "The tunnel is over three kilometres long."
+   },
+   {
+    "de": "Beide Tunnel wurden gesperrt.",
+    "en": "Both tunnels were closed."
+   }
+  ]
+ },
+ {
+  "term": "der Unmut",
+  "en": "displeasure, discontent",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Entscheidung sorgte für großen Unmut.",
+    "en": "The decision caused great displeasure."
+   },
+   {
+    "de": "Sein Unmut war deutlich zu hören.",
+    "en": "His displeasure was clearly audible."
+   }
+  ]
+ },
+ {
+  "term": "der Südwesten",
+  "en": "the south-west",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Der Südwesten des Landes ist sehr trocken.",
+    "en": "The south-west of the country is very dry."
+   },
+   {
+    "de": "Im Südwesten regnet es morgen.",
+    "en": "It will rain in the south-west tomorrow."
+   }
+  ]
+ },
+ {
+  "term": "zeitnah",
+  "en": "promptly, in good time",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Wir melden uns zeitnah bei Ihnen.",
+    "en": "We will get back to you promptly."
+   },
+   {
+    "de": "Eine zeitnahe Antwort wäre hilfreich.",
+    "en": "A prompt reply would be helpful."
+   }
+  ]
+ },
+ {
+  "term": "das Portal",
+  "en": "portal",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Digital World & Technology",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Portal ist seit heute Morgen offline.",
+    "en": "The portal has been offline since this morning."
+   },
+   {
+    "de": "Über das Portal kann man Termine buchen.",
+    "en": "You can book appointments through the portal."
+   }
+  ]
+ },
+ {
+  "term": "das Achtelfinale",
+  "en": "round of sixteen",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Im Achtelfinale treffen sie auf Spanien.",
+    "en": "In the round of sixteen they face Spain."
+   },
+   {
+    "de": "Das Achtelfinale wird am Dienstag gespielt.",
+    "en": "The round of sixteen is played on Tuesday."
+   }
+  ]
+ },
+ {
+  "term": "das Debüt",
+  "en": "debut",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Ihr Debüt war ein großer Erfolg.",
+    "en": "Her debut was a great success."
+   },
+   {
+    "de": "Er gab sein Debüt mit siebzehn Jahren.",
+    "en": "He made his debut at seventeen."
+   }
+  ]
+ },
+ {
+  "term": "der Nahverkehr",
+  "en": "local public transport",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der Nahverkehr wird ab Januar teurer.",
+    "en": "Local public transport will get more expensive from January."
+   },
+   {
+    "de": "Im Nahverkehr gilt ein anderes Ticket.",
+    "en": "A different ticket applies on local public transport."
+   }
+  ]
+ },
+ {
+  "term": "der Transfer",
+  "en": "transfer",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Transfer wurde am Montag bestätigt.",
+    "en": "The transfer was confirmed on Monday."
+   },
+   {
+    "de": "Solche Transfers kosten Millionen.",
+    "en": "Transfers like that cost millions."
+   }
+  ]
+ },
+ {
+  "term": "der Spanier",
+  "en": "Spaniard, Spanish man",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Countries & Nationalities",
+  "ex": [
+   {
+    "de": "Der Spanier spricht sehr gut Deutsch.",
+    "en": "The Spaniard speaks German very well."
+   },
+   {
+    "de": "Zwei Spanier arbeiten in unserem Büro.",
+    "en": "Two Spaniards work in our office."
+   }
+  ]
+ },
+ {
+  "term": "die Umstellung",
+  "en": "changeover, switch, adjustment",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Digitalisation & Work",
+  "ex": [
+   {
+    "de": "Die Umstellung auf das neue System dauert Monate.",
+    "en": "The changeover to the new system takes months."
+   },
+   {
+    "de": "Für ihn war die Umstellung schwer.",
+    "en": "The adjustment was hard for him."
+   }
+  ]
+ },
+ {
+  "term": "der Abgang",
+  "en": "departure (from a club or post)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Sein Abgang kam völlig überraschend.",
+    "en": "His departure came as a complete surprise."
+   },
+   {
+    "de": "Nach mehreren Abgängen fehlt der Mannschaft Erfahrung.",
+    "en": "After several departures the team lacks experience."
+   }
+  ]
+ },
+ {
+  "term": "der Pokal",
+  "en": "cup, trophy",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Pokal steht im Vereinsheim.",
+    "en": "The cup is in the clubhouse."
+   },
+   {
+    "de": "Sie haben schon drei Pokale gewonnen.",
+    "en": "They have already won three cups."
+   }
+  ]
+ },
+ {
+  "term": "der Superstar",
+  "en": "superstar",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Entertainment & Media",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Superstar kam eine Stunde zu spät.",
+    "en": "The superstar arrived an hour late."
+   },
+   {
+    "de": "Solche Superstars sieht man selten von Nahem.",
+    "en": "You rarely see superstars like that up close."
+   }
+  ]
+ },
+ {
+  "term": "das Präsent",
+  "en": "gift, present",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Zum Abschied gab es ein kleines Präsent.",
+    "en": "There was a small gift as a farewell."
+   },
+   {
+    "de": "Die Präsente wurden persönlich überreicht.",
+    "en": "The gifts were handed over in person."
+   }
+  ]
+ },
+ {
+  "term": "der Sonntagmorgen",
+  "en": "Sunday morning",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Days & dates",
+  "ex": [
+   {
+    "de": "Der Sonntagmorgen gehört mir allein.",
+    "en": "Sunday morning belongs to me alone."
+   },
+   {
+    "de": "Am Sonntagmorgen ist die Stadt sehr ruhig.",
+    "en": "On Sunday morning the city is very quiet."
+   }
+  ]
+ },
+ {
+  "term": "die Startelf",
+  "en": "starting eleven",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er steht zum ersten Mal in der Startelf.",
+    "en": "He is in the starting eleven for the first time."
+   },
+   {
+    "de": "Die Startelf wird eine Stunde vorher bekannt gegeben.",
+    "en": "The starting eleven is announced an hour beforehand."
+   }
+  ]
+ }
+]

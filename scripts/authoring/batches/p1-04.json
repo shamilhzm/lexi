@@ -1,0 +1,554 @@
+[
+ {
+  "term": "der Neuzugang",
+  "en": "new signing; new arrival",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Neuzugang spielte von Anfang an.",
+    "en": "The new signing played from the start."
+   },
+   {
+    "de": "Über den Neuzugang wird viel geredet.",
+    "en": "There is a lot of talk about the new signing."
+   }
+  ]
+ },
+ {
+  "term": "der Hinblick",
+  "en": "regard, respect (in the phrase 'im Hinblick auf')",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Im Hinblick auf die Kosten ist das keine gute Idee.",
+    "en": "With regard to the costs that is not a good idea."
+   },
+   {
+    "de": "Im Hinblick auf ihre Erfahrung war die Wahl klar.",
+    "en": "In view of her experience the choice was clear."
+   }
+  ]
+ },
+ {
+  "term": "der Polizist",
+  "en": "police officer",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Polizist wollte meinen Ausweis sehen.",
+    "en": "The police officer wanted to see my ID."
+   },
+   {
+    "de": "Zwei Polizisten standen vor der Tür.",
+    "en": "Two police officers were standing at the door."
+   }
+  ]
+ },
+ {
+  "term": "der Bach",
+  "en": "stream, brook",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Hinter dem Haus fließt ein kleiner Bach.",
+    "en": "A small stream flows behind the house."
+   },
+   {
+    "de": "Der Bach ist im Sommer fast trocken.",
+    "en": "The stream is almost dry in summer."
+   }
+  ]
+ },
+ {
+  "term": "das Trio",
+  "en": "trio",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Music & Theatre",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Trio spielt heute Abend im Park.",
+    "en": "The trio is playing in the park this evening."
+   },
+   {
+    "de": "Sie gehört seit Jahren zum Trio.",
+    "en": "She has been part of the trio for years."
+   }
+  ]
+ },
+ {
+  "term": "die Entwarnung",
+  "en": "the all-clear",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Am Abend gab die Polizei Entwarnung.",
+    "en": "In the evening the police gave the all-clear."
+   },
+   {
+    "de": "Die Entwarnung kam erst nach zwei Stunden.",
+    "en": "The all-clear only came after two hours."
+   }
+  ]
+ },
+ {
+  "term": "das Freibad",
+  "en": "outdoor swimming pool",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Das Freibad öffnet im Mai.",
+    "en": "The outdoor pool opens in May."
+   },
+   {
+    "de": "Im Freibad war heute sehr viel los.",
+    "en": "The outdoor pool was very busy today."
+   }
+  ]
+ },
+ {
+  "term": "der Stoff",
+  "en": "fabric, material; subject matter",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Materials",
+  "ex": [
+   {
+    "de": "Der Stoff fühlt sich sehr weich an.",
+    "en": "The fabric feels very soft."
+   },
+   {
+    "de": "Aus diesem Stoff näht sie Kleider.",
+    "en": "She sews dresses from this fabric."
+   }
+  ]
+ },
+ {
+  "term": "der Frust",
+  "en": "frustration",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Nach der Niederlage war der Frust groß.",
+    "en": "After the defeat the frustration was great."
+   },
+   {
+    "de": "Sein Frust ist gut zu verstehen.",
+    "en": "His frustration is easy to understand."
+   }
+  ]
+ },
+ {
+  "term": "der Notarzt",
+  "en": "emergency doctor",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Doctor & Pharmacy",
+  "ex": [
+   {
+    "de": "Der Notarzt war nach fünf Minuten da.",
+    "en": "The emergency doctor was there after five minutes."
+   },
+   {
+    "de": "Ohne den Notarzt hätte er nicht überlebt.",
+    "en": "He would not have survived without the emergency doctor."
+   }
+  ]
+ },
+ {
+  "term": "bekanntlich",
+  "en": "as is well known",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Geld macht bekanntlich nicht glücklich.",
+    "en": "Money, as is well known, does not make you happy."
+   },
+   {
+    "de": "Sie ist bekanntlich keine Freundin von Kompromissen.",
+    "en": "She is, as is well known, no friend of compromises."
+   }
+  ]
+ },
+ {
+  "term": "die Homepage",
+  "en": "homepage",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Digital World & Technology",
+  "gender": "die",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Die Homepage wurde komplett neu gestaltet.",
+    "en": "The homepage was completely redesigned."
+   },
+   {
+    "de": "Auf der Homepage stehen alle Termine.",
+    "en": "All the dates are on the homepage."
+   }
+  ]
+ },
+ {
+  "term": "die Menschheit",
+  "en": "humanity, mankind",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Ethical Concepts",
+  "ex": [
+   {
+    "de": "Die Menschheit steht vor großen Aufgaben.",
+    "en": "Humanity faces great tasks."
+   },
+   {
+    "de": "Das ist ein Gewinn für die ganze Menschheit.",
+    "en": "That is a gain for all of humanity."
+   }
+  ]
+ },
+ {
+  "term": "pleite",
+  "en": "broke, bankrupt",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Am Monatsende bin ich immer pleite.",
+    "en": "At the end of the month I am always broke."
+   },
+   {
+    "de": "Die Firma ist seit gestern pleite.",
+    "en": "The company has been bankrupt since yesterday."
+   }
+  ]
+ },
+ {
+  "term": "die Ära",
+  "en": "era",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Mit ihm endet eine ganze Ära.",
+    "en": "A whole era ends with him."
+   },
+   {
+    "de": "Die Ära des billigen Gases ist vorbei.",
+    "en": "The era of cheap gas is over."
+   }
+  ]
+ },
+ {
+  "term": "der Samstagmorgen",
+  "en": "Saturday morning",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Days & dates",
+  "ex": [
+   {
+    "de": "Der Samstagmorgen ist zum Ausschlafen da.",
+    "en": "Saturday morning is for sleeping in."
+   },
+   {
+    "de": "Am Samstagmorgen gehen wir auf den Markt.",
+    "en": "On Saturday morning we go to the market."
+   }
+  ]
+ },
+ {
+  "term": "der Schwung",
+  "en": "momentum, verve",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Die Mannschaft hat ihren Schwung verloren.",
+    "en": "The team has lost its momentum."
+   },
+   {
+    "de": "Mit neuem Schwung ging es in die zweite Hälfte.",
+    "en": "They went into the second half with new momentum."
+   }
+  ]
+ },
+ {
+  "term": "der Meilenstein",
+  "en": "milestone",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Der Vertrag ist ein Meilenstein für die Firma.",
+    "en": "The contract is a milestone for the company."
+   },
+   {
+    "de": "Das Projekt hat mehrere Meilensteine.",
+    "en": "The project has several milestones."
+   }
+  ]
+ },
+ {
+  "term": "der Index",
+  "en": "index",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Index ist um zwei Prozent gefallen.",
+    "en": "The index fell by two per cent."
+   },
+   {
+    "de": "Am Index lässt sich die Stimmung gut ablesen.",
+    "en": "The mood can be read well from the index."
+   }
+  ]
+ },
+ {
+  "term": "das Regime",
+  "en": "regime",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Regime hat die Wahlen abgesagt.",
+    "en": "The regime cancelled the elections."
+   },
+   {
+    "de": "Unter dem Regime durfte niemand frei reden.",
+    "en": "Under the regime nobody was allowed to speak freely."
+   }
+  ]
+ },
+ {
+  "term": "der Gottesdienst",
+  "en": "church service",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Der Gottesdienst beginnt um zehn Uhr.",
+    "en": "The church service begins at ten o'clock."
+   },
+   {
+    "de": "Nach dem Gottesdienst gab es Kaffee.",
+    "en": "There was coffee after the church service."
+   }
+  ]
+ },
+ {
+  "term": "der Anlauf",
+  "en": "attempt; run-up",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Im dritten Anlauf hat es endlich geklappt.",
+    "en": "It finally worked on the third attempt."
+   },
+   {
+    "de": "Der Anlauf war zu kurz für einen weiten Sprung.",
+    "en": "The run-up was too short for a long jump."
+   }
+  ]
+ },
+ {
+  "term": "die Kreativität",
+  "en": "creativity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Aesthetic Concepts",
+  "ex": [
+   {
+    "de": "Für diese Arbeit braucht man viel Kreativität.",
+    "en": "You need a lot of creativity for this work."
+   },
+   {
+    "de": "Ihre Kreativität hat mich sehr beeindruckt.",
+    "en": "Her creativity impressed me a great deal."
+   }
+  ]
+ },
+ {
+  "term": "zeitgleich",
+  "en": "at the same time, simultaneously",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Beide Konzerte finden zeitgleich statt.",
+    "en": "Both concerts take place at the same time."
+   },
+   {
+    "de": "Zeitgleich stieg auch der Preis für Strom.",
+    "en": "At the same time the price of electricity also rose."
+   }
+  ]
+ },
+ {
+  "term": "der Sonnenschein",
+  "en": "sunshine",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Weather",
+  "ex": [
+   {
+    "de": "Bei Sonnenschein sitzen wir draußen.",
+    "en": "When there is sunshine we sit outside."
+   },
+   {
+    "de": "Der Sonnenschein hielt den ganzen Tag an.",
+    "en": "The sunshine lasted all day."
+   }
+  ]
+ },
+ {
+  "term": "der Vorstoß",
+  "en": "initiative, push (a proposal)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "ex": [
+   {
+    "de": "Der Vorstoß der Regierung kam zu spät.",
+    "en": "The government's initiative came too late."
+   },
+   {
+    "de": "Gegen diesen Vorstoß gab es sofort Kritik.",
+    "en": "There was immediate criticism of this initiative."
+   }
+  ]
+ },
+ {
+  "term": "die Krönung",
+  "en": "coronation; crowning achievement",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Cultural Identity",
+  "ex": [
+   {
+    "de": "Die Krönung fand vor sechzig Jahren statt.",
+    "en": "The coronation took place sixty years ago."
+   },
+   {
+    "de": "Der Titel war die Krönung seiner Karriere.",
+    "en": "The title was the crowning achievement of his career."
+   }
+  ]
+ },
+ {
+  "term": "drastisch",
+  "en": "drastic, drastically",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Preise sind drastisch gestiegen.",
+    "en": "Prices have risen drastically."
+   },
+   {
+    "de": "Er wählte sehr drastische Worte.",
+    "en": "He chose very drastic words."
+   }
+  ]
+ },
+ {
+  "term": "der Stillstand",
+  "en": "standstill",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Verhandlungen sind zum Stillstand gekommen.",
+    "en": "The negotiations have come to a standstill."
+   },
+   {
+    "de": "Ein Stillstand wäre für alle teuer.",
+    "en": "A standstill would be expensive for everyone."
+   }
+  ]
+ },
+ {
+  "term": "der Unfallort",
+  "en": "the scene of the accident",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Am Unfallort waren drei Rettungswagen.",
+    "en": "There were three ambulances at the scene of the accident."
+   },
+   {
+    "de": "Der Unfallort wurde weiträumig abgesperrt.",
+    "en": "The scene of the accident was cordoned off over a wide area."
+   }
+  ]
+ },
+ {
+  "term": "die Ausweitung",
+  "en": "extension, expansion (of a scheme)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Die Ausweitung der Kontrollen war umstritten.",
+    "en": "The extension of the checks was controversial."
+   },
+   {
+    "de": "Über eine Ausweitung wird noch verhandelt.",
+    "en": "An extension is still being negotiated."
+   }
+  ]
+ },
+ {
+  "term": "das Horn",
+  "en": "horn (instrument or of an animal)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Er spielt seit zehn Jahren Horn.",
+    "en": "He has played the horn for ten years."
+   },
+   {
+    "de": "Das Horn klingt tiefer als die Trompete.",
+    "en": "The horn sounds lower than the trumpet."
+   }
+  ]
+ }
+]

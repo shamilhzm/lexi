@@ -19,6 +19,7 @@
     "corpus:dictgap": "node scripts/corpus/dictgap.ts",
     "corpus:lexicon": "node scripts/corpus/lexicon.ts",
     "corpus:inflections": "node scripts/corpus/inflections.ts",
+    "corpus:candidates": "node scripts/corpus/candidates.ts",
     "corpus:examples": "node scripts/corpus/examples.ts",
     "corpus:definitions": "node scripts/corpus/definitions.ts",
     "corpus:germandef": "node scripts/corpus/germandef.ts",

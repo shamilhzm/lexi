@@ -1,0 +1,632 @@
+[
+ {
+  "term": "gezielt",
+  "en": "targeted, deliberate",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Polizei sucht gezielt nach Zeugen.",
+    "en": "The police are searching specifically for witnesses."
+   },
+   {
+    "de": "Das war eine ganz gezielte Frage.",
+    "en": "That was a very deliberate question."
+   }
+  ]
+ },
+ {
+  "term": "das Comeback",
+  "en": "comeback",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Nach zwei Jahren feiert sie ihr Comeback.",
+    "en": "After two years she is making her comeback."
+   },
+   {
+    "de": "Solche Comebacks gelingen selten.",
+    "en": "Comebacks like that rarely succeed."
+   }
+  ]
+ },
+ {
+  "term": "das Lager",
+  "en": "warehouse, store; camp",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "gender": "das",
+  "ex": [
+   {
+    "de": "Die Ware liegt noch im Lager.",
+    "en": "The goods are still in the warehouse."
+   },
+   {
+    "de": "Beide Lager sind fast leer.",
+    "en": "Both warehouses are almost empty."
+   }
+  ]
+ },
+ {
+  "term": "der Torhüter",
+  "en": "goalkeeper",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Torhüter hielt den Ball sicher fest.",
+    "en": "The goalkeeper held on to the ball safely."
+   },
+   {
+    "de": "Beide Torhüter spielten stark.",
+    "en": "Both goalkeepers played strongly."
+   }
+  ]
+ },
+ {
+  "term": "der Saal",
+  "en": "hall, large room",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Art & Sights",
+  "ex": [
+   {
+    "de": "Der Saal war bis auf den letzten Platz besetzt.",
+    "en": "The hall was full to the last seat."
+   },
+   {
+    "de": "Im großen Saal finden die Konzerte statt.",
+    "en": "The concerts take place in the large hall."
+   }
+  ]
+ },
+ {
+  "term": "der Einzug",
+  "en": "moving in (to a home)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Vor dem Einzug muss die Wohnung gestrichen werden.",
+    "en": "The flat has to be painted before the move-in."
+   },
+   {
+    "de": "Der Einzug ist für Mai geplant.",
+    "en": "The move-in is planned for May."
+   }
+  ]
+ },
+ {
+  "term": "der Tourismus",
+  "en": "tourism",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Der Tourismus ist die wichtigste Einnahmequelle der Region.",
+    "en": "Tourism is the region's most important source of income."
+   },
+   {
+    "de": "Vom Tourismus leben hier viele Familien.",
+    "en": "Many families here live off tourism."
+   }
+  ]
+ },
+ {
+  "term": "der Vordergrund",
+  "en": "foreground; the centre of attention",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Im Vordergrund steht die Sicherheit der Gäste.",
+    "en": "The safety of the guests is the priority."
+   },
+   {
+    "de": "Der Vordergrund des Bildes ist sehr dunkel.",
+    "en": "The foreground of the picture is very dark."
+   }
+  ]
+ },
+ {
+  "term": "der Stil",
+  "en": "style",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Aesthetic Concepts",
+  "ex": [
+   {
+    "de": "Sein Stil hat sich stark verändert.",
+    "en": "His style has changed a lot."
+   },
+   {
+    "de": "Die beiden Stile passen gut zusammen.",
+    "en": "The two styles go well together."
+   }
+  ]
+ },
+ {
+  "term": "der Rücktritt",
+  "en": "resignation (from office)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "ex": [
+   {
+    "de": "Sein Rücktritt kam für alle überraschend.",
+    "en": "His resignation came as a surprise to everyone."
+   },
+   {
+    "de": "Die Opposition fordert den Rücktritt der Ministerin.",
+    "en": "The opposition is demanding the minister's resignation."
+   }
+  ]
+ },
+ {
+  "term": "der Senat",
+  "en": "senate",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "ex": [
+   {
+    "de": "Der Senat hat dem Gesetz zugestimmt.",
+    "en": "The senate approved the law."
+   },
+   {
+    "de": "Im Senat sitzen Vertreter aller Bezirke.",
+    "en": "Representatives of all districts sit in the senate."
+   }
+  ]
+ },
+ {
+  "term": "der Deal",
+  "en": "deal",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Deal wurde in letzter Minute abgesagt.",
+    "en": "The deal was called off at the last minute."
+   },
+   {
+    "de": "Solche Deals sind selten transparent.",
+    "en": "Deals like that are rarely transparent."
+   }
+  ]
+ },
+ {
+  "term": "bedenken",
+  "en": "to consider, to bear in mind",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Core verbs",
+  "ex": [
+   {
+    "de": "Man muss bedenken, dass er noch sehr jung ist.",
+    "en": "One has to bear in mind that he is still very young."
+   },
+   {
+    "de": "Wir sollten die Folgen genau bedenken.",
+    "en": "We should consider the consequences carefully."
+   }
+  ]
+ },
+ {
+  "term": "der Moderator",
+  "en": "presenter, host (of a programme)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Der Moderator stellte eine unangenehme Frage.",
+    "en": "The presenter asked an awkward question."
+   },
+   {
+    "de": "Beide Moderatoren arbeiten seit Jahren zusammen.",
+    "en": "Both presenters have worked together for years."
+   }
+  ]
+ },
+ {
+  "term": "der Podcast",
+  "en": "podcast",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Media",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Ich höre den Podcast immer im Zug.",
+    "en": "I always listen to the podcast on the train."
+   },
+   {
+    "de": "Sie hat schon über hundert Podcasts aufgenommen.",
+    "en": "She has already recorded over a hundred podcasts."
+   }
+  ]
+ },
+ {
+  "term": "der Einbruch",
+  "en": "burglary, break-in",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Der Einbruch wurde erst am Morgen bemerkt.",
+    "en": "The burglary was only noticed in the morning."
+   },
+   {
+    "de": "In diesem Viertel gab es mehrere Einbrüche.",
+    "en": "There were several burglaries in this district."
+   }
+  ]
+ },
+ {
+  "term": "das Duo",
+  "en": "duo",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Music & Theatre",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Duo spielt seit zehn Jahren zusammen.",
+    "en": "The duo has played together for ten years."
+   },
+   {
+    "de": "Beide Duos treten am Samstag auf.",
+    "en": "Both duos are performing on Saturday."
+   }
+  ]
+ },
+ {
+  "term": "der Kaiser",
+  "en": "emperor",
+  "pos": "noun",
+  "level": "B2",
+  "field": "History of Berlin",
+  "ex": [
+   {
+    "de": "Der Kaiser wohnte damals in diesem Schloss.",
+    "en": "The emperor lived in this palace at the time."
+   },
+   {
+    "de": "Die Kaiser regierten hier über dreihundert Jahre.",
+    "en": "The emperors ruled here for over three hundred years."
+   }
+  ]
+ },
+ {
+  "term": "der Torwart",
+  "en": "goalkeeper",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Torwart wurde zum Spieler des Spiels gewählt.",
+    "en": "The goalkeeper was voted player of the match."
+   },
+   {
+    "de": "Ohne einen guten Torwart gewinnt man kein Spiel.",
+    "en": "You do not win a match without a good goalkeeper."
+   }
+  ]
+ },
+ {
+  "term": "der Weihnachtsmarkt",
+  "en": "Christmas market",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Der Weihnachtsmarkt öffnet Ende November.",
+    "en": "The Christmas market opens at the end of November."
+   },
+   {
+    "de": "In der Stadt gibt es drei Weihnachtsmärkte.",
+    "en": "There are three Christmas markets in the city."
+   }
+  ]
+ },
+ {
+  "term": "der Ring",
+  "en": "ring",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Clothing",
+  "ex": [
+   {
+    "de": "Der Ring war ein Geschenk ihrer Großmutter.",
+    "en": "The ring was a present from her grandmother."
+   },
+   {
+    "de": "Sie trägt an beiden Händen Ringe.",
+    "en": "She wears rings on both hands."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Ruhestand",
+  "en": "retirement",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Er geht nächstes Jahr in den Ruhestand.",
+    "en": "He is retiring next year."
+   },
+   {
+    "de": "Im Ruhestand hat sie endlich Zeit zum Malen.",
+    "en": "In retirement she finally has time to paint."
+   }
+  ]
+ },
+ {
+  "term": "der Papst",
+  "en": "pope",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Cultural Identity",
+  "ex": [
+   {
+    "de": "Der Papst sprach vor tausenden Menschen.",
+    "en": "The pope spoke in front of thousands of people."
+   },
+   {
+    "de": "Zwei Päpste lebten damals gleichzeitig.",
+    "en": "Two popes were alive at the same time back then."
+   }
+  ]
+ },
+ {
+  "term": "der Kritiker",
+  "en": "critic",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Der Kritiker fand den Film enttäuschend.",
+    "en": "The critic found the film disappointing."
+   },
+   {
+    "de": "Die Kritiker waren sich diesmal einig.",
+    "en": "The critics agreed this time."
+   }
+  ]
+ },
+ {
+  "term": "das Highlight",
+  "en": "highlight",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Entertainment & Media",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Highlight des Abends war das letzte Lied.",
+    "en": "The highlight of the evening was the last song."
+   },
+   {
+    "de": "Die Highlights kann man online nachsehen.",
+    "en": "You can watch the highlights online."
+   }
+  ]
+ },
+ {
+  "term": "der Schock",
+  "en": "shock",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Nachricht war ein großer Schock für sie.",
+    "en": "The news was a great shock for her."
+   },
+   {
+    "de": "Er stand noch unter Schock.",
+    "en": "He was still in shock."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "das Studio",
+  "en": "studio",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Media",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Studio liegt im dritten Stock.",
+    "en": "The studio is on the third floor."
+   },
+   {
+    "de": "Beide Studios sind heute belegt.",
+    "en": "Both studios are booked today."
+   }
+  ]
+ },
+ {
+  "term": "das Unglück",
+  "en": "accident, disaster; misfortune",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Bei dem Unglück wurde niemand verletzt.",
+    "en": "Nobody was injured in the accident."
+   },
+   {
+    "de": "Solche Unglücke lassen sich nicht ganz verhindern.",
+    "en": "Accidents like that cannot be entirely prevented."
+   }
+  ]
+ },
+ {
+  "term": "der Landrat",
+  "en": "district administrator (head of a rural district)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Landrat hat den Notstand ausgerufen.",
+    "en": "The district administrator declared a state of emergency."
+   },
+   {
+    "de": "Mehrere Landräte forderten mehr Geld vom Bund.",
+    "en": "Several district administrators demanded more money from the federal government."
+   }
+  ]
+ },
+ {
+  "term": "der Fonds",
+  "en": "fund (financial)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Der Fonds investiert vor allem in Europa.",
+    "en": "The fund invests mainly in Europe."
+   },
+   {
+    "de": "Viele Fonds haben im letzten Jahr verloren.",
+    "en": "Many funds lost money last year."
+   }
+  ]
+ },
+ {
+  "term": "der Zähler",
+  "en": "meter (for electricity, gas or water)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Der Zähler steht im Keller.",
+    "en": "The meter is in the cellar."
+   },
+   {
+    "de": "Einmal im Jahr werden die Zähler abgelesen.",
+    "en": "The meters are read once a year."
+   }
+  ]
+ },
+ {
+  "term": "das Derby",
+  "en": "derby",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Derby endete ohne Tore.",
+    "en": "The derby ended goalless."
+   },
+   {
+    "de": "Solche Derbys sind immer ausverkauft.",
+    "en": "Derbies like that are always sold out."
+   }
+  ]
+ },
+ {
+  "term": "registriert",
+  "en": "registered",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Nur registrierte Nutzer dürfen schreiben.",
+    "en": "Only registered users may post."
+   },
+   {
+    "de": "Sein Auto ist noch in Österreich registriert.",
+    "en": "His car is still registered in Austria."
+   }
+  ]
+ },
+ {
+  "term": "minus",
+  "en": "minus",
+  "pos": "adverb",
+  "level": "B1",
+  "field": "Numbers",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Heute Nacht wird es minus fünf Grad.",
+    "en": "Tonight it will be minus five degrees."
+   },
+   {
+    "de": "Zehn minus drei ist sieben.",
+    "en": "Ten minus three is seven."
+   }
+  ]
+ },
+ {
+  "term": "der Republikaner",
+  "en": "Republican (member of the US party)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Elections",
+  "ex": [
+   {
+    "de": "Der Republikaner gewann den Bundesstaat knapp.",
+    "en": "The Republican narrowly won the state."
+   },
+   {
+    "de": "Die Republikaner stellen im Senat die Mehrheit.",
+    "en": "The Republicans hold the majority in the senate."
+   }
+  ]
+ },
+ {
+  "term": "das Abseits",
+  "en": "offside (in football)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Schiedsrichter entschied auf Abseits.",
+    "en": "The referee gave offside."
+   },
+   {
+    "de": "Das Tor zählte nicht, weil er im Abseits stand.",
+    "en": "The goal did not count because he was offside."
+   }
+  ]
+ }
+]

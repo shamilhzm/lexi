@@ -1,0 +1,713 @@
+[
+ {
+  "term": "explizit",
+  "en": "explicit, explicitly",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das steht so nicht explizit im Vertrag.",
+    "en": "That is not explicitly stated in the contract."
+   },
+   {
+    "de": "Sie hat explizit nach dir gefragt.",
+    "en": "She asked for you explicitly."
+   }
+  ]
+ },
+ {
+  "term": "der Jubel",
+  "en": "cheering, jubilation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Nach dem Tor brach großer Jubel aus.",
+    "en": "Great cheering broke out after the goal."
+   },
+   {
+    "de": "Der Jubel war im ganzen Stadion zu hören.",
+    "en": "The cheering could be heard throughout the stadium."
+   }
+  ]
+ },
+ {
+  "term": "parat",
+  "en": "ready, at hand",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Er hatte sofort eine Antwort parat.",
+    "en": "He had an answer ready at once."
+   },
+   {
+    "de": "Halten Sie bitte Ihren Ausweis parat.",
+    "en": "Please have your ID ready."
+   }
+  ]
+ },
+ {
+  "term": "die Flexibilität",
+  "en": "flexibility",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Der Job verlangt viel Flexibilität.",
+    "en": "The job demands a lot of flexibility."
+   },
+   {
+    "de": "Ihre Flexibilität hat das Projekt gerettet.",
+    "en": "Her flexibility saved the project."
+   }
+  ]
+ },
+ {
+  "term": "der Campus",
+  "en": "campus",
+  "pos": "noun",
+  "level": "B2",
+  "field": "At the University",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Campus liegt etwas außerhalb der Stadt.",
+    "en": "The campus is a little outside the city."
+   },
+   {
+    "de": "Auf dem Campus gibt es drei Mensen.",
+    "en": "There are three canteens on the campus."
+   }
+  ]
+ },
+ {
+  "term": "die Zuwanderung",
+  "en": "immigration",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emigration & immigration",
+  "ex": [
+   {
+    "de": "Über die Zuwanderung wird heftig gestritten.",
+    "en": "Immigration is fiercely debated."
+   },
+   {
+    "de": "Ohne Zuwanderung würde die Bevölkerung schrumpfen.",
+    "en": "Without immigration the population would shrink."
+   }
+  ]
+ },
+ {
+  "term": "das Zelt",
+  "en": "tent",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Accommodation",
+  "ex": [
+   {
+    "de": "Das Zelt stand direkt am See.",
+    "en": "The tent stood right by the lake."
+   },
+   {
+    "de": "Wir haben zwei Zelte mitgenommen.",
+    "en": "We took two tents with us."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "exklusiv",
+  "en": "exclusive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das Interview erschien exklusiv in dieser Zeitung.",
+    "en": "The interview appeared exclusively in this newspaper."
+   },
+   {
+    "de": "Der Club ist sehr exklusiv.",
+    "en": "The club is very exclusive."
+   }
+  ]
+ },
+ {
+  "term": "deutschlandweit",
+  "en": "nationwide (in Germany)",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Aktion läuft deutschlandweit.",
+    "en": "The campaign is running nationwide."
+   },
+   {
+    "de": "Er ist deutschlandweit bekannt.",
+    "en": "He is known throughout Germany."
+   }
+  ]
+ },
+ {
+  "term": "das Image",
+  "en": "image",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Advertising & Consumption",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Image der Marke hat gelitten.",
+    "en": "The brand's image has suffered."
+   },
+   {
+    "de": "An ihrem Image arbeitet sie hart.",
+    "en": "She works hard on her image."
+   }
+  ]
+ },
+ {
+  "term": "das Asyl",
+  "en": "asylum (protection for refugees)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emigration & immigration",
+  "ex": [
+   {
+    "de": "Er hat in Deutschland Asyl beantragt.",
+    "en": "He applied for asylum in Germany."
+   },
+   {
+    "de": "Das Asyl wurde nach zwei Jahren gewährt.",
+    "en": "The asylum was granted after two years."
+   }
+  ]
+ },
+ {
+  "term": "der Zuwachs",
+  "en": "increase, growth",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Der Zuwachs lag bei drei Prozent.",
+    "en": "The increase was three per cent."
+   },
+   {
+    "de": "Einen solchen Zuwachs hatte niemand erwartet.",
+    "en": "Nobody had expected such an increase."
+   }
+  ]
+ },
+ {
+  "term": "der Abbau",
+  "en": "reduction, cutting back; mining",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Der Abbau von Stellen geht weiter.",
+    "en": "The cutting of jobs continues."
+   },
+   {
+    "de": "Beim Abbau der Kohle arbeiteten tausende Menschen.",
+    "en": "Thousands of people worked mining the coal."
+   }
+  ]
+ },
+ {
+  "term": "der Anpfiff",
+  "en": "kick-off (start of a match)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Anpfiff ist um halb vier.",
+    "en": "Kick-off is at half past three."
+   },
+   {
+    "de": "Kurz nach dem Anpfiff fiel das erste Tor.",
+    "en": "The first goal came shortly after kick-off."
+   }
+  ]
+ },
+ {
+  "term": "vergeblich",
+  "en": "in vain, futile",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Alle Versuche waren vergeblich.",
+    "en": "All attempts were in vain."
+   },
+   {
+    "de": "Wir haben vergeblich auf ihn gewartet.",
+    "en": "We waited for him in vain."
+   }
+  ]
+ },
+ {
+  "term": "kurzzeitig",
+  "en": "briefly, for a short time",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Straße war kurzzeitig gesperrt.",
+    "en": "The road was briefly closed."
+   },
+   {
+    "de": "Es gab eine kurzzeitige Unterbrechung.",
+    "en": "There was a brief interruption."
+   }
+  ]
+ },
+ {
+  "term": "der Graf",
+  "en": "count, earl",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Cultural Identity",
+  "ex": [
+   {
+    "de": "Der Graf lebte in diesem Schloss.",
+    "en": "The count lived in this castle."
+   },
+   {
+    "de": "Zwei Grafen stritten um das Land.",
+    "en": "Two counts quarrelled over the land."
+   }
+  ]
+ },
+ {
+  "term": "das Volumen",
+  "en": "volume (capacity or amount)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Das Volumen des Behälters beträgt zwei Liter.",
+    "en": "The volume of the container is two litres."
+   },
+   {
+    "de": "Das Volumen der Aufträge ist gestiegen.",
+    "en": "The volume of orders has risen."
+   }
+  ]
+ },
+ {
+  "term": "das Podium",
+  "en": "podium",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Sie stand zum ersten Mal auf dem Podium.",
+    "en": "She stood on the podium for the first time."
+   },
+   {
+    "de": "Das Podium war für die Gäste reserviert.",
+    "en": "The podium was reserved for the guests."
+   }
+  ]
+ },
+ {
+  "term": "das Eigentum",
+  "en": "property, ownership",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Das Haus ist ihr Eigentum.",
+    "en": "The house is her property."
+   },
+   {
+    "de": "Fremdes Eigentum darf man nicht beschädigen.",
+    "en": "You must not damage other people's property."
+   }
+  ]
+ },
+ {
+  "term": "gegenwärtig",
+  "en": "current, at present",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die gegenwärtige Lage ist schwierig.",
+    "en": "The current situation is difficult."
+   },
+   {
+    "de": "Gegenwärtig arbeiten dort zwanzig Menschen.",
+    "en": "At present twenty people work there."
+   }
+  ]
+ },
+ {
+  "term": "die Beliebtheit",
+  "en": "popularity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Die Beliebtheit der Sendung nimmt ab.",
+    "en": "The popularity of the programme is decreasing."
+   },
+   {
+    "de": "Seine Beliebtheit hat ihn selbst überrascht.",
+    "en": "His popularity surprised even him."
+   }
+  ]
+ },
+ {
+  "term": "der Vorgang",
+  "en": "process; incident, case",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der ganze Vorgang dauert nur wenige Minuten.",
+    "en": "The whole process only takes a few minutes."
+   },
+   {
+    "de": "Solche Vorgänge müssen dokumentiert werden.",
+    "en": "Processes like that have to be documented."
+   }
+  ]
+ },
+ {
+  "term": "der Parteitag",
+  "en": "party conference",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Elections",
+  "ex": [
+   {
+    "de": "Der Parteitag findet im März statt.",
+    "en": "The party conference takes place in March."
+   },
+   {
+    "de": "Auf dem Parteitag wurde heftig diskutiert.",
+    "en": "There was heated discussion at the party conference."
+   }
+  ]
+ },
+ {
+  "term": "die Kriminalität",
+  "en": "crime (as a phenomenon)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Die Kriminalität ist im letzten Jahr gesunken.",
+    "en": "Crime fell last year."
+   },
+   {
+    "de": "Gegen die Kriminalität hilft nur Prävention.",
+    "en": "Only prevention helps against crime."
+   }
+  ]
+ },
+ {
+  "term": "weitaus",
+  "en": "by far",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Das ist weitaus besser als erwartet.",
+    "en": "That is far better than expected."
+   },
+   {
+    "de": "Sie hat weitaus mehr Erfahrung als er.",
+    "en": "She has far more experience than he does."
+   }
+  ]
+ },
+ {
+  "term": "potenziell",
+  "en": "potential, potentially",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das ist ein potenziell gefährlicher Stoff.",
+    "en": "That is a potentially dangerous substance."
+   },
+   {
+    "de": "Wir sprechen mit potenziellen Kunden.",
+    "en": "We are talking to potential customers."
+   }
+  ]
+ },
+ {
+  "term": "der Terror",
+  "en": "terror",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Global Challenges",
+  "gender": "der",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Terror hat das Land jahrelang gelähmt.",
+    "en": "Terror paralysed the country for years."
+   },
+   {
+    "de": "Gegen den Terror hilft kein einfaches Rezept.",
+    "en": "There is no simple recipe against terror."
+   }
+  ]
+ },
+ {
+  "term": "der Herzog",
+  "en": "duke",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Cultural Identity",
+  "ex": [
+   {
+    "de": "Der Herzog ließ die Kirche bauen.",
+    "en": "The duke had the church built."
+   },
+   {
+    "de": "Der Titel Herzog wird bis heute geführt.",
+    "en": "The title of duke is still used today."
+   }
+  ]
+ },
+ {
+  "term": "der Verlag",
+  "en": "publishing house",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Literature",
+  "ex": [
+   {
+    "de": "Der Verlag sitzt in München.",
+    "en": "The publishing house is based in Munich."
+   },
+   {
+    "de": "Sie arbeitet seit Jahren in einem kleinen Verlag.",
+    "en": "She has worked in a small publishing house for years."
+   }
+  ]
+ },
+ {
+  "term": "das Abo",
+  "en": "subscription",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Media",
+  "gender": "das",
+  "ex": [
+   {
+    "de": "Das Abo läuft am Monatsende aus.",
+    "en": "The subscription runs out at the end of the month."
+   },
+   {
+    "de": "Ich habe zu viele Abos.",
+    "en": "I have too many subscriptions."
+   }
+  ]
+ },
+ {
+  "term": "die Delegation",
+  "en": "delegation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Global Challenges",
+  "ex": [
+   {
+    "de": "Die Delegation kam am Morgen an.",
+    "en": "The delegation arrived in the morning."
+   },
+   {
+    "de": "Beide Delegationen sprachen von Fortschritten.",
+    "en": "Both delegations spoke of progress."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "intern",
+  "en": "internal, internally",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Das ist eine rein interne Angelegenheit.",
+    "en": "That is a purely internal matter."
+   },
+   {
+    "de": "Intern wird die Entscheidung längst kritisiert.",
+    "en": "Internally the decision has long been criticised."
+   }
+  ]
+ },
+ {
+  "term": "der Rückschlag",
+  "en": "setback",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Der Rückschlag hat ihn nicht aufgehalten.",
+    "en": "The setback did not stop him."
+   },
+   {
+    "de": "Nach mehreren Rückschlägen gab sie auf.",
+    "en": "After several setbacks she gave up."
+   }
+  ]
+ },
+ {
+  "term": "unerwartet",
+  "en": "unexpected, unexpectedly",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Der Besuch kam völlig unerwartet.",
+    "en": "The visit came completely unexpectedly."
+   },
+   {
+    "de": "Es gab ein unerwartetes Problem.",
+    "en": "There was an unexpected problem."
+   }
+  ]
+ },
+ {
+  "term": "der Rundfunk",
+  "en": "broadcasting",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Der öffentliche Rundfunk wird aus Beiträgen finanziert.",
+    "en": "Public broadcasting is financed by fees."
+   },
+   {
+    "de": "Im Rundfunk wurde die Nachricht sofort gemeldet.",
+    "en": "The news was reported on the radio immediately."
+   }
+  ]
+ },
+ {
+  "term": "das Foul",
+  "en": "foul",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Foul war eindeutig.",
+    "en": "The foul was obvious."
+   },
+   {
+    "de": "Für dieses Foul gab es die rote Karte.",
+    "en": "There was a red card for this foul."
+   }
+  ]
+ },
+ {
+  "term": "das Profil",
+  "en": "profile",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Social Networks",
+  "ex": [
+   {
+    "de": "Sein Profil ist öffentlich sichtbar.",
+    "en": "His profile is publicly visible."
+   },
+   {
+    "de": "Beide Profile wurden gelöscht.",
+    "en": "Both profiles were deleted."
+   }
+  ]
+ },
+ {
+  "term": "das Geschlecht",
+  "en": "gender, sex",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Identity",
+  "ex": [
+   {
+    "de": "Das Geschlecht spielt bei der Bewerbung keine Rolle.",
+    "en": "Gender plays no role in the application."
+   },
+   {
+    "de": "Beide Geschlechter sind gleich vertreten.",
+    "en": "Both genders are equally represented."
+   }
+  ]
+ },
+ {
+  "term": "die Demo",
+  "en": "demonstration, protest march",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Civic Engagement",
+  "gender": "die",
+  "ex": [
+   {
+    "de": "Die Demo beginnt um zwei Uhr am Marktplatz.",
+    "en": "The demonstration starts at two o'clock in the market square."
+   },
+   {
+    "de": "An der Demo nahmen tausende Menschen teil.",
+    "en": "Thousands of people took part in the demonstration."
+   }
+  ]
+ },
+ {
+  "term": "erfolglos",
+  "en": "unsuccessful",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Suche blieb erfolglos.",
+    "en": "The search remained unsuccessful."
+   },
+   {
+    "de": "Nach mehreren erfolglosen Versuchen gab er auf.",
+    "en": "After several unsuccessful attempts he gave up."
+   }
+  ]
+ }
+]
