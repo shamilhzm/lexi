@@ -60,7 +60,13 @@ export type Mode = 'gender' | 'plural' | 'recall';
  *  free-text answer is not a choice between named alternatives. */
 export type Grade = (ok: boolean, detail?: MissDetail) => void;
 
-const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
+/** The headword without its article — *Hose*, not *die Hose*.
+ *
+ *  Exported because it is a *correctness* rule and not a formatting one: the
+ *  article is one of the things these drills ask for, so any surface that prints
+ *  the word while a gender question is pending has to strip it or it is printing
+ *  the answer. `WordDrill`'s header is the second caller. */
+export const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
 /** Case/whitespace-insensitive. */
 const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
 /** Additionally folds umlauts and ß, so "schoen" matches "schön". A norm-only
@@ -461,10 +467,19 @@ function pluralVariants(singular: string): string[] {
   return [endsE ? singular + 'n' : singular + 'e', stem + 'en', stem + 'er', stem + 's', us + 'e', us + 'er', umlaut(singular), singular];
 }
 
-function MCItem({ prompt, sub, hint, options, correct, askedLabel, onGrade }: {
+function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de', big = false, onGrade }: {
   prompt: React.ReactNode; sub?: string; hint?: string; options: string[]; correct: number;
+  /** Display size for the prompt. Small by default: a plural or a gender item
+   *  prints the word *and* four German forms, and two display sizes in one card
+   *  is a card with two subjects. The meaning item has only the word. */
+  big?: boolean;
   /** Name the thing being asked for, when it is not the correct option itself. */
   askedLabel?: string;
+  /** What language the *options* are in. Every drill here but one asks for German
+   *  back, so `de` is the default — but `lang` is not decoration: it is what
+   *  decides which voice reads the option aloud and which hyphenation and quote
+   *  rules apply to it, and English glosses marked as German get both wrong. */
+  optLang?: 'de' | 'en';
   onGrade: Grade;
 }) {
   const [picked, setPicked] = useState<number | null>(null);
@@ -477,7 +492,7 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, onGrade }: {
   });
   return (
     <Card>
-      <Prompt small={sub} gloss={hint} big={false}>{prompt}</Prompt>
+      <Prompt small={sub} gloss={hint} big={big}>{prompt}</Prompt>
       <div className="grid gap-2.5">
         {options.map((o, i) => {
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
@@ -493,7 +508,7 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, onGrade }: {
               {/* icon + colour: right/wrong never rides on colour alone */}
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
-              <span lang="de">{o}</span>
+              <span lang={optLang}>{o}</span>
             </button>
           );
         })}
@@ -521,6 +536,116 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   return <MCItem prompt={<GenderTerm term={word.term} gender={word.gender} />}
     sub="Which form is the plural?" hint={word.en} options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
+
+/** German in, English out — recognition, asked as a choice.
+ *
+ *  ## Why this is not in `MODES`, and grades a different card
+ *
+ *  The other three drills each test a *fact about a word* and get their own FSRS
+ *  card under `gym:<mode>:<id>`. This one tests the thing the **flip** tests —
+ *  do you know what this word means — so it grades `word.id`, the flip's own
+ *  card, and logs no miss, exactly as the flip logs none. Anything else would
+ *  give one learner two independent schedules for one piece of knowledge.
+ *
+ *  It exists because of `WordDrill`: *drill this word* has to have an answer for
+ *  every word, and `eligibleModes` returns nothing at all for a verb or an
+ *  adjective the learner has not learned yet — no gender, no plural, and recall
+ *  gated on the flip being known. Recognition is the drill that word needs, and
+ *  it is the one that unlocks the rest.
+ *
+ *  There is no run of these in the drill picker, deliberately: a run of
+ *  recognition items *is* a session, and Üben already builds a better one.
+ *
+ *  **A four-way choice is easier than the flip's self-report** — a guess is right
+ *  one time in four. That is worth knowing and not worth fixing here: the flip's
+ *  alternative is a learner grading themselves, which is not obviously stricter,
+ *  and the distractors below are drawn from the same part of speech precisely so
+ *  the shape of the options gives nothing away. */
+export function MeaningItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
+  const mc = useMemo(() => meaningOptions(word), [word.id]);
+
+  // One real option and no distractors is not a question. Only reachable for a
+  // part of speech with a single member, which the corpus does not currently
+  // have — but a corpus is a moving thing and a 1-option quiz is a free pass.
+  if (mc.options.length < 2) return null;
+
+  // **The article is stripped, and that is not cosmetic.** `WordDrill` asks this
+  // first and the gender item second, so a prompt reading a pink *die* Hose
+  // prints the answer to the next question above the current one. `GenderItem`
+  // strips for exactly the same reason; this matches it.
+  return <MCItem prompt={stripArticle(word.term)} big
+    sub="What does it mean?" options={mc.options} correct={mc.correct} optLang="en" onGrade={onGrade} />;
+}
+
+/** The four glosses, one of them right. Exported for the test that sweeps the
+ *  whole corpus through it — the distractor rules below are the kind that hold
+ *  for the first hundred words you try by hand and fail on the two hundredth. */
+export function meaningOptions(word: Word): { options: string[]; correct: number } {
+  // Two independent ways a "wrong" option can actually be right, and both have
+  // to be closed or the drill punishes a learner for knowing more than the card:
+  //
+  //   the English side  *das Auto* "car" against a distractor "the car"
+  //   the German side   *anfangen* "to start" against *beginnen* "to begin"
+  //
+  // `glossOverlap` closes the first by sharing a content word. It cannot close
+  // the second — "start" and "begin" have no token in common — so the corpus's
+  // own synonym field does, which is the only thing in the data that knows the
+  // two German words mean the same thing.
+  const syn = synKeys(word);
+  const same = WORDS.filter((w) => w.kind === 'word' && w.id !== word.id
+    && w.pos === word.pos && w.en
+    && !glossOverlap(w.en, word.en)
+    && !syn.has(canon(stripArticle(w.term)))
+    && !synKeys(w).has(canon(stripArticle(word.term))));
+  // Same band first, so the options are four words a learner of this level could
+  // plausibly confuse — not one A1 noun among three C2 ones.
+  const near = same.filter((w) => w.level === word.level);
+  let distract = pickN(near.map((w) => w.en), 3, new Set([norm(word.en)]));
+  if (distract.length < 3) {
+    distract = distract.concat(
+      pickN(same.map((w) => w.en), 3 - distract.length, new Set([norm(word.en), ...distract.map(norm)])),
+    );
+  }
+  return buildMC(word.en, distract);
+}
+
+/** A card's synonyms, keyed the way a headword compares.
+ *
+ *  The field is written both ways round across the corpus — *der Name* lists
+ *  *die Bezeichnung*, and plenty of cards list a synonym that does not list them
+ *  back — so `meaningOptions` asks in both directions rather than trusting it to
+ *  be symmetric. Articles are stripped because half the entries carry one. */
+function synKeys(w: Word): Set<string> {
+  return new Set(w.syn.map((t) => canon(stripArticle(t))));
+}
+
+/** Do two English glosses share a content word?
+ *
+ *  A distractor has to be *wrong*, and "the car" is not a wrong answer for *das
+ *  Auto* just because the card says "car". Content words only: the function words
+ *  are what every gloss shares, and matching on those would reject every
+ *  candidate. This is a *lexical* test and makes no claim to catch synonymy with
+ *  no word in common — see the note in `meaningOptions` for what does. */
+export function glossOverlap(a: string, b: string): boolean {
+  // Two letters is a content word here — *to go* against *to go out* is exactly
+  // the pair this has to catch, and a length cutoff of 3 let it through. The
+  // function words are named in the list instead, which is the only way that
+  // does not also throw away `go`, `do`, `be` and `eat`.
+  const words = (s: string) => new Set(
+    s.toLowerCase().split(/[^a-zäöüß]+/).filter((t) => t.length > 1 && !GLOSS_STOP.has(t)));
+  const A = words(a), B = words(b);
+  for (const t of A) if (B.has(t)) return true;
+  return false;
+}
+
+const GLOSS_STOP = new Set([
+  'the', 'and', 'for', 'with', 'that', 'this', 'from', 'have', 'has', 'you', 'your',
+  'something', 'someone', 'sth', 'sb', 'one', 'each', 'any', 'not',
+  // Two-letter function words, listed rather than filtered by length. `out` and
+  // `off` are deliberately *absent*: in an English gloss they are the particle
+  // that distinguishes one German verb from another.
+  'to', 'of', 'in', 'on', 'at', 'by', 'it', 'is', 'as', 'an', 'or', 'so', 'no', 'my',
+]);
 
 /** English in, German out — the productive direction, typed.
  *

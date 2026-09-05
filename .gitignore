@@ -37,3 +37,4 @@ scripts/authoring/batches/inputs/
 
 # Local editor/preview config (launch.json for the dev-server preview).
 .claude/
+.env*

@@ -35,7 +35,7 @@
 // the right order — which is the one thing a feed can inherit from a scheduler
 // and no amount of content budget can buy.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Info, Heart, Bookmark, Volume2, Play, ChevronDown } from 'lucide-react';
+import { Info, Heart, Bookmark, GraduationCap, Volume2, Play, ChevronDown } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
@@ -48,6 +48,7 @@ import { haptic, tick, fmt } from '../lib/ui.ts';
 import { GenderTerm } from '../components/Reveal.tsx';
 import Button from '../components/ui/Button.tsx';
 import WordDetail from '../components/WordDetail.tsx';
+import WordDrill from '../components/WordDrill.tsx';
 import type { Word } from '../types.ts';
 
 /** How many slots exist at once. The feed is unbounded in feel and bounded in
@@ -86,6 +87,10 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
   const order = useMemo(() => feedOrder(), [lvKey]);
   const [count, setCount] = useState(PAGE);
   const [detail, setDetail] = useState<Word | null>(null);
+  // Two sheets, two pieces of state, and never both at once — reading about a
+  // word and being asked about it are opposite activities, and the second one is
+  // ruined by the first being open behind it.
+  const [drill, setDrill] = useState<Word | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
 
   // Grow the list before the learner reaches the end of it. An IntersectionObserver
@@ -128,7 +133,10 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
     <div ref={scroller}
       className="h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
       {cold && <Welcome onStart={onStartFirstRun} />}
-      {slots.map((w) => <Slot key={w.id} word={w} version={v} onInfo={() => setDetail(w)} />)}
+      {slots.map((w) => (
+        <Slot key={w.id} word={w} version={v}
+          onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
+      ))}
       <div ref={sentinel} aria-hidden className="h-px" />
       {count >= order.length && (
         <section className="snap-start h-full flex-shrink-0 grid place-items-center px-8 text-center
@@ -143,6 +151,7 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
         </section>
       )}
       {detail && <WordDetail word={detail} onClose={() => setDetail(null)} />}
+      {drill && <WordDrill word={drill} onClose={() => setDrill(null)} />}
     </div>
   );
 }
@@ -188,7 +197,9 @@ function Welcome({ onStart }: { onStart: () => void }) {
  *  `content-visibility: auto` on the section is what makes a long list cheap: the
  *  browser skips layout and paint for slots that are nowhere near the viewport,
  *  and `contain-intrinsic-size` keeps the scrollbar honest while it does. */
-function Slot({ word, version, onInfo }: { word: Word; version: number; onInfo: () => void }) {
+function Slot({ word, version, onInfo, onDrill }: {
+  word: Word; version: number; onInfo: () => void; onDrill: () => void;
+}) {
   // Read through `version` so a save anywhere re-renders the marks.
   const saved = useMemo(() => isSaved(word.id), [word.id, version]);
   const fave = useMemo(() => isFavourite(word.id), [word.id, version]);
@@ -260,7 +271,16 @@ function Slot({ word, version, onInfo }: { word: Word; version: number; onInfo: 
           </p>
         )}
 
-        <div className="mt-8 flex items-center gap-9">
+        {/* Four, and the fourth is the only one that is a *verb*.
+            ⓘ opens what Lexi knows, ♡ and 🔖 are marks you leave on the word,
+            and the cap is the one control here that does something to you rather
+            than to the card — every drill this word qualifies for, now, without
+            leaving the feed. It carries the tab bar's own Üben icon on purpose:
+            same mark, same idea, one scoped to a word and one to a day.
+            `gap-7` rather than `gap-9`: four 44px targets plus three 36px gaps
+            overflow a 320px phone, and a control you cannot reach is worse than
+            a tighter row. */}
+        <div className="mt-8 flex items-center gap-7">
           <Action label={`What else Lexi knows about ${word.term}`} onClick={onInfo}>
             <Info size={24} strokeWidth={1.6} />
           </Action>
@@ -271,6 +291,9 @@ function Slot({ word, version, onInfo }: { word: Word; version: number; onInfo: 
           <Action label={saved ? `Stop learning ${word.term}` : `Learn ${word.term} — put it in my next session`}
             pressed={saved} onClick={onSave}>
             <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
+          </Action>
+          <Action label={`Practise ${word.term} now — every drill for this word`} onClick={onDrill}>
+            <GraduationCap size={24} strokeWidth={1.6} />
           </Action>
         </div>
 

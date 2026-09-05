@@ -37,10 +37,21 @@ export default function BottomNav({ view, onGo }: {
     // edges so it reads as one, and `absolute` so there is something behind it —
     // a translucent bar with nothing under it is just a grey rectangle.
     //
-    // `pb-[env(safe-area-inset-bottom)]` on the *wrapper*, not the capsule: the
-    // home indicator on a 16 Pro Max should push the capsule up, not stretch it
-    // into a shape with 34px of dead glass along the bottom.
-    <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pointer-events-none">
+    // The bottom inset is on the *wrapper*, not the capsule: the home indicator
+    // should push the capsule up, not stretch it into a shape with 34px of dead
+    // glass along the bottom.
+    //
+    // **It is the safe-area inset minus 14px, and the subtraction is the point.**
+    // The first version cleared the full `env(safe-area-inset-bottom)` — 34pt on
+    // a 16 Pro Max — which is the correct rule for a bar *welded* to the bottom
+    // edge and the wrong one for a capsule floating above it: the inset already
+    // exists to keep content off the home indicator, and a floating object that
+    // clears the whole band leaves a visible strip of nothing under it. On a real
+    // 16 Pro Max in standalone that read as a nav bar hovering in the middle of
+    // the bezel. 20pt puts the capsule's bottom edge seven points clear of the
+    // indicator (a 5pt bar sitting ~8pt off the edge) — floating, not stranded.
+    // The `max()` floor keeps 8px on a device that reports no inset at all.
+    <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-3 pb-[max(0.5rem,calc(env(safe-area-inset-bottom)_-_14px))] pointer-events-none">
       <nav aria-label="Main" className="glass rounded-full pointer-events-auto overflow-hidden">
         <div className="flex items-stretch h-[58px]">
           {NAV.map((n) => {

@@ -16,21 +16,27 @@
 // Comparing the two is the only honest way to say "you are up to date", and it is
 // why the stamp is emitted as a file rather than committed as a constant.
 
-/** The production deployment immediately before the 2026-09-05 redesign — the
- *  app as it ran with the flip-card front door, five tabs and the grammar room.
+/** The app as it ran before the 2026-09-05 redesign — flip-card front door, five
+ *  tabs, the grammar room — deployed and kept, so "let me see how it used to
+ *  work" costs a link rather than a feature flag, two UIs in one bundle, or a
+ *  rollback nobody can undo.
  *
- *  A Vercel deployment URL is immutable: this one will keep serving that build
- *  for as long as the project exists, whatever ships to the alias afterwards. So
- *  "revert to the previous version" does not need a feature flag, two UIs in one
- *  bundle, or a rollback — it needs a link, and Settings has one.
+ *  **It is its own Vercel project, and that is not incidental.** The first
+ *  attempt pointed at the previous *deployment* URL of the main project, on the
+ *  reasoning that Vercel deployment URLs are immutable. They are — and they are
+ *  also **protected**: once a deployment stops being production, Vercel
+ *  Authentication gates it, so the link served a Vercel login page. It answered
+ *  `200`, which is how it survived a status-code check and would have shipped.
+ *  A separate project's *production* alias is public by the same rule that makes
+ *  the main one public, and it needed no change to anyone's security settings.
  *
- *  **It is a different origin, and that is the whole caveat.** Browser storage is
- *  per-origin, so the old build opens with no progress in it: it is a place to
- *  compare the *experience*, not a way back to your history. Settings says so
- *  next to the link, and points at Backup/Restore for anyone who wants a
- *  like-for-like comparison with real data. */
+ *  **The caveat is the origin.** Browser storage belongs to one address, so the
+ *  old build opens with no progress in it: it is a place to compare the
+ *  *experience*, not a way back to your history. Settings says so beside the
+ *  link and points at Backup/Restore for anyone who wants the comparison with
+ *  real data. */
 export const PREVIOUS_BUILD = {
-  url: 'https://lexi-2kn080aor-shamil-s-projects6.vercel.app',
+  url: 'https://lexi-classic.vercel.app',
   /** What that build was, in one line, so the link is not a mystery door. */
   label: 'before the 2026-09-05 redesign — flip-card home, five tabs, grammar drills',
 };

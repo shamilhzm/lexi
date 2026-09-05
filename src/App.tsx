@@ -190,11 +190,14 @@ export default function App() {
           passes under glass and content that stops at a wall.
 
           `--bar-t` / `--bar-b` are the two numbers that keep the bars, the scroll
-          padding and the feed's slot height agreeing with each other. */}
+          padding and the feed's slot height agreeing with each other — so the
+          `- 14px` here is not a tweak, it is the same subtraction BottomNav
+          makes to seat the capsule, and the two have to stay equal or content
+          scrolls to a stop in the wrong place. */}
       <div className="flex-1 flex flex-col min-w-0 min-h-0"
         style={{
           ['--bar-t' as string]: 'calc(52px + env(safe-area-inset-top))',
-          ['--bar-b' as string]: 'calc(58px + max(0.5rem, env(safe-area-inset-bottom)) + 0.5rem)',
+          ['--bar-b' as string]: 'calc(58px + max(0.5rem, env(safe-area-inset-bottom) - 14px) + 0.5rem)',
         }}>
         <main id="main" tabIndex={-1}
           className={`flex-1 bg-bg min-h-0 ${bare ? 'overflow-hidden' : 'overflow-y-auto'}`}
