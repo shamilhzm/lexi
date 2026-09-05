@@ -11,9 +11,7 @@
 // A sheet rather than a route: you came from a specific word in a specific scroll
 // position, and closing this has to put you back exactly there. A route would
 // rebuild the feed.
-import { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
-import { createPortal } from 'react-dom';
+import Layer from './Layer.tsx';
 import { valencyOf, valencyLabel } from '../lib/valency.ts';
 import { familyOf } from '../lib/family.ts';
 import { showsGermanDefs } from '../views/Review.tsx';
@@ -24,44 +22,17 @@ import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
 
 export default function WordDetail({ word, onClose }: { word: Word; onClose: () => void }) {
-  const panel = useRef<HTMLDivElement>(null);
-
-  // Escape closes, and focus moves into the sheet so a keyboard user is not left
-  // tabbing the feed behind it. `inert` on the rest of the app would be better
-  // still; the portal + Escape + initial focus is what this needs to be correct,
-  // and the close button is the first focusable thing in here.
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    panel.current?.focus();
-    // The feed underneath is a scroll container; letting the body scroll behind a
-    // full-screen sheet is how you come back to a different word than you left.
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
-
   const family = familyOf(word, WORDS);
   const valency = valencyOf(word);
   const germanDefs = showsGermanDefs(placementLevel());
 
-  return createPortal(
-    // Opaque, not glass — and deliberately. This is the layer you *read*, and
-    // iOS 26's own rule is that the floating layer is translucent while the
-    // content layer is not. A definition set over a scrolling feed is a
-    // definition you read twice. What it takes from the material is the shape:
-    // it rises, and it is dismissed by an object rather than a bar.
-    <div className="fixed inset-0 z-[200] bg-bg overflow-y-auto sheet-in" role="dialog" aria-modal="true"
-      aria-label={`${word.term} — full entry`}>
-      <div ref={panel} tabIndex={-1} className="mx-auto w-full max-w-[620px] px-5 pt-4 pb-16 safe-top safe-bottom outline-none">
-        <button onClick={onClose} aria-label="Close"
-          className="tap-44 grid place-items-center w-11 h-11 rounded-full glass
-            text-txt active:scale-95 transition mb-4">
-          <X size={20} />
-        </button>
+  // **The entry sits to the *left* of the word on the strip.** You reach it by
+  // dragging right, and you leave it by dragging left — see `Layer`. Escape,
+  // focus and the × all come from there too, so this file is now only the entry
+  // itself, which is all it should ever have been.
+  return (
+    <Layer side="left" label={`${word.term} — full entry`} onClose={onClose}>
+      <div className="pb-16">
 
         {/* The headword at display size, exactly as the feed showed it — same
             face, same gender ink — so the sheet reads as the same object opened
@@ -132,7 +103,6 @@ export default function WordDetail({ word, onClose }: { word: Word; onClose: () 
           <CardSource id={word.id} />
         </div>
       </div>
-    </div>,
-    document.body,
+    </Layer>
   );
 }

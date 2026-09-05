@@ -265,6 +265,11 @@ export default function App() {
           </div>
         </main>
 
+        {/* Where `components/Layer` mounts: inside the shell, so a word's entry
+            or its drill slides in *under* the bars instead of covering them.
+            Inert itself — `pointer-events-none` — so nothing here can swallow a
+            tap meant for the tab bar when no layer is open. */}
+        <div id="layer-root" className="absolute inset-0 z-40 pointer-events-none" />
         <BottomNav view={view} onGo={go} />
       </div>
 

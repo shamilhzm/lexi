@@ -32,9 +32,9 @@
 // meaning right on a new word and its status can move to Learning mid-run; a
 // recomputed list would then grow a step underneath the learner, and a run that
 // gets longer the better you do is a punishment.
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { X, Check } from 'lucide-react';
+import { useCallback, useMemo, useState } from 'react';
+import { Check } from 'lucide-react';
+import Layer from './Layer.tsx';
 import { review, logAttempt, logMiss } from '../store.ts';
 import { Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -59,22 +59,9 @@ export function stepsFor(word: Word): Step[] {
 }
 
 export default function WordDrill({ word, onClose }: { word: Word; onClose: () => void }) {
-  const panel = useRef<HTMLDivElement>(null);
   const steps = useMemo(() => stepsFor(word), [word.id]);
   const [i, setI] = useState(0);
   const [right, setRight] = useState(0);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    panel.current?.focus();
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
 
   const grade = useCallback<Grade>((ok, detail) => {
     const step = steps[i];
@@ -97,20 +84,15 @@ export default function WordDrill({ word, onClose }: { word: Word; onClose: () =
 
   const step = steps[i];
 
-  return createPortal(
-    // Opaque like `WordDetail`, and for the same reason: this is a layer you
-    // *answer*, and four options read over a scrolling feed are four options you
-    // read twice.
-    <div className="fixed inset-0 z-[200] bg-bg overflow-y-auto sheet-in" role="dialog" aria-modal="true"
-      aria-label={`Practise ${word.term}`}>
-      <div ref={panel} tabIndex={-1} className="mx-auto w-full max-w-[620px] px-5 pt-4 pb-16 safe-top safe-bottom outline-none">
-
+  // **Practice sits to the *right* of the word on the strip.** You reach it by
+  // dragging left and you leave it by dragging right — the mirror of the entry,
+  // and the reason both feel like the same gesture rather than two rules.
+  return (
+    <Layer side="right" label={`Practise ${word.term}`} onClose={onClose}>
+      <div className="pb-16">
         <div className="flex items-center gap-3 mb-5">
           <button onClick={onClose} aria-label="Close"
-            className="tap-44 grid place-items-center w-11 h-11 rounded-full glass flex-shrink-0
-              text-txt active:scale-95 transition">
-            <X size={20} />
-          </button>
+            className="sr-only">Close</button>
           <div className="min-w-0 flex-1">
             <Kicker className="block">Üben</Kicker>
             {/* **No article, and no gender ink.** The header is the one element
@@ -146,8 +128,7 @@ export default function WordDrill({ word, onClose }: { word: Word; onClose: () =
 
         {!step && <Done word={word} right={right} of={steps.length} onClose={onClose} />}
       </div>
-    </div>,
-    document.body,
+    </Layer>
   );
 }
 
