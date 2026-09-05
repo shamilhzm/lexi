@@ -32,7 +32,6 @@ import { fmt, heatText } from '../lib/ui.ts';
 import { conceptForSector, conceptPaths } from '../lib/illustration.tsx';
 import Decks from './Decks.tsx';
 import Wortkarte from './Wortkarte.tsx';
-import Card from '../components/ui/Card.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { WordsRoute } from '../route.ts';
@@ -118,20 +117,21 @@ function Index({ onOpenGroup, onText }: { onOpenGroup: (g: string) => void; onTe
           actually want to read is the learner's, and it is the better one when
           they have it. Below the taxonomy and deliberately quiet: it needs
           something pasted in, so it is not where a cold visit should start. */}
-      <Card as="button" pad="none" onClick={onText}
-        className="w-full flex items-center gap-3 px-4 py-3.5 mt-3 text-left hover:border-accent transition-colors">
+      <button onClick={onText}
+        className="-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] border-b border-line
+          flex items-center gap-3.5 px-3 sm:px-5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors">
         <span className="grid place-items-center w-11 h-11 rounded-md flex-shrink-0 text-accent"
           style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)' }}>
           <FileText size={20} />
         </span>
         <span className="flex-1 min-w-0">
-          <span lang="de" className="block text-base font-semibold">Wörter aus einem Text</span>
-          <span className="block text-xs text-dim mt-0.5">
+          <span lang="de" className="block text-lg font-semibold leading-tight">Wörter aus einem Text</span>
+          <span className="block text-xs text-dim mt-1">
             Paste German you want to read — Lexi marks what you know and builds a session from the rest.
           </span>
         </span>
-        <ChevronRight size={16} className="text-dim flex-shrink-0" />
-      </Card>
+        <ChevronRight size={18} className="text-dim flex-shrink-0" />
+      </button>
     </div>
   );
 }
@@ -161,33 +161,46 @@ function Taxonomy({ onOpenGroup }: { onOpenGroup: (g: string) => void }) {
       <p className="text-dim text-xs mb-3">
         {rows.length} groups over {fmt(rows.reduce((n, r) => n + r.sectors, 0))} decks.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+      {/* **No boxes.** *2026-09-05.*
+          Nine bordered cards inside a page that is itself a surface is a box in a
+          box, and it is the single thing that made this screen read as a
+          different app from the feed one tab away. The feed sets a word directly
+          on the paper with nothing drawn around it; so does this now, and what
+          separates one row from the next is a hairline — which is what a printed
+          lexicon uses and what `RevealBlock` already used two files over.
+          Full-bleed: the negative margin cancels the page gutter, so a row runs
+          edge to edge and the tap target is the width of the phone. */}
+      <ul className="-mx-3 sm:-mx-5 divide-y divide-line border-y border-line">
         {rows.map((r) => (
-          <Card key={r.name} as="button" pad="none" onClick={() => onOpenGroup(r.name)}
-            className="text-left px-4 py-3.5 hover:border-accent transition-colors">
-            <span className="flex items-start gap-3">
+          <li key={r.name}>
+            <button onClick={() => onOpenGroup(r.name)}
+              className="w-full text-left px-3 sm:px-5 py-4 flex items-center gap-3.5
+                hover:bg-panel2 active:bg-panel2 transition-colors">
               <GroupEmblem group={r.name} />
               <span className="flex-1 min-w-0">
-                <span className="block text-base font-semibold break-words">{r.name}</span>
-                <span className="block text-xs text-dim mt-0.5">
+                <span className="block text-lg font-semibold break-words leading-tight">{r.name}</span>
+                <span className="block text-xs text-dim mt-1">
                   {fmt(r.count)} words · {r.sectors} deck{r.sectors === 1 ? '' : 's'}
                   {r.due > 0 && <> · <span className="text-accent">{fmt(r.due)} due</span></>}
                 </span>
+                {/* The bar rides under the label rather than across a card, so it
+                    reads as a property of the row and not as its floor. */}
+                <span className="mt-2 flex items-center gap-2">
+                  <span className="flex-1 h-1 rounded-full bg-panel2 overflow-hidden">
+                    <span className="block h-full rounded-full transition-[width] duration-500"
+                      style={{ width: `${Math.max(2, Math.round(r.coverage * 100))}%`, background: heatText(r.coverage) }} />
+                  </span>
+                  <span className="font-mono text-2xs tabular-nums flex-shrink-0"
+                    style={{ color: heatText(r.coverage) }}>
+                    {Math.round(r.coverage * 100)}%
+                  </span>
+                </span>
               </span>
-              <ChevronRight size={16} className="text-dim flex-shrink-0 mt-1" />
-            </span>
-            {/* The bar is the whole reason this is a card and not a link. */}
-            <span className="block mt-2.5 h-1 rounded-full bg-panel2 overflow-hidden">
-              <span className="block h-full rounded-full transition-[width] duration-500"
-                style={{ width: `${Math.max(2, Math.round(r.coverage * 100))}%`, background: heatText(r.coverage) }} />
-            </span>
-            <span className="mt-1.5 block font-mono text-2xs tabular-nums"
-              style={{ color: heatText(r.coverage) }}>
-              {Math.round(r.coverage * 100)}% known
-            </span>
-          </Card>
+              <ChevronRight size={18} className="text-dim flex-shrink-0" />
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
