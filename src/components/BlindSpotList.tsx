@@ -11,7 +11,6 @@ import { Target } from 'lucide-react';
 import { missStats, missTotal } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { modeForTag } from './PathCard.tsx';
-import Card from './ui/Card.tsx';
 import type { Mode } from '../views/drills.tsx';
 
 export default function BlindSpotList({ onDrill, days = 30 }:
@@ -27,18 +26,18 @@ export default function BlindSpotList({ onDrill, days = 30 }:
 
   if (stats.length === 0) {
     return (
-      <Card pad="none" className="px-6 py-8 text-center">
+      <div className="px-6 py-8 text-center">
         <div className="grid place-items-center w-11 h-11 rounded-full mx-auto mb-3" style={{ background: 'var(--color-green-d)' }}>
           <Target className="text-green" size={18} />
         </div>
         <h3 className="text-base font-bold mb-1">No blind spots yet</h3>
         <p className="text-dim text-xs">Every miss in a session is tracked here — genders, plurals, spelling, the German you couldn’t produce — so you can go straight at the weak one.</p>
-      </Card>
+      </div>
     );
   }
 
   return (
-    <Card pad="none" className="p-4">
+    <div>
       <div className="flex items-baseline gap-2 mb-3">
         <span className="font-mono font-bold text-xl tabular-nums">{total}</span>
         <span className="text-dim text-xs">misses across {stats.length} area{stats.length === 1 ? '' : 's'} · last {days} days</span>
@@ -111,6 +110,6 @@ export default function BlindSpotList({ onDrill, days = 30 }:
       {/* No "drill everything" button. The whole point of a ranked list is that
           the rows are not equivalent — one of them is the thing to fix — and a
           catch-all under it makes the ranking decorative. Tap the row. */}
-    </Card>
+    </div>
   );
 }

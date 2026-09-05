@@ -35,7 +35,7 @@ import Karte from './Karte.tsx';
 import Stats from './Stats.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import CountUp from '../components/CountUp.tsx';
-import Card from '../components/ui/Card.tsx';
+import { BandRow, Section } from '../components/ui/Band.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import type { Target } from '../types.ts';
 import type { Mode } from './drills.tsx';
@@ -73,15 +73,14 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
       {/* The two minutes that calibrate everything above and below it. Shown
           until taken, and never again after. */}
       {!placed && (
-        <Card as="button" accent pad="none" onClick={onPlacement}
-          className="w-full flex items-center gap-3 px-4 py-3 mb-4 text-left hover:brightness-110 transition-[filter]">
-          <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><GraduationCap size={18} /></span>
-          <span className="flex-1">
+        <BandRow onClick={onPlacement} tone="accent">
+          <span className="grid place-items-center w-10 h-10 rounded-md bg-panel2 text-accent flex-shrink-0"><GraduationCap size={19} /></span>
+          <span className="flex-1 min-w-0">
             <span className="block text-base font-semibold">Two minutes to find your level</span>
-            <span className="block text-xs text-dim">Lexi will skip the words you already know and start you where you actually are.</span>
+            <span className="block text-xs text-dim mt-0.5">Lexi will skip the words you already know and start you where you actually are.</span>
           </span>
-          <ChevronRight size={16} className="text-accent flex-shrink-0" />
-        </Card>
+          <ChevronRight size={18} className="text-accent flex-shrink-0" />
+        </BandRow>
       )}
 
       <Goal />
@@ -104,26 +103,24 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
       <Finished />
 
       {/* How you're trending. */}
-      <div className="mb-6"><Stats /></div>
+      <Section><Stats /></Section>
 
       {/* What you keep getting wrong. This was behind an accordion on Today,
           which is the wrong surface for it — Today is for doing, not auditing. */}
-      <section aria-labelledby="blind-heading" className="mb-6">
-        <h2 id="blind-heading" className="text-lg font-bold mb-3">Blind spots</h2>
+      <Section title="Blind spots" id="blind-heading">
         <BlindSpotList onDrill={onDrill} />
-      </section>
+      </Section>
 
       {/* Every "you are thin here" on this page ends in the same question:
           thin in *what*? The answer is a deck, and decks are on Words. */}
-      <Card as="button" pad="none" onClick={() => onOpenGroup('')}
-        className="w-full flex items-center gap-3 px-4 py-3 text-left hover:border-accent transition-colors">
-        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0"><LayoutGrid size={18} /></span>
-        <span className="flex-1">
+      <BandRow onClick={() => onOpenGroup('')}>
+        <span className="grid place-items-center w-10 h-10 rounded-md bg-panel2 text-accent flex-shrink-0"><LayoutGrid size={19} /></span>
+        <span className="flex-1 min-w-0">
           <span className="block text-base font-semibold">Browse the lexicon</span>
-          <span className="block text-2xs text-dim">Every deck and every word, with a search box — on Words.</span>
+          <span className="block text-2xs text-dim mt-0.5">Every deck and every word, with a search box — on Themen.</span>
         </span>
-        <ChevronRight size={16} className="text-dim flex-shrink-0" />
-      </Card>
+        <ChevronRight size={18} className="text-dim flex-shrink-0" />
+      </BandRow>
     </div>
   );
 }
@@ -169,7 +166,7 @@ function Finished() {
       <p className="text-dim text-xs mb-3">
         {done.length} sector{done.length === 1 ? '' : 's'} where you know every card. Lapses don’t take these back.
       </p>
-      <Card pad="none" className="p-4 flex flex-wrap gap-2">
+      <div className="-mx-3 sm:-mx-5 px-3 sm:px-5 py-4 border-b border-line flex flex-wrap gap-2">
         {done.map((c) => (
           <span key={c.id}
             className="inline-flex items-center gap-1.5 rounded-full border border-green/40 bg-green-d
@@ -177,7 +174,7 @@ function Finished() {
             <Check size={13} aria-hidden /> {c.name}
           </span>
         ))}
-      </Card>
+      </div>
     </section>
   );
 }
@@ -194,7 +191,7 @@ function Goal() {
   const when = new Date(gp.goal.date + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
   const onTrack = gp.projectedPct !== null && gp.projectedPct >= 90;
   return (
-    <Card pad="none" className="flex items-center gap-3 px-4 py-3.5 mb-4">
+    <BandRow>
       <TargetIcon size={18} className={onTrack ? 'text-green flex-shrink-0' : 'text-accent flex-shrink-0'} />
       <div className="min-w-0">
         <p className="text-base font-semibold leading-tight">{gp.goal.level} by {when}</p>
@@ -206,7 +203,7 @@ function Goal() {
           {gp.projectedPct === null && ' · pace appears after a day or two of study'}
         </p>
       </div>
-    </Card>
+    </BandRow>
   );
 }
 
@@ -266,7 +263,7 @@ function Headline() {
   const seen = useRef(lastSeen()).current;
 
   return (
-    <Card pad="none" className="px-4 sm:px-6 py-5 sm:py-6 mb-4">
+    <div className="pb-5 mb-1 border-b border-line -mx-3 sm:-mx-5 px-3 sm:px-5">
       <Kicker tone="accent" className="block mb-2">Words you know</Kicker>
       <div className="flex items-end gap-3 flex-wrap">
         {/* Counts up from the total the learner last saw on this surface, so
@@ -289,6 +286,6 @@ function Headline() {
       <OutOfScope />
       <Met />
       <Backlog />
-    </Card>
+    </div>
   );
 }

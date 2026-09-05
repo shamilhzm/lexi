@@ -16,7 +16,6 @@ import { ChevronRight, Layers, TrendingDown } from 'lucide-react';
 import { levels, weakestSectors, missStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import LevelProgress from './LevelProgress.tsx';
-import Card from './ui/Card.tsx';
 import Kicker from './ui/Kicker.tsx';
 import { ALL_LEVELS, type Target } from '../types.ts';
 import { MODE_TAG, type Mode } from '../views/drills.tsx';
@@ -76,8 +75,8 @@ export default function PathCard({ onStudy, onDrill }: {
   }
 
   return (
-    <Card pad="sm" className="mb-4">
-      <div className="flex items-baseline justify-between gap-3 mb-2.5 px-1">
+    <section className="-mx-3 sm:-mx-5 px-3 sm:px-5 py-5 border-b border-line">
+      <div className="flex items-baseline justify-between gap-3 mb-2.5">
         <Kicker tone="accent">Your path</Kicker>
         {/* Names the *scope*, which is what the strip beneath it shows. The
             placed level is already in the top bar; what nothing explained was
@@ -92,19 +91,20 @@ export default function PathCard({ onStudy, onDrill }: {
           <Kicker className="block px-1 mt-1 mb-1.5">Next up</Kicker>
           <div className="space-y-1.5">
             {next.map((n) => (
-              <Card as="button" key={n.label} tone="sunken" nested pad="none" onClick={n.onGo}
-                className="w-full flex items-center gap-3 px-3 py-2.5 text-left hover:border-accent transition-colors">
+              <button key={n.label} onClick={n.onGo}
+                className="w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-md
+                  bg-panel2 hover:brightness-[0.98] active:brightness-[0.97] transition-[filter]">
                 <n.icon size={15} className="text-accent flex-shrink-0" />
                 <span className="flex-1 min-w-0">
                   <span className="block text-sm font-semibold truncate">{n.label}</span>
                   <span className="block text-2xs text-dim truncate">{n.detail}</span>
                 </span>
                 <ChevronRight size={14} className="text-dim flex-shrink-0" />
-              </Card>
+              </button>
             ))}
           </div>
         </>
       )}
-    </Card>
+    </section>
   );
 }

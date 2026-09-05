@@ -406,8 +406,8 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
           patch. Offer a graceful stop at a natural break — once, then quiet. */}
       {breather && (
-        <Card accent pad="none" role="status"
-          className="px-4 py-3 mb-2.5 flex items-center gap-3 flex-wrap">
+        <div role="status"
+          className="pb-3 mb-3 border-b border-line flex items-center gap-3 flex-wrap">
           <p className="text-xs flex-1 min-w-[200px]">
             Rough patch — that’s the system finding your edge. These come back easier tomorrow.
           </p>
@@ -416,13 +416,16 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
               onClick={() => { setBreather(false); setI(queue.length); tick('done'); }}>Stop here</Button>
             <Button size="sm" onClick={() => setBreather(false)}>Keep going</Button>
           </div>
-        </Card>
+        </div>
       )}
-      <Card pad="none">
-        {/* min-w on the title stops it from being crushed to nothing: when the
-            four controls no longer fit beside it, the cluster wraps to its own
-            line instead of truncating the deck name to two characters. */}
-        <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 flex-wrap">
+      {/* **Chrome, not a card.** The session's title, position and controls were
+          in a bordered box sitting above the card you actually study, which is a
+          box drawn around the frame of a box. It also cost about eighty vertical
+          points, and on an iPhone 17 Pro those eighty were the difference between
+          the grade buttons being on screen and being under the tab bar. One
+          hairline does the separating. */}
+      <div className="-mx-3 sm:-mx-5 border-b border-line">
+        <div className="flex items-center gap-2.5 px-3 sm:px-5 py-2 flex-wrap">
           {/* A scoped session was opened from somewhere and has a way back. The
               day's queue is the app's root and has none — a back arrow on the
               screen the app opens into is an arrow pointing at nothing. */}
@@ -756,7 +759,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
           </>)}
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }
@@ -805,11 +808,21 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
     // notices do exactly that, which put *the card itself* under the tab bar on
     // an iPhone 17 Pro. Any future notice would do it again.
     //
-    // `flex-1 min-h-0` inside the column that already lays this out means the
-    // card takes the space genuinely remaining, whatever is stacked above it.
-    // The floor stays: below ~300px a first-sight face has more content than
-    // room, and a page that scrolls is better than a card that looks broken.
-    <div className="relative w-full max-w-[580px] flex-1 min-h-[300px] max-h-[460px]">
+    // `flex-1` inside the column that already lays this out means the card takes
+    // the space genuinely remaining, whatever is stacked above it.
+    //
+    // **The floor is 260, not 300, and the 40 points are not cosmetic.** Measured
+    // at 402×874: the browser pane reports zero overflow because it has no status
+    // bar and no Safari toolbar, while the same viewport on a real iPhone loses
+    // ~59pt to the status bar and ~50 more to Safari's bottom toolbar — which put
+    // the second row of grade buttons under the tab bar. Installed as a PWA the
+    // toolbar is gone and only the status bar costs anything, but even then the
+    // column came out about sixty points long.
+    //
+    // Below this a first-sight face has more content than room and scrolls
+    // internally, which is survivable; grade buttons off screen are not, because
+    // they are the primary action of the primary loop.
+    <div className="relative w-full max-w-[580px] flex-1 min-h-[260px] max-h-[460px]">
       {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
           content. Rendered outermost-first so the nearest sits on top. */}
       {Array.from({ length: behind }, (_, k) => behind - 1 - k).map((depth) => (
@@ -900,7 +913,9 @@ function ReturnNotice() {
   if (!away && !caughtUp) return null;
 
   return (
-    <Card accent pad="none" role="status" className="px-4 py-3 mb-2.5">
+    // A tinted band, not a card. The one card on this screen is the one you
+    // study — everything else is page.
+    <div role="status" className="mb-3 pb-3 border-b border-line">
       {away ? (
         <>
           <p className="text-sm font-semibold">Welcome back — it’s been {gap} days.</p>
@@ -921,7 +936,7 @@ function ReturnNotice() {
           </p>
         </>
       )}
-    </Card>
+    </div>
   );
 }
 
@@ -957,7 +972,7 @@ function CoachMarks() {
     // reads and "Tap the card to flip it" is the one genuinely undiscoverable
     // thing in the app. Shrinking the text to win eight pixels trades the finding
     // this block exists to deliver.
-    <Card pad="none" className="px-4 py-2 mb-2 flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
+    <div className="pb-2 mb-2 border-b border-line flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
       <span><b className="text-txt font-semibold">Tap</b> the card to flip it</span>
       <span aria-hidden>·</span>
       {/* "Swipe the card", not "swipe" — the app now has two swipe grammars and
@@ -978,7 +993,7 @@ function CoachMarks() {
       <span aria-hidden className="hidden sm:inline">·</span>
       <span><b className="text-txt font-semibold">Skip</b> is always free</span>
       <button onClick={dismiss} className="tap-hit ml-auto text-accent font-semibold hover:brightness-110">Got it</button>
-    </Card>
+    </div>
   );
 }
 
@@ -1085,13 +1100,13 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
             is no placement; the same card is offered on every later recap until
             they take it, since there is no briefing page left to nudge from. */}
         {onPlacement && !placementLevel() && (
-          <Card accent pad="none" className="px-4 py-3.5 mb-5 text-left">
+          <div className="mb-5 text-left border-y border-line py-4">
             <p className="text-sm mb-2.5">
               Those {newLearned > 0 ? newLearned : done} are yours. Two minutes more and Lexi
               skips the words you already know.
             </p>
             <Button size="sm" onClick={onPlacement}>Find my level</Button>
-          </Card>
+          </div>
         )}
         {/* Local-first means device-bound. These used to live on the daily
             briefing; the recap is the better home for them anyway — it is the one
@@ -1131,7 +1146,7 @@ function EmptyState({ target, scoped, onPick }: { target: Target; scoped: boolea
   const t = totals();
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <Card pad="none" className="text-center px-8 sm:px-10 py-12 max-w-md">
+      <div className="text-center px-8 sm:px-10 py-12 max-w-md">
         <span className="grid place-items-center w-12 h-12 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
           <Check size={22} className="text-green" />
         </span>
@@ -1147,7 +1162,7 @@ function EmptyState({ target, scoped, onPick }: { target: Target; scoped: boolea
           {t.known > 0 ? `${t.known} words recognised · streak safe` : 'streak safe'}
         </Kicker>
         <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
-      </Card>
+      </div>
     </div>
   );
 }
