@@ -11,6 +11,7 @@ import TopicPicker from '../components/TopicPicker.tsx';
 import ReminderCard from '../components/ReminderCard.tsx';
 import FlaggedCards from '../components/FlaggedCards.tsx';
 import WantedWords from '../components/WantedWords.tsx';
+import StrandedFavourites from '../components/StrandedFavourites.tsx';
 
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -80,6 +81,7 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
       </Card>
 
       <ReminderCard />
+      <StrandedFavourites />
       <WantedWords />
       <FlaggedCards />
 

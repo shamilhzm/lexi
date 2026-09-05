@@ -36,7 +36,7 @@
 // and no amount of content budget can buy.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown } from 'lucide-react';
+import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown, X } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
@@ -69,15 +69,38 @@ const PAGE = 24;
 export function feedOrder(): Word[] {
   const briefing = buildBriefing();
   const seen = new Set<string>();
-  const out: Word[] = [];
+  const fresh: Word[] = [];
+  const due: Word[] = [];
+  // **Fresh words lead; due reviews follow.** *2026-09-05, from persona testing.*
+  //
+  // The briefing hands back due-first, which is exactly right for Üben and
+  // exactly wrong here. Driven as a three-week A1 learner the feed opened on
+  // *die Hose, das Hemd, krank* — three cards in a row marked **known**; the
+  // learner returning after a month got *besuchen, traurig*, also both known.
+  // A browse surface whose first impression is "you already know this" has
+  // wasted the one screen that decides whether anyone scrolls.
+  //
+  // **Due words go last, not second.** Sorting within the briefing was the first
+  // attempt and it fixed nothing for the case that needed it most: a learner
+  // with a real backlog gets a briefing that is *entirely* due — `want` falls to
+  // zero once the due slice already exceeds `MIN_DAILY` — so there were no fresh
+  // words in it to promote, and the returning learner still opened on
+  // *die Feuerwehr*, marked **known**. Caught on the phone, not in a test.
+  //
+  // So the order is: the fresh words the scheduler picked, then everything else
+  // unseen in scope by frequency, then the due ones. Review belongs to Üben;
+  // this surface is for meeting words. The scheduler still chooses *which* fresh
+  // words lead, which is the feed's one real advantage over a shuffled list.
   for (const id of briefing.ids) {
     const w = BY_ID.get(id);
-    if (w && !seen.has(id)) { seen.add(id); out.push(w); }
+    if (!w || seen.has(id)) continue;
+    seen.add(id);
+    (statusOf(id) === 'new' ? fresh : due).push(w);
   }
   const rest = WORDS
     .filter((w) => levels().has(w.level) && !seen.has(w.id))
     .sort(byFrequency);
-  return out.concat(rest);
+  return [...fresh, ...rest, ...due];
 }
 
 export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void }) {
@@ -192,6 +215,7 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
     <div ref={scroller}
       className="h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
       {cold && <Welcome onStart={onStartFirstRun} />}
+      <SwipeHint />
       {slots.map((w) => (
         <Slot key={w.id} word={w} version={v} watch={watch}
           onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
@@ -211,6 +235,57 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
       )}
       {detail && <WordDetail word={detail} onClose={() => setDetail(null)} />}
       {drill && <WordDrill word={drill} onClose={() => setDrill(null)} />}
+    </div>
+  );
+}
+
+/** The feed's two gestures, said once in words.
+ *
+ *  They were announced to screen readers and to nobody else — an `sr-only` line
+ *  per slot, which is correct for assistive tech and invisible to the sighted
+ *  learner who has no reason to try dragging a word sideways. A gesture nobody
+ *  discovers is a gesture that does not exist.
+ *
+ *  Floating over the feed rather than occupying a slot, because the feed's whole
+ *  premise is one word per screen and this must not become the first thing
+ *  anybody meets. Dismissed on the first real swipe or the first tap of the ×,
+ *  whichever comes first, and never shown again. */
+function SwipeHint() {
+  const [show, setShow] = useState(() => {
+    try { return localStorage.getItem('lexi.coach.feed.v1') !== '1'; } catch { return false; }
+  });
+  const dismiss = useCallback(() => {
+    try { localStorage.setItem('lexi.coach.feed.v1', '1'); } catch { /* private mode */ }
+    setShow(false);
+  }, []);
+  // Any horizontal drag anywhere in the feed means they have found it.
+  useEffect(() => {
+    if (!show) return;
+    const onDown = (e: PointerEvent) => {
+      const x0 = e.clientX;
+      const up = (u: PointerEvent) => {
+        window.removeEventListener('pointerup', up);
+        if (Math.abs(u.clientX - x0) > 60) dismiss();
+      };
+      window.addEventListener('pointerup', up);
+    };
+    window.addEventListener('pointerdown', onDown);
+    return () => window.removeEventListener('pointerdown', onDown);
+  }, [show, dismiss]);
+  if (!show) return null;
+  return (
+    <div className="absolute inset-x-0 z-30 flex justify-center px-4 pointer-events-none"
+      style={{ bottom: 'calc(var(--bar-b) + 0.5rem)' }}>
+      <div className="glass rounded-full pointer-events-auto flex items-center gap-2 pl-3.5 pr-1.5 py-1.5
+        text-2xs text-dim max-w-full">
+        <span className="truncate">
+          Swipe <b className="text-txt">right</b> for the full entry, <b className="text-txt">left</b> to practise
+        </span>
+        <button onClick={dismiss} aria-label="Got it"
+          className="grid place-items-center w-7 h-7 rounded-full flex-shrink-0 hover:text-txt">
+          <X size={13} />
+        </button>
+      </div>
     </div>
   );
 }

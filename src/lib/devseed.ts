@@ -55,12 +55,25 @@ function card(dueIn: number, state: State, reps = 4, lapses = 0) {
  *  fidelity that cost was zero. */
 const MAX_CARDS = 460;
 
-/** Words at or below a level, commonest first — the pool a learner of that level
- *  would plausibly have met. Uses corpus order, which is already band-ordered. */
+/** Words a learner of this level would plausibly have met.
+ *
+ *  **Weighted toward the top of their range, not the bottom.** The first version
+ *  returned everything at or below the level *in corpus order*, which is
+ *  band-ordered — so the first 450 words of a "C1 learner" were all A1, and the
+ *  persona modelled somebody who has studied for four months and knows no word
+ *  above A1. Filter that learner to B2–C1 and Progress correctly reports **0
+ *  known, 0 seen** beside a 120-day streak, which reads as a bug in the app and
+ *  is a bug in the seed.
+ *
+ *  Interleaving from the top band down models the real thing: a C1 learner knows
+ *  most of C1 and B2 and essentially all of A1, so the *interesting* cards — the
+ *  ones their level filter will actually include — come first. */
 function pool(upTo: CEFR): Word[] {
   const bands: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const cap = bands.indexOf(upTo);
-  return WORDS.filter((w) => bands.indexOf(w.level) <= cap);
+  const byBand = bands.slice(0, cap + 1).map((b) => WORDS.filter((w) => w.level === b));
+  // Highest band first, then down — so a narrow filter still finds known words.
+  return byBand.reverse().flat();
 }
 
 interface Persona {
@@ -77,10 +90,16 @@ const streakDays = (n: number): string[] => {
   return out;
 };
 
-/** A miss log the blind-spot list will rank. */
-const missesFor = (tag: string, n: number, terms: string[]) =>
+/** A miss log the blind-spot list will rank.
+ *
+ *  Carries `detail` — what was asked for and what was picked — because that is
+ *  what powers the one line in the whole app a teacher would call a diagnosis:
+ *  *"reaches for **der** when it should be **die**"*. Without it the `b1`
+ *  persona, whose entire purpose is the blind-spot list, could not exercise it. */
+const missesFor = (tag: string, n: number, terms: string[], confusion?: [string, string]) =>
   Array.from({ length: n }, (_, i) => ({
     tag, term: terms[i % terms.length], at: Date.now() - (i % 20) * DAY,
+    ...(confusion ? { detail: { asked: confusion[0], chose: confusion[1] } } : {}),
   }));
 
 const LEVELS = (...l: CEFR[]) => JSON.stringify(l);
@@ -94,7 +113,7 @@ function make(opts: {
   name?: string;
   saved?: number;
   faves?: number;
-  misses?: { tag: string; n: number; terms: string[] };
+  misses?: { tag: string; n: number; terms: string[]; confusion?: [string, string] };
   goal?: { level: CEFR; inDays: number };
   /** Also schedule the recall drill for the first N known words, so the
    *  production track is live rather than theoretical. */
@@ -143,7 +162,9 @@ function make(opts: {
       cards,
       settings,
       visits: streakDays(opts.streak ?? 1),
-      misses: opts.misses ? missesFor(opts.misses.tag, opts.misses.n, opts.misses.terms) : [],
+      misses: opts.misses
+        ? missesFor(opts.misses.tag, opts.misses.n, opts.misses.terms, opts.misses.confusion)
+        : [],
     };
   };
 }
@@ -178,12 +199,13 @@ export const PERSONAS: Record<string, Persona> = {
     name: '5 · B1 with a gender blind spot',
     looksAt: 'blind spots ranked by rate, and the one-tap drill',
     build: make({ level: 'B1', filter: ['A1', 'A2', 'B1'], counts: [880, 30, 40], streak: 41, name: 'Yusuf',
-      misses: { tag: GENDER_TAG, n: 22, terms: ['die Regierung', 'das Verhältnis', 'der Anspruch'] },
+      misses: { tag: GENDER_TAG, n: 22, terms: ['die Regierung', 'das Verhältnis', 'der Anspruch'],
+        confusion: ['die', 'der'] },
       goal: { level: 'B1', inDays: 60 } }),
   },
   backlog: {
     name: '6 · B1 back after a month away',
-    looksAt: 'the comeback copy, the backlog burn-down, and a bounded day',
+    looksAt: 'the return notice, the backlog burn-down, and whether the day is bounded',
     build: () => {
       const base = make({ level: 'B1', filter: ['A1', 'A2', 'B1'], counts: [600, 0, 420], name: 'Katia',
         goal: { level: 'B2', inDays: 120 } })();
@@ -219,7 +241,7 @@ export const PERSONAS: Record<string, Persona> = {
   },
   clear: {
     name: '10 · Nothing due today',
-    looksAt: '“All clear”, which is what the app opens into on a second visit',
+    looksAt: 'the caught-up state — nothing due, fresh words offered rather than forced',
     build: make({ level: 'A2', filter: ['A1', 'A2'], counts: [400, 0, 0], streak: 9, name: 'Sam' }),
   },
 };

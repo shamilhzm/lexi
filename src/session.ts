@@ -398,5 +398,34 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   if (target.kind === 'custom' && target.cap !== undefined && out.length > target.cap) {
     return out.slice(0, target.cap);
   }
-  return out;
+  // **And every other session gets a ceiling too.** *2026-09-05.*
+  //
+  // `DAILY_DUE_CAP` bounds the *flips* at 60 and the builder then weaves drills
+  // on top, so an uncapped day is not 60 items, it is however many 60 words
+  // happen to generate. Measured across the personas: a day-two learner was
+  // served 30, a three-week learner 35 — and the learner returning from a month
+  // away, with 189 cards due, was served **70**. That is the largest session in
+  // the app landing on the person most likely to close it, which is exactly
+  // backwards.
+  //
+  // Anything past the ceiling is not lost — it is due tomorrow, and the backlog
+  // bar on Fortschritt shows it going down.
+  return out.length > SESSION_CEILING ? out.slice(0, SESSION_CEILING) : out;
 }
+
+/** The most items a session will put in front of somebody who did not ask for a
+ *  longer one.
+ *
+ *  **Deliberately a flat number and not `itemsForMinutes`.** Pricing it in
+ *  minutes was the first attempt and it does not bound anything: the per-item
+ *  estimates work out at about ten seconds, so even a twenty-five minute budget
+ *  allows 150 items — more than double the worst session anyone was actually
+ *  served. An estimate that generous is fine for *describing* a session the
+ *  learner chose and useless as a *limit* on one they did not.
+ *
+ *  40 is set against the design intent the rest of the file already states:
+ *  `NEW_PER_DAY` is 24 and `MIN_DAILY` is 20, so a day of 40 items comfortably
+ *  contains a full quota of fresh words plus real review, while the 70-item day
+ *  the backlog persona was served is three times what any other number in this
+ *  codebase asks for. A backlog is cleared by turning up, not by one sitting. */
+export const SESSION_CEILING = 40;

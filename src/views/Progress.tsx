@@ -27,7 +27,7 @@
 import { useRef } from 'react';
 import { useMemo } from 'react';
 import { Check, ChevronRight, LayoutGrid, GraduationCap, Target as TargetIcon } from 'lucide-react';
-import { totals, streak, goalProgress, completions, lastSeen, placementLevel, buildBriefing, backlogPeak, metCount, metToday } from '../store.ts';
+import { totals, streak, goalProgress, completions, lastSeen, placementLevel, buildBriefing, backlogPeak, metCount, metToday, knownOutOfScope } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heatText } from '../lib/ui.ts';
 import PathCard from '../components/PathCard.tsx';
@@ -210,6 +210,19 @@ function Goal() {
   );
 }
 
+/** Where the rest of your progress went, when a level filter is hiding it.
+ *
+ *  Silent when nothing is hidden, which is the common case. */
+function OutOfScope() {
+  const n = knownOutOfScope();
+  if (n === 0) return null;
+  return (
+    <p className="text-dim text-xs mt-1">
+      {fmt(n)} more outside the levels you’re studying — still yours, still scheduled.
+    </p>
+  );
+}
+
 /** Words met in the feed but never tested.
  *
  *  **Deliberately outside the green number, and phrased so it cannot be mistaken
@@ -273,6 +286,7 @@ function Headline() {
         {fmt(t.learned)} seen · {fmt(t.due)} due now · {streak()}-day streak
         {t.recalled > 0 && <> · {fmt(t.recalled)} you can also produce</>}
       </p>
+      <OutOfScope />
       <Met />
       <Backlog />
     </Card>

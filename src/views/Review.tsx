@@ -13,9 +13,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail } from '../store.ts';
-import { haptic, tick } from '../lib/ui.ts';
-import { buildMixedSession, loadSession, saveSession } from '../session.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, visitCount} from '../store.ts';
+import { haptic, tick, fmt} from '../lib/ui.ts';
+import { buildMixedSession, loadSession, saveSession, SESSION_CEILING} from '../session.ts';
 import { loadDetail, detailLoaded } from '../data/detail.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
@@ -399,7 +399,8 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
   const isNew = statusOf(item.srsId) === 'new';
 
   return (
-    <div className="mx-auto w-full max-w-[640px] flex-1 flex flex-col justify-center">
+    <div className="mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
+      <ReturnNotice />
       <CoachMarks />
       {offerVoice && <div className="mb-2.5"><VoiceOffer onClose={() => setOfferVoice(false)} /></div>}
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
@@ -796,8 +797,19 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
     // a screen too short for 330 + the chrome, the page scrolls the difference,
     // which is the right trade: a card that looks broken is worse than a page
     // that moves.
-    <div className="relative w-full max-w-[580px]
-      h-[clamp(330px,calc(100dvh_-_var(--bar-t)_-_var(--bar-b)_-_470px),460px)]">
+    // **The height is what is left, not a number.** *2026-09-05.*
+    //
+    // This was `clamp(330px, 100dvh - bars - 470px, 460px)`, where 470 was the
+    // rest of the column measured on one screen at one moment. It is right until
+    // anything else appears above the card — and the welcome-back and caught-up
+    // notices do exactly that, which put *the card itself* under the tab bar on
+    // an iPhone 17 Pro. Any future notice would do it again.
+    //
+    // `flex-1 min-h-0` inside the column that already lays this out means the
+    // card takes the space genuinely remaining, whatever is stacked above it.
+    // The floor stays: below ~300px a first-sight face has more content than
+    // room, and a page that scrolls is better than a card that looks broken.
+    <div className="relative w-full max-w-[580px] flex-1 min-h-[300px] max-h-[460px]">
       {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
           content. Rendered outermost-first so the nearest sits on top. */}
       {Array.from({ length: behind }, (_, k) => behind - 1 - k).map((depth) => (
@@ -850,9 +862,81 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
   );
 }
 
-/** One-time first-session tips (Karl, S6): flip / grade / skip, then gone. */
+/** Somebody who has been away, told so once, without being scolded.
+ *
+ *  **The most under-served state in the app, found by driving the personas.** A
+ *  learner returning after a month met 189 due cards, a session of 70 items, a
+ *  "1-day streak" where their 30-day one used to be, and *no acknowledgement of
+ *  any kind*. Every one of those is technically correct and together they read
+ *  as: you lost your progress and here is a mountain.
+ *
+ *  Copy that used to cover this lived on `Today.tsx`, which the vocabulary
+ *  refocus deleted — so this is not new ground, it is ground that was dropped.
+ *
+ *  Three facts, no reproach. What is actually waiting; that the day is bounded
+ *  (`SESSION_CEILING` now guarantees it, which is what makes the promise
+ *  keepable); and that the streak is a counter, not a verdict on the work — the
+ *  longest one is still theirs. `lastGapDays()` has been in the store the whole
+ *  time with no caller.
+ *
+ *  Seven days is the threshold because a week is the first gap a learner
+ *  *notices* — a weekend away should say nothing at all. */
+function ReturnNotice() {
+  const gap = useMemo(() => lastGapDays(), []);
+  const best = useMemo(() => longestStreak(), []);
+  const b = useMemo(() => buildBriefing(), []);
+  const away = gap !== null && gap >= 7;
+
+  // **Caught up is a state the app could reach and could never say.** The
+  // `clear` persona — everything reviewed, nothing due — was served a session of
+  // 29 fresh cards indistinguishable from a day of owed reviews, because
+  // `buildBriefing` fills the day whether or not anything is due. `EmptyState`
+  // below only appears once the *fresh* words run out too, which for a learner
+  // inside a 6,700-word corpus is never.
+  //
+  // The fresh words are the right thing to offer; presenting them as a debt is
+  // not. One line fixes the whole difference.
+  const caughtUp = !away && b.due === 0 && b.fresh > 0;
+  if (!away && !caughtUp) return null;
+
+  return (
+    <Card accent pad="none" role="status" className="px-4 py-3 mb-2.5">
+      {away ? (
+        <>
+          <p className="text-sm font-semibold">Welcome back — it’s been {gap} days.</p>
+          <p className="text-xs text-dim mt-1 leading-relaxed">
+            {/* Short on purpose. Every line here comes off the height of the card
+                below it, and the card is the reason anybody opened this screen. */}
+            {b.dueTotal > SESSION_CEILING
+              ? <>{fmt(b.dueTotal)} waiting · today serves {SESSION_CEILING}, the rest keep.</>
+              : <>Everything waiting fits in one session.</>}
+            {best > 1 && <> Longest streak: {best} days.</>}
+          </p>
+        </>
+      ) : (
+        <>
+          <p className="text-sm font-semibold">You’re caught up — nothing is due.</p>
+          <p className="text-xs text-dim mt-1 leading-relaxed">
+            {b.fresh} new {b.fresh === 1 ? 'word' : 'words'} below, offered rather than owed.
+          </p>
+        </>
+      )}
+    </Card>
+  );
+}
+
+/** One-time first-session tips (Karl, S6): flip / grade / skip, then gone.
+ *
+ *  **Also gated on this actually being an early session.** The dismissal flag
+ *  lives in localStorage, so anything that clears it — a restore, a new device,
+ *  a browser wiping site data — brings the tips back to a learner of two years.
+ *  Caught on the phone: the returning learner got the welcome-back notice *and*
+ *  the coach marks *and* the session header stacked above the card, which pushed
+ *  the card itself under the tab bar. Somebody with a visit history has had
+ *  their first session. */
 function CoachMarks() {
   const [show, setShow] = useState(() => {
+    if (visitCount() > 1) return false;
     try { return localStorage.getItem('lexi.coach.session.v1') !== '1'; } catch { return false; }
   });
   if (!show) return null;
@@ -876,7 +960,12 @@ function CoachMarks() {
     <Card pad="none" className="px-4 py-2 mb-2 flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
       <span><b className="text-txt font-semibold">Tap</b> the card to flip it</span>
       <span aria-hidden>·</span>
-      <span><b className="text-txt font-semibold">Swipe</b> or use the buttons to grade</span>
+      {/* "Swipe the card", not "swipe" — the app now has two swipe grammars and
+          they are one screen apart. Here right means *knew it*; on the feed,
+          right opens the entry and left opens the drill. Both are natural on
+          their own surface, and neither is a global rule, so this stops
+          claiming one. */}
+      <span><b className="text-txt font-semibold">Swipe the card</b> right if you knew it, left if you didn’t</span>
       <span aria-hidden>·</span>
       {/* The keyboard path existed but was never stated anywhere in the UI — and
           what it stated only ever worked on the flip card. The drills now take

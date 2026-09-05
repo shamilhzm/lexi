@@ -1311,6 +1311,20 @@ export function totals(): Counts & { coverage: number } {
   return { ...c, coverage: c.count ? c.learned / c.count : 0 };
 }
 
+/** Cards the learner has learned that their level filter currently excludes.
+ *
+ *  **The number that stops Fortschritt contradicting itself.** Narrowing the
+ *  filter is one tap in Settings, and it silently re-bases every figure on the
+ *  surface: the C1 persona, studying B2–C1 with a 120-day streak, reads
+ *  *"Words you know **0** of 1,659 · **0 seen**"* while the level strip beneath
+ *  it shows A1 at 39%. Both are true and together they read as data loss.
+ *
+ *  So the headline can say where the rest went. Deliberately counts `learned`
+ *  rather than `known`, matching the "seen" figure it sits next to. */
+export function knownOutOfScope(): number {
+  return countsFor(WORDS.filter((w) => !inLevels(w))).learned;
+}
+
 /** Per-CEFR-level progress across the WHOLE lexicon (ignores the active filter). */
 export interface LevelStat extends Counts { level: CEFR; coverage: number; }
 export function levelStats(): LevelStat[] {
