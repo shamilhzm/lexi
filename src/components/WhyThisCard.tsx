@@ -25,6 +25,12 @@ const DRILL_TAIL: Record<Mode, string> = {
   gender: 'now the article',
   plural: 'now the plural',
   recall: 'now produce it',
+  reverse: 'now find it from the English',
+  cloze: 'now in a sentence',
+  usage: 'now find its sentence',
+  conjugate: 'now its forms',
+  degree: 'now its comparative',
+  synonym: 'now what else says it',
 };
 
 export interface WhyLine {

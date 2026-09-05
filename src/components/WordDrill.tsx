@@ -38,7 +38,13 @@ import Layer from './Layer.tsx';
 import { review, logAttempt, logMiss } from '../store.ts';
 import { Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
-import { eligibleModes, gymId, stripArticle, MODE_TAG, MeaningItem, GenderItem, PluralItem, RecallItem, type Mode, type Grade } from '../views/drills.tsx';
+import {
+  practiceModes, gymId, stripArticle, MODE_TAG,
+  MeaningItem, ReverseItem, ClozeItem, UsageItem, GenderItem, PluralItem,
+  ConjugateItem, DegreeItem, SynonymItem, RecallItem,
+  type Mode, type Grade,
+} from '../views/drills.tsx';
+import { inflections } from '../lib/inflections.ts';
 import Button from './ui/Button.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
@@ -47,19 +53,60 @@ type Step = 'meaning' | Mode;
 
 const STEP_LABEL: Record<Step, string> = {
   meaning: 'Meaning',
+  reverse: 'Find it',
+  cloze: 'In a sentence',
+  usage: 'Its sentence',
   gender: 'Article',
   plural: 'Plural',
+  conjugate: 'Forms',
+  degree: 'Comparative',
+  synonym: 'Same meaning',
   recall: 'Recall',
 };
 
-/** Every drill a word qualifies for, in the order a teacher would ask them:
- *  recognise it, then its grammatical properties, then produce it. */
-export function stepsFor(word: Word): Step[] {
-  return ['meaning', ...eligibleModes(word)];
+/** How many exercises one pass through a word runs.
+ *
+ *  It used to be "all of them", which for an adverb meant **one** — a single
+ *  multiple-choice question, and a poor answer to "practise this word". A run
+ *  should be long enough to leave a mark and short enough that dragging left is
+ *  never a commitment you regret. */
+const RUN = 4;
+
+/** Every exercise a word qualifies for, ranked, cut to a run.
+ *
+ *  **Recognition first, always.** Meaning leads because a word you cannot pick
+ *  out of four is not ready to be conjugated, and the rest follow in the order a
+ *  teacher would ask them: find it from the English, see it in a sentence, then
+ *  its grammatical properties, then produce it cold.
+ *
+ *  Within that order the middle is *shuffled per run*, so a word met three times
+ *  is not the same three questions three times — the point of a bank is variety,
+ *  and a fixed order wastes it. The ends are pinned: `meaning` opens, and
+ *  `recall` closes because typing the word from its English is the hardest thing
+ *  here and belongs after the run has warmed the learner up. */
+export function stepsFor(word: Word, attested: string[] = []): Step[] {
+  const all = practiceModes(word, attested);
+  const first: Step[] = ['meaning'];
+  const last = all.filter((m) => m === 'recall');
+  const middle = all.filter((m) => m !== 'recall');
+  // Fisher–Yates on a copy: `sort(() => Math.random() - 0.5)` is not a shuffle.
+  for (let i = middle.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [middle[i], middle[j]] = [middle[j], middle[i]];
+  }
+  // **Trim the middle, never the ends.** Slicing the assembled list was the
+  // first version and it silently dropped `recall` from every well-qualified
+  // word — the pinned last element is the first thing a tail slice removes. A
+  // rule that says "recall closes the run" has to survive the run being cut.
+  const room = Math.max(0, RUN - first.length - last.length);
+  return [...first, ...middle.slice(0, room), ...last];
 }
 
 export default function WordDrill({ word, onClose }: { word: Word; onClose: () => void }) {
-  const steps = useMemo(() => stepsFor(word), [word.id]);
+  // Read once, when the sheet opens — `stepsFor` shuffles, so recomputing would
+  // reorder the run underneath the learner mid-answer.
+  const steps = useMemo(() => stepsFor(word, inflections()?.[word.id] ?? []), [word.id]);
+  const forms = useMemo(() => inflections()?.[word.id] ?? [], [word.id]);
   const [i, setI] = useState(0);
   const [right, setRight] = useState(0);
 
@@ -120,8 +167,14 @@ export default function WordDrill({ word, onClose }: { word: Word; onClose: () =
                 kept its `picked` state across a step change would render the
                 next question already answered. */}
             {step === 'meaning' && <MeaningItem key="meaning" word={word} onGrade={grade} />}
+            {step === 'reverse' && <ReverseItem key="reverse" word={word} onGrade={grade} />}
+            {step === 'cloze' && <ClozeItem key="cloze" word={word} forms={forms} onGrade={grade} />}
+            {step === 'usage' && <UsageItem key="usage" word={word} onGrade={grade} />}
             {step === 'gender' && <GenderItem key="gender" word={word} onGrade={grade} />}
             {step === 'plural' && <PluralItem key="plural" word={word} onGrade={grade} />}
+            {step === 'conjugate' && <ConjugateItem key="conjugate" word={word} onGrade={grade} />}
+            {step === 'degree' && <DegreeItem key="degree" word={word} forms={forms} onGrade={grade} />}
+            {step === 'synonym' && <SynonymItem key="synonym" word={word} onGrade={grade} />}
             {step === 'recall' && <RecallItem key="recall" word={word} onGrade={grade} />}
           </>
         )}

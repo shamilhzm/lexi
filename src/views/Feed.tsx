@@ -35,7 +35,7 @@
 // the right order — which is the one thing a feed can inherit from a scheduler
 // and no amount of content budget can buy.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
+import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown, X } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
@@ -100,7 +100,40 @@ export function feedOrder(): Word[] {
   const rest = WORDS
     .filter((w) => levels().has(w.level) && !seen.has(w.id))
     .sort(byFrequency);
+  // **The opening word varies, and the ranking survives.**
+  //
+  // It opened on *so* every single time, which makes a surface whose whole
+  // promise is "meet German you have not met" feel like a page. Shuffling the
+  // briefing's fresh picks was the first attempt and it fixed nothing for most
+  // learners: once the due slice reaches `MIN_DAILY` the briefing's `want` falls
+  // to zero, `fresh` comes back **empty**, and the feed opens on `rest[0]` — the
+  // single most frequent unseen word in scope, which is the same word forever.
+  //
+  // So both groups are shuffled, and `rest` is shuffled *within bands*. Twenty
+  // words of near-identical corpus frequency are peers; which of them you meet
+  // first carries no information, so scrambling inside a band costs nothing.
+  // Across bands the ranking is untouched, which is where the recommendation
+  // actually lives — you still meet common German before rare German.
+  //
+  // At build time, not per render: the list is rebuilt when the level filter
+  // changes and never on a save, so it cannot reshuffle under a thumb.
+  shuffle(fresh);
+  for (let i = 0; i < rest.length; i += FREQ_BAND) shuffle(rest, i, Math.min(i + FREQ_BAND, rest.length));
   return [...fresh, ...rest, ...due];
+}
+
+/** How many words count as equally common. Small enough that the ranking still
+ *  decides what you meet this week, large enough that the first screen is not
+ *  the same word twice. */
+const FREQ_BAND = 20;
+
+/** Fisher–Yates over a slice, in place. `sort(() => Math.random() - 0.5)` is not
+ *  a shuffle — it is a biased mess that happens to move things. */
+function shuffle<T>(a: T[], from = 0, to = a.length): void {
+  for (let i = to - 1; i > from; i--) {
+    const j = from + Math.floor(Math.random() * (i - from + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
 }
 
 export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void }) {
@@ -233,8 +266,15 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
           </div>
         </section>
       )}
-      {detail && <WordDetail word={detail} onClose={() => setDetail(null)} />}
-      {drill && <WordDrill word={drill} onClose={() => setDrill(null)} />}
+      {/* Without `AnimatePresence` React removes the node the moment the state
+          clears and there is nothing left for the exit spring to animate — which
+          is exactly why the panels used to vanish rather than slide away. */}
+      <AnimatePresence>
+        {detail && <WordDetail key="detail" word={detail} onClose={() => setDetail(null)} />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {drill && <WordDrill key="drill" word={drill} onClose={() => setDrill(null)} />}
+      </AnimatePresence>
     </div>
   );
 }
@@ -487,7 +527,13 @@ function Swipeable({ children, onLeft, onRight, term }: {
 
   return (
     <motion.div
-      className="relative w-full max-w-[560px] flex flex-col items-center text-center touch-pan-y"
+      // **The whole slot is the handle.** It used to be this column — capped at
+      // 560px and only as tall as the word, its gloss and the icon row — so a
+      // drag that began in the empty space above the headword or below the
+      // buttons hit the section behind and did nothing. On a phone that is most
+      // of the screen, and it made a gesture that works feel broken.
+      // `h-full` + centring keeps the content exactly where it was.
+      className="relative w-full h-full flex flex-col items-center justify-center text-center touch-pan-y"
       style={{ x }}
       drag="x"
       dragDirectionLock
@@ -506,7 +552,7 @@ function Swipeable({ children, onLeft, onRight, term }: {
         animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 460, damping: 34, velocity: velocity.x });
         if (go) { haptic('grade'); go(); }
       }}>
-      {children}
+      <div className="w-full max-w-[560px] flex flex-col items-center">{children}</div>
       {/* What the direction will do, named while you are still deciding. Both
           sit at the top edge, on the side the thumb is travelling *towards*, so
           the label arrives in front of the movement rather than behind it. */}

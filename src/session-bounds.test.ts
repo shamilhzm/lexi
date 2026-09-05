@@ -114,3 +114,22 @@ describe('the feed leads with words you have not met', () => {
     vi.useRealTimers();
   });
 });
+
+describe('the feed does not open on the same word every time', () => {
+  it('varies the first slot while keeping common words ahead of rare ones', async () => {
+    const { data, feed } = await fresh();
+    // 60 unseen words in corpus-frequency order and nothing due — the state most
+    // learners are in, and the one where the first fix changed nothing because
+    // the briefing returns no fresh picks at all.
+    const words = Array.from({ length: 60 }, (_, i) => word(`w${String(i).padStart(2, '0')}`, 'Zed'));
+    data.registerWords(words);
+    const firsts = new Set(Array.from({ length: 25 }, () => feed.feedOrder()[0].id));
+    expect(firsts.size, 'the opening word varies').toBeGreaterThan(1);
+    // …and a word from the second band never jumps the first one.
+    for (let n = 0; n < 10; n++) {
+      const order = feed.feedOrder().map((w) => w.id);
+      const firstBand = order.slice(0, 20);
+      expect(firstBand.every((id) => Number(id.slice(1)) < 20), 'bands hold').toBe(true);
+    }
+  });
+});

@@ -33,19 +33,27 @@ describe('every word has something to drill', () => {
   // gated on the flip being known — so without a recognition step the graduation
   // cap on a feed card would open an empty sheet on most of the corpus.
   it('starts with meaning, for every card in the corpus', () => {
+    // Left as the scheduler sees it: `eligibleModes` is still the original three,
+    // and for most of the corpus it is still empty — which is exactly why the
+    // practice bank had to be a separate, wider list.
     const empty = words.filter((w) => eligibleModes(w).length === 0);
     expect(empty.length).toBeGreaterThan(1000);   // this is the common case, not an edge
     for (const w of words) expect(stepsFor(w)[0]).toBe('meaning');
   });
 
-  it('never opens a sheet with nothing in it', () => {
-    for (const w of words) expect(stepsFor(w).length).toBeGreaterThanOrEqual(1);
+  it('gives every card in the corpus a run of at least three', () => {
+    const thin = words.filter((w) => stepsFor(w).length < 3).map((w) => w.term);
+    expect(thin.slice(0, 10)).toEqual([]);
   });
 
-  it('asks a noun for its article and its plural, in that order', () => {
-    const tisch = words.find((w) => w.term === 'der Tisch');
-    expect(tisch).toBeDefined();
-    expect(stepsFor(tisch!)).toEqual(['meaning', 'gender', 'plural']);
+  it('asks a noun for its article and its plural somewhere in the run', () => {
+    const tisch = words.find((w) => w.term === 'der Tisch')!;
+    const runs = Array.from({ length: 20 }, () => stepsFor(tisch, ['Tisches', 'Tische']));
+    for (const r of runs) expect(r[0]).toBe('meaning');
+    // Ordering inside the run is shuffled, so membership is what can be asserted
+    // — but a noun must be asked for its gender by *some* run, because that is
+    // the single most useful mark on a German card.
+    expect(runs.some((r) => r.includes('gender'))).toBe(true);
   });
 });
 

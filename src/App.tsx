@@ -38,6 +38,8 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 // fill-mode, so a stalled animation cannot hide a room.
 import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
+import SavedWords from './components/SavedWords.tsx';
+import { AnimatePresence } from 'motion/react';
 import Review from './views/Review.tsx';
 import Feed from './views/Feed.tsx';
 import Words from './views/Words.tsx';
@@ -88,6 +90,7 @@ export default function App() {
   // are, and closing the answer has to put you back there — mid-scroll in the
   // feed, mid-card in a session. See components/SearchSheet.
   const [searching, setSearching] = useState(false);
+  const [showSaved, setShowSaved] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
   // The human-audio manifest is a small id list; loading it at boot lets cards
@@ -180,6 +183,7 @@ export default function App() {
       <TopBar
         view={view} onGo={go}
         onSearch={() => setSearching(true)}
+        onSaved={() => setShowSaved(true)}
         onProfile={() => go('profile')}
         name={profileName()} level={placementLevel()} streak={streak()}
       />
@@ -274,6 +278,9 @@ export default function App() {
       </div>
 
       {searching && <SearchSheet onClose={() => setSearching(false)} />}
+      <AnimatePresence>
+        {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study} />}
+      </AnimatePresence>
     </div>
   );
 }

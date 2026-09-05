@@ -100,16 +100,20 @@ export const NAV: { id: View; label: string; icon: LucideIcon }[] = [
  *  the goal. Both would be lies of a different kind — one moves the finish line
  *  under somebody who just crossed it, the other tells them they saved five when
  *  they saved nine. */
-function GoalPill() {
+function GoalPill({ onOpen }: { onOpen: () => void }) {
   const saved = savedToday();
   const met = saved >= DAILY_SAVE_GOAL;
   const label = met
-    ? `Daily goal met — ${saved} ${saved === 1 ? 'word' : 'words'} saved today`
-    : `${saved} of ${DAILY_SAVE_GOAL} words saved today`;
+    ? `Daily goal met — ${saved} ${saved === 1 ? 'word' : 'words'} saved today. Open your saved words`
+    : `${saved} of ${DAILY_SAVE_GOAL} words saved today. Open your saved words`;
+  // **A counter that advertises a list has to open it.** This was a `<div role
+  //="status">`: it told you a number was going up and gave you nowhere to go,
+  // which is most of why bookmarking felt like it did nothing. See
+  // `components/SavedWords`.
   return (
-    <div role="status" aria-label={label}
-      className={`flex items-center gap-2 rounded-full border px-3 py-1.5 mr-1 ${
-        met ? 'bg-green-d border-green/40' : 'bg-panel2/70 border-line/60'}`}>
+    <button onClick={onOpen} aria-label={label}
+      className={`tap-44 flex items-center gap-2 rounded-full border px-3 py-1.5 mr-1 transition-colors ${
+        met ? 'bg-green-d border-green/40' : 'bg-panel2/70 border-line/60 hover:border-line'}`}>
       {met
         ? <Check size={13} className="text-green flex-shrink-0" aria-hidden />
         : <Bookmark size={13} className="text-dim flex-shrink-0" aria-hidden />}
@@ -122,12 +126,14 @@ function GoalPill() {
             style={{ width: `${(saved / DAILY_SAVE_GOAL) * 100}%` }} />
         </span>
       )}
-    </div>
+    </button>
   );
 }
 
-export default function TopBar({ view, onGo, onSearch, onProfile, name, level, streak }: {
+export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name, level, streak }: {
   view: View; onGo: (v: View) => void;
+  /** Opens the saved-words layer — the list the pill's number refers to. */
+  onSaved: () => void;
   /** The one thing in the bar that is an *action* rather than a place. It earns
    *  that on the only ground the removed Start button could not: "what does this
    *  word mean?" is asked from wherever you already are, so it cannot be a
@@ -186,7 +192,7 @@ export default function TopBar({ view, onGo, onSearch, onProfile, name, level, s
           honestly produce: scrolling past a word is not evidence that anything
           happened, and pressing bookmark is. Small, right-aligned, next to the
           person it belongs to — a goal is a fact about you, not a scoreboard. */}
-      {view === 'feed' && <GoalPill />}
+      {view === 'feed' && <GoalPill onOpen={onSaved} />}
 
       <button onClick={onSearch} aria-label="Look up a word"
         className="tap-44 grid place-items-center w-10 h-10 rounded-full text-txt

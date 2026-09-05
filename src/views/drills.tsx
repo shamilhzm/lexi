@@ -37,6 +37,8 @@ import { motion } from 'motion/react';
 import { ArrowLeft, CircleDot, Layers3, PenLine, Venus, Mars, Check, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
+import { conjugate, canConjugate } from '../lib/conjugate.ts';
+import { pluralForm } from '../lib/matcher.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
@@ -50,7 +52,7 @@ import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { Word, Example } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'recall';
+export type Mode = 'gender' | 'plural' | 'recall' | 'reverse' | 'cloze' | 'usage' | 'conjugate' | 'degree' | 'synonym';
 
 /** How every drill item reports its result.
  *
@@ -294,7 +296,15 @@ const recallPool = () => WORDS.filter((w) => inLevels(w) && recallSafe(w));
 /** FSRS card id for a word's drill in a given mode. */
 export const gymId = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
 
-/** Drill modes a single word qualifies for (mirrors the pool predicates). */
+/** Drill modes a single word qualifies for **in a scheduled session**.
+ *
+ *  Deliberately still the original three. These are the modes with their own
+ *  pools, their own FSRS tracks and their own place in `buildMixedSession`, and
+ *  widening this is not free: `reverse` and `cloze` apply to every card, so
+ *  adding them here weaves a drill into every flip and turns a forty-item day
+ *  into mostly drills. The bank belongs to the thing the learner *asked* for.
+ *
+ *  See `practiceModes` for the other half of the split. */
 export function eligibleModes(w: Word): Mode[] {
   const out: Mode[] = [];
   if (w.kind === 'word' && w.gender) out.push('gender');
@@ -313,11 +323,44 @@ export function eligibleModes(w: Word): Mode[] {
   return out;
 }
 
+/** Everything a word can be practised with when somebody has asked for it.
+ *
+ *  The scheduler's three plus the five that only make sense on demand. Split
+ *  from `eligibleModes` because the two answer different questions: *what should
+ *  ride along in today's queue* and *what can I do with this word right now*.
+ *  Merging them was tried and it flooded the session — every card qualifies for
+ *  `reverse` and `cloze`, so every flip grew a drill.
+ *
+ *  `attested` is the Wiktionary inflection table for this card, when it has
+ *  loaded. `degree` and the sentence gap both need real forms and neither is
+ *  offered without them; absent, the word simply qualifies for fewer things. */
+export function practiceModes(w: Word, attested: string[] = []): Mode[] {
+  const out: Mode[] = ['reverse'];
+  // The gap when it can be found, and recognising the sentence when it cannot —
+  // between them every card has a third exercise.
+  if (clozeParts(w, attested)) out.push('cloze'); else out.push('usage');
+  if (w.kind === 'word' && w.gender) out.push('gender');
+  if (w.kind === 'word' && askablePlural(w)) out.push('plural');
+  if (w.pos === 'verb' && canConjugate(stripArticle(w.term))) out.push('conjugate');
+  if (w.pos === 'adjective' && attested.length > 0) out.push('degree');
+  if (w.syn.some((t) => /^(der |die |das )?[A-Za-zÄÖÜäöüß-]+$/.test(t))) out.push('synonym');
+  // Production last and gated exactly as the scheduler gates it: asking for a
+  // word cold before the form–meaning link exists is a lapse on nothing.
+  if (recallSafe(w) && statusOf(w.id) === 'known') out.push('recall');
+  return out;
+}
+
 /** The label a miss is logged under — the blind-spot table's key. */
 export const MODE_TAG: Record<Mode, string> = {
   gender: 'Gender (der/die/das)',
   plural: 'Noun plurals',
   recall: 'Recall (English → German)',
+  reverse: 'Recognition (English → German)',
+  cloze: 'The word in a sentence',
+  usage: 'Where the word belongs',
+  conjugate: 'Verb forms',
+  degree: 'Comparative and superlative',
+  synonym: 'Words that mean the same',
 };
 
 export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[] = [
@@ -673,6 +716,211 @@ export function RecallItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
         noteFor={(typed, ok) => (ok ? undefined : articleMiss(typed, word) ?? undefined)} />
     </>
   );
+}
+
+// ---- the rest of the bank --------------------------------------------------
+//
+// **Why these and not the grammar drills that were retired.**
+//
+// `docs/VISION.md` rules that a drill earns its place if it tests a *property of
+// the word* and goes if it tests a *rule of the language*. That ruling stands,
+// and it is what shapes this list rather than contradicting it:
+//
+//   reverse    which German word carries this meaning — the word's identity
+//   cloze      the sentence this word actually lives in — its collocation
+//   conjugate  *this verb's* forms, which in German is where irregularity lives
+//   degree     *this adjective's* comparative — `gut → besser` is not a rule
+//   synonym    what else the corpus says means this
+//
+// The ones that stayed retired are the ones that are the same for every word:
+// adjective declension is `-e -em -en -er -es` on any stem, Kasus is a table, and
+// drilling either teaches German grammar rather than this vocabulary. Conjugation
+// is the interesting boundary and it lands inside, because *which* verb is strong
+// is a fact about the verb and nothing else.
+//
+// Three of these apply to every card — meaning, reverse, cloze — which is what
+// takes the floor from one exercise to three.
+
+/** English in, German out, as a choice. The recognition half of `recall`.
+ *
+ *  Distinct from `recall` and deliberately duplicated in direction: recall is
+ *  typed and gated on the word already being known, because production before
+ *  the form–meaning link exists is a lapse on something never learned. Choosing
+ *  from four has no such cost, so it can run on a word met a minute ago. */
+export function ReverseItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
+  const mc = useMemo(() => {
+    const same = WORDS.filter((w) => w.kind === 'word' && w.id !== word.id && w.pos === word.pos
+      && !glossOverlap(w.en, word.en) && !synKeys(word).has(canon(stripArticle(w.term))));
+    const near = same.filter((w) => w.level === word.level);
+    const pool = (near.length >= 3 ? near : same).map((w) => w.term);
+    return buildMC(word.term, pickN(pool, 3, new Set([norm(word.term)])));
+  }, [word.id]);
+  if (mc.options.length < 2) return null;
+  return <MCItem prompt={word.en} big sub="Which word is it?"
+    options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+/** The card's own example with the word taken out.
+ *
+ *  Every card has an example, so this is the third universal exercise — and it
+ *  is the only one that asks the word to do a job rather than sit in a list.
+ *  The blank is found by matching the headword or one of its **attested**
+ *  inflections, never by substring: «Er braut Bier» must not blank for *die
+ *  Braut*, which is the same trap `headwordEvidence` was written for. */
+export function clozeParts(word: Word, forms: string[]): { before: string; blank: string; after: string } | null {
+  const de = word.ex[0]?.de;
+  if (!de) return null;
+  const bare = stripArticle(word.term).toLowerCase();
+  const known = new Set([bare, ...forms.map((f) => f.toLowerCase())]);
+
+  // **The attested table is not always there, and the example rarely uses the
+  // bare headword.** An adjective turns up declined — *ein unbefristeter
+  // Vertrag* — so with no forms loaded this found nothing and ten cards fell
+  // below a three-exercise run. So the app's own generators fill in: regular
+  // adjective endings, which are regular precisely because German makes them so,
+  // and the conjugator for verbs. Both are the same machinery `matcher.ts` uses
+  // to read a sentence, and neither is a substring test — a token still has to
+  // *equal* a form we can name, which is what keeps «Er braut Bier» away from
+  // *die Braut*.
+  if (word.pos === 'adjective') {
+    for (const suf of ['e', 'em', 'en', 'er', 'es', 'ere', 'eren', 'erer', 'eres', 'sten', 'ste']) {
+      known.add(bare + suf);
+    }
+  } else if (word.pos === 'verb' && canConjugate(stripArticle(word.term))) {
+    try {
+      const c = conjugate(stripArticle(word.term));
+      for (const f of [...c.praesens, ...c.praeteritum, c.partizip]) {
+        if (f && !f.includes(' ')) known.add(f.toLowerCase());
+      }
+    } catch { /* the bare form is still in the set */ }
+  } else if (word.pos === 'noun') {
+    const pl = pluralForm(word.term, word.plural);
+    if (pl) known.add(stripArticle(pl).toLowerCase());
+  }
+  // A German noun is always capitalised, so a lowercase token cannot be one —
+  // the orthographic rule the authoring gate already leans on.
+  const noun = word.pos === 'noun';
+  for (const m of de.matchAll(/[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß-]*/g)) {
+    const tok = m[0];
+    if (!known.has(tok.toLowerCase())) continue;
+    if (noun && tok[0] !== tok[0].toUpperCase()) continue;
+    return { before: de.slice(0, m.index), blank: tok, after: de.slice(m.index! + tok.length) };
+  }
+  return null;
+}
+
+export function ClozeItem({ word, forms, onGrade }: { word: Word; forms: string[]; onGrade: Grade }) {
+  const parts = useMemo(() => clozeParts(word, forms), [word.id, forms]);
+  const mc = useMemo(() => {
+    if (!parts) return null;
+    const same = WORDS.filter((w) => w.kind === 'word' && w.id !== word.id && w.pos === word.pos
+      && w.level === word.level);
+    const pool = same.map((w) => stripArticle(w.term));
+    return buildMC(parts.blank, pickN(pool, 3, new Set([norm(parts.blank)])));
+  }, [word.id, parts]);
+  if (!parts || !mc || mc.options.length < 2) return null;
+  return (
+    <MCItem
+      prompt={<span lang="de">{parts.before}<span className="text-accent">·····</span>{parts.after}</span>}
+      sub="Which word fills the gap?" hint={word.ex[0]?.en}
+      options={mc.options} correct={mc.correct} onGrade={onGrade} />
+  );
+}
+
+/** Which sentence is this word's.
+ *
+ *  **The exercise that works when the gap cannot.** `cloze` needs to find a
+ *  single token equal to the headword or one of its forms, which is impossible
+ *  for the 212 cards whose headword is a phrase or a separable verb — *aus
+ *  Holz*, *sich abwechseln*, *Es war einmal …* — because the thing being taught
+ *  is not one token and, split across a clause, is not contiguous either.
+ *
+ *  Recognising the sentence a word lives in tests the same knowledge from the
+ *  other end and needs no tokenising at all, so this is what puts a floor of
+ *  three under *every* card rather than under 97% of them. The distractors are
+ *  other cards' examples at the same level, so nothing is answerable on register
+ *  or length. */
+export function UsageItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
+  const mc = useMemo(() => {
+    const mine = word.ex[0]?.de;
+    if (!mine) return null;
+    const pool = WORDS
+      .filter((w) => w.id !== word.id && w.level === word.level && w.ex[0]?.de
+        // A distractor sentence must not itself contain the word, or there are
+        // two right answers and the learner is marked wrong for finding one.
+        && !new RegExp(`\\b${stripArticle(word.term).slice(0, 6)}`, 'i').test(w.ex[0].de))
+      .map((w) => w.ex[0].de);
+    const distract = pickN(pool, 3, new Set([norm(mine)]));
+    if (distract.length < 2) return null;
+    return buildMC(mine, distract);
+  }, [word.id]);
+  if (!mc) return null;
+  return <MCItem prompt={<span lang="de">{stripArticle(word.term)}</span>} big
+    sub="Which sentence uses it?" hint={word.en}
+    options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+/** One of *this verb's* forms. German puts its irregularity in the verb, so
+ *  which form a particular verb takes is a fact about that verb. */
+const PERSONS = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'sie/Sie'];
+
+export function ConjugateItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
+  const mc = useMemo(() => {
+    const inf = stripArticle(word.term);
+    if (!canConjugate(inf)) return null;
+    try {
+      const c = conjugate(inf);
+      // Single-token forms only: a separable verb conjugates to "rufe an", and a
+      // two-word answer among one-word distractors is answerable without German.
+      const forms = c.praesens.map((f, i) => ({ f, i })).filter((x) => x.f && !x.f.includes(' '));
+      if (forms.length < 3) return null;
+      const pick = forms[Math.floor(Math.random() * forms.length)];
+      const others = forms.filter((x) => norm(x.f) !== norm(pick.f)).map((x) => x.f);
+      const distract = pickN(others, 3, new Set([norm(pick.f)]));
+      if (distract.length < 2) return null;
+      return { person: PERSONS[pick.i], ...buildMC(pick.f, distract) };
+    } catch { return null; }
+  }, [word.id]);
+  if (!mc) return null;
+  return <MCItem prompt={<span lang="de">{mc.person} <span className="text-accent">·····</span></span>}
+    big sub={`Which form of ${stripArticle(word.term)}?`} hint={word.en}
+    options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+/** *gut → besser.* Not derivable by any rule, which is exactly why it is here
+ *  and why regular declension is not. Needs the attested table. */
+export function DegreeItem({ word, forms, onGrade }: { word: Word; forms: string[]; onGrade: Grade }) {
+  const mc = useMemo(() => {
+    const target = forms[0];
+    if (!target) return null;
+    const others = WORDS.filter((w) => w.pos === 'adjective' && w.id !== word.id)
+      .map((w) => stripArticle(w.term) + 'er');
+    const distract = pickN(others, 3, new Set([norm(target)]));
+    if (distract.length < 2) return null;
+    return buildMC(target, distract);
+  }, [word.id, forms]);
+  if (!mc) return null;
+  return <MCItem prompt={<span lang="de">{stripArticle(word.term)} → <span className="text-accent">·····</span></span>}
+    big sub="Which is the comparative?" hint={word.en}
+    options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+/** What else the corpus says means this. Only where the card names one. */
+export function SynonymItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
+  const mc = useMemo(() => {
+    const syns = word.syn.map((t) => stripArticle(t)).filter((t) => /^[A-Za-zÄÖÜäöüß-]+$/.test(t));
+    if (!syns.length) return null;
+    const target = syns[0];
+    const others = WORDS.filter((w) => w.pos === word.pos && w.id !== word.id)
+      .map((w) => stripArticle(w.term));
+    const distract = pickN(others, 3, new Set([norm(target), norm(stripArticle(word.term))]));
+    if (distract.length < 2) return null;
+    return buildMC(target, distract);
+  }, [word.id]);
+  if (!mc) return null;
+  return <MCItem prompt={<span lang="de">{stripArticle(word.term)}</span>} big
+    sub="Which word means the same?" hint={word.en}
+    options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
 
 // ---- the typed-answer widget ----------------------------------------------
