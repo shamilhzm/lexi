@@ -212508,5 +212508,32 @@
     ],
     "field": "Adjectives",
     "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Gott",
+    "term": "der Gott",
+    "en": "god",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Götter",
+    "ipa": "ɡɔt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "An einen Gott hat er nie geglaubt.",
+        "en": "He never believed in a god.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die alten Griechen verehrten viele Götter.",
+        "en": "The ancient Greeks worshipped many gods.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Cultural Identity",
+    "kind": "word"
   }
 ]

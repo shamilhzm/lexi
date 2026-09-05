@@ -104878,5 +104878,19 @@
     "ant": [],
     "field": "Adjectives",
     "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Gott",
+    "term": "der Gott",
+    "en": "god",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Götter",
+    "ipa": "ɡɔt",
+    "syn": [],
+    "ant": [],
+    "field": "Cultural Identity",
+    "kind": "word"
   }
 ]

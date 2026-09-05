@@ -33440,6 +33440,20 @@
       }
     ]
   },
+  "voc:A2:der Gott": {
+    "ex": [
+      {
+        "de": "An einen Gott hat er nie geglaubt.",
+        "en": "He never believed in a god.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die alten Griechen verehrten viele Götter.",
+        "en": "The ancient Greeks worshipped many gods.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Grund": {
     "def": "ground, land (usually as someone's property)",
     "ex": [

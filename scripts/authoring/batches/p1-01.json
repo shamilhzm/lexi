@@ -656,5 +656,23 @@
    }
   ],
   "gender": "das"
+ },
+ {
+  "term": "der Gott",
+  "en": "god",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Cultural Identity",
+  "sameAsGerman": false,
+  "ex": [
+   {
+    "de": "An einen Gott hat er nie geglaubt.",
+    "en": "He never believed in a god."
+   },
+   {
+    "de": "Die alten Griechen verehrten viele Götter.",
+    "en": "The ancient Greeks worshipped many gods."
+   }
+  ]
  }
 ]
