@@ -43,6 +43,12 @@ const TINT: Record<string, string> = {
   known: 'text-txt',
   learning: 'text-accent font-semibold',
   new: 'text-accent underline decoration-dotted underline-offset-4',
+  // A compound Lexi could only take apart. Marked, because the meter no longer
+  // counts it as read and the passage has to agree with the meter — a word
+  // scored as a gap and drawn as plain ink is a passage that contradicts its own
+  // number. A wavy rule rather than the dotted one `new` uses: the difference is
+  // "Lexi will teach you this" against "work it out from its parts".
+  compound: 'text-txt underline decoration-wavy decoration-dim/60 underline-offset-4',
   absent: 'text-dim line-through decoration-dim/50',
 };
 
@@ -57,6 +63,11 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
   const [text, setText] = useState('');
   const [submitted, setSubmitted] = useState('');
   const [selected, setSelected] = useState<Word | null>(null);
+  // The token that was clicked, when it is a compound the matcher decomposed. The
+  // *card* is the head; the *word on the page* is this. Keeping them apart is the
+  // whole fix — the panel used to print the head's headword and gloss under a
+  // click on `Schadenfreude`, which reads as "Schadenfreude: die Freude, joy".
+  const [partOf, setPartOf] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
   // The live meter. Recomputed against today's FSRS state on every store change —
@@ -205,7 +216,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                   ? (
                     <button
                       key={i}
-                      onClick={() => t.word && setSelected(t.word)}
+                      onClick={() => { if (t.word) { setSelected(t.word); setPartOf(t.state === 'compound' ? t.text : null); } }}
                       disabled={!t.word}
                       className={`${TINT[t.state ?? 'absent']} ${t.word ? 'hover:bg-panel2 rounded-sm' : 'cursor-default'}`}>
                       {t.text}
@@ -220,6 +231,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
               <span className={TINT.known}>known</span>
               <span className={TINT.learning}>learning</span>
               <span className={TINT.new}>new — Lexi teaches it</span>
+              <span className={TINT.compound}>a compound of words it knows</span>
               <span className={TINT.absent}>not in the corpus</span>
               <span>grammar words and names — not counted</span>
             </p>
@@ -229,13 +241,27 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
             <Card tone="card" pad="md">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p lang="de" className="font-serif text-xl font-bold">{selected.term}</p>
+                  {/* The word on the page leads, and the card follows it as a
+                      *part* — never the other way round. Lexi does not know what
+                      this compound means and says so, because the alternative is
+                      answering a question it cannot answer. */}
+                  {partOf && (
+                    <>
+                      <p lang="de" className="font-serif text-xl font-bold">{partOf}</p>
+                      <p className="text-sm text-dim">
+                        Not a card in Lexi. It ends in a word that is —
+                        and a compound usually, <em>but not always</em>, means a kind of its last part.
+                      </p>
+                      <p className="mt-2 text-2xs text-dim">the part Lexi teaches</p>
+                    </>
+                  )}
+                  <p lang="de" className={`font-serif font-bold ${partOf ? 'text-base' : 'text-xl'}`}>{selected.term}</p>
                   <p className="text-sm text-dim">{selected.en}</p>
                   {selected.plural && (
                     <p className="mt-1 text-2xs text-dim">plural: <span lang="de">{selected.plural}</span></p>
                   )}
                 </div>
-                <Button variant="quiet" size="sm" onClick={() => setSelected(null)}>Close</Button>
+                <Button variant="quiet" size="sm" onClick={() => { setSelected(null); setPartOf(null); }}>Close</Button>
               </div>
             </Card>
           )}

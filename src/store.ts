@@ -437,6 +437,32 @@ export function buildBriefing(): Briefing {
     if (freshIds.length) weak.push('your saved words');
   }
 
+  // Then the words you kept stopping on.
+  //
+  // Between a bookmark and nothing at all there is a real signal: the learner
+  // dwelt on this word, more than once, and did not press anything. That is not
+  // evidence they *know* it — it is evidence they were interested, which is
+  // exactly the question "what should I teach next" is asking. So it ranks the
+  // fresh picks; it never grades one. (See the exposure block below: no FSRS
+  // card is written by any of this.)
+  //
+  // Twice, not once: a single dwell is one bus stop and half the feed would
+  // qualify. The threshold is what makes this a preference rather than a log.
+  const repeats = Object.entries(exposures())
+    .filter(([, e]) => e.n >= 2)
+    .sort((a, b) => b[1].n - a[1].n || b[1].at - a[1].at)
+    .map(([id]) => id);
+  if (repeats.length) {
+    const before = freshIds.length;
+    for (const id of repeats) {
+      if (freshIds.length >= want) break;
+      const w = BY_ID.get(id);
+      if (!w || !inLevels(w) || statusOf(id) !== 'new' || freshIds.includes(id)) continue;
+      freshIds.push(id);
+    }
+    if (freshIds.length > before) weak.push('words you kept stopping on');
+  }
+
   for (const s of weakestSectors(6)) {
     if (freshIds.length >= want) break;
     const newCards = (WORDS_BY_SECTOR.get(s.name) ?? [])
@@ -979,6 +1005,82 @@ export function toggleFavourite(id: string): boolean {
   writeList(FAVES_KEY, cur);
   return true;
 }
+
+// ---- exposures: what the feed *can* honestly record -------------------------
+//
+// The rule above stands and is not being bent: **the feed never writes an FSRS
+// card.** Scrolling is the weakest event in the app and "the learner has met
+// this" is the strongest signal the scheduler takes, and inferring one from the
+// other corrupts every interval — invisibly, and for weeks.
+//
+// But the feed recording *nothing* made its own promise hollow. Its whole premise
+// is that meeting a hundred German words on a bus is worth something, and until
+// now the app's answer to a thousand words met was a blank page.
+//
+// So: an exposure is a count, not a grade. It is stored apart from the card map,
+// it never reaches `review()`, and it cannot move a due date. What it earns is
+// two honest things — a number on Fortschritt that grows while you browse, and a
+// tiebreaker in `buildBriefing` for which unseen word to introduce next. A word
+// you have paused on four times is a better next card than one you have never
+// stopped for. That is the same *kind* of claim as a bookmark: an instruction
+// about what to teach, never a verdict about what you know.
+//
+// ## Dwell-gated, because a flick is not a reading
+//
+// The count is written only after the word has held the viewport for
+// `DWELL_MS`. Without that gate, one flick down a long feed would "meet" forty
+// words, and the number would measure thumb speed. See `Feed.tsx` for the
+// observer that enforces it.
+const EXPOSED_KEY = 'lexi.exposures.v1';
+
+/** How long a word must hold the screen before it counts as met. Chosen to be
+ *  longer than a flick and shorter than a read: at a fast scroll a slot passes in
+ *  ~300ms, and the shortest useful look at a word — headword, gloss, done — is
+ *  about a second. */
+export const DWELL_MS = 1200;
+
+interface Exposure { n: number; at: number }
+
+function readExposures(): Record<string, Exposure> {
+  try {
+    const o = JSON.parse(localStorage.getItem(EXPOSED_KEY) || '{}');
+    return o && typeof o === 'object' && !Array.isArray(o) ? o : {};
+  } catch { return {}; }
+}
+
+/** Every word met, and how often. */
+export function exposures(): Record<string, Exposure> { return readExposures(); }
+
+/** How many times this word has been dwelt on. 0 for never. */
+export function exposureOf(id: string): number { return readExposures()[id]?.n ?? 0; }
+
+/** How many distinct words have ever been met in the feed. The number
+ *  Fortschritt shows: it counts *words*, not scrolls, so re-meeting the same
+ *  word twenty times does not inflate it. */
+export function metCount(): number { return Object.keys(readExposures()).length; }
+
+/** Record one dwell. Returns the new count.
+ *
+ *  Deliberately does not call `review()`, `checkMilestones()` or anything else
+ *  that touches scheduling — if this function ever grows a second responsibility,
+ *  the separation it exists to protect is gone. */
+export function noteExposure(id: string): number {
+  const all = readExposures();
+  const prev = all[id];
+  const next: Exposure = { n: (prev?.n ?? 0) + 1, at: Date.now() };
+  all[id] = next;
+  try { localStorage.setItem(EXPOSED_KEY, JSON.stringify(all)); } catch { /* quota */ }
+  emit();
+  return next.n;
+}
+
+/** Words met today, for the copy that says the browsing counted. */
+export function metToday(): number {
+  const start = new Date(); start.setHours(0, 0, 0, 0);
+  const from = start.getTime();
+  return Object.values(readExposures()).filter((e) => e.at >= from).length;
+}
+
 
 /** Saves made today, for the goal pill. Local midnight, like every other daily
  *  boundary in this file — a learner's day ends when their day ends. */
@@ -1601,6 +1703,10 @@ const SETTING_KEYS = [
   // A learner restoring on a new phone got their entire FSRS history back and
   // none of these.
   'lexi.saved.v1', 'lexi.faves.v1', 'lexi.drillmodes.v1', 'lexi.texts.v1',
+  // Rides the backup like every other list the learner built. It is not
+  // scheduling state, but it *is* theirs, and a restore that silently resets
+  // "words met" to zero is a restore that lost something.
+  'lexi.exposures.v1',
   // Words looked up and not found. Authored by the learner in the strongest
   // sense — they went looking.
   'lexi.wanted.v1',

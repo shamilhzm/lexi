@@ -27,7 +27,7 @@
 import { useRef } from 'react';
 import { useMemo } from 'react';
 import { Check, ChevronRight, LayoutGrid, GraduationCap, Target as TargetIcon } from 'lucide-react';
-import { totals, streak, goalProgress, completions, lastSeen, placementLevel, buildBriefing, backlogPeak } from '../store.ts';
+import { totals, streak, goalProgress, completions, lastSeen, placementLevel, buildBriefing, backlogPeak, metCount, metToday } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heatText } from '../lib/ui.ts';
 import PathCard from '../components/PathCard.tsx';
@@ -210,6 +210,33 @@ function Goal() {
   );
 }
 
+/** Words met in the feed but never tested.
+ *
+ *  **Deliberately outside the green number, and phrased so it cannot be mistaken
+ *  for it.** An exposure is not a grade — it is "you stopped on this word" — and
+ *  the app's whole scheduling honesty depends on those two never being added
+ *  together. So this is a grey line under a green figure, it says *met*, and it
+ *  says plainly what met is worth.
+ *
+ *  It is here because the alternative was worse. The feed's premise is that
+ *  meeting German on a bus is worth something on its own, and until now the
+ *  app's answer to a thousand words met was a blank page — which quietly told
+ *  the learner that the surface they use most does not count. It counts; it just
+ *  does not count as knowing. */
+function Met() {
+  const met = metCount();
+  if (met === 0) return null;
+  return (
+    <p className="text-dim text-xs mt-1">
+      {/* "1 met in the feed · 1 today" says the same number twice. Today's count
+          is only news when it is a *part* of the total. */}
+      {fmt(met)} met in the feed{metToday() > 0 && metToday() < met && <> · {fmt(metToday())} today</>}
+      {' — '}
+      <span className="text-dim">browsing, not tested. The ones you keep stopping on get taught first.</span>
+    </p>
+  );
+}
+
 /** The number the whole app is for.
  *
  *  DESIGN-REVIEW argued *Known* should be the app's currency and it never
@@ -246,6 +273,7 @@ function Headline() {
         {fmt(t.learned)} seen · {fmt(t.due)} due now · {streak()}-day streak
         {t.recalled > 0 && <> · {fmt(t.recalled)} you can also produce</>}
       </p>
+      <Met />
       <Backlog />
     </Card>
   );

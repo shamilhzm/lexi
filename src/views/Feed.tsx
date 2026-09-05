@@ -40,7 +40,7 @@ import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown } from 'lucid
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
-  isSaved, toggleSaved,
+  isSaved, toggleSaved, noteExposure, DWELL_MS,
 } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
@@ -114,6 +114,64 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
   // list that no longer contains what they were looking at.
   useEffect(() => { scroller.current?.scrollTo({ top: 0 }); setCount(PAGE); }, [lvKey]);
 
+  // ---- the dwell gate ------------------------------------------------------
+  //
+  // **One observer for the whole feed, not one per slot.** Twenty-four
+  // IntersectionObservers on a snap scroller is twenty-four callbacks per flick,
+  // and the feed's entire performance story is that it stays cheap while a thumb
+  // is moving.
+  //
+  // A word counts as *met* once it has held most of the viewport for `DWELL_MS`.
+  // Leaving before then cancels the timer, so flicking through forty words
+  // records none of them — which is the point. Without the gate the number would
+  // measure thumb speed, and a number that measures the wrong thing is worse
+  // than no number.
+  //
+  // This writes an exposure and nothing else. It does not, and must not, touch
+  // `review()`: see the exposure block in `store.ts` for why the separation is
+  // the whole design.
+  const io = useRef<IntersectionObserver | null>(null);
+  const pending = useRef(new Set<HTMLElement>());
+  useEffect(() => {
+    const timers = new Map<Element, number>();
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const id = (e.target as HTMLElement).dataset.word;
+        if (!id) continue;
+        if (e.isIntersecting) {
+          if (timers.has(e.target)) continue;
+          timers.set(e.target, window.setTimeout(() => {
+            timers.delete(e.target);
+            noteExposure(id);
+          }, DWELL_MS));
+        } else {
+          const t = timers.get(e.target);
+          if (t !== undefined) { clearTimeout(t); timers.delete(e.target); }
+        }
+      }
+      // `threshold: 0.6` rather than 1: a slot is exactly one viewport tall, so
+      // demanding full intersection means a single pixel of over-scroll — or a
+      // browser's own rounding — silently records nothing at all.
+    }, { root: scroller.current, threshold: 0.6 });
+    io.current = obs;
+    // Slots that mounted before this effect ran. The observer cannot exist until
+    // the scroller does, and the first page of slots is already on screen by
+    // then, so they queue themselves and are picked up here.
+    for (const el of pending.current) obs.observe(el);
+    pending.current.clear();
+    return () => {
+      obs.disconnect();
+      for (const t of timers.values()) clearTimeout(t);
+      io.current = null;
+    };
+  }, []);
+
+  const watch = useCallback((el: HTMLElement | null) => {
+    if (!el) return;
+    if (io.current) io.current.observe(el);
+    else pending.current.add(el);
+  }, []);
+
   const slots = order.slice(0, count);
   // Nobody has been here before. The welcome is the feed's *first slot* rather
   // than a page in front of it: a stranger arriving from a shared link needs the
@@ -135,7 +193,7 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
       className="h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
       {cold && <Welcome onStart={onStartFirstRun} />}
       {slots.map((w) => (
-        <Slot key={w.id} word={w} version={v}
+        <Slot key={w.id} word={w} version={v} watch={watch}
           onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
       ))}
       <div ref={sentinel} aria-hidden className="h-px" />
@@ -198,8 +256,10 @@ function Welcome({ onStart }: { onStart: () => void }) {
  *  `content-visibility: auto` on the section is what makes a long list cheap: the
  *  browser skips layout and paint for slots that are nowhere near the viewport,
  *  and `contain-intrinsic-size` keeps the scrollbar honest while it does. */
-function Slot({ word, version, onInfo, onDrill }: {
+function Slot({ word, version, onInfo, onDrill, watch }: {
   word: Word; version: number; onInfo: () => void; onDrill: () => void;
+  /** Hands this slot's section to the feed's single dwell observer. */
+  watch: (el: HTMLElement | null) => void;
 }) {
   // Read through `version` so a save anywhere re-renders the marks.
   const saved = useMemo(() => isSaved(word.id), [word.id, version]);
@@ -223,6 +283,8 @@ function Slot({ word, version, onInfo, onDrill }: {
     // and the browser was quietly dropping it; `auto 100dvh` is the honest
     // placeholder for a slot one viewport tall.
     <section
+      ref={watch}
+      data-word={word.id}
       className="snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-center px-6
         pt-[var(--bar-t)] pb-[var(--bar-b)]"
       style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 100dvh' } as React.CSSProperties}>

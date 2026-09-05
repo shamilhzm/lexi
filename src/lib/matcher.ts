@@ -236,7 +236,30 @@ const EXTRA_CLOSED_FORMS: Record<string, string[]> = {
 const WORD_RE = /\p{L}[\p{L}-]*/gu;
 
 /** A run of text: a word token (with its corpus match, if any) or a separator. */
-export interface Segment { text: string; word: Word | null; isWord: boolean }
+export interface Segment {
+  text: string;
+  word: Word | null;
+  isWord: boolean;
+  /** True when `word` is not this token's lemma but the **head of a compound** it
+   *  was decomposed into — *Gruppenticket* resolving to *das Ticket*.
+   *
+   *  ## Why callers have to know the difference
+   *
+   *  The compound rule below assumes a compound means the sum of its parts, and
+   *  for the productive ones it does: *Deutschkurs*, *Fahrradanhänger*,
+   *  *Besprechungsraum*. For the lexicalised ones it flatly does not.
+   *  **Schadenfreude is not a kind of joy**, *Handschuh* is not a kind of shoe,
+   *  and *Löwenzahn* has nothing to do with teeth. Handing back the head as if it
+   *  were the lemma turns those into confident wrong answers, and a wrong answer
+   *  is worse than a miss because a miss is visible.
+   *
+   *  So the resolution is kept — it is genuinely useful, and a reader who knows
+   *  both parts *can* get through most compounds — and the claim is weakened: the
+   *  matcher says "I can decompose this", not "this word means that". Callers that
+   *  score comprehension must not count it as known; callers that show a gloss
+   *  must not show the head's. */
+  viaCompound?: boolean;
+}
 
 export interface Matcher {
   /** Positional annotation: each word token matched to a corpus Word where possible. */
@@ -548,7 +571,12 @@ export function buildMatcher(corpus: Word[]): Matcher {
    *  used only to confirm a separable verb's particle actually landed.
    *  @param prev the immediately preceding token, lowercased.
    *  @param pos 0-based position of this token within its own sentence. */
-  const matchWord = (tok: string, after: string[] = [], prev = '', pos = -1, before: string[] = []): Word | null => {
+  const matchWord = (tok: string, after: string[] = [], prev = '', pos = -1, before: string[] = [],
+    /** Filled in when the match came from compound decomposition rather than from
+     *  the token's own lemma. An out-parameter rather than a wider return type
+     *  because every one of the twenty-odd rules below returns a bare `Word`, and
+     *  widening it would touch all of them to record something one rule knows. */
+    out?: { viaCompound: boolean }): Word | null => {
     const lc = tok.toLowerCase();
 
     // 1. A governed verb, when the preposition the card teaches is really in the
@@ -702,7 +730,7 @@ export function buildMatcher(corpus: Word[]): Matcher {
     // because three-element compounds that are not already covered are rare enough
     // to be worth leaving visible.
     const compound = splitCompound(lc, 0);
-    if (compound) return compound;
+    if (compound) { if (out) out.viaCompound = true; return compound; }
     return null;
   };
 
@@ -770,7 +798,9 @@ export function buildMatcher(corpus: Word[]): Matcher {
       // so *«hat sich in sie verliebt»* and *«mit Geld umgehen»* carry it before the
       // verb form. Looking only forward missed every Perfekt and every modal.
       const before = toks.slice(sentenceStart(i), i).map((t) => t.text.toLowerCase());
-      out.push({ text: tok, word: tok.length >= 2 ? matchWord(tok, after, prev, posInSentence, before) : null, isWord: true });
+      const prov = { viaCompound: false };
+      const w = tok.length >= 2 ? matchWord(tok, after, prev, posInSentence, before, prov) : null;
+      out.push({ text: tok, word: w, isWord: true, viaCompound: prov.viaCompound });
       last = start + tok.length;
       // Reset at a sentence boundary so "second position" means second in *this*
       // clause, not the paragraph.

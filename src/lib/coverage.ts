@@ -65,6 +65,7 @@ export type WordState = 'known' | 'learning' | 'new';
 
 export type TokenState =
   | WordState              // the corpus knows this word
+  | 'compound'             // the corpus knows its *parts*, not the word itself
   | 'absent';              // the corpus does not — counted, never unlockable
 
 export interface CoverageToken {
@@ -153,14 +154,23 @@ export function coverageOf(text: string, opts: CoverageOptions): Coverage {
     }
 
     const word = seg.word;
-    const state: TokenState = word ? stateOf(word) : 'absent';
+    // A compound the matcher could only decompose is its own state, and it is
+    // **not** `known` however well the learner knows the head. *Schadenfreude* is
+    // not a kind of joy; scoring it as read because *Freude* is read is the
+    // meter telling somebody they understood a sentence they did not. It is not
+    // `absent` either — they can get most of the way there — so it counts toward
+    // the denominator and is shown as its own thing. See `Segment.viaCompound`.
+    const state: TokenState = !word ? 'absent' : seg.viaCompound ? 'compound' : stateOf(word);
     counted++;
     if (state === 'known') known++;
     else if (state === 'learning') learning++;
     else if (state === 'new') fresh++;
     else absent++;
 
-    if (word && state !== 'known') {
+    // No occurrence row for a compound: the unlock plan's promise is "learn these
+    // cards and the text opens up", and learning *die Freude* does not unlock
+    // *Schadenfreude*. Offering it would be the same wrong claim, priced as work.
+    if (word && state !== 'known' && state !== 'compound') {
       const e = occurrences.get(word.id) ?? { word, n: 0 };
       e.n++;
       occurrences.set(word.id, e);

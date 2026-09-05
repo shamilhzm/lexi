@@ -24,11 +24,17 @@ if (!paths.length) { console.error('no frequency lists — run npm run corpus:fe
 console.log('lists:', paths.map((p) => p.split('/').pop()).join(', '));
 const freq = loadFrequencies(paths, Infinity);
 
-let total = 0, matched = 0, neutral = 0, entity = 0, missTok = 0;
+let total = 0, matched = 0, compound = 0, neutral = 0, entity = 0, missTok = 0;
 const misses: { w: string; n: number }[] = [];
 for (const e of freq) {
   total += e.freq;
-  if (matcher.annotate(e.word)[0]?.word) { matched += e.freq; continue; }
+  const seg = matcher.annotate(e.word)[0];
+  // Split out on purpose. A compound the matcher could only *decompose* is not a
+  // word Lexi teaches — *Schadenfreude* resolving to *die Freude* is a reading
+  // aid and a wrong gloss — so folding it into "matched" overstates the corpus.
+  // See `Segment.viaCompound`.
+  if (seg?.word && seg.viaCompound) { compound += e.freq; continue; }
+  if (seg?.word) { matched += e.freq; continue; }
   if (matcher.isNeutralWord(e.word)) { neutral += e.freq; continue; }
   if (matcher.isLikelyEntity(e.word)) { entity += e.freq; continue; }
   missTok += e.freq;
@@ -38,9 +44,11 @@ const pc = (n: number) => ((n / total) * 100).toFixed(1) + '%';
 console.log(`forms scored      ${freq.length.toLocaleString()}`);
 console.log(`tokens            ${total.toLocaleString()}`);
 console.log(`matched to a card ${pc(matched)}`);
+console.log(`compound of known ${pc(compound)}   (decomposable, not taught)`);
 console.log(`function words    ${pc(neutral)}   (handled, not taught)`);
 console.log(`proper nouns      ${pc(entity)}   (excluded on purpose)`);
-console.log(`LIT UP TOTAL      ${pc(matched + neutral + entity)}`);
+console.log(`LIT UP TOTAL      ${pc(matched + compound + neutral + entity)}`);
+console.log(`  of which taught  ${pc(matched + neutral + entity)}`);
 console.log(`dark              ${pc(missTok)}`);
 misses.sort((a, b) => b.n - a.n);
 console.log('\ntop 25 dark forms:', misses.slice(0, 25).map((m) => m.w).join(', '));
