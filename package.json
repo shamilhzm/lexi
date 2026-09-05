@@ -14,6 +14,8 @@
     "test:watch": "vitest",
     "corpus:fetch": "node scripts/corpus/fetch.ts",
     "corpus:coverage": "node scripts/corpus/coverage.ts",
+    "corpus:tokencov": "node scripts/corpus/tokencov.ts",
+    "corpus:dictcheck": "node scripts/corpus/dudencheck.ts",
     "corpus:examples": "node scripts/corpus/examples.ts",
     "corpus:definitions": "node scripts/corpus/definitions.ts",
     "corpus:germandef": "node scripts/corpus/germandef.ts",

@@ -35,11 +35,12 @@
 // the right order — which is the one thing a feed can inherit from a scheduler
 // and no amount of content budget can buy.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Info, Heart, Bookmark, GraduationCap, Volume2, Play, ChevronDown } from 'lucide-react';
+import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
+import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
-  isSaved, toggleSaved, isFavourite, toggleFavourite,
+  isSaved, toggleSaved,
 } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
@@ -202,7 +203,6 @@ function Slot({ word, version, onInfo, onDrill }: {
 }) {
   // Read through `version` so a save anywhere re-renders the marks.
   const saved = useMemo(() => isSaved(word.id), [word.id, version]);
-  const fave = useMemo(() => isFavourite(word.id), [word.id, version]);
   const status = useMemo(() => statusOf(word.id), [word.id, version]);
 
   const onSave = useCallback(() => {
@@ -226,7 +226,7 @@ function Slot({ word, version, onInfo, onDrill }: {
       className="snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-center px-6
         pt-[var(--bar-t)] pb-[var(--bar-b)]"
       style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 100dvh' } as React.CSSProperties}>
-      <div className="w-full max-w-[560px] flex flex-col items-center text-center">
+      <Swipeable onRight={onInfo} onLeft={onDrill} term={word.term}>
         {/* Where this word stands, said quietly and only when it says something.
             A learner scrolling their own lexicon should be able to see the ones
             they have already got without a badge on every single card. */}
@@ -271,22 +271,28 @@ function Slot({ word, version, onInfo, onDrill }: {
           </p>
         )}
 
-        {/* Four, and the fourth is the only one that is a *verb*.
-            ⓘ opens what Lexi knows, ♡ and 🔖 are marks you leave on the word,
-            and the cap is the one control here that does something to you rather
-            than to the card — every drill this word qualifies for, now, without
-            leaving the feed. It carries the tab bar's own Üben icon on purpose:
-            same mark, same idea, one scoped to a word and one to a day.
-            `gap-7` rather than `gap-9`: four 44px targets plus three 36px gaps
-            overflow a 320px phone, and a control you cannot reach is worse than
-            a tighter row. */}
-        <div className="mt-8 flex items-center gap-7">
+        {/* Three. The heart is gone — *2026-09-05.*
+            It was a second list beside the bookmark with no second job: saving a
+            word tells the scheduler to teach it, and favouriting it told nobody
+            anything. Two adjacent controls that both mean "I like this one", one
+            of which changes what the app does and one of which does not, is a
+            coin flip the learner has to get right. The stored list survives
+            untouched (`lexi.faves.v1`) so nothing anyone marked is lost, and the
+            slot it vacated is where a share button goes.
+
+            Of the three left, only the cap is a *verb*. ⓘ opens what Lexi knows,
+            🔖 is a mark you leave on the word, and the cap does something to you
+            rather than to the card — every drill this word qualifies for, now,
+            without leaving the feed. It carries the tab bar's own Üben icon on
+            purpose: same mark, same idea, one scoped to a word and one to a day.
+
+            **These stay even though the same three actions are now swipes.** A
+            gesture has no name, no focus ring and no screen-reader path; it is an
+            accelerant for people who already know what is there, and it cannot be
+            the only way to reach anything. */}
+        <div className="mt-8 flex items-center gap-8">
           <Action label={`What else Lexi knows about ${word.term}`} onClick={onInfo}>
             <Info size={24} strokeWidth={1.6} />
-          </Action>
-          <Action label={fave ? `Remove ${word.term} from favourites` : `Add ${word.term} to favourites`}
-            pressed={fave} onClick={() => { toggleFavourite(word.id); haptic('grade'); }}>
-            <Heart size={24} strokeWidth={1.6} className={fave ? 'fill-current' : ''} />
           </Action>
           <Action label={saved ? `Stop learning ${word.term}` : `Learn ${word.term} — put it in my next session`}
             pressed={saved} onClick={onSave}>
@@ -303,10 +309,94 @@ function Slot({ word, version, onInfo, onDrill }: {
         <span className="h-5 mt-3 text-2xs text-dim" role="status" aria-live="polite">
           {saved && (cardOf(word.id) ? 'In your sessions' : 'Next session will teach this')}
         </span>
-      </div>
+      </Swipeable>
     </section>
   );
 }
+
+/** The word, draggable sideways.
+ *
+ *  ## Why a gesture at all, when the buttons are right there
+ *
+ *  The feed is a thumb surface. Its whole premise is that meeting German costs
+ *  nothing while you are on a bus, and reaching for a 44px target with the hand
+ *  that is also holding the phone costs more than it looks. Right for what this
+ *  word *is*, left for practising it, up for the next one: the two things you do
+ *  most become the same motion as the scrolling you are already doing.
+ *
+ *  **The buttons stay.** A swipe has no name, no focus ring, no screen-reader
+ *  path and no discoverability, so it can accelerate a control and must never
+ *  replace one. Everything here is reachable both ways.
+ *
+ *  ## Living inside a snap scroller
+ *
+ *  `touch-action: pan-y` is the whole trick: it tells the browser that vertical
+ *  belongs to the scroller and horizontal belongs to this element, so the feed
+ *  still flicks between words while a sideways drag is being tracked. Paired with
+ *  `dragDirectionLock`, a diagonal thumb commits to one axis instead of doing a
+ *  little of both.
+ *
+ *  There are no `dragConstraints`. The card is *not* leaving the screen — it
+ *  rubber-bands and springs back, because unlike a session card there is nothing
+ *  here to discard: both directions open a sheet over the word you are still on.
+ *  Snapping back is the honest animation for that. */
+function Swipeable({ children, onLeft, onRight, term }: {
+  children: React.ReactNode; onLeft: () => void; onRight: () => void; term: string;
+}) {
+  const x = useMotionValue(0);
+  const reduce = useReducedMotion();
+  const info = useTransform(x, [18, SWIPE_PX], [0, 1]);
+  const drill = useTransform(x, [-18, -SWIPE_PX], [0, 1]);
+
+  return (
+    <motion.div
+      className="relative w-full max-w-[560px] flex flex-col items-center text-center touch-pan-y"
+      style={{ x }}
+      drag="x"
+      dragDirectionLock
+      dragElastic={0.5}
+      onDragEnd={(_, { offset, velocity }) => {
+        // A flick is short and fast; a drag is long and slow. Accepting either
+        // means the gesture works for the person who nudges deliberately and the
+        // person who flicks without looking, which on a feed is most people.
+        const flick = Math.abs(velocity.x) > 460 && Math.abs(offset.x) > 32;
+        const go = offset.x > SWIPE_PX || (flick && velocity.x > 0) ? onRight
+          : offset.x < -SWIPE_PX || (flick && velocity.x < 0) ? onLeft
+          : null;
+        // Reduced motion kills the spring, not the gesture. Someone who has
+        // asked for less movement still wants the swipe to work; what they do
+        // not want is the card oscillating back into place.
+        animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 460, damping: 34, velocity: velocity.x });
+        if (go) { haptic('grade'); go(); }
+      }}>
+      {children}
+      {/* What the direction will do, named while you are still deciding. Both
+          sit at the top edge, on the side the thumb is travelling *towards*, so
+          the label arrives in front of the movement rather than behind it. */}
+      <motion.span aria-hidden style={{ opacity: info }}
+        className="absolute -top-2 right-0 flex items-center gap-1.5 text-accent font-semibold text-2xs
+          rounded-full border border-accent px-2.5 py-1 pointer-events-none glass">
+        <Info size={12} /> Info
+      </motion.span>
+      <motion.span aria-hidden style={{ opacity: drill }}
+        className="absolute -top-2 left-0 flex items-center gap-1.5 text-accent font-semibold text-2xs
+          rounded-full border border-accent px-2.5 py-1 pointer-events-none glass">
+        <GraduationCap size={12} /> Üben
+      </motion.span>
+      {/* The gesture is invisible to anyone who cannot see the drag, so it is
+          announced once per card rather than not at all. */}
+      <span className="sr-only">
+        Swipe right for what Lexi knows about {term}, left to practise it. The
+        buttons below do the same.
+      </span>
+    </motion.div>
+  );
+}
+
+/** Horizontal travel that commits. Matches the session card's `SWIPE_PX`
+ *  deliberately: one number for "a swipe happened", across two surfaces that a
+ *  learner does not experience as different apps. */
+const SWIPE_PX = 90;
 
 function Action({ children, label, pressed, onClick }: {
   children: React.ReactNode; label: string; pressed?: boolean; onClick: () => void;
