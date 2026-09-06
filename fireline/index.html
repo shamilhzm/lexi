@@ -1,0 +1,1168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#07090c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="Fireline — fly a scooper plane and cut a wet line ahead of a heathland wildfire.">
+<title>Fireline</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --bg:#07090c; --panel:rgba(10,13,17,.72); --hair:rgba(255,255,255,.10);
+  --ink:#e8edf2; --dim:#8b97a5;
+  --ember:#ff7a1a; --water:#49c6f5; --danger:#ff4d4d; --good:#5fd39a;
+  --pad-t:env(safe-area-inset-top,0px); --pad-b:env(safe-area-inset-bottom,0px);
+  --pad-l:env(safe-area-inset-left,0px); --pad-r:env(safe-area-inset-right,0px);
+  --f-disp:'IBM Plex Sans Condensed',ui-sans-serif,-apple-system,'Segoe UI Semibold',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%;overflow:hidden;overscroll-behavior:none;background:var(--bg)}
+body{
+  font:400 14px/1.45 var(--f-mono);
+  color:var(--ink); -webkit-user-select:none; user-select:none;
+  -webkit-text-size-adjust:100%;
+}
+#app{position:fixed;inset:0;touch-action:none;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+
+/* ---------- HUD ---------- */
+.hud{position:absolute;left:0;right:0;pointer-events:none;z-index:5}
+#topbar{
+  top:calc(var(--pad-t) + 8px); display:flex; gap:8px; align-items:stretch;
+  padding:0 calc(10px + var(--pad-l)) 0 calc(10px + var(--pad-r));
+}
+.card{
+  background:var(--panel); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--hair); border-radius:13px; padding:7px 10px;
+}
+.lab{font:600 9px/1.2 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.val{font:700 18px/1.15 var(--f-disp);font-variant-numeric:tabular-nums;letter-spacing:0}
+.val small{font:500 10px var(--f-mono);color:var(--dim);letter-spacing:.04em}
+#stat{flex:1;min-width:0}
+#windcard{display:flex;align-items:center;gap:9px}
+#windrose{width:34px;height:34px;flex:none}
+#windtxt .val{font-size:14px}
+
+#villages{
+  top:calc(var(--pad-t) + 66px);
+  display:flex;flex-direction:column;gap:5px;align-items:flex-start;
+  padding-left:calc(10px + var(--pad-l));
+}
+.vrow{
+  display:flex;align-items:center;gap:7px;background:var(--panel);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--hair);border-radius:999px;padding:3px 10px 3px 5px;
+  font:600 11px var(--f-disp);letter-spacing:.03em;transition:opacity .3s;
+}
+.vbar{width:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.16);overflow:hidden;flex:none}
+.vbar i{display:block;height:100%;background:var(--good);transition:width .3s,background .3s}
+.vdot{width:7px;height:7px;border-radius:50%;background:var(--good);flex:none;margin-left:2px}
+.vrow.threat{border-color:rgba(255,122,26,.5)}
+.vrow.threat .vdot{background:var(--ember);animation:pulse 1.1s infinite}
+.vrow.dead{opacity:.42}
+.vrow.dead .vdot{background:var(--danger);animation:none}
+.vrow.dead .vname{text-decoration:line-through}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.28}}
+
+#toast{
+  bottom:calc(var(--pad-b) + 132px); display:flex; justify-content:center;
+  padding:0 16px;
+}
+#toast .msg{
+  background:rgba(20,10,4,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,122,26,.35);border-radius:11px;
+  padding:7px 13px;font:500 11.5px var(--f-mono);letter-spacing:.02em;color:#ffd9b8;
+  opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;text-align:center;
+}
+#toast .msg.on{opacity:1;transform:none}
+
+/* ---------- controls ---------- */
+#drop{
+  position:absolute;z-index:6;pointer-events:auto;
+  right:calc(16px + var(--pad-r)); bottom:calc(20px + var(--pad-b));
+  width:104px;height:104px;border:0;padding:0;background:none;
+  touch-action:none;cursor:pointer;
+}
+#drop svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+#drop .face{
+  position:absolute;inset:9px;border-radius:50%;
+  background:radial-gradient(circle at 50% 30%,rgba(73,198,245,.34),rgba(6,11,16,.97));
+  border:1px solid rgba(73,198,245,.42);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  transition:transform .08s,background .2s,border-color .2s;
+}
+#drop .t1{font:700 15px var(--f-disp);letter-spacing:.11em}
+#drop .t2{font:500 9px var(--f-mono);letter-spacing:.10em;color:var(--dim);font-variant-numeric:tabular-nums}
+#drop[data-mode="empty"] .face{border-color:rgba(255,255,255,.16);background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.07),rgba(6,11,16,.97))}
+#drop[data-mode="scoop"] .face{border-color:rgba(73,198,245,.9);animation:pulse 1s infinite}
+#drop.press .face{transform:scale(.93)}
+#hint{
+  position:absolute;z-index:6;left:calc(16px + var(--pad-l));bottom:calc(30px + var(--pad-b));
+  font:500 10px/1.35 var(--f-mono);letter-spacing:.10em;text-transform:uppercase;color:var(--dim);
+  max-width:160px;pointer-events:none;transition:opacity .5s;
+}
+
+/* ---------- overlays ---------- */
+#veil{
+  position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
+  padding:calc(22px + var(--pad-t)) 20px calc(22px + var(--pad-b));
+  background:radial-gradient(120% 90% at 50% 20%,rgba(30,12,4,.80),rgba(5,7,10,.95));
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+}
+#veil.hide{display:none}
+.sheet{width:100%;max-width:430px;text-align:left}
+.kicker{font:600 10px var(--f-mono);letter-spacing:.28em;text-transform:uppercase;color:var(--ember);margin-bottom:9px}
+h1{font:700 46px/.92 var(--f-disp);letter-spacing:-.018em;margin:0 0 4px;text-wrap:balance}
+h1 .fl{color:var(--ember)}
+.sub{color:var(--dim);font:400 12px/1.5 var(--f-mono);margin:0 0 18px;letter-spacing:.01em}
+.brief{
+  border-left:2px solid rgba(255,122,26,.42);padding-left:12px;margin:0 0 18px;
+  font:400 12.5px/1.62 var(--f-mono);color:#c8d2dc;
+}
+.brief b{color:var(--ink);font-weight:600}
+.keys{display:flex;flex-direction:column;gap:9px;margin:0 0 20px}
+.key{display:flex;gap:11px;align-items:flex-start;font:400 12px/1.5 var(--f-mono);color:#c8d2dc}
+.key i{
+  flex:none;width:24px;height:24px;border-radius:7px;background:rgba(255,255,255,.06);
+  border:1px solid var(--hair);display:grid;place-items:center;font-style:normal;font:600 11px var(--f-mono);
+}
+.key b{color:var(--ink);font-weight:600}
+button.go{
+  -webkit-appearance:none;appearance:none;width:100%;border:0;border-radius:14px;
+  padding:16px;font:700 16px var(--f-disp);letter-spacing:.15em;text-transform:uppercase;
+  color:#180c02;background:linear-gradient(180deg,#ffa04a,#ff7a1a);cursor:pointer;
+  box-shadow:0 8px 26px rgba(255,122,26,.28);
+}
+button.go:active{transform:translateY(1px)}
+button.ghost{
+  background:none;color:var(--dim);box-shadow:none;border:1px solid var(--hair);
+  margin-top:9px;font:600 12px var(--f-mono);letter-spacing:.08em;padding:12px;
+}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 18px}
+.tile{background:rgba(255,255,255,.045);border:1px solid var(--hair);border-radius:12px;padding:11px 12px}
+.tile .lab{margin-bottom:3px}
+.tile .val{font-size:26px}
+.tile.wide{grid-column:1/-1}
+.vlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.vchip{font:600 11px var(--f-disp);letter-spacing:.03em;padding:3px 9px;border-radius:999px;border:1px solid var(--hair);color:var(--dim)}
+.vchip.ok{color:var(--good);border-color:rgba(95,211,154,.4)}
+.vchip.lost{color:var(--danger);border-color:rgba(255,77,77,.35);text-decoration:line-through}
+.rank{font:400 12.5px/1.62 var(--f-mono);color:#c8d2dc;margin:0 0 18px}
+.rank b{color:var(--ink)}
+button.go:focus-visible,#drop:focus-visible{outline:2px solid var(--water);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+                       transition-duration:.001ms!important}
+}
+@media (max-height:620px){ h1{font-size:36px} .brief{font-size:11.5px} .keys{gap:7px} .sub{margin-bottom:12px} }
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="cv"></canvas>
+
+  <div class="hud" id="topbar">
+    <div class="card" id="stat">
+      <div class="lab">Burned</div>
+      <div class="val"><span id="ha">0</span> <small>ha</small> &nbsp;<span id="pct" style="color:var(--dim);font-size:12px">0%</span></div>
+    </div>
+    <div class="card" id="windcard">
+      <svg id="windrose" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+        <g id="windarrow">
+          <path d="M20 5 L26 24 L20 20 L14 24 Z" fill="#49c6f5"/>
+        </g>
+      </svg>
+      <div id="windtxt">
+        <div class="lab">Wind</div>
+        <div class="val"><span id="wspd">18</span> <small>km/h</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hud" id="villages"></div>
+  <div class="hud" id="toast"><div class="msg" id="toastmsg"></div></div>
+
+  <div id="hint">Touch the map to steer</div>
+
+  <button id="drop" data-mode="empty" aria-label="Drop water">
+    <svg viewBox="0 0 104 104" aria-hidden="true">
+      <circle cx="52" cy="52" r="47" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="5"/>
+      <circle id="tankring" cx="52" cy="52" r="47" fill="none" stroke="#49c6f5" stroke-width="5"
+              stroke-linecap="round" stroke-dasharray="295.3" stroke-dashoffset="295.3"/>
+    </svg>
+    <span class="face"><span class="t1" id="dt1">DROP</span><span class="t2" id="dt2">0%</span></span>
+  </button>
+
+  <div id="veil"><div class="sheet" id="sheet"></div></div>
+</div>
+
+<script>
+/* =====================================================================
+   FIRELINE — MVP
+   Top-down aerial wildfire suppression. One aircraft, one heath, one wind.
+
+   The scenario is modelled on the 2025 heath fires in eastern Germany
+   (Gohrischheide / Jüterbog): drought-cured Calluna heath over sandy pine,
+   on a former Soviet artillery range. The ground is contaminated with
+   unexploded ordnance, so crews cannot walk in — everything has to be
+   fought from the air. That is why the whole game is one aeroplane.
+
+   The pedagogy, such as it is: you do not extinguish a running head fire
+   with water. You get ahead of it and wet a line it cannot cross, anchored
+   on something that will not burn. Direct attack only knocks down the
+   flanks and the spot fires. The game refuses to let you do otherwise.
+   ===================================================================== */
+
+// ---8<--- SIM START  (pure; no DOM. tools/balance.mjs extracts this block)
+const W = 56, H = 100, N = W * H;
+const CELL_M = 50;                 // metres per cell -> map is 2.8 x 5.0 km
+const HA_PER_CELL = (CELL_M * CELL_M) / 10000;   // 0.25 ha
+const TICK = 0.1;                  // sim step, seconds (10 Hz)
+
+// terrain ids
+const T_WATER=0, T_GRASS=1, T_HEATH=2, T_PINE=3, T_TRACK=4, T_TOWN=5, T_SAND=6;
+// cell states
+const S_GREEN=0, S_FIRE=1, S_BURNT=2;
+
+const TERR = [
+  /* water */ { fuel:0.00, rate:0.00 },
+  /* grass */ { fuel:0.62, rate:1.15 },
+  /* heath */ { fuel:0.88, rate:1.38 },   // cured Calluna: the fast stuff
+  /* pine  */ { fuel:0.96, rate:1.00 },
+  /* track */ { fuel:0.08, rate:0.12 },   // forest road — a natural anchor
+  /* town  */ { fuel:0.70, rate:0.78 },
+  /* sand  */ { fuel:0.04, rate:0.06 },
+];
+
+const K = {
+  spreadBase:   0.0034,  // p(ignite one neighbour) per tick, before modifiers
+  windAniso:    1.62,    // head/back fire anisotropy
+  moistBlock:   2.00,    // moisture * this, subtracted from 1 -> dryness
+  burnRate:     0.0042,  // fuel consumed per tick while alight (~19 s per cell)
+  moistDecay:   0.00090, // evaporation per tick  (~55 s of full block)
+  moistDecayHot:0.00090, // extra, next to flame  (~28 s of full block)
+  ordRate:      1.22,    // ordnance range burns hotter
+  // Spotting is driven by the FLAMING PERIMETER, not the burnt area, and is
+  // globally rate-limited: embers should be a rare, legible crisis (one every
+  // ~10 s at peak), not a second spread mechanic that outruns the front.
+  spotPerPerim: 0.00050, // expected spots/sec per perimeter cell in the range
+  spotOutside:  0.15,    // ...scaled down outside the ordnance range
+  spotCap:      0.16,    // hard ceiling, spots/sec
+  spotMinArea:  200,     // a small fire lofts nothing: no spotting below this
+  spotMin:      4, spotMax:10,   // spotting distance, cells
+  knockNbrs:    3,       // max burning neighbours a drop can knock down
+};
+
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0;
+  let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t;
+  return ((t^t>>>14)>>>0)/4294967296; }; }
+
+// 8-neighbour offsets with unit direction vectors (screen space: +y is south)
+const NB = [];
+for (let dy=-1; dy<=1; dy++) for (let dx=-1; dx<=1; dx++){
+  if (!dx && !dy) continue;
+  const L = Math.hypot(dx,dy);
+  NB.push({ dx, dy, ux:dx/L, uy:dy/L, d:L });
+}
+
+function smoothNoise(rnd, w, h, scale){
+  const gw = Math.ceil(w/scale)+2, gh = Math.ceil(h/scale)+2;
+  const g = new Float32Array(gw*gh);
+  for (let i=0;i<g.length;i++) g[i] = rnd();
+  const out = new Float32Array(w*h);
+  const fade = t => t*t*(3-2*t);
+  for (let y=0;y<h;y++) for (let x=0;x<w;x++){
+    const fx=x/scale, fy=y/scale, ix=fx|0, iy=fy|0;
+    const tx=fade(fx-ix), ty=fade(fy-iy);
+    const a=g[iy*gw+ix],       b=g[iy*gw+ix+1];
+    const c=g[(iy+1)*gw+ix],   d=g[(iy+1)*gw+ix+1];
+    out[y*w+x] = (a+(b-a)*tx) + ((c+(d-c)*tx) - (a+(b-a)*tx))*ty;
+  }
+  return out;
+}
+
+function createWorld(seed){
+  const rnd = mulberry32(seed >>> 0);
+  const w = {
+    seed, t:0, tick:0,
+    terr:  new Uint8Array(N),
+    state: new Uint8Array(N),
+    fuel:  new Float32Array(N),
+    moist: new Float32Array(N),
+    ord:   new Uint8Array(N),      // 1 = unexploded-ordnance zone
+    heat:  new Float32Array(N),    // 0..1, render + intensity
+    fire: [], perim: [],           // index lists, rebuilt each tick
+    burnt: 0, burnable: 0,
+    wind: { dir: -Math.PI*0.42, spd: 18, target: -Math.PI*0.42, gustAt: 42 },
+    villages: [], events: [],
+    ignitionsOut: 0,
+  };
+
+  // --- vegetation -------------------------------------------------------
+  const veg = smoothNoise(rnd, W, H, 11);
+  const dry = smoothNoise(rnd, W, H, 19);
+  for (let y=0;y<H;y++) for (let x=0;x<W;x++){
+    const i = y*W+x;
+    const v = veg[i]*0.72 + dry[i]*0.28;
+    w.terr[i] = v > 0.60 ? T_PINE : v > 0.34 ? T_HEATH : v > 0.20 ? T_GRASS : T_SAND;
+  }
+
+  // --- water ------------------------------------------------------------
+  const ellipse = (cx,cy,rx,ry,warp) => {
+    for (let y=0;y<H;y++) for (let x=0;x<W;x++){
+      const wob = warp ? Math.sin(y*0.42+cx)*1.5 + Math.cos(x*0.5+cy)*1.1 : 0;
+      const dx=(x-cx+wob)/rx, dy=(y-cy)/ry;
+      if (dx*dx+dy*dy <= 1) w.terr[y*W+x] = T_WATER;
+    }
+  };
+  ellipse(11, 50, 8.5, 6.2, true);    // Speicherbecken — the main scoop
+  ellipse(46, 82, 5.6, 4.0, true);    // southern pond — closer to the origin
+
+  // --- forest tracks (firebreak anchors) --------------------------------
+  const track = (x0,y0,x1,y1,wid) => {
+    const steps = Math.ceil(Math.hypot(x1-x0,y1-y0)*2);
+    for (let s=0;s<=steps;s++){
+      const t=s/steps, cx=x0+(x1-x0)*t, cy=y0+(y1-y0)*t + Math.sin(t*6.1)*1.4;
+      for (let dy=-wid;dy<=wid;dy++) for (let dx=-wid;dx<=wid;dx++){
+        const x=Math.round(cx+dx), y=Math.round(cy+dy);
+        if (x<0||y<0||x>=W||y>=H) continue;
+        const i=y*W+x; if (w.terr[i]!==T_WATER) w.terr[i]=T_TRACK;
+      }
+    }
+  };
+  track(2, 64, 54, 58, 0);            // the east–west range road
+  track(37, 96, 40, 6, 0);            // the north–south firebreak
+
+  // --- ordnance range ---------------------------------------------------
+  for (let y=38;y<86;y++) for (let x=13;x<43;x++) w.ord[y*W+x] = 1;
+
+  // --- villages ---------------------------------------------------------
+  const place = (name, cx, cy, r) => {
+    const cells=[];
+    for (let y=Math.ceil(cy-r);y<=cy+r;y++) for (let x=Math.ceil(cx-r);x<=cx+r;x++){
+      if (x<1||y<1||x>=W-1||y>=H-1) continue;
+      if (Math.hypot(x-cx,y-cy) > r) continue;
+      const i=y*W+x; if (w.terr[i]===T_WATER) continue;
+      w.terr[i]=T_TOWN; cells.push(i);
+    }
+    w.villages.push({ name, x:cx, y:cy, r, cells, max:cells.length, hp:cells.length, dead:false, threat:0 });
+  };
+  place('Heidedorf',  24, 52, 3.2);
+  place('Waldkirch',  30, 30, 3.5);
+  place('Neuhof',     38, 11, 3.1);
+
+  // --- fuel / moisture from terrain ------------------------------------
+  for (let i=0;i<N;i++){
+    const base = TERR[w.terr[i]].fuel;
+    w.fuel[i] = base > 0 ? Math.max(0, Math.min(1, base * (0.82 + dry[i]*0.36))) : 0;
+    if (w.fuel[i] > 0.02) w.burnable++;
+  }
+
+  // --- ignition: a spark on the range, downwind of everything ----------
+  // Forced to heath so the scenario never depends on where the noise landed.
+  for (let y=86;y<=91;y++) for (let x=16;x<=22;x++){
+    const i=y*W+x;
+    if (w.terr[i]!==T_WATER && w.terr[i]!==T_TOWN){ w.terr[i]=T_HEATH; w.fuel[i]=0.88; }
+  }
+  for (const [x,y] of [[18,88],[19,88],[18,89],[19,89],[20,88]]) ignite(w, y*W+x, true);
+
+  rebuild(w);
+  return w;
+}
+
+function ignite(w, i, force){
+  if (i<0 || i>=N) return false;
+  if (w.state[i]!==S_GREEN) return false;
+  if (w.fuel[i] < 0.05) return false;
+  if (!force && w.moist[i] > 0.5) return false;
+  w.state[i] = S_FIRE; w.heat[i] = 0.35;
+  return true;
+}
+
+function rebuild(w){
+  w.fire.length = 0; w.perim.length = 0;
+  for (let i=0;i<N;i++){
+    if (w.state[i]!==S_FIRE) continue;
+    w.fire.push(i);
+    const x=i%W, y=(i/W)|0;
+    let edge=false;
+    for (const n of NB){
+      const nx=x+n.dx, ny=y+n.dy;
+      if (nx<0||ny<0||nx>=W||ny>=H){ edge=true; break; }
+      if (w.state[ny*W+nx]!==S_FIRE){ edge=true; break; }
+    }
+    if (edge) w.perim.push(i);
+  }
+}
+
+function burningNeighbours(w, i){
+  const x=i%W, y=(i/W)|0; let c=0;
+  for (const n of NB){
+    const nx=x+n.dx, ny=y+n.dy;
+    if (nx<0||ny<0||nx>=W||ny>=H) continue;
+    if (w.state[ny*W+nx]===S_FIRE) c++;
+  }
+  return c;
+}
+
+/* One 100 ms step. rnd is injectable so the balance harness is deterministic. */
+function stepWorld(w, rnd){
+  w.tick++; w.t += TICK;
+
+  // wind: a slow wander, plus scripted gusts that force you to re-plan
+  const wd = w.wind;
+  if (w.t > wd.gustAt){
+    wd.target += (rnd() < 0.5 ? -1 : 1) * (0.30 + rnd()*0.34);
+    wd.spd = Math.max(11, Math.min(34, wd.spd + (rnd()*2-1)*7));
+    wd.gustAt = w.t + 55 + rnd()*45;
+    w.events.push({ kind:'gust', t:w.t, spd:Math.round(wd.spd) });
+  }
+  wd.dir += (wd.target - wd.dir) * 0.006;
+  const wx = Math.cos(wd.dir), wy = Math.sin(wd.dir);
+  const aniso = K.windAniso * (wd.spd / 18);
+
+  const newFires = [];
+
+  // --- spread ----------------------------------------------------------
+  for (let k=0;k<w.fire.length;k++){
+    const i = w.fire[k];
+    const x = i%W, y = (i/W)|0;
+
+    for (const n of NB){
+      const nx=x+n.dx, ny=y+n.dy;
+      if (nx<0||ny<0||nx>=W||ny>=H) continue;
+      const j = ny*W+nx;
+      if (w.state[j]!==S_GREEN) continue;
+      const f = w.fuel[j];
+      if (f < 0.05) continue;
+
+      const dryness = 1 - w.moist[j]*K.moistBlock;
+      if (dryness <= 0) continue;
+
+      const align = n.ux*wx + n.uy*wy;                 // -1 back .. +1 head
+      const windF = Math.max(0.05, 1 + aniso*align);
+      const terrF = TERR[w.terr[j]].rate * (w.ord[j] ? K.ordRate : 1);
+
+      const p = K.spreadBase * f * dryness * windF * terrF / n.d;
+      if (rnd() < p) newFires.push(j);
+    }
+
+    // --- consumption ---------------------------------------------------
+    w.fuel[i] -= K.burnRate * (0.7 + (w.ord[i] ? 0.45 : 0.25));
+    w.heat[i] = Math.min(1, w.heat[i] + 0.06);
+    if (w.fuel[i] <= 0){
+      w.fuel[i] = 0; w.state[i] = S_BURNT; w.burnt++; w.heat[i] = 0.85;
+    }
+  }
+
+  for (const j of newFires) ignite(w, j, true);
+
+  // --- ember spotting: how these fires jump roads and wet lines ---------
+  if (w.fire.length >= K.spotMinArea && w.perim.length){
+    let rate = 0;
+    for (let k=0;k<w.perim.length;k++)
+      rate += K.spotPerPerim * (w.ord[w.perim[k]] ? 1 : K.spotOutside);
+    rate = Math.min(K.spotCap, rate * (wd.spd/18));
+    if (rnd() < rate*TICK){
+      const src = w.perim[(rnd()*w.perim.length)|0];
+      const sx = src%W, sy = (src/W)|0;
+      const dist = K.spotMin + rnd()*(K.spotMax-K.spotMin);
+      const a = wd.dir + (rnd()-0.5)*0.8;
+      const tx = Math.round(sx + Math.cos(a)*dist), ty = Math.round(sy + Math.sin(a)*dist);
+      if (tx>=0 && ty>=0 && tx<W && ty<H && ignite(w, ty*W+tx, false))
+        w.events.push({ kind:'spot', t:w.t, x:tx, y:ty });
+    }
+  }
+
+  // --- moisture: evaporate, faster beside flame ------------------------
+  for (let k=0;k<w.perim.length;k++){
+    const i = w.perim[k], x=i%W, y=(i/W)|0;
+    for (const n of NB){
+      const nx=x+n.dx, ny=y+n.dy;
+      if (nx<0||ny<0||nx>=W||ny>=H) continue;
+      const j=ny*W+nx;
+      if (w.moist[j] > 0) w.moist[j] = Math.max(0, w.moist[j] - K.moistDecayHot);
+    }
+  }
+  for (let i=0;i<N;i++){
+    if (w.moist[i] > 0) w.moist[i] = Math.max(0, w.moist[i] - K.moistDecay);
+    if (w.state[i]===S_BURNT && w.heat[i] > 0) w.heat[i] = Math.max(0, w.heat[i]-0.004);
+  }
+
+  rebuild(w);
+
+  // --- villages --------------------------------------------------------
+  for (const v of w.villages){
+    if (v.dead) continue;
+    let lost = 0;
+    for (const i of v.cells) if (w.state[i]!==S_GREEN) lost++;
+    v.hp = v.max - lost;
+    if (v.hp <= v.max*0.40){    // a village is lost well before the last house goes
+      v.dead = true;
+      w.events.push({ kind:'lost', t:w.t, name:v.name });
+    }
+  }
+
+  return w;
+}
+
+/* A water drop: stamp moisture in a disc, knock down flame that is weak
+   enough to knock down. `amount` scales with how much of the load fell here. */
+function applyDrop(w, cx, cy, radius, amount){
+  const x0=Math.max(0,Math.floor(cx-radius)), x1=Math.min(W-1,Math.ceil(cx+radius));
+  const y0=Math.max(0,Math.floor(cy-radius)), y1=Math.min(H-1,Math.ceil(cy+radius));
+  let hitFire = 0, wetted = 0;
+  for (let y=y0;y<=y1;y++) for (let x=x0;x<=x1;x++){
+    const d = Math.hypot(x-cx, y-cy);
+    if (d > radius) continue;
+    const i = y*W+x;
+    if (w.terr[i]===T_WATER) continue;
+    const t = d/radius;
+    const fall = amount * (1 - 0.82*t*t);            // heavy centre, feathered edge
+    const before = w.moist[i];
+    w.moist[i] = Math.min(1, w.moist[i] + fall);
+    if (w.moist[i] > before) wetted++;
+    if (w.state[i]===S_FIRE && w.moist[i] > 0.30 && burningNeighbours(w,i) <= K.knockNbrs){
+      w.state[i] = S_BURNT; w.burnt++; w.heat[i]=0.5; hitFire++;   // knocked down
+    }
+  }
+  return { hitFire, wetted };
+}
+
+/* Which villages sit in the path of the fire right now (for the HUD). */
+function assessThreat(w){
+  const wx=Math.cos(w.wind.dir), wy=Math.sin(w.wind.dir);
+  for (const v of w.villages){
+    if (v.dead){ v.threat = 0; continue; }
+    let best = 0;
+    for (let k=0;k<w.perim.length;k++){
+      const i=w.perim[k], x=i%W, y=(i/W)|0;
+      const dx=v.x-x, dy=v.y-y, d=Math.hypot(dx,dy);
+      if (d > 34) continue;
+      const align = (dx/d)*wx + (dy/d)*wy;            // is it pointed at us?
+      const s = Math.max(0, align) * Math.max(0, 1 - d/34);
+      if (s > best) best = s;
+    }
+    v.threat = best;
+  }
+}
+// ---8<--- SIM END
+
+/* =====================  presentation + game  ======================== */
+const MAP_SEED = 4;          // fixed scenario: tuned in tools/balance.mjs.
+                             // Same terrain every run, different fire every run.
+const PLANE = {
+  cruise: 3.40,   // cells/s
+  drop:   2.70,
+  scoop:  2.50,
+  turn:   1.90,   // rad/s
+  dropSecs:  3.2, // to empty the tank
+  scoopSecs: 2.2, // to fill it
+  swath:  1.70,   // cells (radius) — ~170 m wide line
+  wetRate: 1.00,  // moisture per second at the centre of the swath
+};
+
+const cv  = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+const $   = id => document.getElementById(id);
+
+let world, plane, view, running = false, over = false, sound = true;
+let acc = 0, last = 0, shakeT = 0, hintStep = 0;
+const smoke = [], embers = [], spray = [];
+
+/* ---------- sprites ---------- */
+function radial(size, stops){
+  const c = document.createElement('canvas'); c.width = c.height = size;
+  const g = c.getContext('2d');
+  const grd = g.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+  for (const [o, col] of stops) grd.addColorStop(o, col);
+  g.fillStyle = grd; g.fillRect(0,0,size,size);
+  return c;
+}
+const SPR = {
+  flame: radial(64, [[0,'rgba(255,236,186,.90)'],[.20,'rgba(255,178,58,.70)'],
+                     [.50,'rgba(232,102,18,.38)'],[1,'rgba(150,32,0,0)']]),
+  smoke: radial(96, [[0,'rgba(128,120,112,.30)'],[.55,'rgba(78,72,68,.14)'],
+                     [1,'rgba(48,44,42,0)']]),
+  glow:  radial(96, [[0,'rgba(255,132,34,.42)'],[.5,'rgba(255,96,10,.14)'],
+                     [1,'rgba(255,80,0,0)']]),
+};
+
+/* ---------- terrain + dynamic layers (1 px per cell, scaled up soft) ---------- */
+const TCOL = [
+  [ 15, 46, 68],  // water
+  [ 68, 84, 47],  // grass
+  [110, 72, 46],  // heath  — cured Calluna, rust
+  [ 25, 44, 28],  // pine
+  [116,105, 86],  // track
+  [ 92, 99,108],  // town   — slate roofs, deliberately dark
+  [138,124, 98],  // sand
+];
+const terrCv = document.createElement('canvas'); terrCv.width = W; terrCv.height = H;
+const dynCv  = document.createElement('canvas'); dynCv.width  = W; dynCv.height  = H;
+const terrG = terrCv.getContext('2d'), dynG = dynCv.getContext('2d');
+let dynImg;
+
+function paintTerrain(w){
+  const img = terrG.createImageData(W, H), d = img.data;
+  for (let i=0;i<N;i++){
+    const c = TCOL[w.terr[i]];
+    // fuel drives brightness so you can read where the heavy fuel is
+    const k = w.terr[i]===T_WATER ? 1 : 0.86 + w.fuel[i]*0.20;
+    const o = i*4;
+    d[o]   = Math.min(255, c[0]*k);
+    d[o+1] = Math.min(255, c[1]*k);
+    d[o+2] = Math.min(255, c[2]*k);
+    d[o+3] = 255;
+  }
+  terrG.putImageData(img, 0, 0);
+  dynImg = dynG.createImageData(W, H);
+}
+
+function paintDynamic(w){
+  const d = dynImg.data;
+  for (let i=0;i<N;i++){
+    const o = i*4;
+    let r=0,g=0,b=0,a=0;
+    const st = w.state[i];
+    if (st === S_BURNT){
+      const h = w.heat[i];                       // still smouldering?
+      const n = ((i*2654435761) >>> 24) / 255;   // cheap ash mottling
+      r = 30 + n*16 + h*126; g = 26 + n*13 + h*38; b = 24 + n*11; a = 240;
+    } else if (st === S_FIRE){
+      const h = Math.min(1, w.heat[i]);
+      r = 244; g = 96 + h*86; b = 26; a = 250;   // the burning interior glows
+    }
+    // The wet line is the whole game, so it is painted, not tinted: a cell you
+    // have soaked must be unmistakable at arm's length on a phone.
+    const m = w.moist[i];
+    if (m > 0.02 && w.terr[i] !== T_WATER){
+      const k = Math.min(0.80, m*1.0);
+      const na = a/255 + k*(1 - a/255);
+      r = r*(1-k) + 56*k; g = g*(1-k) + 178*k; b = b*(1-k) + 232*k;
+      a = Math.max(a, na*255);
+    }
+    d[o]=r; d[o+1]=g; d[o+2]=b; d[o+3]=a;
+  }
+  dynG.putImageData(dynImg, 0, 0);
+}
+
+/* ---------- viewport ---------- */
+function resize(){
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const vw = window.innerWidth, vh = window.innerHeight;
+  cv.width = Math.round(vw*dpr); cv.height = Math.round(vh*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const s = Math.min(vw/W, vh/H);
+  view = { s, ox: (vw - W*s)/2, oy: (vh - H*s)/2, vw, vh };
+}
+const sx = x => view.ox + x*view.s;
+const sy = y => view.oy + y*view.s;
+const wx = px => (px - view.ox)/view.s;
+const wy = py => (py - view.oy)/view.s;
+
+/* ---------- audio (tiny, optional) ---------- */
+let AC = null;
+function ac(){ if (!AC){ try { AC = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){} } return AC; }
+function noise(dur, f0, f1, gain){
+  if (!sound) return; const a = ac(); if (!a) return;
+  try {
+    const n = a.sampleRate * dur, buf = a.createBuffer(1, n, a.sampleRate), ch = buf.getChannelData(0);
+    for (let i=0;i<n;i++) ch[i] = (Math.random()*2-1) * (1 - i/n);
+    const src = a.createBufferSource(); src.buffer = buf;
+    const flt = a.createBiquadFilter(); flt.type='bandpass'; flt.Q = 1.1;
+    flt.frequency.setValueAtTime(f0, a.currentTime);
+    flt.frequency.exponentialRampToValueAtTime(f1, a.currentTime + dur);
+    const g = a.createGain(); g.gain.value = gain;
+    src.connect(flt); flt.connect(g); g.connect(a.destination); src.start();
+  } catch(e){}
+}
+function tone(freq, dur, gain, type){
+  if (!sound) return; const a = ac(); if (!a) return;
+  try {
+    const o = a.createOscillator(), g = a.createGain();
+    o.type = type || 'sine'; o.frequency.value = freq;
+    g.gain.setValueAtTime(gain, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + dur);
+    o.connect(g); g.connect(a.destination); o.start(); o.stop(a.currentTime + dur);
+  } catch(e){}
+}
+
+/* ---------- toast ---------- */
+let toastT = 0;
+function toast(msg, secs){
+  $('toastmsg').textContent = msg;
+  $('toastmsg').classList.add('on');
+  toastT = secs || 3.2;
+}
+
+/* ---------- game lifecycle ---------- */
+function newGame(){
+  world = createWorld(MAP_SEED);
+  paintTerrain(world); paintDynamic(world);
+  plane = {
+    x: 11, y: 44, h: Math.PI*0.5, bank: 0,
+    tank: 1,                        // airborne and already loaded
+    dropping: false, scooping: false,
+    target: null, dropped: 0, scoops: 0, wasted: 0,
+  };
+  smoke.length = embers.length = spray.length = 0;
+  acc = 0; over = false; hintStep = 0; toastT = 0;
+  $('toastmsg').classList.remove('on');
+  $('hint').style.opacity = 1;
+  $('hint').textContent = 'Touch the map to steer';
+  buildVillageHud();
+}
+
+function buildVillageHud(){
+  $('villages').innerHTML = world.villages.map((v,i) =>
+    `<div class="vrow" id="v${i}"><span class="vdot"></span>` +
+    `<span class="vname">${v.name}</span>` +
+    `<span class="vbar"><i style="width:100%"></i></span></div>`).join('');
+}
+
+/* ---------- input ---------- */
+let pointerId = null;
+function pt(e){
+  const r = cv.getBoundingClientRect();
+  return { x: wx(e.clientX - r.left), y: wy(e.clientY - r.top) };
+}
+cv.addEventListener('pointerdown', e => {
+  if (!running) return;
+  pointerId = e.pointerId; cv.setPointerCapture(e.pointerId);
+  plane.target = pt(e);
+  if (hintStep === 0){ hintStep = 1; $('hint').textContent = 'Scoop: fly over the lake'; }
+  e.preventDefault();
+});
+cv.addEventListener('pointermove', e => {
+  if (!running || e.pointerId !== pointerId) return;
+  plane.target = pt(e); e.preventDefault();
+});
+const release = e => { if (e.pointerId === pointerId){ pointerId = null; plane.target = null; } };
+cv.addEventListener('pointerup', release);
+cv.addEventListener('pointercancel', release);
+
+const btn = $('drop');
+const setDrop = on => {
+  if (!running) return;
+  plane.dropping = on && plane.tank > 0;
+  btn.classList.toggle('press', !!on);
+};
+btn.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); ac(); setDrop(true); });
+btn.addEventListener('pointerup',   e => { e.preventDefault(); e.stopPropagation(); setDrop(false); });
+btn.addEventListener('pointercancel', () => setDrop(false));
+btn.addEventListener('pointerleave',  () => setDrop(false));
+btn.addEventListener('contextmenu', e => e.preventDefault());
+
+document.addEventListener('touchmove', e => { if (running) e.preventDefault(); }, { passive:false });
+document.addEventListener('gesturestart', e => e.preventDefault());
+window.addEventListener('resize', resize);
+window.addEventListener('orientationchange', () => setTimeout(resize, 250));
+document.addEventListener('visibilitychange', () => { if (document.hidden) last = 0; });
+// keyboard, for playing at a desk
+const keys = {};
+addEventListener('keydown', e => {
+  keys[e.key] = true;
+  if (e.key === ' '){ e.preventDefault(); setDrop(true); }
+});
+addEventListener('keyup', e => { keys[e.key] = false; if (e.key === ' ') setDrop(false); });
+
+/* ---------- simulation step, plane included ---------- */
+function simTick(){
+  const w = world, p = plane;
+
+  // --- aircraft ------------------------------------------------------
+  const cell = (Math.floor(p.y)*W + Math.floor(p.x));
+  const overWater = p.x>=0 && p.y>=0 && p.x<W && p.y<H && w.terr[cell]===T_WATER;
+
+  p.scooping = overWater && p.tank < 1 && !p.dropping;
+  if (p.scooping){
+    const before = p.tank;
+    p.tank = Math.min(1, p.tank + TICK/PLANE.scoopSecs);
+    if (before < 1 && p.tank >= 1){
+      p.scoops++; tone(880, .16, .05, 'triangle'); tone(1320, .12, .03, 'triangle');
+      if (hintStep === 1){ hintStep = 2; $('hint').textContent = 'Drop AHEAD of the fire — not on it'; }
+    }
+    for (let k=0;k<2;k++) spray.push({ x:p.x, y:p.y, vx:(Math.random()-.5)*1.4, vy:(Math.random()-.5)*1.4,
+                                       life:.5, max:.5, c:'190,235,255' });
+  }
+
+  if (p.dropping && p.tank > 0){
+    p.tank = Math.max(0, p.tank - TICK/PLANE.dropSecs);
+    const r = applyDrop(w, p.x, p.y, PLANE.swath, PLANE.wetRate*TICK);
+    p.dropped += TICK;
+    if (r.wetted === 0) p.wasted += TICK;
+    for (let k=0;k<4;k++) spray.push({
+      x:p.x + (Math.random()-.5)*PLANE.swath*1.6, y:p.y + (Math.random()-.5)*PLANE.swath*1.6,
+      vx:(Math.random()-.5)*.7, vy:(Math.random()-.5)*.7, life:.75, max:.75, c:'120,200,245' });
+    if (p.tank === 0){ p.dropping = false; btn.classList.remove('press'); }
+  }
+
+  const speed = p.dropping ? PLANE.drop : p.scooping ? PLANE.scoop : PLANE.cruise;
+
+  // steering: toward the finger, or nudged back inside the map
+  let want = null;
+  if (p.target) want = Math.atan2(p.target.y - p.y, p.target.x - p.x);
+  else if (keys.ArrowLeft || keys.a) want = p.h - 0.9;
+  else if (keys.ArrowRight || keys.d) want = p.h + 0.9;
+  if (p.x < 2 || p.x > W-2 || p.y < 2 || p.y > H-2)
+    want = Math.atan2(H/2 - p.y, W/2 - p.x);
+  if (want !== null){
+    let dh = ((want - p.h + Math.PI*3) % (Math.PI*2)) - Math.PI;
+    const mx = PLANE.turn * TICK;
+    p.h += Math.max(-mx, Math.min(mx, dh));
+    p.bank += (Math.max(-1, Math.min(1, dh*1.6)) - p.bank) * 0.22;
+  } else p.bank *= 0.90;
+
+  p.x = Math.max(0.4, Math.min(W-0.4, p.x + Math.cos(p.h)*speed*TICK));
+  p.y = Math.max(0.4, Math.min(H-0.4, p.y + Math.sin(p.h)*speed*TICK));
+
+  // --- fire ----------------------------------------------------------
+  const before = w.villages.filter(v => v.dead).length;
+  const nEv = w.events.length;
+  stepWorld(w, Math.random);
+  if (w.tick % 5 === 0) assessThreat(w);
+
+  for (let k = nEv; k < w.events.length; k++){
+    const e = w.events[k];
+    if (e.kind === 'spot'){ toast('SPOT FIRE — embers jumped the line'); tone(300,.22,.05,'square'); shakeT = .18; }
+    if (e.kind === 'gust'){ toast(`WIND SHIFT — now ${e.spd} km/h`); tone(190,.4,.045,'sine'); }
+    if (e.kind === 'lost'){ toast(`${e.name} IS LOST`); tone(120,.7,.09,'sawtooth'); shakeT = .55; }
+  }
+  if (w.villages.filter(v => v.dead).length > before) {} // handled above
+
+  paintDynamic(w);
+
+  // --- particles from the flaming front ------------------------------
+  const per = w.perim;
+  if (per.length){
+    const wxv = Math.cos(w.wind.dir), wyv = Math.sin(w.wind.dir), ws = w.wind.spd/18;
+    const nS = Math.min(6, 1 + (per.length/60)|0);
+    for (let k=0;k<nS;k++){
+      const i = per[(Math.random()*per.length)|0];
+      if (smoke.length < 240) smoke.push({
+        x: i%W + Math.random(), y: (i/W|0) + Math.random(),
+        vx: wxv*ws*1.6, vy: wyv*ws*1.6, r: 1.1 + Math.random()*1.3,
+        life: 3.5 + Math.random()*4, max: 7.5 });
+      if (embers.length < 150 && Math.random() < 0.55) embers.push({
+        x: i%W + Math.random(), y: (i/W|0) + Math.random(),
+        vx: wxv*ws*4.5 + (Math.random()-.5)*1.4, vy: wyv*ws*4.5 + (Math.random()-.5)*1.4,
+        life: .8 + Math.random()*1.5, max: 2.3 });
+    }
+  }
+
+  // --- end conditions -------------------------------------------------
+  if (!over){
+    if (w.fire.length === 0) finish(true);
+    else if (w.villages.every(v => v.dead)) finish(false);
+  }
+}
+
+function stepParticles(dt){
+  const drag = Math.pow(0.985, dt*60);
+  for (const arr of [smoke, embers, spray]){
+    for (let i=arr.length-1;i>=0;i--){
+      const p = arr[i];
+      p.x += p.vx*dt; p.y += p.vy*dt; p.vx *= drag; p.vy *= drag;
+      p.life -= dt;
+      if (arr === smoke) p.r += dt*0.9;
+      if (p.life <= 0) arr.splice(i,1);
+    }
+  }
+}
+
+/* ---------- HUD ---------- */
+let hudT = 0;
+function updateHud(dt){
+  hudT -= dt; if (hudT > 0) return; hudT = 0.15;
+  const w = world;
+  $('ha').textContent  = Math.round(w.burnt * HA_PER_CELL);
+  $('pct').textContent = Math.round(w.burnt / w.burnable * 100) + '%';
+  $('wspd').textContent = Math.round(w.wind.spd);
+  $('windarrow').setAttribute('transform',
+    `rotate(${(w.wind.dir*180/Math.PI + 90).toFixed(1)} 20 20)`);
+
+  w.villages.forEach((v,i) => {
+    const el = $('v'+i); if (!el) return;
+    const frac = Math.max(0, (v.hp - v.max*0.40) / (v.max*0.60));
+    const bar = el.querySelector('i');
+    bar.style.width = (v.dead ? 0 : frac*100) + '%';
+    bar.style.background = frac > .6 ? 'var(--good)' : frac > .28 ? '#ffc44d' : 'var(--danger)';
+    el.classList.toggle('dead', v.dead);
+    el.classList.toggle('threat', !v.dead && v.threat > 0.14);
+  });
+
+  const pct = Math.round(plane.tank*100);
+  btn.dataset.mode = plane.scooping ? 'scoop' : plane.tank > 0.02 ? 'ready' : 'empty';
+  $('dt1').textContent = plane.scooping ? 'SCOOP' : 'DROP';
+  $('dt2').textContent = pct + '%';
+  const C = 2*Math.PI*47;
+  $('tankring').setAttribute('stroke-dashoffset', (C*(1-plane.tank)).toFixed(1));
+  $('tankring').setAttribute('stroke', plane.scooping ? '#8fe0ff' : '#49c6f5');
+}
+
+/* ---------- render ---------- */
+function render(dt){
+  const w = world, p = plane, s = view.s;
+  ctx.save();
+  if (shakeT > 0){
+    shakeT -= dt;
+    const m = shakeT*14;
+    ctx.translate((Math.random()-.5)*m, (Math.random()-.5)*m);
+  }
+  ctx.fillStyle = '#07090c'; ctx.fillRect(-20,-20, view.vw+40, view.vh+40);
+
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(terrCv, view.ox, view.oy, W*s, H*s);
+  ctx.drawImage(dynCv,  view.ox, view.oy, W*s, H*s);
+
+  // ordnance range hatch — you can only fight this ground from the air
+  ctx.save();
+  ctx.beginPath(); ctx.rect(sx(13), sy(38), 30*s, 48*s); ctx.clip();
+  ctx.strokeStyle = 'rgba(255,120,60,.055)'; ctx.lineWidth = 1;
+  for (let k=-60;k<130;k+=7){
+    ctx.beginPath(); ctx.moveTo(sx(13)+k*s, sy(38)); ctx.lineTo(sx(13)+(k+48)*s, sy(86)); ctx.stroke();
+  }
+  ctx.restore();
+  ctx.strokeStyle = 'rgba(255,120,60,.22)'; ctx.lineWidth = 1;
+  ctx.setLineDash([5,5]); ctx.strokeRect(sx(13), sy(38), 30*s, 48*s); ctx.setLineDash([]);
+
+  // villages
+  ctx.textAlign = 'center';
+  ctx.font = `700 ${Math.max(9, s*1.55).toFixed(0)}px 'IBM Plex Sans Condensed',ui-sans-serif,system-ui,sans-serif`;
+  const HOUSES = [[-.42,-.34],[.30,-.46],[.52,.12],[-.08,.06],[-.52,.44],[.24,.52]];
+  for (const v of w.villages){
+    const cx = sx(v.x), cy = sy(v.y), r = v.r*s;
+    if (!v.dead && v.threat > 0.14){
+      const pulse = 0.5 + 0.5*Math.sin(performance.now()/240);
+      ctx.strokeStyle = `rgba(255,122,26,${0.30 + pulse*0.45})`;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx, cy, r + 3 + pulse*4, 0, 7); ctx.stroke();
+    }
+    // roofs, drawn crisp — the smoothed terrain layer alone reads as cloud
+    const hs = Math.max(1.6, s*0.62);
+    for (const [hx,hy] of HOUSES){
+      ctx.fillStyle = v.dead ? 'rgba(58,44,40,.95)' : 'rgba(214,220,228,.92)';
+      ctx.fillRect(cx + hx*r - hs/2, cy + hy*r - hs/2, hs, hs*0.82);
+    }
+    ctx.strokeStyle = v.dead ? 'rgba(255,77,77,.6)' : 'rgba(232,237,242,.55)';
+    ctx.lineWidth = 1.3;
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.stroke();
+
+    const above = cy - r - 4 > 132;              // else it collides with the HUD
+    const ly = above ? cy - r - 4 : cy + r + Math.max(9, s*1.6);
+    ctx.fillStyle = 'rgba(6,8,11,.55)';
+    const tw = ctx.measureText(v.name).width;
+    ctx.fillRect(cx - tw/2 - 4, ly - Math.max(7,s*1.25), tw + 8, Math.max(10, s*1.75));
+    ctx.fillStyle = v.dead ? 'rgba(255,128,128,.85)' : 'rgba(255,255,255,.88)';
+    ctx.fillText(v.name, cx, ly);
+  }
+
+  // smoke first — flame is drawn over it, so the front is never greyed out
+  for (const q of smoke){
+    ctx.globalAlpha = Math.min(1, q.life/q.max)*0.30;
+    const r = q.r*s*3.2;
+    ctx.drawImage(SPR.smoke, sx(q.x)-r/2, sy(q.y)-r/2, r, r);
+  }
+  ctx.globalAlpha = 1;
+
+  // flaming front
+  ctx.globalCompositeOperation = 'lighter';
+  const per = w.perim, fs = s*9;
+  // a big fire lights the whole neighbourhood; stride keeps the cost flat
+  const gStride = Math.max(1, Math.ceil(per.length/90));
+  for (let k=0;k<per.length;k+=gStride){
+    const i = per[k];
+    ctx.globalAlpha = 0.30;
+    ctx.drawImage(SPR.glow, sx(i%W)-fs/2, sy((i/W)|0)-fs/2, fs, fs);
+  }
+  const fStride = Math.max(1, Math.ceil(per.length/280));
+  const now = performance.now();
+  const fr = s*2.7;
+  for (let k=0;k<per.length;k+=fStride){
+    const i = per[k], hx = sx(i%W), hy = sy((i/W)|0);
+    ctx.globalAlpha = 0.46 + 0.16*Math.sin(now/90 + i);
+    ctx.drawImage(SPR.flame, hx - fr, hy - fr, fr*2, fr*2);
+  }
+  for (const e of embers){
+    ctx.globalAlpha = Math.min(1, e.life/e.max) * 0.95;
+    ctx.fillStyle = '#ffd27a';
+    ctx.fillRect(sx(e.x)-s*0.18, sy(e.y)-s*0.18, s*0.38, s*0.38);
+  }
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.globalAlpha = 1;
+
+  // water spray
+  for (const q of spray){
+    ctx.globalAlpha = Math.min(1, q.life/q.max)*0.75;
+    ctx.fillStyle = `rgba(${q.c},1)`;
+    ctx.beginPath(); ctx.arc(sx(q.x), sy(q.y), s*0.30, 0, 7); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // steering marker
+  if (p.target){
+    ctx.strokeStyle = 'rgba(255,255,255,.32)'; ctx.lineWidth = 1.2;
+    const tr = 9 + Math.sin(performance.now()/180)*2.4;
+    ctx.beginPath(); ctx.arc(sx(p.target.x), sy(p.target.y), tr, 0, 7); ctx.stroke();
+    ctx.beginPath(); ctx.arc(sx(p.target.x), sy(p.target.y), 1.8, 0, 7);
+    ctx.fillStyle = 'rgba(255,255,255,.5)'; ctx.fill();
+  }
+
+  // aircraft
+  const px = sx(p.x), py = sy(p.y), a = Math.max(4.6, s*1.55);
+  ctx.save();
+  ctx.translate(px, py + a*0.5); ctx.rotate(p.h); ctx.scale(1, Math.cos(p.bank*0.75));
+  ctx.fillStyle = 'rgba(0,0,0,.34)'; planePath(ctx, a); ctx.fill();
+  ctx.restore();
+  ctx.save();
+  ctx.translate(px, py); ctx.rotate(p.h); ctx.scale(1, Math.cos(p.bank*0.75));
+  ctx.fillStyle = '#f2f5f8'; planePath(ctx, a); ctx.fill();
+  ctx.fillStyle = p.tank > 0.02 ? '#49c6f5' : '#6d7681';
+  ctx.fillRect(-a*0.16, -a*0.20, a*0.42, a*0.40);
+  ctx.restore();
+
+  ctx.restore();
+}
+function planePath(g, a){
+  g.beginPath();
+  g.moveTo(a*1.05, 0);            // nose
+  g.lineTo(a*0.05, a*0.30);
+  g.lineTo(-a*0.10, a*1.00);      // wing
+  g.lineTo(-a*0.34, a*0.98);
+  g.lineTo(-a*0.30, a*0.22);
+  g.lineTo(-a*0.72, a*0.16);
+  g.lineTo(-a*0.92, a*0.46);      // tailplane
+  g.lineTo(-a*1.00, a*0.44);
+  g.lineTo(-a*0.98, 0);
+  g.lineTo(-a*1.00, -a*0.44);
+  g.lineTo(-a*0.92, -a*0.46);
+  g.lineTo(-a*0.72, -a*0.16);
+  g.lineTo(-a*0.30, -a*0.22);
+  g.lineTo(-a*0.34, -a*0.98);
+  g.lineTo(-a*0.10, -a*1.00);
+  g.lineTo(a*0.05, -a*0.30);
+  g.closePath();
+}
+
+/* ---------- main loop ---------- */
+function frame(ts){
+  requestAnimationFrame(frame);
+  if (!world) return;
+  if (!last) last = ts;
+  let dt = Math.min(0.05, (ts - last)/1000); last = ts;
+
+  if (running){
+    acc += dt;
+    let guard = 0;
+    while (acc >= TICK && guard++ < 5){ simTick(); acc -= TICK; }
+    stepParticles(dt);
+    if (toastT > 0){ toastT -= dt; if (toastT <= 0) $('toastmsg').classList.remove('on'); }
+    if (hintStep >= 2 && world.t > 60) $('hint').style.opacity = 0;
+    updateHud(dt);
+  } else {
+    stepParticles(dt);
+  }
+  render(dt);
+}
+
+/* ---------- screens ---------- */
+const veil = $('veil'), sheet = $('sheet');
+function showVeil(html){ sheet.innerHTML = html; veil.classList.remove('hide'); }
+function hideVeil(){ veil.classList.add('hide'); }
+
+function briefing(){
+  running = false;
+  showVeil(`
+    <div class="kicker">Incident 04 · Heath &amp; pine · Drought</div>
+    <h1>FIRE<span class="fl">LINE</span></h1>
+    <p class="sub">2,800 × 5,000 m · wind from the south · three villages downwind</p>
+    <p class="brief">
+      A fire has taken hold on an old artillery range. The ground is contaminated
+      with unexploded ordnance, so <b>no crew can walk in</b> — everything has to be
+      fought from the air. You have one scooper.
+    </p>
+    <div class="keys">
+      <div class="key"><i>1</i><span><b>Touch the map</b> — the aircraft flies to your finger. It never stops.</span></div>
+      <div class="key"><i>2</i><span><b>Fly over water</b> — scooping is automatic. Watch the ring fill.</span></div>
+      <div class="key"><i>3</i><span><b>Hold DROP</b> — you lay a wet line under you. One tank draws about 400 m.</span></div>
+    </div>
+    <p class="brief" style="border-color:rgba(73,198,245,.42)">
+      Water will not stop a running head fire. <b>Get in front of it</b> and wet a line it
+      cannot cross — anchored on the lake, a road, or ground already burnt. Only weak
+      flank and spot fires can be hit directly.
+    </p>
+    <button class="go" id="start">Launch</button>
+    <button class="go ghost" id="snd">Sound: on</button>`);
+  $('start').onclick = () => { ac(); hideVeil(); running = true; last = 0; };
+  $('snd').onclick = e => { sound = !sound; e.target.textContent = 'Sound: ' + (sound?'on':'off'); };
+}
+
+function finish(fireOut){
+  over = true; running = false;
+  const w = world;
+  const saved = w.villages.filter(v => !v.dead);
+  const ha    = Math.round(w.burnt * HA_PER_CELL);
+  const pct   = w.burnt / w.burnable;
+  // Free-burn baseline for this map, measured over 24 fire streams with
+  // tools/balance.mjs: 851 ha mean, 2.5 of 3 villages lost.
+  const BASELINE_HA = 851;
+  const spared = Math.max(0, BASELINE_HA - ha);
+
+  let rank, note;
+  if (saved.length === 3 && ha < 260){
+    rank = 'TEXTBOOK';
+    note = 'You got in front of it and stayed there. Every village held, and the fire died inside the line you drew.';
+  } else if (saved.length === 3){
+    rank = 'CONTAINED';
+    note = 'All three villages held. The fire ran further than it needed to, but you closed the box.';
+  } else if (saved.length === 2){
+    rank = 'HELD THE LINE';
+    note = 'You lost ground early and bought it back. Anchoring the first line sooner is what saves the third village.';
+  } else if (saved.length === 1){
+    rank = 'RESCUE';
+    note = 'The head fire got away and you spent the game chasing it. Lines laid behind a fire are water on the ground.';
+  } else {
+    rank = 'BURNED OVER';
+    note = fireOut ? 'The fire ran out of fuel before it ran out of villages.'
+                   : 'Everything downwind is gone.';
+  }
+  if (sound){ tone(saved.length ? 523 : 160, .5, .07, 'triangle');
+              setTimeout(()=>tone(saved.length ? 784 : 110, .7, .06, 'triangle'), 170); }
+
+  const eff   = plane.dropped > 0 ? Math.round((1 - plane.wasted/plane.dropped)*100) : 0;
+  const loads = (plane.dropped / PLANE.dropSecs).toFixed(1);
+  showVeil(`
+    <div class="kicker">${fireOut ? 'Fire out' : 'Incident closed'} · ${Math.round(w.t/60)} min ${Math.round(w.t%60)} s</div>
+    <h1 style="font-size:34px">${rank}</h1>
+    <p class="rank">${note}</p>
+    <div class="grid">
+      <div class="tile"><div class="lab">Burned</div><div class="val">${ha} <small style="font-size:11px">ha</small></div></div>
+      <div class="tile"><div class="lab">Spared vs. no response</div><div class="val" style="color:var(--good)">${spared} <small style="font-size:11px">ha</small></div></div>
+      <div class="tile"><div class="lab">Loads delivered</div><div class="val">${loads}</div></div>
+      <div class="tile"><div class="lab">Water on new ground</div><div class="val">${eff}<small style="font-size:11px">%</small></div></div>
+      <div class="tile wide">
+        <div class="lab">Villages · ${saved.length} of 3 held</div>
+        <div class="vlist">${w.villages.map(v =>
+          `<span class="vchip ${v.dead?'lost':'ok'}">${v.name}</span>`).join('')}</div>
+      </div>
+    </div>
+    <button class="go" id="again">Fly it again</button>`);
+  $('again').onclick = () => { newGame(); hideVeil(); running = true; last = 0; };
+}
+
+/* ---------- boot ---------- */
+resize();
+newGame();
+briefing();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
