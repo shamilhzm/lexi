@@ -162,6 +162,18 @@ export default function App() {
     setOnboarded();
     setGuided(true);
     setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) });
+    // **`setView` was missing here, and only here.** `study()` sets it, `go()`
+    // sets it; this one prepared the target, flipped `onboarded` — which is what
+    // hides the hero — and left the learner on the feed. So the app's primary
+    // onboarding call to action, *Learn ten words now*, did exactly one thing:
+    // it deleted the onboarding. There is no ten, no session, no way back to the
+    // hero, and the only remaining route to a first session is guessing that the
+    // graduation cap in the tab bar is it.
+    //
+    // Found by tapping it on a freshly erased simulator against the deployed
+    // build. It is invisible from inside the code because every neighbour is
+    // correct, and invisible in a warm profile because the hero never renders.
+    setView('session');
     setNavTick((n) => n + 1);
   };
   const endGuided = () => { setOnboarded(); setGuided(false); go('session'); };

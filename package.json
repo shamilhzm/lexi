@@ -54,7 +54,10 @@
     "authoring:new": "node scripts/authoring/new-cards.ts",
     "authoring:plurals": "node scripts/authoring/fetch-plurals.ts",
     "authoring:ipa": "node scripts/authoring/fetch-ipa.ts",
-    "authoring:recard": "node scripts/authoring/recard.ts"
+    "authoring:recard": "node scripts/authoring/recard.ts",
+    "corpus:domains": "node scripts/corpus/domain-coverage.ts",
+    "corpus:onboarding": "node scripts/corpus/onboarding-audit.ts",
+    "corpus:kernwortschatz": "node scripts/corpus/kernwortschatz.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

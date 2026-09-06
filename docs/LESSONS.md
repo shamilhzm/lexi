@@ -74,6 +74,13 @@ until `freq.json` was found holding 47 dead ones.
 
 **…claim a fact about the product in a doc.** Check it against `src/` at that moment.
 
+**…review the running product.** Get the build from the deployment, not from the
+checkout you were handed. `curl <site>/version.json` and match `builtAt` against
+`git log --format='%h %cI %s'` before you open a single screen. *(A whole persona
+pass — twelve routes, thirty screenshots, twenty-nine findings — was run against a
+checkout nine days and one whole IA behind production. The app under test had four
+tabs the live app does not have and was missing the surface the live app opens on.)*
+
 **…cite a rule in this repo's docs to refuse something.** Restate the rule as *what
 it prevents*, and check the thing in front of you actually does that. A rule you can
 only quote, not restate, has stopped being a rule. *(DESIGN §1's ban on pastiche was
@@ -1101,3 +1108,37 @@ anywhere. A promise about a future session is not feedback.** The fix was not to
 argue for the mechanic or delete it; it was to give the counter that already
 advertised it somewhere to go.
 
+
+## The tree you were handed is not the product *(added 2026-09-06)*
+
+A persona pass was opened by starting `npm run dev` in the worktree that happened to
+be checked out, and driving that. Twelve routes, thirty-odd screenshots and most of a
+findings list later, the owner pointed out that the live app is at `#/feed` — a route
+that does not exist in that tree. The checkout was `eafed2e`; production was
+`4b5fe7c`, nine days and one complete restructure later. **Four of the tabs under
+test had been deleted from the product.** Everything anchored to a screen in Today,
+Practice, Read, Exam or Print was work on a museum piece.
+
+What makes this worth writing down is that the check was **already built and already
+free**. `vite.config.ts` emits `version.json` for exactly this question, and its own
+comment says why it exists: *"There was no way to tell whether the app on a phone was
+the build you just deployed."* One `curl` would have caught it in the first ten
+seconds, before any state was seeded or any screenshot taken.
+
+**Rule: pin the build before the first screenshot.** `curl <site>/version.json`, then
+match `builtAt` to a commit with `git log --format='%h %cI %s' --all`. Say in the
+write-up which commit you tested. A finding that does not name the build it came from
+cannot be reproduced and cannot be closed.
+
+**Corollary, because the pin nearly failed too:** `version.json` reports `sha: "dev"`
+for any build made outside Vercel's CI, and `__BUILD_TIME__` is inlined into the
+bundle, so the asset hash changes on every build and cannot be used to identify one
+either. `builtAt` plus commit timestamps was the only thing that actually resolved
+it — the live stamp fell 35 seconds after one commit and 13 minutes before the next.
+That is a thin margin to be relying on; the stamp should carry the sha for local
+builds too.
+
+**And the trap under the trap:** the stale tree was not obviously stale. It had a
+recent commit date, a clean `git status`, matching docs, and it built and ran. Nothing
+about it *looked* wrong from the inside. Freshness is a property of the deployment,
+and it can only be read from the deployment.

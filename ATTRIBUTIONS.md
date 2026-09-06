@@ -136,6 +136,30 @@ cheap the first time and invisible the second.
   Categorized Wordlist (https://github.com/ynsrc/german-categorized-wordlist),
   licensed CC BY 4.0." CC BY content folds cleanly into the corpus's CC BY-SA 4.0.
 
+### 6. Datengeleiteter Kernwortschatz Deutsch — coverage target, build time only
+
+- **URL:** http://www.basic-german.com
+- **Citation:** Lange, Willi / Okamura, Saburo / Scharloth, Joachim (2016):
+  *Datengeleiteter Kernwortschatz Deutsch.* Online: http://www.basic-german.com
+- **License:** CC BY-SA 4.0.
+- **What it is:** four rankings of 10,000 lemmas, from four corpora — the whole
+  corpus, newspapers (*konzeptionell schriftlich*), web forums (*konzeptionell
+  mündlich*) and children's material. Ranked on frequency combined with dispersion,
+  productivity and stability rather than raw counts.
+- **Why it is here:** `freq.json` is one list, and one list cannot show that a word
+  is common *in speech and not in print*. Four lists can, and that difference is the
+  gap a migrating learner falls into first. `npm run corpus:kernwortschatz` measures
+  Lexi against all four.
+- **What ships:** **nothing.** The lemmas and ranks live in
+  `scripts/corpus/data/kernwortschatz.tsv`, which is build-time only and carries no
+  gloss, definition or example — it is a checklist of *which* words to work on. Cards
+  are authored through `authoring:new`, which verifies every fact against Wiktionary
+  and rejects what it cannot confirm, so nothing from this source reaches
+  `public/data/*`.
+- **Share-alike:** the ranking file is a verbatim redistribution of CC BY-SA data and
+  is licensed CC BY-SA 4.0 with the citation above at the head of the file. This adds
+  no new obligation to the corpus, which is already CC BY-SA 4.0 via Wiktionary.
+
 ## The brain map (`#/brain`)
 
 **three.js** — MIT licence, © 2010–present three.js authors. Loaded as a lazy
