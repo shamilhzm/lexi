@@ -128,6 +128,188 @@ trusting it — the last four times a count was guessed here it was wrong by a t
 
 ---
 
+## The 2026-09-06 persona pass — driven on the deployed build
+
+*Method: ten personas, all of them people **migrating to Germany** rather than people
+at a CEFR level — a care trainee, a site electrician, a doctor sitting the
+Fachsprachprüfung, a warehouse worker whose grandchildren answer in German, a
+socially-stranded engineer, a mother reading Elternbriefe. Driven on an **iPhone 17
+Pro simulator against `https://lexi-eosin.vercel.app`**, build `4b5fe7c` (pinned from
+`/version.json`, `builtAt` 2026-09-05T22:25:47Z), on a **freshly erased device** so the
+cold path was real. Numbers come from `corpus:kernwortschatz`, `corpus:gloss-vote` and
+`corpus:domains`, all run this session.*
+
+> **The first run of this pass was thrown away.** It was driven against the checkout
+> that happened to be open — nine days and one whole IA behind production, with four
+> tabs the live app does not have. See LESSONS, *The tree you were handed is not the
+> product*. Nothing below comes from that run.
+
+### 🔴 The onboarding call to action does nothing — **fixed in this pass**
+
+`startFirstRun` set the target and flipped `onboarded`, and **never called
+`setView('session')`**. Every neighbour in `App.tsx` sets the view; only this one did
+not. So *Learn ten words now* — the single button on the cold welcome screen — deleted
+the onboarding and left the learner on the feed. No ten, no session, and the hero never
+returns. Invisible from inside the code because the surrounding handlers are correct,
+and invisible on any warm profile because the hero does not render.
+
+### 🔴 The grade buttons are behind the tab bar on the first session, and the screen does not scroll
+
+On a cold profile the coach banner (*Tap the card to flip it · Swipe the card right if
+you knew it…*) plus the caught-up header pushes the two grade buttons under the floating
+tab capsule. **The session does not scroll** — verified with swipes from the content and
+from the 12pt gutter. The only ways forward are dismissing the banner that exists to
+explain the buttons it is hiding, or already knowing the swipe. Dismissing *Got it*
+restores them permanently, which is exactly why no warm profile can see this.
+
+*Done when:* a first session on an erased device shows both grade buttons and the
+caption without any dismissal, at 402×874 and at the largest standard Dynamic Type size.
+
+### 🔴 Lexi is unusable at iOS accessibility text sizes
+
+The app honours Dynamic Type (`@supports (font: -apple-system-body)`), which is more
+than most web apps do — and nothing is designed for it. Measured by setting the
+simulator's content size:
+
+| size | result |
+|---|---|
+| up to `extra-extra-extra-large` (largest standard) | holds; tab labels tight, avatar grazing the edge |
+| `accessibility-extra-large` and above | **collapses** |
+
+At AX1: the headword scrolls off the top of its own screen, the top bar loses search,
+streak and avatar entirely, the tab labels collide into `Wörter Themen ÜbenFortschri`,
+and the feed's three word actions break out of the content column — the bookmark
+disappears and the ⓘ and 🎓 sit at the screen edges behind the tab bar. Presbyopia is
+the ordinary case for a 50-something learner, and VISION claims Inclusivity as a
+strength.
+
+### 🔴 Using the keyboard breaks the layout until reload
+
+Focusing any input makes iOS Safari scroll the window to reveal the caret. The shell is
+`h-[100dvh] overflow-hidden` with an inner `overflow-y-auto`, and **there is no
+`visualViewport` handling anywhere in `src/`** — so nothing puts the window back. After
+typing, the top bar rides up under the status bar and the inner scroller can no longer
+reach its own bottom.
+
+The victim is the text scanner: paste an Elternbrief, tap *Check it*, and the result
+renders below the fold and **cannot be reached** — the sentence explaining the score is
+cut mid-word by the tab bar. Reload fixes it; nothing in the UI says so.
+
+*Done when:* after focusing and blurring an input, `window.scrollY === 0` and the
+scanner's full result and its session CTA are reachable.
+
+### 🟠 "Practise these N" ignores its own scope
+
+The saved-words sheet's CTA read *Practise these 3* and started **Today's session ·
+1 / 20**. Reproduced twice. The scope is discarded somewhere between `SavedWords`'
+`onStudy` and the session builder.
+
+### 🟠 The recap still flatters, and still contradicts itself
+
+Both survive the rewrite and were re-confirmed on the live build after a real 20-card
+session:
+
+- **`RECALL 100%`** after twenty brand-new cards shown answer-side-up. Nothing was
+  recalled. `REVIEWED 20` and `NEW LEARNED 20` are the same twenty cards.
+- **"Nothing is due tomorrow"** with twenty cards just given a ten-minute interval.
+  Mechanism: `dueForecast` buckets by `Math.floor((due − todayStart) / 86_400_000)`, so
+  a card due later *today* lands in `out[0]`; the recap reads `dueForecast(2)[1]`. A
+  card due at 11:12 that you do not answer is owed tomorrow as well, and the forecast
+  cannot express that. It is on the one screen whose job is to bring people back.
+
+### 🟠 The first session is twenty verbs
+
+Graded end to end on a cold profile: **all twenty cards were verbs, every one tagged
+`CORE VERBS`**. No noun, so no gender ink, and neither the gender nor the plural drill —
+the two the VISION ruling kept — can ever fire on day one. `sein` (Kernwortschatz rank
+**4**) arrived seventeenth, behind `grillen` (rank **8,451**, and the first word the
+feed showed a brand-new learner).
+
+### 🟠 The determiner and quantifier hole — `npm run corpus:kernwortschatz`
+
+**5 of 24** determiners, quantifiers and negators in the Kernwortschatz top 5000 are
+taught. Untaught: `kein` (170), `nichts` (175), `etwas` (230), `einige` (275),
+`welcher` (299), `jeder` (313), `beide` (555), `jemand` (937), `selber` (1052),
+`mehrere`, `manche`, `irgendein`. **`kein` is the only way to negate a noun in German
+and there is no card for it.** Two of the five that *are* taught carry their rarest
+sense — `alle` as "finished", `mal` as "times".
+
+### 🟠 The register bias — same instrument
+
+The corpus is strong overall (top 1000: **92.4%** taught, 0 absent) and **biased toward
+print**. Content words owed at the top 1000: newspapers **46**, spoken **84**. Of the
+457 lemmas in one top-1000 and not the other, **103** spoken-only are untaught against
+**35** written-only. The children's register degrades fastest (top 2000: 78.1%). Those
+are the two registers a person who has just moved to Germany needs first.
+
+### 🟠 Homograph senses are still shipping — `npm run corpus:gloss-vote`
+
+A new three-way vote: the gloss loses to *both* the definition and the example
+translations while those two agree. **105 of 6,810**, about one in five a real defect —
+a reading order, not a detector. Found by driving, then confirmed by the instrument:
+
+- **`wiederholen` is glossed "to bring back, take back"** with a definition reading *to
+  repeat* and both examples reading «Wiederholt es!» — *Repeat it.* It is card 2 of the
+  first session, and rank 848 in the children's corpus. *"Können Sie das bitte
+  wiederholen?"* is the most useful sentence a beginner owns.
+- **`schicken`** "to send" is illustrated with «Wie geschickt!» — whose own translation
+  says *"How clever!"*, and there is a separate `voc:B1:geschickt` card for that adjective.
+- **`die Mutter`** "mother" is defined as *nut (for a bolt)*; `unter` "under" as *jack,
+  knave (playing card)*; `man` as *just; only*; `zu` as *too (excessively)*.
+- `tun` is glossed **"To do."** — sentence-cased with a full stop, rendered as the
+  answer in green.
+
+*A higher-precision detector is available and not yet built:* an example whose German
+contains the headword of a **different** card, and whose English shares nothing with
+this card's gloss, almost certainly belongs to that other card. That is `schicken`
+exactly.
+
+### 🟡 Migration vocabulary is answerable but not teachable — `npm run corpus:domains`
+
+Over 90 hand-picked words across seven domains a migrant survives: **taught 52 (57.8%),
+lookup-only 32 (35.6%), absent from both layers 6**. The dictionary layer largely closed
+the *lookup* gap — `der Aufenthaltstitel` returns a good entry with both inflected forms
+— and `noteWanted` correctly promises nothing. What is left is that none of it can be
+**studied**. Absent from both layers, hand-verified against the shards: `Elterngeld`,
+`Steuernummer`, `Meldebescheinigung`, `Einschulung`, `Bettpfanne`.
+
+### 🟡 Smaller, all verified on the live build
+
+- **`Üben` loses its umlaut in the tab bar.** `text-2xs leading-none` is an 11px line
+  box; the diaeresis is clipped. On the tab that says *Üben*, in a German app.
+- **The reminder card says Lexi "will flag it on Home"** (`ReminderCard.tsx:38`). Home
+  was deleted on 2026-09-05. `Review.tsx:441` carries the same stale reference in a
+  comment.
+- **"Notifications unavailable — This browser has no notification support."** iOS Safari
+  *does* support Web Push, for Home-Screen-installed web apps only. The copy tells every
+  iPhone user their browser cannot do it; the correct message is an install prompt.
+- **Glass only reads in dark.** The `.glass` chrome is nearly invisible on the warm
+  paper ground because a blur over a flat fill returns the same flat fill. The material
+  needs either a ground with structure or a stronger specular edge to exist in light.
+- **3.1% of example sentences carry a Tatoeba placeholder name** (534 of 17,403; `Tom`
+  519 of them). Not a defect, a texture: `Tom` is not a German name and shows up once
+  every 33 sentences.
+- **Empty states are excellent below the fold and absent above it.** Fortschritt refuses
+  to draw a fake curve ("The curve needs a second study day to have a shape") and has a
+  designed no-blind-spots state — but the top of the same page is seven zeroes, and
+  Themen is nine 0% bars.
+- **A tab tap does not dismiss an open layer.** `go()` clears `drill` but not
+  `showSaved` or `searching`, so tapping *Themen* over the saved sheet highlights the
+  new tab and leaves the sheet up, with a back button that now lies.
+
+### What is genuinely good, so nobody "improves" it
+
+The bookmark loop is now legible end to end — the icon fills, the counter moves, **"Next
+session will teach this"** appears under the word, the counter opens a real list, and the
+saved words genuinely arrive first in the next session (verified: my three bookmarks were
+cards 1, 2 and 3). The two-layer search is exemplary, and its disclosure — *"Wiktionary,
+not a Lexi card — no level, no example, and nothing to study"* — is the most honest thing
+in the app. Fortschritt's *"3 met in the feed — browsing, not tested"* makes the
+exposure/grading separation visible. The horizontal strip works from dead space, and the
+back control is an arrow at the word, as documented.
+
+---
+
 ## The 2026-08-05 quality pass — every card, every screen, every action
 
 *Method: a new `npm run corpus:audit` over all 7,389 cards; a DOM harness run against

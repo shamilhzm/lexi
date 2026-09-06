@@ -109,8 +109,28 @@ export default function App() {
   // `fromHash` guards the loop: a hashchange we caused ourselves must not be
   // re-applied as if the user had pressed Back.
   const fromHash = useRef(false);
+  // …and `selfWrote` guards the *other* direction, which was missing and cost
+  // three features.
+  //
+  // A `custom` target — an explicit id list — is deliberately not encoded in the
+  // hash (see route.ts: a stale id list restored tomorrow would be a lie). So
+  // `toHash` renders every custom session as the bare `#/session`. The write
+  // effect below then assigned it, the browser fired `hashchange`, and the reader
+  // above parsed `#/session`, found no target, and replaced the list the caller
+  // had just built with `TODAY()`.
+  //
+  // Every custom session was destroyed by its own URL, one tick after it started:
+  //   · "Learn ten words now"  →  First session, 10 ids  →  Today's session, 20
+  //   · "Practise these 3"     →  the three saved words  →  Today's session, 20
+  //   · a text's unlock list   →  the words in the text  →  Today's session, 20
+  // Scoped sessions were unaffected and hid it, because `sector` and `group`
+  // *are* encodable and survive the round trip.
+  const selfWrote = useRef(false);
   useEffect(() => {
     const onHash = () => {
+      // Our own write, echoing back. The state is already correct — re-deriving
+      // it from a hash that cannot carry an id list is how the list got lost.
+      if (selfWrote.current) { selfWrote.current = false; return; }
       fromHash.current = true;
       const r = parseHash();
       setView(r.view);
@@ -125,6 +145,7 @@ export default function App() {
     const next = toHash(view, target, words);
     if (fromHash.current) { fromHash.current = false; return; }
     if (location.hash === next) return;
+    selfWrote.current = true;
     // The session is the root, so it replaces rather than pushes: Back from the
     // card leaves the app once instead of walking a trail of identical entries.
     if (view === 'session') location.replace(next);

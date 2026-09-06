@@ -57,7 +57,8 @@
     "authoring:recard": "node scripts/authoring/recard.ts",
     "corpus:domains": "node scripts/corpus/domain-coverage.ts",
     "corpus:onboarding": "node scripts/corpus/onboarding-audit.ts",
-    "corpus:kernwortschatz": "node scripts/corpus/kernwortschatz.ts"
+    "corpus:kernwortschatz": "node scripts/corpus/kernwortschatz.ts",
+    "corpus:gloss-vote": "node scripts/corpus/gloss-vote.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

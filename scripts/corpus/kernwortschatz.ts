@@ -58,6 +58,30 @@
 // What *is* a defect is a content word inside the top thousand of the spoken list
 // that neither layer knows. Those are printed last, and they are the queue.
 //
+// ## The direction this check does NOT work in
+//
+// It answers "what is in the core that Lexi does not teach". It must **not** be
+// turned around to ask "is what Lexi teaches core", and the first attempt to do that
+// produced a finding that was wrong in a way worth recording.
+//
+// Cross-tabulating card level against rank says 21% of A1 cards are outside the
+// reference's top 10,000 — which reads like a mis-levelled band until you print
+// them: `eins`, `zwei`, `drei` … `zwölf`, `tschüss`, `die Fahrkarte`, `die
+// Haltestelle`, `die Bäckerei`, `die Straßenbahn`, `die Gabel`, `das Mittagessen`,
+// `lecker`. Those are not errors. They are the first fifty words anybody needs, and
+// they score badly here for two structural reasons:
+//
+//   - **Numbers are digits in a corpus.** `zwei` as a *lemma* barely occurs, because
+//     running text writes "2".
+//   - **The ranking deliberately punishes concrete local nouns.** Dispersion,
+//     productivity and stability are what put `stehen` at 7 and keep `Erdbeere` out
+//     of 10,000 — a word can be indispensable in a bakery and invisible across a
+//     balanced corpus.
+//
+// A beginner syllabus and a corpus ranking disagree *by design*, and where they
+// disagree the syllabus is usually right. So: use this list to find holes, never to
+// justify a deletion, and never to re-level a card.
+//
 // Run: npm run corpus:kernwortschatz
 //      npm run corpus:kernwortschatz -- --missing forum 1000   (a list to author from)
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
