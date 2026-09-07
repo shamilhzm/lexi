@@ -533,6 +533,45 @@ accessibility setting and not a preference about taste.
 object resting on the page* rather than a panel let into it, and 16px at 430px wide does
 not. A 10px control inset 6px inside a 22px container shares its centre.
 
+#### 8·1·1 A bar materialises *(2026-09-06)*
+
+**Glass over a flat ground is not glass.** `backdrop-filter` on an unmoving colour
+returns that same colour, so on the warm paper theme the two bars were opaque panels
+wearing a blur with nothing to blur — the material was costing a compositor layer and
+paying back nothing. A persona pass on a real phone found it by the only route available:
+it *looked* fine in dark, where the fill differs enough from the ground to fake it, and
+inert in light, which is the theme that ships.
+
+So the bars now do what every iOS bar does. `.glass-bar` — worn by the top bar and the
+tab capsule, and by nothing else — is **nearly transparent while the content is at the
+top and materialises as it slides underneath**, driven by `data-scrolled` on `<html>`.
+The material stops being decoration and becomes information: it means *there is more
+above this*.
+
+Three rules came out of building it:
+
+- **Receding is not vanishing.** The first values (30% fill, no edge) dissolved the tab
+  capsule far enough that it stopped reading as pressable, which trades a real affordance
+  for an effect. 55% and a quarter-strength edge moves visibly under the finger and is
+  never in doubt at rest.
+- **Repoint a variable, never restate a colour.** `--glass-full` / `--glass-edge-full` /
+  `--glass-blur-full` are the engaged values; `--glass` and friends alias them, and
+  `.glass-bar` swaps the alias. `--glass: initial` was the first attempt and is a trap —
+  on an unregistered custom property it resolves to guaranteed-invalid, not to the
+  inherited value, so the bar loses its background entirely.
+- **Do not transition `backdrop-filter`.** Animating a blur radius is the one thing that
+  reliably drops frames on a phone. The fill and the edge carry the change; the blur
+  steps.
+
+**The rim needed a second hairline.** A pane lit only from the top is a piece of paper
+with a highlight on it — glass has thickness, so its lower inner edge sits in its own
+shadow. `--glass-underside` is one pixel and it is most of what separates *translucent
+rectangle* from *object*. On dark it inverts: there is no ambient light below to occlude,
+so thickness reads as the far edge catching the same highlight more weakly.
+
+`--glass-sheen` is a linear top-down wash, not a radial hotspot: a capsule is an extruded
+cylinder, and a radial highlight reads as a bubble, which is a different material.
+
 The tab bar's selected state moved with the material: it was a 2px rule across the top
 edge, and a capsule has no top edge. The active tab now sits in its own recessed capsule
 — which is also the honest signal, because it is *a place you are*, not a boundary.

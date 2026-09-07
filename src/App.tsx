@@ -93,6 +93,41 @@ export default function App() {
   const [showSaved, setShowSaved] = useState(false);
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
+
+  // ---- the bars materialise -------------------------------------------------
+  // `data-scrolled` on <html>, read by `.glass-bar` in index.css.
+  //
+  // Glass over a *flat* ground is not glass: `backdrop-filter` on an unmoving
+  // colour returns that same colour, which is why the material was not landing on
+  // the warm paper theme — the bars were opaque panels wearing a blur with nothing
+  // to blur. So they now do what every iOS bar does: nearly invisible at the top of
+  // the content, and materialising as it slides underneath. The material stops
+  // being decoration and starts meaning "there is more above this".
+  //
+  // Capture phase, on `window`: `scroll` does not bubble, and the app has two
+  // scrollers — the route column and the feed's own snap container — neither of
+  // which the bars own. Capturing catches both without either having to know the
+  // bars exist.
+  //
+  // The 8px threshold is hysteresis, not a magic number: snap scrolling settles
+  // with sub-pixel residue and a 0 test flickers the bars at rest.
+  useEffect(() => {
+    const root = document.documentElement;
+    const apply = (top: number) => {
+      const next = top > 8 ? 'true' : 'false';
+      if (root.dataset.scrolled !== next) root.dataset.scrolled = next;
+    };
+    const onScroll = (e: Event) => {
+      const t = e.target;
+      apply(t === document || t === window ? window.scrollY : (t as HTMLElement).scrollTop ?? 0);
+    };
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true });
+    apply(0);
+    return () => window.removeEventListener('scroll', onScroll, { capture: true });
+  }, []);
+  // A route change puts a fresh scroller at the top; without this the bars stay
+  // materialised from wherever the last one was left.
+  useEffect(() => { document.documentElement.dataset.scrolled = 'false'; }, [view, navTick]);
   // The human-audio manifest is a small id list; loading it at boot lets cards
   // decide synchronously whether to show the "real voice" marker. A missing file
   // resolves to an empty manifest, so this can never block or fail the app.

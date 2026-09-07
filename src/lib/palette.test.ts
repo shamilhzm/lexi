@@ -272,35 +272,114 @@ describe('text stays legible through the glass', () => {
       .map((v) => v.toString(16).padStart(2, '0')).join('');
   };
 
-  /** The alphas `.glass` declares, read out of the stylesheet rather than
-   *  retyped — a guard that hardcodes the value it is guarding tests nothing. */
-  const alphas = [...css.matchAll(/--glass:\s*color-mix\(in srgb, var\(--color-panel\) (\d+)%/g)]
-    .map((m) => Number(m[1]) / 100);
+  /** The alphas the stylesheet declares, read out of it rather than retyped — a
+   *  guard that hardcodes the value it is guarding tests nothing.
+   *
+   *  **Two states since 2026-09-06.** `--glass-full` is a bar with content behind
+   *  it; `--glass-rest` is the same bar at the top of the scroll, where it recedes
+   *  (see DESIGN §8·1·1). The *at-rest* alpha is the lower one and therefore the
+   *  harder case, so it is the one that actually needs this guard — which is
+   *  exactly why it is here, and why the rename that introduced it broke the
+   *  regex loudly instead of quietly widening the tolerance. */
+  const read = (name: string) =>
+    [...css.matchAll(new RegExp(`--${name}:\\s*color-mix\\(in srgb, var\\(--color-panel\\) (\\d+)%`, 'g'))]
+      .map((m) => Number(m[1]) / 100);
 
-  it('reads both alphas out of the stylesheet', () => {
-    expect(alphas).toHaveLength(2);        // light, then dark
-    for (const a of alphas) expect(a).toBeGreaterThan(0.5);
+  const STATES = [
+    { state: 'engaged', alphas: read('glass-full') },
+    { state: 'at rest', alphas: read('glass-rest') },
+  ] as const;
+
+  it('reads every alpha out of the stylesheet', () => {
+    for (const { state, alphas } of STATES) {
+      expect(alphas, `${state}: light, then dark`).toHaveLength(2);
+      // Below half, the bar is a tint rather than a material and no contrast
+      // budget survives it. A value under this is a design error, not a
+      // borderline one.
+      for (const a of alphas) expect(a, `${state} alpha`).toBeGreaterThan(0.5);
+    }
   });
 
-  for (const [i, theme] of (['light', 'dark'] as const).entries()) {
-    it(`keeps dim and txt above AA on ${theme} glass`, () => {
-      const p = palette(theme);
-      const ground = composite(p.panel, p.bg, alphas[i]);
-      // 4.5 is AA for body text. `dim` is the one that has ever been close —
-      // it is the value the warm-paper change nearly broke on `panel2`.
-      expect(contrast(p.dim, ground), `dim on ${theme} glass (${ground})`).toBeGreaterThanOrEqual(4.5);
-      expect(contrast(p.txt, ground), `txt on ${theme} glass`).toBeGreaterThanOrEqual(4.5);
-      // The accent is the goal pill's bar and the active tab's label.
-      expect(contrast(p.accent, ground), `accent on ${theme} glass`).toBeGreaterThanOrEqual(4.5);
-    });
+  for (const { state, alphas } of STATES) {
+    for (const [i, theme] of (['light', 'dark'] as const).entries()) {
+      it(`keeps dim and txt above AA on ${theme} glass, ${state}`, () => {
+        const p = palette(theme);
+        const ground = composite(p.panel, p.bg, alphas[i]);
+        // 4.5 is AA for body text. `dim` is the one that has ever been close —
+        // it is the value the warm-paper change nearly broke on `panel2`.
+        expect(contrast(p.dim, ground), `dim on ${theme} glass ${state} (${ground})`).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(p.txt, ground), `txt on ${theme} glass ${state}`).toBeGreaterThanOrEqual(4.5);
+        // The accent is the goal pill's bar and the active tab's label.
+        expect(contrast(p.accent, ground), `accent on ${theme} glass ${state}`).toBeGreaterThanOrEqual(4.5);
+      });
 
-    it(`keeps them above AA on ${theme} glass over a card, too`, () => {
-      // A feed pill sits over the page; a sheet's close button can sit over the
-      // white study surface. Both grounds, one rule.
-      const p = palette(theme);
-      const ground = composite(p.panel, p.card, alphas[i]);
-      expect(contrast(p.dim, ground), `dim on ${theme} glass over card`).toBeGreaterThanOrEqual(4.5);
-      expect(contrast(p.accent, ground), `accent on ${theme} glass over card`).toBeGreaterThanOrEqual(4.5);
-    });
+      it(`keeps them above AA on ${theme} glass over a card, ${state}`, () => {
+        // A feed pill sits over the page; a sheet's close button can sit over the
+        // white study surface; the tab capsule at rest can sit over Fortschritt's
+        // heatmap card. Both grounds, one rule.
+        const p = palette(theme);
+        const ground = composite(p.panel, p.card, alphas[i]);
+        expect(contrast(p.dim, ground), `dim on ${theme} glass over card, ${state}`).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(p.accent, ground), `accent on ${theme} glass over card, ${state}`).toBeGreaterThanOrEqual(4.5);
+      });
+    }
   }
+
+  // ── What the four tests above cannot see ──────────────────────────────────
+  //
+  // **They cannot fail on the alpha.** `panel`, `bg` and `card` are 1.14 and 1.05
+  // luminance apart, so compositing panel over either barely moves the ground:
+  // sweep the alpha from 100% to *zero* and `dim` travels from 6.67 to 5.85. A
+  // bar with no fill at all passes. Every assertion above has been green since it
+  // was written for a reason that has nothing to do with the value it claims to
+  // guard — and DESIGN §8·1 says this guard is what makes the alpha "a contrast
+  // decision", which it was not.
+  //
+  // The ground that *does* vary is the one glass exists for: the thing sliding
+  // underneath. A 44px headword in `--color-txt`, a `--heat-4` tile on
+  // Fortschritt, the accent-filled *Study all* button. Composited at the engaged
+  // 78%, those grounds put `dim` and `accent` **under AA**:
+  //
+  //            light                       dark
+  //   ink      dim 4.27  accent 3.66       dim 3.28  accent 3.57
+  //   heat-4   dim 4.88  accent 4.18       dim 4.10  accent 4.46
+  //
+  // Which channel fails is not constant — over a heat-4 tile in light it is the
+  // accent alone (4.18) while `dim` clears at 4.88, and over ink it is both. So
+  // the pin takes the *worse of the pair*, not a nominated one: an assertion
+  // about `dim` specifically passes on the light heat tile and would have made
+  // this look half-fixed.
+  //
+  // This is **not** caused by the at-rest state added on 2026-09-06 — at rest the
+  // bar is at the top of the scroll, which is precisely when the ground *is* the
+  // page. It is the engaged alpha, and it has shipped since the material did.
+  //
+  // Pinned rather than asserted, deliberately. Asserting AA here would demand
+  // ~95% fill, which is not glass; asserting a lower threshold would be loosening
+  // a tolerance to fit a number, which is the move this file exists to prevent.
+  // So it records the worst case and fails if it gets *worse*, and the fix — bar
+  // labels that do not depend on their backdrop — is filed in BACKLOG.
+  describe('the transient worst case, pinned', () => {
+    const SATURATED = {
+      light: { ink: '#1e2226', heat4: '#1d6a8c' },
+      dark: { ink: '#e6edef', heat4: '#63b3d4' },
+    } as const;
+
+    for (const theme of ['light', 'dark'] as const) {
+      it(`${theme}: records how far under AA a bar label falls over moving content`, () => {
+        const p = palette(theme);
+        const engaged = read('glass-full')[theme === 'light' ? 0 : 1];
+        for (const [what, behind] of Object.entries(SATURATED[theme])) {
+          const ground = composite(p.panel, behind, engaged);
+          const worst = Math.min(contrast(p.dim, ground), contrast(p.accent, ground));
+          // Known-bad, and bounded. If a change pushes any of these below 3.0 the
+          // label has stopped being readable at all rather than merely failing a
+          // ratio, and that is a different and much worse defect.
+          expect(worst, `worst bar label over ${what} (${theme})`).toBeGreaterThan(3.0);
+          expect(worst, `worst bar label over ${what} (${theme}) — if this now clears AA, delete this test and move the ground up`)
+            .toBeLessThan(4.5);
+        }
+      });
+    }
+  });
 });

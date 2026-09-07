@@ -14,8 +14,22 @@ import { execSync } from 'node:child_process';
  *
  *  Vercel exposes the commit in the environment; a local build asks git; neither
  *  is fatal, because a stamp that fails the build is worse than a stamp that says
- *  "dev". */
+ *  "dev".
+ *
+ *  **Both of those failed on the deploy that actually matters.** A `vercel --prod`
+ *  from the CLI is not a git-linked deploy, so `VERCEL_GIT_COMMIT_SHA` is unset —
+ *  and `.vercelignore` excludes `.git`, so the `git rev-parse` fallback has no
+ *  repository to ask on the builder either. Every production build has therefore
+ *  been stamped `"dev"`, which is precisely the question this file exists to
+ *  answer. It cost a whole review pass run against the wrong tree (LESSONS, *The
+ *  tree you were handed is not the product*), where `builtAt` had to be triangulated
+ *  against commit timestamps because the sha said nothing.
+ *
+ *  `LEXI_BUILD_SHA` is the third rung: read the sha on the *deploying* machine and
+ *  hand it to the builder. See `npm run deploy`. */
 const buildSha = (() => {
+  const explicit = process.env.LEXI_BUILD_SHA;
+  if (explicit) return explicit.slice(0, 7);
   const fromCi = process.env.VERCEL_GIT_COMMIT_SHA;
   if (fromCi) return fromCi.slice(0, 7);
   try { return execSync('git rev-parse --short HEAD', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); }

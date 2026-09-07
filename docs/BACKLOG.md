@@ -297,6 +297,44 @@ the *lookup* gap — `der Aufenthaltstitel` returns a good entry with both infle
   `showSaved` or `searching`, so tapping *Themen* over the saved sheet highlights the
   new tab and leaves the sheet up, with a back button that now lies.
 
+### 🟠 A bar label is unreadable over the thing it is floating on — and the guard could not see it
+
+*Found 2026-09-06 while adding the scroll-reactive state; the defect itself has shipped
+since the glass material did.*
+
+`palette.test.ts` composites the glass alpha over `--color-bg` and `--color-card` and
+asserts `dim`, `txt` and `accent` clear AA. It has been green since it was written and
+**it cannot fail on the alpha**: `panel`, `bg` and `card` are 1.14 and 1.05 luminance
+apart, so sweeping the fill from 100% to *zero* moves `dim` from 6.67 to 5.85. A bar with
+no fill at all passes. DESIGN §8·1 claims that guard is what makes the alpha "a contrast
+decision wearing a taste decision's clothes"; it was not holding it.
+
+The ground that actually varies is the one glass exists for — the content sliding
+underneath. Composited at the engaged 78%:
+
+| behind the bar | light | dark |
+|---|---|---|
+| a 44px headword in `--color-txt` | dim **4.27** · accent **3.66** | dim **3.28** · accent **3.57** |
+| a `--heat-4` tile / the accent button | dim 4.88 · accent **4.18** | dim **4.10** · accent 4.46 |
+
+So while you scroll Fortschritt, the inactive tab labels and the streak count fall under
+AA against the heatmap passing behind them, and on the feed they fall further against the
+headword. **Not** caused by the at-rest state added the same day — at rest the bar is at
+the top of the scroll, which is exactly when the ground *is* the page.
+
+**Why it is filed and not fixed.** Clearing AA over ink by fill alone needs ~95%, which
+is not a material, it is a panel. The fix is the one Apple uses: stop the label depending
+on its backdrop — a vibrancy treatment, or a small opaque plate behind the label text
+only, so the *glass* stays honest and the *type* stops competing with it. That is a
+design decision, not a token tweak.
+
+*Meanwhile it is pinned rather than asserted* (`palette.test.ts` → "the transient worst
+case, pinned"): the test records the worst of the `dim`/`accent` pair per ground and
+fails if it drops below 3.0 or if it ever clears 4.5 — at which point the ground moves up
+into the real guard and the pin is deleted. Which channel fails is not constant, so it
+pins the worse of the pair: over a light heat-4 tile `dim` clears at 4.88 and only the
+accent fails, and a check nominating `dim` would have looked half-fixed.
+
 ### What is genuinely good, so nobody "improves" it
 
 The bookmark loop is now legible end to end — the icon fills, the counter moves, **"Next

@@ -613,30 +613,118 @@ input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appe
   /* 78% is the measured floor, not a taste: below it `--color-dim` on a scrolled
      headword drops under AA on the light theme. Checked with the palette guard's
      own contrast helper against the two grounds the bars ever sit on. */
-  --glass: color-mix(in srgb, var(--color-panel) 78%, transparent);
+  /* The *engaged* values — what glass looks like with something behind it. The
+     live `--glass` / `--glass-edge` / `--glass-blur` below point at these, so a
+     bar can swap between engaged and at-rest by repointing one variable and
+     nothing has to restate a colour. */
+  --glass-full: color-mix(in srgb, var(--color-panel) 78%, transparent);
+  --glass-edge-full: color-mix(in srgb, var(--color-line) 62%, transparent);
+  --glass-blur-full: 22px;
+
+  --glass: var(--glass-full);
   --glass-rim: rgb(255 255 255 / 0.62);
-  --glass-edge: color-mix(in srgb, var(--color-line) 62%, transparent);
+  --glass-edge: var(--glass-edge-full);
   --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -8px rgb(0 0 0 / 0.10);
-  --glass-blur: 22px;
+  --glass-blur: var(--glass-blur-full);
+
+  /* **The underside.** *Added 2026-09-06.* The rim above was doing the job alone,
+     and a pane lit only from the top is a piece of paper with a highlight on it.
+     Glass has thickness, so its lower inner edge sits in its own shadow — this is
+     the second of the two hairlines that make the difference between "translucent
+     rectangle" and "object". One pixel, and it is most of the effect. */
+  --glass-underside: rgb(16 24 32 / 0.06);
+
+  /* **The sheen.** A capsule is a cylinder: the top third catches light and the
+     rest falls away. Linear rather than radial because the shape is extruded
+     horizontally — a radial hotspot reads as a bubble, which is a different
+     material. Kept under 0.20 so it never competes with `--glass-rim`, which is
+     the harder, more informative edge. */
+  --glass-sheen: linear-gradient(to bottom,
+    rgb(255 255 255 / 0.20) 0%,
+    rgb(255 255 255 / 0.06) 42%,
+    rgb(255 255 255 / 0) 72%);
+
+  /* **At rest, a bar is barely there.** *Added 2026-09-06.*
+     This is the finding the persona pass turned up and the reason the material
+     was not landing: `backdrop-filter` over a *flat* ground returns that same
+     flat ground, so on the warm paper theme the bars were an opaque panel
+     wearing a blur that had nothing to blur. Glass only exists when something
+     passes behind it.
+     So the bars now do what every iOS bar does — they are nearly transparent
+     when the content is at the top and *materialise* as it slides underneath.
+     The material becomes information: it means "there is more above". */
+  /* Receding is not vanishing. The first values here (30% fill, no edge at all)
+     dissolved the tab capsule far enough that it stopped reading as something you
+     could press — and a tab bar you have to *hunt for* has traded a real
+     affordance for an effect. iOS recedes the bar and still leaves an object on
+     the page. 55% and a quarter-strength edge is the version that moves visibly
+     under the finger and is never in doubt at rest. */
+  --glass-rest: color-mix(in srgb, var(--color-panel) 55%, transparent);
+  --glass-rest-edge: color-mix(in srgb, var(--color-line) 26%, transparent);
+  --glass-rest-blur: 8px;
 }
 html.dark {
   /* Darker and a touch more opaque: a dark ground has less luminance to lend,
      so the same alpha reads as a smear rather than a pane. The rim inverts to a
      low-alpha white — on dark glass the specular highlight is the *only* thing
      separating the bar from the page. */
-  --glass: color-mix(in srgb, var(--color-panel) 82%, transparent);
+  --glass-full: color-mix(in srgb, var(--color-panel) 82%, transparent);
+  --glass-edge-full: color-mix(in srgb, var(--color-line) 78%, transparent);
   --glass-rim: rgb(255 255 255 / 0.10);
-  --glass-edge: color-mix(in srgb, var(--color-line) 78%, transparent);
   --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.30), 0 10px 30px -10px rgb(0 0 0 / 0.45);
+  /* On a dark ground the underside is *lighter* than the fill, not darker —
+     there is no ambient light below to be occluded, so what reads as thickness
+     is the far edge catching the same highlight more weakly. */
+  --glass-underside: rgb(255 255 255 / 0.04);
+  --glass-sheen: linear-gradient(to bottom,
+    rgb(255 255 255 / 0.06) 0%,
+    rgb(255 255 255 / 0.02) 42%,
+    rgb(255 255 255 / 0) 72%);
+  /* Dark needs more fill at rest than light does: white type over a dark word
+     sliding underneath loses its edge faster than dark type over paper. */
+  --glass-rest: color-mix(in srgb, var(--color-panel) 64%, transparent);
 }
 
 .glass {
-  background: var(--glass);
+  /* `background-color` and `background-image` separately, not the `background`
+     shorthand: the shorthand resets `background-image` to `none`, which would
+     silently drop the sheen the moment anyone re-ordered these lines. */
+  background-color: var(--glass);
+  background-image: var(--glass-sheen);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   border: 1px solid var(--glass-edge);
-  box-shadow: inset 0 1px 0 var(--glass-rim), var(--glass-shadow);
+  box-shadow:
+    inset 0 1px 0 var(--glass-rim),
+    inset 0 -1px 0 var(--glass-underside),
+    var(--glass-shadow);
 }
+
+/* ── A bar that materialises ─────────────────────────────────────────────────
+   Worn by the two pieces of chrome that have content travelling under them: the
+   top bar and the tab capsule. Everything else in glass — the IPA pill, the back
+   button, the coach — is *over* a fixed background and has no "at rest" state to
+   have.
+
+   Driven by `data-scrolled` on `<html>`, set in `App.tsx` from a capture-phase
+   scroll listener, because the app has two scrollers (the route column and the
+   feed's own snap container) and neither of them owns the bars.
+
+   The transition is on the properties that carry the material, and deliberately
+   not on `backdrop-filter`: animating a blur radius is the one thing that will
+   drop frames on a phone, and the fill and the edge already sell the change. */
+.glass-bar {
+  --glass: var(--glass-rest);
+  --glass-edge: var(--glass-rest-edge);
+  --glass-blur: var(--glass-rest-blur);
+  transition: background-color 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+html[data-scrolled='true'] .glass-bar {
+  --glass: var(--glass-full);
+  --glass-edge: var(--glass-edge-full);
+  --glass-blur: var(--glass-blur-full);
+}
+@media (prefers-reduced-motion: reduce) { .glass-bar { transition: none; } }
 
 /* Two honest fallbacks, in this order.
    1. No `backdrop-filter` (older Firefox, some embedded webviews): the bar goes

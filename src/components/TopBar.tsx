@@ -158,7 +158,7 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
     //
     // `min-h` rather than `h`, plus safe-top: on a 16 Pro Max the Dynamic Island
     // sits above the bar rather than eating the wordmark.
-    <header className="no-print absolute top-0 inset-x-0 z-50 glass safe-top
+    <header className="no-print absolute top-0 inset-x-0 z-50 glass glass-bar safe-top
       rounded-b-[22px] border-x-0 border-t-0
       min-h-[calc(52px_+_env(safe-area-inset-top))] flex items-center gap-1 px-3 sm:px-4">
 

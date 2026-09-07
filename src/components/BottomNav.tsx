@@ -52,7 +52,7 @@ export default function BottomNav({ view, onGo }: {
     // indicator (a 5pt bar sitting ~8pt off the edge) — floating, not stranded.
     // The `max()` floor keeps 8px on a device that reports no inset at all.
     <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-3 pb-[max(0.5rem,calc(env(safe-area-inset-bottom)_-_14px))] pointer-events-none">
-      <nav aria-label="Main" className="glass rounded-full pointer-events-auto overflow-hidden">
+      <nav aria-label="Main" className="glass glass-bar rounded-full pointer-events-auto overflow-hidden">
         <div className="flex items-stretch h-[58px]">
           {NAV.map((n) => {
             const active = view === n.id;
@@ -80,7 +80,11 @@ export default function BottomNav({ view, onGo }: {
                     one and fits at `text-2xs` with room to spare, which is why
                     the labels can be the German surface names in full rather
                     than one clipped English word. */}
-                <span lang="de" className="text-2xs leading-none tracking-tight truncate max-w-full">{n.label}</span>
+                {/* `leading-none` is an 11px line box at `text-2xs`, and a capital Ü needs
+                    more than its cap height — the diaeresis was being clipped off the
+                    tab that says *Üben*, in a German app. `leading-[1.35]` gives the
+                    accent somewhere to sit; the row is `gap-0.5` so nothing moves. */}
+                <span lang="de" className="text-2xs leading-[1.35] tracking-tight truncate max-w-full">{n.label}</span>
                 </span>
               </button>
             );

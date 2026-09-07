@@ -58,7 +58,8 @@
     "corpus:domains": "node scripts/corpus/domain-coverage.ts",
     "corpus:onboarding": "node scripts/corpus/onboarding-audit.ts",
     "corpus:kernwortschatz": "node scripts/corpus/kernwortschatz.ts",
-    "corpus:gloss-vote": "node scripts/corpus/gloss-vote.ts"
+    "corpus:gloss-vote": "node scripts/corpus/gloss-vote.ts",
+    "deploy": "vercel --prod --yes --build-env LEXI_BUILD_SHA=$(git rev-parse --short HEAD)"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
