@@ -128,6 +128,127 @@ trusting it — the last four times a count was guessed here it was wrong by a t
 
 ---
 
+---
+
+## The plan against Round 4 — 41 criticisms, six tracks *(2026-09-07)*
+
+*Every item traces to a persona in `docs/PERSONAS.md` Round 4 and to a screen, a
+script or a file:line. Effort key as above: **XS** <½ day · **S** ~1 day · **M** a few
+days · **L** 1–2 weeks.*
+
+**Already closed by the pass that produced the list** — P13 (the onboarding CTA did
+nothing), P43 (every custom session destroyed by its own URL), P46 (`version.json`
+stamped `"dev"`), P42 (the glass contrast guard was vacuous; now split into a real
+guard and a pinned worst case). **Died on their own evidence** — P58 (A1 cards
+"outside the core" are `eins`, `tschüss`, `die Haltestelle`, which are correct),
+P30 (reduced motion is honoured), P29 (gender colour is never the only signal).
+
+### The sequencing argument, before the list
+
+Three tracks are cheap and unambiguous (A, C-small, F-small) and should go first
+because they cost days and remove a third of the list. **Track B is the one that
+decides whether the app is good on a phone**, and the phone is the product. Track D
+is the largest and slowest and is also the one every migrant persona ended up in — it
+should run continuously underneath the others rather than waiting for a slot. Track E
+needs rulings in VISION before any code, and should not be started as engineering.
+
+---
+
+### Track A — Just wrong · **S total**, do first
+
+| # | What | Do | Done when |
+|---|---|---|---|
+| A1 | Recap says *"Nothing is due tomorrow"* about 20 cards on a 10-minute interval (P56) | `dueForecast` buckets a due-today card into `out[0]`; the recap reads `[1]`. Ask the question the recap actually means — *what will be waiting when I come back* — which is `out[0] + out[1]` for anything still unanswered today | A session ending at 23:50 and one ending at 08:00 both say something true |
+| A2 | `RECALL 100%` after 20 cards shown answer-side-up (P15) | Recall is undefined when `reviewed == 0`. Show *"20 new · first pass"* and print recall only once there is a retrieval to report | The recap of an all-new session contains no percentage |
+| A3 | A tab tap leaves an open layer stranded over the wrong tab (P21) | `go()` clears `drill` but not `showSaved` / `searching`. Clear all three | Tapping any tab with the saved sheet or search open closes it |
+| A4 | `#/settings` skips `h1` → `h3`; two focusables unnamed (P40) | Demote to `h2`; name the two controls | `npm run lint` a11y rules pass and a heading walk is contiguous on every route |
+| A5 | Copy referring to deleted surfaces (P44) | `ReminderCard.tsx:38` says Lexi will flag a slipping day *"on Home"*; Home was deleted 2026-09-05. Same reference in a `Review.tsx:441` comment | No string in `src/` names a surface that does not exist |
+| A6 | *"This browser has no notification support"* on iOS (P54) | Safari supports Web Push for Home-Screen-installed apps. Detect standalone; when not installed, offer the install step instead of declaring the browser incapable | An iPhone user is told what to do, not what cannot be done |
+
+### Track B — The phone is the product · **M**, do second
+
+| # | What | Do | Done when |
+|---|---|---|---|
+| B1 | Keyboard use breaks the layout until reload (P18, P39) | No `visualViewport` handling anywhere in `src/`. Add one listener that pins `window.scrollTo(0,0)` and feeds the keyboard inset to the shell, so `100dvh` stops lying | After focus + blur on every input, `window.scrollY === 0` and the text scanner's result and its session CTA are reachable |
+| B2 | Grade buttons behind the tab bar on a cold profile's first session (P13 cohort) | The coach banner that explains the buttons is what pushes them under the capsule, and the screen does not scroll. Make the session's stage size against the real available height, or move the coach out of the flow | A first session on an erased device shows both grade buttons and the caption with no dismissal, at 402×874 |
+| B3 | Layout collapses at iOS accessibility text sizes (P16, P25) | Holds to the largest *standard* size and breaks at AX1: headword off-screen, top-bar controls gone, tab labels colliding. Drop tab labels above a threshold (what iOS does), let the top bar shed the streak before the search, and let the headword shrink | The feed, a session and Fortschritt are usable at `accessibility-extra-large` |
+| B4 | The installed PWA waits on the network before showing anything (P41, P53) | `sw.js` is network-first for navigations *and* re-clones ~6.4 MB of lexicon JSON into Cache Storage on every load. Make navigations cache-first with a background revalidate; make `/data/` revalidate by ETag instead of unconditional `put` | Airplane mode opens the app in under a second, and a warm load writes no cache entries |
+| B5 | Cold boot is 1.42 MB gzipped (P50) | `detail.json` is 810 kB of it. It is already post-paint; shard it the way the lexicon is sharded so a session fetches what it needs | Cold boot under 700 kB gzipped; no regression in time-to-first-card |
+
+### Track C — Make the Inclusivity claim true · **M**
+
+*VISION lists Inclusivity as a strength. P62's criticism is that the claim is ahead of
+the evidence, and that is the one thing VISION forbids everywhere else. Either the
+work lands or the claim changes.*
+
+| # | What | Do | Done when |
+|---|---|---|---|
+| C1 | The feed has **zero headings** and 106 focusables (P23, P26) | Every other route has a proper structure; the front door has none. Make each slot a `section` with the headword as its heading, and give the slot a landmark so a screen-reader or switch user can move by word instead of by control | Rotor navigation lists 6,700 words; one switch action moves one word |
+| C2 | 24 empty `aria-live="polite"` regions on the feed (P24) | One per slot. Collapse to a single region owned by the feed | At most one live region per surface |
+| C3 | Bar labels fall under AA over their own backdrop (P42, P62) | Filed with numbers and pinned in `palette.test.ts`. Fill alone would need ~95%, which is a panel not a material — so stop the label depending on its backdrop: a vibrancy treatment, or an opaque plate behind label text only | The pinned test moves up into the real guard and is deleted |
+| C4 | Without audio, IPA is the whole pronunciation story (P27, P20) | Two problems meeting: 10 of 6,810 cards have human audio, and `speakDe` falls back to whatever voice exists — so on a device with no German voice it reads German with English phonology and says nothing about it. Guard the fallback (say *no German voice installed* rather than mispronouncing), and give the card a non-audio cue: a stress mark or a respelling beside the IPA | A deaf learner gets something usable from the card, and a hearing learner is never mispronounced at silently |
+
+### Track D — The corpus is the product · **L**, run continuously
+
+*Every migrant persona in Cohort 1 ended in the same place: the word exists in the
+lookup layer and cannot be studied. P61 — the owner's own advocate — argues this is
+the highest-value work on the list, and the measurements agree.*
+
+| # | What | Do | Done when |
+|---|---|---|---|
+| D1 | **The determiner hole** (P38) | 5 of 24 determiners, quantifiers and negators in the Kernwortschatz top 5000 are taught. `kein` is rank 170 and is the only way to negate a noun in German. Author the class; re-gloss `alle` (*finished* → *all*) and `mal` | `corpus:kernwortschatz` reports ≥20 of 24 |
+| D2 | **The gloss-vote reading order** (P32) | `npm run corpus:gloss-vote` ranks 105 cards where the gloss loses to both the definition and the examples. ~1 in 5 is real. Read all 105; fix by correcting the *gloss*, not by moving the examples to agree with it — that is what made `alle` worse in August | 105 read, each either fixed or ruled; the count reported after re-run |
+| D3 | **The register bias** (P17, P18) | Coverage is strongest on the newspaper corpus and weakest on the two a migrant needs first: spoken and children's. 84 content words owed in the spoken top 1000 against 46 in the written | `corpus:kernwortschatz` shows the spoken and Kinder columns within 10 of Zeitungen at the top 1000 |
+| D4 | **Phase 1 of DICTIONARY.md** (P61) | ~2,800 cards to reach 95% of running text. 180 done in five batches; `corpus:candidates` ranks the next | Reader coverage 95% |
+| D5 | **Migration vocabulary** (P22) | 52 of 90 taught, 32 lookup-only, 6 absent from both layers — `Elterngeld`, `Steuernummer`, `Meldebescheinigung`, `Einschulung`, `Bettpfanne`. Author the absent ones and promote the lookup-only ones a persona actually hit | `corpus:domains` reports ≥75 taught and 0 absent |
+| D6 | A higher-precision homograph detector (P32) | An example whose German contains the headword of a *different* card, and whose English shares nothing with this card's gloss, almost certainly belongs to that other card. That is `schicken`/«Wie geschickt!» exactly | The detector finds `schicken`, `bar` and `die Braut` without hand-seeding |
+
+### Track E — Needs a ruling before it needs code · **VISION first**
+
+*None of these should be started as engineering. Each is a question the anchor
+document has to answer, and three of them argue against work the refocus deliberately
+removed.*
+
+| # | The question | Raised by | The argument on each side |
+|---|---|---|---|
+| E1 | Should the first session be composed, not just ordered? | P31, P55 | It is twenty verbs today, so neither the gender nor the plural drill can fire on day one, and `sein` (core rank 4) arrives 17th behind `grillen` (8,451). *Against:* a hand-composed first ten is a syllabus by the back door, and the refocus deleted the syllabus |
+| E2 | Should a wrong answer be explained? | P59 | `anbieten` is transparently `an-` + `bieten` and the moment the learner is most able to hear that is the moment they got it wrong. *Against:* an explanation is a grammar lesson, and the ruling is that drills test properties of *words* |
+| E3 | Should distractors be confusable? | P19 | Random distractors make a four-option question free, so the drill certifies nothing. *Against:* confusable distractors teach the confusion, and there is real evidence both ways |
+| E4 | Does the app owe the learner production? | P34, P60 | It measures the receptive half; `recall` is typed. *Against:* scoring speech is something a machine cannot honestly do, and VISION forbids fake scoring |
+| E5 | Is dwell a signal? | P33 | The feed infers interest from 1200 ms of dwell and ranks the next fresh word by it. The separation from grading is principled and tested; the inference itself is unevidenced and invisible to the learner |
+| E6 | Does anything answer *am I ready?* | P37 | The exam room was deleted and Fortschritt reports what you have *met*, which is a different claim. Either something answers it or the app says plainly that it does not |
+
+### Track F — Product framing · **M**, cheap wins first
+
+| # | What | Do | Effort |
+|---|---|---|---|
+| F1 | Themen and Interests offer the corpus's taxonomy, not a life (P17) | *Building Blocks*, *Society & Politics* are categories of the language. Add a second axis of **situations** — the Behörde, my trade, my kid's school, Feierabend — over the same cards. This is the single change most likely to make the app feel built for the person using it | M |
+| F2 | The feed opens on a lottery (P55) | A cold learner got `grillen`, core rank 8,451, filed under *Core verbs*. Weight the first session's fresh picks by core rank as well as CEFR band | S |
+| F3 | Zeroes above the fold (P52) | Fortschritt opens on seven zeroes and Themen on nine 0% bars, while the empty states *below* the fold are the best writing in the app. Move that voice to the top of both | S |
+| F4 | The dictionary's composition and its number (P35, P36) | 10.0% of the 93,046 are proper nouns; 594 more are prefixes, suffixes and symbols. Report the honest count, and decide whether a phrasebook entry like `mein Kondom ist gerissen` belongs on a device in a classroom | S |
+| F5 | One profile per device, never stated (P49) | Two learners on one iPad silently share a streak, a queue and a schedule. Say so where it matters, and make the backup file the documented answer | XS |
+| F6 | Storage eviction is silent (P51) | `navigator.storage.persist()` is requested and a refusal is swallowed. On a managed or private profile refusal is normal and a term's work can vanish | S |
+| F7 | The chrome is German metalanguage (P28) | *Wörter · Themen · Üben · Fortschritt* for an audience defined as English speakers at A1. The argument for it is real — the tab matches the page it opens. Measure it before changing it: this is the one item here that should start as a question to actual learners | S to measure |
+| F8 | The licence boundary is invisible at the point of use (P45) | Code is MIT, the corpus is effectively CC BY-SA. ATTRIBUTIONS.md is clear; nothing in `public/data/` or the authoring scripts repeats it | XS |
+| F9 | The word actions sit at the vertical middle (P48) | The hardest place on a 6.3" phone for a thumb, and the gestures that reach them are taught by a coach that disappears permanently after one dismissal | S |
+
+### What to do this week
+
+1. **Track A entire** — six items, about a day, and it removes the app's remaining
+   dishonest numbers.
+2. **B1 and B2** — the two defects that strand a learner mid-task.
+3. **D1 and D2** — the determiner class and the 105-card reading order, because they
+   are the two content items with a committed instrument and a re-derivable number.
+4. **F3 and F5** — half a day between them.
+5. **Open E1 and E6 in VISION** as written questions before anyone writes code
+   against them.
+
+Explicitly *not* this week: Track C beyond C2, because C1 is a change to the feed's
+DOM shape and wants its own pass; and D4, which is continuous and should not be
+sequenced against anything.
+
+---
+
 ## The 2026-09-06 persona pass — driven on the deployed build
 
 *Method: ten personas, all of them people **migrating to Germany** rather than people

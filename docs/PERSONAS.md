@@ -4,11 +4,15 @@ The single persona file. Supersedes `SIMULATED-SESSION.md` (2 personas) and
 `SIMULATED-SESSIONS-2.md` (9 personas), both folded in at the bottom with their
 current status.
 
-**Round 3 (this file's main body) is the first round that looked at the app.**
-Rounds 1–2 were traced against code and said so honestly. This one was run against
-a seeded mid-B1 learner in a real browser at 1280×800 and 375×812, in both themes.
-Every finding tagged `[identity]`, `[motion]`, `[hierarchy]` or `[density]` cites a
-screen that was captured.
+**Round 4 (2026-09-07) is the current round.** Fifty personas cut by *lens* rather
+than by CEFR level, run on an iPhone 17 Pro simulator against the deployed build and
+against scripts in `scripts/corpus/`. It supersedes Round 3 as the live critique.
+
+**Round 3 was the first round that looked at the app** — but the app it looked at is
+gone: five tabs, a grammar syllabus, an exam room and a reading room, all deleted in
+the 2026-09-05 refocus. Its verdict on the terminal identity stands and is why the
+Atlas exists; most of its *findings* are about surfaces that no longer ship. Read it
+as history. Rounds 1–2 were traced against code and said so honestly.
 
 ---
 
@@ -58,6 +62,440 @@ Seeded learner: 3,506 cards touched · 2,326 known · 41-day streak · 247 due �
 41 misses weighted to Kasus · goal B2 by 15 Nov · filter A1–B2. Screens captured:
 Today (first-run and seeded), Progress/heatmap, session flip card, all at desktop
 and mobile, dark and light.
+
+---
+
+## Round 4 — fifty-one, and the six lenses Round 3 did not have *(2026-09-07)*
+
+**Round 3 judged an app that no longer exists.** It was run against the five-tab
+instrument with the grammar syllabus, the exam room and the reading room in it; the
+refocus deleted all three on 2026-09-05. Its verdict on the terminal identity stands
+and is why the Atlas exists. Its *findings* are mostly about surfaces that are gone.
+Read it as history.
+
+### What is different about this round
+
+Fifty-one is not five times more useful than ten unless the personas differ along an axis
+that changes what they can see. Round 3 cut by **CEFR level**, which is one axis and
+the one the product already thinks in — twelve people asking the same question at six
+difficulties. This round cuts by **six lenses**, because the defects found on the
+2026-09-06 pass clustered by lens and not by level: the learner who cannot read the
+tab bar and the learner who cannot hear the word have nothing to do with each other's
+CEFR band.
+
+    the migrants     why somebody is learning at all           10
+    the bodies       what the app assumes about yours           8
+    the professions  people who judge this for a living         8
+    the builders     people who would have to maintain it       8
+    the contexts     where and on what it is actually opened    8
+    the sceptics     including four whose job is to defend it   9
+
+### The countermeasures, extended
+
+Round 3's five are kept — priors declared before looking, an assigned defence,
+findings separated from verdicts, every persona names what they would lose, and the
+jury's question is *what should an app about acquiring German feel like*. Three more,
+because fifty-one hats is fifty-one times the temptation:
+
+6. **No criticism without an anchor.** Every one below cites a screen captured on the
+   iPhone 17 Pro simulator against the deployed build, a script in `scripts/corpus/`
+   run this session, or a named file and line. A persona is a *reason to look
+   somewhere*, never evidence on its own.
+7. **The checks that came back clean are written down too**, at the end, so the same
+   ground is not re-audited by the next round. Three of this round's most promising
+   suspicions died that way.
+8. **Eight personas are given the defence**, not one — spread across cohorts, because
+   a single defender is a token and gets outvoted by construction.
+
+---
+
+### Cohort 1 · The migrants — why somebody is learning at all
+
+*The brief these ten were built for: people moving to Germany who need the language
+for work, for the Behörde, and for the people they live with. They were driven on a
+freshly erased device against the deployed build; the full walk is in BACKLOG under
+the 2026-09-06 pass.*
+
+**P13 · Amara, 24, Nigeria → Leipzig, care Ausbildung** · *prior: hopeful, English is
+her second language too*
+Tapped *Learn ten words now* — the only button on the welcome screen — and it deleted
+the onboarding and left her in the feed. **Criticism: the first tap of the app did
+nothing, and there was no way back to the screen that had explained it.** Fixed. She
+would lose the welcome copy itself, which is the clearest writing in the product.
+
+**P14 · Rafael, 31, Brazil → Munich, Elektroniker seeking Anerkennung** · *prior:
+neutral, twenty minutes on the S-Bahn*
+Searched `Sicherung` — the most common noun on a German building site. Five compounds
+of it came back first (`Sicherungskopie`, `Absicherung`, `Versicherung`) and the word
+itself was below a section break in a grey box. **Criticism: the exact match is
+ranked below inexact ones whenever it lives in the lookup layer, because the sections
+are ordered *taught first* rather than *best match first*.** Ranking *within* a layer
+is excellent and he would lose that.
+
+**P15 · Dr. Anjali Rao, 38, India → Essen, sitting the Fachsprachprüfung** · *prior:
+sceptical of consumer apps; twenty minutes at 23:00*
+Finished a twenty-card session and was told **RECALL 100%** for twenty cards she had
+been shown answer-side-up and never asked to recall. **Criticism: the one number the
+recap leads with is the one number the session did not measure.** She reads it as the
+app grading itself.
+
+**P16 · Yusuf Demir, 52, Turkey → Duisburg, grandchildren answer in German** ·
+*prior: wary, low confidence, presbyopic*
+Runs his phone at an accessibility text size. **Criticism: at `accessibility-extra-large`
+the headword scrolls off its own screen, the top bar loses search, streak and avatar,
+and the tab labels collide into `Wörter Themen ÜbenFortschri`.** The app honours
+Dynamic Type, which is more than most web apps do, and then has clearly never been
+opened at one. Bounded: everything holds to the largest *standard* size.
+
+**P17 · Marta Nowak, 29, Poland → Berlin, engineer who works in English** · *prior:
+**defends** the restraint; design-literate*
+Wants Feierabend German — the small talk she is locked out of. **Criticism: Themen
+offers *Building Blocks*, *Society & Politics*, *Work & Economy* — the corpus's own
+taxonomy, not a life.** Nothing in the app is called *my job*, *the Ausländerbehörde*
+or *my kid's school*. She would lose the Band treatment, which she rates as the
+cleanest thing in the product.
+
+**P18 · Elena Ivanova, 45, Ukraine → Dresden, two kids in Grundschule** · *prior:
+motivated, time-poor*
+Pasted a real Elternbrief into the text scanner. It returned 0%, *11 words Lexi
+doesn't teach yet*, and a sentence explaining the ceiling that she **could not
+read** — the result renders below the fold and the page will not scroll, because
+focusing the textarea scrolled the window and the `100dvh` shell never recovered.
+**Criticism: the app's best feature is unreachable the moment you use the keyboard
+that feature requires.**
+
+**P19 · Kenji Tanaka, 27, Japan → Stuttgart, Blue Card engineer** · *prior: **defends**
+drilling; wants volume*
+Ran the word drill on `anbieten`. The four options were *to offer* against *to shine*,
+*to work*, *to get to know*. **Criticism: distractors are not chosen to be confusable,
+so a four-option question about a separable verb is free.** The confusable set is
+`annehmen`, `anrufen`, `anfangen` — same prefix, different stem — and that is where
+the actual error lives.
+
+**P20 · Sofía Herrera, 34, Colombia → Hamburg, kitchen** · *prior: neutral; audio-first,
+hands wet*
+Tapped the speaker on twelve words. **Criticism: 10 cards of 6,810 have human audio —
+0.15% — and `speakDe` sets `lang = 'de-DE'` then falls back to whatever voice exists.
+On a device with no German voice installed it reads German with English phonology and
+says nothing about it.** For a pronunciation tool that is worse than silence.
+
+**P21 · Grace Mensah, 19, Ghana → Freiburg, undergraduate** · *prior: hostile; will
+try to break it*
+Tapped *Themen* while the saved-words sheet was open. The tab highlighted, the sheet
+stayed, and the back button now said *the feed* while pointing at Themen.
+**Criticism: `go()` clears `drill` but not `showSaved` or `searching`, so navigation
+can leave a layer stranded over the wrong tab.**
+
+**P22 · Ahmed Al-Sayed, 41, Syria → Hannover, needs C2 for a public-sector post** ·
+*prior: **defends** the corpus; former civil engineer*
+Probed the seven domains a migrant survives. **Criticism: `corpus:domains` measures
+52 of 90 taught, 32 lookup-only, and 6 absent from both layers — `Elterngeld`,
+`Steuernummer`, `Meldebescheinigung`, `Einschulung` among them.** The dictionary layer
+closed the *lookup* gap and none of it can be *studied*. He would lose the
+`noteWanted` flow, which promises nothing and is right not to.
+
+---
+
+### Cohort 2 · The bodies — what the app assumes about yours
+
+**P23 · Nadia, blind, VoiceOver, learning German for work** · *prior: neutral*
+Opened the app and tried to navigate by heading, which is how she navigates
+everything. **Criticism: the feed — the front door — has zero headings and 106
+focusable controls.** Every other route has a proper `h1`/`h2` structure; the one
+screen the app opens on has none, so the German word, the single most important
+element, is marked up as nothing.
+
+**P24 · Tomás, screen-reader user, second pass** · *prior: **defends** the labels*
+**Criticism: 24 empty `aria-live="polite"` regions on the feed**, one per slot. Empty
+they are harmless; the day one populates, a scroll announces two dozen of them. He
+would lose the labels themselves — *"Learn lassen — put it in my next session"*,
+*"Profile — Yusuf, B1, 41-day streak"* — which are better than most sighted apps'.
+
+**P25 · Priya, low vision, 200% zoom, not a screen-reader user** · *prior: wary*
+**Criticism: see P16 — but her failure comes earlier**, because browser zoom and
+Dynamic Type compound, and nothing in the layout is expressed in a way that survives
+either past the standard range.
+
+**P26 · Jan, motor impairment, switch control, one target at a time** · *prior: neutral*
+**Criticism: 106 focusables on the feed with no landmark to skip a word by.** Reaching
+the fourth word costs sixteen switch actions. The *Skip to content* link exists and
+lands him at the top of the same 106.
+
+**P27 · Dolores, deaf, lipreads German, no use for audio** · *prior: **defends** the
+text-first design*
+**Criticism: strip the audio out and IPA is the whole of what is left, and IPA is a
+notation almost no learner reads.** `/ˈɡʁɪlən/` is precise and, to her, inert — there
+is no respelling, no rhyme, no stress mark she can use. She would lose the fact that
+nothing in the app *requires* sound: she can complete every drill.
+
+**P28 · Ravi, dyslexic, English is his second language** · *prior: wary*
+**Criticism: the chrome is German metalanguage — Wörter, Themen, Üben, Fortschritt —
+and the app's stated audience is English speakers at A1.** The argument for German
+surface names is real (the tab matches the page it opens). The cost lands hardest on
+the person least able to absorb it.
+
+**P29 · Bea, deuteranopia** · *prior: neutral*
+**Criticism: gender is carried by `--color-der` / `--color-die` / `--color-das`, and
+the der/a1 hue collision is a known open item.** Mitigated honestly — the article is
+always spelled out beside the colour, so colour is never the only signal. Filed as
+*checked, adequate* rather than as a defect.
+
+**P30 · Karl, 71, vestibular disorder, motion makes him ill** · *prior: hostile to
+animation*
+**Criticism: none found.** `prefers-reduced-motion` is honoured in three places in
+`index.css` and through `useReducedMotion` in thirteen components, including the tab
+bar's shared-layout slide and the new glass transition. Recorded so nobody re-audits.
+
+---
+
+### Cohort 3 · The professions — people who judge this for a living
+
+**P31 · Frau Dr. Weber, DaF instructor** · ***assigned the defence***
+"The refocus was right and the reviewers who want the grammar syllabus back are
+wrong." **Her criticism is narrower and worse: the first session a learner ever sees
+is twenty verbs, every one tagged CORE VERBS.** No noun, so no gender ink and neither
+the gender nor the plural drill — the two the VISION ruling kept — can fire on day
+one. She would lose the ruling itself, which she thinks is the best decision in the
+project.
+
+**P32 · Herr Lange, lexicographer** · *prior: sceptical*
+**Criticism: `wiederholen` is glossed "to bring back, take back" while its own
+definition reads *to repeat* and both its examples read «Wiederholt es!» — *Repeat
+it.*** Two fields against one, and the outvoted field is the only one on screen. It is
+card 2 of the first session. `npm run corpus:gloss-vote` finds 105 of these; about one
+in five is real.
+
+**P33 · Dr. Okonkwo, SLA researcher** · *prior: neutral*
+**Criticism: the feed records an *exposure* after 1200 ms of dwell and uses it to rank
+what is introduced next — and dwell is not attention.** The separation from grading is
+principled and tested; the inference from dwell to interest is not evidenced and is
+not labelled as a guess anywhere the learner can see.
+
+**P34 · Signe, speech and language therapist** · *prior: neutral*
+**Criticism: nothing in the app asks the learner to produce sound**, and `recall` —
+the one production drill — is typed. For a migrant whose blocker is speaking, the app
+measures the half that is easy to measure. (This is PEDAGOGY's own standing headline,
+restated by a new lens.)
+
+**P35 · Herr Vogt, school IT and data protection officer** · *prior: hostile by role*
+**Criticism: none on privacy — and he looked hard.** No account, no backend, no
+telemetry, everything in IndexedDB, and the copy says so on the welcome screen.
+**His actual criticism is the dictionary: `mein Kondom ist gerissen` is a headword**,
+along with 710 other Wiktionary phrasebook entries, and there is no content filter for
+a device in a classroom.
+
+**P36 · Claudia, freelance translator** · *prior: **defends** the lookup layer*
+**Criticism: the "93,046 headwords" is inflated. 10.0% — 9,301 entries — are proper
+nouns**: `Lyon`, `Langkampfen`, `Knecht Ruprecht`. Add 594 prefixes, suffixes,
+characters and symbols and the count of German *words* a learner could look up is
+nearer 83,000. She would lose the layer's disclosure line, which she calls the most
+honest sentence in any dictionary UI she has used.
+
+**P37 · Herr Brandt, Goethe examiner** · *prior: neutral*
+**Criticism: the exam room was deleted and nothing replaced the question it
+answered** — *am I ready?* Fortschritt reports what you have met, which is not the
+same claim. Defensible under the refocus; he notes that the app now says nothing at
+all to the person with a date booked.
+
+**P38 · Malika, curriculum designer** · *prior: sceptical*
+**Criticism: 5 of 24 determiners, quantifiers and negators in the Kernwortschatz top
+5000 are taught.** `kein` is rank 170 and is the only way to negate a noun in German,
+and there is no card for it. `beide`, `jeder`, `nichts`, `etwas`, `einige`, `welcher`
+are absent; `alle` is glossed *finished* and `mal` is glossed *times*.
+
+---
+
+### Cohort 4 · The builders — people who would have to maintain it
+
+**P39 · Sam, iOS engineer** · *prior: neutral*
+**Criticism: there is no `visualViewport` handling anywhere in `src/`.** The shell is
+`h-[100dvh] overflow-hidden` over an inner scroller; iOS scrolls the *window* to
+reveal a caret and nothing puts it back, so after any keyboard use the top bar rides
+under the status bar and the scroller cannot reach its own bottom.
+
+**P40 · Aoife, accessibility auditor** · *prior: hostile by role*
+**Criticism: `#/settings` goes `h1` → `h3`, skipping a level**, and two focusables —
+one on `#/profile`, one on `#/text` — have no accessible name. Small, and the kind of
+thing that is only small until somebody is using it.
+
+**P41 · Dmitri, performance engineer** · *prior: neutral*
+**Criticism: `sw.js` re-caches the lexicon on every load.** The `/data/` branch is
+network-first with an unconditional `cache.put`, so ~6.4 MB is cloned and rewritten
+per navigation, and navigations are network-first too — which means the installed PWA
+waits for a network timeout before it will show the cached shell. On a U-Bahn that is
+the whole experience.
+
+**P42 · Ines, design systems lead** · *prior: **defends** the token architecture*
+**Criticism: the contrast guard for the glass was empty.** `palette.test.ts`
+composited the alpha over `--color-bg` and `--color-card` and asserted AA — and could
+not fail, because those grounds are 1.14 and 1.05 luminance apart, so sweeping the
+fill from 100% to *zero* moves `dim` from 6.67 to 5.85. It had been green since it was
+written. She would lose the token architecture, which she rates as genuinely rare.
+
+**P43 · Ola, QA** · *prior: neutral*
+**Criticism: every custom session was destroyed by its own URL** — the app wrote
+`#/session`, its own `hashchange` handler read it back, found no encodable target and
+replaced the id list with the day's queue. Three features, one root cause, and it
+survived because scoped sessions *are* encodable and hid it. Fixed.
+
+**P44 · Bruno, technical writer** · *prior: **defends** the doc culture*
+**Criticism: the docs describe surfaces that were deleted.** `ReminderCard.tsx:38`
+tells the learner Lexi will flag a slipping day *"on Home"*, and Home was removed on
+2026-09-05; `Review.tsx:441` carries the same reference in a comment. He would lose
+the CHANGELOG, which he says is the best-argued engineering history he has read.
+
+**P45 · Priyanka, open-source maintainer** · *prior: neutral*
+**Criticism: the corpus is effectively CC BY-SA and the code is MIT, and a
+contributor cannot tell which they are touching from inside the repo.**
+ATTRIBUTIONS.md says it clearly; nothing in `public/data/` or the authoring scripts
+repeats it at the point of use.
+
+**P46 · Wei, release engineer** · *prior: hostile to hand-rolled deploys*
+**Criticism: every production build stamped `version.json` with `"dev"`.** A CLI
+`vercel --prod` is not a git-linked deploy so `VERCEL_GIT_COMMIT_SHA` is unset, and
+`.vercelignore` excludes `.git` so the `git rev-parse` fallback had nothing to ask.
+Both rungs of a ladder built to answer *is my fix live?* were missing. Fixed.
+
+---
+
+### Cohort 5 · The contexts — where and on what it is actually opened
+
+**P47 · Piotr, night shift, phone at 40% brightness in a dark room** · *prior: neutral*
+**Criticism: none — dark is where the material works.** The glass reads better on dark
+than light because the fill differs enough from the ground to be seen. Recorded because
+it is the inverse of the finding that drove the scroll-reactive change.
+
+**P48 · Fatima, one-handed, holding a child** · *prior: neutral*
+**Criticism: the three word actions — ⓘ, bookmark, cap — sit centred at the vertical
+middle of the screen**, which is the hardest place on a 6.3" phone for a thumb. The
+gestures reach them, and the gestures are undiscoverable without the coach that
+disappears permanently after one dismissal.
+
+**P49 · The Özdemir family, one shared iPad** · *prior: neutral*
+**Criticism: local-first means one profile per device and the app never says so.**
+Two learners on one iPad share a streak, a queue and an FSRS schedule, and the
+recovery is a backup file each. Honest architecture, unstated consequence.
+
+**P50 · Emeka, four-year-old Android, 2 GB RAM** · *prior: hostile*
+**Criticism: cold boot is 1.42 MB gzipped and `detail.json` is 810 kB of it**, fetched
+on every cold start after first paint. The feed then holds a snap container over
+thousands of slots.
+
+**P51 · Léa, school Chromebook, managed profile, storage cleared nightly** · *prior:
+neutral*
+**Criticism: `navigator.storage.persist()` is requested and a refusal is handled
+silently.** On a managed profile the refusal is the normal case, so a term's work can
+vanish between Friday and Monday with nothing having warned her.
+
+**P52 · Herr Kaufmann, 68, learning for his daughter-in-law** · *prior: wary*
+**Criticism: Fortschritt opens on seven zeroes and Themen on nine 0% bars.** The empty
+states *below* the fold are excellent — *"The curve needs a second study day to have a
+shape"* is the best line in the app — and the tops of both pages have none.
+
+**P53 · Nour, offline most evenings, prepaid data** · *prior: neutral*
+**Criticism: see P41.** The app is architecturally offline-capable and its start path
+is network-first, which is the one combination that feels broken to exactly the person
+it was built for.
+
+**P54 · Stefan, installs everything to the Home Screen** · *prior: **defends** the PWA*
+**Criticism: the reminder card says *"Notifications unavailable — this browser has no
+notification support."*** iOS Safari supports Web Push for Home-Screen-installed web
+apps; the copy tells every iPhone user their browser cannot do a thing it can do, and
+the correct message is an install prompt. He would lose *Add to calendar*, which is a
+genuinely smart answer to the same problem.
+
+---
+
+### Cohort 6 · The sceptics — including four whose job is to defend it
+
+**P55 · A rival PM, consumer language app** · *prior: hostile*
+"The feed is a good idea executed with more integrity than we would manage."
+**Criticism: the feed opens on a lottery.** A cold learner's first word was `grillen`
+— Kernwortschatz rank **8,451**, filed under *Core verbs* — and `sein`, rank **4**,
+arrived seventeenth.
+
+**P56 · Ben, 40k Anki reviews** · ***assigned the defence***
+"Everything I want is here and none of it is hidden behind a subscription."
+**Criticism: the recap says *Nothing is due tomorrow* about twenty cards it has just
+given a ten-minute interval.** `dueForecast` buckets a due-today card into `out[0]`
+and the recap reads `[1]`. He would lose the scheduler's honesty, which is why he is
+here.
+
+**P57 · A designer who thinks Liquid Glass is a fad** · *prior: hostile*
+"In eighteen months this will date like skeuomorphism did."
+**Criticism, and it is a fair one: the material has to be earned per surface.** It is
+— glass is chrome-only and content stays paper, which is the rule Apple actually
+follows and most imitators do not. Recorded as a challenge answered, not a defect.
+
+**P58 · A linguist who thinks CEFR levels are pseudoscience** · *prior: hostile*
+**Criticism: 21% of A1 cards are outside the Kernwortschatz top 10,000** — and the
+check that produced that number is *wrong for this question*, because a corpus ranking
+punishes concrete local nouns by design and the outliers are `eins`, `zwölf`,
+`tschüss`, `die Haltestelle`, which are exactly right for A1. Included deliberately:
+this is the shape of a plausible criticism that dies on contact with its own data.
+
+**P59 · A learner who quit at day nine** · *prior: hostile, motivation-fragile*
+**Criticism: a wrong answer in the word drill is marked and never explained.** The
+correct option goes green, the chosen one red, and nothing says why. `anbieten` is
+transparently `an-` + `bieten`, and the moment the learner is most able to hear that
+is the moment they got it wrong.
+
+**P60 · A teacher who does not believe apps work** · *prior: hostile*
+"Vocabulary apps teach recognition and call it knowing."
+**Criticism: partly answered and partly true.** `recall` exists and is production, and
+`Known` is ratcheted; the app still cannot hear you say a word. Overlaps P34 and is
+kept separate because they would fix it differently.
+
+**P61 · The owner's own advocate** · ***assigned the defence***
+"Most of this list is polish on something whose foundations are unusually good."
+**Criticism: the highest-value work in the backlog is not on the list at all** — it is
+Phase 1 of DICTIONARY.md, ~2,800 more taught cards, because *lookup-only* is where
+every migrant persona in Cohort 1 ended up.
+
+**P62 · A11y consultant hired to fail it** · *prior: hostile, paid to find things*
+**Criticism: the app's own claim.** VISION lists Inclusivity as a *strength*. The feed
+has no headings, the accessibility text sizes break the layout, and the bar labels
+fall under AA over their own backdrop. The claim is ahead of the evidence, and that is
+the one thing VISION forbids anywhere else.
+
+**P63 · A returning Round-3 persona: Frau Bauer, A2, textbook open** · ***assigned the
+defence***
+"The density I defended in Round 3 is gone and I miss less of it than I expected."
+**Criticism: the app forgot it used to be able to print.** Her class works on paper and
+the worksheet printer went with the refocus. Recorded as a consequence of a ruling, not
+a defect.
+
+---
+
+### The checks that came back clean
+
+*Written down so the next round does not spend itself here.*
+
+- **Search ranking inside a layer.** `haus` → `das Haus`, `tag` → `der Tag`, `arbeit`
+  → `die Arbeit`, `see` → `der See`, all first. The LESSONS-recorded bug that put
+  `das Haus` fourth is fixed and stayed fixed. English-side search works too — `kind`
+  returns `gütig`, `nett`, `freundlich`.
+- **Short examples at A1 are correct, not lazy.** 22.8% of A1 examples are four words
+  or fewer and they are *"Guten Tag!"*, *"Ich heiße Anna."*, *"Ich bin müde."* The
+  share falls to 1.4% at C2, which is the right shape.
+- **Corpus completeness.** 98.4% have IPA, 97.6% of nouns have a plural, 97.1% have a
+  definition, and every card with examples has at least two. The 110 with none are
+  exactly the 110 `kind: 'grammar'` cards, which are filtered at load.
+- **Reduced motion** is honoured in `index.css` and in thirteen components.
+- **Privacy.** No account, no backend, no telemetry; the welcome screen says so.
+- **Boot has a deadline.** `main.tsx` races three times; an unsettling promise cannot
+  strand the splash.
+
+### The verdict, separated from the findings
+
+Fifty-one personas produced **41 distinct criticisms**, of which four were fixed during
+the pass, six are already open items restated by a new lens, and three died on their
+own evidence. The shape of what is left is not what Round 3 found. Round 3 said the
+app looked like the wrong thing. Round 4 says **the app is good and its claims are
+slightly ahead of it** — the corpus is strong and biased toward print, the a11y story
+is better than most and worse than VISION says, and the two best features in the
+product (the text scanner and the two-layer search) are the two most likely to strand
+the person using them.
 
 ---
 
