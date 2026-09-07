@@ -41,6 +41,8 @@ export default function ReminderCard() {
   const [time, setTime] = useState(saved ?? '19:00');
   const [perm, setPerm] = useState(notifyState());
   const dirty = saved !== time;
+  /** The one state where the row is advice rather than a control. */
+  const iosInstall = perm === 'unsupported' && isIosSafari();
 
   const enableNotifications = async () => {
     // In context, on a tap. Asking on page load is why most people have
@@ -85,6 +87,29 @@ export default function ReminderCard() {
           </span>
         </Card>
 
+        {/* **Instructions are not disabled controls.** Caught on the phone after the
+            copy fix landed: the row correctly said *Add Lexi to your Home Screen ·
+            Share → Add to Home Screen, then come back*, and rendered it at
+            `disabled:opacity-60` — because on iOS Safari `perm` is `unsupported`,
+            which is the same branch as a browser that genuinely cannot do this. Dim
+            grey on a sunken panel reads as *unavailable*, which is the sentence the
+            fix existed to remove, said in styling instead of words.
+
+            So the install advice is not a button at all. There is nothing here to
+            press — the action is in Safari's share sheet — and a `<button disabled>`
+            is also what a screen reader announces as unavailable. It renders as a
+            plain panel at full contrast; every other state keeps the control. */}
+        {iosInstall ? (
+          <Card tone="sunken" nested pad="none" className="flex items-start gap-2.5 px-3 py-2.5">
+            <Bell size={15} className="text-accent flex-shrink-0 mt-0.5" />
+            <span>
+              <span className="block text-xs font-semibold">Add Lexi to your Home Screen</span>
+              <span className="block text-2xs text-dim">
+                iOS only allows notifications for installed web apps. Share → Add to Home Screen, then come back.
+              </span>
+            </span>
+          </Card>
+        ) : (
         <Card as="button" tone="sunken" nested pad="none"
           onClick={enableNotifications} disabled={perm === 'granted' || perm === 'unsupported'}
           className="flex items-start gap-2.5 px-3 py-2.5 text-left hover:border-accent transition-colors disabled:opacity-60 disabled:hover:border-line">
@@ -93,19 +118,18 @@ export default function ReminderCard() {
             <span className="block text-xs font-semibold">
               {perm === 'granted' ? 'Notifications on'
                 : perm === 'denied' ? 'Notifications blocked'
-                : perm === 'unsupported' ? (isIosSafari() ? 'Add Lexi to your Home Screen' : 'Notifications unavailable')
+                : perm === 'unsupported' ? 'Notifications unavailable'
                 : 'Enable notifications'}
             </span>
             <span className="block text-2xs text-dim">
               {perm === 'granted' ? 'Fires at your study time, unless you have already reviewed.'
                 : perm === 'denied' ? 'Re-allow Lexi in your browser settings to use this.'
-                : perm === 'unsupported' ? (isIosSafari()
-                    ? 'iOS only allows notifications for installed web apps. Share → Add to Home Screen, then come back.'
-                    : 'This browser has no notification support.')
+                : perm === 'unsupported' ? 'This browser has no notification support.'
                 : 'Only while Lexi is open or installed to your home screen.'}
             </span>
           </span>
         </Card>
+        )}
       </div>
     </Card>
   );
