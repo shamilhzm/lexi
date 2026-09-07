@@ -124,3 +124,35 @@ describe('Review — recall is computed from retrievals only', () => {
     expect(src).toMatch(/dRetr\s*=\s*wasNew\s*\?\s*0\s*:\s*1/);
   });
 });
+
+// ── The grade buttons stay on screen ────────────────────────────────────────
+//
+// A source guard, because the behavioural version needs a real phone: the pane
+// reports 402×**874** where an iPhone 17 Pro in Safari gives 402×**714**, and every
+// previous measurement of this block was made against the wrong number.
+//
+// Measured at 714 on a cold first session: the column came to 795px, the grade
+// buttons landed at y629, and the floating tab bar starts at y646 — so the primary
+// action of the primary loop was behind the chrome, on the first screen a new learner
+// ever reaches, and the coach block explaining those buttons is what pushed them
+// under. Two things had to be true to fix it:
+//
+//   1. the card stage is `flex-1 min-h-0`, so the card gives up the height the coach
+//      takes (`SwipeCard` has been `flex-1 min-h-[260px] max-h-[460px]` all along, and
+//      could never act on it because no ancestor bounded the height);
+//   2. the caught-up notice does not render on a first run — it costs 55 points to
+//      tell somebody who has never studied that they are up to date.
+describe('Review — the primary action survives the coach', () => {
+  it('bounds the card stage so it can absorb the coach block', () => {
+    expect(src).toMatch(/flex-1 min-h-0 flex flex-col items-center justify-center/);
+  });
+
+  it('keeps the card free to shrink', () => {
+    expect(src).toMatch(/flex-1 min-h-\[260px\] max-h-\[460px\]/);
+  });
+
+  it('does not tell a first-run learner they are caught up', () => {
+    expect(src).toMatch(/if \(firstRun\) return null;/);
+    expect(src).toMatch(/<ReturnNotice firstRun=\{firstRun\} \/>/);
+  });
+});

@@ -297,7 +297,14 @@ export default function App() {
           <div key={`${view}:${navTick}:${drill ?? ''}`}
             className={bare
               ? 'w-full h-full min-h-0'
-              : 'route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] md:pb-6'}>
+              // `min-h-full` on the session only: the card stage inside it is
+              // `flex-1 min-h-0` and cannot distribute space unless this column has a
+              // height to distribute. Scoped rather than global because every other
+              // route is a document that should size to its content — and on a short
+              // viewport this still overflows once the card hits its 260px floor,
+              // which is the right order to give up in.
+              : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] md:pb-6${
+                  view === 'session' ? ' min-h-full' : ''}`}>
               <ErrorBoundary resetKey={`${view}:${drill ?? ''}`}>
                 {drill
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />

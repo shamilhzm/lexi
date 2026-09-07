@@ -412,7 +412,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
 
   return (
     <div className="mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
-      <ReturnNotice />
+      <ReturnNotice firstRun={firstRun} />
       <CoachMarks />
       {offerVoice && <div className="mb-2.5"><VoiceOffer onClose={() => setOfferVoice(false)} /></div>}
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
@@ -508,7 +508,17 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
             The `min-h-[400px]` that used to be here is gone: the card below sizes
             itself against the space the bars leave (see SwipeCard), so a floor
             here could only fight it. */}
-        <div className="flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6"
+        {/* **`flex-1 min-h-0`, and that is the whole of B2.**
+            `SwipeCard` below is already `flex-1 min-h-[260px] max-h-[460px]` and has
+            been since it was written — but `flex-1` needs an ancestor whose height is
+            *bounded*, and this stage was not one: it grew to its content, the session
+            column grew with it, and the scroller took the overflow. So the card never
+            shrank, and on a cold first session the coach block's extra rows pushed the
+            grade buttons under the floating tab bar. Measured at the real iPhone 17
+            Pro viewport (402×**714**, not the 874 a desktop pane reports): the column
+            came out 795px, the buttons landed at y629, and the bar starts at y646.
+            Bounded here, the card gives up exactly the height the coach took. */}
+        <div className="flex-1 min-h-0 flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6"
           role="region" aria-live="polite" aria-label="Current card">
           {/* The card swap is React state, not an animation lifecycle.
               It used to be `AnimatePresence mode="wait"`, which keeps the
@@ -906,7 +916,7 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
  *
  *  Seven days is the threshold because a week is the first gap a learner
  *  *notices* — a weekend away should say nothing at all. */
-function ReturnNotice() {
+function ReturnNotice({ firstRun }: { firstRun: boolean }) {
   const gap = useMemo(() => lastGapDays(), []);
   const best = useMemo(() => longestStreak(), []);
   const b = useMemo(() => buildBriefing(), []);
@@ -922,6 +932,14 @@ function ReturnNotice() {
   // The fresh words are the right thing to offer; presenting them as a debt is
   // not. One line fixes the whole difference.
   const caughtUp = !away && b.due === 0 && b.fresh > 0;
+  // **Never on a first session.** "You're caught up — nothing is due" is true of
+  // somebody who has never studied and it is not *news* to them; it answers a
+  // question only a returning learner asks. It also costs 55 vertical points at the
+  // exact moment the screen has the least to spare — a cold first session carries the
+  // coach block too, and on a real iPhone the two together pushed the grade buttons
+  // under the floating tab bar. The session header two rows down already says
+  // *First session · 1 / 10*, which is the honest version of the same information.
+  if (firstRun) return null;
   if (!away && !caughtUp) return null;
 
   return (
