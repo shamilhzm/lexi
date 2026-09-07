@@ -383,3 +383,38 @@ describe('text stays legible through the glass', () => {
     }
   });
 });
+
+// ── The 16px rule ───────────────────────────────────────────────────────────
+//
+// iOS Safari zooms the page whenever a focused input's text is under 16px. It was
+// measured on an iPhone 17 Pro with an in-page probe, not inferred: focusing the
+// text scanner's textarea took `visualViewport.scale` to **1.14** and panned the
+// viewport to `@25,167`, which dragged the top bar under the status bar and put the
+// scanner's own result off the side of the screen.
+//
+// The app cannot opt out by choosing a bigger token — `--text-base` is 0.9375rem =
+// **15px** and is the largest body size in the ramp — so the rule has to override the
+// ramp on touch devices, and it has to keep doing so.
+describe('form controls clear the iOS auto-zoom threshold', () => {
+  it('the ramp really does top out under 16px, which is why the rule exists', () => {
+    const base = css.match(/--text-base:\s*([\d.]+)rem/);
+    expect(base, '--text-base is declared').toBeTruthy();
+    expect(Number(base![1]) * 16).toBeLessThan(16);
+  });
+
+  it('forces at least 16px on inputs where the pointer is coarse', () => {
+    const coarse = css.slice(css.indexOf('@media (any-pointer: coarse)'));
+    expect(coarse).toMatch(/input,\s*textarea,\s*select\s*\{[^}]*font-size:\s*max\(16px/);
+  });
+
+  it('does not reach for maximum-scale, which would be a WCAG 1.4.4 failure', () => {
+    // Comments stripped first. `index.html` *explains* at length why maximum-scale
+    // is absent, so a naive search matches the explanation as readily as the
+    // defect — the same trap `review-structure.test.ts` documents, and this test
+    // fell into it on its first run.
+    const html = readFileSync(join(process.cwd(), 'index.html'), 'utf8')
+      .replace(/<!--[\s\S]*?-->/g, '');
+    expect(html).not.toMatch(/maximum-scale/);
+    expect(html).not.toMatch(/user-scalable\s*=\s*no/);
+  });
+});

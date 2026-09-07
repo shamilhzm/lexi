@@ -162,7 +162,10 @@ doesn't teach yet*, and a sentence explaining the ceiling that she **could not
 read** — the result renders below the fold and the page will not scroll, because
 focusing the textarea scrolled the window and the `100dvh` shell never recovered.
 **Criticism: the app's best feature is unreachable the moment you use the keyboard
-that feature requires.**
+that feature requires.** *(Fixed 2026-09-07 — and the mechanism given here is wrong.
+Probing the running app showed `window.scrollY` was 0 throughout and the scroller had
+no overflow: Safari had **zoomed** to 1.14 because the textarea is 14px, and the pan
+was the zoom's consequence. One CSS rule, not viewport handling. See LESSONS.)*
 
 **P19 · Kenji Tanaka, 27, Japan → Stuttgart, Blue Card engineer** · *prior: **defends**
 drilling; wants volume*
@@ -308,10 +311,11 @@ are absent; `alle` is glossed *finished* and `mal` is glossed *times*.
 ### Cohort 4 · The builders — people who would have to maintain it
 
 **P39 · Sam, iOS engineer** · *prior: neutral*
-**Criticism: there is no `visualViewport` handling anywhere in `src/`.** The shell is
-`h-[100dvh] overflow-hidden` over an inner scroller; iOS scrolls the *window* to
-reveal a caret and nothing puts it back, so after any keyboard use the top bar rides
-under the status bar and the scroller cannot reach its own bottom.
+**His criticism was that there is no `visualViewport` handling anywhere in `src/`,
+and that is true and was not the cause.** Measured on device: the window scroll was 0
+the whole time and the scroller had no overflow to be stuck in. iOS had auto-zoomed on
+a 14px input, and everything else followed from that. Kept as written because the
+plausible-and-wrong mechanism is the point — it survived two implementations.
 
 **P40 · Aoife, accessibility auditor** · *prior: hostile by role*
 **Criticism: `#/settings` goes `h1` → `h3`, skipping a level.** Fixed 2026-09-07;

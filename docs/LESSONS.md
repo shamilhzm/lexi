@@ -1172,3 +1172,48 @@ wrong, and it is never evidence of *why*.
 symptom is unchanged, that is the finding. Do not assume the deploy missed. Check the
 built artefact for the change first (it was there), and then go back to the diagnosis,
 because an unchanged symptom after a correct deploy means the cause was wrong.
+
+## Instrument the browser before you theorise about it *(added 2026-09-07)*
+
+The iOS keyboard defect — after typing, the top bar sits under the status bar and the
+text scanner's result cannot be reached — was diagnosed twice from screenshots and
+fixed twice wrongly.
+
+**First theory: the document is scrolled and nothing scrolls it back.** Fix: publish
+`visualViewport.height` and shrink the shell to it. Result: the shell got shorter while
+the page stayed where it was, so the floating tab bar — anchored to the shell's bottom
+— jumped into the middle of the screen and sat on the textarea.
+
+**Second theory: then stop the document scrolling at all.** Fix: `position: fixed` on
+the shell, `overflow: hidden` on `body`. Result: no change to the symptom, plus a new
+horizontal shift that clipped the back arrow off the left edge.
+
+**Then a sixty-line probe rendered `window.scrollY`, `visualViewport` and the
+scroller's metrics into the corner of the running app**, kept a history because a
+`position: fixed` overlay is itself off-screen at the moment worth reading, and
+answered it in one screenshot:
+
+    y0   vv714@0,0     rest
+    y0   vv377@0,0     keyboard opens
+    y154 vv377@0,154   Safari scrolls to reveal the caret — and returns to 0 by itself
+         ...and before the fix: vv330@25,167 s1.14
+
+`window.scrollY` was **0** the entire time and `#main` was `t0 714/714` — no overflow.
+The document was never scrolling and the scroller was never stuck. **Safari had zoomed
+to 1.14**, because the textarea is `text-sm` (14px) and iOS auto-zooms any focused
+input under 16px. The pan was the zoom's consequence. Both fixes were treating symptoms
+of a disease the page did not have.
+
+The real fix is one CSS rule — `input, textarea, select { font-size: max(16px, 1em) }`
+on coarse pointers — and it was already known: it had been written on a stale branch
+weeks earlier, then **withdrawn as "not present on the live build"** on the strength of
+one surface that happened not to zoom.
+
+**Rule: for any defect whose cause lives in the browser's own layout state — scroll,
+zoom, viewport, focus, keyboard — read that state out of the running app before
+proposing a mechanism.** A screenshot shows you a symptom and every theory that fits
+it. Two fit here and both were wrong.
+
+**Corollary on withdrawals.** A finding withdrawn on one counter-example is not
+withdrawn, it is unmeasured. The zoom was real on `#/text` and absent on the search
+sheet, and checking the second surface first cost a fix that was already written.

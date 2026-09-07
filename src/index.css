@@ -350,6 +350,37 @@ html.dark { color-scheme: dark; }
    a window and false of device emulation. All five gated sidebar controls measure
    >= 44 with the query live. */
 @media (any-pointer: coarse) {
+  /* ── The 16px rule ────────────────────────────────────────────────────────
+     **iOS Safari zooms the page whenever a focused input's text is under 16px**,
+     and it does not zoom back on blur. Measured on an iPhone 17 Pro with an
+     in-page probe rather than guessed at: focusing the text scanner's textarea
+     took `visualViewport.scale` to **1.14** and panned the viewport to `@25,167`
+     to keep the caret visible. That pan is what dragged the top bar under the
+     status bar and pushed the result off the side of the screen — the scanner's
+     answer became unreachable, on the app's best feature, using the keyboard that
+     feature requires.
+
+     Two wrong fixes were shipped to a branch before the probe existed: shrinking
+     the shell to `visualViewport.height` (which left the floating tab bar in the
+     middle of the screen) and pinning it with `position: fixed` plus a
+     non-scrolling body (which changed nothing, because `window.scrollY` was **0**
+     the whole time and `#main` had no overflow — the document was never scrolling.
+     It was zoomed). See LESSONS.
+
+     The app cannot opt out by picking a bigger token: `--text-base` is 0.9375rem =
+     **15px** and is the largest body size in the ramp, so every input in the app
+     sits under the threshold, including the ones already using the biggest class
+     available to them.
+
+     So on a touch device, form controls take 16px regardless of the utility on
+     them. `max()` rather than a flat 16px, so the drill's `text-xl` input keeps its
+     size. Gated on `any-pointer: coarse` for the same reason the 44px rule is: this
+     is a mobile-browser behaviour, and a desktop form should keep the ramp.
+
+     Adding `maximum-scale=1` to the viewport meta would also stop it, and is a WCAG
+     1.4.4 failure — index.html carries a comment saying exactly that. */
+  input, textarea, select { font-size: max(16px, 1em); }
+
   .tap-44 { min-height: 44px; }
 
   /* Both axes, for controls that are short *and* narrow — the CEFR filter chips
