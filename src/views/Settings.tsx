@@ -119,7 +119,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
       {/* Appearance */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-accent" /><h3 className="text-base font-semibold">Appearance</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-accent" /><h2 className="text-base font-semibold">Appearance</h2></div>
         <p className="text-dim text-xs mb-3">Lexi runs light by default — it’s a thing you read. Pick a fixed theme or follow your system.</p>
         <div className="flex flex-wrap gap-2">
           {THEMES.map(({ id, label, icon: Icon }) => (
@@ -133,7 +133,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {/* Text size — the rem ramp scales from the root. "Standard" defers to the
           browser/OS preference (incl. iOS Dynamic Type); a choice overrides it. */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Type size={16} className="text-accent" /><h3 className="text-base font-semibold">Text size</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Type size={16} className="text-accent" /><h2 className="text-base font-semibold">Text size</h2></div>
         <p className="text-dim text-xs mb-3">Standard follows your device’s text-size setting.</p>
         <div className="flex flex-wrap gap-2">
           {[{ v: 0.875, label: 'Compact' }, { v: 1, label: 'Standard' }, { v: 1.125, label: 'Large' }, { v: 1.25, label: 'Larger' }].map(({ v, label }) => (
@@ -146,7 +146,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
       {/* Sound — feedback cues, on by default; also mutable from the session header. */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-accent" /><h3 className="text-base font-semibold">Sound</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-accent" /><h2 className="text-base font-semibold">Sound</h2></div>
         <p className="text-dim text-xs mb-3">Soft cues as you answer — a tick when you’re right, a quieter falling note when you’re not, and a chime at the end of a session. You can also mute mid-session from the header.</p>
         <button onClick={() => setSound(!sound())} aria-pressed={sound()} className={toggle(sound())}>
           {sound() ? 'Sound on' : 'Sound off'}
@@ -155,7 +155,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
       {/* Review intensity (FSRS desired retention) */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Gauge size={16} className="text-accent" /><h3 className="text-base font-semibold">Review intensity</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Gauge size={16} className="text-accent" /><h2 className="text-base font-semibold">Review intensity</h2></div>
         <p className="text-dim text-xs mb-3">
           How hard the scheduler pushes. Higher retention means shorter intervals and
           more reviews per day, but you forget less. 90% is the recommended balance.
@@ -173,7 +173,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
       {/* HD voice */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-accent" /><h3 className="text-base font-semibold">German voice</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-accent" /><h2 className="text-base font-semibold">German voice</h2></div>
         <p className="text-dim text-xs mb-3">
           The HD voice is a native-German neural voice (Piper “Thorsten”) that runs on your device.
           It downloads once (~25 MB), then works offline — far better than the built-in browser voice.
@@ -205,7 +205,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">
-        <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-accent" /><h3 className="text-base font-semibold">Your data</h3></div>
+        <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-accent" /><h2 className="text-base font-semibold">Your data</h2></div>
         <p className="text-dim text-xs mb-3">
           Everything lives on this device. Export a backup to keep your cards, streak,
           and progress safe — or to move to another device. Importing replaces what’s
@@ -236,7 +236,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
           identical. The stamp says what is running; the check asks the server what
           is deployed and compares. See lib/build.ts. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Info size={16} className="text-accent" /> Version</h3>
+        <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><Info size={16} className="text-accent" /> Version</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           What this device is running. If you’ve just been sent a fix, check here before
           deciding whether it worked.
@@ -298,7 +298,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
           Governs *sessions only*: opening a drill by name from Blind spots still
           drills it, because there you asked for it. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-accent" /> What’s in a session</h3>
+        <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-accent" /> What’s in a session</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           Flip cards are always there. These are the drills woven between them — the same word
           asked the other way round. Switch any off and it stops appearing in sessions; turn them
@@ -327,7 +327,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {/* Daily pace. The caps were good defaults and also a ceiling with no
           override — an exam in three weeks could not ask for more. */}
       <Card pad="none" className="p-4">
-        <h3 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-accent" /> Daily pace</h3>
+        <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-accent" /> Daily pace</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           How many new words a day, and how much of a backlog one day serves. The scheduler
           is unaffected — FSRS tolerates delay by design, and a bigger budget only front-loads

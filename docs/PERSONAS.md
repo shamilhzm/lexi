@@ -314,9 +314,15 @@ reveal a caret and nothing puts it back, so after any keyboard use the top bar r
 under the status bar and the scroller cannot reach its own bottom.
 
 **P40 · Aoife, accessibility auditor** · *prior: hostile by role*
-**Criticism: `#/settings` goes `h1` → `h3`, skipping a level**, and two focusables —
-one on `#/profile`, one on `#/text` — have no accessible name. Small, and the kind of
-thing that is only small until somebody is using it.
+**Criticism: `#/settings` goes `h1` → `h3`, skipping a level.** Fixed 2026-09-07;
+the nine section headings were siblings of the `h1`, not children of anything.
+
+*She also reported two focusables with no accessible name, on `#/profile` and
+`#/text`, and that was **wrong** — both carry a `<label for>` ("Target date", "An
+article, an email, a page of a book…") and the probe that flagged them never looked at
+`<label>`. An accessible-name check that enumerates `aria-label`, `title` and text
+content and stops there is the incomplete-enumeration mistake LESSONS already has a
+rule for, wearing an a11y hat.*
 
 **P41 · Dmitri, performance engineer** · *prior: neutral*
 **Criticism: `sw.js` re-caches the lexicon on every load.** The `/data/` branch is

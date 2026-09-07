@@ -650,6 +650,32 @@ describe('stats (review log / due forecast)', () => {
       vi.useRealTimers();
     }
   });
+
+  // The property the session recap depends on, pinned because reading only
+  // tomorrow's bucket is exactly the bug it shipped with.
+  //
+  // A card graded Good on first sight gets a *ten-minute* interval, so it is due
+  // later **today** and lands in `[0]`. The recap asked "what comes back
+  // tomorrow?" as `dueForecast(2)[1]`, which is empty, and told a learner who had
+  // just finished twenty cards that nothing was due — on the one screen whose job
+  // is to bring them back. Anything owed today is still owed tomorrow, so the
+  // count the recap wants is `[0] + [1]`.
+  it('puts a freshly-learned card in today, not tomorrow — so the recap must sum both', async () => {
+    const { data, store, srs } = await fresh();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date(2026, 8, 7, 20, 0, 0));   // 20:00 local
+      data.registerWords([word('n0', 'S'), word('n1', 'S'), word('n2', 'S')]);
+      for (const id of ['n0', 'n1', 'n2']) store.review(id, srs.Rating.Good);
+
+      const fc = store.dueForecast(2);
+      expect(fc[0]).toBe(3);          // due in minutes — today
+      expect(fc[1]).toBe(0);          // tomorrow's bucket alone says "nothing"
+      expect((fc[0] ?? 0) + (fc[1] ?? 0)).toBe(3);   // what the learner is actually owed
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });
 
 describe('goal line', () => {

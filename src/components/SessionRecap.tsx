@@ -118,7 +118,19 @@ function Composition({ c }: { c?: RecapData['composition'] }) {
 function Tomorrow({ weakest }: { weakest?: string }) {
   useStore();
   const [asked, setAsked] = useState(false);
-  const back = dueForecast(2)[1] ?? 0;
+  // **What is waiting when I come back**, which is not the same question as *what is
+  // scheduled for tomorrow's date*.
+  //
+  // This read `dueForecast(2)[1]` — tomorrow's bucket alone. `dueForecast` buckets by
+  // `floor((due − todayStart) / 86_400_000)`, so a card given a ten-minute interval is
+  // due later *today* and lands in `[0]`. A first session of twenty cards graded *Got
+  // it* therefore ended on **"Nothing is due tomorrow"** with twenty cards owed inside
+  // the hour — on the one screen whose whole job is to bring the learner back.
+  //
+  // Anything still owed from today is still owed tomorrow, so the honest count is
+  // today's bucket plus tomorrow's.
+  const forecast = dueForecast(2);
+  const back = (forecast[0] ?? 0) + (forecast[1] ?? 0);
   const time = reminderTime();
 
   return (
@@ -127,8 +139,8 @@ function Tomorrow({ weakest }: { weakest?: string }) {
         <CalendarClock size={14} className="text-accent flex-shrink-0 mt-0.5" />
         <span>
           {back > 0
-            ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} come back tomorrow.</span> That’s the system working — showing up is the whole trick.</>
-            : <>Nothing is due tomorrow. Come back anyway and Lexi will start something new.</>}
+            ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} waiting tomorrow.</span> That’s the system working — showing up is the whole trick.</>
+            : <>Nothing is waiting tomorrow. Come back anyway and Lexi will start something new.</>}
         </span>
       </p>
 

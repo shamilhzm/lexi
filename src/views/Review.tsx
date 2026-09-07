@@ -138,8 +138,15 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
   const [i, setI] = useState(restored?.position ?? 0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
-  const [again, setAgain] = useState(0);       // lapses this session
   const [newLearned, setNewLearned] = useState(0); // cards that left the New state
+  // **Retrievals, counted apart from everything else.** `done` mixed three
+  // unlike events — a flip you were asked to remember, a flip you were meeting for the
+  // first time, and a drill answer — and the recap divided one by the other and called
+  // it recall. A first-sight card is an introduction, not a test: `SCALE` already says
+  // so and already drops to two buttons for it. These two are the only pair a recall
+  // percentage may be computed from.
+  const [retrieved, setRetrieved] = useState(0);
+  const [retrievedOk, setRetrievedOk] = useState(0);
   // Drills, counted apart from flips. The recap reported one `done` figure for
   // both, so the interleaved drills — the harder half of a session, and the half
   // a learner has to be talked into — were invisible in the only place the app
@@ -149,7 +156,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
   const [drillsOk, setDrillsOk] = useState(0);
   // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
   // or a skip, and rewind counters + position exactly.
-  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number }[]>([]);
+  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number; dRetr?: number; dRetrOk?: number }[]>([]);
   // Which way the outgoing card flies: +1 knew it, -1 didn’t, 0 neutral (skip/
   // prev). Set by every grade path, so swipes, buttons and arrow keys all share
   // one physical vocabulary: right = knew, left = missed.
@@ -236,7 +243,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
     setI(restored?.position ?? 0);
-    setDone(0); setAgain(0); setNewLearned(0); setDrills(0); setDrillsOk(0); setFlipped(false); history.current = [];
+    setDone(0); setNewLearned(0); setRetrieved(0); setRetrievedOk(0); setDrills(0); setDrillsOk(0); setFlipped(false); history.current = [];
     setComeback(null); missRun.current = 0; setBreather(false); breatherShown.current = false;
     sessionMisses.current.clear();
     metWords.current = [];
@@ -262,10 +269,10 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
 
   // Record the pre-review FSRS state + the exact counter deltas this grade
   // applied, so prev/undo can reverse it precisely.
-  const pushGrade = (dAgain: number, dNew: number, dDrill = 0, dDrillOk = 0) => {
+  const pushGrade = (dAgain: number, dNew: number, dDrill = 0, dDrillOk = 0, dRetr = 0, dRetrOk = 0) => {
     if (!item) return;
     const snap = cardOf(item.srsId);
-    history.current.push({ i, kind: 'grade', srsId: item.srsId, prevCard: snap ? { ...snap } : undefined, dAgain, dNew, dDrill, dDrillOk });
+    history.current.push({ i, kind: 'grade', srsId: item.srsId, prevCard: snap ? { ...snap } : undefined, dAgain, dNew, dDrill, dDrillOk, dRetr, dRetrOk });
   };
 
   // Grade a flip card directly — no reveal required. Flipping stays optional
@@ -275,7 +282,11 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
     const wasNew = statusOf(item.srsId) === 'new';
     const dAgain = g === Rating.Again ? 1 : 0;
     const dNew = g !== Rating.Again && wasNew ? 1 : 0;
-    pushGrade(dAgain, dNew);
+    // Only a card the learner had met before was a retrieval; a first-sight card
+    // was shown to them and asking how it "landed" is not a memory test.
+    const dRetr = wasNew ? 0 : 1;
+    const dRetrOk = !wasNew && g !== Rating.Again ? 1 : 0;
+    pushGrade(dAgain, dNew, 0, 0, dRetr, dRetrOk);
     exitDir.current = g === Rating.Again ? -1 : 1;
     // `preview` is computed for this card *before* the grade commits, so it is
     // exactly the interval the learner was shown on the button they pressed.
@@ -286,8 +297,9 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
     review(item.srsId, g);
     haptic(g === Rating.Again ? 'wrong' : 'grade');
     setDone((d) => d + 1);
-    setAgain((a) => a + dAgain);
     setNewLearned((n) => n + dNew);
+    setRetrieved((r) => r + dRetr);
+    setRetrievedOk((r) => r + dRetrOk);
     setFlipped(false);
     setI((n) => n + 1);
   }, [item, i]);
@@ -306,7 +318,6 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
     // pass should stop outranking one you avoid and always fail.
     logAttempt(MODE_TAG[item.type]);
     if (!ok) noteMiss(MODE_TAG[item.type], item.word.term, detail);
-    setAgain((a) => a + dAgain);
     setDone((d) => d + 1);
     setDrills((d) => d + 1);
     setDrillsOk((d) => d + (ok ? 1 : 0));
@@ -339,10 +350,11 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
     if (e.kind === 'grade' && e.srsId) {
       restoreCard(e.srsId, e.prevCard, (e.dAgain ?? 0) > 0);
       setDone((d) => Math.max(0, d - 1));
-      setAgain((a) => Math.max(0, a - (e.dAgain ?? 0)));
       setNewLearned((n) => Math.max(0, n - (e.dNew ?? 0)));
       setDrills((d) => Math.max(0, d - (e.dDrill ?? 0)));
       setDrillsOk((d) => Math.max(0, d - (e.dDrillOk ?? 0)));
+      setRetrieved((r) => Math.max(0, r - (e.dRetr ?? 0)));
+      setRetrievedOk((r) => Math.max(0, r - (e.dRetrOk ?? 0)));
     }
     setFlipped(false);
     setI(e.i);
@@ -385,7 +397,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
     );
   }
   if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} />;
-  if (!item) return <DoneState done={done} again={again} newLearned={newLearned} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current} onPlacement={onPlacement}
+  if (!item) return <DoneState done={done} newLearned={newLearned} retrieved={retrieved} retrievedOk={retrievedOk} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
     onDone={onDone} onPick={onPick} onProfile={onProfile} />;
@@ -438,7 +450,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
           <Chip aria-label={`Card ${Math.min(i + 1, queue.length)} of ${queue.length} in this session`}>
             {Math.min(i + 1, queue.length)} / {queue.length}
           </Chip>
-          {/* Prev (undo) + skip — the only in-session controls; levels live on Home, keys in onboarding. */}
+          {/* Prev (undo) + skip — the only in-session controls; the level filter lives in Settings, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
             {/* Flag: "something’s wrong with this card" — the feedback loop for a
                 solo-maintained corpus. Local, deduped, exports with the backup. */}
@@ -1049,12 +1061,25 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onProfile, onPlacement }:
-  { done: number; again: number; newLearned: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
+function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onProfile, onPlacement }:
+  { done: number; newLearned: number; retrieved: number; retrievedOk: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
     composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void; onProfile: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
-  const recall = done > 0 ? Math.round(((done - again) / done) * 100) : 0;
+  // **Recall is only defined where a retrieval happened.**
+  //
+  // This was `(done - again) / done`, and `done` counts every graded item — the
+  // first-sight introductions and the drill answers along with the actual
+  // retrievals. A first session of twenty brand-new cards, every one shown
+  // answer-side-up and never asked for, therefore reported **RECALL 100%**: the
+  // one number the recap leads with was the one number the session had not
+  // measured. VISION §3 forbids a number that flatters, and this was the app's
+  // last one.
+  //
+  // `undefined` rather than 0 — `SessionRecap` already contracts for that and
+  // drops the tile, which is the honest rendering of "there is nothing to
+  // report" and is not the same claim as "you recalled none of it".
+  const recall = retrieved > 0 ? Math.round((retrievedOk / retrieved) * 100) : undefined;
   // Fire milestones + the closing cue once, from the final state. Crossing a
   // milestone earns the triad; an ordinary finish gets the plain two-note rise,
   // so the bigger sound stays rare enough to still mean something.
@@ -1068,7 +1093,11 @@ function DoneState({ done, again, newLearned, drills, drillsOk, minedCount, come
   const [finished] = useState(() => checkCompletions());
   return (
     <div className="grid place-items-center min-h-[440px]">
-      <SessionRecap data={{ reviewed: done, recall: done > 0 ? recall : undefined, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
+      {/* `reviewed` is retrievals, not "items you got through": with the recall tile
+          gone, a Reviewed tile counting the same twenty cards as New learned was the
+          second half of the same lie. An all-new session now reports what it did —
+          twenty introduced, nothing recalled — and says the rest in prose below. */}
+      <SessionRecap data={{ reviewed: retrieved || undefined, recall, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
         {finished.length > 0 && (
           <p className="text-sm mb-5">
             You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span> — every card in it is yours.

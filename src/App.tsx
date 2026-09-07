@@ -203,6 +203,13 @@ export default function App() {
     // and the first session had never happened.
     if (guided) setOnboarded();
     setDrill(null);
+    // **Every overlay, not just the drill.** A layer renders at `z-40` under the bars
+    // at `z-50` precisely so the chrome stays reachable — which means a tab is
+    // tappable *through* an open sheet, and `go()` cleared only one of the three
+    // things that can be open. Tapping *Themen* over the saved-words sheet moved the
+    // selected tab, left the sheet on top of the new surface, and left its back
+    // button pointing at a word the learner was no longer on.
+    setShowSaved(false); setSearching(false);
     setGuided(false); setView(v); setNavTick((t) => t + 1);
   };
 

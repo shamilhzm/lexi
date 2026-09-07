@@ -14,6 +14,27 @@ import { downloadReminderIcs, notifyState, requestNotify } from '../lib/reminder
 import Card from './ui/Card.tsx';
 import Button from './ui/Button.tsx';
 
+/** iOS Safari in a *tab* exposes no `Notification`, so `notifyState()` returns
+ *  `unsupported` and the card said **"This browser has no notification support"** —
+ *  which is false, and false in the direction that costs the most. Safari has
+ *  supported Web Push since 16.4, for web apps **installed to the Home Screen**. So
+ *  the platform is not the wall; the install step is, and it is one the learner can
+ *  actually take.
+ *
+ *  Detected rather than sniffed for a version: iPadOS reports itself as a Mac, and
+ *  what matters is not "is this iOS" but "is this a WebKit browser that is not
+ *  installed" — which is exactly the condition under which the install step is the
+ *  right advice. A false positive tells a desktop Safari user to add to Home Screen,
+ *  which is wrong-but-harmless; a false negative is the sentence we are removing. */
+function isIosSafari(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  const standalone = window.matchMedia?.('(display-mode: standalone)').matches
+    || (navigator as { standalone?: boolean }).standalone === true;
+  if (standalone) return false;           // already installed; the wall is elsewhere
+  const touchMac = navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent);
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) || touchMac;
+}
+
 export default function ReminderCard() {
   useStore();
   const saved = reminderTime();
@@ -35,7 +56,8 @@ export default function ReminderCard() {
         <h2 className="text-base font-semibold">Study time</h2>
       </div>
       <p className="text-xs text-dim mb-3">
-        Pick when you want to study. Lexi will flag it on Home if the day is slipping.
+        Pick when you want to study. If the day is slipping, Lexi will say so — by
+        whichever of the two below you turn on.
       </p>
 
       <div className="flex items-center gap-2.5 flex-wrap mb-3">
@@ -71,13 +93,15 @@ export default function ReminderCard() {
             <span className="block text-xs font-semibold">
               {perm === 'granted' ? 'Notifications on'
                 : perm === 'denied' ? 'Notifications blocked'
-                : perm === 'unsupported' ? 'Notifications unavailable'
+                : perm === 'unsupported' ? (isIosSafari() ? 'Add Lexi to your Home Screen' : 'Notifications unavailable')
                 : 'Enable notifications'}
             </span>
             <span className="block text-2xs text-dim">
               {perm === 'granted' ? 'Fires at your study time, unless you have already reviewed.'
                 : perm === 'denied' ? 'Re-allow Lexi in your browser settings to use this.'
-                : perm === 'unsupported' ? 'This browser has no notification support.'
+                : perm === 'unsupported' ? (isIosSafari()
+                    ? 'iOS only allows notifications for installed web apps. Share → Add to Home Screen, then come back.'
+                    : 'This browser has no notification support.')
                 : 'Only while Lexi is open or installed to your home screen.'}
             </span>
           </span>

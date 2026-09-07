@@ -89,3 +89,38 @@ describe('entrance keyframes never animate opacity', () => {
     }
   });
 });
+
+// ── Recall is only defined where a retrieval happened ────────────────────────
+//
+// A source guard for the same reason as the one above: the suite is pure-logic
+// and this defect is a *composition* mistake, not a computation.
+//
+// `recall` was `(done - again) / done`, and `done` counts every graded item — the
+// first-sight introductions and the drill answers along with the retrievals. A
+// first session of twenty brand-new cards, each shown answer-side-up and never
+// asked for, therefore reported **RECALL 100%**: the number the recap leads with
+// was the one number the session had not measured. VISION §3 forbids a number that
+// flatters; `SCALE` in the same file already knows the difference, which is why a
+// first-sight card gets two grade buttons instead of four.
+describe('Review — recall is computed from retrievals only', () => {
+  it('does not divide by the count of everything graded', () => {
+    expect(src).not.toMatch(/recall\s*=[^;]*\bdone\b/);
+    expect(src).not.toMatch(/\bagain\b\s*\)\s*\/\s*done/);
+  });
+
+  it('computes it from the retrieval counters', () => {
+    expect(src).toMatch(/const\s+recall\s*=\s*retrieved\s*>\s*0/);
+    expect(src).toMatch(/retrievedOk\s*\/\s*retrieved/);
+  });
+
+  it('passes undefined rather than 0 when nothing was retrieved', () => {
+    // `SessionRecap` drops the tile on `undefined`, which is "there is nothing to
+    // report" — a different claim from "you recalled none of it".
+    expect(src).toMatch(/:\s*undefined\s*;/);
+    expect(src).toMatch(/recall,/);           // passed straight through, not re-gated
+  });
+
+  it('only counts a card as retrieved when the learner had met it before', () => {
+    expect(src).toMatch(/dRetr\s*=\s*wasNew\s*\?\s*0\s*:\s*1/);
+  });
+});

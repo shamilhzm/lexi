@@ -154,14 +154,22 @@ needs rulings in VISION before any code, and should not be started as engineerin
 
 ---
 
-### Track A — Just wrong · **S total**, do first
+### Track A — Just wrong · ✅ **shipped 2026-09-07**
+
+*All six done and verified on an iPhone 17 Pro against a cold profile. A1 and A2 are
+guarded — `store-session.test.ts` pins the forecast property, `review-structure.test.ts`
+pins the recall composition, and the second guard was proved by injecting the old shape
+and watching it fail. **A4 shipped at half size**: the heading skip was real, and the
+two "unnamed focusables" were a false finding — both carry a `<label for>` and the probe
+never checked `<label>`, which is the incomplete-enumeration mistake LESSONS already has
+a rule for.*
 
 | # | What | Do | Done when |
 |---|---|---|---|
 | A1 | Recap says *"Nothing is due tomorrow"* about 20 cards on a 10-minute interval (P56) | `dueForecast` buckets a due-today card into `out[0]`; the recap reads `[1]`. Ask the question the recap actually means — *what will be waiting when I come back* — which is `out[0] + out[1]` for anything still unanswered today | A session ending at 23:50 and one ending at 08:00 both say something true |
 | A2 | `RECALL 100%` after 20 cards shown answer-side-up (P15) | Recall is undefined when `reviewed == 0`. Show *"20 new · first pass"* and print recall only once there is a retrieval to report | The recap of an all-new session contains no percentage |
 | A3 | A tab tap leaves an open layer stranded over the wrong tab (P21) | `go()` clears `drill` but not `showSaved` / `searching`. Clear all three | Tapping any tab with the saved sheet or search open closes it |
-| A4 | `#/settings` skips `h1` → `h3`; two focusables unnamed (P40) | Demote to `h2`; name the two controls | `npm run lint` a11y rules pass and a heading walk is contiguous on every route |
+| A4 | `#/settings` skips `h1` → `h3` (P40) | Promote the nine section headings to `h2` — they are siblings of the `h1`, not children of anything. *The same item claimed two unnamed focusables; withdrawn — both carry a `<label for>` and the probe never checked `<label>`* | A heading walk is contiguous on every route |
 | A5 | Copy referring to deleted surfaces (P44) | `ReminderCard.tsx:38` says Lexi will flag a slipping day *"on Home"*; Home was deleted 2026-09-05. Same reference in a `Review.tsx:441` comment | No string in `src/` names a surface that does not exist |
 | A6 | *"This browser has no notification support"* on iOS (P54) | Safari supports Web Push for Home-Screen-installed apps. Detect standalone; when not installed, offer the install step instead of declaring the browser incapable | An iPhone user is told what to do, not what cannot be done |
 
