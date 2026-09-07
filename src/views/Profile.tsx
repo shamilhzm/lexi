@@ -33,7 +33,7 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
       <h1 className="display text-3xl sm:text-4xl mb-4">Profile</h1>
 
       <Card className="mb-3 flex items-center gap-4">
-        <div className="grid place-items-center w-14 h-14 rounded-full bg-panel2 text-accent text-2xl font-bold flex-shrink-0">{initial}</div>
+        <div className="grid place-items-center w-[56px] h-[56px] rounded-full bg-panel2 text-accent text-[24px] leading-none font-bold flex-shrink-0">{initial}</div>
         <div className="flex-1 min-w-0">
           {editing ? (
             <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
           change, not things you read on the way past. */}
       <Card as="button" pad="none" onClick={onSettings}
         className="w-full flex items-center gap-3 px-4 py-3.5 mb-3 text-left hover:border-accent transition-colors">
-        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0">
+        <span className="grid place-items-center w-[36px] h-[36px] rounded-md bg-panel2 text-accent flex-shrink-0">
           <SlidersHorizontal size={17} />
         </span>
         <span className="flex-1 min-w-0">

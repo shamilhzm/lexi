@@ -74,7 +74,7 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
           until taken, and never again after. */}
       {!placed && (
         <BandRow onClick={onPlacement} tone="accent">
-          <span className="grid place-items-center w-10 h-10 rounded-md bg-panel2 text-accent flex-shrink-0"><GraduationCap size={19} /></span>
+          <span className="grid place-items-center w-[40px] h-[40px] rounded-md bg-panel2 text-accent flex-shrink-0"><GraduationCap size={19} /></span>
           <span className="flex-1 min-w-0">
             <span className="block text-base font-semibold">Two minutes to find your level</span>
             <span className="block text-xs text-dim mt-0.5">Lexi will skip the words you already know and start you where you actually are.</span>
@@ -114,7 +114,7 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
       {/* Every "you are thin here" on this page ends in the same question:
           thin in *what*? The answer is a deck, and decks are on Words. */}
       <BandRow onClick={() => onOpenGroup('')}>
-        <span className="grid place-items-center w-10 h-10 rounded-md bg-panel2 text-accent flex-shrink-0"><LayoutGrid size={19} /></span>
+        <span className="grid place-items-center w-[40px] h-[40px] rounded-md bg-panel2 text-accent flex-shrink-0"><LayoutGrid size={19} /></span>
         <span className="flex-1 min-w-0">
           <span className="block text-base font-semibold">Browse the lexicon</span>
           <span className="block text-2xs text-dim mt-0.5">Every deck and every word, with a search box — on Themen.</span>

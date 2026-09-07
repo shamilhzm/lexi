@@ -71,7 +71,7 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
       // near-miss sentence card carried an orphaned speaker icon on a line of its
       // own, and the `align-middle` two lines down had nothing to act on. The
       // comment above already said "inline"; only the class disagreed.
-      className="tap-hit inline-grid place-items-center w-6 h-6 rounded-sm text-dim hover:text-accent
+      className="tap-hit inline-grid place-items-center w-[24px] h-[24px] rounded-sm text-dim hover:text-accent
         active:scale-95 transition-colors flex-shrink-0 align-middle">
       <Volume2 size={14} />
     </button>

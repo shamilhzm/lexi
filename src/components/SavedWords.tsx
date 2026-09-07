@@ -83,7 +83,7 @@ export default function SavedWords({ onClose, onStudy }: {
                   {/* Unsaving is the honest opposite of saving and belongs next to
                       the word, not behind a menu. */}
                   <button onClick={() => toggleSaved(w.id)} aria-label={`Remove ${w.term} from saved`}
-                    className="tap-44 grid place-items-center w-9 h-9 rounded-full text-dim hover:text-txt flex-shrink-0">
+                    className="tap-44 grid place-items-center w-[36px] h-[36px] rounded-full text-dim hover:text-txt flex-shrink-0">
                     <X size={16} />
                   </button>
                 </li>

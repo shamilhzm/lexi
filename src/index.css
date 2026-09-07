@@ -316,6 +316,153 @@ html.dark .flip-face {
   box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 24px 50px -24px rgba(0,0,0,0.9);
 }
 
+/* ── Accessibility text sizes ────────────────────────────────────────────────
+   **Type scales; chrome does not.** That is what iOS does at these settings and it
+   is the whole rule here. Lexi's spacing is rem-based, so at an accessibility size
+   the *gaps* grow along with the words: measured at 402×714 with the root swept from
+   16px to 40px, the top bar went 56 → 137px and the feed's three-icon action row
+   196 → **490px** against a 402px viewport.
+
+   The largest single cause is fixed here at all: Tailwind's `w-11 h-11` on an icon
+   button is `rem`, so a 44pt touch target around a 15px vector glyph inflated to
+   110×110. Those boxes are now px (`ui/IconButton`), which took the top bar to a
+   **flat 56px from a 16px root to a 53px one** and the session header's control row
+   from 470px of a 393px line down to 200. What is left below is the residue: chrome
+   *type* and chrome *padding*, and one structural change to the feed.
+
+   The caps are written with `min()` and are therefore unconditional — a chrome
+   readout that stops growing at 15px is the same rule at every size, and a rule that
+   only exists past a threshold is a rule that is wrong just below it. Measured: the
+   profile button's right edge was at 448px of a 402px viewport at a 28px root, which
+   is `lg`, not `ax` — the threshold-gated version of this had already failed there.
+
+   `data-type` remains for the two things `min()` cannot express — dropping the tab
+   labels, and turning the feed from a carousel into a list. It is set in App.tsx from
+   the computed root size, which is the learner's Dynamic Type setting
+   (`font: -apple-system-body`) *or* their in-app choice (`applyTextScale`) — one
+   reading, because both write the same property. CSS cannot ask this itself: `em`
+   media queries resolve against the initial 16px and there is no media feature for
+   text size. */
+
+/* The tab bar drops its labels, which is what iOS does — four German words at 19px
+   collided into `WörterThemen ÜbenFortschri` with the icons overlapping them. The
+   icons keep their 44px targets and their `aria-label`s, so nothing is lost to
+   assistive tech; what goes is text that had stopped being readable anyway. */
+html[data-type='ax'] nav[aria-label='Main'] span[lang='de'] { display: none; }
+html[data-type='ax'] nav[aria-label='Main'] .tab-icon { width: 26px; height: 26px; }
+
+/* A wordmark is a mark, not prose — the same argument as the touch targets. At
+   `text-lg` it is 1.125rem, so 60px at a 53px root, inside a 44px button, and the bar
+   had room for “Lexi” and the bookmark counter but not for search, the streak and
+   the profile: it kept its own name and threw away the app. 18px is what it already
+   measures at rest, so this changes nothing except that it stays there. */
+.wordmark { font-size: 18px; }
+
+/* The streak is capped for the same reason a badge count is: it is a chrome readout
+   riding beside the profile button, and four controls plus a goal pill do not fit
+   once their type has doubled. It stays *present* — hiding it was tried, and losing
+   a number a learner checks daily to win 20px is the wrong trade when 14px buys the
+   same room. The full figure is on Fortschritt and in the profile button's
+   `aria-label` either way. */
+.streak-chip { font-size: min(0.875rem, 14px); }
+
+/* The goal pill stops scaling, and it is the last thing in the bar that has to. Its
+   type is `text-2xs` and its padding `px-3 py-1.5` — all rem — so at a 34px root the
+   pill alone measured ~330px of a 402px bar and pushed the profile button off the
+   right edge. Capped in px, because that is the only unit `rem`-based spacing can be
+   overridden with: an element's own `font-size` cannot shrink a padding expressed in
+   root ems, which is why capping the header's font-size was tried first and did
+   nothing at all. The number stays legible; it is the *box* that stops growing. */
+/* The rest of the bar's spacing, for the same reason and by the same method. Six
+   rem gaps between five controls is nothing at 16px and 60px of a 402px bar at 40 —
+   measured on the feed, where the goal pill joins the row, the profile button's right
+   edge sat at 431px of 402 and the avatar was half off the screen. Every value here
+   is what the Tailwind class already resolves to at rest, so at rest this is a no-op;
+   past that it is the difference between the person's own avatar being on the phone
+   and not. `sm:` variants are untouched — they only apply from 640px, where there is
+   room to spare. */
+.top-bar { gap: 4px; padding-inline: min(0.75rem, 12px); }
+@media (min-width: 640px) { .top-bar { padding-inline: min(1rem, 16px); } }
+.home-btn { padding-right: min(0.5rem, 8px); gap: min(0.625rem, 10px); }
+.profile-btn { gap: min(0.5rem, 8px); margin-left: min(0.25rem, 4px);
+  padding-left: min(0.375rem, 6px); padding-right: min(0.375rem, 6px); }
+.streak-chip { gap: min(0.25rem, 4px); }
+
+.goal-pill { padding: min(0.375rem, 6px) min(0.75rem, 12px); gap: min(0.5rem, 8px); }
+.goal-pill span { font-size: min(0.6875rem, 13px); }
+
+/* The one-time swipe hint is capped, not suppressed. It is `position: absolute` over
+   the word, so at a 40px root it grew past its line and landed on the IPA — but it is
+   also the only place the two gestures are ever explained, and hiding it (tried
+   first) takes the instruction away from exactly the reader most likely to need it.
+   A floating hint is not body copy; the actions it names are all present as labelled
+   buttons below the word anyway. */
+.feed-coach > div {
+  font-size: min(0.6875rem, 15px);
+  gap: min(0.5rem, 8px);
+  padding: min(0.375rem, 6px) min(0.375rem, 6px) min(0.375rem, 6px) min(0.875rem, 14px);
+}
+
+/* **At an accessibility size the feed stops being a carousel.** One word per screen
+   is a promise the screen can no longer keep: at a 34px root the headword, its IPA,
+   the gloss, the example and three actions do not fit in 714px, and something has to
+   give. Making each slot scroll *inside* the snap container was tried first and is
+   worse than the problem — a scrollable child inside `scroll-snap-type: mandatory`
+   leaves the browser with two scrollers competing for one gesture, and the feed
+   rendered two words superimposed. So the snap goes and the feed becomes an ordinary
+   scrolling list, which is what a phone at this text size does with every other list
+   it shows. `content-visibility` has to go with it: its intrinsic-size hint is one
+   viewport tall, which is exactly the assumption being dropped. */
+/* The slot's own containment. Moved out of an inline style so the override below can
+   reach it: `content-visibility: auto` needs an intrinsic-size hint, the hint is one
+   viewport tall, and that is exactly the assumption `ax` drops.
+   A percentage is not a valid `contain-intrinsic-size` — it wants a length — so
+   `auto 100dvh` is the honest placeholder for a slot one viewport high. */
+.feed-slot { content-visibility: auto; contain-intrinsic-size: auto 100dvh; }
+
+html[data-type='ax'] .feed-scroller { scroll-snap-type: none; }
+html[data-type='ax'] .feed-slot {
+  height: auto;
+  min-height: 100%;
+  content-visibility: visible;
+}
+
+/* Chrome spacing stops scaling. `gap-8` is 2rem, which is 32px at rest and 80px at a
+   40px root — three icons and two gaps then measure wider than the phone. */
+/* Gap only — **not** `flex-wrap`. Wrapping was tried and is worse than what it fixes:
+   the three actions broke onto two lines with the graduation cap stranded on its own,
+   which reads as a layout accident rather than a row. The cap is the row's resting
+   value, not a smaller one: the 490px measurement was three 110px icon boxes, and
+   with those pinned in px the row comes to 196px at any text size with the full 32px
+   gaps. Nothing here is tighter than it was — it just stops growing. */
+.feed-actions { gap: min(2rem, 32px); }
+
+/* **`--bar-t` is a pixel constant again — because the bar stopped growing.**
+   Every surface pads by `--bar-t` to clear the floating top bar, and the constant
+   was right at one text size and wrong at all the others: measured at 402x714 with
+   the root swept 16→46px, the header came out 56 / 97 / 117 / 137 / 157 against a
+   padding fixed at 52.
+
+   The first fix followed that curve — 56/16, 97/28, 137/40 all divide to ≈3.5, so
+   `--bar-t` became `3.5rem` and tracked it. That was treating the symptom. The
+   header grew because Tailwind's spacing scale is `rem`, so `w-11 h-11` on an icon
+   button — a *physical* 44pt touch target wrapped around a *fixed* 15px vector
+   glyph — inflated to 110×110 at an accessibility size. Neither the target nor the
+   ink is text, so neither should have scaled. Pinning those boxes in px (see
+   `ui/IconButton`) took the header to a flat **72px at every setting**, and the
+   session header's four controls from 470px of a 393px row down to 200.
+
+   So the padding is a pixel value once more, and now it is one honestly: it matches
+   the bar's own `min-h-[calc(52px + safe-area)]` with 4px of air.
+
+   Two things were tried first and are recorded because both are plausible and
+   neither works. A `ResizeObserver` writing measured heights is strictly more
+   correct and did not settle reliably across a text-size change — a padding that is
+   right *eventually* is a headword behind the bar meanwhile. And capping the
+   chrome's own `font-size` does nothing at all: `rem` is root-relative, so an
+   element's own font-size cannot shrink its padding. */
+html { --bar-t: calc(56px + env(safe-area-inset-top)); }
+
 * { box-sizing: border-box; }
 
 /* Native form controls, scrollbars and system UI follow the active theme. */
@@ -591,7 +738,10 @@ body {
 .node-in { transform-origin: center; transform-box: fill-box; animation: nodein .45s cubic-bezier(.32,.72,0,1); }
 
 /* iOS safe areas (notch / Dynamic Island / home indicator) */
-.safe-top { padding-top: max(0.625rem, env(safe-area-inset-top)); }
+/* 10px, not 0.625rem: this is the gap between the hardware inset and the bar's
+   contents — a physical distance, like the inset it backstops. In rem it grew to
+   25px at an accessibility size and pushed the bar 15px taller for nothing. */
+.safe-top { padding-top: max(10px, env(safe-area-inset-top)); }
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 
 /* thin terminal scrollbars */

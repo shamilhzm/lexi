@@ -1,6 +1,6 @@
 // An icon-only control with a real touch target.
 //
-// The app already knew the rule — `grid place-items-center w-11 h-11 -m-2`
+// The app already knew the rule — `grid place-items-center w-[44px] h-[44px] -m-2`
 // appears in four places — but applied it unevenly: header icons sat at 36px,
 // the rule-card close at 28px, and the two buttons on a deck card had no sizing
 // class at all (a 15px icon with no padding, which fails even WCAG 2.5.8's
@@ -9,6 +9,14 @@
 //
 // `pull` applies the negative margin that keeps a 44px box from visually
 // inflating a tight header row — the target grows, the layout doesn't.
+//
+// **The 44 is in px, and that is deliberate** *(2026-09-07)*. It was `w-11 h-11`,
+// and Tailwind's spacing scale is rem — so at iOS's accessibility text sizes the
+// box grew with the root font to **110×110 around a 15px glyph**. Four of them in
+// the session header came to 470px of a 393px row, wrapped, and cost 292 vertical
+// points before the card started. A touch target is a physical size and the ink
+// inside it is a fixed-size vector: neither is text, so neither scales. This is
+// also what iOS does — a toolbar button does not grow at AX5, only its label would.
 import type { ComponentProps, ReactNode } from 'react';
 
 type Props = ComponentProps<'button'> & {
@@ -28,7 +36,7 @@ export default function IconButton({
     <button
       title={label}
       aria-label={label}
-      className={`grid place-items-center w-11 h-11 rounded-md transition-colors flex-shrink-0
+      className={`grid place-items-center w-[44px] h-[44px] rounded-md transition-colors flex-shrink-0
         ${active ? 'text-accent' : 'text-dim hover:text-accent'}
         disabled:opacity-30 disabled:hover:text-dim disabled:pointer-events-none
         ${pull ? '-m-2' : ''} ${className}`}

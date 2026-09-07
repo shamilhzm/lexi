@@ -120,7 +120,7 @@ function Index({ onOpenGroup, onText }: { onOpenGroup: (g: string) => void; onTe
       <button onClick={onText}
         className="-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] border-b border-line
           flex items-center gap-3.5 px-3 sm:px-5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors">
-        <span className="grid place-items-center w-11 h-11 rounded-md flex-shrink-0 text-accent"
+        <span className="grid place-items-center w-[44px] h-[44px] rounded-md flex-shrink-0 text-accent"
           style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)' }}>
           <FileText size={20} />
         </span>
@@ -231,7 +231,7 @@ function GroupEmblem({ group }: { group: string }) {
   const concept = conceptForSector(group);
   return (
     <span aria-hidden
-      className="grid place-items-center w-11 h-11 rounded-md flex-shrink-0 text-accent"
+      className="grid place-items-center w-[44px] h-[44px] rounded-md flex-shrink-0 text-accent"
       style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)' }}>
       <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor"
         strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"

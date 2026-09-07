@@ -179,7 +179,7 @@ a rule for.*
 |---|---|---|---|
 | B1 | ✅ **shipped 2026-09-07.** Keyboard use breaks the layout until reload (P18, P39) | **Not a viewport-handling problem at all.** Probed on device: `window.scrollY` was 0 throughout and `#main` had no overflow — Safari had *zoomed* to 1.14 because the scanner's textarea is `text-sm` (14px), and the pan was the zoom's consequence. The ramp tops out at `--text-base` = 15px so no utility can clear the threshold; `input, textarea, select { font-size: max(16px, 1em) }` on coarse pointers does. Two structural fixes were written and reverted first — see LESSONS, *Instrument the browser before you theorise about it* | ✅ `scale` stays 1, no residual offset, and *Study these 19* plus the marked-up text are reachable. Guarded in `palette.test.ts` |
 | B2 | ✅ **shipped 2026-09-07.** Grade buttons behind the tab bar on a cold first session (P13 cohort) | Measured at the **real** viewport — an iPhone 17 Pro in Safari gives 402×**714**, not the 874 a desktop pane reports, and every earlier measurement of this block used the wrong number. At 714 the column came to 795px, the buttons landed at y629 and the bar starts at y646. Two changes: the card stage is now `flex-1 min-h-0` so the card gives up the height the coach takes (`SwipeCard` was already `flex-1 min-h-[260px] max-h-[460px]` and had no bounded ancestor to act against), and the caught-up notice no longer renders on a first run — 55 points spent telling somebody who has never studied that they are up to date | ✅ Both buttons **and** the *"First time seeing this"* caption on screen with the coach still showing, nothing dismissed. Guarded in `review-structure.test.ts` |
-| B3 | Layout collapses at iOS accessibility text sizes (P16, P25) | Holds to the largest *standard* size and breaks at AX1: headword off-screen, top-bar controls gone, tab labels colliding. Drop tab labels above a threshold (what iOS does), let the top bar shed the streak before the search, and let the headword shrink | The feed, a session and Fortschritt are usable at `accessibility-extra-large` |
+| B3 | ✅ **shipped 2026-09-07.** Layout collapses at iOS accessibility text sizes (P16, P25) | **The plan above was the wrong shape and is recorded because of it.** Shedding controls above a threshold treats the symptom; the cause is that Tailwind's spacing scale is `rem`, so `w-11 h-11` on an icon button — a 44pt touch target around a 15px vector glyph — inflated to **110×110** at a 40px root. Twenty-five of those boxes are px now, which took the top bar **flat to 56px from a 16px root to a 53px one** (it was 56 → 137) and the session header's four controls from 470px of a 393px row down to 200. `--bar-t` is a pixel constant again, honestly this time. The residue — bar gaps, the goal pill, the streak, the swipe hint — is capped with `min()` and therefore *unconditional*: the threshold-gated version had already failed at a 28px root, which is `lg`, not `ax`. `data-type` survives for the two things `min()` cannot say: the tab labels go, and the feed stops being a carousel. Nothing is dropped that was a destination. Going the other way, the study card's height bounds became **`rem`** — its contents scaled while its px ceiling did not, so the face scrolled and the *headword* fell below its own fold | ✅ Swept 402×714 at roots 16/28/34/40/46/53 across all four surfaces: **zero elements overflow the viewport**, header flat at 56, tab bar at 60, feed action row at 196. On an iPhone 17 Pro at `accessibility-extra-large`: the bar holds mark, search, streak and avatar; the card shows its headword; both grade buttons clear the tab bar. Guarded in `dynamic-type.test.ts` |
 | B4 | The installed PWA waits on the network before showing anything (P41, P53) | `sw.js` is network-first for navigations *and* re-clones ~6.4 MB of lexicon JSON into Cache Storage on every load. Make navigations cache-first with a background revalidate; make `/data/` revalidate by ETag instead of unconditional `put` | Airplane mode opens the app in under a second, and a warm load writes no cache entries |
 | B5 | Cold boot is 1.42 MB gzipped (P50) | `detail.json` is 810 kB of it. It is already post-paint; shard it the way the lexicon is sharded so a session fetches what it needs | Cold boot under 700 kB gzipped; no regression in time-to-first-card |
 
@@ -404,15 +404,19 @@ the *lookup* gap — `der Aufenthaltstitel` returns a good entry with both infle
 
 ### 🟡 Smaller, all verified on the live build
 
-- ~~**`Üben` loses its umlaut in the tab bar.**~~ **Withdrawn 2026-09-07, and kept
-  because the mistake is the lesson.** The claim was that `text-2xs leading-none` gave
-  an 11px line box that clipped the diaeresis. It does not clip anything: the DOM
-  carries `Üben` (U+00DC) and the span measures `scrollHeight === clientHeight === 15`
-  both before and after the "fix", which was shipped and changed nothing. What the
-  screenshots showed was a 2-physical-pixel mark at 11px lost in the simulator's
-  downscaled capture — and `Wörter` survived the same capture because a lowercase ö
-  sets its dots near the x-height where the antialiasing is stronger, while `Ü` sets
-  them above the cap. Reverted. See LESSONS, *A screenshot is a downsampled render*.
+- ~~**`Üben` loses its umlaut in the tab bar.**~~ **Shipped 2026-09-07 — and the
+  round trip is the lesson.** This was found, fixed, *withdrawn as a screenshot
+  artefact*, and then found again by the differential that should have settled it the
+  first time: on the same simulator, at the same text size, through the same capture,
+  `leading-none` renders `Uben` and `leading-[1.35]` renders `Üben`. The mechanism is
+  the original one — the label is `truncate`, so `overflow: hidden` against a 1em line
+  box trims the 0.1em of ascent where a *capital* carries its diaeresis. `Wörter`
+  looked fine beside it because a lowercase ö sets its dots at cap height, inside the
+  box. The withdrawal rested on `scrollHeight === clientHeight === 15`, which compares
+  layout boxes and cannot see ink outside them — a blind instrument's silence read as
+  a clean result. `src/lib/umlaut-clip.test.ts` now bans `overflow: hidden` with
+  `line-height: 1` anywhere in the app, and fails on the exact className that shipped.
+  See LESSONS, *A negative result from a blind instrument*.
 - **The reminder card says Lexi "will flag it on Home"** (`ReminderCard.tsx:38`). Home
   was deleted on 2026-09-05. `Review.tsx:441` carries the same stale reference in a
   comment.

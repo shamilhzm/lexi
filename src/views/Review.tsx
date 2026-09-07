@@ -509,7 +509,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
             itself against the space the bars leave (see SwipeCard), so a floor
             here could only fight it. */}
         {/* **`flex-1 min-h-0`, and that is the whole of B2.**
-            `SwipeCard` below is already `flex-1 min-h-[260px] max-h-[460px]` and has
+            `SwipeCard` below is already `flex-1 min-h-[16.25rem] max-h-[28.75rem]` and has
             been since it was written — but `flex-1` needs an ancestor whose height is
             *bounded*, and this stage was not one: it grew to its content, the session
             column grew with it, and the scroller took the overflow. So the card never
@@ -608,7 +608,7 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
                 )}
                 {(
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
-                    className="grid place-items-center w-11 h-11 rounded-full bg-panel border border-line text-accent hover:bg-panel2 active:scale-95" title="Pronunciation">
+                    className="grid place-items-center w-[44px] h-[44px] rounded-full bg-panel border border-line text-accent hover:bg-panel2 active:scale-95" title="Pronunciation">
                     <Volume2 size={18} />
                   </button>
                 )}
@@ -844,7 +844,17 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
     // Below this a first-sight face has more content than room and scrolls
     // internally, which is survivable; grade buttons off screen are not, because
     // they are the primary action of the primary loop.
-    <div className="relative w-full max-w-[580px] flex-1 min-h-[260px] max-h-[460px]">
+    //
+    // **The two bounds are `rem`, and here that is the correct unit** *(2026-09-07)*.
+    // They were px, and at an iOS accessibility text size the face's contents grew
+    // while its ceiling did not: the card scrolled internally and what fell below
+    // its own fold was **the headword** — measured on a 16 Pro at
+    // `accessibility-extra-large`, `tun` was cut in half by the card's bottom edge.
+    // The card is the one thing on this screen that is *content*, so it scales with
+    // the type inside it; the chrome around it (bars, touch targets, readouts) is
+    // pinned in px for the opposite reason. 16.25/28.75rem resolve to exactly the
+    // old 260/460 at a 16px root, so nothing moves at rest.
+    <div className="relative w-full max-w-[580px] flex-1 min-h-[16.25rem] max-h-[28.75rem]">
       {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
           content. Rendered outermost-first so the nearest sits on top. */}
       {Array.from({ length: behind }, (_, k) => behind - 1 - k).map((depth) => (
@@ -1194,7 +1204,7 @@ function EmptyState({ target, scoped, onPick }: { target: Target; scoped: boolea
   return (
     <div className="grid place-items-center min-h-[440px]">
       <div className="text-center px-8 sm:px-10 py-12 max-w-md">
-        <span className="grid place-items-center w-12 h-12 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
+        <span className="grid place-items-center w-[48px] h-[48px] rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
           <Check size={22} className="text-green" />
         </span>
         <h2 className="text-xl font-bold mb-1.5">

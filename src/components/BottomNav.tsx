@@ -51,7 +51,7 @@ export default function BottomNav({ view, onGo }: {
     // the bezel. 20pt puts the capsule's bottom edge seven points clear of the
     // indicator (a 5pt bar sitting ~8pt off the edge) — floating, not stranded.
     // The `max()` floor keeps 8px on a device that reports no inset at all.
-    <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-3 pb-[max(0.5rem,calc(env(safe-area-inset-bottom)_-_14px))] pointer-events-none">
+    <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-[12px] pb-[max(8px,calc(env(safe-area-inset-bottom)_-_14px))] pointer-events-none">
       <nav aria-label="Main" className="glass glass-bar rounded-full pointer-events-auto overflow-hidden">
         <div className="flex items-stretch h-[58px]">
           {NAV.map((n) => {
@@ -75,12 +75,24 @@ export default function BottomNav({ view, onGo }: {
                     className="absolute inset-y-1.5 inset-x-1 rounded-full bg-panel2/80" />
                 )}
                 <span className="relative flex flex-col items-center gap-0.5">
-                <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
+                <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="tab-icon flex-shrink-0" />
                 {/* Four tabs at 375px is ~94px each — *Fortschritt* is the long
                     one and fits at `text-2xs` with room to spare, which is why
                     the labels can be the German surface names in full rather
                     than one clipped English word. */}
-                <span lang="de" className="text-2xs leading-none tracking-tight truncate max-w-full">{n.label}</span>
+                {/* **`leading-[1.35]`, and the 0.35 is the umlaut.** `truncate` is
+                    `overflow: hidden`, and with `line-height: 1` the line box is
+                    exactly 1em while the font's own is ~1.2 — so 0.1em is cut off
+                    the top, and at 11px that is the diaeresis on a *capital*: the
+                    tab read **Uben**. Lowercase ö survived because its dots sit at
+                    cap height, which is why *Wörter* looked fine next to it and the
+                    bug looked like nothing.
+                    This was found once before, fixed, and withdrawn on a bad test —
+                    the check was `scrollHeight === clientHeight`, which compares
+                    layout boxes and knows nothing about ink outside them, and it was
+                    run against the deployed build rather than the one carrying the
+                    fix. Both mistakes are in `docs/LESSONS.md`. */}
+                <span lang="de" className="text-2xs leading-[1.35] tracking-tight truncate max-w-full">{n.label}</span>
                 </span>
               </button>
             );

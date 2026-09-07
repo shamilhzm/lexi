@@ -112,7 +112,7 @@ function GoalPill({ onOpen }: { onOpen: () => void }) {
   // `components/SavedWords`.
   return (
     <button onClick={onOpen} aria-label={label}
-      className={`tap-44 flex items-center gap-2 rounded-full border px-3 py-1.5 mr-1 transition-colors ${
+      className={`goal-pill tap-44 flex items-center gap-2 rounded-full border px-3 py-1.5 mr-1 transition-colors ${
         met ? 'bg-green-d border-green/40' : 'bg-panel2/70 border-line/60 hover:border-line'}`}>
       {met
         ? <Check size={13} className="text-green flex-shrink-0" aria-hidden />
@@ -160,12 +160,12 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
     // sits above the bar rather than eating the wordmark.
     <header className="no-print absolute top-0 inset-x-0 z-50 glass glass-bar safe-top
       rounded-b-[22px] border-x-0 border-t-0
-      min-h-[calc(52px_+_env(safe-area-inset-top))] flex items-center gap-1 px-3 sm:px-4">
+      min-h-[calc(52px_+_env(safe-area-inset-top))] flex items-center gap-1 px-3 sm:px-4 top-bar">
 
       <button onClick={() => onGo('session')} aria-label="Lexi — home"
-        className="flex items-center gap-2.5 pr-2 sm:pr-4 tap-44 rounded-full hover:opacity-80 transition-opacity">
+        className="home-btn flex items-center gap-2.5 pr-2 sm:pr-4 tap-44 rounded-full hover:opacity-80 transition-opacity">
         <LexiMark size={26} />
-        <span className="font-bold text-lg tracking-wide leading-none">Lexi</span>
+        <span className="wordmark font-bold text-lg tracking-wide leading-none">Lexi</span>
       </button>
 
       {/* Destinations. Hidden on a phone, where they live in the bottom bar and
@@ -195,7 +195,7 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
       {view === 'feed' && <GoalPill onOpen={onSaved} />}
 
       <button onClick={onSearch} aria-label="Look up a word"
-        className="tap-44 grid place-items-center w-10 h-10 rounded-full text-txt
+        className="tap-44 grid place-items-center w-[40px] h-[40px] rounded-full text-txt
           hover:bg-panel2/70 active:scale-95 transition flex-shrink-0">
         <Search size={19} />
       </button>
@@ -207,12 +207,12 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
       <button onClick={onProfile} title="Profile"
         aria-label={`Profile — ${name || 'you'}${level ? `, ${level}` : ''}, ${streak}-day streak`}
         aria-current={view === 'profile' ? 'page' : undefined}
-        className={`tap-44 flex items-center gap-2 ml-1 sm:ml-2 px-1.5 sm:px-2 py-1.5 rounded-full
+        className={`profile-btn tap-44 flex items-center gap-2 ml-1 sm:ml-2 px-1.5 sm:px-2 py-[6px] rounded-full
           hover:bg-panel2/70 transition-colors ${view === 'profile' ? 'bg-panel2/80' : ''}`}>
-        <span aria-hidden className="flex items-center gap-1 font-mono font-bold text-sm text-accent md:hidden">
+        <span aria-hidden className="streak-chip flex items-center gap-1 font-mono font-bold text-sm text-accent md:hidden">
           <Flame size={14} /> {streak}
         </span>
-        <span className="grid place-items-center w-8 h-8 rounded-full bg-panel2 text-accent text-xs font-bold flex-shrink-0">{initial}</span>
+        <span className="grid place-items-center w-[32px] h-[32px] rounded-full bg-panel2 text-accent text-[12px] leading-none font-bold flex-shrink-0">{initial}</span>
         <span aria-hidden className="hidden md:block min-w-0 text-left">
           <span className="block text-xs font-semibold truncate max-w-[9rem]">{name || 'Your profile'}</span>
           <span className="flex items-center gap-1 text-2xs text-dim">

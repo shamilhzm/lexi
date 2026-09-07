@@ -138,7 +138,7 @@ describe('Review — recall is computed from retrievals only', () => {
 // under. Two things had to be true to fix it:
 //
 //   1. the card stage is `flex-1 min-h-0`, so the card gives up the height the coach
-//      takes (`SwipeCard` has been `flex-1 min-h-[260px] max-h-[460px]` all along, and
+//      takes (`SwipeCard` has been `flex-1 min-h-[16.25rem] max-h-[28.75rem]` all along, and
 //      could never act on it because no ancestor bounded the height);
 //   2. the caught-up notice does not render on a first run — it costs 55 points to
 //      tell somebody who has never studied that they are up to date.
@@ -148,7 +148,15 @@ describe('Review — the primary action survives the coach', () => {
   });
 
   it('keeps the card free to shrink', () => {
-    expect(src).toMatch(/flex-1 min-h-\[260px\] max-h-\[460px\]/);
+    expect(src).toMatch(/flex-1 min-h-\[16\.25rem\] max-h-\[28\.75rem\]/);
+  });
+
+  // The same two numbers, in the unit that makes them survive Dynamic Type. They
+  // were px, and at an accessibility text size the card's *contents* grew while its
+  // ceiling did not — so the face scrolled and the headword fell below its own fold.
+  // 16.25rem/28.75rem are 260/460 at a 16px root, so this is a no-op at rest.
+  it('lets the card grow with the type inside it', () => {
+    expect(src).not.toMatch(/min-h-\[260px\]|max-h-\[460px\]/);
   });
 
   it('does not tell a first-run learner they are caught up', () => {

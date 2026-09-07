@@ -196,7 +196,7 @@ function Done({ word, right, of, onClose }: { word: Word; right: number; of: num
   const perfect = right === of;
   return (
     <div className="text-center pt-8">
-      <div className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4"
+      <div className="grid place-items-center w-[56px] h-[56px] rounded-full mx-auto mb-4"
         style={{ background: perfect ? 'var(--color-green-d)' : 'var(--color-panel2)' }}>
         <Check size={24} className={perfect ? 'text-green' : 'text-accent'} />
       </div>

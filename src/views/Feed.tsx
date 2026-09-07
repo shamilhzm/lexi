@@ -246,7 +246,7 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
     // slot would size to its content — which is snap-scrolling with no snap
     // points, i.e. two half-words on screen at once.
     <div ref={scroller}
-      className="h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
+      className="feed-scroller h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
       {cold && <Welcome onStart={onStartFirstRun} />}
       <SwipeHint />
       {slots.map((w) => (
@@ -255,7 +255,7 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
       ))}
       <div ref={sentinel} aria-hidden className="h-px" />
       {count >= order.length && (
-        <section className="snap-start h-full flex-shrink-0 grid place-items-center px-8 text-center
+        <section className="feed-slot snap-start h-full flex-shrink-0 grid place-items-center px-8 text-center
           pt-[var(--bar-t)] pb-[var(--bar-b)]">
           <div>
             <p className="text-lg font-semibold mb-1">That’s every word at these levels.</p>
@@ -314,7 +314,7 @@ function SwipeHint() {
   }, [show, dismiss]);
   if (!show) return null;
   return (
-    <div className="absolute inset-x-0 z-30 flex justify-center px-4 pointer-events-none"
+    <div className="feed-coach absolute inset-x-0 z-30 flex justify-center px-4 pointer-events-none"
       style={{ bottom: 'calc(var(--bar-b) + 0.5rem)' }}>
       <div className="glass rounded-full pointer-events-auto flex items-center gap-2 pl-3.5 pr-1.5 py-1.5
         text-2xs text-dim max-w-full">
@@ -322,7 +322,7 @@ function SwipeHint() {
           Swipe <b className="text-txt">right</b> for the full entry, <b className="text-txt">left</b> to practise
         </span>
         <button onClick={dismiss} aria-label="Got it"
-          className="grid place-items-center w-7 h-7 rounded-full flex-shrink-0 hover:text-txt">
+          className="grid place-items-center w-[28px] h-[28px] rounded-full flex-shrink-0 hover:text-txt">
           <X size={13} />
         </button>
       </div>
@@ -339,7 +339,11 @@ function SwipeHint() {
  *  ten-card session, which is the fastest way to see why the app schedules. */
 function Welcome({ onStart }: { onStart: () => void }) {
   return (
-    <section className="snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-center px-6
+    // `.feed-slot` and safe centring, exactly like a word slot. Without the class this
+    // kept `height: 100%` at an accessibility size while its own copy grew well past
+    // it, so it overflowed its box and painted straight over the first word — which
+    // read as a snap-scrolling bug and was a section that had simply been missed.
+    <section className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-safe-center px-6
       pt-[var(--bar-t)] pb-[var(--bar-b)]">
       <div className="w-full max-w-[460px] text-center">
         <h1 lang="de" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h1>
@@ -400,9 +404,24 @@ function Slot({ word, version, onInfo, onDrill, watch }: {
     <section
       ref={watch}
       data-word={word.id}
-      className="snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-center px-6
-        pt-[var(--bar-t)] pb-[var(--bar-b)]"
-      style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 100dvh' } as React.CSSProperties}>
+      // `justify-safe-center` and `overflow-y-auto`, not plain `justify-center`.
+      // Centring a column that is taller than its box clips it at **both** ends, so
+      // the overflow goes half above the scroll origin where nothing can reach it —
+      // the same defect the flip card's front face had, and the reason
+      // `.justify-safe-center` exists. At an accessibility text size the slot's
+      // content outgrows the viewport (measured: the headword's top goes 213px → 38px
+      // → −18px as the root sweeps 16 → 34 → 40), so the word itself slid up behind
+      // the header and then off the screen. Safe centring falls back to flex-start
+      // the moment it stops fitting, and the slot scrolls from there.
+      className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center
+        justify-safe-center px-6 pt-[var(--bar-t)] pb-[var(--bar-b)]"
+      // `content-visibility` lives in CSS (`.feed-slot`), not here. As an inline style
+      // it outranked every stylesheet rule, so the accessibility-size override that
+      // has to turn it off could not — and a slot whose real height no longer matches
+      // its one-viewport intrinsic hint gets laid out on top of its neighbour. Two
+      // words rendered superimposed, which looked like a snap-scrolling bug and was a
+      // specificity one.
+      >
       <Swipeable onRight={onInfo} onLeft={onDrill} term={word.term}>
         {/* Where this word stands, said quietly and only when it says something.
             A learner scrolling their own lexicon should be able to see the ones
@@ -467,7 +486,7 @@ function Slot({ word, version, onInfo, onDrill, watch }: {
             gesture has no name, no focus ring and no screen-reader path; it is an
             accelerant for people who already know what is there, and it cannot be
             the only way to reach anything. */}
-        <div className="mt-8 flex items-center gap-8">
+        <div className="feed-actions mt-8 flex items-center gap-8">
           <Action label={`What else Lexi knows about ${word.term}`} onClick={onInfo}>
             <Info size={24} strokeWidth={1.6} />
           </Action>
@@ -533,7 +552,13 @@ function Swipeable({ children, onLeft, onRight, term }: {
       // buttons hit the section behind and did nothing. On a phone that is most
       // of the screen, and it made a gesture that works feel broken.
       // `h-full` + centring keeps the content exactly where it was.
-      className="relative w-full h-full flex flex-col items-center justify-center text-center touch-pan-y"
+      // `justify-safe-center`, matching the slot. This is `h-full` of the slot's
+      // padded box and centres its own children, so at an accessibility text size it
+      // was the layer actually doing the clipping: the slot scrolled, and the word
+      // still sat at −6px because *this* box had centred a column taller than itself
+      // and spilled it equally out of both ends. Safe centring hands the overflow
+      // downward, where the slot's scroller can reach it.
+      className="relative w-full h-full flex flex-col items-center justify-safe-center text-center touch-pan-y"
       style={{ x }}
       drag="x"
       dragDirectionLock
@@ -586,7 +611,7 @@ function Action({ children, label, pressed, onClick }: {
 }) {
   return (
     <button onClick={onClick} aria-label={label} aria-pressed={pressed}
-      className={`tap-44 grid place-items-center w-11 h-11 rounded-full transition
+      className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition
         active:scale-90 ${pressed ? 'text-accent' : 'text-txt hover:text-accent'}`}>
       {children}
     </button>

@@ -172,7 +172,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                     <StatusChip id={w.id} version={v} />
                     <span onClick={(e) => { e.stopPropagation(); speak(w.term); }}
                       role="button" tabIndex={-1} aria-hidden
-                      className="grid place-items-center w-9 h-9 rounded-full text-dim hover:text-accent flex-shrink-0">
+                      className="grid place-items-center w-[36px] h-[36px] rounded-full text-dim hover:text-accent flex-shrink-0">
                       <Volume2 size={15} />
                     </span>
                   </button>
@@ -201,7 +201,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                     <span className="text-2xs text-dim">{e.p}</span>
                     {e.i && <span className="font-mono text-2xs text-dim">/{e.i}/</span>}
                     <span onClick={() => speak(e.w)} role="button" tabIndex={-1} aria-hidden
-                      className="ml-auto grid place-items-center w-8 h-8 rounded-full text-dim hover:text-accent">
+                      className="ml-auto grid place-items-center w-[32px] h-[32px] rounded-full text-dim hover:text-accent">
                       <Volume2 size={15} />
                     </span>
                   </div>

@@ -42,7 +42,7 @@ export default function InstallNudge({ onBackup }: { onBackup: () => void }) {
 
   return (
     <Card pad="none" className="px-4 py-3.5 mb-4 flex items-start gap-3">
-      <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
+      <span className="grid place-items-center w-[36px] h-[36px] rounded-md bg-panel2 text-accent flex-shrink-0 mt-0.5"><ArrowDownToLine size={18} /></span>
       <div className="flex-1 min-w-0">
         <p className="text-base font-semibold">Install Lexi to protect your progress</p>
         <p className="text-xs text-dim mt-0.5">

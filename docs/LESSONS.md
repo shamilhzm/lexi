@@ -1143,35 +1143,83 @@ recent commit date, a clean `git status`, matching docs, and it built and ran. N
 about it *looked* wrong from the inside. Freshness is a property of the deployment,
 and it can only be read from the deployment.
 
-## A screenshot is a downsampled render *(added 2026-09-07)*
+## A `rem` is a promise that the thing scales *(added 2026-09-07)*
+
+At an iOS accessibility text size the top bar went 56 → **137px**, the four controls in
+the session header measured 470px of a 393px row and wrapped to three lines, and the
+profile avatar's right edge sat at 431px of a 402px viewport. The first fix followed
+the curve: the header divides to ≈3.5rem at every setting, so `--bar-t` became
+`3.5rem` and tracked it exactly. It worked, and it was treating the symptom.
+
+The header grew because Tailwind's spacing scale is `rem`, so `w-11 h-11` — the app's
+own idiom for an icon button — is 44px at a 16px root and **110×110 at a 40px one,
+around a 15px vector glyph**. Neither the touch target nor the ink is text. A 44pt
+target is a physical size, because fingers do not get bigger when type does; a lucide
+icon is drawn at a `size` prop in px and could not scale if it wanted to. Pinning
+those boxes in px took the header **flat to 56px from a 16px root to a 53px one**, and
+`--bar-t` went back to being a pixel constant — honestly, this time.
+
+**Rule: `rem` on a box says "this grows with the reader's type". Ask whether that is
+true before writing it.** It is true of the study card, whose bounds are now `rem` for
+exactly this reason — its contents grew while its px ceiling did not, so the face
+scrolled and the *headword* fell below its own fold. It is false of every bar, touch
+target, icon box, badge and safe-area gap in the app.
+
+**Corollary: a threshold-gated fix is wrong just below its threshold.** The first pass
+put the chrome caps behind `html[data-type='ax']` (root ≥ 30px). At a 28px root — one
+step below, and a setting a lot of people actually use — the profile button was at
+448px of 402. The caps are `min()` now and therefore unconditional: the same rule at
+every size, resolving to the resting value at rest, so there is no step to be wrong
+just under. `data-type` survives only for the two things `min()` cannot express —
+dropping the tab labels, and turning the feed from a carousel into a list.
+
+## A negative result from a blind instrument *(added 2026-09-07; this entry replaces a wrong one)*
 
 `Üben` was reported as losing its umlaut in the tab bar, diagnosed as `leading-none`
-clipping the diaeresis out of an 11px line box, and fixed. The fix shipped to
-production and the label looked exactly the same, which is the only reason anybody
-looked again.
+clipping the diaeresis out of an 11px line box, and fixed. The fix appeared to change
+nothing, and the finding was **withdrawn** — written up here and in BACKLOG as a
+screenshot artefact, with a confident mechanism: two physical pixels of ink at 11px,
+lost in the simulator's downscale of a 3× buffer, and `Wörter` surviving the same
+capture because a lowercase ö sets its dots nearer the x-height.
 
-Nothing was ever clipped. The DOM carries `Üben` — U+00DC, checked by codepoint — and
-the span measures `scrollHeight === clientHeight === 15` with `leading-none` and with
-`leading-[1.35]` alike. At 11px the diaeresis is about two physical pixels, and the
-simulator's screenshot is a downscale of the 3× buffer, so the mark washed out in the
-*capture*. `Wörter` came through the same capture intact because a lowercase ö sets
-its dots near the x-height, where there is more ink to survive the resample, while a
-capital Ü sets them above the cap height.
+**All of that was wrong, and the original finding was right.** Re-run on the same
+simulator, at the same text size, through the same capture: with `leading-none` the
+tab reads `Uben`; with `leading-[1.35]` it reads `Üben`. The capture resolves the mark
+perfectly well. The mechanism is the obvious one — the label is `truncate`, which is
+`overflow: hidden`, so a 1em line box against a font whose own is ~1.2em trims 0.1em
+of ascent, and on a *capital* that is exactly where the diaeresis lives.
 
-So a real, repeatable observation ("this glyph is missing in every screenshot") was
-turned into a mechanism that did not exist, and a plausible-sounding cause got a
-comment in the source explaining a bug that was never there. That comment is worse
-than the missing fix: the next person reads it as established.
+The withdrawal rested on one measurement: `scrollHeight === clientHeight === 15`,
+identical before and after. That number is true and it is irrelevant. `scrollHeight`
+compares **layout boxes**. Glyph ink that overflows its line box does not enlarge the
+box, does not scroll, and does not appear in any geometry API — it is simply painted,
+or, under `overflow: hidden`, not painted. The instrument was structurally incapable
+of seeing the defect, and its silence was read as a clean bill of health.
 
-**Rule: never diagnose a defect smaller than a few pixels from a screenshot.** Get it
-out of the DOM — the text content, the codepoints, `scrollHeight` against
-`clientHeight`, the computed style. A capture is evidence that something *looks*
-wrong, and it is never evidence of *why*.
+**Rule: an instrument that cannot see the defect has not cleared it.** Before a
+measurement is allowed to withdraw a finding, show that the measurement *would have
+changed* had the finding been true — the same discipline as proving a guard fires by
+injecting the defect, applied to diagnosis instead of to tests. Here that would have
+been one line: does `scrollHeight` differ between `leading-none` and `leading-2`? It
+does not, for any content, which ends the argument before it starts.
 
-**Corollary, and it is the part that nearly got away:** when a fix ships and the
-symptom is unchanged, that is the finding. Do not assume the deploy missed. Check the
-built artefact for the change first (it was there), and then go back to the diagnosis,
-because an unchanged symptom after a correct deploy means the cause was wrong.
+**And the sharper version of the corollary that was already here.** The old entry
+said: when a fix ships and the symptom is unchanged, go back to the diagnosis. That is
+half of it. The other half is that "unchanged" is itself a measurement, and it has to
+be made on the build carrying the fix — which, during the days this was first looked
+at, was not the build being screenshotted. A negative result is only as good as the
+thing it was taken against.
+
+The general rule the old entry was reaching for still holds and is worth keeping:
+**do not diagnose a sub-pixel defect from a screenshot alone.** But the way out is not
+any DOM number that happens to be at hand. It is a *differential* — change the
+suspected cause, capture again, compare. That is what finally settled this, and it
+would have settled it the first time.
+
+A comment explaining a bug that was never there had already been written into the
+source. It is gone, and `src/lib/umlaut-clip.test.ts` now bans the combination
+outright: `overflow: hidden` with `line-height: 1` clips ink in any script with tall
+diacritics, and this is a German app.
 
 ## Instrument the browser before you theorise about it *(added 2026-09-07)*
 

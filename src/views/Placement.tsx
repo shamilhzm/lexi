@@ -145,7 +145,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
         <Card pad="none" className="px-6 py-10 text-center">
           <motion.div initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 420, damping: 18 }}
-            className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
+            className="grid place-items-center w-[56px] h-[56px] rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
             <GraduationCap className="text-green" />
           </motion.div>
           <Kicker tone="accent" className="block mb-1">Your level</Kicker>

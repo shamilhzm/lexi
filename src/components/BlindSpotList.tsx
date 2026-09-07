@@ -27,7 +27,7 @@ export default function BlindSpotList({ onDrill, days = 30 }:
   if (stats.length === 0) {
     return (
       <div className="px-6 py-8 text-center">
-        <div className="grid place-items-center w-11 h-11 rounded-full mx-auto mb-3" style={{ background: 'var(--color-green-d)' }}>
+        <div className="grid place-items-center w-[44px] h-[44px] rounded-full mx-auto mb-3" style={{ background: 'var(--color-green-d)' }}>
           <Target className="text-green" size={18} />
         </div>
         <h3 className="text-base font-bold mb-1">No blind spots yet</h3>

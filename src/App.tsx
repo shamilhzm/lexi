@@ -128,6 +128,41 @@ export default function App() {
   // A route change puts a fresh scroller at the top; without this the bars stay
   // materialised from wherever the last one was left.
   useEffect(() => { document.documentElement.dataset.scrolled = 'false'; }, [view, navTick]);
+
+  // ---- how big is the type, really -------------------------------------------
+  // `index.css` sets `html { font: -apple-system-body }`, so on Apple platforms the
+  // root font size *is* the learner's Dynamic Type setting — and `applyTextScale`
+  // writes an explicit size on the same element for the in-app control. One reading
+  // covers both, which is the whole reason to measure rather than to sniff.
+  //
+  // Published as `data-type` because CSS cannot ask this question: `@media` width
+  // queries in `em` resolve against the *initial* 16px, not the root, and there is no
+  // media feature for text size at all.
+  //
+  // Measured at 402×714, sweeping the root from 16px to 40px: the chrome and the
+  // spacing scale with it (the top bar goes 56 → 137px, the feed's action row 196 →
+  // 490px against a 402px viewport) while the viewport does not. Everything holds to
+  // ~28px and comes apart between 28 and 34 — the headword slides under the header at
+  // 34 and off the screen at 40. So `lg` is where it gets tight and `ax` is where
+  // chrome has to stop pretending it can scale.
+  useEffect(() => {
+    const root = document.documentElement;
+    const sync = () => {
+      const px = parseFloat(getComputedStyle(root).fontSize) || 16;
+      const next = px >= 30 ? 'ax' : px >= 22 ? 'lg' : 'base';
+      if (root.dataset.type !== next) root.dataset.type = next;
+    };
+    sync();
+    // iOS fires `resize` when you come back from Settings with a new size; `pageshow`
+    // covers a restore from the back/forward cache, where nothing else fires at all.
+    window.addEventListener('resize', sync);
+    window.addEventListener('pageshow', sync);
+    return () => {
+      window.removeEventListener('resize', sync);
+      window.removeEventListener('pageshow', sync);
+    };
+  }, []);
+
   // The human-audio manifest is a small id list; loading it at boot lets cards
   // decide synchronously whether to show the "real voice" marker. A missing file
   // resolves to an empty manifest, so this can never block or fail the app.
@@ -275,8 +310,19 @@ export default function App() {
           scrolls to a stop in the wrong place. */}
       <div className="flex-1 flex flex-col min-w-0 min-h-0"
         style={{
-          ['--bar-t' as string]: 'calc(52px + env(safe-area-inset-top))',
-          ['--bar-b' as string]: 'calc(58px + max(0.5rem, env(safe-area-inset-bottom) - 14px) + 0.5rem)',
+          // Both are px, and both are px *because the bars stopped growing*. They
+          // used to grow: Tailwind's spacing scale is rem, so an accessibility text
+          // size inflated the bars' own padding and the 44pt boxes around their
+          // 15px icons, and the header went 56 → 137px while this constant did not.
+          // The first fix followed that curve (`3.5rem`); the real one pinned the
+          // touch targets in px, which took the header flat to 56px from a 16px root
+          // to a 53px one. See `index.css`, where both numbers are declared — these
+          // are the inline defaults the stylesheet overrides, and the two have to
+          // stay together. The `- 14px` is the same subtraction BottomNav makes to
+          // seat the capsule; if they disagree, content scrolls to a stop in the
+          // wrong place.
+          ['--bar-t' as string]: 'calc(56px + env(safe-area-inset-top))',
+          ['--bar-b' as string]: 'calc(58px + max(8px, env(safe-area-inset-bottom) - 14px) + 8px)',
         }}>
         <main id="main" tabIndex={-1}
           className={`flex-1 bg-bg min-h-0 ${bare ? 'overflow-hidden' : 'overflow-y-auto'}`}
