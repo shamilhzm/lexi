@@ -275,8 +275,15 @@ the *lookup* gap — `der Aufenthaltstitel` returns a good entry with both infle
 
 ### 🟡 Smaller, all verified on the live build
 
-- **`Üben` loses its umlaut in the tab bar.** `text-2xs leading-none` is an 11px line
-  box; the diaeresis is clipped. On the tab that says *Üben*, in a German app.
+- ~~**`Üben` loses its umlaut in the tab bar.**~~ **Withdrawn 2026-09-07, and kept
+  because the mistake is the lesson.** The claim was that `text-2xs leading-none` gave
+  an 11px line box that clipped the diaeresis. It does not clip anything: the DOM
+  carries `Üben` (U+00DC) and the span measures `scrollHeight === clientHeight === 15`
+  both before and after the "fix", which was shipped and changed nothing. What the
+  screenshots showed was a 2-physical-pixel mark at 11px lost in the simulator's
+  downscaled capture — and `Wörter` survived the same capture because a lowercase ö
+  sets its dots near the x-height where the antialiasing is stronger, while `Ü` sets
+  them above the cap. Reverted. See LESSONS, *A screenshot is a downsampled render*.
 - **The reminder card says Lexi "will flag it on Home"** (`ReminderCard.tsx:38`). Home
   was deleted on 2026-09-05. `Review.tsx:441` carries the same stale reference in a
   comment.

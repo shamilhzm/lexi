@@ -80,11 +80,7 @@ export default function BottomNav({ view, onGo }: {
                     one and fits at `text-2xs` with room to spare, which is why
                     the labels can be the German surface names in full rather
                     than one clipped English word. */}
-                {/* `leading-none` is an 11px line box at `text-2xs`, and a capital Ü needs
-                    more than its cap height — the diaeresis was being clipped off the
-                    tab that says *Üben*, in a German app. `leading-[1.35]` gives the
-                    accent somewhere to sit; the row is `gap-0.5` so nothing moves. */}
-                <span lang="de" className="text-2xs leading-[1.35] tracking-tight truncate max-w-full">{n.label}</span>
+                <span lang="de" className="text-2xs leading-none tracking-tight truncate max-w-full">{n.label}</span>
                 </span>
               </button>
             );

@@ -1142,3 +1142,33 @@ builds too.
 recent commit date, a clean `git status`, matching docs, and it built and ran. Nothing
 about it *looked* wrong from the inside. Freshness is a property of the deployment,
 and it can only be read from the deployment.
+
+## A screenshot is a downsampled render *(added 2026-09-07)*
+
+`Üben` was reported as losing its umlaut in the tab bar, diagnosed as `leading-none`
+clipping the diaeresis out of an 11px line box, and fixed. The fix shipped to
+production and the label looked exactly the same, which is the only reason anybody
+looked again.
+
+Nothing was ever clipped. The DOM carries `Üben` — U+00DC, checked by codepoint — and
+the span measures `scrollHeight === clientHeight === 15` with `leading-none` and with
+`leading-[1.35]` alike. At 11px the diaeresis is about two physical pixels, and the
+simulator's screenshot is a downscale of the 3× buffer, so the mark washed out in the
+*capture*. `Wörter` came through the same capture intact because a lowercase ö sets
+its dots near the x-height, where there is more ink to survive the resample, while a
+capital Ü sets them above the cap height.
+
+So a real, repeatable observation ("this glyph is missing in every screenshot") was
+turned into a mechanism that did not exist, and a plausible-sounding cause got a
+comment in the source explaining a bug that was never there. That comment is worse
+than the missing fix: the next person reads it as established.
+
+**Rule: never diagnose a defect smaller than a few pixels from a screenshot.** Get it
+out of the DOM — the text content, the codepoints, `scrollHeight` against
+`clientHeight`, the computed style. A capture is evidence that something *looks*
+wrong, and it is never evidence of *why*.
+
+**Corollary, and it is the part that nearly got away:** when a fix ships and the
+symptom is unchanged, that is the finding. Do not assume the deploy missed. Check the
+built artefact for the change first (it was there), and then go back to the diagnosis,
+because an unchanged symptom after a correct deploy means the cause was wrong.
