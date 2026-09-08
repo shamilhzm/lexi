@@ -85,8 +85,15 @@ const words = (s?: string) => [...new Set((s ?? '').toLowerCase().match(/[a-zä�
   .filter((x) => x.length > 2 && !STOP.has(x));
 
 /** Crude suffix trim. A stemmer would be better and is not worth the dependency for a
- *  check whose output a human reads line by line. */
-const stem = (x: string) => x.replace(/(ing|ed|es|s)$/, '');
+ *  check whose output a human reads line by line.
+ *
+ *  **`ies` is handled first, and `die Erdbeere` is why.** Trimming a bare `es` takes
+ *  *strawberries* to *strawberrie*, which neither prefixes nor is prefixed by
+ *  *strawberry* — so a card glossed "strawberry", defined as a red fruit and
+ *  exampled with "Strawberries are red" was reported as a card whose gloss its own
+ *  example disagrees with. The plural of a `-y` noun is the single commonest shape
+ *  in an English gloss list and it was the one shape the trim could not see. */
+const stem = (x: string) => x.replace(/ies$/, 'y').replace(/(ing|ed|es|s)$/, '');
 
 /** Do these two strings share any content word, allowing a prefix match so
  *  "repeat"/"repetition" and "grill"/"grilling" count as agreement? */
@@ -105,6 +112,14 @@ function main() {
     if (only && c.level !== only) continue;
     const exEn = (c.ex ?? []).map((e) => e.en).join(' ');
     if (!c.def || !c.en || !exEn) continue;
+    // **A field with nothing to say cannot lose a vote.** `STOP` is deliberately
+    // generous, which is right for a definition and wrong for a gloss: "to get used
+    // to" is *entirely* stop words, and so is "form" — so the gloss arrived at the
+    // vote with an empty word list, could agree with nothing by construction, and
+    // lost every time. Twenty-odd of the reported hits were that, and each one is a
+    // perfectly good card. Where a field is all function words, the instrument has
+    // no reading and must say so by staying silent.
+    if (!words(c.en).length) continue;
     // The vote. The gloss must lose to *both* of the others, and the other two must
     // agree with each other — otherwise all three disagree and the card is simply
     // phrased loosely, which is not evidence of anything.

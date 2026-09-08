@@ -61,7 +61,8 @@
     "corpus:gloss-vote": "node scripts/corpus/gloss-vote.ts",
     "deploy": "vercel --prod --yes --build-env LEXI_BUILD_SHA=$(git rev-parse --short HEAD)",
     "measure": "node scripts/serve-measured.ts",
-    "corpus:homograph": "node scripts/corpus/homograph.ts"
+    "corpus:homograph": "node scripts/corpus/homograph.ts",
+    "corpus:spelling": "node scripts/corpus/spelling.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

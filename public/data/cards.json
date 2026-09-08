@@ -1541,7 +1541,7 @@
   {
     "id": "voc:A1:das Kino",
     "term": "das Kino",
-    "en": "cinema, movie theater",
+    "en": "cinema, movie theatre",
     "pos": "noun",
     "level": "A1",
     "gender": "das",
@@ -13247,7 +13247,7 @@
   {
     "id": "voc:A2:der Abschluss",
     "term": "der Abschluss",
-    "en": "qualification, completion; degree, qualification",
+    "en": "qualification, completion; degree",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -18394,7 +18394,7 @@
   {
     "id": "voc:A2:der Umsatz",
     "term": "der Umsatz",
-    "en": "turnover, sales; revenue, turnover",
+    "en": "turnover, sales; revenue",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -19573,7 +19573,7 @@
   {
     "id": "voc:A2:die Beratung",
     "term": "die Beratung",
-    "en": "consultation, advice; counseling, consultation",
+    "en": "consultation, advice; counseling",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -46157,7 +46157,7 @@
   {
     "id": "voc:A1:die Mitte",
     "term": "die Mitte",
-    "en": "the middle, center",
+    "en": "the middle, centre",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -46278,7 +46278,7 @@
   {
     "id": "voc:A2:farbig",
     "term": "farbig",
-    "en": "colored",
+    "en": "coloured",
     "pos": "adjective",
     "level": "A2",
     "gender": null,
@@ -46448,7 +46448,7 @@
   {
     "id": "voc:A1:die Farbe",
     "term": "die Farbe",
-    "en": "color",
+    "en": "colour",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -46492,7 +46492,7 @@
   {
     "id": "voc:A2:färben",
     "term": "färben",
-    "en": "to dye, to color",
+    "en": "to dye, to colour",
     "pos": "verb",
     "level": "A2",
     "gender": null,
@@ -46810,7 +46810,7 @@
   {
     "id": "voc:B1:erfüllen",
     "term": "erfüllen",
-    "en": "to fulfill, meet",
+    "en": "to fulfil, meet",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -46928,7 +46928,7 @@
   {
     "id": "voc:B1:merken",
     "term": "merken",
-    "en": "to notice, realize",
+    "en": "to notice, realise",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -54697,7 +54697,7 @@
   {
     "id": "voc:B1:das Stadtzentrum",
     "term": "das Stadtzentrum",
-    "en": "city center",
+    "en": "city centre",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -57620,7 +57620,7 @@
   {
     "id": "voc:B1:die Verteidigung",
     "term": "die Verteidigung",
-    "en": "defense",
+    "en": "defence",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -59041,7 +59041,7 @@
   {
     "id": "voc:B1:das Arbeitsrecht",
     "term": "das Arbeitsrecht",
-    "en": "labor law",
+    "en": "labour law",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -64523,7 +64523,7 @@
   {
     "id": "gram:C2:Modalpartikeln",
     "term": "Modalpartikeln",
-    "en": "Flavoring particles: doch, mal, eben, halt, ja, wohl.",
+    "en": "Flavouring particles: doch, mal, eben, halt, ja, wohl.",
     "pos": "grammar",
     "level": "C2",
     "gender": null,
@@ -64737,7 +64737,7 @@
   {
     "id": "voc:A1:die Bahn",
     "term": "die Bahn",
-    "en": "route, trail",
+    "en": "train, railway; track, lane",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -64948,7 +64948,7 @@
   {
     "id": "voc:A2:die Aktion",
     "term": "die Aktion",
-    "en": "operation, campaign, measure, organized course of action",
+    "en": "operation, campaign, measure, organised course of action",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -68348,7 +68348,7 @@
   {
     "id": "voc:B1:die Organisation",
     "term": "die Organisation",
-    "en": "organisation, organization",
+    "en": "organisation",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -69002,7 +69002,7 @@
   {
     "id": "voc:B2:die Gewerkschaft",
     "term": "die Gewerkschaft",
-    "en": "labor union, trade union",
+    "en": "labour union, trade union",
     "pos": "noun",
     "level": "B2",
     "gender": "die",
@@ -70303,7 +70303,7 @@
   {
     "id": "voc:B1:geschickt",
     "term": "geschickt",
-    "en": "adept, habile, skillful, clever",
+    "en": "adept, habile, skilful, clever",
     "pos": "adjective",
     "level": "B1",
     "gender": null,
@@ -71554,7 +71554,7 @@
   {
     "id": "voc:B2:der Veranstalter",
     "term": "der Veranstalter",
-    "en": "host, organizer",
+    "en": "host, organiser",
     "pos": "noun",
     "level": "B2",
     "gender": "der",
@@ -72012,7 +72012,7 @@
   {
     "id": "voc:A2:der Humor",
     "term": "der Humor",
-    "en": "humor",
+    "en": "humour",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -73331,7 +73331,7 @@
   {
     "id": "voc:B1:erzielen",
     "term": "erzielen",
-    "en": "to achieve, to obtain, to attain, to reach, to arrive, to realize",
+    "en": "to achieve, to obtain, to attain, to reach, to arrive, to realise",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -73845,7 +73845,7 @@
   {
     "id": "voc:B1:die Laune",
     "term": "die Laune",
-    "en": "mood, humor",
+    "en": "mood, humour",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -75135,7 +75135,7 @@
   {
     "id": "voc:B2:die Defensive",
     "term": "die Defensive",
-    "en": "defense",
+    "en": "defence",
     "pos": "noun",
     "level": "B2",
     "gender": "die",
@@ -75291,7 +75291,7 @@
   {
     "id": "voc:B2:erkennbar",
     "term": "erkennbar",
-    "en": "recognizable, discernible, visible, identifiable",
+    "en": "recognisable, discernible, visible, identifiable",
     "pos": "adjective",
     "level": "B2",
     "gender": null,
@@ -77478,7 +77478,7 @@
   {
     "id": "voc:B1:der Kongress",
     "term": "der Kongress",
-    "en": "congress, Congress",
+    "en": "congress",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -77522,7 +77522,7 @@
   {
     "id": "voc:B1:kritisieren",
     "term": "kritisieren",
-    "en": "to criticize, to criticise",
+    "en": "to criticise",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -82698,7 +82698,7 @@
   {
     "id": "voc:B1:die Bibel",
     "term": "die Bibel",
-    "en": "Bible, bible",
+    "en": "Bible",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -85596,7 +85596,7 @@
   {
     "id": "voc:B1:der Auftritt",
     "term": "der Auftritt",
-    "en": "appearance, look, comportment, behavior",
+    "en": "appearance, look, comportment, behaviour",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -90401,7 +90401,7 @@
   {
     "id": "voc:C1:die Notwehr",
     "term": "die Notwehr",
-    "en": "self-defense",
+    "en": "self-defence",
     "pos": "noun",
     "level": "C1",
     "gender": "die",
@@ -91292,7 +91292,7 @@
   {
     "id": "voc:A2:der Hafen",
     "term": "der Hafen",
-    "en": "harbour/harbor",
+    "en": "harbour/harbour",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -92083,7 +92083,7 @@
   {
     "id": "voc:B1:der Organisator",
     "term": "der Organisator",
-    "en": "a person tasked with or skilled at organizing",
+    "en": "a person tasked with or skilled at organising",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -96149,7 +96149,7 @@
   {
     "id": "voc:A2:veranstalten",
     "term": "veranstalten",
-    "en": "to organize (an event)",
+    "en": "to organise (an event)",
     "pos": "verb",
     "level": "A2",
     "gender": null,
@@ -103328,7 +103328,7 @@
   {
     "id": "voc:C1:der Zähler",
     "term": "der Zähler",
-    "en": "meter (for electricity, gas or water)",
+    "en": "metre (for electricity, gas or water)",
     "pos": "noun",
     "level": "C1",
     "gender": "der",

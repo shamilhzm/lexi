@@ -1249,7 +1249,7 @@
       },
       {
         "de": "Der Zerfall des Römerreiches raubte der Stadt Rom die alte Stellung als Mittelpunkt alles Geschehens.",
-        "en": "The decay of the Roman empire robbed the city of Rome of the old position as the center of all that was happening.",
+        "en": "The decay of the Roman empire robbed the city of Rome of the old position as the centre of all that was happening.",
         "lvl": "B1"
       }
     ],
@@ -3748,7 +3748,7 @@
   {
     "id": "voc:A1:das Kino",
     "term": "das Kino",
-    "en": "cinema, movie theater",
+    "en": "cinema, movie theatre",
     "pos": "noun",
     "level": "A1",
     "gender": "das",
@@ -4951,7 +4951,7 @@
       },
       {
         "de": "Mit seinen 30 Meter Länge und mitunter mehr als 150 Tonnen Gewicht übertrifft der Blauwal jedes andere Tier auf Erden.",
-        "en": "With its length of 30 meters and weight of sometimes more than 150 tons the blue whale surpasses every other animal on Earth.",
+        "en": "With its length of 30 metres and weight of sometimes more than 150 tons the blue whale surpasses every other animal on Earth.",
         "lvl": "A2"
       },
       {
@@ -13733,7 +13733,7 @@
       },
       {
         "de": "Fliegen wird teurer. Aber die Menschen wollen weiterhin reisen, Urlaub machen, Familien und Freunde besuchen.",
-        "en": "Flying is getting more expensive. But the people want to continue traveling, going on vacation, visiting their families and friends.",
+        "en": "Flying is getting more expensive. But the people want to continue travelling, going on vacation, visiting their families and friends.",
         "lvl": "A2"
       },
       {
@@ -31486,7 +31486,7 @@
   {
     "id": "voc:A2:der Abschluss",
     "term": "der Abschluss",
-    "en": "qualification, completion; degree, qualification",
+    "en": "qualification, completion; degree",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -39959,7 +39959,7 @@
       },
       {
         "de": "Ich habe dich mit diesem Hut nicht erkannt.",
-        "en": "I didn't recognize you in that hat.",
+        "en": "I didn't recognise you in that hat.",
         "lvl": "B1"
       }
     ],
@@ -43762,7 +43762,7 @@
   {
     "id": "voc:A2:der Umsatz",
     "term": "der Umsatz",
-    "en": "turnover, sales; revenue, turnover",
+    "en": "turnover, sales; revenue",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -46456,7 +46456,7 @@
   {
     "id": "voc:A2:die Beratung",
     "term": "die Beratung",
-    "en": "consultation, advice; counseling, consultation",
+    "en": "consultation, advice; counseling",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -70963,7 +70963,7 @@
       },
       {
         "de": "Wegen der hohen Kosten hat das Unternehmen seine Teilnahme an dem Projekt abgesagt.",
-        "en": "Because of the high costs, the company canceled its participation in the project.",
+        "en": "Because of the high costs, the company cancelled its participation in the project.",
         "lvl": "A1"
       },
       {
@@ -75241,7 +75241,7 @@
       },
       {
         "de": "Hast du endlich einen Sinn für Humor entwickelt?",
-        "en": "Have you finally developed a sense of humor?",
+        "en": "Have you finally developed a sense of humour?",
         "lvl": "A2"
       },
       {
@@ -102242,7 +102242,7 @@
   {
     "id": "voc:A1:die Mitte",
     "term": "die Mitte",
-    "en": "the middle, center",
+    "en": "the middle, centre",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -102482,7 +102482,7 @@
   {
     "id": "voc:A2:farbig",
     "term": "farbig",
-    "en": "colored",
+    "en": "coloured",
     "pos": "adjective",
     "level": "A2",
     "gender": null,
@@ -102809,7 +102809,7 @@
   {
     "id": "voc:A1:die Farbe",
     "term": "die Farbe",
-    "en": "color",
+    "en": "colour",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -102907,7 +102907,7 @@
   {
     "id": "voc:A2:färben",
     "term": "färben",
-    "en": "to dye, to color",
+    "en": "to dye, to colour",
     "pos": "verb",
     "level": "A2",
     "gender": null,
@@ -103499,7 +103499,7 @@
   {
     "id": "voc:B1:erfüllen",
     "term": "erfüllen",
-    "en": "to fulfill, meet",
+    "en": "to fulfil, meet",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -103731,7 +103731,7 @@
   {
     "id": "voc:B1:merken",
     "term": "merken",
-    "en": "to notice, realize",
+    "en": "to notice, realise",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -118465,7 +118465,7 @@
   {
     "id": "voc:B1:das Stadtzentrum",
     "term": "das Stadtzentrum",
-    "en": "city center",
+    "en": "city centre",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -124180,7 +124180,7 @@
   {
     "id": "voc:B1:die Verteidigung",
     "term": "die Verteidigung",
-    "en": "defense",
+    "en": "defence",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -124763,7 +124763,7 @@
       },
       {
         "de": "Die Besatzung, die damals mit allen militärischen Ehren kapitulierte, zog ab, und die Stadt kam unter deutsche Verwaltung.",
-        "en": "The occupational troops, who surrendered with full military honors at that time, left, and the city came under German administration.",
+        "en": "The occupational troops, who surrendered with full military honours at that time, left, and the city came under German administration.",
         "lvl": "B2"
       }
     ],
@@ -126832,7 +126832,7 @@
   {
     "id": "voc:B1:das Arbeitsrecht",
     "term": "das Arbeitsrecht",
-    "en": "labor law",
+    "en": "labour law",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -136564,7 +136564,7 @@
   {
     "id": "gram:C2:Modalpartikeln",
     "term": "Modalpartikeln",
-    "en": "Flavoring particles: doch, mal, eben, halt, ja, wohl.",
+    "en": "Flavouring particles: doch, mal, eben, halt, ja, wohl.",
     "pos": "grammar",
     "level": "C2",
     "gender": null,
@@ -136830,7 +136830,7 @@
   {
     "id": "voc:A1:die Bahn",
     "term": "die Bahn",
-    "en": "route, trail",
+    "en": "train, railway; track, lane",
     "pos": "noun",
     "level": "A1",
     "gender": "die",
@@ -137210,7 +137210,7 @@
   {
     "id": "voc:A2:die Aktion",
     "term": "die Aktion",
-    "en": "operation, campaign, measure, organized course of action",
+    "en": "operation, campaign, measure, organised course of action",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -142443,7 +142443,7 @@
     "ex": [
       {
         "de": "Reisen bildet.",
-        "en": "Traveling makes people knowledgeable.",
+        "en": "Travelling makes people knowledgeable.",
         "lvl": "B1"
       },
       {
@@ -143458,7 +143458,7 @@
   {
     "id": "voc:B1:die Organisation",
     "term": "die Organisation",
-    "en": "organisation, organization",
+    "en": "organisation",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -143470,12 +143470,12 @@
     "ex": [
       {
         "de": "Unsere Organisation ist eine große.",
-        "en": "Our organization is a large one.",
+        "en": "Our organisation is a large one.",
         "lvl": "B1"
       },
       {
         "de": "Tom ist ein Mitglied dieser Organisation.",
-        "en": "Tom is a member of this organization.",
+        "en": "Tom is a member of this organisation.",
         "lvl": "B1"
       }
     ],
@@ -144684,7 +144684,7 @@
   {
     "id": "voc:B2:die Gewerkschaft",
     "term": "die Gewerkschaft",
-    "en": "labor union, trade union",
+    "en": "labour union, trade union",
     "pos": "noun",
     "level": "B2",
     "gender": "die",
@@ -144696,7 +144696,7 @@
     "ex": [
       {
         "de": "Die Gewerkschaft hat zum Streik aufgerufen.",
-        "en": "The labor union called for a strike.",
+        "en": "The labour union called for a strike.",
         "lvl": "B2"
       },
       {
@@ -147118,7 +147118,7 @@
   {
     "id": "voc:B1:geschickt",
     "term": "geschickt",
-    "en": "adept, habile, skillful, clever",
+    "en": "adept, habile, skilful, clever",
     "pos": "adjective",
     "level": "B1",
     "gender": null,
@@ -149448,7 +149448,7 @@
   {
     "id": "voc:B2:der Veranstalter",
     "term": "der Veranstalter",
-    "en": "host, organizer",
+    "en": "host, organiser",
     "pos": "noun",
     "level": "B2",
     "gender": "der",
@@ -149460,7 +149460,7 @@
     "ex": [
       {
         "de": "Michael gab sich als einer der Veranstalter aus.",
-        "en": "Michael pretended to be one of the organizers.",
+        "en": "Michael pretended to be one of the organisers.",
         "lvl": "B2"
       },
       {
@@ -150296,7 +150296,7 @@
   {
     "id": "voc:A2:der Humor",
     "term": "der Humor",
-    "en": "humor",
+    "en": "humour",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -150308,12 +150308,12 @@
     "ex": [
       {
         "de": "Du hast Humor.",
-        "en": "You have a sense of humor.",
+        "en": "You have a sense of humour.",
         "lvl": "A2"
       },
       {
         "de": "Sie haben Humor.",
-        "en": "You have a sense of humor.",
+        "en": "You have a sense of humour.",
         "lvl": "A2"
       }
     ],
@@ -152733,7 +152733,7 @@
   {
     "id": "voc:B1:erzielen",
     "term": "erzielen",
-    "en": "to achieve, to obtain, to attain, to reach, to arrive, to realize",
+    "en": "to achieve, to obtain, to attain, to reach, to arrive, to realise",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -153288,7 +153288,7 @@
       },
       {
         "de": "Tom ist ein fahrender Händler.",
-        "en": "Tom is a traveling salesman.",
+        "en": "Tom is a travelling salesman.",
         "lvl": "B1"
       }
     ],
@@ -153709,7 +153709,7 @@
   {
     "id": "voc:B1:die Laune",
     "term": "die Laune",
-    "en": "mood, humor",
+    "en": "mood, humour",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -156117,7 +156117,7 @@
   {
     "id": "voc:B2:die Defensive",
     "term": "die Defensive",
-    "en": "defense",
+    "en": "defence",
     "pos": "noun",
     "level": "B2",
     "gender": "die",
@@ -156193,7 +156193,7 @@
       },
       {
         "de": "Es ist eine Ehre.",
-        "en": "It's an honor.",
+        "en": "It's an honour.",
         "lvl": "B2"
       }
     ],
@@ -156403,7 +156403,7 @@
   {
     "id": "voc:B2:erkennbar",
     "term": "erkennbar",
-    "en": "recognizable, discernible, visible, identifiable",
+    "en": "recognisable, discernible, visible, identifiable",
     "pos": "adjective",
     "level": "B2",
     "gender": null,
@@ -160547,7 +160547,7 @@
   {
     "id": "voc:B1:der Kongress",
     "term": "der Kongress",
-    "en": "congress, Congress",
+    "en": "congress",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -160630,7 +160630,7 @@
   {
     "id": "voc:B1:kritisieren",
     "term": "kritisieren",
-    "en": "to criticize, to criticise",
+    "en": "to criticise",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -160642,12 +160642,12 @@
     "ex": [
       {
         "de": "Er kritisiert alles.",
-        "en": "He criticizes everything.",
+        "en": "He criticises everything.",
         "lvl": "B1"
       },
       {
         "de": "Tom kritisiert alles.",
-        "en": "Tom criticizes everything.",
+        "en": "Tom criticises everything.",
         "lvl": "B1"
       }
     ],
@@ -161282,7 +161282,7 @@
     "ex": [
       {
         "de": "Die Farben stoßen sich ab.",
-        "en": "Those colors clash.",
+        "en": "Those colours clash.",
         "lvl": "B1"
       },
       {
@@ -161900,7 +161900,7 @@
     "ex": [
       {
         "de": "Die Abgabe von Alkohol an Minderjährige stellt in diesem Staat keine Straftat dar.",
-        "en": "Providing alcohol to minors is not a criminal offense in this state.",
+        "en": "Providing alcohol to minors is not a criminal offence in this state.",
         "lvl": "B2"
       },
       {
@@ -162409,7 +162409,7 @@
       },
       {
         "de": "Sie versprechen uns das Blaue vom Himmel, ich vermute allerdings, wir können auf die Einhaltung der Versprechen bis in alle Ewigkeiten warten.",
-        "en": "They promise us the moon, but I suspect we can wait for the fulfillment of those promises till hell freezes over.",
+        "en": "They promise us the moon, but I suspect we can wait for the fulfilment of those promises till hell freezes over.",
         "lvl": "B2"
       }
     ],
@@ -163820,7 +163820,7 @@
     "ex": [
       {
         "de": "Sie versuchte die Verbreitung des Gerüchts zu verhindern.",
-        "en": "She tried to prevent the rumor from spreading.",
+        "en": "She tried to prevent the rumour from spreading.",
         "lvl": "B2"
       },
       {
@@ -164206,7 +164206,7 @@
     "ex": [
       {
         "de": "Das Schiff fuhr recht zügig.",
-        "en": "The ship traveled at a good speed.",
+        "en": "The ship travelled at a good speed.",
         "lvl": "B2"
       },
       {
@@ -170174,7 +170174,7 @@
   {
     "id": "voc:B1:die Bibel",
     "term": "die Bibel",
-    "en": "Bible, bible",
+    "en": "Bible",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -175342,7 +175342,7 @@
   {
     "id": "voc:B1:der Auftritt",
     "term": "der Auftritt",
-    "en": "appearance, look, comportment, behavior",
+    "en": "appearance, look, comportment, behaviour",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -176297,12 +176297,12 @@
     "ex": [
       {
         "de": "Ich liebe diesen Stadtteil.",
-        "en": "I love this neighborhood.",
+        "en": "I love this neighbourhood.",
         "lvl": "B1"
       },
       {
         "de": "Er wohnt in diesem Stadtteil.",
-        "en": "He lives in this neighborhood.",
+        "en": "He lives in this neighbourhood.",
         "lvl": "B1"
       }
     ],
@@ -177743,7 +177743,7 @@
       },
       {
         "de": "Hast du eine Lieblingssprache? Welche ist es gegebenenfalls und warum?",
-        "en": "Do you have a favorite language? If so, what is it and why?",
+        "en": "Do you have a favourite language? If so, what is it and why?",
         "lvl": "B2"
       }
     ],
@@ -178690,7 +178690,7 @@
       },
       {
         "de": "Wir sahen Arbeiter Felsen sprengen.",
-        "en": "We saw laborers blasting rocks.",
+        "en": "We saw labourers blasting rocks.",
         "lvl": "B2"
       }
     ],
@@ -181780,12 +181780,12 @@
     "ex": [
       {
         "de": "Das ist mein Favorit.",
-        "en": "This is my favorite.",
+        "en": "This is my favourite.",
         "lvl": "B2"
       },
       {
         "de": "Hast du einen Favoriten?",
-        "en": "Do you have a favorite?",
+        "en": "Do you have a favourite?",
         "lvl": "B2"
       }
     ],
@@ -182471,7 +182471,7 @@
       },
       {
         "de": "Farbfilme sind der heutige Standard.",
-        "en": "Color films are the norm nowadays.",
+        "en": "Colour films are the norm nowadays.",
         "lvl": "B2"
       }
     ],
@@ -183250,7 +183250,7 @@
       },
       {
         "de": "Mein Betreuer schimpfte mit mir, wegen meines dummen Benehmens.",
-        "en": "My tutor scolded me for my stupid behavior.",
+        "en": "My tutor scolded me for my stupid behaviour.",
         "lvl": "C1"
       }
     ],
@@ -183277,7 +183277,7 @@
       },
       {
         "de": "Was ist dein liebstes Betriebssystem?",
-        "en": "What's your favorite operating system?",
+        "en": "What's your favourite operating system?",
         "lvl": "C1"
       }
     ],
@@ -184323,7 +184323,7 @@
   {
     "id": "voc:C1:die Notwehr",
     "term": "die Notwehr",
-    "en": "self-defense",
+    "en": "self-defence",
     "pos": "noun",
     "level": "C1",
     "gender": "die",
@@ -185983,7 +185983,7 @@
   {
     "id": "voc:A2:der Hafen",
     "term": "der Hafen",
-    "en": "harbour/harbor",
+    "en": "harbour/harbour",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -186000,7 +186000,7 @@
       },
       {
         "de": "Im Hafen liegen viele Schiffe.",
-        "en": "There are many ships in the harbor.",
+        "en": "There are many ships in the harbour.",
         "lvl": "A2"
       }
     ],
@@ -187072,7 +187072,7 @@
     "ex": [
       {
         "de": "Tom gab mir eine Wegbeschreibung zum Theater.",
-        "en": "Tom gave me directions to the theater.",
+        "en": "Tom gave me directions to the theatre.",
         "lvl": "A2"
       },
       {
@@ -187468,7 +187468,7 @@
   {
     "id": "voc:B1:der Organisator",
     "term": "der Organisator",
-    "en": "a person tasked with or skilled at organizing",
+    "en": "a person tasked with or skilled at organising",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -188379,12 +188379,12 @@
     "ex": [
       {
         "de": "Was ist Ihr bevorzugtes Bekleidungsgeschäft?",
-        "en": "What is your favorite clothing store?",
+        "en": "What is your favourite clothing store?",
         "lvl": "A2"
       },
       {
         "de": "Was ist dein bevorzugtes Bekleidungsgeschäft?",
-        "en": "What is your favorite clothing store?",
+        "en": "What is your favourite clothing store?",
         "lvl": "A2"
       }
     ],
@@ -189170,12 +189170,12 @@
     "ex": [
       {
         "de": "Hast du einen Katalog?",
-        "en": "Do you have a catalog?",
+        "en": "Do you have a catalogue?",
         "lvl": "A2"
       },
       {
         "de": "Habt ihr einen Katalog?",
-        "en": "Do you have a catalog?",
+        "en": "Do you have a catalogue?",
         "lvl": "A2"
       }
     ],
@@ -189616,12 +189616,12 @@
     "ex": [
       {
         "de": "Kanada ist ein Nachbarland der USA.",
-        "en": "Canada is a neighboring country of the USA.",
+        "en": "Canada is a neighbouring country of the USA.",
         "lvl": "A2"
       },
       {
         "de": "Nordkorea und Südkorea sind Nachbarländer.",
-        "en": "North Korea and South Korea are neighbors.",
+        "en": "North Korea and South Korea are neighbours.",
         "lvl": "A2"
       }
     ],
@@ -190065,7 +190065,7 @@
       },
       {
         "de": "Das Riesenrad mag ich am liebsten.",
-        "en": "The Ferris wheel is my favorite.",
+        "en": "The Ferris wheel is my favourite.",
         "lvl": "A2"
       }
     ],
@@ -192170,7 +192170,7 @@
     "ex": [
       {
         "de": "Der Hafen ist für die Schifffahrt gesperrt.",
-        "en": "The harbor is closed to navigation.",
+        "en": "The harbour is closed to navigation.",
         "lvl": "B1"
       },
       {
@@ -195621,7 +195621,7 @@
   {
     "id": "voc:A2:veranstalten",
     "term": "veranstalten",
-    "en": "to organize (an event)",
+    "en": "to organise (an event)",
     "pos": "verb",
     "level": "A2",
     "gender": null,
@@ -195633,12 +195633,12 @@
     "ex": [
       {
         "de": "Wir veranstalten ein Fest.",
-        "en": "We're organizing a party.",
+        "en": "We're organising a party.",
         "lvl": "A2"
       },
       {
         "de": "Der Verein veranstaltet ein Konzert.",
-        "en": "The club is organizing a concert.",
+        "en": "The club is organising a concert.",
         "lvl": "A2"
       },
       {
@@ -209515,7 +209515,7 @@
   {
     "id": "voc:C1:der Zähler",
     "term": "der Zähler",
-    "en": "meter (for electricity, gas or water)",
+    "en": "metre (for electricity, gas or water)",
     "pos": "noun",
     "level": "C1",
     "gender": "der",
@@ -209527,12 +209527,12 @@
     "ex": [
       {
         "de": "Der Zähler steht im Keller.",
-        "en": "The meter is in the cellar.",
+        "en": "The metre is in the cellar.",
         "lvl": "C1"
       },
       {
         "de": "Einmal im Jahr werden die Zähler abgelesen.",
-        "en": "The meters are read once a year.",
+        "en": "The metres are read once a year.",
         "lvl": "C1"
       }
     ],

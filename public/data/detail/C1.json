@@ -1101,7 +1101,7 @@
       },
       {
         "de": "Was ist dein liebstes Betriebssystem?",
-        "en": "What's your favorite operating system?",
+        "en": "What's your favourite operating system?",
         "lvl": "C1"
       }
     ]
@@ -2301,7 +2301,7 @@
       },
       {
         "de": "Mein Betreuer schimpfte mit mir, wegen meines dummen Benehmens.",
-        "en": "My tutor scolded me for my stupid behavior.",
+        "en": "My tutor scolded me for my stupid behaviour.",
         "lvl": "C1"
       }
     ]
@@ -3551,12 +3551,12 @@
     "ex": [
       {
         "de": "Der Zähler steht im Keller.",
-        "en": "The meter is in the cellar.",
+        "en": "The metre is in the cellar.",
         "lvl": "C1"
       },
       {
         "de": "Einmal im Jahr werden die Zähler abgelesen.",
-        "en": "The meters are read once a year.",
+        "en": "The metres are read once a year.",
         "lvl": "C1"
       }
     ]
