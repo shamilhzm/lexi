@@ -104,6 +104,24 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
   });
 }
 
+// Take the newest build, once, while booting. The decision lives in
+// `lib/build.ts` — it has three guards against a reload loop and they are worth
+// a test, which a module side effect is not. Fired on `load` and behind a
+// dynamic import so it cannot delay the first word on the screen; that is the
+// whole point of the cache-first worker it exists to complete.
+if (typeof window !== 'undefined' && import.meta.env.PROD) {
+  const check = async () => {
+    const { reloadIfBuildMoved } = await import('./lib/build.ts');
+    await reloadIfBuildMoved({
+      now: () => performance.now(),
+      storage: (() => { try { return sessionStorage; } catch { return null; } })(),
+      reload: () => location.reload(),
+    });
+  };
+  if (document.readyState === 'complete') void check();
+  else window.addEventListener('load', () => { void check(); }, { once: true });
+}
+
 // The attested inflection table, after first paint and never before it.
 //
 // Nothing on the feed uses the matcher, so this is 370 KB the common session

@@ -105,3 +105,60 @@ export async function updateNow(): Promise<void> {
   } catch { /* a failed clear must still fall through to the reload */ }
   location.reload();
 }
+
+/** The reload key, exported so a test can name the thing it is asserting about. */
+export const AUTORELOAD_KEY = 'lexi.autoreload.v1';
+
+/** **The other half of a cache-first shell.**
+ *
+ *  `sw.js` serves the shell from Cache Storage and checks for a newer one on the
+ *  way out, so nothing waits on the network — and so the launch after a deploy
+ *  paints the previous build. This closes that: ask what the server is serving,
+ *  and if the sha moved, reload once.
+ *
+ *  The *stamp*, not an ETag. `version.json` carries the commit the build was cut
+ *  from, which is stable in a way an ETag is not — content negotiation can hand
+ *  two encodings of identical bytes two different ETags, and a reload driven off
+ *  that would loop forever on a phone.
+ *
+ *  Three guards, and the loop is the reason for all three:
+ *
+ *    - **Once per tab.** The flag is set *before* the reload, so if the worker's
+ *      background revalidate has not landed yet, the second load finds the same
+ *      mismatch and stops. Worst case the learner is one launch behind — exactly
+ *      where they were before this existed — and the next launch has it.
+ *    - **Only while booting.** Past `WINDOW_MS` somebody is *using* the app, and
+ *      yanking the page out from under a session to save them one launch is not
+ *      a trade anybody asked for. It waits.
+ *    - **Never on a failure.** `unknown` — offline, no stamp, a 500 — is not
+ *      evidence of anything and must not reload.
+ *
+ *  Returns what it decided, so the test does not have to observe a side effect.
+ *  Progress is untouched by any of this: it lives in IndexedDB. */
+export type ReloadDecision = 'reloaded' | 'current' | 'already-tried' | 'in-session' | 'unknown';
+
+export async function reloadIfBuildMoved(opts: {
+  now: () => number;
+  storage: Pick<Storage, 'getItem' | 'setItem'> | null;
+  reload: () => void;
+  check?: () => Promise<UpdateState>;
+  windowMs?: number;
+} ): Promise<ReloadDecision> {
+  const { now, storage, reload, check = checkForUpdate, windowMs = 5000 } = opts;
+  try {
+    if (storage?.getItem(AUTORELOAD_KEY) === '1') return 'already-tried';
+    const state = await check();
+    if (state.kind === 'current') return 'current';
+    if (state.kind !== 'stale') return 'unknown';
+    // Checked *after* the network call: the answer can arrive late, and a reload
+    // is judged on when it would happen, not on when it was asked for.
+    if (now() > windowMs) return 'in-session';
+    storage?.setItem(AUTORELOAD_KEY, '1');
+    reload();
+    return 'reloaded';
+  } catch {
+    // Private mode throws on `sessionStorage`. A missing guard is a possible
+    // loop, so a throw here means: do nothing.
+    return 'unknown';
+  }
+}

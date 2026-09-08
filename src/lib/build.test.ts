@@ -6,7 +6,7 @@
 // what is deployed; this pins the comparison, and especially the cases where the
 // honest answer is "I don't know" rather than a reassuring green tick.
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { BUILD, buildLabel, checkForUpdate } from './build.ts';
+import { BUILD, buildLabel, checkForUpdate, reloadIfBuildMoved, AUTORELOAD_KEY } from './build.ts';
 
 const realFetch = globalThis.fetch;
 afterEach(() => { globalThis.fetch = realFetch; vi.unstubAllGlobals(); });
@@ -71,5 +71,92 @@ describe('checkForUpdate', () => {
     const r = await checkForUpdate();
     expect(r.kind).toBe('unknown');
     expect(r.kind === 'unknown' && r.why).toMatch(/offline/i);
+  });
+});
+
+// A cache-first shell paints the *previous* build on the launch after a deploy.
+// This is what closes that gap, and every test here is really one test: it must
+// never be able to reload twice, because a reload loop on a phone is not a bug
+// you can ask somebody to work around.
+describe('reloadIfBuildMoved', () => {
+  const stale = async () => ({ kind: 'stale', sha: 'abc1234', builtAt: '' }) as const;
+  const current = async () => ({ kind: 'current' }) as const;
+  const unknown = async () => ({ kind: 'unknown', why: 'offline' }) as const;
+
+  function store(seed: Record<string, string> = {}) {
+    const m = new Map(Object.entries(seed));
+    return {
+      getItem: (k: string) => m.get(k) ?? null,
+      setItem: (k: string, v: string) => { m.set(k, v); },
+      map: m,
+    };
+  }
+
+  it('reloads once when the deployed sha has moved', async () => {
+    let reloads = 0;
+    const storage = store();
+    const opts = { now: () => 100, storage, reload: () => { reloads++; }, check: stale };
+    expect(await reloadIfBuildMoved(opts)).toBe('reloaded');
+    expect(reloads).toBe(1);
+    expect(storage.map.get(AUTORELOAD_KEY)).toBe('1');
+  });
+
+  // The flag is written *before* the reload for exactly this: if the worker's
+  // background revalidate has not landed, the next load serves the same shell
+  // and finds the same mismatch. It has to stop there.
+  it('does not reload a second time when the shell is still the old one', async () => {
+    let reloads = 0;
+    const storage = store();
+    const opts = { now: () => 100, storage, reload: () => { reloads++; }, check: stale };
+    await reloadIfBuildMoved(opts);
+    expect(await reloadIfBuildMoved(opts)).toBe('already-tried');
+    expect(reloads).toBe(1);
+  });
+
+  it('leaves a session alone once the boot window has passed', async () => {
+    let reloads = 0;
+    expect(await reloadIfBuildMoved({
+      now: () => 5001, storage: store(), reload: () => { reloads++; }, check: stale,
+    })).toBe('in-session');
+    expect(reloads).toBe(0);
+  });
+
+  it('does nothing when the build is current', async () => {
+    let reloads = 0;
+    expect(await reloadIfBuildMoved({
+      now: () => 0, storage: store(), reload: () => { reloads++; }, check: current,
+    })).toBe('current');
+    expect(reloads).toBe(0);
+  });
+
+  // Offline, no stamp, a 500 — none of these are evidence that anything moved.
+  it('does not reload on an inconclusive answer', async () => {
+    let reloads = 0;
+    expect(await reloadIfBuildMoved({
+      now: () => 0, storage: store(), reload: () => { reloads++; }, check: unknown,
+    })).toBe('unknown');
+    expect(reloads).toBe(0);
+  });
+
+  // Private mode throws on sessionStorage. No guard means a possible loop, so a
+  // throw has to mean "do nothing" rather than "carry on without the guard".
+  it('refuses to reload when it cannot record that it did', async () => {
+    let reloads = 0;
+    const hostile = {
+      getItem: () => null,
+      setItem: () => { throw new DOMException('denied'); },
+    };
+    expect(await reloadIfBuildMoved({
+      now: () => 0, storage: hostile, reload: () => { reloads++; }, check: stale,
+    })).toBe('unknown');
+    expect(reloads).toBe(0);
+  });
+
+  it('survives storage being absent entirely', async () => {
+    let reloads = 0;
+    expect(await reloadIfBuildMoved({
+      now: () => 0, storage: null, reload: () => { reloads++; }, check: stale,
+    })).toBe('reloaded');
+    expect(reloads).toBe(1);
   });
 });

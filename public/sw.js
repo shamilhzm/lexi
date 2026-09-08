@@ -1,10 +1,57 @@
-// Lexi service worker — offline-first. Precaches the shell; caches hashed assets
-// (cache-first, safe because filenames are content-hashed) and the lexicon JSON
-// (network-first, so data updates are picked up without a cache bump). Bump
-// CACHE to invalidate everything.
+// Lexi service worker — offline-first, and *nothing waits on the network*.
+//
+// ## What it was, and what that cost *(rewritten 2026-09-07)*
+//
+// Navigations were network-first with a cache fallback, and `/data/` was
+// network-first with a cache fallback. Both are the textbook answer and both
+// have the same flaw: the fallback only fires when `fetch` **rejects**. A dead
+// connection rejects fast, so airplane mode was fine. A *slow* one — a train, a
+// hotel captive portal, a 3G cell at the edge of a cell — does not reject at
+// all; it hangs, and an installed app that has every byte it needs on the device
+// sits on a white screen waiting for permission to show them.
+//
+// Measured on the live build, warm, worker in control: the launch made **one**
+// network request that mattered, the navigation, at 8,156 bytes and 59 ms on
+// wifi. Fifty-nine milliseconds is not the problem. The problem is that the
+// number is unbounded, and it is unbounded on the one screen the learner opens
+// several times a day.
+//
+// So: **everything is served from the cache first, and checked afterwards.**
+//
+// ## The write, which was the other half
+//
+// `/data/` also re-`put` every response into Cache Storage on every single load
+// — six files, 5.79 MB decoded, of which `detail.json` alone is 3.45 MB. Not
+// downloaded: the HTTP cache answered, so the wire cost was zero. But the *copy
+// into Cache Storage* happened regardless, every launch, on a phone.
+//
+// The fix is to write only when the bytes changed, and the server already tells
+// us: every asset carries a strong `ETag` and answers a conditional request with
+// **304, 0 bytes**. We do not send the conditional ourselves — the HTTP cache is
+// already doing that under `max-age=0, must-revalidate`, and adding a second
+// `If-None-Match` on top of the browser's own only invites the two to disagree.
+// We compare the ETag we got back against the ETag on the copy we are holding,
+// and skip the `put` when they match. A warm launch now writes nothing.
+//
+// ## What this costs, and what pays for it
+//
+// Cache-first on the shell means the launch *after* a deploy paints the previous
+// build. That is the honest trade and it is not left dangling: `main.tsx` asks
+// `/version.json` after first paint — a stamp, not an ETag, so no content
+// negotiation can make two equal builds look different — and reloads once if the
+// sha moved. One-shot, guarded, and bounded: if the background revalidate has
+// not landed yet the reload serves the same shell, the guard stops there, and
+// the next launch has it. Never a loop.
+//
+// `CACHE` is deliberately **not** bumped for this change. Bumping is how you
+// invalidate content; this is a change of strategy, and the old entries are
+// still correct — they carry their ETags, which is all the new code needs. A
+// bump here would delete up to 19 MB of lexicon shards a learner has
+// accumulated for offline use, to fix nothing.
 const CACHE = 'lexi-v6';
+const INDEX = './index.html';
 const CORE = [
-  './', './index.html', './manifest.webmanifest',
+  './', INDEX, './manifest.webmanifest',
   './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png',
 ];
 
@@ -20,32 +67,75 @@ self.addEventListener('activate', (e) => {
   );
 });
 
+/** Fetch, and write to the cache **only if the bytes actually changed**.
+ *
+ *  `key` is separate from `req` because a navigation to `/#/session` and one to
+ *  `/` are the same document, and the SPA has exactly one shell — they share the
+ *  `INDEX` entry rather than accumulating one per route.
+ *
+ *  Returns `null` when the network is unreachable, which is the caller's signal
+ *  to stay on what it has. Any other failure (a 500, an opaque response) returns
+ *  the response without caching it: serving a cached copy is right, and
+ *  overwriting a good copy with an error page is not. */
+async function revalidate(cache, req, key, hit) {
+  let res;
+  try { res = await fetch(req); } catch { return null; }
+  if (!res.ok || res.type !== 'basic') return res;
+  const before = hit && hit.headers.get('ETag');
+  const after = res.headers.get('ETag');
+  // No ETag on either side means we cannot tell, so we write — a redundant copy
+  // is a wasted millisecond and a missed one is a learner stuck on old data.
+  if (!before || !after || before !== after) await cache.put(key, res.clone());
+  return res;
+}
+
+/** Answer from the cache now; check for a newer copy on the way out.
+ *
+ *  `waitUntil`, not a floating promise: the revalidation has to be allowed to
+ *  finish after the response has been handed over, and a worker that is not told
+ *  about it may be killed mid-write. */
+async function staleWhileRevalidate(event, req, key) {
+  const cache = await caches.open(CACHE);
+  const hit = await cache.match(key);
+  if (hit) {
+    event.waitUntil(revalidate(cache, req, key, hit));
+    return hit;
+  }
+  return (await revalidate(cache, req, key, null)) || Response.error();
+}
+
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
 
-  // SPA navigations: network-first, fall back to cached shell when offline.
-  if (req.mode === 'navigate') {
-    e.respondWith(fetch(req).catch(() => caches.match('./index.html').then((r) => r || caches.match('./'))));
-    return;
-  }
+  // The build stamp is the one thing that must never come from a cache — it is
+  // the question "am I stale?", and a cached answer to that is always "no".
+  // `main.tsx` asks with `cache: 'no-store'` and a buster; this makes it true
+  // even if some future caller forgets.
+  if (new URL(req.url).pathname.endsWith('/version.json')) return;
 
-  // Lexicon data: network-first so content updates apply immediately; fall back
-  // to cache when offline. (Prevents a stale cached lexicon from sticking.)
-  if (new URL(req.url).pathname.includes('/data/')) {
+  // SPA navigations: the shell, instantly, then checked.
+  if (req.mode === 'navigate') {
     e.respondWith(
-      fetch(req).then((res) => {
-        if (res.ok && res.type === 'basic') {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
-        }
-        return res;
-      }).catch(() => caches.match(req)),
+      staleWhileRevalidate(e, req, INDEX)
+        .catch(() => caches.match(INDEX).then((r) => r || caches.match('./'))),
     );
     return;
   }
 
-  // Hashed assets + shell: cache-first, then network (and cache the result).
+  // Lexicon data: same rule. It used to be network-first "so content updates
+  // apply immediately", which was a real concern answered in the wrong place —
+  // the data changes when the *build* changes, and the build stamp already
+  // triggers a reload. Waiting on 5.79 MB of already-present JSON to be
+  // re-authorised on every launch was the price of a check that had a cheaper
+  // version available all along.
+  if (new URL(req.url).pathname.includes('/data/')) {
+    e.respondWith(staleWhileRevalidate(e, req, req));
+    return;
+  }
+
+  // Hashed assets: cache-first with no revalidation at all, because the
+  // filename *is* the version. Nothing to check.
   e.respondWith(
     caches.match(req).then((hit) =>
       hit || fetch(req).then((res) => {
