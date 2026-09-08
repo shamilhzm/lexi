@@ -35,6 +35,11 @@ reflexive verb — so the instrument is also how you find out the finding was wr
 **…state a number.** Get it from a script or a query, this session. Do not carry a
 number forward from a doc. *(Four counts in the README were stale by up to 6×.)*
 
+**…write up an open question, or close an item that opened as a complaint.** Measure the
+premise first, and re-run the *complaint* rather than the done-when. Three of six Track E
+premises were false when read; the first session's "twenty verbs" had become seven
+function words because the fix worked.
+
 **…trust a check that fires on thousands of rows.** Assume the check is wrong first.
 Hand-verify three hits before you believe the count. *(Twice this has been a bug in the
 check.)*
@@ -1318,3 +1323,44 @@ it. Two fit here and both were wrong.
 **Corollary on withdrawals.** A finding withdrawn on one counter-example is not
 withdrawn, it is unmeasured. The zoom was real on `#/text` and absent on the search
 sheet, and checking the second surface first cost a fix that was already written.
+
+---
+
+## A question you have not measured is a question about last month *(added 2026-09-09)*
+
+**Believed:** the six Track E items were rulings, so there was nothing to measure —
+they were filed as *questions*, and a question does not go stale.
+
+**True:** each of the six was filed as an assertion *plus* a question, and **three of
+the six assertions were false by the time anyone read them**:
+
+| filed | measured 2026-09-09 |
+|---|---|
+| "the first session is twenty verbs" | seven function words and no verb until 15 — the frequency sort had already landed |
+| "random distractors make a four-option question free" | pick-the-longest scores 24.4% against 25.0% chance; every shape strategy is at or below chance |
+| "the dwell inference is invisible" | true, and *worse* — it is dropped in two independent places, not one |
+
+Two of those would have produced work against a defect that no longer existed, and the
+third would have under-specified the fix.
+
+**The rule:** *before writing up a question, measure its premise.* A backlog question
+carries a claim about the app inside it, and claims decay at the speed of the codebase —
+E1's premise was falsified by a change made three items away in the same document.
+Measure first, then argue; and pin the measurement, so the question retires itself when
+its ground moves. `src/rulings.test.ts` exists for exactly that and is not a feature's
+tests.
+
+**The corollary, which is the more useful half.** A fix can *move* a failure instead of
+closing it, and the moved failure inherits the closed item's ✅. Ordering the first
+session by frequency (F2) did exactly what it promised and replaced twenty verbs with
+seven function words — because the commonest words in any language are the ones that
+hold sentences together, so `so`, `nur` and `sehr` are the *correct* output of a
+correct sort. Nothing in the item's done-when could have caught it: the done-when said
+"weight by core rank", and it does. **When you close an item, re-run the persona
+complaint that opened it, not the done-when you wrote for it.**
+
+**And a third thing fell out of measuring, which no amount of arguing would have
+found:** `freq.json` ranks 87 of 1,170 A1 cards, and not one of `sein`, `haben`,
+`werden`, `gehen`, `Zeit`, `Kind` or `gut`. The sort everyone had agreed was right is
+sorting on a signal that is absent exactly where it is load-bearing — so `grillen` is
+still introduced before `sein`, which is the original complaint, surviving its own fix.

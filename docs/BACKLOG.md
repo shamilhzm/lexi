@@ -212,27 +212,34 @@ the highest-value work on the list, and the measurements agree.*
 | D6 | ✅ **shipped 2026-09-08** as `npm run corpus:homograph`, and it needed **two** rules. A higher-precision homograph detector (P32) | Rule one is the filed one and it finds `schicken`/«Wie geschickt!». Rule two exists because rule one *cannot* reach `bar`: it requires the sentence to resolve to another **card**, and `die Bar` is not one — the matcher folds case, so «Wo ist die Bar?» resolves straight back to the adjective and the sentence looks like its own. So a second rule reads capitalisation as the lexeme boundary German makes it: a lowercase headword whose only appearance is capitalised mid-sentence, in a translation sharing nothing with the gloss. Three false-positive classes were measured and named rather than tuned away — the matcher pulling a simplex verb into a separable compound (*fahren* → **mitfahren**), `-en`-stripping applied to nouns (`Zahn` → `zah`), and prefix tolerance on short English stems (`bar` prefixes `bare`, which was suppressing the very hit) | 🟡 **`schicken` ✅ and `bar` ✅ without hand-seeding. `die Braut` is not found because it has no such defect** — both its examples name it and both translations say *bride*; the only other cards mentioning Braut (`die Hochzeit`, `der Brauch`, `cremeweiß`) use it correctly as scenery. The done-when named a clean card. What the run did find is worse than the specification expected: **five cards were carrying a sentence about a different word** — `räumen` «Er fegte alle Räume» (rooms), `hauen` «Die Haut ist sanft» (skin), `gewiss` «Du hast kein Gewissen!» (conscience), `dürr` «Es herrscht Dürre» (drought), `bar` «Wo ist die Bar?». All six examples repaired via `batches/homograph-01.json` and pinned in `homograph.test.ts`, which proves every example on those cards names its own headword with the app's matcher rather than by substring |
 | D7 | ✅ **shipped 2026-09-08.** The corpus had no English spelling convention | Found while reading D2's queue: `die Farbe` was glossed **color** and defined **colour**; `die Verteidigung` **defense**/**defence**; `der Schmuck` **jewellery**/**jewelry**. **25 cards contradicted themselves** about the same word in front of the same learner, and across the corpus there was no convention at all — 28 US glosses against 63 UK, 46 US example translations against 302. The app's own copy says *practise*, *recognise*, *organise*, so British is the target. `corpus:spelling --write` normalised the **authored** fields only. `practice`/`practise`, `licence`/`license`, `program`/`programme` and `tire`/`tyre` are reported and never rewritten — in British English they are different words, not variants. **The first version matched stems and kept the tail, and the dry run printed *“I am very tyred.”* 24 times**; the same shape breaks `labor` on *laboratory*, `liter` on *literature* and `dialog` on *dialogue* itself. The map is exact word forms now, each one taken from the corpus and checked | ✅ **0 US spellings in any gloss or example translation** (was 28 and 46), guarded in `spelling.test.ts`, which reads the map out of the script rather than retyping it. 🟡 21 cards still differ from their own `def`, which is **left deliberately**: it is machine-sourced from Wiktionary and rewriting it turns a quotation into a paraphrase. That is a maintainer's call, not a defect to hide |
 
-### Track E — Needs a ruling before it needs code · **VISION first**
+### Track E — Needs a ruling before it needs code · ✍️ **written up 2026-09-09, awaiting rulings**
 
-*None of these should be started as engineering. Each is a question the anchor
-document has to answer, and three of them argue against work the refocus deliberately
-removed.*
+*Written into [VISION.md](VISION.md) as open decisions 5–10, with the arguments on
+each side and the premises measured. **Three of the six premises below were false** —
+they are kept here with their corrections, because the correction is the finding. The
+measurements are pinned in `src/rulings.test.ts`, so a question stops being asked the
+moment its ground moves.*
 
-| # | The question | Raised by | The argument on each side |
+| # | The question | Filed premise | What the measurement said (2026-09-09) |
 |---|---|---|---|
-| E1 | Should the first session be composed, not just ordered? | P31, P55 | It is twenty verbs today, so neither the gender nor the plural drill can fire on day one, and `sein` (core rank 4) arrives 17th behind `grillen` (8,451). *Against:* a hand-composed first ten is a syllabus by the back door, and the refocus deleted the syllabus |
-| E2 | Should a wrong answer be explained? | P59 | `anbieten` is transparently `an-` + `bieten` and the moment the learner is most able to hear that is the moment they got it wrong. *Against:* an explanation is a grammar lesson, and the ruling is that drills test properties of *words* |
-| E3 | Should distractors be confusable? | P19 | Random distractors make a four-option question free, so the drill certifies nothing. *Against:* confusable distractors teach the confusion, and there is real evidence both ways |
-| E4 | Does the app owe the learner production? | P34, P60 | It measures the receptive half; `recall` is typed. *Against:* scoring speech is something a machine cannot honestly do, and VISION forbids fake scoring |
-| E5 | Is dwell a signal? | P33 | The feed infers interest from 1200 ms of dwell and ranks the next fresh word by it. The separation from grading is principled and tested; the inference itself is unevidenced and invisible to the learner |
-| E6 | Does anything answer *am I ready?* | P37 | The exam room was deleted and Fortschritt reports what you have *met*, which is a different claim. Either something answers it or the app says plainly that it does not |
+| E1 | Should the first session be composed, not just ordered? | "it is twenty verbs, `sein` arrives 17th" | ❌ **stale** — F2's frequency sort landed. The first ten are now seven *function words* (so · nur · ab · sehr · alle · das Ende · ganz · okay · also · einmal), no verb until 15, `eligibleModes` empty for 9 of 10. **And a new finding under it:** `freq.json` ranks 87 of 1,170 A1 cards, and **none** of the 24 commonest words — so `grillen` (70th) is still taught before `sein` (118th). That half is a coverage bug, not a ruling |
+| E2 | Should a wrong answer be explained? | `anbieten` is transparently `an-` + `bieten` | ✅ real, and **split in half**: 434 of 1,174 verbs decompose onto another card — 216 separable (`anrufen` = an- + `rufen`, true) against 167 inseparable (`bekommen` ≠ be- + `kommen`, false). A rule on the orthography cannot tell them apart. The narrow survivor: *link the base card*, which is a corpus fact, not a generated explanation |
+| E3 | Should distractors be confusable? | "random distractors make a four-option question free" | ❌ **false, and measured.** Over 2,282 cards: chance 25.0%, pick-the-longest **24.4%**, most-words 16.1%, shortest 20.7%. Every shape strategy is at or below chance. What remains is a pedagogy question, not a defect |
+| E4 | Does the app owe the learner production? | `recall` is typed; speech is not scored | ✅ unchanged, and unmeasurable by design — scoring speech is the thing commitment 3 forbids faking |
+| E5 | Is dwell a signal? | "the inference is invisible to the learner" | ✅ **true, and worse than filed — it fails twice.** `buildBriefing` computes *your saved words* / *words you kept stopping on* into `Briefing.weakSectors`, and **nothing in `src/` reads that field**; separately every fresh card arrives as `{kind:'fresh'}` and `whyLine` returns `null` for it, while every *other* scheduler reason speaks up |
+| E6 | Does anything answer *am I ready?* | Fortschritt reports what you have met | ✅ unchanged. The third position — **say plainly that Lexi does not answer it** — costs nothing and is not currently taken |
+
+**What is a build item once ruled, and what is not:** E1's ranking coverage and E5's
+two dropped reasons are engineering with no ruling needed if the answer is "yes, show
+your work" — which `session.ts` already argues for in its own header. E2, E3, E4 and
+E6 are rulings and nothing else.
 
 ### Track F — Product framing · **M**, cheap wins first
 
 | # | What | Do | Effort |
 |---|---|---|---|
 | F1 | Themen and Interests offer the corpus's taxonomy, not a life (P17) | *Building Blocks*, *Society & Politics* are categories of the language. Add a second axis of **situations** — the Behörde, my trade, my kid's school, Feierabend — over the same cards. This is the single change most likely to make the app feel built for the person using it | M |
-| F2 | The feed opens on a lottery (P55) | A cold learner got `grillen`, core rank 8,451, filed under *Core verbs*. Weight the first session's fresh picks by core rank as well as CEFR band | S |
+| F2 | The feed opens on a lottery (P55) | 🟡 **half shipped, and the half that shipped cannot work yet.** `firstRunIds` and `buildBriefing` now sort by CEFR band then `byFrequency` — but `freq.json` ranks **87 of 1,170 A1 cards (7.4%)** and not one of `sein`, `haben`, `werden`, `gehen`, `Zeit`, `Kind`, `gut`…, so the commonest words in the language fall into the unranked tail and are ordered by build position. Measured 2026-09-09: `grillen` is introduced 70th and `sein` 118th. **The remaining work is extending the rank projection (`npm run corpus:freq`), not changing the sort** | S |
 | F3 | Zeroes above the fold (P52) | Fortschritt opens on seven zeroes and Themen on nine 0% bars, while the empty states *below* the fold are the best writing in the app. Move that voice to the top of both | S |
 | F4 | The dictionary's composition and its number (P35, P36) | 10.0% of the 93,046 are proper nouns; 594 more are prefixes, suffixes and symbols. Report the honest count, and decide whether a phrasebook entry like `mein Kondom ist gerissen` belongs on a device in a classroom | S |
 | F5 | One profile per device, never stated (P49) | Two learners on one iPad silently share a streak, a queue and a schedule. Say so where it matters, and make the backup file the documented answer | XS |
@@ -249,8 +256,9 @@ removed.*
 3. **D1 and D2** — the determiner class and the 105-card reading order, because they
    are the two content items with a committed instrument and a re-derivable number.
 4. **F3 and F5** — half a day between them.
-5. **Open E1 and E6 in VISION** as written questions before anyone writes code
-   against them.
+5. ~~**Open E1 and E6 in VISION** as written questions before anyone writes code
+   against them.~~ ✅ **done 2026-09-09 — all six, as open decisions 5–10**, with each
+   premise measured first. Three were false; the corrections are in the Track E table.
 
 Explicitly *not* this week: Track C beyond C2, because C1 is a change to the feed's
 DOM shape and wants its own pass; and D4, which is continuous and should not be
