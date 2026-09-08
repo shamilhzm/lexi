@@ -1,0 +1,206 @@
+[
+  {
+    "term": "tagen",
+    "en": "to meet, to sit (of a body)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Society",
+    "ex": [
+      {
+        "de": "Der Ausschuss tagt am Montag.",
+        "en": "The committee meets on Monday."
+      },
+      {
+        "de": "Wir tagen bis in den Abend.",
+        "en": "We are in session until the evening."
+      }
+    ]
+  },
+  {
+    "term": "agieren",
+    "en": "to act, to operate",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Die Firma agiert weltweit.",
+        "en": "The company operates worldwide."
+      },
+      {
+        "de": "Er agiert sehr vorsichtig.",
+        "en": "He acts very cautiously."
+      }
+    ]
+  },
+  {
+    "term": "äußere",
+    "en": "outer, external",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Die äußere Schicht ist beschädigt.",
+        "en": "The outer layer is damaged."
+      },
+      {
+        "de": "Auf die äußere Form kommt es hier an.",
+        "en": "The external form is what matters here."
+      }
+    ]
+  },
+  {
+    "term": "die Güte",
+    "en": "kindness; quality",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Er half mir aus reiner Güte.",
+        "en": "He helped me out of pure kindness."
+      },
+      {
+        "de": "Die Güte der Ware überzeugt.",
+        "en": "The quality of the goods is convincing."
+      }
+    ]
+  },
+  {
+    "term": "alternativ",
+    "en": "alternative",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Alternativ können wir uns morgen treffen.",
+        "en": "Alternatively we can meet tomorrow."
+      },
+      {
+        "de": "Alternativ können Sie den Bus nehmen.",
+        "en": "Alternatively you can take the bus."
+      }
+    ]
+  },
+  {
+    "term": "die Erziehung",
+    "en": "upbringing, education",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Family",
+    "ex": [
+      {
+        "de": "Die Erziehung der Kinder kostet Kraft.",
+        "en": "Bringing up children takes energy."
+      },
+      {
+        "de": "Sie hat eine strenge Erziehung genossen.",
+        "en": "She had a strict upbringing."
+      }
+    ]
+  },
+  {
+    "term": "derartig",
+    "en": "such, of that kind",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Eine derartige Antwort hilft nicht.",
+        "en": "An answer of that kind doesn't help."
+      },
+      {
+        "de": "Derartige Fehler passieren selten.",
+        "en": "Mistakes like that rarely happen."
+      }
+    ]
+  },
+  {
+    "term": "die Lüge",
+    "en": "lie",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Das ist eine glatte Lüge.",
+        "en": "That is an outright lie."
+      },
+      {
+        "de": "Eine Lüge kommt immer heraus.",
+        "en": "A lie always comes out."
+      }
+    ]
+  },
+  {
+    "term": "der Mord",
+    "en": "murder",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Der Mord blieb lange ungeklärt.",
+        "en": "The murder went unsolved for a long time."
+      },
+      {
+        "de": "Man klagt ihn wegen Mordes an.",
+        "en": "He is charged with murder."
+      }
+    ]
+  },
+  {
+    "term": "sämtlich",
+    "en": "all, entire",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Sämtliche Unterlagen sind eingegangen.",
+        "en": "All the documents have arrived."
+      },
+      {
+        "de": "Er hat sämtliche Fragen beantwortet.",
+        "en": "He answered every one of the questions."
+      }
+    ]
+  },
+  {
+    "term": "der Strang",
+    "en": "strand, rope; track",
+    "pos": "noun",
+    "level": "C2",
+    "field": "Objects & Materials",
+    "ex": [
+      {
+        "de": "Der Strang ist gerissen.",
+        "en": "The rope has snapped."
+      },
+      {
+        "de": "Wir ziehen alle am selben Strang.",
+        "en": "We are all pulling in the same direction."
+      }
+    ]
+  },
+  {
+    "term": "der Akt",
+    "en": "act; nude",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Media & Arts",
+    "ex": [
+      {
+        "de": "Der zweite Akt beginnt gleich.",
+        "en": "The second act starts shortly."
+      },
+      {
+        "de": "Das war ein Akt der Verzweiflung.",
+        "en": "That was an act of desperation."
+      }
+    ]
+  }
+]

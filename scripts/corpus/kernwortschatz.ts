@@ -98,24 +98,38 @@ const LABEL: Record<Corpus, string> = {
 
 interface Row { cell: string; forms: string[]; rank: Partial<Record<Corpus, number>> }
 
-/** Citation forms for reference rows that are a lemmatiser's **stem** rather than
- *  a word anybody writes.
+/** The surface forms a reference row's lexeme is **actually taught under**, for
+ *  rows whose own spelling no card carries.
  *
- *  `ander` is rank 42 and is not German — the word is `andere`/`anderer`/`anderes`,
- *  and the reference's lemmatiser stripped the ending that every attested form
- *  carries. So a card for `andere` left the row reading *untaught*, which is a
- *  defect in the measurement and not in the corpus.
+ *  Two shapes, and both are defects in the measurement rather than in the corpus:
+ *
+ *    - **A lemmatiser's stem.** `ander` is rank 42 and is not German — the word is
+ *      `andere`/`anderer`/`anderes`, and the stripped ending is one every attested
+ *      form carries. A card for `andere` left the row reading *untaught*.
+ *    - **A single inflected form.** The Kinder list's rank-82 row is `keine`, its
+ *      rank-214 row is `jede`, and Lexi teaches `kein` and `jeder` — the citation
+ *      forms, which is what a card should carry. Four of the top five entries in
+ *      that queue were this, so the register gap it was reporting was partly an
+ *      accounting error.
  *
  *  Written out by hand and kept short, for the same reason `MEANINGFUL_FUNCTION`
- *  is: the rule cannot be derived. Matching stems by prefix would let `and` cover
- *  `andere`, and there is no version of that which is not eventually wrong. Each
- *  entry here is a stem that has no attested bare form, mapped to the forms that
- *  do — nothing is aliased to a *different* lexeme. */
+ *  is: the rule cannot be derived. Matching by prefix would let `and` cover
+ *  `andere`, and there is no version of that which is not eventually wrong. Every
+ *  entry maps a row to forms of the **same lexeme** — nothing is aliased across
+ *  two words. */
 const STEM_FORMS: Record<string, string[]> = {
+  // Stems with no attested bare form.
   ander: ['andere', 'anderer', 'anderes'],
   sonstig: ['sonstige', 'sonstiger', 'sonstiges'],
   jeglich: ['jegliche', 'jeglicher', 'jegliches'],
   irgendein: ['irgendeine', 'irgendeiner', 'irgendeines'],
+  letzt: ['letzte', 'letzter', 'letztes'],
+  // Inflected rows whose citation form is the card.
+  keine: ['kein'],
+  jede: ['jeder'],
+  viele: ['viel'],
+  wenige: ['wenig'],
+  lange: ['lang'],
 };
 interface Card { id: string; term: string; en: string; level: string; pos?: string; kind?: string }
 
@@ -142,6 +156,12 @@ for (const line of readFileSync(TSV, 'utf8').split('\n')) {
 const fold = (t: string) => t
   .replace(/^(der|die|das)\s+/i, '')
   .replace(/^sich\s+/i, '')
+  // **And the government, which is 47 cards.** `achten auf + A` folded to
+  // `achten auf + a` and therefore matched no reference row — the frequency list
+  // has `achten`, because a corpus counts verbs, not the prepositions they take.
+  // Every governed card was invisible to this check, which reported them as owed
+  // and nearly had one of them authored a second time.
+  .replace(/\s+\w+\s+\+\s+[ADG]$/i, '')
   .trim()
   .toLowerCase();
 
@@ -245,7 +265,16 @@ function main() {
   const [, , flag, whichArg, nArg] = process.argv;
 
   if (flag === '--missing') {
-    const c = (CORPORA.includes(whichArg as Corpus) ? whichArg : 'gesamt') as Corpus;
+    // **Fail loudly on a name it does not know.** The keys are singular —
+    // `zeitung`, `forum` — and falling back to `gesamt` handed back a full,
+    // plausible, wrong queue for `--missing foren`, which cost a measurement
+    // before anyone noticed the header said *Gesamtkorpus*. A silent default on
+    // an argument the caller clearly meant is a trap, not a convenience.
+    if (whichArg && !CORPORA.includes(whichArg as Corpus)) {
+      console.error(`unknown corpus "${whichArg}" — one of: ${CORPORA.join(', ')}`);
+      process.exit(1);
+    }
+    const c = (whichArg ?? 'gesamt') as Corpus;
     const n = Number(nArg) || 1000;
     const gone = band(c, n).filter((r) => !taught(r));
     const queue = gone.filter((r) => (CONTENT_POS.has(posOf(r)) || isMeaningfulFunction(r)) && !isProper(r));

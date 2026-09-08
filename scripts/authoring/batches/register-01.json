@@ -1,0 +1,394 @@
+[
+  {
+    "term": "wundern",
+    "en": "to surprise; (sich) to be surprised",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Das wundert mich nicht.",
+        "en": "That doesn't surprise me."
+      },
+      {
+        "de": "Ich wundere mich über sein Verhalten.",
+        "en": "I'm surprised at his behaviour."
+      }
+    ]
+  },
+  {
+    "term": "flüstern",
+    "en": "to whisper",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Sie flüsterte mir etwas ins Ohr.",
+        "en": "She whispered something in my ear."
+      },
+      {
+        "de": "Bitte flüstern Sie nicht im Unterricht.",
+        "en": "Please don't whisper in class."
+      }
+    ]
+  },
+  {
+    "term": "zucken",
+    "en": "to twitch, to flinch",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Body",
+    "ex": [
+      {
+        "de": "Er zuckt kurz mit den Schultern.",
+        "en": "He briefly shrugs his shoulders."
+      },
+      {
+        "de": "Bei dem lauten Knall zucken alle.",
+        "en": "Everyone flinches at the loud bang."
+      }
+    ]
+  },
+  {
+    "term": "drängen",
+    "en": "to push, to urge",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Die Leute drängen zum Ausgang.",
+        "en": "People are pushing towards the exit."
+      },
+      {
+        "de": "Er drängt mich zu einer Entscheidung.",
+        "en": "He is pressing me for a decision."
+      }
+    ]
+  },
+  {
+    "term": "strecken",
+    "en": "to stretch",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Body",
+    "ex": [
+      {
+        "de": "Streck bitte die Arme nach oben.",
+        "en": "Please stretch your arms upwards."
+      },
+      {
+        "de": "Nach dem Schlafen streckt sie sich.",
+        "en": "After sleeping she stretches."
+      }
+    ]
+  },
+  {
+    "term": "schleichen",
+    "en": "to creep, to sneak",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Die Katze schleicht durch den Garten.",
+        "en": "The cat is creeping through the garden."
+      },
+      {
+        "de": "Wir schleichen leise aus dem Zimmer.",
+        "en": "We sneak quietly out of the room."
+      }
+    ]
+  },
+  {
+    "term": "geraten",
+    "en": "to end up, to get into",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Wir sind in einen Stau geraten.",
+        "en": "We ended up in a traffic jam."
+      },
+      {
+        "de": "Sie geriet in Panik.",
+        "en": "She got into a panic."
+      }
+    ]
+  },
+  {
+    "term": "lehnen",
+    "en": "to lean",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Das Fahrrad lehnt an der Wand.",
+        "en": "The bicycle is leaning against the wall."
+      },
+      {
+        "de": "Er lehnte sich aus dem Fenster.",
+        "en": "He leaned out of the window."
+      }
+    ]
+  },
+  {
+    "term": "rühren",
+    "en": "to stir; to move",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Food & drink",
+    "ex": [
+      {
+        "de": "Rühren Sie die Soße bitte um.",
+        "en": "Please stir the sauce."
+      },
+      {
+        "de": "Ich kann den Arm nicht rühren.",
+        "en": "I can't move my arm."
+      }
+    ]
+  },
+  {
+    "term": "kriechen",
+    "en": "to crawl",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Das Baby kriecht über den Teppich.",
+        "en": "The baby is crawling across the carpet."
+      },
+      {
+        "de": "Wir kriechen unter den Zaun.",
+        "en": "We crawl under the fence."
+      }
+    ]
+  },
+  {
+    "term": "biegen",
+    "en": "to bend",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Der Wind biegt die Äste.",
+        "en": "The wind is bending the branches."
+      },
+      {
+        "de": "Wir biegen den Draht vorsichtig.",
+        "en": "We bend the wire carefully."
+      }
+    ]
+  },
+  {
+    "term": "winken",
+    "en": "to wave",
+    "pos": "verb",
+    "level": "A2",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Sie winkt uns vom Bahnsteig.",
+        "en": "She is waving to us from the platform."
+      },
+      {
+        "de": "Zum Abschied winken wir lange.",
+        "en": "We wave for a long time in farewell."
+      }
+    ]
+  },
+  {
+    "term": "eilen",
+    "en": "to hurry",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Wir müssen zum Bus eilen.",
+        "en": "We have to hurry to the bus."
+      },
+      {
+        "de": "Das eilt nicht.",
+        "en": "There's no hurry."
+      }
+    ]
+  },
+  {
+    "term": "brüllen",
+    "en": "to roar, to yell",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Der Chef brüllte durch das Büro.",
+        "en": "The boss yelled across the office."
+      },
+      {
+        "de": "Das Baby brüllt die ganze Nacht.",
+        "en": "The baby is screaming all night."
+      }
+    ]
+  },
+  {
+    "term": "wenden",
+    "en": "to turn",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Bitte wenden Sie das Blatt.",
+        "en": "Please turn the page over."
+      },
+      {
+        "de": "Wir wenden den Wagen auf der Straße.",
+        "en": "We turn the car round in the road."
+      }
+    ]
+  },
+  {
+    "term": "vergehen",
+    "en": "to pass (of time)",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Time",
+    "ex": [
+      {
+        "de": "Die Zeit vergeht schnell.",
+        "en": "Time passes quickly."
+      },
+      {
+        "de": "Es vergingen viele Jahre.",
+        "en": "Many years went by."
+      }
+    ]
+  },
+  {
+    "term": "töten",
+    "en": "to kill",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Der Sturm hat viele Tiere getötet.",
+        "en": "The storm killed many animals."
+      },
+      {
+        "de": "Niemand darf einen Menschen töten.",
+        "en": "No one may kill a person."
+      }
+    ]
+  },
+  {
+    "term": "der Fall",
+    "en": "case; fall",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "In diesem Fall haben Sie recht.",
+        "en": "In this case you are right."
+      },
+      {
+        "de": "Auf keinen Fall!",
+        "en": "Absolutely not!"
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "das Gebiet",
+    "en": "area, region; field",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Das Gebiet ist sehr dünn besiedelt.",
+        "en": "The area is very sparsely populated."
+      },
+      {
+        "de": "Auf diesem Gebiet ist sie Expertin.",
+        "en": "She is an expert in this field."
+      }
+    ]
+  },
+  {
+    "term": "der Schlag",
+    "en": "blow, hit; stroke",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Body",
+    "ex": [
+      {
+        "de": "Der Schlag traf ihn am Kopf.",
+        "en": "The blow hit him on the head."
+      },
+      {
+        "de": "Mit einem Schlag war alles anders.",
+        "en": "All at once everything was different."
+      }
+    ]
+  },
+  {
+    "term": "der Schrei",
+    "en": "shout, scream",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Ein lauter Schrei weckte mich.",
+        "en": "A loud scream woke me up."
+      },
+      {
+        "de": "Der Schrei kam aus dem Garten.",
+        "en": "The scream came from the garden."
+      }
+    ]
+  },
+  {
+    "term": "der Atem",
+    "en": "breath",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Body",
+    "ex": [
+      {
+        "de": "Ihm blieb der Atem weg.",
+        "en": "It took his breath away."
+      },
+      {
+        "de": "Hol tief Atem!",
+        "en": "Take a deep breath!"
+      }
+    ]
+  },
+  {
+    "term": "die Mama",
+    "en": "mum, mummy",
+    "pos": "noun",
+    "level": "A1",
+    "field": "Family",
+    "ex": [
+      {
+        "de": "Meine Mama kocht sehr gut.",
+        "en": "My mum cooks very well."
+      },
+      {
+        "de": "Mama, ich habe Hunger!",
+        "en": "Mum, I'm hungry!"
+      }
+    ]
+  }
+]

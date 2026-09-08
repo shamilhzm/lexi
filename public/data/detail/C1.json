@@ -146,6 +146,20 @@
       }
     ]
   },
+  "voc:C1:agieren": {
+    "ex": [
+      {
+        "de": "Die Firma agiert weltweit.",
+        "en": "The company operates worldwide.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er agiert sehr vorsichtig.",
+        "en": "He acts very cautiously.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:allenfalls": {
     "def": "Not more than; possibly but no more.",
     "ex": [
@@ -1004,6 +1018,20 @@
       }
     ]
   },
+  "voc:C1:damalig": {
+    "ex": [
+      {
+        "de": "Der damalige Chef war strenger.",
+        "en": "The boss at the time was stricter.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die damalige Lage war schwierig.",
+        "en": "The situation at the time was difficult.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Abkommen": {
     "def": "A formal arrangement agreed between parties or countries.",
     "ex": [
@@ -1395,6 +1423,20 @@
       {
         "de": "Funktionsverbgefüge klingen förmlicher als das einfache Verb.",
         "en": "Support verb constructions sound more formal than the simple verb.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Gebot": {
+    "ex": [
+      {
+        "de": "Höflichkeit ist ein Gebot.",
+        "en": "Politeness is a rule.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das erste Gebot lautet anders.",
+        "en": "The first commandment reads differently.",
         "lvl": "C1"
       }
     ]
@@ -2098,6 +2140,20 @@
       {
         "de": "Im Abschwung sinken zuerst die Investitionen.",
         "en": "In a downturn investment falls first.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Akt": {
+    "ex": [
+      {
+        "de": "Der zweite Akt beginnt gleich.",
+        "en": "The second act starts shortly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war ein Akt der Verzweiflung.",
+        "en": "That was an act of desperation.",
         "lvl": "C1"
       }
     ]
@@ -3561,6 +3617,20 @@
       }
     ]
   },
+  "voc:C1:derartig": {
+    "ex": [
+      {
+        "de": "Eine derartige Antwort hilft nicht.",
+        "en": "An answer of that kind doesn't help.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Derartige Fehler passieren selten.",
+        "en": "Mistakes like that rarely happen.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:deutschlandweit": {
     "ex": [
       {
@@ -3750,6 +3820,20 @@
       {
         "de": "Eine klare Arbeitsteilung erspart dem Team viele Reibungen.",
         "en": "A clear division of labour saves the team a lot of friction.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Auffassung": {
+    "ex": [
+      {
+        "de": "Ich teile Ihre Auffassung nicht.",
+        "en": "I don't share your view.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach seiner Auffassung ist das falsch.",
+        "en": "In his view that is wrong.",
         "lvl": "C1"
       }
     ]
@@ -4196,6 +4280,20 @@
       {
         "de": "Mit dem neuen Modell wächst die Eigenverantwortung der Mitarbeitenden.",
         "en": "With the new model employees' personal responsibility grows.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Elite": {
+    "ex": [
+      {
+        "de": "Eine kleine Elite entscheidet alles.",
+        "en": "A small elite decides everything.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gehört zur sportlichen Elite.",
+        "en": "He belongs to the sporting elite.",
         "lvl": "C1"
       }
     ]
@@ -4783,6 +4881,20 @@
       }
     ]
   },
+  "voc:C1:die Güte": {
+    "ex": [
+      {
+        "de": "Er half mir aus reiner Güte.",
+        "en": "He helped me out of pure kindness.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Güte der Ware überzeugt.",
+        "en": "The quality of the goods is convincing.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Hartnäckigkeit": {
     "def": "The quality of continuing firmly despite difficulty.",
     "ex": [
@@ -5230,6 +5342,20 @@
       {
         "de": "Die Methodik ist im Anhang ausführlich beschrieben.",
         "en": "The methodology is described in detail in the appendix.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Miene": {
+    "ex": [
+      {
+        "de": "Er verzog keine Miene.",
+        "en": "He didn't bat an eyelid.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihre Miene wurde ernst.",
+        "en": "Her expression turned serious.",
         "lvl": "C1"
       }
     ]
@@ -6760,6 +6886,20 @@
       {
         "de": "Er wählte sehr drastische Worte.",
         "en": "He chose very drastic words.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:dulden": {
+    "ex": [
+      {
+        "de": "Wir dulden keine Gewalt.",
+        "en": "We tolerate no violence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Schule duldet das Handy im Unterricht nicht.",
+        "en": "The school does not tolerate phones in class.",
         "lvl": "C1"
       }
     ]
@@ -8499,6 +8639,34 @@
       }
     ]
   },
+  "voc:C1:objektiv": {
+    "ex": [
+      {
+        "de": "Bitte bleiben Sie objektiv.",
+        "en": "Please stay objective.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Objektiv betrachtet stimmt das nicht.",
+        "en": "Objectively speaking, that isn't right.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:opfern": {
+    "ex": [
+      {
+        "de": "Sie opfert ihre Freizeit für das Projekt.",
+        "en": "She sacrifices her free time for the project.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Niemand will etwas opfern.",
+        "en": "Nobody wants to sacrifice anything.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:paraphrasieren": {
     "def": "To express something in different words.",
     "ex": [
@@ -8741,6 +8909,20 @@
       {
         "de": "Die Ausstellung war richtungsweisend für die junge Fotografie.",
         "en": "The exhibition was trailblazing for young photography.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:schildern": {
+    "ex": [
+      {
+        "de": "Schildern Sie bitte den Unfall.",
+        "en": "Please describe the accident.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er schildert alles sehr genau.",
+        "en": "He describes everything very precisely.",
         "lvl": "C1"
       }
     ]
@@ -9040,6 +9222,20 @@
       }
     ]
   },
+  "voc:C1:subjektiv": {
+    "ex": [
+      {
+        "de": "Das ist eine rein subjektive Sicht.",
+        "en": "That is a purely subjective view.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Urteil war subjektiv.",
+        "en": "His judgement was subjective.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:systematisch": {
     "def": "In an organised, methodical way.",
     "ex": [
@@ -9070,6 +9266,20 @@
       }
     ]
   },
+  "voc:C1:sämtlich": {
+    "ex": [
+      {
+        "de": "Sämtliche Unterlagen sind eingegangen.",
+        "en": "All the documents have arrived.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat sämtliche Fragen beantwortet.",
+        "en": "He answered every one of the questions.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:tadellos": {
     "def": "Leaving nothing at all to criticise.",
     "ex": [
@@ -9096,6 +9306,20 @@
       {
         "de": "Tom aß tagelang nichts.",
         "en": "Tom went without eating for several days.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:tagen": {
+    "ex": [
+      {
+        "de": "Der Ausschuss tagt am Montag.",
+        "en": "The committee meets on Monday.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir tagen bis in den Abend.",
+        "en": "We are in session until the evening.",
         "lvl": "C1"
       }
     ]

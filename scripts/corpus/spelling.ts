@@ -1,21 +1,23 @@
 // One English, not two.
 //
-// `die Farbe` is glossed **color** and defined **colour**. `die Verteidigung` is
-// glossed **defense** and defined **defence**. `der Schmuck` is glossed
-// **jewellery** and defined **jewelry**. Twenty-four cards contradict themselves
-// between the line on the card and the line in the entry sheet, on the same word,
-// for the same learner.
+// `die Farbe` was glossed **color** and defined **colour**. `die Verteidigung`:
+// glossed **defense**, defined **defence**. `der Schmuck`: glossed **jewellery**,
+// defined **jewelry**. **Twenty-five cards contradicted themselves** between the
+// line on the card and the line in the entry sheet, about the same word, in front
+// of the same learner.
 //
-// Measured over the shipped corpus, counting cards that use either side of a
-// known pair:
+// Measured by this script, counting cards that use either side of a known pair:
 //
-//                 US    UK
-//   gloss         33    57
-//   definition    80    94
-//   examples      91   306
+//                 US    UK          after --write
+//   gloss         28    63           0    88
+//   definition    62   124          62   124   (untouched — see below)
+//   examples      46   302           0   348
 //
-// So there is no convention, and the majority — and the app's own copy, which
+// So there was no convention, and the majority — and the app's own copy, which
 // says *practise*, *recognise*, *organise* — is British. That is the target.
+//
+// Twenty-one cards still differ from their own `def`, all of them gloss-UK against
+// a US definition. That residue is deliberate and is reported on every run.
 //
 // ## What this rewrites, and what it refuses to
 //

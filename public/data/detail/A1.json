@@ -15229,6 +15229,20 @@
       }
     ]
   },
+  "voc:A1:die Mama": {
+    "ex": [
+      {
+        "de": "Meine Mama kocht sehr gut.",
+        "en": "My mum cooks very well.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mama, ich habe Hunger!",
+        "en": "Mum, I'm hungry!",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Mannschaft": {
     "def": "crew members of a ship",
     "ex": [

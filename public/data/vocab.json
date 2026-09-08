@@ -213912,5 +213912,1760 @@
     ],
     "field": "Medical Treatment",
     "kind": "word"
+  },
+  {
+    "id": "voc:B1:wundern",
+    "term": "wundern",
+    "en": "to surprise; (sich) to be surprised",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvʊndɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das wundert mich nicht.",
+        "en": "That doesn't surprise me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich wundere mich über sein Verhalten.",
+        "en": "I'm surprised at his behaviour.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:flüstern",
+    "term": "flüstern",
+    "en": "to whisper",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈflʏstɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie flüsterte mir etwas ins Ohr.",
+        "en": "She whispered something in my ear.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte flüstern Sie nicht im Unterricht.",
+        "en": "Please don't whisper in class.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:zucken",
+    "term": "zucken",
+    "en": "to twitch, to flinch",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡sʊkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er zuckt kurz mit den Schultern.",
+        "en": "He briefly shrugs his shoulders.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei dem lauten Knall zucken alle.",
+        "en": "Everyone flinches at the loud bang.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Body",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:drängen",
+    "term": "drängen",
+    "en": "to push, to urge",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʁɛŋən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Leute drängen zum Ausgang.",
+        "en": "People are pushing towards the exit.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er drängt mich zu einer Entscheidung.",
+        "en": "He is pressing me for a decision.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:strecken",
+    "term": "strecken",
+    "en": "to stretch",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtʁɛkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Streck bitte die Arme nach oben.",
+        "en": "Please stretch your arms upwards.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach dem Schlafen streckt sie sich.",
+        "en": "After sleeping she stretches.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:schleichen",
+    "term": "schleichen",
+    "en": "to creep, to sneak",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃlaɪ̯çn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Katze schleicht durch den Garten.",
+        "en": "The cat is creeping through the garden.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir schleichen leise aus dem Zimmer.",
+        "en": "We sneak quietly out of the room.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:geraten",
+    "term": "geraten",
+    "en": "to end up, to get into",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈʁaːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir sind in einen Stau geraten.",
+        "en": "We ended up in a traffic jam.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie geriet in Panik.",
+        "en": "She got into a panic.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:lehnen",
+    "term": "lehnen",
+    "en": "to lean",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈleːnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Fahrrad lehnt an der Wand.",
+        "en": "The bicycle is leaning against the wall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er lehnte sich aus dem Fenster.",
+        "en": "He leaned out of the window.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:rühren",
+    "term": "rühren",
+    "en": "to stir; to move",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁyːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Rühren Sie die Soße bitte um.",
+        "en": "Please stir the sauce.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich kann den Arm nicht rühren.",
+        "en": "I can't move my arm.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:kriechen",
+    "term": "kriechen",
+    "en": "to crawl",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʁiːçn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Baby kriecht über den Teppich.",
+        "en": "The baby is crawling across the carpet.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir kriechen unter den Zaun.",
+        "en": "We crawl under the fence.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:biegen",
+    "term": "biegen",
+    "en": "to bend",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbiːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Wind biegt die Äste.",
+        "en": "The wind is bending the branches.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir biegen den Draht vorsichtig.",
+        "en": "We bend the wire carefully.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:winken",
+    "term": "winken",
+    "en": "to wave",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɪŋkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie winkt uns vom Bahnsteig.",
+        "en": "She is waving to us from the platform.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zum Abschied winken wir lange.",
+        "en": "We wave for a long time in farewell.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:eilen",
+    "term": "eilen",
+    "en": "to hurry",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯lən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir müssen zum Bus eilen.",
+        "en": "We have to hurry to the bus.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das eilt nicht.",
+        "en": "There's no hurry.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:brüllen",
+    "term": "brüllen",
+    "en": "to roar, to yell",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbʁʏlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Chef brüllte durch das Büro.",
+        "en": "The boss yelled across the office.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Baby brüllt die ganze Nacht.",
+        "en": "The baby is screaming all night.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:wenden",
+    "term": "wenden",
+    "en": "to turn",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɛndn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte wenden Sie das Blatt.",
+        "en": "Please turn the page over.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir wenden den Wagen auf der Straße.",
+        "en": "We turn the car round in the road.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:vergehen",
+    "term": "vergehen",
+    "en": "to pass (of time)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈɡeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Zeit vergeht schnell.",
+        "en": "Time passes quickly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es vergingen viele Jahre.",
+        "en": "Many years went by.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:töten",
+    "term": "töten",
+    "en": "to kill",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtøːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Sturm hat viele Tiere getötet.",
+        "en": "The storm killed many animals.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Niemand darf einen Menschen töten.",
+        "en": "No one may kill a person.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Fall",
+    "term": "der Fall",
+    "en": "case; fall",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "fal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In diesem Fall haben Sie recht.",
+        "en": "In this case you are right.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf keinen Fall!",
+        "en": "Absolutely not!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Gebiet",
+    "term": "das Gebiet",
+    "en": "area, region; field",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Gebiete",
+    "ipa": "ɡəˈbiːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Gebiet ist sehr dünn besiedelt.",
+        "en": "The area is very sparsely populated.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf diesem Gebiet ist sie Expertin.",
+        "en": "She is an expert in this field.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Landscape & nature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Schlag",
+    "term": "der Schlag",
+    "en": "blow, hit; stroke",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Schläge",
+    "ipa": "ʃlaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Schlag traf ihn am Kopf.",
+        "en": "The blow hit him on the head.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit einem Schlag war alles anders.",
+        "en": "All at once everything was different.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Schrei",
+    "term": "der Schrei",
+    "en": "shout, scream",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Schreie",
+    "ipa": "ʃʁaɪ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein lauter Schrei weckte mich.",
+        "en": "A loud scream woke me up.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Schrei kam aus dem Garten.",
+        "en": "The scream came from the garden.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Atem",
+    "term": "der Atem",
+    "en": "breath",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈaːtəm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihm blieb der Atem weg.",
+        "en": "It took his breath away.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hol tief Atem!",
+        "en": "Take a deep breath!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Mama",
+    "term": "die Mama",
+    "en": "mum, mummy",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Mamas",
+    "ipa": "ˈmama",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Mama kocht sehr gut.",
+        "en": "My mum cooks very well.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mama, ich habe Hunger!",
+        "en": "Mum, I'm hungry!",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Gestalt",
+    "term": "die Gestalt",
+    "en": "figure, shape",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Gestalten",
+    "ipa": "ɡəˈʃtalt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Eine dunkle Gestalt stand an der Tür.",
+        "en": "A dark figure stood at the door.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Gestalt der Wolken änderte sich.",
+        "en": "The shape of the clouds changed.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:dringen",
+    "term": "dringen",
+    "en": "to penetrate, to get through",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʁɪŋən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wasser dringt durch die Wand.",
+        "en": "Water is getting through the wall.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Nachricht dringt an die Öffentlichkeit.",
+        "en": "The news is reaching the public.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:weichen",
+    "term": "weichen",
+    "en": "to give way, to yield",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯çn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Schmerz weicht langsam.",
+        "en": "The pain is slowly subsiding.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir weichen keinen Schritt zurück.",
+        "en": "We are not giving way an inch.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Falle",
+    "term": "die Falle",
+    "en": "trap",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Fallen",
+    "ipa": "ˈfalə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das war eine böse Falle.",
+        "en": "That was a nasty trap.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er tappte in die Falle.",
+        "en": "He walked into the trap.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Miene",
+    "term": "die Miene",
+    "en": "expression, face",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Mienen",
+    "ipa": "ˈmiːnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er verzog keine Miene.",
+        "en": "He didn't bat an eyelid.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihre Miene wurde ernst.",
+        "en": "Her expression turned serious.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Versteck",
+    "term": "das Versteck",
+    "en": "hiding place",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Verstecke",
+    "ipa": "fɛɐ̯ˈʃtɛk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Kind sucht ein gutes Versteck.",
+        "en": "The child is looking for a good hiding place.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir kennen sein Versteck.",
+        "en": "We know his hiding place.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Ton",
+    "term": "der Ton",
+    "en": "sound, tone; clay",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "toːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ton war viel zu leise.",
+        "en": "The sound was much too quiet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sein Ton gefällt mir nicht.",
+        "en": "I don't like his tone.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:definieren",
+    "term": "definieren",
+    "en": "to define",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "defiˈniːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie definieren Sie diesen Begriff?",
+        "en": "How do you define this term?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir definieren die Regeln gemeinsam.",
+        "en": "We define the rules together.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:spannen",
+    "term": "spannen",
+    "en": "to stretch, to tighten",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃpanən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir spannen die Wäscheleine.",
+        "en": "We are stretching the washing line.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Muskeln spannen sich an.",
+        "en": "The muscles tense up.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:saugen",
+    "term": "saugen",
+    "en": "to suck; to vacuum",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzaʊ̯ɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich sauge heute den Teppich.",
+        "en": "I'm vacuuming the carpet today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Baby saugt an der Flasche.",
+        "en": "The baby is sucking on the bottle.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:super",
+    "term": "super",
+    "en": "great, super",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzuːpɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Essen war super.",
+        "en": "The food was great.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Super, das freut mich!",
+        "en": "Great, I'm glad!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:steuern",
+    "term": "steuern",
+    "en": "to steer, to control",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtɔɪ̯ɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er steuert das Boot durch den Hafen.",
+        "en": "He steers the boat through the harbour.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein Computer steuert die Anlage.",
+        "en": "A computer controls the plant.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:stinken",
+    "term": "stinken",
+    "en": "to stink",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtɪŋkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Müll stinkt furchtbar.",
+        "en": "The rubbish stinks terribly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hier stinkt es nach Rauch.",
+        "en": "It stinks of smoke in here.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:decken",
+    "term": "decken",
+    "en": "to cover; to lay (a table)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdɛkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Deckst du bitte den Tisch?",
+        "en": "Will you lay the table, please?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Eine Plane deckt das Holz.",
+        "en": "A tarpaulin covers the wood.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:opfern",
+    "term": "opfern",
+    "en": "to sacrifice",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɔp͡fɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie opfert ihre Freizeit für das Projekt.",
+        "en": "She sacrifices her free time for the project.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Niemand will etwas opfern.",
+        "en": "Nobody wants to sacrifice anything.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:stützen",
+    "term": "stützen",
+    "en": "to support, to prop up",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtʏt͡sn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zwei Balken stützen das Dach.",
+        "en": "Two beams support the roof.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zahlen stützen seine These.",
+        "en": "The figures support his thesis.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Auffassung",
+    "term": "die Auffassung",
+    "en": "view, opinion",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Auffassungen",
+    "ipa": "ˈaʊ̯fˌfasʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich teile Ihre Auffassung nicht.",
+        "en": "I don't share your view.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach seiner Auffassung ist das falsch.",
+        "en": "In his view that is wrong.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Opinion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:spiegeln",
+    "term": "spiegeln",
+    "en": "to reflect",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃpiːɡl̩n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Wasser spiegelt den Himmel.",
+        "en": "The water reflects the sky.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zahlen spiegeln die Lage gut.",
+        "en": "The figures reflect the situation well.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:dulden",
+    "term": "dulden",
+    "en": "to tolerate, to put up with",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʊldn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir dulden keine Gewalt.",
+        "en": "We tolerate no violence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Schule duldet das Handy im Unterricht nicht.",
+        "en": "The school does not tolerate phones in class.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:stärken",
+    "term": "stärken",
+    "en": "to strengthen",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtɛʁkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sport stärkt das Herz.",
+        "en": "Exercise strengthens the heart.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das stärkt unser Vertrauen.",
+        "en": "That strengthens our trust.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Aktivität",
+    "term": "die Aktivität",
+    "en": "activity",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Aktivitäten",
+    "ipa": "aktiviˈtɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Aktivität im Forum nimmt zu.",
+        "en": "Activity in the forum is increasing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Welche Aktivität schlägst du vor?",
+        "en": "Which activity do you suggest?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Element",
+    "term": "das Element",
+    "en": "element",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Elemente",
+    "ipa": "eləˈmɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wasser ist ein wichtiges Element.",
+        "en": "Water is an important element.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Element fehlt im Bauplan.",
+        "en": "The element is missing from the plan.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Science",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:subjektiv",
+    "term": "subjektiv",
+    "en": "subjective",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zʊpjɛkˈtiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine rein subjektive Sicht.",
+        "en": "That is a purely subjective view.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Urteil war subjektiv.",
+        "en": "His judgement was subjective.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Opinion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:objektiv",
+    "term": "objektiv",
+    "en": "objective",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌɔpjɛkˈtiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte bleiben Sie objektiv.",
+        "en": "Please stay objective.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Objektiv betrachtet stimmt das nicht.",
+        "en": "Objectively speaking, that isn't right.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Opinion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:simpel",
+    "term": "simpel",
+    "en": "simple",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɪmpl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Lösung ist ganz simpel.",
+        "en": "The solution is quite simple.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Frage war wirklich simpel.",
+        "en": "The question was really simple.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:schildern",
+    "term": "schildern",
+    "en": "to describe, to recount",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃɪldɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schildern Sie bitte den Unfall.",
+        "en": "Please describe the accident.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er schildert alles sehr genau.",
+        "en": "He describes everything very precisely.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:damalig",
+    "term": "damalig",
+    "en": "then, of that time",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdaːˌmaːlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der damalige Chef war strenger.",
+        "en": "The boss at the time was stricter.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die damalige Lage war schwierig.",
+        "en": "The situation at the time was difficult.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Elite",
+    "term": "die Elite",
+    "en": "elite",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Eliten",
+    "ipa": "eˈliːtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Eine kleine Elite entscheidet alles.",
+        "en": "A small elite decides everything.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gehört zur sportlichen Elite.",
+        "en": "He belongs to the sporting elite.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Gebot",
+    "term": "das Gebot",
+    "en": "commandment; rule",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Gebote",
+    "ipa": "ɡəˈboːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Höflichkeit ist ein Gebot.",
+        "en": "Politeness is a rule.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das erste Gebot lautet anders.",
+        "en": "The first commandment reads differently.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Auszug",
+    "term": "der Auszug",
+    "en": "extract; moving out",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Auszüge",
+    "ipa": "ˈaʊ̯st͡suːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte schicken Sie einen Auszug aus dem Register.",
+        "en": "Please send an extract from the register.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Auszug war die Wohnung leer.",
+        "en": "After the move-out the flat was empty.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:tagen",
+    "term": "tagen",
+    "en": "to meet, to sit (of a body)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtaːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ausschuss tagt am Montag.",
+        "en": "The committee meets on Monday.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir tagen bis in den Abend.",
+        "en": "We are in session until the evening.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:agieren",
+    "term": "agieren",
+    "en": "to act, to operate",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "aˈɡiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma agiert weltweit.",
+        "en": "The company operates worldwide.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er agiert sehr vorsichtig.",
+        "en": "He acts very cautiously.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:äußere",
+    "term": "äußere",
+    "en": "outer, external",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɔɪ̯səʁə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die äußere Schicht ist beschädigt.",
+        "en": "The outer layer is damaged.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf die äußere Form kommt es hier an.",
+        "en": "The external form is what matters here.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Güte",
+    "term": "die Güte",
+    "en": "kindness; quality",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈɡyːtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er half mir aus reiner Güte.",
+        "en": "He helped me out of pure kindness.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Güte der Ware überzeugt.",
+        "en": "The quality of the goods is convincing.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:alternativ",
+    "term": "alternativ",
+    "en": "alternative",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌaltɛʁnaˈtiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alternativ können wir uns morgen treffen.",
+        "en": "Alternatively we can meet tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Alternativ können Sie den Bus nehmen.",
+        "en": "Alternatively you can take the bus.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Erziehung",
+    "term": "die Erziehung",
+    "en": "upbringing, education",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ɛɐ̯ˈt͡siːʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Erziehung der Kinder kostet Kraft.",
+        "en": "Bringing up children takes energy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat eine strenge Erziehung genossen.",
+        "en": "She had a strict upbringing.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:derartig",
+    "term": "derartig",
+    "en": "such, of that kind",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdeːɐ̯ʔaːɐ̯tɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Eine derartige Antwort hilft nicht.",
+        "en": "An answer of that kind doesn't help.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Derartige Fehler passieren selten.",
+        "en": "Mistakes like that rarely happen.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Lüge",
+    "term": "die Lüge",
+    "en": "lie",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Lügen",
+    "ipa": "ˈlyːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine glatte Lüge.",
+        "en": "That is an outright lie.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Eine Lüge kommt immer heraus.",
+        "en": "A lie always comes out.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Mord",
+    "term": "der Mord",
+    "en": "murder",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Morde",
+    "ipa": "mɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Mord blieb lange ungeklärt.",
+        "en": "The murder went unsolved for a long time.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Man klagt ihn wegen Mordes an.",
+        "en": "He is charged with murder.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sämtlich",
+    "term": "sämtlich",
+    "en": "all, entire",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɛmtlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sämtliche Unterlagen sind eingegangen.",
+        "en": "All the documents have arrived.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat sämtliche Fragen beantwortet.",
+        "en": "He answered every one of the questions.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:der Strang",
+    "term": "der Strang",
+    "en": "strand, rope; track",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "der",
+    "plural": "die Stränge",
+    "ipa": "ʃtʁaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Strang ist gerissen.",
+        "en": "The rope has snapped.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wir ziehen alle am selben Strang.",
+        "en": "We are all pulling in the same direction.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Objects & Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Akt",
+    "term": "der Akt",
+    "en": "act; nude",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "akt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der zweite Akt beginnt gleich.",
+        "en": "The second act starts shortly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war ein Akt der Verzweiflung.",
+        "en": "That was an act of desperation.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Media & Arts",
+    "kind": "word"
   }
 ]

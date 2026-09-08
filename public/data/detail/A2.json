@@ -6661,6 +6661,20 @@
       }
     ]
   },
+  "voc:A2:der Fall": {
+    "ex": [
+      {
+        "de": "In diesem Fall haben Sie recht.",
+        "en": "In this case you are right.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf keinen Fall!",
+        "en": "Absolutely not!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Ferienjob": {
     "def": "Short paid work taken by a school or university student during the holidays.",
     "defDe": "kurzzeitige Anstellung für Schüler und Studenten während der Ferien",
@@ -24642,6 +24656,20 @@
       }
     ]
   },
+  "voc:A2:super": {
+    "ex": [
+      {
+        "de": "Das Essen war super.",
+        "en": "The food was great.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Super, das freut mich!",
+        "en": "Great, I'm glad!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:surfen": {
     "def": "To ride breaking waves standing on a board; also to move from page to page online.",
     "defDe": "auf einem speziell dafür konzipierten Brett (Surfboard/Surfbrett) im Stehen sich balancierend von den Brandungswellen ans Ufer tragen lassen; Surfing betreiben",
@@ -26493,6 +26521,20 @@
         "de": "Bei so windigem Wetter lässt sich der Schirm kaum festhalten.",
         "en": "In such windy weather you can hardly hold on to the umbrella.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:winken": {
+    "ex": [
+      {
+        "de": "Sie winkt uns vom Bahnsteig.",
+        "en": "She is waving to us from the platform.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Zum Abschied winken wir lange.",
+        "en": "We wave for a long time in farewell.",
+        "lvl": "A2"
       }
     ]
   },

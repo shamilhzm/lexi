@@ -571,6 +571,20 @@
       }
     ]
   },
+  "voc:C2:der Strang": {
+    "ex": [
+      {
+        "de": "Der Strang ist gerissen.",
+        "en": "The rope has snapped.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wir ziehen alle am selben Strang.",
+        "en": "We are all pulling in the same direction.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:der Tatbestand": {
     "def": "The facts that make up an offence in law; the essential facts.",
     "ex": [

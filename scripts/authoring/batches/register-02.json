@@ -1,0 +1,514 @@
+[
+  {
+    "term": "die Gestalt",
+    "en": "figure, shape",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Eine dunkle Gestalt stand an der Tür.",
+        "en": "A dark figure stood at the door."
+      },
+      {
+        "de": "Die Gestalt der Wolken änderte sich.",
+        "en": "The shape of the clouds changed."
+      }
+    ]
+  },
+  {
+    "term": "dringen",
+    "en": "to penetrate, to get through",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Wasser dringt durch die Wand.",
+        "en": "Water is getting through the wall."
+      },
+      {
+        "de": "Die Nachricht dringt an die Öffentlichkeit.",
+        "en": "The news is reaching the public."
+      }
+    ]
+  },
+  {
+    "term": "weichen",
+    "en": "to give way, to yield",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Der Schmerz weicht langsam.",
+        "en": "The pain is slowly subsiding."
+      },
+      {
+        "de": "Wir weichen keinen Schritt zurück.",
+        "en": "We are not giving way an inch."
+      }
+    ]
+  },
+  {
+    "term": "die Falle",
+    "en": "trap",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Das war eine böse Falle.",
+        "en": "That was a nasty trap."
+      },
+      {
+        "de": "Er tappte in die Falle.",
+        "en": "He walked into the trap."
+      }
+    ]
+  },
+  {
+    "term": "die Miene",
+    "en": "expression, face",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Er verzog keine Miene.",
+        "en": "He didn't bat an eyelid."
+      },
+      {
+        "de": "Ihre Miene wurde ernst.",
+        "en": "Her expression turned serious."
+      }
+    ]
+  },
+  {
+    "term": "das Versteck",
+    "en": "hiding place",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Das Kind sucht ein gutes Versteck.",
+        "en": "The child is looking for a good hiding place."
+      },
+      {
+        "de": "Wir kennen sein Versteck.",
+        "en": "We know his hiding place."
+      }
+    ]
+  },
+  {
+    "term": "der Ton",
+    "en": "sound, tone; clay",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Der Ton war viel zu leise.",
+        "en": "The sound was much too quiet."
+      },
+      {
+        "de": "Sein Ton gefällt mir nicht.",
+        "en": "I don't like his tone."
+      }
+    ]
+  },
+  {
+    "term": "definieren",
+    "en": "to define",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Wie definieren Sie diesen Begriff?",
+        "en": "How do you define this term?"
+      },
+      {
+        "de": "Wir definieren die Regeln gemeinsam.",
+        "en": "We define the rules together."
+      }
+    ]
+  },
+  {
+    "term": "spannen",
+    "en": "to stretch, to tighten",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Wir spannen die Wäscheleine.",
+        "en": "We are stretching the washing line."
+      },
+      {
+        "de": "Die Muskeln spannen sich an.",
+        "en": "The muscles tense up."
+      }
+    ]
+  },
+  {
+    "term": "saugen",
+    "en": "to suck; to vacuum",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Ich sauge heute den Teppich.",
+        "en": "I'm vacuuming the carpet today."
+      },
+      {
+        "de": "Das Baby saugt an der Flasche.",
+        "en": "The baby is sucking on the bottle."
+      }
+    ]
+  },
+  {
+    "term": "super",
+    "en": "great, super",
+    "pos": "adjective",
+    "level": "A2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Das Essen war super.",
+        "en": "The food was great."
+      },
+      {
+        "de": "Super, das freut mich!",
+        "en": "Great, I'm glad!"
+      }
+    ]
+  },
+  {
+    "term": "steuern",
+    "en": "to steer, to control",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Technology & Devices",
+    "ex": [
+      {
+        "de": "Er steuert das Boot durch den Hafen.",
+        "en": "He steers the boat through the harbour."
+      },
+      {
+        "de": "Ein Computer steuert die Anlage.",
+        "en": "A computer controls the plant."
+      }
+    ]
+  },
+  {
+    "term": "stinken",
+    "en": "to stink",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Der Müll stinkt furchtbar.",
+        "en": "The rubbish stinks terribly."
+      },
+      {
+        "de": "Hier stinkt es nach Rauch.",
+        "en": "It stinks of smoke in here."
+      }
+    ]
+  },
+  {
+    "term": "decken",
+    "en": "to cover; to lay (a table)",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Deckst du bitte den Tisch?",
+        "en": "Will you lay the table, please?"
+      },
+      {
+        "de": "Eine Plane deckt das Holz.",
+        "en": "A tarpaulin covers the wood."
+      }
+    ]
+  },
+  {
+    "term": "opfern",
+    "en": "to sacrifice",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Sie opfert ihre Freizeit für das Projekt.",
+        "en": "She sacrifices her free time for the project."
+      },
+      {
+        "de": "Niemand will etwas opfern.",
+        "en": "Nobody wants to sacrifice anything."
+      }
+    ]
+  },
+  {
+    "term": "stützen",
+    "en": "to support, to prop up",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Zwei Balken stützen das Dach.",
+        "en": "Two beams support the roof."
+      },
+      {
+        "de": "Die Zahlen stützen seine These.",
+        "en": "The figures support his thesis."
+      }
+    ]
+  },
+  {
+    "term": "die Auffassung",
+    "en": "view, opinion",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Ich teile Ihre Auffassung nicht.",
+        "en": "I don't share your view."
+      },
+      {
+        "de": "Nach seiner Auffassung ist das falsch.",
+        "en": "In his view that is wrong."
+      }
+    ]
+  },
+  {
+    "term": "spiegeln",
+    "en": "to reflect",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Das Wasser spiegelt den Himmel.",
+        "en": "The water reflects the sky."
+      },
+      {
+        "de": "Die Zahlen spiegeln die Lage gut.",
+        "en": "The figures reflect the situation well."
+      }
+    ]
+  },
+  {
+    "term": "dulden",
+    "en": "to tolerate, to put up with",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Wir dulden keine Gewalt.",
+        "en": "We tolerate no violence."
+      },
+      {
+        "de": "Die Schule duldet das Handy im Unterricht nicht.",
+        "en": "The school does not tolerate phones in class."
+      }
+    ]
+  },
+  {
+    "term": "stärken",
+    "en": "to strengthen",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Sport stärkt das Herz.",
+        "en": "Exercise strengthens the heart."
+      },
+      {
+        "de": "Das stärkt unser Vertrauen.",
+        "en": "That strengthens our trust."
+      }
+    ]
+  },
+  {
+    "term": "die Aktivität",
+    "en": "activity",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Free time",
+    "ex": [
+      {
+        "de": "Die Aktivität im Forum nimmt zu.",
+        "en": "Activity in the forum is increasing."
+      },
+      {
+        "de": "Welche Aktivität schlägst du vor?",
+        "en": "Which activity do you suggest?"
+      }
+    ]
+  },
+  {
+    "term": "das Element",
+    "en": "element",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Science",
+    "ex": [
+      {
+        "de": "Wasser ist ein wichtiges Element.",
+        "en": "Water is an important element."
+      },
+      {
+        "de": "Das Element fehlt im Bauplan.",
+        "en": "The element is missing from the plan."
+      }
+    ],
+    "sameAsGerman": true
+  },
+  {
+    "term": "subjektiv",
+    "en": "subjective",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Das ist eine rein subjektive Sicht.",
+        "en": "That is a purely subjective view."
+      },
+      {
+        "de": "Sein Urteil war subjektiv.",
+        "en": "His judgement was subjective."
+      }
+    ]
+  },
+  {
+    "term": "objektiv",
+    "en": "objective",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Bitte bleiben Sie objektiv.",
+        "en": "Please stay objective."
+      },
+      {
+        "de": "Objektiv betrachtet stimmt das nicht.",
+        "en": "Objectively speaking, that isn't right."
+      }
+    ]
+  },
+  {
+    "term": "simpel",
+    "en": "simple",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Die Lösung ist ganz simpel.",
+        "en": "The solution is quite simple."
+      },
+      {
+        "de": "Die Frage war wirklich simpel.",
+        "en": "The question was really simple."
+      }
+    ]
+  },
+  {
+    "term": "schildern",
+    "en": "to describe, to recount",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Schildern Sie bitte den Unfall.",
+        "en": "Please describe the accident."
+      },
+      {
+        "de": "Er schildert alles sehr genau.",
+        "en": "He describes everything very precisely."
+      }
+    ]
+  },
+  {
+    "term": "damalig",
+    "en": "then, of that time",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Time",
+    "ex": [
+      {
+        "de": "Der damalige Chef war strenger.",
+        "en": "The boss at the time was stricter."
+      },
+      {
+        "de": "Die damalige Lage war schwierig.",
+        "en": "The situation at the time was difficult."
+      }
+    ]
+  },
+  {
+    "term": "die Elite",
+    "en": "elite",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Society",
+    "ex": [
+      {
+        "de": "Eine kleine Elite entscheidet alles.",
+        "en": "A small elite decides everything."
+      },
+      {
+        "de": "Er gehört zur sportlichen Elite.",
+        "en": "He belongs to the sporting elite."
+      }
+    ],
+    "sameAsGerman": true
+  },
+  {
+    "term": "das Gebot",
+    "en": "commandment; rule",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Höflichkeit ist ein Gebot.",
+        "en": "Politeness is a rule."
+      },
+      {
+        "de": "Das erste Gebot lautet anders.",
+        "en": "The first commandment reads differently."
+      }
+    ]
+  },
+  {
+    "term": "der Auszug",
+    "en": "extract; moving out",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Bitte schicken Sie einen Auszug aus dem Register.",
+        "en": "Please send an extract from the register."
+      },
+      {
+        "de": "Nach dem Auszug war die Wohnung leer.",
+        "en": "After the move-out the flat was empty."
+      }
+    ]
+  }
+]

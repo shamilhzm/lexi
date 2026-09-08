@@ -291,6 +291,20 @@
       }
     ]
   },
+  "voc:B2:alternativ": {
+    "ex": [
+      {
+        "de": "Alternativ können wir uns morgen treffen.",
+        "en": "Alternatively we can meet tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Alternativ können Sie den Bus nehmen.",
+        "en": "Alternatively you can take the bus.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:anerkennen": {
     "def": "to acknowledge, to recognize, to accept (as legally, morally or scientifically valid or sufficient)",
     "ex": [
@@ -1330,6 +1344,20 @@
       }
     ]
   },
+  "voc:B2:biegen": {
+    "ex": [
+      {
+        "de": "Der Wind biegt die Äste.",
+        "en": "The wind is bending the branches.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir biegen den Draht vorsichtig.",
+        "en": "We bend the wire carefully.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:binden": {
     "def": "to bind, to tie, to fasten something by means of a string etc.; to tie, to fasten a string etc.",
     "ex": [
@@ -1683,6 +1711,20 @@
       {
         "de": "Ihr seid ein sehr schönes Ehepaar.",
         "en": "You're amazingly beautiful as a couple.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Element": {
+    "ex": [
+      {
+        "de": "Wasser ist ein wichtiges Element.",
+        "en": "Water is an important element.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Element fehlt im Bauplan.",
+        "en": "The element is missing from the plan.",
         "lvl": "B2"
       }
     ]
@@ -2644,6 +2686,20 @@
       }
     ]
   },
+  "voc:B2:definieren": {
+    "ex": [
+      {
+        "de": "Wie definieren Sie diesen Begriff?",
+        "en": "How do you define this term?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir definieren die Regeln gemeinsam.",
+        "en": "We define the rules together.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:delegieren": {
     "def": "To give a task or authority to someone else.",
     "ex": [
@@ -3124,6 +3180,20 @@
       {
         "de": "Es gibt keinen Ausweg.",
         "en": "There's no way out.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Auszug": {
+    "ex": [
+      {
+        "de": "Bitte schicken Sie einen Auszug aus dem Register.",
+        "en": "Please send an extract from the register.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Auszug war die Wohnung leer.",
+        "en": "After the move-out the flat was empty.",
         "lvl": "B2"
       }
     ]
@@ -4235,6 +4305,20 @@
       {
         "de": "Beide Moderatoren arbeiten seit Jahren zusammen.",
         "en": "Both presenters have worked together for years.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Mord": {
+    "ex": [
+      {
+        "de": "Der Mord blieb lange ungeklärt.",
+        "en": "The murder went unsolved for a long time.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Man klagt ihn wegen Mordes an.",
+        "en": "He is charged with murder.",
         "lvl": "B2"
       }
     ]
@@ -7071,6 +7155,20 @@
       }
     ]
   },
+  "voc:B2:die Erziehung": {
+    "ex": [
+      {
+        "de": "Die Erziehung der Kinder kostet Kraft.",
+        "en": "Bringing up children takes energy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat eine strenge Erziehung genossen.",
+        "en": "She had a strict upbringing.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Eskalation": {
     "def": "A rapid increase in the seriousness of a conflict.",
     "ex": [
@@ -7472,6 +7570,20 @@
       {
         "de": "Auf der letzten Geraden zog sie am Favoriten vorbei.",
         "en": "On the final straight she pulled past the favourite.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Gestalt": {
+    "ex": [
+      {
+        "de": "Eine dunkle Gestalt stand an der Tür.",
+        "en": "A dark figure stood at the door.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Gestalt der Wolken änderte sich.",
+        "en": "The shape of the clouds changed.",
         "lvl": "B2"
       }
     ]
@@ -10146,6 +10258,20 @@
       }
     ]
   },
+  "voc:B2:dringen": {
+    "ex": [
+      {
+        "de": "Wasser dringt durch die Wand.",
+        "en": "Water is getting through the wall.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Nachricht dringt an die Öffentlichkeit.",
+        "en": "The news is reaching the public.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:durchmachen": {
     "def": "to go through, to endure, to suffer; to undergo",
     "ex": [
@@ -10262,6 +10388,20 @@
       {
         "de": "Die Mitarbeiter planen ihre Aufgaben eigenverantwortlich.",
         "en": "The employees plan their tasks autonomously.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:eilen": {
+    "ex": [
+      {
+        "de": "Wir müssen zum Bus eilen.",
+        "en": "We have to hurry to the bus.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das eilt nicht.",
+        "en": "There's no hurry.",
         "lvl": "B2"
       }
     ]
@@ -11387,6 +11527,20 @@
       }
     ]
   },
+  "voc:B2:geraten": {
+    "ex": [
+      {
+        "de": "Wir sind in einen Stau geraten.",
+        "en": "We ended up in a traffic jam.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie geriet in Panik.",
+        "en": "She got into a panic.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:gerecht": {
     "def": "just, fair",
     "ex": [
@@ -12302,6 +12456,20 @@
       }
     ]
   },
+  "voc:B2:kriechen": {
+    "ex": [
+      {
+        "de": "Das Baby kriecht über den Teppich.",
+        "en": "The baby is crawling across the carpet.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir kriechen unter den Zaun.",
+        "en": "We crawl under the fence.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:kritisch": {
     "def": "Carefully judging faults and merits; also serious or crucial.",
     "ex": [
@@ -13144,6 +13312,20 @@
       }
     ]
   },
+  "voc:B2:schleichen": {
+    "ex": [
+      {
+        "de": "Die Katze schleicht durch den Garten.",
+        "en": "The cat is creeping through the garden.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir schleichen leise aus dem Zimmer.",
+        "en": "We sneak quietly out of the room.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:schlicht": {
     "def": "Simple and unadorned; also just plainly so.",
     "ex": [
@@ -13369,6 +13551,20 @@
       }
     ]
   },
+  "voc:B2:simpel": {
+    "ex": [
+      {
+        "de": "Die Lösung ist ganz simpel.",
+        "en": "The solution is quite simple.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Frage war wirklich simpel.",
+        "en": "The question was really simple.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:skeptisch": {
     "def": "Doubtful; not easily convinced.",
     "ex": [
@@ -13414,6 +13610,20 @@
       }
     ]
   },
+  "voc:B2:spannen": {
+    "ex": [
+      {
+        "de": "Wir spannen die Wäscheleine.",
+        "en": "We are stretching the washing line.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Muskeln spannen sich an.",
+        "en": "The muscles tense up.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:speisen": {
     "def": "to dine, to eat in a cultured (typically upscale) setting (otherwise humorous); to eat (something delicious and/or expensive)",
     "ex": [
@@ -13440,6 +13650,20 @@
       {
         "de": "Die Brücke ist gesperrt.",
         "en": "The bridge is closed.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:spiegeln": {
+    "ex": [
+      {
+        "de": "Das Wasser spiegelt den Himmel.",
+        "en": "The water reflects the sky.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zahlen spiegeln die Lage gut.",
+        "en": "The figures reflect the situation well.",
         "lvl": "B2"
       }
     ]
@@ -13549,6 +13773,20 @@
       }
     ]
   },
+  "voc:B2:steuern": {
+    "ex": [
+      {
+        "de": "Er steuert das Boot durch den Hafen.",
+        "en": "He steers the boat through the harbour.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein Computer steuert die Anlage.",
+        "en": "A computer controls the plant.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:stornieren": {
     "def": "to cancel, to reverse",
     "ex": [
@@ -13609,6 +13847,20 @@
       }
     ]
   },
+  "voc:B2:stärken": {
+    "ex": [
+      {
+        "de": "Sport stärkt das Herz.",
+        "en": "Exercise strengthens the heart.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das stärkt unser Vertrauen.",
+        "en": "That strengthens our trust.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:stöhnen": {
     "def": "to moan, to groan, to grunt (to vocalize in a low, unarticulated manner, typically as an extension of exhaling); to moan, to groan (to say in a manner involving moaning or reminiscent thereof)",
     "ex": [
@@ -13620,6 +13872,20 @@
       {
         "de": "Tom stöhnt.",
         "en": "Tom is groaning.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:stützen": {
+    "ex": [
+      {
+        "de": "Zwei Balken stützen das Dach.",
+        "en": "Two beams support the roof.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zahlen stützen seine These.",
+        "en": "The figures support his thesis.",
         "lvl": "B2"
       }
     ]
@@ -14767,6 +15033,20 @@
       }
     ]
   },
+  "voc:B2:weichen": {
+    "ex": [
+      {
+        "de": "Der Schmerz weicht langsam.",
+        "en": "The pain is slowly subsiding.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir weichen keinen Schritt zurück.",
+        "en": "We are not giving way an inch.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:weiterhin": {
     "def": "As before; also in addition.",
     "ex": [
@@ -14957,6 +15237,20 @@
       {
         "de": "Bitte zitieren Sie die Quelle.",
         "en": "Please cite the source.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:zucken": {
+    "ex": [
+      {
+        "de": "Er zuckt kurz mit den Schultern.",
+        "en": "He briefly shrugs his shoulders.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei dem lauten Knall zucken alle.",
+        "en": "Everyone flinches at the loud bang.",
         "lvl": "B2"
       }
     ]
@@ -15223,6 +15517,20 @@
       {
         "de": "Die Fassade ist rein ästhetisch und hat keine Funktion.",
         "en": "The façade is purely aesthetic and has no function.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:äußere": {
+    "ex": [
+      {
+        "de": "Die äußere Schicht ist beschädigt.",
+        "en": "The outer layer is damaged.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf die äußere Form kommt es hier an.",
+        "en": "The external form is what matters here.",
         "lvl": "B2"
       }
     ]
