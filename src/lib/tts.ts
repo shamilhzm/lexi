@@ -5,7 +5,8 @@
 //  - Fallback: the platform's built-in de-DE speech synthesis (speakDe).
 // speak() routes to HD when the user has enabled it, else the fallback.
 import { hdVoice } from '../store.ts';
-import { speakDe } from './ui.ts';
+import { useEffect, useState } from 'react';
+import { speakDe, hasGermanVoice } from './ui.ts';
 
 export const HD_VOICE_ID = 'de_DE-thorsten-medium';
 
@@ -113,4 +114,29 @@ export function onSystemVoice(fn: (() => void) | null): void { onFallback = fn; 
 export function speak(text: string): void {
   if (!hdVoice()) { speakDe(text); onFallback?.(); return; }
   speakHd(text).catch(() => speakDe(text)); // fall back on any HD failure
+}
+
+/** Whether this device can say a German word at all, as a hook.
+ *
+ *  Voices load asynchronously — `getVoices()` is empty on first call in every
+ *  browser that fires `voiceschanged` — so this cannot be a one-shot read at
+ *  render time. It subscribes, and re-answers when the list arrives.
+ *
+ *  The HD voice is its own answer: if the learner has enabled it, Lexi carries a
+ *  German voice with it and the platform's inventory is irrelevant.
+ *
+ *  Used to *not offer* the speaker rather than to explain it afterwards. A
+ *  control that cannot do its job should say so before it is pressed, not after —
+ *  and a German word read by an English voice is worse than silence, which is the
+ *  whole of `speakDe`'s refusal. */
+export function useGermanVoice(): boolean {
+  const [ok, setOk] = useState(() => hdVoice() || hasGermanVoice());
+  useEffect(() => {
+    if (ok || typeof speechSynthesis === 'undefined') return;
+    const check = () => { if (hdVoice() || hasGermanVoice()) setOk(true); };
+    check();
+    speechSynthesis.addEventListener?.('voiceschanged', check);
+    return () => speechSynthesis.removeEventListener?.('voiceschanged', check);
+  }, [ok]);
+  return ok;
 }

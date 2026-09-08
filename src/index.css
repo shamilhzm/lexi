@@ -101,6 +101,7 @@
   --color-line:    #d2cabc;   /* hairlines */
   --color-txt:     #1e2226;   /* primary ink */
   --color-dim:     #5b5952;   /* secondary ink — AA on paper and on white */
+  --color-chrome:  #55544e;   /* secondary ink *on glass* — see `.glass-bar` below */
   --color-accent:   #1d6a8c;   /* brand / accent / focus (Atlas blue) */
   --color-green:   #3f7a3a;   /* gains / mastered */
   --color-green-d: #dfeddc;
@@ -262,6 +263,7 @@ html.dark {
   --color-line:    #2c3b41;
   --color-txt:     #e6edef;
   --color-dim:     #93a5ac;   /* AA on every dark surface */
+  --color-chrome:  #a8b7bd;   /* secondary ink *on glass* — see `.glass-bar` */
   --color-accent:   #63b3d4;   /* Atlas blue, lifted for a dark ground */
   --color-green:   #7bb36a;
   --color-green-d: #17301a;
@@ -894,7 +896,25 @@ html.dark {
    The transition is on the properties that carry the material, and deliberately
    not on `backdrop-filter`: animating a blur radius is the one thing that will
    drop frames on a phone, and the fill and the edge already sell the change. */
+/* **Secondary ink is a different ink on glass, and this is the whole of that fix.**
+   `--color-dim` is chosen to clear AA on paper and on white, which is the right
+   test for prose on a page and the wrong one for a label on a floating bar: the
+   bar's ground is not the page, it is *whatever is sliding underneath*. Composited
+   at the engaged alpha over a 44px headword in `--color-txt`, `dim` measured **4.27
+   in light and 3.72 in dark** — under AA on the app's own navigation.
+
+   The alternatives were both worse. Raising the fill to fix it needs ~90%, which is
+   a panel wearing a blur rather than a material. A plate behind every label is four
+   little rectangles in a bar whose entire job is to not be a rectangle.
+
+   So the *ink* moves instead, by one step — `#55544e` is `dim` nudged 10% toward
+   `txt`, `#a8b7bd` is 25% the other way — and the worst case over every ground a bar
+   can have becomes **4.63 / 4.61**. Scoping it by overriding the variable rather
+   than by editing components means every `text-dim` inside a bar picks it up and no
+   caller has to remember. `palette.test.ts` proves it against the same saturated
+   grounds that used to be pinned there as known-bad. */
 .glass-bar {
+  --color-dim: var(--color-chrome);
   --glass: var(--glass-rest);
   --glass-edge: var(--glass-rest-edge);
   --glass-blur: var(--glass-rest-blur);

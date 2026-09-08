@@ -37,7 +37,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { loadDetailFor } from '../data/detail.ts';
 import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown, X } from 'lucide-react';
+import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, X } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
@@ -45,7 +45,7 @@ import {
 } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
-import { speak } from '../lib/tts.ts';
+import { speak, useGermanVoice } from '../lib/tts.ts';
 import { haptic, tick, fmt } from '../lib/ui.ts';
 import { GenderTerm } from '../components/Reveal.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -262,6 +262,21 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
   // Scroll past it and it is gone.
   const [cold] = useState(() => !onboarded());
 
+  // **One live region for the surface, and the feed owns it.**
+  //
+  // It used to be one per slot: 24 of them on the live build, all empty, and a
+  // feed of 6,700 words would have carried 6,700. A live region is a standing
+  // instruction to interrupt whatever the learner is reading; the right number
+  // for a surface is one, and an empty one is cost with no message.
+  //
+  // Keyed by a counter, not by the text — pressing bookmark twice on the same
+  // word produces the same sentence twice, and a region whose content does not
+  // change announces nothing. The counter forces a new node each time.
+  const [said, setSaid] = useState<{ n: number; text: string }>({ n: 0, text: '' });
+  const announce = useCallback((text: string) => {
+    setSaid((prev) => ({ n: prev.n + 1, text }));
+  }, []);
+
   return (
     // Fills the shell rather than covering it. The feed paints no chrome of its
     // own: the app's one bar is above and its one nav is below, and a second row
@@ -274,18 +289,34 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
     // points, i.e. two half-words on screen at once.
     <div ref={scroller}
       className="feed-scroller h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
+      {/* The surface's name, for the outline rather than for the eye. The feed
+          paints no title — that is the design, and it left the app's front door
+          with **no `h1` at all** for a returning learner, so a screen reader
+          opening Lexi was told nothing about where it had arrived. Every word
+          below is an `h2` under this. */}
+      <h1 className="sr-only">Wörter — the German word feed</h1>
+      {/* The one live region. `sr-only`, because the visible confirmation lives
+          under the word's own actions where the eye is already looking.
+          The region itself is mounted from first render and never replaced — an
+          `aria-live` element has to be in the tree *before* its content changes
+          or the change is not a change — so the key is on the child, which is
+          what makes a repeated sentence announce twice. */}
+      <p role="status" aria-live="polite" className="sr-only">
+        <span key={said.n}>{said.text}</span>
+      </p>
       {cold && <Welcome onStart={onStartFirstRun} />}
       <SwipeHint />
       {slots.map((w, i) => (
-        <Slot key={w.id} word={w} at={i} version={v} watch={watch}
+        <Slot key={w.id} word={w} at={i} version={v} watch={watch} onAnnounce={announce}
           onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
       ))}
       <div ref={sentinel} aria-hidden className="h-px" />
       {count >= order.length && (
-        <section className="feed-slot snap-start h-full flex-shrink-0 grid place-items-center px-8 text-center
+        <section aria-labelledby="feed-end"
+          className="feed-slot snap-start h-full flex-shrink-0 grid place-items-center px-8 text-center
           pt-[var(--bar-t)] pb-[var(--bar-b)]">
           <div>
-            <p className="text-lg font-semibold mb-1">That’s every word at these levels.</p>
+            <h2 id="feed-end" className="text-lg font-semibold mb-1">That’s every word at these levels.</h2>
             <p className="text-dim text-sm max-w-[36ch] mx-auto">
               {order.length.toLocaleString()} of them. Widen the level filter on Fortschritt for
               more — or go and study the ones you saved.
@@ -370,10 +401,14 @@ function Welcome({ onStart }: { onStart: () => void }) {
     // kept `height: 100%` at an accessibility size while its own copy grew well past
     // it, so it overflowed its box and painted straight over the first word — which
     // read as a snap-scrolling bug and was a section that had simply been missed.
-    <section className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-safe-center px-6
+    <section aria-labelledby="feed-welcome"
+      className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-safe-center px-6
       pt-[var(--bar-t)] pb-[var(--bar-b)]">
       <div className="w-full max-w-[460px] text-center">
-        <h1 lang="de" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h1>
+        {/* `h2`, not `h1`. The feed's `h1` names the surface; every slot below it
+            is a sibling — this one, each word, and the end of the list. Two `h1`s
+            on one document is two answers to "where am I". */}
+        <h2 id="feed-welcome" lang="de" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h2>
         <p className="text-dim text-sm mb-6">German vocabulary, A1 to C2 — for English speakers.</p>
 
         <p className="text-base leading-relaxed mb-1">
@@ -402,8 +437,10 @@ function Welcome({ onStart }: { onStart: () => void }) {
  *  `content-visibility: auto` on the section is what makes a long list cheap: the
  *  browser skips layout and paint for slots that are nowhere near the viewport,
  *  and `contain-intrinsic-size` keeps the scrollbar honest while it does. */
-function Slot({ word, at, version, onInfo, onDrill, watch }: {
+function Slot({ word, at, version, onInfo, onDrill, onAnnounce, watch }: {
   word: Word; version: number; onInfo: () => void; onDrill: () => void;
+  /** Hands a sentence to the feed's single live region. */
+  onAnnounce: (message: string) => void;
   /** This slot's position in the feed, published to the DOM so the one observer
    *  can report how far down the learner has got without a closure per slot. */
   at: number;
@@ -411,6 +448,7 @@ function Slot({ word, at, version, onInfo, onDrill, watch }: {
   watch: (el: HTMLElement | null) => void;
 }) {
   // Read through `version` so a save anywhere re-renders the marks.
+  const voice = useGermanVoice();
   const saved = useMemo(() => isSaved(word.id), [word.id, version]);
   const status = useMemo(() => statusOf(word.id), [word.id, version]);
 
@@ -418,7 +456,12 @@ function Slot({ word, at, version, onInfo, onDrill, watch }: {
     const now = toggleSaved(word.id);
     haptic(now ? 'grade' : 'wrong');
     tick(now ? 'good' : 'wrong');
-  }, [word.id]);
+    // Reported upward rather than announced here — the feed owns the one live
+    // region. See the `aria-hidden` note below the actions.
+    onAnnounce(now
+      ? `${word.term} saved — ${cardOf(word.id) ? 'already in your sessions' : 'your next session will teach it'}`
+      : `${word.term} removed from your saved words`);
+  }, [word.id, word.term, onAnnounce]);
 
   return (
     // The slot is the **whole** viewport — the word passes under the glass bars
@@ -433,6 +476,18 @@ function Slot({ word, at, version, onInfo, onDrill, watch }: {
     // placeholder for a slot one viewport tall.
     <section
       ref={watch}
+      // **Named, so it is a landmark, and headed, so it is a rotor stop.**
+      // Measured on the live build: the feed had **one** heading (the welcome
+      // slot's, and only for a cold learner — a returning one got zero) and 111
+      // focusable controls. So the only way to move through 6,700 words with a
+      // screen reader or a switch was control by control, three per word, on the
+      // surface the app opens into. Every other route in the app had a heading
+      // structure; the front door had none.
+      //
+      // `aria-labelledby` at the headword rather than `aria-label={word.term}`:
+      // one source for the name, so the region and the heading cannot drift, and
+      // the article comes with it (`die Reise`, not `Reise`).
+      aria-labelledby={`hw-${word.id}`}
       data-word={word.id}
       data-slot={at}
       // `justify-safe-center` and `overflow-y-auto`, not plain `justify-center`.
@@ -469,18 +524,31 @@ function Slot({ word, at, version, onInfo, onDrill, watch }: {
         {/* The headword. `lang="de"` and gender ink on the article — the single
             most useful mark on a German card, and the reason this is not just a
             big word in a serif. */}
-        <GenderTerm term={word.term} gender={word.gender}
+        <GenderTerm as="h2" id={`hw-${word.id}`} term={word.term} gender={word.gender}
           className="headword font-bold leading-[1.05] break-words text-[2.75rem] sm:text-6xl" />
 
         {/* Pronunciation, as a pill you can press. The whole pill is the target,
             not a 24px speaker beside it. */}
-        <button onClick={() => speak(word.term)}
-          aria-label={`Hear ${word.term} in German`}
-          className="tap-44 mt-4 inline-flex items-center gap-2 rounded-full glass
-            px-4 py-2 hover:brightness-[.98] active:scale-95 transition">
-          {word.ipa && <span className="font-mono text-sm text-dim">{word.ipa}</span>}
-          <Volume2 size={16} className="text-accent flex-shrink-0" />
-        </button>
+        {/* Without a German voice the pill is not a button: the platform would read
+            German spelling with English phonology and say nothing about it, which is
+            worse than silence for the learner least able to catch it. The IPA is
+            still the point of the pill, so the pill stays and only the offer goes. */}
+        {voice ? (
+          <button onClick={() => speak(word.term)}
+            aria-label={`Hear ${word.term} in German`}
+            className="tap-44 mt-4 inline-flex items-center gap-2 rounded-full glass
+              px-4 py-2 hover:brightness-[.98] active:scale-95 transition">
+            {word.ipa && <span className="font-mono text-sm text-dim">{word.ipa}</span>}
+            <Volume2 size={16} className="text-accent flex-shrink-0" />
+          </button>
+        ) : (
+          <span title="No German voice installed on this device"
+            className="mt-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2">
+            {word.ipa && <span className="font-mono text-sm text-dim">{word.ipa}</span>}
+            <VolumeX size={16} aria-label="No German voice is installed on this device"
+              className="text-dim/60 flex-shrink-0" />
+          </span>
+        )}
 
         {/* The meaning, present rather than hidden. This is the line the flip
             card kept behind a tap; on a feed there is nothing to test, so there
@@ -532,8 +600,19 @@ function Slot({ word, at, version, onInfo, onDrill, watch }: {
 
         {/* Said in words, not only by a filled icon. A bookmark that changes what
             the app teaches you should say so the first time you press it, and a
-            colour change alone does not. */}
-        <span className="h-5 mt-3 text-2xs text-dim" role="status" aria-live="polite">
+            colour change alone does not.
+
+            **`aria-hidden`, and that is the fix, not a regression.** This was
+            `role="status" aria-live="polite"` — per slot, so the live build
+            carried **24 empty live regions**, and a feed of 6,700 words would
+            carry 6,700. A live region is a standing instruction to interrupt;
+            two dozen of them are two dozen chances to interrupt, and the ones
+            that are empty are pure cost. There is one now, owned by the feed
+            (see `SaveAnnouncer`), and this line is what the eye reads. Nothing
+            is lost to assistive tech: the bookmark itself carries
+            `aria-pressed`, which is how the *state* is exposed, and the
+            announcer covers the *change*. */}
+        <span aria-hidden className="h-5 mt-3 text-2xs text-dim">
           {saved && (cardOf(word.id) ? 'In your sessions' : 'Next session will teach this')}
         </span>
       </Swipeable>

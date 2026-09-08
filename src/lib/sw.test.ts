@@ -67,16 +67,24 @@ function load(fetchImpl: (req: Request) => Promise<Response>) {
     fetches.push(r.url);
     return fetchImpl(r);
   };
+  const deletes: string[] = [];
+  const del = async (k: Request | string) => {
+    const key = typeof k === 'string' ? k : k.url;
+    deletes.push(key);
+    return cache.store.delete(key);
+  };
+  (cache as unknown as { delete: typeof del }).delete = del;
 
   // eslint-disable-next-line no-new-func
   new Function('self', 'caches', 'fetch', SRC)(self, caches, wrappedFetch);
 
   /** Dispatch a fetch event and return whatever the worker answers with. */
-  function request(url: string, init: { mode?: string } = {}) {
+  function request(url: string, init: { mode?: string; destination?: string } = {}) {
     const req = new Request(new URL(url, ORIGIN), { method: 'GET' });
-    // `mode: 'navigate'` cannot be set on a constructed Request, so it is
-    // stamped on — the worker only ever reads it.
+    // `mode: 'navigate'` and `destination` cannot be set on a constructed
+    // Request, so they are stamped on — the worker only ever reads them.
     Object.defineProperty(req, 'mode', { value: init.mode ?? 'no-cors' });
+    Object.defineProperty(req, 'destination', { value: init.destination ?? '' });
     let answer: Promise<Response> | undefined;
     const event: FetchEventLike = {
       request: req,
@@ -90,11 +98,16 @@ function load(fetchImpl: (req: Request) => Promise<Response>) {
   /** Let every `waitUntil` finish — the background revalidation. */
   const settle = async () => { await Promise.all(pending.splice(0)); };
 
-  return { cache, request, settle, fetches };
+  return { cache, request, settle, fetches, deletes };
 }
 
 const body = (etag: string, text = 'x') =>
   new Response(text, { status: 200, headers: { ETag: etag } });
+
+/** What an SPA server sends for a file it does not have: the shell, and a 200. */
+const spaFallback = () => basic(new Response('<!doctype html><html>…', {
+  status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', ETag: '"shell"' },
+}));
 
 // `type` is read-only on a real Response and defaults to 'default' off the
 // constructor; the worker refuses to cache anything that is not 'basic'.
@@ -211,5 +224,66 @@ describe('nothing waits on the network', () => {
     const old = (): Promise<Response> =>
       hangs().catch(() => cache.get('./index.html')!);
     expect(await settledFast(old())).toBe(false);
+  });
+});
+
+// The app bricked itself, once, and this is the shape of it.
+//
+// An SPA server answers everything with `index.html` and a 200 — that is how
+// `/#/session` works — so a request for a hashed asset that is no longer on the
+// server comes back as a *successful HTML page*. Cached, it is permanent: found
+// on a rebuilt `dist/` with `<!doctype html>` sitting in Cache Storage under
+// `/assets/index-D1_oJJIa.js`, `content-type: text/html`, and the module loader
+// refusing it on MIME grounds every launch. Nothing could recover, because the
+// code that recovers is the code that would not load.
+//
+// It was cacheable before the cache-first rewrite too. What changed is that the
+// shell used to be fetched fresh every launch, so the next `index.html` named
+// different hashes and walked around the poisoned entry by accident. Cache-first
+// removed the accident, so the check has to be deliberate.
+describe('an SPA fallback is never mistaken for an asset', () => {
+  const JS = `${ORIGIN}/assets/index-abc123.js`;
+
+  it('refuses to cache HTML returned for a script', async () => {
+    const sw = load(async () => spaFallback());
+    const res = await sw.request('/assets/index-abc123.js', { destination: 'script' });
+    expect(res!.status).toBe(404);
+    expect(sw.cache.puts).toEqual([]);
+  });
+
+  // Without this the shell keeps naming the same missing file, for ever.
+  it('drops the shell that named the missing file', async () => {
+    const sw = load(async () => spaFallback());
+    sw.cache.store.set('./index.html', basic(body('"old"', 'stale shell')));
+    await sw.request('/assets/index-abc123.js', { destination: 'script' });
+    expect(sw.deletes).toContain('./index.html');
+  });
+
+  // The state the app was actually found in: poison already in the cache.
+  it('heals a poisoned entry that is already cached', async () => {
+    const sw = load(async () => basic(body('"good"', 'real js')));
+    sw.cache.store.set(JS, spaFallback());
+    sw.cache.store.set('./index.html', basic(body('"old"', 'stale shell')));
+    const res = await sw.request('/assets/index-abc123.js', { destination: 'script' });
+    expect(await res!.text()).toBe('real js');
+    expect(sw.deletes).toContain(JS);
+    expect(sw.deletes).toContain('./index.html');
+  });
+
+  // The navigation *is* HTML. Nothing here may touch it.
+  it('leaves the document alone', async () => {
+    const sw = load(async () => spaFallback());
+    sw.cache.store.set('./index.html', basic(body('"e"', 'shell')));
+    const res = await sw.request('/', { mode: 'navigate', destination: 'document' });
+    expect(await res!.text()).toBe('shell');
+    expect(sw.deletes).toEqual([]);
+  });
+
+  it('still serves and caches a real asset', async () => {
+    const sw = load(async () => basic(body('"js"', 'real js')));
+    const res = await sw.request('/assets/index-abc123.js', { destination: 'script' });
+    expect(await res!.text()).toBe('real js');
+    await sw.settle();
+    expect(sw.cache.puts).toEqual([JS]);
   });
 });

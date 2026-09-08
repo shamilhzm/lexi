@@ -67,6 +67,26 @@ self.addEventListener('activate', (e) => {
   );
 });
 
+/** An SPA server answers *everything* with `index.html` and a 200 — that is how
+ *  `/#/session` works — so a request for an asset that is no longer on the server
+ *  comes back as a successful HTML page rather than as a 404.
+ *
+ *  Caching that is how the app bricked itself. Found on a rebuilt `dist/`: Cache
+ *  Storage held `<!doctype html>` under `/assets/index-D1_oJJIa.js`, status 200,
+ *  `content-type: text/html`, and the module loader refused it on MIME grounds
+ *  every single launch. Nothing could recover, because the code that recovers is
+ *  the code that would not load.
+ *
+ *  It was cacheable before this change too — `res.ok && res.type === 'basic'` is
+ *  true of an SPA fallback — but the shell used to be network-first, so the next
+ *  launch fetched an `index.html` naming *different* hashes and walked around the
+ *  poisoned entry. Cache-first on the shell removed that accident, so the check
+ *  has to be deliberate. */
+function isSpaFallback(req, res) {
+  if (req.destination === '' || req.destination === 'document') return false;
+  return (res.headers.get('Content-Type') || '').includes('text/html');
+}
+
 /** Fetch, and write to the cache **only if the bytes actually changed**.
  *
  *  `key` is separate from `req` because a navigation to `/#/session` and one to
@@ -136,15 +156,32 @@ self.addEventListener('fetch', (e) => {
 
   // Hashed assets: cache-first with no revalidation at all, because the
   // filename *is* the version. Nothing to check.
-  e.respondWith(
-    caches.match(req).then((hit) =>
-      hit || fetch(req).then((res) => {
-        if (res.ok && res.type === 'basic') {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
-        }
-        return res;
-      }),
-    ),
-  );
+  e.respondWith(asset(e, req));
 });
+
+async function asset(event, req) {
+  const cache = await caches.open(CACHE);
+  const hit = await cache.match(req);
+  if (hit && !isSpaFallback(req, hit)) return hit;
+
+  // Either nothing was cached, or what was cached is the poison above. Either
+  // way the entry is worthless: drop it, and drop the shell that named it. The
+  // shell is the reason a stale hash was asked for at all, so leaving it would
+  // ask for the same missing file on the next launch and every launch after.
+  if (hit) {
+    await cache.delete(req);
+    await cache.delete(INDEX);
+  }
+
+  let res;
+  try { res = await fetch(req); } catch { return hit || Response.error(); }
+  if (isSpaFallback(req, res)) {
+    // The server does not have this file. Say so honestly rather than handing a
+    // module loader a page — and make sure the next navigation goes and gets a
+    // shell that names files which exist.
+    await cache.delete(INDEX);
+    return new Response('', { status: 404, statusText: 'Not Found' });
+  }
+  if (res.ok && res.type === 'basic') event.waitUntil(cache.put(req, res.clone()));
+  return res;
+}

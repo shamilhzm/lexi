@@ -72,7 +72,12 @@ export default function BottomNav({ view, onGo }: {
                 {active && (
                   <motion.span layoutId="bottomnav-active" aria-hidden
                     transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 480, damping: 38 }}
-                    className="absolute inset-y-1.5 inset-x-1 rounded-full bg-panel2/80" />
+                    // Opaque, not `/80`. The pill is the active tab's *plate*: it is what stops
+                    // `--color-accent` being read against whatever is sliding under the bar.
+                    // At 80% it still let 20% of a headword through and measured **4.40**
+                    // against it in light — under AA by a tenth. Solid, it is 4.62 and 8.13,
+                    // and it is the same colour it always looked like anyway.
+                    className="absolute inset-y-1.5 inset-x-1 rounded-full bg-panel2" />
                 )}
                 <span className="relative flex flex-col items-center gap-0.5">
                 <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="tab-icon flex-shrink-0" />

@@ -177,7 +177,7 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
             <button key={n.id} onClick={() => onGo(n.id)}
               aria-current={active ? 'page' : undefined}
               className={`tap-44 flex items-center gap-1.5 px-3 py-2 rounded-full text-sm transition-colors ${
-                active ? 'bg-panel2/80 text-accent' : 'text-dim hover:text-txt hover:bg-panel2/60'}`}>
+                active ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt hover:bg-panel2/60'}`}>
               <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
               <span lang="de">{n.label}</span>
             </button>

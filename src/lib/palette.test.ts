@@ -330,55 +330,72 @@ describe('text stays legible through the glass', () => {
   // **They cannot fail on the alpha.** `panel`, `bg` and `card` are 1.14 and 1.05
   // luminance apart, so compositing panel over either barely moves the ground:
   // sweep the alpha from 100% to *zero* and `dim` travels from 6.67 to 5.85. A
-  // bar with no fill at all passes. Every assertion above has been green since it
-  // was written for a reason that has nothing to do with the value it claims to
-  // guard — and DESIGN §8·1 says this guard is what makes the alpha "a contrast
-  // decision", which it was not.
+  // bar with no fill at all passes. So the assertions above are true and they are
+  // not the guard anybody thought they were — DESIGN §8·1 called the alpha "a
+  // contrast decision", and against the page it is not one.
   //
   // The ground that *does* vary is the one glass exists for: the thing sliding
   // underneath. A 44px headword in `--color-txt`, a `--heat-4` tile on
-  // Fortschritt, the accent-filled *Study all* button. Composited at the engaged
-  // 78%, those grounds put `dim` and `accent` **under AA**:
+  // Fortschritt, the accent-filled *Study all* button. This used to be recorded
+  // here as a known-bad pin, because at the engaged alpha those grounds put the
+  // bar's own labels under AA:
   //
   //            light                       dark
-  //   ink      dim 4.27  accent 3.66       dim 3.28  accent 3.57
-  //   heat-4   dim 4.88  accent 4.18       dim 4.10  accent 4.46
+  //   ink      dim 4.27  accent 3.66       dim 3.72  accent 4.04
+  //   heat-4   dim 4.88  accent 4.18       dim 4.47  accent 4.86
   //
-  // Which channel fails is not constant — over a heat-4 tile in light it is the
-  // accent alone (4.18) while `dim` clears at 4.88, and over ink it is both. So
-  // the pin takes the *worse of the pair*, not a nominated one: an assertion
-  // about `dim` specifically passes on the light heat tile and would have made
-  // this look half-fixed.
+  // Fixed 2026-09-08, and the pin is gone with it. Two moves, neither of which
+  // touches the material: secondary ink on a bar is `--color-chrome` rather than
+  // `--color-dim` (see `.glass-bar` in index.css), and the active tab's pill is
+  // opaque so the accent is read against the pill instead of against the page.
   //
-  // This is **not** caused by the at-rest state added on 2026-09-06 — at rest the
-  // bar is at the top of the scroll, which is precisely when the ground *is* the
-  // page. It is the engaged alpha, and it has shipped since the material did.
-  //
-  // Pinned rather than asserted, deliberately. Asserting AA here would demand
-  // ~95% fill, which is not glass; asserting a lower threshold would be loosening
-  // a tolerance to fit a number, which is the move this file exists to prevent.
-  // So it records the worst case and fails if it gets *worse*, and the fix — bar
-  // labels that do not depend on their backdrop — is filed in BACKLOG.
-  describe('the transient worst case, pinned', () => {
+  // Raising the fill was the obvious alternative and is why this is worth a note:
+  // it needs ~90% to clear AA, which is a panel wearing a blur. Moving the ink one
+  // step costs nothing and is what the platform does.
+  describe('bar labels do not depend on what is behind them', () => {
+    // The worst grounds a floating bar can be given: the app's own darkest and
+    // most saturated surfaces, sliding under it at the engaged alpha.
     const SATURATED = {
       light: { ink: '#1e2226', heat4: '#1d6a8c' },
       dark: { ink: '#e6edef', heat4: '#63b3d4' },
     } as const;
 
     for (const theme of ['light', 'dark'] as const) {
-      it(`${theme}: records how far under AA a bar label falls over moving content`, () => {
-        const p = palette(theme);
-        const engaged = read('glass-full')[theme === 'light' ? 0 : 1];
+      const p = palette(theme);
+      const engaged = read('glass-full')[theme === 'light' ? 0 : 1];
+
+      it(`${theme}: keeps a bar's secondary label above AA over moving content`, () => {
+        // `--color-chrome` is what `text-dim` resolves to inside `.glass-bar`.
+        expect(p.chrome, '--color-chrome').toMatch(/^#[0-9a-f]{6}$/);
         for (const [what, behind] of Object.entries(SATURATED[theme])) {
           const ground = composite(p.panel, behind, engaged);
-          const worst = Math.min(contrast(p.dim, ground), contrast(p.accent, ground));
-          // Known-bad, and bounded. If a change pushes any of these below 3.0 the
-          // label has stopped being readable at all rather than merely failing a
-          // ratio, and that is a different and much worse defect.
-          expect(worst, `worst bar label over ${what} (${theme})`).toBeGreaterThan(3.0);
-          expect(worst, `worst bar label over ${what} (${theme}) — if this now clears AA, delete this test and move the ground up`)
-            .toBeLessThan(4.5);
+          expect(contrast(p.chrome, ground), `chrome over ${what} (${theme})`)
+            .toBeGreaterThanOrEqual(4.5);
         }
+      });
+
+      it(`${theme}: keeps it above AA on the page too, where it is also used`, () => {
+        // The bar spends most of its life over the page. A chrome ink that fixed
+        // the moving case and broke the still one would be a worse trade.
+        for (const ground of [p.bg, p.panel, p.card,
+          composite(p.panel, p.bg, read('glass-rest')[theme === 'light' ? 0 : 1])]) {
+          expect(contrast(p.chrome, ground), `chrome on ${ground} (${theme})`)
+            .toBeGreaterThanOrEqual(4.5);
+        }
+      });
+
+      // The accent never touches the moving ground: it is on the active tab's
+      // pill, and the pill is opaque for exactly this reason.
+      it(`${theme}: reads the active tab's accent against its own plate`, () => {
+        expect(contrast(p.accent, p.panel2), `accent on the active pill (${theme})`)
+          .toBeGreaterThanOrEqual(4.5);
+      });
+
+      // It has to still be *quieter* than the active tab, or the fix has removed
+      // the distinction the colour was carrying.
+      it(`${theme}: leaves chrome quieter than the primary ink`, () => {
+        const onPanel = (c: string) => contrast(c, p.panel);
+        expect(onPanel(p.chrome)).toBeLessThan(onPanel(p.txt));
       });
     }
   });

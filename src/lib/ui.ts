@@ -89,18 +89,45 @@ export function primeVoices() {
   speechSynthesis.onvoiceschanged = () => { voicesReady = true; };
 }
 
-/** Speak a German term with the platform's best de-DE voice. */
-export function speakDe(text: string) {
-  if (typeof speechSynthesis === 'undefined') return;
+/** What happened when we tried to say a German word out loud. */
+export type SpeakResult = 'spoken' | 'no-german-voice' | 'unsupported';
+
+/** Is there a German voice on this device at all? */
+export function hasGermanVoice(): boolean {
+  if (typeof speechSynthesis === 'undefined') return false;
+  try { return speechSynthesis.getVoices().some((v) => v.lang.toLowerCase().startsWith('de')); }
+  catch { return false; }
+}
+
+/** Speak a German term with the platform's de-DE voice — **or not at all**.
+ *
+ *  It used to set `u.lang = 'de-DE'`, look for a German voice, and carry on
+ *  regardless when there wasn't one. A `SpeechSynthesisUtterance` with no voice
+ *  is read by the device's default, and the device's default on an English phone
+ *  is an English voice, which applies English phonology to German spelling: *Zeit*
+ *  as "zyte", *viel* as "vile", every `w` as /w/, every `ei` wrong. Silently.
+ *
+ *  That is worse than silence, and much worse for exactly the learner who cannot
+ *  check it against a native speaker. Ten of 6,810 cards have human audio; the
+ *  rest are this. So it now refuses, and says why, and the caller tells the
+ *  learner rather than the app quietly teaching a wrong pronunciation.
+ *
+ *  `lang.startsWith('de')` and not `=== 'de-DE'`: `de-AT` and `de-CH` are German
+ *  voices, and a learner who has Austrian German installed is far better served
+ *  by it than by an American one. */
+export function speakDe(text: string): SpeakResult {
+  if (typeof speechSynthesis === 'undefined') return 'unsupported';
   try {
+    const v = speechSynthesis.getVoices().find((x) => x.lang.toLowerCase().startsWith('de'));
+    if (!v) return 'no-german-voice';
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'de-DE';
     u.rate = 0.95;
-    const v = speechSynthesis.getVoices().find((x) => x.lang.startsWith('de'));
-    if (v) u.voice = v;
+    u.voice = v;
     speechSynthesis.cancel();
     speechSynthesis.speak(u);
-  } catch { /* no-op */ }
+    return 'spoken';
+  } catch { return 'unsupported'; }
 }
 
 /** Group digits for an English-language UI.

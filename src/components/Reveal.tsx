@@ -14,8 +14,8 @@
 // affordance would invite flipping *before* answering, which destroys the
 // retrieval attempt the drill exists to create.
 import { useEffect, useState } from 'react';
-import { Info, TriangleAlert, Volume2 } from 'lucide-react';
-import { speak } from '../lib/tts.ts';
+import { Info, TriangleAlert, Volume2, VolumeX } from 'lucide-react';
+import { speak, useGermanVoice } from '../lib/tts.ts';
 import { genderColor } from '../lib/ui.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
 import { loadProvenance, freqBand, exampleCitation, levelBasis, type Provenance } from '../lib/provenance.ts';
@@ -57,6 +57,24 @@ export function useChoiceKeys({ count, answered, onPick, onNext }: {
  *  than acting as a primary control, so they take the 24px WCAG 2.5.8 floor
  *  rather than the 44px one `IconButton` enforces for standalone targets. */
 export function SpeakButton({ text, label }: { text: string; label?: string }) {
+  // **Not offered when it cannot work.** Without a German voice the platform reads
+  // German spelling with English phonology — *Zeit* as "zyte", every `ei` wrong —
+  // and says nothing about having done so. `speakDe` refuses that; this is the
+  // other half, so the learner is told *before* pressing rather than met with
+  // silence after. `aria-disabled` rather than `disabled`: the button keeps its
+  // place in the tab order so a screen-reader user can read the reason.
+  const voice = useGermanVoice();
+  if (!voice) {
+    return (
+      <span role="button" aria-disabled="true"
+        aria-label="No German voice is installed on this device — use the IPA above"
+        title="No German voice installed on this device"
+        className="tap-hit inline-grid place-items-center w-[24px] h-[24px] rounded-sm text-dim/50
+          flex-shrink-0 align-middle cursor-not-allowed">
+        <VolumeX size={14} />
+      </span>
+    );
+  }
   return (
     <button
       onClick={(e) => { e.stopPropagation(); speak(text); }}
@@ -87,15 +105,23 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
  *
  *  Never the only signal: the article is always spelled out beside its colour, so
  *  the information survives for anyone who can't distinguish them. */
-export function GenderTerm({ term, gender, className = '' }: {
+export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id }: {
   term: string; gender?: string | null; className?: string;
+  /** The element to render as. A headword is a `span` on a study card, where it
+   *  is the subject of a question — and an `h2` on the feed, where it is the
+   *  title of the thing you are looking at and the only way a rotor can move by
+   *  word rather than by control. Same ink either way. */
+  as?: 'span' | 'h1' | 'h2' | 'h3';
+  /** So a `section` can point `aria-labelledby` at it instead of repeating the
+   *  term in a second attribute that can drift. */
+  id?: string;
 }) {
   const bare = term.replace(/^(der|die|das)\s+/i, '');
   return (
-    <span lang="de" className={className}>
+    <Tag lang="de" id={id} className={className}>
       {gender && <span style={{ color: genderColor(gender) }}>{gender} </span>}
       {bare}
-    </span>
+    </Tag>
   );
 }
 
