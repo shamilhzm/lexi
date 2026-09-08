@@ -1,0 +1,240 @@
+[
+  {
+    "term": "kein",
+    "en": "no, not a, not any",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Ich habe kein Geld dabei.",
+        "en": "I haven't got any money on me."
+      },
+      {
+        "de": "Das ist kein Problem.",
+        "en": "That's not a problem."
+      }
+    ]
+  },
+  {
+    "term": "nichts",
+    "en": "nothing",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Ich habe nichts gesagt.",
+        "en": "I didn't say anything."
+      },
+      {
+        "de": "Da ist nichts zu machen.",
+        "en": "There's nothing to be done about it."
+      }
+    ]
+  },
+  {
+    "term": "etwas",
+    "en": "something; somewhat",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Möchtest du etwas trinken?",
+        "en": "Would you like something to drink?"
+      },
+      {
+        "de": "Das ist etwas teuer.",
+        "en": "That's a bit expensive."
+      }
+    ]
+  },
+  {
+    "term": "jeder",
+    "en": "every, each; everyone",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Jeder Tag ist anders.",
+        "en": "Every day is different."
+      },
+      {
+        "de": "Jeder kann mitmachen.",
+        "en": "Anyone can join in."
+      }
+    ]
+  },
+  {
+    "term": "welcher",
+    "en": "which",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Question words",
+    "ex": [
+      {
+        "de": "Welcher Bus fährt zum Bahnhof?",
+        "en": "Which bus goes to the station?"
+      },
+      {
+        "de": "Welcher Termin passt dir besser?",
+        "en": "Which appointment suits you better?"
+      }
+    ]
+  },
+  {
+    "term": "andere",
+    "en": "other, different ones",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Hast du eine andere Größe?",
+        "en": "Have you got a different size?"
+      },
+      {
+        "de": "Zeigen Sie mir bitte eine andere Farbe.",
+        "en": "Please show me a different colour."
+      }
+    ]
+  },
+  {
+    "term": "beide",
+    "en": "both",
+    "pos": "number",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Beide Kinder gehen schon zur Schule.",
+        "en": "Both children already go to school."
+      },
+      {
+        "de": "Wir waren beide sehr müde.",
+        "en": "We were both very tired."
+      }
+    ]
+  },
+  {
+    "term": "jemand",
+    "en": "somebody, someone",
+    "pos": "pronoun",
+    "level": "A1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Hat jemand nach mir gefragt?",
+        "en": "Did anyone ask for me?"
+      },
+      {
+        "de": "Da war jemand an der Tür.",
+        "en": "There was somebody at the door."
+      }
+    ]
+  },
+  {
+    "term": "einige",
+    "en": "some, a few",
+    "pos": "number",
+    "level": "A2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Einige Kollegen kommen später.",
+        "en": "Some colleagues are coming later."
+      },
+      {
+        "de": "Ich habe noch einige Fragen.",
+        "en": "I still have a few questions."
+      }
+    ]
+  },
+  {
+    "term": "mehrere",
+    "en": "several",
+    "pos": "pronoun",
+    "level": "A2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Ich habe heute mehrere Termine.",
+        "en": "I have several appointments today."
+      },
+      {
+        "de": "Dafür gab es mehrere Gründe.",
+        "en": "There were several reasons for that."
+      }
+    ]
+  },
+  {
+    "term": "solche",
+    "en": "such, that kind of",
+    "pos": "pronoun",
+    "level": "A2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Solche Fehler passieren jedem.",
+        "en": "Mistakes like that happen to everyone."
+      },
+      {
+        "de": "Er sagt immer solche Sachen.",
+        "en": "He's always saying things like that."
+      }
+    ]
+  },
+  {
+    "term": "manche",
+    "en": "some, some people",
+    "pos": "pronoun",
+    "level": "A2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Manche Leute mögen das nicht.",
+        "en": "Some people don't like that."
+      },
+      {
+        "de": "Manche Wörter sind einfach schwer.",
+        "en": "Some words are simply hard."
+      }
+    ]
+  },
+  {
+    "term": "selber",
+    "en": "oneself, myself, yourself",
+    "pos": "adverb",
+    "level": "A2",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Das habe ich selber gemacht.",
+        "en": "I made that myself."
+      },
+      {
+        "de": "Mach es doch selber!",
+        "en": "Do it yourself, then!"
+      }
+    ]
+  },
+  {
+    "term": "gesamt",
+    "en": "entire, total",
+    "pos": "adjective",
+    "level": "A2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Die gesamte Familie war da.",
+        "en": "The entire family was there."
+      },
+      {
+        "de": "Der gesamte Betrag ist im Januar fällig.",
+        "en": "The total amount is due in January."
+      }
+    ]
+  }
+]

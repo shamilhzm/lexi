@@ -1583,6 +1583,20 @@
       }
     ]
   },
+  "voc:B2:das Blutbild": {
+    "ex": [
+      {
+        "de": "Das Blutbild ist völlig in Ordnung.",
+        "en": "The blood count is perfectly fine.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir machen morgen ein Blutbild.",
+        "en": "We'll do a blood count tomorrow.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Bruttoinlandsprodukt": {
     "def": "gross domestic product",
     "ex": [
@@ -2090,6 +2104,20 @@
       }
     ]
   },
+  "voc:B2:das Kühlhaus": {
+    "ex": [
+      {
+        "de": "Das Fleisch kommt sofort ins Kühlhaus.",
+        "en": "The meat goes straight into the cold store.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Kühlhaus ist es sehr kalt.",
+        "en": "It's very cold in the cold store.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Lager": {
     "ex": [
       {
@@ -2347,6 +2375,20 @@
       {
         "de": "Jede Familie hat ihre eigenen Rituale.",
         "en": "Every family has its own rituals.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Röntgen": {
+    "ex": [
+      {
+        "de": "Das Röntgen dauert nur wenige Minuten.",
+        "en": "The X-ray only takes a few minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Röntgen sprechen wir weiter.",
+        "en": "We'll talk further after the X-ray.",
         "lvl": "B2"
       }
     ]
@@ -2923,6 +2965,20 @@
       }
     ]
   },
+  "voc:B2:der Aufenthaltstitel": {
+    "ex": [
+      {
+        "de": "Mein Aufenthaltstitel läuft im Mai ab.",
+        "en": "My residence permit expires in May.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bringen Sie bitte den Aufenthaltstitel mit.",
+        "en": "Please bring your residence permit with you.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Aufstieg": {
     "def": "ascent, climb (the act of ascending)",
     "ex": [
@@ -3113,6 +3169,20 @@
       {
         "de": "Betreiber von Atomkraftwerken müssen künftig eine neue Brennelementesteuer entrichten. Im Gegenzug werden die Laufzeiten der Meiler verlängert.",
         "en": "Operators of nuclear power plants have to pay a new tax on fuel rods in the future. In return the operating lives of the reactors will be extended.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Betriebsrat": {
+    "ex": [
+      {
+        "de": "Der Betriebsrat hat dem Plan zugestimmt.",
+        "en": "The works council approved the plan.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sprich zuerst mit dem Betriebsrat.",
+        "en": "Talk to the works council first.",
         "lvl": "B2"
       }
     ]
@@ -4526,6 +4596,20 @@
       }
     ]
   },
+  "voc:B2:der Schaltplan": {
+    "ex": [
+      {
+        "de": "Der Schaltplan liegt auf der Baustelle.",
+        "en": "The wiring diagram is on the site.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Schaltplan finde ich den Fehler nicht.",
+        "en": "I can't find the fault without the circuit diagram.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Schock": {
     "ex": [
       {
@@ -4988,6 +5072,20 @@
       {
         "de": "Der Verteidigungsminister trat nach dem Skandal zurück.",
         "en": "The defence minister resigned after the scandal.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Verteiler": {
+    "ex": [
+      {
+        "de": "Der Verteiler hängt im Keller.",
+        "en": "The distribution board is in the cellar.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Verteiler war ein Kabel lose.",
+        "en": "A cable was loose in the distribution board.",
         "lvl": "B2"
       }
     ]
@@ -5532,6 +5630,20 @@
       {
         "de": "Frankreich, Österreich und Russland bildeten eine Allianz gegen Preußen.",
         "en": "France, Austria and Russia formed an alliance against Prussia.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Anamnese": {
+    "ex": [
+      {
+        "de": "Die Anamnese dauert etwa zehn Minuten.",
+        "en": "Taking the medical history takes about ten minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Anamnese kann ich nichts sagen.",
+        "en": "I can't say anything without the medical history.",
         "lvl": "B2"
       }
     ]
@@ -6222,6 +6334,20 @@
       }
     ]
   },
+  "voc:B2:die Bettpfanne": {
+    "ex": [
+      {
+        "de": "Bringen Sie bitte die Bettpfanne.",
+        "en": "Please bring the bedpan.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bettpfanne muss danach gereinigt werden.",
+        "en": "The bedpan has to be cleaned afterwards.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Bewerbungsfrist": {
     "def": "The final date by which an application must be sent.",
     "ex": [
@@ -6656,6 +6782,20 @@
       }
     ]
   },
+  "voc:B2:die Einweisung": {
+    "ex": [
+      {
+        "de": "Der Hausarzt schreibt die Einweisung.",
+        "en": "The GP writes the admission referral.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Einweisung nimmt die Klinik Sie nicht auf.",
+        "en": "The clinic won't admit you without a referral.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Elektromobilität": {
     "def": "Transport powered by electricity rather than by fuel.",
     "defDe": "Teil des Verkehrs, bei dem Elektrofahrzeuge eingesetzt werden",
@@ -6808,6 +6948,20 @@
       {
         "de": "Die Folgen der Erderwärmung sind schon spürbar.",
         "en": "The consequences of global warming can already be felt.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Erdung": {
+    "ex": [
+      {
+        "de": "Ohne Erdung darf die Anlage nicht laufen.",
+        "en": "The system must not run without earthing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Erdung wurde vom Meister geprüft.",
+        "en": "The earthing was checked by the foreman.",
         "lvl": "B2"
       }
     ]
@@ -9557,6 +9711,20 @@
       }
     ]
   },
+  "voc:B2:die Vorerkrankung": {
+    "ex": [
+      {
+        "de": "Haben Sie eine Vorerkrankung?",
+        "en": "Do you have a pre-existing condition?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Vorerkrankung steht im Fragebogen.",
+        "en": "The pre-existing condition is on the questionnaire.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Vorfreude": {
     "def": "The pleasure of looking forward to something.",
     "ex": [
@@ -9905,6 +10073,20 @@
       {
         "de": "Ständige Überforderung führt oft zur Erschöpfung.",
         "en": "Constant overload often leads to exhaustion.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Übergabe": {
+    "ex": [
+      {
+        "de": "Die Übergabe ist um sieben Uhr.",
+        "en": "The handover is at seven.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei der Übergabe fehlten zwei Akten.",
+        "en": "Two files were missing at the handover.",
         "lvl": "B2"
       }
     ]
@@ -11845,6 +12027,20 @@
       {
         "de": "Jawohl! Ich stimme zu.",
         "en": "Yes! I agree.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:jegliche": {
+    "ex": [
+      {
+        "de": "Der Vermieter lehnt jegliche Haftung ab.",
+        "en": "The landlord accepts no liability whatsoever.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat jegliche Hilfe abgelehnt.",
+        "en": "She refused all help.",
         "lvl": "B2"
       }
     ]

@@ -4485,6 +4485,20 @@
       }
     ]
   },
+  "voc:A2:das Schneidebrett": {
+    "ex": [
+      {
+        "de": "Das Schneidebrett liegt neben der Spüle.",
+        "en": "The chopping board is next to the sink.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Nimm bitte ein sauberes Schneidebrett.",
+        "en": "Please take a clean chopping board.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Schuljahr": {
     "def": "academic year, school year",
     "ex": [
@@ -7530,6 +7544,20 @@
       }
     ]
   },
+  "voc:A2:der Klassenlehrer": {
+    "ex": [
+      {
+        "de": "Der Klassenlehrer hat uns angerufen.",
+        "en": "The form teacher rang us.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sprich bitte mit dem Klassenlehrer.",
+        "en": "Please speak to the form teacher.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Kleiderbügel": {
     "def": "coat hanger",
     "ex": [
@@ -9257,6 +9285,20 @@
         "de": "Nach Jahren erkannte sie ihren früheren Schulfreund kaum wieder.",
         "en": "After years she barely recognised her former school friend.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Schulranzen": {
+    "ex": [
+      {
+        "de": "Der Schulranzen ist viel zu schwer.",
+        "en": "The school satchel is far too heavy.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Pack den Schulranzen schon heute Abend.",
+        "en": "Pack your school bag this evening.",
+        "lvl": "A2"
       }
     ]
   },
@@ -15114,6 +15156,20 @@
       }
     ]
   },
+  "voc:A2:die Mittagspause": {
+    "ex": [
+      {
+        "de": "Die Mittagspause dauert eine halbe Stunde.",
+        "en": "The lunch break lasts half an hour.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In der Mittagspause gehe ich kurz raus.",
+        "en": "I pop out during the lunch break.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Mode": {
     "def": "The popular style of clothes or behaviour at a given time.",
     "ex": [
@@ -15516,6 +15572,20 @@
         "de": "Die Personalabteilung kümmert sich um die Verträge.",
         "en": "The HR department takes care of the contracts.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Pfanne": {
+    "ex": [
+      {
+        "de": "Die Pfanne ist noch heiß.",
+        "en": "The pan is still hot.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Brate das Gemüse in der Pfanne an.",
+        "en": "Fry the vegetables in the pan.",
+        "lvl": "A2"
       }
     ]
   },
@@ -16395,6 +16465,20 @@
         "de": "Vorsicht, diese Schlange ist giftig.",
         "en": "Careful, this snake is poisonous.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:die Schraube": {
+    "ex": [
+      {
+        "de": "Diese Schraube sitzt zu locker.",
+        "en": "This screw is too loose.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich brauche eine längere Schraube.",
+        "en": "I need a longer screw.",
+        "lvl": "A2"
       }
     ]
   },
@@ -18113,6 +18197,20 @@
       }
     ]
   },
+  "voc:A2:die Windel": {
+    "ex": [
+      {
+        "de": "Die Windel muss gewechselt werden.",
+        "en": "The nappy needs changing.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er trägt noch eine Windel.",
+        "en": "He's still in nappies.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Wissenschaftlerin": {
     "def": "scientist, scholar, researcher, academic (female)",
     "ex": [
@@ -18983,6 +19081,20 @@
         "de": "Für das Bewerbungsfoto wählte sie eine einfarbige Bluse.",
         "en": "For the application photo she chose a plain blouse.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:einige": {
+    "ex": [
+      {
+        "de": "Einige Kollegen kommen später.",
+        "en": "Some colleagues are coming later.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe noch einige Fragen.",
+        "en": "I still have a few questions.",
+        "lvl": "A2"
       }
     ]
   },
@@ -20178,6 +20290,20 @@
       {
         "de": "Fahren Sie gerade aus und dann links.",
         "en": "Go straight ahead and then left.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:gesamt": {
+    "ex": [
+      {
+        "de": "Die gesamte Familie war da.",
+        "en": "The entire family was there.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der gesamte Betrag ist im Januar fällig.",
+        "en": "The total amount is due in January.",
         "lvl": "A2"
       }
     ]
@@ -21598,6 +21724,20 @@
       }
     ]
   },
+  "voc:A2:manche": {
+    "ex": [
+      {
+        "de": "Manche Leute mögen das nicht.",
+        "en": "Some people don't like that.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Manche Wörter sind einfach schwer.",
+        "en": "Some words are simply hard.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:marine": {
     "def": "navy",
     "ex": [
@@ -21639,6 +21779,20 @@
       {
         "de": "Tom muss medizinisch versorgt werden.",
         "en": "Tom needs medical assistance.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:mehrere": {
+    "ex": [
+      {
+        "de": "Ich habe heute mehrere Termine.",
+        "en": "I have several appointments today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Dafür gab es mehrere Gründe.",
+        "en": "There were several reasons for that.",
         "lvl": "A2"
       }
     ]
@@ -23294,6 +23448,20 @@
       }
     ]
   },
+  "voc:A2:selber": {
+    "ex": [
+      {
+        "de": "Das habe ich selber gemacht.",
+        "en": "I made that myself.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mach es doch selber!",
+        "en": "Do it yourself, then!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:selbst": {
     "def": "even",
     "ex": [
@@ -23995,6 +24163,20 @@
       {
         "de": "Sie trug silberne Ohrringe.",
         "en": "She wore silver earrings.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:solche": {
+    "ex": [
+      {
+        "de": "Solche Fehler passieren jedem.",
+        "en": "Mistakes like that happen to everyone.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er sagt immer solche Sachen.",
+        "en": "He's always saying things like that.",
         "lvl": "A2"
       }
     ]

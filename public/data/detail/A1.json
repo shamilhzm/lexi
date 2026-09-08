@@ -876,6 +876,20 @@
       }
     ]
   },
+  "voc:A1:andere": {
+    "ex": [
+      {
+        "de": "Hast du eine andere Größe?",
+        "en": "Have you got a different size?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Zeigen Sie mir bitte eine andere Farbe.",
+        "en": "Please show me a different colour.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:anfangen": {
     "def": "to begin; to commence; to start",
     "ex": [
@@ -1670,6 +1684,20 @@
         "de": "Beim Arzt musste ich lange warten.",
         "en": "At the doctor's I had to wait a long time.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:beide": {
+    "ex": [
+      {
+        "de": "Beide Kinder gehen schon zur Schule.",
+        "en": "Both children already go to school.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir waren beide sehr müde.",
+        "en": "We were both very tired.",
+        "lvl": "A1"
       }
     ]
   },
@@ -18845,6 +18873,20 @@
       }
     ]
   },
+  "voc:A1:etwas": {
+    "ex": [
+      {
+        "de": "Möchtest du etwas trinken?",
+        "en": "Would you like something to drink?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist etwas teuer.",
+        "en": "That's a bit expensive.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:euch": {
     "def": "The object form of 'you all', used when you all are being affected or receiving something.",
     "ex": [
@@ -20770,6 +20812,34 @@
       }
     ]
   },
+  "voc:A1:jeder": {
+    "ex": [
+      {
+        "de": "Jeder Tag ist anders.",
+        "en": "Every day is different.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Jeder kann mitmachen.",
+        "en": "Anyone can join in.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:jemand": {
+    "ex": [
+      {
+        "de": "Hat jemand nach mir gefragt?",
+        "en": "Did anyone ask for me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Da war jemand an der Tür.",
+        "en": "There was somebody at the door.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:jener": {
     "def": "A pointing word meaning 'that', referring to someone or something farther away.",
     "ex": [
@@ -20942,6 +21012,20 @@
         "de": "Bevor ich etwas kaufe, vergleiche ich gern die Preise.",
         "en": "Before I buy anything, I like to compare prices.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:kein": {
+    "ex": [
+      {
+        "de": "Ich habe kein Geld dabei.",
+        "en": "I haven't got any money on me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist kein Problem.",
+        "en": "That's not a problem.",
+        "lvl": "A1"
       }
     ]
   },
@@ -22468,6 +22552,20 @@
       {
         "de": "Bitte nicht stören!",
         "en": "Please do not disturb!",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:nichts": {
+    "ex": [
+      {
+        "de": "Ich habe nichts gesagt.",
+        "en": "I didn't say anything.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Da ist nichts zu machen.",
+        "en": "There's nothing to be done about it.",
         "lvl": "A1"
       }
     ]
@@ -25476,6 +25574,20 @@
         "de": "Die Wände im Krankenhaus sind alle weiß gestrichen.",
         "en": "The walls in the hospital are all painted white.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:welcher": {
+    "ex": [
+      {
+        "de": "Welcher Bus fährt zum Bahnhof?",
+        "en": "Which bus goes to the station?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Welcher Termin passt dir besser?",
+        "en": "Which appointment suits you better?",
+        "lvl": "A1"
       }
     ]
   },

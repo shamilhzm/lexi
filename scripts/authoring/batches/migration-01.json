@@ -1,0 +1,444 @@
+[
+  {
+    "term": "die Sicherung",
+    "en": "fuse; safeguarding",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Technology & Devices",
+    "ex": [
+      {
+        "de": "Die Sicherung ist rausgeflogen.",
+        "en": "The fuse has blown."
+      },
+      {
+        "de": "Bitte schalten Sie die Sicherung aus.",
+        "en": "Please switch the fuse off."
+      }
+    ]
+  },
+  {
+    "term": "die Schraube",
+    "en": "screw",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Objects & Materials",
+    "ex": [
+      {
+        "de": "Diese Schraube sitzt zu locker.",
+        "en": "This screw is too loose."
+      },
+      {
+        "de": "Ich brauche eine längere Schraube.",
+        "en": "I need a longer screw."
+      }
+    ]
+  },
+  {
+    "term": "die Zange",
+    "en": "pliers, pincers",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Objects & Materials",
+    "ex": [
+      {
+        "de": "Gib mir bitte die Zange.",
+        "en": "Pass me the pliers, please."
+      },
+      {
+        "de": "Mit der Zange geht das leichter.",
+        "en": "It's easier with the pliers."
+      }
+    ]
+  },
+  {
+    "term": "die Erdung",
+    "en": "earthing, grounding",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Technology & Devices",
+    "ex": [
+      {
+        "de": "Ohne Erdung darf die Anlage nicht laufen.",
+        "en": "The system must not run without earthing."
+      },
+      {
+        "de": "Die Erdung wurde vom Meister geprüft.",
+        "en": "The earthing was checked by the foreman."
+      }
+    ]
+  },
+  {
+    "term": "der Verteiler",
+    "en": "distribution board; distributor",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Technology & Devices",
+    "ex": [
+      {
+        "de": "Der Verteiler hängt im Keller.",
+        "en": "The distribution board is in the cellar."
+      },
+      {
+        "de": "Im Verteiler war ein Kabel lose.",
+        "en": "A cable was loose in the distribution board."
+      }
+    ]
+  },
+  {
+    "term": "der Schaltplan",
+    "en": "circuit diagram, wiring diagram",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Technology & Devices",
+    "ex": [
+      {
+        "de": "Der Schaltplan liegt auf der Baustelle.",
+        "en": "The wiring diagram is on the site."
+      },
+      {
+        "de": "Ohne Schaltplan finde ich den Fehler nicht.",
+        "en": "I can't find the fault without the circuit diagram."
+      }
+    ]
+  },
+  {
+    "term": "das Gerüst",
+    "en": "scaffolding",
+    "pos": "noun",
+    "level": "B1",
+    "field": "The Building",
+    "ex": [
+      {
+        "de": "Das Gerüst steht seit Montag.",
+        "en": "The scaffolding has been up since Monday."
+      },
+      {
+        "de": "Auf dem Gerüst gilt Helmpflicht.",
+        "en": "Helmets are compulsory on the scaffolding."
+      }
+    ]
+  },
+  {
+    "term": "die Spritze",
+    "en": "injection, syringe",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Medical Treatment",
+    "ex": [
+      {
+        "de": "Der Arzt gibt ihm eine Spritze.",
+        "en": "The doctor is giving him an injection."
+      },
+      {
+        "de": "Vor der Spritze hatte sie Angst.",
+        "en": "She was afraid of the injection."
+      }
+    ]
+  },
+  {
+    "term": "die Windel",
+    "en": "nappy, diaper",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Family",
+    "ex": [
+      {
+        "de": "Die Windel muss gewechselt werden.",
+        "en": "The nappy needs changing."
+      },
+      {
+        "de": "Er trägt noch eine Windel.",
+        "en": "He's still in nappies."
+      }
+    ]
+  },
+  {
+    "term": "der Rollstuhl",
+    "en": "wheelchair",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Sie sitzt seit einem Jahr im Rollstuhl.",
+        "en": "She has been in a wheelchair for a year."
+      },
+      {
+        "de": "Der Rollstuhl passt nicht durch die Tür.",
+        "en": "The wheelchair doesn't fit through the door."
+      }
+    ]
+  },
+  {
+    "term": "der Sturz",
+    "en": "fall",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Nach dem Sturz kam sie ins Krankenhaus.",
+        "en": "She went to hospital after the fall."
+      },
+      {
+        "de": "Der Sturz war zum Glück nicht schlimm.",
+        "en": "Luckily the fall wasn't bad."
+      }
+    ]
+  },
+  {
+    "term": "die Übergabe",
+    "en": "handover",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Die Übergabe ist um sieben Uhr.",
+        "en": "The handover is at seven."
+      },
+      {
+        "de": "Bei der Übergabe fehlten zwei Akten.",
+        "en": "Two files were missing at the handover."
+      }
+    ]
+  },
+  {
+    "term": "die Anamnese",
+    "en": "medical history",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Doctor & patient",
+    "ex": [
+      {
+        "de": "Die Anamnese dauert etwa zehn Minuten.",
+        "en": "Taking the medical history takes about ten minutes."
+      },
+      {
+        "de": "Ohne Anamnese kann ich nichts sagen.",
+        "en": "I can't say anything without the medical history."
+      }
+    ]
+  },
+  {
+    "term": "das Röntgen",
+    "en": "X-raying, radiography",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Medical Treatment",
+    "ex": [
+      {
+        "de": "Das Röntgen dauert nur wenige Minuten.",
+        "en": "The X-ray only takes a few minutes."
+      },
+      {
+        "de": "Nach dem Röntgen sprechen wir weiter.",
+        "en": "We'll talk further after the X-ray."
+      }
+    ]
+  },
+  {
+    "term": "das Blutbild",
+    "en": "blood count",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Medical Treatment",
+    "ex": [
+      {
+        "de": "Das Blutbild ist völlig in Ordnung.",
+        "en": "The blood count is perfectly fine."
+      },
+      {
+        "de": "Wir machen morgen ein Blutbild.",
+        "en": "We'll do a blood count tomorrow."
+      }
+    ]
+  },
+  {
+    "term": "die Einweisung",
+    "en": "admission (to hospital); briefing",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Healthcare System",
+    "ex": [
+      {
+        "de": "Der Hausarzt schreibt die Einweisung.",
+        "en": "The GP writes the admission referral."
+      },
+      {
+        "de": "Ohne Einweisung nimmt die Klinik Sie nicht auf.",
+        "en": "The clinic won't admit you without a referral."
+      }
+    ]
+  },
+  {
+    "term": "die Vorerkrankung",
+    "en": "pre-existing condition",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Doctor & patient",
+    "ex": [
+      {
+        "de": "Haben Sie eine Vorerkrankung?",
+        "en": "Do you have a pre-existing condition?"
+      },
+      {
+        "de": "Die Vorerkrankung steht im Fragebogen.",
+        "en": "The pre-existing condition is on the questionnaire."
+      }
+    ]
+  },
+  {
+    "term": "die Pfanne",
+    "en": "frying pan",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Food & drink",
+    "ex": [
+      {
+        "de": "Die Pfanne ist noch heiß.",
+        "en": "The pan is still hot."
+      },
+      {
+        "de": "Brate das Gemüse in der Pfanne an.",
+        "en": "Fry the vegetables in the pan."
+      }
+    ]
+  },
+  {
+    "term": "der Aufenthaltstitel",
+    "en": "residence permit",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Mein Aufenthaltstitel läuft im Mai ab.",
+        "en": "My residence permit expires in May."
+      },
+      {
+        "de": "Bringen Sie bitte den Aufenthaltstitel mit.",
+        "en": "Please bring your residence permit with you."
+      }
+    ]
+  },
+  {
+    "term": "die Lohnabrechnung",
+    "en": "payslip",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Finance & Taxes",
+    "ex": [
+      {
+        "de": "Die Lohnabrechnung kommt jeden Monat per Post.",
+        "en": "The payslip comes by post every month."
+      },
+      {
+        "de": "Auf der Lohnabrechnung steht der Steuerabzug.",
+        "en": "The tax deduction is on the payslip."
+      }
+    ]
+  },
+  {
+    "term": "der Betriebsrat",
+    "en": "works council",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Der Betriebsrat hat dem Plan zugestimmt.",
+        "en": "The works council approved the plan."
+      },
+      {
+        "de": "Sprich zuerst mit dem Betriebsrat.",
+        "en": "Talk to the works council first."
+      }
+    ]
+  },
+  {
+    "term": "der Elternabend",
+    "en": "parents' evening",
+    "pos": "noun",
+    "level": "B1",
+    "field": "School & Education System",
+    "ex": [
+      {
+        "de": "Der Elternabend ist am Donnerstag.",
+        "en": "The parents' evening is on Thursday."
+      },
+      {
+        "de": "Beim Elternabend habe ich die Lehrerin kennengelernt.",
+        "en": "I met the teacher at the parents' evening."
+      }
+    ]
+  },
+  {
+    "term": "der Schulranzen",
+    "en": "school satchel",
+    "pos": "noun",
+    "level": "A2",
+    "field": "School & Education System",
+    "ex": [
+      {
+        "de": "Der Schulranzen ist viel zu schwer.",
+        "en": "The school satchel is far too heavy."
+      },
+      {
+        "de": "Pack den Schulranzen schon heute Abend.",
+        "en": "Pack your school bag this evening."
+      }
+    ]
+  },
+  {
+    "term": "die Schwiegertochter",
+    "en": "daughter-in-law",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Family relationships",
+    "ex": [
+      {
+        "de": "Meine Schwiegertochter kommt aus Polen.",
+        "en": "My daughter-in-law is from Poland."
+      },
+      {
+        "de": "Die Schwiegertochter hat den Kuchen gebacken.",
+        "en": "My daughter-in-law baked the cake."
+      }
+    ]
+  },
+  {
+    "term": "die Mittagspause",
+    "en": "lunch break",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Die Mittagspause dauert eine halbe Stunde.",
+        "en": "The lunch break lasts half an hour."
+      },
+      {
+        "de": "In der Mittagspause gehe ich kurz raus.",
+        "en": "I pop out during the lunch break."
+      }
+    ]
+  },
+  {
+    "term": "quatschen",
+    "en": "to chat, natter",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Wir haben den ganzen Abend gequatscht.",
+        "en": "We chatted all evening."
+      },
+      {
+        "de": "Sie quatschen jeden Morgen an der Kaffeemaschine.",
+        "en": "They chat by the coffee machine every morning."
+      }
+    ]
+  }
+]

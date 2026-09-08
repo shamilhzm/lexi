@@ -4349,6 +4349,20 @@
       }
     ]
   },
+  "voc:B1:das Elterngeld": {
+    "ex": [
+      {
+        "de": "Das Elterngeld muss man nach der Geburt beantragen.",
+        "en": "You have to apply for parental allowance after the birth.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie lange bekommt man Elterngeld?",
+        "en": "How long do you get parental allowance for?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Endspiel": {
     "def": "final (last round of a competition; only used of sports with two sides per match); endgame (the final stage of a game of chess)",
     "ex": [
@@ -4799,6 +4813,20 @@
       {
         "de": "Draußen hörte ich seltsame Geräusche.",
         "en": "Outside I heard strange noises.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Gerüst": {
+    "ex": [
+      {
+        "de": "Das Gerüst steht seit Montag.",
+        "en": "The scaffolding has been up since Monday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Gerüst gilt Helmpflicht.",
+        "en": "Helmets are compulsory on the scaffolding.",
         "lvl": "B1"
       }
     ]
@@ -9572,6 +9600,20 @@
       }
     ]
   },
+  "voc:B1:der Elternabend": {
+    "ex": [
+      {
+        "de": "Der Elternabend ist am Donnerstag.",
+        "en": "The parents' evening is on Thursday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beim Elternabend habe ich die Lehrerin kennengelernt.",
+        "en": "I met the teacher at the parents' evening.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Empfang": {
     "def": "receipt, acceptance, welcome (act of receiving someone or something)",
     "ex": [
@@ -12664,6 +12706,20 @@
       }
     ]
   },
+  "voc:B1:der Rollstuhl": {
+    "ex": [
+      {
+        "de": "Sie sitzt seit einem Jahr im Rollstuhl.",
+        "en": "She has been in a wheelchair for a year.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Rollstuhl passt nicht durch die Tür.",
+        "en": "The wheelchair doesn't fit through the door.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Ruf": {
     "def": "A shout or cry; also the opinion people have of someone.",
     "ex": [
@@ -13707,6 +13763,20 @@
         "de": "Der neue Studiengang ist stark überlaufen.",
         "en": "The new degree programme is heavily oversubscribed.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Sturz": {
+    "ex": [
+      {
+        "de": "Nach dem Sturz kam sie ins Krankenhaus.",
+        "en": "She went to hospital after the fall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sturz war zum Glück nicht schlimm.",
+        "en": "Luckily the fall wasn't bad.",
+        "lvl": "B1"
       }
     ]
   },
@@ -16103,6 +16173,20 @@
       }
     ]
   },
+  "voc:B1:die Ausländerbehörde": {
+    "ex": [
+      {
+        "de": "Der Termin bei der Ausländerbehörde ist am Dienstag.",
+        "en": "The appointment at the immigration office is on Tuesday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Ausländerbehörde hat mir einen Brief geschickt.",
+        "en": "The immigration office sent me a letter.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Ausrede": {
     "def": "A false reason given to avoid blame or a duty.",
     "ex": [
@@ -17677,6 +17761,20 @@
         "de": "Jede Einschränkung der Freiheit muss gut begründet sein.",
         "en": "Every restriction of freedom must be well justified.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Einschulung": {
+    "ex": [
+      {
+        "de": "Die Einschulung ist im September.",
+        "en": "Starting school is in September.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zur Einschulung bekommt jedes Kind eine Schultüte.",
+        "en": "Every child gets a cone of sweets when they start school.",
+        "lvl": "B1"
       }
     ]
   },
@@ -21484,6 +21582,20 @@
       }
     ]
   },
+  "voc:B1:die Lohnabrechnung": {
+    "ex": [
+      {
+        "de": "Die Lohnabrechnung kommt jeden Monat per Post.",
+        "en": "The payslip comes by post every month.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf der Lohnabrechnung steht der Steuerabzug.",
+        "en": "The tax deduction is on the payslip.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Loipe": {
     "def": "A prepared track in the snow for cross-country skiing.",
     "defDe": "maschinell vorbereitete Piste, Laufbahn für den Skilanglauf",
@@ -24068,6 +24180,20 @@
       }
     ]
   },
+  "voc:B1:die Schwiegertochter": {
+    "ex": [
+      {
+        "de": "Meine Schwiegertochter kommt aus Polen.",
+        "en": "My daughter-in-law is from Poland.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Schwiegertochter hat den Kuchen gebacken.",
+        "en": "My daughter-in-law baked the cake.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Schwierigkeit": {
     "def": "difficulty, problem; trouble, difficulty, hardships, complications (NOTE: when in the plural, this word can retain a singular English abstract meaning)",
     "ex": [
@@ -24234,6 +24360,20 @@
       {
         "de": "Niemand konnte ihn hier vermuten, er hatte das Gefühl vollkommener Sicherheit, von keiner Seite drohte irgendwelche Gefahr.",
         "en": "Nobody could suppose him to be here, he had the feeling of complete security, from no side did any danger threaten him.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Sicherung": {
+    "ex": [
+      {
+        "de": "Die Sicherung ist rausgeflogen.",
+        "en": "The fuse has blown.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte schalten Sie die Sicherung aus.",
+        "en": "Please switch the fuse off.",
         "lvl": "B1"
       }
     ]
@@ -24644,6 +24784,20 @@
       }
     ]
   },
+  "voc:B1:die Spritze": {
+    "ex": [
+      {
+        "de": "Der Arzt gibt ihm eine Spritze.",
+        "en": "The doctor is giving him an injection.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Vor der Spritze hatte sie Angst.",
+        "en": "She was afraid of the injection.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Spur": {
     "def": "trace (rest of something that indicates its former presence; (by extension) any small amount); trace (sum of the diagonal elements of a square matrix)",
     "ex": [
@@ -24800,6 +24954,20 @@
       {
         "de": "Sie hat eine gute Stellung bei einer Bank.",
         "en": "She has a good position at a bank.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Steuernummer": {
+    "ex": [
+      {
+        "de": "Bitte geben Sie Ihre Steuernummer an.",
+        "en": "Please state your tax number.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Steuernummer steht oben auf dem Bescheid.",
+        "en": "The tax number is at the top of the notice.",
         "lvl": "B1"
       }
     ]
@@ -26889,6 +27057,20 @@
       {
         "de": "Dies ist eine Wüste.",
         "en": "This is a desert.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Zange": {
+    "ex": [
+      {
+        "de": "Gib mir bitte die Zange.",
+        "en": "Pass me the pliers, please.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit der Zange geht das leichter.",
+        "en": "It's easier with the pliers.",
         "lvl": "B1"
       }
     ]
@@ -30826,6 +31008,20 @@
       }
     ]
   },
+  "voc:B1:irgendein": {
+    "ex": [
+      {
+        "de": "Da hat irgendein Kollege angerufen.",
+        "en": "Some colleague or other rang.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Such dir irgendein Buch aus.",
+        "en": "Pick any book you like.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:irgendwann": {
     "def": "sometime, somewhen, anytime",
     "ex": [
@@ -32921,6 +33117,20 @@
       }
     ]
   },
+  "voc:B1:quatschen": {
+    "ex": [
+      {
+        "de": "Wir haben den ganzen Abend gequatscht.",
+        "en": "We chatted all evening.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie quatschen jeden Morgen an der Kaffeemaschine.",
+        "en": "They chat by the coffee machine every morning.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:quer": {
     "def": "From one side to the other; diagonally across.",
     "ex": [
@@ -34840,6 +35050,20 @@
       {
         "de": "Solange es regnet, bleiben wir zu Hause.",
         "en": "As long as it is raining, we will stay at home.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:sonstige": {
+    "ex": [
+      {
+        "de": "Tragen Sie sonstige Angaben bitte hier ein.",
+        "en": "Please enter any other details here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für sonstige Fragen wenden Sie sich an das Sekretariat.",
+        "en": "For any other questions, contact the office.",
         "lvl": "B1"
       }
     ]

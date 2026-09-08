@@ -212535,5 +212535,1382 @@
     ],
     "field": "Cultural Identity",
     "kind": "word"
+  },
+  {
+    "id": "voc:A1:kein",
+    "term": "kein",
+    "en": "no, not a, not any",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe kein Geld dabei.",
+        "en": "I haven't got any money on me.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist kein Problem.",
+        "en": "That's not a problem.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:nichts",
+    "term": "nichts",
+    "en": "nothing",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "nɪçt͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe nichts gesagt.",
+        "en": "I didn't say anything.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Da ist nichts zu machen.",
+        "en": "There's nothing to be done about it.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:etwas",
+    "term": "etwas",
+    "en": "something; somewhat",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɛtvas",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Möchtest du etwas trinken?",
+        "en": "Would you like something to drink?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist etwas teuer.",
+        "en": "That's a bit expensive.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:jeder",
+    "term": "jeder",
+    "en": "every, each; everyone",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈjeːdɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Jeder Tag ist anders.",
+        "en": "Every day is different.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Jeder kann mitmachen.",
+        "en": "Anyone can join in.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:welcher",
+    "term": "welcher",
+    "en": "which",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɛlçɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Welcher Bus fährt zum Bahnhof?",
+        "en": "Which bus goes to the station?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Welcher Termin passt dir besser?",
+        "en": "Which appointment suits you better?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Question words",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:andere",
+    "term": "andere",
+    "en": "other, different ones",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈandəʁə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hast du eine andere Größe?",
+        "en": "Have you got a different size?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Zeigen Sie mir bitte eine andere Farbe.",
+        "en": "Please show me a different colour.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:beide",
+    "term": "beide",
+    "en": "both",
+    "pos": "number",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbaɪ̯də",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Beide Kinder gehen schon zur Schule.",
+        "en": "Both children already go to school.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir waren beide sehr müde.",
+        "en": "We were both very tired.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:jemand",
+    "term": "jemand",
+    "en": "somebody, someone",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈjeːmant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hat jemand nach mir gefragt?",
+        "en": "Did anyone ask for me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Da war jemand an der Tür.",
+        "en": "There was somebody at the door.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:einige",
+    "term": "einige",
+    "en": "some, a few",
+    "pos": "number",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nɪɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Einige Kollegen kommen später.",
+        "en": "Some colleagues are coming later.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe noch einige Fragen.",
+        "en": "I still have a few questions.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:mehrere",
+    "term": "mehrere",
+    "en": "several",
+    "pos": "pronoun",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmeːʁəʁə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe heute mehrere Termine.",
+        "en": "I have several appointments today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Dafür gab es mehrere Gründe.",
+        "en": "There were several reasons for that.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:solche",
+    "term": "solche",
+    "en": "such, that kind of",
+    "pos": "pronoun",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɔlçə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Solche Fehler passieren jedem.",
+        "en": "Mistakes like that happen to everyone.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er sagt immer solche Sachen.",
+        "en": "He's always saying things like that.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:manche",
+    "term": "manche",
+    "en": "some, some people",
+    "pos": "pronoun",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmançə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Manche Leute mögen das nicht.",
+        "en": "Some people don't like that.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Manche Wörter sind einfach schwer.",
+        "en": "Some words are simply hard.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:selber",
+    "term": "selber",
+    "en": "oneself, myself, yourself",
+    "pos": "adverb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɛlbɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das habe ich selber gemacht.",
+        "en": "I made that myself.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mach es doch selber!",
+        "en": "Do it yourself, then!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:gesamt",
+    "term": "gesamt",
+    "en": "entire, total",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈzamt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die gesamte Familie war da.",
+        "en": "The entire family was there.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der gesamte Betrag ist im Januar fällig.",
+        "en": "The total amount is due in January.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:irgendein",
+    "term": "irgendein",
+    "en": "some ... or other, any",
+    "pos": "pronoun",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɪʁɡn̩tˈʔaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Da hat irgendein Kollege angerufen.",
+        "en": "Some colleague or other rang.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Such dir irgendein Buch aus.",
+        "en": "Pick any book you like.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:sonstige",
+    "term": "sonstige",
+    "en": "other, miscellaneous",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɔnstɪɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tragen Sie sonstige Angaben bitte hier ein.",
+        "en": "Please enter any other details here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für sonstige Fragen wenden Sie sich an das Sekretariat.",
+        "en": "For any other questions, contact the office.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:jegliche",
+    "term": "jegliche",
+    "en": "any, all (formal)",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈjeːklɪçə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Vermieter lehnt jegliche Haftung ab.",
+        "en": "The landlord accepts no liability whatsoever.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat jegliche Hilfe abgelehnt.",
+        "en": "She refused all help.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Core Vocabulary",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Elterngeld",
+    "term": "das Elterngeld",
+    "en": "parental allowance",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈɛltɐnˌɡɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Elterngeld muss man nach der Geburt beantragen.",
+        "en": "You have to apply for parental allowance after the birth.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie lange bekommt man Elterngeld?",
+        "en": "How long do you get parental allowance for?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Steuernummer",
+    "term": "die Steuernummer",
+    "en": "tax number",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Steuernummern",
+    "ipa": "ˈʃtɔɪ̯ɐˌnʊmɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte geben Sie Ihre Steuernummer an.",
+        "en": "Please state your tax number.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Steuernummer steht oben auf dem Bescheid.",
+        "en": "The tax number is at the top of the notice.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Einschulung",
+    "term": "die Einschulung",
+    "en": "starting school, first day of school",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Einschulungen",
+    "ipa": "ˈaɪ̯nˌʃuːlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Einschulung ist im September.",
+        "en": "Starting school is in September.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zur Einschulung bekommt jedes Kind eine Schultüte.",
+        "en": "Every child gets a cone of sweets when they start school.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Sicherung",
+    "term": "die Sicherung",
+    "en": "fuse; safeguarding",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Sicherungen",
+    "ipa": "ˈzɪçəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Sicherung ist rausgeflogen.",
+        "en": "The fuse has blown.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte schalten Sie die Sicherung aus.",
+        "en": "Please switch the fuse off.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Schraube",
+    "term": "die Schraube",
+    "en": "screw",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Schrauben",
+    "ipa": "ˈʃʁaʊ̯bə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Diese Schraube sitzt zu locker.",
+        "en": "This screw is too loose.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich brauche eine längere Schraube.",
+        "en": "I need a longer screw.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Objects & Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Zange",
+    "term": "die Zange",
+    "en": "pliers, pincers",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Zangen",
+    "ipa": "ˈt͡saŋə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gib mir bitte die Zange.",
+        "en": "Pass me the pliers, please.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit der Zange geht das leichter.",
+        "en": "It's easier with the pliers.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Objects & Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Erdung",
+    "term": "die Erdung",
+    "en": "earthing, grounding",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Erdungen",
+    "ipa": "ˈeːɐ̯dʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne Erdung darf die Anlage nicht laufen.",
+        "en": "The system must not run without earthing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Erdung wurde vom Meister geprüft.",
+        "en": "The earthing was checked by the foreman.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Verteiler",
+    "term": "der Verteiler",
+    "en": "distribution board; distributor",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Verteiler",
+    "ipa": "fɛɐ̯ˈtaɪ̯lɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Verteiler hängt im Keller.",
+        "en": "The distribution board is in the cellar.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Verteiler war ein Kabel lose.",
+        "en": "A cable was loose in the distribution board.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Schaltplan",
+    "term": "der Schaltplan",
+    "en": "circuit diagram, wiring diagram",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Schaltpläne",
+    "ipa": "ˈʃaltˌplaːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Schaltplan liegt auf der Baustelle.",
+        "en": "The wiring diagram is on the site.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Schaltplan finde ich den Fehler nicht.",
+        "en": "I can't find the fault without the circuit diagram.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology & Devices",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Gerüst",
+    "term": "das Gerüst",
+    "en": "scaffolding",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Gerüste",
+    "ipa": "ɡəˈʁʏst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Gerüst steht seit Montag.",
+        "en": "The scaffolding has been up since Monday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Gerüst gilt Helmpflicht.",
+        "en": "Helmets are compulsory on the scaffolding.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "The Building",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Spritze",
+    "term": "die Spritze",
+    "en": "injection, syringe",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Spritzen",
+    "ipa": "ˈʃpʁɪt͡sə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Arzt gibt ihm eine Spritze.",
+        "en": "The doctor is giving him an injection.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Vor der Spritze hatte sie Angst.",
+        "en": "She was afraid of the injection.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Medical Treatment",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Windel",
+    "term": "die Windel",
+    "en": "nappy, diaper",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Windeln",
+    "ipa": "ˈvɪndl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Windel muss gewechselt werden.",
+        "en": "The nappy needs changing.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er trägt noch eine Windel.",
+        "en": "He's still in nappies.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Rollstuhl",
+    "term": "der Rollstuhl",
+    "en": "wheelchair",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Rollstühle",
+    "ipa": "ˈʁɔlˌʃtuːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie sitzt seit einem Jahr im Rollstuhl.",
+        "en": "She has been in a wheelchair for a year.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Rollstuhl passt nicht durch die Tür.",
+        "en": "The wheelchair doesn't fit through the door.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Sturz",
+    "term": "der Sturz",
+    "en": "fall",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ʃtʊʁt͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach dem Sturz kam sie ins Krankenhaus.",
+        "en": "She went to hospital after the fall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sturz war zum Glück nicht schlimm.",
+        "en": "Luckily the fall wasn't bad.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Übergabe",
+    "term": "die Übergabe",
+    "en": "handover",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Übergaben",
+    "ipa": "ˈyːbɐˌɡaːbə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Übergabe ist um sieben Uhr.",
+        "en": "The handover is at seven.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei der Übergabe fehlten zwei Akten.",
+        "en": "Two files were missing at the handover.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Anamnese",
+    "term": "die Anamnese",
+    "en": "medical history",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Anamnesen",
+    "ipa": "anamˈneːzə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Anamnese dauert etwa zehn Minuten.",
+        "en": "Taking the medical history takes about ten minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Anamnese kann ich nichts sagen.",
+        "en": "I can't say anything without the medical history.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Doctor & patient",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Röntgen",
+    "term": "das Röntgen",
+    "en": "X-raying, radiography",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Röntgen",
+    "ipa": "ˈʁœntɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Röntgen dauert nur wenige Minuten.",
+        "en": "The X-ray only takes a few minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Röntgen sprechen wir weiter.",
+        "en": "We'll talk further after the X-ray.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Medical Treatment",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Blutbild",
+    "term": "das Blutbild",
+    "en": "blood count",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Blutbilder",
+    "ipa": "ˈbluːtˌbɪlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Blutbild ist völlig in Ordnung.",
+        "en": "The blood count is perfectly fine.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir machen morgen ein Blutbild.",
+        "en": "We'll do a blood count tomorrow.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Medical Treatment",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Einweisung",
+    "term": "die Einweisung",
+    "en": "admission (to hospital); briefing",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Einweisungen",
+    "ipa": "ˈaɪ̯nˌvaɪ̯zʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Hausarzt schreibt die Einweisung.",
+        "en": "The GP writes the admission referral.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne Einweisung nimmt die Klinik Sie nicht auf.",
+        "en": "The clinic won't admit you without a referral.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Healthcare System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Vorerkrankung",
+    "term": "die Vorerkrankung",
+    "en": "pre-existing condition",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Vorerkrankungen",
+    "ipa": "ˈfoːɐ̯ʔɛɐ̯ˌkʁaŋkʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Haben Sie eine Vorerkrankung?",
+        "en": "Do you have a pre-existing condition?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Vorerkrankung steht im Fragebogen.",
+        "en": "The pre-existing condition is on the questionnaire.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Doctor & patient",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Pfanne",
+    "term": "die Pfanne",
+    "en": "frying pan",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Pfannen",
+    "ipa": "ˈp͡fanə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Pfanne ist noch heiß.",
+        "en": "The pan is still hot.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Brate das Gemüse in der Pfanne an.",
+        "en": "Fry the vegetables in the pan.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Aufenthaltstitel",
+    "term": "der Aufenthaltstitel",
+    "en": "residence permit",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Aufenthaltstitel",
+    "ipa": "ˈaʊ̯fɛnthalt͡sˌtiːtl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Aufenthaltstitel läuft im Mai ab.",
+        "en": "My residence permit expires in May.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bringen Sie bitte den Aufenthaltstitel mit.",
+        "en": "Please bring your residence permit with you.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Lohnabrechnung",
+    "term": "die Lohnabrechnung",
+    "en": "payslip",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Lohnabrechnungen",
+    "ipa": "ˈloːnʔapˌʁɛçnʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Lohnabrechnung kommt jeden Monat per Post.",
+        "en": "The payslip comes by post every month.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf der Lohnabrechnung steht der Steuerabzug.",
+        "en": "The tax deduction is on the payslip.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Betriebsrat",
+    "term": "der Betriebsrat",
+    "en": "works council",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Betriebsräte",
+    "ipa": "bəˈtʁiːpsˌʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Betriebsrat hat dem Plan zugestimmt.",
+        "en": "The works council approved the plan.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sprich zuerst mit dem Betriebsrat.",
+        "en": "Talk to the works council first.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Elternabend",
+    "term": "der Elternabend",
+    "en": "parents' evening",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Elternabende",
+    "ipa": "ˈɛltɐnˌʔaːbn̩t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Elternabend ist am Donnerstag.",
+        "en": "The parents' evening is on Thursday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beim Elternabend habe ich die Lehrerin kennengelernt.",
+        "en": "I met the teacher at the parents' evening.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Schulranzen",
+    "term": "der Schulranzen",
+    "en": "school satchel",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Schulranzen",
+    "ipa": "ˈʃuːlˌʁant͡sn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Schulranzen ist viel zu schwer.",
+        "en": "The school satchel is far too heavy.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Pack den Schulranzen schon heute Abend.",
+        "en": "Pack your school bag this evening.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Schwiegertochter",
+    "term": "die Schwiegertochter",
+    "en": "daughter-in-law",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Schwiegertöchter",
+    "ipa": "ˈʃviːɡɐˌtɔxtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Schwiegertochter kommt aus Polen.",
+        "en": "My daughter-in-law is from Poland.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Schwiegertochter hat den Kuchen gebacken.",
+        "en": "My daughter-in-law baked the cake.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Family relationships",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Mittagspause",
+    "term": "die Mittagspause",
+    "en": "lunch break",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Mittagspausen",
+    "ipa": "ˈmɪtaːksˌpaʊ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Mittagspause dauert eine halbe Stunde.",
+        "en": "The lunch break lasts half an hour.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In der Mittagspause gehe ich kurz raus.",
+        "en": "I pop out during the lunch break.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:quatschen",
+    "term": "quatschen",
+    "en": "to chat, natter",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkvat͡ʃn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir haben den ganzen Abend gequatscht.",
+        "en": "We chatted all evening.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie quatschen jeden Morgen an der Kaffeemaschine.",
+        "en": "They chat by the coffee machine every morning.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Ausländerbehörde",
+    "term": "die Ausländerbehörde",
+    "en": "immigration office",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Ausländerbehörden",
+    "ipa": "ˈaʊ̯slɛndɐbəˌhøːɐ̯də",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Termin bei der Ausländerbehörde ist am Dienstag.",
+        "en": "The appointment at the immigration office is on Tuesday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Ausländerbehörde hat mir einen Brief geschickt.",
+        "en": "The immigration office sent me a letter.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Klassenlehrer",
+    "term": "der Klassenlehrer",
+    "en": "form teacher, class teacher",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Klassenlehrer",
+    "ipa": "ˈklasn̩ˌleːʁɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Klassenlehrer hat uns angerufen.",
+        "en": "The form teacher rang us.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sprich bitte mit dem Klassenlehrer.",
+        "en": "Please speak to the form teacher.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "School & Education System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:das Schneidebrett",
+    "term": "das Schneidebrett",
+    "en": "chopping board",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "das",
+    "plural": "die Schneidebretter",
+    "ipa": "ˈʃnaɪ̯dəˌbʁɛt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Schneidebrett liegt neben der Spüle.",
+        "en": "The chopping board is next to the sink.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Nimm bitte ein sauberes Schneidebrett.",
+        "en": "Please take a clean chopping board.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Kühlhaus",
+    "term": "das Kühlhaus",
+    "en": "cold store, refrigerated warehouse",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Kühlhäuser",
+    "ipa": "ˈkyːlˌhaʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Fleisch kommt sofort ins Kühlhaus.",
+        "en": "The meat goes straight into the cold store.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Kühlhaus ist es sehr kalt.",
+        "en": "It's very cold in the cold store.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Bettpfanne",
+    "term": "die Bettpfanne",
+    "en": "bedpan",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Bettpfannen",
+    "ipa": "ˈbɛtˌp͡fanə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bringen Sie bitte die Bettpfanne.",
+        "en": "Please bring the bedpan.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bettpfanne muss danach gereinigt werden.",
+        "en": "The bedpan has to be cleaned afterwards.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Medical Treatment",
+    "kind": "word"
   }
 ]

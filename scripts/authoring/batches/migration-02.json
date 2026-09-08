@@ -1,0 +1,27 @@
+[
+  { "term": "die Ausländerbehörde", "en": "immigration office", "pos": "noun", "level": "B1", "field": "Administration",
+    "ex": [
+      { "de": "Der Termin bei der Ausländerbehörde ist am Dienstag.", "en": "The appointment at the immigration office is on Tuesday." },
+      { "de": "Die Ausländerbehörde hat mir einen Brief geschickt.", "en": "The immigration office sent me a letter." }
+    ] },
+  { "term": "der Klassenlehrer", "en": "form teacher, class teacher", "pos": "noun", "level": "A2", "field": "School & Education System",
+    "ex": [
+      { "de": "Der Klassenlehrer hat uns angerufen.", "en": "The form teacher rang us." },
+      { "de": "Sprich bitte mit dem Klassenlehrer.", "en": "Please speak to the form teacher." }
+    ] },
+  { "term": "das Schneidebrett", "en": "chopping board", "pos": "noun", "level": "A2", "field": "Food & drink",
+    "ex": [
+      { "de": "Das Schneidebrett liegt neben der Spüle.", "en": "The chopping board is next to the sink." },
+      { "de": "Nimm bitte ein sauberes Schneidebrett.", "en": "Please take a clean chopping board." }
+    ] },
+  { "term": "das Kühlhaus", "en": "cold store, refrigerated warehouse", "pos": "noun", "level": "B2", "field": "Food & drink",
+    "ex": [
+      { "de": "Das Fleisch kommt sofort ins Kühlhaus.", "en": "The meat goes straight into the cold store." },
+      { "de": "Im Kühlhaus ist es sehr kalt.", "en": "It's very cold in the cold store." }
+    ] },
+  { "term": "die Bettpfanne", "en": "bedpan", "pos": "noun", "level": "B2", "field": "Medical Treatment",
+    "ex": [
+      { "de": "Bringen Sie bitte die Bettpfanne.", "en": "Please bring the bedpan." },
+      { "de": "Die Bettpfanne muss danach gereinigt werden.", "en": "The bedpan has to be cleaned afterwards." }
+    ] }
+]

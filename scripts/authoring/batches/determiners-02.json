@@ -1,0 +1,104 @@
+[
+  {
+    "term": "irgendein",
+    "en": "some ... or other, any",
+    "pos": "pronoun",
+    "level": "B1",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Da hat irgendein Kollege angerufen.",
+        "en": "Some colleague or other rang."
+      },
+      {
+        "de": "Such dir irgendein Buch aus.",
+        "en": "Pick any book you like."
+      }
+    ]
+  },
+  {
+    "term": "sonstige",
+    "en": "other, miscellaneous",
+    "pos": "adjective",
+    "level": "B1",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Tragen Sie sonstige Angaben bitte hier ein.",
+        "en": "Please enter any other details here."
+      },
+      {
+        "de": "Für sonstige Fragen wenden Sie sich an das Sekretariat.",
+        "en": "For any other questions, contact the office."
+      }
+    ]
+  },
+  {
+    "term": "jegliche",
+    "en": "any, all (formal)",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Core Vocabulary",
+    "ex": [
+      {
+        "de": "Der Vermieter lehnt jegliche Haftung ab.",
+        "en": "The landlord accepts no liability whatsoever."
+      },
+      {
+        "de": "Sie hat jegliche Hilfe abgelehnt.",
+        "en": "She refused all help."
+      }
+    ]
+  },
+  {
+    "term": "das Elterngeld",
+    "en": "parental allowance",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Das Elterngeld muss man nach der Geburt beantragen.",
+        "en": "You have to apply for parental allowance after the birth."
+      },
+      {
+        "de": "Wie lange bekommt man Elterngeld?",
+        "en": "How long do you get parental allowance for?"
+      }
+    ]
+  },
+  {
+    "term": "die Steuernummer",
+    "en": "tax number",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Finance & Taxes",
+    "ex": [
+      {
+        "de": "Bitte geben Sie Ihre Steuernummer an.",
+        "en": "Please state your tax number."
+      },
+      {
+        "de": "Die Steuernummer steht oben auf dem Bescheid.",
+        "en": "The tax number is at the top of the notice."
+      }
+    ]
+  },
+  {
+    "term": "die Einschulung",
+    "en": "starting school, first day of school",
+    "pos": "noun",
+    "level": "B1",
+    "field": "School & Education System",
+    "ex": [
+      {
+        "de": "Die Einschulung ist im September.",
+        "en": "Starting school is in September."
+      },
+      {
+        "de": "Zur Einschulung bekommt jedes Kind eine Schultüte.",
+        "en": "Every child gets a cone of sweets when they start school."
+      }
+    ]
+  }
+]

@@ -97,6 +97,26 @@ const LABEL: Record<Corpus, string> = {
 };
 
 interface Row { cell: string; forms: string[]; rank: Partial<Record<Corpus, number>> }
+
+/** Citation forms for reference rows that are a lemmatiser's **stem** rather than
+ *  a word anybody writes.
+ *
+ *  `ander` is rank 42 and is not German — the word is `andere`/`anderer`/`anderes`,
+ *  and the reference's lemmatiser stripped the ending that every attested form
+ *  carries. So a card for `andere` left the row reading *untaught*, which is a
+ *  defect in the measurement and not in the corpus.
+ *
+ *  Written out by hand and kept short, for the same reason `MEANINGFUL_FUNCTION`
+ *  is: the rule cannot be derived. Matching stems by prefix would let `and` cover
+ *  `andere`, and there is no version of that which is not eventually wrong. Each
+ *  entry here is a stem that has no attested bare form, mapped to the forms that
+ *  do — nothing is aliased to a *different* lexeme. */
+const STEM_FORMS: Record<string, string[]> = {
+  ander: ['andere', 'anderer', 'anderes'],
+  sonstig: ['sonstige', 'sonstiger', 'sonstiges'],
+  jeglich: ['jegliche', 'jeglicher', 'jegliches'],
+  irgendein: ['irgendeine', 'irgendeiner', 'irgendeines'],
+};
 interface Card { id: string; term: string; en: string; level: string; pos?: string; kind?: string }
 
 const ROOT = join(import.meta.dirname, '..', '..');
@@ -111,7 +131,8 @@ for (const line of readFileSync(TSV, 'utf8').split('\n')) {
   const rank: Partial<Record<Corpus, number>> = {};
   CORPORA.forEach((c, i) => { const v = ranks[i]; if (v && v !== '-') rank[c] = Number(v); });
   // "letzter, letzte, letztes" is one lexeme in three coats. Any form counts.
-  rows.push({ cell, forms: cell.split(',').map((s) => s.trim()).filter(Boolean), rank });
+  const forms = cell.split(',').map((s) => s.trim()).filter(Boolean);
+  rows.push({ cell, forms: [...forms, ...forms.flatMap((f) => STEM_FORMS[f.toLowerCase()] ?? [])], rank });
 }
 
 // ---- layer 1: what Lexi teaches -------------------------------------------
