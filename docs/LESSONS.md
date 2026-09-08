@@ -1143,6 +1143,33 @@ recent commit date, a clean `git status`, matching docs, and it built and ran. N
 about it *looked* wrong from the inside. Freshness is a property of the deployment,
 and it can only be read from the deployment.
 
+## A done-when can name a case that does not exist *(added 2026-09-08)*
+
+BACKLOG D6 asked for a homograph detector and set the bar as: *finds `schicken`,
+`bar` and `die Braut` without hand-seeding.* Two of those are real. `die Braut` is
+a clean card — both examples name it, both translations say *bride*, and the three
+other cards that mention Braut (`die Hochzeit`, `der Brauch`, `cremeweiß`) all use
+it correctly as scenery. There is nothing there to find.
+
+The pull, once two of three were passing, was to widen the rule until the third
+appeared. That is fitting the instrument to the answer, and it is the same failure
+as loosening a tolerance to make a test go green — except worse, because the
+widened rule then reports its noise as findings for ever.
+
+**Rule: a done-when is evidence, not an oracle.** When a check passes on every
+case but one, the next question is whether the last case is a case, and the way to
+settle it is to look at the data rather than at the rule. Write down what you found
+and change the done-when.
+
+**The corollary that paid for itself here.** `bar` *was* real and did not fire, for
+a reason that only appeared under instrumentation: the rule needs the sentence to
+resolve to a different **card**, and «Wo ist die Bar?» resolves back to the
+adjective `bar` because `die Bar` is not in the corpus and the matcher folds case.
+That is not a tuning problem, it is a second defect shape, and it got a second
+rule. Two cases that look alike from the outside — a lowercase word wearing another
+word's example — turned out to need different mechanisms, and only measuring told
+the difference.
+
 ## A grep that finds nothing may not have looked *(added 2026-09-08)*
 
 `grep -n levels src/store.ts` printed nothing. So did `grep -c level`. So did every
