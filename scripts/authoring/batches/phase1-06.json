@@ -1,0 +1,484 @@
+[
+  {
+    "term": "das All",
+    "en": "space, the universe",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Science",
+    "ex": [
+      {
+        "de": "Die Sonde fliegt ins All.",
+        "en": "The probe is flying into space."
+      },
+      {
+        "de": "Im All gibt es keine Luft.",
+        "en": "There is no air in space."
+      }
+    ]
+  },
+  {
+    "term": "heuer",
+    "en": "this year (southern German, Austrian)",
+    "pos": "adverb",
+    "level": "C1",
+    "field": "Time",
+    "ex": [
+      {
+        "de": "Heuer war der Sommer sehr heiß.",
+        "en": "This year the summer was very hot."
+      },
+      {
+        "de": "Wir fahren heuer nach Tirol.",
+        "en": "We're going to Tyrol this year."
+      }
+    ]
+  },
+  {
+    "term": "der Gemeinderat",
+    "en": "local council",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Der Gemeinderat tagt am Dienstag.",
+        "en": "The local council meets on Tuesday."
+      },
+      {
+        "de": "Sie sitzt seit Jahren im Gemeinderat.",
+        "en": "She has been on the local council for years."
+      }
+    ]
+  },
+  {
+    "term": "die Show",
+    "en": "show",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Entertainment & Media",
+    "ex": [
+      {
+        "de": "Die Show beginnt um acht.",
+        "en": "The show starts at eight."
+      },
+      {
+        "de": "Das war eine tolle Show!",
+        "en": "That was a great show!"
+      }
+    ],
+    "sameAsGerman": true
+  },
+  {
+    "term": "das Vorfeld",
+    "en": "run-up, lead-up",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Time",
+    "ex": [
+      {
+        "de": "Im Vorfeld der Wahl gab es viele Debatten.",
+        "en": "In the run-up to the election there were many debates."
+      },
+      {
+        "de": "Das Vorfeld der Reise war stressig.",
+        "en": "The lead-up to the trip was stressful."
+      }
+    ]
+  },
+  {
+    "term": "der Auftakt",
+    "en": "start, opening",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Time",
+    "ex": [
+      {
+        "de": "Der Auftakt der Saison war gelungen.",
+        "en": "The start of the season was a success."
+      },
+      {
+        "de": "Zum Auftakt spielte eine Band.",
+        "en": "A band played to open proceedings."
+      }
+    ]
+  },
+  {
+    "term": "vorgesehen",
+    "en": "planned, scheduled, intended",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Der Termin ist für Montag vorgesehen.",
+        "en": "The appointment is scheduled for Monday."
+      },
+      {
+        "de": "Dafür ist kein Geld vorgesehen.",
+        "en": "No money is earmarked for that."
+      }
+    ]
+  },
+  {
+    "term": "der Kader",
+    "en": "squad",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Der Kader steht seit gestern fest.",
+        "en": "The squad has been settled since yesterday."
+      },
+      {
+        "de": "Er gehört nicht mehr zum Kader.",
+        "en": "He is no longer in the squad."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Sachschaden",
+    "en": "damage to property",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Es entstand hoher Sachschaden.",
+        "en": "Considerable damage to property was caused."
+      },
+      {
+        "de": "Der Sachschaden geht in die Tausende.",
+        "en": "The property damage runs into thousands."
+      }
+    ]
+  },
+  {
+    "term": "verpflichtet",
+    "en": "obliged, bound",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Sie sind gesetzlich dazu verpflichtet.",
+        "en": "You are legally obliged to do so."
+      },
+      {
+        "de": "Ich fühle mich ihm verpflichtet.",
+        "en": "I feel indebted to him."
+      }
+    ]
+  },
+  {
+    "term": "der Schuss",
+    "en": "shot",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Ein Schuss fiel in der Nacht.",
+        "en": "A shot was fired in the night."
+      },
+      {
+        "de": "Der Schuss ging weit am Tor vorbei.",
+        "en": "The shot went well wide of the goal."
+      }
+    ]
+  },
+  {
+    "term": "die Haft",
+    "en": "custody, imprisonment",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Er sitzt seit einem Jahr in Haft.",
+        "en": "He has been in custody for a year."
+      },
+      {
+        "de": "Die Haft dauerte drei Monate.",
+        "en": "The imprisonment lasted three months."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "antreten",
+    "en": "to line up; to take up (a post)",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Wir treten morgen zum Wettkampf an.",
+        "en": "We line up for the competition tomorrow."
+      },
+      {
+        "de": "Sie tritt die Stelle im Mai an.",
+        "en": "She takes up the post in May."
+      }
+    ]
+  },
+  {
+    "term": "fort",
+    "en": "away, gone",
+    "pos": "adverb",
+    "level": "B1",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Er ist schon fort.",
+        "en": "He has already gone."
+      },
+      {
+        "de": "Fort mit dem alten Zeug!",
+        "en": "Away with the old stuff!"
+      }
+    ]
+  },
+  {
+    "term": "der Spieltag",
+    "en": "matchday",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Am nächsten Spieltag spielen wir zu Hause.",
+        "en": "On the next matchday we play at home."
+      },
+      {
+        "de": "Der Spieltag beginnt um halb vier.",
+        "en": "The matchday starts at half past three."
+      }
+    ]
+  },
+  {
+    "term": "der Rückstand",
+    "en": "arrears; deficit",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Finance & Taxes",
+    "ex": [
+      {
+        "de": "Wir sind mit der Miete im Rückstand.",
+        "en": "We are in arrears with the rent."
+      },
+      {
+        "de": "Der Rückstand beträgt zwei Tore.",
+        "en": "The deficit is two goals."
+      }
+    ]
+  },
+  {
+    "term": "das Hektar",
+    "en": "hectare",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Der Hof hat zwanzig Hektar Land.",
+        "en": "The farm has twenty hectares of land."
+      },
+      {
+        "de": "Ein Hektar sind zehntausend Quadratmeter.",
+        "en": "One hectare is ten thousand square metres."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "angewiesen",
+    "en": "dependent, reliant",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Society",
+    "ex": [
+      {
+        "de": "Sie ist auf Hilfe angewiesen.",
+        "en": "She is reliant on help."
+      },
+      {
+        "de": "Wir sind auf den Bus angewiesen.",
+        "en": "We depend on the bus."
+      }
+    ]
+  },
+  {
+    "term": "der Nachwuchs",
+    "en": "young talent; offspring",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Family",
+    "ex": [
+      {
+        "de": "Der Verein fördert den Nachwuchs.",
+        "en": "The club supports young talent."
+      },
+      {
+        "de": "Bei Müllers gibt es Nachwuchs.",
+        "en": "There's a new arrival at the Müllers'."
+      }
+    ]
+  },
+  {
+    "term": "das Zuhause",
+    "en": "home",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Wir haben endlich ein Zuhause gefunden.",
+        "en": "We have finally found a home."
+      },
+      {
+        "de": "Ihr Zuhause ist sehr gemütlich.",
+        "en": "Their home is very cosy."
+      }
+    ]
+  },
+  {
+    "term": "ausgesetzt",
+    "en": "exposed; suspended",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Sie war großem Druck ausgesetzt.",
+        "en": "She was exposed to great pressure."
+      },
+      {
+        "de": "Das Verfahren bleibt ausgesetzt.",
+        "en": "The proceedings remain suspended."
+      }
+    ]
+  },
+  {
+    "term": "ausgestattet",
+    "en": "equipped, furnished",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Die Wohnung ist modern ausgestattet.",
+        "en": "The flat is furnished to a modern standard."
+      },
+      {
+        "de": "Der Wagen ist gut ausgestattet.",
+        "en": "The car is well equipped."
+      }
+    ]
+  },
+  {
+    "term": "hinweg",
+    "en": "away, over",
+    "pos": "adverb",
+    "level": "C1",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Über die Jahre hinweg blieb sie ruhig.",
+        "en": "Over the years she stayed calm."
+      },
+      {
+        "de": "Er sah über den Fehler hinweg.",
+        "en": "He overlooked the mistake."
+      }
+    ]
+  },
+  {
+    "term": "das Design",
+    "en": "design",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Media & Arts",
+    "ex": [
+      {
+        "de": "Das Design der Seite gefällt mir.",
+        "en": "I like the design of the page."
+      },
+      {
+        "de": "Sie studiert Design in Berlin.",
+        "en": "She is studying design in Berlin."
+      }
+    ],
+    "sameAsGerman": true
+  },
+  {
+    "term": "die Arena",
+    "en": "arena",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Die Arena war restlos ausverkauft.",
+        "en": "The arena was completely sold out."
+      },
+      {
+        "de": "In der Arena finden Konzerte statt.",
+        "en": "Concerts take place in the arena."
+      }
+    ],
+    "sameAsGerman": true
+  },
+  {
+    "term": "der Aufbau",
+    "en": "structure; construction",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Der Aufbau des Textes ist klar.",
+        "en": "The structure of the text is clear."
+      },
+      {
+        "de": "Der Aufbau der Halle dauert drei Tage.",
+        "en": "Putting up the hall takes three days."
+      }
+    ]
+  },
+  {
+    "term": "die Jury",
+    "en": "jury, panel of judges",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Media & Arts",
+    "ex": [
+      {
+        "de": "Die Jury entscheidet am Abend.",
+        "en": "The jury decides in the evening."
+      },
+      {
+        "de": "In der Jury sitzen fünf Fachleute.",
+        "en": "Five experts sit on the panel."
+      }
+    ]
+  },
+  {
+    "term": "vorgenommen",
+    "en": "undertaken, carried out",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Working Life",
+    "ex": [
+      {
+        "de": "Es wurden mehrere Änderungen vorgenommen.",
+        "en": "Several changes were made."
+      },
+      {
+        "de": "Ich habe mir viel vorgenommen.",
+        "en": "I have set myself a lot to do."
+      }
+    ]
+  }
+]

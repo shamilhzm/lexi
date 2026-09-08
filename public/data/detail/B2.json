@@ -380,6 +380,20 @@
       }
     ]
   },
+  "voc:B2:angewiesen": {
+    "ex": [
+      {
+        "de": "Sie ist auf Hilfe angewiesen.",
+        "en": "She is reliant on help.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir sind auf den Bus angewiesen.",
+        "en": "We depend on the bus.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:anlegen": {
     "def": "etwas erschaffen oder erstellen",
     "ex": [
@@ -496,6 +510,20 @@
       {
         "de": "Er ist anständig gewesen.",
         "en": "He was fair.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:antreten": {
+    "ex": [
+      {
+        "de": "Wir treten morgen zum Wettkampf an.",
+        "en": "We line up for the competition tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie tritt die Stelle im Mai an.",
+        "en": "She takes up the post in May.",
         "lvl": "B2"
       }
     ]
@@ -751,6 +779,20 @@
       {
         "de": "Er sah ausgesprochen gut aus.",
         "en": "He was extremely good-looking.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:ausgestattet": {
+    "ex": [
+      {
+        "de": "Die Wohnung ist modern ausgestattet.",
+        "en": "The flat is furnished to a modern standard.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Wagen ist gut ausgestattet.",
+        "en": "The car is well equipped.",
         "lvl": "B2"
       }
     ]
@@ -1537,6 +1579,20 @@
       }
     ]
   },
+  "voc:B2:das All": {
+    "ex": [
+      {
+        "de": "Die Sonde fliegt ins All.",
+        "en": "The probe is flying into space.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im All gibt es keine Luft.",
+        "en": "There is no air in space.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Allgemeinwissen": {
     "ex": [
       {
@@ -1918,6 +1974,20 @@
       {
         "de": "Sie haben alle drei Heimspiele gewonnen.",
         "en": "They won all three home games.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Hektar": {
+    "ex": [
+      {
+        "de": "Der Hof hat zwanzig Hektar Land.",
+        "en": "The farm has twenty hectares of land.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein Hektar sind zehntausend Quadratmeter.",
+        "en": "One hectare is ten thousand square metres.",
         "lvl": "B2"
       }
     ]
@@ -3021,6 +3091,20 @@
       }
     ]
   },
+  "voc:B2:der Aufbau": {
+    "ex": [
+      {
+        "de": "Der Aufbau des Textes ist klar.",
+        "en": "The structure of the text is clear.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Aufbau der Halle dauert drei Tage.",
+        "en": "Putting up the hall takes three days.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Aufenthaltstitel": {
     "ex": [
       {
@@ -3046,6 +3130,20 @@
       {
         "de": "Ihr rascher Aufstieg überraschte die Kollegen.",
         "en": "Her rapid advancement surprised her colleagues.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Auftakt": {
+    "ex": [
+      {
+        "de": "Der Auftakt der Saison war gelungen.",
+        "en": "The start of the season was a success.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zum Auftakt spielte eine Band.",
+        "en": "A band played to open proceedings.",
         "lvl": "B2"
       }
     ]
@@ -3735,6 +3833,20 @@
       }
     ]
   },
+  "voc:B2:der Gemeinderat": {
+    "ex": [
+      {
+        "de": "Der Gemeinderat tagt am Dienstag.",
+        "en": "The local council meets on Tuesday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sitzt seit Jahren im Gemeinderat.",
+        "en": "She has been on the local council for years.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Generalsekretär": {
     "def": "The chief official of a large organisation.",
     "ex": [
@@ -3954,6 +4066,20 @@
       {
         "de": "Der Jahresbeginn war für die Firma schwierig.",
         "en": "The start of the year was difficult for the company.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Kader": {
+    "ex": [
+      {
+        "de": "Der Kader steht seit gestern fest.",
+        "en": "The squad has been settled since yesterday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er gehört nicht mehr zum Kader.",
+        "en": "He is no longer in the squad.",
         "lvl": "B2"
       }
     ]
@@ -4338,6 +4464,20 @@
       }
     ]
   },
+  "voc:B2:der Nachwuchs": {
+    "ex": [
+      {
+        "de": "Der Verein fördert den Nachwuchs.",
+        "en": "The club supports young talent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei Müllers gibt es Nachwuchs.",
+        "en": "There's a new arrival at the Müllers'.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Neubau": {
     "def": "A recently constructed building, or the act of building anew.",
     "ex": [
@@ -4621,6 +4761,20 @@
       }
     ]
   },
+  "voc:B2:der Rückstand": {
+    "ex": [
+      {
+        "de": "Wir sind mit der Miete im Rückstand.",
+        "en": "We are in arrears with the rent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rückstand beträgt zwei Tore.",
+        "en": "The deficit is two goals.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Rückzug": {
     "def": "The act of pulling back from a place or position.",
     "ex": [
@@ -4646,6 +4800,20 @@
       {
         "de": "Im großen Saal finden die Konzerte statt.",
         "en": "The concerts take place in the large hall.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Sachschaden": {
+    "ex": [
+      {
+        "de": "Es entstand hoher Sachschaden.",
+        "en": "Considerable damage to property was caused.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sachschaden geht in die Tausende.",
+        "en": "The property damage runs into thousands.",
         "lvl": "B2"
       }
     ]
@@ -4734,6 +4902,20 @@
       {
         "de": "Im Speisewagen kann man warm essen.",
         "en": "You can get a hot meal in the dining car.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Spieltag": {
+    "ex": [
+      {
+        "de": "Am nächsten Spieltag spielen wir zu Hause.",
+        "en": "On the next matchday we play at home.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Spieltag beginnt um halb vier.",
+        "en": "The matchday starts at half past three.",
         "lvl": "B2"
       }
     ]
@@ -5928,6 +6110,20 @@
       {
         "de": "Es hat drei Monate gedauert, bis ich meine Arbeitserlaubnis bekommen habe.",
         "en": "It took three months until I got my work permit.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Arena": {
+    "ex": [
+      {
+        "de": "Die Arena war restlos ausverkauft.",
+        "en": "The arena was completely sold out.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Arena finden Konzerte statt.",
+        "en": "Concerts take place in the arena.",
         "lvl": "B2"
       }
     ]
@@ -7687,6 +7883,20 @@
       }
     ]
   },
+  "voc:B2:die Haft": {
+    "ex": [
+      {
+        "de": "Er sitzt seit einem Jahr in Haft.",
+        "en": "He has been in custody for a year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Haft dauerte drei Monate.",
+        "en": "The imprisonment lasted three months.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Haftstrafe": {
     "def": "A punishment of being kept in prison.",
     "ex": [
@@ -7923,6 +8133,20 @@
       {
         "de": "Dieses Buch handelt von der Invasion der Römer.",
         "en": "This book deals with the invasion of the Romans.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Jury": {
+    "ex": [
+      {
+        "de": "Die Jury entscheidet am Abend.",
+        "en": "The jury decides in the evening.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Jury sitzen fünf Fachleute.",
+        "en": "Five experts sit on the panel.",
         "lvl": "B2"
       }
     ]
@@ -14484,6 +14708,20 @@
       }
     ]
   },
+  "voc:B2:verpflichtet": {
+    "ex": [
+      {
+        "de": "Sie sind gesetzlich dazu verpflichtet.",
+        "en": "You are legally obliged to do so.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich fühle mich ihm verpflichtet.",
+        "en": "I feel indebted to him.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:verschaffen": {
     "def": "To get or arrange something for someone.",
     "ex": [
@@ -14855,6 +15093,20 @@
       {
         "de": "Wir müssen langsamer vorgehen.",
         "en": "We need to slow down.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:vorgesehen": {
+    "ex": [
+      {
+        "de": "Der Termin ist für Montag vorgesehen.",
+        "en": "The appointment is scheduled for Monday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Dafür ist kein Geld vorgesehen.",
+        "en": "No money is earmarked for that.",
         "lvl": "B2"
       }
     ]

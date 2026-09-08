@@ -4182,6 +4182,20 @@
       }
     ]
   },
+  "voc:B1:das Design": {
+    "ex": [
+      {
+        "de": "Das Design der Seite gefällt mir.",
+        "en": "I like the design of the page.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie studiert Design in Berlin.",
+        "en": "She is studying design in Berlin.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Diplom": {
     "def": "diploma (higher education only, e.g., Master’s degree).",
     "ex": [
@@ -7760,6 +7774,20 @@
         "de": "Die Wahl des Ziellandes hängt oft von bestehenden Kontakten ab.",
         "en": "The choice of destination country often depends on existing contacts.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:das Zuhause": {
+    "ex": [
+      {
+        "de": "Wir haben endlich ein Zuhause gefunden.",
+        "en": "We have finally found a home.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihr Zuhause ist sehr gemütlich.",
+        "en": "Their home is very cosy.",
+        "lvl": "B1"
       }
     ]
   },
@@ -13126,6 +13154,20 @@
       {
         "de": "Ihr Schulabschluss wurde in Deutschland nicht anerkannt.",
         "en": "Her school-leaving qualification was not recognised in Germany.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Schuss": {
+    "ex": [
+      {
+        "de": "Ein Schuss fiel in der Nacht.",
+        "en": "A shot was fired in the night.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Schuss ging weit am Tor vorbei.",
+        "en": "The shot went well wide of the goal.",
         "lvl": "B1"
       }
     ]
@@ -29479,6 +29521,20 @@
         "de": "Wer forscht, muss auch mit Rückschlägen rechnen.",
         "en": "Those who do research must also reckon with setbacks.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:fort": {
+    "ex": [
+      {
+        "de": "Er ist schon fort.",
+        "en": "He has already gone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Fort mit dem alten Zeug!",
+        "en": "Away with the old stuff!",
+        "lvl": "B1"
       }
     ]
   },

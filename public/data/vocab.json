@@ -215667,5 +215667,761 @@
     ],
     "field": "Media & Arts",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:das All",
+    "term": "das All",
+    "en": "space, the universe",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": null,
+    "ipa": "al",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Sonde fliegt ins All.",
+        "en": "The probe is flying into space.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im All gibt es keine Luft.",
+        "en": "There is no air in space.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Science",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:heuer",
+    "term": "heuer",
+    "en": "this year (southern German, Austrian)",
+    "pos": "adverb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɔɪ̯ɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Heuer war der Sommer sehr heiß.",
+        "en": "This year the summer was very hot.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir fahren heuer nach Tirol.",
+        "en": "We're going to Tyrol this year.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Gemeinderat",
+    "term": "der Gemeinderat",
+    "en": "local council",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Gemeinderäte",
+    "ipa": "ɡəˈmaɪ̯ndəˌʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Gemeinderat tagt am Dienstag.",
+        "en": "The local council meets on Tuesday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sitzt seit Jahren im Gemeinderat.",
+        "en": "She has been on the local council for years.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Show",
+    "term": "die Show",
+    "en": "show",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Shows",
+    "ipa": "ʃɔʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Show beginnt um acht.",
+        "en": "The show starts at eight.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das war eine tolle Show!",
+        "en": "That was a great show!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Entertainment & Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Vorfeld",
+    "term": "das Vorfeld",
+    "en": "run-up, lead-up",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Vorfelder",
+    "ipa": "ˈfoːɐ̯ˌfɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Vorfeld der Wahl gab es viele Debatten.",
+        "en": "In the run-up to the election there were many debates.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Vorfeld der Reise war stressig.",
+        "en": "The lead-up to the trip was stressful.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Auftakt",
+    "term": "der Auftakt",
+    "en": "start, opening",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Auftakte",
+    "ipa": "ˈaʊ̯ftakt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Auftakt der Saison war gelungen.",
+        "en": "The start of the season was a success.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zum Auftakt spielte eine Band.",
+        "en": "A band played to open proceedings.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:vorgesehen",
+    "term": "vorgesehen",
+    "en": "planned, scheduled, intended",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfoːɐ̯ɡəˌzeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Termin ist für Montag vorgesehen.",
+        "en": "The appointment is scheduled for Monday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Dafür ist kein Geld vorgesehen.",
+        "en": "No money is earmarked for that.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Kader",
+    "term": "der Kader",
+    "en": "squad",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Kader",
+    "ipa": "ˈkaːdɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kader steht seit gestern fest.",
+        "en": "The squad has been settled since yesterday.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er gehört nicht mehr zum Kader.",
+        "en": "He is no longer in the squad.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Sachschaden",
+    "term": "der Sachschaden",
+    "en": "damage to property",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Sachschäden",
+    "ipa": "ˈzaxˌʃaːdn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es entstand hoher Sachschaden.",
+        "en": "Considerable damage to property was caused.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sachschaden geht in die Tausende.",
+        "en": "The property damage runs into thousands.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:verpflichtet",
+    "term": "verpflichtet",
+    "en": "obliged, bound",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈp͡flɪçtət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie sind gesetzlich dazu verpflichtet.",
+        "en": "You are legally obliged to do so.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich fühle mich ihm verpflichtet.",
+        "en": "I feel indebted to him.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Schuss",
+    "term": "der Schuss",
+    "en": "shot",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Schüsse",
+    "ipa": "ʃʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Schuss fiel in der Nacht.",
+        "en": "A shot was fired in the night.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Schuss ging weit am Tor vorbei.",
+        "en": "The shot went well wide of the goal.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Haft",
+    "term": "die Haft",
+    "en": "custody, imprisonment",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Hafte",
+    "ipa": "haft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er sitzt seit einem Jahr in Haft.",
+        "en": "He has been in custody for a year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Haft dauerte drei Monate.",
+        "en": "The imprisonment lasted three months.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:antreten",
+    "term": "antreten",
+    "en": "to line up; to take up (a post)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌtʁeːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir treten morgen zum Wettkampf an.",
+        "en": "We line up for the competition tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie tritt die Stelle im Mai an.",
+        "en": "She takes up the post in May.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:fort",
+    "term": "fort",
+    "en": "away, gone",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist schon fort.",
+        "en": "He has already gone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Fort mit dem alten Zeug!",
+        "en": "Away with the old stuff!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Spieltag",
+    "term": "der Spieltag",
+    "en": "matchday",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Spieltage",
+    "ipa": "ˈʃpiːlˌtaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am nächsten Spieltag spielen wir zu Hause.",
+        "en": "On the next matchday we play at home.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Spieltag beginnt um halb vier.",
+        "en": "The matchday starts at half past three.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Rückstand",
+    "term": "der Rückstand",
+    "en": "arrears; deficit",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Rückstände",
+    "ipa": "ˈʁʏkˌʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir sind mit der Miete im Rückstand.",
+        "en": "We are in arrears with the rent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rückstand beträgt zwei Tore.",
+        "en": "The deficit is two goals.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Hektar",
+    "term": "das Hektar",
+    "en": "hectare",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Hektare",
+    "ipa": "ˈhɛktaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Hof hat zwanzig Hektar Land.",
+        "en": "The farm has twenty hectares of land.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein Hektar sind zehntausend Quadratmeter.",
+        "en": "One hectare is ten thousand square metres.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Landscape & nature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:angewiesen",
+    "term": "angewiesen",
+    "en": "dependent, reliant",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanɡəˌviːzn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie ist auf Hilfe angewiesen.",
+        "en": "She is reliant on help.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir sind auf den Bus angewiesen.",
+        "en": "We depend on the bus.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Nachwuchs",
+    "term": "der Nachwuchs",
+    "en": "young talent; offspring",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈnaːxˌvuːks",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Verein fördert den Nachwuchs.",
+        "en": "The club supports young talent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei Müllers gibt es Nachwuchs.",
+        "en": "There's a new arrival at the Müllers'.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Zuhause",
+    "term": "das Zuhause",
+    "en": "home",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "t͡suˈhaʊ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir haben endlich ein Zuhause gefunden.",
+        "en": "We have finally found a home.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihr Zuhause ist sehr gemütlich.",
+        "en": "Their home is very cosy.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:ausgesetzt",
+    "term": "ausgesetzt",
+    "en": "exposed; suspended",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sɡəˌzɛt͡st",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie war großem Druck ausgesetzt.",
+        "en": "She was exposed to great pressure.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Verfahren bleibt ausgesetzt.",
+        "en": "The proceedings remain suspended.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:ausgestattet",
+    "term": "ausgestattet",
+    "en": "equipped, furnished",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sɡəˌʃtatət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Wohnung ist modern ausgestattet.",
+        "en": "The flat is furnished to a modern standard.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Wagen ist gut ausgestattet.",
+        "en": "The car is well equipped.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:hinweg",
+    "term": "hinweg",
+    "en": "away, over",
+    "pos": "adverb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "hɪnˈvɛk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Über die Jahre hinweg blieb sie ruhig.",
+        "en": "Over the years she stayed calm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er sah über den Fehler hinweg.",
+        "en": "He overlooked the mistake.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Design",
+    "term": "das Design",
+    "en": "design",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Designs",
+    "ipa": "diˈzaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Design der Seite gefällt mir.",
+        "en": "I like the design of the page.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie studiert Design in Berlin.",
+        "en": "She is studying design in Berlin.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Media & Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Arena",
+    "term": "die Arena",
+    "en": "arena",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Arenen",
+    "ipa": "aˈʁeːna",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Arena war restlos ausverkauft.",
+        "en": "The arena was completely sold out.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Arena finden Konzerte statt.",
+        "en": "Concerts take place in the arena.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Aufbau",
+    "term": "der Aufbau",
+    "en": "structure; construction",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Aufbauten",
+    "ipa": "ˈaʊ̯fˌbaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Aufbau des Textes ist klar.",
+        "en": "The structure of the text is clear.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Aufbau der Halle dauert drei Tage.",
+        "en": "Putting up the hall takes three days.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Jury",
+    "term": "die Jury",
+    "en": "jury, panel of judges",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Jurys",
+    "ipa": "ˈʒyːʁi",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Jury entscheidet am Abend.",
+        "en": "The jury decides in the evening.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Jury sitzen fünf Fachleute.",
+        "en": "Five experts sit on the panel.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Media & Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:vorgenommen",
+    "term": "vorgenommen",
+    "en": "undertaken, carried out",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfoːɐ̯ɡəˌnɔmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es wurden mehrere Änderungen vorgenommen.",
+        "en": "Several changes were made.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich habe mir viel vorgenommen.",
+        "en": "I have set myself a lot to do.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
   }
 ]

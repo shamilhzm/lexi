@@ -136,23 +136,48 @@ section, different affordance, different words on screen.
 
 ---
 
-## Phase 1 — the teaching corpus to ~95%  *(started 2026-09-05 · 180 of ~3,000)*
+## Phase 1 — the teaching corpus to ~95%  *(started 2026-09-05 · 88.9% of running text)*
 
-> **Batches 1–5 shipped**, 6,520 → 6,700 cards. `npm run corpus:candidates` now ranks
-> what to author next; it exists because ranking on the merged news+subtitle frequency
-> put a dubbing studio's vocabulary at the top (`Ach, Scheiße, Dad, Mom, new, Boss,
-> Colonel, Madame`). Ranking on the **news** count itself gives `Saison, Tor, wert,
-> Staatsanwaltschaft, Liga, Strom, Zugang, Konzept, Auftrag`.
+> **Batches 1–6 shipped**, 6,520 → 6,954 cards. The measurement that matters is
+> `npm run corpus:tokencov`, not the card count: **88.9% of running text is lit up,
+> 88.2% of it taught**, against a target of 95%. Half the remaining dark mass sits in
+> the first **1,701** of 50,413 missing forms.
+>
+> **The measured rate is 28 cards → +0.1 percentage points** (batch 6, 2026-09-08).
+> So 95% is roughly **1,700 more cards**, or about 43 batches at the realistic size
+> below. That is the honest arithmetic; the plan's original "~3,000 cards, 25–30
+> batches" was both too many cards and too few batches.
+>
+> **`corpus:candidates` was proposing words nobody could author**, which is most of
+> why this phase stalled. Ranking on the news count puts a newsroom's *surnames* at
+> the top, and Wiktionary has a common-noun homograph for each one — so the queue's
+> top thirty offered `Müller` (*miller*), `Fischer` (*fisherman*), `Wagner`
+> (*cartwright*), `Kiel` (*keel*), and `Johannes` and `Jürgen` glossed as genital
+> slang, as top-twenty German vocabulary. `isLikelyEntity` cannot catch these: it
+> wants two capitals, and German capitalises every noun. Three filters, added
+> 2026-09-08, and each drops a *class* rather than a list of exceptions:
+>
+>   - **also filed as a name** — 320 forms. The frequency belongs to the person or
+>     the place, so the common noun must not inherit its rank.
+>   - **demonyms** — `Münchner`, `Kölner`, `Leipziger`, `Stuttgarter`, `Thüringer`.
+>     The pattern is productive: every German place name takes `-er`.
+>   - **glosses that describe a spelling, not a meaning** — `new` (*obsolete
+>     spelling of neu*), `Merz` (*of März*), `Corona` (*of Korona*), `dar` (*only
+>     used in darstellen*).
+>   - **already taught under a government** — `teilnehmen` and `konzentrieren` are
+>     cards as `teilnehmen an + D` and `sich konzentrieren auf + A`. Both were
+>     written into batch 6 and refused by the authoring gate before the cause was
+>     clear. The gate caught it; the queue should not have made it possible.
 >
 > **The gloss must still be written by hand.** Wiktionary's first sense is regularly
 > the rare one — `Strom` glossed "a large river" when it means electricity, `Star`
 > "starling", `Ansatz` "addition", `Auftakt` "anacrusis". A pipeline that copied them
 > would teach the wrong word with a correct-looking gender attached.
 >
-> **Realistic batch size is ~40, not ~200.** Every card needs two example sentences
-> that contain a real inflection of the headword, proved by the matcher. That is the
-> bottleneck, and it is the reason the plan's "25–30 batches" arithmetic is optimistic.
-
+> **Realistic batch size is ~30, not ~200.** Every card needs two example sentences
+> containing a real inflection of the headword, proved by the matcher — and the
+> matcher rejects a separable verb split across its clause, so several sentences get
+> rewritten per batch. That is the bottleneck.
 
 Target **~12,000 cards**, not 148,000. Two ranked inputs, both already computable:
 

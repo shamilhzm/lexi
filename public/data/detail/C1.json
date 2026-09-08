@@ -550,6 +550,20 @@
       }
     ]
   },
+  "voc:C1:ausgesetzt": {
+    "ex": [
+      {
+        "de": "Sie war großem Druck ausgesetzt.",
+        "en": "She was exposed to great pressure.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Verfahren bleibt ausgesetzt.",
+        "en": "The proceedings remain suspended.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:aushändigen": {
     "def": "To give a document or sum of money to the person entitled to it.",
     "ex": [
@@ -1947,6 +1961,20 @@
       {
         "de": "Das Volumen der Aufträge ist gestiegen.",
         "en": "The volume of orders has risen.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Vorfeld": {
+    "ex": [
+      {
+        "de": "Im Vorfeld der Wahl gab es viele Debatten.",
+        "en": "In the run-up to the election there were many debates.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Vorfeld der Reise war stressig.",
+        "en": "The lead-up to the trip was stressful.",
         "lvl": "C1"
       }
     ]
@@ -7749,6 +7777,20 @@
       }
     ]
   },
+  "voc:C1:heuer": {
+    "ex": [
+      {
+        "de": "Heuer war der Sommer sehr heiß.",
+        "en": "This year the summer was very hot.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir fahren heuer nach Tirol.",
+        "en": "We're going to Tyrol this year.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:hinfällig": {
     "def": "No longer applying, because what it rested on has fallen away.",
     "ex": [
@@ -7805,6 +7847,20 @@
       {
         "de": "Hinsichtlich der Frist gibt es keine Ausnahme.",
         "en": "Regarding the deadline there is no exception.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:hinweg": {
+    "ex": [
+      {
+        "de": "Über die Jahre hinweg blieb sie ruhig.",
+        "en": "Over the years she stayed calm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er sah über den Fehler hinweg.",
+        "en": "He overlooked the mistake.",
         "lvl": "C1"
       }
     ]
@@ -9939,6 +9995,20 @@
       {
         "de": "Die Ursachen sind vielschichtig und teils widersprüchlich.",
         "en": "The causes are multifaceted and partly contradictory.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:vorgenommen": {
+    "ex": [
+      {
+        "de": "Es wurden mehrere Änderungen vorgenommen.",
+        "en": "Several changes were made.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich habe mir viel vorgenommen.",
+        "en": "I have set myself a lot to do.",
         "lvl": "C1"
       }
     ]

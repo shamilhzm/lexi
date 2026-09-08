@@ -16652,6 +16652,20 @@
       }
     ]
   },
+  "voc:A2:die Show": {
+    "ex": [
+      {
+        "de": "Die Show beginnt um acht.",
+        "en": "The show starts at eight.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das war eine tolle Show!",
+        "en": "That was a great show!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Skijacke": {
     "def": "A warm, waterproof jacket worn for skiing.",
     "ex": [
