@@ -49,26 +49,65 @@ describe('attachDetail', () => {
 
   it('ignores ids the corpus does not ship', () => {
     expect(() => detail.attachDetail({ 'voc:gone': { def: 'x' } })).not.toThrow();
-    expect(detail.detailLoaded()).toBe(true);
   });
 
   it('reports not-loaded before it runs', async () => {
     const f = await fresh();
     expect(f.detail.detailLoaded()).toBe(false);
+    expect(f.detail.detailLoadedFor('A1')).toBe(false);
   });
 });
 
-describe('loadDetail', () => {
-  it('fetches once however many callers ask', async () => {
+// Detail ships one file per CEFR level (`scripts/corpus/split.ts`). What matters
+// here is that the app fetches the level it is about to show and *not* the other
+// five — the whole saving is in the shard that never leaves the server.
+describe('loadDetailFor', () => {
+  const ok = (rows: Record<string, unknown> = {}) =>
+    vi.fn(async (url: string) => ({ ok: true, json: async () => rows, url }));
+
+  it('fetches one level once, however many callers ask', async () => {
     const { data, detail } = await fresh();
     data.registerWords([word('a')]);
-    const fetchMock = vi.fn(async () => ({ ok: true, json: async () => ({ a: { def: 'once' } }) }));
+    const fetchMock = ok({ a: { def: 'once' } });
     vi.stubGlobal('fetch', fetchMock);
 
-    await Promise.all([detail.loadDetail(), detail.loadDetail(), detail.loadDetail()]);
+    await Promise.all([
+      detail.loadDetailLevel('A1'), detail.loadDetailLevel('A1'), detail.loadDetailLevel('A1'),
+    ]);
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(String(fetchMock.mock.calls[0]![0])).toMatch(/data\/detail\/A1\.json$/);
     expect(data.BY_ID.get('a')!.def).toBe('once');
+  });
+
+  // The point of the split, as a test: twenty A1 words on the feed must not drag
+  // down B2 and C1 with them.
+  it('asks only for the levels the given cards are in', async () => {
+    const { detail } = await fresh();
+    const fetchMock = ok();
+    vi.stubGlobal('fetch', fetchMock);
+
+    await detail.loadDetailFor([{ level: 'A1' }, { level: 'A1' }, { level: 'B1' }]);
+
+    const asked = fetchMock.mock.calls.map((c) => String(c[0]).replace(/.*detail\//, ''));
+    expect(asked.sort()).toEqual(['A1.json', 'B1.json']);
+  });
+
+  it('costs nothing for a level already in hand', async () => {
+    const { detail } = await fresh();
+    const fetchMock = ok();
+    vi.stubGlobal('fetch', fetchMock);
+    await detail.loadDetailFor([{ level: 'A1' }]);
+    await detail.loadDetailFor([{ level: 'A1' }, { level: 'A1' }]);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('does nothing at all for cards with no level', async () => {
+    const { detail } = await fresh();
+    const fetchMock = ok();
+    vi.stubGlobal('fetch', fetchMock);
+    await expect(detail.loadDetailFor([{}, {}])).resolves.toBeUndefined();
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it('resolves rather than rejects when the file is missing', async () => {
@@ -77,23 +116,50 @@ describe('loadDetail', () => {
     // already rendered fine.
     const { detail } = await fresh();
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })));
-    await expect(detail.loadDetail()).resolves.toBeUndefined();
-    expect(detail.detailLoaded()).toBe(true);
+    await expect(detail.loadDetailLevel('A1')).resolves.toBeUndefined();
+    expect(detail.detailLoadedFor('A1')).toBe(true);
   });
 
   it('resolves rather than rejects when the network throws', async () => {
     const { detail } = await fresh();
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('offline'); }));
-    await expect(detail.loadDetail()).resolves.toBeUndefined();
-    expect(detail.detailLoaded()).toBe(true);
+    await expect(detail.loadDetailLevel('A1')).resolves.toBeUndefined();
+    expect(detail.detailLoadedFor('A1')).toBe(true);
+  });
+
+  // A feed asks per page. If a failed shard stayed un-loaded, every scroll would
+  // re-ask — a request storm laid on top of whatever is already wrong.
+  it('does not retry a level that failed', async () => {
+    const { detail } = await fresh();
+    const fetchMock = vi.fn(async () => { throw new Error('offline'); });
+    vi.stubGlobal('fetch', fetchMock);
+    await detail.loadDetailLevel('A1');
+    await detail.loadDetailFor([{ level: 'A1' }]);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it('does not re-fetch once attached', async () => {
     const { detail } = await fresh();
-    const fetchMock = vi.fn(async () => ({ ok: true, json: async () => ({}) }));
+    const fetchMock = ok();
     vi.stubGlobal('fetch', fetchMock);
-    await detail.loadDetail();
-    await detail.loadDetail();
+    await detail.loadDetailLevel('A1');
+    await detail.loadDetailLevel('A1');
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  // Six at once is 842 KB of contention against whatever the learner is doing.
+  it('walks every level one at a time', async () => {
+    const { detail } = await fresh();
+    let inFlight = 0;
+    let peak = 0;
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      peak = Math.max(peak, ++inFlight);
+      await Promise.resolve();
+      inFlight--;
+      return { ok: true, json: async () => ({}) };
+    }));
+    await detail.loadAllDetail();
+    expect(peak).toBe(1);
+    expect(detail.DETAIL_LEVELS.every((l) => detail.detailLoadedFor(l))).toBe(true);
   });
 });

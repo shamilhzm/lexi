@@ -873,11 +873,11 @@ export function missStats(days = 30): MissStat[] {
     const cur = m.get(e.tag) ?? { count: 0, last: 0, terms: new Map<string, number>(), conf: new Map<string, number>() };
     cur.count++; cur.last = Math.max(cur.last, e.at);
     if (e.term) cur.terms.set(e.term, (cur.terms.get(e.term) ?? 0) + 1);
-    // ` ` rather than a printable separator: these are learner-facing German
+    // `\0` rather than a printable separator: these are learner-facing German
     // strings and an option genuinely containing "→" would split into a third
     // field and corrupt the row.
     if (e.asked && e.chose) {
-      const k = `${e.asked} ${e.chose}`;
+      const k = `${e.asked}\0${e.chose}`;
       cur.conf.set(k, (cur.conf.get(k) ?? 0) + 1);
     }
     m.set(e.tag, cur);
@@ -890,7 +890,7 @@ export function missStats(days = 30): MissStat[] {
       terms: [...v.terms.entries()].map(([term, count]) => ({ term, count }))
         .sort((a, b) => b.count - a.count || a.term.localeCompare(b.term)),
       confusions: [...v.conf.entries()]
-        .map(([k, count]) => { const [asked, chose] = k.split(' '); return { asked, chose, count }; })
+        .map(([k, count]) => { const [asked, chose] = k.split('\0'); return { asked, chose, count }; })
         .sort((a, b) => b.count - a.count || a.asked.localeCompare(b.asked)),
     }))
     // Rate first, but only where it has been earned. A tag with three attempts

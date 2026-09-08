@@ -35,6 +35,7 @@
 // the right order — which is the one thing a feed can inherit from a scheduler
 // and no amount of content budget can buy.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { loadDetailFor } from '../data/detail.ts';
 import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Info, Bookmark, GraduationCap, Volume2, Play, ChevronDown, X } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
@@ -58,6 +59,12 @@ import type { Word } from '../types.ts';
  *  one that stutters on the third flick. Extended as you approach the end, so it
  *  never runs out under you. */
 const PAGE = 24;
+
+/** How many words ahead of the learner to fetch examples for. Four is one flick
+ *  at the speed the snap scroller allows, so the shard is in hand before the word
+ *  is on screen — and small enough that reading the top of the feed never pulls a
+ *  level the learner has not reached. */
+const LOOKAHEAD = 4;
 
 /** Order the whole in-scope lexicon the way the scheduler would.
  *
@@ -143,6 +150,10 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
   // list under a scrolling thumb is the one thing a feed must not do.
   const order = useMemo(() => feedOrder(), [lvKey]);
   const [count, setCount] = useState(PAGE);
+  /** The furthest slot the dwell observer has seen. Declared up here because the
+   *  observer effect below writes it; the effect that reads it is further down,
+   *  beside the slots it applies to. */
+  const [reached, setReached] = useState(0);
   const [detail, setDetail] = useState<Word | null>(null);
   // Two sheets, two pieces of state, and never both at once — reading about a
   // word and being asked about it are opposite activities, and the second one is
@@ -195,6 +206,10 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
         const id = (e.target as HTMLElement).dataset.word;
         if (!id) continue;
         if (e.isIntersecting) {
+          // How far down the feed the learner has actually got, which is what
+          // decides how much detail to fetch. See the `loadDetailFor` effect.
+          const at = Number((e.target as HTMLElement).dataset.slot);
+          if (Number.isFinite(at)) setReached((n) => Math.max(n, at));
           if (timers.has(e.target)) continue;
           timers.set(e.target, window.setTimeout(() => {
             timers.delete(e.target);
@@ -229,6 +244,18 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
   }, []);
 
   const slots = order.slice(0, count);
+  // **The examples for where the learner has got to, plus a few.**
+  //
+  // Detail ships one file per CEFR level. The naive version of this asked for the
+  // whole rendered page, and the whole rendered page is 24 slots — which, ordered
+  // by frequency with no placement, spans A1, A2 *and* B1. Measured cold: three
+  // shards, 636 KB, before the learner had scrolled past the first word.
+  //
+  // So it follows the thumb instead. `reached` is the furthest slot the exposure
+  // observer has seen, and `LOOKAHEAD` is the margin that keeps an example from
+  // popping in after the word it belongs to. A learner who reads five words pays
+  // for the levels those five words are in and nothing else.
+  useEffect(() => { void loadDetailFor(slots.slice(0, reached + LOOKAHEAD)); }, [slots, reached]);
   // Nobody has been here before. The welcome is the feed's *first slot* rather
   // than a page in front of it: a stranger arriving from a shared link needs the
   // two facts below, and they need them without a door between them and the app.
@@ -249,8 +276,8 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
       className="feed-scroller h-full overflow-y-auto snap-y snap-mandatory overscroll-contain no-scrollbar">
       {cold && <Welcome onStart={onStartFirstRun} />}
       <SwipeHint />
-      {slots.map((w) => (
-        <Slot key={w.id} word={w} version={v} watch={watch}
+      {slots.map((w, i) => (
+        <Slot key={w.id} word={w} at={i} version={v} watch={watch}
           onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
       ))}
       <div ref={sentinel} aria-hidden className="h-px" />
@@ -375,8 +402,11 @@ function Welcome({ onStart }: { onStart: () => void }) {
  *  `content-visibility: auto` on the section is what makes a long list cheap: the
  *  browser skips layout and paint for slots that are nowhere near the viewport,
  *  and `contain-intrinsic-size` keeps the scrollbar honest while it does. */
-function Slot({ word, version, onInfo, onDrill, watch }: {
+function Slot({ word, at, version, onInfo, onDrill, watch }: {
   word: Word; version: number; onInfo: () => void; onDrill: () => void;
+  /** This slot's position in the feed, published to the DOM so the one observer
+   *  can report how far down the learner has got without a closure per slot. */
+  at: number;
   /** Hands this slot's section to the feed's single dwell observer. */
   watch: (el: HTMLElement | null) => void;
 }) {
@@ -404,6 +434,7 @@ function Slot({ word, version, onInfo, onDrill, watch }: {
     <section
       ref={watch}
       data-word={word.id}
+      data-slot={at}
       // `justify-safe-center` and `overflow-y-auto`, not plain `justify-center`.
       // Centring a column that is taller than its box clips it at **both** ends, so
       // the overflow goes half above the scroll origin where nothing can reach it —

@@ -16,7 +16,7 @@ import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, visitCount} from '../store.ts';
 import { haptic, tick, fmt} from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession, SESSION_CEILING} from '../session.ts';
-import { loadDetail, detailLoaded } from '../data/detail.ts';
+import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
 // `Grade` is the honest name.
@@ -106,14 +106,22 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
   // The first run is exempt, and deliberately: `buildMixedSession(target, true)` is
   // teach-only (session.ts strips every drill), so `eligibleModes` never runs and
   // detail cannot change what the queue contains. That exemption is what lets a cold
-  // learner reach a card in seconds instead of waiting on 837 KB.
-  const [detailReady, setDetailReady] = useState(() => firstRun || detailLoaded());
+  // learner reach a card in seconds instead of waiting on the shards.
+  //
+  // **The CEFR filter, not the queue.** Detail ships one file per level now, and the
+  // obvious move is to fetch only the levels the queue actually drew from — except
+  // the queue cannot be built without `ex`, which is the whole reason this wait
+  // exists. So it waits on the levels the queue *could* draw from, which is exactly
+  // `levels()`. Placement narrows that to A1..your level, so a real A1 learner waits
+  // on 172 KB and a B1 learner on 630, against 857 for everybody before.
+  const scope = useMemo(() => [...levels()].map((level) => ({ level })), [lvKey]);
+  const [detailReady, setDetailReady] = useState(() => firstRun || scope.every((s) => detailLoadedFor(s.level)));
   useEffect(() => {
     if (detailReady) return;
     let live = true;
-    loadDetail().then(() => { if (live) setDetailReady(true); });
+    loadDetailFor(scope).then(() => { if (live) setDetailReady(true); });
     return () => { live = false; };
-  }, [detailReady]);
+  }, [detailReady, scope]);
 
   const restored = useMemo(() => (firstRun ? null : loadSession(target)), [target, lvKey, firstRun]);
   const queue = useMemo(

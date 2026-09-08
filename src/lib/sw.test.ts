@@ -107,42 +107,42 @@ describe('a warm launch writes nothing', () => {
   let sw: ReturnType<typeof load>;
   beforeEach(() => {
     sw = load(async () => basic(body('"same"')));
-    sw.cache.store.set(`${ORIGIN}/data/detail.json`, basic(body('"same"')));
+    sw.cache.store.set(`${ORIGIN}/data/detail/A1.json`, basic(body('"same"')));
     sw.cache.puts.length = 0;
   });
 
   it('serves the cached copy without waiting for the check', async () => {
-    const res = await sw.request('/data/detail.json');
+    const res = await sw.request('/data/detail/A1.json');
     expect(await res!.text()).toBe('x');
     // Answered before the revalidation has even been allowed to run.
     expect(sw.cache.puts).toEqual([]);
   });
 
   it('skips the write when the ETag is unchanged', async () => {
-    await sw.request('/data/detail.json');
+    await sw.request('/data/detail/A1.json');
     await sw.settle();
-    expect(sw.fetches).toEqual([`${ORIGIN}/data/detail.json`]);
+    expect(sw.fetches).toEqual([`${ORIGIN}/data/detail/A1.json`]);
     expect(sw.cache.puts).toEqual([]);
   });
 
   it('writes exactly once when the ETag moves', async () => {
     const moved = load(async () => basic(body('"new"', 'fresh')));
-    moved.cache.store.set(`${ORIGIN}/data/detail.json`, basic(body('"old"')));
+    moved.cache.store.set(`${ORIGIN}/data/detail/A1.json`, basic(body('"old"')));
     moved.cache.puts.length = 0;
-    await moved.request('/data/detail.json');
+    await moved.request('/data/detail/A1.json');
     await moved.settle();
-    expect(moved.cache.puts).toEqual([`${ORIGIN}/data/detail.json`]);
-    expect(await (await moved.cache.match(`${ORIGIN}/data/detail.json`))!.text()).toBe('fresh');
+    expect(moved.cache.puts).toEqual([`${ORIGIN}/data/detail/A1.json`]);
+    expect(await (await moved.cache.match(`${ORIGIN}/data/detail/A1.json`))!.text()).toBe('fresh');
   });
 
   it('never overwrites a good copy with a server error', async () => {
     const broken = load(async () => basic(new Response('nope', { status: 503 })));
-    broken.cache.store.set(`${ORIGIN}/data/detail.json`, basic(body('"good"', 'keep')));
+    broken.cache.store.set(`${ORIGIN}/data/detail/A1.json`, basic(body('"good"', 'keep')));
     broken.cache.puts.length = 0;
-    await broken.request('/data/detail.json');
+    await broken.request('/data/detail/A1.json');
     await broken.settle();
     expect(broken.cache.puts).toEqual([]);
-    expect(await (await broken.cache.match(`${ORIGIN}/data/detail.json`))!.text()).toBe('keep');
+    expect(await (await broken.cache.match(`${ORIGIN}/data/detail/A1.json`))!.text()).toBe('keep');
   });
 });
 

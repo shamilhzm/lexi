@@ -1143,6 +1143,32 @@ recent commit date, a clean `git status`, matching docs, and it built and ran. N
 about it *looked* wrong from the inside. Freshness is a property of the deployment,
 and it can only be read from the deployment.
 
+## A grep that finds nothing may not have looked *(added 2026-09-08)*
+
+`grep -n levels src/store.ts` printed nothing. So did `grep -c level`. So did every
+other search of the file, in a 1,786-line module that is *full* of the word — and
+each one exited 0, which is grep's way of saying "no matches", not "I declined".
+
+`src/store.ts` contains three raw NUL bytes. They are deliberate in intent — a NUL
+is the field separator in a confusion-pair key, chosen because a learner-facing
+German string could contain any printable one — but they were written as literal
+bytes rather than as the escape `\0`. GNU and BSD grep both classify a file with a
+NUL in it as **binary** and, by default, print `Binary file … matches` or nothing at
+all. `ripgrep` says so out loud; plain `grep` does not.
+
+Every search of the app's core store had been silently answering "not found" for as
+long as those bytes have been there.
+
+**Rule: an empty search result is a claim, and it needs the same scepticism as a
+surprising one.** When a grep of a file you *know* contains the term comes back
+empty, check the file, not the query — `rg` will tell you, and
+`python3 -c "print(open(p,'rb').read().count(b'\0'))"` settles it in one line. The
+same class covers a `.gitignore`d path, a symlinked directory grep will not follow,
+and a search rooted one directory above where the code lives.
+
+The fix is to write the escape: `\0` in a string literal is one NUL at runtime and
+two ordinary characters on disk. Same behaviour, and the file is text again.
+
 ## A `rem` is a promise that the thing scales *(added 2026-09-07)*
 
 At an iOS accessibility text size the top bar went 56 → **137px**, the four controls in

@@ -25,8 +25,24 @@
 // `vocab.json` remains the source of truth — every `scripts/corpus/*` tool and eight
 // test files read it by literal path. This emits two *projections* beside it:
 //
-//   cards.json   the same array, same order, minus ex/def/defDe   -> fetched at boot
-//   detail.json  { id: { def, defDe, ex } }, id-sorted            -> fetched after paint
+//   cards.json        the same array, same order, minus ex/def/defDe  -> fetched at boot
+//   detail/<L>.json   { id: { def, defDe, ex } }, id-sorted, one per   -> fetched per level,
+//                     CEFR level                                          on demand
+//
+// ## Why detail *is* split by level, when cards is not
+//
+// The objection above — completions ratcheting on a partial corpus, `levelStats`
+// counting a corpus that is not all there — is an objection about **cards**. Not one
+// of those paths reads `ex`, `def` or `defDe`; that is the whole reason these three
+// fields could be deferred in the first place. Detail is already *optional* by
+// contract (`data/detail.ts`: a failed fetch leaves cards without examples, which
+// every consumer guards for), and something optional can also be partial.
+//
+// Measured on the shipped files by this script: the single `detail.json` was
+// **857 KB gz**, and by level it is A1 172 / A2 183 / B1 275 / B2 111 / C1 76 /
+// C2 25 — 842 KB in total. Splitting costs 15 KB of compression, because six
+// smaller windows each start cold. It saves an A1 learner 685 of them.
+// The app fetches the level it is about to show, and nothing else.
 //
 // Being a projection rather than a rename is what lets this land with no app change
 // at all, and `src/data/split.test.ts` asserts the two stay in step so an authoring
@@ -41,14 +57,18 @@
 //
 // Run: npm run corpus:split
 import { gzipSync } from 'node:zlib';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { loadCorpus, writeJSON } from './lib.ts';
 import { cleanExamples } from '../../src/lib/examples.ts';
 import type { Example } from '../../src/types.ts';
 
 const CARDS = PATHS.vocab.replace(/vocab\.json$/, 'cards.json');
-const DETAIL = PATHS.vocab.replace(/vocab\.json$/, 'detail.json');
+const DETAIL_DIR = PATHS.vocab.replace(/vocab\.json$/, 'detail');
+/** The shard a card's detail lives in. One per CEFR level, and `level` is on the
+ *  boot file, so the app can name the shard it needs without fetching anything. */
+const shardOf = (w: { level?: string }) => w.level || 'A1';
 
 interface Detail { def?: string; defDe?: string; ex?: Example[] }
 
@@ -81,7 +101,23 @@ for (const id of [...byId.keys()].sort()) {
 }
 
 writeJSON(CARDS, cards);
-writeJSON(DETAIL, detail);
+
+// One file per level, id-sorted within it — `detail` was built in id order above,
+// so partitioning preserves that and a one-word change stays a one-line diff.
+const shards = new Map<string, Record<string, Detail>>();
+for (const [id, row] of Object.entries(detail)) {
+  const level = shardOf(byId.get(id)!);
+  (shards.get(level) ?? shards.set(level, {}).get(level)!)[id] = row;
+}
+mkdirSync(DETAIL_DIR, { recursive: true });
+// Anything the corpus no longer has a level for must not linger as a stale shard
+// the app would happily fetch and attach.
+for (const f of readdirSync(DETAIL_DIR)) {
+  if (f.endsWith('.json') && !shards.has(f.replace(/\.json$/, ''))) rmSync(join(DETAIL_DIR, f));
+}
+for (const [level, rows] of [...shards].sort(([a], [b]) => a.localeCompare(b))) {
+  writeJSON(join(DETAIL_DIR, `${level}.json`), rows);
+}
 
 const kb = (p: string) => readFileSync(p).length / 1024;
 const gz = (p: string) => gzipSync(readFileSync(p)).length / 1024;
@@ -92,8 +128,19 @@ console.log(`\nSplit ${corpus.length} cards\n`);
 console.log('                      raw        gzip');
 row('vocab.json', PATHS.vocab);
 row('cards.json', CARDS);
-row('detail.json', DETAIL);
+let detailGz = 0;
+for (const [level] of [...shards].sort(([a], [b]) => a.localeCompare(b))) {
+  const p = join(DETAIL_DIR, `${level}.json`);
+  detailGz += gz(p);
+  row(`detail/${level}.json`, p);
+}
+console.log(`  ${'detail total'.padEnd(14)} ${' '.repeat(6)}      ${detailGz.toFixed(0).padStart(5)} KB gz`);
 console.log(`\n  boot fetch: ${gz(PATHS.vocab).toFixed(0)} KB gz -> ${gz(CARDS).toFixed(0)} KB gz`
   + ` (${((1 - gz(CARDS) / gz(PATHS.vocab)) * 100).toFixed(0)}% smaller)`);
+{
+  const a1 = gz(join(DETAIL_DIR, 'A1.json'));
+  console.log(`  detail:     ${detailGz.toFixed(0)} KB gz across ${shards.size} levels`
+    + ` — an A1 learner fetches ${a1.toFixed(0)} KB of it`);
+}
 if (cleaned) console.log(`  cleanExamples altered ${cleaned} card(s) on the way through`);
 console.log('');

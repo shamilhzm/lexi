@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Lexi — a free, open-source German vocabulary trainer for English speakers (A1–C2). FSRS spaced repetition over a deep lexicon, with the word-facts (gender, plural, spelling, production) drilled alongside the meaning. Local-first: no account, no backend, no tracking.",
+  "description": "Lexi \u2014 a free, open-source German vocabulary trainer for English speakers (A1\u2013C2). FSRS spaced repetition over a deep lexicon, with the word-facts (gender, plural, spelling, production) drilled alongside the meaning. Local-first: no account, no backend, no tracking.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -59,7 +59,8 @@
     "corpus:onboarding": "node scripts/corpus/onboarding-audit.ts",
     "corpus:kernwortschatz": "node scripts/corpus/kernwortschatz.ts",
     "corpus:gloss-vote": "node scripts/corpus/gloss-vote.ts",
-    "deploy": "vercel --prod --yes --build-env LEXI_BUILD_SHA=$(git rev-parse --short HEAD)"
+    "deploy": "vercel --prod --yes --build-env LEXI_BUILD_SHA=$(git rev-parse --short HEAD)",
+    "measure": "node scripts/serve-measured.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

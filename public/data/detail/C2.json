@@ -1,0 +1,2810 @@
+{
+  "gram:C2:Gehobene Konnektoren": {
+    "def": "gleichwohl = nevertheless; indes(sen) = meanwhile/however; sofern = provided that; zumal = especially since; ungeachtet + G = notwithstanding."
+  },
+  "gram:C2:Gerundivum (das zu lösende Problem)": {
+    "def": "Das Problem, das zu lösen ist → das zu lösende Problem. Passive necessity packed into an attribute; takes normal adjective endings."
+  },
+  "gram:C2:Idiomatik & feste Wendungen": {
+    "def": "C2 texts and the Goethe Sprechen reward idiomatic range: etw. auf die lange Bank schieben (postpone), jmdm. reinen Wein einschenken (be honest), ins Gewicht fallen (matter), den Nagel auf den Kopf treffen (hit the mark)."
+  },
+  "gram:C2:Idiomatik: wörtlich vs. übertragen": {
+    "def": "Idioms are learned whole. The literal reading is usually absurd, which is the point: it is what makes the phrase memorable and what makes a word-by-word translation fail. They are also frozen — swapping a synonym in breaks them, so \"den Nagel auf den Kopf schlagen\" is not German however reasonable it looks."
+  },
+  "gram:C2:Irreale Vergleiche (als ob)": {
+    "def": "Er tut so, als ob er alles wüsste (verb at end). Elevated: als wüsste er alles (verb directly after als). Tense shows simultaneity (K II) or anteriority (hätte/wäre + Partizip)."
+  },
+  "gram:C2:Irrelevanzkonzessivsätze: „wer/was/wie … auch (immer)\"": {
+    "def": "To express \"no matter who / what / how …\", German combines a w-word with auch (immer): Wer auch immer anruft, ich bin nicht da; Was auch (immer) geschieht, wir bleiben ruhig; Wie schwer es auch sein mag, wir schaffen es. The finite verb still stands at the end of the concessive clause, and the following main clause keeps verb-second. A paired variant uses ob … oder: Ob reich oder arm, alle sind willkommen. These belong to formal, argumentative register."
+  },
+  "gram:C2:Modalpartikeln": {
+    "def": "They convey attitude rather than literal meaning. e.g. Komm doch mal! (friendly urging). Das ist eben/halt so. (resignation). Du bist ja groß! (surprise)."
+  },
+  "gram:C2:Nominalstil": {
+    "def": "Verbal clauses become nominal phrases, often with a preposition + Genitiv. e.g. “weil die Preise stiegen” → “wegen des Anstiegs der Preise”."
+  },
+  "gram:C2:Stilebenen: gehoben, neutral, umgangssprachlich": {
+    "def": "At this level the remaining vocabulary problem is not meaning but register. Words that a dictionary lists as synonyms sit at different heights, and choosing the wrong height is the clearest marker of a non-native writer: an academic paper that says \"kriegen\" or a text message that says \"erwerben\" is wrong in a way no grammar check catches."
+  },
+  "gram:C2:Verben mit Genitivobjekt": {
+    "def": "A small, formal set of verbs takes a genitive object: gedenken (commemorate) — wir gedenken der Opfer; bedürfen (require) — es bedarf großer Geduld; sich rühmen, sich schämen, sich bemächtigen, sich entledigen; and jn. + gen. anklagen / beschuldigen / verdächtigen — man klagte ihn des Betrugs an. They belong to written, elevated register; everyday German often substitutes (brauchen for bedürfen, denken an for gedenken)."
+  },
+  "voc:C2:Einzug halten": {
+    "def": "To become established and start to spread.",
+    "ex": [
+      {
+        "de": "Digitale Werkzeuge halten in jedem Klassenzimmer Einzug.",
+        "en": "Digital tools are taking hold in every classroom.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In vielen Behörden hält die digitale Akte erst jetzt Einzug.",
+        "en": "In many public offices the digital file is only now taking hold.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:Tomaten auf den Augen haben": {
+    "def": "To fail to see something plainly in front of one.",
+    "ex": [
+      {
+        "de": "Der Fehler war offensichtlich – hast du Tomaten auf den Augen?",
+        "en": "The mistake was obvious – are you blind to the obvious?",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wer dieses Schild übersieht, hat wirklich Tomaten auf den Augen.",
+        "en": "Anyone who misses this sign really is blind to the obvious.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:absehen": {
+    "def": "To predict something; also to choose not to do something.",
+    "ex": [
+      {
+        "de": "Das Ende der Krise ist noch nicht abzusehen.",
+        "en": "The end of the crisis cannot yet be foreseen.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wann die Lieferung eintrifft, ist derzeit nicht abzusehen.",
+        "en": "When the delivery will arrive cannot currently be foreseen.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:abtönen": {
+    "def": "To adjust a colour or a meaning by a subtle degree.",
+    "ex": [
+      {
+        "de": "Partikeln wie „doch“ und „mal“ tönen eine Aussage ab.",
+        "en": "Particles like 'doch' and 'mal' modulate the tone of a statement.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein „eigentlich“ tönt die Absage höflich ab.",
+        "en": "An \"eigentlich\" softens the refusal politely.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:ahnden": {
+    "def": "To punish an offence officially.",
+    "ex": [
+      {
+        "de": "Verstöße gegen die Auflagen werden mit Bußgeld geahndet.",
+        "en": "Violations of the conditions are penalised with fines.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Doping wird mit einer mehrjährigen Sperre geahndet.",
+        "en": "Doping is penalised with a ban of several years.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:ambivalent": {
+    "def": "Having mixed or contradictory feelings about something.",
+    "ex": [
+      {
+        "de": "Ihre Haltung zu dem Projekt ist ambivalent.",
+        "en": "Her attitude to the project is ambivalent.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Reaktionen auf den Vorschlag fielen ambivalent aus.",
+        "en": "Reactions to the proposal were ambivalent.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:antizipieren": {
+    "def": "To foresee and act in advance of something.",
+    "ex": [
+      {
+        "de": "Ein guter Autor antizipiert die Einwände der Leser.",
+        "en": "A good author anticipates the readers' objections.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Markt antizipiert die Zinssenkung bereits.",
+        "en": "The market is already anticipating the interest rate cut.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:auf dem Holzweg sein": {
+    "def": "To be following a mistaken line of thought.",
+    "ex": [
+      {
+        "de": "Wer glaubt, das sei einfach, ist auf dem Holzweg.",
+        "en": "Anyone who thinks that's easy is barking up the wrong tree.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Mit dieser Vermutung sind Sie völlig auf dem Holzweg.",
+        "en": "With this assumption you are completely barking up the wrong tree.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:aus dem Nähkästchen plaudern": {
+    "def": "To share private details or inside gossip.",
+    "ex": [
+      {
+        "de": "Der Regisseur plauderte über die Dreharbeiten aus dem Nähkästchen.",
+        "en": "The director spilled the beans about the filming.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Nach dem dritten Glas plauderte sie aus dem Nähkästchen.",
+        "en": "After the third glass she started spilling the beans.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:behufs": {
+    "def": "For the purpose of (archaic, official).",
+    "ex": [
+      {
+        "de": "Behufs näherer Prüfung wurde der Antrag vertagt.",
+        "en": "For the purpose of closer examination, the application was adjourned.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Behufs der Beweissicherung wurde alles fotografiert.",
+        "en": "For the purpose of securing evidence, everything was photographed.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:beschönigen": {
+    "def": "To describe something as better than it was, playing down what is ugly in it.",
+    "defDe": "etwas als besser, schöner darstellen, als es in Wirklichkeit ist",
+    "ex": [
+      {
+        "de": "Romantische Darstellungen des Mittelalters beschönigen die finsteren Aspekte der Epoche.",
+        "en": "Romantic portrayals of the Middle Ages gloss over the dark aspects of the era.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Bericht beschönigt nichts und nennt die Verantwortlichen.",
+        "en": "The report glosses over nothing and names those responsible.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:darlegen": {
+    "def": "To present and explain something clearly and in full.",
+    "ex": [
+      {
+        "de": "Der Anwalt legte die Gründe für den Einspruch ausführlich dar.",
+        "en": "The lawyer set out the grounds for the objection in detail.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In der Einleitung legt sie ihre Methode knapp dar.",
+        "en": "In the introduction she sets out her method concisely.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Bewusstsein": {
+    "def": "Awareness of oneself and the world; also the state of being awake.",
+    "ex": [
+      {
+        "de": "Wie Bewusstsein entsteht, ist bis heute ungeklärt.",
+        "en": "How consciousness arises remains unexplained to this day.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Nach dem Sturz erlangte er das Bewusstsein rasch wieder.",
+        "en": "After the fall he quickly regained consciousness.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Dasein": {
+    "def": "The fact or manner of existing.",
+    "ex": [
+      {
+        "de": "Heidegger machte das Dasein zum Grundbegriff seiner Philosophie.",
+        "en": "Heidegger made existence the fundamental concept of his philosophy.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sie fristete jahrelang ein Dasein am Rand der Gesellschaft.",
+        "en": "For years she eked out an existence at the margins of society.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Erhabene": {
+    "def": "A quality of awe-inspiring grandeur beyond ordinary beauty.",
+    "ex": [
+      {
+        "de": "Kant unterscheidet das Schöne vom Erhabenen.",
+        "en": "Kant distinguishes the beautiful from the sublime.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Vor dem Gletscher stellt sich jenes Gefühl des Erhabenen ein.",
+        "en": "Before the glacier that feeling of the sublime sets in.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Handtuch werfen": {
+    "def": "To admit defeat and give up.",
+    "ex": [
+      {
+        "de": "Kurz vor dem Ziel wollte er das Handtuch werfen.",
+        "en": "Just before the finish he wanted to give up.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Nach dem dritten Fehlversuch warf sie das Handtuch.",
+        "en": "After the third failed attempt she gave up.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Narrativ": {
+    "def": "A story, or a way of framing events to convey a viewpoint.",
+    "ex": [
+      {
+        "de": "Beide Seiten pflegen ihr eigenes Narrativ.",
+        "en": "Both sides cultivate their own narrative.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Narrativ vom Aufstieg durch Fleiß hält sich hartnäckig.",
+        "en": "The narrative of rising through hard work persists stubbornly.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Paradigma": {
+    "def": "A model or framework of thought accepted in a field.",
+    "ex": [
+      {
+        "de": "Mit Kopernikus wechselte die Astronomie ihr Paradigma.",
+        "en": "With Copernicus, astronomy changed its paradigm.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein neues Paradigma setzt sich selten durch Argumente allein durch.",
+        "en": "A new paradigm rarely prevails through arguments alone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Register": {
+    "def": "The style of language suited to a particular situation.",
+    "ex": [
+      {
+        "de": "Im Bewerbungsgespräch zieht man ein anderes Register als am Stammtisch.",
+        "en": "In a job interview you use a different register than at the pub.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sie beherrscht alle Register vom Amtsdeutsch bis zum Slang.",
+        "en": "She commands every register from officialese to slang.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Schlagwort": {
+    "def": "A catchy phrase that stands in for a whole idea, and is often repeated without thought.",
+    "defDe": "weithin bekannte, griffige Formulierung einer Idee oder Vorstellung, die vor allem in der gesellschaftlichen oder politischen Auseinandersetzung oder auch in der Werbung als programmatisch oder vorbildlich hingestellt werden soll",
+    "ex": [
+      {
+        "de": "Die Schlagworte der Französischen Revolution waren „Freiheit, Gleichheit, Brüderlichkeit“.",
+        "en": "The catchphrases of the French Revolution were 'liberty, equality, fraternity'.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Nachhaltigkeit ist längst zum Schlagwort geworden.",
+        "en": "Sustainability has long since become a buzzword.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Sprichwort": {
+    "def": "A short, well-known saying that states a general truth.",
+    "ex": [
+      {
+        "de": "Ein deutsches Sprichwort sagt: Der Apfel fällt nicht weit vom Stamm.",
+        "en": "A German proverb says: the apple doesn't fall far from the tree.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Für jede Lebenslage gibt es ein passendes Sprichwort.",
+        "en": "There is a fitting proverb for every situation in life.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Symbol": {
+    "def": "Something that stands for or represents something else.",
+    "ex": [
+      {
+        "de": "Die blaue Blume ist das Symbol der romantischen Sehnsucht.",
+        "en": "The blue flower is the symbol of Romantic longing.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Schlüssel ist in diesem Film ein Symbol für Vertrauen.",
+        "en": "In this film the key is a symbol of trust.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Vermächtnis": {
+    "def": "Something handed down by a predecessor; also property left in a will.",
+    "ex": [
+      {
+        "de": "Ihr wissenschaftliches Vermächtnis prägt das Fach bis heute.",
+        "en": "Her scientific legacy shapes the discipline to this day.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Haus war ein Vermächtnis ihrer Tante.",
+        "en": "The house was a bequest from her aunt.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Werturteil": {
+    "def": "A judgement based on personal values rather than fact.",
+    "ex": [
+      {
+        "de": "Wissenschaft soll beschreiben, ohne Werturteile zu fällen.",
+        "en": "Science should describe without passing value judgements.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Formulierung enthält ein verstecktes Werturteil.",
+        "en": "The wording contains a hidden value judgement.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:den Nagel auf den Kopf treffen": {
+    "def": "To describe or identify something exactly right.",
+    "ex": [
+      {
+        "de": "Mit dieser Bemerkung hast du den Nagel auf den Kopf getroffen.",
+        "en": "With that remark you hit the nail on the head.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ihre Analyse trifft den Nagel auf den Kopf.",
+        "en": "Her analysis hits the nail on the head.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Beiklang": {
+    "def": "A secondary meaning or feeling that a word carries.",
+    "ex": [
+      {
+        "de": "Das Wort „Heimat“ hat im Deutschen einen besonderen Beiklang.",
+        "en": "The word 'Heimat' carries a special overtone in German.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Wort trägt einen deutlich abwertenden Beiklang.",
+        "en": "The word carries a clearly pejorative overtone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Beleg": {
+    "def": "A proof or record that supports a claim.",
+    "ex": [
+      {
+        "de": "Für diese Behauptung fehlt bislang jeder Beleg.",
+        "en": "So far there is no evidence whatsoever for this claim.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Als Beleg dient ein Brief aus dem Jahr 1912.",
+        "en": "A letter from 1912 serves as evidence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Erzähler": {
+    "def": "The voice that tells a story.",
+    "ex": [
+      {
+        "de": "Der unzuverlässige Erzähler lässt den Leser bewusst im Unklaren.",
+        "en": "The unreliable narrator deliberately keeps the reader in the dark.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Erzähler tritt im letzten Kapitel selbst als Figur auf.",
+        "en": "In the final chapter the narrator himself appears as a character.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Euphemismus": {
+    "def": "A mild word used in place of a harsher or blunter one.",
+    "ex": [
+      {
+        "de": "„Freisetzung“ ist ein Euphemismus für Entlassung.",
+        "en": "'Release' is a euphemism for dismissal.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Bericht ist voller Euphemismen für Gewalt.",
+        "en": "The report is full of euphemisms for violence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Gemeinplatz": {
+    "def": "A dull, overused remark offered as if it were meaningful.",
+    "ex": [
+      {
+        "de": "Seine Rede bestand aus lauter Gemeinplätzen.",
+        "en": "His speech consisted of nothing but platitudes.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Über den Gemeinplatz hinaus sagte er an dem Abend nichts.",
+        "en": "Beyond the platitude he said nothing that evening.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Kitsch": {
+    "def": "Art or objects seen as cheap, sentimental, and in poor taste.",
+    "ex": [
+      {
+        "de": "Die Grenze zwischen Kunst und Kitsch ist umstritten.",
+        "en": "The line between art and kitsch is contested.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Was gestern Kitsch war, hängt heute im Museum.",
+        "en": "What was kitsch yesterday hangs in a museum today.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Leichnam": {
+    "def": "The dead body of a person, especially in formal use.",
+    "ex": [
+      {
+        "de": "Ein Bär rührt keinen Leichnam an.",
+        "en": "A bear will not touch a corpse.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sein Leichnam wurde nie gefunden.",
+        "en": "His body was never found.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Mainstream": {
+    "def": "The ideas or tastes shared by most ordinary people.",
+    "ex": [
+      {
+        "de": "Die Band wollte nie Teil des Mainstreams sein.",
+        "en": "The band never wanted to be part of the mainstream.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Roman schaffte den Sprung aus der Nische in den Mainstream.",
+        "en": "The novel made the leap from niche to mainstream.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Redefluss": {
+    "def": "The smooth, uninterrupted flow of spoken language.",
+    "ex": [
+      {
+        "de": "Kein Zwischenruf konnte seinen Redefluss unterbrechen.",
+        "en": "No heckling could interrupt his flow of speech.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ihr Redefluss riss auch bei schwierigen Fragen nicht ab.",
+        "en": "Her flow of speech did not falter even with difficult questions.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Rückblick": {
+    "def": "A look back at earlier events; in a story, a scene from the past.",
+    "ex": [
+      {
+        "de": "Im Rückblick erfährt der Leser von der Kindheit der Heldin.",
+        "en": "In a flashback the reader learns about the heroine's childhood.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Im Rückblick war der Umweg die bessere Entscheidung.",
+        "en": "In retrospect the detour was the better decision.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Schuft": {
+    "def": "A dishonourable, contemptible person.",
+    "ex": [
+      {
+        "de": "Dieser Schuft hat uns alle betrogen.",
+        "en": "That scoundrel deceived us all.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Am Ende entpuppt sich der freundliche Nachbar als Schuft.",
+        "en": "In the end the friendly neighbour turns out to be a scoundrel.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Tatbestand": {
+    "def": "The facts that make up an offence in law; the essential facts.",
+    "ex": [
+      {
+        "de": "Das Verhalten erfüllt den Tatbestand der Nötigung.",
+        "en": "The behaviour constitutes the offence of coercion.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der objektive Tatbestand war erfüllt, der Vorsatz fehlte.",
+        "en": "The objective elements of the offence were met; intent was lacking.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Topos": {
+    "def": "A traditional theme or standard formula in writing.",
+    "ex": [
+      {
+        "de": "Der Topos vom edlen Wilden durchzieht die Literatur.",
+        "en": "The topos of the noble savage runs through the literature.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Topos der verlorenen Heimat kehrt in der Exilliteratur wieder.",
+        "en": "The topos of the lost homeland recurs in exile literature.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Trugschluss": {
+    "def": "A mistaken belief based on faulty reasoning.",
+    "ex": [
+      {
+        "de": "Es ist ein Trugschluss, mehr Kontrolle bedeute mehr Sicherheit.",
+        "en": "It is a fallacy that more control means more security.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Trugschluss liegt darin, von einem Fall auf alle zu schließen.",
+        "en": "The fallacy lies in inferring from one case to all.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Unterton": {
+    "def": "A quality of feeling beneath what is openly said.",
+    "ex": [
+      {
+        "de": "In ihrer Antwort schwang ein ironischer Unterton mit.",
+        "en": "There was an ironic undertone to her answer.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der freundliche Satz hatte einen drohenden Unterton.",
+        "en": "The friendly sentence had a threatening undertone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Vortrag": {
+    "def": "A formal spoken presentation to an audience.",
+    "ex": [
+      {
+        "de": "Ihr Vortrag über Kafka war brillant gegliedert.",
+        "en": "Her lecture on Kafka was brilliantly structured.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Nach dem Vortrag blieb noch Zeit für Fragen.",
+        "en": "After the talk there was still time for questions.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:deuten": {
+    "def": "To explain the meaning of something; also to point.",
+    "ex": [
+      {
+        "de": "Das Gedicht lässt sich politisch wie privat deuten.",
+        "en": "The poem can be interpreted both politically and personally.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wie ist dieses lange Schweigen zu deuten?",
+        "en": "How is this long silence to be interpreted?",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:dezidiert": {
+    "def": "Firm and clearly expressed; resolute.",
+    "ex": [
+      {
+        "de": "Er vertrat eine dezidiert andere Auffassung.",
+        "en": "He held a decidedly different view.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sie widersprach dezidiert und ohne Umschweife.",
+        "en": "She objected emphatically and without beating about the bush.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:diametral": {
+    "def": "Completely opposed; as far apart as possible.",
+    "ex": [
+      {
+        "de": "Ihre Positionen sind diametral entgegengesetzt.",
+        "en": "Their positions are diametrically opposed.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Beide Studien kommen zu diametral verschiedenen Ergebnissen.",
+        "en": "The two studies arrive at diametrically different results.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Akribie": {
+    "def": "Extreme care and precision in doing something.",
+    "ex": [
+      {
+        "de": "Er edierte den Text mit philologischer Akribie.",
+        "en": "He edited the text with philological meticulousness.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sie prüfte die Abrechnung mit geradezu buchhalterischer Akribie.",
+        "en": "She checked the accounts with almost bookkeeperly meticulousness.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Allegorie": {
+    "def": "A story whose characters and events stand for deeper meanings.",
+    "ex": [
+      {
+        "de": "Der Roman liest sich als Allegorie auf den Kalten Krieg.",
+        "en": "The novel reads as an allegory of the Cold War.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Höhle ist bei Platon eine Allegorie der Erkenntnis.",
+        "en": "In Plato the cave is an allegory of knowledge.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Ambiguität": {
+    "def": "The quality of being open to more than one interpretation.",
+    "ex": [
+      {
+        "de": "Die Ambiguität des Textes lädt zu vielen Lesarten ein.",
+        "en": "The ambiguity of the text invites many readings.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Ambiguität des Begriffs macht ihn politisch brauchbar.",
+        "en": "The ambiguity of the term makes it politically useful.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Antinomie": {
+    "def": "A contradiction between two apparently valid principles.",
+    "ex": [
+      {
+        "de": "Kant beschreibt die Antinomien der reinen Vernunft.",
+        "en": "Kant describes the antinomies of pure reason.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In diesem Gesetz steckt eine kaum lösbare Antinomie.",
+        "en": "This law contains a barely resolvable antinomy.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Argumentation": {
+    "def": "The set of reasons and their arrangement used to support a claim.",
+    "ex": [
+      {
+        "de": "Ihre Argumentation baut auf einer einzigen strittigen Prämisse auf.",
+        "en": "Her line of reasoning rests on a single contested premise.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Argumentation des Gerichts ist in sich geschlossen.",
+        "en": "The court's line of reasoning is internally consistent.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Autorität": {
+    "def": "The power or right to give orders; also an expert.",
+    "ex": [
+      {
+        "de": "Ihre Autorität beruht auf Wissen, nicht auf ihrem Titel.",
+        "en": "Her authority rests on knowledge, not on her title.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er berief sich auf eine Autorität, die niemand nachprüfen konnte.",
+        "en": "He invoked an authority nobody could verify.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Avantgarde": {
+    "def": "Artists whose work is experimental and ahead of its time.",
+    "ex": [
+      {
+        "de": "Die Avantgarde der Zwanziger brach radikal mit der Tradition.",
+        "en": "The avant-garde of the twenties broke radically with tradition.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Avantgarde von heute ist der Kanon von morgen.",
+        "en": "Today's avant-garde is tomorrow's canon.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Beweisführung": {
+    "def": "The way evidence is presented to prove a point.",
+    "ex": [
+      {
+        "de": "Die Beweisführung des Anwalts war lückenlos.",
+        "en": "The lawyer's line of argument was watertight.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Beweisführung stützt sich allein auf Indizien.",
+        "en": "The line of proof rests on circumstantial evidence alone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Bildsprache": {
+    "def": "Figurative language that creates vivid pictures in the mind.",
+    "ex": [
+      {
+        "de": "Célans Bildsprache entzieht sich jeder einfachen Deutung.",
+        "en": "Celan's imagery defies any simple interpretation.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Bildsprache der Werbung greift alte Märchenmotive auf.",
+        "en": "The imagery of advertising picks up old fairy-tale motifs.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Chiffre": {
+    "def": "A secret code; also a symbol standing for something hidden.",
+    "ex": [
+      {
+        "de": "Das Meer ist in ihren Gedichten eine Chiffre für Sehnsucht.",
+        "en": "In her poems the sea is a cipher for longing.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Name steht als Chiffre für eine ganze Epoche.",
+        "en": "The name stands as a cipher for an entire epoch.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Daumen drücken": {
+    "def": "To wish someone good luck.",
+    "ex": [
+      {
+        "de": "Ich drücke dir für die Prüfung die Daumen.",
+        "en": "I'll keep my fingers crossed for your exam.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wir drücken euch beim Wettbewerb alle Daumen.",
+        "en": "We're all keeping our fingers crossed for you in the competition.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Dialektik": {
+    "def": "Reasoning that seeks truth through the clash of opposing ideas.",
+    "ex": [
+      {
+        "de": "Hegels Dialektik denkt in These, Antithese und Synthese.",
+        "en": "Hegel's dialectics thinks in thesis, antithesis and synthesis.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Dialektik von Freiheit und Sicherheit prägt die Debatte.",
+        "en": "The dialectic of freedom and security shapes the debate.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Dichotomie": {
+    "def": "A division into two sharply opposed parts.",
+    "ex": [
+      {
+        "de": "Die Dichotomie von Natur und Kultur ist überholt.",
+        "en": "The dichotomy of nature and culture is outdated.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Debatte leidet an der Dichotomie von Markt und Staat.",
+        "en": "The debate suffers from the dichotomy of market and state.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Differenzierung": {
+    "def": "The drawing of fine distinctions between things.",
+    "ex": [
+      {
+        "de": "Hier ist eine feine Differenzierung notwendig.",
+        "en": "A fine differentiation is necessary here.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Bei aller Differenzierung bleibt der Befund eindeutig.",
+        "en": "For all the differentiation the finding remains unambiguous.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Diskursanalyse": {
+    "def": "The study of how language is used in texts and talk.",
+    "ex": [
+      {
+        "de": "Die Diskursanalyse untersucht, wie Macht in Sprache wirkt.",
+        "en": "Discourse analysis examines how power operates in language.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine Diskursanalyse der Schlagzeilen offenbart wiederkehrende Muster.",
+        "en": "A discourse analysis of the headlines reveals recurring patterns.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Disruption": {
+    "def": "A radical change that overturns an existing market or order.",
+    "ex": [
+      {
+        "de": "Die Digitalisierung brachte eine tiefe Disruption der Branche.",
+        "en": "Digitalisation brought a deep disruption of the industry.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Disruption traf den stationären Einzelhandel zuerst.",
+        "en": "The disruption hit bricks-and-mortar retail first.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Eindringlichkeit": {
+    "def": "The compelling, insistent quality that makes something strike home.",
+    "ex": [
+      {
+        "de": "Die Eindringlichkeit ihrer Schilderung ließ niemanden kalt.",
+        "en": "The forcefulness of her account left no one unmoved.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Mit großer Eindringlichkeit warnte er vor den Folgen.",
+        "en": "With great urgency he warned of the consequences.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Empirie": {
+    "def": "Knowledge based on observation and experience.",
+    "ex": [
+      {
+        "de": "Die Theorie muss sich an der Empirie messen lassen.",
+        "en": "The theory must be measured against empirical evidence.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Zwischen Theorie und Empirie klafft hier eine Lücke.",
+        "en": "Here a gap yawns between theory and empirical evidence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Engführung": {
+    "def": "A tightening of focus onto a single point; a close overlapping of themes.",
+    "ex": [
+      {
+        "de": "Die Engführung auf ökonomische Fragen greift zu kurz.",
+        "en": "The narrowing to economic questions falls short.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Engführung der Debatte auf Kosten verdeckt die eigentliche Frage.",
+        "en": "Narrowing the debate to costs obscures the real question.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Erwiderung": {
+    "def": "A reply that answers or counters what was said.",
+    "ex": [
+      {
+        "de": "Auf seine These folgte eine scharfe Erwiderung.",
+        "en": "His thesis was followed by a sharp rebuttal.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Seine Erwiderung fiel deutlich sachlicher aus als der Angriff.",
+        "en": "His rebuttal was considerably more measured than the attack.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Falsifizierung": {
+    "def": "The proving of a theory to be false through testing.",
+    "ex": [
+      {
+        "de": "Nach Popper ist die Falsifizierung das Kriterium der Wissenschaft.",
+        "en": "According to Popper, falsification is the criterion of science.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine einzige Beobachtung genügt zur Falsifizierung.",
+        "en": "A single observation suffices for falsification.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Flinte ins Korn werfen": {
+    "def": "To give up too soon in the face of difficulty.",
+    "ex": [
+      {
+        "de": "Nach dem ersten Rückschlag warf sie die Flinte ins Korn.",
+        "en": "After the first setback she threw in the towel.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Kurz vor dem Ziel darf man die Flinte nicht ins Korn werfen.",
+        "en": "Just before the finish you mustn't throw in the towel.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Floskel": {
+    "def": "A worn-out phrase used with little real meaning.",
+    "ex": [
+      {
+        "de": "Seine Rede bestand fast nur aus Floskeln.",
+        "en": "His speech consisted almost entirely of empty phrases.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Verzichten Sie im Anschreiben auf Floskeln.",
+        "en": "Do without empty phrases in your covering letter.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Gegenthese": {
+    "def": "A claim put forward to oppose another.",
+    "ex": [
+      {
+        "de": "Zu jeder These formulierte das Seminar eine Gegenthese.",
+        "en": "For every thesis the seminar formulated a counter-thesis.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Seine Gegenthese ist provokanter als die These selbst.",
+        "en": "His counter-thesis is more provocative than the thesis itself.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Haftung": {
+    "def": "Legal responsibility for damage or debt.",
+    "ex": [
+      {
+        "de": "Wer haftet bei Unfällen mit autonomen Fahrzeugen? Die Haftung ist ungeklärt.",
+        "en": "Who is liable in accidents involving autonomous vehicles? Liability is unresolved.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Haftung des Vereins ist auf sein Vermögen beschränkt.",
+        "en": "The association's liability is limited to its assets.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Harmonie": {
+    "def": "A pleasing arrangement of parts; agreement and balance.",
+    "ex": [
+      {
+        "de": "Die Komposition lebt vom Bruch mit der Harmonie.",
+        "en": "The composition thrives on breaking with harmony.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In der Familie herrschte nach Jahren endlich wieder Harmonie.",
+        "en": "After years there was finally harmony in the family again.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Hermeneutik": {
+    "def": "The theory and method of interpreting texts.",
+    "ex": [
+      {
+        "de": "Die Hermeneutik fragt nach den Bedingungen des Verstehens.",
+        "en": "Hermeneutics asks about the conditions of understanding.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In der Hermeneutik gilt der Zirkel von Teil und Ganzem.",
+        "en": "In hermeneutics the circle of part and whole applies.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Heuristik": {
+    "def": "A practical method or rule of thumb for solving problems.",
+    "ex": [
+      {
+        "de": "Eine einfache Heuristik führte schneller zum Ziel.",
+        "en": "A simple heuristic led to the goal more quickly.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Jede Heuristik erkauft Geschwindigkeit mit Genauigkeit.",
+        "en": "Every heuristic buys speed at the cost of accuracy.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Hingabe": {
+    "def": "Wholehearted commitment and self-giving to something.",
+    "ex": [
+      {
+        "de": "Ich bewundere eure Hingabe.",
+        "en": "I admire your devotion.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ich bewundere Ihre Hingabe.",
+        "en": "I admire your devotion.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Hochrechnung": {
+    "def": "An estimate of a whole based on a partial sample.",
+    "ex": [
+      {
+        "de": "Die erste Hochrechnung kam kurz nach Schließung der Wahllokale.",
+        "en": "The first projection came shortly after the polling stations closed.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Hochrechnung lag am Ende um zwei Punkte daneben.",
+        "en": "In the end the projection was two points off.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Hyperbel": {
+    "def": "Deliberate exaggeration used for effect, not meant literally.",
+    "ex": [
+      {
+        "de": "Die Werbung arbeitet ganz bewusst mit der Hyperbel.",
+        "en": "Advertising deliberately works with hyperbole.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Hyperbel „tausendmal gesagt“ bedeutet schlicht: oft.",
+        "en": "The hyperbole \"said a thousand times\" simply means: often.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Implikation": {
+    "def": "Something suggested or logically entailed without being stated.",
+    "ex": [
+      {
+        "de": "Die ethischen Implikationen sind erheblich.",
+        "en": "The ethical implications are considerable.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er übersah die praktische Implikation seines eigenen Vorschlags.",
+        "en": "He overlooked the practical implication of his own proposal.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Instrumentalisierung": {
+    "def": "The use of a person or cause merely as a means to an end.",
+    "ex": [
+      {
+        "de": "Er warnte vor einer Instrumentalisierung der Opfer.",
+        "en": "He warned against an instrumentalisation of the victims.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Instrumentalisierung des Themas im Wahlkampf war absehbar.",
+        "en": "The instrumentalisation of the topic in the campaign was predictable.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Ironie": {
+    "def": "The expression of meaning through language that signifies the opposite.",
+    "ex": [
+      {
+        "de": "Seine feine Ironie entgeht vielen Lesern.",
+        "en": "His subtle irony escapes many readers.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Es ist eine Ironie der Geschichte, dass ausgerechnet er das Amt erbte.",
+        "en": "It is an irony of history that of all people he inherited the office.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Katze im Sack kaufen": {
+    "def": "To buy something without checking it first.",
+    "ex": [
+      {
+        "de": "Ohne Probefahrt kaufst du die Katze im Sack.",
+        "en": "Without a test drive you're buying a pig in a poke.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wer eine Wohnung ungesehen mietet, kauft die Katze im Sack.",
+        "en": "Anyone renting a flat sight unseen is buying a pig in a poke.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Kausalität": {
+    "def": "The relationship between cause and effect.",
+    "ex": [
+      {
+        "de": "Korrelation ist nicht dasselbe wie Kausalität.",
+        "en": "Correlation is not the same as causality.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine Kausalität lässt sich in diesem Fall nicht nachweisen.",
+        "en": "Causality cannot be demonstrated in this case.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Kontextualisierung": {
+    "def": "The placing of something within its wider context to explain it.",
+    "ex": [
+      {
+        "de": "Ohne Kontextualisierung wirkt das Zitat irreführend.",
+        "en": "Without contextualisation the quotation seems misleading.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Erst die Kontextualisierung macht die Zahl aussagekräftig.",
+        "en": "Only contextualisation makes the figure meaningful.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Kontingenz": {
+    "def": "The quality of being possible but not necessary; dependence on chance.",
+    "ex": [
+      {
+        "de": "Die Geschichte ist geprägt von Kontingenz, nicht von Notwendigkeit.",
+        "en": "History is shaped by contingency, not necessity.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Kontingenz historischer Ereignisse widerspricht jeder Planung.",
+        "en": "The contingency of historical events defies all planning.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Marginalisierung": {
+    "def": "The pushing of a group to the edges of society or attention.",
+    "ex": [
+      {
+        "de": "Die Studie kritisiert die Marginalisierung ganzer Gruppen.",
+        "en": "The study criticises the marginalisation of entire groups.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Marginalisierung ganzer Regionen war politisch gewollt.",
+        "en": "The marginalisation of whole regions was politically intended.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Mehrdeutigkeit": {
+    "def": "The quality of having more than one possible meaning.",
+    "ex": [
+      {
+        "de": "Die Mehrdeutigkeit des Schlusses ist vom Autor gewollt.",
+        "en": "The ambiguity of the ending is intended by the author.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Juristische Texte fürchten die Mehrdeutigkeit, Gedichte suchen sie.",
+        "en": "Legal texts fear ambiguity; poems seek it out.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Metapher": {
+    "def": "A figure of speech that describes one thing as if it were another.",
+    "ex": [
+      {
+        "de": "Die Metapher vom „Schiff des Staates“ stammt aus der Antike.",
+        "en": "The metaphor of the 'ship of state' dates back to antiquity.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er spricht in Metaphern, wo Klarheit nötig wäre.",
+        "en": "He speaks in metaphors where clarity would be needed.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Nuance": {
+    "def": "A fine shade of meaning, feeling, or tone.",
+    "ex": [
+      {
+        "de": "Übersetzen heißt, jede Nuance des Originals abzuwägen.",
+        "en": "Translating means weighing every nuance of the original.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Zwischen den beiden Formulierungen liegt eine feine Nuance.",
+        "en": "Between the two formulations lies a fine nuance.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Parole": {
+    "def": "Kennwort, Codewort (meist bei militärischen, polizeilichen, verbrecherischen oder anderweitig zu tarnenden, geheimzuhaltenden Handlungen)",
+    "ex": [
+      {
+        "de": "Auf den Transparenten standen dieselben Parolen wie vor zwanzig Jahren.",
+        "en": "The banners bore the same slogans as twenty years ago.",
+        "lvl": "C2"
+      },
+      {
+        "de": "„Halt! Parole?“ „Nullacht“ „Fünfzehn! Passieren!“",
+        "en": "„Halt! Password?“ „Zero eight“ „Fifteen! Pass!“",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Pauschalisierung": {
+    "def": "The treating of a whole group as if all its members were alike.",
+    "ex": [
+      {
+        "de": "Solche Pauschalisierungen werden dem Thema nicht gerecht.",
+        "en": "Such generalisations do not do the topic justice.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Jede Pauschalisierung verliert genau das Interessante.",
+        "en": "Every generalisation loses precisely what is interesting.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Perspektive": {
+    "def": "A particular point of view; also the sense of depth in a picture.",
+    "ex": [
+      {
+        "de": "Der Roman erzählt dieselbe Nacht aus vier Perspektiven.",
+        "en": "The novel narrates the same night from four perspectives.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Aus der Perspektive der Betroffenen sieht die Reform anders aus.",
+        "en": "From the perspective of those affected the reform looks different.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Pointe": {
+    "def": "The sharp, telling point of a joke or remark.",
+    "ex": [
+      {
+        "de": "Er erzählt gut, verdirbt aber oft die Pointe.",
+        "en": "He tells stories well but often ruins the punchline.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Pointe der Geschichte steht schon im ersten Satz.",
+        "en": "The point of the story is already in the first sentence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Propaganda": {
+    "def": "Information spread to promote a cause and shape opinion, often one-sidedly.",
+    "ex": [
+      {
+        "de": "Die Propaganda des Regimes durchdrang alle Medien.",
+        "en": "The regime's propaganda permeated all media.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Zwischen Werbung und Propaganda verläuft die Grenze fließend.",
+        "en": "The line between advertising and propaganda is a fluid one.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Prämisse": {
+    "def": "A statement taken as true and used as the basis of an argument.",
+    "ex": [
+      {
+        "de": "Wer die Prämisse ablehnt, muss auch den Schluss verwerfen.",
+        "en": "Whoever rejects the premise must also discard the conclusion.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die stillschweigende Prämisse des Textes ist, dass Wachstum gut sei.",
+        "en": "The text's tacit premise is that growth is good.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Quellenkritik": {
+    "def": "The scholarly assessment of how reliable a source is.",
+    "ex": [
+      {
+        "de": "Ohne saubere Quellenkritik bleibt Geschichtsschreibung Spekulation.",
+        "en": "Without sound source criticism, historiography remains speculation.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Quellenkritik entlarvte das Dokument als Fälschung.",
+        "en": "Source criticism exposed the document as a forgery.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Quintessenz": {
+    "def": "The most essential part or core of something.",
+    "ex": [
+      {
+        "de": "Die Quintessenz des Vortrags war überraschend einfach.",
+        "en": "The quintessence of the talk was surprisingly simple.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Quintessenz lässt sich in einem Satz sagen: Es fehlt Geld.",
+        "en": "The quintessence can be said in one sentence: money is lacking.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Rechtsprechung": {
+    "def": "The body of decisions made by courts; the administration of justice.",
+    "ex": [
+      {
+        "de": "Die Rechtsprechung zu diesem Paragrafen hat sich gewandelt.",
+        "en": "The case law on this section has changed.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Nach ständiger Rechtsprechung gilt hier die kürzere Frist.",
+        "en": "According to settled case law the shorter deadline applies here.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Relativierung": {
+    "def": "The playing-down of something by setting it against other factors.",
+    "ex": [
+      {
+        "de": "Die Relativierung des Verbrechens stieß auf scharfe Kritik.",
+        "en": "The relativisation of the crime met with sharp criticism.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine Relativierung der Zahlen ist noch keine Entwarnung.",
+        "en": "Putting the figures into perspective is not yet an all-clear.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Ressourcenknappheit": {
+    "def": "A shortage of the materials needed to meet demand.",
+    "ex": [
+      {
+        "de": "Ressourcenknappheit zwingt zu neuen Formen des Wirtschaftens.",
+        "en": "Scarcity of resources forces new ways of doing business.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ressourcenknappheit treibt die Preise stärker als die Nachfrage.",
+        "en": "Scarcity of resources drives prices more than demand does.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Sittlichkeit": {
+    "def": "The principles of right conduct in a society.",
+    "ex": [
+      {
+        "de": "Hegel unterscheidet Moralität und Sittlichkeit.",
+        "en": "Hegel distinguishes between morality and ethical life.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Sittlichkeit einer Gesellschaft zeigt sich im Umgang mit den Schwächsten.",
+        "en": "A society's morality shows in how it treats the weakest.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Stichhaltigkeit": {
+    "def": "The quality of being sound and able to withstand scrutiny.",
+    "ex": [
+      {
+        "de": "Die Gutachter prüften die Stichhaltigkeit der Argumente.",
+        "en": "The reviewers examined the cogency of the arguments.",
+        "lvl": "C2"
+      },
+      {
+        "de": "An der Stichhaltigkeit dieser Einwände bestehen Zweifel.",
+        "en": "There are doubts about the cogency of these objections.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Stigmatisierung": {
+    "def": "The marking of a person or group as shameful or unacceptable.",
+    "ex": [
+      {
+        "de": "Die Stigmatisierung psychisch Kranker hält sich hartnäckig.",
+        "en": "The stigmatisation of the mentally ill persists stubbornly.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine offene Debatte kann Stigmatisierung abbauen.",
+        "en": "An open debate can reduce stigmatisation.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Stilebene": {
+    "def": "The level of formality or tone of a piece of language.",
+    "ex": [
+      {
+        "de": "Der Text wechselt bewusst zwischen den Stilebenen.",
+        "en": "The text deliberately shifts between stylistic registers.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Brief trifft die Stilebene nicht: zu salopp für einen Antrag.",
+        "en": "The letter misses the register: too casual for an application.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Stringenz": {
+    "def": "Tight logical consistency and exactness.",
+    "ex": [
+      {
+        "de": "Der Argumentation fehlt es an Stringenz.",
+        "en": "The argument lacks rigour.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Was dem Aufsatz an Stringenz fehlt, ersetzt er durch Belege.",
+        "en": "What the essay lacks in rigour it makes up for with evidence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Subtilität": {
+    "def": "Fine, delicate distinction that is not obvious.",
+    "ex": [
+      {
+        "de": "Die Subtilität seiner Ironie entgeht dem flüchtigen Leser.",
+        "en": "The subtlety of his irony escapes the casual reader.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Inszenierung fehlt jede Subtilität.",
+        "en": "The production lacks all subtlety.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Suggestion": {
+    "def": "An idea planted in someone’s mind without being stated outright.",
+    "defDe": "etwas, das jemandem suggeriert wird",
+    "ex": [
+      {
+        "de": "Die Frage enthält bereits eine Suggestion und ist deshalb unzulässig.",
+        "en": "The question already contains an insinuation and is therefore inadmissible.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Werbespot arbeitet mit Suggestion statt mit Argumenten.",
+        "en": "The advert works by suggestion rather than by argument.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Tugend": {
+    "def": "A trait of good moral character.",
+    "ex": [
+      {
+        "de": "Für Aristoteles liegt die Tugend in der Mitte zweier Extreme.",
+        "en": "For Aristotle, virtue lies in the mean between two extremes.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Aus der Not eine Tugend zu machen, ist ihre Spezialität.",
+        "en": "Making a virtue of necessity is her speciality.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Umwälzung": {
+    "def": "A profound and far-reaching change.",
+    "ex": [
+      {
+        "de": "Der Buchdruck löste eine gesellschaftliche Umwälzung aus.",
+        "en": "The printing press triggered a social upheaval.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die industrielle Umwälzung veränderte auch die Familie.",
+        "en": "The industrial upheaval changed the family too.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Ungewissheit": {
+    "def": "The state of not knowing what will happen.",
+    "ex": [
+      {
+        "de": "Forschung heißt, Ungewissheit auszuhalten.",
+        "en": "Research means enduring uncertainty.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Ungewissheit zermürbte die Familie mehr als die Nachricht selbst.",
+        "en": "The uncertainty wore the family down more than the news itself.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Vehemenz": {
+    "def": "Great force and intensity of feeling or expression.",
+    "ex": [
+      {
+        "de": "Mit erstaunlicher Vehemenz verteidigte sie ihre These.",
+        "en": "She defended her thesis with astonishing vehemence.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Vehemenz des Widerspruchs überraschte alle Beteiligten.",
+        "en": "The vehemence of the opposition surprised everyone involved.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Vernunft": {
+    "def": "The power of the mind to think logically and judge soundly.",
+    "ex": [
+      {
+        "de": "Kant fragte, was die Vernunft aus eigener Kraft erkennen kann.",
+        "en": "Kant asked what reason can know by its own power.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Am Ende siegte die Vernunft über den Stolz.",
+        "en": "In the end reason prevailed over pride.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Weitsicht": {
+    "def": "The ability to judge wisely what the future may bring.",
+    "ex": [
+      {
+        "de": "Mit bemerkenswerter Weitsicht plante sie das Institut für Jahrzehnte.",
+        "en": "With remarkable foresight she planned the institute for decades ahead.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Planung fehlte es an Weitsicht, nicht an Geld.",
+        "en": "The planning lacked foresight, not money.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Willensfreiheit": {
+    "def": "The idea that people can choose their actions freely.",
+    "ex": [
+      {
+        "de": "Neurowissenschaftler stellen die Willensfreiheit in Frage.",
+        "en": "Neuroscientists call free will into question.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ohne Willensfreiheit verlöre der Begriff der Schuld seinen Sinn.",
+        "en": "Without free will the concept of guilt would lose its meaning.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Zurechnungsfähigkeit": {
+    "def": "The mental capacity to be held responsible for one's acts.",
+    "ex": [
+      {
+        "de": "Das Gericht ließ die Zurechnungsfähigkeit des Angeklagten prüfen.",
+        "en": "The court had the defendant's criminal responsibility examined.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Über die Zurechnungsfähigkeit entscheidet ein Gutachten.",
+        "en": "An expert opinion decides on criminal responsibility.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Zuspitzung": {
+    "def": "A sharpening of an issue to its critical point.",
+    "ex": [
+      {
+        "de": "Die polemische Zuspitzung verfehlt den Kern der Sache.",
+        "en": "The polemical framing misses the heart of the matter.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Zuspitzung im Titel soll zum Weiterlesen verleiten.",
+        "en": "The pointed framing in the title is meant to entice you to read on.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Ästhetik": {
+    "def": "The study of beauty and taste in art.",
+    "ex": [
+      {
+        "de": "Die Ästhetik des Hässlichen faszinierte die Moderne.",
+        "en": "The aesthetics of the ugly fascinated modernism.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Ästhetik der Serie zitiert das Kino der Siebziger.",
+        "en": "The aesthetics of the series quote the cinema of the seventies.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Übertreibung": {
+    "def": "A statement that makes something seem greater than it is.",
+    "ex": [
+      {
+        "de": "Die satirische Übertreibung macht den Missstand erst sichtbar.",
+        "en": "It is the satirical exaggeration that makes the grievance visible.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ohne jede Übertreibung: Das war der beste Abend des Jahres.",
+        "en": "Without any exaggeration: that was the best evening of the year.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:eklatant": {
+    "def": "Strikingly obvious, especially of something bad.",
+    "ex": [
+      {
+        "de": "Das ist ein eklatanter Verstoß gegen die Regeln.",
+        "en": "That is a blatant violation of the rules.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Unterschied zwischen Anspruch und Praxis ist eklatant.",
+        "en": "The difference between aspiration and practice is blatant.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:entkräften": {
+    "def": "To weaken or disprove an argument.",
+    "ex": [
+      {
+        "de": "Mit einem einzigen Beispiel lässt sich die Regel entkräften.",
+        "en": "A single example is enough to invalidate the rule.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Gutachten entkräftet den Verdacht vollständig.",
+        "en": "The expert report completely invalidates the suspicion.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:ergründen": {
+    "def": "To explore something deeply until it is understood.",
+    "ex": [
+      {
+        "de": "Die Psychoanalyse will die Motive hinter dem Handeln ergründen.",
+        "en": "Psychoanalysis seeks to fathom the motives behind our actions.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Warum das Verfahren scheiterte, ließ sich nie ganz ergründen.",
+        "en": "Why the procedure failed could never be fully fathomed.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:erörtern": {
+    "def": "To consider a question carefully from various sides.",
+    "ex": [
+      {
+        "de": "Der Aufsatz erörtert das Für und Wider der Schuluniform.",
+        "en": "The essay discusses the pros and cons of school uniforms.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Kommission erörterte den Antrag in nichtöffentlicher Sitzung.",
+        "en": "The committee discussed the motion in closed session.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:eskalieren": {
+    "def": "To grow more intense or serious.",
+    "ex": [
+      {
+        "de": "Aus einer Kleinigkeit eskalierte der Konflikt.",
+        "en": "The conflict escalated from a trivial matter.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Lage eskalierte innerhalb weniger Stunden.",
+        "en": "The situation escalated within a few hours.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:exemplarisch": {
+    "def": "Serving as a model or typical example.",
+    "ex": [
+      {
+        "de": "Der Fall steht exemplarisch für ein größeres Problem.",
+        "en": "The case stands as an example of a larger problem.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Restaurierung gilt als exemplarisch gelungen.",
+        "en": "The restoration is regarded as exemplary in its success.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:frappierend": {
+    "def": "Surprisingly striking; remarkable.",
+    "ex": [
+      {
+        "de": "Die Ähnlichkeit der beiden Fälle ist frappierend.",
+        "en": "The similarity of the two cases is striking.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Ergebnisse sind frappierend eindeutig.",
+        "en": "The results are strikingly unambiguous.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:fundieren": {
+    "def": "To give something a firm basis in evidence or reason.",
+    "ex": [
+      {
+        "de": "Er fundierte seine These mit umfangreichem Archivmaterial.",
+        "en": "He substantiated his thesis with extensive archival material.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Kritik ist gut fundiert und schwer zu entkräften.",
+        "en": "The criticism is well substantiated and hard to refute.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:geschmackvoll": {
+    "def": "Showing good judgement of what is beautiful or fitting.",
+    "ex": [
+      {
+        "de": "Die Wohnung ist geschmackvoll, aber sparsam eingerichtet.",
+        "en": "The flat is tastefully but sparsely furnished.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Einladung war schlicht und geschmackvoll gestaltet.",
+        "en": "The invitation was designed simply and tastefully.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:gliedern": {
+    "def": "To divide something into clear, ordered parts.",
+    "ex": [
+      {
+        "de": "Gliedern Sie den Vortrag in drei klar erkennbare Teile.",
+        "en": "Structure the talk into three clearly recognisable parts.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Aufsatz gliedert sich in Einleitung, Hauptteil und Schluss.",
+        "en": "The essay is structured into introduction, main body and conclusion.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:gravitätisch": {
+    "def": "Dignified and grave in a stately way.",
+    "ex": [
+      {
+        "de": "Mit gravitätischer Miene verkündete er das Ergebnis.",
+        "en": "With a solemn expression he announced the result.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Mit gravitätischen Schritten durchquerte er den Saal.",
+        "en": "With solemn steps he crossed the hall.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:idiosynkratisch": {
+    "def": "Peculiar to one individual; distinctively personal.",
+    "ex": [
+      {
+        "de": "Sein Stil ist zutiefst idiosynkratisch.",
+        "en": "His style is deeply idiosyncratic.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Seine idiosynkratische Zeichensetzung erschwert das Lesen.",
+        "en": "His idiosyncratic punctuation makes reading harder.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:immanent": {
+    "def": "Existing within something as a natural part of it.",
+    "ex": [
+      {
+        "de": "Dem System ist ein Widerspruch immanent.",
+        "en": "A contradiction is inherent in the system.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Kritik ist ein Widerspruch immanent.",
+        "en": "A contradiction is inherent in the criticism.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:indes": {
+    "def": "Yet; on the other hand; also in the meantime.",
+    "ex": [
+      {
+        "de": "Die Zahlen stiegen, die Gewinne indes blieben aus.",
+        "en": "The figures rose; the profits, however, failed to materialise.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er versprach Aufklärung; geschehen ist indes wenig.",
+        "en": "He promised clarification; little, however, has happened.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:inhärent": {
+    "def": "Belonging to something as a permanent, essential quality.",
+    "ex": [
+      {
+        "de": "Jedem Fortschritt sind auch Risiken inhärent.",
+        "en": "Risks are inherent in every advance.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Dem Verfahren ist eine gewisse Unschärfe inhärent.",
+        "en": "A certain vagueness is inherent in the procedure.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:ins Fettnäpfchen treten": {
+    "def": "To say or do something socially clumsy.",
+    "ex": [
+      {
+        "de": "Mit der Frage nach ihrem Alter bin ich ins Fettnäpfchen getreten.",
+        "en": "By asking her age I put my foot in it.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Auf Betriebsfeiern tritt er zuverlässig ins Fettnäpfchen.",
+        "en": "At office parties he reliably puts his foot in it.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:ins Wanken geraten": {
+    "def": "To begin to become unsteady or lose certainty.",
+    "ex": [
+      {
+        "de": "Nach dem Skandal geriet seine Position ins Wanken.",
+        "en": "After the scandal his position began to falter.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Mehrheit der Regierung geriet erstmals ins Wanken.",
+        "en": "For the first time the government's majority began to falter.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:jemandem auf die Nerven gehen": {
+    "def": "To irritate or annoy someone.",
+    "ex": [
+      {
+        "de": "Sein ständiges Klagen geht mir langsam auf die Nerven.",
+        "en": "His constant complaining is starting to get on my nerves.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Geräusch der Klimaanlage geht mir auf die Nerven.",
+        "en": "The noise of the air conditioning is getting on my nerves.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:jemandem reinen Wein einschenken": {
+    "def": "To tell someone the plain, honest truth.",
+    "ex": [
+      {
+        "de": "Es wird Zeit, dir reinen Wein einzuschenken.",
+        "en": "It's time to come clean with you.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Arzt schenkte ihm schließlich reinen Wein ein.",
+        "en": "The doctor finally came clean with him.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kaschieren": {
+    "def": "To hide a flaw or fact so it is not noticed.",
+    "ex": [
+      {
+        "de": "Mit Humor kaschierte er seine Unsicherheit.",
+        "en": "He concealed his insecurity with humour.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Frische Farbe kaschiert die Risse nur für eine Saison.",
+        "en": "Fresh paint conceals the cracks for one season only.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kategorisch": {
+    "def": "Stated absolutely, without any qualification.",
+    "ex": [
+      {
+        "de": "Er lehnte den Vorschlag kategorisch ab.",
+        "en": "He rejected the proposal categorically.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein kategorisches Nein beendet jede Verhandlung.",
+        "en": "A categorical no ends any negotiation.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kohärent": {
+    "def": "Fitting together in a clear, logical, consistent way.",
+    "ex": [
+      {
+        "de": "Der Aufsatz ist klar gegliedert und kohärent.",
+        "en": "The essay is clearly structured and coherent.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine kohärente Strategie erkennt man daran, dass sie Dinge auslässt.",
+        "en": "You recognise a coherent strategy by what it leaves out.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:konnotieren": {
+    "def": "To imply a further meaning beyond the literal one.",
+    "ex": [
+      {
+        "de": "Der Begriff konnotiert Fortschritt und Aufbruch.",
+        "en": "The term connotes progress and new beginnings.",
+        "lvl": "C2"
+      },
+      {
+        "de": "„Heimat“ konnotiert für viele Enge, für andere Geborgenheit.",
+        "en": "For many \"Heimat\" connotes narrowness, for others security.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:konstatieren": {
+    "def": "To state formally that something is the case.",
+    "ex": [
+      {
+        "de": "Man kann nüchtern konstatieren, dass der Plan scheiterte.",
+        "en": "One can soberly ascertain that the plan failed.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Prüfer konstatierte erhebliche Mängel.",
+        "en": "The inspector ascertained considerable defects.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:konterkarieren": {
+    "def": "To work against and frustrate a plan or effect.",
+    "ex": [
+      {
+        "de": "Die Kürzungen konterkarieren die erklärten Ziele.",
+        "en": "The cuts thwart the stated aims.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein neues Schlupfloch konterkariert das gesamte Gesetz.",
+        "en": "A new loophole thwarts the entire law.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kontextualisieren": {
+    "def": "To set something within its context to make sense of it.",
+    "ex": [
+      {
+        "de": "Historiker müssen Quellen sorgfältig kontextualisieren.",
+        "en": "Historians must carefully contextualise sources.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Zitat ist richtig wiedergegeben, aber falsch kontextualisiert.",
+        "en": "The quotation is reproduced correctly but contextualised wrongly.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kontraproduktiv": {
+    "def": "Having the opposite effect to the one intended.",
+    "ex": [
+      {
+        "de": "Zu viel Kontrolle wirkt oft kontraproduktiv.",
+        "en": "Too much control is often counterproductive.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ständiges Nachfragen wirkt hier eher kontraproduktiv.",
+        "en": "Constant checking is rather counterproductive here.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:konziliant": {
+    "def": "Willing to reconcile; accommodating and agreeable.",
+    "ex": [
+      {
+        "de": "Trotz des Streits blieb sein Ton konziliant.",
+        "en": "Despite the dispute his tone remained conciliatory.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Vorsitzende reagierte konziliant und bot einen Kompromiss an.",
+        "en": "The chairman reacted conciliatorily and offered a compromise.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kraft": {
+    "def": "On the strength of; by the authority of.",
+    "ex": [
+      {
+        "de": "Kraft seines Amtes durfte er die Sitzung leiten.",
+        "en": "By virtue of his office he was allowed to chair the meeting.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Kraft Gesetzes tritt die Regelung ohne Zustimmung in Kraft.",
+        "en": "By virtue of the law the rule takes effect without approval.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:kulminieren": {
+    "def": "To reach the highest or decisive point.",
+    "ex": [
+      {
+        "de": "Die Spannungen kulminierten in einem offenen Streit.",
+        "en": "The tensions culminated in an open dispute.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Abend kulminierte in einem gemeinsamen Lied.",
+        "en": "The evening culminated in a song sung together.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:lapidar": {
+    "def": "Brief and to the point, often bluntly so.",
+    "ex": [
+      {
+        "de": "„Zu spät“, war seine lapidare Antwort.",
+        "en": "'Too late' was his terse reply.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In lapidaren Sätzen schildert der Bericht die Katastrophe.",
+        "en": "In terse sentences the report describes the disaster.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:marginal": {
+    "def": "Of minor importance; at the edge.",
+    "ex": [
+      {
+        "de": "Der Unterschied ist marginal und kaum messbar.",
+        "en": "The difference is marginal and hardly measurable.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Partei blieb im Parlament marginal.",
+        "en": "The party remained marginal in parliament.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:mithin": {
+    "def": "Therefore; as a result.",
+    "ex": [
+      {
+        "de": "Die Prämisse ist falsch, mithin auch der Schluss.",
+        "en": "The premise is false, consequently so is the conclusion.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Antrag war verspätet, mithin unzulässig.",
+        "en": "The application was late and consequently inadmissible.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:negieren": {
+    "def": "To deny or reject something as untrue or invalid.",
+    "ex": [
+      {
+        "de": "Die Studie negiert nicht den Nutzen, betont aber die Risiken.",
+        "en": "The study does not negate the benefit but stresses the risks.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er negiert die Existenz eines Problems, das alle anderen sehen.",
+        "en": "He negates the existence of a problem everyone else can see.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:nuanciert": {
+    "def": "Marked by fine, subtle distinctions.",
+    "ex": [
+      {
+        "de": "Sie argumentiert stets nuanciert und abwägend.",
+        "en": "She always argues in a nuanced and measured way.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein nuanciertes Urteil braucht mehr als zwei Zeilen.",
+        "en": "A nuanced judgement needs more than two lines.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:obsolet": {
+    "def": "No longer in use; out of date.",
+    "ex": [
+      {
+        "de": "Durch die neue Technik wurde das Verfahren obsolet.",
+        "en": "The new technology rendered the procedure obsolete.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Mit der neuen Fassung wird die alte Vorschrift obsolet.",
+        "en": "With the new version the old regulation becomes obsolete.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:oszillieren": {
+    "def": "To move or waver back and forth between positions.",
+    "ex": [
+      {
+        "de": "Der Roman oszilliert zwischen Komik und Tragik.",
+        "en": "The novel oscillates between comedy and tragedy.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Kurs oszilliert seit Wochen um denselben Wert.",
+        "en": "The price has been oscillating around the same value for weeks.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:paradox": {
+    "def": "Seemingly self-contradictory yet perhaps true.",
+    "ex": [
+      {
+        "de": "Es klingt paradox, ist aber wahr.",
+        "en": "It sounds paradoxical but it is true.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sparen kann in der Krise paradoxe Folgen haben.",
+        "en": "In a crisis, saving can have paradoxical consequences.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:perpetuieren": {
+    "def": "To cause something to continue indefinitely.",
+    "ex": [
+      {
+        "de": "Solche Bilder perpetuieren alte Rollenklischees.",
+        "en": "Such images perpetuate old gender clichés.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Regelung perpetuiert genau die Ungleichheit, die sie beheben soll.",
+        "en": "The rule perpetuates precisely the inequality it is meant to remedy.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:pointieren": {
+    "def": "To sharpen a statement so that its point stands out.",
+    "ex": [
+      {
+        "de": "Er pointierte seine Kritik so geschickt, dass alle lachten.",
+        "en": "He sharpened his criticism so skilfully that everyone laughed.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Essay pointiert die Gegensätze bis zur Karikatur.",
+        "en": "The essay sharpens the contrasts to the point of caricature.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:polemisch": {
+    "def": "Strongly attacking or defending an opinion in a controversy.",
+    "ex": [
+      {
+        "de": "Der Kommentar war eher polemisch als sachlich.",
+        "en": "The commentary was polemical rather than factual.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Streit wurde zunehmend polemisch geführt.",
+        "en": "The dispute was conducted in an increasingly polemical way.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:profund": {
+    "def": "Deep and far-reaching in thought or knowledge.",
+    "ex": [
+      {
+        "de": "Sie verfügt über profunde Kenntnisse der Materie.",
+        "en": "She has profound knowledge of the subject.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Rezension zeugt von profunder Sachkenntnis.",
+        "en": "The review testifies to profound expertise.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:prägnant": {
+    "def": "Expressed briefly and strikingly, with nothing wasted.",
+    "ex": [
+      {
+        "de": "Sie fasste die Debatte in zwei prägnanten Sätzen zusammen.",
+        "en": "She summed up the debate in two concise, pointed sentences.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Titel ist prägnant und bleibt im Gedächtnis.",
+        "en": "The title is concise and sticks in the memory.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:redundant": {
+    "def": "More than is needed; repeated unnecessarily.",
+    "ex": [
+      {
+        "de": "Streiche alles, was redundant ist.",
+        "en": "Delete everything that is redundant.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die dritte Sicherung ist bewusst redundant ausgelegt.",
+        "en": "The third safeguard is deliberately designed to be redundant.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:rekurrent": {
+    "def": "Occurring again and again.",
+    "ex": [
+      {
+        "de": "Das Motiv ist in seinem Werk rekurrent.",
+        "en": "The motif is recurrent in his work.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Rekurrente Infekte deuten auf ein tieferes Problem hin.",
+        "en": "Recurrent infections point to a deeper problem.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:rudimentär": {
+    "def": "Basic and undeveloped; at an early stage.",
+    "ex": [
+      {
+        "de": "Seine Sprachkenntnisse sind bislang nur rudimentär.",
+        "en": "His language skills are so far only rudimentary.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die alte Anlage funktioniert nur noch rudimentär.",
+        "en": "The old plant functions only rudimentarily now.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:sich verselbstständigen": {
+    "def": "To become independent of its origin and beyond control.",
+    "ex": [
+      {
+        "de": "Das Gerücht hatte sich längst verselbstständigt.",
+        "en": "The rumour had long since taken on a life of its own.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Aus dem Projekt hat sich inzwischen eine eigene Firma verselbstständigt.",
+        "en": "A separate company has since spun off from the project.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:stringent": {
+    "def": "Tightly reasoned and consistent throughout.",
+    "ex": [
+      {
+        "de": "Die Studie ist methodisch stringent aufgebaut.",
+        "en": "The study is rigorously structured in its methodology.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Seine Beweisführung ist stringent, aber schwer zu lesen.",
+        "en": "His demonstration is rigorous but hard to read.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:subsumieren": {
+    "def": "To include something within a larger category or principle.",
+    "ex": [
+      {
+        "de": "Man kann den Fall unter diesen Paragrafen subsumieren.",
+        "en": "The case can be subsumed under this section of the law.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Sachverhalt lässt sich unter keinen Straftatbestand subsumieren.",
+        "en": "The facts cannot be subsumed under any criminal offence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:subversiv": {
+    "def": "Seeking to undermine an established system or authority.",
+    "ex": [
+      {
+        "de": "Die Komödie ist auf subtile Weise subversiv.",
+        "en": "The comedy is subtly subversive.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Witz wirkt harmlos und ist doch zutiefst subversiv.",
+        "en": "The joke seems harmless and is yet deeply subversive.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:suggerieren": {
+    "def": "To lead someone to believe something indirectly.",
+    "ex": [
+      {
+        "de": "Die Überschrift suggeriert einen Zusammenhang, den es nicht gibt.",
+        "en": "The headline insinuates a connection that does not exist.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Foto suggeriert Nähe, wo in Wahrheit Distanz herrschte.",
+        "en": "The photo suggests closeness where in truth there was distance.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:suggestiv": {
+    "def": "Tending to lead the mind toward a particular idea.",
+    "ex": [
+      {
+        "de": "Die Fragen waren suggestiv und damit unzulässig.",
+        "en": "The questions were leading and therefore inadmissible.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein suggestiver Vorspann lenkt die Deutung der Bilder.",
+        "en": "A suggestive opening steers the interpretation of the images.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:tendenziös": {
+    "def": "Biased in favour of a particular point of view.",
+    "ex": [
+      {
+        "de": "Die Berichterstattung war offenkundig tendenziös.",
+        "en": "The coverage was blatantly tendentious.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Auswahl der Zitate ist offen tendenziös.",
+        "en": "The selection of quotations is openly tendentious.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:transzendieren": {
+    "def": "To rise above or go beyond ordinary limits.",
+    "ex": [
+      {
+        "de": "Große Kunst transzendiert ihre Entstehungszeit.",
+        "en": "Great art transcends the era of its creation.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ihre Musik transzendiert die Grenzen der Genres.",
+        "en": "Her music transcends the boundaries of genre.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:treffend": {
+    "def": "Exactly right and well chosen.",
+    "ex": [
+      {
+        "de": "Sie fand für das Gefühl ein treffendes Bild.",
+        "en": "She found an apt image for the feeling.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Vergleich ist so treffend, dass er wehtut.",
+        "en": "The comparison is so apt that it hurts.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:ubiquitär": {
+    "def": "Present or found everywhere.",
+    "ex": [
+      {
+        "de": "Smartphones sind heute nahezu ubiquitär.",
+        "en": "Smartphones are now almost ubiquitous.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Mikroplastik ist inzwischen ubiquitär nachweisbar.",
+        "en": "Microplastic can by now be detected ubiquitously.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:unbeschadet": {
+    "def": "Without being affected by; regardless of.",
+    "ex": [
+      {
+        "de": "Unbeschadet dessen bleibt die Frage der Kosten offen.",
+        "en": "Notwithstanding that, the question of costs remains open.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Unbeschadet der laufenden Prüfung wird weitergebaut.",
+        "en": "Notwithstanding the ongoing review, building continues.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:verantworten": {
+    "def": "To take responsibility and be accountable for something.",
+    "ex": [
+      {
+        "de": "Diese Entscheidung muss der Minister persönlich verantworten.",
+        "en": "The minister must personally answer for this decision.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Solche Kürzungen kann ich vor der Belegschaft nicht verantworten.",
+        "en": "I cannot answer for such cuts before the workforce.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:verifizieren": {
+    "def": "To check and confirm that something is true.",
+    "ex": [
+      {
+        "de": "Die Messung ließ sich in drei Laboren unabhängig verifizieren.",
+        "en": "The measurement could be independently verified in three laboratories.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Angaben ließen sich anhand der Belege verifizieren.",
+        "en": "The statements could be verified against the receipts.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:vermittels": {
+    "def": "Through the use of; by way of.",
+    "ex": [
+      {
+        "de": "Vermittels eines Katalysators läuft die Reaktion schneller ab.",
+        "en": "By means of a catalyst the reaction proceeds faster.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Vermittels weniger Handgriffe lässt sich das Gerät umbauen.",
+        "en": "By means of a few simple operations the device can be converted.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:vertretbar": {
+    "def": "Able to be defended as reasonable or acceptable.",
+    "ex": [
+      {
+        "de": "Ist ein solcher Eingriff ethisch vertretbar?",
+        "en": "Is such an intervention ethically justifiable?",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ein Restrisiko ist vertretbar, ein fahrlässiges nicht.",
+        "en": "A residual risk is defensible, a negligent one is not.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:vieldeutig": {
+    "def": "Open to several meanings.",
+    "ex": [
+      {
+        "de": "Das Ende bleibt bewusst vieldeutig.",
+        "en": "The ending remains deliberately ambiguous.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Seine Antwort war vieldeutig genug, um niemanden festzulegen.",
+        "en": "His answer was ambiguous enough not to commit anyone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:vorderhand": {
+    "def": "For now; until something changes.",
+    "ex": [
+      {
+        "de": "Vorderhand ändert sich an der Lage nichts.",
+        "en": "For the time being nothing changes about the situation.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Vorderhand bleibt der Betrieb geöffnet.",
+        "en": "For the time being the business stays open.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:wahrlich": {
+    "def": "In truth; really (formal or literary).",
+    "ex": [
+      {
+        "de": "Du bist wahrlich schön.",
+        "en": "You're really beautiful.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Ich bewundere sie wahrlich.",
+        "en": "I admire her truly.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:würdigen": {
+    "def": "To recognise and honour the worth of something.",
+    "ex": [
+      {
+        "de": "Erst spät wurde ihr Werk angemessen gewürdigt.",
+        "en": "Only late was her work appropriately acknowledged.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In der Laudatio würdigte er ihre Verdienste um das Fach.",
+        "en": "In the eulogy he acknowledged her services to the discipline.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:zukunftsfähig": {
+    "def": "Able to remain workable and sustainable in the years ahead.",
+    "ex": [
+      {
+        "de": "Nur ein zukunftsfähiges Energiesystem sichert den Standort.",
+        "en": "Only a future-proof energy system secures the location.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine zukunftsfähige Stadt braucht Schatten und Wasser.",
+        "en": "A city fit for the future needs shade and water.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:zutage treten": {
+    "def": "To become visible or known.",
+    "ex": [
+      {
+        "de": "Bei der Prüfung traten gravierende Mängel zutage.",
+        "en": "During the inspection serious defects came to light.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Erst nach Jahren trat der wahre Umfang des Schadens zutage.",
+        "en": "Only after years did the true extent of the damage come to light.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:zwecks": {
+    "def": "In order to achieve; for the purpose of.",
+    "ex": [
+      {
+        "de": "Zwecks Terminvereinbarung rufen Sie bitte an.",
+        "en": "For the purpose of arranging an appointment, please call.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Zwecks besserer Übersicht wurden die Tabellen zusammengefasst.",
+        "en": "For the purpose of a better overview the tables were merged.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:Überhand nehmen": {
+    "def": "To grow excessive and hard to control.",
+    "ex": [
+      {
+        "de": "Wenn die Bürokratie überhandnimmt, leidet die Arbeit.",
+        "en": "When bureaucracy gets out of hand, the work suffers.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wenn die Formulare überhandnehmen, bleibt keine Zeit für Patienten.",
+        "en": "When the forms get out of hand, no time is left for patients.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:über den Tellerrand schauen": {
+    "def": "To look beyond one's own narrow point of view.",
+    "ex": [
+      {
+        "de": "Gute Forscher schauen über den Tellerrand ihres Fachs.",
+        "en": "Good researchers look beyond the confines of their field.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Wer nie über den Tellerrand schaut, wiederholt nur Bekanntes.",
+        "en": "Anyone who never thinks outside the box merely repeats the familiar.",
+        "lvl": "C2"
+      }
+    ]
+  }
+}

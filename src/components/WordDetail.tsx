@@ -11,7 +11,9 @@
 // A sheet rather than a route: you came from a specific word in a specific scroll
 // position, and closing this has to put you back exactly there. A route would
 // rebuild the feed.
+import { useEffect } from 'react';
 import Layer from './Layer.tsx';
+import { loadDetailFor } from '../data/detail.ts';
 import { valencyOf, valencyLabel } from '../lib/valency.ts';
 import { familyOf } from '../lib/family.ts';
 import { showsGermanDefs } from '../views/Review.tsx';
@@ -22,6 +24,12 @@ import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
 
 export default function WordDetail({ word, onClose }: { word: Word; onClose: () => void }) {
+  // Search reaches every level, and detail ships one file per level — so the sheet
+  // asks for the one this word is in. On the feed's ⓘ it is already there and this
+  // costs nothing; from a C1 lookup by an A1 learner it is the only thing that puts
+  // examples on the page. The re-render comes from `notifyLexiconChanged`, the same
+  // way it did when detail was one file.
+  useEffect(() => { void loadDetailFor([word]); }, [word]);
   const family = familyOf(word, WORDS);
   const valency = valencyOf(word);
   const germanDefs = showsGermanDefs(placementLevel());

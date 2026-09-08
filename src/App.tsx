@@ -60,7 +60,6 @@ import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, 
 import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
-import { loadDetail } from './data/detail.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type WordsRoute } from './route.ts';
 import type { Target } from './types.ts';
@@ -167,10 +166,15 @@ export default function App() {
   // decide synchronously whether to show the "real voice" marker. A missing file
   // resolves to an empty manifest, so this can never block or fail the app.
   useEffect(() => { loadAudioManifest(); }, []);
-  // Examples and definitions — 70% of the corpus. Nothing on the boot path needs
-  // them synchronously, so first paint does not wait; a session that starts
-  // before this lands waits on it explicitly (see Review).
-  useEffect(() => { loadDetail(); }, []);
+  // Examples and definitions used to be fetched here, all 857 KB gzipped of them,
+  // on every first visit. They are six files now — one per CEFR level — and the
+  // surfaces that need them ask for the ones they are about to show: the feed for
+  // the page it is rendering, Üben for the levels its queue can draw from, the word
+  // sheet for the word it opens. An A1 learner's first visit fetches 172 KB instead
+  // of 857, and never sees the other five levels until they reach them.
+  //
+  // Nothing is kicked off here on purpose. A blanket prefetch from the shell would
+  // put all six back on the wire and quietly undo the split.
   // Only does anything once a study time is set and permission granted; the
   // watch itself is three localStorage reads a minute.
   useEffect(() => startReminderWatch(), []);
