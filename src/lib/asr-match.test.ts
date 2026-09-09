@@ -10,14 +10,25 @@
 // The file leans strict on the second and generous on the first, deliberately and in
 // that order. See the header of `asr-match.ts`.
 import { describe, it, expect } from 'vitest';
-import { verdict, koelner, normalise, spokenForm, similarity, FUZZY_FLOOR } from './asr-match.ts';
+import {
+  verdict, koelner, normalise, spokenForm, lemmaOf, similarity, alignment, FUZZY_FLOOR,
+} from './asr-match.ts';
 
 describe('what the learner is asked to say', () => {
-  it('drops the article, the reflexive and the government', () => {
-    expect(spokenForm('der Tisch')).toBe('Tisch');
+  it('keeps the article, because that is what knowing a German noun means', () => {
+    expect(spokenForm('der Tisch')).toBe('der Tisch');
+    expect(spokenForm('das Zuhause')).toBe('das Zuhause');
+  });
+
+  it('drops the reflexive and the government, which nobody says aloud', () => {
     expect(spokenForm('sich erinnern an + A')).toBe('erinnern');
     expect(spokenForm('teilnehmen an + D')).toBe('teilnehmen');
-    expect(spokenForm('das Zuhause')).toBe('Zuhause');
+  });
+
+  it('offers the bare lemma separately, for counting rather than saying', () => {
+    // `isPlayable` measures syllables and word count, and an article is neither.
+    expect(lemmaOf('der Tisch')).toBe('Tisch');
+    expect(lemmaOf('die Katze')).toBe('Katze');
   });
 
   it('takes one sense from a multi-sense headword', () => {
@@ -38,11 +49,17 @@ describe('normalisation folds what orthography, not speech, decides', () => {
 
 describe('the recogniser caught it', () => {
   it('exactly', () => {
-    expect(verdict('das Haus', 'Haus').caught).toBe('exact');
+    expect(verdict('das Haus', 'das Haus').caught).toBe('exact');
   });
 
   it('with different casing and punctuation, which are not sounds', () => {
-    expect(verdict('die Straße', 'strasse.').caught).toBe('exact');
+    expect(verdict('die Straße', 'die strasse.').caught).toBe('exact');
+  });
+
+  it('when the article was said and the noun came through slightly off', () => {
+    // The article earns its keep here: `die Katze` is a longer, more distinctive
+    // target than `Katze`, so one mangled syllable of two still lands.
+    expect(verdict('die Katze', 'die Katzen').caught).not.toBeNull();
   });
 
   // The case the whole `candidates` loop exists for.
@@ -52,18 +69,17 @@ describe('the recogniser caught it', () => {
 
   it('when the word is buried in a sentence the engine invented', () => {
     // Engines pad single words into plausible phrases. The word is still there.
-    expect(verdict('die Sprache', 'die Sprache ist').caught).toBe('exact');
+    expect(verdict('die Sprache', 'die Sprache ist schön').caught).not.toBeNull();
   });
 
   it('as its second guess', () => {
-    const v = verdict('die Prämisse', 'Prämie', ['Prämie', 'Prämisse']);
+    const v = verdict('die Prämisse', 'die Prämie', ['die Prämie', 'die Prämisse']);
     expect(v.caught).toBe('alternative');
   });
 
   it('on phonetics, when the spelling drifted but the sound did not', () => {
     // A recogniser writing what it heard rather than the dictionary form.
-    const v = verdict('die Quellenkritik', 'Kwellenkritik');
-    expect(v.caught).not.toBeNull();
+    expect(verdict('die Quellenkritik', 'die Kwellenkritik').caught).not.toBeNull();
   });
 });
 
@@ -80,21 +96,22 @@ describe('the recogniser did not catch it', () => {
   // module: `Haus` and `aus` share a Kölner code because `h` is silent to the
   // algorithm. On a four-letter word that collision is common enough to be a bug.
   it('and a phonetic code alone is not enough on a short word', () => {
-    expect(koelner('Haus')).toBe(koelner('aus'));      // the collision is real
-    expect(verdict('das Haus', 'aus').caught).toBeNull(); // and it is not a hit
+    expect(koelner('Haus')).toBe(koelner('aus'));  // the collision is real
+    expect(verdict('Haus', 'aus').caught).toBeNull(); // and it is not a hit
   });
 
   it('while the same rule still helps on a long one', () => {
     // Long words do not collide by accident, so the code is doing real work there.
-    expect(verdict('die Verschlimmbesserung', 'Ferschlimmbesserung').caught).toBe('phonetic');
+    // The article is in the heard string too: phonetics compares whole utterances,
+    // so omitting it is a real difference rather than a spelling one.
+    expect(verdict('die Verschlimmbesserung', 'die Ferschlimmbesserung').caught).toBe('phonetic');
   });
 });
 
 describe('what the game prints over the word', () => {
   it('is the closest thing the recogniser said, not the whole sentence', () => {
-    // The overlay is the entire feedback mechanism — "JUNE" over "JANUARY" — so it
-    // has to be the token that competed, not everything the engine emitted.
-    expect(verdict('der Januar', 'ich sage Juni bitte').heard).toBe('Juni');
+    // It has to be the token that competed, not everything the engine emitted.
+    expect(verdict('Januar', 'ich sage Juni bitte').heard).toBe('Juni');
   });
 
   it('survives a transcript with nothing usable in it', () => {
@@ -115,5 +132,36 @@ describe('the thresholds are stated, not hidden', () => {
     expect(similarity('sprache', 'sprache')).toBe(1);
     expect(similarity('sprache', 'sprachen')).toBeGreaterThan(0.8);
     expect(similarity('sprache', 'kuchen')).toBeLessThan(0.8);
+  });
+});
+
+
+// The replacement for the overlay — see the note on `alignment`.
+describe('colouring the word by what survived', () => {
+  it('marks every character when the word came through', () => {
+    expect(alignment('die Katze', 'die Katze').every(Boolean)).toBe(true);
+  });
+
+  it('marks the part that survived and leaves the rest', () => {
+    const a = alignment('die Katze', 'die Katz');
+    expect(a.slice(0, 8).every(Boolean)).toBe(true);   // "die Katz"
+    expect(a[8]).toBe(false);                          // the final "e"
+  });
+
+  it('never marks a space wrong, because a space is not a sound', () => {
+    const a = alignment('die Katze', '');
+    expect(a[3]).toBe(true);                    // the space between article and noun
+    expect(a.filter(Boolean)).toHaveLength(1);  // and nothing else
+  });
+
+  it('says nothing at all when nothing was heard', () => {
+    expect(alignment('rudern', '').some((x) => x)).toBe(false);
+  });
+
+  it('does not credit letters that arrived out of order', () => {
+    // LCS is the right shape: a recogniser drops and inserts letters, it does not
+    // shuffle them, so only the ones that survived *in order* count.
+    const a = alignment('Katze', 'ezaKt');
+    expect(a.filter(Boolean).length).toBeLessThan(5);
   });
 });

@@ -25,7 +25,7 @@
 // `skip` is free and clears nothing. Charging time for it would charge the learner
 // for the recogniser refusing a word, which is the same error wearing a different
 // coat.
-import { verdict, spokenForm, type Caught } from './asr-match.ts';
+import { verdict, spokenForm, lemmaOf, type Caught } from './asr-match.ts';
 import type { Word } from '../types.ts';
 
 /** How long a run lasts. **A guess, and marked as one** — long enough that the
@@ -203,7 +203,9 @@ export function syllables(word: string): number {
 
 export function isPlayable(w: Word): boolean {
   if (w.kind !== 'word' || FUNCTION_POS.has(w.pos)) return false;
-  const say = spokenForm(w.term);
+  // The **lemma**, not the spoken form: the spoken form carries the article now, so
+  // measuring "one word" on it would reject every noun in the corpus.
+  const say = lemmaOf(w.term);
   // **One word.** Found on the phone at word 3 of a run: the lookahead was showing
   // *Ich kann lange schlafen.* — a pattern card, whose term is a whole sentence.
   // `spokenForm` strips an article and a government and has no reason to strip a

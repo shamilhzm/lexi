@@ -44,20 +44,34 @@ export function normalise(s: string): string {
     .replace(/[^a-z]/g, '');
 }
 
-/** What a learner is actually asked to say, from a Lexi headword.
+/** The lemma alone — no article, no reflexive, no government.
  *
- *  `der Tisch` → *Tisch*, `sich erinnern an + A` → *erinnern*. **The article is
- *  dropped deliberately.** Knowing a German noun means knowing its gender, and this
- *  app is emphatic about that everywhere else — but gender has its own drill, and
- *  asking for *der Tisch* here doubles the surface the recogniser can fail on for a
- *  fact this game is not testing. One word, one sound, one verdict. */
-export function spokenForm(term: string): string {
+ *  `der Tisch` → *Tisch*, `sich erinnern an + A` → *erinnern*. This is what the
+ *  *playability* rules count syllables and words on, because an article is neither. */
+export function lemmaOf(term: string): string {
   return term
     .replace(/^(der|die|das)\s+/i, '')
     .replace(/^sich\s+/i, '')
     .replace(/\s+\w+\s+\+\s+[ADG]$/i, '')
     .split(/[(,]/)[0]
     .trim();
+}
+
+/** What a learner is actually asked to say.
+ *
+ *  `der Tisch` → ***der Tisch***. **The article is kept**, reversing the first cut.
+ *  Knowing a German noun means knowing its gender and this app is emphatic about that
+ *  everywhere else; dropping it here to spare the recogniser a syllable was optimising
+ *  the wrong party. It also gives the matcher *more* to work with, not less — `die
+ *  Katze` is a longer and more distinctive target than `Katze`, and a recogniser that
+ *  mishears one word of two still lands above the fuzzy floor.
+ *
+ *  The reflexive and the government still go: `sich` is not part of the citation form
+ *  a learner says aloud, and `an + A` is notation. */
+export function spokenForm(term: string): string {
+  const article = /^(der|die|das)\s+/i.exec(term);
+  const lemma = lemmaOf(term);
+  return article ? `${article[1].toLowerCase()} ${lemma}` : lemma;
 }
 
 /** Kölner Phonetik, textbook form. Returns '' for anything with no codable sound. */
@@ -150,8 +164,22 @@ export function verdict(target: string, transcript: string, alternatives: string
   const raw = (transcript || '').trim();
   if (!t) return { caught: null, heard: raw, similarity: 0 };
 
-  const tokens = raw.split(/\s+/).filter(Boolean);
-  const candidates = [raw, ...tokens].filter(Boolean);
+  // **Every contiguous window, not just whole tokens.** The target can now be two
+  // words (`die Katze`), and a recogniser pads a single utterance into a plausible
+  // sentence — so `die Sprache ist schön` has to be able to yield `die Sprache`.
+  // Matching only single tokens and the whole string missed it entirely, which is
+  // the defect the article change surfaced.
+  //
+  // Windows run up to one token longer than the target, which is enough for a
+  // padded article or a trailing particle, and the input is one short utterance, so
+  // the quadratic count is a few dozen strings. Capped anyway: a `continuous`
+  // recogniser can hand back a paragraph.
+  const tokens = raw.split(/\s+/).filter(Boolean).slice(0, 16);
+  const want = spokenForm(target).split(/\s+/).filter(Boolean).length;
+  const candidates = [raw];
+  for (let k = 1; k <= Math.min(want + 1, tokens.length); k++) {
+    for (let i = 0; i + k <= tokens.length; i++) candidates.push(tokens.slice(i, i + k).join(' '));
+  }
 
   let best = { sim: 0, token: '', norm: '' };
   for (const c of candidates) {
@@ -180,4 +208,53 @@ export function verdict(target: string, transcript: string, alternatives: string
   }
   if (best.sim >= FUZZY_FLOOR) return { caught: 'fuzzy', heard, similarity: sim };
   return { caught: null, heard, similarity: sim };
+}
+
+
+/** Which characters of `target` the recogniser appears to have got.
+ *
+ *  One flag per character of the **display** string, so the caller can colour the
+ *  word itself rather than print a second copy of it. Spaces and punctuation are
+ *  always `true`: they are not sounds and marking them wrong would put a red gap in
+ *  the middle of *die Katze*.
+ *
+ *  ## Why this replaced the overlay
+ *
+ *  The first version printed the transcript across the target, offset slightly. On a
+ *  real phone that was `rudern` under `Rudern Juden Juden Juden Juden wurden` — one
+ *  unreadable smear, and the joke only works if you can read both halves. Colouring
+ *  the target says the same thing in the space the target already occupies, and says
+ *  it more precisely: not *how close*, but **where it diverged**.
+ *
+ *  A longest-common-subsequence alignment, which is the right shape here — a
+ *  recogniser drops and inserts letters, it does not shuffle them, and LCS marks
+ *  exactly the ones that survived in order. */
+export function alignment(target: string, heard: string): boolean[] {
+  const display = [...target];
+  // Index map: position in the normalised string → position in the display string.
+  const idx: number[] = [];
+  let norm = '';
+  display.forEach((ch, i) => {
+    const n = normalise(ch);
+    if (n) { norm += n; idx.push(i); }
+  });
+  const out = display.map((ch) => !normalise(ch)); // spaces and punctuation pass
+  const h = normalise(heard);
+  if (!norm || !h) return out;
+
+  // LCS table over two short strings — a headword and one utterance.
+  const n = norm.length, m = h.length;
+  const dp: number[][] = Array.from({ length: n + 1 }, () => new Array<number>(m + 1).fill(0));
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      dp[i][j] = norm[i] === h[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+    }
+  }
+  let i = 0, j = 0;
+  while (i < n && j < m) {
+    if (norm[i] === h[j]) { out[idx[i]] = true; i++; j++; }
+    else if (dp[i + 1][j] >= dp[i][j + 1]) i++;
+    else j++;
+  }
+  return out;
 }

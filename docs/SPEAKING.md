@@ -21,16 +21,36 @@ Three mechanics, all load-bearing:
    run has a clock; a word does not.** One minute, and the score is how many words you
    clear. A word that will not be caught costs you *time* rather than a mark against
    it. You are racing a clock, never failing a word.
-2. **The transcript overlays the target,** and **the word fills as the recogniser
-   closes in.** The fill is the only feedback while a word is live, and it is a gauge
-   rather than a mark: it says how near the transcript has come, which is a fact about
-   the machine. A high-water mark, so it only ever rises — a bar that falls back when
-   you say a second thing is reporting noise as failure. A hit fills it completely
-   whatever the string distance says, because `alternative` and `phonetic` hits can
-   both land under the fuzzy floor and a word that counted must not read as
-   three-quarters right.
+2. **Two signals, and they answer different questions.** *(Rebuilt after a recording
+   from a real phone.)* The first version printed the transcript across the word,
+   offset slightly, in the accent colour — on a phone that was `rudern` under
+   `Rudern Juden Juden Juden Juden wurden`, one unreadable smear, and it still could
+   not say whether the microphone was working at all.
+
+   - **The bars are your voice.** Raw amplitude off the microphone via a second
+     `getUserMedia` stream, nothing to do with recognition — so they move even when
+     the recogniser understands nothing. It is the only genuinely local part of this
+     game: no audio is stored and none is sent anywhere.
+   - **The word is what was understood.** Each letter lights as the transcript comes
+     to contain it, by longest-common-subsequence alignment. Not *how close* but
+     **where it diverged**.
+
+   Bars moving and letters dark is a real state and used to be indistinguishable from
+   a dead microphone: the machine heard a sound and made nothing of it.
 3. **The next words are visible ahead.** The queue is what lets the game feel fast on a
    recogniser that is not.
+
+**The article is part of the word.** `der Tisch`, not `Tisch` — reversing the first
+cut, which dropped it to spare the recogniser a syllable. Knowing a German noun means
+knowing its gender and this app is emphatic about that everywhere else; dropping it
+was optimising for the wrong party. It also gives the matcher *more* to work with:
+`die Katze` is a longer and more distinctive target than `Katze`, and one mangled
+syllable of two still lands above the fuzzy floor. The reflexive and the government
+still go — `sich` is not said aloud and `an + A` is notation.
+
+It forced a real fix in the matcher. With a two-word target, `verdict` has to compare
+**contiguous windows** of the transcript, not just whole tokens and the whole string:
+`die Sprache ist schön` contains `die Sprache` and matched nothing at all before.
 
 **Skip is free and clears nothing.** Charging time for a skip would charge the learner
 for the recogniser refusing a word, which is the same error wearing a different coat.

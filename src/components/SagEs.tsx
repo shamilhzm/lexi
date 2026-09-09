@@ -32,6 +32,8 @@ import { useReducedMotion } from 'motion/react';
 import { WORDS } from '../data/index.ts';
 import { levels } from '../store.ts';
 import { support, createListener, type Listener } from '../lib/asr.ts';
+import { alignment } from '../lib/asr-match.ts';
+import { startMeter, type Meter } from '../lib/mic-level.ts';
 import {
   startRun, heard as onHeard, tick, skip, tally, progress, isPlayable, startClock,
   secondsLeft, LOOKAHEAD, type Run,
@@ -118,6 +120,11 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
   const baseline = useRef('');
   /** Consecutive recogniser failures. Reset whenever audio actually arrives. */
   const failures = useRef(0);
+  const meter = useRef<Meter | null>(null);
+  /** Mic level, 0..1, sampled per frame. A ref rather than state: it changes sixty
+   *  times a second and nothing else in the tree needs to re-render for it. */
+  const levelRef = useRef(0);
+  const bars = useRef<HTMLDivElement>(null);
 
   /** Start the track. Idempotent and once per run: the recogniser restarts after
    *  every pause, so re-arming per session would hand out a fresh five seconds each
@@ -129,9 +136,24 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     setRun((r) => (r ? startClock(r, performance.now()) : r));
   }, []);
 
+  // One flag per character of the current word — which letters the transcript has
+  // come to contain. Computed **here**, above the early returns for the intro,
+  // blocked and finished phases: a hook after a conditional return runs in a
+  // different order on different renders, which React forbids and eslint caught.
+  //
+  // `live` is the speech since this word came up, so the letters light for *this*
+  // word and nothing earlier in a `continuous` buffer.
+  const lit = useMemo(() => {
+    const slot = run?.slots[run.index];
+    if (!slot) return [];
+    return alignment(slot.say, slot.caught ? slot.say : live);
+  }, [run, live]);
+
   const stopAll = useCallback(() => {
     listener.current?.stop();
     listener.current = null;
+    meter.current?.stop();
+    meter.current = null;
   }, []);
   useEffect(() => stopAll, [stopAll]);
 
@@ -196,7 +218,19 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
       // `audio-capture` every time, counter reset to zero on every one of them, and
       // the screen saying *Listening…* throughout. Only a transcript proves audio is
       // reaching the recogniser, so only a transcript clears the count.
-      onOpen: () => arm(),
+      onOpen: () => {
+        arm();
+        // **The meter opens second, and only once the recogniser has the mic.**
+        // It is a separate `getUserMedia` stream on the same device, and starting
+        // both at once means two things racing for the microphone and, on a first
+        // run, two permission sheets in an order nobody chose. Optional by
+        // construction: a missing meter costs a decoration, and a recogniser broken
+        // by a decoration would cost the game.
+        if (meter.current) return;
+        void startMeter().then((m) => {
+          if (m && listener.current === l) meter.current = m; else m?.stop();
+        });
+      },
       // **Restart on a timer, not inside the event.** Safari throws
       // `InvalidStateError` when `start()` lands too close to the `end` that
       // preceded it, and the throw used to be swallowed — leaving the game on
@@ -237,7 +271,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     });
     listener.current = l;
     l.listen();
-  }, []);
+  }, [arm]);
 
   // The track's clock. rAF rather than an interval so the bar and the queue move on
   // the same frame; `now` is state so the reducer stays pure and the render is a
@@ -248,6 +282,20 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     const frame = () => {
       const t = performance.now();
       setNow(t);
+      // The meter is written straight to the DOM. Sixty state updates a second for a
+      // row of bars would re-render the word, the queue and the clock along with it.
+      const lv = meter.current?.level() ?? 0;
+      levelRef.current = lv;
+      const row = bars.current;
+      if (row) {
+        for (let i = 0; i < row.children.length; i++) {
+          const el = row.children[i] as HTMLElement;
+          // A standing wave rather than a bar chart: neighbouring bars differ so the
+          // row reads as a voice and not as a progress bar wearing stripes.
+          const w = 0.55 + 0.45 * Math.sin((i / row.children.length) * Math.PI);
+          el.style.transform = `scaleY(${Math.max(0.06, lv * w * 1.9)})`;
+        }
+      }
       const cur = runRef.current;
       if (cur && !cur.done) {
         const next = tick(cur, t);
@@ -395,54 +443,55 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           />
         </div>
 
-        <div className="relative min-h-[128px]">
-          {/* **The word fills up as the recogniser closes in.**
-              
-              This is the only feedback while a word is live, and it is a gauge rather
-              than a mark: it says *how near the transcript has come*, which is a fact
-              about the machine, not a verdict on a mouth. It is a high-water mark, so
-              it only ever rises — a bar that falls back when you say a second thing is
-              reporting noise as failure.
+        {/* **Two signals, and they answer different questions.**
+            
+            The first cut had one: the transcript printed across the word, offset
+            slightly, in the accent colour. On a real phone that was `rudern` under
+            `Rudern Juden Juden Juden Juden wurden` — one unreadable smear, and it
+            still could not say whether the microphone was working at all.
+            
+            So: **the bars are your voice** — raw amplitude off the microphone,
+            nothing to do with recognition, so they move even when the recogniser
+            understands nothing. **The word is what was understood** — each letter
+            lights as the transcript comes to contain it. A learner who sees the bars
+            move and the letters stay dark knows the machine heard a sound and made
+            nothing of it, which is the true state of affairs and was previously
+            indistinguishable from a dead microphone. */}
+        <div ref={bars} className="flex items-end gap-[3px] h-[26px] mb-5" aria-hidden>
+          {Array.from({ length: 28 }, (_, i) => (
+            <span
+              key={i}
+              className="flex-1 bg-accent/45 rounded-full origin-bottom"
+              style={{ height: '100%', transform: 'scaleY(0.06)' }}
+            />
+          ))}
+        </div>
 
-              Painted with `background-clip: text` over a two-stop gradient at double
-              width, so the fill is a *background-position* and can be transitioned;
-              animating a gradient stop directly does not interpolate. The text stays
-              real text underneath — selectable, and read out as itself. */}
-          <p
-            lang="de"
-            className="text-[clamp(34px,9vw,68px)] font-extrabold leading-[1.05] tracking-[-0.03em] break-words"
-            style={{
-              backgroundImage: 'linear-gradient(90deg, var(--color-accent) 50%, var(--color-txt) 50%)',
-              backgroundSize: '200% 100%',
-              backgroundPosition: `${(1 - close) * 100}% 0`,
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              color: 'transparent',
-              transition: reduce ? 'none' : 'background-position 160ms ease-out',
-            }}
-          >
-            {current?.say}
+        <div className="min-h-[104px]">
+          <p lang="de" className="text-[clamp(30px,8vw,60px)] font-extrabold leading-[1.06] tracking-[-0.03em] break-words">
+            {[...(current?.say ?? '')].map((ch, i) => (
+              <span
+                key={i}
+                style={{
+                  color: lit[i] ? 'var(--color-accent)' : 'var(--color-txt)',
+                  opacity: lit[i] ? 1 : 0.32,
+                  transition: reduce ? 'none' : 'color 120ms linear, opacity 120ms linear',
+                }}
+              >
+                {ch}
+              </span>
+            ))}
           </p>
-          {/* **The transcript sits under the word, not across it.**
-              
-              It was overlaid, offset by a tenth of an em and in the same accent
-              colour as the fill — and on a real phone the two were one unreadable
-              smear: `rudern` under `Rudern Juden Juden Juden Juden wurden`, neither
-              legible. The joke only works if you can read both halves of it. Below,
-              smaller, in the warning colour, and marked as what it is. */}
-          {live && (
-            <p aria-hidden className="mt-2 text-[clamp(19px,5vw,30px)] font-bold leading-[1.15]
-              tracking-[-0.02em] break-words text-red/85">
+
+          {/* What it actually heard, once, small, and only when it is not the word.
+              The joke needs the text to be readable, which is the one thing the
+              overlay was not. */}
+          {live && !current?.caught && (
+            <p aria-hidden className="mt-2.5 text-sm font-mono text-red/80 break-words line-clamp-2">
               {live}
             </p>
           )}
         </div>
-
-        {/* The same transcript again, plainly, for anyone the overlay does not reach —
-            it is `aria-hidden` above because two overlapping words read as gibberish. */}
-        <p className="sr-only" aria-live="polite" aria-atomic="true">
-          {live ? `heard: ${live}` : ''}
-        </p>
 
         <div className="mt-5 flex items-baseline gap-4 opacity-45" aria-hidden>
           {ahead.map((s) => (

@@ -16,6 +16,7 @@ const card = (term: string, over: Partial<Word> = {}): Word => ({
 });
 
 const RUN = [card('die Sprache'), card('das Eichhörnchen'), card('die Prämisse')];
+// The spoken form now carries the article — `die Sprache`, not `Sprache`.
 /** A run whose clock is already going, which is every run after the mic opens. */
 const live = (words = RUN) => startClock(startRun(words, 0), 0);
 
@@ -41,7 +42,7 @@ describe('a word stays until it is caught', () => {
     // Waiting for `isFinal` costs the pace the game is made of, and this asserts the
     // trade is actually taken — `heard` is never told which kind it got.
     let run = live();
-    run = heard(run, 'Sprache', []);
+    run = heard(run, 'die Sprache', []);
     expect(run.index).toBe(1);
     expect(run.cleared).toBe(1);
     expect(run.slots[0].state).toBe('caught');
@@ -53,7 +54,7 @@ describe('how close it came', () => {
     // The fill on the word is the only feedback while a word is live. A gauge that
     // drops when the learner says a second thing is reporting noise as failure.
     let run = live();
-    run = heard(run, 'Sprak', []);
+    run = heard(run, 'die Sprak', []);
     const first = run.slots[0].closeness;
     expect(first).toBeGreaterThan(0);
     run = heard(run, 'Auto', []);
@@ -64,7 +65,7 @@ describe('how close it came', () => {
     // `alternative` and `phonetic` can both land well under the fuzzy floor, and a
     // word that counted must not show as three-quarters right.
     let run = live([card('die Prämisse')]);
-    run = heard(run, 'Prämie', ['Prämie', 'Prämisse']);
+    run = heard(run, 'die Prämie', ['die Prämie', 'die Prämisse']);
     expect(run.slots[0].caught).toBe('alternative');
     expect(run.slots[0].closeness).toBe(1);
   });
@@ -125,20 +126,20 @@ describe('skipping', () => {
 describe('the run ends', () => {
   it('and then ignores everything', () => {
     const run = tick(live(), RUN_MS);
-    expect(heard(run, 'Sprache', [])).toBe(run);
+    expect(heard(run, 'die Sprache', [])).toBe(run);
     expect(skip(run)).toBe(run);
     expect(tick(run, 99_999_999)).toBe(run);
   });
 
   it('when the pool runs out, which is a floor rather than a rule', () => {
     let run = live([card('die Sprache')]);
-    run = heard(run, 'Sprache', []);
+    run = heard(run, 'die Sprache', []);
     expect(run.done).toBe(true);
   });
 
   it('with counts and no percentage', () => {
     let run = live();
-    run = heard(run, 'Sprache', []);
+    run = heard(run, 'die Sprache', []);
     run = skip(run);
     expect(tally(run)).toEqual({ cleared: 1, skipped: 1, attempted: 2 });
     expect(Object.keys(tally(run))).not.toContain('rate');
