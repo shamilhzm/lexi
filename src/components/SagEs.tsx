@@ -1,4 +1,4 @@
-// Sag es — say the word before it goes past.
+// Sag es — say the word, and keep saying it until the machine gets it.
 //
 // The mechanic is lifted from the meme this came from (*"impossible for a Scottish
 // person"*), and two details of it are load-bearing rather than decorative:
@@ -33,14 +33,16 @@ import { WORDS } from '../data/index.ts';
 import { levels } from '../store.ts';
 import { support, createListener, type Listener } from '../lib/asr.ts';
 import {
-  startRun, heard as onHeard, tick, skip, tally, progress, isPlayable, resetDeadline,
-  LOOKAHEAD, type Run,
+  startRun, heard as onHeard, tick, skip, tally, progress, isPlayable, startClock,
+  secondsLeft, LOOKAHEAD, type Run,
 } from '../lib/sages.ts';
 import Button from './ui/Button.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Word, CEFR } from '../types.ts';
 
-const RUN_LENGTH = 12;
+/** Words in the pool, not words in a run. A run is a minute long and nobody clears
+ *  forty; this is a floor so the queue cannot run dry, not a target. */
+const POOL = 40;
 
 /** Pick a run. Shuffled rather than ordered, and inside the learner's own level
  *  filter — the game is not a place to meet C2 vocabulary you have not chosen. */
@@ -48,7 +50,7 @@ function pickWords(levelFilter: Set<CEFR>): Word[] {
   const pool = WORDS.filter((w) => levelFilter.has(w.level) && isPlayable(w));
   const out: Word[] = [];
   const seen = new Set<number>();
-  while (out.length < RUN_LENGTH && seen.size < pool.length) {
+  while (out.length < POOL && seen.size < pool.length) {
     const i = Math.floor(Math.random() * pool.length);
     if (seen.has(i)) continue;
     seen.add(i);
@@ -90,7 +92,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     if (armedRef.current) return;
     armedRef.current = true;
     setArmed(true);
-    setRun((r) => (r ? resetDeadline(r, performance.now()) : r));
+    setRun((r) => (r ? startClock(r, performance.now()) : r));
   }, []);
 
   const stopAll = useCallback(() => {
@@ -120,7 +122,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
         arm(); // some engines never fire `onaudiostart`; hearing something proves it
         const cur = runRef.current;
         if (!cur || cur.done) return;
-        const next = onHeard(cur, h.text, h.alternatives, performance.now());
+        const next = onHeard(cur, h.text, h.alternatives);
         if (next !== cur) {
           if (next.index !== cur.index) setLive('');
           setRun(next);
@@ -196,10 +198,14 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
       <Frame onExit={onExit}>
         <div className="max-w-[460px]">
           <Kicker tone="accent" className="block mb-1.5">Sag es</Kicker>
-          <h2 className="text-2xl font-bold mb-2">Say the word before it goes past</h2>
+          {/* Not "before it goes past" any more: a word no longer expires, because a
+              word that expires is the recogniser's failure charged to the learner.
+              The clock belongs to the run. */}
+          <h2 className="text-2xl font-bold mb-2">Clear as many words as you can</h2>
           <p className="text-dim mb-4">
-            Twelve words, one after another. Whatever the recogniser hears gets printed
-            over the top — which is the fun of it, and usually not your fault.
+            One minute. A word stays until the recogniser catches it, and the word
+            fills up as it gets closer — so you can see it closing in. Clear as many
+            as you can.
           </p>
           {/* The disclosure, before the microphone opens rather than after. Lexi keeps
               everything else on this device; this is the exception and it says so. */}
@@ -224,13 +230,15 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           {/* Counts, never a percentage. A rate presented as a result reads as a mark
               for the learner's mouth, and this game does not give one. */}
           <h2 className="text-2xl font-bold mb-1">
-            {t.caught} of {t.total} caught
+            {t.cleared} {t.cleared === 1 ? 'word' : 'words'} cleared
           </h2>
           <p className="text-dim mb-5">
-            Longest run {t.best}. The ones it missed are below with what it heard instead.
+            {t.skipped > 0
+              ? `${t.skipped} skipped — here is what the recogniser heard on those.`
+              : 'Everything you reached, it caught.'}
           </p>
           <ul className="mb-6 border-t border-line">
-            {run.slots.map((s) => (
+            {run.slots.slice(0, run.index).map((s) => (
               <li key={s.word.id} className="flex items-baseline gap-3 py-2 border-b border-line">
                 <span lang="de" className={`flex-1 min-w-0 truncate ${s.state === 'caught' ? '' : 'text-dim'}`}>
                   {s.say}
@@ -253,39 +261,69 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
   if (!run) return null;
 
   const p = progress(run, now);
+  const left = secondsLeft(run, now);
   const current = run.slots[run.index];
   const ahead = run.slots.slice(run.index + 1, run.index + 1 + LOOKAHEAD);
+  const close = current?.closeness ?? 0;
 
   return (
     <Frame onExit={onExit}>
       <div className="w-full max-w-[640px]">
         <div className="flex items-baseline justify-between mb-3">
-          <Kicker tone="accent">{run.index + 1} / {run.slots.length}</Kicker>
-          <span className="text-xs text-dim font-mono tabular-nums">
-            {run.streak > 1 ? `${run.streak} in a row` : ''}
+          {/* The score is the count of words cleared, and it is the only number the
+              game keeps. No percentage: a rate reads as a mark for the learner's
+              mouth, which is the thing this game refuses to give. */}
+          <span className="text-2xl font-extrabold tabular-nums">
+            {run.cleared}
+            <span className="text-sm font-semibold text-dim ml-1.5">cleared</span>
+          </span>
+          <span className={`text-sm font-mono tabular-nums ${left <= 10 ? 'text-red' : 'text-dim'}`}>
+            {armed ? `${left}s` : '—'}
           </span>
         </div>
 
-        {/* The track. The bar is the deadline made visible — the word is not being
-            timed *by* something, it is moving *past* you. */}
+        {/* The clock, and it belongs to the *run*. A word has no deadline: a word
+            that expires is the recogniser's failure charged to the learner. */}
         <div className="h-[3px] bg-panel2 rounded-full overflow-hidden mb-7" aria-hidden>
           <div
             className="h-full bg-accent rounded-full"
-            style={{ width: `${(1 - p) * 100}%`, transition: reduce ? 'width .2s linear' : 'none' }}
+            style={{ width: `${(1 - p) * 100}%`, transition: reduce ? 'width .25s linear' : 'none' }}
           />
         </div>
 
-        <div className="relative min-h-[190px]">
-          {/* The word, and the transcript across it. Both in the same box, both
-              centred on the same baseline, so the overlap is the point. */}
-          <p lang="de" className="text-[clamp(34px,9vw,68px)] font-extrabold leading-[1.05] tracking-[-0.03em] break-words">
+        <div className="relative min-h-[128px]">
+          {/* **The word fills up as the recogniser closes in.**
+              
+              This is the only feedback while a word is live, and it is a gauge rather
+              than a mark: it says *how near the transcript has come*, which is a fact
+              about the machine, not a verdict on a mouth. It is a high-water mark, so
+              it only ever rises — a bar that falls back when you say a second thing is
+              reporting noise as failure.
+
+              Painted with `background-clip: text` over a two-stop gradient at double
+              width, so the fill is a *background-position* and can be transitioned;
+              animating a gradient stop directly does not interpolate. The text stays
+              real text underneath — selectable, and read out as itself. */}
+          <p
+            lang="de"
+            className="text-[clamp(34px,9vw,68px)] font-extrabold leading-[1.05] tracking-[-0.03em] break-words"
+            style={{
+              backgroundImage: 'linear-gradient(90deg, var(--color-accent) 50%, var(--color-txt) 50%)',
+              backgroundSize: '200% 100%',
+              backgroundPosition: `${(1 - close) * 100}% 0`,
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              transition: reduce ? 'none' : 'background-position 160ms ease-out',
+            }}
+          >
             {current?.say}
           </p>
           {live && (
             <p
               aria-hidden
               className="absolute inset-x-0 top-0 text-[clamp(30px,8vw,60px)] font-extrabold leading-[1.05]
-                tracking-[-0.03em] break-words text-accent/70 pointer-events-none translate-y-[0.18em] translate-x-[0.1em]"
+                tracking-[-0.03em] break-words text-accent/60 pointer-events-none translate-y-[0.18em] translate-x-[0.1em]"
             >
               {live}
             </p>
@@ -298,14 +336,16 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           {live ? `heard: ${live}` : ''}
         </p>
 
-        <div className="mt-8 flex items-baseline gap-4 opacity-45" aria-hidden>
+        <div className="mt-5 flex items-baseline gap-4 opacity-45" aria-hidden>
           {ahead.map((s) => (
             <span key={s.word.id} lang="de" className="text-lg font-bold truncate">{s.say}</span>
           ))}
         </div>
 
-        <div className="mt-8 flex items-center gap-2">
-          <Button variant="secondary" onClick={() => { setRun(skip(run, performance.now())); setLive(''); }}>
+        <div className="mt-7 flex items-center gap-2">
+          {/* Free, and it clears nothing. Charging time for a skip would charge the
+              learner for the recogniser refusing a word. */}
+          <Button variant="secondary" onClick={() => { setRun(skip(run)); setLive(''); }}>
             Skip
           </Button>
           <span className="text-xs text-dim">

@@ -391,7 +391,7 @@ export default function App() {
                         onProfile={() => go('profile')}
                       />
                     )}
-                    {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} />}
+                    {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} onGame={() => setGame(true)} />}
                     {/* The heatmap is a map *of the corpus*, so its drill-down lands in
                         the corpus rather than one level further into a stats page. An
                         empty group name means "the index" — the browse-everything row

@@ -4,7 +4,10 @@
 // microphone, no browser and no clock — which is what let the game be built while
 // three of its four empirical gates were still unmeasured.
 import { describe, it, expect } from 'vitest';
-import { startRun, heard, tick, skip, tally, progress, isPlayable, syllables, resetDeadline, WORD_MS } from './sages.ts';
+import {
+  startRun, heard, tick, skip, tally, progress, secondsLeft, startClock,
+  isPlayable, syllables, RUN_MS,
+} from './sages.ts';
 import type { Word } from '../types.ts';
 
 const card = (term: string, over: Partial<Word> = {}): Word => ({
@@ -13,118 +16,131 @@ const card = (term: string, over: Partial<Word> = {}): Word => ({
 });
 
 const RUN = [card('die Sprache'), card('das Eichhörnchen'), card('die Prämisse')];
+/** A run whose clock is already going, which is every run after the mic opens. */
+const live = (words = RUN) => startClock(startRun(words, 0), 0);
 
-describe('a word is settled by the first transcript that contains it', () => {
-  it('advances on an interim result rather than waiting for the final one', () => {
+describe('a word stays until it is caught', () => {
+  it('does not advance on a transcript that is not the word', () => {
+    // The rule the whole game turns on. A word that expires is the recogniser's
+    // failure charged to the learner, and it is the one thing this must never do.
+    let run = live();
+    run = heard(run, 'Kuchen', []);
+    run = heard(run, 'Fahrrad', []);
+    expect(run.index).toBe(0);
+    expect(run.cleared).toBe(0);
+  });
+
+  it('is never taken away by the clock', () => {
+    let run = live();
+    run = tick(run, RUN_MS - 1);
+    expect(run.index).toBe(0);
+    expect(run.done).toBe(false);
+  });
+
+  it('advances on the first transcript that contains it, interim or final', () => {
     // Waiting for `isFinal` costs the pace the game is made of, and this asserts the
     // trade is actually taken — `heard` is never told which kind it got.
-    let run = startRun(RUN, 0);
-    run = heard(run, 'Sprache', [], 100);
+    let run = live();
+    run = heard(run, 'Sprache', []);
     expect(run.index).toBe(1);
+    expect(run.cleared).toBe(1);
     expect(run.slots[0].state).toBe('caught');
-    expect(run.streak).toBe(1);
-  });
-
-  it('stays put while the recogniser is saying something else', () => {
-    let run = startRun(RUN, 0);
-    run = heard(run, 'Kuchen', [], 100);
-    expect(run.index).toBe(0);
-    expect(run.slots[0].state).toBe('waiting');
-    expect(run.streak).toBe(0);
-  });
-
-  it('keeps the closest thing it heard, so the overlay has something to print', () => {
-    // The overlay is the whole feedback mechanism. A word that was not caught still
-    // has to show *what was heard instead* — that is the joke and the honesty. It is
-    // the closest *token*, not the whole utterance: printing "ich sage Kuchen bitte"
-    // across a word is not a punchline, it is a paragraph.
-    let run = startRun(RUN, 0);
-    run = heard(run, 'ich sage Kuchen bitte', [], 100);
-    expect(run.slots[0].heard).toBe('sage');
-    expect(run.slots[0].caught).toBeNull();
   });
 });
 
-describe('the track is the timer', () => {
-  it('lets a word go by when its deadline passes', () => {
-    let run = startRun(RUN, 0);
-    run = tick(run, WORD_MS - 1);
-    expect(run.index).toBe(0);
-    run = tick(run, WORD_MS);
-    expect(run.index).toBe(1);
-    expect(run.slots[0].state).toBe('missed');
+describe('how close it came', () => {
+  it('rises toward the word and never falls back', () => {
+    // The fill on the word is the only feedback while a word is live. A gauge that
+    // drops when the learner says a second thing is reporting noise as failure.
+    let run = live();
+    run = heard(run, 'Sprak', []);
+    const first = run.slots[0].closeness;
+    expect(first).toBeGreaterThan(0);
+    run = heard(run, 'Auto', []);
+    expect(run.slots[0].closeness).toBe(first);
   });
 
-  it('restarts the deadline for each word rather than running one clock', () => {
-    // A shared clock would punish a learner for the *previous* word being slow.
-    let run = startRun(RUN, 0);
-    run = heard(run, 'Sprache', [], 4000);
-    expect(run.startedAt).toBe(4000);
-    expect(progress(run, 4000)).toBe(0);
+  it('is full on a hit however the hit was scored', () => {
+    // `alternative` and `phonetic` can both land well under the fuzzy floor, and a
+    // word that counted must not show as three-quarters right.
+    let run = live([card('die Prämisse')]);
+    run = heard(run, 'Prämie', ['Prämie', 'Prämisse']);
+    expect(run.slots[0].caught).toBe('alternative');
+    expect(run.slots[0].closeness).toBe(1);
   });
 
-  it('reports progress through the current word, and nothing else', () => {
-    const run = startRun(RUN, 0);
+  it('starts at nothing', () => {
+    expect(live().slots[0].closeness).toBe(0);
+  });
+});
+
+describe('the clock belongs to the run', () => {
+  it('does not start until the microphone opens', () => {
+    // iOS shows up to *two* system dialogs between Start and audio arriving — Speech
+    // Recognition, then Microphone. Measured on the Simulator before this existed: a
+    // run was on word 8 by the time the second was answered, and every one of those
+    // words was "missed" by nobody but the app's own timer.
+    const cold = startRun(RUN, 0);
+    expect(progress(cold, 60_000)).toBe(0);
+    expect(tick(cold, 10_000_000).done).toBe(false);
+    const hot = startClock(cold, 5_000);
+    expect(hot.endsAt).toBe(5_000 + RUN_MS);
+  });
+
+  it('ends the run when it runs out, and not before', () => {
+    let run = live();
+    run = tick(run, RUN_MS - 1);
+    expect(run.done).toBe(false);
+    run = tick(run, RUN_MS);
+    expect(run.done).toBe(true);
+  });
+
+  it('counts down in whole seconds', () => {
+    const run = live();
+    expect(secondsLeft(run, 0)).toBe(RUN_MS / 1000);
+    expect(secondsLeft(run, RUN_MS - 1)).toBe(1);
+    expect(secondsLeft(run, RUN_MS + 5_000)).toBe(0);
+  });
+
+  it('reports progress through the run', () => {
+    const run = live();
     expect(progress(run, 0)).toBe(0);
-    expect(progress(run, WORD_MS / 2)).toBeCloseTo(0.5);
-    expect(progress(run, WORD_MS * 2)).toBe(1);
-  });
-
-  it('breaks the streak on a word that went past, and remembers the best', () => {
-    let run = startRun(RUN, 0);
-    run = heard(run, 'Sprache', [], 100);
-    expect(run.streak).toBe(1);
-    run = tick(run, 100 + WORD_MS);
-    expect(run.streak).toBe(0);
-    expect(run.best).toBe(1);
+    expect(progress(run, RUN_MS / 2)).toBeCloseTo(0.5);
+    expect(progress(run, RUN_MS * 2)).toBe(1);
   });
 });
 
-describe('the clock does not start before the microphone does', () => {
-  // Found by driving it on the Simulator: iOS shows up to *two* system dialogs
-  // between pressing Start and audio arriving — Speech Recognition, then Microphone
-  // — and the first version ran its track through both. A twelve-word run was on
-  // word 8 by the time the second was answered: seven words missed, none of them by
-  // the learner, which is the exact failure this game exists to never produce.
-  it('can be put back to the start of the current word', () => {
-    let run = startRun(RUN, 0);
-    expect(progress(run, 4000)).toBeCloseTo(0.8);
-    run = resetDeadline(run, 4000);
-    expect(progress(run, 4000)).toBe(0);
-    expect(run.index).toBe(0);        // and it is not an advance
-    expect(run.slots[0].state).toBe('waiting');
-  });
-
-  it('leaves a finished run alone', () => {
-    const run = { ...startRun([], 0) };
-    expect(resetDeadline(run, 999)).toBe(run);
+describe('skipping', () => {
+  it('moves on and clears nothing', () => {
+    // Free on purpose. Charging time for a skip charges the learner for the
+    // recogniser refusing a word, which is the same error in a different coat.
+    let run = live();
+    run = skip(run);
+    expect(run.index).toBe(1);
+    expect(run.cleared).toBe(0);
+    expect(run.slots[0].state).toBe('missed');
   });
 });
 
 describe('the run ends', () => {
-  it('when the last word resolves, however it resolved', () => {
-    let run = startRun([card('die Sprache')], 0);
-    run = skip(run, 10);
-    expect(run.done).toBe(true);
-    expect(tally(run)).toEqual({ total: 1, caught: 0, best: 0 });
-  });
-
   it('and then ignores everything', () => {
-    let run = startRun([card('die Sprache')], 0);
-    run = skip(run, 10);
-    const after = heard(run, 'Sprache', [], 20);
-    expect(after).toBe(run);
-    expect(tick(run, 99_999)).toBe(run);
+    const run = tick(live(), RUN_MS);
+    expect(heard(run, 'Sprache', [])).toBe(run);
+    expect(skip(run)).toBe(run);
+    expect(tick(run, 99_999_999)).toBe(run);
   });
 
-  it('with counts and a streak, and no percentage', () => {
-    // `Tally` has no rate on purpose: a percentage presented as a result reads as a
-    // mark for the learner's mouth, which is the thing this game refuses to give.
-    let run = startRun(RUN, 0);
-    run = heard(run, 'Sprache', [], 10);
-    run = heard(run, 'Eichhörnchen', [], 20);
-    run = tick(run, 20 + WORD_MS);
-    expect(tally(run)).toEqual({ total: 3, caught: 2, best: 2 });
+  it('when the pool runs out, which is a floor rather than a rule', () => {
+    let run = live([card('die Sprache')]);
+    run = heard(run, 'Sprache', []);
+    expect(run.done).toBe(true);
+  });
+
+  it('with counts and no percentage', () => {
+    let run = live();
+    run = heard(run, 'Sprache', []);
+    run = skip(run);
+    expect(tally(run)).toEqual({ cleared: 1, skipped: 1, attempted: 2 });
     expect(Object.keys(tally(run))).not.toContain('rate');
   });
 
@@ -145,7 +161,6 @@ describe('which cards the game may ask for', () => {
   });
 
   it('refuses function words even when they have two syllables', () => {
-    // `auch` is one syllable; `aber` is two and is still not a word to say alone.
     expect(isPlayable(card('aber', { pos: 'conjunction', gender: null }))).toBe(false);
     expect(isPlayable(card('unter', { pos: 'preposition', gender: null }))).toBe(false);
   });
@@ -153,7 +168,7 @@ describe('which cards the game may ask for', () => {
   it('refuses anything that is not one word', () => {
     // Found on the phone at word 3 of a run: the lookahead was showing
     // *Ich kann lange schlafen.* A pattern card is a fine thing to teach and a
-    // hopeless thing to shout at a deadline.
+    // hopeless thing to shout at a clock.
     expect(isPlayable(card('Ich kann lange schlafen.', { pos: 'phrase', gender: null }))).toBe(false);
     expect(isPlayable(card('es gibt + A', { pos: 'phrase', gender: null }))).toBe(false);
     expect(isPlayable(card('der öffentliche Nahverkehr'))).toBe(false);

@@ -32,6 +32,28 @@ disclosed in Lexi's own words *before* the microphone opens. iOS then shows two 
 of its own — Speech Recognition, then Microphone — and Lexi's line is the one that
 comes first.
 
+#### Revised the same day: a word never expires
+
+The first cut gave every word a deadline and let it go past. That is the meme's shape
+and the wrong shape for this app — **a word that expires is the recogniser's failure
+charged to the learner**, which is the one thing the game exists not to do. So the
+pressure moved up a level: **the run has a clock, a word does not.** One minute, the
+score is words cleared, and a word that will not be caught costs time rather than a
+mark. You race a clock; you never fail a word. Skip is free and clears nothing, because
+charging for a skip charges the learner for the recogniser refusing a word.
+
+And the word now **fills up as the recogniser closes in** — the only feedback while a
+word is live, painted with `background-clip: text` over a double-width gradient so the
+fill is a background-*position* and can be transitioned (animating a gradient stop does
+not interpolate). It is a high-water mark: a gauge that falls back when you say a
+second thing is reporting noise as failure. A hit fills it completely whatever the
+string distance says, because `alternative` and `phonetic` hits can land under the
+fuzzy floor and a word that counted must not read as three-quarters right.
+
+**And it is reachable.** It was offered from the session recap alone — behind the most
+expensive door in the app. It is now in **Themen**, under the text scanner, on the
+surface that lists things you can do.
+
 #### Built as four pieces so three of them need no microphone
 
 `asr-match.ts` (normalisation, Kölner Phonetik, Levenshtein, one `verdict`),

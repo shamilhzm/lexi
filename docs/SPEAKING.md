@@ -12,16 +12,38 @@ From the meme (*"This is impossible for a Scottish person"*): a word arrives, yo
 it out loud, and the recogniser's live transcript is **printed over the top of the
 word**. The joke is the overlay — `JUNE` sitting across `JANUARY` — not a score.
 
-Two mechanics are visible in the source clip and both are load-bearing:
+Three mechanics, all load-bearing:
 
-1. **The words come on a track, and the next one is already on screen.** Pacing comes
-   from the queue moving, not from a per-word timer starting after you finish. This
-   matters more than it looks: it means recogniser latency does not have to be low for
-   the game to feel fast, because the learner is never waiting on a verdict before the
-   next word exists.
-2. **The transcript overlays the target.** The unit of feedback is *what the machine
-   heard*, rendered against what was asked for. There is no tick, no cross, and no
-   number.
+1. **A word stays until it is caught.** *(Changed from the first cut, and it is the
+   rule the game turns on.)* The first version gave each word a deadline and let it go
+   past — the meme's shape, and the wrong shape here: a word that expires is the
+   recogniser's failure charged to the learner. So the pressure moved up a level. **The
+   run has a clock; a word does not.** One minute, and the score is how many words you
+   clear. A word that will not be caught costs you *time* rather than a mark against
+   it. You are racing a clock, never failing a word.
+2. **The transcript overlays the target,** and **the word fills as the recogniser
+   closes in.** The fill is the only feedback while a word is live, and it is a gauge
+   rather than a mark: it says how near the transcript has come, which is a fact about
+   the machine. A high-water mark, so it only ever rises — a bar that falls back when
+   you say a second thing is reporting noise as failure. A hit fills it completely
+   whatever the string distance says, because `alternative` and `phonetic` hits can
+   both land under the fuzzy floor and a word that counted must not read as
+   three-quarters right.
+3. **The next words are visible ahead.** The queue is what lets the game feel fast on a
+   recogniser that is not.
+
+**Skip is free and clears nothing.** Charging time for a skip would charge the learner
+for the recogniser refusing a word, which is the same error wearing a different coat.
+
+## How you get to it
+
+Three ways, and the first two are new because the original was unreachable in practice:
+
+- **Themen**, under the text scanner — the surface that lists things you can *do*.
+- **The session recap**, the one moment the app knows you owe nothing.
+- ~~Üben's empty state~~ — where it started, and where nobody would ever have found it:
+  that branch needs no fresh cards either, which this app's own comment says never
+  happens inside a 6,700-word corpus.
 
 ## Why it belongs in Lexi, and the ruling it has to survive
 
