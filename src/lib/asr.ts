@@ -86,6 +86,16 @@ export interface Listener {
   stop(): void;
   /** Whether a session is currently open. */
   active(): boolean;
+  /** Sessions started, sessions ended, results seen, and the last error string.
+   *
+   *  Not decoration. A recogniser that never hears anything, one that is refused a
+   *  language, one that ends instantly on every start, and one that was never
+   *  granted a microphone all look the same on screen: a word, and nothing
+   *  happening. These four numbers separate them. */
+  stats(): {
+    starts: number; ends: number; results: number;
+    last: string | null; continuous: boolean;
+  };
 }
 
 export interface ListenerOpts {
@@ -113,6 +123,14 @@ export function createListener(opts: ListenerOpts): Listener {
   const now = opts.now ?? (() => (typeof performance !== 'undefined' ? performance.now() : Date.now()));
   let rec: SpeechRecognitionLike | null = null;
   let t0 = 0;
+  // Diagnostics. A speech recogniser fails silently in four different ways and they
+  // are indistinguishable on screen; these are what `SagEs` shows in dev.
+  let starts = 0, ends = 0, results = 0;
+  let last: string | null = null;
+  let continuous = true;
+  let emptyQuickEnds = 0;
+  let sessionStart = 0;
+  let sessionResults = 0;
 
   function teardown() {
     if (!rec) return;
@@ -123,6 +141,7 @@ export function createListener(opts: ListenerOpts): Listener {
 
   return {
     active: () => rec !== null,
+    stats: () => ({ starts, ends, results, last, continuous }),
     stop: teardown,
     listen() {
       if (!Rec) { opts.onError?.('unsupported'); return; }
@@ -134,9 +153,21 @@ export function createListener(opts: ListenerOpts): Listener {
       // after the learner has stopped speaking, which is a beat too late to print
       // over a word that is still moving.
       r.interimResults = true;
-      r.continuous = false;
+      // Ask for a session that survives a pause. iOS ends a non-continuous session
+      // within a second or two of silence, and a game whose learner is still reading
+      // the word is deaf by the time they speak.
+      //
+      // **And give up on it if it does not work.** `continuous` is honoured by
+      // Chrome, ignored by some builds and actively harmful on others — a session
+      // that ends instantly, every time, with nothing heard. There is no capability
+      // flag to ask, so this asks by *trying*: two consecutive sessions that end
+      // within a second having produced nothing, and the next one drops the flag.
+      // Self-correcting beats a user-agent test that is wrong next release.
+      r.continuous = continuous;
       r.maxAlternatives = 5;
       t0 = now();
+      sessionStart = t0;
+      sessionResults = 0;
       r.onaudiostart = () => opts.onOpen?.();
 
       r.onresult = (e) => {
@@ -144,6 +175,8 @@ export function createListener(opts: ListenerOpts): Listener {
         if (!res) return;
         const alternatives: string[] = [];
         for (let i = 0; i < res.length; i++) alternatives.push((res[i]?.transcript ?? '').trim());
+        results += 1;
+        sessionResults += 1;
         opts.onHeard({
           text: alternatives[0] ?? '',
           alternatives,
@@ -152,14 +185,36 @@ export function createListener(opts: ListenerOpts): Listener {
         });
       };
       r.onerror = (e) => {
+        last = e.error;
         // `no-speech` and `aborted` are how a normal turn ends when nobody spoke or
-        // the caller moved on. Neither is worth telling a learner about.
+        // the caller moved on. Neither is worth telling a learner about — but they
+        // are still recorded, because "it never hears anything" and "it errors every
+        // time" look identical from the outside and need different fixes.
         if (e.error === 'no-speech' || e.error === 'aborted') return;
         opts.onError?.(e.error);
       };
-      r.onend = () => { rec = null; opts.onEnd?.(); };
+      r.onend = () => {
+        rec = null;
+        ends += 1;
+        if (sessionResults === 0 && now() - sessionStart < 1000) {
+          emptyQuickEnds += 1;
+          if (emptyQuickEnds >= 2 && continuous) { continuous = false; emptyQuickEnds = 0; }
+        } else {
+          emptyQuickEnds = 0;
+        }
+        opts.onEnd?.();
+      };
 
-      try { r.start(); } catch { opts.onError?.('start-failed'); teardown(); }
+      try { r.start(); starts += 1; }
+      catch (err) {
+        // Safari throws here when asked to start a recogniser that is already
+        // running, and iOS can refuse a start that is not inside a user gesture.
+        // Swallowing it left the game alive on screen and deaf — the exact symptom
+        // this counter exists to tell apart from "nobody spoke".
+        last = `start-failed: ${(err as Error)?.name ?? 'unknown'}`;
+        opts.onError?.('start-failed');
+        teardown();
+      }
     },
   };
 }

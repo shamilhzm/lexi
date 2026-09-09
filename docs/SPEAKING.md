@@ -200,6 +200,50 @@ a microphone prompt on top of that is a second ask during a first impression.
 
 ---
 
+## When it does not hear you
+
+Reported from a real phone: *"it opens but it doesn't react to my voice"*. Driving it
+on the Simulator with the diagnostics turned on showed what that looks like from
+inside:
+
+```
+starts 25 · ends 24 · results 0 · live true · audio-capture
+```
+
+**Twenty-five sessions in twenty seconds, not one transcript, an `audio-capture` error
+every time — and the screen said *Listening…* throughout.** Three defects, and the
+third is the one that matters:
+
+1. **The restart ran inside the `end` event.** Safari throws `InvalidStateError` when
+   `start()` lands too close to the `end` before it. Now it restarts on a 300 ms timer.
+2. **`continuous` is not safe to assume.** It is honoured by Chrome, ignored by some
+   builds and harmful on others — a session that ends instantly, every time. There is
+   no capability flag to ask, so `asr.ts` asks by *trying*: two consecutive sessions
+   that end inside a second having heard nothing, and the next one drops the flag.
+   Self-correcting beats a user-agent test that is wrong next release.
+3. **The failure counter was cleared by the microphone opening.** Which is exactly
+   what a broken capture does *before* it fails — so the guard reset itself 24 times
+   and never fired. **Only a transcript proves audio is reaching the recogniser**, so
+   only a transcript clears the count now.
+
+And the app admits it. After six seconds of an armed run with nothing heard, the status
+line says **"Not hearing anything — is the mic blocked?"**, and a one-line readout of
+what the recogniser actually did appears — *shipped, not dev-only*, because it only
+shows in a failure state and it is the difference between "it doesn't work" and a bug
+report:
+
+```
+started 2 · ended 2 · heard 0 · aborted
+```
+
+**What is still unverified: live recognition, anywhere.** The iOS Simulator cannot
+capture audio (`audio-capture` on every session) and the browser pane blocks the
+microphone outright. Both refusals are now handled correctly and both were *observed* —
+but nobody has yet watched this game catch a single spoken word, and this file will not
+pretend otherwise until `npm run probe:asr` has been run by a person with a mouth.
+
+---
+
 ## What is built
 
 | | Module | What it is | Tested without a microphone |

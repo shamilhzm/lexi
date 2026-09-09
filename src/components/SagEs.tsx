@@ -79,11 +79,21 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
    *  them by the learner. That is the exact failure this game is built to never
    *  produce, arriving from the app's own clock rather than from a recogniser. */
   const [armed, setArmed] = useState(false);
+  /** Has the recogniser produced a single transcript this run?
+   *
+   *  Its own state because the honest thing to show when the answer is *no* after
+   *  several seconds is **"nothing is reaching the microphone"**, not *Listening…*.
+   *  A game that pretends to hear you while erroring twenty-four times is worse than
+   *  one that admits it is deaf. */
+  const [everHeard, setEverHeard] = useState(false);
+  const [quiet, setQuiet] = useState(false);
 
   const listener = useRef<Listener | null>(null);
   const runRef = useRef<Run | null>(null);
   runRef.current = run;
   const armedRef = useRef(false);
+  /** Consecutive recogniser failures. Reset whenever audio actually arrives. */
+  const failures = useRef(0);
 
   /** Start the track. Idempotent and once per run: the recogniser restarts after
    *  every pause, so re-arming per session would hand out a fresh five seconds each
@@ -110,6 +120,9 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     setError(null);
     setArmed(false);
     armedRef.current = false;
+    setEverHeard(false);
+    setQuiet(false);
+    failures.current = 0;
     setPhase('playing');
 
     // One long-lived listener, restarted when the engine ends a turn. A recogniser
@@ -119,6 +132,9 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     const l = createListener({
       onHeard: (h) => {
         setLive(h.text);
+        failures.current = 0;
+        setEverHeard(true);
+        setQuiet(false);
         arm(); // some engines never fire `onaudiostart`; hearing something proves it
         const cur = runRef.current;
         if (!cur || cur.done) return;
@@ -130,12 +146,48 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
       },
       // Arm once per run, not once per session: the recogniser stops after every
       // pause and is restarted below, so a per-session reset would hand the learner
-      // a fresh five seconds every time they stopped talking.
+      // a fresh clock every time they stopped talking.
+      // **Arming is not proof.** The first version cleared the failure counter here,
+      // and the microphone opening is exactly what a broken capture does before it
+      // fails: measured on the Simulator, 25 starts and 24 ends in twenty seconds,
+      // `audio-capture` every time, counter reset to zero on every one of them, and
+      // the screen saying *Listening…* throughout. Only a transcript proves audio is
+      // reaching the recogniser, so only a transcript clears the count.
       onOpen: () => arm(),
-      onEnd: () => { if (!runRef.current?.done) l.listen(); },
+      // **Restart on a timer, not inside the event.** Safari throws
+      // `InvalidStateError` when `start()` lands too close to the `end` that
+      // preceded it, and the throw used to be swallowed — leaving the game on
+      // screen, saying *Listening…*, and completely deaf. A short gap and a
+      // failure count is the difference between a recogniser that is resting and
+      // one that has died.
+      onEnd: () => {
+        if (runRef.current?.done || !listener.current) return;
+        window.setTimeout(() => {
+          if (listener.current === l && !runRef.current?.done) l.listen();
+        }, 300);
+      },
       onError: (e) => {
         if (e === 'not-allowed' || e === 'service-not-allowed') {
           setError('Lexi needs the microphone for this one. Allow it in your browser settings and start again.');
+          setPhase('blocked');
+          return;
+        }
+        if (e === 'audio-capture') {
+          setError('No audio is reaching the microphone. On a simulator that is normal — '
+            + 'on a phone, check that nothing else is using the mic.');
+          setPhase('blocked');
+          return;
+        }
+        if (e === 'language-not-supported') {
+          setError('This device has no German speech recognition installed, so Lexi cannot hear German here.');
+          setPhase('blocked');
+          return;
+        }
+        // Everything else: give it a few goes, then say so rather than sitting there
+        // pretending to listen.
+        failures.current += 1;
+        if (failures.current >= 4) {
+          setError(`The recogniser keeps stopping (${e}). That is the browser, not you — try again, or use Chrome.`);
           setPhase('blocked');
         }
       },
@@ -164,6 +216,14 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     return () => cancelAnimationFrame(raf);
   }, [phase, armed]);
 
+  // Say so if nothing is arriving. Six seconds of an armed run with no transcript at
+  // all is not a slow learner, it is a microphone that is not working.
+  useEffect(() => {
+    if (phase !== 'playing' || !armed || everHeard) return;
+    const t = setTimeout(() => setQuiet(true), 6000);
+    return () => clearTimeout(t);
+  }, [phase, armed, everHeard]);
+
   // Not every engine fires `onaudiostart`. If none arrives, arm on the first thing
   // heard, and failing that on a timer — a game that waits forever for an event the
   // browser may never send is worse than one that starts a beat late.
@@ -186,7 +246,8 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
             <MicOff size={22} className="text-dim" />
           </span>
           <h2 className="text-xl font-bold mb-2">This one needs a microphone</h2>
-          <p className="text-dim mb-6">{error ?? cap.reason}</p>
+          <p className="text-dim mb-4">{error ?? cap.reason}</p>
+          <Stats listener={listener.current} className="mb-6" />
           <Button variant="secondary" onClick={onExit}>Back to Üben</Button>
         </div>
       </Frame>
@@ -342,18 +403,47 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           ))}
         </div>
 
+        {/* **Shipped, not dev-only, and only when something is wrong.**
+            
+            Four different silent failures look identical on this screen: no audio
+            reaching the mic, no German language pack, a `start()` that throws, a
+            permission never granted. Measured on the Simulator, the game ran for
+            twenty seconds saying *Listening…* while the recogniser started 25 times,
+            ended 24, and returned `audio-capture` on every one.
+            
+            A learner cannot fix that, but they can *report* it, and a line of counts
+            is the difference between "it doesn't work" and something actionable.
+            It appears only once the app has admitted it is deaf. */}
+        {quiet && <Stats listener={listener.current} />}
+
         <div className="mt-7 flex items-center gap-2">
           {/* Free, and it clears nothing. Charging time for a skip would charge the
               learner for the recogniser refusing a word. */}
           <Button variant="secondary" onClick={() => { setRun(skip(run)); setLive(''); }}>
             Skip
           </Button>
-          <span className="text-xs text-dim">
-            {!armed ? 'Waiting for the microphone…' : live ? '' : 'Listening…'}
+          <span className={`text-xs ${quiet ? 'text-red' : 'text-dim'}`}>
+            {!armed ? 'Waiting for the microphone…'
+              : quiet ? 'Not hearing anything — is the mic blocked?'
+              : live ? '' : 'Listening…'}
           </span>
         </div>
       </div>
     </Frame>
+  );
+}
+
+/** What the recogniser actually did. Shown only in a failure state — see the call
+ *  site — because it is a bug report, not a readout. */
+function Stats({ listener, className = '' }: { listener: Listener | null; className?: string }) {
+  const st = listener?.stats();
+  if (!st) return null;
+  return (
+    <p className={`font-mono text-[11px] text-dim leading-[1.5] ${className}`}>
+      started {st.starts} · ended {st.ends} · heard {st.results}
+      {st.continuous ? '' : ' · single-shot'}
+      {st.last ? ` · ${st.last}` : ''}
+    </p>
   );
 }
 
