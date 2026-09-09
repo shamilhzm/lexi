@@ -14,7 +14,7 @@
 // it. Three decisions remain, all of them about words: what is due, what is
 // fresh, and which word-fact you keep getting wrong.
 import type { Word, Target } from './types.ts';
-import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled } from './store.ts';
+import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled, isSaved, dweltRepeatedly } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue, State } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
@@ -34,8 +34,18 @@ import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
 export type SessionReason =
   /** A scheduled review that has come due. `overdueDays` is how long it waited. */
   | { kind: 'due'; overdueDays: number }
-  /** A card the learner has never seen. */
-  | { kind: 'fresh' }
+  /** A card the learner has never seen.
+   *
+   *  `via` is why *this* unseen card and not one of the other six thousand. The
+   *  scheduler has always known — `buildBriefing` serves saved words first and then
+   *  the ones dwelt on twice — and it used to drop the answer on the floor: three
+   *  distinct causes arrived here as one bare `fresh`, and `whyLine` was silent on
+   *  it while every other reason in this union spoke. VISION open decision 9.
+   *
+   *  Absent for a card the weakest-sector loop picked, which is the honest state:
+   *  "your level and this sector" is not a fact about the learner and the card front
+   *  already says *New ·*. */
+  | { kind: 'fresh'; via?: 'saved' | 'dwell' }
   /** A drill for a word whose flip is in this same queue, ~GAP items earlier. */
   | { kind: 'drill'; mode: Mode; parent: Word }
   /** A drill in one of the modes the learner misses most. */
@@ -75,10 +85,21 @@ function overdueDays(srsId: string, now = Date.now()): number {
   return Math.max(0, Math.floor((now - new Date(c.due).getTime()) / DAY));
 }
 
-/** How a plain vocabulary flip got here: never seen, or scheduled and due. */
+/** How a plain vocabulary flip got here: never seen, or scheduled and due.
+ *
+ *  The two learner-made signals are read straight from the store rather than
+ *  threaded down from `buildBriefing`, because they are true either way: a saved
+ *  word is in this session *because it is saved* however the queue reached it, and
+ *  the alternative is a second copy of the briefing's bookkeeping that can disagree
+ *  with the first. Saved wins a tie — a bookmark is a decision, a dwell is a guess
+ *  about one. */
 function flipReason(w: Word, now = Date.now()): SessionReason {
   const c = cardOf(w.id);
-  if (!c || c.state === State.New) return { kind: 'fresh' };
+  if (!c || c.state === State.New) {
+    if (isSaved(w.id)) return { kind: 'fresh', via: 'saved' };
+    if (dweltRepeatedly(w.id)) return { kind: 'fresh', via: 'dwell' };
+    return { kind: 'fresh' };
+  }
   return { kind: 'due', overdueDays: overdueDays(w.id, now) };
 }
 
@@ -109,7 +130,7 @@ const RESUME_KEY = 'lexi.session.v1';
 
 /** A SessionReason with its Word references reduced to ids. */
 type PackedReason =
-  | { k: 'fresh' }
+  | { k: 'fresh'; v?: 'saved' | 'dwell' }
   | { k: 'due'; d: number }
   | { k: 'orphan'; d: number; m: Mode }
   | { k: 'drill'; m: Mode; p: string }
@@ -125,7 +146,7 @@ const dayKey = (ms: number) => new Date(ms).toISOString().slice(0, 10);
 
 function packReason(r: SessionReason): PackedReason {
   switch (r.kind) {
-    case 'fresh': return { k: 'fresh' };
+    case 'fresh': return r.via ? { k: 'fresh', v: r.via } : { k: 'fresh' };
     case 'due': return { k: 'due', d: r.overdueDays };
     case 'orphan': return { k: 'orphan', d: r.overdueDays, m: r.mode };
     case 'drill': return { k: 'drill', m: r.mode, p: r.parent.id };
@@ -138,7 +159,7 @@ function packReason(r: SessionReason): PackedReason {
  *  rather than resuming a queue with holes in it. */
 function unpackReason(r: PackedReason): SessionReason | null {
   switch (r.k) {
-    case 'fresh': return { kind: 'fresh' };
+    case 'fresh': return r.v ? { kind: 'fresh', via: r.v } : { kind: 'fresh' };
     case 'unlock': return { kind: 'unlock', text: r.x };
     case 'due': return { kind: 'due', overdueDays: r.d };
     case 'orphan': return { kind: 'orphan', overdueDays: r.d, mode: r.m };

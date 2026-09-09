@@ -276,6 +276,135 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   contain a real inflection proved by the app's own matcher.
 - **Code is MIT** *(2026-08-13)*.
 - **The vocabulary ruling, the feed, and the missing home screen** *(2026-09-05)* — above.
+- **Track E's six** *(2026-09-09)* — below: ordered not composed, no explanation on a
+  wrong answer, distractors unchanged, typed production only, dwell named to the
+  learner, and *am I ready* answered by saying plainly that it is not.
+
+---
+
+## Six questions, ruled *(2026-09-09)*
+
+Round 4's Track E. Each arrived as a question with an assertion inside it, and each
+premise was measured before it was argued — **three of the six were already false**.
+The rulings and the properties they produce are pinned in `src/rulings.test.ts`, so a
+decision that gets walked back by accident fails a test rather than quietly reverting.
+
+The rule that decided four of the six is the one already on the record above: *a drill
+earns its place if it tests a property of the word; it goes if it tests a rule of the
+language.* Two are not about drills, and are decided by commitment 3 — say what is
+true, and say what you do not know.
+
+### 5. The first session is **ordered, not composed** — and the ordering had to be made to exist
+
+**Ruled: no hand-composed opening. The ranking is repaired instead, and the session is
+given one structural guarantee that names no card.**
+
+The filed claim, *"it is twenty verbs"*, was stale — the frequency sort had landed. What
+straight rank actually produced was `sie · auf · sein · aus · auch · stehen · so · sollen
+· sagen · er`, and **no noun until position 22**: correct German, correctly ordered, and
+two of the scheduler's three drills dead on the day the app most needs to show what it
+is. Frequency rank and drillability are different properties.
+
+A hand-picked first ten would bring back the syllabus deleted on 2026-09-05, so nothing
+picks a card. `firstRunIds` states a property the *session* must have — **it must be able
+to ask every question this app asks** — and fills it from the same frequency list:
+`das Ende` (25), `die Arbeit` (69), `der Tag` (98) are chosen because they are 25th, 69th
+and 98th. A third of the opening, and only the opening: from session two the
+weakest-sector loop spreads fresh picks on its own. One tiebreak rides along, on the same
+grounds — a gender the session does not have yet beats one it does, because straight rank
+reserved three `das` nouns and a first gender drill whose answer is always *das* teaches
+*das*.
+
+**And the ordering signal was missing where it mattered most.** `freq.json` was projected
+from `provenance.json`, which carries a rank only for cards *discovered through* a
+frequency list — a rank for the cards that needed one least. It covered **87 of 1,170 A1
+cards**, and not one of `sein`, `haben`, `werden`, `gehen`, `Zeit`, `Kind`, `nicht`,
+`ich`, `gut`. Unranked sorts last, so `grillen` was introduced 70th and `sein` 118th:
+the Round 4 persona complaint, surviving the fix written for it.
+
+`npm run corpus:freq` now projects the **Kernwortschatz** reference that
+`corpus:kernwortschatz` has measured against all along — **80.0% of the corpus and 86.3%
+of A1**, `sein` at 4, `grillen` at 8,451. `gesamt` is the ordering rank; a blend of the
+four registers would invent a fifth ranking nobody validated. The 171 cards the reference
+does not know (`der Berliner`, `der Wiener`, `die Bundespolizei` — demonyms and newswire)
+keep their old rank *behind* it rather than merged into it.
+
+This is the first thing from that reference to **ship**, so [ATTRIBUTIONS.md](../ATTRIBUTIONS.md) §6
+changes from *"what ships: nothing"*. The obligation is already met — CC BY-SA 4.0 into a
+corpus that is already CC BY-SA 4.0 — and it is named out loud because open decision 2a
+says a ranking is somebody's work even when it is closer to fact than to expression.
+
+### 6. A wrong answer is **not** explained
+
+**Ruled: no.** `anbieten` really is `an-` + `bieten`, and the population is real: **434 of
+1,174 verb cards** decompose onto another card the corpus already carries. It splits
+almost exactly in half, and the halves are not the same feature — **216 separable**
+(`anrufen` = an- + `rufen`; `aufstehen` = auf- + `stehen`) against **167 inseparable**,
+where the same rule says something false: `bekommen` "to get" is not be- + `kommen` "to
+come", `erzählen` "to tell" is not er- + `zählen` "to count". A check on the orthography
+cannot tell them apart, and the false half contains the most famous false friend in the
+language.
+
+Three reasons, any one of which is sufficient: it is a rule of the language, which the
+vocabulary ruling excludes; generating the explanation would break commitment 5; and it
+would be wrong often enough to be worse than silence. `syn` and `ant` already carry the
+word relations the corpus can actually vouch for.
+
+*What is not refused, and is not built:* linking the base card where the base card
+exists, making no claim about composition. That is a cross-reference to a fact the corpus
+holds. It is a design question for `WordDetail`, not a pedagogy question, and it is
+filed, not decided.
+
+### 7. Distractors stay as they are
+
+**Ruled: no change.** The objection — *random distractors make a four-option question
+free* — is false and now measured. They were never random: same part of speech, same CEFR
+band, two synonymy guards. Swept over 2,282 cards, a reader who knows no German scores
+**24.4% picking the longest option**, 16.1% picking the one with the most words and 20.7%
+picking the shortest, against **25.0% chance**. Every shape strategy is at or below
+chance.
+
+Deliberately *near-miss* distractors remain declined, on the weaker evidence: the
+discrimination they force is real and so is the confusion they teach, and the drill they
+would be fixing is not broken.
+
+### 8. Typed production is the production this app can grade
+
+**Ruled: `recall` is enough, and the limit is stated rather than closed.** Typing a German
+word from its English is production of orthography and is graded honestly — umlaut-folded,
+typo-tolerant only where the near miss is not itself a German word. Speech is not scored,
+because scoring speech is precisely the thing commitment 3 forbids faking, and a
+pronunciation score a machine cannot stand behind is worse than no score.
+
+### 9. Dwell is a signal, and a signal the scheduler acts on is a signal it **names**
+
+**Ruled: yes — keep the inference, and tell the learner.** The separation from grading was
+never in question and stays: 1200 ms of dwell ranks which fresh word is introduced next
+and never writes an FSRS card. What was wrong is that the app inferred interest, acted on
+it, and said nothing — and it failed twice. `buildBriefing` distinguished *your saved
+words*, *words you kept stopping on* and the weak sector, wrote them into
+`Briefing.weakSectors`, and **nothing in `src/` read that field**; separately every fresh
+card reached the queue as a bare `fresh`, and `whyLine` was silent on it while every other
+reason in the union spoke.
+
+`SessionReason` now carries *which* fresh, and the card says **"You saved this one"** or
+**"You kept stopping on this in the feed"**. `session.ts` already argued this in its own
+header — *the scheduling is the product; a scheduler that can show its work is the only
+durable edge* — and it applies to the scheduler's own guesses first. The line reports an
+observation and never an inference about knowing or wanting, which is all the app has,
+and it is what makes the guess falsifiable by the one person who can falsify it.
+
+### 10. Lexi does not answer *am I ready?*, and now says so
+
+**Ruled: say it plainly, and point somewhere that can answer.** The exam room was deleted
+on 2026-09-05 and nothing replaced the question it answered; Fortschritt reports words met
+and words known, which is a different and honest claim. Rebuilding an answer would rebuild
+exam prep.
+
+Silence was the worse option, because the app shows a CEFR letter and a lit-up level path
+— it has made the claim whether or not it means to. `PathCard` now ends with one line:
+these letters count the words you have studied here, they are not an exam result, and
+Goethe's and telc's free *Modellsätze* are what can tell you.
 
 ---
 
@@ -376,150 +505,6 @@ obvious fit and is not automatically redistributable. Decide before, not after.
 No infra exists; the Support link goes to GitHub. Any future tier needs re-deriving from
 what the app actually is, which is now a much smaller thing than when this was last
 written.
-
-
-### 5–10. The six questions the drill ruling does not answer *(2026-09-09)*
-
-Round 4's Track E. Each was filed as an assertion about the app; each was measured
-before being written down here, and **three of the six premises were false**. The
-measurements are pinned in `src/rulings.test.ts` — not as features, but so that a
-question stops being asked the moment its ground moves. Numbers below are from that
-file, run 2026-09-09.
-
-None of these is an engineering task yet. Each is a ruling, and each says what the
-ruling would licence.
-
-#### 5. Should the first session be *composed*, not just ordered?
-
-**The filed claim — "it is twenty verbs" — is stale.** The frequency sort landed
-(backlog F2) and the failure moved rather than closing. A cold learner's first ten
-are now:
-
-> so · nur · ab · sehr · alle · **das Ende** · ganz · okay · also · einmal
-
-Seven function words, one noun, **no verb until position 15** (`tun`). That is not a
-bug in the sort; it is what sorting by frequency inside a band *must* produce, because
-the commonest words in any language are the ones that hold sentences together. And the
-cost is exact: two of the scheduler's three drills are properties of nouns, so
-`eligibleModes` is empty for nine of the ten, gender can fire on one and plural on one.
-The first session can ask one kind of question.
-
-**And the ordering signal runs out before it starts.** `freq.json` ranks 1,986 of 6,844
-cards; **87 of 1,170 A1 cards**, 7.4%. `byFrequency` sorts unranked cards last, and
-unranked means *ordered by nothing but position in the build* — so of `sein`, `haben`,
-`werden`, `können`, `müssen`, `sagen`, `machen`, `geben`, `gehen`, `kommen`, `sehen`,
-`wissen`, `ich`, `nicht`, `Jahr`, `Zeit`, `Mensch`, `Tag`, `Frau`, `Mann`, `Kind`,
-`groß`, `gut`, `neu` — **not one carries a rank.** `grillen`, the card the original
-persona complaint named, is still introduced *before* `sein`: 70th against 118th. The
-ranking is missing exactly where it is load-bearing.
-
-*For:* a first ten that cannot fire two of three drills, and that teaches `so` before
-`sein`, is a worse first impression than any hand-picked list would be.
-*Against:* a hand-composed opening is a syllabus by the back door, and the refocus
-deleted the syllabus on the record.
-
-**A third option the ruling should consider, because it is neither:** the defect above
-is a *coverage* defect in `freq.json`, not a curation question. Extending the rank
-projection to cover the commonest words would fix the ordering without anyone choosing
-a card. That is a build task, not a ruling — but only if the ruling is "ordered, and
-better". **Undecided.**
-
-#### 6. Should a wrong answer be explained?
-
-The proposal: `anbieten` is transparently `an-` + `bieten`, and the moment the learner
-is most able to hear that is the moment they got it wrong.
-
-**The population is large and it is split almost exactly in half.** Of 1,174 verb
-cards, 434 (37%) decompose onto another verb card the corpus already carries — **216
-under a separable prefix, 167 under an inseparable one**, 51 under a prefix that is
-both.
-
-The two halves are not the same feature:
-
-| | example | what a decomposition would say |
-|---|---|---|
-| separable | `anrufen` = an- + `rufen`, `aufstehen` = auf- + `stehen`, `einkaufen` = ein- + `kaufen` | the truth, and a gift |
-| inseparable | `bekommen` "to get" vs `kommen` "to come"; `erzählen` "to tell" vs `zählen` "to count"; `verstehen` vs `stehen` | **false** |
-
-A rule that fires on the orthography cannot tell them apart, and `bekommen` is the most
-famous false friend in the language.
-
-*For:* on 216 cards this is real teaching that costs nothing to store.
-*Against:* it is a rule of the language, which the drill ruling excludes; and generating
-the explanation would break commitment 5 outright.
-
-**The narrow version that survives both objections:** show the base card, because the
-base card is a *fact the corpus already holds* — `rufen` exists, is linked, and no claim
-about composition is made. That is a cross-reference, not a lesson. **Undecided, and the
-narrow version is the one worth ruling on.**
-
-#### 7. Should distractors be confusable?
-
-**The filed claim — "random distractors make a four-option question free" — is false,
-and now measured.** Distractors are drawn from the same part of speech and the same CEFR
-band, with two independent synonymy guards. Swept over 2,282 cards, a learner who reads
-no German at all and picks by shape scores:
-
-| strategy | hit rate |
-|---|---|
-| chance | 25.0% |
-| the longest option | 24.4% |
-| the option with the most words | 16.1% |
-| the shortest option | 20.7% |
-
-Every strategy is at or **below** chance. The drill is not free, and there is nothing to
-fix.
-
-What is left is a genuine pedagogy question, and a much smaller one: would a
-*semantically near* distractor teach more than a far one? The evidence cuts both ways —
-near distractors force the discrimination that matters, and also teach the confusion.
-**Undecided, and no longer urgent.**
-
-#### 8. Does the app owe the learner production?
-
-Unchanged and unmeasurable: `recall` is typed, which is production of orthography;
-speech is not scored because scoring speech is something this app cannot honestly do,
-and commitment 3 forbids the pretence. The question is whether *typed* production is
-enough to claim the word is known. **Undecided.**
-
-#### 9. Is dwell a signal?
-
-The separation from grading is principled and tested (`store-exposure.test.ts`): a dwell
-never writes an FSRS card. **The half that is not principled is that the learner is
-never told, and it fails in two independent places.**
-
-1. `buildBriefing` distinguishes three reasons a fresh word entered the day — *your
-   saved words*, *words you kept stopping on*, and the weak sector — and writes them
-   into `Briefing.weakSectors`. **Nothing in `src/` reads that field.** Four callers
-   take `.ids`, `.due`, `.dueTotal`, `.fresh`; the reasons are computed, asserted in two
-   test files, and dropped.
-2. Every fresh card reaches the queue as `{kind:'fresh'}`, and `whyLine` returns `null`
-   for it — while *every other reason the scheduler has* speaks up: the interleave, the
-   blind spot, the overdue card, the learner's own text.
-
-So the app infers interest from 1200 ms, acts on it, and says nothing — which makes the
-inference unfalsifiable by the only person who knows whether it is true.
-
-*The ruling is not "is dwell sound".* It is: **if the scheduler acts on a signal, must it
-say so?** `session.ts` already argues yes in its own header — *the scheduling is the
-product; a scheduler that can show its work is the only durable edge*. Ruling yes makes
-this a small build item and turns dwell into something a learner can contradict.
-**Undecided; the argument is one-sided so far.**
-
-#### 10. Does anything answer *am I ready?*
-
-The exam room was deleted on 2026-09-05 and nothing replaced the question it answered.
-Fortschritt reports words **met** (`metCount` — distinct words dwelt on in the feed) and
-words known, which is a different claim and an honest one. A learner with a Goethe date
-does not have a question they can ask here.
-
-*For:* it is the question that brings most adult learners to an app at all.
-*Against:* an app that answers it is an exam-prep app, and the refocus removed exam prep
-deliberately and on the record.
-
-**The third position, which costs nothing and is currently not taken:** say plainly that
-Lexi does not answer it, and where to go instead. Silence reads as a claim.
-**Undecided.**
 
 ---
 

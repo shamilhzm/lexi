@@ -11,6 +11,122 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-09 — six questions ruled, and the two that turned out to be engineering
+
+Round 4's Track E was six questions the anchor document had to answer. Each arrived as
+a question with an assertion inside it. **Each premise was measured before it was
+argued, and three of the six were already false** — which is the reason this entry
+exists at all, because two of those three would have produced work against a defect
+that no longer existed.
+
+The rulings are in [VISION.md](VISION.md) under *Six questions, ruled*. What follows is
+what changed in the app.
+
+#### The teaching order was sorting on a signal that was not there
+
+`firstRunIds` and `buildBriefing` order fresh picks by CEFR band, then by frequency
+rank. Correct, and it could not work: `freq.json` was projected from
+`provenance.json`, which carries a rank only for cards that were **discovered
+through** a frequency list — a rank for the cards that needed one least. It covered
+**87 of 1,170 A1 cards**, and not one of `sein`, `haben`, `werden`, `gehen`, `Zeit`,
+`Kind`, `nicht`, `ich`, `gut`.
+
+`byFrequency` sorts unranked cards last, so all of those fell into a tail ordered by
+nothing but position in the build, and `grillen` was introduced **70th** against `sein`
+at **118th** — the Round 4 persona complaint, surviving the fix written for it.
+
+The ranking that fixes it was already in the repo. `npm run corpus:freq` now projects
+the **Datengeleiteter Kernwortschatz Deutsch** reference that `corpus:kernwortschatz`
+has measured coverage against all along: **80.0% of the corpus and 86.3% of A1**, up
+from 29% and 7.4%, with `sein` at 4 and `grillen` at 8,451.
+
+- **`gesamt`, not a blend.** The reference is four register rankings and their
+  disagreements are the point of having four; averaging them would invent a fifth that
+  nobody validated. The scale-mixing that remains is bounded by use — the sort is band
+  first, so a rank is only ever compared against cards of the same level.
+- **The tail is offset, not merged.** 171 cards carry a provenance rank and no
+  reference rank, and printing them says what they are: `der Berliner` (521), `der
+  Wiener`, `der Hamburger`, `die Bundespolizei`, `der Schiedsrichter`. Demonyms and
+  newswire — the same class `corpus:candidates` now filters out of the authoring
+  queue. They keep their rank *behind* the reference rather than ahead of the core.
+- **44 KB gzipped instead of 16**, fetched in parallel with `cards.json` on the boot
+  path. A real cost against a track that spent itself buying bytes back, and the right
+  trade: the alternative is a scheduler that teaches `so` before `sein`.
+- **First shipping use of that reference**, so `ATTRIBUTIONS.md` §6 changes from *"what
+  ships: nothing"*. Obligation already met — CC BY-SA 4.0 into a corpus that is already
+  CC BY-SA 4.0 — and named out loud because a ranking is somebody's work even when it
+  is closer to fact than to expression.
+
+#### Frequency rank and drillability are different properties
+
+With the ranking fixed, straight rank gave a first twenty of `sie · auf · sein · aus ·
+auch · stehen · so · sollen · sagen · er …` — correct German, correctly ordered, and
+**no noun until position 22**. Two of the scheduler's three drills are properties of
+nouns, so `eligibleModes` was empty for every card in the opening session: the app
+could ask exactly one kind of question on the day it most needs to show what it is.
+
+A hand-picked first ten would rebuild the syllabus deleted on 2026-09-05, so nothing
+picks a card. `firstRunIds` states a property the **session** must have — *it must be
+able to ask every question this app asks* — and fills it from the same frequency list.
+A third of the opening, and only the opening. One tiebreak rides along on the same
+grounds: a gender the session does not have yet beats one it does, because rank alone
+reserved `das Ende` (25), `das Jahr` (43) and `das Geld` (55), and a first gender drill
+whose answer is always *das* teaches *das*.
+
+The opening is now `sie · auf · sein · aus · auch · stehen · so · das Ende · die Arbeit
+· der Tag` — three genders, three plurals, and every card chosen by its rank.
+
+#### A signal the scheduler acts on is a signal it names
+
+The feed infers interest from 1200 ms of dwell and ranks the next fresh word by it.
+The separation from grading was never in question and has its own tests. What was
+wrong is that the app acted on the inference and said nothing — and it failed twice:
+
+- `buildBriefing` distinguished *your saved words*, *words you kept stopping on* and
+  the weak sector, wrote them into `Briefing.weakSectors`, and **nothing in `src/` read
+  that field**.
+- Every fresh card reached the queue as a bare `{kind:'fresh'}`, and `whyLine` returned
+  `null` for it — while every other reason in the union spoke up.
+
+`SessionReason` now carries *which* fresh, and the card says **"You saved this one"**
+or **"You kept stopping on this in the feed"**. The line reports an observation and
+never an inference about knowing or wanting, because the observation is all the app
+has — and saying it is the only thing that makes the guess falsifiable by the one
+person who can falsify it.
+
+#### Lexi does not answer *am I ready?*, and now says so
+
+The exam room was deleted on 2026-09-05 and nothing replaced the question it answered.
+Rebuilding an answer would rebuild exam prep, so `PathCard` ends with one line instead:
+these letters count the words you have studied here, they are not an exam result, and
+Goethe's and telc's free *Modellsätze* are what can tell you. Silence was the worse
+option — the app shows a CEFR letter and a lit-up level path, so it has made the claim
+whether or not it means to.
+
+#### Three refusals, on the record
+
+- **A wrong answer is not explained.** 434 of 1,174 verb cards decompose onto another
+  card, and it splits almost in half: 216 separable (`anrufen` = an- + `rufen`, true)
+  against 167 inseparable, where the same rule says something false — `bekommen` "to
+  get" is not be- + `kommen`, `erzählen` "to tell" is not er- + `zählen`. A check on
+  the orthography cannot tell them apart, it is a rule of the language, and generating
+  it would break commitment 5.
+- **Distractors stay as they are.** The objection was that a four-option question is
+  free. Swept over 2,282 cards, a reader who knows no German scores **24.4%** picking
+  the longest option, 16.1% picking the one with the most words and 20.7% picking the
+  shortest, against **25.0%** chance. Every shape strategy is at or below chance.
+- **Speech is not scored.** Typed `recall` is the production this app can grade
+  honestly; a pronunciation score a machine cannot stand behind is worse than none.
+
+#### The file that makes a ruling inspectable
+
+`src/rulings.test.ts` pins the properties the six decisions turn on. It began as the
+*premises* of six open questions and caught its own subject moving twice in one day —
+first when the premises were measured, then when the fixes landed. A question, and
+then a ruling, is only as good as the state of the app it was made about.
+
+---
+
 ### Shipped 2026-09-06 — the strip, the bank, and the boxes
 
 Four days of work in one session, driven almost entirely by *sitting in the app as

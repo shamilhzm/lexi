@@ -105,6 +105,21 @@ export default function PathCard({ onStudy, onDrill }: {
           </div>
         </>
       )}
+
+      {/* **What these letters are not.** VISION open decision 10.
+          The exam room was deleted on 2026-09-05 and nothing replaced the question
+          it answered, so a learner with a Goethe date in six weeks reads a lit-up
+          B1 tile as an answer to *am I ready*. It is not one: it counts words
+          studied here, and says nothing about reading, listening or writing.
+
+          Silence was the worse option. An app that shows a CEFR letter and then
+          declines to say what it means has made the claim anyway — and the honest
+          version costs one line and points somewhere that can actually answer. */}
+      <p className="text-2xs text-dim mt-3.5 leading-[1.5] max-w-[46ch]">
+        These letters count the words you have studied here. They are not an exam
+        result — Lexi does not test reading, listening or writing, so it cannot tell
+        you whether you are ready for Goethe or telc. Their free <i lang="de">Modellsätze</i> can.
+      </p>
     </section>
   );
 }

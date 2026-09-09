@@ -40,6 +40,10 @@ premise first, and re-run the *complaint* rather than the done-when. Three of si
 premises were false when read; the first session's "twenty verbs" had become seven
 function words because the fix worked.
 
+**…sort, filter or score on a field.** Measure that field's coverage **on the population
+you are sorting**, not overall. `freq.json` covered 29% of the corpus and 7.4% of A1,
+and nulls-sort-last turned the hole into a confident wrong order with no error anywhere.
+
 **…trust a check that fires on thousands of rows.** Assume the check is wrong first.
 Hand-verify three hits before you believe the count. *(Twice this has been a bug in the
 check.)*
@@ -1364,3 +1368,42 @@ found:** `freq.json` ranks 87 of 1,170 A1 cards, and not one of `sein`, `haben`,
 `werden`, `gehen`, `Zeit`, `Kind` or `gut`. The sort everyone had agreed was right is
 sorting on a signal that is absent exactly where it is load-bearing — so `grillen` is
 still introduced before `sein`, which is the original complaint, surviving its own fix.
+
+---
+
+## A correct algorithm on an absent signal *(added 2026-09-09)*
+
+**Believed:** the first session was ordered by frequency. The code said so, the test
+said so, the backlog item was ticked.
+
+**True:** `byFrequency` was reading a rank that existed for **87 of 1,170 A1 cards**,
+and for none of `sein`, `haben`, `werden`, `gehen`, `Zeit`, `Kind`, `nicht`, `ich`,
+`gut`. Unranked cards sort *last*, so the words the ordering existed for were the ones
+it could not see, and `grillen` was introduced 70th against `sein` at 118th — the exact
+complaint the sort had been written to answer.
+
+The reason is worth the entry. `freq.json` was projected from `provenance.json`, which
+records a rank when a card was **discovered through** a frequency list. That is a rank
+for the cards that needed one least: a word already in the corpus for other reasons —
+which is every core word — never earned one. The data source answered a different
+question from the one the consumer was asking, and both were internally consistent.
+
+**The rule:** *when you sort, filter or score on a field, measure its coverage on the
+population you are actually sorting.* Not its coverage overall — 29% corpus-wide hid a
+7.4% coverage on the one band the first session comes from. A null-sorts-last policy
+turns a coverage hole into a silent, confident wrong order, and nothing about it looks
+like a bug: no exception, no empty screen, no failing test.
+
+**Corollary — a unit test cannot see this.** `store-session.test.ts` had a fixture of
+three cards with hand-written ranks, and it passed for exactly the reason it was
+useless: the fixture supplied the field the real data was missing. The check that
+caught it ran the shipped `firstRunIds` against the shipped `vocab.json` and *printed
+the ten cards*. Where a field comes from real data, at least one test has to use the
+real data.
+
+**And the second-order lesson, from the same day.** `src/rulings.test.ts` was written
+to pin the *premises* of six open questions, and it failed twice within the hour — once
+when the premises were first measured, once when the fixes landed. That is the file
+working. A question is only worth asking while its premise holds, and a ruling is only
+worth keeping while the state it was made about survives; both deserve an assertion,
+not a paragraph in a document nobody re-runs.

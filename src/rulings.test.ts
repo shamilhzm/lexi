@@ -1,19 +1,15 @@
-// The measurements the six open decisions rest on.
+// The six decisions, and the properties they produced.
 //
-// `docs/VISION.md` carries six questions that need a ruling before anyone writes
-// code against them, and every one of them was raised as an assertion about the
-// app: *the first session is twenty verbs*, *random distractors make the question
-// free*, *the dwell inference is invisible*. Three of those turned out to be
-// wrong, and one of the three was wrong in a more interesting direction than the
-// claim.
+// `docs/VISION.md` open decisions 5–10 were ruled on 2026-09-09. This file is what
+// makes the rulings inspectable: not a feature's tests, but the properties the
+// decisions turn on. If one fails, either the ruling has been walked back by
+// accident or the ground it stood on has moved, and the write-up in VISION is out
+// of date.
 //
-// So this file is not a feature's tests. It pins the **premises** — if one of
-// these fails, a pending decision's ground has moved and the write-up in VISION
-// is out of date before anyone has ruled on it. That is the point: a question is
-// only worth asking while its premise is true.
-//
-// Nothing here asserts that the current behaviour is *right*. Each block says
-// what is, and `docs/VISION.md` argues about what ought to be.
+// It began the other way round — as the *premises* of six open questions — and
+// three of those premises were already false when they were read. That is why the
+// file exists at all: a question, and then a ruling, is only as good as the state
+// of the app it was made about.
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { registerWords } from './data/index.ts';
@@ -33,83 +29,83 @@ const words = corpus.filter((w) => w.kind === 'word');
 const byId = new Map(corpus.map((w) => [w.id, w]));
 const bare = (t: string) => t.replace(/^(der|die|das)\s+/, '').replace(/^sich\s+/, '');
 
-/** Parts of speech a learner cannot be shown in isolation and expected to learn
- *  anything from: they have no gender, no plural, no citation form worth typing,
- *  and their gloss is a translation of a slot rather than of a thing. */
-const FUNCTION_POS = new Set(['adverb', 'preposition', 'conjunction', 'pronoun',
-  'article', 'interjection', 'particle', 'numeral', 'determiner']);
+// ---- 5 · Ordered, not composed — and the ordering has to exist --------------
+//
+// Ruled: the syllabus stays deleted, so nothing picks a card. But a session must be
+// able to ask the questions this app asks, and the ranking has to cover the words
+// the ranking is for.
+describe('5 — the first session', () => {
+  const first = firstRunIds(10).map((id) => byId.get(id)!);
 
-// ---- E1 · Should the first session be composed, not just ordered? -----------
-describe('E1 — what a cold learner actually gets', () => {
-  const first = firstRunIds(400).map((id) => byId.get(id)!);
-
-  // The backlog says "twenty verbs". That was true before the frequency sort
-  // landed and is not true now — the failure moved rather than closing.
-  it('is not verbs', () => {
-    expect(first.slice(0, 10).filter((w) => w.pos === 'verb')).toEqual([]);
+  it('opens on the commonest words in the language', () => {
+    // `sein` is rank 4 and used to arrive 118th, behind `grillen` at 70.
+    expect(first.map((w) => bare(w.term))).toContain('sein');
+    // Every card in the opening session is ranked. Under the old projection seven
+    // of these ten were not, and were ordered by position in the build.
+    for (const w of first) expect(freqRankOf(w.id)).not.toBeNull();
   });
 
-  // It is function words: so · nur · ab · sehr · alle · ganz · okay · also ·
-  // einmal, and one noun. Ordering by frequency inside a band necessarily
-  // surfaces these first, because the commonest words in any language are the
-  // ones that hold sentences together.
-  it('is function words, and that is what ordering by frequency buys', () => {
-    const fn = first.slice(0, 10).filter((w) => FUNCTION_POS.has(w.pos));
-    expect(fn.length).toBeGreaterThanOrEqual(6);
+  it('can ask every question the scheduler has', () => {
+    const nouns = first.filter((w) => w.gender);
+    // Straight rank gave *no noun until position 22*, so both noun drills were dead
+    // on day one. The reservation is a property of the session, not a card list.
+    expect(nouns.length).toBeGreaterThanOrEqual(3);
+    expect(nouns.filter((w) => askablePlural(w)).length).toBeGreaterThanOrEqual(2);
+    expect(first.some((w) => eligibleModes(w).includes('gender'))).toBe(true);
+    expect(first.some((w) => eligibleModes(w).includes('plural'))).toBe(true);
   });
 
-  // The consequence the ruling turns on: two of the app's three scheduled drills
-  // are properties of nouns, so a first session of function words can only ask
-  // one kind of question.
-  it('leaves the gender and plural drills with almost nothing to fire on', () => {
-    const ten = first.slice(0, 10);
-    expect(ten.filter((w) => w.gender).length).toBeLessThanOrEqual(2);
-    expect(ten.filter((w) => askablePlural(w)).length).toBeLessThanOrEqual(2);
-    // `eligibleModes` is the scheduler's own list, and for most of these it is empty.
-    expect(ten.filter((w) => eligibleModes(w).length === 0).length).toBeGreaterThanOrEqual(8);
+  it('does not teach one gender three times', () => {
+    // Rank alone reserved `das Ende` (25), `das Jahr` (43) and `das Geld` (55): a
+    // first gender drill whose answer is always *das* teaches *das*.
+    const genders = new Set(first.filter((w) => w.gender).map((w) => w.gender));
+    expect(genders.size).toBeGreaterThanOrEqual(3);
+  });
+
+  it('returns the number of cards it was asked for', () => {
+    // The reservation displaced the quota rather than the arrivals in its first
+    // version, and handed back two cards when asked for three.
+    expect(firstRunIds(10)).toHaveLength(10);
+    expect(firstRunIds(3)).toHaveLength(3);
   });
 });
 
-// ---- E1b · the ordering signal runs out ------------------------------------
-//
-// This is the part that was not in the backlog at all, and it is the reason E1
-// cannot be answered by tuning the sort.
-describe('E1 — the frequency ranking does not cover the words it exists for', () => {
-  const a1 = words.filter((w) => w.level === 'A1');
-
-  it('ranks a small minority of A1', () => {
-    const ranked = a1.filter((w) => freqRankOf(w.id) != null).length;
-    expect(ranked).toBeLessThan(a1.length / 5);
+describe('5 — the ranking now covers the words it exists for', () => {
+  it('ranks most of the corpus, and most of A1', () => {
+    const ranked = words.filter((w) => freqRankOf(w.id) != null).length;
+    expect(ranked / words.length).toBeGreaterThan(0.75);
+    const a1 = words.filter((w) => w.level === 'A1');
+    expect(a1.filter((w) => freqRankOf(w.id) != null).length / a1.length).toBeGreaterThan(0.8);
   });
 
-  // `byFrequency` sorts unranked cards *last*, so an unranked word is ordered by
-  // nothing but its position in the build. Every one of these is unranked.
-  it('ranks none of the commonest words in the language', () => {
+  it('ranks the commonest words in the language', () => {
+    // Every one of these was unranked under the provenance-only projection, and
+    // `byFrequency` sorts unranked cards last.
     const CORE = ['sein', 'haben', 'werden', 'können', 'müssen', 'sagen', 'machen',
       'geben', 'gehen', 'kommen', 'sehen', 'wissen', 'ich', 'nicht', 'Jahr', 'Zeit',
       'Mensch', 'Tag', 'Frau', 'Mann', 'Kind', 'groß', 'gut', 'neu'];
-    const ranked = CORE.filter((t) => words.some((w) => bare(w.term) === t && freqRankOf(w.id) != null));
-    expect(ranked).toEqual([]);
+    const unranked = CORE.filter((t) =>
+      !words.some((w) => bare(w.term) === t && freqRankOf(w.id) != null));
+    expect(unranked).toEqual([]);
   });
 
-  // So the ordering is inverted exactly where it matters most: `grillen` — the
-  // card the original persona complaint named — is introduced ahead of `sein`,
-  // and both are ahead of it only by accident of corpus order.
-  it('introduces grillen before sein', () => {
-    const q = firstRunIds(400).map((id) => bare(byId.get(id)!.term));
-    const grillen = q.indexOf('grillen');
-    const sein = q.indexOf('sein');
-    expect(grillen).toBeGreaterThanOrEqual(0);
-    expect(sein).toBeGreaterThan(grillen);
+  it('keeps a demonym behind the core, not ahead of it', () => {
+    // `der Berliner` is 521st in a newswire count and is not a week-one word. The
+    // provenance tail is offset past the reference rather than merged into it.
+    const berliner = words.find((w) => w.term === 'der Berliner');
+    const sein = words.find((w) => bare(w.term) === 'sein' && w.pos === 'verb');
+    if (berliner && sein) {
+      expect(freqRankOf(berliner.id)!).toBeGreaterThan(freqRankOf(sein.id)!);
+      expect(freqRankOf(berliner.id)!).toBeGreaterThan(10_000);
+    }
   });
 });
 
-// ---- E2 · Should a wrong answer be explained? ------------------------------
+// ---- 6 · A wrong answer is not explained -----------------------------------
 //
-// The proposal is that `anbieten` is transparently `an-` + `bieten`, and that the
-// moment to say so is the moment the learner got it wrong. The population is real
-// and large. It is also, in almost exactly half, a lie.
-describe('E2 — how many verbs decompose, and onto what', () => {
+// Ruled: no. This is the measurement the refusal rests on — the population is real
+// and large, and half of it would be told something false.
+describe('6 — why the decomposition is not offered', () => {
   const SEPARABLE = ['an', 'auf', 'aus', 'ab', 'bei', 'ein', 'mit', 'nach', 'vor',
     'zurück', 'weg', 'los', 'her', 'hin', 'fest', 'frei', 'statt', 'teil', 'zusammen', 'zu'];
   const INSEPARABLE = ['be', 'ver', 'er', 'ent', 'emp', 'ge', 'miss', 'zer'];
@@ -121,29 +117,21 @@ describe('E2 — how many verbs decompose, and onto what', () => {
     lem.startsWith(p) && lem.length > p.length + 2
     && lemmas.has(lem.slice(p.length)) && lemmas.get(lem.slice(p.length))!.id !== w.id));
 
-  it('finds a large population on both sides of the transparency line', () => {
-    // Separable: `anrufen` = an- + `rufen`, `aufstehen` = auf- + `stehen`. The
-    // decomposition is the meaning, and saying it is a genuine gift.
+  it('would be true on one half and false on the other', () => {
+    // `anrufen` = an- + `rufen`, `aufstehen` = auf- + `stehen`: the decomposition
+    // is the meaning.
     expect(split(SEPARABLE).length).toBeGreaterThan(150);
-    // Inseparable: `bekommen` "to get" is not be- + `kommen` "to come", `erzählen`
-    // "to tell" is not er- + `zählen` "to count", `verstehen` is not ver- +
-    // `stehen`. The same rule fires, and what it says is false.
+    // `bekommen` "to get" is not be- + `kommen` "to come"; `erzählen` "to tell" is
+    // not er- + `zählen` "to count". A rule on the orthography fires on both.
     expect(split(INSEPARABLE).length).toBeGreaterThan(150);
   });
 });
 
-// ---- E3 · Should distractors be confusable? --------------------------------
+// ---- 7 · Distractors stay as they are --------------------------------------
 //
-// The claim is that random distractors make a four-option question free. The
-// distractors are not random — same part of speech, same CEFR band, with two
-// synonymy guards — and the test that matters is whether the correct answer can
-// be picked out by its *shape*, by somebody who reads no German at all.
-//
-// It cannot. Every strategy below lands at or under chance, which means the
-// objection as filed is answered and what is left of E3 is a pedagogy question:
-// not *is the drill free*, but *would a near-miss distractor teach more than a
-// far one*. That is a real argument with evidence both ways, and it is not a bug.
-describe('E3 — the meaning drill is not answerable without German', () => {
+// Ruled: no change. The objection was that a four-option question is free. It is
+// not, and this is the sweep that says so.
+describe('7 — the meaning drill is not answerable without German', () => {
   it('cannot be beaten by the shape of the options', () => {
     // Every third card: the rules break systemically or not at all, and this
     // sweep is the expensive one in the suite.
@@ -174,29 +162,28 @@ describe('E3 — the meaning drill is not answerable without German', () => {
   });
 });
 
-// ---- E5 · Is dwell a signal? -----------------------------------------------
+// ---- 9 · A signal the scheduler acts on is a signal it names ---------------
 //
-// The separation between dwell and grading is principled and already tested
-// (`store-exposure.test.ts`). What is not tested anywhere is whether the learner
-// is ever told. They are not, and it fails in two independent places.
-describe('E5 — the dwell inference is never shown to the learner', () => {
-  // 1. The briefing distinguishes three reasons a fresh word entered today —
-  //    saved, dwelt on, weak sector — and writes them into `Briefing.weakSectors`.
-  //    Nothing in `src/` reads that field. (Asserted by grep, not by a test: a
-  //    test cannot see the absence of a caller. See the VISION entry.)
-  //
-  // 2. Every fresh card, whatever the reason, reaches the queue as `{kind:'fresh'}`
-  //    and `whyLine` is silent on it — so even the reason that *is* carried per
-  //    item cannot be rendered.
-  it('says nothing under a fresh card', () => {
+// Ruled: yes. Dwell keeps ranking fresh picks and still never grades — and now the
+// learner is told, which is the only thing that makes the inference falsifiable by
+// the person who knows whether it is true.
+describe('9 — the scheduler says why an unseen word is here', () => {
+  it('names the two reasons that are about the learner', () => {
+    expect(whyLine({ kind: 'fresh', via: 'saved' })?.lead).toMatch(/saved/i);
+    expect(whyLine({ kind: 'fresh', via: 'dwell' })?.lead).toMatch(/stopping/i);
+  });
+
+  it('stays silent when the only reason is the learner’s level', () => {
+    // A weakest-sector pick has nothing to add: "your level and this sector" is not
+    // a fact about the learner, and a caption on every card is wallpaper.
     expect(whyLine({ kind: 'fresh' })).toBeNull();
   });
 
-  // The contrast that makes it a defect rather than a choice: every other reason
-  // the scheduler has speaks up.
-  it('while every other reason the scheduler has does speak', () => {
-    expect(whyLine({ kind: 'blindspot', mode: 'gender', tag: 'gender', misses: 4 })).not.toBeNull();
-    expect(whyLine({ kind: 'unlock', text: 'Der Prozess' })).not.toBeNull();
-    expect(whyLine({ kind: 'due', overdueDays: 30 })).not.toBeNull();
+  it('reports the dwell as an observation, never as knowledge', () => {
+    const line = whyLine({ kind: 'fresh', via: 'dwell' })!;
+    const said = `${line.lead}${line.em ?? ''}${line.tail ?? ''}`.toLowerCase();
+    for (const overclaim of ['know', 'want', 'interested', 'because you like']) {
+      expect(said).not.toContain(overclaim);
+    }
   });
 });

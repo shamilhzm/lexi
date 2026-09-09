@@ -136,7 +136,7 @@ cheap the first time and invisible the second.
   Categorized Wordlist (https://github.com/ynsrc/german-categorized-wordlist),
   licensed CC BY 4.0." CC BY content folds cleanly into the corpus's CC BY-SA 4.0.
 
-### 6. Datengeleiteter Kernwortschatz Deutsch — coverage target, build time only
+### 6. Datengeleiteter Kernwortschatz Deutsch — coverage target, **and the shipped teaching order**
 
 - **URL:** http://www.basic-german.com
 - **Citation:** Lange, Willi / Okamura, Saburo / Scharloth, Joachim (2016):
@@ -146,19 +146,31 @@ cheap the first time and invisible the second.
   corpus, newspapers (*konzeptionell schriftlich*), web forums (*konzeptionell
   mündlich*) and children's material. Ranked on frequency combined with dispersion,
   productivity and stability rather than raw counts.
-- **Why it is here:** `freq.json` is one list, and one list cannot show that a word
-  is common *in speech and not in print*. Four lists can, and that difference is the
-  gap a migrating learner falls into first. `npm run corpus:kernwortschatz` measures
-  Lexi against all four.
-- **What ships:** **nothing.** The lemmas and ranks live in
-  `scripts/corpus/data/kernwortschatz.tsv`, which is build-time only and carries no
-  gloss, definition or example — it is a checklist of *which* words to work on. Cards
-  are authored through `authoring:new`, which verifies every fact against Wiktionary
-  and rejects what it cannot confirm, so nothing from this source reaches
-  `public/data/*`.
+- **Why it is here:** two jobs, and they arrived a year apart.
+  1. *The gap finder.* One list cannot show that a word is common **in speech and not
+     in print**. Four lists can, and that difference is the gap a migrating learner
+     falls into first. `npm run corpus:kernwortschatz` measures Lexi against all four.
+  2. *The teaching order* **(2026-09-09)**. `public/data/freq.json` decides which of
+     two same-level cards a learner meets first. It used to be projected from
+     `provenance.json`, which holds a rank only for cards that were *discovered
+     through* a frequency list — 87 of 1,170 A1 cards, and not one of `sein`,
+     `haben`, `werden`, `gehen`, `Zeit`, `gut`. This reference covers 80% of the
+     corpus and 86% of A1, so it is now the source `npm run corpus:freq` projects.
+- **What ships:** **the `gesamt` ranks, and only for cards Lexi already teaches** —
+  `public/data/freq.json`, a card-id → integer map, 5,478 rows. No lemma list, no
+  gloss, no definition, no example: the reference cannot be reconstructed from it,
+  and a card that is not in Lexi contributes no row.
+- **What still does not ship:** anything the cards *say*. `scripts/corpus/data/kernwortschatz.tsv`
+  stays build-time only and remains a checklist of *which* words to work on. Cards are
+  authored through `authoring:new`, which verifies every fact against Wiktionary and
+  rejects what it cannot confirm, so nothing from this source ever becomes a gloss, a
+  definition or an example.
 - **Share-alike:** the ranking file is a verbatim redistribution of CC BY-SA data and
-  is licensed CC BY-SA 4.0 with the citation above at the head of the file. This adds
-  no new obligation to the corpus, which is already CC BY-SA 4.0 via Wiktionary.
+  is licensed CC BY-SA 4.0 with the citation above at the head of the file. `freq.json`
+  is a derivative of it and carries the same licence. This adds no new obligation to
+  the corpus, which is already CC BY-SA 4.0 via Wiktionary — but it is written down
+  rather than assumed, because a ranking is closer to fact than to expression and is
+  still somebody's work. VISION open decision 2a says that call is made out loud.
 
 ## The brain map (`#/brain`)
 
@@ -208,7 +220,9 @@ alongside a confidence tier. Primary sources are listed in `docs/BRAIN.md`.
 Because of the CC BY-SA obligation from Wiktionary (source 2), the **data files**
 `public/data/vocab.json` and `public/data/sectors.json` are distributed under
 **CC BY-SA 4.0**, with attribution to Wiktionary/Wiktextract, Tatoeba, and the
-Leipzig Corpora Collection as above. The **application code** stays **MIT**. State
+Leipzig Corpora Collection as above. `public/data/freq.json` is under the same
+licence and for a second reason: it is derived from the Kernwortschatz ranking
+(source 6), which is itself CC BY-SA 4.0. The **application code** stays **MIT**. State
 this split in the repository README/LICENSE so downstream users know that reusing
 the corpus carries share-alike obligations while reusing the code does not.
 

@@ -374,7 +374,15 @@ export interface Briefing {
   due: number;          // count of due reviews included (≤ DAILY_DUE_CAP)
   dueTotal: number;     // all due reviews in scope — the honest backlog number
   fresh: number;        // count of new cards included
-  weakSectors: string[];// sectors the fresh cards were drawn from
+  /** Where the fresh cards came from, in the order the loops ran.
+   *
+   *  **No UI reads this, and that is now deliberate rather than an oversight.** It
+   *  used to be the app's only record of *why this unseen word* — and it was
+   *  briefing-level, so it could say "some of today's words are ones you saved"
+   *  and never which ones. `SessionReason.via` answers the same question per card
+   *  and is rendered (`WhyThisCard`), which is where an answer about one word
+   *  belongs. This stays as the diagnostic the store tests read. */
+  weakSectors: string[];
 }
 
 /**
@@ -446,10 +454,9 @@ export function buildBriefing(): Briefing {
   // fresh picks; it never grades one. (See the exposure block below: no FSRS
   // card is written by any of this.)
   //
-  // Twice, not once: a single dwell is one bus stop and half the feed would
-  // qualify. The threshold is what makes this a preference rather than a log.
+  // Twice, not once — see `REPEAT_DWELL`.
   const repeats = Object.entries(exposures())
-    .filter(([, e]) => e.n >= 2)
+    .filter(([, e]) => e.n >= REPEAT_DWELL)
     .sort((a, b) => b[1].n - a[1].n || b[1].at - a[1].at)
     .map(([id]) => id);
   if (repeats.length) {
@@ -1054,6 +1061,15 @@ export function exposures(): Record<string, Exposure> { return readExposures(); 
 /** How many times this word has been dwelt on. 0 for never. */
 export function exposureOf(id: string): number { return readExposures()[id]?.n ?? 0; }
 
+/** Twice, not once. A single dwell is one bus stop and half the feed would qualify;
+ *  the second one is what turns a log into a preference. Named here because two
+ *  places depend on the same number meaning the same thing — `buildBriefing` ranks
+ *  fresh picks by it, and `session.ts` tells the learner it did. */
+export const REPEAT_DWELL = 2;
+
+/** Has this word been dwelt on often enough to count as interest? */
+export function dweltRepeatedly(id: string): boolean { return exposureOf(id) >= REPEAT_DWELL; }
+
 /** How many distinct words have ever been met in the feed. The number
  *  Fortschritt shows: it counts *words*, not scrolls, so re-meeting the same
  *  word twenty times does not inflate it. */
@@ -1382,17 +1398,87 @@ export function setOnboarded(v = true) {
   emit();
 }
 
-/** A gentle first session: the n lowest-level unseen words in the current scope. */
+/** How much of the first session is reserved for cards the app can actually drill.
+ *
+ *  A third, which is three cards of ten. Enough that gender and plural both fire on
+ *  day one; small enough that the opening is still the frequency list rather than a
+ *  noun list. */
+const FIRST_RUN_NOUN_SHARE = 0.3;
+
+/** A gentle first session: the n lowest-level unseen words in the current scope,
+ *  commonest first, **with room kept for the questions this app asks.**
+ *
+ *  ## Ordered, not composed — and the reservation is not a syllabus
+ *
+ *  VISION open decision 5. Ordering by frequency inside a band is right and it is
+ *  not sufficient, because *frequency rank and drillability are different
+ *  properties*. Measured on 2026-09-09, straight rank gave a first twenty of
+ *  `sie · auf · sein · aus · auch · stehen · so · sollen · sagen · er …` — correct
+ *  German, correctly ordered, **and not one noun until position 22**. Two of the
+ *  scheduler's three drills are properties of nouns, so `eligibleModes` was empty
+ *  for every card in the opening session and the app could ask exactly one kind of
+ *  question on the day it most needs to show what it is.
+ *
+ *  The refusal that governs this is a real one — the authored syllabus was deleted
+ *  on 2026-09-05 and a hand-picked first ten would bring it back through the side
+ *  door. So nothing here picks a card. It states a property the *session* must have
+ *  ("it must be able to ask every question this app asks") and fills it by the same
+ *  rank as everything else: `das Jahr` (43), `die Arbeit` (69), `das Land` (78) are
+ *  chosen by the frequency list, not by a teacher.
+ *
+ *  Only the first run. From the second session on, `weakestSectors` spreads fresh
+ *  picks across sectors and nouns arrive on their own; a standing quota there would
+ *  be a thumb on the scale for no measured reason.
+ */
 export function firstRunIds(n = 10): string[] {
-  return WORDS
+  const rank = (a: Word, b: Word) =>
+    (ALL_LEVELS.indexOf(a.level) - ALL_LEVELS.indexOf(b.level)) || byFrequency(a, b);
+  const pool = WORDS
     .filter((w) => w.kind === 'word' && inLevels(w) && statusOf(w.id) === 'new')
     // Band first, then commonest-within-band. Band alone put whatever the corpus
     // happened to list first in front of a learner's very first ten cards; "A1"
     // spans several thousand frequency ranks, so that was close to arbitrary.
     // Unranked words keep their relative order and follow — see lib/freq.ts.
-    .sort((a, b) => (ALL_LEVELS.indexOf(a.level) - ALL_LEVELS.indexOf(b.level)) || byFrequency(a, b))
-    .slice(0, n)
-    .map((w) => w.id);
+    .sort(rank);
+
+  const head = pool.slice(0, n);
+  // A gender is the whole test: it is what makes a card a noun to this app, and it
+  // is what both noun drills need. Plural is not required — `das Geld` has none and
+  // is still a card the gender drill can teach.
+  const want = Math.max(1, Math.round(n * FIRST_RUN_NOUN_SHARE));
+  const have = head.filter((w) => w.gender).length;
+  if (have >= want || head.length < n) return head.map((w) => w.id);
+
+  const inHead = new Set(head.map((w) => w.id));
+  // Rank order, but a gender the session does not have yet wins a tie against one it
+  // does. Straight rank gave `das Ende` (25), `das Jahr` (43), `das Geld` (55) — three
+  // nouns, one gender, and a first gender drill whose answer is always *das*. A drill
+  // with a constant answer teaches the constant. This is the same kind of rule as the
+  // reservation itself: a property the session must have, filled by the frequency
+  // list, with no card named. `die Arbeit` (69) is the one it reaches for, and it is
+  // reached for because it is 69th.
+  const seen = new Set(head.filter((w) => w.gender).map((w) => w.gender));
+  const candidates = pool.filter((w) => w.gender && !inHead.has(w.id));
+  const promote: Word[] = [];
+  while (promote.length < want - have) {
+    const next = candidates.find((w) => !promote.includes(w) && !seen.has(w.gender))
+      ?? candidates.find((w) => !promote.includes(w));
+    if (!next) break;
+    promote.push(next);
+    seen.add(next.gender);
+  }
+  if (promote.length === 0) return head.map((w) => w.id);
+  // Drop from the *back* of the head, so the commonest words of all are never the
+  // ones displaced — and re-sort, so the session still runs in frequency order and
+  // the promoted nouns are not a block bolted onto the end.
+  //
+  // `promote.length`, never `want`: a corpus with no noun left to promote must give
+  // back a session of n, not a short one. The first version displaced the quota
+  // rather than the arrivals and handed back two cards when asked for three.
+  const keep = head.filter((w) => w.gender).concat(
+    head.filter((w) => !w.gender).slice(0, n - have - promote.length),
+  );
+  return [...keep, ...promote].sort(rank).map((w) => w.id);
 }
 // ---- saved texts ---------------------------------------------------------
 // BACKLOG Now #2 Phase 2: the app's first return mechanism that is not about the

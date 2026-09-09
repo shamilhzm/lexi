@@ -119,7 +119,7 @@ export async function initData(): Promise<void> {
   const [words, sectors, freq] = await Promise.all([
     fetch(base + 'data/cards.json').then((r) => r.json() as Promise<Word[]>),
     fetch(base + 'data/sectors.json').then((r) => r.json() as Promise<SectorMeta[]>),
-    // Frequency ranks for intra-band ordering (49 KB — see lib/freq.ts). Optional
+    // Frequency ranks for intra-band ordering (44 KB gz — see lib/freq.ts). Optional
     // by construction: an older deploy without the file, or a failed fetch, leaves
     // the index empty and the scheduler falls back to corpus order rather than
     // failing to boot over a nice-to-have.

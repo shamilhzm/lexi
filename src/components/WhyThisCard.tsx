@@ -12,7 +12,7 @@
 //
 // `whyLine` is pure and structured rather than returning JSX, so the copy is
 // unit-testable and there is exactly one source of truth for it.
-import { Sparkle, TrendingDown, Clock, BookOpen } from 'lucide-react';
+import { Sparkle, TrendingDown, Clock, BookOpen, Bookmark, Eye } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { SessionReason } from '../session.ts';
 import type { Mode } from '../views/drills.tsx';
@@ -47,7 +47,22 @@ export interface WhyLine {
 export function whyLine(reason: SessionReason): WhyLine | null {
   switch (reason.kind) {
     case 'fresh':
-      return null; // the card front already says "New ·"
+      // Which unseen card, and why this one. `New ·` on the card front answers
+      // *that* it is new; it cannot answer why this word out of six thousand, and
+      // for two of the three causes the answer is something the learner did.
+      //
+      // The dwell line is the one that matters most and is phrased the most
+      // carefully. It reports an observation — *you stopped on this* — and never
+      // an inference about knowing or wanting, because the observation is all the
+      // app has. Saying it out loud is also the only thing that makes the guess
+      // falsifiable by the one person who can falsify it.
+      if (reason.via === 'saved') {
+        return { icon: Bookmark, lead: 'You saved this one' };
+      }
+      if (reason.via === 'dwell') {
+        return { icon: Eye, lead: 'You kept stopping on this in the feed' };
+      }
+      return null; // nothing to add: the card front already says "New ·"
 
     case 'due':
       return reason.overdueDays >= STALE_DAYS
