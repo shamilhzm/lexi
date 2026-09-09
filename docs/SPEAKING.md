@@ -27,10 +27,17 @@ Three mechanics, all load-bearing:
    `Rudern Juden Juden Juden Juden wurden`, one unreadable smear, and it still could
    not say whether the microphone was working at all.
 
-   - **The bars are your voice.** Raw amplitude off the microphone via a second
-     `getUserMedia` stream, nothing to do with recognition — so they move even when
-     the recogniser understands nothing. It is the only genuinely local part of this
-     game: no audio is stored and none is sent anywhere.
+   - **The bars are speech arriving.** They kick whenever the recogniser reports
+     hearing anything and decay between events — so they move on sound the machine
+     is receiving, whether or not it makes a word of it.
+     
+     They were **raw amplitude** for one build, off a second `getUserMedia` stream,
+     which is a better signal and is now **off by default**: it was reported crashing
+     a real iPhone *immediately after granting microphone access*, which is exactly
+     when it started, and it was the only new native-API surface in that build. Two
+     consumers of one microphone is ordinary on desktop and evidently not on iOS,
+     where the audio session is shared. `?meter=1` turns it back on; the diagnosis is
+     circumstantial and the code is kept for whoever can confirm it.
    - **The word is what was understood.** Each letter lights as the transcript comes
      to contain it, by longest-common-subsequence alignment. Not *how close* but
      **where it diverged**.

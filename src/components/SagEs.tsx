@@ -74,6 +74,11 @@ const debugOn = () => {
   try { return new URLSearchParams(location.search).has('debug'); } catch { return false; }
 };
 
+/** `?meter=1` re-enables the raw-amplitude meter. See `onOpen` for why it is off. */
+const meterOn = (() => {
+  try { return new URLSearchParams(location.search).has('meter'); } catch { return false; }
+})();
+
 export default function SagEs({ onExit }: { onExit: () => void }) {
   const cap = useMemo(() => support(), []);
   const reduce = useReducedMotion();
@@ -124,6 +129,13 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
   /** Mic level, 0..1, sampled per frame. A ref rather than state: it changes sixty
    *  times a second and nothing else in the tree needs to re-render for it. */
   const levelRef = useRef(0);
+  /** Speech energy, without a microphone.
+   *
+   *  Kicked to 1 whenever the recogniser reports hearing anything and decayed on
+   *  every frame. It is not amplitude — it cannot be, without a second audio stream
+   *  — and it is honest about what it *is*: the machine is receiving speech right
+   *  now. That is the question the bars were added to answer. */
+  const pulse = useRef(0);
   const bars = useRef<HTMLDivElement>(null);
 
   /** Start the track. Idempotent and once per run: the recogniser restarts after
@@ -179,6 +191,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     // microphone warm-up twelve times.
     const l = createListener({
       onHeard: (h) => {
+        pulse.current = 1;
         failures.current = 0;
         setEverHeard(true);
         setQuiet(false);
@@ -220,13 +233,19 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
       // reaching the recogniser, so only a transcript clears the count.
       onOpen: () => {
         arm();
-        // **The meter opens second, and only once the recogniser has the mic.**
-        // It is a separate `getUserMedia` stream on the same device, and starting
-        // both at once means two things racing for the microphone and, on a first
-        // run, two permission sheets in an order nobody chose. Optional by
-        // construction: a missing meter costs a decoration, and a recogniser broken
-        // by a decoration would cost the game.
-        if (meter.current) return;
+        // **A second audio stream is off by default, and this is why.**
+        //
+        // The build that opened one here — `getUserMedia` for a live amplitude
+        // meter, started the moment the recogniser got the microphone — was
+        // reported crashing on a real iPhone *immediately after granting access*.
+        // That is exactly when this ran, and it was the only new native-API surface
+        // in the build. Two consumers of one microphone is ordinary on desktop and
+        // evidently not on iOS, where the audio session is shared.
+        //
+        // It is not deleted, because the diagnosis is circumstantial and the meter
+        // is genuinely useful: `?meter=1` turns it back on for anyone willing to
+        // find out. The default is a game that works.
+        if (!meterOn || meter.current) return;
         void startMeter().then((m) => {
           if (m && listener.current === l) meter.current = m; else m?.stop();
         });
@@ -284,7 +303,8 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
       setNow(t);
       // The meter is written straight to the DOM. Sixty state updates a second for a
       // row of bars would re-render the word, the queue and the clock along with it.
-      const lv = meter.current?.level() ?? 0;
+      pulse.current = Math.max(0, pulse.current - 0.035);
+      const lv = meter.current?.level() ?? pulse.current;
       levelRef.current = lv;
       const row = bars.current;
       if (row) {
@@ -292,8 +312,13 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           const el = row.children[i] as HTMLElement;
           // A standing wave rather than a bar chart: neighbouring bars differ so the
           // row reads as a voice and not as a progress bar wearing stripes.
-          const w = 0.55 + 0.45 * Math.sin((i / row.children.length) * Math.PI);
-          el.style.transform = `scaleY(${Math.max(0.06, lv * w * 1.9)})`;
+          const n = row.children.length;
+          // A standing wave with a travelling ripple: neighbouring bars differ and
+          // the row moves, so it reads as a voice rather than a progress bar wearing
+          // stripes. Deterministic in `t`, so it is the same on every device.
+          const shape = 0.55 + 0.45 * Math.sin((i / n) * Math.PI);
+          const ripple = 0.75 + 0.25 * Math.sin(t / 90 + i * 0.7);
+          el.style.transform = `scaleY(${Math.max(0.06, lv * shape * ripple * 2.0)})`;
         }
       }
       const cur = runRef.current;
