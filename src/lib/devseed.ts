@@ -270,7 +270,12 @@ export async function applySeedFromUrl(
   await importData(JSON.stringify({ app: 'lexi', v: 1, cards, misses, visits, settings }));
   // eslint-disable-next-line no-console
   console.info(`[devseed] ${persona.name} — ${persona.looksAt}`);
-  // Strip the query so a manual reload does not re-seed. No navigation: the
-  // caller has not hydrated yet and is about to.
-  history.replaceState(null, '', location.pathname + location.hash);
+  // Strip **`seed` only** so a manual reload does not re-seed, and leave any other
+  // parameter alone. Dropping the whole query string took `?game=1` with it — a
+  // seeded persona could not also be dropped into the thing being tested, which is
+  // the exact combination a persona pass needs.
+  const params = new URLSearchParams(location.search);
+  params.delete('seed');
+  const rest = params.toString();
+  history.replaceState(null, '', location.pathname + (rest ? `?${rest}` : '') + location.hash);
 }

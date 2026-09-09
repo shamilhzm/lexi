@@ -62,6 +62,7 @@ import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type WordsRoute } from './route.ts';
+import SagEs from './components/SagEs.tsx';
 import type { Target } from './types.ts';
 
 export type View = 'feed' | 'session' | 'words' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
@@ -79,6 +80,19 @@ export default function App() {
   // Local state rather than a route: it is a scoped exercise set, which is not a
   // linkable thing, and it is always entered from the surface that motivated it.
   const [drill, setDrill] = useState<Mode | null>(null);
+  // `Sag es`, the pronunciation game. Local state for the same reason `drill` is:
+  // it is a scoped run rather than a linkable place, and it is always entered from
+  // the surface that offered it. It is *not* a route on purpose — a link that opens
+  // the microphone is a link that should not exist.
+  //
+  // `?game=1` in dev opens it directly. The game cannot be reached without finishing
+  // a session, which makes it the most expensive thing in the app to get to on a
+  // phone — and driving it on a phone is the only way to test it, because the
+  // browser pane runs hidden and `requestAnimationFrame` is suspended there, so the
+  // track never moves. `import.meta.env.DEV` folds to `false` at build time and the
+  // whole expression goes with it; `greppable.test.ts` guards that.
+  const [game, setGame] = useState(() =>
+    import.meta.env.DEV && new URLSearchParams(location.search).has('game'));
   // Bumped by every `go()`. It is part of the route container's key, so tapping
   // the tab you are already on remounts that destination — which is how a tab bar
   // is expected to behave, and on *Lernen* it is also how you rebuild the day's
@@ -355,8 +369,10 @@ export default function App() {
               // which is the right order to give up in.
               : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] md:pb-6${
                   view === 'session' ? ' min-h-full' : ''}`}>
-              <ErrorBoundary resetKey={`${view}:${drill ?? ''}`}>
-                {drill
+              <ErrorBoundary resetKey={`${view}:${drill ?? ''}:${game ? 'game' : ''}`}>
+                {game
+                  ? <SagEs onExit={() => setGame(false)} />
+                  : drill
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />
                   : <>
                     {view === 'feed' && <Feed onStartFirstRun={startFirstRun} />}
@@ -371,6 +387,7 @@ export default function App() {
                         // a session they just finished.
                         onPlacement={() => { location.replace('#/placement'); setView('placement'); }}
                         onPick={() => go('words')}
+                        onGame={() => setGame(true)}
                         onProfile={() => go('profile')}
                       />
                     )}

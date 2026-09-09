@@ -376,6 +376,21 @@ typo-tolerant only where the near miss is not itself a German word. Speech is no
 because scoring speech is precisely the thing commitment 3 forbids faking, and a
 pronunciation score a machine cannot stand behind is worse than no score.
 
+**Amended the same day, and the amendment is narrow.** `Sag es` — a pronunciation game —
+was built on 2026-09-09 and does not reopen this. It **reports what a recogniser heard**
+and never claims that is what the learner said; it writes no FSRS card, exactly as the
+feed writes none; and its copy says a word *was not caught*, never that it was
+mispronounced. The users are non-native speakers and the recogniser is the less reliable
+party in the exchange. See [SPEAKING.md](SPEAKING.md).
+
+**And it carries the app's first exception to local-first.** Web Speech runs on Apple's
+or Google's servers — there is no in-browser option — so this is the first feature in
+Lexi that sends anything a learner produces off the device. It is therefore a place you
+go rather than something you meet: entered deliberately, never woven into a session,
+and **disclosed in the app's own words before the microphone opens** rather than left to
+the system prompt to imply. iOS shows two prompts of its own after that; Lexi's line is
+the one that comes first.
+
 ### 9. Dwell is a signal, and a signal the scheduler acts on is a signal it **names**
 
 **Ruled: yes — keep the inference, and tell the learner.** The separation from grading was

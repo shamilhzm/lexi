@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>German ASR probe</title>
+<style>
+  :root{
+    --panel:#dcd9d2; --panel-deep:#c9c5bc; --ink:#141310; --ink-quiet:#605b52;
+    --signal:#1f5f57; --miss:#8c2f1c; --line:#a8a49a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--panel);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;
+    padding:max(20px,env(safe-area-inset-top)) 18px 80px;line-height:1.45;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:840px;margin:0 auto}
+  h1{font-size:19px;font-weight:700;letter-spacing:-0.01em}
+  .sub{color:var(--ink-quiet);font-size:14px;margin-top:4px;max-width:62ch}
+  .bar{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    margin:22px 0 0;padding:14px 0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  select,button{
+    font-family:inherit;font-size:15px;font-weight:500;
+    /* 44px, in px. A rem here would scale with iOS Dynamic Type and a 44pt touch
+       target is a physical measurement — see docs/LESSONS.md. */
+    min-height:44px;padding:8px 14px;border:1px solid var(--ink);border-radius:2px;
+    background:transparent;color:var(--ink);cursor:pointer;
+  }
+  button.primary{background:var(--ink);color:var(--panel)}
+  button:disabled{opacity:.35;cursor:default}
+  button:focus-visible,select:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+  .stage{
+    background:var(--panel-deep);border:1px solid var(--line);
+    margin-top:22px;padding:30px 20px;min-height:240px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .target{
+    font-size:clamp(30px,7vw,64px);font-weight:800;letter-spacing:-0.03em;
+    line-height:1.05;word-break:break-word;
+  }
+  .cue{color:var(--ink-quiet);font-size:14px;margin-bottom:10px}
+  .heard{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:clamp(15px,3vw,20px);color:var(--signal);
+    margin-top:20px;min-height:2.4em;word-break:break-word;
+  }
+  .heard.empty{color:var(--ink-quiet)}
+  .verdict{margin-top:16px;font-size:15px;font-weight:700}
+  .verdict.hit{color:var(--signal)}
+  .verdict.miss{color:var(--miss)}
+  .alts{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--ink-quiet);margin-top:8px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;margin-top:26px;font-size:13px;min-width:640px}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-weight:700;font-size:12px}
+  td.mono{font-family:ui-monospace,Menlo,monospace}
+  td.hit{color:var(--signal);font-weight:500}
+  td.miss{color:var(--miss);font-weight:500}
+  .summary{margin-top:26px;font-size:14px}
+  .summary div{padding:5px 0;border-bottom:1px solid var(--line)}
+  .note{margin-top:26px;font-size:13.5px;color:var(--ink-quiet);max-width:70ch}
+  .note b{color:var(--ink)}
+  .warn{margin-top:22px;padding:14px 16px;border:1px solid var(--miss);color:var(--miss);font-size:14px}
+  .env{margin-top:18px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-quiet)}
+  @media (prefers-reduced-motion:no-preference){
+    .listening .target{animation:pulse 1.4s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>German speech recognition probe</h1>
+  <p class="sub">Say each word once. This records what the recogniser heard, how long it took to
+  say anything at all, and whether four different matching strategies would have counted it.</p>
+
+  <div id="blocked" class="warn" hidden></div>
+
+  <div class="bar">
+    <select id="setPick">
+      <option value="a1">Set A — A1 everyday words</option>
+      <option value="rare">Set B — C2 rare words</option>
+      <option value="hard">Set C — phonetic gauntlet</option>
+      <option value="mixed">Set D — A1/C2 interleaved</option>
+    </select>
+    <button id="go" class="primary">Start</button>
+    <button id="skip">Skip word</button>
+    <button id="reset">Clear results</button>
+    <button id="copy">Copy results</button>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="cue" id="cue">Pick a set and press Start. Then say the word out loud, once.</div>
+    <div class="target" id="target">Bereit</div>
+    <div class="heard empty" id="heard" aria-live="polite" aria-atomic="true">…</div>
+    <div class="verdict" id="verdict" aria-live="polite"></div>
+    <div class="alts" id="alts"></div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+  <div class="scroll">
+    <table id="tbl" hidden>
+      <thead>
+        <tr><th>Target</th><th>Final transcript</th><th>Exact</th><th>Phon</th><th>Fuzzy</th>
+        <th>Top 5</th><th>Sim</th><th>Warm ms</th><th>First ms</th><th>Final ms</th><th>Alts</th></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <p class="note">
+    <b>Exact</b> normalised string equality · <b>Phon</b> Kölner Phonetik codes match ·
+    <b>Fuzzy</b> Levenshtein similarity ≥ 0.80 · <b>Top 5</b> the target appeared anywhere in the
+    recogniser's alternatives · <b>Warm ms</b> <code>start()</code> to microphone open, which is the
+    per-word cost the game pays before the learner has said anything ·
+    <b>First ms</b> mic open to the first interim guess, which is what the pacing depends on ·
+    <b>Alts</b> how many alternatives the engine actually returned — if this is 1 the “top 5”
+    strategy does not exist on this device.
+  </p>
+  <div class="env" id="env"></div>
+
+</div>
+
+<script>
+/* Three sets, plus one that interleaves the extremes — because the thing being
+   tested is partly whether the recogniser's language model drags a rare word
+   toward a common one, and that only shows when both are in play. */
+const SETS = {
+  a1:   ['Haus','Katze','Brot','Wasser','Tisch','Buch','Milch','Straße'],
+  rare: ['beschwichtigen','unabdingbar','wehmütig','Gepflogenheit','überschwänglich','hinlänglich','Zwietracht','verklausuliert'],
+  hard: ['Eichhörnchen','Streichholzschächtelchen','Röntgenstrahlen','Verschlimmbesserung','Rechtsschutzversicherung','Sehenswürdigkeiten','Quietschen','Zwetschgenkuchen'],
+  mixed:['Haus','beschwichtigen','Brot','Gepflogenheit','Milch','überschwänglich','Tisch','Zwietracht'],
+};
+const TIMEOUT_MS = 6000;
+
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const el = id => document.getElementById(id);
+
+/* Secure context first, and this is not pedantry: on a phone the natural thing to
+   type is the Mac's LAN address, `http://192.168.x.x:PORT`, and that is not a
+   secure origin — the API is simply absent and the page looks broken rather than
+   blocked. `localhost` *is* a secure origin, and the iOS Simulator shares the
+   host's network stack, so localhost is the way to run this on a phone screen. */
+function blocker(){
+  if(!window.isSecureContext){
+    return 'This page is not on a secure origin, so the browser hides the speech API. '
+      + 'Serve it over http://localhost (the iOS Simulator can reach the host’s localhost) or https.';
+  }
+  if(!SR) return 'This browser has no Web Speech API. Safari 14.5+, Chrome or Edge.';
+  return null;
+}
+const blocked = blocker();
+if(blocked){ el('blocked').textContent = blocked; el('blocked').hidden = false; }
+
+let queue = [], current = null, rec = null, results = [], running = false;
+let tStart = 0, tOpen = 0, warmMs = null, firstInterim = null;
+let lastInterim = '', settled = false, timer = null, skipped = false;
+
+/* ---------- matching ---------- */
+function normalise(s){
+  return (s||'').toLowerCase()
+    .replace(/ä/g,'a').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ß/g,'ss')
+    .replace(/[^a-z]/g,'');
+}
+
+/* Kölner Phonetik. Deliberately the textbook version, so that what this measures
+   is the algorithm rather than a variant tuned to flatter the result. */
+function koelner(word){
+  const s = normalise(word);
+  const codes = [];
+  const has = (set, ch) => !!ch && set.indexOf(ch) !== -1;
+  for(let i=0;i<s.length;i++){
+    const c = s[i], prev = s[i-1], next = s[i+1];
+    let code = null;
+    if('aeijouy'.indexOf(c) !== -1) code = '0';
+    else if(c === 'h') code = null;
+    else if(c === 'b') code = '1';
+    else if(c === 'p') code = (next === 'h') ? '3' : '1';
+    else if(c === 'd' || c === 't') code = has('csz', next) ? '8' : '2';
+    else if('fvw'.indexOf(c) !== -1) code = '3';
+    else if('gkq'.indexOf(c) !== -1) code = '4';
+    else if(c === 'c'){
+      if(i === 0) code = has('ahkloqrux', next) ? '4' : '8';
+      else code = (!has('sz', prev) && has('ahkoqux', next)) ? '4' : '8';
+    }
+    else if(c === 'x') code = has('ckq', prev) ? '8' : '48';
+    else if(c === 'l') code = '5';
+    else if(c === 'm' || c === 'n') code = '6';
+    else if(c === 'r') code = '7';
+    else if(c === 's' || c === 'z') code = '8';
+    if(code) codes.push(code);
+  }
+  let joined = '', prevCh = '';
+  for(const ch of codes.join('')){ if(ch !== prevCh) joined += ch; prevCh = ch; }
+  if(!joined) return '';
+  return joined[0] + joined.slice(1).replace(/0/g,'');
+}
+
+function levenshtein(a,b){
+  if(a === b) return 0;
+  if(!a.length) return b.length;
+  if(!b.length) return a.length;
+  let prev = Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+    const row = [i];
+    for(let j=1;j<=b.length;j++){
+      row[j] = Math.min(prev[j]+1, row[j-1]+1, prev[j-1] + (a[i-1]===b[j-1]?0:1));
+    }
+    prev = row;
+  }
+  return prev[b.length];
+}
+const similarity = (a,b) => { const m = Math.max(a.length,b.length); return m ? 1 - levenshtein(a,b)/m : 1; };
+
+function score(target, finalText, alternatives){
+  const t = normalise(target);
+  const words = (finalText||'').split(/\s+/).filter(Boolean);
+  /* Whole transcript *and* each word, because a recogniser that hears one word as
+     two ("Eich Hörnchen") is not a miss the game should punish, and one that hears
+     two as one is the same case backwards. */
+  const cands = words.map(normalise).concat([normalise(finalText)]).filter(Boolean);
+  const best = cands.reduce((acc,n) => {
+    const sim = similarity(t,n);
+    return sim > acc.sim ? {sim, n} : acc;
+  }, {sim:0, n:''});
+  return {
+    exact: !!t && best.n === t,
+    phonetic: !!t && !!best.n && koelner(t) === koelner(best.n),
+    fuzzy: best.sim >= 0.80,
+    inTop5: alternatives.some(alt => normalise(alt) === t
+      || alt.split(/\s+/).some(w => normalise(w) === t)),
+    sim: Number(best.sim.toFixed(2)),
+    heardBest: best.n,
+  };
+}
+
+/* ---------- run loop ---------- */
+function teardown(){
+  clearTimeout(timer);
+  if(rec){
+    rec.onresult = rec.onerror = rec.onend = rec.onaudiostart = null;
+    try { rec.abort(); } catch(e){ /* already dead */ }
+    rec = null;
+  }
+  document.body.classList.remove('listening');
+}
+
+function nextWord(){
+  if(!queue.length){ finish(); return; }
+  current = queue.shift();
+  firstInterim = null; warmMs = null; lastInterim = ''; settled = false; skipped = false;
+  el('target').textContent = current;
+  el('cue').textContent = 'Say it once. ' + (queue.length + 1) + ' left in this set.';
+  el('heard').textContent = '…';
+  el('heard').className = 'heard empty';
+  el('verdict').textContent = '';
+  el('verdict').className = 'verdict';
+  el('alts').textContent = '';
+  listen();
+}
+
+function listen(){
+  if(!SR) return;
+  teardown();
+  rec = new SR();
+  rec.lang = 'de-DE';
+  rec.interimResults = true;
+  rec.continuous = false;
+  rec.maxAlternatives = 5;
+
+  /* Two clocks, not one. The original probe started its clock in `onaudiostart`,
+     which is the moment the microphone is open — so it measured only the half of
+     the delay the learner can see, and reported nothing at all on engines that
+     never fire that event (t0 stayed 0, and every latency became "time since page
+     load"). The gap between `start()` and the mic opening is the cost the *game*
+     pays per word, and on a cold engine it is the larger number. */
+  tStart = performance.now();
+  tOpen = 0;
+  rec.onaudiostart = () => {
+    tOpen = performance.now();
+    warmMs = Math.round(tOpen - tStart);
+    document.body.classList.add('listening');
+  };
+
+  const since = () => Math.round(performance.now() - (tOpen || tStart));
+
+  rec.onresult = e => {
+    const res = e.results[e.results.length-1];
+    const text = (res[0].transcript || '').trim();
+    if(!res.isFinal){
+      if(firstInterim === null) firstInterim = since();
+      lastInterim = text;
+      el('heard').textContent = text;
+      el('heard').className = 'heard';
+      return;
+    }
+    const alts = [];
+    for(let i=0;i<res.length;i++) alts.push((res[i].transcript||'').trim());
+    settle(text, alts, since(), res[0].confidence);
+  };
+
+  rec.onerror = e => {
+    /* A permission refusal ends the run — every later word would fail the same
+       way and fill the table with rows that say nothing about German. */
+    if(e.error === 'not-allowed' || e.error === 'service-not-allowed'){
+      stopRun('Microphone permission was refused, so the run stopped. '
+        + 'Allow the mic for this origin and start again.');
+      return;
+    }
+    if(e.error === 'no-speech' || e.error === 'aborted') return; // `onend` handles it
+    settle('', [], null, null, e.error);
+  };
+
+  rec.onend = () => {
+    document.body.classList.remove('listening');
+    if(skipped || !running) return;
+    if(!settled) settle(lastInterim, lastInterim ? [lastInterim] : [], null, null,
+      lastInterim ? null : 'no-result');
+  };
+
+  try { rec.start(); }
+  catch(err){ settle('', [], null, null, 'start-failed'); return; }
+  clearTimeout(timer);
+  timer = setTimeout(() => { if(!settled && rec) { try { rec.stop(); } catch(e){} } }, TIMEOUT_MS);
+}
+
+function settle(finalText, alts, finalMs, confidence, error){
+  if(settled) return;
+  settled = true;
+  clearTimeout(timer);
+  document.body.classList.remove('listening');
+
+  const s = score(current, finalText, alts);
+  results.push({
+    target: current,
+    heard: finalText,
+    alternatives: alts,
+    altCount: alts.length,
+    exact: s.exact, phonetic: s.phonetic, fuzzy: s.fuzzy, inTop5: s.inTop5,
+    similarity: s.sim,
+    warmMs: warmMs,
+    firstInterimMs: firstInterim,
+    finalMs: finalMs,
+    confidence: confidence != null ? Number(confidence.toFixed(2)) : null,
+    error: error || null,
+  });
+
+  el('heard').textContent = finalText || (error ? '(' + error + ')' : '(nothing)');
+  el('heard').className = finalText ? 'heard' : 'heard empty';
+  const pass = s.exact || s.phonetic || s.fuzzy;
+  el('verdict').textContent = pass
+    ? 'Counted' + (s.exact ? '' : s.phonetic ? ' on phonetics' : ' on fuzzy match')
+    : 'Not caught';
+  el('verdict').className = 'verdict ' + (pass ? 'hit' : 'miss');
+  el('alts').textContent = alts.length > 1 ? 'also heard: ' + alts.slice(1).join(' / ') : '';
+
+  render();
+  setTimeout(() => { if(running) nextWord(); }, 1100);
+}
+
+function stopRun(message){
+  running = false;
+  queue = [];
+  current = null;
+  teardown();
+  el('cue').textContent = message || 'Stopped.';
+  el('target').textContent = 'Stopp';
+  render();
+}
+
+function finish(){
+  running = false;
+  current = null;
+  teardown();
+  el('target').textContent = 'Fertig';
+  el('cue').textContent = 'Set complete. Run another set, or copy the results.';
+  el('heard').textContent = '…';
+  el('heard').className = 'heard empty';
+  el('verdict').textContent = '';
+  el('alts').textContent = '';
+}
+
+/* ---------- output ---------- */
+function render(){
+  const tb = el('tbody');
+  tb.innerHTML = '';
+  results.forEach(r => {
+    const tr = document.createElement('tr');
+    const cell = (txt, cls) => { const td = document.createElement('td'); td.textContent = txt; if(cls) td.className = cls; return td; };
+    const yn = v => v ? 'yes' : 'no';
+    tr.append(
+      cell(r.target),
+      cell(r.heard || (r.error ? '(' + r.error + ')' : '—'), 'mono'),
+      cell(yn(r.exact), r.exact?'hit':'miss'),
+      cell(yn(r.phonetic), r.phonetic?'hit':'miss'),
+      cell(yn(r.fuzzy), r.fuzzy?'hit':'miss'),
+      cell(yn(r.inTop5), r.inTop5?'hit':'miss'),
+      cell(r.similarity ?? '—','mono'),
+      cell(r.warmMs ?? '—','mono'),
+      cell(r.firstInterimMs ?? '—','mono'),
+      cell(r.finalMs ?? '—','mono'),
+      cell(r.altCount ?? '—','mono'),
+    );
+    tb.append(tr);
+  });
+  el('tbl').hidden = results.length === 0;
+
+  const n = results.length;
+  if(!n){ el('summary').innerHTML = ''; el('env').textContent = envLine(); return; }
+  const pct = k => Math.round(100 * results.filter(r=>r[k]).length / n) + '%';
+  const med = key => {
+    const v = results.map(r=>r[key]).filter(x=>x!=null).sort((a,b)=>a-b);
+    return v.length ? v[Math.floor(v.length/2)] + ' ms' : 'no data';
+  };
+  const noInterim = results.filter(r=>r.firstInterimMs==null).length;
+  const maxAlts = Math.max(...results.map(r=>r.altCount||0));
+  el('summary').innerHTML =
+    '<div>' + n + ' words attempted</div>' +
+    '<div>Exact ' + pct('exact') + ' · phonetic ' + pct('phonetic') + ' · fuzzy ' + pct('fuzzy') + ' · in top 5 ' + pct('inTop5') + '</div>' +
+    '<div>Median mic warm-up ' + med('warmMs') + ' · median time to first guess ' + med('firstInterimMs') + ' · median to final ' + med('finalMs') + '</div>' +
+    '<div>' + noInterim + ' of ' + n + ' words produced no interim result at all · most alternatives returned: ' + maxAlts + '</div>';
+  el('env').textContent = envLine();
+}
+
+function envLine(){
+  return 'origin ' + location.origin + ' · secure ' + window.isSecureContext
+    + ' · SR ' + (SR ? (window.SpeechRecognition ? 'standard' : 'webkit') : 'absent')
+    + ' · ' + navigator.userAgent;
+}
+el('env').textContent = envLine();
+
+/* ---------- controls ---------- */
+el('go').onclick = () => {
+  if(blocked) return;
+  /* Appending across sets is the useful default — the summary is a per-device
+     picture, not a per-set one — and clearing is one button away. The original
+     asked with a `confirm()` inside a ternary whose branches were the wrong way
+     round for anyone who pressed Cancel. */
+  running = true;
+  queue = SETS[el('setPick').value].slice();
+  nextWord();
+};
+el('skip').onclick = () => {
+  /* Skip discards. Stopping the recogniser fires `onend`, and the original let
+     that settle the word as a miss — so every skipped word landed in the table as
+     a recognition failure and quietly depressed every hit rate in the summary. */
+  if(!current) return;
+  skipped = true;
+  settled = true;
+  teardown();
+  setTimeout(() => { if(running) nextWord(); }, 150);
+};
+el('reset').onclick = () => { results = []; render(); };
+el('copy').onclick = async () => {
+  const payload = {
+    userAgent: navigator.userAgent,
+    origin: location.origin,
+    secureContext: window.isSecureContext,
+    api: SR ? (window.SpeechRecognition ? 'SpeechRecognition' : 'webkitSpeechRecognition') : null,
+    capturedAt: new Date().toISOString(),
+    results,
+  };
+  const text = JSON.stringify(payload, null, 2);
+  try { await navigator.clipboard.writeText(text); el('copy').textContent = 'Copied'; }
+  catch { window.prompt('Copy this:', text); }
+  setTimeout(()=>{ el('copy').textContent = 'Copy results'; }, 1500);
+};
+document.addEventListener('keydown', e => {
+  if(e.code === 'Space' && !running){ e.preventDefault(); el('go').click(); }
+});
+window.addEventListener('pagehide', teardown);
+</script>
+</body>
+</html>

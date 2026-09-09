@@ -11,6 +11,69 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-09 — Sag es, a pronunciation game, and the ruling it had to survive
+
+From a meme: a word arrives, you say it, and whatever the recogniser heard is printed
+**over the top of the word**. `JUNE` across `JANUARY` is the joke and it is also the
+whole of the feedback — the app shows what the machine heard and lets the learner
+judge it. There is no tick, no cross and no score.
+
+It had to survive the ruling made hours earlier in the same day. VISION open decision
+8: *speech is not scored*, because a pronunciation score a machine cannot stand behind
+is the pretence commitment 3 forbids. The game does not reopen it. **A miss says the
+word was not caught, never that the learner mispronounced it** — the users are
+non-native speakers and the recogniser is the less reliable party in that exchange —
+and no FSRS card is ever written, exactly as the feed writes none.
+
+**It is also the app's first exception to local-first.** Web Speech runs on Apple's or
+Google's servers; there is no in-browser option. So it is a place you go rather than
+something you meet: entered from the session recap, never woven into a session, and
+disclosed in Lexi's own words *before* the microphone opens. iOS then shows two prompts
+of its own — Speech Recognition, then Microphone — and Lexi's line is the one that
+comes first.
+
+#### Built as four pieces so three of them need no microphone
+
+`asr-match.ts` (normalisation, Kölner Phonetik, Levenshtein, one `verdict`),
+`asr.ts` (the recogniser behind one door), `sages.ts` (the round as a pure reducer) and
+`SagEs.tsx`. Only the second touches audio, which is why the game could be built while
+three of its four empirical gates were still unmeasured — see `docs/SPEAKING.md`.
+
+#### What the phone found, and nothing else could have
+
+**The clock ran through the permission dialogs.** iOS shows two system prompts between
+Start and audio arriving, and the first version started its track at `listen()`. Driven
+on the Simulator, a twelve-word run was **on word 8 by the time the second dialog was
+answered** — seven words missed, none of them by the learner, from Lexi's own clock.
+The exact failure the game exists never to produce, arriving from the one place nobody
+was watching. The track now holds until `onaudiostart`, armed once per run rather than
+per session, with two fallbacks for engines that never fire it.
+
+**Pattern cards were in the word pool** — the lookahead was showing *Ich kann lange
+schlafen.* A sentence fails the overlay, which prints one transcript across one word,
+and the deadline, which is sized for one utterance.
+
+#### The playable set is not a CEFR band
+
+The handover's plan was to filter the corpus by what the recogniser can catch. That is
+backwards: it would let Apple's and Google's language models choose Lexi's curriculum.
+The filter is a property of the *word* — **one content word of two or more syllables** —
+because **313 of 1,170 A1 cards are monosyllabic and 129 are function words**, and `so`
+said alone is a coin flip for any recogniser. That leaves **5,576 of 6,844 cards**
+playable, A1 783 and C2 158.
+
+#### And the probe that decides the rest
+
+`npm run probe:asr` measures latency, substitution and the n-best list on a real
+device. It is served on **localhost only**, because the speech API is *absent* rather
+than blocked outside a secure origin — so a Mac's LAN address makes the page look
+broken instead of refused, and the iOS Simulator sharing the host's network stack is
+what makes a real iOS Safari able to reach it. Gate 0 is answered: iOS Safari 26.5 has
+`webkitSpeechRecognition`. Gates 1–3 need a human and are marked as unmeasured
+throughout rather than guessed.
+
+---
+
 ### Shipped 2026-09-09 — six questions ruled, and the two that turned out to be engineering
 
 Round 4's Track E was six questions the anchor document had to answer. Each arrived as

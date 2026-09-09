@@ -44,6 +44,11 @@ function words because the fix worked.
 you are sorting**, not overall. `freq.json` covered 29% of the corpus and 7.4% of A1,
 and nulls-sort-last turned the hole into a confident wrong order with no error anywhere.
 
+**…start a timer around a browser API that can prompt.** Start it on the API's own
+*started* event, not on the call. iOS puts two permission dialogs between `start()` and
+the microphone opening, and a twelve-word game was on word 8 before the learner had
+agreed to play.
+
 **…trust a check that fires on thousands of rows.** Assume the check is wrong first.
 Hand-verify three hits before you believe the count. *(Twice this has been a bug in the
 check.)*
@@ -1407,3 +1412,40 @@ when the premises were first measured, once when the fixes landed. That is the f
 working. A question is only worth asking while its premise holds, and a ruling is only
 worth keeping while the state it was made about survives; both deserve an assertion,
 not a paragraph in a document nobody re-runs.
+
+---
+
+## The clock you started is not the clock the user is on *(added 2026-09-09)*
+
+**Believed:** a game that starts when the learner presses Start starts when the learner
+presses Start.
+
+**True:** between that press and any audio arriving, iOS shows **two** system dialogs —
+Speech Recognition, then Microphone. The track was started at `listen()`, so it ran the
+whole time the learner was reading prompts they had to answer. Driven on the Simulator,
+a twelve-word run was **on word 8 by the time the second dialog was dismissed**: seven
+words "missed", none of them by the learner, produced by the app's own timer.
+
+The feature exists to never tell a learner they got something wrong when the machine
+was at fault. It did exactly that, in its first minute, from the one direction nobody
+had thought to guard — not the recogniser, the app.
+
+**The rule:** *when a browser API can interpose a dialog, the clock starts at the event
+that proves it is over, not at the call that asked.* `start()` is a request;
+`onaudiostart` is an answer. The same shape applies to anything gated on a permission —
+camera, geolocation, notifications, clipboard — and the tell is that the API has a
+"started" event *separate* from the method that starts it. That event exists precisely
+because the gap is real.
+
+**Corollary, learned twice in one file.** Arm on the event **once per run**, not once
+per session. The recogniser stops after every pause and has to be restarted, so a
+per-session reset would have handed the learner a fresh deadline every time they
+stopped talking — a bug that would have made the game *easier* and been correspondingly
+hard to notice.
+
+**And the reason this was found at all:** it is invisible in the browser pane, which
+never shows a permission dialog and where `requestAnimationFrame` is suspended anyway,
+so the track does not move and nothing looks wrong. The pane also reported
+`clientWidth: 0` for the accessibility-size check in the same session, which is the
+false negative already on this list. **Two instruments, one session, both blind in the
+same direction: flattering.**

@@ -11,7 +11,7 @@
 // paper. What is left is a vocabulary player, which is what this app is.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
+import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList, Mic } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, visitCount} from '../store.ts';
 import { haptic, tick, fmt} from '../lib/ui.ts';
@@ -77,12 +77,15 @@ export function showsGermanDefs(placed: CEFR | null): boolean {
   return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
 }
 
-export default function Review({ target, onDone, onPick, onProfile, onPlacement, firstRun = false }:
+export default function Review({ target, onDone, onPick, onGame, onProfile, onPlacement, firstRun = false }:
   { target: Target;
     /** Leave the guided chain — the recap's "Got it". */
     onDone: () => void;
     /** Into the lexicon: another deck, or a word to look up. */
     onPick: () => void;
+    /** Open `Sag es`, the pronunciation game. Offered from the empty state, which is
+     *  the one moment the app knows a learner has time and nothing owed. */
+    onGame: () => void;
     /** Backup, reminders, settings — offered from the recap's nudges. */
     onProfile: () => void;
     /** Offered from the first-run recap — see DoneState. */
@@ -404,11 +407,11 @@ export default function Review({ target, onDone, onPick, onProfile, onPlacement,
       </div>
     );
   }
-  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} />;
+  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} onGame={onGame} />;
   if (!item) return <DoneState done={done} newLearned={newLearned} retrieved={retrieved} retrievedOk={retrievedOk} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
-    onDone={onDone} onPick={onPick} onProfile={onProfile} />;
+    onDone={onDone} onPick={onPick} onGame={onGame} onProfile={onProfile} />;
 
   const card = item.word;
   const drill = item.type !== 'flip';
@@ -1097,9 +1100,10 @@ function StatusPip({ id }: { id: string }) {
   return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
 }
 
-function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onProfile, onPlacement }:
+function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onGame, onProfile, onPlacement }:
   { done: number; newLearned: number; retrieved: number; retrievedOk: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
-    composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void; onProfile: () => void;
+    composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void;
+    onGame: () => void; onProfile: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
   // **Recall is only defined where a retrieval happened.**
@@ -1186,7 +1190,18 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
         <div className="flex gap-2.5 justify-center flex-wrap">
           {firstRun
             ? <Button onClick={onDone}>Got it</Button>
-            : <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>}
+            : <>
+              <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
+              {/* The game is offered *here*, and the first place it was offered is
+                  worth recording: the Üben empty state, which this file's own comment
+                  says a learner inside a 6,700-word corpus never reaches — the branch
+                  needs no fresh cards either, so it is unreachable in practice. The
+                  recap is reached every day, and it is the one moment the app knows
+                  the learner owes nothing. Not on a first run: the first session ends
+                  in the placement test, and a microphone prompt across that is a
+                  second ask on top of a first impression. */}
+              <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>
+            </>}
         </div>
         {/* The pride moment — the market as a designed image, not a cropped
             screenshot. Word-of-mouth is a local-first app’s only channel. */}
@@ -1207,7 +1222,9 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
  *  achievement rather than an absence — "the system holds until tomorrow" is the
  *  true thing to say to somebody who has served every review and spent the whole
  *  new-card budget. */
-function EmptyState({ target, scoped, onPick }: { target: Target; scoped: boolean; onPick: () => void }) {
+function EmptyState({ target, scoped, onPick, onGame }: {
+  target: Target; scoped: boolean; onPick: () => void; onGame: () => void;
+}) {
   const t = totals();
   return (
     <div className="grid place-items-center min-h-[440px]">
@@ -1226,7 +1243,13 @@ function EmptyState({ target, scoped, onPick }: { target: Target; scoped: boolea
         <Kicker className="block mb-6">
           {t.known > 0 ? `${t.known} words recognised · streak safe` : 'streak safe'}
         </Kicker>
-        <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
+        <div className="flex flex-wrap gap-2 justify-center">
+          <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
+          {/* The game is offered here and only here for now. This is the one state
+              where the app knows the learner has time and owes nothing, which is the
+              honest moment to suggest something that is not studying. */}
+          <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>
+        </div>
       </div>
     </div>
   );
