@@ -98,7 +98,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
    *  one that admits it is deaf. */
   const [everHeard, setEverHeard] = useState(false);
   const [quiet, setQuiet] = useState(false);
-  const debug = useMemo(debugOn, []);
+  const debug = useMemo(() => debugOn(), []);
   /** The last few transcripts, newest first — what the recogniser actually sent. */
   const [trace, setTrace] = useState<string[]>([]);
 
