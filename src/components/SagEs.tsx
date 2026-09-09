@@ -61,6 +61,17 @@ function pickWords(levelFilter: Set<CEFR>): Word[] {
 
 type Phase = 'intro' | 'playing' | 'done' | 'blocked';
 
+/** `?debug=1` turns on a live readout while playing.
+ *
+ *  In the **production** build on purpose. A speech recogniser misbehaves on a
+ *  specific device, in a specific browser, in a room with specific noise in it, and
+ *  none of that reproduces on a simulator that has no microphone at all. A flag that
+ *  only works in `npm run dev` is a flag that cannot debug the only environment that
+ *  matters. Off unless asked for, so it costs nobody anything. */
+const debugOn = () => {
+  try { return new URLSearchParams(location.search).has('debug'); } catch { return false; }
+};
+
 export default function SagEs({ onExit }: { onExit: () => void }) {
   const cap = useMemo(() => support(), []);
   const reduce = useReducedMotion();
@@ -87,11 +98,24 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
    *  one that admits it is deaf. */
   const [everHeard, setEverHeard] = useState(false);
   const [quiet, setQuiet] = useState(false);
+  const debug = useMemo(debugOn, []);
+  /** The last few transcripts, newest first — what the recogniser actually sent. */
+  const [trace, setTrace] = useState<string[]>([]);
 
   const listener = useRef<Listener | null>(null);
   const runRef = useRef<Run | null>(null);
   runRef.current = run;
   const armedRef = useRef(false);
+  const debugRef = useRef(false);
+  debugRef.current = debug;
+  /** The transcript as it stood when the current word came up.
+   *
+   *  A `continuous` session hands back one string that **keeps growing** — the
+   *  recording showed `Rudern Juden Juden Juden Juden wurden` under a single word.
+   *  Matching against the whole of it means a word can be cleared by something the
+   *  learner said thirty seconds ago, for a word that has already gone by. Only the
+   *  part appended since this word came up is evidence about this word. */
+  const baseline = useRef('');
   /** Consecutive recogniser failures. Reset whenever audio actually arrives. */
   const failures = useRef(0);
 
@@ -123,6 +147,8 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     setEverHeard(false);
     setQuiet(false);
     failures.current = 0;
+    baseline.current = '';
+    setTrace([]);
     setPhase('playing');
 
     // One long-lived listener, restarted when the engine ends a turn. A recogniser
@@ -131,18 +157,35 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
     // microphone warm-up twelve times.
     const l = createListener({
       onHeard: (h) => {
-        setLive(h.text);
         failures.current = 0;
         setEverHeard(true);
         setQuiet(false);
         arm(); // some engines never fire `onaudiostart`; hearing something proves it
+
+        // Only what has been said *since this word came up*.
+        const full = h.text ?? '';
+        const fresh = full.startsWith(baseline.current)
+          ? full.slice(baseline.current.length).trim()
+          : full.trim();
+        setLive(fresh);
+
         const cur = runRef.current;
-        if (!cur || cur.done) return;
-        const next = onHeard(cur, h.text, h.alternatives);
-        if (next !== cur) {
-          if (next.index !== cur.index) setLive('');
-          setRun(next);
+        if (debugRef.current) {
+          const want = cur?.slots[cur.index]?.say ?? '—';
+          setTrace((t) => [
+            `${h.final ? 'F' : 'i'} want=${want} fresh=${JSON.stringify(fresh)} full=${JSON.stringify(full)}`,
+            ...t,
+          ].slice(0, 6));
         }
+        if (!cur || cur.done) return;
+        const next = onHeard(cur, fresh, h.alternatives);
+        if (next === cur) return;
+        if (next.index !== cur.index) {
+          // A new word: everything heard so far belongs to the last one.
+          baseline.current = full;
+          setLive('');
+        }
+        setRun(next);
       },
       // Arm once per run, not once per session: the recogniser stops after every
       // pause and is restarted below, so a per-session reset would hand the learner
@@ -380,12 +423,16 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           >
             {current?.say}
           </p>
+          {/* **The transcript sits under the word, not across it.**
+              
+              It was overlaid, offset by a tenth of an em and in the same accent
+              colour as the fill — and on a real phone the two were one unreadable
+              smear: `rudern` under `Rudern Juden Juden Juden Juden wurden`, neither
+              legible. The joke only works if you can read both halves of it. Below,
+              smaller, in the warning colour, and marked as what it is. */}
           {live && (
-            <p
-              aria-hidden
-              className="absolute inset-x-0 top-0 text-[clamp(30px,8vw,60px)] font-extrabold leading-[1.05]
-                tracking-[-0.03em] break-words text-accent/60 pointer-events-none translate-y-[0.18em] translate-x-[0.1em]"
-            >
+            <p aria-hidden className="mt-2 text-[clamp(19px,5vw,30px)] font-bold leading-[1.15]
+              tracking-[-0.02em] break-words text-red/85">
               {live}
             </p>
           )}
@@ -416,10 +463,28 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
             It appears only once the app has admitted it is deaf. */}
         {quiet && <Stats listener={listener.current} />}
 
+        {debug && (
+          <div className="mt-4 font-mono text-[10px] text-dim leading-[1.45] break-all">
+            <Stats listener={listener.current} />
+            <div>idx {run.index} · cleared {run.cleared} · close {close.toFixed(2)}
+              {' '}· caught {String(current?.caught)} · base {JSON.stringify(baseline.current.slice(-28))}</div>
+            {trace.map((t, i) => <div key={i}>{t}</div>)}
+          </div>
+        )}
+
         <div className="mt-7 flex items-center gap-2">
           {/* Free, and it clears nothing. Charging time for a skip would charge the
               learner for the recogniser refusing a word. */}
-          <Button variant="secondary" onClick={() => { setRun(skip(run)); setLive(''); }}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              // The baseline moves with the word, or the next one inherits this
+              // word's speech and can be cleared by it.
+              baseline.current += (baseline.current ? ' ' : '') + live;
+              setRun(skip(run));
+              setLive('');
+            }}
+          >
             Skip
           </Button>
           <span className={`text-xs ${quiet ? 'text-red' : 'text-dim'}`}>
