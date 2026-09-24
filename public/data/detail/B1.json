@@ -1072,6 +1072,20 @@
       }
     ]
   },
+  "voc:B1:abschreiben": {
+    "ex": [
+      {
+        "de": "Du darfst in der Prüfung nicht abschreiben.",
+        "en": "You mustn't copy in the exam.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Geld kannst du abschreiben.",
+        "en": "You can write that money off.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:absichtlich": {
     "def": "Done on purpose.",
     "ex": [
@@ -1609,6 +1623,20 @@
         "de": "Heikle Themen spricht man besser unter vier Augen an.",
         "en": "Sensitive topics are better raised in private.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:anstecken": {
+    "ex": [
+      {
+        "de": "Bleib zu Hause, sonst kannst du alle anstecken.",
+        "en": "Stay at home or you might infect everyone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Seine gute Laune kann jeden anstecken.",
+        "en": "His good mood can rub off on anyone.",
+        "lvl": "B1"
       }
     ]
   },
@@ -3608,6 +3636,20 @@
         "de": "Beim Poker muss man gut bluffen können.",
         "en": "In poker you have to be able to bluff well.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:brandneu": {
+    "ex": [
+      {
+        "de": "Das Handy ist brandneu.",
+        "en": "The phone is brand new.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie fährt ein brandneues Auto.",
+        "en": "She drives a brand-new car.",
+        "lvl": "B1"
       }
     ]
   },
@@ -6417,6 +6459,20 @@
       }
     ]
   },
+  "voc:B1:das Nickerchen": {
+    "ex": [
+      {
+        "de": "Nach dem Essen mache ich ein Nickerchen.",
+        "en": "I take a nap after lunch.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ein kurzes Nickerchen hilft mir sehr.",
+        "en": "A short nap really helps me.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Niveau": {
     "def": "The standard something has reached, measured against others.",
     "ex": [
@@ -6683,6 +6739,20 @@
         "de": "Jeder trägt sein Päckchen zu tragen, sagt man im Deutschen.",
         "en": "Everyone has their own burden to bear, as the German saying goes.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:das Pärchen": {
+    "ex": [
+      {
+        "de": "Auf der Bank sitzt ein verliebtes Pärchen.",
+        "en": "A couple in love are sitting on the bench.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Pärchen wohnt über uns.",
+        "en": "The couple live above us.",
+        "lvl": "B1"
       }
     ]
   },
@@ -7499,6 +7569,20 @@
       {
         "de": "Er spricht in authentischem Tempo.",
         "en": "He speaks at an authentic pace.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Terminal": {
+    "ex": [
+      {
+        "de": "Unser Flug geht von Terminal zwei.",
+        "en": "Our flight leaves from terminal two.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Terminal ist brandneu.",
+        "en": "The terminal is brand new.",
         "lvl": "B1"
       }
     ]
@@ -8947,6 +9031,20 @@
       }
     ]
   },
+  "voc:B1:der Aufsatz": {
+    "ex": [
+      {
+        "de": "Wir müssen einen Aufsatz über die Umwelt schreiben.",
+        "en": "We have to write an essay on the environment.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Aufsatz ist bis Freitag fällig.",
+        "en": "The essay is due by Friday.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Aufschnitt": {
     "def": "cold cuts",
     "ex": [
@@ -9397,6 +9495,20 @@
       {
         "de": "Hast du einen Block für Notizen?",
         "en": "Do you have a notepad for notes?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Blog": {
+    "ex": [
+      {
+        "de": "Sie schreibt einen Blog über das Leben in Köln.",
+        "en": "She writes a blog about life in Cologne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Blog hat viele Leser.",
+        "en": "The blog has lots of readers.",
         "lvl": "B1"
       }
     ]
@@ -13133,6 +13245,20 @@
       }
     ]
   },
+  "voc:B1:der Papierkram": {
+    "ex": [
+      {
+        "de": "Nach dem Umzug hatte ich wochenlang Papierkram.",
+        "en": "After the move I had weeks of paperwork.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich hasse den ganzen Papierkram.",
+        "en": "I hate all the paperwork.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Parkplatz": {
     "def": "parking lot, outdoor car park; parking space, parking spot",
     "ex": [
@@ -15050,6 +15176,20 @@
       }
     ]
   },
+  "voc:B1:der Teig": {
+    "ex": [
+      {
+        "de": "Der Teig muss eine Stunde ruhen.",
+        "en": "The dough has to rest for an hour.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie knetet den Teig für die Pizza.",
+        "en": "She is kneading the pizza dough.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Teilnehmer": {
     "def": "a person who takes part in something",
     "ex": [
@@ -15293,6 +15433,20 @@
       {
         "de": "Die Polizei hält Tom für den Täter.",
         "en": "The police think that Tom did it.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der US-Amerikaner": {
+    "ex": [
+      {
+        "de": "Der US-Amerikaner hat das Rennen in Austin gewonnen.",
+        "en": "The American won the race in Austin.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Mann ist US-Amerikaner.",
+        "en": "My husband is American.",
         "lvl": "B1"
       }
     ]
@@ -21230,6 +21384,20 @@
       }
     ]
   },
+  "voc:B1:die Hecke": {
+    "ex": [
+      {
+        "de": "Der Nachbar schneidet die Hecke.",
+        "en": "The neighbour is cutting the hedge.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hinter der Hecke ist ein Garten.",
+        "en": "There's a garden behind the hedge.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Heckenschere": {
     "def": "hedge cutters, hedge shears, hedge trimmer, hedge clippers",
     "ex": [
@@ -21608,6 +21776,20 @@
         "de": "Sie stemmte die Hände in die Hüften.",
         "en": "She put her hands on her hips.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Hülle": {
+    "ex": [
+      {
+        "de": "Ich brauche eine neue Hülle für mein Handy.",
+        "en": "I need a new case for my phone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Am Buffet gab es Essen in Hülle und Fülle.",
+        "en": "There was food in abundance at the buffet.",
+        "lvl": "B1"
       }
     ]
   },
@@ -27622,6 +27804,20 @@
       }
     ]
   },
+  "voc:B1:die Verlobung": {
+    "ex": [
+      {
+        "de": "Sie haben ihre Verlobung gefeiert.",
+        "en": "They celebrated their engagement.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach der Verlobung kam die Hochzeit schnell.",
+        "en": "The wedding came quickly after the engagement.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Verlängerung": {
     "def": "prolongation; lengthening (process of making something longer, in space or duration); lengthening (process of becoming longer, in space or duration)",
     "ex": [
@@ -29786,6 +29982,20 @@
       }
     ]
   },
+  "voc:B1:einstecken": {
+    "ex": [
+      {
+        "de": "Vergiss nicht, den Schlüssel einzustecken.",
+        "en": "Don't forget to take the key.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Du musst das Kabel noch einstecken.",
+        "en": "You still have to plug the cable in.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:einteilen": {
     "def": "To divide something into parts, or to arrange your time so it covers what is needed.",
     "ex": [
@@ -30838,6 +31048,20 @@
       {
         "de": "Essen fassen!",
         "en": "Grub's up!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:fegen": {
+    "ex": [
+      {
+        "de": "Er fegt jeden Samstag den Hof.",
+        "en": "He sweeps the yard every Saturday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du bitte die Küche fegen?",
+        "en": "Can you sweep the kitchen, please?",
         "lvl": "B1"
       }
     ]
@@ -34988,6 +35212,20 @@
       }
     ]
   },
+  "voc:B1:portugiesisch": {
+    "ex": [
+      {
+        "de": "Wir essen in einem portugiesischen Restaurant.",
+        "en": "We're eating in a Portuguese restaurant.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die portugiesische Küste ist wunderschön.",
+        "en": "The Portuguese coast is beautiful.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:praxisrelevant": {
     "def": "Useful and important for real, practical work.",
     "ex": [
@@ -35416,6 +35654,20 @@
         "de": "Wer regiert, muss auch unpopuläre Entscheidungen treffen.",
         "en": "Whoever governs also has to make unpopular decisions.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:registrieren": {
+    "ex": [
+      {
+        "de": "Du musst dich zuerst auf der Website registrieren.",
+        "en": "You have to register on the website first.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Man kann sich auch per App registrieren.",
+        "en": "You can also register via the app.",
+        "lvl": "B1"
       }
     ]
   },
@@ -37292,6 +37544,20 @@
       }
     ]
   },
+  "voc:B1:spitz": {
+    "ex": [
+      {
+        "de": "Das Messer ist sehr spitz.",
+        "en": "The knife is very sharp at the point.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihre Bemerkung war ziemlich spitz.",
+        "en": "Her remark was rather pointed.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:spätestens": {
     "def": "No later than a stated time.",
     "ex": [
@@ -37953,6 +38219,20 @@
       {
         "de": "In tropischen Regionen regnet es fast täglich.",
         "en": "In tropical regions it rains almost daily.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:trösten": {
+    "ex": [
+      {
+        "de": "Sie tröstet ihre Freundin nach der Trennung.",
+        "en": "She comforts her friend after the break-up.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das tröstet mich wenig.",
+        "en": "That's little consolation to me.",
         "lvl": "B1"
       }
     ]
@@ -40317,6 +40597,20 @@
         "de": "Was man gelernt hat, gewinnt erst dadurch Wert, dass man es weitergibt.",
         "en": "What you’ve learned gains value only by passing it on.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:weiterleiten": {
+    "ex": [
+      {
+        "de": "Kannst du mir die E-Mail weiterleiten?",
+        "en": "Can you forward me the email?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich werde Ihre Frage an die Kollegin weiterleiten.",
+        "en": "I'll pass your question on to my colleague.",
+        "lvl": "B1"
       }
     ]
   },

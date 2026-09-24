@@ -210,6 +210,20 @@
       }
     ]
   },
+  "voc:C2:das Artefakt": {
+    "ex": [
+      {
+        "de": "Im Museum liegen Artefakte aus der Römerzeit.",
+        "en": "The museum has artefacts from Roman times.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Artefakt ist dreitausend Jahre alt.",
+        "en": "The artefact is three thousand years old.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:das Bewusstsein": {
     "def": "Awareness of oneself and the world; also the state of being awake.",
     "ex": [

@@ -1135,6 +1135,20 @@
       }
     ]
   },
+  "voc:A2:auswählen": {
+    "ex": [
+      {
+        "de": "Bitte eine Sprache auswählen.",
+        "en": "Please select a language.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du kannst dir ein Geschenk auswählen.",
+        "en": "You can choose a present.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:außen": {
     "def": "On or from the outer side of something.",
     "ex": [
@@ -4848,6 +4862,20 @@
       }
     ]
   },
+  "voc:A2:das Sternzeichen": {
+    "ex": [
+      {
+        "de": "Was ist dein Sternzeichen?",
+        "en": "What's your star sign?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mein Sternzeichen ist Löwe.",
+        "en": "My star sign is Leo.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Streitgespräch": {
     "def": "a conversation where people disagree strongly",
     "ex": [
@@ -6882,6 +6910,20 @@
       {
         "de": "Wir decken den Esstisch für das Abendessen.",
         "en": "We set the dining table for dinner.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Europäer": {
+    "ex": [
+      {
+        "de": "Er fühlt sich vor allem als Europäer.",
+        "en": "He feels European above all.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Viele Europäer machen in Spanien Urlaub.",
+        "en": "Many Europeans go on holiday in Spain.",
         "lvl": "A2"
       }
     ]
@@ -12715,6 +12757,20 @@
       }
     ]
   },
+  "voc:A2:die Creme": {
+    "ex": [
+      {
+        "de": "Die Creme hilft gegen trockene Haut.",
+        "en": "The cream helps against dry skin.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Trag die Creme zweimal am Tag auf.",
+        "en": "Apply the cream twice a day.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Dame": {
     "def": "lady (woman of good breeding and manners); lady; madam (polite term to refer to any woman)",
     "ex": [
@@ -14120,6 +14176,20 @@
         "de": "Nach vielen Jahren kehrte er in seine Heimat zurück.",
         "en": "After many years he returned to his home region.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:die Heimatstadt": {
+    "ex": [
+      {
+        "de": "Meine Heimatstadt liegt am Meer.",
+        "en": "My home town is by the sea.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Sommer besuche ich meine Heimatstadt.",
+        "en": "In summer I visit my home town.",
+        "lvl": "A2"
       }
     ]
   },
@@ -17957,6 +18027,20 @@
       }
     ]
   },
+  "voc:A2:die Traube": {
+    "ex": [
+      {
+        "de": "Ich esse gern Trauben.",
+        "en": "I like eating grapes.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Vor dem Laden bildet sich eine Traube von Menschen.",
+        "en": "A cluster of people is forming outside the shop.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Tube": {
     "def": "tube (container for semiliquids, usually with a screw top)",
     "ex": [
@@ -17968,6 +18052,20 @@
       {
         "de": "Kauf bitte eine Tube Zahnpasta!",
         "en": "Please buy a tube of toothpaste.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Turnhalle": {
+    "ex": [
+      {
+        "de": "Der Sportunterricht findet in der Turnhalle statt.",
+        "en": "PE takes place in the sports hall.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Turnhalle wird gerade renoviert.",
+        "en": "The gym is being renovated at the moment.",
         "lvl": "A2"
       }
     ]
@@ -18593,6 +18691,20 @@
       {
         "de": "Die Vorstellung war ausverkauft.",
         "en": "The performance was sold out.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Waage": {
+    "ex": [
+      {
+        "de": "Die Waage im Bad ist kaputt.",
+        "en": "The bathroom scales are broken.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Vorteile und Nachteile halten sich die Waage.",
+        "en": "The advantages and disadvantages balance each other out.",
         "lvl": "A2"
       }
     ]
