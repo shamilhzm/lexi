@@ -249,10 +249,10 @@ changed.
 | Refusal | Why |
 |---|---|
 | **Teaching grammar** | *New, 2026-09-05.* See the ruling above. Word facts stay; language rules go. This is the refusal that most needs re-arguing before it is reversed, because the code for it was good. |
-| **AI conversation tutor** | Commoditizing category, needs a backend and keys, breaks the privacy-by-architecture story, six better-funded competitors already there. **Reopened 2026-09-09 against the GPT-6 Astra release and unchanged** — frontier inference got 2.5× *more* expensive, so the wrapper tutors move further from the frontier, not closer. Corrected while checking: this row said `lib/ai.ts` survives for build-time enrichment. **It does not exist. Lexi ships no LLM code**; the generator is a Claude session and the repo commits only the prompt, the batch and `verify.ts`. See BACKLOG's parked entry. |
+| **AI conversation tutor** | Commoditizing category, needs a backend and keys, breaks the privacy-by-architecture story, six better-funded competitors already there. **Reopened 2026-09-09 against the GPT-6 Astra release and unchanged** — frontier inference got 2.5× *more* expensive, so the wrapper tutors move further from the frontier, not closer. Corrected while checking: this row said `lib/ai.ts` survives for build-time enrichment. **It does not exist. Lexi ships no LLM code**; the generator is a Claude session and the repo commits only the prompt, the batch and `verify.ts`. See BACKLOG's parked entry. **Narrowed 2026-09-24, at the owner's direction:** a *chatbot* is still refused; an optional, bring-your-own-key tutor that explains a sentence the learner is reading and corrects what they wrote back is built — see Settled decisions for what changed. |
 | **Competing on content volume** | Duolingo shipped 20,500 units in a quarter. You lose. Do not enter. |
 | **Leagues, streak-shaming, social pressure** | Four of six teachers and three of six learners in [PEDAGOGY.md](PEDAGOGY.md) named the absence as the reason they would recommend it. |
-| **Machine-marked writing and speaking** | A drill that marks correct German wrong is worse than no drill. |
+| **Machine-marked writing and speaking** | A drill that marks correct German wrong is worse than no drill. *Still refused as marking (2026-09-24):* the optional tutor's feedback on a write-back carries no score, no grade, and never touches FSRS or any number. |
 | **Speech-recognition pronunciation scoring** | Consumer ASR marks accented-but-correct German wrong, punishing exactly the learner who most needs encouragement. Minimal-pair *listening* is the honest version. |
 | **A teacher dashboard** | Needs accounts, which every teacher persona named as the thing they would lose. |
 | **Saying "you can now …" from a word count** | It would be the most dishonest sentence in the app. |
@@ -279,6 +279,39 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
 - **Track E's six** *(2026-09-09)* — below: ordered not composed, no explanation on a
   wrong answer, distractors unchanged, typed production only, dwell named to the
   learner, and *am I ready* answered by saying plainly that it is not.
+- **Stories join the feed** *(2026-09-24, narrowing the refocus's cut of the reading
+  room; settles open decision 3)*. **What changed:** the owner — the app's first and
+  most committed learner — reached B1 and stopped opening it. A feed of single words,
+  however well ordered, is German *as a subject*; everything the owner actually cares
+  about (economy, tech, politics, immigration, motorsport, games, art, a career that
+  stalled after the move) is German *as a medium*. And the corpus cannot carry a B1
+  reader to the news by itself: of the content words in 25 Tagesschau articles, **23%
+  resolved to no card at all** (measured on the pre-refocus corpus; `npm run
+  corpus:news` re-derives the Leipzig half on this one). **What did not change:** a
+  *room* still competes for the same twenty minutes, so there is no room — a story is
+  a **slot in the feed**, every five words, on topics the learner picks, and the reader
+  is a layer over the feed that closes back to the same slot. **The rules it keeps:**
+  the feed still never grades (story slots carry no `data-word`); an entry is still
+  never upgraded into a card (a word Lexi lacks is *noted*, with the sentence it was
+  met in, and the authoring gate decides); a card saved from an article is an ordinary
+  bookmark, and the session names the article as its reason. **Lexi ships no one's
+  text:** every article is fetched by the learner's own browser from the publisher, for
+  private reading, and cached only on their device — the relationship a feed reader
+  has. Only publishers whose endpoints a browser may read (CORS open) are used;
+  tagesschau's terms allow private, non-commercial use, forbid republishing and cap
+  use at 60 requests an hour, which the client enforces at 45. **If Lexi ever charges
+  money, this is re-read first.**
+- **An optional tutor, bring-your-own-key** *(2026-09-24, reversing the 2026-09-09
+  re-ruling above at the owner's direction)*. The 09-09 argument was about Lexi as a
+  *tutor product* — frontier inference got dearer, so wrapper tutors fall further
+  behind — and it still holds against building one. What is built is not that: two
+  jobs about language the learner has already met — **explain** a sentence they are
+  reading, **correct** what they wrote back about it — on the learner's own key, from
+  their own browser (Anthropic's SDK in browser mode, or OpenRouter), off by default.
+  "Needs a backend" no longer applies; "breaks the privacy story" is answered by the
+  default (no key, no text leaves the device) and by the key never entering a backup.
+  **What it may never do:** score, grade, write a card field, or touch FSRS. Its advice
+  is shown once, labelled as AI and fallible, and kept in the learner's journal.
 
 ---
 
@@ -509,11 +542,19 @@ by quietly sorting a list. What is unambiguously clean is using it as a **build-
 audit** that never ships — "does Lexi's own frequency order agree with a published one?"
 **Undecided; do not merge without deciding.**
 
-### 3. Bundled reading content
+### 3. ~~Bundled reading content~~ — settled 2026-09-24
 
-The text scanner takes whatever the learner pastes, which sidesteps this entirely. If
-Lexi ever ships *its own* German text, DW's *Langsam gesprochene Nachrichten* is the
-obvious fit and is not automatically redistributable. Decide before, not after.
+Lexi ships no one's text; the learner's browser fetches it. See Settled decisions,
+*Stories join the feed*. What remains open is the next question down:
+
+### 3b. A relay for the sources a browser cannot read
+
+Spiegel, Zeit, FAZ, Handelsblatt, t3n, golem, GameStar and the specialist motorsport
+sites serve their feeds without CORS, so stories cannot come from them. A stateless,
+allow-listed fetch relay on the Vercel deploy would reach them — it stores nothing and
+sees no learner data, but it is a server, and "no backend" has so far meant *none*.
+Motorsport and games are exactly the owner's interests and are thin without it (SRF's
+motorsport news; games only by keyword). **Undecided.**
 
 ### 4. Billing / the supporter tier
 

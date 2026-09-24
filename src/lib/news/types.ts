@@ -26,6 +26,9 @@ export interface Article {
   detail: string | null;
   /** An audio version — DW's slow news ships an mp3. */
   audio: string | null;
+  /** The publisher's teaser image, loaded from their server by the learner's
+   *  browser like the text. `credit` is shown whenever the publisher gives one. */
+  image?: { src: string; alt?: string; credit?: string } | null;
   /** False for sources whose feed is a teaser and whose pages a browser cannot read. */
   fullText: boolean;
 }

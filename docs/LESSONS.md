@@ -21,6 +21,17 @@ class, not by date, because you scan this before working, not after.
 browser pane: the pane runs hidden (no IntersectionObserver, no rAF) and has neither a
 status bar nor a browser toolbar. Four false findings in one session came from this.
 
+**…deploy to production.** Read what is live first (`vercel inspect <prod-url> --logs`
+or `curl <site>/version.json`) and confirm your tree contains it. On 2026-09-24 a stale
+`main` was deployed over two weeks of newer work (see *The tree you were handed*).
+
+**…add a `localStorage` or IndexedDB key.** Ask whether a learner would miss it after a
+restore; if so it goes in `SETTING_KEYS` *and* `store-backup.test.ts`. `lexi.userwords.v1`
+— every class-pack word — was missing from every backup until 2026-09-24.
+
+**…write a regex over German text.** No `\b`: it treats *ä ö ü ß* as boundaries. Anchor
+at a word start with `(?<!\p{L})` and the `u` flag, and never compile data into a pattern.
+
 **…widen a shared predicate.** Grep its callers first and ask whether they are asking
 the same question. `eligibleModes` served both the practice sheet and the session
 builder, and widening it for one flooded the other.
@@ -1035,6 +1046,29 @@ made me add a budget to the boot, and that guard is real: `initData` and
 rather than a logo forever. **A test harness's own failure is still evidence
 about what the product does when something goes wrong underneath it.**
 
+
+## Pointed at real news, four checks were wrong *(added 2026-09-24)*
+
+- **A substring is not a word.** The news topics filtered stories by keyword, and on
+  409 live articles the careers topic had caught *Hinter·gründ·e* (for *Gründer*),
+  *Gründe* and *Wett·bewerb* (for *Bewerbung*). The fix is a word-start anchor, and the
+  audit that found it read every hit of every keyword topic, not a count.
+- **`\b` does not know German** — twice in one session: a sentence splitter's
+  abbreviation test matched *llt.* inside *fällt.*, and a "did the learner use this
+  word?" check compiled learner-facing text into a `\b` pattern. Both caught by tests
+  written in German.
+- **The direction of error decides the rule.** Excluding names from the meter's
+  denominator, a suffix rule for words de.wiktionary has no page for called eight real
+  nouns names (*Fachaufsicht*, *Reformagenda*, *Dialogforum*…). A missed name costs
+  the learner a point; a noun passed off as a name is the meter lying upward. The rule
+  now rejects any unlisted token containing a word the corpus knows, and errs toward
+  counting.
+- **A wrong lemma is invisible; only a diff shows it.** Comparing the old and new
+  matcher token by token on 25 articles showed the compound rule had been reading
+  lowercase present participles as nouns ending in *Ende* — *führenden* as `führ` +
+  *das Ende* — for as long as it existed. **When you change a resolver, diff its output
+  on real text in both directions — newly resolved *and* changed — and read it.**
+
 ---
 
 *Maintenance: append, don't rewrite. An entry stays after its bug is fixed — the rule is
@@ -1156,6 +1190,28 @@ builds too.
 recent commit date, a clean `git status`, matching docs, and it built and ran. Nothing
 about it *looked* wrong from the inside. Freshness is a property of the deployment,
 and it can only be read from the deployment.
+
+### 2026-09-24 — the same mistake again, and this time it reached production
+
+A whole session — a news reader, a tutor, matcher work, docs — was built on `main` at
+`eafed2e`, the same museum piece. Then it was **deployed with `vercel --prod` over the
+glass build** that production had been serving since 2026-09-09. The owner noticed
+before any learner did.
+
+Two things made it possible, and both are now fixed rather than warned about:
+
+1. **This entry lived only on the glass branch.** `main` — the tree a new session is
+   handed — did not contain the lesson that would have stopped it. A lesson on an
+   unmerged branch protects nobody. *Fix:* the production line is now `main`.
+2. **Nothing checked what production was before replacing it.** *Fix, as a rule:*
+   before `vercel --prod`, read what is live — `vercel inspect <prod-url> --logs`
+   prints the build's module count and bundle sizes, which fingerprint a commit (this
+   is how the Sep 9 deploy was identified as `11dc927`: 2,165 modules and a 759.55 kB
+   main bundle, reproduced by building that commit) — and refuse to deploy a tree that
+   does not contain it: `git merge-base --is-ancestor <prod-commit> HEAD`.
+
+**Rule, sharpened: freshness is a property of the deployment; so is permission to
+replace it.** Read production before building, and again before deploying.
 
 ## A done-when can name a case that does not exist *(added 2026-09-08)*
 

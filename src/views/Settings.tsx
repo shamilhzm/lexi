@@ -16,6 +16,8 @@ import { BUILD, PREVIOUS_BUILD, buildLabel, checkForUpdate, updateNow, type Upda
 import Card from '../components/ui/Card.tsx';
 import Button, { buttonClass } from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
+import AiSettings from '../components/AiSettings.tsx';
+import NewsTopicsSettings from '../components/reader/NewsTopicsSettings.tsx';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
@@ -202,6 +204,9 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         )}
         {hdErr && <p className="text-red-txt text-xs mt-2">{hdErr}</p>}
       </Card>
+
+      <NewsTopicsSettings />
+      <AiSettings />
 
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">

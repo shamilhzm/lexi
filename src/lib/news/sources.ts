@@ -73,12 +73,19 @@ export interface Topic {
 
 // Keyword filters are deliberately about the *subject*, not the vocabulary a
 // learner is studying — they decide which stories to show, nothing else.
-const MOTOR = /\b(Formel[- ]?(1|E|eins)|F1|Motorsport|MotoGP|Grand Prix|GP von|Rallye|Le Mans|Verstappen|Hamilton|Leclerc|Norris|Piastri|Antonelli|Russell|Alonso|Hülkenberg|Ferrari|Red Bull|McLaren|Sauber|Marquez|Nascar|IndyCar|DTM)\b/i;
-const GAMES = /\b(Gaming|Gamer|Games?|Videospiel\w*|Computerspiel\w*|Gamescom|Nintendo|Playstation|Xbox|E-?Sport\w*|Steam|Konsole\w*|Spieleentwickler\w*|Spielebranche)\b/i;
-const MIGRATION = /(Migra|Einbürger|Asyl|Geflüchtet|Flüchtling|Integration|Staatsbürger|Staatsangehörig|Aufenthalt|Visum|Visa\b|Einwander|Zuwander|Abschieb|Ausländer|Bürgergeld|Fachkräfteeinwanderung|Blaue Karte|Chancenkarte|Deutschkurs|Sprachkurs|Integrationskurs)/i;
-const TECH = /(\bKI\b|Künstliche[rn]? Intelligenz|Digital|Software|Chip|Halbleiter|Internet|Cyber|Hacker|Daten(schutz|zentr)|\bApp\b|OpenAI|ChatGPT|Anthropic|Apple|Google|Microsoft|Meta\b|Amazon|Nvidia|Tesla|Start-?up|Roboter|Smartphone|Social Media|Plattform|Algorithm)/i;
-const CULTURE = /(Kunst|Künstler|Ausstellung|Museum|Galerie|Biennale|documenta|Film|Kino|Theater|Oper|Konzert|Musik|Literatur|Roman|Buchpreis|Festival|Architektur|Design)/i;
-const CAREER = /(Arbeitsmarkt|Arbeitslos|Job|Stellen(abbau|angebot)|Fachkräfte|Gehalt|Löhne|Lohn|Tarif|Streik|Kündig|Beruf|Karriere|Bewerb|Homeoffice|Mindestlohn|Ausbildung|Arbeitnehmer|Arbeitgeber|Gründ|Start-?up|Personal|Beschäftigt|Rente)/i;
+//
+// Every pattern anchors each word at a *word start* — `(?<!\p{L})`, with the `u`
+// flag — and never uses `\b`, which treats ä ö ü ß as boundaries (LESSONS, Class
+// 12). The first version matched substrings, and on 409 live articles the careers
+// topic caught *Hinter·gründ·e*, *Gründe* and *Wett·bewerb* by fragment
+// (2026-09-24). A word start is what separates *Gründer* from *Hintergründe*.
+const W = (alts: string) => new RegExp(`(?<!\\p{L})(?:${alts})`, 'u');
+const MOTOR = W('Formel[- ]?(?:1|E|eins)|F1(?!\\p{L})|Motorsport|MotoGP|Grand Prix|GP von|Rallye|Le Mans|Verstappen|Hamilton|Leclerc|Norris|Piastri|Antonelli|Hülkenberg|Ferrari|Red Bull|McLaren|Sauber|Marquez|Márquez|Nascar|IndyCar|DTM(?!\\p{L})');
+const GAMES = W('Gaming|Gamer|Games?(?!\\p{L})|Videospiel|Computerspiel|Gamescom|Nintendo|Playstation|PlayStation|Xbox|E-?Sport|Steam(?!\\p{L})|Spielekonsole|Konsolen(?:spiel|markt)|Spieleentwickler|Spielebranche|Spielestudio');
+const MIGRATION = W('Migra|Einbürger|Asyl|Geflüchtete|Flüchtling|Integrationskurs|Staatsbürgerschaft|Staatsangehörigkeit|Aufenthalts(?:titel|recht|erlaubnis|genehmigung)|Visum|Visa(?!\\p{L})|Einwanderung|Einwanderer|Zuwanderung|Abschiebung|abgeschoben|Ausländerbehörde|Bürgergeld|Fachkräfteeinwanderung|Blaue Karte|Chancenkarte|Deutschkurs|Sprachkurs');
+const TECH = W('KI(?!\\p{L})|Künstliche[rn]? Intelligenz|Digital|digital|Software|Chip|Halbleiter|Internet|Cyber|Hacker|Daten(?:schutz|zentr)|App(?!\\p{L})|OpenAI|Open-AI|ChatGPT|Anthropic|Apple|Google|Microsoft|Meta(?!\\p{L})|Amazon|Nvidia|Tesla|Start-?up|Roboter|roboter|Smartphone|Social Media|Algorithm');
+const CULTURE = W('Kunst|Künstler|Ausstellung|Museum|Galerie|Biennale|documenta|Film|Kino|Theater|Oper(?!\\p{L})|Konzert|Musik|Literatur|Roman(?!\\p{L})|Buchpreis|Festival|Architektur');
+const CAREER = W('Arbeitsmarkt|Arbeitslos|Jobs?(?!\\p{L})|Jobcenter|Stellen(?:abbau|angebot|streichung)|Stellen(?!\\p{L})|Fachkräfte|Gehalt|Gehälter|Löhne|Lohn|Mindestlohn|Tarif|Streik|Kündigung|gekündigt|Beruf|Karriere|Bewerbung|Bewerber|Homeoffice|Ausbildung|Arbeitnehmer|Arbeitgeber|Gründer|Gründung|Start-?up|Beschäftigte|Rente(?:n|r)?(?!\\p{L})|Rentner');
 
 export const TOPICS: Topic[] = [
   { id: 'wirtschaft', label: 'Economy & markets', de: 'Wirtschaft', feeds: ['ts:wirtschaft', 'srf:wirtschaft'], whole: ['ts:wirtschaft', 'srf:wirtschaft'] },
@@ -104,4 +111,12 @@ export function topicsFor(feed: FeedKey, haystack: string): TopicId[] {
     if (t.whole?.includes(feed) || !t.match || t.match.test(haystack)) out.push(t.id);
   }
   return out;
+}
+
+/** The topic a story is *about*, for lanes and labels: the most specific one it
+ *  matched. A story about citizenship is in Tagesschau's *Inland* ressort and
+ *  therefore under Politics too, but a learner who picked Immigration should see
+ *  it arrive as Immigration — keyword topics are the learner's narrower interest. */
+export function primaryTopic(topics: TopicId[]): TopicId | undefined {
+  return topics.find((t) => TOPIC_BY_ID.get(t)?.match) ?? topics[0];
 }

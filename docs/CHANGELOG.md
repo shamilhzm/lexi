@@ -11,6 +11,83 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-24 — Stories in the feed
+
+**Why.** The owner reached B1 and stopped opening the app. The feed made meeting words
+effortless and it was still German *as a subject*; what the owner reads about anyway —
+economy, tech, politics, immigration, motorsport, games, art, work — was nowhere in it.
+VISION records the decision and what changed; this records what was built. *(The first
+version of this work was built on a stale `main` and briefly deployed over the glass
+production build — see LESSONS, "The tree you were handed", and its 2026-09-24
+addendum. This entry is the port onto the real product.)*
+
+- **A story every five words** (`components/reader/StorySlot.tsx`, `views/Feed.tsx`).
+  Full-viewport, like a word: the publisher's photograph behind a glass card with the
+  headline in the headword serif, a slow push-in that is off under reduced motion, and
+  — once the text is on the device and the learner knows at least half of it — how much
+  of it they know. Stories are round-robin across the learner's topics, each filed
+  under its *most specific* topic, so three stories about one war do not arrive in a
+  row and a citizenship story arrives as Immigration rather than Politics. They carry
+  no `data-word`, so the dwell observer never sees them: **the feed still never grades.**
+- **Topics are chosen in the feed**, in a slot after the fourth word (`TopicSlot`), and
+  edited in Settings (`NewsTopicsSettings`). Eleven: economy, politics, immigration,
+  work & careers, tech & AI, motorsport, video games, art & culture, science, sport,
+  and DW's slow news with audio.
+- **Sources** (`lib/news/`): tagesschau's API (full text), SRF (RSS + article pages,
+  full text, the motorsport coverage), DW *Langsam gesprochene Nachrichten* (transcript
+  + mp3) and heise (teasers) — the publishers whose endpoints a browser may read.
+  Everything is fetched by the learner's browser and cached on their device; nothing is
+  in the repo or the build. Tagesschau's 60-requests-an-hour limit is enforced at 45.
+  Parsers are tested on hand-written fixtures in each source's shape — a publisher's
+  text in a public repo would be publishing it.
+- **The reader is a layer over the feed** (`ArticleLayer.tsx`), so closing it lands on
+  the slot you left. The meter (known %, what Lexi can teach you, what to look up,
+  names not counted), read-aloud (HD voice when on; DW's own audio when there is one),
+  and the text with every word tappable — a roving tabindex, so the keyboard can do
+  what a finger can.
+- **Tap a word** (`WordSheet.tsx`), and DICTIONARY.md's rule decides the answer. A
+  **card**: Save (a bookmark whose provenance is kept — Üben's reason line now reads
+  *You saved this from „headline“*), Practise (the word drill), Entry (the word
+  detail). An **entry** from the offline lexicon, visibly not a card: *Note this word*,
+  which now keeps the sentence it was met in and the article it came from, for
+  whoever authors it. A **compound** the matcher could only decompose is named as one
+  and looked up whole — it never borrows its head's gloss.
+- **Write back** (`Respond.tsx`): *Was denkst du?* — two to four sentences, typed or
+  dictated (asking first, because the browser's recogniser sends audio to its maker),
+  with up to three content words from the article to try. Kept in a journal.
+- **The optional tutor** (`lib/ai.ts`, `components/AiSettings.tsx`): bring-your-own-key,
+  Anthropic (official SDK in browser mode, a lazy chunk) or OpenRouter. Explains a
+  sentence; corrects a write-back with minimal edits, each named, a natural version and
+  one thing to practise. No score, no FSRS effect, never a card field. Verified end to
+  end with an invalid key on both providers; **not yet exercised with a live key**.
+- **Names leave the meter when the dictionary says so** (`lib/wiktionary.ts`,
+  `lib/news/names.ts`): de.wiktionary categories, 50 titles a request, cached forever;
+  a token with no page counts unless it is short, has no noun suffix and contains no
+  word the corpus knows. Measured on 11 live articles, the first version called eight
+  real nouns names; the rule now errs toward counting.
+- **The matcher, on news German** — diffed token by token against the previous version
+  on 25 Tagesschau articles, every change read: *hoch*'s *hoh-* forms; Partizip I
+  (*steigende*, *führenden*), which the compound rule had been reading as *das Ende*;
+  compounds only for capitalised tokens (*zugreifen* is not *Zug* + *Reifen*); listed
+  three-letter heads (*Wahltag*), which also fixed *Bundesamt* reading as *Bundes* +
+  *Samt*; Swiss *ss* → *ß* for SRF; relative and demonstrative pronouns as function
+  words. 21 tokens newly resolved, 12 wrong readings corrected, 5 wrong ones dropped.
+  `npm run corpus:news` (new, committed): the top 1,000 Leipzig news forms resolve at
+  **98.2%** and the top 3,000 at **96.0%**.
+- **The meter** excludes web and mail address fragments, and dictionary-confirmed names.
+- **Backups now carry `lexi.userwords.v1`** — every class-pack word, never exported
+  before — and the reader's topics, reading log, saved-from provenance, journal and AI
+  provider. Never the AI key (`store-backup.test.ts`).
+- **Topic keywords match words, not fragments**: on 409 live articles the careers topic
+  had matched *Hinter·gründ·e* and *Wett·bewerb*; every pattern now anchors at a word
+  start, and none uses `\b` (LESSONS).
+
+Main bundle 763.7 → 790.0 kB (228.5 → 239.2 kB gzip), measured at this branch's base
+and head; the reader (23.6 kB) and the Anthropic SDK (198.6 kB) load on first use.
+Tests 1,434 → 1,518.
+
+---
+
 ### Shipped 2026-09-09 — The scheduler starts answering for itself
 
 Three things, all found by asking what OpenAI's GPT-6 Astra release (2026-09-03) meant

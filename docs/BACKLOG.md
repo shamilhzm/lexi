@@ -23,6 +23,46 @@
 >
 > ---
 >
+> ## What is open after 2026-09-24 — stories in the feed
+>
+> *Stories joined the feed on 2026-09-24 (CHANGELOG). Ranked by how much each serves the
+> learner it was built for: B1, bored by German as a subject, interested in economy,
+> tech, politics, immigration, motorsport, games and art — and in what to do with a
+> career that stalled after the move.*
+>
+> 1. **Run the tutor with a real key, and tune it.** · S — verified end to end with an
+>    invalid key only. Ten real write-backs at B1 and ten tapped sentences, every answer
+>    read; check it flags nothing that is correct German. Record any prompt change here
+>    with the example that caused it. *Touches:* `lib/ai.ts`.
+> 2. **Beruf — German for the job you want next.** · M–L — reading about work is the
+>    *Work & careers* topic; doing it is not built. Job ads in the learner's field (the
+>    Bundesagentur's Jobsuche API returned 403 to a probe, so this may wait on VISION
+>    open decision 3b), an *Anschreiben* paragraph and an *Über mich* corrected by the
+>    tutor, interview questions answered by dictation.
+> 3. **Noted words, with their sentences, into an authoring batch.** · S — the reader
+>    now records the sentence and article for every noted word (`WantedWord.ex/src`).
+>    A learner who reads the news generates exactly the list `authoring:new` needs, and
+>    an attested example sentence. `exportWanted` already carries both fields.
+> 4. **Narrow reading — "the words in this week's Wirtschaft".** · M — per topic, the
+>    unknown lemmas that recur across the week's cached stories, offered as a save-all.
+>    Reading one topic recycles its vocabulary (Krashen 2004; Kang 2015).
+> 5. **The relay decision** (VISION open decision 3b). Motorsport and games are thin
+>    without it.
+> 6. **A journal surface.** · S — write-backs and corrections are stored
+>    (`lexi.journal.v1`) and shown once. A list in Fortschritt, with correction kinds
+>    counted, would show the learner their own recurring mistakes — without feeding any
+>    score.
+> 7. **Drive stories on the iPhone simulator.** · S — verified in the browser pane at
+>    375×812 in both themes; this repo's own rule is that the pane is not a phone.
+>
+> *Smaller, noted while building:* `mehreren` does not resolve to the `mehrere` card;
+> one invasive-species story still files under Immigration via *Einwanderer*; the
+> story card shows its meter only from 50% up, which should be revisited once real
+> learners' numbers are seen; `npm run corpus:news -- --live` has not been run since it
+> was written.
+>
+> ---
+>
 > ## What is open after 2026-09-06
 >
 > The session that added the lookup layer, the exercise bank and the layer/strip UI

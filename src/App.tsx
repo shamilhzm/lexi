@@ -375,7 +375,7 @@ export default function App() {
                   : drill
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />
                   : <>
-                    {view === 'feed' && <Feed onStartFirstRun={startFirstRun} />}
+                    {view === 'feed' && <Feed onStartFirstRun={startFirstRun} onSettings={() => go('settings')} />}
                     {view === 'session' && (
                       <Review
                         target={target} firstRun={guided}

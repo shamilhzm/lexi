@@ -12,6 +12,10 @@ dist
 .git
 .vercel
 
+# Claude Code's local state: the dev-server config and, under worktrees/, full
+# checkouts of other branches (~3 GB on 2026-09-24). None of it is the app.
+.claude
+
 # Build-time corpus + authoring pipeline. Runs on a maintainer's machine only;
 # the app fetches the finished JSON from public/data at runtime.
 scripts

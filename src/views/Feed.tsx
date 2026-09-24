@@ -34,7 +34,7 @@
 // lexicon. Scrolling with your eyes shut still meets the right words in roughly
 // the right order — which is the one thing a feed can inherit from a scheduler
 // and no amount of content budget can buy.
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { loadDetailFor } from '../data/detail.ts';
 import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, X } from 'lucide-react';
@@ -51,7 +51,42 @@ import { GenderTerm } from '../components/Reveal.tsx';
 import Button from '../components/ui/Button.tsx';
 import WordDetail from '../components/WordDetail.tsx';
 import WordDrill from '../components/WordDrill.tsx';
+import { StorySlot, TopicSlot } from '../components/reader/StorySlot.tsx';
+import { loadTopics, type FeedArticle } from '../lib/news/feed.ts';
+import { newsTopics, isRead } from '../lib/news/library.ts';
+import { primaryTopic } from '../lib/news/sources.ts';
 import type { Word } from '../types.ts';
+
+// The reader proper — the word sheet, the write-back, the AI client — is opened
+// deliberately and is most of the stories' code, so it loads on first use.
+const ArticleLayer = lazy(() => import('../components/reader/ArticleLayer.tsx'));
+
+/** A story after every this-many words. Enough words between stories that the
+ *  feed is still a word feed; few enough that a story arrives before the learner
+ *  has decided the feed is all words. */
+const STORY_EVERY = 5;
+/** Where the one-time topic question sits, for a learner who has not answered it. */
+const TOPIC_SLOT_AT = 3;
+
+/** Stories in the order the feed will show them: unread first, and round-robin
+ *  across the learner's topics so three stories about one war do not arrive in a
+ *  row just because they were published in the same hour. */
+export function storyOrder(articles: FeedArticle[], topics: string[]): FeedArticle[] {
+  const pool = articles.filter((a) => a.fullText || a.teaser).sort((a, b) => Number(isRead(a.id)) - Number(isRead(b.id)));
+  const lanes = topics.map((t) => pool.filter((a) => primaryTopic(a.topics) === t));
+  const out: FeedArticle[] = [];
+  const seen = new Set<string>();
+  for (let round = 0; out.length < pool.length && round < 200; round++) {
+    let added = false;
+    for (const lane of lanes) {
+      const a = lane[round];
+      if (a && !seen.has(a.id)) { out.push(a); seen.add(a.id); added = true; }
+    }
+    if (!added) break;
+  }
+  for (const a of pool) if (!seen.has(a.id)) out.push(a);
+  return out;
+}
 
 /** How many slots exist at once. The feed is unbounded in feel and bounded in
  *  DOM: a hundred 100dvh sections is a hundred layout boxes for one visible
@@ -143,7 +178,7 @@ function shuffle<T>(a: T[], from = 0, to = a.length): void {
   }
 }
 
-export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void }) {
+export default function Feed({ onStartFirstRun, onSettings }: { onStartFirstRun: () => void; onSettings: () => void }) {
   const v = useStore();
   const lvKey = [...levels()].sort().join('');
   // Rebuilt when the level filter changes, and never on a save: re-ordering the
@@ -160,6 +195,23 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
   // ruined by the first being open behind it.
   const [drill, setDrill] = useState<Word | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
+
+  // ---- stories ------------------------------------------------------------
+  // Loaded once per visit (the feed caches lists for twenty minutes), and never
+  // re-ordered under a thumb: a story you are about to reach does not move.
+  const [topicsKey, setTopicsKey] = useState(() => (newsTopics() ?? []).join(','));
+  const [stories, setStories] = useState<FeedArticle[]>([]);
+  const [reading, setReading] = useState<FeedArticle | null>(null);
+  useEffect(() => {
+    const topics = topicsKey ? topicsKey.split(',') : [];
+    if (!topics.length) return;
+    let live = true;
+    loadTopics(topics as Parameters<typeof loadTopics>[0])
+      .then((f) => { if (live) setStories(storyOrder(f.articles, topics)); })
+      .catch(() => { /* offline and nothing cached: a word feed, as before */ });
+    return () => { live = false; };
+  }, [topicsKey]);
+  const askTopics = newsTopics() === null;
 
   // Grow the list before the learner reaches the end of it. An IntersectionObserver
   // on a sentinel rather than a scroll handler: a scroll listener on a snap
@@ -306,10 +358,19 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
       </p>
       {cold && <Welcome onStart={onStartFirstRun} />}
       <SwipeHint />
-      {slots.map((w, i) => (
-        <Slot key={w.id} word={w} at={i} version={v} watch={watch} onAnnounce={announce}
-          onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
-      ))}
+      {slots.map((w, i) => {
+        const story = (i + 1) % STORY_EVERY === 0 ? stories[(i + 1) / STORY_EVERY - 1] : undefined;
+        return (
+          <Fragment key={w.id}>
+            <Slot word={w} at={i} version={v} watch={watch} onAnnounce={announce}
+              onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
+            {i === TOPIC_SLOT_AT && askTopics && (
+              <TopicSlot onChosen={() => setTopicsKey((newsTopics() ?? []).join(','))} />
+            )}
+            {story && <StorySlot story={story} onOpen={setReading} />}
+          </Fragment>
+        );
+      })}
       <div ref={sentinel} aria-hidden className="h-px" />
       {count >= order.length && (
         <section aria-labelledby="feed-end"
@@ -333,6 +394,11 @@ export default function Feed({ onStartFirstRun }: { onStartFirstRun: () => void 
       <AnimatePresence>
         {drill && <WordDrill key="drill" word={drill} onClose={() => setDrill(null)} />}
       </AnimatePresence>
+      <Suspense fallback={null}>
+        <AnimatePresence>
+          {reading && <ArticleLayer key={reading.id} article={reading} onClose={() => setReading(null)} onSettings={onSettings} />}
+        </AnimatePresence>
+      </Suspense>
     </div>
   );
 }

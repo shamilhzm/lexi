@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseTagesschauList, parseTagesschauDetail, parseFeed, parseSrfArticle, parseDwArticle, textOf } from './parse.ts';
+import { parseTagesschauList, parseTagesschauDetail, parseFeed, parseSrfArticle, parseDwArticle, textOf, imageIn } from './parse.ts';
 import { topicsFor } from './sources.ts';
 
 // Every fixture here is written for the test in the publisher's *shape*. No
@@ -13,7 +13,8 @@ describe('tagesschau', () => {
         firstSentence: 'Die Notenbank ändert heute nichts.', date: '2026-09-24T10:00:00+02:00',
         details: 'https://www.tagesschau.de/api2u/wirtschaft/zinsen-100.json',
         shareURL: 'https://www.tagesschau.de/wirtschaft/zinsen-100.html', type: 'story',
-        tags: [{ tag: 'Zinsen' }, { tag: 'EZB' }] },
+        tags: [{ tag: 'Zinsen' }, { tag: 'EZB' }],
+        teaserImage: { alttext: 'Ein Gebäude', copyright: 'dpa', imageVariants: { '1x1-144': 'https://i/1x1-144.jpg', '16x9-960': 'https://i/16x9-960.jpg' } } },
       { sophoraId: 'video-1', title: 'Ein Video', type: 'video', details: 'https://x' },
     ],
   };
@@ -26,6 +27,7 @@ describe('tagesschau', () => {
       url: 'https://www.tagesschau.de/wirtschaft/zinsen-100.html', fullText: true,
     });
     expect(a[0].published).toBe(Date.parse('2026-09-24T10:00:00+02:00'));
+    expect(a[0].image).toEqual({ src: 'https://i/16x9-960.jpg', alt: 'Ein Gebäude', credit: 'dpa' });
   });
   it('reads running text and headings, and drops boxes and credit lines', () => {
     const paras = parseTagesschauDetail({ content: [
@@ -82,6 +84,16 @@ describe('RSS and Atom', () => {
   });
 });
 
+describe('teaser images', () => {
+  it('upsizes the publishers’ small variants where the URL scheme allows', () => {
+    expect(imageIn('&lt;img src="https://www.srf.ch/static/cms/images//320ws/1.webp" alt="Ein Auto"&gt;Text'))
+      .toEqual({ src: 'https://www.srf.ch/static/cms/images//960ws/1.webp', alt: 'Ein Auto' });
+    expect(imageIn('<img src="https://static.dw.com/image/79404929_302.jpg">')?.src)
+      .toBe('https://static.dw.com/image/79404929_304.jpg');
+    expect(imageIn('no image here')).toBeNull();
+  });
+});
+
 describe('article pages', () => {
   it('reads an SRF body from inside the article section only', () => {
     const html = `<nav><p class="article-paragraph">Navigation, not the story</p></nav>
@@ -120,5 +132,33 @@ describe('topics', () => {
     expect(topicsFor('srf:sport', 'Der FC Basel gewinnt')).not.toContain('motorsport');
     expect(topicsFor('ts:inland', 'Neue Regeln für die Einbürgerung')).toContain('migration');
     expect(topicsFor('heise:top', 'Nintendo kündigt neue Konsole an')).toEqual(expect.arrayContaining(['tech', 'games']));
+  });
+});
+
+describe('the topic a story is about', () => {
+  it('prefers the narrow interest over the broad ressort', async () => {
+    const { primaryTopic } = await import('./sources.ts');
+    expect(primaryTopic(['politik', 'migration'])).toBe('migration');
+    expect(primaryTopic(['wirtschaft', 'karriere'])).toBe('karriere');
+    expect(primaryTopic(['wirtschaft'])).toBe('wirtschaft');
+  });
+});
+
+describe('topic keywords match words, not fragments', async () => {
+  const { topicsFor } = await import('./sources.ts');
+  // The four false careers hits from 409 live articles, 2026-09-24.
+  it('does not find a career in Hintergründe, Gründe or Wettbewerb', () => {
+    for (const t of ['Matthias Heim über die Hintergründe', 'Die Gründe für die Pleite', 'Streit um den Wettbewerb']) {
+      expect(topicsFor('ts:wirtschaft', t)).not.toContain('karriere');
+    }
+  });
+  it('still finds one in Gründer, Jobs and Kündigung', () => {
+    for (const t of ['Ein Gründer aus Berlin', '230 Jobs fallen weg', 'Die Kündigung kam per Mail']) {
+      expect(topicsFor('ts:wirtschaft', t)).toContain('karriere');
+    }
+  });
+  it('matches KI as a word, including before a hyphen', () => {
+    expect(topicsFor('ts:wissen', 'Die KI-Sicherheit wackelt')).toContain('tech');
+    expect(topicsFor('ts:wissen', 'Ein Kiosk schließt')).not.toContain('tech');
   });
 });

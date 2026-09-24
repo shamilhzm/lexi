@@ -61,6 +61,27 @@ interface TsItem {
   sophoraId?: string; externalId?: string; title?: string; topline?: string; firstSentence?: string;
   date?: string; details?: string; shareURL?: string; detailsweb?: string; type?: string;
   tags?: { tag: string }[]; ressort?: string; breakingNews?: boolean;
+  teaserImage?: { imageVariants?: Record<string, string>; alttext?: string; copyright?: string };
+}
+
+/** The widest landscape variant up to ~960px — a phone screen, not a poster. */
+function tsImage(t: TsItem['teaserImage']): Article['image'] {
+  const v = t?.imageVariants;
+  if (!v) return null;
+  const src = v['16x9-960'] ?? v['16x9-640'] ?? v['1x1-840'] ?? Object.values(v)[0];
+  return src ? { src, alt: t?.alttext || undefined, credit: t?.copyright || undefined } : null;
+}
+
+/** An `<img src>` inside a feed description or entry, upsized where the
+ *  publisher's URL scheme allows it (SRF `320ws` → `960ws`, DW `_302` → `_304`). */
+export function imageIn(html: string): Article['image'] {
+  const m = decodeEntities(html).match(/<img[^>]*\bsrc="([^"]+)"[^>]*>/i);
+  if (!m) return null;
+  const alt = m[0].match(/\balt="([^"]*)"/i)?.[1];
+  const src = m[1]
+    .replace(/\/(\d{3})ws\//, '/960ws/')
+    .replace(/(static\.dw\.com\/image\/\d+)_30[0-3]\./, '$1_304.');
+  return { src, alt: alt ? decodeEntities(alt) : undefined };
 }
 
 /** News list → articles. Only `story` items: videos have no text to read. */
@@ -82,6 +103,7 @@ export function parseTagesschauList(json: unknown): Article[] {
       tags: (n.tags ?? []).map((t) => t.tag).filter(Boolean),
       detail: n.details,
       audio: null,
+      image: tsImage(n.teaserImage),
       fullText: true,
     });
   }
@@ -133,6 +155,7 @@ export function parseFeed(xml: string, source: SourceId): Article[] {
       tags: (it.match(/<category[^>]*>([\s\S]*?)<\/category>/gi) ?? []).map((c) => textOf(unCdata(c.replace(/<\/?category[^>]*>/gi, '')))).filter(Boolean),
       detail: source === 'heise' ? null : link,
       audio: attr(it, 'enclosure', 'url'),
+      image: imageIn(desc),
       fullText: source !== 'heise',
     });
   }
@@ -151,6 +174,7 @@ export function parseFeed(xml: string, source: SourceId): Article[] {
       tags: [],
       detail: null,
       audio: null,
+      image: imageIn(tag(e, 'content') ?? ''),
       fullText: false,
     });
   }

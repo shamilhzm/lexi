@@ -33,7 +33,7 @@ export default function AiSettings() {
 
   return (
     <Card as="section" className="mb-4">
-      <div className="flex items-center gap-2 mb-1"><Sparkles size={16} className="text-accent" /><h3 className="text-base font-semibold">Tutor (optional)</h3></div>
+      <div className="flex items-center gap-2 mb-1"><Sparkles size={16} className="text-accent" /><h2 className="text-base font-semibold">Tutor (optional)</h2></div>
       <p className="text-dim text-xs mb-3">
         With your own AI key, Lexi can explain a sentence you’re reading and check what you write back.
         Your key stays in this browser and goes only to the provider you pick — Lexi has no server, and the key is never in your backup file.

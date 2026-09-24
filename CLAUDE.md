@@ -23,6 +23,19 @@ honest signal, and it is an instruction — `buildBriefing` serves saved words f
 
 > **browse freely (Wörter) → save what catches you → Üben teaches you what you chose.**
 
+**Stories in the feed** *(2026-09-24)*. Every fifth slot in the feed can be a German
+news story on the learner's chosen topics (tagesschau, SRF, DW, heise — fetched by the
+learner's browser, never shipped; `lib/news/`). Tapping it opens `ArticleLayer` over the
+feed: tap any word → a **card** (save with provenance / practise / entry) or an **entry**
+(*note this word*, with the sentence it was met in). Stories never grade and carry no
+`data-word`. An optional bring-your-own-key tutor (`lib/ai.ts`) explains sentences and
+corrects write-backs; it never scores and never writes a card field. See VISION,
+*Stories join the feed* and *An optional tutor*.
+
+**Before you deploy:** read what production is running (`vercel inspect <prod-url>
+--logs`) and confirm your tree contains it. A stale `main` was deployed over this line on
+2026-09-24 — see LESSONS, *The tree you were handed*.
+
 **The gesture grammar** *(2026-09-06)*. Horizontal is one axis with the word at the
 centre: `[ the entry ] [ THE WORD ] [ practice ]`. Drag toward what you want, and
 the opposite drag always returns, because the word never moved. Layers render into
