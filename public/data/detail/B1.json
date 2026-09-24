@@ -1543,6 +1543,20 @@
       }
     ]
   },
+  "voc:B1:arabisch": {
+    "ex": [
+      {
+        "de": "Die arabische Küche ist sehr vielfältig.",
+        "en": "Arab cuisine is very varied.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der Straße gibt es ein arabisches Restaurant.",
+        "en": "There is an Arab restaurant on the street.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:arbeiten als + N": {
     "def": "To be employed in a particular job or role.",
     "ex": [
@@ -1823,6 +1837,20 @@
       }
     ]
   },
+  "voc:B1:auftauen": {
+    "ex": [
+      {
+        "de": "Du musst das Fleisch vorher auftauen.",
+        "en": "You have to defrost the meat beforehand.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Brot ist schon aufgetaut.",
+        "en": "The bread has already thawed.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:augenscheinlich": {
     "def": "(auf den ersten Blick) klar erkennbar, klar ersichtlich",
     "ex": [
@@ -2089,6 +2117,20 @@
       {
         "de": "Wir essen oft außerhalb.",
         "en": "We eat out a lot.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:basieren": {
+    "ex": [
+      {
+        "de": "Der Film basiert auf einer wahren Geschichte.",
+        "en": "The film is based on a true story.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Unsere Preise basieren auf den aktuellen Kosten.",
+        "en": "Our prices are based on current costs.",
         "lvl": "B1"
       }
     ]
@@ -2622,6 +2664,20 @@
       {
         "de": "Sie werden beobachtet.",
         "en": "You are being watched.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:berechnen": {
+    "ex": [
+      {
+        "de": "Die App berechnet die Kosten automatisch.",
+        "en": "The app calculates the costs automatically.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für die Lieferung berechnen wir fünf Euro.",
+        "en": "We charge five euros for delivery.",
         "lvl": "B1"
       }
     ]
@@ -4541,6 +4597,20 @@
       {
         "de": "Fass dich!",
         "en": "Compose yourself!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Fell": {
+    "ex": [
+      {
+        "de": "Unsere Katze hat ein weiches Fell.",
+        "en": "Our cat has a soft coat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Winter wird das Fell dicker.",
+        "en": "The coat gets thicker in winter.",
         "lvl": "B1"
       }
     ]
@@ -6885,6 +6955,20 @@
       }
     ]
   },
+  "voc:B1:das Silber": {
+    "ex": [
+      {
+        "de": "Die Kette ist aus Silber.",
+        "en": "The necklace is made of silver.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Rennen hat sie Silber gewonnen.",
+        "en": "She won silver in the race.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Singen": {
     "def": "The act of making music with the voice.",
     "ex": [
@@ -8896,6 +8980,20 @@
       }
     ]
   },
+  "voc:B1:der Bindestrich": {
+    "ex": [
+      {
+        "de": "Zwischen den Namen steht ein Bindestrich.",
+        "en": "There is a hyphen between the names.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schreibt man das Wort mit Bindestrich?",
+        "en": "Is the word written with a hyphen?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Blitz": {
     "def": "in einer Wolke entstehende elektrische Entladung, meist vom Donner begleitet",
     "ex": [
@@ -8907,6 +9005,20 @@
       {
         "de": "Ein Blitz erhellte die Nacht.",
         "en": "A bolt of lightning lit the night.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Block": {
+    "ex": [
+      {
+        "de": "Sie wohnt im nächsten Block.",
+        "en": "She lives in the next block.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hast du einen Block für Notizen?",
+        "en": "Do you have a notepad for notes?",
         "lvl": "B1"
       }
     ]
@@ -8938,6 +9050,20 @@
       {
         "de": "Rede keinen Blödsinn!",
         "en": "Don't talk nonsense!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Brei": {
+    "ex": [
+      {
+        "de": "Das Baby isst einen Brei aus Karotten.",
+        "en": "The baby is eating a carrot purée.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Brei ist noch zu heiß.",
+        "en": "The porridge is still too hot.",
         "lvl": "B1"
       }
     ]
@@ -9353,6 +9479,20 @@
       }
     ]
   },
+  "voc:B1:der Dialog": {
+    "ex": [
+      {
+        "de": "Lies den Dialog laut vor.",
+        "en": "Read the dialogue out loud.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Parteien suchen den Dialog.",
+        "en": "The parties are seeking dialogue.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Direktor": {
     "def": "principal (administrator of a school)",
     "ex": [
@@ -9459,6 +9599,20 @@
       {
         "de": "unter Druck stehen",
         "en": "to be under pressure",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Dschungel": {
+    "ex": [
+      {
+        "de": "Im Dschungel ist es sehr feucht.",
+        "en": "It is very humid in the jungle.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die deutsche Bürokratie ist ein Dschungel.",
+        "en": "German bureaucracy is a jungle.",
         "lvl": "B1"
       }
     ]
@@ -10685,6 +10839,34 @@
       }
     ]
   },
+  "voc:B1:der Historiker": {
+    "ex": [
+      {
+        "de": "Der Historiker schreibt ein Buch über die Weimarer Republik.",
+        "en": "The historian is writing a book about the Weimar Republic.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ein Historiker hat den Brief gefunden.",
+        "en": "A historian found the letter.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Hit": {
+    "ex": [
+      {
+        "de": "Das Lied war ein großer Hit.",
+        "en": "The song was a big hit.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das neue Spiel ist ein Hit.",
+        "en": "The new game is a hit.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Hocker": {
     "def": "einfaches Sitzmöbel ohne Rücken- und Armlehne",
     "ex": [
@@ -11162,6 +11344,20 @@
       }
     ]
   },
+  "voc:B1:der Knödel": {
+    "ex": [
+      {
+        "de": "Zum Braten gibt es einen Knödel.",
+        "en": "The roast comes with a dumpling.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In Bayern isst man oft Knödel.",
+        "en": "People often eat dumplings in Bavaria.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Kolonialismus": {
     "def": "The policy of one country controlling and settling others.",
     "ex": [
@@ -11288,6 +11484,20 @@
       {
         "de": "Tom saß zwei Legislaturperioden im Kongress.",
         "en": "Tom served two terms in Congress.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Konjunktiv": {
+    "ex": [
+      {
+        "de": "Für höfliche Bitten benutzt man den Konjunktiv.",
+        "en": "You use the subjunctive for polite requests.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In Zeitungen steht indirekte Rede oft im Konjunktiv.",
+        "en": "In newspapers reported speech is often in the subjunctive.",
         "lvl": "B1"
       }
     ]
@@ -11773,6 +11983,20 @@
         "de": "Ein Minister trägt die politische Verantwortung für sein Ressort.",
         "en": "A minister bears the political responsibility for their department.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Mittelpunkt": {
+    "ex": [
+      {
+        "de": "Der Dom steht im Mittelpunkt der Stadt.",
+        "en": "The cathedral stands at the centre of the city.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er steht gern im Mittelpunkt.",
+        "en": "He likes being the centre of attention.",
+        "lvl": "B1"
       }
     ]
   },
@@ -12343,6 +12567,20 @@
       {
         "de": "Sie hat schon über hundert Podcasts aufgenommen.",
         "en": "She has already recorded over a hundred podcasts.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Pool": {
+    "ex": [
+      {
+        "de": "Das Hotel hat einen Pool auf dem Dach.",
+        "en": "The hotel has a pool on the roof.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder spielen den ganzen Tag im Pool.",
+        "en": "The children play in the pool all day.",
         "lvl": "B1"
       }
     ]
@@ -13257,6 +13495,20 @@
       }
     ]
   },
+  "voc:B1:der Screenshot": {
+    "ex": [
+      {
+        "de": "Schick mir bitte einen Screenshot von der Fehlermeldung.",
+        "en": "Please send me a screenshot of the error message.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Screenshot ist unscharf.",
+        "en": "The screenshot is blurry.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Sektor": {
     "def": "A distinct part of an economy or area of activity.",
     "ex": [
@@ -13729,6 +13981,20 @@
         "de": "Von meinem Standpunkt aus sieht die Sache anders aus.",
         "en": "From my standpoint the matter looks different.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Star": {
+    "ex": [
+      {
+        "de": "Der Star gibt nach dem Konzert Autogramme.",
+        "en": "The star signs autographs after the concert.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist ein Star in der Gaming-Szene.",
+        "en": "She is a star in the gaming scene.",
+        "lvl": "B1"
       }
     ]
   },
@@ -19443,6 +19709,20 @@
       }
     ]
   },
+  "voc:B1:die Gelatine": {
+    "ex": [
+      {
+        "de": "Gummibärchen enthalten meistens Gelatine.",
+        "en": "Gummy bears usually contain gelatine.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für den Kuchen brauchst du Gelatine.",
+        "en": "You need gelatine for the cake.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Gelegenheit": {
     "def": "opportunity, chance, instance, occasion",
     "ex": [
@@ -20723,6 +21003,20 @@
       {
         "de": "Aus ihrer Kindheit erinnert sie sich an das alte Haus.",
         "en": "From her childhood she remembers the old house.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Klammer": {
+    "ex": [
+      {
+        "de": "Setz das Wort in Klammern.",
+        "en": "Put the word in brackets.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich brauche eine Klammer für die Wäsche.",
+        "en": "I need a peg for the washing.",
         "lvl": "B1"
       }
     ]
@@ -22886,6 +23180,20 @@
       }
     ]
   },
+  "voc:B1:die Not": {
+    "ex": [
+      {
+        "de": "In der Not helfen Freunde einander.",
+        "en": "Friends help each other in times of need.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Familien leben in großer Not.",
+        "en": "Many families live in great hardship.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Notaufnahme": {
     "def": "emergency room",
     "ex": [
@@ -24609,6 +24917,20 @@
       }
     ]
   },
+  "voc:B1:die Silbe": {
+    "ex": [
+      {
+        "de": "Das Wort hat drei Silben.",
+        "en": "The word has three syllables.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Betonung liegt auf der ersten Silbe.",
+        "en": "The stress is on the first syllable.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Sitte": {
     "def": "a traditional way of behaving in a society",
     "ex": [
@@ -25666,6 +25988,20 @@
       {
         "de": "Hast du in letzter Zeit irgendwo am Körper anhaltenden Juckreiz, Hautausschlag oder Trockenheit?",
         "en": "Have you had any persistent itching, rash, or dryness anywhere on your body?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Trommel": {
+    "ex": [
+      {
+        "de": "Mein Nachbar spielt abends Trommel.",
+        "en": "My neighbour plays the drum in the evenings.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Trommel der Waschmaschine dreht sich nicht.",
+        "en": "The washing machine's drum won't turn.",
         "lvl": "B1"
       }
     ]
@@ -28980,6 +29316,20 @@
       }
     ]
   },
+  "voc:B1:erstens": {
+    "ex": [
+      {
+        "de": "Erstens ist es zu teuer, zweitens zu spät.",
+        "en": "Firstly it's too expensive, secondly too late.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Erstens möchte ich mich bedanken.",
+        "en": "First of all I'd like to say thank you.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:ertragen": {
     "def": "To bear something painful or difficult without giving up.",
     "ex": [
@@ -30763,6 +31113,20 @@
       }
     ]
   },
+  "voc:B1:historisch": {
+    "ex": [
+      {
+        "de": "Das war ein historischer Sieg.",
+        "en": "That was a historic victory.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die historische Altstadt ist wunderschön.",
+        "en": "The historic old town is beautiful.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:hochladen": {
     "def": "separable: ich lade … hoch",
     "ex": [
@@ -31505,6 +31869,20 @@
       }
     ]
   },
+  "voc:B1:klassisch": {
+    "ex": [
+      {
+        "de": "Sie hört gern klassische Musik.",
+        "en": "She likes listening to classical music.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist ein klassischer Fehler.",
+        "en": "That is a classic mistake.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:klingen": {
     "def": "to ring; to clink; to sound",
     "ex": [
@@ -31857,6 +32235,20 @@
       {
         "de": "Als Kind war er sehr launisch.",
         "en": "As a child he was very moody.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:lauwarm": {
+    "ex": [
+      {
+        "de": "Der Kaffee ist nur noch lauwarm.",
+        "en": "The coffee is only lukewarm now.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wasch den Pullover mit lauwarmem Wasser.",
+        "en": "Wash the jumper in lukewarm water.",
         "lvl": "B1"
       }
     ]
@@ -32416,6 +32808,20 @@
       }
     ]
   },
+  "voc:B1:mobil": {
+    "ex": [
+      {
+        "de": "Ich arbeite gern mobil vom Laptop aus.",
+        "en": "I like working on the move from my laptop.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die mobile Version der Website ist schneller.",
+        "en": "The mobile version of the website is faster.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:modisch": {
     "def": "fashionable",
     "ex": [
@@ -32787,6 +33193,20 @@
       {
         "de": "Mein Freund war neidisch auf meine neue Jacke.",
         "en": "My friend was envious of my new jacket.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:nervig": {
+    "ex": [
+      {
+        "de": "Die ständigen Updates sind wirklich nervig.",
+        "en": "The constant updates are really annoying.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat einen nervigen Klingelton.",
+        "en": "He has an annoying ringtone.",
         "lvl": "B1"
       }
     ]
@@ -35807,6 +36227,20 @@
       }
     ]
   },
+  "voc:B1:sägen": {
+    "ex": [
+      {
+        "de": "Mein Vater sägt das Holz für den Winter.",
+        "en": "My father is sawing the wood for the winter.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben das Brett in zwei Teile gesägt.",
+        "en": "We sawed the board into two pieces.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:südlich": {
     "def": "In or toward the south.",
     "ex": [
@@ -35947,6 +36381,20 @@
       }
     ]
   },
+  "voc:B1:top": {
+    "ex": [
+      {
+        "de": "Das Essen war top!",
+        "en": "The food was excellent!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Qualität der Kamera ist top.",
+        "en": "The camera quality is excellent.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:traditionell": {
     "def": "Following long-established customs.",
     "ex": [
@@ -36063,6 +36511,20 @@
       {
         "de": "In tropischen Regionen regnet es fast täglich.",
         "en": "In tropical regions it rains almost daily.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:tschechisch": {
+    "ex": [
+      {
+        "de": "Wir haben ein tschechisches Bier probiert.",
+        "en": "We tried a Czech beer.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Prag ist die tschechische Hauptstadt.",
+        "en": "Prague is the Czech capital.",
         "lvl": "B1"
       }
     ]
@@ -36967,6 +37429,20 @@
       }
     ]
   },
+  "voc:B1:verbrauchen": {
+    "ex": [
+      {
+        "de": "Das Auto verbraucht sechs Liter auf hundert Kilometer.",
+        "en": "The car uses six litres per hundred kilometres.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben zu viel Strom verbraucht.",
+        "en": "We used too much electricity.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:verbrennen": {
     "def": "to burn (to cause to be consumed by fire or flames), to incinerate, to combust; to burn oneself, to suffer a burning",
     "ex": [
@@ -37008,6 +37484,20 @@
       {
         "de": "Jeder ist verdächtig.",
         "en": "Everybody's suspicious.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:vereinigt": {
+    "ex": [
+      {
+        "de": "Das vereinigte Deutschland feiert jedes Jahr am 3. Oktober.",
+        "en": "United Germany celebrates every year on 3 October.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die vereinigten Teams arbeiten jetzt an einem Projekt.",
+        "en": "The merged teams now work on one project.",
         "lvl": "B1"
       }
     ]
@@ -37593,6 +38083,20 @@
         "de": "Alte Berufe verschwinden, neue entstehen.",
         "en": "Old jobs disappear, new ones emerge.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:versehentlich": {
+    "ex": [
+      {
+        "de": "Ich habe die Mail versehentlich gelöscht.",
+        "en": "I deleted the email by mistake.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war ein versehentlicher Klick.",
+        "en": "That was an accidental click.",
+        "lvl": "B1"
       }
     ]
   },
@@ -39570,6 +40074,20 @@
       {
         "de": "Er ist der berühmte Arzt, niemand wird an der Richtigkeit seiner Diagnose zweifeln.",
         "en": "He is the famous doctor, nobody will be doubtful about the correctness of his diagnosis.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:zweitens": {
+    "ex": [
+      {
+        "de": "Zweitens brauchen wir mehr Zeit.",
+        "en": "Secondly, we need more time.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Erstens regnet es, und zweitens bin ich müde.",
+        "en": "Firstly it's raining, and secondly I'm tired.",
         "lvl": "B1"
       }
     ]

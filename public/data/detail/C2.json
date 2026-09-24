@@ -750,6 +750,20 @@
       }
     ]
   },
+  "voc:C2:die Anode": {
+    "ex": [
+      {
+        "de": "Die Anode ist der Minuspol der Batterie.",
+        "en": "The anode is the battery's negative terminal.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Anode besteht meistens aus Graphit.",
+        "en": "The anode is mostly made of graphite.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Antinomie": {
     "def": "A contradiction between two apparently valid principles.",
     "ex": [
@@ -1211,6 +1225,20 @@
       {
         "de": "Es ist eine Ironie der Geschichte, dass ausgerechnet er das Amt erbte.",
         "en": "It is an irony of history that of all people he inherited the office.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Kathode": {
+    "ex": [
+      {
+        "de": "Die Kathode enthält Lithium und Nickel.",
+        "en": "The cathode contains lithium and nickel.",
+        "lvl": "C2"
+      },
+      {
+        "de": "An der Kathode findet die Reduktion statt.",
+        "en": "The reduction takes place at the cathode.",
         "lvl": "C2"
       }
     ]

@@ -2145,6 +2145,20 @@
       }
     ]
   },
+  "voc:A2:das Adverb": {
+    "ex": [
+      {
+        "de": "Gern ist ein Adverb.",
+        "en": "Gern is an adverb.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Adverb steht hier am Satzanfang.",
+        "en": "The adverb comes at the start of the sentence here.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Album": {
     "ex": [
       {
@@ -2577,6 +2591,20 @@
         "de": "Ein gutes Dirndl kann mehrere hundert Euro kosten.",
         "en": "A good dirndl can cost several hundred euros.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Dokument": {
+    "ex": [
+      {
+        "de": "Bitte bringen Sie alle Dokumente zum Termin mit.",
+        "en": "Please bring all documents to the appointment.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe das Dokument als PDF geschickt.",
+        "en": "I sent the document as a PDF.",
+        "lvl": "A2"
       }
     ]
   },
@@ -3602,6 +3630,20 @@
       }
     ]
   },
+  "voc:A2:das Klassenzimmer": {
+    "ex": [
+      {
+        "de": "Das Klassenzimmer ist im zweiten Stock.",
+        "en": "The classroom is on the second floor.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Klassenzimmer ist es heute sehr warm.",
+        "en": "It is very warm in the classroom today.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Kochbuch": {
     "def": "A book of recipes for preparing food.",
     "ex": [
@@ -4039,6 +4081,20 @@
         "de": "Das Neujahrsfest wird in jedem Land etwas anders begangen.",
         "en": "The New Year celebration is observed a little differently in every country.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Nomen": {
+    "ex": [
+      {
+        "de": "Im Deutschen schreibt man jedes Nomen groß.",
+        "en": "In German every noun is capitalised.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Welcher Artikel gehört zu diesem Nomen?",
+        "en": "Which article goes with this noun?",
+        "lvl": "A2"
       }
     ]
   },
@@ -4840,6 +4896,20 @@
         "de": "Das Tuch schützte ihr Gesicht vor dem Wüstensand.",
         "en": "The cloth protected her face from the desert sand.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Verb": {
+    "ex": [
+      {
+        "de": "Im Hauptsatz steht das Verb an zweiter Stelle.",
+        "en": "In a main clause the verb comes second.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Dieses Verb ist unregelmäßig.",
+        "en": "This verb is irregular.",
+        "lvl": "A2"
       }
     ]
   },
@@ -6591,6 +6661,20 @@
       }
     ]
   },
+  "voc:A2:der Esslöffel": {
+    "ex": [
+      {
+        "de": "Gib einen Esslöffel Zucker dazu.",
+        "en": "Add a tablespoon of sugar.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Esslöffel liegt in der Schublade.",
+        "en": "The tablespoon is in the drawer.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Esstisch": {
     "def": "table upon which meals are eaten; eating table; dinner table",
     "ex": [
@@ -7259,6 +7343,20 @@
         "de": "Für viele ist der Heiligabend der ruhigste Abend des Jahres.",
         "en": "For many, Christmas Eve is the quietest evening of the year.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Heimweg": {
+    "ex": [
+      {
+        "de": "Auf dem Heimweg habe ich noch Brot gekauft.",
+        "en": "I bought some bread on the way home.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Heimweg dauert mit dem Rad zwanzig Minuten.",
+        "en": "The way home takes twenty minutes by bike.",
+        "lvl": "A2"
       }
     ]
   },
@@ -8426,6 +8524,20 @@
       }
     ]
   },
+  "voc:A2:der Nagel": {
+    "ex": [
+      {
+        "de": "Der Nagel ist zu kurz für das Brett.",
+        "en": "The nail is too short for the board.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie lackiert sich die Nägel.",
+        "en": "She is painting her nails.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Nationalpark": {
     "def": "A large protected area of nature that is open to visitors.",
     "ex": [
@@ -8561,6 +8673,20 @@
       }
     ]
   },
+  "voc:A2:der Notruf": {
+    "ex": [
+      {
+        "de": "Der Notruf in Deutschland ist 112.",
+        "en": "The emergency number in Germany is 112.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat sofort den Notruf gewählt.",
+        "en": "She immediately dialled the emergency number.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Ohrring": {
     "def": "A piece of jewellery worn on the ear.",
     "ex": [
@@ -8683,6 +8809,20 @@
         "de": "Immer mehr Menschen verzichten in der Stadt auf einen eigenen Pkw.",
         "en": "More and more people in the city do without their own car.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Plural": {
+    "ex": [
+      {
+        "de": "Wie lautet der Plural von Haus?",
+        "en": "What is the plural of house?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Plural ist der Artikel immer die.",
+        "en": "In the plural the article is always die.",
+        "lvl": "A2"
       }
     ]
   },
@@ -10163,6 +10303,20 @@
       }
     ]
   },
+  "voc:A2:der Umlaut": {
+    "ex": [
+      {
+        "de": "Das Wort Bär hat einen Umlaut.",
+        "en": "The word Bär has an umlaut.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf der Tastatur fehlt der Umlaut.",
+        "en": "The umlaut is missing on the keyboard.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Umsatz": {
     "def": "turnover, revenue, sales",
     "ex": [
@@ -11277,6 +11431,20 @@
       }
     ]
   },
+  "voc:A2:die Ananas": {
+    "ex": [
+      {
+        "de": "Möchtest du ein Stück Ananas?",
+        "en": "Would you like a piece of pineapple?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Ananas ist schon sehr reif.",
+        "en": "The pineapple is already very ripe.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Ankunft": {
     "def": "The moment of reaching a place, especially at the end of a journey.",
     "ex": [
@@ -11622,6 +11790,20 @@
       {
         "de": "Ist Barzahlung möglich?",
         "en": "Is cash payment possible?",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Batterie": {
+    "ex": [
+      {
+        "de": "Die Batterie von meinem Handy ist leer.",
+        "en": "My phone's battery is flat.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Diese Batterie hält fast zwei Tage.",
+        "en": "This battery lasts almost two days.",
         "lvl": "A2"
       }
     ]
@@ -17528,6 +17710,20 @@
       }
     ]
   },
+  "voc:A2:die Uni": {
+    "ex": [
+      {
+        "de": "Meine Schwester geht noch zur Uni.",
+        "en": "My sister still goes to uni.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Uni liegt mitten in der Stadt.",
+        "en": "The university is in the middle of the city.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Unterhaltung": {
     "def": "A talk between two or more people; also entertainment.",
     "ex": [
@@ -20456,6 +20652,20 @@
       }
     ]
   },
+  "voc:A2:googeln": {
+    "ex": [
+      {
+        "de": "Du kannst das einfach googeln.",
+        "en": "You can just google that.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Hast du die Adresse gegoogelt?",
+        "en": "Did you google the address?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:großartig": {
     "def": "terrific, superb, etc.",
     "ex": [
@@ -21193,6 +21403,20 @@
       {
         "de": "Ich habe den Schlüssel irgendwo liegen lassen.",
         "en": "I left the key somewhere.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:italienisch": {
+    "ex": [
+      {
+        "de": "Wir gehen heute in ein italienisches Restaurant.",
+        "en": "We are going to an Italian restaurant today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er fährt ein italienisches Auto.",
+        "en": "He drives an Italian car.",
         "lvl": "A2"
       }
     ]
@@ -23402,6 +23626,20 @@
       {
         "de": "Er schrie vor Schmerzen.",
         "en": "He screamed in pain.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:schriftlich": {
+    "ex": [
+      {
+        "de": "Die Kündigung muss schriftlich erfolgen.",
+        "en": "Notice must be given in writing.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Morgen haben wir eine schriftliche Prüfung.",
+        "en": "We have a written exam tomorrow.",
         "lvl": "A2"
       }
     ]

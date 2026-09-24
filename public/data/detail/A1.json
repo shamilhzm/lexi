@@ -16039,6 +16039,20 @@
       }
     ]
   },
+  "voc:A1:die Pizza": {
+    "ex": [
+      {
+        "de": "Wir bestellen heute Abend eine Pizza.",
+        "en": "We're ordering a pizza tonight.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Pizza ist noch warm.",
+        "en": "The pizza is still warm.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Polizei": {
     "def": "police; law enforcement",
     "ex": [
