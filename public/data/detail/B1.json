@@ -1250,6 +1250,20 @@
       }
     ]
   },
+  "voc:B1:aktualisieren": {
+    "ex": [
+      {
+        "de": "Bitte aktualisieren Sie die App.",
+        "en": "Please update the app.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Liste wird jeden Tag aktualisiert.",
+        "en": "The list is updated every day.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:aktuell": {
     "def": "current, currently in action, live (in the sense of broadcasting)",
     "ex": [
@@ -1380,6 +1394,20 @@
       {
         "de": "Es ist billig, aber andererseits ist es nicht gut.",
         "en": "It is cheap, but on the other hand it is not good.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:anderswo": {
+    "ex": [
+      {
+        "de": "Anderswo sind die Mieten billiger.",
+        "en": "Rents are cheaper elsewhere.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich suche mir einen Job anderswo.",
+        "en": "I'm looking for a job elsewhere.",
         "lvl": "B1"
       }
     ]
@@ -5890,6 +5918,20 @@
       }
     ]
   },
+  "voc:B1:das Logo": {
+    "ex": [
+      {
+        "de": "Die Firma hat ein neues Logo.",
+        "en": "The company has a new logo.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Logo ist auf jeder Tasse.",
+        "en": "The logo is on every mug.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Malen": {
     "def": "to paint (do paintwork); to paint (create a painting)",
     "ex": [
@@ -6805,6 +6847,20 @@
         "de": "Bei feuchtem Wetter macht ihr das Rheuma zu schaffen.",
         "en": "In damp weather her rheumatism bothers her.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:das Rind": {
+    "ex": [
+      {
+        "de": "Das Fleisch ist vom Rind.",
+        "en": "The meat is beef.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Hof leben zwanzig Rinder.",
+        "en": "Twenty cattle live on the farm.",
+        "lvl": "B1"
       }
     ]
   },
@@ -9545,6 +9601,20 @@
       }
     ]
   },
+  "voc:B1:der Busch": {
+    "ex": [
+      {
+        "de": "Der Ball ist im Busch gelandet.",
+        "en": "The ball landed in the bush.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Da ist etwas im Busch.",
+        "en": "Something's up.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Bär": {
     "def": "bear (animal); bear (someone or something bear-like, e.g. a sturdy man)",
     "ex": [
@@ -11443,6 +11513,34 @@
       }
     ]
   },
+  "voc:B1:der Jahrestag": {
+    "ex": [
+      {
+        "de": "Heute ist der Jahrestag des Mauerfalls.",
+        "en": "Today is the anniversary of the fall of the Wall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zum Jahrestag gehen wir essen.",
+        "en": "We're going out for dinner for our anniversary.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Japaner": {
+    "ex": [
+      {
+        "de": "Der Japaner hat das Rennen gewonnen.",
+        "en": "The Japanese man won the race.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Nachbar ist Japaner.",
+        "en": "My neighbour is Japanese.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Joker": {
     "def": "joker (card that substitutes any other card); lifeline (help that a player can use in a situation of difficulty)",
     "ex": [
@@ -12065,6 +12163,20 @@
       }
     ]
   },
+  "voc:B1:der Kratzer": {
+    "ex": [
+      {
+        "de": "Auf dem Display ist ein Kratzer.",
+        "en": "There is a scratch on the screen.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kratzer am Auto ist kaum zu sehen.",
+        "en": "The scratch on the car can hardly be seen.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Krebs": {
     "def": "A sea animal with a hard shell and claws.",
     "ex": [
@@ -12303,6 +12415,20 @@
       }
     ]
   },
+  "voc:B1:der Lenker": {
+    "ex": [
+      {
+        "de": "Halt den Lenker mit beiden Händen fest.",
+        "en": "Hold the handlebars with both hands.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Lenker ist zu tief eingestellt.",
+        "en": "The handlebars are set too low.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Lichtschalter": {
     "def": "A switch on the wall that turns a light on or off.",
     "ex": [
@@ -12329,6 +12455,34 @@
       {
         "de": "Sie hat einen Liebhaber.",
         "en": "She has a lover.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Luxus": {
+    "ex": [
+      {
+        "de": "Ein eigenes Auto ist für viele ein Luxus.",
+        "en": "A car of one's own is a luxury for many.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie leben in großem Luxus.",
+        "en": "They live in great luxury.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Läufer": {
+    "ex": [
+      {
+        "de": "Der Läufer hat einen neuen Rekord aufgestellt.",
+        "en": "The runner set a new record.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Flur liegt ein langer Läufer.",
+        "en": "There's a long rug in the hallway.",
         "lvl": "B1"
       }
     ]
@@ -12486,6 +12640,20 @@
       {
         "de": "Er steht gern im Mittelpunkt.",
         "en": "He likes being the centre of attention.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Monitor": {
+    "ex": [
+      {
+        "de": "Ich brauche einen zweiten Monitor.",
+        "en": "I need a second monitor.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Monitor bleibt schwarz.",
+        "en": "The monitor stays black.",
         "lvl": "B1"
       }
     ]
@@ -12905,6 +13073,20 @@
       }
     ]
   },
+  "voc:B1:der Ortsteil": {
+    "ex": [
+      {
+        "de": "Wir wohnen in einem ruhigen Ortsteil von Köln.",
+        "en": "We live in a quiet district of Cologne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Ortsteil hat eine eigene Grundschule.",
+        "en": "The district has its own primary school.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Otter": {
     "def": "A furry river animal that swims well and eats fish.",
     "ex": [
@@ -12998,6 +13180,20 @@
         "de": "Ein Personal Trainer motiviert und korrigiert.",
         "en": "A personal trainer motivates and corrects.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Pfeil": {
+    "ex": [
+      {
+        "de": "Folgen Sie dem Pfeil zum Ausgang.",
+        "en": "Follow the arrow to the exit.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Klick auf den Pfeil oben rechts.",
+        "en": "Click on the arrow at the top right.",
+        "lvl": "B1"
       }
     ]
   },
@@ -14998,6 +15194,20 @@
       }
     ]
   },
+  "voc:B1:der Transporter": {
+    "ex": [
+      {
+        "de": "Für den Umzug mieten wir einen Transporter.",
+        "en": "We're renting a van for the move.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Transporter steht in der zweiten Reihe.",
+        "en": "The van is double-parked.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Treffer": {
     "def": "hit (A blow, punch, strike hitting a target.)",
     "ex": [
@@ -15909,6 +16119,20 @@
       {
         "de": "Was für ein Zauber ist das?",
         "en": "What kind of sorcery is this?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Zeitplan": {
+    "ex": [
+      {
+        "de": "Wir liegen gut im Zeitplan.",
+        "en": "We are well on schedule.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Zeitplan für das Projekt ist sehr eng.",
+        "en": "The schedule for the project is very tight.",
         "lvl": "B1"
       }
     ]
@@ -19172,6 +19396,20 @@
       }
     ]
   },
+  "voc:B1:die Erfindung": {
+    "ex": [
+      {
+        "de": "Das Internet ist eine großartige Erfindung.",
+        "en": "The internet is a great invention.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Geschichte ist eine reine Erfindung.",
+        "en": "The story is pure invention.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Ergänzung": {
     "def": "supplement, addition, complement, supplementation; object, complement",
     "ex": [
@@ -19547,6 +19785,20 @@
         "de": "Ohne qualifizierte Fachkräfte kann der Betrieb nicht wachsen.",
         "en": "Without qualified skilled workers the company can't grow.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Fahne": {
+    "ex": [
+      {
+        "de": "Auf dem Rathaus weht eine Fahne.",
+        "en": "A flag is flying on the town hall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Fans schwenken die Fahne ihres Vereins.",
+        "en": "The fans wave their club's flag.",
+        "lvl": "B1"
       }
     ]
   },
@@ -22052,6 +22304,20 @@
       }
     ]
   },
+  "voc:B1:die Konsole": {
+    "ex": [
+      {
+        "de": "Er spielt jeden Abend an der Konsole.",
+        "en": "He plays on the console every evening.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die neue Konsole ist ausverkauft.",
+        "en": "The new console is sold out.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Konzentration": {
     "def": "concentration (all senses)",
     "ex": [
@@ -22475,6 +22741,20 @@
         "de": "Der Tagebau hat die Landschaft auf Jahrzehnte verändert.",
         "en": "Open-cast mining has changed the landscape for decades.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Landung": {
+    "ex": [
+      {
+        "de": "Nach der Landung bitte angeschnallt bleiben.",
+        "en": "Please stay buckled up after landing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Landung war sehr sanft.",
+        "en": "The landing was very smooth.",
+        "lvl": "B1"
       }
     ]
   },
@@ -24515,6 +24795,20 @@
       }
     ]
   },
+  "voc:B1:die Pumpe": {
+    "ex": [
+      {
+        "de": "Die Pumpe für das Fahrrad ist im Keller.",
+        "en": "The bike pump is in the cellar.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Pumpe der Heizung ist kaputt.",
+        "en": "The heating pump is broken.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Qualität": {
     "def": "quality (level of excellence, level of being free from defects)",
     "ex": [
@@ -24741,6 +25035,20 @@
       {
         "de": "Alles Gemüse kommt aus der Region.",
         "en": "All the vegetables are locally grown.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Reinigung": {
+    "ex": [
+      {
+        "de": "Ich bringe den Anzug in die Reinigung.",
+        "en": "I'm taking the suit to the dry cleaner's.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Reinigung der Wohnung kostet extra.",
+        "en": "Cleaning the flat costs extra.",
         "lvl": "B1"
       }
     ]
@@ -29340,6 +29648,20 @@
       }
     ]
   },
+  "voc:B1:einfrieren": {
+    "ex": [
+      {
+        "de": "Du kannst das Brot einfrieren.",
+        "en": "You can freeze the bread.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Regierung will die Mieten einfrieren.",
+        "en": "The government wants to freeze rents.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:einfügen": {
     "ex": [
       {
@@ -30822,6 +31144,20 @@
       {
         "de": "Fort mit dem alten Zeug!",
         "en": "Away with the old stuff!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:fortgeschritten": {
+    "ex": [
+      {
+        "de": "Der Kurs ist für Fortgeschrittene.",
+        "en": "The course is for advanced learners.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Krankheit ist schon weit fortgeschritten.",
+        "en": "The illness is already far advanced.",
         "lvl": "B1"
       }
     ]
@@ -32591,6 +32927,20 @@
       }
     ]
   },
+  "voc:B1:irgendwohin": {
+    "ex": [
+      {
+        "de": "Lass uns am Wochenende irgendwohin fahren.",
+        "en": "Let's go somewhere at the weekend.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe den Schlüssel irgendwohin gelegt.",
+        "en": "I've put the key somewhere.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:jagen": {
     "def": "to hunt (game); to chase, chase after (to follow at speed)",
     "ex": [
@@ -32992,6 +33342,20 @@
       {
         "de": "Lass dich krankschreiben und bleib im Bett.",
         "en": "Get a sick note and stay in bed.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:kratzen": {
+    "ex": [
+      {
+        "de": "Der Pullover kratzt.",
+        "en": "The jumper is scratchy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Katze hat mich gekratzt.",
+        "en": "The cat scratched me.",
         "lvl": "B1"
       }
     ]
@@ -37171,6 +37535,20 @@
       }
     ]
   },
+  "voc:B1:streicheln": {
+    "ex": [
+      {
+        "de": "Darf ich den Hund streicheln?",
+        "en": "May I stroke the dog?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie streichelt die Katze.",
+        "en": "She is stroking the cat.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:streichen": {
     "def": "to stroke; to cancel; to discard; to delete; to strike out; to cross out",
     "ex": [
@@ -40130,6 +40508,20 @@
       }
     ]
   },
+  "voc:B1:wickeln": {
+    "ex": [
+      {
+        "de": "Sie wickelt das Geschenk in Papier.",
+        "en": "She wraps the present in paper.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er wickelt gerade das Baby.",
+        "en": "He is changing the baby.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:widersprechen": {
     "def": "auf eine Aussage mit einer gegenteiligen Aussage antworten",
     "ex": [
@@ -40980,6 +41372,20 @@
       {
         "de": "Ein Auto steht uns leider nicht zur Verfügung.",
         "en": "Unfortunately a car is not available to us.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:zurückholen": {
+    "ex": [
+      {
+        "de": "Ich muss mein Geld zurückholen.",
+        "en": "I have to get my money back.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Firma will die Produktion nach Europa zurückholen.",
+        "en": "The company wants to bring production back to Europe.",
         "lvl": "B1"
       }
     ]

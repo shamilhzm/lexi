@@ -3784,6 +3784,20 @@
       }
     ]
   },
+  "voc:A1:das Heft": {
+    "ex": [
+      {
+        "de": "Schreibt die Wörter in euer Heft.",
+        "en": "Write the words in your exercise books.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das neue Heft erscheint im Mai.",
+        "en": "The new issue comes out in May.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Hemd": {
     "def": "shirt, or in particular a dress shirt",
     "ex": [

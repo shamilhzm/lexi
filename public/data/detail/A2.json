@@ -566,6 +566,20 @@
       }
     ]
   },
+  "voc:A2:anhaben": {
+    "ex": [
+      {
+        "de": "Was hatte sie gestern an?",
+        "en": "What was she wearing yesterday?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du hast ja eine neue Jacke an!",
+        "en": "You've got a new jacket on!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:anhören": {
     "def": "to listen to the end, to hear out; to listen to something",
     "ex": [
@@ -888,6 +902,20 @@
       {
         "de": "Wir sollten diese Regelung aufheben.",
         "en": "We should do away with this regulation.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:aufladen": {
+    "ex": [
+      {
+        "de": "Ich muss mein Handy aufladen.",
+        "en": "I need to charge my phone.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Karte kann man am Automaten aufladen.",
+        "en": "You can top up the card at the machine.",
         "lvl": "A2"
       }
     ]
@@ -2541,6 +2569,20 @@
       }
     ]
   },
+  "voc:A2:das Dankeschön": {
+    "ex": [
+      {
+        "de": "Ein großes Dankeschön an alle Helfer!",
+        "en": "A big thank-you to all the helpers!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Als Dankeschön gibt es ein kleines Geschenk.",
+        "en": "There's a small gift as a thank-you.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Denkmal": {
     "def": "monument, memorial",
     "ex": [
@@ -2877,6 +2919,20 @@
         "de": "Er wechselte das Fach, weil ihn die Inhalte nicht mehr interessierten.",
         "en": "He changed his subject because the content no longer interested him.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Familienmitglied": {
+    "ex": [
+      {
+        "de": "Jedes Familienmitglied hat eine Aufgabe.",
+        "en": "Every family member has a task.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auch ein Familienmitglied kann das Paket abholen.",
+        "en": "A family member can also collect the parcel.",
+        "lvl": "A2"
       }
     ]
   },
@@ -6543,6 +6599,20 @@
       }
     ]
   },
+  "voc:A2:der Deckel": {
+    "ex": [
+      {
+        "de": "Mach den Deckel auf den Topf.",
+        "en": "Put the lid on the pot.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Deckel geht nicht auf.",
+        "en": "The lid won't open.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Dialekt": {
     "def": "A local form of a language, with its own words and pronunciation.",
     "ex": [
@@ -7008,6 +7078,20 @@
         "de": "Der Fortbildungskurs wird vom Arbeitgeber bezahlt.",
         "en": "The further-training course is paid for by the employer.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Fotograf": {
+    "ex": [
+      {
+        "de": "Der Fotograf macht Bilder von der Hochzeit.",
+        "en": "The photographer is taking pictures of the wedding.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie arbeitet als Fotografin für eine Zeitung.",
+        "en": "She works as a photographer for a newspaper.",
+        "lvl": "A2"
       }
     ]
   },
@@ -10501,6 +10585,20 @@
       }
     ]
   },
+  "voc:A2:der Umschlag": {
+    "ex": [
+      {
+        "de": "Steck den Brief in den Umschlag.",
+        "en": "Put the letter in the envelope.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf dem Umschlag fehlt die Adresse.",
+        "en": "The address is missing from the envelope.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Umzug": {
     "def": "move, removal, relocation (change of residence)",
     "ex": [
@@ -13456,6 +13554,20 @@
       }
     ]
   },
+  "voc:A2:die Garantie": {
+    "ex": [
+      {
+        "de": "Auf das Handy gibt es zwei Jahre Garantie.",
+        "en": "The phone has a two-year warranty.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Dafür gibt es keine Garantie.",
+        "en": "There's no guarantee of that.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Gasse": {
     "def": "alley, ginnel, twitchel",
     "ex": [
@@ -16106,6 +16218,20 @@
       }
     ]
   },
+  "voc:A2:die Portion": {
+    "ex": [
+      {
+        "de": "Eine Portion Pommes, bitte.",
+        "en": "One portion of chips, please.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Portion ist riesig.",
+        "en": "The portion is huge.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Position": {
     "def": "The place where someone or something is.",
     "ex": [
@@ -16600,6 +16726,20 @@
         "de": "Bist du bei mir, geh ich mit Freuden zum Sterben und zu meiner Ruh.",
         "en": "If you are with me, then I will go gladly unto [my] death and to my rest.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:die Rückseite": {
+    "ex": [
+      {
+        "de": "Unterschreiben Sie bitte auf der Rückseite.",
+        "en": "Please sign on the back.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Rückseite des Hauses ist sehr ruhig.",
+        "en": "The back of the house is very quiet.",
+        "lvl": "A2"
       }
     ]
   },
@@ -26459,6 +26599,20 @@
         "de": "Die Meinungen von den Polen über Deutschland sind sehr vielfältig.",
         "en": "The Poles' opinions of Germany are very varied.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:vielmals": {
+    "ex": [
+      {
+        "de": "Danke vielmals für Ihre Hilfe!",
+        "en": "Thank you very much for your help!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Entschuldigen Sie vielmals die Verspätung.",
+        "en": "I do apologise for the delay.",
+        "lvl": "A2"
       }
     ]
   },
