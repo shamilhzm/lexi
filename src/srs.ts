@@ -32,6 +32,21 @@ export function isDue(card: Card, now: number = Date.now()): boolean {
   return new Date(card.due).getTime() <= now;
 }
 
+/** FSRS's own predicted probability that this card is still recallable, 0..1.
+ *
+ *  Recorded on the review ledger *before* the grade is known, which is the only
+ *  order in which a prediction means anything: it is a claim the scheduler made
+ *  with no knowledge of the outcome, and calibration is the comparison of that
+ *  claim against what happened. Recomputing it later from stored stability would
+ *  silently re-date the claim to today's parameters.
+ *
+ *  `undefined` for a card FSRS has never seen — there is no prediction to make. */
+export function retrievability(card: Card, now: Date = new Date()): number | undefined {
+  if (card.state === State.New) return undefined;
+  const r = engine.get_retrievability(card, now, false);
+  return Number.isFinite(r) ? r : undefined;
+}
+
 /** Reviews a card needs before its interval estimate is worth stating precisely. */
 const CONFIDENT_REPS = 2;
 

@@ -47,7 +47,20 @@ const verdicts = await verifyAll(cands, existing, corpus);
 const ok = verdicts.filter((v) => v.ok);
 const bad = verdicts.filter((v) => !v.ok);
 
-console.log(`candidates ${cands.length} · verified ${ok.length} · rejected ${bad.length}`);
+const ruledCount = ok.filter((v) => v.ruled?.length).length;
+console.log(`candidates ${cands.length} · verified ${ok.length} · rejected ${bad.length}`
+  + (ruledCount ? ` · ${ruledCount} carrying a hand ruling` : ''));
+
+// Surfaced at the top and by name, not buried in the per-card notes. A ruled fact
+// is one de.wiktionary could not confirm; the whole safeguard is that a reader can
+// tell which those are without going looking. See verify-rulings.tsv.
+if (ruledCount) {
+  console.log('\n--- facts from verify-rulings.tsv, not from the dictionary ---');
+  for (const v of ok.filter((x) => x.ruled?.length)) {
+    console.log(`  ${v.term}`);
+    for (const r of v.ruled!) console.log(`      ${r}`);
+  }
+}
 
 if (bad.length) {
   console.log('\n--- rejected ---');
@@ -60,6 +73,7 @@ if (VERBOSE && ok.length) {
     const c = v.card!;
     console.log(`  ${c.term} [${c.level}/${c.field}] — ${c.en}`);
     console.log(`      ${c.plural ?? '(no plural)'} · /${c.ipa ?? '—'}/ · ${v.notes.join(', ') || 'nothing from dictionary'}`);
+    if (v.ruled?.length) console.log(`      ruled: ${v.ruled.join(' · ')}`);
     for (const e of c.ex) console.log(`      « ${e.de} »  ${e.en}`);
   }
 }

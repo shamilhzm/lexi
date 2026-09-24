@@ -17,7 +17,9 @@
 //
 // ## Shape
 //
-// One row per graded review: `{ id, g, at }`. Appended to a dedicated
+// One row per graded review: `{ id, g, at }`, plus — since 2026-09-09 — the
+// scheduler's prediction and the state it came from (`r`, `s`, `d`, `e`, `st`;
+// see `ReviewMeta`). Appended to a dedicated
 // auto-incrementing IndexedDB store, so a write is O(1) and never re-clones the
 // ledger. Undo removes the row it wrote, because a rewound review did not happen —
 // the same reasoning `unbumpReviewLog` already applies to the daily counts.
@@ -38,6 +40,40 @@ export interface ReviewEvent {
   g: Grade;
   /** Epoch ms. */
   at: number;
+  /** What the scheduler predicted, and what it predicted it from — see
+   *  `ReviewMeta`. Absent on first sight, and on every row written before
+   *  2026-09-09, so every reader must treat these as optional. */
+  r?: number;
+  s?: number;
+  d?: number;
+  e?: number;
+  st?: number;
+}
+
+/** The scheduler's state at the moment of a review, captured *before* grading.
+ *
+ *  ## Why this is on the event and not derived later
+ *
+ *  `r` is a prediction, and a prediction is only meaningful as a claim made
+ *  before the outcome. Recomputing it afterwards from the card's stored stability
+ *  would re-date the claim to today's parameters and quietly make the scheduler
+ *  look better than it was — the calibration equivalent of moving the goalposts.
+ *
+ *  The other three are the inputs `r` was computed from, kept so the prediction
+ *  can be re-derived, re-bucketed or re-examined under a different forgetting
+ *  curve without asking the learner to study anything again. Same argument as the
+ *  ledger itself: keep the evidence, not only the compression of it. */
+export interface ReviewMeta {
+  /** Predicted recall probability, 0..1. */
+  r?: number;
+  /** Stability in days, before scheduling. */
+  s?: number;
+  /** Difficulty, before scheduling. */
+  d?: number;
+  /** Days since `last_review`, before scheduling. */
+  e?: number;
+  /** FSRS `State`, before scheduling. */
+  st?: number;
 }
 
 /** Roughly two years of heavy study. Past this the oldest rows are dropped: exact
@@ -65,13 +101,16 @@ export function ledgerAvailable(): boolean {
  *  Returns a promise that **never rejects**, so callers can ignore it — `review()`
  *  does — while tests and any future sync flush can await it. Fire-and-forget was
  *  the intent; returning nothing was just a way of making it untestable. */
-export function logReview(id: string, g: Grade, at = Date.now()): Promise<void> {
+export function logReview(id: string, g: Grade, at = Date.now(), meta?: ReviewMeta): Promise<void> {
   return (async () => {
     try {
       const db = await open();
       await new Promise<void>((resolve, reject) => {
         const tx = db.transaction(LEDGER_STORE, 'readwrite');
-        tx.objectStore(LEDGER_STORE).add({ id, g, at } satisfies ReviewEvent);
+        // Spread rather than assign the four fields: an undefined `r` must not be
+        // stored as an explicit `undefined` key, because a reader distinguishing
+        // "no prediction" from "predicted zero" would then have to check both.
+        tx.objectStore(LEDGER_STORE).add({ id, g, at, ...(meta ?? {}) } satisfies ReviewEvent);
         tx.oncomplete = () => resolve();
         tx.onerror = () => reject(tx.error);
       });

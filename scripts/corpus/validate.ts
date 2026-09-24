@@ -15,6 +15,7 @@ import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
 import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, exampleKey, PREMODERN_TYPOGRAPHY, tenseItemDefect, LEVELS, type Word } from './lib.ts';
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
+import { parseRulings } from '../authoring/verify.ts';
 import type { Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
@@ -439,6 +440,38 @@ async function main() {
     const dead = Object.keys(readJSON<Record<string, number>>(freqPath)).filter((id) => !live.has(id));
     if (dead.length) {
       allErrors.push({ id: 'freq.json', msg: `${dead.length} rank(s) on cards that no longer exist (${dead.slice(0, 3).join(', ')}…) — run corpus:freq` });
+    }
+  }
+
+  // Authoring rulings that no longer describe their card.
+  //
+  // `scripts/authoring/verify-rulings.tsv` records facts de.wiktionary does not
+  // have, so the authoring gate can write a card it could otherwise never verify.
+  // A ruling is written *before* the card exists, which is the point — but once
+  // the card does exist, a merge, a relevel or an `authoring:recard` can move the
+  // fact out from under it, and a ruling that quietly disagrees with the card it
+  // was written for is worse than no ruling: it is a citation attached to a claim
+  // nobody has checked since. Same reasoning as the `freq.json` sweep above, and
+  // the same fix shape — a ruling for a term that is not (yet) carded is fine and
+  // is skipped, because that is the file's normal state.
+  const rulingsPath = join(PATHS.repoRoot, 'scripts', 'authoring', 'verify-rulings.tsv');
+  if (fileExists(rulingsPath)) {
+    const byTerm = new Map(full.map((w) => [w.term.toLowerCase(), w]));
+    for (const r of parseRulings(readFileSync(rulingsPath, 'utf8'))) {
+      const card = byTerm.get(r.term.toLowerCase());
+      if (!card) continue;
+      const actual = r.field === 'gender' ? card.gender
+        : r.field === 'plural' ? card.plural
+        : r.field === 'pos' ? card.pos
+        : card.ipa;
+      const bare = (s: string) => s.replace(/^(der|die|das)\s+/i, '').trim().toLowerCase();
+      const same = r.field === 'plural' ? bare(actual ?? '') === bare(r.value) : (actual ?? '') === r.value;
+      if (!same) {
+        allErrors.push({
+          id: card.id,
+          msg: `verify-rulings.tsv rules ${r.field} "${r.value}" (${r.date}) but the card says "${actual ?? 'nothing'}" — re-check the ruling's evidence, then correct one of them`,
+        });
+      }
     }
   }
 

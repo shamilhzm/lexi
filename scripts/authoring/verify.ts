@@ -63,6 +63,67 @@ export interface Verdict {
   reasons: string[];
   /** Facts the dictionary supplied or confirmed, for the report. */
   notes: string[];
+  /** Facts supplied by `verify-rulings.tsv` because the dictionary was silent.
+   *  Kept apart from `notes` so `--report` can never let a ruled fact read as a
+   *  machine-verified one — the distinction is the entire safeguard. */
+  ruled?: string[];
+}
+
+// ---- rulings ---------------------------------------------------------------
+
+/** A fact the dictionary does not have, recorded by hand with a citation.
+ *
+ *  Deliberately narrow: a ruling fills a **silence** — no page, or a page that
+ *  states no gender — and can never overturn something the dictionary actually
+ *  says. See the header of `verify-rulings.tsv` for why that boundary is where
+ *  it is, and for what counts as evidence. */
+export interface Ruling {
+  term: string;
+  field: 'gender' | 'plural' | 'pos' | 'ipa';
+  value: string;
+  evidence: string;
+  date: string;
+}
+
+const RULINGS_TSV = join('scripts', 'authoring', 'verify-rulings.tsv');
+const RULING_FIELDS = new Set(['gender', 'plural', 'pos', 'ipa']);
+
+/** Parse the rulings file. A malformed row is a hard error, not a skip: a ruling
+ *  silently dropped is a card silently rejected, which is the failure this whole
+ *  file exists to stop being invisible. */
+export function parseRulings(tsv: string): Ruling[] {
+  const out: Ruling[] = [];
+  for (const [i, line] of tsv.split('\n').entries()) {
+    if (!line.trim() || line.startsWith('#')) continue;
+    const cols = line.split('\t');
+    if (cols[0] === 'term' && cols[1] === 'field') continue; // header
+    if (cols.length < 5) throw new Error(`verify-rulings.tsv line ${i + 1}: expected 5 tab-separated columns, got ${cols.length}`);
+    const [term, field, value, evidence, date] = cols.map((c) => c.trim());
+    if (!RULING_FIELDS.has(field)) throw new Error(`verify-rulings.tsv line ${i + 1}: unknown field "${field}"`);
+    if (!value) throw new Error(`verify-rulings.tsv line ${i + 1}: empty value`);
+    if (field === 'gender' && !['der', 'die', 'das'].includes(value)) {
+      throw new Error(`verify-rulings.tsv line ${i + 1}: gender must be der/die/das, got "${value}"`);
+    }
+    if (field === 'plural' && !/^die\s/.test(value)) {
+      throw new Error(`verify-rulings.tsv line ${i + 1}: plural must carry its article, e.g. "die Häuser"`);
+    }
+    if (!evidence) throw new Error(`verify-rulings.tsv line ${i + 1}: a ruling needs a citation, not a blank`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error(`verify-rulings.tsv line ${i + 1}: date must be YYYY-MM-DD`);
+    out.push({ term, field: field as Ruling['field'], value, evidence, date });
+  }
+  return out;
+}
+
+export function loadRulings(path = RULINGS_TSV): Ruling[] {
+  if (!existsSync(path)) return [];
+  return parseRulings(readFileSync(path, 'utf8'));
+}
+
+/** The rulings that apply to one term, by field. */
+export function rulingsFor(all: Ruling[], term: string): Map<Ruling['field'], Ruling> {
+  const m = new Map<Ruling['field'], Ruling>();
+  for (const r of all) if (r.term.toLowerCase() === term.toLowerCase()) m.set(r.field, r);
+  return m;
 }
 
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
@@ -224,30 +285,69 @@ export function exampleTeachesWord(card: Word, de: string, corpus: Word[] = []):
 const GLOSS_MAX = 80;
 
 /** Verify one candidate against the dictionary and the matcher. */
-export async function verify(c: Candidate, existing: Set<string>, corpus: Word[] = []): Promise<Verdict> {
+export async function verify(c: Candidate, existing: Set<string>, corpus: Word[] = [],
+                             rulings: Ruling[] = []): Promise<Verdict> {
   const reasons: string[] = [];
   const notes: string[] = [];
+  // Facts taken from `verify-rulings.tsv`. Collected separately from `notes` and
+  // surfaced separately by `--report`: the whole point of a ruling is that the
+  // reader can see it *was* one.
+  const ruled: string[] = [];
+  const rules = rulingsFor(rulings, c.term);
+  /** Apply a ruling only into a gap. Every call site checks the dictionary was
+   *  silent first, which is what makes it structurally impossible for this file
+   *  to overturn something de.wiktionary actually says. */
+  const fill = (field: Ruling['field'], apply: (r: Ruling) => void): void => {
+    const r = rules.get(field);
+    if (!r) return;
+    apply(r);
+    ruled.push(`${field} "${r.value}" — ruled ${r.date}: ${r.evidence}`);
+  };
   const head = stripArticle(c.term);
   const lemma = lemmaOf(c.term);
 
   if (existing.has(c.term.toLowerCase())) {
-    return { term: c.term, ok: false, reasons: ['already in the corpus'], notes };
+    return { term: c.term, ok: false, reasons: ['already in the corpus'], notes, ruled };
   }
 
   let wt: string | null;
   try { wt = await wikitext(lemma); }
   catch (e) {
-    // Unreachable is not the same as unattested, and must not silently reject.
-    return { term: c.term, ok: false, reasons: [(e as Error).message], notes };
+    // Unreachable is not the same as unattested, and must not silently reject —
+    // and a ruling must not rescue it either. Not knowing is not silence, and a
+    // file that let a network blip become a permanent bypass would be the exact
+    // hole the machine gate was built to close.
+    return { term: c.term, ok: false, reasons: [(e as Error).message], notes, ruled };
   }
-  if (!wt) {
-    return { term: c.term, ok: false, reasons: [`no de.wiktionary entry for "${lemma}"`], notes };
+  if (!wt && !rules.size) {
+    return {
+      term: c.term, ok: false, notes, ruled,
+      reasons: [`no de.wiktionary entry for "${lemma}" — if the word is real and the dictionary`
+        + ` simply has no page, record the facts with their evidence in`
+        + ` scripts/authoring/verify-rulings.tsv`],
+    };
   }
+  if (!wt) notes.push(`no de.wiktionary page for "${lemma}" — proceeding on rulings alone`);
   if (lemma !== head) notes.push(`facts checked against lemma "${lemma}"`);
-  const facts = parseFacts(wt);
+  const facts: Facts = wt
+    ? parseFacts(wt)
+    : { genders: new Set(), plurals: [], ipa: null, pos: new Set() };
+
+  // Rulings fill gaps, in that order, and only gaps. Each `if` is the proof that
+  // the dictionary said nothing here.
+  // Tracked, because the confirmation note below would otherwise say "the page
+  // also attests das" about a page that does not exist — a ruled fact reading as
+  // a machine-verified one, in the one place the distinction has to hold.
+  let genderRuled = false;
+  if (!facts.genders.size) fill('gender', (r) => { facts.genders.add(r.value as 'der' | 'die' | 'das'); genderRuled = true; });
+  if (!facts.plurals.length) fill('plural', (r) => facts.plurals.push(stripArticle(r.value)));
+  if (!facts.ipa) fill('ipa', (r) => { facts.ipa = r.value; });
 
   // --- part of speech ---
   const attested = new Set([...facts.pos].map((p) => POS_MAP[p]).filter(Boolean));
+  // Merged after the map, not before: a ruling names a *corpus* part of speech,
+  // not one of de.wiktionary's German category names.
+  if (!attested.size) fill('pos', (r) => attested.add(r.value));
   if (attested.size && !attested.has(c.pos)) {
     reasons.push(`pos "${c.pos}" not attested (dictionary has ${[...attested].join(', ') || 'none mapped'})`);
   }
@@ -266,7 +366,8 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
         gender = [...facts.genders][0];
         notes.push(`gender ${gender} from dictionary`);
       }
-    } else notes.push(`gender ${gender} confirmed (page also attests ${[...facts.genders].join('/')})`);
+    } else if (genderRuled) notes.push(`gender ${gender} matches the ruling; the dictionary states none`);
+    else notes.push(`gender ${gender} confirmed (page also attests ${[...facts.genders].join('/')})`);
     if (gender && !new RegExp(`^${gender}\\s`, 'i').test(c.term)) {
       reasons.push(`term "${c.term}" does not carry its article "${gender}"`);
     }
@@ -331,13 +432,13 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
 
   draft.ex = (c.ex ?? []).map((e) => ({ de: e.de.trim(), en: e.en.trim(), lvl: c.level }));
 
-  return { term: c.term, ok: reasons.length === 0, card: reasons.length ? undefined : draft, reasons, notes };
+  return { term: c.term, ok: reasons.length === 0, card: reasons.length ? undefined : draft, reasons, notes, ruled };
 }
 
 /** Verify a batch, sequentially and with a pause between uncached lookups so a
  *  hundred-card batch does not read as a scraper to Wikimedia. */
 export async function verifyAll(cands: Candidate[], existing: Set<string>,
-                                corpus: Word[] = []): Promise<Verdict[]> {
+                                corpus: Word[] = [], rulings = loadRulings()): Promise<Verdict[]> {
   // The sectors that actually exist. A card filed under a name nobody uses is not
   // a linguistic error, so none of the dictionary checks below can see it — and on
   // 2026-08-15 a batch invented three ("Restaurant & Ordering", "Feelings &
@@ -348,7 +449,7 @@ export async function verifyAll(cands: Candidate[], existing: Set<string>,
   const out: Verdict[] = [];
   for (const c of cands) {
     const cached = existsSync(join(CACHE, `${encodeURIComponent(stripArticle(c.term))}.txt`));
-    const v = await verify(c, existing, corpus);
+    const v = await verify(c, existing, corpus, rulings);
     if (sectors.size && !sectors.has(c.field)) {
       const near = [...sectors].filter((s2) => s2.toLowerCase().includes(c.field.split(/[&,]/)[0].trim().toLowerCase()));
       v.ok = false;

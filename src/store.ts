@@ -4,7 +4,7 @@
 import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_SECTORS, BY_ID, registerWords, USER_WORDS_KEY } from './data/index.ts';
 import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
-import { emptyCard, schedule, reviveCard, isDue, setRetention, State, Rating, type Card, type Grade } from './srs.ts';
+import { emptyCard, schedule, reviveCard, isDue, setRetention, retrievability, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet } from './lib/idb.ts';
 import { logReview, dropLastReview } from './lib/ledger.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
@@ -308,7 +308,23 @@ export function review(id: string, grade: Grade) {
   // The ledger: what was reviewed, when, and how. `bumpReviewLog` above only keeps
   // a daily count, which cannot rebuild a card — see lib/ledger.ts. Fire-and-forget
   // on purpose: a ledger failure must never break a session.
-  logReview(id, grade);
+  //
+  // `before`, not `after`: the row records what the scheduler believed while it
+  // still had no idea how this went. That is what makes the ledger answerable to
+  // the question "was FSRS right about you" — see lib/calibration.ts. A first
+  // sight has no `before`, so it carries no prediction and is skipped by the
+  // calibration reader rather than counted as a miss.
+  const at = Date.now();
+  logReview(id, grade, at, before && {
+    r: retrievability(before, new Date(at)),
+    s: before.stability,
+    d: before.difficulty,
+    // Computed from `last_review`, not read off `Card.elapsed_days` — that field
+    // is deprecated in ts-fsrs and holds the gap before the *previous* review, so
+    // using it would label every row with the wrong interval.
+    e: before.last_review ? (at - new Date(before.last_review).getTime()) / 86_400_000 : undefined,
+    st: before.state,
+  });
   persistCards();
   emit();
 }

@@ -1,12 +1,19 @@
-// Stats — the terminal’s terminal screen. Four honest panels over data the
-// store already owns: reviews/day, recall trend, the 7-day due forecast, and
-// the Known growth curve. Inline SVG bars, no chart library. The review log
-// starts accruing the day this ships; empty panels say so instead of lying.
-import { useMemo } from 'react';
+// Stats — the terminal’s terminal screen. Five honest panels over data the
+// store already owns: reviews/day, recall trend, the 7-day due forecast, the
+// Known growth curve, and the scheduler's own calibration. Inline SVG bars, no
+// chart library. The review log starts accruing the day this ships; empty panels
+// say so instead of lying.
+//
+// The fifth is the odd one out on purpose: the other four measure the learner and
+// go up when they study. Calibration measures *Lexi* — whether FSRS's predictions
+// match what actually happened — and cannot be moved by studying more.
+import { useEffect, useMemo, useState } from 'react';
 import { BarChart3 } from 'lucide-react';
 import { reviewLog, dueForecast, knownHistory, totals } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
+import { loadLedger } from '../lib/ledger.ts';
+import { calibration, MIN_N, type Calibration } from '../lib/calibration.ts';
 import Card from '../components/ui/Card.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 
@@ -29,6 +36,17 @@ export default function Stats() {
     return e && e.n > 0 ? Math.round(((e.n - e.again) / e.n) * 100) : null;
   });
   const anyReviews = perDay.some((n) => n > 0);
+
+  // The ledger, read once on mount rather than on every store emit: it is up to
+  // 50,000 rows and nothing about it changes fast enough to be worth re-reading
+  // mid-session. `null` means "not read yet" and renders nothing, which is not the
+  // same as "read, and empty".
+  const [cal, setCal] = useState<Calibration | null>(null);
+  useEffect(() => {
+    let live = true;
+    loadLedger().then((evts) => { if (live) setCal(calibration(evts)); });
+    return () => { live = false; };
+  }, []);
 
   return (
     // A section of Progress, not a page: Progress owns the h1 and the width.
@@ -87,9 +105,113 @@ export default function Stats() {
                 ? `${fmt(history[0].known)} known today. The curve needs a second study day to have a shape.`
                 : 'Appears after your first two study days.'} />}
         </Panel>
+
+        {/* Full width at every size, unlike the four bar panels. This one is a
+            table with four labelled columns, and the grid above it is two-up even
+            at 375px — dropped into half of that, "FSRS expected" and "You recalled"
+            each wrap to two lines and the numeric columns touch. Measured, not
+            assumed: the first cut used `sm:col-span-2` and looked exactly like
+            that on a phone. */}
+        <div className="col-span-2">
+          <Panel title="Was the scheduler right?" sub="predicted recall vs. what happened">
+            <Cal cal={cal} />
+          </Panel>
+        </div>
       </div>
     </section>
   );
+}
+
+/** Calibration — the one panel here that measures Lexi rather than the learner.
+ *
+ *  Every other number on this screen goes up when you study more. This one goes up
+ *  only when FSRS's predictions get closer to your outcomes, and it cannot be
+ *  flattered by picking easy cards: easier material raises the predicted column
+ *  alongside the actual one and leaves the gap where it was. */
+function Cal({ cal }: { cal: Calibration | null }) {
+  if (!cal) return <div className="h-[120px]" aria-hidden />;
+
+  if (cal.scored < MIN_N) {
+    return (
+      <Empty text={cal.scored === 0
+        ? 'Starts with your next reviews. Cards seen for the first time carry no prediction, so there is nothing yet to check.'
+        : `${fmt(cal.scored)} of the ${fmt(MIN_N)} reviews needed before a rate here would mean anything.`} />
+    );
+  }
+
+  const shown = cal.bands.filter((b) => b.n > 0);
+  return (
+    <>
+      <table className="w-full text-xs tabular-nums">
+        <caption className="sr-only">
+          Predicted recall against actual recall, grouped by how confident the scheduler was.
+        </caption>
+        <thead className="text-dim">
+          <tr>
+            <th scope="col" className="text-left font-medium pb-1">FSRS expected</th>
+            <th scope="col" className="text-right font-medium pb-1">Reviews</th>
+            <th scope="col" className="text-right font-medium pb-1">Predicted</th>
+            <th scope="col" className="text-right font-medium pb-1">You recalled</th>
+          </tr>
+        </thead>
+        <tbody>
+          {shown.map((b) => (
+            <tr key={b.label} className="border-t border-line/60">
+              <th scope="row" className="text-left font-normal py-1.5">{b.label}</th>
+              <td className="text-right py-1.5">{fmt(b.n)}</td>
+              <td className="text-right py-1.5" style={{ color: 'var(--color-accent)' }}>{pct(b.predicted)}</td>
+              <td className="text-right py-1.5" style={{ color: 'var(--color-green)' }}>{pct(b.actual)}</td>
+            </tr>
+          ))}
+          <tr className="border-t border-line">
+            <th scope="row" className="text-left py-1.5 font-semibold">All reviews</th>
+            <td className="text-right py-1.5 font-semibold">{fmt(cal.overall.n)}</td>
+            <td className="text-right py-1.5 font-semibold" style={{ color: 'var(--color-accent)' }}>{pct(cal.overall.predicted)}</td>
+            <td className="text-right py-1.5 font-semibold" style={{ color: 'var(--color-green)' }}>{pct(cal.overall.actual)}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p className="text-dim text-xs mt-3">
+        {verdict(cal)}
+        {cal.unscored > 0 && ` ${fmt(cal.unscored)} earlier reviews carry no prediction and are left out.`}
+      </p>
+    </>
+  );
+}
+
+/** A rate the evidence does not carry prints as a dash, never as a number. */
+function pct(v: number | null): string {
+  return v === null ? '—' : `${Math.round(v * 100)}%`;
+}
+
+/** One sentence of reading — from the **worst band**, not from the pool.
+ *
+ *  The pool is where a miscalibration goes to hide. On the first real data this
+ *  panel saw, overall was 84% predicted against 83% actual — a point apart, and a
+ *  sentence saying "about right" sat directly under a row reading 97% predicted
+ *  against 87% actual across 120 reviews. Averaging an over-confident band against
+ *  an under-confident one cancels them, and the cancellation is the failure this
+ *  panel exists to show. VISION §3 forbids a number that flatters; a summary line
+ *  that contradicts the table above it is the same offence in prose.
+ *
+ *  Deliberately not advice: the app does not know whether a learner *wants* the
+ *  extra reviews a higher target buys, and `candos.ts`'s rule against claiming
+ *  competence applies equally to claiming a setting is wrong. */
+function verdict(cal: Calibration): string {
+  const rated = cal.bands.filter((b) => b.predicted !== null && b.actual !== null);
+  if (!rated.length) return '';
+  // Ranked by gap × reviews, not by gap alone. On the first real data this saw,
+  // the widest gap was a 15-point one over 35 reviews while a 10-point one sat on
+  // 120 — and the second is both the stronger evidence and the one worth acting
+  // on. Weighting by `n` is the whole difference between naming the noisiest band
+  // and naming the consequential one.
+  const weight = (b: typeof rated[number]) => Math.abs(b.actual! - b.predicted!) * b.n;
+  const worst = rated.reduce((a, b) => (weight(b) > weight(a) ? b : a));
+  const gap = Math.round((worst.actual! - worst.predicted!) * 100);
+  if (Math.abs(gap) <= 3) return 'The scheduler is calling it about right, in every band.';
+  return gap > 0
+    ? `Where it expected ${worst.label}, you recalled ${gap} points more — it is being cautious with you there.`
+    : `Where it expected ${worst.label}, you recalled ${Math.abs(gap)} points fewer — it is more confident than your results in that band.`;
 }
 
 function Panel({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {

@@ -11,6 +11,73 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-09 — The scheduler starts answering for itself
+
+Three things, all found by asking what OpenAI's GPT-6 Astra release (2026-09-03) meant
+for Lexi. It meant nothing directly — a frontier model is not a competitor to a German
+trainer — but two ideas in it pointed at things already half-built here.
+
+**Calibration: the ledger stops being write-only.** `logReview` has fired on every grade
+since the ledger shipped, and `loadLedger` had exactly one caller in the repo — a test.
+FSRS card state is a *compression* of a review history the app was keeping and never
+reading. So `review()` now records what the scheduler **predicted** before it learned
+the answer (`r`, plus the `s`/`d`/`e`/`st` it was computed from), and `Stats` gains a
+fifth panel that compares the prediction against what happened, banded by confidence.
+
+Recording `r` at grade time rather than recomputing it later is the whole point: a
+prediction only means something as a claim made *before* the outcome, and re-deriving it
+afterwards from stored stability would silently re-date it to today's parameters.
+
+**It is the one panel on that screen that measures Lexi rather than the learner**, and
+the one number in the app that studying more cannot move. Pick only easy cards and the
+predicted column rises with the actual one; the gap, which is the whole reading, stays
+where it was. That is the mechanical-rabbit test — see COMPETITIVE-RESEARCH §4 — pointed
+at Lexi's own scheduler instead of at LingQ's counter.
+
+> **The summary line had to be rewritten before it shipped.** It first read the *pooled*
+> numbers, and on the first real data that produced *"the scheduler is calling it about
+> right"* — 84% predicted against 83% actual — printed directly under a row reading 97%
+> predicted against 87% actual across 120 reviews. Averaging an over-confident band
+> against an under-confident one cancels them, and the cancellation is the exact failure
+> the panel exists to show. It now reads the worst band, ranked by gap × reviews so it
+> names the consequential band rather than the noisiest one. A summary that contradicts
+> the table above it is VISION §3's "number that flatters" wearing prose.
+
+Bands report `n` always and their rates only above 30 reviews; under that a band prints
+a dash. A percentage over nine reviews is noise with a decimal point.
+
+**The authoring gate gets a rulings file.** `verify.ts` refuses to write a card it cannot
+verify, which is right — but it had no way to record a fact it *could not look up*, so a
+word de.wiktionary has no page for was rejected on every run for ever and whatever a
+maintainer learned about it stayed in a session transcript. `scripts/authoring/verify-rulings.tsv`
+is where that goes now, in the manner of `pos-rulings.tsv` and `gender-audit.tsv`.
+
+The boundary is the safeguard, and it is structural rather than promised: a ruling is
+merged **only into a gap** — no page at all, or a page stating no gender — so it is not
+possible for the file to overturn something the dictionary actually says. A contradiction
+is still a hard reject, and an unreachable network still is too, because not knowing is
+not the same as silence. Every row needs a citation and a date, a malformed row is an
+exception rather than a skipped line, `--report` prints ruled facts as their own class so
+one can never read as machine-verified, and `corpus:validate` fails on a ruling that has
+drifted from the card it was written for. This does not reopen the 2026-08-11 decision;
+it gives it somewhere to put what it cannot check.
+
+**And a guard against a bug that was already fixed.** An older tree had a literal NUL
+byte in three files — pasted where an escape was meant, as a Map-key separator — which
+makes `grep` and `rg` classify the whole file as binary and return *no matches, exit 1*.
+For as long as it was there, every repo-wide grep silently skipped the state store, and
+reported clean. All three are clean now, which is precisely when the check is worth
+writing: `src/lib/text-files.test.ts` walks `git ls-files` and fails on any control byte
+outside tab, newline and CR. Proved by injection before being trusted.
+
+**Corrected while checking, and worth its own line:** BACKLOG's parked AI-tutor entry
+claimed `lib/ai.ts`, an OpenAI-compatible client and four `store.ts` accessors survive
+for build-time enrichment. None of them exist, and `enrich-llm.ts` / `polish-llm.ts` were
+0-byte files with no npm script pointing at them (now deleted). **Lexi ships no LLM code
+at all** — the refusal is enforced by absence, and the generator is a Claude session
+following `card-authoring.md`. So the quality floor is set by `verify.ts` and not by the
+model, which is why a better frontier model raises batch yield and cannot lower the bar.
+
 ### Shipped 2026-09-09 — Sag es, a pronunciation game, and the ruling it had to survive
 
 From a meme: a word arrives, you say it, and whatever the recogniser heard is printed

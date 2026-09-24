@@ -1,0 +1,55 @@
+# Authoring rulings — the facts de.wiktionary does not have.
+#
+# `verify.ts` refuses to write a card it cannot verify, and that is the right
+# default: a generated sentence with a wrong gender attached is taught, drilled
+# and remembered. But the gate had no way to record a fact it *could not look
+# up*, so a word de.wiktionary simply has no page for was rejected on every run
+# for ever, and whatever a maintainer found out about it lived in a session
+# transcript. This file is where that goes, in the manner of
+# `corpus/pos-rulings.tsv` and `corpus/gender-audit.tsv`.
+#
+# ## What a ruling may do
+#
+# Supply a fact **where the dictionary is silent** — no page at all, or a page
+# that states no gender. That is the whole surface. Two things it may never do:
+#
+#   * **Override a contradiction.** If de.wiktionary attests `das` and the card
+#     says `der`, that is still a hard reject and this file cannot reach it.
+#     Overriding it is precisely the failure the 2026-08-11 machine-gate decision
+#     exists to prevent, and a file that could would reopen it.
+#   * **Paper over an unreachable network.** "Could not reach de.wiktionary" is
+#     not silence, it is not knowing. Fix the connection and re-run.
+#
+# A ruling is therefore a *recorded fact with a citation*, not a permission slip
+# — the same thing `gender-audit.tsv` already is. `--report` prints ruled facts
+# as their own class so a batch report never lets one read as machine-verified.
+#
+# ## Evidence
+#
+# A citation somebody else can check: a Wiktionary section the parser could not
+# reach, a Wikidata id, a Duden or DWDS headword *consulted* (their text is not
+# redistributable — cite, never copy), a course-book page. Never "checked by
+# hand": that is the thing this column exists to replace.
+#
+# ## Format — five tab-separated columns
+#
+#   term      the headword exactly as the card writes it, article included
+#   field     gender | plural | pos | ipa
+#   value     der/die/das · "die Xs" (with article) · a corpus pos · bare IPA
+#   evidence  the citation
+#   date      YYYY-MM-DD the ruling was made
+#
+# Worked example of the shape (commented out — it is not a real ruling):
+#
+#   das Handy	gender	das	de.wikipedia "Mobiltelefon" §Sprachgebrauch	2026-09-09
+#
+# ## Rot
+#
+# `corpus:validate` checks every ruling whose term is in the corpus against the
+# card, so a ruling left behind by a merge or an `authoring:recard` fails the
+# build rather than quietly disagreeing with the card it was written for. A
+# ruling for a term not yet authored is fine and is why the file exists.
+#
+# No rulings yet. Add one only when a run has actually reported the dictionary
+# silent for that term — never pre-emptively.
+term	field	value	evidence	date

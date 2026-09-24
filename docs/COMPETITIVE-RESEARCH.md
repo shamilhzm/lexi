@@ -198,6 +198,34 @@ comprehensible-input industry.
 | Graded readers, Nachrichtenleicht, *Langsam gesprochene Nachrichten* | a **population average** for a level | a good guess about a stranger |
 | Migaku / Language Reactor | doesn't try — mines whatever you're already watching | you find out it's too hard by failing at it |
 
+> **The mechanical rabbit is not a language-learning problem — added 2026-09-09.**
+> *(No row in the table above: these are reading-difficulty estimators and the example
+> below is not one. It belongs here anyway, because it is the same epistemics one
+> industry over and it is the strongest version of the argument.)*
+>
+> OpenAI's GPT-6 Astra launched 2026-09-03 claiming **99.9% on ARC-AGI-3**. The same
+> reporting records that stateless calls to the identical model score **17–63%**: the
+> headline is produced by OpenAI's own stateful provider adapter, and the number
+> measures the harness at least as much as the model. This was the most-cited AI
+> figure of the month and almost nobody quoting it quoted the caveat.
+>
+> **So the position generalises, and it is worth stating in its stronger form.** It is
+> not that LingQ's counter is uniquely dishonest — it is that *in this whole software
+> economy, a headline capability number is a claim about the scaffold that produced
+> it*, and the scaffold is exactly what a marketing page omits. LingQ counts word
+> forms; a frequency checker counts a stranger's CEFR band; a benchmark counts its own
+> adapter.
+>
+> **`Known` is the one that cannot be gamed this way**, and the reason is structural
+> rather than virtuous: it is ratcheted FSRS state, per lemma, measured across all
+> levels, so there is no filter to narrow and no harness to swap. A competitor cannot
+> match it without repudiating their own headline. That is the whole asset — and it is
+> why the honest-number commitment in [VISION.md](VISION.md) §3 is a market position
+> and not only a moral one.
+>
+> Sources: [DataCamp](https://www.datacamp.com/blog/gpt-6-astra) ·
+> [Artificial Analysis](https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra)
+
 **Lexi is the only product in the category positioned to compute this honestly**,
 because it already holds all four required pieces:
 

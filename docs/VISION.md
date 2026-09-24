@@ -249,7 +249,7 @@ changed.
 | Refusal | Why |
 |---|---|
 | **Teaching grammar** | *New, 2026-09-05.* See the ruling above. Word facts stay; language rules go. This is the refusal that most needs re-arguing before it is reversed, because the code for it was good. |
-| **AI conversation tutor** | Commoditizing category, needs a backend and keys, breaks the privacy-by-architecture story, six better-funded competitors already there. `lib/ai.ts` survives for **build-time corpus enrichment only**. |
+| **AI conversation tutor** | Commoditizing category, needs a backend and keys, breaks the privacy-by-architecture story, six better-funded competitors already there. **Reopened 2026-09-09 against the GPT-6 Astra release and unchanged** — frontier inference got 2.5× *more* expensive, so the wrapper tutors move further from the frontier, not closer. Corrected while checking: this row said `lib/ai.ts` survives for build-time enrichment. **It does not exist. Lexi ships no LLM code**; the generator is a Claude session and the repo commits only the prompt, the batch and `verify.ts`. See BACKLOG's parked entry. |
 | **Competing on content volume** | Duolingo shipped 20,500 units in a quarter. You lose. Do not enter. |
 | **Leagues, streak-shaming, social pressure** | Four of six teachers and three of six learners in [PEDAGOGY.md](PEDAGOGY.md) named the absence as the reason they would recommend it. |
 | **Machine-marked writing and speaking** | A drill that marks correct German wrong is worse than no drill. |

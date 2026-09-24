@@ -1952,6 +1952,28 @@ load size still acceptable.
 
 ## Next
 
+### Fill the authoring rulings file · XS–S — *shipped empty on purpose, 2026-09-09*
+
+**Why.** `scripts/authoring/verify-rulings.tsv` exists and has **zero rows**. That is
+correct as a starting state — a ruling may only be written after a run has actually
+reported the dictionary silent for that term, never pre-emptively — but it means the
+mechanism is untested against real vocabulary, and the words it was built for are
+sitting in old audit reports rather than in the file.
+
+**Do.** Re-run the batches whose rejects were `no de.wiktionary entry` (the
+Schritte-plus-Neu passes are the known source), read the `--report`, and rule the ones
+that are real words with a citation. A term that fails for any *other* reason is not a
+ruling candidate and must be fixed, not ruled.
+
+**Done when.** Every standing `no de.wiktionary entry` reject is either ruled with
+evidence or recorded as genuinely not a word. **Do not** rule a term to clear the list:
+an unruled reject is a working gate, and a ruling with a weak citation is worse than
+the reject it replaces.
+
+**Touches.** `scripts/authoring/verify-rulings.tsv` · re-run `authoring:new --report`.
+
+---
+
 **Games, and the navigation that has to come first.** *Decided 2026-08-12 with the
 user; none of it is built.*
 - ~~**The destination set · M**~~ ✅ **Shipped 2026-08-26 — and it went the other
@@ -2486,11 +2508,31 @@ user; none of it is built.*
   [DESIGN.md](DESIGN.md).
 - **AI tutor.** Cut, and cut *on the record* rather than by omission: the
   conversation-app camp is commoditizing, needs a backend and keys, and breaks the
-  DSGVO-by-architecture story that is Lexi's best B2B asset. `lib/ai.ts` and the
-  OpenAI-compatible client stay for **build-time corpus enrichment**
-  (`scripts/corpus/enrich-llm.ts`). The in-app "AI provider" widget is gone; its
-  `store.ts` accessors (`aiConfig` / `setAiConfig` / `apiKey` / `setApiKey`) linger
-  unused and can be deleted once a tutor is definitively off the table.
+  DSGVO-by-architecture story that is Lexi's best B2B asset.
+
+  > **The second half of this entry was stale in four claims — measured 2026-09-09.**
+  > It said `lib/ai.ts` and an OpenAI-compatible client survive for build-time
+  > enrichment via `scripts/corpus/enrich-llm.ts`, and that four `store.ts` accessors
+  > (`aiConfig` / `setAiConfig` / `apiKey` / `setApiKey`) linger unused. None of that
+  > is true: **`src/lib/ai.ts` does not exist, no importer references it, none of the
+  > four accessors exist, and `enrich-llm.ts` and `polish-llm.ts` are 0-byte files
+  > with no npm script pointing at them** (`corpus:enrich` runs `enrich-fields.ts`,
+  > which is unrelated). The two empty files are now deleted.
+  >
+  > **Lexi ships no LLM code at all**, and the refusal is enforced by absence rather
+  > than by discipline. The generator that writes glosses and examples is a Claude
+  > session following `scripts/authoring/card-authoring.md` — *"Run it with Claude (no
+  > third-party LLM APIs)"* — and the repo commits only the prompt, the batch and
+  > `verify.ts`. That is the property worth keeping: **the quality floor is set by the
+  > verifier, not by the model**, so a better frontier model raises batch yield and
+  > cannot lower the bar. The bottleneck is verifiable *sources*, not generation.
+  >
+  > Found while checking whether the GPT-6 Astra release (2026-09-03) changed the
+  > calculus. It does not, and it argues the other way: frontier inference got 2.5×
+  > **more** expensive (\$10/\$50 per M tokens against Sol's \$4/\$20), so the wrapper
+  > tutors move further from the frontier rather than closer, and the "commoditizing"
+  > premise holds. See VISION.md's refusals table, dated.
+
 - **The Reader/Mine flow.** Un-parked 2026-07-27 and re-scoped as Now #2; see there.
 
 ---
