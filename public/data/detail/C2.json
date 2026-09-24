@@ -119,6 +119,20 @@
       }
     ]
   },
+  "voc:C2:anhängig": {
+    "ex": [
+      {
+        "de": "Das Verfahren ist noch anhängig.",
+        "en": "The proceedings are still pending.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Gegen ihn ist eine Klage anhängig.",
+        "en": "A lawsuit against him is pending.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:antizipieren": {
     "def": "To foresee and act in advance of something.",
     "ex": [
@@ -307,6 +321,34 @@
       {
         "de": "Vor dem Gletscher stellt sich jenes Gefühl des Erhabenen ein.",
         "en": "Before the glacier that feeling of the sublime sets in.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Gedankengut": {
+    "ex": [
+      {
+        "de": "Die Gruppe verbreitet rechtes Gedankengut.",
+        "en": "The group spreads right-wing ideology.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Buch enthält viel altes Gedankengut.",
+        "en": "The book contains a lot of old ideas.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Gemäuer": {
+    "ex": [
+      {
+        "de": "Im alten Gemäuer soll es spuken.",
+        "en": "The old walls are said to be haunted.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Gemäuer stammt aus dem Mittelalter.",
+        "en": "The masonry dates from the Middle Ages.",
         "lvl": "C2"
       }
     ]
@@ -724,6 +766,20 @@
       {
         "de": "Der Trugschluss liegt darin, von einem Fall auf alle zu schließen.",
         "en": "The fallacy lies in inferring from one case to all.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Unrat": {
+    "ex": [
+      {
+        "de": "Am Ufer liegt viel Unrat.",
+        "en": "There's a lot of rubbish on the bank.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Stadt räumt den Unrat weg.",
+        "en": "The city is clearing away the rubbish.",
         "lvl": "C2"
       }
     ]
@@ -1204,6 +1260,20 @@
       }
     ]
   },
+  "voc:C2:die Gefolgschaft": {
+    "ex": [
+      {
+        "de": "Der Politiker verliert seine Gefolgschaft.",
+        "en": "The politician is losing his following.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Partei verweigert ihm die Gefolgschaft.",
+        "en": "The party refuses to follow him.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Gegenthese": {
     "def": "A claim put forward to oppose another.",
     "ex": [
@@ -1531,6 +1601,20 @@
       }
     ]
   },
+  "voc:C2:die Obrigkeit": {
+    "ex": [
+      {
+        "de": "Er misstraut jeder Obrigkeit.",
+        "en": "He distrusts all authority.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Früher gehorchte man der Obrigkeit ohne Fragen.",
+        "en": "In the past people obeyed the authorities without question.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Parole": {
     "def": "Kennwort, Codewort (meist bei militärischen, polizeilichen, verbrecherischen oder anderweitig zu tarnenden, geheimzuhaltenden Handlungen)",
     "ex": [
@@ -1802,6 +1886,20 @@
       }
     ]
   },
+  "voc:C2:die Tantieme": {
+    "ex": [
+      {
+        "de": "Die Sängerin lebt von Tantiemen.",
+        "en": "The singer lives off royalties.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Für jeden Stream gibt es eine kleine Tantieme.",
+        "en": "There's a small royalty for every stream.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Tugend": {
     "def": "A trait of good moral character.",
     "ex": [
@@ -1873,6 +1971,20 @@
       {
         "de": "Am Ende siegte die Vernunft über den Stolz.",
         "en": "In the end reason prevailed over pride.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Vorhut": {
+    "ex": [
+      {
+        "de": "Die Vorhut ist schon angekommen.",
+        "en": "The advance party has already arrived.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Firma sieht sich als Vorhut der Branche.",
+        "en": "The company sees itself as the vanguard of the industry.",
         "lvl": "C2"
       }
     ]
@@ -1963,6 +2075,20 @@
       {
         "de": "Ohne jede Übertreibung: Das war der beste Abend des Jahres.",
         "en": "Without any exaggeration: that was the best evening of the year.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:dingfest": {
+    "ex": [
+      {
+        "de": "Die Polizei konnte den Täter dingfest machen.",
+        "en": "The police managed to arrest the offender.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Man kann das Problem schwer dingfest machen.",
+        "en": "It's hard to pin the problem down.",
         "lvl": "C2"
       }
     ]
@@ -2281,6 +2407,20 @@
       }
     ]
   },
+  "voc:C2:katalogisieren": {
+    "ex": [
+      {
+        "de": "Das Museum will alle Werke katalogisieren.",
+        "en": "The museum wants to catalogue all the works.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Bücher werden digital katalogisiert.",
+        "en": "The books are being catalogued digitally.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:kategorisch": {
     "def": "Stated absolutely, without any qualification.",
     "ex": [
@@ -2547,6 +2687,20 @@
       {
         "de": "Sparen kann in der Krise paradoxe Folgen haben.",
         "en": "In a crisis, saving can have paradoxical consequences.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:patentieren": {
+    "ex": [
+      {
+        "de": "Die Firma will die Erfindung patentieren.",
+        "en": "The company wants to patent the invention.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Verfahren ist in Europa patentiert.",
+        "en": "The process is patented in Europe.",
         "lvl": "C2"
       }
     ]
@@ -2995,6 +3149,20 @@
       {
         "de": "Eine zukunftsfähige Stadt braucht Schatten und Wasser.",
         "en": "A city fit for the future needs shade and water.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:zurechnungsfähig": {
+    "ex": [
+      {
+        "de": "Das Gericht hält den Täter für zurechnungsfähig.",
+        "en": "The court considers the offender to be of sound mind.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er war zur Tatzeit nicht zurechnungsfähig.",
+        "en": "He was not responsible for his actions at the time.",
         "lvl": "C2"
       }
     ]

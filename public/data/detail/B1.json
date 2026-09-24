@@ -11122,6 +11122,20 @@
       }
     ]
   },
+  "voc:B1:der Gartenzaun": {
+    "ex": [
+      {
+        "de": "Wir reden über den Gartenzaun mit den Nachbarn.",
+        "en": "We chat to the neighbours over the garden fence.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Gartenzaun muss gestrichen werden.",
+        "en": "The garden fence needs painting.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Gedanke": {
     "def": "An idea formed in the mind.",
     "ex": [
@@ -14272,6 +14286,20 @@
       {
         "de": "Der Vorhang ist aus rotem Samt.",
         "en": "The curtain is made of red velvet.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Sandkasten": {
+    "ex": [
+      {
+        "de": "Die Kinder spielen im Sandkasten.",
+        "en": "The children are playing in the sandpit.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sandkasten im Park ist neu.",
+        "en": "The sandpit in the park is new.",
         "lvl": "B1"
       }
     ]
@@ -21706,6 +21734,20 @@
       {
         "de": "Viele junge Leute ziehen in die Großstädte.",
         "en": "Many young people move to the cities.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Gymnastik": {
+    "ex": [
+      {
+        "de": "Jeden Morgen mache ich zehn Minuten Gymnastik.",
+        "en": "Every morning I do ten minutes of exercises.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Gymnastik hilft gegen Rückenschmerzen.",
+        "en": "The exercises help with back pain.",
         "lvl": "B1"
       }
     ]
@@ -37044,6 +37086,20 @@
         "de": "Das Gesetz soll vor allem schwächere Verbraucher schützen.",
         "en": "The law is intended above all to protect weaker consumers.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:scrollen": {
+    "ex": [
+      {
+        "de": "Ich scrolle abends zu lange durch Instagram.",
+        "en": "I scroll through Instagram for too long in the evenings.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Scroll bitte nach unten.",
+        "en": "Please scroll down.",
+        "lvl": "B1"
       }
     ]
   },

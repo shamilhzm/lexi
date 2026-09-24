@@ -7978,6 +7978,20 @@
       }
     ]
   },
+  "voc:A2:der Klassenraum": {
+    "ex": [
+      {
+        "de": "Der Klassenraum ist hell und groß.",
+        "en": "The classroom is bright and big.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Klassenraum gibt es ein digitales Whiteboard.",
+        "en": "There's a digital whiteboard in the classroom.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Kleiderbügel": {
     "def": "coat hanger",
     "ex": [

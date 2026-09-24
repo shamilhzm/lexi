@@ -2137,6 +2137,20 @@
       }
     ]
   },
+  "voc:B2:bürgerlich": {
+    "ex": [
+      {
+        "de": "Sie kommt aus einer bürgerlichen Familie.",
+        "en": "She comes from a middle-class family.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er führt ein ganz bürgerliches Leben.",
+        "en": "He leads a very conventional middle-class life.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:daraufhin": {
     "def": "As a direct result; immediately after that.",
     "ex": [
@@ -2234,6 +2248,20 @@
       {
         "de": "Es ist ein Anzeichen für ihren Charakter.",
         "en": "It is an index of her character.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Arbeitslosengeld": {
+    "ex": [
+      {
+        "de": "Nach der Kündigung bekommt er Arbeitslosengeld.",
+        "en": "After being dismissed he gets unemployment benefit.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Arbeitslosengeld beträgt sechzig Prozent des Lohns.",
+        "en": "Unemployment benefit is sixty per cent of wages.",
         "lvl": "B2"
       }
     ]
@@ -6384,6 +6412,20 @@
       }
     ]
   },
+  "voc:B2:der Kontrolleur": {
+    "ex": [
+      {
+        "de": "Der Kontrolleur will meine Fahrkarte sehen.",
+        "en": "The inspector wants to see my ticket.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Bahn war heute ein Kontrolleur.",
+        "en": "There was a ticket inspector on the train today.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Konzern": {
     "def": "business group, corporate group",
     "ex": [
@@ -7130,6 +7172,20 @@
       }
     ]
   },
+  "voc:B2:der Provider": {
+    "ex": [
+      {
+        "de": "Ich habe den Provider gewechselt.",
+        "en": "I switched provider.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Provider hat eine Störung.",
+        "en": "The provider has an outage.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Prozentsatz": {
     "ex": [
       {
@@ -7516,6 +7572,20 @@
       {
         "de": "Der Sachschaden geht in die Tausende.",
         "en": "The property damage runs into thousands.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Salbei": {
+    "ex": [
+      {
+        "de": "Gegen Halsschmerzen trinke ich Tee mit Salbei.",
+        "en": "I drink sage tea for a sore throat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Salbei wächst im Garten.",
+        "en": "The sage grows in the garden.",
         "lvl": "B2"
       }
     ]
@@ -10206,6 +10276,20 @@
       }
     ]
   },
+  "voc:B2:die Checkliste": {
+    "ex": [
+      {
+        "de": "Ich habe eine Checkliste für den Umzug.",
+        "en": "I have a checklist for the move.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Checkliste hat zwanzig Punkte.",
+        "en": "The checklist has twenty points.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Community": {
     "ex": [
       {
@@ -10611,6 +10695,20 @@
       {
         "de": "Tom und Mary erzielten keine Einigung.",
         "en": "Tom and Mary failed to reach an agreement.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Einkommensteuer": {
+    "ex": [
+      {
+        "de": "Die Einkommensteuer wird jährlich berechnet.",
+        "en": "Income tax is calculated annually.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Selbstständige zahlen die Einkommensteuer selbst.",
+        "en": "The self-employed pay income tax themselves.",
         "lvl": "B2"
       }
     ]
@@ -11106,6 +11204,20 @@
       {
         "de": "Die Falschmeldung wurde später öffentlich richtiggestellt.",
         "en": "The false report was later publicly corrected.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Fehlermeldung": {
+    "ex": [
+      {
+        "de": "Beim Login kommt eine Fehlermeldung.",
+        "en": "An error message appears at login.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Schick mir die Fehlermeldung.",
+        "en": "Send me the error message.",
         "lvl": "B2"
       }
     ]
@@ -14210,6 +14322,20 @@
       }
     ]
   },
+  "voc:B2:die Umgehungsstraße": {
+    "ex": [
+      {
+        "de": "Die neue Umgehungsstraße entlastet das Dorf.",
+        "en": "The new bypass relieves the village.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nimm lieber die Umgehungsstraße.",
+        "en": "Better take the bypass.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Umschulung": {
     "def": "Learning the skills for a different job or profession.",
     "ex": [
@@ -15308,6 +15434,20 @@
         "de": "Ich bin der festen Überzeugung, dass sich der Aufwand lohnt.",
         "en": "I am firmly convinced that the effort is worth it.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B2:digitalisieren": {
+    "ex": [
+      {
+        "de": "Die Behörde will alle Akten digitalisieren.",
+        "en": "The authority wants to digitise all its files.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich digitalisiere meine alten Fotos.",
+        "en": "I'm digitising my old photos.",
+        "lvl": "B2"
       }
     ]
   },
@@ -16708,6 +16848,20 @@
       }
     ]
   },
+  "voc:B2:freiberuflich": {
+    "ex": [
+      {
+        "de": "Sie arbeitet freiberuflich als Übersetzerin.",
+        "en": "She works freelance as a translator.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Freiberufliche Einkommen muss man selbst versteuern.",
+        "en": "Freelance income has to be taxed by yourself.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:freigeben": {
     "def": "To release something for use after it has been held back.",
     "ex": [
@@ -16792,6 +16946,20 @@
       {
         "de": "Wann ist dein Aufsatz fällig?",
         "en": "When have you got to hand in your essay?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:ganztägig": {
+    "ex": [
+      {
+        "de": "Die Kinder sind ganztägig in der Schule.",
+        "en": "The children are at school all day.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Büro ist ganztägig geöffnet.",
+        "en": "The office is open all day.",
         "lvl": "B2"
       }
     ]
@@ -16985,6 +17153,20 @@
       {
         "de": "Zu Tränen gerührt bedankte sie sich beim Publikum.",
         "en": "Moved to tears she thanked the audience.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:geschichtlich": {
+    "ex": [
+      {
+        "de": "Der Ort ist geschichtlich bedeutsam.",
+        "en": "The place is historically significant.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das hat geschichtliche Gründe.",
+        "en": "There are historical reasons for that.",
         "lvl": "B2"
       }
     ]
@@ -17372,6 +17554,20 @@
       {
         "de": "Die Bank muss die Daten nicht herausgeben.",
         "en": "The bank does not have to hand over the data.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:herbstlich": {
+    "ex": [
+      {
+        "de": "Es ist schon ziemlich herbstlich.",
+        "en": "It's already quite autumnal.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Stadt ist herbstlich geschmückt.",
+        "en": "The town is decorated for autumn.",
         "lvl": "B2"
       }
     ]
@@ -18527,6 +18723,20 @@
       }
     ]
   },
+  "voc:B2:lieferbar": {
+    "ex": [
+      {
+        "de": "Das Modell ist erst ab März lieferbar.",
+        "en": "The model is only available from March.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Artikel ist leider nicht lieferbar.",
+        "en": "Unfortunately the item is not in stock.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:live": {
     "def": "live (as it happens, in real time, directly)",
     "ex": [
@@ -18843,6 +19053,20 @@
       {
         "de": "Sie trennen den Abfall mühsam.",
         "en": "They separate the waste painstakingly.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:nachprüfen": {
+    "ex": [
+      {
+        "de": "Das kann ich noch einmal nachprüfen.",
+        "en": "I can check that again.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir müssen die Zahlen nachprüfen.",
+        "en": "We need to verify the figures.",
         "lvl": "B2"
       }
     ]
@@ -20587,6 +20811,20 @@
       }
     ]
   },
+  "voc:B2:typischerweise": {
+    "ex": [
+      {
+        "de": "Typischerweise dauert der Antrag drei Monate.",
+        "en": "Typically the application takes three months.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Winter ist es hier typischerweise grau.",
+        "en": "It's typically grey here in winter.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:umbenennen": {
     "ex": [
       {
@@ -21596,6 +21834,20 @@
       }
     ]
   },
+  "voc:B2:verrühren": {
+    "ex": [
+      {
+        "de": "Die Eier mit dem Zucker verrühren.",
+        "en": "Stir the eggs into the sugar.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Man muss alles gut verrühren.",
+        "en": "You have to mix everything well.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:versammeln": {
     "ex": [
       {
@@ -22548,6 +22800,20 @@
       }
     ]
   },
+  "voc:B2:zierlich": {
+    "ex": [
+      {
+        "de": "Sie ist klein und zierlich.",
+        "en": "She is small and petite.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Tasse ist sehr zierlich.",
+        "en": "The cup is very delicate.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:zitieren": {
     "def": "To repeat someone’s exact words and say whose they are.",
     "ex": [
@@ -22807,6 +23073,20 @@
       {
         "de": "Kann ich jeden Monat etwas Geld zurücklegen?",
         "en": "Can I put aside some money every month?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:zurücksetzen": {
+    "ex": [
+      {
+        "de": "Du musst das Passwort zurücksetzen.",
+        "en": "You have to reset the password.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Kannst du das Auto ein Stück zurücksetzen?",
+        "en": "Can you reverse the car a bit?",
         "lvl": "B2"
       }
     ]
