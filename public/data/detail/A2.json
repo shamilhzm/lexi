@@ -14652,6 +14652,20 @@
       }
     ]
   },
+  "voc:A2:die Kanne": {
+    "ex": [
+      {
+        "de": "Ich mache eine Kanne Tee.",
+        "en": "I'll make a pot of tea.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Kanne ist leer.",
+        "en": "The pot is empty.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Kantine": {
     "def": "A place at work or school where meals are served.",
     "ex": [
@@ -16292,6 +16306,20 @@
         "de": "Viele Pflanzen reagieren empfindlich auf Kälte.",
         "en": "Many plants react sensitively to cold.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Pflaume": {
+    "ex": [
+      {
+        "de": "Im September gibt es Kuchen mit Pflaumen.",
+        "en": "In September there's plum cake.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Pflaume ist noch nicht reif.",
+        "en": "The plum isn't ripe yet.",
+        "lvl": "A2"
       }
     ]
   },
@@ -18408,6 +18436,20 @@
         "de": "Mit seiner Unterschrift übernahm er die volle Verantwortung.",
         "en": "With his signature he took on full responsibility.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Vanille": {
+    "ex": [
+      {
+        "de": "Ich nehme ein Eis mit Vanille.",
+        "en": "I'll have a vanilla ice cream.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Kuchen riecht nach Vanille.",
+        "en": "The cake smells of vanilla.",
+        "lvl": "A2"
       }
     ]
   },

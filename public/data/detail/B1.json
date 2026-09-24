@@ -5237,6 +5237,20 @@
       }
     ]
   },
+  "voc:B1:das Gewinnspiel": {
+    "ex": [
+      {
+        "de": "Beim Gewinnspiel kann man ein Auto gewinnen.",
+        "en": "You can win a car in the prize draw.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Gewinnspiel endet am Sonntag.",
+        "en": "The competition ends on Sunday.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Gewürz": {
     "def": "spice, condiment, seasoning",
     "ex": [
@@ -5376,6 +5390,20 @@
       {
         "de": "Das Hallenbad ist montags geschlossen.",
         "en": "The indoor pool is closed on Mondays.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Handbuch": {
+    "ex": [
+      {
+        "de": "Lies zuerst das Handbuch.",
+        "en": "Read the manual first.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Handbuch ist nur auf Englisch.",
+        "en": "The manual is only in English.",
         "lvl": "B1"
       }
     ]
@@ -5529,6 +5557,20 @@
         "de": "Heimweh ist weniger ein Ort als ein Gefühl von Vertrautheit.",
         "en": "Homesickness is less a place than a feeling of familiarity.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:das Herrchen": {
+    "ex": [
+      {
+        "de": "Der Hund wartet vor dem Laden auf sein Herrchen.",
+        "en": "The dog is waiting outside the shop for its owner.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Herrchen ist mit dem Hund spazieren.",
+        "en": "The owner is out walking the dog.",
+        "lvl": "B1"
       }
     ]
   },
@@ -6756,6 +6798,20 @@
       }
     ]
   },
+  "voc:B1:das Quadrat": {
+    "ex": [
+      {
+        "de": "Zeichne ein Quadrat auf das Papier.",
+        "en": "Draw a square on the paper.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Quadrat hat vier gleiche Seiten.",
+        "en": "The square has four equal sides.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Quartal": {
     "def": "A period of three months in a business year.",
     "ex": [
@@ -7505,6 +7561,20 @@
       {
         "de": "Der Name ist ein Synonym für Qualität.",
         "en": "The name is a byword for quality.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Tablett": {
+    "ex": [
+      {
+        "de": "Der Kellner trägt ein Tablett mit Gläsern.",
+        "en": "The waiter is carrying a tray of glasses.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Stell das Tablett auf den Tisch.",
+        "en": "Put the tray on the table.",
         "lvl": "B1"
       }
     ]
@@ -10027,6 +10097,20 @@
       }
     ]
   },
+  "voc:B1:der Dolmetscher": {
+    "ex": [
+      {
+        "de": "Beim Termin im Amt hilft ein Dolmetscher.",
+        "en": "An interpreter helps at the appointment at the office.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie arbeitet als Dolmetscherin bei der EU.",
+        "en": "She works as an interpreter at the EU.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Donner": {
     "def": "The loud rumbling sound that follows lightning.",
     "ex": [
@@ -11562,6 +11646,20 @@
         "de": "Im überfüllten Hörsaal saßen Studierende sogar auf den Treppen.",
         "en": "In the overcrowded lecture hall students even sat on the steps.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Inder": {
+    "ex": [
+      {
+        "de": "Mein Kollege ist Inder.",
+        "en": "My colleague is Indian.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Inder hat ein Restaurant eröffnet.",
+        "en": "The Indian man has opened a restaurant.",
+        "lvl": "B1"
       }
     ]
   },
@@ -20807,6 +20905,20 @@
       }
     ]
   },
+  "voc:B1:die Geburtsurkunde": {
+    "ex": [
+      {
+        "de": "Für die Hochzeit brauchen Sie Ihre Geburtsurkunde.",
+        "en": "You need your birth certificate for the wedding.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Geburtsurkunde muss beglaubigt werden.",
+        "en": "The birth certificate has to be certified.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Geduld": {
     "def": "The ability to stay calm while waiting or facing difficulty.",
     "ex": [
@@ -20957,6 +21069,20 @@
       {
         "de": "Du gehörst zur nächsten Generation.",
         "en": "You belong to the next generation.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Geografie": {
+    "ex": [
+      {
+        "de": "In Geografie lernen wir die Hauptstädte.",
+        "en": "In geography we learn the capitals.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Geografie des Landes ist sehr vielfältig.",
+        "en": "The country's geography is very varied.",
         "lvl": "B1"
       }
     ]
@@ -24269,6 +24395,20 @@
       }
     ]
   },
+  "voc:B1:die Nachhilfe": {
+    "ex": [
+      {
+        "de": "Mein Sohn bekommt Nachhilfe in Mathe.",
+        "en": "My son gets tutoring in maths.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie gibt Nachhilfe, um Geld zu verdienen.",
+        "en": "She gives private lessons to earn money.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Nachkriegszeit": {
     "def": "the years after a war, especially after 1945",
     "ex": [
@@ -24943,6 +25083,20 @@
       }
     ]
   },
+  "voc:B1:die Prise": {
+    "ex": [
+      {
+        "de": "Gib eine Prise Salz dazu.",
+        "en": "Add a pinch of salt.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit einer Prise Humor geht alles leichter.",
+        "en": "Everything is easier with a dash of humour.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Probe": {
     "def": "A practice run of a performance; also a small quantity taken for testing.",
     "defDe": "das Einstudieren bei aufführenden Künsten",
@@ -25542,6 +25696,20 @@
         "de": "Eine Rundfahrt verschafft einen ersten Überblick über eine fremde Stadt.",
         "en": "A sightseeing tour gives a first overview of an unfamiliar city.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Rückgabe": {
+    "ex": [
+      {
+        "de": "Die Rückgabe ist innerhalb von 30 Tagen möglich.",
+        "en": "Returns are possible within 30 days.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bei der Rückgabe brauchen Sie den Kassenbon.",
+        "en": "You need the receipt for a return.",
+        "lvl": "B1"
       }
     ]
   },
@@ -28300,6 +28468,20 @@
       {
         "de": "Zur Vorbeugung von Rückenschmerzen hilft Bewegung.",
         "en": "Movement helps to prevent back pain.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Vorderseite": {
+    "ex": [
+      {
+        "de": "Auf der Vorderseite der Karte steht Ihr Name.",
+        "en": "Your name is on the front of the card.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Vorderseite des Hauses zeigt zur Straße.",
+        "en": "The front of the house faces the street.",
         "lvl": "B1"
       }
     ]
@@ -37484,6 +37666,20 @@
         "de": "Manche empfinden das Siezen als höflich, andere als distanziert.",
         "en": "Some perceive using “Sie” as polite, others as distant.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:simsen": {
+    "ex": [
+      {
+        "de": "Ich simse dir, wenn ich da bin.",
+        "en": "I'll text you when I'm there.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Früher haben wir ständig gesimst.",
+        "en": "We used to text all the time.",
+        "lvl": "B1"
       }
     ]
   },

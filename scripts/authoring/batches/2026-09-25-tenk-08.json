@@ -1,0 +1,3454 @@
+[
+ {
+  "term": "die Gleichung",
+  "en": "equation",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Schüler lösen eine Gleichung.",
+    "en": "The pupils are solving an equation."
+   },
+   {
+    "de": "Die Gleichung geht nicht auf.",
+    "en": "The equation doesn't work out."
+   }
+  ]
+ },
+ {
+  "term": "die Wertung",
+  "en": "rating, standings; judgement",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "In der Wertung liegt er auf Platz zwei.",
+    "en": "He is second in the standings."
+   },
+   {
+    "de": "Das ist keine Wertung, nur eine Beobachtung.",
+    "en": "That's not a judgement, just an observation."
+   }
+  ]
+ },
+ {
+  "term": "lässig",
+  "en": "casual, laid-back",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Clothing",
+  "ex": [
+   {
+    "de": "Er ist immer sehr lässig gekleidet.",
+    "en": "He is always very casually dressed."
+   },
+   {
+    "de": "Die Atmosphäre im Büro ist lässig.",
+    "en": "The atmosphere in the office is relaxed."
+   }
+  ]
+ },
+ {
+  "term": "die Schnelligkeit",
+  "en": "speed",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Seine Schnelligkeit ist seine größte Stärke.",
+    "en": "His speed is his greatest strength."
+   },
+   {
+    "de": "Bei der Reaktion zählt Schnelligkeit.",
+    "en": "Speed counts in the response."
+   }
+  ]
+ },
+ {
+  "term": "gehörig",
+  "en": "proper, thorough; considerable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Er hat mir einen gehörigen Schrecken eingejagt.",
+    "en": "He gave me a real fright."
+   },
+   {
+    "de": "Da hat sie sich gehörig geirrt.",
+    "en": "She was badly mistaken there."
+   }
+  ]
+ },
+ {
+  "term": "pausieren",
+  "en": "to pause, to take a break",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Fitness and training",
+  "ex": [
+   {
+    "de": "Wegen der Verletzung muss er zwei Wochen pausieren.",
+    "en": "He has to sit out two weeks because of the injury."
+   },
+   {
+    "de": "Du kannst das Video jederzeit pausieren.",
+    "en": "You can pause the video at any time."
+   }
+  ]
+ },
+ {
+  "term": "beweglich",
+  "en": "mobile, flexible, movable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Body & health",
+  "ex": [
+   {
+    "de": "Durch Yoga bin ich beweglicher geworden.",
+    "en": "Yoga has made me more flexible."
+   },
+   {
+    "de": "Der Termin ist beweglich.",
+    "en": "The date is flexible."
+   }
+  ]
+ },
+ {
+  "term": "pflanzlich",
+  "en": "plant-based, herbal",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Ich trinke nur pflanzliche Milch.",
+    "en": "I only drink plant-based milk."
+   },
+   {
+    "de": "Das Mittel ist rein pflanzlich.",
+    "en": "The remedy is purely herbal."
+   }
+  ]
+ },
+ {
+  "term": "die Anspannung",
+  "en": "tension, strain",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Mental health concepts",
+  "ex": [
+   {
+    "de": "Vor dem Start ist die Anspannung groß.",
+    "en": "There's a lot of tension before the start."
+   },
+   {
+    "de": "Die Anspannung fällt langsam von mir ab.",
+    "en": "The strain is slowly falling away."
+   }
+  ]
+ },
+ {
+  "term": "unbeantwortet",
+  "en": "unanswered",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Meine Mail blieb unbeantwortet.",
+    "en": "My email went unanswered."
+   },
+   {
+    "de": "Viele Fragen bleiben unbeantwortet.",
+    "en": "Many questions remain unanswered."
+   }
+  ]
+ },
+ {
+  "term": "simsen",
+  "en": "to text (SMS)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Post & Communication",
+  "ex": [
+   {
+    "de": "Ich simse dir, wenn ich da bin.",
+    "en": "I'll text you when I'm there."
+   },
+   {
+    "de": "Früher haben wir ständig gesimst.",
+    "en": "We used to text all the time."
+   }
+  ]
+ },
+ {
+  "term": "abwesend",
+  "en": "absent; absent-minded",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Die Chefin ist heute abwesend.",
+    "en": "The boss is absent today."
+   },
+   {
+    "de": "Er wirkt heute sehr abwesend.",
+    "en": "He seems very absent-minded today."
+   }
+  ]
+ },
+ {
+  "term": "bescheinigen",
+  "en": "to certify, to confirm in writing",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Arzt muss die Krankheit bescheinigen.",
+    "en": "The doctor has to certify the illness."
+   },
+   {
+    "de": "Der Arbeitgeber bescheinigt das Einkommen.",
+    "en": "The employer confirms the income in writing."
+   }
+  ]
+ },
+ {
+  "term": "das Handbuch",
+  "en": "manual, handbook",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Lies zuerst das Handbuch.",
+    "en": "Read the manual first."
+   },
+   {
+    "de": "Das Handbuch ist nur auf Englisch.",
+    "en": "The manual is only in English."
+   }
+  ]
+ },
+ {
+  "term": "afghanisch",
+  "en": "Afghan",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Das afghanische Restaurant ist sehr beliebt.",
+    "en": "The Afghan restaurant is very popular."
+   },
+   {
+    "de": "Viele afghanische Familien leben in Köln.",
+    "en": "Many Afghan families live in Cologne."
+   }
+  ]
+ },
+ {
+  "term": "der Anwärter",
+  "en": "candidate, contender",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er ist ein Anwärter auf den Titel.",
+    "en": "He is a contender for the title."
+   },
+   {
+    "de": "Es gibt drei Anwärter für den Posten.",
+    "en": "There are three candidates for the post."
+   }
+  ]
+ },
+ {
+  "term": "der Verwalter",
+  "en": "administrator, manager (of property)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Der Verwalter kümmert sich um die Reparatur.",
+    "en": "The property manager is taking care of the repair."
+   },
+   {
+    "de": "Ruf den Verwalter wegen der Heizung an.",
+    "en": "Call the property manager about the heating."
+   }
+  ]
+ },
+ {
+  "term": "der Einschlag",
+  "en": "impact, strike",
+  "pos": "noun",
+  "level": "C1",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Der Einschlag der Rakete zerstörte das Haus.",
+    "en": "The rocket's impact destroyed the house."
+   },
+   {
+    "de": "Man hörte den Einschlag bis in die Stadt.",
+    "en": "The impact could be heard in the city."
+   }
+  ]
+ },
+ {
+  "term": "der Rückenwind",
+  "en": "tailwind; boost",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Mit Rückenwind fahre ich viel schneller.",
+    "en": "With a tailwind I ride much faster."
+   },
+   {
+    "de": "Die Wahl gibt der Partei Rückenwind.",
+    "en": "The election gives the party a boost."
+   }
+  ]
+ },
+ {
+  "term": "auszeichnen",
+  "en": "to award, to honour; to distinguish",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Films & festivals",
+  "ex": [
+   {
+    "de": "Die Jury will den Film auszeichnen.",
+    "en": "The jury wants to honour the film."
+   },
+   {
+    "de": "Ihn zeichnet seine Geduld aus.",
+    "en": "His patience sets him apart."
+   }
+  ]
+ },
+ {
+  "term": "die Genauigkeit",
+  "en": "accuracy, precision",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Genauigkeit der Messung ist hoch.",
+    "en": "The accuracy of the measurement is high."
+   },
+   {
+    "de": "Deutsche Behörden lieben Genauigkeit.",
+    "en": "German authorities love precision."
+   }
+  ]
+ },
+ {
+  "term": "unzulässig",
+  "en": "inadmissible, not permitted",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Klausel ist unzulässig.",
+    "en": "The clause is not permitted."
+   },
+   {
+    "de": "Das Gericht wies die Klage als unzulässig ab.",
+    "en": "The court dismissed the claim as inadmissible."
+   }
+  ]
+ },
+ {
+  "term": "übermäßig",
+  "en": "excessive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Übermäßiger Alkohol schadet der Gesundheit.",
+    "en": "Excessive alcohol harms your health."
+   },
+   {
+    "de": "Die Miete ist nicht übermäßig hoch.",
+    "en": "The rent isn't excessively high."
+   }
+  ]
+ },
+ {
+  "term": "der Übergriff",
+  "en": "assault; encroachment",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Polizei ermittelt wegen eines Übergriffs.",
+    "en": "The police are investigating an assault."
+   },
+   {
+    "de": "Das ist ein Übergriff auf meine Privatsphäre.",
+    "en": "That's an intrusion on my privacy."
+   }
+  ]
+ },
+ {
+  "term": "der Rückruf",
+  "en": "callback; recall (of a product)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Post & Communication",
+  "ex": [
+   {
+    "de": "Ich warte noch auf den Rückruf der Firma.",
+    "en": "I'm still waiting for the company to call back."
+   },
+   {
+    "de": "Der Hersteller startet einen Rückruf für die Autos.",
+    "en": "The manufacturer is launching a recall of the cars."
+   }
+  ]
+ },
+ {
+  "term": "unerhört",
+  "en": "outrageous; unheard-of",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Das ist ja unerhört!",
+    "en": "That's outrageous!"
+   },
+   {
+    "de": "Die Preise sind unerhört gestiegen.",
+    "en": "Prices have risen to an unheard-of extent."
+   }
+  ]
+ },
+ {
+  "term": "vertikal",
+  "en": "vertical",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Die Linie verläuft vertikal.",
+    "en": "The line runs vertically."
+   },
+   {
+    "de": "Das Video ist im vertikalen Format.",
+    "en": "The video is in vertical format."
+   }
+  ]
+ },
+ {
+  "term": "die Statur",
+  "en": "build, stature",
+  "pos": "noun",
+  "level": "C1",
+  "field": "People",
+  "ex": [
+   {
+    "de": "Er ist von kräftiger Statur.",
+    "en": "He is of stocky build."
+   },
+   {
+    "de": "Die Politikerin hat internationale Statur.",
+    "en": "The politician has international stature."
+   }
+  ]
+ },
+ {
+  "term": "mathematisch",
+  "en": "mathematical",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Das ist ein mathematisches Problem.",
+    "en": "That is a mathematical problem."
+   },
+   {
+    "de": "Mathematisch ist der Titel noch möglich.",
+    "en": "Mathematically the title is still possible."
+   }
+  ]
+ },
+ {
+  "term": "das Verdeck",
+  "en": "soft top, hood (of a car, pram)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Im Sommer fahren wir mit offenem Verdeck.",
+    "en": "In summer we drive with the top down."
+   },
+   {
+    "de": "Mach das Verdeck vom Kinderwagen zu.",
+    "en": "Close the hood on the pram."
+   }
+  ]
+ },
+ {
+  "term": "überwältigen",
+  "en": "to overwhelm, to overpower",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Passagiere konnten den Täter überwältigen.",
+    "en": "The passengers managed to overpower the attacker."
+   },
+   {
+    "de": "Die Freude hat sie überwältigt.",
+    "en": "She was overwhelmed with joy."
+   }
+  ]
+ },
+ {
+  "term": "die Prise",
+  "en": "pinch (of salt etc.)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Gib eine Prise Salz dazu.",
+    "en": "Add a pinch of salt."
+   },
+   {
+    "de": "Mit einer Prise Humor geht alles leichter.",
+    "en": "Everything is easier with a dash of humour."
+   }
+  ]
+ },
+ {
+  "term": "rechnerisch",
+  "en": "arithmetical, in figures",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Rechnerisch reicht das Geld bis März.",
+    "en": "On paper the money lasts until March."
+   },
+   {
+    "de": "Das ist ein rechnerischer Fehler.",
+    "en": "That's an arithmetical error."
+   }
+  ]
+ },
+ {
+  "term": "das Tablett",
+  "en": "tray",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Restaurant & Dining",
+  "ex": [
+   {
+    "de": "Der Kellner trägt ein Tablett mit Gläsern.",
+    "en": "The waiter is carrying a tray of glasses."
+   },
+   {
+    "de": "Stell das Tablett auf den Tisch.",
+    "en": "Put the tray on the table."
+   }
+  ]
+ },
+ {
+  "term": "die Kanalisation",
+  "en": "sewer system",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Urban life",
+  "ex": [
+   {
+    "de": "Die Kanalisation ist bei Starkregen überlastet.",
+    "en": "The sewers are overloaded in heavy rain."
+   },
+   {
+    "de": "Die Stadt erneuert die Kanalisation.",
+    "en": "The city is renewing the sewer system."
+   }
+  ]
+ },
+ {
+  "term": "die Dringlichkeit",
+  "en": "urgency",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business Correspondence",
+  "ex": [
+   {
+    "de": "Die Dringlichkeit des Problems ist allen klar.",
+    "en": "The urgency of the problem is clear to everyone."
+   },
+   {
+    "de": "Wir bearbeiten die Anfragen nach Dringlichkeit.",
+    "en": "We process the requests by urgency."
+   }
+  ]
+ },
+ {
+  "term": "der Dolmetscher",
+  "en": "interpreter",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Languages & Multilingualism",
+  "ex": [
+   {
+    "de": "Beim Termin im Amt hilft ein Dolmetscher.",
+    "en": "An interpreter helps at the appointment at the office."
+   },
+   {
+    "de": "Sie arbeitet als Dolmetscherin bei der EU.",
+    "en": "She works as an interpreter at the EU."
+   }
+  ]
+ },
+ {
+  "term": "normalisieren",
+  "en": "to normalise",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Lage wird sich bald normalisieren.",
+    "en": "The situation will soon return to normal."
+   },
+   {
+    "de": "Die Preise normalisieren sich langsam.",
+    "en": "Prices are slowly normalising."
+   }
+  ]
+ },
+ {
+  "term": "vornehmlich",
+  "en": "mainly, primarily",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Die Kunden sind vornehmlich junge Leute.",
+    "en": "The customers are mainly young people."
+   },
+   {
+    "de": "Es geht vornehmlich um die Kosten.",
+    "en": "It's primarily about the costs."
+   }
+  ]
+ },
+ {
+  "term": "vereinigen",
+  "en": "to unite, to combine",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Das Projekt soll Kunst und Technik vereinigen.",
+    "en": "The project is meant to combine art and technology."
+   },
+   {
+    "de": "1990 wurden die beiden deutschen Staaten vereinigt.",
+    "en": "In 1990 the two German states were united."
+   }
+  ]
+ },
+ {
+  "term": "die Zuwendung",
+  "en": "attention, affection; grant",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Kinder brauchen viel Zuwendung.",
+    "en": "Children need a lot of attention."
+   },
+   {
+    "de": "Der Verein bekommt eine Zuwendung von der Stadt.",
+    "en": "The association receives a grant from the city."
+   }
+  ]
+ },
+ {
+  "term": "die Injektion",
+  "en": "injection",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Medical Treatment",
+  "ex": [
+   {
+    "de": "Der Arzt gibt ihm eine Injektion.",
+    "en": "The doctor gives him an injection."
+   },
+   {
+    "de": "Die Injektion tut kaum weh.",
+    "en": "The injection hardly hurts."
+   }
+  ]
+ },
+ {
+  "term": "die Pflaume",
+  "en": "plum",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Im September gibt es Kuchen mit Pflaumen.",
+    "en": "In September there's plum cake."
+   },
+   {
+    "de": "Die Pflaume ist noch nicht reif.",
+    "en": "The plum isn't ripe yet."
+   }
+  ]
+ },
+ {
+  "term": "die Praktik",
+  "en": "practice, method",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business Ethics",
+  "ex": [
+   {
+    "de": "Die Firma wurde für ihre Praktiken kritisiert.",
+    "en": "The company was criticised for its practices."
+   },
+   {
+    "de": "Diese Praktik ist in Deutschland verboten.",
+    "en": "This practice is banned in Germany."
+   }
+  ]
+ },
+ {
+  "term": "die Signatur",
+  "en": "signature",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Office & Communication",
+  "ex": [
+   {
+    "de": "Die E-Mail hat eine lange Signatur.",
+    "en": "The email has a long signature."
+   },
+   {
+    "de": "Unten auf dem Bild ist die Signatur des Malers.",
+    "en": "The painter's signature is at the bottom of the picture."
+   }
+  ]
+ },
+ {
+  "term": "der Trubel",
+  "en": "hustle and bustle",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Urban life",
+  "ex": [
+   {
+    "de": "Im Karneval ist in Köln viel Trubel.",
+    "en": "There's a lot of hustle and bustle in Cologne at carnival."
+   },
+   {
+    "de": "Ich brauche Ruhe nach dem Trubel.",
+    "en": "I need some peace after all the bustle."
+   }
+  ]
+ },
+ {
+  "term": "der Börsengang",
+  "en": "stock market flotation, IPO",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Der Börsengang des Start-ups ist für Mai geplant.",
+    "en": "The start-up's IPO is planned for May."
+   },
+   {
+    "de": "Nach dem Börsengang stieg die Aktie stark.",
+    "en": "After the IPO the share rose sharply."
+   }
+  ]
+ },
+ {
+  "term": "verschwimmen",
+  "en": "to blur",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Ohne Brille verschwimmt alles.",
+    "en": "Everything blurs without my glasses."
+   },
+   {
+    "de": "Die Grenzen zwischen Job und Freizeit verschwimmen.",
+    "en": "The boundaries between work and leisure are blurring."
+   }
+  ]
+ },
+ {
+  "term": "die Vanille",
+  "en": "vanilla",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Ich nehme ein Eis mit Vanille.",
+    "en": "I'll have a vanilla ice cream."
+   },
+   {
+    "de": "Der Kuchen riecht nach Vanille.",
+    "en": "The cake smells of vanilla."
+   }
+  ]
+ },
+ {
+  "term": "der Beistand",
+  "en": "support, assistance",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "In schweren Zeiten braucht man Beistand.",
+    "en": "You need support in hard times."
+   },
+   {
+    "de": "Der Anwalt leistet ihm rechtlichen Beistand.",
+    "en": "The lawyer gives him legal assistance."
+   }
+  ]
+ },
+ {
+  "term": "überlaufen",
+  "en": "crowded, overrun",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Im Sommer ist die Altstadt total überlaufen.",
+    "en": "In summer the old town is completely overrun."
+   },
+   {
+    "de": "Der Studiengang ist sehr überlaufen.",
+    "en": "The degree course is very oversubscribed."
+   }
+  ]
+ },
+ {
+  "term": "der Wettbewerber",
+  "en": "competitor",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Der Wettbewerber hat die Preise gesenkt.",
+    "en": "The competitor has lowered its prices."
+   },
+   {
+    "de": "Wir müssen besser sein als jeder Wettbewerber.",
+    "en": "We have to be better than every competitor."
+   }
+  ]
+ },
+ {
+  "term": "unpassend",
+  "en": "inappropriate, unsuitable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Der Witz war total unpassend.",
+    "en": "The joke was totally inappropriate."
+   },
+   {
+    "de": "Er kommt immer im unpassenden Moment.",
+    "en": "He always comes at the wrong moment."
+   }
+  ]
+ },
+ {
+  "term": "die Abstammung",
+  "en": "descent, ancestry",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Identity",
+  "ex": [
+   {
+    "de": "Sie ist türkischer Abstammung.",
+    "en": "She is of Turkish descent."
+   },
+   {
+    "de": "Die Staatsbürgerschaft hängt nicht nur von der Abstammung ab.",
+    "en": "Citizenship doesn't only depend on descent."
+   }
+  ]
+ },
+ {
+  "term": "das Copyright",
+  "en": "copyright",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Copyright für das Foto liegt beim Fotografen.",
+    "en": "The copyright for the photo belongs to the photographer."
+   },
+   {
+    "de": "Die KI-Firma hat das Copyright verletzt.",
+    "en": "The AI company infringed the copyright."
+   }
+  ]
+ },
+ {
+  "term": "der Inder",
+  "en": "Indian (man)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Mein Kollege ist Inder.",
+    "en": "My colleague is Indian."
+   },
+   {
+    "de": "Der Inder hat ein Restaurant eröffnet.",
+    "en": "The Indian man has opened a restaurant."
+   }
+  ]
+ },
+ {
+  "term": "die Tochtergesellschaft",
+  "en": "subsidiary",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Firma hat eine Tochtergesellschaft in den USA.",
+    "en": "The company has a subsidiary in the US."
+   },
+   {
+    "de": "Die Tochtergesellschaft wird verkauft.",
+    "en": "The subsidiary is being sold."
+   }
+  ]
+ },
+ {
+  "term": "der Kult",
+  "en": "cult; cult status",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Entertainment & Media",
+  "ex": [
+   {
+    "de": "Die Serie ist längst Kult.",
+    "en": "The series has long had cult status."
+   },
+   {
+    "de": "Um den Sänger gibt es einen richtigen Kult.",
+    "en": "There's a real cult around the singer."
+   }
+  ]
+ },
+ {
+  "term": "das Polster",
+  "en": "cushion, padding; reserve",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Wir haben ein finanzielles Polster für Notfälle.",
+    "en": "We have a financial cushion for emergencies."
+   },
+   {
+    "de": "Das Polster vom Sofa ist kaputt.",
+    "en": "The sofa cushion is broken."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "die Rückgabe",
+  "en": "return (of goods)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Die Rückgabe ist innerhalb von 30 Tagen möglich.",
+    "en": "Returns are possible within 30 days."
+   },
+   {
+    "de": "Bei der Rückgabe brauchen Sie den Kassenbon.",
+    "en": "You need the receipt for a return."
+   }
+  ]
+ },
+ {
+  "term": "der Überfluss",
+  "en": "abundance, surplus",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society",
+  "ex": [
+   {
+    "de": "Wir leben im Überfluss.",
+    "en": "We live in abundance."
+   },
+   {
+    "de": "Zu allem Überfluss regnete es auch noch.",
+    "en": "To top it all, it rained too."
+   }
+  ]
+ },
+ {
+  "term": "die Fiktion",
+  "en": "fiction",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Literature & Film",
+  "ex": [
+   {
+    "de": "Die Geschichte ist reine Fiktion.",
+    "en": "The story is pure fiction."
+   },
+   {
+    "de": "Die Grenze zwischen Fiktion und Realität verschwimmt.",
+    "en": "The line between fiction and reality is blurring."
+   }
+  ]
+ },
+ {
+  "term": "wählerisch",
+  "en": "choosy, picky",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Beim Essen ist er sehr wählerisch.",
+    "en": "He's very picky about food."
+   },
+   {
+    "de": "Bei Jobs kann ich nicht wählerisch sein.",
+    "en": "I can't be choosy about jobs."
+   }
+  ]
+ },
+ {
+  "term": "zuvorkommen",
+  "en": "to beat to it, to pre-empt",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Wir wollen der Konkurrenz zuvorkommen.",
+    "en": "We want to beat the competition to it."
+   },
+   {
+    "de": "Wir müssen dem Problem zuvorkommen.",
+    "en": "We have to head off the problem."
+   }
+  ]
+ },
+ {
+  "term": "thematisch",
+  "en": "thematic, in terms of subject",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Die Bücher sind thematisch geordnet.",
+    "en": "The books are arranged by subject."
+   },
+   {
+    "de": "Thematisch passt der Vortrag gut.",
+    "en": "The talk fits well in terms of subject."
+   }
+  ]
+ },
+ {
+  "term": "ansprechbar",
+  "en": "responsive, approachable, available",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work & Colleagues",
+  "ex": [
+   {
+    "de": "Die Chefin ist für alle ansprechbar.",
+    "en": "The boss is approachable for everyone."
+   },
+   {
+    "de": "Der Patient ist wieder ansprechbar.",
+    "en": "The patient is responsive again."
+   }
+  ]
+ },
+ {
+  "term": "der Betrachter",
+  "en": "viewer, observer",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Das Bild wirkt auf jeden Betrachter anders.",
+    "en": "The picture affects every viewer differently."
+   },
+   {
+    "de": "Für einen neutralen Betrachter war das Spiel spannend.",
+    "en": "For a neutral observer the game was exciting."
+   }
+  ]
+ },
+ {
+  "term": "zurücklegen",
+  "en": "to cover (a distance); to put aside",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Wir wollen heute hundert Kilometer zurücklegen.",
+    "en": "We want to cover a hundred kilometres today."
+   },
+   {
+    "de": "Kann ich jeden Monat etwas Geld zurücklegen?",
+    "en": "Can I put aside some money every month?"
+   }
+  ]
+ },
+ {
+  "term": "der Fundort",
+  "en": "place where something was found",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Polizei sperrt den Fundort ab.",
+    "en": "The police cordon off the place where it was found."
+   },
+   {
+    "de": "Der Fundort der Münzen ist geheim.",
+    "en": "The site where the coins were found is secret."
+   }
+  ]
+ },
+ {
+  "term": "verfeinern",
+  "en": "to refine",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Man kann die Soße mit Sahne verfeinern.",
+    "en": "You can refine the sauce with cream."
+   },
+   {
+    "de": "Wir müssen das Konzept noch verfeinern.",
+    "en": "We still need to refine the concept."
+   }
+  ]
+ },
+ {
+  "term": "die Erkundung",
+  "en": "exploration",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Zur Erkundung der Stadt leihen wir Fahrräder.",
+    "en": "We're hiring bikes to explore the city."
+   },
+   {
+    "de": "Die Erkundung des Mars geht weiter.",
+    "en": "The exploration of Mars continues."
+   }
+  ]
+ },
+ {
+  "term": "die Rücksprache",
+  "en": "consultation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business Correspondence",
+  "ex": [
+   {
+    "de": "Nach Rücksprache mit meinem Chef sage ich zu.",
+    "en": "After consulting my boss, I accept."
+   },
+   {
+    "de": "Ich halte kurz Rücksprache mit dem Team.",
+    "en": "I'll quickly check with the team."
+   }
+  ]
+ },
+ {
+  "term": "alljährlich",
+  "en": "annual, every year",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Das alljährliche Stadtfest ist im August.",
+    "en": "The annual city festival is in August."
+   },
+   {
+    "de": "Alljährlich kommen Millionen zur Messe.",
+    "en": "Every year millions come to the fair."
+   }
+  ]
+ },
+ {
+  "term": "aufwerten",
+  "en": "to upgrade, to enhance; to revalue",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Der neue Park soll das Viertel aufwerten.",
+    "en": "The new park is meant to upgrade the neighbourhood."
+   },
+   {
+    "de": "Die Zentralbank will die Währung aufwerten.",
+    "en": "The central bank wants to revalue the currency."
+   }
+  ]
+ },
+ {
+  "term": "die Kontinuität",
+  "en": "continuity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Die Wähler wünschen sich Kontinuität.",
+    "en": "Voters want continuity."
+   },
+   {
+    "de": "Im Team fehlt die Kontinuität.",
+    "en": "The team lacks continuity."
+   }
+  ]
+ },
+ {
+  "term": "das Herrchen",
+  "en": "(dog's) owner, master",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Animals",
+  "ex": [
+   {
+    "de": "Der Hund wartet vor dem Laden auf sein Herrchen.",
+    "en": "The dog is waiting outside the shop for its owner."
+   },
+   {
+    "de": "Das Herrchen ist mit dem Hund spazieren.",
+    "en": "The owner is out walking the dog."
+   }
+  ]
+ },
+ {
+  "term": "profitabel",
+  "en": "profitable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Das Geschäft ist nicht profitabel.",
+    "en": "The business isn't profitable."
+   },
+   {
+    "de": "Die Firma arbeitet seit zwei Jahren profitabel.",
+    "en": "The company has been profitable for two years."
+   }
+  ]
+ },
+ {
+  "term": "das Herzblut",
+  "en": "heart and soul, passion",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Sie steckt viel Herzblut in ihr Projekt.",
+    "en": "She puts her heart and soul into her project."
+   },
+   {
+    "de": "Mit Herzblut ist er bei der Sache.",
+    "en": "He's passionately committed to it."
+   }
+  ]
+ },
+ {
+  "term": "die Geburtsurkunde",
+  "en": "birth certificate",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Für die Hochzeit brauchen Sie Ihre Geburtsurkunde.",
+    "en": "You need your birth certificate for the wedding."
+   },
+   {
+    "de": "Die Geburtsurkunde muss beglaubigt werden.",
+    "en": "The birth certificate has to be certified."
+   }
+  ]
+ },
+ {
+  "term": "das Eigenkapital",
+  "en": "equity, own funds",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Für den Kredit braucht man zwanzig Prozent Eigenkapital.",
+    "en": "You need twenty per cent equity for the loan."
+   },
+   {
+    "de": "Die Bank muss ihr Eigenkapital erhöhen.",
+    "en": "The bank has to increase its capital."
+   }
+  ]
+ },
+ {
+  "term": "idealerweise",
+  "en": "ideally",
+  "pos": "adverb",
+  "level": "B2",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Idealerweise kommst du vor neun.",
+    "en": "Ideally you'll come before nine."
+   },
+   {
+    "de": "Die Wohnung liegt idealerweise nah am Büro.",
+    "en": "Ideally the flat is close to the office."
+   }
+  ]
+ },
+ {
+  "term": "das Exponat",
+  "en": "exhibit",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Arts and culture",
+  "ex": [
+   {
+    "de": "Das Museum zeigt über tausend Exponate.",
+    "en": "The museum shows over a thousand exhibits."
+   },
+   {
+    "de": "Dieses Exponat darf man anfassen.",
+    "en": "You're allowed to touch this exhibit."
+   }
+  ]
+ },
+ {
+  "term": "die Zuverlässigkeit",
+  "en": "reliability",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Die Zuverlässigkeit der Bahn lässt nach.",
+    "en": "The railway's reliability is declining."
+   },
+   {
+    "de": "Chefs schätzen vor allem Zuverlässigkeit.",
+    "en": "Bosses value reliability above all."
+   }
+  ]
+ },
+ {
+  "term": "die Nachhilfe",
+  "en": "private tutoring",
+  "pos": "noun",
+  "level": "B1",
+  "field": "School",
+  "ex": [
+   {
+    "de": "Mein Sohn bekommt Nachhilfe in Mathe.",
+    "en": "My son gets tutoring in maths."
+   },
+   {
+    "de": "Sie gibt Nachhilfe, um Geld zu verdienen.",
+    "en": "She gives private lessons to earn money."
+   }
+  ]
+ },
+ {
+  "term": "die Macke",
+  "en": "quirk; dent, flaw",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Jeder hat so seine Macke.",
+    "en": "Everyone has their quirks."
+   },
+   {
+    "de": "Der Tisch hat eine kleine Macke.",
+    "en": "The table has a small dent."
+   }
+  ]
+ },
+ {
+  "term": "das Einvernehmen",
+  "en": "agreement, consent",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Negotiation & Argument",
+  "ex": [
+   {
+    "de": "Die Trennung erfolgte im gegenseitigen Einvernehmen.",
+    "en": "The separation was by mutual agreement."
+   },
+   {
+    "de": "Im Einvernehmen mit der Stadt wurde das Fest verschoben.",
+    "en": "The festival was postponed in agreement with the city."
+   }
+  ]
+ },
+ {
+  "term": "die Direktion",
+  "en": "management; head office",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Direktion hat die Regel geändert.",
+    "en": "The management changed the rule."
+   },
+   {
+    "de": "Beschwerden bitte an die Direktion.",
+    "en": "Please address complaints to the management."
+   }
+  ]
+ },
+ {
+  "term": "die Obergrenze",
+  "en": "upper limit, cap",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Die Partei fordert eine Obergrenze für Asyl.",
+    "en": "The party is calling for a cap on asylum."
+   },
+   {
+    "de": "Für die Miete gibt es eine Obergrenze.",
+    "en": "There is an upper limit on the rent."
+   }
+  ]
+ },
+ {
+  "term": "entspringen",
+  "en": "to rise (river); to originate",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Der Rhein soll in den Alpen entspringen.",
+    "en": "The Rhine rises in the Alps."
+   },
+   {
+    "de": "Die Idee kann nur einer Not entspringen.",
+    "en": "The idea can only spring from necessity."
+   }
+  ]
+ },
+ {
+  "term": "das Manifest",
+  "en": "manifesto",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Political Language",
+  "ex": [
+   {
+    "de": "Die Gruppe hat ein Manifest veröffentlicht.",
+    "en": "The group has published a manifesto."
+   },
+   {
+    "de": "Das Manifest fordert mehr Klimaschutz.",
+    "en": "The manifesto calls for more climate protection."
+   }
+  ]
+ },
+ {
+  "term": "illustrieren",
+  "en": "to illustrate",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Sie illustriert Kinderbücher.",
+    "en": "She illustrates children's books."
+   },
+   {
+    "de": "Das Beispiel illustriert das Problem gut.",
+    "en": "The example illustrates the problem well."
+   }
+  ]
+ },
+ {
+  "term": "der Eingangsbereich",
+  "en": "entrance area",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Im Eingangsbereich stehen die Briefkästen.",
+    "en": "The letterboxes are in the entrance area."
+   },
+   {
+    "de": "Der Eingangsbereich wird renoviert.",
+    "en": "The entrance area is being renovated."
+   }
+  ]
+ },
+ {
+  "term": "solar",
+  "en": "solar",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Energy & Resources",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Haus wird solar beheizt.",
+    "en": "The house is heated by solar power."
+   },
+   {
+    "de": "Die solare Energie wird immer billiger.",
+    "en": "Solar energy is getting cheaper and cheaper."
+   }
+  ]
+ },
+ {
+  "term": "der Essay",
+  "en": "essay",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Writing",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Er schreibt einen Essay über Migration.",
+    "en": "He is writing an essay on migration."
+   },
+   {
+    "de": "Der Essay erschien in einer Zeitung.",
+    "en": "The essay appeared in a newspaper."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "beharren",
+  "en": "to insist, to persist",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Negotiation & Argument",
+  "ex": [
+   {
+    "de": "Die Gewerkschaft beharrt auf ihrer Forderung.",
+    "en": "The union is insisting on its demand."
+   },
+   {
+    "de": "Er beharrt darauf, recht zu haben.",
+    "en": "He insists that he's right."
+   }
+  ]
+ },
+ {
+  "term": "die Bedrängnis",
+  "en": "distress, difficulty",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Firma ist in finanzielle Bedrängnis geraten.",
+    "en": "The company has got into financial difficulty."
+   },
+   {
+    "de": "In seiner Bedrängnis rief er die Polizei.",
+    "en": "In his distress he called the police."
+   }
+  ],
+  "gender": "die"
+ },
+ {
+  "term": "die Kühlung",
+  "en": "cooling, refrigeration",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Kühlung des Rechenzentrums braucht viel Strom.",
+    "en": "Cooling the data centre uses a lot of electricity."
+   },
+   {
+    "de": "Das Medikament braucht Kühlung.",
+    "en": "The medicine needs refrigeration."
+   }
+  ]
+ },
+ {
+  "term": "äußerlich",
+  "en": "external, outward",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "People",
+  "ex": [
+   {
+    "de": "Äußerlich wirkt er ganz ruhig.",
+    "en": "Outwardly he seems quite calm."
+   },
+   {
+    "de": "Die Salbe ist nur zur äußerlichen Anwendung.",
+    "en": "The ointment is for external use only."
+   }
+  ]
+ },
+ {
+  "term": "die Vorschau",
+  "en": "preview",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Entertainment & Media",
+  "ex": [
+   {
+    "de": "Die Vorschau auf den Film sieht gut aus.",
+    "en": "The preview of the film looks good."
+   },
+   {
+    "de": "In der Vorschau sieht man nur den Anfang der Mail.",
+    "en": "In the preview you only see the start of the email."
+   }
+  ]
+ },
+ {
+  "term": "die Rangliste",
+  "en": "ranking, leaderboard",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "In der Rangliste liegt sie auf Platz drei.",
+    "en": "She is third on the leaderboard."
+   },
+   {
+    "de": "Die Rangliste der besten Unis ist erschienen.",
+    "en": "The ranking of the best universities has been published."
+   }
+  ]
+ },
+ {
+  "term": "freischalten",
+  "en": "to unlock, to activate",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Du musst das Konto erst freischalten.",
+    "en": "You have to activate the account first."
+   },
+   {
+    "de": "Mit Punkten kann man neue Level freischalten.",
+    "en": "You can unlock new levels with points."
+   }
+  ]
+ },
+ {
+  "term": "linear",
+  "en": "linear",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science concepts",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Die Kosten steigen nicht linear.",
+    "en": "The costs don't rise linearly."
+   },
+   {
+    "de": "Das Spiel erzählt keine lineare Geschichte.",
+    "en": "The game doesn't tell a linear story."
+   }
+  ]
+ },
+ {
+  "term": "temporär",
+  "en": "temporary",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Die Sperrung ist nur temporär.",
+    "en": "The closure is only temporary."
+   },
+   {
+    "de": "Er hat einen temporären Vertrag.",
+    "en": "He has a temporary contract."
+   }
+  ]
+ },
+ {
+  "term": "die Vorderseite",
+  "en": "front (side)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Auf der Vorderseite der Karte steht Ihr Name.",
+    "en": "Your name is on the front of the card."
+   },
+   {
+    "de": "Die Vorderseite des Hauses zeigt zur Straße.",
+    "en": "The front of the house faces the street."
+   }
+  ]
+ },
+ {
+  "term": "die Ethik",
+  "en": "ethics",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Ethics & Responsibility",
+  "ex": [
+   {
+    "de": "In der Schule gibt es das Fach Ethik.",
+    "en": "There is the subject of ethics at school."
+   },
+   {
+    "de": "Die Ethik der künstlichen Intelligenz ist umstritten.",
+    "en": "The ethics of artificial intelligence are contested."
+   }
+  ]
+ },
+ {
+  "term": "die Berechtigung",
+  "en": "entitlement, authorisation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Sie haben keine Berechtigung für diesen Bereich.",
+    "en": "You don't have authorisation for this area."
+   },
+   {
+    "de": "Die Kritik hat ihre Berechtigung.",
+    "en": "The criticism is justified."
+   }
+  ]
+ },
+ {
+  "term": "der Vormund",
+  "en": "legal guardian",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Das Gericht hat einen Vormund bestimmt.",
+    "en": "The court appointed a legal guardian."
+   },
+   {
+    "de": "Der Vormund entscheidet für das Kind.",
+    "en": "The guardian decides on the child's behalf."
+   }
+  ]
+ },
+ {
+  "term": "die Mitleidenschaft",
+  "en": "(in Mitleidenschaft ziehen) to affect adversely",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Der Sturm hat auch unser Dach in Mitleidenschaft gezogen.",
+    "en": "The storm also damaged our roof."
+   },
+   {
+    "de": "Die Krise zieht viele Branchen in Mitleidenschaft.",
+    "en": "The crisis is taking its toll on many sectors."
+   }
+  ]
+ },
+ {
+  "term": "hypothetisch",
+  "en": "hypothetical",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Das ist eine rein hypothetische Frage.",
+    "en": "That's a purely hypothetical question."
+   },
+   {
+    "de": "Hypothetisch könnte das funktionieren.",
+    "en": "Hypothetically that could work."
+   }
+  ]
+ },
+ {
+  "term": "interagieren",
+  "en": "to interact",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Social Networks",
+  "ex": [
+   {
+    "de": "Die Nutzer interagieren kaum mit dem Post.",
+    "en": "Users are hardly interacting with the post."
+   },
+   {
+    "de": "Im Spiel kann man mit allen Figuren interagieren.",
+    "en": "In the game you can interact with all the characters."
+   }
+  ]
+ },
+ {
+  "term": "ausstrecken",
+  "en": "to stretch out, to extend",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Body",
+  "ex": [
+   {
+    "de": "Er will die Hand zur Versöhnung ausstrecken.",
+    "en": "He wants to hold out his hand in reconciliation."
+   },
+   {
+    "de": "Kannst du die Beine ausstrecken?",
+    "en": "Can you stretch your legs out?"
+   }
+  ]
+ },
+ {
+  "term": "beleben",
+  "en": "to liven up, to revive",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Urban Planning & Future",
+  "ex": [
+   {
+    "de": "Neue Cafés sollen die Innenstadt beleben.",
+    "en": "New cafés are meant to liven up the city centre."
+   },
+   {
+    "de": "Ein starker Kaffee kann am Morgen beleben.",
+    "en": "A strong coffee can revive you in the morning."
+   }
+  ]
+ },
+ {
+  "term": "revidieren",
+  "en": "to revise",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Regierung muss ihre Prognose revidieren.",
+    "en": "The government has to revise its forecast."
+   },
+   {
+    "de": "Er hat seine Meinung revidiert.",
+    "en": "He has revised his opinion."
+   }
+  ]
+ },
+ {
+  "term": "das Fragment",
+  "en": "fragment",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Literature",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Vom Text ist nur ein Fragment erhalten.",
+    "en": "Only a fragment of the text survives."
+   },
+   {
+    "de": "Ich erinnere mich nur an ein Fragment des Traums.",
+    "en": "I only remember a fragment of the dream."
+   }
+  ]
+ },
+ {
+  "term": "brodeln",
+  "en": "to bubble, to simmer (also of tension)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Die Suppe brodelt auf dem Herd.",
+    "en": "The soup is bubbling on the stove."
+   },
+   {
+    "de": "In der Partei brodelt es.",
+    "en": "There's unrest simmering in the party."
+   }
+  ]
+ },
+ {
+  "term": "unfreiwillig",
+  "en": "involuntary, unintentional",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das war unfreiwillig komisch.",
+    "en": "That was unintentionally funny."
+   },
+   {
+    "de": "Er hat eine unfreiwillige Pause gemacht.",
+    "en": "He took an involuntary break."
+   }
+  ]
+ },
+ {
+  "term": "das Backup",
+  "en": "backup",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Mach regelmäßig ein Backup deiner Daten.",
+    "en": "Back up your data regularly."
+   },
+   {
+    "de": "Zum Glück hatte ich ein Backup.",
+    "en": "Luckily I had a backup."
+   }
+  ]
+ },
+ {
+  "term": "statisch",
+  "en": "static",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Website ist rein statisch.",
+    "en": "The website is purely static."
+   },
+   {
+    "de": "Die Gesellschaft ist nicht statisch.",
+    "en": "Society is not static."
+   }
+  ]
+ },
+ {
+  "term": "einarbeiten",
+  "en": "to train in (a new employee); to incorporate",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work & Colleagues",
+  "ex": [
+   {
+    "de": "Die Kollegin soll mich in der ersten Woche einarbeiten.",
+    "en": "My colleague is to show me the ropes in the first week."
+   },
+   {
+    "de": "Die Änderungen muss ich noch einarbeiten.",
+    "en": "I still have to incorporate the changes."
+   }
+  ]
+ },
+ {
+  "term": "das Teilchen",
+  "en": "particle; small pastry",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Das Teilchen ist kleiner als ein Atom.",
+    "en": "The particle is smaller than an atom."
+   },
+   {
+    "de": "Beim Bäcker kaufe ich ein süßes Teilchen.",
+    "en": "I buy a sweet pastry at the baker's."
+   }
+  ]
+ },
+ {
+  "term": "willkürlich",
+  "en": "arbitrary",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Entscheidung wirkt völlig willkürlich.",
+    "en": "The decision seems completely arbitrary."
+   },
+   {
+    "de": "Die Polizei darf niemanden willkürlich festnehmen.",
+    "en": "The police may not arrest anyone arbitrarily."
+   }
+  ]
+ },
+ {
+  "term": "die Navigation",
+  "en": "navigation",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Die Navigation im Auto ist veraltet.",
+    "en": "The car's navigation is out of date."
+   },
+   {
+    "de": "Die Navigation auf der Website ist verwirrend.",
+    "en": "Navigating the website is confusing."
+   }
+  ]
+ },
+ {
+  "term": "die Unterzeichnung",
+  "en": "signing",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Unterzeichnung des Vertrags ist am Freitag.",
+    "en": "The signing of the contract is on Friday."
+   },
+   {
+    "de": "Nach der Unterzeichnung gilt der Vertrag.",
+    "en": "The contract applies after signing."
+   }
+  ]
+ },
+ {
+  "term": "die Hierarchie",
+  "en": "hierarchy",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "In der Firma gibt es eine flache Hierarchie.",
+    "en": "The company has a flat hierarchy."
+   },
+   {
+    "de": "Er steht ganz unten in der Hierarchie.",
+    "en": "He's right at the bottom of the hierarchy."
+   }
+  ]
+ },
+ {
+  "term": "das Gewinnspiel",
+  "en": "competition, prize draw",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Beim Gewinnspiel kann man ein Auto gewinnen.",
+    "en": "You can win a car in the prize draw."
+   },
+   {
+    "de": "Das Gewinnspiel endet am Sonntag.",
+    "en": "The competition ends on Sunday."
+   }
+  ]
+ },
+ {
+  "term": "die Neuheit",
+  "en": "novelty, new product",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Advertising & Consumption",
+  "ex": [
+   {
+    "de": "Auf der Messe werden viele Neuheiten gezeigt.",
+    "en": "Many new products are shown at the fair."
+   },
+   {
+    "de": "Die Neuheit des Konzepts überzeugt.",
+    "en": "The novelty of the concept is convincing."
+   }
+  ]
+ },
+ {
+  "term": "vernachlässigen",
+  "en": "to neglect",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Wegen der Arbeit vernachlässigt er seine Freunde.",
+    "en": "He neglects his friends because of work."
+   },
+   {
+    "de": "Die Stadt hat die Schulen lange vernachlässigt.",
+    "en": "The city neglected the schools for a long time."
+   }
+  ]
+ },
+ {
+  "term": "das Patent",
+  "en": "patent",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Firma hat ein Patent angemeldet.",
+    "en": "The company has applied for a patent."
+   },
+   {
+    "de": "Das Patent läuft nächstes Jahr aus.",
+    "en": "The patent expires next year."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "das Streaming",
+  "en": "streaming",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Entertainment & Media",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das Streaming hat die Musikbranche verändert.",
+    "en": "Streaming has changed the music industry."
+   },
+   {
+    "de": "Für Streaming braucht man schnelles Internet.",
+    "en": "You need fast internet for streaming."
+   }
+  ]
+ },
+ {
+  "term": "durchweg",
+  "en": "consistently, without exception",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Kritiken waren durchweg positiv.",
+    "en": "The reviews were consistently positive."
+   },
+   {
+    "de": "Die Mitarbeiter sind durchweg jung.",
+    "en": "The staff are young without exception."
+   }
+  ]
+ },
+ {
+  "term": "die Aufteilung",
+  "en": "division, allocation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Aufteilung der Aufgaben ist fair.",
+    "en": "The division of tasks is fair."
+   },
+   {
+    "de": "Über die Aufteilung des Erbes gibt es Streit.",
+    "en": "There's an argument over how to divide the inheritance."
+   }
+  ]
+ },
+ {
+  "term": "das Erdöl",
+  "en": "oil, petroleum",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Energy & Resources",
+  "ex": [
+   {
+    "de": "Der Preis für Erdöl ist gefallen.",
+    "en": "The price of oil has fallen."
+   },
+   {
+    "de": "Das Land lebt vom Erdöl.",
+    "en": "The country lives off oil."
+   }
+  ]
+ },
+ {
+  "term": "die Verhaltensweise",
+  "en": "behaviour, way of behaving",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Mental health concepts",
+  "ex": [
+   {
+    "de": "Diese Verhaltensweise ist typisch für Katzen.",
+    "en": "This behaviour is typical of cats."
+   },
+   {
+    "de": "Man kann alte Verhaltensweisen ändern.",
+    "en": "You can change old patterns of behaviour."
+   }
+  ]
+ },
+ {
+  "term": "die Gattung",
+  "en": "genre; genus",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Literature",
+  "ex": [
+   {
+    "de": "Der Roman ist eine literarische Gattung.",
+    "en": "The novel is a literary genre."
+   },
+   {
+    "de": "Diese Gattung von Vögeln lebt nur hier.",
+    "en": "This genus of birds only lives here."
+   }
+  ]
+ },
+ {
+  "term": "die Abwicklung",
+  "en": "processing, handling; winding up",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Abwicklung der Zahlung dauert drei Tage.",
+    "en": "Processing the payment takes three days."
+   },
+   {
+    "de": "Nach der Pleite beginnt die Abwicklung der Firma.",
+    "en": "After the bankruptcy the company is being wound up."
+   }
+  ]
+ },
+ {
+  "term": "modular",
+  "en": "modular",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Technology",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Das System ist modular aufgebaut.",
+    "en": "The system has a modular design."
+   },
+   {
+    "de": "Wir bauen ein modulares Haus.",
+    "en": "We are building a modular house."
+   }
+  ]
+ },
+ {
+  "term": "die Mitarbeit",
+  "en": "cooperation, participation",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & Colleagues",
+  "ex": [
+   {
+    "de": "Vielen Dank für Ihre Mitarbeit!",
+    "en": "Many thanks for your cooperation!"
+   },
+   {
+    "de": "Die Mitarbeit im Unterricht zählt zur Note.",
+    "en": "Class participation counts towards the grade."
+   }
+  ]
+ },
+ {
+  "term": "die Unternehmung",
+  "en": "undertaking, venture; outing",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Am Wochenende planen wir eine kleine Unternehmung.",
+    "en": "We're planning a little outing at the weekend."
+   },
+   {
+    "de": "Die Gründung war eine riskante Unternehmung.",
+    "en": "Starting the company was a risky venture."
+   }
+  ]
+ },
+ {
+  "term": "umbenennen",
+  "en": "to rename",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Kannst du die Datei umbenennen?",
+    "en": "Can you rename the file?"
+   },
+   {
+    "de": "Die Stadt will die Straße umbenennen.",
+    "en": "The city wants to rename the street."
+   }
+  ]
+ },
+ {
+  "term": "die Geografie",
+  "en": "geography",
+  "pos": "noun",
+  "level": "B1",
+  "field": "School",
+  "ex": [
+   {
+    "de": "In Geografie lernen wir die Hauptstädte.",
+    "en": "In geography we learn the capitals."
+   },
+   {
+    "de": "Die Geografie des Landes ist sehr vielfältig.",
+    "en": "The country's geography is very varied."
+   }
+  ]
+ },
+ {
+  "term": "zufälligerweise",
+  "en": "by chance, as it happens",
+  "pos": "adverb",
+  "level": "B2",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Zufälligerweise wohnen wir in derselben Straße.",
+    "en": "As it happens, we live on the same street."
+   },
+   {
+    "de": "Hast du zufälligerweise einen Stift?",
+    "en": "Do you happen to have a pen?"
+   }
+  ]
+ },
+ {
+  "term": "die Eingabe",
+  "en": "input, entry; submission",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Bitte bestätigen Sie Ihre Eingabe.",
+    "en": "Please confirm your entry."
+   },
+   {
+    "de": "Die Eingabe der Daten dauert lange.",
+    "en": "Entering the data takes a long time."
+   }
+  ]
+ },
+ {
+  "term": "elementar",
+  "en": "fundamental, elementary",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Vertrauen ist elementar für jede Beziehung.",
+    "en": "Trust is fundamental to any relationship."
+   },
+   {
+    "de": "Das sind elementare Kenntnisse.",
+    "en": "That's elementary knowledge."
+   }
+  ]
+ },
+ {
+  "term": "die Gesamtzahl",
+  "en": "total number",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Die Gesamtzahl der Besucher ist gestiegen.",
+    "en": "The total number of visitors has risen."
+   },
+   {
+    "de": "Die Gesamtzahl der Stimmen wird noch gezählt.",
+    "en": "The total number of votes is still being counted."
+   }
+  ]
+ },
+ {
+  "term": "der Planer",
+  "en": "planner",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Urban Planning & Future",
+  "ex": [
+   {
+    "de": "Die Planer rechnen mit höheren Kosten.",
+    "en": "The planners expect higher costs."
+   },
+   {
+    "de": "Er arbeitet als Planer für eine Baufirma.",
+    "en": "He works as a planner for a construction company."
+   }
+  ]
+ },
+ {
+  "term": "abendlich",
+  "en": "evening (adj.)",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Der abendliche Verkehr ist schlimm.",
+    "en": "The evening traffic is terrible."
+   },
+   {
+    "de": "Wir machen einen abendlichen Spaziergang.",
+    "en": "We're taking an evening walk."
+   }
+  ]
+ },
+ {
+  "term": "entgegengesetzt",
+  "en": "opposite",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Sie fuhren in entgegengesetzte Richtungen.",
+    "en": "They drove in opposite directions."
+   },
+   {
+    "de": "Wir haben entgegengesetzte Meinungen.",
+    "en": "We have opposite opinions."
+   }
+  ]
+ },
+ {
+  "term": "kubanisch",
+  "en": "Cuban",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Sie tanzt gern zu kubanischer Musik.",
+    "en": "She likes dancing to Cuban music."
+   },
+   {
+    "de": "Die kubanische Küche ist einfach und lecker.",
+    "en": "Cuban cuisine is simple and tasty."
+   }
+  ]
+ },
+ {
+  "term": "das Gemüt",
+  "en": "mind, disposition, temperament",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Er hat ein sonniges Gemüt.",
+    "en": "He has a sunny disposition."
+   },
+   {
+    "de": "Das Thema erhitzt die Gemüter.",
+    "en": "The subject is inflaming tempers."
+   }
+  ]
+ },
+ {
+  "term": "die Saat",
+  "en": "seed(s); sowing",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Farm",
+  "ex": [
+   {
+    "de": "Die Saat braucht jetzt Regen.",
+    "en": "The seeds need rain now."
+   },
+   {
+    "de": "Die Saat des Misstrauens ist aufgegangen.",
+    "en": "The seeds of mistrust have taken root."
+   }
+  ]
+ },
+ {
+  "term": "ausmalen",
+  "en": "to colour in; to imagine",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Die Kinder wollen das Bild ausmalen.",
+    "en": "The children want to colour in the picture."
+   },
+   {
+    "de": "Kannst du dir das Leben in Köln ausmalen?",
+    "en": "Can you picture life in Cologne?"
+   }
+  ]
+ },
+ {
+  "term": "tilgen",
+  "en": "to pay off (a debt); to erase",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Wir wollen den Kredit in zehn Jahren tilgen.",
+    "en": "We want to pay off the loan in ten years."
+   },
+   {
+    "de": "Der Eintrag wird aus dem Register getilgt.",
+    "en": "The entry is being deleted from the register."
+   }
+  ]
+ },
+ {
+  "term": "geradewegs",
+  "en": "straight, directly",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Directions",
+  "ex": [
+   {
+    "de": "Nach der Arbeit ging er geradewegs nach Hause.",
+    "en": "After work he went straight home."
+   },
+   {
+    "de": "Die Wirtschaft steuert geradewegs in die Rezession.",
+    "en": "The economy is heading straight for recession."
+   }
+  ]
+ },
+ {
+  "term": "physikalisch",
+  "en": "physical (relating to physics)",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Das ist physikalisch unmöglich.",
+    "en": "That's physically impossible."
+   },
+   {
+    "de": "Die Schüler machen ein physikalisches Experiment.",
+    "en": "The pupils are doing a physics experiment."
+   }
+  ]
+ },
+ {
+  "term": "das Ableben",
+  "en": "death, passing",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Nach dem Ableben des Gründers wurde die Firma verkauft.",
+    "en": "After the founder's death the company was sold."
+   },
+   {
+    "de": "Die Versicherung zahlt beim Ableben.",
+    "en": "The insurance pays out on death."
+   }
+  ]
+ },
+ {
+  "term": "die Reflexion",
+  "en": "reflection",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Work",
+  "ex": [
+   {
+    "de": "Am Ende des Kurses schreiben wir eine Reflexion.",
+    "en": "At the end of the course we write a reflection."
+   },
+   {
+    "de": "Die Reflexion des Lichts blendet.",
+    "en": "The reflection of the light is dazzling."
+   }
+  ]
+ },
+ {
+  "term": "die Abdeckung",
+  "en": "cover; coverage",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Abdeckung des Netzes ist auf dem Land schlecht.",
+    "en": "Network coverage is poor in the countryside."
+   },
+   {
+    "de": "Nimm die Abdeckung vorsichtig ab.",
+    "en": "Carefully remove the cover."
+   }
+  ]
+ },
+ {
+  "term": "der Zins",
+  "en": "interest (rate)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "At the bank",
+  "ex": [
+   {
+    "de": "Der Zins für den Kredit ist gestiegen.",
+    "en": "The interest rate on the loan has risen."
+   },
+   {
+    "de": "Der Zins liegt bei vier Prozent.",
+    "en": "The interest rate is four per cent."
+   }
+  ]
+ },
+ {
+  "term": "eigenhändig",
+  "en": "with one's own hands, personally",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Antrag muss eigenhändig unterschrieben werden.",
+    "en": "The application must be signed personally."
+   },
+   {
+    "de": "Er hat das Haus eigenhändig renoviert.",
+    "en": "He renovated the house himself."
+   }
+  ]
+ },
+ {
+  "term": "die Programmierung",
+  "en": "programming",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Programmierung der App hat ein Jahr gedauert.",
+    "en": "Programming the app took a year."
+   },
+   {
+    "de": "Sie hat einen Kurs in Programmierung gemacht.",
+    "en": "She did a course in programming."
+   }
+  ]
+ },
+ {
+  "term": "die Kanne",
+  "en": "jug, pot (for tea, coffee)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Ich mache eine Kanne Tee.",
+    "en": "I'll make a pot of tea."
+   },
+   {
+    "de": "Die Kanne ist leer.",
+    "en": "The pot is empty."
+   }
+  ]
+ },
+ {
+  "term": "der Afghane",
+  "en": "Afghan (man)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Der Afghane arbeitet als Koch.",
+    "en": "The Afghan man works as a cook."
+   },
+   {
+    "de": "Mein Nachbar ist Afghane.",
+    "en": "My neighbour is Afghan."
+   }
+  ]
+ },
+ {
+  "term": "ungeschehen",
+  "en": "undone (only: ungeschehen machen)",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Man kann den Fehler nicht ungeschehen machen.",
+    "en": "You can't undo the mistake."
+   },
+   {
+    "de": "Ich würde das gern ungeschehen machen.",
+    "en": "I'd like to undo that."
+   }
+  ]
+ },
+ {
+  "term": "sich entledigen",
+  "en": "to get rid of",
+  "pos": "verb",
+  "level": "C2",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Die Firma will sich ihrer Schulden entledigen.",
+    "en": "The company wants to get rid of its debts."
+   },
+   {
+    "de": "Er entledigt sich seiner Jacke.",
+    "en": "He takes off his jacket."
+   }
+  ]
+ },
+ {
+  "term": "folgerichtig",
+  "en": "logical, consistent",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Die Entscheidung ist folgerichtig.",
+    "en": "The decision is logical."
+   },
+   {
+    "de": "Folgerichtig hat er gekündigt.",
+    "en": "Consequently he resigned."
+   }
+  ]
+ },
+ {
+  "term": "die Gültigkeit",
+  "en": "validity",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Prüfen Sie die Gültigkeit Ihres Passes.",
+    "en": "Check the validity of your passport."
+   },
+   {
+    "de": "Das Ticket hat eine Gültigkeit von drei Stunden.",
+    "en": "The ticket is valid for three hours."
+   }
+  ]
+ },
+ {
+  "term": "schielen",
+  "en": "to squint; to eye (covetously)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Body",
+  "ex": [
+   {
+    "de": "Das Baby schielt ein bisschen.",
+    "en": "The baby has a slight squint."
+   },
+   {
+    "de": "Die Partei schielt auf die Stimmen der Jungen.",
+    "en": "The party has its eye on young people's votes."
+   }
+  ]
+ },
+ {
+  "term": "der Garant",
+  "en": "guarantor",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Der Torwart ist der Garant für den Erfolg.",
+    "en": "The goalkeeper is the guarantee of success."
+   },
+   {
+    "de": "Die Verfassung ist ein Garant der Freiheit.",
+    "en": "The constitution is a guarantor of freedom."
+   }
+  ]
+ },
+ {
+  "term": "der Fußabdruck",
+  "en": "footprint",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Ich will meinen ökologischen Fußabdruck verkleinern.",
+    "en": "I want to reduce my ecological footprint."
+   },
+   {
+    "de": "Im Schnee sieht man einen Fußabdruck.",
+    "en": "You can see a footprint in the snow."
+   }
+  ]
+ },
+ {
+  "term": "überarbeiten",
+  "en": "to revise, to rework",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Ich muss meinen Lebenslauf überarbeiten.",
+    "en": "I need to revise my CV."
+   },
+   {
+    "de": "Die Regierung will das Gesetz überarbeiten.",
+    "en": "The government wants to rework the law."
+   }
+  ]
+ },
+ {
+  "term": "die Ausweisung",
+  "en": "expulsion; designation (of an area)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Dem Mann droht die Ausweisung.",
+    "en": "The man faces expulsion."
+   },
+   {
+    "de": "Die Ausweisung neuer Baugebiete dauert Jahre.",
+    "en": "Designating new building areas takes years."
+   }
+  ]
+ },
+ {
+  "term": "die Kostprobe",
+  "en": "sample, taste",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Möchten Sie eine Kostprobe vom Käse?",
+    "en": "Would you like to taste the cheese?"
+   },
+   {
+    "de": "Die Band gab eine Kostprobe ihres Könnens.",
+    "en": "The band gave a taste of what they can do."
+   }
+  ]
+ },
+ {
+  "term": "vermindern",
+  "en": "to reduce, to diminish",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Sport kann das Risiko vermindern.",
+    "en": "Exercise can reduce the risk."
+   },
+   {
+    "de": "Die Sicht war durch den Nebel vermindert.",
+    "en": "Visibility was reduced by the fog."
+   }
+  ]
+ },
+ {
+  "term": "brauen",
+  "en": "to brew",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Food and beverages",
+  "ex": [
+   {
+    "de": "Die Brauerei will ein neues Bier brauen.",
+    "en": "The brewery wants to brew a new beer."
+   },
+   {
+    "de": "Er braut sein Bier selbst.",
+    "en": "He brews his own beer."
+   }
+  ]
+ },
+ {
+  "term": "das Schema",
+  "en": "scheme, pattern, diagram",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Das Schema zeigt den Ablauf.",
+    "en": "The diagram shows the process."
+   },
+   {
+    "de": "Er denkt immer nach demselben Schema.",
+    "en": "He always thinks according to the same pattern."
+   }
+  ]
+ },
+ {
+  "term": "der Proviant",
+  "en": "provisions, packed food",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Für die Wanderung nehmen wir Proviant mit.",
+    "en": "We're taking provisions for the hike."
+   },
+   {
+    "de": "Der Proviant reicht für zwei Tage.",
+    "en": "The provisions will last two days."
+   }
+  ]
+ },
+ {
+  "term": "klebrig",
+  "en": "sticky",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Meine Hände sind ganz klebrig.",
+    "en": "My hands are all sticky."
+   },
+   {
+    "de": "Der Tisch ist klebrig.",
+    "en": "The table is sticky."
+   }
+  ]
+ },
+ {
+  "term": "die Handhabung",
+  "en": "handling, use",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Handhabung des Geräts ist einfach.",
+    "en": "The device is easy to use."
+   },
+   {
+    "de": "Es gibt Regeln zur Handhabung von Daten.",
+    "en": "There are rules for handling data."
+   }
+  ]
+ },
+ {
+  "term": "unbrauchbar",
+  "en": "useless, unusable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Der Drucker ist völlig unbrauchbar.",
+    "en": "The printer is completely useless."
+   },
+   {
+    "de": "Nach dem Regen war das Papier unbrauchbar.",
+    "en": "After the rain the paper was unusable."
+   }
+  ]
+ },
+ {
+  "term": "die Speicherung",
+  "en": "storage (of data)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Speicherung der Daten erfolgt in Europa.",
+    "en": "The data are stored in Europe."
+   },
+   {
+    "de": "Die Speicherung von Strom ist teuer.",
+    "en": "Storing electricity is expensive."
+   }
+  ]
+ },
+ {
+  "term": "durchstarten",
+  "en": "to take off (career); to go around (plane)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Nach dem Kurs will ich beruflich durchstarten.",
+    "en": "After the course I want to take off professionally."
+   },
+   {
+    "de": "Der Pilot musste kurz vor der Landung durchstarten.",
+    "en": "The pilot had to go around just before landing."
+   }
+  ]
+ },
+ {
+  "term": "stationär",
+  "en": "inpatient; stationary",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Healthcare System",
+  "ex": [
+   {
+    "de": "Er wird stationär im Krankenhaus behandelt.",
+    "en": "He is being treated as an inpatient in hospital."
+   },
+   {
+    "de": "Der stationäre Handel leidet unter dem Onlinehandel.",
+    "en": "Bricks-and-mortar retail is suffering from online shopping."
+   }
+  ]
+ },
+ {
+  "term": "der Sockel",
+  "en": "base, plinth",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Arts and culture",
+  "ex": [
+   {
+    "de": "Die Statue steht auf einem hohen Sockel.",
+    "en": "The statue stands on a high plinth."
+   },
+   {
+    "de": "Die Arbeitslosigkeit hat einen hohen Sockel.",
+    "en": "Unemployment has a high baseline."
+   }
+  ]
+ },
+ {
+  "term": "die Beherrschung",
+  "en": "self-control; mastery",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Er hat die Beherrschung verloren.",
+    "en": "He lost his self-control."
+   },
+   {
+    "de": "Die Beherrschung der Sprache braucht Zeit.",
+    "en": "Mastering the language takes time."
+   }
+  ]
+ },
+ {
+  "term": "das Quadrat",
+  "en": "square",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Zeichne ein Quadrat auf das Papier.",
+    "en": "Draw a square on the paper."
+   },
+   {
+    "de": "Das Quadrat hat vier gleiche Seiten.",
+    "en": "The square has four equal sides."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "angeboren",
+  "en": "innate, congenital",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Body & health",
+  "ex": [
+   {
+    "de": "Die Krankheit ist angeboren.",
+    "en": "The illness is congenital."
+   },
+   {
+    "de": "Talent ist nicht immer angeboren.",
+    "en": "Talent isn't always innate."
+   }
+  ]
+ },
+ {
+  "term": "die Mechanik",
+  "en": "mechanics",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Mechanik der Uhr ist kompliziert.",
+    "en": "The watch mechanism is complicated."
+   },
+   {
+    "de": "Die Mechanik des Spiels ist einfach zu lernen.",
+    "en": "The game mechanics are easy to learn."
+   }
+  ]
+ },
+ {
+  "term": "weithin",
+  "en": "widely, far and wide",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Der Dom ist weithin sichtbar.",
+    "en": "The cathedral is visible from far and wide."
+   },
+   {
+    "de": "Er gilt weithin als Experte.",
+    "en": "He is widely regarded as an expert."
+   }
+  ]
+ },
+ {
+  "term": "der Schnappschuss",
+  "en": "snapshot",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Hobbies & leisure",
+  "ex": [
+   {
+    "de": "Das Foto ist nur ein Schnappschuss.",
+    "en": "The photo is just a snapshot."
+   },
+   {
+    "de": "Ihm ist ein toller Schnappschuss gelungen.",
+    "en": "He managed to get a great snapshot."
+   }
+  ]
+ },
+ {
+  "term": "ungenau",
+  "en": "inaccurate, imprecise",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Angaben sind zu ungenau.",
+    "en": "The details are too imprecise."
+   },
+   {
+    "de": "Die Uhr geht ungenau.",
+    "en": "The clock is inaccurate."
+   }
+  ]
+ },
+ {
+  "term": "tatenlos",
+  "en": "idly, without doing anything",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Civic Courage",
+  "ex": [
+   {
+    "de": "Wir dürfen nicht tatenlos zusehen.",
+    "en": "We mustn't stand idly by."
+   },
+   {
+    "de": "Die Regierung blieb tatenlos.",
+    "en": "The government did nothing."
+   }
+  ]
+ },
+ {
+  "term": "rütteln",
+  "en": "to shake, to rattle",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Intermediate everyday verbs",
+  "ex": [
+   {
+    "de": "Der Wind rüttelt am Fenster.",
+    "en": "The wind is rattling the window."
+   },
+   {
+    "de": "Daran gibt es nichts zu rütteln.",
+    "en": "There's no getting around that."
+   }
+  ]
+ },
+ {
+  "term": "das Erdreich",
+  "en": "soil, earth",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Das Wasser versickert im Erdreich.",
+    "en": "The water seeps into the soil."
+   },
+   {
+    "de": "Das Erdreich ist mit Öl belastet.",
+    "en": "The soil is contaminated with oil."
+   }
+  ]
+ },
+ {
+  "term": "die Erzeugung",
+  "en": "production, generation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Energy & Resources",
+  "ex": [
+   {
+    "de": "Die Erzeugung von Strom aus Wind wächst.",
+    "en": "The generation of electricity from wind is growing."
+   },
+   {
+    "de": "Die Erzeugung von Lebensmitteln braucht viel Wasser.",
+    "en": "Producing food needs a lot of water."
+   }
+  ]
+ },
+ {
+  "term": "die Kennzahl",
+  "en": "key figure, metric",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Der Umsatz ist die wichtigste Kennzahl.",
+    "en": "Turnover is the most important metric."
+   },
+   {
+    "de": "Im Bericht stehen alle Kennzahlen.",
+    "en": "All the key figures are in the report."
+   }
+  ]
+ },
+ {
+  "term": "der Wink",
+  "en": "hint, tip; wave",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Das war ein klarer Wink.",
+    "en": "That was a clear hint."
+   },
+   {
+    "de": "Das war ein Wink mit dem Zaunpfahl.",
+    "en": "That was a heavy hint."
+   }
+  ]
+ },
+ {
+  "term": "das Franchise",
+  "en": "franchise",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Er betreibt ein Franchise einer Burgerkette.",
+    "en": "He runs a franchise of a burger chain."
+   },
+   {
+    "de": "Das Franchise hat schon zehn Filme.",
+    "en": "The franchise already has ten films."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Puffer",
+  "en": "buffer",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Plan einen zeitlichen Puffer ein.",
+    "en": "Plan in a time buffer."
+   },
+   {
+    "de": "Das Geld ist ein Puffer für Notfälle.",
+    "en": "The money is a buffer for emergencies."
+   }
+  ]
+ },
+ {
+  "term": "der Spagat",
+  "en": "splits; balancing act",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Der Spagat zwischen Job und Familie ist schwer.",
+    "en": "The balancing act between job and family is hard."
+   },
+   {
+    "de": "Sie kann einen Spagat machen.",
+    "en": "She can do the splits."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "regenerieren",
+  "en": "to regenerate, to recover",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Fitness and training",
+  "ex": [
+   {
+    "de": "Nach dem Training muss der Körper regenerieren.",
+    "en": "After training the body needs to recover."
+   },
+   {
+    "de": "Die Haut regeneriert sich im Schlaf.",
+    "en": "The skin regenerates during sleep."
+   }
+  ]
+ },
+ {
+  "term": "schädigen",
+  "en": "to damage, to harm",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Environment",
+  "ex": [
+   {
+    "de": "Rauchen schädigt die Lunge.",
+    "en": "Smoking damages the lungs."
+   },
+   {
+    "de": "Der Skandal hat den Ruf der Firma geschädigt.",
+    "en": "The scandal damaged the company's reputation."
+   }
+  ]
+ },
+ {
+  "term": "der Navigator",
+  "en": "navigator; satnav",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der Navigator sitzt neben dem Fahrer.",
+    "en": "The navigator sits next to the driver."
+   },
+   {
+    "de": "Der Navigator im Auto zeigt einen Stau.",
+    "en": "The satnav in the car is showing a jam."
+   }
+  ]
+ }
+]

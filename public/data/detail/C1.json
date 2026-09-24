@@ -288,6 +288,20 @@
       }
     ]
   },
+  "voc:C1:alljährlich": {
+    "ex": [
+      {
+        "de": "Das alljährliche Stadtfest ist im August.",
+        "en": "The annual city festival is in August.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Alljährlich kommen Millionen zur Messe.",
+        "en": "Every year millions come to the fair.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:ambitioniert": {
     "ex": [
       {
@@ -385,6 +399,20 @@
       {
         "de": "Ich wollte nicht angeben.",
         "en": "I didn't want to brag.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:angeboren": {
+    "ex": [
+      {
+        "de": "Die Krankheit ist angeboren.",
+        "en": "The illness is congenital.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Talent ist nicht immer angeboren.",
+        "en": "Talent isn't always innate.",
         "lvl": "C1"
       }
     ]
@@ -517,6 +545,20 @@
       {
         "de": "Der Konzern will sich in Ostdeutschland ansiedeln.",
         "en": "The corporation wants to set up in eastern Germany.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:ansprechbar": {
+    "ex": [
+      {
+        "de": "Die Chefin ist für alle ansprechbar.",
+        "en": "The boss is approachable for everyone.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Patient ist wieder ansprechbar.",
+        "en": "The patient is responsive again.",
         "lvl": "C1"
       }
     ]
@@ -737,6 +779,20 @@
       {
         "de": "Die Bewerberin kann gute Kenntnisse aufweisen.",
         "en": "The applicant can demonstrate good knowledge.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:aufwerten": {
+    "ex": [
+      {
+        "de": "Der neue Park soll das Viertel aufwerten.",
+        "en": "The new park is meant to upgrade the neighbourhood.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Zentralbank will die Währung aufwerten.",
+        "en": "The central bank wants to revalue the currency.",
         "lvl": "C1"
       }
     ]
@@ -1005,6 +1061,20 @@
       }
     ]
   },
+  "voc:C1:auszeichnen": {
+    "ex": [
+      {
+        "de": "Die Jury will den Film auszeichnen.",
+        "en": "The jury wants to honour the film.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihn zeichnet seine Geduld aus.",
+        "en": "His patience sets him apart.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:autonom": {
     "ex": [
       {
@@ -1212,6 +1282,20 @@
       }
     ]
   },
+  "voc:C1:beharren": {
+    "ex": [
+      {
+        "de": "Die Gewerkschaft beharrt auf ihrer Forderung.",
+        "en": "The union is insisting on its demand.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er beharrt darauf, recht zu haben.",
+        "en": "He insists that he's right.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:behutsam": {
     "ex": [
       {
@@ -1279,6 +1363,20 @@
       {
         "de": "Sie ist bekanntlich keine Freundin von Kompromissen.",
         "en": "She is, as is well known, no friend of compromises.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:beleben": {
+    "ex": [
+      {
+        "de": "Neue Cafés sollen die Innenstadt beleben.",
+        "en": "New cafés are meant to liven up the city centre.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein starker Kaffee kann am Morgen beleben.",
+        "en": "A strong coffee can revive you in the morning.",
         "lvl": "C1"
       }
     ]
@@ -1410,6 +1508,20 @@
       {
         "de": "Kannst du mir die Unterlagen beschaffen?",
         "en": "Can you get hold of the documents for me?",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:bescheinigen": {
+    "ex": [
+      {
+        "de": "Der Arzt muss die Krankheit bescheinigen.",
+        "en": "The doctor has to certify the illness.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Arbeitgeber bescheinigt das Einkommen.",
+        "en": "The employer confirms the income in writing.",
         "lvl": "C1"
       }
     ]
@@ -1672,6 +1784,20 @@
       {
         "de": "Die Zeitung hat brisante Dokumente veröffentlicht.",
         "en": "The newspaper published highly sensitive documents.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:brodeln": {
+    "ex": [
+      {
+        "de": "Die Suppe brodelt auf dem Herd.",
+        "en": "The soup is bubbling on the stove.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der Partei brodelt es.",
+        "en": "There's unrest simmering in the party.",
         "lvl": "C1"
       }
     ]
@@ -1947,6 +2073,20 @@
       }
     ]
   },
+  "voc:C1:das Copyright": {
+    "ex": [
+      {
+        "de": "Das Copyright für das Foto liegt beim Fotografen.",
+        "en": "The copyright for the photo belongs to the photographer.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die KI-Firma hat das Copyright verletzt.",
+        "en": "The AI company infringed the copyright.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Dashboard": {
     "ex": [
       {
@@ -2046,6 +2186,20 @@
       }
     ]
   },
+  "voc:C1:das Eigenkapital": {
+    "ex": [
+      {
+        "de": "Für den Kredit braucht man zwanzig Prozent Eigenkapital.",
+        "en": "You need twenty per cent equity for the loan.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Bank muss ihr Eigenkapital erhöhen.",
+        "en": "The bank has to increase its capital.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Eigentum": {
     "ex": [
       {
@@ -2056,6 +2210,20 @@
       {
         "de": "Fremdes Eigentum darf man nicht beschädigen.",
         "en": "You must not damage other people's property.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Einvernehmen": {
+    "ex": [
+      {
+        "de": "Die Trennung erfolgte im gegenseitigen Einvernehmen.",
+        "en": "The separation was by mutual agreement.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Einvernehmen mit der Stadt wurde das Fest verschoben.",
+        "en": "The festival was postponed in agreement with the city.",
         "lvl": "C1"
       }
     ]
@@ -2114,6 +2282,20 @@
       {
         "de": "Er trat das schwere Erbe seines Vorgängers an.",
         "en": "He took on the difficult legacy of his predecessor.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Exponat": {
+    "ex": [
+      {
+        "de": "Das Museum zeigt über tausend Exponate.",
+        "en": "The museum shows over a thousand exhibits.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Dieses Exponat darf man anfassen.",
+        "en": "You're allowed to touch this exhibit.",
         "lvl": "C1"
       }
     ]
@@ -2251,6 +2433,34 @@
       }
     ]
   },
+  "voc:C1:das Fragment": {
+    "ex": [
+      {
+        "de": "Vom Text ist nur ein Fragment erhalten.",
+        "en": "Only a fragment of the text survives.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich erinnere mich nur an ein Fragment des Traums.",
+        "en": "I only remember a fragment of the dream.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Franchise": {
+    "ex": [
+      {
+        "de": "Er betreibt ein Franchise einer Burgerkette.",
+        "en": "He runs a franchise of a burger chain.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Franchise hat schon zehn Filme.",
+        "en": "The franchise already has ten films.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Fundament": {
     "def": "The solid base on which a building or idea rests.",
     "ex": [
@@ -2369,6 +2579,20 @@
       }
     ]
   },
+  "voc:C1:das Gemüt": {
+    "ex": [
+      {
+        "de": "Er hat ein sonniges Gemüt.",
+        "en": "He has a sunny disposition.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Thema erhitzt die Gemüter.",
+        "en": "The subject is inflaming tempers.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Geschick": {
     "ex": [
       {
@@ -2481,6 +2705,20 @@
       {
         "de": "Ein Heer von Touristen strömt in die Stadt.",
         "en": "An army of tourists is streaming into the city.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Herzblut": {
+    "ex": [
+      {
+        "de": "Sie steckt viel Herzblut in ihr Projekt.",
+        "en": "She puts her heart and soul into her project.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit Herzblut ist er bei der Sache.",
+        "en": "He's passionately committed to it.",
         "lvl": "C1"
       }
     ]
@@ -2608,6 +2846,20 @@
       {
         "de": "Kannst du das Layout noch einmal ändern?",
         "en": "Can you change the layout again?",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Manifest": {
+    "ex": [
+      {
+        "de": "Die Gruppe hat ein Manifest veröffentlicht.",
+        "en": "The group has published a manifesto.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Manifest fordert mehr Klimaschutz.",
+        "en": "The manifesto calls for more climate protection.",
         "lvl": "C1"
       }
     ]
@@ -2741,6 +2993,20 @@
       }
     ]
   },
+  "voc:C1:das Patent": {
+    "ex": [
+      {
+        "de": "Die Firma hat ein Patent angemeldet.",
+        "en": "The company has applied for a patent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Patent läuft nächstes Jahr aus.",
+        "en": "The patent expires next year.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Plagiat": {
     "def": "The act of presenting someone else's work or ideas as one's own.",
     "ex": [
@@ -2781,6 +3047,20 @@
       {
         "de": "Das Podium war für die Gäste reserviert.",
         "en": "The podium was reserved for the guests.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Polster": {
+    "ex": [
+      {
+        "de": "Wir haben ein finanzielles Polster für Notfälle.",
+        "en": "We have a financial cushion for emergencies.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Polster vom Sofa ist kaputt.",
+        "en": "The sofa cushion is broken.",
         "lvl": "C1"
       }
     ]
@@ -2923,6 +3203,20 @@
       {
         "de": "Er hat kein Rückgrat.",
         "en": "He has no backbone.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Schema": {
+    "ex": [
+      {
+        "de": "Das Schema zeigt den Ablauf.",
+        "en": "The diagram shows the process.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er denkt immer nach demselben Schema.",
+        "en": "He always thinks according to the same pattern.",
         "lvl": "C1"
       }
     ]
@@ -3097,6 +3391,20 @@
       }
     ]
   },
+  "voc:C1:das Teilchen": {
+    "ex": [
+      {
+        "de": "Das Teilchen ist kleiner als ein Atom.",
+        "en": "The particle is smaller than an atom.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beim Bäcker kaufe ich ein süßes Teilchen.",
+        "en": "I buy a sweet pastry at the baker's.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Timing": {
     "ex": [
       {
@@ -3164,6 +3472,20 @@
       {
         "de": "Sie kommt aus einem sehr musikalischen Umfeld.",
         "en": "She comes from a very musical background.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Verdeck": {
+    "ex": [
+      {
+        "de": "Im Sommer fahren wir mit offenem Verdeck.",
+        "en": "In summer we drive with the top down.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mach das Verdeck vom Kinderwagen zu.",
+        "en": "Close the hood on the pram.",
         "lvl": "C1"
       }
     ]
@@ -3687,6 +4009,20 @@
       }
     ]
   },
+  "voc:C1:der Anwärter": {
+    "ex": [
+      {
+        "de": "Er ist ein Anwärter auf den Titel.",
+        "en": "He is a contender for the title.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gibt drei Anwärter für den Posten.",
+        "en": "There are three candidates for the post.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Appell": {
     "ex": [
       {
@@ -3859,6 +4195,20 @@
       }
     ]
   },
+  "voc:C1:der Beistand": {
+    "ex": [
+      {
+        "de": "In schweren Zeiten braucht man Beistand.",
+        "en": "You need support in hard times.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Anwalt leistet ihm rechtlichen Beistand.",
+        "en": "The lawyer gives him legal assistance.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Beitritt": {
     "ex": [
       {
@@ -3897,6 +4247,20 @@
       {
         "de": "Die Beschlüsse wurden einstimmig gefasst.",
         "en": "The resolutions were passed unanimously.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Betrachter": {
+    "ex": [
+      {
+        "de": "Das Bild wirkt auf jeden Betrachter anders.",
+        "en": "The picture affects every viewer differently.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für einen neutralen Betrachter war das Spiel spannend.",
+        "en": "For a neutral observer the game was exciting.",
         "lvl": "C1"
       }
     ]
@@ -3940,6 +4304,20 @@
       {
         "de": "Im Bruchteil einer Sekunde war es vorbei.",
         "en": "It was over in a fraction of a second.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Börsengang": {
+    "ex": [
+      {
+        "de": "Der Börsengang des Start-ups ist für Mai geplant.",
+        "en": "The start-up's IPO is planned for May.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Börsengang stieg die Aktie stark.",
+        "en": "After the IPO the share rose sharply.",
         "lvl": "C1"
       }
     ]
@@ -4061,6 +4439,20 @@
       }
     ]
   },
+  "voc:C1:der Eingangsbereich": {
+    "ex": [
+      {
+        "de": "Im Eingangsbereich stehen die Briefkästen.",
+        "en": "The letterboxes are in the entrance area.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Eingangsbereich wird renoviert.",
+        "en": "The entrance area is being renovated.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Eingriff": {
     "def": "A deliberate act that alters a course of events; in medicine, an operation.",
     "ex": [
@@ -4086,6 +4478,20 @@
       {
         "de": "Sie lebt im Einklang mit der Natur.",
         "en": "She lives in harmony with nature.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Einschlag": {
+    "ex": [
+      {
+        "de": "Der Einschlag der Rakete zerstörte das Haus.",
+        "en": "The rocket's impact destroyed the house.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man hörte den Einschlag bis in die Stadt.",
+        "en": "The impact could be heard in the city.",
         "lvl": "C1"
       }
     ]
@@ -4205,6 +4611,20 @@
       }
     ]
   },
+  "voc:C1:der Essay": {
+    "ex": [
+      {
+        "de": "Er schreibt einen Essay über Migration.",
+        "en": "He is writing an essay on migration.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Essay erschien in einer Zeitung.",
+        "en": "The essay appeared in a newspaper.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Etat": {
     "def": "The money allotted to a body for a period, and the plan for spending it.",
     "ex": [
@@ -4276,6 +4696,20 @@
       }
     ]
   },
+  "voc:C1:der Fundort": {
+    "ex": [
+      {
+        "de": "Die Polizei sperrt den Fundort ab.",
+        "en": "The police cordon off the place where it was found.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Fundort der Münzen ist geheim.",
+        "en": "The site where the coins were found is secret.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Föderalismus": {
     "ex": [
       {
@@ -4286,6 +4720,20 @@
       {
         "de": "In Deutschland ist der Föderalismus sehr ausgeprägt.",
         "en": "Federalism is very pronounced in Germany.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Garant": {
+    "ex": [
+      {
+        "de": "Der Torwart ist der Garant für den Erfolg.",
+        "en": "The goalkeeper is the guarantee of success.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Verfassung ist ein Garant der Freiheit.",
+        "en": "The constitution is a guarantor of freedom.",
         "lvl": "C1"
       }
     ]
@@ -4743,6 +5191,20 @@
       }
     ]
   },
+  "voc:C1:der Kult": {
+    "ex": [
+      {
+        "de": "Die Serie ist längst Kult.",
+        "en": "The series has long had cult status.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Um den Sänger gibt es einen richtigen Kult.",
+        "en": "There's a real cult around the singer.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Lack": {
     "ex": [
       {
@@ -4998,6 +5460,20 @@
       }
     ]
   },
+  "voc:C1:der Navigator": {
+    "ex": [
+      {
+        "de": "Der Navigator sitzt neben dem Fahrer.",
+        "en": "The navigator sits next to the driver.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Navigator im Auto zeigt einen Stau.",
+        "en": "The satnav in the car is showing a jam.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Neoliberalismus": {
     "ex": [
       {
@@ -5098,6 +5574,20 @@
       }
     ]
   },
+  "voc:C1:der Planer": {
+    "ex": [
+      {
+        "de": "Die Planer rechnen mit höheren Kosten.",
+        "en": "The planners expect higher costs.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er arbeitet als Planer für eine Baufirma.",
+        "en": "He works as a planner for a construction company.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Populismus": {
     "def": "A political style that claims to speak for ordinary people against elites.",
     "ex": [
@@ -5171,6 +5661,20 @@
       }
     ]
   },
+  "voc:C1:der Proviant": {
+    "ex": [
+      {
+        "de": "Für die Wanderung nehmen wir Proviant mit.",
+        "en": "We're taking provisions for the hike.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Proviant reicht für zwei Tage.",
+        "en": "The provisions will last two days.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Prozessor": {
     "ex": [
       {
@@ -5181,6 +5685,20 @@
       {
         "de": "Der Prozessor wird zu heiß.",
         "en": "The processor is getting too hot.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Puffer": {
+    "ex": [
+      {
+        "de": "Plan einen zeitlichen Puffer ein.",
+        "en": "Plan in a time buffer.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Geld ist ein Puffer für Notfälle.",
+        "en": "The money is a buffer for emergencies.",
         "lvl": "C1"
       }
     ]
@@ -5309,6 +5827,20 @@
       {
         "de": "Im Rundfunk wurde die Nachricht sofort gemeldet.",
         "en": "The news was reported on the radio immediately.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Rückenwind": {
+    "ex": [
+      {
+        "de": "Mit Rückenwind fahre ich viel schneller.",
+        "en": "With a tailwind I ride much faster.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Wahl gibt der Partei Rückenwind.",
+        "en": "The election gives the party a boost.",
         "lvl": "C1"
       }
     ]
@@ -5483,6 +6015,20 @@
       }
     ]
   },
+  "voc:C1:der Sockel": {
+    "ex": [
+      {
+        "de": "Die Statue steht auf einem hohen Sockel.",
+        "en": "The statue stands on a high plinth.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Arbeitslosigkeit hat einen hohen Sockel.",
+        "en": "Unemployment has a high baseline.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Souverän": {
     "def": "The supreme ruler; in a democracy, the people as holders of power.",
     "ex": [
@@ -5508,6 +6054,20 @@
       {
         "de": "Er hat ein Buch über den Sozialismus geschrieben.",
         "en": "He wrote a book about socialism.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Spagat": {
+    "ex": [
+      {
+        "de": "Der Spagat zwischen Job und Familie ist schwer.",
+        "en": "The balancing act between job and family is hard.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie kann einen Spagat machen.",
+        "en": "She can do the splits.",
         "lvl": "C1"
       }
     ]
@@ -5833,6 +6393,20 @@
       }
     ]
   },
+  "voc:C1:der Trubel": {
+    "ex": [
+      {
+        "de": "Im Karneval ist in Köln viel Trubel.",
+        "en": "There's a lot of hustle and bustle in Cologne at carnival.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich brauche Ruhe nach dem Trubel.",
+        "en": "I need some peace after all the bustle.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Umbruch": {
     "def": "A time of great and sudden change.",
     "ex": [
@@ -5957,6 +6531,20 @@
       {
         "de": "Für jeden Verstoß gibt es eine Strafe.",
         "en": "There's a penalty for every violation.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Verwalter": {
+    "ex": [
+      {
+        "de": "Der Verwalter kümmert sich um die Reparatur.",
+        "en": "The property manager is taking care of the repair.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ruf den Verwalter wegen der Heizung an.",
+        "en": "Call the property manager about the heating.",
         "lvl": "C1"
       }
     ]
@@ -6132,6 +6720,20 @@
       }
     ]
   },
+  "voc:C1:der Wettbewerber": {
+    "ex": [
+      {
+        "de": "Der Wettbewerber hat die Preise gesenkt.",
+        "en": "The competitor has lowered its prices.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir müssen besser sein als jeder Wettbewerber.",
+        "en": "We have to be better than every competitor.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Widerruf": {
     "ex": [
       {
@@ -6171,6 +6773,20 @@
       {
         "de": "Für den Wiederaufbau braucht das Land Hilfe.",
         "en": "The country needs help with reconstruction.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Wink": {
+    "ex": [
+      {
+        "de": "Das war ein klarer Wink.",
+        "en": "That was a clear hint.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war ein Wink mit dem Zaunpfahl.",
+        "en": "That was a heavy hint.",
         "lvl": "C1"
       }
     ]
@@ -6389,6 +7005,34 @@
       }
     ]
   },
+  "voc:C1:der Überfluss": {
+    "ex": [
+      {
+        "de": "Wir leben im Überfluss.",
+        "en": "We live in abundance.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Zu allem Überfluss regnete es auch noch.",
+        "en": "To top it all, it rained too.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Übergriff": {
+    "ex": [
+      {
+        "de": "Die Polizei ermittelt wegen eines Übergriffs.",
+        "en": "The police are investigating an assault.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das ist ein Übergriff auf meine Privatsphäre.",
+        "en": "That's an intrusion on my privacy.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:derartig": {
     "ex": [
       {
@@ -6441,6 +7085,20 @@
       {
         "de": "Siehe Abbildung drei auf Seite zehn.",
         "en": "See figure three on page ten.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Abdeckung": {
+    "ex": [
+      {
+        "de": "Die Abdeckung des Netzes ist auf dem Land schlecht.",
+        "en": "Network coverage is poor in the countryside.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nimm die Abdeckung vorsichtig ab.",
+        "en": "Carefully remove the cover.",
         "lvl": "C1"
       }
     ]
@@ -6532,6 +7190,20 @@
       }
     ]
   },
+  "voc:C1:die Abstammung": {
+    "ex": [
+      {
+        "de": "Sie ist türkischer Abstammung.",
+        "en": "She is of Turkish descent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Staatsbürgerschaft hängt nicht nur von der Abstammung ab.",
+        "en": "Citizenship doesn't only depend on descent.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Abweichung": {
     "ex": [
       {
@@ -6542,6 +7214,20 @@
       {
         "de": "Jede Abweichung vom Plan muss gemeldet werden.",
         "en": "Any deviation from the plan must be reported.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Abwicklung": {
+    "ex": [
+      {
+        "de": "Die Abwicklung der Zahlung dauert drei Tage.",
+        "en": "Processing the payment takes three days.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach der Pleite beginnt die Abwicklung der Firma.",
+        "en": "After the bankruptcy the company is being wound up.",
         "lvl": "C1"
       }
     ]
@@ -6748,6 +7434,20 @@
       }
     ]
   },
+  "voc:C1:die Anspannung": {
+    "ex": [
+      {
+        "de": "Vor dem Start ist die Anspannung groß.",
+        "en": "There's a lot of tension before the start.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Anspannung fällt langsam von mir ab.",
+        "en": "The strain is slowly falling away.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Anspielung": {
     "def": "An indirect reference to something without naming it directly.",
     "ex": [
@@ -6835,6 +7535,20 @@
       }
     ]
   },
+  "voc:C1:die Aufteilung": {
+    "ex": [
+      {
+        "de": "Die Aufteilung der Aufgaben ist fair.",
+        "en": "The division of tasks is fair.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über die Aufteilung des Erbes gibt es Streit.",
+        "en": "There's an argument over how to divide the inheritance.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Aufzählung": {
     "def": "Items named one after another, without the links between them.",
     "ex": [
@@ -6891,6 +7605,20 @@
       {
         "de": "Über eine Auslagerung der IT wird seit Monaten verhandelt.",
         "en": "Outsourcing the IT department has been under negotiation for months.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Ausweisung": {
+    "ex": [
+      {
+        "de": "Dem Mann droht die Ausweisung.",
+        "en": "The man faces expulsion.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Ausweisung neuer Baugebiete dauert Jahre.",
+        "en": "Designating new building areas takes years.",
         "lvl": "C1"
       }
     ]
@@ -6991,6 +7719,20 @@
       {
         "de": "Am Bahnhof fehlt es an Barrierefreiheit.",
         "en": "The station is not accessible enough.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Bedrängnis": {
+    "ex": [
+      {
+        "de": "Die Firma ist in finanzielle Bedrängnis geraten.",
+        "en": "The company has got into financial difficulty.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In seiner Bedrängnis rief er die Polizei.",
+        "en": "In his distress he called the police.",
         "lvl": "C1"
       }
     ]
@@ -7097,6 +7839,20 @@
       }
     ]
   },
+  "voc:C1:die Beherrschung": {
+    "ex": [
+      {
+        "de": "Er hat die Beherrschung verloren.",
+        "en": "He lost his self-control.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Beherrschung der Sprache braucht Zeit.",
+        "en": "Mastering the language takes time.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Bekanntgabe": {
     "ex": [
       {
@@ -7151,6 +7907,20 @@
       {
         "de": "Sie schätzt die Bequemlichkeit eines eigenen Gartens.",
         "en": "She appreciates the comfort of having her own garden.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Berechtigung": {
+    "ex": [
+      {
+        "de": "Sie haben keine Berechtigung für diesen Bereich.",
+        "en": "You don't have authorisation for this area.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kritik hat ihre Berechtigung.",
+        "en": "The criticism is justified.",
         "lvl": "C1"
       }
     ]
@@ -7558,6 +8328,20 @@
       }
     ]
   },
+  "voc:C1:die Direktion": {
+    "ex": [
+      {
+        "de": "Die Direktion hat die Regel geändert.",
+        "en": "The management changed the rule.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beschwerden bitte an die Direktion.",
+        "en": "Please address complaints to the management.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Diskrepanz": {
     "def": "A difference between things that should match.",
     "ex": [
@@ -7597,6 +8381,20 @@
       {
         "de": "Die Diversität der Stadt ist ihre Stärke.",
         "en": "The city's diversity is its strength.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Dringlichkeit": {
+    "ex": [
+      {
+        "de": "Die Dringlichkeit des Problems ist allen klar.",
+        "en": "The urgency of the problem is clear to everyone.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir bearbeiten die Anfragen nach Dringlichkeit.",
+        "en": "We process the requests by urgency.",
         "lvl": "C1"
       }
     ]
@@ -7668,6 +8466,20 @@
       {
         "de": "Die Einflussnahme von Lobbyisten ist groß.",
         "en": "The influence exerted by lobbyists is great.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Eingabe": {
+    "ex": [
+      {
+        "de": "Bitte bestätigen Sie Ihre Eingabe.",
+        "en": "Please confirm your entry.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Eingabe der Daten dauert lange.",
+        "en": "Entering the data takes a long time.",
         "lvl": "C1"
       }
     ]
@@ -7888,6 +8700,20 @@
       }
     ]
   },
+  "voc:C1:die Erkundung": {
+    "ex": [
+      {
+        "de": "Zur Erkundung der Stadt leihen wir Fahrräder.",
+        "en": "We're hiring bikes to explore the city.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Erkundung des Mars geht weiter.",
+        "en": "The exploration of Mars continues.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Ernennung": {
     "ex": [
       {
@@ -7976,6 +8802,34 @@
       }
     ]
   },
+  "voc:C1:die Erzeugung": {
+    "ex": [
+      {
+        "de": "Die Erzeugung von Strom aus Wind wächst.",
+        "en": "The generation of electricity from wind is growing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Erzeugung von Lebensmitteln braucht viel Wasser.",
+        "en": "Producing food needs a lot of water.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Ethik": {
+    "ex": [
+      {
+        "de": "In der Schule gibt es das Fach Ethik.",
+        "en": "There is the subject of ethics at school.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Ethik der künstlichen Intelligenz ist umstritten.",
+        "en": "The ethics of artificial intelligence are contested.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Europameisterschaft": {
     "def": "A sports competition to find the best team or player in Europe.",
     "ex": [
@@ -8058,6 +8912,20 @@
       {
         "de": "Sie formatierte ihre Festplatte neu.",
         "en": "She reformatted her hard drive.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Fiktion": {
+    "ex": [
+      {
+        "de": "Die Geschichte ist reine Fiktion.",
+        "en": "The story is pure fiction.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Grenze zwischen Fiktion und Realität verschwimmt.",
+        "en": "The line between fiction and reality is blurring.",
         "lvl": "C1"
       }
     ]
@@ -8265,6 +9133,20 @@
       }
     ]
   },
+  "voc:C1:die Gattung": {
+    "ex": [
+      {
+        "de": "Der Roman ist eine literarische Gattung.",
+        "en": "The novel is a literary genre.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Diese Gattung von Vögeln lebt nur hier.",
+        "en": "This genus of birds only lives here.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Gefährdung": {
     "ex": [
       {
@@ -8353,6 +9235,20 @@
       }
     ]
   },
+  "voc:C1:die Genauigkeit": {
+    "ex": [
+      {
+        "de": "Die Genauigkeit der Messung ist hoch.",
+        "en": "The accuracy of the measurement is high.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Deutsche Behörden lieben Genauigkeit.",
+        "en": "German authorities love precision.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Generationengerechtigkeit": {
     "def": "Fairness between the young and the old, now and in the future.",
     "ex": [
@@ -8393,6 +9289,20 @@
       {
         "de": "Die Gesamtmenge reicht für alle.",
         "en": "The total amount is enough for everyone.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Gesamtzahl": {
+    "ex": [
+      {
+        "de": "Die Gesamtzahl der Besucher ist gestiegen.",
+        "en": "The total number of visitors has risen.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Gesamtzahl der Stimmen wird noch gezählt.",
+        "en": "The total number of votes is still being counted.",
         "lvl": "C1"
       }
     ]
@@ -8605,6 +9515,20 @@
       }
     ]
   },
+  "voc:C1:die Handhabung": {
+    "ex": [
+      {
+        "de": "Die Handhabung des Geräts ist einfach.",
+        "en": "The device is easy to use.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gibt Regeln zur Handhabung von Daten.",
+        "en": "There are rules for handling data.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Hartnäckigkeit": {
     "def": "The quality of continuing firmly despite difficulty.",
     "ex": [
@@ -8675,6 +9599,20 @@
       {
         "de": "Wegen Hetze gegen Geflüchtete wurde das Konto gesperrt.",
         "en": "The account was blocked for incitement against refugees.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Hierarchie": {
+    "ex": [
+      {
+        "de": "In der Firma gibt es eine flache Hierarchie.",
+        "en": "The company has a flat hierarchy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er steht ganz unten in der Hierarchie.",
+        "en": "He's right at the bottom of the hierarchy.",
         "lvl": "C1"
       }
     ]
@@ -8824,6 +9762,20 @@
       }
     ]
   },
+  "voc:C1:die Injektion": {
+    "ex": [
+      {
+        "de": "Der Arzt gibt ihm eine Injektion.",
+        "en": "The doctor gives him an injection.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Injektion tut kaum weh.",
+        "en": "The injection hardly hurts.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Inklusion": {
     "ex": [
       {
@@ -8937,6 +9889,20 @@
       }
     ]
   },
+  "voc:C1:die Kanalisation": {
+    "ex": [
+      {
+        "de": "Die Kanalisation ist bei Starkregen überlastet.",
+        "en": "The sewers are overloaded in heavy rain.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Stadt erneuert die Kanalisation.",
+        "en": "The city is renewing the sewer system.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Kapsel": {
     "def": "A small case, such as one holding medicine; also a spacecraft cabin.",
     "ex": [
@@ -8962,6 +9928,20 @@
       {
         "de": "München hat eine hohe Kaufkraft.",
         "en": "Munich has high purchasing power.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Kennzahl": {
+    "ex": [
+      {
+        "de": "Der Umsatz ist die wichtigste Kennzahl.",
+        "en": "Turnover is the most important metric.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Bericht stehen alle Kennzahlen.",
+        "en": "All the key figures are in the report.",
         "lvl": "C1"
       }
     ]
@@ -9151,6 +10131,20 @@
       }
     ]
   },
+  "voc:C1:die Kontinuität": {
+    "ex": [
+      {
+        "de": "Die Wähler wünschen sich Kontinuität.",
+        "en": "Voters want continuity.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Team fehlt die Kontinuität.",
+        "en": "The team lacks continuity.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Kontroverse": {
     "ex": [
       {
@@ -9232,6 +10226,20 @@
       {
         "de": "Der Titel war die Krönung seiner Karriere.",
         "en": "The title was the crowning achievement of his career.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Kühlung": {
+    "ex": [
+      {
+        "de": "Die Kühlung des Rechenzentrums braucht viel Strom.",
+        "en": "Cooling the data centre uses a lot of electricity.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Medikament braucht Kühlung.",
+        "en": "The medicine needs refrigeration.",
         "lvl": "C1"
       }
     ]
@@ -9415,6 +10423,20 @@
       {
         "de": "Beim Stricken ist eine Masche gefallen.",
         "en": "A stitch was dropped while knitting.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Mechanik": {
+    "ex": [
+      {
+        "de": "Die Mechanik der Uhr ist kompliziert.",
+        "en": "The watch mechanism is complicated.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Mechanik des Spiels ist einfach zu lernen.",
+        "en": "The game mechanics are easy to learn.",
         "lvl": "C1"
       }
     ]
@@ -9609,6 +10631,20 @@
       }
     ]
   },
+  "voc:C1:die Neuheit": {
+    "ex": [
+      {
+        "de": "Auf der Messe werden viele Neuheiten gezeigt.",
+        "en": "Many new products are shown at the fair.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Neuheit des Konzepts überzeugt.",
+        "en": "The novelty of the concept is convincing.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Nichtregierungsorganisation": {
     "ex": [
       {
@@ -9663,6 +10699,20 @@
       {
         "de": "Die Novelle erzählt eine einzige unerhörte Begebenheit.",
         "en": "The novella tells of a single unheard-of event.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Obergrenze": {
+    "ex": [
+      {
+        "de": "Die Partei fordert eine Obergrenze für Asyl.",
+        "en": "The party is calling for a cap on asylum.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für die Miete gibt es eine Obergrenze.",
+        "en": "There is an upper limit on the rent.",
         "lvl": "C1"
       }
     ]
@@ -9836,6 +10886,20 @@
       }
     ]
   },
+  "voc:C1:die Praktik": {
+    "ex": [
+      {
+        "de": "Die Firma wurde für ihre Praktiken kritisiert.",
+        "en": "The company was criticised for its practices.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Diese Praktik ist in Deutschland verboten.",
+        "en": "This practice is banned in Germany.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Privatisierung": {
     "ex": [
       {
@@ -9861,6 +10925,20 @@
       {
         "de": "Die Prognose der Ärzte war vorsichtig optimistisch.",
         "en": "The doctors' prognosis was cautiously optimistic.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Programmierung": {
+    "ex": [
+      {
+        "de": "Die Programmierung der App hat ein Jahr gedauert.",
+        "en": "Programming the app took a year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat einen Kurs in Programmierung gemacht.",
+        "en": "She did a course in programming.",
         "lvl": "C1"
       }
     ]
@@ -10070,6 +11148,20 @@
       }
     ]
   },
+  "voc:C1:die Reflexion": {
+    "ex": [
+      {
+        "de": "Am Ende des Kurses schreiben wir eine Reflexion.",
+        "en": "At the end of the course we write a reflection.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Reflexion des Lichts blendet.",
+        "en": "The reflection of the light is dazzling.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Regulierung": {
     "ex": [
       {
@@ -10242,6 +11334,34 @@
       }
     ]
   },
+  "voc:C1:die Rücksprache": {
+    "ex": [
+      {
+        "de": "Nach Rücksprache mit meinem Chef sage ich zu.",
+        "en": "After consulting my boss, I accept.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich halte kurz Rücksprache mit dem Team.",
+        "en": "I'll quickly check with the team.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Saat": {
+    "ex": [
+      {
+        "de": "Die Saat braucht jetzt Regen.",
+        "en": "The seeds need rain now.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Saat des Misstrauens ist aufgegangen.",
+        "en": "The seeds of mistrust have taken root.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Satzung": {
     "ex": [
       {
@@ -10308,6 +11428,20 @@
       {
         "de": "Die Schlinge um die Firma zieht sich zu.",
         "en": "The noose is tightening around the company.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Schnelligkeit": {
+    "ex": [
+      {
+        "de": "Seine Schnelligkeit ist seine größte Stärke.",
+        "en": "His speed is his greatest strength.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei der Reaktion zählt Schnelligkeit.",
+        "en": "Speed counts in the response.",
         "lvl": "C1"
       }
     ]
@@ -10457,6 +11591,20 @@
       }
     ]
   },
+  "voc:C1:die Signatur": {
+    "ex": [
+      {
+        "de": "Die E-Mail hat eine lange Signatur.",
+        "en": "The email has a long signature.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Unten auf dem Bild ist die Signatur des Malers.",
+        "en": "The painter's signature is at the bottom of the picture.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Skepsis": {
     "def": "A doubting attitude that questions claims before accepting them.",
     "ex": [
@@ -10525,6 +11673,20 @@
       {
         "de": "Der Streit über den Kurs führte zur Spaltung der Partei.",
         "en": "The dispute over strategy led to the party splitting.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Speicherung": {
+    "ex": [
+      {
+        "de": "Die Speicherung der Daten erfolgt in Europa.",
+        "en": "The data are stored in Europe.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Speicherung von Strom ist teuer.",
+        "en": "Storing electricity is expensive.",
         "lvl": "C1"
       }
     ]
@@ -10670,6 +11832,20 @@
       {
         "de": "Die Startelf wird eine Stunde vorher bekannt gegeben.",
         "en": "The starting eleven is announced an hour beforehand.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Statur": {
+    "ex": [
+      {
+        "de": "Er ist von kräftiger Statur.",
+        "en": "He is of stocky build.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Politikerin hat internationale Statur.",
+        "en": "The politician has international stature.",
         "lvl": "C1"
       }
     ]
@@ -10845,6 +12021,20 @@
       {
         "de": "Er stellte die gewagte These auf, dass Sprache das Denken formt.",
         "en": "He advanced the bold thesis that language shapes thought.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Tochtergesellschaft": {
+    "ex": [
+      {
+        "de": "Die Firma hat eine Tochtergesellschaft in den USA.",
+        "en": "The company has a subsidiary in the US.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Tochtergesellschaft wird verkauft.",
+        "en": "The subsidiary is being sold.",
         "lvl": "C1"
       }
     ]
@@ -11062,6 +12252,34 @@
       }
     ]
   },
+  "voc:C1:die Unternehmung": {
+    "ex": [
+      {
+        "de": "Am Wochenende planen wir eine kleine Unternehmung.",
+        "en": "We're planning a little outing at the weekend.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Gründung war eine riskante Unternehmung.",
+        "en": "Starting the company was a risky venture.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Unterzeichnung": {
+    "ex": [
+      {
+        "de": "Die Unterzeichnung des Vertrags ist am Freitag.",
+        "en": "The signing of the contract is on Friday.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach der Unterzeichnung gilt der Vertrag.",
+        "en": "The contract applies after signing.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Variation": {
     "ex": [
       {
@@ -11172,6 +12390,20 @@
       {
         "de": "Der Angriff war eine Vergeltung für die Sanktionen.",
         "en": "The attack was retaliation for the sanctions.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Verhaltensweise": {
+    "ex": [
+      {
+        "de": "Diese Verhaltensweise ist typisch für Katzen.",
+        "en": "This behaviour is typical of cats.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man kann alte Verhaltensweisen ändern.",
+        "en": "You can change old patterns of behaviour.",
         "lvl": "C1"
       }
     ]
@@ -11631,6 +12863,20 @@
       }
     ]
   },
+  "voc:C1:die Wertung": {
+    "ex": [
+      {
+        "de": "In der Wertung liegt er auf Platz zwei.",
+        "en": "He is second in the standings.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das ist keine Wertung, nur eine Beobachtung.",
+        "en": "That's not a judgement, just an observation.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Wichtigkeit": {
     "ex": [
       {
@@ -11917,6 +13163,20 @@
       {
         "de": "Ohne Zuwanderung würde die Bevölkerung schrumpfen.",
         "en": "Without immigration the population would shrink.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Zuwendung": {
+    "ex": [
+      {
+        "de": "Kinder brauchen viel Zuwendung.",
+        "en": "Children need a lot of attention.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Verein bekommt eine Zuwendung von der Stadt.",
+        "en": "The association receives a grant from the city.",
         "lvl": "C1"
       }
     ]
@@ -12238,6 +13498,20 @@
       }
     ]
   },
+  "voc:C1:durchstarten": {
+    "ex": [
+      {
+        "de": "Nach dem Kurs will ich beruflich durchstarten.",
+        "en": "After the course I want to take off professionally.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Pilot musste kurz vor der Landung durchstarten.",
+        "en": "The pilot had to go around just before landing.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:durchstehen": {
     "def": "To get through a hard time to the end.",
     "ex": [
@@ -12249,6 +13523,20 @@
       {
         "de": "Wir können das durchstehen, wenn wir nur alle zusammenhalten.",
         "en": "We can get through this if we all stick together.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:durchweg": {
+    "ex": [
+      {
+        "de": "Die Kritiken waren durchweg positiv.",
+        "en": "The reviews were consistently positive.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Mitarbeiter sind durchweg jung.",
+        "en": "The staff are young without exception.",
         "lvl": "C1"
       }
     ]
@@ -12292,6 +13580,20 @@
       {
         "de": "Das Design ist schlicht und edel.",
         "en": "The design is simple and elegant.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:eigenhändig": {
+    "ex": [
+      {
+        "de": "Der Antrag muss eigenhändig unterschrieben werden.",
+        "en": "The application must be signed personally.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat das Haus eigenhändig renoviert.",
+        "en": "He renovated the house himself.",
         "lvl": "C1"
       }
     ]
@@ -12574,6 +13876,20 @@
       }
     ]
   },
+  "voc:C1:elementar": {
+    "ex": [
+      {
+        "de": "Vertrauen ist elementar für jede Beziehung.",
+        "en": "Trust is fundamental to any relationship.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das sind elementare Kenntnisse.",
+        "en": "That's elementary knowledge.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:empirisch": {
     "def": "Based on observation and experiment rather than theory alone.",
     "ex": [
@@ -12632,6 +13948,20 @@
       }
     ]
   },
+  "voc:C1:entgegengesetzt": {
+    "ex": [
+      {
+        "de": "Sie fuhren in entgegengesetzte Richtungen.",
+        "en": "They drove in opposite directions.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir haben entgegengesetzte Meinungen.",
+        "en": "We have opposite opinions.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:entgegenwirken": {
     "def": "To act against something in order to reduce its effect.",
     "ex": [
@@ -12643,6 +13973,20 @@
       {
         "de": "Frühe Förderung wirkt sozialer Ungleichheit entgegen.",
         "en": "Early support counteracts social inequality.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:entspringen": {
+    "ex": [
+      {
+        "de": "Der Rhein soll in den Alpen entspringen.",
+        "en": "The Rhine rises in the Alps.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Idee kann nur einer Not entspringen.",
+        "en": "The idea can only spring from necessity.",
         "lvl": "C1"
       }
     ]
@@ -13064,6 +14408,20 @@
       }
     ]
   },
+  "voc:C1:folgerichtig": {
+    "ex": [
+      {
+        "de": "Die Entscheidung ist folgerichtig.",
+        "en": "The decision is logical.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Folgerichtig hat er gekündigt.",
+        "en": "Consequently he resigned.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:formal": {
     "ex": [
       {
@@ -13252,6 +14610,20 @@
       }
     ]
   },
+  "voc:C1:gehörig": {
+    "ex": [
+      {
+        "de": "Er hat mir einen gehörigen Schrecken eingejagt.",
+        "en": "He gave me a real fright.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Da hat sie sich gehörig geirrt.",
+        "en": "She was badly mistaken there.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:geistig": {
     "def": "Relating to the mind or intellect.",
     "ex": [
@@ -13351,6 +14723,20 @@
       {
         "de": "Samis Erfindung funktionierte und generierte viel Geld.",
         "en": "Sami's invention worked and generated a lot of money.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:geradewegs": {
+    "ex": [
+      {
+        "de": "Nach der Arbeit ging er geradewegs nach Hause.",
+        "en": "After work he went straight home.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Wirtschaft steuert geradewegs in die Rezession.",
+        "en": "The economy is heading straight for recession.",
         "lvl": "C1"
       }
     ]
@@ -13816,6 +15202,20 @@
       }
     ]
   },
+  "voc:C1:hypothetisch": {
+    "ex": [
+      {
+        "de": "Das ist eine rein hypothetische Frage.",
+        "en": "That's a purely hypothetical question.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Hypothetisch könnte das funktionieren.",
+        "en": "Hypothetically that could work.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:ignorieren": {
     "def": "To take no notice of something on purpose.",
     "ex": [
@@ -13827,6 +15227,20 @@
       {
         "de": "Sie ignorierte die Zwischenrufe und sprach ruhig weiter.",
         "en": "She ignored the heckling and calmly carried on speaking.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:illustrieren": {
+    "ex": [
+      {
+        "de": "Sie illustriert Kinderbücher.",
+        "en": "She illustrates children's books.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Beispiel illustriert das Problem gut.",
+        "en": "The example illustrates the problem well.",
         "lvl": "C1"
       }
     ]
@@ -13987,6 +15401,20 @@
       {
         "de": "Wir müssen den Kontakt zu den Kunden intensivieren.",
         "en": "We need to intensify contact with customers.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:interagieren": {
+    "ex": [
+      {
+        "de": "Die Nutzer interagieren kaum mit dem Post.",
+        "en": "Users are hardly interacting with the post.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Spiel kann man mit allen Figuren interagieren.",
+        "en": "In the game you can interact with all the characters.",
         "lvl": "C1"
       }
     ]
@@ -14537,6 +15965,20 @@
       }
     ]
   },
+  "voc:C1:linear": {
+    "ex": [
+      {
+        "de": "Die Kosten steigen nicht linear.",
+        "en": "The costs don't rise linearly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Spiel erzählt keine lineare Geschichte.",
+        "en": "The game doesn't tell a linear story.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:linguistisch": {
     "def": "Relating to language or the study of language.",
     "ex": [
@@ -14809,6 +16251,20 @@
       {
         "de": "Das Auto wurde für das Rennen modifiziert.",
         "en": "The car was modified for the race.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:modular": {
+    "ex": [
+      {
+        "de": "Das System ist modular aufgebaut.",
+        "en": "The system has a modular design.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir bauen ein modulares Haus.",
+        "en": "We are building a modular house.",
         "lvl": "C1"
       }
     ]
@@ -15119,6 +16575,20 @@
       }
     ]
   },
+  "voc:C1:normalisieren": {
+    "ex": [
+      {
+        "de": "Die Lage wird sich bald normalisieren.",
+        "en": "The situation will soon return to normal.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Preise normalisieren sich langsam.",
+        "en": "Prices are slowly normalising.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:normativ": {
     "def": "Setting out how things should be, not just how they are.",
     "ex": [
@@ -15291,6 +16761,20 @@
       }
     ]
   },
+  "voc:C1:physikalisch": {
+    "ex": [
+      {
+        "de": "Das ist physikalisch unmöglich.",
+        "en": "That's physically impossible.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Schüler machen ein physikalisches Experiment.",
+        "en": "The pupils are doing a physics experiment.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:plausibel": {
     "ex": [
       {
@@ -15406,6 +16890,20 @@
       }
     ]
   },
+  "voc:C1:profitabel": {
+    "ex": [
+      {
+        "de": "Das Geschäft ist nicht profitabel.",
+        "en": "The business isn't profitable.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma arbeitet seit zwei Jahren profitabel.",
+        "en": "The company has been profitable for two years.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:provisorisch": {
     "ex": [
       {
@@ -15493,6 +16991,20 @@
       }
     ]
   },
+  "voc:C1:rechnerisch": {
+    "ex": [
+      {
+        "de": "Rechnerisch reicht das Geld bis März.",
+        "en": "On paper the money lasts until March.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das ist ein rechnerischer Fehler.",
+        "en": "That's an arithmetical error.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:rechtfertigen": {
     "def": "To show or argue that something is right or reasonable.",
     "ex": [
@@ -15532,6 +17044,20 @@
       {
         "de": "Die Partei hat sich grundlegend reformiert.",
         "en": "The party has reformed itself fundamentally.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:regenerieren": {
+    "ex": [
+      {
+        "de": "Nach dem Training muss der Körper regenerieren.",
+        "en": "After training the body needs to recover.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Haut regeneriert sich im Schlaf.",
+        "en": "The skin regenerates during sleep.",
         "lvl": "C1"
       }
     ]
@@ -15604,6 +17130,20 @@
       }
     ]
   },
+  "voc:C1:revidieren": {
+    "ex": [
+      {
+        "de": "Die Regierung muss ihre Prognose revidieren.",
+        "en": "The government has to revise its forecast.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat seine Meinung revidiert.",
+        "en": "He has revised his opinion.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:richtungsweisend": {
     "def": "Setting a direction for others to follow.",
     "ex": [
@@ -15633,6 +17173,20 @@
       }
     ]
   },
+  "voc:C1:rütteln": {
+    "ex": [
+      {
+        "de": "Der Wind rüttelt am Fenster.",
+        "en": "The wind is rattling the window.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Daran gibt es nichts zu rütteln.",
+        "en": "There's no getting around that.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:saisonal": {
     "ex": [
       {
@@ -15643,6 +17197,20 @@
       {
         "de": "Die Arbeitslosigkeit ist saisonal gestiegen.",
         "en": "Unemployment has risen seasonally.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:schielen": {
+    "ex": [
+      {
+        "de": "Das Baby schielt ein bisschen.",
+        "en": "The baby has a slight squint.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Partei schielt auf die Stimmen der Jungen.",
+        "en": "The party has its eye on young people's votes.",
         "lvl": "C1"
       }
     ]
@@ -15725,6 +17293,20 @@
       {
         "de": "Ihm war schwindelig.",
         "en": "He was dizzy.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:schädigen": {
+    "ex": [
+      {
+        "de": "Rauchen schädigt die Lunge.",
+        "en": "Smoking damages the lungs.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Skandal hat den Ruf der Firma geschädigt.",
+        "en": "The scandal damaged the company's reputation.",
         "lvl": "C1"
       }
     ]
@@ -15965,6 +17547,20 @@
       }
     ]
   },
+  "voc:C1:solar": {
+    "ex": [
+      {
+        "de": "Das Haus wird solar beheizt.",
+        "en": "The house is heated by solar power.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die solare Energie wird immer billiger.",
+        "en": "Solar energy is getting cheaper and cheaper.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:sonderlich": {
     "ex": [
       {
@@ -16062,6 +17658,34 @@
       {
         "de": "Die Zahlen stagnieren seit Jahren.",
         "en": "The figures have been stagnating for years.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:stationär": {
+    "ex": [
+      {
+        "de": "Er wird stationär im Krankenhaus behandelt.",
+        "en": "He is being treated as an inpatient in hospital.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der stationäre Handel leidet unter dem Onlinehandel.",
+        "en": "Bricks-and-mortar retail is suffering from online shopping.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:statisch": {
+    "ex": [
+      {
+        "de": "Die Website ist rein statisch.",
+        "en": "The website is purely static.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Gesellschaft ist nicht statisch.",
+        "en": "Society is not static.",
         "lvl": "C1"
       }
     ]
@@ -16255,6 +17879,20 @@
       }
     ]
   },
+  "voc:C1:tatenlos": {
+    "ex": [
+      {
+        "de": "Wir dürfen nicht tatenlos zusehen.",
+        "en": "We mustn't stand idly by.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Regierung blieb tatenlos.",
+        "en": "The government did nothing.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:taufen": {
     "ex": [
       {
@@ -16283,6 +17921,20 @@
       }
     ]
   },
+  "voc:C1:temporär": {
+    "ex": [
+      {
+        "de": "Die Sperrung ist nur temporär.",
+        "en": "The closure is only temporary.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat einen temporären Vertrag.",
+        "en": "He has a temporary contract.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:tendieren": {
     "ex": [
       {
@@ -16293,6 +17945,20 @@
       {
         "de": "Die Märkte tendieren heute schwächer.",
         "en": "The markets are trending weaker today.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:thematisch": {
+    "ex": [
+      {
+        "de": "Die Bücher sind thematisch geordnet.",
+        "en": "The books are arranged by subject.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Thematisch passt der Vortrag gut.",
+        "en": "The talk fits well in terms of subject.",
         "lvl": "C1"
       }
     ]
@@ -16308,6 +17974,20 @@
       {
         "de": "Die Krankheit veränderte sein Leben tiefgreifend.",
         "en": "The illness changed his life profoundly.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:tilgen": {
+    "ex": [
+      {
+        "de": "Wir wollen den Kredit in zehn Jahren tilgen.",
+        "en": "We want to pay off the loan in ten years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Eintrag wird aus dem Register getilgt.",
+        "en": "The entry is being deleted from the register.",
         "lvl": "C1"
       }
     ]
@@ -16482,6 +18162,20 @@
       }
     ]
   },
+  "voc:C1:unbeantwortet": {
+    "ex": [
+      {
+        "de": "Meine Mail blieb unbeantwortet.",
+        "en": "My email went unanswered.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Fragen bleiben unbeantwortet.",
+        "en": "Many questions remain unanswered.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:unberührt": {
     "ex": [
       {
@@ -16552,6 +18246,20 @@
       }
     ]
   },
+  "voc:C1:unerhört": {
+    "ex": [
+      {
+        "de": "Das ist ja unerhört!",
+        "en": "That's outrageous!",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Preise sind unerhört gestiegen.",
+        "en": "Prices have risen to an unheard-of extent.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:unerlaubt": {
     "ex": [
       {
@@ -16562,6 +18270,20 @@
       {
         "de": "Er hat das Land unerlaubt verlassen.",
         "en": "He left the country without permission.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:unfreiwillig": {
+    "ex": [
+      {
+        "de": "Das war unfreiwillig komisch.",
+        "en": "That was unintentionally funny.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat eine unfreiwillige Pause gemacht.",
+        "en": "He took an involuntary break.",
         "lvl": "C1"
       }
     ]
@@ -16605,6 +18327,20 @@
       {
         "de": "Lass die Chance nicht ungenutzt.",
         "en": "Don't let the opportunity go to waste.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:ungeschehen": {
+    "ex": [
+      {
+        "de": "Man kann den Fehler nicht ungeschehen machen.",
+        "en": "You can't undo the mistake.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich würde das gern ungeschehen machen.",
+        "en": "I'd like to undo that.",
         "lvl": "C1"
       }
     ]
@@ -16866,6 +18602,20 @@
       }
     ]
   },
+  "voc:C1:unzulässig": {
+    "ex": [
+      {
+        "de": "Die Klausel ist unzulässig.",
+        "en": "The clause is not permitted.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Gericht wies die Klage als unzulässig ab.",
+        "en": "The court dismissed the claim as inadmissible.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:unzureichend": {
     "ex": [
       {
@@ -17071,6 +18821,20 @@
       }
     ]
   },
+  "voc:C1:verfeinern": {
+    "ex": [
+      {
+        "de": "Man kann die Soße mit Sahne verfeinern.",
+        "en": "You can refine the sauce with cream.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir müssen das Konzept noch verfeinern.",
+        "en": "We still need to refine the concept.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:verflechten": {
     "def": "To link things closely together so they affect each other.",
     "ex": [
@@ -17245,6 +19009,20 @@
       }
     ]
   },
+  "voc:C1:vermindern": {
+    "ex": [
+      {
+        "de": "Sport kann das Risiko vermindern.",
+        "en": "Exercise can reduce the risk.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Sicht war durch den Nebel vermindert.",
+        "en": "Visibility was reduced by the fog.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:vermitteln": {
     "def": "To pass on knowledge or a message; also to mediate.",
     "ex": [
@@ -17270,6 +19048,20 @@
       {
         "de": "Kunst und Technik verschmelzen in der Ausstellung.",
         "en": "Art and technology fuse in the exhibition.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:verschwimmen": {
+    "ex": [
+      {
+        "de": "Ohne Brille verschwimmt alles.",
+        "en": "Everything blurs without my glasses.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Grenzen zwischen Job und Freizeit verschwimmen.",
+        "en": "The boundaries between work and leisure are blurring.",
         "lvl": "C1"
       }
     ]
@@ -17312,6 +19104,20 @@
       {
         "de": "Wir müssen die Entscheidung vertagen.",
         "en": "We have to postpone the decision.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:vertikal": {
+    "ex": [
+      {
+        "de": "Die Linie verläuft vertikal.",
+        "en": "The line runs vertically.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Video ist im vertikalen Format.",
+        "en": "The video is in vertical format.",
         "lvl": "C1"
       }
     ]
@@ -17490,6 +19296,20 @@
       }
     ]
   },
+  "voc:C1:vornehmlich": {
+    "ex": [
+      {
+        "de": "Die Kunden sind vornehmlich junge Leute.",
+        "en": "The customers are mainly young people.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es geht vornehmlich um die Kosten.",
+        "en": "It's primarily about the costs.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:vorrangig": {
     "def": "Before other things; as a priority.",
     "ex": [
@@ -17651,6 +19471,20 @@
       }
     ]
   },
+  "voc:C1:weithin": {
+    "ex": [
+      {
+        "de": "Der Dom ist weithin sichtbar.",
+        "en": "The cathedral is visible from far and wide.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gilt weithin als Experte.",
+        "en": "He is widely regarded as an expert.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:wertend": {
     "def": "Expressing a judgement of good or bad.",
     "ex": [
@@ -17706,6 +19540,20 @@
       {
         "de": "Die Behörde kann die Erlaubnis widerrufen.",
         "en": "The authority can revoke the permit.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:willkürlich": {
+    "ex": [
+      {
+        "de": "Die Entscheidung wirkt völlig willkürlich.",
+        "en": "The decision seems completely arbitrary.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Polizei darf niemanden willkürlich festnehmen.",
+        "en": "The police may not arrest anyone arbitrarily.",
         "lvl": "C1"
       }
     ]
@@ -18051,6 +19899,20 @@
       }
     ]
   },
+  "voc:C1:zuvorkommen": {
+    "ex": [
+      {
+        "de": "Wir wollen der Konkurrenz zuvorkommen.",
+        "en": "We want to beat the competition to it.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir müssen dem Problem zuvorkommen.",
+        "en": "We have to head off the problem.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:zuziehen": {
     "ex": [
       {
@@ -18120,6 +19982,20 @@
       {
         "de": "Der Kurs ist zwischenzeitlich stark gefallen.",
         "en": "The price fell sharply in the meantime.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:äußerlich": {
+    "ex": [
+      {
+        "de": "Äußerlich wirkt er ganz ruhig.",
+        "en": "Outwardly he seems quite calm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Salbe ist nur zur äußerlichen Anwendung.",
+        "en": "The ointment is for external use only.",
         "lvl": "C1"
       }
     ]
@@ -18196,6 +20072,20 @@
       }
     ]
   },
+  "voc:C1:übermäßig": {
+    "ex": [
+      {
+        "de": "Übermäßiger Alkohol schadet der Gesundheit.",
+        "en": "Excessive alcohol harms your health.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Miete ist nicht übermäßig hoch.",
+        "en": "The rent isn't excessively high.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:übernehmen": {
     "def": "To take responsibility or control of something; also to adopt.",
     "ex": [
@@ -18221,6 +20111,20 @@
       {
         "de": "Sie will ihren eigenen Rekord übertreffen.",
         "en": "She wants to beat her own record.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:überwältigen": {
+    "ex": [
+      {
+        "de": "Die Passagiere konnten den Täter überwältigen.",
+        "en": "The passengers managed to overpower the attacker.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Freude hat sie überwältigt.",
+        "en": "She was overwhelmed with joy.",
         "lvl": "C1"
       }
     ]

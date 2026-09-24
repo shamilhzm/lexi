@@ -224,6 +224,20 @@
       }
     ]
   },
+  "voc:C2:das Ableben": {
+    "ex": [
+      {
+        "de": "Nach dem Ableben des Gründers wurde die Firma verkauft.",
+        "en": "After the founder's death the company was sold.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Versicherung zahlt beim Ableben.",
+        "en": "The insurance pays out on death.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:das Artefakt": {
     "ex": [
       {
@@ -264,6 +278,20 @@
       {
         "de": "Sie fristete jahrelang ein Dasein am Rand der Gesellschaft.",
         "en": "For years she eked out an existence at the margins of society.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Erdreich": {
+    "ex": [
+      {
+        "de": "Das Wasser versickert im Erdreich.",
+        "en": "The water seeps into the soil.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Erdreich ist mit Öl belastet.",
+        "en": "The soil is contaminated with oil.",
         "lvl": "C2"
       }
     ]
@@ -697,6 +725,20 @@
       {
         "de": "Er arbeitet im offenen Vollzug.",
         "en": "He works in the open prison system.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Vormund": {
+    "ex": [
+      {
+        "de": "Das Gericht hat einen Vormund bestimmt.",
+        "en": "The court appointed a legal guardian.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Vormund entscheidet für das Kind.",
+        "en": "The guardian decides on the child's behalf.",
         "lvl": "C2"
       }
     ]
@@ -1414,6 +1456,20 @@
       {
         "de": "Er spricht in Metaphern, wo Klarheit nötig wäre.",
         "en": "He speaks in metaphors where clarity would be needed.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Mitleidenschaft": {
+    "ex": [
+      {
+        "de": "Der Sturm hat auch unser Dach in Mitleidenschaft gezogen.",
+        "en": "The storm also damaged our roof.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Krise zieht viele Branchen in Mitleidenschaft.",
+        "en": "The crisis is taking its toll on many sectors.",
         "lvl": "C2"
       }
     ]
@@ -2569,6 +2625,20 @@
       {
         "de": "Die alte Anlage funktioniert nur noch rudimentär.",
         "en": "The old plant functions only rudimentarily now.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:sich entledigen": {
+    "ex": [
+      {
+        "de": "Die Firma will sich ihrer Schulden entledigen.",
+        "en": "The company wants to get rid of its debts.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er entledigt sich seiner Jacke.",
+        "en": "He takes off his jacket.",
         "lvl": "C2"
       }
     ]
