@@ -430,6 +430,20 @@
       }
     ]
   },
+  "voc:B2:alphabetisch": {
+    "ex": [
+      {
+        "de": "Die Namen sind alphabetisch geordnet.",
+        "en": "The names are in alphabetical order.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sortier die Liste alphabetisch.",
+        "en": "Sort the list alphabetically.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:altern": {
     "def": "To grow old over time.",
     "ex": [
@@ -2223,6 +2237,20 @@
       }
     ]
   },
+  "voc:B2:das Alltagsleben": {
+    "ex": [
+      {
+        "de": "Im Alltagsleben spreche ich fast nur Deutsch.",
+        "en": "In everyday life I speak almost only German.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Alltagsleben hat sich stark verändert.",
+        "en": "Everyday life has changed a lot.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Amtsgericht": {
     "ex": [
       {
@@ -2957,6 +2985,20 @@
       {
         "de": "Das Horn klingt tiefer als die Trompete.",
         "en": "The horn sounds lower than the trumpet.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Häkchen": {
+    "ex": [
+      {
+        "de": "Setzen Sie ein Häkchen bei Ja.",
+        "en": "Tick yes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zwei blaue Häkchen bedeuten, dass sie es gelesen hat.",
+        "en": "Two blue ticks mean she has read it.",
         "lvl": "B2"
       }
     ]
@@ -3824,6 +3866,20 @@
       }
     ]
   },
+  "voc:B2:das Tutorial": {
+    "ex": [
+      {
+        "de": "Ich habe ein Tutorial auf YouTube geschaut.",
+        "en": "I watched a tutorial on YouTube.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Tutorial erklärt die App Schritt für Schritt.",
+        "en": "The tutorial explains the app step by step.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Umland": {
     "def": "The country and smaller towns surrounding a city.",
     "ex": [
@@ -3923,6 +3979,20 @@
       {
         "de": "Im Verzeichnis stehen alle Ärzte der Stadt.",
         "en": "All the city's doctors are in the directory.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Vierteljahr": {
+    "ex": [
+      {
+        "de": "Die Miete wird jedes Vierteljahr angepasst.",
+        "en": "The rent is adjusted every quarter.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im letzten Vierteljahr ist der Umsatz gestiegen.",
+        "en": "Turnover rose in the last quarter.",
         "lvl": "B2"
       }
     ]
@@ -4935,6 +5005,20 @@
       }
     ]
   },
+  "voc:B2:der Badeort": {
+    "ex": [
+      {
+        "de": "Wir machen Urlaub in einem kleinen Badeort.",
+        "en": "We're holidaying in a small seaside resort.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Badeort ist im Sommer voll.",
+        "en": "The resort is full in summer.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Baustein": {
     "ex": [
       {
@@ -5440,6 +5524,20 @@
       {
         "de": "Sein Einkommen liegt weit über dem Durchschnitt.",
         "en": "His income is well above the average.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Durchzug": {
+    "ex": [
+      {
+        "de": "Mach das Fenster auf, dann gibt es Durchzug.",
+        "en": "Open the window and there'll be a draught.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich hasse Durchzug im Büro.",
+        "en": "I hate a draught in the office.",
         "lvl": "B2"
       }
     ]
@@ -6010,6 +6108,20 @@
       }
     ]
   },
+  "voc:B2:der Haitianer": {
+    "ex": [
+      {
+        "de": "Der Haitianer spricht Kreolisch und Französisch.",
+        "en": "The Haitian speaks Creole and French.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Haitianer arbeiten in der Dominikanischen Republik.",
+        "en": "Many Haitians work in the Dominican Republic.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Handelskrieg": {
     "ex": [
       {
@@ -6325,6 +6437,20 @@
       }
     ]
   },
+  "voc:B2:der Klecks": {
+    "ex": [
+      {
+        "de": "Auf dem Hemd ist ein Klecks Ketchup.",
+        "en": "There's a blob of ketchup on the shirt.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Gib einen Klecks Sahne dazu.",
+        "en": "Add a dollop of cream.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Knast": {
     "def": "An informal word for prison.",
     "ex": [
@@ -6451,6 +6577,20 @@
       {
         "de": "Der Kopfball ging knapp vorbei.",
         "en": "The header went just wide.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Kopilot": {
+    "ex": [
+      {
+        "de": "Der Kopilot hat das Flugzeug gelandet.",
+        "en": "The co-pilot landed the plane.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die App ist mein Kopilot im Alltag.",
+        "en": "The app is my co-pilot in everyday life.",
         "lvl": "B2"
       }
     ]
@@ -7356,6 +7496,20 @@
       {
         "de": "Der Reiseveranstalter bot eine kostenlose Umbuchung an.",
         "en": "The tour operator offered a free rebooking.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Rennsport": {
+    "ex": [
+      {
+        "de": "Er interessiert sich für Rennsport.",
+        "en": "He is interested in motor racing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rennsport ist teuer und gefährlich.",
+        "en": "Motor racing is expensive and dangerous.",
         "lvl": "B2"
       }
     ]
@@ -9158,6 +9312,20 @@
       }
     ]
   },
+  "voc:B2:die Abschlussarbeit": {
+    "ex": [
+      {
+        "de": "Sie schreibt ihre Abschlussarbeit über Migration.",
+        "en": "She is writing her thesis on migration.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Abschlussarbeit muss bis Juni fertig sein.",
+        "en": "The thesis must be finished by June.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Absprache": {
     "def": "An understanding reached between people about how to proceed.",
     "ex": [
@@ -9484,6 +9652,20 @@
       {
         "de": "Es hat drei Monate gedauert, bis ich meine Arbeitserlaubnis bekommen habe.",
         "en": "It took three months until I got my work permit.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Arbeitsfläche": {
+    "ex": [
+      {
+        "de": "Die Küche hat eine große Arbeitsfläche.",
+        "en": "The kitchen has a big worktop.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wisch bitte die Arbeitsfläche ab.",
+        "en": "Please wipe the work surface.",
         "lvl": "B2"
       }
     ]
@@ -10372,6 +10554,20 @@
       {
         "de": "Wir haben die Deadline knapp geschafft.",
         "en": "We only just made the deadline.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Debitkarte": {
+    "ex": [
+      {
+        "de": "Kann ich hier mit Debitkarte zahlen?",
+        "en": "Can I pay by debit card here?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bank schickt eine neue Debitkarte.",
+        "en": "The bank is sending a new debit card.",
         "lvl": "B2"
       }
     ]
@@ -12141,6 +12337,20 @@
       }
     ]
   },
+  "voc:B2:die Kachel": {
+    "ex": [
+      {
+        "de": "Im Bad fehlt eine Kachel.",
+        "en": "A tile is missing in the bathroom.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf dem Startbildschirm ist jede App eine Kachel.",
+        "en": "Every app is a tile on the home screen.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Kandidatur": {
     "def": "The state of standing for a job or election.",
     "ex": [
@@ -13153,6 +13363,20 @@
       }
     ]
   },
+  "voc:B2:die Oberseite": {
+    "ex": [
+      {
+        "de": "Die Oberseite des Kuchens ist verbrannt.",
+        "en": "The top of the cake is burnt.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Knopf ist auf der Oberseite.",
+        "en": "The button is on the top.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Offenheit": {
     "ex": [
       {
@@ -13767,6 +13991,20 @@
       }
     ]
   },
+  "voc:B2:die Schreibweise": {
+    "ex": [
+      {
+        "de": "Welche Schreibweise ist richtig?",
+        "en": "Which spelling is correct?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Schreibweise des Namens ist falsch.",
+        "en": "The name is spelt wrongly.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Schutzbrille": {
     "ex": [
       {
@@ -14155,6 +14393,20 @@
       {
         "de": "Durch die Riesenspende musste die Stiftung nicht mehr so mit den Gehältern geizen.",
         "en": "The massive donation meant that the foundation no longer needed to be so parsimonious with salaries.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Strähne": {
+    "ex": [
+      {
+        "de": "Sie hat eine blonde Strähne im Haar.",
+        "en": "She has a blonde streak in her hair.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Team hat gerade eine Pechsträhne.",
+        "en": "The team is on a run of bad luck.",
         "lvl": "B2"
       }
     ]
@@ -16191,6 +16443,20 @@
       }
     ]
   },
+  "voc:B2:entwerten": {
+    "ex": [
+      {
+        "de": "Vergiss nicht, dein Ticket zu entwerten.",
+        "en": "Don't forget to validate your ticket.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Inflation kann das Ersparte entwerten.",
+        "en": "Inflation can devalue savings.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:entzückend": {
     "ex": [
       {
@@ -17344,6 +17610,20 @@
       }
     ]
   },
+  "voc:B2:goldig": {
+    "ex": [
+      {
+        "de": "Das Baby ist wirklich goldig.",
+        "en": "The baby is really sweet.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Was für ein goldiger Hund!",
+        "en": "What a cute dog!",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:gratis": {
     "def": "Without any payment.",
     "ex": [
@@ -17511,6 +17791,20 @@
       {
         "de": "Die These ist nicht haltbar.",
         "en": "The thesis is not tenable.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:handschriftlich": {
+    "ex": [
+      {
+        "de": "Der Lebenslauf muss nicht handschriftlich sein.",
+        "en": "The CV doesn't have to be handwritten.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat mir eine handschriftliche Karte geschickt.",
+        "en": "She sent me a handwritten card.",
         "lvl": "B2"
       }
     ]
@@ -18149,6 +18443,20 @@
       {
         "de": "Die Besatzung, die damals mit allen militärischen Ehren kapitulierte, zog ab, und die Stadt kam unter deutsche Verwaltung.",
         "en": "The occupational troops, who surrendered with full military honours at that time, left, and the city came under German administration.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:karibisch": {
+    "ex": [
+      {
+        "de": "Ich vermisse das karibische Essen.",
+        "en": "I miss Caribbean food.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Insel liegt im Karibischen Meer.",
+        "en": "The island is in the Caribbean Sea.",
         "lvl": "B2"
       }
     ]
@@ -19081,6 +19389,20 @@
       {
         "de": "Die Rechnung wurde nachträglich geändert.",
         "en": "The invoice was changed afterwards.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:nachverfolgen": {
+    "ex": [
+      {
+        "de": "Du kannst das Paket online nachverfolgen.",
+        "en": "You can track the parcel online.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Kontakte lassen sich schwer nachverfolgen.",
+        "en": "The contacts are hard to trace.",
         "lvl": "B2"
       }
     ]
@@ -21053,6 +21375,20 @@
       }
     ]
   },
+  "voc:B2:unbenutzt": {
+    "ex": [
+      {
+        "de": "Das Ticket ist noch unbenutzt.",
+        "en": "The ticket is still unused.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Zimmer steht seit Jahren unbenutzt.",
+        "en": "The room has been unused for years.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:unberechenbar": {
     "ex": [
       {
@@ -21917,6 +22253,20 @@
       {
         "de": "Ein verschwenderischer Umgang mit Ressourcen ist teuer.",
         "en": "A wasteful use of resources is expensive.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:verschütten": {
+    "ex": [
+      {
+        "de": "Pass auf, dass du den Kaffee nicht verschüttest.",
+        "en": "Be careful not to spill the coffee.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei dem Beben wurden viele Menschen verschüttet.",
+        "en": "Many people were buried in the earthquake.",
         "lvl": "B2"
       }
     ]

@@ -178,6 +178,20 @@
       }
     ]
   },
+  "voc:C2:begriffsstutzig": {
+    "ex": [
+      {
+        "de": "Sorry, heute bin ich etwas begriffsstutzig.",
+        "en": "Sorry, I'm a bit slow on the uptake today.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Stell dich nicht so begriffsstutzig an!",
+        "en": "Don't be so dense!",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:beheimaten": {
     "ex": [
       {
@@ -368,6 +382,20 @@
       }
     ]
   },
+  "voc:C2:das Luftfahrzeug": {
+    "ex": [
+      {
+        "de": "Drohnen gelten rechtlich als Luftfahrzeug.",
+        "en": "Drones legally count as aircraft.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Luftfahrzeug musste notlanden.",
+        "en": "The aircraft had to make an emergency landing.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:das Maschinengewehr": {
     "ex": [
       {
@@ -469,6 +497,20 @@
       {
         "de": "Der Schlüssel ist in diesem Film ein Symbol für Vertrauen.",
         "en": "In this film the key is a symbol of trust.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:das Ungemach": {
+    "ex": [
+      {
+        "de": "Den Firmen droht neues Ungemach.",
+        "en": "New trouble looms for the companies.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Wetter brachte viel Ungemach.",
+        "en": "The weather brought a lot of hardship.",
         "lvl": "C2"
       }
     ]
@@ -589,6 +631,20 @@
       {
         "de": "Über den Gemeinplatz hinaus sagte er an dem Abend nichts.",
         "en": "Beyond the platitude he said nothing that evening.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Habitus": {
+    "ex": [
+      {
+        "de": "Sein Habitus verrät seine Herkunft.",
+        "en": "His manner gives away his background.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Habitus der Elite ist schwer zu lernen.",
+        "en": "The ways of the elite are hard to learn.",
         "lvl": "C2"
       }
     ]
@@ -1260,6 +1316,20 @@
       }
     ]
   },
+  "voc:C2:die Fortdauer": {
+    "ex": [
+      {
+        "de": "Die Fortdauer der Krise belastet die Firmen.",
+        "en": "The continuing crisis weighs on companies.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Über die Fortdauer der Haft entscheidet ein Richter.",
+        "en": "A judge decides on continued detention.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Gefolgschaft": {
     "ex": [
       {
@@ -1615,6 +1685,20 @@
       }
     ]
   },
+  "voc:C2:die Parität": {
+    "ex": [
+      {
+        "de": "Die Partei fordert Parität im Parlament.",
+        "en": "The party is calling for gender parity in parliament.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Euro und der Dollar sind fast in Parität.",
+        "en": "The euro and the dollar are almost at parity.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Parole": {
     "def": "Kennwort, Codewort (meist bei militärischen, polizeilichen, verbrecherischen oder anderweitig zu tarnenden, geheimzuhaltenden Handlungen)",
     "ex": [
@@ -1960,6 +2044,20 @@
       }
     ]
   },
+  "voc:C2:die Verabreichung": {
+    "ex": [
+      {
+        "de": "Die Verabreichung des Medikaments erfolgt per Spritze.",
+        "en": "The medicine is administered by injection.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Verabreichung darf nur ein Arzt machen.",
+        "en": "Only a doctor may administer it.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Vernunft": {
     "def": "The power of the mind to think logically and judge soundly.",
     "ex": [
@@ -2093,6 +2191,20 @@
       }
     ]
   },
+  "voc:C2:einhergehend": {
+    "ex": [
+      {
+        "de": "Die Krise und die damit einhergehende Unsicherheit belasten viele.",
+        "en": "The crisis and the accompanying uncertainty weigh on many.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Umzug und die einhergehenden Kosten sind hoch.",
+        "en": "The move and the associated costs are high.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:eklatant": {
     "def": "Strikingly obvious, especially of something bad.",
     "ex": [
@@ -2119,6 +2231,20 @@
       {
         "de": "Das Gutachten entkräftet den Verdacht vollständig.",
         "en": "The expert report completely invalidates the suspicion.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:entsagen": {
+    "ex": [
+      {
+        "de": "Er will dem Alkohol ganz entsagen.",
+        "en": "He wants to renounce alcohol completely.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Sie entsagt dem Luxus.",
+        "en": "She renounces luxury.",
         "lvl": "C2"
       }
     ]
@@ -2616,6 +2742,20 @@
       }
     ]
   },
+  "voc:C2:mittelbar": {
+    "ex": [
+      {
+        "de": "Die Firma ist mittelbar beteiligt.",
+        "en": "The company is indirectly involved.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das hat mittelbare Folgen für alle.",
+        "en": "That has indirect consequences for everyone.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:negieren": {
     "def": "To deny or reject something as untrue or invalid.",
     "ex": [
@@ -2806,6 +2946,20 @@
       {
         "de": "Rekurrente Infekte deuten auf ein tieferes Problem hin.",
         "en": "Recurrent infections point to a deeper problem.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:replizieren": {
+    "ex": [
+      {
+        "de": "Andere Forscher konnten die Studie nicht replizieren.",
+        "en": "Other researchers couldn't replicate the study.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Virus kann sich schnell replizieren.",
+        "en": "The virus can replicate quickly.",
         "lvl": "C2"
       }
     ]
@@ -3004,6 +3158,20 @@
       }
     ]
   },
+  "voc:C2:unterbleiben": {
+    "ex": [
+      {
+        "de": "Solche Fehler sollten künftig unterbleiben.",
+        "en": "Mistakes like that shouldn't happen in future.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Eine Prüfung kann in diesem Fall unterbleiben.",
+        "en": "An inspection can be omitted in this case.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:verantworten": {
     "def": "To take responsibility and be accountable for something.",
     "ex": [
@@ -3089,6 +3257,20 @@
       {
         "de": "Die Behörde will die Forderung vollstrecken.",
         "en": "The authority wants to enforce the claim.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:vorbehaltlich": {
+    "ex": [
+      {
+        "de": "Das Angebot gilt vorbehaltlich der Zustimmung der Bank.",
+        "en": "The offer is subject to the bank's approval.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Vorbehaltlich Änderungen beginnt der Kurs im Mai.",
+        "en": "Subject to change, the course begins in May.",
         "lvl": "C2"
       }
     ]

@@ -1131,6 +1131,20 @@
       }
     ]
   },
+  "voc:B1:abspülen": {
+    "ex": [
+      {
+        "de": "Nach dem Essen muss ich noch abspülen.",
+        "en": "I still have to wash up after dinner.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du die Teller abspülen?",
+        "en": "Can you rinse the plates?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:abstimmen": {
     "def": "to vote; to run something by someone, to get approval for",
     "ex": [
@@ -6040,6 +6054,20 @@
       {
         "de": "Er kann nicht lesen.",
         "en": "He doesn't know how to read.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Lesezeichen": {
+    "ex": [
+      {
+        "de": "Ich habe die Seite als Lesezeichen gespeichert.",
+        "en": "I saved the page as a bookmark.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Buch steckt ein Lesezeichen.",
+        "en": "There's a bookmark in the book.",
         "lvl": "B1"
       }
     ]
@@ -11508,6 +11536,20 @@
       }
     ]
   },
+  "voc:B1:der Hausflur": {
+    "ex": [
+      {
+        "de": "Im Hausflur stehen immer Fahrräder.",
+        "en": "There are always bikes in the hallway.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Licht im Hausflur ist kaputt.",
+        "en": "The light in the hallway is broken.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Heizkörper": {
     "def": "A metal device that heats a room.",
     "ex": [
@@ -14538,6 +14580,20 @@
       }
     ]
   },
+  "voc:B1:der Schreibfehler": {
+    "ex": [
+      {
+        "de": "Im Brief ist ein Schreibfehler.",
+        "en": "There's a spelling mistake in the letter.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Lehrerin hat den Schreibfehler markiert.",
+        "en": "The teacher marked the spelling mistake.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Schreibstil": {
     "def": "The particular way in which someone writes.",
     "ex": [
@@ -15650,6 +15706,20 @@
       {
         "de": "Warum hast du immer noch Angst vor Tigern, wenn du bei mir bist?",
         "en": "Why are you still scared of tigers if you are with me?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Tippfehler": {
+    "ex": [
+      {
+        "de": "In der E-Mail ist ein Tippfehler.",
+        "en": "There's a typo in the email.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Entschuldigung für den Tippfehler!",
+        "en": "Sorry for the typo!",
         "lvl": "B1"
       }
     ]
@@ -19925,6 +19995,20 @@
         "de": "Diese Epoche prägte die europäische Musik.",
         "en": "This era shaped European music.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Erdkunde": {
+    "ex": [
+      {
+        "de": "In Erdkunde lernen wir die Flüsse Europas.",
+        "en": "In geography we're learning the rivers of Europe.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Erdkunde war mein Lieblingsfach.",
+        "en": "Geography was my favourite subject.",
+        "lvl": "B1"
       }
     ]
   },
@@ -25495,6 +25579,20 @@
       }
     ]
   },
+  "voc:B1:die Pute": {
+    "ex": [
+      {
+        "de": "Zu Weihnachten gibt es Pute.",
+        "en": "There's turkey at Christmas.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Sandwich ist mit Pute.",
+        "en": "The sandwich has turkey in it.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Qualität": {
     "def": "quality (level of excellence, level of being free from defects)",
     "ex": [
@@ -27226,6 +27324,20 @@
       {
         "de": "Die Originalserie lief über sechs Staffeln.",
         "en": "The original series ran for six seasons.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Startseite": {
+    "ex": [
+      {
+        "de": "Auf der Startseite steht das Angebot.",
+        "en": "The offer is on the home page.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Klick auf das Logo, dann kommst du zur Startseite.",
+        "en": "Click on the logo to get to the home page.",
         "lvl": "B1"
       }
     ]
